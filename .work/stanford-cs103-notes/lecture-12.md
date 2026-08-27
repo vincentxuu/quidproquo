@@ -1,0 +1,27 @@
+# Official Lecture 12: Mathematical Induction, Part I
+
+- Date: 2026-04-27
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] Wave analogy: starter plus neighbor-to-neighbor transmission
+  - [x] Formal induction principle: `P(0)` and `∀k∈ℕ(P(k)→P(k+1))`
+  - [x] Three proof obligations: base case, inductive step, conclusion
+  - [x] Inductive hypothesis as the assumption inside a direct proof
+  - [x] Pattern for the first `n` powers of two
+  - [x] Full induction proof of `2^0+...+2^(n-1)=2^n-1`
+  - [x] Proof-writing annotations: arbitrary `k`, explicit `P(k+1)`, cited hypothesis
+  - [x] Unsigned 32-bit integer aside (`2^32-1`)
+  - [x] Three-coin and nine-coin balance strategies
+  - [x] Generalization to `3^n` coins in `n` weighings
+  - [x] Full algorithmic induction proof for the counterfeit-coin theorem
+  - [x] How not to induct: a valid step with a missing/false base case
+  - [x] MU puzzle and its four legal rewriting operations
+  - [x] Modulo-three lemmas for `r-3` and `2r`
+  - [x] Induction over every finite sequence of MU moves
+  - [x] Contradiction showing that `MI` cannot reach `MU`
+  - [x] Connection between preserved predicates and loop invariants
+  - [x] Preview only: later starts, larger steps, complete induction
+- Boundary: do not infer spoken content or use restricted solutions.

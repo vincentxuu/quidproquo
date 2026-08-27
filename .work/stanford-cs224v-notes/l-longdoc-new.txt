@@ -1,0 +1,1006 @@
+                      Stanford CS224v Course
+          Conversational Virtual Assistants with Deep Learning
+
+
+
+                           Lecture 8
+
+Question Answering on Sets of Long Documents
+    SLIDERS: the Scalable Long-Document Integration through
+        Decomposed Extraction and Reconciliation System
+
+
+
+                     Monica Lam       Harshit Joshi
+                                                                 1
+      Knowledge in Large Sets of Long Documents
+                                                                                 Future lecture
+
+
+                           Resumes
+                                             Pubmed Articles          News         Requirements
+                         Paper Reviews
+                                             Human Genome         Social Media      Regulations
+                           Proposals       Drug/Protein/Disease    Interviews       Clinical Trials
+                           Financial          Event News          Medical Rec.    Invoice Match
+                            Reports
+       Analysis
+       combines info     Ranking (Top n)
+                             of ALL          Accumulation         Stats/trends     Satisfiability
+      from every doc       documents
+
+
+      Decision, Stats,                        Knowledge            Discover
+                             Finalists                                             Compliance
+        Trend, …                                Bases             Knowledge
+
+LAM                                                                                            STANFORD
+      Examples from Class Projects
+
+           • U.S. Securities and Exchange Commission (SEC) data
+             – investment decisions
+           • Insurance filings – analyzing insurance policies
+           • Hazard mitigation plans – for finding funding opportunities
+
+
+
+
+LAM                                                                        STANFORD
+      Insurance
+
+
+
+
+        •   Climate changes dramatically change natural disaster risks
+        •   Insurance is regulated by the government
+        •   Insurance companies have to file ”rate filings” to get approval
+        •   Filings today are tentatively approved today -- lacking manpower to process documents
+LAM                                                                                                 STANFORD
+      LLMs Long-Context Capability
+         • Ever increasing context window of LLMs
+         • Near perfect needle in a haystack capabilities
+
+
+
+
+                                                     GPT 4.1 blogpost
+LAM                                                                     STANFORD
+      LLM Context Windows are Never Long Enough
+
+         Many long documents – and many documents in a set!
+         • Pubmed articles (as of 23 May 2023)
+           • 24.6M have abstracts, 26.8M link to full text, 10.9M free full text
+           • 1M new records added each year (2010-2019)
+           • 35M citations
+         • 600k-700k annual SEC filings.
+           • Each document has ~100k tokens
+         • Thousands of Insurance Filing documents for a single state
+
+
+LAM                                                                            STANFORD
+      LLMs Lack Precision for Long Contexts
+         • Context length increases à performance for the same task decreases
+         • Attention is not uniform across the entire context window.
+
+
+
+
+               “Loong Benchmark” Wang et. al 2024         “Lost in the middle” Liu et. al 2023
+LAM                                                                                              STANFORD
+                                                  Examples of Imprecision
+                   AppTech Payments               What is the accounts payable of BIOLARGO, INC.?
+                         Corp.
+      Ameritek Ventures,
+                                                  GPT 4.1:
+                                  BATTALION OIL
+             Inc.                     CORP
+                                                  The accounts payable of BIOLARGO, INC. as of March 31, 2024, is $1,740,000.
+
+                      Agape ATP                   Line 271: accounts payable and accrued expenses
+                        Corp
+                                                  Line 1735: accounts payable,
+          BIOLARGO,        1847 Holdings LLC                 separate from accrued expenses (line 1737)
+             INC
+
+                                                                                                      GPT 4.1
+                                                                                                      Answer
+
+
+
+
+                                                                                                                 Correct
+                                                                                                                 Answer
+LAM                                                                                                                   STANFORD
+                Examples of Imprecision
+                We hope you will carefully study the provided papers and determine
+                the citation relationships between them.
+                1. Reference: references are about what the given paper is using.                              Given 4 academic papers
+
+                2. Citation: citations are about who is using the given paper.
+                The paper you need to analyze:
+                Risk Taxonomy, Mitigation, and Assessment Benchmarks of Large Language Model Systems
+
+                {
+                "Reference": [],
+
+  GPT            'Citation’:
+                ['# Unbridled Icarus: A Survey of the Potential Perils of Image Inputs in Multimodal Large Language Model Security ‘]
+                }
+
+
+
+
+  Gold Answer
+                {
+                'Reference’: ['# Evil Geniuses: Delving into the Safety of LLM-based Agents ‘,
+                                                                                                          Misses several references
+                              '# Towards Optimal Statistical Watermarking ‘],
+                 'Citation’:
+                ['# Unbridled Icarus: A Survey of the Potential Perils of Image Inputs in Multimodal Large Language Model Security ‘]
+                }
+
+LAM                                                                                                                                     STANFORD
+      Motivation and Background:
+      Precise QA for Sets of Long Documents
+
+          • A huge need to analyze across many long documents
+          • LLM contexts are never long enough
+          • Even if the context is long enough,
+             the precision degrades with increasing length
+            • Finding a needle in a haystack is considered easier,
+            • The precision depends on the position
+            • When the answer is wrong,
+              • It is not interpretable
+              • We don’t have a way to improve it
+
+
+LAM                                                                  STANFORD
+      Outline
+
+
+          • High-level approaches: Training vs. Chunking
+          • Introduction to SLIDERS
+          • Design
+          • Preliminary Evaluation
+
+
+
+
+LAM                                                        STANFORD
+      Approaches
+
+         • Training based: to improve precision
+         • Chunking based: to improve precision and scaling
+           • Representations for chunks
+             • Natural language
+             • Structured representation
+
+
+
+
+LAM                                                           STANFORD
+TRAINING BASED
+LAM   STANFORD
+      Training-Based Methods
+               QwenLong-L1:
+               •   Curate a long-context dataset using existing benchmarks,
+               •   Progressively increase the context size with RL
+                   using rule-based verification and LLM-as-a-judge
+               •   Improve over baseline models,
+                   but not SOTA with proprietary/open-source models
+               Cartridges
+               •   Train KV cache on a document set by generating & answering questions
+               •   Reuse cache to answer new questions across the trained document set
+               •   Lose to complete in-context documents
+
+
+“QWENLONG-L1: Towards Long-Context Large Reasoning Models with Reinforcement Learning” Wan et. al 2025
+“Cartridges: Lightweight and general-purpose long context representations via self-study”, Eyuboglu et. al 2025
+LAM                                                                                                               STANFORD
+CHUNKING-BASED
+LAM   STANFORD
+      Chunking-Based Methods
+             • Divide the context into multiple chunks.
+             • Answer question based on individual chunk
+             • Combine them together and get the final answer
+
+
+
+
+                                               Chunk 1   Processed by LLM   LLM
+                      LLM         Long
+       Long                                    Chunk 2   Processed by LLM   generates
+                      generates   Document
+       Document                                 …                           answer
+                      answer
+                                              Chunk n    Processed by LLM
+
+       Single step approach                  Decomposing the problem
+LAM                                                                             STANFORD
+      Chunking-Based Methods
+
+               •    Chain of Agents:
+                   •   An LLM processes a chunk and passes on summary w.r.t.
+                       the task to the next LLM call along with the next chunk.
+                   •   Final agent synthesizes the answer based on last provided summary.
+               •    DocETL:
+                   •   User provides a schema for the representation
+                   •   Each chunk is processed by an LLM that outputs structured data.
+                   •   The user prompts the LLM to reduce/resolve the output
+                       from each chunk to answer the question.
+
+
+“Chain of Agents: Large Language Models Collaborating on Long-Context Tasks” Zhang et. al 2024
+“DocETL: Agentic Query Rewriting and Evaluation for Complex Document Processing” Shankar et. al 2024
+LAM                                                                                                    STANFORD
+      Advantages of Chunking-Based Methods
+
+      • Precision:
+        Processing each chunk individually increases attention to local details
+      • Scalability: Enables natural scalability to large document collections
+                     far beyond model limits
+
+
+                                Chunk 1   Processed by LLM   LLM
+                   Long                                      generates
+                                Chunk 2   Processed by LLM
+                   Document                                  answer
+                                  …
+                                Chunk n   Processed by LLM
+
+
+LAM
+                              Decomposing the problem                             STANFORD
+      Existing Chunking-Based Methods
+
+         Use LLMs to synthesize a final answer from all chunk outputs
+         • Effective for small inputs:
+           Works well with a few hundred tokens
+         • Breaks down at scale:
+           Thousands of chunk outputs overwhelm the LLM
+         • Scalability issue:
+           As chunks/documents grow,
+           the synthesis context becomes too large and unreliable
+
+
+
+LAM                                                                     STANFORD
+      Challenges of Chunking
+      1. How do we represent the information in each chunk?
+
+      2. Problem answering separated into two steps
+        a. Correct extraction of information chunk by chunk?
+           • Chunk boundaries: the chunks may not be self-contained
+
+          • Lacking global context: interpretation may be incomplete
+
+        b. Compile correct answer from the set of extracted information
+          • Given the independently extracted information,
+            what issues arise when assembling the answers.
+
+          • What technique can we use to perform the assembly?
+
+
+LAM                                                                       STANFORD
+      Our Solution: SLIDERS
+      1. How do we represent the information in each chunk?
+         Represent chunks as rows in a table with an automatically-induced schema.
+      2. Problem answering separated into two steps
+        a. Correct extraction of information chunk by chunk?
+           • Chunk boundaries: the chunks may not be self-contained
+             Semantics-driven chunking
+           • Lacking global context: interpretation may be incomplete
+             Contextualized information extraction
+        b. Compile correct answer from the set of extracted information
+           • Given the independently extracted information,
+             what issues arise when assembling the answers
+             We discovered: duplication, incomplete information, …
+           • What technique can we use to perform the assembly?
+             SQL
+
+LAM                                                                                  STANFORD
+      Outline
+
+
+          • High-level approaches: Training vs. Chunking
+          • Introduction to SLIDERS
+          • Design
+          • Preliminary Evaluation
+
+
+
+
+LAM                                                        STANFORD
+                                         Divide and Conquer
+                                             Chunk 1         answer
+                        Question                                              Final answer
+                                             Chunk 2         answer           (Reduction
+                       Sets of Long            …                               operation)
+                       Documents
+                                             Chunk n         answer
+                                               text
+
+
+                                                           SLIDERS
+
+              Sets of Long
+                                          Chunk 1                         Chunk 1
+              Documents
+                          Semantic
+                         Chunking +       Chunk 2      Reconciliation     Chunk 2
+                   +
+                        Contextualized      …                               …
+                Question Extraction       Chunk n                         Chunk n
+      Schematization                                                     reconciled                   Final
+                                         raw table                                                   Answer
+                                                                            table           DB
+                Schema
+                                                                                         Execution
+                                                                        SUQL Question
+                                          Semantic Parsing
+LAM                                                                                                       STANFORD
+      Loong Benchmark
+         • Domains: Finance, Legal, Academic Papers
+         • Languages: English, Chinese
+
+
+
+
+LAM                                                   STANFORD
+      Running Example
+
+      • Dataset: Loong (Finance, Set2: Comparison)
+      • Documents:
+        • AIM ImmunoTech Inc. Q1 2024 10-Q Report
+        • Dominari Holdings Inc. Q1 2024 10-Q Report
+        • 1st Franklin Financial Corp Q1 2024 10-Q
+
+
+      • Question: Which company has the highest 'Total Shares Outstanding'?
+
+
+
+LAM                                                                       STANFORD
+      LLM Induces Schema from the Question
+        LLM-Generated
+         Document Set
+          Description
+                         Schema
+                                              List of Tables
+                        Generator
+
+          Question                                  Column Spec
+                              Table Spec
+                              Name                  Name
+                              Description           Description
+                              Fields: List[Field]   Type
+                                                    Unit
+                                                    Scale
+                                                    Normalization Rules
+LAM                                                                STANFORD
+      Example
+              Question     Which company has the highest Total Shares Outstanding'?
+
+
+
+
+           Table Name         SharesOutstanding
+
+                                     Total shares outstanding for each company
+       Table Description               as reported in the financial statements,
+                                 normalized to shares as of the reporting period end.”
+
+               Columns         company_name
+
+                               period_end_date
+
+                            total_shares_outstanding
+LAM                                                                                      STANFORD
+      Example             Which company has the highest 'Total Shares Outstanding'?
+                       SharesOutstanding
+
+
+      Name              company_name                   period_end_date                     total_shares_outstanding
+
+      Data Type                  str                              str                                   float
+
+      Unit                     None                             None                                   shares
+
+      Scale                    None                             None                                   None
+                                                                                         "Total number of shares outstanding
+                                                                                             as of the period end date, as
+                      "Name of the company as
+                                                   "End date of the reporting period       reported in the balance sheet or
+                       reported in the financial
+      Description       statements (e.g., 'AIM
+                                                     for which shares outstanding is        notes. Common surface forms:
+                                                      reported (e.g., '2024-03-31')."             'shares outstanding’,
+                         ImmunoTech Inc.')."
+                                                                                            'common shares outstanding’,
+                                                                                        'total shares issued and outstanding'."
+
+
+                                                           Date_format:
+      Normalization            None                                                                    None
+                                                          "YYYY-MM-DD"
+LAM                                                                                                                   STANFORD
+      Normalization
+
+         • For comparison and aggregation
+           • Standardize units, scales, datatypes
+           • Normalization rules to make all data consistent
+
+
+
+
+LAM                                                            STANFORD
+      Schematization Discussion
+
+          • Automatic schematization appears to work well for 1 question
+          • Can schematize across multiple questions
+            • To amortize the cost of extraction
+          • Domain expert can also improve the schema
+            • Due to interpretability!
+
+
+          Note: Can handle arbitrarily many documents!
+                Support aggregation and comparison across documents
+                with SUQL!
+
+LAM                                                                        STANFORD
+                                                       SLIDERS
+
+
+
+
+              Sets of Long
+                                         Chunk 1                        Chunk 1
+              Documents
+                          Semantic
+                         Chunking +      Chunk 2     Reconciliation     Chunk 2
+                   +
+                        Contextualized     …                              …
+                Question Extraction      Chunk n                        Chunk n
+      Schematization                                                   reconciled                  Final
+                                         raw table                                                Answer
+                                                                          table          DB
+                Schema
+                                                                                      Execution
+                                                                      SUQL Question
+                                          Semantic Parsing
+
+
+
+
+LAM                                                                                                        STANFORD
+      How Should We Chunk?
+
+         • For embedding-based search, chunks have fixed sizes
+         • Would this work for QA on long documents?
+
+
+
+
+LAM                                                              STANFORD
+       Fixed-Size Chunking
+             Example
+
+      Chunk 1:
+      - No document title (which
+        paper is this?)
+      - In introduction,
+        last sentence is arbitrarily
+        cutoff.
+
+
+
+
+      Chunk 2:
+      - No document title
+      - Which section is this chunk
+        part of?
+      - Incomplete sentences
+
+
+
+LAM                          STANFORD
+  Chunk n
+
+
+
+
+      What is the Net Cash Provided by   $977?
+LAM
+      Investing Activities?                      STANFORD
+ Chunk n - 1
+
+
+
+                 What is the Net Cash
+                 Provided by Investing
+                 Activities?
+
+ Chunk n
+
+
+
+                     $977 millions
+
+
+               If tables are split up,
+               we lose key information,
+               such as units
+
+LAM                                  STANFORD
+      Chunking Problem and Solution
+
+         Boundary artifacts
+
+
+         Logical units (tables and paragraphs) may be split across chunks
+         à fragmentation and a loss of coherence.
+
+
+         Solution: Semantics-Driven chunking
+         à to create self-contained chunks for question-answering
+
+
+
+LAM                                                                         STANFORD
+      Semantics-Driven Chunking
+      No paragraphs and tables are split.
+
+                                                       Markdown
+      pdf     docling           markdown
+                                                        parser
+                                                                                Metadata:
+                                                                                Section
+                                                                                Headers
+                                                                                Table outline
+                                                  LLM-based
+                                   text
+                                                  Text Annotator
+
+
+                 Docling: open-source toolkit to translates PDF files to markdown
+
+
+LAM                                                                                        STANFORD
+      LLM-Based Text Annotator
+
+
+                                         Divide document into
+                   Add line number        similar length chunks,
+         text
+                     to each line        with the constraint that
+                                          no paragraph is split.
+
+                Each page
+                                         Add meta info with an
+                 • table_start_line
+                                         LLM Agent with skills
+                 • table_end_line
+                                            • page_up
+                 • table_notes
+                                            • page_down
+                 • section_header_line
+                                            • record
+LAM                                                                 STANFORD
+                                                       SLIDERS
+
+
+
+
+              Sets of Long
+                                         Chunk 1                        Chunk 1
+              Documents
+                          Semantic
+                         Chunking +      Chunk 2     Reconciliation     Chunk 2
+                   +
+                        Contextualized     …                              …
+                Question Extraction      Chunk n                        Chunk n
+      Schematization                                                   reconciled                  Final
+                                         raw table                                                Answer
+                                                                          table          DB
+                Schema
+                                                                                      Execution
+                                                                      SUQL Question
+                                          Semantic Parsing
+
+
+
+
+LAM                                                                                                        STANFORD
+      Contextualized Extraction Motivation
+      • Hard to interpret segments out of context
+        • Title and section headings
+        • Spatial layouts, …
+ Add to each chunk:
+ -    Document Title
+ -    Document Description
+ -    Header hierarchy for
+      relevant chunks
+ -    Page number
+
+
+LAM                                                 STANFORD
+      Contextualized Extraction Overview
+
+             Schema
+
+      A chunk
+                               Contextualized        JSON Object
+      • Document Title
+                                Information
+                                                a Row in the Result Table
+      • Document Description      Extractor
+      • Header hierarchy for
+         relevant chunks
+      • Page number
+      • Text
+
+
+
+
+LAM                                                                    STANFORD
+ Example of Hallucination
+      We hope you will carefully study the provided papers and determine
+      the citation relationships between them.
+      1. Reference: references are about what the given paper is using.
+                                                                                Given 4 academic papers
+      2. Citation: citations are about who is using the given paper.
+      The paper you need to analyze:
+      Risk Taxonomy, Mitigation, and Assessment Benchmarks of Large Language Model Systems
+
+
+                                                    PaperCitationReference”: {
+  Schema:
+                                                    "fields": {
+  - Source Paper Title                                   "source_paper_title”: Risk Taxonomy, Mitigation,
+  - Relationship Type                               and Assessment Benchmarks of Large Language
+  - Target Paper Title                              Model Systems ",
+                                                        "relationship_type": "reference",
+                                                        "target_paper_title": "Generative AI and Large
+                                                    Language Models for Cyber Security: All Insights You
+ LLM Generates a reference                          Need"},
+ • not in the chunk                                      …
+                                                    }
+ • not one of the provided papers
+LAM                                                                                                  STANFORD
+      Contextualized Extraction Technique
+         • LLMs like to hallucinate
+              • When given text contains no useful information (common for chunks)
+              • When extracting a JSON object
+         à Relevance gating.
+         • Use a lightweight LLM to decide if a chunk is relevant
+
+                         Contextualized Information Extractor
+                                       Yes                          JSON
+      Chunk           Relevant?                 Extract
+                                                                    object
+                                  No
+                                                                      null
+LAM                                                                             STANFORD
+      Contextualized Extraction
+          • To support the downstream answer-assembling task
+            • JSON output for the given schema
+            • Additionally:
+              • Quotes from the text
+              • Reasoning for selecting a value
+              • Whether the information is explicitly mentioned
+
+
+
+
+LAM                                                               STANFORD
+                                                       SLIDERS
+
+
+
+
+              Sets of Long
+                                         Chunk 1                        Chunk 1
+              Documents
+                          Semantic
+                         Chunking +      Chunk 2     Reconciliation     Chunk 2
+                   +
+                        Contextualized     …                              …
+                Question Extraction      Chunk n                        Chunk n
+      Schematization                                                   reconciled                  Final
+                                         raw table                                                Answer
+                                                                          table          DB
+                Schema
+                                                                                      Execution
+                                                                      SUQL Question
+                                          Semantic Parsing
+
+
+
+
+LAM                                                                                                        STANFORD
+      Why We Need Reconciliation
+
+         • Side effects from chunking and processing chunks independently
+           • Overlapping information
+           • Partial information
+           • Conflicting information
+
+
+
+
+LAM                                                                    STANFORD
+      Reconciliation Technique
+
+         For each kind of reconciliation (Overlapping, Partial, conflicting)
+
+
+         1. Reasoning: Currently use LLM to identify the issue
+            (Needs to improve for large sets of documents).
+
+
+         2. Use SQL to generate the reconciled table
+
+
+
+
+LAM                                                                            STANFORD
+  Chunk 2
+             1. Overlapping Info
+              What are the Operating and
+              Administrative Expenses?
+
+              2,979,692
+  Chunk 8
+
+
+
+
+              2,979,692
+  Chunk 11
+
+
+
+
+LAM
+              2.97 million           STANFORD
+      What are the Operating and Administrative Expenses?
+      After Extraction
+
+
+
+
+          Reasoning: Deduplicate all rows
+
+          SQL: SELECT DISTINCT total_shares_outstanding, row_id, chunk_number, company_name,
+          period_end_date, document_name FROM TableSharesOutstanding;
+
+
+
+LAM                                                                                            STANFORD
+  2. Partial Info: What is the Net Loss?
+      Chunk 3
+
+                                                            - Prepaid expenses and
+                                                            other current assets: $750
+
+
+
+
+      Chunk 4
+                                                            - Accrued liabilities and
+                                                            other payables: $28,776
+
+
+
+
+                                 - Prepaid expenses and other current assets: $750
+  SQL: SELECT SUM(net_loss), *   - Accrued liabilities and other payables: $28,776
+  FROM NetLoss;
+                                 Net Loss: $ 29,526
+
+LAM                                                                                STANFORD
+   3. Conflicting Info: Where is Sandra?
+       Chunk 2
+
+
+
+
+                                                                           Sandra is in the kitchen
+
+
+
+
+       Chunk 26
+
+
+
+
+                                                                           Sandra is in the bathroom
+
+
+
+
+                                      SQL: SELECT * FROM SandraLocation
+                                      ORDER BY page_number DESC LIMIT 1;
+LAM Example from babilong benchmark                                                                   STANFORD
+      Conflicting Info: What is the total # of outstanding shares?
+      Chunk 1
+
+
+
+
+                                                Total issued and Outstanding
+                                                shares 50,251,933
+
+
+
+
+      Chunk 8
+
+                                                 Weighted average number
+                                                 of outstanding shares
+                                                 49,458,023
+
+
+
+LAM                                                                   STANFORD
+      What is the total # of outstanding shares?
+      After Deduplication
+
+
+
+
+                                              Note 11(b) explicitly reports outstanding shares;
+      From Extraction:                        The March 31, 2024 value (50,251,933) was selected.
+      Total_shares_outstanding_reasoning
+                                              MD&A provides the weighted average shares outstanding:
+                                              49,458,023 was recorded.
+
+                                              Based on the quote and rationale,
+                                              I should keep 50251933 instead of 49458023 since
+      Reconciliation Reasoning:               50251933 is explicitly mentioned in the balance sheet and
+                                              49458023 is given as weighted average shares
+                                                                Reconciled Table
+      SQL:
+      SELECT * FROM TableSharesOutstanding;
+      WHERE row_id IN (0, 4, 6)
+
+
+LAM                                                                                                   STANFORD
+                                                       SLIDERS
+
+
+
+
+              Sets of Long
+                                         Chunk 1                        Chunk 1
+              Documents
+                          Semantic
+                         Chunking +      Chunk 2     Reconciliation     Chunk 2
+                   +
+                        Contextualized     …                              …
+                Question Extraction      Chunk n                        Chunk n
+      Schematization                                                   reconciled                  Final
+                                         raw table                                                Answer
+                                                                          table          DB
+                Schema
+                                                                                      Execution
+                                                                      SUQL Question
+                                          Semantic Parsing
+
+
+
+
+LAM                                                                                                        STANFORD
+      DB Query: What is the total # of outstanding shares?
+           Semantic-parse NL to SQL to compute the final answer
+
+ Reconciled Table                                  Let's review the data from the table:
+
+                                                   - AIM ImmunoTech Inc. has 50,251,933 total shares
+                                                   outstanding as of March 31, 2024.
+                                                   - 1st Franklin Financial Corporation has 170,000
+                                                   total shares outstanding as of March 31, 2024.
+                                                   - Dominari Holdings Inc. has 5,934,917 total shares
+ SELECT company_name, total_shares_outstanding     outstanding as of March 31, 2024.
+ FROM SharesOutstanding
+ ORDER BY total_shares_outstanding DESC LIMIT 1;   Comparing these numbers, AIM ImmunoTech Inc.
+                                                   has the highest total shares outstanding.
+
+                                 final answer      **Answer:**
+                                                   AIM ImmunoTech Inc. has the highest 'Total Shares
+                                                   Outstanding' with 50,251,933 shares as of March 31,
+                                                   2024.
+LAM                                                                                              STANFORD
+EVALUATION
+      Long-Context QA Benchmarks
+
+       Documents for each question fit in the LLM context window
+       • FinanceBench
+         • Benchmark for Financial Question Answering
+         • 150 Questions – 95k tokens
+       • Loong Benchmark
+         • Three domains: finance, academic papers, legal
+         • Two languages: English and Chinese
+         • Four types of questions: spotlight, comparison, clustering, chain of reasoning
+         • 1600 Question – up to 250k tokens
+
+
+LAM                                                                                 STANFORD
+      Preliminary Evaluation
+        Models           Method              FinanceBench              Loong
+
+        GPT 4o           LLM inference                 78.67           53.58
+
+        Gemini 1.5 Pro   LLM inference                     -           55.36
+
+        GPT 4.1          LLM inference                 84.00           77.23
+
+        SLIDERS          chunk-based                   90.67           78.34
+
+
+                             Note: SLIDERS can handle
+             large sets of long documents not fitting in LLM context
+
+LAM                                                                            STANFORD
+      Preliminary Error Analysis
+
+          • Found several wrong gold annotations in Loong
+          • Found a couple of wrong annotations in FinanceBench
+          • Based on different interpretation of the question,
+            the answers can be different.
+
+
+
+
+LAM                                                               STANFORD
+                                                   Example of Incorrect Gold Label
+                AppTech Payments                   What is the accounts payable of BIOLARGO, INC.?
+                     Corp.
+ Ameritek Ventures,           BATTALION OIL CORP
+        Inc.
+
+
+                  Agape ATP                        GPT and the Annotated answer say its 1,740
+                    Corp
+
+      BIOLARGO, INC    1847 Holdings LLC
+                                                                                    Annotated
+                                                                                    Answer
+
+
+
+
+                                                                                           Correct
+                                                                                           Answer
+LAM                                                                                             STANFORD
+      Code Release
+
+         • https://github.com/stanford-oval/sliders
+         • Step 1: Preprocess the pdfs (scripts/pdf_to_markdown.py)
+         • Step 2: Run Sliders
+         • Step 3: Evaluate the steps (step_viewer.py)
+
+
+         SLIDERS is work in progress
+         • Open Issues on the repo
+         • Make pull requests
+
+
+LAM                                                                   STANFORD
+      Conclusions
+         • Important to analyze across large sets of long documents
+           • Need to scale beyond model context limit
+         • Precision degrades with document length in the context
+         • Approaches
+           • Training: for precision – not successful
+           • Chunking: for precision and scalability
+           • SLIDERS:
+             • Leverages SUQL: text à databases
+             • Semantic chunking, contextualized extraction, reconciliation
+         • Long-context benchmarks: SOTA (despite annotation errors)
+         • Scale beyond long-context benchmarks
+
+
+LAM                                                                           STANFORD
+

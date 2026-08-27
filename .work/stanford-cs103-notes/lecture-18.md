@@ -1,0 +1,23 @@
+# Official Lecture 18: Nonregular Languages
+
+- Date: 2026-05-11
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/18/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/18/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 四種 regular 的說法已經等價
+  - [x] finite memory 的精確直覺
+  - [x] 第一個候選 E：相等數量且順序固定
+  - [x] 為何 a² 與 a⁴ 不能到同一 state
+  - [x] distinguishability 的定義與量詞
+  - [x] distinguishable strings 必須抵達不同 DFA states
+  - [x] distinguishing set 必須 pairwise
+  - [x] Myhill–Nerode 的 nonregular criterion
+  - [x] E 的完整 nonregular proof
+  - [x] 第二個例子 EQ：必須記住整段內容
+  - [x] 如何發現 distinguishing set
+  - [x] 常見失敗證法
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

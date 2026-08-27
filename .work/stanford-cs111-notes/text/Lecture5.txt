@@ -1,0 +1,1535 @@
+Locks and Condition Variables
+         Mendel Rosenblum
+
+
+
+         CS111 Lecture Notes - Locks and Condition Variables
+Locks and Conditional Variables
+Optional readings:
+    Operating Systems: Principles and Practice: Sections 5.2-5.4.
+
+
+
+
+                        CS111 Lecture Notes - Locks and Condition Variables
+      Too-much-milk solution is too complicated
+
+Needed: higher-level synchronization mechanism that provides
+    Mutual exclusion: easy to create critical sections
+    Blocking: delay a thread until some desired event occurs
+
+
+
+
+                        CS111 Lecture Notes - Locks and Condition Variables
+                           Naming aside: Lock
+●   The word lock is both a noun and a verb
+     ○ Bike lock, Combo lock, Pad lock, Deadbolt lock.
+     ○ Lock the door. Lock the bike. Lock the car.
+●   Lock the lock?
+●   C++ language designers disliked lock.lock(); …; lock.unlock()
+     ○ Want something to create critical sections
+         ■ Need a mutual exclusion mechanism (mutex)
+
+
+
+
+                            CS111 Lecture Notes - Locks and Condition Variables
+                Locks (C++ class std::mutex)
+●   lock()
+    ○   Block until the lock is free
+
+    ○   Mark the lock as held by the calling thread
+
+●   unlock()
+    ○   Mark the lock as free
+
+    ○   Unblock a waiting thread
+
+●   try_lock() - Like lock() except return error rather than blocking if lock held
+
+
+
+                              CS111 Lecture Notes - Locks and Condition Variables
+Too much milk solution with locks
+      Both threads:
+
+      std::mutex mutex;
+
+      ...
+
+      mutex.lock();
+      if (milk == 0) {
+        buy_milk();
+        milk = 1;
+      }
+      mutex.unlock();
+
+       CS111 Lecture Notes - Locks and Condition Variables
+                  Producer/Consumer (a pipe)
+
+
+
+
+Producer Thread                                                             Consumer Thread
+
+
+
+
+                      CS111 Lecture Notes - Locks and Condition Variables
+                          Producer/Consumer, v1 broken
+class Pipe {                                                             char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}                             char c;
+  void put(char c);                                                        mutex.lock();
+  char get();                                                              count--;
+                           Initializer list                                c = buffer[nextGet];
+     std::mutex mutex;
+                                                                           nextGet++;
+     char buffer[SIZE];
+     int count;
+                                                                           if (nextGet == SIZE) {
+     int nextPut;            State variables                                 nextGet = 0;
+     int nextGet;                                                          }
+};                                                                         mutex.unlock();
+                                                                           return c;
+void Pipe::put(char c) {                                                 }
+  mutex.lock();
+  count++;
+  buffer[nextPut] = c;
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  mutex.unlock();
+}                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                    Slide 8
+                     Producer/Consumer, v1 (broken)
+class Pipe {                                                          char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}                          char c;
+  void put(char c);                                                     mutex.lock();
+  char get();                                                           count--;
+                                                                        c = buffer[nextGet];
+     std::mutex mutex;
+                                                                        nextGet++;
+     char buffer[SIZE];
+     int count;
+                                                                        if (nextGet == SIZE) {
+     int nextPut;                                                         nextGet = 0;
+     int nextGet;                                                       }
+};                                                                      mutex.unlock();
+                                                                        return c;
+void Pipe::put(char c) {                                              }
+  mutex.lock();
+  count++;
+  buffer[nextPut] = c;
+  nextPut++;
+  if (nextPut == SIZE) {                  Where are the critical sections?
+    nextPut = 0;
+  }
+  mutex.unlock();
+}                                  CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                 Slide 9
+                   Execute put('A')
+mutex unlocked                               void Pipe::put(char c) {
+count:    0                                    mutex.lock();
+nextPut: 0
+                                               count++;
+                                               buffer[nextPut] = c;
+nextGet: 0
+                                               nextPut++;
+SIZE:     8                                    if (nextPut == SIZE) {
+buffer:                                          nextPut = 0;
+                                               }
+                                               mutex.unlock();
+                                             }
+
+
+                 CS111 Lecture Notes - Locks and Condition Variables
+                   Execute put('A')
+mutex unlocked                               mutex unlocked
+count:    0                                  count:           1
+nextPut: 0                                   nextPut: 1
+nextGet: 0                                   nextGet: 0
+SIZE:     8                                  SIZE:            8
+buffer:                                      buffer:
+                                               A
+
+
+
+
+                 CS111 Lecture Notes - Locks and Condition Variables
+                 Execute put('B'), put('C')
+mutex unlocked
+                                                 void Pipe::put(char c) {
+count:    1                                        mutex.lock();
+nextPut: 1                                         count++;
+nextGet: 0                                         buffer[nextPut] = c;
+SIZE:     8
+                                                   nextPut++;
+                                                   if (nextPut == SIZE) {
+buffer:
+                                                     nextPut = 0;
+A                                                  }
+                                                   mutex.unlock();
+                                                 }
+
+
+                    CS111 Lecture Notes - Locks and Condition Variables
+                 Execute put('B'), put('C')
+mutex unlocked
+                                                 mutex unlocked
+count:    1
+                                                 count:           3
+nextPut: 1
+                                                 nextPut: 3
+nextGet: 0
+                                                 nextGet: 0
+SIZE:     8
+                                                 SIZE:            8
+buffer:
+                                                 buffer:
+A
+                                                   A     B      C
+
+
+
+
+                    CS111 Lecture Notes - Locks and Condition Variables
+                       Execute get()
+mutex unlocked
+                                              char Pipe::get() {
+count:    3                                     char c;
+nextPut: 3                                      mutex.lock();
+                                                count--;
+nextGet: 0
+                                                c = buffer[nextGet];
+SIZE:     8
+                                                nextGet++;
+buffer:                                         if (nextGet == SIZE) {
+A   B     C                                       nextGet = 0;
+                                                }
+                                                mutex.unlock();
+                                                return c;
+                                              }
+                 CS111 Lecture Notes - Locks and Condition Variables
+                       Execute get()
+mutex unlocked
+                                              mutex unlocked
+count:    3
+                                              count:           2
+nextPut: 3
+                                              nextPut: 3
+nextGet: 0
+                                              nextGet: 1
+SIZE:     8
+                                              SIZE:            8       c:   A
+buffer:
+                                              buffer:
+A   B     C
+                                                A     B      C
+
+
+
+
+                 CS111 Lecture Notes - Locks and Condition Variables
+          Execute put('D'), put('E'), put('F'), put('G')
+mutex unlocked
+                                                   void Pipe::put(char c) {
+count:     2                                         mutex.lock();
+nextPut: 3                                           count++;
+nextGet: 1                                           buffer[nextPut] = c;
+SIZE:      8
+                                                     nextPut++;
+                                                     if (nextPut == SIZE) {
+buffer:
+                                                       nextPut = 0;
+A   B     C                                          }
+                                                     mutex.unlock();
+                                                   }
+
+
+                      CS111 Lecture Notes - Locks and Condition Variables
+          Execute put('D'), put('E'), put('F'), put('G')
+mutex unlocked
+                                                   mutex unlocked
+count:     2
+                                                   count:           6
+nextPut: 3
+                                                   nextPut: 7
+nextGet: 1
+                                                   nextGet: 1
+SIZE:      8
+                                                   SIZE:            8
+buffer:
+                                                   buffer:
+A   B     C
+                                                     A     B      C         D E   F   G
+
+
+
+
+                      CS111 Lecture Notes - Locks and Condition Variables
+                        Execute put('H'), put('I')
+mutex unlocked
+                                                         void Pipe::put(char c) {
+count:    6                                                mutex.lock();
+nextPut: 7                                                 count++;
+nextGet: 1                                                 buffer[nextPut] = c;
+SIZE:     8
+                                                           nextPut++;
+                                                           if (nextPut == SIZE) {
+buffer:
+                                                             nextPut = 0;
+A   B     C   D E   F   G                                  }
+                                                           mutex.unlock();
+                                                         }
+
+
+                            CS111 Lecture Notes - Locks and Condition Variables
+                        Execute put('H'), put('I')
+mutex unlocked
+                                                         mutex unlocked
+count:    6
+                                                         count:           8
+nextPut: 7
+                                                         nextPut: 1
+nextGet: 1
+                                                         nextGet: 1
+SIZE:     8
+                                                         SIZE:            8
+buffer:
+                                                         buffer:
+A   B     C   D E   F   G
+                                                           I     B      C         D E   F   G   H
+
+
+
+
+                            CS111 Lecture Notes - Locks and Condition Variables
+                               Execute put('J')
+mutex unlocked
+                                                         void Pipe::put(char c) {
+count:    8                                                mutex.lock();
+nextPut: 1                                                 count++;
+nextGet: 1                                                 buffer[nextPut] = c;
+SIZE:     8
+                                                           nextPut++;
+                                                           if (nextPut == SIZE) {
+buffer:
+                                                             nextPut = 0;
+A   B     C   D E   F   G    H                             }
+                                                           mutex.unlock();
+                                                         }
+
+
+                            CS111 Lecture Notes - Locks and Condition Variables
+                               Execute put('J')
+mutex unlocked
+                                                         mutex unlocked
+count:    8
+                                                         count:           9
+nextPut: 1
+                                                         nextPut: 2
+nextGet: 1
+                                                         nextGet: 1
+SIZE:     8
+                                                         SIZE:            8
+buffer:
+                                                         buffer:
+A   B     C   D E   F   G    H
+                                                           I     J      C         D E   F   G   H
+
+
+                        What was the error?
+
+                            CS111 Lecture Notes - Locks and Condition Variables
+                 Execute get() when empty
+mutex unlocked
+                                                 char Pipe::get() {
+count:    0                                        char c;
+nextPut: 0                                         mutex.lock();
+                                                   count--;
+nextGet: 0
+                                                   c = buffer[nextGet];
+SIZE:     8
+                                                   nextGet++;
+buffer:                                            if (nextGet == SIZE) {
+                                                     nextGet = 0;
+                                                   }
+                                                   mutex.unlock();
+                                                   return c;
+                                                 }
+                    CS111 Lecture Notes - Locks and Condition Variables
+                 Execute get() when empty
+mutex unlocked
+                                                   mutex unlocked
+count:    0
+                                                   count:          -1
+nextPut: 0
+                                                   nextPut: 0
+nextGet: 0
+                                                   nextGet: 1
+SIZE:     8
+                                                   SIZE:            8       c:   undefined
+buffer:
+                                                   buffer:
+
+
+
+
+                  What was the error?
+
+                      CS111 Lecture Notes - Locks and Condition Variables
+              Producer/Consumer flow control
+ ●   The Producer produces faster than Consumer and the buffer overflows
+                  put('H')
+Producer Thread           A     B      C      D     E     F      G             Consumer Thread
+
+
+●    The Consumer consumes faster than the Producer and no char available
+                                                                      get()
+
+Producer Thread                                                                Consumer Thread
+
+
+
+
+                         CS111 Lecture Notes - Locks and Condition Variables
+Need to be able to wait in producer/consumer
+●   Consumer
+     ○   No characters in buffer (when count == 0)
+
+●   Producer
+     ○   Buffer is full (when count == SIZE)
+
+
+
+
+                               CS111 Lecture Notes - Locks and Condition Variables
+                          Producer/Consumer, v2 (broken)
+class Pipe {                                                               char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                             char c;
+  void put(char c);
+  char get();
+                                                                             mutex.lock();
+                                                                             while (count == 0) {
+     std::mutex mutex;                                                       }
+     char buffer[SIZE];                                                      count--;
+     int count;
+     int nextPut;
+                                                                             c = buffer[nextGet];
+     int nextGet;                                                            nextGet++;
+};                                                                           if (nextGet == SIZE) {
+                                                                               nextGet = 0;
+void Pipe::put(char c) {
+                                                                             }
+  mutex.lock();
+  while (count == SIZE) {                                                    mutex.unlock();
+  }                                                                          return c;
+  count++;                                                                 }
+  buffer[nextPut] = c;
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  mutex.unlock();
+}                                                                 What goes wrong?
+
+
+                                             CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                      Slide 26
+                          Producer/Consumer, v2.5 (broken)
+class Pipe {                                                               char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                             char c;
+  void put(char c);
+  char get();
+                                                                             while (count == 0) {
+                                                                             }
+     std::mutex mutex;                                                       mutex.lock();
+     char buffer[SIZE];                                                      count--;
+     int count;
+     int nextPut;
+                                                                             c = buffer[nextGet];
+     int nextGet;                                                            nextGet++;
+};                                                                           if (nextGet == SIZE) {
+                                                                               nextGet = 0;
+void Pipe::put(char c) {
+                                                                             }
+  while (count == SIZE) {
+  }                                                                          mutex.unlock();
+  mutex.lock();                                                              return c;
+  count++;                                                                 }
+  buffer[nextPut] = c;
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  mutex.unlock();
+}                                                                 What goes wrong?
+
+
+                                             CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                      Slide 27
+                                  Producer/Consumer, v2.9
+class Pipe {                                                               char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                             char c;
+  void put(char c);
+  char get();
+                                                                             mutex.lock();
+                                                                             while (count == 0) {
+     std::mutex mutex;                                                         mutex.unlock();
+     char buffer[SIZE];                                                        mutex.lock();
+     int count;
+     int nextPut;
+                                                                             }
+     int nextGet;                                                            count--;
+};                                                                           c = buffer[nextGet];
+                                                                             nextGet++;
+void Pipe::put(char c) {
+                                                                             if (nextGet == SIZE) {
+  mutex.lock();
+  while (count == SIZE) {                                                      nextGet = 0;
+    mutex.unlock();                                                          }
+    mutex.lock();                                                            mutex.unlock();
+  }
+                                                                             return c;
+  count++;
+  buffer[nextPut] = c;                                                     }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }                                                  What is the problem?                          Excess busy-waiting
+  mutex.unlock();
+}
+
+
+                                             CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                   Slide 28
+Announcements
+
+
+
+CS111 Lecture Notes - Locks and Condition Variables
+Need a way of waiting/blocking inside of a critical section
+●   Condition Variable
+     ○   Atomically release lock and go to sleep waiting for a condition to change
+
+●   Useful mental model: Special kind of list a thread can go to sleep on
+
+
+
+
+                               CS111 Lecture Notes - Locks and Condition Variables
+Condition Variables in C++
+●   std::condition_variable
+     ○   wait(lock):
+          ■   Release lock and puts threads to sleep (block)
+          ■   Re-acquire lock went awoken
+
+     ○   notify_one():
+          ■   Wake up one thread if there is one sleeping
+
+     ○   notify_all():
+          ■   Wake up all the threads that are sleeping
+
+
+Note: Notified thread might not re-acquire lock right away
+
+Condition might not be valid when awoken thread executes again
+                              CS111 Lecture Notes - Locks and Condition Variables
+                                        Producer/Consumer, v3
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+  char get();
+                                                                                mutex.lock();
+                                                                                while (count == 0) {
+     std::mutex mutex;                                                            charAdded.wait(mutex);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                                                count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+  mutex.lock();                                                                 }
+  while (count == SIZE) {                                                       charRemoved.notify_one();
+    charRemoved.wait(mutex);                                                    mutex.unlock();
+  }
+                                                                                return c;
+  count++;
+  buffer[nextPut] = c;                                                        }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  charAdded.notify_one();
+  mutex.unlock();
+}
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                            Slide 32
+                                        Producer/Consumer, v3
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+  char get();
+                                                                                mutex.lock();
+                                                                                while (count == 0) {
+     std::mutex mutex;                                                            charAdded.wait(mutex);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                                                count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+  mutex.lock();                                                                 }
+  while (count == SIZE) {                                                       charRemoved.notify_one();
+    charRemoved.wait(mutex);                                                    mutex.unlock();
+  }
+                                                                                return c;
+  count++;
+  buffer[nextPut] = c;                                                        }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;                    Why while rather than if?
+  }
+  charAdded.notify_one();
+  mutex.unlock();
+}
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                            Slide 33
+                           Producer/Consumer, v3 (broken)
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+                                                                                mutex.lock();
+  char get();                                                                                        Describe what can go wrong.
+                                                                                if (count == 0) {
+     std::mutex mutex;                                                            charAdded.wait(mutex);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                                                count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+  mutex.lock();                                                                 }
+  while (count == SIZE) {                                                       charRemoved.notify_one();
+    charRemoved.wait(mutex);                                                    mutex.unlock();
+  }
+                                                                                return c;
+  count++;
+  buffer[nextPut] = c;                                                        }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  charAdded.notify_one();                                                                       T1    T2    T3
+  mutex.unlock();
+}
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                          Slide 34
+                           Producer/Consumer, v3 (broken)
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+  char get();
+                                                                                mutex.lock();
+                                                                                if (count == 0) {
+     std::mutex mutex;                                                            charAdded.wait(mutex);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                                                count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+  mutex.lock();                                                                 }
+  while (count == SIZE) {                                                       charRemoved.notify_one();
+    charRemoved.wait(mutex);                                                    mutex.unlock();
+  }
+                                                                                return c;
+  count++;
+  buffer[nextPut] = c;                                                        }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  charAdded.notify_one();                                                                       T1    T2    T3
+  mutex.unlock();
+}
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 35
+             Producer/Consumer, v3 (broken) - T1 get()
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+  char get();                                                           T1      mutex.lock();
+                                                                                if (count == 0) {
+     std::mutex mutex;                                                            charAdded.wait(mutex);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                                                count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+  mutex.lock();                                                                 }
+  while (count == SIZE) {                                                       charRemoved.notify_one();
+    charRemoved.wait(mutex);                                                    mutex.unlock();
+  }
+                                                                                return c;
+  count++;
+  buffer[nextPut] = c;                                                        }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  charAdded.notify_one();                                                                             T2    T3
+  mutex.unlock();
+}
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 36
+             Producer/Consumer, v3 (broken) - T1 get()
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+  char get();
+                                                                                mutex.lock();
+                                                                        T1      if (count == 0) {
+     std::mutex mutex;                                                            charAdded.wait(mutex);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                                                count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+  mutex.lock();                                                                 }
+  while (count == SIZE) {                                                       charRemoved.notify_one();
+    charRemoved.wait(mutex);                                                    mutex.unlock();
+  }
+                                                                                return c;
+  count++;
+  buffer[nextPut] = c;                                                        }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  charAdded.notify_one();                                                                             T2    T3
+  mutex.unlock();
+}
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 37
+             Producer/Consumer, v3 (broken) - T1 get()
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+  char get();
+                                                                                mutex.lock();
+                                                                                if (count == 0) {
+     std::mutex mutex;
+                                                                        T1        charAdded.wait(mutex);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                                                count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+  mutex.lock();                                                                 }
+  while (count == SIZE) {                                                       charRemoved.notify_one();
+    charRemoved.wait(mutex);                                                    mutex.unlock();
+  }
+                                                                                return c;
+  count++;
+  buffer[nextPut] = c;                                                        }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  charAdded.notify_one();                                                                             T2    T3
+  mutex.unlock();
+}
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 38
+               Producer/Consumer, v3 (broken) - T2 put('A')
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+                                                                                     }
+T2     mutex.lock();
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();                                                                                   T3
+       mutex.unlock();
+     }
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                      Slide 39
+               Producer/Consumer, v3 (broken) - T2 put('A')
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+T2     while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();                                                                                   T3
+       mutex.unlock();
+     }
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                      Slide 40
+               Producer/Consumer, v3 (broken) - T2 put('A')
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+T2     count++;
+                                                                                   }
+       buffer[nextPut] = c;
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();                                                                                   T3
+       mutex.unlock();
+     }
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                      Slide 41
+               Producer/Consumer, v3 (broken) - T2 put('A')
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+T2     nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();                                                                                   T3
+       mutex.unlock();
+     }
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                      Slide 42
+               Producer/Consumer, v3 (broken) - T2 put('A')
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+T2       nextPut = 0;
+       }
+       charAdded.notify_one();                                                                                   T3
+       mutex.unlock();
+     }
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                      Slide 43
+                  Producer/Consumer, v3 (broken) - T3 get()
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+                                                                                     mutex.lock();
+       char get();                                                           T3
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+T2       nextPut = 0;
+       }
+       charAdded.notify_one();
+       mutex.unlock();
+     }
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 44
+               Producer/Consumer, v3 (broken) - T2 put('A')
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+                                                                                     mutex.lock();
+       char get();                                                           T3
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+T2     charAdded.notify_one();
+       mutex.unlock();
+     }
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 45
+               Producer/Consumer, v3 (broken) - T2 put('A')
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+                                                                                     mutex.lock();
+       char get();                                                           T3
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();
+T2   }
+       mutex.unlock();
+
+
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 46
+                  Producer/Consumer, v3 (broken) - T3 get()
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                             T3      if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();
+T2   }
+       mutex.unlock();
+
+
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 47
+                  Producer/Consumer, v3 (broken) - T3 get()
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;                                                         T3      count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();
+T2   }
+       mutex.unlock();
+
+
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 48
+                  Producer/Consumer, v3 (broken) - T3 get()
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                       T3      c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();
+T2   }
+       mutex.unlock();
+
+
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 49
+                  Producer/Consumer, v3 (broken) - T3 get()
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;
+                                                                             T3      nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();
+T2   }
+       mutex.unlock();
+
+
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 50
+                  Producer/Consumer, v3 (broken) - T3 get()
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                             T3
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                                       charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();
+T2   }
+       mutex.unlock();
+
+
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 51
+                  Producer/Consumer, v3 (broken) - T3 get()
+     class Pipe {                                                                  char Pipe::get() {
+       Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                     char c;
+       void put(char c);
+       char get();
+                                                                                     mutex.lock();
+                                                                                     if (count == 0) {
+          std::mutex mutex;
+                                                                             T1        charAdded.wait(mutex);
+          std::condition_variable charAdded, charRemoved;                            }
+          char buffer[SIZE];
+          int count;
+                                                                                     count--;
+          int nextPut;                                                               c = buffer[nextGet];
+          int nextGet;                                                               nextGet++;
+     };                                                                              if (nextGet == SIZE) {
+                                                                                       nextGet = 0;
+     void Pipe::put(char c) {
+       mutex.lock();                                                                 }
+       while (count == SIZE) {                                               T3      charRemoved.notify_one();
+         charRemoved.wait(mutex);                                                    mutex.unlock();
+       }
+                                                                                     return c;
+       count++;
+       buffer[nextPut] = c;                                                        }
+       nextPut++;
+       if (nextPut == SIZE) {
+         nextPut = 0;
+       }
+       charAdded.notify_one();
+T2   }
+       mutex.unlock();
+
+
+                                                     CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                 Slide 52
+              Producer/Consumer, v3 (broken) - T3 get()
+ class Pipe {                                                               char Pipe::get() {
+   Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                              char c;
+   void put(char c);
+   char get();
+                                                                              mutex.lock();
+                                                                              if (count == 0) {
+      std::mutex mutex;
+                                                                         T1     charAdded.wait(mutex);
+      std::condition_variable charAdded, charRemoved;                         }
+      char buffer[SIZE];
+      int count;
+                                                                              count--;
+      int nextPut;                                                            c = buffer[nextGet];
+      int nextGet;                                                            nextGet++;
+ };                                                                           if (nextGet == SIZE) {
+                                                                                nextGet = 0;
+ void Pipe::put(char c) {
+   mutex.lock();                                                              }
+   while (count == SIZE) {                                                    charRemoved.notify_one();
+     charRemoved.wait(mutex);                                                 mutex.unlock();
+   }
+   count++;
+                                                                          T3 return c;
+   buffer[nextPut] = c;                                                     }
+   nextPut++;
+   if (nextPut == SIZE) {
+     nextPut = 0;
+   }
+   charAdded.notify_one();
+   mutex.unlock();
+ }
+                                                 CS111 Lecture Notes - Locks and Condition Variables
+T2                                                                                                        Slide 53
+              Producer/Consumer, v3 (broken) - T1 get()
+ class Pipe {                                                               char Pipe::get() {
+   Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                              char c;
+   void put(char c);
+   char get();
+                                                                              mutex.lock();
+                                                                              if (count == 0) {
+      std::mutex mutex;                                                         charAdded.wait(mutex);
+      std::condition_variable charAdded, charRemoved;                         }
+      char buffer[SIZE];
+      int count;                                                          T1 count--;
+      int nextPut;                                                            c = buffer[nextGet];
+      int nextGet;                                                            nextGet++;
+ };                                                                           if (nextGet == SIZE) {
+                                                                                nextGet = 0;
+ void Pipe::put(char c) {
+   mutex.lock();                                                              }
+   while (count == SIZE) {                                                    charRemoved.notify_one();
+     charRemoved.wait(mutex);                                                 mutex.unlock();
+   }
+   count++;
+                                                                          T3 return c;
+   buffer[nextPut] = c;                                                     }
+   nextPut++;
+   if (nextPut == SIZE) {
+     nextPut = 0;
+   }
+   charAdded.notify_one();
+   mutex.unlock();
+ }
+                                                 CS111 Lecture Notes - Locks and Condition Variables
+T2                                                                                                        Slide 54
+              Producer/Consumer, v3 (broken) - T1 get()
+ class Pipe {                                                               char Pipe::get() {
+   Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                              char c;
+   void put(char c);
+   char get();
+                                                                              mutex.lock();
+                                                                              if (count == 0) {
+      std::mutex mutex;                                                         charAdded.wait(mutex);
+      std::condition_variable charAdded, charRemoved;                         }
+      char buffer[SIZE];
+      int count;
+                                                                              count--;
+      int nextPut;                                                        T1 c = buffer[nextGet];
+      int nextGet;                                                            nextGet++;
+ };                                                                           if (nextGet == SIZE) {
+                                                                                nextGet = 0;
+ void Pipe::put(char c) {
+   mutex.lock();                                                              }
+   while (count == SIZE) {                                                    charRemoved.notify_one();
+     charRemoved.wait(mutex);                                                 mutex.unlock();
+   }
+   count++;
+                                                                          T3 return c;
+   buffer[nextPut] = c;                                                     }
+   nextPut++;
+   if (nextPut == SIZE) {
+     nextPut = 0;
+   }
+   charAdded.notify_one();
+   mutex.unlock();
+                                                                                         Error: c is undefined
+ }
+                                                 CS111 Lecture Notes - Locks and Condition Variables
+T2                                                                                                               Slide 55
+                          Producer/Consumer, v3 notify_all
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+  char get();
+                                                                                mutex.lock();
+                                                                                while (count == 0) {
+     std::mutex mutex;                                                            charAdded.wait(mutex);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                                                count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+  mutex.lock();                                                                 }
+  while (count == SIZE) {                                                       charRemoved.notify_all();
+    charRemoved.wait(mutex);                                                    mutex.unlock();
+  }
+                                                                                return c;
+  count++;
+  buffer[nextPut] = c;                                                        }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }                                               Will this work?
+  charAdded.notify_all();
+  mutex.unlock();
+}
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                            Slide 56
+How many locks should you use?
+How many locks should you use?
+
+●   More locks
+     ○   May permit more concurrency (less lock contention)
+
+●   Less locks:
+     ○   More locks lead to complexity, potential for problems like races & deadlock (Monday's lecture)
+     ○   Lock acquisition is relatively expensive
+          ■ Fewer locks may result in less overhead
+
+●   Terminology: course-grained locking vs fine-grained locking
+
+●   Examples: Linux and Python
+
+                               CS111 Lecture Notes - Locks and Condition Variables
+Best approach
+●   Few locks as possible, while providing an acceptable level of lock contention
+●   Good general approach:
+     ○   Associate a lock with a collection of related variables
+     ○   Example: monitors
+
+
+
+
+                                CS111 Lecture Notes - Locks and Condition Variables
+Monitor style locking
+●   Monitors contain:
+     ○   A shared data structure
+     ○   A collection of methods
+     ○   A lock
+
+●   Lock must be held whenever accessing the shared data
+     ○   Typically each procedure acquires the lock at beginning and releases before returning
+
+●   One or more condition variables used for waiting
+
+●   Language support: Example: Java synchronized keyword
+
+
+
+                               CS111 Lecture Notes - Locks and Condition Variables
+           Producer/Consumer, v3 - monitor example
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+  char get();
+                                                       Single lock              mutex.lock();
+                                                                                while (count == 0) {
+     std::mutex mutex;                                                            charAdded.wait(mutex);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                          Shared state          count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+  mutex.lock();                                                                 }
+  while (count == SIZE) {                                                       charRemoved.notify_one();
+    charRemoved.wait(mutex);                                                    mutex.unlock();
+  }
+                                                                                return c;
+  count++;
+  buffer[nextPut] = c;                                                        }
+  nextPut++;
+  if (nextPut == SIZE) {
+    nextPut = 0;
+  }
+  charAdded.notify_one();
+  mutex.unlock();
+                                                                          Methods that operate on state holding the lock
+}
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                     Slide 60
+                           Producer/Consumer, v4 (correct)
+class Pipe {                                                                  char Pipe::get() {
+  Pipe() : count(0), nextPut(0), nextGet(0) {}
+                                                                                char c;
+  void put(char c);
+  char get();
+                                                                                std::unique_lock<std::mutex> lock(mutex);
+                                                                                while (count == 0) {
+     std::mutex mutex;                                                            charAdded.wait(lock);
+     std::condition_variable charAdded, charRemoved;                            }
+     char buffer[SIZE];
+     int count;
+                                                                                count--;
+     int nextPut;                                                               c = buffer[nextGet];
+     int nextGet;                                                               nextGet++;
+};                                                                              if (nextGet == SIZE) {
+                                                                                  nextGet = 0;
+void Pipe::put(char c) {
+    std::unique_lock<std::mutex> lock(mutex);                                   }
+     while (count == SIZE) {                                                    charRemoved.notify_one();
+       charRemoved.wait(lock);                                                  return c;
+     }                                                                        }
+     count++;
+     buffer[nextPut] = c;
+     nextPut++;
+     if (nextPut == SIZE) {
+       nextPut = 0;
+     }                                                 std:unique_lock<std:mutex> - hold lock for scope
+     charAdded.notify_one();
+}
+
+                                                CS111 Lecture Notes - Locks and Condition Variables
+                                                                                                                            Slide 61
+

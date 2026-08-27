@@ -1,0 +1,601 @@
+                 Stanford CS224v Course
+   Conversational Virtual Assistants with Deep Learning
+
+
+                    Lecture 12
+          Vision-Language Models
+to Make Historical Documents Accessible
+
+                Sina Semnani & Monica Lam
+                                                          1
+Thousands of Years of Cultural Heritage
+
+
+
+
+                                          2
+    It Can Take Years Just to Read One Language
+
+
+                                                                   Knowledge of at least two years of modern
+                                                                   Turkish is required to study Ottoman.
+                                                                   Knowledge of Arabic and/or Persian is a great
+                                                                   asset. First-year Ottoman Turkish offers an
+                                                                   introduction to the usage of the Arabic script in
+                                                                   Ottoman and relevant facts of Arabic and Persian
+                                                                   grammar. Readings are in print, generally with
+                                                                   examples from the 18th to early 20th
+                                                                   centuries. … Intensive Ottoman summer
+                                                                   course at the ANAMED Center of Koç University
+                                                                   in Istanbul.
+
+
+Osman Aga of Temesvar, Die Autobiographie des Dolmetschers Osman Aga aus Temeschwar, ed. R. F. Kreutel, The E. J. W. Gibb Memorial
+                                                                                                                                     3
+Trust, Cambridge, 1980.
+    Many Historical Document Digitization Projects
+    But without text extraction, they are unsearchable and unreadable
+
+
+
+
+Library of Congress, Newspapers Collection Overview, Library of Congress, 2025.
+British Library, Endangered Archives Programme, British Library, 2025.            4
+Text Extraction:
+The Gateway to AI-Driven Knowledge Access
+
+
+
+                                  Text Search
+                 Text
+              Extraction          Entity Linking
+
+Archives                          Translation
+                                      Chat
+                                  Pre-writing
+                                                   5
+                         L ECTURE G OAL
+
+
+                A G RASS- R OO T M OV EMENT TO
+               M AK E W OR LD H I STO RY R E ADA BL E
+
+
+  C H UR RO D S : A N O PEN , A C ADE M IC H ISTOR IC AL C OR PUS
+C H UR RO V L M : A N O PEN - W EIG HT V ISIO N L AN GU AG E M OD EL
+H ISTOR YG EN IE: A N A I A SSISTA NT TO H ISTOR IC AL D OC UME NTS
+P REVIOUS W ORK
+       Existing Document Datasets
+
+
+
+
+                                          OCRBench                                                                  MMT-Bench
+         PubLayNet                                                             CC-OCR
+
+
+
+
+Zhong et al., PubLayNet: largest dataset ever for document layout analysis, ICDAR, 2019.
+Liu et al., OCRBench: On the Hidden Mystery of OCR in Large Multimodal Models, arXiv, 2024.
+Yang et al., CC-OCR: A Comprehensive and Challenging OCR Benchmark for Evaluating Large Multimodal Models in Literacy, arXiv, 2024.      8
+Ying et al., MMT-Bench: A Comprehensive Multimodal Benchmark for Evaluating Large Vision-Language Models Towards Multitask AGI, ICML, 2024.
+Performance of Flagship Models on Churro
+     60                            58.4
+
+
+
+     55
+                                               52.9
+
+
+                                                      49.7
+     50                    48.8                                                 Anthropic
+                                               46.8                             OpenAI
+                    45.3                                          45.6
+     45
+
+
+
+      40
+   September-2024 December-2024   March-2025          June-2025   August-2025
+
+
+
+       LLMs Regress on Tasks Not Tracked by Model Developers
+
+                                                                                            9
+Text Extraction from Historical
+Corpora Is Challenging
+Classic approach
+• Manually annotate:
+  • Text region boundaries
+  • Text inside each region
+  • Reading order between text regions
+• Train a custom neural model
+• Repeat for every new corpus
+Bottleneck: Lack of Data
+• Many historical datasets lack fine-grained annotations
+• Many languages have no annotated datasets at all
+
+• Source of data:
+   • Scholarly publications on history have page-level transcriptions!
+
+
+
+
+                                                                         11
+K EY I DE A
+Remove Fine-Grained Annotation Requirements
+ • Use Vision Language Models (VLMs) for full-page OCR
+ • No manual annotation of text regions required
+                          Example 1
+                                          V
+
+                                          die durch meine Phantasie zogen und sie beleb-
+                                          ten, als das stille Volk betrachten, das einst
+                                          die einsamen Vesten Deutschlands durchwandel-
+                                          ten, und Freude mir, wenn diese Gebilde ihnen
+                                          nicht ganz unlieblich erscheinen.
+
+
+                            VLM           Wie die Lust an Mährchen sich in mir
+                                          entwickelte, oder die Geschichte der
+                                          Entstehung dieses Büchleins.
+
+                                          Meinen Eltern geboren, um sie einiger-
+                                          maßen über den Tod eines innigst und höchst ge-
+                                          liebten Töchterleins, der wenige Zeit nach mei-
+                                          ner Geburt erfolgte, zu trösten, mit der ich
+                                          zugleich alle jüngern Geschwister verlor, gingen
+                                          meine ersten Entwickelungsjahre einsam hin.
+                                          Das Kind fühlt dies noch nicht, die nährende
+                                          Amme, die mit ihm tändelnden und scherzenden
+                                          Eltern sind ihm genug. Aber schon um mein
+                                          drittes Jahr erinnere ich mich einer großen
+                                          Sehnsucht nach einem Gefährten und Gespielen,
+                                          und wohl weiß ich noch die Freude, die ich
+                                          hatte, als mir ein Brüderlein geboren ward.
+                                                                                             13
+                                     Full-page Extraction with Meta Data
+Example 2                            Full Extracted Text: here
+Einzelne Zeitungsseite,
+Illustrierte Kronen-Zeitung vom 1.
+Juli 1933, Seite 10.
+
+
+
+
+                                                                           14
+Made Possible by
+Recent Breakthroughs in VLMs
+                                                                              • Vision transformer [Dosovitskiy et al., 2021]
+                                                                                    • 224 x 224 pixel inputs
+                                                                              • Dynamic resolution [Dehghani et al., 2023]
+                                                                              • Qwen 2 VL [Wang et al., 2024]
+                                                                                    • A pretrained VLM with dynamic resolution
+                                                                              • Shift towards page-level OCR models:
+                                                                                    • CHURRO VLM [Semnani, 2025]
+                                                                                    • Qwen 2.5 VL [Bai et al., 2025]
+                                                                                    • OlmOCR [Poznanski et al., 2025]
+
+Dosovitskiy et al., An Image is Worth 16X16 Words: Transformers for Image Recognition at Scale, ICLR 2021.
+Dehghani et al., Patch n’ Pack: NaViT, a Vision Transformer for any Aspect Ratio and Resolution, NeurIPS 2023.
+Wang et al., Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution, arXiv 2024.
+Bai et al., Qwen2.5-VL Technical Report, arXiv 2025                                                                     15
+Poznanski et al., olmOCR: Unlocking Trillions of Tokens in PDFs with Vision Language Models, arXiv 2025.
+Representation of the Text Extraction Result
+(OCR-Oriented)
+• Proposed Specifically for OCR:
+  • ALTO: Analyzed Layout and Text Object XML Schema by Library of Congress
+  • PAGE: Page Analysis and Ground Truth Elements
+  • DocTags Markup by IBM research
+  • QwenVL HTML by Qwen Team, Alibaba Group
+  • Limitations:
+     • Represent the location of elements on the page
+       without specifying their semantics or relationship
+     • Have tons of optional syntax that are not used in practice
+     • Do not account for “Gaps”, “Marginal notes”… that can impact the meaning of the content
+
+
+
+                                                                                         16
+Representation of the Text Extraction Result
+(Scholar Oriented)
+
+• TEI (Text Encoding Initiative)
+   • Widely used by libraries and archives, but not OCR systems
+   • 500+ concepts
+   • Multiple ways to encode the same page
+   • Permits arbitrarily deep nesting
+   • No native support for elements like Header, Footer, Margin
+
+
+
+
+                                                                  17
+A New HDML
+(Historical Document Markup Language)
+Design Goal: Suitable for training page-level text extraction systems
+   • Represent the whole document and nothing but the document
+   • Capture key information for downstream AI tasks
+   • Information available in many corpora -- No manual annotation needed
+   • Unique representation for training efficiency
+Design: Refined from TEI
+   • A subset of TEI (45 concepts): Header, PageNumber, MarginalNote, Paragraph ...
+   • Provides a rough layout order -- no physical coordinate information
+
+
+                                                                                      18
+Metadata
+
+
+
+
+           19
+Table
+
+
+
+
+        20
+Headings
+
+
+
+
+           21
+Math!
+
+
+
+
+        22
+Marginal Notes
+
+
+
+
+                 23
+Interlinear Notes and Catchword
+
+
+
+
+                                  24
+Decorations and Musical Notation
+
+
+
+
+                                   25
+Figures
+
+
+
+
+          26
+Stamps and Seals
+
+
+
+
+                   27
+Deletion and Addition
+
+
+
+
+                        28
+Damages and Gaps
+
+
+
+
+                   29
+                         L ECTURE G OAL
+
+
+                A G RASS- R OO T M OV EMENT TO
+               M AKE W OR LD H ISTOR Y R EA DA BLE
+
+
+  C H UR RO D S : A N O PEN, A C ADEMI C H I STO RI CA L C OR PUS
+C H UR RO V L M : A N O PEN - W EIG HT V ISIO N L AN GU AG E M OD EL
+H ISTOR YG EN IE: A N A I A SSISTA NT TO H ISTOR IC AL D OC UME NTS
+      CHURRO Dataset: A Human-Annotated Full-Page
+      Historical Document Dataset
+
+
+
+
+LAM                                             STANFORD
+    Sources of CHURRO Dataset
+                                                              ~2 TB of data
+                                                                  155 corpora
+  Sources                                                         Tens of custom data
+                                                                  formats
+  • Zenodo
+  • GitHub                                                    Restrictive License
+  • Universities                                              Not Convertible to Full-Page
+  • Libraries                                                 Machine Labels
+  • Books                                                     Inaccessible
+
+
+                                                              Not Historical
+
+
+Zenodo: Open repository for EU-funded research outputs from
+Horizon Europe, Euratom and earlier Framework Programmes.                        32
+          CHURRO-DS Spans 22 Centuries
+          Zenon or Zeno (3rd century BC) was a public                            Personal letter written in Arabic. The letter is
+          official in Ptolemaic Egypt around the 250s–230s                       dated October 17, 1960, from Lebanon. The
+          BC.                                                                    sender, Malvina from Dhour El Choueir, writes to
+                                                                                 her niece Ajni Jbeili.
+
+
+
+
+Ground-Truthed Data Set of Zenon Papyri for Handwritten Text Recognition. Isabelle et al. Zenodo. 2022                              33
+Muharaf: Manuscripts of Handwritten Arabic Dataset for Cursive Text Recognition. Saeed et al. NeurIPS Datasets. 2024.
+    CHURRO Contains 46 Language Clusters
+
+                German
+    Middle High German
+           Low German
+       Old High German
+          Swiss German
+
+
+
+
+ISO 639-3: Language Coding Agency, 2007.   34
+      Distribution of Languages
+                                Print (32 Languages)                                                   Handwriting (28 Languages)
+
+
+
+
+                                                                                 Chinese     Spanish       French       English   Dutch      German
+        German     French        Spanish     Latin        Czech       Dutch
+                                                                                 Arabic      Latin         Japanese     Khmer     Swedish    Italian
+        Polish     Slovenian     English     Japanese     Bulgarian   Sanskrit
+                                                                                 Norwegian   Greek         Vietnamese   Persian   Sanskrit   Turkish
+        Finnish    Swedish       Romanian    Hindi        Bangla      Chinese
+                                                                                 Hebrew      Catalan       Portuguese   Czech     Newari     Finnish
+        Italian    Serbian       Malayalam   Slovak       Estonian    Latvian
+                                                                                 Pali        Russian       Danish       Yiddish
+        Sorbian    Indonesian    Corsican    Portuguese   Catalan     Greek
+        Russian    Slavic        Occitan     Yiddish      Hungarian   Malay
+        Javanese   Croatian
+
+LAM                                                                                                                                                    STANFORD
+          CHURRO-DS: Summary
+
+      •  Unified 150 existing datasets, 100K manuscripts and prints, 3 writing
+         directions
+      • 22 centuries: 3rd century BC to 20th century AD
+      • Page-level annotation with a standardized metadata schema in our HDML
+        • Macrolanguage classification: ISO 639-3 (Agency, 2007)
+        • Script classification:
+           • ISO 14924 (International Organization for Standardization, 2002)
+           • Glottolog
+        • Reading order: ALTO XML (library of Congress, 2025), PAGE XML
+        • Faithfulness: Diplomatic transcriptions
+
+
+LAM                                                                              STANFORD
+CHURRO Dataset Splits
+ Handwritten Documents                        Printed Documents
+
+
+
+
+                           Train: 98,131
+
+
+
+
+                         Validation: 1,170
+                                Test: 1,170
+
+
+
+
+                                                                  38
+                          L ECTURE G OAL
+
+
+                 A G RASS- R OO T M OV EMENT TO
+               M AKE W OR LD H ISTOR Y R EA DA BLE
+
+
+  C H UR RO D S : A N O PEN , A C ADE M IC H ISTOR IC AL C OR PUS
+C H UR RO V L M : A N O PE N- W E IG HT V I SI ON L AN GU AG E M OD EL
+H ISTOR YG EN IE: A N A I A SSISTA NT TO H ISTOR IC AL D OC UME NTS
+                                   CHURRO VLM:
+                             A Vision–Language Model
+                         for Reading Historical Documents
+
+
+     Fine-tuned on CHURRO-DS from 3B-parameter Qwen VL 2.5 model
+
+
+
+
+Bai et al., Qwen2.5-VL Technical Report, arXiv, 2025.          40
+Experimental Setup
+• Benchmark 32 VLMs and OCR systems in a zero-shot setting
+
+• Accuracy Metric: Mormalized Levenstein similarity score
+
+                  1 − (𝑐ℎ𝑎𝑟𝑎𝑐𝑡𝑒𝑟 𝑙𝑒𝑣𝑒𝑙 𝑒𝑑𝑖𝑡 𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒)
+
+  • Normalized to lie within [0, 1]
+  • Evaluated against the gold transcription
+
+
+
+                                                             41
+Results
+
+
+
+
+   From left to right: Bangla, Bulgarian, Czech, German, English, Finnish, French, Hindi, Japanese,
+   Latin, Dutch, Polish, Romanian, Sanskrit, Slovenian, Spanish, Swedish, Chinese
+
+                                                                                                      42
+Results
+
+
+
+
+  From left to right: Bangla, Bulgarian, Czech, German, English, Finnish, French, Hindi, Japanese,
+  Latin, Dutch, Polish, Romanian, Sanskrit, Slovenian, Spanish, Swedish, Chinese                     43
+      Summary of Results for Printed Documents
+
+                           90
+
+                                                 80.9                                                       82.3
+
+
+
+
+Normalized Edit Distance
+                           80
+                                                                    71.9        72.7           14.5
+                           70                                                                67.8
+
+
+                           60
+
+
+                           50
+                                                                               Average
+                                Gemini 2.5 Pro          Azure OCR      NuMarkdown (8B)   Qwen VL 2.5 (3B)    Churro (3B)
+
+                                                                                                                           44
+      Summary of Results for Handwritten
+      Documents
+                           80
+                                                                                                   70.1
+
+
+
+
+Normalized Edit Distance
+                           70
+                                           63.6
+                           60
+                                                                                        27.2
+                                                                       51.2
+                           50                            47.7
+                                                                                      42.9
+                           40
+
+                           30
+                                                                     Average
+                                Gemini 2.5 Pro    Azure OCR     NuMarkdown     Qwen VL 2.5 (3B)   Churro (3B)
+
+                                                                                                                45
+Summary of Per-Language Results
+ • Handwriting accuracy is 80%+ in:
+    • Catalan, Dutch, English, French, German, Italian, Swedish
+
+ • Print accuracy is 90%+ in:
+    • Bulgarian, Czech, Dutch, English, Hindi, Latin, Sanskrit, Slovenian,
+      Spanish
+
+
+
+
+                                                                             46
+The Accuracy-Cost Trade-off
+
+                 15.5× cheaper   4.1% better
+
+
+
+
+                                               47
+                            L ECTURE G OAL
+
+
+                  A G RASS- R OOT M OV EMENT TO
+                 M AKE W ORLD H ISTOR Y R EA DA BLE
+
+
+  C H UR RO D S : A N O PEN , A C ADE M IC H ISTOR IC AL C OR PUS
+C H UR RO V L M : A N O PEN - W EIG HT V ISIO N L AN GU AG E M OD EL
+H I STO RY G E NI E: A N A I A SSISTAN T T O H I STO RI CA L D OC UM EN T S
+WikiChat + CHURRO: Talk to the Archives
+at history.genie.stanford.edu
+
+                                 15 newspapers from
+                                 19th century Africa
+                                 Digitized for the first
+                                 time
+
+
+
+
+                                                  49
+ Three College Courses Have Used History Genie
+ to Teach History with Authentic Sources
+                            Trevor Getz
+                                                                                    Example: The execution of a
+                            Professor of                   Research into
+                                                        entirely new topics         Sierra Leonean leader named
+                    African and World History at     that have previously been      Whobay and subsequent
+                   San Francisco State University       missed by historical        protests.
+                             President                      researchers
+                     World History Association
+                                                                                    Example: the impact of the
+Stanford University
+                                                           Research that            industrialization of agriculture in
+• AFRICAAM 240 Knowledge Outside the                   provides new insights        Liberia or attempts to set up
+                                                        into existing theme         independent states on the coast
+  Colonial Library                                                                  of Ghana.
+San Francisco State University
+                                                                                    Example: Nineteenth century
+• HISTORY 366 and Anthropology 609                        Scholarship that
+                                                     adds African perspectives      Zionism, anti-slavery movements,
+  Approaches to the African Pasts                        to modify existing         and the abolition of alcohol.
+                                                    understandings of such topics
+• HISTORY 305 AI and Historical Inquiry
+                                                                                                                   50
+     Historians Have Used History Genie to
+     Discover New Evidence
+      My aim was to center local sources, but it was difficult to achieve that
+      until you shared History Genie with me.
+      History Genie allowed me to complement dairies and narratives by
+      British military men with those authored in the African Times by West
+      Africans who lived along the Atlantic Coast.
+                                                                                            Tony Yeboah
+                                                                                        Assistant Professor of
+                                                                                         African Art History
+                                                                                          Tulane University
+
+
+                                 The History Genie tool was immensely helpful in what otherwise would
+                                 have been a lengthy process of reading entirely through each edition of
+                                 these newspapers to find relevant material.
+       Benjamin Wendorf
+       Professor of History
+Quinsigamond Community College                                                                                   51
+   A Grass-Root Movement to
+   Make Historical Documents Accessible
+   • CHURRO-DS dataset with a new HDML language
+         • 99,491 pages
+         • 22 centuries
+         • 46 language clusters
+         • Handwriting and print
+   • CHURRO-VLM: a compact open-weight vision-language model
+         • Comparable to state-of-the-art commercial system (Gemini 2.5 Pro)
+         • 15.5x cheaper
+   • HistoryGenie: AI assistant for historical documents
+
+Semnani et al., CHURRO: Making History Readable with an Open-Weight Large Vision-Language Model for High-Accuracy, Low-Cost
+Historical Text Recognition, EMNLP, 2025.                                                                                     52
+

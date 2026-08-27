@@ -1,0 +1,27 @@
+# Official Lecture 6: Functions, Part I
+
+- Date: 2026-04-13
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck `/tmp/cs103-text/06.txt`):
+  - [x] Proof-technique summary table reused for first-order definitions
+  - [x] Mathematical functions as deterministic mappings
+  - [x] Domains, codomains, and `f : A → B`
+  - [x] Totality/codomain and determinism rules
+  - [x] Three components of a function definition
+  - [x] Diagram, algebraic, and piecewise definitions
+  - [x] Piecewise coverage and overlap consistency
+  - [x] Rational-rule domain failure at `x = -1`
+  - [x] Involution definition and examples
+  - [x] Case proof for the adjacent-integer involution
+  - [x] Squaring counterexample to involution
+  - [x] Equivalent injectivity definitions
+  - [x] Injection proof for `f(n)=2n+7`
+  - [x] Collision proof for `f(x)=x⁴`
+  - [x] Surjectivity and quantifier order
+  - [x] Surjection proof for real doubling
+  - [x] Non-surjection proof for natural doubling
+  - [x] Plain-language proof style and recap
+- Boundary: do not infer spoken content or use restricted solutions.

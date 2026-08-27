@@ -1,0 +1,1292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="X-Robots-Tag" content="unavailable_after: 20-Dec-2022 23:59:00 PST">
+   <title>CS107 Calendar</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assets/stylesheet.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+    <!-- Moment.js -->
+    <script type="text/javascript" src="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assets/moment.min.js"></script>
+    <script type="text/javascript" src="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assets/moment-timezone-with-data-10-year-range.min.js"></script>
+    <script type="text/javascript" src="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assets/time.js"></script>
+
+    <!-- Stanford -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'/>
+
+    <script>
+      (function() {
+        var cx = '003265255082301896483:sq5n7qoyfh8';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+  </head>
+
+  <body class="body">
+    <div class="index-wide">
+      
+
+<nav class="navbar navbar-expand-md navbar-dark">
+  <div class="container-lg">
+    <a class="navbar-brand" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264">CS107</a>
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar">Calendar</a>
+        </li>
+
+        <!-- Handouts dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="handoutsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Handouts
+              </a>
+
+          <div class="dropdown-menu" aria-labelledby="handoutsDropdown">
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/syllabus.html">Syllabus</a>
+              <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/cgoe.html">CGOE Information</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/collaboration.html">Honor Code</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/faq.html">Course Enrollment FAQ</a>
+            <a class="dropdown-item" href="https://web.stanford.edu/~cgregg/cgi-bin/107-reader/">Course Reader</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/getting-started.html">Getting Started on Myth</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/resources/unix.html">Unix Guide</a>
+
+              <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/resources/emacs.html">Emacs Guide</a>
+
+
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/resources/gdb.html">The GDB Debugger</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/resources/valgrind.html">Valgrind Guide</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/guide/stdlib.html">C Standard Library Guide</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/resources/debugging.html">Debugging Guide</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/guide/x86-64.html">x86-64 Guide</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/resources/callgrind.html">Callgrind Guide</a>
+          </div>
+        </li>
+
+        <!-- Lectures dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="lecturesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Lectures
+              </a>
+
+          <!-- Renders list of slides from calendar.ini config file -->
+          <div class="dropdown-menu" aria-labelledby="lecturesDropdown">
+        
+                
+
+                <!-- Visible just during the preferences period -->
+                <div class="visible-during" data-visible-start="20250421 18:00" data-visible-end="20250428 23:59">
+                  <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/cgi-bin/lecture_credit_option">Choose Lecture Credit Option</a>
+                  <div class="dropdown-divider"></div>
+                </div>
+              <!--<a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lecture-code">View Lecture Code</a> -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 1</h6>
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/01/Lecture01.pdf">01: Welcome to CS107!</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/02/Lecture02.pdf">02: Unix and C</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/03/Lecture03.pdf">03: Integers, Bits and Bytes</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                  <div class="dropdown-divider"></div>
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 2</h6>
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/04/Lecture04.pdf">04: Bitwise Operators</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/05/Lecture05.pdf">05: Bitwise Operators, Take II</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/06/Lecture06.pdf">06: Chars and C-Strings</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                  <div class="dropdown-divider"></div>
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 3</h6>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/07/Lecture07.pdf">07: C-Strings, Buffer Overflows and Security</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/08/Lecture08.pdf">08: Introduction to Pointers</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                  <div class="dropdown-divider"></div>
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 4</h6>
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/09/Lecture09.pdf">09: Pointers and Arrays</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/10/Lecture10.pdf">10: Stack and Heap</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/11/Lecture11.pdf">11: Generics and <code>void *</code></a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                  <div class="dropdown-divider"></div>
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 5</h6>
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/12/Lecture12.pdf">12: Generics, <code>void *</code>, and Function Pointers</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/13/Lecture13.pdf">13: Function Pointers, Continued</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/14/Lecture14.pdf">14: Introduction to Assembly and <code>x86-64</code></a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                  <div class="dropdown-divider"></div>
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 6</h6>
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/15/Lecture15.pdf">15: Introduction to Assembly and <code>x86-64</code>, Take II</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/16/Lecture16.pdf">16: Introduction to ALU Operations</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/17/Lecture17.pdf">17: Introduction to Control Flow Operations</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                  <div class="dropdown-divider"></div>
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 7</h6>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/18/Lecture18.pdf">18: More Control Flow Operations</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/19/Lecture19.pdf">19: Introduction to Function Call and Return</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                  <div class="dropdown-divider"></div>
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 8</h6>
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/20/Lecture20.pdf">20: Privacy, Trust and Heap Preview</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/21/Lecture21.pdf">21: Managing the Heap, Take I</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/22/Lecture22.pdf">22: Managing the Heap, Take II</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                  <div class="dropdown-divider"></div>
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 9</h6>
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/23/Lecture23.pdf">23: Managing the Heap, Take III</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/24/Lecture24.pdf">24: Optimizations</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/25/Lecture25.pdf">25: Caching and Memory Hierarchies</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                  <div class="dropdown-divider"></div>
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <h6 class="dropdown-header">Week 10</h6>
+                  <!-- If we have slides, show a link -->
+                    <!-- Link for the day -->
+                       <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/26/Lecture26.pdf">26: Wrap-up and Q&A</a>
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+                
+                <!-- Show a week header at the start of each week -->
+                
+                  <!-- If we have slides, show a link -->
+                <!-- If we are the end of a week, but more days should be posted, add a divider -->
+              <h6 class="dropdown-header">Extras</h6>
+              <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/03/Lecture03Extras.pdf">03: Integers, Bits, and Bytes Extras</a>    
+          </div>
+        </li>
+
+        <!-- Assignments dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="assignmentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Assignments
+              </a>
+
+          <div class="dropdown-menu" aria-labelledby="assignmentsDropdown">
+            <h6 class="dropdown-header">Assignments</h6>
+
+            <!-- Automatically generate a list -->
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assign0/">Assign0: Intro to Unix and C</a>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assign1/">Assign1: A Bit of Fun</a>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assign2/">Assign2: C Strings</a>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assign3/">Assign3: A Heap of Fun</a>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assign4/">Assign4: Into the void*</a>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assign5/">Assign5: Banking on Security</a>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assign6/">Assign6: Heap Allocator</a>
+
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Resources</h6>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/working-on-assignments.html">Working on Assignments</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/testing.html">Testing Strategies</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/styleguide.html">Style Guide</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/assignment-grading.html">Assignment Grading</a>
+          </div>
+        </li>
+
+        <!-- Labs dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="labsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Labs
+              </a>
+
+          <div class="dropdown-menu" aria-labelledby="labsDropdown">
+            <!-- Automatically generate a list -->
+                <h6 class="dropdown-header">Lab1</h6>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab1/">Handout</a>
+                
+                  <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab1/solutions.html">Solutions</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Lab2</h6>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab2/">Handout</a>
+                
+                  <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab2/solutions.html">Solutions</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Lab3</h6>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab3/">Handout</a>
+                
+                  <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab3/solutions.html">Solutions</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Lab4</h6>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab4/">Handout</a>
+                
+                  <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab4/solutions.html">Solutions</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Lab5</h6>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab5/">Handout</a>
+                
+                  <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab5/solutions.html">Solutions</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Lab6</h6>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab6/">Handout</a>
+                
+                  <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab6/solutions.html">Solutions</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Lab7</h6>
+                <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab7/">Handout</a>
+                
+                  <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/lab7/solutions.html">Solutions</a>
+                <div class="dropdown-divider"></div>
+
+            
+
+            <!-- Visible just during the preferences period -->
+            <div class="visible-during" data-visible-start="20260105 10:00" data-visible-end="20260111 17:00">
+              <h6 class="dropdown-header">Resources</h6>            
+              <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/cgi-bin/lab_preferences">Submit Lab Preferences</a>
+            </div>
+
+            <!-- Visible just after signups open for people to swap labs -->
+            <div class="visible-after" data-visible-after="20260112 15:00">
+              <h6 class="dropdown-header">Resources</h6>
+              <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/cgi-bin/lab_signup">Lab Enrollment</a>
+              <!--<a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/restricted/labdocs/">Lab Shared Docs</a>-->
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="examsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Exams
+          </a>
+          
+          <div class="dropdown-menu" aria-labelledby="examsDropdown">
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/exams/midterm.html">Midterm</a>
+            <a class="dropdown-item" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/exams/final.html">Final</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/cgi-bin/gradebook">Gradebook</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/help.html">Getting Help</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+      <main class="container" role="main">
+        <div id="title">Calendar</div>
+
+          <p class="important-box">
+              <b>NOTE: this website is out of date.</b> This is the course web site from a past quarter. If you are a current student taking the course, you should visit the current class web site instead. If the current quarter's website is easily reached, it may be accessible by visiting <a href="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1266">this link</a> instead. Please be advised that courses' policies change with each new quarter and instructor, and any information on this out-of-date page may not apply to you.
+          </p>
+
+        <div id="main">
+
+<!--
+<ul class="nav navbar-nav navbar-right">
+  <li>
+    <form class="navbar-form navbar-right" id="search-query" action="https://web11.stanford.edu/class/archive/cs/cs107/cs107.1264/search">
+      <div class="form-group"><input type="text" class="form-control input-sm" size="12" placeholder="Search CS107 site" name="q"></div>
+      <button type="submit" class="btn btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+  </li>
+</ul>
+-->
+
+
+
+  
+
+
+<p>Below is a preview of the week-by-week plan for the quarter. There may be adjustments and rearrangements as we go.</p>
+<p><em>Last updated: March 08, 2026.</em></p>
+<ul>
+<li>
+<p>Lecture videos are posted on Canvas <a href="https://canvas.stanford.edu/courses/220183/external_tools/69960">under the "Panopto Course Videos" tab</a> for enrolled students.</p>
+</li>
+<li>
+<p>In the readings listed below, B&amp;O is Computer Systems (Bryant and O'Hallaron), K&amp;R is The C Programming Language (Kernighan and Ritchie) <a href="https://openlibrary.org/books/OL2030445M/The_C_Programming_Language">accessible here</a> (requires free Open Library account to borrow), and Essential C is a PDF available at <a href="http://cslibrary.stanford.edu/101">http://cslibrary.stanford.edu/101</a>.  B&amp;O scanned PDFs for the listed readings are available on Canvas <a href="https://canvas.stanford.edu/courses/220183/files">under the "Files" tab</a>.</p>
+</li>
+</ul>
+<!--
+Access solutions and explanations to past lecture check-in quizzes [here](/restricted/quizsoln.html).
+{: .important-box-blue}
+-->
+
+<p><strong>Lecture Code</strong></p>
+<p>Any code examples worked in class will be posted into <code>/afs/ir/class/cs107/lecture-code/lect[N]</code> where you replace <code>[N]</code> with the lecture number.  You can make a copy to compile or modify by doing the following, which will make a folder in the current location called <code>lect[N]</code> that is a copy of the <code>lect[N]</code> code.</p>
+<pre><code>cp -r /afs/ir/class/cs107/lecture-code/lect[N] lect[N]
+</code></pre>
+
+<!-- not currently working -->
+
+<!--You can also view lecture code from your web browser by clicking [here](lecture-code). -->
+
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Topics</th>
+            <th>Resources</th>
+            <th>Assignments</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 1</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 1 (Mon 1/5): Welcome to CS107!</strong>
+                            <br/>
+                            We'll go through course logistics, learning goals, and a tour of Unix and the command line.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                Handouts: <a href="syllabus">Syllabus</a>, <a href="collaboration">Honor Code</a><br />B&O Ch 1 - skim this chapter for a quick overview of what is meant by systems, and for a preview of topics to come.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 2 (Wed 1/7): Unix and C</strong>
+                            <br/>
+                            We'll get started with the command line and introduce the C programming language.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                            <b>Out:</b> assign0
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><em>No labs this week.</em></td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 3 (Fri 1/9): Integers, Bits and Bytes</strong>
+                            <br/>
+                            <b>Topic 1:</b> <i>How can a computer represent integer numbers?</i><br />We'll learn about the representation of the integer types: <code>char</code>, <code>short</code>, <code>int</code>, and <code>long</code>, in both unsigned and two's complement signed. We'll discuss binary, hexadecimal, integer arithmetic and overflow.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                B&O Ch 2.2-2.3 - skim the formal proofs, but it's important to take away a solid working knowledge of two's complement and behaviors of integer operations.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 2</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 4 (Mon 1/12): Bitwise Operators</strong>
+                            <br/>
+                            We'll wrap up integer representations by discussing truncation, sign extension and how mixed signed and unsigned comparison operations work. Then we'll see how to manipulate bits and bytes using bitwise operators.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                B&O Ch 2.1
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 5 (Wed 1/14): Bitwise Operators, Take II</strong>
+                            <br/>
+                            We'll learn about the <code>&lt;&lt; &gt;&gt;</code> shift operators and how to use GDB to examine the execution of our programs.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                            <b>In:</b> assign0 <br /><b>Out:</b> assign1
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><b>Lab 1: Bits and <code>int</code>s</b><br />Be sure to check out our <a href="resources/gdb">guide to gdb</a>.</td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 6 (Fri 1/16): Chars and C-Strings</strong>
+                            <br/>
+                            <b>Topic 2</b>: <i>How can a computer represent and manipulate more complex data like text?</i><br />We'll explore how strings and characters are manipulated in C using the <code>char</code> and <code>char *</code> types, discuss null termination, and become familiar with the <code>string.h</code> functions.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                K&R (1.9, 5.5, Appendix B3) or Essential C section 3 for C-strings and <code>string.h</code> library functions. C-strings are primitive compared to Java/C++ strings, so take note of the manual efforts required for correct use and pitfalls to avoid.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 3</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- If a holiday, just mark the name and date and say no lecture -->
+                        <td><strong>Mon 1/19 - No Lecture - Observing Martin Luther King Day</strong></td>
+                        <td />
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 7 (Wed 1/21): C-Strings, Buffer Overflows and Security</strong>
+                            <br/>
+                            We'll learn more about string library functions, and discuss buffer overflows and techniques to avoid them.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                            <b>In:</b> assign1 (Thu) <br /><b>Out:</b> assign2 (Thu)
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><b>Lab 2: C-Strings</b><br />Be sure to check out our <a href="resources/valgrind">guide to Valgrind</a>.</td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 8 (Fri 1/23): Introduction to Pointers</strong>
+                            <br/>
+                            We'll spend some time with C arrays and reintroduce the pointer.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                K&R Ch 1.6, 5.5 or Essential C section 3 on the mechanics of pointers and arrays. Pay special attention to the relationship between arrays and pointers and how pointers/arrays are passed as parameters.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 4</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 9 (Mon 1/26): Pointers and Arrays</strong>
+                            <br/>
+                            <b>Topic 3:</b> <i>How can we effectively manage all types of memory in our programs?</i><br />We'll answer questions like: how are pointers useful in programs?  How are arrays and pointers the same? How are they different? How is an array/pointer passed/returned in a function call? After this lecture, you'll understand how arrays and pointers allow two syntaxes for accessing sequential memory locations, but the underlying reality of the memory is the same.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                K&R 5.2-5.5 or Essential C section 6 on advanced pointers
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 10 (Wed 1/28): Stack and Heap</strong>
+                            <br/>
+                            We'll introduce dynamic allocation on the heap with <code>malloc</code>, compare the stack and the heap, and get practice using dynamic allocation.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                K&R 5.6-5.9 or Essential C section 6 on the heap. The key concept is comparing and contrasting stack and heap allocation.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                            <b>In:</b> assign2 (Thu) <br /><b>Out:</b> assign3 (Thu)
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><b>Lab 3: Arrays/Pointers</b></td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 11 (Fri 1/30): Generics and <code>void *</code></strong>
+                            <br/>
+                            <b>Topic 4:</b> <i>How can we use our knowledge of memory and data representation to write code that works with any data type?</i><br />We'll introduce untyped <code>void *</code> pointers and motivate C generics. We'll also discuss vulnerability disclosure, use-after-free bugs and partiality.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 5</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 12 (Mon 2/2): Generics, <code>void *</code>, and Function Pointers</strong>
+                            <br/>
+                            We'll continue discussing generics and introduce function pointers, which allow us to pass functions as parameters and store them in variables.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 13 (Wed 2/4): Function Pointers, Continued</strong>
+                            <br/>
+                            We'll continue discussing generic function pointers and do examples of how to write and call functions with function parameters.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                K&R 5.11, review man pages or your C reference to be introduced to generic functions in the C library (<code>qsort</code>, <code>lfind</code>, <code>bsearch</code>)
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><b>Lab 4: <code>void *</code>/Function Pointers</b></td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 14 (Fri 2/6): Introduction to Assembly and <code>x86-64</code></strong>
+                            <br/>
+                            <b>Topic 5:</b> <i>How does a computer interpret and execute C programs?</i><br />We'll introduce assembly/machine language and find out what's happening underneath the hood of the C compiler, including a discussion of the x86-64 instruction set architecture and its powerful mov instruction, along with addressing modes, data layout, and access to variables of various types.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                            <b>In:</b> assign3 <br /><b>Out:</b> assign4
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 6</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 15 (Mon 2/9): Introduction to Assembly and <code>x86-64</code>, Take II</strong>
+                            <br/>
+                            We'll play catchup and use today to finish up generics and introduce x86-64.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                B&O 3.1-3.3 for background info on x86-64 assembly. Very carefully read B&O 3.4 on addressing modes and data transfer. The multitude of addressing modes is one of the things that puts the first "C" in CISC.<br />Be sure to check out our <a href="guide/x86-64.html">x86-64 guide</a>.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 16 (Wed 2/11): Introduction to ALU Operations</strong>
+                            <br/>
+                            We'll talk about arithmetic and logical instructions and work through practice reverse engineering examples.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                B&O 3.5-3.6<br />Be sure to check out our <a href="guide/x86-64.html">x86-64 guide</a>.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                            <b>Midterm Exam 7-9PM</b>
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><b>Lab 5: Assembly</b><br />x86-64 in all its glory.<br />Be sure to check out our <a href="guide/x86-64.html">x86-64 guide</a>.</td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 17 (Fri 2/13): Introduction to Control Flow Operations</strong>
+                            <br/>
+                            We'll finish up ALU operations and introduce control flow and unconditional jumps.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                B&O 3.5-3.6<br />Be sure to check out our <a href="guide/x86-64.html">x86-64 guide</a>.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 7</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- If a holiday, just mark the name and date and say no lecture -->
+                        <td><strong>Mon 2/16 - No Lecture - Oberserving Presidents Day</strong></td>
+                        <td />
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 18 (Wed 2/18): More Control Flow Operations</strong>
+                            <br/>
+                            We'll continue by exploring loops and conditions in assembly and discuss other uses of condition codes (<code>setx</code>/<code>cmov</code>).
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                B&O 3.5-3.6<br />Be sure to check out our <a href="guide/x86-64.html">x86-64 guide</a>.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                            <b>In:</b> assign4 <br /><b>Out:</b> assign5
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><b>Lab 6: Runtime Stack</b></br >Fun explorations with the stack!</td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 19 (Fri 2/20): Introduction to Function Call and Return</strong>
+                            <br/>
+                            We'll talk about procedures and the runtime stack along with instructions for call/return, parameter passing, local stack storage, and register use.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                B&O 3.7, 5.1-5.6<br />Be sure to check out our <a href="guide/x86-64.html">x86-64 guide</a>.
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 8</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 20 (Mon 2/23): Privacy, Trust and Heap Preview</strong>
+                            <br/>
+                            We'll discuss assign5's focus on reverse engineering executables. We'll do lots of reverse engineering practice to get you up to speed on assign5!
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 21 (Wed 2/25): Managing the Heap, Take I</strong>
+                            <br/>
+                            <b>Topic 6:</b> <i>How do core memory-allocation operations like <code>malloc</code> and <code>free</code> work?</i><br />We'll have larger discussions of privacy and trust, and then move on to our final main topic. We'll see how the heap fits into the address space and introduce design decisions for implementing <code>malloc</code>/<code>realloc</code>/<code>free</code>, as well as performance tradeoffs (throughput, utilization).
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><i>No labs this week.</i></td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 22 (Fri 2/27): Managing the Heap, Take II</strong>
+                            <br/>
+                            We'll learn about 3 different heap allocator designs: the bump allocator, the implicit free list allocator, and the explicit free list allocator, and compare them and discuss performance tradeoffs (throughput, utilization).
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                B&O Ch. 9.9 and 9.11 cover heap allocation implementation and memory misuses. There's lots of very useful detail in 9.9 for your heap allocator!
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                            <b>In:</b> assign5 <br /><b>Out:</b> assign6
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 9</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 23 (Mon 3/2): Managing the Heap, Take III</strong>
+                            <br/>
+                            We'll learn more about the explicit free list allocator design, and other techniques employed by allocators including coalescing and in-place realloc. We'll also talk more about the requirements for assign6.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                                Optimally skim B&O Ch. 5
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 24 (Wed 3/4): Optimizations</strong>
+                            <br/>
+                            We'll explore the compilation process and the various optimizations <code>gcc</code> does on our behalf. We'll also learn of some tools we can use to profile our own code so we know where to optimize ourselves. This could be helpful for final tuning of your heap allocator!
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><b>Lab 7: Code and Memory Optimization</b><br />Experiments in optimization and profiling.<br />Be sure to check out our <a href="resources/callgrind">CS107 guide to callgrind</a>.</td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 25 (Fri 3/6): Caching and Memory Hierarchies</strong>
+                            <br/>
+                            We'll continue our discussion some optimization feastures not covered on Wednesday, and we'll discuss how to write cache-friendly code!
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                    <tr class="weekheader">
+                        <td>Week 10</td>
+                        <td />
+                        <td />
+                    </tr>
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 26 (Mon 3/9): Wrap-up and Q&A</strong>
+                            <br/>
+                            We'll wrap up the course themes, preview courses and opportunities post-107, and say some final words. Bring questions if you have them!
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- If a holiday, just mark the name and date and say no lecture -->
+                        <td><strong>Wed 3/11 - No Lecture - Off day</strong></td>
+                        <td />
+                    <td>
+                        <!-- Due dates -->
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+                    <td><em>No labs this week.</em></td>
+                    <td />
+                    <td />
+            <!-- If it's a week holiday -->
+                <!-- It's not a week holiday -->
+                <!-- If it's the first day in the week, add a week header first -->
+                <!-- Row for the day -->
+                <tr>
+                        <!-- Otherwise, include the full lecture information -->
+                        <td>
+                            <strong>Lecture 27 (Fri 3/13): Review Session</strong>
+                            <br/>
+                            We'll spend the last lecture slot reviewing core material to help you prepare for the final exam.
+                        </td>
+                        <td>
+                            <!-- Slides and code -->
+                            
+                            <!-- video -->
+                            <!-- quiz -->
+                            <!-- other -->
+                        </td>
+                    <td>
+                        <!-- Due dates -->
+                            <b>In:</b> assign6
+                    </td>
+                </tr>
+                <!-- If this day has a section note, add an additional row below it for section -->
+        <!-- Final exam information (if any) -->
+        
+            <tr class="weekheader">
+                <td>Final Exam Week</td>
+                <td />
+                <td />
+            </tr>
+            <tr>
+                <td><strong>Final Exam: Monday, March 16<sup>th</sup>, 3:30 - 6:30pm</strong></td>
+                <td />
+                <td />
+            </tr>
+    </tbody>
+</table>
+
+</div>
+        <div class="col-xs-12" id="footer">
+          <hr />
+          <i>This document and its content are copyright Stanford University, 2026. All rights reserved. Any redistribution, reproduction, transmission, or storage of part or all of the contents in any form is prohibited without the authors' expressed written permission.  NOTICE RE UPLOADING TO WEBSITES:  This content is protected and may not be shared, uploaded, or distributed. (without expressed written permission).</i>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

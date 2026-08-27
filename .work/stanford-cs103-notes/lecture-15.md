@@ -1,0 +1,21 @@
+# Official Lecture 15: Finite Automata, Part II
+
+- Date: 2026-05-04
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/15/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/15/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] DFA 的形式定義把前半學期串起來
+  - [x] regular language 是「存在一台 DFA」
+  - [x] complement 必須相對同一個 universe
+  - [x] 從 DFA 改成 NFA：選擇成為計算的一部分
+  - [x] NFA transition 的正確型別
+  - [x] 死路不是整台機器 reject
+  - [x] ε-transition 不消耗輸入
+  - [x] 把 NFA 看成 powerset 上的 DFA
+  - [x] 設計 NFA：拆成簡單語言再用 ε 分派
+  - [x] DFA 與 NFA 的量詞對照
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

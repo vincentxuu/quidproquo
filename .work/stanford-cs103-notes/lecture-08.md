@@ -1,0 +1,27 @@
+# Official Lecture 8: Set Theory Revisited
+
+- Date: 2026-04-17
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck `/tmp/cs103-text/08.txt`):
+  - [x] Midterm 1 announcement and proof-template reminder
+  - [x] Injection and surjection recap
+  - [x] Bijection as both injective and surjective
+  - [x] Cardinality notation and bijection-based equality
+  - [x] Why one failed candidate does not prove inequality
+  - [x] Closed and open interval notation
+  - [x] Full proof of `|[0,1]|=|[0,2]|`
+  - [x] Well-definedness and domain/codomain obligation
+  - [x] Injectivity ASSUME/WTS template
+  - [x] Surjectivity witness `x=y/2`
+  - [x] Reflexivity via identity
+  - [x] Transitivity via composition
+  - [x] Cantor theorem as nonexistence of a bijection
+  - [x] Why `f(x)={x}` is not a universal proof
+  - [x] Arbitrary-function roadmap attacking surjectivity
+  - [x] Diagonal set `D={x∈S | x∉f(x)}`
+  - [x] Contradiction showing `D` is outside the range
+  - [x] Next time: graphs and graph properties
+- Boundary: the deck supports displayed definitions and proofs, but not spoken transitions, poll outcomes, or Canvas/Panopto material.

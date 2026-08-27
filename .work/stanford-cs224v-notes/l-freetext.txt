@@ -1,0 +1,915 @@
+                           Stanford CS224v Course
+               Conversational Virtual Assistants with Deep Learning
+
+
+
+                                        Lecture 5
+
+              Minimizing Hallucination in
+           Retrieval-Augmented Generation
+
+                               Monica Lam & Sina Semnani
+WikiChat: Stopping the Hallucination of Large Language Model Chatbots by Few-Shot Grounding on Wikipedia
+Sina J. Semnani, Violet Z. Yao*, Heidi C. Zhang*, Monica S. Lam
+In Proceedings of Association for Computational Linguistics: EMNLP 2023, Singapore, December 6-10, 2023.
+Winner of the Wikimedia’s Research of the Year Award, 2024.
+                                                                                                     1
+      Retrieval Augmented Generation (RAG)
+                               In 2022-2023
+          Can’t we just ask LLMs?
+                         No, no, no, you need to RAG.
+                    You have only tested on things you know!
+                          LLMs know what you know!
+          OK, it may hallucinate now,
+          but can’t we just train a bigger model with more data.
+               LLMs do not know the long tail, new real-time info,
+                               or private info!
+
+LAM                                                                  STANFORD
+      • Conversational Q&A in open domain with 97% accuracy
+      • In Proceedings of Association for Computational Linguistics:
+        EMNLP, Singapore, December 2023.
+      • Winner of the Wikimedia’s Research of the Year Award, 2024
+
+
+LAM                                                                    STANFORD
+    RAG in Commercial Products (2024)
+                 RAG available in : ChatGPT, Co-Pilot, Gemini, Perplexity
+                 BBC reported in January 2025:
+                 •   51% of AI answers to news problems have
+                     significant issues.
+                 •   19% of AI answers which cited BBC
+                     content introduced factual errors.
+                 •   13% of the quotes sourced from BBC
+                     articles were either altered or didn’t
+                     actually exist in that article.
+
+
+  Representation of BBC News content in AI Assistants. 2025.
+LAM                                                                         STANFORD
+                        L ECTURE G OAL
+
+
+
+T H E I N S I D E S T O RY O F H A L L U C I N A T I ON - F R E E R A G
+
+         P A R A DI G M S H I FT I N N L P R E S E A R C H
+
+            L L M - E N G I N E E RI N G I N G E N E R A L
+             ( U S E FU L F OR YO U R PR O JE C T S )
+      Lecture Outline
+         • Background of Knowledge Assistants Technology
+         • Metrics for Knowledge Assistants
+         • Methodology Paradigm Shift
+         • Design of Wikichat
+         • Evaluation
+
+
+
+
+LAM                                                        STANFORD
+      Lecture Outline
+         • Background of Knowledge Assistants Technology
+         • Metrics for Knowledge Assistants
+         • Methodology Paradigm Shift
+         • Design of Wikichat
+         • Evaluation
+
+
+
+
+LAM                                                        STANFORD
+      Many Papers on Knowledge Assistants
+      Key papers
+
+
+
+
+LAM                                         STANFORD
+      A Brief History of Knowledge Assistants
+Search
+                  1972       1998                 2015                   2019      2020                              2024
+   1952          TF-IDF     Google         Memory Network               DenSPI ColBERT                                M3
+  Uniterm      (encode      Search         (info encoded as            (1st real- (match                            (Multi-
+ (keyword    information    (scale          learnable dense          time dense query                              lingual
+  search)     as vectors)     up)               vectors)              vector IR) to doc)                          Q to doc)
+
+
+
+
+      1961        1990          2004            2017          2018                             2022        2023     2024
+    BASEBALL      ATIS       TREC 2004          DrQA       Wizard of                       BlenderBot-3 Bing Chat ChatGPT
+      (QA)   (Conversational (Retrieval      (Retrieve-    Wikipedia                          ATLAS     WikiChat Co-Pilot
+                  QA)           from        then-Read (Retrieve-                                                   Gemini
+                             Wikipedia        Pipeline) then-generate,                                            Perplexity
+ QA                           for QA)                     knowledge-
+                                                           grounded                                               Multilingual
+                                                        conversations)                                             WikiChat
+                                         2014                        2018              2020           2023                  2025
+                                     Deep Learning                   BERT              GPT-3          GPT-4                GPT-5
+LAM                                                                                                                   STANFORD
+BlenderBot-3: Retrieval + LLM (Meta, 2022)
+
+BlenderBot-3
+OPT-175B model
+Fine-tuned on the
+   combination of 20
+   large academic
+   datasets
+Access to a search
+  engine
+Deployed
+
+   BlenderBot 3: a deployed conversational agent that continually learns to responsibly engage, Shuster et al, arXiv 2022
+      Evaluation on 100 Crowdsource Conversations
+
+
+
+
+                                (Eng: Engaging)
+
+
+        Evaluation
+            • Only 2.1% factual error
+           • Even the smaller version 1 without IR has only 5.1% factual error
+           • Scores 4.45/5 on human evaluation
+LAM                                                                              STANFORD
+BlenderBot-3 Conversation
+User: Can you tell me about the 2023                User: Who is Haruki Murakami?
+Australian Open?                                    BlenderBot-3: He is a Japanese writer.
+BlenderBot-3: The tournament is the first           Have you read any of his books? They
+of the four Grand Slam tennis events                are really great. So are the movies made
+held each year, preceding the French                from them.
+Open, Wimbledon, and the US Open. It is             User: What movies?
+also one of two major professional tennis
+tournaments played on hard courts.                  BlenderBot-3: What a great question! The
+                                                    movie “after dark” is one my favorites.
+User: Who won the men’s singles in 2023?            But it was so hard to find in the us, I had
+BlenderBot-3: Danill Medvedev defeated              to order it online from Japan! Do you like
+Novak Djokovic in straight sets to win his          movies?
+second consecutive Australian Open
+title and ninth career grand slam
+championship.
+
+FACT CHECK
+Novak Djokovic claimed the men's singles title in 2023,        “After Dark” is a book
+his tenth Australian Open title and 22nd major title
+overall, tying Rafael Nadal's all-time record.
+      Key Takeaway
+        • Blenderbot-3 is very conversational
+          • Different from a Q and A bot
+        • Blenderbot-3 has high evaluation from crowdworkers
+          but has poor accuracy in our tests!
+          • Quiz: Why?
+
+                         Crowdworkers are asking popular topics.
+
+
+
+
+LAM                                                                STANFORD
+      Atlas (2022)
+                 • SOTA on many popular knowledge-intensive tasks
+                      • Including the Wizard of Wikipedia dialog dataset
+                 • Atlas uses the
+                      • word-level F1 overlap of the model’s utterances
+                      • with the first 10 sentences of the Wikipedia page
+                        for the conversation topic
+                 • Favors generic, irrelevant, extractive responses
+
+
+
+      Atlas: Few-shot Learning with Retrieval Augmented Language Models, Izacard et al, arXiv 2022
+LAM                                                                                                  STANFORD
+Atlas Conversation Example
+ User: I would like to talk about Amelia Gething. Can you tell me more about her
+ career as an actress and writer?
+ Atlas: She was born in London in 1999.
+ User: Yes, I know that. I was wondering if you could tell me more about her work
+ as an actress and writer. What are some of her notable roles or projects?
+ Atlas: She has a YouTube channel.
+ User: […] I know she wrote and starred in the BBC show "The Amelia Gething
+ Complex". Have you seen that show?
+ Atlas: I haven't. I have seen her in the Starz historical drama The Spanish Princess.
+ User: Oh, that's interesting. I haven't seen that show yet, but I'll have to check it
+ out. What did you think of Amelia Gething's performance in it?
+ Atlas: I liked her. She primarily writes surreal comedy.
+ User: That's cool. I appreciate when writers have a unique style like that. Have you
+ seen any of her comedy writing? If so, what did you think of it?
+ Atlas: I haven't. She has a YouTube channel.                Do you like this conversation?
+      Quiz: Is factuality enough?
+      Conversationality Metrics
+
+
+
+
+LAM                                 STANFORD
+      Conversational Metrics
+         • Relevant
+         • Informational
+            • Saying “I don’t know” is penalized under this metric.
+         • Natural
+         • Non-Repetitive
+         • Temporally Correct
+            • Chatbots should provide up-to-date information
+              and use the appropriate tense
+
+
+LAM                                                                   STANFORD
+      Lecture Outline
+         • Background of Knowledge Assistants Technology
+         • Metrics for Knowledge Assistants
+         • Methodology Paradigm Shift
+         • Design of Wikichat
+         • Evaluation
+
+
+
+
+LAM                                                        STANFORD
+      Need for a Paradigm Shift in NLP Techniques
+         • The classic NLP development methodology:
+           • Create a dataset (train, eval, test)
+             “Annotations in existing NLP datasets are full of mistakes!
+              LLM-generated results are better!”
+             “There is no single golden answer. How do we compare?”
+           • Train
+             “Fine-tuning on a problem-specific dataset
+              can make LLMs worse (and it is very expensive).
+
+
+LAM                                                                        STANFORD
+            W I KI C H A T E N G I N E E RI N G
+        T O OK 3 S T U DE N T S 4 M O N T HS !
+
+E V A L U A T I ON T O OK A N O T HE R 2 - 3 M ON T H S !
+      LLM Engineering
+      Systematically create well-tested step-by-step algorithms (computational thinking)
+
+      1. Design the metrics                             4. Evaluate
+      2. Start with the most general instruction        • Tests must cover the hardest cases
+      3. Debug until you can’t break it                 • Test with LLM-simulated chats
+      • Test with “critical” examples                     with hard, varied personalities
+
+      • Root-cause analysis of LLM errors               • Evaluate with an LLM
+
+      • Add/refine the steps                                • If LLM disagrees with human
+
+      • Add rationale to the prompt;                          • Use human evaluation
+        add critical examples as an aid                 •    Test with real users
+         Good news: Debugging with critical examples achieves high Wikichat quality.
+                                      The key: Look at the errors!
+LAM                                                                                         STANFORD
+      Lecture Outline
+         • Background of Knowledge Assistants Technology
+         • Metrics for Knowledge Assistants
+         • Methodology Paradigm Shift
+         • Design of Wikichat
+         • Evaluation
+
+
+
+
+LAM                                                        STANFORD
+      Grounding LLMs with Wikipedia
+         • We assume access to a knowledge source,
+           in the form of a collection of text documents
+
+
+         • We choose the English Wikipedia
+           • Large scale (4.3B words in 6.7M articles)
+           • Open-domain: talk about “everything”
+           • A ton of prior work to compare to
+           • Publicly available for reproducibility
+
+         If we can handle Wikipedia, we can handle other large, open-domain corpora
+LAM                                                                                   STANFORD
+WikiChat
+      WikiChat Demo                               Words from conversations
+                                                   translated into English
+
+        https://wikichat.genie.stanford.edu/
+
+
+        35K+ questions so far, in 10+ languages
+
+
+
+
+LAM                                                                          STANFORD
+      Formalizing our Human Cognitive Process
+
+                                        LLM Generation
+           Information Retrieval        (For Facts,
+          (For facts)                     Conversationality)
+
+
+
+                              Combine
+
+
+
+
+LAM                                                            STANFORD
+           The 7-Stage WikiChat Pipeline
+
+
+1. Query
+
+
+
+
+               Retrieve
+
+
+
+
+                                           Retrieve
+           The 7-Stage WikiChat Pipeline
+
+
+1. Query
+
+
+
+
+               Retrieve
+
+
+
+
+                                           Retrieve
+                           S TA GE 1 : R E TRIE V AL
+
+      Answering Questions from a Document
+
+          Document                 LLM:
+                                  Answer                Answer
+                Query             question
+
+
+         • Effectiveness depends on the length of the document
+         • Document length is limited.
+           • GPT-4: 128K token limit, about 96K words
+LAM                                                              STANFORD
+                                        S TA GE 1 : R E TRIE V AL
+
+      Retrieving from a Large Corpus
+                                                                                       Future
+                                                                                       Topic
+
+                                                                    Similarity score between
+                                                                     Query and Document
+      ColBERT Information Retrieval (IR)
+      • Find the document that best
+         matches a question
+        • Highest similarity score between
+           query and chunk of document
+      • Fine-tune BERT on MS MARCO (2016)
+        • Passage ranking for questions
+
+      Retrieving the right article is critical to the
+      success of retrieval-based methods
+
+ https://microsoft.github.io/msmarco/
+LAM                                                                                             STANFORD
+                                                              S TA GE 1 : R E TRIE V AL
+      M3 Embedding                                                                                                                                   Future
+                                                                                                                                                     Topic
+      (Multi-lingual Documents)                                                                                            Similarity score between
+                                                                                                                            Query and Document
+  Find the document that best matches a question
+  • Fine-tune XLM-R on 17 multilingual passage ranking datasets
+      • And some synthetic data too
+  • Multilingual: > 100 languages
+  • Multifunctional: dense, multi-vector and sparse retrieval
+  • Multigranularity: short sentences to long documents
+  • Wikichat updated to use M3: multi-lingual!
+
+
+
+      M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation, Chen et al, Findings of ACL August
+LAM   2024                                                                                                                                                             STANFORD
+                             S TA GE 1 : R E TRIE V AL
+
+      Basic RAG Pipeline
+
+      Question
+                                                            LLM
+                    Information      Retrieved            question
+                      Retrieval        Data              answering   Answer
+
+
+
+           Retrieval must return the right document for accuracy
+
+
+
+LAM                                                                       STANFORD
+                              S TA GE 1 : R E TRIE V AL
+
+      Quiz: What’s Wrong with this Conversation?
+                 Time of the conversation: March 2023;
+                 Retrieved data1:
+                   ‘House of the Dragon’ won the Golden Globe Best Television Series in January 2023.
+
+                 Retrieved data2:
+                  ‘House of the Dragon’ Earns Two Golden Global Nominations, Dec. 2022
+
+                 User: What do you think is the best TV drama of 2022?
+                 Chatbot: I think it has to be House of the Dragon.
+                 User: Did it win any award?
+                 Chatbot: Yes, it won the Golden Globe Award for the best drama TV series.
+                 User: Why else do you think it is a good drama?
+                 Chatbot: The first season received highly positive reviews, …
+                 In January 2023, the series is expected to win the Golden Globe Award
+                 for Best Television Series - Drama.
+LAM                                                                                          STANFORD
+                              S TA GE 1 : R E TRIE V AL
+
+      Problem: Context of Retrieved Information vs. Now
+
+           • LLMs are trained with all past knowledge all at once
+           • Does not have a good model of the passage of time
+           • We need to tell it “the current time”
+
+
+
+
+LAM                                                                 STANFORD
+                             S TA GE 1 : R E TRIE V AL
+
+      Solution: Provide the Time/place Context
+      1. Query Prompt
+
+
+
+
+                   Time context is included in every prompt!
+LAM                                                            STANFORD
+           The 7-Stage WikiChat Pipeline
+
+
+1. Query
+
+
+
+
+               Retrieve
+
+
+
+
+                                           Retrieve
+                            S TA GE 2 : A NS W ERI NG W IT H R E TRIE V ED I NF O
+
+    Recall: Commercial RAG (2024)
+                 RAG available in : ChatGPT, Co-Pilot, Gemini, Perplexity
+                 BBC reported in Jan 2025:
+                 •   51% of AI answers to news problems have
+                     significant issues.
+                 •   19% of AI answers which cited BBC
+                     content introduced factual errors.
+                 •   13% of the quotes sourced from BBC
+                     articles were either altered or didn’t
+                     actually exist in that article.
+
+
+  Representation of BBC News content in AI Assistants. 2025.
+LAM                                                                                 STANFORD
+           S TA GE 2 : A NS W ERI NG W IT H R E TRIE V ED I NF O
+    Solution
+    + Filter each paragraph separately
+
+
+                                         2. Summarize & Filter
+1. Query                                        x
+
+
+
+                                                                   Output
+            Retrieve
+
+
+
+
+                                                                            38
+          S TA GE 2 : A NS W ERI NG W IT H R E TRIE V ED I NF O
+  Prompt 2: Summarize & Filter
+
+
+
+
+LAM                                                               STANFORD
+                            S TA G E 3 : L L M G E NER A TI ON
+           Problem 3: LLM’s Generation May Not be Factual
+
+
+
+1. Query
+
+
+
+
+                 Retrieve
+
+
+
+
+                                           LLM may hallucinate.
+                                           How to fact-check generation?
+              3. Generate
+                 S TA G E 4 - 5 : F AC T - C HE C KI NG L L M G E NER A TI ON
+           + Extract Claims + Fact-check
+
+
+1. Query
+                                              2. Summarize & Filter
+
+                            -5
+
+
+                Retrieve
+                                                                                 Output
+
+
+
+
+                                                                      5. Fact-
+                                                                       check
+
+
+              3. Generate                      4. Extract Claims
+           S TA G E 4 - 5 : F AC T - C HE C KI NG L L M G E NER A TI ON
+
+      Why is Fact-Checking Hard? Example
+
+
+
+
+LAM                                                                       STANFORD
+           S TA G E 4 - 5 : F AC T - C HE C KI NG L L M G E NER A TI ON
+
+      Why is Fact-Checking Hard? Example
+
+
+
+
+               Just a part of the response is false!
+
+                Correct: only top 2 teams qualified
+                But there was indeed a third place match!
+
+
+LAM                                                                       STANFORD
+                    S TA G E 4 - 5 : F AC T - C HE C KI NG L L M G E NER A TI ON
+       People Fact-Checking People for People
+       • Journalists fact-check politicians all the time:
+           • Identify the claims
+
+
+
+
+https://www.nytimes.com/2023/08/03/us/politics/trump-indictment-fact-check.html
+       S TA G E 4 - 5 : F AC T - C HE C KI NG L L M G E NER A TI ON
+People Fact-Checking People for People
+• Journalists fact-check politicians all the time:
+  • Identify the claims
+  • Score them
+      S TA G E 4 - 5 : F AC T - C HE C KI NG L L M G E NER A TI ON
+People Fact-Checking Bots
+• Reduce the complexity of fact-checking with two assumptions:
+  • Factuality is only meaningful
+    when measured against a source of ground truth
+    • Wikipedia
+    • Newspapers trust their own prior publications
+  • If claims are atomic, each claim is either true or false
+• Factuality: #(fact-checked claims)
+                      #claims
+           S TA G E 4 - 5 : F AC T - C HE C KI NG L L M G E NER A TI ON
+Fact-Checking an LLM Response
+    Identify the claims made
+    For each claim:
+        1. Search the ground truth to find relevant docs
+        2. Verify if the claim is supported
+
+
+User: I would like to talk about the       Many claims in a sentence:
+2023 Australian Open Men’s singles         For each claim
+tennis championship. Did you hear
+about it?
+                                                                                  Retrieve
+                                                                                   Output
+Chatbot: Yes, I did hear about it! Novak
+Djokovic won the 2023 Australian Open
+Men’s singles tennis championship,
+claiming his tenth Australian Open title
+and 22nd major title overall. It was an
+                                                                   Claim is supported
+impressive victory!                                                     or not?
+                  …
+                            S TA G E 4 - 5 : F AC T - C HE C KI NG L L M G E NER A TI ON
+
+      Performance on Fact-Checking
+              • Claim Identification
+                   • Can be done well using GPT-4
+                   • Need to ensure that the claims are self-contained
+              • Search
+                   • Can be done well using state-of-the-art IR
+              • Fact check a statement against a given paragraph
+                       • Automatic SOTA has ~67% F1 with fine-tuned LLaMA
+                         or 83.2% F1 with few-shot ChatGPT           Not so good!
+                                                                                                        Must evaluate by hand
+      Automatic Evaluation of Attribution by Large Language Models, Yue et al, arXiv 2023
+LAM   FactScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation, Min et al, arXiv 2023   STANFORD
+             S TA G E 6 - 7 : C O M BIN IN G R E TR IE V AL W IT H G E NER A TI ON
+           + Draft + Refine
+
+
+1. Query
+
+
+
+
+                Retrieve
+
+
+
+
+                                                                 Retrieve
+         S TA G E 6 - 7 : C O M BIN IN G R E TR IE V AL W IT H G E NER A TI ON
+
+      Problem: LLMs Still May Hallucinate
+         • If we simply ask LLMs to answer based on the combination
+           • May still hallucinate!
+         • Hardest thing for LLMs to say: “I don’t know”
+           • It likes to hallucinate
+         • When no information remains in a topic
+           • Draft is prompted to say: ”Sorry, I don’t know”
+
+
+
+
+LAM                                                                              STANFORD
+      Summary of GenieChat (7 Prompts)
+                                             LLM (Conversationality + Factuality)
+        Traditional (Factuality)             3.    Ask GPT to generate answer
+        1. Formulate query from input        4.    Extract claims
+          • Retrieve documents (M3)          5.    Fact-check/remove each claim
+        2. Filter each retrieved doc              • Retrieve documents (M3)
+
+
+
+                                   6.   Draft
+                                   7.   Refine
+
+                                   # LLM calls: 5 + n + c
+                                   n: # documents retrieved based on user queries
+                                   c: # claims generated
+LAM                                                                                 STANFORD
+                                            RECAP
+
+      LLM Engineering
+      Systematically create well-tested step-by-step algorithms (computational thinking)
+
+      1. Design the metrics                             4. Evaluate
+      2. Start with the most general instruction        • Tests must cover the hardest cases
+      3. Debug until you can’t break it                 • Test with LLM-simulated chats
+      • Test with “critical” examples                     with hard, varied personalities
+
+      • Root-cause analysis of LLM errors               • Evaluate with an LLM
+
+      • Add/refine the steps                                • If LLM disagrees with human
+
+      • Add rationale to the prompt;                          • Use human evaluation
+        add critical examples as an aid                 •    Test with real users
+         Good news: Debugging with critical examples achieves high Wikichat quality.
+                                      The key: Look at the errors!
+LAM                                                                                         STANFORD
+      Lecture Outline
+         • Background of Knowledge Assistants Technology
+         • Metrics for Knowledge Assistants
+         • Methodology Paradigm Shift
+         • Design of Wikichat
+         • Evaluation
+
+
+
+
+LAM                                                        STANFORD
+      Old Data Sets Do Not Work
+                      No simple numeric benchmark to iterate on
+
+
+         • Evaluation conversations in the past were crowdsourced
+           • Ask crowdworkers to talk to each other about a familiar topic
+           • Have blind spots like tail or expert topics
+         • Evaluation conversations were static
+           • Get outdated quickly
+             • Wizard of Wikipedia dataset topics in GPT-3’s pre-training data
+             • New benchmarks used for pre-training in the future
+
+LAM                                                                              STANFORD
+      How to Eval WikiChat?
+         • How to evaluate tail questions?
+           • Humans do not know tail topics!
+         • How to evaluate LLM conversations?
+           • How to compare the results between systems
+             since their dialogue diverges after the first turn!
+           • Cannot get a numeric result to measure success
+         • How to minimize human effort, cost, and potential errors?
+
+               Solution: LLMs come to the rescue!
+
+LAM                                                                    STANFORD
+ Evaluation Summary
+                                                           Conversation Generation
+              Head/Tail/Recent
+
+
+
+
+                                               Simulated                                   LLM chatbot
+                                                  User
+
+
+                                                               Evaluation
+      User: I would like to talk about the 2023
+      Australian Open Men’s singles tennis           Factual Accuracy
+      championship. Did you hear about it?
+      Chatbot: Yes, I did hear about it! Novak                             Claim      Evidence
+                                                                                                   Crowdworker
+      Djokovic won the 2023 Australian Open                              Identifier   Retriever
+      Men’s singles tennis championship,                                              When claim checking fails
+      claiming his tenth Australian Open title and                                    •  IR may not retrieve
+      22nd major title overall. It was an                                                relevant articles
+      impressive victory!                            Conversationality
+                                                                           Rater      •  Retrieve/check manually
+                                                                                      Expensive, but rare
+LAM                                                                                                                STANFORD
+      Implementation of WikiChat (v1)
+                 • We use ColBERTv2 for IR
+                      • Is fast (~100 ms query latency)
+                      • Is trained on MS MARCO (2016)
+                 • Wikipedia corpus obtained on 4/28/2023
+                 • We use text-davinci-003 or gpt-4 as the LLM for all prompts
+
+
+
+
+      ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction, Santhanam et al, NAACL 2022
+LAM                                                                                                                STANFORD
+      Experiment
+        • Baselines
+          • Fine-tuned models
+            • Atlas: state-of-the-art on many knowledge-grounded tasks
+            • 3B parameters
+          • LLMs
+            • Text-davinci-003 or GPT-4, prompted to be a chatbot
+
+
+        • Each evaluated for 600 dialog turns
+
+
+LAM                                                                      STANFORD
+Results – Factual Accuracy
+                                                      Factuality
+             98.8 97.1                                                       98.5                           97.3
+100   94.9               95.2               94.6
+                                90.6
+                                                          87.1 86.5                 88.2 90.9 89.4                 89.2 91.1 88.8
+                                                   82.2
+80
+                                                                                                     66.1
+60                                     56
+                                                                      47.5
+
+40
+
+20
+
+ 0
+                Head                               Tail                        Recent                              All
+                 GPT-4           WikiChat-GPT4            WikiChat-GPT3.5            WikiChat-LLaMA          Atlas
+Results - Conversationality
+
+    5 4.9                                             5 4.9 4.9             5   5                   4.9 5 4.8
+5         4.8 4.7         4.8                                   4.8                 4.8 4.9                   4.7 4.6
+                                4.6 4.6                                                       4.5
+                                          4.3
+4                                                                     3.8
+                    3.6
+
+3                                               2.8
+
+
+2
+
+1
+
+0
+       Relevant             Informational                 Natural           Non-Repetitive             Temporal
+             GPT-4        WikiChat-GPT4               WikiChat-GPT3.5       WikiChat-LLaMA           Atlas
+Design Analysis: Do we need both IR and LLM?
+Information Retrieval and LLM are color-coded
+
+   User: Can we talk about Sting, the musician?
+   WikiChat: Sure! Sting is an English musician and actor, best known as the frontman,
+   songwriter and bassist for the new wave rock band the Police. He has released several solo
+   albums and has won numerous awards, including 17 Grammy Awards and a Golden Globe.
+   User: […] What do you think makes Sting’s music so unique?
+   WikiChat: Sting’s music is often very personal and introspective, and he often uses his music
+   to express his own thoughts and feelings. He also has a great ability to blend different genres
+   and create unique sounds.
+   User: Do you think his birthplace has influenced his music?
+   WikiChat: Yes, Sting has been heavily influenced by his birthplace of Newcastle upon Tyne,
+   England. As a child, he was inspired by the Queen waving at him from a Rolls-Royce, which
+   diverted him from the shipyard prospect towards a more glamorous life. He was also
+   influenced by the music he heard in local nightclubs he visited such as Club A'Gogo.
+      Analyzing the Design
+         • Analysis of each component
+           • Do we need 2 pipelines? YES
+             • 27% of facts come from LLM generation
+
+
+           • Do we need to fact-check LLM output: YES
+             • Failed: 20% (head); 45% (tail); 56% (recent)
+
+
+
+
+LAM                                                           STANFORD
+                     Q UIZ:
+
+
+A R E W E D O N E A N A L Y ZI N G W I KI C H A T ?
+      Real User Evaluation
+           • Real user evaluation was seldom performed before LLM
+             because of poor accuracy
+           • Most important metric!
+        User study: User reads the first sentence of a new Wikipedia page
+
+                 Model                 User Rating (out of 5)         Factuality
+       GPT-4                                      3.4                    42.9%
+       WikiChat using GPT-4                       3.8                    97.9%
+
+        GPT-4: Users are not even aware that over half of the statements are false
+LAM                                                                                  STANFORD
+      Extra Notes
+         • Speed
+           • We showed distilling to Llama could speed up the process
+           • OpenAI O1-mini is fast enough without fine-tuning
+         • Multi-lingual Knowledge
+           • Requires multi-lingual entity resolution
+             e.g. Hsiang-Tsung Kung and 孔祥重 is the same person
+             (Wikidata)
+
+
+
+LAM                                                                     STANFORD
+      Conclusion
+        • WikiChat
+         • Combines the best of both worlds (LLM generation and IR)
+         • Is as conversational as LLMs
+         • Is far more factual than all baselines – useful for all tasks
+
+
+
+
+LAM                                                                        STANFORD
+      Is this Applicable to Persuasion Bots?
+      •     Is this applicable to persuasive tasks?
+           • Yes, otherwise it hallucinates success stories! “There is a girl called Maria ….”
+      •     Is this sufficient?
+           • No! all the success stories are removed! Not very persuasive!
+           •    Solution: Search with the intent of the fake story:
+               •     ”Tell an impact story about an individual”
+      •     Is the evaluation method for conversationality applicable?
+           • No! LLM evaluation on persuasiveness is not correlated with human evaluation
+           •    Solution: Manual evaluation
+
+
+      Zero-shot Persuasive Chatbots with LLM-Generated Strategies and Information Retrieval
+      Kazuaki Furumai, Roberto Legaspi, Julio Vizcarra, Yudai Yamazaki, Yasutaka Nishimura, Sina J. Semnani, Kazushi Ikeda, Weiyan Shi, Monica S. Lam
+      In Findings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP) , Miami, Florida, November 12 –16, 2024.
+LAM                                                                                                                                                     STANFORD
+                                            RECAP
+
+      LLM Engineering
+      Systematically create well-tested step-by-step algorithms (computational thinking)
+
+      1. Design the metrics                             4. Evaluate
+      2. Start with the most general instruction        • Tests must cover the hardest cases
+      3. Debug until you can’t break it                 • Test with LLM-simulated chats
+      • Test with “critical” examples                     with hard, varied personalities
+
+      • Root-cause analysis of LLM errors               • Evaluate with an LLM
+
+      • Add/refine the steps                                • If LLM disagrees with human
+
+      • Add rationale to the prompt;                          • Use human evaluation
+        add critical examples as an aid                 •    Test with real users
+         Good news: Debugging with critical examples achieves high Wikichat quality.
+                                      The key: Look at the errors!
+LAM                                                                                         STANFORD
+

@@ -1,0 +1,21 @@
+# Official Lecture 2: Indirect Proofs
+
+- Date: 2026-04-03
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 蘊涵的前件、後件、方向性、非因果性與唯一失敗條件
+  - [x] 否定定義與 snowing／sunny 反例
+  - [x] 全稱與存在量詞的否定及 friends-taller 圖例
+  - [x] 蘊涵否定與 March Madness／A+ 四情況
+  - [x] 逆否等價性與 puppy／cat-food 例子
+  - [x] n² 偶則 n 偶的完整逆否證明與整數見證
+  - [x] 雙條件的兩方向及 direct／contrapositive 分工
+  - [x] 反證法的假設、矛盾與結論結構
+  - [x] 不存在最大集合的 power-set／Cantor 反證
+  - [x] 奇偶定理的反證版本與三項書寫要求
+  - [x] direct／contrapositive／contradiction 三種入口
+  - [x] 公開材料界線、action items 與 next-time 範圍
+- Boundary: do not infer spoken content or use restricted solutions.

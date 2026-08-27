@@ -1,0 +1,521 @@
+  Linkers
+Mendel Rosenblum
+
+
+
+   CS111 Lecture Notes - Linkers
+Linkers
+Optional readings: Operating Systems: Principles and Practice: None
+●   First ⅓ of class: CPU issues (threads, processes, synch, sched) done
+Looking ahead:
+●   Next ⅓ of class: main memory issues
+     ○ Process memory layout
+     ○ Virtual memory
+     ○ Paging
+●   Last ⅓ of class: Storage (Disk/Flash) & File Systems
+
+
+
+                              CS111 Lecture Notes - Linkers
+                                Main Memory
+●   Technology: DRAM (dynamic random access memory)
+●   Persistence: Volatile
+●   Accessibility: Byte addressable, accessed in 64 byte (cache line size) units
+●   Access time: ~60–100 ns, 200-300 CPU cycles
+●   Capacity:
+     ○ Laptop:    16–64 GB
+     ○ Desktop:   32 - 256 GB
+     ○ Server:    512 - 4096 GB NUMA (non-uniform memory architecture)
+
+
+
+                                 CS111 Lecture Notes - Linkers
+              Application memory of a process
+
+int global = 7;           // global data
+int* gptr = &global;      // global pointer (contains an address)
+
+void func(int x) {
+    int local = x;        // stack variable
+    int* lptr = &local;   // stack pointer (contains an address)
+
+    int* heap = new int(42);   // heap object
+    lptr = heap;               // pointer now holds heap address
+
+    delete heap;
+}
+
+
+
+
+                                 CS111 Lecture Notes - Linkers
+Memory Layout for Process
+   ∞
+               Stack
+
+
+
+                                       Segments/Sections
+
+                Data
+
+
+       Code ("text")
+   0
+       CS111 Lecture Notes - Linkers
+      Map of program to segments
+∞
+       Stack
+                               int global = 7;
+                               int* gptr = &global;
+
+                               void func(int x) {
+        Data                       int local = x;
+                                   int* lptr = &local;
+                                   int* heap = new int(42);
+    Code ("text")                  lptr = heap;
+                                   delete heap;
+0                              }
+                    CS111 Lecture Notes - Linkers
+Memory layout questions
+●   What if there are 2 processes loaded into memory at once?
+     ○   Who gets address 0?
+●   Where does the operating system's code and data go?
+●   What if there are multiple threads within a process?
+     ○   Need private stack on thread
+
+●   What if I want to add more code to a running application?
+
+
+
+
+                                        CS111 Lecture Notes - Linkers
+Will comeback to this figure
+    ∞
+                Stack
+
+
+
+
+                 Data
+
+
+        Code ("text")
+    0
+        CS111 Lecture Notes - Linkers
+          Creating a Process Memory Layout
+Source           Assembly                 Object                     Executable
+ Code               Code                   File
+                                             101010101010
+                                             101010101010
+                                             101010101010
+                                             101010101010
+
+
+
+
+ x.c       gcc      x.s       as            x.o
+                                                                                                                 ∞
+                                                                                                    Stack
+                                                                                       ./a.out
+                                             101010101010               101010101010
+                                             101010101010               101010101010
+                                             101010101010
+                                             101010101010
+                                                                        101010101010
+                                                                        101010101010    OS           Data
+
+
+ y.c       gcc      y.s       as             y.o              ld       a.out                     Code ("text")
+                                                                                                                 0
+
+
+
+                                             101010101010
+                                             101010101010
+                                             101010101010
+                                             101010101010
+
+
+
+
+ z.c       gcc      z.s       as            z.o
+         Compiler          Assembler                        Linker                     Loader
+                                   CS111 Lecture Notes - Linkers
+Compiler transforms source code into assembly code
+              Source                Assembly
+               Code                    Code
+
+
+               x.c        gcc            x.s
+
+
+
+               y.c        gcc            y.s
+
+
+
+               z.c        gcc            z.s
+                       Compiler
+                       CS111 Lecture Notes - Linkers
+Assembler transforms assembly code into binary
+         Assembly                Object
+           Code                   File
+                                    101010101010
+                                    101010101010
+                                    101010101010
+                                    101010101010
+                                                      Object files are incomplete
+           x.s       as            x.o
+                                                      Missing information:
+                                    101010101010
+                                    101010101010
+                                    101010101010
+                                    101010101010
+                                                      Where things land in memory?
+                                                         Function calls
+           y.s       as             y.o                  External data references
+                                    101010101010
+                                    101010101010
+                                    101010101010
+                                    101010101010
+
+
+
+
+           z.s       as            z.o
+                  Assembler
+                          CS111 Lecture Notes - Linkers
+Linkage editor (linker) combines object files
+        Runtime Libraries
+
+
+ x.o             Executable
+
+
+
+ y.o    ld         a.out
+
+
+
+ z.o
+        Linker
+                        CS111 Lecture Notes - Linkers
+Loader in OS loads executable into memory
+
+
+                                                                             ∞
+                                                                Stack
+                                   ./a.out
+              101010101010
+              101010101010
+              101010101010
+              101010101010             OS                        Data
+
+
+            a.out                                            Code ("text")
+                                                                             0
+Jumps to the start location in code segment
+                             CS111 Lecture Notes - Linkers
+Runtime libraries
+●   Memory allocation routines
+     ○   malloc in C or new in C++
+     ○   Calls into OS to grow data segment                                            ∞
+                                                                          Stack
+●   Stack segments typically grown on demand
+●   System call stub routines
+     ○   Makes calls into operating system kernel
+                                                                           Data
+
+
+                                                                       Code ("text")
+                                                                                       0
+
+
+                                       CS111 Lecture Notes - Linkers
+Linkage Editors
+
+
+
+   CS111 Lecture Notes - Linkers
+             Source code to running process
+Source           Assembly                 Object                     Executable
+ Code               Code                   File
+                                             101010101010
+                                             101010101010
+                                             101010101010
+                                             101010101010
+
+
+
+
+ x.c       gcc      x.s       as            x.o
+                                                                                                                 ∞
+                                                                                                    Stack
+                                                                                       ./a.out
+                                             101010101010               101010101010
+                                             101010101010               101010101010
+                                             101010101010
+                                             101010101010
+                                                                        101010101010
+                                                                        101010101010    OS           Data
+
+
+ y.c       gcc      y.s       as             y.o                ld     a.out                     Code ("text")
+                                                                                                                 0
+
+
+
+                                             101010101010
+                                             101010101010
+                                             101010101010
+                                             101010101010
+
+
+
+
+ z.c       gcc      z.s       as            z.o
+         Compiler          Assembler                        Linkage editor             Loader
+                                   CS111 Lecture Notes - Linkers
+                               Linkage Editors
+
+ld in Linux, LINK on Windows
+Challange: assembler doesn't know ultimate memory locations of things
+    Assembler use a placeholder value like 0 for unknowns
+Linkage editor steps:
+1. Combine like things (all code segment)
+2.   Figures out memory layout
+      ○   How big is code segment?
+
+3.   Modifies address to match memory layout
+      ○   Function calls
+      ○   External data references
+                                     CS111 Lecture Notes - Linkers
+Object file contents
+●   Sections: code ("text") and data (stack starts empty):
+     ○ size
+     ○ starting address
+     ○ initial contents (if any)
+●   Symbol table: For routines and (non-stack) variables of external interests
+     ○ name
+     ○ current location
+●   Unresolved references:
+     ○ Location
+     ○ Address
+●   Debugging information
+     ○ Examples: source line numbers for breakpoints, layout of structures, variable locations
+
+                                     CS111 Lecture Notes - Linkers
+                         A Simple Example
+main.c                                       stdio.c
+extern float sin();                           FILE* stdin, stdout;
+extern printf(), scanf();
+                                              int printf(const char* format,...) {
+main() {                                        ...
+  double x, result;                             fputc(c, stdout);
+  printf("Type number: ");                      ...
+  scanf("%f", &x);                            }
+  result = sin(x);
+  printf("Sine is %f\n",                      int scanf(const char* format,...) {
+         result);                               ...
+}                                               c = fgetc(stdin);
+                                                ...
+                                              }
+math.c
+double sin(double x) {
+  ...
+}
+                             CS111 Lecture Notes - Linkers
+                             main.o Object File
+main.c                                                           main.o
+extern float sin();                                          0       main:                  text section
+extern printf(), scanf();                                            ...
+                                                            30       call printf
+main() {                                                             ...
+  double x, result;                                         52       call scanf
+  printf("Type number: ");                                           ...
+  scanf("%f", &x);                                          60       call sin
+  result = sin(x);                                                   ...
+  printf("Sine is %f\n",                                    86       call printf
+         result);
+}                                                            0       _s1: "Type number: "   data section
+                                                            14       _s2: "%f"
+                                                            17       _s3: "Sine is %f\n"
+
+                                                                     main     T[0]             symbols
+             “Store the final location of sin                        _s1      D[0]
+                                                                     _s2      D[14]
+             at offset 60 in the text section”                       _s3      D[17]
+
+                                                                     printf   T[30]          unresolved
+                                                                     printf   T[86]          references
+                                                                     scanf    T[52]
+                                                                     sin      T[60]
+                                                                     _s1      T[24]
+                                                                     _s2      T[54]
+                                                                     _s3      T[80]
+
+                                     CS111 Lecture Notes - Linkers
+                                  stdio.o Object File
+stdio.c                                                           stdio.o
+ FILE* stdin, stdout;                                                 ...             text section
+                                                             44       printf:
+ int printf(const char* format,                                       ...
+     ...) {                                                118        load stdout
+   ...                                                                ...
+   fputc(c, stdout);                                       232        scanf:
+   ...                                                                ...
+ }                                                         306        load stdin
+                                                                      ...
+ int scanf(const char* format,
+     ...) {                                                   0       stdin:          data section
+   ...                                                        8       stdout:
+   c = fgetc(stdin);
+   ...                                                                printf T[44]       symbols
+ }                                                                    scanf  T[232]
+                                                                      stdin  D[0]
+                                                                      stdout D[8]
+
+                                                                      stdout T[118]    unresolved
+                                                                      fputc  T[122]
+                                                                      stdin  T[306]    references
+                                                                      fgetc  T[310]
+
+
+
+                                      CS111 Lecture Notes - Linkers
+Linker execution
+Three scans over the object files:
+
+ ●   Pass 1:
+      ○   Read in section sizes
+      ○   Compute memory layout
+ ●   Pass 2:
+      ○   Read in all symbols
+      ○   Create complete symbol table in linker's memory.
+ ●   Pass 3:
+      ○   Read in sections and unresolved references
+      ○   Update addresses
+      ○   Write out executable file.
+
+                                     CS111 Lecture Notes - Linkers
+                        After Pass 1
+      Memory
+836
+       map:
+         stdio.o data
+                                               ●     Pass 1:
+760
+         main.o data                                  ○   Read in section sizes
+720                                                   ○   Compute memory layout
+         math.o text
+508
+
+         stdio.o text
+ 96
+         main.o text
+  0
+
+                         CS111 Lecture Notes - Linkers
+                        After Pass 2
+      Memory                           Symbol table:
+836
+       map:                          Name           File Sec Offset   Addr
+         stdio.o data                main           main.o T      0   0
+                                     _s1            main.o D      0   720
+760                                  _s2            main.o D      14 734
+720      main.o data                 _s3            main.o D      17 737
+                                     printf         stdio.o  T    44 140
+         math.o text                 scanf          stdio.o  T    232 328
+508                                  stdin          stdio.o  D    0   760
+                                     stdout         stdio.o  D    8   768
+         stdio.o text                sin            math.o T      0   508
+ 96
+                                ●     Pass 2:
+         main.o text                   ○   Read in all symbols
+  0                                    ○   Create complete symbol table in linker's memory.
+                         CS111 Lecture Notes - Linkers
+           Pass 3: Resolving References
+          ...
+30      call 0      text section in main.o
+          ...
+
+
+
+     printf T[30]   unresolved reference in main.o
+
+
+     printf: 140    symbol
+                    table
+                                                        ●   Pass 3:
+                                                             ○   Read in sections and
+         ...
+30    call 140                                                   unresolved references
+                    text section in a.out
+         ...                                                 ○   Update addresses
+                                                             ○   Write out executable file.
+                        CS111 Lecture Notes - Linkers
+Dynamic linking
+● Lecture so far has described what is called static linking
+    ○   Each program complete
+    ○   All references resolved
+●   Much wasted memory as language libraries grew
+
+● Systems today support shared libraries and dynamic linking
+    ○   Single copy of libraries in memory, shared by all processes.
+    ○   Library location isn't known until program is loaded into memory
+         ■ Resolve references dynamically, during program execution
+
+
+                               CS111 Lecture Notes - Linkers
+Dynamic linking: One approach: Jump Tables
+       Static linking                                          Dynamic loader
+
+
+         stdio.o data
+                                                                     JMP XXX
+                                                                     JMP XXX
+        main.o data
+                                                                     JMP XXX
+         math.o text                                                 JMP XXX
+
+                    printf
+         stdio.o text
+                                                                    main.o data
+
+    main.o text call printf                                   main.o text call printf
+                              CS111 Lecture Notes - Linkers
+Dynamic linking: Jump Table program start up
+Before execution starts                                    After dynamic linking
+
+
+
+        JMP XXX                                                    JMP XXX
+        JMP XXX                                                    JMP printf
+
+        JMP XXX                                                    JMP XXX
+        JMP XXX                                                    JMP XXX
+
+
+
+
+       main.o data                                                main.o data
+
+ main.o text call printf                                    main.o text call printf
+                           CS111 Lecture Notes - Linkers
+Jump Table and Dynamic loader
+●   Jump Table Entry:
+     ○   Name of a function (e.g. printf)
+     ○   Name of shared library file containing function
+     ○   Jump instruction to the beginning of that function (not known during linking)
+
+●   Dynamic load code invoked at program startup: scan jump table:
+     ○   Map in the shared libraries mentioned in the jump table
+     ○   Fill in the table jump instructions.
+
+●   Jump table stored in data section
+●   Call dynamic loader before program main
+
+
+                                        CS111 Lecture Notes - Linkers
+

@@ -1,0 +1,23 @@
+# Official Lecture 24: Unsolvable Problems, Part II
+
+- Date: 2026-05-25
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/24/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/24/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] HALT 的定義與位置
+  - [x] 為何 HALT 可辨識
+  - [x] 為何 HALT 不可判定
+  - [x] RE 減 R 的執行語意
+  - [x] verification：答案難找，證據可能易查
+  - [x] verifier 與 certificate 的正式定義
+  - [x] 為何 V 的 language 通常不是 L
+  - [x] hailstone verifier 的逐步判讀
+  - [x] ATM 的 verifier
+  - [x] verifier 推出 recognizer：枚舉所有 certificates
+  - [x] recognizer 推出 verifier：certificate 當 step bound
+  - [x] 核心等價與 proof 觀點
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

@@ -1,0 +1,22 @@
+# Official Lecture 16: Finite Automata, Part III
+
+- Date: 2026-05-06
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/16/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/16/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 自動機階梯：能力要用語言區分
+  - [x] DFA transition table 是圖的精確轉寫
+  - [x] 一個方向免費：每台 DFA 都是 NFA
+  - [x] massive parallelism：把所有可能 states 一起追蹤
+  - [x] subset construction 的逐步算法
+  - [x] 為何建出的 DFA 語言完全相同
+  - [x] union closure：用 nondeterminism 分派
+  - [x] intersection closure：平行追蹤一對 states
+  - [x] language concatenation 不是 set union
+  - [x] language powers 與 Kleene closure
+  - [x] 本講 closure toolbox 與使用限制
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

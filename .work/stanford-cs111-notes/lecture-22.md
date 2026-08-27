@@ -1,0 +1,51 @@
+# Lecture 22: Directories and Links
+
+- Date: 2026-05-18
+- Instructor: Mendel Rosenblum
+- PDF: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/22/Lecture22.pdf
+- Calendar: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar
+- Material gap: Canvas recording unavailable; notes derive from the public PDF.
+- Artifact audit: Lecture22 SHA-256 `29cd7946020447bb06b40384318fa94c62e27ccc7c783a1d5163b5087e1560fb` differs from adjacent Lectures 21 and 23; no duplicate.
+- Editorial focus: directories, pathnames, hard links, symbolic links, and name resolution
+
+## Extracted agenda cues
+
+- Directories and Links
+- ●   Section 13.1-13.2
+- Naming: how do users refer to their files?
+- ●   Last week:
+- ○ Find a file's blocks on disk using its inode
+- ●   Today:
+- ○    How does OS find file, given name?
+- First step: inode has to be stored on disk, so it will survive system reboots
+- Naming inodes - i-number
+- Inode array
+- }      i-number - Index into inode array
+- Uniquely identify inode
+- OS uses i-number to identify file
+- Inode Array   Storing inodes on disk
+- ●     Divide inode array into blocks
+- ●     Store blocks in known locations on disk
+- ○ Original Unix used start of disk
+- ○ Inode array fixed in size
+- Inode Array Storing inodes on disk - middle inode
+- ●     Later Unix moved to middle of disk
+- ○ Shorter seek distances
+- Inode Array   Storing inodes on disk - BSD FS
+- ●     BSD FS moved to multiple blocks spread
+- across disk
+- ○ Inode near file's data blocks
+- Inodes and open files
+- ●   When a file is open, its inode is kept in main
+- ○ Read/write operations can find the blocks on disk
+- ●   When the file is closed, the inode is written back to disk
+- ○ Even read access modifies inode access time fields
+- Need to be able to go from name (e.g. /a/b/c.cc) to i-number/inode
+- File naming
+- Hierarchical directories and historical directory-entry representation.
+- Component traversal for /a/b/c, root versus working-directory start.
+- Hard links, inode reference counts, rm, dot and dot-dot entries.
+- Hard-link restrictions: directories/cycles and cross-filesystem i-number scope.
+- Symbolic-link expansion, absolute versus relative targets, loops and dangling links.
+- ●   Users want to use text names to refer to files
+- ●   Special disk structures called directories

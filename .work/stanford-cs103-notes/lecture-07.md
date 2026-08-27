@@ -1,0 +1,24 @@
+# Official Lecture 7: Functions, Part II
+
+- Date: 2026-04-15
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck `/tmp/cs103-text/07.txt`):
+  - [x] Domain and codomain recap
+  - [x] Involution and injection recap
+  - [x] Proof that `f(n)=2n+7` is injective
+  - [x] Surjection definition and codomain coverage
+  - [x] Proof that `f(x)=2x` on the reals is surjective
+  - [x] Proof-technique table for formulas and connectives
+  - [x] Bird/heron theorem and variable-choice failure mode
+  - [x] Proving versus assuming a universal statement
+  - [x] Rules for assuming other logical forms
+  - [x] Proof that every involution is surjective
+  - [x] Proof that every involution is injective
+  - [x] Function-composition definition, order, domain, and codomain
+  - [x] Proof that composition preserves injectivity
+  - [x] Extra-slides proof that composition preserves surjectivity
+  - [x] Major ideas and next-time boundary
+- Boundary: do not infer spoken transitions, poll outcomes, or restricted solutions. Article-created exercises are labeled as such.

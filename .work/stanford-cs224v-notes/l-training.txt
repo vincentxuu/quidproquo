@@ -1,0 +1,474 @@
+       Back to the future:
+Data efficient language modeling
+
+         Tatsunori Hashimoto
+             Stanford CS
+Roadblocks to progress in machine learning
+      Algorithms                        Data                          Compute
+(better function classes)    (lack of supervised data)   (inability to process all the data)
+
+
+
+
+       What is the major bottleneck to continued improvements in ML (and LLMs)?
+Data lies at the heart of recent advances
+Pretraining data
+
+
+
+
+   Known pretraining recipes all emphasize the important of the data mix
+Data lies at the heart of recent advances
+Instruction tuning / post-training
+
+
+
+
+   Simple algorithms with the ‘right’ data (for instruction-tuning / RLHF)
+                   gets you quite far for instruction tuning
+Data lies at the heart of recent advances
+Reasoning capabilities
+
+
+
+
+   Even something as complex as ‘long CoT reasoning’ can (to a suprising
+           extent) be unlocked with naïve methods + the right data
+Data scarcity problems on the horizon
+
+
+
+
+   Thus far, data constraints have not been acute since internet data is vast
+           But compute has been growing much faster than data
+Statistical learning has much to say in this regime
+      Data >> Compute                  Compute >> Data
+    (Pretraining / FM era)          (Classical deep learning
+                                         .. and the future?)
+The problems of the future are those of the past
+
+
+
+
+                   In a compute rich world,
+      understanding and engineering data becomes critical
+
+
+
+
+       Understanding generalization from data is a foundational question
+                      in statistics and machine learning!
+    What is there to do?
+
+
+
+
+       Understanding generalization                         Synthetic data
+Rich phenomena in algorithmic generalization   Firm conceptual (and theoretical) foundation
+     Part 1: Algorithmic interventions for data efficiency
+
+                         Are there simple data efficiency interventions
+                                  that have been overlooked?
+
+
+
+
+         Part 1: Using data better                            Part 2: Making ‘new’ data
+
+Pre-training under infinite compute [ArXiv preprint]
+Konwoo Kim*, Suhas Kotha*, Percy Liang, Tatsunori Hashimoto
+Pretraining – hitting a wall?
+   New, pretrained models – not quite as impressive
+
+
+                                                            ~35x more expensive
+
+
+
+
+   Discussions of the ‘end of pretraining’
+
+
+
+
+               * Even if you think RL or continual learning are ‘ways out’ you still need data efficiency
+ Existing approaches are quite bad for data efficiency
+ What if we have infinite compute, and we just scale up epochs [e.g. Muenninghoff et al] and param size
+
+
+
+
+We get no benefits past a point (600M params w/ 200M dataset) even with infinite compute
+                   Note: overfitting is not benign in the LM pretraining case
+Identifying simple, scalable data efficiency gains
+
+
+
+
+   Q: if we had infinite compute, are there algorithms that would
+              give us significantly more data efficiency?
+     Developing algorithms for a compute rich future
+
+                   How should we study the nearly infinite compute regime..
+                             (without paying for infinite compute)
+
+
+
+1.    Scale down the ‘world’
+       (200M tokens, eval on perplexity)
+
+2.    Compare algorithms via
+      compute scaling asymptote
+
+3.    Check validity by scaling up the
+      ‘world size’ (200M -> 1.7B)
+
+
+                                                                              … lim
+                                                                                𝐶→∞
+Scaling for performance prediction is not new
+ Step 1: Fixing the ‘standard’ recipe for asymptotic losses
+  With optimal (much higher) regularization + model scaling, we get clean scaling
+     laws
+
+
+
+
+                                                    30x higher weight decay
+
+
+
+
+This improves data efficiency and gives our first asymptotic loss baseline (~3.43)
+Going beyond regularization
+                         Regularization is maybe too simple
+              are there other ways of ‘trading compute for data efficiency’?
+
+
+
+
+                 We have a wealth of theory and intuition for this regime
+  Ensembling, data augmentation and similar leaderboard interventions come back in play
+
+                                                                         [Herel and Mikolov 2023]
+Step 2: Ensembling as a new axis of scaling
+
+
+
+
+  Instead of bigger models, we could ensemble more models, fixing the total param count
+                     Ensembles have far better asymptotes (~3.34)
+Subtleties – limits and hyperparameters
+
+
+
+
+Getting smooth ensemble scaling is hard – the best hyper params change w/ ensemble count
+   This complicates the joint scaling problem of taking param + ensemble count to infinity
+Ensembles are surprisingly good
+
+
+
+
+   We estimate the perf of ensembles under infinite compute via a joint limit:
+       First, ensemble count to infinity, then parameter count to infinity.
+           This gives much, much better asymptotes (3.17 vs 3.34)
+
+                           [n.b. We found this to be the easiest order of the limits to estimate via scaling laws.]
+Ensembles for larger dataset sizes
+       We were doing our analysis on small, fixed data (200M tokens, ~1.4B params).
+                         Does this generalize to larger corpora?
+
+
+
+
+Ensemble gains (left two panels) are consistent as we scale up the corpus (right)
+    Surprising observation: ensemble distillation and self-training
+
+Even with infinite training compute, we
+still care about inference compute
+
+
+
+•     Can we distil big ensembles into
+      small models? (yes)
+
+
+•     Can other ‘ensemble like methods
+      like self-training also work? (yes)
+
+     [This has interesting implications for
+    data feedback loops / model collapse]
+Can we trust small-scale perplexity evaluations?
+
+
+
+
+Generally, yes (avg PIQA, ARC, SciQ)
+• Noisier but generally similar scaling trends across all models
+• Pareto-dominant models are all ensembles at large compute targets
+Gains for continued pretraining
+
+
+
+
+Gains on CPT / Midtraining – this is a naturally data constrained setting
+• OctoThinker dataset / evaluations
+• The “data efficient” recipes (batch size, epochs) help
+• Ensembles help a lot for data efficiency
+    Data in a compute rich future
+
+                           Data bottlenecks open up interesting,
+                            basic algorithms research for LLMs
+
+
+  Open questions
+
+
+
+
+                                       … lim
+                                         𝐶→∞
+
+
+Science of scaling laws for data efficiency    Better foundational understanding of ensembling
+ Part 2: New horizons with synthetic data
+
+                                 Can we ‘create’ new data?
+                       What would that mean and why would that work?
+
+
+
+
+      Part 1: Using data better                                            Part 2: Making ‘new’ data
+
+Synthetic continued pretraining [ICLR 2025] - Zitong Yang*, Neil Band*, Shuangping Li, Emmanuel Candès, Tatsunori Hashimoto
+Synthetic bootstrapped pretraining [ArXiv preprint] - Zitong Yang*, Aonan Zhang*, Hong Liu, Tatsunori Hashimoto, Emmanuel Candès,
+Chong Wang, Ruoming Pang
+Synthetic data as a major, current bet for data efficiency
+
+
+
+
+       Many bets are currently being placed on ‘synthetic data’
+             Is creating new data in this way really viable?
+But the status quo for open synthetic data work is messy
+
+
+
+
+ Distillation effects from larger models                    Post-training / alignment of existing capabilities
+
+
+
+
+ Synthetic data has often been studied in the context of distillation / post -training
+
+
+                                    * And sometimes people even refer to RL-like algorithms as synthetic data..
+Synthetic data research poses new (scaling) challenges
+
+    There is a ‘critical’ threshold for synthetic data to start working
+                   This makes naïve scaling down hard!
+Changing the setting – continued pretraining
+
+Given:
+• A pretrained model 𝑓
+• A small domain of knowledge that can be characterized by some corpus
+   (e.g. textbook for a specialized domain, proprietary corporate documents).
+
+
+
+Goal:
+• Modify the weights of 𝑓 such that
+• The modified 𝑓 can perform a range of tasks – QA, summarization, as if it was
+   pretrained on a large corpus containing our specialized knowledge
+Our challenge: learning from 10,000x less data
+
+
+
+
+        Can we adapt to knowledge that might be truly in the tail?
+              Few hundred books with 10,000x less data
+Attempt 1 – Just do continued pretraining
+Problems with standard continued pretraining
+Standard continued pretraining: train directly on our documents
+
+                 using the small domain-specific corpus to synthesize a large corpus
+
+
+
+
+                                                          Autoregressive LM
+
+
+
+                 We propose to bridge this gap with synthetic continued pretraining:
+
+
+
+Autoregressive learning is data-inefficient (reversal curse)
+    In the autoregressive direction: “What does synthetic CPT do?”
+    In the reverse direction: “What method synthesizes a large corpus?”
+ Synthetic continued pretraining – augment the data
+Synthetic continued pretraining: Train on LLM-transformed data
+
+Goal – replicate the diversity of pretraining
+
+
+                                                        {
+• Vary content (topics)
+• Vary style (how it’s presented)
+• Data diversity for generalization                                         …   {
+This is different from synthetic data or..
+• compute / size efficiency (WRAP/Phi)
+                                                        Autoregressive LM
+• fine-tuning (task-specific LMs)
+
+                                                LMaug
+
+                                                        {                   …   {
+Attempt 2 – Just paraphrase the data
+  What we get: Entity-centric augmentation (EntiGraph)
+ How do we get diversity? Use a knowledge graph to force diversity in content
+
+
+
+1. Prompt LMaug for entities
+   in a knowledge graph.
+2. Sample k-subgraphs of
+   the knowledge graph
+3. LMaug synthesizes
+   descriptions of the
+   entities in the subgraph
+
+
+
+      New implicit fact as data (The Louvre contains many works by DaVinci..)
+A random graph model for synthetic data generation
+                       What’s the ‘mathematical model’?
+
+Explicit facts are connected edges between entities (vertices) on a random graph.
+Implicit facts are paths within a connected component
+
+             EntiGraph ‘connects’ the whole connected component
+
+
+                            What does this imply?
+
+A mixture-of-exponentials scaling law
+(Closed-book) QA performance with EntiGraph
+
+
+
+
+    Predictable, scaling gains for QA performance without the text
+Can we go beyond prompting a model?
+
+           We’ve validated a ‘scaled down’ idea with continued pretraining.
+
+
+
+Can we get this to work in the “pure bootstrapping setting”? This means..
+
+•   No pre-trained teacher (we have to train our own)
+•   No strong hand-crafted prompts.
+
+
+
+
+                 The first one is just a compute problem (‘train your own teacher’)
+    The second one is a bit more subtle – what is a ‘general purpose’ way to learn to augment data?
+Synthetic data as data augmentation
+
+
+
+
+                 Maini et al ‘24                            Rao and ruderman ‘99
+
+      Rephrasing is much like an label-invariant data augmentation
+   There is a deep literature on unsupervised learning of transformations
+                        (i.e. generators of a lie algebra)
+       Learning augmentations and smoothing kernels
+
+We showed a while ago that “learn augmentations from neighbors” also works for language models.
+
+
+
+
+        This is a nonparametric language model where the kernel is learned [Guu, Hashimoto, Oren, Liang ‘18]
+                         𝑃 𝑥 = 𝑃 𝑥 𝑥 ′ 𝑃 𝑥 ′ where 𝑃 𝑥 𝑥 ′ is an edit and 𝑃 𝑥 ′ is a prototype
+Learning the augmentations from scratch
+New synthetic data generation process: synthesizer trained on neighbor supervision
+
+    Synthetic data is a supervised task of transforming a document into its neighbor
+
+
+
+
+   Do these classic “transformation / lie group learning” methods translate to the pretraining setting?
+Scaling up fast document nearest neighbor search
+
+
+
+
+Scaling up nearest-neighbor search to pretraining scale (for both queries and keys)
+                       requires careful handling of ANN indices
+The overall procedure
+The whole synthetic data / bootstrapping process is 3 simple steps given a base model
+Step 1: Pair up nearest neighbors
+       Define a inner product metric 𝑑, pair up neighbors with inner product > 𝛼
+
+Step 2: Learn the augmentation
+         Learn a conditional LM 𝑝(𝑥2 |𝑥1 ) by continuing to train the base model
+
+Step 3: Generate synth data and train on it
+              Sample new documents from 𝑝(𝑥2 |𝑥1 ) for each document,
+            train a new model on a mix of synth + real data (1:3 and 1:8 ratios)
+Initial steps at scaling
+200 Billion token budget (deduplicated DCLM data) for a 3B model
+
+
+
+
+              Notes: 75B synthetic repeated once, 10B real data repeated 12.5 times
+Results at 3B/1T
+
+
+
+
+     Gains (even at scale) capturing half the gains to having fresh data (oracle)
+Qualitative evaluations of data quality across scales
+
+
+
+
+   Data quality failures (repetition, low diversity, etc) decrease with scale
+  Takeaways: synthetic data
+
+
+                     Powerful, new forms of augmentation
+       (and pretraining unlocks new, stronger gains from augmentations)
+
+
+
+
+1. Can we completely close the ICL to parametric learning gap with enough compute?
+
+2. What are the limits to synthetic data based augmentation?
+
+3. What about synthetic data for reasoning?
+Thanks!
+
+Language modeling may return to a foundational challenge – generalizing from limited data
+
+
+
+In many ways, this is challenging
+
+          Algorithmic gains have been hard fought (and not that well understood)
+
+But also it’s an exciting problem
+
+              Foundational problems (might) require more radical solutions
+

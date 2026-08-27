@@ -1,0 +1,390 @@
+                   CS224v
+
+      Conversational Virtual Assistants
+           with Deep Learning
+
+            Lecture 4:
+Evaluation of Task-Oriented Agents
+      Monica Lam and Harshit Joshi
+
+
+                                          1
+      Lecture Goals
+
+         • Recap of last lecture
+
+
+         • Evaluating Genie Agents
+
+
+
+
+LAM                                  STANFORD
+      Task Agent Architectures
+         1. Dialogue Tree:
+           • Hard-code statements: users are given a few choices
+
+
+
+
+LAM                                                                STANFORD
+      A Restaurant Reservation Agent Dialogue Tree
+      A: Hello, how can I help you?
+                                                            NLU: intent + slots
+      U: I’m looking to book a restaurant                                           ReserveAction
+         for Valentine’s Day                                                                              Domain-specific
+                                                                                                          rule-based policy
+
+                                            Hard-coded sentences
+                                                                       ElicitSlot        ShowResults         Recommend
+      A: What kind of restaurant?
+
+
+                                                                                           Fixed set of follow-up intents
+
+      U: Terun on California Ave                               Name = “Terun”
+          -- or –
+      U: Something that has pizza                                                        Food = “pizza”
+          -- or –
+      U: I don’t know, what do you
+         recommend?                                         ???
+
+
+LAM                                                                                                                         STANFORD
+      Task Agent Architectures
+         1. Dialogue Tree:
+           • Hard-code statements: users are given a few choices
+           • Quiz: what the limitations?
+         2. Finite state machine of dialogue acts (intents):
+           • Statements are “factored” into dialogue acts + parameters
+             because similar transitions are taken for the same intent
+
+
+
+
+LAM                                                                      STANFORD
+Example of a Dialogue State Machine
+                                                                                User
+                                                                                Agent
+       KB Navigation                                        Action
+
+                                                      RequestAction
+
+           Query                         SlotFillQuestion            AsktoConfirm
+
+                                                                 ConfirmAction
+        QueryResponse                           Cancel
+                                                                 ActionResponse
+            Done
+                                                                        Done
+
+
+
+                   Dialogue act = Intent:
+                        Independent of the conversation domain
+                        Parameter values are domain-specific
+          Quiz: what are examples of user/agent dialogue acts
+      Task Agent Architectures
+         1. Dialogue Tree:
+           • Hard-code statements: anticipate possible user statements
+           • Quiz: what the limitations?
+         2. Dialogue state machine with dialogue acts (intents):
+           • Statements are “factored” into dialogue acts + parameters
+             because similar transitions are taken for the same intent
+           • Quiz: what are the limitations?
+         3. LLM agents via prompting or fine-tuning
+           • Quiz: What are the limitations?
+
+LAM                                                                      STANFORD
+      Genie Worksheet
+         • Principles:
+           • Unlike LLMs: the agent policy needs to be controlled
+           • Unlike Dialogue State Machines: Needs to be more flexible
+
+         • DECLARATIVE specification
+           • Worksheets: Like forms that you fill on the website
+             • Variables: info to fill in
+             • Actions: rules on what the agent should do given the values
+           • Knowledge bases: Answer any question on the database
+             • By translating natural language into formal queries
+
+LAM                                                                          STANFORD
+      1. Course Assistant Knowledge Corpus
+      courses DB
+             internal; primary       int        course_id
+            offerings
+             internal          DB    int        max_units
+             internal          internal
+                         programs    str     DBtitle int                   course_id
+             internal                str
+                               internal         grading
+                                                     Enum                  days
+                                             internal; primary int                      program_id
+             internal                ratings course_codes
+                                     List[str]              DB
+                                             internal           Enum                    level        Monday
+             internal                List[str] general_requirements
+                                                            internal; primary int                    rating_id
+                                                                                                     Tuesday     MS
+             internal                int        min_units
+                                                            internal          int                    course_id
+             internal                str        description                                          WednesdayBS
+                                                            internal          List[str]              instructor_names
+             internal                int        average_hours_spent                                  Thursday    PhD
+             internal               Enum internal      internal
+                                            foundations_requirements         int                     average_rating
+                                                           Enum                         specialization     Friday
+                                                       internal              int                          num_ratings
+                                                                                            logic_automata_and_complexity
+                                                                                                           Saturday AI
+                                                             internal         int           probability   term_id
+                                                                                                           Sunday    Computational Biology
+                                                             internal         int           algorithmic_analysis
+                                                                                                          start_year
+                              internal             str                   start_time                                  Human-Computer Interaction
+                                                             internal         int           computer_organization_and_systems
+                                                                                                          end_year Information Management & Analytics
+                              internal             str                   end_time           principles_of_computer_systems
+                                                             internal         Enum                        season     Visual Computing
+             internal         internal
+                                    bool           List[str]             instructor_names
+                                              significant_implementation_requirements
+                                                                                                                     Software Theory     autumn
+             internal               Enum
+                              internal         breadth_requirement
+                                                   Enum                  season
+                                                                                            formal_foundations       Systems             winter
+                                                                                                           autumn
+                                                                                            learning_and_modeling Theoretical Computerspring
+                                                                                                                                          Science
+                                                                                                           winter
+                                                                                            systems                  general             summer
+                                                             internal         List[str]                    spring
+                                                                                            people_and_society
+                                                                                                          reviews    Computer & Network Security
+             internal               List[str] prerequisite_course_codes                                    summer
+                                            internal             str                    sheet_requirements
+
+
+LAM                                                                                                                                                     STANFORD
+      2. Stanford Course Enrollment Form
+ Form Name      Kind Type            Name                    Enum Values    Description                  WS Action
+                                                                                                         Say(enroll(StudentInfo,
+ Main           WS                   course_enrollment                                                       courseToTake))
+
+                input CourseToTake   course_to_take                         The course to enroll
+                input StudentInfo    student_info_details                   Information on the student
+ StudentInfo          worksheet
+                input str            student_name                           Name of the student
+                input str            student_id                             Student's ID number
+
+                input str            student_email_address                  Student's email address
+
+ CourseToTake         worksheet
+                input str            course_name                            Name of the course
+                input Enum           grade_type                             The desired grading basis
+
+                                                             Cred/No Cred
+                                                             Letter
+                input int            num_units                              The number of units taken
+                input confirm        confirm                                Confirm the course
+
+LAM                                                                                                                       STANFORD
+     Comparison with Dialogue State Machines
+                                                                                         User
+                                                                                         Agent
+                  KB Navigation                                      Action
+
+                                                               RequestAction
+
+                      Query                       SlotFillQuestion            AsktoConfirm
+
+                                                                          ConfirmAction
+                   QueryResponse                         Cancel
+                                                                          ActionResponse
+                       Done
+                                                                                 Done
+
+
+                          Dialogue act = Intent:
+                               Independent of the conversation domain
+                               Parameter values are domain-specific
+
+Quiz: what is the difference between the Dialogue State Machine vs. Genie Worksheets?
+      Genie Worksheet (WS) vs. Dialogue State Machine
+
+       Similarities
+       •   Declarations of slots, automatic slot filling questions, confirmations
+       Differences: WS run-time is a not a Finite-State Machine
+       •   WS supports multiple queries and requests in a single utterance
+       •    WS supports arbitrary interleaving of queries & action requests
+           • Agents’ queries may not be answered right away!
+           •   User can pose a question any time
+           •   The agent needs to go back to outstanding requests
+           •   Quiz: Can we use a stack so we can return to outstanding requests?
+           •   The user can change any field value any time
+               •   Genie run-time scans the WS to process outstanding requests
+LAM                                                                                 STANFORD
+      + Data-Dependent Worksheets/Fields
+      + Field actions
+
+
+
+
+LAM                                        STANFORD
+      How Genie Handles Long Conversations
+                                                                         last turn +
+                                              Partial Worksheets     current user input
+       INPUT                                   (dialogue state)
+                                    Genie Run Time                  LLM-Based Parser
+
+                                               Updates to Worksheets
+       EXECUTE POLICY                                Query
+                                                     API call      Knowledge Corpora
+        Queries                     Genie Run Time
+                                                                        API calls
+        Activated actions
+                                                                   Last agent output +
+       OUTPUT                                                   current user input
+        Responses from above
+        Asks for confirmation       Genie Run Time           LLM Response Generator
+        Asks for missing parameters                Agent Act
+          in the worksheet                                       Response to User
+LAM                                                                                       STANFORD
+      Summary: Genie Worksheets Can
+         • Support multiple queries and requests in a single utterance
+         • Support arbitrary interleaving of queries & action requests
+         • Support data-dependent parameter queries
+         • Keep track of essential information in long conversations
+         • Allow unhappy paths, eg. User changing their answers
+
+
+                   Developer only needs to supply the Genie Worksheet
+
+                      Quiz: Can LLMs handle this level of complexity?
+
+LAM                                                                      STANFORD
+      Evaluation
+                  • To compare with existing work: STARV2 Dataset (2022)
+                       • Wizard-of-Oz: 3 hardest domains--bank, trivia, trip
+                       • Annotated with: “user and agent dialogue acts”
+
+
+
+
+      Mosig, Johannes EM, Shikib Mehri, and Thomas Kober. "Star: A schema-guided dialog dataset for transfer learning.”
+LAM   Zhao, Jeffrey, et al. "Anytod: A programmable task-oriented dialog system."                                         STANFORD
+      STARv2 Evaluation
+                                                 System Action F1: The next agent action
+
+ • SOTA: AnyTOD (AT XXL)
+      • finetuned T5 (13B) on 6000 examples
+        (all domains but the test)
+      • Implement programs to handle logic
+ • Genie:
+      • Semantic parsing prompt: 3 examples
+      • Agent Policy: 9 lines in a Worksheet
+
+
+                  Most errors caused by inconsistent data annotations
+
+LAM                                                                                  STANFORD
+      Evaluation
+                  Two-part evaluation
+                  • To compare with existing work: STARV2 Dataset (2022)
+                    • Wizard-of-Oz: 3 hardest domains--bank, trivia, trip
+                    • Annotated with: “user and agent dialogue acts”
+                    • WOZ benchmarks:
+                      • not realistic -- few unhappy paths             LLM out-ran
+                      • too easy for LLMs (simple slot fills) traditional NLP evaluation!
+                      • Worse annotations than LLM outputs!
+                  • Real use cases with real users!
+
+
+      Mosig, Johannes EM, Shikib Mehri, and Thomas Kober. "Star: A schema-guided dialog dataset for transfer learning.”
+LAM   Zhao, Jeffrey, et al. "Anytod: A programmable task-oriented dialog system."                                         STANFORD
+      Evaluation with real users
+         Three diverse applications with varying complexities.
+         • Restaurant Reservation: Uses the real-life database from Yelp
+         • Ticket Submission: A subset of Service Now api
+         • Course Enrollment: Uses multiple real-life databases of
+           courses at Stanford University.
+
+
+
+                                                          Note the difference
+                                                          in complexity
+
+
+
+LAM                                                                         STANFORD
+      Baseline and Study Design
+         • Compare to GPT-4 turbo with Function Calling.
+           • Gives GPT-4 the same KB-Parser as Genie Worksheet
+         • Users
+           • Restaurant Reservation and Ticket Submission:
+             • 22 and 20 users from Prolific crowdsource platform
+           • Course enrollment:
+             • 20 university students
+           • Randomly assigned Genie Agent or GPT-4 (FC)
+
+
+LAM                                                                 STANFORD
+      Real User Evaluation
+                                   Goal Completion Rate
+                                 Restaurant   Course Enrollment   Ticket submission
+        GPT4: function calling
+                                    54.5             10.0                0.0
+         + Genie DB parser
+        Genie Worksheet             91.6             80.0               80.0
+
+      GPT-4 results are not acceptable
+      • Low completion rate: even 54.5% on restaurant is not good enough!
+      • Course: Hallucinates non-existent courses despite using knowledge base results
+      Genie Worksheets – deployable with additional engineering
+      • WS Only LLM-based technique that does not hallucinate on Query results/Actions
+      • Pilots ongoing with companies
+LAM                                                                                   STANFORD
+      Homework
+        • Part 1: Interact with the fidelity investment agent built using
+          Genie Worksheets
+
+
+        • Part 2: Create a ride request agent using Genie Worksheet
+
+
+
+
+LAM                                                                         STANFORD
+      Projects
+         Applications
+
+         •   AI-Powered Heart Failure Medication Assistant:
+             Revolutionizing Patient Care Through Intelligent Conversation
+
+         Research: to address the difficulty in creating a complete Genie Worksheet
+
+         •   GenieWorksheet Wizard:
+             Discovery of Missing Capabilities in Task-Oriented Agents from Simulation
+             (Case study: Fidelity investments)
+
+         •   From Real Conversations to a Complete Genie Worksheet!
+
+
+LAM                                                                                      STANFORD
+      Course Participation
+          • Lectures are interactive
+            • You are encouraged to ask questions & answer my quizzes
+
+
+          • Please consider pitching your project on Wed
+            and get early feedback and find partners.
+
+
+        For participation
+        You are not graded on the quality of your questions/answers/pitches
+
+
+
+LAM                                                                           STANFORD
+

@@ -1,0 +1,23 @@
+# Official Lecture 17: Regular Expressions
+
+- Date: 2026-05-08
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/17/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/17/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 從 closure properties 走向描述語言的語法
+  - [x] regex 是數學表示式，不等於某套程式庫
+  - [x] 三個 atomic regular expressions
+  - [x] 三個 constructors 與 parentheses
+  - [x] precedence：star、concatenation、union
+  - [x] 設計題一：包含 substring aa
+  - [x] 設計題二：長度恰為四
+  - [x] 設計題三：至多一個 a
+  - [x] email 範例：逐段建立而非宣稱完整標準
+  - [x] regex 到 NFA：結構歸納與 Thompson 思路
+  - [x] regular language 到 regex：generalized NFA
+  - [x] 常見語意誤判
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

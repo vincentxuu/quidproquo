@@ -1,0 +1,415 @@
+Threads, Processes, and Dispatching,
+             Continued
+            Mendel Rosenblum
+
+
+
+          CS111 Lecture Notes - Threads, Processes, and Dispatching
+Execution abstractions review
+●   Thread - Smallest unit of execution
+●   Process - One or more threads and their execution state
+
+
+                         int child_pid_or_zero = fork();
+                         if (child_pid_or_zero == 0) {
+                             execvp(“ls”, argv);
+Linux process create:        // Not reached
+                         } else {
+    Single thread
+                             waitpid(child_pid_or_zero, &status, options);
+                         };
+
+
+                        CS111 Lecture Notes - Threads, Processes, and Dispatching
+fork - create new process with new thread
+                                                                         Parent
+
+ Process
+                                                                                x     y       z
+                                              fork()                        std:cin       std:cout
+    x       y       z
+  std:cin       std:cout                                                 Child
+
+
+
+                                                                                x     y       z
+                                                                            std:cin       std:cout
+
+                    CS111 Lecture Notes - Threads, Processes, and Dispatching
+                                                                                                     Slide 21
+                              Thread Creation
+●   Processes typically start with a single thread
+●   A system call used to start an additional thread
+     ○ Linux: clone;
+     ○ MacOS: thread_create_running
+     ○ Windows: NtCreateThreadEx
+●   A process with more than one thread is called multithreaded
+
+
+
+
+                       CS111 Lecture Notes - Threads, Processes, and Dispatching
+                 Thread creation system calls
+●   Required information:
+     ○ Starting program counter for thread (e.g. routine to call)
+     ○ Starting thread stack region in memory and initial stack pointer
+     ○ Usually some way of passing parameters to initial routine
+●   Examples:
+     ○ Linux: clone(typeof(int (void *)) *fn, void *stack, int flags, …)
+     ○ MacOS: thread_create_running(parent_task, flavor, new_state, …)
+     ○ Windows: NtCreateThreadEx (..., startRoutine, Argument, StackSize, …)
+●   Programming language libraries wrap the thread start system call
+
+
+                      CS111 Lecture Notes - Threads, Processes, and Dispatching
+                            C++ Thread Example
+#include <thread>                                     void func()
+...                                                   {
+std::thread t(func);                                          /* This code will run concurrently with
+...                                                              the code to the left. */
+t.join(); // wait                                             ...
+                                                                                                New thread shares
+                                                      }
+                                                                                            state with existing threads
+  Process                                                               Process
+
+                                    new std::thread(...)
+
+     x       y       z                                                         x        y       z
+   std:cin       std:cout                                                  std:cin          std:cout
+                            CS111 Lecture Notes - Threads, Processes, and Dispatching
+Thread Creation: Other Programming Languages
+●   C language
+    pthread_create(&thread, NULL, func, &arg);
+●   go language
+    go func(arg);
+●   Python language
+
+    t = threading.Thread(target=func, args=(arg,))
+    t.start()
+
+
+
+                      CS111 Lecture Notes - Threads, Processes, and Dispatching
+Thread Dispatching - Running threads
+
+
+
+          CS111 Lecture Notes - Threads, Processes, and Dispatching
+Thread runs on a core - What are cores?
+Messy terminology evolution:
+● Early machines a Central Processing Unit (CPU)
+     ○   Execute streams of instructions - (i.e. a thread)
+     ○   Shorten to processor
+     ○   Machines could have more than one CPU - called a multiprocessor
+
+●   Early microprocessors were chips implementing a single CPU
+     ○   Multiprocessor machines constructed with multiple CPU chips
+
+●   Put multiple processors on a single chip: called multicore
+     ○   Each core is capable of running a thread
+     ○   Machines can have multiple sockets for multicore chips
+
+●   Simultaneous multithreading (hyper-threading) single core look like multiple
+                            CS111 Lecture Notes - Threads, Processes, and Dispatching
+Core count evolution
+●   Until about 20 years ago, most computers were uniprocessors:
+     ○ A single core capable of running one thread at a time.
+
+●   Today, most computers have many cores each capable of running a thread
+     ○ Some cores support simultaneous multithreading (Intel's hyper-threading)
+●   Today:
+     ○   Phones          ~8 cores
+     ○   Laptop      ~12–16 cores
+     ○   Desktop     ~16–24 cores
+     ○   Servers   ~128–256 cores (256-512 hardware threads)
+
+
+
+                         CS111 Lecture Notes - Threads, Processes, and Dispatching
+            How does an OS execute threads?
+●   Mechanism: Dispatching - OS dispatches threads on cores
+
+
+
+
+                     CS111 Lecture Notes - Threads, Processes, and Dispatching
+                    Dispatching threads on cores
+●   Typically have many more threads than cores
+     ○ Fortunately most do not need to execute (waiting for something)
+
+●   OS job: execute a collection of threads on a collection of cores
+     ○ Make sure all threads eventually get a chance to run
+         ■ Fair scheduling
+     ○ Make sure threads don't damage each other's state
+         ■ Protection - can't damage other threads and the OS
+         ■ Isolation
+
+
+
+                            CS111 Lecture Notes - Threads, Processes, and Dispatching
+                  Process Control Block
+●   OS data structure for tracking processes: Process Control Block (PCB)
+
+    ○   Saved execution state for each thread (saved registers, etc.)
+
+    ○   Scheduling information
+
+    ○   Information about memory used by this process
+
+    ○   Information about open files
+
+    ○   Accounting and other miscellaneous information
+
+
+
+
+                            CS111 Lecture Notes - Threads, Processes, and Dispatching
+         OS: Thread States
+                                        Exit
+
+
+         Running on core                        Blocks
+
+
+                                                                   Blocked
+         Load                 Unload
+Create
+                                                  Unblocks
+         Ready waiting
+
+
+
+           CS111 Lecture Notes - Threads, Processes, and Dispatching
+        Dispatcher (one core now)
+● Dispatcher: per core
+
+   Assume we have loaded a thread:
+
+   ○ while true:
+       ■ Let a thread run for a while
+       ■ Save its execution state
+                                                             Context switch
+       ■ Load state of another thread
+   ○ end while
+
+                     CS111 Lecture Notes - Threads, Processes, and Dispatching
+Announcements here
+
+
+
+ CS111 Lecture Notes - Threads, Processes, and Dispatching
+                      thread
+                       state             Context Switch
+                                                                           Hardware
+  Threads                                                                  Registers            thread
+                                                                                                          Threads
+     A1                                                    Core                                  state
+                                                                                                             B1
+     A2
+     A3                                               R0
+                                                      R1                                             SP
+                                                       …      …
+                                                      RN
+                                                      SP
+
+  Process A                                                                                                Process B
+ Control Block                                                                                            Control Block
+                                                                                       Return Addr
+
+
+Call context_switch       Return Addr
+                                                                                           …
+
+
+
+
+                        A3 Stack                                                    B1 Stack
+                                  CS111 Lecture Notes - Threads, Processes, and Dispatching
+                                                                                                                    Slide 35
+                       thread
+                        state               Context Switch
+                                                                              Hardware
+ Threads                                                                      Registers            thread
+                                                                                                              Threads
+   A1                                                         Core                                  state
+                                                                                                                B1
+   A2
+   A3                                                    R0
+                                                         R1                                             SP
+                                                          …      …
+                                                         RN
+                                                         SP
+ Process A                                                                                                    Process B
+Control Block                                                                                                Control Block
+                                                                                          Return Addr
+
+
+                            Return Addr
+                                                                                              …
+               Saved
+             Registers           …
+            (all but SP)
+
+
+
+
+                           A3 Stack                                                    B1 Stack
+                                     CS111 Lecture Notes - Threads, Processes, and Dispatching
+                                                                                                                        Slide 36
+                thread
+                 state                 Context Switch
+                                                                         Hardware
+ Threads                                                                 Registers            thread
+                                                                                                         Threads
+   A1                                                    Core                                  state
+                                                                                                           B1
+   A2
+   A3                                               R0
+                                                    R1                                             SP
+                                                     …      …
+                                                    RN
+                                                    SP
+                  SP
+ Process A                                                                                               Process B
+Control Block                                                                                           Control Block
+                                                                                     Return Addr
+
+
+                       Return Addr
+                                                                                         …
+
+                            …
+
+
+
+
+                   A3 Stack                                                       B1 Stack
+                                CS111 Lecture Notes - Threads, Processes, and Dispatching
+                                                                                                                   Slide 37
+                thread
+                 state               Context Switch
+                                                                       Hardware
+ Threads                                                               Registers            thread
+                                                                                                       Threads
+   A1                                                  Core                                  state
+                                                                                                         B1
+   A2
+   A3                                             R0
+                                                  R1                                             SP
+                                                   …      …
+                                                  RN
+                                                  SP
+                SP
+ Process A                                                                                             Process B
+Control Block                                                                                         Control Block
+                                                                                   Return Addr
+
+
+                     Return Addr
+                                                                                       …
+
+                          …
+
+
+
+
+                 A3 Stack                                                       B1 Stack
+                              CS111 Lecture Notes - Threads, Processes, and Dispatching
+                                                                                                                 Slide 38
+                thread
+                 state               Context Switch
+                                                                       Hardware
+ Threads                                                               Registers            thread
+                                                                                                      Threads
+   A1                                                  Core                                  state      B1
+   A2
+   A3                                             R0
+                                                  R1
+                                                   …      …
+                                                  RN
+                                                  SP
+                SP
+ Process A                                                                                            Process B
+Control Block                                                                                        Control Block
+                                                                                   Return Addr
+
+
+                     Return Addr
+                                                                                       …
+
+                          …
+
+
+
+
+                 A3 Stack                                                       B1 Stack
+                              CS111 Lecture Notes - Threads, Processes, and Dispatching
+                                                                                                                Slide 39
+                      Dispatcher Loop
+while true:
+
+        1. Let a thread run for a while
+                                                         How to go from Step 1 to Step 2?
+        2. Save its execution state
+        3. Load state of another thread
+end while
+
+
+
+
+                       CS111 Lecture Notes - Threads, Processes, and Dispatching
+           What causes the dispatcher to run?
+●   Ask the process to call back to the OS?
+    ○   Called cooperative multitasking - misbehaving process kills machine
+
+●   Interrupts and traps jump into the OS on most architectures
+    ○   Traps: System calls, Illegal instructions, seg faults, page faults, etc.
+
+    ○   Interrupts: Keyboard key push, disk transfer finished, etc.
+
+    ○   Thread will enter OS on from a trap or device interrupt
+
+●   Program a timer to interrupt if the process hasn't given back the core
+    ○   Periodic timer is commonly used
+
+
+            Is the dispatcher a thread?
+
+
+                            CS111 Lecture Notes - Threads, Processes, and Dispatching
+                              Thread Creation
+●   How does a thread get started?                                                      thread
+                                                                                                  Threads
+                                                                                                    B1
+                                                                                         state
+●   Create initial PCB thread state and stack to
+                                                                                            SP
+    look like it had just context switch from the first
+    instruction of the thread
+                                                                                                  Process B
+                                                                                                 Control Block
+                                                                               First Inst
+
+
+                                                                                   …
+
+
+
+
+                                                                           B1 Stack
+                         CS111 Lecture Notes - Threads, Processes, and Dispatching
+                                         Scheduling
+●   How does the dispatcher decide which thread to run next?
+
+    ○   Simplest approach: ready queue (FIFO)
+
+    ○   More complex: priorities or multiple queues
+
+●   Much more on this in Lecture 8
+
+
+
+
+                            CS111 Lecture Notes - Threads, Processes, and Dispatching
+

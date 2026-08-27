@@ -1,0 +1,288 @@
+Lock Implementation
+    Mendel Rosenblum
+
+
+
+     CS111 Lecture Notes - Lock Implementation
+Lock Implementation
+Optional readings:
+    Operating Systems: Principles and Practice: Section 5.7
+
+
+
+
+                          CS111 Lecture Notes - Lock Implementation
+Lock Implementation
+How to implement locks and condition variables (inside the operating system)?
+
+Starting with uniprocessor (single core):
+
+●   Only traps or interrupts can cause a thread to be switched out
+●   Disabling interrupts give us a critical section
+
+
+
+
+                            CS111 Lecture Notes - Lock Implementation
+              Uniprocessor Lock Implementation
+class Lock {                                         void Lock::unlock() {
+    Lock() {}                                            intrDisable();
+    bool locked = false;                                 if (q.empty()) {
+    ThreadQueue q;                                           locked = false;
+};                                                       } else {
+                                                             unblockThread(q.remove());
+void Lock::lock() {
+                                                         }
+    intrDisable();
+                                                         intrEnable();
+    if (!locked) {
+                                                     }
+        locked = true;
+    } else {
+        q.add(currentThread);
+        blockThread();                                                Dispatcher function
+    }
+    intrEnable();
+}                           CS111 Lecture Notes - Lock Implementation
+                                                                                            Slide 4
+  Why must blockThread be invoked with interrupts disabled?
+class Lock {                                               void Lock::unlock() {
+    Lock() {}                                                  intrDisable();
+    bool locked = false;
+                                                               if (q.empty()) {
+    ThreadQueue q;
+                                                                   locked = false;
+};
+                                                               } else {
+void Lock::lock() {                                                unblockThread(q.remove());
+    intrDisable();                                             }
+    if (!locked) {                                             intrEnable();
+        locked = true;                                     }
+        intrEnable();
+    } else {
+        q.add(currentThread);
+        intrEnable();
+        blockThread();
+    }
+}                             CS111 Lecture Notes - Lock Implementation
+                                                                                          Slide 5
+              Uniprocessor Lock Implementation
+class Lock {                                          void Lock::unlock() {
+    Lock() {}                                             intrDisable();
+    bool locked = false;                                  if (q.empty()) {
+    ThreadQueue q;                                            locked = false;
+};                                                        } else {
+                                                              unblockThread(q.remove());
+void Lock::lock() {
+                                                          }
+    intrDisable();
+                                                          intrEnable();
+    if (!locked) {
+                                                      }
+        locked = true;
+    } else {
+        q.add(currentThread);
+        blockThread();
+                                   Need this to be atomic!
+    }
+    intrEnable();
+}                           CS111 Lecture Notes - Lock Implementation
+                                                                                     Slide 6
+Announcements
+
+
+
+ CS111 Lecture Notes - Lock Implementation
+Multiprocessor Locks
+●   Need help from hardware to do efficiently
+●   atomic read-modify-write instruction
+     ○   Atomic exchange (e.g. Intel x86 xchg)
+          ■ Return the old value of a variable while setting it at same time
+
+
+
+
+                                  CS111 Lecture Notes - Lock Implementation
+                    Locks for Multi-Core, v1
+class Lock {                                          void Lock::unlock() {
+    Lock() {}                                             locked = false;
+    std::atomic<bool> locked(false);                  }
+};
+
+void Lock::lock() {                                   0x1140 <main()+16>:   mov $0x1,%al
+    while (locked.exchange(true)) {                   0x1142 <main()+18>:   xchg %al,-0x1(%rsp)
+        /* Do nothing */                              0x1146 <main()+22>:   test $0x1,%al
+                                                      0x1148 <main()+24>:   jne 0x1140 <main()+16>
+    }
+}
+
+                                                               Busy waiting
+
+                           CS111 Lecture Notes - Lock Implementation
+                                                                                                Slide 9
+                    Locks for Multi-Core, v2
+class Lock {                                        void Lock::unlock() {
+    Lock() {}                                           if (q.empty() {
+    std::atomic<bool> locked(false);                        locked = false;
+    ThreadQueue q;                                      } else {
+};                                                          unblockThread(q.remove());
+                                                        }
+void Lock::lock() {                                 }
+    if (locked.exchange(true)) {
+        q.add(currentThread);
+        blockThread();
+    }
+}                                                   What's wrong with approach?
+
+                                                    ThreadQueue atomicity
+                           CS111 Lecture Notes - Lock Implementation
+                                                                                   Slide 10
+                              Locks for Multi-Core, v3
+class Lock {                                                   void Lock::unlock() {
+    Lock() {}                                                      while (spinlock.exchange(true)) {
+    bool locked = false;                                               /* Do nothing */
+    ThreadQueue q;                                                 }
+    std::atomic<bool> spinlock;                                    if (q.empty() {
+};                                                                     locked = false;
+                                                                   } else {
+void Lock::lock() {                                                    unblockThread(q.remove());
+    while (spinlock.exchange(true)) {                              }
+        /* Do nothing */                                           spinlock = false;
+    }                                                          }
+    if (!locked) {
+        locked = true;
+        spinlock = false;
+    } else {
+        q.add(currentThread);
+        spinlock = false;
+        blockThread();
+    }
+}                                  CS111 Lecture Notes - Lock Implementation
+                                                                                                       Slide 11
+            Why is this busy waiting acceptable?
+class Lock {                                          void Lock::unlock() {
+    Lock() {}                                             while (spinlock.exchange(true)) {
+    bool locked = false;                                      /* Do nothing */
+    ThreadQueue q;                                        }
+    std::atomic<bool> spinlock;                           if (q.empty() {
+};                                                            locked = false;
+                                                          } else {
+void Lock::lock() {                                           unblockThread(q.remove());
+    while (spinlock.exchange(true)) {                     }
+        /* Do nothing */                                  spinlock = false;
+    }                                                 }
+    if (!locked) {
+        locked = true;
+        spinlock = false;
+    } else {                                             Busy waiting is unavoidable on multicores.
+        q.add(currentThread);
+        spinlock = false;
+        blockThread();                                   Try to minimize it.
+    }
+}                                  CS111 Lecture Notes - Lock Implementation
+                                                                                              Slide 12
+                              Still has race conditions
+class Lock {                                                   void Lock::unlock() {
+    Lock() {}                                                      while (spinlock.exchange(true)) {
+    bool locked = false;                                               /* Do nothing */
+    ThreadQueue q;                                                 }
+    std::atomic<bool> spinlock;                                    if (q.empty() {
+};                                                                     locked = false;
+                                                                   } else {
+void Lock::lock() {                                                    unblockThread(q.remove());
+    while (spinlock.exchange(true)) {                              }
+        /* Do nothing */                                           spinlock = false;
+    }                                                          }
+    if (!locked) {
+        locked = true;
+        spinlock = false;
+    } else {
+        q.add(currentThread);                                                     Where is race?
+        spinlock = false;        Need this to be atomic!
+        blockThread();
+    }
+}                                  CS111 Lecture Notes - Lock Implementation
+                                                                                                       Slide 13
+                            Locks for Multi-Core, v4
+class Lock {                                                    void Lock::unlock() {
+    Lock() {}                                                       while (spinlock.exchange(true)) {
+    bool locked = false;                                                /* Do nothing */
+    ThreadQueue q;                                                  }
+    std::atomic<bool> spinlock;
+                                                                    if (q.empty() {
+};
+                                                                        locked = false;
+void Lock::lock() {
+                                                                    } else {
+    while (spinlock.exchange(true)) {                                   unblockThread(q.remove());
+        /* Do nothing */                                            }
+    }                                                               spinlock = false;
+    if (!locked) {                                              }
+        locked = true;
+        spinlock = false;
+    } else {
+        q.add(currentThread);
+        currentThread->state = BLOCKED;               Change interface to dispatcher
+        spinlock = false;
+        redispatch();
+    }                                                 Linux approach
+}
+                                      CS111 Lecture Notes - Lock Implementation
+                                                                                                        Slide 14
+                            Locks for Multi-Core, v4
+class Lock {                                                    void Lock::unlock() {
+    Lock() {}                                                       while (spinlock.exchange(true)) {
+    bool locked = false;                                                /* Do nothing */
+    ThreadQueue q;                                                  }
+    std::atomic<bool> spinlock;
+                                                                    if (q.empty() {
+};
+                                                                        locked = false;
+void Lock::lock() {
+                                                                    } else {
+    while (spinlock.exchange(true)) {                                   unblockThread(q.remove());
+        /* Do nothing */                                            }
+    }                                                               spinlock = false;
+    if (!locked) {                                              }
+        locked = true;
+        spinlock = false;
+    } else {
+        q.add(currentThread);
+                                                           What happens if we get an interrupt here?
+        currentThread->state = BLOCKED;
+        spinlock = false;
+        redispatch();
+    }
+}
+                                      CS111 Lecture Notes - Lock Implementation
+                                                                                                        Slide 15
+                                  Locks for Multi-Core, v5
+class Lock {                                                        void Lock::unlock() {
+    Lock() {}                                                           intrDisable();
+    bool locked = false;
+                                                                        while (spinlock.exchange(true)) {
+    ThreadQueue q;
+    std::atomic<bool> spinlock;                                             /* Do nothing */
+};                                                                      }
+                                                                        if (q.empty() {
+void Lock::lock() {                                                         locked = false;
+    intrDisable();
+                                                                        } else {
+    while (spinlock.exchange(true)) {
+        /* Do nothing */                                                    unblockThread(q.remove());
+    }                                                                   }
+    if (!locked) {                                                      spinlock = false;
+        locked = true;                                                  intrEnable();
+        spinlock = false;
+                                                                    }
+    } else {
+        q.add(currentThread);
+        currentThread->state = BLOCKED;
+        spinlock = false;
+        redispatch();
+    }
+    intrEnable();
+}
+                                          CS111 Lecture Notes - Lock Implementation
+                                                                                                            Slide 16
+

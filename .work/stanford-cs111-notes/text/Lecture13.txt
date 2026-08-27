@@ -1,0 +1,380 @@
+Virtual Memory
+ Mendel Rosenblum
+
+
+
+   CS111 Lecture Notes - Virtual Memory
+Virtual Memory
+Optional readings: Operating Systems: Principles and Practice: Chapter 8
+●   Previously:
+     ○ A single core shared by several concurrent threads
+●   Starting Today:
+     ○ A single memory shared by several concurrent processes
+     ○ Virtualize the memory
+
+Take historical view: start with the earliest computers and show evolution
+    Explain why
+
+
+                                 CS111 Lecture Notes - Virtual Memory
+    Single-tasking: Early batch monitors
+∞
+        Operating               ● Early PCs (MS-DOS) used this as well
+         System
+                                ● Limitations:
+          Stack                    ○ Programs can't share memory
+                                       ○ Bad programs can trash OS/machine
+
+
+          Data
+
+
+          Code
+0                      CS111 Lecture Notes - Virtual Memory
+Goals of Memory Sharing
+●   Multitasking
+    ○ Sharing means multiple processes to be memory-resident at once
+
+●   Transparency
+     ○ Processes shouldn't be aware of the sharing (each process gets own memory)
+
+●   Isolation
+     ○ Processes mustn't be able to corrupt each other or the OS
+
+●   Efficiency
+     ○ CPU and memory efficiency shouldn't be degraded badly by sharing
+
+
+
+                                   CS111 Lecture Notes - Virtual Memory
+Single-tasking evaluation
+Goals:
+●   Multitasking:   No
+●   Transparency: No
+●   Isolation:      No
+●   Efficiency:     Yes
+
+
+
+
+                          CS111 Lecture Notes - Virtual Memory
+Early sharing approach: Load-Time Relocation
+∞
+     Operating
+                      ●     Have loader relocate program when loading
+      System                  ○     Loader runs like linker to update addresses
+                              ○     Each process gets distinct memory region
+
+                     Evaluation against goals:
+     Process 3
+                            ●     Multitasking:          Yes
+                            ●     Transparency?
+                            ●     Isolation?
+     Process 6
+                            ●     Efficiency (CPU & Memory)?
+
+     Process 1
+0                 CS111 Lecture Notes - Virtual Memory                            6
+Load-Time Relocation Limitations
+∞
+     Operating        ●     Must declare process size statically
+      System                 ■ Can't grow process
+                      ●     No isolation
+                             ■ Process can corrupt other processes & OS
+     Process 3        ●     Poor efficiency: Fragmentation
+                             ■ Recall first-fit and best-fit
+                             ■ Can't move process
+
+                      ●     Goals scoresheet
+     Process 6              Multitasking:           Yes
+                            Transparency:           No
+                            Isolation:              No
+     Process 1              Efficiency:             Yes
+
+0                 CS111 Lecture Notes - Virtual Memory                    7
+Key problem: Relocation of every instruction & data
+
+
+                  Address
+                                                          Memory
+   CPU
+                   Data
+
+
+
+
+                   CS111 Lecture Notes - Virtual Memory
+                  Dynamic Address Translation
+                                                                   Physical
+                 Virtual Address                                   Address
+                                          MMU
+                                                                              Memory
+   CPU
+                                        Data
+
+
+Memory Management Unit (MMU)
+
+Hardware challenge: Every memory access translated
+
+Two views of memory, called address spaces:
+ ● Virtual address space is what the program sees
+ ● Physical address space is the actual allocation of memory
+                                   CS111 Lecture Notes - Virtual Memory
+   Virtual Address space   Address Spaces                              Physical address space
+
+3000                                                               ∞
+                                                                             Operating
+           Process 3                                                          System
+   0
+1000
+           Process 6                                                         Process 3
+   0
+
+2000
+                                                                             Process 6
+           Process 1
+                                                                             Process 1
+   0
+                            CS111 Lecture Notes - Virtual Memory
+                                                                   0
+                   Early, simple hardware MMU
+●   Called Base and Bound
+●   Two hardware registers
+     ○ Base - Location of process in physical memory
+     ○ Bound - Size of the process virtual address space
+●   Operation done parallel:
+     ○ Add Base to address
+     ○ Compare address with bound - Error if out of bound
+
+
+
+
+                                 CS111 Lecture Notes - Virtual Memory
+                         Base & Bound operation
+                                            fault
+Virtual Address
+                                     >= ?
+                                                    bound
+   MMU Base                   Bound
+                                                            Virtual
+                                                            Address              base
+                                                            Space
+    +                                                                 Physical
+                                                                      Memory
+                                                      0
+                  Physical Address
+Virtual Address Spaces   Base and Bound                                 Physical Space
+
+3000                                                               ∞
+                                                                            Operating
+                          Base            Bound
+          Process 3                                                          System
+                          5000            3000
+  0
+1000                      Base            Bound                             Process 3
+          Process 6
+  0                       2000            1000                   5000
+
+2000                                                             3000
+                          Base            Bound                             Process 6
+                                                                 2000
+          Process 1       0               2000
+                                                                            Process 1
+  0
+                          CS111 Lecture Notes - Virtual Memory
+                                                                   0
+Virtual Addresses
+                     Base & Bounds Example
+                                                           Physical Addresses
+  2000
+                                                                 ∞
+  1420                 SP                                                   Operating
+                                                                             System
+                              MMU
+                       Base         Bound
+
+                       6000         2000
+          RETURN
+            …
+                              CPU                                    8000
+   140      …
+                       PC           62
+
+    66       …
+                                                                     6062    CALL 140
+                       SP           1420
+    62    CALL 140
+                                                                     6000
+
+     0
+
+                              CS111 Lecture Notes - Virtual Memory
+                                                                       0
+Virtual Addresses
+                     Base & Bounds Example
+                                                           Physical Addresses
+  2000
+                                                                 ∞
+  1420                                                                      Operating
+  1416       66        SP                                                    System
+                              MMU
+                       Base         Bound
+
+                       6000         2000
+          RETURN
+            …
+                              CPU                                    8000
+   140      …                                                                   66
+                                                                     7416
+                       PC           140
+
+    66       …
+                                                                     6062    CALL 140
+                       SP           1416
+    62    CALL 140
+                                                                     6000
+
+     0
+
+                              CS111 Lecture Notes - Virtual Memory
+                                                                       0
+            Base
+Virtual Addresses
+                  & Bounds Example Relocation
+                                                       Physical Addresses
+ 2000
+                                                             ∞
+ 1420                                                                   Operating
+ 1416     66       SP                                                    System
+                          MMU
+                   Base         Bound
+
+                    0           2000
+        RETURN
+          …
+                          CPU
+  140     …
+                   PC           140
+                                                                 2000
+  66       …       SP           1416                             1416       66
+  62    CALL 140
+
+   0
+                                                                 62      CALL 140
+
+                          CS111 Lecture Notes - Virtual Memory
+                                                                   0
+                                                                          Interrupt Vector Entry
+Process ⇔ OS transitions                                                Saved program counter
+
+                                                                        New program counter
+●   OS runs with relocation/MMU disabled
+     ○ Virtual address ⇒ Physical Address                               New PSR value
+     ○ Control in processor status register (PSR)
+          ■ PSR bits: relocation on? User mode?
+                                                                                   ∞
+                                                                                         Operating
+●   Traps into OS - Atomically:                                                           System
+     ○ Save program counter (like procedure call)
+     ○ Branch into OS (branch where? interrupt vectors)
+                                                                                         Process 3
+     ○ Turn translation off & user mode off
+
+●   Return from trap - Atomically:
+     ○ Turn translation and user mode back on                                            Process 6
+     ○ Restore saved program counter
+                                                                                         Process 1
+                                 CS111 Lecture Notes - Virtual Memory              0
+Base and Bound evaluation
+●   Goals achieved:
+
+    Multitasking:   Yes
+    Transparency: Yes
+    Isolation:      Yes
+    Efficiency:     Yes
+
+
+What are the problems with base and bound?
+
+
+
+                             CS111 Lecture Notes - Virtual Memory
+Base & Bound Disadvantages
+●    One contiguous region per program limiting
+      ○   Doesn't match program (code, data, stack, etc.)
+
+●    Memory sharing not supported                                               Stack
+●    Can't support read-only information (e.g code)
+
+●    Memory fragmentation
+                                                                                Data
+●    Can't grow processes (usefully)
+
+
+    Bottomline: one region too limiting                                         Code
+                                                                            0
+                                     CS111 Lecture Notes - Virtual Memory
+    Segmentation: Getting more than one region
+Process memory is split among several variable-size segments
+
+MMU - Segment map:
+    Type             Base                       Bound               Protection
+
+    Code              1000                      1000                R/O
+
+    Data              3000                      2000                R/W
+
+    Stack             8000                      2000                R/W
+
+
+Memory mapping logic consists of table lookup + add + compare
+    Like base and bound in efficiency (simple hardware, low overhead)
+
+                             CS111 Lecture Notes - Virtual Memory
+Determining segment of memory reference
+For memory reference need segment number and offset
+
+●    Top bits of address select segment, low bits the offset
+      ○ Example: PDP-10 with high and low segments selected by high-order address bit
+
+ ●   Segment can be selected implicitly by the instruction
+      ○   PDP-11 example: Instruction fetch from code segment, Data fetched from data segment
+      ○   Original x86: segment specified in the instruction (prefixes on instructions)
+
+
+
+
+                                    CS111 Lecture Notes - Virtual Memory
+Advantages of segmentation
+●   Manage each segment separately:
+     ○   Grow and shrink independently
+     ○   Swap to disk
+
+●   Can move segments to compact memory and eliminate fragmentation
+●   Can share segments between processes (e.g., shared code).
+
+
+
+
+                                  CS111 Lecture Notes - Virtual Memory
+                                                                            2 bit seg no
+Disadvantages of segmentation
+                                                                               Stack
+●   Fixed number of segments still creates limits:                   Seg3
+     ○   Can't mmap files.
+
+●   Variable length results in memory fragmentation
+                                                                     Seg2
+●   Address space is rigidly divided
+                                                                                Data
+
+
+                                                                     Seg1
+
+
+
+                                                                     Seg0
+                                                                               Code
+                              CS111 Lecture Notes - Virtual Memory
+

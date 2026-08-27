@@ -1,0 +1,535 @@
+   Paging
+Mendel Rosenblum
+
+
+
+   CS111 Lecture Notes - Paging
+Virtual Memory
+Optional readings: Operating Systems: Principles and Practice: Chapter 8
+
+
+
+
+                              CS111 Lecture Notes - Paging
+                 Key idea behind paging: Pages
+●   Divide address space into fixed sized chunks (pages)
+     ○ Done to both the virtual and physical address space
+     ○ 4KB (x86 myth) and 16KB (Macbook) sizes commonly used today
+
+
+
+
+                                   CS111 Lecture Notes - Paging
+                                 Paging
+●   MMU needs Page Map (also called called a Page Table)
+    ○ Maps virtual page to physical page
+
+
+                                                                        Physical Memory
+                                     Virtual Address Space
+                                                                          PPN 0
+                                          VPN 0                           PPN 1
+                                          VPN 1                           PPN 3
+
+                                          VPN 2                           PPN 4
+
+                                             …                            PPN 5
+
+                                          VPN n
+                                                                            …
+                                                             Page Map     PPN n
+
+
+
+                             CS111 Lecture Notes - Paging
+                 Page map / Page Table
+Virtual Address
+Virtual Page #     Offset
+                                   Writeable
+                                                           Physical Address
+                                                           Physical Page #                 Offset
+
+           PPN          01                                       Virtual Address Space
+                                                                                                    Physical Memory
+                                                                                                      PPN 0
+                                                                     VPN 0                            PPN 1
+                                                                     VPN 1                            PPN 3
+
+                                                                     VPN 2                            PPN 4
+
+                                                                        …                             PPN 5
+             Page Map                    Present                     VPN n
+                                                                                                        …
+                                                                                         Page Map     PPN n
+
+                            CS111 Lecture Notes - Paging
+    Fixed size makes memory management easier
+●   Physical memory management
+     ○ OS maintains free list of available physical memory pages
+         ■ Allocation: remove from list
+         ■ Freeing: add to list
+●   Virtual address space management
+     ○ Segment: collection of pages of size desired by program
+          ■ Start at any page boundray
+
+
+
+
+                                    CS111 Lecture Notes - Paging
+       Virtual Address space pages
+∞
+    Operating
+     System
+
+     Stack
+
+
+
+
+      Data
+
+
+      Code
+0               CS111 Lecture Notes - Paging
+        Big challenge: Page map implementation
+Example: x86-64 (myth machines) 64 bit virtual address, 4KB page size
+
+                  --- 64 bits ---
+
+   16                       36                                     12
+                                                                         Page map
+Not used                                        48 bits usable
+            How big is page map?
+Page map size:                                                          PTE 8 bytes
+    8 * 236 = 239 (512 GB)
+    Per process / address space
+                                    CS111 Lecture Notes - Paging
+            Approach used in x86-64 page map
+                                                                      PML1
+●    Break page map into page sized (4KB) chunks
+      ○ 4KB page can hold 512 (29) 8 byte entries                    PTE 8 bytes
+
+                                             PML1 offset
+    16                      27                   9              12
+
+
+●    227 is still too large: Add another PML                         PTE 8 bytes
+
+
+
+
+●    Page Map Level - PML
+
+                                                                     PTE 8 bytes
+
+
+
+
+                                                                     PTE 8 bytes
+
+                                 CS111 Lecture Notes - Paging
+                      More Page Map Levels
+                                                                     PML2          PML1
+●    Add a Page Map Level 2 (PML2)
+                                PML2 PML1                 offset    PTE 8 bytes   PTE 8 bytes
+
+    16                    18        9           9              12
+
+     Has present bits so we don't
+     need all PML1 pages
+                                                                    PTE 8 bytes   PTE 8 bytes
+
+
+
+
+                                                                    PTE 8 bytes   PTE 8 bytes
+●    Keep adding pmap levels:
+             PML4      PML3     PML2        PML1           offset
+    16          9         9          9           9             12
+                                                                    PTE 8 bytes   PTE 8 bytes
+
+                                CS111 Lecture Notes - Paging
+            x86-64 Address Translation
+                             64-bit Virtual Address
+            16           9            9             9           9              12
+
+
+
+
+                                                                       PML1
+                                                                    (Page Table)
+                                            PML2
+                                       (Page Directory)
+                      PML3
+                 (Page Directory
+  PML4            Pointer Table)                               40                         12
+                                                            Page Frame                   Offset
+PML4 Base                                                      52-bit Physical Address
+                             CS111 Lecture Notes - Paging
+            Virtual address space example
+● One page of code at 0x0000
+● One page of data at 0x1000
+● One page of stack at top (0xFFFFFFFFF000)
+
+
+                                                                   Stack
+                                      0xFFFFFFFFF000
+
+
+
+
+                                                                   Data
+                                                          0x1000
+                                                                   Code
+                                                              0
+                           CS111 Lecture Notes - Paging
+             Access some instruction in code page
+ Access in the code page 0x0 - 0xFFF
+
+
+                   PML4          PML3          PML2       PML1           offset
+      16                9             9           9            9              12
+                     0x0            0x0          0x0         0x0                               Stack
+                                                                              0xFFFFFFFFF000
+1.   Goto PML4 index 0x0 extract PML3 start addr
+     PML4 Base register points to PML4 start
+
+2.   Goto PML3 start addr index 0x0 extract PML2 start addr
+3.   Goto PML2 start addr index 0x0 extract PML1 start addr
+                                                                                               Data
+4.   Goto PML1 start addr index 0x0, extract PTE (PPN)                                0x1000
+                                                                                               Code
+                                                                                          0
+                                               CS111 Lecture Notes - Paging
+                             Access to the stack page
+ Access in the stack page 0xFFFFFFFFF000 - 0xFFFFFFFFFFFF                                      (e.g. 0x4)
+
+
+                   PML4           PML3        PML2        PML1           offset
+      16                9             9             9          9              12
+                   0x1FF           0x1FF 0x1FF 0x1FF                                                Stack
+                                                                              0xFFFFFFFFF000
+1.   Goto PML4 index 0x1FF (512) extract PML3 start addr
+     PML4 Base register points to PML4 start addr
+
+2.   Goto PML3 start addr index 0x1FF extract PML2 start addr
+3.   Goto PML2 start addr index 0x1FF extract PML1 start addr
+                                                                                                     Data
+4.   Goto PML1 start addr index 0x1FF, extract PTE (PPN)                              0x1000
+                                                                                                    Code
+                                                                                          0
+                                               CS111 Lecture Notes - Paging
+                              Access to the data page
+ Access in the data page 0x1000 - 0x1FFF                             (e.g. 0x1008)
+
+
+                   PML4           PML3        PML2        PML1           offset
+      16                9             9             9          9              12
+                   0x0            0x0          0x0          0x1                                Stack
+                                                                              0xFFFFFFFFF000
+1.   Goto PML4 index 0x0 extract PML3 start addr
+     PML4 Base register points to PML4 start addr
+
+2.   Goto PML3 start addr index 0x0 extract PML2 start addr
+3.   Goto PML2 start addr index 0x0 extract PML1 start addr
+                                                                                               Data
+4.   Goto PML1 start addr index 0x1, extract PTE (PPN)                                0x1000
+                                                                                               Code
+                                                                                          0
+                                               CS111 Lecture Notes - Paging
+Access address 0x0 (Code)
+                                                                                                       Stack
+                                                                               0xFFFFFFFFF000
+
+
+
+         PML4        PML3        PML2       PML1            offset
+16          9          9           9             9            12
+          0x0         0x0          0x0           0x0
+                                                                                                       Data
+                                                                                       0x1000
+                                                                                                       Code
+                                                                                           0
+
+                                                      .                    .
+                             .                        .                    .
+
+            .
+            .
+                             .
+                             .
+                                                      .                    .
+                                                                                                               Data
+            .
+
+
+
+
+                      0                      0                        0
+     0                      PML3                     PML2                 PML1
+           PML4
+                                                                                                Code       Stack
+         PML4 Base
+                                       CS111 Lecture Notes - Paging
+                                                                                                  Stack
+
+
+Access address 0xFFFFFFFFF000 (Stack)
+       PML4             PML3        PML2        PML1              offset
+                                                                                                  Data
+16            9            9              9         9              12
+                                                                                                  Code
+           0x1FF       0x1FF            0x1FF     0x1FF
+
+                        1FF                     1FF                     1FF
+                                                              .                     .
+                                    .                         .                     .
+                                    .                         .                     .
+                                    .
+
+                                                                                        Stack
+                           0                       0                       0
+                               PML3                      PML2                  PML1
+
+
+     1FF                        .
+                                .
+                                                          .
+                                                          .
+                                                          .
+                                                                                .
+                                                                                .
+                                                                                .          Data
+              .                 .
+              .
+              .
+
+
+
+
+                           0                      0                        0
+       0                       PML3                     PML2                   PML1
+             PML4
+                                                                                        Code
+           PML4 Base
+                                            CS111 Lecture Notes - Paging
+                                                                                                Stack
+
+
+Access address 0x1000 (Data)
+       PML4            PML3        PML2      PML1               offset
+                                                                                                Data
+16            9          9             9          9              12
+                                                                                                Code
+           0x0         0x0             0x0      0x1
+
+                       1FF                   1FF                      1FF
+                                                            .                     .
+                                   .                        .                     .
+                                   .                        .                     .
+                                   .
+
+                                                                                      Stack
+                         0                       0                       0
+                              PML3                     PML2                  PML1
+
+
+     1FF                       .
+                               .
+                                                        .
+                                                        .
+                                                        .
+                                                                              .
+                                                                              .
+                                                                              .          Data
+                  .            .
+                  .
+                  .
+
+
+
+
+                         0                      0                        0
+       0                      PML3                    PML2                   PML1
+             PML4
+                                                                                      Code
+           PML4 Base
+                                          CS111 Lecture Notes - Paging
+Remind you of any data structure you learned?
+
+
+                   1FF              1FF                    1FF
+                                                    .                     .
+                              .                     .                     .
+                              .                     .                     .
+                              .
+
+                                                                              Stack
+                     0                   0                       0
+                         PML3                  PML2                  PML1
+
+
+ 1FF                      .
+                          .
+                                                .
+                                                .
+                                                .
+                                                                      .
+                                                                      .
+                                                                      .          Data
+          .               .
+          .
+          .
+
+
+
+
+                    0                   0                        0
+   0                     PML3                 PML2                   PML1
+         PML4
+                                                                              Code
+       PML4 Base
+                                  CS111 Lecture Notes - Paging
+            Sharing memory between processes
+With X86-64:
+●    A single 4KB page (two PML1 pointing at same physical page)
+ ●   An entire page table at any level
+      ○ In a PML2 - PML1 sized - 512*4K     2MB shared object
+      ○ In a PML3 - PML2 sized - 512*512*4K 1GB shared object
+      ○ In a PML4 - PML3 sized - 512*512*512*4K 512GB shared object
+
+ ●   Possible to support different sized pages:
+      ○ 4K, 2MB, 1GB
+
+
+
+
+                                       CS111 Lecture Notes - Paging
+        Big issue: Too many memory accesses
+●   Page maps are too large to load into fast memory in the MMU
+     ○ Page maps kept in main memory
+     ○ MMU holds base address for top-level page map
+●   Taking 4 memory references to walk PMLx pages unacceptable
+●   Solution: Cache VPN ⇒ PPN mappings in MMU
+     ○ Given the name Translation Lookaside Buffer or TLB
+
+
+
+
+                                   CS111 Lecture Notes - Paging
+            Translation Lookaside Buffer (TLB)
+●   Small cache in MMU of recent translations
+     ○ Typical TLB sizes: 64-2048 entries
+     ○   Cache entry contains:
+          ■ Page number of a virtual address (VPN) (36 bits for x86-64)
+          ■ Physical page number (PPN) (40 bits for x86-64)
+
+●   Needs to be super fast and high hit rate
+     ○ Fully associative design
+     ○ TLB "hit rates" typically 95% or more. Much locality in memory references
+
+●   Operation: CPU issues a memory op specifying virtual address (VPN | offset)
+     ○ Hit in TLB (VPN matches) use PPN and check protection bits
+     ○ Miss in TLB: walk page map and fill TLB with VPN, PPN, and protection bits
+
+
+
+                                    CS111 Lecture Notes - Paging
+                       TLB OS complications
+●   TLB is mostly transparent to the OS
+Except:
+●   Switching page tables (context switch) must invalidate cache
+     ○ X86-64 assignment to PML4 Base flushes TLB
+     ○ Some architectures will put a PID in TLB entry to avoid flush
+●   Changing a page map might require invaliding a TLB entry
+     ○ X86-64: INVLPG instruction
+
+
+
+
+                                 CS111 Lecture Notes - Paging
+                   OS access to user memory
+●   Two approach:
+     ○ Run OS unmapped
+         ■   Data structures contiguous in virtual memory likely not contiguous in physical memory
+         ■   OS needs to translates user addresses in software
+    ○   Run OS mapped into virtual address space
+
+         ■   Still issue with I/O devices
+
+
+
+
+                                       CS111 Lecture Notes - Paging
+  Accessing User Memory: Umapped OS
+                     write(fd, buffer, length)
+
+
+
+
+Pages
+
+
+
+
+        User Address                                       OS Address
+        Space (Virtual)                                  Space (Physical)
+
+                          CS111 Lecture Notes - Paging
+                                                                            Slide 25
+    OS and User in Same Address Space
+∞                     OS in all          ∞
+     Operating                                  Operating
+                      Address
+      System                                     System
+                      Spaces
+                                                 Stack
+      Stack
+
+                     Private
+                    Data/Stack
+
+                                                  Data
+       Data
+
+                       Shared
+       Code                                       Code
+                        Code
+0                                        0
+     Process 1   CS111 Lecture Notes - Paging
+                                                Process 2
+Memory aliasing
+    ●   Memory aliasing: Multiple virtual addresses for same physical page
+         ○   Easy to do: duplicate a PML1 PTE
+    ●   Weird for a user process (two copies of the same variable)
+    ●   Commonly done in an OS to make physical memory available easily
+∞            Operating
+                                                                   PPN 0
+              System
+                                                                   PPN 1
+               Stack
+                                                                   PPN 3
+
+                                                                   PPN 4
+
+                                                                   PPN 5
+                Data                                                    …
+               Code                                                PPN n
+
+0                                        CS111 Lecture Notes - Paging
+Fragmentation: internal and external
+●   Still can have memory inside a page not being used
+     ○   Call internal fragmentation
+
+●   Virtual memory get rid of fragment between processes
+     ○   Call external fragmentation
+
+●   Typically the last page of segment has some internal fragmentation
+     ○   Since segments are large, internal fragmentation is small
+     ○   Larger page sizes can increase internal fragmentation
+
+
+
+
+                                        CS111 Lecture Notes - Paging
+

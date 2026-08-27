@@ -1,0 +1,57 @@
+# Lecture 12: Trust and Operating Systems
+
+- Date: 2026-04-24
+- Instructor: Mendel Rosenblum
+- PDF: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/12/Lecture12.pdf
+- Calendar: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar
+- Material gap: Canvas recording unavailable; notes derive from the public PDF.
+- Editorial focus: definitions of trust, isolation, verification, and building trust from distrust
+
+## Extracted agenda cues
+
+- Trust and Operating Systems
+- What is Trust?
+- ‘the willingness of a party to be vulnerable to the actions of another party
+- based on the expectation that the other will perform a particular action
+- important to the trustor, irrespective of the ability to monitor or control that
+- other party’
+- ●   willingness … to be vulnerable
+- ○ Must be willing, not under duress
+- ○ Open yourself up to the risks that trustee performs in undesirable way
+- ●   expectation
+- ○ Belief that the trustee will perform satisfactorily
+- ●   irrespective of ability to monitor or control the other party
+- ○ Even if trustor cannot control or monitor the trustee
+- What is Trust (philosophy version)?
+- ●   Trust is an unquestioning attitude
+- ●   With trust, we stop questioning its dependability and assume it will work.
+- Why Trust? Trust extends our agency
+- Agency definition:
+- “Agency is the sense of control that you feel in your life, your capacity to influence
+- your own thoughts and behavior, and have faith in your ability to handle a wide
+- range of tasks and situations. Your sense of agency helps you to be
+- psychologically stable, yet flexible in the face of conflict or change."
+- Agency in regards to computer systems:
+- Agency means a person’s practical sense that they can understand, influence, and
+- direct what happens in their interactions with systems.
+- Why Trust? Improves efficiency
+- Trust lets us accomplish more than we could through direct personal control alone
+- Trust is empowering, can do more with trust than without
+- Example: Trusting a computer to add a bunch of numbers
+- Trust is fundamental to all social systems
+- Enormous number of things you have to trust to get through a single day
+- Example: Trust Empowering
+- ●   A person with diabetes might need to monitor their blood glucose level
+- ○ Test a small sample of blood for sugar level
+- Trust improves efficiency and sanity while creating dependence and vulnerability
+- Over-trust (trustor property) versus untrustworthiness (trustee property); confirmation bias
+- Establishing trust through assumption, inference, and substitution
+- Software inference controls: testing, verification, instrumentation, code review
+- Software substitution controls: logging, consistency checks, timeouts, redundancy
+- OS as root of trust and part of the TCB with hardware and firmware
+- Why users, application developers, and kernel developers trust Linux
+- Linux community reputation and layered review governance
+- 2024 xz/ssh supply-chain attack, dynamic-link path, and OSS-Fuzz check
+- April 2026 Linux AI policy: AI assistance allowed, human contributor responsible for every line
+- Trust systems can fail through over-trust
+- CrabTrap agent HTTP proxy as substitution and a new trust boundary

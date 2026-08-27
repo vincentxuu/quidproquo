@@ -1,0 +1,464 @@
+                     CS107 Lecture 20
+Reverse Engineering, Privacy and Trust
+      Managing Heap: Preamble
+
+                                                    Reading: None!
+
+
+
+
+    This document is copyright (C) Stanford Computer Science, licensed under Creative Commons Attribution 2.5 License. All rights reserved.
+                       Based on slides created by Cynthia Lee, Chris Gregg, Jerry Cain, Lisa Yan, Nick Troccoli, and others.
+                                                                                                                                              1
+                       Privacy and Trust
+How does a computer interpret and execute C programs?
+
+Why is answering this question important?
+• Learning how our code is really translated and executed helps us write better
+  code
+• We can learn how to reverse engineer and exploit programs at the assembly
+  level
+
+
+
+
+                                                                                  2
+                        Privacy and Trust
+• Learning about machine code and program execution helps us better
+  understand computer security.
+• Computer security (the protection of data, devices, and networks from
+  disruption, harm, theft, unauthorized access or modification) is important in
+  part because it helps us maintain privacy and trust.
+
+
+
+
+                                                                                  3
+Have you been affected by a
+ data breach/hack or some
+other unauthorized access to
+         your data?
+
+How did that make you feel?
+                               4
+                                   Privacy
+What is privacy? Here are 4 ways of framing it:
+• Privacy as control of information: controlling how our private information is
+  shared with others.
+• Privacy as autonomy: the agency to decide for ourselves what is valuable.
+• Privacy as social good: social life would be severely compromised without
+  privacy.
+• Privacy as a display of trust: privacy enables trusting relationships.
+
+
+
+First two are individualist –the value of privacy as an individual right.
+Second two are social – the value of privacy for a group.                         5
+                                     Privacy
+Privacy as control of information: controlling how our private
+information is shared with others.
+
+• Consent requires free choice with available alternatives and informed
+  understanding of what is being offered.
+   • How many of you just skip past the terms of service for some new online service? What
+     are you surrendering by simply agreeing to it?
+• Control over personal data collection and aggregation (e.g., data exports from
+  services you use, privacy dashboards, device privacy protections)
+
+
+
+                                                                                             6
+                                 Privacy
+Privacy as autonomy: the agency to decide for ourselves what
+is valuable.
+
+• Pertains to the autonomy over our own lives and our ability to lead them as we
+  choose.
+• Do you feel your autonomy is consistently respected when using products and
+  services? Why or why not?
+
+"[P]rivacy is valuable because it acknowledges our respect for persons as
+autonomous beings with the capacity to love, care and like—in other words,
+persons with the potential to freely develop close relationships" (Innes 1992)
+                                                                                   7
+            Individualist Models of Privacy
+Privacy as autonomy and privacy as control over information
+focus on the value of privacy at an individual level.
+
+• Individual privacy can conflict with interests of state or society.
+• Many debates over "privacy vs. security" – whether one should be sacrificed
+  for the other
+   • Apple v. FBI case re: unlocking iPhones (link)
+   • Debates around encryption (link)
+   • Privacy in the age of surveillance (link)
+
+
+                                                                                8
+                                   Privacy
+Privacy as social good: social life would be severely
+compromised without privacy.
+
+• Privacy provides a social value strongly influencing the kind of society we live
+  in.
+• What would society look like without privacy?
+
+
+
+
+                                                                                     9
+                                      Privacy
+Privacy as display of trust: privacy enables trusting
+relationships.
+• Privacy enables trusting relationships essential to cooperation. For instance, a
+  fiduciary: someone who stands in a legal or ethical relationship of trust with
+  another person or group. The fiduciary must act for the benefit of and in the
+  best interest of the other person.
+   • e.g., tax filer with access to your bank account
+   • Should anyone who has access to personal info have a fiduciary responsibility? (Richards
+     & Hartzog, 2020).
+• This model of privacy stresses the essential relationship between trust placed
+  in any holder of personal data and responsibilities that come with this trust.
+
+                                                                                            10
+                      Models of Privacy
+Individualist                                       Societal Models
+Models                                                    of Privacy
+                     Privacy as    Privacy as a
+                    Control over   Social Good
+                    Information
+
+       Privacy as
+                                             Privacy as based on
+      Respect for                                   Trust
+      Autonomy
+
+
+
+                                                                   11
+                          Loss of Privacy
+Loss of privacy can cause us various forms harms, including:
+
+• Aggregation: combining personal information from various sources to build
+  someone’s profile
+• Exclusion: not knowing or understanding how our information is being used, or
+  being unable to access or modify it (Google removing personal info from
+  search – link)
+• Secondary Use: using your information for purposes other than what was
+  intended without permission.
+
+
+
+                                                                              12
+                   Who Should We Trust?
+Both security and privacy rely on trusted people (who administer security,
+perform penetration tests, submit vulnerabilities to databases, or keep private
+information secret). The final piece of the security puzzle is understanding trust.
+
+  Trust = Reliance + Risk of Betrayal
+
+What makes trust unique to relationships between people is that trust exposes
+one to being betrayed or being let down (Baier 1986).
+
+
+
+
+                                                                                      13
+              Penetration Testing & Trust
+Penetration testing is the practice of encouraging or even hiring security
+researchers to find vulnerabilities in one’s own code or system.
+
+The tester is placed in a position of trust: they are given access to the system
+itself and encouraged to find easily and not-so-easily exploited vulnerabilities,
+with the expectation that the tester will share what they have found with you.
+
+Hiring a penetration tester means relying on their skill at finding vulnerabilities
+but also trusting their ethical compass will lead them to tell you and to act as a
+trustworthy fiduciary (guardian of your interests). In assign5, you will have the
+opportunity to exercise your own ethical compass!
+                                                                                      14
+            Example: Differential Privacy
+Imagine a large database—perhaps a medical one—with personal information
+and records of past activity tied to a name.
+
+The records might be useful for research purposes, or to train a machine
+learning model to predict future health outcomes, but what if giving access to
+the records exposed the privacy of individual person’s health records?
+
+Differential privacy is a formal measure of privacy that attempts to address
+these concerns. By adding inconsequential noise (changing a birthday from 2001
+to 2002, for example) or removing records, differential privacy protects
+individuals from aggregation by making them harder to identify (Dwork 2008).
+                                                                                 15
+        Differential Privacy’s Trust Model
+Differential privacy assumes that the only threat to privacy is an external user
+accessing the database who must be prevented from aggregating data that
+could identify a user.
+
+In other words, the trust model of differential privacy is that the database
+owners and maintainers are to be fully trusted, and no one else.
+
+
+
+
+                                                                                   16
+  Differential Privacy: The Other Threats
+But is that the only threat? Differential privacy does not protect against
+improper use by people with full access to data or against data leaks from the
+database itself, which may be the primary data exposure risks.
+
+Differential privacy also does not question the assumption that amassing &
+storing large amounts of personal data is worth the risk of inevitable leaks
+(Rogaway 2015).
+
+In every evaluation of privacy, we can ask: who is trusted? Who is distrusted?
+Does this model concentrate trust (and therefore power) in a single individual or
+small group, or does it distribute trust?
+                                                                                 17
+                         Running a program
+• Creates new process                                                          Main Memory
+                                                      0x7ffffffff0000
+• Sets up address space/segments                                               Stack
+• Read executable file, load instructions, global data
+  Mapped from file into gray segments                                 Shared library text/data
+                                                      0x7ffff770000
+• Libraries loaded on demand
+
+• Set up stack                                                                      Heap
+  Reserve stack segment, initialize %rsp, callq main         0x60000
+                                                                                 Global data
+• malloc written in C, heap will initialize itself on first use
+                                                                             Text (machine code)
+  Asks OS for large memory region,                           0x40000
+  parcels out to service requests
+                                                                                                   18
+              The Stack                                        Review
+
+                      Main Memory
+0x7ffffffff0000
+                           Stack             Stack memory "goes
+                                             away" after function call
+                  Shared library text/data   ends.
+0x7ffff770000
+                                             Automatically managed
+                                             at compile-time by gcc
+                           Heap              From Assembly:
+     0x60000
+                                             Stack management
+                        Global data
+                   Text (machine code)
+                                             amounts to moving
+     0x40000                                 %rsp up and down
+                                             (pushq, popq, mov)
+                                                                    19
+Preamble: The Heap
+                      Main Memory
+0x7ffffffff0000
+                           Stack
+                                             Heap memory persists
+                                             until caller indicates it
+0x7ffff770000
+                  Shared library text/data   no longer needs it.
+                                             Managed by C standard
+                                             library functions
+                           Heap              (malloc, realloc, free)
+     0x60000
+                        Global data          This lecture:
+                   Text (machine code)       How does heap
+     0x40000
+                                             management work?
+                                                                         20
+                  Your role so far: Client
+void *malloc(size_t size);
+      Returns a pointer to a block of heap memory of at least size bytes, or
+      NULL if an error occurred.
+
+void free(void *ptr);
+     Frees the heap-allocated block starting at the specified address.
+
+void *realloc(void *ptr, size_t size);
+     Changes the size of the heap-allocated block starting at the specified
+     address to be the new specified size. Returns address of new, larger
+     allocated memory region. realloc(NULL, size) -> malloc(size)
+                                                                               21
+                 What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+
+
+
+
+0x10     0x11    0x12     0x13     0x14    0x15     0x16     0x17    0x18     0x19
+
+                                     AVAILABLE
+                                                                                     22
+                     What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+
+       Request 1: Hi! May I                                 Allocator: Sure, I’ve given
+       please have 2 bytes of
+          heap memory?
+                                                                you address 0x10.
+
+
+0x10       0x11       0x12      0x13   0x14   0x15   0x16     0x17     0x18    0x19
+
+                                         AVAILABLE
+                                                                                          23
+                     What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+
+       Request 1: Hi! May I                                 Allocator: Sure, I’ve given
+       please have 2 bytes of
+          heap memory?
+                                                                you address 0x10.
+
+
+0x10       0x11       0x12      0x13   0x14   0x15   0x16     0x17     0x18    0x19
+
+FOR REQUEST 1                                   AVAILABLE
+                                                                                          24
+                     What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+
+       Request 2: Howdy! May I                               Allocator: Sure, I’ve given
+        please have 3 bytes of
+           heap memory?
+                                                                 you address 0x12.
+
+
+0x10        0x11      0x12       0x13   0x14   0x15   0x16     0x17     0x18    0x19
+
+FOR REQUEST 1                                    AVAILABLE
+                                                                                           25
+                     What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+
+       Request 2: Howdy! May I                               Allocator: Sure, I’ve given
+        please have 3 bytes of
+           heap memory?
+                                                                 you address 0x12.
+
+
+0x10        0x11      0x12       0x13   0x14   0x15   0x16     0x17      0x18   0x19
+
+FOR REQUEST 1                FOR REQUEST 2                   AVAILABLE
+                                                                                           26
+                      What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+
+       Request 1: I’m done with                               Allocator: Thanks. Have a
+       the memory I requested.
+             Thank you!
+                                                                      good day!
+
+
+0x10        0x11       0x12       0x13   0x14   0x15   0x16     0x17       0x18   0x19
+
+FOR REQUEST 1                 FOR REQUEST 2                    AVAILABLE
+                                                                                         27
+                      What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+
+       Request 1: I’m done with                               Allocator: Thanks. Have a
+       the memory I requested.
+             Thank you!
+                                                                      good day!
+
+
+0x10        0x11       0x12       0x13   0x14   0x15   0x16     0x17       0x18   0x19
+
+  AVAILABLE                   FOR REQUEST 2                    AVAILABLE
+                                                                                         28
+                        What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+
+        Request 3: Hello there!                                  Allocator: Sure thing. I’ve
+       I’d like to request 2 bytes
+       of heap memory, please.
+                                                                  given you address 0x10.
+
+
+0x10        0x11         0x12        0x13   0x14   0x15   0x16     0x17       0x18   0x19
+
+  AVAILABLE                     FOR REQUEST 2                     AVAILABLE
+                                                                                            29
+                        What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+
+        Request 3: Hello there!                                  Allocator: Sure thing. I’ve
+       I’d like to request 2 bytes
+       of heap memory, please.
+                                                                  given you address 0x10.
+
+
+0x10        0x11         0x12        0x13   0x14   0x15   0x16     0x17       0x18   0x19
+
+FOR REQUEST 3                   FOR REQUEST 2                     AVAILABLE
+                                                                                            30
+                       What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+        Request 3: Hi again! I’d
+       like to request the region                               Allocator: Sure thing. I’ve
+         of memory at 0x10 be                                    given you address 0x15.
+         reallocated to 4 bytes.
+
+
+0x10        0x11        0x12        0x13   0x14   0x15   0x16     0x17       0x18   0x19
+
+FOR REQUEST 3                  FOR REQUEST 2                     AVAILABLE
+                                                                                           31
+                       What is a heap allocator?
+• A heap allocator is a suite of functions that cooperatively fulfill requests for
+  dynamically allocated memory.
+• When initialized, a heap allocator tracks the base address and the size of a
+  large contiguous block of memory. That block of memory is the heap.
+• The allocator manages the heap as clients request or donate back pieces of it.
+        Request 3: Hi again! I’d
+       like to request the region                               Allocator: Sure thing. I’ve
+         of memory at 0x10 be                                    given you address 0x15.
+         reallocated to 4 bytes.
+
+
+0x10        0x11        0x12        0x13   0x14   0x15   0x16     0x17     0x18    0x19
+
+  AVAILABLE                    FOR REQUEST 2             FOR REQUEST 3             AVAILABLE
+                                                                                               32
+

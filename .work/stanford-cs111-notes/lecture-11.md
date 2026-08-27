@@ -1,0 +1,52 @@
+# Lecture 11: Dynamic Storage Management, Continued
+
+- Date: 2026-04-22
+- Instructor: Mendel Rosenblum
+- PDF: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/11/Lecture11.pdf
+- Calendar: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar
+- Material gap: Canvas recording unavailable; notes derive from the public PDF.
+- Artifact discrepancy: official Lecture 10 and Lecture 11 PDFs are byte-identical 22-page files (SHA-256 `368092c0b7520f0e5eb5b84337e01a69ce42effda357c81559aedf69374e67cb`); no distinct continuation deck is public.
+- Editorial focus: boundary tags, coalescing, garbage collection, and memory safety
+
+## Extracted agenda cues
+
+- Dynamic Storage Management
+- How to manage a region of memory or storage to satisfy various needs?
+- Both in applications and OS
+- Both memory (now) and disk storage (later)
+- Challenge is unpredictability
+- Dynamic Storage Operations
+- ●   allocate(size) ⇒ ptr
+- ○   Allocate a block with a given number of bytes
+- ●   free(ptr)
+- ○ Free a previously allocated block
+- Challenge: unpredictability
+- Don't know how long until an allocated block is freed
+- Super hard problem
+- General approaches to allocation
+- ●   Stack allocation (hierarchical)
+- ○   Restricted support to an particular allocation/free pattern
+- ○   Simple and efficient to implement
+- ●   Heap allocation
+- ○  Supports arbitrary allocation/free
+- ○  Hard to implement efficiently
+- Example of Stack and Heap Allocation & Free
+- int global = 7;              // global data
+- int* gptr = &global;         // global pointer (contains an address)
+- void func(int x) {
+- int local = x;           // stack variable
+- int* lptr = &local;      // stack pointer (contains an address)
+- int* heap = new int(42);          // heap object
+- lptr = heap;                      // pointer now holds heap address
+- delete heap;
+- Stack Allocation
+- ●   Works when last allocated = first freed (LIFO) - predictable
+- ○   Single stack pointer implementation:
+- ■   Allocate: adjust pointer
+- ■   Free: adjust pointer back
+- Reclamation focus in the latter half: pointer reachability and safe-to-free condition
+- Dangling pointers versus memory leaks
+- Reference counting examples and the cycle failure
+- Garbage collection from roots; recursive marking of reachable objects
+- Sweep described by the deck as copy/compact, pointer updates, and freeing remainder
+- Cost magnitudes: 10–20% CPU, 2–5× overallocation, long pauses

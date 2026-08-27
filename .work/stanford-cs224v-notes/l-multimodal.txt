@@ -1,0 +1,1205 @@
+             Stanford CS224v Course
+Conversational Virtual Assistants with Deep Learning
+                       Lecture 13
+              Multimodal Applications
+
+                 Jackie (Junrui) Yang & Monica Lam
+
+
+
+
+                                   1
+Lecture Goals
+
+• Why do we need multimodal interactions?
+• Three problems for multimodal app development
+• ReactGenie: a multimodal app development framework
+
+
+
+
+                                                       2
+Proposed in 1979
+
+
+
+
+                   Why?
+
+
+
+
+                          3
+Today: Interacting with Touch + Graphics:
+Powerful and accurate
+                            PowerPoint:
+
+                            • Textboxes, pictures, shapes
+                            • Fonts, colors, line styles
+                            • Adjust everything accurately
+                              via GUI
+
+
+
+
+                                                             4
+Interacting with Touch + Graphics:
+But sometimes inefficient and repetitive
+                            Slow and tedious for
+
+                            • Apply actions to multiple
+                              objects
+
+                            • Less common features
+
+
+
+
+                                                          5
+Example: Powerpoint
+• Lots and lots of nested menus
+
+
+
+
+                                  6
+Example: Powerpoint
+
+• Lots and lots of nested menus
+  • Horizontal ones and vertical ones
+
+
+
+• Takes a long time to make slides
+  (even if you know what functions are
+  available)
+
+
+                                         7
+Here are Some Examples:
+
+ • Make this text box bold in the slide master.
+
+ • Make the border of this shape with little dots.
+
+ • Make everything right aligned on this slide.
+
+ • Make every shape on this slide above this yellow.
+
+                                                       8
+Multimodal Interaction:
+High-level goals rather than low-level actions
+                               High-level goals
+                              “Make all the word ‘ReactGenie’
+                              red and bold”
+
+
+                              Instead of
+
+                              Low-level actions:
+                              [select] -> [change color] ->
+                              [make bold] … x 3
+
+
+
+
+                                                                9
+How to Create Sophisticated Multimodal Apps?
+
+
+
+
+                                               10
+Lecture Goals
+
+• Why do we need multimodal interactions?
+• Three problems for multimodal app development
+  • Compositionality of multimodal commands
+  • Expose diverse actions/APIs from a GUI app
+  • Allows for interchangeable and simultaneous multimodal interactions
+• ReactGenie: a multimodal app development framework
+
+
+                                                                          11
+Recall the examples earlier
+Make this text box bold in the slide master.
+
+
+Make the border of this shape with little dots.
+
+
+Make everything right aligned on this slide.
+
+
+Make every shape on this slide above this yellow.
+
+
+
+
+                                                    12
+Problem 1: Limitation of Function Calling
+Make this text box bold in the slide master.
+                                                                                MakeSlideMasterTextBold()
+
+Make the border of this shape with little dots.
+                                                                 MakeShapeBorder(borderType:"littleDots")
+
+Make everything right aligned on this slide.
+                                                                 SetEverythingAlignment(alignment:"Right")
+
+Make every shape on this slide above this yellow.
+                                                                       SetShapeAboveColor(color:"Yellow")
+
+
+                       How many functions do we need for function calling — this is not scalable!
+
+                                                                                                             13
+     Solution 1: Compositionality of multimodal commands
+                                                                                            NLPL (natural-language
+                                                                                            programming language)
+     Make this text box bold in the slide master.
+                                                       Slide.Current().getSlideMaster().matching( eld:.id,value:Shape.Current().id)
+                                                                                     .textFrame.textRange.font.setBold(bold: true)
+
+     Make the border of this shape with little dots.
+                                                                Shape.Current().lineFormat.setDashStyle(dashSyle:"RoundDot"）
+
+     Make everything right aligned on this slide.
+                                                              Slide.Current().getShapes().textFrame.textRange.paragraphFormat.
+                                                                                setHorizontalAlignment(horizontalAligment:"Right")
+
+     Make every shape on this slide above this yellow.
+                                                            Slide.Current().getShapes().between( eld:.top,to:Shape.Current().top).
+                                                                                            ll.setForeGroundColor(color:"yellow")
+
+
+                                       Solve Compositionality with compound function calls
+                                                                                                                                      14
+                                fi
+                           fi
+fi
+                Design of NLPL (Natural Language
+                                Programming Language)
+                       Slide.Current().
+                        ndShape(
+                        above=Shape.Current())
+                                                                                         Delete Shapes above this
+          Python               Weak type, more errors
+
+                       Slide.Current(). ndShape(
+                         Shape.Current().top
+                       ).forEach((x)=> x.delete())
+          TypeScript   No param names, more errors      Slide.Current().getShapes()
+                                                        .between(
+                       Slide.Current(). ndShape(           eld: .top,
+                       above: Shape.Current().top         to: Shape.Current().top     Automatically
+                       ).forEach{$0.delete()}           ).delete()                    distributed to each
+           Swift
+                                 Ambiguous query                                      element
+                                                           Easy to generate
+                       select * from shape                  Versatile query
+                       where top>current_top
+                                                             Fewer errors
+           SQL                       No Action          No Lambda Expression
+
+                               Existing language                  NLPL
+                          fi
+                          fi
+     fi
+fi
+            Expressiveness of NLPL
+     Cha n ge                       ba ckg ro un d                col or           f or         al l t h e y el l o w                          s hap es           t o     o rang e
+                                        Verb                                                        Object Modi er                               Object                 Verb Modi er
+                                       Shape.All().equals( eld: .shapeFill.foregroundColor, value: “yellow”).shapeFill.setForegroundColor(color: “orange”)
+
+
+
+              Feature of NLPL                     English grammar                     Food Ordering                             PowerPoint                      Social Network
+
+             Call function of a                                                                                            TextRange.Current().setBold(
+                                               Singular Object + Verb                  Order.Current().place()                                                    Post.Current().like()
+                   object                                                                                                          bold: true)
+
+
+
+           Distribute action to an                                                                                     Slide.Current().getShapes().textFrame.
+                                                 Plural Object + Verb                 Order.All()[-1].foods.like()                                              User.Me().posts.delete()
+              array of objects                                                                                                        setText(“”)
+
+
+
+              Specify function                  Object + Verb + Verb                  Order.Current().addFoods(         Shape.Current().textFrame.setText(      Post.Current().comment(
+                parameters                            Modi er                   foods:[Food.GetFood(name:“Burger”)])             text: “12345”)                 comment: “Nice Photo”)
+
+
+
+            Select objects to do                  Object Modi er +                 Restaurant.Current().foods.sort(
+                                                                                                                              Shape.All().matching(
+                                                                                                                                eld: .textFrame.text,
+                                                                                                                                                                   Post.All().equals(
+                                                                                                                                                                       eld: .like,
+                  actions                          Object + Verb                        eld: .price)[0].order()
+                                                                                                                              value: “yellow).delete()               value: true)
+
+
+
+                                                                                                                                                                                           16
+                               fi
+                          fi
+                     fi
+                fi
+      fi
+fi
+fi
+fi
+Examples of Compound Commands
+
+
+
+
+                                17
+18
+Making PowerPoint Multimodal with Gen
+• Built on MS PowerPoint Javascript API
+  • 110 APIs: Slide, Shape, SlideMaster, TextFrame, TextRange, …
+  • Yet, it does not include common APIs like Animation, Font color, etc.
+  • It is super hard to expose API outside of the development cycle of GUI
+• Powerpoint today has a human “GUI” interface
+• How do we create a multimodal interface?
+
+
+
+
+                                                                             19
+Problem 2: Expose diverse actions/APIs from a GUI app
+• 110 APIs: Slide, Shape, SlideMaster, TextFrame, TextRange, …
+  • That’s everything from MS PowerPoint JS API.
+  • Yet, it still does not have common APIs like Animation, Font color, etc.
+• It is super hard to expose API outside of the development cycle of GUI
+• With the advancement of AI, developers need to build two interfaces:
+  • A human interface, and
+  • An AI interface
+• That’s double the work on developers!
+                                                                               20
+Problem 2: How to Expose APIs to Multimodal Interace
+
+
+• Can we do it with minimal engineering e ort?
+• Solution: Just add annotations to existing code to expose desired features
+  • GenieClass: indicates it has a multimodal interface
+  • GenieKey: each instance has an ID
+  • GenieProperty: exposed properties (variables)
+  • GenieFunction: exposed functions
+
+
+                                                                               21
+                                   ff
+Solution 2: Annotate exposed APIs
+                                                                                            ReactGenie
+@GenieClass(“Past order or a shopping cart")
+class Order extends DataClass {
+                                                                                            Annotations
+   @GenieKey()
+   public orderId: string;
+   @GenieProperty("Items in the order")
+   public orderItems: FoodItem[];
+   constructor({orderId, orderItems}: {orderId: string, orderItems: FoodItem[]}) {
+      super({orderId, orderItems}); this.orderId = orderId; this.orderItems = orderItems;
+   }
+   @GenieFunction()
+   static All(): Order[] {
+      return fetchOrdersFromServer();
+   }
+   @GenieFunction("Create a new order")
+   static CreateOrder(): Order {
+      return new Order({orderId: randomId(), orderItems: []});
+   }
+   @GenieFunction("Add an item to the order")
+   addItem({foodItem}: {foodItem: FoodItem}) {
+      this.orderItems.push(foodItem); updateServer();
+   }
+}
+
+                                          React App Logic Code
+                                                                                                          22
+Problem 3: How to tell the user what happened? 🤷
+
+
+
+                                         User touching this picture
+
+
+
+
+         When is the last time I
+         ordered from this restaurant?
+
+
+
+
+                                                                      23
+Solution 3: Interchangeable & simultaneous multimodal I/O
+
+
+
+
+          When is the last time I
+          ordered from this restaurant?
+
+
+
+                                          Navigate to order history page
+                                                 for McDonald’s
+                                                                           24
+Example 2
+
+
+
+ s
+
+
+
+
+            Add 1 burger to my cart.
+
+
+
+                                       Perform action and
+                                          Update page
+Example 3
+  s
+
+
+
+
+            Add one shake and one
+            burger to the cart.
+
+
+
+                                      Perform action and
+                                    Navigate to another page
+                                                               26
+Solution 3: Interchangeable & simultaneous
+multimodal I/O
+• Multimodal Input
+  • UI Input Mapping: Getting what object that I’m touching
+• Multimodal Output
+  • Resulting objects are on-screen
+    —> UI Updates: Update the values on screen
+
+  • Resulting objects are o -screen
+    —> Navigation: Navigate to the page with results
+
+
+                                                              27
+                 ff
+Lecture Goals
+
+• Why do we need multimodal interactions?
+• Three problems for multimodal app development
+• ReactGenie: a multimodal app development framework
+
+
+
+
+                                                       28
+                 What is ReactGenie?
+
+        E se of Development
+                                     Re ct Code            +    Annot tions            Re ctGenie Code
+                                  (In recommended style)       (< 5% code typic lly)
+
+
+
+
+        Rich Multimod l Function lity
+                                              Sem ntic P rser
+                 Combin tions of                UI M pping    Re ctGenie DSL           Execution           Both
+                 Voice + GUI input                                Code                              Voice + GUI output
+
+
+
+
+                                                                                                                         29
+                                               a
+                              a
+                          a
+                          a
+                      a
+                  a
+         a   a
+    a
+    a
+    a
+a
+ReactGenie Demo
+
+
+
+
+                  30
+Modern GUI 101: State + Components
+
+
+
+                                  RecipeViewImpl = (recipe: Recipe) => {
+ class Recipe {
+                                    return (
+  name: String;
+                                      <div>
+  img: Image;
+                                       <img image={recipe.img}/>
+  loved: boolean;
+                                       <love loved={recipe.loved}
+                                        onClick(()=>recipe.love())/>
+     love(): void {
+                                       <div> {recipe.name} </div>
+       this.loved = true;
+                                      </div>
+       }
+                                    )
+ }
+                                  }
+
+
+State Code: Implements Features    Components: Describe GUI
+                                                                           31
+ReactGenie = React + Annotations
+ @DataClass()
+                                 RecipeViewImpl = (recipe: Recipe) => {
+ class Recipe: GenieClass {
+                                   return (
+    @GenieProperty()
+                                     <div>
+  name: String;
+                                      <img image={recipe.img}/>
+                                      <love loved={recipe.loved}
+     img: Image;
+                                       onClick(()=>recipe.love())/>
+       @GenieProperty()
+                                      <div> {recipe.name} </div>
+     loved: boolean;
+                                     </div>
+                                   )
+     @GenieFunction()
+                                 }
+     love(): void {
+       this.loved = true;
+                                 export RecipeView = GenieInterface(“Recipe”,
+       }
+                                  RecipeViewImpl)
+ }
+
+ State Annotations:               Components Annotations:
+ Which class/property/function    Which components represent
+ can be accessed with voice       which state classes                           32
+            Recall the Agent Architecture
+        Agent                          User
+                         Sem ntic Di logue St te               Result   Response
+            Text input                             Execution                        Agent Output
+                          P rser                                        Gener tor
+                                              Di logue St te
+
+
+
+
+                                                                                                   33
+                  a
+                  a
+            a
+        a
+    a
+    a
+a
+                            React has a Similar Architecture
+                Agent                                         User
+                                                Sem ntic Di logue St te               Result   Response
+                            Text input                                    Execution                        Agent Output
+                                                 P rser                                        Gener tor
+                                                                     Di logue St te
+
+                React                                     Component
+                                                  UI        API c ll                  Result
+                            Text input                                    Execution            UI Upd te   Displ y
+                                                M pping
+                                                                  Re ct Progr m St te
+
+
+
+
+                                                                                                                          34
+                                            a
+                                        a
+                                    a
+                                    a
+                                a
+                            a
+                    a   a
+                a
+            a
+        a
+        a
+    a
+a
+                        Multimodal Agent Architecture
+            ReactGenie                                   User Di logue St te
+                                                Sem ntic       (NLPL)                Result Response
+                        Text input                                                                       Agent Output
+                                                 P rser                                     Gener tor
+
+                                                                      Execution
+                                                                        Re ct
+                                                  UI                Progr m St te
+                        Text input                                                  Result   UI Upd te   Displ y
+                                                M pping Component
+                                                          API c ll
+
+
+
+
+                                                                                                                        35
+                                        a
+                                    a
+                                a
+                            a
+                        a
+                a   a
+            a
+        a
+    a
+a                                           a
+                            Semantic Parser + Response Generator
+            ReactGenie                                    User Di logue St te
+                                                 Sem ntic       (NLPL)                Result Response
+                            Text input                                                                    Agent Output
+                                                  P rser                                     Gener tor
+
+                                                                       Execution
+                                                                         Re ct
+                                                   UI                Progr m St te
+                            Text input                                               Result   UI Upd te   Displ y
+                                                 M pping Component
+                                                           API c ll
+
+
+
+
+                                                                                                                         36
+                                         a
+                                     a
+                                 a
+                             a
+                        a
+                a   a
+            a
+        a
+    a
+a                                            a
+     Revisiting NLPL                                                                        NLPL (natural-language
+                                                                                            programming language)
+     Make this text box bold in the slide master.
+                                                       Slide.Current().getSlideMaster().matching( eld:.id,value:Shape.Current().id)
+                                                                                     .textFrame.textRange.font.setBold(bold: true)
+
+     Make the border of this shape with little dots.
+                                                                Shape.Current().lineFormat.setDashStyle(dashSyle:"RoundDot"）
+
+     Make everything right aligned on this slide.
+                                                              Slide.Current().getShapes().textFrame.textRange.paragraphFormat.
+                                                                                setHorizontalAlignment(horizontalAligment:"Right")
+
+     Make every shape on this slide above this yellow.
+                                                            Slide.Current().getShapes().between( eld:.top,to:Shape.Current().top).
+                                                                                            ll.setForeGroundColor(color:"yellow")
+
+
+
+
+                                                                                                                                      37
+                                fi
+                           fi
+fi
+             LLM-Based Semantic Parser
+                 // Here are all the functions that we have
+
+                 class Restaurant {
+                    string name;
+                    string address;
+                    string cuisine;
+                     oat rating;
+
+                     // All active restaurants
+                     static Restaurant[] all();
+                                                                                            Decl r tion
+                     // The current restaurants
+                     static Restaurant current();
+
+                     // Get a list of foods representing the menu from a restaurant
+                     Food[] menu;
+
+                     // Book reservations on date
+                     Reservation get_reservation(date: DateTime)
+                 }
+
+
+
+                 // Examples:
+
+                 user: get me the best restaurant in palo alto                           Few-shot ex mples
+                 agent: Restaurant.all().matching( eld: .address, value: "palo alto”)…
+
+
+                 // User interaction
+                 user: order the same burger that I ordered at mcDonald last time        Current inter ction
+
+                 parsed: Order.current.addFoods(foods: Order.all().matching…                P rsed result
+                                                                                                               38
+                                        fi
+                              a
+                          a
+             a
+         a
+    fl
+a
+             LLM-Based Response Generator
+                 // Here are all the functions that we have
+
+                 class Restaurant {
+                    string name;
+                    string address;
+                    string cuisine;
+                     oat rating;
+
+                     // All active restaurants
+                     static Restaurant[] all();
+                                                                                                                                                       Decl r tion
+                     // The current restaurants
+                     static Restaurant current();
+
+                     // Get a list of foods representing the menu from a restaurant
+                     Food[] menu;
+
+                     // Book reservations on date
+                     Reservation get_reservation(date: DateTime)
+                 }
+
+
+
+                                                                                                                                                       Instructions
+                 // Generate concise voice feedback for the user’s command
+
+
+
+                 // User interaction
+
+                                                                                                                                                    Current inter ction
+                 user: order the same burger that I ordered at mcDonald last time
+                 parsed: Order.current.addFoods(foods: Order.all().matching…
+                 execution_result: {"type": "Order", "items": [{"type": "FoodItem", "name": "Hamburger"}, {"type": "FoodItem", "name": "Fries"}]}
+
+
+
+                 response: Your order with a hamburger and fries has been placed.                                                                   Gener ted Response    39
+                            a
+             a
+         a
+     a
+fl
+                            How to Handle Hybrid Inputs
+            ReactGenie                                   User Di logue St te
+                                                Sem ntic       (NLPL)                Result Response
+                            Text input                                                                   Agent Output
+                                                 P rser                                     Gener tor
+
+                                                                      Execution
+                                                                        Re ct
+                                                  UI                Progr m St te
+                            Text input                                              Result   UI Upd te   Displ y
+                                                M pping Component
+                                                          API c ll
+
+
+
+
+                                                                                                                        40
+                                        a
+                                    a
+                                a
+                            a
+                        a
+                a   a
+            a
+        a
+    a
+a                                           a
+UI Mapping
+
+                               Restaurant
+                           (name: “Mcdonald")
+
+
+
+                          Order(date: “3/3/2023”)
+                                                    Programming
+                                                       Objects
+                                FoodItem
+                            (name: “boba tea”)
+
+
+                               FoodItem
+                          (name: “mango drink”)
+
+
+
+   View      ReactGenie
+                                                              41
+    How to Handle Hybrid Inputs
+                User: “Reorder this food”
+
+
+                Order.GetActiveOrder().addFood(food:[FoodItem.Current()])
+
+
+                Unresolved UI reference FoodItem.Current()
+
+
+                UI M pping: Find FoodItem closest to the click point
+     👆
+
+                FoodItem(name:"CrunchWrap")
+
+
+                Continue execution
+
+                                                                            42
+a
+                            How to Navigate with Voice Commands
+            ReactGenie                                   User Di logue St te
+                                                Sem ntic       (NLPL)                Result Response
+                            Text input                                                                   Agent Output
+                                                 P rser                                     Gener tor
+
+                                                                      Execution
+                                                                        Re ct
+                                                  UI                Progr m St te
+                            Text input                                              Result   UI Upd te   Displ y
+                                                M pping Component
+                                                          API c ll
+
+
+
+
+                                                                                                                        43
+                                        a
+                                    a
+                                a
+                            a
+                        a
+                a   a
+            a
+        a
+    a
+a                                           a
+UI Update 1: Object is on UI → React takes care of it
+    “I love the Cre my Pot toes recipe!”
+
+
+         Recipe(n me: “Cre my”). love()
+
+
+
+            recipe.loved = true
+
+
+
+RecipeViewImpl = (recipe: Recipe) => {
+  return (
+    <div>
+     <img image={recipe.img}/>
+     <love loved={recipe.loved}
+      onClick(()=>recipe.love())/>
+     <div> {recipe.name} </div>
+    </div>
+  )
+}
+                                                        44
+                 a
+             a
+     a
+a
+UI Update 2: Object not on UI → Navigate to the page
+
+
+                    “Show me the Cre my Pot to recipe!”
+
+
+
+                    Recipe(n me: “Cre my Pot to”)
+
+
+
+
+                                                          45
+                a
+            a
+        a
+    a
+a
+                            Execution
+            ReactGenie                                   User Di logue St te
+                                                Sem ntic          (`)                Result Response
+                            Text input                                                                   Agent Output
+                                                 P rser                                     Gener tor
+
+                                                                      Execution
+                                                                        Re ct
+                                                  UI                Progr m St te
+                            Text input                                              Result   UI Upd te   Displ y
+                                                M pping Component
+                                                          API c ll
+
+
+
+
+                                                                                                                        46
+                                        a
+                                    a
+                                a
+                            a
+                        a
+                a   a
+            a
+        a
+    a
+a                                           a
+         Execution
+                 “M ke everything bove this yellow”
+                                                                                                A                   B
+          Slide.Current().getShapes().
+          between( eld:.top,to:Shape.Current().top).
+           ll.setForeGroundColor(color:"yellow")                                                               C
+
+         • Slide.Current()
+                                                                                                D                   E
+                • Slide(id: 1)
+         • Slide.Current().getShapes()
+                • [Shape(text: "A"), Shape(text: "B"), Shape(text: "C"), Shape(text: "D"), Shape(text: “E")]
+         • Slide.Current().getShapes().between( eld:.top, to:Shape.Current().top)
+                • [Shape(text: "A"), Shape(text: "B")]
+         • Slide.Current().getShapes().between( eld:.top, to:Shape.Current().top). ll.setForeGroundColor(color:”yellow")
+                • [Fill(), Fill()]
+
+                                                                                                                           47
+                                                                               fi
+                                            fi
+                                            fi
+                          a
+           fi
+     a
+fi
+            Summary
+            ReactGenie = React + Annotations
+                    Sem ntic                               Response                UI
+                                               Execution                                            UI Upd te
+                     P rser                                Gener tor             M pping
+                    @DataClass()
+                                                                       RecipeViewImpl = (recipe: Recipe) => {
+                    class Recipe: GenieClass {
+                                                                         return (
+                       @GenieProperty()
+                                                                           <div>
+                     name: String;
+                                                                            <img image={recipe.img}/>
+                     img: Image;
+                                                                            <love loved={recipe.loved}/>
+                       @GenieProperty()
+                                                                            <div> {recipe.name} </div>
+                     loved: boolean;
+                                                                           </div>
+                                                                         )
+                        @GenieFunction()
+                                                                       }
+                        love(): void {
+                          this.loved = true;
+                                                                       RecipeView = GenieInterface(“Recipe”,
+                          }
+                                                                        RecipeViewImpl)
+                    }
+
+                    State Annotations:                                  Components Annotations:
+                    Which class/property/function                       Which components represent
+                    can be accessed with voice                          which state classes                     48
+a       a   a   a
+    a
+Recap: ReactGenie Uses Declarative UI Architecture for Ease of Development
+
+
+               Define Object-        Define
+               Oriented States   UI Components
+
+                Taco Bell          Restaurant
+                   Restaurant       ItemView
+
+
+                Taco 3/3
+                      Order
+
+                Mr Sun 3/3         OrderItem
+                      Order          View
+
+
+                Crunchwrap
+                    FoodItem
+
+                Quesadilla           Food
+                    FoodItem       Thumbnail
+
+
+                Taro boba
+                    FoodItem
+
+
+                                                                             49
+Recap: ReactGenie Use Annotations for Multimodal Integration
+
+
+      @GenieClass(“Past order or a shopping cart")
+      class Order extends DataClass {
+         @GenieKey()
+         public orderId: string;
+         @GenieProperty("Items in the order")
+         public orderItems: FoodItem[];
+         constructor({orderId, orderItems}: {orderId: string, orderItems: FoodItem[]}) {
+            super({orderId, orderItems}); this.orderId = orderId; this.orderItems = orderItems;
+         }
+         @GenieFunction()
+         static All(): Order[] {
+            return fetchOrdersFromServer();
+         }
+         @GenieFunction("Create a new order")
+         static CreateOrder(): Order {
+            return new Order({orderId: randomId(), orderItems: []});
+         }
+         @GenieFunction("Add an item to the order")
+         addItem({foodItem}: {foodItem: FoodItem}) {
+            this.orderItems.push(foodItem); updateServer();
+         }
+      }
+
+
+
+                                                                                                  50
+Recap: ReactGenie Execute User’s Request within UI Context
+       Define Object-         Define
+       Oriented States    UI Components
+
+        Taco Bell           Restaurant
+           Restaurant        ItemView
+
+
+        Taco 3/3
+
+
+                                            👆
+              Order
+
+        Mr Sun 3/3           OrderItem
+              Order            View
+
+
+        Crunchwrap
+            FoodItem
+
+        Quesadilla             Food
+            FoodItem         Thumbnail
+
+
+        Taro boba
+            FoodItem
+
+
+
+                                                             51
+              Developer-Coded GUI
+      Recap: ReactGenie Execute User’s Request within UI Context
+                                       ReactGenie Runtime
+                          Semantic
+nts
+                           Parser
+                                  Order.GetActiveCart().addItems(items:O
+                                  rder.OrderHistory().matching(field:.re
+                                  staurant,value:Restaurant.current())
+                                  [0].items)
+                                                    ReactGenieDSL
+
+
+
+
+                 👆
+                                     Defined States
+                           Taco 3/3               New Taco
+                                 Order                     Order
+                                                        Result
+
+                           Taco Bell
+                              Restaurant
+                           UI Reference
+
+
+
+
+                            Input                    Output
+                         UI Mapping                UI Mapping
+
+                                                                           52
+                            Generated Multimodal UI
+How good is ReactGenie as a framework?
+
+• For developers:
+  • D-RQ1: Assessing the expressiveness of ReactGenie
+  • D-RQ2: Development time for expert developers
+  • D-RQ3: Ease of learning and usability for novice developers
+
+
+
+
+                                                                  53
+        We built three apps to demonstrate expressiveness (F-RQ1)
+                                                                    ReactGenieSign - NDA Management
+
+
+
+
+                                                                                                      • Only 5% of the code
+                                                                                                        (annotations) was
+                                                                                                        written to handle
+                                                                                                        multimodal interactions.
+
+
+
+
+             ReactGenieFoodOrdering        ReactGenieSocial              ReactGenieSign
+
+
+                                           Show me posts
+         Add three of this to my                                    Only show me request
+                                      from M rk th t I h ve liked
+                  c rt                                               through this em il
+                                               before.
+
+                                                                                                                                   54
+
+                   a
+               a
+         a
+    a
+a
+F-RQ2: Expert building an app: a Timer
+
+
+                        • User can:
+                          • Create, start, and pause timer with voice.
+                          • Start/stop timer of a certain category
+                          • Filter timer by remaining time
+                          • …
+
+
+
+      ReactGenieTimer                                                    55
+                We asked an expert developer to build an App in
+                ReactGenie and GPT Function Calling (F-RQ2)
+
+                                                                                             GPT-3
+                                                 Metric                 Re ctGenie          Function
+                                                                                             C lling
+                                                                   Less time
+                                            Time to Develop
+                                                                           45                 177
+                                               (minutes)           Less code
+                                           Addition l Lines of
+                                                 Code            More features
+                                                                         159                  523
+
+                                                Fe tures         Touch, Complex Comm nds,   Limited
+                                               Supported                 N vig tion         Support
+
+
+                                                                                                      56
+
+a   a   a   a    a   a
+                         ReactGenieTimer
+                                    a
+Novice Developer Study on ReactGenie Usability (F-RQ3)
+
+                       • Study Design:
+                         Learn with tutorial ->
+                         Construct timer app on GUI boilerplate
+                       • High comprehension of framework
+                         functionality (99% of questions correct)
+                       • Fast completion time: 67.3 minutes
+                       • Positive feedback on ease of use
+                       • Many participants asked to use ReactGenie in
+                         real-life applications
+
+                                                                        57
+     ReactGenieTimer
+How good is ReactGenie as a framework?
+
+• For users:
+  • U-RQ1: Parser performance with natural language commands
+  • U-RQ2: Usability and e ciency of multimodal UIs generated by ReactGenie
+
+
+
+
+                                                                              58
+                 ffi
+Evaluate parser's effectiveness with commands from crowd
+workers (U-RQ1)
+                   • Participants provided with app screenshots and
+                     videos to prompt commands
+                   • Results:
+                     • 172 rich multimodal commands
+                     • Parser Accuracy:
+                       • 101 supported commands:
+                         parsed correctly 91%
+                       • 71 unsupported commands:
+                         generated sensible NLPL 53%
+
+
+
+                                                                      59
+User Experience with ReactGenie-Generated UIs (U-RQ2)
+                             • Compare user performance and experience using
+                               multimodal UIs vs. GUI-only
+                             • Study Design:
+                               • Within-subject design with 16 participants
+                               • Multimodal UI vs. GUI-only
+                             • Result: ReactGenie
+                               • Saved 40% time (p=0.0004)
+                               • Lower Cognitive Load (p=0.013)
+                               • Higher Usability (p=0.031)
+                             • Participant Preferences:
+                               • Strong preference on MMI: 11/16
+                                                                               60
+    ReactGenieFoodOrdering
+Conclusions
+• Multimodal interaction history is long, but adoption is limited due to
+  implementation costs.
+• Compared to voice interfaces, multimodal ones are exible, e cient, clearer,
+  and less error-prone.
+• ReactGenie aims to foster multimodal interaction adoption.
+  • Merges modern app features and multimodal interface exibility, ensuring
+    easy development.
+  • Utilizes object-oriented state abstraction and declarative UI for modality
+    synchronization.
+  • Employs LLMs to expose the app's entire state, rather than limiting it to
+    individual APIs for voice interfaces.
+
+
+                                                                                 61
+                                                          ffi
+                                                     fl
+                                                fl
+

@@ -1,0 +1,1266 @@
+              Stanford CS224v Course
+
+Conversational Virtual Assistants with Deep Learning
+
+
+                  Lecture 10
+Agentic AI for Knowledge Base Queries
+
+       Monica Lam & Shicheng Liu & Sina Semnani
+                                                       1
+                     A GEN TI C A I
+
+
+                     A N A I SYSTEM
+THAT CAN MAKE DE CIS IONS AN D TAKE ACTION S ON ITS OWN
+                  TO ACHIEVE A GOAL
+                            L ECTURE G OAL
+
+
+F OC US : S E MAN T IC P AR S IN G F OR C OM PL E X K NO WLE DG E B AS E S
+
+
+                        A GEN TI C A PPRO AC H
+
+
+                     C OM PU T AT IO NA L T H IN KI NG
+
+
+        … SO Y OU C AN A PPLY THEM TO YOUR P RO JE CT
+      Outline
+         • Knowledge Graphs – aka Knowledge Bases (KB)
+           • Challenges of KBQA (KB Question Answering)
+           • Prior Approaches
+           • The Agentic Approach for KBs
+           • Dataset and Evaluation
+
+
+         • Agentic Approach to SQL Databases
+
+
+         • Computational Thinking for KB Queries
+
+
+LAM                                                       STANFORD
+      A Knowledge Graph
+        •    A lot of information cannot be represented in tables
+        •    Knowledge graph is also known as a semantic web
+            • Nodes are entities
+            • Edges are relationships
+
+
+
+
+LAM                                                                 STANFORD
+      Wikidata: The Largest Live Knowledge Graph
+       • Stats:
+         • 15B facts (1B more triples per year)
+         • 100M entities
+         • 10K properties (3000 of interest)
+         • 25K contributors
+       • All entities in Wikipedia are in Wikidata
+       • Wikidata contains many more entities
+
+
+
+
+LAM                                                  STANFORD
+      Wikidata Representation – a RDF graph
+       • Representation: RDF triples
+         • Nodes are entities (represented by unique QIDs)
+           • There are many entities with exactly the same name
+           • Same ID across all Wikipedia in all languages
+         • Edges are properties (represented by unique PIDs)
+
+                                   Who founded Stanford?
+                                    SELECT ?x WHERE
+           Query with SPARQL
+                                    { wd:Q41506   wdt:P112   ?x. }
+                                      Stanford    Founded by
+
+          A natural language interface can greatly expand access!c
+LAM                                                                  STANFORD
+      Running Example: Music Instruments Played
+
+
+
+
+LAM                                               STANFORD
+      A Subset of the Knowledge Graph in Wikidata
+                                           Edward Rutschman
+                                             (Q107705263)
+                             Instrument                         Affiliation
+                Piano          (P1303)                           (P1416)      University of Washington School of Music
+               (Q5994)                                                                      (Q98035717)
+                                             Hokyung Yang
+                                             (Q107851778)
+
+               Trombone
+                (Q8350)
+                                          Gwynne Kuhner Brown
+                                             (Q106627792)
+                                                                                      University of Washington
+                                                                                            (Q219563)
+         Percussion instrument                 Chad Kirby
+              (Q133163)                      (Q107522681)
+
+
+                                                                               Educated At
+                Tabla                         Zakir Hussain
+                                                                                 (P69)
+              (Q213100)                        (Q144719)
+
+LAM                                                                                                                STANFORD
+      P1303: instrument
+      P1416: affiliation
+      P69: educated at
+
+      Q98035717:
+      University of Washington
+      School of Music
+
+      Q219563:
+      University of Washington
+
+
+
+
+LAM                      STANFORD
+      The Power of WikiData
+       • SPARQL allows relational algebra operations
+         across the entire knowledge graph
+         • Running example needs: filters, projections, joins, counts …
+         • Query optimizations
+
+
+       • Dataset for research in
+         Mathematics, Biology, Education, Social Sciences, Linguistics, ..
+
+
+                    Quiz: Can we represent the data as tables?
+LAM                                                                          STANFORD
+ Why Querying Wikidata with SPARQL is Difficult
+      •   No fixed schema:
+          •   SPARQL and Neo4j are two most popular knowledge graph representations
+          •   Neo4j is typed – it has a fixed schema. All nodes of the same type have the same set of properties.
+          •   SPARQL is untyped – designed for extension across diverse fields (Adding properties need permission).
+      •   Many properties (3000): Hard to memorize all the properties
+      •   Many similar properties:
+          •   Often unclear which property or entity should be used
+          •   Questions on locations: “Where did Isaac Newton live?” “Where is Salesforce?”
+          •   Possible properties – depends on what is available for the node
+              •   administrative territorial entity
+              •   residence, state, country, place of birth, place of death
+              •   headquarters location, location of formation
+      •   Need to look at a node’s properties to determine the right SPARQL
+      •   Queries can be complex
+
+
+LAM                                                                                                                   STANFORD
+      Outline
+         • Knowledge Graphs – aka Knowledge Bases (KB)
+           • Challenges of KBQA (KB Question Answering)
+           • Prior Approaches
+           • The Agentic Approach for KBs
+           • Dataset and Evaluation
+
+
+         • Agentic Approach to SQL Databases
+
+
+         • Computational Thinking for KB Queries
+
+
+LAM                                                       STANFORD
+                    Previous Work
+
+Knowledge Base Query Answering (KBQA)
+
+         S EMANTIC P ARSER: G ENERATING S PARQL
+                  ( F INE- TUNING, L LM )
+
+
+S UBGRAPH T RA VER SAL: T RAVERSING THE K NO WLEDG E G RA PH
+                 WITHOUT U SING S P A R QL
+      1. Semantic Parsing with Fine-Tuning
+          Where did Bronx take place?                                                                         GPT-3 guesses that the movie
+                                                                                                              took place in Bronx, New York
+
+                             Entity Linker
+                                                                                                                                                    GPT-3
+                      (‘A Bronx Tale’, ‘Q1130705’)
+                                                                             From Wikidata, the filming location of
+                                                                             ‘A Bronx Tale’ includes New Jersey
+                                                                             and New York
+                 Semantic Parser
+       (Llama fine-tuned with 3K samples)
+
+
+                                                                                                  Response
+                                                                                                                         No
+                                                                                                                      Response
+
+       Silei Xu et al. Fine-tuned LLMs Know More, Hallucinate Less with Few-Shot Sequence-to-Sequence Semantic Parsing over Wikidata.. EMNLP 2023
+LAM                                                                                                                                                         STANFORD
+      2. Semantic Parsing with Prompting LLMs
+         • Recall: Yelp semantic parse with LLM
+           • LLMs know the syntax of SQL
+           • Generates accurate SQL queries for simple tables directly
+         • LLMs know the syntax of SPARQL
+           • And just a few PIDs and QIDs of entities
+           • Cannot parse “research questions”
+             (with many joins, group-bys, ranks, …)
+
+
+
+LAM                                                                      STANFORD
+      3. Subgraph Retrieval (No SPARQL)
+          Retrieve a part of the graph based on a question
+
+
+
+
+                            Quiz: Can this find the tallest mountain?
+                      Quiz: Can this provide the full generality of SPARQL
+
+LAM               Subgraph Retrieval Enhanced Model for Multi-hop Knowledge Base Question Answering (Zhang et al., ACL 2022)   STANFORD
+      4. LLM-Based Graph Exploration
+                    Explore a sub-graph by walking the graph one edge at a time
+
+
+
+
+                                           Quiz: Can this provide the full generality of SPARQL
+Think-on-Graph: Deep and Responsible Reasoning of Large Language Model on Knowledge Graph, Sun et al, ICLR 2024
+LAM                                                                                                               STANFORD
+      Outline
+         • Knowledge Graphs – aka Knowledge Bases (KB)
+           • Challenges of KBQA (KB Question Answering)
+           • Prior Approaches
+           • The Agentic Approach for KBs
+           • Dataset and Evaluation
+
+
+         • Agentic Approach to SQL Databases
+
+
+         • Computational Thinking for KB Queries
+
+
+LAM                                                       STANFORD
+                            SPINACH:
+SPARQL-Based Information Navigation for
+    Challenging Real-World Questions
+
+                Shicheng Liu* Sina J. Semnani*
+ Harold Triedman1 Jialiang Xu Isaac Dan Zhao Monica S. Lam
+                        Stanford University
+                            * Equal contribution
+     1 Cornell Tech; Work conducted while at the Wikimedia Foundation
+
+
+                               EMNLP 2024
+      Https://spinach.genie.stanford.edu
+
+
+
+
+LAM                                        STANFORD
+      v.    Combines the Best of Semantic Parsing (SPARQL),
+                                 Subgraph Retrieval, & LLMs
+           • Semantic parsing to SPARQL:
+             • Expressiveness, implementation/query optimizations
+           • Graph retrieval: exam actual properties in the data
+           • LLM agentic approach combines the 2 above
+             • If human experts can do it: we can do it!
+             • Automate the human expert’s approach
+             • Humans don’t memorize the nodes and properties
+                → we don’t need fine-tuning! Just use In-Context Learning
+
+
+LAM                                                                         STANFORD
+      How a Human Expert Write a SPARQL Query
+         1. Start by writing simple SPARQL queries;
+         2. Look up Wikidata entity or property pages when needed
+           • To understand the structure of the knowledge graph
+           • Check what properties exist for a node
+         3. Add new SPARQL clauses to build towards the final SPARQL
+
+        LLM Agent weaves together
+        - Knowledge inquiry
+        - Query writing
+        - Execution and evaluation of results (subgraph retrieval)
+LAM                                                                    STANFORD
+      Actions Useful for Writing SPARQL
+         Provided by Wikidata
+
+         search_wikidata(string):   http://wikidata.org (search bar):
+                                          text → returns QIDs and PIDs
+         get_wikidata_entry(QID):    https://www.wikidata.org/wiki/QID:<QID>
+                                           QID → Wikidata page for entity
+         get_property_examples(PID): https://www.wikidata.org/wiki/Property:<PID>:
+                                           PID → examples of how property PID is used
+         execute_sparql(SPARQL):     https://query.wikidata.org:
+                                            SPARQL → result
+
+
+LAM                                                                                     STANFORD
+      Running Example
+
+
+
+
+LAM                     STANFORD
+      Action: search_wikidata
+
+
+      search_wikidata("musical instrument")
+
+
+
+
+          This step performs Named Entity Disambiguation (NED) with LLM!
+LAM                                                                        STANFORD
+      Action: search_wikidata
+
+
+      search_wikidata("affiliation")
+
+
+
+
+LAM                                    STANFORD
+      Action: get_wikidata_entry
+
+
+
+
+       get_wikidata_entry
+       ("Q98035717")
+
+
+
+
+LAM                                STANFORD
+      Action: get_property_examples
+
+
+       get_property_examples("P1416")
+
+                     Affiliation (P1416)
+
+                     Raoul Bott -> Institute for Advanced Study
+                     Hannah Sipe -> University of Washington School
+                     of Environmental and Forest Sciences
+
+LAM                                                               STANFORD
+      Action: execute_sparql
+
+
+
+
+LAM                            STANFORD
+   Agentic Approach for Knowledge Bases
+
+                                                                             thinks         User Query
+                                                                         Issues actions
+
+
+                                                                                              Agent
+
+                                                                             Observes
+                                                                              results
+                                                                                          Agent response
+
+
+
+
+ReAct: Synergizing Reasoning and Acting in Language Models, Yao et al, ICLR 2023
+LAM                                                                                                        STANFORD
+                  The SPINACH Agent
+
+              •   Imitates what the user does with an agentic approach
+              •   Uses the full expressiveness of SPARQL for exploration
+
+
+              •    For N steps:
+                  • Given the history of agent actions,
+                    •   Prompt LLM to generate a thought and an action
+                    •   Execute an action against the KG
+                    •   Add an observation to the history
+
+      Main agent code available in this file,
+      implemented with LangGraph (part of LangChain) in Python
+LAM                                                                        STANFORD
+  Zero-Shot LLM Policy Prompt
+  # instruction
+  Your task is to write a Wikidata SPARQL query to answer the given question. Follow a step-by-step process:
+  1. Start by constructing very simple fragments of the SPARQL query.
+  2. Execute each fragment to verify its correctness. Adjust as needed based on your observations.
+  3. Confirm all your assumptions about the structure of Wikidata before proceeding.
+  4. Gradually build the complete SPARQL query by adding one piece at a time.
+  5. Do NOT repeat the same action, as the results will be the same.
+  6. The question is guaranteed to have an answer in Wikidata, so continue until you find it.
+  7. If the user is asking a True/False question with only one answer, use ASK WHERE to fetch a True/False answer at the very e nd.
+  8. In the final SPARQL projections, do not only ask for labels.
+     Ask for the actual entities whenever needed (e.g. instead of doing `SELECT xLabel`, do `SELECT x`).
+  9. If the final result was contained in last round's `get_wikidata_entry` and you are ready to stop,
+     use `execute_sparql` and generate a SPARQL to retrieve that results.
+  Form exactly one "Thought" and perform exactly one "Action", then wait for the "Observation".
+  Possible actions are:
+  - get_wikidata_entry(QID): Retrieves all outgoing edges (linked entities, properties, and qualifrs) of a specified Wikidata entity using its QID.
+  - search_wikidata(string): Searches Wikidata for entities or properties matching the given string.
+  - get_property_examples(PID): Provides a few examples demonstrating the use of the specified property (PID) in Wikidata.
+  - execute_sparql(SPARQL): Runs a SPARQL query on Wikidata and returns a truncated result set for brevity.
+  - stop(): Marks the last executed SPARQL query as the final answer and ends the process.
+LAM                                                                                                                                              STANFORD
+      # input
+      {% for i in range(0, conversation_history|length) %}
+      User Question: {{ conversation_history[i]["question"] }}
+      {% for j in range(0, conversation_history[i]["action_history"]|length) %}
+      {{ conversation_history[i]["action_history"][j] }}
+      {% endfor %}
+      --
+      {% endfor %}
+
+      User Question: {{ question }}
+
+      {% if action_history %}
+      {% for i in range(0, action_history|length) %}
+
+      {{ action_history[i] }}
+      {% endfor %}
+      {% endif %}
+
+      Output one "Thought" and one "Action":
+                                                                                  Templates written in jinja syntax
+
+LAM                                                                                                   STANFORD
+      Problem: Looping
+         • SPINACH needs to explore different queries during iteration
+           • Run policy prompt with temperature 1.0
+         • LLM can fall into a loop of executing the same action
+            execute_sparql(“SELECT ?x WHERE {wd:Q1 wdt:P1 ?x.}”)
+            Did not find any results
+            execute_sparql(“SELECT ?x WHERE {wd:Q1 wdt:P1 ?x.}”)
+            Did not find any results
+            execute_sparql(“SELECT ?x WHERE {wd:Q1 wdt:P1 ?x.}”)
+            …
+                            Quiz: Why would this happen?
+                               Quiz: How to solve this?
+LAM                                                                      STANFORD
+      Solution: Detecting & Stopping Loops
+       • If repeated actions are found,
+         • Agent resets exploration state to the one before the repetition
+         • Continues from there
+
+
+       • We cap number of actions by either:
+         • 15 actions after taking “rollbacks” into account
+         • a total of 30 actions including “rollbacks”
+
+
+
+
+LAM                                                                          STANFORD
+      The SPINACH Agent in Action (1)
+
+
+
+
+LAM                                     STANFORD
+      The SPINACH Agent in Action (2)
+
+
+
+
+LAM                                     STANFORD
+      The SPINACH Agent in Action (3)
+
+
+
+
+LAM                                     STANFORD
+      P1303: instrument
+      P1416: affiliation
+      P69: educated at
+
+      Q98035717:
+      University of Washington
+      School of Music
+
+      Q219563:
+      University of Washington
+
+
+
+
+LAM                      STANFORD
+      Outline
+         • Knowledge Graphs – aka Knowledge Bases (KB)
+           • Challenges of KBQA (KB Question Answering)
+           • Prior Approaches
+           • The Agentic Approach for KBs
+           • Dataset and Evaluation
+
+
+         • Agentic Approach to SQL Databases
+
+
+         • Computational Thinking for KB Queries
+
+
+LAM                                                       STANFORD
+      KBQA Data Sets (Crowdsourcing)
+         • Datasets with natural questions originally collected through
+           search engines or crowdsourcing                       Quiz: Is this OK?
+
+           •   WebQuestionSP (Yih et al., 2016)
+           •   QALD datasets (Usbeck et al., 2017, 2018, 2023; Perevalov et al., 2022)
+           •   RuBQ (Korablinov and Braslavski, 2020)
+           •   SimpleQuestions (Bordes et al., 2015)
+                                                                     Simple Queries
+
+
+
+
+LAM                                                                                      STANFORD
+      KBQA Data Sets (Synthesized)
+         • Datasets with synthetically generated logical forms & questions
+           •   ComplexWebQuestions (Talmor and Berant, 2018)
+           •   GrailQA (Gu et al., 2021)
+           •   KQA Pro (Cao et al., 2022a)
+           •   CFQ (Keysers et al., 2020)
+           •   CWQ (Talmor and Berant, 2018)
+           •   LC-QuAD2 (Dubey et al., 2019)
+
+
+
+             Limited NL variety
+          & Unique query patterns
+
+
+
+
+LAM                                                                          STANFORD
+  Wikidata SPARQL                                         Initial Question
+
+
+  Forum
+  https://m.wikidata.org/wiki/Wikidata:Request_a_query
+
+
+                                                          Response with
+ • To help Wikidata users write                              SPARQL
+
+
+   SPARQL queries
+ • People exchange
+   conversations on how to
+   write SPARQLs
+ • The queries are real,
+   but difficult                                          Refined SPARQL
+
+
+
+
+                                                         Acknowledgement
+LAM                                                                          STANFORD
+      The SPINACH Dataset
+         From discussions on Wikidata Request Query forum (July 2016 – May 2024)
+         •   From the natural (real) SPARQL, we annotate its corresponding English question
+             •   Disambiguate entities and properties
+             •   Natural verbalizations
+             •   Accurately capturing optional clauses and projections
+
+         •   We removed these categories of clauses:
+             •   Wikimedia presentation queries
+             •   Questions on complex SPARQL code
+             •   Queries obscured by optimizations
+             •   Formatting clauses
+                                                                Quiz: These numbers seem small.
+         •   155 validation examples and 165 test examples             Are they enough?
+
+LAM                                                                                                STANFORD
+      SPINACH dataset:
+      natural questions + complex logical forms
+           SPINACH dataset: natural questions + complex logical forms
+
+
+
+
+LAM                                                                     STANFORD
+      Results on the SPINACH Dataset
+      See calculation of F1 for tables in the Appendix of this lecture
+
+
+
+
+              Fine-tuned model ->
+SOTA. Ask LLM to walk the graph ->
+
+
+
+
+                         SPINACH agent achieves considerable gain over prior approaches!
+
+
+Fine-tuned LLMs Know More, Hallucinate Less with Few-Shot Sequence-to-Sequence Semantic Parsing over Wikidata, Xu et al, EMNLP 2023
+Think-on-Graph: Deep and Responsible Reasoning of Large Language Model on Knowledge Graph, Sun et al, ICLR 2023
+LAM                                                                                                                              STANFORD
+      Results on Other Datasets
+
+
+
+
+          Zero-shot ICL (in-context learning) achieves new SOTA on QALD Wikidata datasets
+         Comes within 1.6 F1 on WikiWebQuestions to WikiSP, fine-tuned on WikiWebQuestions
+
+LAM                                                                                          STANFORD
+      The Importance of Agent Actions
+
+
+
+
+           All actions make meaningful contribution to the agent performance
+
+
+
+LAM                                                                            STANFORD
+      Live Demo:
+      https://spinach.genie.stanford.edu/
+
+
+
+      Code:
+      https://github.com/stanford-oval/spinach
+
+
+
+      As a bot on Wikidata:
+      https://www.wikidata.org/wiki/User:SpinachBot
+
+
+
+
+LAM                                                   STANFORD
+      Error Analysis
+         40%: Property-related problems:
+              Fails to fetch the correct property or incorrectly uses a property
+         30%: Complicated SPARQL:
+              Fails to write complex SPARQL to fetch results.
+         15%: Not enough exploration:
+              Insufficient exploration within limit of actions allowed.
+         10%: Inaccurate semantic parsing:
+              LLM injecting an extra clause.
+          5%: Formatting issues
+
+LAM                                                                                STANFORD
+      SPINACH Deployed on Wikidata Forum
+      https://m.wikidata.org/wiki/Wikidata:Request_a_query
+
+               •    600+ conversations in the wild: all real and hard queries!
+               •    198 randomly selected conversations
+                   •   Success rate: 78% (154 cases) A higher success rate in practice!
+                   •   Failures: 22% (44 cases)
+                       •   50% (22 cases) similar to queries in the dataset
+                       •   50% (22 cases) are not similar:
+                           underspecified queries, query correction/modification,
+                           string manipulation
+
+
+LAM                                                                                       STANFORD
+      Outline
+         • Knowledge Graphs – aka Knowledge Bases (KB)
+           • Challenges of KBQA (KB Question Answering)
+           • Prior Approaches
+           • The Agentic Approach for KBs
+           • Dataset and Evaluation
+
+
+         • Agentic Approach to SQL Databases
+
+
+         • Computational Thinking for KB Queries
+
+
+LAM                                                       STANFORD
+https://www.nytimes.com/2024/04/17/us/haw
+contractors-campaign-donations.html
+        100+ hours
+for data journalists with experience
+
+
+
+
+                                       https://www.nytimes.com/2024/04/17/us/hawaii-
+                                       contractors-campaign-donations.html
+Increase Truthful Reporting
+      in Journalism
+      Can Journalists Just TALK to Data
+      Without Needing a Data Scientist?
+           Shicheng Liu1 Harold Triedman4 Leah Harrison3 Eryn Davis3
+      Sajid Omar Farook1 Alexander Spangher5 Cheryl Phillips2 Derek Willis6
+                        Serdar Tumgoren2 Monica S. Lam1
+
+            1 Stanford CS   2 Stanford Big Local News   3Columbia Journalism School
+                        4 Cornell Tech   5 USC   6 University of Maryland
+
+
+
+
+LAM                                                                                   STANFORD
+LAM   STANFORD
+      DataTalk: Campaign Finance
+                                          Data Tables
+
+
+       • Chat with publicly available
+         campaign finance data
+       • Based on
+         • Federal Election Commission
+           (FEC)
+         • OpenElections.org data
+       • 36 Large, relational databases
+
+
+
+LAM                                                     STANFORD
+      Agentic Approach for Knowledge Bases
+                                           search_wikidata(string)
+                                           get_wikidata_entry(QID)
+                                           get_property_examples(PID)
+           thinks         User Query       execute_sparql(SPARQL)
+       Issues actions                      stop()
+                                         Graph Knowledge Base actions:
+                                                SPINACH agent
+                            Agent
+                                          Relational Database actions:
+                                                 DataTalk agent
+          Observes
+           results
+                                           get_tables()
+                        Agent response
+                                           retrieve_tables_details([table1, table2, …])
+                                           execute_SQL(SQLquery)
+                                           entity_linking(search_str, [column1, column2, …])
+                                           location_linking(search_str)
+                                           stop()
+
+
+LAM                                                                                     STANFORD
+      Real-World Experience with Journalists
+         • Used by journalists and journalism students
+         • Agentic approach is necessary
+           • Too many tables: need to retrieve knowledge about the tables
+         • Interpretation of results are difficult
+           • Lots of caveats on the data
+             (e.g. contributions below $200 not included in some tables)
+           • Requires experts on the data
+         • Need to capture the expertise just like an apprentice
+           • More in the next class
+
+
+LAM                                                                         STANFORD
+      Outline
+         • Knowledge Graphs – aka Knowledge Bases (KB)
+           • Challenges of KBQA (KB Question Answering)
+           • Prior Approaches
+           • The Agentic Approach for KBs
+           • Dataset and Evaluation
+
+
+         • Agentic Approach to SQL Databases
+
+
+         • Computational Thinking for KB Queries
+
+
+LAM                                                       STANFORD
+      Agentic Approach
+                                         • Incremental decision procedure
+           thinks         User Query       • Decides on the action based on
+       Issues actions
+                                             observations
+
+                            Agent
+                                         • Problems
+                                           • May loop infinitely without forward
+          Observes
+                                             progress
+           results
+                        Agent response     • Does not plan actions involving
+                                             multiple steps
+
+
+LAM                                                                            STANFORD
+      LLMs Lack Computational Thinking (CT)
+      Example: Composition
+            Question                                                               OpenAI-03 Model
+            Who is the wife of Benjamin Harrison?                                  Caroline Harrison
+            Who is the grandfather of Caroline Harrison?                           George Scott
+            Who's the grandfather of the wife of Benjamin Harrison?                Dr. John Witherspoon
+
+            CT Engine
+                                     Input
+
+                         Algorithmic Recursion
+                           & Decomposition
+                              Framework
+                               Primitive?
+              Problem
+             statement       Solve-Primitive
+
+                             Decompose
+
+            LLM Call                  output
+                                                      Dataset: LLM knows every hop of the question
+
+LAM                                                                                                       STANFORD
+      A Computational Thinking (CT) Engine
+         • An algorithmic engine
+           • Manages recursion
+           • Calls LLM with the relevant information
+         • LLM functions
+           • Decomposition agent
+           • Evaluation if the task should be decomposed
+           • Actions for the task
+           • Operators to combine subtasks
+
+
+LAM                                                        STANFORD
+      Decomposition Agent
+                                                             Join
+                                                           Operator
+        Pre-Defined                                             Compose
+       Action Space                                             Operator
+
+
+                                                             Task
+                                                            Prompt
+                                                               Task
+              Generate &                                      Prompt
+                                                                  Task
+              Execute SQL                                        Prompt
+
+
+
+                  Task        Decomposition   Is atomic?
+                 Prompt          Agent
+
+
+             Execution Flow                                 Action
+             Subtasks
+LAM                                                                        STANFORD
+      Semantic Parsing Actions for SQL
+         Describe     Query → List of columns and their description
+         Columns      Describe columns with all the information including type and its values
+
+
+           Get        Query → A dictionary of detailed explanation of each related knowledge
+        Background
+                      Using a retrieval-based function call
+        Knowledge
+
+                      Query → A natural language sketch
+        Sketch the
+          Parse
+                      Elaborate on the current query, and sketch the skeleton of the query
+                      (what columns to use? With what logic?) with reasoning
+
+        Generate &    Query → SQL + execution result
+        Execute SQL
+                      Generate and execute the SQL query based on all info gathered
+
+
+LAM                                                                                             STANFORD
+      Across Different Query Languages
+               SQL       SPARQL            Cypher
+
+                                           Describe
+            Describe       Search
+                                           Related
+            Columns        Wikidata
+                                           Schema
+
+
+              Get                         Generate &
+           Background    Get Entity QID    Execute
+           Knowledge                       Cypher
+
+
+           Sketch the    Get Property
+             Parse           PID
+
+
+                          Generate &
+           Generate &
+                           Execute
+           Execute SQL
+                           SPARQL
+
+LAM                                                    STANFORD
+      Operators to Combine Subtasks
+       1. Parallel
+                          Execute
+                           Task 1
+          Join Operator               Join
+                          Execute
+                           Task 2
+
+
+       2. Sequential
+            Compose       Execute   Compose
+                                              Execute
+            Operator       Task 1              Task 2
+
+LAM                                                     STANFORD
+                                                                                                     Decomposition
+                                                                                                     Agent
+                                                                                                     Compose/Join
+
+      SQL Example                          Task T1.1
+                                       What is the correct
+                                                                                                     Operators
+                                                                                                     Pre-defined
+                                                                                                     Action
+                                          column for          Describe Column
+                                       “monthly add-to-
+                                        card number”
+                            Task T1
+                                                                  Compose
+                          What were
+                                                                Run T1.1 first,     Generate &
+                         the monthly
+                                                             then use T1.1 as the   Execute SQL
+                         add-to-cart
+                                                               column for T1.2
+                           number?          Task T1.2
+                                       Use the column to
+                                        calculate “What
+                                       were the monthly
+            Task                          add-to-cart
+       What were the                       number?”
+                                                                                         Join
+       monthly add-to-                                                                                Final
+                                                                                       Return
+       cart/purchase                                                                                 Result
+                                                                                    result = T1/T2
+         conversion
+           rates?           Task T2
+                          What were
+                                       Generate &
+                         the monthly
+                                       Execute SQL
+                          purchase
+                           number?
+
+
+
+
+LAM                                                                                                           STANFORD
+                                                                                                                    Decomposition
+                                                                                                                    Agent
+                                                                                                                    Compose/Join
+
+      SPARQL Example                                                                                                Operators
+                                                                                                                    Pre-defined
+                                                                                                                    Action
+                                        Task T1.1
+                                     Get the QID of        Get Entity QID
+                                    ‘Leonhard Euler’
+
+                                                             Compose
+                       Task T1                             Replace QID       Get Property PID
+                    Who are the        Task T1.2           with the result
+                      doctoral       Get the closest
+                    advisors of   property PID that QID
+                     Leonhard       has to ‘doctoral                            Compose
+                        Euler?         advisors’                              Replace QID,        Generate &
+                                                                               PID with the     Execute SPARQL
+                                        Task T1.3                                 result
+                                   Leonhard Euler: QID
+                                  doctoral advisors: PID
+                                      Who are the
+        Task                       doctoral advisors of
+   Who are the                       Leonhard Euler
+     doctoral                                                                                       Compose                Generate
+    advisors of                                                                                  Replace the               & Execute
+    Leonhard                                                                                     list with result           SPARQL
+    Euler, and        Task T2
+  their advisors?   Who are the
+                    advisors of
+                     the list?
+
+
+LAM                                                                                                                         STANFORD
+      • 632 real-world enterprise text-to-SQL workflow problems
+        • Contains over 1,000 columns
+      • Stored in local or cloud databases (BigQuery and Snowflake)
+      • Challenges
+        • Complex SQL workflow environments
+        • Process extremely long contexts
+        • Perform intricate reasoning
+        • Need multiple SQL queries with diverse operations >=100 lines
+LAM                                                                       STANFORD
+      Spider 2.0 Workflow
+
+
+
+             Spider2
+
+
+
+
+      Lei, Fangyu, et al. "Spider 2.0: Evaluating language models on real-world enterprise text-to-sql workflows." arXiv preprint arXiv:2411.07763 (2024).
+
+LAM                                                                                                                                            STANFORD
+      Computational Thinking on an Example in Spider 2.0
+      Calculate the change in the number of living trees of each fall color in New York City from 1995 to 2015     SELECT
+                                                                                                                      UPPER(spc_latin) AS sci_name,
+      by computing, for each tree species, the difference between the number of trees not marked as dead in 1995      COUNT(*) AS cnt_1995
+      and the number of trees alive in 2015,                                                                         FROM `bigquery-public-data.new_york.tree_census_1995`
+      matching species by the uppercase form of their scientific names from the tree_species table.                  WHERE spc_latin IS NOT NULL
+                                                                                                                      AND status <> 'Dead'
+      Then, group the species by their fall color                                                                    GROUP BY sci_name
+      and sum these differences to determine the total change in the number of trees for each fall color.          ),
+                                                                                                                   cnt_2015 AS (
+                                                                                                                     SELECT
+      From the two census tables, count living trees for each species in 1995 and 2015, where:                        UPPER(spc_latin) AS sci_name,
+      - 1995 = rows whose status is NOT "Dead".                                                                       COUNT(*) AS cnt_2015
+      - 2015 = rows whose status is "Alive".                                                                         FROM `bigquery-public-data.new_york.tree_census_2015`
+                                                                                                                     WHERE spc_latin IS NOT NULL
+      Match the species in both censuses to the tree_species table                                                    AND status = 'Alive'
+           by comparing the upper-case form of spc_latin / species_scientific_name.                                  GROUP BY sci_name
+      For every species that can be matched, produce one row containing:                                           ),
+                                                                                                                   combined AS (
+      (a) the upper-case scientific name,                                                                            SELECT
+      (b) its fall_color taken from tree_species,                                                                     COALESCE(c95.sci_name, c15.sci_name) AS sci_name,
+                                                                                                                      COALESCE(c95.cnt_1995, 0) AS cnt_1995,
+      (c) cnt_1995 (living trees in 1995),                                                                            COALESCE(c15.cnt_2015, 0) AS cnt_2015
+      (d) cnt_2015 (living trees in 2015) and                                                                        FROM cnt_1995 c95
+      (e) change = cnt_2015 - cnt_1995.                                                                              FULL OUTER JOIN cnt_2015 c15
+                                                                                                                      ON c95.sci_name = c15.sci_name
+      The result is an intermediate table of per-species changes with the species' fall color already attached.    )
+                                                                                                                   SELECT
+      Using the intermediate table produced above, group the rows by fall_color and sum the change column to         cmb.sci_name,
+                                                                                                                     ts.fall_color,
+      obtain the total net change in the number of living trees between 1995 and 2015 for each fall color.           cmb.cnt_1995,
+                                                                                                                     cmb.cnt_2015,
+                                                                                                                     cmb.cnt_2015 - cmb.cnt_1995 AS change
+                                                                                                                   FROM combined cmb
+      SELECT
+                                                                                                                   JOIN `bigquery-public-data.new_york.tree_species` ts
+       fall_color,
+                                                                                                                     ON cmb.sci_name = UPPER(ts.species_scientific_name)
+       SUM(change) AS total_net_change
+                                                                                                                   ORDER BY cmb.sci_name;
+      FROM `spider-471218.temp_recursive_parser.multitable_subquery_depth_0_20250924_215719_0d4439c4`
+      GROUP BY
+       fall_color
+      ORDER BY
+       total_net_change DESC
+LAM                                                                                                                                                           STANFORD
+      Baseline1: SOTA of Published Systems: Reforce Agent
+
+
+
+
+      Deng et al., ReFoRCE: A Text-to-SQL Agent with Self-Refinement, Format Restriction, and Column Exploration, June 2025, https://arxiv.org/abs/2502.00675
+LAM                                                                                                                                                 STANFORD
+      Baseline 2: Computation Thinking (CT) Prompt
+          • Without the CT Engine
+          • Prompt LLM to
+            "decompose the task and generate the SQL accordingly”
+            Using the given set of actions
+
+
+
+
+LAM                                                                 STANFORD
+      Preliminary Result
+                                       Spider2-Snow
+                   Method                Base Model    Execution Accuracy @ 1
+
+         ByteBrain-Agent                  Unknown               67.6
+
+         ReForce                           GPT o3               62.9
+
+         CT Prompt without an Engine       GPT-5                41.2
+
+         CT Engine(ours)                   GPT o3               69.6
+
+                                        Spider2-Lite
+                   Method                Base Model    Execution Accuracy @ 1
+
+         ReForce                           GPT o3               55.2
+
+         CT Prompt without an Engine       GPT-5                31.9
+
+         CT Engine(ours)                   GPT o3               55.7
+
+LAM                                                                             STANFORD
+      Conclusions
+         • Semantic Parsing for real KB is hard
+         • Natural language access to KB is important
+           • Wikidata users, FEC journalists, enterprises
+
+
+         • Agentic approaches
+           • ReAct (Reason + action)
+           • Computational thinking
+
+
+
+LAM                                                         STANFORD
+Appendix
+Calculating F1 for Tables
+      The F1 metric
+
+
+
+
+      TP: True Positive
+      FP: False Positive
+      FN: False Negative
+
+
+
+
+LAM                        STANFORD
+      But: traditional EM & F1does not work
+
+                             what are the top 3 counties with most people in
+                                             South Dakota?
+
+
+
+
+                      Predicted                                          Gold
+
+              Minnehaha         206,930                                Minnehaha
+               County                                                    County
+              Pennington        115,903                                Pennington
+                County                                                   County
+            Lincoln County        73,238                              Lincoln County
+
+
+
+
+          Question: Do we want to penalize this column?
+LAM                                                                                    STANFORD
+      New Metric: row-major EM & F1
+      1. Assignment of rows
+
+                      Predicted                                                 Gold
+                                                        Assigned
+           Q5994         piano             99             rows          Q8350          11
+
+           Q8350        trombone           11                           Q5994          99
+
+           Q8338        trumpet             8                         Q1467690         2
+
+                                                                       Q83509          1
+
+
+                   Step 1: Run an assignment algorithm to maximize total overlap (recall)
+                              Without penalizing extra columns in prediction
+
+                     𝑦𝑖 a row in gold
+                     𝑦′𝑖 assigned row of 𝑦𝑖 in prediction
+
+                                   Matching rows with 0 recall is not allowed
+LAM                                                                                         STANFORD
+      New Metric: row-major EM & F1
+      2. True positives
+
+                     Predicted                                                  Gold
+                                                      Assigned
+           Q5994           piano          99            rows           Q8350              11
+
+           Q8350          trombone        11                           Q5994              99
+
+           Q8338          trumpet         8                          Q1467690             2
+
+                                                                       Q83509             1
+
+
+
+
+                    Step 2: Calculate true positives as sum of recalls in assigned rows
+
+                                                                  =2
+
+
+LAM                                                                                            STANFORD
+      New Metric: row-major EM & F1
+      3. false positives
+
+                         Predicted                                                Gold
+                                                         Assigned
+            Q5994           piano              99          rows          Q8350             11
+
+            Q8350         trombone             11                        Q5994             99
+
+            Q8338          trumpet             8          False        Q1467690            2
+                                                         Positives
+                                                                         Q83509            1
+
+
+
+                    Step 3: Each unassigned row in prediction counts as a false positive
+
+           𝑛′ : number of rows in prediction
+                                                                      =1
+           𝑟: number of rows in matching
+
+
+LAM                                                                                             STANFORD
+      New Metric: row-major EM & F1
+      4. false negatives
+
+                      Predicted                                                     Gold
+                                                         Assigned
+           Q5994          piano             99             rows            Q8350            11
+
+           Q8350        trombone            11                             Q5994            99
+
+           Q8338         trumpet            8             False           Q1467690          2
+                                                         Positives                                 False
+                                                                                                 Negatives
+                                                                           Q83509           1
+
+
+                       Step 4: Each unassigned row in gold counts as a false negative
+                             plus sum of 1– recall in the matching (0 in this case)
+
+          𝑛: number of rows in gold
+                                                                                           =2
+          𝑟: number of rows in matching
+
+LAM                                                                                               STANFORD
+      New Metric: row-major EM & F1
+      5. F1
+
+                      Predicted                                                Gold
+                                                       Assigned
+              Q5994     piano             99             rows          Q8350          11
+
+              Q8350    trombone           11                           Q5994          99
+
+              Q8338    trumpet             8            False        Q1467690         2
+                                                       Positives                             False
+                                                                                           Negatives
+                                                                      Q83509          1
+
+
+
+
+                                Step 5: Calculate F1 with the usual formula
+
+                                                 2𝑡𝑝
+                                        𝐹1 = 2𝑡𝑝+𝑓𝑛+𝑓𝑝 = 0.66
+
+
+LAM                                                                                         STANFORD
+

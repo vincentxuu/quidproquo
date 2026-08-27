@@ -1,0 +1,1211 @@
+Knowledge Curation
+Stanford CS224V Course
+Conversational Virtual Assistants with Deep Learning
+
+
+
+
+Monica Lam, Yucheng Jiang
+    Announcement
+
+    1. Student intro form due tod y
+
+    2. HW1 rele sed tod y (Due: October 2nd)
+
+        - Get f mili r with tool st ck of knowledge cur tion pipeline
+        - H ve h nds-on experience designing LLM-enpowered system
+
+
+
+
+                                            a
+                            a
+                        a
+                    a
+                a
+            a
+        a
+    a
+a
+    Lecture Plan
+
+    1. Knowledge Cur tion (STORM)
+         - Inform tion Retriev l & RAG t     Gl nce
+         - Ev lu tion? Ev lu tion!
+
+    2. Bring Hum n into the Loop (Co-STORM)
+
+    3. HW1 Overview
+
+
+
+
+                                         a
+                                     a
+                                 a
+                             a
+                         a
+                     a
+                 a
+             a
+         a
+     a
+a
+    Information Retrieval at a Glance
+    When we h ve n inform tion-seeking need,
+
+
+                    Query                 Retriever     R nked Documents
+
+
+
+
+                                         The Internet
+
+                            Public / Priv te Corpor
+
+                    Structure & Unstructured D t b se
+
+
+
+
+                                           a
+                                     a
+                                 a
+                             a
+                        a
+                a
+            a
+        a
+a
+    Information Retrieval at a Glance
+                                                                   2025-09-22
+
+
+
+
+                                     The m jor issue of using LLMs for knowledge t sks: H llucin tion
+
+                                     - Long-t il inform tion               A response th t is not f ithful
+                                                                           to the f cts of the world.
+                                     - Knowledge cuto s
+                                     - Priv te d t
+
+
+                                                                            a
+                                                                     a
+                                                               a
+                                     a
+                                ff
+                            a
+                        a
+                    a
+                a
+            a
+        a
+    a
+a
+Retrieval Augmented Generation
+
+       Step 1: Retrieve
+
+
+
+
+       Step 2: Augment
+
+
+
+
+       Step 3: Gener te
+
+
+   a
+                Retrieval Augmented Generation
+                Retrievers
+
+                                  D t sources
+
+                   HW1
+                                                     The Internet
+                  10/22, 10/27 Lecture
+                  Structured nd Unstructured d t b se
+                                                                    Indexing   Chunking   Rer nking
+                  10/29 Lecture    Public/Priv te corpor
+                   11/12 Lecture H nd-written documents
+
+
+
+
+                                                 a
+                                             a
+                                         a
+                             a
+                       a
+                   a
+            a
+        a
+    a
+a
+    Retrieval Augmented Generation
+
+
+
+
+          MTEB: M ssive Text Embedding Benchm rk, Nikl s et l. 2023 (This illustr tion is contributed by Nikl s Muennigho .)
+
+
+
+    We h ve better embedding models nd infr structure for Inform tion Retriev l over time.
+
+                                                                                                           a
+                                                                                                      ff
+                                                                                           a
+                                                                                       a
+                                                              a
+                                                        a
+                                               a
+                                           a
+                                      a
+                              a
+    a
+a
+            Retrieval Augmented Generation
+                                                                    GPT-5 (2025.08) score: 25.32
+
+
+
+            Hum nity’s L st Ex m:                                   O4-mini (2025.04) score: 14.28
+
+            2,500 ch llenging questions cross
+            over hundred subjects, t the
+            frontier of hum n knowledge
+
+
+
+
+                                                                    GPT-4o (2024.11) score: 2.72
+
+                                We h ve stronger, more intelligent l ngu ge models.
+                                                a
+                                         a
+                                 a
+                            a
+                        a
+                    a
+                a
+            a
+        a
+    a
+a
+Meta question
+Are people’s information needs satis ed?
+
+
+
+
+                        The illustr tion is co-cre ted with DALL-E.
+
+
+                                         fi
+      a
+a
+                                                                                               Re l Unknowns:
+                                                              Knowledge Discovery              Knowledge th t does
+                                                                                               not exists
+
+
+                                                                                               Unknown Unknowns:
+                                                                      Knowledge Cur tion       Things you don’t know
+                                                                                                nd ren’t w re of
+
+
+                                                                                               Known Unknowns:
+                                                                           Question nswering   Things you know you
+                                                                                               don’t h ve knowledge
+
+
+                            The illustr tion is contributed by Yiji Sh o
+
+
+
+        a
+    a
+a           a   a   a   a   a
+                            a    a        a    a
+                                                                                                    Re l Unknowns:
+                                                                 Knowledge Discovery                Knowledge th t does
+                                                                                                    not exists
+
+
+                                                                                                    Unknown Unknowns:
+                                                                           Knowledge Cur tion       Things you don’t know
+                                                                                                     nd ren’t w re of
+
+
+                                                                                                    Known Unknowns:
+                                                                                Question nswering   Things you know you
+                                                                                                    don’t h ve knowledge
+
+
+
+                            The illustr tion is contributed by Yiji Sh o
+
+
+        a
+    a
+a           a   a   a   a      a
+                               a    a        a    a
+            Knowledge Curation
+
+            Wikipedi is good ex mple of
+            knowledge cur tion.
+            - Comprehensive
+            - Org nized
+            - Reli ble
+            - Veri i ble
+
+
+
+
+                              a
+                         a
+                    a
+                a
+            a
+    f   a
+a
+Knowledge Curation
+Generating wikipedia-like article is non-trivial
+
+
+
+
+                                                   Lack of details
+
+                                                   Hard to verify
+        Knowledge Curation
+        Early stage long form generation methods (1/2) - Training Neural Models
+
+                                                i
+                Given the ordered p r gr phs {pRi( j)}
+
+                                                                                  Early prior works usually
+                Encode, conc ten te, nd trunc te                                  assumes the references are
+                                 texti = T(ai) | | {pRi i }                       given.
+                                                                   ( j)
+
+                                                          1 2                ni
+                                 tokenize(texti) = xi = (xi , xi , . . . , xi )
+                                                                                  However, collecting references
+                                                       min(L,ni)
+                                   L     1
+                                  mi = (xi , . . . , xi          )                requires literature research
+                                                                                  which is non-trivial
+                Tr in n bstr ctive model W th t le rns
+                                                                L
+                    to write rticles,                   ai = W(mi )
+
+Generating Wikipedia by Summarizing Long sequences, Liu et al., 2018
+                                                a
+                                            a
+                                        a
+                                    a
+                             a
+                         a
+                    a
+                a
+            a
+        a
+    a
+a                                                   a          a
+Knowledge Curation
+Early stage long form generation methods (2/2) - Prompting an LLM
+
+
+
+
+                                                                Limited length, only a few citations
+WebBrain: Learning to Generate Factually Correct Articles for
+Queries by Grounding on Large Web Corpus. Qian et al., 2023
+Knowledge Curation
+STORM: Assist in writing Wikipedia-like articles from scratch with LLMs
+2024/02: STORM - First open source knowledge curation system - Beginning of Deep Research
+2024/12: Gemini Deep Research
+
+2025/02: OpenAI Deep Research, Perplexity Deep Research
+
+…
+
+
+
+
+           Topic t
+          Knowledge Curation
+          STORM: Assist in writing Wikipedia-like articles from scratch with LLMs
+
+
+
+
+                STORM has
+                aroused interest
+                across various
+                                                 54K Views
+                communities
+
+                                                                                17K Views
+
+
+
+        Sh o, Yiji , Yucheng Ji ng, Theodore A. K nell, Peter Xu, Om r Kh tt b, nd Monic S. L m. "Assisting in writing Wikipedi -like
+         rticles from scr tch with l rge l ngu ge models.”, In NAACL 2024
+                                             a                          a
+                                                                    a       a        a
+                                         a
+                                   a
+                              a
+                         a
+                   a
+            a                                                                               a                              a
+    a
+a                                                              a
+Knowledge Curation
+STORM: How to generate grounded articles with good breadth & depth
+
+                    Key Idea: Mimic Human Writing Process
+
+
+    How do humans write?
+         Rohm n, 1965: Pre-Writing the St ge of Discovery in the Writing Process
+
+
+    How do humans do literature search?
+
+         Booth et l., 2003: The Cr ft of Rese rch “Ch pter Ⅱ: Asking Questions, Finding Answers”
+
+
+
+                                       a
+                                 a
+                             a
+                    a
+     a
+a
+            Knowledge Curation
+            STORM: Pre-writing
+
+                                           Topic t                         Full-length rticle S
+
+
+                                                       Pre-writing
+                                                               References ℛ
+                                           Topic t                                           Full-length rticle S
+                                                               Outline
+
+
+                            The pre-writing t sk:
+                            Give topic , the pre-writing t sk is to ind                 set of references ℛ, nd
+                            cre te n outline , which is de ined s                   list of multi-level section
+                            he dings, to org nize ℛ.
+                                                                       a                          a
+                                                               f
+                                                           a
+                                                   f
+                                               a
+                                       a
+                                   𝒪
+                               a
+                        𝑡
+                    a
+                    a
+                𝒪
+            a
+        a
+    a
+a                                                                  a
+    Knowledge Curation
+    STORM: Literature research via question asking
+
+                 Topic: 2022 Winter Olympics Opening Ceremony
+
+                 Prompt: Ask 30 questions bout the given topic
+                      1. When w s the opening ceremony held?
+                      2. Where w s the opening ceremony held?
+                      3. How m ny countries p rticip ted in the opening ceremony?
+
+
+
+                 Direct prompting results in questions th t l ck bre dth nd depth
+
+                 We c nnot simply reply on “brute force” or inference-time sc ling
+
+
+                                                             a
+                                                        a
+                                                   a
+                                            a
+                                        a
+                              a
+                          a
+                      a
+             a
+         a
+     a
+a
+Knowledge Curation
+STORM: Literature research via perspective guided QA
+STORM uses perspective s         l tent v ri ble to control the bre dth of the se rch.
+
+
+             Topic: 2022 Winter Olympics Opening Ceremony
+
+             Survey rel ted topics:
+             wiki/2020_summer_olympics
+             wiki/2018_winter_olympics
+             Identify perspectives:
+             (e.g. Economist: this editor will bring in the economic
+             perspective, focusing on topics such s n tion l m cro
+             economic e ects…)
+
+
+                                          a
+                                      a
+                                  a
+                             a
+                         a
+                     a
+                 a
+        ff
+    a                                          a            a             a
+                                      a
+    Knowledge Curation
+    STORM: Simulating conversations to allow follow-up questions
+
+    Some in-depth questions rise only fter re ding the inform tion g thered in previous rounds.
+
+    Topic: 2022 Winter Olympics Opening Ceremony
+
+    Q: C n you provide me with list of the p rticip ting
+    countries in the 2022 Winter Olympics opening
+    ceremony?
+    A: The 2022 Winter Olympics fe tured diverse
+    group of countries… Athletes from over 90 countries
+    will enter the st dium in speci ic order.
+
+    Q: How is the order of p rticip ting countries in
+    the 2022 Winter Olympics opening ceremony
+    determined?
+                                                              a   a
+                                                      a
+                                                  a
+                                              f
+                                          a
+                                      a
+                                  a
+                              a
+                          a
+                      a
+             a
+a                                                                     a   a
+                                                          a
+    Knowledge Curation
+    STORM: Conducting meaningful evaluations
+
+
+                                    Wh t should we ev lu te? nd how?
+
+
+                                    Do we h ve ground truth / golden nswer?
+
+                         Besides the in l report, wh t else should we ev lu te?
+
+
+
+
+                                                       a
+                                                   a
+                                        a
+                                a
+                            a
+                     a
+                 a
+             a
+         f
+     a
+a
+        Knowledge Curation
+        STORM: Automatic evaluation - Outline quality
+
+        Introduce outline cover ge metrics s                                     proxy of the pre-writing st ge
+        qu lity for f st prototyping
+
+        Given the hum n-written wikipedi                               rticle on topic t
+
+        1. He ding soft rec ll
+            Comp re embedding of he dings in                                        nd the hum n-written rticle
+
+        2. He ding entity rec ll
+            The percent ge of n med entities in the hum n-written rticle covered by
+
+
+
+
+                                                                                                  a
+                                                                                           a
+                                                                                       a
+                                                                             a
+                                                                   a
+                                                               a                                      a
+                                                       a
+                                                   a
+                                               a
+                                           a
+                                       a
+                                   a
+                               a
+                           a
+                       a
+                   a
+               a
+           a
+    a
+    a
+a                                                                                                             𝒪
+                                                           𝒪
+    Knowledge Curation
+    STORM: Automatic evaluation - Outline quality
+                             He ding Soft Rec ll                     He ding Entity Rec ll
+
+         94                                            48
+         93                                            46
+         92                                            44
+         91                                            42
+         90                                            40
+         89                                            38
+         88                                            36
+         87                                            34
+                tG             RA        nd    ST             tG     RA          nd      ST
+                  en             G               O              en     G                   O
+              re                   RA             RM        re             RA               RM
+          Di
+                 c                   G-e                Di
+                                                               c             G-e
+                                        xp                                      xp
+     a
+     a
+a
+a                    a   a
+            Knowledge Curation
+            STORM: Automatic evaluation - Outline quality
+
+
+                     Abl tion study is import nt!
+
+                     Abl tion study help us to underst nd how di erent p rts of
+                      system contribute to its over ll perform nce
+
+
+
+
+                                                       a
+                                                ff
+                                            a
+                                     a
+                                 a
+                             a
+        a
+    a
+a
+    Knowledge Curation
+    STORM: Automatic evaluation - Outline quality
+                          He ding Soft Rec ll                                   He ding Entity Rec ll
+
+         94                                                   48
+         93                                                   46
+         92                                                   44
+         91                                                   42
+         90                                                   40
+         89                                                   38
+         88                                                   36
+         87                                                   34
+              tG        RA     RA ST          ive     tio
+                                                          n        tG     RA
+                                                                            G
+                                                                                   nd   ST        ive      tio
+                                                                                                               n
+                en        G      G  ORM
+                                             ct                      en                   ORM
+                                                                                                 ct
+         re                -e              rs     nv           re          RA                  rs      nv
+            c                xp              pe     er            c          G                   pe      er
+         Di                     nd    pe              s       Di              -exp          pe             s
+                                              co                                                  co
+                                     w/o   w                                             w/o     w
+                                            /o                                                    /o
+         a
+         a
+     a
+     a
+a
+a                   a
+                a
+    Knowledge Curation
+    STORM: Human evaluation - Wikipedia editor evaluation
+
+
+
+
+                 C reful hum n ev lu tion is necess ry
+                  to ev lu te LM-empowered systems.
+
+
+
+
+                                   a
+                      a
+                  a
+             a
+         a
+     a
+a
+                    Knowledge Curation
+                        STORM: Human evaluation - Wikipedia editor evaluation
+
+                                                                                         “I (Wikipedi Editor) think it c n be
+                                                                                         speci ic lly helpful for my pre-writing st ge.”
+                        Experienced Wikipedi editors
+                        f vor rticles produced by STORM.                                                70%            30%
+
+                                                                                              Somewh t Agree        Strongly Agree
+
+
+                                            ≥ 4 R te
+                                                          Interest Level       Org niz tion    Relev nce      Cover ge       Veri i bility
+                                            (1-7 Sc le)
+
+                                                 oRAG         57.5%              45.0%          62.5%          57.5%           67.5%
+
+                                             STORM            70.0%              70.0%          65.0%          67.5%           67.5%
+
+                            a
+                        a
+                    a
+                f
+                a
+            a
+    f   a                                                                  a
+                                a                               a
+                                    a                     a
+                                        a    a
+a                           a
+Knowledge Curation
+STORM: Human evaluation - In the wild evaluation
+UIUX design is critic l for l rger sc le hum n ev lu tion in the wild
+
+                            https://storm.genie.st nford.edu
+
+
+             820,000 Users                      1,400,000 Articles
+
+
+
+             2,700,000 Browsing                 250,000 Feedb cks
+
+
+
+
+                                                    a
+                                                a
+                                           a
+                                   a
+                        a
+                    a
+                a
+         a
+                        Knowledge Curation
+                        STORM: Human evaluation - In the wild evaluation
+
+                        People h ve used STORM cross             diverse r nge of topics & use c ses
+
+
+                                 Agriculture               Fitness              Design            M n gement
+                                 Computer Science          Medic re             G ming            Business
+                                 Environment science       L w                   Music            Anim l science
+                                 Biology                   News                  Food             Tr nsport tion
+                                 Physics                   Politics              Tr vel           Emergency m n gement
+                                 Geology                   Cultur l study        Educ tion        …
+
+
+
+
+                                           a    a      a
+                                      a                                                   a
+                                 a
+                             a
+                        aa
+                    a
+                a
+            a
+        a
+        a
+        a
+    a
+a                                                                     a
+Revisit: Meta question
+Are people’s information needs satis ed?
+
+
+
+
+                        The illustr tion is co-cre ted with DALL-E.
+
+
+                                         fi
+      a
+a
+            Revisit: Meta question
+            Are people’s information needs satis ed?
+
+
+
+                                                My thoughts evolve, so I w nt to
+                                                upd te my queries.
+
+
+                                                I m inspired by this link nd
+                                                hope to le rn more bout it.
+
+
+                                                I know this topic is lso relev nt.
+                                                C n you include it?
+
+
+                                           fi
+                                     a
+                                 a
+                             a
+                         a
+                     a
+               a
+        a
+    a
+a
+    Human-AI interaction/collaboration
+
+
+
+
+      Convert STORM into h llucin tion-   After the long report is gener ted,
+      free question nswering system        llow the user to edit or sk questions.
+
+                          a
+                      a
+                  a
+                  a
+              a
+       a
+a
+        Human-AI interaction/collaboration
+
+
+
+                   User-initi tive design        System-initi tive design
+
+              (B seline 1: RAG Ch tbot)         (B seline 2: STORM + QA)
+
+
+
+
+          Convert STORM into h llucin tion-   After the long report is gener ted,
+          free question nswering system        llow the user to edit or sk questions.
+
+                                       a
+                                   a
+                               a
+                           a
+                           a
+                       a
+                   a
+               a
+          a
+    a
+    a
+a
+            Human-AI interaction/collaboration
+
+                CoSTORM:
+                Engaged human learning
+                through Participation in
+                LM agent conversations
+
+
+            Ji ng, Yucheng, Yiji Sh o, Dekun M , Sin J.
+            Semn ni, nd Monic S. L m. "Into the Unknown
+            Unknowns: Eng ged Hum n Le rning through
+            P rticip tion in L ngu ge Model Agent
+            Convers tions.”, In EMNLP 2024
+
+
+                                            a
+                                        a
+                                    a           a
+                            a
+                        a
+                    a
+                a
+            a
+        a
+a   a                                           a   a   a   a
+                                a
+    Human-AI interaction/collaboration
+    CoSTORM: Human learning, unknown unknowns discovery
+
+                          Key Idea: Mimic Human Learning Process
+
+
+        How do children/students learn?
+             Nussb um, 2008: Coll bor tive discourse nd coll bor tive rgument tion
+             is import nt for promoting students’ deep-level underst nding of contents.
+
+        How do humans retain information?
+             Buz n, 1974: Using mind m p for note t king to help rec ll nd critic l thinking.
+
+
+                                                                             a
+                                                                         a
+                                                                     a
+                                                                 a               a
+                                                         a
+                                                     a
+                                             a
+                                       a
+                               a
+                           a
+                      a
+         a
+    a
+a                                                            a
+                Human-AI interaction/collaboration
+                CoSTORM: Collaborative Discourse Protocol Design
+                        Agents form roundt ble,
+                         nswering nd sking
+                        questions grounded on extern l
+                        sources
+
+                        The user c n jump in t ny
+                        time to steer the discourse nd
+                        inject questions nd opinions.
+
+                        M int ins dyn mic,
+                        hier rchic l mind m p so users
+                        c n e sily follow nd eng ge.                                       Input Option l Design
+
+                                                                   a
+                                                               a
+                                                           a
+                                                       a
+                                                   a                   a
+                                           a
+                                       a
+                                   a
+                               a
+                               a
+                           a
+                a   a
+            a
+        a                                                                  a   a   a
+    a
+a                                                                                      a
+                                               a
+Human-AI interaction/collaboration
+CoSTORM: Collaborative Discourse Protocol Design
+
+However, the gent lmost lw ys choose question nswering, c using the
+convers tion to focus on n rrow topic, which c n result in overly niche content.
+
+
+                    How do hum n sk follow up questions during inform tion seeking?
+
+
+
+
+Serendipidity: We m y discover topics not directly rel ted but p rticul rly interesting
+
+For ex mple, when we se rch for “improving softw re engineering pr ctices”, we might
+stumble upon n rticle bout “the cognitive psychology behind te m decision-m king”.
+
+                                                                                             a
+                                                                                         a
+                                                                                     a
+                                                                                 a
+                                                                             a
+                                                                     a   a
+                                                                 a
+                                                             a                                   a
+                                                     a
+                                                 a
+                                         a   a
+                                     a
+                             a   a
+                         a
+                     a
+                a
+            a
+        a
+    a
+a                                                                                                    a
+                                                         a
+Human-AI interaction/collaboration
+CoSTORM: Collaborative Discourse Protocol Design
+
+Solution: Ask thought provoking questions vi Moder tor role
+
+
+
+
+                                             a
+                                    a
+Human-AI interaction/collaboration
+CoSTORM: Collaborative Discourse Protocol Design
+
+Solution: Ask thought provoking questions vi Moder tor role
+
+
+
+ Step 1: Extr ct nd rer nk unused inform tion throughout discourse history
+                                      α                1−α
+                             cos(i, t) [1 − cos(i, q)]
+
+                (where i, q, t re embeddings of the inform tion, question, nd topic)
+
+
+ Step 2: Gener te thought-provoking questions & polish the utter nce
+
+
+
+
+                                                                          a
+                                                                  a
+                                                              a
+                                                      a
+                                                  a
+                                              a
+                        a
+                    a
+            a
+        a
+    a
+    Human-AI interaction/collaboration
+    CoSTORM: Conducting meaningful evaluations
+
+
+                                  Wh t should we ev lu te? nd how?
+
+
+                                 Do we h ve ground truth / golden nswer?
+
+                     Besides the in l report, wh t else should we ev lu te?
+
+
+
+
+                                                     a
+                                                 a
+                                     a
+                             a
+                         a
+                     a
+                 a
+             a
+         f
+     a
+a
+Human-AI interaction/collaboration
+CoSTORM: Automatic evaluation - Discourse quality
+Human-AI interaction/collaboration
+CoSTORM: Automatic evaluation - Final report quality
+            Human-AI interaction/collaboration
+            CoSTORM: Automatic evaluation - Ablation study
+
+                                                                                                       # User   # expert gent # moder tor
+                                 4
+                                                                                  Co-STORM                1          N            1
+                                                                                   w/o multi-experts      1           1           1
+                         3.5
+                                                                                   w/o multi- gent        1          N            0
+
+                                 3
+
+
+
+                             2.5
+                                                                                       H ving just one expert nd one moder tor
+                                     RM                s              r
+                                                                                       c n lre dy provide most of the bene its
+                                                      er t        to
+                                 o-ST        -exp
+                                                                 er
+                                     O                       od
+                                 C        ul ti              M
+                                         M             w/o
+                                     w/o
+             a
+        a
+    a
+a                a   a   a   a                                            f   a
+                                                  a
+Human-AI interaction/collaboration
+CoSTORM: Human Evaluation
+            Human-AI interaction/collaboration
+            CoSTORM: Automatic evaluation - Human Evaluation
+
+
+            Co-STORM llows for lmost
+            full utom tion nd much
+            better underst nding s it
+            brings up topics th t the user
+            m y not even think of.
+
+
+
+            “Co-STORM is so much less
+            ment lly t xing for me to use”
+
+
+
+
+                                            a
+                                        a
+                                    a
+                                a
+                            a
+                        a
+                    a
+                a
+        a
+    a
+a
+    DataSTORM and HW 1
+    HW1 Overview
+
+
+             STORM nd other deep rese rch systems focus on liter ture se rch (or
+             liter ture review of rese rch) nd summ rizing existing inform tion.
+
+
+             In HW1 we will go further—conducting origin l rese rch to produce n
+             investig tive journ lism rticle on          re l-time world con lict.
+
+
+
+
+                                                                              a
+                                                                          a
+                                                                 f   a
+                                                             a                    a
+                                                 a
+                                             a
+                                         a
+                                     a
+                                 a
+                             a
+                         a
+                   a
+         a
+     a
+a                                                    a
+                DataSTORM and HW 1
+                HW1 Overview - Provided building blocks
+
+
+                        1. Internet b sed liter ture se rch (simil r to STORM)
+
+                        2. D t b se explor tion gent (D t STORM)
+                           Given topic nd n initi l set of rese rch questions, it inter cts with the d t b se,
+                            utonomously gener ting nd re ining questions, retrieving nswers, nd returning
+                           cur ted set of interesting se rch results throughout the process.
+
+
+
+
+                                                                                                                   a
+                                                   a                                   a
+                                                                                   a
+                                                                               a
+                                                                           f
+                                                                       a
+                                                                   a
+                                                               a
+                                                           a
+                                                       a                                       a
+                                               a
+                                           a
+                                       a
+                                   a
+                               a
+                           a
+                    a
+                a
+            a
+        a                                                                                          a   a   a   a
+    a
+a                                                                                          a
+DataSTORM and HW 1
+HW1 Algorithm overview
+
+
+
+                         Existing building blocks
+DataSTORM and HW 1
+HW1: Your tasks
+
+
+
+                  Implement these sm ll building blocks
+
+
+
+
+          a
+    Takeaways
+    Build LM-empowered systems.
+     An emerging p r digm in the er of found tion models.
+
+
+    Cr fting LM pipelines resembles how we observe hum n work lows.
+      STORM resembles how hum n write.
+      Co-STORM resembles coll bor tive discourse in educ tion.
+
+
+    Conduct user study in ddition to utom tic ev lu tion.
+     STORM invites 20 Wikipedi editors during p per writing.
+     Co-STORM invites 20 users in the wild during p per writing
+     STORM & Co-STORM deployed in the wild, tested by over 800,000 users.
+
+                                                                  a
+                                                              a
+                                                          a
+                                                      a               a
+                                              a
+                                          a
+                                      a
+                                  a
+                              a
+                          a
+                      a
+                  a
+              a
+a                                                                         a   a   f
+                                                  a
+Questions
+
+
+
+ Feel free to re ch out to yuchengj@st nford.edu for more questions/thoughts.
+
+
+
+
+                           a
+   a
+

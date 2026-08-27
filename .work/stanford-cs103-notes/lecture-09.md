@@ -1,0 +1,27 @@
+# Official Lecture 9: Graphs, Part I
+
+- Date: 2026-04-20
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck `/tmp/cs103-text/09.txt`):
+  - [x] Historical Midterm 1 logistics and preparation note
+  - [x] Graphs as structures for objects and links
+  - [x] Directed versus undirected relationships
+  - [x] Formal definition of an undirected graph `G=(V,E)`
+  - [x] Formal definition of a digraph using ordered-pair edges
+  - [x] Valid-graph constraints and endpoint membership
+  - [x] Self-loops in graphs versus digraphs
+  - [x] Park-ranger motivation for vertex covers
+  - [x] Quantified definition of a vertex cover
+  - [x] Condor-nest motivation for independent sets
+  - [x] Quantified definition of an independent set
+  - [x] Complement theorem connecting vertex covers and independent sets
+  - [x] Lemma 1 proof by arbitrary vertices and contradiction
+  - [x] Stepwise negation of the vertex-cover definition
+  - [x] Stepwise negation of the independent-set definition
+  - [x] Lemma 2 proof by extracting an existential witness edge
+  - [x] Large independent sets versus small vertex covers
+  - [x] Complexity-theory preview and lecture recap
+- Boundary: the deck supports displayed definitions and proofs, but not spoken transitions, poll outcomes, or Canvas/Panopto material. Exam logistics are historical, not current instructions.

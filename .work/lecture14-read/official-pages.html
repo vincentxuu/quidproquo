@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This file documents the use of the GNU compilers.
+
+Copyright © 1988-2026 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<title>Overall Options (Using the GNU Compiler Collection (GCC))</title>
+
+<meta name="description" content="Overall Options (Using the GNU Compiler Collection (GCC))">
+<meta name="keywords" content="Overall Options (Using the GNU Compiler Collection (GCC))">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Indices.html" rel="index" title="Indices">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Invoking-GCC.html" rel="up" title="Invoking GCC">
+<link href="Invoking-G_002b_002b.html" rel="next" title="Invoking G++">
+<link href="Option-Summary.html" rel="prev" title="Option Summary">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.key {font-style: normal}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="/texinfo-manuals.css">
+
+
+</head>
+
+<body lang="en_US">
+<div class="section-level-extent" id="Overall-Options">
+<div class="nav-panel">
+<p>
+Next: <a href="Invoking-G_002b_002b.html" accesskey="n" rel="next">Compiling C++ Programs</a>, Previous: <a href="Option-Summary.html" accesskey="p" rel="prev">Option Summary</a>, Up: <a href="Invoking-GCC.html" accesskey="u" rel="up">GCC Command Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Options-Controlling-the-Kind-of-Output"><span>3.2 Options Controlling the Kind of Output<a class="copiable-link" href="#Options-Controlling-the-Kind-of-Output"> &para;</a></span></h3>
+
+<p>Compilation can involve up to four stages: preprocessing, compilation
+proper, assembly and linking, always in that order.  GCC is capable of
+preprocessing and compiling several files either into several
+assembler input files, or into one assembler input file; then each
+assembler input file produces an object file, and linking combines all
+the object files (those newly compiled, and those specified as input)
+into an executable file.
+</p>
+<a class="index-entry-id" id="index-file-name-suffix"></a>
+<p>For any given input file, the file name suffix determines what kind of
+compilation is done:
+</p>
+<dl class="table">
+<dt><code class="code"><var class="var">file</var>.c</code></dt>
+<dd><p>C source code that must be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.i</code></dt>
+<dd><p>C source code that should not be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.ii</code></dt>
+<dd><p>C++ source code that should not be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.m</code></dt>
+<dd><p>Objective-C source code.  Note that you must link with the <samp class="file">libobjc</samp>
+library to make an Objective-C program work.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.mi</code></dt>
+<dd><p>Objective-C source code that should not be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.mm</code></dt>
+<dt><code class="code"><var class="var">file</var>.M</code></dt>
+<dd><p>Objective-C++ source code.  Note that you must link with the <samp class="file">libobjc</samp>
+library to make an Objective-C++ program work.  Note that &lsquo;<samp class="samp">.M</samp>&rsquo; refers
+to a literal capital M.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.mii</code></dt>
+<dd><p>Objective-C++ source code that should not be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.h</code></dt>
+<dd><p>C, C++, Objective-C or Objective-C++ header file to be turned into a
+precompiled header (default), or C, C++ header file to be turned into an
+Ada spec (via the <samp class="option">-fdump-ada-spec</samp> switch).
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.cc</code></dt>
+<dt><code class="code"><var class="var">file</var>.cp</code></dt>
+<dt><code class="code"><var class="var">file</var>.cxx</code></dt>
+<dt><code class="code"><var class="var">file</var>.cpp</code></dt>
+<dt><code class="code"><var class="var">file</var>.CPP</code></dt>
+<dt><code class="code"><var class="var">file</var>.c++</code></dt>
+<dt><code class="code"><var class="var">file</var>.C</code></dt>
+<dd><p>C++ source code that must be preprocessed.  Note that in &lsquo;<samp class="samp">.cxx</samp>&rsquo;,
+the last two letters must both be literally &lsquo;<samp class="samp">x</samp>&rsquo;.  Likewise,
+&lsquo;<samp class="samp">.C</samp>&rsquo; refers to a literal capital C.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.mm</code></dt>
+<dt><code class="code"><var class="var">file</var>.M</code></dt>
+<dd><p>Objective-C++ source code that must be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.mii</code></dt>
+<dd><p>Objective-C++ source code that should not be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.hh</code></dt>
+<dt><code class="code"><var class="var">file</var>.H</code></dt>
+<dt><code class="code"><var class="var">file</var>.hp</code></dt>
+<dt><code class="code"><var class="var">file</var>.hxx</code></dt>
+<dt><code class="code"><var class="var">file</var>.hpp</code></dt>
+<dt><code class="code"><var class="var">file</var>.HPP</code></dt>
+<dt><code class="code"><var class="var">file</var>.h++</code></dt>
+<dt><code class="code"><var class="var">file</var>.tcc</code></dt>
+<dd><p>C++ header file to be turned into a precompiled header or Ada spec.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.f</code></dt>
+<dt><code class="code"><var class="var">file</var>.for</code></dt>
+<dt><code class="code"><var class="var">file</var>.ftn</code></dt>
+<dt><code class="code"><var class="var">file</var>.fi</code></dt>
+<dd><p>Fixed form Fortran source code that should not be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.F</code></dt>
+<dt><code class="code"><var class="var">file</var>.FOR</code></dt>
+<dt><code class="code"><var class="var">file</var>.fpp</code></dt>
+<dt><code class="code"><var class="var">file</var>.FPP</code></dt>
+<dt><code class="code"><var class="var">file</var>.FTN</code></dt>
+<dd><p>Fixed form Fortran source code that must be preprocessed (with the traditional
+preprocessor).
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.f90</code></dt>
+<dt><code class="code"><var class="var">file</var>.f95</code></dt>
+<dt><code class="code"><var class="var">file</var>.f03</code></dt>
+<dt><code class="code"><var class="var">file</var>.f08</code></dt>
+<dt><code class="code"><var class="var">file</var>.fii</code></dt>
+<dd><p>Free form Fortran source code that should not be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.F90</code></dt>
+<dt><code class="code"><var class="var">file</var>.F95</code></dt>
+<dt><code class="code"><var class="var">file</var>.F03</code></dt>
+<dt><code class="code"><var class="var">file</var>.F08</code></dt>
+<dd><p>Free form Fortran source code that must be preprocessed (with the
+traditional preprocessor).
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.cob</code></dt>
+<dt><code class="code"><var class="var">file</var>.COB</code></dt>
+<dt><code class="code"><var class="var">file</var>.cbl</code></dt>
+<dt><code class="code"><var class="var">file</var>.CBL</code></dt>
+<dd><p>COBOL source code.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.go</code></dt>
+<dd><p>Go source code.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.d</code></dt>
+<dd><p>D source code.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.di</code></dt>
+<dd><p>D interface file.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.dd</code></dt>
+<dd><p>D documentation code (Ddoc).
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.ads</code></dt>
+<dd><p>Ada source code file that contains a library unit declaration (a
+declaration of a package, subprogram, or generic, or a generic
+instantiation), or a library unit renaming declaration (a package,
+generic, or subprogram renaming declaration).  Such files are also
+called <em class="dfn">specs</em>.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.adb</code></dt>
+<dd><p>Ada source code file containing a library unit body (a subprogram or
+package body).  Such files are also called <em class="dfn">bodies</em>.
+</p>
+
+</dd>
+<dt><code class="code"><var class="var">file</var>.s</code></dt>
+<dd><p>Assembler code.
+</p>
+</dd>
+<dt><code class="code"><var class="var">file</var>.S</code></dt>
+<dt><code class="code"><var class="var">file</var>.sx</code></dt>
+<dd><p>Assembler code that must be preprocessed.
+</p>
+</dd>
+<dt><code class="code"><var class="var">other</var></code></dt>
+<dd><p>An object file to be fed straight into linking.
+Any file name with no recognized suffix is treated this way.
+</p></dd>
+</dl>
+
+<a class="index-entry-id" id="index-x"></a>
+<a class="index-entry-id" id="index-language"></a>
+<p>You can specify the input language explicitly with the <samp class="option">-x</samp> option:
+</p>
+<dl class="table">
+<dt><code class="code">-x <var class="var">language</var></code></dt>
+<dt><code class="code">--language=<var class="var">language</var></code></dt>
+<dt><code class="code">--language <var class="var">language</var></code></dt>
+<dd><p>Specify explicitly the <var class="var">language</var> for the following input files
+(rather than letting the compiler choose a default based on the file
+name suffix).  This option applies to all following input files until
+the next <samp class="option">-x</samp> option.  Possible values for <var class="var">language</var> are:
+</p><div class="example smallexample">
+<pre class="example-preformatted">c  c-header  cpp-output
+c++  c++-header  c++-system-header c++-user-header c++-cpp-output
+c++-system-module
+objective-c  objective-c-header  objective-c-cpp-output  objc-cpp-output
+objective-c++  objective-c++-header  objective-c++-cpp-output
+objc++-cpp-output
+assembler  assembler-with-cpp
+ada  adascil  adawhy
+cobol
+d
+f77  f77-cpp-input  f95  f95-cpp-input
+go
+modula-2  modula-2-cpp-output
+rust
+algol68
+lto
+</pre></div>
+
+<p>Note that <samp class="option">-x</samp> does not imply a particular language standard.
+For example <samp class="option">-x f77</samp> may also require <samp class="option">-std=legacy</samp> for some older
+source codes.
+</p>
+</dd>
+<dt><code class="code">-x none</code></dt>
+<dd><p>Turn off any specification of a language, so that subsequent files are
+handled according to their file name suffixes (as if <samp class="option">-x</samp>
+has not been used at all).
+</p></dd>
+</dl>
+
+<p>If you only want some of the stages of compilation, you can use
+<samp class="option">-x</samp> (or filename suffixes) to tell <code class="command">gcc</code> where to start, and
+one of the options <samp class="option">-c</samp>, <samp class="option">-S</samp>, or <samp class="option">-E</samp> to say where
+<code class="command">gcc</code> is to stop.  Note that some combinations (for example,
+&lsquo;<samp class="samp">-x cpp-output -E</samp>&rsquo;) instruct <code class="command">gcc</code> to do nothing at all.
+</p>
+<dl class="table">
+<dt><a class="index-entry-id" id="index-compile"></a>
+<a id="index-c"></a><span><code class="code">-c</code><a class="copiable-link" href="#index-c"> &para;</a></span></dt>
+<dt><code class="code">--compile</code></dt>
+<dd><p>Compile or assemble the source files, but do not link.  The linking
+stage simply is not done.  The ultimate output is in the form of an
+object file for each source file.
+</p>
+<p>By default, the object file name for a source file is made by replacing
+the suffix &lsquo;<samp class="samp">.c</samp>&rsquo;, &lsquo;<samp class="samp">.i</samp>&rsquo;, &lsquo;<samp class="samp">.s</samp>&rsquo;, etc., with &lsquo;<samp class="samp">.o</samp>&rsquo;.
+</p>
+<p>Unrecognized input files, not requiring compilation or assembly, are
+ignored.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-assemble"></a>
+<a id="index-S"></a><span><code class="code">-S</code><a class="copiable-link" href="#index-S"> &para;</a></span></dt>
+<dt><code class="code">--assemble</code></dt>
+<dd><p>Stop after the stage of compilation proper; do not assemble.  The output
+is in the form of an assembler code file for each non-assembler input
+file specified.
+</p>
+<p>By default, the assembler file name for a source file is made by
+replacing the suffix &lsquo;<samp class="samp">.c</samp>&rsquo;, &lsquo;<samp class="samp">.i</samp>&rsquo;, etc., with &lsquo;<samp class="samp">.s</samp>&rsquo;.
+</p>
+<p>Input files that don&rsquo;t require compilation are ignored.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-preprocess"></a>
+<a id="index-E"></a><span><code class="code">-E</code><a class="copiable-link" href="#index-E"> &para;</a></span></dt>
+<dt><code class="code">--preprocess</code></dt>
+<dd><p>Stop after the preprocessing stage; do not run the compiler proper.  The
+output is in the form of preprocessed source code, which is sent to the
+standard output.
+</p>
+<p>Input files that don&rsquo;t require preprocessing are ignored.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-o"></a>
+<a class="index-entry-id" id="index-output"></a>
+<a id="index-output-file-option"></a><span><code class="code">-o <var class="var">file</var></code><a class="copiable-link" href="#index-output-file-option"> &para;</a></span></dt>
+<dt><code class="code">--output=<var class="var">file</var></code></dt>
+<dt><code class="code">--output <var class="var">file</var></code></dt>
+<dd><p>Place the primary output in file <var class="var">file</var>.  This applies to whatever
+sort of output is being produced, whether it be an executable file, an
+object file, an assembler file or preprocessed C code.
+</p>
+<p>If <samp class="option">-o</samp> is not specified, the default is to put an executable
+file in <samp class="file">a.out</samp>, the object file for
+<samp class="file"><var class="var">source</var>.<var class="var">suffix</var></samp> in <samp class="file"><var class="var">source</var>.o</samp>, its
+assembler file in <samp class="file"><var class="var">source</var>.s</samp>, a precompiled header file in
+<samp class="file"><var class="var">source</var>.<var class="var">suffix</var>.gch</samp>, and all preprocessed C source on
+standard output.
+</p>
+<p>Though <samp class="option">-o</samp> names only the primary output, it also affects the
+naming of auxiliary and dump outputs.  See the examples below.  Unless
+overridden, both auxiliary outputs and dump outputs are placed in the
+same directory as the primary output.  In auxiliary outputs, the suffix
+of the input file is replaced with that of the auxiliary output file
+type; in dump outputs, the suffix of the dump file is appended to the
+input file suffix.  In compilation commands, the base name of both
+auxiliary and dump outputs is that of the primary output; in compile and
+link commands, the primary output name, minus the executable suffix, is
+combined with the input file name.  If both share the same base name,
+disregarding the suffix, the result of the combination is that base
+name, otherwise, they are concatenated, separated by a dash.
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -c foo.c ...
+</pre></div>
+
+<p>will use <samp class="file">foo.o</samp> as the primary output, and place aux outputs and
+dumps next to it, e.g., aux file <samp class="file">foo.dwo</samp> for
+<samp class="option">-gsplit-dwarf</samp>, and dump file <samp class="file">foo.c.???r.final</samp> for
+<samp class="option">-fdump-rtl-final</samp>.
+</p>
+<p>If a non-linker output file is explicitly specified, aux and dump files
+by default take the same base name:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -c foo.c -o dir/foobar.o ...
+</pre></div>
+
+<p>will name aux outputs <samp class="file">dir/foobar.*</samp> and dump outputs
+<samp class="file">dir/foobar.c.*</samp>.
+</p>
+<p>A linker output will instead prefix aux and dump outputs:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c bar.c -o dir/foobar ...
+</pre></div>
+
+<p>will generally name aux outputs <samp class="file">dir/foobar-foo.*</samp> and
+<samp class="file">dir/foobar-bar.*</samp>, and dump outputs <samp class="file">dir/foobar-foo.c.*</samp> and
+<samp class="file">dir/foobar-bar.c.*</samp>.
+</p>
+<p>The one exception to the above is when the executable shares the base
+name with the single input:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c -o dir/foo ...
+</pre></div>
+
+<p>in which case aux outputs are named <samp class="file">dir/foo.*</samp> and dump outputs
+named <samp class="file">dir/foo.c.*</samp>.
+</p>
+<p>The location and the names of auxiliary and dump outputs can be adjusted
+by the options <samp class="option">-dumpbase</samp>, <samp class="option">-dumpbase-ext</samp>,
+<samp class="option">-dumpdir</samp>, <samp class="option">-save-temps=cwd</samp>, and
+<samp class="option">-save-temps=obj</samp>.
+</p>
+
+</dd>
+<dt><a id="index-dumpbase"></a><span><code class="code">-dumpbase <var class="var">dumpbase</var></code><a class="copiable-link" href="#index-dumpbase"> &para;</a></span></dt>
+<dt><code class="code">--dumpbase <var class="var">dumpbase</var></code></dt>
+<dd><p>This option sets the base name for auxiliary and dump output files.  It
+does not affect the name of the primary output file.  Intermediate
+outputs, when preserved, are not regarded as primary outputs, but as
+auxiliary outputs:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -save-temps -S foo.c
+</pre></div>
+
+<p>saves the (no longer) temporary preprocessed file in <samp class="file">foo.i</samp>, and
+then compiles to the (implied) output file <samp class="file">foo.s</samp>, whereas:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -save-temps -dumpbase save-foo -c foo.c
+</pre></div>
+
+<p>preprocesses to in <samp class="file">save-foo.i</samp>, compiles to <samp class="file">save-foo.s</samp> (now
+an intermediate, thus auxiliary output), and then assembles to the
+(implied) output file <samp class="file">foo.o</samp>.
+</p>
+<p>Absent this option, dump and aux files take their names from the input
+file, or from the (non-linker) output file, if one is explicitly
+specified: dump output files (e.g. those requested by <samp class="option">-fdump-*</samp>
+options) with the input name suffix, and aux output files (those
+requested by other non-dump options, e.g. <code class="code">-save-temps</code>,
+<code class="code">-gsplit-dwarf</code>, <code class="code">-fcallgraph-info</code>) without it.
+</p>
+<p>Similar suffix differentiation of dump and aux outputs can be attained
+for explicitly-given <samp class="option">-dumpbase basename.suf</samp> by also specifying
+<samp class="option">-dumpbase-ext .suf</samp>.
+</p>
+<p>If <var class="var">dumpbase</var> is explicitly specified with any directory component,
+any <var class="var">dumppfx</var> specification (e.g. <samp class="option">-dumpdir</samp> or
+<samp class="option">-save-temps=*</samp>) is ignored, and instead of appending to it,
+<var class="var">dumpbase</var> fully overrides it:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c -c -o dir/foo.o -dumpbase alt/foo \
+  -dumpdir pfx- -save-temps=cwd ...
+</pre></div>
+
+<p>creates auxiliary and dump outputs named <samp class="file">alt/foo.*</samp>, disregarding
+<samp class="file">dir/</samp> in <samp class="option">-o</samp>, the <samp class="file">./</samp> prefix implied by
+<samp class="option">-save-temps=cwd</samp>, and <samp class="file">pfx-</samp> in <samp class="option">-dumpdir</samp>.
+</p>
+<p>When <samp class="option">-dumpbase</samp> is specified in a command that compiles multiple
+inputs, or that compiles and then links, it may be combined with
+<var class="var">dumppfx</var>, as specified under <samp class="option">-dumpdir</samp>.  Then, each input
+file is compiled using the combined <var class="var">dumppfx</var>, and default values
+for <var class="var">dumpbase</var> and <var class="var">auxdropsuf</var> are computed for each input
+file:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c bar.c -c -dumpbase main ...
+</pre></div>
+
+<p>creates <samp class="file">foo.o</samp> and <samp class="file">bar.o</samp> as primary outputs, and avoids
+overwriting the auxiliary and dump outputs by using the <var class="var">dumpbase</var>
+as a prefix, creating auxiliary and dump outputs named <samp class="file">main-foo.*</samp>
+and <samp class="file">main-bar.*</samp>.
+</p>
+<p>An empty string specified as <var class="var">dumpbase</var> avoids the influence of the
+output basename in the naming of auxiliary and dump outputs during
+compilation, computing default values :
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -c foo.c -o dir/foobar.o -dumpbase '' ...
+</pre></div>
+
+<p>will name aux outputs <samp class="file">dir/foo.*</samp> and dump outputs
+<samp class="file">dir/foo.c.*</samp>.  Note how their basenames are taken from the input
+name, but the directory still defaults to that of the output.
+</p>
+<p>The empty-string dumpbase does not prevent the use of the output
+basename for outputs during linking:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c bar.c -o dir/foobar -dumpbase '' -flto ...
+</pre></div>
+
+<p>The compilation of the source files will name auxiliary outputs
+<samp class="file">dir/foo.*</samp> and <samp class="file">dir/bar.*</samp>, and dump outputs
+<samp class="file">dir/foo.c.*</samp> and <samp class="file">dir/bar.c.*</samp>.  LTO recompilation during
+linking will use <samp class="file">dir/foobar.</samp> as the prefix for dumps and
+auxiliary files.
+</p>
+
+</dd>
+<dt><a id="index-dumpbase-ext"></a><span><code class="code">-dumpbase-ext <var class="var">auxdropsuf</var></code><a class="copiable-link" href="#index-dumpbase-ext"> &para;</a></span></dt>
+<dt><code class="code">--dumpbase-ext <var class="var">auxdropsuf</var></code></dt>
+<dd><p>When forming the name of an auxiliary (but not a dump) output file, drop
+trailing <var class="var">auxdropsuf</var> from <var class="var">dumpbase</var> before appending any
+suffixes.  If not specified, this option defaults to the suffix of a
+default <var class="var">dumpbase</var>, i.e., the suffix of the input file when
+<samp class="option">-dumpbase</samp> is not present in the command line, or <var class="var">dumpbase</var>
+is combined with <var class="var">dumppfx</var>.
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c -c -o dir/foo.o -dumpbase x-foo.c -dumpbase-ext .c ...
+</pre></div>
+
+<p>creates <samp class="file">dir/foo.o</samp> as the main output, and generates auxiliary
+outputs in <samp class="file">dir/x-foo.*</samp>, taking the location of the primary
+output, and dropping the <samp class="file">.c</samp> suffix from the <var class="var">dumpbase</var>.  Dump
+outputs retain the suffix: <samp class="file">dir/x-foo.c.*</samp>.
+</p>
+<p>This option is disregarded if it does not match the suffix of a
+specified <var class="var">dumpbase</var>, except as an alternative to the executable
+suffix when appending the linker output base name to <var class="var">dumppfx</var>, as
+specified below:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c bar.c -o main.out -dumpbase-ext .out ...
+</pre></div>
+
+<p>creates <samp class="file">main.out</samp> as the primary output, and avoids overwriting
+the auxiliary and dump outputs by using the executable name minus
+<var class="var">auxdropsuf</var> as a prefix, creating auxiliary outputs named
+<samp class="file">main-foo.*</samp> and <samp class="file">main-bar.*</samp> and dump outputs named
+<samp class="file">main-foo.c.*</samp> and <samp class="file">main-bar.c.*</samp>.
+</p>
+
+</dd>
+<dt><a id="index-dumpdir"></a><span><code class="code">-dumpdir <var class="var">dumppfx</var></code><a class="copiable-link" href="#index-dumpdir"> &para;</a></span></dt>
+<dt><code class="code">--dumpdir <var class="var">dumppfx</var></code></dt>
+<dd><p>When forming the name of an auxiliary or dump output file, use
+<var class="var">dumppfx</var> as a prefix:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -dumpdir pfx- -c foo.c ...
+</pre></div>
+
+<p>creates <samp class="file">foo.o</samp> as the primary output, and auxiliary outputs named
+<samp class="file">pfx-foo.*</samp>, combining the given <var class="var">dumppfx</var> with the default
+<var class="var">dumpbase</var> derived from the default primary output, derived in turn
+from the input name.  Dump outputs also take the input name suffix:
+<samp class="file">pfx-foo.c.*</samp>.
+</p>
+<p>If <var class="var">dumppfx</var> is to be used as a directory name, it must end with a
+directory separator:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -dumpdir dir/ -c foo.c -o obj/bar.o ...
+</pre></div>
+
+<p>creates <samp class="file">obj/bar.o</samp> as the primary output, and auxiliary outputs
+named <samp class="file">dir/bar.*</samp>, combining the given <var class="var">dumppfx</var> with the
+default <var class="var">dumpbase</var> derived from the primary output name.  Dump
+outputs also take the input name suffix: <samp class="file">dir/bar.c.*</samp>.
+</p>
+<p>It defaults to the location of the output file, unless the output
+file is a special file like <code class="code">/dev/null</code>. Options
+<samp class="option">-save-temps=cwd</samp> and <samp class="option">-save-temps=obj</samp> override this
+default, just like an explicit <samp class="option">-dumpdir</samp> option.  In case
+multiple such options are given, the last one prevails:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -dumpdir pfx- -c foo.c -save-temps=obj ...
+</pre></div>
+
+<p>outputs <samp class="file">foo.o</samp>, with auxiliary outputs named <samp class="file">foo.*</samp> because
+<samp class="option">-save-temps=*</samp> overrides the <var class="var">dumppfx</var> given by the earlier
+<samp class="option">-dumpdir</samp> option.  It does not matter that <samp class="option">=obj</samp> is the
+default for <samp class="option">-save-temps</samp>, nor that the output directory is
+implicitly the current directory.  Dump outputs are named
+<samp class="file">foo.c.*</samp>.
+</p>
+<p>When compiling from multiple input files, if <samp class="option">-dumpbase</samp> is
+specified, <var class="var">dumpbase</var>, minus a <var class="var">auxdropsuf</var> suffix, and a dash
+are appended to (or override, if containing any directory components) an
+explicit or defaulted <var class="var">dumppfx</var>, so that each of the multiple
+compilations gets differently-named aux and dump outputs.
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c bar.c -c -dumpdir dir/pfx- -dumpbase main ...
+</pre></div>
+
+<p>outputs auxiliary dumps to <samp class="file">dir/pfx-main-foo.*</samp> and
+<samp class="file">dir/pfx-main-bar.*</samp>, appending <var class="var">dumpbase</var>- to <var class="var">dumppfx</var>.
+Dump outputs retain the input file suffix: <samp class="file">dir/pfx-main-foo.c.*</samp>
+and <samp class="file">dir/pfx-main-bar.c.*</samp>, respectively.  Contrast with the
+single-input compilation:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c -c -dumpdir dir/pfx- -dumpbase main ...
+</pre></div>
+
+<p>that, applying <samp class="option">-dumpbase</samp> to a single source, does not compute
+and append a separate <var class="var">dumpbase</var> per input file.  Its auxiliary and
+dump outputs go in <samp class="file">dir/pfx-main.*</samp>.
+</p>
+<p>When compiling and then linking from multiple input files, a defaulted
+or explicitly specified <var class="var">dumppfx</var> also undergoes the <var class="var">dumpbase</var>-
+transformation above (e.g. the compilation of <samp class="file">foo.c</samp> and
+<samp class="file">bar.c</samp> above, but without <samp class="option">-c</samp>).  If neither
+<samp class="option">-dumpdir</samp> nor <samp class="option">-dumpbase</samp> are given, the linker output
+base name, minus <var class="var">auxdropsuf</var>, if specified, or the executable
+suffix otherwise, plus a dash is appended to the default <var class="var">dumppfx</var>
+instead.  Note, however, that unlike earlier cases of linking:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c bar.c -dumpdir dir/pfx- -o main ...
+</pre></div>
+
+<p>does not append the output name <samp class="file">main</samp> to <var class="var">dumppfx</var>, because
+<samp class="option">-dumpdir</samp> is explicitly specified.  The goal is that the
+explicitly-specified <var class="var">dumppfx</var> may contain the specified output name
+as part of the prefix, if desired; only an explicitly-specified
+<samp class="option">-dumpbase</samp> would be combined with it, in order to avoid simply
+discarding a meaningful option.
+</p>
+<p>When compiling and then linking from a single input file, the linker
+output base name will only be appended to the default <var class="var">dumppfx</var> as
+above if it does not share the base name with the single input file
+name.  This has been covered in single-input linking cases above, but
+not with an explicit <samp class="option">-dumpdir</samp> that inhibits the combination,
+even if overridden by <samp class="option">-save-temps=*</samp>:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc foo.c -dumpdir alt/pfx- -o dir/main.exe -save-temps=cwd ...
+</pre></div>
+
+<p>Auxiliary outputs are named <samp class="file">foo.*</samp>, and dump outputs
+<samp class="file">foo.c.*</samp>, in the current working directory as ultimately requested
+by <samp class="option">-save-temps=cwd</samp>.
+</p>
+<p>Summing it all up for an intuitive though slightly imprecise data flow:
+the primary output name is broken into a directory part and a basename
+part; <var class="var">dumppfx</var> is set to the former, unless overridden by
+<samp class="option">-dumpdir</samp> or <samp class="option">-save-temps=*</samp>, and <var class="var">dumpbase</var> is set
+to the latter, unless overridden by <samp class="option">-dumpbase</samp>.  If there are
+multiple inputs or linking, this <var class="var">dumpbase</var> may be combined with
+<var class="var">dumppfx</var> and taken from each input file.  Auxiliary output names
+for each input are formed by combining <var class="var">dumppfx</var>, <var class="var">dumpbase</var>
+minus suffix, and the auxiliary output suffix; dump output names are
+only different in that the suffix from <var class="var">dumpbase</var> is retained.
+</p>
+<p>When it comes to auxiliary and dump outputs created during LTO
+recompilation, a combination of <var class="var">dumppfx</var> and <var class="var">dumpbase</var>, as
+given or as derived from the linker output name but not from inputs,
+even in cases in which this combination would not otherwise be used as
+such, is passed down with a trailing period replacing the compiler-added
+dash, if any, as a <samp class="option">-dumpdir</samp> option to <code class="command">lto-wrapper</code>;
+being involved in linking, this program does not normally get any
+<samp class="option">-dumpbase</samp> and <samp class="option">-dumpbase-ext</samp>, and it ignores them.
+</p>
+<p>When running sub-compilers, <code class="command">lto-wrapper</code> appends LTO stage
+names to the received <var class="var">dumppfx</var>, ensures it contains a directory
+component so that it overrides any <samp class="option">-dumpdir</samp>, and passes that as
+<samp class="option">-dumpbase</samp> to sub-compilers.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-verbose"></a>
+<a id="index-v"></a><span><code class="code">-v</code><a class="copiable-link" href="#index-v"> &para;</a></span></dt>
+<dt><code class="code">--verbose</code></dt>
+<dd><p>Print (on standard error output) the commands executed to run the stages
+of compilation.  Also print the version number of the compiler driver
+program and of the preprocessor and the compiler proper.
+</p>
+</dd>
+<dt><a id="index-_0023_0023_0023"></a><span><code class="code">-###</code><a class="copiable-link" href="#index-_0023_0023_0023"> &para;</a></span></dt>
+<dd><p>Like <samp class="option">-v</samp> except the commands are not executed and arguments
+are quoted unless they contain only alphanumeric characters or <code class="code">./-_</code>.
+This is useful for shell scripts to capture the driver-generated command lines.
+</p>
+</dd>
+<dt><a id="index-help"></a><span><code class="code">--help</code><a class="copiable-link" href="#index-help"> &para;</a></span></dt>
+<dd><p>Print (on the standard output) a description of the command-line options
+understood by <code class="command">gcc</code>.  If the <samp class="option">-v</samp> option is also specified
+then <samp class="option">--help</samp> is also passed on to the various processes
+invoked by <code class="command">gcc</code>, so that they can display the command-line options
+they accept.  If the <samp class="option">-Wextra</samp> option has also been specified
+(prior to the <samp class="option">--help</samp> option), then command-line options that
+have no documentation associated with them are also displayed.
+</p>
+</dd>
+<dt><a id="index-target-help"></a><span><code class="code">--target-help</code><a class="copiable-link" href="#index-target-help"> &para;</a></span></dt>
+<dd><p>Print (on the standard output) a description of target-specific command-line
+options for each tool.  For some targets extra target-specific
+information may also be printed.
+</p>
+</dd>
+<dt><code class="code">--help={<var class="var">class</var><span class="r">|[</span>^<span class="r">]</span><var class="var">qualifier</var>}<span class="r">[</span>,&hellip;<span class="r">]</span></code></dt>
+<dd><p>Print (on the standard output) a description of the command-line
+options understood by the compiler that fit into all specified classes
+and qualifiers.  These are the supported classes:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">optimizers</samp>&rsquo;</dt>
+<dd><p>Display all of the optimization options supported by the
+compiler.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">warnings</samp>&rsquo;</dt>
+<dd><p>Display all of the options controlling warning messages
+produced by the compiler.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">target</samp>&rsquo;</dt>
+<dd><p>Display target-specific options.  Unlike the
+<samp class="option">--target-help</samp> option however, target-specific options of the
+linker and assembler are not displayed.  This is because those
+tools do not currently support the extended <samp class="option">--help=</samp> syntax.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">params</samp>&rsquo;</dt>
+<dd><p>Display the values recognized by the <samp class="option">--param</samp>
+option.
+</p>
+</dd>
+<dt><var class="var">language</var></dt>
+<dd><p>Display the options supported for <var class="var">language</var>, where
+<var class="var">language</var> is the name of one of the languages supported in this
+version of GCC.  If an option is supported by all languages, one needs
+to select &lsquo;<samp class="samp">common</samp>&rsquo; class.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">common</samp>&rsquo;</dt>
+<dd><p>Display the options that are common to all languages.
+</p></dd>
+</dl>
+
+<p>These are the supported qualifiers:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">undocumented</samp>&rsquo;</dt>
+<dd><p>Display only those options that are undocumented.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">joined</samp>&rsquo;</dt>
+<dd><p>Display options taking an argument that appears after an equal
+sign in the same continuous piece of text, such as:
+&lsquo;<samp class="samp">--help=target</samp>&rsquo;.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">separate</samp>&rsquo;</dt>
+<dd><p>Display options taking an argument that appears as a separate word
+following the original option, such as: &lsquo;<samp class="samp">-o output-file</samp>&rsquo;.
+</p></dd>
+</dl>
+
+<p>Thus for example to display all the undocumented target-specific
+switches supported by the compiler, use:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">--help=target,undocumented
+</pre></div>
+
+<p>The sense of a qualifier can be inverted by prefixing it with the
+&lsquo;<samp class="samp">^</samp>&rsquo; character, so for example to display all binary warning
+options (i.e., ones that are either on or off and that do not take an
+argument) that have a description, use:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">--help=warnings,^joined,^undocumented
+</pre></div>
+
+<p>The argument to <samp class="option">--help=</samp> should not consist solely of inverted
+qualifiers.
+</p>
+<p>Combining several classes is possible, although this usually
+restricts the output so much that there is nothing to display.  One
+case where it does work, however, is when one of the classes is
+<var class="var">target</var>.  For example, to display all the target-specific
+optimization options, use:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">--help=target,optimizers
+</pre></div>
+
+<p>The <samp class="option">--help=</samp> option can be repeated on the command line.  Each
+successive use displays its requested class of options, skipping
+those that have already been displayed.  If <samp class="option">--help</samp> is also
+specified anywhere on the command line then this takes precedence
+over any <samp class="option">--help=</samp> option.
+</p>
+<a class="index-entry-id" id="index-Q"></a>
+<p>If the <samp class="option">-Q</samp> option appears on the command line before the
+<samp class="option">--help=</samp> option, then the descriptive text displayed by
+<samp class="option">--help=</samp> is changed.  Instead of describing the displayed
+options, an indication is given as to whether the option is enabled,
+disabled or set to a specific value (assuming that the compiler
+knows this at the point where the <samp class="option">--help=</samp> option is used).
+</p>
+<p>Here is a truncated example from the ARM port of <code class="command">gcc</code>:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">  % gcc -Q -mabi=2 --help=target -c
+  The following options are target specific:
+  -mabi=                                2
+  -mabort-on-noreturn                   [disabled]
+  -mapcs                                [disabled]
+</pre></div>
+
+<p>The output is sensitive to the effects of previous command-line
+options, so for example it is possible to find out which optimizations
+are enabled at <samp class="option">-O2</samp> by using:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">-Q -O2 --help=optimizers
+</pre></div>
+
+<p>Alternatively you can discover which binary optimizations are enabled
+by <samp class="option">-O3</samp> by using:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -c -Q -O3 --help=optimizers &gt; /tmp/O3-opts
+gcc -c -Q -O2 --help=optimizers &gt; /tmp/O2-opts
+diff /tmp/O2-opts /tmp/O3-opts | grep enabled
+</pre></div>
+
+</dd>
+<dt><a id="index-version"></a><span><code class="code">--version</code><a class="copiable-link" href="#index-version"> &para;</a></span></dt>
+<dd><p>Display the version number and copyrights of the invoked GCC.
+</p>
+</dd>
+<dt><a id="index-pass-exit-codes"></a><span><code class="code">-pass-exit-codes</code><a class="copiable-link" href="#index-pass-exit-codes"> &para;</a></span></dt>
+<dt><code class="code">--pass-exit-codes</code></dt>
+<dd><p>Normally the <code class="command">gcc</code> program exits with the code of 1 if any
+phase of the compiler returns a non-success return code.  If you specify
+<samp class="option">-pass-exit-codes</samp>, the <code class="command">gcc</code> program instead returns with
+the numerically highest error produced by any phase returning an error
+indication.  The C, C++, and Fortran front ends return 4 if an internal
+compiler error is encountered.
+</p>
+</dd>
+<dt><a id="index-pipe"></a><span><code class="code">-pipe</code><a class="copiable-link" href="#index-pipe"> &para;</a></span></dt>
+<dt><code class="code">--pipe</code></dt>
+<dd><p>Use pipes rather than temporary files for communication between the
+various stages of compilation.  This fails to work on some systems where
+the assembler is unable to read from a pipe; but the GNU assembler has
+no trouble.
+</p>
+</dd>
+<dt><a id="index-wrapper"></a><span><code class="code">-wrapper</code><a class="copiable-link" href="#index-wrapper"> &para;</a></span></dt>
+<dd><p>Invoke all subcommands under a wrapper program.  The name of the
+wrapper program and its parameters are passed as a comma separated
+list.
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">gcc -c t.c -wrapper gdb,--args
+</pre></div>
+
+<p>This invokes all subprograms of <code class="command">gcc</code> under
+&lsquo;<samp class="samp">gdb --args</samp>&rsquo;, thus the invocation of <code class="command">cc1</code> is
+&lsquo;<samp class="samp">gdb --args cc1 &hellip;</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-ffile-prefix-map"></a><span><code class="code">-ffile-prefix-map=<var class="var">old</var>=<var class="var">new</var></code><a class="copiable-link" href="#index-ffile-prefix-map"> &para;</a></span></dt>
+<dd><p>When compiling files residing in directory <samp class="file"><var class="var">old</var></samp>, record
+any references to them in the result of the compilation as if the
+files resided in directory <samp class="file"><var class="var">new</var></samp> instead.  Specifying this
+option is equivalent to specifying all the individual
+<samp class="option">-f*-prefix-map</samp> options.  This can be used to make reproducible
+builds that are location independent.  Directories referenced by
+directives are not affected by these options.  See also
+<samp class="option">-fmacro-prefix-map</samp>, <samp class="option">-fdebug-prefix-map</samp>,
+<samp class="option">-fprofile-prefix-map</samp> and <samp class="option">-fcanon-prefix-map</samp>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-fno-canon-prefix-map"></a>
+<a id="index-fcanon-prefix-map"></a><span><code class="code">-fcanon-prefix-map</code><a class="copiable-link" href="#index-fcanon-prefix-map"> &para;</a></span></dt>
+<dd><p>For the <samp class="option">-f*-prefix-map</samp> options normally comparison
+of <samp class="file"><var class="var">old</var></samp> prefix against the filename that would be normally
+referenced in the result of the compilation is done using textual
+comparison of the prefixes, or ignoring character case for case insensitive
+filesystems and considering slashes and backslashes as equal on DOS based
+filesystems.  The <samp class="option">-fcanon-prefix-map</samp> causes such comparisons
+to be done on canonicalized paths of <samp class="file"><var class="var">old</var></samp>
+and the referenced filename.
+</p>
+</dd>
+<dt><a id="index-fplugin"></a><span><code class="code">-fplugin=<var class="var">name</var>.so</code><a class="copiable-link" href="#index-fplugin"> &para;</a></span></dt>
+<dd><p>Load the plugin code in file <var class="var">name</var>.so, assumed to be a
+shared object to be dlopen&rsquo;d by the compiler.  The base name of
+the shared object file is used to identify the plugin for the
+purposes of argument parsing (See
+<samp class="option">-fplugin-arg-<var class="var">name</var>-<var class="var">key</var>=<var class="var">value</var></samp> below).
+Each plugin should define the callback functions specified in the
+Plugins API.
+</p>
+</dd>
+<dt><a id="index-fplugin-arg"></a><span><code class="code">-fplugin-arg-<var class="var">name</var>-<var class="var">key</var>=<var class="var">value</var></code><a class="copiable-link" href="#index-fplugin-arg"> &para;</a></span></dt>
+<dd><p>Define an argument called <var class="var">key</var> with a value of <var class="var">value</var>
+for the plugin called <var class="var">name</var>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-fdump-ada-spec-slim"></a>
+<a id="index-fdump-ada-spec"></a><span><code class="code">-fdump-ada-spec<span class="r">[</span>-slim<span class="r">]</span></code><a class="copiable-link" href="#index-fdump-ada-spec"> &para;</a></span></dt>
+<dd><p>For C and C++ source and include files, generate corresponding Ada specs.
+See <a data-manual="gnat_ugn" href="https://gcc.gnu.org/onlinedocs/gnat_ugn/Generating-Ada-Bindings-for-C-and-C_002b_002b-headers.html#Generating-Ada-Bindings-for-C-and-C_002b_002b-headers">Generating Ada Bindings for C and C++ headers</a> in <cite class="cite">GNAT User&rsquo;s Guide</cite>, which provides detailed documentation on this feature.
+</p>
+</dd>
+<dt><a id="index-fada-spec-parent"></a><span><code class="code">-fada-spec-parent=<var class="var">unit</var></code><a class="copiable-link" href="#index-fada-spec-parent"> &para;</a></span></dt>
+<dd><p>In conjunction with <samp class="option">-fdump-ada-spec<span class="r">[</span>-slim<span class="r">]</span></samp> above, generate
+Ada specs as child units of parent <var class="var">unit</var>.
+</p>
+</dd>
+<dt><a id="index-fdump-go-spec"></a><span><code class="code">-fdump-go-spec=<var class="var">file</var></code><a class="copiable-link" href="#index-fdump-go-spec"> &para;</a></span></dt>
+<dd><p>For input files in any language, generate corresponding Go
+declarations in <var class="var">file</var>.  This generates Go <code class="code">const</code>,
+<code class="code">type</code>, <code class="code">var</code>, and <code class="code">func</code> declarations which may be a
+useful way to start writing a Go interface to code written in some
+other language.
+</p>
+
+</dd>
+<dt><code class="code">@<var class="var">file</var></code></dt>
+<dd><p>Read command-line options from <var class="var">file</var>.  The options read are
+inserted in place of the original @<var class="var">file</var> option.  If <var class="var">file</var>
+does not exist, or cannot be read, then the option will be treated
+literally, and not removed.  
+</p>
+<p>Options in <var class="var">file</var> are separated by whitespace.  A whitespace
+character may be included in an option by surrounding the entire
+option in either single or double quotes.  Any character (including a
+backslash) may be included by prefixing the character to be included
+with a backslash.  The <var class="var">file</var> may itself contain additional
+@<var class="var">file</var> options; any such options will be processed recursively.
+</p></dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Invoking-G_002b_002b.html">Compiling C++ Programs</a>, Previous: <a href="Option-Summary.html">Option Summary</a>, Up: <a href="Invoking-GCC.html">GCC Command Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Copyright © 1991-2026 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, with no Front-Cover Texts, and with no
+Back-Cover Texts.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+ -->
+<title>objdump (GNU Binary Utilities)</title>
+
+<meta name="description" content="objdump (GNU Binary Utilities)">
+<meta name="keywords" content="objdump (GNU Binary Utilities)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Binutils-Index.html" rel="index" title="Binutils Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="ranlib.html" rel="next" title="ranlib">
+<link href="objcopy.html" rel="prev" title="objcopy">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="chapter-level-extent" id="objdump">
+<div class="nav-panel">
+<p>
+Next: <a href="ranlib.html" accesskey="n" rel="next">ranlib</a>, Previous: <a href="objcopy.html" accesskey="p" rel="prev">objcopy</a>, Up: <a href="index.html" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Binutils-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h2 class="chapter" id="objdump-1"><span>4 objdump<a class="copiable-link" href="#objdump-1"> &para;</a></span></h2>
+
+<a class="index-entry-id" id="index-object-file-information"></a>
+<a class="index-entry-id" id="index-objdump"></a>
+
+
+<div class="example smallexample">
+<pre class="example-preformatted">objdump [<samp class="option">-a</samp>|<samp class="option">--archive-headers</samp>]
+        [<samp class="option">-b</samp> <var class="var">bfdname</var>|<samp class="option">--target=<var class="var">bfdname</var></samp>]
+        [<samp class="option">-C</samp>|<samp class="option">--demangle</samp>[=<var class="var">style</var>] ]
+        [<samp class="option">-d</samp>|<samp class="option">--disassemble</samp>[=<var class="var">symbol</var>]]
+        [<samp class="option">-D</samp>|<samp class="option">--disassemble-all</samp>]
+        [<samp class="option">-z</samp>|<samp class="option">--disassemble-zeroes</samp>]
+        [<samp class="option">-EB</samp>|<samp class="option">-EL</samp>|<samp class="option">--endian=</samp>{big | little }]
+        [<samp class="option">-f</samp>|<samp class="option">--file-headers</samp>]
+        [<samp class="option">-F</samp>|<samp class="option">--file-offsets</samp>]
+        [<samp class="option">--file-start-context</samp>]
+        [<samp class="option">-g</samp>|<samp class="option">--debugging</samp>]
+        [<samp class="option">-e</samp>|<samp class="option">--debugging-tags</samp>]
+        [<samp class="option">-h</samp>|<samp class="option">--section-headers</samp>|<samp class="option">--headers</samp>]
+        [<samp class="option">-i</samp>|<samp class="option">--info</samp>]
+        [<samp class="option">-j</samp> <var class="var">section</var>|<samp class="option">--section=</samp><var class="var">section</var>]
+        [<samp class="option">-l</samp>|<samp class="option">--line-numbers</samp>]
+        [<samp class="option">-S</samp>|<samp class="option">--source</samp>]
+        [<samp class="option">--source-comment</samp>[=<var class="var">text</var>]]
+        [<samp class="option">-m</samp> <var class="var">machine</var>|<samp class="option">--architecture=</samp><var class="var">machine</var>]
+        [<samp class="option">-M</samp> <var class="var">options</var>|<samp class="option">--disassembler-options=</samp><var class="var">options</var>]
+        [<samp class="option">-p</samp>|<samp class="option">--private-headers</samp>]
+        [<samp class="option">-P</samp> <var class="var">options</var>|<samp class="option">--private=</samp><var class="var">options</var>]
+        [<samp class="option">-r</samp>|<samp class="option">--reloc</samp>]
+        [<samp class="option">-R</samp>|<samp class="option">--dynamic-reloc</samp>]
+        [<samp class="option">-s</samp>|<samp class="option">--full-contents</samp>]
+        [<samp class="option">-Z</samp>|<samp class="option">--decompress</samp>]
+        [<samp class="option">-W</samp>|<samp class="option">--dwarf</samp>]
+        [<samp class="option">-Wa</samp>|<samp class="option">--dwarf=abbrev</samp>]
+        [<samp class="option">-WA</samp>|<samp class="option">--dwarf=addr</samp>]
+        [<samp class="option">-Wr</samp>|<samp class="option">--dwarf=aranges</samp>]
+        [<samp class="option">-Wc</samp>|<samp class="option">--dwarf=cu_index</samp>]
+        [<samp class="option">-WL</samp>|<samp class="option">--dwarf=decodedline</samp>]
+        [<samp class="option">-Wf</samp>|<samp class="option">--dwarf=frames</samp>]
+        [<samp class="option">-WF</samp>|<samp class="option">--dwarf=frames-interp</samp>]
+        [<samp class="option">-Wg</samp>|<samp class="option">--dwarf=gdb_index</samp>]
+        [<samp class="option">-Wi</samp>|<samp class="option">--dwarf=info</samp>]
+        [<samp class="option">-Wk</samp>|<samp class="option">--dwarf=links</samp>]
+        [<samp class="option">-Wo</samp>|<samp class="option">--dwarf=loc</samp>]
+        [<samp class="option">-Wm</samp>|<samp class="option">--dwarf=macro</samp>]
+        [<samp class="option">-Wp</samp>|<samp class="option">--dwarf=pubnames</samp>]
+        [<samp class="option">-Wt</samp>|<samp class="option">--dwarf=pubtypes</samp>]
+        [<samp class="option">-WR</samp>|<samp class="option">--dwarf=Ranges</samp>]
+        [<samp class="option">-Wl</samp>|<samp class="option">--dwarf=rawline</samp>]
+        [<samp class="option">-Ws</samp>|<samp class="option">--dwarf=str</samp>]
+        [<samp class="option">-WO</samp>|<samp class="option">--dwarf=str-offsets</samp>]
+        [<samp class="option">-Wu</samp>|<samp class="option">--dwarf=trace_abbrev</samp>]
+        [<samp class="option">-WT</samp>|<samp class="option">--dwarf=trace_aranges</samp>]
+        [<samp class="option">-WU</samp>|<samp class="option">--dwarf=trace_info</samp>]
+        [<samp class="option">-WK</samp>|<samp class="option">--dwarf=follow-links</samp>]
+        [<samp class="option">-WN</samp>|<samp class="option">--dwarf=no-follow-links</samp>]
+        [<samp class="option">-WD</samp>|<samp class="option">--dwarf=use-debuginfod</samp>]
+        [<samp class="option">-WE</samp>|<samp class="option">--dwarf=do-not-use-debuginfod</samp>]
+        [<samp class="option">--debug-dir=<samp class="file">dir</samp></samp>]
+        [<samp class="option">--map-global-vars</samp>]
+        [<samp class="option">-L</samp>|<samp class="option">--process-links</samp>]
+        [<samp class="option">--ctf=</samp><var class="var">section</var>]
+        [<samp class="option">--sframe=</samp><var class="var">section</var>]
+        [<samp class="option">-G</samp>|<samp class="option">--stabs</samp>]
+        [<samp class="option">-t</samp>|<samp class="option">--syms</samp>]
+        [<samp class="option">-T</samp>|<samp class="option">--dynamic-syms</samp>]
+        [<samp class="option">-x</samp>|<samp class="option">--all-headers</samp>]
+        [<samp class="option">-w</samp>|<samp class="option">--wide</samp>]
+        [<samp class="option">--start-address=</samp><var class="var">address</var>]
+        [<samp class="option">--stop-address=</samp><var class="var">address</var>]
+        [<samp class="option">--no-addresses</samp>]
+        [<samp class="option">--prefix-addresses</samp>]
+        [<samp class="option">--[no-]show-raw-insn</samp>]
+        [<samp class="option">--adjust-vma=</samp><var class="var">offset</var>]
+        [<samp class="option">--show-all-symbols</samp>]
+        [<samp class="option">--dwarf-depth=<var class="var">n</var></samp>]
+        [<samp class="option">--dwarf-start=<var class="var">n</var></samp>]
+        [<samp class="option">--ctf-parent=</samp><var class="var">section</var>]
+        [<samp class="option">--no-recurse-limit</samp>|<samp class="option">--recurse-limit</samp>]
+        [<samp class="option">--special-syms</samp>]
+        [<samp class="option">--prefix=</samp><var class="var">prefix</var>]
+        [<samp class="option">--prefix-strip=</samp><var class="var">level</var>]
+        [<samp class="option">--insn-width=</samp><var class="var">width</var>]
+        [<samp class="option">--visualize-jumps[=color|=extended-color|=off]</samp>
+        [<samp class="option">--disassembler-color=[off|terminal|on|extended]</samp>
+        [<samp class="option">-U</samp> <var class="var">method</var>] [<samp class="option">--unicode=</samp><var class="var">method</var>]
+        [<samp class="option">-V</samp>|<samp class="option">--version</samp>]
+        [<samp class="option">-H</samp>|<samp class="option">--help</samp>]
+        <var class="var">objfile</var>...
+</pre></div>
+
+
+<p><code class="command">objdump</code> displays information about one or more object files.
+The options control what particular information to display.  This
+information is mostly useful to programmers who are working on the
+compilation tools, as opposed to programmers who just want their
+program to compile and work.
+</p>
+<p><var class="var">objfile</var>&hellip; are the object files to be examined.  When you
+specify archives, <code class="command">objdump</code> shows information on each of the member
+object files.
+</p>
+
+
+<p>The long and short forms of options, shown here as alternatives, are
+equivalent.  At least one option from the list
+<samp class="option">-a,-d,-D,-e,-f,-g,-G,-h,-H,-p,-P,-r,-R,-s,-S,-t,-T,-V,-x</samp> must be given.
+</p>
+<dl class="table">
+<dt><a id="index-archive-headers"></a><span><code class="env">-a</code><a class="copiable-link" href="#index-archive-headers"> &para;</a></span></dt>
+<dt><code class="env">--archive-header</code></dt>
+<dd><p>If any of the <var class="var">objfile</var> files are archives, display the archive
+header information (in a format similar to &lsquo;<samp class="samp">ls -l</samp>&rsquo;).  Besides the
+information you could list with &lsquo;<samp class="samp">ar tv</samp>&rsquo;, &lsquo;<samp class="samp">objdump -a</samp>&rsquo; shows
+the object file format of each archive member.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-VMA-in-objdump"></a>
+<a id="index-section-addresses-in-objdump"></a><span><code class="env">--adjust-vma=<var class="var">offset</var></code><a class="copiable-link" href="#index-section-addresses-in-objdump"> &para;</a></span></dt>
+<dd><p>When dumping information, first add <var class="var">offset</var> to all the section
+addresses.  This is useful if the section addresses do not correspond to
+the symbol table, which can happen when putting sections at particular
+addresses when using a format which can not represent section addresses,
+such as a.out.
+</p>
+</dd>
+<dt><a id="index-object-code-format-1"></a><span><code class="env">-b <var class="var">bfdname</var></code><a class="copiable-link" href="#index-object-code-format-1"> &para;</a></span></dt>
+<dt><code class="env">--target=<var class="var">bfdname</var></code></dt>
+<dd><p>Specify that the object-code format for the object files is
+<var class="var">bfdname</var>.  This option may not be necessary; <var class="var">objdump</var> can
+automatically recognize many formats.
+</p>
+<p>For example,
+</p><div class="example">
+<pre class="example-preformatted">objdump -b oasys -m vax -h fu.o
+</pre></div>
+<p>displays summary information from the section headers (<samp class="option">-h</samp>) of
+<samp class="file">fu.o</samp>, which is explicitly identified (<samp class="option">-m</samp>) as a VAX object
+file in the format produced by Oasys compilers.  You can list the
+formats available with the <samp class="option">-i</samp> option.
+See <a class="xref" href="Target-Selection.html">Target Selection</a>, for more information.
+</p>
+</dd>
+<dt><a id="index-demangling-in-objdump"></a><span><code class="env">-C</code><a class="copiable-link" href="#index-demangling-in-objdump"> &para;</a></span></dt>
+<dt><code class="env">--demangle[=<var class="var">style</var>]</code></dt>
+<dd><p>Decode (<em class="dfn">demangle</em>) low-level symbol names into user-level names.
+Besides removing any initial underscore prepended by the system, this
+makes C++ function names readable.  Different compilers have different
+mangling styles. The optional demangling style argument can be used to
+choose an appropriate demangling style for your compiler. See <a class="xref" href="c_002b_002bfilt.html">c++filt</a>,
+for more information on demangling.
+</p>
+</dd>
+<dt><code class="env">--recurse-limit</code></dt>
+<dt><code class="env">--no-recurse-limit</code></dt>
+<dt><code class="env">--recursion-limit</code></dt>
+<dt><code class="env">--no-recursion-limit</code></dt>
+<dd><p>Enables or disables a limit on the amount of recursion performed
+whilst demangling strings.  Since the name mangling formats allow for
+an infinite level of recursion it is possible to create strings whose
+decoding will exhaust the amount of stack space available on the host
+machine, triggering a memory fault.  The limit tries to prevent this
+from happening by restricting recursion to 2048 levels of nesting.
+</p>
+<p>The default is for this limit to be enabled, but disabling it may be
+necessary in order to demangle truly complicated names.  Note however
+that if the recursion limit is disabled then stack exhaustion is
+possible and any bug reports about such an event will be rejected.
+</p>
+</dd>
+<dt><code class="env">-g</code></dt>
+<dt><code class="env">--debugging</code></dt>
+<dd><p>Display debugging information.  This attempts to parse STABS
+debugging format information stored in the file and print it out using
+a C like syntax.  If no STABS debugging was found this option
+falls back on the <samp class="option">-W</samp> option to print any DWARF information in
+the file.
+</p>
+</dd>
+<dt><code class="env">-e</code></dt>
+<dt><code class="env">--debugging-tags</code></dt>
+<dd><p>Like <samp class="option">-g</samp>, but the information is generated in a format compatible
+with ctags tool.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-machine-instructions"></a>
+<a id="index-disassembling-object-code"></a><span><code class="env">-d</code><a class="copiable-link" href="#index-disassembling-object-code"> &para;</a></span></dt>
+<dt><code class="env">--disassemble</code></dt>
+<dt><code class="env">--disassemble=<var class="var">symbol</var></code></dt>
+<dd><p>Display the assembler mnemonics for the machine instructions from the
+input file.  This option only disassembles those sections which are 
+expected to contain instructions.  If the optional <var class="var">symbol</var>
+argument is given (perhaps multiple times), then display the assembler
+mnemonics starting at (all the) <var class="var">symbol</var>.  If <var class="var">symbol</var> is a
+function name then disassembly will stop at the end of the function,
+otherwise it will stop when the next symbol is encountered.  If there
+are no matches for any <var class="var">symbol</var> then nothing will be displayed.
+</p>
+<p>Note if the <samp class="option">--dwarf=follow-links</samp> option is enabled
+then any symbol tables in linked debug info files will be read in and
+used when disassembling.
+</p>
+</dd>
+<dt><code class="env">-D</code></dt>
+<dt><code class="env">--disassemble-all</code></dt>
+<dd><p>Like <samp class="option">-d</samp>, but disassemble the contents of all non-empty
+non-bss sections, not just those expected to contain instructions.
+<samp class="option">-j</samp> may be used to select specific sections.
+</p>
+<p>This option also has a subtle effect on the disassembly of
+instructions in code sections.  When option <samp class="option">-d</samp> is in effect
+objdump will assume that any symbols present in a code section occur
+on the boundary between instructions and it will refuse to disassemble
+across such a boundary.  When option <samp class="option">-D</samp> is in effect however
+this assumption is supressed.  This means that it is possible for the
+output of <samp class="option">-d</samp> and <samp class="option">-D</samp> to differ if, for example, data
+is stored in code sections.
+</p>
+<p>If the target is an ARM architecture this switch also has the effect
+of forcing the disassembler to decode pieces of data found in code
+sections as if they were instructions.
+</p>
+<p>Note if the <samp class="option">--dwarf=follow-links</samp> option is enabled
+then any symbol tables in linked debug info files will be read in and
+used when disassembling.
+</p>
+</dd>
+<dt><code class="env">--no-addresses</code></dt>
+<dd><p>When disassembling, don&rsquo;t print addresses on each line or for symbols
+and relocation offsets.  In combination with <samp class="option">--no-show-raw-insn</samp>
+this may be useful for comparing compiler output.
+</p>
+</dd>
+<dt><code class="env">--prefix-addresses</code></dt>
+<dd><p>When disassembling, print the complete address on each line.  This is
+the older disassembly format.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-disassembly-endianness"></a>
+<a id="index-endianness"></a><span><code class="env">-EB</code><a class="copiable-link" href="#index-endianness"> &para;</a></span></dt>
+<dt><code class="env">-EL</code></dt>
+<dt><code class="env">--endian={big|little}</code></dt>
+<dd><p>Specify the endianness of the object files.  This only affects
+disassembly.  This can be useful when disassembling a file format which
+does not describe endianness information, such as S-records.
+</p>
+</dd>
+<dt><a id="index-object-file-header"></a><span><code class="env">-f</code><a class="copiable-link" href="#index-object-file-header"> &para;</a></span></dt>
+<dt><code class="env">--file-headers</code></dt>
+<dd><p>Display summary information from the overall header of
+each of the <var class="var">objfile</var> files.
+</p>
+</dd>
+<dt><a id="index-object-file-offsets"></a><span><code class="env">-F</code><a class="copiable-link" href="#index-object-file-offsets"> &para;</a></span></dt>
+<dt><code class="env">--file-offsets</code></dt>
+<dd><p>When disassembling sections, whenever a symbol is displayed, also
+display the file offset of the region of data that is about to be
+dumped.  If zeroes are being skipped, then when disassembly resumes,
+tell the user how many zeroes were skipped and the file offset of the
+location from where the disassembly resumes.  When dumping sections,
+display the file offset of the location from where the dump starts.
+</p>
+</dd>
+<dt><a id="index-source-code-context"></a><span><code class="env">--file-start-context</code><a class="copiable-link" href="#index-source-code-context"> &para;</a></span></dt>
+<dd><p>Specify that when displaying interlisted source code/disassembly
+(assumes <samp class="option">-S</samp>) from a file that has not yet been displayed, extend the
+context to the start of the file.
+</p>
+</dd>
+<dt><a id="index-section-headers"></a><span><code class="env">-h</code><a class="copiable-link" href="#index-section-headers"> &para;</a></span></dt>
+<dt><code class="env">--section-headers</code></dt>
+<dt><code class="env">--headers</code></dt>
+<dd><p>Display summary information from the section headers of the
+object file.
+</p>
+<p>File segments may be relocated to nonstandard addresses, for example by
+using the <samp class="option">-Ttext</samp>, <samp class="option">-Tdata</samp>, or <samp class="option">-Tbss</samp> options to
+<code class="command">ld</code>.  However, some object file formats, such as a.out, do not
+store the starting address of the file segments.  In those situations,
+although <code class="command">ld</code> relocates the sections correctly, using &lsquo;<samp class="samp">objdump
+-h</samp>&rsquo; to list the file section headers cannot show the correct addresses.
+Instead, it shows the usual addresses, which are implicit for the
+target.
+</p>
+<p>Note, in some cases it is possible for a section to have both the
+READONLY and the NOREAD attributes set.  In such cases the NOREAD
+attribute takes precedence, but <code class="command">objdump</code> will report both
+since the exact setting of the flag bits might be important.
+</p>
+</dd>
+<dt><code class="env">-H</code></dt>
+<dt><code class="env">--help</code></dt>
+<dd><p>Print a summary of the options to <code class="command">objdump</code> and exit.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-object-formats-available"></a>
+<a id="index-architectures-available"></a><span><code class="env">-i</code><a class="copiable-link" href="#index-architectures-available"> &para;</a></span></dt>
+<dt><code class="env">--info</code></dt>
+<dd><p>Display a list showing all architectures and object formats available
+for specification with <samp class="option">-b</samp> or <samp class="option">-m</samp>.
+</p>
+</dd>
+<dt><a id="index-section-information"></a><span><code class="env">-j <var class="var">name</var></code><a class="copiable-link" href="#index-section-information"> &para;</a></span></dt>
+<dt><code class="env">--section=<var class="var">name</var></code></dt>
+<dd><p>Display information for section <var class="var">name</var>.  This option may be
+specified multiple times.
+</p>
+</dd>
+<dt><code class="env">--map-global-vars</code></dt>
+<dd><p>Display global variable information.  This option only works when the object
+file is compiled with the debug option.  More precisely, it relies on DWARF2
+debug information entries.  It is useful for tracking the location and type of
+all global variables in the given object file.
+</p>
+</dd>
+<dt><code class="env">-L</code></dt>
+<dt><code class="env">--process-links</code></dt>
+<dd><p>Display the contents of non-debug sections found in separate debuginfo
+files that are linked to the main file.  This option automatically
+implies the <samp class="option">-WK</samp> option, and only sections requested by other
+command line options will be displayed.
+</p>
+</dd>
+<dt><a id="index-source-filenames-for-object-files"></a><span><code class="env">-l</code><a class="copiable-link" href="#index-source-filenames-for-object-files"> &para;</a></span></dt>
+<dt><code class="env">--line-numbers</code></dt>
+<dd><p>Label the display (using debugging information) with the filename and
+source line numbers corresponding to the object code or relocs shown.
+Only useful with <samp class="option">-d</samp>, <samp class="option">-D</samp>, or <samp class="option">-r</samp>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-disassembly-architecture"></a>
+<a id="index-architecture"></a><span><code class="env">-m <var class="var">machine</var></code><a class="copiable-link" href="#index-architecture"> &para;</a></span></dt>
+<dt><code class="env">--architecture=<var class="var">machine</var></code></dt>
+<dd><p>Specify the architecture to use when disassembling object files.  This
+can be useful when disassembling object files which do not describe
+architecture information, such as S-records.  You can list the available
+architectures with the <samp class="option">-i</samp> option.
+</p>
+<p>For most architectures it is possible to supply an architecture
+name and a machine name, separated by a colon.  For example
+&lsquo;<samp class="samp">foo:bar</samp>&rsquo; would refer to the &lsquo;<samp class="samp">bar</samp>&rsquo; machine type in the
+&lsquo;<samp class="samp">foo</samp>&rsquo; architecture.  This can be helpful if objdump has been
+configured to support multiple architectures.
+</p>
+<p>If the target is an ARM architecture then this switch has an
+additional effect.  It restricts the disassembly to only those
+instructions supported by the architecture specified by <var class="var">machine</var>.
+If it is necessary to use this switch because the input file does not
+contain any architecture information, but it is also desired to
+disassemble all the instructions use <samp class="option">-marm</samp>.
+</p>
+</dd>
+<dt><code class="env">-M <var class="var">options</var></code></dt>
+<dt><code class="env">--disassembler-options=<var class="var">options</var></code></dt>
+<dd><p>Pass target specific information to the disassembler.  Only supported on
+some targets.  If it is necessary to specify more than one
+disassembler option then multiple <samp class="option">-M</samp> options can be used or
+can be placed together into a comma separated list.
+</p>
+<p>For ARC, <samp class="option">dsp</samp> controls the printing of DSP instructions,
+<samp class="option">spfp</samp> selects the printing of FPX single precision FP
+instructions, <samp class="option">dpfp</samp> selects the printing of FPX double
+precision FP instructions, <samp class="option">quarkse_em</samp> selects the printing of
+special QuarkSE-EM instructions, <samp class="option">fpuda</samp> selects the printing
+of double precision assist instructions, <samp class="option">fpus</samp> selects the
+printing of FPU single precision FP instructions, while <samp class="option">fpud</samp>
+selects the printing of FPU double precision FP instructions.
+Additionally, one can choose to have all the immediates printed in
+hexadecimal using <samp class="option">hex</samp>.  By default, the short immediates are
+printed using the decimal representation, while the long immediate
+values are printed as hexadecimal.
+</p>
+<p><samp class="option">cpu=...</samp> allows one to enforce a particular ISA when disassembling
+instructions, overriding the <samp class="option">-m</samp> value or whatever is in the ELF file.
+This might be useful to select ARC EM or HS ISA, because architecture is same
+for those and disassembler relies on private ELF header data to decide if code
+is for EM or HS.  This option might be specified multiple times - only the
+latest value will be used.  Valid values are same as for the assembler
+<samp class="option">-mcpu=...</samp> option.
+</p>
+<p>If the target is an ARM architecture then this switch can be used to
+select which register name set is used during disassembler.  Specifying
+<samp class="option">-M reg-names-std</samp> (the default) will select the register names as
+used in ARM&rsquo;s instruction set documentation, but with register 13 called
+&rsquo;sp&rsquo;, register 14 called &rsquo;lr&rsquo; and register 15 called &rsquo;pc&rsquo;.  Specifying
+<samp class="option">-M reg-names-apcs</samp> will select the name set used by the ARM
+Procedure Call Standard, whilst specifying <samp class="option">-M reg-names-raw</samp> will
+just use &lsquo;<samp class="samp">r</samp>&rsquo; followed by the register number.
+</p>
+<p>There are also two variants on the APCS register naming scheme enabled
+by <samp class="option">-M reg-names-atpcs</samp> and <samp class="option">-M reg-names-special-atpcs</samp> which
+use the ARM/Thumb Procedure Call Standard naming conventions.  (Either
+with the normal register names or the special register names).
+</p>
+<p>This option can also be used for ARM architectures to force the
+disassembler to interpret all instructions as Thumb instructions by
+using the switch <samp class="option">--disassembler-options=force-thumb</samp>.  This can be
+useful when attempting to disassemble thumb code produced by other
+compilers.
+</p>
+<p>For AArch64 targets this switch can be used to set whether instructions are
+disassembled as the most general instruction using the <samp class="option">-M no-aliases</samp>
+option or whether instruction notes should be generated as comments in the
+disasssembly using <samp class="option">-M notes</samp>.  In addition the <samp class="option">-M
+annotate</samp> option can be used to customise the handling of undefined
+instructions when disassembling executables and shared libraries.
+Normally the disassembler will just show the hexadecimal value of tge
+undefined instruction, but if annotation is enabled it will first try
+to find a symbol whose value matches the instruction&rsquo;s encoding.  If
+there is a match then the symbol name will be displayed instead.  This
+can be useful when disassembling non-code sections which may contain
+function and data addresses.
+</p>
+<p>For the x86, some of the options duplicate functions of the <samp class="option">-m</samp>
+switch, but allow finer grained control.
+</p><dl class="table">
+<dt><code class="code">x86-64</code></dt>
+<dt><code class="code">i386</code></dt>
+<dt><code class="code">i8086</code></dt>
+<dd><p>Select disassembly for the given architecture.
+</p>
+</dd>
+<dt><code class="code">intel</code></dt>
+<dt><code class="code">att</code></dt>
+<dd><p>Select between intel syntax mode and AT&amp;T syntax mode.
+</p>
+</dd>
+<dt><code class="code">amd64</code></dt>
+<dt><code class="code">intel64</code></dt>
+<dd><p>Select between AMD64 ISA and Intel64 ISA.
+</p>
+</dd>
+<dt><code class="code">intel-mnemonic</code></dt>
+<dt><code class="code">att-mnemonic</code></dt>
+<dd><p>Select between intel mnemonic mode and AT&amp;T mnemonic mode.
+Note: <code class="code">intel-mnemonic</code> implies <code class="code">intel</code> and
+<code class="code">att-mnemonic</code> implies <code class="code">att</code>.
+</p>
+</dd>
+<dt><code class="code">addr64</code></dt>
+<dt><code class="code">addr32</code></dt>
+<dt><code class="code">addr16</code></dt>
+<dt><code class="code">data32</code></dt>
+<dt><code class="code">data16</code></dt>
+<dd><p>Specify the default address size and operand size.  These five options
+will be overridden if <code class="code">x86-64</code>, <code class="code">i386</code> or <code class="code">i8086</code>
+appear later in the option string.
+</p>
+</dd>
+<dt><code class="code">suffix</code></dt>
+<dd><p>When in AT&amp;T mode and also for a limited set of instructions when in Intel
+mode, instructs the disassembler to print a mnemonic suffix even when the
+suffix could be inferred by the operands or, for certain instructions, the
+execution mode&rsquo;s defaults.
+</p>
+</dd>
+<dt><code class="code">annotate-immediates</code></dt>
+<dd><p>Display the symbol associated with immediate values, should there be
+one.  Only works on executable binaries and shared libraries, not
+static object files.
+</p>
+</dd>
+</dl>
+
+<p>For PowerPC, the <samp class="option">-M</samp> argument <samp class="option">raw</samp> selects
+disasssembly of hardware insns rather than aliases.  For example, you
+will see <code class="code">rlwinm</code> rather than <code class="code">clrlwi</code>, and <code class="code">addi</code>
+rather than <code class="code">li</code>.  All of the <samp class="option">-m</samp> arguments for
+<code class="command">gas</code> that select a CPU are supported.  These are:
+<samp class="option">403</samp>, <samp class="option">405</samp>, <samp class="option">440</samp>, <samp class="option">464</samp>, <samp class="option">476</samp>,
+<samp class="option">601</samp>, <samp class="option">603</samp>, <samp class="option">604</samp>, <samp class="option">620</samp>, <samp class="option">7400</samp>,
+<samp class="option">7410</samp>, <samp class="option">7450</samp>, <samp class="option">7455</samp>, <samp class="option">750cl</samp>,
+<samp class="option">821</samp>, <samp class="option">850</samp>, <samp class="option">860</samp>, <samp class="option">a2</samp>, <samp class="option">booke</samp>,
+<samp class="option">booke32</samp>, <samp class="option">cell</samp>, <samp class="option">com</samp>, <samp class="option">e200z2</samp>, <samp class="option">e200z4</samp>,
+<samp class="option">e300</samp>, <samp class="option">e500</samp>, <samp class="option">e500mc</samp>, <samp class="option">e500mc64</samp>,
+<samp class="option">e500x2</samp>, <samp class="option">e5500</samp>, <samp class="option">e6500</samp>, <samp class="option">efs</samp>,
+<samp class="option">power4</samp>, <samp class="option">power5</samp>, <samp class="option">power6</samp>, <samp class="option">power7</samp>,
+<samp class="option">power8</samp>, <samp class="option">power9</samp>, <samp class="option">power10</samp>, <samp class="option">power11</samp>,
+<samp class="option">ppc</samp>, <samp class="option">ppc32</samp>, <samp class="option">ppc64</samp>, <samp class="option">ppc64bridge</samp>,
+<samp class="option">ppcps</samp>, <samp class="option">pwr</samp>, <samp class="option">pwr2</samp>, <samp class="option">pwr4</samp>, <samp class="option">pwr5</samp>,
+<samp class="option">pwr5x</samp>, <samp class="option">pwr6</samp>, <samp class="option">pwr7</samp>, <samp class="option">pwr8</samp>, <samp class="option">pwr9</samp>,
+<samp class="option">pwr10</samp>, <samp class="option">pwr11</samp>, <samp class="option">pwrx</samp>, <samp class="option">titan</samp>, <samp class="option">vle</samp>,
+and <samp class="option">future</samp>.
+<samp class="option">32</samp> and <samp class="option">64</samp> modify the default or a prior CPU
+selection, disabling and enabling 64-bit insns respectively.  In
+addition, <samp class="option">altivec</samp>, <samp class="option">any</samp>, <samp class="option">lsp</samp>, <samp class="option">htm</samp>,
+<samp class="option">vsx</samp>, <samp class="option">spe</samp> and  <samp class="option">spe2</samp> add capabilities to a
+previous <em class="emph">or later</em> CPU selection.
+<samp class="option">any</samp> will disassemble any opcode known to
+binutils, but in cases where an opcode has two different meanings or
+different arguments, you may not see the disassembly you expect.
+If you disassemble without giving a CPU selection, a default will be
+chosen from information gleaned by BFD from the object files headers,
+but the result again may not be as you expect.
+</p>
+<p>For RISC-V, the following options are supported:
+</p>
+<dl class="table">
+<dt><code class="code">max</code></dt>
+<dd><p>Disassemble without checking architecture string. This is a best effort mode, so
+for overlapping ISA extensions the first match (possibly incorrect in a given
+context) will be used to decode the instruction. It&rsquo;s useful, if the ELF file
+doesn&rsquo;t expose ISA string, preventing automatic ISA subset deduction, and the
+default fallback ISA string (<code class="code">rv64gc</code>) doesn&rsquo;t cover all instructions in
+the binary.
+</p>
+</dd>
+<dt><code class="code">numeric</code></dt>
+<dd><p>Print numeric register names, rather than ABI names (e.g., print <code class="code">x2</code>
+instead of <code class="code">sp</code>).
+</p>
+</dd>
+<dt><code class="code">no-aliases</code></dt>
+<dd><p>Disassemble only into canonical instructions. For example, compressed
+instructions will be represented as such (<code class="code">addi sp,sp,-128</code> will be
+<code class="code">c.addi16sp sp,-128</code>).
+</p>
+</dd>
+<dt><code class="code">priv-spec=<var class="var">SPEC</var></code></dt>
+<dd><p>Print the CSR according to the chosen privilege spec version (e.g.,
+<code class="code">1.10</code>, <code class="code">1.11</code>, <code class="code">1.12</code>, <code class="code">1.13</code>).
+</p></dd>
+</dl>
+
+<p>For MIPS, this option controls the printing of instruction mnemonic
+names and register names in disassembled instructions.  Multiple
+selections from the following may be specified as a comma separated
+string, and invalid options are ignored:
+</p>
+<dl class="table">
+<dt><code class="code">no-aliases</code></dt>
+<dd><p>Print the &rsquo;raw&rsquo; instruction mnemonic instead of some pseudo
+instruction mnemonic.  I.e., print &rsquo;daddu&rsquo; or &rsquo;or&rsquo; instead of &rsquo;move&rsquo;,
+&rsquo;sll&rsquo; instead of &rsquo;nop&rsquo;, etc.
+</p>
+</dd>
+<dt><code class="code">msa</code></dt>
+<dd><p>Disassemble MSA instructions.
+</p>
+</dd>
+<dt><code class="code">virt</code></dt>
+<dd><p>Disassemble the virtualization ASE instructions.
+</p>
+</dd>
+<dt><code class="code">xpa</code></dt>
+<dd><p>Disassemble the eXtended Physical Address (XPA) ASE instructions.
+</p>
+</dd>
+<dt><code class="code">gpr-names=<var class="var">ABI</var></code></dt>
+<dd><p>Print GPR (general-purpose register) names as appropriate
+for the specified ABI.  By default, GPR names are selected according to
+the ABI of the binary being disassembled.
+</p>
+</dd>
+<dt><code class="code">fpr-names=<var class="var">ABI</var></code></dt>
+<dd><p>Print FPR (floating-point register) names as
+appropriate for the specified ABI.  By default, FPR numbers are printed
+rather than names.
+</p>
+</dd>
+<dt><code class="code">cp0-names=<var class="var">ARCH</var></code></dt>
+<dd><p>Print CP0 (system control coprocessor; coprocessor 0) register names
+as appropriate for the CPU or architecture specified by
+<var class="var">ARCH</var>.  By default, CP0 register names are selected according to
+the architecture and CPU of the binary being disassembled.
+</p>
+</dd>
+<dt><code class="code">hwr-names=<var class="var">ARCH</var></code></dt>
+<dd><p>Print HWR (hardware register, used by the <code class="code">rdhwr</code> instruction) names
+as appropriate for the CPU or architecture specified by
+<var class="var">ARCH</var>.  By default, HWR names are selected according to
+the architecture and CPU of the binary being disassembled.
+</p>
+</dd>
+<dt><code class="code">reg-names=<var class="var">ABI</var></code></dt>
+<dd><p>Print GPR and FPR names as appropriate for the selected ABI.
+</p>
+</dd>
+<dt><code class="code">reg-names=<var class="var">ARCH</var></code></dt>
+<dd><p>Print CPU-specific register names (CP0 register and HWR names)
+as appropriate for the selected CPU or architecture.
+</p></dd>
+</dl>
+
+<p>For any of the options listed above, <var class="var">ABI</var> or
+<var class="var">ARCH</var> may be specified as &lsquo;<samp class="samp">numeric</samp>&rsquo; to have numbers printed
+rather than names, for the selected types of registers.
+You can list the available values of <var class="var">ABI</var> and <var class="var">ARCH</var> using
+the <samp class="option">--help</samp> option.
+</p>
+<p>For VAX, you can specify function entry addresses with <samp class="option">-M
+entry:0xf00ba</samp>.  You can use this multiple times to properly
+disassemble VAX binary files that don&rsquo;t contain symbol tables (like
+ROM dumps).  In these cases, the function entry mask would otherwise
+be decoded as VAX instructions, which would probably lead the rest
+of the function being wrongly disassembled.
+</p>
+</dd>
+<dt><code class="env">-p</code></dt>
+<dt><code class="env">--private-headers</code></dt>
+<dd><p>Print information that is specific to the object file format.  The exact
+information printed depends upon the object file format.  For some
+object file formats, no additional information is printed.
+</p>
+</dd>
+<dt><code class="env">-P <var class="var">options</var></code></dt>
+<dt><code class="env">--private=<var class="var">options</var></code></dt>
+<dd><p>Print information that is specific to the object file format.  The
+argument <var class="var">options</var> is a comma separated list that depends on the
+format (the lists of options is displayed with the help).
+</p>
+<p>For XCOFF, the available options are:
+</p><dl class="table">
+<dt><code class="code">header</code></dt>
+<dt><code class="code">aout</code></dt>
+<dt><code class="code">sections</code></dt>
+<dt><code class="code">syms</code></dt>
+<dt><code class="code">relocs</code></dt>
+<dt><code class="code">lineno,</code></dt>
+<dt><code class="code">loader</code></dt>
+<dt><code class="code">except</code></dt>
+<dt><code class="code">typchk</code></dt>
+<dt><code class="code">traceback</code></dt>
+<dt><code class="code">toc</code></dt>
+<dt><code class="code">ldinfo</code></dt>
+</dl>
+
+<p>For PE, the available options are:
+</p><dl class="table">
+<dt><code class="code">header</code></dt>
+<dt><code class="code">sections</code></dt>
+</dl>
+
+<p>Not all object formats support this option.  In particular the ELF
+format does not use it.
+</p>
+</dd>
+<dt><a id="index-relocation-entries_002c-in-object-file"></a><span><code class="env">-r</code><a class="copiable-link" href="#index-relocation-entries_002c-in-object-file"> &para;</a></span></dt>
+<dt><code class="env">--reloc</code></dt>
+<dd><p>Print the relocation entries of the file.  If used with <samp class="option">-d</samp> or
+<samp class="option">-D</samp>, the relocations are printed interspersed with the
+disassembly.
+</p>
+</dd>
+<dt><a id="index-dynamic-relocation-entries_002c-in-object-file"></a><span><code class="env">-R</code><a class="copiable-link" href="#index-dynamic-relocation-entries_002c-in-object-file"> &para;</a></span></dt>
+<dt><code class="env">--dynamic-reloc</code></dt>
+<dd><p>Print the dynamic relocation entries of the file.  This is only
+meaningful for dynamic objects, such as certain types of shared
+libraries.  As for <samp class="option">-r</samp>, if used with <samp class="option">-d</samp> or
+<samp class="option">-D</samp>, the relocations are printed interspersed with the
+disassembly.
+</p>
+<p>Note: <code class="command">objdump</code> does not support displaying RELR type
+relocations.  These can be displayed by the <code class="command">readelf</code> program.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-object-file-sections"></a>
+<a id="index-sections_002c-full-contents"></a><span><code class="env">-s</code><a class="copiable-link" href="#index-sections_002c-full-contents"> &para;</a></span></dt>
+<dt><code class="env">--full-contents</code></dt>
+<dd><p>Display the full contents of sections, often used in combination with
+<samp class="option">-j</samp> to request specific sections.  By default all non-empty
+non-bss sections are displayed.  By default any compressed section
+will be displayed in its compressed form.  In order to see the
+contents in a decompressed form add the <samp class="option">-Z</samp> option to the
+command line.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-disassembly_002c-with-source"></a>
+<a id="index-source-disassembly"></a><span><code class="env">-S</code><a class="copiable-link" href="#index-source-disassembly"> &para;</a></span></dt>
+<dt><code class="env">--source</code></dt>
+<dd><p>Display source code intermixed with disassembly, if possible.  Implies
+<samp class="option">-d</samp>.
+</p>
+</dd>
+<dt><code class="env">--show-all-symbols</code></dt>
+<dd><p>When disassembling, show all the symbols that match a given address,
+not just the first one.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-disassembly_002c-with-source-1"></a>
+<a id="index-source-disassembly-1"></a><span><code class="env">--source-comment[=<var class="var">txt</var>]</code><a class="copiable-link" href="#index-source-disassembly-1"> &para;</a></span></dt>
+<dd><p>Like the <samp class="option">-S</samp> option, but all source code lines are displayed
+with a prefix of <var class="var">txt</var>.  Typically <var class="var">txt</var> will be a comment
+string which can be used to distinguish the assembler code from the
+source code.  If <var class="var">txt</var> is not provided then a default string of
+<var class="var">&ldquo;# &ldquo;</var> (hash followed by a space), will be used.
+</p>
+</dd>
+<dt><a id="index-Add-prefix-to-absolute-paths"></a><span><code class="env">--prefix=<var class="var">prefix</var></code><a class="copiable-link" href="#index-Add-prefix-to-absolute-paths"> &para;</a></span></dt>
+<dd><p>Specify <var class="var">prefix</var> to add to the absolute paths when used with
+<samp class="option">-S</samp>.
+</p>
+</dd>
+<dt><a id="index-Strip-absolute-paths"></a><span><code class="env">--prefix-strip=<var class="var">level</var></code><a class="copiable-link" href="#index-Strip-absolute-paths"> &para;</a></span></dt>
+<dd><p>Indicate how many initial directory names to strip off the hardwired
+absolute paths. It has no effect without <samp class="option">--prefix=</samp><var class="var">prefix</var>.
+</p>
+</dd>
+<dt><code class="env">--show-raw-insn</code></dt>
+<dd><p>When disassembling instructions, print the instruction in hex as well as
+in symbolic form.  This is the default except when
+<samp class="option">--prefix-addresses</samp> is used.
+</p>
+</dd>
+<dt><code class="env">--no-show-raw-insn</code></dt>
+<dd><p>When disassembling instructions, do not print the instruction bytes.
+This is the default when <samp class="option">--prefix-addresses</samp> is used.
+</p>
+</dd>
+<dt><a id="index-Instruction-width"></a><span><code class="env">--insn-width=<var class="var">width</var></code><a class="copiable-link" href="#index-Instruction-width"> &para;</a></span></dt>
+<dd><p>Display <var class="var">width</var> bytes on a single line when disassembling
+instructions.
+</p>
+</dd>
+<dt><code class="env">--visualize-jumps[=color|=extended-color|=off]</code></dt>
+<dd><p>Visualize jumps that stay inside a function by drawing ASCII art between
+the start and target addresses.  The optional <samp class="option">=color</samp> argument
+adds color to the output using simple terminal colors.  Alternatively
+the <samp class="option">=extended-color</samp> argument will add color using 8bit
+colors, but these might not work on all terminals.
+</p>
+<p>If it is necessary to disable the <samp class="option">visualize-jumps</samp> option
+after it has previously been enabled then use
+<samp class="option">visualize-jumps=off</samp>.
+</p>
+</dd>
+<dt><code class="env">--disassembler-color=off</code></dt>
+<dt><code class="env">--disassembler-color=terminal</code></dt>
+<dt><code class="env">--disassembler-color=on|color|colour</code></dt>
+<dt><code class="env">--disassembler-color=extended|extended-color|extended-colour</code></dt>
+<dd><p>Enables or disables the use of colored syntax highlighting in
+disassembly output.  The default behaviour is determined via a
+configure time option.  Note, not all architectures support colored
+syntax highlighting, and depending upon the terminal used, colored
+output may not actually be legible.
+</p>
+<p>The <samp class="option">on</samp> argument adds colors using simple terminal colors.
+</p>
+<p>The <samp class="option">terminal</samp> argument does the same, but only if the output
+device is a terminal.
+</p>
+<p>The <samp class="option">extended-color</samp> argument is similar to the <samp class="option">on</samp>
+argument, but it uses 8-bit colors.  These may not work on all
+terminals.
+</p>
+<p>The <samp class="option">off</samp> argument disables colored disassembly.
+</p>
+</dd>
+<dt><code class="env">-W[lLiaprmfFsoORtUuTgAckK]</code></dt>
+<dt><code class="env">--dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames-interp,=str,=str-offsets,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow-links]</code></dt>
+<dd>
+<p>Displays the contents of the DWARF debug sections in the file, if any
+are present.  Compressed debug sections are automatically decompressed
+(temporarily) before they are displayed.  If one or more of the
+optional letters or words follows the switch then only those type(s)
+of data will be dumped.  The letters and words refer to the following
+information:
+</p>
+<dl class="table">
+<dt><code class="code">a</code></dt>
+<dt><code class="code">=abbrev</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_abbrev</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">A</code></dt>
+<dt><code class="code">=addr</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_addr</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">c</code></dt>
+<dt><code class="code">=cu_index</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_cu_index</samp>&rsquo; and/or
+&lsquo;<samp class="samp">.debug_tu_index</samp>&rsquo; sections.
+</p>
+</dd>
+<dt><code class="code">f</code></dt>
+<dt><code class="code">=frames</code></dt>
+<dd><p>Display the raw contents of a &lsquo;<samp class="samp">.debug_frame</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">F</code></dt>
+<dt><code class="code">=frames-interp</code></dt>
+<dd><p>Display the interpreted contents of a &lsquo;<samp class="samp">.debug_frame</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">g</code></dt>
+<dt><code class="code">=gdb_index</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.gdb_index</samp>&rsquo; and/or
+&lsquo;<samp class="samp">.debug_names</samp>&rsquo; sections.
+</p>
+</dd>
+<dt><code class="code">i</code></dt>
+<dt><code class="code">=info</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_info</samp>&rsquo; section.  Note: the
+output from this option can also be restricted by the use of the 
+<samp class="option">--dwarf-depth</samp> and <samp class="option">--dwarf-start</samp> options.
+</p>
+</dd>
+<dt><code class="code">k</code></dt>
+<dt><code class="code">=links</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.gnu_debuglink</samp>&rsquo;,
+&lsquo;<samp class="samp">.gnu_debugaltlink</samp>&rsquo; and &lsquo;<samp class="samp">.debug_sup</samp>&rsquo; sections, if any of
+them are present.  Also displays any links to separate dwarf object
+files (dwo), if they are specified by the DW_AT_GNU_dwo_name or
+DW_AT_dwo_name attributes in the &lsquo;<samp class="samp">.debug_info</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">K</code></dt>
+<dt><code class="code">=follow-links</code></dt>
+<dd><p>Display the contents of any selected debug sections that are found in
+linked, separate debug info file(s).  This can result in multiple
+versions of the same debug section being displayed if it exists in
+more than one file.
+</p>
+<p>In addition, when displaying DWARF attributes, if a form is found that
+references the separate debug info file, then the referenced contents
+will also be displayed.
+</p>
+<p>Note - in some distributions this option is enabled by default.  It
+can be disabled via the <samp class="option">N</samp> debug option.  The default can be
+chosen when configuring the binutils via the
+<samp class="option">--enable-follow-debug-links=yes</samp> or
+<samp class="option">--enable-follow-debug-links=no</samp> options.  If these are not
+used then the default is to enable the following of debug links.
+</p>
+<p>Note - if support for the debuginfod protocol was enabled when the
+binutils were built then this option will also include an attempt to
+contact any debuginfod servers mentioned in the <var class="var">DEBUGINFOD_URLS</var>
+environment variable.  This could take some time to resolve.  This
+behaviour can be disabled via the <samp class="option">=do-not-use-debuginfod</samp> debug
+option.
+</p>
+</dd>
+<dt><code class="code">N</code></dt>
+<dt><code class="code">=no-follow-links</code></dt>
+<dd><p>Disables the following of links to separate debug info files.
+</p>
+</dd>
+<dt><code class="code">D</code></dt>
+<dt><code class="code">=use-debuginfod</code></dt>
+<dd><p>Enables contacting debuginfod servers if there is a need to follow
+debug links.  This is the default behaviour.
+</p>
+</dd>
+<dt><code class="code">E</code></dt>
+<dt><code class="code">=do-not-use-debuginfod</code></dt>
+<dd><p>Disables contacting debuginfod servers when there is a need to follow
+debug links.
+</p>
+</dd>
+<dt><code class="code">l</code></dt>
+<dt><code class="code">=rawline</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_line</samp>&rsquo; section in a raw
+format.
+</p>
+</dd>
+<dt><code class="code">L</code></dt>
+<dt><code class="code">=decodedline</code></dt>
+<dd><p>Displays the interpreted contents of the &lsquo;<samp class="samp">.debug_line</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">m</code></dt>
+<dt><code class="code">=macro</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_macro</samp>&rsquo; and/or
+&lsquo;<samp class="samp">.debug_macinfo</samp>&rsquo; sections.
+</p>
+</dd>
+<dt><code class="code">o</code></dt>
+<dt><code class="code">=loc</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_loc</samp>&rsquo; and/or
+&lsquo;<samp class="samp">.debug_loclists</samp>&rsquo; sections.
+</p>
+</dd>
+<dt><code class="code">O</code></dt>
+<dt><code class="code">=str-offsets</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_str_offsets</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">p</code></dt>
+<dt><code class="code">=pubnames</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_pubnames</samp>&rsquo; and/or
+&lsquo;<samp class="samp">.debug_gnu_pubnames</samp>&rsquo; sections.
+</p>
+</dd>
+<dt><code class="code">r</code></dt>
+<dt><code class="code">=aranges</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_aranges</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">R</code></dt>
+<dt><code class="code">=Ranges</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_ranges</samp>&rsquo; and/or
+&lsquo;<samp class="samp">.debug_rnglists</samp>&rsquo; sections.
+</p>
+</dd>
+<dt><code class="code">s</code></dt>
+<dt><code class="code">=str</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_str</samp>&rsquo;, &lsquo;<samp class="samp">.debug_line_str</samp>&rsquo;
+and/or &lsquo;<samp class="samp">.debug_str_offsets</samp>&rsquo; sections.
+</p>
+</dd>
+<dt><code class="code">t</code></dt>
+<dt><code class="code">=pubtype</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.debug_pubtypes</samp>&rsquo; and/or
+&lsquo;<samp class="samp">.debug_gnu_pubtypes</samp>&rsquo; sections.
+</p>
+</dd>
+<dt><code class="code">T</code></dt>
+<dt><code class="code">=trace_aranges</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.trace_aranges</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">u</code></dt>
+<dt><code class="code">=trace_abbrev</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.trace_abbrev</samp>&rsquo; section.
+</p>
+</dd>
+<dt><code class="code">U</code></dt>
+<dt><code class="code">=trace_info</code></dt>
+<dd><p>Displays the contents of the &lsquo;<samp class="samp">.trace_info</samp>&rsquo; section.
+</p>
+</dd>
+</dl>
+
+<p>Note: displaying the contents of &lsquo;<samp class="samp">.debug_static_funcs</samp>&rsquo;,
+&lsquo;<samp class="samp">.debug_static_vars</samp>&rsquo; and &lsquo;<samp class="samp">debug_weaknames</samp>&rsquo; sections is not
+currently supported.
+</p>
+</dd>
+<dt><code class="env">--dwarf-depth=<var class="var">n</var></code></dt>
+<dd><p>Limit the dump of the <code class="code">.debug_info</code> section to <var class="var">n</var> children.
+This is only useful with <samp class="option">--debug-dump=info</samp>.  The default is
+to print all DIEs; the special value 0 for <var class="var">n</var> will also have this
+effect.
+</p>
+<p>With a non-zero value for <var class="var">n</var>, DIEs at or deeper than <var class="var">n</var>
+levels will not be printed.  The range for <var class="var">n</var> is zero-based.
+</p>
+</dd>
+<dt><code class="env">--dwarf-start=<var class="var">n</var></code></dt>
+<dd><p>Print only DIEs beginning with the DIE numbered <var class="var">n</var>.  This is only
+useful with <samp class="option">--debug-dump=info</samp>.
+</p>
+<p>If specified, this option will suppress printing of any header
+information and all DIEs before the DIE numbered <var class="var">n</var>.  Only
+siblings and children of the specified DIE will be printed.
+</p>
+<p>This can be used in conjunction with <samp class="option">--dwarf-depth</samp>.
+</p>
+
+</dd>
+<dt><code class="env">--dwarf-check</code></dt>
+<dd><p>Enable additional checks for consistency of Dwarf information.
+</p>
+</dd>
+<dt><code class="env">--debug-dir=<samp class="file">dir</samp></code></dt>
+<dd><p>Search <samp class="file">dir</samp> when looking for separate debug info files.
+</p>
+
+</dd>
+<dt><a class="index-entry-id" id="index-Compact-Type-Format"></a>
+<a id="index-CTF"></a><span><code class="env">--ctf[=<var class="var">section</var>]</code><a class="copiable-link" href="#index-CTF"> &para;</a></span></dt>
+<dd>
+<p>Display the contents of the specified CTF section.  CTF sections themselves
+contain many subsections, all of which are displayed in order.
+</p>
+<p>By default, display the name of the section named <var class="var">.ctf</var>, which is the
+name emitted by <code class="command">ld</code>.
+</p>
+</dd>
+<dt><code class="env">--ctf-parent=<var class="var">member</var></code></dt>
+<dd>
+<p>If the CTF section contains ambiguously-defined types, it will consist
+of an archive of many CTF dictionaries, all inheriting from one
+dictionary containing unambiguous types.  This member is by default
+named <var class="var">.ctf</var>, like the section containing it, but it is possible to
+change this name using the <code class="code">ctf_link_set_memb_name_changer</code>
+function at link time.  When looking at CTF archives that have been
+created by a linker that uses the name changer to rename the parent
+archive member, <samp class="option">--ctf-parent</samp> can be used to specify the name
+used for the parent.
+</p>
+</dd>
+<dt><code class="env">--ctf-parent-section=<var class="var">section</var></code></dt>
+<dd>
+<p>This option lets you pick a completely different section for the CTF
+parent dictionary containing unambiguous types than for the child
+dictionaries that contain the ambiguous remainder.  The linker does
+not emit ELF objects structured like this, but some third-party linkers
+may.  It&rsquo;s also convenient to inspect CTF written out as multiple raw
+files to compose them with objcopy, which can put them in different
+ELF sections but not in different members of a single CTF dict.
+</p>
+
+</dd>
+<dt><a id="index-SFrame"></a><span><code class="env">--sframe[=<var class="var">section</var>]</code><a class="copiable-link" href="#index-SFrame"> &para;</a></span></dt>
+<dd>
+<p>Display the contents of the specified SFrame section.
+</p>
+<p>By default, display the name of the section named <var class="var">.sframe</var>, which is the
+name emitted by <code class="command">ld</code>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002estab"></a>
+<a class="index-entry-id" id="index-debug-symbols"></a>
+<a class="index-entry-id" id="index-ELF-object-file-format"></a>
+<a id="index-stab"></a><span><code class="env">-G</code><a class="copiable-link" href="#index-stab"> &para;</a></span></dt>
+<dt><code class="env">--stabs</code></dt>
+<dd><p>Display the full contents of any sections requested.  Display the
+contents of the .stab and .stab.index and .stab.excl sections from an
+ELF file.  This is only useful on systems (such as Solaris 2.0) in which
+<code class="code">.stab</code> debugging symbol-table entries are carried in an ELF
+section.  In most other file formats, debugging symbol-table entries are
+interleaved with linkage symbols, and are visible in the <samp class="option">--syms</samp>
+output.
+</p>
+</dd>
+<dt><a id="index-start_002daddress"></a><span><code class="env">--start-address=<var class="var">address</var></code><a class="copiable-link" href="#index-start_002daddress"> &para;</a></span></dt>
+<dd><p>Start displaying data at the specified address.  This affects the output
+of the <samp class="option">-d</samp>, <samp class="option">-r</samp> and <samp class="option">-s</samp> options.
+</p>
+</dd>
+<dt><a id="index-stop_002daddress"></a><span><code class="env">--stop-address=<var class="var">address</var></code><a class="copiable-link" href="#index-stop_002daddress"> &para;</a></span></dt>
+<dd><p>Stop displaying data at the specified address.  This affects the output
+of the <samp class="option">-d</samp>, <samp class="option">-r</samp> and <samp class="option">-s</samp> options.
+</p>
+</dd>
+<dt><a id="index-symbol-table-entries_002c-printing"></a><span><code class="env">-t</code><a class="copiable-link" href="#index-symbol-table-entries_002c-printing"> &para;</a></span></dt>
+<dt><code class="env">--syms</code></dt>
+<dd><p>Print the symbol table entries of the file.
+This is similar to the information provided by the &lsquo;<samp class="samp">nm</samp>&rsquo; program,
+although the display format is different.  The format of the output
+depends upon the format of the file being dumped, but there are two main
+types.  One looks like this:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">[  4](sec  3)(fl 0x00)(ty   0)(scl   3) (nx 1) 0x00000000 .bss
+[  6](sec  1)(fl 0x00)(ty   0)(scl   2) (nx 0) 0x00000000 fred
+</pre></div>
+
+<p>where the number inside the square brackets is the number of the entry
+in the symbol table, the <var class="var">sec</var> number is the section number, the
+<var class="var">fl</var> value are the symbol&rsquo;s flag bits, the <var class="var">ty</var> number is the
+symbol&rsquo;s type, the <var class="var">scl</var> number is the symbol&rsquo;s storage class and
+the <var class="var">nx</var> value is the number of auxiliary entries associated with
+the symbol.  The last two fields are the symbol&rsquo;s value and its name.
+</p>
+<p>The other common output format, usually seen with ELF based files,
+looks like this:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">00000000 l    d  .bss   00000000 .bss
+00000000 g       .text  00000000 fred
+</pre></div>
+
+<p>Here the first number is the symbol&rsquo;s value (sometimes referred to as
+its address).  The next field is actually a set of characters and
+spaces indicating the flag bits that are set on the symbol.  These
+characters are described below.  Next is the section with which the
+symbol is associated or <em class="emph">*ABS*</em> if the section is absolute (ie
+not connected with any section), or <em class="emph">*UND*</em> if the section is
+referenced in the file being dumped, but not defined there.
+</p>
+<p>After the section name comes another field, a number, which for common
+symbols is the alignment and for other symbol is the size.  Finally
+the symbol&rsquo;s name is displayed.
+</p>
+<p>The flag characters are divided into 7 groups as follows:
+</p><dl class="table">
+<dt><code class="code">l</code></dt>
+<dt><code class="code">g</code></dt>
+<dt><code class="code">u</code></dt>
+<dt><code class="code">!</code></dt>
+<dd><p>The symbol is a local (l), global (g), unique global (u), neither
+global nor local (a space) or both global and local (!).  A
+symbol can be neither local or global for a variety of reasons, e.g.,
+because it is used for debugging, but it is probably an indication of
+a bug if it is ever both local and global.  Unique global symbols are
+a GNU extension to the standard set of ELF symbol bindings.  For such
+a symbol the dynamic linker will make sure that in the entire process
+there is just one symbol with this name and type in use.
+</p>
+</dd>
+<dt><code class="code">w</code></dt>
+<dd><p>The symbol is weak (w) or strong (a space).
+</p>
+</dd>
+<dt><code class="code">C</code></dt>
+<dd><p>The symbol denotes a constructor (C) or an ordinary symbol (a space).
+</p>
+</dd>
+<dt><code class="code">W</code></dt>
+<dd><p>The symbol is a warning (W) or a normal symbol (a space).  A warning
+symbol&rsquo;s name is a message to be displayed if the symbol following the
+warning symbol is ever referenced.
+</p>
+</dd>
+<dt><code class="code">I</code></dt>
+<dt><code class="code">i</code></dt>
+<dd><p>The symbol is an indirect reference to another symbol (I), a function
+to be evaluated during reloc processing (i) or a normal symbol (a
+space).
+</p>
+</dd>
+<dt><code class="code">d</code></dt>
+<dt><code class="code">D</code></dt>
+<dd><p>The symbol is a debugging symbol (d) or a dynamic symbol (D) or a
+normal symbol (a space).
+</p>
+</dd>
+<dt><code class="code">F</code></dt>
+<dt><code class="code">f</code></dt>
+<dt><code class="code">O</code></dt>
+<dd><p>The symbol is the name of a function (F) or a file (f) or an object
+(O) or just a normal symbol (a space).
+</p></dd>
+</dl>
+
+</dd>
+<dt><a id="index-dynamic-symbol-table-entries_002c-printing"></a><span><code class="env">-T</code><a class="copiable-link" href="#index-dynamic-symbol-table-entries_002c-printing"> &para;</a></span></dt>
+<dt><code class="env">--dynamic-syms</code></dt>
+<dd><p>Print the dynamic symbol table entries of the file.  This is only
+meaningful for dynamic objects, such as certain types of shared
+libraries.  This is similar to the information provided by the &lsquo;<samp class="samp">nm</samp>&rsquo;
+program when given the <samp class="option">-D</samp> (<samp class="option">--dynamic</samp>) option.
+</p>
+<p>The output format is similar to that produced by the <samp class="option">--syms</samp>
+option, except that an extra field is inserted before the symbol&rsquo;s
+name, giving the version information associated with the symbol.
+If the version is the default version to be used when resolving
+unversioned references to the symbol then it&rsquo;s displayed as is,
+otherwise it&rsquo;s put into parentheses.
+</p>
+</dd>
+<dt><code class="env">--special-syms</code></dt>
+<dd><p>When displaying symbols include those which the target considers to be
+special in some way and which would not normally be of interest to the
+user.
+</p>
+</dd>
+<dt><code class="env">-U <var class="var">[d|i|l|e|x|h]</var></code></dt>
+<dt><code class="env">--unicode=<var class="var">[default|invalid|locale|escape|hex|highlight]</var></code></dt>
+<dd><p>Controls the display of UTF-8 encoded multibyte characters in strings.
+The default (<samp class="option">--unicode=default</samp>) is to give them no special
+treatment.  The <samp class="option">--unicode=locale</samp> option displays the sequence
+in the current locale, which may or may not support them.  The options
+<samp class="option">--unicode=hex</samp> and <samp class="option">--unicode=invalid</samp> display them as
+hex byte sequences enclosed by either angle brackets or curly braces.
+</p>
+<p>The <samp class="option">--unicode=escape</samp> option displays them as escape sequences
+(<var class="var">\uxxxx</var>) and the <samp class="option">--unicode=highlight</samp> option displays
+them as escape sequences highlighted in red (if supported by the
+output device).  The colouring is intended to draw attention to the
+presence of unicode sequences where they might not be expected.
+</p>
+</dd>
+<dt><code class="env">-V</code></dt>
+<dt><code class="env">--version</code></dt>
+<dd><p>Print the version number of <code class="command">objdump</code> and exit.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-header-information_002c-all"></a>
+<a id="index-all-header-information_002c-object-file"></a><span><code class="env">-x</code><a class="copiable-link" href="#index-all-header-information_002c-object-file"> &para;</a></span></dt>
+<dt><code class="env">--all-headers</code></dt>
+<dd><p>Display all available header information, including the symbol table and
+relocation entries.  Using <samp class="option">-x</samp> is equivalent to specifying all of
+<samp class="option">-a -f -h -p -r -t</samp>.
+</p>
+</dd>
+<dt><a id="index-wide-output_002c-printing"></a><span><code class="env">-w</code><a class="copiable-link" href="#index-wide-output_002c-printing"> &para;</a></span></dt>
+<dt><code class="env">--wide</code></dt>
+<dd><p>Format some lines for output devices that have more than 80 columns.
+Also do not truncate symbol names when they are displayed.
+</p>
+</dd>
+<dt><code class="env">-z</code></dt>
+<dt><code class="env">--disassemble-zeroes</code></dt>
+<dd><p>Normally the disassembly output will skip blocks of zeroes.  This
+option directs the disassembler to disassemble those blocks, just like
+any other data.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-object-file-sections-1"></a>
+<a class="index-entry-id" id="index-compressed-section-contents"></a>
+<a id="index-sections_002c-full-contents-1"></a><span><code class="env">-Z</code><a class="copiable-link" href="#index-sections_002c-full-contents-1"> &para;</a></span></dt>
+<dt><code class="env">--decompress</code></dt>
+<dd><p>The <samp class="option">-Z</samp> option is meant to be used in conunction with the
+<samp class="option">-s</samp> option.  It instructs <code class="command">objdump</code> to decompress any
+compressed sections before displaying their contents.
+</p></dd>
+</dl>
+
+
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="ranlib.html">ranlib</a>, Previous: <a href="objcopy.html">objcopy</a>, Up: <a href="index.html">Introduction</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Binutils-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This file documents the GNU Assembler "as".
+
+Copyright © 1991-2026 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, with no Front-Cover Texts, and with no
+Back-Cover Texts.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+ -->
+<title>i386-Variations (Using as)</title>
+
+<meta name="description" content="i386-Variations (Using as)">
+<meta name="keywords" content="i386-Variations (Using as)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="AS-Index.html" rel="index" title="AS Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="i386_002dSyntax.html" rel="up" title="i386-Syntax">
+<link href="i386_002dChars.html" rel="next" title="i386-Chars">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="subsubsection-level-extent" id="i386_002dVariations">
+<div class="nav-panel">
+<p>
+Next: <a href="i386_002dChars.html" accesskey="n" rel="next">Special Characters</a>, Up: <a href="i386_002dSyntax.html" accesskey="u" rel="up">i386 Syntactical Considerations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="AS-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection subsection-level-set-subsubsection" id="AT_0026T-Syntax-versus-Intel-Syntax"><span>9.16.3.1 AT&amp;T Syntax versus Intel Syntax<a class="copiable-link" href="#AT_0026T-Syntax-versus-Intel-Syntax"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-i386-intel_005fsyntax-pseudo-op"></a>
+<a class="index-entry-id" id="index-intel_005fsyntax-pseudo-op_002c-i386"></a>
+<a class="index-entry-id" id="index-i386-att_005fsyntax-pseudo-op"></a>
+<a class="index-entry-id" id="index-att_005fsyntax-pseudo-op_002c-i386"></a>
+<a class="index-entry-id" id="index-i386-syntax-compatibility"></a>
+<a class="index-entry-id" id="index-syntax-compatibility_002c-i386"></a>
+<a class="index-entry-id" id="index-x86_002d64-intel_005fsyntax-pseudo-op"></a>
+<a class="index-entry-id" id="index-intel_005fsyntax-pseudo-op_002c-x86_002d64"></a>
+<a class="index-entry-id" id="index-x86_002d64-att_005fsyntax-pseudo-op"></a>
+<a class="index-entry-id" id="index-att_005fsyntax-pseudo-op_002c-x86_002d64"></a>
+<a class="index-entry-id" id="index-x86_002d64-syntax-compatibility"></a>
+<a class="index-entry-id" id="index-syntax-compatibility_002c-x86_002d64"></a>
+
+<p><code class="code">as</code> now supports assembly using Intel assembler syntax.
+<code class="code">.intel_syntax</code> selects Intel mode, and <code class="code">.att_syntax</code> switches
+back to the usual AT&amp;T mode for compatibility with the output of
+<code class="code">gcc</code>.  Either of these directives may have an optional
+argument, <code class="code">prefix</code>, or <code class="code">noprefix</code> specifying whether registers
+require a &lsquo;<samp class="samp">%</samp>&rsquo; prefix.  AT&amp;T System V/386 assembler syntax is quite
+different from Intel syntax.  We mention these differences because
+almost all 80386 documents use Intel syntax.  Notable differences
+between the two syntaxes are:
+</p>
+<a class="index-entry-id" id="index-immediate-operands_002c-i386"></a>
+<a class="index-entry-id" id="index-i386-immediate-operands"></a>
+<a class="index-entry-id" id="index-register-operands_002c-i386"></a>
+<a class="index-entry-id" id="index-i386-register-operands"></a>
+<a class="index-entry-id" id="index-jump_002fcall-operands_002c-i386"></a>
+<a class="index-entry-id" id="index-i386-jump_002fcall-operands"></a>
+<a class="index-entry-id" id="index-operand-delimiters_002c-i386"></a>
+
+<a class="index-entry-id" id="index-immediate-operands_002c-x86_002d64"></a>
+<a class="index-entry-id" id="index-x86_002d64-immediate-operands"></a>
+<a class="index-entry-id" id="index-register-operands_002c-x86_002d64"></a>
+<a class="index-entry-id" id="index-x86_002d64-register-operands"></a>
+<a class="index-entry-id" id="index-jump_002fcall-operands_002c-x86_002d64"></a>
+<a class="index-entry-id" id="index-x86_002d64-jump_002fcall-operands"></a>
+<a class="index-entry-id" id="index-operand-delimiters_002c-x86_002d64"></a>
+<ul class="itemize mark-bullet">
+<li>AT&amp;T immediate operands are preceded by &lsquo;<samp class="samp">$</samp>&rsquo;; Intel immediate
+operands are undelimited (Intel &lsquo;<samp class="samp">push 4</samp>&rsquo; is AT&amp;T &lsquo;<samp class="samp">pushl $4</samp>&rsquo;).
+AT&amp;T register operands are preceded by &lsquo;<samp class="samp">%</samp>&rsquo;; Intel register operands
+are undelimited.  AT&amp;T absolute (as opposed to PC relative) jump/call
+operands are prefixed by &lsquo;<samp class="samp">*</samp>&rsquo;; they are undelimited in Intel syntax.
+
+</li><li><a class="index-entry-id" id="index-i386-source_002c-destination-operands"></a>
+<a class="index-entry-id" id="index-source_002c-destination-operands_003b-i386"></a>
+<a class="index-entry-id" id="index-x86_002d64-source_002c-destination-operands"></a>
+<a class="index-entry-id" id="index-source_002c-destination-operands_003b-x86_002d64"></a>
+AT&amp;T and Intel syntax use the opposite order for source and destination
+operands.  Intel &lsquo;<samp class="samp">add eax, 4</samp>&rsquo; is &lsquo;<samp class="samp">addl $4, %eax</samp>&rsquo;.  The
+&lsquo;<samp class="samp">source, dest</samp>&rsquo; convention is maintained for compatibility with
+previous Unix assemblers.  Note that &lsquo;<samp class="samp">bound</samp>&rsquo;, &lsquo;<samp class="samp">invlpga</samp>&rsquo;, and
+instructions with 2 immediate operands, such as the &lsquo;<samp class="samp">enter</samp>&rsquo;
+instruction, do <em class="emph">not</em> have reversed order.  <a class="ref" href="i386_002dBugs.html">AT&amp;T Syntax bugs</a>.
+
+</li><li><a class="index-entry-id" id="index-mnemonic-suffixes_002c-i386"></a>
+<a class="index-entry-id" id="index-sizes-operands_002c-i386"></a>
+<a class="index-entry-id" id="index-i386-size-suffixes"></a>
+<a class="index-entry-id" id="index-mnemonic-suffixes_002c-x86_002d64"></a>
+<a class="index-entry-id" id="index-sizes-operands_002c-x86_002d64"></a>
+<a class="index-entry-id" id="index-x86_002d64-size-suffixes"></a>
+In AT&amp;T syntax the size of memory operands is determined from the last
+character of the instruction mnemonic.  Mnemonic suffixes of &lsquo;<samp class="samp">b</samp>&rsquo;,
+&lsquo;<samp class="samp">w</samp>&rsquo;, &lsquo;<samp class="samp">l</samp>&rsquo; and &lsquo;<samp class="samp">q</samp>&rsquo; specify byte (8-bit), word (16-bit), long
+(32-bit) and quadruple word (64-bit) memory references.  Mnemonic suffixes
+of &lsquo;<samp class="samp">x</samp>&rsquo;, &lsquo;<samp class="samp">y</samp>&rsquo; and &lsquo;<samp class="samp">z</samp>&rsquo; specify xmm (128-bit vector), ymm
+(256-bit vector) and zmm (512-bit vector) memory references, only when there&rsquo;s
+no other way to disambiguate an instruction.  Intel syntax accomplishes this by
+prefixing memory operands (<em class="emph">not</em> the instruction mnemonics) with
+&lsquo;<samp class="samp">byte ptr</samp>&rsquo;, &lsquo;<samp class="samp">word ptr</samp>&rsquo;, &lsquo;<samp class="samp">dword ptr</samp>&rsquo;, &lsquo;<samp class="samp">qword ptr</samp>&rsquo;,
+&lsquo;<samp class="samp">xmmword ptr</samp>&rsquo;, &lsquo;<samp class="samp">ymmword ptr</samp>&rsquo; and &lsquo;<samp class="samp">zmmword ptr</samp>&rsquo;.  Thus, Intel
+syntax &lsquo;<samp class="samp">mov al, byte ptr <var class="var">foo</var></samp>&rsquo; is &lsquo;<samp class="samp">movb <var class="var">foo</var>, %al</samp>&rsquo; in AT&amp;T
+syntax.  In Intel syntax, &lsquo;<samp class="samp">fword ptr</samp>&rsquo;, &lsquo;<samp class="samp">tbyte ptr</samp>&rsquo; and
+&lsquo;<samp class="samp">oword ptr</samp>&rsquo; specify 48-bit, 80-bit and 128-bit memory references.
+
+<p>In 64-bit code, &lsquo;<samp class="samp">movabs</samp>&rsquo; can be used to encode the &lsquo;<samp class="samp">mov</samp>&rsquo;
+instruction with the 64-bit displacement or immediate operand.
+</p>
+</li><li><a class="index-entry-id" id="index-return-instructions_002c-i386"></a>
+<a class="index-entry-id" id="index-i386-jump_002c-call_002c-return"></a>
+<a class="index-entry-id" id="index-return-instructions_002c-x86_002d64"></a>
+<a class="index-entry-id" id="index-x86_002d64-jump_002c-call_002c-return"></a>
+Immediate form long jumps and calls are
+&lsquo;<samp class="samp">lcall/ljmp $<var class="var">section</var>, $<var class="var">offset</var></samp>&rsquo; in AT&amp;T syntax; the
+Intel syntax is
+&lsquo;<samp class="samp">call/jmp far <var class="var">section</var>:<var class="var">offset</var></samp>&rsquo;.  Also, the far return
+instruction
+is &lsquo;<samp class="samp">lret $<var class="var">stack-adjust</var></samp>&rsquo; in AT&amp;T syntax; Intel syntax is
+&lsquo;<samp class="samp">ret far <var class="var">stack-adjust</var></samp>&rsquo;.
+
+</li><li><a class="index-entry-id" id="index-sections_002c-i386"></a>
+<a class="index-entry-id" id="index-i386-sections"></a>
+<a class="index-entry-id" id="index-sections_002c-x86_002d64"></a>
+<a class="index-entry-id" id="index-x86_002d64-sections"></a>
+The AT&amp;T assembler does not provide support for multiple section
+programs.  Unix style systems expect all programs to be single sections.
+</li></ul>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="i386_002dChars.html">Special Characters</a>, Up: <a href="i386_002dSyntax.html">i386 Syntactical Considerations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="AS-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

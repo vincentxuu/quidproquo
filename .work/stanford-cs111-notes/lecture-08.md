@@ -1,0 +1,64 @@
+# Lecture 8: Scheduling
+
+- Date: 2026-04-15
+- Instructor: Mendel Rosenblum
+- PDF: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/8/Lecture8.pdf
+- Calendar: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar
+- Material gap: Canvas recording unavailable; notes derive from the public PDF.
+- Editorial focus: FCFS, round robin, priority scheduling, MLFQ, and fairness
+
+## Extracted agenda cues
+
+- Scheduling
+- Operating Systems: Principles and Practice:
+- Chapter 7 up through Section 7.2
+- What is CPU Scheduling?
+- ●   Given a dispatcher (a mechanism) that can switch between threads:
+- ○ Some threads that are ready to run
+- ○ A number of cores
+- ●   CPU Scheduling: A policy
+- ○ Which thread should run on each core and for how long?
+- Approach: Single core first, then generalize to multiple cores
+- First-in-first-out (FIFO) scheduling
+- ●   Also called non-preemptive scheduling
+- ●   Approach:
+- ○   Keep ready threads in a single list: the ready queue
+- ○   When a thread becomes ready, add it to the back of the ready queue
+- ○   Run the first thread on the queue until it exits or blocks.
+- ●   Problem with FIFO approach?
+- First-in-first-out (FIFO) scheduling problems
+- ●   Can cause starvation
+- ●   High response time
+- Add preemption: time slices
+- ●   Do preemptive scheduling
+- ○   Limit time thread can run without a context switch
+- ○ Called a time slice
+- ●   Implement with a timer hardware
+- ○   Run a thread but have a timer interrupt after some amount of time
+- ○   Example: Linux 4ms time slice
+- Round robin scheduling
+- ●   Approach: Loop doing:
+- ○ Run thread at front of ready queue for one time slice
+- ○ Return to back of ready queue
+- ○ Each thread gets equal share of the cores.
+- Tradeoffs on length of time slice
+- ●       What are the tradeoffs in setting the length of the time slice
+- Too long approaches FIFO; too short creates excessive switching overhead
+- Scheduling goals: response time, utilization, low overhead, fairness, and starvation avoidance
+- Scenario 1: 100/1/2 ms jobs; FIFO average 101.3 ms, 1 ms round robin 36.7 ms
+- Scenario 2: three 10 ms jobs; FIFO average 20 ms, round robin 29 ms
+- Fairness versus average response time
+- SRPT: provably optimal response time; scenario average 35.7 ms; future duration is unknowable and starvation is possible
+- SRPT workload examples: file copy, interactive editor, and number crunching
+- Approximate SRPT by using past thread behavior to predict future CPU bursts
+- Dispatcher versus scheduler; both use shared scheduling data structures
+- Priority scheduling and one ready queue per priority level
+- Feedback: full slice lowers priority; blocking raises priority; CPU-bound starvation remains possible
+- 4.4BSD scheduler: recent CPU usage, priority aging, and overload devolving toward round robin
+- Unix nice levels and command examples
+- Multicore initial design: shared queues/lock, per-core dispatchers/timers, `k` highest-priority threads, IPI preemption
+- Multicore issues: central queue contention, per-core queues, work stealing, cache state, and core affinity
+- Work-conserving definition and its contention/affinity cost
+- Scheduler is event-driven code, not a thread; runs on unblock, timer interrupt, and IPI
+- Historical importance across timesharing, PCs, multicore systems, and datacenters
+- Conclusion: results should not change; efficiency and response time do; adaptive schemes use past behavior because optimal scheduling requires the future

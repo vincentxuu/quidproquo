@@ -1,0 +1,22 @@
+# Official Lecture 3: Propositional Logic
+
+- Date: 2026-04-06
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 命題定義、命題變數與 Boolean algebra 類比
+  - [x] 否定、合取、包含式析取與互斥或構造
+  - [x] 真值表的列舉、子公式欄與等價判準
+  - [x] 蘊涵四列、March Madness 例子與 vacuous truth
+  - [x] 雙條件真值表及雙向蘊涵語意
+  - [x] 真／假常數與反證公式
+  - [x] ¬、∧、∨、→ 優先序與複合式解析
+  - [x] 七種邏輯符號及程式語言對照邊界
+  - [x] 日食 a/b/c 翻譯、“p if q” 方向與 but-as-and
+  - [x] 杯子例題與命題等價判準
+  - [x] De Morgan 定律及程式碼改寫
+  - [x] 否定蘊涵、消去蘊涵的逐步等價推導
+  - [x] 公開材料、投票互動與 PS2 的使用界線
+- Boundary: do not infer spoken content or use restricted solutions.

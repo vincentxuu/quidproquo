@@ -1,0 +1,879 @@
+              Stanford CS224v Course
+
+Conversational Virtual Assistants with Deep Learning
+
+
+                  Lecture 6
+
+    Introduction to Agents for
+Structured and Unstructured Data
+
+        Monica Lam & Shicheng Liu
+                                                       1
+      Why Knowledge Bases?
+      Lots of structured data in the world
+
+              • Public databases
+                • Schema.org (structured data for the web)
+                • Wikidata (knowledge graph with 15 B facts)
+              • Private databases
+                • Every company is a data company [Forbes 2018]
+                   • Products: Retail (all of ebay), flights, restaurants
+                               songs, music, books
+                   • Corporate: People (employees, customers, students, patients)
+                                Operations (finance, sales, transactions)
+                   • Personal information: Calendar, emails
+
+LAM                                                                                 STANFORD
+      Query Languages
+       • A FEW common query languages:
+        • Databases (SQL): Tables with a fixed schema – this lecture
+        • Knowledge bases (SPARQL, New4j):              – future lecture
+          Graphs with nodes (entities), edges (properties)
+
+       • Domains are defined by database schemas
+
+
+
+
+LAM                                     3                                  STANFORD
+      Semantic Parsing: NL → Formal Query
+                                                                                             schema
+                                                                                  CREATE TABLE restaurants (
+                                                                                   id TEXT PRIMARY KEY,
+                                                                                   location TEXT,
+                                                                                   address TEXT,
+                                                    SELECT *
+                                           FROM restaurants WHERE
+                                                                                   cuisines TEXT[],
+                                                                                   rating NUMERIC(2,1),
+                                schema     ‘japanese’ = ANY(cuisines)
+                                           AND location = ‘Palo Alto’             …);
+                                          ORDER BY rating DESC LIMIT 1
+       Show me the best
+                               Neural
+      Japanese restaurant                          SQL                   DB/API      DB result
+          in Palo Alto      Semantic Parser
+                                                                                                           I searched for the
+                                                                                                             best Japanese
+                                                                                  Response                 restaurant in Palo
+                                                                                  Generator                  Alto and found
+                                                                                                           Daigo. It has a 4.5
+                                                                                                              rating on our
+                                                                                                          database and offers
+                                                                                                          sushi and Japanese
+                                                                                                                 cuisine.
+
+
+
+
+LAM                                                       4                                                         STANFORD
+             Lecture Goals
+       I N TR O D U CT IO N T O T HE P R O BLEM S :
+    1 . R ET R IEV IN G D A TA FR O M D A TA BA SES
+2 . R ET R IEV IN G D A TA FR O M H Y BRI D C O R PO R A
+              ( D A TA BA SES A ND F R EE T EX T)
+
+           Focusing only on simple queries in this introduction.
+
+
+                                                                   5
+      Outline
+         • Casual questions are formal queries
+         • A basic LLM-based agent that consults a database – Yelp
+         • Evaluation issues of DB query agents
+         • Motivation of hybrid corpora
+         • Techniques for hybrid corpora
+
+
+
+
+LAM                                    6                             STANFORD
+      Expressiveness of Query Languages
+       • Domain agnostic
+       • All queries of any domain in knowledge bases                Amazing
+          are compositions of a FEW relational algebra operations    CS Idea
+
+         • Basic: Selection, Projection, Cartesian product (Join),
+                  Union, Set Difference
+         • Extended: Sort, Aggregate Operators (Sum, Max, Avg, …)
+       • Expressive, succinct, well-defined
+
+
+
+LAM                                      7                                     STANFORD
+     WHERE clause: filter
+
+                                        SELECT * FROM
+                                      table [WHERE filter]?
+CREATE TABLE restaurants (
+ id TEXT PRIMARY KEY,
+ location TEXT,
+ address TEXT,
+ cuisines TEXT[],
+ rating NUMERIC(2,1),             SELECT * FROM restaurants
+…);                             WHERE location == “Palo Alto”
+                                AND 'chinese' = ANY (cuisines)
+
+
+                             Show me Chinese restaurants in Palo Alto
+
+
+
+
+                                                                        8
+     WHERE clause: filter
+
+                                        SELECT * FROM
+                                      table [WHERE filter]?
+CREATE TABLE restaurants (
+ id TEXT PRIMARY KEY,
+ location TEXT,
+ address TEXT,
+ cuisines TEXT[],
+ rating NUMERIC(2,1),             SELECT * FROM restaurants
+…);                              WHERE location = “Palo Alto”
+                                AND “Chinese” = ANY(cuisines)
+                                      AND rating >= 4.5
+
+                             Show me Chinese restaurants in Palo Alto
+                                       with at least 4.5 stars
+
+
+                                                                        9
+     SELECT clause: Projection
+
+                                            SELECT field+ FROM
+                                            table [WHERE filter]?
+CREATE TABLE restaurants (
+ id TEXT PRIMARY KEY,
+ location TEXT,
+ address TEXT,
+ cuisines TEXT[],
+ rating NUMERIC(2,1),                SELECT address FROM restaurants
+…);                                   WHERE location = “Palo Alto”
+                                     AND “Chinese” = ANY(cuisines)
+                                           AND rating >= 4.5
+
+                             Show me the address of Chinese restaurants in Palo Alto
+                                            with at least 4.5 stars
+
+
+                                                                                       10
+                                                                                Atom filter:
+
+    Subquery                                                                    param op value
+                                                                               Subquery filter:
+                                                                               param op
+                                                                               (SELECT * FROM …)
+
+CREATE TABLE restaurants (                          SELECT field+
+ id TEXT PRIMARY KEY,                          FROM table [WHERE filter]?
+ location TEXT,
+ address TEXT,
+ cuisines TEXT[],
+ rating NUMERIC(2,1),
+…);                                          SELECT address FROM restaurants
+                                               WHERE location = “Palo Alto”
+CREATE TABLE reviews (
+ id TEXT PRIMARY KEY,                         AND “Chinese” = ANY(cuisines)
+ restaurant_id TEXT                                     AND id IN
+ REFERENCES restaurants(id),
+ author TEXT,                  (SELECT restaurant_id FROM reviews WHERE author =~ “Bob” )
+…);
+                                     Show me the address of Chinese restaurants in Palo Alto
+                                                        reviewed by Bob
+
+
+                                                                                                  11
+    Sorting
+
+
+CREATE TABLE restaurants (
+                                             SELECT field+ FROM table [WHERE filter]?
+ id TEXT PRIMARY KEY,                              ORDER BY field DESC/ASC
+ location TEXT,
+ address TEXT,
+ cuisines TEXT[],
+ rating NUMERIC(2,1),
+…);                                          SELECT address FROM restaurants
+CREATE TABLE reviews (
+                                               WHERE location = “Palo Alto”
+ id TEXT PRIMARY KEY,                         AND “Chinese” = ANY(cuisines)
+ restaurant_id TEXT
+ REFERENCES restaurants(id),
+                                                        AND id IN
+ author TEXT,                  (SELECT restaurant_id FROM reviews WHERE author =~ “Bob” )
+…);
+                                                  ORDER BY rating DESC
+                                Show me the address of top-rated Chinese restaurants in Palo Alto
+                                                       reviewed by Bob
+                                                                                                    12
+    Joins
+
+
+CREATE TABLE restaurants (
+                                                SELECT * FROM
+ id TEXT PRIMARY KEY,             table join table [WHERE filter]? [on filter]?
+ location TEXT,
+ address TEXT,
+ cuisines TEXT[],
+ rating NUMERIC(2,1),
+…);
+                               SELECT * FROM restaurants JOIN reviews ON
+CREATE TABLE reviews (            restaurants.id = reviews.restaurant_id
+ id TEXT PRIMARY KEY,
+ restaurant_id TEXT                   WHERE location = “Palo Alto”
+ REFERENCES restaurants(id),         AND “Chinese” = ANY(cuisines)
+ author TEXT,
+…);                                      ORDER BY rating DESC
+
+                               Show me top-rated Chinese restaurants in Palo Alto
+                                               with their reviews
+                                                                          13
+      Outline
+         • Our casual questions are formal queries
+         • A basic LLM-based agent that consults a database – Yelp
+         • Evaluation issues of DB query agents
+         • Motivation of hybrid corpora
+         • Techniques for hybrid corpora
+
+
+
+
+LAM                                   14                             STANFORD
+      Restaurant Assistant
+                                Schema
+                                CREATE TABLE restaurants (
+         Restaurant Assistant       name         TEXT,
+                                   address       TEXT,
+                                   location      TEXT,
+                                   phone_number TEXT,
+                                   opening_hours TEXT,
+                                   cuisines       TEXT[],
+                                   price          ENUM ('cheap', 'moderate', 'expensive', 'luxury'),
+                                   rating         NUMERIC(2,1),
+                                   num_reviews     NUMBER,
+                                   reviews         FREE_TEXT,
+                                   popular_dishes FREE_TEXT,
+                                );
+
+                                NUMERIC(2,1) means 2-digit precision, 1 digit after decimal
+
+
+
+LAM                                           15                                                       STANFORD
+      Queries in a Conversation (Yelp)
+                             Generated SQL:
+                               SELECT * FROM restaurants
+                               WHERE location = “Mountain View”
+
+
+
+
+                             Generated SQL:
+                               SELECT * FROM restaurants
+                               WHERE location = “Mountain View”
+                               AND cuisines = ANY(“Italian”)
+
+
+
+
+                             GPT responds directly
+
+
+
+                             Generated SQL:
+                               SELECT * FROM restaurants
+                               WHERE location = “Palo Alto”
+                               AND cuisines = ANY(“Italian”)
+LAM                     16                                        STANFORD
+        N L → F O R MA L D A TA BA SE Q U ER IES
+
+
+     N A TU R A L L A NG U A GE IS CO M PO S ITI ON A L
+
+
+A C A SU A L N L S T AT EM EN T C A N C O R RE SP ON D T O
+     F O R MA L Q U ER IES W IT H M A NY CL A US ES
+
+
+                   Q UIZ: FOR Y ELP,
+    H OW M A NY P OS SIBL E Q U ER IES A R E T HER E ?
+
+                                                             17
+      LLM: Zero-Shot Prompt
+         You are a semantic parser. Generate a query for a restaurant database with the
+         following signature:
+         CREATE TABLE restaurants (
+              name TEXT,
+              address TEXT,
+              location TEXT,
+              phone_number TEXT,
+              opening hours TEXT,
+              cuisines TEXT[],
+              price ENUM ('cheap', 'moderate', 'expensive', 'luxury'),
+              rating NUMERIC(2,1),
+              num_review NUMBER,
+         );
+LAM                                               18                                  STANFORD
+      Casual Assessment
+         • Show that LLM works surprising well
+           • For domains such as restaurants because of its familiarity
+             with the domain
+         • LLMs already know the basic SQL syntax
+         • Observed issue: Enumerated values
+
+
+
+
+LAM                                    19                                 STANFORD
+      Issue: Enumerated Types
+
+
+       • Small # values (e.g. 10): included in schema description
+       • LLMs know how to use these enumerated values
+                  What are some good inexpensive chinese restaurants in Palo Alto?
+
+                               SELECT * FROM restaurants WHERE
+                      'chinese' = ANY (cuisines) AND location = 'Palo Alto’
+                             AND price = 'cheap' AND rating >= 4.0
+                             ORDER BY num_reviews DESC LIMIT 3;
+
+LAM                                             20                                   STANFORD
+      Large Enumerated Types
+         • Example: Yelp cuisines (text) has over 200 values, e.g.
+           • "brazilian", "southern", "soul food", "modern european",
+             "champagne bars", "latin american", "health & medical",
+             "singaporean", …
+         • Problem: Not feasible to put all choices in the schema
+         • Database search expects an exact match
+                                                                       Yelp: no coffee cuisine
+                              show me a café
+                                                                       Available cuisines:
+                                                                         coffee & tea,
+           SELECT * FROM restaurants WHERE 'coffee' = ANY (cuisines)     cafe
+
+
+LAM                                             21                                               STANFORD
+      Large Enumerated Types
+                                show me a café
+                                         Semantic parser
+                                                                          Yelp: no coffee cuisine
+             SELECT * FROM restaurants WHERE 'coffee' = ANY (cuisines)
+                                                                          Available cuisines:
+                                          Rewrite = operator                coffee & tea,
+        SELECT * FROM restaurants WHERE                                     cafe
+             'coffee & tea' = ANY (cuisines) OR 'cafe' = ANY (cuisines)
+
+         Solution
+         •    Change ‘=‘ operator for a text field into a value classification operation
+         •    classify(x, V) finds the closest values of x in V,
+                              returns {} if no close values found
+         •    Given a text field f, collect all possible values V
+                     x = ANY (f) ⇒ c1 = ANY (f) OR c2 = ANY (f) …,
+                                    where ci ∈ classify (x, V)
+
+LAM                                                    22                                           STANFORD
+      Quiz: How to implement Classify?
+
+
+
+
+LAM                     23               STANFORD
+      The Full Agent Design
+         Some turns are not queries, let LLMs answer those
+
+
+
+
+LAM                            24                            STANFORD
+  Agent Design
+                                                        User query
+
+
+                                                      Input classifier
+                                                                     Db lookup needed
+
+                                                    Semantic parser
+
+                                                                 Predicted SQL                          DB lookup
+                                                                                                        not needed
+      No result response                              SQL compiler                      Classify-Enum
+                                  No results
+                                                                     Database
+                                                                     results
+
+                                                   Response prompt
+
+
+      Click the links to see the prompts (written in jinja syntax)
+LAM                                                                      25                                      STANFORD
+Z ER O - S H OT L L M - B A SED D A TA BA SE A G EN TS
+                ARE E ASY TO BUILD
+
+
+
+          DO THEY PERFORM WELL?
+
+
+
+
+                                                         26
+      Outline
+         • Our casual questions are formal queries
+         • A basic LLM-based agent that consults a database – Yelp
+         • Evaluation issues of DB query agents
+         • Motivation of hybrid corpora
+         • Techniques for hybrid corpora
+
+
+
+
+LAM                                   27                             STANFORD
+      Evaluation
+         • Measure query accuracy of our annotated data
+           • Poor accuracy
+         • Quiz: what should we do next?
+           • Spot check results by hand!
+             (I cannot this emphasize enough)
+
+
+
+
+LAM                                  28                   STANFORD
+      Example
+       What's some great Mexican food around Bernal Heights?
+       •   Gold Target:
+           •   SELECT FROM restaurants
+               WHERE “mexican” = ANY (cuisines) AND location = “bernal heights”;
+       •   Predicted Target:
+           •   SELECT FROM restaurants
+               WHERE “mexican” = ANY (cuisines) AND location = “bernal heights”
+               AND rating >= 4;
+
+
+       Quiz: Which is correct?
+
+
+
+LAM                                                     29                         STANFORD
+      Evaluation example (SQL, BIRD dataset)
+
+                Name all cards with 2015 frame style ranking below 100 on EDHRec.
+                •    Gold Target:
+                    •   SELECT        id   FROM cards WHERE edhrecRank < 100 AND frameVersion = 2015
+                •    Predicted Target:
+                    •   SELECT name FROM cards WHERE edhrecRank < 100 AND frameVersion = 2015;
+
+
+                Quiz: which is correct?
+
+
+
+
+      https://bird-bench.github.io/
+LAM                                                            30                                      STANFORD
+      Summary on Simple Structured Data Queries
+
+          • Few-shot Chat-GPT parses SQL queries for Yelp
+            • Restaurants: well-known domain to ChatGPT
+            • Small table: 11 fields
+              (incl. 2 Free-text, 1 small, 1 large ENUM)
+            • Well-understood field names
+
+
+
+
+LAM                                      31                 STANFORD
+      Our Discovery Process
+         • Tried few-shot ChatGPT
+           to make it conform to our convention
+         • Tried to fix the annotations in the benchmark
+                  ChatGPT is better than annotations
+                  by PhD students!
+
+
+
+
+LAM                                    32                  STANFORD
+      Quiz: What’s Next?
+
+
+             Test it on a real user (not one of us – designers of the system)
+
+
+
+
+              Find me a spicy Chinese restaurant in Palo Alto!
+
+
+
+
+LAM                                          33                                 STANFORD
+      How do you find a restaurant on Yelp?
+
+
+
+
+LAM                     34               STANFORD
+      Yelp: DB + Free text
+
+
+
+
+        •   Blue columns contain structured data
+        •   Yellow columns are free text
+        •   A lot of rows (thousands)
+                                              A lot of info is in free-text
+LAM                                      35                                   STANFORD
+      DB + Free-Text Combo Example
+
+         I need a family-friendly restaurant
+             → “family-friendly” in reviews
+
+
+         I need a family-friendly restaurant in Palo Alto
+             → “family-friendly” in reviews; Palo Alto in DB
+
+
+
+
+LAM                                      36                    STANFORD
+      We Need Hybrid Data
+                             Structured                      Free Text             Tasks
+                      Cuisines, opening hours,          Reviews, popular
+        Restaurants                                                         Book restaurant
+                      address, rating                   dishes
+                      Product ID, cost, ratings,
+                                                        Descriptions,       Purchasing
+        Products      sizes, physical
+                                                        reviews             Ordering food
+                      dimensions, color
+                      Class number, time
+                                                        Descriptions,
+        Courses       offered, instructor,                                  Enrolling in courses
+                                                        reviews
+                      building, pre-requisites
+                                                                            Filing taxes
+        Business
+                      Receipts, statements              Regulations         Reimbursements
+        processes
+                                                                            Customer support
+                      Patient demographics                                  Making diagnoses
+        Medical                                         Diagnosis history
+                      Prescription                                          Insurance claims
+
+LAM                                                37                                              STANFORD
+ The Next Problem:
+
+   Hybrid Data QA
+             C O M BIN ING
+K N OW L ED GE B A SES & T EX T U AL Q A
+
+
+
+                                           38
+      Outline
+         • Our casual questions are formal queries
+         • A basic LLM-based agent that consults a database – Yelp
+         • Evaluation issues of DB query agents
+         • Motivation of hybrid corpora
+         • Techniques for hybrid corpora
+
+
+
+
+LAM                                   39                             STANFORD
+                Quiz
+W H AT IS Y O U R A P PR O AC H T O H A ND L E
+     K N OW L EDGE B A SES & T EXT?
+
+
+
+
+                                                 40
+      Overview of Hybrid Corpora Techniques
+         Discuss 4 major approaches, starting with the simplest
+         1. Classify query to decide to retrieve from DB or Text
+         2. Retrieve answers from DB and Text separately, choose answer
+         3. Convert DB to text; use Text Retrieval
+         4. Retrieve answers from DB and Text separately,
+            use LLM to combine the answers
+           • HybridQA: dataset requiring composition of DB & Text retrieval
+
+
+
+
+LAM                                       41                                  STANFORD
+      1. Classify the Question: KB or Text
+
+
+
+
+                                            Published 10/3/2023
+
+
+       https://browse.arxiv.org/pdf/2305.12091.pdf
+
+LAM                                                  42           STANFORD
+      SK-TOD Dataset
+         Subject-Knowledge Task-Oriented Dataset
+         “The first dataset, which contains subjective knowledge-seeking
+         dialogue contexts and manually annotated responses
+         grounded in subjective knowledge sources.”
+         • MultiWOZ restaurant and hotel (in Cambridge area)
+           • User goal: search and book restaurants and hotels
+           • Structure: 13 slots (easier than SQL)
+           • Text: 143 entities and 1,430 reviews (8,013 sentences)
+
+
+LAM                                     43                                 STANFORD
+      Largest TOD Dataset with Subjective Knowledge
+
+
+
+
+LAM                         44                    STANFORD
+      Binary Classifier (IR vs Semantic Parsing)
+                                                     INFORMATION RETRIEVAL (IR)
+
+                                                     Entity Tracking
+                                                     Fuzzy n-gram matching
+                                                     between dialogue &entities.
+                                                     (A few entities in MultiWOZ)
+
+                                                     Knowledge Selection
+                                                     Calculate relevant knowledge
+                                                     score between dialogue
+                                                     context & knowledge snippets
+                                                     Response Generation
+                                                     Use pretrained
+                                                     GPT-2/Bart
+             Turn detection: binary classification
+
+LAM                                          45                               STANFORD
+      2. Choose Later: Stanford Chirpy Cardinal
+
+
+
+
+       • Alexa Social Bot Prize Runner
+         up, 2021
+       • Different modules to handle
+         different kinds of questions
+       • Run generators in parallel
+       • Choose at the end
+
+
+LAM   Proceedings of the SIGdial 2022 Conference, pages 376–395   46   STANFORD
+                   Q UIZ
+
+
+    W HAT IS THE W EAKN ESS OF
+C H OO S I N G J U S T T H E K B O R T E X T ?
+      What if We Need Both to Answer the Questions?
+
+
+
+
+          • Is it common? Yes!
+            • Real-user queries about restaurants: 55/100 need a combo
+          • Separate modules cannot answer these questions
+
+LAM                                   48                                 STANFORD
+      Overview of Hybrid Corpora Techniques
+         Discuss 4 major approaches, starting with the simplest
+         1. Classify query to decide to retrieve from DB or Text
+         2. Retrieve answers from DB and Text separately, choose answer
+         3. Convert DB to text; use Text Retrieval
+         4. Retrieve answers from DB and Text separately,
+            use LLM to combine the answers
+           • HybridQA: dataset requiring composition of DB & Text retrieval
+
+
+
+
+LAM                                       49                                  STANFORD
+     3. Converting All to Text
+                  • Unified Knowledge Question Answering (UniK-QA)
+                  • Converts everything to text
+                       • Text
+                       • Semi-structured data e.g. Wikipedia lists, tables, info boxes
+                       • Knowledge base
+                  • Then uses the usual pipeline designed for textual QA
+
+
+
+
+    Oguz et al. "UniK-QA: Unified Representations of Structured and Unstructured Knowledge for Open-Domain Question Answering.“
+LAM arXiv preprint arXiv:2012.14610 (2021).                                     50                                                STANFORD
+     Wikipedia Tables / Wikidata
+                  • Wikipedia tables are linearized simply by concatenating cell
+                    values with special tokens to separate rows
+                  • Wikidata:
+
+
+
+
+    Oguz et al. "UniK-QA: Unified Representations of Structured and Unstructured Knowledge for Open-Domain Question Answering.“
+LAM Findings of NAACL (2022).                                                   51                                                STANFORD
+                     Q UIZ
+
+
+    W HAT IS THE W EAKN ESS OF
+C O N V E R T I N G D A T A B A S ES T O T E X T ?
+      Unified Knowledge Question Answering (UniK-QA)
+
+          • Retrieve and read QA pipeline with SOTA components
+            • Neural retriever; T5 reader
+          • Exact match scores:
+                                         Natural
+               Knowledge Source                     TriviaQA   WebQuestions
+                                        Questions
+             Wikipedia Text               49.0        64.0         50.6
+             Wikipedia Tables             36.0        34.5         41.0
+             Wikidata                     27.9        35.4         55.6
+             Text + Tables                54.1        65.1         50.2
+             Text + Tables + Wikidata     54.0        64.1         57.8
+
+                             Quiz: What do you observe?
+LAM                                           53                              STANFORD
+      Testing with Yelp
+
+
+
+
+LAM                       54   STANFORD
+      Problems with Linearization
+         • How to combine different clauses together?
+           (Algebraic operators handle them naturally)
+           •   e.g. multiple clauses: "Are there any restaurants that have a great
+               view of the Golden Gate bridge in San Francisco?"
+
+
+         • Hard to do column computations
+           (rank, max, min, average, count) on flattened data
+           •   e.g. "what is the top-rated Chinese restaurant?"
+
+
+
+
+LAM                                           55                                     STANFORD
+      Overview of Hybrid Corpora Techniques
+         Discuss 4 major approaches, starting with the simplest
+         1. Classify query to decide to retrieve from DB or Text
+         2. Retrieve answers from DB and Text separately, choose answer
+         3. Convert DB to text; use Text Retrieval
+         4. Retrieve answers from DB and Text separately,
+            use LLM to combine the answers
+           • HybridQA: dataset requiring composition of DB & Text retrieval
+
+
+
+
+LAM                                       56                                  STANFORD
+      HybridQA Dataset
+
+
+
+
+             Earlier than SK-TOD. Note: this is not conversational
+
+
+LAM                                      57                          STANFORD
+      HybridQA Dataset
+                  Wikipedia Tables   hyperlinked   Wikipedia Pages
+
+
+
+
+Flag bearers of
+    Myanmar
+at the Olympics
+
+
+
+
+LAM                                      58                          STANFORD
+      T: Table     Quiz: How many total # of types can there be?
+LAM
+      P: Passage                      59                           STANFORD
+                          H Y BRI DQ A
+
+
+          A G O OD D A TA SE T T HA T I L LU ST R A TES
+     T HE N A TU R A LN ES S O F H Y BRI D D A TA Q U ER IES
+
+
+
+N EED T O S U PP O R T F U LL C O M PO SIT IO N AL IT Y T H OU G H
+
+
+
+
+                                                                     60
+      SOTA Model in 2023
+
+
+
+
+         https://browse.arxiv.org/pdf/2305.11725.pdf
+
+
+
+LAM                                            61      STANFORD
+      Hybrid Retrievers
+
+
+
+
+                    Only uses LLM in the "generation-based reasoner" step
+
+      https://github.com/wenhuchen/HybridQA#recent-papers
+      SOTA model: https://arxiv.org/abs/2305.11725
+LAM                                                         62              STANFORD
+      3 Stages
+         1. Retrieve information from Tables and Free Text
+           • Extra complexity to recover from annotation errors
+         2. Hybrid selector
+           • Sort and filter based on relevance
+         3. LLM-Based Reasoner
+           • Combines the filtered information from DV and Free Text
+             • Question types: Count, compare
+             • Use lexical analysis to identify the question type
+             • Chain-of-thought prompting
+LAM                                     63                             STANFORD
+      SOTA Result
+
+
+
+
+              Quiz: What do you observe?
+LAM                        64              STANFORD
+      Problem
+        • Data are retrieved in just one hop
+          • Cannot solve cascading multi-hop questions,
+            where the data to retrieve depends on the 1 st hop answer
+        • Imprecision with the lexical analysis
+        • Lacks completeness and compositionality
+          • Just one “count” or one “compare” operation
+
+
+
+
+LAM                                    65                               STANFORD
+      Conclusion
+        • LLMs can handle simple database queries
+        • Many questions require composition of information
+          retrieved from DB and Text
+        • Structure OR Text: is inadequate
+          1. Binary classifier up front (SK-TOD, 2023)
+          2. Pick afterwards (Stanford Chirpy Cardinal, 2021)
+        • Different approaches to combine structures and free-text
+          3. Structures → Text: Linearization (one hop)
+          4. Hybrid: Retrieve from both and combine (one hop each)
+
+       We need better techniques for complex db queries and hybrid QA
+LAM                                      66                             STANFORD
+

@@ -1,0 +1,389 @@
+Virtual Machines
+
+  Mendel Rosenblum
+
+
+
+    CS111 Lecture Notes - Virtual Machines
+Virtual Machines
+Optional readings: Operating Systems: Principles and Practice: Section 10.2
+
+
+
+
+                            CS111 Lecture Notes - Virtual Machines
+                       Operating System
+
+          Virtual Memory                               Scheduler
+                                                                                    Operating
+                                                                                    System
+     System Calls                                     File System
+
+
+
+
+                                Physical
+Instruction                                                                        Hardware
+                                Memory
+    Set                                                              I/O Devices
+                Registers                           MMU
+
+
+                            CS111 Lecture Notes - Virtual Machines
+Process
+                        Process Abstraction
+
+             Virtual Memory                               Scheduler
+                                                                                       Operating
+                                                                                       System
+        System Calls                                     File System
+
+
+
+
+                                   Physical
+   Instruction                                                                        Hardware
+                                   Memory
+       Set                                                              I/O Devices
+                   Registers                           MMU
+
+
+                               CS111 Lecture Notes - Virtual Machines
+                         OS Process Abstraction
+●   Memory:
+     ○ Linear array of virtual memory pages                      Process interface
+●   CPU:
+     ○ All non-privileged instructions and registers                                 OS Kernel
+●   System calls:                                               Hardware interface
+
+     ○ FIle I/O (e.g. open/read/write)                                               Hardware
+     ○ Process operations (e.g fork, thread create, wait, exit)
+     ○ Few other calls
+●   Overall: a subset of the facilities of the underlying machine
+     ○ Some close (e.g. CPU), other pretty different (e.g. Memory, Files)
+
+                                   CS111 Lecture Notes - Virtual Machines
+    What if we made process look like hardware?
+●   CPU:
+     ○ All instructions and registers, privileged and non-privileged
+●   Memory:
+       ■ Physical memory pages
+       ■ Memory management unit (page maps, etc.)
+●   I/O devices
+    ○ Timer, Disks, Network interface, Display
+
+●   Traps and interrupts
+     ○ System calls are just traps
+
+                                   CS111 Lecture Notes - Virtual Machines
+                               Virtual Machines
+●   "Process" looks like its own private machine
+     ○ Process like this is called a virtual machine
+     ○ Can run complete OS and applications in the private machine
+     ○ Multiple virtual machines can share a single machine
+●   The operating system like this called a hypervisor
+     ○   OS inside a virtual machine called a guest operating system
+
+     ○   Each virtual machine could run a different guest operating systems
+
+
+
+
+                                  CS111 Lecture Notes - Virtual Machines
+Process
+                               Virtual Machine
+
+             Virtual Memory                                Scheduler
+                                                                                         Operating
+                                                                                         System
+        System Calls                                      File System
+
+
+
+
+                                    Physical
+   Instruction                                                                          Hardware
+                                    Memory
+       Set                                                               I/O Devices
+                   Registers                            MMU
+
+
+                                CS111 Lecture Notes - Virtual Machines
+                                                                                Virtual Machine
+      A slide from my research group 1999
+
+
+                              Apps1                                      Apps2
+                                 OS1                                        OS2
+                   x86, motherboard, disks, display, net,     x86, motherboard, disks, display, net,
+Virtual machines                   ...                                        ...
+
+
+
+                   Virtual Machine Monitor Layer
+Real machine       x86, motherboard, disks, display, net, ...
+
+                         CS111 Lecture Notes - Virtual Machines
+         Hosted Virtual Machine Monitor
+
+               Apps
+              NT 4.0                                                   Apps
+   Linux                                                      Linux
+   Apps         VMM                                           Apps    NT 4.0
+        Linux                                                 Linux    VMM
+    Standard PC                                                Standard PC
+
+Linux controls hardware                                   VMM controls hardware
+
+
+                     CS111 Lecture Notes - Virtual Machines
+    Implementing hypervisors: One approach simulation
+
+●   Write program that simulates machine
+    ○ Simulate CPU instruction
+    ○ Simulate memory management unit and physical memory (e.g. large array)
+    ○ Simulate I/O devices
+●   Examples:
+     ○ Use one large file to hold contents of a "disk": a disk image file
+     ○ Simulate kernel/user bit, interrupt vectors, etc.
+●   Problem: too slow
+     ○ 100x slowdown for CPU/memory
+     ○ 2x slowdown for I/O
+
+                                  CS111 Lecture Notes - Virtual Machines
+     Implementing hypervisors: Better Approach
+●   Use CPU to simulate itself (direct execution)
+    ○ Run guest OS in user mode
+    ○ Most instructions execute at the full speed of the CPU
+    ○   Privilege instructions trap into the hypervisor
+         ■    Hypervisor has CPU simulator. Examples:, CLI, STI, POPF, HALT
+
+●   Privileged instructions relativity rare in kernel code
+     ○ Simulation overheads small part of overall execution
+
+
+
+
+                                  CS111 Lecture Notes - Virtual Machines
+                Trap and simulate example: CLI
+●   Guest OS running (CPU in user mode) encounters CLI instruction
+     ○ Illegal instruction trap generated
+●   Hypervisor trap handler runs
+     ○ Machine's IDT points to handler in the hypervisor
+     ○ Hypervisor inspects trap instruction and sees the CLI instruction
+
+●   Hypervisor simulates CLI
+     ○ Mark interrupts masked for this virtual machine
+
+●   Hypervisor returns from trap
+     ○ CPU back to user mode at address after CLI instruction
+     ○ Guest OS resumes execution now with interrupt masked
+
+                                  CS111 Lecture Notes - Virtual Machines
+   Example: Application system call in a virtual machine
+
+App on                         Application                     syscall   Virtual Machine
+Guest OS
+
+ Guest OS              Process Control Block                     vIDT
+
+                   Virtual Register Control Block
+Hypervisor                 vCPU: user mode                       IDT
+
+
+ Hardware                 CPU: user mode
+
+
+
+                      CS111 Lecture Notes - Virtual Machines
+       syscall instruction traps in to hypervisor
+
+App on                         Application                     syscall   Virtual Machine
+Guest OS
+
+ Guest OS              Process Control Block                     vIDT
+
+                   Virtual Register Control Block
+Hypervisor                 vCPU: user mode                       IDT
+
+
+ Hardware                CPU: kernel mode
+
+
+
+                      CS111 Lecture Notes - Virtual Machines
+       Hypervisor simulated syscall instruction
+
+App on                        Application                     syscall   Virtual Machine
+Guest OS
+
+ Guest OS             Process Control Block                     vIDT
+
+                  Virtual Register Control Block
+Hypervisor               vCPU: kernel mode                      IDT
+
+
+ Hardware                CPU: user mode
+
+
+
+                     CS111 Lecture Notes - Virtual Machines
+   Guest OS executes syscall - ends with sysret
+
+App on                      Application                     syscall   Virtual Machine
+Guest OS
+
+                    Process Control Block
+                                                              vIDT
+ Guest OS                                                    sysret
+
+                Virtual Register Control Block
+Hypervisor             vCPU: kernel mode                      IDT
+
+
+ Hardware              CPU: user mode
+
+
+
+                   CS111 Lecture Notes - Virtual Machines
+             Sysret traps into hypervisor
+
+App on                        Application                     syscall   Virtual Machine
+Guest OS
+
+                      Process Control Block
+                                                                vIDT
+ Guest OS                                                      sysret
+
+                  Virtual Register Control Block
+Hypervisor               vCPU: kernel mode                      IDT
+
+
+ Hardware               CPU: kernel mode
+
+
+
+                     CS111 Lecture Notes - Virtual Machines
+             Hypervisor simulates sysret
+
+App on                        Application                     syscall   Virtual Machine
+Guest OS
+
+                      Process Control Block
+                                                                vIDT
+ Guest OS                                                      sysret
+
+                  Virtual Register Control Block
+Hypervisor                vCPU: user mode                       IDT
+
+
+ Hardware                CPU: user mode
+
+
+
+                     CS111 Lecture Notes - Virtual Machines
+                             Virtual I/O Devices
+●   Recall OS ⇔ I/O devices: memory-mapped load/store, DMA, interrupts
+●   Guest OS reads/writes virtual I/O device register
+     ○ Hypervisor arrange for traps on these device register accesses
+     ○ Trap handlers simulate I/O device functionality
+●   On completion, hypervisor simulates an interrupt on the virtual CPU
+●   For fewer traps, write new Guest OS device drivers that use system calls
+     ○ Called paravirtualization
+
+
+
+
+                                 CS111 Lecture Notes - Virtual Machines
+              Virtualizing Virtual Memory
+  Guest                             Guest                                         Host
+Virtual AS                       “Physical” AS                                “Machine” AS
+               Guest MMU                                           Machine
+                (Virtual)                                           MMU
+
+
+
+
+             Guest Page                                                 Machine Page
+               Maps                                                        Maps
+
+             Virtual Machine                                           Hardware
+                          CS111 Lecture Notes - Virtual Machines
+                   Shadow Page Maps
+     Guest                         Guest                                       Host
+   Virtual AS                   “Physical” AS                              “Machine” AS
+
+
+
+
+                Guest Page                                  Machine Page
+                  Maps                                         Maps
+
+
+
+
+Actual MMU hardware,
+managed by hypervisor            Shadow Page
+                                    Maps
+                         CS111 Lecture Notes - Virtual Machines
+       x86-64 memory virtualization extensions
+●   Maintaining shadow page tables had high overhead on some workloads
+    ○ Too many OS updates to page tables
+●   Both Intel and AMD added another level of page tables for the hypervisor
+     ○ Inside virtual machine - Page table: Virtual Page => Physical Page
+     ○ Inside hypervisor - Page table: Physical Page => Machine Page
+
+
+
+
+                           CS111 Lecture Notes - Virtual Machines
+                   Virtual Machines as a resource
+              Applications                                                   Applications
+
+           Operating System                             Virtual Machine   Operating System
+
+Computer       Hardware                                                       Hardware
+
+
+           Industry pre-VMs                                               Industry post-VMs
+
+
+   ●   Virtual machines encapsulate all execution state
+        ○ Can duplicate, save, move around virtual machines
+
+
+
+
+                                 CS111 Lecture Notes - Virtual Machines
+                     History of virtual machines
+●   Invented by IBM in late 1960's - Computers rare and expensive
+     ○ Original usage: One VM per user - Each user ran a different single-user guest OS
+●   Interest waned in the 1980's and 1990's:
+     ○ Each user had a private machine
+     ○   Time shared operating systems better than a hypervisor with many single-user OSes
+
+     ○   Disappeared from OS courses, CPU architectures quit supporting it
+
+●   Virtual machines got interesting again in mid-1990s
+     ○ Microsoft Windows dominate position encouraged it
+
+
+                                 CS111 Lecture Notes - Virtual Machines
+                          Virtual Machine Usage
+●   Software development:
+     ○ Need to test software on different OS versions
+     ○ Keep one VM for each OS version
+     ○ Use a single machine to test all versions
+     ○ Use encapsulation during testing
+●   Data Centers:
+     ○ Problem: many machines, each running a single application
+         ■ Need separate machines for isolation: application crash brings down the entire
+               machine
+          ■ Most applications only need a fraction of machine's resources
+     ○   Solution: data center consolidation
+          ■ One VM per application: Run several VM's on a single machine
+          ■ Reduce # of machines
+     ○   Hardware provisioned independently of software
+     ○   Enabled Cloud Computing
+                                  CS111 Lecture Notes - Virtual Machines
+

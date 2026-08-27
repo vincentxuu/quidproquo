@@ -1,0 +1,53 @@
+# Lecture 15: Paging
+
+- Date: 2026-05-01
+- Instructor: Mendel Rosenblum
+- PDF: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf
+- Calendar: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar
+- Material gap: Canvas recording unavailable; notes derive from the public PDF.
+- Editorial focus: pages, frames, page tables, TLBs, and multilevel tables
+
+## Extracted agenda cues
+
+- Paging
+- Virtual Memory
+- Key idea behind paging: Pages
+- ●   Divide address space into fixed sized chunks (pages)
+- ○ Done to both the virtual and physical address space
+- ○ 4KB (x86 myth) and 16KB (Macbook) sizes commonly used today
+- ●   MMU needs Page Map (also called called a Page Table)
+- ○ Maps virtual page to physical page
+- Physical Memory
+- Virtual Address Space
+- VPN 0                           PPN 1
+- VPN 1                           PPN 3
+- VPN 2                           PPN 4
+- …                            PPN 5
+- Page Map     PPN n
+- Page map / Page Table
+- Virtual Address
+- Virtual Page #     Offset
+- Writeable
+- Physical Address
+- Physical Page #                 Offset
+- PPN          01                                       Virtual Address Space
+- VPN 0                            PPN 1
+- VPN 1                            PPN 3
+- VPN 2                            PPN 4
+- …                             PPN 5
+- Page Map                    Present                     VPN n
+- Fixed size makes memory management easier
+- ●   Physical memory management
+- ○ OS maintains free list of available physical memory pages
+- ■ Allocation: remove from list
+- ■ Freeing: add to list
+- Flat 48-bit usable x86-64 map estimate: 36-bit VPN, 8-byte PTE, 512 GB per address space
+- Four-level PML4/PML3/PML2/PML1 split with four 9-bit indices and 12-bit offset
+- Sparse example: code at 0, data at 0x1000, stack at 0xFFFFFFFFF000
+- Walk indices for code/data/stack and radix-tree interpretation
+- Sharing one PTE or higher-level subtrees; 4 KB, 2 MB, and 1 GB pages
+- TLB purpose, entry fields, hit/miss path, size and hit-rate examples
+- TLB flush/tagging on context switch and `INVLPG` after map changes
+- Unmapped versus mapped OS access to user memory
+- Memory aliasing through duplicate PTEs
+- Internal versus external fragmentation and page-size trade-off

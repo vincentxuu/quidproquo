@@ -1,0 +1,25 @@
+# Official Lecture 10: Graphs, Part II
+
+- Date: 2026-04-22
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/10/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/10/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck `/tmp/cs103-text/10.txt`):
+  - [x] Graph and adjacency recap with word and western-city graphs
+  - [x] Walk definition, length, repetition, and the length-zero staycation case
+  - [x] Closed walk convention
+  - [x] Path and cycle definitions and classification examples
+  - [x] Reachability and road-closure examples
+  - [x] Connected graphs and connected components
+  - [x] Four stated graph facts about walks, cycles, components, and connectedness
+  - [x] Formal graph-complement definition
+  - [x] Disjunction-to-implication proof strategy
+  - [x] Full two-case proof that at least one of `G` and `Gᶜ` is connected
+  - [x] Ordinary pigeonhole principle and finite-set/injection formulation
+  - [x] Degree definition and both proofs that two nodes share a degree
+  - [x] Generalized pigeonhole principle and contradiction proof
+  - [x] Friends-and-strangers theorem as a red/blue `K₆`
+  - [x] Full monochromatic-triangle proof
+  - [x] Ramsey theorem statement, `R(3) ≤ 6`, and extension sampler
+- Boundary: the article does not infer spoken content, live-poll outcomes, or proofs of the extension theorems.

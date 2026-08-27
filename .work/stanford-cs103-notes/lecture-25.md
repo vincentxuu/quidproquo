@@ -1,0 +1,22 @@
+# Official Lecture 25: Unsolvable Problems, Part III
+
+- Date: 2026-05-27
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/25/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/25/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] Lava Diagram 的兩個辨識任務
+  - [x] Rice's Theorem 的 deck 版判讀
+  - [x] caveat 1：syntax property 不在射程內
+  - [x] caveat 2：property 必須真的篩選
+  - [x] Rice 能說什麼、不能說什麼
+  - [x] counting argument：為何 RE 外有大量 languages
+  - [x] unrecognizable 的 verifier 語意
+  - [x] undecidable RE language 的 complement 為何不在 RE
+  - [x] examples：language equality 與至少五個 loops
+  - [x] diagonal language LD
+  - [x] gardener story 的 iff 結構
+  - [x] 常見分類錯誤與自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

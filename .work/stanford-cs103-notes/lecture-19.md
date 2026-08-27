@@ -1,0 +1,24 @@
+# Official Lecture 19: Context-Free Languages
+
+- Date: 2026-05-13
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/19/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/19/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 從有限狀態限制轉向遞迴結構
+  - [x] arithmetic grammar 的四組規則
+  - [x] CFG 的四個組成部分
+  - [x] shorthand、derivation 與零步
+  - [x] deck 的 Q/H membership 題
+  - [x] context-free language 與 regular language 的關係
+  - [x] S → aSb | ε 生成 E
+  - [x] 設計方法：recursive plan 與 nonterminal invariant
+  - [x] palindrome grammar
+  - [x] balanced braces grammar
+  - [x] 相同數量 a 與 b 的候選規則
+  - [x] recursion 必須有終止出口
+  - [x] derivation 與 parse structure
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

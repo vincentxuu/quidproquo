@@ -1,0 +1,1124 @@
+                     Stanford CS224v Course
+         Conversational Virtual Assistants with Deep Learning
+
+
+
+                         Lecture 11
+
+Satisfying Natural Language Constraints with SMT
+
+    A Case Study in Clinical Trials Matching
+
+                     Monica Lam and Cyrus Zhou
+
+                                                                1
+      Large-Scale Constraint Satisfaction
+
+          Many applications
+          • Education: Degree satisfaction
+          • Finance:   Government regulations
+          • Medical:   Clinical Trial matching
+
+
+
+
+LAM                                              STANFORD
+      Why is Clinical Trial Matching Important?
+
+          • Clinical trials are essential to modern medical progress.
+            • Test out new treatments
+              (drugs, procedures, behavioral therapies)
+          • Nearly $1.9 billion is spent annually on recruitment efforts
+          • But still,
+            around 80% of trials fail to meet the initial enrollment target/timeline
+            • Causing monetary loss
+            • Blocking scientific progress
+
+
+LAM                                                                            STANFORD
+      Trials are in ClinicalTrials.gov!
+
+
+
+
+LAM                                       STANFORD
+      ClinicalTrials.gov are Used Widely
+
+             • 485,000 studies listed from all 50 states and 223 countries
+               (3/2024)
+                • Good coverage of trials: e.g.
+                  NIH-funded clinical trials are expected to register and
+                  submit results
+
+
+             • ClinicalTrials.gov receives about 4.5 million visitors monthly.
+
+
+  https://www.bumc.bu.edu/ohra/clinicaltrials-gov/clinicaltrials-gov-what-why-which-studies-when
+
+
+LAM                                                                                                STANFORD
+      What is the Current Practice?
+          • Doctor referring patients to trials that they know of
+          • Patients looking for trials ..
+
+
+
+
+LAM                                                                 STANFORD
+    M OTIV ATION FOR O UR P RO JE CT
+
+
+         “ I ’ M A P HYSICIA N,
+AND I CAN’ T F IND A T RI AL FOR M YSELF”
+L ET’ S T AKE A L OO K AT A C LIN ICA L T RI AL
+LAM   STANFORD
+      Major bleeding;
+
+
+
+
+LAM                     STANFORD
+      What does a Real Patient Record Look Like?
+
+
+
+
+LAM                                            STANFORD
+      Clinical Matching is Complex
+          1. Basic matching problem: Is a patient eligible for a trial?
+            • LLMs seem to do a reasonable job for most cases
+
+          2. From a pharmaceutical company’s perspective:
+            • Recruit from millions of patients for a trial
+            • How to match against millions?
+
+          3. From a patient’s perspective
+            • Find eligible trials among 500K clinical trials
+             Key Questions: How accurate is the LLM approach?
+                           How to handle the scale?
+LAM                                                                       STANFORD
+      Outline
+
+          • Motivation
+          • Prior Research
+          • SMT Approach
+          • SMT-Based Matching Algorithm
+          • Preliminary Results
+
+
+
+
+LAM                                        STANFORD
+      LLM-Based Matching
+
+         • TrialGPT: Matching patients to clinical trials with LLMs,
+           Jin et al., Nov, 2024, Nature Communications
+           • Synthetic patients
+
+         • Zero-Shot Clinical Trial Patient Matching with LLMs
+           Wornow et al., Dec. 2024, New England Journal of Medicine
+           • Automatic qualitative coding from patient records
+
+         • Cohort Discovery: A Survey on LLM-Assisted Clinical Trial Recruitment
+           Ghosh, et al. June 2025, arXiv:2506.15301v1
+
+
+
+LAM                                                                                STANFORD
+      Datasets
+        TrialGPT dataset
+        • Koopman, B. & Zuccon, G.
+            A test collection for matching patients to clinical trials. In Proc. 39th International
+            ACM SIGIR Conference on Research and Development in Information Retrieval
+            669-672 (2016).
+        • Roberts, K., Demner-Fushman, D., Voorhees, E. M., Bedrick, S. & Hersh, W. R.
+            Overview of the TREC 2022 Clinical Trials Track. In Proc. Thirty-First Text REtrieval
+            Conference (TREC 2022) (2022).
+        • Roberts, K., Demner-Fushman, D., Voorhees, E. M., Bedrick, S. & Hersh, W. R.
+            Overview of the TREC 2021 Clinical Trials Track. In Proc. Thirtieth Text REtrieval
+            Conference (TREC 2021) (2021).
+        Warnow’s paper datasets
+        • Stubbs, et al.,,
+            Cohort selection for clinical trials: n2c2 2018 shared task track 1.
+            Journal of the American Medical Informatics Association, 26(11):1163–1171, 2019
+
+LAM                                                                                               STANFORD
+      TrialGPT
+
+
+
+
+LAM              STANFORD
+      TrialGPT Dataset
+
+      • Number of trials: 75,000
+      • Synthesized patient notes: 183
+
+
+
+
+LAM                                      STANFORD
+      TrialGPT: Finding Trials for Patients
+      1. Retrieval based on embedding similarity
+
+              Keyword                    Patient-Side           Trial-Side
+             Generation                  Embedding              Embedding                       Keyword
+                          Dementia,                                                            Generation
+                                                                                 Parkinson
+
+
+
+                                            <•••••>               <•••••>
+                          Cough,                                                 Disease,
+                          Dysphagia,                                             Cognitive
+                          X-ray,                                                 Impairment,
+                          Tobacco,                                               CVID,
+                          Edema,
+  Patient                 ……
+                                                                                 Biopsy,
+                                                                                                            Clinical
+                                                                                 ……
+   Note                                               Compare                                                Trials
+                                    Encode                                Encode
+                              (e.g., w/ MedCPT)                     (e.g., w/ MedCPT)
+
+
+
+      2. Matching: Use LLM to patch patient record with retrieved trials
+
+LAM                                                                                                            STANFORD
+ Recall of
+ Dense Retrieval
+             Recall #Retrieved
+ SIGIR         93%        500
+ TREC 2021     92%       1000
+ TREC 2022     88%       1000
+
+
+
+What if the life-saving trial
+is not retrieved?
+
+False negatives can be fatal
+
+
+
+
+LAM                              STANFORD
+      Precision of Dense Retrieval
+      (Embedding-Similarity Based)
+
+           • Imprecise – many false positives
+           • Based on “Semantic Similarity” not “Logical Compatibility”
+           • E.g. If a patient has diabetes
+             • Retrieved trials:
+               • Those that include diabetes
+               • Those that exclude diabetes
+
+
+
+
+LAM                                                                       STANFORD
+      LLM’s Precision in Matching
+
+
+                              • Is LLM precise in the match?
+                              • Human evaluators also differ
+
+
+
+
+LAM                                                            STANFORD
+      Summary of Errors
+
+         • Dense retrieval
+           may have false negatives
+
+
+         • LLM matching may be
+           erroneous
+
+
+
+
+      Cohort Discovery: A Survey on LLM-Assisted Clinical Trial Recruitment
+      Ghosh, et al. June 2025, arXiv:2506.15301v1
+
+
+LAM                                                                           STANFORD
+      Outline
+
+          • Motivation
+          • Prior Work
+          • SMT Approach
+          • SMT-Based Matching Algorithm
+          • Preliminary Results
+
+
+
+
+LAM                                        STANFORD
+      Goal: No False Negatives & High Precision
+
+          Aim to prevent:
+          • Patients miss life-saving opportunities
+          • Trials miss recruit targets
+            • Stall scientific progress
+            • Incur monetary loss
+            • Waste researchers’ time
+
+
+
+
+LAM                                                   STANFORD
+      Problem Statement
+       Queries           Documents
+      Patients P   SAT     Trials T      For every patient,
+         p1                   t1           find all trials the patient satisfies (SAT)
+                                         → pairwise operation O(N2)
+         p2                   t2
+                                         Two-step approach:
+         p3                   t3
+                                         1. Retrieve
+         p4                   t4
+          .                   .            • With no false negatives
+          .                   .            • As few false positives as possible
+          .                   .
+                                           • Quickly
+         pn                   tm
+                                         2. Match patient with retrieved trials
+                         Matches M(pi)
+                                           • Accurately and quickly
+
+LAM                                                                                 STANFORD
+             L ECTURE O BJECTIVE
+
+
+             C AN W E L EV ERAGE
+
+F OR MA L N OTA TIONS AN D A T H EOR EM S OLV ER
+   T O I MPROV E P RE CIS ION AN D R ECALL ?
+      2 Formal Notations
+          • Propositional Logic (PL)
+            • Variables: Boolean
+            • Operators: and, or, not
+            • Conjunctive Normal Form: A and (B or C) and (A or D)…
+            • SAT solver: checks if a set of PL statements are satisfiable
+
+          • SMT (Satisfiability Modulo Theories)  More expressive than PL,
+                                                    SMT solver more expensive than SAT solver
+            • Variables: Boolean, number, …
+            • Operators: and, or, not, arithmetic, numeric comparison
+            • Conjunctive Normal Form:
+              A and (B > 10 or C + B > D) and (A or E)…
+            • SMT solver: checks if a set of SMT statements are satisfiable
+LAM                                                                                      STANFORD
+      Example
+       https://www.clinicaltrials.gov/study/NCT00092885
+
+
+
+
+LAM                                                       STANFORD
+      Eligibility
+
+
+
+
+LAM                 STANFORD
+      Inclusion Constraints in SMT
+ Free-text      Non-smoker
+                A 2-year documented history of seasonal allergic rhinitis
+ Requirements   A 1-year documented history of chronic asthma
+                Positive allergy testing
+
+
+                (declare-const patient_has_finding_of_tobacco_smoking_behavior_now Bool)
+                (assert (not patient_has_finding_of_tobacco_smoking_behavior_now))
+
+
+ Requirements   (declare-const patient_has_finding_of_seasonal_allergic_rhinitis_inthehistory Bool)
+                (assert (and patient_has_finding_of_seasonal_allergic_rhinitis_inthehistory
+
+ as SMT              (>= duration_of_documented_history_of_seasonal_allergic_rhinitis_in_years 2.0)))
+
+
+ Constraints    (declare-const duration_of_chronic_asthma_in_years Real)
+                (declare-const patient_has_diagnosis_of_asthma_inthehistory Bool)
+                (declare-const patient_has_diagnosis_of_asthma_inthehistory@@chronic Bool)
+                (declare-const patient_has_diagnosis_of_asthma_inthehistory@@duration_at_least_1_year Bool)
+                (assert (=> patient_has_diagnosis_of_asthma_inthehistory@@chronic
+                       patient_has_diagnosis_of_asthma_inthehistory))
+                (assert (=> patient_has_diagnosis_of_asthma_inthehistory@@duration_at_least_1_year
+                                 patient_has_diagnosis_of_asthma_inthehistory))
+                (assert (= patient_has_diagnosis_of_asthma_inthehistory@@duration_at_least_1_year
+                      (>= duration_of_chronic_asthma_in_years 1.0))
+                (assert (and patient_has_diagnosis_of_asthma_inthehistory@@chronic
+                     patient_has_diagnosis_of_asthma_inthehistory@@duration_at_least_1_year))
+
+LAM                                                                                                           STANFORD
+      Patient Record as SMTs (Example 1)
+      A 58-year-old African-American woman presents to the ER with episodic pressing/burning anterior chest pain that began two
+      days earlier for the first time in her life.
+      The pain started while she was walking, radiates to the back, and is accompanied by nausea, diaphoresis and mild dyspnea, but is
+      not increased on inspiration.
+      The latest episode of pain ended half an hour prior to her arrival.
+
+
+
+
+      (assert patient_has_undergone_emergency_room_admission_inthehistory)
+      (assert patient_has_symptoms_of_anterior_chest_wall_pain_now)
+
+
+      (assert patient_has_finding_of_anterior_chest_wall_pain_inthepast2days)
+      (assert patient_has_symptoms_of_dyspnea_inthepast2days)
+
+
+
+LAM                                                                                                                                  STANFORD
+      Patient Record as SMTs (Example 2)
+      She is known to have hypertension and obesity.
+      She denies smoking, diabetes, hypercholesterolemia, or a family history of heart disease.
+      She currently takes no medications.
+      Physical examination is normal.
+      The EKG shows nonspecific changes.
+
+
+
+
+            (assert patient_has_diagnosis_of_hypertensive_disorder_now)
+            (assert (not patient_has_diagnosis_of_hypercholesterolemia_now))
+            (assert patient_has_undergone_electrocardiographic_procedure)
+            (assert (not patient_has_finding_of_diabetes_procedure_now))
+
+
+
+
+LAM                                                                                               STANFORD
+      Trial Matching as a Satisfiability Problem
+
+          • Given
+             (A) Trial Requirements in SMT
+             (B) Patient Fact Value Assertions in SMT
+
+
+          • There is a match if and only if (A) + (B) is satisfiable
+          • Use SMT Solver (Z3)
+
+
+
+                Z3 theorem prover, Microsoft, https://github.com/Z3Prover/z3
+
+LAM                                                                            STANFORD
+      How Do We Retrieve the Potential Trials?
+
+          • Dense retrieval has inadequate recall and precision
+          • Use Propositional Logic (PL)
+          • Represent PL constraints and assertions in databases
+            • Match all records quickly!
+
+
+
+
+LAM                                                                STANFORD
+      Clinical Trail Matching using SMT
+        Patient Record p (NL)        Clinical trial t (NL)
+                                                              NL: Natural language
+                                                              SMT: Satisfiability Modulo Theory
+                                                              PL: Propositional Logic
+           NL→SMT Parser              NL→SMT Parser
+
+
+        Patient Record pSMT          Clinical trial tSMT
+                                                             A ⊨ B means
+                                                                 if A is satisfiable, B is satisfiable
+        SMT → PL Projection         SMT → PL Projection
+
+
+         Patient Record pPL           Clinical trial tPL
+
+
+                        pSMT ⊨ pPL
+                         tSMT ⊨ tPL
+                 pSMT ∧ tSMT ⊨ pPL ∧ tPL
+LAM                                                                                                STANFORD
+      Clinical Trail Matching using SMT
+        Patient Record p (NL)        Clinical trial t (NL)
+                                                             NL: Natural language
+                                                             SMT: Satisfiability Modulo Theory
+                                                             PL: Propositional Logic
+           NL→SMT Parser              NL→SMT Parser
+
+
+                                                                               SMT Solver
+        Patient Record pSMT          Clinical trial tSMT      Matching
+                                                                               a pair at a time
+
+        SMT → PL Projection         SMT → PL Projection
+
+
+                                                                              DB ops to match
+         Patient Record pPL           Clinical trial tPL        Retrieval
+                                                                              all trials & patients
+
+                        pSMT ⊨ pPL
+                         tSMT ⊨ tPL
+                 pSMT ∧ tSMT ⊨ pPL ∧ tPL
+LAM                                                                                          STANFORD
+S A T AND S M T S OLV ERS A RE P ROVABLY C ORRECT
+
+
+I F S EMAN TICS OF THE P ATIE NT R ECOR DS AN D T RI ALS
+          IS C APTUR ED P ER FE CTLY IN S M T
+
+
+         ➔ 1 0 0 % P RE CIS ION AN D R ECALL
+
+      But errors may be introduced in the NL→SMT parse
+      Advantages of SMT-PL-Approach
+
+ • LLM is used to parse text to SMT        • Retrieval of satisfiable trials
+    once per document                        from millions of trials/patients
+   • Accuracy:                               in PL is efficient & accurate
+      Parsing is easier than reasoning
+                                             • Expressiveness is close to SMT for trials
+        • Defer reasoning to SMT solvers
+                                               small % that sat tPL and not sat tSMT
+        • Easier to improve
+                                               → few false positives
+        • Contexts are smaller
+      • Efficiency: O(n), not O(n2)  • Matching of satisfiable trials in SMT
+      • Interpretability               on hundreds of pairwise trials/patients
+        • Can be checked & corrected   is efficient and accurate
+
+LAM                                                                                STANFORD
+      Disadvantages of SMT Approach
+  • SMT solvers operate on variables – they have no meaning
+  • All information useful for SMT solvers must be included formally
+      • Taxonomy: same concepts → same variable name               Canonicalization
+      • Implication relations between concepts                             Include
+        e.g. A ⇒ B means A satisfies B                         implication relations
+
+      • Judgment: Distinguish between hard and soft constraints        Requirement
+                                                                       classification
+        e.g. “Patient must have an Xray” can always be satisfied
+      • Interpretation: Require common knowledge
+                                                                   Not handled yet
+        e.g. “A heavy smoker” ⇒ daily-cigarettes >= 10
+
+LAM                                                                              STANFORD
+         SMT                        LLMS
+P OWER F UL R EA SON ING     W ORLD K NO WLEDG E
+
+
+
+       C AN W E C OMBI NE THE B EST OF B OTH?
+      Outline
+
+          • Motivation
+          • TrialGPT Dataset and Prior Work
+          • SMT Approach
+          • SMT-Based Matching Algorithm
+          • Preliminary Results
+
+
+
+
+LAM                                           STANFORD
+      Clinical Trail Matching using SMT
+        Patient Record p (NL)        Clinical trial t (NL)
+                                                              NL: Natural language
+                                                              SMT: Satisfiability Modulo Theory
+                                                              PL: Propositional Logic
+           NL→SMT Parser        ①     NL→SMT Parser
+
+
+        Patient Record pSMT          Clinical trial tSMT     ④ Matching
+
+
+        SMT → PL Projection     ②   SMT → PL Projection
+
+
+         Patient Record pPL           Clinical trial tPL     ③ Retrieval
+
+
+                        pSMT ⊨ pPL
+                         tSMT ⊨ tPL
+                 pSMT ∧ tSMT ⊨ pPL ∧ tPL
+LAM                                                                                           STANFORD
+ A LGORITHM
+
+
+1. NL → SMT
+      Challenge 1: Canonicalization
+
+          Theorem provers operate on variables – they have no meaning
+          • Same concepts must be represented by the same variables
+                                            Patient p       Trial t   p ∧ t
+                     English         Has dizzy spells   Has syncope    SAT
+           Example
+                     Semantic parse Has-dizzy-spell     Has-syncope   UNSAT
+                     Canonicalized   Has-syncope        Has-syncope    SAT
+
+
+
+             Canonicalization is complex! So many clinical terms!
+
+             Standardization in medicine are important → SNOMED
+
+LAM                                                                           STANFORD
+      SNOMED
+      Systematized Nomenclature of Medicine – Clinical Terms
+
+
+
+
+        US Edition of SNOMED
+        • 300,000 unique concepts
+        • Over 1,000,000 descriptions
+        • 903,000 links or semantic relationships between concepts.
+
+LAM                                                                   STANFORD
+      SNOMED Example
+      •   Top-level classes: Clinical Findings, Procedures, Observable Entities, Substances…
+
+
+
+
+LAM                                                                                            STANFORD
+      Canonicalization Algorithm
+
+          • Problem: NER (Named entity recognizer)
+            • Turn the informal English to the closest term in SNOMED
+
+
+          • Challenges and solutions:
+            • Many similar terms in SNOMED → Dense retrieval
+            • Find the most precise entity in SNOMED →
+              Retrieve, rerank, ensure equivalence, pick the most precise
+
+
+
+LAM                                                                         STANFORD
+      How to Canonicalize?
+                                         Candidates          Reranking          Top Candidate = Entity?
+      "To be included, the patient     1. High systolic
+      must have isolated systolic         arterial pressure
+      high blood pressure”             2. Systolic                     Systolic
+                                          Hypertension                 Hypertension           NOT SAME
+                   Entity Span         3. Systolic essential
+                   Identification         hypertension
+
+ Entities
+                                      1. Systolic essential
+“isolated systolic                       hypertension
+ high blood pressure”                 2. Systolic                   Systolic
+                                         Hypertension               Hypertension             SAME
+“systolic high blood pressure”
+                                      3. High systolic
+“high blood pressure”                    arterial pressure
+                                                                                          Which is more   Systolic
+                                                                                          specific?       Hypertension
+                                     1. Hypertension
+                 Dense retrieval     2. Primary
+                                                                   Hypertension              SAME
+                 in SNOMED              hypertension
+                                     3. Raised blood
+                                        pressure
+LAM                                                                                                            STANFORD
+      Challenge 2: Relationships Between Terms
+                                               Patient p              Trial t    p ∧ t
+                         Canonicalized   Has-acute-chest-pain   Has-chest-pain   UNSAT
+            Example
+                         With            Has-acute-chest-pain
+                                                                Has-chest-pain    SAT
+                         implications    (Has-chest-pain)
+
+        •   SNOMED includes implication relations between terms:
+                     ∃ an edge (x,y) if y ⟹ x
+
+                Has-chest-pain
+                                               Has-acute-chest-pain ⟹ Has-chest-pain
+                                                    ¬ Has-chest-pain ⟹ ¬ Has-acute-chest-pain
+            Has-acute-chest-pain
+
+        •    Codifying the patient
+            •   If patient has x, includes ancestors of x
+            •   If patient has ¬ x, includes the ¬ of all descendants of x
+LAM                                                                                             STANFORD
+      Challenge 3: How to Handle Missing Information?
+            • Properties that can be satisfied (can be ignored)
+                                    Patient p        Trial t       p ∧ t
+       Example
+                  Semantic parse                Has-a-chest-Xray    SAT
+
+
+                 • Use LLM for classification
+
+
+            • Required properties, Expected to be reported: Default to “False”
+                                    Patient p        Trial t       p ∧ t
+      Example
+                  Semantic parse                Has-chest-pain     UNSAT
+
+
+
+
+LAM                                                                          STANFORD
+ A LGORITHM
+
+
+1. NL → SMT
+2. SMT → PL
+S M T IS M ORE E XPRESSIV E THAN P L
+      Example:
+      At least three of the following disorders: A, B, C, D, E, F, G
+
+               SMT                                       PL
+ (assert (>= (+                    (A∧B∧C) ∨ (A∧B∧D) ∨ (A∧B∧E) ∨ (A∧B∧F)
+            (ite A 1 0)            ∨ (A∧B∧G) ∨(A∧C∧D) ∨ (A∧C∧E) ∨ (A∧C∧F)
+            (ite B 1 0)            ∨ (A∧C∧G) ∨(A∧D∧E) ∨ (A∧D∧F) ∨ (A∧D∧G)
+            (ite C 1 0)            ∨ (A∧E∧F) ∨(A∧E∧G) ∨ (A∧F∧G) ∨ (B∧C∧D)
+            (ite D 1 0)            ∨ (B∧C∧E) ∨(B∧C∧F) ∨ (B∧C∧G) ∨ (B∧D∧E)
+            (ite E 1 0)            ∨ (B∧D∧F) ∨(B∧D∧G) ∨ (B∧E∧F) ∨ (B∧E∧G)
+            (ite F 1 0)            ∨ (B∧F∧G) ∨(C∧D∧E) ∨ (C∧D∧F) ∨ (C∧D∧G)
+            (ite G 1 0))           ∨ (C∧E∧F) ∨(C∧E∧G) ∨ (C∧F∧G) ∨ (D∧E∧F)
+        3))                        ∨ (D∧E∧G) ∨(D∧F∧G) ∨ (E∧F∧G)
+       Ite: If This Then
+
+                            SMT is direct and succinct
+LAM                                                                    STANFORD
+      Example:
+      At least two procedures within 30 days before index day
+                                    SMT                                                 PL
+      ; Uninterpreted sort of procedure events for a single patient
+      (declare-sort Proc 0)
+
+      ; Attributes
+      (declare-fun kind (Proc) String)
+      (declare-fun day (Proc) Int)     ; measured in days
+      (declare-const index_day Int)                                             Cannot be expressed!
+      ; The target procedure type e.g., percutaneous coronary intervention
+      (define-fun is_target ((p Proc)) Bool (= (kind p) "PCI"))
+
+      ; "At least two distinct target procedures in [index-30, index]"
+      (assert (exists ((p1 Proc) (p2 Proc))
+        (and (distinct p1 p2)
+             (is_target p1) (is_target p2)
+             (<= 0 (- index_day (day p1))) (<= (- index_day (day p1)) 30)
+             (<= 0 (- index_day (day p2))) (<= (- index_day (day p2)) 30)))))
+
+      (check-sat)
+
+
+LAM                                                                                              STANFORD
+      SMT → PL
+
+         • Goal of translation from SMT → PL:
+
+           • tPL represents the tightest constraints of tSMT expressible in PL
+           • Remove constraints not satisfiable in PL
+
+
+         • Many constraints include non-canonical variables
+           • Can we project away the non-canonical variables and
+             retain the rest of the constraints?
+           • Use Z3 Quantifier Elimination to handle the projection accurately
+
+
+              Z3 theorem prover, Microsoft, https://github.com/Z3Prover/z3
+LAM                                                                              STANFORD
+      Example of Projection SMT → PL
+      -- removing non-canonical variables
+        (assert (or has_diagnosis_of_squamous_cell_carcinoma_of_esophagus
+                    (and has_diagnosis_of_adenocarcinoma_of_esophagus
+        eligible_for_potentially_curative_radiotherapy)))
+
+
+
+
+                                                 ⊨             Canonical variables are marked in bold,
+                                                               other variables are projected away
+
+
+        (assert (or has_diagnosis_of_squamous_cell_carcinoma_of_esophagus
+        has_diagnosis_of_adenocarcinoma_of_esophagus))
+
+
+
+
+LAM                                                                                               STANFORD
+      Examples of Projection
+        (assert (or has_diagnosis_of_squamous_cell_carcinoma_of_esophagus
+                    has_diagnosis_of_adenocarcinoma_of_esophagus
+        eligible_for_potentially_curative_radiotherapy))
+
+
+
+
+                                                 ⊨             Canonical variables are marked in bold,
+                                                               other variables are projected away
+
+
+
+
+                                           NOTHING!
+
+LAM                                                                                               STANFORD
+    A LGORITHM
+
+
+  1. NL → SMT
+  2. SMT → PL
+3 . R ETRIEVAL ( P L )
+      Retrieve Potential Trials from Corpus
+
+          1. Represent large sets of PL constraints in DB
+
+
+          2. Evaluate satisfaction as a DB queries
+
+
+
+
+LAM                                                         STANFORD
+      Constraints in a Trial
+
+          • All PL formulas can be expressed in Conjunctive Normal Form
+          • Example of a constraint
+
+              (has_bipolar OR has_depression OR has_schizo)
+          AND (NOT has_undergone_PCI)                                Conjunctive (∧)
+          AND ((NOT is_smoking) OR (NOT is_drinking))
+
+                              Disjunctive (∨)
+
+
+             Variables: has_bipolar, has_depression, has_schizo,
+                        has_undergone_PCI, is_smoking, is_drinking
+
+
+
+LAM                                                                                    STANFORD
+      Representing PL formulas in DB: Example
+            (has_bipolar OR has_depression OR has_schizo)     a1
+  c1    AND (NOT has_undergone_PCI)                           a2
+        AND ((NOT is_smoking) OR (NOT is_drinking))           a3
+
+
+         C        ∧            ∧         ∨              ∨          Variables        Is Pos
+        c1   a1           a1        o1             o1       has_bipolar         1
+        c1   a2           a1        o2             o2       has_depression      1
+        c1   a3           a1        o3             o3       has_schizo          1
+        c2   …
+                          a2        o4             o4       has_undergone_PCI   0
+        c2   …
+                          a3        o5             o5       is_smoking          0
+        c3   …            a3        o6             o6       is_drinking         0
+
+
+        Constraints            ∧ (and)                             ∨ (or)
+LAM                                                                                     STANFORD
+      Matching Patient 1
+                                      (has_bipolar OR has_depression OR has_schizo)
+                                  AND (NOT has_undergone_PCI)
+ has_bipolar AND has_depression   AND ((NOT is_smoking) OR (NOT is_drinking))
+
+  pid         Variable    Val      ∨          Variable     Is Pos    ∧    ∨      C     ∧
+ 123    has_bipolar       1       o1   has_bipolar         1        a1   o1     c1    a1
+ 123    has_depression    1       o2   has_depression      1        a1   o2     c1    a2
+
+ 123    has_schizo        0       o3   has_schizo          1        a1   o3     c1    a3
+
+ 123    has_undergone_PCI 0       o4   has_undergone_PCI   0        a2   o4
+ 123    is_smoking        0       o5   is_smoking          0        a3   o5
+ 123    Is_drinking       0       o6   is_drinking         0        a3   o6
+
+
+  Patient Fact Table                         ∨ (or)                 ∧ (and)    Constraints
+
+
+LAM                                                                                    STANFORD
+      Matching Patient 1
+                                      (has_bipolar OR has_depression OR has_schizo)
+                                  AND (NOT has_undergone_PCI)
+ has_bipolar AND has_depression   AND ((NOT is_smoking) OR (NOT is_drinking))
+
+  pid         Variable    Val      ∨          Variable     Is Pos    ∧    ∨      C     ∧
+ 123    has_bipolar       1       o1   has_bipolar         1        a1   o1     c1    a1
+ 123    has_depression    1       o2   has_depression      1        a1   o2     c1    a2
+
+ 123    has_schizo        0       o3   has_schizo          1        a1   o3     c1    a3
+
+ 123    has_undergone_PCI 0       o4   has_undergone_PCI   0        a2   o4
+ 123    is_smoking        0       o5   is_smoking          0        a3   o5
+ 123    Is_drinking       0       o6   is_drinking         0        a3   o6
+
+
+  Patient Fact Table                         ∨ (or)                 ∧ (and)    Constraints
+
+                              Eval v
+LAM                                                                                    STANFORD
+      Matching Patient 1
+                                      (has_bipolar OR has_depression OR has_schizo)
+                                  AND (NOT has_undergone_PCI)
+ has_bipolar AND has_depression   AND ((NOT is_smoking) OR (NOT is_drinking))
+
+ pid     ∨          Variable      Is_pos ∨-Eval                      ∧    ∨      C     ∧
+ 123    o1    has_bipolar         1      1                         a1    o1     c1    a1
+ 123    o2    has_depression      1      1                         a1    o2     c1    a2
+
+ 123    o3    has_schizo          1      0                         a1    o3     c1    a3
+
+ 123    o4    has_undergone_PCI   0      1                         a2    o4
+ 123    o5    is_smoking          0      1                         a3    o5
+ 123    o6    is_drinking         0      1                         a3    o6
+
+                                                                   ∧ (and)     Constraints
+             ∨-Evaluated
+
+LAM
+                                             Eval ∧                                    STANFORD
+      Matching Patient 1
+                                      (has_bipolar OR has_depression OR has_schizo)
+                                  AND (NOT has_undergone_PCI)
+ has_bipolar AND has_depression   AND ((NOT is_smoking) OR (NOT is_drinking))
+
+
+          ∧    ∧_eval                       C    ∧
+          a1   1                          c1    a1
+                                                             C   C_eval
+          a2   1                          c1    a2
+                                                             C1 1                 SAT!
+          a3   1                          c1    a3
+
+
+
+      ∧ (and) Evaluated                 Constraints
+
+                         Eval Constraints
+
+LAM                                                                                   STANFORD
+      Matching Patient 2
+                                     (has_bipolar OR has_depression OR has_schizo)
+  has_schizo AND is_smoking      AND (NOT has_undergone_PCI)
+             AND is_drinking     AND ((NOT is_smoking) OR (NOT is_drinking))
+
+  pid         Variable     val    ∨          Variable     Is Pos    ∧    ∨      C     ∧
+ 123    has_bipolar        0     o1   has_bipolar         1        a1   o1     c1    a1
+ 123    has_depression     0     o2   has_depression      1        a1   o2     c1    a2
+
+ 123    has_schizo         1     o3   has_schizo          1        a1   o3     c1    a3
+
+ 123    has_undergone_PCI 0      o4   has_undergone_PCI   0        a2   o4
+ 123    is_smoking         1     o5   is_smoking          0        a3   o5
+ 123    Is_drinking        1     o6   is_drinking         0        a3   o6
+
+
+  Patient Fact Table                        ∨ (or)                 ∧ (and)    Constraints
+
+
+LAM                                                                                   STANFORD
+      Matching Patient 2
+                                       (has_bipolar OR has_depression OR has_schizo)
+  has_schizo AND is_smoking        AND (NOT has_undergone_PCI)
+             AND is_drinking       AND ((NOT is_smoking) OR (NOT is_drinking))
+
+  pid         Variable     val      ∨          Variable     Is Pos    ∧    ∨      C     ∧
+ 123    has_bipolar        0       o1   has_bipolar         1        a1   o1     c1    a1
+ 123    has_depression     0       o2   has_depression      1        a1   o2     c1    a2
+
+ 123    has_schizo         1       o3   has_schizo          1        a1   o3     c1    a3
+
+ 123    has_undergone_PCI 0        o4   has_undergone_PCI   0        a2   o4
+ 123    is_smoking         1       o5   is_smoking          0        a3   o5
+ 123    Is_drinking        1       o6   is_drinking         0        a3   o6
+
+
+  Patient Fact Table                          ∨ (or)                 ∧ (and)    Constraints
+
+                               Eval v
+LAM                                                                                     STANFORD
+      Matching Patient 2
+                                      (has_bipolar OR has_depression OR has_schizo)
+  has_schizo AND is_smoking       AND (NOT has_undergone_PCI)
+             AND is_drinking
+                                  AND ((NOT is_smoking) OR (NOT is_drinking))
+ pid      ∨         Variable      Is_pos ∨-Eval                ∧    ∨    C    ∧
+ 123    o1    has_bipolar         1      0                    a1   o1   c1   a1
+ 123    o2    has_depression      1      0                    a1   o2   c1   a2
+
+ 123    o3    has_schizo          1      1                    a1   o3   c1   a3
+
+ 123    o4    has_undergone_PCI   0      1                    a2   o4
+ 123    o5    is_smoking          0      0                    a3   o5
+ 123    o6    is_drinking         0      0                    a3   o6
+
+                                                             ∧ (and)    Constraints
+              ∨-Evaluated
+
+LAM
+                                             Eval ∧                           STANFORD
+      Matching Patient (unsat)
+                                     (has_bipolar OR has_depression OR has_schizo)
+  has_schizo AND is_smoking      AND (NOT has_undergone_PCI)
+             AND is_drinking
+                                 AND ((NOT is_smoking) OR (NOT is_drinking))
+
+          ∧    ∧_eval                        C    ∧
+          a1   1                         c1      a1
+                                                       C   C_eval
+          a2   1                         c1      a2
+                                                       C1 0            UNSAT!
+          a3   0                         c1      a3
+
+
+
+      ∧ (and) Evaluated                Constraints
+
+                          Eval Constraints
+
+LAM                                                                         STANFORD
+      Speed and Accuracy of Retrieval
+
+         • The above example shows that
+           • A few DB calls can match 1 patient with 1 constraint
+           • The procedure handles all constraints in all trials
+           • Adding one more level of eval handles eligibility of all trials
+
+
+         • Very fast and efficient
+
+
+
+
+LAM                                                                            STANFORD
+      Relevance
+                                          Eligibility?
+                                                             A study on the effect of
+          A patient with 4-stage cancer
+                                                         sleep quality on people’s mood
+                                            SAT!
+         • Eligibility is inadequate
+           • Patients seeking clinical trials have a medical concern
+         • Solution: Add a relevance filter to retrieval
+
+
+               Trial: Disease list &      LLM Extraction         Relevance Filter
+              Inclusion Constraints                                   in PL
+
+
+
+LAM                                                                                       STANFORD
+     A LGORITHM
+
+
+   1. NL → SMT
+   2. SMT → PL
+ 3 . R ETRIEVAL ( P L)
+4 . M ATCHING ( S M T )
+      Trial Matching as a Satisfiability Problem
+
+          • Given
+             (A) Trial Requirements in SMT
+             (B) Patient Fact Value Assertions in SMT
+
+
+          • There is a match if and only if (A) + (B) is satisfiable
+          • Use SMT Solver (Z3)
+
+
+
+                Z3 theorem prover, Microsoft, https://github.com/Z3Prover/z3
+
+LAM                                                                            STANFORD
+      Matching with SMT
+
+                    (assert (or has_cough has_fever))
+        Trial Req   (assert (>= age 18))
+        (SMT)
+                    (assert (not is_pregnant))
+
+
+                                                                     SAT!
+                    (assert (= age 67)
+        Patient
+        Fact        (assert has_cough)                  SMT Solver
+        (SMT)       (assert (not is_pregnant))
+
+
+LAM                                                                         STANFORD
+      Matching with SMT (Using Z3)
+
+              (assert (or has_cough has_fever))
+  Trial Req   (assert (>= age 18))
+  (SMT)
+              (assert (not is_pregnant))
+
+
+                                                               UNSAT
+              (assert (= age 67)
+  Patient
+              (assert (not has_cough)             SMT Solver
+  Fact
+  (SMT)       (assert (not has_fever)
+              (assert (not is_pregnant))
+
+LAM                                                                STANFORD
+      Outline
+
+          • Motivation
+          • TrialGPT Dataset and Prior Work
+          • SMT Approach
+          • SMT-Based Matching Algorithm
+          • Preliminary Results
+
+
+
+
+LAM                                           STANFORD
+      Experiment: Based on TrialGPT
+
+          • Definition
+            • Eligible trials:
+              Patient satisfies all constraints, with diseases targeted by trials
+            • Relevant trials: Trials address the patient’s major disease
+            • Potential trials: Trials for similar diseases
+          • Experiment setup
+            • Number of trials: 3621
+            • Represented in SMT and PL
+
+
+
+LAM                                                                                 STANFORD
+      Very Preliminary Results on Retrieval
+          • On 8 patients:
+            • Relevant and not excluded explicitly: 105 (average)
+            • Our Recall: 100%
+              (Checked the disagreement with gold by hand)
+          • For 4 out of the 8 patients (Based on sampling 10%)
+            • The gold is full of errors! Checked by hand
+            • Our Precision: 89%
+            • Use TrialGPT to retrieve the same number of trials
+              • Their Precision: 56%
+
+
+         Speed: 2.95s per patient against 3621 trials (M2 MacBook, SQLite)
+LAM                                                                          STANFORD
+      Conclusions
+         • SMT: A new approach to large-scale hard reasoning tasks
+           • Important application: clinical trials matching
+         • PL DB: Retrieval with 100% recall and high precision
+         • LLMs encodes the logic of the constraints ONCE and FOR ALL
+           • Interpretable!
+           • Requires canonicalization: SNOMED
+         Future research
+         • Can we apply to other domains? Use of SMTs requires canonicalization
+           • Medicine has SNOMED
+           • Can we use AI to canonicalize other fields?
+         • Can we improve LLMs reasoning skills?
+           • By fine-tuning LLMs to learn the formal representation?
+LAM                                                                           STANFORD
+

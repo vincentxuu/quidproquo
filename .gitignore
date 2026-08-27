@@ -47,3 +47,7 @@ pnpm-debug.log*
 # CS230 transcript scrapes (regenerable intermediates, not version-controlled)
 .work/cs230-notes/raw/
 .work/cs230-notes/txt/
+
+# embedded clone used only as a local reading source
+.work/stanford-cs221-notes/source/
+.work/lecture20-read/nist.html

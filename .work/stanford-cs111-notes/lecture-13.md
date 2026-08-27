@@ -1,0 +1,55 @@
+# Lecture 13: Virtual Memory
+
+- Date: 2026-04-27
+- Instructor: Mendel Rosenblum
+- PDF: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/13/Lecture13.pdf
+- Calendar: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar
+- Material gap: Canvas recording unavailable; notes derive from the public PDF.
+- Editorial focus: address spaces, relocation, base-and-bound, and protection
+
+## Extracted agenda cues
+
+- Virtual Memory
+- ●   Previously:
+- ○ A single core shared by several concurrent threads
+- ●   Starting Today:
+- ○ A single memory shared by several concurrent processes
+- ○ Virtualize the memory
+- Take historical view: start with the earliest computers and show evolution
+- Explain why
+- Single-tasking: Early batch monitors
+- Operating               ● Early PCs (MS-DOS) used this as well
+- System
+- ● Limitations:
+- Stack                    ○ Programs can't share memory
+- ○ Bad programs can trash OS/machine
+- Goals of Memory Sharing
+- ●   Multitasking
+- ○ Sharing means multiple processes to be memory-resident at once
+- ●   Transparency
+- ○ Processes shouldn't be aware of the sharing (each process gets own memory)
+- ●   Isolation
+- ○ Processes mustn't be able to corrupt each other or the OS
+- ●   Efficiency
+- ○ CPU and memory efficiency shouldn't be degraded badly by sharing
+- Single-tasking evaluation
+- Goals:
+- ●   Multitasking:   No
+- ●   Transparency: No
+- ●   Isolation:      No
+- ●   Efficiency:     Yes
+- Early sharing approach: Load-Time Relocation
+- Operating
+- ●     Have loader relocate program when loading
+- System                  ○     Loader runs like linker to update addresses
+- ○     Each process gets distinct memory region
+- Load-time relocation limitations: static size, no isolation/movement, fragmentation
+- Dynamic address translation and virtual versus physical address spaces
+- Base and bound registers; parallel add and bound comparison
+- Worked CALL/RETURN example with base 6000 and virtual return address 66
+- Atomic process/OS transitions through PSR bits and interrupt vectors
+- Base/bound scorecard and one-contiguous-region disadvantages
+- Segmentation map with per-segment base, bound, and protection
+- Segment selection by address bits or instruction semantics
+- Independent growth/swap/movement and shared code advantages
+- Fixed segment count, variable-length fragmentation, and rigid division disadvantages

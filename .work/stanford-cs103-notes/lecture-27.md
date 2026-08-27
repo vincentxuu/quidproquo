@@ -1,0 +1,21 @@
+# Official Lecture 27: Wrap-Up
+
+- Date: 2026-06-01
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/27/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/27/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 這講的角色與當期公告
+  - [x] 發現史不等於教學順序
+  - [x] 集合、邏輯、函數與 proof language
+  - [x] graphs 與 induction
+  - [x] formal languages 與 automata
+  - [x] computation 的能力與極限
+  - [x] deck 的跨課程連結（一）
+  - [x] deck 的跨課程連結（二）
+  - [x] 最直接的四個後續方向
+  - [x] 更廣的 theory/application 地圖
+  - [x] 用概念圖驗收全課
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

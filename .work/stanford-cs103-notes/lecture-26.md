@@ -1,0 +1,25 @@
+# Official Lecture 26: Complexity Theory
+
+- Date: 2026-05-29
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/26/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/26/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck after rotating/OCRing all pages):
+  - [x] decidable 不等於 feasible
+  - [x] efficiency 要先選 resource
+  - [x] finite search 在兩種理論中的落差
+  - [x] LIS：從枚舉到 patience sorting
+  - [x] shortest path：排列枚舉與 BFS
+  - [x] polynomial 與 exponential 的分界
+  - [x] Cobham–Edmonds Thesis
+  - [x] class P
+  - [x] 大 search space 與短 witness
+  - [x] polynomial-time verifier 的兩個界線
+  - [x] class NP 與 NP ⊆ R
+  - [x] 為何 P ⊆ NP
+  - [x] P versus NP 的精確問題與影響
+  - [x] 為何 undecidability 技巧不能直接搬來
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

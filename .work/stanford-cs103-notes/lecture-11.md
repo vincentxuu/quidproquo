@@ -1,0 +1,25 @@
+# Official Lecture 11: Graphs, Part III
+
+- Date: 2026-04-24
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/11/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/11/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] adjacency 與 reachability 複習
+  - [x] 普通鴿籠原理
+  - [x] 廣義鴿籠原理的 ceiling／floor bounds
+  - [x] 六人 friends-and-strangers 問題
+  - [x] `K₆` 與單色 `K₃` 的圖論重述
+  - [x] 固定節點五條邊的廣義鴿籠建模
+  - [x] without loss of generality 的顏色對稱
+  - [x] 紅／藍單色三角形完整 case split
+  - [x] Ramsey theory 與 `R(3) ≤ 6` 的邊界
+  - [x] Game of Sim 的無和局推論
+  - [x] 高於平均 iff 低於平均的 load theorem
+  - [x] 平均負載 lemma 的 `m < m` 反證
+  - [x] 電影偏好 puzzle 的 balls-and-bins 模型
+  - [x] 每人恰好喜歡三部與 `|C ∪ P| = n`
+  - [x] 延伸定理 sampler 與後續課程方向
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

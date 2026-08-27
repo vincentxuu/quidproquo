@@ -1,0 +1,21 @@
+# Official Lecture 23: Unsolvable Problems, Part I
+
+- Date: 2026-05-22
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/23/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/23/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 從 R、RE 與 UTM 接回來
+  - [x] self-reference 回顧的三個程式
+  - [x] self-defeating object 的結構
+  - [x] fortune teller 如何被自己的答案困住
+  - [x] infinite loop 是事故還是計算的本質
+  - [x] 假想 ATM decider 的完整 contract
+  - [x] 為何這個簡單介面包進數學難題
+  - [x] 把 fortune teller 翻成 trickster program
+  - [x] 定理：ATM 不可判定
+  - [x] 三個容易漏掉的 proof obligations
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

@@ -1,0 +1,24 @@
+# Official Lecture 21: Turing Machines, Part II
+
+- Date: 2026-05-18
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/21/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/21/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] sample TM：從最後一格回看第一格
+  - [x] TM 能做的工作遠超逐格配對
+  - [x] idealized computer 與互相模擬
+  - [x] data type 不增加基本 computability
+  - [x] Church–Turing Thesis 不是數學定理
+  - [x] Hailstone sequence 暴露第三種執行結果
+  - [x] accept、reject、loop、halt 的集合關係
+  - [x] recognizer 與 recognizable language
+  - [x] sums of three cubes：enumeration 是半判定
+  - [x] decider 與 decidable language
+  - [x] sums of three squares：finite search 可決定
+  - [x] R ⊆ RE 與尚未回答的問題
+  - [x] 常見量詞與語意錯誤
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

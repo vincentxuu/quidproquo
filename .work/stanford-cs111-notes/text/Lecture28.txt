@@ -1,0 +1,134 @@
+Course Review
+
+ Mendel Rosenblum
+
+
+
+   CS111 Lecture Notes - Course Review
+Major class topics
+●   Concurrency management
+
+●   Memory management
+
+●   Storage management
+
+
+
+
+                         CS111 Lecture Notes - Course Review
+Concurrency management
+●   Processes and threads
+     ○   Creating, dispatching
+
+●   Synchronization
+     ○   Races conditions and inconsistency
+     ○   Locks, condition variables, monitors
+     ○   Lock implementation
+
+●   CPU Scheduling
+     ○   Time slices; Round Robin; Priorities
+
+●   Deadlock
+     ○   Conditions: limited access; no preemption; multiple independent requests; circular wait
+     ○   Detection and Prevention
+
+                                    CS111 Lecture Notes - Course Review
+Memory management
+●   Linking (static and dynamic)
+●   Dynamic memory allocation
+     ○   Stack and heap
+     ○   Dangling pointers and memory leaks
+
+●   Static relocation and dynamic relocation
+     ○   Base and bound, segmentation, paging
+
+--- Midterm Exam Cutoff
+
+
+
+
+                                  CS111 Lecture Notes - Course Review
+Memory management
+
+●   x86-64 page tables
+●   Translation Lookaside Buffers (TLBs)
+●   Operating System and address spaces
+●   Fragmentation
+●   Demand paging
+     ○   Demand fetching
+     ○   Prefetching
+     ○   Replacement policy: Random, FIFO, MIN, LRU, Clock, Global vs local
+
+●   Thrashing
+                                  CS111 Lecture Notes - Course Review
+Storage management
+●   Disks
+     ○   Mechanism, operations, interrupts, programmed I/O, DMA
+
+●   Files
+     ○   Access: sequential, randomed, keyed
+     ○   Inodes
+     ○   Block layout: contiguous, linked, multi-level indexes, FAT, Unix
+     ○   Block size tradeoffs
+
+●   Free space management
+     ○   Linked list
+     ○   Bitmaps
+
+
+
+                                     CS111 Lecture Notes - Course Review
+Storage management
+●   Buffer cache
+     ○   Delayed writes
+
+●   Disk scheduling
+     ○   FIFO, Shortest positioning time first, CSCAN
+
+●   Directories - Naming
+     ○   Hard links; Symbolic Links
+
+●   Crash recovery
+     ○   fsck
+     ○   Ordered writes
+     ○   Write-ahead logging
+
+●   Flash memory
+     ○   FTL                          CS111 Lecture Notes - Course Review
+Major ideas to take away
+●   Virtualization: make one thing look like something else, or many of them
+     ○   CPU: Threads
+     ○   Storage: Files
+     ○   Main memory: Address spaces
+
+●   Managing concurrency - synchronization is hard!
+●   Atomic operations: a collection of operations appear as a single indivisible op
+     ○   Synchronization, file system consistency
+
+●   Locality: the past often predicts the future
+     ○   Scheduling, TLBs, paging, file caches, etc.
+
+●   Layering: build higher-level abstractions to hide messy details
+     ○   Solving hard problems so other people have a better world in which to work
+                                    CS111 Lecture Notes - Course Review
+What to try next?
+If you enjoyed this, try:
+
+●    CS 112: Operating systems kernel implementation project
+●    CS 140E: Operating systems design and implementation
+●    CS 240: Advanced Topics in Operating Systems
+●    CS 143: Compilers
+●    CS 145: Databases - Intro to Big Data Systems
+●    CS 144: Introduction to Computer Networking
+●    CS 244C: Advanced Networking and Distributed Systems
+
+
+
+                             CS111 Lecture Notes - Course Review
+Thanks
+
+
+
+
+         CS111 Lecture Notes - Course Review
+

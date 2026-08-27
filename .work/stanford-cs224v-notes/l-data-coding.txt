@@ -1,0 +1,979 @@
+                                         Stanford CS224v Course
+                             Conversational Virtual Assistants with Deep Learning
+
+
+
+                                                       Lecture 9
+
+                              Research on Document Sets:
+                                  Qualitative Coding
+
+                                             Monica Lam & Sina Semnani
+
+
+Event Detection from Social Media for Epidemic Prediction, Parekh et al, NAACL 2024
+Multilingual Abstractive Event Extraction for the Real World
+Sina J. Semnani, Pingyue Zhang, Wanyue Zhai, Haozhuo Li, Ryan Beauchamp, Trey Billing, Katayoun Kishi, Manling Li,
+                                                                                                                     1
+Monica S. Lam. In Findings of ACL, July 2025
+      From Question Answering to Research
+
+         • Answering questions from a set of long documents
+           • Extract the schema for one or more questions
+
+
+         • Research over a huge document set
+           • We do not know the questions ahead of time
+             • Answers to questions lead to subsequent questions
+             • Re-extract information with each question is too costly
+
+
+
+LAM                                                                      STANFORD
+      Research on Real-World Qualitative Data
+         • Topics
+           • Academic: Psychology, sociology, education, health services
+           • Commercial: Market research, feedback, user experience, company
+              culture, business optimizations, …
+         • Purpose
+           • To identify, categorize information
+           • To discover insights (significant data, relationships, trends, patterns, …)
+         • Kinds of Data
+           • Human opinions: Feedbacks, interviews, …
+           • Documents: Applications, notes, events, portfolios, …
+           • Logs: Medical records, journals, meeting notes, logs, …
+
+
+LAM                                                                                 STANFORD
+A T RI ED AND T RUE M ETHODOLOGY
+       A CROSS M ANY F IELDS
+
+
+       Q UALITATIVE C ODING
+
+
+
+( S TRUC TUR ING Q U ALITA TIVE D ATA )
+      Qualitative Coding
+
+
+
+
+                                 Qualitative Coding                   Codebook
+                                                                 Describes a data collection
+                                   Structured Data                  • Structure
+          Analysis                                                  • Contents
+                                                                    • Layout
+                                        Queries
+
+          Outcome                      Outcome
+
+                             Codebook: aka schema
+                     Qualitative coding: aka information extraction
+LAM                                                                                   STANFORD
+      Codebook Design
+
+         • Inductive
+           • From the data up – useful for exploration
+
+
+         • Deductive
+           • From the model down – useful to test hypothesis
+
+
+         • Hybrid
+           • A combination of both
+
+
+LAM                                                            STANFORD
+      Codebook Examples
+              • Experts’ key concepts used to “evaluate and analyze” a doc
+              • Can be personal and subjective
+         Document Set                                  Codebook
+      News                 Source, event types, event parameters
+      Social Media         Source, ratings, reposts, event types, event parameters
+      Resumes              Name, address, education, employment, publications, products,
+      Paper Reviews        Topic area, originality, soundness, significance, theory, empirical
+      Research proposals   Relevance, soundness, potential impact, risk, team credentials
+                           Revenue, expenses, net income, earnings per share (EPS),
+      Earnings Reports
+                           balance sheet highlights, cash flow changes, …
+                                                                                                 Generated
+      Interviews           Participants' thoughts, emotions, experiences, and behaviors           by GPT-4
+                           Patient's health history, diagnoses, medications, treatment plans,
+      Medical Records
+                           immunization dates, allergies
+LAM                                                                                                   STANFORD
+                        L ECTURE G OAL
+             T WO R ESEA RC H S T UDI E S I N R E AL L I FE
+
+
+F OC US : Q UA LI TATIV E C OD IN G ( Q C ) F OR D ETEC TIN G E VENTS
+
+
+       1 . A CADE MIC A UTOMATIC Q C ( 2 0 2 0 — 2 0 2 4 )
+            F R OM T WEETS T O E PI DEM IC P R EDI C TI ON
+
+
+           2 . N ON - P RO FI T M AN UAL Q C ( 2 0 0 5 — )
+    A C L E D : A R MED C ON FL I CT L OC ATI ON & E VENT D ATA
+      NAACL 2024
+
+
+
+LAM                STANFORD
+      Early Disease Outbreak Detection
+
+                                                 20 million per day on COVID19
+                              Tweets             Symptoms, prevention, deaths
+                                                         In May 2020
+
+
+                    Event                       Can we detect future epidemics
+                  Detection                                early?
+
+
+          Estimate real-time number of cases
+           in early stages of a new outbreak.
+
+LAM                                                                         STANFORD
+      Event Ontology for Epidemic Preparedness
+
+
+
+
+LAM                                              STANFORD
+      Speed Dataset
+      Social Platform based Epidemic
+      Event Detection (Covid 19)
+          • 1,975 tweets
+          • 2,217 event mentions
+
+      Trigger Identification of Future Epidemics (F1)
+
+                           Monkeypox    Zika + Dengue
+  GPT-3 (Zero-shot)           42.23          53.22
+  BERTQA
+  RoBERTa-Large
+                              67.38          67.95
+  (355M parameters)
+  Trained with SPEED
+
+
+LAM                                                     STANFORD
+      Event detection →
+      Epidemic Warnings 4-9 Weeks Earlier (Monkeypox)
+                    Aug 14, 2024
+
+
+
+
+LAM                                                     STANFORD
+                        L ECTURE G OAL
+            T WO R ESE AR CH S TUDIE S IN R EA L L IFE
+
+
+F OCUS: Q UALITATIVE C ODING ( Q C ) FOR D ETECTING E VE NTS
+
+
+      1 . A CADE MIC A UTOMATIC Q C ( 2 0 2 0 — 2 0 2 4 )
+           F RO M T WEETS TO E PIDE MIC P RE DICTION
+
+
+          2 . N ON- P ROFIT M AN UA L Q C ( 2 0 0 5 — )
+   A C L E D : A R MED C ON FL I CT L OC ATI ON & E VENT D ATA
+     UN’s International Organization for Migration (IOM)
+                  Uses ACLED data to track
+      the movement and needs of displaced people
+                     in over 80 countries
+
+                                                              The US multi-agency
+                                                        Global Fragility Act Secretariat
+                                                                Uses ACLED data
+                                                 to promote stability across five priority countries.
+
+ Introducing ACLED: An Armed Conflict Location and Event Dataset, Raleigh et al, Journal of Peace Research 2010
+LAM                                                                                                               STANFORD
+      Analysis from ACLED data:
+         Violence Against Civilians in Ukraine
+
+
+
+
+LAM                                              STANFORD
+      Analysis from ACLED data:
+         Sexual Violence Around the Globe
+
+
+
+
+LAM                                         STANFORD
+   Analysis from ACLED data:
+      Tracking Political Demonstrations
+                         September 2024 review, published on October 4th
+
+
+
+
+ https://acleddata.com/2024/10/04/united-states-canada-overview-september-2024/, ACLED, Accessed 11/5/2024
+LAM                                                                                                          STANFORD
+   Analysis from ACLED data:
+      Tracking Political Demonstrations
+        ACLED reports that in September 2024:
+
+
+
+
+                                                                                   Anti-Trump
+                                                             Because               demonstrations rose in
+                                                                                   the United States after
+                                                                                   the September 10th
+                                                                                   presidential debate.
+
+
+
+
+ https://acleddata.com/2024/10/04/united-states-canada-overview-september-2024/, ACLED, Accessed 11/5/2024
+LAM                                                                                                          STANFORD
+   Analysis from ACLED data:
+      Tracking Political Demonstrations
+        ACLED reports on various radical groups:
+
+
+
+
+ https://acleddata.com/2024/10/04/united-states-canada-overview-september-2024/, ACLED, Accessed 11/5/2024
+LAM                                                                                                          STANFORD
+M A N U A L Q U A L I T A T I V E C O D IN G
+
+
+        S O U RC E S O F D A T A
+LAM   STANFORD
+   Scale Matters in the Real World
+
+               • The document set is massive
+                  • 150,000+ online news articles are published each day
+                  • Analysis can cover a long period of time
+               • Global Analysis means many languages
+               • ACLED for example, has covered:
+
+
+          2 Million               80+                        200+                           243
+           Events              Languages                  Researchers                Countries/territories
+
+
+ https://huggingface.co/datasets/stanford-oval/ccnews, Semnani, Accessed 11/5/2024
+LAM                                                                                                          STANFORD
+M A N U A L Q U A L I T A T I V E C O D IN G
+
+
+             C ODEBOOK
+           ( E VENT T YP ES )
+LAM   STANFORD
+LAM   STANFORD
+M A N U A L Q U A L I T A T I V E C O D IN G
+
+
+             C ODEBOOK
+       ( E VENT A RGUMENTS )
+#
+
+
+
+
+ 3
+
+ 6
+
+
+25
+
+
+LAM   STANFORD
+ #
+
+10K
+
+
+10K
+
+
+  8
+
+
+10K
+
+
+10K
+
+
+  8
+
+
+
+ 44
+
+
+LAM   STANFORD
+LAM   STANFORD
+LAM   STANFORD
+LAM   STANFORD
+      M A N U A L Q U A L I T A T I V E C O D IN G
+
+
+         C ORREC TN ES S IS C RITICAL
+
+
+              V ERY E LABORATE
+M A N U A L C O D IN G A N D R E V I E W P R O C E S S
+      How Does ACLED Ensure Correctness?
+
+
+
+
+LAM                                        STANFORD
+LAM   STANFORD
+      Summary: Challenges of ACLED Qualitative Coding
+
+                                                     Scale and diversity of sources
+                                                     2 M events
+                                                     Traditional/new media, reports, local partners
+                                                     243 Locales and 80+ languages
+
+
+
+      Complex, Detailed Codebook
+      31 Fields
+                                       Event                    High-Quality Coding with Reviews
+                                                                Long guidelines
+      25 Subevent types
+      10Ks of actors
+                                     Detection                  Multi-level reviews for uniformity
+
+
+
+
+                             Accurate Database for Making Policies
+
+            Quiz: Contrast the accuracies of ACLED vs Epidemic Prediction
+LAM                                                                                               STANFORD
+P RIOR E VE NT D E TE CTION W ORK
+      Event Detection – A Long-Studied Subject
+
+          • Started in 1970s
+          • Most widely used dataset is ACE, published in 2005
+          • Limits of technology → simplifying assumptions:
+            • Unit of analysis is sentence
+            • Extraction is done using keywords and rules
+              • Emphasis on words & spans (consecutive words in the text)
+                • Not semantics
+
+
+
+LAM                                                                         STANFORD
+      Limitations of Sentence/Span-Based Extraction
+      Example from ACE05
+                                                  EU foreign policy supremo Javier Solana
+        Span-based annotation                     likewise slammed the attack, although
+        – no global meaning                       he also took a jab at Israel, saying, "There
+                                                  have been too many civilians killed in
+        • “killed” is the event mention
+                                                  the last weeks and the last days."
+        • “civilians” is the event’s victim
+        • “the last weeks” and “the last days” are the event time
+
+        “Sentence” – not enough context
+        • Who are these civilians? (“Palestinians” from the previous sentence)
+        • When is last week?
+        • Who was the attacker?
+        • Where did it take place?
+LAM                                                                                       STANFORD
+      Extractive (Spans) vs. Abstractive (Meaning)
+                               Spans                              Entity List
+ Quiz: What is the
+                              workers •
+ advantage of                                                  • Labor Group
+ abstractive                musicians •
+                                                               • ILWU: International Longshore
+ linking?                        ILWU •                          and Warehouse Union
+                                CWA •                          • AFL-CIO: American Federation of Labor
+                   Teamsters Local 70 •                          and Congress of Industrial Organizations
+                              PMWG •                           • CWA: Communications Workers of
+               former workers at Tesla •                         America
+
+Past ILWU president Brian McWilliams •                         • IBT: International Brotherhood of
+                                                                 Teamsters
+                      Nadya Williams •
+                                                                 × (not in the database)
+
+          Entity          AFL-CIO is affiliated with CWA
+        Database          IBT has many local branches, including Teamsters Local 70, …
+LAM                                                                                                  STANFORD
+      Summary: Deficiencies/Fixes of Prior Work
+
+        • Unit of analysis: Increase accuracy
+                  Sentence → Article
+        • Extraction method: Increase accuracy
+                 Keywords and rules → Semantics
+        • Linking: easier analysis and comparison
+                 Span (extractive) → Given Entity/enum value (abstractive)
+
+
+
+
+LAM                                                                          STANFORD
+      In Findings of ACL, July 2025
+
+
+
+LAM                                   STANFORD
+      Research Questions on Automatic Qualitative Coding (AQC)
+
+
+        • ACLED is a major world-level effort
+          • Weekly effort by 200+ (part-time) world-wide researchers
+        1. Can AQC help ACLED to improve efficiency expand coverage?
+          • To other events, languages, countries
+          • Accurate ACLED data → High-quality dataset (LEMONADE)?
+                                → Evaluate AQC with fine-tuning on LEMONADE?
+        2. For new domains, can In-Context Learning eliminate
+           expensive training dataset annotation?
+          • Use high-quality dataset (LEMONADE) → Develop Zero-Shot AQC (Zest)
+                                                  → Evaluate in-context learning
+
+LAM                                                                                STANFORD
+                      P APE R C ON TRIB UTIO NS
+
+
+    D EF I N E T H E A BS TR AC T I VE E VE NT E XT R AC T I ON T AS K
+L EMONADE: A H IGH- Q UALITY R EAL- W ORLD E VE NT D ATASET
+          Z EST: Z ERO- S HOT Q UALITATIVE C ODING
+     E VALUATION ( F INE- TUNING VS. Z ERO S HOT L L M )
+      LLM Knowledge:
+      A sarpanch is the elected head of a
+      village-level local government body
+      called a Gram Panchayat in countries
+      like India, Bangladesh, and Pakistan.
+
+
+
+
+LAM                                           STANFORD
+LAM   STANFORD
+      Abstractive Event Extraction Task
+      Scope: full article
+      •   What events “happen”?
+                                                                          25 Event Types
+          •   E.g. a peaceful protest, riot, arrest
+                                                          Problem 1. Event detection (AED)
+
+      •   What are the non-entity arguments?
+                                                                         Event Arguments
+          •   Each event type has its own arguments
+              e.g. Peaceful Protest:                      Problem 2. (non-entity arguments)
+                   protesters, location, crowd size, …    Abstractive Event Argument Extraction
+
+      •   What are the entity arguments?
+                                                                           6,217 Entities
+          •   Actors: e.g. political parties, organized groups
+                                                            Problem 3. Abstractive Entity Linking (AEL)
+
+
+LAM                                                                                              STANFORD
+                       P APE R C ON TRIB UTIO NS
+
+
+     D EF I N E T H E A BS TR AC T I VE E VE NT E XT R AC T I ON T AS K
+L E MON ADE : A H I GH- Q UA LI TY R E AL - W OR LD E VE NT D ATA SET
+           Z EST: Z ERO- S HOT Q UALITATIVE C ODING
+      E VALUATION ( F INE- TUNING VS. Z ERO S HOT L L M )
+                                                       Large
+      LEMONADE                                         Expert-annotated
+                                                       Multilingual
+                                                       Ontology-Normalized
+                                                       Abstractive
+                                                       Dataset of
+      • A cleaned version of ACLED event data          Events
+
+        • Training: Events from January to March of 2024
+        • Validation/Test: Events from April 2024 to January 2025
+        • 39,686 events, 10,707 entities
+        • 171 countries/territories, 20 languages
+
+                        The best-annotated dataset
+                     excerpted from a real-life dataset
+                   with end-to-end abstract entity linking
+
+LAM                                                                          STANFORD
+           LEMONADE
+      Distribution by Language
+
+
+
+
+LAM                              STANFORD
+                      P APE R C ON TRIB UTIO NS
+
+
+    D EF I N E T H E A BS TR AC T I VE E VE NT E XT R AC T I ON T AS K
+L EMONADE: A H IGH- Q UALITY R EAL- W ORLD E VE NT D ATASET
+          Z EST: Z ERO - S HOT Q UA LITATIV E C OD IN G
+     E VALUATION ( F INE- TUNING VS. Z ERO S HOT L L M )
+      Challenges of ACLED Qualitative Coding
+
+                                                  Scale and diversity of sources
+                                                  2 M events
+                                                  Traditional/new media, reports, local partners
+                                                  243 Locales and 80+ languages
+
+
+
+ Complex, Detailed Codebook
+ 31 Fields
+                                    Event                    High-Quality Coding with Reviews
+                                                             Long guidelines
+ 25 Subevent types
+ Ks of actors
+                                  Detection                  Multi-level reviews for uniformity
+
+
+
+
+                              Database for Making Policies
+
+
+
+LAM                                                                                                STANFORD
+   Problem 1: Let’s Detect Event in this News Article
+
+       • From Indybay.org, a community news website
+       • 580 words
+
+
+          Tesla Fremont MLK Rally Protesting Racism, Union Busting
+
+          A rally on MLK Weekend was held at the massive Tesla Fremont
+          assembly plant where 20,000 work. The action was called to protest
+          the systemic racism and sexism by Elon Musk and his massive union
+          busting drive. They also supported the Swedish striking Tesla
+          mechanics who have been on strike for nearly 2 months.
+          …
+
+
+
+ https://www.indybay.org/newsitems/2024/01/15/18862100.php, Accessed 11/5/2024
+LAM                                                                              STANFORD
+      Event Types in the Codebook
+
+                Event Type                      Expert Description (summarized)
+           Peaceful Protest     Protestors do not engage in violence
+           Protest w/           Protestors are faced with a physical attempt to disperse or
+           Intervention         suppress without serious or lethal injuries
+
+           Excessive Force      Protestors are targeted with lethal violence or violence resulting
+           Against Protesters   in serious injuries
+           Violent
+                                Protestors engage in violence and/or destructive activity
+           Demonstration
+                                          [20 more event types]
+                                Chemical weapon is used in warfare, as listed as Schedule 1 of
+           Chemical Weapon
+                                the Chemical Weapons Convention of 1993
+
+
+LAM                                                                                            STANFORD
+      Abstractive Event-type Detection (AED): a Classification Task
+
+          • Formulate as a reranking problem of retrieved articles
+                                        Passages of
+                            Full Text   Event Types
+
+
+                                  LLM Reranker
+
+
+                                   Ranked List
+                              (based on relevance)
+                                  [1] > [2] > …
+
+LAM                                                                   STANFORD
+                                  # instruction
+
+      Event Detection             You are tasked with determining the best matching Event types for a given news article. You will be
+                                      provided with annotation guidelines and a news article to analyze. Your goal is to identify
+
+      Zero-Shot LLM                  the most relevant event types and rank them in order of their match to the article content.
+                                  # input
+      (Only 25 sub-event types)   Here is the news article you need to analyze:
+                                  {{ article }}
+                                  Now, carefully review the annotation guidelines for various event types:
+                                  {%
+                                  [{{ loop.index }}] "{{ ed[0] }}": {{ ed[1] }}
+                                  {%
+                                  1. For each event type, determine how well it matches the article content. Consider the following
+                                     factors:
+                                   - How closely the event description aligns with the main focus of the article
+                                   - The presence of key actors or entities mentioned in the event type description
+                                   - The occurrence of specific actions or outcomes associated with the event type
+                                  2. Rank the event types based on their relevance to the article content. Only include event types
+                                     that have a meaningful connection to the article.
+                                  3. Output your results using the following format:
+                                    - List the relevant event types in descending order of match quality
+                                    - Use the ">" symbol to separate the event types
+                                  Your output should look like this:
+                                  [Explain your reasoning for the event types you decide to include, and their order]
+                                  event_type_1 > event_type_2 > ...
+                                  Provide only the ranked list of event types in your final answer.
+LAM                                                                                                                        STANFORD
+    Beyond 20ish Passages: RankGPT
+
+
+
+                                                                                      Experiments in Sun et al.’s paper:
+
+                                                                                            Hyperparameters
+                                                                                       Window size = 20; Step size = 10
+
+
+
+                                                                                        (Included here FYI,
+                                                                                          not used in Zest)
+
+
+ Is ChatGPT Good at Search? Investigating Large Language Models as Re-Ranking Agents, Sun et al, EMNLP 2023
+LAM                                                                                                                  STANFORD
+      Problem 2. Abstractive Event Argument Extraction (AEAE)
+
+
+           • Now that we know the event type,
+             zoom in on the relevant part of the codebook
+                                            Protests
+             Event Argument                      Expert Description (summarized)
+           Protestors           List of protestor groups or individuals involved in the protest
+
+           Location             Where the event happened
+
+                                Estimated size of the crowd. It can be an exact number, a
+           Crowd Size
+                                range, or a qualitative description like 'small'.
+           Counter Protestors   Groups or entities engaged in counter protest, if any
+
+LAM                                                                                               STANFORD
+      Attempt 1: Abstractive Event Argument Extraction with LLMs
+
+         # instruction
+         Extract event arguments from a given news article.
+
+         # input
+         First, here is the news article you need to analyze:
+         {{ article }}
+
+         Now, carefully review the event argument guidelines for the {{ event_type }}:
+
+         {% for ea in event_type.event_arguments %}
+           {{ ea.name }}: {{ ea.description }}
+         {% endfor %}
+
+
+
+
+LAM                                                                                      STANFORD
+      LLMs Can Struggle to Follow Complex Instructions
+
+          • Types constraints, according to the codebook
+            • E.g. crowd size should be a string, not number
+          • Nested event arguments
+            • E.g. “Location” can have a “country” argument
+          • Relationship between different events
+
+
+
+
+LAM                                                            STANFORD
+    Solution: LLMs Know Python Data Structure Syntax!
+
+             • Use Python classes to represent the event signature
+             • Event types as classes
+                 • Event arguments as typed fields
+
+
+
+
+ Code4Struct: Code Generation for Few-Shot Event Structure Prediction, Wang et al, ACL 2023
+LAM                                                                                           STANFORD
+      Coding Guidelines as Class Definitions
+      class Protest(ACLEDEvent, ABC):
+          """
+          A "Protest" event is defined as an in-person public
+      demonstration of three or more participants in which the
+      participants do not engage in violence, though violence may be      class Location(BaseModel):
+      used against them … Excludes symbolic public acts such as               """
+      displays of flags or public prayers, legislative protests, such         The most specific location for an event. Locations can be
+      as parliamentary walkouts or members of parliaments staying         named populated places, geostrategic locations, natural
+      silent, strikes …                                                   locations, or neighborhoods of larger cities.
+          """                                                                 In selected large cities with activity dispersed over many
+          location: Location = Field(..., description="Location where     neighborhoods, locations are further specified to predefined
+      the event takes place")                                             subsections within a city. In such cases, City Name – District
+          crowd_size: Optional[str] = Field(..., description="Estimated   name (e.g. Mosul – Old City) is recorded in
+      size of the crowd. It can be an exact number, a range, or a         "specific_location". If information about the specific
+      qualitative description like 'small'.")                             neighborhood/district is not known, the location is recorded
+          protestors: List[str] = Field(..., description="List of         at the city level (e.g. Mosul).
+      protestor groups or individuals involved in the protest")               """
+
+                                                                              country: str = Field(..., description="Normalized name of
+      class PeacefulProtest(Protest):                                     a country, e.g. United States")
+          """                                                                 address: str = Field(..., description="Full address or
+          Used when demonstrators gather for a protest and do not         location description including all geographic levels up to the
+      engage in violence or other forms of rioting activity, such as      neighborhood level, including village/city, district, county,
+      property destruction, and are not met with any sort of violent      province, region, country, if available. Exclude street names,
+      intervention.                                                       buildings, and other specific landmarks.")
+          """
+          counter_protestors: List[str] = Field(...,
+      description="Groups or entities engaged in counter protest, if
+      any")
+LAM                                                                                                                                STANFORD
+      Abstractive Event Argument Extraction with Python
+      In Pydantic library
+
+           # instruction
+           Extract event arguments from a given news article.
+
+           # input
+           First, here is the news article you need to analyze:
+
+           {{ article }}
+
+           Now, carefully review the annotation guidelines for the {{ event_type }}:
+
+           <class definitions (on last slide)>
+
+
+
+
+LAM                                                                                    STANFORD
+    Under the hood:
+         LLM is Good at Structured Output:
+        Constrained Decoding for Structured Outputs
+                   1.   Convert Python class definitions to JSON schema
+                   2.   Convert the JSON Schema into a context-free grammar
+                   3.   Pass the prompt and JSON schema to the LLM
+                   4.   Decode the output from LLM, choose the most likely token
+                        that conforms to the grammar → this is the “constrained” part
+                   5.   Convert the decoded JSON object to the original Python object
+
+
+
+               •    Some commercial LLM providers support it, e.g. OpenAI
+               •    Many open source LLMs support it via
+                   • SGLang, Outlines, guidance
+
+
+ https://platform.openai.com/docs/guides/structured-outputs/introduction, Accessed 11/5/2024
+LAM                                                                                            STANFORD
+  Event Argument Extraction with JSON
+    PeacefulProtest(
+        protestors=[
+        "workers",
+        "musicians",                              Tesla Fremont MLK Rally Protesting Racism,
+        "ILWU",                                   Union Busting
+        "CWA",                                    Workers and musicians rallied on 1/13/24 at the Tesla
+        "Teamsters Local 70",                     assembly plant in Fremont, California on MLK
+        "PMWG",                                   weekend to protest Elon Musk's systemic racism and
+                                                  sexism at the Tesla assembly plant. They also protested
+        "former workers at Tesla",                the union busting and rallied in solidarity with striking
+        "Past ILWU president Brian McWilliams",   Swedish Tesla service mechanics ... Workers from the
+        "Nadya Williams"                          ILWU, CWA, Teamsters Local 70, and PMWG spoke in
+        ],                                        solidarity, as well as former workers at Tesla. ...
+
+        location=Location(                        Past ILWU president Brian McWilliams joined the Tesla
+            country="United States",              MLK action and spoke ...
+            address="Fremont, California,
+                                                  Rally participant Nadya Williams talked about her son,
+                     United States"               who is a Swedish American union organizer and is
+        ),                                        supporting the striking Swedish Tesla mechanics ...
+        crowd_size="more than 100",               By noon, there were more than hundred workers …
+        counter_protestors=[],
+LAM )                                                                                                  STANFORD
+      Problem 3. Abstractive Entity Linking (AEL)
+
+  • “Entity” must refer to an item on the List
+                                                     protestors=[
+       • So you can link the different records       "workers",
+                                                     "musicians",
+         to the same entity                          "ILWU”,
+  • For example, in ACLED:                           "CWA",
+                                                     "Teamsters Local 70",
+       • Generic entities like “Labor Group”         "PMWG",
+                                                     "former workers at Tesla",
+         annotated to aid analysis of labor issues   "Past ILWU president Brian McWilliams",
+                                                     "Nadya Williams”
+       • Specific Unions are monitored               ]
+
+
+
+
+LAM                                                                                  STANFORD
+      Abstractive Entity Linking (AEL)
+            Given a database of entities, select all relevant to the event
+
+                            Entity                              Expert Description (summarized)
+                                                     A collective entity composed of workers or trade unions that
+          Labor Group                                advocate for labor rights and interests …
+                                                     The largest federation of unions in the United States.
+          AFL-CIO: American Federation of Labor
+                                                     Encompasses various affiliated unions, such as the IW, IUPAT,
+          and Congress of Industrial Organizations   CWA …
+          CWA: Communications Workers of             A labor union representing workers in telecommunications,
+          America                                    media, manufacturing, healthcare, and public service …
+
+                                                     A labor union in the United States representing transportation
+          IBT: International Brotherhood of
+                                                     and logistics workers. Operates through local chapters, like
+          Teamsters                                  Teamsters Local 70 …
+          ILWU: International Longshore and          A labor union representing dock workers and other maritime
+          Warehouse Union                            and warehouse employees primarily in the United States …
+
+                                              [6212 more entities]
+
+LAM                                                                                                                   STANFORD
+      Extractive (Spans) vs. Abstractive (Meaning)
+                              Spans        Entity List
+                            workers •
+                                         • Labor Group
+                          musicians •
+                                         • ILWU: International Longshore
+                               ILWU •      and Warehouse Union
+                              CWA •      • AFL-CIO: American Federation of Labor
+                 Teamsters Local 70 •      and Congress of Industrial Organizations
+                             PMWG •      • CWA: Communications Workers of
+             former workers at Tesla •     America
+
+Past ILWU president Brian McWilliams •   • IBT: International Brotherhood of
+                                           Teamsters
+                    Nadya Williams •
+                                           × (not in the database)
+
+
+LAM                                                                            STANFORD
+      How To Perform Abstractive Entity Linking (AEL)?
+
+                                                 ?
+          Tesla Fremont MLK Rally
+          Protesting Racism, Union Busting
+
+          Workers and musicians rallied on
+          1/13/24 at the Tesla assembly plant
+          in Fremont …                                               Entity
+                                                                   Database
+
+
+          • Link event arguments of the article to possibly 10K+ entities
+          • Is like a retrieval task:
+             • Given a document, retrieve the most relevant entities
+             • BUT: Off-the-shelf retriever + LLM reranker don’t work well
+
+
+LAM                                                                           STANFORD
+      Zest Abstractive Entity Linking
+       1.    Entity Retrieval (Event text, vector database of 10K entities → 500 entities)
+            • Guess 5 arguments
+            • For each argument
+                •   Create a self-contained description on the entity (extract from text + LLM knowledge)
+                •   Find top 100 matches based on cosine similarity in the vector database
+       2.    Entity Filtering (Event text, 500 entities → ≈23 entities)
+            •   In batches of 100, filter out irrelevant entities
+
+       3.    Entity Assignment (Event text, event-type/entity-arguments, ≈23 entities → Argument linking)
+            •   Perform extraction with JSON structure
+                { "field_name 1" : ["entity 1", "entity 2", ...],
+                   "field_name 2" : ["entity 3", "entity 4", ...], …}
+
+
+LAM                                                                                                 STANFORD
+                      P APE R C ON TRIB UTIO NS
+
+
+    D EF I N E T H E A BS TR AC T I VE E VE NT E XT R AC T I ON T AS K
+L EMONADE: A H IGH- Q UALITY R EAL- W ORLD E VE NT D ATASET
+          Z EST: Z ERO- S HOT Q UALITATIVE C ODING
+     E VA LUA TIO N ( F INE- TUN IN G VS. Z ERO S HOT L L M )
+      Task-Specific Baselines
+
+               • Gollie: Previous SOTA Event Detection Method
+                   • A model specifically instruction-tuned from CodeLLaMA
+                     for information extraction tasks
+               • Aya Expanse:
+                   • 8B-parameter model optimized for 16 of our 20 languages
+
+
+
+      Oscar Sainz, Iker García-Ferrero, Rodrigo Agerri,   John Dang, et al. 2024. Aya expanse: Combining research
+      Oier Lopez de Lacalle, German Rigau, and Eneko       breakthroughs for a new multilingual frontier. ArXiv preprint,
+      Agirre. 2024. GoLLIE: Annotation guidelines im-      abs/2412.04261.
+      prove zero-shot information-extraction. In ICLR,
+LAM
+      2024.                                                                                                          STANFORD
+      Event Detection
+
+
+
+
+                   Korea, Japan: Peaceful protests > 98.5%
+LAM                                                          STANFORD
+      Abstractive Event Argument Extraction
+
+
+
+
+                    AC4S: Python-Based Argument Extraction
+
+LAM                                                          STANFORD
+      Abstractive Entity Linking
+
+
+
+
+LAM                                STANFORD
+      Kinds of Entities
+
+
+
+
+LAM                       STANFORD
+      Improving Abstractive Entity Linking
+
+          • Entity linking traditionally links to Wikidata (Unique QIDs)
+          • But most actors in ACLED are not in Wikipedia or Wikidata
+          • Future work:
+            • Perform research on the actors (using ACLED data)
+            • Create Wikipedia/Wikidata entrees
+            • Use Wikipedia/Wikidata for entity linking
+
+
+
+
+LAM                                                                        STANFORD
+      End-to-End Evaluation
+
+
+
+
+             Our best model outperforms previous work by 44 points!
+               Automatic qualitative coding is not good enough!
+LAM                                                                   STANFORD
+      Conclusion
+          • Automatic Qualitative Coding (AQC)
+            • Has many applications
+          • Lemonade: the best annotated event dataset
+             excerpted from ACLED’s real data
+            • With abstract event extraction
+            • Fine-tuning reaches 78.4 F1
+          • Zest: an AQC designed for real-life problems
+            • Contribution: abstractive entity linking
+            • SOTA zero-shot performance
+
+
+       Note: Huge differences between academic approaches and demands of real life!
+                                 Further research is needed!
+LAM                                                                                   STANFORD
+

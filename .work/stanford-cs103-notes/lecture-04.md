@@ -1,0 +1,25 @@
+# Official Lecture 4: First-Order Logic, Part I
+
+- Date: 2026-04-08
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 命題邏輯回顧：connectives、implication truth table 與 implication 的否定
+  - [x] 一階邏輯定位：以 predicates、functions 與 quantifiers 推理物件
+  - [x] Constant symbols 指向物件，而不是 propositions
+  - [x] Predicates 的 arity、真假輸出與 infix notation
+  - [x] Equality 作為特殊二元 predicate，以及 `=` 與 `↔` 的型別差異
+  - [x] Functions 接受 objects 並回傳單一 object，包括巢狀 function calls
+  - [x] Objects／propositions type-checking table 與兩類非法公式
+  - [x] Existential quantifier 的 witness 語意與 implication 內的存在句
+  - [x] 空論域中的 existential 為 false
+  - [x] Quantifier scope、局部變數重新命名與 free-variable 風險
+  - [x] Quantifier precedence 與量詞 body 的明確括號
+  - [x] Universal quantifier、counterexample 語意與自然數例題
+  - [x] 空論域中的 universal vacuous truth
+  - [x] `Some P is a Q` 使用 `∃` 搭配 `∧`
+  - [x] `All P's are Q's` 使用 `∀` 搭配 `→`
+  - [x] 把 FOL 視為 mathematical programming language 的翻譯方法
+- Boundary: do not infer spoken content or use restricted solutions.

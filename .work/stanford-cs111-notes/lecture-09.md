@@ -1,0 +1,59 @@
+# Lecture 9: Linkers and Dynamic Linking
+
+- Date: 2026-04-17
+- Instructor: Mendel Rosenblum
+- PDF: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/9/Lecture9.pdf
+- Calendar: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar
+- Material gap: Canvas recording unavailable; notes derive from the public PDF.
+- Editorial focus: object files, symbols, relocation, static linking, and dynamic linking
+
+## Extracted agenda cues
+
+- Linkers
+- ●   First ⅓ of class: CPU issues (threads, processes, synch, sched) done
+- Looking ahead:
+- ●   Next ⅓ of class: main memory issues
+- ○ Process memory layout
+- ○ Virtual memory
+- ○ Paging
+- ●   Last ⅓ of class: Storage (Disk/Flash) & File Systems
+- Main Memory
+- ●   Technology: DRAM (dynamic random access memory)
+- ●   Persistence: Volatile
+- ●   Accessibility: Byte addressable, accessed in 64 byte (cache line size) units
+- ●   Access time: ~60–100 ns, 200-300 CPU cycles
+- ●   Capacity:
+- ○ Laptop:    16–64 GB
+- ○ Desktop:   32 - 256 GB
+- ○ Server:    512 - 4096 GB NUMA (non-uniform memory architecture)
+- Application memory of a process
+- int global = 7;           // global data
+- int* gptr = &global;      // global pointer (contains an address)
+- void func(int x) {
+- int local = x;        // stack variable
+- int* lptr = &local;   // stack pointer (contains an address)
+- int* heap = new int(42);   // heap object
+- lptr = heap;               // pointer now holds heap address
+- delete heap;
+- Memory Layout for Process
+- Segments/Sections
+- Code ("text")
+- Map of program to segments
+- int global = 7;
+- int* gptr = &global;
+- Data                       int local = x;
+- Process-layout questions: multiple processes at address 0, OS placement, per-thread stacks, and adding code at runtime
+- Source → assembly → object files → executable → process; compiler, assembler, linker, and loader roles
+- Runtime libraries: allocation routines, system-call stubs, and demand-grown stacks
+- Linkage editors (`ld` / `LINK`) combine sections, determine layout, and modify addresses
+- Object-file contents: text/data sections, symbol table, unresolved references, and debugging information
+- `main.o`, `stdio.o`, and `math.o` symbol/reference example
+- Linker pass 1: read section sizes and compute layout
+- Linker pass 2: read symbols and construct the complete symbol table
+- Linker pass 3: read unresolved references, patch addresses, and write the executable
+- Worked relocation: `printf` at final address 140 patches `main.o` text offset 30
+- Static linking: complete programs and fully resolved references, with duplicated-library memory cost
+- Dynamic linking and shared libraries; library location remains unknown until load time
+- Jump-table design: function name, shared-library filename, and unresolved jump instruction
+- Dynamic loader runs before `main`, maps libraries, and fills jump-table targets
+- Jump table resides in the data section

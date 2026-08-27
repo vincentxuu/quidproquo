@@ -1,0 +1,773 @@
+             CS224v
+
+Conversational Virtual Assistants
+     with Deep Learning
+
+     Lecture 1: Introduction
+           Monica Lam
+
+
+                                    1
+             FOCUS OF THE COURSE
+
+
+
+    FOUNDATION TO MAKE LLMS USEFUL AS A
+    TRUSTWORTHY GENERAL VIRTUAL ASSISTANT
+
+               90+% ACCURACY
+
+APPLICABLE TO ALL DOMAINS (FOR NON-AI EXPERTS)
+         A PROJECT/RESEARCH COURSE
+
+ ACTIVELY CREATE AND ADVANCE NEW TECHNOLOGIES
+             ADOPTED BY REAL USERS
+
+SELECT CLASS PROJECTS CONTINUE AS RESEARCH (2026)
+
+ COURSE PUBLICATIONS: 2023(2), 2024(5), 2025(6)
+
+      SECRET TO SUCCESS: WORKING SOFTWARE
+     SUPPORTS INCREASINGLY COMPLEX P ROJECTS
+GOAL: AN AI-BASED RESEARCH ASSISTANT
+                                           HIGHEST LEVEL OF COGNITION
+                                           SUBSUMES ALL OTHER LEVELS
+
+
+
+
+Bloom’s Taxonomy
+Education Objectives in Cognition Domain
+  WHY AN AI-BASED RESEARCH ASSISTANT?
+    TO ADVANCE KNOWLEDGE DISCOVERY
+
+                     FASTER
+                 BETTER RESULTS
+                  SCALABILITY
+BROADER (BREAKING DOWN DOMAIN & LANGUAGE BARRIERS)
+   RESEARCH ACCESSIBLE TO MORE PEOPLE
+K NOWLEDGE A S W E K NOW I T
+  BBC 2025
+
+  Perplexity, Gemini, Copilot, ChatGPT
+  Still Hallucinate With RAG
+  (Retrieval Augmented Generation)
+
+
+     51% of AI answers to news problems
+       have significant issues.
+
+     19% of AI answers which cited BBC
+       content introduced factual errors.
+
+     13% of the quotes sourced from BBC
+       articles were either altered or
+       didn’t actually exist in that article.
+
+
+Representation of BBC News content in AI Assistants. 2025.
+     The Problem
+     The Enterprise AI Paradox
+     Enterprises are rushing to deploy AI,
+     but off-the-shelf LLMs are a ticking time bomb.
+
+           Legal and Financial Liability
+           Air Canada forced to honor fictitious refund policy
+
+
+           Reputational Damage
+           Lawyer sanctioned over ChatGPT-fabricated legal precedents
+
+
+
+           Regulatory Risk
+           NYC's AI chatbot advised businesses to break laws
+
+
+The result: A crisis of trust that blocks AI adoption for high-value use
+cases.
+       T HE 7 0 % A CCURACY P ROBLEM
+
+
+           I T’ S D ECEIVINGLY E ASY!
+
+
+     I MPOSSIBLE TO G ET TO N EAR 1 0 0 %
+    W ITH N EXT- W ORD P REDICTION L L M S!
+
+
+N EED OF H UMAN F ILTERING à N OT S CALABLE!
+ F UNDAMENTAL P ROBLEMS F OR H ARDER T ASKS
+
+
+LLMS TRAINED ON NEXT-WORD PREDICTION:
+
+
+   NOT PRECISE ENOUGH FOR RESEARCH
+CANNOT PERFORM COMPLEX TASKS RELIABLY
+         LIMITED CONTEXT LENGTH
+                 A PPROACH
+        AUGMENT LLMS WITH
+      COMPUTATIONAL THINKING
+
+                 A LGORITHMS
+D ATA R EPRESENTATION ( P ATTERN R ECOGNITION)
+        A BSTRACTION ( GENERALIZATION)
+               D ECOMPOSITION
+
+
+        U NIVERSAL TO A LL D ISCIPLINES
+                 COMPUTATIONAL THINKING
+
+
+    B ASIC C ONCEPTS: A LAN P ERLIS, D ON K NUTH ( 1 9 5 0 S)
+
+         C OINED T ERM: S EYMOUR P APERT ( 1 9 8 0 )
+
+E DUCATION O BJECTIVE: J EANNETTE W ING, N S F ( 2 0 0 6 )
+      Lecture Outline
+         1. Course Material Overview
+
+           •   Stage 1 (2022 -- 2025): Computational thinking à general research assistant
+           •   Stage 2 (2025 --        ): Computational thinking à scientific research assistant
+
+
+         2. Course overview
+           • Project choice
+               •   Build on technology for a general assistant
+               •   Research the bleeding edge of a technical research assistant
+
+               Just a high-level picture! Do not worry if you can’t follow all the ideas
+                                        (Details in the lectures)
+LAM                                                                                          STANFORD
+                                                                                                                                                          GENIE: A PROTOTYPE OF A
+ PUBLIC AI ASSISTANT TO WORLD WIDE KNOWLEDGE (WWK)
+
+
+
+
+                                                                                                  SEMANTIC
+                                                                                                                                                             Free Text
+INTERNET                                                                                          SCHOLAR
+                                                                                                                                                                                    Browse
+
+                                                                                                                                                           Knowledge                Search
+                                                                                                                                                               Bases      Genie
+                                                                                                                                                                                    Chat
+
+                                                                                                                                                             Digitized              Research (Storm)
+   Document image                      Gold                                     Finetuned                              Zero-shot LMM
+                    Van Malacca Den 13 8=ber 1747                 Van Malacca Den 13 8ber 1747                  Van Malacca den 15.6.1787
+                    Radja Moeda af den rijx op volger             Radja Moeda af den rijx op volgens d'
+                    E Comp„e Seer geneegen scheen en bij succes   E Comp: seer geneegen scheen en bij subven    Dit is een brief van de Heer genoemde,
+                    len brengen op een goeden voet, terwijl den   tie, sie beloofd de saaken werden te sullen   die is bij Subes
+                    regeerende vorst ten teeken, sijner waare     ten brengen op een goeden voet, terwijl den   Lee gebleven, de Saanke welke hij
+                    affectie in Geselschap van 's Comp:s vaar     regence vorst ten saeken, sijner Waare        heeft
+                    thuijgen als Gezanten heeft over gezonden
+
+
+
+
+                                                                                                                                                                Print &
+                                                                  affectie in Geselschap van s Comp: Vaar„      gezocht, en is, geest voort terwijl de
+                    Ziere Lela Moeda, en Annachoda                thuijgen als gezanten heeft overzonden        Regent heeft Fort te Sake, Syne Waar
+                    de Radja om eens regt beschijt te             Ziere Lela Moeda, en Annachoda                afwijst in Gezelschap van Heer D. van
+                    krijgen op sijne voorige versoeken, deuelke   de Radja om eens regt bescheijt te            Kruyff als Ge Zantz heeft opgekomen.
+                    nogthans tusschen Calang en Poelo             krijgen op sijne voorige versoeken, dewelke   Hier is de Briefe, welke Annachtd
+                    Passelaar in Swaar weer van den               nagthans Lisschen Calang en Poelo             De Raja om een Nyt betekyft te
+                    anderen afgeraakt, en tot heeden hier         Parselaar in swaar weer van den               krijgen en fijne voorige Verfache, deel
+                    niet zijn g'arriveert op hoedaanige           anderen afgeraakt, en tot heeden hier         van Franse Laffele, Calang en Melo
+                    proceduuren dan teegen onderdaanen            met zijn garnisoen op hoed aanige             Gestelde in Siaan met een dew
+                    van een Vorst, die, men met zoo veel          proceduuren dan Leegen onderdaanen            anderen afgesakt, en tot deze Eer
+
+
+
+
+                                                                                                                                                           Handwriting
+                    Zorg en moeijte uijt een diepe ver:geetent„   van een vorst, die, men met zoo veel          met Zijt gaaen vest en Geen aanige
+                    heijd reets Zoo verre heeft over gehaalt,     zorg en moeijte uijt en diverse vergeeten„    Proed wier dan Leege onderdaan
+                    tot de belangens van d: E: Comp„es en daar    heijd reets zoo verre heeft overgehaalt,      van er Vorst, die met Lee weel
+                    in door allerlij praefiraable midde„          tot de belangens van dE Comp„e,        daar   Zoog en mogtig wiert er dit e
+                    len en weegen zoekt te koesteren              in door allerlij practicaable middelen        …
+                    ten ijnde Eens bij de verijschte              bij en weegen zaekt te koesteen
+                    magt de Consideraable voordeelen              ten ginder Eens bij de vereijschte
+                    te trekken, welke deselve met                 …
+                    Zoo
+Live Demos: wwknowledge.org
+COMPUTATIONAL THINKING APPROACH
+
+
+
+ FORMALIZE HUMAN COGNITIVE PROCESS
+
+
+  PRODUCE STEP-BY-STEP INSTRUCTIONS
+       1. READING DOCUMENTS
+
+
+    RAG-BASED LLMS HALLUCINATE
+
+
+ESPECIALLY WHEN RETRIEVED INFORMATION
+DOES NOT ANSWER THE USERS’ QUESTION
+      Genie: Automating Question Answering
+                                                     Ansatze   (an educated guess)
+
+                                                3.     Ask LLM
+                                                4.     Dissect into claims
+           Retrieve                             5.     Fact-check each claim
+                                                     • Search Wikipedia with claim
+      1.     Search Wikipedia with query
+      2.     Filter irrelevant info                  • Filter incorrect claim
+
+
+
+                                    6.     Draft
+                                    7.     Refine
+            Use multiple, easy LLM steps to consult external data
+LAM                                                                                  STANFORD
+      WikiChat
+       • Accuracy: 97% (English)
+       • Best Research Award of the Year, Wikimedia Foundation
+       • Now in 25 languages: Breaking the language barrier!
+
+          Arabic          English          Indonesian       Persian    Serbian
+          Chinese         Finnish          Italian          Polish     Spanish
+          Czech           French           Japanese         Portuguese Swedish
+          Danish          German           Korean           Romanian         Turkish
+          Dutch           Hebrew           Norwegian        Russian          Ukrainian
+
+       WikiChat: Stopping the Hallucination of Large Language Model Chatbots by Few-Shot Grounding
+       on Wikipedia Sina J. Semnani, Violet Z. Yao*, Heidi C. Zhang*, Monica S. Lam
+LAM    In EMNLP 2023, Singapore, December 6-10, 2023.                                        STANFORD
+   THE PROBLEM IS HARDER THAN EXPECTED
+
+
+  3 STUDENTS, 4 MONTHS FOR DEVELOPMENT
+       EVALUATION WAS ALSO HARD
+        THE DEVIL IS IN THE DETAILS
+
+
+    SOLID BUILDING BLOCKS ARE CRITICAL
+APPLICABLE TO GENERAL COGNITIVE PROCESSES
+2. READING DATA
+      Example:
+
+
+      World’s Largest Live Knowledge Graph
+      • 15B facts, 100M entities, 10K properties, 25K contributors
+      • Wikidata could only be accessed by SPARQL query language
+
+
+
+
+LAM                                                                  STANFORD
+      Key Concept:
+      A Semantic Parser Translates NL to Formal Semantics
+
+                         User  Dialogue
+                      Utterance History
+
+                          Semantic Parser
+                    Formal Query
+                             Execution         LLM Function
+                           Result
+                                               Algorithmic Function
+                        Response Generation
+
+                             Response
+LAM                                                                   STANFORD
+  What are the musical instruments played by people
+  who are affiliated with the U. of Washington School of Music
+  and have been educated at the U. of Washington, and how many people play each instrument?
+
+
+  Genie
+
+
+                         Edward Rutschman
+  Instrument (P1303)                         Affiliation(P1416)
+                           (Q107705263)
+  Piano (Q5994)                                     University of Washington School of Music
+                         Hokyung Yang(Q107851778)                 (Q98035717)
+  Trombone (Q8350)
+                       Gwynne Kuhner Brown (Q106627792)
+                                                            University of Washington
+                                                                  (Q219563)
+  Percussion (Q133163) Chad Kirby (Q107522681)
+
+  Tabla (Q213100)       Zakir Hussain (Q144719)
+                                               Educated At (P69)
+
+
+                         A Small Subset of Wikidata                                            Result
+LAM                                                                                                     STANFORD
+      Break Down the Cognitive Process
+      Go acquire knowledge to complete a task!
+
+                   User Query   Possible Actions
+         Think                  search_wikidata(string)
+          Act                     returns QIDs and PIDs
+                                get_wikidata_entry(QID)
+                                  returns Wikidata entity page
+                     Agent
+                                execute_sparql(SPARQL)
+                                  returns SPARQL execution results
+                                get_property_examples(PID)
+       Observe
+                                  example of how properties are used
+        results     SPARQL      stop()
+
+LAM                                                               STANFORD
+      Deployed at Wikidata Query Forum
+      https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/Wikidata_Query_Help
+
+              • Help users with their complex queries
+                • 1700 conversations
+                • In 198 samples, success rate: 78%
+                • Interpretability:
+                   • Genie shows the query (in English) and its answer
+
+       SPINACH: SPARQL-Based Information Navigation for Challenging Real-World Questions
+       Shicheng Liu*, Sina J. Semnani*, Harold Triedman, Jialiang Xu, Isaac Dan Zhao, Monica S. Lam
+       In Findings of the 2024 Conference on Empirical Methods in Natural Language Processing
+       (EMNLP) , Miami, Florida, November 12 –16, 2024.
+LAM                                                                                                   STANFORD
+                     FACTUAL INFO RETRIEVAL
+                              Input: Text, Databases, Knowledge Bases (Wikipedia, Wikidata, FEC …)
+           Curate             2023/12   WikiChat: Control hallucination by grounding in Wikipedia
+                              EMNLP     - Best chat: achieving 97% factuality
+                                        - Now grounded in Wikipedia in 25 languages
+                                        - Best Research of the Year Award by Wikimedia Foundation, 2024
+
+                              2024/ 6   1st assistant that supports full hybrid queries on free-text + databases
+
+Retrieve            Ansatze   NAACL     - Translate NL into our novel SUQL query language with optimizing compiler
+                                        - Used by investigative journalists (FEC campaign donation), 311
+
+
+       Analyze                2024/12   Best assistant for complex queries on Wikidata
+                              EMNLP     -   Agentic approach that learns about the schema on its own
+
+       Discover                         -   Deployed on Wikidata
+
+                              2025/ 7   Genie Worksheets: Knowledge-Intensive Task-Oriented Agents
+                              ACL       - Accuracy: 80% vs 0-10% with GPT4 with function calling
+       Report                           - Validation with industry in progress
+
+Research Pipeline
+                                           DISCOVERY OF
+                                        GENERAL KNOWLEDGE
+           Curate             Input: Text, Databases, Knowledge Bases (Wikipedia, Wikidata, FEC …)
+
+                              2024/ 6   STORM: 1st deep research assistant by searching the Internet
+                              NAACL     -   Comprehensive Wikipedia-like articles with citations to full references
+                                        -   800K organic users, 1.4M articles written
+                                        -   Used by history students to discover African history newspapers (1800s)
+Retrieve            Ansatze             -   Inspired OpenAI Deep Research, Google Gemini Deep Research,
+                                                     Databricks Genie Deep Research Model
+
+       Analyze                2024/12   1st assistant that lets users interactively direct the deep research
+                              EMNLP     - Uses a novel round-table of experts to explore unknown unknowns
+
+       Discover
+                              New: DATASTORM discovers insights by combining Storm + DataTalk
+       Report
+                                                                                                                                                          GENIE: A PROTOTYPE OF A
+ PUBLIC AI ASSISTANT TO WORLD WIDE KNOWLEDGE (WWK)
+                                                                                                                                                            Demos: wwknowledge.org
+
+
+
+                                                                                                  SEMANTIC
+                                                                                                                                                             Free Text
+INTERNET                                                                                          SCHOLAR
+                                                                                                                                                                                     Browse
+
+                                                                                                                                                           Knowledge                 Search
+                                                                                                                                                               Bases      Genie
+                                                                                                                                                                                     Chat
+
+                                                                                                                                                             Digitized               Research (Storm)
+   Document image                      Gold                                     Finetuned                              Zero-shot LMM
+                    Van Malacca Den 13 8=ber 1747                 Van Malacca Den 13 8ber 1747                  Van Malacca den 15.6.1787
+                    Radja Moeda af den rijx op volger             Radja Moeda af den rijx op volgens d'
+                    E Comp„e Seer geneegen scheen en bij succes   E Comp: seer geneegen scheen en bij subven    Dit is een brief van de Heer genoemde,
+                    len brengen op een goeden voet, terwijl den   tie, sie beloofd de saaken werden te sullen   die is bij Subes
+                    regeerende vorst ten teeken, sijner waare     ten brengen op een goeden voet, terwijl den   Lee gebleven, de Saanke welke hij
+                    affectie in Geselschap van 's Comp:s vaar     regence vorst ten saeken, sijner Waare        heeft
+                    thuijgen als Gezanten heeft over gezonden
+
+
+
+
+                                                                                                                                                                Print &
+                                                                  affectie in Geselschap van s Comp: Vaar„      gezocht, en is, geest voort terwijl de
+                    Ziere Lela Moeda, en Annachoda                thuijgen als gezanten heeft overzonden        Regent heeft Fort te Sake, Syne Waar
+                    de Radja om eens regt beschijt te             Ziere Lela Moeda, en Annachoda                afwijst in Gezelschap van Heer D. van
+                    krijgen op sijne voorige versoeken, deuelke   de Radja om eens regt bescheijt te            Kruyff als Ge Zantz heeft opgekomen.
+                    nogthans tusschen Calang en Poelo             krijgen op sijne voorige versoeken, dewelke   Hier is de Briefe, welke Annachtd
+                    Passelaar in Swaar weer van den               nagthans Lisschen Calang en Poelo             De Raja om een Nyt betekyft te
+                    anderen afgeraakt, en tot heeden hier         Parselaar in swaar weer van den               krijgen en fijne voorige Verfache, deel
+                    niet zijn g'arriveert op hoedaanige           anderen afgeraakt, en tot heeden hier         van Franse Laffele, Calang en Melo
+                    proceduuren dan teegen onderdaanen            met zijn garnisoen op hoed aanige             Gestelde in Siaan met een dew
+                    van een Vorst, die, men met zoo veel          proceduuren dan Leegen onderdaanen            anderen afgesakt, en tot deze Eer
+
+
+
+
+                                                                                                                                                           Handwriting
+                    Zorg en moeijte uijt een diepe ver:geetent„   van een vorst, die, men met zoo veel          met Zijt gaaen vest en Geen aanige
+                    heijd reets Zoo verre heeft over gehaalt,     zorg en moeijte uijt en diverse vergeeten„    Proed wier dan Leege onderdaan
+                    tot de belangens van d: E: Comp„es en daar    heijd reets zoo verre heeft overgehaalt,      van er Vorst, die met Lee weel
+                    in door allerlij praefiraable midde„          tot de belangens van dE Comp„e,        daar   Zoog en mogtig wiert er dit e
+                    len en weegen zoekt te koesteren              in door allerlij practicaable middelen        …
+                    ten ijnde Eens bij de verijschte              bij en weegen zaekt te koesteen
+                    magt de Consideraable voordeelen              ten ginder Eens bij de vereijschte
+                    te trekken, welke deselve met                 …
+                    Zoo
+ NLP RESEARCH CAN CREATE USEFUL TOOLS
+
+USAGE ALSO HELPS GENERATE RESEARCH IDEAS
+      Lecture Outline
+         1. Course Material Overview
+
+           •   Stage 1 (2022 -- 2025): Computational thinking à general research assistant
+           •   Stage 2 (2025 --      ): Computational thinking à scientific research assistant
+
+
+         2. Course overview
+           • Project choice
+               •   Build on technology for a general assistant
+               •   Research the bleeding edge of a technical research assistant
+
+
+
+
+LAM                                                                                        STANFORD
+                        S CIENTIFIC R ESEARCH
+         R EQUIRES C HANGING THE F UNDAMENTALS OF N L P
+                W ITH C OMPUTATION T RAINING ( C T )
+
+
+1.   I NFORMATION R ETRIEVAL ( E MBEDDING S IMILARITY)
+         à F ORMAL S EMANTICS
+
+2.   R EASONING: C HAIN OF T HOUGHT
+         à C OMPUTATIONAL T HINKING ( C T )
+
+3.   T RAINING: U NSUPERVISED N EXT- WORD P REDICTION T RAINING
+                F INE- TUNED WITH C HAIN OF T HOUGHT
+          à F INE- TUNED WITH C T T RAINING
+      Knowledge in Large Sets of Long Documents
+
+
+                                  Resumes         Pubmed Articles          News        Requirements
+                               Paper Reviews      Human Genome         Social Media     Regulations
+                                  Proposals     Drug/Protein/Disease    Interviews      Clinical Trials
+                              Financial Reports    Event News          Medical Rec.   Invoice Match
+
+       Analysis               Ranking (Top n)
+                                  of ALL           Accumulation        Stats/trends    Satisfiability
+       combines info            documents
+      from every doc
+                                                                                       Compliance
+                                                    Knowledge           Discover
+  Decision, Stats, Trend, …        Finalists                                              to
+                                                      Bases            Knowledge
+                                                                                       Constraints
+
+
+LAM                                                                                                STANFORD
+      An Example: Clinical Trials
+         • Motivation
+           • Patients cannot navigate clinical trial websites
+           • Clinical trials fail for a lack of finding patients
+
+         • Challenges: matching millions of trials with millions of patients
+           • Informal Retrieval (IR)
+             • Similarity à false positives; false negatives
+           • Matching
+             • LLM “reasoning” à inaccurate
+
+LAM
+                      Missing one appropriate trial is fatal!                  STANFORD
+      Approach for Effective Clinical Trial Matching
+
+          1. Representation
+            • Translate free-text trials/patient records to formal semantics
+              • SMT (Satisfiability Modulo Theories)
+              • UMLS (Universal Medical Language System) with 3M terms
+          2. Retrieval algorithm
+            • Store trials in DBs with columns representing simpler predicates
+            • Retrieve with DB queries
+
+          3. Match algorithm: SMT theorem prover
+
+
+LAM                                                                              STANFORD
+      Curating Knowledge
+                                                                      Curate
+      Semantic Parsing from Free-Text to:
+      • Databases:
+        for analyzing large & long document sets
+        • Sets of papers, articles, reports, transcripts   Retrieve            Ansatze
+
+      • Knowledge graphs: a semantic web                          Analyze
+        • NSF Proto-OKN project
+                                                                  Discover
+      • SMT: constraint satisfaction
+        • Degree satisfaction, regulation                         Report
+          compliance, invoice matching
+                                                           Full Research Pipeline
+LAM                                                                                      STANFORD
+      Knowledge Curation—Important but Hard
+      Example:
+
+
+
+         ACLED: Armed Conflict Location & Event Data
+         • Best dataset of qualitative coding (Free-text à DB)
+         • Human annotators, with rounds of reviews
+         • Over 200 territories, 80 different languages
+
+
+
+LAM                                                              STANFORD
+                 In Findings of ACL, 2025
+
+
+         A CADEMIC F ORMULATION F ALLS S HORT
+              E XTRACTIVE à A BSTRACTIVE
+            C ANONICALIZATION OF E NTITIES
+N EEDED: R ESEARCH ON E NTITIES IN E XTERNAL L ITERATURE
+
+
+         S O T A , BUT N OT A CCURATE E NOUGH
+      Goal: Create A Universal Semantic Parser
+      Free Text, Sample Annotations à Formal Representation
+
+            1. Ontology: Automatic standardization of terminology
+            2. Translation to formal semantics. Challenges:
+              • Classification among many entities
+              • Acquisition of missing knowledge
+              • Long documents exceeding LLM contexts
+              • Consistency checking
+              • Refinement with annotated samples
+
+            3. Information retrieval optimizations
+
+
+LAM                                                                 STANFORD
+      3 Case Studies of Scientific Assistants
+              All the technology developed is generally applicable to any domain
+                       You can join these new projects from the ground up.
+         1.    Clinical Trial Matching (Mayo Clinic, Stanford Medicine) using SMT
+                 •   Off-line matching & a conversational agent for patients looking for trials
+
+         2.    Cancer drug resistance: Data Synthesis with literature in RNA-Seq Analysis
+               (Stanford Oncology)
+                 •   Analysis of experimental results
+                 •   Extraction of knowledge graph of pubmed articles
+                 • Synthesizing data with literature
+               Similar use case: Repurposing drugs for rare diseases (Everycure, Rare Genomics Inst.)
+         3.    Sustainability Modeling (Stanford Cornerstone Initiative)
+                 • Synthesizing model from many different raw databases with judgement
+
+LAM                                                                                               STANFORD
+                        S CIENTIFIC R ESEARCH
+         R EQUIRES C HANGING THE F UNDAMENTALS OF N L P
+                W ITH C OMPUTATION T RAINING ( C T )
+
+
+1.   I NFORMATION R ETRIEVAL ( E MBEDDING S IMILARITY)
+         à F ORMAL S EMANTICS
+
+2.   R EASONING: C HAIN OF T HOUGHT
+         à C OMPUTATIONAL T HINKING ( C T )
+
+3.   T RAINING: U NSUPERVISED N EXT- WORD P REDICTION T RAINING
+                F INE- TUNED WITH C HAIN OF T HOUGHT
+          à F INE- TUNED WITH C T T RAINING
+      LLMs Lack Computational Thinking (CT)
+      Example: Composition
+            Question                                                        OpenAI-03 Model
+            Who is the wife of Benjamin Harrison?                           Caroline Harrison
+            Who is the grandfather of Caroline Harrison?                    George Scott
+            Who's the grandfather of the wife of Benjamin Harrison?         Dr. John Witherspoon
+
+
+
+            Idea
+            Do not use LLMs to answer complex questions directly
+            We propose:
+            1. Use LLM to perform simple functions
+            2. Use an Algorithmic Engine to invoke LLM functions and compose them
+
+
+
+
+LAM                                                                                                STANFORD
+      LLMs Lack Computational Thinking (CT)
+      Example: Composition
+             Question                                                               OpenAI-03 Model
+             Who is the wife of Benjamin Harrison?                                  Caroline Harrison
+             Who is the grandfather of Caroline Harrison?                           George Scott
+             Who's the grandfather of the wife of Benjamin Harrison?
+
+         Computation Thinking          Input
+
+                           Algorithmic Recursion
+                             & Decomposition
+                                Framework
+
+                Problem          Primitive?
+               statement
+                               Solve-Primitive
+
+                                Decompose
+
+              LLM Call                  output         Dataset: LLM knows every hop of the question
+
+LAM                                                                                                     STANFORD
+      Potential Applications
+         • Semantic Parser
+                      This just in: Beats SOTA on Spider-2 Text-to-SQL
+         • Data Synthesis
+
+
+         • Coding
+
+
+         • Scientific and Engineering Workflows
+
+
+
+LAM                                                                      STANFORD
+                        S CIENTIFIC R ESEARCH
+         R EQUIRES C HANGING THE F UNDAMENTALS OF N L P
+                W ITH C OMPUTATION T RAINING ( C T )
+
+
+1.   I NFORMATION R ETRIEVAL ( E MBEDDING S IMILARITY)
+         à F ORMAL S EMANTICS
+
+2.   R EASONING: C HAIN OF T HOUGHT
+         à C OMPUTATIONAL T HINKING ( C T )
+
+3.   T RAINING: U NSUPERVISED N EXT- WORD P REDICTION T RAINING
+                F INE- TUNED WITH C HAIN OF T HOUGHT
+          à F INE- TUNED WITH C T T RAINING
+      Training CT
+         •    Why?
+             • To improve ansatze (educated guess) to aid knowledge discovery
+                 •   Example: Ask LLM “What drug may cure this rare disease?"
+                              Literature search on the answer.
+         •   How?
+             •   Fine-tune with training samples:
+                 (Natural language question à Formal Query; Answer)
+             •   Teach it formal semantics representation
+             •   Improve its latent representation of knowledge in LLMs
+
+
+         •   Expected result: improved LLMs recall and ansatzes
+
+LAM                                                                             STANFORD
+THE CS224V COURSE
+          COURSE OBJECTIVES
+
+FOUNDATION TO MAKE LLMS USEFUL AS A
+TRUSTWORTHY GENERAL VIRTUAL ASSISTANT
+
+
+HANDS-ON PROJECT/RESEARCH EXPERIENCE
+BUILDING ON THE STATE-OF-THE-ART TOOLS
+                 OR
+   ADVANCING THE STATE-OF-THE-ART
+      Course Design
+
+         1.    2 homeworks to bring everybody onboard with SOTA tools
+         2.    Lectures on techniques of LLM-based conversational agents
+         3.    Supervised quarter-long project
+              • Create a new application on existing tools
+              • Enhance existing tools (with an application)
+              • Develop new tools (with an application)
+
+
+
+LAM                                                                        STANFORD
+      Purpose of the 2 Assignments
+         Prepare you for your project proposal
+
+
+         1. How to create an autonomous LLM-based research agent?
+         2. How to create a conversational agent using Genie Worksheet
+           • Performs tasks; Answers question
+           • Does not hallucinate
+
+
+
+
+LAM                                                                      STANFORD
+      Project Apprenticeship
+         • Assistance with project selection: Hardest part in research!
+           • We suggest over 20 research-oriented projects
+             on the website
+           • Student-initiated projects are hugely welcome
+
+
+         • Weekly group mentorship meeting
+           • We want to make you succeed!
+
+
+
+
+LAM                                                                       STANFORD
+      Project Mentorship
+         All homeworks and projects are to be done in pairs
+         • Week 4: Project proposal, with a weekly plan
+         • Weeks 5-10 (excluding Thanksgiving break):
+           • Submit a written weekend update (every Monday)
+           • Group meeting with mentors during the week
+         • Week 11: Poster presentation (Dec 4)
+         • Final project report due Dec 9, 2025.
+
+
+
+
+LAM                                                           STANFORD
+      Course Schedule at a Glance
+          Dates                  Lectures / Homeworks                           Projects
+                      Introduction;
+                      Autonomous Research Agents (HW1)
+      9/22 - 10/ 6                                                   Research Project Ideas
+                      Task-oriented agents (HW2)
+                      Grounding on free text
+                                                                     Student-initiated ideas
+      10/ 8 - 10/20                                                  Project discussions
+                                                                     Project proposals (2)
+                      Knowledge retrieval: databases, knowledge
+      10/22 - 11/3                                                   Weekly meetings with mentor
+                      graphs, hybrid data, long documents
+                      Reasoning with computational thinking;
+      11/ 5 - 11/12                                                  Weekly meetings with mentor
+                      Formal semantics; NLP building blocks
+      11/17 – 11/19   Misc: Multimodal apps; Training LLMs           Weekly meetings with mentor
+      11/25 - 11/27                                   Thanksgiving
+                                                                     Final project posters
+      12/3
+                                                                     (3:00-5:40)
+LAM                                                                                            STANFORD
+      This Course
+                               Participation includes
+
+                       Grade   • Class attendance and participation
+       Participation    15%    • Ed discussion
+       Assignment       25%    • Meetings with project mentors
+       Final Project    60%
+
+
+
+
+LAM                                                               STANFORD
+

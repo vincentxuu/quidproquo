@@ -1,0 +1,60 @@
+Next: Special Characters, Up: i386 Syntactical Considerations  
+[Contents][Index]
+
+------------------------------------------------------------------------
+
+9.16.3.1 AT&T Syntax versus Intel Syntax ¶
+
+as now supports assembly using Intel assembler syntax. .intel_syntax
+selects Intel mode, and .att_syntax switches back to the usual AT&T mode
+for compatibility with the output of gcc. Either of these directives may
+have an optional argument, prefix, or noprefix specifying whether
+registers require a ‘%’ prefix. AT&T System V/386 assembler syntax is
+quite different from Intel syntax. We mention these differences because
+almost all 80386 documents use Intel syntax. Notable differences between
+the two syntaxes are:
+
+- AT&T immediate operands are preceded by ‘$’; Intel immediate operands
+  are undelimited (Intel ‘push 4’ is AT&T ‘pushl $4’). AT&T register
+  operands are preceded by ‘%’; Intel register operands are undelimited.
+  AT&T absolute (as opposed to PC relative) jump/call operands are
+  prefixed by ‘*’; they are undelimited in Intel syntax.
+
+-  AT&T and Intel syntax use the opposite order for source and
+  destination operands. Intel ‘add eax, 4’ is ‘addl $4, %eax’. The
+  ‘source, dest’ convention is maintained for compatibility with
+  previous Unix assemblers. Note that ‘bound’, ‘invlpga’, and
+  instructions with 2 immediate operands, such as the ‘enter’
+  instruction, do not have reversed order. AT&T Syntax bugs.
+
+-  In AT&T syntax the size of memory operands is determined from the
+  last character of the instruction mnemonic. Mnemonic suffixes of ‘b’,
+  ‘w’, ‘l’ and ‘q’ specify byte (8-bit), word (16-bit), long (32-bit)
+  and quadruple word (64-bit) memory references. Mnemonic suffixes of
+  ‘x’, ‘y’ and ‘z’ specify xmm (128-bit vector), ymm (256-bit vector)
+  and zmm (512-bit vector) memory references, only when there’s no other
+  way to disambiguate an instruction. Intel syntax accomplishes this by
+  prefixing memory operands (not the instruction mnemonics) with
+  ‘byte ptr’, ‘word ptr’, ‘dword ptr’, ‘qword ptr’, ‘xmmword ptr’,
+  ‘ymmword ptr’ and ‘zmmword ptr’. Thus, Intel syntax
+  ‘mov al, byte ptr foo’ is ‘movb foo, %al’ in AT&T syntax. In Intel
+  syntax, ‘fword ptr’, ‘tbyte ptr’ and ‘oword ptr’ specify 48-bit,
+  80-bit and 128-bit memory references.
+
+  In 64-bit code, ‘movabs’ can be used to encode the ‘mov’ instruction
+  with the 64-bit displacement or immediate operand.
+
+-  Immediate form long jumps and calls are
+  ‘lcall/ljmp $section, $offset’ in AT&T syntax; the Intel syntax is
+  ‘call/jmp far section:offset’. Also, the far return instruction is
+  ‘lret $stack-adjust’ in AT&T syntax; Intel syntax is
+  ‘ret far stack-adjust’.
+
+-  The AT&T assembler does not provide support for multiple section
+  programs. Unix style systems expect all programs to be single
+  sections.
+
+------------------------------------------------------------------------
+
+Next: Special Characters, Up: i386 Syntactical Considerations  
+[Contents][Index]

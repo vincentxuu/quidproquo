@@ -1,0 +1,815 @@
+             Stanford CS224v Course
+
+Conversational Virtual Assistants with Deep Learning
+
+
+                   Lecture 7
+
+ SUQL: Structured/Unstructured
+        Query Language
+
+              Monica Lam & Shicheng Liu
+                                                       1
+      Summary from Lecture 6
+        • Many questions require information from hybrid data sources
+        • Prior work
+          • Structure OR Text: is inadequate
+            • Binary classifier up front (SK-TOD, 2023)
+            • Pick afterwards (Stanford Chirpy Cardinal, 2021)
+          • Different approaches to combine structures and free-text
+            • Structures à Text: Linearization (one hop)
+            • Hybrid: Retrieve from both and combine (one hop each)
+
+         We need to compose answers from both sources arbitrarily!
+
+LAM                                     2                               STANFORD
+      Goals for Handling Hybrid Data
+        1. Maximize available information retrieval capability
+          • Keep text as text and KBs as KBs
+            • Combine the best of two worlds!
+          • Converting KB à Text, or Text à KB
+            • Worse when choosing the lowest denominator
+        2. Hybrid multi-hop: Compose IR and KB accesses arbitrarily         NEW!
+
+          • Efficient searching of free text (using embedded similiarity)
+          • Relational algebra operations (aggregate, rank, …)
+
+
+LAM                                        3                                       STANFORD
+        QUIZ
+
+
+ HOW DO WE SUPPORT
+FULL COMPOSITIONALITY?
+
+
+                         4
+      Invent the SUQL Language
+         • SUQL (Structured & Unstructured Query Language)
+           • Extends SQL to include free-text operations
+           • Leverages LLM familiarity
+             with the most popular DB query language
+         • SUQL-based Genie Framework
+           • Developer only needs to provide
+             SQL schema + free-text data
+
+
+
+
+LAM                                    5                     STANFORD
+      Reduces Complexity for Neural Model
+                                                  User query          User query
+ SUQL: A high-level language
+       – domain agnostic
+                                               Semantic parser      Semantic parser
+ • Decompose implementation into:
+                                                        Predicted           Predicted
+      • LLM-based semantic parser                       SQL                 SUQL
+
+      • Algorithmic full-query optimizations    SQL compiler         SUQL compiler
+
+        in the optimizing compiler                       Database            Database
+                                                         results             results
+
+                                               Response prompt      Response prompt
+
+
+
+
+LAM                                       6                                        STANFORD
+      Genie Agent Framework Inputs (Yelp Example)
+              DB Schema
+                   schema
+        CREATE TABLE restaurants (      --
+         id TEXT PRIMARY KEY,           User: Show me a family-friendly restaurant that has burgers
+         location TEXT,                 Target: SELECT *, summary(reviews), answer(reviews, 'is this restaurant
+         address TEXT,                  family-friendly?') FROM restaurants WHERE answer(reviews, 'do you
+         cuisines ENUM[],               find this restaurant to be family-friendly?') = 'Yes' AND
+         rating NUMERIC(2,1),           answer(popular_dishes, 'does this restaurant serve burgers') = 'Yes'
+         …,                             LIMIT 1;
+         popular_dishes TEXT[], NEW!    --
+         reviews TEXT[]          NEW!   User: Find me a place with pasta.
+        …);                             Target: SELECT *, summary(reviews) FROM restaurants WHERE
+                                        answer(popular_dishes, 'does this restaurant serve pasta') = 'Yes' LIMIT
+                                        1;
+                                        --
+                 Free-Text              …
+
+      SUQL framework will create
+        the vector store for IR                  Few-shot examples (optional)
+
+LAM                                                 7                                                              STANFORD
+      Lecture Goals
+
+        • SUQL Language – Design and Rationale
+        • SUQL Implementation – Semantic parser & Compiler
+        • Evaluation in a real life app: Yelp
+        • Evaluation with a large dataset: HybridQA
+          (with an improvement)
+
+
+
+
+LAM                                     8                    STANFORD
+      SUQL Free-Text Support
+         • Add free-text primitives into SQL, implemented with IR & LLM
+         • Two functions: summary, answer
+                     “I want a family-friendly restaurant in Palo Alto”
+
+
+                   SELECT *, summary(reviews) FROM restaurants
+                            WHERE location = 'Palo Alto’
+          AND answer(reviews, ‘is it a family friendly restaurant’) = 'Yes' LIMIT 1;
+
+                  Quiz: How do you implement summary and answer?
+
+
+LAM                                          9                                         STANFORD
+      HybridQA Dataset
+                  Wikipedia Tables   hyperlinked   Wikipedia Pages
+
+
+
+
+Flag bearers of
+    Myanmar
+at the Olympics
+
+
+
+
+LAM                                      10                          STANFORD
+      T: Table
+LAM
+      P: Passage   11   STANFORD
+      HybridQA Questions in SUQL
+                              Type I (T->P)
+ CREATE TABLE Flag (
+ "Name" TEXT,                 Where was the XXXl
+                                        Where    Olympic
+                                              was the XXXIheld?
+                                                           Olympic held?
+ "Flag Bearer" TEXT,
+ "Flag Bearer_Info" TEXT[],
+                              SELECT answer("Event year_Info",
+ "Gender" TEXT,                                'where is this event held?’)
+ "Event year" TEXT,
+                                       FROM ”Flag" WHERE "Name" = 'XXXI’
+ "Event year_Info" TEXT[]);
+
+ T: Table
+ P: Paragraph
+
+
+LAM                                            12                             STANFORD
+      HybridQA Questions in SUQL
+                              Type II (P->T)
+ CREATE TABLE Flag (          What was the name of the Olympic event held in Rio?
+ "Name" TEXT,
+ "Flag Bearer" TEXT,          SELECT "Name" FROM ”Flag"
+ "Flag Bearer_Info" TEXT[],
+                              WHERE answer("Event year_Info",
+ "Gender" TEXT,
+ "Event year" TEXT,                    'where is this event held?') = 'Rio’
+ "Event year_Info" TEXT[]);
+
+ T: Table
+ P: Paragraph
+
+
+LAM                                            13                                   STANFORD
+      HybridQA Questions in SUQL
+                              Type III (P->T->P)
+ CREATE TABLE Flag (
+                              When was the flag bearer of Rio Olympic born?
+ "Name" TEXT,
+ "Flag Bearer" TEXT,          SELECT answer("Flag Bearer_Info",
+ "Flag Bearer_Info" TEXT[],
+ "Gender" TEXT,                                    'when is this person born?’)
+ "Event year" TEXT,           FROM ”Flag"
+ "Event year_Info" TEXT[]);
+                              WHERE answer("Event year_Info", 'where is this event
+ T: Table                     held?') = 'Rio’
+ P: Paragraph
+
+
+LAM                                                14                             STANFORD
+      HybridQA Questions in SUQL
+                              Type IV (T&P)
+ CREATE TABLE Flag (
+                              Which male bearer participated in Men's 100kg event in the
+ "Name" TEXT,
+ "Flag Bearer" TEXT,          Olympic game?
+ "Flag Bearer_Info" TEXT[],
+ "Gender" TEXT,               SELECT "Flag Bearer" FROM ”Flag" WHERE
+ "Event year" TEXT,           "Gender" = 'Male' AND
+ "Event year_Info" TEXT[]);
+                              answer("Flag Bearer_Info",
+ T: Table                              'what event did this person participate in?’)
+ P: Paragraph
+                                       = “Men’s 100kg event”
+
+LAM                                            15                                          STANFORD
+      HybridQA Questions in SUQL
+                              Type V (T-Compare | P-Compare)
+ CREATE TABLE Flag (          For the 2012 and 2016 Olympic Event, when was the younger
+ "Name" TEXT,
+ "Flag Bearer" TEXT,          flag bearer born?
+ "Flag Bearer_Info" TEXT[],
+                              SELECT MAX
+ "Gender" TEXT,
+ "Event year" TEXT,           (answer("Flag Bearer_Info",
+ "Event year_Info" TEXT[]);             'when is this person born?')::date)
+ T: Table                     FROM ”Flag" WHERE "Event year" IN ('2016', '2012’)
+ P: Paragraph
+
+
+LAM                                               16                                 STANFORD
+      HybridQA Questions in SUQL
+                              Type VI (T-Superlative | P-Superlative)
+ CREATE TABLE Flag (          When did the youngest Burmese flag bearer participate
+ "Name" TEXT,
+                              in the Olympic opening ceremony?
+ "Flag Bearer" TEXT,
+ "Flag Bearer_Info" TEXT[],   SELECT "Event year" FROM ”Flag” ORDER BY
+ "Gender" TEXT,
+ "Event year" TEXT,           answer("Flag Bearer_Info",
+ "Event year_Info" TEXT[]);            'when is this person born?')::date
+
+ T: Table                     DESC LIMIT 1;
+ P: Paragraph
+
+
+LAM                                       17                                      STANFORD
+      At-A-Glance: HybridQA Questions in SUQL
+        CREATE TABLE Flag (                       Type III (P->T->P) When was the flag bearer of   Type V (T-Compare | P-Compare) For the
+        "Name" TEXT,                              Rio Olympic born?                                2012 and 2016 Olympic Event, when was the
+        "Flag Bearer" TEXT,                                                                        younger flag bearer born?
+                                                  SELECT answer("Flag Bearer_Info",
+        "Flag Bearer_Info" TEXT[],
+                                                  'when is this person born?’)                     SELECT MAX
+        "Gender" TEXT,
+                                                  FROM ”Flag"                                      (answer("Flag Bearer_Info",
+        "Event year" TEXT,
+                                                  WHERE answer("Event year_Info",                   'when is this person born?')::date)
+        "Event year_Info" TEXT[]);
+                                                  'where is this event held?') = 'Rio’             FROM ”Flag"
+        Type I (T->P)                                                                              WHERE "Event year" IN ('2016', '2012’)
+        Where was the XXXl Olympic held?
+                                                                                                   Type VI (T-Superlative | P-Superlative) When
+                                                  Type IV (T&P) Which male bearer
+        SELECT                                                                                     did the youngest Burmese flag bearer
+                                                  participated in Men's 100kg event in the
+        answer("Event year_Info",                                                                  participate in the Olympic opening ceremony?
+                                                  Olympic game?
+               'where is this event held?’)
+                                                                                                   SELECT "Event year" FROM ”Flag”
+        FROM ”Flag" WHERE "Name" = 'XXXI'         SELECT "Flag Bearer" FROM ”Flag"
+                                                                                                   ORDER BY answer("Flag Bearer_Info",
+                                                  WHERE "Gender" = 'Male' AND
+        Type II (P->T) What was the name of the                                                    'when is this person born?')::date
+                                                  answer("Flag Bearer_Info",
+        Olympic event held in Rio?                                                                 DESC LIMIT 1;
+                                                  'what event did this person
+        SELECT "Name" FROM ”Flag"                 participate in?’)
+        WHERE answer("Event year_Info",           = “Men’s 100kg event”
+        'where is this event held?') = 'Rio’
+                                                  Quiz: Where can ’answer’ be used in a query?
+LAM                                                                   18                                                                          STANFORD
+      Conversational Example: Restaurant
+                                         Restaurants
+             Do you have a recommendation for a first date restaurant in Palo Alto?
+                  We're thinking sushi but not sure what's good around here.
+
+
+
+                       SELECT *, summary(reviews) FROM restaurants
+           WHERE 'sushi' = ANY (cuisines) AND location = 'Palo Alto' AND rating >= 4.0
+             AND answer(reviews, 'is this restaurant good for a first date?') = 'Yes’
+                            ORDER BY num_reviews DESC LIMIT 1;
+
+
+
+
+LAM                                          19                                          STANFORD
+      Conversational Example: Shopping
+                                                    Laptops
+                                  I need a laptop with a Thunderbolt 3 port and
+CREATE TABLE laptop (             at least 16GB RAM for my workstation setup.
+”ram" int,
+…,
+”about" TEXT,                     SELECT *, summary(reviews) FROM laptops
+“description" TEXT[],                       WHERE ram >= 16 AND
+”reviews” TEXT);
+                           (answer(about, 'does this laptop have Thunderbolt 3?') = 'Yes’
+                        OR answer(description, 'does this laptop have Thunderbolt 3?') = 'Yes’)
+                                                    LIMIT 3;
+                 It is often unclear where the answer is in the text,
+                 useful/easy to search for all possibly relevant text fields.
+
+LAM                                            20                                            STANFORD
+         QUIZ
+
+WHAT CAN WE USE SUQL FOR?
+
+
+
+
+                            21
+      Advantages of SUQL
+         •    Formal representation combining IR and DB query
+             • Succinct, expressive, domain independence
+             •   Full compositionality: combining IR and relational algebra
+         •   Interpretability
+                 •   We can read the query back
+                     so users know what question is being answered
+                 •   Quiz: Is the answer always correct given a formal query?
+                     •   It is true for the database part
+                     •   But there is a potential for error in free-text Q&A
+                         (Information retrieval error, answer error)
+         •    SUQL is a high-level programming language
+             • Optimization issues handled by compilers, abstracted from programmers
+
+LAM                                                 22                                 STANFORD
+      SUQL is New
+         • How to evaluate SUQL as a design?
+
+
+         • What is the accuracy?
+           • Semantic parser accuracy
+           • Execution accuracy
+         • What is the speed?
+
+
+
+
+LAM                                 23         STANFORD
+      Lecture Goals
+
+        • SUQL Language – Design and Rationale
+        • SUQL Implementation – Semantic parser & Compiler
+        • Evaluation in a real life app: Yelp
+        • Evaluation with a large dataset: HybridQA
+          (with an improvement)
+
+
+
+
+LAM                                     24                   STANFORD
+  Agent Design for SQL
+                                                        User query
+
+
+                                                      Input classifier
+                                                                     Db lookup needed
+
+                                                    Semantic parser
+
+                                                                 Predicted SQL                          DB lookup
+                                                                                                        not needed
+      No result response                              SQL compiler                      Classify-Enum
+                                  No results
+                                                                     Database
+                                                                     results
+
+                                                   Response prompt
+
+
+      Click the links to see the prompts (written in jinja syntax)
+LAM                                                                      25                                      STANFORD
+  Agent Design: SQL Updated with SUQL
+                                                    User query
+
+
+                                                 Input classifier
+                                                            Db lookup needed
+
+                                                Semantic parser
+
+                                                            Predicted SUQL
+                                                                               Classify-Enum
+                                                                                               DB lookup
+                                                                                               not needed
+      No result response                         SUQL compiler                 summary fcn
+                                No results
+                                                             Database
+                                                             results           answer fcn
+
+                                               Response prompt
+
+
+      7 prompts with few-shot examples. Templates written in jinja syntax
+LAM                                                               26                                    STANFORD
+                 SUQL:
+HIGH-LEVEL PROGRAMMING LANGUAGE
+
+ THE COMPILER CAN IMPLEMENT OPTIMIZATIONS
+        HIDING DETAILS FROM USERS
+
+
+
+                                            27
+      SUQL Compiler
+         • SQL can run SUQL programs without modification
+           • summary / answer are just external functions
+
+
+         • But it is slow
+
+
+
+
+LAM                                   28                    STANFORD
+      Example
+                      “I want a family-friendly restaurant in Palo Alto”
+
+                   SELECT *, summary(reviews) FROM restaurants
+           WHERE answer(reviews, ‘is it a family friendly restaurant’) = 'Yes’
+                              and location = 'Palo Alto’
+        • Consider a naïve implementation
+          • Retrieve each review from the table
+          • For each review, call LLM to answer the question
+          • Filter on location
+          • Summarize all the returned reviews
+          • Report the first few        Quiz: How would you optimize the query?
+LAM                                          29                                   STANFORD
+      1. Order Filtering
+             answer(reviews, ‘is it a family friendly restaurant’) = ‘Yes’
+                                        AND
+                             and location = 'Palo Alto’
+
+           • Execution of structured predicates is much cheaper
+           • Always execute structured predicates first
+
+
+
+
+LAM                                      30                                  STANFORD
+      2. Return Only Necessary Results
+           answer(reviews, ‘is it a family friendly restaurant’) = ‘Yes’
+
+
+          • For applications such as recommendation,
+            it is not necessary to return all the answers
+          • IR uses embedding model (vector similarity)
+            to return top candidates
+          • Return only top results to LLM-based answer functions
+
+
+
+LAM                                      31                                STANFORD
+      3. Lazy Evaluation
+              answer(reviews, ‘is it a family friendly restaurant’) = ‘Yes’
+                                         AND
+                    answer(reviews, ’is it easy to park’) = ‘Yes’
+                                         AND
+                         and location = 'Palo Alto’ LIMIT 1
+
+
+          • Lazy evaluation: Evaluate only when the result is needed
+          • Stop calling answer as soon as LIMIT 1 is reached
+
+
+
+LAM                                     32                                    STANFORD
+      SUQL Compiler Implementation
+         • SUQL is implemented by modifying the SQL compiler
+         • To support arbitrary composition of SQL and
+           summary/answer statements
+           • Process the syntax tree of SQL recursively
+             • Start from the bottom node with no sub-queries
+             • And move to the top
+
+
+
+
+LAM                                    33                       STANFORD
+      SUQL Compiler Implementation (cont.)
+
+           • For each SELECT statement with answer in it
+             Apply optimizations to the SELECT statement
+             • Store the processed results in a temporary table temp
+             • Substitute this statement with SELECT from temp
+
+
+         • SQL compiler handles the final processing
+
+
+
+LAM                                   34                               STANFORD
+      Compiler Optimizations
+
+          • Possible only because we are optimizing across the whole
+            query
+                        Quiz: Is the optimization necessary?
+
+                          Quiz: What if we use an agent
+           that uses “function calling” to call IR and query databases
+                                    separately?
+
+
+
+
+LAM                                  35                                  STANFORD
+      Lecture Goals
+
+        • SUQL Language – Design and Rationale
+        • SUQL Implementation – Semantic parser & Compiler
+        • Evaluation in a real life app: Yelp
+        • Evaluation with a large dataset: HybridQA
+          (with an improvement)
+
+
+
+
+LAM                                     36                   STANFORD
+      Experiment
+
+                                                            A real, large dataset
+                                                            •        Yelp on San Francisco, Palo Alto, Cupertino,
+                                                                     Sunnyvale
+                                                            •        Scraped reviews and popular dishes
+                                                                     information
+                                                            Components
+                                                            • LLM: gpt-3.5-turbo
+                                                            • Information retrieval on text fields
+                                                              • indexed with Coco-DR
+                                                            •        A new optimizing SUQL compiler
+
+      COCO-DR reference: https://arxiv.org/abs/2210.15212
+LAM                                                             37                                          STANFORD
+      Evaluation (in Restaurants)
+         • We solicit user queries via crowdsourcing on Prolific.
+           • We do not disclose to the workers what fields are
+             available in the database.
+
+
+         • The Yelp Dataset:
+           1. Just Q&A: 100 crowdsourced questions about restaurants.
+           2. Conversational: 20 conversations with 96 turns
+
+
+
+LAM                                  38                             STANFORD
+      The Need for Hybrid QA in Real Life?
+
+
+
+                                     (59%)
+                                     (41%)
+
+
+
+
+LAM                     39                   STANFORD
+      Evaluation (in Restaurants)
+              Quiz: how do you evaluate its accuracy?
+
+         • In real-world tasks: Difficult to label the gold answers:
+           • For each query, there are many possible “gold restaurants”
+
+
+         • We manually inspect whether
+           restaurants returned satisfy all criteria
+         • Calculate Query precision: #correct results / #results
+
+
+
+
+LAM                                       40                              STANFORD
+      Baseline comparison:
+      Linearize + Information Retrieval
+
+
+
+
+         Embedding based matches are poor at multi-criteria queries
+
+LAM                                   41                              STANFORD
+      Using SUQL
+
+
+
+
+LAM                42   STANFORD
+      Evaluation
+
+
+
+
+       Quiz: how can you get incorrect results with semantic parsing on SUQL?
+
+LAM                                     43                                 STANFORD
+      What About Recall?
+
+          • Are all the answers found?
+            • Incomplete                  ß Quiz: Is this OK?
+            • Not at all
+
+
+
+
+LAM                                  44                         STANFORD
+      Defensive Programming:
+      What if the Semantic Parser is Wrong?
+
+          Always verbalize the user query
+
+
+          Allows the user to spot mistakes in the answer
+
+
+          Even when it fails, so users can adjust the query.
+           I searched for 5-star restaurants in Sunnyvale that serve kids food.
+           Unfortunately, I couldn't find any search results.
+           Is there anything else I can help you with?
+
+LAM                                       45                                      STANFORD
+      Error Analysis:
+      What Happened When No Answers Were Returned?
+          14 false negatives on our single-turn set (100 questions)
+          • Parsing: 2 errors (one syntactic, one enum field confusion)
+          • Query evaluation
+            • Structured:                                             ß Can be improved
+               • 4 unsupported location service
+               • 2 opening hours errors
+               • 2 dishes: searched in popular dishes, but results are in reviews
+
+
+            • Free-text: 4 false negatives from ‘answer’ (ChatGPT)
+
+
+LAM                                           46                                     STANFORD
+      User Feedback - Positive
+         • There’s actually nothing I didn’t like about this chatbot.
+         • I would honestly use this chatbot on a regular basis
+           if it were available to the public
+         • I liked that the chatbot was fast in responses and it gave very
+           detailed responses and I hardly had any questions about a
+           restaurant after the option was given.
+         • Shocked at how good the restaurant suggestions were. I even
+           asked for something with better prices and got that too. Now I’m
+           hungry. I asked to define a cuisine style and it was able to do that.
+LAM                                        47                                      STANFORD
+      User Feedback - Negative
+         •   Occasional slowness of the chatbot
+         •   It didn’t provide any links or pictures
+         •   It did not sound friendly and sometimes the responses were too long.
+         •   Bullet point outputs would be much more helpful.
+
+
+
+
+LAM                                            48                                   STANFORD
+      Lecture Goals
+
+        • SUQL Language – Design and Rationale
+        • SUQL Implementation – Semantic parser & Compiler
+        • Evaluation in a real life app: Yelp
+        • Evaluation with a large dataset: HybridQA
+          (with an improvement)
+
+
+
+
+LAM                                     50                   STANFORD
+      Hybrid QA Dataset
+
+
+
+
+LAM                       51   STANFORD
+      HybridQA Dataset: Based on Wikipedia
+       • 13000 tasks on Amazon Turk:
+         • Given one crawled Wikipedia table + its hyperlinked passages.
+         • Write 6 questions & answers.
+         • Each task takes 12 minutes on average, and payment is $2.3 U.S.
+       • 5 CS graduate students to decide on the acceptance.
+
+
+
+
+LAM                                       52                                 STANFORD
+      HybridQA Dataset
+         • Question rely on both tabular and textual information.
+         • Table reasoning step specifically includes
+           • filter rows based on =, >, <: “the XXXI Olympic event”
+           • superlative operation over a column: “the earliest Olympic event”
+           • hop between two cells: “Which event ... participate in ...”,
+           • extract information from table: “In which year did the player ... ”.
+         • Text reasoning step specifically includes
+           • select passages based on mentions, e.g. “the judoka bearer”,
+           • extract a span from the passage as the answer.
+
+
+LAM                                       53                                        STANFORD
+      HybridQA using SUQL
+         • HybridQA is much more challenging than Yelp
+         • Each question comes with its own DB schema
+         • In-context learning: Zero-Shot
+           • Schema of the table
+           • No table-specific examples
+
+
+
+
+LAM                                    54                STANFORD
+      Preliminary Assessment
+         Our HybridQA experiment suggests 2 improvements to SUQL
+         1. It is hard for the semantic parser to identify the right text column
+           • Solution:
+             Automatically find the answers in other columns
+              if the original column fails
+
+
+         2. A clear feedback signal at run time: execution returns no answer
+           • Solution: Try again
+
+
+LAM                                          55                                STANFORD
+  SUQL-based agent on HybridQA
+  A simple prompt-based system
+                                                 Test query
+
+
+                                              Semantic parser
+                              Up to 2 times
+                                                       Predicted SUQL
+                                                                        Classify-Enum
+
+              No Result Semantic
+                                               SUQL compiler            summary fcn
+                    parser
+                                                            Database
+                                                            results     answer fcn
+                                 No results
+                                              Result conversion
+                                                   prompt
+
+
+      Templates written in jinja syntax
+LAM                                                    56                               STANFORD
+      HybridQA Tables
+
+
+
+         • SUQL translates text tables into SQL table
+         • Note the size of the tables
+           • Only 4.4 columns and 15.7 rows per table on average!
+         • SOTA S3HQA works on supplying the whole table to LLMs!
+           • Does NOT generalize to bigger tables
+         • Our solution scales to any table sizes
+LAM                                     57                          STANFORD
+      Train – Dev – Test Split
+
+
+
+
+LAM                        58    STANFORD
+      Evaluation in HybridQA
+                  Evaluation Metrics: Exact match (EM) and F1 on raw text
+
+
+
+
+           In-context learning SUQL outperforms all in-context learning methods
+            Within 8.9% EM and 7.1% F1 to the SOTA trained on 62K examples
+LAM                                         59                                    STANFORD
+        QUIZ
+
+WHAT SHOULD WE DO NEXT?
+
+
+
+
+                          60
+      Error Analysis
+      We analyzed 72 randomly sampled error cases
+      Evaluation Issues (61% of errors)                       True Errors (39% of errors)
+      • Format mismatches: 37.5%.                             • Semantic parsing errors:
+        Predicted “Johnson City, Tenessee”                      22.2%
+        vs. “Johnson City”.                                   • Errors from LLM-based
+      • The gold label is either wrong or                       functions: 11.1%
+        incomplete: 23.6%                                     • Type-related conversation
+        • There is only 1 gold answer                           errors: 5.6%
+          when there should be more!
+
+       A lot of format problems !   ß Handled by fine-tuning, but it is not intrinsically important
+
+                                      True accuracy may reach 84.2%
+LAM                                                 61                                         STANFORD
+      Conclusion: SUQL
+         • High-Level Query Language for any Domain of Hybrid Data
+           • Expressiveness: Unifies the hybrid data sources
+             • Arbitrary composition of free-text and DB knowledge
+         • Domain-agnostic SUQL-Based Genie Agent Framework
+           • Developer supplies: tables, free texts, examples (optional)
+         • SUQL decomposes problem into:
+            • Zero-Shot semantic parser: IR + relational algebra
+             • An optimizing compiler
+         • Evaluation
+           • Needed in real-life conversations (Yelp)
+           • In-context learning with LLMs works well for natural queries
+
+LAM                                      62                                 STANFORD
+

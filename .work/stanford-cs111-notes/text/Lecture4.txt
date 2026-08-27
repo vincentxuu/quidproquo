@@ -1,0 +1,376 @@
+Concurrency
+Mendel Rosenblum
+
+
+
+  CS111 Lecture Notes - Concurrency
+Concurrency
+Optional readings:
+    Operating Systems: Principles and Practice:
+         Chapter 5 up through Section 5.1
+
+
+
+
+                            CS111 Lecture Notes - Concurrency
+Independent Threads                                                     /bin/tcsh
+
+●   No shared state
+     ○   Thread cannot affect other threads
+     ○   Thread cannot be affected by other threads                          x     y       z
+
+●   Attractive properties                                                std:cin       std:cout
+     ○   Deterministic
+          ■ Depends only on input
+     ○   Reproducible                                                   ls
+     ○   Scheduling order doesn’t matter
+
+●   Give examples of independent threads
+     ○   Are they common?
+                                                                             x     y       z
+                                                                         std:cin       std:cout
+                                    CS111 Lecture Notes - Concurrency
+                                                                            multithread
+Cooperating threads
+●   Share state
+                                                                               x       y       z
+●   Undesirable properties:                                                  std:cin       std:cout
+     ○   Behavior is nondeterministic
+
+     ○   May be irreproducible
+
+     ○   Depends on execution order
+
+     ○   Scheduling matters
+
+
+
+
+                                        CS111 Lecture Notes - Concurrency
+Cooperating Threads Example
+               Thread #1                                           Thread #2
+
+cout << 'A' << 'B' << 'C';                          cout << 'C' << 'B' << 'A';
+
+
+
+
+●   What outputs could we get?
+
+●   Can get different outputs, depending on execution order:
+        ABCCBA
+        ABCBCA
+●   Is this possible?
+          AABBCC
+
+                              CS111 Lecture Notes - Concurrency
+Why permit threads to cooperate?
+●   Resource sharing
+     ○   One disk, many files
+     ○   One bank account file, many ATMs
+
+●   Performance
+     ○   Parallel execution on multiple cores
+     ○   Overlap I/O and computation
+
+
+
+
+●   Concurrency is necessary
+
+
+
+                                     CS111 Lecture Notes - Concurrency
+When Does Order Matter?
+               Thread #1                                               Thread #2
+
+A = 1;                                                   B = 1;
+
+
+
+
+ ●   What are possible end values of A and B?
+ ●   Not all operations conflict
+ ●   Order of Thread #1 and #2 irrelevant
+
+
+
+
+                                   CS111 Lecture Notes - Concurrency
+When Does Order Matter?
+                 Thread #1                                           Thread #2
+
+A = 1                                                  B = 2;
+
+A = B + 1;                                             B = 2 * B;
+
+
+  ●     Order of Thread #1 and #2 matters
+         ○ What values are possible for A after both threads complete?
+
+  ●     Call a race condition (race for short)
+  ●     Need something to control order of threads
+         ○ Atomic operations
+                                 CS111 Lecture Notes - Concurrency
+Atomic operation
+Before reasoning about cooperating threads: We need atomic operations.
+
+Atomic = Appears to execute instantaneous to other threads
+
+        •    Cannot be observed mid-execution
+
+        •    Indivisible
+
+
+
+
+                              CS111 Lecture Notes - Concurrency
+What is Atomic?
+Usually atomic:
+ ● Single-word reads
+ ● Single-word writes
+Example:
+   int A, B
+   A = B;
+
+You get:
+ ● Either old value or new value
+ ● Never partial bits
+
+                             CS111 Lecture Notes - Concurrency
+What Is Not Atomic?
+
+Not usually atomic:
+ ●  x++
+ ●  struct copy
+ ●  multi-step operations
+
+
+If no atomic operation exists, you cannot create one.
+
+    Hardware must provide atomic primitives. (Can't build one)
+
+
+
+                               CS111 Lecture Notes - Concurrency
+Building Higher-Level Constructs
+
+If you have at least one atomic primitive
+
+    You can build: Higher-level synchronization constructs
+
+
+This is our strategy
+
+    Build simple atomic operations, work but hard to use
+
+    Build higher level atomic operations
+
+
+
+
+                                CS111 Lecture Notes - Concurrency
+Annoucements
+
+
+
+  CS111 Lecture Notes - Concurrency
+Too Much Milk
+            Roommate A
+3:00   Arrive home: no milk
+3:05   Leave for store
+3:10   Arrive at store
+3:15   Leave store
+3:20   Arrive home, put milk away
+3:25
+3:30
+
+                          CS111 Lecture Notes - Concurrency
+                                                              Slide 14
+Too Much Milk
+            Roommate A                                        Roommate B
+3:00   Arrive home: no milk
+3:05   Leave for store
+3:10   Arrive at store                            Arrive home: no milk
+3:15   Leave store                                Leave for store
+3:20   Arrive home, put milk away                 Arrive at store
+3:25                                              Leave store
+3:30                                              Arrive home: too much milk!
+
+                          CS111 Lecture Notes - Concurrency
+                                                                                Slide 15
+What do we want to happen?
+We want:
+
+●   Safety: Avoid bad things
+
+     ○   Never buy too much milk
+
+●   Liveness (availablibity): Do what it is supposed to do
+
+     ○   Someone buys milk if needed
+
+
+
+Must ensure both properties
+
+
+                                   CS111 Lecture Notes - Concurrency
+Key Definitions
+Synchronization
+
+    •   Using atomic ops to ensure correctness of cooperating threads
+
+Critical section
+
+    •   Code only one thread executes at a time
+
+Mutual exclusion
+
+    •   Mechanism to enforce critical sections
+
+        Commonly implemented via some locking mechanism
+                              CS111 Lecture Notes - Concurrency
+             Computerized Milk Purchase
+           Process A                                           Process B
+
+if (milk == 0) {                              if (milk == 0) {
+  buy_milk();                                   buy_milk();
+  milk = 1                                      milk = 1
+}                                             }
+
+
+
+
+              Error: too much milk
+
+                           CS111 Lecture Notes - Concurrency
+                                                                           Slide 18
+             Computerized Milk Purchase
+           Process A                                           Process B
+
+1 if (milk == 0) {                            1
+2   buy_milk();                               2 if (milk == 0) {
+3   milk = 1                                  3   buy_milk();
+4 }                                           4   milk = 1
+                                              5 }
+
+
+
+
+              Error: too much milk
+
+                           CS111 Lecture Notes - Concurrency
+                                                                           Slide 19
+      Computerized Milk Purchase (add note)
+1 if (milk == 0) {
+2 if (note == 0) {
+3   note = 1;
+4   buy_milk();
+5   note = 0;
+6 }
+7}
+
+
+
+
+             Does this work?
+
+                         CS111 Lecture Notes - Concurrency
+                                                             Slide 20
+                               Still Too Much Milk
+                   Thread A:                                               Thread B:
+1 if (milk == 0) {
+2    if (note == 0) {
+3                                                    if (milk == 0) {
+4                                                        if (note == 0) {
+5                                                            note = 1;
+6                                                            buy_milk();
+                           Need atomic op
+7                                                            note = 0;
+8                                                        }
+9                                                    }
+10     note = 1;
+11     buy_milk();
+12     note = 0;
+13 }
+                                                Less likely but not fixed
+14 }                              CS111 Lecture Notes - Concurrency
+                                                                                       Slide 21
+        Second Attempt (note whose turns)
+          Thread A:                                           Thread B:
+1 if (note == 0) {                           1 if (note == 1) {
+2 if (milk == 0) {                           2 if (milk == 0) {
+3   buy_milk();                              3   buy_milk();
+4 }                                          4 }
+5 note = 1;                                  5 note = 0;
+6 }                                          6 }
+
+
+            Does this work? (Safety and Liveness)
+
+                                                              Safe but starve
+                          CS111 Lecture Notes - Concurrency
+                                                                                Slide 22
+        Third Attempt (Notes for each thread)
+           Thread A:                                            Thread B:
+1 noteA = 1;                                   1 noteB = 1;
+2 if (noteB == 0) {                            2 if (noteA == 0) {
+3 if (milk == 0) {                             3 if (milk == 0) {
+4    buy_milk();                               4    buy_milk();
+5 }                                            5 }
+6 }                                            6 }
+7 noteA = 0;                                   7 noteB = 0;
+
+
+
+                       Does this work?
+                            CS111 Lecture Notes - Concurrency
+                                                                            Slide 23
+                       Fourth Attempt
+           Thread A:                                        Thread B:
+1 noteA = 1;                               1 noteB = 1;
+2 if (noteB == 0) {                        2 while (noteA == 1) {
+3 if (milk == 0) {                         3 // do nothing
+4   buy_milk();                            4 }
+5 }                                        5 if (milk == 0) {
+6 }                                        6 buy_milk();
+7 noteA = 0;                               7 }
+                                           8 noteB = 0;
+
+
+
+                        CS111 Lecture Notes - Concurrency
+                                                                        Slide 24
+Fourth Attempt Evaluation
+●   Solution works but has two disadvantages:
+
+      ○   Asymmetric
+
+      ○   Busy waiting
+           ■   Consumes CPU doing nothing
+
+
+●   A symmetric solution: Peterson's Algorithm
+
+    http://en.wikipedia.org/wiki/Peterson%27s_algorithm.
+
+
+
+
+                                  CS111 Lecture Notes - Concurrency
+Where This Leads
+The milk problem shows:
+ ● Races are subtle
+ ● Atomic reads/writes are insufficient
+ ● Synchronization is tricky
+
+We need better primitives:
+● Locks
+● Condition variables
+
+Next lecture:
+→ Proper synchronization constructs
+
+                              CS111 Lecture Notes - Concurrency
+

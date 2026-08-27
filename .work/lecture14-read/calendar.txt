@@ -1,0 +1,36 @@
+Calendar
+
+NOTE: this website is out of date. This is the course web site from a
+past quarter. If you are a current student taking the course, you should
+visit the current class web site instead. If the current quarter's
+website is easily reached, it may be accessible by visiting this link
+instead. Please be advised that courses' policies change with each new
+quarter and instructor, and any information on this out-of-date page may
+not apply to you.
+
+Below is a preview of the week-by-week plan for the quarter. There may
+be adjustments and rearrangements as we go.
+
+Last updated: March 08, 2026.
+
+- Lecture videos are posted on Canvas under the "Panopto Course Videos"
+  tab for enrolled students.
+
+- In the readings listed below, B&O is Computer Systems (Bryant and
+  O'Hallaron), K&R is The C Programming Language (Kernighan and Ritchie)
+  accessible here (requires free Open Library account to borrow), and
+  Essential C is a PDF available at http://cslibrary.stanford.edu/101.
+  B&O scanned PDFs for the listed readings are available on Canvas under
+  the "Files" tab.
+
+Lecture Code
+
+Any code examples worked in class will be posted into
+/afs/ir/class/cs107/lecture-code/lect[N] where you replace [N] with the
+lecture number. You can make a copy to compile or modify by doing the
+following, which will make a folder in the current location called
+lect[N] that is a copy of the lect[N] code.
+
+    cp -r /afs/ir/class/cs107/lecture-code/lect[N] lect[N]
+
+Topics

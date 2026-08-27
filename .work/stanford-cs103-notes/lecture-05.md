@@ -1,0 +1,24 @@
+# Official Lecture 5: First-Order Logic, Part II
+
+- Date: 2026-04-10
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 一階邏輯 recap：predicates、functions、quantifiers
+  - [x] 四種 Aristotelian forms 與 connective 選擇
+  - [x] 翻譯「每個人愛某個其他人」
+  - [x] 翻譯「有一人被所有其他人愛」
+  - [x] 合併兩個完整量詞主張
+  - [x] `∀x∃y` 與 `∃x∀y` 的順序及依賴差異
+  - [x] 只用 `Set` 與 membership 表達空集合存在
+  - [x] 量詞真假與四種否定等價式
+  - [x] 完整否定「每個人愛某人」
+  - [x] 用 propositional equivalences 否定 connectives
+  - [x] 否定空集合存在的逐行推導
+  - [x] 集合上的 restricted quantifiers 與空集合真值
+  - [x] 禁止自行發明 restricted-quantifier syntax
+  - [x] 用普通 `∀`、`∃` 表達唯一性
+  - [x] next time：functions、first-order definitions、proofs with definitions
+- Boundary: do not infer spoken content or use restricted solutions.

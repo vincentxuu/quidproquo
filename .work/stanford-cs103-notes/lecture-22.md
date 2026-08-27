@@ -1,0 +1,24 @@
+# Official Lecture 22: Turing Machines, Part III
+
+- Date: 2026-05-20
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/22/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/22/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] recognizer 與 decider 的快速量詞稽核
+  - [x] 為何所有問題都能寫成 language
+  - [x] object encoding 的抽象 contract
+  - [x] 多個 objects 打包成一條 string
+  - [x] emergent properties：universality 與 self-reference
+  - [x] 從專用 TM 到可重新編程的 simulator
+  - [x] Universal Turing Machine 定理
+  - [x] UTM 如何逐步維持 simulation
+  - [x] ATM：把 machine behavior 變成 language
+  - [x] interpreter 與 virtual machine 的實務對應
+  - [x] quine：不用讀檔案也輸出自己的 source
+  - [x] arbitrary computation on own source
+  - [x] 常見語意錯誤
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

@@ -1,0 +1,25 @@
+# Official Lecture 20: Turing Machines, Part I
+
+- Date: 2026-05-15
+- Official page: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/20/
+- Slides: https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/20/Lecture%20Slides.pdf
+- Public access: complete slide deck; recording restricted to Canvas/Panopto.
+- Course team: Cynthia Bailey Lee and Alex Aiken; no per-meeting speaker field is public.
+- Agenda coverage (checked against downloaded deck):
+  - [x] 為何 CFG 之後還要換模型
+  - [x] 長加法揭示 local access 原則
+  - [x] 歷史模型與課堂模型的界線
+  - [x] tape、head、blank 與初始 configuration
+  - [x] deck 的第一支程式在檢查什麼
+  - [x] label 與 sequential execution
+  - [x] If、If Not 與 read semantics
+  - [x] Write、Move、Goto、Return
+  - [x] 手動 trace 第一支程式
+  - [x] TM 的優勢：可以反覆掃描與標記
+  - [x] pairing program 的 invariant 與 termination
+  - [x] TM composition：用小程序組大程序
+  - [x] sorting idea 與算法層級描述
+  - [x] TM 與 DFA/NFA 的關鍵差異
+  - [x] 可執行自測
+  - [x] 材料缺口與閱讀界線
+- Boundary: do not infer spoken content or use restricted solutions.

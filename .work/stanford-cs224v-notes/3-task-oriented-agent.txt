@@ -1,0 +1,1574 @@
+                 CS224v
+
+    Conversational Virtual Assistants
+         with Deep Learning
+
+Lecture 3: Task-Oriented Agents
+     Monica Lam and Harshit Joshi
+
+                                        1
+      Commercial Virtual Assistants
+      (Function Calling)
+          User: How is the weather in Stanford?
+          Agent: Stanford’s temperature is 66 F.
+
+
+
+
+          User: Can you book me flight to Miami
+          Agent: Shows a bunch of google search
+          results by using Google Search API
+
+          Cannot complete tasks such as booking a flight
+
+
+LAM                                                        STANFORD
+      Lecture Goals
+         • Key concepts in task-oriented agents
+         • Prior Agent Policy Research
+         • Design and rationale for GenieWorksheets
+         • Technical details of GenieWorksheets
+         • Evaluating Genie Agents
+
+
+
+
+LAM                                                   STANFORD
+      Architecture                User  Dialogue
+                               Utterance History
+         User  Dialogue
+      Utterance History           Semantic Parser
+
+         Semantic Parser                                Decides
+                                     Execution         what to say
+
+            Execution               Agent Policy
+
+       Response Generation      Response Generation
+
+            Response                 Response
+         Knowledge Agent        Task-Oriented Agent
+          (RAG, Text2SQL)         (mixed initiative)
+LAM
+           (user initiative)                                    STANFORD
+WHY IS MIXED-INITIATIVE HARD?
+      Agent Initiatives Only
+         • Happy path
+           • A simple agent just asks for all the parameters
+             and the user provides the expected answers
+         • Example: an airline call agent: September 29, 2025
+             “Welcome back, Harshit.
+             How can I help you?
+             You can say flight status, or mileage plus account servicing,
+             or for anything else including …
+             say operator or just stay on the call.”
+             Harshit: flight status
+
+
+LAM                                                                          STANFORD
+      Mixed Initiatives
+         • Unhappy paths
+          • At any point, the user can say whatever they want
+            even when the agent is asking a question.
+          • Example: “Welcome back, Harshit.
+            How can I help you?
+            You can say flight status, or mileage plus account servicing,
+            or for anything else including … ”
+            Harshit: what is flight status
+
+
+LAM                                                                         STANFORD
+      Examples
+          CLIENT                                                BANKER
+                                  How much money do you wish to transfer?
+          How much money do I have in my account?
+
+          CLIENT                                                      BANKER
+                                        How much money do you wish to transfer?
+          Never mind.
+
+          CLIENT                                                         BANKER
+                             Would you like to open a fixed-rate saving account?
+          What is that?
+
+          CLIENT                                                           BANKER
+          I had the most horrible experience … I demand a free trip to Thailand.
+              I can’t believe what happened to you. Sure, I’ll give you 2 free trips.
+
+LAM                                                                                     STANFORD
+      Mixed Initiatives
+         • Unhappy paths: Users can
+             • Ignore or refuse to answer
+             • Ask for information, initiate new action
+             • Change their mind, cancel previous operation
+             • Ask the agent to repeat, chit chat
+             • Make statements or unexpected requests (out of domain)
+
+
+                    LLMs are really good with handling unhappy paths
+
+
+
+LAM                                                                     STANFORD
+      Commercial SOTA
+              Open AI’s customer service bot still uses dialogue trees
+
+
+
+
+               Commercial chatbots are conservative, despite LLM
+               success
+
+
+                                    Why?
+
+LAM                                                                      STANFORD
+      Air Canada's chatbot promised a discount
+      that wasn't available to passenger Jake Moffatt.
+      The British Columbia Civil Resolution Tribunal ruled that
+      Air Canada had to pay Moffatt $812.02 (£642.64) in damages and tribunal fees.
+LAM                                                                             STANFORD
+      Cursor users were mysteriously getting logged out when
+      switching between devices.
+
+      Confused, a user contacted customer support, only to be told
+      in an emailed response from “Sam” that the logouts were
+      “expected behavior” under a new login policy.           But there was no new policy
+LAM                                                                                         STANFORD
+      Goals of Agent Policy Design
+         1. Control
+           • Cannot give out wrong information
+           • Take actions that the agent is allowed
+         2. Helpful
+           • Understand what the user is asking for
+           • Provide help and information within guidelines
+
+
+
+
+LAM                                                           STANFORD
+      Lecture Goals
+         • Key concepts in task-oriented agents
+         • Prior Agent Policy Research
+         • Design and rationale for GenieWorksheets
+         • Technical details of GenieWorksheets
+         • Evaluating Genie Agents
+
+
+
+
+LAM                                                   STANFORD
+OVERVIEW OF PRIOR AGENT POLICY RESEARCH
+      Design of Agent Policy
+                              • Choice of neural vs. programmed agent policy
+                                • Neural policies do not give developer full control
+                              • Agent policy Specification
+                                1. Dialogue tree: Finite state machines
+
+
+
+
+       Level of abstraction
+                                2. Dialogue acts: Parameterized finite state machines
+                                3. Genie Worksheet:
+                                  • A declarative specification of the happy path +
+                                    knowledge corpus
+                                  • Unhappy paths handled by the Genie run-time
+LAM                                                                                     STANFORD
+      1. Commercial SOTA: Dialogue Trees
+          User Utterance              • Initiatives
+       I’d like to transfer $100.00
+                                        • User initiates the transaction
+                                        • Agent solicits slots
+        Intent Classification
+                                      • Natural Language Understanding (NLU):
+                                        Intent classification
+              Intent & Slots
+         Transfer Money
+                                        • Intent: a small fixed set of possible intents
+         From
+                                        • slot-value pairs: values to slots
+         To
+         Amount      $100.00
+
+
+
+
+LAM                                                                                       STANFORD
+      A Restaurant Reservation Agent Dialogue Tree
+      A: Hello, how can I help you?
+                                                            NLU: intent + slots
+      U: I’m looking to book a restaurant                                           ReserveAction
+         for Valentine’s Day                                                                              Domain-specific
+                                                                                                          rule-based policy
+
+                                            Hard-coded sentences
+                                                                       ElicitSlot        ShowResults         Recommend
+      A: What kind of restaurant?
+
+
+                                                                                           Fixed set of follow-up intents
+
+      U: Terun on California Ave                               Name = “Terun”
+          -- or –
+      U: Something that has pizza                                                        Food = “pizza”
+          -- or –
+      U: I don’t know, what do you
+         recommend?                                         ???
+
+
+LAM                                                                                                                         STANFORD
+      Dialogue Trees: Pros & Cons
+         Pros: Control over conversation
+         Cons:
+         1. Expressiveness: Intent & slots are limited
+            What are the top 3 restaurants either near the airport or the Fisherman’s Wharf
+
+         2. Tedious: exponentially many paths
+           • Product navigation where searches are modified in many
+             possible ways
+           • Handcrafted for every problem
+         3. Fragile: Developer cannot anticipate all possible utterances
+           • Need to handle mixed initiatives for unexpected answers
+
+LAM                                                                                           STANFORD
+      2. Finite-State Machine with Dialogue Acts
+
+
+
+
+LAM                                            STANFORD
+      MultiWOZ
+      1676 paper citations
+            • A large dataset of dialogues
+              • Annotated with domain + slots at every turn
+              • Application: concierge service in Cambridge, UK
+              • 7 domains à 5 domains
+                • restaurants, hotels, attractions, train, taxi
+                • police, hospital dropped due to bad quality
+              • Number of slots: 30
+              • Closed ontology: 1,829 values
+              • Representation: slot-value pairs
+
+
+
+LAM                                                               STANFORD
+      Wizard-of-Oz (WOZ)
+         • Human user, human agent
+         • Paid workers (crowdworkers) on both sides
+           • One worker pretends to be an automated agent
+           • Another worker pretends to be a user, following a prompt
+         • The worker is given specific tasks
+           • Does not reflect real life
+             • changing their minds, exploring options
+             • errors made by the agent
+          Reannotated 3 times (by Google, Amazon), still many errors
+LAM                                                                     STANFORD
+Example of a Dialogue State Machine
+                                                                        User
+                                                                        Agent
+           KB Navigation                            Action
+
+                                              RequestAction
+
+               Query             SlotFillQuestion            AsktoConfirm
+
+                                                         ConfirmAction
+            QueryResponse               Cancel
+                                                         ActionResponse
+                Done
+                                                                Done
+
+
+
+
+Dialogue act names: Independent of the conversation domain
+Actual content is domain-specific
+       Context of Dialogue State Tracking
+            USER                                                                 GENIE
+                                                                      Hello, I am Genie.
+            I’d like a French Restaurant.
+                     I’d recommend Chez TJ in Mountain View. It has one Michelin star!
+            How far is it from here?
+                                                    The distance to Chez TJ is 7.5 miles.
+            Can you recommend something near by?
+                                                  The distance to Left Bank is 2.8 miles.
+            Perfect. Please book the restaurant
+                                           Which day would you like to book Left Bank?
+context 9   Is it expensive?
+                                                                  The price is moderate.
+            OK
+                                           Which day would you like to book Left Bank?
+            November 2, 7pm, for 2 people.
+                                                Could you confirm that you want a table
+                                       for 2 people at Left Bank on November 2 at 7pm?
+            Yes.
+                                        I booked Left Bank for 2 on November 2 at 7pm.
+   turn 9   What is the reservation number?
+                                                                              10382345.
+      History: Replace NL
+      with Formal States
+        4 Tasks: DST, ACD, DAG, RG
+        •      Fine-tune 1 multi-task neural network (MBART)
+        Formal state captures all useful info
+        •      U: user utterance
+        •      B: belief state (part of user dialogue state)
+        •      R: results
+        •      C: agent dialogue act
+        •      A: Agent utterance
+        Context for semantic parser:
+        •      what is needed to understand the user
+        Levenstein belief state:
+        •      What is new in the user utterance
+        •      Added to the previous state to get the full query
+
+      Mehrad Moradshahi, et al. 2023. X-RiSAWOZ: High-quality end-to-end multilingual
+      dialogue datasets and few-shot agents. In Findings of ACL 2023, pages 2773–2794,
+      Toronto, Canada.
+LAM                                                                                      2   STANFORD
+                                                                                         9
+      Summary
+        • Formal dialogue state
+          • Summarizes the state of the conversation
+        • Abstract “Domain-Independent” Finite State Machine
+          • With User and Agent Dialogue Acts
+          • Abstract finite state machines
+        • Agent policy is not specified, implied by agent response
+          • Limited to slot filling, and
+          • Occasionally recommend to book a restaurant/hotel
+
+
+LAM                                                                  STANFORD
+      Lecture Goals
+         • Key concepts in task-oriented agents
+         • Prior Agent Policy Research
+         • Design and rationale for GenieWorksheets
+         • Technical details of GenieWorksheets
+         • Evaluating Genie Agents
+
+
+
+
+LAM                                                   STANFORD
+      In Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL),
+      Vienna, Austria, July 2025.
+
+LAM                                                                                                 STANFORD
+             A Case Study
+      Course Enrollment at Stanford
+        Let’s consider a CS MS student
+
+
+
+
+LAM                                      STANFORD
+AI
+                                           DEPARTMENT OF COMPUTER SCIENCE
+                                               MSCS Program Sheet (2023-24)                                                                   ARTIFICIAL INTELLIGENCE DEPTH
+                                              Artificial Intelligence Specialization                                                          All depth courses must be taken for a letter grade* for 3 or more units. A maximum of 6 units of CS 399 Independent Study may be
+                                                                                                                                              counted towards the depth. Any deviations from the stated requirements must be noted and approved by your advisor in the Advisor
+      Name:                                                                    Advisor:                                   Date:               Notes box provided (maximum of one advisor-approved deviation allowed). Courses taken for your Stanford undergraduate degree do
+                                                                                                                                              not need to be repeated. Enter course selection in the table below:
+                                                                               Proposed date for
+      Student ID#:                      Email:                                 degree conferral:                 HCP?     Coterm?                 a) CS 221 (students with equivalent course work may waive with advisor
+                                                                                                                                                                                                                                                               Advisor Notes
+                                                                                                                                                     approval)
+      GENERAL INSTRUCTIONS: Before the end of your first quarter, complete a program sheet by filling in the number, name and units
+      of each course you intend to take for your degree. Program sheets, as well as foundation course waiver forms, may be submitted              b) At least four of: CS 223A, 224N, 224R, 224S, 224U, 224V, 224W, 228, 229,
+      electronically on the Gates Information Network at http://gin.stanford.edu/ using your CS ID and password (click on the ‘Dashboard’            231A, 231N, 234, 237A, 237B, 238
+      link). See http://cs.stanford.edu/degrees/mscs/programsheets/psguide2324.pdf for detailed instructions.                                     c) A total of at least 21 units from categories (a), (b) and the following: CS 205L,
+                                                                                                                                                     224C, 224R, 225A, 227B, 229B, 229S, 229T, 230, 233, 235, 236, 239, 246, 257,
+      FOUNDATIONS REQUIREMENT: You must satisfy the requirements listed in each of the following areas; all courses taken elsewhere                  270, 271, 173A/273A, 273B, 274, 275, 279, 281, 293, 322, 324, 324H, 325B,
+      must be approved by your advisor via the foundation course waiver form. Do not enter anything in the “Units” column for courses                326, 327A, 328, 329 (any suffix), 330, 331, 332, 333, 336, 348I, 348N, 353, 361,
+      taken elsewhere or for Stanford courses counted towards your undergraduate degree.                                                             368, 371, 375, 377† (any suffix), 379† (any suffix), 398, 399†, 428A, 428B,
+                                                                                                                                                     432; EE 263, 276, 278, 364A, 364B, 377; ENGR 205, 209A; MS&E 226, 252;
+       Required:                                               Equivalent elsewhere (course numbers/titles/institution)     Grade    Units           PSYCH 209; STATS 202, 315A, 315B (courses with † notation require approval of MS advisor)
+       Logic, Automata & Complexity (CS103)
+       Probability (CS109, Stat116, CME106, MS&E220,                                                                                           Course number             Title (Depth courses must be taken for at least 3 units.)                                            Grade      Units
+       or EE178)
+       Algorithmic Analysis (CS161)
+       Computer Organ & Sys (CS107 or 107E)
+       Principles of Computer Systems (CS111)
+
+                                  TOTAL UNITS USED TO SATISFY FOUNDATIONS REQUIREMENT (May not exceed 10 units.)
+
+      SIGNIFICANT IMPLEMENTATION REQUIREMENT: At least one course in your MS program should be designated as satisfying the
+      Significant Implementation Requirement. Note that this course will also be used to satisfy some other requirement (i.e., Depth, or                                    TOTAL DEPTH UNITS APPLIED TO MSCS (must total at least 21 units) Letter grades only.*
+      Elective). Must be taken for a letter grade,* must be taken at Stanford. Coterm students who took two of these courses at Stanford as
+                                                                                                                                              ELECTIVES
+      undergraduates may waive this requirement. Deviations must be approved by the faculty director of the MS program, Cynthia Lee.
+                                                                                                                                              List here any additional courses used to complete the 45-unit requirement for the MSCS degree. You may count up to a maximum of 3
+       Course Number:                                 Title:                                                                        Grade     units of 1-2 unit seminars offered in the School of Engineering. All other electives must be taken for 3 or more units. CS courses
+                                                                                                                                              numbered above 111, excluding CS 161A, 196, CS198, and CS390A/B/C, can be used as MS electives. Non-CS courses must be
+                                                                                                                                              technical courses numbered above 100, related to the degree program, and approved by the advisor and the MS program administrator.
+                                                                                                                                              Note that CS 129 may not be counted towards the MS if CS 229 is being counted towards any BS or MS requirement.
+      Courses that may be used to satisfy the significant implementation requirement include: CS 140, 140E, 143, 144, 145, 148, 151,
+      190, 210B, 212, 224R, 227B, 231N, 239, 243, 248A, 248B, 330, and 341.                                                                    Course number             Title                                                                                                Grade      Units
+
+      BREADTH REQUIREMENT: Three courses, with each course chosen from a different Breadth area A, B, C or D. Breadth courses
+      may not be waived, must be taken for at least 3 units each, and must be completed for a letter grade.* Each of the three Breadth
+      courses must be from different Areas. Note that these courses will also be used to satisfy some other requirement (i.e., Depth or
+      Elective). Letter grade only.*
+
+       Course Number:                                 Title:                                                                        Grade
+                                                                                                                                                                                                                                  TOTAL ELECTIVE UNITS APPLIED TO MSCS
+
+
+                                                                                                                                                                                                                                                 TOTAL UNITS APPLIED TO MSCS
+                                                                                                                                              ADDITIONAL REQUIREMENTS
+      Area A. Formal Foundations: CS 154, 157, 166, 168, 205L, 229T, 250, 254, 254B, 255, 256, 257, 258, 259Q, 261, 263, 265, 269I,           • All courses submitted for the MSCS degree must be numbered 100 or greater.
+      328, 331, 334A, 354, 355, 359D, 369O; EE 364A, 364B; Phil 251                                                                           • At most 10 units of Foundations requirement courses may be counted toward your 45 units.
+                                                                                                                                              • At most 3 units of 1-2 unit seminars may be counted toward your 45 units.
+      Area B. Learning and Modeling: CS 173A, 205L, 221, 223A, 224N, 224R, 224S, 224U, 224V, 224W, 227B, 228, 229, 229B, 229T,                • At least 36 units submitted for the MSCS degree, including all courses taken for breadth and depth, must be taken for a letter grade.*
+      230, 231A, 231N, 233, 234, 236, 237A, 237B, 248A, 248B, 271, 272, 273A, 273B, 274, 279, 281, 326, 329D, 329X, 330, 332, 333,            • The average grade in the courses submitted for the MSCS must be at least a B (3.0 in Stanford’s GPA scale).
+      348A, 348B, 348C, 348E, 348I, 348N, 371, 373                                                                                            • Units previously applied toward BS requirements may not also be counted toward the MSCS.
+                                                                                                                                              • You must complete at least 45 graduate units at Stanford before receiving the MSCS degree.
+      Area C. Systems: CS 112 (with CS111 as prereq), 140E, 143, 144, 145, 149, 155, 212, 240, 240LX, 242, 243, 244, 244B, 245, 246,
+      249I, 316, 348K, 356, 358; EE 180, 282, 382E                                                                                            *All classes taken Spring 19-20 and Fall through Summer 20-21 for a CR or S grade will satisfy MSCS requirements as if taken for a
+                                                                                                                                              letter grade.
+      Area D. People and Society: CS 147, 148, 152, 181/W, 182/W, 194H, 206, 247 (any suffix), 256, 269I, 278, 281, 329T, 329X, 347,
+      377 (any suffix), 384, 448B; AMSTUD 145; ANTHRO 132C, 132D; COMM 254, 266, 286, 324; DESIGN 255; EARTHSYS 213;                          Advisor’s signature:                                                                                                Date:
+      EDUC 315A; ENGLISH 184D, HISTORY 244F; INTLPOL 268; LAW 4039; ME 177; MS&E 193, 231, 234, 254; POLISCI 150A;
+      PUBLPOL 103F for 3 units, 353B
+
+LAM                                                                                                                                                                                                                                                                                              STANFORD
+Computational                               DEPARTMENT OF COMPUTER SCIENCE
+                                                 MSCS Program Sheet (2023-24)
+                                                                                                                                               COMPUTATIONAL BIOLOGY DEPTH
+                                                                                                                                               All depth courses must be taken for a letter grade* for 3 or more units. A maximum of 6 units of CS 399 Independent Study may be
+
+
+Biology                                        Computational Biology Specialization                                                            counted towards the depth. Any deviations from the stated requirements must be noted and approved by your advisor in the Advisor
+                                                                                                                                               Notes box provided (maximum of one advisor-approved deviation allowed). Courses taken for your Stanford undergraduate degree do
+                                                                                                                                               not need to be repeated. Enter course selection in the table below:
+       Name:                                                                    Advisor:                                   Date:
+                                                                                Proposed date for                                                  a)   One of: CS 173A, 273A (students with equivalent coursework may waive with the approval of their advisor)
+       Student ID#:                      Email:                                 degree conferral:                 HCP?     Coterm?                 b)   CS221
+                                                                                                                                                   c)   At least two of: CS 142 (or 147L or 193X), 145, 246, 448B                                           Advisor Notes
+       GENERAL INSTRUCTIONS: Before the end of your first quarter, complete a program sheet by filling in the number, name and units               d)   At least three of: CS 279, 371; BIOMEDIN 210, 214, 215, 217, 219, 220, 222, 260,
+       of each course you intend to take for your degree. Program sheets, as well as foundation course waiver forms, may be submitted                   273B; IMMUNOL 207
+       electronically on the Gates Information Network at http://gin.stanford.edu/ using your CS ID and password (click on the ‘Dashboard’         e)   A total of at least 21 units from categories (a), (b), (c), (d) and the following: CS 124,
+       link). See http://cs.stanford.edu/degrees/mscs/programsheets/psguide2324.pdf for detailed instructions.                                          131, 147, 148, 154, 166, 168, 185, 224N, 224W, 228, 229, 229B, 229S, 229T, 230,
+                                                                                                                                                        231N, 234, 238, 248/248A, 353, 399; BIO 183, 187; STATS 215, 256
+       FOUNDATIONS REQUIREMENT: You must satisfy the requirements listed in each of the following areas; all courses taken elsewhere
+       must be approved by your advisor via the foundation course waiver form. Do not enter anything in the “Units” column for courses          Course number             Title (Depth courses must be taken for at least 3 units.)                                            Grade      Units
+       taken elsewhere or for Stanford courses counted towards your undergraduate degree.
+
+        Required:                                               Equivalent elsewhere (course numbers/titles/institution)     Grade    Units
+        Logic, Automata & Complexity (CS103)
+        Probability (CS109, Stat116, CME106, MS&E220,
+        or EE178)
+        Algorithmic Analysis (CS161)
+        Computer Organ & Sys (CS107 or 107E)
+        Principles of Computer Systems (CS111)
+                                                                                                                                                                 TOTAL SPECIALIZATION UNITS APPLIED TO MSCS (must total at least 21 units) Letter grades only.*
+                                   TOTAL UNITS USED TO SATISFY FOUNDATIONS REQUIREMENT (May not exceed 10 units.)
+                                                                                                                                               ELECTIVES
+       SIGNIFICANT IMPLEMENTATION REQUIREMENT: At least one course in your MS program should be designated as satisfying the                   List here any additional courses used to complete the 45-unit requirement for the MSCS degree. You may count up to a maximum of 3
+       Significant Implementation Requirement. Note that this course will also be used to satisfy some other requirement (i.e., Depth, or      units of 1-2 unit seminars offered in the School of Engineering. All other electives must be taken for 3 or more units. CS courses
+       Elective). Must be taken for a letter grade,* must be taken at Stanford. Coterm students who took two of these courses at Stanford as   numbered above 111, excluding CS 161A, 196, CS198, and CS390A/B/C, can be used as MS electives. Non-CS courses must be
+       undergraduates may waive this requirement. Deviations must be approved by the faculty director of the MS program, Cynthia Lee.          technical courses numbered above 100, related to the degree program, and approved by the advisor and the MS program administrator.
+                                                                                                                                               Note that CS 129 may not be counted towards the MS if CS 229 is being counted towards any BS or MS requirement.
+        Course Number:                                 Title:                                                                        Grade
+                                                                                                                                                Course number             Title                                                                                                Grade      Units
+
+       Courses that may be used to satisfy the significant implementation requirement include: CS 140, 140E, 143, 144, 145, 148, 151,
+       190, 210B, 212, 224R, 227B, 231N, 239, 243, 248A, 248B, 330, and 341.
+
+       BREADTH REQUIREMENT: Three courses, with each course chosen from a different Breadth area A, B, C or D. Breadth courses
+       may not be waived, must be taken for at least 3 units each, and must be completed for a letter grade.* Each of the three Breadth
+       courses must be from different Areas. Note that these courses will also be used to satisfy some other requirement (i.e., Depth or
+       Elective). Letter grade only.*
+
+        Course Number:                                 Title:                                                                        Grade                                                                                         TOTAL ELECTIVE UNITS APPLIED TO MSCS
+
+                                                                                                                                                                                                                                                  TOTAL UNITS APPLIED TO MSCS
+                                                                                                                                               ADDITIONAL REQUIREMENTS
+                                                                                                                                               • All courses submitted for the MSCS degree must be numbered 100 or greater.
+                                                                                                                                               • At most 10 units of Foundations requirement courses may be counted toward your 45 units.
+       Area A. Formal Foundations: CS 154, 157, 166, 168, 205L, 229T, 250, 254, 254B, 255, 256, 257, 258, 259Q, 261, 263, 265, 269I,           • At most 3 units of 1-2 unit seminars may be counted toward your 45 units.
+       328, 331, 334A, 354, 355, 359D, 369O; EE 364A, 364B; Phil 251                                                                           • At least 36 units submitted for the MSCS degree, including all courses taken for breadth and depth, must be taken for a letter grade.*
+                                                                                                                                               • The average grade in the courses submitted for the MSCS must be at least a B (3.0 in Stanford’s GPA scale).
+       Area B. Learning and Modeling: CS 173A, 205L, 221, 223A, 224N, 224R, 224S, 224U, 224V, 224W, 227B, 228, 229, 229B, 229T,                • Units previously applied toward BS requirements may not also be counted toward the MSCS.
+       230, 231A, 231N, 233, 234, 236, 237A, 237B, 248A, 248B, 271, 272, 273A, 273B, 274, 279, 281, 326, 329D, 329X, 330, 332, 333,            • You must complete at least 45 graduate units at Stanford before receiving the MSCS degree.
+       348A, 348B, 348C, 348E, 348I, 348N, 371, 373                                                                                            *All classes taken Spring 19-20 and Fall through Summer 20-21 for a CR or S grade will satisfy MSCS requirements as if taken for a
+                                                                                                                                               letter grade.
+       Area C. Systems: CS 112 (with CS111 as prereq), 140E, 143, 144, 145, 149, 155, 212, 240, 240LX, 242, 243, 244, 244B, 245, 246,
+       249I, 316, 348K, 356, 358; EE 180, 282, 382E                                                                                            Advisor’s signature:                                                                                                Date:
+       Area D. People and Society: CS 147, 148, 152, 181/W, 182/W, 194H, 206, 247 (any suffix), 256, 269I, 278, 281, 329T, 329X, 347,
+       377 (any suffix), 384, 448B; AMSTUD 145; ANTHRO 132C, 132D; COMM 254, 266, 286, 324; DESIGN 255; EARTHSYS 213;
+       EDUC 315A; ENGLISH 184D, HISTORY 244F; INTLPOL 268; LAW 4039; ME 177; MS&E 193, 231, 234, 254; POLISCI 150A;
+       PUBLPOL 103F for 3 units, 353B
+
+LAM                                                                                                                                                                                                                                                                                               STANFORD
+Computer and                                 DEPARTMENT OF COMPUTER SCIENCE
+                                                  MSCS Program Sheet (2023-24)
+                                                                                                                                                 COMPUTER AND NETWORK SECURITY DEPTH
+
+
+
+Network Security
+                                                                                                                                                 All depth course must be taken for a letter grade* for 3 or more units. A maximum of 6 units of CS 399 Independent Study may be
+                                             Computer and Network Security Specialization                                                        counted towards the depth. Any deviations from the stated requirements must be noted and approved by your advisor in the Advisor
+                                                                                                                                                 Notes box provided (maximum of one advisor-approved deviation allowed). Courses taken for your Stanford undergraduate degree do
+         Name:                                                                    Advisor:                                   Date:               not need to be repeated. Enter course selection in the table below:
+                                                                                  Proposed date for                                                                                                                                                                   Advisor Notes
+         Student ID#:                      Email:                                 degree conferral:                 HCP?     Coterm?                 a)   All of: CS 140/212 (or 140E or 112),† 144†, 155, 255, 356 (students with equivalent
+                                                                                                                                                          course work may waive † flagged courses with advisor approval)
+         GENERAL INSTRUCTIONS: Before the end of your first quarter, complete a program sheet by filling in the number, name and units               b) At least three of: CS 142, 152, 190, 240 (any suffix), 244, 244B, 249I, 253, 261, 265,
+         of each course you intend to take for your degree. Program sheets, as well as foundation course waiver forms, may be submitted                 340 (any suffix), 355
+         electronically on the Gates Information Network at http://gin.stanford.edu/ using your CS ID and password (click on the ‘Dashboard’
+         link). See http://cs.stanford.edu/degrees/mscs/programsheets/psguide2324.pdf for detailed instructions.                                     c)   A total of at least 21 units from categories (a), (b) and the following: CS 245, 251,
+                                                                                                                                                          294S‡, 399‡; EE 384S (courses with ‡ notation require approval of MS advisor)
+         FOUNDATIONS REQUIREMENT: You must satisfy the requirements listed in each of the following areas; all courses taken elsewhere
+         must be approved by your advisor via the foundation course waiver form. Do not enter anything in the “Units” column for courses
+         taken elsewhere or for Stanford courses counted towards your undergraduate degree.                                                       Course number             Title (Depth courses must be taken for at least 3 units.)                                            Grade      Units
+
+          Required:                                               Equivalent elsewhere (course numbers/titles/institution)     Grade    Units
+          Logic, Automata & Complexity (CS103)
+          Probability (CS109, Stat116, CME106, MS&E220,
+          or EE178)
+          Algorithmic Analysis (CS161)
+          Computer Organ & Sys (CS107 or 107E)
+          Principles of Computer Systems (CS111)
+
+                                     TOTAL UNITS USED TO SATISFY FOUNDATIONS REQUIREMENT (May not exceed 10 units.)                                                TOTAL SPECIALIZATION UNITS APPLIED TO MSCS (must total at least 21 units) Letter grades only.*
+         SIGNIFICANT IMPLEMENTATION REQUIREMENT: At least one course in your MS program should be designated as satisfying the                   ELECTIVES
+         Significant Implementation Requirement. Note that this course will also be used to satisfy some other requirement (i.e., Depth, or      List here any additional courses used to complete the 45-unit requirement for the MSCS degree. You may count up to a maximum of 3
+         Elective). Must be taken for a letter grade,* must be taken at Stanford. Coterm students who took two of these courses at Stanford as   units of 1-2 unit seminars offered in the School of Engineering. All other electives must be taken for 3 or more units. CS courses
+         undergraduates may waive this requirement. Deviations must be approved by the faculty director of the MS program, Cynthia Lee.          numbered above 111, excluding CS 161A, 196, CS198, and CS390A/B/C, can be used as MS electives. Non-CS courses must be
+                                                                                                                                                 technical courses numbered above 100, related to the degree program, and approved by the advisor and the MS program administrator.
+          Course Number:                                 Title:                                                                        Grade     Note that CS 129 may not be counted towards the MS if CS 229 is being counted towards any BS or MS requirement.
+                                                                                                                                                  Course number             Title                                                                                                Grade      Units
+
+         Courses that may be used to satisfy the significant implementation requirement include: CS 140, 140E, 143, 144, 145, 148, 151,
+         190, 210B, 212, 224R, 227B, 231N, 239, 243, 248A, 248B, 330, and 341.
+
+         BREADTH REQUIREMENT: Three courses, with each course chosen from a different Breadth area A, B, C or D. Breadth courses
+         may not be waived, must be taken for at least 3 units each, and must be completed for a letter grade.* Each of the three Breadth
+         courses must be from different Areas. Note that these courses will also be used to satisfy some other requirement (i.e., Depth or
+         Elective). Letter grade only.*                                                                                                                                                                                              TOTAL ELECTIVE UNITS APPLIED TO MSCS
+          Course Number:                                 Title:                                                                        Grade
+                                                                                                                                                                                                                                                    TOTAL UNITS APPLIED TO MSCS
+                                                                                                                                                 ADDITIONAL REQUIREMENTS
+                                                                                                                                                 • All courses submitted for the MSCS degree must be numbered 100 or greater.
+                                                                                                                                                 • At most 10 units of Foundations requirement courses may be counted toward your 45 units.
+                                                                                                                                                 • At most 3 units of 1-2 unit seminars may be counted toward your 45 units.
+         Area A. Formal Foundations: CS 154, 157, 166, 168, 205L, 229T, 250, 254, 254B, 255, 256, 257, 258, 259Q, 261, 263, 265, 269I,           • At least 36 units submitted for the MSCS degree, including all courses taken for breadth and depth, must be taken for a letter grade.*
+         328, 331, 334A, 354, 355, 359D, 369O; EE 364A, 364B; Phil 251                                                                           • The average grade in the courses submitted for the MSCS must be at least a B (3.0 in Stanford’s GPA scale).
+                                                                                                                                                 • Units previously applied toward BS requirements may not also be counted toward the MSCS.
+         Area B. Learning and Modeling: CS 173A, 205L, 221, 223A, 224N, 224R, 224S, 224U, 224V, 224W, 227B, 228, 229, 229B, 229T,                • You must complete at least 45 graduate units at Stanford before receiving the MSCS degree.
+         230, 231A, 231N, 233, 234, 236, 237A, 237B, 248A, 248B, 271, 272, 273A, 273B, 274, 279, 281, 326, 329D, 329X, 330, 332, 333,
+         348A, 348B, 348C, 348E, 348I, 348N, 371, 373                                                                                            *All classes taken Spring 19-20 and Fall through Summer 20-21 for a CR or S grade will satisfy MSCS requirements as if taken for a
+                                                                                                                                                 letter grade.
+         Area C. Systems: CS 112 (with CS111 as prereq), 140E, 143, 144, 145, 149, 155, 212, 240, 240LX, 242, 243, 244, 244B, 245, 246,
+         249I, 316, 348K, 356, 358; EE 180, 282, 382E                                                                                            Advisor’s signature:                                                                                                Date:
+         Area D. People and Society: CS 147, 148, 152, 181/W, 182/W, 194H, 206, 247 (any suffix), 256, 269I, 278, 281, 329T, 329X, 347,
+         377 (any suffix), 384, 448B; AMSTUD 145; ANTHRO 132C, 132D; COMM 254, 266, 286, 324; DESIGN 255; EARTHSYS 213;
+         EDUC 315A; ENGLISH 184D, HISTORY 244F; INTLPOL 268; LAW 4039; ME 177; MS&E 193, 231, 234, 254; POLISCI 150A;
+         PUBLPOL 103F for 3 units, 353B
+
+LAM                                                                                                                                                                                                                                                                                          STANFORD
+Software                                        DEPARTMENT OF COMPUTER SCIENCE
+                                                    MSCS Program Sheet (2023-24)
+                                                                                                                                                   SOFTWARE THEORY DEPTH
+                                                                                                                                                   All depth course must be taken for a letter grade* for 3 or more units. A maximum of 6 units of CS399 Independent Study may be
+
+
+Theory                                              Software Theory Specialization                                                                 counted towards the depth. Any deviations from the stated requirements must be noted and
+                                                                                                                                                   approved by your advisor in the Advisor Notes box provided (maximum of one advisor-
+                                                                                                                                                   approved deviation allowed). Courses taken for your Stanford undergraduate degree do not               Advisor Notes
+           Name:                                                                    Advisor:                                   Date:
+                                                                                                                                                   need to be repeated. Enter course selection in the table below:
+                                                                                    Proposed date for
+           Student ID#:                      Email:                                 degree conferral:                 HCP?     Coterm?                     a)   CS 242, 243
+                                                                                                                                                           b)   At least one of: CS 221, 244, 245, 341
+           GENERAL INSTRUCTIONS: Before the end of your first quarter, complete a program sheet by filling in the number, name and units                   c)   At least one of: CS 255, 350, 355, 356
+           of each course you intend to take for your degree. Program sheets, as well as foundation course waiver forms, may be submitted                  d)   A total of at least 21 units chosen from categories (a), (b), (c) or the following: CS
+           electronically on the Gates Information Network at http://gin.stanford.edu/ using your CS ID and password (click on the ‘Dashboard’                  151, 250, 261, 265, 294S, 295, 315B, 349H, 357, 357S, 399† (courses with †
+           link). See http://cs.stanford.edu/degrees/mscs/programsheets/psguide2324.pdf for detailed instructions.                                              notation require approval of MS advisor)
+           FOUNDATIONS REQUIREMENT: You must satisfy the requirements listed in each of the following areas; all courses taken elsewhere            Course number             Title (Depth courses must be taken for at least 3 units.)                                            Grade      Units
+           must be approved by your advisor via the foundation course waiver form. Do not enter anything in the “Units” column for courses
+           taken elsewhere or for Stanford courses counted towards your undergraduate degree.
+
+            Required:                                               Equivalent elsewhere (course numbers/titles/institution)     Grade    Units
+            Logic, Automata & Complexity (CS103)
+            Probability (CS109, Stat116, CME106, MS&E220,
+            or EE178)
+            Algorithmic Analysis (CS161)
+            Computer Organ & Sys (CS107 or 107E)
+            Principles of Computer Systems (CS111)
+                                                                                                                                                                      TOTAL SPECIALIZATION UNITS APPLIED TO MSCS (must total at least 21 units) Letter grades only.*
+                                       TOTAL UNITS USED TO SATISFY FOUNDATIONS REQUIREMENT (May not exceed 10 units.)
+                                                                                                                                                   ELECTIVES
+           SIGNIFICANT IMPLEMENTATION REQUIREMENT: At least one course in your MS program should be designated as satisfying the
+                                                                                                                                                   List here any additional courses used to complete the 45-unit requirement for the MSCS degree. You may count up to a maximum of 3
+           Significant Implementation Requirement. Note that this course will also be used to satisfy some other requirement (i.e., Depth, or
+                                                                                                                                                   units of 1-2 unit seminars offered in the School of Engineering. All other electives must be taken for 3 or more units. CS courses
+           Elective). Must be taken for a letter grade,* must be taken at Stanford. Coterm students who took two of these courses at Stanford as
+                                                                                                                                                   numbered above 111, excluding CS 161A, 196, CS198, and CS390A/B/C, can be used as MS electives. Non-CS courses must be
+           undergraduates may waive this requirement. Deviations must be approved by the faculty director of the MS program, Cynthia Lee.
+                                                                                                                                                   technical courses numbered above 100, related to the degree program, and approved by the advisor and the MS program administrator.
+                                                                                                                                                   Note that CS 129 may not be counted towards the MS if CS 229 is being counted towards any BS or MS requirement.
+            Course Number:                                 Title:                                                                        Grade
+                                                                                                                                                    Course number             Title                                                                                                Grade      Units
+
+           Courses that may be used to satisfy the significant implementation requirement include: CS 140, 140E, 143, 144, 145, 148, 151,
+           190, 210B, 212, 224R, 227B, 231N, 239, 243, 248A, 248B, 330, and 341.
+
+           BREADTH REQUIREMENT: Three courses, with each course chosen from a different Breadth area A, B, C or D. Breadth courses
+           may not be waived, must be taken for at least 3 units each, and must be completed for a letter grade.* Each of the three Breadth
+           courses must be from different Areas. Note that these courses will also be used to satisfy some other requirement (i.e., Depth or
+           Elective). Letter grade only.*
+                                                                                                                                                                                                                                       TOTAL ELECTIVE UNITS APPLIED TO MSCS
+            Course Number:                                 Title:                                                                        Grade
+
+                                                                                                                                                                                                                                                      TOTAL UNITS APPLIED TO MSCS
+                                                                                                                                                   ADDITIONAL REQUIREMENTS
+                                                                                                                                                   • All courses submitted for the MSCS degree must be numbered 100 or greater.
+                                                                                                                                                   • At most 10 units of Foundations requirement courses may be counted toward your 45 units.
+           Area A. Formal Foundations: CS 154, 157, 166, 168, 205L, 229T, 250, 254, 254B, 255, 256, 257, 258, 259Q, 261, 263, 265, 269I,           • At most 3 units of 1-2 unit seminars may be counted toward your 45 units.
+           328, 331, 334A, 354, 355, 359D, 369O; EE 364A, 364B; Phil 251                                                                           • At least 36 units submitted for the MSCS degree, including all courses taken for breadth and depth, must be taken for a letter grade.*
+                                                                                                                                                   • The average grade in the courses submitted for the MSCS must be at least a B (3.0 in Stanford’s GPA scale).
+           Area B. Learning and Modeling: CS 173A, 205L, 221, 223A, 224N, 224R, 224S, 224U, 224V, 224W, 227B, 228, 229, 229B, 229T,                • Units previously applied toward BS requirements may not also be counted toward the MSCS.
+           230, 231A, 231N, 233, 234, 236, 237A, 237B, 248A, 248B, 271, 272, 273A, 273B, 274, 279, 281, 326, 329D, 329X, 330, 332, 333,            • You must complete at least 45 graduate units at Stanford before receiving the MSCS degree.
+           348A, 348B, 348C, 348E, 348I, 348N, 371, 373
+                                                                                                                                                   *All classes taken Spring 19-20 and Fall through Summer 20-21 for a CR or S grade will satisfy MSCS requirements as if taken for a
+           Area C. Systems: CS 112 (with CS111 as prereq), 140E, 143, 144, 145, 149, 155, 212, 240, 240LX, 242, 243, 244, 244B, 245, 246,          letter grade.
+           249I, 316, 348K, 356, 358; EE 180, 282, 382E
+                                                                                                                                                   Advisor’s signature:                                                                                                Date:
+           Area D. People and Society: CS 147, 148, 152, 181/W, 182/W, 194H, 206, 247 (any suffix), 256, 269I, 278, 281, 329T, 329X, 347,
+           377 (any suffix), 384, 448B; AMSTUD 145; ANTHRO 132C, 132D; COMM 254, 266, 286, 324; DESIGN 255; EARTHSYS 213;
+           EDUC 315A; ENGLISH 184D, HISTORY 244F; INTLPOL 268; LAW 4039; ME 177; MS&E 193, 231, 234, 254; POLISCI 150A;
+           PUBLPOL 103F for 3 units, 353B
+
+LAM                                                                                                                                                                                                                                                                                           STANFORD
+Systems
+                                               DEPARTMENT OF COMPUTER SCIENCE                                                                     SYSTEMS DEPTH
+                                                   MSCS Program Sheet (2023-24)                                                                   All depth course must be taken for a letter grade* for 3 or more units. A maximum of 6 units of CS399 Independent Study may be
+                                                      Systems Specialization                                                                      counted towards the depth. Any deviations from the stated requirements must be noted and approved by your advisor in the Advisor
+                                                                                                                                                  Notes box provided (maximum of one advisor-approved deviation allowed). Courses taken for
+          Name:                                                                    Advisor:                                   Date:               your Stanford undergraduate degree do not need to be repeated. Enter course selection in the           Advisor Notes
+                                                                                                                                                  table below:
+                                                                                   Proposed date for
+          Student ID#:                      Email:                                 degree conferral:                 HCP?     Coterm?                 a.   All of: CS140/212 (or 140E or 112 or 112E) ‡, CS 144‡, 240
+                                                                                                                                                      b.   At least four of: CS 190, 242, 243, 244, 245, 248/248A, 348B; EE 271, 282
+          GENERAL INSTRUCTIONS: Before the end of your first quarter, complete a program sheet by filling in the number, name and units
+          of each course you intend to take for your degree. Program sheets, as well as foundation course waiver forms, may be submitted              c.   A total of at least 21 units from categories (a), (b) and the following: CS 149, 217,
+          electronically on the Gates Information Network at http://gin.stanford.edu/ using your CS ID and password (click on the ‘Dashboard’              229S, 241, 244B, 246, 251, 255, 270, 272, 294S†, 295, 315B, 316, 340 (any suffix),
+          link). See http://cs.stanford.edu/degrees/mscs/programsheets/psguide2324.pdf for detailed instructions.                                          343D, 344 (any suffix), 348A, 348C, 348E, 348I, 348K, 349 (any suffix and 3 or
+                                                                                                                                                           more units), 356, 357S, 399†, 448 (any suffix); EE 267, 273, 382C, 384A, 384C,
+          FOUNDATIONS REQUIREMENT: You must satisfy the requirements listed in each of the following areas; all courses taken elsewhere                    384S (courses with † notation require approval of MS advisor)
+          must be approved by your advisor via the foundation course waiver form. Do not enter anything in the “Units” column for courses
+          taken elsewhere or for Stanford courses counted towards your undergraduate degree.                                                       Course number             Title (Depth courses must be taken for at least 3 units.)                                            Grade      Units
+
+           Required:                                               Equivalent elsewhere (course numbers/titles/institution)     Grade    Units
+           Logic, Automata & Complexity (CS103)
+           Probability (CS109, Stat116, CME106, MS&E220,
+           or EE178)
+           Algorithmic Analysis (CS161)
+           Computer Organ & Sys (CS107 or 107E)
+           Principles of Computer Systems (CS111)
+                                                                                                                                                                     TOTAL SPECIALIZATION UNITS APPLIED TO MSCS (must total at least 21 units) Letter grades only.*
+                                      TOTAL UNITS USED TO SATISFY FOUNDATIONS REQUIREMENT (May not exceed 10 units.)
+
+          SIGNIFICANT IMPLEMENTATION REQUIREMENT: At least one course in your MS program should be designated as satisfying the                   ELECTIVES
+          Significant Implementation Requirement. Note that this course will also be used to satisfy some other requirement (i.e., Depth, or      List here any additional courses used to complete the 45-unit requirement for the MSCS degree. You may count up to a maximum of 3
+          Elective). Must be taken for a letter grade,* must be taken at Stanford. Coterm students who took two of these courses at Stanford as   units of 1-2 unit seminars offered in the School of Engineering. All other electives must be taken for 3 or more units. CS courses
+          undergraduates may waive this requirement. Deviations must be approved by the faculty director of the MS program, Cynthia Lee.          numbered above 111, excluding CS 161A, 196, CS198, and CS390A/B/C, can be used as MS electives. Non-CS courses must be
+                                                                                                                                                  technical courses numbered above 100, related to the degree program, and approved by the advisor and the MS program administrator.
+           Course Number:                                 Title:                                                                        Grade     Note that CS 129 may not be counted towards the MS if CS 229 is being counted towards any BS or MS requirement.
+                                                                                                                                                   Course number             Title                                                                                                Grade      Units
+          Courses that may be used to satisfy the significant implementation requirement include: CS 140, 140E, 143, 144, 145, 148, 151,
+          190, 210B, 212, 224R, 227B, 231N, 239, 243, 248A, 248B, 330, and 341.
+
+          BREADTH REQUIREMENT: Three courses, with each course chosen from a different Breadth area A, B, C or D. Breadth courses
+          may not be waived, must be taken for at least 3 units each, and must be completed for a letter grade.* Each of the three Breadth
+          courses must be from different Areas. Note that these courses will also be used to satisfy some other requirement (i.e., Depth or
+          Elective). Letter grade only.*
+
+           Course Number:                                 Title:                                                                        Grade                                                                                         TOTAL ELECTIVE UNITS APPLIED TO MSCS
+
+
+                                                                                                                                                                                                                                                     TOTAL UNITS APPLIED TO MSCS
+                                                                                                                                                  ADDITIONAL REQUIREMENTS
+                                                                                                                                                  • All courses submitted for the MSCS degree must be numbered 100 or greater.
+                                                                                                                                                  • At most 10 units of Foundations requirement courses may be counted toward your 45 units.
+          Area A. Formal Foundations: CS 154, 157, 166, 168, 205L, 229T, 250, 254, 254B, 255, 256, 257, 258, 259Q, 261, 263, 265, 269I,
+                                                                                                                                                  • At most 3 units of 1-2 unit seminars may be counted toward your 45 units.
+          328, 331, 334A, 354, 355, 359D, 369O; EE 364A, 364B; Phil 251
+                                                                                                                                                  • At least 36 units submitted for the MSCS degree, including all courses taken for breadth and depth, must be taken for a letter grade.*
+                                                                                                                                                  • The average grade in the courses submitted for the MSCS must be at least a B (3.0 in Stanford’s GPA scale).
+          Area B. Learning and Modeling: CS 173A, 205L, 221, 223A, 224N, 224R, 224S, 224U, 224V, 224W, 227B, 228, 229, 229B, 229T,
+                                                                                                                                                  • Units previously applied toward BS requirements may not also be counted toward the MSCS.
+          230, 231A, 231N, 233, 234, 236, 237A, 237B, 248A, 248B, 271, 272, 273A, 273B, 274, 279, 281, 326, 329D, 329X, 330, 332, 333,
+                                                                                                                                                  • You must complete at least 45 graduate units at Stanford before receiving the MSCS degree.
+          348A, 348B, 348C, 348E, 348I, 348N, 371, 373
+
+          Area C. Systems: CS 112 (with CS111 as prereq), 140E, 143, 144, 145, 149, 155, 212, 240, 240LX, 242, 243, 244, 244B, 245, 246,          *All classes taken Spring 19-20 and Fall through Summer 20-21 for a CR or S grade will satisfy MSCS requirements as if taken for a
+          249I, 316, 348K, 356, 358; EE 180, 282, 382E                                                                                            letter grade.
+
+          Area D. People and Society: CS 147, 148, 152, 181/W, 182/W, 194H, 206, 247 (any suffix), 256, 269I, 278, 281, 329T, 329X, 347,          Advisor’s signature:                                                                                                Date:
+          377 (any suffix), 384, 448B; AMSTUD 145; ANTHRO 132C, 132D; COMM 254, 266, 286, 324; DESIGN 255; EARTHSYS 213;
+          EDUC 315A; ENGLISH 184D, HISTORY 244F; INTLPOL 268; LAW 4039; ME 177; MS&E 193, 231, 234, 254; POLISCI 150A;
+          PUBLPOL 103F for 3 units, 353B
+
+LAM                                                                                                                                                                                                                                                                                          STANFORD
+Theory
+                                              DEPARTMENT OF COMPUTER SCIENCE
+                                                   MSCS Program Sheet (2023-24)                                                                  THEORETICAL COMPUTER SCIENCE DEPTH
+                                              Theoretical Computer Science Specialization                                                        All depth course must be taken for a letter grade* for 3 or more units. A maximum of 6 units of CS 399 Independent Study may be
+                                                                                                                                                 counted towards the depth. Any deviations from the stated requirements must be noted and approved by your advisor in the Advisor
+         Name:                                                                    Advisor:                                   Date:               Notes box provided (maximum of one advisor-approved deviation allowed). Courses taken for your Stanford undergraduate degree do
+                                                                                  Proposed date for                                              not need to be repeated. Enter course selection in the table below:
+         Student ID#:                      Email:                                 degree conferral:                 HCP?     Coterm?                                                                                                                                  Advisor Notes
+                                                                                                                                                     a)   CS 154‡, 261 (students with equivalent course work may waive ‡ courses with
+         GENERAL INSTRUCTIONS: Before the end of your first quarter, complete a program sheet by filling in the number, name and units                    advisor approval)
+         of each course you intend to take for your degree. Program sheets, as well as foundation course waiver forms, may be submitted              b) A total of at least 21 units from category (a) and the following: CS 151, 163, 166,
+         electronically on the Gates Information Network at http://gin.stanford.edu/ using your CS ID and password (click on the ‘Dashboard’            168, 228, 229T, 233, 236, 246, 250, 251, 254, 254B, 255, 256, 257, 259Q, 263, 265,
+         link). See http://cs.stanford.edu/degrees/mscs/programsheets/psguide2324.pdf for detailed instructions.                                        269I, 328, 331, 351, 354, 355, 358, 359 (any suffix)†, 368, 369 (any suffix)†, 399†,
+                                                                                                                                                        468†; EE 364A; MS&E 310, 319 (courses with † notation require approval of MS
+         FOUNDATIONS REQUIREMENT: You must satisfy the requirements listed in each of the following areas; all courses taken elsewhere                  advisor)
+         must be approved by your advisor via the foundation course waiver form. Do not enter anything in the “Units” column for courses
+         taken elsewhere or for Stanford courses counted towards your undergraduate degree.                                                          Note: Multiple CS359, CS369, and/or CS468 courses may be taken as long as they are each on different topics (denoted by
+                                                                                                                                                     different letter suffixes).
+          Required:                                               Equivalent elsewhere (course numbers/titles/institution)     Grade    Units     Course number             Title (Depth courses must be taken for at least 3 units.)                                            Grade      Units
+          Logic, Automata & Complexity (CS103)
+          Probability (CS109, Stat116, CME106, MS&E220,
+          or EE178)
+          Algorithmic Analysis (CS161)
+          Computer Organ & Sys (CS107 or 107E)
+          Principles of Computer Systems (CS111)
+
+                                     TOTAL UNITS USED TO SATISFY FOUNDATIONS REQUIREMENT (May not exceed 10 units.)
+
+         SIGNIFICANT IMPLEMENTATION REQUIREMENT: At least one course in your MS program should be designated as satisfying the
+         Significant Implementation Requirement. Note that this course will also be used to satisfy some other requirement (i.e., Depth, or                        TOTAL SPECIALIZATION UNITS APPLIED TO MSCS (must total at least 21 units) Letter grades only.*
+         Elective). Must be taken for a letter grade,* must be taken at Stanford. Coterm students who took two of these courses at Stanford as   ELECTIVES
+         undergraduates may waive this requirement. Deviations must be approved by the faculty director of the MS program, Cynthia Lee.          List here any additional courses used to complete the 45-unit requirement for the MSCS degree. You may count up to a maximum of 3
+                                                                                                                                                 units of 1-2 unit seminars offered in the School of Engineering. All other electives must be taken for 3 or more units. CS courses
+          Course Number:                                 Title:                                                                        Grade     numbered above 111, excluding CS 161A, 196, CS198, and CS390A/B/C, can be used as MS electives. Non-CS courses must be
+                                                                                                                                                 technical courses numbered above 100, related to the degree program, and approved by the advisor and the MS program administrator.
+                                                                                                                                                 Note that CS 129 may not be counted towards the MS if CS 229 is being counted towards any BS or MS requirement.
+         Courses that may be used to satisfy the significant implementation requirement include: CS 140, 140E, 143, 144, 145, 148, 151,           Course number             Title                                                                                                Grade      Units
+         190, 210B, 212, 224R, 227B, 231N, 239, 243, 248A, 248B, 330, and 341.
+
+         BREADTH REQUIREMENT: Three courses, with each course chosen from a different Breadth area A, B, C or D. Breadth courses
+         may not be waived, must be taken for at least 3 units each, and must be completed for a letter grade.* Each of the three Breadth
+         courses must be from different Areas. Note that these courses will also be used to satisfy some other requirement (i.e., Depth or
+         Elective). Letter grade only.*
+
+          Course Number:                                 Title:                                                                        Grade
+
+                                                                                                                                                                                                                                     TOTAL ELECTIVE UNITS APPLIED TO MSCS
+
+
+                                                                                                                                                                                                                                                    TOTAL UNITS APPLIED TO MSCS
+                                                                                                                                                 ADDITIONAL REQUIREMENTS
+         Area A. Formal Foundations: CS 154, 157, 166, 168, 205L, 229T, 250, 254, 254B, 255, 256, 257, 258, 259Q, 261, 263, 265, 269I,           • All courses submitted for the MSCS degree must be numbered 100 or greater.
+         328, 331, 334A, 354, 355, 359D, 369O; EE 364A, 364B; Phil 251                                                                           • At most 10 units of Foundations requirement courses may be counted toward your 45 units.
+                                                                                                                                                 • At most 3 units of 1-2 unit seminars may be counted toward your 45 units.
+         Area B. Learning and Modeling: CS 173A, 205L, 221, 223A, 224N, 224R, 224S, 224U, 224V, 224W, 227B, 228, 229, 229B, 229T,
+                                                                                                                                                 • At least 36 units submitted for the MSCS degree, including all courses taken for breadth and depth, must be taken for a letter grade.*
+         230, 231A, 231N, 233, 234, 236, 237A, 237B, 248A, 248B, 271, 272, 273A, 273B, 274, 279, 281, 326, 329D, 329X, 330, 332, 333,
+                                                                                                                                                 • The average grade in the courses submitted for the MSCS must be at least a B (3.0 in Stanford’s GPA scale).
+         348A, 348B, 348C, 348E, 348I, 348N, 371, 373
+                                                                                                                                                 • Units previously applied toward BS requirements may not also be counted toward the MSCS.
+                                                                                                                                                 • You must complete at least 45 graduate units at Stanford before receiving the MSCS degree.
+         Area C. Systems: CS 112 (with CS111 as prereq), 140E, 143, 144, 145, 149, 155, 212, 240, 240LX, 242, 243, 244, 244B, 245, 246,
+         249I, 316, 348K, 356, 358; EE 180, 282, 382E
+                                                                                                                                                 *All classes taken Spring 19-20 and Fall through Summer 20-21 for a CR or S grade will satisfy MSCS requirements as if taken for a
+         Area D. People and Society: CS 147, 148, 152, 181/W, 182/W, 194H, 206, 247 (any suffix), 256, 269I, 278, 281, 329T, 329X, 347,          letter grade.
+         377 (any suffix), 384, 448B; AMSTUD 145; ANTHRO 132C, 132D; COMM 254, 266, 286, 324; DESIGN 255; EARTHSYS 213;
+         EDUC 315A; ENGLISH 184D, HISTORY 244F; INTLPOL 268; LAW 4039; ME 177; MS&E 193, 231, 234, 254; POLISCI 150A;                            Advisor’s signature:                                                                                                Date:
+         PUBLPOL 103F for 3 units, 353B
+
+LAM                                                                                                                                                                                                                                                                                           STANFORD
+                                                        Course Enrollment Agent
+
+                                     What course would you like to enroll in?
+
+      User:
+
+
+       I am studying computer science.
+       I want to complete the significant
+       implementation requirement.
+       What are some of the options that require the
+       least amount of work?
+
+
+
+LAM                                       42                                    STANFORD
+      A Course Enrollment Assistant
+                                                                 Course Enrollment Agent
+
+                                     What course would you like to enroll in?
+
+
+            Students need to consult:
+
+
+
+        •   Unique to each       •   All offered courses
+                                                                    •   Ratings, reviews, hours
+            department and
+                                 •   Description, instructors,          of work, enrollment
+            specialization
+                                     offerings, and units               outcomes,
+        •   Program sheets                                              and sequencing
+
+
+
+LAM                                                                                          STANFORD
+LAM   STANFORD
+      1. Stanford Course Enrollment Form
+      Form Name      Predicate Kind Type          Name                    Enum Values        Description
+      Main                    WS                  course_enrollment
+                              input CourseToTake course_to_take                              The course to enroll
+                              input StudentInfo   student_info_details                       Information on the student
+      StudentInfo                   worksheet
+                              input str           student_name                               Name of the student
+                              input str           student_id                                 Student's ID number
+                              input str           student_email_address                      Student's email address
+      CourseToTake                  worksheet
+                              input str           course_name                                Name of the course
+                              input Enum          grade_type                                 The desired grading basis
+                                                                          Credit/No Credit
+                                                                          Letter
+                              input int           num_units                                  The number of units taken
+                              input confirm       confirm                                    Confirm the course
+
+LAM                                                                                                                    STANFORD
+      2. Course Assistant Knowledge Corpus
+      courses DB
+             internal; primary       int        course_id
+            offerings
+             internal          DB int           max_units
+             internal          internal
+                         programs    str     DBtitle int                     course_id
+             internal                str
+                               internal         grading
+                                                     Enum                    days
+                                             internal;   primary int                      program_id
+             internal                List[str]
+                                     ratings course_codes     DB
+                                             internal             Enum                    level           Monday
+             internal                List[str] general_requirements
+                                                              internal; primary int                      rating_id
+                                                                                                          Tuesday   MS
+             internal                int        min_units
+                                                              internal          int                      course_id
+             internal                str        description                                               WednesdayBS
+             internal                int
+                                                              internal
+                                                average_hours_spent
+                                                                                List[str]                instructor_names
+                                                                                                          Thursday   PhD
+             internal                Enuminternal      internal
+                                            foundations_requirements     int                     average_rating
+                                                           Enum                 specialization    Friday
+                                                        internal         int                     num_ratings
+                                                                                   logic_automata_and_complexity
+                                                                                                  Saturday AI
+                                                        internal         int       probability   term_id Computational Biology
+                                                                                                  Sunday
+                                                        internal         int       algorithmic_analysis
+                                                                                                 start_year Human-Computer Interaction
+                              internal        str                   start_time     computer_organization_and_systems
+                                                        internal         int                     end_year Information Management & Analytics
+                              internal        str                   end_time       principles_of_computer_systems
+                                                        internal         Enum                    season     Visual Computing
+             internal         internal
+                                    bool significant_implementation_requirements
+                                              List[str]             instructor_names
+                                                                                                            Software Theory   autumn
+             internal               Enum breadth_requirement
+                              internal        Enum                  season
+                                                                                   formal_foundations       Systems           winter
+                                                                                                  autumn
+                                                                                   learning_and_modeling Theoretical Computerspring
+                                                                                                                               Science
+                                                                                                         winter
+                                                                                             systems                 general            summer
+                                                                                                         spring
+                                                                                             people_and_society
+                                                          internal            List[str]                  reviews     Computer & Network Security
+             internal                List[str] prerequisite_course_codes                                   summer
+                                             internal         str                         sheet_requirements
+
+
+LAM                                                                                                                                                STANFORD
+      Translates Questions into SUQL
+      I am a sophomore studying computer science. I
+      want to complete the significant
+      implementation requirement.
+      What are some of the options that require the
+      least amount of work?
+
+
+                               SELECT title, course_codes, description,
+                               average_hours_spent
+                               FROM courses WHERE
+                               significant_implementation_requirement = TRUE
+                               ORDER BY average_hours_spent LIMIT 5;
+
+LAM                                                                       STANFORD
+LAM   STANFORD
+      Consideration: Time Offered
+
+
+
+
+LAM                                 STANFORD
+      Consideration: Sort by Course Rating
+
+
+
+
+LAM                                      STANFORD
+      Credit or Letter? Depends on the Workload
+
+
+
+
+LAM                                         STANFORD
+      Pick Max. Number of Units
+
+
+
+
+LAM                               STANFORD
+LAM   STANFORD
+LAM   STANFORD
+LAM   STANFORD
+LAM   STANFORD
+LAM   STANFORD
+LAM   STANFORD
+LAM   STANFORD
+LAM   STANFORD
+LAM   STANFORD
+      Design of Genie Worksheets
+                                                         Minimize coding effort
+         • Fully Mixed-Initiatives agent
+                                                           While creating an
+         • High-level declarative specification:            effective agent
+           Worksheet + Knowledge Corpora
+           • Worksheet capability: similar to webforms
+           • Developer specifies the happy paths (agent initiatives)
+           • Run-time system handles the unhappy paths
+             • Using the knowledge resources given
+
+
+
+LAM                                                                               STANFORD
+      Agent Design Principles
+         • Developer control: Achieves the agent goals
+         • Responsiveness: User-initiatives are always given priority
+         • Full, automatic support of knowledge queries:
+                Using SUQL framework
+         • Expressiveness:
+              Supports arbitrary composition of knowledge queries
+              and task statements
+         • Effective for long conversations:
+               Via formal dialogue state tracking using Worksheets
+
+
+LAM                                                                     STANFORD
+      Mixed Initiatives
+                   USER:                                                          ASSISTANT
+      User
+      Initiative   I want to take an AI course for 3 units and letter grade.
+
+                       I can help you with enrolling in an AI course. Here are some top-rated AI   Agent
+                        courses: CS 224V, CS 224N, CS205. Which one would you like to take?        Initiative
+
+                   The Math Theory for ML looks interesting, I will enroll
+                   in it.
+                                      I am enrolling you in CS 205 for letter grade and 3 units,    Agent
+                                                                                                    Initiative
+                                                   would you like to confirm your enrollment?
+                   Yes!
+
+
+
+LAM                                                                                                              STANFORD
+      User initiatives are given priority
+          USER:                                                            ASSISTANT
+
+          I want to take an AI course for 3 units and letter grade.
+
+              I can help you with enrolling in an AI course. Here are some top-rated AI
+               courses: CS 224V, CS 224N, CS205. Which one would you like to take?
+          What is the schedule for CS 224V?
+                          CS 224V is scheduled for Monday and Wednesday at 3:00pm
+                                                               Would you like to take it?
+          Yes!
+
+
+
+LAM                                                                                         STANFORD
+      Developer Control
+         • Letting developers exercise control without onerous efforts.
+
+
+         • Control over critical aspects of the agent’s operation
+           including:
+           • the flow of conversations,
+           • the timing of actions, and
+           • the information elicited from users.
+
+
+
+
+LAM                                                                       STANFORD
+      Developer Control
+      Student: I want to take CS 224V in the fall quarter
+
+      Agent: Unfortunately, there are no seats available for
+      CS 224V. However, I can find you courses similar to
+      CS 224V which are offered in the fall quarter.
+
+                  Developer defined response
+
+                                                     Student: I want to take CS 224V in the fall quarter
+
+                                                     Agent: Unfortunately, there are no seats available for
+                                                     CS 224V. However, you can ask for special
+                                                     permission if you are graduating soon!
+
+                                                                 Developer defined response
+
+
+LAM                                                                                                        STANFORD
+      Design of Genie Worksheets
+
+
+
+
+LAM                                STANFORD
+      Task Worksheets
+         • Task Definition: Name, Predicate, Kind and Action
+         • Field Definition: Predicate, Name, Kind, Type, Description,
+           Don’t Ask, Required, Confirmation
+
+
+         • Semantics matter for Name and Description.
+         • Define action as python code to allow developer flexibility.
+         • Built-in actions: say, propose
+
+
+
+
+LAM                                                                       STANFORD
+      Design of Genie Worksheets
+
+
+
+
+LAM                                STANFORD
+      Knowledge Base Worksheets
+         • Real life queries often involve both structured and
+           unstructured accesses.
+         • Use SUQL to handle hybrid knowledge queries
+         • Create a worksheet with Kind KB.
+
+
+
+
+LAM                                                              STANFORD
+      Lecture Goals
+         • Key concepts in task-oriented agents
+         • Prior Agent Policy Research
+         • Design and rationale for GenieWorksheets
+         • Technical details of GenieWorksheets
+         • Evaluating Genie Agents
+
+
+
+
+LAM                                                   STANFORD
+      Specification to Python Dataclasses
+
+
+
+
+         Translates specifications from Genie Worksheets into
+         Python programs and executes them based on user utterances.
+
+LAM                                                                    STANFORD
+      Dialogue State Tracking with
+      Worksheets
+         • LLMs struggle with maintaining relevant contextual
+           information across longer conversation
+         • The Genie agent tracks the conversation using a formal
+           dialogue state
+         • As an agent runs, the Genie Parser generates a set of
+           changes to apply to the dialogue state
+
+
+
+
+LAM                                                                 STANFORD
+      Records
+         • Each record contains: Name, Kind
+         • Each task record contains: field names and values
+         • Each knowledge record contains: Natural language query,
+           formal query, results
+
+
+
+
+LAM                                                                  STANFORD
+      Agent Acts
+         Five types of agent responses
+         • Report: Report the result by executing task or knowledge
+           query in a record
+         • Confirm: Confirm value mapped to a field name in a record
+         • Say: Explicitly say the given utterance
+         • Propose: Propose a new task or query to the user
+         • Ask: Ask for the value of a field in a record
+
+
+
+
+LAM                                                                    STANFORD
+      Architecture Overview
+                    One turn of dialogue
+          Natural
+       Language       User Utterance          Genie
+
+                      Dialogue State       Runtime System
+          Formal
+       Language         Agent Acts              LLM
+
+                     Genie Worksheet
+
+
+                     Input
+LAM                                                         STANFORD
+      Natural Language Input
+                           • 1 turn of dialogue:
+                             Improves the semantic
+                             parsing performance
+
+
+                           • Current user utterance
+
+
+
+
+LAM                                                   STANFORD
+      Formal Language Input
+
+                              Records: Given to
+                              the semantic
+                              parser as python
+                              code
+
+
+
+
+                              Agent Acts
+
+
+LAM                                        STANFORD
+      One Conversational Turn
+         • Conversation History      • Agent Acts
+         • Formal Dialogue History   • Worksheet Specification
+
+
+
+
+LAM                                                              STANFORD
+      Genie
+
+                             Input (1 turn of dialogue, Dialogue state, Previous agent acts, WS)
+
+
+      The algorithm course                          Filled-in                           Updated
+                               The Parser                             Agent
+        looks interesting,                         Worksheet                           Worksheets +
+                                                                      Policy           Agent Acts
+           I will take it
+
+        User Utterance
+                                                                                        Response
+                                                                                        Generator
+
+
+
+
+LAM                                                                                                 STANFORD
+      The Parser
+       Three modules:
+       • Contextual Semantic Parser
+         • Natural Language to Worksheet
+           representation
+       • Knowledge Parser
+         • Natural Language to SUQL query
+       • Update Module
+         • Updates the dialogue state by
+           executing code
+
+
+LAM                                         STANFORD
+      Contextual Semantic Parser
+         User can:
+         • Supply values to existing
+           worksheet
+         • Modify previously filled field or
+           remove its value
+         • Initiate a new task or query
+           (generates a new record)
+
+
+
+
+LAM                                            STANFORD
+      Knowledge Parser
+         • Allows for more advanced approaches for parsing such as
+           ReAct, Tree-of-thought.
+         • Abstracts knowledge integration from CSP
+
+
+
+          User’s natural           Contextual                Knowledge
+        language query           Semantic Parser               Parser
+
+                           CSP only provides the knowledge
+                           query to the knowledge parser
+
+
+LAM                                                                      STANFORD
+      Genie
+
+                               Input
+
+
+      The algorithm curse                 Filled-in             Updated
+                            The Parser                Agent
+       looks interesting,                Worksheet             Worksheets +
+                                                      Policy   Agent Acts
+          I will take it
+
+        User Utterance
+                                                                Response
+                                                                Generator
+
+
+
+
+LAM                                                                         STANFORD
+      Agent Policy
+        • LLM does not generate agent response.
+        • Genie uses a run-time system to compute the agent response
+
+
+        Genie:
+        • runs knowledge queries and
+        • performs actions using a run-time system
+        • generates agent acts
+
+
+
+LAM                                                                    STANFORD
+      Agent Policy Rationale
+         • LLMs struggle with underrepresented developer-defined
+           policies.
+         • LLMs cannot follow all the instructions.
+         • Agent acts forces the LLM to generate a reliable responses
+           governed by the agent policy.
+
+
+         Using an algorithmic module to compute the necessary actions
+                 improves the LLM’s ability to follow instructions.
+
+
+LAM                                                                     STANFORD
+      Run-Time System
+      The Parser:
+      Assign variables to worksheet, generate database queries
+
+       Agent Poicy: Output: Set of agent dialogue acts: A
+       Knowledge Query:
+       • If missing required parameter: Add “ask parameter” to A
+       • If query is complete, Evaluate query, Update variables
+       Worksheet:
+       • If a field requires confirmation, Add “ask confirmation” to A or Execute
+       • If a WS is complete, Execute action
+       • If any required field is unfilled, Add ”ask for field” to A
+
+      Response Generation: Generate response from A
+LAM                                                                                 STANFORD
+      Genie
+
+                               Input
+
+
+      The algorithm curse                 Filled-in             Updated
+                            The Parser                Agent
+       looks interesting,                Worksheet             Worksheets +
+                                                      Policy   Agent Acts
+          I will take it
+
+        User Utterance
+                                                                Response
+                                                                Generator
+
+
+
+
+LAM                                                                         STANFORD
+      Response Generator
+         • An LLM to convert the formal agent acts to natural
+           language
+         • Dialogue state and the user utterance contextualizes the
+           response
+
+
+
+
+LAM                                                                   STANFORD
+      Composition of Queries
+         • Compositions of queries and APIs are supported
+         • Passing the result of an instance of a worksheet in as a field
+           of another worksheet.
+
+
+         User: I want to book an Italian restaurant in NYC for two on
+         Valentine’s day.
+
+             BookRestaurant(restaurant=Answer(SELECT * FROM restaurants
+             WHERE ‘italian’ = ANY(cuisines) AND location = ‘NYC;’),
+             date=“02/14/2024”, and num_people=2)
+
+LAM                                                                         STANFORD
+      Complete Multiple tasks
+         USER:                                                          ASSISTANT
+
+         I want to take an AI course for 3 units and letter grade.
+
+             I can help you with enrolling in an AI course. Here are some top-rated AI
+              courses: CS 224V, CS 224N, CS205. Which one would you like to take?
+
+
+
+
+LAM                                                                                      STANFORD
+      Data Dependent Fields
+         • Some fields are needed only for some users
+
+
+
+                     Agent: Are you an international Student
+                     User: yes, I am currently on a study visa.
+                     Agent: What type of visa is it? F1 or J1?
+
+
+
+
+LAM                                                               STANFORD
+      Support Multiple Knowledge Queries
+         USER:                                                             ASSISTANT
+
+         Can you suggest some highly rated NLP courses? Also,
+         when does the next semester start?
+                    Answer(“highly rated NLP courses”, SELECT * FROM
+                    courses WHERE answer(“is this NLP course?”, description)
+                    AND ratings > 4.5)
+                    Answer(“when does the semester start?”, faq-free-text)
+
+
+                            The Modeling Linguistic Complexities has a rating of 4.6.
+              According to the latest circular, the next semester starts on 18th August.
+
+
+LAM                                                                                        STANFORD
+      Changing previous answers
+         USER:                                                             ASSISTANT
+
+         I want to fly from New York to Los Angeles on 8th this
+         month.
+                        I have found 3 flights for you. ... Which one do you want to fly?
+
+         Oh wait, I have a meeting on 8th, I think I will leave on
+         9th.
+
+
+
+
+LAM                                                                                         STANFORD
+      Genie Worksheets can support
+         • Allow data-dependent fields
+         • Complete multiple tasks
+         • Support multiple knowledge queries in a single utterance
+         • Keeping track of essential information
+         • Support task and knowledge requests in a single utterance
+         • Allow un-happy paths, eg. Changing answers
+
+
+
+
+LAM                                                                    STANFORD
+      Lecture Goals
+         • Key concepts in task-oriented agents
+         • Prior Agent Policy Research
+         • Design and rationale for GenieWorksheets
+         • Technical details of GenieWorksheets
+         • Evaluating Genie Agents
+
+
+
+
+LAM                                                   STANFORD
+      Evaluation
+                  • STAR Dataset
+                       • 13 domains and 22 tasks
+                       • Benchmarking Next Action Prediction
+                       • Provides policy graph outlining conversation flow
+                  • STARV2 improves STAR dataset by updating:
+                       • belief state and action state annotations
+                       • More intuitive natural language descriptions for schema
+
+
+
+      Mosig, Johannes EM, Shikib Mehri, and Thomas Kober. "Star: A schema-guided dialog dataset for transfer learning.”
+LAM   Zhao, Jeffrey, et al. "Anytod: A programmable task-oriented dialog system."                                         STANFORD
+      Evaluation Metrics
+         • User Action F1
+           • Map user’s natural language to user dialogue acts
+         • System Action F1
+           • The next action the agent should take based on dialogue
+             state and user dialogue acts
+         • Joint Goal Accuracy
+           • Accuracy of the current dialogue state for any given turn
+
+
+
+LAM                                                                      STANFORD
+      Complex Program Logic in STARv2
+         • Bank, Trivia and Trip domains
+         • SOTA: AnyTOD
+           • finetuned T5 (13B) on 6000 examples (all domains except
+             the testbed)
+           • Implement programs to handle logic
+
+
+                                                  Is this good enough?
+
+
+               System Action F1
+LAM                                                                      STANFORD
+      Genie Agent on STARv2
+      • Define program logic in 9 lines of code
+      • Uses three examples for semantic
+        parsing
+      • Most errors caused by inconsistent
+        data annotations
+
+
+
+                                                  System Action F1
+
+
+
+
+LAM                                                                  STANFORD
+      Limitations of existing datasets
+         • Simple domains that require slot filling
+         • Recall: function calling is not enough
+         • Need to evaluate turn-wise performance
+         • Few “unhappy” paths in the dataset
+
+
+
+
+LAM                                                   STANFORD
+      Evaluation with real users
+         Three diverse applications with varying complexities.
+         • Restaurant Reservation: Uses real-life database from Yelp
+         • Ticket Submission: Subset of service now api with several APIs
+         • Course Enrollment: Uses real-life database of courses at
+           Stanford University and contains several fields.
+
+
+
+
+LAM                                                                         STANFORD
+      Baseline and Study Design
+         • Compare to GPT-4 turbo with Function Calling.
+           • Uses the same KB-Parser as Genie Worksheet
+
+
+         • Recruited 22 and 20 users from Prolific for Restaurant
+           Reservation and Ticket Submission
+         • Also, 20 university students to evaluate the course enrollment
+           assistant
+         • Randomly assigned Genie Agent or GPT-4 (FC)
+
+
+LAM                                                                         STANFORD
+      Evaluation Metrics
+         •  Semantic Parsing Accuracy:
+           • Gold: for a given user’s natural language query the set of API calls,
+              Database calls, and fields to fill
+         • Execution Accuracy:
+           • Check if the agent executes the correct API or database with the
+              correct parameters
+         • Agent Dialogue Accuracy:
+           • Measure of whether the agent follows the policies provided by the
+              developer
+         • Goal Completion Rate:
+           • User’s ability to successfully complete the task using agent’s assistance
+
+
+LAM                                                                                      STANFORD
+      Results with Human Evaluation
+         • Compressed context as formal dialogue state enables LLM
+           to invoke the correct API and database queries
+         • Restaurant is common to academic datasets that leads to
+           better GA of GPT-4 (FC) compared to other domains
+         • GPT-4 FC often hallucinates non-existent courses despite
+           being grounded in knowledge corpus.
+
+
+
+
+LAM                                                                   STANFORD
+      Conclusion
+         • LLMs need succinct context and fewer instructions to
+           perform better in less known domains
+         • GenieWorksheets can help create reliable and responsive
+           conversational agent by using:
+           • formal dialogue state
+           • runtime-system to execute agent policy
+         • Existing academic datasets are not enough for evaluation,
+           need to run studies with real users.
+
+
+LAM                                                                    STANFORD
+      Projects
+         • AI-Powered Heart Failure Medication Assistant:
+           Revolutionizing Patient Care Through Intelligent Conversation
+         • GenieWorksheet Wizard: Discovery of Missing Capabilities in
+           Task-Oriented Agents from Simulation (Case study: Fidelity
+           investments)
+         • Automatic Generation of a Dependable Conversational
+           Agent from Real Conversations
+
+
+
+
+LAM                                                                        STANFORD
+      Homework
+        • Part 1: Interact with the fidelity investment agent built using
+          Genie Worksheets
+        • Part 2: You will be creating an agent from the STARv2
+          dataset.
+
+
+
+
+LAM                                                                         STANFORD
+

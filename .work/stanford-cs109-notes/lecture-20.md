@@ -1,0 +1,11 @@
+# Lecture 20: Logistic Regression
+
+- Date: Jul 28, 2026
+- Canonical source: https://web.stanford.edu/class/cs109/schedule.html
+- Lecture page: https://web.stanford.edu/class/cs109/lectures/20-LogisticRegression
+- Reader: https://probabilitycoders.stanford.edu/spr26
+- Fidelity: L2
+- Scope: sigmoid、log-likelihood 與分類邊界
+- Key expression: `P(Y=1|x)=1/(1+e^{-θᵀx})`
+- Material gap: worksheet／LLM guide 與讀本可用; 當期投影片連結多為 404；錄影限 Canvas
+- Writing boundary: explain only public artifacts; do not reconstruct inaccessible video claims.

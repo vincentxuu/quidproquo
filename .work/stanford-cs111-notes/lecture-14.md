@@ -1,0 +1,53 @@
+# Lecture 14: Virtual Memory, Continued
+
+- Date: 2026-04-29
+- Instructor: Mendel Rosenblum
+- PDF: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/14/Lecture14.pdf
+- Calendar: https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar
+- Material gap: Canvas recording unavailable; notes derive from the public PDF.
+- Artifact discrepancy: official Lecture 13 and Lecture 14 PDFs are byte-identical 25-page files (SHA-256 `f0aa78c7023e6254b4a57e618054a99bd2dc638c339a9c738f7c61601688e315`); no distinct continuation deck is public.
+- Editorial focus: segmentation, sharing, sparse address spaces, and allocation limits
+
+## Extracted agenda cues
+
+- Virtual Memory
+- ●   Previously:
+- ○ A single core shared by several concurrent threads
+- ●   Starting Today:
+- ○ A single memory shared by several concurrent processes
+- ○ Virtualize the memory
+- Take historical view: start with the earliest computers and show evolution
+- Explain why
+- Single-tasking: Early batch monitors
+- Operating               ● Early PCs (MS-DOS) used this as well
+- System
+- ● Limitations:
+- Stack                    ○ Programs can't share memory
+- ○ Bad programs can trash OS/machine
+- Goals of Memory Sharing
+- ●   Multitasking
+- ○ Sharing means multiple processes to be memory-resident at once
+- ●   Transparency
+- ○ Processes shouldn't be aware of the sharing (each process gets own memory)
+- ●   Isolation
+- ○ Processes mustn't be able to corrupt each other or the OS
+- ●   Efficiency
+- ○ CPU and memory efficiency shouldn't be degraded badly by sharing
+- Single-tasking evaluation
+- Goals:
+- ●   Multitasking:   No
+- ●   Transparency: No
+- ●   Isolation:      No
+- ●   Efficiency:     Yes
+- Early sharing approach: Load-Time Relocation
+- Operating
+- ●     Have loader relocate program when loading
+- System                  ○     Loader runs like linker to update addresses
+- ○     Each process gets distinct memory region
+- Segmentation focus in repeated deck: multiple variable-sized regions
+- Segment descriptors: type, base, bound, protection
+- Segment-number selection through address bits or instruction semantics
+- Independent growth/shrink, swapping, movement, and compaction
+- Shared read-only code between processes
+- Fixed segment-count limitation and inability to scale to `mmap` files
+- Variable-length fragmentation and rigid address-space division
