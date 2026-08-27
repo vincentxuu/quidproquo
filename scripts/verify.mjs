@@ -76,6 +76,28 @@ function checkDailySkillTimezones() {
   );
 }
 
+function checkDurableObjectsExport() {
+  try {
+    const wranglerPath = resolve(ROOT, 'wrangler.jsonc');
+    const cronEntryPath = resolve(ROOT, 'scripts/create-cron-entry.mjs');
+    if (!existsSync(wranglerPath) || !existsSync(cronEntryPath)) {
+      results.push({ name: 'durable_objects export', ok: true });
+      return;
+    }
+    const wrangler = JSON.parse(readFileSync(wranglerPath, 'utf8'));
+    const bindings = wrangler?.durable_objects?.bindings ?? [];
+    const cronEntry = readFileSync(cronEntryPath, 'utf8');
+    const missing = bindings.filter((b) => !cronEntry.includes(b.class_name)).map((b) => b.class_name);
+    if (missing.length === 0) {
+      results.push({ name: 'durable_objects export', ok: true });
+    } else {
+      results.push({ name: 'durable_objects export', ok: false, detail: `Missing export in scripts/create-cron-entry.mjs: ${missing.join(', ')}` });
+    }
+  } catch (e) {
+    results.push({ name: 'durable_objects export', ok: false, detail: String(e) });
+  }
+}
+
 runStep('lint (oxlint)', 'pnpm lint');
 runStep('check:references', 'pnpm check:references');
 runStep('check:post-quality', 'pnpm check:post-quality');
@@ -87,6 +109,7 @@ runStep('skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs
 // check:links 故意不放這裡：它會打外網，pre-commit 不該依賴網路。手動或排程跑 `pnpm check:links`。
 checkDailySkillTimezones();
 checkProgress();
+checkDurableObjectsExport();
 
 let failed = 0;
 process.stdout.write('\n=== pnpm verify ===\n');

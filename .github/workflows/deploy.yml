@@ -30,6 +30,9 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Astro check (import/D0)
+        run: pnpm astro check
+
       - name: Check post references
         run: pnpm check:references
 
