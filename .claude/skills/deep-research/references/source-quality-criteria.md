@@ -30,12 +30,36 @@
 | **被誰引用** | 被 ReAct / Toolformer / AutoGen 等後來成為基礎設施的工作引用，比單純高引用更有意義 |
 | **Survey 論文覆蓋度** | 好的 survey 提出有洞察力的 taxonomy（分類法），而不只是論文列表排一排 |
 
+### 論文品質分級（A / B / C）
+
+**A 級**——滿足至少一項：
+- 被 tier-1 會議接收：NeurIPS / ICML / ICLR / ACL / EMNLP / AAAI / CVPR / SIGCHI
+- 被 tier-1 期刊接收：JMLR / TMLR / ACM TOSEM / TSE / CACM
+- 引用數 > 200 **且**有開源 code
+- 知名 AI lab 發表（Anthropic / OpenAI / DeepMind / Meta FAIR / Microsoft Research / Google Research）**且**有實驗數據（非純觀點文）
+
+**B 級**——滿足至少一項：
+- 引用數 > 50 或知名機構（CMU / Stanford / Berkeley / MIT / ETH / TU München 等）
+- 有開源 code **且** ablation study
+- tier-2 會議或 workshop（ICSE workshop / NAACL / EACL / COLM / AAAI workshop 等）
+- 持續更新的 survey（多版本、覆蓋面廣、有結構化 taxonomy）
+
+**C 級**——不滿足以上任何條件：
+- 無 peer review + 機構不明或弱
+- 通常降級為 Honorable Mention 或從清單移除
+
+**分級應用**：
+- research note 只在主清單列 A + B 級論文
+- C 級降到 Honorable Mentions，標明降級原因
+- 每篇論文標明：arXiv ID、場所、機構、引用數、是否開源
+
 ### 常見陷阱
 
 - **arXiv 爆發領域**（multi-agent LLM、RAG、prompt engineering）充斥「我把 3 個 ChatGPT 串起來跑了一下」等級的論文，引用數不代表品質
 - 看論文有沒有回答「**為什麼**多 agent 比單 agent 好」這個根本問題，而不只是「我這樣做 work 了」
 - Workshop paper 不等於 main conference paper，注意區分
 - 預印本（preprint）和已接收（accepted）的差距可以很大——有些預印本從未通過 peer review
+- 新論文（< 6 個月）引用數低是正常的，此時看機構 + 開源 + 實驗品質判斷
 
 ## 技術文品質判斷
 
