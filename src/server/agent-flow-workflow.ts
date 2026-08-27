@@ -229,11 +229,8 @@ export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParam
         .first<{ definition_yaml: string }>()
       if (!row) throw new Error(`Flow ${flowId} not found`)
       const { parse } = await import('yaml')
-      return parse(row.definition_yaml) as {
-        steps: Record<string, ParsedStep>
-        edges: Array<{ from: string; to: string }>
-      }
-    })
+      return parse(row.definition_yaml)
+    }) as { steps: Record<string, ParsedStep>; edges: Array<{ from: string; to: string }> }
 
     await step.do('mark-running', { retries: STEP_RETRY }, async () => {
       await db.prepare(`UPDATE flow_runs SET status='running', updated_at=? WHERE flow_run_id=?`).bind(Date.now(), flowRunId).run()
@@ -248,7 +245,8 @@ export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParam
     const startedAt = Date.now()
 
     for (const s of ordered) {
-      const result = await step.do(`step:${s.id}`, {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- executeFlowStep returns unknown; Serializable<unknown> is unsatisfiable
+      const result = await (step as any).do(`step:${s.id}`, {
         retries: STEP_RETRY,
         timeout: '3 minutes',
       }, async () => {

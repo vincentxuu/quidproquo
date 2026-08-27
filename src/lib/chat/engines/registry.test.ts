@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { normalizeRagLifecycleOutput } from './normalizers'
 import { RAG_ENGINE_REGISTRY, resolveRagEngine } from './registry'
-import { initialState } from '../state'
+import { initialState } from '../../rag/state'
 
 describe('RAG engine registry', () => {
   it('exposes manual, langgraph, and llamaindex engines', () => {

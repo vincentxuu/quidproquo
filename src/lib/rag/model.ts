@@ -343,8 +343,9 @@ function attachFallbackChain(primary: InvokableModel, fallbacks: InvokableModel[
   }
 
   const withRetry = (m: InvokableModel) => {
-    if (typeof (m as Record<string, unknown>).withRetry === 'function') {
-      return (m as Record<string, unknown>).withRetry.call(m, {
+    const mr = m as Record<string, unknown>
+    if (typeof mr.withRetry === 'function') {
+      return (mr.withRetry as Function).call(m, {
         stopAfterAttempt: maxRetries,
         retryIf: retryFilter,
       }) as InvokableModel
@@ -357,8 +358,9 @@ function attachFallbackChain(primary: InvokableModel, fallbacks: InvokableModel[
 
   const retriedFallbacks = fallbacks.map(withRetry)
 
-  if (typeof (retriedPrimary as Record<string, unknown>).withFallbacks === 'function') {
-    return (retriedPrimary as Record<string, unknown>).withFallbacks.call(retriedPrimary, {
+  const rp = retriedPrimary as Record<string, unknown>
+  if (typeof rp.withFallbacks === 'function') {
+    return (rp.withFallbacks as Function).call(retriedPrimary, {
       fallbacks: retriedFallbacks,
     }) as InvokableModel
   }

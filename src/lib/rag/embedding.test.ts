@@ -11,7 +11,7 @@ import {
   buildSemanticCacheId,
   SEMANTIC_CACHE_ID_PATTERN,
   SEMANTIC_CACHE_ID_PREFIX,
-} from './cache'
+} from '../chat/cache'
 
 function vector(value = 0.1): number[] {
   return Array.from({ length: qwen3EmbeddingProvider.dimensions }, () => value)

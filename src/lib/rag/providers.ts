@@ -8,6 +8,7 @@ export const SUPPORTED_PROVIDERS = [
   'nvidia',
   'cerebras',
   'openrouter',
+  'opencode',
   'ollama_cloud',
   'ollama',
 ] as const

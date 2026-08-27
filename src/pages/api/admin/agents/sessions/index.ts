@@ -17,7 +17,7 @@ export const GET: APIRoute = async ({ cookies, request }) => {
   if (request.headers.get('Upgrade') === 'websocket') {
     const url = new URL(request.url)
     const id = url.searchParams.get('id')
-    if (!id || !e.AGENT_SESSION_DO) return forbidden('missing id or DO')
+    if (!id || !e.AGENT_SESSION_DO) return forbidden()
     const stub = e.AGENT_SESSION_DO.getByName(id)
     return stub.fetch(request as unknown as Request)
   }
@@ -55,7 +55,7 @@ export const ALL: APIRoute = async ({ cookies, request }) => {
   const e = env as unknown as Env
   const url = new URL(request.url)
   const id = url.searchParams.get('id')
-  if (!id || !e.AGENT_SESSION_DO) return forbidden('missing id or DO')
+  if (!id || !e.AGENT_SESSION_DO) return forbidden()
   const stub = e.AGENT_SESSION_DO.getByName(id)
   return stub.fetch(request as unknown as Request)
 }
