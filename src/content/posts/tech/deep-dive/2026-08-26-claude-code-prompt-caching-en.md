@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, prompt-caching, context, cost]
 lang: en
-tldr: "Claude Code's prompt caching works by exact prefix matching: a cache read bills at roughly 10% of the standard input rate, but switching models, changing effort, enabling fast mode, toggling MCP servers, or denying an entire tool forces the next turn to reprocess everything. The TTL defaults to five minutes; the main conversation on a subscription gets one hour."
+tldr: "Claude Code's prompt caching works by exact prefix matching: a cache read bills at roughly 10% of the standard input rate, but switching models, changing effort, enabling fast mode, toggling MCP servers, or denying an entire tool forces the next turn to reprocess everything. The TTL defaults to five minutes; the main conversation and a few helper requests on a subscription get one hour."
 description: "A breakdown of how Claude Code's prompt caching works: the layered prefix structure, which actions invalidate the cache, why CLAUDE.md edits don't apply mid-session, what /compact actually costs, and how to check your own cache hit rate."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 11
@@ -28,7 +28,7 @@ Claude Code deliberately orders each request into three layers, least-changed fi
 | Layer | Content | Changes when |
 |-------|---------|--------------|
 | System prompt | Core instructions, tool definitions, output style | The tool set changes, or Claude Code is upgraded |
-| Project context | CLAUDE.md, auto memory | Session starts, or after `/clear` / `/compact` |
+| Project context | CLAUDE.md, auto memory, unscoped rules | Session starts, or after `/clear` / `/compact` |
 | Conversation | Your messages, responses, tool results | Every turn |
 
 Matching requires an exact match, so a change anywhere in the prefix recomputes everything after it. There is no per-file or per-segment caching.
@@ -66,7 +66,7 @@ The API reports two token counts on every response:
 
 The most direct way to watch them live is a [statusline script](https://code.claude.com/docs/en/statusline) reading the `current_usage` object. A high read-to-creation ratio means caching is working well; if creation stays high turn after turn, something keeps changing your prefix. For organization-wide visibility, the OpenTelemetry exporter reports both counts per user and session.
 
-On cache lifetime: there are two TTLs, five minutes and one hour, and every cache hit resets the timer. By default the main conversation gets one hour on a subscription within included usage, five minutes otherwise; past your usage limit, it drops back to five minutes. From v2.1.242 onward you can control it with the `promptCacheTtl` setting or the `CLAUDE_CODE_PROMPT_CACHE_TTL` environment variable.
+On cache lifetime: there are two TTLs, five minutes and one hour, and every cache hit resets the timer. By default the main conversation gets one hour on a subscription within included usage, and a small set of Anthropic-controlled server-side helper requests also gets one hour; everything else gets five minutes. Past your usage limit, the main conversation drops back to five minutes. From v2.1.242 onward you can control it with the `promptCacheTtl` setting or the `CLAUDE_CODE_PROMPT_CACHE_TTL` environment variable.
 
 ## What breaks the cache, and what doesn't
 
@@ -83,6 +83,9 @@ Condensed into one operating principle: **pick your model and effort at the star
 ## References
 
 - [How Claude Code uses prompt caching — Claude Code Docs](https://code.claude.com/docs/en/prompt-caching.md) — official documentation for the layered prefix structure, the invalidation list, deferred behavior of CLAUDE.md and output styles, the TTL table, and statusline-based monitoring
+- [Prompt caching — Claude Platform Docs](https://platform.claude.com/docs/en/build-with-claude/prompt-caching.md) — official API-level documentation for prefix matching, TTLs, pricing multipliers, usage fields, and cache storage / sharing
+- [Statusline — Claude Code Docs](https://code.claude.com/docs/en/statusline.md) — official source for the `current_usage` object used by statusline scripts
+- [Monitor usage — Claude Code Docs](https://code.claude.com/docs/en/monitoring-usage.md) — official metric and event attribute reference for OpenTelemetry usage reporting
 
 ## Changelog
 

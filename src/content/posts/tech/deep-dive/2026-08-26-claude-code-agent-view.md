@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, agent-view, cross-session-messaging]
 lang: zh-TW
-tldr: "`claude agents` 一個畫面列出所有背景 session，按狀態分成 Working／Needs input／Completed 等組，Space 鍵偷看、Enter 接手。搭配 cross-session messaging（ListAgents／SendMessage，v2.1.224+），session 之間還能自己互傳訊息，同機不走 Anthropic 伺服器。"
+tldr: "`claude agents` 一個畫面列出所有背景 session，把 Needs input、Ready for review、Working、Completed 等狀態排在一起管理，Space 鍵偷看、Enter 接手。搭配 cross-session messaging（ListAgents／SendMessage，v2.1.224+），session 之間還能自己互傳訊息；同機傳訊走本機 socket，不經 Anthropic 伺服器。"
 description: "Claude Code Agent View 深入介紹：怎麼 dispatch 背景 session、讀懂六種狀態圖示與 Haiku 生成的列摘要、收到需要輸入的通知，以及 cross-session messaging 的同機與跨機傳訊機制和安全設計。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 26
@@ -21,7 +21,7 @@ series:
 
 ## Agent view 是什麼
 
-在終端機跑 `claude agents`，整個終端機被接管的畫面上是一張表格：每一列是一個背景 session，顯示名稱、目前在做什麼、跑了多久，並按狀態分組——需要你處理的排在最上面。按 `Esc` 回到 shell，session 繼續在背後跑，下次打開它們都還在。
+在終端機跑 `claude agents`，整個終端機被接管的畫面上是一張表格：每一列是一個背景 session，顯示名稱、目前在做什麼、跑了多久，並按狀態分組——需要你處理的和 Ready for review 的 session 排在最上面。按 `Esc` 回到 shell，session 繼續在背後跑，下次打開它們都還在。
 
 關鍵在「背景 session」的定義：每一個都是完整的 Claude Code 對話，由一個獨立的 supervisor process 承載，**不需要任何終端機開著就能持續工作**。你可以關掉 agent view、關掉 shell、甚至開新的互動 session，dispatch 出去的工作照跑。機器睡眠後恢復，session 的 process 會醒過來繼續；但關機仍會停掉執行中的 session。
 
@@ -37,7 +37,7 @@ claude agents --cwd ~/projects/my-app
 
 agent view 底部有一個輸入框，打一句描述任務的 prompt 按 Enter，一個新的背景 session 就開始跑了，自動從 prompt 取一個短名稱（由 Haiku 等級的模型命名，之後可用 `Ctrl+R` 改）。要記住的一點：**這裡打的每個 prompt 都是全新 session**，再打一句是開第二個 session，不是對第一個下追蹤指令。
 
-輸入框支援幾種前綴控制起跑方式：第一個字符合你定義的 subagent 名稱就用那個 subagent 當主 agent；`@<repo>` 可以把 session dispatch 到隔壁 repo；`! <command>` 直接跑背景 shell 指令也會變成一列。`Shift+Enter` 則是 dispatch 完立刻 attach 進去看全程。
+輸入框支援幾種前綴控制起跑方式：第一個詞符合你定義的 subagent 名稱，或用 `@<agent-name>` mention subagent，就用那個 subagent 當主 agent；`@<repo>` 可以把 session dispatch 到隔壁 repo；`! <command>` 直接跑背景 shell 指令也會變成一列。`Shift+Enter` 則是 dispatch 完立刻 attach 進去看全程。
 
 除了從 agent view dispatch，還有兩條路把工作送進背景：
 
@@ -46,7 +46,7 @@ agent view 底部有一個輸入框，打一句描述任務的 prompt 按 Enter�
 claude --bg "investigate the flaky SettingsChangeDetector test"
 
 # 從既有 session 內
-/bg    # 把目前對話整個移進背景，騰出終端機
+/background  # 或 /bg，把目前對話整個移進背景，騰出終端機
 /fork  # 複製一份對話到新背景 session，原 session 繼續跑
 ```
 
@@ -64,9 +64,9 @@ claude --bg "investigate the flaky SettingsChangeDetector test"
 
 ## Session 之間傳訊：cross-session messaging
 
-Agent view 解決的是「你看著所有 session」，cross-session messaging 再往前一步：**讓 session 彼此說話**。一個 session 發現自己的修改弄壞了另一個 session 正在做的東西，它可以主動警告對方，不用你當傳聲筒。這需要 Claude Code v2.1.224 以上（macOS/Linux/WSL 2；原生 Windows 要 v2.1.234 以上），版本到了預設就是開的。
+Agent view 解決的是「你看著所有 session」，cross-session messaging 再往前一步：**讓 session 彼此說話**。一個 session 發現自己的修改弄壞了另一個 session 正在做的東西，它可以主動警告對方，不用你當傳聲筒。這需要 Claude Code v2.1.224 以上（macOS/Linux/WSL 2；原生 Windows 要 v2.1.234 以上）。同機傳訊在第三方 provider 或關閉 feature-flag fetching 的環境，官方文件另標 v2.1.248 以上；跨機 session 能不能被找到，還取決於 Remote Control 連線與登入狀態。
 
-Claude 用兩個工具完成這件事：`ListAgents` 找出連得到的 session，`SendMessage` 把訊息送給其中一個。你不用碰工具，用自然語言指揮就行：「跟另一個終端機那個 session 問 migration 跑完了沒」。想指定收件人可以用 `@` mention session 名稱；跑 `/list-agents` 則能看到這個 session 自己的名字和所有連得到的對象。
+Claude 用兩個工具完成這件事：`ListAgents` 找出連得到的 session，`SendMessage` 把訊息送給其中一個。你不用碰工具，用自然語言指揮就行：「跟另一個終端機那個 session 問 migration 跑完了沒」。想指定收件人可以用 `@` mention session 名稱（v2.1.232+）；跑 `/list-agents` 或 `/peers` 則能看到這個 session 自己的名字和所有連得到的對象。
 
 訊息的傳輸路徑依目的地而不同：
 

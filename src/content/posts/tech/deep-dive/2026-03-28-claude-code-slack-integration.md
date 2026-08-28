@@ -3,11 +3,11 @@ title: "從 Slack 指派 coding 任務：Claude Code in Slack 與 Claude Tag 兩
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, slack, team-collaboration, ai-agent, automation]
+tags: [claude-code, slack, team-collaboration, ai-agent]
 lang: zh-TW
-tldr: "在 Slack @Claude 就能把 bug report 變成雲端跑的 Claude Code session。但 2026 年起有兩條路：Pro/Max 走原 Claude Code in Slack（每個 session 掛在個人帳號），Team/Enterprise 改推 Claude Tag（組織共用身分、admin 管權限）。先確認方案再設定，才不會裝錯。"
+tldr: "在 Slack @Claude 就能把 bug report 變成雲端跑的 Claude Code session。但現在有兩條路：Pro/Max 走原 Claude Code in Slack（每個 session 掛在個人帳號），Team/Enterprise 新設定或遷移則看 Claude Tag（組織共用身分、admin 管權限與用量）。先確認方案再設定，才不會裝錯。"
 description: "Claude Code 的 Slack 整合指南：原 Claude Code in Slack 的安裝、路由模式與 session 流程，以及 Team/Enterprise 方案的替代產品 Claude Tag，含兩條路的差異對照與限制。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 29
@@ -17,14 +17,14 @@ series:
 
 bug report 不是出現在終端機，是出現在 Slack 頻道——隊友貼了重現步驟、錯誤截圖、討論串裡累積了半天的 context。這時候最有價值的動作不是自己複製貼上到終端機，而是直接在對話串裡 `@Claude` 一句「幫我查然後修掉」，讓它在雲端開一個 Claude Code session 跑完回報。這是[系列入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)講的 agentic loop 換了一個入口：loop 還是同一個 loop，只是觸發點從終端機換成了團隊對話。
 
-不過這件事在 2026 年變複雜了：Anthropic 正在為 Team 和 Enterprise 工作區退役原本的 Claude Code in Slack，改推獨立產品線 **Claude Tag**。所以動手設定之前，先分清楚你是哪種方案——兩條路的安裝方式、權限模型完全不同。
+不過這件事現在變複雜了：Anthropic [正在為 Team 和 Enterprise 工作區退役原本的 Claude Code in Slack](https://code.claude.com/docs/en/slack)，改推獨立產品線 **Claude Tag**。所以動手設定之前，先分清楚你是哪種方案——兩條路的安裝方式、權限模型完全不同。
 
 ## 先分清楚：你是哪種方案
 
 官方文件把界線畫得很明確：
 
-- **Pro / Max**（個人方案）：Claude Tag 不提供，原本的 Claude Code in Slack **仍然是現行的設置路徑**。
-- **Team / Enterprise**：原本版本退役中，改用 [Claude Tag](https://claude.com/docs/claude-tag/overview)。既有的 Slack app 和 `@Claude` handle 會保留，確切的切換日期要問你們的 Anthropic 業務窗口。
+- **Pro / Max**（個人方案）：[Claude Tag 不提供](https://code.claude.com/docs/en/claude-tag)，原本的 Claude Code in Slack **仍然是現行的設置路徑**。
+- **Team / Enterprise**：新版 Slack 工作流程看 [Claude Tag](https://claude.com/docs/claude-tag/overview)；原本版本退役中。既有的 Slack app 和 `@Claude` handle 會保留，確切的切換日期要問你們的 Anthropic 業務窗口。
 
 判斷方法很簡單：看你在 claude.ai 的方案頁。如果下面「設定步驟」照做卻一直失敗，先確認是不是已經被切到 Claude Tag 了。
 
@@ -48,9 +48,9 @@ bug report 不是出現在終端機，是出現在 Slack 頻道——隊友貼�
 
 ## 路徑二：Claude Tag（Team/Enterprise）
 
-[Claude Tag](https://claude.com/product/tag) 是獨立的 Slack 產品線：`@Claude` 以**組織的共用身分**在頻道裡工作，而不是任何一個人的帳號；存取權限由 admin 統一設定，頻道裡任何人都能把它 tag 進討論串指派任務。
+[Claude Tag](https://claude.com/product/tag) 是 Public Beta 的獨立 Slack 產品線：`@Claude` 以**組織的共用身分**在頻道裡工作，而不是任何一個人的帳號；存取權限由 admin 統一設定，頻道裡任何人都能把它 tag 進討論串指派任務。
 
-對已經在用舊版的工作區，遷移文件在 claude.com 的〈Migrate from the earlier Claude in Slack〉。對 admin 來說最大的改變是權限從「每個人自己管」變成「組織統一管」：誰能用、能用哪些 repo、session 歸屬組織可見，都收進 admin 設定。
+對已經在用舊版的工作區，遷移文件在 claude.com 的〈Migrate from the earlier Claude in Slack〉。對 admin 來說最大的改變是權限從「每個人自己管」變成「組織統一管」：誰能用、能用哪些 repo、session 歸屬組織可見，都收進 admin 設定。頻道和討論串工作也不是吃個人額度，而是走組織的 usage balance 和 spend limit；DM 是例外，仍走發訊者自己的 claude.ai 帳號與額度。
 
 有一個坑要先知道：如果你在 Claude Tag 頻道開 session 一直失敗，通常是因為頻道的雲端環境建在某人**個人帳號**下——Claude Code 會立刻拒絕執行，重試沒有用。解法是 Owner 到 admin settings 的 Cloud environments 頁重建一個**組織共用環境**，設為組織預設或指定給該頻道；不是 Owner 就把這段轉給 Owner。
 
@@ -60,7 +60,7 @@ bug report 不是出現在終端機，是出現在 Slack 頻道——隊友貼�
 |---|---|---|
 | 方案 | Pro / Max | Team / Enterprise |
 | @Claude 的身分 | 使用者個人帳號 | 組織共用身分 |
-| 權限管理 | 各自連 repo、各自付額度 | Admin 統一設定 |
+| 權限管理 | 各自連 repo、各自付額度 | Admin 統一設定，頻道工作走組織用量 |
 | Session 歸屬 | 個人歷史（claude.ai/code） | 組織可見 |
 | 現況 | 個人方案的現行路徑 | Team/Enterprise 的現行做法 |
 
@@ -78,7 +78,9 @@ Slack 是 Claude Code 的 surface 之一，同家族還有瀏覽器端的 [Chrom
 
 - [Claude Code in Slack — Claude Code Docs](https://code.claude.com/docs/en/slack) — 安裝步驟、路由模式、session 流程、權限模型，以及 Team/Enterprise 退役公告與疑難排解
 - [Claude Tag — Claude Code Docs](https://code.claude.com/docs/en/claude-tag) — Claude Tag 產品線定位、適用方案，與 claude.com 完整文檔的入口
+- [Work with Claude Tag — Claude.ai Documentation](https://claude.com/docs/claude-tag/overview) — Public Beta 狀態、Team/Enterprise 適用範圍、頻道權限、usage balance 與 spend limit
 
 ## 更新紀錄
 
-- 2026-08-26：初版，依 2026-08 官方文件撰寫（Team/Enterprise 已改推 Claude Tag，Pro/Max 維持原路徑）。
+- 2026-08-29：審稿更新，校正 Team/Enterprise 過渡期措辭，補 Claude Tag beta、組織用量與 DM 邊界。
+- 2026-08-26：初版，依 2026-08 官方文件撰寫（Team/Enterprise 退役舊版並導向 Claude Tag，Pro/Max 維持原路徑）。

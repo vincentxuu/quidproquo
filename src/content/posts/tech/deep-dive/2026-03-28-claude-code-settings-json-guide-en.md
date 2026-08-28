@@ -7,7 +7,7 @@ tags: [claude-code, configuration, settings, permissions]
 lang: en
 tldr: "Claude Code reads settings from five levels — managed settings, CLI flags, project local, shared project, and user — where plain values are overridden by higher levels while list keys like permissions.allow merge across scopes. This guide covers each file's role, the allow/deny/ask rule syntax, and how to verify your settings with /status and claude doctor."
 description: "A reference for Claude Code settings.json: the five scopes and their precedence stack, how list keys merge across files, a permissions.allow/deny/ask example, common keys like model/env/hooks/statusLine, and how to debug settings that don't apply."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 6

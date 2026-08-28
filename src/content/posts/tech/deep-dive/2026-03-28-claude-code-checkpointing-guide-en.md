@@ -7,7 +7,7 @@ tags: [claude-code, checkpointing, rewind, undo, safety]
 lang: en
 tldr: "Checkpointing is not git commits: Claude Code snapshots your files before every user prompt, keeps the 100 most recent per session, and deletes them after 30 days. This piece breaks down the five rewind menu options, the tracking boundaries (bash, subagents, symlinks), and how checkpoints divide labor with git."
 description: "A deep dive into Claude Code's Checkpointing: when snapshots trigger and how long they last, the /rewind menu options, what bash commands, subagents, and symlinks fall outside its coverage, and how checkpoints work alongside git and permission modes."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 4
@@ -37,7 +37,7 @@ The mechanism has three rules, all from the official [Checkpointing docs](https:
 
 There are two ways to open the rewind menu: type `/rewind`, or press `Esc` twice while the prompt input is **empty**. Note that if the input has text in it, double `Esc` clears that text instead of opening the menu — cleared text goes into your input history, recallable with the up arrow.
 
-The menu lists every prompt you sent during the session. Once you pick a point, there are five actions:
+The menu mainly lists prompts from the current session. Newer Claude Code versions add one `/clear` exception: until you exit or resume another session, the rewind menu may keep a previous-session entry that lets you return to the conversation you cleared. Once you pick a point, there are five actions:
 
 | Option | What it does |
 |--------|--------------|

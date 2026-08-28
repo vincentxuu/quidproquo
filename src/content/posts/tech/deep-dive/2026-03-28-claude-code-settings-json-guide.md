@@ -7,7 +7,7 @@ tags: [claude-code, configuration, settings, permissions]
 lang: zh-TW
 tldr: "Claude Code 的設定分五層——managed settings、CLI flag、專案 local、專案共用、使用者——純值型 key 由高層蓋掉低層，permissions.allow 這類清單型 key 則跨層合併。本文整理每層檔案的角色、allow/deny/ask 三清單的寫法，以及用 /status 和 claude doctor 驗證設定是否生效。"
 description: "整理 Claude Code settings.json 的五層 scope 與合併規則、permissions.allow/deny/ask 三清單範例、model/env/hooks/statusLine 等常用欄位，以及設定不生效時的排查方法。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 6

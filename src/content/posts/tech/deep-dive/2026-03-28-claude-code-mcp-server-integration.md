@@ -3,11 +3,11 @@ title: "Claude Code 怎麼接上外部工具：MCP server 的三種 scope、tran
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, mcp, mcp-server, integration, ai-agent]
+tags: [claude-code, mcp, mcp-server, integration]
 lang: zh-TW
-tldr: "Claude Code 用 MCP（Model Context Protocol）連外部工具，設定分三種 scope：專案共用放 .mcp.json、個人跨專案和 local 都在 ~/.claude.json、企業走 managed config——不在 settings.json。本文涵蓋 claude mcp add／login 流程、SSE 已 deprecated 的 transport 現狀，以及 tool search 延遲載入。"
+tldr: "Claude Code 用 MCP（Model Context Protocol）連外部工具，手動設定分三種 scope：專案共用放 .mcp.json、個人跨專案和 local 都在 ~/.claude.json、企業走 managed config——不在 settings.json。本文涵蓋 claude mcp add／login 流程、SSE 已 deprecated 的 transport 現狀，以及 tool search 延遲載入。"
 description: "Claude Code MCP server 設定完整說明：local／project／user 三種 scope 的選擇、stdio 與 HTTP transport、OAuth 認證流程、tool search 延遲載入與 /mcp 除錯。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 14
@@ -31,7 +31,7 @@ series:
 | Project | 當前專案 | 是，靠版控 | 專案根目錄 `.mcp.json` |
 | User | 你的所有專案 | 否 | `~/.claude.json` 頂層 `mcpServers` |
 
-選擇邏輯很直接：帶 API key、不想進版控的個人工具用 **local**；整個團隊都要用的（如 GitHub、Sentry）用 **project**，把 `.mcp.json` commit 進 repo；自己跨專案都會用的（如 Notion）用 **user**。同名 server 在多處定義時，優先序是 local > project > user，整個 entry 取用不合併欄位。
+選擇邏輯很直接：帶 API key、不想進版控的個人工具用 **local**；整個團隊都要用的（如 GitHub、Sentry）用 **project**，把 `.mcp.json` commit 進 repo；自己跨專案都會用的（如 Notion）用 **user**。只看這三種手動 scope 時，同名 server 的優先序是 local > project > user，整個 entry 取用不合併欄位；plugin server 和 claude.ai connector 則排在後面。
 
 組織還有第四條路：managed configuration，管理員用 `managed-mcp.json` 部署固定的 server 清單，並以 allowlist／denylist 限制使用者能接什麼。
 
@@ -62,7 +62,7 @@ claude mcp add playwright -- npx -y @playwright/mcp@latest
 - **WebSocket**：適合主動推事件的 server，但 `claude mcp add --transport` 不收 `ws`，只能寫 JSON 或用 `add-json`。
 - **SSE**：**已 deprecated**。少數服務還只提供 SSE endpoint，能用 HTTP 就換 HTTP。
 
-手上有別家 client（如 Claude Desktop）的設定時，看形狀判斷：URL 就是遠端、launch command 是 stdio、`mcpServers` JSON 區塊用 `claude mcp add-json` 餵進去——注意要傳裡面的物件不是外層 wrapper，且只有 `url` 沒有 `type` 的 entry 要補 `"type": "http"`，否則會被當成 stdio server 而載入失敗。
+手上有別家 client（如 Claude Desktop）的設定時，看形狀判斷：URL 就是遠端、launch command 是 stdio、`mcpServers` JSON 區塊用 `claude mcp add-json` 餵進去——注意要傳裡面的物件不是外層 wrapper，且只有 `url` 沒有 `type` 的 entry 要補 `"type": "http"`、`"sse"` 或 `"ws"`；新版 Claude Code 會把這種情況當成設定錯誤並跳過該 server，而不是默默幫你猜。
 
 ## 大工具集靠 tool search 撐
 
@@ -77,6 +77,7 @@ claude mcp add playwright -- npx -y @playwright/mcp@latest
 - 啟動逾時：`npx` 第一次下載套件慢，`MCP_TIMEOUT=60000 claude` 放寬到六十秒。
 - Server 連上但沒有 tool：通常是缺環境變數，`--env KEY=value` 或 `.mcp.json` 的 `env` 欄位補上。
 - 改了 `.mcp.json` 沒生效：它是 session 啟動時讀的，重開 session；之前按過拒絕就跑 `claude mcp reset-project-choices`。
+- 連線失敗只看到 `✘ Failed to connect`：新版 `claude mcp list`／`claude mcp get <name>` 會附 HTTP status 或 server 回傳錯誤；headless `stream-json` 也能從 `system/init.mcp_server_errors` 偵測被跳過的 `--mcp-config` entry。
 - Tool 輸出超過 10,000 tokens 會警告、25,000 tokens 上限截斷，要用更多就設 `MAX_MCP_OUTPUT_TOKENS`。
 
 ## 學到的事
@@ -85,9 +86,10 @@ MCP 的設定面拆開來其實只有兩個決定：**scope 決定誰看得到�
 
 ## 參考資料
 
-- [Connect Claude Code to tools via MCP — Claude Code Docs](https://code.claude.com/docs/en/mcp) — 三種 scope、四種 transport、OAuth 與 `claude mcp login`、tool search 設定的完整官方參考
+- [Connect Claude Code to tools via MCP — Claude Code Docs](https://code.claude.com/docs/en/mcp) — 三種 scope、四種 transport、OAuth 與 `claude mcp login`、tool search、server status detail 的完整官方參考
 - [Connect to MCP servers（quickstart）— Claude Code Docs](https://code.claude.com/docs/en/mcp-quickstart.md) — 從 add 到驗證連線的 step-by-step，含設定檔磁碟位置表與 troubleshooting 清單
 
 ## 更新紀錄
 
 - 2026-08-26：初版，依 2026-08 官方文件撰寫（SSE transport 已 deprecated、tool search 預設開啟、`claude mcp login` 自 v2.1.186 起）。
+- 2026-08-29：依 2026-08-27 官方 MCP 文件更新 precedence、無 `type` 的 URL entry、server status detail 與 `stream-json` 除錯描述。

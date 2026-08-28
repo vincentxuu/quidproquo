@@ -7,7 +7,7 @@ tags: [claude-code, best-practices, workflows, tips, productivity]
 lang: en
 tldr: "Anthropic's official Claude Code best practices boil down to one constraint: manage the context window. This post reorganizes their guidance into a working loop — explore, plan mode, implement with a runnable check, verify, commit — plus prompt techniques, when to /clear vs rewind, and the five failure patterns they call out."
 description: "A workflow-first tour of official Claude Code best practices: exploring codebases, planning in plan mode, verifiable implementation, subagent review, parallel sessions and commit hygiene, with prompt techniques and common anti-patterns."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 5
@@ -63,7 +63,7 @@ A stronger safeguard is adversarial review: spin up a fresh subagent that sees o
 
 If you've corrected Claude more than twice on the same issue, the context is cluttered with failed approaches — `/clear` and restart with a better initial prompt incorporating what you learned. The docs put it bluntly: a clean session with a better prompt almost always outperforms a long session with accumulated corrections. Also `/clear` between unrelated tasks.
 
-For wrapping up: ask Claude to "commit with a descriptive message and open a PR". For tasks spanning multiple sittings, use `--continue` / `--resume`, and name sessions with `/rename`. To work in parallel, `claude --worktree feature-auth` starts an isolated session in its own checkout — run it again with a different name in a second terminal. For large migrations, [`/batch`](https://code.claude.com/docs/en/common-workflows) splits the work across up to 30 subagents, each in its own worktree opening its own PR.
+For wrapping up: ask Claude to "commit with a descriptive message and open a PR". For tasks spanning multiple sittings, use `--continue` / `--resume`, and name sessions with `/rename`. To work in parallel, `claude --worktree feature-auth` starts an isolated session in its own checkout — run it again with a different name in a second terminal. For large migrations, [`/batch`](https://code.claude.com/docs/en/commands) first decomposes the work into 5 to 30 independent units; after approval, each background subagent implements its unit in an isolated git worktree, runs tests, and opens a PR.
 
 ## The five failure patterns Anthropic calls out
 
@@ -85,6 +85,7 @@ These patterns aren't laws. The final section of the official guide is literally
 
 - [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Official guidance on context management, verifiable tasks, plan-mode workflows, scaling in parallel, and failure patterns
 - [Common workflows](https://code.claude.com/docs/en/common-workflows) — Official everyday recipes: codebase exploration, debugging, testing, PRs, worktree-based parallel sessions, and script integration
+- [Commands reference](https://code.claude.com/docs/en/commands) — Official command reference for `/batch`, `/clear`, `/code-review`, `/background`, and other built-in commands or bundled skills
 - [Prompt library](https://code.claude.com/docs/en/prompt-library) — Official copy-paste prompts tagged by task and role, each with a "why this works" note
 
 ## Changelog

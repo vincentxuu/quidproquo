@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, cost, model-config, usage]
 lang: en
-tldr: "Claude Code costs accumulate with context size: enterprise deployments average ~$13 per developer per active day and $150–250 per month. This post covers /usage and /insights tracking, six token-saving tactics, and a systematic answer to 'which model should I use': the Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5 family, effort levels, fast mode ($10/$50 per MTok), and the advisor tool."
-description: "Breaks down Claude Code's cost structure and tracking tools, covering /usage attribution, context management, model family and effort trade-offs, fast mode pricing, and team-level analytics dashboards."
-draft: true
+tldr: "Claude Code costs accumulate with context size: enterprise deployments average ~$13 per developer per active day and $150–250 per month. This post covers /usage and /insights tracking, six token-saving tactics, and a systematic answer to 'which model should I use': provider-dependent model aliases, effort levels, fast mode ($10/$50 per MTok for Opus 5/4.8), and the advisor tool."
+description: "Breaks down Claude Code's cost structure and tracking tools, covering /usage attribution, context management, model aliases and effort trade-offs, fast mode pricing, and team-level analytics dashboards."
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 32
@@ -30,9 +30,9 @@ When a long session's usage climbs for no obvious reason, the official docs name
 
 ## Tracking: /usage and /insights
 
-`/usage` is the primary tracking command. The session block shows token detail and a dollar figure for the current session — note this figure is computed locally at list rates and excludes discounts; authoritative billing lives on the Usage page of the Claude Console. What subscription users should actually study is the **plan usage breakdown** below: it attributes recent usage to skills, subagents, plugins, and individual MCP servers (each as a percentage), and flags behaviors like long context and cache misses once they account for 10% or more. Press `d` or `w` to toggle between the last 24 hours and 7 days.
+`/usage` is the primary tracking command. The session block shows token detail and a dollar figure for the current session — by default this is estimated at list rates; if an organization sets `modelPricing` through managed settings, newer Claude Code versions display the organization's configured rates. It is still an estimate, and authoritative billing lives on the Usage page of the Claude Console. What subscription users should actually study is the **plan usage breakdown** below: it attributes recent usage to skills, subagents, plugins, and individual MCP servers (each as a percentage), and flags behaviors like long context and cache misses once they account for 10% or more. Newer versions also show the heaviest recent `/loop` or scheduled tasks; when usage credits are enabled, `/usage` also shows usage-credit spend for the month. Press `d` or `w` to toggle between the last 24 hours and 7 days.
 
-If you want to understand how you work rather than how many tokens you've used, run [`/insights`](https://code.claude.com/docs/en/costs): it analyzes up to 200 recent local sessions and writes an HTML report (friction points, suggestions) to `~/.claude/usage-data/report.html`. The analysis itself consumes tokens counted against your plan.
+If you want to understand how you work rather than how many tokens you've used, run [`/insights`](https://code.claude.com/docs/en/costs): it analyzes up to 200 recent local sessions and writes an HTML report (friction points, suggestions) to `~/.claude/usage-data/report.html`, with timestamped copies kept alongside it. The analysis itself consumes tokens counted against your plan.
 
 ## Practical ways to spend fewer tokens
 
@@ -53,7 +53,9 @@ The question readers ask most has an official answer spread across four doc page
 
 ### The model family and defaults
 
-The current family is **Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5**. How `default` resolves depends on account type: Max, Team Premium, and API accounts default to **Opus 5** (since W30); Pro and Team Standard default to **Sonnet 5** (since W27). **Fable 5 is not the default on any account type** — select it explicitly with `/model fable`. It is the strongest and most expensive model, suited to tasks larger than a single sitting, and on some plans its usage bills to usage credits (with a consent prompt).
+As of 2026-08-29, the official docs steer users toward aliases rather than memorizing full model IDs: `best`, `fable`, `opus`, `sonnet`, `haiku`, `sonnet[1m]`, `opus[1m]`, and `opusplan`. What `opus` and `sonnet` resolve to depends on the provider: on the Anthropic API they currently resolve to Opus 5 / Sonnet 5; on Claude Platform on AWS, Opus 5 / Sonnet 4.6; on Bedrock and Google Cloud Agent Platform, Opus 5 / Sonnet 4.5; on Microsoft Foundry, Opus 4.6 / Sonnet 4.5. Aliases advance with Claude Code releases, so pin the full model name or use `ANTHROPIC_DEFAULT_*_MODEL` when drift would be a problem.
+
+**Fable 5 is not the default on any account type** — select it explicitly with `/model fable`; the `/model` picker may only list it after the server reports that your organization has access. It is the strongest and most expensive model, suited to tasks larger than a single sitting, and on some plans its usage bills to usage credits (with a consent prompt).
 
 The official division of labor is blunt: Sonnet handles most coding tasks, Opus is reserved for complex architectural decisions, and simple subagent tasks get `model: haiku` in their frontmatter. Another cost-saving combo is `opusplan`: Opus reasons during plan mode, then execution switches back to Sonnet automatically.
 
@@ -63,11 +65,11 @@ The official division of labor is blunt: Sonnet handles most coding tasks, Opus 
 
 ### Fast mode
 
-[`/fast`](https://code.claude.com/docs/en/fast-mode) doesn't change models; it switches Opus to a latency-prioritized API configuration: up to **2.5x faster**, at $10/$50 per MTok input/output on Opus 5. Best for interactive debugging and rapid iteration; batch jobs and CI should stay on standard mode. Two gotchas: subscription plans pay for fast mode via usage credits only, and enabling fast mode mid-conversation repays the entire context at uncached fast mode prices the first time — enable it at the start of a session.
+[`/fast`](https://code.claude.com/docs/en/fast-mode) doesn't change models; it switches Opus to a latency-prioritized API configuration: up to **2.5x faster**, at $10/$50 per MTok input/output on Opus 5 / Opus 4.8. It is supported through the Anthropic API and subscription usage credits only, not on Bedrock, Google Cloud Agent Platform, Microsoft Foundry, or Claude Platform on AWS. Best for interactive debugging and rapid iteration; batch jobs and CI should stay on standard mode. Two gotchas: Team/Enterprise organizations need an Owner to enable it first, and enabling fast mode mid-conversation repays the entire context at uncached fast mode prices the first time — enable it at the start of a session.
 
 ### Advisor
 
-The [advisor tool](https://code.claude.com/docs/en/advisor) (experimental) is the middle path: keep a cheaper model like Sonnet as the main, and let Claude consult a stronger advisor (Opus or Fable) at decision points — before committing to an approach, when stuck on a recurring error, before declaring completion. The advisor receives the full conversation each time, so it isn't free, but consulting at decision points typically costs less than running the stronger model throughout. Set it with `/advisor opus`.
+The [advisor tool](https://code.claude.com/docs/en/advisor) (experimental) is the middle path: keep a cheaper model like Sonnet as the main, and let Claude consult a stronger advisor (Opus or Fable) at decision points — before committing to an approach, when stuck on a recurring error, before declaring completion. The advisor is an Anthropic API server tool and is not available on Bedrock, Claude Platform on AWS, Google Cloud Agent Platform, or Microsoft Foundry; it also receives the full conversation each time, so it isn't free. Consulting at decision points typically costs less than running the stronger model throughout. Set it with `/advisor opus`.
 
 ### When extended thinking is worth it
 
@@ -75,9 +77,9 @@ Extended thinking is on by default, thinking tokens are **billed as output token
 
 ## Team level: analytics dashboard and spend management
 
-Individuals watch `/usage`; teams watch the [analytics dashboard](https://code.claude.com/docs/en/analytics). Teams/Enterprise find it at `claude.ai/analytics/claude-code`: daily active users, sessions, suggestion accept rate, plus GitHub-integrated contribution metrics (which PRs contain Claude Code-assisted code) — matching is deliberately conservative, counting only high-confidence involvement, so the numbers are an underestimate. API customers use the Console dashboard with per-user spend and monthly accepted lines.
+Individuals watch `/usage`; teams watch the [analytics dashboard](https://code.claude.com/docs/en/analytics). Teams/Enterprise find it at `claude.ai/analytics/claude-code`: daily active users, sessions, suggestion accept rate, leaderboard, CSV export, plus GitHub-integrated contribution metrics (which PRs contain Claude Code-assisted code) — matching is deliberately conservative, counting only high-confidence involvement, so the numbers are an underestimate. Per-user token counts and usage-credit spend live elsewhere: the org analytics spend report, the Enterprise Analytics API, or your own OpenTelemetry export. API customers use the Console dashboard at `platform.claude.com/claude-code` for per-user spend, accepted lines, activity, and team insights.
 
-On spend caps, the Teams/Enterprise seat allowance is the default ceiling; letting members exceed it means turning on usage credits and setting spend limits. For real-time per-user numbers into your own observability stack, OpenTelemetry export is the only option supported across every setup.
+On spend caps, the Teams/Enterprise seat allowance is the default ceiling; letting members exceed it means turning on usage credits and setting spend limits at the organization, group, or individual level. Console customers use workspace spend limits. For real-time per-user numbers into your own observability stack, OpenTelemetry export is the only option supported across every setup.
 
 ## Lessons learned
 
@@ -94,3 +96,4 @@ Cost management boils down to one sentence: **context is the primary variable; e
 ## Changelog
 
 - 2026-08-26: Initial version, written from the five official doc pages (costs / analytics / model-config / fast-mode / advisor).
+- 2026-08-29: Updated `/usage` fields, model alias/provider drift, fast mode/advisor availability, and team analytics/spend wording from the official docs.

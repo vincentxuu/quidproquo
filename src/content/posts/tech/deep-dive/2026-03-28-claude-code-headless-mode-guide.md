@@ -3,11 +3,11 @@ title: "Headless 與 Agent SDK：從 claude -p 到程式化 agent"
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, headless, agent-sdk, cli, automation, scripting]
+tags: [claude-code, headless, agent-sdk, cli, ci]
 lang: zh-TW
-tldr: "claude -p 把 Claude Code 從終端機互動變成一條可寫進腳本和 CI 的指令：pipe 資料進去、用 --output-format json 拿結構化結果、--bare 跳過所有自動載入加速啟動。本文以 CLI 用法為主體，最後講四個該改用 Python／TypeScript Agent SDK 的訊號。"
+tldr: "claude -p 把 Claude Code 從終端機互動變成一條可寫進腳本和 CI 的指令：pipe 資料進去、用 --output-format json 拿結構化結果、--bare 跳過大多數自動探索來加速啟動。本文以 CLI 用法為主體，最後講四個該改用 Python／TypeScript Agent SDK 的訊號。"
 description: "Claude Code headless 模式介紹：claude -p 基本用法、text/json/stream-json 三種輸出格式、--bare 與常用旗標組合、CI 實戰，以及何時該從 CLI 升級到 Agent SDK。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 18
@@ -25,7 +25,7 @@ series:
 
 兩個行為差異要記住：
 
-- **權限預設 Manual**。`-p` session 不會跳出權限詢問視窗，內建的起始權限模式在所有方案上都是 Manual，沒被核准的動作會直接被擋下。想讓它放手做事要用 `--allowedTools` 或 `--permission-mode` 明確授權。
+- **`-p` 的權限預設仍是 Manual**。互動 session 在 Pro／Max／Team 上可能預設 auto mode，但 `claude -p` 和 Agent SDK 的內建起始模式仍是 Manual（設定值是 `default`）。它不會跳出權限詢問視窗，沒被核准的動作會直接被擋下。想讓它放手做事要用 `--allowedTools` 或 `--permission-mode` 明確授權。
 - **不會載入你不想要的東西**（如果你叫它不要）。這就是下一節的 `--bare`。
 
 ## 基本用法與輸出格式
@@ -81,13 +81,13 @@ claude -p "Write a poem" --output-format stream-json --verbose --include-partial
 
 ## 常用旗標組合
 
-**`--bare`：腳本與 CI 的建議模式。** 平常的 `-p` 會像互動 session 一樣載入 hooks、skills、自訂指令、subagents、外掛、MCP servers、auto memory 和 CLAUDE.md——在你自己的機器上這是功能，在 CI runner 上是不可控的變數。`--bare` 全部跳過，啟動更快、每台機器行為一致：
+**`--bare`：腳本與 CI 的建議模式。** 平常的 `-p` 會像互動 session 一樣載入 hooks、skills、自訂指令、subagents、外掛、MCP servers、auto memory 和 CLAUDE.md——在你自己的機器上這是功能，在 CI runner 上是不可控的變數。`--bare` 會跳過這些自動探索，啟動更快、每台機器行為一致：
 
 ```bash
 claude --bare -p "Summarize README.md" --allowedTools "Read"
 ```
 
-代價是要自己補 context：系統提示用 `--append-system-prompt`、設定用 `--settings`、MCP servers 用 `--mcp-config`、subagents 用 `--agents <json>`。另外 bare 模式不讀 OAuth 登入，必須設 `ANTHROPIC_API_KEY`。官方文件明講：`--bare` 是腳本與 SDK 呼叫的建議模式，未來會變成 `-p` 的預設。
+代價是要自己補 context：系統提示用 `--append-system-prompt`、設定用 `--settings`、MCP servers 用 `--mcp-config`、subagents 用 `--agents <json>`。一個例外是 `--add-dir` 指到的額外目錄：bare mode 仍會載入該目錄的 `.claude/skills/`，但不載入 commands 或 agents。bare mode 也不是「沒有工具」；Claude 仍有 Bash、檔案讀取與檔案編輯工具，只是沒有自動讀進你的本機設定。另外 bare 模式不讀 OAuth 登入或系統 keychain，Anthropic API 要設 `ANTHROPIC_API_KEY`，Bedrock／Google Cloud's Agent Platform／Microsoft Foundry 則照各自 provider 的認證走。官方文件明講：`--bare` 是腳本與 SDK 呼叫的建議模式，未來會變成 `-p` 的預設。
 
 **`--allowedTools`：精準授權。** 讓特定工具免詢問，規則語法支援前綴匹配——`Bash(git diff *)` 允許任何 `git diff` 開頭的指令（星號前的空格是語法的一部分）：
 
@@ -111,7 +111,7 @@ session_id=$(claude -p "Start a review" --output-format json | jq -r '.session_i
 claude -p "Continue that review" --resume "$session_id"
 ```
 
-`--continue` 接最近一次對話，`--resume` 按 session ID 接指定對話，而且兩個指令可以在不同目錄跑（v2.1.223 起）。這已經摸到「多輪狀態管理」的邊了——後面會回到這件事。
+在 print mode 裡，`claude -p --continue` 會接最近一次可延續的 `-p`／SDK／`/loop` 對話，`--resume` 則按 session ID 接指定對話，而且兩個指令可以在不同目錄跑（v2.1.223 起）。這已經摸到「多輪狀態管理」的邊了——後面會回到這件事。
 
 ## 放進腳本和 CI
 
@@ -127,16 +127,16 @@ claude -p "Continue that review" --resume "$session_id"
 
 pipe diff 而不是讓它自己跑 git，連 Bash 權限都省了。GitHub Actions 上的完整整合——包括 `claude setup-token` 產生長期 token、annotation 回寫 PR——在[GitHub Actions 篇](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions)展開；定時任務（cron 加 `claude -p`）則見[排程自動化主篇](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide)。
 
-幾個 CI 特有的細節：SIGTERM 中止的 run 以退出碼 143 結束且該 turn 不記結果，process supervisor 要靠退出碼判斷成敗時留意；run 結束後背景 Bash 任務（dev server、watch build）約五秒後被砍掉；`system/init` event 的 `mcp_server_errors` 和 `plugin_errors` 欄位可以用來在 CI 裡擋掉「server 根本沒載起來」的假綠燈。
+幾個 CI 特有的細節：SIGTERM 中止的 run 以退出碼 143 結束且該 turn 不記結果，process supervisor 要靠退出碼判斷成敗時留意；run 結束後背景 Bash 任務（dev server、watch build）約五秒後被砍掉；背景 subagent／workflow 會等到結果回來，v2.1.182 起預設最多等十分鐘，可用 `CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS` 調整；`--mcp-config` 搭配 `-p` 時，v2.1.221 起會在第一 turn 前等 pending MCP server，預設最多 30 秒；`system/init` event 的 `mcp_server_errors` 和 `plugin_errors` 欄位可以用來在 CI 裡擋掉「server 根本沒載起來」的假綠燈。
 
 ## 什麼時候該離開 CLI，改用 Agent SDK
 
 CLI 能做的比多數人以為的多，先別急著升級。但官方文件畫了一條清楚的線：SDK 目前只有 Python 和 TypeScript 版本，其他語言想驅動同一個 agent loop，官方建議就是用子行程跑 CLI。反過來說，如果你的宿主環境剛好是 Python 或 TypeScript，出現以下四個訊號就該換 SDK：
 
 1. **多輪 session 管理**。用 `--resume` 加 shell 變數管理對話狀態，撐得過兩三輪；要在應用程式裡長期維護數百個 session、隨時 fork 和恢復，SDK 的 Sessions API 是為此設計的。
-2. **即時 streaming**。CLI 的 `stream-json` 是「你自己解析 NDJSON」；SDK 提供原生的 callback 與 message 物件，token 事件直接進你的程式。
-3. **型別安全的 structured output**。`--json-schema` 回 JSON，解析和驗證自己做；SDK 直接回 native 物件，TypeScript 下有完整型別。
-4. **in-process custom tools 與 hooks**。想在 tool approval 上掛自己的 callback、把自家函式直接註冊成工具讓 loop 呼叫，這類深度客製化在 SDK 裡是一等公民，CLI 只能靠 `--mcp-config` 和 `--agents <json>` 從外面塞。
+2. **即時 streaming**。CLI 的 `stream-json` 是「你自己解析 NDJSON」；SDK 會吐出原生 message／event 物件，仍要抽 `text_delta`，但不用從純文字管線重建整個狀態。
+3. **型別安全的 structured output**。`--json-schema` 回 JSON，解析和驗證自己做；SDK 可用 TypeScript 的 Zod 或 Python 的 Pydantic 定義 schema，最後從 `structured_output` 拿到已驗證的資料。
+4. **in-process custom tools 與 hooks**。想在 tool approval 上掛自己的 `canUseTool` callback、用 `tool()`／`@tool` 把自家函式包成 in-process MCP server 讓 loop 呼叫，這類深度客製化在 SDK 裡是一等公民，CLI 只能靠 `--mcp-config`、`--agents <json>` 或外部程序組裝。
 
 一句話判斷：**腳本消費結果，用 CLI；你的程式碼就是 agent 的宿主，用 SDK。**
 
@@ -153,7 +153,11 @@ Agent SDK 本身夠寫一整個系列，這裡不展開。要往下挖，直接�
 - [Run Claude Code programmatically（Headless）— Claude Code Docs](https://code.claude.com/docs/en/headless) — `claude -p` 官方主頁：基本用法、bare mode、structured output、streaming、continue conversations、SIGTERM 行為
 - [CLI reference — Claude Code Docs](https://code.claude.com/docs/en/cli-reference) — `-p` 相關旗標完整清單：`--output-format`、`--json-schema`、`--max-turns`、`--include-partial-messages`、`--input-format` 等
 - [Agent SDK overview — Claude Code Docs](https://code.claude.com/docs/en/agent-sdk/overview) — SDK 定位、與 CLI／Client SDK／Managed Agents 的比較、「其他語言用 subprocess 跑 CLI」的官方建議
+- [Agent SDK sessions — Claude Code Docs](https://code.claude.com/docs/en/agent-sdk/sessions) — SDK 多輪 session、resume／fork、跨 host session storage 的官方說明
+- [Agent SDK structured outputs — Claude Code Docs](https://code.claude.com/docs/en/agent-sdk/structured-outputs) — JSON Schema、Zod、Pydantic 與 `structured_output` 行為
+- [Agent SDK custom tools — Claude Code Docs](https://code.claude.com/docs/en/agent-sdk/custom-tools) — `tool()`／`@tool`、in-process MCP server、自訂工具回傳格式
 
 ## 更新紀錄
 
 - 2026-08-26：初版，依 2026-08 官方文件（headless、cli-reference、agent-sdk overview）撰寫。
+- 2026-08-29：依官方 headless、permission modes、Agent SDK sessions／structured outputs／custom tools 文件，補 `--bare` 例外、`-p` permission 預設與 SDK 說法。

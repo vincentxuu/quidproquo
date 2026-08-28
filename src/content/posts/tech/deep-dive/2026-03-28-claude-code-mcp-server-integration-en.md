@@ -3,11 +3,11 @@ title: "How Claude Code connects to external tools: MCP scopes, transports, and 
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, mcp, mcp-server, integration, ai-agent]
+tags: [claude-code, mcp, mcp-server, integration]
 lang: en
-tldr: "Claude Code connects to external tools via MCP (Model Context Protocol), configured at three scopes: team-shared .mcp.json, personal local/user entries in ~/.claude.json, and enterprise managed config — not settings.json. This post covers claude mcp add/login flows, the transport landscape (SSE is deprecated), and tool search lazy loading."
+tldr: "Claude Code connects to external tools via MCP (Model Context Protocol), with manual configuration split across three scopes: team-shared .mcp.json, personal local/user entries in ~/.claude.json, and enterprise managed config — not settings.json. This post covers claude mcp add/login flows, the transport landscape (SSE is deprecated), and tool search lazy loading."
 description: "A complete guide to MCP server configuration in Claude Code: choosing between local/project/user scopes, stdio vs HTTP transports, OAuth authentication with claude mcp login, tool search deferral, and debugging with /mcp."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 14
@@ -31,7 +31,7 @@ First, the most common trap: **MCP server configuration does not live in setting
 | Project | Current project | Yes, via version control | `.mcp.json` in project root |
 | User | All your projects | No | `~/.claude.json`, top-level `mcpServers` |
 
-The decision logic is straightforward: personal tools carrying API keys that shouldn't enter version control go in **local** scope; servers the whole team needs (GitHub, Sentry) go in **project** scope by committing `.mcp.json`; utilities you use across projects (Notion, say) go in **user** scope. When a same-named server is defined in multiple places, precedence is local > project > user, taking the entire entry from the winning source without merging fields.
+The decision logic is straightforward: personal tools carrying API keys that shouldn't enter version control go in **local** scope; servers the whole team needs (GitHub, Sentry) go in **project** scope by committing `.mcp.json`; utilities you use across projects (Notion, say) go in **user** scope. Within these three manual scopes, same-named servers resolve as local > project > user, taking the entire entry from the winning source without merging fields; plugin servers and claude.ai connectors come after them.
 
 Organizations have a fourth path: managed configuration, where administrators deploy a fixed server set via `managed-mcp.json` and restrict what users can connect with an allowlist/denylist.
 
@@ -62,7 +62,7 @@ Four transports — confirm which one you need before writing config:
 - **WebSocket**: suits servers that push events unprompted, but `claude mcp add --transport` doesn't accept `ws` — write JSON directly or use `add-json`.
 - **SSE**: **deprecated**. A few services still expose only SSE endpoints; prefer HTTP wherever available.
 
-When you hold config written for another client (Claude Desktop, for instance), classify by shape: a URL means remote, a launch command means stdio, and an `mcpServers` JSON block goes through `claude mcp add-json` — note you pass the object inside, not the wrapper, and an entry with `url` but no `type` needs `"type": "http"` added, otherwise it's read as a stdio server and fails to load.
+When you hold config written for another client (Claude Desktop, for instance), classify by shape: a URL means remote, a launch command means stdio, and an `mcpServers` JSON block goes through `claude mcp add-json` — note you pass the object inside, not the wrapper, and an entry with `url` but no `type` needs `"type": "http"`, `"sse"`, or `"ws"` added. Current Claude Code treats this as a configuration error and skips that server instead of guessing for you.
 
 ## Large toolsets lean on tool search
 
@@ -77,6 +77,7 @@ The debug entry point is `/mcp` inside a session: connection status and tool cou
 - Startup timeout: `npx` downloading a package for the first time is slow; `MCP_TIMEOUT=60000 claude` widens it to sixty seconds.
 - Server connects but exposes no tools: usually a missing environment variable — add it with `--env KEY=value` or the `env` field in `.mcp.json`.
 - Changes to `.mcp.json` not taking effect: it's read at session startup, so restart; if you previously rejected a server, run `claude mcp reset-project-choices`.
+- If all you see is `✘ Failed to connect`: current `claude mcp list` / `claude mcp get <name>` output includes the HTTP status or server-returned error text; headless `stream-json` runs can also detect skipped `--mcp-config` entries via `system/init.mcp_server_errors`.
 - Tool output warns past 10,000 tokens and truncates at a 25,000-token cap; raise it with `MAX_MCP_OUTPUT_TOKENS`.
 
 ## Takeaways
@@ -85,9 +86,10 @@ Unpacked, MCP configuration comes down to two decisions: **scope determines who 
 
 ## References
 
-- [Connect Claude Code to tools via MCP — Claude Code Docs](https://code.claude.com/docs/en/mcp) — Complete official reference covering the three scopes, four transports, OAuth and `claude mcp login`, and tool search configuration
+- [Connect Claude Code to tools via MCP — Claude Code Docs](https://code.claude.com/docs/en/mcp) — Complete official reference covering the three scopes, four transports, OAuth and `claude mcp login`, tool search, and server status detail
 - [Connect to MCP servers (quickstart) — Claude Code Docs](https://code.claude.com/docs/en/mcp-quickstart.md) — Step-by-step from add to verifying the connection, including the on-disk config table and troubleshooting checklist
 
 ## Changelog
 
 - 2026-08-26: Initial version based on the August 2026 official docs (SSE transport deprecated, tool search on by default, `claude mcp login` available since v2.1.186).
+- 2026-08-29: Refreshed against the 2026-08-27 official MCP docs for precedence, URL entries without `type`, server status detail, and `stream-json` debugging.

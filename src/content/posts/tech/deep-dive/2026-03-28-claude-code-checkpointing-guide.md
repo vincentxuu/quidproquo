@@ -7,7 +7,7 @@ tags: [claude-code, checkpointing, rewind, undo, safety]
 lang: zh-TW
 tldr: "Checkpointing 不是 git commit：Claude Code 在每個 user prompt 前自動存檔案 snapshot，一個 session 保留最近 100 個、30 天清除。本文拆解 /rewind 選單的五個選項、bash 與 subagent 等追蹤邊界，以及它跟 git 的分工。"
 description: "深入介紹 Claude Code 的 Checkpointing：snapshot 觸發時機與保留策略、/rewind 選單操作、bash／subagent／symlink 的追蹤限制，以及 checkpoint 與 git、permission modes 的安全分工。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 4
@@ -37,7 +37,7 @@ Claude Code 的答案是把還原點做進工具本身：官方文件講得很�
 
 打開 rewind 選單有兩個方式：輸入 `/rewind`，或在輸入框**空的**時候連按兩下 `Esc`。注意輸入框裡有字的時候，雙擊 `Esc` 是清空文字而不是開選單——清掉的文字會進輸入歷史，按上方向鍵找得回來。
 
-選單列出這個 session 你送過的每一則 prompt。選定一個時間點之後，有五個動作可以選：
+選單主要列出這個 session 你送過的 prompt；新版 Claude Code 還有一個 `/clear` 後的例外：在離開程式或 resume 其他 session 之前，rewind menu 可能保留上一個 session 的入口，讓你回到清掉前的對話。選定一個時間點之後，有五個動作可以選：
 
 | 選項 | 做什麼 |
 |------|--------|

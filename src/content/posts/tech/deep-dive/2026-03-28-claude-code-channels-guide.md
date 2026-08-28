@@ -3,11 +3,11 @@ title: "Claude Code Channels 怎麼運作：外部事件、reply tools 與 sende
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, channels, mcp, webhooks]
+tags: [claude-code, channels, mcp, webhook]
 lang: zh-TW
 tldr: "Channels 是一種特殊的 MCP server，能把 CI 失敗、監控告警、Telegram 訊息這類外部事件直接推進正在跑的 Claude Code session，Claude 讀完事件還能透過 reply tool 從同一條通道回話。本文拆解 channel contract、雙向回覆、安全閘門與安裝需求。"
 description: "深入介紹 Claude Code Channels：MCP server 如何宣告 channel capability、推送 notification events、讓 Claude 回話，以及 sender gating 和 permission relay 的安全設計。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 21
@@ -69,7 +69,7 @@ Bun.serve({
   async fetch(req) {
     await mcp.notification({
       method: 'notifications/claude/channel',
-      params: { content: await req.text(), meta: { path: new URL(req.url).pathname } },
+      params: { content: await req.text(), meta: { path: new URL(req.url).pathname, method: req.method } },
     })
     return new Response('ok')
   },
@@ -92,7 +92,7 @@ Telegram 和 Discord 用配對碼 bootstrap 白名單：你私訊 bot，bot 回�
 
 第二層是 **permission relay**：Claude 要跑需要核可的工具時，session 會停在終端機的對話框等答案。宣告了 `claude/channel/permission` capability 的雙向 channel 可以把同一個提示轉發到你手機，遠端回 `yes <id>` 就放行。兩邊同時活著，先到的答案生效。因為「能透過 channel 回話的人」等於「能核准工具的人」，官方明講：只有驗證過 sender 的 channel 才該宣告這個 capability。
 
-企業還有一層總開關：Team／Enterprise 預設封鎖，要 Owner 在管理設定打開 `channelsEnabled`，還能用 `allowedChannelPlugins` 限定哪些 channel plugins 可用。Pro／Max 使用者不受限，每個 session 用 `--channels` 自行選擇開啟。
+企業還有一層總開關：claude.ai Team／Enterprise 預設封鎖，要 Owner 在管理設定打開 `channelsEnabled`，還能用 `allowedChannelPlugins` 限定哪些 channel plugins 可用。Console API key 認證預設允許；但如果組織部署了 managed settings，就同樣要明確設定。Pro／Max 使用者不受組織閘門影響，每個 session 用 `--channels` 自行選擇開啟。
 
 ## 安裝：channel plugins 需要 Bun
 
@@ -105,7 +105,7 @@ Research preview 隨附 Telegram、Discord、iMessage 三個官方 channel plugi
 
 退出後用 `claude --channels plugin:telegram@claude-plugins-official` 重啟，完成配對即通。
 
-自己寫 channel 的話 runtime 不受限——硬性需求只有 MCP SDK 和 Node 相容環境，Bun、Node、Deno 都行；自製 channel 測試時要走 `--dangerously-load-development-channels` 開發旗標繞過 allowlist。
+自己寫 channel 的話 runtime 不受限——硬性需求只有 MCP SDK 和 Node 相容環境，Bun、Node、Deno 都行；自製 channel 測試時要走 `--dangerously-load-development-channels` 開發旗標繞過 allowlist，但這個旗標不會繞過 `channelsEnabled` 這類組織政策。
 
 ## 典型場景
 
@@ -122,4 +122,5 @@ Channels 目前是 research preview，flag 語法和 protocol contract 都可能
 
 ## 更新紀錄
 
+- 2026-08-29：校正 Console／Team／Enterprise 的 channels 預設行為，並補上自製 channel 開發旗標的 org policy 限制。
 - 2026-08-26：初版，依 code.claude.com 官方文件撰寫（research preview 現狀）。

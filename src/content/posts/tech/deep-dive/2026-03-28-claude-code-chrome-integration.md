@@ -3,11 +3,11 @@ title: "Claude Code 怎麼看見你的瀏覽器：Chrome 整合、console 除錯
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, chrome, browser-automation, frontend, testing]
+tags: [claude-code, chrome, browser-automation, mcp, devtools]
 lang: zh-TW
-tldr: "Claude Code 透過 Claude in Chrome 擴充套件取得瀏覽器控制權：讀 console log 與 DOM、點擊輸入、上傳檔案、錄 GIF，還能直接操作你已登入的網站。正式支援 Chrome 與 Edge，Brave、Arc、Vivaldi、Opera 也會自動偵測連線。"
+tldr: "Claude Code 透過 Claude in Chrome 擴充套件取得瀏覽器控制權：讀 console log 與 DOM、點擊輸入、上傳檔案、錄 GIF，還能直接操作你已登入的網站。官方前置條件列出 Chrome、Edge 與 Brave、Arc、Vivaldi、Opera 等 Chromium 系瀏覽器，但 WSL 不支援。"
 description: "Claude Code 的 Chrome 整合深入介紹：擴充套件安裝與瀏覽器偵測範圍、測試 web app、抓 console log 除錯、表單填寫與資料萃取的典型用法，以及權限機制與限制。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 28
@@ -29,7 +29,7 @@ claude --chrome        # 起 session 時帶旗標
 
 或在 session 內跑 `/chrome` 啟用、查看連線狀態、管理權限、重連擴充套件。懶得每次帶旗標，就在 `/chrome` 面板選「Enabled by default」。反過來，如果你是在互動 session 裡叫 Claude 用瀏覽器、但它沒偵測到擴充套件，它會跳出「Claude wants to use your browser」安裝提示，引導你裝完並在同一個 session 接上。
 
-**瀏覽器偵測範圍**值得記清楚：正式支援的是 Google Chrome 和 Microsoft Edge；其他 Chromium 系瀏覽器（Brave、Arc、Vivaldi、Opera）只要偵測得到擴充套件，Claude Code 也會自動接上連線。WSL 環境則完全不支援。另外有個容易踩的坑：Chrome 整合要求用 `/login` 登入的直接 Anthropic 訂閱（Pro、Max、Team、Enterprise）——如果你是用 API key 或 `claude setup-token` 的長期 token 認證，就算帶了 `--chrome`，整合也會保持關閉，因為擴充套件無法用那些憑證認證。
+**瀏覽器偵測範圍**值得記清楚：Claude Code 文件把 Google Chrome、Microsoft Edge，以及 Brave、Arc、Vivaldi、Opera 這類 Chromium 系瀏覽器都列進前置條件；多個瀏覽器同時連上時，可以在 `/chrome` 面板選 Claude 要用哪一個。WSL 環境則完全不支援。另外有個容易踩的坑：Chrome 整合要求用 `/login` 登入的直接 Anthropic 訂閱（Pro、Max、Team、Enterprise）——如果你是用 API key 或 `claude setup-token` 的長期 token 認證，就算帶了 `--chrome`，整合也會保持關閉，因為擴充套件無法用那些憑證認證。
 
 ## 典型用法
 
@@ -64,7 +64,7 @@ Claude 開新分頁導航到你的本地 server、實際互動、回報觀察到
 
 整理成清單：
 
-- **瀏覽器**：正式支援 Chrome／Edge，Chromium 系靠偵測擴充套件連線；Firefox 和 Safari 不在範圍內，WSL 不支援。
+- **瀏覽器**：Claude Code 文件列出 Chrome、Edge 與其他 Chromium 系瀏覽器；Firefox、Safari、行動裝置瀏覽器不在範圍內，WSL 不支援。
 - **認證**：僅限 `/login` 的直接 Anthropic 訂閱；API key、setup-token、Amazon Bedrock 等第三方 provider 都用不了。
 - **Context 成本**：「Enabled by default」會讓瀏覽器工具常駐載入，增加 context 消耗；官方建議如果注意到消耗上升，改回按需 `--chrome`。
 - **穩定性**：長時間 session 擴充套件的 service worker 可能閒置斷線，`/chrome` 重連即可；JavaScript 的 alert／confirm 對話框會擋住瀏覽器事件，要手動關掉 Claude 才收得到命令。
@@ -78,7 +78,9 @@ Chrome 整合的本質不是新魔法，是給 agentic loop 加了一組瀏覽�
 - [Use Claude Code with Chrome — Claude Code Docs](https://code.claude.com/docs/en/chrome) — 官方 Chrome 整合文件：安裝連線、瀏覽器支援範圍、能力清單、plan mode 權限劃分與 troubleshooting，本文主要依據
 - [Claude — Chrome Web Store](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn) — Claude in Chrome 擴充套件安裝頁：版本資訊、權限說明與 prompt injection 安全指引
 - [Get started with Claude in Chrome — Anthropic Help Center](https://support.claude.com/en/articles/12012173-getting-started-with-claude-in-chrome) — 擴充套件完整使用文件：各 surface（side panel、Cowork、Claude Code）的差異、所需權限逐項說明
+- [Claude in Chrome permissions guide — Anthropic Help Center](https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide) — 權限模式、網站授權、敏感動作與禁止動作說明
 
 ## 更新紀錄
 
 - 2026-08-26：初版正文，依 code.claude.com 官方文件重寫，參考資料全數汰換為現行網域。
+- 2026-08-29：依官方 Chrome 整合文件更新瀏覽器支援措辭，避免把舊 beta 說法寫成現況。

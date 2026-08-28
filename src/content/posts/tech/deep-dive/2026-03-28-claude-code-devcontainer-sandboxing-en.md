@@ -1,13 +1,13 @@
 ---
-title: "How Claude Code Sandboxing Works: Sandboxed Bash, Network Allowlists, and the Threat Model of Five Isolation Approaches"
+title: "How Claude Code Sandboxing Works: Sandboxed Bash, Network Allowlists, and the Threat Model of Six Isolation Approaches"
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, sandboxing, security, ai-agent]
+tags: [claude-code, sandboxing, ai-agent]
 lang: en
-tldr: "Claude Code's built-in sandboxed Bash restricts every command at the OS level: writes are limited to the working directory plus session temp, while reads default to the entire machine; network traffic goes through a proxy allowlist that starts with zero domains. The switches live in the /sandbox panel and sandbox.enabled — there is no --sandbox flag. This post also compares sandbox runtime, dev containers, Docker, and VMs to show when each heavier isolation tier earns its setup cost."
-description: "A deep dive into Claude Code's sandboxed Bash tool: filesystem and network isolation, the /sandbox panel and sandbox.network.allowedDomains settings, and the official threat-model comparison of five sandbox environments."
-draft: true
+tldr: "Claude Code's built-in sandboxed Bash restricts every command at the OS level: writes are limited to the working directory plus session temp, while reads default to the entire machine; network traffic goes through a proxy allowlist that starts with zero domains. The switches live in the /sandbox panel and sandbox.enabled — there is no --sandbox flag. This post also compares sandbox runtime, dev containers, Docker, VMs, and Claude Code on the web to show when each heavier isolation tier earns its setup cost."
+description: "A deep dive into Claude Code's sandboxed Bash tool: filesystem and network isolation, the /sandbox panel and sandbox.network.allowedDomains settings, and the official threat-model comparison of six sandbox environments."
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 30
@@ -54,7 +54,7 @@ One common misconception to clear up first: **the `--sandbox` / `--no-sandbox` C
 
 There's also an escape hatch: when a command fails because of a sandbox restriction, Claude can retry it unsandboxed via the `dangerouslyDisableSandbox` parameter — but the retry re-enters the regular permission flow, so Manual mode still prompts you. Set `allowUnsandboxedCommands` to `false` to close this path completely.
 
-## Five Environments, Five Threat Models
+## Six Environments, Six Threat Models
 
 The built-in sandbox is only one option. The official comparison lays out the isolation spectrum:
 
@@ -65,18 +65,20 @@ The built-in sandbox is only one option. The official comparison lays out the is
 | Dev container | Full development environment | Yes | Medium |
 | Custom container | Full development environment | Yes | Medium to high |
 | Virtual machine | Full operating system | No | High |
+| Claude Code on the web | Full operating system hosted by Anthropic | No | No local setup; requires a Claude subscription, and GitHub when launched from the web interface |
 
-The watershed sits between the first two rows and the rest: those run on the host OS, differing only in whether the boundary wraps Bash or the entire Claude Code process; the latter three move Claude Code itself into a container or VM, bringing file tools, MCP servers, and hooks inside the boundary too. (Dev containers' team-standardization story — the official example container and its firewall config — gets its own post: [Claude Code DevContainer Guide](/posts/tech/deep-dive/2026-08-26-claude-code-devcontainer-en).)
+The watershed sits between the first two rows and the rest: those run on the host OS, differing only in whether the boundary wraps Bash or the entire Claude Code process; the latter four move Claude Code itself into a container, VM, or Anthropic-hosted environment, bringing file tools, MCP servers, and hooks inside the boundary too. (Dev containers' team-standardization story — the official example container and its firewall config — gets its own post: [Claude Code DevContainer Guide](/posts/tech/deep-dive/2026-08-26-claude-code-devcontainer-en).)
 
-There's also an option you don't host at all: Claude Code on the web, which runs each session in an Anthropic-managed VM, with your GitHub token held by a separate proxy outside the sandbox.
+Claude Code on the web is the option you do not host yourself: each session runs in an Anthropic-managed VM, with your GitHub token held by a separate proxy outside the sandbox. If you start a session from the CLI with `--cloud` and no GitHub connection is available, Claude Code can bundle and upload the local repository instead, but that session cannot push back to a remote on its own.
 
 ## How to Choose
 
 The official mapping is practical — look up your goal:
 
 - **Fewer permission prompts during everyday work on your own machine** → the sandboxed Bash tool, configured via `/sandbox`.
-- **Unattended runs with `--dangerously-skip-permissions` or auto mode** → dev container, any container or VM, or the sandbox runtime. The docs are blunt: sessions that skip permissions must run inside a container, VM, or the sandbox runtime so file tools and hooks sit inside the boundary too.
-- **An untrusted repository** → a dedicated VM, or Claude Code on the web if you have a subscription.
+- **Unattended runs with `--dangerously-skip-permissions`** → dev container, any container or VM, or the sandbox runtime. The docs are blunt: sessions that skip permissions must run inside a container, VM, or the sandbox runtime so file tools and hooks sit inside the boundary too.
+- **Long-running background work in auto mode** → not a hard requirement in the same way as `--dangerously-skip-permissions`, but still worth an isolation layer; do not rely on sandboxed Bash alone because it does not cover file tools, MCP servers, or hooks.
+- **An untrusted repository** → a dedicated VM, or Claude Code on the web if you have a subscription; web-interface launches also require GitHub access.
 - **Standardize a sandboxed environment across a team** → copy the official dev container example into your repo.
 - **Native Windows** → the Bash sandbox doesn't support it; use WSL2 or a container.
 
@@ -94,7 +96,10 @@ The docs' summary is worth memorizing: sandboxes reduce the impact of a breach; 
 
 - [Configure the sandboxed Bash tool — Claude Code Docs](https://code.claude.com/docs/en/sandboxing.md) — official guide to the sandboxed Bash tool's filesystem and network isolation, the `/sandbox` panel, `allowedDomains`, protected paths, and security limitations
 - [Choose a sandbox environment — Claude Code Docs](https://code.claude.com/docs/en/sandbox-environments.md) — the official threat-model comparison of sandboxed Bash, sandbox runtime, dev container, custom container, VM, and on-the-web approaches, with selection guidance
+- [Development containers — Claude Code Docs](https://code.claude.com/docs/en/devcontainer) — official guidance for installing Claude Code in dev containers, persisting settings, restricting network egress, and using `--dangerously-skip-permissions`
+- [Use Claude Code on the web — Claude Code Docs](https://code.claude.com/docs/en/claude-code-on-the-web) — official guide to cloud sessions, GitHub authentication, `--cloud` repository bundling, and cloud isolation
 
 ## Changelog
 
+- 2026-08-29: Updated the official environment comparison from five to six approaches by adding Claude Code on the web; separated the isolation guidance for `--dangerously-skip-permissions` from auto mode.
 - 2026-08-26: Split from the combined "DevContainer & Sandboxing" outline and retitled to focus on sandboxing; devcontainer content moved to its own post. References rebuilt on the new official docs domain.

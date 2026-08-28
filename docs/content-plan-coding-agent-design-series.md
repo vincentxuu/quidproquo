@@ -75,6 +75,10 @@ rivumi 實作載體：`~/Projects/rivumi/`（stage docs 在 `docs/stages/`，研
 
 ## 執行狀態
 
+2026-08-29 校正：依 `git ls-files` + frontmatter 重掃，series `跟成熟 coding agent 學設計` 共 76 檔
+（38 組中英），全部為 `draft: false`。下方早期「待 review／commit」清單保留為寫作批次紀錄，
+不再代表目前發佈狀態。
+
 - [x] 舊 10 篇標 draft
 - [x] 本計畫檔
 - [x] Wave 1–4：37 篇雙語（74 檔）全部產出，series order 1–37 無缺號
@@ -82,8 +86,8 @@ rivumi 實作載體：`~/Projects/rivumi/`（stage docs 在 `docs/stages/`，研
 - [x] pnpm lint：0 error；check:tw：37 篇 zh 全數 0 blocking
 - [x] astro check：內容檔 0 error（src/server/agent-flow-workflow.ts 9 個 + src/lib/rag/model.ts 1 個為既有錯誤）
 - [x] 收尾篇 order 38 `agent-as-service` 雙語（2 檔，2026-08-26）：五家 server API 取證＋rivumi 草案，系列補足「38 篇」定案數
-- [ ] 使用者 review＋抽樣事實複查（各 agent 回報的待複查主張清單見 session 紀錄）
-- [ ] commit（等使用者點頭）
+- [x] 已發佈為 `draft: false`（2026-08-29 frontmatter 重掃）
+- [ ] 內容層抽樣事實複查（各 agent 回報的待複查主張清單見 session 紀錄）
 
 ## 已知待複查重點（發佈前抽樣）
 

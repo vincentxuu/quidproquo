@@ -1,13 +1,13 @@
 ---
-title: "Claude Code 沙箱怎麼運作：sandboxed Bash、網路 allowlist 與五種隔離環境的威脅模型"
+title: "Claude Code 沙箱怎麼運作：sandboxed Bash、網路 allowlist 與六種隔離環境的威脅模型"
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, sandboxing, security, ai-agent]
+tags: [claude-code, sandboxing, ai-agent]
 lang: zh-TW
-tldr: "Claude Code 內建的 sandboxed Bash 用 OS 層機制限制每條指令：寫入限工作目錄與 session temp，讀取預設整機可讀；網路走 proxy allowlist，預設零網域。開關在 /sandbox 面板和 sandbox.enabled，不是 --sandbox 旗標。本文再比較 sandbox runtime、devcontainer、Docker、VM 四種更重的隔離方案該什麼時候用。"
-description: "拆解 Claude Code sandboxed Bash tool 的檔案系統與網路隔離機制、/sandbox 面板與 sandbox.network.allowedDomains 設定，以及官方五種沙箱環境的威脅模型比較。"
-draft: true
+tldr: "Claude Code 內建的 sandboxed Bash 用 OS 層機制限制每條指令：寫入限工作目錄與 session temp，讀取預設整機可讀；網路走 proxy allowlist，預設零網域。開關在 /sandbox 面板和 sandbox.enabled，不是 --sandbox 旗標。本文再比較 sandbox runtime、devcontainer、Docker、VM 與 Claude Code on the web 這幾種更重的隔離方案該什麼時候用。"
+description: "拆解 Claude Code sandboxed Bash tool 的檔案系統與網路隔離機制、/sandbox 面板與 sandbox.network.allowedDomains 設定，以及官方六種沙箱環境的威脅模型比較。"
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 30
@@ -54,7 +54,7 @@ Permission 系統的本質是「事前審查」——每個工具呼叫執行前
 
 另外有個逃生口：指令因為沙箱限制而失敗時，Claude 可以帶 `dangerouslyDisableSandbox` 參數在沙箱外重試——但重試會回到一般權限流程，Manual mode 照樣問你。把 `allowUnsandboxedCommands` 設成 `false` 可以完全關掉這條路。
 
-## 五種環境，五種威脅模型
+## 六種環境，六種威脅模型
 
 內建沙箱只是選項之一。官方的比較表把隔離光譜攤開來：
 
@@ -65,18 +65,20 @@ Permission 系統的本質是「事前審查」——每個工具呼叫執行前
 | Dev container | 完整開發環境 | 是 | 中 |
 | 自訂容器 | 完整開發環境 | 是 | 中到高 |
 | 虛擬機 | 整套作業系統 | 否 | 高 |
+| Claude Code on the web | Anthropic 託管的完整作業系統 | 否 | 無本機設定成本；需要 Claude 訂閱，從網頁啟動時還需要 GitHub |
 
-分水嶺在前兩列與後三列之間：前兩者跑在 host OS 上，差別只在邊界圈住的是 Bash 還是整個 Claude Code 行程；後三者把 Claude Code 整個人搬進容器或 VM，檔案工具、MCP servers、hooks 全部一起進邊界。（devcontainer 的團隊標準化用法——官方範例容器、防火牆設定——另開一篇講：[Claude Code DevContainer 完全指南](/posts/tech/deep-dive/2026-08-26-claude-code-devcontainer)。）
+分水嶺在前兩列與後四列之間：前兩者跑在 host OS 上，差別只在邊界圈住的是 Bash 還是整個 Claude Code 行程；後四者把 Claude Code 整個人搬進容器、VM 或 Anthropic 託管環境，檔案工具、MCP servers、hooks 全部一起進邊界。（devcontainer 的團隊標準化用法——官方範例容器、防火牆設定——另開一篇講：[Claude Code DevContainer 完全指南](/posts/tech/deep-dive/2026-08-26-claude-code-devcontainer)。）
 
-還有一個不用自己架的極端選項：Claude Code on the web，每個 session 跑在 Anthropic 託管的 VM 裡，GitHub token 由獨立 proxy 保管在沙箱外。
+Claude Code on the web 是不用自己架的極端選項：每個 session 跑在 Anthropic 託管的 VM 裡，GitHub token 由獨立 proxy 保管在沙箱外；若從 CLI 用 `--cloud` 啟動且沒有 GitHub 連線，Claude Code 也可以改打包上傳本機 repository，但這種 session 不能自己 push 回 remote。
 
 ## 怎麼選
 
 官方給的對照很實用，按你的目標查表：
 
 - **日常在自己的機器上減少權限彈窗**→ sandboxed Bash tool，`/sandbox` 配好就行。
-- **無人值守跑 `--dangerously-skip-permissions` 或 auto mode**→ devcontainer、任一容器或 VM、或 sandbox runtime。文件講得很硬：跳過權限的 session 必須跑在容器、VM 或 sandbox runtime 裡，讓檔案工具和 hooks 也在邊界內。
-- **不信任的 repository**→ 專用 VM，或有訂閱就用 Claude Code on the web。
+- **無人值守跑 `--dangerously-skip-permissions`**→ devcontainer、任一容器或 VM、或 sandbox runtime。文件講得很硬：跳過權限的 session 必須跑在容器、VM 或 sandbox runtime 裡，讓檔案工具和 hooks 也在邊界內。
+- **auto mode 的長時間背景工作**→ 不像 `--dangerously-skip-permissions` 一樣被官方寫成硬性要求，但仍建議加一層隔離；至少別只靠 sandboxed Bash，因為它管不到檔案工具、MCP servers 和 hooks。
+- **不信任的 repository**→ 專用 VM，或有訂閱就用 Claude Code on the web；若從網頁介面啟動，還需要 GitHub 連線。
 - **團隊統一沙箱環境**→ 把官方 devcontainer 範例複製進 repo。
 - **原生 Windows**→ Bash 沙箱不支援，走 WSL2 或容器。
 
@@ -94,7 +96,10 @@ Permission 系統的本質是「事前審查」——每個工具呼叫執行前
 
 - [Configure the sandboxed Bash tool — Claude Code Docs](https://code.claude.com/docs/en/sandboxing.md) — sandboxed Bash tool 的檔案系統與網路隔離、`/sandbox` 面板、`allowedDomains`、protected paths 與安全限制的官方說明
 - [Choose a sandbox environment — Claude Code Docs](https://code.claude.com/docs/en/sandbox-environments.md) — sandboxed Bash／sandbox runtime／dev container／custom container／VM／on the web 六種方案的官方威脅模型比較與選擇指引
+- [Development containers — Claude Code Docs](https://code.claude.com/docs/en/devcontainer) — Claude Code dev container 的安裝、持久化設定、network egress 限制與 `--dangerously-skip-permissions` 注意事項
+- [Use Claude Code on the web — Claude Code Docs](https://code.claude.com/docs/en/claude-code-on-the-web) — cloud session、GitHub authentication、`--cloud` 打包上傳與安全隔離的官方說明
 
 ## 更新紀錄
 
+- 2026-08-29：依官方 sandbox environments 現況，把「五種環境」修為六種並補上 Claude Code on the web；拆開 `--dangerously-skip-permissions` 與 auto mode 的隔離強度。
 - 2026-08-26：由合集骨架《DevContainer & Sandboxing》拆分改題，本篇聚焦 sandboxing 專題；devcontainer 內容歸另篇。參考資料依新官方網域重列。

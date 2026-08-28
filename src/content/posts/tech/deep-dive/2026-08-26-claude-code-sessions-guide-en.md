@@ -7,7 +7,7 @@ tags: [claude-code, sessions, resume, cli]
 lang: en
 tldr: "Claude Code writes every session line by line to a JSONL file under ~/.claude/projects/, kept for 30 days by default. This post breaks down --continue vs --resume, session naming rules, /branch fork semantics, and transcript export and cleanup settings."
 description: "A complete guide to Claude Code sessions: what resume and fork each do, session picker shortcuts, cross-worktree and cross-project lookup rules, and script-friendly transcript interfaces."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 3
@@ -25,13 +25,13 @@ As you work, every message, tool call, and result is appended to a plaintext JSO
 ~/.claude/projects/<project>/<session-id>.jsonl
 ```
 
-`<project>` is your working directory path with non-alphanumeric characters replaced by `-`. The docs also flag the risk of parsing it directly: "The entry format is internal to Claude Code and changes between versions." If you want session data for automation, use the export interfaces covered below instead of parsing this file yourself.
+`<project>` is your working directory path with non-alphanumeric characters replaced by `-`. The docs also flag the risk of parsing it directly: JSONL entries are Claude Code's internal format, and that format can change between versions. If you want session data for automation, use the export interfaces covered below instead of parsing this file yourself.
 
 If you don't want records at all, there are switches for that too: the `CLAUDE_CODE_SKIP_PROMPT_HISTORY` environment variable suppresses writes everywhere, and a one-off non-interactive run takes `claude -p --no-session-persistence`.
 
 ## Getting back in: --continue vs --resume
 
-To pick a conversation back up after exiting, there are four entry points:
+To pick a conversation back up after exiting, these are the common entry points:
 
 | Entry point | What it does |
 |-------------|--------------|
@@ -39,12 +39,10 @@ To pick a conversation back up after exiting, there are four entry points:
 | `claude --resume` | Opens the interactive session picker |
 | `claude --resume <name>` | Resumes a named session directly |
 | `claude --resume <session-id>` | Resumes by ID, from any directory |
+| `claude --from-pr <number>` | Finds the session that created a GitHub PR |
+| `/resume` inside a session | Opens the resume picker from the current session |
 
-The semantic difference is stated plainly in the docs:
-
-> Resuming a session with `claude --continue` or `claude --resume` reopens it under the **same session ID** and appends new messages to the existing conversation.
-
-Resume doesn't load a copy — it grows the same transcript. And what gets restored goes beyond the conversation: model, agent (including its system prompt and tool restrictions), and permission mode all come back — except `plan` and `bypassPermissions`, which are never restored. Launch flags don't fully travel either: `--mcp-config`, `--settings`, and `--plugin-dir` need to be passed again on resume; settings that live in settings.json do not.
+Resume doesn't load a copy — it appends new messages under the same session ID, so the same transcript keeps growing. What gets restored goes beyond the conversation: model and agent configuration, including the system prompt and tool restrictions, come back too. Permission mode depends on the resume path: direct terminal resume can restore the stored mode, while the picker and in-session `/resume` do not restore permission mode. `bypassPermissions` is not restored, and `plan` is retained only in some non-interactive or VS Code paths. Launch flags don't fully travel either: `--mcp-config`, `--settings`, and `--plugin-dir` need to be passed again on resume; settings that live in settings.json do not.
 
 On Pro or Max plans there's also a token-saving design: when you resume a session that has been inactive for over an hour and exceeds 100,000 tokens, Claude Code asks whether to **resume from summary** — compacting immediately so later requests carry the summary instead of the full history, at the cost of whatever details the summary leaves out leaving your context.
 
@@ -56,17 +54,15 @@ On Pro or Max plans there's also a token-saving design: when you resume a sessio
 - `Ctrl+B` filters to the current git branch
 - `Ctrl+W` widens to every worktree of the repo
 - `Ctrl+A` widens to every project on this machine
-- Paste a GitHub or GitLab PR URL into search to find the session that created it
+- Paste a GitHub, GitHub Enterprise, GitLab, or Bitbucket PR/MR URL into search to find the session that created it
 
 Three ways to name a session: `claude -n auth-refactor` at startup, `/rename` mid-session, or `Ctrl+R` in the picker. Unnamed sessions aren't anonymous either — Claude Code generates a title from your first prompt using a small/fast model, and that title works as a resume handle. Watch out for the other kind of default display name (like `my-app-3f`): it identifies running sessions in listings but won't resolve if you feed it to `claude --resume`.
 
 ## Branching: /branch and --fork-session
 
-Trying a different approach without losing the path you were on is what fork is for. The docs draw the boundary in one place:
+Trying a different approach without losing the path you were on is what fork is for. `--fork-session` and `/branch` both copy the conversation history into a new session ID while leaving the original unchanged.
 
-> Forking with `--fork-session` or `/branch` copies the history into a **new session ID**, leaving the original unchanged.
-
-Run `/branch try-streaming-approach` inside a session and the confirmation prints two session IDs — the new branch you're now in, and the untouched original you can return to with `/resume`. On the command line, combine them as `claude --continue --fork-session`. One detail that trips people up: `/branch` within the same process carries over "allow for this session" grants, but `--fork-session` starts a new process where you re-approve.
+Run `/branch try-streaming-approach` inside a session and the confirmation prints two session IDs — the new branch you're now in, and the original you can return to with `/resume`. On the command line, combine them as `claude --continue --fork-session`. One detail that trips people up: `/branch` within the same process carries over "allow for this session" grants, but `--fork-session` starts a new process where you re-approve.
 
 The reverse trap matters too: resuming the same session in two terminals without forking interleaves both sides' messages into **one** transcript.
 
@@ -86,12 +82,13 @@ For cleanup, transcript retention is controlled by `cleanupPeriodDays` in settin
 
 ## Takeaway
 
-The whole mechanism collapses into one sentence: **the transcript is the single source of truth, and resume and fork are just two operations on the same JSONL file.** `--continue` appends under the same ID, `/branch` copies into a new one; checkpoint rewind (see the [Checkpointing guide](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide-en)) and auto memory are built on the same record. Once that layer clicks, running parallel sessions, working across worktrees, and piping conversations into scripts are all just different ways of reading and writing the same thing.
+The whole mechanism collapses into one sentence: **the transcript is the source of truth for resume, fork, and checkpoint rewind.** `--continue` appends under the same ID, `/branch` copies into a new one, and checkpoint rewind (see the [Checkpointing guide](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide-en)) follows the session's checkpoints back to an earlier state. Auto memory is a separate layer: it is stored as project memory files, not inside the transcript itself. Once that division clicks, running parallel sessions, working across worktrees, and piping conversations into scripts stop blurring session history, context summaries, and long-term memory into one thing.
 
 ## References
 
 - [Manage sessions — Claude Code Docs](https://code.claude.com/docs/en/sessions) — official reference for resume flags, picker shortcuts, naming rules, and transcript storage/retention
 - [How Claude Code works — Claude Code Docs](https://code.claude.com/docs/en/how-claude-code-works) — resume vs fork session-ID semantics and the worktree parallelism section
+- [Memory — Claude Code Docs](https://code.claude.com/docs/en/memory) — official reference for auto memory being stored separately from transcripts
 
 ## Changelog
 

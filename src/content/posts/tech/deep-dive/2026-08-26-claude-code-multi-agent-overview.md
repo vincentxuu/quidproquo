@@ -7,7 +7,7 @@ tags: [claude-code, multi-agent, subagents, worktree]
 lang: zh-TW
 tldr: "官方文件把 Claude Code 的平行工作分成 4 種方式：subagents 在同一個 session 內委派、agent view 讓你自己盯多個背景 session、agent teams 由 lead 協調一群工人、dynamic workflows 用腳本跑大量 subagent 交叉驗證；檔案衝突一律靠 worktree 隔離。本文附官方比較表中譯與三題決策指引。"
 description: "以官方 agents.md 的比較表為骨架，整理 Claude Code 四種多代理方式的差異、選擇判準，以及 --worktree、.worktreeinclude 與清理規則的檔案隔離做法。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 24
@@ -25,7 +25,7 @@ series:
 
 **Agent view**：`claude agents` 開啟的單一監控畫面。你自己當調度中心，把多個獨立任務派出去在背景跑，一眼看狀態，哪個需要你才點進去。目前是 research preview。
 
-**Agent teams**：由 lead 統籌的多個協調 session，共享任務清單、teammate 之間可以點對點傳訊。實驗性功能，預設關閉。適合你想讓 Claude 自己把專案拆塊、分派、保持同步的場景。
+**Agent teams**：由 lead 統籌的多個協調 session，teammate 之間可以點對點傳訊；有 Task tools 時，還會共享任務清單。實驗性功能，預設關閉。適合你想讓 Claude 自己把專案拆塊、分派、保持同步的場景。
 
 **Dynamic workflows**：一支腳本跑起大量 subagent，並對他們的結果做交叉查核。官方給的定位很具體：工作大到沒法一回合接著一回合協調，或者需要不止一輪驗證——全 codebase 稽核、500 檔遷移、多角度研究互相對照。
 
@@ -39,7 +39,7 @@ series:
 |------|----------|----------|
 | [Subagents](https://code.claude.com/docs/en/sub-agents) | 同一 session 內的委派工人，在自己的 context 做副任務、回傳摘要 | 副任務會用搜尋結果、log 或檔案內容灌爆主對話 |
 | [Agent view](https://code.claude.com/docs/en/agent-view) | `claude agents` 開啟的單一畫面，派發並監控背景 session | 有數個獨立任務，想交辦後瞄一眼狀態、需要你時再介入 |
-| [Agent teams](https://code.claude.com/docs/en/agent-teams) | 共享任務清單、可互相傳訊的多個協調 session，由 lead 管理 | 想讓 Claude 拆分專案、分派、維持同步 |
+| [Agent teams](https://code.claude.com/docs/en/agent-teams) | 可互相傳訊的多個協調 session，由 lead 管理；有 Task tools 時共享任務清單 | 想讓 Claude 拆分專案、分派、維持同步 |
 | [Dynamic workflows](https://code.claude.com/docs/en/workflows) | 跑大量 subagent 並交叉查核結果的腳本 | 工作超出少數 subagent 的規模，或需要結果互相驗證 |
 
 ## 怎麼選
@@ -48,7 +48,7 @@ series:
 
 **誰負責協調？** Claude 在同一個對話裡自己派自己收——subagents。你自己交辦、稍後回來看——agent view。Claude 規劃並監工一群工人——agent teams（記得它是實驗性的）。計畫由腳本持有、不走 Claude 逐回判断——dynamic workflows。
 
-**工人要不要互相溝通？** Subagents 只向生出它的對話回報；agent view 的 session 只向你回報（要跨 session 傳話可以加 cross-session messaging）；只有 team 的 teammate 彼此直接傳訊、共享任務清單。
+**工人要不要互相溝通？** Subagents 預設只向生出它的對話回報；具名 subagent 可以互相傳訊，但仍不是獨立協調介面。Agent view 的 session 只向你回報（要跨 session 傳話可以加 cross-session messaging）；team 的 teammate 彼此直接傳訊，且在有 Task tools 時共享任務清單。
 
 **會不會改到同一批檔案？** 會就用 worktree 隔離（下節）。特別注意：agent teams 不會把 teammate 放進各自的 worktree，官方建議的做法是自己切分工作，讓每個 teammate 負責不同檔案。
 
@@ -60,7 +60,7 @@ series:
 claude --worktree feature-auth   # 或縮寫 -w
 ```
 
-預設在 `.claude/worktrees/<名稱>/` 建 worktree、開一條 `worktree-<名稱>` 分支；不給名稱就自動生成一個（像 `bright-running-fox`）。另一個終端機再跑一次不同名字，就是第二個互不干擾的 session。官方提醒兩件小事：`.claude/worktrees/` 加進 `.gitignore`；第一次在某目錄跑要先接受 workspace trust 對話框，否則 `--worktree` 會直接報錯退出。
+預設在 `.claude/worktrees/<名稱>/` 建 worktree、開一條 `worktree-<名稱>` 分支；不給名稱就自動生成一個（像 `bright-running-fox`）。另一個終端機再跑一次不同名字，就是第二個互不干擾的 session。官方提醒兩件小事：`.claude/worktrees/` 加進 `.gitignore`；互動模式第一次在某目錄跑要先接受 workspace trust 對話框，否則 `--worktree` 會直接報錯退出，非互動 `-p` 則會跳過 trust check。
 
 **Worktree 是乾淨的 checkout**，`.env` 這類沒進版控的檔案不會帶過去。要在每個新 worktree 自動複製，就在專案根目錄加 `.worktreeinclude`，語法同 `.gitignore`，而且只會複製「符合 pattern 又確實被 gitignore」的檔案：
 
@@ -70,9 +70,9 @@ claude --worktree feature-auth   # 或縮寫 -w
 config/secrets.json
 ```
 
-**清理是半自動的。** 互動 session 結束時，Claude 會檢查 worktree 裡有沒有未保存的工作：乾淨的無名 worktree 直接刪掉（含分支），有名字的會先問你；裡面有變更則問你要保留還是刪除。用 `-p` 跑的非互動 session 不會觸發清理，要自己 `git worktree remove`。Subagent 也能各自拿到 worktree——叫 Claude「use worktrees for your agents」，或在 `.claude/agents/` 定義裡寫 `isolation: worktree`；subagent 做完沒有變更，worktree 會被自動移除。Agent view 派發的背景 session 則是自動進自己的 worktree，不用你設定。
+**清理是半自動的。** 互動 session 結束時，Claude 會檢查 worktree 裡有沒有未保存的工作：乾淨的無名 worktree 直接刪掉（含分支），有名字的會先問你；裡面有變更則問你要保留還是刪除。用 `-p` 跑的非互動 session 不會觸發退出清理，Claude Code 建立時拿的 lock 會留到之後的 stale-lock sweep 釋放；要手動移除時用 `git worktree remove`，必要時先 `git worktree unlock`。Subagent 也能各自拿到 worktree——叫 Claude「use worktrees for your agents」，或在 `.claude/agents/` 定義裡寫 `isolation: worktree`；subagent 做完沒有變更，worktree 會被自動移除。Agent view 派發的背景 session 則是自動進自己的 worktree，不用你設定。
 
-隔離不是君子協定：session 待在 worktree 期間，Claude Code 會擋下指向主 checkout 的檔案編輯、工作目錄落在主 checkout 的指令，以及用 `git -C` 之類手法把 git 導回主 checkout 的呼叫。
+隔離不是君子協定：session 待在 worktree 期間，Claude Code 會擋下指向主 checkout 的檔案編輯、工作目錄落在主 checkout 的指令、用 `git -C` 之類手法把 git 導回主 checkout 的呼叫，以及它無法驗證一定待在 worktree 裡的 shell 形狀。
 
 ## 本叢集閱讀路徑
 

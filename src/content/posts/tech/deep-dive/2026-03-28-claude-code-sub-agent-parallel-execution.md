@@ -7,7 +7,7 @@ tags: [claude-code, sub-agent, ai-agent, dx]
 lang: zh-TW
 tldr: "Sub-agent 是在獨立 context window 中工作的專業助手：一個 Markdown 檔定義 system prompt、工具與模型，Claude 依 description 自動委派，也能 @-mention 直接指派。本文拆解 frontmatter schema、背景執行與巢狀 spawn 的現狀、permission 繼承規則，以及什麼時候不該用。"
 description: "深入介紹 Claude Code 的 Sub-agent 機制：內建 agent 清單、自訂 frontmatter 欄位、委派觸發方式、背景執行與三層巢狀 spawn、權限繼承與成本考量，依官方文件整理。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 15
@@ -21,7 +21,7 @@ series:
 
 一個 agent session 最貴的資源是 context window。搜 codebase、讀文件、翻 log 這類任務會產生大量中間輸出，讀完一次就不會再引用，卻永久佔住主對話的空間。
 
-Sub-agent 的做法是把這類工作整包丟進一個**全新的 context window**：它拿到自己的 system prompt 和一段任務描述，自己讀檔案、跑指令，過程中的所有輸出都留在它的視窗裡，只有最後的總結回傳主對話。官方文件的 context window 視覺化頁給了具體數字：subagent 讀了 6,100 tokens 的檔案內容，回傳主對話的只有一份 420 tokens 的結果。
+Sub-agent 的做法是把這類工作整包丟進一個**全新的 context window**：它拿到自己的 system prompt 和一段任務描述，自己讀檔案、跑指令，過程中的所有輸出都留在它的視窗裡，最後只有總結和一小段 metadata trailer 回傳主對話。官方文件的 context window 視覺化頁給了具體數字：subagent 讀了 6,100 tokens 的檔案內容，回傳主對話的只有一份 420 tokens 的結果。
 
 不是所有東西都被隔離。非 fork 的 subagent 啟動時會載入：自己的 system prompt、Claude 寫的任務訊息、每一層 CLAUDE.md、父 session 開頭的 git status 快照。內建的 Explore 和 Plan 是例外——為了讓研究又快又便宜，這兩個會跳過 CLAUDE.md 和 git status。如果某條規則一定要讓 Explore 知道（例如「忽略 vendor/ 目錄」），要寫進委派時的 prompt。細節可搭配[context window 管理](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management)一起看。
 
@@ -63,6 +63,8 @@ actionable feedback on quality, security, and best practices.
 | `background` | 強制背景執行 |
 | `isolation` | 設 `worktree` 就在暫存 git worktree 裡跑，不動你的 checkout |
 | `skills` / `mcpServers` / `hooks` / `maxTurns` / `effort` | 預載 skills、限定 MCP server、lifecycle hooks、回合數上限、effort 等級 |
+
+這裡的 `memory` 是 subagent 自己的 auto memory scope，不是主對話的 auto memory。一般 non-fork subagent 不會讀到主對話 memory；只有 fork 會繼承父對話。
 
 同名衝突依來源優先序：managed settings > `--agents` CLI flag > `.claude/agents/` > `~/.claude/agents/` > plugin。專案層級建議進版控，讓團隊共用。
 
@@ -111,7 +113,10 @@ Sub-agent 的本質是一條交易：**用「重新建立 context 的成本」�
 
 - [Create custom subagents — Claude Code Docs](https://code.claude.com/docs/en/sub-agents) — 本篇主要來源：frontmatter schema、內建 agent 清單、背景執行與巢狀 spawn 規則、permission 繼承、persistent memory
 - [Explore the context window — Claude Code Docs](https://code.claude.com/docs/en/context-window) — subagent 隔離效果的互動模擬（6,100 tokens 讀入 vs 420 tokens 回傳）與 context 消耗分解
+- [How Claude remembers your project — Claude Code Docs](https://code.claude.com/docs/en/memory) — CLAUDE.md、auto memory、subagent memory 與 fork 例外的關係
+- [Configure permissions — Claude Code Docs](https://code.claude.com/docs/en/permissions) — permission modes、auto mode、bypass/managed settings 與工具核可規則
 
 ## 更新紀錄
 
+- 2026-08-29：對照官方 sub-agents、context-window、memory、permissions 文件；補清楚 metadata trailer 與 subagent memory scope。
 - 2026-08-26：初版，依 2026-08 官方文件重寫（Explore 已繼承主對話模型、`/agents` 精靈已移除、子代理預設背景執行並可巢狀 spawn 三層）。

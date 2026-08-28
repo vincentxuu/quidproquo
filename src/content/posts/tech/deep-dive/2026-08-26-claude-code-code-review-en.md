@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, code-review, github, ci]
 lang: en
-tldr: "GitHub PRs get reviewed by a fleet of agents automatically — 20 minutes on average, about $15–25 per review, with findings posted as inline comments on the offending lines. For larger changes, /code-review ultra launches a cloud deep review that reports independently verified bugs in 5–10 minutes at roughly $5–25 per run; Pro/Max plans include 3 free runs."
+tldr: "After GitHub PR review is configured, a fleet of agents reviews PRs according to the repo's trigger mode — 20 minutes on average, about $15–25 per review, with findings posted as inline comments on the offending lines. For larger changes, /code-review ultra launches a cloud deep review that reports independently verified bugs in 5–10 minutes at roughly $5–25 per run; Pro/Max plans include 3 free runs."
 description: "How Claude Code's GitHub PR review works: the multi-agent parallel analysis and verification pipeline, severity levels, @claude review triggers, REVIEW.md customization, and when a cloud ultrareview is worth it."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 20
@@ -79,12 +79,13 @@ The longer game is reducing noise. Code Review reads two files from your repo: v
 
 ## Division of labor with GitHub Actions automation
 
-Managed Code Review covers the "every PR gets looked at" layer. Putting Claude inside your own workflow — custom triggers, tasks beyond review — is the territory of the [GitHub Actions post](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions); the two don't compete.
+Managed Code Review covers the "every PR gets looked at" layer. Putting Claude inside your own GitHub Actions workflow with `anthropics/claude-code-action` — custom triggers, tasks beyond review — is the territory of the [GitHub Actions post](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions). The two don't compete, but one is Anthropic's managed PR review service and the other is a workflow checked into your repo.
 
 ## References
 
 - [Code Review — Claude Code Docs](https://code.claude.com/docs/en/code-review) — setup, triggers, multi-agent pipeline, severity definitions, pricing, and the local `/code-review` command
 - [Find bugs with ultrareview — Claude Code Docs](https://code.claude.com/docs/en/ultrareview) — how `/code-review ultra` works, diff limits, free runs and pricing, and the comparison table with the local review
+- [Claude Code GitHub Actions — Claude Code Docs](https://code.claude.com/docs/en/github-actions) — the `claude-code-action` workflow, `@claude` mentions, automation mode, and how it differs from managed Code Review
 
 ## Changelog
 

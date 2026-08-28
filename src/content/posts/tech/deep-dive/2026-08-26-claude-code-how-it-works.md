@@ -7,7 +7,7 @@ tags: [claude-code, agentic-loop, ai-agent, anthropic]
 lang: zh-TW
 tldr: "Claude Code 的核心是一個 agentic loop：蒐集 context、採取行動、驗證結果，循環直到任務完成。本文拆解它的五大類內建工具、模型與 harness 的分工，以及 checkpoints 和 permission modes 兩道安全防線，作為整個系列的閱讀地圖。"
 description: "Claude Code 系列入口篇：拆解 agentic loop 三階段、內建工具分類、Claude 能存取什麼，以及 checkpoints 與權限模式的安全設計。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 1
@@ -19,11 +19,9 @@ series:
 
 ## 一個會動手的語言模型
 
-先講清楚它跟網頁版聊天機器人的差別。一般的 chatbot 只能回文字：你貼程式碼給它、它回你建議，中間所有搬運都是你在做。Claude Code 不一樣——官方文件的說法是，它是環繞 Claude 模型的一層 **agentic harness**：
+先講清楚它跟網頁版聊天機器人的差別。一般的 chatbot 只能回文字：你貼程式碼給它、它回你建議，中間所有搬運都是你在做。Claude Code 不一樣——官方文件把它定位成環繞 Claude 模型的 **agentic harness**：這層 harness 提供工具、管理 context、維持執行環境，讓語言模型真的變成 coding agent。
 
-> Claude Code serves as the agentic harness around Claude: it provides the tools, context management, and execution environment that turn a language model into a capable coding agent.
-
-harness 這層做了三件事：提供工具、管理 context、維持執行環境。所以當你在終端機輸入「修掉掛掉的測試」，它不是回你一段「你可以試試看」，而是真的去跑測試、讀錯誤訊息、翻原始碼、改檔案、再跑一次測試確認。
+所以當你在終端機輸入「修掉掛掉的測試」，它不是回你一段「你可以試試看」，而是真的去跑測試、讀錯誤訊息、翻原始碼、改檔案、再跑一次測試確認。
 
 ## Agentic loop：三個階段的循環
 
@@ -80,11 +78,11 @@ loop 由兩個零件驅動。
 
 **第一道：checkpoints。** Claude 改檔案前會先 snapshot 原始內容，出事按兩下 `Esc` 就能 rewind 回之前的狀態，或直接叫 Claude undo。checkpoint 跟 git 完全分開，resume 對話後仍然可用。限制也要記住：它只涵蓋檔案變更——bash 指令造成的副作用、資料庫和 API 這類遠端操作，都不在 checkpoint 範圍內，那些靠的是第二道防線。
 
-**第二道：permission modes。** 按 `Shift+Tab` 循環切換，決定 Claude 不問你就能做多少：
+**第二道：permission modes。** 按 `Shift+Tab` 循環切換，決定 Claude 不問你就能做多少。這裡先列互動寫 code 最常碰到的四種模式；完整清單還包含 `dontAsk` 與 `bypassPermissions`，留到權限篇再拆。
 
 | 模式 | 行為 |
 |------|------|
-| Auto | 背景的分類器審查大多數動作，攔下有風險的；Pro／Max／Team 方案的互動 session 預設值 |
+| Auto | 背景的分類器審查大多數動作，攔下有風險的；在功能可用且未被設定關閉時，是 Pro／Max／Team 方案互動 session 的內建起始模式 |
 | Manual | 改檔案、跑 shell 都先問 |
 | Accept edits | 自動接受檔案編輯與常見檔案指令，其他指令仍會問 |
 | Plan | 只探索和提計畫，不動 source files |
@@ -115,6 +113,8 @@ Claude Code 的所有功能都可以還原成一句話：**模型在一個 harne
 
 - [How Claude Code works — Claude Code Docs](https://code.claude.com/docs/en/how-claude-code-works) — agentic loop 三階段、harness 定位、存取範圍、checkpoints 與 permission modes 的官方說明
 - [Tools reference — Claude Code Docs](https://code.claude.com/docs/en/tools-reference) — 內建工具完整清單、權限需求欄位、auto mode 預設行為
+- [Checkpointing — Claude Code Docs](https://code.claude.com/docs/en/checkpointing) — checkpoint 建立時機、rewind menu、限制與保留規則
+- [Choose a permission mode — Claude Code Docs](https://code.claude.com/docs/en/permission-modes) — permission modes 完整清單、起始模式規則與 `Shift+Tab` 切換
 - [Explore the .claude directory — Claude Code Docs](https://code.claude.com/docs/en/claude-directory) — auto memory 載入規則與 session 資料存放位置
 - [Claude Code docs index（llms.txt）](https://code.claude.com/docs/llms.txt) — 官方完整文件索引，本系列各篇主題的盤點基礎
 

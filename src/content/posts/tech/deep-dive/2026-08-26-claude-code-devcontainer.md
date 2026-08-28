@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, devcontainer, docker, team]
 lang: zh-TW
-tldr: "在 `.devcontainer/devcontainer.json` 加一行 Anthropic 官方 Dev Container Feature（`ghcr.io/anthropics/devcontainer-features/claude-code:1.0`），三步驟——寫設定、rebuild 容器、跑 `claude` 登入——就能讓團隊每個人的 Claude Code 跑在同一個容器環境；同一份定義也能餵給 GitHub Codespaces 和 CI，rollout 五步可落地。"
+tldr: "在 `.devcontainer/devcontainer.json` 加一行 Anthropic 官方 Dev Container Feature（`ghcr.io/anthropics/devcontainer-features/claude-code:1.0`），三步驟——寫設定、rebuild 容器、跑 `claude` 登入——就能讓團隊每個人的 Claude Code 跑在同一份容器定義裡；同一份定義也能餵給 GitHub Codespaces 和 CI，rollout 五步可落地。"
 description: "用 devcontainer.json 把 Claude Code 關進一致的隔離環境：官方 Feature 安裝方式、認證與設定的持久化、managed settings 政策、CI 用同一份容器定義的一致性論述，以及團隊導入步驟。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 31
@@ -29,7 +29,7 @@ Claude Code 是 agentic loop——它會真的在你的機器上跑指令、裝�
 
 ## Dev container 解決的是哪一段
 
-[Dev container](https://containers.dev/) 是一套開放規範：用 `devcontainer.json` 定義一個容器化的開發環境——基底映像、工具版本、延伸套件——任何支援這套規範的編輯器（VS Code、GitHub Codespaces、JetBrains IDE、Cursor）都能把它跑起來。你的編輯器介面留在本機，終端機、語言伺服器、build 工具全部在容器裡。
+[Dev container](https://containers.dev/) 是一套開放規範：用 `devcontainer.json` 定義一個容器化的開發環境——基底映像、工具版本、延伸套件——支援這套規範的工具（例如 VS Code、GitHub Codespaces、JetBrains IDE、Cursor）就能把它跑起來。你的編輯器介面留在本機，終端機、語言伺服器、build 工具全部在容器裡。
 
 Claude Code 裝在容器裡之後，它跑的每一道指令都執行在容器內，而不是你的主機上；它對專案檔案的修改則直接反映在你本機的 repository。依 [Claude Code 官方文件](https://code.claude.com/docs/en/devcontainer.md)的說法，這讓它看到的檔案、依賴和工具，跟專案其他 toolchain 完全相同。
 
@@ -85,9 +85,9 @@ Claude Code 裝在容器裡之後，它跑的每一道指令都執行在容器�
 - GitHub Codespaces（雲端跑同一份定義），
 - CI pipeline（用 [Dev Containers CLI](https://github.com/devcontainers/cli) 或直接 build 同一個 Dockerfile）。
 
-於是「Claude 在我機器上跑過測試會過」這句話有了可驗證的基礎：本機、雲端、CI 三邊跑的是**同一個映像、同一組工具版本**。本地說「測試全綠」，推上去 CI 用同一個容器跑，失敗就只剩程式碼和時間差的因素。反之若 CI 和 dev container 各自維護，你等於養了兩套各自漂移的環境，還誤以為自己有一致性。
+於是「Claude 在我機器上跑過測試會過」這句話有了可驗證的基礎：本機、雲端、CI 三邊可以從**同一份容器定義、同一組工具版本**開始。CI 若仍然失敗，環境漂移就不再是第一個嫌疑，接著再查程式碼、快取、祕密值、外部服務和時間差。反之若 CI 和 dev container 各自維護，你等於養了兩套各自漂移的環境，還誤以為自己有一致性。
 
-## 團隊 rollout 五步
+## 團隊 rollout 五步（team rollout）
 
 1. **挑一個人先把最小設定跑通**：`.devcontainer/devcontainer.json` 加 Feature、rebuild、登入，確認專案的工具鏈在容器內完整可用（該裝的原生依賴補進 Dockerfile）。
 2. **把持久化和政策補上**：volume 掛載＋`CLAUDE_CONFIG_DIR`；需要鎖版本的話改 Dockerfile 安裝並停用自動更新。
@@ -108,7 +108,12 @@ Dev container 的價值不在「容器化」本身，在於**把環境變成 rep
 ## 參考資料
 
 - [Development containers — Claude Code Docs](https://code.claude.com/docs/en/devcontainer.md) — Dev Container Feature 安裝、認證持久化、組織政策、網路出口限制與無權限提示模式的官方說明
+- [Development containers](https://containers.dev/) — dev container 規範入口與 `devcontainer.json` 背景
+- [Claude Code Dev Container Feature](https://github.com/anthropics/devcontainer-features/tree/main/src/claude-code) — Feature repo、Node.js requirement 與推薦設定
+- [Dev Containers CLI](https://github.com/devcontainers/cli) — 用 `devcontainer.json` 建置、啟動與在 CI 執行 dev container 的 reference implementation
+- [Claude Code reference devcontainer](https://github.com/anthropics/claude-code/tree/main/.devcontainer) — 官方參考容器中的 `devcontainer.json`、Dockerfile 與 `init-firewall.sh`
 
 ## 更新紀錄
 
 - 2026-08-26：初版，依 2026-08 官方 devcontainer 文件撰寫。
+- 2026-08-29：補強參考資料，收斂 CI 一致性的斷言強度。

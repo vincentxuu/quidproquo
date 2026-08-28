@@ -7,7 +7,7 @@ tags: [claude-code, multi-agent, subagents, worktree]
 lang: en
 tldr: "The official docs split Claude Code's parallel work into 4 approaches: subagents delegate inside one session, agent view lets you supervise background sessions yourself, agent teams coordinate workers through a lead, and dynamic workflows run scripted fleets of subagents with cross-checks; file collisions are always handled by worktrees. Includes a translated comparison table and a three-question decision guide."
 description: "Built on the official agents.md comparison table: how Claude Code's four parallel-work approaches differ, how to choose between them, and the worktree isolation story — --worktree, .worktreeinclude, and cleanup rules."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 24
@@ -25,7 +25,7 @@ The official [Run agents in parallel](https://code.claude.com/docs/en/agents) pa
 
 **Agent view**: a single monitoring screen opened with `claude agents`. You are the dispatcher: hand off multiple independent tasks to run in the background, check status at a glance, step in only where needed. Currently a research preview.
 
-**Agent teams**: multiple coordinated sessions managed by a lead, with a shared task list and point-to-point messaging between teammates. Experimental, disabled by default. For when you want Claude itself to split a project into pieces, assign them, and keep everyone in sync.
+**Agent teams**: multiple coordinated sessions managed by a lead, with point-to-point messaging between teammates and, when the agents have Task tools, a shared task list. Experimental, disabled by default. For when you want Claude itself to split a project into pieces, assign them, and keep everyone in sync.
 
 **Dynamic workflows**: a script that runs many subagents and cross-checks their results. The official positioning is concrete: work too big to coordinate one turn at a time, or that needs more than a single pass — a codebase-wide audit, a 500-file migration, research verified against itself from several angles.
 
@@ -39,7 +39,7 @@ Translated from the official docs:
 |----------|-------------------|-------------|
 | [Subagents](https://code.claude.com/docs/en/sub-agents) | Delegated workers inside one session doing side tasks in their own context, returning summaries | A side task would flood your main conversation with search results, logs, or file contents |
 | [Agent view](https://code.claude.com/docs/en/agent-view) | One screen opened via `claude agents` to dispatch and monitor background sessions | Several independent tasks; hand them off, check status at a glance, step in when needed |
-| [Agent teams](https://code.claude.com/docs/en/agent-teams) | Multiple coordinated sessions with a shared task list and messaging, managed by a lead | You want Claude to split the project, assign pieces, and keep workers in sync |
+| [Agent teams](https://code.claude.com/docs/en/agent-teams) | Multiple coordinated sessions with messaging, managed by a lead; shared task list when agents have Task tools | You want Claude to split the project, assign pieces, and keep workers in sync |
 | [Dynamic workflows](https://code.claude.com/docs/en/workflows) | A script running many subagents with cross-checked results | Work outgrows a handful of subagents, or findings must verify against each other |
 
 ## How to choose
@@ -48,7 +48,7 @@ The official decision guide asks three questions; here they are in plain terms:
 
 **Who coordinates?** Claude delegates and collects results inside one conversation — subagents. You hand off independent tasks and check back later — agent view. Claude plans and supervises a group of workers — agent teams (remember it's experimental). A script holds the plan instead of Claude's turn-by-turn judgment — dynamic workflows.
 
-**Do the workers need to talk to each other?** Subagents report back only to the conversation that spawned them; agent view sessions report only to you (add cross-session messaging if separate sessions need to exchange findings); only teammates in an agent team message each other directly over a shared task list.
+**Do the workers need to talk to each other?** Subagents normally report back to the conversation that spawned them; named subagents can message each other, but that still is not a separate coordination surface. Agent view sessions report only to you (add cross-session messaging if separate sessions need to exchange findings); teammates in an agent team message each other directly and share a task list when they have Task tools.
 
 **Will tasks touch the same files?** If yes, isolate with worktrees (next section). Note especially: agent teams do not put teammates in their own worktrees — the official recommendation is to partition the work yourself so each teammate owns a different set of files.
 
@@ -60,7 +60,7 @@ A [git worktree](https://git-scm.com/docs/git-worktree) is a working directory w
 claude --worktree feature-auth   # or -w
 ```
 
-By default this creates the worktree under `.claude/worktrees/<name>/` on a branch named `worktree-<name>`; omit the name and one is generated (like `bright-running-fox`). Run it again with a different name in another terminal for a second isolated session. Two small tips from the docs: add `.claude/worktrees/` to your `.gitignore`, and note that interactive runs require workspace trust — accept the dialog once before `--worktree` will proceed.
+By default this creates the worktree under `.claude/worktrees/<name>/` on a branch named `worktree-<name>`; omit the name and one is generated (like `bright-running-fox`). Run it again with a different name in another terminal for a second isolated session. Two small tips from the docs: add `.claude/worktrees/` to your `.gitignore`, and note that interactive runs require workspace trust — accept the dialog once before `--worktree` will proceed. Non-interactive `-p` runs skip that trust check.
 
 **A worktree is a fresh checkout**, so untracked files like `.env` don't carry over. To copy them automatically into every new worktree, add a `.worktreeinclude` file at the project root; it uses `.gitignore` syntax and only copies files that both match a pattern and are actually gitignored:
 
@@ -70,9 +70,9 @@ By default this creates the worktree under `.claude/worktrees/<name>/` on a bran
 config/secrets.json
 ```
 
-**Cleanup is semi-automatic.** When an interactive session exits, Claude checks whether the worktree holds unsaved work: a clean unnamed worktree is removed along with its branch, a named one prompts first; with changes inside, you choose keep or remove. Non-interactive `-p` runs trigger no cleanup — remove those yourself with `git worktree remove`. Subagents can get their own worktrees too — ask Claude to "use worktrees for your agents", or set `isolation: worktree` in a `.claude/agents/` definition; if the subagent finishes without changes, its worktree is removed automatically. Background sessions dispatched through agent view move into their own worktrees without any setup.
+**Cleanup is semi-automatic.** When an interactive session exits, Claude checks whether the worktree holds unsaved work: a clean unnamed worktree is removed along with its branch, a named one prompts first; with changes inside, you choose keep or remove. Non-interactive `-p` runs trigger no exit cleanup, and the lock Claude Code took at creation stays until a later stale-lock sweep releases it; remove those yourself with `git worktree remove`, unlocking first if git refuses. Subagents can get their own worktrees too — ask Claude to "use worktrees for your agents", or set `isolation: worktree` in a `.claude/agents/` definition; if the subagent finishes without changes, its worktree is removed automatically. Background sessions dispatched through agent view move into their own worktrees without any setup.
 
-Isolation isn't a gentleman's agreement: while a session sits in a worktree, Claude Code blocks file edits targeting the main checkout, commands whose working directory resolves there, and git invocations redirected back via tricks like `git -C`.
+Isolation isn't a gentleman's agreement: while a session sits in a worktree, Claude Code blocks file edits targeting the main checkout, commands whose working directory resolves there, git invocations redirected back via tricks like `git -C`, and shell command shapes it cannot verify will stay inside the worktree.
 
 ## Reading path for this cluster
 

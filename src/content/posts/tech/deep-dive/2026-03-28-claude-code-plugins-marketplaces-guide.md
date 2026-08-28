@@ -7,7 +7,7 @@ tags: [claude-code, plugins, marketplace, skills, hooks]
 lang: zh-TW
 tldr: "Plugin 的價值不是新能力，而是分發：把散在 .claude/ 的 skills、agents、hooks、MCP 設定收進一個帶 manifest 的目錄，透過 marketplace 安裝、更新、鎖版本。本文拆解 plugin 目錄結構、最小建立流程、marketplace 發佈與 dependencies 版本約束。"
 description: "Claude Code plugin 深入介紹：plugin.json manifest 與目錄結構、${CLAUDE_PLUGIN_ROOT}、--plugin-dir 本地測試、marketplace.json 七種 plugin source、git tag 版本解析，以及何時該做成 plugin 而不是單獨放 skill。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 16
@@ -32,20 +32,22 @@ my-plugin/
 ├── .claude-plugin/
 │   └── plugin.json     # manifest（唯一放在這裡的東西）
 ├── skills/             # <name>/SKILL.md
-├── commands/           # 平坦式 .md skill（舊格式）
+├── commands/           # 平坦式 .md skill（相容格式；新 plugin 優先用 skills/）
 ├── agents/             # 自訂 sub-agents
 ├── hooks/
 │   └── hooks.json      # 事件處理器
 ├── .mcp.json           # MCP server 設定
 ├── .lsp.json           # LSP server 設定（code intelligence）
-├── monitors/           # 背景監看
+├── monitors/
+│   └── monitors.json   # 背景監看
+├── bin/                # plugin 啟用時加進 Bash PATH 的執行檔
 └── settings.json       # 啟用時套用的預設設定
 ```
 
 兩個常踩的坑：
 
 1. **只有 `plugin.json` 放在 `.claude-plugin/` 裡**。`skills/`、`agents/`、`hooks/` 全部放 plugin 根目錄，塞進 `.claude-plugin/` 不會被讀。
-2. **安裝時 plugin 目錄會被複製到 `~/.claude/plugins/cache`**。所以 skill 或 hook 引用自己附帶的腳本時，不要寫相對路徑去抓 plugin 外的檔案——那些不會跟著被複製。要引用 plugin 內的檔案，用 `${CLAUDE_PLUGIN_ROOT}` 環境變數，它永遠指向 plugin 根目錄。
+2. **從 marketplace 安裝時，plugin 通常會被複製到 `~/.claude/plugins/cache`**（`command` source 的 link mode 例外）。所以 skill 或 hook 引用自己附帶的腳本時，不要寫相對路徑去抓 plugin 外的檔案——那些不會跟著被複製。要引用 plugin 內的檔案，用 `${CLAUDE_PLUGIN_ROOT}` 環境變數，它永遠指向 plugin 根目錄。
 
 ## 寫第一個 plugin
 
@@ -97,13 +99,13 @@ claude --plugin-dir ./my-first-plugin
 
 `/plugin` 會打開互動面板，四個 tab：Discover（瀏覽）、Installed（管理）、Marketplaces（增刪目錄）、Errors（載入錯誤）。安裝時選 scope：user（自己、跨專案）、project（寫進 `.claude/settings.json`，整個 repo 的協作者都裝）、local（只有自己在這個 repo）。
 
-第三方社群 marketplace `anthropics/claude-plugins-community` 要手動加：
+第三方社群 marketplace 的 repo 是 `anthropics/claude-plugins-community`，加入後在 Claude Code 裡顯示為 `claude-community`，需要手動加：
 
 ```
 /plugin marketplace add anthropics/claude-plugins-community
 ```
 
-團隊場景則是把 marketplace 寫進專案的 `.claude/settings.json`（`extraKnownMarketplaces`），成員信任 repo 資料夾後自動註冊，再搭配 `enabledPlugins` 指定預設啟用哪些。
+團隊場景則是把 marketplace 寫進專案的 `.claude/settings.json`（`extraKnownMarketplaces`），成員信任 repo 資料夾後自動註冊，再搭配 `enabledPlugins` 指定預設啟用哪些。要注意：外部來源的 plugin 只被 project settings 啟用時，成員仍需要先安裝，否則 Claude Code 會回報未安裝並提示對應的 `claude plugin install` 指令。
 
 ## 發佈自己的 marketplace
 
@@ -155,7 +157,7 @@ claude plugin tag --push
 
 跨 marketplace 的依賴預設被擋——防止一個 marketplace 默默拉進你沒審過的來源。要開放得在根 marketplace 的 `marketplace.json` 加 `allowCrossMarketplaceDependenciesOn` 白名單。
 
-還有一個好用的模式：manifest 只寫 `dependencies`、不含任何元件，就是一個「懶人包」——平台團隊發一個 `backend-standard`，工程師一行 `claude plugin install` 裝齊整套標配。
+還有一個好用的模式：manifest 除了必要的 `name` 之外只寫 `dependencies`、不含任何元件，就是一個「懶人包」——平台團隊發一個 `backend-standard`，工程師一行 `claude plugin install` 裝齊整套標配。
 
 ## 何時該做成 plugin
 
@@ -180,3 +182,4 @@ Skill 該怎麼設計本身是另一門學問，見[Skills 設計主篇](/posts/
 ## 更新紀錄
 
 - 2026-08-26：初版，依 code.claude.com 官方文件撰寫（含 plugin dependencies 版本約束機制）。
+- 2026-08-29：補上 `bin/`、`monitors/monitors.json`、community marketplace 顯示名稱與 project settings 安裝限制。

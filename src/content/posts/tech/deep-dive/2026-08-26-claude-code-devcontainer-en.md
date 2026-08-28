@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, devcontainer, docker, team]
 lang: en
-tldr: "Add Anthropic's official Dev Container Feature (`ghcr.io/anthropics/devcontainer-features/claude-code:1.0`) to `.devcontainer/devcontainer.json` and three steps—write the config, rebuild the container, run `claude` to sign in—put every teammate's Claude Code in an identical container. The same definition feeds GitHub Codespaces and CI; a five-step rollout gets the whole team there."
+tldr: "Add Anthropic's official Dev Container Feature (`ghcr.io/anthropics/devcontainer-features/claude-code:1.0`) to `.devcontainer/devcontainer.json` and three steps—write the config, rebuild the container, run `claude` to sign in—put every teammate's Claude Code behind the same container definition. The same definition feeds GitHub Codespaces and CI; a five-step rollout gets the whole team there."
 description: "Put Claude Code inside a consistent, isolated environment with devcontainer.json: the official Feature install, persisting auth and settings across rebuilds, managed-settings policy, why CI should reuse the same container definition, and step-by-step team rollout."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 31
@@ -15,7 +15,7 @@ series:
 
 > 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-devcontainer)
 
-This is part of the [Claude Code Deep Dives](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) series. The previous piece covered how Claude Code works; this one tackles a more practical problem: **five people run Claude Code on five machines with different Node versions, package caches, and shell configs. When the AI breaks something, nobody can reproduce anyone else's result.**
+This is part of the [Claude Code Deep Dives](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en) series. The previous piece covered how Claude Code works; this one tackles a more practical problem: **five people run Claude Code on five machines with different Node versions, package caches, and shell configs. When the AI breaks something, nobody can reproduce anyone else's result.**
 
 ## The problem: unreproducible AI results
 
@@ -29,7 +29,7 @@ This isn't specific to Claude Code; it's common to every tool that runs locally.
 
 ## Which part of the problem dev containers solve
 
-A [dev container](https://containers.dev/) is an open spec: `devcontainer.json` defines a containerized development environment—base image, tool versions, extensions—that any spec-compliant editor (VS Code, GitHub Codespaces, JetBrains IDEs, Cursor) can launch. Your editor UI stays on the host; the integrated terminal, language servers, and build tools all run inside the container.
+A [dev container](https://containers.dev/) is an open spec: `devcontainer.json` defines a containerized development environment—base image, tool versions, extensions—that supporting tools such as VS Code, GitHub Codespaces, JetBrains IDEs, and Cursor can launch. Your editor UI stays on the host; the integrated terminal, language servers, and build tools all run inside the container.
 
 Once Claude Code is installed in that container, every command it runs executes inside it rather than on your host, while its edits to project files appear directly in your local repository. Per the [official Claude Code docs](https://code.claude.com/docs/en/devcontainer.md), this means Claude sees the same files, dependencies, and tools as the rest of your project's toolchain.
 
@@ -85,7 +85,7 @@ This is the most valuable part of team standardization. Because `devcontainer.js
 - GitHub Codespaces (same definition in the cloud),
 - CI pipelines (via the [Dev Containers CLI](https://github.com/devcontainers/cli), or by building the same Dockerfile).
 
-Suddenly "the tests passed when Claude ran them" has a verifiable basis: local, cloud, and CI all run **the same image with the same tool versions**. When Claude reports green tests locally and CI re-runs them in the same container, failure reduces to code changes and timing—no environmental factors left. Conversely, if your CI environment and everyone's dev containers are maintained separately, you're maintaining two environments that each drift on their own—which is worse than local-only drift, because you believe you have consistency when you don't.
+Suddenly "the tests passed when Claude ran them" has a verifiable basis: local, cloud, and CI can start from **the same container definition and the same tool versions**. If CI still fails, environment drift is no longer the first suspect; next you check code changes, caches, secrets, external services, and timing. Conversely, if your CI environment and everyone's dev containers are maintained separately, you're maintaining two environments that each drift on their own—which is worse than local-only drift, because you believe you have consistency when you don't.
 
 ## Team rollout in five steps
 
@@ -108,7 +108,12 @@ The value of dev containers isn't containerization itself—it's turning the env
 ## References
 
 - [Development containers — Claude Code Docs](https://code.claude.com/docs/en/devcontainer.md) — official guidance on the Dev Container Feature, auth persistence, organization policy, network egress restrictions, and permission-prompt-free operation
+- [Development containers](https://containers.dev/) — entry point for the dev container specification and `devcontainer.json` background
+- [Claude Code Dev Container Feature](https://github.com/anthropics/devcontainer-features/tree/main/src/claude-code) — Feature repository, Node.js requirements, and recommended configuration
+- [Dev Containers CLI](https://github.com/devcontainers/cli) — reference implementation for building, starting, and running dev containers from `devcontainer.json`, including CI usage
+- [Claude Code reference devcontainer](https://github.com/anthropics/claude-code/tree/main/.devcontainer) — official reference container with `devcontainer.json`, Dockerfile, and `init-firewall.sh`
 
 ## Changelog
 
 - 2026-08-26: Initial version, written against the August 2026 official devcontainer documentation.
+- 2026-08-29: Expanded references and narrowed the CI consistency claim.

@@ -3,11 +3,11 @@ title: "Claude Code Channels: External Events, Reply Tools, and Sender Gating"
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, channels, mcp, webhooks]
+tags: [claude-code, channels, mcp, webhook]
 lang: en
 tldr: "Channels are a special kind of MCP server that push CI failures, monitoring alerts, and Telegram messages directly into a running Claude Code session — and Claude can answer back through the same channel via a reply tool. This post breaks down the channel contract, two-way replies, security gates, and install requirements."
 description: "A deep dive into Claude Code Channels: how an MCP server declares a channel capability, pushes notification events, lets Claude reply, and how sender gating and permission relay keep the session secure."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 21
@@ -69,7 +69,7 @@ Bun.serve({
   async fetch(req) {
     await mcp.notification({
       method: 'notifications/claude/channel',
-      params: { content: await req.text(), meta: { path: new URL(req.url).pathname } },
+      params: { content: await req.text(), meta: { path: new URL(req.url).pathname, method: req.method } },
     })
     return new Response('ok')
   },
@@ -92,7 +92,7 @@ Telegram and Discord bootstrap the allowlist with pairing codes: DM the bot, it 
 
 The second layer is **permission relay**: when Claude calls a tool that needs approval, the session pauses at the local dialog. A two-way channel declaring the `claude/channel/permission` capability can forward that same prompt to your phone; replying `yes <id>` approves it remotely. Both ends stay live, and whichever answer arrives first wins. Because anyone who can reply through the channel can approve tool use, the docs state plainly: only declare the capability if your channel authenticates senders.
 
-Enterprises get a master switch on top: Team/Enterprise orgs block channels by default until an Owner enables `channelsEnabled`, and can restrict which channel plugins may run with `allowedChannelPlugins`. Pro/Max users without an organization skip these checks entirely and opt in per session with `--channels`.
+Enterprises get a master switch on top: claude.ai Team/Enterprise orgs block channels by default until an Owner enables `channelsEnabled`, and can restrict which channel plugins may run with `allowedChannelPlugins`. Console API key authentication allows channels by default unless the organization deploys managed settings, in which case the setting must be explicit. Pro/Max users without an organization skip these checks entirely and opt in per session with `--channels`.
 
 ## Installation: Channel Plugins Require Bun
 
@@ -105,7 +105,7 @@ The research preview ships official channel plugins for Telegram, Discord, and i
 
 Exit, restart with `claude --channels plugin:telegram@claude-plugins-official`, complete pairing, done.
 
-For your own channels, the runtime isn't restricted — the hard requirement is just the MCP SDK and a Node-compatible environment; Bun, Node, and Deno all work. Custom channels test through the `--dangerously-load-development-channels` development flag, which bypasses the allowlist locally.
+For your own channels, the runtime isn't restricted — the hard requirement is just the MCP SDK and a Node-compatible environment; Bun, Node, and Deno all work. Custom channels test through the `--dangerously-load-development-channels` development flag, which bypasses the allowlist locally but does not bypass organization policy such as `channelsEnabled`.
 
 ## Typical Scenarios
 
@@ -122,4 +122,5 @@ Channels are currently in research preview, and both the flag syntax and protoco
 
 ## Changelog
 
+- 2026-08-29: Corrected the Console/Team/Enterprise default behavior for channels and clarified the organization-policy limit on the development channel flag.
 - 2026-08-26: Initial version, based on current code.claude.com documentation (research preview).

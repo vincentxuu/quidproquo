@@ -7,7 +7,7 @@ tags: [claude-code, plugins, marketplace, skills, hooks]
 lang: en
 tldr: "Plugins add distribution, not new capabilities: they collect skills, agents, hooks, and MCP settings scattered across .claude/ into one manifest-backed directory that marketplaces can install, update, and version-pin. This post covers plugin structure, the minimal build flow, publishing a marketplace, and dependency version constraints."
 description: "A deep dive into Claude Code plugins: plugin.json manifest and directory layout, ${CLAUDE_PLUGIN_ROOT}, local testing with --plugin-dir, the seven marketplace plugin source types, git tag-based version resolution, and when to ship a plugin instead of a standalone skill."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 16
@@ -32,20 +32,22 @@ my-plugin/
 ├── .claude-plugin/
 │   └── plugin.json     # manifest (the only thing that lives here)
 ├── skills/             # <name>/SKILL.md
-├── commands/           # flat .md skills (legacy format)
+├── commands/           # flat .md skill files (compatible format; use skills/ for new plugins)
 ├── agents/             # custom sub-agents
 ├── hooks/
 │   └── hooks.json      # event handlers
 ├── .mcp.json           # MCP server configs
 ├── .lsp.json           # LSP server configs (code intelligence)
-├── monitors/           # background monitors
+├── monitors/
+│   └── monitors.json   # background monitors
+├── bin/                # executables added to Bash PATH while enabled
 └── settings.json       # defaults applied when enabled
 ```
 
 Two common pitfalls:
 
 1. **Only `plugin.json` goes inside `.claude-plugin/`.** `skills/`, `agents/`, and `hooks/` all sit at the plugin root; putting them inside `.claude-plugin/` means they never get read.
-2. **On install, the plugin directory gets copied to `~/.claude/plugins/cache`.** So when a skill or hook references bundled scripts, don't use relative paths reaching outside the plugin — those files won't come along. To reference files inside the plugin, use the `${CLAUDE_PLUGIN_ROOT}` environment variable, which always points at the plugin root.
+2. **Marketplace installs usually copy the plugin directory to `~/.claude/plugins/cache`** (`command` sources in link mode are the exception). So when a skill or hook references bundled scripts, don't use relative paths reaching outside the plugin — those files won't come along. To reference files inside the plugin, use the `${CLAUDE_PLUGIN_ROOT}` environment variable, which always points at the plugin root.
 
 ## Building Your First Plugin
 
@@ -97,13 +99,13 @@ On the user side it's two steps: add the marketplace (register the catalog), the
 
 `/plugin` opens an interactive panel with four tabs: Discover (browse), Installed (manage), Marketplaces (add/remove catalogs), and Errors (load failures). Installing asks you to pick a scope: user (you, across all projects), project (written to `.claude/settings.json`, installed for every collaborator on this repo), or local (just you, in this repo only).
 
-The third-party community marketplace `anthropics/claude-plugins-community` must be added manually:
+The third-party community marketplace is hosted at `anthropics/claude-plugins-community`; after you add it, Claude Code shows it as `claude-community`. It must be added manually:
 
 ```
 /plugin marketplace add anthropics/claude-plugins-community
 ```
 
-For teams, put the marketplace in the project's `.claude/settings.json` (`extraKnownMarketplaces`); members get it registered automatically once they trust the repo folder, and `enabledPlugins` controls which plugins are enabled by default.
+For teams, put the marketplace in the project's `.claude/settings.json` (`extraKnownMarketplaces`); members get it registered automatically once they trust the repo folder, and `enabledPlugins` controls which plugins are enabled by default. Note the loading boundary: if project settings enable an external-source plugin, each member still has to install it first; until then Claude Code reports it as not installed and shows the matching `claude plugin install` command.
 
 ## Publishing Your Own Marketplace
 
@@ -155,7 +157,7 @@ It validates the plugin contents, checks that the manifest and marketplace entry
 
 Cross-marketplace dependencies are blocked by default — preventing one marketplace from silently pulling in sources you haven't reviewed. Opening them up requires an `allowCrossMarketplaceDependenciesOn` allowlist in the root marketplace's `marketplace.json`.
 
-One more useful pattern: a manifest containing only `dependencies` and no components becomes a bundle — a platform team publishes `backend-standard`, and engineers install the whole standard toolkit with a single `claude plugin install`.
+One more useful pattern: besides the required `name`, a manifest containing only `dependencies` and no components becomes a bundle — a platform team publishes `backend-standard`, and engineers install the whole standard toolkit with a single `claude plugin install`.
 
 ## When to Ship a Plugin
 
@@ -180,3 +182,4 @@ One security note to close: plugins and marketplaces are highly trusted componen
 ## Update Log
 
 - 2026-08-26: Initial version, written against the official code.claude.com docs (including the plugin dependency version constraint mechanism).
+- 2026-08-29: Added `bin/`, `monitors/monitors.json`, the community marketplace display name, and the project-settings install boundary.

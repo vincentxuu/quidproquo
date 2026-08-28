@@ -7,7 +7,7 @@ tags: [claude-code, claude-directory, settings-json, auto-memory, anthropic]
 lang: zh-TW
 tldr: "Claude Code 的設定分散在專案 `.claude/` 與家目錄 `~/.claude/` 兩層，共 20 多個檔案位置。關鍵分野只有兩條：settings 是跨層合併的強制設定，CLAUDE.md 和 rules 是串接進 context 的指引；committed、gitignored、Claude 自寫三種身分各不相同。"
 description: "逐檔導覽 Claude Code 專案與全域兩層目錄：CLAUDE.md、settings.json、rules、skills、commands、agents、workflows、auto memory 的職責與優先序。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 2
@@ -15,7 +15,7 @@ series:
 
 > 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory-en)
 
-用 Claude Code 用到第二週，你會發現專案根目錄和家目錄都長出了奇怪的東西：`.claude/settings.local.json`、`~/.claude.json`、`~/.claude/projects/` 底下一堆不記得誰寫的 markdown。這篇把兩層目錄逐檔講清楚——每個檔是誰寫的、該不該 commit、跟其他檔誰覆蓋誰。這是[上一篇 agentic loop](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) 之後最值得先搞懂的一篇，因為系列後面所有擴充機制的檔案都落在這張地圖上。
+用 Claude Code 用到第二週，你會發現專案根目錄和家目錄都長出了奇怪的東西：`.claude/settings.local.json`、`~/.claude.json`、`~/.claude/projects/` 底下一堆不記得誰寫的 markdown。這篇把 Anthropic 官方文件裡最常需要理解的兩層目錄講清楚——每個檔是誰寫的、該不該 commit、跟其他檔誰覆蓋誰；plugin cache、transcript、snapshot、debug log 這類應用程式資料只點到為止。這是[上一篇 agentic loop](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) 之後最值得先搞懂的一篇，因為系列後面所有擴充機制的檔案都落在這張地圖上。
 
 ## 先記住兩條心智模型
 
@@ -23,13 +23,14 @@ series:
 
 **第一條：強制設定和指引是兩種東西。** `settings.json` 裡的 permissions、hooks 是**強制**（enforced）——不管 Claude 讀懂讀不懂都會被執行。CLAUDE.md 和 rules 是**指引**（guidance）——串接進 context 給模型看，模型可能照做也可能沒照做。想要保證發生的行為，放 settings 或 hooks；想要 Claude 有背景知識，放 CLAUDE.md。
 
-**第二條：settings 靠合併，CLAUDE.md 靠串接。** settings 的清單型 key（如 `permissions.allow`）跨所有層級合併聯集，純值型 key（如 `model`）由最具體的層級勝出。CLAUDE.md 則是每一層**全部載入進 context**——不是繼承覆蓋，全域和專案的內容會同時在場，衝突時靠指示寫清楚優先序。
+**第二條：settings 靠優先序與合併，CLAUDE.md 靠串接。** 常見 settings file 的優先序是 managed、命令列、project local、project shared、user；清單型 key（如 `permissions.allow`）通常跨層級合併，純值型 key（如 `model`）通常由較高優先序勝出。但環境變數是逐 key 判斷，有些 model 清單也不照普通 array 合併。CLAUDE.md 則是每一層**全部載入進 context**——不是繼承覆蓋，全域和專案的內容會同時在場，衝突時靠指示寫清楚優先序。
 
 ## 專案這一層
 
 ### 根目錄三個檔
 
-- **`CLAUDE.md`**（committed）：專案指示，每個 session 開頭載入。官方建議抓在 200 行以內——超長還是會完整載入，但遵循度會掉。只對特定任務重要的內容，移去 skill 或 path-scoped rule。session 內用 `/memory` 就能編輯。
+- **`CLAUDE.md`／`.claude/CLAUDE.md`**（committed）：專案指示，每個 session 開頭載入。官方建議抓在 200 行以內——超長還是會完整載入，但遵循度會掉。只對特定任務重要的內容，移去 skill 或 path-scoped rule。session 內用 `/memory` 就能編輯。
+- **`CLAUDE.local.md`**（gitignored）：你個人在這個專案的私有指示，和 CLAUDE.md 一起載入；適合 sandbox URL、偏好測試資料這類不該 commit 的內容。
 - **`.mcp.json`**（committed，放在根目錄而非 `.claude/` 裡）：團隊共用的 MCP servers。secret 用 `${ENV_VAR}` 引用環境變數，token 不會落進檔案。
 - **`.worktreeinclude`**：Claude 開 git worktree 時要複製過去的 gitignored 檔案清單（典型是 `.env`），語法同 `.gitignore`。
 
@@ -63,7 +64,7 @@ series:
 
 | 檔／資料夾 | 職責 |
 |---|---|
-| `CLAUDE.md` | 個人偏好，與專案 CLAUDE.md 同時載入；衝突時專案優先 |
+| `CLAUDE.md` | 個人偏好，與專案 CLAUDE.md 同時載入；專案指示讀得較晚，但衝突時仍要明寫優先序 |
 | `settings.json` | 所有專案的預設值；key 撞在一起時專案層覆蓋 |
 | `keybindings.json` | 自訂快捷鍵，存檔即熱載入；Ctrl+C/Ctrl+D/Ctrl+M/Caps Lock 保留不可綁 |
 | `themes/` | `/theme` 建的自訂配色 |
@@ -72,7 +73,7 @@ series:
 
 ### Auto memory：Claude 寫給自己的筆記
 
-`~/.claude/projects/<project>/memory/` 是唯一一區「你不寫、Claude 自己維護」的內容。它工作時把學到的東西記下來——build 指令、架構筆記、debug 心得——`MEMORY.md` 是索引，每個 session 開頭載入前 200 行或 25KB；太長的主題會拆成 topic 檔（`debugging.md`、`architecture.md`），任務相關時才讀。預設開啟，`/memory` 可切換。這些就是純文字 markdown，你可以改可以刪，但 Claude 之後還是會繼續更新它。
+`~/.claude/projects/<project>/memory/` 是一區「你不一定要寫、Claude 會自己維護」的內容。它適合記下你反覆修正過的偏好、你確認過的做法、程式碼或 git history 推不出來的專案決策，以及 issue tracker、dashboard 這類外部參考在哪裡。相反地，官方文件明說它會跳過能從 codebase 推出的資訊，例如架構、檔案路徑和 debug fix。`MEMORY.md` 是索引，每個 session 開頭載入前 200 行或 25KB；太長的主題會拆成 topic 檔，任務相關時才讀。預設開啟，`/memory` 可切換。這些就是純文字 markdown，你可以改可以刪，但 Claude 之後還是會繼續更新它。
 
 ## 快速診斷
 
@@ -85,7 +86,10 @@ series:
 ## 參考資料
 
 - [Explore the .claude directory — Claude Code Docs](https://code.claude.com/docs/en/claude-directory) — 官方逐檔導覽，本文兩層目錄結構、badge 分類與合併規則的主要依據
-- [How Claude Code works — Claude Code Docs](https://code.claude.com/docs/en/how-claude-code-works) — auto memory 與 CLAUDE.md 在 session 啟動時的載入行為
+- [Memory — Claude Code Docs](https://code.claude.com/docs/en/memory) — CLAUDE.md、`.claude/CLAUDE.md`、`CLAUDE.local.md`、rules 與 auto memory 的官方說明
+- [Settings — Claude Code Docs](https://code.claude.com/docs/en/settings) — settings file scope、優先序、環境變數與 list merge caveat
+- [Skills — Claude Code Docs](https://code.claude.com/docs/en/skills) — skills 與 commands 的位置、命名衝突和按需載入
+- [Worktrees — Claude Code Docs](https://code.claude.com/docs/en/worktrees) — `.worktreeinclude` 與 worktree 隔離的官方說明
 - [Debug your configuration — Claude Code Docs](https://code.claude.com/docs/en/debug-your-config) — `/doctor`、`/hooks`、`/mcp` 等診斷指令的官方說明
 
 ## 更新紀錄

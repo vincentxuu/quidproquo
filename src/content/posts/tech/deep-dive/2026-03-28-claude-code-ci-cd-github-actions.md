@@ -3,11 +3,11 @@ title: "Claude Code 怎麼進 CI/CD：GitHub Actions 的 @claude 與 GitLab MR �
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, github-actions, gitlab-ci, ci-cd, ai-agent, automation, dx]
+tags: [claude-code, github-actions, gitlab-ci, ci-cd, ai-agent, dx]
 lang: zh-TW
-tldr: "用 anthropics/claude-code-action 把 Claude Code 放進 GitHub Actions：/install-github-app 一條指令裝好，@claude 在 PR 和 Issue 留言就能叫它修 bug、把 issue 做成 PR；Bedrock／Vertex／Foundry 三種雲端後端走 OIDC 免存金鑰；GitLab CI/CD（beta）則用 .gitlab-ci.yml 一個 job 對應，所有變更走 merge request。"
+tldr: "用 anthropics/claude-code-action 把 Claude Code 放進 GitHub Actions：/install-github-app 一條指令裝好，@claude 在 PR 和 Issue 留言就能叫它修 bug、推分支並給 PR 建立入口；Bedrock／Vertex／Foundry 三種雲端後端走 OIDC 免存金鑰；GitLab CI/CD（beta）則用 .gitlab-ci.yml 一個 job 對應，所有變更走 merge request。"
 description: "Claude Code 整合 GitHub Actions 與 GitLab CI/CD 的做法：安裝路徑、@claude 觸發語法、workflow YAML 範例、AWS Bedrock／Google Cloud Agent Platform／Microsoft Foundry 後端切換，以及 API key 管理與權限範圍的安全要點。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 19
@@ -15,7 +15,7 @@ series:
 
 > 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions-en)
 
-[系列上一篇](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide)講了 headless mode：用 `-p` 旗標讓 Claude Code 不進互動介面、跑完就退出。CI 整合就是把這個能力接上觸發器——GitHub Actions 和 GitLab CI/CD 是官方文件明確支援的兩條路。這篇講怎麼裝、怎麼觸發、企業環境怎麼換雲端後端。
+[系列上一篇](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide)講了 headless mode：用 `-p` 旗標讓 Claude Code 不進互動介面、跑完就退出。CI 整合就是把這個能力接上觸發器：GitHub Actions 和 GitLab CI/CD 是官方文件明確支援的兩條路。這篇講怎麼裝、怎麼觸發、企業環境怎麼換雲端後端。
 
 ## 在 CI 裡跑 agent，跟本地跑差在哪
 
@@ -43,11 +43,11 @@ Action 有兩種模式。workflow 沒給 `prompt` 輸入就是互動模式：Cla
 @claude how should I implement user authentication for this endpoint?
 ```
 
-第三個例子是問問題不動 code，第一個是直接把 issue 做成一個 PR——Claude 會在同一個 issue 或 PR 底下用留言回報進度。另外官方還有一條不需寫 workflow 的 Code Review 產品線（每個 PR 自動審查），那屬於系列另一篇的主題，這篇不展開。
+第三個例子是問問題不動 code，第一個則會讓 Claude 提交變更分支並提供建立 PR 的入口；Claude 會在同一個 issue 或 PR 底下用留言回報進度。另外官方還有一條不需寫 workflow 的 Code Review 產品線（每個 PR 自動審查），那屬於系列另一篇的主題，這篇不展開。
 
 ## 最小 workflow 範例
 
-回應 `@claude` 提及的最小設定，照官方文件原樣：
+回應 `@claude` 提及的最小設定，取自官方文件的最小範例：
 
 ```yaml
 name: Claude Code
@@ -91,7 +91,7 @@ jobs:
 
 ## GitLab CI/CD：同樣的事，走 merge request
 
-GitLab 沒有現成的 App 可裝，官方整合（beta，由 GitLab 維護）是建構在 CLI 與 Agent SDK 上的一個 CI job：`.gitlab-ci.yml` 加一段 job，`before_script` 用 `curl -fsSL https://claude.ai/install.sh | bash` 裝 CLI，`script` 裡跑：
+GitLab 沒有現成的 App 可裝，官方整合（beta）是建構在 CLI 與 Agent SDK 上的一個 CI job：`.gitlab-ci.yml` 加一段 job，`before_script` 用 `curl -fsSL https://claude.ai/install.sh | bash` 裝 CLI，並把 `$HOME/.local/bin` 加回 `PATH`，`script` 裡跑：
 
 ```yaml
 - >
@@ -105,7 +105,7 @@ GitLab 沒有現成的 App 可裝，官方整合（beta，由 GitLab 維護）�
 
 ## 安全注意
 
-- **金鑰只進 secrets**：API key 或 OAuth token 一律放 GitHub Secrets／GitLab masked variable，官方警告寫得很直白——絕不 commit 進 repo。
+- **金鑰只進 secrets**：GitHub 的 API key 或 OAuth token 放 GitHub Secrets；GitLab 的 `ANTHROPIC_API_KEY` 放 masked CI/CD variable。官方警告寫得很直白——絕不 commit 進 repo。
 - **權限最小化**：官方 Claude GitHub App 的權限集涵蓋所有 Claude 功能（Actions、Checks、Discussions 都讀寫）；只要跑 Claude Code Action 的話，可自建只有 Contents／Issues／Pull requests 三個權限的 custom GitHub App。
 - **信任邊界**：write 權限檢查和 bot 檢查是內建的，但 public repo 上 fork PR 拿不到 secrets，評論型觸發仍建議在憑證步驟前先驗留言者權限。
 - **人類把關**：Claude 推的 commit 照常走你的 CI 和 review 流程，merge 前看過 diff。
@@ -113,13 +113,17 @@ GitLab 沒有現成的 App 可裝，官方整合（beta，由 GitLab 維護）�
 
 ## 學到的事
 
-CI 裡跑 Claude Code 的本質，是把 headless mode 接上版本控制平台的事件系統：GitHub 那邊 `@claude` 提及即觸發、issue 直接長成 PR；GitLab 那邊一切收斂到 merge request。共同的原則只有兩條——金鑰交給平台的 secret 機制，變更交給人類審查。
+CI 裡跑 Claude Code 的本質，是把 headless mode 接上版本控制平台的事件系統：GitHub 那邊 `@claude` 提及即觸發、變更先落在分支與 PR 建立流程；GitLab 那邊一切收斂到 merge request。共同的原則只有兩條：金鑰交給平台的 secret 機制，變更交給人類審查。
 
 ## 參考資料
 
 - [Claude Code GitHub Actions — Claude Code Docs](https://code.claude.com/docs/en/github-actions) — 安裝路徑、互動／自動化模式、Action 參數、觸發者檢查與成本管理的官方說明
 - [Use Claude Code GitHub Actions with cloud providers — Claude Code Docs](https://code.claude.com/docs/en/github-actions-cloud-providers) — Bedrock／Agent Platform／Foundry 三後端的 OIDC 設定、secrets 對照表與完整 workflow 範例
 - [Claude Code GitLab CI/CD — Claude Code Docs](https://code.claude.com/docs/en/gitlab-ci-cd) — GitLab beta 整合的 job 寫法、`AI_FLOW_*` 觸發機制與 Bedrock／Vertex 配置範例
+- [claude-code-action examples/claude.yml](https://github.com/anthropics/claude-code-action/blob/main/examples/claude.yml) — GitHub Action 互動模式範例 workflow
+- [claude-code-action usage reference](https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md) — Action input、trigger phrase、`claude_args` 與 v1 migration 對照
+- [claude-code-action security guide](https://github.com/anthropics/claude-code-action/blob/main/docs/security.md) — 觸發者檢查、預設 PR 建立行為、fork/pull_request_target 風險與 secret 防護
+- [claude-code-action setup guide](https://github.com/anthropics/claude-code-action/blob/main/docs/setup.md) — 手動安裝、GitHub Secrets、custom GitHub App 與 workload identity federation 設定
 
 ## 更新紀錄
 

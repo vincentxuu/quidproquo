@@ -7,7 +7,7 @@ tags: [claude-code, claude-md, auto-memory, rules, agents-md]
 lang: en
 tldr: "Every Claude Code session starts with a clean context window. Three memory mechanisms carry knowledge across sessions: CLAUDE.md files loaded every session, .claude/rules/ files that load conditionally via paths frontmatter, and auto memory Claude writes itself. All CLAUDE.md layers are concatenated into context — not inherited by override. This guide covers layer behavior, @path imports, monorepo strategies with nested CLAUDE.md, and sharing one instruction file across tools via @AGENTS.md."
 description: "A deep dive into Claude Code's memory design: how the four CLAUDE.md layers concatenate into context, import syntax, conditional loading with .claude/rules/, how auto memory works, and monorepo strategies with nested CLAUDE.md files."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 9
@@ -99,6 +99,8 @@ The division of labor in this memory system is clean: **CLAUDE.md handles what m
 
 - [How Claude remembers your project (Memory) — Claude Code Docs](https://code.claude.com/docs/en/memory) — Official reference for CLAUDE.md layers, concatenation order, import syntax, `.claude/rules/`, and auto memory
 - [Set up Claude Code in a monorepo or large codebase — Claude Code Docs](https://code.claude.com/docs/en/large-codebases) — Official guide to nested CLAUDE.md splits, `claudeMdExcludes`, and per-directory skills
+- [Claude Code settings — Claude Code Docs](https://code.claude.com/docs/en/settings) — Official reference for settings-file scopes, source behavior, and project/local/user/managed settings
+- [Automate actions with hooks — Claude Code Docs](https://code.claude.com/docs/en/hooks-guide) — Official guide to hooks as deterministic automation and enforcement points
 
 ## Changelog
 

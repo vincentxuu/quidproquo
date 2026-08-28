@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, cost, model-config, usage]
 lang: zh-TW
-tldr: "Claude Code 成本隨 context 大小累積：企業部署平均每位開發者每個活躍日約 $13、每月 $150–250。本文整理 /usage 與 /insights 追蹤、六種省 token 手段，以及「該用哪個模型」的系統性答案：Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5 家族、effort levels、fast mode（$10/$50 每 MTok）與 advisor 工具。"
-description: "拆解 Claude Code 的成本結構與追蹤工具，涵蓋 /usage 用量歸因、context 管理、模型家族與 effort 取捨、fast mode 計價，以及團隊層級的 analytics dashboard。"
-draft: true
+tldr: "Claude Code 成本隨 context 大小累積：企業部署平均每位開發者每個活躍日約 $13、每月 $150–250。本文整理 /usage 與 /insights 追蹤、六種省 token 手段，以及「該用哪個模型」的系統性答案：provider-dependent model aliases、effort levels、fast mode（Opus 5/4.8 每 MTok $10/$50）與 advisor 工具。"
+description: "拆解 Claude Code 的成本結構與追蹤工具，涵蓋 /usage 用量歸因、context 管理、模型 alias 與 effort 取捨、fast mode 計價，以及團隊層級的 analytics dashboard。"
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 32
@@ -30,9 +30,9 @@ series:
 
 ## 追蹤：/usage 和 /insights
 
-`/usage` 是主要的追蹤指令。session 區塊顯示當前 session 的 token 明細與金額——注意這個金額是本機按牌價算的，不含折扣，正式帳單以 Claude Console 的 Usage 頁為準。訂閱使用者真正該看的是下面的 **plan usage breakdown**：它把最近的用量歸因到 skills、subagents、plugins 和各個 MCP server（各佔百分比），並把 long context、cache miss 這類行為在佔比達 10% 以上時標旗出來。按 `d` 或 `w` 可以切換最近 24 小時和 7 天。
+`/usage` 是主要的追蹤指令。session 區塊顯示當前 session 的 token 明細與金額——預設按牌價估算；如果組織用 managed settings 設了 `modelPricing`，新版 Claude Code 會用組織費率顯示。這仍是估算，正式帳單以 Claude Console 的 Usage 頁為準。訂閱使用者真正該看的是下面的 **plan usage breakdown**：它把最近的用量歸因到 skills、subagents、plugins 和各個 MCP server（各佔百分比），並把 long context、cache miss 這類行為在佔比達 10% 以上時標旗出來。新版還會列出最近最重的 `/loop` 或 scheduled tasks；usage credits 開啟時也會顯示本月 usage-credit spend。按 `d` 或 `w` 可以切換最近 24 小時和 7 天。
 
-想了解的是「我怎麼工作」而不是「用了多少 token」，跑 [`/insights`](https://code.claude.com/docs/en/costs)：它分析本機最多 200 個近期 session，產出一份 HTML 報告（摩擦點、建議），寫到 `~/.claude/usage-data/report.html`；分析本身也計入方案額度。
+想了解的是「我怎麼工作」而不是「用了多少 token」，跑 [`/insights`](https://code.claude.com/docs/en/costs)：它分析本機最多 200 個近期 session，產出一份 HTML 報告（摩擦點、建議），寫到 `~/.claude/usage-data/report.html`，並保留 timestamped copy；分析本身也計入方案額度。
 
 ## 省 token 的實際手段
 
@@ -53,7 +53,9 @@ series:
 
 ### 模型家族與預設
 
-現役家族是 **Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5**。`default` 的解析依帳號類型：Max、Team Premium 與 API 帳號預設 **Opus 5**（自 W30 起）；Pro 與 Team Standard 預設 **Sonnet 5**（自 W27 起）。**Fable 5 在任何帳號類型都不是預設**，要用 `/model fable` 主動選——它是最強但最貴的，適合超過一個 session 坐得下的長任務，且部分方案上會計入 usage credits（有同意提示）。
+截至 2026-08-29，官方文件建議不要記完整型號，而是用 alias：`best`、`fable`、`opus`、`sonnet`、`haiku`、`sonnet[1m]`、`opus[1m]`、`opusplan`。`opus`、`sonnet` 解析到哪個實際模型跟 provider 有關：Anthropic API 目前是 Opus 5 / Sonnet 5；Claude Platform on AWS 是 Opus 5 / Sonnet 4.6；Bedrock 與 Google Cloud Agent Platform 是 Opus 5 / Sonnet 4.5；Microsoft Foundry 則是 Opus 4.6 / Sonnet 4.5。alias 會隨 Claude Code 更新，想避免漂移就 pin full model name 或用 `ANTHROPIC_DEFAULT_*_MODEL`。
+
+**Fable 5 在任何帳號類型都不是預設**，要用 `/model fable` 主動選；`/model` picker 也可能等 server 回報組織可用後才顯示。它是最強但最貴的，適合超過一個 session 坐得下的長任務，且部分方案上會計入 usage credits（有同意提示）。
 
 日常分工的原則官方寫得很直白：Sonnet 處理大部分 coding 任務，Opus 留給複雜架構決策，簡單的 subagent 任務在 frontmatter 指定 `model: haiku`。另一個省錢組合是 `opusplan`：plan mode 用 Opus 推理，執行階段自動切回 Sonnet。
 
@@ -63,11 +65,11 @@ series:
 
 ### Fast mode
 
-[`/fast`](https://code.claude.com/docs/en/fast-mode) 不是換模型，是把 Opus 切到延遲優先的 API 配置：最高 **2.5 倍速**，代價是 Opus 5 每 MTok 輸入 $10、輸出 $50。適合互動式除錯、快速迭代；批次處理和 CI 用標準模式就好。兩個坑要注意：subscription 方案只能透過 usage credits 支付；而且對話中途才開啟 fast mode，第一次要按 fast mode 牌價重付整份 context 的未快取輸入——要開就在 session 開頭開。
+[`/fast`](https://code.claude.com/docs/en/fast-mode) 不是換模型，是把 Opus 切到延遲優先的 API 配置：最高 **2.5 倍速**，代價是 Opus 5 / Opus 4.8 每 MTok 輸入 $10、輸出 $50。它只支援 Anthropic API 與 subscription usage credits，不支援 Bedrock、Google Cloud Agent Platform、Microsoft Foundry 或 Claude Platform on AWS。適合互動式除錯、快速迭代；批次處理和 CI 用標準模式就好。兩個坑要注意：Team／Enterprise 組織要 Owner 先啟用；而且對話中途才開啟 fast mode，第一次要按 fast mode 牌價重付整份 context 的未快取輸入——要開就在 session 開頭開。
 
 ### Advisor
 
-[Advisor 工具](https://code.claude.com/docs/en/advisor)（實驗性）是折衷方案：主模型照常用較便宜的 Sonnet，Claude 在關鍵決策點——承諾做法前、反覆卡同一個錯、宣告完成前——去諮詢指定的更強 advisor（如 Opus 或 Fable）。advisor 每次都收到完整對話，所以它不是免費的，但在決策點呼叫通常比全程跑強模型便宜。用 `/advisor opus` 設定。
+[Advisor 工具](https://code.claude.com/docs/en/advisor)（實驗性）是折衷方案：主模型照常用較便宜的 Sonnet，Claude 在關鍵決策點——承諾做法前、反覆卡同一個錯、宣告完成前——去諮詢指定的更強 advisor（如 Opus 或 Fable）。advisor 是 Anthropic API 的 server tool，不支援 Bedrock、Claude Platform on AWS、Google Cloud Agent Platform 或 Microsoft Foundry；每次呼叫也都收到完整對話，所以它不是免費的，但在決策點呼叫通常比全程跑強模型便宜。用 `/advisor opus` 設定。
 
 ### Extended thinking 何時值得
 
@@ -75,9 +77,9 @@ Extended thinking 預設開啟，thinking tokens **按 output 計價**，預算�
 
 ## 團隊層：analytics dashboard 與 spend 管理
 
-個人看 `/usage`，團隊看 [analytics dashboard](https://code.claude.com/docs/en/analytics)。Teams／Enterprise 版在 `claude.ai/analytics/claude-code`：每日活躍使用者、session 數、建議接受率，加上 GitHub 整合的 contribution metrics（哪些 PR 含 Claude Code 協作的程式碼）——官方刻意用保守匹配，只計高置信度的部分，所以數字是低估。API 客戶走 Console 的 dashboard，看每人花費與每月 accepted lines。
+個人看 `/usage`，團隊看 [analytics dashboard](https://code.claude.com/docs/en/analytics)。Teams／Enterprise 版在 `claude.ai/analytics/claude-code`：每日活躍使用者、session 數、建議接受率、leaderboard、CSV export，加上 GitHub 整合的 contribution metrics（哪些 PR 含 Claude Code 協作的程式碼）——官方刻意用保守匹配，只計高置信度的部分，所以數字是低估。per-user token 與 usage-credit spend 不在這個採用 dashboard 裡，要看 org analytics 的 spend report、Enterprise Analytics API，或自己接 OpenTelemetry。API 客戶走 Console 的 `platform.claude.com/claude-code` dashboard，看 per-user spend、accepted lines、activity 與 team insights。
 
-spend 上限方面，Teams／Enterprise 的 seat allowance 本身就是天花板，要讓成員越過它就得開 usage credits 並設 spend limits。需要即時 per-user 數據進自己的 observability stack，OpenTelemetry export 是所有接入方式都支援的唯一選項。
+spend 上限方面，Teams／Enterprise 的 seat allowance 本身就是天花板，要讓成員越過它就得開 usage credits，並在 organization、group 或個人層級設 spend limits。Console 客戶則用 workspace spend limits。需要即時 per-user 數據進自己的 observability stack，OpenTelemetry export 是所有接入方式都支援的唯一選項。
 
 ## 學到的事
 
@@ -94,3 +96,4 @@ spend 上限方面，Teams／Enterprise 的 seat allowance 本身就是天花板
 ## 更新紀錄
 
 - 2026-08-26：初版，依五頁官方文件（costs／analytics／model-config／fast-mode／advisor）撰寫。
+- 2026-08-29：依官方文件更新 `/usage` 欄位、model alias/provider drift、fast mode/advisor 可用性與 team analytics/spend 說法。

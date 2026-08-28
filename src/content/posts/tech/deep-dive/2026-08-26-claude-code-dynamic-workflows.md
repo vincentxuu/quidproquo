@@ -7,7 +7,7 @@ tags: [claude-code, dynamic-workflows, orchestration]
 lang: zh-TW
 tldr: "Dynamic workflows 讓 Claude 把多代理編排寫成 JavaScript 腳本、交給 runtime 在背景執行，單次最多 1,000 個 agent、可存成 /<name> 指令重跑。本文拆解觸發方式、儲存流程、codebase audit／大遷移／交叉查證研究三種場景，以及與 Agent Teams 的分工和成本陷阱。"
 description: "Claude Code 的 dynamic workflows 機制解析：腳本怎麼產生、怎麼儲存重跑、適用哪些任務規模，與 subagents 和 Agent Teams 的差別。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 27
@@ -17,13 +17,13 @@ series:
 
 用過 [sub-agents 平行執行](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution)的人大概都撞過同一道牆：叫 Claude 開五個 subagent 掃五個目錄，它做得到；但你想把同樣的掃描每週跑一次、或換個參數再跑一次，就得從頭再指揮一遍。Claude 逐回合決定開幾個 agent、結果落在 context window 裡——整個編排過程沒有留下任何可以重跑的東西。
 
-Dynamic workflows 就是針對這件事設計的。這是 Claude Code v2.1.154 起內建的多代理機制，所有付費方案可用（Pro 要在 `/config` 手動開啟）。
+Dynamic workflows 就是針對這件事設計的。官方文件目前把它列為 Claude Code 的多代理編排方式之一；若你的環境沒有看到 workflow 入口，先檢查 Claude Code 版本、`/config` 與組織層級設定。
 
 ## 一段會自己長出來的編排腳本
 
 Dynamic workflow 的本體是一段 JavaScript：Claude 根據你描述的任務寫出這段腳本，由獨立的 runtime 在背景執行，你的 session 全程保持可用。關鍵差異在於**計畫住在哪裡**——subagent 和 skill 的計畫在 Claude 的 context 裡逐回合決定；workflow 的計畫是程式碼，迴圈、分支、中間結果全部存在腳本變數裡，Claude 的 context 只需要接收最終報告。
 
-官方文件給的判斷標準很直接：「Reach for a workflow when a task needs more agents than one conversation can coordinate, or when you want the orchestration codified as a script you can read and rerun.」
+官方 [dynamic workflows 文件](https://code.claude.com/docs/en/workflows)給的判斷標準很直接：任務大到單一對話不好協調，或你想把編排固化成可讀、可重跑的腳本時，就該考慮 workflow。
 
 腳本長相也樸素。`agent()` 開一個 subagent，`pipeline()` 對清單裡每個項目各跑一個：
 
@@ -51,7 +51,7 @@ return audits.filter(Boolean)
 產生 workflow 有兩條路：
 
 - **在 prompt 加關鍵字 `ultracode`**，例如 `ultracode: audit every API endpoint under src/routes/ for missing auth checks`。用自然語言說「use a workflow」效果相同。誤觸按 `Option+W` 取消，或在 `/config` 關掉關鍵字觸發。
-- **`/effort ultracode`**：讓 Claude 在整個 session 自動判斷哪些任務值得開 workflow，不用每次明講。代價是每個任務都吃更多 token、跑更久，例行工作記得切回 `/effort high`。
+- **`/effort ultracode`**：在支援的 Claude Code 版本與模型上，讓 Claude 在整個 session 自動判斷哪些任務值得開 workflow，不用每次明講。代價是每個任務都吃更多 token、跑更久，例行工作記得切回 `/effort high`。
 
 workflow 在背景跑，輸入 `/workflows` 可以看每個階段的 agent 數量、token 用量和耗時，也能中途暫停、停掉單一 agent 或整個 run。第一次啟動時 Claude Code 會秀出計畫中的階段列表問你要不要執行，`Ctrl+G` 能先打開原始腳本看過再決定。
 
@@ -75,7 +75,7 @@ workflow 在背景跑，輸入 `/workflows` 可以看每個階段的 agent 數�
 
 限制都寫在文件上：腳本本身不能讀檔案、跑 shell、載入模組（有 `import()` 直接拒跑），真正動手的是 agent；單一 run 最多 1,000 個 agent、同時最多 16 個並行；中途不接受使用者輸入，階段之間需要簽核就把每個階段拆成獨立 workflow。恢復執行只在同一個 session 內有效——重播遵循啟動順序，停在第一個沒跑完的 agent，之後就算已完成的也要重跑，所以「很多小 agent」的腳本比「一個大 agent」更保得住進度。
 
-成本是真正的門檻。多代理 run 的 token 消耗可能遠高於對話式解法，而且照常計入方案用量上限。實際操作上有三個把手：先在小範圍試跑估花費；超過 25 個 agent 或預估 token 破 150 萬時，進度列會出現 `Large workflow` 警告（僅提醒，不會擋）；`/config` 的 size guideline 可設 small（5 個以內）、medium（15 個以內，預設）、large（50 個以內）。另外 fan-out 的 agent 共享 prompt cache，第一批回應開始後其他 agent 才釋出，省下重複處理系統提示詞的成本。
+成本是真正的門檻。多代理 run 的 token 消耗可能遠高於對話式解法，而且照常計入方案用量上限。實際操作上有三個把手：先在小範圍試跑估花費；超過 25 個 agent 或預估 token 破 150 萬時，進度列會出現 `Large workflow` 警告（僅提醒，不會擋）；`/config` 的 size guideline 可設 small（5 個以內）、medium（15 個以內，v2.1.219 之後的預設）、large（50 個以內）。另外 [fan-out agent 會共用 prompt cache](https://code.claude.com/docs/en/prompt-caching)，第一批回應開始後其他 agent 才釋出，省下重複處理系統提示詞的成本。
 
 ## 為什麼值得注意
 
@@ -84,7 +84,9 @@ workflow 在背景跑，輸入 `/workflows` 可以看每個階段的 agent 數�
 ## 參考資料
 
 - [Orchestrate subagents at scale with dynamic workflows — Claude Code Docs](https://code.claude.com/docs/en/workflows) — 觸發方式、腳本結構、執行限制與成本控制的官方說明，本文主要依據
+- [Run agents in parallel — Claude Code Docs](https://code.claude.com/docs/en/agents) — subagents、agent view、Agent Teams、dynamic workflows 的官方分工表
+- [How Claude Code uses prompt caching — Claude Code Docs](https://code.claude.com/docs/en/prompt-caching) — prompt cache 的基本機制與成本背景
 
 ## 更新紀錄
 
-- 2026-08-26：初版，依 2026-08 官方文件撰寫（v2.1.154+，Pro 於 `/config` 開啟）。
+- 2026-08-26：初版，依 2026-08 官方文件撰寫。

@@ -7,7 +7,7 @@ tags: [claude-code, sub-agent, ai-agent, dx]
 lang: en
 tldr: "Sub-agents are specialized assistants that work in their own context window: a single Markdown file defines their system prompt, tools, and model. Claude delegates automatically based on the description field, or you can @-mention to force one. This post breaks down the frontmatter schema, background execution and nested spawning, permission inheritance rules, and when not to use them."
 description: "A deep dive into Claude Code's sub-agent mechanism: built-in agent list, custom frontmatter fields, delegation triggers, background execution and three-layer nesting, permission inheritance, and cost considerations — based on the official docs."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 15
@@ -21,7 +21,7 @@ The [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-work
 
 The scarcest resource in an agent session is the context window. Tasks like searching a codebase, fetching documentation, or digging through logs produce large volumes of intermediate output that you'll never reference again — yet it permanently occupies space in the main conversation.
 
-A sub-agent's approach is to throw this kind of work into a **brand-new context window**: it receives its own system prompt plus a task description, reads files and runs commands on its own, and all intermediate output stays in its window. Only the final summary returns to the main conversation. The official context window visualization page puts a concrete number on it: the subagent read 6,100 tokens of file contents, and only a 420-token result came back.
+A sub-agent's approach is to throw this kind of work into a **brand-new context window**: it receives its own system prompt plus a task description, reads files and runs commands on its own, and all intermediate output stays in its window. Only the final summary plus a small metadata trailer returns to the main conversation. The official context window visualization page puts a concrete number on it: the subagent read 6,100 tokens of file contents, and only a 420-token result came back.
 
 Not everything is isolated. On startup, a non-fork subagent loads: its own system prompt, the task message Claude wrote, every level of CLAUDE.md, and a git status snapshot taken at the start of the parent session. The built-in Explore and Plan agents are the exception — for fast, cheap research, both skip CLAUDE.md and git status. If a rule must reach Explore (say, "ignore the vendor/ directory"), restate it in the delegation prompt. Pair this with [context window management](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management) for the bigger picture.
 
@@ -63,6 +63,8 @@ Only `name` and `description` are required; every other field has a sensible def
 | `background` | Forces background execution |
 | `isolation` | Set to `worktree` to run inside a temporary git worktree instead of your checkout |
 | `skills` / `mcpServers` / `hooks` / `maxTurns` / `effort` | Preloaded skills, scoped MCP servers, lifecycle hooks, turn limit, effort level |
+
+The `memory` field is the subagent's own auto memory scope, not the main conversation's auto memory. A normal non-fork subagent does not load the main conversation's memory; only a fork inherits the parent conversation.
 
 Name conflicts resolve by source priority: managed settings > `--agents` CLI flag > `.claude/agents/` > `~/.claude/agents/` > plugin. Project-level agents should be checked into version control so the whole team shares them.
 
@@ -111,7 +113,10 @@ A sub-agent boils down to one trade: **pay the cost of rebuilding context in exc
 
 - [Create custom subagents — Claude Code Docs](https://code.claude.com/docs/en/sub-agents) — Primary source for this post: frontmatter schema, built-in agent list, background execution and nesting rules, permission inheritance, persistent memory
 - [Explore the context window — Claude Code Docs](https://code.claude.com/docs/en/context-window) — Interactive simulation of subagent isolation (6,100 tokens read vs. 420 returned) and a breakdown of context consumption
+- [How Claude remembers your project — Claude Code Docs](https://code.claude.com/docs/en/memory) — CLAUDE.md, auto memory, subagent memory, and the fork exception
+- [Configure permissions — Claude Code Docs](https://code.claude.com/docs/en/permissions) — Permission modes, auto mode, bypass/managed settings, and tool approval rules
 
 ## Changelog
 
+- 2026-08-29: Checked against the official sub-agents, context-window, memory, and permissions docs; clarified the metadata trailer and subagent memory scope.
 - 2026-08-26: Initial version, written against the August 2026 official docs (Explore now inherits the main conversation's model, `/agents` wizard removed, subagents run in the background by default and nest up to three layers).

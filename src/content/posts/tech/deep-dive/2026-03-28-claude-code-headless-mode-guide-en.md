@@ -3,11 +3,11 @@ title: "Headless and the Agent SDK: From claude -p to Programmatic Agents"
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, headless, agent-sdk, cli, automation, scripting]
+tags: [claude-code, headless, agent-sdk, cli, ci]
 lang: en
-tldr: "claude -p turns Claude Code from an interactive terminal session into a command you can embed in scripts and CI: pipe data in, get structured JSON out with --output-format json, skip all auto-loading with --bare. This post focuses on CLI usage, then covers the four signals that mean it's time to switch to the Python or TypeScript Agent SDK."
+tldr: "claude -p turns Claude Code from an interactive terminal session into a command you can embed in scripts and CI: pipe data in, get structured JSON out with --output-format json, and skip most auto-discovery with --bare. This post focuses on CLI usage, then covers the four signals that mean it's time to switch to the Python or TypeScript Agent SDK."
 description: "A deep dive into Claude Code headless mode: claude -p basics, the three output formats (text/json/stream-json), --bare and common flag combinations, CI usage, and when to graduate from CLI to the Agent SDK."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 18
@@ -25,7 +25,7 @@ The difference is the interface, not the capability. `claude -p "prompt"` runs a
 
 Two behavioral differences matter:
 
-- **Permission defaults to Manual.** A `-p` session never shows permission prompts, and the built-in starting permission mode is Manual on every plan, so unapproved actions are simply blocked. To let it act freely you must authorize explicitly via `--allowedTools` or `--permission-mode`.
+- **Permission for `-p` still defaults to Manual.** Interactive sessions may now start in auto mode on Pro, Max, and Team plans, but `claude -p` and Agent SDK sessions still use Manual as the built-in starting mode (the config value is `default`). A `-p` session never shows permission prompts, so unapproved actions are simply blocked. To let it act freely you must authorize explicitly via `--allowedTools` or `--permission-mode`.
 - **It won't load things you didn't ask for** — if you tell it not to. That's `--bare`, next section.
 
 ## Basic usage and output formats
@@ -81,13 +81,13 @@ claude -p "Write a poem" --output-format stream-json --verbose --include-partial
 
 ## Common flag combinations
 
-**`--bare`: the recommended mode for scripts and CI.** A regular `-p` run loads hooks, skills, custom commands, subagents, plugins, MCP servers, auto memory, and CLAUDE.md exactly like an interactive session would. On your own machine that's a feature; on a CI runner it's an uncontrolled variable. `--bare` skips all of it, starts faster, and behaves identically on every machine:
+**`--bare`: the recommended mode for scripts and CI.** A regular `-p` run loads hooks, skills, custom commands, subagents, plugins, MCP servers, auto memory, and CLAUDE.md exactly like an interactive session would. On your own machine that's a feature; on a CI runner it's an uncontrolled variable. `--bare` skips that auto-discovery, starts faster, and behaves identically on every machine:
 
 ```bash
 claude --bare -p "Summarize README.md" --allowedTools "Read"
 ```
 
-The tradeoff is supplying context yourself: system prompt additions via `--append-system-prompt`, settings via `--settings`, MCP servers via `--mcp-config`, subagents via `--agents <json>`. Bare mode also skips OAuth login entirely — set `ANTHROPIC_API_KEY`. The docs are explicit: `--bare` is the recommended mode for scripted and SDK calls and will become the default for `-p` in a future release.
+The tradeoff is supplying context yourself: system prompt additions via `--append-system-prompt`, settings via `--settings`, MCP servers via `--mcp-config`, subagents via `--agents <json>`. There is one exception for directories passed with `--add-dir`: bare mode still loads that directory's `.claude/skills/`, but not its commands or agents. Bare mode also is not "no tools"; Claude still has Bash, file read, and file edit tools, just without your local configuration auto-loaded. It skips OAuth login and the system keychain entirely, so Anthropic API usage needs `ANTHROPIC_API_KEY`; Bedrock, Google Cloud's Agent Platform, and Microsoft Foundry keep using their own provider credentials. The docs are explicit: `--bare` is the recommended mode for scripted and SDK calls and will become the default for `-p` in a future release.
 
 **`--allowedTools`: precise authorization.** Let specific tools run without prompting, using rule syntax with prefix matching — `Bash(git diff *)` allows any command starting with `git diff` (the space before the asterisk is part of the syntax):
 
@@ -111,7 +111,7 @@ session_id=$(claude -p "Start a review" --output-format json | jq -r '.session_i
 claude -p "Continue that review" --resume "$session_id"
 ```
 
-`--continue` picks up the most recent conversation, `--resume` takes a session ID, and since v2.1.223 both commands can run from different directories. This already brushes against "multi-turn state management" — more on that below.
+In print mode, `claude -p --continue` picks up the most recent resumable `-p` / SDK / `/loop` conversation, `--resume` takes a session ID, and since v2.1.223 both commands can run from different directories. This already brushes against "multi-turn state management" — more on that below.
 
 ## Into scripts and CI
 
@@ -127,16 +127,16 @@ Put together, headless's natural home is build scripts and CI pipelines. The doc
 
 Piping the diff instead of letting Claude run git itself removes even the Bash permission requirement. Full GitHub Actions integration — including `claude setup-token` for long-lived tokens and annotations written back to the PR — is covered in [the GitHub Actions post](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions); scheduled runs (cron + `claude -p`) are covered in [the scheduled-tasks guide](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide).
 
-A few CI-specific details: a run killed by SIGTERM exits with code 143 and records no result for the turn in progress — watch for this if your process supervisor judges success by exit code. Background Bash tasks started during the run (dev servers, watch builds) are terminated about five seconds after the result returns. And the `mcp_server_errors` / `plugin_errors` fields in the `system/init` event let CI fail loudly when a server never actually loaded.
+A few CI-specific details: a run killed by SIGTERM exits with code 143 and records no result for the turn in progress — watch for this if your process supervisor judges success by exit code. Background Bash tasks started during the run (dev servers, watch builds) are terminated about five seconds after the result returns. Background subagents and workflows are waited on because they contribute to the final result; since v2.1.182 that wait is capped at ten minutes by default and can be adjusted with `CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS`. When `--mcp-config` is used with `-p`, v2.1.221 and later wait for pending MCP servers before the first turn, up to the 30-second `MCP_TIMEOUT` default. And the `mcp_server_errors` / `plugin_errors` fields in the `system/init` event let CI fail loudly when a server never actually loaded.
 
 ## When to leave the CLI for the Agent SDK
 
 The CLI does more than most people assume — don't rush the upgrade. But the official docs draw a clear line: the SDK ships only as Python and TypeScript packages, and for other languages the recommended way to drive the same agent loop is running the CLI as a subprocess. Conversely, if your host environment happens to be Python or TypeScript, four signals say it's time:
 
 1. **Multi-turn session management.** `--resume` plus shell variables survives two or three turns; maintaining hundreds of long-lived sessions in an application, with forking and resumption on demand, is what the SDK's Sessions API was designed for.
-2. **Real-time streaming.** The CLI's `stream-json` means "you parse NDJSON yourself"; the SDK provides native callbacks and message objects, so token events flow straight into your program.
-3. **Type-safe structured output.** `--json-schema` returns JSON you parse and validate yourself; the SDK returns native objects with full types under TypeScript.
-4. **In-process custom tools and hooks.** Attaching your own callback to tool approval, or registering your own functions as tools the loop calls directly, are first-class in the SDK; from the CLI you can only approximate them from outside with `--mcp-config` and `--agents <json>`.
+2. **Real-time streaming.** The CLI's `stream-json` means "you parse NDJSON yourself"; the SDK yields native message and event objects. You still extract `text_delta`, but you do not have to reconstruct session state from a plain-text pipe.
+3. **Type-safe structured output.** `--json-schema` returns JSON you parse and validate yourself; the SDK can define schemas with Zod in TypeScript or Pydantic in Python and return validated data through `structured_output`.
+4. **In-process custom tools and hooks.** Attaching your own `canUseTool` callback to tool approval, or wrapping your own functions with `tool()` / `@tool` as an in-process MCP server, are first-class in the SDK; from the CLI you can only approximate them from outside with `--mcp-config`, `--agents <json>`, or external processes.
 
 One-sentence heuristic: **if a script consumes the result, stay on the CLI; if your code hosts the agent, move to the SDK.**
 
@@ -153,7 +153,11 @@ The Agent SDK could fill its own series, so this post stops here. To dig further
 - [Run Claude Code programmatically (Headless) — Claude Code Docs](https://code.claude.com/docs/en/headless) — Official home of `claude -p`: basic usage, bare mode, structured output, streaming, continue conversations, SIGTERM behavior
 - [CLI reference — Claude Code Docs](https://code.claude.com/docs/en/cli-reference) — Complete list of `-p`-related flags: `--output-format`, `--json-schema`, `--max-turns`, `--include-partial-messages`, `--input-format`, and more
 - [Agent SDK overview — Claude Code Docs](https://code.claude.com/docs/en/agent-sdk/overview) — SDK positioning, comparison with CLI / Client SDK / Managed Agents, and the official recommendation to drive the CLI via subprocess from other languages
+- [Agent SDK sessions — Claude Code Docs](https://code.claude.com/docs/en/agent-sdk/sessions) — Official guide to SDK multi-turn sessions, resume / fork behavior, and cross-host session storage
+- [Agent SDK structured outputs — Claude Code Docs](https://code.claude.com/docs/en/agent-sdk/structured-outputs) — JSON Schema, Zod, Pydantic, and `structured_output` behavior
+- [Agent SDK custom tools — Claude Code Docs](https://code.claude.com/docs/en/agent-sdk/custom-tools) — `tool()` / `@tool`, in-process MCP servers, and custom tool result shapes
 
 ## Update Log
 
 - 2026-08-26: Initial version, based on August 2026 official documentation (headless, cli-reference, agent-sdk overview).
+- 2026-08-29: Checked against current official headless, permission modes, Agent SDK sessions / structured outputs / custom tools docs; clarified `--bare` exceptions, `-p` permission defaults, and SDK wording.

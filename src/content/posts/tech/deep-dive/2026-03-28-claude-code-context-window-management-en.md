@@ -1,13 +1,13 @@
 ---
-title: "How to manage Claude Code's context window: startup loading order, per-feature costs, and the compaction trio"
+title: "How to manage Claude Code's context window: startup content, per-feature costs, and the compaction trio"
 date: 2026-03-28
 type: deep-dive
 category: tech
 tags: [claude-code, context-window, compaction, token]
 lang: en
-tldr: "Claude Code loads the system prompt, MEMORY.md, CLAUDE.md, MCP tool names, and skill descriptions before you type your first word. This post breaks down the startup loading sequence, what each of six extension features costs in context, and how to control auto-compaction with /compact, /autocompact, and autoCompactWindow."
+tldr: "Claude Code loads the system prompt, MEMORY.md, CLAUDE.md, MCP tool names, and skill descriptions before you type your first word. This post breaks down the startup context, what each of six extension features costs, and how to control auto-compaction with /compact, /autocompact, and autoCompactWindow."
 description: "Claude Code context window management: what loads automatically at session start, how much context CLAUDE.md, skills, MCP, subagents, and hooks each consume, the compaction configuration trio, and remedies for the errors a full window produces."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 10
@@ -25,17 +25,17 @@ In other words, the conversation you watch is just the tip of the iceberg. The f
 
 ## Session start: loaded before you type
 
-After you run `claude`, before your first prompt, the official interactive simulation lists the automatic loading order:
+After you run `claude`, before your first prompt, the official interactive simulation lists a set of content that automatically enters context. Treat this as the practical startup inventory, not a strict sequence that is identical in every environment; output styles, `--append-system-prompt`, external settings, and version differences can change the exact request shape.
 
-| Order | Content | Source |
+| Category | Content | Source |
 |-------|---------|--------|
-| 1 | System prompt | Built into Claude Code; governs behavior, tool use, response format |
-| 2 | Auto memory | Claude's own accumulated notes; first 200 lines or 25KB of `MEMORY.md` |
-| 3 | Environment info | Working directory, platform, shell, git repo status, branch, recent commits |
-| 4 | MCP tool names | Names only, so Claude knows what is available |
-| 5 | Skill descriptions | One line per skill |
-| 6 | User-level CLAUDE.md | `~/.claude/CLAUDE.md`, cross-project preferences |
-| 7 | Project CLAUDE.md | Project root, shared team conventions |
+| System prompt | Built-in Claude Code behavior, tool use, response format; may include output style or appended system prompt |
+| Auto memory | Claude's own accumulated notes; first 200 lines or 25KB of `MEMORY.md` |
+| Environment info | Working directory, platform, shell, git repo status, branch, recent commits |
+| MCP tool names | Names only, so Claude knows what is available |
+| Skill descriptions | Descriptions for model-invocable skills |
+| User-level CLAUDE.md | `~/.claude/CLAUDE.md`, cross-project preferences |
+| Project CLAUDE.md / rules | Project instructions and unscoped rules; path-scoped rules load on demand |
 
 Two details worth remembering. First, full MCP tool schemas are **deferred by default**: tool search is on by default, so Claude normally sees only tool names and pulls in a specific schema when a task needs it. Second, only skill descriptions stay resident; full content loads when a skill is actually used — which means how precisely you write the description determines both the context cost and the trigger accuracy. The layering details of the memory system (what goes at which level, how imports work) are covered in the [dedicated memory post](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide-en).
 
@@ -66,7 +66,7 @@ One counterintuitive warning: subagents **inherit every MCP tool definition** fr
 
 ## When it fills up: the compaction trio
 
-As context nears capacity, Claude Code compacts automatically: the whole conversation is replaced with a structured summary (your requests and intent, key technical concepts, which files changed and how errors were fixed, pending tasks), freeing space to keep working. Three layers control this:
+As context nears capacity, Claude Code compacts automatically: the whole conversation is replaced with a structured summary (your requests and intent, key technical concepts, which files changed and how errors were fixed, pending tasks), freeing space to keep working. The everyday controls have three layers:
 
 **`/compact`** — manual compaction, and it accepts focus instructions. `/compact focus on the auth bug fix` makes the summary keep what you name instead of letting the automatic pass guess what matters. Compacting deliberately before a long new task beats waiting for the automatic trigger.
 
@@ -74,7 +74,9 @@ As context nears capacity, Claude Code compacts automatically: the whole convers
 
 **`CLAUDE_CODE_AUTO_COMPACT_WINDOW`** — an environment variable that takes precedence over both the command and the setting, suited to scripts and cloud environments. The accepted range is **100K to 1M** tokens, written as `500k`, `1M`, or a plain count; a separate `--autocompact` flag overrides a single launch. No matter how high you set it, the window is capped at the model's own context limit.
 
-With nothing set, Claude Code compacts when the conversation reaches the model's context limit. If your problem is a too-small window rather than too-early compaction: Fable 5 and Sonnet 5 support a 1 million token context window — Sonnet 5 runs natively at 1M and compacts at roughly 967K tokens by default.
+If you do not want to compact the whole conversation, Claude Code now also offers `/rewind` with **Summarize from here** and **Summarize up to here**. Treat that as a partial cleanup tool, not part of the auto-compact threshold configuration.
+
+With nothing set, Claude Code compacts as the conversation approaches the model's context limit. If your problem is a too-small window rather than too-early compaction, the current docs list Fable 5, Sonnet 5, Opus 4.6 and later, and Sonnet 4.6 as supporting a 1 million token context window. Sonnet 5 runs natively at 1M; other models may require a `[1m]` variant depending on plan and provider, and default compaction thresholds vary by model.
 
 ### What survives compaction
 
@@ -103,7 +105,7 @@ Context management is fundamentally a balance sheet: the startup autoloads are f
 
 ## References
 
-- [Explore the context window — Claude Code Docs](https://code.claude.com/docs/en/context-window) — Official interactive simulation of the startup loading sequence and per-event token costs, including the compaction survival table and the "When your context fills up" remedy list
+- [Explore the context window — Claude Code Docs](https://code.claude.com/docs/en/context-window) — Official interactive simulation of startup context and per-event token costs, including the compaction survival table and the "When your context fills up" remedy list
 - [Extend Claude Code — Claude Code Docs](https://code.claude.com/docs/en/features-overview) — Context cost comparison across CLAUDE.md, skills, MCP, code intelligence, subagents, and hooks, with loading timing explained
 - [Model configuration — Claude Code Docs](https://code.claude.com/docs/en/model-config) — The three-layer auto-compact window configuration (`/autocompact`, `--autocompact`, `CLAUDE_CODE_AUTO_COMPACT_WINDOW`), the 100K–1M range, and per-model default thresholds
 - [Error reference — Claude Code Docs](https://code.claude.com/docs/en/errors) — Meaning and recovery steps for the `Prompt is too long`, `automatic compaction failed`, and `Conversation too long` context-related errors
@@ -111,3 +113,4 @@ Context management is fundamentally a balance sheet: the startup autoloads are f
 ## Changelog
 
 - 2026-08-26: Initial version, written against the August 2026 official docs (tool search on by default, Sonnet 5 native 1M context, compaction trio verified against the model-config page).
+- 2026-08-29: Updated startup-context wording so the interactive simulation is not presented as a fixed sequence; expanded the 1M-context model list.

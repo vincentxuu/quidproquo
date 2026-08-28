@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, code-review, github, ci]
 lang: zh-TW
-tldr: "GitHub PR 推上去後由一隊 agent 自動審查，平均 20 分鐘、每則約 15–25 美元，findings 以 inline comments 貼在問題行上；改動夠大時用 /code-review ultra 開雲端深審，5–10 分鐘回報每條都經獨立驗證的 bug，單次約 5–25 美元、Pro/Max 有 3 次免費。"
+tldr: "GitHub PR 審查設定好後，由一隊 agent 依 repo 觸發模式審查，平均 20 分鐘、每則約 15–25 美元，findings 以 inline comments 貼在問題行上；改動夠大時用 /code-review ultra 開雲端深審，5–10 分鐘回報每條都經獨立驗證的 bug，單次約 5–25 美元、Pro/Max 有 3 次免費。"
 description: "拆解 Claude Code 的 GitHub PR 審查機制：multi-agent 平行分析與驗證流程、severity 分級、@claude review 觸發方式、REVIEW.md 客製化，以及 /code-review ultra 雲端深審的成本與適用規模。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 20
@@ -79,12 +79,13 @@ Ultrareview 在 Claude Code on the web 的遠端沙盒裡開出一整隊 reviewe
 
 ## 跟 GitHub Actions 自動化的分工
 
-Managed Code Review 管的是「每個 PR 都有人看」這一層；想把 Claude 塞進自己的 workflow——自訂觸發條件、審查之外順便做別的事——那是 [GitHub Actions 篇](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions)的主題，兩者不互斥。
+Managed Code Review 管的是「每個 PR 都有人看」這一層；想把 Claude 塞進自己的 GitHub Actions workflow，用 `anthropics/claude-code-action` 做自訂觸發條件、審查之外順便做別的事，那是 [GitHub Actions 篇](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions)的主題。兩者不互斥，但一個是 Anthropic 代管的 PR review 服務，一個是你 repo 裡的 workflow。
 
 ## 參考資料
 
 - [Code Review — Claude Code Docs](https://code.claude.com/docs/en/code-review) — managed PR 審查的設定、觸發方式、multi-agent 流程、severity 定義、計費與 `/code-review` 本機指令
 - [Find bugs with ultrareview — Claude Code Docs](https://code.claude.com/docs/en/ultrareview) — `/code-review ultra` 雲端深審的運作方式、diff 上限、免費額度與計費、與本機版的比較表
+- [Claude Code GitHub Actions — Claude Code Docs](https://code.claude.com/docs/en/github-actions) — `claude-code-action` workflow、`@claude` mention、自動化模式與 managed Code Review 的分工
 
 ## 更新紀錄
 

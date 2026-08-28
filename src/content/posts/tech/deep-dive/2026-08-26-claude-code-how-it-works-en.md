@@ -7,7 +7,7 @@ tags: [claude-code, agentic-loop, ai-agent, anthropic]
 lang: en
 tldr: "Claude Code runs an agentic loop — gather context, take action, verify results — until the task is done. This entry to the series breaks down its five tool categories, the model/harness split, and the two safety rails: checkpoints and permission modes."
 description: "Series entry point: how the agentic loop works, what tools Claude Code ships with, what it can access, and how checkpoints and permission modes keep it safe."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 1
@@ -19,11 +19,9 @@ This is the entry point to the *Claude Code Deep Dives* series. If you are still
 
 ## A language model that takes action
 
-Start with the difference from a web chatbot. An ordinary chatbot can only reply with text: you paste code, it suggests changes, and you do all the moving between editor and chat. Claude Code is different. The official docs describe it as an **agentic harness** around the Claude model:
+Start with the difference from a web chatbot. An ordinary chatbot can only reply with text: you paste code, it suggests changes, and you do all the moving between editor and chat. Claude Code is different. The official docs position it as an **agentic harness** around the Claude model: a layer that provides tools, manages context, and maintains the execution environment so a language model can act as a coding agent.
 
-> Claude Code serves as the agentic harness around Claude: it provides the tools, context management, and execution environment that turn a language model into a capable coding agent.
-
-The harness does three things: provide tools, manage context, and maintain the execution environment. So when you type "fix the failing tests" in your terminal, it does not reply with "you could try..." — it actually runs the tests, reads the errors, finds the source files, edits them, and runs the tests again to confirm.
+So when you type "fix the failing tests" in your terminal, it does not reply with "you could try..." — it actually runs the tests, reads the errors, finds the source files, edits them, and runs the tests again to confirm.
 
 ## The agentic loop: three phases
 
@@ -80,11 +78,11 @@ Before letting an agent loose on your code, know how to pull control back.
 
 **First rail: checkpoints.** Before editing a file, Claude snapshots the current contents. If something goes wrong, press `Esc` twice to rewind, or just ask Claude to undo. Checkpoints are separate from git and survive a session resume. Know the limits: they only cover file changes — side effects from bash commands, databases, APIs, and deployments are not checkpointed. Those rely on the second rail.
 
-**Second rail: permission modes.** Cycle through them with `Shift+Tab` to control how much Claude can do without asking:
+**Second rail: permission modes.** Cycle through them with `Shift+Tab` to control how much Claude can do without asking. These are the four modes you encounter most often in interactive coding sessions; the full list also includes `dontAsk` and `bypassPermissions`, which belong in the dedicated permissions post.
 
 | Mode | Behavior |
 |------|----------|
-| Auto | A background classifier reviews most actions and blocks risky ones; the default for interactive sessions on Pro, Max, and Team plans |
+| Auto | A background classifier reviews most actions and blocks risky ones; when available and not disabled by settings, it is the built-in starting mode for interactive sessions on Pro, Max, and Team plans |
 | Manual | Claude asks before file edits and shell commands |
 | Accept edits | Edits files and runs common filesystem commands without asking; other commands still prompt |
 | Plan | Explores and proposes a plan without touching source files |
@@ -115,6 +113,8 @@ Every Claude Code feature reduces to one sentence: **the model runs a loop over 
 
 - [How Claude Code works — Claude Code Docs](https://code.claude.com/docs/en/how-claude-code-works) — official description of the agentic loop phases, harness positioning, access scope, checkpoints, and permission modes
 - [Tools reference — Claude Code Docs](https://code.claude.com/docs/en/tools-reference) — complete built-in tool list, permission requirements, auto mode defaults
+- [Checkpointing — Claude Code Docs](https://code.claude.com/docs/en/checkpointing) — checkpoint timing, the rewind menu, limitations, and retention rules
+- [Choose a permission mode — Claude Code Docs](https://code.claude.com/docs/en/permission-modes) — complete permission mode list, starting-mode rules, and `Shift+Tab` switching
 - [Explore the .claude directory — Claude Code Docs](https://code.claude.com/docs/en/claude-directory) — auto memory loading rules and session data storage
 - [Claude Code docs index (llms.txt)](https://code.claude.com/docs/llms.txt) — official documentation index used to scope this series
 

@@ -3,11 +3,11 @@ title: "Claude Code in CI/CD: @claude on GitHub Actions and the GitLab MR Flow"
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, github-actions, gitlab-ci, ci-cd, ai-agent, automation, dx]
+tags: [claude-code, github-actions, gitlab-ci, ci-cd, ai-agent, dx]
 lang: en
-tldr: "Put Claude Code into GitHub Actions with anthropics/claude-code-action: /install-github-app sets everything up in one command, @claude in a PR or issue comment gets bugs fixed and issues turned into PRs; Bedrock/Vertex/Foundry backends switch via one input with OIDC and no stored keys; the GitLab CI/CD integration (beta) mirrors it as a single .gitlab-ci.yml job where every change flows through a merge request."
+tldr: "Put Claude Code into GitHub Actions with anthropics/claude-code-action: /install-github-app sets everything up in one command, @claude in a PR or issue comment gets bugs fixed, branches pushed, and PR creation links returned; Bedrock/Vertex/Foundry backends switch via one input with OIDC and no stored keys; the GitLab CI/CD integration (beta) mirrors it as a single .gitlab-ci.yml job where every change flows through a merge request."
 description: "How to integrate Claude Code with GitHub Actions and GitLab CI/CD: installation paths, @claude trigger syntax, workflow YAML examples, switching to AWS Bedrock / Google Cloud Agent Platform / Microsoft Foundry backends, plus API key management and permission scoping."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 19
@@ -15,7 +15,7 @@ series:
 
 > 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions)
 
-[The previous post in this series](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide) covered headless mode: the `-p` flag that runs Claude Code without the interactive UI, exiting when done. CI integration is that capability wired to triggers — GitHub Actions and GitLab CI/CD are the two paths the official docs explicitly support. This post covers how to install it, how to trigger it, and how to swap cloud backends in enterprise environments.
+[The previous post in this series](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide) covered headless mode: the `-p` flag that runs Claude Code without the interactive UI, exiting when done. CI integration is that capability wired to triggers: GitHub Actions and GitLab CI/CD are the two paths the official docs explicitly support. This post covers how to install it, how to trigger it, and how to swap cloud backends in enterprise environments.
 
 ## Running an agent in CI vs. running it locally
 
@@ -43,11 +43,11 @@ The official examples of what interactive mode can do:
 @claude how should I implement user authentication for this endpoint?
 ```
 
-The third asks a question without touching code; the first turns an issue into a working PR directly — Claude reports progress in a comment on the same issue or PR. Separately, Anthropic also ships a Code Review product line that reviews every PR automatically without any workflow file; that belongs to another post in this series, so I won't expand on it here.
+The third asks a question without touching code; the first has Claude push a change branch and return the PR creation entry point. Claude reports progress in a comment on the same issue or PR. Separately, Anthropic also ships a Code Review product line that reviews every PR automatically without any workflow file; that belongs to another post in this series, so I won't expand on it here.
 
 ## A minimal workflow example
 
-The minimal setup for responding to `@claude` mentions, straight from the official docs:
+The minimal setup for responding to `@claude` mentions, taken from the official docs' minimal example:
 
 ```yaml
 name: Claude Code
@@ -91,7 +91,7 @@ All three share one design: OIDC identity federation instead of static keys. The
 
 ## GitLab CI/CD: the same job through merge requests
 
-GitLab has no app to install; the official integration (beta, maintained by GitLab) is built on the CLI and Agent SDK as a CI job: add a job to `.gitlab-ci.yml`, install the CLI in `before_script` with `curl -fsSL https://claude.ai/install.sh | bash`, then run:
+GitLab has no app to install; the official integration (beta) is built on the CLI and Agent SDK as a CI job: add a job to `.gitlab-ci.yml`, install the CLI in `before_script` with `curl -fsSL https://claude.ai/install.sh | bash`, add `$HOME/.local/bin` back to `PATH`, then run:
 
 ```yaml
 - >
@@ -105,7 +105,7 @@ Credentials are a masked CI/CD variable holding `ANTHROPIC_API_KEY`. The biggest
 
 ## Security notes
 
-- **Keys live only in secrets**: API keys and OAuth tokens go into GitHub Secrets or GitLab masked variables — the official warning is blunt: never commit them.
+- **Keys live only in secrets**: GitHub API keys and OAuth tokens go into GitHub Secrets; GitLab's `ANTHROPIC_API_KEY` goes into a masked CI/CD variable. The official warning is blunt: never commit them.
 - **Least privilege**: the official Claude GitHub App's permission set covers every Claude feature (read-write on Actions, Checks, Discussions, and more); if you only run the Claude Code Action, create a custom GitHub App scoped to Contents, Issues, and Pull requests.
 - **Trust boundaries**: write-access and bot checks are built in, but fork PRs on public repos receive no secrets, and for comment-triggered runs you may still want to verify the commenter's access before any credential step.
 - **Humans stay in the loop**: commits Claude pushes go through your normal CI and review flow — read the diff before merging.
@@ -113,13 +113,17 @@ Credentials are a masked CI/CD variable holding `ANTHROPIC_API_KEY`. The biggest
 
 ## What I learned
 
-Running Claude Code in CI is headless mode wired into a version-control platform's event system: on GitHub, a `@claude` mention is the trigger and issues grow into PRs; on GitLab, everything converges on the merge request. Only two principles are shared across both — hand keys to the platform's secret mechanism, and leave changes to human review.
+Running Claude Code in CI is headless mode wired into a version-control platform's event system: on GitHub, a `@claude` mention is the trigger and changes land as branches plus PR creation flow; on GitLab, everything converges on the merge request. Only two principles are shared across both: hand keys to the platform's secret mechanism, and leave changes to human review.
 
 ## References
 
 - [Claude Code GitHub Actions — Claude Code Docs](https://code.claude.com/docs/en/github-actions) — official coverage of setup paths, interactive/automation modes, action parameters, trigger checks, and cost management
 - [Use Claude Code GitHub Actions with cloud providers — Claude Code Docs](https://code.claude.com/docs/en/github-actions-cloud-providers) — OIDC configuration, secrets table, and full workflow examples for the Bedrock / Agent Platform / Foundry backends
 - [Claude Code GitLab CI/CD — Claude Code Docs](https://code.claude.com/docs/en/gitlab-ci-cd) — job syntax for the GitLab beta integration, the `AI_FLOW_*` trigger mechanism, and Bedrock/Vertex configuration examples
+- [claude-code-action examples/claude.yml](https://github.com/anthropics/claude-code-action/blob/main/examples/claude.yml) — example workflow for GitHub Action interactive mode
+- [claude-code-action usage reference](https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md) — Action inputs, trigger phrase, `claude_args`, and v1 migration mapping
+- [claude-code-action security guide](https://github.com/anthropics/claude-code-action/blob/main/docs/security.md) — actor checks, default PR creation behavior, fork/pull_request_target risks, and secret handling
+- [claude-code-action setup guide](https://github.com/anthropics/claude-code-action/blob/main/docs/setup.md) — manual setup, GitHub Secrets, custom GitHub App, and workload identity federation
 
 ## Update log
 

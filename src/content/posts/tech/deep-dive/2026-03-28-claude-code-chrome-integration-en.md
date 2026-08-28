@@ -3,11 +3,11 @@ title: "How Claude Code Sees Your Browser: Chrome Integration, Console Debugging
 date: 2026-03-28
 type: deep-dive
 category: tech
-tags: [claude-code, chrome, browser-automation, frontend, testing]
+tags: [claude-code, chrome, browser-automation, mcp, devtools]
 lang: en
-tldr: "Claude Code gains browser control through the Claude in Chrome extension: read console logs and DOM state, click, type, upload files, record GIFs, and operate sites you're already signed into. Chrome and Edge are officially supported; Brave, Arc, Vivaldi, and Opera connect via automatic extension detection."
+tldr: "Claude Code gains browser control through the Claude in Chrome extension: read console logs and DOM state, click, type, upload files, record GIFs, and operate sites you're already signed into. The official prerequisites list Chrome, Edge, and Chromium-based browsers such as Brave, Arc, Vivaldi, and Opera, but WSL is not supported."
 description: "A deep dive into Claude Code's Chrome integration: extension setup and browser detection scope, typical workflows for testing web apps, debugging with console logs, form filling, and data extraction, plus the permission model and limitations."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 28
@@ -29,7 +29,7 @@ claude --chrome        # pass the flag when starting a session
 
 Or run `/chrome` within a session to enable it, check connection status, manage permissions, or reconnect the extension. To skip the flag entirely, select "Enabled by default" from the `/chrome` panel. Conversely, if you ask Claude to use your browser in an interactive session but it can't detect the extension, it shows a "Claude wants to use your browser" install prompt that walks you through installation and connects within the same session.
 
-**Browser detection scope** is worth memorizing: Google Chrome and Microsoft Edge are officially supported; other Chromium-based browsers (Brave, Arc, Vivaldi, Opera) connect automatically as long as the extension is detected. WSL is not supported at all. One easy-to-miss requirement: the integration needs a direct Anthropic subscription (Pro, Max, Team, or Enterprise) with `/login` authentication — if you authenticate with an API key or a long-lived token from `claude setup-token`, the integration stays off even with `--chrome`, because the extension can't authenticate with those credentials.
+**Browser detection scope** is worth memorizing: the Claude Code docs list Google Chrome, Microsoft Edge, and Chromium-based browsers such as Brave, Arc, Vivaldi, and Opera as prerequisites; when more than one browser is connected, the `/chrome` panel lets you choose which one Claude uses. WSL is not supported at all. One easy-to-miss requirement: the integration needs a direct Anthropic subscription (Pro, Max, Team, or Enterprise) with `/login` authentication — if you authenticate with an API key or a long-lived token from `claude setup-token`, the integration stays off even with `--chrome`, because the extension can't authenticate with those credentials.
 
 ## Typical Workflows
 
@@ -65,7 +65,7 @@ Two safety details are easy to miss. First, tabs Claude opens are collected into
 
 As a checklist:
 
-- **Browsers**: Chrome and Edge officially supported; Chromium-based browsers rely on extension detection; Firefox and Safari are out of scope, and WSL isn't supported.
+- **Browsers**: the Claude Code docs list Chrome, Edge, and other Chromium-based browsers; Firefox, Safari, and mobile browsers are out of scope, and WSL isn't supported.
 - **Authentication**: direct Anthropic subscriptions via `/login` only; API keys, setup tokens, and third-party providers like Amazon Bedrock don't work.
 - **Context cost**: "Enabled by default" keeps browser tools loaded at all times, increasing context consumption; the docs suggest falling back to on-demand `--chrome` if you notice usage climbing.
 - **Stability**: during long sessions the extension's service worker can idle out and drop the connection — `/chrome` reconnects; JavaScript alert/confirm dialogs block browser events, and Claude won't receive commands until you dismiss them manually.
@@ -79,7 +79,9 @@ Chrome integration isn't new magic — it adds a set of browser tools to the age
 - [Use Claude Code with Chrome — Claude Code Docs](https://code.claude.com/docs/en/chrome) — Official documentation: setup and connection, browser support scope, capability list, plan mode permission split, and troubleshooting; the primary basis for this post
 - [Claude — Chrome Web Store](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn) — Extension listing: version info, permission explanations, and prompt injection safety guidance
 - [Get started with Claude in Chrome — Anthropic Help Center](https://support.claude.com/en/articles/12012173-getting-started-with-claude-in-chrome) — Full extension documentation: differences across surfaces (side panel, Cowork, Claude Code) and itemized permission explanations
+- [Claude in Chrome permissions guide — Anthropic Help Center](https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide) — Permission modes, site permissions, sensitive actions, and prohibited actions
 
 ## Update Log
 
 - 2026-08-26: Initial full draft, rewritten from current official documentation; all legacy reference links replaced with the current docs domain.
+- 2026-08-29: Updated browser-support wording against the official Chrome integration docs to avoid preserving old beta-era phrasing.

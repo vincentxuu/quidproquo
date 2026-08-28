@@ -7,7 +7,7 @@ tags: [claude-code, agent-teams, multi-agent, parallel-execution, ai-agent, dx]
 lang: zh-TW
 tldr: "Agent Teams 讓多個完整的 Claude Code session 組成一個團隊：Team Lead 分配工作，teammates 各自擁有獨立 context window，靠點對點傳訊和共享任務清單自我協調。本文講它跟 sub-agent 的三個關鍵差別、teammateMode 兩種顯示模式的取捨，以及 token 成本隨人數線性上升這件事。"
 description: "深入介紹 Claude Code 的 Agent Teams：啟用方式、Team Lead 與 Teammates 的分工、SendMessage 點對點傳訊、任務板的建立與認領、teammateMode 顯示模式設定，以及適用場景與成本限制。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 25
@@ -26,12 +26,12 @@ Sub-agent 是「派工後收報告」：主對話開一個新的 context window�
 | | Sub-agents | Agent Teams |
 |---|---|---|
 | Context | 獨立，結果回傳給呼叫者 | 獨立，完全自主 |
-| 溝通 | 只能回報給主代理 | Teammates 之間直接互傳訊息 |
+| 溝通 | 回報給呼叫者；Claude 命名的 subagent 也能互傳訊息 | Teammates 之間直接互傳訊息 |
 | 協調 | 主代理管理所有工作 | 共享任務清單，自我協調 |
 | 適合 | 只在乎結果的專注任務 | 需要討論與協作的複雜工作 |
 | Token 成本 | 較低（結果摘要回主 context） | 較高（每個 teammate 都是獨立 instance） |
 
-歸納成三句話：teammates 互相傳訊、共享任務板、你可以跳過 lead 直接跟任何一個 teammate 對話。這三件事 sub-agent 都做不到。
+歸納成三句話：Agent Teams 把長期共存的 teammates、共享任務板、以及你直接切進任一 teammate 對話這三件事包成一個協作模式。互傳訊息本身已不再是 Agent Teams 獨有，差別在它和任務板、lead 協調一起運作。
 
 ## 怎麼開一個 Team
 
@@ -71,7 +71,7 @@ Claude 會填共享任務清單、逐一 spawn teammates、等大家做完再彙
 
 資料都放在本機：team config 在 `~/.claude/teams/{team-name}/config.json`，任務在 `~/.claude/tasks/{team-name}/`。team 名稱由 session ID 衍生（`session-` 加前八碼），session 結束時 config 自動清除，任務清單則保留，讓 resume 之後的 session 還接得上。
 
-分工的核心原則：**你對 lead 下指令，lead 對 teammates 下指令**。複雜或有風險的任務可以加一道 plan approval——要求 teammate 先待在唯讀 plan mode 提出計畫，lead 審核通過才開始實作。Lead 會自主判斷要不要批准，想影響它的標準就把條件寫進你的 prompt，例如「只批准包含測試覆蓋的計畫」。
+分工的核心原則：**你對 lead 下指令，lead 對 teammates 下指令**。複雜或有風險的任務可以加一道 plan approval——要求 teammate 先待在唯讀 plan mode 提出計畫，等 lead session 批准後才開始實作。這裡不要誤會成有人替你審稿：官方文件寫明 approval request 到 lead session 後會直接批准，不會另行審核；真正的保護仍是後續 edit 和 command 的 permission prompts。
 
 權限方面，teammates 繼承 lead 的 permission settings，spawn 之後可以個別調整，但不能在 spawn 當下分別指定；teammate 的權限提示會浮到 lead session 由你處理。
 
@@ -96,16 +96,16 @@ Teammates 之間用 [`SendMessage`](https://code.claude.com/docs/en/tools-refere
 
 認領用 file locking，避免兩個 teammate 同時搶同一個任務。想掛品質閘門就用 hooks：`TeammateIdle`（teammate 快要閒置時）、`TaskCreated`、`TaskCompleted` 三個事件，exit code 2 都能擋下並回饋意見。
 
-操作面上，按 `Ctrl+T` 切換任務清單顯示；agent panel 用**上下方向鍵選取 teammate，Enter 打開 transcript 並直接傳訊**，Esc 中斷該 teammate 目前的回合。
+操作面上，按 `Ctrl+T` 切換任務清單顯示；agent panel 用**上下方向鍵選取 teammate，Enter 打開 transcript 並直接傳訊**，選取後按 `x` 停止 teammate。Esc 先清掉選取；如果你正在看某個 teammate 的 transcript，Esc 會中斷該 teammate 目前的回合。
 
 ## teammateMode：兩種顯示模式
 
 - **In-process**（預設）：所有 teammates 跑在你主終端機裡，靠 agent panel 切換。任何 terminal 都能用，零額外設定。
 - **Split panes**：每個 teammate 一個 pane，一眼看到所有輸出、點進去直接互動。需要 tmux 或 iTerm2。
 
-設定用 `~/.claude/settings.json` 的 `teammateMode`，可選 `"auto"`（已在 tmux session 或 iTerm2 就開分割，否則退回 in-process）、`"in-process"`、`"tmux"`、`"iterm2"`（v2.1.186 起，明確使用 iTerm2 原生分割，需要 `it2` CLI）。注意預設值的演變：v2.1.179 起預設從 `"auto"` 改成 `"in-process"`，舊版習慣開分割的人要自己設回去。單次 session 可以用 `claude --teammate-mode auto` 覆蓋（實驗性 flag，不出現在 `--help`）。
+設定用 `~/.claude/settings.json` 的 `teammateMode`，可選 `"in-process"`、`"auto"`（已在 tmux session 或裝好 `it2` CLI 的 iTerm2 就開分割，否則退回 in-process）、`"tmux"`（啟用 split-pane，並依終端機自動判斷用 tmux 或 iTerm2）、`"iterm2"`（v2.1.186 起，明確使用 iTerm2 原生分割，需要 `it2` CLI）。注意預設值的演變：v2.1.179 起預設從 `"auto"` 改成 `"in-process"`，舊版習慣開分割的人要自己設回去。單次 session 可以用 `claude --teammate-mode auto` 覆蓋（實驗性 flag，不出現在 `--help`）。
 
-檢視 in-process teammate 時，你打的純文字和 skills 會送給那個 teammate，但內建指令仍在 lead session 執行。另外 teammate 的 model 在 spawn 當下就固定了——`/model` 和 `/fast` 只改 lead 的設定。
+檢視 in-process teammate 時，你打的純文字和 skills 會送給那個 teammate，但內建指令仍在 lead session 執行。另外 teammate 的 model 和 fast mode 在 spawn 當下就固定了——`/model` 和 `/fast` 只改 lead 的設定；`/effort` 則會套用到目前檢視的 teammate 後續回合。
 
 ## 適用場景與成本警告
 
@@ -113,19 +113,22 @@ Teammates 之間用 [`SendMessage`](https://code.claude.com/docs/en/tools-refere
 
 反面清單同樣明確：循序任務、同檔案編輯、依賴關係多的工作，用單一 session 或 subagents 比較有效率。
 
-成本是最現實的剎車：每個 teammate 一個獨立 context window，token 用量隨人數**線性上升**，官方明說比單一 session 貴得多。實務起點是 3 個 teammates、每人 5 到 6 個任務——三個專注的 teammates 通常贏過五個分散的。已知限制也要列入決策：in-process teammates 不支援 `/resume` 和 `/rewind` 還原、任務狀態更新可能延遲、關閉 teammate 可能很慢、一個 session 只能有一個 team、teammates 不能再 spawn 自己的 teammates、lead 固定不可轉移。
+成本是最現實的剎車：每個 teammate 一個獨立 context window，token 用量隨人數**線性上升**，官方明說比單一 session 貴得多。官方建議多數 workflow 先從 3 到 5 個 teammates 起步；如果有 15 個獨立任務，3 個 teammates 通常是合理起點，三個專注的 teammates 常常贏過五個分散的。已知限制也要列入決策：in-process teammates 不支援 `/resume` 和 `/rewind` 還原、任務狀態更新可能延遲、關閉 teammate 可能很慢、一個 session 只能有一個 team、teammates 不能再 spawn 自己的 teammates、lead 固定不可轉移，split-pane 也不支援 VS Code integrated terminal、Windows Terminal 或 Ghostty。
 
 ## 學到的事
 
-Sub-agent 是函式呼叫，agent team 是共事的同事——差別不在「能不能平行」（兩者都能），而在溝通拓撲和生命週期：teammates 長期共存、點對點互傳訊息、共享任務板自我協調。代價是 token 成本線性上升加上實驗期的不穩定。我的建議：先用 review 或 research 這類邊界清楚的任務試一次團隊運作，確認協調收益真的超過成本，再把寫 code 的分工交給它。
+Sub-agent 是函式呼叫，agent team 是共事的同事——差別不在「能不能平行」（兩者都能），而在協調方式和生命週期：teammates 長期共存、可以被你直接切入對話、並靠共享任務板自我協調。代價是 token 成本線性上升加上實驗期的不穩定。我的建議：先用 review 或 research 這類邊界清楚的任務試一次團隊運作，確認協調收益真的超過成本，再把寫 code 的分工交給它。
 
 ## 參考資料
 
 - [Orchestrate teams of Claude Code sessions — Claude Code Docs](https://code.claude.com/docs/en/agent-teams) — Agent Teams 官方文件：啟用方式、顯示模式、任務板、mailbox 架構、hooks、限制與 troubleshooting 的第一手來源
 - [Tools reference — Claude Code Docs](https://code.claude.com/docs/en/tools-reference) — `SendMessage`／`ListAgents`／`TaskCreate` 等 Task 工具的現況、版本需求與權限欄位
 - [Create custom subagents — Claude Code Docs](https://code.claude.com/docs/en/sub-agents) — Sub-agent 的生命週期、工具過濾與「單一 session 內運作」的定位，Agent Teams 比較表的對照基準
+- [Message your other Claude Code sessions — Claude Code Docs](https://code.claude.com/docs/en/cross-session-messaging) — cross-session messaging、`ListAgents` 可見範圍、訊息安全邊界與版本需求
+- [Manage costs effectively — Claude Code Docs](https://code.claude.com/docs/en/costs#agent-team-token-costs) — Agent Teams token 成本、team size 與控制成本的官方建議
 
 ## 更新紀錄
 
 - 2026-03-28：建立大綱骨架。
 - 2026-08-26：展開為正文，依官方文件（code.claude.com，含 v2.1.178+ 行為）全面重寫；修正切換 teammate 的操作為方向鍵選取＋Enter、移除不存在的 broadcast 描述、補上 teammateMode `"iterm2"` 與 `SendMessage`／`ListAgents` 工具現況。
+- 2026-08-29：對齊官方 Agent Teams 文件現況：修正 plan approval 會由 lead session 直接批准、補 `x` 停止 teammate、更新 subagent messaging 與 teammateMode 說法。

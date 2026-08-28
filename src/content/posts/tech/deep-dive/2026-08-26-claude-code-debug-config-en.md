@@ -1,13 +1,13 @@
 ---
-title: "Claude Code Config Not Taking Effect: Diagnosing with /context, /doctor, and /mcp, Plus a Common Errors Reference"
+title: "Claude Code Config Not Taking Effect: Diagnosing with /context, /doctor, /mcp, and Error References"
 date: 2026-08-26
 type: guide
 category: tech
-tags: [claude-code, troubleshooting, debugging, dx, settings]
+tags: [claude-code, troubleshooting, debug, dx, settings]
 lang: en
-tldr: "When CLAUDE.md rules are ignored, hooks never fire, or an MCP server shows no tools, the file usually didn't load, loaded from an unexpected location, or got overridden. This guide covers what each of the four diagnostic commands (/context, /memory, /doctor, /mcp) actually shows, safe-mode bisection, and a table of six high-frequency error messages with fixes."
-description: "A Claude Code configuration diagnosis guide: inspect what actually loaded with /context, /memory, /doctor, and /mcp; understand the managed/local/project/user settings precedence; bisect problems with --safe-mode; and look up fixes for common runtime errors."
-draft: true
+tldr: "When CLAUDE.md rules are ignored, hooks never fire, or an MCP server shows no tools, the file usually didn't load, loaded from an unexpected location, or got overridden. This guide covers what the diagnostic entries (/context, /memory, /skills, /doctor, /mcp, and more) actually show, safe-mode bisection, and a table of six high-frequency error messages with fixes."
+description: "A Claude Code configuration diagnosis guide: inspect what actually loaded with /context, /memory, /skills, /doctor, and /mcp; understand managed/command-line/local/project/user settings precedence; bisect problems with --safe-mode; and look up fixes for common runtime errors."
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 35
@@ -15,9 +15,9 @@ series:
 
 > 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-debug-config)
 
-"I put that rule in CLAUDE.md and it keeps ignoring it." "My hook is defined but nothing fires." "I added an MCP server and the tool list is empty." This family of "configured it but it's not taking effect" problems is among the most reported in Claude Code. The official diagnostics guide narrows the cause down to three possibilities: **the file never loaded, it loaded from a different location than you expected, or another file overrode it**. This post is about telling those three apart: first inspect what actually loaded with four diagnostic commands, then bisect with safe mode, then match your symptom against a table of high-frequency errors. Installation and login problems are out of scope here — see the series' [installation troubleshooting post](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install-en).
+"I put that rule in CLAUDE.md and it keeps ignoring it." "My hook is defined but nothing fires." "I added an MCP server and the tool list is empty." This family of "configured it but it's not taking effect" problems is among the most reported in Claude Code. The official diagnostics guide narrows the cause down to three possibilities: **the file never loaded, it loaded from a different location than you expected, or another file overrode it**. This post is about telling those three apart: first inspect what actually loaded with the diagnostic commands, then bisect with safe mode, then match your symptom against a table of high-frequency errors. Installation and login problems are out of scope here — see the series' [installation troubleshooting post](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install-en).
 
-## The diagnostic four: what each one shows
+## Diagnostic entries: what each one shows
 
 The core principle is one sentence: don't guess — look at what Claude Code actually loaded. The first step is always `/context`, which breaks down everything occupying the current session's context window by category: system prompt, built-in tools, MCP tools, subagents (with the source each loaded from), memory files, skills, and conversation messages. If your CLAUDE.md or skill doesn't appear in that breakdown at all, the problem is "didn't load" and there is no point guessing about behavior. Once you've confirmed something loaded, drill into its category:
 
@@ -25,25 +25,31 @@ The core principle is one sentence: don't guess — look at what Claude Code act
 |---------|---------------|
 | `/context` | Full context window breakdown by category and load source — whether a given file made it in |
 | `/memory` | Memory file locations across user and project scopes, openable directly in your editor, plus the auto memory toggle |
+| `/skills` | Available skills from project, user, and plugin sources |
+| `/hooks` | Hook configurations active in the current session, grouped by event |
 | `/doctor` | A checkup: installation health, invalid settings files, duplicate subagent names in the same directory, unused extensions — with proposed fixes |
 | `/mcp` | Every MCP server's connection status, and whether you have approved it for this project |
+| `/permissions` | The resolved allow and deny rules currently in effect |
+| `/debug [issue]` | Enables debug logging for the session and asks Claude to diagnose from logs and settings paths |
+| `/status` | Active settings sources, including whether managed settings apply |
 
-Two more useful helpers: `/hooks` lists every hook active in the current session, grouped by event, and `/status` shows which settings sources are in effect, including whether managed settings apply. From the terminal you can also run `claude doctor`, which prints read-only installation and settings diagnostics without starting a session — handy in scripts.
+From the terminal you can also run `claude doctor`, which prints read-only installation and settings diagnostics without starting a session — handy in scripts. If `/context` confirms that CLAUDE.md loaded but Claude still does not follow a specific instruction, the current docs move the diagnosis to instruction quality: whether the rule is specific, whether another file conflicts with it, and whether the file has grown too long for individual rules to receive attention.
 
 ## Who overrode your setting
 
-Settings merge across layers: managed (organization-deployed) → local (`settings.local.json`) → project (`.claude/settings.json`) → user (`~/.claude/settings.json`). Closer scopes override broader ones, and command-line flags and environment variables form yet another override layer on top. So the most common answer to "I set it but nothing happened" is not a bug — it's that the same key was also set in a closer scope.
+Settings merge across layers. The documented precedence is: managed settings at the top, then per-session command-line / `--settings`, then project local (`.claude/settings.local.json`), shared project (`.claude/settings.json`), and user (`~/.claude/settings.json`). Some keys also have environment-variable overrides, so check the settings reference for the exact key. The most common answer to "I set it but nothing happened" is not a bug — it's that the same key was also set in a higher-precedence source.
 
 High-frequency landmines:
 
-- **`~/.claude.json` is not a settings file.** It holds app state and UI toggles. `permissions`, `hooks`, and `env` belong in `~/.claude/settings.json`. The two files look similar but are different things.
-- **MCP server configuration does not go in settings.json.** Project-scoped servers live in `.mcp.json` at the repository root (under the `mcpServers` key — not `servers`, VS Code style); user-scoped servers are added with `claude mcp add --scope user`.
-- **Project `.mcp.json` requires one-time approval.** Dismiss the approval prompt once and the server stays disabled — re-approve it from `/mcp`.
-- A hook's `matcher` is a single string; separate multiple tools with `|` (as in `"Edit|Write"`). Before v2.1.191, a comma separator silently matched nothing. Tool names are case-sensitive: `bash` will not match `Bash`. And a matcher written as an array is a schema error — Claude Code rejects the entire settings file containing it, so all of that file's hooks vanish together; `/doctor` reports the validation failure.
+- **`~/.claude.json` is not a settings file.** It is Claude Code's own state file: sign-in session, some MCP configurations, project trust decisions, and global config keys written by `/config`. `permissions`, `hooks`, and `env` belong in `~/.claude/settings.json`.
+- **MCP server configuration does not go in settings.json.** Project-scoped servers live in `.mcp.json` at the repository root (under the `mcpServers` key — not `servers`, VS Code style); user-scoped servers are added with `claude mcp add --scope user`, which lets the CLI write the right place. A remote HTTP JSON entry with a `url` also needs `type: "http"` (or `sse` / `ws`); without `type`, Claude Code now reports it as a configuration error.
+- **Project `.mcp.json` requires one-time approval and workspace trust.** Dismiss the approval prompt once and the server stays disabled; re-approve it from `/mcp`. A cloned repository cannot approve its own servers through committed approval settings before the workspace is trusted. Use user settings, managed settings, or `--settings` if approval must apply before trust.
+- **Read the `/mcp` status detail, not just presence.** A remote server can be `cached ... connects on first use`, `Pending approval`, `Disabled for this project`, `Failed to connect`, or `not configured`. If it is connected but shows zero tools, reconnect it from `/mcp`; if the count stays at zero, run `claude --debug=mcp` and inspect the server stderr in `~/.claude/debug/<session-id>.txt`.
+- A hook's `matcher` is a single string; separate multiple tools with `|` (as in `"Edit|Write"`). Claude Code v2.1.191 and later also treat a comma as a separator; only earlier versions treated the comma as a literal and silently matched nothing. Tool names are case-sensitive: `bash` will not match `Bash`. And a matcher written as an array is a schema error: Claude Code rejects hooks from that user/project/local settings file; managed settings drop that file's whole `hooks` key while keeping the other settings. `claude doctor` reports the validation failure.
 
 ## Safe mode: bisecting the culprit
 
-If the targeted checks haven't isolated the layer yet, launch `claude --safe-mode`: a session with every customization disabled — CLAUDE.md, skills, plugins, hooks, MCP servers, custom commands and agents — while authentication, model selection, built-in tools, and permissions work normally.
+If the targeted diagnostic entries haven't isolated the layer yet, launch `claude --safe-mode`: a session with every customization disabled — CLAUDE.md, skills, plugins, hooks, MCP servers, custom commands and agents — while authentication, model selection, built-in tools, and permissions work normally.
 
 The result is binary:
 
@@ -58,9 +64,9 @@ Beyond configuration, the other big blocker category is runtime errors. There is
 
 | Message | Cause | Fix |
 |---------|-------|-----|
-| `API Error: 500 Internal server error` | An unexpected API-side failure — not caused by your prompt, settings, or account | Wait a minute and resend (your message is still in the conversation; typing `try again` suffices). If it persists, check status.claude.com |
-| `API Error: Repeated 529 Overloaded errors` | The API is temporarily at capacity across all users; Claude Code already retried several times before surfacing this | Try again in a few minutes; if you need to keep working, switch models with `/model` — capacity is tracked per model |
-| `Prompt is too long` (shown interactively as `Context limit reached · /compact or /clear to continue`) | Conversation plus attached files exceed the model's context window | Run `/compact` to free space or `/clear` to start fresh; use `/context` to see what fills the window and `/mcp disable <name>` to drop unneeded MCP servers |
+| `API Error: 500 Internal server error` | An unexpected API-side failure, usually temporary | Wait a minute and resend. If it persists, check status.claude.com or the status page for the provider / gateway named in your message |
+| `API Error: Repeated 529 Overloaded errors` | The API is temporarily at capacity; this is not your usage limit and does not count against your quota | Try again in a few minutes; if it persists, check status.claude.com or the provider / gateway named in the message |
+| `Prompt is too long` (also shown as `Input is too long for requested model` or `Context limit reached · /compact or /clear to continue`) | Conversation plus attached files exceed the model's context window | Run `/compact` to free space or `/clear` to start fresh; use `/context` to see what fills the window and `/mcp disable <name>` to drop unneeded MCP servers |
 | `Unable to connect to API` (with codes like `ConnectionRefused`, `ENOTFOUND`) | TCP connection to the API failed: no internet, a VPN blocking api.anthropic.com, or an unconfigured corporate proxy | Verify from the same shell with `curl -I https://api.anthropic.com`; set `HTTPS_PROXY` if a proxy is required |
 | `You've hit your session limit` (or weekly / Opus / Sonnet limit) | Your subscription plan's rolling usage allowance ran out; session and weekly limits are shared across all models | Wait for the reset time shown in the message; for Opus/Sonnet limits, switching outside that model family with `/model` keeps you working; check remaining allowance with `/usage` |
 | `Not logged in · Please run /login` | No login or credentials expired | Run `/login` to re-authenticate |
@@ -80,7 +86,10 @@ Finally, how these three posts divide the territory: can't install or log in, re
 
 - [Debug your configuration — Claude Code Docs](https://code.claude.com/docs/en/debug-your-config) — Official guidance on diagnosing with /context, /doctor, /hooks, and /mcp, safe mode and clean-config comparison, plus the common configuration pitfalls table
 - [Error reference — Claude Code Docs](https://code.claude.com/docs/en/errors) — The complete runtime error catalog: meaning and recovery steps per message, automatic retry behavior, and tunable environment variables
+- [Claude Code settings — Claude Code Docs](https://code.claude.com/docs/en/settings) — Settings files, precedence, and the split between `~/.claude.json` and settings files
+- [Connect Claude Code to tools via MCP — Claude Code Docs](https://code.claude.com/docs/en/mcp) — MCP transports, `.mcp.json`, approval / trust, server status, discovery cache, and common configuration warnings
 
 ## Changelog
 
+- 2026-08-29: Updated `/skills`, `/permissions`, `/debug [issue]`, settings precedence, hook matcher, MCP approval/cache/status details, and error wording.
 - 2026-08-26: Initial version, written against the official Debug your configuration and Error reference pages.

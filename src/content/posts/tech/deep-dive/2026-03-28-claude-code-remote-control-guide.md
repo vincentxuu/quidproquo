@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, remote-control, mobile, cross-device]
 lang: zh-TW
-tldr: "Remote Control 把 claude.ai/code 或 Claude 手機 app 變成你本地 Claude Code session 的遙控器：程式照樣跑在自己的機器上，MCP servers 和本地工具全部可用。本文涵蓋三種啟動方式、連線配對、推送通知與傳檔，以及安全邊界。"
-description: "介紹 Claude Code 的 Remote Control：從手機或瀏覽器接續本地 session 的啟動方式、連線步驟、推送通知與檔案傳輸能力，以及它跟雲端執行的本質差別。"
-draft: true
+tldr: "Remote Control 把 claude.ai/code 或 Claude 手機 app 變成你本地 Claude Code session 的遙控器：程式照樣跑在自己的機器上，MCP servers 和本地工具全部可用，但對話同步會經過 Anthropic 伺服器。本文涵蓋啟動、續接、推送通知與傳檔，以及安全邊界。"
+description: "介紹 Claude Code 的 Remote Control：從手機或瀏覽器接續本地 session 的啟動、連線、續接、推送通知與檔案傳輸能力，以及它跟雲端執行的本質差別。"
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 37
@@ -21,7 +21,7 @@ Claude Code 跑長任務的時候，人不會一直坐在終端機前。重構�
 
 ## 程式還在你的機器上，瀏覽器只是遙控器
 
-[Remote Control](https://code.claude.com/docs/en/remote-control) 把 [claude.ai/code](https://claude.ai/code) 或 Claude 手機 app（iOS／Android 都有）接到一個**跑在你機器上的 Claude Code session**。關鍵在執行位置：Claude 全程在你的電腦上跑，程式碼執行和檔案系統存取都不會離開你的機器。瀏覽器和手機只是一扇窗。
+[Remote Control](https://code.claude.com/docs/en/remote-control) 把 [claude.ai/code](https://claude.ai/code) 或 Claude 手機 app（iOS／Android 都有，也就是 mobile client）接到一個**跑在你機器上的 Claude Code session**。關鍵在執行位置：Claude 全程在你的電腦上跑，程式碼執行和檔案系統存取都不會離開你的機器。瀏覽器和手機只是一扇窗。
 
 所以你的完整本地環境原封不動：
 
@@ -41,7 +41,7 @@ Claude Code 跑長任務的時候，人不會一直坐在終端機前。重構�
 # Server mode：專職等待遠端連線，按空白鍵顯示 QR code
 claude remote-control --name "My Project"
 
-# 一般互動 session 加上遠端可控，本地和遠端都能打字
+# 一般互動 session 加上遠端可控，本地和遠端都能打字；--rc 也可以
 claude --remote-control
 ```
 
@@ -50,7 +50,7 @@ claude --remote-control
 /remote-control
 ```
 
-Server mode 是常駐服務，可以開多個 session（預設上限 32 個），`--spawn worktree` 還能讓每個新 session 各自拿到獨立的 git worktree。互動模式則是一般 session 順便可遠端。VS Code 擴充套件裡也有同名的 `/remote-control` 指令。
+Server mode 是常駐服務，可以開多個 session（預設上限 32 個），`--spawn worktree` 還能讓每個新 session 各自拿到獨立的 git worktree。停掉 server 後約四小時內，可以在同一個目錄用 `claude remote-control --continue` 或 `--session-id` 接回先前的 session。互動模式則是一般 session 順便可遠端。VS Code 擴充套件裡也有同名的 `/remote-control`／`/rc` 指令。
 
 連線從另一台裝置有三條路：直接開 session URL、掃 QR code（手機直達 Claude app）、或在 claude.ai/code／app 的 session 清單裡找到它（線上時顯示綠點的電腦圖示）。懶得每次手動啟動的話，`/config` 裡有「Enable Remote Control for all sessions」，讓每個互動 session 自動連線。
 
@@ -58,9 +58,9 @@ Server mode 是常駐服務，可以開多個 session（預設上限 32 個）�
 
 最基本的三件事：**看進度**——終端機裡的對話即時出現在手上這台裝置；**回話**——包括在 turn 跑到一半時插話，訊息會排隊等目前的動作完成後送達；**收通知**。
 
-通知值得展開。Remote Control 連線時，內建的 `PushNotification` 工具會推播到手機——通常是長任務完成、或 Claude 需要你決策才能繼續的時候。你也可以直接在 prompt 裡要求：「tests 跑完叫我。」開關在 `/config`：「Push when Claude decides」對應主動通知、「Push when actions required」對應權限詢問。你在終端機前面打字時它會安靜，不會對著你的臉震動。
+通知值得展開。Remote Control 連線時，內建的 `PushNotification` 工具會推播到手機——通常是長任務完成、或 Claude 需要你決策才能繼續的時候。你也可以直接在 prompt 裡要求：「tests 跑完叫我。」開關在 `/config`：「Push when Claude decides」對應主動通知、「Push when actions required」對應權限詢問。你在終端機前面打字時它會安靜；如果要把「人在機器前」延伸到其他視窗，v2.1.181 起可以用 `CLAUDE_CLIENT_PRESENCE_FILE` 讓檔案存在時略過手機推播。
 
-反方向也通：`SendUserFile` 工具能把 session 產出的報告、截圖、build 產物直接送到你的裝置，不用翻 transcript 找路徑。另外權限詢問會轉發到手機——session 反覆跳出權限確認時，Claude Code 甚至會主動提醒「可以從手機批准」。背景跑的 subagents 和 workflows 也能從遠端裝置直接停掉。
+反方向也通：`SendUserFile` 工具能把 session 產出的報告、截圖、build 產物直接送到你的裝置，不用翻 transcript 找路徑；它在 Remote Control 有 client 連線時可用，在 Claude Code on the web 這類 managed cloud environment 也可用。另外權限詢問會轉發到手機——session 反覆跳出權限確認時，Claude Code 甚至會主動提醒「可以從手機批准」。背景跑的 subagents 和 workflows 也能從遠端裝置直接停掉。
 
 ## 安全考量：誰能接到你的 session
 
@@ -72,7 +72,7 @@ Server mode 是常駐服務，可以開多個 session（預設上限 32 個）�
 
 ## 跟雲端執行差在哪
 
-一句話：兩者用同一個 claude.ai/code 介面，差別只在 session 跑在哪——Remote Control 跑在你機器上、碰得到你的本地環境，Claude Code on the web 跑在 Anthropic 的雲端 VM、適合不想帶本地環境的獨立任務。雲端那半邊（`--cloud`／`--teleport`、auto-fix PR、手機派工）的完整展開見[下一篇：Claude Code 怎麼上雲](/posts/tech/deep-dive/2026-08-26-claude-code-on-the-web)。
+一句話：兩者用同一個 claude.ai/code 介面，差別只在 session 跑在哪——Remote Control 跑在你機器上、碰得到你的本地環境，Claude Code on the web 跑在雲端環境（預設是 Anthropic 託管 VM，也可由組織路由到 self-hosted environment）、適合不想帶本地環境的獨立任務。雲端那半邊（`--cloud`／`--teleport`、auto-fix PR、手機派工）的完整展開見[下一篇：Claude Code 怎麼上雲](/posts/tech/deep-dive/2026-08-26-claude-code-on-the-web)。
 
 順帶一提它的姊妹功能：如果你要顧的不是一個 session 而是好幾個，[agent view](/posts/tech/deep-dive/2026-08-26-claude-code-agent-view) 是多 session 監控的那塊拼圖。
 

@@ -7,7 +7,7 @@ tags: [claude-code, claude-md, auto-memory, rules, agents-md]
 lang: zh-TW
 tldr: "Claude Code 每個 session 都是乾淨的 context window，靠三種記憶跨 session 帶知識：每個 session 都載入的 CLAUDE.md、寫 paths 就條件載入的 .claude/rules/、以及 Claude 自己累積的 auto memory。各層 CLAUDE.md 是串接進 context，不是繼承覆蓋。本文拆解層級行為、@path imports、monorepo 拆檔策略，以及用 @AGENTS.md 讓多個工具共用一份指示。"
 description: "深入介紹 Claude Code 的記憶設計：CLAUDE.md 四個層級如何串接進 context、imports 語法、.claude/rules/ 條件載入、auto memory 運作方式，與 monorepo 的 nested CLAUDE.md 策略。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 9
@@ -28,11 +28,6 @@ series:
 | auto memory | Claude | 每個 session 開頭載索引 | 你的偏好、你糾正過它的事 |
 
 關鍵分野是**強制與否**：這三種都是 context，不是 enforced configuration。Claude 讀了會盡量照做，但不保證——要保證每次 commit 前都跑 lint，那要寫 hook，不是寫進 CLAUDE.md。
-
-### CLAUDE.md 語法與最佳實踐
-- 基本結構：專案描述、tech stack、慣例
-- 常見指令模式：commit message 格式、命名規範、測試策略
-- 反模式：過長、過於模糊、與 Hook 職責重疊
 
 Auto memory 預設開啟，Claude 把學到的東西記在 `~/.claude/projects/<project>/memory/` 下：`MEMORY.md` 是索引，每個 session 開頭只載前 200 行或 25KB；細節拆成主題檔（`user_role.md`、`feedback_testing.md`），需要時才讀。它記四種東西——你的角色與偏好、你給過的修正、code 裡看不出來的專案脈絡、外部資源在哪——而 codebase 本身能推導出來的架構、路徑一律不記。用 `/memory` 可以瀏覽、編輯、刪除，也可以整個關掉。
 
@@ -104,6 +99,8 @@ import 之後可以在下面追加 Claude 專屬指示；不需要追加就直�
 
 - [How Claude remembers your project（Memory）— Claude Code Docs](https://code.claude.com/docs/en/memory) — CLAUDE.md 層級表、串接載入順序、imports 語法、`.claude/rules/` 與 auto memory 的官方完整說明
 - [Set up Claude Code in a monorepo or large codebase — Claude Code Docs](https://code.claude.com/docs/en/large-codebases) — nested CLAUDE.md 兩層拆法、`claudeMdExcludes`、per-directory skills 的官方指南
+- [Claude Code settings — Claude Code Docs](https://code.claude.com/docs/en/settings) — settings 檔案範圍、繼承差異、local/project/user/managed source 的官方說明
+- [Automate actions with hooks — Claude Code Docs](https://code.claude.com/docs/en/hooks-guide) — hooks 作為 deterministic enforcement layer 的官方說明
 
 ## 更新紀錄
 

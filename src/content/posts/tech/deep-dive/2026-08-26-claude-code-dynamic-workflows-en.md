@@ -7,7 +7,7 @@ tags: [claude-code, dynamic-workflows, orchestration]
 lang: en
 tldr: "Dynamic workflows let Claude write multi-agent orchestration as a JavaScript script that a runtime executes in the background — up to 1,000 agents per run, savable as a /<name> command. This piece covers trigger methods, the save-and-rerun flow, three fit scenarios (codebase audit, large migration, cross-checked research), and where they differ from Agent Teams."
 description: "A deep dive into Claude Code dynamic workflows: how scripts are generated and saved, which task sizes they fit, and how they differ from subagents and Agent Teams."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 27
@@ -17,13 +17,13 @@ series:
 
 If you have used [sub-agents for parallel execution](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution-en), you have probably hit the same wall: asking Claude to spin up five subagents to scan five directories works fine, but running the same sweep every week — or rerunning it with different parameters — means directing the whole thing from scratch again. Claude decides turn by turn how many agents to spawn, results land in its context window, and nothing about the orchestration survives.
 
-Dynamic workflows exist precisely for this. Built into Claude Code since v2.1.154, available on all paid plans (Pro users enable them via `/config`).
+Dynamic workflows exist precisely for this. The current official docs present them as one of Claude Code's multi-agent orchestration options; if you do not see workflow entry points in your environment, check your Claude Code version, `/config`, and organization-level settings first.
 
 ## An Orchestration Script That Writes Itself
 
 The substance of a dynamic workflow is a JavaScript program: Claude writes it based on the task you describe, and an independent runtime executes it in the background while your session stays responsive. The key difference is **where the plan lives**. With subagents and skills, the plan sits in Claude's context, decided turn by turn; in a workflow, the plan is code — loops, branching, and intermediate results all live in script variables, and Claude's context only receives the final report.
 
-The docs put the decision criterion plainly: "Reach for a workflow when a task needs more agents than one conversation can coordinate, or when you want the orchestration codified as a script you can read and rerun."
+The [dynamic workflows docs](https://code.claude.com/docs/en/workflows) put the decision criterion plainly: use a workflow when one conversation cannot comfortably coordinate the task, or when the orchestration should become a readable, rerunnable script.
 
 The script shape is plain. `agent()` spawns one subagent, `pipeline()` runs one per item in a list:
 
@@ -51,7 +51,7 @@ You rarely need to write this yourself — but it is plain text: readable, diffa
 There are two ways to generate a workflow:
 
 - **Add the keyword `ultracode` to your prompt**, e.g. `ultracode: audit every API endpoint under src/routes/ for missing auth checks`. Saying "use a workflow" in natural language works identically. Press `Option+W` to dismiss an accidental trigger, or turn off the keyword trigger in `/config`.
-- **`/effort ultracode`**: let Claude decide per task whether it warrants a workflow for the whole session. The cost is more tokens and longer runs on every substantive request — switch back to `/effort high` for routine work.
+- **`/effort ultracode`**: on supported Claude Code versions and models, let Claude decide per task whether it warrants a workflow for the whole session. The cost is more tokens and longer runs on every substantive request — switch back to `/effort high` for routine work.
 
 Workflows run in the background. Type `/workflows` to see each phase's agent count, token usage, and elapsed time; you can pause mid-run, stop individual agents, or kill the whole run. On first launch, Claude Code shows the planned phases and asks for approval — `Ctrl+G` opens the raw script so you can read it before deciding.
 
@@ -75,7 +75,7 @@ The three situations the official docs call out map neatly onto three needs: big
 
 The limits are documented plainly: the script itself cannot touch the filesystem, run shell commands, or load modules (any `import()` fails before the run starts) — agents do the actual work. Each run caps at 1,000 agents total, up to 16 concurrent. There is no mid-run user input; if you need sign-off between stages, split each stage into its own workflow. Resume only works within the same session, and replay follows start order: cached results stop at the first agent that didn't finish, and everything started after it reruns even if it had completed — so scripts built from many small agents preserve progress far better than one long-running agent.
 
-Cost is the real gate. Multi-agent runs can consume meaningfully more tokens than conversational work, and they count toward your plan's usage limits like any session. Three practical levers: trial-run on a small slice first to gauge spend; expect a `Large workflow` warning past 25 agents or a projected total above 1.5 million tokens (advisory only — it doesn't pause anything); and set the size guideline in `/config` to small (under 5), medium (under 15, the default), or large (under 50). Fan-out agents also share prompt cache: held agents are released once the first response begins, so they read the cached prefix instead of reprocessing it.
+Cost is the real gate. Multi-agent runs can consume meaningfully more tokens than conversational work, and they count toward your plan's usage limits like any session. Three practical levers: trial-run on a small slice first to gauge spend; expect a `Large workflow` warning past 25 agents or a projected total above 1.5 million tokens (advisory only — it doesn't pause anything); and set the size guideline in `/config` to small (under 5), medium (under 15, the default on v2.1.219 and later), or large (under 50). [Fan-out agents also share prompt cache](https://code.claude.com/docs/en/prompt-caching): held agents are released once the first response begins, so they read the cached prefix instead of reprocessing it.
 
 ## Why It Matters
 
@@ -84,7 +84,9 @@ Several earlier pieces on this site examine Anthropic's harness engineering — 
 ## References
 
 - [Orchestrate subagents at scale with dynamic workflows — Claude Code Docs](https://code.claude.com/docs/en/workflows) — official documentation on triggers, script structure, runtime limits, and cost controls; the primary source for this piece
+- [Run agents in parallel — Claude Code Docs](https://code.claude.com/docs/en/agents) — official comparison of subagents, agent view, Agent Teams, and dynamic workflows
+- [How Claude Code uses prompt caching — Claude Code Docs](https://code.claude.com/docs/en/prompt-caching) — background on prompt caching and cost behavior
 
 ## Changelog
 
-- 2026-08-26: Initial version, based on the official documentation as of August 2026 (v2.1.154+, enabled via `/config` on Pro).
+- 2026-08-26: Initial version, based on the official documentation as of August 2026.

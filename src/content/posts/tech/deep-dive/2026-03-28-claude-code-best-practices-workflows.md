@@ -7,7 +7,7 @@ tags: [claude-code, best-practices, workflows, tips, productivity]
 lang: zh-TW
 tldr: "Claude Code 官方最佳實踐的主軸只有一條：管好 context window。本文按探索、plan mode、實作、驗證、commit 的循環整理 prompt 技巧、/clear 與 rewind 的使用時機，以及官方點名的五種失敗模式。"
 description: "以工作循環為主軸整理 Claude Code 官方最佳實踐：探索 codebase、plan mode 規劃、可自動驗證的實作、subagent review、平行 session 與 commit 收尾，附 prompt 技巧與常見失敗模式。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 5
@@ -63,7 +63,7 @@ and verify the build succeeds
 
 同一個問題糾正超過兩次，代表 context 已被失敗嘗試塞滿——`/clear` 重開，把學到的寫成一個更好的初始 prompt。官方說得很直白：乾淨 session 加好 prompt，幾乎總是勝過累積一堆修正的長 session。不相干的任務之間也 `/clear`。
 
-收尾這一段：請它「commit with a descriptive message and open a PR」。任務跨天用 `--continue`／`--resume` 接續，session 用 `/rename` 取名管理。要平行推進，`claude --worktree feature-auth` 在獨立 checkout 起隔離 session，第二個終端機換名字再開一個；大量遷移交給 [`/batch`](https://code.claude.com/docs/en/common-workflows)，它會拆成最多 30 個 subagent，各自在 worktree 工作、各開一個 PR。
+收尾這一段：請它「commit with a descriptive message and open a PR」。任務跨天用 `--continue`／`--resume` 接續，session 用 `/rename` 取名管理。要平行推進，`claude --worktree feature-auth` 在獨立 checkout 起隔離 session，第二個終端機換名字再開一個；大量遷移交給 [`/batch`](https://code.claude.com/docs/en/commands)，它會先把工作拆成 5 到 30 個獨立單元，批准後讓每個 background subagent 在隔離 git worktree 裡實作、跑測試、開 PR。
 
 ## 官方點名的五種失敗模式
 
@@ -85,6 +85,7 @@ best practices 結尾列的清單，每一種都對應前面某個解法：
 
 - [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — 官方最佳實踐：context 管理、可驗證任務、plan mode 工作流、平行擴展與失敗模式
 - [Common workflows](https://code.claude.com/docs/en/common-workflows) — 官方日常配方：codebase 探索、除錯、測試、PR、worktree 平行 session 與 script 整合
+- [Commands reference](https://code.claude.com/docs/en/commands) — 官方命令參考：`/batch`、`/clear`、`/code-review`、`/background` 等指令與 bundled skills 的行為
 - [Prompt library](https://code.claude.com/docs/en/prompt-library) — 官方可複製 prompt 清單，依任務與角色分類，附「why this works」說明
 
 ## 更新紀錄

@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, agent-view, cross-session-messaging]
 lang: en
-tldr: "`claude agents` gives you one screen listing every background session, grouped by state — Working / Needs input / Completed. Press Space to peek, Enter to attach. Combined with cross-session messaging (ListAgents / SendMessage, v2.1.224+), sessions can also message each other directly, with same-machine traffic never touching Anthropic servers."
+tldr: "`claude agents` gives you one screen listing every background session, with Needs input, Ready for review, Working, Completed, and related states managed in one table. Press Space to peek, Enter to attach. Combined with cross-session messaging (ListAgents / SendMessage, v2.1.224+), sessions can also message each other; same-machine delivery uses a local socket and never touches Anthropic servers."
 description: "A deep dive into Claude Code's Agent View: dispatching background sessions, reading the six state icons and Haiku-generated row summaries, getting notified when sessions need input, plus the same-machine and cross-machine mechanics of cross-session messaging and its security design."
-draft: true
+draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 26
@@ -21,7 +21,7 @@ That's exactly what Agent View is for: one screen for the state and needs of eve
 
 ## What agent view is
 
-Run `claude agents` and the whole terminal becomes one table: each row is a background session showing its name, current activity, and age, grouped by state — whatever needs you sits at the top. Press `Esc` to return to your shell; the sessions keep running in the background, and they're all still there next time you open the view.
+Run `claude agents` and the whole terminal becomes one table: each row is a background session showing its name, current activity, and age, grouped by state — sessions that need you and sessions ready for review sit at the top. Press `Esc` to return to your shell; the sessions keep running in the background, and they're all still there next time you open the view.
 
 The key concept is what "background session" means: each one is a full Claude Code conversation carried by a separate supervisor process, **able to keep working without any terminal open**. Close agent view, close your shell, start new interactive sessions — dispatched work keeps going. If your machine sleeps, session processes resume on wake; shutting down still stops running sessions.
 
@@ -37,7 +37,7 @@ Know the boundaries: interactive sessions you have open in other terminals don't
 
 Agent view has an input at the bottom. Type a prompt describing a task and press Enter — a new background session starts, automatically named from the prompt (by a Haiku-class model; rename later with `Ctrl+R`). One thing to internalize: **every prompt here starts a brand-new session**. Typing another line launches a second session, not a follow-up to the first.
 
-The input supports prefixes that control how a session starts: if the first word matches one of your defined subagents, that subagent runs as the main agent; `@<repo>` dispatches into a sibling repository; `! <command>` runs a background shell job that also appears as a row. `Shift+Enter` dispatches and immediately attaches.
+The input supports prefixes that control how a session starts: if the first word matches one of your defined subagents, or you mention one with `@<agent-name>`, that subagent runs as the main agent; `@<repo>` dispatches into a sibling repository; `! <command>` runs a background shell job that also appears as a row. `Shift+Enter` dispatches and immediately attaches.
 
 Besides dispatching from agent view, two more paths move work into the background:
 
@@ -46,7 +46,7 @@ Besides dispatching from agent view, two more paths move work into the backgroun
 claude --bg "investigate the flaky SettingsChangeDetector test"
 
 # From inside an existing session
-/bg    # Move the current conversation to the background, freeing the terminal
+/background  # Or /bg; move the current conversation to the background, freeing the terminal
 /fork  # Copy the conversation into a new background session; original keeps running
 ```
 
@@ -64,9 +64,9 @@ Handling it comes in two grades. Select a row and press `Space` to open the peek
 
 ## Session-to-session messaging: cross-session messaging
 
-Agent view solves "you watch every session." Cross-session messaging goes one step further: **sessions talk to each other**. When one session discovers its changes broke what another is building, it can warn that session proactively — no need for you to relay messages between terminals. This requires Claude Code v2.1.224+ (macOS/Linux/WSL 2; v2.1.234+ on native Windows), and it's simply on once you meet the version requirement.
+Agent view solves "you watch every session." Cross-session messaging goes one step further: **sessions talk to each other**. When one session discovers its changes broke what another is building, it can warn that session proactively — no need for you to relay messages between terminals. This requires Claude Code v2.1.224+ (macOS/Linux/WSL 2; v2.1.234+ on native Windows). For same-machine messaging on third-party providers or with feature-flag fetching off, the docs separately require v2.1.248+; whether sessions beyond this machine can be found also depends on Remote Control connection and sign-in state.
 
-Claude does this with two tools: `ListAgents` discovers which sessions it can reach, and `SendMessage` delivers a message to one of them. You never invoke either yourself — plain language is enough: "ask the session in my other terminal whether the migration finished." To name a recipient, use an `@` mention of the session name; run `/list-agents` to see this session's own name plus everything it can reach.
+Claude does this with two tools: `ListAgents` discovers which sessions it can reach, and `SendMessage` delivers a message to one of them. You never invoke either yourself — plain language is enough: "ask the session in my other terminal whether the migration finished." To name a recipient, use an `@` mention of the session name (v2.1.232+); run `/list-agents` or `/peers` to see this session's own name plus everything it can reach.
 
 How the message travels depends on the destination:
 

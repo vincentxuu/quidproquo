@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, prompt-caching, context, cost]
 lang: zh-TW
-tldr: "Claude Code 的 prompt caching 靠 prefix 完全匹配運作：命中時重讀計費約為標準 input 的 10%，但換模型、改 effort、開 fast mode、連斷 MCP server、整工具 deny 都會讓下一輪整段重算。TTL 預設五分鐘，訂閱方案的主對話用一小時。"
+tldr: "Claude Code 的 prompt caching 靠 prefix 完全匹配運作：命中時重讀計費約為標準 input 的 10%，但換模型、改 effort、開 fast mode、連斷 MCP server、整工具 deny 都會讓下一輪整段重算。TTL 預設五分鐘，訂閱方案的主對話與少數 helper requests 用一小時。"
 description: "拆解 Claude Code prompt caching 的運作機制：prefix 分層結構、哪些動作會作廢快取、CLAUDE.md 為什麼改了不即時生效、/compact 的計費成本，以及怎麼查自己的 cache hit rate。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 11
@@ -28,7 +28,7 @@ Claude Code 特意把請求排成三層，越少變動的放越前面：
 | 層 | 內容 | 什麼時候變 |
 |----|------|-----------|
 | System prompt | 核心指令、工具定義、output style | 工具組合改變，或升級 Claude Code |
-| 專案脈絡 | CLAUDE.md、auto memory | Session 開始，或 `/clear`／`/compact` 之後 |
+| 專案脈絡 | CLAUDE.md、auto memory、unscoped rules | Session 開始，或 `/clear`／`/compact` 之後 |
 | 對話 | 你的訊息、回應、工具結果 | 每一輪 |
 
 匹配是「完全一致才算」，所以前綴任何一個地方改了，它之後的全部都要重算。沒有 per-file 或分段快取這種東西。
@@ -66,7 +66,7 @@ API 在每個回應上都報兩個 token 數：
 
 最直接的觀察方式是寫一支 [statusline script](https://code.claude.com/docs/en/statusline) 讀 `current_usage` 物件。read 相對 creation 的比例高，代表快取運作良好；creation 連續好幾輪居高不下，代表你的前綴一直在被改動。組織層級則可以走 OpenTelemetry exporter，它會按使用者與 session 回報這兩個數字。
 
-快取壽命方面，TTL 有兩種：五分鐘與一小時，每次命中都會重置計時器。預設主對話在訂閱方案的額度內走一小時、其他情況走五分鐘；超過額度改用 usage credits 時會降回五分鐘。想自己控制，v2.1.242 之後可以用 `promptCacheTtl` 設定或 `CLAUDE_CODE_PROMPT_CACHE_TTL` 環境變數。
+快取壽命方面，TTL 有兩種：五分鐘與一小時，每次命中都會重置計時器。預設主對話在訂閱方案的額度內走一小時，另有少數由 Anthropic server-side 控制的 helper requests 也會用一小時；其他情況走五分鐘。超過額度改用 usage credits 時，主對話會降回五分鐘。想自己控制，v2.1.242 之後可以用 `promptCacheTtl` 設定或 `CLAUDE_CODE_PROMPT_CACHE_TTL` 環境變數。
 
 ## 哪些行為會打掉快取，哪些不會
 
@@ -83,6 +83,9 @@ API 在每個回應上都報兩個 token 數：
 ## 參考資料
 
 - [How Claude Code uses prompt caching — Claude Code Docs](https://code.claude.com/docs/en/prompt-caching.md) — prefix 分層結構、快取作廢清單、CLAUDE.md 與 output style 的延遲生效行為、TTL 表、statusline 查看方式的官方說明
+- [Prompt caching — Claude Platform Docs](https://platform.claude.com/docs/en/build-with-claude/prompt-caching.md) — API 層 prefix matching、TTL、pricing multiplier、usage 欄位與 cache storage / sharing 的官方說明
+- [Statusline — Claude Code Docs](https://code.claude.com/docs/en/statusline.md) — `current_usage` 在 statusline script 中的資料來源
+- [Monitor usage — Claude Code Docs](https://code.claude.com/docs/en/monitoring-usage.md) — OpenTelemetry usage metrics 與 cache token 屬性的官方說明
 
 ## 更新紀錄
 

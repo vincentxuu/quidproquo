@@ -5,9 +5,9 @@ type: deep-dive
 category: tech
 tags: [claude-code, permissions, auto-mode]
 lang: zh-TW
-tldr: "Claude Code 共有六個 permission mode，日常主要在 Manual、Accept edits、Plan、Auto 四個之間用 Shift+Tab 切換；Pro／Max／Team 方案預設進入 auto mode，由背景分類模型審查每個動作，預設攔下 force push、`curl | bash`、production deploy 等風險操作。本文講四個模式的取捨、permission rules 的寫法，以及組織層的 trust config。"
+tldr: "Claude Code 共有六個 permission mode，日常主要在 Manual、Accept edits、Plan、Auto 四個之間用 Shift+Tab 切換；Pro／Max／Team 的互動終端機與 VS Code session 在條件符合時預設進入 auto mode，由背景分類模型審查多數動作，預設攔下 force push、`curl | bash`、production deploy 等風險操作。本文講四個模式的取捨、permission rules 的寫法，以及組織層的 trust config。"
 description: "從每步都問到全不問的光譜：拆解 Claude Code 四個 permission mode、auto mode 分類器的預設封鎖清單、allow/deny/ask rule 語法與 managed settings 的組織治理。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 7
@@ -24,17 +24,17 @@ series:
 | 模式（config 值） | 不問你就先做什麼 | 適合 |
 |------|------|------|
 | Manual（`default`） | 只有讀取 | 敏感工作、不熟的 codebase |
-| Accept edits（`acceptEdits`） | 讀取、改檔案、常見檔案指令（`mkdir`、`mv`、`cp` 等），限工作目錄內 | 一邊跑一邊用 git diff 事後審 |
-| Plan（`plan`） | 只探索和提計畫，編輯被封鎖直到你核准計畫 | 動手前先看懂現場 |
+| Accept edits（`acceptEdits`） | 讀取、改檔案、常見檔案指令（`mkdir`、`touch`、`mv`、`cp`、`sed` 等），限工作目錄內 | 一邊跑一邊用 git diff 事後審 |
+| Plan（`plan`） | 讀取、探索；auto mode 可用時可跑分類器核准的指令，編輯被封鎖直到你核准計畫 | 動手前先看懂現場 |
 | Auto（`auto`） | 幾乎所有事，但每個動作先過一道背景分類器 | 長任務、減少提示疲勞 |
 
-另外兩個是邊界案例：`dontAsk` 不出現在 Shift+Tab 循環裡，只放行預先核准的工具，給鎖死 allowlist 的 CI 用；`bypassPermissions` 則跳過所有權限提示——那是另一篇文章的主題，結尾會談。
+另外兩個是邊界案例：`dontAsk` 不出現在 Shift+Tab 循環裡，只放行預先核准的工具，給鎖死 allowlist 的 CI 用；`bypassPermissions` 則跳過日常權限提示，但仍有 ask rule、需要使用者互動的工具、critical path 刪除、跨 session 傳訊保護等例外——那是另一篇文章的主題，結尾會談。
 
-幾個細節值得知道：Manual 在 UI 上叫 Manual，但 config 值是 `default`，CLI 也接受 `manual` 別名；`auto` 從專案的 `.claude/settings.json` 設定不生效，要放在 `~/.claude/settings.json`；寫入 protected paths（如 `.git`、`.claude`）在任何模式下都不會被自動核准。
+幾個細節值得知道：Manual 在 UI 上叫 Manual，但 config 值是 `default`，CLI 也接受 `manual` 別名；`auto` 從專案的 `.claude/settings.json` 設定不生效，要放在 `~/.claude/settings.json`；寫入 protected paths（如 `.git`、`.claude`）通常不會被自動核准，例外是 `bypassPermissions` 和某些可切到 bypass 的 plan-mode session。
 
 ## Auto mode 怎麼運作
 
-Auto mode 的核心不是「不檢查」，而是把檢查者從你換成一個獨立的**分類器模型**：每個動作執行前先送審，攔下超出任務範圍、指向陌生基礎設施、或疑似被 Claude 讀到的惡意內容驅動的操作。在 Pro／Max／Team 方案，它是 v2.1.228 起（Windows 為 v2.1.233）互動 session 的內建起始模式；首次以 auto mode 開 session 時會顯示通知並連到說明頁。
+Auto mode 的核心不是「不檢查」，而是把檢查者從你換成一個獨立的**分類器模型**：多數 tool call 會先送審，攔下超出任務範圍、指向陌生基礎設施、或疑似被 Claude 讀到的惡意內容驅動的操作；少數互動工具、明確 ask 規則和其他安全檢查則走各自的提示或拒絕路徑。在 Pro／Max／Team 方案，它是 v2.1.228 起（Windows 為 v2.1.233）互動 session 的內建起始模式；首次以 auto mode 開 session 時會顯示通知並連到說明頁。
 
 分類器有一份很長的預設封鎖清單，包括：
 
@@ -43,13 +43,11 @@ Auto mode 的核心不是「不檢查」，而是把檢查者從你換成一個�
 - force push、`git reset --hard` 這類丟棄未 commit 變更的操作、`terraform destroy`
 - commit 或 push 會在執行時把 secret 送出 repo 的變更
 
-預設放行的則包括：工作目錄內的檔案操作、安裝 lockfile 宣告的依賴、讀 `.env` 並把憑證送給對應 API、唯讀 HTTP 請求，以及 push 到目前工作 repo 的任何分支。想看完整清單可以跑 `claude auto-mode defaults`。
+預設放行的則包括：工作目錄內的檔案操作、安裝 lockfile 或 manifest 宣告的依賴、讀 `.env` 並把憑證送給對應 API、唯讀 HTTP 請求，以及 push 到目前工作 repo 的任何分支。想看完整清單可以跑 `claude auto-mode defaults`。
 
 分類器內部有四層優先序：`hard_deny` 無條件擋（使用者意圖和例外規則都不適用）→ `soft_deny` 可被明確的使用者意圖覆蓋（「清理一下 repo」不算授權 force push，「force-push 這個分支」才算）→ `allow` 規則作為 soft block 的例外 → 其餘放行。而 `permissions.deny` 又在分類器之前評估——它在**所有**模式下都生效，包括 bypassPermissions，是最硬的一道。
 
-官方文件對此模式的警告值得原樣引用：
-
-> Auto mode reduces permission prompts but does not guarantee safety. Use it for tasks where you trust the general direction, not as a replacement for review on sensitive operations.
+官方文件對此模式的警告重點是：auto mode 會減少提示，但 “does not guarantee safety”。它適合你信任大方向的任務，不是敏感操作的審查替代品。
 
 ## 用 permission rules 微調
 
@@ -72,9 +70,9 @@ Mode 決定基線，[permission rules](https://code.claude.com/docs/en/permissio
 
 ## 組織層治理
 
-個人偏好之上還有第四層：managed settings。管理員可以在這層設定 `permissions.defaultMode` 統一起始模式，用 `disableBypassPermissionsMode` 或 `disableAutoMode` 設成 `"disable"` 直接移除對應模式——被移除的 `auto` 連 Shift+Tab 都不再出現，`--permission-mode auto` 起動的 session 會退回 Manual。
+個人偏好之上還有第四層：managed settings。管理員可以在這層設定 `permissions.defaultMode` 統一起始模式，用 `permissions.disableBypassPermissionsMode` 或 `permissions.disableAutoMode` 設成 `"disable"` 直接移除對應模式——被移除的 `auto` 連 Shift+Tab 都不再出現，`--permission-mode auto` 起動的 session 會退回 Manual。
 
-Auto mode 自己還有一套組織級 trust config，就是 [`autoMode`](https://code.claude.com/docs/en/auto-mode-config) 設定區塊。核心概念是 `autoMode.environment`：預設分類器只信任工作目錄和 repo 既有的 remotes，推到公司其他 repo、寫入團隊的 cloud bucket 都會被擋，直到你用自然語言條列哪些 repos、buckets、domains 是可信的：
+Auto mode 自己還有一套 trust config，就是 [`autoMode`](https://code.claude.com/docs/en/auto-mode-config) 設定區塊。核心概念是 `autoMode.environment`：預設分類器只信任工作目錄和 repo 既有的 remotes，推到公司其他 repo、寫入團隊的 cloud bucket 都會被擋，直到你用自然語言條列哪些 repos、buckets、domains 是可信的。專案慣例和行為邊界則先寫在 Claude 已載入的 `CLAUDE.md`，因為分類器也會讀同一份記憶內容。
 
 ```json
 {
@@ -88,7 +86,7 @@ Auto mode 自己還有一套組織級 trust config，就是 [`autoMode`](https:/
 }
 ```
 
-安全設計上有一點很聰明：分類器**不讀**專案層的 `.claude/settings.json` 裡的 `autoMode`，只接受 user settings、managed settings 和 `--settings` 旗標三個來源——因為專案目錄裡的檔案可能來自別人 check-in 的 repo，不能讓 repo 替自己擴大信任範圍。個人可以追加條目，但刪不掉 managed settings 給的條目；要絕對不可逾越的邊界，還是用前一節的 `permissions.deny` 放 managed settings。
+安全設計上有一點很聰明：分類器**不讀**專案層的 `.claude/settings.json` 或 `.claude/settings.local.json` 裡的 `autoMode`，只接受 user settings、managed settings 和 `--settings` 旗標三個來源——因為專案目錄裡的檔案可能來自別人 check-in 的 repo，不能讓 repo 替自己擴大信任範圍。個人可以追加條目，但刪不掉 managed settings 給的條目；要絕對不可逾越的邊界，還是用前一節的 `permissions.deny` 放 managed settings。
 
 ## 怎麼選
 
@@ -101,7 +99,9 @@ Auto mode 自己還有一套組織級 trust config，就是 [`autoMode`](https:/
 - [Choose a permission mode — Claude Code Docs](https://code.claude.com/docs/en/permission-modes.md) — 六個模式的行為對照、Shift+Tab 切換細節、auto mode 分類器的預設封鎖與放行清單
 - [Configure permissions — Claude Code Docs](https://code.claude.com/docs/en/permissions.md) — allow/ask/deny rule 語法、萬用字元比對規則、評估順序
 - [Configure auto mode — Claude Code Docs](https://code.claude.com/docs/en/auto-mode-config.md) — `autoMode.environment` trust 設定、hard/soft deny 分層、managed settings 的組織控制
+- [Settings — Claude Code Docs](https://code.claude.com/docs/en/settings.md) — settings scope、managed settings 與 `permissions.defaultMode` 等設定來源
 
 ## 更新紀錄
 
 - 2026-08-26：初版，依 2026-08 官方文件撰寫（auto mode 為 Pro/Max/Team 預設起始模式，Manual label 需 v2.1.200+）。
+- 2026-08-29：補上 `bypassPermissions` 例外、protected paths 例外、plan mode 指令行為、settings key 前綴與 `CLAUDE.md` 對 auto mode 分類器的約束。

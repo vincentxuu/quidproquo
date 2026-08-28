@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-27
+Last updated: 2026-08-29
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -12,16 +12,13 @@ Current focus
 In progress
 - **Admin v2 規格定案（2026-08-27）**：後台重定義為自製 coding agent 操作台，完整對齊 Claude Code web；
   13 題＋5 未決項全部拍板，分期 6 期，見 docs/admin-v2-spec.md。第一輪路由整理已 commit（b0f8f88），總表 docs/admin-route-map.md。
-- **「跟成熟 coding agent 學設計」系列 38 篇雙語（78 檔）已完成待 review**（0126e687＋收尾篇，
-  docs/content-plan-coding-agent-design-series.md）：第一部 25 篇已實作對照（order 2–25，總覽佔 1）＋
-  第二部 13 篇改善路線圖（26–38，收尾篇 agent-as-service 於 2026-08-26 補齊「38 篇」定案數）。
-  複查修正：cli-ergonomics zh/en 標題編號 12→13。五家 server API 取證與 rivumi 草案見 order 38；
-  抽樣事實複查結論：74 檔 frontmatter/互鏈/參考資料全過，rivumi 數字主張未重跑、外部連結未線上
-  驗證兩項仍開放。舊 python-coding-agent M1–M10 十篇已刪（5247d6cc）。
-  待使用者 review 後 push＋deploy。
-- Stanford NLP／Agent／圖分支：CS124 W26 10 週、CS224N W26 19 講、CS224V F25 14 單元、CS224W F25 19 講雙語稿與乾淨複核已完成，待 review；CS224U 改等 Spring 2027，現為 0 個可發布單元。
+- **「跟成熟 coding agent 學設計」系列 38 篇雙語已發佈**：2026-08-29 依 `git ls-files` +
+  frontmatter 重掃，series `跟成熟 coding agent 學設計` 共 76 檔，全部 `draft: false`；不是待發佈。
+  已知殘留風險仍是內容層抽樣：rivumi 數字主張未重跑、部分外部連結未線上驗證、五家 reference repo
+  快照可能漂移。
+- Stanford NLP／Agent／圖分支：CS124 W26 10 週、CS224N W26 19 講、CS224V F25 14 單元、CS224W F25 19 講雙語稿與乾淨複核已完成並已上線；CS224U 改等 Spring 2027，現為 0 個可發布單元。
 - **發佈狀態盤點＋內容審讀（2026-08-25）**：CS124／CS224N／CS224V／CS224W／CS229／CS336、
-  CMU 07-280／11-785 等「待 review」系列皆已 `draft: false` 上線。本日新上線：Stanford CS221
+  CMU 07-280／11-785 等前次標記為待檢視的系列皆已 `draft: false` 上線。本日新上線：Stanford CS221
   逐講 20 講中英（40 檔）、CS111 逐講 28 講中英（56 檔）、Python coding agent M1–M10（10 檔純中文，
   無英文版；M11 不存在）、Agent／RAG 框架選型指南、Flowise／n8n 深入介紹。審稿修正：
   CS111 L25-en series name、L28 逐頁清單筆誤。
@@ -36,31 +33,31 @@ In progress
   （order 37，僅本地接續範圍，雲端 web/mobile 依 plan 暫緩）。**G5 雲端篇補齊**：經查證
   claude-code-on-the-web／web-quickstart／mobile 三頁官方文檔現已夠厚（推翻 plan「頁面薄」假設），
   新增 on-the-web 中英（order 38：--cloud/--teleport 單向性、GitHub App≠存取控制、auto-fix PR、
-  安全隔離、手機三入口），G4 暫緩聲明改為互鏈。order 1–38 全數有正文，
-  空殼清零，全部 draft: true，pnpm verify 全綠。
-  待使用者 review 與抽樣事實複查後再決定翻 draft。
-- **仍為草稿，不可誤翻**：(1) Claude Code 深入介紹系列其餘骨架檔仍是空殼大綱（`<!-- TODO: 待撰寫 -->`，
-  只有 Planned Outline 無正文；A–E 已有正文）；(2) web-retrieval-benchmark、web-extraction-quality-benchmark
-  中英 4 檔——正文自我宣告要等 live channel 實測與 raw artifacts 入庫才能發。
-  另 CS221 待使用者審稿。
+  安全隔離、手機三入口），G4 暫緩聲明改為互鏈。2026-08-29 依 frontmatter 重掃：Claude Code
+  深入介紹／Deep Dives 共 76 檔，其中 12 檔原已發佈，64 檔完成審讀後已翻 `draft: false`。
+  未掃到 `TODO: 待撰寫` 空殼 marker；Claude Code 系列已無待審 draft。
+  2026-08-29 已完成 order 1–7、9–11、14–16、18–21、24–38 共 64 檔 draft 審讀與小修；focused checks 全綠；
+  `pnpm verify` 全綠，`pnpm astro check` 0 errors；MIT 6.7960 英文稿 `additionalSeries` schema 已修正。
+- **仍為草稿，不可誤翻**：web-retrieval-benchmark、web-extraction-quality-benchmark 中英 4 檔——正文自我宣告
+  要等 live channel 實測與 raw artifacts 入庫才能發。其餘 progress 待審系列目前不是 draft。
 - **AI 模型家族系列新增三篇非文字家族深拆（2026-08-26）**：FLUX/BFL（order 13）、語音
   Whisper×ElevenLabs（order 14）、影片生成 Sora/Veo/Kling/Runway（order 15），tech/deep-dive，
   未 commit。三篇並行 post-verify 子代理查證＋post-review：修掉 FLUX 授權誤解（dev 輸出可商用、
   限制在自架部署）、Fish Speech 授權已改 Research License、多處 Elo/定價快照錨點與死連結。
-  pnpm verify 全綠；待使用者 review 後 commit。
-- Mem0、Zep／Graphiti、Cognee、Letta／MemGPT 四篇 Agent 記憶服務中英文 canonical 專文已完成初稿與必要驗證，待使用者 review。
-- Agent 框架 5 組中英文個別介紹已完成（AG2、LangChain、Mastra、Pydantic AI、DSPy），待 review。
-- 雲端 LLM API 與路由 7 組中英文個別介紹已完成（OpenRouter、Bedrock、Vertex、Together、Fireworks、LiteLLM、Portkey），待 review。
-- Stanford CS229 已改為 2026 官方主講義逐章雙語導讀：依 278 頁 PDF 完成 21 章／42 檔（orders 2–22），逐章頁碼、來源、雙語互鏈與交叉審稿修正已完成，待使用者 review；原 Spring 2021 L1–L18 共 36 份未追蹤草稿可復原地封存於 `.research/archived-drafts/cs229-spring2021/`，不進站、不混用。
-- Stanford CS336 Spring 2026 的 17 講主課逐講雙語導讀已完成 34 個中英文草稿（orders 2–18）：官方 manifest、逐講 artifact、雙語互鏈與系列順序已核對，Daniel Selsam／Dan Fu guest sessions 未混入主系列；待最終全站閘門與使用者 review。
-- 「私有語料管線」4 篇中英文草稿已完成：邊界與架構、來源到索引、查詢權限／刪除／freshness，
-  以及 Retrieval Eval 評估契約。前三篇可進 review；第 4 篇盤點出現有 20 題 golden dataset 缺
+  pnpm verify 全綠；本輪確認已 `draft: false` 且全站閘門通過。
+- Mem0、Zep／Graphiti、Cognee、Letta／MemGPT 四篇 Agent 記憶服務中英文 canonical 專文已完成必要驗證並已上線。
+- Agent 框架 5 組中英文個別介紹已完成（AG2、LangChain、Mastra、Pydantic AI、DSPy）並已上線。
+- 雲端 LLM API 與路由 7 組中英文個別介紹已完成（OpenRouter、Bedrock、Vertex、Together、Fireworks、LiteLLM、Portkey）並已上線。
+- Stanford CS229 已改為 2026 官方主講義逐章雙語導讀：依 278 頁 PDF 完成 21 章／42 檔（orders 2–22），逐章頁碼、來源、雙語互鏈與交叉審稿修正已完成並已上線；原 Spring 2021 L1–L18 共 36 份未追蹤草稿可復原地封存於 `.research/archived-drafts/cs229-spring2021/`，不進站、不混用。
+- Stanford CS336 Spring 2026 的 17 講主課逐講雙語導讀已完成 34 個中英文稿（orders 2–18）：官方 manifest、逐講 artifact、雙語互鏈與系列順序已核對，Daniel Selsam／Dan Fu guest sessions 未混入主系列；本輪全站閘門通過並已上線。
+- 「私有語料管線」4 篇中英文稿已完成：邊界與架構、來源到索引、查詢權限／刪除／freshness，
+  以及 Retrieval Eval 評估契約。前三篇已上線；第 4 篇盤點出現有 20 題 golden dataset 缺
   document-level qrels、runner、raw ranked results、latency 與 corpus manifest，因此未捏造實測分數，
   要補齊這些 artifact 並實際跑 lexical／vector／hybrid 後才能把結果表改成正式實測。
 - 非 Stanford 名校課程系列已完成雙語初稿與交叉查證：MIT 6.S191 13 篇／語言、Berkeley CS188 7 篇、
   CS288 6 篇、CS285 6 篇、CMU 10-301/601 10 篇、11-785 29 篇，另有 CMU 核心改制與 Pacman 血統比較各 1 篇；
-  共 73 組中英文內容，固定 2026 主版本並標示 LMS、grader、錄影與算力限制，待使用者 review。
-- CMU 07-280 完整課程導讀已完成 29 篇／58 個雙語 Markdown（總覽、24 講、3 篇階段複習、結業路線）與來源 manifest，待使用者審稿；Harvard 地圖亦待審。
+  共 73 組中英文內容，固定 2026 主版本並標示 LMS、grader、錄影與算力限制；本輪全站閘門通過並已上線。
+- CMU 07-280 完整課程導讀已完成 29 篇／58 個雙語 Markdown（總覽、24 講、3 篇階段複習、結業路線）與來源 manifest；Harvard 地圖亦已納入全站閘門，現有稿件已上線。
 - Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals, then verify the production Groq-to-Cloudflare fallback path.
 - Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.  **導讀曾被 agent 查證推翻一次**：durable execution 的軸線不是 replay vs checkpoint
   （DBOS、Hatchet 用 checkpoint 詞彙卻同樣要求決定性），而是「復原時要不要重跑你的編排碼」，

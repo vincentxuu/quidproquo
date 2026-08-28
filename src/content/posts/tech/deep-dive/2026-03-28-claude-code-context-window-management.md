@@ -1,13 +1,13 @@
 ---
-title: "Claude Code 的 context window 怎麼管理：自動載入順序、各功能成本與 compaction 三件套"
+title: "Claude Code 的 context window 怎麼管理：自動載入內容、各功能成本與 compaction 三件套"
 date: 2026-03-28
 type: deep-dive
 category: tech
 tags: [claude-code, context-window, compaction, token]
 lang: zh-TW
-tldr: "Claude Code 在你打第一個字之前就載入了 system prompt、MEMORY.md、CLAUDE.md、MCP tool 名稱和 skill 描述。本文拆解 session 開頭的自動載入順序、六類擴充功能各自的 context 成本，以及 /compact、/autocompact、autoCompactWindow 三層壓縮控制的用法。"
+tldr: "Claude Code 在你打第一個字之前就載入了 system prompt、MEMORY.md、CLAUDE.md、MCP tool 名稱和 skill 描述。本文拆解 session 開頭的自動載入內容、六類擴充功能各自的 context 成本，以及 /compact、/autocompact、autoCompactWindow 三層壓縮控制的用法。"
 description: "Claude Code context window 管理：session 開頭自動載入哪些內容、CLAUDE.md／skills／MCP／subagents／hooks 各佔多少 context、compaction 三件套設定，以及 context 滿了時的錯誤訊息與對策。"
-draft: true
+draft: false
 series:
   name: "Claude Code 深入介紹"
   order: 10
@@ -25,17 +25,17 @@ series:
 
 ## Session 開頭：你還沒打字，東西已經進來了
 
-跑 `claude` 之後、你送出第一個 prompt 之前，官方文件的互動模擬列出了自動載入的順序：
+跑 `claude` 之後、你送出第一個 prompt 之前，官方文件的互動模擬列出了一批自動進 context 的內容。這不是所有環境都固定相同的嚴格序列；output style、`--append-system-prompt`、外部設定和版本差異都可能讓實際內容不同。日常需要記的是這些類別：
 
-| 順序 | 內容 | 來源 |
+| 類別 | 內容 | 來源 |
 |------|------|------|
-| 1 | System prompt | Claude Code 內建，決定行為、工具使用與回應格式 |
-| 2 | Auto memory | Claude 自己累積的筆記，載入 `MEMORY.md` 前 200 行或 25KB |
-| 3 | Environment info | 工作目錄、平台、shell、是否 git repo、分支與近期 commit |
-| 4 | MCP tool 名稱 | 只列名字讓 Claude 知道有什麼可用 |
-| 5 | Skill descriptions | 每個 skill 一行描述 |
-| 6 | 使用者層 CLAUDE.md | `~/.claude/CLAUDE.md`，跨專案偏好 |
-| 7 | 專案 CLAUDE.md | 專案根目錄，團隊共用的約定 |
+| System prompt | Claude Code 內建行為、工具使用與回應格式，可能包含 output style 或追加 system prompt |
+| Auto memory | Claude 自己累積的筆記，載入 `MEMORY.md` 前 200 行或 25KB |
+| Environment info | 工作目錄、平台、shell、是否 git repo、分支與近期 commit |
+| MCP tool 名稱 | 只列名字讓 Claude 知道有什麼可用 |
+| Skill descriptions | 每個可由模型觸發的 skill 描述 |
+| 使用者層 CLAUDE.md | `~/.claude/CLAUDE.md`，跨專案偏好 |
+| 專案 CLAUDE.md / rules | 專案指示、未設 `paths:` 的 rules；路徑限定規則按需載入 |
 
 兩個細節值得記住。第一，MCP 的完整 tool schema **預設延遲載入**：tool search 預設開啟，Claude 平常只看得到工具名稱，需要某個工具時才把它的 schema 抓進來。第二，skill 只有描述常駐，全文要等實際用到才載入——所以 description 寫得準不準，同時決定了 context 成本和觸發正確率。memory 體系的分層細節（哪一層放什麼、怎麼 import）留給[專門那篇](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide)。
 
@@ -66,7 +66,7 @@ Hooks 那格的「除非回傳輸出」也有講究：exit code 0 的純 stdout 
 
 ## 滿了怎麼辦：compaction 三件套
 
-Context 快滿時，Claude Code 會自動壓縮：把整段對話換成一份結構化摘要（保留你的需求和意圖、關鍵技術概念、動過哪些檔案、錯誤怎麼修的、待辦事項），騰出空間繼續工作。控制這件事的機制有三層：
+Context 快滿時，Claude Code 會自動壓縮：把整段對話換成一份結構化摘要（保留你的需求和意圖、關鍵技術概念、動過哪些檔案、錯誤怎麼修的、待辦事項），騰出空間繼續工作。日常最常用的控制面有三層：
 
 **`/compact`**——手動壓縮，可以帶焦點指令。`/compact focus on the auth bug fix` 會讓摘要保住你指定的部分，而不是讓自動流程猜什麼重要。開始長任務前主動壓一次，比等自動觸發更可控。
 
@@ -74,7 +74,9 @@ Context 快滿時，Claude Code 會自動壓縮：把整段對話換成一份結
 
 **`CLAUDE_CODE_AUTO_COMPACT_WINDOW`**——環境變數，優先權高於指令和設定，適合腳本和雲端環境。接受的範圍是 **100K 到 1M** tokens，寫 `500k`、`1M` 或純數字都行；另有 `--autocompact` 旗標可以只覆蓋一次啟動。不管設多大，都不會超過模型本身的 context window。
 
-不設任何值的話，Claude Code 在對話達到模型 context 上限時才壓縮。如果你的問題是 window 不夠大而不是太早壓：Fable 5、Sonnet 5 支援 100 萬 token 的 context window，Sonnet 5 原生就是 1M、預設在約 967K tokens 時壓縮。
+如果不是要壓整段對話，而是只想把某個切點之前或之後整理成摘要，官方現在也提供 `/rewind` 的 **Summarize from here** / **Summarize up to here**。它比較像局部整理工具，不是 auto-compact 水位設定的一部分。
+
+不設任何值的話，Claude Code 在對話接近模型 context 上限時才壓縮。如果你的問題是 window 不夠大而不是太早壓：官方目前列出 Fable 5、Sonnet 5、Opus 4.6 之後版本、Sonnet 4.6 都支援 100 萬 token 的 context window。Sonnet 5 原生就是 1M；其他模型依方案和 provider 可能需要選 `[1m]` 變體，預設壓縮水位也會因模型而異。
 
 ### 壓縮之後留下什麼
 
@@ -103,7 +105,7 @@ Context 管理的本質是一張收支表：session 開頭的自動載入是固�
 
 ## 參考資料
 
-- [Explore the context window — Claude Code Docs](https://code.claude.com/docs/en/context-window) — session 開頭自動載入順序、各事件 token 成本的官方互動模擬，含 compaction 保留機制表與「When your context fills up」對策清單
+- [Explore the context window — Claude Code Docs](https://code.claude.com/docs/en/context-window) — session 開頭自動載入項目、各事件 token 成本的官方互動模擬，含 compaction 保留機制表與「When your context fills up」對策清單
 - [Extend Claude Code — Claude Code Docs](https://code.claude.com/docs/en/features-overview) — CLAUDE.md／skills／MCP／code intelligence／subagents／hooks 六類功能的 context 成本比較表與載入時機說明
 - [Model configuration — Claude Code Docs](https://code.claude.com/docs/en/model-config) — auto-compact window 的三層設定（`/autocompact`、`--autocompact`、`CLAUDE_CODE_AUTO_COMPACT_WINDOW`）、100K–1M 範圍與各模型預設閾值
 - [Error reference — Claude Code Docs](https://code.claude.com/docs/en/errors) — `Prompt is too long`、`automatic compaction failed`、`Conversation too long` 三種 context 相關錯誤的意義與復原步驟
@@ -111,3 +113,4 @@ Context 管理的本質是一張收支表：session 開頭的自動載入是固�
 ## 更新紀錄
 
 - 2026-08-26：初版，依 2026-08 官方文件撰寫（tool search 預設開啟、Sonnet 5 原生 1M context、compaction 三件套以 model-config 頁為準）。
+- 2026-08-29：更新 context 啟動載入措辭，避免把互動模擬寫成固定順序；補齊 1M context 模型清單。
