@@ -38,8 +38,9 @@ In progress
   未掃到 `TODO: 待撰寫` 空殼 marker；Claude Code 系列已無待審 draft。
   2026-08-29 已完成 order 1–7、9–11、14–16、18–21、24–38 共 64 檔 draft 審讀與小修；focused checks 全綠；
   `pnpm verify` 全綠，`pnpm astro check` 0 errors；MIT 6.7960 英文稿 `additionalSeries` schema 已修正。
-- **仍為草稿，不可誤翻**：web-retrieval-benchmark、web-extraction-quality-benchmark 中英 4 檔——正文自我宣告
-  要等 live channel 實測與 raw artifacts 入庫才能發。其餘 progress 待審系列目前不是 draft。
+- **仍為草稿，不可誤翻**：web-retrieval-benchmark、web-extraction-quality-benchmark 中英 4 檔——2026-08-29
+  已驗證品質／引用／雙語／連結過關，但本機仍無 live channel raw artifacts、version-locked same-run outputs
+  與人工標註；見 `.work/reviews/web-benchmark-drafts-2026-08-29.md`。其餘 progress 待審系列目前不是 draft。
 - **AI 模型家族系列新增三篇非文字家族深拆（2026-08-26）**：FLUX/BFL（order 13）、語音
   Whisper×ElevenLabs（order 14）、影片生成 Sora/Veo/Kling/Runway（order 15），tech/deep-dive，
   未 commit。三篇並行 post-verify 子代理查證＋post-review：修掉 FLUX 授權誤解（dev 輸出可商用、
