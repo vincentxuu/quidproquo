@@ -7,12 +7,11 @@ import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { createBackends } from '@/lib/agent-os/storage';
 import { columnExpr, getTableColumns } from '@/lib/admin-console/schema';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('runTimeline');
 
 const runId = Astro.params.id;
 if (!runId) return Astro.redirect('/admin/console/runs');
@@ -100,196 +99,194 @@ let toolCallsByRun = new Map<string, ToolCallRow[]>();
 let eventsByRun = new Map<string, AgentEventRow[]>();
 let loadError = false;
 
-if (ready) {
+try {
+  const db = getEnv().DB;
+  const [flowDefinitionColumns, flowRunColumns, stepRunColumns] = await Promise.all([
+    getTableColumns(db, 'flow_definitions'),
+    getTableColumns(db, 'flow_runs'),
+    getTableColumns(db, 'flow_step_runs'),
+  ]);
+  const displayNameExpr = flowDefinitionColumns.has('display_name') ? 'fd.display_name' : 'fd.name AS display_name';
+  const runLatencyExpr = flowRunColumns.has('latency_ms') ? 'fr.latency_ms' : 'NULL AS latency_ms';
+  const stepKindExpr = stepRunColumns.has('step_type') ? 'step_type AS kind' : 'kind';
+  const stepAttemptExpr = columnExpr(stepRunColumns, 'attempt', '1', 'attempt');
+  const stepStartedExpr = columnExpr(stepRunColumns, 'started_at', 'NULL', 'started_at');
+  const stepFinishedExpr = columnExpr(stepRunColumns, 'finished_at', 'NULL', 'finished_at');
+  const stepLatencyExpr = columnExpr(stepRunColumns, 'latency_ms', 'NULL', 'latency_ms');
+  const stepCreatedExpr = columnExpr(stepRunColumns, 'created_at', '0', 'created_at');
+  const stepUpdatedExpr = columnExpr(stepRunColumns, 'updated_at', stepRunColumns.has('created_at') ? 'created_at' : '0', 'updated_at');
+  const stepInputsExpr = columnExpr(stepRunColumns, 'inputs_json', 'NULL', 'inputs_json');
+  const stepOutputsExpr = columnExpr(stepRunColumns, 'outputs_json', 'NULL', 'outputs_json');
+  const stepErrorExpr = columnExpr(stepRunColumns, 'error_json', 'NULL', 'error_json');
+  const stepAgentRunExpr = columnExpr(stepRunColumns, 'agent_run_id', 'NULL', 'agent_run_id');
+  const stepOrderBy = [
+    'step_order ASC',
+    stepRunColumns.has('attempt') ? 'attempt ASC' : '',
+    stepRunColumns.has('created_at') ? 'created_at ASC' : '',
+  ].filter(Boolean).join(', ');
+  const runResultPromise = db
+    .prepare(
+      `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, ${runLatencyExpr},
+              ${displayNameExpr}
+       FROM flow_runs fr
+       LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+       WHERE fr.flow_run_id = ?
+       LIMIT 1`,
+    )
+    .bind(runId)
+    .first<FlowRunRow>();
+  const stepsResultPromise = db
+    .prepare(
+      `SELECT step_run_id,
+              step_id,
+              ${stepKindExpr},
+              status,
+              ${stepAttemptExpr},
+              ${stepStartedExpr},
+              ${stepFinishedExpr},
+              ${stepLatencyExpr},
+              step_order,
+              ${stepCreatedExpr},
+              ${stepUpdatedExpr},
+              ${stepInputsExpr},
+              ${stepOutputsExpr},
+              ${stepErrorExpr},
+              ${stepAgentRunExpr}
+       FROM flow_step_runs
+       WHERE flow_run_id = ?
+       ORDER BY ${stepOrderBy}`,
+    )
+    .bind(runId)
+    .all<StepRunRow>();
+  const [runResult, stepsResult, auditResult] = await Promise.all([
+    runResultPromise,
+    stepsResultPromise,
+    db
+      .prepare(
+        `SELECT al.audit_id,
+                u.email as user_email,
+                al.action,
+                al.payload_json,
+                al.created_at
+         FROM console_audit_log al
+         LEFT JOIN console_users u ON u.user_id = al.user_id
+         WHERE al.resource_kind = 'run'
+           AND al.resource_id = ?
+         ORDER BY al.created_at DESC
+         LIMIT 20`,
+      )
+      .bind(runId)
+      .all<RunAuditRow>()
+      .catch(() => ({
+        results: [],
+        success: true,
+        meta: {} as D1Meta & Record<string, unknown>,
+      })),
+  ]);
+
+  run = runResult;
+  steps = stepsResult.results ?? [];
+  auditRows = auditResult.results ?? [];
+
   try {
-    const db = getEnv().DB;
-    const [flowDefinitionColumns, flowRunColumns, stepRunColumns] = await Promise.all([
-      getTableColumns(db, 'flow_definitions'),
-      getTableColumns(db, 'flow_runs'),
-      getTableColumns(db, 'flow_step_runs'),
-    ]);
-    const displayNameExpr = flowDefinitionColumns.has('display_name') ? 'fd.display_name' : 'fd.name AS display_name';
-    const runLatencyExpr = flowRunColumns.has('latency_ms') ? 'fr.latency_ms' : 'NULL AS latency_ms';
-    const stepKindExpr = stepRunColumns.has('step_type') ? 'step_type AS kind' : 'kind';
-    const stepAttemptExpr = columnExpr(stepRunColumns, 'attempt', '1', 'attempt');
-    const stepStartedExpr = columnExpr(stepRunColumns, 'started_at', 'NULL', 'started_at');
-    const stepFinishedExpr = columnExpr(stepRunColumns, 'finished_at', 'NULL', 'finished_at');
-    const stepLatencyExpr = columnExpr(stepRunColumns, 'latency_ms', 'NULL', 'latency_ms');
-    const stepCreatedExpr = columnExpr(stepRunColumns, 'created_at', '0', 'created_at');
-    const stepUpdatedExpr = columnExpr(stepRunColumns, 'updated_at', stepRunColumns.has('created_at') ? 'created_at' : '0', 'updated_at');
-    const stepInputsExpr = columnExpr(stepRunColumns, 'inputs_json', 'NULL', 'inputs_json');
-    const stepOutputsExpr = columnExpr(stepRunColumns, 'outputs_json', 'NULL', 'outputs_json');
-    const stepErrorExpr = columnExpr(stepRunColumns, 'error_json', 'NULL', 'error_json');
-    const stepAgentRunExpr = columnExpr(stepRunColumns, 'agent_run_id', 'NULL', 'agent_run_id');
-    const stepOrderBy = [
-      'step_order ASC',
-      stepRunColumns.has('attempt') ? 'attempt ASC' : '',
-      stepRunColumns.has('created_at') ? 'created_at ASC' : '',
-    ].filter(Boolean).join(', ');
-    const runResultPromise = db
-      .prepare(
-        `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, ${runLatencyExpr},
-                ${displayNameExpr}
-         FROM flow_runs fr
-         LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
-         WHERE fr.flow_run_id = ?
-         LIMIT 1`,
-      )
-      .bind(runId)
-      .first<FlowRunRow>();
-    const stepsResultPromise = db
-      .prepare(
-        `SELECT step_run_id,
-                step_id,
-                ${stepKindExpr},
-                status,
-                ${stepAttemptExpr},
-                ${stepStartedExpr},
-                ${stepFinishedExpr},
-                ${stepLatencyExpr},
-                step_order,
-                ${stepCreatedExpr},
-                ${stepUpdatedExpr},
-                ${stepInputsExpr},
-                ${stepOutputsExpr},
-                ${stepErrorExpr},
-                ${stepAgentRunExpr}
-         FROM flow_step_runs
-         WHERE flow_run_id = ?
-         ORDER BY ${stepOrderBy}`,
-      )
-      .bind(runId)
-      .all<StepRunRow>();
-    const [runResult, stepsResult, auditResult] = await Promise.all([
-      runResultPromise,
-      stepsResultPromise,
-      db
-        .prepare(
-          `SELECT al.audit_id,
-                  u.email as user_email,
-                  al.action,
-                  al.payload_json,
-                  al.created_at
-           FROM console_audit_log al
-           LEFT JOIN console_users u ON u.user_id = al.user_id
-           WHERE al.resource_kind = 'run'
-             AND al.resource_id = ?
-           ORDER BY al.created_at DESC
-           LIMIT 20`,
-        )
-        .bind(runId)
-        .all<RunAuditRow>()
-        .catch(() => ({
-          results: [],
-          success: true,
-          meta: {} as D1Meta & Record<string, unknown>,
-        })),
-    ]);
+    const backends = createBackends(getEnv());
+    const approvals = await backends.approvals.listByStatus('pending');
+    pendingApprovals = approvals
+      .filter((approval) => approval.runId === runId)
+      .map((approval) => ({
+        approvalId: approval.approvalId,
+        reason: approval.reason,
+        context: approval.context,
+        createdAt: approval.createdAt,
+      }));
+  } catch {
+    pendingApprovals = [];
+  }
 
-    run = runResult;
-    steps = stepsResult.results ?? [];
-    auditRows = auditResult.results ?? [];
-
+  const agentRunIds = [...new Set(steps.map((step) => step.agent_run_id).filter((id): id is string => Boolean(id)))];
+  if (agentRunIds.length > 0) {
+    const placeholders = agentRunIds.map(() => '?').join(', ');
     try {
-      const backends = createBackends(getEnv());
-      const approvals = await backends.approvals.listByStatus('pending');
-      pendingApprovals = approvals
-        .filter((approval) => approval.runId === runId)
-        .map((approval) => ({
-          approvalId: approval.approvalId,
-          reason: approval.reason,
-          context: approval.context,
-          createdAt: approval.createdAt,
-        }));
-    } catch {
-      pendingApprovals = [];
-    }
-
-    const agentRunIds = [...new Set(steps.map((step) => step.agent_run_id).filter((id): id is string => Boolean(id)))];
-    if (agentRunIds.length > 0) {
-      const placeholders = agentRunIds.map(() => '?').join(', ');
-      try {
-        const [toolResult, eventResult] = await Promise.all([
-          db
-            .prepare(
-              `SELECT call_id, run_id, syscall_name, tokens_in, tokens_out, cost_usd, latency_ms, error
-               FROM agent_tool_calls
-               WHERE run_id IN (${placeholders})
-               ORDER BY started_at ASC`,
-            )
-            .bind(...agentRunIds)
-            .all<ToolCallRow>(),
-          db
-            .prepare(
-              `SELECT event_id, run_id, kind, step_id, payload_json, at
-               FROM agent_run_events
-               WHERE run_id IN (${placeholders})
-               ORDER BY event_id ASC`,
-            )
-            .bind(...agentRunIds)
-            .all<AgentEventRow>(),
-        ]);
-
-        for (const call of toolResult.results ?? []) {
-          const list = toolCallsByRun.get(call.run_id) ?? [];
-          list.push(call);
-          toolCallsByRun.set(call.run_id, list);
-        }
-        for (const event of eventResult.results ?? []) {
-          const list = eventsByRun.get(event.run_id) ?? [];
-          list.push(event);
-          eventsByRun.set(event.run_id, list);
-        }
-      } catch {
-        toolCallsByRun = new Map();
-        eventsByRun = new Map();
-      }
-    }
-
-    try {
-      const artifactTables = await db
-        .prepare(
-          `SELECT COUNT(*) AS cnt
-           FROM sqlite_master
-           WHERE type = 'table'
-             AND name IN ('artifact_definitions', 'artifact_versions')`,
-        )
-        .first<{ cnt: number }>();
-
-      if ((artifactTables?.cnt ?? 0) === 2) {
-        const artifactResult = await db
+      const [toolResult, eventResult] = await Promise.all([
+        db
           .prepare(
-            `SELECT d.definition_id AS artifact_id,
-                    d.kind,
-                    d.label,
-                    d.logical_name,
-                    v.version_id,
-                    v.version_number,
-                    v.status,
-                    v.created_at
-             FROM artifact_versions v
-             JOIN artifact_definitions d ON d.definition_id = v.definition_id
-             JOIN (
-               SELECT definition_id, MAX(version_number) AS max_version
-               FROM artifact_versions
-               WHERE flow_run_id = ?
-               GROUP BY definition_id
-             ) latest
-               ON latest.definition_id = v.definition_id
-              AND latest.max_version = v.version_number
-             WHERE v.flow_run_id = ?
-             ORDER BY v.created_at DESC`,
+            `SELECT call_id, run_id, syscall_name, tokens_in, tokens_out, cost_usd, latency_ms, error
+             FROM agent_tool_calls
+             WHERE run_id IN (${placeholders})
+             ORDER BY started_at ASC`,
           )
-          .bind(runId, runId)
-          .all<ArtifactSummaryRow>();
-        artifacts = artifactResult.results ?? [];
+          .bind(...agentRunIds)
+          .all<ToolCallRow>(),
+        db
+          .prepare(
+            `SELECT event_id, run_id, kind, step_id, payload_json, at
+             FROM agent_run_events
+             WHERE run_id IN (${placeholders})
+             ORDER BY event_id ASC`,
+          )
+          .bind(...agentRunIds)
+          .all<AgentEventRow>(),
+      ]);
+
+      for (const call of toolResult.results ?? []) {
+        const list = toolCallsByRun.get(call.run_id) ?? [];
+        list.push(call);
+        toolCallsByRun.set(call.run_id, list);
+      }
+      for (const event of eventResult.results ?? []) {
+        const list = eventsByRun.get(event.run_id) ?? [];
+        list.push(event);
+        eventsByRun.set(event.run_id, list);
       }
     } catch {
-      artifacts = [];
+      toolCallsByRun = new Map();
+      eventsByRun = new Map();
+    }
+  }
+
+  try {
+    const artifactTables = await db
+      .prepare(
+        `SELECT COUNT(*) AS cnt
+         FROM sqlite_master
+         WHERE type = 'table'
+           AND name IN ('artifact_definitions', 'artifact_versions')`,
+      )
+      .first<{ cnt: number }>();
+
+    if ((artifactTables?.cnt ?? 0) === 2) {
+      const artifactResult = await db
+        .prepare(
+          `SELECT d.definition_id AS artifact_id,
+                  d.kind,
+                  d.label,
+                  d.logical_name,
+                  v.version_id,
+                  v.version_number,
+                  v.status,
+                  v.created_at
+           FROM artifact_versions v
+           JOIN artifact_definitions d ON d.definition_id = v.definition_id
+           JOIN (
+             SELECT definition_id, MAX(version_number) AS max_version
+             FROM artifact_versions
+             WHERE flow_run_id = ?
+             GROUP BY definition_id
+           ) latest
+             ON latest.definition_id = v.definition_id
+            AND latest.max_version = v.version_number
+           WHERE v.flow_run_id = ?
+           ORDER BY v.created_at DESC`,
+        )
+        .bind(runId, runId)
+        .all<ArtifactSummaryRow>();
+      artifacts = artifactResult.results ?? [];
     }
   } catch {
-    loadError = true;
+    artifacts = [];
   }
+} catch {
+  loadError = true;
 }
 
 function formatRelative(ms: number): string {
@@ -442,7 +439,7 @@ const bootstrap = run
       steps,
       pendingApprovals,
       uiFlags: {
-        ready,
+        ready: true,
         cancellable: isCancellableRun(run.status),
         retryableStepCount,
       },
@@ -460,16 +457,13 @@ const bootstrapJson = JSON.stringify(bootstrap ?? null).replace(/</g, '\\u003c')
     { label: runId.slice(0, 8) + '…' },
   ]}
 >
-  {!ready && (
-    <AdminState tone="empty">{`Run timeline ships in ${consolePhaseFor('runTimeline')}.`}</AdminState>
-  )}
-  {ready && loadError && (
+  {loadError && (
     <AdminState tone="error">無法載入執行資料。</AdminState>
   )}
-  {ready && !loadError && !run && (
+  {!loadError && !run && (
     <AdminState tone="empty">找不到此執行記錄。</AdminState>
   )}
-  {ready && !loadError && run && (
+  {!loadError && run && (
     <>
       <div class="run-header">
         <div class="run-meta">

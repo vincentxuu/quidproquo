@@ -12,13 +12,3 @@ export function ensureConsoleUmbrella(): Response | undefined {
   }
   return undefined
 }
-
-// Per-page flags retired 2026-05-23 (Phase 9.4.3).
-// All pages are enabled when the umbrella agentConsole.enabled is on.
-export function isPageEnabled(_flag?: string): boolean {
-  return true
-}
-
-export function consolePhaseFor(_flag?: string): string {
-  return 'enabled'
-}

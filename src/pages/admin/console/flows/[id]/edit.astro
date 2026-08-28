@@ -7,12 +7,11 @@ import { getEnv } from '@/lib/config/env';
 import { loadFlowDetail } from '@/lib/agent-console/flow-detail';
 import { flowDefinitionToDag } from '@/lib/agent-flow/dsl/yaml-to-dag';
 import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
+import { ensureConsoleUmbrella } from '../../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('flowEditor');
 const flowId = Astro.params.id ?? '';
 const lang = getConsoleLang(Astro.url);
 const t = createConsoleTranslator(lang);
@@ -23,7 +22,7 @@ let metaJson = '{}';
 let flowName = flowId;
 let loadError = false;
 
-if (ready && flowId) {
+if (flowId) {
   try {
     const detail = await loadFlowDetail(getEnv().DB, flowId);
     if (detail) {
@@ -58,11 +57,8 @@ const breadcrumb = [
 ---
 
 <AdminConsoleLayout title={t('flows.editTitle')} section="flows" breadcrumb={breadcrumb}>
-  {!ready && (
-    <AdminState tone="empty">{t('flows.editorUnavailable', { phase: consolePhaseFor('flowEditor') })}</AdminState>
-  )}
-  {ready && loadError && <AdminState tone="error">{t('flows.loadError')}</AdminState>}
-  {ready && !loadError && (
+  {loadError && <AdminState tone="error">{t('flows.loadError')}</AdminState>}
+  {!loadError && (
     <div class="builder-wrap">
       <FlowBuilder
         initialNodes={JSON.parse(initialNodesJson)}

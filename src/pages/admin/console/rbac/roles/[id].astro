@@ -5,14 +5,13 @@ import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { PERMISSION_PRESETS, formatGrant } from '@/lib/admin-console/rbac/presets';
-import { ensureConsoleUmbrella, isPageEnabled } from '../../_guard';
+import { ensureConsoleUmbrella } from '../../_guard';
 
 export const prerender = false;
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('rbac');
 const roleId = Astro.params.id ?? '';
 const rbacSuccess = Astro.url.searchParams.get('rbac_success');
 const rbacError = Astro.url.searchParams.get('rbac_error');
@@ -62,7 +61,7 @@ let unassignedUsers: UserOptionRow[] = [];
 let otherRoleNames: string[] = [];
 let loadError = false;
 
-if (ready && roleId) {
+if (roleId) {
   try {
     const db = getEnv().DB;
 
@@ -144,19 +143,16 @@ const unassignedUsersJson = JSON.stringify(
 ---
 
 <AdminConsoleLayout title={role ? `角色：${role.name}` : `角色 ${roleId}`} section="rbac" breadcrumb={breadcrumb}>
-  {!ready && (
-    <AdminState tone="empty">權限管理功能尚未啟用。</AdminState>
-  )}
-  {ready && !roleId && (
+  {!roleId && (
     <AdminState tone="error">未指定角色 ID。</AdminState>
   )}
-  {ready && roleId && loadError && (
+  {roleId && loadError && (
     <AdminState tone="error">無法載入角色資料。</AdminState>
   )}
-  {ready && roleId && !loadError && !role && (
+  {roleId && !loadError && !role && (
     <AdminState tone="error">找不到該角色。</AdminState>
   )}
-  {ready && roleId && !loadError && role && (
+  {roleId && !loadError && role && (
     <div class="role-detail">
       {(rbacSuccess || rbacError) && (
         <p

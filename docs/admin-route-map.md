@@ -59,13 +59,13 @@
 - Site Admin 導覽重排：統計併入 Content；AI 群組依「Console → 供應商 → RAG → 追蹤 → Deep Research → Skills」排；孤兒頁 `/admin/agent-ecosystem` 補進導覽。
 - `docs/agent-console-runbook.md` 標註各頁旗標已退役。
 
-## 仍待決定（未動）
+## 2026-08-28 Phase 1 清理
 
-| 項目 | 現況 | 建議 |
-|---|---|---|
-| `/api/admin/agents/*`（agent-os：`agents`、`:id/run`、`:id/enqueue`、`approvals` GET、`runs*`、`events/stream`） | 沒有任何頁面用，只有 `docs/agent-os-runbook.md` 的 curl；資料表是 `agent_runs`，與 console 的 `flow_runs` 是兩套 | 若 agent-os 已被 flow runtime 取代，整組連 runbook 一起退；否則在 console 補一個 agent-os runs 頁。要人拍板 |
-| `/api/admin/evidence/*`（GET conflicts、reputation、runs/:id） vs `/api/admin/console/evidence/*`（resolve） | 讀寫分在兩個 namespace，同一個 lib | 把 `console/evidence/conflicts/:id/resolve` 搬到 `evidence/conflicts/:id/resolve`，改一處 fetch |
-| `/admin/agent-skills` vs `/admin/agent-ecosystem` | 兩個 skill 管理頁、兩個資料來源（settings-store 純文字 vs D1 skills 表） | 把 deep-research 的 skill 文字遷到 D1 skills 後刪 `agent-skills` 頁與 API |
-| `/api/admin/providers`（RAG provider store）與 `/providers/registry`、`/health`（agent-providers） | 同前綴、不同 lib | 等 RAG provider 設定併入 agent-providers registry 後合併 |
-| console 各頁 `isPageEnabled()`／`consolePhaseFor()` | 永遠回 true／'enabled' 的死樁，20 頁模板還留著 `{!ready && …}` 分支 | 逐頁拔掉；純機械但要動 20 個模板，另開一輪 |
-| `/admin/traces` 與 `/admin/console/runs` | 兩套可觀測性（Langfuse vs D1 flow_runs） | 導覽已改名「RAG 追蹤」區分；長期看 flow runtime 是否也送 Langfuse |
+- **agent-os 死端點**（cleanup #1）：刪除 `agents/[id]/run`、`[id]/enqueue`、`runs/*` 共 6 支無 UI 端點；保留 `sessions/*`、`approvals/*`、`scheduled`。
+- **evidence namespace 合併**（cleanup #2）：`console/evidence/conflicts/[id]/resolve` 搬到 `evidence/conflicts/[id]/resolve`，改 1 行 fetch。
+- **agent-skills 遷 D1**（cleanup #3）：settings-store blob 遷入 D1 skills 表，刪 `agent-skills` 頁與 API。
+- **provider 同前綴**（cleanup #4）：不動代碼。RAG provider store（settings KV）與 agent provider registry（D1）共用 `/api/admin/providers` 前綴，兩套不同 lib、不同 DB table。待 RAG provider 設定併入 agent-providers registry 後合併。
+- **死樁清理**（cleanup #5）：刪 `isPageEnabled()` / `consolePhaseFor()` 及 20 頁模板的 dead branch。
+- `/admin/traces` 與 `/admin/console/runs`：導覽已改名「RAG 追蹤」區分；長期看 flow runtime 是否也送 Langfuse。
+
+完整遷移計畫見 `docs/admin-v2-phase1-plan.md`。

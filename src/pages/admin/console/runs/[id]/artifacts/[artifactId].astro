@@ -5,14 +5,13 @@ import { getEnv } from '@/lib/config/env';
 import { createArtifact } from '@/lib/agent-artifact';
 import { createBackends as createArtifactBackends } from '@/lib/agent-artifact/storage';
 import { createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../../_guard';
+import { ensureConsoleUmbrella } from '../../../_guard';
 
 export const prerender = false;
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('artifactViewer');
 
 const runId = Astro.params.id ?? '';
 const artifactId = Astro.params.artifactId ?? '';
@@ -157,7 +156,7 @@ let artifactMissing = false;
 let backendUnavailable = false;
 let exportDestinations: string[] = [];
 
-if (ready && artifactId) {
+if (artifactId) {
   try {
     const env = getEnv();
     const db = env.DB;
@@ -457,27 +456,22 @@ const artifactExportMessages = {
 ---
 
 <AdminConsoleLayout title="產出物檢視器" section="artifacts" breadcrumb={breadcrumb}>
-  {!ready && (
-    <AdminState tone="empty">
-      {`Artifact viewer ships in ${consolePhaseFor('artifactViewer')}.`}
-    </AdminState>
-  )}
 
-  {ready && backendUnavailable && (
+  {backendUnavailable && (
     <AdminState tone="empty">
       Artifact viewer requires AGENT_ARTIFACT_ENABLED=true and the artifact migrations to be applied.
     </AdminState>
   )}
 
-  {ready && !backendUnavailable && loadError && (
+  {!backendUnavailable && loadError && (
     <AdminState tone="error">無法載入產出物。</AdminState>
   )}
 
-  {ready && !backendUnavailable && !loadError && artifactMissing && (
+  {!backendUnavailable && !loadError && artifactMissing && (
     <AdminState tone="empty">{`Artifact "${artifactId}" not found.`}</AdminState>
   )}
 
-  {ready && !backendUnavailable && !loadError && !artifactMissing && targetVersion && (
+  {!backendUnavailable && !loadError && !artifactMissing && targetVersion && (
     <div class="artifact-viewer">
 
       {/* Header */}

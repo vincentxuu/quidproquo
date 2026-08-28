@@ -6,12 +6,11 @@ import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('management');
 const PAGE_SIZE = 25;
 
 const url = new URL(Astro.url);
@@ -34,51 +33,49 @@ let policies: PolicyRow[] = [];
 let loadError = false;
 let totalCount = 0;
 
-if (ready) {
-  try {
-    const db = getEnv().DB;
-    const where = q ? `WHERE archived_at IS NULL AND (policy_key LIKE ? OR label LIKE ? OR CAST(version AS TEXT) LIKE ?)` : 'WHERE archived_at IS NULL';
+try {
+  const db = getEnv().DB;
+  const where = q ? `WHERE archived_at IS NULL AND (policy_key LIKE ? OR label LIKE ? OR CAST(version AS TEXT) LIKE ?)` : 'WHERE archived_at IS NULL';
 
-    if (q) {
-      const like = `%${q}%`;
-      const totalResult = await db
-        .prepare(`SELECT COUNT(*) as total FROM policy_definitions ${where}`)
-        .bind(like, like, like)
-        .first<{ total: number }>();
-      totalCount = totalResult?.total ?? 0;
+  if (q) {
+    const like = `%${q}%`;
+    const totalResult = await db
+      .prepare(`SELECT COUNT(*) as total FROM policy_definitions ${where}`)
+      .bind(like, like, like)
+      .first<{ total: number }>();
+    totalCount = totalResult?.total ?? 0;
 
-      const result = await db
-        .prepare(
-          `SELECT policy_id, policy_key, version, label, created_at
-           FROM policy_definitions
-           ${where}
-           ORDER BY policy_key ASC, version DESC
-           LIMIT ? OFFSET ?`,
-        )
-        .bind(like, like, like, PAGE_SIZE, offset)
-        .all<PolicyRow>();
-      policies = result.results ?? [];
-    } else {
-      const totalResult = await db
-        .prepare(`SELECT COUNT(*) as total FROM policy_definitions WHERE archived_at IS NULL`)
-        .first<{ total: number }>();
-      totalCount = totalResult?.total ?? 0;
+    const result = await db
+      .prepare(
+        `SELECT policy_id, policy_key, version, label, created_at
+         FROM policy_definitions
+         ${where}
+         ORDER BY policy_key ASC, version DESC
+         LIMIT ? OFFSET ?`,
+      )
+      .bind(like, like, like, PAGE_SIZE, offset)
+      .all<PolicyRow>();
+    policies = result.results ?? [];
+  } else {
+    const totalResult = await db
+      .prepare(`SELECT COUNT(*) as total FROM policy_definitions WHERE archived_at IS NULL`)
+      .first<{ total: number }>();
+    totalCount = totalResult?.total ?? 0;
 
-      const result = await db
-        .prepare(
-          `SELECT policy_id, policy_key, version, label, created_at
-           FROM policy_definitions
-           WHERE archived_at IS NULL
-           ORDER BY policy_key ASC, version DESC
-           LIMIT ? OFFSET ?`,
-        )
-        .bind(PAGE_SIZE, offset)
-        .all<PolicyRow>();
-      policies = result.results ?? [];
-    }
-  } catch {
-    loadError = true;
+    const result = await db
+      .prepare(
+        `SELECT policy_id, policy_key, version, label, created_at
+         FROM policy_definitions
+         WHERE archived_at IS NULL
+         ORDER BY policy_key ASC, version DESC
+         LIMIT ? OFFSET ?`,
+      )
+      .bind(PAGE_SIZE, offset)
+      .all<PolicyRow>();
+    policies = result.results ?? [];
   }
+} catch {
+  loadError = true;
 }
 
 const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
@@ -110,13 +107,10 @@ function formatTs(ms: number | null): string {
 ---
 
 <AdminConsoleLayout title={t('policies.title')} section="policies">
-  {!ready && (
-    <AdminState tone="empty">{t('policies.managementUnavailable', { phase: consolePhaseFor('management') })}</AdminState>
-  )}
-  {ready && loadError && (
+  {loadError && (
     <AdminState tone="error">{t('policies.loadError')}</AdminState>
   )}
-  {ready && !loadError && (
+  {!loadError && (
     <AdminPanel title={t('policies.library')} eyebrow={t('policies.libraryEyebrow')}>
       <form class="toolbar" method="GET" action={consoleHref('/admin/console/policies', lang)}>
         {lang === 'en' && <input type="hidden" name="lang" value="en" />}
@@ -134,7 +128,7 @@ function formatTs(ms: number | null): string {
       </form>
     </AdminPanel>
   )}
-  {ready && !loadError && (
+  {!loadError && (
     <AdminPanel title={t('policies.createPolicy')} eyebrow={t('policies.createEyebrow')}>
       <form id="policy-create-form" class="create-policy-form">
         <div class="field-row">
@@ -158,12 +152,12 @@ function formatTs(ms: number | null): string {
       </form>
     </AdminPanel>
   )}
-  {ready && !loadError && policies.length === 0 && (
+  {!loadError && policies.length === 0 && (
     <AdminState tone="empty">
       {q ? t('policies.emptySearch', { q }) : t('policies.empty')}
     </AdminState>
   )}
-  {ready && !loadError && policies.length > 0 && (
+  {!loadError && policies.length > 0 && (
     <AdminPanel title={t('policies.library')}>
       <AdminTable minWidth="560px" flush>
         <thead>

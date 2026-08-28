@@ -5,12 +5,11 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('runTimeline');
 
 interface RunRow {
   flow_run_id: string;
@@ -44,90 +43,88 @@ const page = Number.isFinite(selectedPage) && selectedPage > 0 ? selectedPage : 
 const offset = (page - 1) * 50;
 const PAGE_SIZE = 50;
 
-if (ready) {
-  try {
-    const db = getEnv().DB;
-    const flowDefinitionInfo = await db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>();
-    const flowRunInfo = await db.prepare('PRAGMA table_info(flow_runs)').all<{ name: string }>();
-    const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
-    const flowRunColumns = new Set((flowRunInfo.results ?? []).map((column) => column.name));
-    const flowNameExpr = flowDefinitionColumns.has('display_name')
-      ? 'fd.display_name'
-      : flowDefinitionColumns.has('name')
-        ? 'fd.name'
-        : 'fd.flow_id';
-    const flowOptionNameExpr = flowDefinitionColumns.has('display_name')
-      ? 'display_name'
-      : flowDefinitionColumns.has('name')
-        ? 'name'
-        : 'flow_id';
-    const costExpr = flowRunColumns.has('cost_usd')
-      ? 'fr.cost_usd'
-      : flowRunColumns.has('total_cost_usd')
-        ? 'fr.total_cost_usd'
-        : 'NULL';
+try {
+  const db = getEnv().DB;
+  const flowDefinitionInfo = await db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>();
+  const flowRunInfo = await db.prepare('PRAGMA table_info(flow_runs)').all<{ name: string }>();
+  const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
+  const flowRunColumns = new Set((flowRunInfo.results ?? []).map((column) => column.name));
+  const flowNameExpr = flowDefinitionColumns.has('display_name')
+    ? 'fd.display_name'
+    : flowDefinitionColumns.has('name')
+      ? 'fd.name'
+      : 'fd.flow_id';
+  const flowOptionNameExpr = flowDefinitionColumns.has('display_name')
+    ? 'display_name'
+    : flowDefinitionColumns.has('name')
+      ? 'name'
+      : 'flow_id';
+  const costExpr = flowRunColumns.has('cost_usd')
+    ? 'fr.cost_usd'
+    : flowRunColumns.has('total_cost_usd')
+      ? 'fr.total_cost_usd'
+      : 'NULL';
 
-    const whereParts: string[] = []
-    const bindings: Array<string | number> = []
+  const whereParts: string[] = []
+  const bindings: Array<string | number> = []
 
-    if (selectedStatus) {
-      whereParts.push('fr.status = ?')
-      bindings.push(selectedStatus)
-    }
-
-    if (selectedFlow) {
-      whereParts.push('fr.flow_id = ?')
-      bindings.push(selectedFlow)
-    }
-
-    if (selectedFrom) {
-      const fromMs = new Date(selectedFrom).getTime()
-      if (!Number.isNaN(fromMs)) {
-        whereParts.push('fr.started_at >= ?')
-        bindings.push(fromMs)
-      }
-    }
-
-    if (selectedTo) {
-      const toMs = new Date(selectedTo)
-      toMs.setHours(23, 59, 59, 999)
-      const toTs = toMs.getTime()
-      if (!Number.isNaN(toTs)) {
-        whereParts.push('fr.started_at <= ?')
-        bindings.push(toTs)
-      }
-    }
-
-    const whereClause = whereParts.length > 0 ? `WHERE ${whereParts.join(' AND ')}` : ''
-
-    const result = await db
-      .prepare(
-        `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, fr.latency_ms,
-                ${costExpr} AS cost_usd, fr.updated_at, ${flowNameExpr} AS display_name
-         FROM flow_runs fr
-         LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
-         ${whereClause}
-         ORDER BY fr.started_at DESC
-         LIMIT ? OFFSET ?`,
-      )
-      .bind(...bindings, PAGE_SIZE, offset)
-      .all<RunRow>();
-    runs = result.results ?? [];
-
-    const flowRows = await db
-      .prepare(`SELECT flow_id, ${flowOptionNameExpr} AS display_name FROM flow_definitions ORDER BY flow_id ASC`)
-      .all<FlowOption>();
-    flowOptions = flowRows.results ?? [];
-
-    const countResult = await db
-      .prepare(`SELECT COUNT(*) AS total
-        FROM flow_runs fr ${whereClause}`)
-      .bind(...bindings)
-      .first<{ total: number }>()
-    totalRuns = Number(countResult?.total ?? 0)
-  } catch {
-    loadError = true;
+  if (selectedStatus) {
+    whereParts.push('fr.status = ?')
+    bindings.push(selectedStatus)
   }
+
+  if (selectedFlow) {
+    whereParts.push('fr.flow_id = ?')
+    bindings.push(selectedFlow)
+  }
+
+  if (selectedFrom) {
+    const fromMs = new Date(selectedFrom).getTime()
+    if (!Number.isNaN(fromMs)) {
+      whereParts.push('fr.started_at >= ?')
+      bindings.push(fromMs)
+    }
+  }
+
+  if (selectedTo) {
+    const toMs = new Date(selectedTo)
+    toMs.setHours(23, 59, 59, 999)
+    const toTs = toMs.getTime()
+    if (!Number.isNaN(toTs)) {
+      whereParts.push('fr.started_at <= ?')
+      bindings.push(toTs)
+    }
+  }
+
+  const whereClause = whereParts.length > 0 ? `WHERE ${whereParts.join(' AND ')}` : ''
+
+  const result = await db
+    .prepare(
+      `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, fr.latency_ms,
+              ${costExpr} AS cost_usd, fr.updated_at, ${flowNameExpr} AS display_name
+       FROM flow_runs fr
+       LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+       ${whereClause}
+       ORDER BY fr.started_at DESC
+       LIMIT ? OFFSET ?`,
+    )
+    .bind(...bindings, PAGE_SIZE, offset)
+    .all<RunRow>();
+  runs = result.results ?? [];
+
+  const flowRows = await db
+    .prepare(`SELECT flow_id, ${flowOptionNameExpr} AS display_name FROM flow_definitions ORDER BY flow_id ASC`)
+    .all<FlowOption>();
+  flowOptions = flowRows.results ?? [];
+
+  const countResult = await db
+    .prepare(`SELECT COUNT(*) AS total
+      FROM flow_runs fr ${whereClause}`)
+    .bind(...bindings)
+    .first<{ total: number }>()
+  totalRuns = Number(countResult?.total ?? 0)
+} catch {
+  loadError = true;
 }
 
 const totalPages = Math.max(1, Math.ceil(totalRuns / PAGE_SIZE));
@@ -189,16 +186,13 @@ function isCancellableRun(status: string): boolean {
 ---
 
 <AdminConsoleLayout title="執行記錄" section="runs">
-  {!ready && (
-    <AdminState tone="empty">{`Run timeline ships in ${consolePhaseFor('runTimeline')}.`}</AdminState>
-  )}
-  {ready && loadError && (
+  {loadError && (
     <AdminState tone="error">無法載入執行記錄。</AdminState>
   )}
-  {ready && !loadError && runs.length === 0 && (
+  {!loadError && runs.length === 0 && (
     <AdminState tone="empty">尚無執行記錄，請從<a href="/admin/console">工作流程選擇器</a>啟動。</AdminState>
   )}
-  {ready && !loadError && runs.length > 0 && (
+  {!loadError && runs.length > 0 && (
     <AdminPanel title="所有執行記錄 — 最近 50 筆">
       <form class="toolbar" method="GET" action="/admin/console/runs" data-runs-filter-form>
         <label for="status">狀態</label>

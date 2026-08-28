@@ -5,21 +5,18 @@ import PolicyAssignmentList from '@/components/admin/console/PolicyAssignmentLis
 import { FlowAssignIsland } from '@/components/admin/console/FlowAssignModal';
 import { fetchPolicyDetail } from '@/lib/agent-console/management';
 import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+import { ensureConsoleUmbrella } from '../_guard';
 
 export const prerender = false;
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('management');
 const policyKey = Astro.params.policyKey ?? '';
 const lang = getConsoleLang(Astro.url);
 const t = createConsoleTranslator(lang);
 
-const result = ready
-  ? await fetchPolicyDetail(Astro.request, policyKey)
-  : { ok: false, detail: null, assignments: [] };
+const result = await fetchPolicyDetail(Astro.request, policyKey);
 
 const breadcrumb = [
   { label: t('policies.title'), href: consoleHref('/admin/console/policies', lang) },
@@ -28,16 +25,13 @@ const breadcrumb = [
 ---
 
 <AdminConsoleLayout title={t('policies.detailTitle')} section="policies" breadcrumb={breadcrumb}>
-  {!ready && (
-    <AdminState tone="empty">{t('policies.managementUnavailable', { phase: consolePhaseFor('management') })}</AdminState>
-  )}
-  {ready && !result.ok && (
+  {!result.ok && (
     <AdminState tone="error">{t('policies.featureDisabled')}</AdminState>
   )}
-  {ready && result.ok && !result.detail && (
+  {result.ok && !result.detail && (
     <AdminState tone="empty">{t('policies.notFound', { key: policyKey })}</AdminState>
   )}
-  {ready && result.detail && (
+  {result.detail && (
     <div class="policy-detail">
       <header class="detail-head">
         <h2>{result.detail.label} <code>{result.detail.policyKey}</code></h2>

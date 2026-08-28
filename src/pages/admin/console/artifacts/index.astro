@@ -7,12 +7,11 @@ import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { createArtifact } from '@/lib/agent-artifact';
 import { createBackends as createArtifactBackends } from '@/lib/agent-artifact/storage';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('artifactViewer');
 
 const PAGE_SIZE = 25;
 const url = new URL(Astro.url);
@@ -45,86 +44,84 @@ let loadError = false;
 let backendUnavailable = false;
 let exportDestinations: string[] = [];
 
-if (ready) {
-  try {
-    const env = getEnv();
-    const db = env.DB;
-    const artifact = createArtifact(env, createArtifactBackends(env));
-    exportDestinations = artifact.exporters.listDestinations();
+try {
+  const env = getEnv();
+  const db = env.DB;
+  const artifact = createArtifact(env, createArtifactBackends(env));
+  exportDestinations = artifact.exporters.listDestinations();
 
-    const tableCheck = await db
-      .prepare(`SELECT name FROM sqlite_master WHERE type='table' AND name='artifact_versions' LIMIT 1`)
-      .first<{ name: string }>();
-    if (!tableCheck) {
-      backendUnavailable = true;
-    } else {
-      const [definitionInfo, versionInfo, flowDefinitionInfo] = await Promise.all([
-        db.prepare('PRAGMA table_info(artifact_definitions)').all<{ name: string }>(),
-        db.prepare('PRAGMA table_info(artifact_versions)').all<{ name: string }>(),
-        db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>(),
-      ]);
-      const definitionColumns = new Set((definitionInfo.results ?? []).map((column) => column.name));
-      const versionColumns = new Set((versionInfo.results ?? []).map((column) => column.name));
-      const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
-      const definitionIdColumn = definitionColumns.has('definition_id') ? 'definition_id' : 'artifact_id';
-      const versionDefinitionColumn = versionColumns.has('definition_id') ? 'definition_id' : 'artifact_id';
-      const definitionFlowRunExpr = definitionColumns.has('flow_run_id') ? 'd.flow_run_id' : 'v.flow_run_id';
-      const versionStatusExpr = versionColumns.has('status') ? 'v.status' : 'v.approval_status';
-      const flowDisplayNameColumn = flowDefinitionColumns.has('display_name') ? 'display_name' : 'name';
-      const like = `%${q}%`;
-      const where = `
-        WHERE (
-          d.${definitionIdColumn} LIKE ? OR
-          d.logical_name LIKE ? OR
-          COALESCE(d.flow_id, '') LIKE ? OR
-          COALESCE(d.kind, '') LIKE ?
-        )
-      `;
+  const tableCheck = await db
+    .prepare(`SELECT name FROM sqlite_master WHERE type='table' AND name='artifact_versions' LIMIT 1`)
+    .first<{ name: string }>();
+  if (!tableCheck) {
+    backendUnavailable = true;
+  } else {
+    const [definitionInfo, versionInfo, flowDefinitionInfo] = await Promise.all([
+      db.prepare('PRAGMA table_info(artifact_definitions)').all<{ name: string }>(),
+      db.prepare('PRAGMA table_info(artifact_versions)').all<{ name: string }>(),
+      db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>(),
+    ]);
+    const definitionColumns = new Set((definitionInfo.results ?? []).map((column) => column.name));
+    const versionColumns = new Set((versionInfo.results ?? []).map((column) => column.name));
+    const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
+    const definitionIdColumn = definitionColumns.has('definition_id') ? 'definition_id' : 'artifact_id';
+    const versionDefinitionColumn = versionColumns.has('definition_id') ? 'definition_id' : 'artifact_id';
+    const definitionFlowRunExpr = definitionColumns.has('flow_run_id') ? 'd.flow_run_id' : 'v.flow_run_id';
+    const versionStatusExpr = versionColumns.has('status') ? 'v.status' : 'v.approval_status';
+    const flowDisplayNameColumn = flowDefinitionColumns.has('display_name') ? 'display_name' : 'name';
+    const like = `%${q}%`;
+    const where = `
+      WHERE (
+        d.${definitionIdColumn} LIKE ? OR
+        d.logical_name LIKE ? OR
+        COALESCE(d.flow_id, '') LIKE ? OR
+        COALESCE(d.kind, '') LIKE ?
+      )
+    `;
 
-      const countResult = await db
-        .prepare(
-          `SELECT COUNT(*) as total
-           FROM artifact_definitions d
-           ${where}`,
-        )
-        .bind(like, like, like, like)
-        .first<CountRow>();
-      totalCount = countResult?.total ?? 0;
+    const countResult = await db
+      .prepare(
+        `SELECT COUNT(*) as total
+         FROM artifact_definitions d
+         ${where}`,
+      )
+      .bind(like, like, like, like)
+      .first<CountRow>();
+    totalCount = countResult?.total ?? 0;
 
-      const artifactResult = await db
-        .prepare(
-          `SELECT d.${definitionIdColumn} AS artifact_id,
-                  d.${definitionIdColumn} AS definition_id,
-                  d.kind,
-                  ${definitionFlowRunExpr} AS flow_run_id,
-                  d.flow_id,
-                  f.${flowDisplayNameColumn} AS flow_display_name,
-                  d.logical_name,
-                  v.version_id AS latest_version_id,
-                  v.version_number AS latest_version,
-                  ${versionStatusExpr} AS status,
-                  v.created_at AS last_seen_at
-           FROM artifact_definitions d
-           LEFT JOIN artifact_versions v
-             ON v.${versionDefinitionColumn} = d.${definitionIdColumn}
-            AND v.version_number = (
-              SELECT MAX(v2.version_number)
-              FROM artifact_versions v2
-              WHERE v2.${versionDefinitionColumn} = d.${definitionIdColumn}
-            )
-           LEFT JOIN flow_runs fr ON fr.flow_run_id = ${definitionFlowRunExpr}
-           LEFT JOIN flow_definitions f ON f.flow_id = fr.flow_id
-           ${where}
-           ORDER BY d.updated_at DESC
-           LIMIT ? OFFSET ?`,
-        )
-        .bind(like, like, like, like, PAGE_SIZE, offset)
-        .all<ArtifactRunRow>();
-      artifacts = artifactResult.results ?? [];
-    }
-  } catch {
-    loadError = true;
+    const artifactResult = await db
+      .prepare(
+        `SELECT d.${definitionIdColumn} AS artifact_id,
+                d.${definitionIdColumn} AS definition_id,
+                d.kind,
+                ${definitionFlowRunExpr} AS flow_run_id,
+                d.flow_id,
+                f.${flowDisplayNameColumn} AS flow_display_name,
+                d.logical_name,
+                v.version_id AS latest_version_id,
+                v.version_number AS latest_version,
+                ${versionStatusExpr} AS status,
+                v.created_at AS last_seen_at
+         FROM artifact_definitions d
+         LEFT JOIN artifact_versions v
+           ON v.${versionDefinitionColumn} = d.${definitionIdColumn}
+          AND v.version_number = (
+            SELECT MAX(v2.version_number)
+            FROM artifact_versions v2
+            WHERE v2.${versionDefinitionColumn} = d.${definitionIdColumn}
+          )
+         LEFT JOIN flow_runs fr ON fr.flow_run_id = ${definitionFlowRunExpr}
+         LEFT JOIN flow_definitions f ON f.flow_id = fr.flow_id
+         ${where}
+         ORDER BY d.updated_at DESC
+         LIMIT ? OFFSET ?`,
+      )
+      .bind(like, like, like, like, PAGE_SIZE, offset)
+      .all<ArtifactRunRow>();
+    artifacts = artifactResult.results ?? [];
   }
+} catch {
+  loadError = true;
 }
 
 const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
@@ -183,18 +180,15 @@ function exportLabel(destination: string): string {
 ---
 
 <AdminConsoleLayout title="產出物" section="artifacts">
-  {!ready && (
-    <AdminState tone="empty">{`產出物檢視器將於 ${consolePhaseFor('artifactViewer')} 上線。`}</AdminState>
-  )}
-  {ready && backendUnavailable && (
+  {backendUnavailable && (
     <AdminState tone="empty">
       產出物檢視器需要設定 AGENT_ARTIFACT_ENABLED=true 並套用 artifact 資料庫遷移。
     </AdminState>
   )}
-  {ready && !backendUnavailable && loadError && (
+  {!backendUnavailable && loadError && (
     <AdminState tone="error">無法載入產出物。</AdminState>
   )}
-  {ready && !backendUnavailable && !loadError && (
+  {!backendUnavailable && !loadError && (
     <>
       <AdminPanel title="產出物">
         <form class="toolbar" method="GET" action="/admin/console/artifacts">

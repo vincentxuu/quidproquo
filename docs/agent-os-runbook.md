@@ -1,17 +1,26 @@
 # Agent OS Runbook
 
+> **Deprecation notice (2026-08-29, admin-v2-phase1)**
+> The following endpoints were removed — their functionality will be replaced by the Session API in Phase 2:
+> - `POST /api/admin/agents/:id/run` — REMOVED
+> - `POST /api/admin/agents/:id/enqueue` — REMOVED
+> - `GET /api/admin/agents/runs` — REMOVED
+> - `GET /api/admin/agents/runs/:runId` — REMOVED
+> - `POST /api/admin/agents/runs/:runId/cancel` — REMOVED
+> - `GET /api/admin/agents/runs/:runId/events/stream` — REMOVED
+>
+> Still active: `agents/sessions/*`, `agents/approvals/*`, `agents/scheduled`.
+
 ## Trigger Surfaces
 
-Manual runs:
+~~Manual runs~~ (REMOVED in v2):
 
 ```bash
-curl -X POST https://quidproquo.cc/api/admin/agents/$AGENT_ID/run \
-  -b "session=..." \
-  -H "Content-Type: application/json" \
-  -d '{"input":{}}'
+# REMOVED — POST /api/admin/agents/$AGENT_ID/run
+# REMOVED — POST /api/admin/agents/$AGENT_ID/enqueue
 ```
 
-Cron runs:
+Cron runs (still active):
 
 ```bash
 curl -X POST https://quidproquo.cc/api/admin/agents/scheduled \
@@ -20,20 +29,10 @@ curl -X POST https://quidproquo.cc/api/admin/agents/scheduled \
   -d '{"cronExpression":"0 4 * * SUN"}'
 ```
 
-Queue runs:
+## ~~Cancel A Runaway Run~~ (REMOVED in v2)
 
 ```bash
-curl -X POST https://quidproquo.cc/api/admin/agents/$AGENT_ID/enqueue \
-  -b "session=..." \
-  -H "Content-Type: application/json" \
-  -d '{"input":{}}'
-```
-
-## Cancel A Runaway Run
-
-```bash
-curl -X POST https://quidproquo.cc/api/admin/agents/runs/$RUN_ID/cancel \
-  -b "session=..."
+# REMOVED — POST /api/admin/agents/runs/$RUN_ID/cancel
 ```
 
 ## Approve Or Reject A Pending Action
@@ -48,17 +47,16 @@ curl -X POST https://quidproquo.cc/api/admin/agents/approvals/$APPROVAL_ID/rejec
   -b "session=..."
 ```
 
-## Inspect A Failed Run's Event Log
+## ~~Inspect A Failed Run's Event Log~~ (HTTP endpoint REMOVED in v2)
 
 ```sql
 SELECT run_id, kind, payload_json FROM agent_run_events WHERE run_id=? ORDER BY event_id;
 ```
 
-Use the admin detail endpoint for the same data through HTTP:
+~~Use the admin detail endpoint for the same data through HTTP~~ (REMOVED):
 
 ```bash
-curl https://quidproquo.cc/api/admin/agents/runs/$RUN_ID \
-  -b "session=..."
+# REMOVED — GET /api/admin/agents/runs/$RUN_ID
 ```
 
 ## Rollback A Migrated Agent

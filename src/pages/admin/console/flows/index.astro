@@ -7,12 +7,11 @@ import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { ensureConsoleBootstrap } from '@/lib/agent-console/bootstrap';
 import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('management');
 const PAGE_SIZE = 25;
 
 const url = new URL(Astro.url);
@@ -39,76 +38,74 @@ let flows: FlowRow[] = [];
 let loadError = false;
 let totalCount = 0;
 
-if (ready) {
-  try {
-    const env = getEnv();
-    await ensureConsoleBootstrap(env);
-    const db = env.DB;
-    const where = q
-      ? `WHERE fd.flow_id LIKE ? OR fd.display_name LIKE ? OR CAST(fd.current_version AS TEXT) LIKE ?`
-      : '';
+try {
+  const env = getEnv();
+  await ensureConsoleBootstrap(env);
+  const db = env.DB;
+  const where = q
+    ? `WHERE fd.flow_id LIKE ? OR fd.display_name LIKE ? OR CAST(fd.current_version AS TEXT) LIKE ?`
+    : '';
 
-    if (q) {
-      const like = `%${q}%`;
-      const countResult = await db
-        .prepare(
-          `SELECT COUNT(*) as total
-           FROM flow_definitions fd
-           ${where}`,
-        )
-        .bind(like, like, like)
-        .first<CountRow>();
-      totalCount = countResult?.total ?? 0;
+  if (q) {
+    const like = `%${q}%`;
+    const countResult = await db
+      .prepare(
+        `SELECT COUNT(*) as total
+         FROM flow_definitions fd
+         ${where}`,
+      )
+      .bind(like, like, like)
+      .first<CountRow>();
+    totalCount = countResult?.total ?? 0;
 
-      const result = await db
-        .prepare(
-          `SELECT fd.flow_id,
-                  fd.display_name,
-                  fd.current_version,
-                  fd.description,
-                  fd.updated_at,
-                  CASE
-                    WHEN INSTR(fd.flow_id, '-') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '-') - 1)
-                    WHEN INSTR(fd.flow_id, '_') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '_') - 1)
-                    ELSE 'general'
-                  END AS category
-           FROM flow_definitions fd
-           ${where}
-           ORDER BY updated_at DESC
-           LIMIT ? OFFSET ?`,
-        )
-        .bind(like, like, like, PAGE_SIZE, offset)
-        .all<FlowRow>();
-      flows = result.results ?? [];
-    } else {
-      const countResult = await db
-        .prepare(`SELECT COUNT(*) as total FROM flow_definitions`)
-        .first<CountRow>();
-      totalCount = countResult?.total ?? 0;
+    const result = await db
+      .prepare(
+        `SELECT fd.flow_id,
+                fd.display_name,
+                fd.current_version,
+                fd.description,
+                fd.updated_at,
+                CASE
+                  WHEN INSTR(fd.flow_id, '-') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '-') - 1)
+                  WHEN INSTR(fd.flow_id, '_') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '_') - 1)
+                  ELSE 'general'
+                END AS category
+         FROM flow_definitions fd
+         ${where}
+         ORDER BY updated_at DESC
+         LIMIT ? OFFSET ?`,
+      )
+      .bind(like, like, like, PAGE_SIZE, offset)
+      .all<FlowRow>();
+    flows = result.results ?? [];
+  } else {
+    const countResult = await db
+      .prepare(`SELECT COUNT(*) as total FROM flow_definitions`)
+      .first<CountRow>();
+    totalCount = countResult?.total ?? 0;
 
-      const result = await db
-        .prepare(
-          `SELECT fd.flow_id,
-                  fd.display_name,
-                  fd.current_version,
-                  fd.description,
-                  fd.updated_at,
-                  CASE
-                    WHEN INSTR(fd.flow_id, '-') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '-') - 1)
-                    WHEN INSTR(fd.flow_id, '_') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '_') - 1)
-                    ELSE 'general'
-                  END AS category
-           FROM flow_definitions fd
-           ORDER BY fd.updated_at DESC
-           LIMIT ? OFFSET ?`,
-        )
-        .bind(PAGE_SIZE, offset)
-        .all<FlowRow>();
-      flows = result.results ?? [];
-    }
-  } catch {
-    loadError = true;
+    const result = await db
+      .prepare(
+        `SELECT fd.flow_id,
+                fd.display_name,
+                fd.current_version,
+                fd.description,
+                fd.updated_at,
+                CASE
+                  WHEN INSTR(fd.flow_id, '-') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '-') - 1)
+                  WHEN INSTR(fd.flow_id, '_') > 0 THEN SUBSTR(fd.flow_id, 1, INSTR(fd.flow_id, '_') - 1)
+                  ELSE 'general'
+                END AS category
+         FROM flow_definitions fd
+         ORDER BY fd.updated_at DESC
+         LIMIT ? OFFSET ?`,
+      )
+      .bind(PAGE_SIZE, offset)
+      .all<FlowRow>();
+    flows = result.results ?? [];
   }
+} catch {
+  loadError = true;
 }
 
 function formatTs(ms: number | null): string {
@@ -135,13 +132,10 @@ function categoryLabel(category: string): string {
 ---
 
 <AdminConsoleLayout title={t('flows.title')} section="flows">
-  {!ready && (
-    <AdminState tone="empty">{t('flows.managementUnavailable', { phase: consolePhaseFor('management') })}</AdminState>
-  )}
-  {ready && loadError && (
+  {loadError && (
     <AdminState tone="error">{t('flows.loadError')}</AdminState>
   )}
-  {ready && !loadError && (
+  {!loadError && (
     <AdminPanel title={t('flows.library')} eyebrow={t('flows.libraryEyebrow')}>
       <form class="toolbar" method="GET" action={consoleHref('/admin/console/flows', lang)}>
         {lang === 'en' && <input type="hidden" name="lang" value="en" />}
@@ -160,12 +154,12 @@ function categoryLabel(category: string): string {
       </form>
     </AdminPanel>
   )}
-  {ready && !loadError && flows.length === 0 && (
+  {!loadError && flows.length === 0 && (
     <AdminState tone="empty">
       {q ? t('flows.emptySearch', { q }) : t('flows.empty')}
     </AdminState>
   )}
-  {ready && !loadError && flows.length > 0 && (
+  {!loadError && flows.length > 0 && (
     <AdminPanel title={t('flows.library')}>
       <AdminTable minWidth="640px" flush>
         <thead>

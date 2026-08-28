@@ -4,14 +4,13 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
-import { ensureConsoleUmbrella, isPageEnabled } from '../../_guard';
+import { ensureConsoleUmbrella } from '../../_guard';
 
 export const prerender = false;
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('rbac');
 const userId = Astro.params.id ?? '';
 const rbacSuccess = Astro.url.searchParams.get('rbac_success');
 const rbacError = Astro.url.searchParams.get('rbac_error');
@@ -54,7 +53,7 @@ let assignedRoleNames: string[] = [];
 let auditRows: AuditRow[] = [];
 let loadError = false;
 
-if (ready && userId) {
+if (userId) {
   try {
     const db = getEnv().DB;
 
@@ -135,19 +134,16 @@ const assignedRoleNamesJson = JSON.stringify(assignedRoleNames);
 ---
 
 <AdminConsoleLayout title={user ? user.email : `使用者 ${userId}`} section="rbac" breadcrumb={breadcrumb}>
-  {!ready && (
-    <AdminState tone="empty">權限管理功能尚未啟用。</AdminState>
-  )}
-  {ready && !userId && (
+  {!userId && (
     <AdminState tone="error">未指定使用者 ID。</AdminState>
   )}
-  {ready && userId && loadError && (
+  {userId && loadError && (
     <AdminState tone="error">無法載入使用者資料。</AdminState>
   )}
-  {ready && userId && !loadError && !user && (
+  {userId && !loadError && !user && (
     <AdminState tone="error">找不到該使用者。</AdminState>
   )}
-  {ready && userId && !loadError && user && (
+  {userId && !loadError && user && (
     <div class="user-detail">
       {(rbacSuccess || rbacError) && (
         <p

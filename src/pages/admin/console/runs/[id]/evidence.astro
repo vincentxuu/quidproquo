@@ -3,7 +3,7 @@ import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import { getEnv } from '@/lib/config/env';
 import { readFlags } from '@/lib/config/flags';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
+import { ensureConsoleUmbrella } from '../../_guard';
 import { D1SourceStoreBackend } from '@/lib/agent-evidence/storage/d1/source-store';
 import { D1ExcerptStoreBackend } from '@/lib/agent-evidence/storage/d1/excerpt-store';
 import { D1ClaimStoreBackend } from '@/lib/agent-evidence/storage/d1/claim-store';
@@ -22,8 +22,6 @@ export const prerender = false;
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
-
-const consoleReady = isPageEnabled('evidenceViewer');
 
 const flowRunId = Astro.params.id ?? '';
 const selectedSourceId = Astro.url.searchParams.get('source');
@@ -51,7 +49,7 @@ let searchedClaimIds: number[] | null = null;
 let loadError = false;
 const CONFLICT_STATUSES = ['pending', 'approved', 'rejected', 'expired'] as const;
 
-if (consoleReady && evidenceEnabled && flowRunId) {
+if (evidenceEnabled && flowRunId) {
   try {
     const db = env.DB;
     const sourceStore = new D1SourceStoreBackend(db);
@@ -250,16 +248,13 @@ const breadcrumb = [
 ---
 
 <AdminConsoleLayout title="來源證據檢視器" section="evidence" breadcrumb={breadcrumb}>
-  {!consoleReady && (
-    <AdminState tone="empty">{`Evidence viewer ships in ${consolePhaseFor('evidenceViewer')}.`}</AdminState>
-  )}
-  {consoleReady && !evidenceEnabled && (
+  {!evidenceEnabled && (
     <AdminState tone="empty">代理程式證據功能已停用。請設定 <code>AGENT_EVIDENCE_ENABLED=true</code> 以啟用。</AdminState>
   )}
-  {consoleReady && evidenceEnabled && loadError && (
+  {evidenceEnabled && loadError && (
     <AdminState tone="error">無法載入此執行的來源證據。</AdminState>
   )}
-  {consoleReady && evidenceEnabled && !loadError && (
+  {evidenceEnabled && !loadError && (
     <div class="evidence-layout">
 
       {/* Left rail — source list */}
@@ -635,7 +630,7 @@ const breadcrumb = [
     setConflictStatus(`正在處理 conflict #${conflictId}...`);
 
     try {
-      const res = await fetch(`/api/admin/console/evidence/conflicts/${encodeURIComponent(conflictId)}/resolve`, {
+      const res = await fetch(`/api/admin/evidence/conflicts/${encodeURIComponent(conflictId)}/resolve`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ resolution }),

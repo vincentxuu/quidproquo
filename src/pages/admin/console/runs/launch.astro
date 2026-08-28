@@ -7,14 +7,10 @@ import PresetSummaryPanel from '@/components/admin/console/PresetSummaryPanel.as
 import { getEnv } from '@/lib/config/env';
 import { getFlowDefinition } from '@/lib/agent-flow/store/definitions';
 import type { FlowInput } from '@/lib/agent-flow/dsl/ast';
-import { ensureConsoleUmbrella, isPageEnabled } from '../_guard';
+import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
-
-if (!isPageEnabled('flowSelector')) {
-  return Astro.redirect('/admin/console');
-}
 
 const flowId = Astro.url.searchParams.get('flowId');
 if (!flowId) {

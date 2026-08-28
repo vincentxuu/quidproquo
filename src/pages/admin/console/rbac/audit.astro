@@ -4,14 +4,13 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
-import { ensureConsoleUmbrella, isPageEnabled } from '../_guard';
+import { ensureConsoleUmbrella } from '../_guard';
 
 export const prerender = false;
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('rbac');
 
 const breadcrumb = [
   { label: '權限管理', href: '/admin/console/rbac' },
@@ -47,82 +46,80 @@ let actionOptions: string[] = [];
 let kindOptions: string[] = [];
 let loadError = false;
 
-if (ready) {
-  try {
-    const db = getEnv().DB;
+try {
+  const db = getEnv().DB;
 
-    // Build WHERE clauses dynamically
-    const conditions: string[] = [];
-    const bindings: (string | number)[] = [];
+  // Build WHERE clauses dynamically
+  const conditions: string[] = [];
+  const bindings: (string | number)[] = [];
 
-    if (filterUser) {
-      conditions.push('u.email LIKE ?');
-      bindings.push(`%${filterUser}%`);
+  if (filterUser) {
+    conditions.push('u.email LIKE ?');
+    bindings.push(`%${filterUser}%`);
+  }
+  if (filterAction) {
+    conditions.push('al.action = ?');
+    bindings.push(filterAction);
+  }
+  if (filterKind) {
+    conditions.push('al.resource_kind = ?');
+    bindings.push(filterKind);
+  }
+  if (filterFrom) {
+    const fromMs = new Date(filterFrom).getTime();
+    if (!Number.isNaN(fromMs)) {
+      conditions.push('al.created_at >= ?');
+      bindings.push(fromMs);
     }
-    if (filterAction) {
-      conditions.push('al.action = ?');
-      bindings.push(filterAction);
+  }
+  if (filterTo) {
+    const toMs = new Date(filterTo).getTime();
+    if (!Number.isNaN(toMs)) {
+      conditions.push('al.created_at <= ?');
+      bindings.push(toMs + 86_400_000 - 1); // end of day
     }
-    if (filterKind) {
-      conditions.push('al.resource_kind = ?');
-      bindings.push(filterKind);
-    }
-    if (filterFrom) {
-      const fromMs = new Date(filterFrom).getTime();
-      if (!Number.isNaN(fromMs)) {
-        conditions.push('al.created_at >= ?');
-        bindings.push(fromMs);
-      }
-    }
-    if (filterTo) {
-      const toMs = new Date(filterTo).getTime();
-      if (!Number.isNaN(toMs)) {
-        conditions.push('al.created_at <= ?');
-        bindings.push(toMs + 86_400_000 - 1); // end of day
-      }
-    }
+  }
 
-    const where = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
+  const where = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
 
-    const [countResult, actionResult, kindResult] = await Promise.all([
-      db.prepare(`
-        SELECT COUNT(*) as cnt
-        FROM console_audit_log al
-        LEFT JOIN console_users u ON u.user_id = al.user_id
-        ${where}
-      `).bind(...bindings).first<{ cnt: number }>(),
-      db.prepare(`
-        SELECT DISTINCT action
-        FROM console_audit_log
-        WHERE action IS NOT NULL AND action != ''
-        ORDER BY action
-      `).all<{ action: string }>(),
-      db.prepare(`
-        SELECT DISTINCT resource_kind
-        FROM console_audit_log
-        WHERE resource_kind IS NOT NULL AND resource_kind != ''
-        ORDER BY resource_kind
-      `).all<{ resource_kind: string }>(),
-    ]);
-
-    totalCount = countResult?.cnt ?? 0;
-    actionOptions = (actionResult.results ?? []).map((row) => row.action);
-    kindOptions = (kindResult.results ?? []).map((row) => row.resource_kind);
-
-    const rowsResult = await db.prepare(`
-      SELECT al.audit_id, u.email as user_email, al.action, al.resource_kind,
-             al.resource_id, al.payload_json, al.created_at
+  const [countResult, actionResult, kindResult] = await Promise.all([
+    db.prepare(`
+      SELECT COUNT(*) as cnt
       FROM console_audit_log al
       LEFT JOIN console_users u ON u.user_id = al.user_id
       ${where}
-      ORDER BY al.created_at DESC
-      LIMIT ${PAGE_SIZE} OFFSET ${offset}
-    `).bind(...bindings).all<AuditRow>();
+    `).bind(...bindings).first<{ cnt: number }>(),
+    db.prepare(`
+      SELECT DISTINCT action
+      FROM console_audit_log
+      WHERE action IS NOT NULL AND action != ''
+      ORDER BY action
+    `).all<{ action: string }>(),
+    db.prepare(`
+      SELECT DISTINCT resource_kind
+      FROM console_audit_log
+      WHERE resource_kind IS NOT NULL AND resource_kind != ''
+      ORDER BY resource_kind
+    `).all<{ resource_kind: string }>(),
+  ]);
 
-    auditRows = rowsResult.results ?? [];
-  } catch {
-    loadError = true;
-  }
+  totalCount = countResult?.cnt ?? 0;
+  actionOptions = (actionResult.results ?? []).map((row) => row.action);
+  kindOptions = (kindResult.results ?? []).map((row) => row.resource_kind);
+
+  const rowsResult = await db.prepare(`
+    SELECT al.audit_id, u.email as user_email, al.action, al.resource_kind,
+           al.resource_id, al.payload_json, al.created_at
+    FROM console_audit_log al
+    LEFT JOIN console_users u ON u.user_id = al.user_id
+    ${where}
+    ORDER BY al.created_at DESC
+    LIMIT ${PAGE_SIZE} OFFSET ${offset}
+  `).bind(...bindings).all<AuditRow>();
+
+  auditRows = rowsResult.results ?? [];
+} catch {
+  loadError = true;
 }
 
 const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
@@ -160,13 +157,10 @@ function pageHref(p: number): string {
 ---
 
 <AdminConsoleLayout title="稽核日誌" section="rbac" breadcrumb={breadcrumb}>
-  {!ready && (
-    <AdminState tone="empty">權限管理功能尚未啟用。</AdminState>
-  )}
-  {ready && loadError && (
+  {loadError && (
     <AdminState tone="error">無法載入稽核日誌資料。</AdminState>
   )}
-  {ready && !loadError && (
+  {!loadError && (
     <div class="audit-layout">
 
       <AdminPanel title="篩選條件" eyebrow="縮小搜尋範圍">

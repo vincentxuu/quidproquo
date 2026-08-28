@@ -10,21 +10,20 @@ import RunsTable from '@/components/admin/console/RunsTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { loadFlowDetail, type FlowDetail } from '@/lib/agent-console/flow-detail';
 import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../../_guard';
+import { ensureConsoleUmbrella } from '../../_guard';
 
 export const prerender = false;
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('management');
 const flowId = Astro.params.id ?? '';
 const lang = getConsoleLang(Astro.url);
 const t = createConsoleTranslator(lang);
 
 let detail: FlowDetail | null = null;
 let loadError = false;
-if (ready && flowId) {
+if (flowId) {
   try {
     detail = await loadFlowDetail(getEnv().DB, flowId);
   } catch {
@@ -40,12 +39,9 @@ const breadcrumb = [
 ---
 
 <AdminConsoleLayout title={t('flows.detailTitle')} section="flows" breadcrumb={breadcrumb}>
-  {!ready && (
-    <AdminState tone="empty">{t('flows.managementUnavailable', { phase: consolePhaseFor('management') })}</AdminState>
-  )}
-  {ready && loadError && <AdminState tone="error">{t('flows.loadError')}</AdminState>}
-  {ready && !loadError && !detail && <AdminState tone="empty">{t('flows.notFound', { id: flowId })}</AdminState>}
-  {ready && detail && (
+  {loadError && <AdminState tone="error">{t('flows.loadError')}</AdminState>}
+  {!loadError && !detail && <AdminState tone="empty">{t('flows.notFound', { id: flowId })}</AdminState>}
+  {detail && (
     <div class="flow-detail">
       <header class="detail-head">
         <h2>{detail.definition.name} <code>{detail.definition.id}</code></h2>

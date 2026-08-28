@@ -4,13 +4,12 @@ import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
-import { ensureConsoleUmbrella, isPageEnabled, consolePhaseFor } from '../_guard';
+import { ensureConsoleUmbrella } from '../_guard';
 import { getEnv } from '@/lib/config/env';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const ready = isPageEnabled('evidenceViewer');
 
 const PAGE_SIZE = 25;
 const url = new URL(Astro.url);
@@ -39,65 +38,63 @@ let runs: EvidenceRunRow[] = [];
 let totalCount = 0;
 let loadError = false;
 
-if (ready) {
-  try {
-    const db = getEnv().DB;
-    const flowDefinitionInfo = await db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>();
-    const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
-    const flowDisplayNameColumn = flowDefinitionColumns.has('display_name') ? 'display_name' : 'name';
-    const like = `%${q}%`;
-    const where = `
-      WHERE EXISTS (
-        SELECT 1 FROM evidence_sources es
-        WHERE es.flow_run_id = fr.flow_run_id
-      ) AND (
-        fr.flow_run_id LIKE ? OR
-        COALESCE(fd.${flowDisplayNameColumn}, fr.flow_id) LIKE ? OR
-        fr.status LIKE ?
-      )
-    `;
-    const countRows = await db
-      .prepare(
-        `SELECT COUNT(*) as total
-         FROM flow_runs fr
-         LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
-         ${where}`,
-      )
-      .bind(like, like, like)
-      .first<CountRow>();
-    totalCount = countRows?.total ?? 0;
+try {
+  const db = getEnv().DB;
+  const flowDefinitionInfo = await db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>();
+  const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
+  const flowDisplayNameColumn = flowDefinitionColumns.has('display_name') ? 'display_name' : 'name';
+  const like = `%${q}%`;
+  const where = `
+    WHERE EXISTS (
+      SELECT 1 FROM evidence_sources es
+      WHERE es.flow_run_id = fr.flow_run_id
+    ) AND (
+      fr.flow_run_id LIKE ? OR
+      COALESCE(fd.${flowDisplayNameColumn}, fr.flow_id) LIKE ? OR
+      fr.status LIKE ?
+    )
+  `;
+  const countRows = await db
+    .prepare(
+      `SELECT COUNT(*) as total
+       FROM flow_runs fr
+       LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+       ${where}`,
+    )
+    .bind(like, like, like)
+    .first<CountRow>();
+  totalCount = countRows?.total ?? 0;
 
-    const result = await db
-      .prepare(
-        `SELECT fr.flow_run_id,
-                fd.${flowDisplayNameColumn} AS display_name,
-                fr.status AS flow_status,
-                fr.started_at,
-                (SELECT COUNT(*) FROM evidence_sources es WHERE es.flow_run_id = fr.flow_run_id) AS source_count,
-                (SELECT COUNT(*) FROM evidence_claims ec WHERE ec.flow_run_id = fr.flow_run_id) AS claim_count,
-                (SELECT COUNT(*) FROM evidence_conflicts econf
-                 WHERE econf.claim_a_id IN (SELECT claim_id FROM evidence_claims ec2 WHERE ec2.flow_run_id = fr.flow_run_id)
-                    OR econf.claim_b_id IN (SELECT claim_id FROM evidence_claims ec3 WHERE ec3.flow_run_id = fr.flow_run_id)
-                ) AS conflict_count,
-                (SELECT COUNT(*) FROM evidence_conflicts econf
-                 WHERE econf.status = 'pending'
-                   AND (
-                     econf.claim_a_id IN (SELECT claim_id FROM evidence_claims ec4 WHERE ec4.flow_run_id = fr.flow_run_id)
-                     OR econf.claim_b_id IN (SELECT claim_id FROM evidence_claims ec5 WHERE ec5.flow_run_id = fr.flow_run_id)
-                   )
-                ) AS pending_conflict_count
-         FROM flow_runs fr
-         LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
-         ${where}
-         ORDER BY fr.started_at DESC
-         LIMIT ? OFFSET ?`,
-      )
-      .bind(like, like, like, PAGE_SIZE, offset)
-      .all<EvidenceRunRow>();
-    runs = result.results ?? [];
-  } catch {
-    loadError = true;
-  }
+  const result = await db
+    .prepare(
+      `SELECT fr.flow_run_id,
+              fd.${flowDisplayNameColumn} AS display_name,
+              fr.status AS flow_status,
+              fr.started_at,
+              (SELECT COUNT(*) FROM evidence_sources es WHERE es.flow_run_id = fr.flow_run_id) AS source_count,
+              (SELECT COUNT(*) FROM evidence_claims ec WHERE ec.flow_run_id = fr.flow_run_id) AS claim_count,
+              (SELECT COUNT(*) FROM evidence_conflicts econf
+               WHERE econf.claim_a_id IN (SELECT claim_id FROM evidence_claims ec2 WHERE ec2.flow_run_id = fr.flow_run_id)
+                  OR econf.claim_b_id IN (SELECT claim_id FROM evidence_claims ec3 WHERE ec3.flow_run_id = fr.flow_run_id)
+              ) AS conflict_count,
+              (SELECT COUNT(*) FROM evidence_conflicts econf
+               WHERE econf.status = 'pending'
+                 AND (
+                   econf.claim_a_id IN (SELECT claim_id FROM evidence_claims ec4 WHERE ec4.flow_run_id = fr.flow_run_id)
+                   OR econf.claim_b_id IN (SELECT claim_id FROM evidence_claims ec5 WHERE ec5.flow_run_id = fr.flow_run_id)
+                 )
+              ) AS pending_conflict_count
+       FROM flow_runs fr
+       LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+       ${where}
+       ORDER BY fr.started_at DESC
+       LIMIT ? OFFSET ?`,
+    )
+    .bind(like, like, like, PAGE_SIZE, offset)
+    .all<EvidenceRunRow>();
+  runs = result.results ?? [];
+} catch {
+  loadError = true;
 }
 
 const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
@@ -133,10 +130,6 @@ function formatName(row: EvidenceRunRow): string {
 ---
 
 <AdminConsoleLayout title="來源證據" section="evidence">
-  {!ready && (
-    <AdminState tone="empty">{`來源證據檢視器將於 ${consolePhaseFor('evidenceViewer')} 上線。`}</AdminState>
-  )}
-  {ready && (
     <>
       <AdminPanel title="來源證據執行記錄" eyebrow="含有收集到的來源證據之執行記錄">
         <form class="toolbar" method="GET" action="/admin/console/evidence">
