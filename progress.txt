@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-27
+Last updated: 2026-08-28
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -83,4 +83,5 @@ Notes
   console/providers/os): code complete, pending production observation windows.
   Status snapshots in docs/progress-archive.md; pending decisions in
   docs/governance/escalation-queue.md.
-- **Q-015（2026-08-27）**：Tavily API 額度用盡（432），daily-digest-signals 今日未產出（寧缺不湊數）；影響所有依賴 Tavily 的 daily-digest routine，待人決定升級方案或改 skill fallback。
+- **Q-015（2026-08-27，2026-08-28 複查仍 432）**：Tavily API 額度用盡；daily-digest 系列 routine 全靠 Exa 單一來源，覆蓋面變窄，待人決定升級方案或改 skill fallback。
+- **daily-digest-framework 2026-08-28**：GitHub MCP 這個 session 僅開放 vincentxuu/quidproquo，`gh` CLI 也不存在，api.github.com 直連被 proxy 擋（403 access denied）；Step 3a 的 GitHub API 檢查法在此環境不可行，改用 WebFetch 直接讀 github.com/{owner}/{repo}/releases 公開頁面繞過。已發：CrewAI 1.15.18（conversational Flow 轉正到 crewai.flow，舊 crewai.experimental 路徑靠 shim 相容但無 deprecation warning），order 8。另注意到 2026-08-27 mastra-1.62.0 post 只有 zh-TW 沒有 -en 配對，未動它，留給下次或使用者處理。
