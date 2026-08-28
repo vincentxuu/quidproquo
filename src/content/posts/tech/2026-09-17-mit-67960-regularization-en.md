@@ -9,7 +9,8 @@ series:
   name: "MIT 6.7960 Fall 2024 OCW Guide"
   order: 5
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 12
 tldr: "Regularization isn't just anti-overfitting — mechanisms & combo strategies for WD, Dropout, BN, Label Smoothing"
 description: "MIT 6.7960 Fall 2024 OCW Lecture 9: Hacker's Guide to Deep Learning. Deep dive into Weight Decay (including AdamW decoupling), Dropout inference scaling, Batch Norm train/eval mode differences, Label Smoothing & Mixup, and their combination conventions in modern architectures. Includes runnable PyTorch implementation examples."
 draft: false

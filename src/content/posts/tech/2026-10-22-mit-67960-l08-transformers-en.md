@@ -17,7 +17,8 @@ series:
   name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
   order: 10
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 16
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-22-mit-67960-l08-transformers)

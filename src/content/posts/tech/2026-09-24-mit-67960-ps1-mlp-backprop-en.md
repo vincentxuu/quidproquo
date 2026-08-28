@@ -9,7 +9,8 @@ series:
   name: "MIT 6.7960 Fall 2024 OCW Guide"
   order: 6
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 13
 tldr: "Hand-write NumPy MLP + backprop → verify with PyTorch Autograd, fully reproducing OCW HW1 core concepts"
 description: "Complete walkthrough of MIT 6.7960 Fall 2024 OCW Homework 1. Implement a two-layer MLP from scratch in NumPy (forward pass, cross-entropy loss, backpropagation gradient derivation), then verify numerical correctness with PyTorch Autograd and finite-difference gradient checking. Includes full runnable code and common error analysis."
 draft: false

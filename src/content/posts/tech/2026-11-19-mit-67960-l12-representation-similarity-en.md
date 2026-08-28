@@ -17,7 +17,8 @@ series:
   name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
   order: 14
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 20
 ---
 
 > 🌏 [中文版](/posts/tech/2026-11-19-mit-67960-l12-representation-similarity)

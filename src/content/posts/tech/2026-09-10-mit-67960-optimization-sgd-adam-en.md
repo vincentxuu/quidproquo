@@ -9,7 +9,8 @@ series:
   name: "MIT 6.7960 Fall 2024 OCW Guide"
   order: 4
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 11
 tldr: "From SGD to Adam: pick the right optimizer and scale LR with batch size using scaling rules"
 description: "MIT 6.7960 Fall 2024 OCW Lecture 7: Core concepts of deep learning optimization, covering SGD with momentum, Adam/AdamW, learning rate schedules (cosine, warmup, decay), scaling rules, and how to set hyperparameters for batch size and model scale. Includes runnable PyTorch implementation examples."
 draft: false

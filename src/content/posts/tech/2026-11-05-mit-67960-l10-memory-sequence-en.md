@@ -17,7 +17,8 @@ series:
   name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
   order: 12
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 18
 ---
 
 > 🌏 [中文版](/posts/tech/2026-11-05-mit-67960-l10-memory-sequence)

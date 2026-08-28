@@ -18,7 +18,8 @@ series:
   name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
   order: 16
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 22
 ---
 
 > 🌏 [中文版](/posts/tech/2026-12-03-mit-67960-l14-generative-basics)

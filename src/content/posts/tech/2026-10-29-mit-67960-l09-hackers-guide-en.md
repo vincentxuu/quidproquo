@@ -16,7 +16,8 @@ series:
   name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
   order: 11
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 17
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-29-mit-67960-l09-hackers-guide)

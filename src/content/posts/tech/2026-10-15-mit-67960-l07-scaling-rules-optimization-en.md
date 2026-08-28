@@ -17,7 +17,8 @@ series:
   name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
   order: 9
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 15
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-15-mit-67960-l07-scaling-rules-optimization)

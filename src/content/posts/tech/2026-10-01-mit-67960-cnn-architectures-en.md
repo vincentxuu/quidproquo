@@ -9,7 +9,8 @@ series:
   name: "MIT 6.7960 Fall 2024 OCW Guide"
   order: 7
 additionalSeries:
-  - "Global AI/CS Course Map"
+  - name: "Global AI/CS Course Map"
+    order: 14
 tldr: "Lec 4 core: why CNN is the natural choice for grid data — convolution, translation equivariance, pooling, and classic architectures in one go"
 description: "MIT 6.7960 Fall 2024 OCW Lecture 4: Architectures: Grids. Deep dive into why CNNs suit image data, covering convolution operations, translation equivariance, pooling layers, receptive fields, classic architecture evolution, with runnable PyTorch implementation examples."
 draft: false
