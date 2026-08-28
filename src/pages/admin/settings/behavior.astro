@@ -1,0 +1,17 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import { ensureConsoleUmbrella } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+
+const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
+---
+
+<AdminV2Layout title="Behavior" section="settings" breadcrumb={breadcrumb}>
+  <div class="admin-panel">
+    <p class="admin-section-desc">全域行為預設——Auto-fix PR、Auto-create PR、Branch prefix。Phase 5 實作。</p>
+  </div>
+</AdminV2Layout>

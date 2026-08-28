@@ -1,0 +1,684 @@
+---
+import { verifySession } from '../lib/auth/session';
+import Icons from '../components/Icons.astro';
+import '../styles/admin-tokens.css';
+
+export const prerender = false;
+
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  section: 'home' | 'sessions' | 'routines' | 'flows' | 'settings';
+  breadcrumb?: BreadcrumbItem[];
+}
+
+const { title, section, breadcrumb } = Astro.props;
+
+const session = Astro.cookies.get('session')?.value;
+const isLoggedIn = session ? await verifySession(session) : false;
+
+if (!isLoggedIn) {
+  return Astro.redirect(`/login?next=${encodeURIComponent(Astro.url.pathname)}`);
+}
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/admin',          label: 'Home',     key: 'home' as const,     icon: 'layout-dashboard' },
+  { href: '/admin/sessions', label: 'Sessions', key: 'sessions' as const, icon: 'activity' },
+  { href: '/admin/routines', label: 'Routines', key: 'routines' as const, icon: 'repeat' },
+  { href: '/admin/flows',    label: 'Flows',    key: 'flows' as const,    icon: 'workflow' },
+  { href: '/admin/settings', label: 'Settings', key: 'settings' as const, icon: 'settings' },
+];
+
+function isActive(key: string): boolean {
+  if (key === 'home') return currentPath === '/admin' || currentPath === '/admin/';
+  return currentPath.startsWith(`/admin/${key}`);
+}
+
+const sectionLabels: Record<string, string> = {
+  home: 'Home',
+  sessions: 'Sessions',
+  routines: 'Routines',
+  flows: 'Flows',
+  settings: 'Settings',
+};
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title} — Admin</title>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <a href="/admin" class="admin-brand" aria-label="Admin dashboard">
+          <span class="brand-mark">qp</span>
+          <span class="brand-text">
+            <strong>quidproquo</strong>
+            <span>{sectionLabels[section]}</span>
+          </span>
+        </a>
+      </div>
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class:list={['nav-item', { active: isActive(item.key) }]}
+            aria-current={isActive(item.key) ? 'page' : undefined}
+            title={item.label}
+          >
+            <Icons name={item.icon} size={16} />
+            <span class="nav-label">{item.label}</span>
+          </a>
+        ))}
+      </nav>
+      <div class="sidebar-footer">
+        <a href="/" class="nav-item" title="回到網站">
+          <Icons name="home" size={16} />
+          <span class="nav-label">回到網站</span>
+        </a>
+        <form method="POST" action="/api/auth/logout">
+          <button type="submit" class="logout-btn" title="登出">
+            <Icons name="log-out" size={16} />
+            <span class="nav-label">登出</span>
+          </button>
+        </form>
+      </div>
+    </aside>
+    <main class="admin-main">
+      <header class="admin-header">
+        <details class="mobile-nav">
+          <summary class="mobile-nav-trigger" aria-label="選單">
+            <Icons name="list" size={18} />
+            <span>選單</span>
+          </summary>
+          <div class="mobile-nav-panel">
+            {navItems.map(item => (
+              <a
+                href={item.href}
+                class:list={['mobile-nav-item', { active: isActive(item.key) }]}
+                aria-current={isActive(item.key) ? 'page' : undefined}
+              >
+                <Icons name={item.icon} size={16} />
+                {item.label}
+              </a>
+            ))}
+            <div class="mobile-nav-actions">
+              <a href="/" class="mobile-nav-item">
+                <Icons name="home" size={16} />
+                回到網站
+              </a>
+              <form method="POST" action="/api/auth/logout">
+                <button type="submit" class="mobile-nav-item mobile-nav-button">
+                  <Icons name="log-out" size={16} />
+                  登出
+                </button>
+              </form>
+            </div>
+          </div>
+        </details>
+        <div>
+          <p class="admin-kicker">{sectionLabels[section]}</p>
+          {breadcrumb && breadcrumb.length > 0 ? (
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              {breadcrumb.map((crumb, i) => (
+                <span class="breadcrumb-item">
+                  {i > 0 && <span class="breadcrumb-sep" aria-hidden="true">/</span>}
+                  {crumb.href ? (
+                    <a href={crumb.href} class="breadcrumb-link">{crumb.label}</a>
+                  ) : (
+                    <span aria-current="page">{crumb.label}</span>
+                  )}
+                </span>
+              ))}
+            </nav>
+          ) : (
+            <h2>{title}</h2>
+          )}
+        </div>
+        <div class="header-actions" aria-label="Admin shortcuts">
+          <a href="/admin/sessions" class="admin-icon-button" title="Sessions">
+            <Icons name="activity" size={16} />
+          </a>
+          <a href="/admin/settings" class="admin-icon-button" title="Settings">
+            <Icons name="settings" size={16} />
+          </a>
+        </div>
+      </header>
+      <div class="admin-content">
+        <slot />
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
+<style>
+  :root {
+    --sidebar-width: 240px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  a,
+  button,
+  select,
+  input {
+    font: inherit;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  select:focus-visible,
+  input:focus-visible {
+    outline: none;
+    box-shadow: var(--admin-focus);
+  }
+
+  /* ── Container ── */
+
+  .admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── Sidebar (desktop) ── */
+
+  .admin-sidebar {
+    width: var(--sidebar-width);
+    background: var(--admin-surface);
+    border-right: 1px solid var(--admin-border);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 20;
+  }
+
+  .sidebar-header {
+    padding: 1rem 0.9rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--admin-text);
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--brand-700);
+    border-radius: var(--admin-radius);
+    background: var(--brand-900);
+    color: var(--admin-surface);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0;
+  }
+
+  .brand-text {
+    display: grid;
+    gap: 0.05rem;
+  }
+
+  .brand-text strong {
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-text span {
+    color: var(--admin-text-muted);
+    font-size: 0.76rem;
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    padding: 0.85rem 0.75rem;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 42px;
+    padding: 0.5rem 0.65rem;
+    border-radius: var(--admin-radius);
+    color: var(--admin-text-muted);
+    text-decoration: none;
+    margin-bottom: 0.15rem;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+  }
+
+  .nav-item:hover {
+    background: var(--admin-muted);
+    color: var(--brand-900);
+  }
+
+  .nav-item.active {
+    background: var(--brand-900);
+    color: #ffffff;
+    font-weight: 650;
+    box-shadow: 0 1px 2px rgba(26, 46, 26, 0.16);
+  }
+
+  .nav-label {
+    font-size: 0.9rem;
+  }
+
+  .sidebar-footer {
+    padding: 0.75rem;
+    border-top: 1px solid var(--admin-border);
+  }
+
+  .logout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 38px;
+    padding: 0.5rem 0.65rem;
+    border: none;
+    border-radius: var(--admin-radius);
+    background: transparent;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: left;
+    transition: background 0.15s;
+  }
+
+  .logout-btn:hover {
+    background: var(--admin-muted);
+    color: var(--brand-900);
+  }
+
+  /* ── Main area ── */
+
+  .admin-main {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    min-width: 0;
+    max-width: calc(100vw - var(--sidebar-width));
+  }
+
+  .admin-header {
+    min-height: 64px;
+    padding: 0.85rem 1.75rem;
+    border-bottom: 1px solid var(--admin-border);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .admin-header h2 {
+    font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .admin-kicker {
+    margin-bottom: 0.1rem;
+    color: var(--admin-text-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── Breadcrumb ── */
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .breadcrumb-sep {
+    color: var(--admin-text-soft);
+    font-weight: 400;
+    margin: 0 0.1rem;
+  }
+
+  .breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--admin-accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .breadcrumb-link:hover {
+    text-decoration: underline;
+  }
+
+  .admin-content {
+    width: 100%;
+    max-width: 1600px;
+    min-width: 0;
+    padding: 1.25rem 1.75rem 2.5rem;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .admin-icon-button,
+  :global(.icon-button) {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text-muted);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+
+  .admin-icon-button:hover,
+  :global(.icon-button:hover) {
+    border-color: var(--admin-accent);
+    color: var(--brand-900);
+    background: var(--brand-50);
+  }
+
+  /* ── Mobile nav (dropdown, Console pattern) ── */
+
+  .mobile-nav {
+    display: none;
+    position: relative;
+  }
+
+  .mobile-nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    cursor: pointer;
+    font-size: 0.86rem;
+    font-weight: 700;
+    list-style: none;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .mobile-nav-trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: min(86vw, 340px);
+    max-height: calc(100vh - 5.5rem);
+    overflow-y: auto;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    box-shadow: 0 18px 45px rgba(23, 32, 23, 0.16);
+    padding: 0.75rem;
+  }
+
+  .mobile-nav-actions {
+    margin-top: 0.85rem;
+    border-top: 1px solid var(--admin-border);
+    padding-top: 0.65rem;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-height: 44px;
+    border-radius: var(--admin-radius-sm, var(--admin-radius));
+    color: var(--admin-text-muted);
+    font-size: 0.92rem;
+    font-weight: 650;
+    padding: 0.55rem 0.65rem;
+    text-decoration: none;
+  }
+
+  .mobile-nav-item:hover {
+    background: var(--admin-muted);
+    color: var(--brand-900);
+  }
+
+  .mobile-nav-item.active {
+    background: var(--brand-900);
+    color: #ffffff;
+  }
+
+  .mobile-nav-button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  /* ── Global styles (used by page content, carried from AdminLayout) ── */
+
+  :global(.admin-panel),
+  :global(.status-card),
+  :global(.content-section),
+  :global(.inventory-panel) {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    box-shadow: var(--admin-shadow);
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  :global(.admin-content > *),
+  :global(.dashboard-grid > *),
+  :global(.stats-grid > *),
+  :global(.content-grid > *),
+  :global(.providers-grid > *),
+  :global(.pipeline-grid > *),
+  :global(.action-grid > *),
+  :global(.traces-container > *) {
+    min-width: 0;
+  }
+
+  :global(code),
+  :global(pre),
+  :global(.post-slug),
+  :global(.post-path),
+  :global(.job-pipeline),
+  :global(.trace-id),
+  :global(.trace-summary),
+  :global(.trace-error),
+  :global(.issue-slug),
+  :global(.link-from),
+  :global(.link-to) {
+    overflow-wrap: anywhere;
+  }
+
+  :global(pre) {
+    max-width: 100%;
+    overflow: auto;
+  }
+
+  :global(table) {
+    max-width: 100%;
+  }
+
+  :global(.admin-panel h2),
+  :global(.content-section h2),
+  :global(.status-card h3) {
+    color: var(--admin-text);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  :global(.page-desc),
+  :global(.section-desc),
+  :global(.empty) {
+    color: var(--admin-text-muted);
+  }
+
+  :global(a) {
+    color: inherit;
+  }
+
+  :global(.text-link),
+  :global(.card-link),
+  :global(.settings-link) {
+    color: var(--admin-accent);
+  }
+
+  :global(.text-link:hover),
+  :global(.card-link:hover),
+  :global(.settings-link:hover) {
+    color: var(--admin-accent-hover);
+  }
+
+  :global(input),
+  :global(select),
+  :global(textarea) {
+    border-color: var(--admin-border);
+  }
+
+  :global(input:focus),
+  :global(select:focus),
+  :global(textarea:focus) {
+    border-color: var(--admin-accent);
+    box-shadow: var(--admin-focus);
+    outline: none;
+  }
+
+  :global(.action-btn),
+  :global(.mini-btn),
+  :global(#save-settings),
+  :global(.ops-grid button),
+  :global(.form-actions button) {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+
+  :global(.action-btn:hover),
+  :global(.mini-btn:hover),
+  :global(#save-settings:hover),
+  :global(.ops-grid button:hover),
+  :global(.form-actions button:hover) {
+    border-color: var(--admin-accent);
+    background: var(--brand-50);
+    color: var(--brand-900);
+  }
+
+  :global(.job-row:hover),
+  :global(.post-table tbody tr:hover),
+  :global(.trace-row:hover) {
+    background: var(--admin-surface-subtle);
+  }
+
+  /* ── Responsive ── */
+
+  @media (max-width: 768px) {
+    :root {
+      --sidebar-width: 0px;
+    }
+
+    .admin-sidebar {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .admin-main {
+      margin-left: 0;
+      max-width: 100vw;
+    }
+
+    .admin-header {
+      align-items: flex-start;
+      padding: 0.75rem 1rem;
+    }
+
+    .admin-content {
+      padding: 1rem;
+    }
+
+    .header-actions {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+</style>

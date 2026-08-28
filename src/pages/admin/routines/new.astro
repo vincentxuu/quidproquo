@@ -1,9 +1,9 @@
 ---
 export const prerender = false
-import AdminLayout from '../../../layouts/AdminLayout.astro'
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro'
 ---
 
-<AdminLayout title="New routine">
+<AdminV2Layout title="New routine" section="routines">
   <h2>⚡ Routines / New routine</h2>
   <div class="admin-panel" style="padding:16px; max-width:800px;">
     <label class="admin-field"><span class="admin-field-label">Name *</span><input id="name" class="input" placeholder="e.g., Daily code review" /></label>
@@ -30,7 +30,7 @@ import AdminLayout from '../../../layouts/AdminLayout.astro'
     </div>
     <div style="display:flex; gap:8px; margin-top:16px;"><button id="cancel" class="btn-secondary">Cancel</button><button id="create" class="btn">Create</button></div>
   </div>
-</AdminLayout>
+</AdminV2Layout>
 <script is:inline>
   // Skill catalog → dropdown
   fetch('/api/skills').then(r => r.json()).then(data => {

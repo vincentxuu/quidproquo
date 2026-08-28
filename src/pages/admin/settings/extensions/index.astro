@@ -1,0 +1,47 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import { ensureConsoleUmbrella } from '../../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
+const tabs = [
+  { href: '/admin/settings/extensions/skills', label: 'Skills' },
+  { href: '/admin/settings/extensions/mcp-servers', label: 'MCP Servers' },
+  { href: '/admin/settings/extensions/plugins', label: 'Plugins' },
+  { href: '/admin/settings/extensions/marketplace', label: 'Marketplace' },
+];
+---
+
+<AdminV2Layout title="Extensions" section="settings" breadcrumb={breadcrumb}>
+  <nav class="extensions-tabs">
+    {tabs.map(t => (
+      <a href={t.href} class="tab">{t.label}</a>
+    ))}
+  </nav>
+  <div class="admin-panel">
+    <p class="admin-section-desc">管理 Skills、MCP Servers、Plugins 與 Marketplace。選擇上方分頁。</p>
+  </div>
+</AdminV2Layout>
+
+<style>
+  .extensions-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .tab {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    text-decoration: none;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    transition: border-color 0.15s;
+  }
+  .tab:hover {
+    border-color: var(--brand-600);
+  }
+</style>

@@ -1,10 +1,10 @@
 ---
-import AdminLayout from '../../layouts/AdminLayout.astro';
-import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../../lib/search-tools';
-import { SUPPORTED_AGENT_SKILLS } from '../../lib/extensions';
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
+import { SUPPORTED_AGENT_SKILLS } from '@/lib/extensions';
 ---
 
-<AdminLayout title="Deep Research">
+<AdminV2Layout section="settings" title="Deep Research">
   <p class="page-desc">將研究主題拆成子題，執行蒐證與寫作流程，回傳可追溯研究草稿。</p>
 
   <section class="admin-panel">
@@ -355,7 +355,7 @@ import { SUPPORTED_AGENT_SKILLS } from '../../lib/extensions';
       <a id="result-link" href="#" target="_blank" rel="noopener" class="btn">開啟完整報告</a>
     </section>
   </section>
-</AdminLayout>
+</AdminV2Layout>
 
 <script>
   // @ts-nocheck

@@ -1,0 +1,1826 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import AdminTable from '@/components/admin/AdminTable.astro';
+import { getEnv } from '@/lib/config/env';
+import { createBackends } from '@/lib/agent/storage';
+import { columnExpr, getTableColumns } from '@/lib/console/admin/schema';
+import { ensureConsoleUmbrella } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+
+const runId = Astro.params.id;
+if (!runId) return Astro.redirect('/admin/runs');
+
+interface FlowRunRow {
+  flow_run_id: string;
+  flow_id: string;
+  status: string;
+  started_at: number;
+  finished_at: number | null;
+  latency_ms: number | null;
+  display_name: string | null;
+}
+
+interface StepRunRow {
+  step_run_id: string;
+  step_id: string;
+  kind: string;
+  status: string;
+  attempt: number;
+  started_at: number | null;
+  finished_at: number | null;
+  latency_ms: number | null;
+  step_order: number;
+  created_at: number;
+  updated_at: number | null;
+  inputs_json: string | null;
+  outputs_json: string | null;
+  error_json: string | null;
+  agent_run_id: string | null;
+}
+
+interface ToolCallRow {
+  call_id: number;
+  run_id: string;
+  syscall_name: string;
+  tokens_in: number | null;
+  tokens_out: number | null;
+  cost_usd: number | null;
+  latency_ms: number | null;
+  error: string | null;
+}
+
+interface AgentEventRow {
+  event_id: number;
+  run_id: string;
+  kind: string;
+  step_id: string | null;
+  payload_json: string;
+  at: number;
+}
+
+interface PendingApproval {
+  approvalId: string;
+  reason: string;
+  context: unknown;
+  createdAt: number;
+}
+
+interface ArtifactSummaryRow {
+  artifact_id: string;
+  kind: string;
+  label: string | null;
+  logical_name: string | null;
+  version_id: string;
+  version_number: number;
+  status: string;
+  created_at: number;
+}
+
+interface RunAuditRow {
+  audit_id: number;
+  user_email: string | null;
+  action: string;
+  payload_json: string | null;
+  created_at: number;
+}
+
+let run: FlowRunRow | null = null;
+let steps: StepRunRow[] = [];
+let pendingApprovals: PendingApproval[] = [];
+let artifacts: ArtifactSummaryRow[] = [];
+let auditRows: RunAuditRow[] = [];
+let toolCallsByRun = new Map<string, ToolCallRow[]>();
+let eventsByRun = new Map<string, AgentEventRow[]>();
+let loadError = false;
+
+try {
+  const db = getEnv().DB;
+  const [flowDefinitionColumns, flowRunColumns, stepRunColumns] = await Promise.all([
+    getTableColumns(db, 'flow_definitions'),
+    getTableColumns(db, 'flow_runs'),
+    getTableColumns(db, 'flow_step_runs'),
+  ]);
+  const displayNameExpr = flowDefinitionColumns.has('display_name') ? 'fd.display_name' : 'fd.name AS display_name';
+  const runLatencyExpr = flowRunColumns.has('latency_ms') ? 'fr.latency_ms' : 'NULL AS latency_ms';
+  const stepKindExpr = stepRunColumns.has('step_type') ? 'step_type AS kind' : 'kind';
+  const stepAttemptExpr = columnExpr(stepRunColumns, 'attempt', '1', 'attempt');
+  const stepStartedExpr = columnExpr(stepRunColumns, 'started_at', 'NULL', 'started_at');
+  const stepFinishedExpr = columnExpr(stepRunColumns, 'finished_at', 'NULL', 'finished_at');
+  const stepLatencyExpr = columnExpr(stepRunColumns, 'latency_ms', 'NULL', 'latency_ms');
+  const stepCreatedExpr = columnExpr(stepRunColumns, 'created_at', '0', 'created_at');
+  const stepUpdatedExpr = columnExpr(stepRunColumns, 'updated_at', stepRunColumns.has('created_at') ? 'created_at' : '0', 'updated_at');
+  const stepInputsExpr = columnExpr(stepRunColumns, 'inputs_json', 'NULL', 'inputs_json');
+  const stepOutputsExpr = columnExpr(stepRunColumns, 'outputs_json', 'NULL', 'outputs_json');
+  const stepErrorExpr = columnExpr(stepRunColumns, 'error_json', 'NULL', 'error_json');
+  const stepAgentRunExpr = columnExpr(stepRunColumns, 'agent_run_id', 'NULL', 'agent_run_id');
+  const stepOrderBy = [
+    'step_order ASC',
+    stepRunColumns.has('attempt') ? 'attempt ASC' : '',
+    stepRunColumns.has('created_at') ? 'created_at ASC' : '',
+  ].filter(Boolean).join(', ');
+  const runResultPromise = db
+    .prepare(
+      `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, ${runLatencyExpr},
+              ${displayNameExpr}
+       FROM flow_runs fr
+       LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
+       WHERE fr.flow_run_id = ?
+       LIMIT 1`,
+    )
+    .bind(runId)
+    .first<FlowRunRow>();
+  const stepsResultPromise = db
+    .prepare(
+      `SELECT step_run_id,
+              step_id,
+              ${stepKindExpr},
+              status,
+              ${stepAttemptExpr},
+              ${stepStartedExpr},
+              ${stepFinishedExpr},
+              ${stepLatencyExpr},
+              step_order,
+              ${stepCreatedExpr},
+              ${stepUpdatedExpr},
+              ${stepInputsExpr},
+              ${stepOutputsExpr},
+              ${stepErrorExpr},
+              ${stepAgentRunExpr}
+       FROM flow_step_runs
+       WHERE flow_run_id = ?
+       ORDER BY ${stepOrderBy}`,
+    )
+    .bind(runId)
+    .all<StepRunRow>();
+  const [runResult, stepsResult, auditResult] = await Promise.all([
+    runResultPromise,
+    stepsResultPromise,
+    db
+      .prepare(
+        `SELECT al.audit_id,
+                u.email as user_email,
+                al.action,
+                al.payload_json,
+                al.created_at
+         FROM console_audit_log al
+         LEFT JOIN console_users u ON u.user_id = al.user_id
+         WHERE al.resource_kind = 'run'
+           AND al.resource_id = ?
+         ORDER BY al.created_at DESC
+         LIMIT 20`,
+      )
+      .bind(runId)
+      .all<RunAuditRow>()
+      .catch(() => ({
+        results: [],
+        success: true,
+        meta: {} as D1Meta & Record<string, unknown>,
+      })),
+  ]);
+
+  run = runResult;
+  steps = stepsResult.results ?? [];
+  auditRows = auditResult.results ?? [];
+
+  try {
+    const backends = createBackends(getEnv());
+    const approvals = await backends.approvals.listByStatus('pending');
+    pendingApprovals = approvals
+      .filter((approval) => approval.runId === runId)
+      .map((approval) => ({
+        approvalId: approval.approvalId,
+        reason: approval.reason,
+        context: approval.context,
+        createdAt: approval.createdAt,
+      }));
+  } catch {
+    pendingApprovals = [];
+  }
+
+  const agentRunIds = [...new Set(steps.map((step) => step.agent_run_id).filter((id): id is string => Boolean(id)))];
+  if (agentRunIds.length > 0) {
+    const placeholders = agentRunIds.map(() => '?').join(', ');
+    try {
+      const [toolResult, eventResult] = await Promise.all([
+        db
+          .prepare(
+            `SELECT call_id, run_id, syscall_name, tokens_in, tokens_out, cost_usd, latency_ms, error
+             FROM agent_tool_calls
+             WHERE run_id IN (${placeholders})
+             ORDER BY started_at ASC`,
+          )
+          .bind(...agentRunIds)
+          .all<ToolCallRow>(),
+        db
+          .prepare(
+            `SELECT event_id, run_id, kind, step_id, payload_json, at
+             FROM agent_run_events
+             WHERE run_id IN (${placeholders})
+             ORDER BY event_id ASC`,
+          )
+          .bind(...agentRunIds)
+          .all<AgentEventRow>(),
+      ]);
+
+      for (const call of toolResult.results ?? []) {
+        const list = toolCallsByRun.get(call.run_id) ?? [];
+        list.push(call);
+        toolCallsByRun.set(call.run_id, list);
+      }
+      for (const event of eventResult.results ?? []) {
+        const list = eventsByRun.get(event.run_id) ?? [];
+        list.push(event);
+        eventsByRun.set(event.run_id, list);
+      }
+    } catch {
+      toolCallsByRun = new Map();
+      eventsByRun = new Map();
+    }
+  }
+
+  try {
+    const artifactTables = await db
+      .prepare(
+        `SELECT COUNT(*) AS cnt
+         FROM sqlite_master
+         WHERE type = 'table'
+           AND name IN ('artifact_definitions', 'artifact_versions')`,
+      )
+      .first<{ cnt: number }>();
+
+    if ((artifactTables?.cnt ?? 0) === 2) {
+      const artifactResult = await db
+        .prepare(
+          `SELECT d.definition_id AS artifact_id,
+                  d.kind,
+                  d.label,
+                  d.logical_name,
+                  v.version_id,
+                  v.version_number,
+                  v.status,
+                  v.created_at
+           FROM artifact_versions v
+           JOIN artifact_definitions d ON d.definition_id = v.definition_id
+           JOIN (
+             SELECT definition_id, MAX(version_number) AS max_version
+             FROM artifact_versions
+             WHERE flow_run_id = ?
+             GROUP BY definition_id
+           ) latest
+             ON latest.definition_id = v.definition_id
+            AND latest.max_version = v.version_number
+           WHERE v.flow_run_id = ?
+           ORDER BY v.created_at DESC`,
+        )
+        .bind(runId, runId)
+        .all<ArtifactSummaryRow>();
+      artifacts = artifactResult.results ?? [];
+    }
+  } catch {
+    artifacts = [];
+  }
+} catch {
+  loadError = true;
+}
+
+function formatRelative(ms: number): string {
+  const diffMs = Date.now() - ms;
+  const diffSec = Math.floor(diffMs / 1000);
+  if (diffSec < 60) return `${diffSec}s ago`;
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) return `${diffMin}m ago`;
+  const diffHr = Math.floor(diffMin / 60);
+  if (diffHr < 24) return `${diffHr}h ago`;
+  const diffDay = Math.floor(diffHr / 24);
+  return `${diffDay}d ago`;
+}
+
+function formatDuration(ms: number | null): string {
+  if (ms === null) return '—';
+  if (ms < 1000) return `${ms}ms`;
+  return `${(ms / 1000).toFixed(1)}s`;
+}
+
+function isCancellableRun(status: string): boolean {
+  return status === 'queued' || status === 'running' || status === 'paused';
+}
+
+function canRetryStep(status: string): boolean {
+  return status === 'failed' || status === 'cancelled';
+}
+
+function latestAttemptsByStep(steps: StepRunRow[]): Map<string, number> {
+  return steps.reduce((attempts, step) => {
+    attempts.set(step.step_id, Math.max(attempts.get(step.step_id) ?? 0, Number(step.attempt ?? 1)));
+    return attempts;
+  }, new Map<string, number>());
+}
+
+function canRetryStepAttempt(step: StepRunRow, latestAttempts: Map<string, number>): boolean {
+  return canRetryStep(step.status)
+    && Number(step.attempt ?? 1) === (latestAttempts.get(step.step_id) ?? Number(step.attempt ?? 1));
+}
+
+function statusClass(status: string): string {
+  switch (status) {
+    case 'done': return 'badge-success';
+    case 'failed': return 'badge-error';
+    case 'running': return 'badge-running';
+    case 'queued':
+    case 'paused':
+    case 'pending':
+    case 'cancelling':
+      return 'badge-pending';
+    case 'cancelled': return 'badge-muted';
+    default: return 'badge-muted';
+  }
+}
+
+function prettyJson(raw: string | null): string {
+  if (!raw) return '—';
+  try {
+    return JSON.stringify(JSON.parse(raw), null, 2);
+  } catch {
+    return raw;
+  }
+}
+
+function formatTs(ms: number): string {
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function auditPayloadLabel(raw: string | null): string {
+  if (!raw) return '—';
+  try {
+    const payload = JSON.parse(raw) as {
+      stepId?: string;
+      attempt?: number;
+      previousStatus?: string;
+      nextStatus?: string;
+    };
+    const parts = [
+      payload.stepId ? `step ${payload.stepId}` : '',
+      payload.attempt ? `attempt ${payload.attempt}` : '',
+      payload.previousStatus && payload.nextStatus ? `${payload.previousStatus} → ${payload.nextStatus}` : '',
+    ].filter(Boolean);
+    return parts.join(' · ') || raw;
+  } catch {
+    return raw;
+  }
+}
+
+function renderStepOutput(kind: string, outputsJson: string | null): string {
+  if (!outputsJson) return '<p class="detail-empty">無輸出</p>';
+  try {
+    const data = JSON.parse(outputsJson);
+
+    if (kind === 'parallel' && Array.isArray(data.branches)) {
+      const cards = data.branches.map((b: Record<string, unknown>) => {
+        const id = String(b.id ?? '?');
+        const status = String(b.status ?? (b.error ? 'error' : b.content ? 'ok' : 'empty'));
+        const model = String(b.model ?? '');
+        const content = String(b.content ?? '');
+        const error = String(b.error ?? '');
+        const badge = status === 'ok' ? 'badge-success' : status === 'empty' ? 'badge-muted' : 'badge-error';
+        const body = error
+          ? `<pre class="branch-error">${escHtml(error.slice(0, 300))}</pre>`
+          : content
+            ? `<pre class="branch-content">${escHtml(content.slice(0, 800))}${content.length > 800 ? '\n…' : ''}</pre>`
+            : '<p class="detail-empty">無內容</p>';
+        return `<div class="branch-card">
+          <div class="branch-header">
+            <strong>${escHtml(id)}</strong>
+            <span class="badge ${badge}">${escHtml(status)}</span>
+            ${model ? `<code>${escHtml(model)}</code>` : ''}
+          </div>
+          ${body}
+        </div>`;
+      });
+      return `<div class="branch-grid">${cards.join('')}</div>`;
+    }
+
+    if ((kind === 'agent') && typeof data.content === 'string' && data.content.length > 0) {
+      const model = typeof data.model === 'string' ? data.model : '';
+      return `<div class="agent-output">
+        ${model ? `<div class="agent-model"><code>${escHtml(model)}</code></div>` : ''}
+        <pre class="agent-content">${escHtml(data.content)}</pre>
+      </div>`;
+    }
+
+    return `<pre>${escHtml(JSON.stringify(data, null, 2).slice(0, 2000))}</pre>`;
+  } catch {
+    return `<pre>${escHtml(outputsJson.slice(0, 2000))}</pre>`;
+  }
+}
+
+function escHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+const flowName = run?.display_name ?? run?.flow_id ?? runId;
+const latestStepAttempts = latestAttemptsByStep(steps);
+const retryableStepCount = steps.filter((step) => canRetryStepAttempt(step, latestStepAttempts)).length;
+const bootstrap = run
+  ? {
+      run: {
+        flowRunId: run.flow_run_id,
+        flowId: run.flow_id,
+        status: run.status,
+        startedAt: run.started_at,
+        latencyMs: run.latency_ms,
+        displayName: flowName,
+      },
+      steps,
+      pendingApprovals,
+      uiFlags: {
+        ready: true,
+        cancellable: isCancellableRun(run.status),
+        retryableStepCount,
+      },
+    }
+  : null;
+const bootstrapJson = JSON.stringify(bootstrap ?? null).replace(/</g, '\\u003c');
+---
+
+<AdminV2Layout
+  title={`Run: ${runId.slice(0, 8)}…`}
+  section="sessions"
+  breadcrumb={[
+    { label: '執行記錄', href: '/admin/runs' },
+    { label: run ? (run.display_name ?? run.flow_id) : runId, href: run ? `/admin/flows/${run.flow_id}` : undefined },
+    { label: runId.slice(0, 8) + '…' },
+  ]}
+>
+  {loadError && (
+    <AdminState tone="error">無法載入執行資料。</AdminState>
+  )}
+  {!loadError && !run && (
+    <AdminState tone="empty">找不到此執行記錄。</AdminState>
+  )}
+  {!loadError && run && (
+    <>
+      <div class="run-header">
+        <div class="run-meta">
+          <div class="run-meta-item">
+            <span class="meta-label">工作流程</span>
+            <span class="meta-value">
+              <a href={`/admin/flows/${run.flow_id}`}>{flowName}</a>
+            </span>
+          </div>
+          <div class="run-meta-item">
+            <span class="meta-label">狀態</span>
+            <span id="run-status" class:list={['badge', statusClass(run.status)]}>{run.status}</span>
+          </div>
+          <div class="run-meta-item">
+            <span class="meta-label">開始時間</span>
+            <span class="meta-value mono">{formatRelative(run.started_at)}</span>
+          </div>
+          <div class="run-meta-item">
+            <span class="meta-label">耗時</span>
+            <span class="meta-value mono">{formatDuration(run.latency_ms)}</span>
+          </div>
+          <div class="run-meta-item">
+            <span class="meta-label">執行 ID</span>
+            <span class="meta-value mono">{run.flow_run_id}</span>
+          </div>
+        </div>
+        <div class="run-actions" id="run-actions">
+          <a href={`/admin/sessions/${runId}/evidence`} class="btn-secondary">來源證據</a>
+          {artifacts.length > 0 && (
+            <a href="#run-artifacts" class="btn-secondary">產出物</a>
+          )}
+          <button
+            id="cancel-run-btn"
+            type="button"
+            class="btn-danger"
+            hidden={!isCancellableRun(run.status)}
+            aria-label={`取消執行 ${run.flow_run_id}`}
+          >
+            取消執行
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="run-operation-preview"
+        class="run-operation-preview"
+        data-run-status={run.status}
+        data-retryable-count={retryableStepCount}
+      >
+        <div>
+          <span class="operation-preview-label">取消</span>
+          <strong data-preview-field="cancel">
+            {isCancellableRun(run.status) ? '可取消目前執行' : '目前狀態不可取消'}
+          </strong>
+          <small>
+            {isCancellableRun(run.status)
+              ? '會送出 cooperative cancel；已完成或已失敗的 run 不會被覆寫。'
+              : '只有 queued / running / paused 狀態會顯示取消操作。'}
+          </small>
+        </div>
+        <div>
+          <span class="operation-preview-label">重試</span>
+          <strong data-preview-field="retry">{retryableStepCount} 個步驟可重試</strong>
+          <small>重試單一步驟可能產生新的 provider 呼叫與費用，且不會重跑已成功的下游步驟。</small>
+        </div>
+      </div>
+
+      <div id="run-action-status" class="run-action-status" role="status" aria-live="polite" hidden></div>
+
+      <AdminPanel title="操作紀錄" eyebrow="最近 20 筆針對此 run 的管理操作">
+        <div id="run-audit-history">
+          {auditRows.length === 0 ? (
+            <AdminState tone="empty">尚無管理操作紀錄。</AdminState>
+          ) : (
+            <AdminTable minWidth="560px" flush>
+              <thead>
+                <tr>
+                  <th>時間</th>
+                  <th>動作</th>
+                  <th>摘要</th>
+                  <th>操作者</th>
+                </tr>
+              </thead>
+              <tbody id="run-audit-history-body">
+                {auditRows.map((row) => (
+                  <tr>
+                    <td class="mono">{formatTs(row.created_at)}</td>
+                    <td class="mono">{row.action}</td>
+                    <td>{auditPayloadLabel(row.payload_json)}</td>
+                    <td>{row.user_email ?? 'admin'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </AdminTable>
+          )}
+        </div>
+      </AdminPanel>
+
+      {pendingApprovals.length > 0 && (
+        <AdminPanel title="待審核">
+          <div id="approval-panel" class="approval-panel">
+            {pendingApprovals.map((approval) => (
+              <div class="approval-card" data-approval-id={approval.approvalId}>
+                <div class="approval-header">
+                  <span class="approval-reason">{approval.reason}</span>
+                  <small class="approval-time">{new Date(approval.createdAt).toLocaleString('zh-TW')}</small>
+                </div>
+                <pre class="approval-context">{JSON.stringify(approval.context, null, 2)}</pre>
+                <textarea class="approval-comment" placeholder="備注（選填）"></textarea>
+                <div class="approval-actions">
+                  <button type="button" data-action="approve" class="mini-btn mini-btn-approve">核准</button>
+                  <button type="button" data-action="reject" class="mini-btn mini-btn-reject">拒絕</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </AdminPanel>
+      )}
+
+      <div id="run-artifacts">
+        <AdminPanel title="產出物" eyebrow={`共 ${artifacts.length} 個最新版本`}>
+          {artifacts.length === 0 ? (
+            <AdminState tone="empty">這次執行尚無產出物。</AdminState>
+          ) : (
+            <AdminTable minWidth="640px" flush>
+              <thead>
+                <tr>
+                  <th>名稱</th>
+                  <th>類型</th>
+                  <th>版本</th>
+                  <th>狀態</th>
+                  <th>建立時間</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {artifacts.map((artifact) => (
+                  <tr>
+                    <td>
+                      <div class="artifact-title">
+                        <span>{artifact.label ?? artifact.logical_name ?? artifact.artifact_id}</span>
+                        <code>{artifact.artifact_id}</code>
+                      </div>
+                    </td>
+                    <td class="mono">{artifact.kind}</td>
+                    <td class="mono">v{artifact.version_number}</td>
+                    <td><span class:list={['badge', statusClass(artifact.status)]}>{artifact.status}</span></td>
+                    <td class="mono">{formatRelative(artifact.created_at)}</td>
+                    <td>
+                      <div class="artifact-actions">
+                        <a
+                          class="btn-small-link"
+                          href={`/admin/sessions/${runId}/artifacts/${artifact.artifact_id}`}
+                        >
+                          檢視
+                        </a>
+                        <a
+                          class="btn-small-link"
+                          href={`/admin/sessions/${runId}/artifacts/${artifact.artifact_id}#artifact-export`}
+                        >
+                          匯出
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </AdminTable>
+          )}
+        </AdminPanel>
+      </div>
+
+      <AdminPanel title="步驟時間軸">
+        {steps.length === 0 ? (
+          <AdminState tone="empty">尚無步驟記錄。</AdminState>
+        ) : (
+          <AdminTable minWidth="640px" flush>
+            <thead>
+              <tr>
+                <th>步驟</th>
+                <th>類型</th>
+                <th>狀態</th>
+                <th>嘗試次數</th>
+                <th>耗時</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="timeline-body">
+              {steps.map((step) => {
+                const toolCalls = step.agent_run_id ? toolCallsByRun.get(step.agent_run_id) ?? [] : [];
+                const events = step.agent_run_id ? eventsByRun.get(step.agent_run_id) ?? [] : [];
+                return (
+                  <>
+                    <tr
+                      class="timeline-row"
+                      data-step-run-id={step.step_run_id}
+                      data-step-status={step.status}
+                      data-step-attempt={step.attempt}
+                    >
+                      <td class="mono step-id">{step.step_id}</td>
+                      <td class="kind">{step.kind}</td>
+                      <td>
+                        <span class:list={['badge', statusClass(step.status)]}>{step.status}</span>
+                      </td>
+                      <td class="mono">{step.attempt}</td>
+                      <td class="mono">{formatDuration(step.latency_ms)}</td>
+                      <td class="timeline-actions-cell">
+                        {canRetryStepAttempt(step, latestStepAttempts) && (
+                          <button
+                            type="button"
+                            class="btn-small"
+                            data-action="retry"
+                            data-step-run-id={step.step_run_id}
+                            aria-label={`重試步驟 ${step.step_id} 第 ${step.attempt} 次嘗試`}
+                          >
+                            重試
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                    <tr class="step-detail-row">
+                      <td colspan="6">
+                        <details class="step-detail" open={step.kind === 'agent' || step.kind === 'parallel'}>
+                          <summary>步驟詳情</summary>
+                          <div class="step-detail-grid">
+                            {step.inputs_json && (
+                              <div>
+                                <h4>輸入</h4>
+                                <pre>{prettyJson(step.inputs_json)}</pre>
+                              </div>
+                            )}
+                            <div class="detail-wide">
+                              <h4>輸出</h4>
+                              <Fragment set:html={renderStepOutput(step.kind, step.outputs_json)} />
+                            </div>
+                            {step.error_json && (
+                              <div class="detail-wide">
+                                <h4>錯誤</h4>
+                                <pre>{prettyJson(step.error_json)}</pre>
+                              </div>
+                            )}
+                            <div class="detail-wide">
+                              <h4>工具呼叫 ({toolCalls.length})</h4>
+                              {toolCalls.length === 0 ? (
+                                <p class="detail-empty">尚無工具呼叫記錄。</p>
+                              ) : (
+                                <table class="detail-table">
+                                  <thead>
+                                    <tr>
+                                      <th>ID</th>
+                                      <th>Syscall</th>
+                                      <th>Tokens</th>
+                                      <th>費用</th>
+                                      <th>延遲</th>
+                                      <th>錯誤</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {toolCalls.map((call) => (
+                                      <tr>
+                                        <td class="mono">{call.call_id}</td>
+                                        <td>{call.syscall_name}</td>
+                                        <td class="mono">{(call.tokens_in ?? 0) + (call.tokens_out ?? 0)}</td>
+                                        <td class="mono">{call.cost_usd == null ? '—' : call.cost_usd.toFixed(4)}</td>
+                                        <td class="mono">{call.latency_ms == null ? '—' : `${call.latency_ms}ms`}</td>
+                                        <td>{call.error ?? '—'}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              )}
+                            </div>
+                            <div class="detail-wide">
+                              <h4>事件 ({events.length})</h4>
+                              {events.length === 0 ? (
+                                <p class="detail-empty">尚無事件記錄。</p>
+                              ) : (
+                                <pre>{events.map((event) => `${event.event_id} ${event.kind} ${event.payload_json}`).join('\n')}</pre>
+                              )}
+                            </div>
+                          </div>
+                        </details>
+                      </td>
+                    </tr>
+                  </>
+                );
+              })}
+            </tbody>
+          </AdminTable>
+        )}
+      </AdminPanel>
+    </>
+  )}
+</AdminV2Layout>
+
+<script id="run-bootstrap" type="application/json" is:inline set:html={bootstrapJson}></script>
+
+<script is:inline>
+  const bootstrap = document.getElementById('run-bootstrap')?.textContent;
+  const initialData = bootstrap ? JSON.parse(bootstrap) : null;
+  if (!initialData?.run) {
+    // no run data means render is already in fallback state
+    // keep script no-op
+  } else {
+    const runId = initialData.run.flowRunId;
+    const statusBadge = document.getElementById('run-status');
+    const cancelBtn = document.getElementById('cancel-run-btn');
+    const timelineBody = document.getElementById('timeline-body');
+    const runActionStatus = document.getElementById('run-action-status');
+    const approvalPanel = document.getElementById('approval-panel');
+    const operationPreview = document.getElementById('run-operation-preview');
+    const auditHistory = document.getElementById('run-audit-history');
+
+    const runActionsRoot = document.getElementById('run-actions');
+    let currentRunStatus = initialData.run.status;
+    let retryableStepCount = Number(initialData.uiFlags?.retryableStepCount ?? 0);
+
+    function setStatusText(message, type = '') {
+      if (!runActionStatus) return;
+      runActionStatus.hidden = false;
+      runActionStatus.textContent = message;
+      runActionStatus.className = `run-action-status ${type}`;
+      if (type === 'success' || type === 'error') {
+        setTimeout(() => {
+          if (runActionStatus) {
+            runActionStatus.textContent = '';
+            runActionStatus.hidden = true;
+          }
+        }, 5000);
+      }
+    }
+
+    function cssStatusClass(status) {
+      switch (status) {
+        case 'done': return 'badge-success';
+        case 'failed': return 'badge-error';
+        case 'running': return 'badge-running';
+        case 'cancelling': return 'badge-pending';
+        case 'cancelled': return 'badge-muted';
+        case 'pending': return 'badge-pending';
+        case 'queued': return 'badge-pending';
+        case 'paused': return 'badge-pending';
+        default: return 'badge-muted';
+      }
+    }
+
+    function canCancelRun(status) {
+      return status === 'queued' || status === 'running' || status === 'paused';
+    }
+
+    function canRetryStep(status) {
+      return status === 'failed' || status === 'cancelled';
+    }
+
+    function latestAttemptsByStep(steps) {
+      const attempts = new Map();
+      if (!Array.isArray(steps)) return attempts;
+      for (const step of steps) {
+        const stepId = String(step.step_id);
+        const attempt = Number(step.attempt ?? 1);
+        attempts.set(stepId, Math.max(attempts.get(stepId) ?? 0, attempt));
+      }
+      return attempts;
+    }
+
+    function canRetryStepAttempt(step, latestAttempts) {
+      const stepId = String(step.step_id);
+      const attempt = Number(step.attempt ?? 1);
+      return canRetryStep(step.status) && attempt === (latestAttempts.get(stepId) ?? attempt);
+    }
+
+    function countRetryableSteps(steps) {
+      if (!Array.isArray(steps)) return 0;
+      const latestAttempts = latestAttemptsByStep(steps);
+      return steps.filter((step) => canRetryStepAttempt(step, latestAttempts)).length;
+    }
+
+    function updateOperationPreview() {
+      if (!operationPreview) return;
+      const canCancel = canCancelRun(currentRunStatus);
+      operationPreview.dataset.runStatus = currentRunStatus;
+      operationPreview.dataset.retryableCount = String(retryableStepCount);
+
+      const cancelField = operationPreview.querySelector('[data-preview-field="cancel"]');
+      if (cancelField) {
+        cancelField.textContent = canCancel ? '可取消目前執行' : '目前狀態不可取消';
+      }
+
+      const retryField = operationPreview.querySelector('[data-preview-field="retry"]');
+      if (retryField) {
+        retryField.textContent = `${retryableStepCount} 個步驟可重試`;
+      }
+    }
+
+    function setRunStatus(status) {
+      currentRunStatus = status;
+      if (statusBadge) {
+        statusBadge.classList.remove('badge-success', 'badge-error', 'badge-running', 'badge-muted', 'badge-pending');
+        statusBadge.classList.add(cssStatusClass(status));
+        statusBadge.textContent = status;
+      }
+      if (cancelBtn) {
+        const canCancel = canCancelRun(status);
+        cancelBtn.hidden = !canCancel;
+        cancelBtn.disabled = !canCancel;
+      }
+      updateOperationPreview();
+    }
+
+    function ensureAuditHistoryBody() {
+      let body = document.getElementById('run-audit-history-body');
+      if (body instanceof HTMLTableSectionElement) return body;
+      if (!auditHistory) return null;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'run-audit-table-wrap';
+      wrap.innerHTML = `
+        <table class="run-audit-table">
+          <thead>
+            <tr>
+              <th>時間</th>
+              <th>動作</th>
+              <th>摘要</th>
+              <th>操作者</th>
+            </tr>
+          </thead>
+          <tbody id="run-audit-history-body"></tbody>
+        </table>
+      `;
+      auditHistory.replaceChildren(wrap);
+      body = document.getElementById('run-audit-history-body');
+      return body instanceof HTMLTableSectionElement ? body : null;
+    }
+
+    function formatAuditTime(ms) {
+      return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+    }
+
+    function prependRunAuditHistory(action, summary) {
+      const body = ensureAuditHistoryBody();
+      if (!body) return;
+
+      const row = document.createElement('tr');
+      const time = document.createElement('td');
+      time.className = 'mono';
+      time.dataset.label = '時間';
+      time.textContent = formatAuditTime(Date.now());
+
+      const actionCell = document.createElement('td');
+      actionCell.className = 'mono';
+      actionCell.dataset.label = '動作';
+      actionCell.textContent = action;
+
+      const summaryCell = document.createElement('td');
+      summaryCell.dataset.label = '摘要';
+      summaryCell.textContent = summary;
+
+      const actor = document.createElement('td');
+      actor.dataset.label = '操作者';
+      actor.textContent = 'admin';
+
+      row.append(time, actionCell, summaryCell, actor);
+      body.prepend(row);
+    }
+
+    function renderTimeline(steps) {
+      if (!timelineBody) return;
+      retryableStepCount = countRetryableSteps(steps);
+      const latestAttempts = latestAttemptsByStep(steps);
+      updateOperationPreview();
+      timelineBody.replaceChildren();
+
+      if (!steps.length) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.setAttribute('colspan', '6');
+        cell.textContent = '尚無步驟記錄。';
+        row.append(cell);
+        timelineBody.append(row);
+        return;
+      }
+
+      for (const step of steps) {
+        const row = document.createElement('tr');
+        row.dataset.stepRunId = String(step.step_run_id);
+        row.dataset.stepStatus = String(step.status);
+        row.dataset.stepAttempt = String(step.attempt);
+        row.className = 'timeline-row';
+
+        const idCell = document.createElement('td');
+        idCell.className = 'mono step-id';
+        idCell.textContent = String(step.step_id);
+
+        const kindCell = document.createElement('td');
+        kindCell.className = 'kind';
+        kindCell.textContent = String(step.kind);
+
+        const statusCell = document.createElement('td');
+        const statusBadge = document.createElement('span');
+        statusBadge.className = `badge ${cssStatusClass(step.status)}`;
+        statusBadge.textContent = String(step.status);
+        statusCell.append(statusBadge);
+
+        const attemptCell = document.createElement('td');
+        attemptCell.className = 'mono';
+        attemptCell.textContent = String(step.attempt);
+
+        const durationCell = document.createElement('td');
+        durationCell.className = 'mono';
+        const latency = step.latency_ms;
+        if (latency === null) {
+          durationCell.textContent = '—';
+        } else if (latency < 1000) {
+          durationCell.textContent = `${latency}ms`;
+        } else {
+          durationCell.textContent = `${(latency / 1000).toFixed(1)}s`;
+        }
+
+        const actionCell = document.createElement('td');
+        actionCell.className = 'timeline-actions-cell';
+        if (canRetryStepAttempt(step, latestAttempts)) {
+          const retryBtn = document.createElement('button');
+          retryBtn.type = 'button';
+          retryBtn.className = 'btn-small';
+          retryBtn.textContent = '重試';
+          retryBtn.dataset.action = 'retry';
+          retryBtn.dataset.stepRunId = String(step.step_run_id);
+          retryBtn.setAttribute('aria-label', `重試步驟 ${step.step_id} 第 ${step.attempt} 次嘗試`);
+          actionCell.append(retryBtn);
+        }
+
+        row.append(idCell, kindCell, statusCell, attemptCell, durationCell, actionCell);
+        timelineBody.append(row);
+      }
+    }
+
+    function renderApprovals(approvals) {
+      if (!approvalPanel) return;
+      approvalPanel.innerHTML = '';
+      if (!approvals.length) {
+        const empty = document.createElement('div');
+        empty.className = 'approval-empty';
+        empty.textContent = '目前無待審核項目。';
+        approvalPanel.append(empty);
+        if (runActionsRoot) {
+          const existing = runActionsRoot.querySelector('.run-idle-approval-hint');
+          if (existing) existing.remove();
+        }
+        return;
+      }
+
+      for (const approval of approvals) {
+        const card = document.createElement('div');
+        card.className = 'approval-card';
+        card.dataset.approvalId = String(approval.approvalId);
+
+        const header = document.createElement('div');
+        header.className = 'approval-header';
+
+        const reason = document.createElement('span');
+        reason.className = 'approval-reason';
+        reason.textContent = String(approval.reason);
+
+        const ts = document.createElement('small');
+        ts.className = 'approval-time';
+        ts.textContent = new Date(Number(approval.createdAt)).toLocaleString('zh-TW');
+
+        const context = document.createElement('pre');
+        context.className = 'approval-context';
+        context.textContent = JSON.stringify(approval.context, null, 2);
+
+        const comment = document.createElement('textarea');
+        comment.className = 'approval-comment';
+        comment.placeholder = '備注（選填）';
+
+        const actions = document.createElement('div');
+        actions.className = 'approval-actions';
+
+        const approve = document.createElement('button');
+        approve.type = 'button';
+        approve.className = 'mini-btn mini-btn-approve';
+        approve.dataset.action = 'approve';
+        approve.textContent = '核准';
+
+        const reject = document.createElement('button');
+        reject.type = 'button';
+        reject.className = 'mini-btn mini-btn-reject';
+        reject.dataset.action = 'reject';
+        reject.textContent = '拒絕';
+
+        actions.append(approve, reject);
+        header.append(reason, ts);
+        card.append(header, context, comment, actions);
+        approvalPanel.append(card);
+      }
+    }
+
+    async function doApproveReject(event) {
+      const button = event.target;
+      if (!(button instanceof HTMLElement)) return;
+      const action = button.dataset.action;
+      if (action !== 'approve' && action !== 'reject') return;
+
+      const card = button.closest('.approval-card');
+      if (!card || !(card instanceof HTMLElement)) return;
+      const approvalId = card.dataset.approvalId;
+      if (!approvalId) return;
+
+      button.disabled = true;
+      const originalText = button.textContent;
+      button.textContent = '送出中…';
+
+      try {
+        const res = await fetch(`/api/admin/agents/approvals/${encodeURIComponent(approvalId)}/${action}`, {
+          method: 'POST',
+        });
+        if (!res.ok) throw new Error('request failed');
+        card.remove();
+        setStatusText(`審核已${action === 'approve' ? '核准' : '拒絕'}`, 'success');
+      } catch {
+        setStatusText(`無法${action === 'approve' ? '核准' : '拒絕'}此審核項目`, 'error');
+        button.disabled = false;
+        button.textContent = originalText;
+        return;
+      }
+
+      const eventSource = new EventSource(`/api/admin/sessions/${runId}/events`);
+      eventSource.addEventListener('timeline', (message) => {
+        const data = parsePayload(message.data);
+        if (!data) return;
+        renderApprovals(data.approvals);
+        eventSource.close();
+      });
+      eventSource.onerror = () => eventSource.close();
+    }
+
+    async function doCancelRun() {
+      if (!cancelBtn) return;
+      if (!canCancelRun(currentRunStatus)) {
+        setStatusText(`目前狀態 ${currentRunStatus} 不可取消。`, 'error');
+        return;
+      }
+      if (!window.confirm(`確定要取消執行 ${runId.slice(0, 8)}？取消後不會自動重跑，已送出的 provider 呼叫可能仍會完成。`)) return;
+      cancelBtn.disabled = true;
+      const previousStatus = currentRunStatus;
+      const originalText = cancelBtn.textContent;
+      cancelBtn.textContent = '取消中…';
+      setRunStatus('cancelling');
+      setStatusText('正在取消執行…');
+
+      try {
+        const res = await fetch(`/api/admin/sessions/${encodeURIComponent(runId)}/cancel`, {
+          method: 'POST',
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(body.error || 'cancel failed');
+        setRunStatus(body.status || 'cancelled');
+        prependRunAuditHistory('flow.run.cancel', `${previousStatus} → ${body.status || 'cancelled'}`);
+        setStatusText('執行已取消。', 'success');
+      } catch {
+        setStatusText('無法取消執行。', 'error');
+        setRunStatus(previousStatus);
+        cancelBtn.disabled = false;
+        cancelBtn.textContent = originalText;
+      }
+    }
+
+    async function doRetryStep(stepRunId) {
+      const button = timelineBody?.querySelector(`[data-step-run-id="${CSS.escape(stepRunId)}"] [data-action="retry"]`);
+      if (!(button instanceof HTMLButtonElement)) return;
+      const row = button.closest('.timeline-row');
+      const stepId = row?.querySelector('.step-id')?.textContent?.trim() || stepRunId;
+      const attempt = row instanceof HTMLElement ? row.dataset.stepAttempt : undefined;
+      if (!window.confirm(`確定要重試步驟 ${stepId}${attempt ? `（目前第 ${attempt} 次嘗試）` : ''}？重試可能產生新的 provider 呼叫與費用。`)) return;
+      button.disabled = true;
+      button.textContent = '重試中…';
+
+      try {
+        const res = await fetch(`/api/admin/sessions/${encodeURIComponent(runId)}/steps/${encodeURIComponent(stepRunId)}/retry`, {
+          method: 'POST',
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(body.error || 'retry failed');
+        button.textContent = '已送出';
+        prependRunAuditHistory(
+          'flow.step.retry',
+          `${stepId}${body.attempt ? ` · attempt ${body.attempt}` : ''}`,
+        );
+        setStatusText(`重試已送出${body.attempt ? `：第 ${body.attempt} 次嘗試` : ''}。`, 'success');
+      } catch {
+        setStatusText('無法重試此步驟。', 'error');
+        button.disabled = false;
+        button.textContent = '重試';
+      }
+    }
+
+    function parsePayload(raw) {
+      try {
+        return JSON.parse(raw);
+      } catch {
+        return null;
+      }
+    }
+
+    // Skip SSE live-update when run is already terminal — server-rendered HTML
+    // includes rich step output (branch cards, agent content) that renderTimeline
+    // would destroy by replacing with a plain table.
+    const isTerminal = currentRunStatus === 'done' || currentRunStatus === 'failed' || currentRunStatus === 'cancelled';
+    const eventSource = isTerminal ? null : new EventSource(`/api/admin/sessions/${runId}/events`);
+    if (eventSource) {
+      eventSource.addEventListener('timeline', (message) => {
+        const data = parsePayload(message.data);
+        if (!data) return;
+        if (!data.run || !data.run.status || !Array.isArray(data.steps)) return;
+
+        renderTimeline(data.steps);
+        setRunStatus(data.run.status);
+        if (Array.isArray(data.approvals)) {
+          renderApprovals(data.approvals);
+        }
+
+        if (data.terminal) {
+          setStatusText(`執行完成：${data.run.status}`, 'success');
+          eventSource.close();
+        }
+      });
+
+      eventSource.addEventListener('terminal', (message) => {
+        const data = parsePayload(message.data);
+        if (!data) return;
+        if (data.run?.status) {
+          setRunStatus(data.run.status);
+          renderApprovals(data.approvals || []);
+          eventSource.close();
+        }
+      });
+
+      eventSource.onerror = () => {
+        // keep retrying by browser EventSource
+      };
+    }
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        void doCancelRun();
+      });
+    }
+
+    if (timelineBody) {
+      timelineBody.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLButtonElement)) return;
+        if (target.dataset.action === 'retry' && target.dataset.stepRunId) {
+          event.preventDefault();
+          event.stopPropagation();
+          void doRetryStep(target.dataset.stepRunId);
+        }
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLButtonElement)) return;
+      if (target.dataset.action) {
+        event.preventDefault();
+        event.stopPropagation();
+        void doApproveReject(event);
+      }
+    });
+
+    renderApprovals(initialData.pendingApprovals || []);
+    updateOperationPreview();
+  }
+</script>
+
+<style>
+  .run-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    box-shadow: var(--admin-shadow);
+  }
+
+  .run-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+  }
+
+  .run-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .meta-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--admin-text-soft, #94a3b8);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .meta-value {
+    font-size: 0.9em;
+    color: var(--admin-text);
+  }
+
+  .meta-value a {
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+  }
+
+  .meta-value a:hover {
+    text-decoration: underline;
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+  }
+
+  .step-id {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .kind {
+    font-size: 0.85em;
+    color: var(--admin-text-muted);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.15em 0.55em;
+    border-radius: 999px;
+    font-size: 0.78em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .badge-success {
+    background: var(--admin-success-bg, #dcfce7);
+    color: var(--admin-success, #166534);
+  }
+
+  .badge-error {
+    background: var(--admin-error-bg, #fee2e2);
+    color: var(--admin-error, #991b1b);
+  }
+
+  .badge-running {
+    background: var(--admin-accent-bg, #dbeafe);
+    color: var(--admin-accent, #1d4ed8);
+  }
+
+  .badge-pending {
+    background: var(--color-warning-bg, #fefce8);
+    color: var(--color-warning-text, #713f12);
+  }
+
+  .badge-muted {
+    background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text-muted, #64748b);
+  }
+
+  .run-actions {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .run-operation-preview {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .run-operation-preview > div {
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    padding: 0.85rem 1rem;
+  }
+
+  .operation-preview-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--admin-text-soft, #94a3b8);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .run-operation-preview strong {
+    display: block;
+    color: var(--admin-text);
+    font-size: 0.92rem;
+  }
+
+  .run-operation-preview small {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--admin-text-muted);
+    line-height: 1.45;
+  }
+
+  .run-action-status {
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.9em;
+    display: inline-block;
+  }
+
+  .run-action-status.success {
+    color: var(--admin-success, #166534);
+    background: var(--admin-success-bg, #dcfce7);
+  }
+
+  .run-action-status.error {
+    color: var(--admin-error, #991b1b);
+    background: var(--admin-error-bg, #fee2e2);
+  }
+
+  .run-audit-table-wrap {
+    overflow-x: auto;
+  }
+
+  .run-audit-table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .run-audit-table th,
+  .run-audit-table td {
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border, #e2e8f0);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .run-audit-table th {
+    color: var(--admin-text-soft, #94a3b8);
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text);
+  }
+
+  .btn-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--admin-error, #dc2626);
+    border-radius: var(--admin-radius, 6px);
+    background: transparent;
+    color: var(--admin-error, #dc2626);
+    cursor: pointer;
+  }
+
+  .btn-danger[hidden] {
+    display: none !important;
+  }
+
+  .btn-danger:hover:not(:disabled) {
+    background: var(--admin-error-bg, #fee2e2);
+  }
+
+  .btn-danger:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .btn-small {
+    min-height: 2.75rem;
+    padding: 0.27rem 0.7rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    background: #fff;
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+  }
+
+  .btn-small:hover {
+    background: var(--admin-muted, #f1f5f9);
+  }
+
+  .artifact-title {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .artifact-title code {
+    color: var(--admin-text-muted);
+    font-size: 0.76rem;
+  }
+
+  .artifact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .btn-small-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: 0.375rem;
+    background: #fff;
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+    text-decoration: none;
+  }
+
+  .btn-small-link:hover {
+    background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text);
+  }
+
+  .approval-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .approval-card {
+    width: min(100%, 680px);
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    background: var(--admin-surface-alt, #ffffff);
+  }
+
+  .approval-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .approval-reason {
+    font-weight: 600;
+    color: var(--admin-text);
+  }
+
+  .approval-time {
+    color: var(--admin-text-muted);
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .approval-context {
+    white-space: pre-wrap;
+    max-height: 240px;
+    overflow: auto;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    background: var(--admin-muted, #f8fafc);
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .approval-comment {
+    width: 100%;
+    resize: vertical;
+    margin-top: 0.5rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: 0.4rem;
+    padding: 0.45rem;
+    min-height: 56px;
+    font-size: 0.85rem;
+  }
+
+  .approval-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-top: 0.55rem;
+  }
+
+  .mini-btn {
+    min-height: 2.75rem;
+    border-radius: 0.35rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    background: #fff;
+  }
+
+  .mini-btn-approve {
+    color: var(--admin-success, #16a34a);
+    border-color: var(--admin-success, #16a34a);
+  }
+
+  .mini-btn-reject {
+    color: var(--admin-error, #dc2626);
+    border-color: var(--admin-error, #dc2626);
+  }
+
+  .approval-empty {
+    color: var(--admin-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .timeline-actions-cell {
+    white-space: nowrap;
+  }
+
+  .step-detail-row td {
+    background: var(--admin-bg);
+    padding: 0;
+  }
+
+  .step-detail {
+    padding: 0.55rem 0.75rem;
+  }
+
+  .step-detail summary {
+    cursor: pointer;
+    color: var(--admin-accent);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .step-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.65rem;
+  }
+
+  .step-detail h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.78rem;
+    color: var(--admin-text-soft);
+    text-transform: uppercase;
+  }
+
+  .step-detail pre {
+    margin: 0;
+    max-height: 240px;
+    overflow: auto;
+    white-space: pre-wrap;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .detail-wide {
+    grid-column: 1 / -1;
+  }
+
+  .detail-empty {
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+  }
+
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+  }
+
+  .detail-table th,
+  .detail-table td {
+    padding: 0.35rem 0.45rem;
+    border-bottom: 1px solid var(--admin-border);
+    text-align: left;
+  }
+
+  .branch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.65rem;
+  }
+
+  .branch-card {
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    padding: 0.65rem;
+    background: var(--admin-surface, #fff);
+  }
+
+  .branch-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .branch-header strong {
+    font-size: 0.85rem;
+  }
+
+  .branch-header code {
+    font-size: 0.72rem;
+    color: var(--admin-text-muted);
+  }
+
+  .branch-content,
+  .branch-error {
+    margin: 0;
+    max-height: 200px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.76rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+  }
+
+  .branch-content {
+    background: var(--admin-muted, #f8fafc);
+    border: 1px solid var(--admin-border, #e2e8f0);
+  }
+
+  .branch-error {
+    background: var(--admin-error-bg, #fee2e2);
+    color: var(--admin-error, #991b1b);
+    border: 1px solid var(--admin-error, #fca5a5);
+  }
+
+  .agent-output {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .agent-model {
+    font-size: 0.78rem;
+    color: var(--admin-text-muted);
+  }
+
+  .agent-content {
+    margin: 0;
+    max-height: 400px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.82rem;
+    padding: 0.75rem;
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-muted, #f8fafc);
+    border: 1px solid var(--admin-border, #e2e8f0);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 760px) {
+    .run-header,
+    .run-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .run-operation-preview {
+      grid-template-columns: 1fr;
+    }
+
+    .run-actions > * {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .run-audit-table {
+      min-width: 0;
+    }
+
+    .run-audit-table thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .run-audit-table tbody {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .run-audit-table tr {
+      display: block;
+      border: 1px solid var(--admin-border, #e2e8f0);
+      border-radius: var(--admin-radius, 6px);
+      background: var(--admin-surface, #fff);
+      overflow: hidden;
+    }
+
+    .run-audit-table td {
+      display: grid;
+      grid-template-columns: minmax(5.5rem, 34%) minmax(0, 1fr);
+      gap: 0.65rem;
+      border-bottom: 1px solid var(--admin-border, #e2e8f0);
+      overflow-wrap: anywhere;
+    }
+
+    .run-audit-table td::before {
+      content: attr(data-label);
+      color: var(--admin-text-soft, #94a3b8);
+      font-size: 0.72rem;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .step-detail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

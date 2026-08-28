@@ -1,0 +1,19 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import { ensureConsoleUmbrella } from '../../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const breadcrumb = [
+  { label: 'Settings', href: '/admin/settings' },
+  { label: 'Extensions', href: '/admin/settings/extensions' },
+];
+---
+
+<AdminV2Layout title="Marketplace" section="settings" breadcrumb={breadcrumb}>
+  <div class="admin-panel">
+    <p class="admin-section-desc">從 GitHub repo 瀏覽並安裝擴充。Phase 6 實作。</p>
+  </div>
+</AdminV2Layout>

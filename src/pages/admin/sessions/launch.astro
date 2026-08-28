@@ -1,0 +1,517 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import AdminPanel from '@/components/admin/AdminPanel.astro';
+import PresetSummaryPanel from '@/components/admin/console/PresetSummaryPanel.astro';
+import { getEnv } from '@/lib/config/env';
+import { getFlowDefinition } from '@/lib/flow/store/definitions';
+import type { FlowInput } from '@/lib/flow/dsl/ast';
+import { ensureConsoleUmbrella } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const flowId = Astro.url.searchParams.get('flowId');
+if (!flowId) {
+  return Astro.redirect('/admin');
+}
+
+const presetId = Astro.url.searchParams.get('presetId');
+
+interface FlowRow {
+  flow_id: string;
+  display_name: string | null;
+  description: string | null;
+}
+
+interface PresetRow {
+  preset_id: string;
+  display_name: string;
+}
+
+let flow: FlowRow | null = null;
+let flowInputs: FlowInput[] = [];
+let loadError = false;
+let presets: PresetRow[] = [];
+
+try {
+  const db = getEnv().DB;
+  flow = await db
+    .prepare(
+      `SELECT flow_id, display_name, description
+       FROM flow_definitions
+       WHERE flow_id = ?
+       LIMIT 1`,
+    )
+    .bind(flowId)
+    .first<FlowRow>();
+
+  presets = (
+    await db
+      .prepare(
+        `SELECT preset_id, display_name
+         FROM flow_presets
+         WHERE flow_id = ?
+        ORDER BY display_name ASC`,
+      )
+      .bind(flowId)
+      .all<PresetRow>()
+  ).results ?? [];
+
+  const definition = await getFlowDefinition(db, flowId);
+  flowInputs = definition?.inputs ?? [];
+} catch {
+  loadError = true;
+}
+
+if (!loadError && !flow) {
+  return Astro.redirect('/admin');
+}
+
+const flowName = flow?.display_name ?? flowId;
+const hasSchemaInputs = flowInputs.length > 0;
+
+const renderedFlowInputs = flowInputs.filter((item) => item?.name && item.type);
+
+function defaultValueFor(input: FlowInput): string {
+  if (input.default === undefined || input.default === null) return '';
+  if (input.type === 'string') return String(input.default);
+  if (input.type === 'number' && typeof input.default === 'number') return String(input.default);
+  if (input.type === 'boolean' && typeof input.default === 'boolean') return input.default ? 'true' : 'false';
+  return JSON.stringify(input.default, null, 2);
+}
+---
+
+<AdminV2Layout
+  title={`啟動執行：${flowName}`}
+  section="sessions"
+  breadcrumb={[
+    { label: '工作流程選擇器', href: '/admin' },
+    { label: `啟動 ${flowName}` },
+  ]}
+>
+  {loadError && (
+    <AdminState tone="error">無法載入工作流程定義。</AdminState>
+  )}
+  {!loadError && flow && (
+    <AdminPanel title={`啟動執行 — ${flowName}`}>
+      {flow.description && (
+        <p class="flow-desc">{flow.description}</p>
+      )}
+      {presetId && (
+        <div class="preset-panel-wrapper">
+          <PresetSummaryPanel flowId={flowId} presetId={presetId} db={getEnv().DB} />
+        </div>
+      )}
+      {presets.length > 0 && (
+        <div class="field">
+          <label for="presetId" class="field-label">預設配置（選填）</label>
+          <select id="presetId" name="presetId" class="field-select" form="launch-form">
+            <option value="">使用基本配置</option>
+            {presets.map((preset) => (
+              <option value={preset.preset_id} selected={preset.preset_id === presetId}>
+                {preset.display_name}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+      <form
+        method="POST"
+        action={`/api/admin/flows/${flowId}/run`}
+        class="launch-form"
+        id="launch-form"
+        data-has-schema={hasSchemaInputs}
+      >
+        <input type="hidden" name="flowId" value={flowId} />
+        {renderedFlowInputs.length > 0 ? (
+          <div class="field-grid" id="flow-input-grid">
+            {renderedFlowInputs.map((input) => {
+              const fieldRequired = input.required === true;
+              const inputName = `input.${input.name}`;
+              const kind = input.type;
+              const requiredLabel = fieldRequired ? ' *' : '';
+              if (kind === 'boolean') {
+                return (
+                  <div class="field" data-input-field="1" data-input-name={input.name} data-input-type="boolean" data-input-required={fieldRequired ? 'true' : 'false'}>
+                    <label for={inputName} class="field-label">
+                      {input.name}
+                      {requiredLabel}
+                    </label>
+                    <div class="boolean-wrap">
+                      <input id={inputName} name={inputName} type="checkbox" value="true" checked={input.default === true} />
+                      <span class="field-hint">切換 true / false</span>
+                    </div>
+                    <span class="field-hint">{input.default !== undefined ? `Default: ${String(input.default)}` : 'Default: false'}</span>
+                  </div>
+                );
+              }
+              if (kind === 'number') {
+                return (
+                  <div class="field" data-input-field="1" data-input-name={input.name} data-input-type="number" data-input-required={fieldRequired ? 'true' : 'false'}>
+                    <label for={inputName} class="field-label">
+                      {input.name}
+                      {requiredLabel}
+                    </label>
+                    <input id={inputName} name={inputName} class="field-input" type="number" value={defaultValueFor(input)} placeholder="0" />
+                    <span class="field-hint">{input.default !== undefined ? `Default: ${defaultValueFor(input)}` : 'Type: number'}</span>
+                  </div>
+                );
+              }
+              if (kind === 'object' || kind === 'array') {
+                return (
+                  <div class="field" data-input-field="1" data-input-name={input.name} data-input-type={kind} data-input-required={fieldRequired ? 'true' : 'false'}>
+                    <label for={inputName} class="field-label">
+                      {input.name}
+                      {requiredLabel}
+                    </label>
+                    <textarea
+                      id={inputName}
+                      name={inputName}
+                      class="field-textarea"
+                      rows="6"
+                      spellcheck="false"
+                      placeholder={kind === 'array' ? '["item"]' : '{"key": "value"}'}
+                    >
+                      {defaultValueFor(input)}
+                    </textarea>
+                    <span class="field-hint">Type: {kind}</span>
+                  </div>
+                );
+              }
+              return (
+                <div class="field" data-input-field="1" data-input-name={input.name} data-input-type="string" data-input-required={fieldRequired ? 'true' : 'false'}>
+                  <label for={inputName} class="field-label">
+                    {input.name}
+                    {requiredLabel}
+                  </label>
+                  <input id={inputName} name={inputName} class="field-input" type="text" value={defaultValueFor(input)} placeholder="value" />
+                  <span class="field-hint">Type: string</span>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div class="field">
+            <label for="inputsJson" class="field-label">輸入參數 (JSON)</label>
+            <textarea
+              id="inputsJson"
+              name="inputsJson"
+              class="field-textarea"
+              rows="8"
+              placeholder='{"key": "value"}'
+              spellcheck="false"
+            ></textarea>
+            <p class="field-hint">請提供符合工作流程輸入結構的 JSON 物件，若無必填輸入可留空。</p>
+          </div>
+        )}
+        <p id="launch-status" class="launch-status" role="status" aria-live="polite" hidden></p>
+        <div class="form-actions">
+          <a href="/admin" class="btn-secondary">取消</a>
+          <button type="submit" class="btn-primary" id="launch-submit">啟動執行</button>
+        </div>
+      </form>
+    </AdminPanel>
+  )}
+</AdminV2Layout>
+
+<script>
+  const form = document.getElementById('launch-form');
+  const statusEl = document.getElementById('launch-status');
+  const submitBtn = document.getElementById('launch-submit');
+
+  if (!(form instanceof HTMLFormElement) || !(statusEl instanceof HTMLElement) || !(submitBtn instanceof HTMLButtonElement)) {
+    // Safety fallback for unexpected render states
+  } else {
+    const presetSelect = document.getElementById('presetId');
+    if (presetSelect instanceof HTMLSelectElement) {
+      presetSelect.addEventListener('change', () => {
+        const next = new URL(window.location.href);
+        next.searchParams.delete('presetId');
+        if (presetSelect.value) {
+          next.searchParams.set('presetId', presetSelect.value);
+        }
+        next.searchParams.delete('flowId');
+        next.searchParams.set('flowId', new URLSearchParams(window.location.search).get('flowId') || '');
+        window.location.assign(next.toString());
+      });
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      submitBtn.setAttribute('disabled', 'disabled');
+      statusEl.removeAttribute('hidden');
+      statusEl.className = 'launch-status launch-status--info';
+      statusEl.textContent = '正在啟動執行…';
+
+      const useSchema = form.dataset.hasSchema === 'true';
+      let parsedInput = {};
+      const formData = new FormData(form);
+
+      if (useSchema) {
+        const inputFields = form.querySelectorAll('[data-input-field="1"]');
+        const payloadEntries = [];
+
+        for (const field of Array.from(inputFields)) {
+          if (!(field instanceof HTMLElement)) continue;
+          const name = field.dataset.inputName;
+          const type = field.dataset.inputType;
+          const required = field.dataset.inputRequired === 'true';
+          if (!name || !type) continue;
+
+          const control = form.elements.namedItem(`input.${name}`);
+          if (control instanceof HTMLInputElement && type === 'boolean') {
+            payloadEntries.push([name, control.checked]);
+            continue;
+          }
+
+          if (control instanceof HTMLInputElement && type === 'number') {
+            const raw = control.value.trim();
+            if (!raw) {
+              if (required) {
+                statusEl.className = 'launch-status launch-status--error';
+                statusEl.textContent = `${name} 為必填欄位`;
+                submitBtn.removeAttribute('disabled');
+                return;
+              }
+              continue;
+            }
+            const parsedNumber = Number(raw);
+            if (Number.isNaN(parsedNumber)) {
+              statusEl.className = 'launch-status launch-status--error';
+              statusEl.textContent = `${name} 必須是數字`;
+              submitBtn.removeAttribute('disabled');
+              return;
+            }
+            payloadEntries.push([name, parsedNumber]);
+            continue;
+          }
+
+          const controlValue =
+            control instanceof HTMLInputElement
+              ? control.value.trim()
+              : control instanceof HTMLTextAreaElement
+                ? control.value.trim()
+                : '';
+
+          if (!controlValue) {
+            if (required) {
+              statusEl.className = 'launch-status launch-status--error';
+              statusEl.textContent = `${name} 為必填欄位`;
+              submitBtn.removeAttribute('disabled');
+              return;
+            }
+            continue;
+          }
+
+          if (type === 'string') {
+            payloadEntries.push([name, controlValue]);
+            continue;
+          }
+
+          if (type === 'object' || type === 'array') {
+            try {
+              const parsed = JSON.parse(controlValue);
+              if (type === 'object' && (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed))) {
+                throw new Error('invalid');
+              }
+              if (type === 'array' && !Array.isArray(parsed)) {
+                throw new Error('invalid');
+              }
+              payloadEntries.push([name, parsed]);
+            } catch {
+              statusEl.className = 'launch-status launch-status--error';
+              statusEl.textContent = `${name} 必須是合法 JSON (${type})`;
+              submitBtn.removeAttribute('disabled');
+              return;
+            }
+            continue;
+          }
+        }
+
+        parsedInput = Object.fromEntries(payloadEntries);
+      } else {
+        const rawInputs = formData.get('inputsJson');
+        if (typeof rawInputs === 'string' && rawInputs.trim()) {
+          try {
+            const parsed = JSON.parse(rawInputs);
+            if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+              throw new Error('invalid');
+            }
+            parsedInput = parsed;
+          } catch {
+            statusEl.className = 'launch-status launch-status--error';
+            statusEl.textContent = 'inputsJson 必須是合法 JSON 物件';
+            submitBtn.removeAttribute('disabled');
+            return;
+          }
+        }
+      }
+
+      const presetId = formData.get('presetId');
+      const presetIdValue = typeof presetId === 'string' ? presetId.trim() : '';
+      const payload = presetIdValue
+        ? { input: parsedInput, presetId: presetIdValue }
+        : { input: parsedInput };
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const responseBody = await response.json().catch(() => ({})) as Record<string, unknown>;
+        if (!response.ok) {
+          const errorMessage =
+            responseBody && typeof responseBody === 'object' && 'error' in responseBody
+              ? responseBody.error
+              : '無法啟動執行';
+          statusEl.className = 'launch-status launch-status--error';
+          statusEl.textContent = typeof errorMessage === 'string' ? errorMessage : '無法啟動執行';
+          submitBtn.removeAttribute('disabled');
+          return;
+        }
+
+        const flowRunId =
+          responseBody && typeof responseBody === 'object' && 'flowRunId' in responseBody
+            ? responseBody.flowRunId
+            : undefined;
+        if (typeof flowRunId === 'string' && flowRunId.trim()) {
+          statusEl.className = 'launch-status launch-status--success';
+          statusEl.textContent = '執行已建立，正在跳轉至時間軸…';
+          window.location.assign(`/admin/sessions/${flowRunId}`);
+          return;
+        }
+
+        statusEl.className = 'launch-status launch-status--error';
+        statusEl.textContent = '伺服器回應中缺少 flowRunId';
+        submitBtn.removeAttribute('disabled');
+      } catch {
+        statusEl.className = 'launch-status launch-status--error';
+        statusEl.textContent = '網路錯誤，請重試。';
+        submitBtn.removeAttribute('disabled');
+      }
+    });
+  }
+</script>
+
+<style>
+  .flow-desc {
+    margin-bottom: 1.25rem;
+    color: var(--admin-text-muted);
+    font-size: 0.9em;
+  }
+
+  .preset-panel-wrapper {
+    margin-bottom: 1.25rem;
+    max-width: 640px;
+  }
+
+  .launch-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 640px;
+    padding: 1.25rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .field-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--admin-text);
+  }
+
+  .field-textarea {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-bg, #f8fafc);
+    color: var(--admin-text);
+    resize: vertical;
+    width: 100%;
+  }
+
+  .field-textarea:focus {
+    outline: none;
+    border-color: var(--admin-accent, #2563eb);
+    box-shadow: var(--admin-focus);
+  }
+
+  .field-hint {
+    font-size: 0.8em;
+    color: var(--admin-text-muted);
+  }
+
+  .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btn-primary {
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: var(--admin-radius, 6px);
+    background: var(--brand-900, #1a2e1a);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.88;
+  }
+
+  .btn-secondary {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--admin-border, #e2e8f0);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface, #fff);
+    color: var(--admin-text-muted);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--admin-muted, #f1f5f9);
+    color: var(--admin-text);
+  }
+
+  .launch-status {
+    min-height: 1.2rem;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: var(--admin-radius, 6px);
+  }
+
+  .launch-status--info {
+    color: var(--admin-text);
+    background: var(--admin-muted, #f1f5f9);
+  }
+
+  .launch-status--error {
+    color: #991b1b;
+    background: #fee2e2;
+  }
+
+  .launch-status--success {
+    color: #166534;
+    background: #dcfce7;
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+
+
+const pages = [
+  { href: '/admin/settings/site/content', label: '內容' },
+  { href: '/admin/settings/site/pipelines', label: '流程' },
+  { href: '/admin/settings/site/jobs', label: '任務' },
+  { href: '/admin/settings/site/stats', label: '統計' },
+  { href: '/admin/settings/site/rag', label: 'RAG' },
+  { href: '/admin/settings/site/traces', label: 'RAG 追蹤' },
+  { href: '/admin/settings/site/deep-research', label: 'Deep Research' },
+  { href: '/admin/settings/site/ops', label: '維運' },
+  { href: '/admin/settings/site/system', label: '系統設定' },
+];
+
+const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
+---
+
+<AdminV2Layout title="Site" section="settings" breadcrumb={breadcrumb}>
+  <ul class="site-nav-list">
+    {pages.map(p => (
+      <li><a href={p.href}>{p.label}</a></li>
+    ))}
+  </ul>
+</AdminV2Layout>
+
+<style>
+  .site-nav-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .site-nav-list a {
+    display: block;
+    padding: 0.75rem 1rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    text-decoration: none;
+    color: var(--admin-text);
+    transition: border-color 0.15s;
+  }
+  .site-nav-list a:hover {
+    border-color: var(--brand-600);
+  }
+</style>

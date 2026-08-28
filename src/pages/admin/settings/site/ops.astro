@@ -1,0 +1,218 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+---
+
+<AdminV2Layout section="settings" title="Ops">
+  <p class="page-desc">Trigger and monitor pipeline jobs: embed, crawl, quality checks, and content operations.</p>
+
+  <div class="ops-container">
+    <section class="pipeline-section">
+      <h2>Quick Actions</h2>
+      <div class="action-grid">
+        <div class="action-card">
+          <h3>Content Ops</h3>
+          <p class="risk-low">Low Risk</p>
+          <p>Generate content operations report with tag, difficulty, and freshness suggestions.</p>
+          <button id="run-content-ops" class="btn">Run Content Ops</button>
+        </div>
+
+        <div class="action-card">
+          <h3>Post Quality Check</h3>
+          <p class="risk-low">Low Risk</p>
+          <p>Run deterministic quality and reference checks on a specific post.</p>
+          <input type="text" id="quality-path" placeholder="src/content/posts/ai/example.md" class="input" />
+          <button id="run-quality" class="btn">Run Quality Check</button>
+        </div>
+
+        <div class="action-card">
+          <h3>Embed Sync</h3>
+          <p class="risk-medium">Medium Risk</p>
+          <p>Sync posts and docs to Vectorize index.</p>
+          <div class="input-row">
+            <select id="embed-sources" class="select">
+              <option value="all">All Sources</option>
+              <option value="posts">Posts Only</option>
+              <option value="docs">Docs Only</option>
+            </select>
+            <input type="number" id="embed-limit" value="50" min="1" max="200" class="input small" placeholder="Limit" />
+          </div>
+          <button id="run-embed" class="btn">Run Embed Batch</button>
+        </div>
+
+        <div class="action-card">
+          <h3>Crawl Sync</h3>
+          <p class="risk-medium">Medium Risk</p>
+          <p>Sync external documentation to D1.</p>
+          <div class="input-row">
+            <select id="crawl-source" class="select">
+              <option value="all">All Sources</option>
+              <option value="cloudflare">Cloudflare Docs</option>
+              <option value="astro">Astro Docs</option>
+            </select>
+          </div>
+          <button id="run-crawl" class="btn">Run Crawl Sync</button>
+          <p class="note">Requires CRAWL_SECRET via endpoint.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="jobs-section">
+      <div class="section-header">
+        <h2>Recent Jobs</h2>
+        <button id="refresh-jobs" class="btn-secondary">Refresh</button>
+      </div>
+      <div id="jobs-list" class="jobs-list">Loading...</div>
+    </section>
+  </div>
+</AdminV2Layout>
+
+<script is:inline>
+  const jobsList = document.getElementById('jobs-list');
+
+  // Load recent jobs
+  async function loadJobs() {
+    try {
+      const res = await fetch('/api/admin/jobs?limit=20');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      renderJobs(data.jobs || []);
+    } catch {
+      jobsList.textContent = '';
+      const msg = document.createElement('p');
+      msg.className = 'error';
+      msg.textContent = 'Unable to load jobs';
+      jobsList.append(msg);
+    }
+  }
+
+  function renderJobs(jobs) {
+    jobsList.replaceChildren();
+    if (!jobs.length) {
+      const msg = document.createElement('p');
+      msg.className = 'empty';
+      msg.textContent = 'No jobs yet. Run a pipeline above.';
+      jobsList.append(msg);
+      return;
+    }
+
+    for (const job of jobs) {
+      const card = document.createElement('div');
+      card.className = 'job-card';
+
+      const header = document.createElement('div');
+      header.className = 'job-header';
+
+      const status = document.createElement('span');
+      status.className = `job-status status-${job.status}`;
+      status.textContent = job.status;
+
+      const pipeline = document.createElement('span');
+      pipeline.className = 'job-pipeline';
+      pipeline.textContent = job.pipeline_id;
+
+      const time = document.createElement('span');
+      time.className = 'job-time';
+      time.textContent = formatTime(job.created_at);
+
+      header.append(status, pipeline, time);
+      card.append(header);
+
+      if (job.error_summary) {
+        const errorSummary = document.createElement('p');
+        errorSummary.className = 'job-error';
+        errorSummary.textContent = job.error_summary;
+        card.append(errorSummary);
+      }
+
+      if (job.output_summary) {
+        const outputSummary = document.createElement('p');
+        outputSummary.className = 'job-output';
+        outputSummary.textContent = job.output_summary;
+        card.append(outputSummary);
+      }
+
+      const actions = document.createElement('div');
+      actions.className = 'job-actions';
+
+      const viewBtn = document.createElement('button');
+      viewBtn.type = 'button';
+      viewBtn.className = 'mini-btn';
+      viewBtn.textContent = 'View Details';
+      viewBtn.addEventListener('click', () => {
+        window.location.href = `/admin/jobs?id=${encodeURIComponent(job.id)}`;
+      });
+      actions.append(viewBtn);
+
+      if (['failed', 'succeeded'].includes(job.status)) {
+        const rerunBtn = document.createElement('button');
+        rerunBtn.type = 'button';
+        rerunBtn.className = 'mini-btn';
+        rerunBtn.textContent = 'Rerun';
+        rerunBtn.addEventListener('click', async () => {
+          if (!window.confirm(`Rerun ${job.pipeline_id}?`)) return;
+          await runPipeline(job.pipeline_id, {});
+        });
+        actions.append(rerunBtn);
+      }
+
+      card.append(actions);
+      jobsList.append(card);
+    }
+  }
+
+  function formatTime(iso) {
+    if (!iso) return 'N/A';
+    const d = new Date(iso);
+    return d.toLocaleString('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+
+  async function runPipeline(pipelineId, input = {}) {
+    try {
+      const res = await fetch('/api/admin/pipelines/run', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pipelineId, input }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed');
+      await loadJobs();
+      return data;
+    } catch (err) {
+      alert(`Failed to start job: ${err.message}`);
+      throw err;
+    }
+  }
+
+  // Event handlers
+  document.getElementById('run-content-ops').addEventListener('click', async () => {
+    await runPipeline('content-ops', {});
+  });
+
+  document.getElementById('run-quality').addEventListener('click', async () => {
+    const path = document.getElementById('quality-path').value;
+    if (!path) {
+      alert('Please enter a post path');
+      return;
+    }
+    await runPipeline('post-quality', { path });
+  });
+
+  document.getElementById('run-embed').addEventListener('click', async () => {
+    const sourcesVal = document.getElementById('embed-sources').value;
+    const sources = sourcesVal === 'all' ? ['posts', 'docs'] : [sourcesVal];
+    const limit = parseInt(document.getElementById('embed-limit').value) || 50;
+    await runPipeline('embed-sync', { sources, offset: 0, limit });
+  });
+
+  document.getElementById('run-crawl').addEventListener('click', async () => {
+    const source = document.getElementById('crawl-source').value;
+    const full = false;
+    await runPipeline('crawl-sync', { source, full });
+  });
+
+  document.getElementById('refresh-jobs').addEventListener('click', loadJobs);
+
+  // Initial load
+  loadJobs();
+</script>

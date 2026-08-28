@@ -1,0 +1,72 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import { ensureConsoleUmbrella } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+
+const areas = [
+  { href: '/admin/settings/environments', label: 'Environments', desc: 'Runner 後端、網路、環境變數', icon: '🖥️' },
+  { href: '/admin/settings/site', label: 'Site', desc: '內容、RAG、統計、任務、維運', icon: '📦' },
+  { href: '/admin/settings/models', label: 'Models', desc: '模型供應商、金鑰、費用', icon: '🤖' },
+  { href: '/admin/settings/extensions', label: 'Extensions', desc: 'Skills / MCP / Plugins', icon: '🧩' },
+  { href: '/admin/settings/permissions', label: 'Permissions', desc: '權限政策', icon: '🔒' },
+  { href: '/admin/settings/access', label: 'Access', desc: '使用者、角色、稽核', icon: '👥' },
+  { href: '/admin/settings/notifications', label: 'Notifications', desc: '通知通道設定', icon: '🔔' },
+  { href: '/admin/settings/behavior', label: 'Behavior', desc: '全域行為預設', icon: '⚙️' },
+];
+---
+
+<AdminV2Layout title="Settings" section="settings">
+  <div class="settings-grid">
+    {areas.map(a => (
+      <a href={a.href} class="settings-card">
+        <span class="settings-icon">{a.icon}</span>
+        <div>
+          <strong>{a.label}</strong>
+          <p>{a.desc}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</AdminV2Layout>
+
+<style>
+  .settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .settings-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    text-decoration: none;
+    color: var(--admin-text);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .settings-card:hover {
+    border-color: var(--brand-600);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.06);
+  }
+  .settings-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .settings-card strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .settings-card p {
+    font-size: 0.85rem;
+    color: var(--admin-muted);
+    margin: 0;
+  }
+</style>

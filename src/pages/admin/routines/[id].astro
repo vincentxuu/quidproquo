@@ -1,10 +1,10 @@
 ---
 export const prerender = false
-import AdminLayout from '../../../layouts/AdminLayout.astro'
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro'
 const { id } = Astro.params
 ---
 
-<AdminLayout title="Routine">
+<AdminV2Layout title="Routine" section="routines">
   <div style="display:flex; justify-content:space-between; align-items:center;">
     <h2>⚡ Routines / <span id="rname"></span></h2>
     <div style="display:flex; gap:8px;"><button id="edit" class="btn-secondary">Edit</button><button id="runnow" class="btn">▶ Run now</button></div>
@@ -23,7 +23,7 @@ const { id } = Astro.params
       <pre id="transcript" style="min-height:300px; max-height:50vh; overflow:auto; background:var(--admin-surface-subtle); padding:12px;"></pre>
     </div>
   </div>
-</AdminLayout>
+</AdminV2Layout>
 <script is:inline define:vars={{ id }}>
   async function load() {
     const res = await fetch(`/api/admin/routines/${id}`)

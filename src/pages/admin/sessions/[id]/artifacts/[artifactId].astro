@@ -1,0 +1,1514 @@
+---
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import { getEnv } from '@/lib/config/env';
+import { createArtifact } from '@/lib/artifact';
+import { createBackends as createArtifactBackends } from '@/lib/artifact/storage';
+import { createConsoleTranslator, getConsoleLang } from '@/lib/console/admin/i18n';
+import { ensureConsoleUmbrella } from '../../../_guard';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+
+const runId = Astro.params.id ?? '';
+const artifactId = Astro.params.artifactId ?? '';
+const versionParam = Astro.url.searchParams.get('version');
+const diffParam = Astro.url.searchParams.get('diff');
+const lang = getConsoleLang(Astro.url);
+const t = createConsoleTranslator(lang);
+
+const versionN = versionParam ? parseInt(versionParam, 10) : null;
+const diffM = diffParam ? parseInt(diffParam, 10) : null;
+
+// ── Types ────────────────────────────────────────────────────────────────────
+
+interface ArtifactVersionRow {
+  version_id: string;
+  definition_id: string;
+  kind: string;
+  version_number: number;
+  parent_version_id: string | null;
+  approval_status: string;
+  created_at: number;
+  body_text?: string | null;
+}
+
+interface ArtifactSectionRow {
+  section_id: string;
+  section_key: string;
+  ordinal: number;
+  heading: string | null;
+  body_text: string | null;
+  body_json: string | null;
+  approval_status: string;
+}
+
+interface ArtifactExportRow {
+  export_id: string;
+  destination: string;
+  status: string;
+  export_metadata_json: string | null;
+  created_at: number;
+  updated_at: number;
+}
+
+interface ArtifactAuditRow {
+  audit_id: number;
+  user_email: string | null;
+  action: string;
+  payload_json: string | null;
+  created_at: number;
+}
+
+// ── Simple line diff ─────────────────────────────────────────────────────────
+
+function simpleDiff(aText: string, bText: string): Array<{ tag: 'eq' | 'add' | 'del'; text: string }> {
+  const aLines = aText.split('\n');
+  const bLines = bText.split('\n');
+  const maxLen = Math.max(aLines.length, bLines.length);
+  const result: Array<{ tag: 'eq' | 'add' | 'del'; text: string }> = [];
+  for (let i = 0; i < maxLen; i++) {
+    if (i >= bLines.length) {
+      result.push({ tag: 'del', text: aLines[i] });
+    } else if (i >= aLines.length) {
+      result.push({ tag: 'add', text: bLines[i] });
+    } else if (aLines[i] !== bLines[i]) {
+      result.push({ tag: 'del', text: aLines[i] });
+      result.push({ tag: 'add', text: bLines[i] });
+    } else {
+      result.push({ tag: 'eq', text: aLines[i] });
+    }
+  }
+  return result;
+}
+
+// ── Markdown → HTML (minimal regex transform) ────────────────────────────────
+
+function markdownToHtml(md: string): string {
+  let html = md
+    // Escape HTML entities first
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    // Headings
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    // Bold / italic
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Code inline
+    .replace(/`(.+?)`/g, '<code>$1</code>')
+    // Horizontal rule
+    .replace(/^---+$/gm, '<hr />')
+    // Blank lines → paragraph breaks
+    .replace(/\n{2,}/g, '</p><p>')
+  return `<p>${html}</p>`
+}
+
+// ── CSV → HTML table ─────────────────────────────────────────────────────────
+
+function csvToTable(csv: string): { headers: string[]; rows: string[][] } {
+  const lines = csv.split(/\r?\n/).filter((l) => l.trim() !== '');
+  if (lines.length === 0) return { headers: [], rows: [] };
+
+  function parseRow(line: string): string[] {
+    const cells: string[] = [];
+    let current = '';
+    let inQuote = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (inQuote) {
+        if (ch === '"' && line[i + 1] === '"') { current += '"'; i++; }
+        else if (ch === '"') { inQuote = false; }
+        else { current += ch; }
+      } else {
+        if (ch === '"') { inQuote = true; }
+        else if (ch === ',') { cells.push(current); current = ''; }
+        else { current += ch; }
+      }
+    }
+    cells.push(current);
+    return cells;
+  }
+
+  const [headerLine, ...dataLines] = lines;
+  return {
+    headers: parseRow(headerLine),
+    rows: dataLines.map(parseRow),
+  };
+}
+
+// ── Data loading ─────────────────────────────────────────────────────────────
+
+let versions: ArtifactVersionRow[] = [];
+let targetVersion: ArtifactVersionRow | null = null;
+let diffVersion: ArtifactVersionRow | null = null;
+let sections: ArtifactSectionRow[] = [];
+let diffSections: ArtifactSectionRow[] = [];
+let exports: ArtifactExportRow[] = [];
+let auditRows: ArtifactAuditRow[] = [];
+let loadError = false;
+let artifactMissing = false;
+let backendUnavailable = false;
+let exportDestinations: string[] = [];
+
+if (artifactId) {
+  try {
+    const env = getEnv();
+    const db = env.DB;
+    const artifact = createArtifact(env, createArtifactBackends(env));
+    exportDestinations = artifact.exporters.listDestinations();
+
+    // Check if the artifact_versions table exists (feature may not be migrated yet)
+    const tableCheck = await db.prepare(
+      `SELECT name FROM sqlite_master WHERE type='table' AND name='artifact_versions' LIMIT 1`
+    ).first<{ name: string }>();
+
+    if (!tableCheck) {
+      backendUnavailable = true;
+    } else {
+      // Load all versions for this artifact
+      const versionsResult = await db.prepare(
+        `SELECT v.version_id,
+                v.definition_id,
+                d.kind,
+                v.version_number,
+                v.parent_version_id,
+                v.status AS approval_status,
+                v.created_at,
+                v.body_text
+         FROM artifact_versions v
+         JOIN artifact_definitions d ON d.definition_id = v.definition_id
+         WHERE v.definition_id = ?
+         ORDER BY version_number DESC`
+      ).bind(artifactId).all<ArtifactVersionRow>().catch(() =>
+        db.prepare(
+          `SELECT v.version_id,
+                  v.artifact_id AS definition_id,
+                  v.kind,
+                  v.version_number,
+                  v.parent_version_id,
+                  v.approval_status,
+                  v.created_at,
+                  v.body_inline AS body_text
+           FROM artifact_versions v
+           JOIN artifact_definitions d ON d.artifact_id = v.artifact_id
+           WHERE v.artifact_id = ?
+           ORDER BY version_number DESC`
+        ).bind(artifactId).all<ArtifactVersionRow>()
+      );
+
+      versions = versionsResult.results ?? [];
+
+      if (versions.length === 0) {
+        artifactMissing = true;
+      } else {
+        // Pick the requested version or latest
+        if (versionN !== null) {
+          targetVersion = versions.find((v) => v.version_number === versionN) ?? versions[0];
+        } else {
+          targetVersion = versions[0];
+        }
+        const targetVersionId = targetVersion.version_id;
+
+        // Load sections for target version
+        const sectionsResult = await db.prepare(
+          `SELECT section_id, section_key, ordinal, heading, body_text, body_json, approval_status
+           FROM artifact_sections
+           WHERE version_id = ?
+           ORDER BY ordinal ASC`
+        ).bind(targetVersionId).all<ArtifactSectionRow>();
+        sections = sectionsResult.results ?? [];
+        if (sections.length === 0 && targetVersion.body_text) {
+          sections = [{
+            section_id: `${targetVersion.version_id}:body`,
+            section_key: 'body',
+            ordinal: 1,
+            heading: null,
+            body_text: targetVersion.body_text,
+            body_json: null,
+            approval_status: targetVersion.approval_status,
+          }];
+        }
+
+        const exportsResult = await db.prepare(
+          `SELECT export_id, destination, status, export_metadata_json, created_at, updated_at
+           FROM artifact_exports
+           WHERE version_id = ?
+           ORDER BY created_at DESC
+           LIMIT 20`
+        ).bind(targetVersionId).all<ArtifactExportRow>().catch(() =>
+          db.prepare(
+            `SELECT export_id,
+                    exporter_id AS destination,
+                    status,
+                    COALESCE(last_error_json, external_id, target_config_json) AS export_metadata_json,
+                    requested_at AS created_at,
+                    COALESCE(completed_at, requested_at) AS updated_at
+             FROM artifact_exports
+             WHERE version_id = ?
+             ORDER BY requested_at DESC
+             LIMIT 20`
+          ).bind(targetVersionId).all<ArtifactExportRow>()
+        );
+        exports = exportsResult.results ?? [];
+
+        const auditResult = await db.prepare(
+          `SELECT al.audit_id,
+                  u.email as user_email,
+                  al.action,
+                  al.payload_json,
+                  al.created_at
+           FROM console_audit_log al
+           LEFT JOIN console_users u ON u.user_id = al.user_id
+           WHERE al.resource_kind = 'artifact'
+             AND al.resource_id = ?
+           ORDER BY al.created_at DESC
+           LIMIT 20`
+        ).bind(targetVersionId).all<ArtifactAuditRow>().catch(() => ({
+          results: [],
+          success: true,
+          meta: {} as D1Meta & Record<string, unknown>,
+        }));
+        auditRows = auditResult.results ?? [];
+
+        // Load diff version if requested
+        if (diffM !== null) {
+          diffVersion = versions.find((v) => v.version_number === diffM) ?? null;
+          if (diffVersion) {
+            const diffResult = await db.prepare(
+              `SELECT section_id, section_key, ordinal, heading, body_text, body_json, approval_status
+               FROM artifact_sections
+               WHERE version_id = ?
+               ORDER BY ordinal ASC`
+            ).bind(diffVersion.version_id).all<ArtifactSectionRow>();
+            diffSections = diffResult.results ?? [];
+            if (diffSections.length === 0 && diffVersion.body_text) {
+              diffSections = [{
+                section_id: `${diffVersion.version_id}:body`,
+                section_key: 'body',
+                ordinal: 1,
+                heading: null,
+                body_text: diffVersion.body_text,
+                body_json: null,
+                approval_status: diffVersion.approval_status,
+              }];
+            }
+          }
+        }
+      }
+    }
+  } catch {
+    loadError = true;
+  }
+}
+
+// ── Derived content ───────────────────────────────────────────────────────────
+
+const kind = targetVersion?.kind ?? '';
+const bodyText = sections.map((s) => s.body_text ?? '').join('\n\n');
+const diffBodyText = diffSections.map((s) => s.body_text ?? '').join('\n\n');
+
+// Evidence bundle: try to parse body_json on sections
+interface EvidenceBundleData {
+  sources?: number;
+  claims_count?: number;
+  conflicts_count?: number;
+  sources_list?: Array<{ url?: string; title?: string }>;
+}
+let evidenceData: EvidenceBundleData | null = null;
+if (kind === 'evidence_bundle' && sections.length > 0) {
+  try {
+    const raw = sections[0].body_json;
+    if (raw) evidenceData = JSON.parse(raw) as EvidenceBundleData;
+  } catch {
+    // ignore parse errors
+  }
+}
+
+// CSV
+let csvTable: { headers: string[]; rows: string[][] } = { headers: [], rows: [] };
+if (kind === 'csv_spreadsheet' && bodyText) {
+  csvTable = csvToTable(bodyText);
+}
+
+// JSON pretty
+let jsonPretty = '';
+if ((kind === 'json_payload' || (!['markdown_report', 'evidence_bundle', 'csv_spreadsheet'].includes(kind))) && bodyText) {
+  try {
+    jsonPretty = JSON.stringify(JSON.parse(bodyText), null, 2);
+  } catch {
+    jsonPretty = bodyText;
+  }
+}
+
+// Markdown HTML
+let markdownHtml = '';
+if (kind === 'markdown_report' && bodyText) {
+  markdownHtml = markdownToHtml(bodyText);
+}
+
+// Diff lines (when diff mode active)
+type DiffLine = { tag: 'eq' | 'add' | 'del'; text: string };
+let diffLines: DiffLine[] = [];
+const isDiffMode = diffM !== null && diffVersion !== null;
+if (isDiffMode) {
+  diffLines = simpleDiff(diffBodyText, bodyText);
+}
+
+const breadcrumb = [
+  { label: 'Runs', href: '/admin/runs' },
+  { label: runId, href: `/admin/sessions/${runId}` },
+  { label: `Artifact ${artifactId}` },
+];
+
+function formatTs(ms: number): string {
+  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+
+function exportMetadataLabel(raw: string | null): string {
+  if (!raw) return '—';
+  try {
+    const parsed = JSON.parse(raw) as { externalRef?: string; externalId?: string; path?: string };
+    return parsed.externalRef ?? parsed.externalId ?? parsed.path ?? raw;
+  } catch {
+    return raw;
+  }
+}
+
+function auditPayloadLabel(raw: string | null): string {
+  if (!raw) return '—';
+  try {
+    const payload = JSON.parse(raw) as {
+      destination?: string;
+      sectionId?: string;
+      previousStatus?: string;
+      nextStatus?: string;
+      status?: string;
+      error?: string;
+      externalRef?: string;
+    };
+    const parts = [
+      payload.destination ? `destination ${payload.destination}` : '',
+      payload.sectionId ? `section ${payload.sectionId}` : '',
+      payload.previousStatus && payload.nextStatus ? `${payload.previousStatus} → ${payload.nextStatus}` : '',
+      payload.status ? `status ${payload.status}` : '',
+      payload.externalRef ? `ref ${payload.externalRef}` : '',
+      payload.error ? payload.error : '',
+    ].filter(Boolean);
+    return parts.join(' · ') || raw;
+  } catch {
+    return raw;
+  }
+}
+
+const currentVersionNumber = targetVersion?.version_number ?? null;
+const currentVersionId = targetVersion?.version_id ?? '';
+const canExport = exportDestinations.length > 0;
+
+function exportLabel(destination: string): string {
+  switch (destination) {
+    case 'file': return 'File';
+    case 'csv_file': return 'CSV file';
+    case 'pdf': return 'PDF';
+    case 'pptx': return 'PowerPoint';
+    case 'notion': return 'Notion';
+    case 'github_issue': return 'GitHub issue';
+    case 'github_pr_review': return 'GitHub PR review';
+    case 'email': return 'Email';
+    case 'slack': return 'Slack';
+    default: return destination;
+  }
+}
+
+function exportStatusLabel(status: string): string {
+  switch (status) {
+    case 'done': return t('artifacts.exportStatus.done');
+    case 'pending': return t('artifacts.exportStatus.pending');
+    case 'failed': return t('artifacts.exportStatus.failed');
+    case 'rejected': return t('artifacts.exportStatus.rejected');
+    case 'expired': return t('artifacts.exportStatus.expired');
+    default: return status;
+  }
+}
+
+const artifactExportMessages = {
+  exportStatuses: {
+    done: t('artifacts.exportStatus.done'),
+    pending: t('artifacts.exportStatus.pending'),
+    failed: t('artifacts.exportStatus.failed'),
+    rejected: t('artifacts.exportStatus.rejected'),
+    expired: t('artifacts.exportStatus.expired'),
+  },
+  retryExport: t('artifacts.retryExport'),
+  retryingExport: t('artifacts.retryingExport'),
+  exporting: t('artifacts.exporting'),
+  selectExportDestination: t('artifacts.selectExportDestination'),
+  retryingTo: t('artifacts.retryingTo', { destination: '{destination}' }),
+  exportingTo: t('artifacts.exportingTo', { destination: '{destination}' }),
+  retryStarted: t('artifacts.retryStarted', { result: '{result}' }),
+  exportStarted: t('artifacts.exportStarted', { result: '{result}' }),
+};
+---
+
+<AdminV2Layout title="產出物檢視器" section="sessions" breadcrumb={breadcrumb}>
+
+  {backendUnavailable && (
+    <AdminState tone="empty">
+      Artifact viewer requires AGENT_ARTIFACT_ENABLED=true and the artifact migrations to be applied.
+    </AdminState>
+  )}
+
+  {!backendUnavailable && loadError && (
+    <AdminState tone="error">無法載入產出物。</AdminState>
+  )}
+
+  {!backendUnavailable && !loadError && artifactMissing && (
+    <AdminState tone="empty">{`Artifact "${artifactId}" not found.`}</AdminState>
+  )}
+
+  {!backendUnavailable && !loadError && !artifactMissing && targetVersion && (
+    <div class="artifact-viewer">
+
+      {/* Header */}
+      <header class="artifact-header">
+        <div class="artifact-meta">
+          <span class="artifact-kind">{kind}</span>
+          <span id="artifact-status" class="artifact-status">{targetVersion.approval_status}</span>
+          <span class="artifact-id muted">{artifactId}</span>
+        </div>
+
+        <div
+          id="artifact-export"
+          class="artifact-actions"
+          data-version-id={currentVersionId}
+          data-current-status={targetVersion.approval_status}
+        >
+          <button type="button" class="action-btn approve" data-artifact-action="approved" aria-label={`核准產出物 ${artifactId}`}>核准</button>
+          <button type="button" class="action-btn reject" data-artifact-action="rejected" aria-label={`拒絕產出物 ${artifactId}`}>拒絕</button>
+          <label for="export-destination" class="version-label">匯出</label>
+          <select id="export-destination" class="version-select" disabled={!canExport}>
+            {exportDestinations.map((destination) => (
+              <option value={destination}>{exportLabel(destination)}</option>
+            ))}
+          </select>
+          <button
+            type="button"
+            class="action-btn export"
+            data-export-action
+            aria-label={`匯出產出物 ${artifactId}`}
+            disabled={!canExport}
+          >匯出</button>
+          {!canExport && (
+            <span class="export-hint" role="status">目前沒有啟用的匯出器。</span>
+          )}
+          <p id="artifact-operation-preview" class="operation-preview" aria-live="polite"></p>
+        </div>
+
+        {/* Version dropdown */}
+        {versions.length > 1 && (
+          <div class="version-controls">
+            <label for="version-select" class="version-label">版本</label>
+            <select
+              id="version-select"
+              class="version-select"
+              onchange={`location.href='?version='+this.value`}
+            >
+              {versions.map((v) => (
+                <option
+                  value={String(v.version_number)}
+                  selected={v.version_number === currentVersionNumber}
+                >
+                  v{v.version_number} — {v.approval_status}
+                  {v.version_number === versions[0].version_number ? ' (最新)' : ''}
+                </option>
+              ))}
+            </select>
+
+            {/* Diff control */}
+            {currentVersionNumber !== null && versions.length > 1 && (
+              <label for="diff-select" class="version-label">比對版本</label>
+            )}
+            {currentVersionNumber !== null && versions.length > 1 && (
+              <select
+                id="diff-select"
+                class="version-select"
+                onchange={`if(this.value){location.href='?version=${currentVersionNumber}&diff='+this.value}else{location.href='?version=${currentVersionNumber}'}`}
+              >
+                <option value="">— 無 —</option>
+                {versions.filter((v) => v.version_number !== currentVersionNumber).map((v) => (
+                  <option value={String(v.version_number)} selected={v.version_number === diffM}>
+                    v{v.version_number}
+                  </option>
+                ))}
+              </select>
+            )}
+          </div>
+        )}
+      </header>
+
+      {/* Diff mode */}
+      {isDiffMode && (
+        <section class="artifact-section" aria-label="Diff view">
+          <h3 class="section-title">
+            差異比對：v{diffM} → v{currentVersionNumber}
+          </h3>
+          <pre class="diff"><code>{diffLines.map((line) => {
+            const prefix = line.tag === 'add' ? '+ ' : line.tag === 'del' ? '- ' : '  ';
+            return `${prefix}${line.text}`;
+          }).join('\n')}</code></pre>
+        </section>
+      )}
+
+      {/* Normal content (no diff) */}
+      {!isDiffMode && kind === 'markdown_report' && (
+        <section class="artifact-section prose-section" aria-label="Markdown report">
+          <article class="prose" set:html={markdownHtml} />
+        </section>
+      )}
+
+      {!isDiffMode && kind === 'evidence_bundle' && (
+        <section class="artifact-section" aria-label="Evidence bundle">
+          {evidenceData ? (
+            <table class="artifact-table">
+              <thead>
+                <tr>
+                  <th>欄位</th>
+                  <th>值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>來源數</td><td>{evidenceData.sources ?? '—'}</td></tr>
+                <tr><td>聲明數</td><td>{evidenceData.claims_count ?? '—'}</td></tr>
+                <tr><td>衝突數</td><td>{evidenceData.conflicts_count ?? '—'}</td></tr>
+              </tbody>
+            </table>
+          ) : (
+            <div class="evidence-sections">
+              {sections.map((s) => (
+                <div class="evidence-item">
+                  {s.heading && <h4 class="evidence-heading">{s.heading}</h4>}
+                  <p class="evidence-body">{s.body_text ?? '—'}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      {!isDiffMode && kind === 'csv_spreadsheet' && (
+        <section class="artifact-section" aria-label="CSV spreadsheet">
+          {csvTable.headers.length > 0 ? (
+            <div class="table-scroll">
+              <table class="artifact-table csv-table">
+                <thead>
+                  <tr>
+                    {csvTable.headers.map((h) => <th>{h}</th>)}
+                  </tr>
+                </thead>
+                <tbody>
+                  {csvTable.rows.map((row) => (
+                    <tr>
+                      {row.map((cell) => <td>{cell}</td>)}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <AdminState tone="empty">CSV 檔案為空。</AdminState>
+          )}
+        </section>
+      )}
+
+      {!isDiffMode && kind !== 'markdown_report' && kind !== 'evidence_bundle' && kind !== 'csv_spreadsheet' && (
+        <section class="artifact-section" aria-label="JSON payload">
+          <pre class="json-block"><code>{jsonPretty || '(empty)'}</code></pre>
+        </section>
+      )}
+
+      {/* Section list for multi-section artifacts */}
+      {!isDiffMode && sections.length > 1 && kind !== 'csv_spreadsheet' && (
+        <section class="artifact-section" aria-label="Sections">
+          <h3 class="section-title">區段 ({sections.length})</h3>
+          <table class="artifact-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Key</th>
+                <th>標題</th>
+                <th>狀態</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sections.map((s, i) => (
+                <tr data-section-id={s.section_id}>
+                  <td class="muted">{i + 1}</td>
+                  <td><code>{s.section_key}</code></td>
+                  <td>{s.heading ?? '—'}</td>
+                  <td><span class="section-status">{s.approval_status}</span></td>
+                  <td>
+                    <div class="section-actions">
+                      <button type="button" class="mini-action" data-section-action="approved">核准</button>
+                      <button type="button" class="mini-action" data-section-action="rejected">拒絕</button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )}
+
+      <section id="artifact-export-history-section" class="artifact-section" aria-label="Export history">
+        <h3 class="section-title">匯出紀錄</h3>
+        {exports.length === 0 ? (
+          <div id="artifact-export-empty">
+            <AdminState tone="empty">此版本尚無匯出紀錄。</AdminState>
+          </div>
+        ) : (
+          <table class="artifact-table">
+            <thead>
+              <tr>
+                <th>Destination</th>
+                <th>Status</th>
+                <th>Export ID</th>
+                <th>Result</th>
+                <th>Updated</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="artifact-export-history">
+              {exports.map((row) => (
+                <tr data-export-history-row data-export-history-status={row.status} data-export-history-destination={row.destination}>
+                  <td class="mono">{row.destination}</td>
+                  <td><span class:list={['export-status', `export-${row.status}`]}>{exportStatusLabel(row.status)}</span></td>
+                  <td class="mono">{row.export_id}</td>
+                  <td class="mono">{exportMetadataLabel(row.export_metadata_json)}</td>
+                  <td class="mono">{formatTs(row.updated_at || row.created_at)}</td>
+                  <td>
+                    {row.status === 'failed' ? (
+                      <button type="button" class="mini-action retry-export" data-export-history-retry>
+                        {t('artifacts.retryExport')}
+                      </button>
+                    ) : (
+                      <span class="muted">—</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
+
+      <section id="artifact-audit-history-section" class="artifact-section" aria-label="Artifact operation history">
+        <h3 class="section-title">操作紀錄</h3>
+        {auditRows.length === 0 ? (
+          <div id="artifact-audit-empty">
+            <AdminState tone="empty">此版本尚無管理操作紀錄。</AdminState>
+          </div>
+        ) : (
+          <table class="artifact-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Action</th>
+                <th>Summary</th>
+                <th>Actor</th>
+              </tr>
+            </thead>
+            <tbody id="artifact-audit-history">
+              {auditRows.map((row) => (
+                <tr>
+                  <td class="mono">{formatTs(row.created_at)}</td>
+                  <td class="mono">{row.action}</td>
+                  <td>{auditPayloadLabel(row.payload_json)}</td>
+                  <td>{row.user_email ?? 'admin'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
+
+      <p id="artifact-action-status" class="action-status" role="status" aria-live="polite" hidden></p>
+
+    </div>
+  )}
+</AdminV2Layout>
+
+<script is:inline define:vars={{ currentVersionId, artifactExportMessages }}>
+  const statusEl = document.getElementById('artifact-status');
+  const actionStatus = document.getElementById('artifact-action-status');
+  const actionsRoot = document.querySelector('.artifact-actions');
+  const exportSelect = document.getElementById('export-destination');
+  const exportHistorySection = document.getElementById('artifact-export-history-section');
+  const auditHistorySection = document.getElementById('artifact-audit-history-section');
+  const operationPreview = document.getElementById('artifact-operation-preview');
+
+  const statusLabels = {
+    approved: '核准',
+    rejected: '拒絕',
+    draft: '草稿',
+    published: '發布',
+  };
+
+  const destinationLabels = {
+    notion: 'Notion',
+    slack: 'Slack',
+    email: 'Email',
+    file: '檔案',
+    csv_file: 'CSV 檔案',
+    github_pr_review: 'GitHub PR Review',
+    pdf: 'PDF',
+    pptx: 'PowerPoint',
+  };
+
+  const exportStatusLabels = artifactExportMessages.exportStatuses || {};
+
+  function message(template, values = {}) {
+    return String(template || '').replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? `{${key}}`));
+  }
+
+  function setActionStatus(message, tone = '') {
+    if (!actionStatus) return;
+    actionStatus.hidden = false;
+    actionStatus.textContent = message;
+    actionStatus.className = `action-status ${tone}`;
+  }
+
+  function currentApprovalStatus() {
+    return actionsRoot instanceof HTMLElement
+      ? actionsRoot.dataset.currentStatus || statusEl?.textContent?.trim() || ''
+      : statusEl?.textContent?.trim() || '';
+  }
+
+  function selectedExportDestination() {
+    return exportSelect instanceof HTMLSelectElement ? exportSelect.value : '';
+  }
+
+  function exportDestinationLabel(destination) {
+    return destinationLabels[destination] || destination || '—';
+  }
+
+  function exportStatusLabel(status) {
+    return exportStatusLabels[status] || status || '—';
+  }
+
+  function updateOperationPreview() {
+    if (!operationPreview) return;
+    const destination = selectedExportDestination();
+    const status = currentApprovalStatus();
+    if (!destination) {
+      operationPreview.textContent = artifactExportMessages.selectExportDestination;
+      operationPreview.className = 'operation-preview warning';
+      return;
+    }
+    const warning = status !== 'approved' && status !== 'published'
+      ? `目前版本狀態為 ${status || 'unknown'}，匯出前會再次確認。`
+      : '此版本已核准，可送出匯出。';
+    operationPreview.textContent = `匯出目的地：${exportDestinationLabel(destination)}。${warning}`;
+    operationPreview.className = status !== 'approved' && status !== 'published'
+      ? 'operation-preview warning'
+      : 'operation-preview success';
+  }
+
+  function humanExportError(error, destination) {
+    switch (error) {
+      case 'export_requires_kernel':
+        return `${destination} 匯出需要 kernel 或外部服務設定，無法從目前的管理頁直接執行。`;
+      case 'exporter not found':
+        return `目前未啟用 ${destination} 匯出器。`;
+      case 'version not found':
+        return '找不到要匯出的產出物版本。';
+      default:
+        return error || `匯出到 ${destination} 失敗`;
+    }
+  }
+
+  function setButtonBusy(button, busy, busyText) {
+    if (!(button instanceof HTMLButtonElement)) return;
+    if (busy) {
+      button.dataset.originalText = button.textContent || '';
+      button.disabled = true;
+      button.textContent = busyText;
+    } else {
+      button.disabled = false;
+      button.textContent = button.dataset.originalText || button.textContent;
+      delete button.dataset.originalText;
+    }
+  }
+
+  function formatExportTs(ms) {
+    return new Date(Number(ms || Date.now())).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+  }
+
+  function ensureAuditHistoryBody() {
+    let body = document.getElementById('artifact-audit-history');
+    if (body instanceof HTMLTableSectionElement) return body;
+    if (!auditHistorySection) return null;
+
+    const empty = document.getElementById('artifact-audit-empty');
+    empty?.remove();
+
+    const table = document.createElement('table');
+    table.className = 'artifact-table';
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Action</th>
+          <th>Summary</th>
+          <th>Actor</th>
+        </tr>
+      </thead>
+      <tbody id="artifact-audit-history"></tbody>
+    `;
+    auditHistorySection.append(table);
+    body = document.getElementById('artifact-audit-history');
+    return body instanceof HTMLTableSectionElement ? body : null;
+  }
+
+  function prependAuditHistory(row) {
+    const body = ensureAuditHistoryBody();
+    if (!body) return;
+    const tr = document.createElement('tr');
+
+    const time = document.createElement('td');
+    time.className = 'mono';
+    time.textContent = formatExportTs(row.createdAt || Date.now());
+
+    const action = document.createElement('td');
+    action.className = 'mono';
+    action.textContent = String(row.action || 'artifact.operation');
+
+    const summary = document.createElement('td');
+    summary.textContent = String(row.summary || '—');
+
+    const actor = document.createElement('td');
+    actor.textContent = String(row.actor || 'admin');
+
+    tr.append(time, action, summary, actor);
+    body.prepend(tr);
+  }
+
+  function ensureExportHistoryBody() {
+    let body = document.getElementById('artifact-export-history');
+    if (body instanceof HTMLTableSectionElement) return body;
+    if (!exportHistorySection) return null;
+
+    const empty = document.getElementById('artifact-export-empty');
+    empty?.remove();
+
+    const table = document.createElement('table');
+    table.className = 'artifact-table';
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Status</th>
+          <th>Export ID</th>
+          <th>Result</th>
+          <th>Updated</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="artifact-export-history"></tbody>
+    `;
+    exportHistorySection.append(table);
+    body = document.getElementById('artifact-export-history');
+    return body instanceof HTMLTableSectionElement ? body : null;
+  }
+
+  function prependExportHistory(row) {
+    const body = ensureExportHistoryBody();
+    if (!body) return;
+    const tr = document.createElement('tr');
+    tr.dataset.exportHistoryRow = '';
+    tr.dataset.exportHistoryStatus = String(row.status || 'pending');
+    tr.dataset.exportHistoryDestination = String(row.destination || row.exporterId || '');
+
+    const destination = document.createElement('td');
+    destination.className = 'mono';
+    destination.textContent = String(row.destination || row.exporterId || '—');
+
+    const statusCell = document.createElement('td');
+    const status = document.createElement('span');
+    const statusValue = String(row.status || 'pending');
+    status.className = `export-status export-${statusValue}`;
+    status.textContent = exportStatusLabel(statusValue);
+    statusCell.append(status);
+
+    const exportId = document.createElement('td');
+    exportId.className = 'mono';
+    exportId.textContent = String(row.exportId || '—');
+
+    const result = document.createElement('td');
+    result.className = 'mono';
+    result.textContent = String(row.externalRef || row.externalId || row.destination || '—');
+
+    const updated = document.createElement('td');
+    updated.className = 'mono';
+    updated.textContent = formatExportTs(row.updatedAt || row.createdAt || Date.now());
+
+    const action = document.createElement('td');
+    if (statusValue === 'failed') {
+      const retry = document.createElement('button');
+      retry.type = 'button';
+      retry.className = 'mini-action retry-export';
+      retry.dataset.exportHistoryRetry = '';
+      retry.textContent = artifactExportMessages.retryExport;
+      action.append(retry);
+    } else {
+      const empty = document.createElement('span');
+      empty.className = 'muted';
+      empty.textContent = '—';
+      action.append(empty);
+    }
+
+    tr.append(destination, statusCell, exportId, result, updated, action);
+    body.prepend(tr);
+  }
+
+  async function updateVersionStatus(status, button) {
+    if (!currentVersionId) return;
+    const current = currentApprovalStatus();
+    if (current === status) {
+      setActionStatus(`產出物已經是 ${status}。`);
+      return;
+    }
+    const label = statusLabels[status] || status;
+    if (!window.confirm(`確定要將此產出物標記為「${label}」？此操作會寫入審核紀錄。`)) {
+      return;
+    }
+    setButtonBusy(button, true, '送出中');
+    setActionStatus('正在更新產出物狀態…');
+    try {
+      const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setActionStatus(data.error || '無法更新產出物狀態', 'error');
+        return;
+      }
+      if (statusEl) statusEl.textContent = status;
+      if (actionsRoot instanceof HTMLElement) actionsRoot.dataset.currentStatus = status;
+      updateOperationPreview();
+      prependAuditHistory({
+        action: 'artifact.version.status.update',
+        summary: `${data.scope || 'version'} → ${status}`,
+        createdAt: Date.now(),
+      });
+      setActionStatus(`產出物已更新為 ${status}`, 'success');
+    } finally {
+      setButtonBusy(button, false);
+    }
+  }
+
+  async function updateSectionStatus(sectionId, status, button) {
+    if (!currentVersionId) return;
+    const label = statusLabels[status] || status;
+    if (!window.confirm(`確定要將此區段標記為「${label}」？`)) {
+      return;
+    }
+    setButtonBusy(button, true, '送出中');
+    setActionStatus('正在更新區段狀態…');
+    try {
+      const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sectionId, status }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setActionStatus(data.error || '無法更新區段狀態', 'error');
+        return;
+      }
+      const row = document.querySelector(`[data-section-id="${CSS.escape(sectionId)}"]`);
+      const sectionStatus = row?.querySelector('.section-status');
+      if (sectionStatus) sectionStatus.textContent = status;
+      prependAuditHistory({
+        action: 'artifact.section.status.update',
+        summary: `section ${sectionId} → ${status}`,
+        createdAt: Date.now(),
+      });
+      setActionStatus(`區段已更新為 ${status}`, 'success');
+    } finally {
+      setButtonBusy(button, false);
+    }
+  }
+
+  async function exportArtifact(button, destinationOverride) {
+    if (!currentVersionId) return;
+    const destination = destinationOverride || (exportSelect instanceof HTMLSelectElement ? exportSelect.value : '');
+    if (!destination) {
+      setActionStatus(artifactExportMessages.selectExportDestination, 'error');
+      return;
+    }
+    if (destinationOverride && exportSelect instanceof HTMLSelectElement) {
+      exportSelect.value = destinationOverride;
+      updateOperationPreview();
+    }
+    const current = currentApprovalStatus();
+    const needsConfirm = current !== 'approved' && current !== 'published';
+    const confirmMessage = needsConfirm
+      ? `目前版本狀態為「${current || 'unknown'}」。仍要匯出到 ${destination}？`
+      : `確定要匯出到 ${destination}？`;
+    if (!window.confirm(confirmMessage)) return;
+    setButtonBusy(button, true, destinationOverride ? artifactExportMessages.retryingExport : artifactExportMessages.exporting);
+    setActionStatus(message(
+      destinationOverride ? artifactExportMessages.retryingTo : artifactExportMessages.exportingTo,
+      { destination }
+    ));
+    try {
+      const res = await fetch(`/api/admin/artifacts/${encodeURIComponent(currentVersionId)}/export/${encodeURIComponent(destination)}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ options: { path: `artifact-${currentVersionId}.txt` } }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) {
+        prependExportHistory({
+          destination,
+          exportId: data.exportId || '—',
+          status: 'failed',
+          externalRef: data.error || res.status,
+          updatedAt: Date.now(),
+        });
+        prependAuditHistory({
+          action: 'artifact.export.denied',
+          summary: `${destination} · ${data.error || res.status}`,
+          createdAt: Date.now(),
+        });
+        setActionStatus(humanExportError(data.error, destination), 'error');
+        return;
+      }
+      prependExportHistory({
+        destination,
+        exportId: data.exportId,
+        status: data.status || 'pending',
+        externalRef: data.externalRef,
+        updatedAt: Date.now(),
+      });
+      prependAuditHistory({
+        action: 'artifact.export',
+        summary: `${destination} · ${data.status || 'pending'}${data.externalRef ? ` · ${data.externalRef}` : ''}`,
+        createdAt: Date.now(),
+      });
+      setActionStatus(message(
+        destinationOverride ? artifactExportMessages.retryStarted : artifactExportMessages.exportStarted,
+        { result: data.externalRef || data.exportId || destination }
+      ), 'success');
+    } finally {
+      setButtonBusy(button, false);
+    }
+  }
+
+  actionsRoot?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement)) return;
+    const status = target.dataset.artifactAction;
+    if (status || target.dataset.exportAction !== undefined) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    if (status) void updateVersionStatus(status, target);
+    if (target.dataset.exportAction !== undefined) void exportArtifact(target);
+  });
+
+  exportHistorySection?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement) || target.dataset.exportHistoryRetry === undefined) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const row = target.closest('[data-export-history-row]');
+    if (!(row instanceof HTMLElement)) return;
+    const destination = row.dataset.exportHistoryDestination || '';
+    if (destination) void exportArtifact(target, destination);
+  });
+
+  exportSelect?.addEventListener('change', updateOperationPreview);
+  updateOperationPreview();
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement)) return;
+    const status = target.dataset.sectionAction;
+    if (!status) return;
+    const row = target.closest('[data-section-id]');
+    if (!(row instanceof HTMLElement)) return;
+    const sectionId = row.dataset.sectionId;
+    if (sectionId) void updateSectionStatus(sectionId, status, target);
+  });
+</script>
+
+<style>
+  .artifact-viewer {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .artifact-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+  }
+
+  .artifact-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .artifact-kind {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: var(--brand-900);
+    color: #fff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .artifact-status {
+    font-size: 0.8rem;
+    color: var(--admin-text-soft);
+    text-transform: capitalize;
+  }
+
+  .artifact-id {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.75rem;
+  }
+
+  .muted {
+    color: var(--admin-text-muted);
+  }
+
+  .version-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .artifact-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .action-btn,
+  .mini-action {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    cursor: pointer;
+    font-size: 0.8rem;
+    min-height: 34px;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .action-btn.approve,
+  .mini-action[data-section-action="approved"] {
+    border-color: #16a34a;
+    color: #166534;
+    background: #f0fdf4;
+  }
+
+  .action-btn.reject,
+  .mini-action[data-section-action="rejected"] {
+    border-color: #dc2626;
+    color: #991b1b;
+    background: #fef2f2;
+  }
+
+  .action-btn.export {
+    border-color: var(--admin-accent);
+    color: var(--admin-accent);
+  }
+
+  .action-btn:disabled,
+  .version-select:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .export-hint {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .operation-preview {
+    flex-basis: 100%;
+    margin: 0.15rem 0 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-bg);
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    padding: 0.45rem 0.6rem;
+  }
+
+  .operation-preview.success {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .operation-preview.warning {
+    border-color: #facc15;
+    background: #fefce8;
+    color: #713f12;
+  }
+
+  .section-actions {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .section-status {
+    text-transform: capitalize;
+    font-size: 0.82rem;
+    color: var(--admin-text-soft);
+  }
+
+  .export-status {
+    display: inline-flex;
+    min-height: 1.45rem;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  .export-done {
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .export-pending {
+    background: #eff6ff;
+    color: #1d4ed8;
+  }
+
+  .export-failed {
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  .export-rejected,
+  .export-expired {
+    background: #f1f5f9;
+    color: #475569;
+  }
+
+  .action-status {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text-muted);
+    font-size: 0.86rem;
+  }
+
+  .action-status.success {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .action-status.error {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  .version-label {
+    font-size: 0.8rem;
+    color: var(--admin-text-soft);
+    white-space: nowrap;
+  }
+
+  .version-select {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+
+  .artifact-section {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    overflow: hidden;
+  }
+
+  .section-title {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-bg);
+    margin: 0;
+  }
+
+  /* Markdown prose */
+  .prose-section {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .prose {
+    line-height: 1.7;
+    max-width: 72ch;
+  }
+
+  .prose :global(h1),
+  .prose :global(h2),
+  .prose :global(h3) {
+    margin: 1.2em 0 0.4em;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .prose :global(h1) { font-size: 1.4rem; }
+  .prose :global(h2) { font-size: 1.2rem; }
+  .prose :global(h3) { font-size: 1.05rem; }
+
+  .prose :global(p) {
+    margin: 0.75em 0;
+  }
+
+  .prose :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    background: var(--admin-bg);
+    border: 1px solid var(--admin-border);
+    border-radius: 3px;
+    padding: 0.1em 0.3em;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--admin-border);
+    margin: 1.5em 0;
+  }
+
+  /* JSON / raw */
+  .json-block {
+    margin: 0;
+    padding: 1rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    overflow: auto;
+    max-height: 600px;
+    background: var(--admin-bg);
+    border-radius: 0;
+  }
+
+  /* Diff */
+  .diff {
+    margin: 0;
+    padding: 1rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    overflow: auto;
+    max-height: 600px;
+    background: var(--admin-bg);
+    line-height: 1.6;
+    white-space: pre;
+  }
+
+  /* Tables */
+  .table-scroll {
+    overflow-x: auto;
+  }
+
+  .artifact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+  }
+
+  .artifact-table th,
+  .artifact-table td {
+    padding: 0.45rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .artifact-table th {
+    font-weight: 600;
+    background: var(--admin-bg);
+    color: var(--admin-text-soft);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .artifact-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .artifact-table tbody tr:hover td {
+    background: var(--admin-surface-subtle, var(--admin-muted));
+  }
+
+  .csv-table {
+    white-space: nowrap;
+  }
+
+  /* Evidence */
+  .evidence-sections {
+    display: grid;
+    gap: 0;
+  }
+
+  .evidence-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .evidence-item:last-child {
+    border-bottom: none;
+  }
+
+  .evidence-heading {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .evidence-body {
+    font-size: 0.83rem;
+    color: var(--admin-text-muted);
+    line-height: 1.6;
+  }
+</style>

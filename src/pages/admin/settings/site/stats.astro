@@ -1,0 +1,285 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+---
+
+<AdminV2Layout section="settings" title="Stats">
+  <div class="stats-header">
+    <p class="page-desc">System statistics and metrics overview.</p>
+    <div class="header-actions">
+      <select id="time-range" class="select">
+        <option value="7">Last 7 days</option>
+        <option value="30" selected>Last 30 days</option>
+        <option value="90">Last 90 days</option>
+      </select>
+      <button id="export-csv" class="btn-secondary">Export CSV</button>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <section class="stats-section">
+      <h2>Content Volume</h2>
+      <div id="content-volume" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>Knowledge Base</h2>
+      <div id="knowledge-base" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>Pipeline Health</h2>
+      <div id="pipeline-health" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>RAG Usage</h2>
+      <div id="rag-usage" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>Content Quality</h2>
+      <div id="content-quality" class="stats-content">Loading...</div>
+    </section>
+
+    <section class="stats-section">
+      <h2>Glossary Lookups</h2>
+      <div id="glossary-stats" class="stats-content">Loading...</div>
+    </section>
+  </div>
+</AdminV2Layout>
+
+<script is:inline>
+  function createMetricGrid(items = []) {
+    const grid = document.createElement('div');
+    grid.className = 'metric-grid';
+    for (const item of items) {
+      const metric = document.createElement('div');
+      metric.className = 'metric';
+      const value = document.createElement('span');
+      value.className = 'metric-value';
+      value.textContent = String(item.value ?? 0);
+      const label = document.createElement('span');
+      label.className = 'metric-label';
+      label.textContent = item.label;
+      metric.append(value, label);
+      grid.append(metric);
+    }
+    return grid;
+  }
+
+  function createBreakdown(rows = []) {
+    const section = document.createElement('div');
+    section.className = 'breakdown';
+
+    const heading = document.createElement('h4');
+    heading.textContent = 'By Category';
+
+    section.append(heading);
+    for (const row of rows) {
+      const rowEl = document.createElement('div');
+      rowEl.className = 'breakdown-row';
+      const name = document.createElement('span');
+      name.className = 'breakdown-label';
+      name.textContent = row.name;
+      const count = document.createElement('span');
+      count.className = 'breakdown-value';
+      count.textContent = String(row.count);
+      rowEl.append(name, count);
+      section.append(rowEl);
+    }
+    return section;
+  }
+
+  function createTopTerms(topTerms = []) {
+    const section = document.createElement('div');
+    section.className = 'top-terms';
+
+    const heading = document.createElement('h4');
+    heading.textContent = 'Top Looked Up Terms';
+    section.append(heading);
+
+    for (const term of topTerms) {
+      const tag = document.createElement('span');
+      tag.className = 'term-tag';
+      tag.textContent = `${term.term} (${term.count})`;
+      section.append(tag);
+    }
+
+    return section;
+  }
+
+  function setLoadingError(el, message) {
+    const p = document.createElement('p');
+    p.className = 'error';
+    p.textContent = message;
+    el.replaceChildren(p);
+  }
+
+  let currentRange = 30;
+
+  async function loadStats() {
+    await Promise.all([
+      loadContentVolume(),
+      loadKnowledgeBase(),
+      loadPipelineHealth(),
+      loadRagUsage(),
+      loadContentQuality(),
+      loadGlossaryStats(),
+    ]);
+  }
+
+  async function loadContentVolume() {
+    const el = document.getElementById('content-volume');
+    try {
+      const res = await fetch(`/api/admin/stats/content?days=${currentRange}`);
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      const grid = createMetricGrid([
+        { value: data.totalPosts ?? 0, label: 'Total Posts' },
+        { value: data.categories?.length ?? 0, label: 'Categories' },
+        { value: data.tags?.length ?? 0, label: 'Tags' },
+        { value: `${data.typeComplete ?? 0}%`, label: 'Type Complete' },
+      ]);
+      const frag = document.createDocumentFragment();
+      frag.append(grid);
+      if (Array.isArray(data.categories) && data.categories.length) {
+        frag.append(createBreakdown(data.categories.slice(0, 8)));
+      }
+      el.replaceChildren(frag);
+    } catch {
+      setLoadingError(el, 'Unable to load');
+    }
+  }
+
+  async function loadKnowledgeBase() {
+    const el = document.getElementById('knowledge-base');
+    try {
+      const res = await fetch('/api/admin/stats/knowledge');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      const grid = createMetricGrid([
+        { value: data.postChunks ?? 0, label: 'Post Chunks' },
+        { value: data.docChunks ?? 0, label: 'Doc Chunks' },
+        { value: formatBytes(data.vectorizeSize ?? 0), label: 'Vectorize Size' },
+      ]);
+      const note = document.createElement('p');
+      note.className = 'metric-note';
+      note.textContent = `Last embed: ${data.lastEmbed ? formatDate(data.lastEmbed) : 'Never'}`;
+      el.replaceChildren(grid, note);
+    } catch {
+      setLoadingError(el, 'Unable to load');
+    }
+  }
+
+  async function loadPipelineHealth() {
+    const el = document.getElementById('pipeline-health');
+    try {
+      const res = await fetch(`/api/admin/stats/pipelines?days=${currentRange}`);
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      const grid = createMetricGrid([
+        { value: `${data.successRate ?? 0}%`, label: 'Success Rate' },
+        { value: `${data.avgDuration ?? 0}ms`, label: 'Avg Duration' },
+        { value: data.pending ?? 0, label: 'Pending' },
+        { value: data.failed ?? 0, label: 'Failed' },
+      ]);
+      el.replaceChildren(grid);
+    } catch {
+      setLoadingError(el, 'Unable to load');
+    }
+  }
+
+  async function loadRagUsage() {
+    const el = document.getElementById('rag-usage');
+    try {
+      const res = await fetch(`/api/admin/stats/rag?days=${currentRange}`);
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      const grid = createMetricGrid([
+        { value: data.queries ?? 0, label: 'Queries' },
+        { value: `${data.avgLatency ?? 0}ms`, label: 'Avg Latency' },
+        { value: `${data.cacheHitRate ?? 0}%`, label: 'Cache Hit Rate' },
+      ]);
+      el.replaceChildren(grid);
+    } catch {
+      setLoadingError(el, 'Unable to load');
+    }
+  }
+
+  async function loadContentQuality() {
+    const el = document.getElementById('content-quality');
+    try {
+      const res = await fetch('/api/admin/stats/quality');
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      const grid = createMetricGrid([
+        { value: data.missingTldr ?? 0, label: 'Missing TL;DR' },
+        { value: data.missingType ?? 0, label: 'Missing Type' },
+        { value: data.missingDescription ?? 0, label: 'Missing Description' },
+        { value: data.brokenLinks ?? 0, label: 'Broken Links' },
+      ]);
+      el.replaceChildren(grid);
+    } catch {
+      setLoadingError(el, 'Unable to load');
+    }
+  }
+
+  async function loadGlossaryStats() {
+    const el = document.getElementById('glossary-stats');
+    try {
+      const res = await fetch(`/api/admin/stats/glossary?days=${currentRange}`);
+      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      const grid = createMetricGrid([
+        { value: data.lookups ?? 0, label: 'Lookups' },
+        { value: data.missingDefinitions ?? 0, label: 'Missing Definitions' },
+      ]);
+
+      const frag = document.createDocumentFragment();
+      frag.append(grid);
+      const terms = (data.topTerms || []).slice(0, 5);
+      if (terms.length) {
+        frag.append(createTopTerms(terms));
+      }
+
+      el.replaceChildren(frag);
+    } catch {
+      setLoadingError(el, 'Unable to load');
+    }
+  }
+
+  function formatDate(iso) {
+    if (!iso) return 'N/A';
+    return new Date(iso).toLocaleDateString('zh-TW', { month: 'short', day: 'numeric' });
+  }
+
+  function formatBytes(bytes) {
+    if (bytes === 0) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`;
+  }
+
+  // Event handlers
+  document.getElementById('time-range').addEventListener('change', (e) => {
+    currentRange = parseInt(e.target.value);
+    loadStats();
+  });
+
+  document.getElementById('export-csv').addEventListener('click', async () => {
+    const res = await fetch(`/api/admin/stats/export?days=${currentRange}`);
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `stats-${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  loadStats();
+</script>
+
+

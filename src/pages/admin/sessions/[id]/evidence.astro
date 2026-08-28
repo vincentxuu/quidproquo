@@ -1,0 +1,1471 @@
+---
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import AdminState from '@/components/admin/AdminState.astro';
+import { getEnv } from '@/lib/config/env';
+import { readFlags } from '@/lib/config/flags';
+import { ensureConsoleUmbrella } from '../../_guard';
+import { D1SourceStoreBackend } from '@/lib/evidence/storage/d1/source-store';
+import { D1ExcerptStoreBackend } from '@/lib/evidence/storage/d1/excerpt-store';
+import { D1ClaimStoreBackend } from '@/lib/evidence/storage/d1/claim-store';
+import { D1CitationStoreBackend } from '@/lib/evidence/storage/d1/citation-store';
+import { D1ConflictStoreBackend } from '@/lib/evidence/storage/d1/conflict-store';
+import { D1ClaimFtsBackend } from '@/lib/evidence/storage/d1/claim-fts';
+import type {
+  SourceRecord,
+  ExcerptRecord,
+  ClaimRecord,
+  CitationRecord,
+  ConflictRecord,
+} from '@/lib/evidence/storage/types';
+
+export const prerender = false;
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+const flowRunId = Astro.params.id ?? '';
+const selectedSourceId = Astro.url.searchParams.get('source');
+const selectedClaimId = Number(Astro.url.searchParams.get('claim') ?? '');
+const claimSearchQuery = Astro.url.searchParams.get('q')?.trim() ?? '';
+
+// Gate: evidence flag
+const env = getEnv();
+const flags = readFlags(env);
+const evidenceEnabled = flags.agentEvidence.enabled;
+
+// ---- data loading ----
+interface SourceWithMeta extends SourceRecord {
+  domain: string
+  excerptCount: number
+  conflictCount: number
+}
+
+let sources: SourceWithMeta[] = [];
+let excerpts: ExcerptRecord[] = [];
+let claims: ClaimRecord[] = [];
+let citations: CitationRecord[] = [];
+let conflicts: ConflictRecord[] = [];
+let searchedClaimIds: number[] | null = null;
+let loadError = false;
+const CONFLICT_STATUSES = ['pending', 'approved', 'rejected', 'expired'] as const;
+
+if (evidenceEnabled && flowRunId) {
+  try {
+    const db = env.DB;
+    const sourceStore = new D1SourceStoreBackend(db);
+    const excerptStore = new D1ExcerptStoreBackend(db);
+    const claimStore = new D1ClaimStoreBackend(db);
+    const citationStore = new D1CitationStoreBackend(db);
+    const conflictStore = new D1ConflictStoreBackend(db);
+    const ftsStore = new D1ClaimFtsBackend(db);
+
+    const [rawSources, rawClaims] = await Promise.all([
+      sourceStore.listForFlowRun(flowRunId),
+      claimStore.listForFlowRun(flowRunId),
+    ]);
+
+    claims = rawClaims;
+
+    if (claimSearchQuery) {
+      const searchResults = await ftsStore.search(claimSearchQuery, flowRunId, 50);
+      searchedClaimIds = searchResults.map((item) => item.claimId);
+    }
+
+    // Load excerpts for all sources in parallel
+    const excerptsBySource = await Promise.all(
+      rawSources.map((s) => excerptStore.listForSource(s.sourceId)),
+    );
+    excerpts = excerptsBySource.flat();
+
+    // Load citations for all claims in parallel
+    const citationsByClaim = await Promise.all(
+      rawClaims.map((c) => citationStore.listForClaim(c.claimId)),
+    );
+    citations = citationsByClaim.flat();
+
+    // Load conflicts for this flow, including resolved history so reviewers can audit decisions.
+    const claimIds = new Set(rawClaims.map((c) => c.claimId));
+    const conflictsByStatus = await Promise.all(
+      CONFLICT_STATUSES.map((status) => conflictStore.listByStatus(status, { limit: 100 })),
+    );
+    conflicts = conflictsByStatus
+      .flatMap((result) => result.conflicts)
+      .filter((cf) => claimIds.has(cf.claimAId) || claimIds.has(cf.claimBId))
+      .sort((a, b) => {
+        if (a.status === 'pending' && b.status !== 'pending') return -1;
+        if (a.status !== 'pending' && b.status === 'pending') return 1;
+        return b.updatedAt - a.updatedAt;
+      });
+
+    // Build excerpt count map: sourceId -> count
+    const excerptCountBySource = new Map<number, number>();
+    for (const e of excerpts) {
+      excerptCountBySource.set(e.sourceId, (excerptCountBySource.get(e.sourceId) ?? 0) + 1);
+    }
+
+    // Build conflict count map: sourceId -> count
+    // A conflict touches a source if either claim references an excerpt from that source
+    const excerptToSource = new Map<number, number>();
+    for (const e of excerpts) {
+      excerptToSource.set(e.excerptId, e.sourceId);
+    }
+    const claimToExcerpts = new Map<number, number[]>();
+    for (const cit of citations) {
+      if (!claimToExcerpts.has(cit.claimId)) claimToExcerpts.set(cit.claimId, []);
+      claimToExcerpts.get(cit.claimId)!.push(cit.excerptId);
+    }
+    const conflictCountBySource = new Map<number, number>();
+    for (const cf of conflicts) {
+      for (const claimId of [cf.claimAId, cf.claimBId]) {
+        for (const excerptId of (claimToExcerpts.get(claimId) ?? [])) {
+          const sourceId = excerptToSource.get(excerptId);
+          if (sourceId !== undefined) {
+            conflictCountBySource.set(sourceId, (conflictCountBySource.get(sourceId) ?? 0) + 1);
+          }
+        }
+      }
+    }
+
+    sources = rawSources.map((s) => {
+      let domain = '';
+      try {
+        domain = new URL(s.url).hostname;
+      } catch {
+        domain = s.url;
+      }
+      return {
+        ...s,
+        domain,
+        excerptCount: excerptCountBySource.get(s.sourceId) ?? 0,
+        conflictCount: conflictCountBySource.get(s.sourceId) ?? 0,
+      };
+    });
+  } catch {
+    loadError = true;
+  }
+}
+
+// Group sources by domain
+const sourcesByDomain = sources.reduce<Record<string, SourceWithMeta[]>>((acc, s) => {
+  acc[s.domain] ??= [];
+  acc[s.domain].push(s);
+  return acc;
+}, {});
+
+// Selected source data
+const selectedSource = selectedSourceId
+  ? sources.find((s) => String(s.sourceId) === selectedSourceId) ?? null
+  : null;
+
+const selectedExcerpts = selectedSource
+  ? excerpts.filter((e) => e.sourceId === selectedSource.sourceId)
+  : [];
+
+// For each excerpt, find its citations and for each citation find the claim
+const claimById = new Map(claims.map((c) => [c.claimId, c]));
+const sourceById = new Map(sources.map((s) => [s.sourceId, s]));
+const excerptById = new Map(excerpts.map((e) => [e.excerptId, e]));
+const citationsByExcerpt = new Map<number, CitationRecord[]>();
+const citationsByClaim = new Map<number, CitationRecord[]>();
+for (const cit of citations) {
+  if (!citationsByExcerpt.has(cit.excerptId)) citationsByExcerpt.set(cit.excerptId, []);
+  citationsByExcerpt.get(cit.excerptId)!.push(cit);
+  if (!citationsByClaim.has(cit.claimId)) citationsByClaim.set(cit.claimId, []);
+  citationsByClaim.get(cit.claimId)!.push(cit);
+}
+
+const visibleClaims = (searchedClaimIds
+  ? searchedClaimIds.map((claimId) => claimById.get(claimId)).filter((claim): claim is ClaimRecord => Boolean(claim))
+  : [...claims].sort((a, b) => b.confidence - a.confidence)
+).slice(0, 25);
+
+const selectedClaim = Number.isFinite(selectedClaimId) ? claimById.get(selectedClaimId) ?? null : null;
+const selectedClaimCitations = selectedClaim ? citationsByClaim.get(selectedClaim.claimId) ?? [] : [];
+const selectedClaimExcerptDetails = selectedClaimCitations.map((citation) => {
+  const excerpt = excerptById.get(citation.excerptId) ?? null;
+  const source = excerpt ? sourceById.get(excerpt.sourceId) ?? null : null;
+  return { citation, excerpt, source };
+});
+
+// For conflicts panel: resolve claim texts
+const conflictDetails = conflicts.map((cf) => ({
+  ...cf,
+  claimA: claimById.get(cf.claimAId) ?? null,
+  claimB: claimById.get(cf.claimBId) ?? null,
+}));
+const pendingConflictCount = conflicts.filter((cf) => cf.status === 'pending').length;
+const resolvedConflictCount = conflicts.length - pendingConflictCount;
+
+function truncateUrl(url: string, max = 60): string {
+  if (url.length <= max) return url;
+  return url.slice(0, max) + '…';
+}
+
+function claimHref(claimId: number): string {
+  const u = new URL(Astro.url);
+  u.searchParams.set('claim', String(claimId));
+  u.searchParams.delete('source');
+  return u.pathname + u.search;
+}
+
+function sourceHref(sourceId: number): string {
+  const u = new URL(Astro.url);
+  u.searchParams.set('source', String(sourceId));
+  u.searchParams.delete('claim');
+  return u.pathname + u.search;
+}
+
+function confidenceClass(confidence: number): string {
+  if (confidence < 0.4) return 'low';
+  if (confidence <= 0.7) return 'mid';
+  return 'high';
+}
+
+function conflictStatusLabel(status: string): string {
+  switch (status) {
+    case 'pending': return '待處理';
+    case 'approved': return '已採用';
+    case 'rejected': return '已排除';
+    case 'expired': return '已逾期';
+    default: return status;
+  }
+}
+
+function resolutionLabel(resolution: string | null): string {
+  switch (resolution) {
+    case 'accepted_a': return '採用左側';
+    case 'accepted_b': return '採用右側';
+    case 'dismissed': return '標記不處理';
+    default: return resolution ?? '—';
+  }
+}
+
+const breadcrumb = [
+  { label: '執行記錄', href: '/admin/runs' },
+  { label: flowRunId.slice(0, 8) + '…', href: `/admin/sessions/${flowRunId}` },
+  { label: '來源證據' },
+];
+---
+
+<AdminV2Layout title="來源證據檢視器" section="sessions" breadcrumb={breadcrumb}>
+  {!evidenceEnabled && (
+    <AdminState tone="empty">代理程式證據功能已停用。請設定 <code>AGENT_EVIDENCE_ENABLED=true</code> 以啟用。</AdminState>
+  )}
+  {evidenceEnabled && loadError && (
+    <AdminState tone="error">無法載入此執行的來源證據。</AdminState>
+  )}
+  {evidenceEnabled && !loadError && (
+    <div class="evidence-layout">
+
+      {/* Left rail — source list */}
+      <aside class="source-rail" aria-label="來源">
+        <div class="rail-header">
+          <h3>來源 <span class="rail-count">{sources.length}</span></h3>
+        </div>
+        {sources.length === 0 ? (
+          <p class="rail-empty">此執行尚無來源。</p>
+        ) : (
+          <div class="source-list">
+            {Object.entries(sourcesByDomain).map(([domain, domainSources]) => (
+              <div class="domain-group">
+                <div class="domain-chip">{domain}</div>
+                {domainSources.map((src) => (
+                  <a
+                    id={`source-${src.sourceId}`}
+                    href={`?source=${src.sourceId}`}
+                    class:list={['source-row', { selected: String(src.sourceId) === selectedSourceId }]}
+                    aria-current={String(src.sourceId) === selectedSourceId ? 'true' : undefined}
+                    title={src.url}
+                  >
+                    <span class="source-url">{truncateUrl(src.url)}</span>
+                    <div class="source-badges">
+                      <span class="badge badge-excerpt" title="Excerpts">{src.excerptCount} exc</span>
+                      {src.conflictCount > 0 && (
+                        <span class="badge badge-conflict" title="Conflicts">{src.conflictCount} !</span>
+                      )}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+      </aside>
+
+      {/* Main panel — excerpts + claims */}
+      <main class="excerpt-panel" aria-label="摘錄與聲明">
+        <form class="claim-search" method="GET" action={`/admin/sessions/${flowRunId}/evidence`}>
+          <label for="claim-q">搜尋聲明</label>
+          <input id="claim-q" name="q" type="search" value={claimSearchQuery} placeholder="cosine similarity" />
+          <button type="submit">搜尋</button>
+          {claimSearchQuery && <a href={`/admin/sessions/${flowRunId}/evidence`}>清除</a>}
+        </form>
+
+        {selectedClaim ? (
+          <section class="claim-drawer" aria-label="Claim detail">
+            <header class="claim-drawer-head">
+              <div>
+                <h3>Claim #{selectedClaim.claimId}</h3>
+                <p>{selectedClaim.claimText}</p>
+              </div>
+              <span class:list={['confidence-score', confidenceClass(selectedClaim.confidence)]}>
+                {selectedClaim.confidence.toFixed(2)}
+              </span>
+            </header>
+            {selectedClaimExcerptDetails.length === 0 ? (
+              <AdminState tone="empty">此聲明尚無引用。</AdminState>
+            ) : (
+              <div class="citation-chain">
+                {selectedClaimExcerptDetails.map(({ citation, excerpt, source }) => (
+                  <article class="citation-card" data-excerpt-id={excerpt?.excerptId}>
+                    <div class="citation-meta">
+                      <span class:list={['relation-badge', `rel-${citation.relation}`]}>{citation.relation}</span>
+                      {source && <a href={sourceHref(source.sourceId)}>{source.domain}</a>}
+                      {source && <span>{new Date(source.retrievedAt).toLocaleString('zh-TW')}</span>}
+                    </div>
+                    {excerpt ? (
+                      <>
+                        <p class="excerpt-text">{excerpt.text}</p>
+                        <div class="source-preview">
+                          <span class="preview-label">來源預覽</span>
+                          <p>{source?.bodyText ?? excerpt.surroundingContext ?? excerpt.text}</p>
+                        </div>
+                      </>
+                    ) : (
+                      <p class="rail-empty">找不到摘錄。</p>
+                    )}
+                  </article>
+                ))}
+              </div>
+            )}
+          </section>
+        ) : !selectedSource ? (
+          <section class="claim-list-panel" aria-label="聲明">
+            <h3>
+              聲明
+              <span class="rail-count">{claimSearchQuery ? visibleClaims.length : claims.length}</span>
+            </h3>
+            {visibleClaims.length === 0 ? (
+              <AdminState tone="empty">{claimSearchQuery ? '無符合搜尋的聲明。' : '此執行尚無聲明。'}</AdminState>
+            ) : (
+              <div class="claim-cards">
+                {visibleClaims.map((claim) => {
+                  const cited = (citationsByClaim.get(claim.claimId) ?? []).length > 0;
+                  return (
+                    <a href={claimHref(claim.claimId)} class="claim-card">
+                      <span class:list={['confidence-score', confidenceClass(claim.confidence)]}>{claim.confidence.toFixed(2)}</span>
+                      <span class="claim-card-text">{claim.claimText}</span>
+                      {!cited && <span class="uncited-tag">uncited</span>}
+                      <span class="confidence-bar"><span style={`width: ${Math.max(0, Math.min(100, claim.confidence * 100))}%`}></span></span>
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+          </section>
+        ) : (
+          <>
+            <div class="excerpt-panel-header">
+              <h3>
+                <a href={selectedSource.url} target="_blank" rel="noopener noreferrer" class="source-link">
+                  {truncateUrl(selectedSource.url, 80)}
+                </a>
+              </h3>
+              <p class="source-meta">
+                <span>新鮮度：{selectedSource.freshnessScore.toFixed(2)}</span>
+                {selectedSource.domain && <span class="domain-chip-sm">{selectedSource.domain}</span>}
+              </p>
+            </div>
+
+            {selectedExcerpts.length === 0 ? (
+              <AdminState tone="empty">此來源尚無摘錄。</AdminState>
+            ) : (
+              <div class="excerpt-list">
+                {selectedExcerpts.map((exc) => {
+                  const excCitations = citationsByExcerpt.get(exc.excerptId) ?? [];
+                  return (
+                    <div class="excerpt-card">
+                      <p class="excerpt-text">{exc.text}</p>
+                      {exc.surroundingContext && (
+                        <p class="excerpt-context">{exc.surroundingContext}</p>
+                      )}
+                      {excCitations.length > 0 && (
+                        <div class="claim-list">
+                          {excCitations.map((cit) => {
+                            const claim = claimById.get(cit.claimId);
+                            return claim ? (
+                              <div class="claim-row">
+                                <span class:list={['relation-badge', `rel-${cit.relation}`]}>
+                                  {cit.relation}
+                                </span>
+                                <span class="claim-text">{claim.claimText}</span>
+                                <a
+                                  href={claimHref(claim.claimId)}
+                                  class="source-nav-link"
+                                  title="開啟聲明詳情"
+                                >
+                                  詳情
+                                </a>
+                                <span class="confidence-badge" title="Confidence">
+                                  {(claim.confidence * 100).toFixed(0)}%
+                                </span>
+                              </div>
+                            ) : null;
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </>
+        )}
+      </main>
+
+      {/* Right rail — conflicts */}
+      <aside id="conflicts" class="conflicts-rail" aria-label="衝突">
+        <div class="rail-header">
+          <h3>衝突 <span class="rail-count">{conflicts.length}</span></h3>
+          <p class="rail-subtitle">待處理 {pendingConflictCount} / 已處理 {resolvedConflictCount}</p>
+          {conflicts.length > 0 && (
+            <div class="conflict-toolbar" aria-label="衝突檢視與批次操作">
+              <div class="conflict-view-toggle" role="group" aria-label="衝突檢視">
+                <button type="button" data-conflict-filter="pending" class="active" aria-pressed="true">待處理</button>
+                <button type="button" data-conflict-filter="all" aria-pressed="false">全部</button>
+              </div>
+              {pendingConflictCount > 0 && (
+                <div class="conflict-bulk-actions">
+                  <span class="conflict-selection-count" data-conflict-selection-count>已選 0</span>
+                  <button type="button" class="conflict-bulk-dismiss" data-bulk-selected-resolution="dismissed" disabled>
+                    標記所選不處理
+                  </button>
+                  <button type="button" class="conflict-bulk-dismiss" data-bulk-resolution="dismissed">
+                    全部標記不處理
+                  </button>
+                </div>
+              )}
+              <p class="conflict-operation-preview" data-conflict-operation-preview role="status" aria-live="polite">
+                選取衝突後可批次標記不處理；單筆可採用左側、採用右側或標記不處理。
+              </p>
+            </div>
+          )}
+        </div>
+        {conflicts.length === 0 ? (
+          <p class="rail-empty">目前無衝突。</p>
+        ) : (
+          <div class="conflict-list">
+            {conflictDetails.map((cf) => (
+              <div class="conflict-card" data-conflict-card data-conflict-status={cf.status} hidden={cf.status !== 'pending'}>
+                {cf.status === 'pending' && (
+                  <label class="conflict-select">
+                    <input type="checkbox" data-conflict-select value={String(cf.conflictId)} />
+                    <span>加入批次處理</span>
+                  </label>
+                )}
+                <div class="conflict-claims">
+                  <div class="conflict-claim">
+                    <p class="conflict-claim-text">{cf.claimA?.claimText ?? `Claim #${cf.claimAId}`}</p>
+                  </div>
+                  <div class="conflict-vs" aria-hidden="true">vs</div>
+                  <div class="conflict-claim">
+                    <p class="conflict-claim-text">{cf.claimB?.claimText ?? `Claim #${cf.claimBId}`}</p>
+                  </div>
+                </div>
+                <div class="conflict-footer">
+                  <span class="detected-by" title="Detected by">{cf.detectedBy}</span>
+                  <span class:list={['verdict-badge', `verdict-${cf.status}`]}>{conflictStatusLabel(cf.status)}</span>
+                </div>
+                {cf.status === 'pending' && (
+                  <div class="conflict-actions" data-conflict-id={cf.conflictId}>
+                    <button type="button" data-resolution="accepted_a">採用左側</button>
+                    <button type="button" data-resolution="accepted_b">採用右側</button>
+                    <button type="button" data-resolution="dismissed">標記不處理</button>
+                  </div>
+                )}
+                {cf.status !== 'pending' && (
+                  <div class="conflict-resolved-note">
+                    已處理：{resolutionLabel(cf.resolvedBy) || conflictStatusLabel(cf.status)}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+        <p id="conflict-action-status" class="conflict-action-status" role="status" aria-live="polite" hidden></p>
+      </aside>
+
+    </div>
+  )}
+</AdminV2Layout>
+
+<script is:inline>
+  const conflictsRail = document.querySelector('.conflicts-rail');
+  const conflictStatus = document.getElementById('conflict-action-status');
+  const operationPreview = document.querySelector('[data-conflict-operation-preview]');
+  let activeConflictFilter = 'pending';
+
+  const resolutionLabels = {
+    accepted_a: '採用左側',
+    accepted_b: '採用右側',
+    dismissed: '標記不處理',
+  };
+
+  const statusLabels = {
+    pending: '待處理',
+    approved: '已採用',
+    rejected: '已排除',
+    expired: '已逾期',
+  };
+
+  function setConflictStatus(message, tone = '') {
+    if (!conflictStatus) return;
+    conflictStatus.hidden = false;
+    conflictStatus.textContent = message;
+    conflictStatus.className = `conflict-action-status ${tone}`;
+  }
+
+  function updateConflictCounts() {
+    if (!conflictsRail) return;
+    const headerSubtitle = conflictsRail.querySelector('.rail-subtitle');
+    const pendingCards = conflictsRail.querySelectorAll('[data-conflict-status="pending"]').length;
+    const allCards = conflictsRail.querySelectorAll('[data-conflict-card]').length;
+    if (headerSubtitle) {
+      headerSubtitle.textContent = `待處理 ${pendingCards} / 已處理 ${Math.max(0, allCards - pendingCards)}`;
+    }
+
+    const bulkButton = conflictsRail.querySelector('[data-bulk-resolution]');
+    if (bulkButton instanceof HTMLButtonElement) {
+      bulkButton.hidden = pendingCards === 0;
+    }
+    updateConflictSelection();
+  }
+
+  function selectedConflictRoots() {
+    if (!conflictsRail) return [];
+    return Array.from(conflictsRail.querySelectorAll('[data-conflict-select]:checked'))
+      .map((input) => {
+        if (!(input instanceof HTMLInputElement)) return null;
+        const card = input.closest('[data-conflict-card]');
+        return card?.querySelector('[data-conflict-id]') ?? null;
+      })
+      .filter((root) => root instanceof HTMLElement && root.closest('[data-conflict-status="pending"]'));
+  }
+
+  function updateConflictSelection() {
+    const selected = selectedConflictRoots();
+    const label = conflictsRail?.querySelector('[data-conflict-selection-count]');
+    if (label) label.textContent = `已選 ${selected.length}`;
+    const pendingCount = conflictsRail?.querySelectorAll('[data-conflict-status="pending"]').length ?? 0;
+    const selectedBulk = conflictsRail?.querySelector('[data-bulk-selected-resolution]');
+    if (selectedBulk instanceof HTMLButtonElement) {
+      selectedBulk.disabled = selected.length === 0;
+      selectedBulk.hidden = pendingCount === 0;
+    }
+    if (operationPreview) {
+      operationPreview.textContent = selected.length > 0
+        ? `已選 ${selected.length} 個衝突；按「標記所選不處理」會把它們更新為已排除。`
+        : pendingCount > 0
+          ? `目前有 ${pendingCount} 個待處理衝突；可逐筆處理或先勾選再批次處理。`
+          : '目前沒有待處理衝突；切到「全部」可檢視已處理紀錄。';
+    }
+  }
+
+  function markConflictResolved(root, data) {
+    const card = root.closest('.conflict-card');
+    const status = String(data.status || 'resolved');
+    if (card instanceof HTMLElement) {
+      card.dataset.conflictStatus = status;
+      card.hidden = activeConflictFilter === 'pending';
+    }
+    const selector = card?.querySelector('[data-conflict-select]');
+    if (selector instanceof HTMLInputElement) {
+      selector.checked = false;
+      selector.disabled = true;
+    }
+    const selectLabel = selector?.closest('.conflict-select');
+    if (selectLabel) selectLabel.remove();
+    const badge = card?.querySelector('.verdict-badge');
+    if (badge) {
+      badge.textContent = statusLabels[status] || status;
+      badge.className = `verdict-badge verdict-${status}`;
+    }
+    root.replaceChildren(Object.assign(document.createElement('span'), {
+      className: 'conflict-resolved-note',
+      textContent: `已處理：${resolutionLabels[data.resolution] || data.resolution || statusLabels[status] || status}`,
+    }));
+    updateConflictCounts();
+  }
+
+  function applyConflictFilter(filter) {
+    activeConflictFilter = filter;
+    conflictsRail?.querySelectorAll('[data-conflict-filter]').forEach((button) => {
+      if (!(button instanceof HTMLButtonElement)) return;
+      const active = button.dataset.conflictFilter === filter;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+
+    conflictsRail?.querySelectorAll('[data-conflict-card]').forEach((card) => {
+      if (!(card instanceof HTMLElement)) return;
+      card.hidden = filter === 'pending' && card.dataset.conflictStatus !== 'pending';
+    });
+    updateConflictSelection();
+  }
+
+  async function resolveConflict(root, conflictId, resolution, trigger, opts = {}) {
+    const label = resolutionLabels[resolution] || resolution;
+    if (!opts.skipConfirm && !window.confirm(`確定要「${label}」 conflict #${conflictId}？此動作會寫入處理結果。`)) {
+      return false;
+    }
+
+    if (trigger instanceof HTMLButtonElement) {
+      trigger.disabled = true;
+      trigger.dataset.originalText = trigger.textContent || '';
+      trigger.textContent = '處理中';
+    }
+    root.querySelectorAll('button').forEach((button) => {
+      button.disabled = true;
+    });
+    setConflictStatus(`正在處理 conflict #${conflictId}...`);
+
+    try {
+      const res = await fetch(`/api/admin/evidence/conflicts/${encodeURIComponent(conflictId)}/resolve`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ resolution }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        if (res.status === 409 && data.status) {
+          markConflictResolved(root, data);
+        }
+        root.querySelectorAll('button').forEach((button) => {
+          button.disabled = false;
+        });
+        if (trigger instanceof HTMLButtonElement) {
+          trigger.textContent = trigger.dataset.originalText || label;
+          delete trigger.dataset.originalText;
+        }
+        setConflictStatus(data.error || '無法處理此衝突。', 'error');
+        return false;
+      }
+
+      markConflictResolved(root, data);
+      setConflictStatus(`Conflict #${conflictId} 已更新為 ${data.status}。`, 'success');
+      return true;
+    } catch {
+      root.querySelectorAll('button').forEach((button) => {
+        button.disabled = false;
+      });
+      if (trigger instanceof HTMLButtonElement) {
+        trigger.textContent = trigger.dataset.originalText || label;
+        delete trigger.dataset.originalText;
+      }
+      setConflictStatus('無法處理此衝突。', 'error');
+      return false;
+    }
+  }
+
+  conflictsRail?.addEventListener('click', async (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const filter = target.dataset.conflictFilter;
+    if (filter) {
+      applyConflictFilter(filter);
+      return;
+    }
+
+    const bulkResolution = target.dataset.bulkResolution;
+    if (bulkResolution) {
+      const pendingRoots = Array.from(conflictsRail.querySelectorAll('[data-conflict-id]'))
+        .filter((root) => root instanceof HTMLElement && root.closest('[data-conflict-status="pending"]'));
+      if (pendingRoots.length === 0) {
+        setConflictStatus('目前沒有待處理衝突。');
+        return;
+      }
+      if (!window.confirm(`確定要將 ${pendingRoots.length} 個待處理衝突全部標記不處理？`)) return;
+      target.disabled = true;
+      target.dataset.originalText = target.textContent || '';
+      target.textContent = '批次處理中';
+      let resolved = 0;
+      for (const root of pendingRoots) {
+        if (!(root instanceof HTMLElement)) continue;
+        const conflictId = root.dataset.conflictId;
+        if (!conflictId) continue;
+        const ok = await resolveConflict(root, conflictId, bulkResolution, target, { skipConfirm: true });
+        if (ok) resolved += 1;
+      }
+      target.disabled = false;
+      target.textContent = target.dataset.originalText || '全部標記不處理';
+      delete target.dataset.originalText;
+      setConflictStatus(`批次處理完成：${resolved} / ${pendingRoots.length} 個衝突。`, resolved === pendingRoots.length ? 'success' : 'error');
+      return;
+    }
+
+    const selectedBulkResolution = target.dataset.bulkSelectedResolution;
+    if (selectedBulkResolution) {
+      const selectedRoots = selectedConflictRoots();
+      if (selectedRoots.length === 0) {
+        setConflictStatus('請先選擇要批次處理的衝突。');
+        return;
+      }
+      if (!window.confirm(`確定要將 ${selectedRoots.length} 個所選衝突標記不處理？`)) return;
+      target.disabled = true;
+      target.dataset.originalText = target.textContent || '';
+      target.textContent = '批次處理中';
+      let resolved = 0;
+      for (const root of selectedRoots) {
+        if (!(root instanceof HTMLElement)) continue;
+        const conflictId = root.dataset.conflictId;
+        if (!conflictId) continue;
+        const ok = await resolveConflict(root, conflictId, selectedBulkResolution, target, { skipConfirm: true });
+        if (ok) resolved += 1;
+      }
+      target.disabled = false;
+      target.textContent = target.dataset.originalText || '標記所選不處理';
+      delete target.dataset.originalText;
+      updateConflictSelection();
+      setConflictStatus(`所選批次處理完成：${resolved} / ${selectedRoots.length} 個衝突。`, resolved === selectedRoots.length ? 'success' : 'error');
+      return;
+    }
+
+    const resolution = target.dataset.resolution;
+    if (!resolution) return;
+    const root = target.closest('[data-conflict-id]');
+    if (!(root instanceof HTMLElement)) return;
+    const conflictId = root.dataset.conflictId;
+    if (!conflictId) return;
+
+    await resolveConflict(root, conflictId, resolution, target);
+  });
+
+  conflictsRail?.addEventListener('change', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement) || !target.matches('[data-conflict-select]')) return;
+    updateConflictSelection();
+  });
+
+  updateConflictSelection();
+</script>
+
+<style>
+  .evidence-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr 260px;
+    gap: 1rem;
+    align-items: start;
+    min-height: 0;
+  }
+
+  @media (max-width: 1200px) {
+    .evidence-layout {
+      grid-template-columns: 200px 1fr 220px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .evidence-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---- Rail shared ---- */
+  .source-rail,
+  .conflicts-rail {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    box-shadow: var(--admin-shadow);
+    overflow: hidden;
+  }
+
+  .rail-header {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-bg);
+  }
+
+  .rail-header h3 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--admin-text-soft);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .rail-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.3em;
+    padding: 0 0.3em;
+    font-size: 0.78em;
+    font-weight: 700;
+    border-radius: 999px;
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .rail-subtitle {
+    margin-top: 0.2rem;
+    color: var(--admin-text-muted);
+    font-size: 0.74rem;
+  }
+
+  .rail-empty {
+    padding: 1rem 0.75rem;
+    font-size: 0.82rem;
+    color: var(--admin-text-muted);
+  }
+
+  /* ---- Source list ---- */
+  .source-list {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+
+  .domain-group {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--admin-border);
+  }
+
+  .domain-group:last-child {
+    border-bottom: none;
+  }
+
+  .domain-chip {
+    padding: 0.2rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--admin-text-soft);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .source-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.45rem 0.75rem;
+    text-decoration: none;
+    color: var(--admin-text);
+    border-left: 3px solid transparent;
+    transition: background 0.12s;
+  }
+
+  .source-row:hover {
+    background: var(--admin-surface-hover, var(--admin-muted));
+  }
+
+  .source-row.selected {
+    border-left-color: var(--admin-accent, #2563eb);
+    background: var(--admin-surface-hover, var(--admin-muted));
+  }
+
+  .source-url {
+    font-size: 0.76rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    word-break: break-all;
+    color: var(--admin-text-muted);
+  }
+
+  .source-badges {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.05rem 0.4rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    border-radius: 999px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .badge-excerpt {
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+  }
+
+  .badge-conflict {
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  /* ---- Excerpt panel ---- */
+  .excerpt-panel {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    box-shadow: var(--admin-shadow);
+    overflow: hidden;
+  }
+
+  .claim-search {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+  }
+
+  .claim-search label {
+    font-size: 0.82rem;
+    color: var(--admin-text-soft);
+  }
+
+  .claim-search input {
+    min-width: 240px;
+    flex: 1;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 0.38rem 0.6rem;
+  }
+
+  .claim-search button,
+  .claim-search a,
+  .conflict-actions button {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    min-height: 34px;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.82rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .claim-list-panel,
+  .claim-drawer {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .claim-list-panel h3 {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .claim-cards {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .claim-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.55rem;
+    align-items: center;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    text-decoration: none;
+  }
+
+  .claim-card-text {
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .confidence-score {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    border-radius: 999px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+  }
+
+  .confidence-score.low {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .confidence-score.mid {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .confidence-score.high {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .confidence-bar {
+    grid-column: 1 / -1;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--admin-muted);
+    overflow: hidden;
+  }
+
+  .confidence-bar span {
+    display: block;
+    height: 100%;
+    background: var(--admin-accent);
+  }
+
+  .uncited-tag {
+    color: #92400e;
+    font-size: 0.76rem;
+  }
+
+  .claim-drawer-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+  }
+
+  .claim-drawer-head h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.95rem;
+  }
+
+  .claim-drawer-head p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .citation-chain {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .citation-card {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 0.75rem;
+  }
+
+  .citation-meta {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--admin-text-muted);
+  }
+
+  .source-preview {
+    margin-top: 0.6rem;
+    padding: 0.65rem;
+    background: var(--admin-bg);
+    border-radius: var(--admin-radius);
+    border: 1px solid var(--admin-border);
+  }
+
+  .preview-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--admin-text-soft);
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .no-selection {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    color: var(--admin-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .excerpt-panel-header {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-bg);
+  }
+
+  .excerpt-panel-header h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .source-link {
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    word-break: break-all;
+  }
+
+  .source-link:hover {
+    text-decoration: underline;
+  }
+
+  .source-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--admin-text-muted);
+    margin-top: 0.2rem;
+  }
+
+  .domain-chip-sm {
+    padding: 0.05rem 0.4rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .excerpt-list {
+    padding: 0.75rem 1rem;
+    display: grid;
+    gap: 0.75rem;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+
+  .excerpt-card {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: calc(var(--admin-radius) - 2px);
+    background: var(--admin-bg);
+  }
+
+  .excerpt-text {
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--admin-text);
+    margin-bottom: 0.35rem;
+  }
+
+  .excerpt-context {
+    font-size: 0.76rem;
+    color: var(--admin-text-muted);
+    font-style: italic;
+    margin-bottom: 0.35rem;
+  }
+
+  .claim-list {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--admin-border);
+  }
+
+  .claim-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    flex-wrap: wrap;
+  }
+
+  .relation-badge {
+    flex-shrink: 0;
+    padding: 0.05rem 0.4rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .rel-supports {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .rel-refutes {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .rel-context {
+    background: #e0f2fe;
+    color: #075985;
+  }
+
+  .claim-text {
+    flex: 1;
+    min-width: 0;
+    color: var(--admin-text);
+    line-height: 1.4;
+  }
+
+  .source-nav-link {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    color: var(--admin-accent, #2563eb);
+    text-decoration: none;
+    padding: 0.05rem 0.3rem;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    opacity: 0.75;
+  }
+
+  .source-nav-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .confidence-badge {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--admin-text-muted);
+  }
+
+  /* ---- Conflicts panel ---- */
+  .conflict-list {
+    padding: 0.5rem;
+    display: grid;
+    gap: 0.5rem;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+
+  .conflict-toolbar {
+    display: grid;
+    gap: 0.45rem;
+    margin-top: 0.55rem;
+  }
+
+  .conflict-bulk-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .conflict-selection-count {
+    color: var(--admin-text-muted);
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+
+  .conflict-operation-preview {
+    margin: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+    padding: 0.5rem 0.6rem;
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .conflict-view-toggle {
+    display: flex;
+    width: fit-content;
+    overflow: hidden;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+  }
+
+  .conflict-view-toggle button,
+  .conflict-bulk-dismiss {
+    min-height: 2rem;
+    border: 0;
+    background: var(--admin-surface);
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .conflict-view-toggle button + button {
+    border-left: 1px solid var(--admin-border);
+  }
+
+  .conflict-view-toggle button.active {
+    background: var(--admin-accent);
+    color: #fff;
+  }
+
+  .conflict-bulk-dismiss {
+    width: fit-content;
+    border: 1px solid #fecaca;
+    border-radius: var(--admin-radius);
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+  .conflict-bulk-dismiss:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  .conflict-card {
+    padding: 0.6rem;
+    border: 1px solid var(--admin-border);
+    border-radius: calc(var(--admin-radius) - 2px);
+    background: var(--admin-bg);
+  }
+
+  .conflict-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2rem;
+    margin-bottom: 0.45rem;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+
+  .conflict-select input {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .conflict-card[data-conflict-status="approved"],
+  .conflict-card[data-conflict-status="rejected"],
+  .conflict-card[data-conflict-status="expired"] {
+    opacity: 0.82;
+  }
+
+  .conflict-claims {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.4rem;
+    align-items: start;
+    margin-bottom: 0.5rem;
+  }
+
+  .conflict-claim {
+    padding: 0.35rem 0.4rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 4px;
+  }
+
+  .conflict-claim-text {
+    font-size: 0.76rem;
+    line-height: 1.4;
+    color: var(--admin-text);
+  }
+
+  .conflict-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--admin-text-soft);
+    text-transform: uppercase;
+    padding-top: 0.35rem;
+  }
+
+  .conflict-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .conflict-actions {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.55rem;
+  }
+
+  .conflict-actions button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+
+  .conflict-resolved-note {
+    display: inline-flex;
+    margin-top: 0.55rem;
+    border: 1px solid #86efac;
+    border-radius: var(--admin-radius);
+    background: #f0fdf4;
+    color: #166534;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .conflict-action-status {
+    border-top: 1px solid var(--admin-border);
+    margin: 0;
+    padding: 0.6rem 0.75rem;
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .conflict-action-status.success {
+    color: #15803d;
+  }
+
+  .conflict-action-status.error {
+    color: #b91c1c;
+  }
+
+  .detected-by {
+    font-size: 0.68rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--admin-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 120px;
+  }
+
+  .verdict-badge {
+    flex-shrink: 0;
+    padding: 0.05rem 0.45rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 999px;
+    text-transform: capitalize;
+  }
+
+  .verdict-pending {
+    background: #fef9c3;
+    color: #713f12;
+  }
+
+  .verdict-approved {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .verdict-rejected {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .verdict-expired {
+    background: var(--admin-muted);
+    color: var(--admin-text-muted);
+  }
+</style>

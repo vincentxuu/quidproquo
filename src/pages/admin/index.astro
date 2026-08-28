@@ -1,12 +1,12 @@
 ---
 export const prerender = false;
-import AdminLayout from '../../layouts/AdminLayout.astro';
+import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
 import Icons from '../../components/Icons.astro';
 import AdminButton from '../../components/admin/AdminButton.astro';
 import AdminPanel from '../../components/admin/AdminPanel.astro';
 ---
 
-<AdminLayout title="Dashboard">
+<AdminV2Layout title="Dashboard" section="home">
   <section class="dashboard-hero">
     <div>
       <p class="hero-kicker">Operations Snapshot</p>
@@ -84,7 +84,7 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
       </div>
     </AdminPanel>
   </div>
-</AdminLayout>
+</AdminV2Layout>
 
 <script is:inline>
   function clearNode(el) {

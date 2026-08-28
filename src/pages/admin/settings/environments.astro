@@ -1,0 +1,17 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import { ensureConsoleUmbrella } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+
+
+const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
+---
+
+<AdminV2Layout title="Environments" section="settings" breadcrumb={breadcrumb}>
+  <div class="admin-panel">
+    <p class="admin-section-desc">環境設定——Runner 後端、網路規則、環境變數、Setup script。Phase 5 實作。</p>
+  </div>
+</AdminV2Layout>
