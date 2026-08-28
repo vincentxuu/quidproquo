@@ -82,3 +82,6 @@ Notes
   Status snapshots in docs/progress-archive.md; pending decisions in
   docs/governance/escalation-queue.md.
 - **Q-015（2026-08-27）**：Tavily API 額度用盡（432），daily-digest-signals 今日未產出（寧缺不湊數）；影響所有依賴 Tavily 的 daily-digest routine，待人決定升級方案或改 skill fallback。
+- **Q-017（2026-08-29）**：daily-digest-report 在 Taipei 剛過午夜（04:06）就被觸發，當天 Stage 1/2
+  完全空白（2026-08-28 前一天全套已正常完成），判斷是排程時槽先於 Stage 1/2、非工具失效；本次
+  選擇跳過不硬產出，避免冪等鎖死當天之後的正式版，待人決定排程順序或 skill fallback 規則。

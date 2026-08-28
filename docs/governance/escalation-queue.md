@@ -134,6 +134,15 @@
 - 為什麼現在不能做：三個都是外部服務的帳號/額度/network policy 問題（Tavily 加值、firecrawl 加值、CCR 環境 egress allowlist），都不是 repo 內能改的（Tier 2）；「Q-015 交白卷 vs Q-016 降級產出」該選哪個當標準做法，也需要人拍板後寫回 skill。
 - 接手第一步：(1) 確認 Tavily／firecrawl 兩個帳號的方案與是否需要人工加值或聯繫供應商（兩者都是新出現的額度問題，建議一起處理而非分開申請）；(2) 決定 daily-digest-signals（及其他依賴 Tavily/firecrawl/WebFetch 的 daily-digest routine）在「三層搜尋全滅、只剩 Exa」時的標準行為：交白卷（Q-015 先例）或降級產出（本次做法），選定後寫進 `.agents/skills/daily-digest-signals/SKILL.md`（例如加一段「多重來源失效時的降級協定」），跑 `pnpm skills:sync` + `pnpm verify`；(3) 若選降級產出，替 `daily-digest-report`（Stage 3）加上讀取 `signalCount` 是否低於 30 的檢查，避免日報組裝誤以為當天覆蓋完整。
 
+## Q-017 daily-digest-report（Stage 3）在 Stage 1/2 產出前就被觸發，today 只有昨天的資料
+
+- 登錄：2026-08-29（來源：daily-digest-report routine 執行時發現）
+- 做什麼：本次 routine 於 UTC 20:06（Taipei 2026-08-29 04:06，剛過午夜）被排程觸發，`TZ=Asia/Taipei date +%Y-%m-%d` 算出 `TODAY=2026-08-29`，但 `src/data/daily-signals/2026-08-29.json` 與所有 `src/content/posts/daily/2026-08-29-*.md`（Stage 1/2 產出）都不存在——最新的只到 2026-08-28（該日全套 Stage 1→2→3，含日報本身，已在數小時前完成並 commit）。比對過去兩天的 commit 時間發現 Stage 1/2/3 通常在同一個窗口內連續完成（例如 2026-08-27 那天全部集中在 UTC 18:15–20:09 內），但今天 Stage 3 這支獨立被觸發時，Stage 1/2 完全還沒開始，推測是各 daily-digest-* routine 各自獨立排程，沒有強制的完成依賴順序，今天剛好 Stage 3 的排程時槽先於 Stage 1/2 觸發。
+  - 依 skill 設計，signals JSON 不存在時應進入 fallback 模式（Exa/Tavily 自行掃描），但現在是「今天才剛過午夜、幾乎沒有新事件」而非「Stage 1/2 執行失敗」，硬跑 fallback 只會生出多半炒昨天冷飯的單薄報告；更嚴重的是 skill 的冪等檢查（`grep -q "draft: true" ... || exit 0`）會讓之後 Stage 1/2 真的跑完、Stage 3 排程再度觸發時直接判定「已產出」而跳過，永遠鎖死掉當天原本該有的完整版日報。
+  - 本次選擇：不產出 2026-08-29 的日報，原地跳過，等 Stage 1/2 之後自然完成再讓下一次 Stage 3 觸發正常組裝。
+- 為什麼現在不能做：各 daily-digest-* routine 的排程時間是否有依賴順序（Stage 3 是否該晚於 Stage 1/2 一段緩衝時間才觸發），是排程設定本身（Tier 2：涉及外部排程配置，不是 repo 內能單方面改的）；skill 內的 fallback 邏輯要不要加一個「距離午夜不到 N 小時、且 Stage 1/2 完全空白時直接跳過而非 fallback」的判斷，屬於改 skill 核心邏輯，也需要人拍板後才動手改 `.agents/skills/daily-digest-report/SKILL.md`。
+- 接手第一步：(1) 確認各 daily-digest-* routine 目前的排程設定（觸發時間、時區、間隔），評估要不要把 Stage 3 的排程往後移，確保穩定晚於 Stage 1/2 完成時間；(2) 若排程無法保證順序，決定是否要在 `daily-digest-report` SKILL.md 的 fallback 分支加上「太早（例如 Taipei 時間凌晨且 Stage 1/2 完全空白）就跳過，不硬用 Exa/Tavily 湊版」的規則，並同步考慮把冪等檢查改成允許重跑（例如產出時先寫 `draft: true`，等驗證覆蓋率後才收斂成 `draft: false`）。
+
 ---
 
 ## Done
