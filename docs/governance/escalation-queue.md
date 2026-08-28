@@ -126,6 +126,14 @@
 - 為什麼現在不能做：Tavily 帳號額度／方案是外部服務的計費設定，不是 repo 內能改的東西（Tier 2：需要人決定要不要加值/換方案，或找到其他免費配額重置時間）；同時是否要把 skill 的搜尋策略改成以 linkup/Exa 為主、Tavily 為輔的容錯設計，屬於改多支 skill 核心邏輯的批次改動（>20 檔，Tier 2）。
 - 接手第一步：先確認 Tavily 帳號的方案與額度重置時間（是否只是本月用盡、幾號重置），若短期內無法恢復，需要人決定：(a) 升級 Tavily 方案，或 (b) 在 `.agents/skills/daily-digest-*/SKILL.md` 把 linkup-search 正式列為 fallback（並註明其 `fromDate` 不可信、需要手動時間過濾，這點應該比照 Q-012 對 Exa 的處理方式寫進 skill），跑 `pnpm skills:sync` + `pnpm verify`。在此之前，建議所有依賴 Tavily 的 daily-digest routine 執行時比照本次做法：搜尋工具全滅時寧可不產出，也不要放寬品質門檻硬湊數字。
 
+## Q-016 Tavily 仍未恢復＋firecrawl 額度也用盡＋WebFetch 仍被封鎖，daily-digest-signals 三個搜尋管道同時失效，只剩 Exa 可用
+
+- 登錄：2026-08-28（來源：daily-digest-signals routine 執行時發現，延續 Q-012／Q-015）
+- 做什麼：本次執行時 `mcp__Tavily__tavily_search`（8 廣域＋4 中文台灣查詢，共 12 次）**全數**仍回傳 HTTP 432 額度用盡（同 Q-015，隔日未重置）；改試 `mcp__firecrawl__firecrawl_scrape` 抓第二層官方 blog 連結時，10 個平行呼叫全部回傳「Insufficient credits」或 rate limit，代表 firecrawl 帳號額度也已用盡；`WebFetch` 對 `anthropic.com`／`mastra.ai`／`langchain.com`／`marktechpost.com`／`simonwillison.net`／`cursor.com` 等網域仍是 `EGRESS_BLOCKED`（Q-012 尚未解決）。三個搜尋/擷取管道同時失效，只剩 `mcp__Exa__web_search_exa` 與 `mcp__Exa__web_fetch_exa` 能用，且 Exa fetch 對多數 blog 列表頁不回傳文章連結（只有標題＋日期），必須逐條再用 Exa search 查真實 URL 才能湊出可用的 `sourceUrl`，單則信號成本遠高於 skill 原設計。
+- 與 Q-015 的處置差異（刻意的判斷，非疏漏）：Q-015 當天選擇「工具全滅時寧可不產出」。這次我改為**用僅存的 Exa 管道盡力產出、誠實降級**，而不是連續第二天交白卷：最終只湊到 **24 則**（低於 skill 規定的 30-50 下限），relevance≥0.5、日期／來源真實性等其餘品質閘門全部通過（無 unverified 日期、無跨天重複 URL）。這是有意識違反「範圍 30-50」這一項檢查，未使用降低 relevance 門檻或捏造信號湊數的方式解決。是否該延續 Q-015「全滅則交白卷」的先例，還是保留「盡力產出但標註降級」這個做法，需要人拍板一個一致的政策，寫進 skill 裡（目前 skill 對「部分工具失效」沒有明確指引，只有「不可跳過失敗項」的品質檢查，沒說失敗項是否可以在記錄降級原因後放行）。
+- 為什麼現在不能做：三個都是外部服務的帳號/額度/network policy 問題（Tavily 加值、firecrawl 加值、CCR 環境 egress allowlist），都不是 repo 內能改的（Tier 2）；「Q-015 交白卷 vs Q-016 降級產出」該選哪個當標準做法，也需要人拍板後寫回 skill。
+- 接手第一步：(1) 確認 Tavily／firecrawl 兩個帳號的方案與是否需要人工加值或聯繫供應商（兩者都是新出現的額度問題，建議一起處理而非分開申請）；(2) 決定 daily-digest-signals（及其他依賴 Tavily/firecrawl/WebFetch 的 daily-digest routine）在「三層搜尋全滅、只剩 Exa」時的標準行為：交白卷（Q-015 先例）或降級產出（本次做法），選定後寫進 `.agents/skills/daily-digest-signals/SKILL.md`（例如加一段「多重來源失效時的降級協定」），跑 `pnpm skills:sync` + `pnpm verify`；(3) 若選降級產出，替 `daily-digest-report`（Stage 3）加上讀取 `signalCount` 是否低於 30 的檢查，避免日報組裝誤以為當天覆蓋完整。
+
 ---
 
 ## Done

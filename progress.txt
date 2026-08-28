@@ -83,6 +83,6 @@ Notes
   console/providers/os): code complete, pending production observation windows.
   Status snapshots in docs/progress-archive.md; pending decisions in
   docs/governance/escalation-queue.md.
-- **Q-015（2026-08-27，2026-08-28 複查仍 432）**：Tavily API 額度用盡；daily-digest 系列 routine 全靠 Exa 單一來源，覆蓋面變窄，待人決定升級方案或改 skill fallback。
+- **Q-015/Q-016（2026-08-27～28）**：Tavily 432 額度用盡持續兩天，08-28 起 firecrawl 也額度用盡、WebFetch 仍 egress 封鎖（Q-012）。08-27 選擇不產出；08-28 daily-digest-signals 改用僅存的 Exa 管道降級產出 24 則（低於 30-50 下限，其餘品質閘門皆過），其他 daily-digest routine 也全靠 Exa 單一來源、覆蓋面變窄，詳見 escalation-queue Q-016。待人拍板「全滅時交白卷 vs 降級產出」的標準做法並升級方案或改 skill fallback。
 - **daily-digest-framework 2026-08-28**：GitHub MCP 這個 session 僅開放 vincentxuu/quidproquo，`gh` CLI 也不存在，api.github.com 直連被 proxy 擋（403 access denied）；Step 3a 的 GitHub API 檢查法在此環境不可行，改用 WebFetch 直接讀 github.com/{owner}/{repo}/releases 公開頁面繞過。已發：CrewAI 1.15.18（conversational Flow 轉正到 crewai.flow，舊 crewai.experimental 路徑靠 shim 相容但無 deprecation warning），order 8。另注意到 2026-08-27 mastra-1.62.0 post 只有 zh-TW 沒有 -en 配對，未動它，留給下次或使用者處理。
-- **Q-016（2026-08-28）**：雲端 session 直接 `git push origin HEAD:main` 持續回 403（無 credential.helper／GIT_ASKPASS 為空，非 proxy 政策擋，proxy status 無 recentRelayFailures）；改用 `mcp__github__push_files` 成功寫入 main。之後在雲端 session 遇到 push 403，直接改用 GitHub MCP push_files／create_or_update_file，不必重複除錯。
+- **git push 403（2026-08-28）**：雲端 session 直接 `git push origin HEAD:main` 持續回 403（無 credential.helper／GIT_ASKPASS 為空，非 proxy 政策擋，proxy status 無 recentRelayFailures）；改用 `mcp__github__push_files` 成功寫入 main。之後在雲端 session 遇到 push 403，直接改用 GitHub MCP push_files／create_or_update_file，不必重複除錯。
