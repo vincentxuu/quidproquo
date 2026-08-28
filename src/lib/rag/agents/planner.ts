@@ -13,13 +13,15 @@ Response format:
   "language": "zh-TW" | "en",
   "needs_clarification": boolean,
   "subtasks": string[],
+  "search_keywords": string[],
   "specialists": ("summarizer" | "code_explainer")[]
 }
 
 Respond in the same language as the query.
 Mark "off-topic" if the question is unrelated to the blog content (e.g., weather, sports).
 Mark "recommendation" for article discovery requests such as "找文章", "推薦文章", "閱讀路線", "what should I read", or "learning path".
-Mark "needs_clarification" only if the query is genuinely ambiguous.`
+Mark "needs_clarification" only if the query is genuinely ambiguous.
+Extract 1-4 clean search keywords (stripping conversational filler) in "search_keywords".`
 
 type PlannerModelResult = Awaited<ReturnType<typeof invokeModel>>
 
@@ -98,6 +100,7 @@ function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Part
     complexity: 'medium',
     needs_clarification: false,
     subtasks: [],
+    search_keywords: [],
     specialists: [],
   }
   let language = 'zh-TW'
@@ -111,6 +114,7 @@ function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Part
       complexity: parsed.complexity ?? 'medium',
       needs_clarification: parsed.needs_clarification ?? false,
       subtasks: parsed.subtasks ?? [],
+      search_keywords: parsed.search_keywords ?? [],
       specialists: parsed.specialists ?? [],
     }
   } catch {

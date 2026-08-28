@@ -23,9 +23,30 @@ describe('buildFtsQuery', () => {
     expect(buildFtsQuery('  " -  ')).toBeNull()
   })
 
-  it('handles mixed CJK and latin tokens', () => {
-    expect(buildFtsQuery('Context Engineering 跟 Prompt Engineering 差在哪'))
-      .toBe('"Context" OR "Engineering" OR "Prompt" OR "差在哪"')
+  it('handles mixed CJK and latin tokens with 2-grams', () => {
+    const result = buildFtsQuery('Context Engineering 跟 Prompt Engineering 差在哪')
+    expect(result).toContain('"Context"')
+    expect(result).toContain('"Engineering"')
+    expect(result).toContain('"Prompt"')
+    expect(result).toContain('"差在哪"')
+    expect(result).toContain('"差在"')
+    expect(result).toContain('"在哪"')
+  })
+
+  it('handles unspaced mixed Chinese and English queries', () => {
+    const result = buildFtsQuery('我想找入門的ai課程')
+    expect(result).toContain('"ai"')
+    expect(result).toContain('"課程"')
+    expect(result).toContain('"入門"')
+    expect(result).toContain('"我想"')
+  })
+
+  it('handles long unspaced Chinese queries with 2-grams', () => {
+    const result = buildFtsQuery('推薦新手學習深度學習')
+    expect(result).toContain('"推薦"')
+    expect(result).toContain('"新手"')
+    expect(result).toContain('"學習"')
+    expect(result).toContain('"深度"')
   })
 })
 

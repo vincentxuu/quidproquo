@@ -61,7 +61,22 @@ async function searchLikePosts(
   lang?: string
 ): Promise<PostSearchRow[]> {
   const { DB } = env as unknown as Env
-  const like = `%${query}%`
+
+  // Use buildFtsQuery tokens for OR-based LIKE (not whole query)
+  const ftsQuery = buildFtsQuery(query)
+  if (!ftsQuery) return []
+
+  // ftsQuery is already "token1" OR "token2" ... extract tokens
+  const tokens = ftsQuery
+    .split(' OR ')
+    .map(t => t.slice(1, -1).replace(/""/g, '"'))
+    .filter(t => t.length >= 2)
+
+  if (tokens.length === 0) return []
+
+  const likeClauses = tokens.map(() => 'pc.content LIKE ?').join(' OR ')
+  const params = tokens.flatMap(t => [`%${t}%`])
+
   const rows = await DB.prepare(
     `SELECT
       pc.id AS chunk_id,
@@ -75,14 +90,14 @@ async function searchLikePosts(
       '[]' AS links
     FROM post_chunks pc
     JOIN posts p ON p.id = pc.post_id
-    WHERE pc.content LIKE ?
+    WHERE (${likeClauses})
       ${category ? 'AND p.category = ?' : ''}
       ${lang ? 'AND p.lang = ?' : ''}
     ORDER BY p.created_at DESC
     LIMIT ?`
   )
     .bind(
-      like,
+      ...params,
       ...(category ? [category] : []),
       ...(lang ? [lang] : []),
       Math.max(limit * 3, BM25_SHORT_CIRCUIT_THRESHOLD)
@@ -104,6 +119,56 @@ async function searchLikePosts(
     return searchLikePosts(query, limit)
   }
   return mapped
+}
+
+async function fetchPostsByMetadata(
+  matches: Array<{ id: string; score?: number; metadata?: unknown }>,
+  category?: string,
+  lang?: string
+): Promise<PostSearchRow[]> {
+  const { DB } = env as unknown as Env
+  const results: PostSearchRow[] = []
+  const seenSlugs = new Set<string>()
+
+  for (const match of matches) {
+    const meta = (match.metadata ?? {}) as Record<string, unknown>
+    const slug = String(meta.slug ?? '')
+    if (!slug || seenSlugs.has(slug)) continue
+    if (category && meta.category !== category) continue
+    if (lang && meta.lang !== lang) continue
+    seenSlugs.add(slug)
+
+    const post = await DB.prepare(
+      'SELECT title, category, lang, substr(created_at, 1, 10) AS date, description, tldr, content FROM posts WHERE slug = ?'
+    ).bind(slug).first<{
+      title: string
+      category: string
+      lang: string
+      date: string
+      description: string | null
+      tldr: string | null
+      content: string
+    }>().catch(() => null)
+
+    if (post) {
+      const excerpt = post.tldr || post.description || post.content.slice(0, 300)
+      results.push({
+        claim: post.title,
+        evidence_excerpt: excerpt,
+        source_url: `https://quidproquo.cc/posts/${slug}`,
+        chunk_id: String(meta.chunk_id ?? match.id),
+        date: post.date,
+        relevance_score: match.score ?? 0,
+        images: [],
+        links: [],
+        type: 'post',
+        slug,
+        title: post.title,
+      })
+    }
+  }
+
+  return results
 }
 
 async function fetchPostRowsByChunkIds(
@@ -160,22 +225,26 @@ async function searchVectorPosts(
 
   const results = await VECTORIZE_INDEX.query(queryVector, {
     topK: limit * 3,
+    filter: { type: { $eq: 'post' } },
     returnMetadata: 'all',
   })
 
-  const chunkIds = results.matches
-    .filter(match => {
-      const meta = (match.metadata ?? {}) as Record<string, unknown>
-      if (meta.type !== 'post') return false
-      if (category && meta.category !== category) return false
-      if (lang && meta.lang !== lang) return false
-      return true
-    })
-    .map(match => String(((match.metadata ?? {}) as Record<string, unknown>).chunk_id ?? match.id))
+  const matches = results.matches.filter(match => {
+    const meta = (match.metadata ?? {}) as Record<string, unknown>
+    if (meta.type !== 'post') return false
+    if (category && meta.category !== category) return false
+    if (lang && meta.lang !== lang) return false
+    return true
+  })
 
-  const rows = await fetchPostRowsByChunkIds(chunkIds, category, lang)
+  const chunkIds = matches.map(match => String(((match.metadata ?? {}) as Record<string, unknown>).chunk_id ?? match.id))
+
+  let rows = await fetchPostRowsByChunkIds(chunkIds, category, lang)
   if (rows.length === 0 && (category || lang)) {
-    return fetchPostRowsByChunkIds(chunkIds)
+    rows = await fetchPostRowsByChunkIds(chunkIds)
+  }
+  if (rows.length === 0 && matches.length > 0) {
+    rows = await fetchPostsByMetadata(matches, category, lang)
   }
   return rows
 }

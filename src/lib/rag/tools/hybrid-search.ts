@@ -60,18 +60,35 @@ export function buildFtsQuery(query: string): string | null {
   const normalized = query.trim().replace(/["']/g, ' ')
   if (!normalized) return null
 
+  // 1) 先按空白/標點切大 token
   const rawTokens = normalized.match(/[\p{L}\p{N}][\p{L}\p{N}-]*/gu) ?? []
-  const tokens = Array.from(new Set(rawTokens.map(token => token.trim()).filter(token => token.length >= 2)))
-  if (tokens.length === 0) return null
+  const baseTokens = Array.from(new Set(rawTokens.map(token => token.trim()).filter(token => token.length >= 2)))
 
-  const expanded = new Set<string>(tokens)
-  for (const token of tokens) {
-    if (/^[\p{Script=Han}]+$/u.test(token) && token.length === 2) {
-      for (const ch of token) {
-        expanded.add(ch)
+  // 2) 再對每個 token，若混合 script（漢字+拉丁/數字）則按 script 邊界拆分
+  const expanded = new Set<string>()
+  for (const token of baseTokens) {
+    // 按 script 邊界拆分：漢字連續段 vs 非漢字連續段（拉丁/數字/其他）
+    const parts = token.match(/[\p{Script=Han}]+|[^\p{Script=Han}]+/gu) ?? [token]
+    for (const part of parts) {
+      const trimmed = part.trim()
+      if (trimmed.length < 2) continue
+      expanded.add(trimmed)
+
+      // 若是漢字連續段，產生 2-gram 滑窗與短詞拆解，支援長句召回
+      if (/^[\p{Script=Han}]+$/u.test(trimmed)) {
+        for (let i = 0; i < trimmed.length - 1; i++) {
+          expanded.add(trimmed.slice(i, i + 2))
+        }
+        if (trimmed.length <= 3) {
+          for (const ch of trimmed) {
+            expanded.add(ch)
+          }
+        }
       }
     }
   }
+
+  if (expanded.size === 0) return null
 
   return [...expanded]
     .map(token => `"${token.replace(/"/g, '""')}"`)

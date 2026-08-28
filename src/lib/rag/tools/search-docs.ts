@@ -31,7 +31,20 @@ async function searchLikeDocs(
   sourceName?: string
 ): Promise<DocSearchRow[]> {
   const { DB } = env as unknown as Env
-  const like = `%${query}%`
+
+  const ftsQuery = buildFtsQuery(query)
+  if (!ftsQuery) return []
+
+  const tokens = ftsQuery
+    .split(' OR ')
+    .map(t => t.slice(1, -1).replace(/""/g, '"'))
+    .filter(t => t.length >= 2)
+
+  if (tokens.length === 0) return []
+
+  const likeClauses = tokens.map(() => 'dc.content LIKE ?').join(' OR ')
+  const params = tokens.flatMap(t => [`%${t}%`])
+
   const rows = await DB.prepare(
     `SELECT
       dc.id AS chunk_id,
@@ -42,12 +55,12 @@ async function searchLikeDocs(
       '[]' AS images,
       '[]' AS links
     FROM doc_chunks dc
-    WHERE dc.content LIKE ?
+    WHERE (${likeClauses})
       ${sourceName ? 'AND dc.source_name = ?' : ''}
     ORDER BY dc.chunk_index ASC
     LIMIT ?`
   )
-    .bind(like, ...(sourceName ? [sourceName] : []), Math.max(limit * 3, BM25_SHORT_CIRCUIT_THRESHOLD))
+    .bind(...params, ...(sourceName ? [sourceName] : []), Math.max(limit * 3, BM25_SHORT_CIRCUIT_THRESHOLD))
     .all<{
       chunk_id: string
       content: string
@@ -127,17 +140,18 @@ async function searchVectorDocs(query: string, limit: number, sourceName?: strin
 
   const results = await VECTORIZE_INDEX.query(queryVector, {
     topK: limit * 3,
+    filter: { type: { $in: ['doc', 'custom'] } },
     returnMetadata: 'all',
   })
 
-  const chunkIds = results.matches
-    .filter(match => {
-      const meta = (match.metadata ?? {}) as Record<string, unknown>
-      if (meta.type !== 'doc' && meta.type !== 'custom') return false
-      if (sourceName && meta.source_name !== sourceName) return false
-      return true
-    })
-    .map(match => String(((match.metadata ?? {}) as Record<string, unknown>).chunk_id ?? match.id))
+  const matches = results.matches.filter(match => {
+    const meta = (match.metadata ?? {}) as Record<string, unknown>
+    if (meta.type !== 'doc' && meta.type !== 'custom') return false
+    if (sourceName && meta.source_name !== sourceName) return false
+    return true
+  })
+
+  const chunkIds = matches.map(match => String(((match.metadata ?? {}) as Record<string, unknown>).chunk_id ?? match.id))
 
   const rows = await fetchDocRowsByChunkIds(chunkIds, sourceName)
   if (rows.length === 0 && sourceName) {

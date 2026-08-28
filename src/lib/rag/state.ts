@@ -74,6 +74,7 @@ export interface Plan {
   complexity: 'simple' | 'medium' | 'complex'
   needs_clarification: boolean
   subtasks: string[]
+  search_keywords?: string[]
   specialists: string[]
 }
 
@@ -166,7 +167,7 @@ export function initialState(): GraphState {
   searchToolMaxResults: 4,
   searchToolTimeoutMs: 8000,
   },
-    plan: { intent: 'factual', complexity: 'medium', needs_clarification: false, subtasks: [], specialists: [] },
+    plan: { intent: 'factual', complexity: 'medium', needs_clarification: false, subtasks: [], search_keywords: [], specialists: [] },
     needs_web_search: false,
     search_results: [],
     retrieval_metrics: [],

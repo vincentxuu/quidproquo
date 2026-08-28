@@ -160,6 +160,13 @@ async function runResearch(
 
   const searchQueries = [baseQuery]
 
+  if (state.plan.search_keywords && state.plan.search_keywords.length > 0) {
+    const keywordQuery = state.plan.search_keywords.join(' ').trim()
+    if (keywordQuery && keywordQuery !== baseQuery) {
+      searchQueries.push(keywordQuery)
+    }
+  }
+
   // A retry must change retrieval behavior. Repeating the same BM25
   // short-circuit after a weak or rejected answer only reproduces the same
   // context. Include the critic's missing coverage as a deterministic rewrite
