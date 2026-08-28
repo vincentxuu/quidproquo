@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-27",
+  "date": "2026-08-28",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -8,9 +8,9 @@
     { "rank": 5, "model": "Atlassian Rovo Dev", "org": "Atlassian", "score": 76.80 }
   ],
   "lmsys_agent_top3": [
-    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.73, "ci": "±1.63%" },
-    { "rank": 2, "model": "Claude Opus 5 (Max)", "score": 12.41, "ci": "±1.91%" },
-    { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.62, "ci": "±1.63%" }
+    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.99, "ci": "±1.71%" },
+    { "rank": 2, "model": "Claude Opus 5 (Max)", "score": 12.73, "ci": "±1.96%" },
+    { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.70, "ci": "±1.62%" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59 },
@@ -18,10 +18,10 @@
     { "rank": 1, "model": "Grok 4.6 (high)", "org": "xAI", "score": 59 }
   ],
   "cursorbench_top3": [
-    { "rank": 1, "model": "Grok 4.6", "org": "xAI", "score": 70.8, "note": "Extra High config；Cursor 官方 cursor.com/cursorbench CursorBench 3.2" },
+    { "rank": 1, "model": "Grok 4.6", "org": "xAI", "score": 70.8, "note": "Extra High config；Cursor 官方 cursor.com/cursorbench CursorBench 3.2，經 benchlm.ai 鏡像頁交叉確認" },
     { "rank": 2, "model": "Claude Fable 5", "org": "Anthropic", "score": 70.5, "note": "Max config" },
     { "rank": 3, "model": "Claude Opus 5", "org": "Anthropic", "score": 70.0, "note": "Max config" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-27：swebench.com 首頁／verified 頁仍為 SPA，無法直接抓到排行表格靜態內容（沿用先前結論，且今日 www.swebench.com 抓取結果本身也只回傳導覽文字、無表格）。LMArena Agent Arena（lmarena.ai/leaderboard/agent 官方頁，經 Exa web_fetch_exa 取得，頁面仍標示快照日 Aug 24, 2026，未刷新）前 3 名順序與分數與昨日快照逐位相同（Claude Opus 5 High 12.73% → Opus 5 Max 12.41% → Fable 5 High 11.62%），零變動。CursorBench（透過 benchlm.ai 鏡像頁交叉確認，來源仍標示 cursor.com/cursorbench，Data verified Aug 25, 2026，同樣未刷新）前 3 名（Grok 4.6 70.8% → Fable 5 70.5% → Opus 5 70.0%）與昨日快照逐位數字完全一致，無異動。AA Agentic Index（artificialanalysis.ai/models/capabilities/agentic 官方頁文字敘述，經 Exa 搜尋結果直接引用確認）前 3 名維持 Claude Opus 5 (Max Effort) / GLM-5.3 (max) / Grok 4.6 (high) 並列 59 分，與昨日快照一致；同時發現 benchlm.ai 對同一 benchmark 的鏡像頁給出不同分數（Opus 5 59.2%／GLM-5.3 59.1%／Grok 4.6 58.7%，非整數且與官方頁「59 分打平」的敘述不符），判斷為第三方鏡像頁換算/抓取誤差，仍以官方頁文字為準、不採信。SWE-bench Verified 官方頁本次同樣無法靜態抓取；firecrawl 今日全面回傳「Insufficient credits」（帳戶額度用盡，非個別頁面問題），改以 Exa web_fetch_exa／web_search_exa 補位，但 morphllm.com/leaderboard 仍 CRAWL_LIVECRAWL_TIMEOUT、vals.ai/benchmarks/swe_bench_verified 直接讀到內容——其首名 Claude Opus 5 97.00%、次名 DeepSeek V4 Pro 0813 96.40%、Kimi K3 93.40% 與先前已確認的舊資料完全吻合，非新變動。另外找到 anotherwrapper.com 與 benchlm.ai 兩個聚合站，分數彼此矛盾（anotherwrapper 給 DeepSeek-V4-Pro-0813 96.4% 第一、Opus 5 96% 第二；benchlm.ai 給 Opus 5 96% 第一，且其 Aug 21 與 Aug 25 兩個快照數字完全相同、明顯未刷新）——沿用先前判斷：這類第三方聚合站彼此不一致且更新周期可疑，不採信，SWE-bench Verified 官方排行今日視為無法確認異動。MorphLLM 官方無獨立「leaderboard」頁，只有部落格式排行文章（best-ai-coding-agents-2026、swe-bench-pro 等），今日搜尋到的文章日期分別為 8/2、8/10、8/24（既有 v2.1/Pro 對照文），無新發布日期，判斷無新排行變動。今日無 Benchmark 異動，未產出文章。Tavily search 今日仍為 432（額度上限）錯誤、firecrawl 今日為額度用盡錯誤，全程改用 Exa 搜尋與 web_fetch_exa 補位，未實質影響覆蓋範圍，但可信來源較昨日更受限。"
+  "notes": "2026-08-28：LMArena Agent Arena（lmarena.ai/leaderboard/agent 官方頁，Exa web_fetch_exa 直接取得，本次快照日已刷新為 Aug 26, 2026，非前次的 Aug 24 停滯頁）前 3 名順序與模型完全不變（Opus 5 High → Opus 5 Max → Fable 5 High），分數 12.73%→12.99%／12.41%→12.73%／11.62%→11.70%，變動幅度均在 0.3 個百分點內、且在各自信賴區間（±1.6~2.0%）內，判定為雜訊而非真實排名變動。AA Agentic Index（artificialanalysis.ai 官方頁 FAQ 文字，經 Exa web_fetch_exa 確認）前 3 名維持 Claude Opus 5 (Adaptive Reasoning, Max Effort) / GLM-5.3 (max) / Grok 4.6 (high) 三方並列 59 分，與昨日快照完全一致，無變動。CursorBench（透過 benchlm.ai 鏡像頁，Data verified Aug 27, 2026）前 3 名（Grok 4.6 70.8% → Fable 5 70.5% → Opus 5 70.0%）與昨日快照逐位數字完全一致，無異動。SWE-bench Verified 官方頁（www.swebench.com）本次確認為純前端 SPA：首頁與 viewer.html 的靜態 HTML 皆不含實際排行榜數字（模型下拉選單有列表，但分數需前端 JS 抓 API 才會渲染），Exa web_fetch_exa 直接讀取仍只拿到導覽文字，這與過去數日的結論一致，非今日新問題。今日改查 vals.ai/benchmarks/swe_bench_verified 鏡像頁，本次回傳 CRAWL_NOT_FOUND（前次可讀取），另查到 benchlm.ai/benchmarks/swe-bench-verified（Aug 27, 2026 更新）列 Claude Opus 5 96%／Claude Mythos 5 95.5%／Claude Fable 5 95%——但這是「LM-only, mini-swe-agent bash-only」榜單，與本快照 swebench_verified_top5 欄位追蹤的「Full leaderboard（含 scaffold/agent 系統，如 live-SWE-agent、TRAE、Atlassian Rovo Dev）」是不同榜單、不可比對，故 swebench_verified_top5 欄位沿用前值，判定為無法確認異動，不覆蓋。今日搜尋另外發現 DeepSWE、Terminal-Bench 2.0/2.1、FrontierCode 1.1、OpenHands Index 等 benchmark 的 BenchLM 鏡像頁，皆為本快照過去未追蹤的新榜單、無歷史基線可比對排名變動，依 skill「事件驅動偵測既有排名變化」定位不當作本日新增追蹤項目寫入，僅記錄於此供未來評估是否要擴充追蹤清單。今日 Tavily 搜尋仍回傳 432（帳戶用量上限）、firecrawl_scrape 仍回傳 Insufficient credits（swebench.com、lmarena.ai 兩次嘗試皆失敗），與 2026-08-27（Q-015 已登錄升級佇列）狀況相同，全程改用 Exa web_search_exa／web_fetch_exa 補位，未再重複登錄升級佇列。今日無 Benchmark 異動，未產出文章。"
 }
