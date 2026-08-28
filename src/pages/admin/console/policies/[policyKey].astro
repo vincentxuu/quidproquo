@@ -3,8 +3,8 @@ import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import PolicyAssignmentList from '@/components/admin/console/PolicyAssignmentList.astro';
 import { FlowAssignIsland } from '@/components/admin/console/FlowAssignModal';
-import { fetchPolicyDetail } from '@/lib/agent-console/management';
-import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
+import { fetchPolicyDetail } from '@/lib/console/management';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/console/admin/i18n';
 import { ensureConsoleUmbrella } from '../_guard';
 
 export const prerender = false;

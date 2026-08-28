@@ -1,5 +1,5 @@
 import type { Node, Edge } from '@xyflow/react'
-import type { FlowStep } from '@/lib/agent-flow/dsl/ast'
+import type { FlowStep } from '@/lib/flow/dsl/ast'
 
 export interface BuilderNodeData extends Record<string, unknown> {
   stepId: string

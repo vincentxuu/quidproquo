@@ -1,9 +1,9 @@
 import { createReactAgent } from '@langchain/langgraph/prebuilt'
 import { searchBlogPostsTool, searchDocsTool } from '../tools/langchain-tools'
 import { getPostDetail } from '../tools/get-post-detail'
-import type { GraphState, SearchResult } from '../../rag/state'
+import type { GraphState, SearchResult } from '../../retrieval/state'
 import { HumanMessage } from '@langchain/core/messages'
-import { createResilientModel, type ProviderApiKeys } from '../../rag/model'
+import { createResilientModel, type ProviderApiKeys } from '../../retrieval/model'
 
 const SYSTEM_PROMPT = `You are a research agent for a personal blog. Your job is to find relevant content.
 

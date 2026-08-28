@@ -2,8 +2,8 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { PipelineRunError, runPipeline } from '../../../../lib/pipelines/runner'
-import { translatePipelineToFlowInput } from '../../../../lib/pipelines/redirector'
+import { PipelineRunError, runPipeline } from '../../../../lib/pipeline/runner'
+import { translatePipelineToFlowInput } from '../../../../lib/pipeline/redirector'
 import type { Env } from '@/lib/config/env'
 import { json, unauthorized, badRequest } from '@/lib/api/response'
 import { getRequestSource } from '@/lib/auth/scheduled-auth'

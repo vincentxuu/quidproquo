@@ -6,8 +6,8 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 import { ensureAgentFlowEnabled } from '../../_guard'
-import { validatePresetOverrides } from '@/lib/agent-flow/runtime/preset-validator'
-import type { FlowPresetOverrides } from '@/lib/agent-flow/dsl/ast'
+import { validatePresetOverrides } from '@/lib/flow/runtime/preset-validator'
+import type { FlowPresetOverrides } from '@/lib/flow/dsl/ast'
 import { nowMs } from '@/lib/utils/dates'
 
 interface FlowPresetRow {

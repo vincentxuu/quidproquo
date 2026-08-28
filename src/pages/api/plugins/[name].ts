@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
-import { createPluginsManager } from '@/lib/agent-skills'
+import { createPluginsManager } from '@/lib/extensions'
 
 export const GET: APIRoute = async ({ params, cookies }) => {
   const auth = await requireAdmin(cookies)

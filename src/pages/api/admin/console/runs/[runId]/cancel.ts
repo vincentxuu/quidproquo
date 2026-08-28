@@ -6,8 +6,8 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json, notFound } from '@/lib/api/response'
 import { nowMs } from '@/lib/utils/dates'
-import { cancelFlow } from '@/lib/agent-flow/runtime/cancel'
-import { auditLog, PermissionDenied, requirePermission } from '@/lib/agent-console/rbac/permissions'
+import { cancelFlow } from '@/lib/flow/runtime/cancel'
+import { auditLog, PermissionDenied, requirePermission } from '@/lib/console/rbac/permissions'
 import { readFlags } from '@/lib/config/flags'
 
 function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {

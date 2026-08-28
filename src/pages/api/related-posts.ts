@@ -3,8 +3,8 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
-import { embedDocuments } from '@/lib/rag/embedding'
-import { buildContextualChunk } from '@/lib/embed/contextual'
+import { embedDocuments } from '@/lib/retrieval/embedding'
+import { buildContextualChunk } from '@/lib/indexing/contextual'
 
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url)

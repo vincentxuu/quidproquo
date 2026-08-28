@@ -6,8 +6,8 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest, notFound } from '@/lib/api/response'
 import { ensureAgentArtifactEnabled } from '../_guard'
-import { createBackends } from '@/lib/agent-artifact/storage'
-import { auditLog } from '@/lib/agent-console/rbac/permissions'
+import { createBackends } from '@/lib/artifact/storage'
+import { auditLog } from '@/lib/console/rbac/permissions'
 
 const VERSION_STATUSES = new Set(['draft', 'approved', 'rejected', 'published'])
 const SECTION_STATUSES = new Set(['draft', 'approved', 'rejected'])

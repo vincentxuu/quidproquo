@@ -3,9 +3,9 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest } from '@/lib/api/response'
-import { loadFlow } from '@/lib/agent-flow/dsl/load'
-import { tryValidateFlowSchema, detectEdgeCycles } from '@/lib/agent-flow/dsl/validate'
-import type { FlowEdge } from '@/lib/agent-flow/dsl/ast'
+import { loadFlow } from '@/lib/flow/dsl/load'
+import { tryValidateFlowSchema, detectEdgeCycles } from '@/lib/flow/dsl/validate'
+import type { FlowEdge } from '@/lib/flow/dsl/ast'
 
 export const POST: APIRoute = async ({ cookies, request }) => {
   const auth = await requireAdmin(cookies)

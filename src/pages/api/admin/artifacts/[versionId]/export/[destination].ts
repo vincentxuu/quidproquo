@@ -5,16 +5,16 @@ import { env } from 'cloudflare:workers'
 import { json, badRequest, notFound } from '@/lib/api/response'
 import { requireAdmin } from '@/lib/auth/admin'
 import type { Env } from '@/lib/config/env'
-import { createArtifact } from '@/lib/agent-artifact'
-import { createBackends } from '@/lib/agent-artifact/storage'
+import { createArtifact } from '@/lib/artifact'
+import { createBackends } from '@/lib/artifact/storage'
 import {
   ArtifactExporterDenied,
   ArtifactExporterNotFound,
   ArtifactValidationError,
   ArtifactVersionNotFound,
-} from '@/lib/agent-artifact/errors'
+} from '@/lib/artifact/errors'
 import { ensureAgentArtifactEnabled } from '../../_guard'
-import { auditLog, PermissionDenied, requirePermission } from '@/lib/agent-console/rbac/permissions'
+import { auditLog, PermissionDenied, requirePermission } from '@/lib/console/rbac/permissions'
 import { readFlags } from '@/lib/config/flags'
 
 interface ExportBody {

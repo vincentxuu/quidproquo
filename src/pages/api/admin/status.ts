@@ -5,7 +5,7 @@ import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
-import { ACTIVE_EMBEDDING_PROVIDER } from '@/lib/rag/embedding'
+import { ACTIVE_EMBEDDING_PROVIDER } from '@/lib/retrieval/embedding'
 
 interface StatusItem {
   name: string

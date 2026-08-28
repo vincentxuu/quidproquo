@@ -6,16 +6,16 @@ import {
   getJob,
   getJobArtifact,
   updateArtifactContent,
-} from '../../../../lib/pipelines/job-store'
-import { updateJobStatus } from '../../../../lib/pipelines/job-store'
-import { runPipeline } from '../../../../lib/pipelines/runner'
-import { getPipelineDefinition } from '../../../../lib/pipelines/registry'
-import type { PipelineRunRequest } from '../../../../lib/pipelines/types'
+} from '../../../../lib/pipeline/job-store'
+import { updateJobStatus } from '../../../../lib/pipeline/job-store'
+import { runPipeline } from '../../../../lib/pipeline/runner'
+import { getPipelineDefinition } from '../../../../lib/pipeline/registry'
+import type { PipelineRunRequest } from '../../../../lib/pipeline/types'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 
-function mapFlowRunStatus(status: string): import('../../../../lib/pipelines/types').PipelineStatus {
+function mapFlowRunStatus(status: string): import('../../../../lib/pipeline/types').PipelineStatus {
   if (status === 'done') return 'succeeded'
   if (
     status === 'queued' ||
@@ -23,7 +23,7 @@ function mapFlowRunStatus(status: string): import('../../../../lib/pipelines/typ
     status === 'failed' ||
     status === 'cancelled'
   ) {
-    return status as import('../../../../lib/pipelines/types').PipelineStatus
+    return status as import('../../../../lib/pipeline/types').PipelineStatus
   }
   return 'queued'
 }

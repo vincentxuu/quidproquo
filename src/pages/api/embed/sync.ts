@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
-import { runEmbedPipeline } from '../../../lib/embed/pipeline'
+import { runEmbedPipeline } from '../../../lib/indexing/pipeline'
 import { verifySession } from '../../../lib/auth/session'
-import { EMBED_BATCH_SIZE } from '../../../lib/rag/tools/hybrid-search'
+import { EMBED_BATCH_SIZE } from '../../../lib/retrieval/tools/hybrid-search'
 
 export const POST: APIRoute = async ({ request, cookies }) => {
   const session = cookies.get('session')?.value

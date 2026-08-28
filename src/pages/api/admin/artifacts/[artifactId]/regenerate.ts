@@ -5,9 +5,9 @@ import { env } from 'cloudflare:workers'
 import { json, badRequest, notFound } from '@/lib/api/response'
 import { requireAdmin } from '@/lib/auth/admin'
 import type { Env } from '@/lib/config/env'
-import { createArtifact } from '@/lib/agent-artifact'
-import { createBackends } from '@/lib/agent-artifact/storage'
-import { ArtifactRegenerationFailed, ArtifactVersionNotFound } from '@/lib/agent-artifact/errors'
+import { createArtifact } from '@/lib/artifact'
+import { createBackends } from '@/lib/artifact/storage'
+import { ArtifactRegenerationFailed, ArtifactVersionNotFound } from '@/lib/artifact/errors'
 import { ensureAgentArtifactEnabled } from '../_guard'
 
 interface RegenerateBody {

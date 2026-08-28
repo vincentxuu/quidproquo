@@ -3,9 +3,9 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { createModel } from '../../../lib/rag/model'
-import type { RagRuntimeConfig } from '../../../lib/rag/state'
-import { SUPPORTED_PROVIDERS } from '../../../lib/rag/providers'
+import { createModel } from '../../../lib/retrieval/model'
+import type { RagRuntimeConfig } from '../../../lib/retrieval/state'
+import { SUPPORTED_PROVIDERS } from '../../../lib/retrieval/providers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { CATALOG_KEY } from '@/lib/config/settings-keys'
@@ -16,7 +16,7 @@ import {
   PROVIDER_KEY_PREFIX,
   PROVIDER_SECRET_FIELDS,
   resolveProviderApiKeys,
-} from '../../../lib/rag/provider-key-store'
+} from '../../../lib/retrieval/provider-key-store'
 import { json } from '@/lib/api/response'
 import { deleteSetting, getSetting, setSetting } from '@/lib/db/settings-store'
 

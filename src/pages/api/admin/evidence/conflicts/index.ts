@@ -6,7 +6,7 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest } from '@/lib/api/response'
 import { ensureAgentEvidenceEnabled } from '../_guard'
-import { D1ConflictStoreBackend } from '@/lib/agent-evidence/storage/d1/conflict-store'
+import { D1ConflictStoreBackend } from '@/lib/evidence/storage/d1/conflict-store'
 
 const VALID_STATUSES = ['pending', 'approved', 'rejected', 'expired'] as const
 type ConflictStatus = (typeof VALID_STATUSES)[number]

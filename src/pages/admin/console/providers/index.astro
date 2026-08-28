@@ -2,7 +2,7 @@
 export const prerender = false;
 import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import ProviderManagement from '@/components/admin/ProviderManagement.astro';
-import { createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
+import { createConsoleTranslator, getConsoleLang } from '@/lib/console/admin/i18n';
 import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();

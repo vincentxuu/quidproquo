@@ -12,8 +12,8 @@ import {
 } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 
-import { dagToYaml, type FlowMeta } from '@/lib/agent-flow/dsl/dag-to-yaml'
-import type { FlowStep } from '@/lib/agent-flow/dsl/ast'
+import { dagToYaml, type FlowMeta } from '@/lib/flow/dsl/dag-to-yaml'
+import type { FlowStep } from '@/lib/flow/dsl/ast'
 import type { BuilderNode, BuilderEdge } from './types'
 import { StepNode } from './StepNode'
 import { NodePalette } from './NodePalette'

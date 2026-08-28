@@ -1,1 +1,1 @@
-export * from '../../tools/definitions/get-post-detail'
+export * from '../../tool-registry/definitions/get-post-detail'

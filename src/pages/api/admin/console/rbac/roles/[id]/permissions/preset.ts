@@ -5,10 +5,10 @@ import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { readFlags } from '@/lib/config/flags'
-import { auditLog } from '@/lib/agent-console/rbac/permissions'
-import { redirectWithNotice } from '@/lib/admin-console/rbac/redirect'
-import { requireRbacMutationPermission } from '@/lib/admin-console/rbac/guard'
-import { PERMISSION_PRESETS_BY_ID } from '@/lib/admin-console/rbac/presets'
+import { auditLog } from '@/lib/console/rbac/permissions'
+import { redirectWithNotice } from '@/lib/console/admin/rbac/redirect'
+import { requireRbacMutationPermission } from '@/lib/console/admin/rbac/guard'
+import { PERMISSION_PRESETS_BY_ID } from '@/lib/console/admin/rbac/presets'
 
 function rbacDisabled(typedEnv: Env): boolean {
   const flags = readFlags(typedEnv)

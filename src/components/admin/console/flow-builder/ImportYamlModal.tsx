@@ -29,7 +29,7 @@ export function ImportYamlModal({ onImport, onClose }: ImportYamlModalProps) {
         setErrors(data.errors ?? [{ path: '(unknown)', message: '驗證失敗' }])
         return
       }
-      const { yamlToDag } = await import('@/lib/agent-flow/dsl/yaml-to-dag')
+      const { yamlToDag } = await import('@/lib/flow/dsl/yaml-to-dag')
       const dag = yamlToDag(yaml)
       onImport(dag.nodes as BuilderNode[], dag.edges as BuilderEdge[])
       onClose()

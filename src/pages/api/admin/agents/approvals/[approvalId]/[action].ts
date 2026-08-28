@@ -5,9 +5,9 @@ import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json, notFound } from '@/lib/api/response'
-import { createKernel } from '@/lib/agent-os/kernel'
+import { createKernel } from '@/lib/agent/kernel'
 import { ensureAgentOsEnabled } from '../../_guard'
-import { requirePermission, auditLog, PermissionDenied } from '@/lib/agent-console/rbac/permissions'
+import { requirePermission, auditLog, PermissionDenied } from '@/lib/console/rbac/permissions'
 import { readFlags } from '@/lib/config/flags'
 
 export const POST: APIRoute = async ({ cookies, params, locals }) => {

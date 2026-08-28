@@ -103,7 +103,7 @@ async function callLlm(
     usage?: unknown
   }
   const raw = data.choices?.[0]?.message?.content ?? ''
-  const { normalizeAnswerLanguage } = await import('../lib/rag/language')
+  const { normalizeAnswerLanguage } = await import('../lib/retrieval/language')
   return {
     content: normalizeAnswerLanguage(raw, 'zh-TW'),
     model: data.model,

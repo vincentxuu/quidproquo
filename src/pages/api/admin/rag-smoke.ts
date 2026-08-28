@@ -1,9 +1,9 @@
 export const prerender = false
 
 import type { APIRoute } from 'astro'
-import { runChatSmoke, type RagPipelineEngine } from '../../../lib/rag/admin-eval'
-import { initialState } from '../../../lib/rag/state'
-import { resolveRagEngine } from '../../../lib/chat/engines/registry'
+import { runChatSmoke, type RagPipelineEngine } from '../../../lib/retrieval/admin-eval'
+import { initialState } from '../../../lib/retrieval/state'
+import { resolveRagEngine } from '../../../lib/conversation/engines/registry'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 

@@ -5,10 +5,10 @@ import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest } from '@/lib/api/response'
-import { loadFlow } from '@/lib/agent-flow/dsl/load'
-import { tryValidateFlowSchema, detectEdgeCycles } from '@/lib/agent-flow/dsl/validate'
+import { loadFlow } from '@/lib/flow/dsl/load'
+import { tryValidateFlowSchema, detectEdgeCycles } from '@/lib/flow/dsl/validate'
 import { nowMs } from '@/lib/utils/dates'
-import type { FlowEdge } from '@/lib/agent-flow/dsl/ast'
+import type { FlowEdge } from '@/lib/flow/dsl/ast'
 
 interface FlowDefinitionRow {
   id: string

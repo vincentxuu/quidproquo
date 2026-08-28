@@ -2,12 +2,12 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import { searchBlogPosts } from '../../lib/rag/tools/search-posts'
-import { searchDocs } from '../../lib/rag/tools/search-docs'
-import { getSearchMetrics } from '../../lib/rag/tools/hybrid-search'
-import type { SearchMetrics } from '../../lib/rag/tools/hybrid-search'
+import { searchBlogPosts } from '../../lib/retrieval/tools/search-posts'
+import { searchDocs } from '../../lib/retrieval/tools/search-docs'
+import { getSearchMetrics } from '../../lib/retrieval/tools/hybrid-search'
+import type { SearchMetrics } from '../../lib/retrieval/tools/hybrid-search'
 import { checkAndIncrementRateLimit } from '../../lib/auth/rate-limit'
-import { dedupeSearchResultsByUrl, formatSearchExcerpt } from '../../lib/rag/search-result-format'
+import { dedupeSearchResultsByUrl, formatSearchExcerpt } from '../../lib/retrieval/search-result-format'
 import type { Env } from '@/lib/config/env'
 import { json } from '@/lib/api/response'
 

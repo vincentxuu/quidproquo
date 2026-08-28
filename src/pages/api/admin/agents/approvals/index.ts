@@ -5,9 +5,9 @@ import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
-import { createBackends } from '@/lib/agent-os/storage'
+import { createBackends } from '@/lib/agent/storage'
 import { ensureAgentOsEnabled } from '../_guard'
-import type { ApprovalStatus } from '@/lib/agent-os/storage/types'
+import type { ApprovalStatus } from '@/lib/agent/storage/types'
 
 export const GET: APIRoute = async ({ cookies, url }) => {
   const auth = await requireAdmin(cookies)

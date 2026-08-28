@@ -4,9 +4,9 @@ import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import { FlowBuilder } from '@/components/admin/console/flow-builder/FlowBuilder';
 import { getEnv } from '@/lib/config/env';
-import { loadFlowDetail } from '@/lib/agent-console/flow-detail';
-import { flowDefinitionToDag } from '@/lib/agent-flow/dsl/yaml-to-dag';
-import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
+import { loadFlowDetail } from '@/lib/console/flow-detail';
+import { flowDefinitionToDag } from '@/lib/flow/dsl/yaml-to-dag';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/console/admin/i18n';
 import { ensureConsoleUmbrella } from '../../_guard';
 
 const gate = ensureConsoleUmbrella();

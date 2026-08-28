@@ -5,9 +5,9 @@ import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { readFlags } from '@/lib/config/flags'
-import { auditLog } from '@/lib/agent-console/rbac/permissions'
-import { redirectWithNotice } from '@/lib/admin-console/rbac/redirect'
-import { requireRbacMutationPermission } from '@/lib/admin-console/rbac/guard'
+import { auditLog } from '@/lib/console/rbac/permissions'
+import { redirectWithNotice } from '@/lib/console/admin/rbac/redirect'
+import { requireRbacMutationPermission } from '@/lib/console/admin/rbac/guard'
 
 const VALID_KINDS = new Set(['flow', 'policy', 'provider', 'run', 'approval', 'artifact', 'cost', 'rbac'])
 const VALID_ACTIONS = new Set(['view', 'invoke', 'edit', 'delete', 'approve', 'reject', 'cancel', 'export'])

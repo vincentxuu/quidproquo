@@ -5,8 +5,8 @@ import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
-import { createBackends } from '@/lib/agent-os/storage';
-import { columnExpr, getTableColumns } from '@/lib/admin-console/schema';
+import { createBackends } from '@/lib/agent/storage';
+import { columnExpr, getTableColumns } from '@/lib/console/admin/schema';
 import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();

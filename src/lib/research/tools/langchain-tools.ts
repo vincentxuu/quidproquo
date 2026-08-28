@@ -1,7 +1,7 @@
 import { DynamicStructuredTool } from '@langchain/core/tools'
 import { z } from 'zod'
-import { searchBlogPosts } from '../../rag/tools/search-posts'
-import { searchDocs } from '../../rag/tools/search-docs'
+import { searchBlogPosts } from '../../retrieval/tools/search-posts'
+import { searchDocs } from '../../retrieval/tools/search-docs'
 
 export const searchBlogPostsTool = new DynamicStructuredTool({
   name: 'search_blog_posts',

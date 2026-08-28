@@ -2,8 +2,8 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
-import type { PipelineJobRow } from '../../../../lib/pipelines/job-store'
-import type { PipelineStatus } from '../../../../lib/pipelines/types'
+import type { PipelineJobRow } from '../../../../lib/pipeline/job-store'
+import type { PipelineStatus } from '../../../../lib/pipeline/types'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'

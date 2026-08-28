@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { createModel } from '../../../lib/rag/model'
+import { createModel } from '../../../lib/retrieval/model'
 import { findDefaultGlossaryEntry, type GlossaryEntry, type GlossaryLink } from '../../../lib/glossary/terms'
 import { json } from '@/lib/api/response'
 

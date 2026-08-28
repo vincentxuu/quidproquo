@@ -8,8 +8,8 @@ import FlowVersionList from '@/components/admin/console/FlowVersionList.astro';
 import FlowPresetList from '@/components/admin/console/FlowPresetList.astro';
 import RunsTable from '@/components/admin/console/RunsTable.astro';
 import { getEnv } from '@/lib/config/env';
-import { loadFlowDetail, type FlowDetail } from '@/lib/agent-console/flow-detail';
-import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/admin-console/i18n';
+import { loadFlowDetail, type FlowDetail } from '@/lib/console/flow-detail';
+import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/console/admin/i18n';
 import { ensureConsoleUmbrella } from '../../_guard';
 
 export const prerender = false;

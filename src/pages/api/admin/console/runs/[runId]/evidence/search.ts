@@ -6,7 +6,7 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest } from '@/lib/api/response'
 import { ensureAgentEvidenceEnabled } from '@/pages/api/admin/evidence/_guard'
-import { D1ClaimFtsBackend } from '@/lib/agent-evidence/storage/d1/claim-fts'
+import { D1ClaimFtsBackend } from '@/lib/evidence/storage/d1/claim-fts'
 
 export const GET: APIRoute = async ({ cookies, params, url }) => {
   const auth = await requireAdmin(cookies)

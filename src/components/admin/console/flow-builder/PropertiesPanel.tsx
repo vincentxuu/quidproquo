@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { stringify } from 'yaml'
 import { fieldsForStepType, STEP_COLORS, type StepType } from './step-fields'
 import type { BuilderNode } from './types'
-import type { FlowStep } from '@/lib/agent-flow/dsl/ast'
+import type { FlowStep } from '@/lib/flow/dsl/ast'
 
 interface PropertiesPanelProps {
   node: BuilderNode | null

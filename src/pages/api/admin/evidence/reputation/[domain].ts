@@ -6,7 +6,7 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 import { ensureAgentEvidenceEnabled } from '../_guard'
-import { D1ReputationBackend } from '@/lib/agent-evidence/storage/d1/reputation-store'
+import { D1ReputationBackend } from '@/lib/evidence/storage/d1/reputation-store'
 
 export const POST: APIRoute = async ({ request, cookies, params }) => {
   const auth = await requireAdmin(cookies)

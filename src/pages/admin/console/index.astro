@@ -3,10 +3,10 @@ import AdminConsoleLayout from '@/layouts/AdminConsoleLayout.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import ConsoleFlowCard from '@/components/admin/ConsoleFlowCard.astro';
 import { getEnv } from '@/lib/config/env';
-import { loadFlowCards, type FlowCardData } from '@/lib/agent-console/flow-selector';
+import { loadFlowCards, type FlowCardData } from '@/lib/console/flow-selector';
 import { ensureConsoleUmbrella } from './_guard';
-import { createBackends } from '@/lib/agent-os/storage';
-import type { ApprovalRecord } from '@/lib/agent-os/storage';
+import { createBackends } from '@/lib/agent/storage';
+import type { ApprovalRecord } from '@/lib/agent/storage';
 import { PendingApprovalsBannerIsland } from '@/components/admin/console/BulkApprovalModal';
 
 export const prerender = false;

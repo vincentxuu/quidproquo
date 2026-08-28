@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { requireAdmin } from '@/lib/auth/admin'
 import type { Env } from '@/lib/config/env'
-import { columnExpr, getTableColumns } from '@/lib/admin-console/schema'
+import { columnExpr, getTableColumns } from '@/lib/console/admin/schema'
 
 interface StepRow {
   step_run_id: string

@@ -6,9 +6,9 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 import { nowMs } from '@/lib/utils/dates'
-import { auditLog, PermissionDenied, requirePermission } from '@/lib/agent-console/rbac/permissions'
+import { auditLog, PermissionDenied, requirePermission } from '@/lib/console/rbac/permissions'
 import { readFlags } from '@/lib/config/flags'
-import { getTableColumns } from '@/lib/admin-console/schema'
+import { getTableColumns } from '@/lib/console/admin/schema'
 
 function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {
   const cfContext = (locals as { cfContext?: { waitUntil?: (promise: Promise<unknown>) => void } }).cfContext

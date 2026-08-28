@@ -6,8 +6,8 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest, notFound } from '@/lib/api/response'
 import { ensureAgentEvidenceEnabled } from '@/pages/api/admin/evidence/_guard'
-import { D1ConflictStoreBackend } from '@/lib/agent-evidence/storage/d1/conflict-store'
-import { auditLog, PermissionDenied, requirePermission } from '@/lib/agent-console/rbac/permissions'
+import { D1ConflictStoreBackend } from '@/lib/evidence/storage/d1/conflict-store'
+import { auditLog, PermissionDenied, requirePermission } from '@/lib/console/rbac/permissions'
 import { readFlags } from '@/lib/config/flags'
 
 const RESOLUTIONS = new Set(['accepted_a', 'accepted_b', 'dismissed'])

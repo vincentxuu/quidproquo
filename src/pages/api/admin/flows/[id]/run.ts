@@ -7,7 +7,7 @@ import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 import { ensureAgentFlowEnabled } from '../_guard'
 import { nowMs } from '@/lib/utils/dates'
-import { getTableColumns } from '@/lib/admin-console/schema'
+import { getTableColumns } from '@/lib/console/admin/schema'
 
 export const POST: APIRoute = async ({ cookies, params, request }) => {
   const auth = await requireAdmin(cookies)

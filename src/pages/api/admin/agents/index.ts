@@ -6,9 +6,9 @@ import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 import { ensureAgentOsEnabled } from './_guard'
 import type { Env } from '@/lib/config/env'
-import { createKernel } from '@/lib/agent-os/kernel'
-import { registerAgentDefinitions } from '@/lib/agent-os/registry'
-import { scheduledAgentEntries } from '@/lib/agent-os/scheduler/cron-registry'
+import { createKernel } from '@/lib/agent/kernel'
+import { registerAgentDefinitions } from '@/lib/agent/registry'
+import { scheduledAgentEntries } from '@/lib/agent/scheduler/cron-registry'
 
 export const GET: APIRoute = async ({ cookies }) => {
   const auth = await requireAdmin(cookies)

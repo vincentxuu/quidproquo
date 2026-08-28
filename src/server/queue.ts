@@ -1,8 +1,8 @@
 import type { AgentQueueMessage, Env } from '@/lib/config/env'
 import { readFlags } from '@/lib/config/flags'
-import { createKernel } from '@/lib/agent-os/kernel'
-import { registerAgentDefinitions } from '@/lib/agent-os/registry'
-import { createBackends } from '@/lib/agent-os/storage'
+import { createKernel } from '@/lib/agent/kernel'
+import { registerAgentDefinitions } from '@/lib/agent/registry'
+import { createBackends } from '@/lib/agent/storage'
 import { nowMs } from '@/lib/utils/dates'
 
 // Queue entrypoint adapter for Agent OS.

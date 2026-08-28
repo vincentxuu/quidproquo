@@ -4,10 +4,10 @@ import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
-import { runConsoleRollupDaily } from '@/lib/agent-console/cost/rollup'
+import { runConsoleRollupDaily } from '@/lib/console/cost/rollup'
 import { readFlags } from '@/lib/config/flags'
 import { json } from '@/lib/api/response'
-import { requirePermission, auditLog, PermissionDenied } from '@/lib/agent-console/rbac/permissions'
+import { requirePermission, auditLog, PermissionDenied } from '@/lib/console/rbac/permissions'
 
 const MAX_BACKFILL_DAYS = 366
 

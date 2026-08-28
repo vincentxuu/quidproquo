@@ -6,7 +6,7 @@ import {
   DEFAULT_EVAL_CASES,
   runEvalBatch,
   type RagPipelineEngine,
-} from '../../../lib/rag/admin-eval'
+} from '../../../lib/retrieval/admin-eval'
 import { json } from '@/lib/api/response'
 import { nowIso } from '@/lib/utils/dates'
 

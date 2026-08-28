@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { loadCatalog, isProvider, saveCatalog, type ProviderModel } from '../../providers'
-import { resolveProviderApiKeys as resolveKeys } from '../../../../../lib/rag/provider-key-store'
+import { resolveProviderApiKeys as resolveKeys } from '../../../../../lib/retrieval/provider-key-store'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
