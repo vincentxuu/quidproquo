@@ -1,11 +1,17 @@
 ---
 name: daily-digest-region
-description: "Routine M: weekly regional AI ecosystem focus for quidproquo.cc/daily. Runs every Friday, deep-dives into 1-2 regions (China/Taiwan/Japan-Korea/Europe/Israel/SEA/Middle East/India)."
+description: "Routine M: weekly regional AI ecosystem focus for quidproquo.cc/daily. Runs every Friday, deep-dives into 1-2 regions (US/China/Taiwan/Japan-Korea/Europe/Israel/SEA/Middle East/India), picked by coverage-gap priority not just signal volume."
 ---
 
 # daily-digest-region
 
-每週五執行。從本週的信號和補充搜尋中，選出最有料的 1-2 個區域深入寫。必含對台灣創業者的啟示。
+每週五執行。從本週的信號和補充搜尋中，選出最需要補寫的 1-2 個區域深入寫。必含對台灣創業者的啟示。
+
+**候選區域包含美國（F0）**：Anthropic/OpenAI/Google/Microsoft/Meta 等 A1 大廠雖然天天在 daily 有個別報導，但那是「以公司/模型為單位」的報導，不等於「以區域生態系為單位」的整體觀察（政策、投資氛圍、產業結構）。同類媒體（如 IAPP 的區域 newsletter、AI Aura Index）多半把美國列為固定比較的區域之一，不是隱藏的預設基準，所以 F0 美國比照 F1-F8 一起參與週選。
+
+**選區邏輯是「覆蓋缺口優先」，不是單純信號量最高者勝**：F1 中國、F2 台灣 watchlist 公司數最多（各 14 家），信號量結構性地比 F4-F8（各 1-4 家）高，若單純比信號量，中國/台灣會幾乎每週勝出，歐洲/以色列/中東/印度這些「daily 本來就少提到」的區域反而永遠輪不到——這正好違背 region 篇「補 daily 沒覆蓋到的地方」的本意。因此改成優先選「最久沒被 region 篇寫過」的區域，信號量只在缺口相近時當 tie-breaker。
+
+**信號量統計用 `region` 欄位分組，不是靠 `section` 前綴**：watchlist 每家公司本來就有 `region`（國家代碼，如 `FR`/`DE`/`IL`）欄位。舊邏輯只認 `section` 開頭是 `F` 的公司才算進區域信號量，但 Mistral（`A2`/`FR`）、Aleph Alpha（`A2`/`DE`）、Qdrant（`C3`/`DE`）、Poolside（`B1`/`FR`）這些歐洲公司都不是 F-section，會被漏算，導致歐洲信號量長期被低估。改成直接用 `region` 欄位分組，不需要另外幫每家公司補標 F-section。
 
 ---
 
@@ -22,12 +28,16 @@ WEEK_START=$(date -d "${TODAY} -$(date -d ${TODAY} +%u) days + 1 day" +%Y-%m-%d)
 # Step 3: 冪等檢查（region 可能產出多篇，但同一 region 同一天只一篇）
 ls src/content/posts/daily/${TODAY}-region-*.md 2>/dev/null && echo "已有 region post" && exit 0
 
-# Step 4: 讀 watchlist 的 F1-F8 區域公司
-cat src/data/agent-watchlist.json | jq '[.companies[] | select(.section | startswith("F"))]'
+# Step 4: 讀 watchlist 全部公司，依 region 欄位（國家代碼）分組——見下方「區域 slug 對應」表
+cat src/data/agent-watchlist.json | jq '[.companies[] | {name, slug, region}] | group_by(.region)'
+
+# Step 4b: 算覆蓋缺口 —— 每個 region slug 上次被寫距今幾週（沒寫過 = 無限久，最優先）
+# 只看 zh-TW 檔（排除 -en 版本，避免同一篇被算兩次）
+ls src/content/posts/daily/*-region-*.md 2>/dev/null | grep -v -- '-en\.md$' | sed -E 's#.*/([0-9-]+)-region-([a-z-]+)\.md#\2 \1#' | sort -k1,1 -k2,2r | awk '!seen[$1]++'
 
 # Step 5: 讀取本週 signals，篩選區域相關
 # Step 6: 補充搜尋各區域新聞
-# Step 7: 決定寫哪個區域
+# Step 7: 決定寫哪個區域（覆蓋缺口優先，信號量做 tie-breaker）
 # Step 8: 依「輸出格式」撰寫
 # Step 9: 提交
 git add src/content/posts/daily/${TODAY}-region-*.md
@@ -49,9 +59,10 @@ done
 ```
 
 篩選邏輯：
-- `companies` 欄位包含 F1-F8 section 的 slug → 該信號屬於對應區域
+- `companies` 欄位裡的公司 slug，查 watchlist 對應的 `region`（國家代碼），再依下方「區域 slug 對應」表歸入 F0-F8 → 該信號屬於對應區域
 - `category` 為 `region-news` → 直接歸入區域
-- 統計每個區域（F1-F8）本週的信號數量
+- 統計每個區域（F0-F8）本週的信號數量
+- 國家代碼不在對應表裡（如 CA、AU）→ 不計入任何區域候選，維持只在 daily 個別公司報導範圍內
 
 ---
 
@@ -71,7 +82,17 @@ done
 
 ### Step 6：對每個區域做 1 組補充搜尋
 
-用 Exa + Tavily 合併搜尋，每組取 5 則。**只搜尋前 3 名信號最多的區域**（節省 API 額度）。中文/台灣區域加重 Tavily（中文效果較好）。
+用 Exa + Tavily 合併搜尋，每組取 5 則。**只搜尋 Step 4b 算出缺口最大的前 3 名區域**（節省 API 額度）。中文/台灣區域加重 Tavily（中文效果較好）。
+
+#### F0 美國
+
+美國個別公司動態已由每日 daily 覆蓋，這裡只搜「生態系/政策層級」的動態，避免和當週已寫過的 daily 文章重複。
+
+| query | 目標 |
+|---|---|
+| `AI agent policy OR regulation United States 2026` | 美國聯邦/州級 AI 政策動態 |
+| `AI startup funding ecosystem Silicon Valley 2026` | 矽谷投資氛圍、新創生態 |
+| `AI agent enterprise adoption United States 2026` | 企業採用面的宏觀趨勢 |
 
 #### F1 中國
 
@@ -126,41 +147,45 @@ done
 | `"Sea Group" OR Grab OR "Pints AI" AI agent 2026` | 東南亞大廠 |
 | `MAS AI governance OR "AI Singapore" 2026` | 新加坡政策 |
 
-#### F7 中東
-
-| query | 目標 |
-|---|---|
-| `G42 OR MBZUAI OR SDAIA AI 2026` | 中東 AI 機構 |
-
-#### F8 印度
+#### F7 印度
 
 | query | 目標 |
 |---|---|
 | `Emergent OR Krutrim OR "Sarvam AI" 2026` | 印度 AI 新創 |
 
+#### F8 中東
+
+| query | 目標 |
+|---|---|
+| `G42 OR MBZUAI OR SDAIA AI 2026` | 中東 AI 機構 |
+
 ---
 
 ## 區域選擇規則
 
-### Step 7：決定寫哪 1-2 個區域
+### Step 7：決定寫哪 1-2 個區域（覆蓋缺口優先，信號量做 tie-breaker）
 
-1. 統計每個區域的「本週信號量 + 補充搜尋命中量」
-2. 選信號量最高的 1 個區域深入寫
-3. 若第 2 名的信號量 ≥ 第 1 名的 50% → 也寫第 2 個區域（產出 2 篇）
-4. 若所有區域信號量都 < 3 → 合併寫一篇「本週區域總覽」
+1. 用 Step 4b 的結果算出每個區域「距上次被 region 篇寫過幾週」（沒寫過 = 無限久）
+2. 缺口最大的區域排第一優先；缺口相同或都「從未寫過」時，才比本週信號量 + 補充搜尋命中量
+3. 選缺口/信號量排序後的第 1 名深入寫
+4. 若第 2 名的缺口也 ≥ 4 週（或同樣從未寫過）且本週信號量 ≥ 3 → 也寫第 2 個區域（產出 2 篇），避免每次都只補一個缺口、其他長期空白區域繼續等待
+5. 若所有候選區域缺口都 < 4 週（近期都寫過一輪）且信號量都 < 3 → 合併寫一篇「本週區域總覽」
 
-**區域 slug 對應**：
+**區域 slug 對應**（用 `region` 國家代碼分組，不是靠 `section` 前綴）：
 
-| Section | slug | 中文名 | 英文名 |
-|---|---|---|---|
-| F1 | `china` | 中國 | China |
-| F2 | `taiwan` | 台灣 | Taiwan |
-| F3 | `japan-korea` | 日韓 | Japan & Korea |
-| F4 | `europe` | 歐洲 | Europe |
-| F5 | `israel` | 以色列 | Israel |
-| F6 | `southeast-asia` | 東南亞 | Southeast Asia |
-| F7 | `middle-east` | 中東 | Middle East |
-| F8 | `india` | 印度 | India |
+| Section | slug | 中文名 | 英文名 | 涵蓋 `region` 國家代碼 |
+|---|---|---|---|---|
+| F0 | `us` | 美國 | United States | `US` |
+| F1 | `china` | 中國 | China | `CN` |
+| F2 | `taiwan` | 台灣 | Taiwan | `TW` |
+| F3 | `japan-korea` | 日韓 | Japan & Korea | `JP`, `KR` |
+| F4 | `europe` | 歐洲 | Europe | `DE`, `FR`, `UK`, `NL`, `SE`, `CH`, `CZ`, `IE`（及其他歐盟/英國國家代碼） |
+| F5 | `israel` | 以色列 | Israel | `IL` |
+| F6 | `southeast-asia` | 東南亞 | Southeast Asia | `SG`（及其他東南亞國家代碼，如 `ID`/`VN`/`TH`/`PH`/`MY`） |
+| F7 | `india` | 印度 | India | `IN` |
+| F8 | `middle-east` | 中東 | Middle East | `AE`, `SA`（及其他波灣國家代碼，如 `QA`） |
+
+不在此表的國家代碼（如 `CA` 加拿大、`AU` 澳洲）不計入 region 篇候選。
 
 ---
 
@@ -310,12 +335,12 @@ CAC 的管理辦法則增加了新的競爭門檻（五力的「進入壁壘」�
 
 ## 品質檢查清單
 
-- [ ] 區域選擇有據（基於本週信號量統計，不是隨便選的）
+- [ ] 區域選擇有據（基於 Step 4b 覆蓋缺口 + 本週信號量統計，不是隨便選的）
 - [ ] 本週動態至少 3 個，每個都有來源連結
 - [ ] 中文來源的具體數字已嘗試交叉驗證（或標注 ⚠️）
 - [ ] 「深度分析」使用了至少 1 個 MIS 框架（明確標記）
 - [ ] 「對台灣創業者的啟示」給的是具體建議（「如果你在做 X：Y」），不是泛泛的「值得關注」
 - [ ] 「今日收穫」是認知差
-- [ ] region slug 正確（china/taiwan/japan-korea/europe/israel/southeast-asia/middle-east/india）
+- [ ] region slug 正確（us/china/taiwan/japan-korea/europe/israel/southeast-asia/middle-east/india）
 - [ ] `description` 和 `tldr` 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

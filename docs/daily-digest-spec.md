@@ -338,7 +338,7 @@ Routine 每日掃描時，比對此清單決定哪些動態值得納入日報。
 | Confident AI (DeepEval) | 開源 eval，50+ 指標 |
 | HoneyHive | 統一可觀測性 + 評估，$9.3M |
 
-#### B7. Agent 安全 / 治理 / 資安技術（11 家）
+#### B7. Agent 安全 / 治理 / 資安技術（12 家）
 
 | 公司 | 追蹤重點 |
 |---|---|
@@ -353,6 +353,7 @@ Routine 每日掃描時，比對此清單決定哪些動態值得納入日報。
 | Prompt Security | prompt injection 防禦技術 |
 | Lasso Security | LLM 安全平台 |
 | Straiker | AI Agent 安全，$21M（Lightspeed 領投） |
+| Noma Security | AI Agent 安全治理平台，以色列（也在 F5） |
 
 **資安技術學習資源**（routine 定期掃描）：
 
@@ -595,7 +596,7 @@ Routine 每日掃描時，比對此清單決定哪些動態值得納入日報。
 | Suki AI | 臨床文檔，$70M Series C |
 | Ambience Healthcare | 醫療環境 AI |
 
-#### D6. 金融服務 / 保險（6 家）
+#### D6. 金融服務 / 保險（7 家）
 
 | 公司 | 追蹤重點 |
 |---|---|
@@ -605,6 +606,7 @@ Routine 每日掃描時，比對此清單決定哪些動態值得納入日報。
 | Poetic | 合規 + 承保自動化，$50M，OpenAI 投資 |
 | Pints AI | 受監管金融機構的可稽核 Agent，東南亞 |
 | Aveni | 英國金融 AI，Agent Assure 治理，£12M |
+| Gradient Labs | 英國，受監管金融業 agentic 客服，Lending/Disputes/KYB 專職 agent 矩陣，Series A 擴至 $26M |
 
 #### D7. Data Analytics / BI（5 家）
 
@@ -741,7 +743,7 @@ Routine 每日掃描時，比對此清單決定哪些動態值得納入日報。
 | 資策會 (III) | AI 產業推動、政策研究 |
 | 國家資通安全研究院 (NICS) | 資安研究與事件應變 |
 
-#### F3. 日韓（4 家）
+#### F3. 日韓（6 家）
 
 | 公司 | 追蹤重點 |
 |---|---|
@@ -749,6 +751,8 @@ Routine 每日掃描時，比對此清單決定哪些動態值得納入日報。
 | NTT DATA | AI Agent Service 全球開放，FDE 模式 |
 | NAVER | Shopping AI Agent，韓國市場 |
 | LG Technology Ventures | AI Agent 資安領域投資（Zenity C 輪） |
+| LayerX | 日本，企業 Agentic AI 平台，ARR 近 ¥100 億，1.5 萬+ 企業客戶 |
+| LG AI Research | 韓國，EXAONE 主權模型，主權 AI 評比專家/大眾兩項第一（綜合分數第三，SK Telecom 第一） |
 
 #### F4. 歐洲（6 家 + 法規）
 
@@ -811,7 +815,7 @@ Routine 每日掃描時，比對此清單決定哪些動態值得納入日報。
 
 ---
 
-**合計約 230 家獨立實體 + 10 個研究/政策機構，6 大分類 35+ 個子類別。**
+**合計約 296 家獨立實體 + 10 個研究/政策機構，6 大分類 35+ 個子類別。**
 
 #### Watchlist 自動維護機制
 

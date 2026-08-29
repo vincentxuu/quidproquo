@@ -1,5 +1,5 @@
 {
-  "version": "2026-08-16",
+  "version": "2026-08-28",
   "sections": {
     "A1": {
       "title": "大廠",
@@ -3090,6 +3090,50 @@
         "國家 AI 戰略"
       ],
       "region": "SA"
+    },
+    {
+      "name": "LayerX",
+      "slug": "layerx",
+      "section": "F3",
+      "trackingFocus": [
+        "企業 Agentic AI 平台",
+        "ARR 近 ¥100 億",
+        "1.5 萬+ 企業客戶"
+      ],
+      "region": "JP"
+    },
+    {
+      "name": "LG AI Research",
+      "slug": "lg-ai-research",
+      "section": "F3",
+      "trackingFocus": [
+        "EXAONE 主權模型",
+        "韓國政府主權 AI 評比：專家評比與大眾評比第一，綜合分數第三（SK Telecom 第一）"
+      ],
+      "region": "KR"
+    },
+    {
+      "name": "Noma Security",
+      "slug": "noma-security",
+      "section": "B7",
+      "trackingFocus": [
+        "AI Agent 安全治理平台",
+        "管理 AI agent 風險與合規暴露"
+      ],
+      "region": "IL",
+      "alsoIn": [
+        "F5"
+      ]
+    },
+    {
+      "name": "Gradient Labs",
+      "slug": "gradient-labs",
+      "section": "D6",
+      "trackingFocus": [
+        "受監管金融業 agentic 客服",
+        "Lending/Disputes/KYB 專職 agent 矩陣，Series A 擴至 $26M"
+      ],
+      "region": "UK"
     }
   ],
   "benchmarks": [
