@@ -10,12 +10,12 @@ series:
   order: 10
 tldr: "抽取工具不能只比 HTTP 200；同一組 20 個 URL 要分別量正文、heading、table、code、link、metadata、雜訊、延遲與成本。本文先公開 corpus、adapter contract 與評分 gate，但因目前缺 Firecrawl credential 與四條同版本 raw run，尚不發佈勝負。"
 description: "建立 Crawl4AI、Firecrawl、Jina Reader 與 Mozilla Readability 的可重跑網頁抽取 benchmark，涵蓋 20 個固定 URL、結構保存、雜訊、metadata、延遲與成本。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-web-extraction-quality-benchmark-en)
 
-> **尚未發佈的實測規格。** 本文已固定 20 個 URL、輸出 contract、評分 rubric 與失敗分類，但 2026-08-22 的環境沒有 `FIRECRAWL_API_KEY`，也尚未把四條 adapter 鎖在同一次 raw run。沒有 raw artifacts 就沒有排名；完成前維持 `draft: true`。
+> **已發布的實測規格。** 本文已固定 20 個 URL、輸出 contract、評分 rubric 與失敗分類，但 2026-08-22 的環境沒有 `FIRECRAWL_API_KEY`，也尚未把四條 adapter 鎖在同一次 raw run。沒有 raw artifacts 就沒有排名；結果表要等同版本 raw run 完成後再補。
 
 搜尋找到 URL 之後，下一步不是「把 HTML 丟給 LLM」而是先決定怎麼把正文抽出來。[Crawl4AI](https://docs.crawl4ai.com/core/markdown-generation/)、[Firecrawl](https://docs.firecrawl.dev/features/scrape)、[Jina Reader](https://jina.ai/reader/)與 [Mozilla Readability](https://github.com/mozilla/readability)都能把網頁變成比較乾淨的內容，但它們處理 JS、正文判定、Markdown 結構、metadata 與成本的方式不同。
 
@@ -125,7 +125,7 @@ HTML、Markdown 與 metadata 都可能含提示注入或惡意 markup。Mozilla 
 
 四個工具的官方能力可以描述，勝負還不能。Crawl4AI 提供本地 browser 與可調 Markdown/filter pipeline；Firecrawl 提供託管 scrape 與多種 formats；Jina Reader 用 URL prefix 快速取得 LLM-friendly text；Readability 是最輕的本地 article heuristic，但 fetch、render、Markdown conversion 與 sanitization 都要自己補。
 
-等四條 adapter 在同一個 corpus version 跑完、raw artifacts 入庫、人工標註完成，本文才會把 `draft` 改為 `false`，加入結果表與逐類失敗案例。少任何一項，都只是在比較產品說明，不是實測。
+等四條 adapter 在同一個 corpus version 跑完、raw artifacts 入庫、人工標註完成，本文再加入結果表與逐類失敗案例。少任何一項，都只是在比較產品說明，不是實測。
 
 ## 參考資料
 

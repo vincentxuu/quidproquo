@@ -10,12 +10,12 @@ series:
   order: 8
 tldr: "A web retrieval benchmark must evaluate complete tasks, not HTTP 200s: 30 fixed cases across five failure strata and three live channels, measuring answers, citations, freshness, latency, cost, and unnecessary escalation. This article delivers the harness and gates, but no fabricated ranking while the three live channels remain unconfigured."
 description: "Build a Web Retrieval Benchmark from a 30-case corpus: ground truth, freshness windows, outcome labels, content and citation grading, latency/cost/escalation metrics, deterministic fixtures, live probes, failure injection, and regression gates."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-21-web-retrieval-benchmark)
 
-> **Unpublished benchmark specification.** The 30 fixed cases and harness are defined, but this environment lacks the endpoints and credentials required for three live channels. This article reports no success rates, latency, cost, or provider rankings and remains `draft: true` until raw runs are archived.
+> **Published benchmark specification.** The 30 fixed cases and harness are defined, but this environment lacks the endpoints and credentials required for three live channels. This article reports no success rates, latency, cost, or provider rankings. The first results should be added only after raw runs are archived.
 
 [The previous article](/posts/ai/2026-08-21-web-retrieval-fallback-routing-en) defines when to switch between Search, Fetch, Crawlers, Browsers, and a controlled stealth path. The next question is not another routing diagram. It is: **how do you prove that the router finds the right material, reads it correctly, cites it accurately, and does not burn the entire budget on one page?**
 
@@ -242,7 +242,7 @@ Read reports by stratum first. One configuration may dominate known URLs but tim
 
 Plot three Pareto relationships: quality versus latency, quality versus cost, and success versus escalation. Configuration A is dominated only when B is no worse on every relevant axis. Everything else is a product tradeoff, not a universal champion.
 
-Finally, inspect failure tags case by case. The benchmark's job is not to manufacture a pretty score. It should tell you which layer, page type, and failure signal regressed. The 30 tasks and harness are now specified; this article can leave draft only after three live channels run and their raw artifacts are archived.
+Finally, inspect failure tags case by case. The benchmark's job is not to manufacture a pretty score. It should tell you which layer, page type, and failure signal regressed. The 30 tasks and harness are now specified; the first results should wait until three live channels run and their raw artifacts are archived.
 
 ## References
 

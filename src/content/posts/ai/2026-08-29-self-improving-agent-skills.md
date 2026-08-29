@@ -7,7 +7,7 @@ tags: [ai-agent, claude, warp, skills, workflow, automation]
 lang: zh-TW
 tldr: "Warp 的自我改進 Agent 不把每次錯誤塞進 prompt。base skill 做任務，人類在 GitHub 或 Slack 留回饋，improver skill 把重複訊號整理成小 diff，再走 PR review。真正有價值的是這套工程邊界：可追溯、可回滾、可拒絕更新。"
 description: "整理 Anthropic 與 Warp 公開文章中的 self-improving agents 做法：內層 skill、外層 improver、人類回饋、PR review，以及這套流程對 Codex / Claude Code skills 工作流的啟發。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/en/posts/ai/2026-08-29-self-improving-agent-skills-en)

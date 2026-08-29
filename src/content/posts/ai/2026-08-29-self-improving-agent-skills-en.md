@@ -7,7 +7,7 @@ tags: [ai-agent, claude, warp, skills, workflow, automation]
 lang: en
 tldr: "Warp's self-improving agent pattern is not about dumping every mistake into a prompt. A base skill does the work, humans leave feedback in GitHub or Slack, an improver skill turns repeated signals into a small diff, and humans review the PR before the next run inherits it."
 description: "A practical reading of Anthropic and Warp's public writing on self-improving agents: base skills, improver skills, human feedback, PR review, and what the pattern means for Codex and Claude Code skill workflows."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-29-self-improving-agent-skills)

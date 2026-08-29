@@ -1013,3 +1013,8 @@ zh/en 各 21 篇。order 0 導讀含 41 層 roadmap，逐層對照過站上 1,14
 - 文件已對齊 Claude Code 研究：Session 就是 chat，composer `instruction`／API `prompt` 都是第一個 user event；Admin v2 正本為 `agent_sessions`／`agent_messages`／`agent_events`，`agent_runs` 保留給 scheduler/legacy run。
 - 驗證：本機 Astro dev E2E 通過（`.work/admin-v2-e2e/2026-08-29T09-37-25-766Z/evidence.json`）；最小 Durable Object `/run` smoke 通過（`.work/admin-do-smoke/do-run.json`，session `smoke_admin_do_20260829_002`，events 含 `system/init`、`user`、`assistant`、`result`）；`pnpm verify` 全綠。
 - 剩餘只屬 production/preview 操作：migration apply、binding/env 檢查與實際環境觀察；正式 deploy 需使用者另行拍板。
+
+## 2026-08-29 AI benchmark / skills 三組雙語稿上線
+
+- 使用者確認 web retrieval benchmark、web extraction quality benchmark、self-improving agent skills 三組雙語稿可上線後，6 檔已改為 `draft: false`。
+- Benchmark 文定位為規格發布，仍不宣稱尚未完成 raw run 的排名、延遲、成本或成功率；結果表待 live/raw artifacts 補齊後另寫。

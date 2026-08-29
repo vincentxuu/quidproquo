@@ -10,12 +10,12 @@ series:
   order: 8
 tldr: "Web retrieval 要測的是完整 task，不是 HTTP 200：固定 30 題、五種失敗層、三條 live channel，同時量答案、引用、freshness、延遲、成本與不必要升級。本文交付可執行 harness 與 gate，但因目前沒有三條 live channel 設定，不提供虛構排名。"
 description: "用 30-case corpus 建立 Web Retrieval Benchmark：ground truth、freshness window、outcome labels、內容與引用評分、latency/cost/escalation metrics、deterministic fixtures、live probes、failure injection 與 regression gates。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-21-web-retrieval-benchmark-en)
 
-> **尚未發布的 benchmark 規格。** 30 個固定案例與 harness 已定義，但目前環境沒有三條 live channel 所需的 endpoint／credential，因此本文沒有成功率、延遲、成本或供應商排名。跑完並保存 raw results 前，維持 `draft: true`。
+> **已發布的 benchmark 規格。** 30 個固定案例與 harness 已定義，但目前環境沒有三條 live channel 所需的 endpoint／credential，因此本文沒有成功率、延遲、成本或供應商排名。第一份結果要等 raw results 跑完並保存後再補。
 
 [系列上一篇](/posts/ai/2026-08-21-web-retrieval-fallback-routing)已經定義 Search、Fetch、Crawler、Browser 與受控 stealth 路徑怎麼切換。接下來的問題不是再畫一次流程圖，而是：**怎麼證明這套路由真的找得到、讀得對、引得準，而且不會為了一頁資料花掉整份預算？**
 
@@ -242,7 +242,7 @@ applyRegressionGates(report, loadBaseline("baseline.json"));
 
 比較時先畫三組 Pareto 關係：品質對 latency、品質對 cost、success 對 escalation。若配置 A 在所有軸都不比 B 好，A 才算被支配；其餘情況是產品取捨，不是通用冠軍。
 
-最後逐筆看 failure tags。Benchmark 的價值不是產生一個漂亮分數，而是讓 regression 能回答「哪一層、哪一種頁面、哪個失敗訊號開始退步」。目前這份文章已經把 30 題與 harness 鎖定；等三條 live channel 可用、raw artifacts 保存完成後，才能拿掉 `draft: true` 並發布第一份結果。
+最後逐筆看 failure tags。Benchmark 的價值不是產生一個漂亮分數，而是讓 regression 能回答「哪一層、哪一種頁面、哪個失敗訊號開始退步」。目前這份文章先把 30 題與 harness 鎖定；等三條 live channel 可用、raw artifacts 保存完成後，再發布第一份結果。
 
 ## 參考資料
 

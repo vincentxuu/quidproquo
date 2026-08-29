@@ -8,14 +8,14 @@ lang: en
 series:
   name: "Search and Scraping in Practice"
   order: 10
-tldr: "Extraction tools cannot be compared by HTTP 200s. The same 20 URLs must be scored for body text, headings, tables, code, links, metadata, noise, latency, and cost. This draft publishes the corpus, adapter contract, and gates, but no winner without a same-version raw run across all four paths."
+tldr: "Extraction tools cannot be compared by HTTP 200s. The same 20 URLs must be scored for body text, headings, tables, code, links, metadata, noise, latency, and cost. This article publishes the corpus, adapter contract, and gates, but no winner without a same-version raw run across all four paths."
 description: "A reproducible web extraction benchmark for Crawl4AI, Firecrawl, Jina Reader, and Mozilla Readability, using 20 fixed URLs and separate quality, structure, latency, and cost metrics."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-web-extraction-quality-benchmark)
 
-> **Unpublished benchmark specification.** The 20 URLs, output contract, scoring rubric, and failure labels are fixed. However, the environment on 2026-08-22 has no `FIRECRAWL_API_KEY`, and the four adapters have not completed one version-locked raw run. No raw artifacts means no ranking, so this remains `draft: true`.
+> **Published benchmark specification.** The 20 URLs, output contract, scoring rubric, and failure labels are fixed. However, the environment on 2026-08-22 has no `FIRECRAWL_API_KEY`, and the four adapters have not completed one version-locked raw run. No raw artifacts means no ranking; the results table should wait for that run.
 
 After search finds a URL, the next step is not to send raw HTML to an LLM. It is to extract the body reliably. [Crawl4AI](https://docs.crawl4ai.com/core/markdown-generation/), [Firecrawl](https://docs.firecrawl.dev/features/scrape), [Jina Reader](https://jina.ai/reader/), and [Mozilla Readability](https://github.com/mozilla/readability) all produce cleaner content, but they differ in rendering, body detection, Markdown structure, metadata, and cost.
 
@@ -125,7 +125,7 @@ HTML, Markdown, and metadata can all contain prompt injection or malicious marku
 
 Official capabilities can be described; winners cannot. Crawl4AI provides a local browser and configurable Markdown/filter pipeline. Firecrawl provides managed scrape formats. Jina Reader offers a low-friction URL-to-text endpoint. Readability is the lightest local article heuristic, while fetch, render, Markdown conversion, and sanitization remain the operator's responsibility.
 
-This article will switch to `draft: false` only after all four adapters finish the same corpus version, raw artifacts are archived, and blinded annotations are complete. Anything less is a comparison of product descriptions, not an experiment.
+This article should add a results table only after all four adapters finish the same corpus version, raw artifacts are archived, and blinded annotations are complete. Anything less is a comparison of product descriptions, not an experiment.
 
 ## References
 
