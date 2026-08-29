@@ -13,6 +13,8 @@ series:
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-rivumi-disposable-clone-run-bundle-en)
+
 上一篇拆了 loop,這篇拆 loop 跑之前的第一個動作——workspace 怎麼準備。Rivumi 的斷言很硬:**agent 永遠不編輯源 repo**。所有 patch、test、verification 都在一個 disposable clone 裡跑,源 worktree 的 HEAD、status、bytes 在 run 結束後完全沒變。這個保證靠兩個東西的組合:`LocalGitWorkspace` 從 pinned base commit 複製出一個 detached-HEAD clone,以及 run 結束後留下 6 個 artifact 讓審計者能「回到那個 run」檢視任何時刻的狀態。
 
 ## 為什麼一定要 disposable

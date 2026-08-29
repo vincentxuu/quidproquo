@@ -13,6 +13,8 @@ series:
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-rivumi-external-coding-runner-en)
+
 前四篇拆的是 Rivumi 自家 loop 怎麼跑。這一篇拆它的「鏡像路徑」——同樣要解同一個任務,但 loop 是別人家的:Codex CLI / Claude Code CLI / OpenCode / Pi / OMP,它們各有自己的 model loop。Rivumi 不接管那些 loop,只做 orchestration:送任務過去、收回 patch、自己重新驗證。
 
 `src/rivumi/backends.py` 的 module docstring 第一句話就把這條界線寫死:

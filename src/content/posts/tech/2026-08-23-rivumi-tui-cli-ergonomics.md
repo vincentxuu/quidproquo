@@ -13,6 +13,8 @@ series:
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-rivumi-tui-cli-ergonomics-en)
+
 前六篇拆的核心都是「loop 怎麼跑」、「workspace 怎麼保護」、「驗證怎麼強制」。這一篇拆「這套系統怎麼變成 daily-driver CLI」——approval prompt 不能 spam、resume 不能讓使用者 panic、wide 跟 narrow terminal 都要能看。
 
 `src/rivumi/cli.py` 的 module docstring 第二行寫得很直白:**interactive CLI 跟 headless harness 是兩個 mode 共用同一個 AgentRunner**,差別只在 routing。整個 CLI 設計的斷言是:**AgentRunner 是 async 純函式**(`async def run(self) -> RunResult`),CLI 層負責把它變成「人用的東西」——TUI 包裝、approval 互動、resume hook、onboarding flow。loop 自己不知道有 TTY 存在。

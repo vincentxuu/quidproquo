@@ -13,6 +13,8 @@ series:
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-rivumi-tool-isolation-en)
+
 [上一篇](2026-08-23-rivumi-provider-neutral-agent-loop.md)拆了 Rivumi 的 loop——`AgentRunner` 對模型宣告「你給 tool_calls,我幫你跑;什麼時候結束,我跑過 verification 算數」。但那段敘事一直把「我幫你跑」當作黑盒子。事實上,**「幫你跑」才是整個系統最危險的部分**:一個 coding agent 的執行表面不是模型,是檔案系統 + 子行程;只要這兩條邊界守住,prompt injection 沒有槓桿可以放大傷害。Rivumi 把這個觀念變成三層收斂——路徑層、argv 層、子行程層——每一層都用 Python 型別系統而不是 prompt 來執行。
 
 ## 為什麼 tool 邊界比 model 重要

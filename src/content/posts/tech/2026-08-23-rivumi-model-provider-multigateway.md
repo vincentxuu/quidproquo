@@ -13,6 +13,8 @@ series:
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-rivumi-model-provider-multigateway-en)
+
 上一篇拆 ExternalCodingRunner,這篇回到 Rivumi 自家 loop——看 `ModelProvider` Protocol 怎麼把多個 protocol adapter 收斂成同一個介面,以及同一個 adapter 怎麼被 `ModelGateway` 開成對外服務。
 
 這個收斂是必要的:AgentRunner 的 `_complete_model_or_cancel` 只看到 `ModelProvider` Protocol,從頭到尾不知道下游是 OpenAI SDK、Anthropic SDK、httpx、還是 Workers AI 的 REST。**所有 provider-specific 的差異——SDK 例外型別、HTTP status code、Workers AI 的自定義 error code、reasoning token 怎麼算——都必須在 adapter 內部被消化掉**。失敗的時候 AgentRunner 看到的是 `ProviderError(kind=..., status_code=..., retryable=...)`,而不是 `openai.APIStatusError` 或 `httpx.HTTPStatusError`。

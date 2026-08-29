@@ -13,6 +13,8 @@ series:
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-rivumi-state-first-event-journaling-en)
+
 前一篇拆了 loop,前兩篇拆了 disposable clone 跟 run bundle。這一篇拆它們能 crash-safe 的原因——也是 Rivumi 把 audit 跟 state 拆成兩份不同檔案的理由:append-only 的 `events.jsonl` 跟原子替換的 `session.json` manifest。同時維護兩份寫入路徑不是冗餘,是因為**單靠任何一份都無法正確判定「process 在哪一步 crash」**。
 
 這個斷言聽起來抽象,放進具體情境就清楚:假設 AgentRunner 正在跑 `replace_text`,這個 tool call 已經寫進 `events.jsonl`(`tool.started` 事件已經 append),但 tool 還沒真的執行就被 SIGKILL。manifest 上還是上一輪的快照,JSONL 卻已經多了一行「started」。下次重啟時,光是讀 manifest 會以為「這個 tool 還沒開始」,光是讀 JSONL 會以為「這個 tool 已經跑了但結果沒寫回來」。兩種判讀都不對。

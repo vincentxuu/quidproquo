@@ -13,6 +13,8 @@ series:
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-rivumi-cloudflare-deployment-en)
+
 前七篇把 Rivumi 的本地架構拆完——provider-neutral loop、disposable clone、tool isolation、state-first journaling、ExternalCodingRunner、ModelProvider multi-gateway、TUI/CLI ergonomics。本地能跑的東西,Cloudflare 跑法不應該是不同的 agent:第八篇要回答的是「Cloudflare 切片怎麼承接前面所有保證,而憑證不外洩」。先講邊界:這篇描述的是公開 repo 裡已收斂的 Worker + Sandbox deployment slice,不是宣稱它已經是經 production traffic 驗證的雲端服務。M6 milestone 的進度條只有一句結論:**Keep HTTP coordination and provider credentials in a Worker; pass only a short-lived, run-scoped model capability into the Sandbox container** (`progress.md` M6, bullet 1)。這篇把這句結論的程式碼依據拆開。
 
 ## 邊界一句話,程式碼四塊

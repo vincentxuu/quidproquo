@@ -13,6 +13,8 @@ series:
 draft: false
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-rivumi-provider-neutral-agent-loop-en)
+
 [Rivumi](https://github.com/vincentxuu/rivumi) 是一個 Python-first coding agent,作者把它定位成「provider-neutral coding agent harness」。這八篇系列要把它拆開看——這是第一篇,核心斷言:**agent loop 不屬於模型,屬於 harness**。模型是個被呼叫的元件,不是 orchestrator;OpenAI-compatible / OpenAI Responses / Anthropic / Gemini / Workers AI / scripted 都只是 `ModelProvider` Protocol 下的 protocol adapter,Ollama 與自架 vLLM 則走 OpenAI-compatible 的 loopback / custom endpoint 路徑。所有的 deterministic 規則——路徑 allowlist、argv 嚴格化、process group timeout、token / step / wall-time budget、verification 閘——都寫在 Python 程式碼裡,不寫在 prompt。
 
 理解這個斷言之後,Rivumi 其他的設計決定(為什麼源 repo 不被改、為什麼 disposable clone 必須 detached、為什麼 `LocalGitWorkspace` 不是 sandbox、為什麼 verification 失敗才算 loop 終止)就全部串起來了。
