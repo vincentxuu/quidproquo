@@ -1,6 +1,6 @@
 # Admin v2 — Phase 2 實作計畫
 
-狀態：草稿（2026-08-29）。
+狀態：Tier 2 全部確認，可開工（2026-08-29）。
 前置：Phase 1 完成（路由全遷 + lib 重組），見 `docs/admin-v2-phase1-plan.md`。
 
 ## 0. 目標
@@ -259,7 +259,7 @@ CREATE TABLE IF NOT EXISTS runner_connections (
 | SSE 長連線在 Cloudflare Workers 有 30 秒 CPU 上限 | 高 | SSE 端點做 long-poll（30 秒內回應），client 自動重連帶 resume_token；或改用 DO 的 WebSocket（不受 CPU 限制） |
 | Mac runner 的 WebSocket 連線斷線時 session 卡在 running | 中 | heartbeat 機制 + timeout 自動 cancel |
 | 兩套表並存期間 schema 複雜 | 中 | Phase 2 只用 agent_sessions 系列；agent_runs 保留給 scheduler 的 RAG agents，不混用 |
-| LLM 呼叫費用（每 turn post_turn_summary 額外一次呼叫） | 低 | 用最便宜的模型（haiku）、可關閉 |
+| LLM 呼叫費用（每 turn post_turn_summary 額外一次呼叫） | 低 | 走 providers registry 按優先順序 fallback、可關閉 |
 | DO import 路徑已過時（指向 agent-os） | 低 | Phase 2 第一步修正 |
 
 ---
@@ -268,12 +268,12 @@ CREATE TABLE IF NOT EXISTS runner_connections (
 
 以下事項需使用者逐項確認再執行：
 
-- [ ] Migration 0028_session_v2.sql 的欄位設計（§4.1）
-- [ ] agent_events 加 event_id 的回填方式（§4.2）
-- [ ] runner_connections 新表（§4.3）
-- [ ] Mac runner 連線協定選擇（WebSocket vs SSE）
-- [ ] SSE vs DO WebSocket 作為瀏覽器連線方式（§2.2）
-- [ ] post_turn_summary 使用的模型（建議 haiku）
+- [x] Migration 0028_session_v2.sql 的欄位設計（§4.1）→ OK
+- [x] agent_events 加 event_id 的回填方式（§4.2）→ OK（rowid 回填）
+- [x] runner_connections 新表（§4.3）→ OK
+- [x] Mac runner 連線協定選擇 → WebSocket
+- [x] 瀏覽器連線方式 → SSE（D1 讀 + KV long-poll）
+- [x] post_turn_summary 使用的模型 → 走 providers registry 按優先順序 fallback，不指定模型
 
 ---
 
