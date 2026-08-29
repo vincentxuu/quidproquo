@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Linkup 把搜尋深度與輸出格式分開控制：多數 agent 查詢先用 standard + searchResults，需要循線讀多頁才升到 deep；每月補回 20 美元是餘額恢復，不是固定再送 20 美元。"
 description: "從第一個 Linkup API 呼叫開始，說明搜尋深度、來源與全文取得、JSON Schema、錯誤重試、預付餘額，以及隱私與區域處理的官方邊界。"
 draft: false
+series:
+  name: "搜尋與爬取實戰"
+  order: 17
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-21-linkup-search-api-guide-en)
@@ -181,3 +184,7 @@ Linkup 適合想用一支 API 取得「搜尋結果、附來源答案、結構�
 - [Credit balance API](https://docs.linkup.so/pages/documentation/endpoints/account/balance)
 - [Security and Privacy FAQ](https://docs.linkup.so/pages/security-and-privacy/faq)
 - [Linkup Privacy Policy](https://www.linkup.so/privacy-policy)
+
+---
+
+> 本文的免费额度已收進 [免費搜尋、爬取與 Browser API 怎麼選](/posts/ai/2026-08-21-free-search-scraping-tools) 的判斷表：Linkup 屬「餘額補回」路線，eligible account 每月把餘額補回 $20，歸零回 429。同系列的文章也包括 [Keenable](/posts/ai/2026-08-29-keenable-agentic-search)（周期額度路线）與 [TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier)（持續限速路线）。

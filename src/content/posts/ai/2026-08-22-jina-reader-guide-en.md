@@ -8,6 +8,9 @@ lang: en
 tldr: "Jina Reader turns a known URL into LLM-friendly Markdown; production use still requires explicit rendering, scope, token-budget, validation, and fallback decisions."
 description: "Follow a URL through Jina Reader's rendering and Markdown pipeline, then compare its boundary with Firecrawl and Tavily Extract."
 draft: false
+series:
+  name: "Search and Scraping in Practice"
+  order: 16
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-jina-reader-guide)
@@ -116,3 +119,7 @@ When the task grows into a site crawl, batch orchestration, or schema extraction
 - [Exa: Neural Search for AI Agents](/posts/ai/2026-08-21-exa-neural-search-for-agents-en)
 - [Tavily Search API Guide](/posts/ai/2026-08-21-tavily-search-api-guide-en)
 - [Firecrawl Complete Guide](/posts/ai/2026-08-21-firecrawl-complete-guide-en)
+
+---
+
+> This guide's free-tier details are summarized in [Free Search, Scraping, and Browser APIs: How to Choose](/posts/ai/2026-08-21-free-search-scraping-tools-en): Jina is the "sustained rate-limit" route, usable keyless at 20 RPM, with Search not supporting anonymous calls. The judgment table also covers [Keenable](/posts/ai/2026-08-29-keenable-agentic-search-en), which takes a monthly quota route instead.

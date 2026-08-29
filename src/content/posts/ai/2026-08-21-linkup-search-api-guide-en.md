@@ -8,6 +8,9 @@ lang: en
 tldr: "Linkup separates search depth from response shape: start most agent queries with standard + searchResults, move to deep only for multi-step browsing, and treat the monthly $20 as a balance refill rather than a new $20 grant."
 description: "A practical Linkup API guide covering search depth, sources and full-page content, JSON Schema, retries, prepaid balance, and the documented limits of its privacy and regional-processing claims."
 draft: false
+series:
+  name: "Search and Scraping in Practice"
+  order: 17
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-21-linkup-search-api-guide)
@@ -181,3 +184,7 @@ Before production, add three guardrails: retain source URLs, distinguish balance
 - [Credit balance API](https://docs.linkup.so/pages/documentation/endpoints/account/balance)
 - [Security and Privacy FAQ](https://docs.linkup.so/pages/security-and-privacy/faq)
 - [Linkup Privacy Policy](https://www.linkup.so/privacy-policy)
+
+---
+
+> This guide's free-tier details are summarized in [Free Search, Scraping, and Browser APIs: How to Choose](/posts/ai/2026-08-21-free-search-scraping-tools-en): Linkup is the "balance refill" route, refilling eligible accounts back to $20 monthly and returning 429 at zero. Related posts in the same series include [Keenable](/posts/ai/2026-08-29-keenable-agentic-search-en) (monthly quota route) and [TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier) (sustained rate-limit route; this post is zh-TW only).

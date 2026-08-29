@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Jina Reader 把單一 URL 轉成適合 LLM 使用的 Markdown；真正上線時，還要控制渲染時機、正文範圍、token 上限與失敗回退。"
 description: "從 URL 輸入開始，拆解 Jina Reader 的渲染、Markdown 輸出、參數設計，以及它與 Firecrawl、Tavily Extract 的能力邊界。"
 draft: false
+series:
+  name: "搜尋與爬取實戰"
+  order: 16
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-jina-reader-guide-en)
@@ -116,3 +119,7 @@ Jina Reader 最好的位置，是「已知 URL」和「模型可讀 context」�
 - [Exa：給 AI Agent 的神經搜尋引擎](/posts/ai/2026-08-21-exa-neural-search-for-agents)
 - [Tavily Search API 完整指南](/posts/ai/2026-08-21-tavily-search-api-guide)
 - [Firecrawl 完整指南](/posts/ai/2026-08-21-firecrawl-complete-guide)
+
+---
+
+> 本文的免费额度已收進 [免費搜尋、爬取與 Browser API 怎麼選](/posts/ai/2026-08-21-free-search-scraping-tools) 的判斷表：Jina 屬「持續限速」路線，不帶 key 可持續用但限 20 RPM，Search 不支援匿名呼叫。同系列也包括 [TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier)（同樣持續限速，但帶機器渲染與 batch selector 抽取）。
