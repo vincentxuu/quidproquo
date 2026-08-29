@@ -948,7 +948,7 @@ Collect requirements and create a constrained implementation spec.
         saveAgentSkillsButton.textContent = '儲存中…';
       }
       try {
-        const response = await fetch('/api/skills', {
+        const response = await fetch('/api/admin/settings/extensions/skills', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ raw: agentSkillsInput.value.trim() }),
@@ -981,7 +981,7 @@ Collect requirements and create a constrained implementation spec.
   const loadAgentSkillsLibrary = async () => {
     if (!agentSkillsInput || agentSkillsInput.value.trim()) return;
     try {
-      const response = await fetch('/api/skills');
+      const response = await fetch('/api/admin/settings/extensions/skills');
       if (!response.ok) return;
       const payload = await response.json().catch(() => null);
       const raw = typeof payload?.raw === 'string' ? payload.raw.trim() : '';
@@ -1171,7 +1171,7 @@ Collect requirements and create a constrained implementation spec.
     let catalog = [];
 
     try {
-      const response = await fetch('/api/admin/providers');
+      const response = await fetch('/api/admin/settings/models');
       if (!response.ok) throw new Error('provider catalog not available');
       const payload = await response.json();
       providers = Array.isArray(payload.providers) ? payload.providers : providers;
