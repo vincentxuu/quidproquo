@@ -13,7 +13,7 @@ pip install FinMind anthropic pandas requests
 ```python
 """
 Taiwan AI Stock Screening Pipeline
-依賴：FinMind（量化數據）、Claude API（定性評分）、linkup/firecrawl（文字資料）
+依賴：FinMind（量化數據）、Claude API（定性評分）、Groundlane MCP（文字資料）
 """
 
 from FinMind.data import DataLoader
@@ -168,7 +168,7 @@ def score_qualitative(stock_id, context_text):
 def get_context(stock_id, stock_name):
     """
     組合搜尋結果作為 LLM 輸入。
-    實作依你使用的搜尋工具而定（linkup / firecrawl / jina）。
+    實作依 Groundlane MCP 連線方式而定。
     """
     # 建議搜尋的三個角度：
     queries = [
@@ -177,12 +177,11 @@ def get_context(stock_id, stock_name):
         f"{stock_name} 替換成本 認證 獨家",
     ]
 
-    # TODO：接入你的搜尋 API
-    # 範例（linkup SDK）：
-    # from linkup import LinkupClient
-    # lc = LinkupClient()
-    # results = [lc.search(q)['results'] for q in queries]
-    # return "\n\n".join([r['content'] for batch in results for r in batch[:3]])
+    # TODO：接入 Groundlane MCP web_search / web_fetch。
+    # 搜尋摘要只作為候選來源；送進 LLM 前要先 web_fetch 讀原文。
+    # results = [groundlane.web_search(query=q, max_results=5) for q in queries]
+    # pages = [groundlane.web_fetch(url=r["url"]) for batch in results for r in batch[:3]]
+    # return "\n\n".join([p["markdown"] for p in pages])
 
     raise NotImplementedError("請實作搜尋 API 串接")
 
@@ -263,7 +262,7 @@ if __name__ == '__main__':
 1. 先用 FinMind 跑量化層，確認篩選邏輯合理（不需 API 費用）
 2. 手動準備 5-10 家公司的文字資料，測試 LLM 評分品質
 3. 驗證 LLM 給出的 evidence 是否真的在原文中
-4. 接入搜尋 API（linkup 或 firecrawl），自動化資料取得
+4. 接入 Groundlane MCP，自動化資料取得
 5. 逐步擴大股票池
 
 ## 數據來源說明
@@ -273,5 +272,5 @@ if __name__ == '__main__':
 | 三大法人買賣超、月營收 | FinMind | 免費（歷史資料） |
 | 即時籌碼、K線 | Fugle API | 免費有限額 |
 | 財報、重大訊息 | 公開資訊觀測站 MOPS | 免費 |
-| 新聞全文、法說會 | linkup / firecrawl | 按用量計費 |
+| 新聞全文、法說會 | Groundlane `web_search` / `web_fetch` / `web_extract` | 依 Groundlane free API / free tier 或部署設定 |
 | 完整財務資料庫 | TEJ / CMoney | 付費 |

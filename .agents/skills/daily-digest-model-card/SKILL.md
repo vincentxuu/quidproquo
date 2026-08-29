@@ -36,9 +36,13 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 用途 | 工具 | 說明 |
 |---|---|---|
 | **HuggingFace 趨勢** | Groundlane web_fetch 打 HF API | 結構化 JSON，最精確 |
-| **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
+| **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
+
+### Groundlane 工具契約
+
+公開網頁研究與抓取一律使用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀已知 URL 或全文、`web_extract` 做 selector/table 欄位抽取。若最外層 tool list 沒看到 Groundlane，先檢查完整 callable tool inventory（含 deferred MCP tools）；仍沒有就回報 blocker。若 Groundlane 已掛載但 authorization 失敗，回報 blocker，並請使用者依 Groundlane free API / free tier 使用方式完成授權或修正 connector credential。不要自行改用 `web.run`、WebFetch、Playwright scraping、Exa、Tavily、Firecrawl、Jina、Linkup、`stealth_fetch`、`web-fetch` 或 `fetch_page`。
 
 ---
 
@@ -64,14 +68,14 @@ format: "text"（回傳 JSON）
 
 ### Step 3b：搜尋引擎掃描（補充訊號）
 
-用 Exa + Tavily 合併搜尋，捕捉 HF API 漏掉的閉源模型和官方公告。
+用 Groundlane `web_search` 搜尋，捕捉 HF API 漏掉的閉源模型和官方公告。
 
 ```
-工具：mcp Exa → web_search_exa
+工具：Groundlane MCP → web_search
 每組查詢設定：
-  numResults: 10
-  startPublishedDate: "{昨天的 ISO 日期}"
-  type: "auto"
+  max_results: 10
+  published_after: "{昨天的 ISO 日期}"
+  provider: "auto"
 ```
 
 | 查詢編號 | query | 目標 |
@@ -79,26 +83,24 @@ format: "text"（回傳 JSON）
 | Q1 | `"new AI model" OR "model release" OR "model announcement" Claude OR GPT OR Gemini OR Llama` | 大廠閉源模型發佈 |
 | Q2 | `"AI model launch" OR "foundation model" OR "open source model" Mistral OR Cohere OR DeepSeek OR Qwen OR GLM OR Yi OR MiniMax OR Phi` | 開源生態重要廠商 |
 
-### 注意：Tavily 與 Exa 平行執行
+### 注意：Groundlane `web_search` 查詢執行
 
 ```
-工具：mcp Tavily → tavily_search
+工具：Groundlane MCP → web_search
 query: "new AI model released today 2026"
-days: 1
-maxResults: 5
+time_range: "day"
+max_results: 5
 ```
 
-### Step 3c：檢查官方 blog（Groundlane 優先，firecrawl 備援）
+### Step 3c：檢查官方 blog（Groundlane `web_fetch`）
 
 只有在 Step 3a/3b 有初步信號時才做（避免每天空跑）。
 針對信號中提到的廠商，抓其官方 blog 確認是否有正式公告：
 
 ```
-工具（優先）：Groundlane MCP → `web_fetch`；參數：`format = "markdown"`, `render = "auto"`
-工具（備援）：mcp firecrawl → firecrawl_scrape
+工具：Groundlane MCP → web_fetch
 url: "{vendor blog URL}"
-formats: ["markdown"]
-onlyMainContent: true
+format: "markdown"
 ```
 
 | 廠商 | Blog URL |
@@ -202,9 +204,9 @@ web_fetch url: "https://api-docs.deepseek.com/quick_start/pricing"
 
 **Benchmark 數據**——從公告中提取，或搜尋：
 ```
-工具：mcp Exa → web_search_exa
+工具：Groundlane MCP → web_search
 query: "{model_name} benchmark results MMLU SWE-bench"
-numResults: 5
+max_results: 5
 ```
 
 ---

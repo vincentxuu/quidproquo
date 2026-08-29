@@ -22,19 +22,20 @@ description: Fact-layer verification for a post draft under src/content/posts/<c
 
 ## 工具映射
 
-跟 `deep-research` 一樣的工具家族；目的不同。Codex 用 `web.run` 搜尋/開頁；Claude 只用 MCP（CLAUDE.md 規定**不用內建 WebFetch / Playwright**）。MCP 首選映射：
+跟 `deep-research` 一樣遵守 Groundlane 邊界；目的不同。公開網頁研究與抓取一律用 Groundlane MCP，不用 `web.run`、WebFetch、Playwright scraping、Exa、Tavily、Firecrawl、Jina 或 Linkup 當 fallback。
 
 | 用途 | 首選 |
 |---|---|
-| 找官方頁面 | `tavily_search`、`exa_web_search` |
-| 抓官方文件 / release note 內容 | `firecrawl_scrape`、`tavily_extract` |
-| 程式碼 / GitHub 議題 / API spec 導向 | `exa_web_search` + `firecrawl_scrape` |
-| 多版本快速比對 | `tavily_search` 用 `time_range: month/year` |
+| 找官方頁面 / release note / 論文頁 | Groundlane `web_search` |
+| 抓官方文件 / release note / 定價頁內容 | Groundlane `web_fetch` |
+| 固定欄位或表格抽取 | Groundlane `web_extract` |
+| 程式碼 / GitHub 議題 / API spec 導向 | GitHub MCP / `gh api` / 官方 repo；需要讀公開頁再用 Groundlane |
 
-**兩條硬規則**：
+**三條硬規則**：
 
-1. **搜尋摘要不能作為 Confirmed 的依據。** `tavily_search` 回傳的片段只能拿來找候選來源。要判 Confirmed，必須對那個來源做過一次真正的抽取。
-2. **抽取驗證用的來源時不要帶 `query`。** `tavily_extract` 的 `query` 會依相關性重排並只回傳片段——你會看到對的數字，卻看不到旁邊的但書（樣本數、納入條件、「控制某變項後不顯著」）。PDF 用 `firecrawl_scrape` 加 `parsers: ["pdf"]`。
+1. **搜尋摘要不能作為 Confirmed 的依據。** Groundlane `web_search` 回傳的片段只能拿來找候選來源。要判 Confirmed，必須對那個來源做過 `web_fetch` 或來源專用 API 抽取。
+2. **抽取驗證用的來源時優先完整讀頁。** 主要來源用 Groundlane `web_fetch`；需要 selector/table 欄位才用 `web_extract`。
+3. **Groundlane 未掛載或未授權要明講。** 先檢查完整 callable tool inventory；如果已掛載但 authorization 失敗，回報 blocker，請使用者依 Groundlane free API / free tier 設定方式完成授權。
 
 取不到全文的繞路順序 → `../deep-research/references/mcp-tools.md`
 
@@ -72,8 +73,8 @@ description: Fact-layer verification for a post draft under src/content/posts/<c
 
 對每條 claim：
 
-1. `tavily_search` / `exa_web_search` 找權威來源（官方文件 / release note / 論文 / 官方 blog 為優先）
-2. `firecrawl_scrape` 或 `tavily_extract` 抓內容
+1. Groundlane `web_search` 找權威來源（官方文件 / release note / 論文 / 官方 blog 為優先）
+2. Groundlane `web_fetch` 抓內容；固定欄位用 `web_extract`
 3. 跟 claim 比對
 
 不是所有 claim 都需要硬湊兩個來源；來源數取決於風險：

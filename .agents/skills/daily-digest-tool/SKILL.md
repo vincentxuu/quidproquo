@@ -39,9 +39,13 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 | 用途 | 工具 | 說明 |
 |---|---|---|
-| **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
+| **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
+
+### Groundlane 工具契約
+
+公開網頁研究與抓取一律使用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀已知 URL 或全文、`web_extract` 做 selector/table 欄位抽取。若最外層 tool list 沒看到 Groundlane，先檢查完整 callable tool inventory（含 deferred MCP tools）；仍沒有就回報 blocker。若 Groundlane 已掛載但 authorization 失敗，回報 blocker，並請使用者依 Groundlane free API / free tier 使用方式完成授權或修正 connector credential。不要自行改用 `web.run`、WebFetch、Playwright scraping、Exa、Tavily、Firecrawl、Jina、Linkup、`stealth_fetch`、`web-fetch` 或 `fetch_page`。
 
 ---
 
@@ -61,25 +65,25 @@ gh search repos "model context protocol" --created=">${YESTERDAY}" --sort=stars 
   --json fullName,description,stargazersCount,createdAt,url
 ```
 
-### Step 4b：用 Exa 搜尋 Product Hunt 和新工具發佈
+### Step 4b：用 Groundlane `web_search` 搜尋 Product Hunt 和新工具發佈
 
 ```
-工具：mcp Exa → web_search_exa
+工具：Groundlane MCP → web_search
 
 查詢 1:
   query: "site:producthunt.com AI agent tool developer 2026"
-  numResults: 10
-  startPublishedDate: "{YESTERDAY}T00:00:00Z"
+  max_results: 10
+  published_after: "{YESTERDAY}T00:00:00Z"
 
 查詢 2:
   query: "new MCP server launch open source AI tool"
-  numResults: 10
-  startPublishedDate: "{YESTERDAY}T00:00:00Z"
+  max_results: 10
+  published_after: "{YESTERDAY}T00:00:00Z"
 
 查詢 3:
   query: "AI developer tool CLI SDK launch announcement"
-  numResults: 10
-  startPublishedDate: "{YESTERDAY}T00:00:00Z"
+  max_results: 10
+  published_after: "{YESTERDAY}T00:00:00Z"
 ```
 
 ### Step 4c：取得工具詳情
@@ -92,13 +96,11 @@ gh api "repos/{owner}/{repo}" --jq '{full_name, description, stargazers_count, l
 gh api "repos/{owner}/{repo}/readme" --jq '.content' | base64 -d | head -80
 ```
 
-非 GitHub 工具優先用 Groundlane `web_fetch`，必要時以 firecrawl 備援抓取官方頁面：
+非 GitHub 工具用 Groundlane `web_fetch` 抓取官方頁面：
 ```
-工具（優先）：Groundlane MCP → `web_fetch`；參數：`format = "markdown"`, `render = "auto"`
-工具（備援）：mcp firecrawl → firecrawl_scrape
+工具：Groundlane MCP → web_fetch
 url: "{tool_homepage}"
-formats: ["markdown"]
-onlyMainContent: true
+format: "markdown"
 ```
 
 ---

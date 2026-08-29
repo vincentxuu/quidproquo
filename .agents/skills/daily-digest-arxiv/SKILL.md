@@ -38,17 +38,21 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 | 用途 | 工具 | 說明 |
 |---|---|---|
-| **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
+| **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
+
+### Groundlane 工具契約
+
+公開網頁研究與抓取一律使用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀已知 URL 或全文、`web_extract` 做 selector/table 欄位抽取。若最外層 tool list 沒看到 Groundlane，先檢查完整 callable tool inventory（含 deferred MCP tools）；仍沒有就回報 blocker。若 Groundlane 已掛載但 authorization 失敗，回報 blocker，並請使用者依 Groundlane free API / free tier 使用方式完成授權或修正 connector credential。不要自行改用 `web.run`、WebFetch、Playwright scraping、Exa、Tavily、Firecrawl、Jina、Linkup、`stealth_fetch`、`web-fetch` 或 `fetch_page`。
 
 ---
 
 ## 搜尋方法
 
-### Step 4a：用 Exa + Tavily 合併搜尋（跑 3 組查詢，兩個引擎都跑）
+### Step 4a：用 Groundlane `web_search` 搜尋（跑 3 組查詢，兩個引擎都跑）
 
-對每組查詢同時跑 Exa 和 Tavily，合併結果並以 URL 去重：
+對每組查詢跑 Groundlane `web_search`，合併結果並以 URL 去重：
 
 | 查詢編號 | query | 目標 |
 |---|---|---|
@@ -56,20 +60,20 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | Q2 | `site:arxiv.org "cs.CL" RAG retrieval-augmented context memory agent` | RAG / Context / 記憶管理 |
 | Q3 | `site:arxiv.org "cs.AI" OR "cs.MA" multi-agent protocol safety guardrails` | 多 Agent 協作 / 安全 / 護欄 |
 
-**Exa（每組）：**
+**Groundlane `web_search`（每組）：**
 ```
-工具：mcp Exa → web_search_exa
-numResults: 10
-startPublishedDate: "{昨天的 ISO 日期，如 2026-08-15T00:00:00Z}"
-type: "auto"
+工具：Groundlane MCP → web_search
+max_results: 10
+published_after: "{昨天的 ISO 日期，如 2026-08-15T00:00:00Z}"
+provider: "auto"
 ```
 
-**Tavily（每組）：**
+**Groundlane `web_search`（補充查詢）：**
 ```
-工具：mcp Tavily → tavily_search
+工具：Groundlane MCP → web_search
 query: "{同上 query}"
-days: 1
-maxResults: 10
+time_range: "day"
+max_results: 10
 ```
 
 ### Step 4b：去重
@@ -145,12 +149,12 @@ echo "${TODAY}: {id1}, {id2}, {id3}" >> src/data/daily-signals/seen-arxiv-ids.tx
 
 ### Step 6：取得論文詳情
 
-**雲端環境（CCR routine）的 egress proxy 封鎖 arxiv.org 直連**，curl 和內建 WebFetch 都不通。依下列工具優先順序取得論文資料：
+**雲端環境（CCR routine）的 egress proxy 可能封鎖 arxiv.org 直連**，curl 和內建 WebFetch 也不作為研究工具。依下列方式取得論文資料：
 
-1. **Groundlane `web_fetch`**（本機或雲端只要已連接 Groundlane 都可用）
-2. **Exa** — `web_search_exa` 搜尋 `arxiv.org/abs/{arxiv_id}` 並取得內容
-3. **Tavily** — `tavily_search` 搜尋同上
-4. **firecrawl** — `firecrawl_scrape` 抓 `https://arxiv.org/abs/{arxiv_id}`（`onlyMainContent: true`）
+1. 優先用 arXiv API / official export 取得 metadata。
+2. 用 Groundlane `web_fetch` 抓 `https://arxiv.org/abs/{arxiv_id}` 讀摘要頁。
+3. 若已知 URL 失敗，用 Groundlane `web_search` 搜尋 `arxiv.org/abs/{arxiv_id}` 找可讀鏡像或官方替代頁。
+4. 若 Groundlane 未授權，回報 blocker，請使用者依 Groundlane free API / free tier 方式完成授權。
 
 從抓取結果中提取（**缺任何一項就換下一篇候選**）：
 - **標題**

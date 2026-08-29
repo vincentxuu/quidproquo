@@ -7,7 +7,7 @@ description: "Routine J (Stage 2): daily news scan producing intermediate signal
 
 Stage 2 routine。掃描所有新聞來源，篩出 30-50 則與 AI 生態相關的信號，存入中繼檔 JSON 供 Stage 3 日報組裝使用。**輸出是 JSON，不是文章。**
 
-**⚠️ 重要：不要使用 Agent tool / subagent 來平行搜尋。** CCR 雲端環境的 session 不會等 background agent 完成，會導致主 session 提前結束、無產出。所有搜尋查詢都在主 session 中執行——可以在同一個 message 裡同時發出多個 Exa/Tavily tool call（平行 tool call），但不可以派 subagent。
+**⚠️ 重要：不要使用 Agent tool / subagent 來平行搜尋。** CCR 雲端環境的 session 不會等 background agent 完成，會導致主 session 提前結束、無產出。所有搜尋查詢都在主 session 中執行——可以在同一個 message 裡同時發出多個 Groundlane tool call（平行 tool call），但不可以派 subagent。
 
 ---
 
@@ -46,9 +46,13 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 | 用途 | 工具 | 說明 |
 |---|---|---|
-| **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
+| **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
+
+### Groundlane 工具契約
+
+公開網頁研究與抓取一律使用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀已知 URL 或全文、`web_extract` 做 selector/table 欄位抽取。若最外層 tool list 沒看到 Groundlane，先檢查完整 callable tool inventory（含 deferred MCP tools）；仍沒有就回報 blocker。若 Groundlane 已掛載但 authorization 失敗，回報 blocker，並請使用者依 Groundlane free API / free tier 使用方式完成授權或修正 connector credential。不要自行改用 `web.run`、WebFetch、Playwright scraping、Exa、Tavily、Firecrawl、Jina、Linkup、`stealth_fetch`、`web-fetch` 或 `fetch_page`。
 
 ---
 
@@ -59,8 +63,8 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 三層策略，總共約 56 個查詢（但搜尋 API 只用 15 次）：
 
 1. **廣域主題查詢**（8 個 Tavily）— 不限特定公司，按主題掃全網
-2. **官方 blog 直讀**（41 個 Groundlane `web_fetch`/firecrawl）— 直接抓 blog 列表頁讀日期，0 搜尋配額
-3. **社群 + 區域來源**（Exa + Tavily 各幾個）— HN、Reddit、中文、台灣
+2. **官方 blog 直讀**（41 個 Groundlane `web_fetch`）— 直接抓 blog 列表頁讀日期，0 搜尋配額
+3. **社群 + 區域來源**（Groundlane `web_search`）— HN、Reddit、中文、台灣
 
 所有結果在 Step 6b 用 watchlist 293 家公司名比對，未在第二層的公司靠廣域查詢兜底。
 
@@ -69,7 +73,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 覆蓋整個 AI 生態，不綁特定公司。
 
 ```
-工具：mcp Tavily → tavily_search
+工具：Groundlane MCP → web_search
 每個查詢：max_results: 10, time_range: "day"
 ```
 
@@ -248,8 +252,8 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 **社群（Exa × 3）**
 
 ```
-工具：mcp Exa → web_search_exa
-numResults: 5 each
+工具：Groundlane MCP → web_search
+max_results: 5 each
 ```
 
 | # | query |
@@ -261,7 +265,7 @@ numResults: 5 each
 **中文/台灣（Tavily × 4）**
 
 ```
-工具：mcp Tavily → tavily_search
+工具：Groundlane MCP → web_search
 max_results: 5, time_range: "day"
 ```
 
@@ -291,7 +295,7 @@ max_results: 5, time_range: "day"
 3. **時間過濾**：
    - 有 published date 的結果：只保留 48 小時內的（`>= ${YESTERDAY}`）
    - published date 為 N/A 的結果：**保留但標記** `"dateConfidence": "unverified"`
-   - **CCR 環境的 Exa tool 不支援 `startPublishedDate` 參數**，所以必須在這一步手動過濾，不能依賴搜尋工具的日期篩選
+   - **CCR 環境的 Groundlane `web_search` 不支援 `startPublishedDate` 參數**，所以必須在這一步手動過濾，不能依賴搜尋工具的日期篩選
 
 此時應有 50-100 則原始結果。
 

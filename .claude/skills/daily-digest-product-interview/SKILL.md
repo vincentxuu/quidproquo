@@ -74,16 +74,16 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 | 用途 | 工具 | 說明 |
 |---|---|---|
-| **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
+| **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 
 ---
 
 ## 搜尋方法
 
-### Step 4a：依今日主題組合查詢（Exa + Tavily 各跑 2 組）
+### Step 4a：依今日主題組合查詢（Groundlane `web_search` 跑 2 組）
 
-每個主題有 2 組預設查詢。對每組同時跑 Exa 和 Tavily，合併結果：
+每個主題有 2 組預設查詢。對每組跑 Groundlane `web_search`，合併結果：
 
 | 主題 | Q1 | Q2 |
 |------|----|----|
@@ -95,20 +95,20 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | Technical PM | `technical product manager interview API design system architecture 2026` | `technical PM interview engineering collaboration trade-off analysis` |
 | Behavioral | `PM behavioral interview leadership influence conflict resolution STAR 2026` | `product manager behavioral question tell me about a time failed` |
 
-**Exa（每組）：**
+**Groundlane `web_search`（每組）：**
 ```
-工具：mcp Exa → web_search_exa
-numResults: 10
-startPublishedDate: "{30 天前的 ISO 日期}"
-type: "auto"
+工具：Groundlane MCP → web_search
+max_results: 10
+published_after: "{30 天前的 ISO 日期}"
+provider: "auto"
 ```
 
-**Tavily（每組）：**
+**Groundlane `web_search`（補充查詢）：**
 ```
-工具：mcp Tavily → tavily_search
+工具：Groundlane MCP → web_search
 query: "{同上 query}"
 days: 30
-maxResults: 10
+max_results: 10
 ```
 
 ### Step 4b：去重與篩選

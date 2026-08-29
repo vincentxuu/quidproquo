@@ -38,9 +38,13 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 | 用途 | 工具 | 說明 |
 |---|---|---|
-| **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
+| **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
+
+### Groundlane 工具契約
+
+公開網頁研究與抓取一律使用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀已知 URL 或全文、`web_extract` 做 selector/table 欄位抽取。若最外層 tool list 沒看到 Groundlane，先檢查完整 callable tool inventory（含 deferred MCP tools）；仍沒有就回報 blocker。若 Groundlane 已掛載但 authorization 失敗，回報 blocker，並請使用者依 Groundlane free API / free tier 使用方式完成授權或修正 connector credential。不要自行改用 `web.run`、WebFetch、Playwright scraping、Exa、Tavily、Firecrawl、Jina、Linkup、`stealth_fetch`、`web-fetch` 或 `fetch_page`。
 
 ---
 
@@ -48,13 +52,13 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ## 搜尋方法
 
-### Step 4a：用 Exa + Tavily 合併搜尋融資新聞（，跑 3 組查詢）
+### Step 4a：用 Groundlane `web_search` 搜尋融資新聞（跑 3 組查詢）
 
 ```
-工具：mcp Exa → web_search_exa
+工具：Groundlane MCP → web_search
 每組設定：
-  numResults: 10
-  startPublishedDate: "{昨天 ISO 日期}"
+  max_results: 10
+  published_after: "{昨天 ISO 日期}"
 ```
 
 | 查詢編號 | query | 目標 |
@@ -63,23 +67,21 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | Q2 | `AI agent startup Series round valuation 2026` | Agent 特定融資 |
 | Q3 | `site:businesswire.com OR site:prnewswire.com AI funding 2026` | 官方新聞稿 |
 
-### 注意：Tavily 與 Exa 平行執行
+### 注意：Groundlane `web_search` 查詢執行
 
 ```
-工具：mcp Tavily → tavily_search
+工具：Groundlane MCP → web_search
 query: "AI agent startup funding Series 2026"
-days: 1
-maxResults: 10
+time_range: "day"
+max_results: 10
 ```
 
 ### Step 4c：檢查 aifunding.me（Agent 融資專門追蹤站）
 
 ```
-工具（優先）：Groundlane MCP → `web_fetch`；參數：`format = "markdown"`, `render = "auto"`
-工具（備援）：mcp firecrawl → firecrawl_scrape
+工具：Groundlane MCP → web_fetch
 url: "https://aifunding.me"
-formats: ["markdown"]
-onlyMainContent: true
+format: "markdown"
 ```
 
 從頁面內容中提取過去 24 小時的新增融資記錄。
@@ -94,14 +96,12 @@ onlyMainContent: true
 
 ### Step 4e：取得融資詳情
 
-對確認的融資事件，優先用 Groundlane `web_fetch`，必要時以 firecrawl 備援抓取原始報導全文：
+對確認的融資事件，用 Groundlane `web_fetch` 抓取原始報導全文：
 
 ```
-工具（優先）：Groundlane MCP → `web_fetch`；參數：`format = "markdown"`, `render = "auto"`
-工具（備援）：mcp firecrawl → firecrawl_scrape
+工具：Groundlane MCP → web_fetch
 url: "{報導 URL}"
-formats: ["markdown"]
-onlyMainContent: true
+format: "markdown"
 ```
 
 從報導中提取：公司名稱、輪次、金額、領投、跟投、估值、公司簡介、資金用途。

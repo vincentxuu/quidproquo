@@ -35,9 +35,13 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 | 用途 | 工具 | 說明 |
 |---|---|---|
-| **搜尋/發現** | Exa + Tavily **兩個都跑** | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | Groundlane web_fetch 優先 → firecrawl backup | 已知 URL 的頁面內容擷取 |
+| **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
+| **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
+
+### Groundlane 工具契約
+
+公開網頁研究與抓取一律使用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀已知 URL 或全文、`web_extract` 做 selector/table 欄位抽取。若最外層 tool list 沒看到 Groundlane，先檢查完整 callable tool inventory（含 deferred MCP tools）；仍沒有就回報 blocker。若 Groundlane 已掛載但 authorization 失敗，回報 blocker，並請使用者依 Groundlane free API / free tier 使用方式完成授權或修正 connector credential。不要自行改用 `web.run`、WebFetch、Playwright scraping、Exa、Tavily、Firecrawl、Jina、Linkup、`stealth_fetch`、`web-fetch` 或 `fetch_page`。
 
 ---
 
@@ -47,13 +51,11 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ### Step 3a：直接抓取排行榜頁面（主要方法）
 
-優先用 Groundlane `web_fetch`，必要時以 firecrawl 備援抓取以下排行榜的最新狀態：
+用 Groundlane `web_fetch` 抓取以下排行榜的最新狀態：
 
 ```
-工具（優先）：Groundlane MCP → `web_fetch`；參數：`format = "markdown"`, `render = "auto"`
-工具（備援）：mcp firecrawl → firecrawl_scrape
-formats: ["markdown"]
-onlyMainContent: true
+工具：Groundlane MCP → web_fetch
+format: "markdown"
 ```
 
 | 優先級 | Benchmark | URL | 掃描頻率 |
@@ -66,13 +68,13 @@ onlyMainContent: true
 
 每個排行榜抓取後，提取前 10 名的模型名稱和分數。
 
-### Step 3b：用 Exa 搜尋新聞信號（補充）
+### Step 3b：用 Groundlane `web_search` 搜尋新聞信號（補充）
 
 ```
-工具：mcp Exa → web_search_exa
-numResults: 10
-startPublishedDate: "{昨天的 ISO 日期}"
-type: "auto"
+工具：Groundlane MCP → web_search
+max_results: 10
+published_after: "{昨天的 ISO 日期}"
+provider: "auto"
 ```
 
 | 查詢編號 | query | 目標 |
@@ -134,10 +136,10 @@ echo '{
 對有變動的模型，搜尋更多背景：
 
 ```
-工具：mcp Exa → web_search_exa
+工具：Groundlane MCP → web_search
 query: "{model_name} {benchmark_name} results analysis"
-numResults: 5
-startPublishedDate: "{一週前的 ISO 日期}"
+max_results: 5
+published_after: "{一週前的 ISO 日期}"
 ```
 
 需要收集：

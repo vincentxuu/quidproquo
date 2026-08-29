@@ -31,11 +31,13 @@ description: 用「供應鏈關鍵節點 + 結構性需求 + 高替換成本 + �
 
 ## 工具選擇
 
-搜尋資料時依序嘗試：
+公開網頁研究與抓取一律使用 Groundlane MCP：
 
-1. `mcp__linkup__linkup-search`（主力，覆蓋財經媒體）
-2. `mcp__jina__search_web`（備用）
-3. `mcp__firecrawl__firecrawl_search`（需確認額度）
+1. `web_search`：搜尋公司新聞、法說會、外資持股頁與供應鏈證據。
+2. `web_fetch`：讀取候選來源全文或表格頁。
+3. `web_extract`：對富聯網、MoneyDJ、MOPS 等固定欄位頁做 selector/table 抽取。
+
+不要用 Linkup、Jina、Firecrawl、Exa、Tavily、`web.run`、WebFetch 或 Playwright scraping 當 public-web fallback。若 Groundlane 未掛載，先檢查完整 callable tool inventory；若已掛載但未授權，回報 blocker，並請使用者依 Groundlane free API / free tier 設定方式完成授權。FinMind、MOPS、Fugle、TEJ/CMoney 等資料庫或官方 API 不受此限制。
 
 每次分析一支股票，至少搜尋以下三個角度：
 - `公司名 + AI供應鏈 + 市占率 + 競爭格局`
@@ -44,16 +46,16 @@ description: 用「供應鏈關鍵節點 + 結構性需求 + 高替換成本 + �
 
 ## 外資持股% 取得方法
 
-**必須取得確切數字，不可留「待確認」。** 用 `mcp__Exa__web_search_exa` 直接查，它能回傳免登入頁面的完整表格資料：
+**必須取得確切數字，不可留「待確認」。** 先用 Groundlane `web_search` 找免登入表格頁，再用 `web_fetch` 或 `web_extract` 讀出日期與持股百分比。搜尋摘要或 snippet 不足以作為最終數字。
 
-| 優先 | 來源 | Exa 查詢方式 | 實測結果 |
+| 優先 | 來源 | Groundlane 查詢方式 | 實測結果 |
 |---|---|---|---|
-| ⭐ 最佳 | **富聯網** `money-link.com.tw` | `{股票名} {代號} 外資持股比率 {YYYY年M月} 富聯網 money-link` | 穩定回傳 T-1 至 T-2 日數字；覆蓋標的最廣 |
+| 最佳 | **富聯網** `money-link.com.tw` | `{股票名} {代號} 外資持股比率 {YYYY年M月} 富聯網 money-link` | 穩定回傳 T-1 至 T-2 日數字；覆蓋標的最廣 |
 | 次佳 | **MoneyDJ / 富邦 eBrokerDJ** `fubon-ebrokerdj.fbs.com.tw` | `{代號} {股票名} 外資持股 fubon-ebrokerdj moneydj {YYYY年M月}` | 部分標的可取到 T+0 當日數字 |
 | 備用 | **Yahoo 股市** | `{代號} {股票名} 外資籌碼 yahoo 股市 {YYYY年M月}` | 週快照，覆蓋不足時補用 |
 
-> ⚠️ 不要用 linkup-search 找外資持股%——snippet 不含表格數據，幾乎一定拿不到確切數字。
-> ⚠️ 鉅亨網 company profile 頁顯示「目前」%但無日期，無法確認資料時效，不建議使用。
+> 注意：snippet 不含表格數據時不要採用；必須用 Groundlane `web_fetch` / `web_extract` 讀頁面內容。
+> 注意：鉅亨網 company profile 頁顯示「目前」%但無日期，無法確認資料時效，不建議使用。
 
 ### 評分對照（外資持股%）
 

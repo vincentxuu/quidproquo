@@ -6,7 +6,7 @@ description: Portable multi-source research for tools, frameworks, papers, model
 # deep-research skill
 
 > **工具邊界**
-> Groundlane 取代舊 `stealth_fetch` 與舊 `web-fetch/fetch_page`。其他 Tavily、Exa、Firecrawl、Jina、GitHub 與來源專用工具保留。不要假設任何個人檔案路徑、部署 URL、帳號或 token。
+> 公開網頁研究與抓取一律使用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀完整頁面、`web_extract` 做 selector 結構化抽取。GitHub、arXiv、Hugging Face、官方 API 等來源專用工具可以用；但不要把 `web.run`、WebFetch、Playwright scraping、`stealth_fetch`、`web-fetch`、`fetch_page`、Exa、Tavily、Firecrawl、Jina 或 Linkup 當 public-web fallback。若 Groundlane 未掛載，先檢查完整 callable tool inventory；若已掛載但未授權，回報 blocker，並請使用者依 Groundlane free API / free tier 設定方式完成授權。不要假設任何個人檔案路徑、部署 URL、帳號或 token。
 
 把「研究 + 導讀新工具 / 論文 / 趨勢」結構化：拆問題 → 多源蒐集 → 交叉驗證 → 萃取 → 產出可發文的 research note。
 
