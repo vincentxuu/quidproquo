@@ -83,7 +83,7 @@ Notes
   docs/governance/escalation-queue.md.
 - **Q-015/016/018（2026-08-27～29）**：Tavily＋firecrawl＋WebFetch 連續三天全滅只剩 Exa；
   08-27 交白卷、08-28 降級產出 24 則（低於下限）、08-29 用 Exa 補齊到 32 則。待人拍板標準行為，見 Q-018。
-- **Q-017（2026-08-29）**：daily-digest-report 在 Taipei 剛過午夜就被觸發，Stage 1/2 尚未產出；
-  判斷是排程時槽先於 Stage 1/2、非工具失效，本次跳過不硬產出，待人決定排程順序或 skill fallback。
+- **Q-017（已解決 2026-08-29）**：daily-digest-report 剛過午夜被觸發時 Stage 1/2 尚未產出，當時跳過；
+  使用者稍後要求重跑，Stage 1/2 已到位（32 信號／9 篇），正常組裝發佈 order 14，verify 全綠；排程順序本身仍未修正，見 escalation-queue.md。
 - **Q-010 第三次復發（2026-08-29）**：origin/main 又一次與本機 main 完全無共同祖先，已依既有作法
   改用 detached HEAD 完成當日任務、未動本機 main；細節見 escalation-queue.md。
