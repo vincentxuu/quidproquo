@@ -417,12 +417,12 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
 <style>
   /* ── Home center (greeting + needs-you) ── */
   .home-center {
-    flex: 1;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 2rem 1.5rem 1rem;
+    justify-content: flex-end;
+    padding: clamp(4rem, 14vh, 8rem) 1.5rem 1.25rem;
     min-height: 0;
   }
 
@@ -484,8 +484,7 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
 
   /* ── Bottom composer ── */
   .home-composer {
-    position: sticky;
-    bottom: 0;
+    position: relative;
     width: 100%;
     max-width: 720px;
     margin: 0 auto;

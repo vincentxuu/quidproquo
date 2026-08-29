@@ -13,9 +13,10 @@ export function Message({ from, className, ...props }: MessageProps) {
     <article
       data-from={from}
       className={cn(
-        'group/message flex w-full gap-3 border-b border-[var(--admin-border)] px-4 py-3 last:border-b-0',
-        from === 'user' && 'bg-[var(--admin-color-info-soft)]',
-        from === 'system' && 'bg-[var(--admin-color-surface-subtle)]',
+        'group/message flex w-full gap-3 py-2',
+        from === 'user' && 'justify-end',
+        from === 'assistant' && 'justify-start',
+        from === 'system' && 'justify-center py-1',
         className,
       )}
       {...props}
@@ -33,7 +34,17 @@ export function MessageLabel({ className, ...props }: React.HTMLAttributes<HTMLD
 }
 
 export function MessageContent({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn('min-w-0 flex-1 text-sm leading-6 text-[var(--admin-text)]', className)} {...props} />
+  return (
+    <div
+      className={cn(
+        'min-w-0 max-w-[min(760px,100%)] rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-white px-4 py-3 text-sm leading-6 text-[var(--admin-text)] shadow-[0_1px_2px_rgba(31,59,41,0.04)]',
+        'group-data-[from=user]/message:max-w-[min(680px,86%)] group-data-[from=user]/message:border-[var(--brand-200)] group-data-[from=user]/message:bg-[var(--brand-50)]',
+        'group-data-[from=system]/message:max-w-[min(760px,100%)] group-data-[from=system]/message:border-transparent group-data-[from=system]/message:bg-transparent group-data-[from=system]/message:px-0 group-data-[from=system]/message:py-1 group-data-[from=system]/message:shadow-none',
+        className,
+      )}
+      {...props}
+    />
+  )
 }
 
 export function MessageResponse({ children, className }: { children: string; className?: string }) {
@@ -52,10 +63,10 @@ export function MessageResponse({ children, className }: { children: string; cla
           ),
           ul: props => <ul className="my-2 list-disc pl-5" {...props} />,
           ol: props => <ol className="my-2 list-decimal pl-5" {...props} />,
-          h1: props => <h3 className="mt-3 text-base font-semibold" {...props} />,
-          h2: props => <h3 className="mt-3 text-base font-semibold" {...props} />,
-          h3: props => <h4 className="mt-3 text-sm font-semibold" {...props} />,
-          p: props => <p className="my-2" {...props} />,
+          h1: props => <h3 className="mt-3 text-base font-semibold first:mt-0" {...props} />,
+          h2: props => <h3 className="mt-3 text-base font-semibold first:mt-0" {...props} />,
+          h3: props => <h4 className="mt-3 text-sm font-semibold first:mt-0" {...props} />,
+          p: props => <p className="my-2 first:mt-0 last:mb-0" {...props} />,
         }}
       >
         {children}

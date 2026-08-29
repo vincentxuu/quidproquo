@@ -488,8 +488,8 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
     setSessionStatus(status)
   }, [])
 
-  const appendEvent = useCallback((type: SessionEventType, payload: Record<string, unknown>, eventId?: string) => {
-    const key = eventId || `local-${++rowCounterRef.current}`
+  const appendEvent = useCallback((type: SessionEventType, payload: Record<string, unknown>, eventId?: string, fallbackKey?: string) => {
+    const key = eventId || fallbackKey || `local-${++rowCounterRef.current}`
     if (seenEventIdsRef.current.has(key)) return
     seenEventIdsRef.current.add(key)
     if (eventId) lastEventIdRef.current = eventId
@@ -538,7 +538,8 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
             appendEvent(
               type as SessionEventType,
               JSON.parse(String(row.payload_json || '{}')) as Record<string, unknown>,
-              row.event_id || `${type}:${row.seq ?? ++rowCounterRef.current}`,
+              row.event_id,
+              `${type}:${row.seq ?? row.payload_json ?? ++rowCounterRef.current}`,
             )
           } catch {
             appendEvent('system/status', { state: 'error', message: `Invalid ${type} history payload` })
@@ -560,7 +561,12 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
       source.addEventListener(type, event => {
         const messageEvent = event as MessageEvent<string>
         try {
-          appendEvent(type, JSON.parse(messageEvent.data) as Record<string, unknown>, messageEvent.lastEventId || undefined)
+          appendEvent(
+            type,
+            JSON.parse(messageEvent.data) as Record<string, unknown>,
+            messageEvent.lastEventId || undefined,
+            `${type}:${messageEvent.data}`,
+          )
         } catch {
           appendEvent('system/status', { state: 'error', message: `Invalid ${type} payload` })
         }
@@ -576,13 +582,15 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
   }, [appendEvent, sessionId])
 
   useEffect(() => {
-    void loadSession()
-  }, [loadSession])
-
-  useEffect(() => {
-    connectSSE()
-    return () => eventSourceRef.current?.close()
-  }, [connectSSE])
+    let cancelled = false
+    void loadSession().finally(() => {
+      if (!cancelled) connectSSE()
+    })
+    return () => {
+      cancelled = true
+      eventSourceRef.current?.close()
+    }
+  }, [connectSSE, loadSession])
 
   useEffect(() => {
     if (!streamRef.current) return
@@ -748,12 +756,12 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
 
       <ProvisionBar steps={provisionSteps} />
 
-      <Conversation>
+      <Conversation className="max-h-[calc(100vh-18rem)]">
         <ConversationContent ref={streamRef}>
           {events.length === 0 ? (
             <p className="py-12 text-center text-sm text-[var(--admin-text-muted)]">連線中...</p>
           ) : (
-            <div className="-m-4">
+            <div className="flex flex-col gap-1">
               {events.map(row => (
                 <EventCard
                   key={row.id}
@@ -771,7 +779,7 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
       </Conversation>
 
       {showComposer ? (
-        <PromptInput onSubmit={handleResume}>
+        <PromptInput className="sticky bottom-4 z-10 shadow-[0_8px_24px_rgba(31,59,41,0.08)]" onSubmit={handleResume}>
           <PromptInputTextarea
             id="resume-input"
             rows={2}
