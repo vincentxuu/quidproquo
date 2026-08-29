@@ -135,6 +135,28 @@
 - 為什麼現在不能做：三個都是外部服務的帳號/額度/network policy 問題（Tavily 加值、firecrawl 加值、CCR 環境 egress allowlist），都不是 repo 內能改的（Tier 2）；「Q-015 交白卷 vs Q-016 降級產出」該選哪個當標準做法，也需要人拍板後寫回 skill。
 - 接手第一步：(1) 確認 Tavily／firecrawl 兩個帳號的方案與是否需要人工加值或聯繫供應商（兩者都是新出現的額度問題，建議一起處理而非分開申請）；(2) 決定 daily-digest-signals（及其他依賴 Tavily/firecrawl/WebFetch 的 daily-digest routine）在「三層搜尋全滅、只剩 Exa」時的標準行為：交白卷（Q-015 先例）或降級產出（本次做法），選定後寫進 `.agents/skills/daily-digest-signals/SKILL.md`（例如加一段「多重來源失效時的降級協定」），跑 `pnpm skills:sync` + `pnpm verify`；(3) 若選降級產出，替 `daily-digest-report`（Stage 3）加上讀取 `signalCount` 是否低於 30 的檢查，避免日報組裝誤以為當天覆蓋完整。
 
+## Q-018 Tavily／firecrawl／WebFetch 三管道連續第三天全滅，daily-digest-signals 改用純 Exa 補齊到規定下限
+
+- 登錄：2026-08-29（來源：daily-digest-signals routine 執行時發現，延續 Q-012／Q-015／Q-016）
+- 做什麼：本次執行時 `mcp__Tavily__tavily_search`（12 次廣域＋中文查詢）全數仍回傳 HTTP 432 額度用盡（同
+  Q-015/016，第三天未重置）；`mcp__firecrawl__firecrawl_search` 回傳 402 Payment Required，
+  `mcp__firecrawl__firecrawl_scrape` 回傳 Insufficient credits；`WebFetch` 對 `www.anthropic.com`／
+  `openai.com` 仍是 `EGRESS_BLOCKED`（Q-012 尚未解決）。三管道同時失效，與 Q-016 相同，只剩
+  `mcp__Exa__web_search_exa`／`mcp__Exa__web_fetch_exa` 可用。
+- 與 Q-016 的處置差異：延續 Q-016「盡力產出、誠實降級」而非 Q-015「交白卷」，但這次用更多輪 Exa
+  search（找精確 URL）＋Exa fetch（讀官方 blog 列表頁）組合，外加擴大日期窗到 24-96 小時（因覆蓋面
+  變窄，若嚴守 48 小時湊不滿 30 則），成功湊到 **32 則**、通過 skill 全部品質閘門（`n>=30`、
+  relevance≥0.5、unverified 僅 3%、無跨天重複 URL）。過程中發現一個真實風險：擴大日期窗後，有 9
+  則候選信號其實是 Q-016（08-28）已經收錄過的舊聞（`cohere.com/blog/parse`、xAI Grok Bot、
+  Cursor changelog 等），靠 `seen-signal-urls.txt` 的跨天去重檢查才攔下，換掉後才補到規定則數——
+  代表「擴大日期窗」這個代償手段本身有重覆報導的副作用，需要跨天去重步驟確實執行才安全。
+- 為什麼現在不能做：三個都是外部服務帳號/額度/network policy 問題（Tier 2），跟 Q-015/016 相同；
+  「交白卷 vs 降級產出」的標準行為仍未拍板，這是第三次獨立重新做同樣的判斷，代表 skill 目前缺這段
+  指引的成本已經開始累積（每天重新摸索 workaround，且用掉遠超原設計 15 次的搜尋呼叫數）。
+- 接手第一步：與 Q-016 相同（確認 Tavily／firecrawl 帳單狀態，拍板降級政策寫回
+  `.agents/skills/daily-digest-signals/SKILL.md`），額外建議：政策定案時一併明訂「日期窗可否超過
+  48 小時」與「超過時如何強制跑跨天去重」，避免下一個接手者又重新踩一次 Q-018 發現的重複報導陷阱。
+
 ## Q-017 daily-digest-report（Stage 3）在 Stage 1/2 產出前就被觸發，today 只有昨天的資料
 
 - 登錄：2026-08-29（來源：daily-digest-report routine 執行時發現）
