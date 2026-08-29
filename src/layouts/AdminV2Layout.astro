@@ -162,6 +162,15 @@ const sectionLabels: Record<string, string> = {
         ))}
       </nav>
 
+      <div class="sidebar-routines" id="sidebar-routines" style={defaultMode === 'admin' ? 'display:none' : ''}>
+        <div class="recents-header">
+          <span>Routines</span>
+        </div>
+        <div class="recents-list" id="routines-list">
+          <span class="recents-empty">載入中…</span>
+        </div>
+      </div>
+
       <div class="sidebar-recents" id="sidebar-recents" style={defaultMode === 'admin' ? 'display:none' : ''}>
         <div class="recents-header">
           <span>Recents</span>
@@ -287,25 +296,48 @@ const sectionLabels: Record<string, string> = {
     }
     document.addEventListener('DOMContentLoaded', loadRecents);
 
+    async function loadRoutines() {
+      try {
+        const res = await fetch('/api/admin/routines');
+        if (!res.ok) return;
+        const data = await res.json();
+        const list = document.getElementById('routines-list');
+        if (!list) return;
+        const routines = data.routines ?? data ?? [];
+        if (!Array.isArray(routines) || routines.length === 0) {
+          list.innerHTML = '<span class="recents-empty">尚無 Routine</span>';
+          return;
+        }
+        list.innerHTML = routines.map(function(r) {
+          const statusClass = r.enabled ? 'running' : 'done';
+          return '<a href="/admin/routines/' + r.id + '" class="recent-item"><span class="status-dot ' + statusClass + '"></span><span class="recent-label">' + (r.name || r.id) + '</span></a>';
+        }).join('');
+      } catch { /* silent */ }
+    }
+    document.addEventListener('DOMContentLoaded', loadRoutines);
+
     // Mode toggle
     function setMode(mode) {
-      const chatNav = document.querySelector('[data-nav="chat"]') ;
-      const adminNav = document.querySelector('[data-nav="admin"]') ;
-      const recents = document.getElementById('sidebar-recents');
-      const chatBtn = document.querySelector('[data-mode="chat"]');
-      const adminBtn = document.querySelector('[data-mode="admin"]');
+      var chatNav = document.querySelector('[data-nav="chat"]');
+      var adminNav = document.querySelector('[data-nav="admin"]');
+      var recents = document.getElementById('sidebar-recents');
+      var routinesSection = document.getElementById('sidebar-routines');
+      var chatBtn = document.querySelector('[data-mode="chat"]');
+      var adminBtn = document.querySelector('[data-mode="admin"]');
       if (!chatNav || !adminNav) return;
 
       if (mode === 'chat') {
         chatNav.style.display = '';
         adminNav.style.display = 'none';
         if (recents) recents.style.display = '';
+        if (routinesSection) routinesSection.style.display = '';
         chatBtn?.classList.add('active');
         adminBtn?.classList.remove('active');
       } else {
         chatNav.style.display = 'none';
         adminNav.style.display = '';
         if (recents) recents.style.display = 'none';
+        if (routinesSection) routinesSection.style.display = 'none';
         chatBtn?.classList.remove('active');
         adminBtn?.classList.add('active');
       }
