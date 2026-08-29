@@ -116,6 +116,8 @@ Keenable 抓到的 thesis 是對的：AI agents 會把搜尋變成一個和人�
 
 對台灣團隊來說，它現在的位置很清楚：放進 provider matrix、補一組繁中／台灣 query、測 latency 和 snippet quality。測完贏了再提高流量；測不贏，就讓它留在 onboarding 或 fallback。
 
+> 本文的免费额度与 rate limit 已收進 [免費搜尋、爬取與 Browser API 怎麼選](/posts/ai/2026-08-21-free-search-scraping-tools) 的判斷表（Keenable 每月 100K free requests、keyless endpoint 另限 1,000 req/hour）。如果你在比對各家 Search API 的免费额度，那篇是同一個系列的入門表。
+
 ## 參考資料
 
 - [Keenable.ai](https://keenable.ai/)

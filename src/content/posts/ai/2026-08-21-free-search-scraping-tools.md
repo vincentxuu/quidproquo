@@ -42,6 +42,7 @@ draft: false
 | [SerpAPI](https://serpapi.com/pricing) | 每個 billing cycle 250 次成功搜尋 | 新 cycle 開始時重置；cached、failed、errored 不扣；Free rollover 未公開 |
 | [Parallel](https://parallel.ai/blog/free-tier-parallel) | eligible organization 每月 5 美元 credits | 必須綁卡；月底失效、不 rollover；超額按標準費率扣卡 |
 | [You.com free MCP](https://you.com/docs/quickstart) | keyless `you-search` 每日 100 queries | 只含 Search，不含 Contents、Research、Finance；reset 時刻與時區未公開 |
+| [Keenable](https://keenable.ai/pricing) | 每月 100K free requests；keyless endpoint 另限 1,000 req/hour + 10 req/sec per IP | 免卡；Search 與 Fetch 共用同一 allowance；keyless pool 是 shared per-IP，不適合 production；精確 reset 日未公開 |
 
 Linkup 最容易誤讀。官方寫的是每月把 eligible account 的餘額 `top up back to $20`，意思是補回上限，不是每月固定再送 20 美元。補值發生時若仍有 7 美元，只補 13 美元；官方沒有公開精確 top-up 日期，因此也不該擅自寫成「月底結算」。
 
