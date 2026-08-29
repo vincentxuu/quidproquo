@@ -222,7 +222,7 @@ The [quidproquo blog](/posts/product/2026-03-12-quidproquo-blog-from-scratch-en)
 Some natural next steps:
 
 1. **External document crawler** — `src/lib/crawl/` already has crawling configuration; piping fetched HTML through `toMarkdown()` before chunking would significantly cut downstream embedding token costs.
-2. **AI Search** — sync `src/content/posts/` to R2 and wire up `autorag()` for a Q&A bot, without rebuilding the [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide-en) from scratch.
+2. **AI Search** — sync `src/content/posts/` to R2 and wire up `autorag()` for a Q&A bot, without rebuilding the [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide-en) from scratch. For the full architecture, data sources, hybrid retrieval, and Workers bindings, see [How to Use Cloudflare AI Search: Data Sources, Hybrid Retrieval, and Workers Bindings](/posts/tech/2026-08-29-cloudflare-ai-search-guide-en).
 3. **Gateway** — for `llm-as-judge` answer quality evaluation, Claude or GPT-4 would outperform anything in the Workers AI catalog; Gateway handles unified logging and caching for those calls.
 
 ## Limitations and Trade-offs
@@ -277,3 +277,4 @@ Before writing AI features next time, ask: is there a managed version of this? S
 - [Gemma on Cloudflare Workers AI: Model Selection](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en)
 - [Complete RAG Patterns Guide](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
 - [markdown.new](https://markdown.new) — the inspiration for this post
+- [How to Use Cloudflare AI Search: Data Sources, Hybrid Retrieval, and Workers Bindings](/posts/tech/2026-08-29-cloudflare-ai-search-guide-en) — complete AI Search architecture and implementation details

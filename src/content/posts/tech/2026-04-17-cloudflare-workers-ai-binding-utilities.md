@@ -228,7 +228,7 @@ const list = await env.AI.models();
 幾個自然的延伸：
 
 1. **外部文件爬蟲** — `src/lib/crawl/` 下已有爬蟲設定，把抓到的 HTML 過一次 `toMarkdown()` 再 chunk，可以大幅降低後續 embedding 的 token 成本
-2. **AI Search** — 把 `src/content/posts/` 同步到 R2，接 `autorag()` 做問答 bot，不用自己重刻 [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide)
+2. **AI Search** — 把 `src/content/posts/` 同步到 R2，接 `autorag()` 做問答 bot，不用自己重刻 [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide)。詳細架構、資料來源、hybrid 檢索與 Workers 綁定見 [Cloudflare AI Search 怎麼用：資料來源、混合檢索與 Workers 綁定的完整解析](/posts/tech/2026-08-29-cloudflare-ai-search-guide)。
 3. **Gateway** — 如果要做 `llm-as-judge` 評估答案品質，走 Claude 或 GPT-4 會比 Workers AI 目錄內的模型準，透過 Gateway 統一走
 
 ## 限制與取捨
@@ -283,3 +283,4 @@ const list = await env.AI.models();
 - [Gemma on Cloudflare Workers AI：繁中模型選型](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
 - [RAG Patterns 完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide)
 - [markdown.new](https://markdown.new) — 本文靈感來源
+- [Cloudflare AI Search 怎麼用：資料來源、混合檢索與 Workers 綁定的完整解析](/posts/tech/2026-08-29-cloudflare-ai-search-guide) — AI Search 完整架構與實作細節
