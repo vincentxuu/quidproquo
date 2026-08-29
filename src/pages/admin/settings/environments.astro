@@ -1,17 +1,174 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
-import { ensureConsoleUmbrella } from '../_guard';
-
-const gate = ensureConsoleUmbrella();
-if (gate) return gate;
-
+import AdminPanel from '@/components/admin/AdminPanel.astro';
 
 const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
 ---
 
 <AdminV2Layout title="Environments" section="settings" breadcrumb={breadcrumb}>
-  <div class="admin-panel">
-    <p class="admin-section-desc">環境設定——Runner 後端、網路規則、環境變數、Setup script。Phase 5 實作。</p>
-  </div>
+  <form id="env-form" class="admin-grid">
+    <AdminPanel title="Runner 後端">
+      <div class="admin-field">
+        <label class="admin-field-label">Provider</label>
+        <div class="radio-group">
+          <label><input type="radio" name="runner_provider" value="sandbox" checked /> Cloudflare Sandbox（預設）</label>
+          <label><input type="radio" name="runner_provider" value="mac" /> Mac（本機）</label>
+          <label><input type="radio" name="runner_provider" value="vps" disabled /> VPS（未實作）</label>
+        </div>
+      </div>
+    </AdminPanel>
+
+    <AdminPanel title="Network">
+      <div class="admin-field">
+        <label class="admin-field-label">Mode</label>
+        <div class="radio-group">
+          <label><input type="radio" name="network_mode" value="none" /> None（離線）</label>
+          <label><input type="radio" name="network_mode" value="trusted" checked /> Trusted（git + 套件源）</label>
+          <label><input type="radio" name="network_mode" value="full" /> Full（完全開放）</label>
+          <label><input type="radio" name="network_mode" value="custom" /> Custom</label>
+        </div>
+      </div>
+      <div id="custom-hosts" class="admin-field" style="display:none">
+        <label class="admin-field-label">Allowed Hosts（每行一個 glob）</label>
+        <textarea id="allowed-hosts" class="textarea" rows="4" placeholder="github.com&#10;*.npmjs.org"></textarea>
+      </div>
+    </AdminPanel>
+
+    <AdminPanel title="Environment Variables">
+      <div id="env-vars-list" class="env-vars-list"></div>
+      <div class="admin-actions">
+        <button type="button" id="add-env-var" class="btn btn-secondary">+ Add Variable</button>
+      </div>
+      <p class="admin-section-desc">Values are encrypted at rest. Injected into sandbox via Outbound Worker.</p>
+    </AdminPanel>
+
+    <AdminPanel title="Setup Script">
+      <div class="admin-field">
+        <label class="admin-field-label">Runs after clone, before agent starts</label>
+        <textarea id="setup-script" name="setup_script" class="textarea" rows="6" placeholder="npm install&#10;# custom setup commands"></textarea>
+      </div>
+    </AdminPanel>
+
+    <div class="admin-actions">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <span id="save-status" class="admin-section-desc"></span>
+    </div>
+  </form>
 </AdminV2Layout>
+
+<style>
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  .env-vars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .env-var-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .env-var-row input {
+    flex: 1;
+  }
+  .env-var-row .remove-btn {
+    color: var(--admin-danger);
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    padding: 0 0.25rem;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('env-form') as HTMLFormElement;
+  const status = document.getElementById('save-status') as HTMLElement;
+  const customHosts = document.getElementById('custom-hosts') as HTMLElement;
+  const envVarsList = document.getElementById('env-vars-list') as HTMLElement;
+  const addBtn = document.getElementById('add-env-var') as HTMLButtonElement;
+
+  document.querySelectorAll('input[name="network_mode"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      customHosts.style.display = (radio as HTMLInputElement).value === 'custom' ? 'block' : 'none';
+    });
+  });
+
+  function addEnvVarRow(name = '', masked = false) {
+    const row = document.createElement('div');
+    row.className = 'env-var-row';
+    row.innerHTML = `
+      <input type="text" placeholder="KEY" value="${name}" class="env-key" />
+      <input type="${masked ? 'password' : 'text'}" placeholder="VALUE" class="env-value" />
+      <button type="button" class="remove-btn" title="Remove">&times;</button>
+    `;
+    row.querySelector('.remove-btn')?.addEventListener('click', () => row.remove());
+    envVarsList.appendChild(row);
+  }
+
+  addBtn.addEventListener('click', () => addEnvVarRow());
+
+  async function loadConfig() {
+    try {
+      const res = await fetch('/api/admin/settings/environments');
+      const data = await res.json();
+      if (!data.ok) return;
+
+      const config = data.config || {};
+      const provider = config.runner_provider || 'sandbox';
+      const mode = config.network_mode || 'trusted';
+
+      const providerRadio = form.querySelector(`input[name="runner_provider"][value="${provider}"]`) as HTMLInputElement;
+      if (providerRadio) providerRadio.checked = true;
+
+      const modeRadio = form.querySelector(`input[name="network_mode"][value="${mode}"]`) as HTMLInputElement;
+      if (modeRadio) { modeRadio.checked = true; customHosts.style.display = mode === 'custom' ? 'block' : 'none'; }
+
+      if (config.allowed_hosts) {
+        (document.getElementById('allowed-hosts') as HTMLTextAreaElement).value = config.allowed_hosts;
+      }
+      if (config.setup_script) {
+        (document.getElementById('setup-script') as HTMLTextAreaElement).value = config.setup_script;
+      }
+
+      for (const v of data.variables || []) addEnvVarRow(v.name, true);
+    } catch {}
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = 'Saving...';
+
+    const config: Record<string, string> = {
+      runner_provider: (form.querySelector('input[name="runner_provider"]:checked') as HTMLInputElement)?.value ?? 'sandbox',
+      network_mode: (form.querySelector('input[name="network_mode"]:checked') as HTMLInputElement)?.value ?? 'trusted',
+      allowed_hosts: (document.getElementById('allowed-hosts') as HTMLTextAreaElement)?.value ?? '',
+      setup_script: (document.getElementById('setup-script') as HTMLTextAreaElement)?.value ?? '',
+    };
+
+    try {
+      const res = await fetch('/api/admin/settings/environments', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ config }),
+      });
+      const data = await res.json();
+      status.textContent = data.ok ? 'Saved' : 'Error';
+    } catch {
+      status.textContent = 'Failed';
+    }
+  });
+
+  loadConfig();
+</script>

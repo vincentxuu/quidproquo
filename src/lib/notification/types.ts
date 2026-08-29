@@ -22,10 +22,15 @@ export interface ApprovalAction {
   input: unknown
 }
 
+export interface InteractiveMessage {
+  messageId?: string
+  components?: unknown[]
+}
+
 export interface NotificationChannel {
   id: string
   type: string
   send(summary: RoutineSummary): Promise<void>
   sendPlatformFailure?(failure: PlatformFailure): Promise<void>
-  renderActions?(approvals: ApprovalAction[]): Promise<void>
+  renderActions?(approvals: ApprovalAction[]): Promise<InteractiveMessage | void>
 }

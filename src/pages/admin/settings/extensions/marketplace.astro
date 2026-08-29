@@ -1,10 +1,6 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
-import { ensureConsoleUmbrella } from '../../_guard';
-
-const gate = ensureConsoleUmbrella();
-if (gate) return gate;
 
 const breadcrumb = [
   { label: 'Settings', href: '/admin/settings' },
@@ -14,6 +10,126 @@ const breadcrumb = [
 
 <AdminV2Layout title="Marketplace" section="settings" breadcrumb={breadcrumb}>
   <div class="admin-panel">
-    <p class="admin-section-desc">從 GitHub repo 瀏覽並安裝擴充。Phase 6 實作。</p>
+    <div class="admin-panel-header">
+      <div>
+        <h3>Marketplace</h3>
+        <p class="admin-section-desc">從 GitHub repo 瀏覽並安裝擴充套件。</p>
+      </div>
+    </div>
+
+    <section class="sources-section">
+      <h4>來源清單</h4>
+      <div class="admin-toolbar">
+        <input id="source-url" type="url" class="input" placeholder="https://github.com/owner/repo" />
+        <button id="add-source-btn" class="btn btn-primary">新增來源</button>
+      </div>
+      <div id="sources-list" class="admin-list"></div>
+    </section>
+
+    <section class="packages-section">
+      <h4>可安裝套件</h4>
+      <div id="packages-list" class="admin-list"></div>
+    </section>
   </div>
 </AdminV2Layout>
+
+<script>
+  interface ManifestData { name: string; version: string; author?: string; description?: string; skills?: Array<{ name: string }>; mcp_servers?: Array<{ name: string }> }
+  interface PackageItem { sourceId: string; sourceUrl: string; manifest: ManifestData | null; installed: boolean; error?: string }
+  interface SourceItem { id: string; url: string; name: string | null }
+
+  const API = '/api/admin/settings/extensions/marketplace';
+  const sourcesList = document.getElementById('sources-list') as HTMLDivElement;
+  const packagesList = document.getElementById('packages-list') as HTMLDivElement;
+  const sourceUrlInput = document.getElementById('source-url') as HTMLInputElement;
+
+  async function load() {
+    const res = await fetch(API);
+    const data = await res.json() as { sources?: SourceItem[]; packages?: PackageItem[] };
+    renderSources(data.sources || []);
+    renderPackages(data.packages || []);
+  }
+
+  function renderSources(sources: SourceItem[]) {
+    sourcesList.innerHTML = sources.length === 0
+      ? '<p class="admin-section-desc">尚無來源。新增 GitHub repo URL 開始。</p>'
+      : sources.map(s => `
+        <div class="admin-list-item">
+          <span>${s.name || s.url}</span>
+          <button class="btn btn-danger btn-sm remove-source-btn" data-id="${s.id}">移除</button>
+        </div>`).join('');
+  }
+
+  function renderPackages(packages: PackageItem[]) {
+    packagesList.innerHTML = packages.length === 0
+      ? '<p class="admin-section-desc">尚無可安裝套件。</p>'
+      : packages.map(p => {
+        if (!p.manifest) return `<div class="admin-list-item"><span class="admin-section-desc">${p.sourceUrl}: ${p.error || '無法讀取 manifest'}</span></div>`;
+        const m = p.manifest;
+        return `
+          <div class="admin-list-item">
+            <div>
+              <strong>${m.name}</strong> <span class="admin-badge">${m.version}</span>
+              ${m.author ? `<span class="admin-section-desc">by ${m.author}</span>` : ''}
+              ${m.description ? `<p class="admin-section-desc">${m.description}</p>` : ''}
+              <p class="admin-section-desc">
+                ${(m.skills || []).length} skills, ${(m.mcp_servers || []).length} MCP servers
+              </p>
+            </div>
+            <div class="admin-actions">
+              ${p.installed
+                ? `<button class="btn btn-secondary btn-sm update-btn" data-id="${p.sourceId}">更新</button>
+                   <button class="btn btn-danger btn-sm remove-pkg-btn" data-id="${p.sourceId}">移除</button>`
+                : `<button class="btn btn-primary btn-sm install-btn" data-id="${p.sourceId}">安裝</button>`}
+            </div>
+          </div>`;
+      }).join('');
+  }
+
+  document.getElementById('add-source-btn')!.addEventListener('click', async () => {
+    const url = sourceUrlInput.value.trim();
+    if (!url) return;
+    await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ url }) });
+    sourceUrlInput.value = '';
+    await load();
+  });
+
+  sourcesList.addEventListener('click', async (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.classList.contains('remove-source-btn')) return;
+    const id = target.dataset.id;
+    if (!id) return;
+    await fetch(`${API}/${encodeURIComponent(id)}/remove`, { method: 'DELETE' });
+    await load();
+  });
+
+  packagesList.addEventListener('click', async (e) => {
+    const target = e.target as HTMLElement;
+    const id = target.dataset.id;
+    if (!id) return;
+    if (target.classList.contains('install-btn')) {
+      target.textContent = '安裝中…';
+      target.setAttribute('disabled', '');
+      await fetch(`${API}/${encodeURIComponent(id)}/install`, { method: 'POST' });
+      await load();
+    } else if (target.classList.contains('update-btn')) {
+      target.textContent = '更新中…';
+      await fetch(`${API}/${encodeURIComponent(id)}/update`, { method: 'POST' });
+      await load();
+    } else if (target.classList.contains('remove-pkg-btn')) {
+      if (!confirm('確定移除此套件？')) return;
+      await fetch(`${API}/${encodeURIComponent(id)}/remove`, { method: 'DELETE' });
+      await load();
+    }
+  });
+
+  load();
+</script>
+
+<style>
+  .sources-section, .packages-section { margin-bottom: 2rem; }
+  .admin-toolbar { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+  .admin-toolbar .input { flex: 1; }
+  .admin-list-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--admin-border); }
+  .btn-sm { font-size: 0.8rem; padding: 0.25rem 0.5rem; }
+</style>

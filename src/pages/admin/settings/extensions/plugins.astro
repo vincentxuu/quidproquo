@@ -1,10 +1,6 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
-import { ensureConsoleUmbrella } from '../../_guard';
-
-const gate = ensureConsoleUmbrella();
-if (gate) return gate;
 
 const breadcrumb = [
   { label: 'Settings', href: '/admin/settings' },
@@ -14,6 +10,70 @@ const breadcrumb = [
 
 <AdminV2Layout title="Plugins" section="settings" breadcrumb={breadcrumb}>
   <div class="admin-panel">
-    <p class="admin-section-desc">管理 Plugins。</p>
+    <div class="admin-panel-header">
+      <div>
+        <h3>已安裝 Plugins</h3>
+        <p class="admin-section-desc">管理已安裝的 plugin 套件。</p>
+      </div>
+      <div class="admin-actions">
+        <button id="check-updates-btn" class="btn btn-secondary">檢查更新</button>
+      </div>
+    </div>
+    <div id="plugins-list" class="admin-list"></div>
+    <p id="status-msg" class="admin-section-desc"></p>
   </div>
 </AdminV2Layout>
+
+<script>
+  interface PluginItem { id: string; name: string; description: string | null; version: string | null; author: string | null; source_url: string | null; update_available: number }
+
+  const API = '/api/admin/settings/extensions/plugins';
+  const list = document.getElementById('plugins-list') as HTMLDivElement;
+  const statusMsg = document.getElementById('status-msg') as HTMLElement;
+
+  async function load() {
+    const res = await fetch(API);
+    const data = await res.json() as { plugins?: PluginItem[] };
+    const plugins = data.plugins || [];
+    list.innerHTML = plugins.length === 0
+      ? '<p class="admin-section-desc">尚無已安裝的 plugin。前往 Marketplace 安裝。</p>'
+      : plugins.map(p => `
+        <div class="admin-list-item">
+          <div>
+            <strong>${p.name}</strong>
+            <span class="admin-badge">${p.version || '?'}</span>
+            ${p.update_available ? '<span class="admin-badge badge-warn">有更新</span>' : ''}
+            ${p.author ? `<span class="admin-section-desc">by ${p.author}</span>` : ''}
+            ${p.description ? `<p class="admin-section-desc">${p.description}</p>` : ''}
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-danger btn-sm uninstall-btn" data-id="${p.id}" data-name="${p.name}">解除安裝</button>
+          </div>
+        </div>`).join('');
+  }
+
+  list.addEventListener('click', async (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.classList.contains('uninstall-btn')) return;
+    const id = target.dataset.id;
+    if (!id || !confirm(`確定解除安裝 ${target.dataset.name}？`)) return;
+    await fetch(`${API}/${encodeURIComponent(id)}`, { method: 'DELETE' });
+    await load();
+  });
+
+  document.getElementById('check-updates-btn')!.addEventListener('click', async () => {
+    statusMsg.textContent = '檢查更新中…';
+    const res = await fetch('/api/admin/settings/extensions/marketplace', { method: 'GET' });
+    const data = await res.json() as { packages?: Array<{ manifest?: { name: string }; installed: boolean }> };
+    statusMsg.textContent = `檢查完成。${(data.packages || []).filter(p => p.installed).length} 個已安裝套件。`;
+    await load();
+  });
+
+  load();
+</script>
+
+<style>
+  .admin-list-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--admin-border); }
+  .btn-sm { font-size: 0.8rem; padding: 0.25rem 0.5rem; }
+  .badge-warn { background: #f59e0b; color: #fff; }
+</style>

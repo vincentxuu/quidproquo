@@ -1,10 +1,6 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
-import { ensureConsoleUmbrella } from '../../_guard';
-
-const gate = ensureConsoleUmbrella();
-if (gate) return gate;
 
 const breadcrumb = [
   { label: 'Settings', href: '/admin/settings' },
@@ -14,6 +10,174 @@ const breadcrumb = [
 
 <AdminV2Layout title="MCP Servers" section="settings" breadcrumb={breadcrumb}>
   <div class="admin-panel">
-    <p class="admin-section-desc">管理 MCP Server 連線——新增、移除、工具級權限。</p>
+    <div class="admin-panel-header">
+      <div>
+        <h3>MCP Servers</h3>
+        <p class="admin-section-desc">管理 MCP Server 連線、工具級權限。</p>
+      </div>
+      <div class="admin-actions">
+        <button id="add-server-btn" class="btn btn-primary">新增 Server</button>
+      </div>
+    </div>
+    <div id="servers-list" class="admin-list"></div>
   </div>
+
+  <dialog id="server-dialog" class="admin-dialog">
+    <form id="server-form" method="dialog">
+      <h3 id="dialog-title">新增 MCP Server</h3>
+      <label class="admin-field">
+        <span class="admin-field-label">名稱</span>
+        <input id="server-name" name="name" class="input" required />
+      </label>
+      <label class="admin-field">
+        <span class="admin-field-label">類型</span>
+        <select id="server-type" name="type" class="select">
+          <option value="http">HTTP</option>
+          <option value="sse">SSE</option>
+        </select>
+      </label>
+      <label class="admin-field">
+        <span class="admin-field-label">URL</span>
+        <input id="server-url" name="url" class="input" placeholder="https://..." />
+      </label>
+      <label class="admin-field">
+        <span class="admin-field-label">描述</span>
+        <input id="server-desc" name="description" class="input" />
+      </label>
+      <div class="admin-actions">
+        <button type="button" id="cancel-btn" class="btn btn-secondary">取消</button>
+        <button type="submit" class="btn btn-primary">儲存</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="permissions-dialog" class="admin-dialog">
+    <h3>工具權限 — <span id="perm-server-name"></span></h3>
+    <div id="tools-permissions-list"></div>
+    <div class="admin-actions">
+      <button id="perm-close-btn" class="btn btn-secondary">關閉</button>
+      <button id="perm-save-btn" class="btn btn-primary">儲存</button>
+    </div>
+  </dialog>
 </AdminV2Layout>
+
+<script>
+  interface ServerItem { id: string; name: string; description: string | null; type: string; url: string | null; enabled: boolean; tools: string | null; tool_permissions: string | null }
+  interface ToolDef { name: string }
+
+  const API = '/api/admin/settings/extensions/mcp-servers';
+  const serversList = document.getElementById('servers-list') as HTMLDivElement;
+  const dialog = document.getElementById('server-dialog') as HTMLDialogElement;
+  const form = document.getElementById('server-form') as HTMLFormElement;
+  const permDialog = document.getElementById('permissions-dialog') as HTMLDialogElement;
+
+  let servers: ServerItem[] = [];
+  let currentPermServerId = '';
+
+  async function load() {
+    const res = await fetch(API);
+    const data = await res.json() as { servers?: ServerItem[] };
+    servers = data.servers || [];
+    render();
+  }
+
+  function render() {
+    serversList.innerHTML = servers.length === 0
+      ? '<p class="admin-section-desc">尚無 MCP Server。</p>'
+      : servers.map(s => `
+        <div class="admin-list-item">
+          <div>
+            <strong>${s.name}</strong>
+            <span class="admin-badge">${s.type}</span>
+            <span class="admin-badge ${s.enabled ? 'badge-green' : 'badge-gray'}">${s.enabled ? '啟用' : '停用'}</span>
+            <p class="admin-section-desc">${s.description || s.url || ''}</p>
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-secondary btn-sm toggle-btn" data-id="${s.id}" data-enabled="${s.enabled ? '1' : '0'}">${s.enabled ? '停用' : '啟用'}</button>
+            <button class="btn btn-secondary btn-sm perm-btn" data-id="${s.id}" data-name="${s.name}">權限</button>
+            <button class="btn btn-danger btn-sm delete-btn" data-id="${s.id}" data-name="${s.name}">刪除</button>
+          </div>
+        </div>`).join('');
+  }
+
+  document.getElementById('add-server-btn')!.addEventListener('click', () => {
+    (document.getElementById('dialog-title') as HTMLElement).textContent = '新增 MCP Server';
+    form.reset();
+    dialog.showModal();
+  });
+
+  document.getElementById('cancel-btn')!.addEventListener('click', () => dialog.close());
+
+  serversList.addEventListener('click', async (e) => {
+    const target = e.target as HTMLElement;
+    const id = target.dataset.id;
+    if (!id) return;
+    if (target.classList.contains('toggle-btn')) {
+      const enabled = target.dataset.enabled !== '1';
+      await fetch(`${API}/${encodeURIComponent(id)}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ enabled }) });
+      await load();
+    } else if (target.classList.contains('delete-btn')) {
+      if (!confirm(`確定刪除 ${target.dataset.name}？`)) return;
+      await fetch(`${API}/${encodeURIComponent(id)}`, { method: 'DELETE' });
+      await load();
+    } else if (target.classList.contains('perm-btn')) {
+      currentPermServerId = id;
+      (document.getElementById('perm-server-name') as HTMLElement).textContent = target.dataset.name || '';
+      const server = servers.find(s => s.id === id);
+      const tools: ToolDef[] = server?.tools ? JSON.parse(server.tools) : [];
+      const perms: Record<string, string> = server?.tool_permissions ? JSON.parse(server.tool_permissions) : {};
+      const permList = document.getElementById('tools-permissions-list') as HTMLElement;
+      permList.innerHTML = tools.length === 0
+        ? '<p class="admin-section-desc">此 server 尚無已發現的工具。</p>'
+        : tools.map(t => `
+          <div class="perm-row">
+            <span>${t.name}</span>
+            <select data-tool="${t.name}" class="select perm-select">
+              <option value="always_allow" ${perms[t.name] === 'always_allow' || !perms[t.name] ? 'selected' : ''}>Allow</option>
+              <option value="always_ask" ${perms[t.name] === 'always_ask' ? 'selected' : ''}>Ask</option>
+              <option value="always_deny" ${perms[t.name] === 'always_deny' ? 'selected' : ''}>Deny</option>
+            </select>
+          </div>`).join('');
+      permDialog.showModal();
+    }
+  });
+
+  document.getElementById('perm-close-btn')!.addEventListener('click', () => permDialog.close());
+  document.getElementById('perm-save-btn')!.addEventListener('click', async () => {
+    const selects = permDialog.querySelectorAll('.perm-select') as NodeListOf<HTMLSelectElement>;
+    const perms: Record<string, string> = {};
+    selects.forEach(s => { perms[s.dataset.tool!] = s.value; });
+    await fetch(`${API}/${encodeURIComponent(currentPermServerId)}`, {
+      method: 'PUT', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tool_permissions: JSON.stringify(perms) }),
+    });
+    permDialog.close();
+    await load();
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const body = {
+      name: (document.getElementById('server-name') as HTMLInputElement).value,
+      type: (document.getElementById('server-type') as HTMLSelectElement).value,
+      url: (document.getElementById('server-url') as HTMLInputElement).value || null,
+      description: (document.getElementById('server-desc') as HTMLInputElement).value || null,
+    };
+    await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    dialog.close();
+    await load();
+  });
+
+  load();
+</script>
+
+<style>
+  .admin-list-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--admin-border); }
+  .admin-dialog { border: 1px solid var(--admin-border); border-radius: var(--admin-radius); padding: 1.5rem; max-width: 640px; width: 90vw; }
+  .admin-dialog::backdrop { background: rgba(0,0,0,0.4); }
+  .btn-sm { font-size: 0.8rem; padding: 0.25rem 0.5rem; }
+  .badge-green { background: var(--brand-900); color: var(--admin-surface); }
+  .badge-gray { background: var(--admin-border); }
+  .perm-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--admin-border); }
+  .perm-select { width: 120px; }
+</style>

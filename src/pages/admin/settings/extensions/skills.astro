@@ -1,10 +1,6 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
-import { ensureConsoleUmbrella } from '../../_guard';
-
-const gate = ensureConsoleUmbrella();
-if (gate) return gate;
 
 const breadcrumb = [
   { label: 'Settings', href: '/admin/settings' },
@@ -14,6 +10,172 @@ const breadcrumb = [
 
 <AdminV2Layout title="Skills" section="settings" breadcrumb={breadcrumb}>
   <div class="admin-panel">
-    <p class="admin-section-desc">管理 Skills——建立、編輯、匯入、匯出。</p>
+    <div class="admin-panel-header">
+      <div>
+        <h3>Skills</h3>
+        <p class="admin-section-desc">建立、編輯、匯入、匯出 agent skills。</p>
+      </div>
+      <div class="admin-actions">
+        <button id="import-btn" class="btn btn-secondary">匯入</button>
+        <button id="create-btn" class="btn btn-primary">新增 Skill</button>
+      </div>
+    </div>
+
+    <div class="admin-toolbar">
+      <input id="search-input" type="text" class="input" placeholder="搜尋 skill…" />
+      <select id="source-filter" class="select">
+        <option value="">全部來源</option>
+        <option value="user">使用者</option>
+        <option value="project">專案</option>
+        <option value="imported">匯入</option>
+      </select>
+    </div>
+
+    <div id="skills-list" class="admin-list"></div>
   </div>
+
+  <dialog id="skill-dialog" class="admin-dialog">
+    <form id="skill-form" method="dialog">
+      <h3 id="dialog-title">新增 Skill</h3>
+      <input type="hidden" id="edit-skill-name" />
+      <label class="admin-field">
+        <span class="admin-field-label">名稱</span>
+        <input id="skill-name" name="name" class="input" required />
+      </label>
+      <label class="admin-field">
+        <span class="admin-field-label">描述</span>
+        <input id="skill-desc" name="description" class="input" />
+      </label>
+      <label class="admin-field">
+        <span class="admin-field-label">內容</span>
+        <textarea id="skill-content" name="content" class="textarea" rows="12" required></textarea>
+      </label>
+      <div class="admin-actions">
+        <button type="button" id="cancel-btn" class="btn btn-secondary">取消</button>
+        <button type="submit" class="btn btn-primary">儲存</button>
+      </div>
+    </form>
+  </dialog>
 </AdminV2Layout>
+
+<script>
+  interface SkillItem { name: string; description: string; source: string }
+
+  const API = '/api/admin/settings/extensions/skills';
+  const list = document.getElementById('skills-list') as HTMLDivElement;
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const sourceFilter = document.getElementById('source-filter') as HTMLSelectElement;
+  const dialog = document.getElementById('skill-dialog') as HTMLDialogElement;
+  const form = document.getElementById('skill-form') as HTMLFormElement;
+  const editName = document.getElementById('edit-skill-name') as HTMLInputElement;
+  const nameInput = document.getElementById('skill-name') as HTMLInputElement;
+  const descInput = document.getElementById('skill-desc') as HTMLInputElement;
+  const contentInput = document.getElementById('skill-content') as HTMLTextAreaElement;
+  const dialogTitle = document.getElementById('dialog-title') as HTMLElement;
+
+  let skills: SkillItem[] = [];
+
+  async function load() {
+    const res = await fetch(API);
+    const data = await res.json() as { skills?: SkillItem[] };
+    skills = data.skills || [];
+    render();
+  }
+
+  function render() {
+    const q = searchInput.value.toLowerCase();
+    const src = sourceFilter.value;
+    const filtered = skills.filter(s =>
+      (!q || s.name.toLowerCase().includes(q) || (s.description || '').toLowerCase().includes(q)) &&
+      (!src || s.source === src)
+    );
+    list.innerHTML = filtered.length === 0
+      ? '<p class="admin-section-desc">沒有找到 skill。</p>'
+      : filtered.map(s => `
+        <div class="admin-list-item" data-name="${s.name}">
+          <div>
+            <strong>${s.name}</strong>
+            <span class="admin-badge">${s.source}</span>
+            <p class="admin-section-desc">${s.description || ''}</p>
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-secondary btn-sm edit-btn" data-name="${s.name}">編輯</button>
+            <button class="btn btn-danger btn-sm delete-btn" data-name="${s.name}">刪除</button>
+          </div>
+        </div>`).join('');
+  }
+
+  searchInput.addEventListener('input', render);
+  sourceFilter.addEventListener('change', render);
+
+  document.getElementById('create-btn')!.addEventListener('click', () => {
+    dialogTitle.textContent = '新增 Skill';
+    editName.value = '';
+    nameInput.value = '';
+    nameInput.disabled = false;
+    descInput.value = '';
+    contentInput.value = '';
+    dialog.showModal();
+  });
+
+  document.getElementById('cancel-btn')!.addEventListener('click', () => dialog.close());
+
+  list.addEventListener('click', async (e) => {
+    const target = e.target as HTMLElement;
+    const name = target.dataset.name;
+    if (!name) return;
+    if (target.classList.contains('edit-btn')) {
+      const res = await fetch(`${API}/${encodeURIComponent(name)}`);
+      const data = await res.json() as { skill?: { description?: string; content?: string } };
+      dialogTitle.textContent = '編輯 Skill';
+      editName.value = name;
+      nameInput.value = name;
+      nameInput.disabled = true;
+      descInput.value = data.skill?.description || '';
+      contentInput.value = data.skill?.content || '';
+      dialog.showModal();
+    } else if (target.classList.contains('delete-btn')) {
+      if (!confirm(`確定刪除 ${name}？`)) return;
+      await fetch(`${API}/${encodeURIComponent(name)}`, { method: 'DELETE' });
+      await load();
+    }
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const editing = editName.value;
+    const body = { name: nameInput.value, description: descInput.value, content: contentInput.value };
+    if (editing) {
+      await fetch(`${API}/${encodeURIComponent(editing)}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    } else {
+      await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    }
+    dialog.close();
+    await load();
+  });
+
+  document.getElementById('import-btn')!.addEventListener('click', async () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = async () => {
+      const file = input.files?.[0];
+      if (!file) return;
+      const text = await file.text();
+      await fetch(`${API}/import`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: text });
+      await load();
+    };
+    input.click();
+  });
+
+  load();
+</script>
+
+<style>
+  .admin-toolbar { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+  .admin-toolbar .input { flex: 1; }
+  .admin-list-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--admin-border); }
+  .admin-dialog { border: 1px solid var(--admin-border); border-radius: var(--admin-radius); padding: 1.5rem; max-width: 640px; width: 90vw; }
+  .admin-dialog::backdrop { background: rgba(0,0,0,0.4); }
+  .btn-sm { font-size: 0.8rem; padding: 0.25rem 0.5rem; }
+</style>
