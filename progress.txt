@@ -77,7 +77,11 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
-（已完成的條目移到 docs/progress-archive.md）
+- **台灣語氣規格化（2026-08-29）**：台灣文章來源、寫作 skill 專案與站內 voice reference
+  已研究完成，並收進 `post-polish` / `post-review` 的台灣讀者位置規則；新增
+  `writing-phrase-ledger` 收錄使用者指出的 AI 句型與不像台灣中文的用詞。
+- **Keenable.ai 導讀文（2026-08-29）**：新增 ai/deep-dive 中英文稿與 research note；
+  使用者已 review OK，`pnpm verify` 全綠。
 Notes
 - Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md（agent 必讀：來源、已查證事實、URL 遷移、主題藍圖）；Anthropic 官方考點與資料管道地圖在 docs/anthropic-official-signals.md。
 - Some TODO entries are stale: English home about, Pagefind integration, OG image generation, and part of the redesign already exist in the repo.- CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，並明載影片在 Canvas、作業在 Ed、繳交在 Gradescope；Winter 2024–25 官方課表確認有開課且標示 SCPD，但未找到當期公開課站或 Stanford Online YouTube 完整播放清單。維持逐講阻塞，不用 Coursera 舊課或 2025 tutorial 冒充當期授課；來源與下次複查順序已記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。

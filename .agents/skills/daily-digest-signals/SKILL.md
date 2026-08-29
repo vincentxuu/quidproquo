@@ -470,7 +470,7 @@ max_results: 5, time_range: "day"
       "companies": ["twcc"],
       "section": "F2",
       "ring": 3,
-      "summary": "台智雲發佈企業級 Agent 開發平台，整合 NVIDIA NIM 微服務。可在台灣本地 GPU 叢集上跑 Agent workflow，強調資料主權。",
+      "summary": "台智雲發佈企業級 Agent 開發平台，整合 NVIDIA NIM 微服務。可在台灣 GPU 叢集上跑 Agent workflow，強調資料主權。",
       "relevance": 0.72,
       "crossValidated": false,
       "crossValidationSources": []

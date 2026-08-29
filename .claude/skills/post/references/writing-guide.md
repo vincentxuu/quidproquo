@@ -212,9 +212,10 @@ cargo build --release
 
 ```bash
 bash .agents/skills/post-polish/scripts/register-scan.sh <post.md>
+bash .agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh <post.md>
 ```
 
-六項指標與閾值見 `post-polish` skill。機器抓不到第 1、2、3、7 條，那四條要自己讀。
+七項指標與閾值見 `post-polish` skill。第二個掃描抓使用者已指出的慣性句型與不像台灣中文的用詞。機器抓不到第 1、2、3、7 條，那四條要自己讀。
 
 ## AI 搜尋友善（GEO）
 
@@ -321,7 +322,7 @@ bash .agents/skills/post-polish/scripts/register-scan.sh <post.md>
 - [ ] `pnpm check:references` 全綠
 - [ ] `pnpm lint` 全綠
 - [ ] `pnpm astro check` 全綠
-- [ ] 1500 字以上：跑過 `register-scan.sh`，六項指標在閾值內
+- [ ] 1500 字以上：跑過 `register-scan.sh` 與 `scan-ledger.sh`，七項指標在閾值內，已知高風險用詞逐句看過
 - [ ] 每個「建議讀者照做」的主張都有一句做得出來的動作（機器抓不到，自己讀）
 - [ ] 沒有替任何來源加上它沒有的主張——沒有自立計分表、沒有推測動機（第 7 條，自己讀）
 - [ ] 寫新標準/工具/規格時：增量歸因自檢通過——沒有把既有能力說成新東西帶來的（§增量歸因）
