@@ -3,7 +3,6 @@ import {
   AlertTriangle,
   Archive,
   Check,
-  ClipboardList,
   FileDiff,
   Loader2,
   Pencil,
@@ -11,15 +10,13 @@ import {
   Share2,
   Square,
   Trash2,
-  Wrench,
   X,
 } from 'lucide-react'
+import type { ThreadMessageLike } from '@assistant-ui/react'
 
-import { Conversation, ConversationContent } from '@/components/ai-elements/conversation'
-import { Message, MessageContent, MessageLabel, MessageResponse } from '@/components/ai-elements/message'
+import { AssistantThread, AdminSystemMessage } from '@/components/assistant-ui/thread'
 import { PromptInput, PromptInputFooter, PromptInputTextarea } from '@/components/ai-elements/prompt-input'
-import { Reasoning, ReasoningContent, ReasoningTrigger } from '@/components/ai-elements/reasoning'
-import { Tool, ToolCode, ToolContent, ToolHeader } from '@/components/ai-elements/tool'
+import { ToolCode } from '@/components/ai-elements/tool'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -92,17 +89,6 @@ const EVENT_TYPES: SessionEventType[] = [
 ]
 
 const PROV_STEPS = ['provision', 'clone', 'setup_script', 'start_agent'] as const
-
-const TOOL_LABELS: Record<string, string> = {
-  Bash: 'Ran a command',
-  Read: 'Read a file',
-  Write: 'Wrote a file',
-  Edit: 'Edited a file',
-  Glob: 'Listed files',
-  Grep: 'Searched files',
-  WebSearch: 'Searched the web',
-  WebFetch: 'Fetched a URL',
-}
 
 const STEP_LABELS: Record<string, string> = {
   provision: 'Allocating sandbox',
@@ -211,86 +197,6 @@ function ProvisionBar({ steps }: { steps: Record<string, string> }) {
   )
 }
 
-function JsonBlock({ label, value, tone }: { label: string; value: string; tone?: 'error' }) {
-  return (
-    <div>
-      <div className="mb-1 text-xs font-semibold uppercase text-[var(--admin-text-muted)]">{label}</div>
-      <ToolCode tone={tone}>{value}</ToolCode>
-    </div>
-  )
-}
-
-function AssistantContent({ payload }: { payload: Record<string, unknown> }) {
-  const blocks = (payload.contentBlocks || payload.content_blocks) as unknown
-  if (!Array.isArray(blocks)) {
-    return <MessageResponse>{asString(payload.content)}</MessageResponse>
-  }
-
-  return (
-    <>
-      {blocks.map((block, index) => {
-        if (!block || typeof block !== 'object') return null
-        const item = block as Record<string, unknown>
-        if (item.type === 'thinking') {
-          return (
-            <Reasoning key={index}>
-              <ReasoningTrigger>Thinking</ReasoningTrigger>
-              <ReasoningContent>{asString(item.thinking || item.text)}</ReasoningContent>
-            </Reasoning>
-          )
-        }
-        if (item.type === 'text') {
-          return <MessageResponse key={index}>{asString(item.text)}</MessageResponse>
-        }
-        return null
-      })}
-    </>
-  )
-}
-
-function ToolUseRow({ payload }: { payload: Record<string, unknown> }) {
-  const toolName = asString(payload.toolName || payload.name || payload.tool, 'tool')
-  const hasResult = payload.result !== undefined && payload.result !== null
-  const hasError = Boolean(payload.error)
-  const durationMs = asNumber(payload.durationMs)
-  const input = truncate(stringify(payload.input || {}), 500)
-  const result = hasResult ? truncate(stringify(payload.result), 2000) : ''
-  const error = hasError ? truncate(String(payload.error), 2000) : ''
-
-  return (
-    <Tool state={hasError ? 'error' : hasResult ? 'success' : 'pending'}>
-      <ToolHeader>
-        <Wrench className="size-4 shrink-0 text-[var(--admin-text-muted)]" />
-        <strong className="text-[var(--admin-text)]">{toolName}</strong>
-        <span className="text-[var(--admin-text-muted)]">{TOOL_LABELS[toolName] || toolName}</span>
-        {durationMs ? <span className="ml-auto text-xs text-[var(--admin-text-muted)]">{(durationMs / 1000).toFixed(1)}s</span> : null}
-      </ToolHeader>
-      <ToolContent>
-        <JsonBlock label="Input" value={input} />
-        {hasError ? <JsonBlock label="Error" value={error} tone="error" /> : null}
-        {hasResult ? <JsonBlock label="Output" value={result} /> : null}
-      </ToolContent>
-    </Tool>
-  )
-}
-
-function ResultRow({ payload }: { payload: Record<string, unknown> }) {
-  const output = truncate(stringify(payload.content || payload.output), 2000)
-  const totalTokens = asNumber(payload.totalTokens)
-  return (
-    <Tool>
-      <ToolHeader>
-        <ClipboardList className="size-4 shrink-0 text-[var(--admin-text-muted)]" />
-        <strong className="text-[var(--admin-text)]">Result</strong>
-        {totalTokens ? <span className="text-xs text-[var(--admin-text-muted)]">{totalTokens} tokens</span> : null}
-      </ToolHeader>
-      <ToolContent>
-        <ToolCode>{output}</ToolCode>
-      </ToolContent>
-    </Tool>
-  )
-}
-
 function ApprovalRow({
   payload,
   onApprove,
@@ -343,94 +249,6 @@ function ApprovalRow({
   )
 }
 
-function EventCard({
-  row,
-  onApprove,
-  onUseSuggestion,
-}: {
-  row: EventRow
-  onApprove: (approvalId: string, behavior: string) => void
-  onUseSuggestion: (value: string) => void
-}) {
-  const { type, payload } = row
-
-  if (type === 'user') {
-    return (
-      <Message from="user">
-        <MessageContent>
-          <MessageLabel>User</MessageLabel>
-          <div className="whitespace-pre-wrap break-words">{asString(payload.content)}</div>
-        </MessageContent>
-      </Message>
-    )
-  }
-
-  if (type === 'assistant') {
-    return (
-      <Message from="assistant">
-        <MessageContent>
-          <MessageLabel>Assistant</MessageLabel>
-          <AssistantContent payload={payload} />
-        </MessageContent>
-      </Message>
-    )
-  }
-
-  if (type === 'tool_use') {
-    return (
-      <Message from="system">
-        <MessageContent>
-          <ToolUseRow payload={payload} />
-        </MessageContent>
-      </Message>
-    )
-  }
-
-  if (type === 'result') {
-    return (
-      <Message from="system">
-        <MessageContent>
-          <ResultRow payload={payload} />
-        </MessageContent>
-      </Message>
-    )
-  }
-
-  if (type === 'control_request') {
-    return (
-      <Message from="system">
-        <MessageContent>
-          <ApprovalRow payload={payload} onApprove={onApprove} />
-        </MessageContent>
-      </Message>
-    )
-  }
-
-  if (type === 'prompt_suggestion') {
-    const suggestions = Array.isArray(payload.suggestions) ? payload.suggestions.filter((item): item is string => typeof item === 'string') : []
-    if (!suggestions.length) return null
-    return (
-      <div className="flex flex-wrap gap-2 px-4 py-2">
-        {suggestions.map(item => (
-          <Button key={item} type="button" size="sm" variant="outline" onClick={() => onUseSuggestion(item)}>
-            {item}
-          </Button>
-        ))}
-      </div>
-    )
-  }
-
-  const log = renderLog(type, payload)
-  if (!log) return null
-  return (
-    <Message from="system">
-      <MessageContent>
-        <div className="text-sm text-[var(--admin-text-muted)]">{log}</div>
-      </MessageContent>
-    </Message>
-  )
-}
-
 function renderLog(type: SessionEventType, payload: Record<string, unknown>) {
   if (type === 'control_response') {
     const requestId = asString(payload.requestId)
@@ -460,6 +278,121 @@ function renderLog(type: SessionEventType, payload: Record<string, unknown>) {
   return null
 }
 
+function eventToThreadMessage(row: EventRow): ThreadMessageLike | null {
+  const { id, type, payload } = row
+
+  if (type === 'user') {
+    return {
+      id,
+      role: 'user',
+      content: asString(payload.content),
+      metadata: { custom: { eventType: type } },
+    }
+  }
+
+  if (type === 'assistant') {
+    const blocks = (payload.contentBlocks || payload.content_blocks) as unknown
+    if (!Array.isArray(blocks)) {
+      return {
+        id,
+        role: 'assistant',
+        content: asString(payload.content),
+        status: { type: 'complete', reason: 'stop' },
+        metadata: { custom: { eventType: type } },
+      }
+    }
+    const content: Array<{ type: 'text'; text: string } | { type: 'reasoning'; text: string }> = []
+    for (const block of blocks) {
+      if (!block || typeof block !== 'object') continue
+      const item = block as Record<string, unknown>
+      if (item.type === 'thinking') content.push({ type: 'reasoning', text: asString(item.thinking || item.text) })
+      if (item.type === 'text') content.push({ type: 'text', text: asString(item.text) })
+    }
+    return {
+      id,
+      role: 'assistant',
+      content,
+      status: { type: 'complete', reason: 'stop' },
+      metadata: { custom: { eventType: type } },
+    }
+  }
+
+  if (type === 'tool_use') {
+    const toolName = asString(payload.toolName || payload.name || payload.tool, 'tool')
+    const hasError = Boolean(payload.error)
+    return {
+      id,
+      role: 'assistant',
+      content: [{
+        type: 'tool-call',
+        toolCallId: id,
+        toolName,
+        argsText: truncate(stringify(payload.input || {}), 500),
+        result: hasError ? payload.error : payload.result,
+        isError: hasError,
+      }],
+      status: { type: 'complete', reason: 'stop' },
+      metadata: { custom: { eventType: type } },
+    }
+  }
+
+  if (type === 'result') {
+    const totalTokens = asNumber(payload.totalTokens)
+    const output = truncate(stringify(payload.content || payload.output), 2000)
+    return {
+      id,
+      role: 'system',
+      content: `Result${totalTokens ? ` · ${totalTokens} tokens` : ''}${output ? `\n${output}` : ''}`,
+      metadata: { custom: { eventType: type } },
+    }
+  }
+
+  if (type === 'control_request' || type === 'prompt_suggestion') return null
+
+  const log = renderLog(type, payload)
+  if (!log) return null
+  return {
+    id,
+    role: 'system',
+    content: log,
+    metadata: { custom: { eventType: type } },
+  }
+}
+
+function PendingAdminEvents({
+  events,
+  onApprove,
+  onUseSuggestion,
+}: {
+  events: EventRow[]
+  onApprove: (approvalId: string, behavior: string) => void
+  onUseSuggestion: (value: string) => void
+}) {
+  const pending = events.filter(row => row.type === 'control_request' || row.type === 'prompt_suggestion')
+  if (!pending.length) return null
+
+  return (
+    <div className="mt-3 space-y-2">
+      {pending.map(row => {
+        if (row.type === 'control_request') {
+          return <ApprovalRow key={row.id} payload={row.payload} onApprove={onApprove} />
+        }
+        const suggestions = Array.isArray(row.payload.suggestions) ? row.payload.suggestions.filter((item): item is string => typeof item === 'string') : []
+        if (!suggestions.length) return null
+        return (
+          <div key={row.id} className="flex flex-wrap gap-2">
+            {suggestions.map(item => (
+              <Button key={item} type="button" size="sm" variant="outline" onClick={() => onUseSuggestion(item)}>
+                {item}
+              </Button>
+            ))}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
   const [sessionName, setSessionName] = useState('載入中...')
   const [sessionStatus, setSessionStatus] = useState<SessionStatus>('unknown')
@@ -476,11 +409,11 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
   const lastEventIdRef = useRef<string | null>(null)
   const sessionStatusRef = useRef<SessionStatus>('unknown')
   const seenEventIdsRef = useRef(new Set<string>())
-  const streamRef = useRef<HTMLDivElement | null>(null)
   const rowCounterRef = useRef(0)
 
   const running = sessionStatus === 'running' || sessionStatus === 'queued' || sessionStatus === 'paused'
   const showComposer = sessionStatus !== 'unknown' && !running
+  const threadMessages = useMemo(() => events.map(eventToThreadMessage).filter((message): message is ThreadMessageLike => Boolean(message)), [events])
 
   const updateStatus = useCallback((status?: SessionStatus) => {
     if (!status) return
@@ -591,11 +524,6 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
       eventSourceRef.current?.close()
     }
   }, [connectSSE, loadSession])
-
-  useEffect(() => {
-    if (!streamRef.current) return
-    streamRef.current.scrollTop = streamRef.current.scrollHeight
-  }, [events])
 
   const handleDiff = useCallback(async () => {
     setDiffOpen(true)
@@ -756,27 +684,20 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
 
       <ProvisionBar steps={provisionSteps} />
 
-      <Conversation className="max-h-[calc(100vh-18rem)]">
-        <ConversationContent ref={streamRef}>
-          {events.length === 0 ? (
-            <p className="py-12 text-center text-sm text-[var(--admin-text-muted)]">連線中...</p>
-          ) : (
-            <div className="flex flex-col gap-1">
-              {events.map(row => (
-                <EventCard
-                  key={row.id}
-                  row={row}
-                  onApprove={handleApproval}
-                  onUseSuggestion={value => {
-                    setResumeInput(value)
-                    document.getElementById('resume-input')?.focus()
-                  }}
-                />
-              ))}
-            </div>
-          )}
-        </ConversationContent>
-      </Conversation>
+      <AssistantThread messages={threadMessages} running={running} />
+
+      <PendingAdminEvents
+        events={events}
+        onApprove={handleApproval}
+        onUseSuggestion={value => {
+          setResumeInput(value)
+          document.getElementById('resume-input')?.focus()
+        }}
+      />
+
+      {events.length === 0 && statusIndicator.state ? (
+        <AdminSystemMessage>{statusIndicator.message || 'Starting...'}</AdminSystemMessage>
+      ) : null}
 
       {showComposer ? (
         <PromptInput className="sticky bottom-4 z-10 shadow-[0_8px_24px_rgba(31,59,41,0.08)]" onSubmit={handleResume}>
