@@ -2,7 +2,7 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { requireAdmin } from '@/lib/auth/admin'
-import { json, badRequest, forbidden } from '@/lib/api/response'
+import { json, badRequest, forbidden, serverError } from '@/lib/api/response'
 import { ensureAgentOsEnabled } from './_guard'
 import type { Env } from '@/lib/config/env'
 import { env } from 'cloudflare:workers'
@@ -17,6 +17,7 @@ interface CreateChatBody {
   mode?: unknown
   model?: unknown
   repo?: unknown
+  branch?: unknown
   runner_provider?: unknown
 }
 
@@ -85,6 +86,7 @@ async function createDevSessionFallback(e: Env, id: string, input: {
   mode?: 'auto' | 'default' | 'plan'
   model?: string
   repo?: string
+  branch?: string
   runner_provider?: string
 }): Promise<Record<string, unknown>> {
   const mgr = createSessionManager(e.DB)
@@ -157,64 +159,71 @@ export const GET: APIRoute = async ({ cookies, request }) => {
 export const POST: APIRoute = async ({ cookies, request, locals }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
-  const d = ensureAgentOsEnabled()
-  if (d) return d
-  const e = env as unknown as Env
-  if (!e.AGENT_SESSION_DO) return badRequest('AGENT_SESSION_DO not configured')
-  const body = (await request.json().catch(() => ({}))) as CreateChatBody
-  const prompt = readOptionalString(body.instruction) ?? readOptionalString(body.prompt)
-  if (!prompt) return badRequest('first user message required')
-  const id = `sess_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`
-  const runInput = {
-    sessionId: id,
-    prompt,
-    skill: readOptionalString(body.skill),
-    mode: readMode(body.mode),
-    model: readOptionalString(body.model),
+  try {
+    const d = ensureAgentOsEnabled()
+    if (d) return d
+    const e = env as unknown as Env
+    if (!e.AGENT_SESSION_DO) return badRequest('AGENT_SESSION_DO not configured')
+    const body = (await request.json().catch(() => ({}))) as CreateChatBody
+    const prompt = readOptionalString(body.instruction) ?? readOptionalString(body.prompt)
+    if (!prompt) return badRequest('first user message required')
+    const id = `sess_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`
+    const runInput = {
+      sessionId: id,
+      prompt,
+      skill: readOptionalString(body.skill),
+      mode: readMode(body.mode),
+      model: readOptionalString(body.model),
     repo: readOptionalString(body.repo),
+    branch: readOptionalString(body.branch),
     runner_provider: readOptionalString(body.runner_provider),
   }
 
-  const mgr = createSessionManager(e.DB)
-  const session = await mgr.create({
-    id,
-    instruction: prompt,
-    mode: runInput.mode,
-    model: runInput.model,
-    repo: runInput.repo,
-    runnerProvider: runInput.runner_provider,
-    trigger: 'manual',
-  })
+    const mgr = createSessionManager(e.DB)
+    const session = await mgr.create({
+      id,
+      instruction: prompt,
+      mode: runInput.mode,
+      model: runInput.model,
+      repo: runInput.repo,
+      runnerProvider: runInput.runner_provider,
+      trigger: 'manual',
+    })
 
-  // proxy to DO by stable session name
-  const stub = getAgentSessionStub(e, id)
-  const runPromise = stub.fetch(
-    new Request(`https://do/run?sessionId=${id}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(runInput),
-    }),
-  ).then(async (res) => {
-    if (!res.ok) {
-      const detail = await res.text().catch(() => '')
-      throw new Error(detail || `AgentSessionDO returned ${res.status}`)
-    }
-  }).catch(async (error) => {
-    if (import.meta.env.DEV) {
-      await createDevSessionFallback(e, id, runInput)
-      return
-    }
-    await markSessionStartFailed(e, id, error)
-  })
+    // proxy to DO by stable session name
+    const stub = getAgentSessionStub(e, id)
+    const runPromise = stub.fetch(
+      new Request(`https://do/run?sessionId=${id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(runInput),
+      }),
+    ).then(async (res) => {
+      if (!res.ok) {
+        const detail = await res.text().catch(() => '')
+        throw new Error(detail || `AgentSessionDO returned ${res.status}`)
+      }
+    }).catch(async (error) => {
+      if (import.meta.env.DEV) {
+        await createDevSessionFallback(e, id, runInput)
+        return
+      }
+      await markSessionStartFailed(e, id, error)
+    })
 
-  const waitUntil = getWaitUntil(locals)
-  if (waitUntil) {
-    waitUntil(runPromise)
-  } else {
-    runPromise.catch((error) => console.error('[admin-sessions] background run failed:', error))
+    const waitUntil = getWaitUntil(locals)
+    if (waitUntil) {
+      waitUntil(runPromise)
+    } else {
+      runPromise.catch((error) => console.error('[admin-sessions] background run failed:', error))
+    }
+
+    return json({ id, session, queued: true })
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+    console.error('[admin-sessions] create failed:', error)
+    return serverError(message)
   }
-
-  return json({ id, session, queued: true })
 }
 
 // WebSocket upgrade + approve proxy: GET ?upgrade=websocket handled by DO

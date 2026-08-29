@@ -10,6 +10,7 @@ export interface Env {
   DB: D1Database
   SESSION: KVNamespace
   AGENT_SESSION_DO: DurableObjectNamespace
+  SANDBOX?: unknown
   RATE: KVNamespace
   DEEP_RESEARCH_KV?: KVNamespace
   VECTORIZE_INDEX: VectorizeIndex
@@ -108,6 +109,10 @@ export interface Env {
   PIPELINE_KNOWLEDGE_GRAPH_PROTOTYPE_USE_FLOW?: string
   PIPELINE_METADATA_SUGGESTIONS_USE_FLOW?: string
   PIPELINE_INTERNAL_LINKS_USE_FLOW?: string
+  // GitHub App integration for admin repo access
+  GITHUB_APP_ID?: string
+  GITHUB_APP_SLUG?: string
+  GITHUB_APP_PRIVATE_KEY?: string
 }
 
 export function getEnv(): Env {

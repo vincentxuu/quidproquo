@@ -49,7 +49,7 @@ export class SandboxProvider implements SandboxRunnerProvider {
     return this.sandbox != null
   }
 
-  async provision(session: SessionRecord, env?: EnvironmentConfig): Promise<RunnerHandle> {
+  async provision(session: SessionRecord, env?: EnvironmentConfig, branch?: string): Promise<RunnerHandle> {
     const networkMode: NetworkMode = env?.networkMode ?? 'trusted'
     const network = buildNetworkPolicy(networkMode, env)
 
@@ -67,7 +67,7 @@ export class SandboxProvider implements SandboxRunnerProvider {
     this.handles.set(session.id, handle)
 
     if (session.repo) {
-      await this.clone(handle, session.repo)
+      await this.clone(handle, session.repo, branch)
     }
     if (env?.setupScript) {
       await this.runSetupScript(handle, env.setupScript)

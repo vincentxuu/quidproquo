@@ -1,0 +1,174 @@
+---
+export const prerender = false;
+import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import { ensureConsoleUmbrella } from '../_guard';
+
+const gate = ensureConsoleUmbrella();
+if (gate) return gate;
+---
+
+<AdminV2Layout title="GitHub" section="settings">
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>GitHub App</h2>
+        <p>連接 GitHub repo 給 admin agent 使用。</p>
+      </div>
+      <button id="sync-btn" class="btn" type="button">Sync repos</button>
+    </div>
+
+    <dl class="status-list">
+      <div>
+        <dt>Status</dt>
+        <dd id="status">Loading…</dd>
+      </div>
+      <div>
+        <dt>Repos</dt>
+        <dd id="repo-count">-</dd>
+      </div>
+    </dl>
+
+    <a id="install-link" class="install-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+      Install GitHub App
+    </a>
+    <p id="message" class="message"></p>
+  </section>
+</AdminV2Layout>
+
+<script is:inline>
+  (function () {
+    const statusEl = document.getElementById('status');
+    const repoCountEl = document.getElementById('repo-count');
+    const installLink = document.getElementById('install-link');
+    const syncBtn = document.getElementById('sync-btn');
+    const messageEl = document.getElementById('message');
+
+    function setMessage(text) {
+      if (messageEl) messageEl.textContent = text || '';
+    }
+
+    async function loadStatus() {
+      const res = await fetch('/api/admin/github-app/status');
+      const data = await res.json();
+      if (statusEl) statusEl.textContent = data.configured ? 'Configured' : 'Missing env secrets';
+      if (repoCountEl) repoCountEl.textContent = String(data.repositoryCount ?? 0);
+      if (installLink && data.installUrl) {
+        installLink.href = data.installUrl;
+        installLink.hidden = false;
+      }
+      if (!data.configured) {
+        setMessage('Set GITHUB_APP_ID, GITHUB_APP_PRIVATE_KEY, and GITHUB_APP_SLUG before syncing.');
+      }
+    }
+
+    syncBtn?.addEventListener('click', async () => {
+      syncBtn.disabled = true;
+      setMessage('Syncing…');
+      try {
+        const res = await fetch('/api/admin/github-app/sync', { method: 'POST' });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          setMessage(data.error || ('Sync failed (HTTP ' + res.status + ')'));
+          return;
+        }
+        setMessage('Synced ' + data.repositories + ' repos from ' + data.installations + ' installation(s).');
+        await loadStatus();
+      } catch {
+        setMessage('Sync failed.');
+      } finally {
+        syncBtn.disabled = false;
+      }
+    });
+
+    loadStatus().catch(() => setMessage('Unable to load GitHub App status.'));
+  })();
+</script>
+
+<style>
+  .panel {
+    max-width: 720px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    background: var(--admin-surface);
+    padding: 1rem;
+  }
+
+  .panel-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  h2 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .btn,
+  .install-link {
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    background: var(--brand-900);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+
+  .status-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .status-list div {
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    padding: 0.75rem;
+  }
+
+  dt {
+    color: var(--admin-text-muted);
+    font-size: 0.75rem;
+    margin-bottom: 0.2rem;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .message {
+    margin-top: 0.75rem;
+  }
+
+  @media (max-width: 560px) {
+    .panel-head {
+      flex-direction: column;
+    }
+
+    .btn,
+    .install-link {
+      width: 100%;
+      text-align: center;
+    }
+
+    .status-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

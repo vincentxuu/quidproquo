@@ -20,8 +20,8 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
         <div class="composer-pill env-pill">
           <span class="pill-icon">◇</span>
           <select id="composer-env" name="runner_provider" class="pill-select">
-            <option value="mac" selected>Mac</option>
-            <option value="sandbox">Sandbox</option>
+            <option value="sandbox" selected>Sandbox</option>
+            <option value="mac">Mac</option>
           </select>
         </div>
         <div class="composer-pill repo-pill" id="repo-pill">
@@ -30,6 +30,14 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
             <option value="" selected>Select repo…</option>
           </select>
         </div>
+        <input
+          type="text"
+          id="composer-custom-repo"
+          name="custom_repo"
+          class="repo-input"
+          placeholder="owner/repo or GitHub URL"
+          hidden
+        />
         <input
           type="text"
           id="composer-branch"
@@ -68,8 +76,11 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
         </label>
       </div>
       <div class="bottom-right">
+        <select id="composer-provider" name="provider" class="bottom-select provider-select">
+          <option value="">Provider</option>
+        </select>
         <select id="composer-model" name="model" class="bottom-select model-select">
-          <option value="">預設模型</option>
+          <option value="">Model</option>
         </select>
         <select id="composer-effort" name="effort" class="bottom-select effort-select">
           <option value="high" selected>High</option>
@@ -91,13 +102,62 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
     const form = document.getElementById('composer-form');
     const submitBtn = document.getElementById('composer-submit');
     const input = document.getElementById('composer-input');
+    const providerSelect = document.getElementById('composer-provider');
     const modelSelect = document.getElementById('composer-model');
     const repoSelect = document.getElementById('composer-repo');
+    const customRepoInput = document.getElementById('composer-custom-repo');
     const branchInput = document.getElementById('composer-branch');
     const needsYou = document.getElementById('needs-you');
     const needsYouItems = document.getElementById('needs-you-items');
     const greeting = document.getElementById('greeting');
     const usageLine = document.getElementById('usage-line');
+    const modelPrefsKey = 'qp.admin.composer.modelPrefs';
+    const providerState = { providers: [], catalog: [] };
+    const repoPrefsKey = 'qp.admin.composer.repoPrefs';
+
+    function readModelPrefs() {
+      try {
+        return JSON.parse(localStorage.getItem(modelPrefsKey) || '{}') || {};
+      } catch {
+        return {};
+      }
+    }
+
+    function saveModelPrefs() {
+      if (!providerSelect || !modelSelect) return;
+      const provider = providerSelect.value || '';
+      const model = modelSelect.value || '';
+      const prefs = readModelPrefs();
+      prefs.provider = provider;
+      prefs.model = model;
+      prefs.modelsByProvider = prefs.modelsByProvider || {};
+      if (provider && model) prefs.modelsByProvider[provider] = model;
+      localStorage.setItem(modelPrefsKey, JSON.stringify(prefs));
+    }
+
+    function createOption(value, label) {
+      const opt = document.createElement('option');
+      opt.value = value;
+      opt.textContent = label;
+      return opt;
+    }
+
+    function readRepoPrefs() {
+      try {
+        return JSON.parse(localStorage.getItem(repoPrefsKey) || '{}') || {};
+      } catch {
+        return {};
+      }
+    }
+
+    function saveRepoPrefs() {
+      if (!repoSelect || !branchInput || !customRepoInput) return;
+      localStorage.setItem(repoPrefsKey, JSON.stringify({
+        repo: repoSelect.value || '',
+        customRepo: customRepoInput.value.trim() || '',
+        branch: branchInput.value.trim() || '',
+      }));
+    }
 
     // Auto-grow textarea
     input?.addEventListener('input', () => {
@@ -114,7 +174,17 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
     });
 
     repoSelect?.addEventListener('change', () => {
+      if (customRepoInput) customRepoInput.hidden = repoSelect.value !== '__custom__';
       if (branchInput) branchInput.hidden = !repoSelect.value;
+      saveRepoPrefs();
+    });
+
+    customRepoInput?.addEventListener('input', () => {
+      saveRepoPrefs();
+    });
+
+    branchInput?.addEventListener('input', () => {
+      saveRepoPrefs();
     });
 
     async function loadModels() {
@@ -122,14 +192,101 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
         const res = await fetch('/api/admin/settings/models');
         if (!res.ok) return;
         const data = await res.json();
-        for (const p of ((data.catalog && data.catalog.models) || [])) {
-          if (p.enabled === false) continue;
-          const opt = document.createElement('option');
-          opt.value = (p.provider || '') + ':' + (p.model || '');
-          opt.textContent = p.displayName || ((p.provider || '') + ' / ' + (p.model || ''));
-          modelSelect?.appendChild(opt);
+        const catalog = Array.isArray(data.catalog?.models) ? data.catalog.models : [];
+        const providerSet = new Set(Array.isArray(data.providers) ? data.providers : []);
+        for (const item of catalog) {
+          if (item?.provider) providerSet.add(String(item.provider));
+        }
+        providerState.catalog = catalog;
+        providerState.providers = Array.from(providerSet).filter(Boolean).sort();
+        syncProviders();
+      } catch {}
+    }
+
+    async function loadRepos() {
+      if (!repoSelect) return;
+      try {
+        const res = await fetch('/api/admin/repos');
+        if (!res.ok) return;
+        const data = await res.json();
+        const repos = Array.isArray(data.repos) ? data.repos : [];
+        const prefs = readRepoPrefs();
+        repoSelect.replaceChildren();
+        repoSelect.appendChild(createOption('', 'Select repo…'));
+        for (const repo of repos) {
+          if (repo?.fullName) {
+            const suffix = repo.private ? ' (private)' : '';
+            repoSelect.appendChild(createOption(repo.fullName, repo.fullName + suffix));
+          }
+        }
+        repoSelect.appendChild(createOption('__custom__', 'Custom repo…'));
+        if (prefs.repo && Array.from(repoSelect.options).some((opt) => opt.value === prefs.repo)) {
+          repoSelect.value = prefs.repo;
+        } else if (repos.length === 1 && repos[0]?.fullName) {
+          repoSelect.value = repos[0].fullName;
+        }
+        if (customRepoInput) {
+          customRepoInput.value = prefs.customRepo || '';
+          customRepoInput.hidden = repoSelect.value !== '__custom__';
+        }
+        if (branchInput) {
+          branchInput.value = prefs.branch || '';
+          branchInput.hidden = !repoSelect.value;
         }
       } catch {}
+    }
+
+    function syncProviders() {
+      if (!providerSelect) return;
+      const prefs = readModelPrefs();
+      providerSelect.replaceChildren();
+      for (const provider of providerState.providers) {
+        providerSelect.appendChild(createOption(provider, provider));
+      }
+      if (!providerSelect.options.length) {
+        providerSelect.appendChild(createOption('', 'Provider'));
+      }
+      const options = Array.from(providerSelect.options);
+      if (prefs.provider && options.some((opt) => opt.value === prefs.provider)) {
+        providerSelect.value = prefs.provider;
+      } else if (options.some((opt) => opt.value === 'groq')) {
+        providerSelect.value = 'groq';
+      } else if (providerSelect.options.length > 0) {
+        providerSelect.value = providerSelect.options[0].value;
+      }
+      syncModels();
+    }
+
+    function syncModels() {
+      if (!providerSelect || !modelSelect) return;
+      const provider = providerSelect.value;
+      const prefs = readModelPrefs();
+      const savedModel = prefs.modelsByProvider?.[provider] || prefs.model || '';
+      const entries = providerState.catalog
+        .filter((item) => item?.provider === provider && item?.enabled !== false && typeof item?.model === 'string' && item.model.trim())
+        .map((item) => ({
+          value: item.model.trim(),
+          label: item.displayName || item.model.trim(),
+        }));
+
+      modelSelect.replaceChildren();
+      if (!entries.length) {
+        modelSelect.appendChild(createOption('', 'No models'));
+        modelSelect.disabled = true;
+        saveModelPrefs();
+        return;
+      }
+
+      modelSelect.disabled = false;
+      for (const entry of entries) {
+        modelSelect.appendChild(createOption(entry.value, entry.label));
+      }
+      if (savedModel && entries.some((entry) => entry.value === savedModel)) {
+        modelSelect.value = savedModel;
+      } else {
+        modelSelect.value = entries[0].value;
+      }
+      saveModelPrefs();
     }
 
     async function loadNeedsYou() {
@@ -203,17 +360,24 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
       e.preventDefault();
       const instruction = input?.value?.trim();
       if (!instruction) return;
+      saveModelPrefs();
+      saveRepoPrefs();
+      const provider = providerSelect?.value || '';
+      const model = modelSelect?.value || '';
+      const selectedRepo = repoSelect?.value === '__custom__'
+        ? customRepoInput?.value?.trim()
+        : repoSelect?.value;
       submitBtn.disabled = true;
       try {
         const body = {
           instruction,
           mode: document.getElementById('composer-mode')?.value || 'auto',
-          model: document.getElementById('composer-model')?.value || undefined,
-          repo: repoSelect?.value || undefined,
+          model: provider && model ? provider + ':' + model : undefined,
+          repo: selectedRepo || undefined,
           branch: branchInput?.value?.trim() || undefined,
           effort: document.getElementById('composer-effort')?.value || 'high',
           fast_mode: document.getElementById('composer-fast')?.checked || false,
-          runner_provider: document.getElementById('composer-env')?.value || 'mac',
+          runner_provider: document.getElementById('composer-env')?.value || 'sandbox',
         };
         const res = await fetch('/api/admin/sessions', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -226,7 +390,7 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
         if (res.ok && data.id) {
           window.location.href = '/admin/sessions/' + encodeURIComponent(data.id);
         } else {
-          alert(data.error || '建立失敗');
+          alert(data.error || ('建立失敗（HTTP ' + res.status + '）'));
           submitBtn.disabled = false;
         }
       } catch {
@@ -235,7 +399,16 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
       }
     });
 
+    providerSelect?.addEventListener('change', () => {
+      syncModels();
+    });
+
+    modelSelect?.addEventListener('change', () => {
+      saveModelPrefs();
+    });
+
     loadModels();
+    loadRepos();
     loadNeedsYou();
     loadUsage();
   })();
@@ -328,12 +501,15 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
     align-items: center;
     gap: 0.35rem;
     flex-wrap: wrap;
+    min-width: 0;
   }
 
   .composer-pill {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
+    min-width: 0;
+    max-width: 100%;
     padding: 0.3rem 0.15rem 0.3rem 0.5rem;
     border: 1px solid var(--admin-border);
     border-radius: 999px;
@@ -354,9 +530,12 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
+    min-width: 0;
+    max-width: 100%;
     padding-right: 0.3rem;
     appearance: none;
     -webkit-appearance: none;
+    text-overflow: ellipsis;
   }
 
   .pill-select:focus {
@@ -364,12 +543,18 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
     box-shadow: none;
   }
 
+  .repo-input,
   .branch-input {
     padding: 0.3rem 0.6rem;
     border: 1px solid var(--admin-border);
     border-radius: 999px;
     font-size: 0.8rem;
     width: 120px;
+    max-width: 100%;
+  }
+
+  .repo-input {
+    width: 220px;
   }
 
   /* ── Chat input ── */
@@ -450,6 +635,7 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
     display: flex;
     align-items: center;
     gap: 0.35rem;
+    min-width: 0;
   }
 
   .bottom-select {
@@ -459,7 +645,10 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
+    min-width: 0;
+    max-width: 100%;
     padding: 0.2rem 0.1rem;
+    text-overflow: ellipsis;
   }
 
   .bottom-select:focus { outline: none; box-shadow: none; }
@@ -475,7 +664,10 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
 
   .bottom-toggle input { width: 13px; height: 13px; accent-color: var(--brand-700); }
 
+  .provider-select,
   .model-select { font-weight: 600; color: var(--admin-text); }
+  .provider-select { max-width: 8.5rem; }
+  .model-select { max-width: 17rem; }
   .effort-select { font-weight: 600; }
 
   /* ── Usage bar ── */
@@ -489,10 +681,77 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
   /* ── Responsive ── */
   @media (max-width: 768px) {
     .home-composer {
-      padding: 0 1rem 1rem;
+      max-width: none;
+      padding: 0 0.875rem 1rem;
     }
+
+    .composer-pills {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 0.4rem;
+    }
+
+    .composer-pill {
+      width: 100%;
+      border-radius: 10px;
+      padding: 0.45rem 0.55rem;
+    }
+
+    .pill-select {
+      flex: 1;
+    }
+
+    .repo-input,
+    .branch-input {
+      grid-column: 1 / -1;
+      width: 100%;
+      border-radius: 10px;
+    }
+
     .composer-bottom-row {
       flex-wrap: wrap;
+      align-items: stretch;
+      gap: 0.45rem;
+      padding-top: 0.5rem;
+    }
+
+    .bottom-left,
+    .bottom-right {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .bottom-right {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr) minmax(4rem, 0.65fr);
+      gap: 0.45rem;
+    }
+
+    .bottom-select {
+      width: 100%;
+      min-height: 32px;
+      border: 1px solid var(--admin-border);
+      border-radius: 8px;
+      background: var(--admin-surface);
+      padding: 0.35rem 0.45rem;
+    }
+
+    .provider-select,
+    .model-select {
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .composer-pills,
+    .bottom-right {
+      grid-template-columns: 1fr;
+    }
+
+    .bottom-left {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
     }
   }
 </style>

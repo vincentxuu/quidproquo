@@ -9,12 +9,16 @@ import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { invokeModel } from '../../lib/retrieval/model'
 import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
 import { initialState, type RagRuntimeConfig } from '../../lib/retrieval/state'
+import { SandboxProvider } from '../../lib/agent/runner/sandbox'
+import type { RunnerHandle } from '../../lib/agent/runner/types'
+import { resolveCloneUrl } from '../../lib/github/app'
 
 type StartRunOptions = {
   skill?: string
   mode?: 'auto' | 'default' | 'plan'
   model?: string
   repo?: string
+  branch?: string
   runnerProvider?: string
   trigger?: string
 }
@@ -127,6 +131,7 @@ export class AgentSessionDO extends DurableObject<Env> {
         mode?: 'auto' | 'default' | 'plan'
         model?: string
         repo?: string
+        branch?: string
         runner_provider?: string
       }
       const sessionId = body.sessionId ?? url.searchParams.get('sessionId') ?? `sess_${Date.now()}`
@@ -136,6 +141,7 @@ export class AgentSessionDO extends DurableObject<Env> {
         mode: body.mode,
         model: body.model,
         repo: body.repo,
+        branch: body.branch,
         runnerProvider: body.runner_provider,
         trigger: 'manual',
       })
@@ -179,6 +185,7 @@ export class AgentSessionDO extends DurableObject<Env> {
         mode?: 'auto' | 'default' | 'plan'
         model?: string
         repo?: string
+        branch?: string
         runner_provider?: string
       }
       if (data.type === 'prompt' && data.prompt) {
@@ -188,6 +195,7 @@ export class AgentSessionDO extends DurableObject<Env> {
           mode: data.mode,
           model: data.model,
           repo: data.repo,
+          branch: data.branch,
           runnerProvider: data.runner_provider,
           trigger: 'ws',
         })
@@ -291,43 +299,62 @@ export class AgentSessionDO extends DurableObject<Env> {
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
     const toBaseMessage = (m: LoopMessage) =>
       m.role === 'user' ? new HumanMessage(m.content) : new SystemMessage(m.content)
+    let runner: RunnerHandle | undefined
 
-    await runLoop(
-      [userMsg],
-      {
-        sessionId: session.id,
-        db: this.env.DB,
-        kv: this.env.SESSION,
-        modelInvoke: async (msgs) => {
-          try {
-            const lcMessages = [
-              ...(skillContext ? [new SystemMessage(`Skill ${options.skill}:\n${skillContext}`)] : []),
-              ...msgs.map(toBaseMessage),
-            ]
-            const res = await invokeModel(modelConfig, 'console', lcMessages, 512, apiKeys)
-            return { content: stringifyModelContent(res.response.content), stopReason: 'stop' }
-          } catch (e) {
-            const msg = e instanceof Error ? e.message : String(e)
-            return { content: `model error: ${msg} (skill: ${options.skill ?? 'none'})`, stopReason: 'stop' }
-          }
+    if (options.repo && (options.runnerProvider ?? session.runner_provider) === 'sandbox' && this.env.SANDBOX) {
+      const cloneUrl = await resolveCloneUrl(this.env, options.repo)
+      const sandbox = new SandboxProvider(this.env.SANDBOX)
+      runner = await sandbox.provision(
+        { ...session, repo: cloneUrl },
+        {
+          runnerProvider: 'sandbox',
+          networkMode: 'trusted',
         },
-        syscall: async (name, input) => {
-          try {
-            const r = await kernel.tools.syscall(
-              { agentId: 'console', runId: session.id } as unknown as never,
-              name as never,
-              input as never,
-            )
-            return r
-          } catch (e) {
-            return `tool:${name} error ${e instanceof Error ? e.message : String(e)}`
-          }
+        options.branch,
+      )
+    }
+
+    try {
+      await runLoop(
+        [userMsg],
+        {
+          sessionId: session.id,
+          db: this.env.DB,
+          kv: this.env.SESSION,
+          runner,
+          modelInvoke: async (msgs) => {
+            try {
+              const lcMessages = [
+                ...(skillContext ? [new SystemMessage(`Skill ${options.skill}:\n${skillContext}`)] : []),
+                ...msgs.map(toBaseMessage),
+              ]
+              const res = await invokeModel(modelConfig, 'console', lcMessages, 512, apiKeys)
+              return { content: stringifyModelContent(res.response.content), stopReason: 'stop' }
+            } catch (e) {
+              const msg = e instanceof Error ? e.message : String(e)
+              return { content: `model error: ${msg} (skill: ${options.skill ?? 'none'})`, stopReason: 'stop' }
+            }
+          },
+          syscall: async (name, input) => {
+            try {
+              const r = await kernel.tools.syscall(
+                { agentId: 'console', runId: session.id } as unknown as never,
+                name as never,
+                input as never,
+              )
+              return r
+            } catch (e) {
+              return `tool:${name} error ${e instanceof Error ? e.message : String(e)}`
+            }
+          },
+          persistMessage: (m) => this.persistMessage(session.id, m),
+          persistEvent: (type, payload) => this.persistLegacyEvent(session.id, type, payload),
+          broadcast: (e) => this.broadcast(e as SessionEvent),
         },
-        persistMessage: (m) => this.persistMessage(session.id, m),
-        persistEvent: (type, payload) => this.persistLegacyEvent(session.id, type, payload),
-        broadcast: (e) => this.broadcast(e as SessionEvent),
-      },
-    )
+      )
+    } finally {
+      if (runner) await runner.stop().catch(() => {})
+    }
 
     await mgr.transition(session.id, 'done')
 
