@@ -27,17 +27,36 @@ if (!isLoggedIn) {
 
 const currentPath = Astro.url.pathname;
 
-const navItems = [
-  { href: '/admin',          label: 'Home',     key: 'home' as const,     icon: 'layout-dashboard' },
-  { href: '/admin/sessions', label: 'Sessions', key: 'sessions' as const, icon: 'activity' },
-  { href: '/admin/routines', label: 'Routines', key: 'routines' as const, icon: 'refresh-cw' },
-  { href: '/admin/flows',    label: 'Flows',    key: 'flows' as const,    icon: 'workflow' },
-  { href: '/admin/settings', label: 'Settings', key: 'settings' as const, icon: 'settings' },
+type NavChild = { href: string; label: string };
+type NavItem = {
+  href: string; label: string; key: string; icon: string;
+  children?: NavChild[];
+};
+
+const navItems: NavItem[] = [
+  { href: '/admin',          label: 'Home',     key: 'home',     icon: 'layout-dashboard' },
+  { href: '/admin/sessions', label: 'Sessions', key: 'sessions', icon: 'activity' },
+  { href: '/admin/routines', label: 'Routines', key: 'routines', icon: 'refresh-cw' },
+  { href: '/admin/flows',    label: 'Flows',    key: 'flows',    icon: 'workflow' },
+  { href: '/admin/settings', label: 'Settings', key: 'settings', icon: 'settings', children: [
+    { href: '/admin/settings/site',         label: 'Site' },
+    { href: '/admin/settings/models',       label: 'Models' },
+    { href: '/admin/settings/extensions',   label: 'Extensions' },
+    { href: '/admin/settings/permissions',  label: 'Permissions' },
+    { href: '/admin/settings/access',       label: 'Access' },
+    { href: '/admin/settings/environments', label: 'Environments' },
+    { href: '/admin/settings/notifications', label: 'Notifications' },
+    { href: '/admin/settings/behavior',     label: 'Behavior' },
+  ]},
 ];
 
 function isActive(key: string): boolean {
   if (key === 'home') return currentPath === '/admin' || currentPath === '/admin/';
   return currentPath.startsWith(`/admin/${key}`);
+}
+
+function isChildActive(href: string): boolean {
+  return currentPath.startsWith(href);
 }
 
 const sectionLabels: Record<string, string> = {
@@ -69,7 +88,27 @@ const sectionLabels: Record<string, string> = {
         </a>
       </div>
       <nav class="sidebar-nav" aria-label="Admin navigation">
-        {navItems.map(item => (
+        {navItems.map(item => item.children ? (
+          <details class="nav-group" open={isActive(item.key)}>
+            <summary class:list={['nav-item', { active: isActive(item.key) }]} title={item.label}>
+              <Icons name={item.icon} size={16} />
+              <span class="nav-label">{item.label}</span>
+              <span class="nav-chevron">
+                <Icons name="chevron-right" size={12} />
+              </span>
+            </summary>
+            <div class="nav-children">
+              {item.children.map(child => (
+                <a
+                  href={child.href}
+                  class:list={['nav-child', { active: isChildActive(child.href) }]}
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          </details>
+        ) : (
           <a
             href={item.href}
             class:list={['nav-item', { active: isActive(item.key) }]}
@@ -295,6 +334,64 @@ const sectionLabels: Record<string, string> = {
 
   .nav-label {
     font-size: 0.9rem;
+    flex: 1;
+  }
+
+  .nav-chevron {
+    margin-left: auto;
+    opacity: 0.5;
+    transition: transform 0.15s;
+  }
+
+  .nav-group {
+    display: contents;
+  }
+
+  .nav-group > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .nav-group > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-group[open] > summary .nav-chevron {
+    transform: rotate(90deg);
+  }
+
+  .nav-group[open] > summary.active {
+    border-radius: var(--admin-radius) var(--admin-radius) 0 0;
+    margin-bottom: 0;
+  }
+
+  .nav-children {
+    display: flex;
+    flex-direction: column;
+    padding: 0.25rem 0 0.5rem 0;
+    margin-bottom: 0.25rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 0 0 var(--admin-radius) var(--admin-radius);
+  }
+
+  .nav-child {
+    padding: 0.4rem 0.75rem 0.4rem 2.5rem;
+    font-size: 0.82rem;
+    color: var(--admin-text);
+    text-decoration: none;
+    border-radius: var(--admin-radius);
+    margin: 0 0.5rem;
+    transition: background 0.1s;
+  }
+
+  .nav-child:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-child.active {
+    background: var(--brand-100);
+    color: var(--brand-900);
+    font-weight: 600;
   }
 
   .sidebar-footer {
