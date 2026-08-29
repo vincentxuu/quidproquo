@@ -182,7 +182,7 @@ EMNLP 2025 在蘇州舉辦，Best Paper 是「Infini-gram mini: Exact n-gram Sea
 
 ## 參考資料
 
-- [Khanbayov & Kurban (2026). "Topical Phase Transitions in Artificial Intelligence Research: Large-Scale Evidence and an Early-Warning Signature for Emerging Topics." Zenodo.](https://doi.org/10.5281/zenodo.20635335)
+- [Khanbayov & Kurban (2026). "Topical Phase Transitions in Artificial Intelligence Research: Large-Scale Evidence and an Early-Warning Signature for Emerging Topics." Zenodo.](https://doi.org/10.5281/zenodo.20635335) — 對照 reasoning、agentic、diffusion model、multimodal、world model、RAG、state space model 等 2024–2025 topic shift。
 - [NeurIPS 2025 Best Paper Awards 官方公告](https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/)
 - [NeurIPS 2025 Fact Sheet（官方 PDF）](https://media.neurips.cc/Conferences/NeurIPS2025/press/NeurIPS2025-Fact_Sheet.pdf)
 - [Jay Alammar — "Inside NeurIPS 2025: The Year's AI Research, Mapped"](https://newsletter.languagemodels.co/p/the-illustrated-neurips-2025-a-visual)

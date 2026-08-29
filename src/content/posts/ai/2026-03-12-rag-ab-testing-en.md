@@ -64,7 +64,7 @@ Test only one change per experiment. A common anti-pattern: "Let's add HyDE and 
 **The right approach**:
 
 ```
-Experiment 1: Control (no HyDE) vs. Treatment (HyDE enabled)
+Experimentation plan 1: Control (no HyDE) vs. Treatment (HyDE enabled)
   → Only the HyDE toggle differs; everything else is identical
 
 Experiment 2: Control (no reranking) vs. Treatment (reranking enabled)

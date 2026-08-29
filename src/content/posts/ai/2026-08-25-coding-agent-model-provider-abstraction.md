@@ -78,7 +78,7 @@ Provider 抽象沒有經典論文，但各家官方 API 文件本身就是最好
 
 ## 參考資料
 
-- [badlogic/pi-mono](https://github.com/badlogic/pi-mono)（`packages/ai/src/types.ts`、`packages/ai/src/models.ts`）
+- [badlogic/pi-mono](https://github.com/badlogic/pi-mono)（`packages/ai/src/types.ts`、`packages/ai/src/models.ts`）— ModelProvider、SDK 包裝與 rivumi provider contract 的主要對照來源。
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)（`packages/catalog/src/provider-models/descriptors.ts`）
 - [sst/opencode](https://github.com/sst/opencode)（`packages/opencode/src/provider/provider.ts`）
 - [openai/codex](https://github.com/openai/codex)（`codex-rs/model-provider-info/src/lib.rs`）

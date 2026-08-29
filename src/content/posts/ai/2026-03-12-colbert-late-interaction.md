@@ -102,7 +102,7 @@ scores = retriever.retrieve(
 )
 ```
 
-如果只想拿 ColBERT 當重排、不想建索引，PyLate 也有 `rank.rerank()` 直接對候選集打分。
+如果只想拿 ColBERT 當 reranking 重排、不想建索引，PyLate 也有 `rank.rerank()` 直接對候選集打分。
 
 **Checkpoint 選擇**：`colbert-ir/colbertv2.0`（MIT）是經典基準；較新的 `lightonai/GTE-ModernColBERT-v1` 與 `answerdotai/answerai-colbert-small-v1` 都是 Apache-2.0，可商用。要多語言／中文的話 `jinaai/jina-colbert-v2` 是常見選擇，但它是 CC-BY-NC，**商用前務必先確認授權**。這一塊換代很快，實際挑選時直接看 Hugging Face 上各 model card 的當下狀態。
 

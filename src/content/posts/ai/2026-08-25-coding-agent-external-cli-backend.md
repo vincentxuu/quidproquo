@@ -59,7 +59,7 @@ M13 泛化時也沒有破壞原則：`external_cli_base.py#StreamJsonCliBackend`
 
 ## 參考資料
 
-- [openai/codex — codex-rs workspace](https://github.com/openai/codex)：`exec` headless 模式與 `app-server-protocol`
+- [openai/codex — codex-rs workspace](https://github.com/openai/codex)：`exec` headless 模式、CLI backend loop 與 rivumi 外部 runtime 邊界對照。
 - [OpenAI Codex sandboxing 文件](https://developers.openai.com/codex/concepts/sandboxing)
 - [anthropics/claude-code](https://github.com/anthropics/claude-code) 與 [Claude Agent SDK 文件](https://platform.claude.com/docs/en/agents-and-tools/claude-agent-sdk/overview)
 - [sst/opencode — run 指令](https://github.com/sst/opencode)

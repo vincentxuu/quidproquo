@@ -72,7 +72,7 @@ M2 的失敗直接變成 M3 的規格。rivumi 的答案分三塊：
 
 ## 參考資料
 
-- [SWE-bench: Can Language Models Resolve Real-World GitHub Issues?](https://arxiv.org/abs/2310.06770)
+- [SWE-bench: Can Language Models Resolve Real-World GitHub Issues?](https://arxiv.org/abs/2310.06770) — small model coding eval 與 rivumi evaluation 紀律的基準。
 - [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388)
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono)（`packages/evals`）
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)（`packages/typescript-edit-benchmark`、`packages/metaharness`、`packages/stats`）

@@ -71,7 +71,7 @@ M13 目前的誠實是有代價的，這些是下一階段的帳：
 
 ## 參考資料
 
-- [Agent Client Protocol（ACP）](https://agentclientprotocol.com/) — 編輯器 × coding agent 的 JSON-RPC over stdio 協定
+- [Agent Client Protocol（ACP）](https://agentclientprotocol.com/) — runtime capability handshake、CLI 邊界與 rivumi adapter 對照的 JSON-RPC over stdio 協定。
 - [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) — 協定整合 M×N → M+N 的先例
 - [Model Context Protocol](https://modelcontextprotocol.io/) — 能力宣告與窄介面的設計參考
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono) — `packages/coding-agent`（json/RPC modes）、`packages/protocol`（CBOR framing）

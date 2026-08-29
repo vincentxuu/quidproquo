@@ -79,7 +79,7 @@ rivumi 的答案是三層：effect 分類、注入式 policy、durable audit。
 
 ## 參考資料
 
-- [Building Effective Agents — Anthropic Engineering](https://www.anthropic.com/engineering/building-effective-agents)
+- [Building Effective Agents — Anthropic Engineering](https://www.anthropic.com/engineering/building-effective-agents) — human-in-the-loop approval、audit trail 與 rivumi 對照的工程基準。
 - [OpenAI Codex CLI 官方文件](https://developers.openai.com/codex/cli/)
 - [Claude Code IAM 與權限設定文件](https://docs.claude.com/en/docs/claude-code/iam)
 - [opencode Permissions 文件](https://opencode.ai/docs/permissions/)

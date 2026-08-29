@@ -26,7 +26,7 @@ RAG 系統的索引通常是把長文件切成小段（chunk），分別 embeddi
 
 如果只存第二段的 chunk：「此路線關鍵動作在第三個保護點之後，需要平衡動作配合腳法」，脫離了上下文之後，這個 chunk 完全不知道在說哪條路線、哪個岩場、什麼難度。搜尋時命中這個 chunk，LLM 拿到的 context 缺乏關鍵資訊。
 
-Contextual Retrieval（Anthropic 於 2024 年 9 月提出）的解法：**在索引時，為每個 chunk 補上一段「這段在整份文件裡的位置與背景」的文字，再送去 embedding**。
+Contextual Retrieval（Anthropic 於 2024 年 9 月提出）的解法：**在 indexing 索引時，為每個 chunk 補上一段「這段在整份文件裡的位置與背景」的文字，再送去 embedding**。
 
 這裡要先把一件事講清楚，因為很多二手介紹（包括本文最初的版本）都搞混了：
 

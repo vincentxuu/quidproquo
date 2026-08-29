@@ -143,7 +143,7 @@ async function handleSparseContext(
 
 讓使用者知道系統的資料狀況，比靜默失敗或幻覺更誠實，也更有用。
 
-## 進階索引策略
+## 進階索引（indexing）策略
 
 **增量索引**：有新資料時立刻索引，不等批次：
 

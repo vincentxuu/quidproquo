@@ -132,7 +132,7 @@ CRAG 是**零結果時的規則型修正**，Agentic RAG 是**有結果但不夠
 
 兩者可以同時啟用：CRAG 作為基礎防護，Agentic RAG 作為高品質選項。
 
-## 多跳推理的效果
+## 多跳推理（multi-hop）的效果
 
 對需要整合多個來源的查詢，Agentic RAG 的效果顯著優於標準 RAG：
 

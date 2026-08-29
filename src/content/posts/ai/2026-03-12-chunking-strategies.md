@@ -238,7 +238,7 @@ Jina AI 在 2024 年提出的另一條路（arXiv:2409.04701）：不是「切�
 
 ## 整體來說
 
-Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少 HyDE、Multi-Query、Reranker，都建立在「索引裡有正確的語義單元」這個前提上。索引本身有問題，搜尋再好也找不到正確答案。
+Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少 HyDE、Multi-Query、Reranker，都建立在「indexing 索引裡有正確的語義單元」這個前提上。索引本身有問題，搜尋再好也找不到正確答案。
 
 最務實的建議：從 Recursive Chunking + Contextual Retrieval 開始，然後根據實際的搜尋品質（查看 trace 裡命中的 chunk 是否有意義）決定要不要換策略。
 

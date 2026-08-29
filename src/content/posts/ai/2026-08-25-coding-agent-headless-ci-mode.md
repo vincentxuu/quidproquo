@@ -84,7 +84,7 @@ rivumi 目前已經拿到的：不 hang、fail closed、artifacts 齊全、exit 
 
 ## 參考資料
 
-- [Claude Code Agent SDK 文件](https://docs.anthropic.com/en/docs/claude-code/sdk)
+- [Claude Code Agent SDK 文件](https://docs.anthropic.com/en/docs/claude-code/sdk) — headless CI、approve policy 與 rivumi loop/policy 對照。
 - [Claude Code CLI reference](https://docs.anthropic.com/en/docs/claude-code/cli-reference)
 - [Claude Code GitHub Actions](https://docs.anthropic.com/en/docs/claude-code/github-actions)
 - [Codex `codex exec` 文件](https://github.com/openai/codex/blob/main/docs/exec.md)

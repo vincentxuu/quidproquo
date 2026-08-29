@@ -78,7 +78,7 @@ One-line summary: **the essence of the ModelProvider abstraction is not hiding d
 
 ## References
 
-- [badlogic/pi-mono](https://github.com/badlogic/pi-mono) (`packages/ai/src/types.ts`, `packages/ai/src/models.ts`)
+- [badlogic/pi-mono](https://github.com/badlogic/pi-mono) (`packages/ai/src/types.ts`, `packages/ai/src/models.ts`) — mature ModelProvider abstraction evidence for SDK wrapping, rivumi comparison, provider choice, and contract design.
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) (`packages/catalog/src/provider-models/descriptors.ts`)
 - [sst/opencode](https://github.com/sst/opencode) (`packages/opencode/src/provider/provider.ts`)
 - [openai/codex](https://github.com/openai/codex) (`codex-rs/model-provider-info/src/lib.rs`)

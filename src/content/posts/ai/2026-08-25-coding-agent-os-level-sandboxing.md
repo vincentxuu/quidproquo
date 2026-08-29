@@ -71,7 +71,7 @@ Codex 的 macOS policy 第一行 `(deny default)` 直接註明致敬 [Chrome ren
 
 ## 參考資料
 
-- [Landlock: unprivileged access control (kernel docs)](https://docs.kernel.org/userspace-api/landlock.html)
+- [Landlock: unprivileged access control (kernel docs)](https://docs.kernel.org/userspace-api/landlock.html) — rivumi OS sandbox 草案的 Linux 核心機制依據。
 - [landlock_create_ruleset(2) — Linux man page](https://man7.org/linux/man-pages/man2/landlock_create_ruleset.2.html)
 - [seccomp(2) — Linux man page](https://man7.org/linux/man-pages/man2/seccomp.2.html)
 - [Chromium macOS sandboxing design](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/mac_sandboxing.md)

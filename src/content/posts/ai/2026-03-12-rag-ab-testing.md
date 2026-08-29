@@ -159,7 +159,7 @@ GROUP BY variant, query_type;
 ## 決策框架
 
 ```
-實驗結束後：
+Experimentation 實驗結束後：
 
 1. 主要指標是否顯著提升？
    No → 放棄改動（可能有其他問題）
