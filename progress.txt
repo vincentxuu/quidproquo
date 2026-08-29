@@ -60,6 +60,7 @@ In progress
   共 73 組中英文內容，固定 2026 主版本並標示 LMS、grader、錄影與算力限制，待使用者 review。
 - CMU 07-280 完整課程導讀已完成 29 篇／58 個雙語 Markdown（總覽、24 講、3 篇階段複習、結業路線）與來源 manifest，待使用者審稿；Harvard 地圖亦待審。
 - Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals, then verify the production Groq-to-Cloudflare fallback path.
+- Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：adapter、public search 多來源 fan-out、Search Page/RAG settings keys、admin health status、Wrangler unsafe binding 已完成本機型別與目標測試；Cloudflare instance `quidproquo-public` 已建立（default namespace，web-crawler sitemap，2026-08-29），初次 scheduled sync job 正在排隊索引（最後觀察 queued 7213、errors 0）；AI Search 預設 disabled+shadow，待索引完成與 golden eval 後才能 visible。
 - Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.  **導讀曾被 agent 查證推翻一次**：durable execution 的軸線不是 replay vs checkpoint
   （DBOS、Hatchet 用 checkpoint 詞彙卻同樣要求決定性），而是「復原時要不要重跑你的編排碼」，
   已於 2d9a562 修正。平行寫稿的教訓：agent 抓錯我兩次、我抓錯 agent 兩次，雙向查證有效。

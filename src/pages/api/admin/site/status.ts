@@ -6,6 +6,7 @@ import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 import { ACTIVE_EMBEDDING_PROVIDER } from '@/lib/retrieval/embedding'
+import { getSetting } from '@/lib/db/settings-store'
 
 interface StatusItem {
   name: string
@@ -63,6 +64,13 @@ export const GET: APIRoute = async ({ cookies }) => {
     statuses.push({ name: 'Workers AI', ok: false })
   }
 
+  try {
+    const aiSearch = await inspectAiSearch(e)
+    statuses.push(aiSearch)
+  } catch {
+    statuses.push({ name: 'AI Search', ok: false, detail: 'Health check failed' })
+  }
+
   // Get index stats
   let index = {
     postChunks: 0,
@@ -109,4 +117,39 @@ export const GET: APIRoute = async ({ cookies }) => {
   return json({ statuses, index, content })
 }
 
+async function inspectAiSearch(e: Env): Promise<StatusItem> {
+  const binding = e.AI_SEARCH_NAMESPACE ?? e.AI_SEARCH
+  if (!binding) {
+    return { name: 'AI Search', ok: false, detail: 'Not bound' }
+  }
 
+  const configuredInstance = await getSetting(e.DB, 'rag_ai_search_instance', { tableName: 'settings' })
+    .then(row => row?.value)
+    .catch(() => undefined)
+  const envInstance = e.AI_SEARCH_INSTANCE
+  const instanceName = configuredInstance || envInstance
+
+  if (hasFunction(binding, 'stats')) {
+    await binding.stats()
+    return { name: 'AI Search', ok: true, detail: 'Instance binding ready' }
+  }
+
+  if (hasFunction(binding, 'get')) {
+    if (!instanceName) {
+      return { name: 'AI Search', ok: true, detail: 'Namespace binding ready; instance not configured' }
+    }
+    const instance = binding.get(instanceName)
+    if (hasFunction(instance, 'stats')) {
+      await instance.stats()
+      return { name: 'AI Search', ok: true, detail: `Namespace binding ready: ${instanceName}` }
+    }
+    return { name: 'AI Search', ok: false, detail: `Instance ${instanceName} does not expose stats()` }
+  }
+
+  return { name: 'AI Search', ok: false, detail: 'Unknown binding shape' }
+}
+
+function hasFunction<T extends string>(value: unknown, key: T): value is Record<T, (...args: unknown[]) => unknown> {
+  if (!value || typeof value !== 'object') return false
+  return key in value && typeof (value as Record<T, unknown>)[key] === 'function'
+}

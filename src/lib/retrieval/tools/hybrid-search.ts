@@ -5,7 +5,7 @@ export const ABSTRACT_RANKING_WEIGHT = 0.5
 export const WEAK_RETRIEVAL_THRESHOLD = 0.4
 
 export interface SearchMetrics {
-  source: 'posts' | 'docs'
+  source: 'posts' | 'docs' | 'ai_search'
   query_kind: 'precision' | 'general'
   bm25_results: number
   vector_results: number
@@ -16,6 +16,8 @@ export interface SearchMetrics {
   skipped_vector: boolean
   short_circuit_threshold: number
   estimated_latency_saved_ms: number | null
+  error?: string
+  timeout?: boolean
 }
 
 export type SearchResultsWithMetrics<T> = T[] & { metrics?: SearchMetrics }
@@ -174,6 +176,41 @@ export function reciprocalRankFuse<T extends ChunkIdentified>(
   }
 
   const maxPossibleScore = activeListCount / (k + 1)
+
+  return [...merged.values()]
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(({ row, score }) => ({
+      ...row,
+      relevance_score: maxPossibleScore > 0 ? score / maxPossibleScore : 0,
+    }))
+}
+
+export function weightedReciprocalRankFuse<T extends ChunkIdentified>(
+  rankedLists: Array<{ results: T[]; weight?: number }>,
+  limit: number,
+  k = RRF_K
+): Array<T & { relevance_score: number }> {
+  const activeLists = rankedLists.filter(list => list.results.length > 0 && (list.weight ?? 1) > 0)
+  const merged = new Map<string, { row: T; score: number }>()
+
+  for (const list of activeLists) {
+    const weight = list.weight ?? 1
+    list.results.forEach((row, index) => {
+      const rank = index + 1
+      const contribution = weight / (k + rank)
+      const existing = merged.get(row.chunk_id)
+
+      if (existing) {
+        existing.score += contribution
+        existing.row = { ...existing.row, ...row }
+      } else {
+        merged.set(row.chunk_id, { row, score: contribution })
+      }
+    })
+  }
+
+  const maxPossibleScore = activeLists.reduce((sum, list) => sum + (list.weight ?? 1) / (k + 1), 0)
 
   return [...merged.values()]
     .sort((a, b) => b.score - a.score)

@@ -12,6 +12,7 @@ import {
   RRF_K,
   shouldShortCircuitBm25,
   shouldUseBm25ShortCircuit,
+  weightedReciprocalRankFuse,
 } from './hybrid-search'
 
 describe('buildFtsQuery', () => {
@@ -126,6 +127,25 @@ describe('reciprocalRankFuse', () => {
     ], 2)
 
     expect(fused).toHaveLength(2)
+  })
+})
+
+describe('weightedReciprocalRankFuse', () => {
+  it('lets a higher-weight source win when there is no cross-source agreement', () => {
+    const fused = weightedReciprocalRankFuse([
+      { weight: 0.5, results: [{ chunk_id: 'keyword-top' }] },
+      { weight: 2, results: [{ chunk_id: 'semantic-top' }] },
+    ], 2)
+
+    expect(fused.map(row => row.chunk_id)).toEqual(['semantic-top', 'keyword-top'])
+  })
+
+  it('ignores shadow-only callers by accepting only supplied visible lists', () => {
+    const fused = weightedReciprocalRankFuse([
+      { weight: 1, results: [{ chunk_id: 'visible' }] },
+    ], 2)
+
+    expect(fused.map(row => row.chunk_id)).toEqual(['visible'])
   })
 })
 

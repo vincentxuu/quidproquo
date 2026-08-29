@@ -16,6 +16,9 @@ export interface Env {
   VECTORIZE_INDEX: VectorizeIndex
   VECTORIZE_ABSTRACT?: VectorizeIndex
   AI: Ai
+  AI_SEARCH?: AiSearchInstance
+  AI_SEARCH_NAMESPACE?: AiSearchNamespace
+  AI_SEARCH_INSTANCE?: string
   R2_IMAGES: R2Bucket
   CRAWL_SECRET?: string
   INDEX_SYNC_SECRET?: string
