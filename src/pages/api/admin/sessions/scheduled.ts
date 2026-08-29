@@ -9,6 +9,7 @@ import { createKernel } from '@/lib/agent/kernel'
 import { registerAgentDefinitions } from '@/lib/agent/registry'
 import { ConcurrencyExceededError } from '@/lib/agent/scheduler'
 import { scheduledAgentEntries, type ScheduledAgentEntry } from '@/lib/agent/scheduler/cron-registry'
+import { createRoutineTrigger } from '@/lib/agent/routine-trigger'
 import { ensureAgentOsEnabled } from './_guard'
 
 interface ScheduledAgentRequestBody {
@@ -53,7 +54,10 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     }
   }
 
-  return json({ ok: true, source, runs: results })
+  const routineTrigger = createRoutineTrigger(e.DB)
+  const routineResults = await routineTrigger.triggerDueRoutines()
+
+  return json({ ok: true, source, runs: results, routines: routineResults })
 }
 
 function resolveEntries(body: ScheduledAgentRequestBody): ScheduledAgentEntry[] {
