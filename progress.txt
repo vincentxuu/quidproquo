@@ -10,10 +10,10 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- **Admin v2 Phase 1–2 完成（2026-08-29）**：Phase 1 路由全遷 + lib 重組（587 檔）；
-  Phase 2 Session 引擎（SSE watch、lifecycle APIs、agent loop 改造、Mac runner、Home composer、
-  Session 頁 SSE 渲染、Share 公開頁、post_turn_summary）。Phase 3–6 計畫已寫。
-  Phase 3（Routine trigger + Discord 通知）進行中。
+- **Admin v2 Phase 1–3 完成（2026-08-29）**：Phase 1 路由全遷 + lib 重組；
+  Phase 2 Session 引擎（SSE watch、lifecycle APIs、agent loop、Mac runner、UI）；
+  Phase 3 Routine trigger + 通知系統（Discord webhook、ntfy、platform-failure）。
+  Phase 4（Mode 三檔 + 權限協定）待開工，Phase 5–6 計畫已寫。
 - **「跟成熟 coding agent 學設計」系列 38 篇雙語（78 檔）已完成待 review**（0126e687＋收尾篇，
   docs/content-plan-coding-agent-design-series.md）：第一部 25 篇已實作對照（order 2–25，總覽佔 1）＋
   第二部 13 篇改善路線圖（26–38，收尾篇 agent-as-service 於 2026-08-26 補齊「38 篇」定案數）。
