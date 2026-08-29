@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T05:56:02.484Z",
+  "generated_at": "2026-08-29T09:52:17.152Z",
   "config": {
     "paths": {
       "contentOps": "docs/content-ops-report.json",
@@ -43,8 +43,8 @@
     "bing": null,
     "llm": null,
     "live_fetch": {
-      "gsc": false,
-      "ga4": false
+      "gsc": true,
+      "ga4": true
     }
   },
   "technical": {
@@ -57,14 +57,14 @@
     }
   },
   "content": {
-    "generated_at": "2026-08-22T07:11:34.822Z",
+    "generated_at": "2026-08-29T09:35:52.920Z",
     "summary": {
-      "posts": 2240,
-      "missing_tldr": 4,
-      "missing_description": 2,
-      "missing_difficulty": 2120,
-      "duplicate_candidates": 16099,
-      "freshness_candidates": 939,
+      "posts": 2995,
+      "missing_tldr": 6,
+      "missing_description": 4,
+      "missing_difficulty": 2871,
+      "duplicate_candidates": 25385,
+      "freshness_candidates": 1180,
       "content_gaps": 0
     }
   },
@@ -111,11 +111,14 @@
     ],
     "coverage": []
   },
-  "live_warnings": [],
+  "live_warnings": [
+    "Set GSC_SITE_URL and GSC_ACCESS_TOKEN to fetch Google Search Console data.",
+    "Set GA4_PROPERTY_ID and GA4_ACCESS_TOKEN to fetch Google Analytics Data API data."
+  ],
   "priorities": [
-    "Fill 2 missing meta descriptions.",
-    "Fill 4 missing TLDR fields for answer extraction.",
-    "Review 939 freshness candidates before optimizing stale pages.",
+    "Fill 4 missing meta descriptions.",
+    "Fill 6 missing TLDR fields for answer extraction.",
+    "Review 1180 freshness candidates before optimizing stale pages.",
     "Add Google Search Console export to observe impressions, CTR, and indexed query/page pairs.",
     "Add Bing Webmaster export to observe Bing/Copilot-side search visibility.",
     "Add GA4 export or env-gated fetch to observe page engagement after search clicks.",

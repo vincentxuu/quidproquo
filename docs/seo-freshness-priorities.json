@@ -1,0 +1,698 @@
+{
+  "generated_at": "2026-08-29T09:35:56.252Z",
+  "inputs": {
+    "content_ops": "docs/content-ops-report.json",
+    "queries": "docs/seo-observability-queries.json"
+  },
+  "summary": {
+    "freshness_candidates": 1180,
+    "prioritized_pages": 20,
+    "aeo_probe_targeted_pages": 1
+  },
+  "priorities": [
+    {
+      "file": "src/content/posts/ai/2026-03-12-vector-database-comparison-en.md",
+      "slug": "ai/2026-03-12-vector-database-comparison-en",
+      "path": "/posts/ai/2026-03-12-vector-database-comparison-en/",
+      "title": "Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize",
+      "category": "ai",
+      "lang": "en",
+      "score": 57,
+      "age_days": 170,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "RAG / Vector retrieval: vectorize, vector database, pinecone, weaviate, qdrant",
+        "Cloudflare AI infrastructure: vectorize"
+      ]
+    },
+    {
+      "file": "src/content/posts/ai/2026-03-12-vector-database-comparison.md",
+      "slug": "ai/2026-03-12-vector-database-comparison",
+      "path": "/posts/ai/2026-03-12-vector-database-comparison/",
+      "title": "Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選",
+      "category": "ai",
+      "lang": "zh-TW",
+      "score": 57,
+      "age_days": 170,
+      "reasons": [
+        "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+        "RAG / Vector retrieval: vectorize, vector database, pinecone, weaviate, qdrant",
+        "Cloudflare AI infrastructure: vectorize"
+      ]
+    },
+    {
+      "file": "src/content/posts/ai/2026-08-22-agent-framework-selection-guide.md",
+      "slug": "ai/2026-08-22-agent-framework-selection-guide",
+      "path": "/posts/ai/2026-08-22-agent-framework-selection-guide/",
+      "title": "2026 Agent 框架怎麼選：LangGraph、CrewAI、MAF、AG2、Mastra、Pydantic AI、DSPy",
+      "category": "ai",
+      "lang": "zh-TW",
+      "score": 57,
+      "age_days": 7,
+      "reasons": [
+        "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+        "Agent framework selection: langgraph, crewai, mastra, pydantic ai, dspy",
+        "AEO probe target page"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en.md",
+      "slug": "tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en",
+      "path": "/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en/",
+      "title": "NobodyClimb AI Architecture: Building a 20-Node RAG Pipeline on Cloudflare Workers",
+      "category": "tech",
+      "lang": "en",
+      "score": 41,
+      "age_days": 170,
+      "reasons": [
+        "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+        "RAG / Vector retrieval: rag",
+        "Cloudflare AI infrastructure: cloudflare, workers"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture.md",
+      "slug": "tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture",
+      "path": "/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture/",
+      "title": "NobodyClimb AI 架構：在 Cloudflare Workers 上打造 20 節點 RAG Pipeline",
+      "category": "tech",
+      "lang": "zh-TW",
+      "score": 41,
+      "age_days": 170,
+      "reasons": [
+        "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+        "RAG / Vector retrieval: rag",
+        "Cloudflare AI infrastructure: cloudflare, workers"
+      ]
+    },
+    {
+      "file": "src/content/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en.md",
+      "slug": "ai/2026-03-27-gemma-3-cloudflare-workers-ai-en",
+      "path": "/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en/",
+      "title": "Gemma on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications",
+      "category": "ai",
+      "lang": "en",
+      "score": 41,
+      "age_days": 123,
+      "reasons": [
+        "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+        "RAG / Vector retrieval: rag",
+        "Cloudflare AI infrastructure: cloudflare, workers ai, workers"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/2026-03-24-action-maker-ai-integration-en.md",
+      "slug": "tech/2026-03-24-action-maker-ai-integration-en",
+      "path": "/posts/tech/2026-03-24-action-maker-ai-integration-en/",
+      "title": "From Mock to Real AI: Integrating Cloudflare Workers AI into action-maker",
+      "category": "tech",
+      "lang": "en",
+      "score": 40,
+      "age_days": 158,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "Cloudflare AI infrastructure: cloudflare, workers ai, workers"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/2026-03-24-action-maker-ai-integration.md",
+      "slug": "tech/2026-03-24-action-maker-ai-integration",
+      "path": "/posts/tech/2026-03-24-action-maker-ai-integration/",
+      "title": "用 Cloudflare Workers AI 把前端 mock 變成真的：action-maker AI 整合全記錄",
+      "category": "tech",
+      "lang": "zh-TW",
+      "score": 40,
+      "age_days": 158,
+      "reasons": [
+        "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+        "Cloudflare AI infrastructure: cloudflare, workers ai, workers"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide-en.md",
+      "slug": "tech/2026-03-27-blog-aeo-answer-engine-optimization-guide-en",
+      "path": "/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide-en/",
+      "title": "AEO Guide: Answer Engine Optimization — Getting AI Search Engines to Cite Your Content",
+      "category": "tech",
+      "lang": "en",
+      "score": 40,
+      "age_days": 155,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "llms.txt / AEO: aeo, answer engine"
+      ]
+    },
+    {
+      "file": "src/content/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en.md",
+      "slug": "ai/2026-03-12-hybrid-search-bm25-vector-rrf-en",
+      "path": "/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en/",
+      "title": "Hybrid Search: Using BM25 + Vector Search to Cover Each Other's Blind Spots",
+      "category": "ai",
+      "lang": "en",
+      "score": 38,
+      "age_days": 170,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "RAG / Vector retrieval: hybrid search, bm25"
+      ]
+    },
+    {
+      "file": "src/content/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf.md",
+      "slug": "ai/2026-03-12-hybrid-search-bm25-vector-rrf",
+      "path": "/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf/",
+      "title": "Hybrid Search：用 BM25 + 向量搜尋彌補彼此的盲區",
+      "category": "ai",
+      "lang": "zh-TW",
+      "score": 38,
+      "age_days": 170,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "RAG / Vector retrieval: hybrid search, bm25"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/2026-03-27-cloudflare-r2-object-storage-en.md",
+      "slug": "tech/2026-03-27-cloudflare-r2-object-storage-en",
+      "path": "/posts/tech/2026-03-27-cloudflare-r2-object-storage-en/",
+      "title": "Cloudflare R2: An S3 Alternative with Zero Egress Fees",
+      "category": "tech",
+      "lang": "en",
+      "score": 37,
+      "age_days": 155,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "RAG / Vector retrieval: rag",
+        "Cloudflare AI infrastructure: cloudflare"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/2026-03-27-cloudflare-r2-object-storage.md",
+      "slug": "tech/2026-03-27-cloudflare-r2-object-storage",
+      "path": "/posts/tech/2026-03-27-cloudflare-r2-object-storage/",
+      "title": "Cloudflare R2：零 Egress 費用的 S3 替代方案",
+      "category": "tech",
+      "lang": "zh-TW",
+      "score": 37,
+      "age_days": 155,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "RAG / Vector retrieval: rag",
+        "Cloudflare AI infrastructure: cloudflare"
+      ]
+    },
+    {
+      "file": "src/content/posts/ai/2026-04-23-weaviate-legal-rag-architecture-en.md",
+      "slug": "ai/2026-04-23-weaviate-legal-rag-architecture-en",
+      "path": "/posts/ai/2026-04-23-weaviate-legal-rag-architecture-en/",
+      "title": "Building a Legal Contract RAG in 36 Hours: Weaviate Query Agent + ColQwen Architecture Breakdown",
+      "category": "ai",
+      "lang": "en",
+      "score": 37,
+      "age_days": 128,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "RAG / Vector retrieval: rag, weaviate",
+        "Model/provider freshness: qwen"
+      ]
+    },
+    {
+      "file": "src/content/posts/ai/2026-04-23-weaviate-legal-rag-architecture.md",
+      "slug": "ai/2026-04-23-weaviate-legal-rag-architecture",
+      "path": "/posts/ai/2026-04-23-weaviate-legal-rag-architecture/",
+      "title": "36 小時建出法律合約 RAG：Weaviate Query Agent + ColQwen 架構拆解",
+      "category": "ai",
+      "lang": "zh-TW",
+      "score": 37,
+      "age_days": 128,
+      "reasons": [
+        "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+        "RAG / Vector retrieval: rag, weaviate",
+        "Model/provider freshness: qwen"
+      ]
+    },
+    {
+      "file": "src/content/posts/product/2026-03-12-quidproquo-blog-from-scratch-en.md",
+      "slug": "product/2026-03-12-quidproquo-blog-from-scratch-en",
+      "path": "/posts/product/2026-03-12-quidproquo-blog-from-scratch-en/",
+      "title": "Building a Low-Friction Blog from Scratch with Astro + Cloudflare Workers",
+      "category": "product",
+      "lang": "en",
+      "score": 36,
+      "age_days": 170,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "Cloudflare AI infrastructure: cloudflare, workers"
+      ]
+    },
+    {
+      "file": "src/content/posts/product/2026-03-12-quidproquo-blog-from-scratch.md",
+      "slug": "product/2026-03-12-quidproquo-blog-from-scratch",
+      "path": "/posts/product/2026-03-12-quidproquo-blog-from-scratch/",
+      "title": "用 Astro + Cloudflare Workers 從零建立低摩擦部落格",
+      "category": "product",
+      "lang": "zh-TW",
+      "score": 36,
+      "age_days": 170,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "Cloudflare AI infrastructure: cloudflare, workers"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain-en.md",
+      "slug": "tech/debug/2026-03-12-cloudflare-workers-custom-domain-en",
+      "path": "/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain-en/",
+      "title": "The Correct Way to Bind a Custom Domain in Cloudflare Workers",
+      "category": "tech",
+      "lang": "en",
+      "score": 36,
+      "age_days": 170,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "Cloudflare AI infrastructure: cloudflare, workers"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain.md",
+      "slug": "tech/debug/2026-03-12-cloudflare-workers-custom-domain",
+      "path": "/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain/",
+      "title": "Cloudflare Workers 綁定自訂網域的正確寫法",
+      "category": "tech",
+      "lang": "zh-TW",
+      "score": 36,
+      "age_days": 170,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "Cloudflare AI infrastructure: cloudflare, workers"
+      ]
+    },
+    {
+      "file": "src/content/posts/tech/debug/2026-03-13-astro-cloudflare-native-module-en.md",
+      "slug": "tech/debug/2026-03-13-astro-cloudflare-native-module-en",
+      "path": "/posts/tech/debug/2026-03-13-astro-cloudflare-native-module-en/",
+      "title": "Astro + Cloudflare Workers: Native Modules Break the Build Even on Prerendered Routes",
+      "category": "tech",
+      "lang": "en",
+      "score": 36,
+      "age_days": 169,
+      "reasons": [
+        "技術/API 文章已超過 120 天，建議複查文件與版本",
+        "Cloudflare AI infrastructure: cloudflare, workers"
+      ]
+    }
+  ],
+  "targets": [
+    {
+      "id": "llms-txt",
+      "label": "llms.txt / AEO",
+      "pages": [
+        {
+          "file": "src/content/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide-en.md",
+          "slug": "tech/2026-03-27-blog-aeo-answer-engine-optimization-guide-en",
+          "path": "/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide-en/",
+          "title": "AEO Guide: Answer Engine Optimization — Getting AI Search Engines to Cite Your Content",
+          "category": "tech",
+          "lang": "en",
+          "score": 40,
+          "age_days": 155,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "llms.txt / AEO: aeo, answer engine"
+          ]
+        },
+        {
+          "file": "src/content/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy-en.md",
+          "slug": "marketing/2026-04-18-ai-search-engine-aeo-geo-strategy-en",
+          "path": "/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy-en/",
+          "title": "Is Your JSON-LD Invisible to AI Search Engines? A Pipeline Breakdown and AEO/GEO Strategy",
+          "category": "marketing",
+          "lang": "en",
+          "score": 36,
+          "age_days": 133,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "llms.txt / AEO: aeo, geo"
+          ]
+        },
+        {
+          "file": "src/content/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy.md",
+          "slug": "marketing/2026-04-18-ai-search-engine-aeo-geo-strategy",
+          "path": "/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy/",
+          "title": "你的 JSON-LD 和 schema 對 AI 搜尋引擎是隱形的嗎？各家管線拆解與 AEO/GEO 策略",
+          "category": "marketing",
+          "lang": "zh-TW",
+          "score": 36,
+          "age_days": 133,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "llms.txt / AEO: aeo, geo"
+          ]
+        },
+        {
+          "file": "src/content/posts/marketing/2026-04-21-aeo-geo-tracking-tools-landscape-en.md",
+          "slug": "marketing/2026-04-21-aeo-geo-tracking-tools-landscape-en",
+          "path": "/posts/marketing/2026-04-21-aeo-geo-tracking-tools-landscape-en/",
+          "title": "AEO / GEO Tool Landscape: Input, Traffic, and Output Layers — From isitagentready to aeo-radar to Profound",
+          "category": "marketing",
+          "lang": "en",
+          "score": 36,
+          "age_days": 130,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "llms.txt / AEO: aeo, geo"
+          ]
+        },
+        {
+          "file": "src/content/posts/marketing/2026-04-21-aeo-geo-tracking-tools-landscape.md",
+          "slug": "marketing/2026-04-21-aeo-geo-tracking-tools-landscape",
+          "path": "/posts/marketing/2026-04-21-aeo-geo-tracking-tools-landscape/",
+          "title": "AEO / GEO 工具全景：輸入面、流量面、輸出面——從 isitagentready 到 aeo-radar 到 Profound",
+          "category": "marketing",
+          "lang": "zh-TW",
+          "score": 36,
+          "age_days": 130,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "llms.txt / AEO: aeo, geo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agent-frameworks",
+      "label": "Agent framework selection",
+      "pages": [
+        {
+          "file": "src/content/posts/ai/2026-08-22-agent-framework-selection-guide.md",
+          "slug": "ai/2026-08-22-agent-framework-selection-guide",
+          "path": "/posts/ai/2026-08-22-agent-framework-selection-guide/",
+          "title": "2026 Agent 框架怎麼選：LangGraph、CrewAI、MAF、AG2、Mastra、Pydantic AI、DSPy",
+          "category": "ai",
+          "lang": "zh-TW",
+          "score": 57,
+          "age_days": 7,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "Agent framework selection: langgraph, crewai, mastra, pydantic ai, dspy",
+            "AEO probe target page"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-08-22-agent-framework-selection-guide-en.md",
+          "slug": "ai/2026-08-22-agent-framework-selection-guide-en",
+          "path": "/posts/ai/2026-08-22-agent-framework-selection-guide-en/",
+          "title": "Choosing an Agent Framework in 2026: LangGraph, CrewAI, MAF, AG2, Mastra, Pydantic AI, and DSPy",
+          "category": "ai",
+          "lang": "en",
+          "score": 34,
+          "age_days": 0,
+          "reasons": [
+            "Agent framework selection: agent framework, langgraph, crewai, mastra, pydantic ai, dspy"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-03-27-langgraph-agent-orchestration-en.md",
+          "slug": "ai/2026-03-27-langgraph-agent-orchestration-en",
+          "path": "/posts/ai/2026-03-27-langgraph-agent-orchestration-en/",
+          "title": "LangGraph: Managing Agent Workflows with Graph Structures",
+          "category": "ai",
+          "lang": "en",
+          "score": 33,
+          "age_days": 155,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "Agent framework selection: langgraph"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-03-27-langgraph-agent-orchestration.md",
+          "slug": "ai/2026-03-27-langgraph-agent-orchestration",
+          "path": "/posts/ai/2026-03-27-langgraph-agent-orchestration/",
+          "title": "LangGraph：用圖結構管理 Agent 工作流程",
+          "category": "ai",
+          "lang": "zh-TW",
+          "score": 33,
+          "age_days": 155,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "Agent framework selection: langgraph"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-04-01-agent-frameworks-2026-en.md",
+          "slug": "ai/2026-04-01-agent-frameworks-2026-en",
+          "path": "/posts/ai/2026-04-01-agent-frameworks-2026-en/",
+          "title": "15 Agent Frameworks Worth Watching in 2026",
+          "category": "ai",
+          "lang": "en",
+          "score": 29,
+          "age_days": 150,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "Agent framework selection: agent framework"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rag-vector",
+      "label": "RAG / Vector retrieval",
+      "pages": [
+        {
+          "file": "src/content/posts/ai/2026-03-12-vector-database-comparison-en.md",
+          "slug": "ai/2026-03-12-vector-database-comparison-en",
+          "path": "/posts/ai/2026-03-12-vector-database-comparison-en/",
+          "title": "Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize",
+          "category": "ai",
+          "lang": "en",
+          "score": 57,
+          "age_days": 170,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "RAG / Vector retrieval: vectorize, vector database, pinecone, weaviate, qdrant",
+            "Cloudflare AI infrastructure: vectorize"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-03-12-vector-database-comparison.md",
+          "slug": "ai/2026-03-12-vector-database-comparison",
+          "path": "/posts/ai/2026-03-12-vector-database-comparison/",
+          "title": "Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選",
+          "category": "ai",
+          "lang": "zh-TW",
+          "score": 57,
+          "age_days": 170,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "RAG / Vector retrieval: vectorize, vector database, pinecone, weaviate, qdrant",
+            "Cloudflare AI infrastructure: vectorize"
+          ]
+        },
+        {
+          "file": "src/content/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en.md",
+          "slug": "tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en",
+          "path": "/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en/",
+          "title": "NobodyClimb AI Architecture: Building a 20-Node RAG Pipeline on Cloudflare Workers",
+          "category": "tech",
+          "lang": "en",
+          "score": 41,
+          "age_days": 170,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "RAG / Vector retrieval: rag",
+            "Cloudflare AI infrastructure: cloudflare, workers"
+          ]
+        },
+        {
+          "file": "src/content/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture.md",
+          "slug": "tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture",
+          "path": "/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture/",
+          "title": "NobodyClimb AI 架構：在 Cloudflare Workers 上打造 20 節點 RAG Pipeline",
+          "category": "tech",
+          "lang": "zh-TW",
+          "score": 41,
+          "age_days": 170,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "RAG / Vector retrieval: rag",
+            "Cloudflare AI infrastructure: cloudflare, workers"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en.md",
+          "slug": "ai/2026-03-27-gemma-3-cloudflare-workers-ai-en",
+          "path": "/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en/",
+          "title": "Gemma on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications",
+          "category": "ai",
+          "lang": "en",
+          "score": 41,
+          "age_days": 123,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "RAG / Vector retrieval: rag",
+            "Cloudflare AI infrastructure: cloudflare, workers ai, workers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cloudflare-ai",
+      "label": "Cloudflare AI infrastructure",
+      "pages": [
+        {
+          "file": "src/content/posts/ai/2026-03-12-vector-database-comparison-en.md",
+          "slug": "ai/2026-03-12-vector-database-comparison-en",
+          "path": "/posts/ai/2026-03-12-vector-database-comparison-en/",
+          "title": "Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize",
+          "category": "ai",
+          "lang": "en",
+          "score": 57,
+          "age_days": 170,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "RAG / Vector retrieval: vectorize, vector database, pinecone, weaviate, qdrant",
+            "Cloudflare AI infrastructure: vectorize"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-03-12-vector-database-comparison.md",
+          "slug": "ai/2026-03-12-vector-database-comparison",
+          "path": "/posts/ai/2026-03-12-vector-database-comparison/",
+          "title": "Vector Database 選型：Pinecone、Weaviate、Qdrant、Vectorize 怎麼選",
+          "category": "ai",
+          "lang": "zh-TW",
+          "score": 57,
+          "age_days": 170,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "RAG / Vector retrieval: vectorize, vector database, pinecone, weaviate, qdrant",
+            "Cloudflare AI infrastructure: vectorize"
+          ]
+        },
+        {
+          "file": "src/content/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en.md",
+          "slug": "tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en",
+          "path": "/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en/",
+          "title": "NobodyClimb AI Architecture: Building a 20-Node RAG Pipeline on Cloudflare Workers",
+          "category": "tech",
+          "lang": "en",
+          "score": 41,
+          "age_days": 170,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "RAG / Vector retrieval: rag",
+            "Cloudflare AI infrastructure: cloudflare, workers"
+          ]
+        },
+        {
+          "file": "src/content/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture.md",
+          "slug": "tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture",
+          "path": "/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture/",
+          "title": "NobodyClimb AI 架構：在 Cloudflare Workers 上打造 20 節點 RAG Pipeline",
+          "category": "tech",
+          "lang": "zh-TW",
+          "score": 41,
+          "age_days": 170,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "RAG / Vector retrieval: rag",
+            "Cloudflare AI infrastructure: cloudflare, workers"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en.md",
+          "slug": "ai/2026-03-27-gemma-3-cloudflare-workers-ai-en",
+          "path": "/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en/",
+          "title": "Gemma on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications",
+          "category": "ai",
+          "lang": "en",
+          "score": 41,
+          "age_days": 123,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "RAG / Vector retrieval: rag",
+            "Cloudflare AI infrastructure: cloudflare, workers ai, workers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model-provider",
+      "label": "Model/provider freshness",
+      "pages": [
+        {
+          "file": "src/content/posts/ai/2026-04-23-weaviate-legal-rag-architecture-en.md",
+          "slug": "ai/2026-04-23-weaviate-legal-rag-architecture-en",
+          "path": "/posts/ai/2026-04-23-weaviate-legal-rag-architecture-en/",
+          "title": "Building a Legal Contract RAG in 36 Hours: Weaviate Query Agent + ColQwen Architecture Breakdown",
+          "category": "ai",
+          "lang": "en",
+          "score": 37,
+          "age_days": 128,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "RAG / Vector retrieval: rag, weaviate",
+            "Model/provider freshness: qwen"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-04-23-weaviate-legal-rag-architecture.md",
+          "slug": "ai/2026-04-23-weaviate-legal-rag-architecture",
+          "path": "/posts/ai/2026-04-23-weaviate-legal-rag-architecture/",
+          "title": "36 小時建出法律合約 RAG：Weaviate Query Agent + ColQwen 架構拆解",
+          "category": "ai",
+          "lang": "zh-TW",
+          "score": 37,
+          "age_days": 128,
+          "reasons": [
+            "文章提到版本、淘汰或 breaking change，建議人工複查引用狀態",
+            "RAG / Vector retrieval: rag, weaviate",
+            "Model/provider freshness: qwen"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-03-14-vllm-inference-engine-en.md",
+          "slug": "ai/2026-03-14-vllm-inference-engine-en",
+          "path": "/posts/ai/2026-03-14-vllm-inference-engine-en/",
+          "title": "vLLM — From PagedAttention to a Production-Grade LLM Inference Engine",
+          "category": "ai",
+          "lang": "en",
+          "score": 34,
+          "age_days": 168,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "Model/provider freshness: vllm, inference"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-03-14-vllm-inference-engine.md",
+          "slug": "ai/2026-03-14-vllm-inference-engine",
+          "path": "/posts/ai/2026-03-14-vllm-inference-engine/",
+          "title": "vLLM — 從 PagedAttention 到生產級 LLM 推論引擎",
+          "category": "ai",
+          "lang": "zh-TW",
+          "score": 34,
+          "age_days": 168,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "Model/provider freshness: vllm, inference"
+          ]
+        },
+        {
+          "file": "src/content/posts/ai/2026-03-14-ollama-local-llm-guide-en.md",
+          "slug": "ai/2026-03-14-ollama-local-llm-guide-en",
+          "path": "/posts/ai/2026-03-14-ollama-local-llm-guide-en/",
+          "title": "The Complete Ollama Guide: Run LLMs Locally with One Command",
+          "category": "ai",
+          "lang": "en",
+          "score": 31,
+          "age_days": 168,
+          "reasons": [
+            "技術/API 文章已超過 120 天，建議複查文件與版本",
+            "Model/provider freshness: ollama"
+          ]
+        }
+      ]
+    }
+  ]
+}

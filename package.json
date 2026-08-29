@@ -25,6 +25,7 @@
     "check:seo-smoke": "node scripts/check-seo-smoke.mjs",
     "check:glossary": "node scripts/check-glossary-coverage.mjs",
     "content:ops": "node scripts/content-ops.mjs",
+    "seo:freshness": "node scripts/seo-freshness-priorities.mjs",
     "seo:observe": "node scripts/seo-observability.mjs",
     "sync": "tsx scripts/sync-to-d1.ts",
     "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
