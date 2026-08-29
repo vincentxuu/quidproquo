@@ -35,10 +35,19 @@ describe('buildFtsQuery', () => {
 
   it('handles unspaced mixed Chinese and English queries', () => {
     const result = buildFtsQuery('我想找入門的ai課程')
+    expect(result).toContain('"我想找入門的ai課程"')
     expect(result).toContain('"ai"')
     expect(result).toContain('"課程"')
     expect(result).toContain('"入門"')
     expect(result).toContain('"我想"')
+  })
+
+  it('preserves short mixed Han and numeric precision queries', () => {
+    expect(buildFtsQuery('正2')).toBe('"正2"')
+
+    const result = buildFtsQuery('正2系統')
+    expect(result).toContain('"正2系統"')
+    expect(result).toContain('"系統"')
   })
 
   it('handles long unspaced Chinese queries with 2-grams', () => {

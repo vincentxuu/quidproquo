@@ -11,10 +11,12 @@ import matter from 'gray-matter';
 import { createHash } from 'node:crypto';
 import { execSync } from 'node:child_process';
 import { chunkMarkdown } from '../src/lib/crawl/chunker';
+import { isSearchIndexEligiblePostData } from '../src/utils/publishing';
 
 const POSTS_DIR = 'src/content/posts';
 const IS_PROD = process.argv.includes('--prod');
 const INCLUDE_FUTURE = process.argv.includes('--include-future');
+const PRUNE_STALE = !process.argv.includes('--no-prune');
 
 function generateId(slug: string): string {
   return createHash('sha256').update(slug).digest('hex').slice(0, 16);
@@ -69,6 +71,46 @@ export function buildPostChunkSyncStatements(
   return statements;
 }
 
+export function buildStalePostPruneStatements(eligibleSlugs: string[]): string[] {
+  if (eligibleSlugs.length === 0) {
+    throw new Error('Refusing to prune posts with an empty eligible slug manifest');
+  }
+
+  const statements = [
+    'DROP TABLE IF EXISTS _sync_eligible_posts;',
+    'CREATE TEMP TABLE _sync_eligible_posts (slug TEXT PRIMARY KEY);',
+  ];
+
+  for (const batch of chunkArray([...new Set(eligibleSlugs)].sort(), 400)) {
+    const values = batch.map(slug => `('${escape(slug)}')`).join(', ');
+    statements.push(`INSERT INTO _sync_eligible_posts (slug) VALUES ${values};`);
+  }
+
+  statements.push(
+    `DELETE FROM chunks_fts
+WHERE source_type='post'
+  AND chunk_id IN (
+    SELECT pc.id
+    FROM post_chunks pc
+    JOIN posts p ON p.id = pc.post_id
+    LEFT JOIN _sync_eligible_posts e ON e.slug = p.slug
+    WHERE e.slug IS NULL
+  );`,
+    `DELETE FROM post_chunks
+WHERE post_id IN (
+  SELECT p.id
+  FROM posts p
+  LEFT JOIN _sync_eligible_posts e ON e.slug = p.slug
+  WHERE e.slug IS NULL
+);`,
+    `DELETE FROM posts
+WHERE slug NOT IN (SELECT slug FROM _sync_eligible_posts);`,
+    'DROP TABLE IF EXISTS _sync_eligible_posts;',
+  );
+
+  return statements;
+}
+
 function execSql(sql: string, flag: string) {
   const tmpFile = join(tmpdir(), `d1-sync-${Date.now()}.sql`);
   writeFileSync(tmpFile, sql, 'utf-8');
@@ -85,23 +127,36 @@ async function syncPosts() {
 
   const postStatements: string[] = [];
   const chunkStatements: string[] = [];
+  const eligibleSlugs: string[] = [];
 
   for (const filepath of files) {
     const raw = await readFile(filepath, 'utf-8');
     const { data, content } = matter(raw);
 
+    const publishAt = new Date(data.date as string);
     if (data.draft) {
       console.log(`  Skip draft: ${filepath}`);
       continue;
     }
 
-    const publishAt = new Date(data.date as string);
-    if (!INCLUDE_FUTURE && publishAt.getTime() > Date.now()) {
+    if (data.search === false) {
+      console.log(`  Skip search:false: ${filepath}`);
+      continue;
+    }
+
+    const eligible = isSearchIndexEligiblePostData({
+      date: publishAt,
+      draft: false,
+      search: true,
+    });
+
+    if (!INCLUDE_FUTURE && !eligible) {
       console.log(`  Skip unpublished: ${filepath}`);
       continue;
     }
 
     const slug = filepath.replace(POSTS_DIR + '/', '').replace(/\.md$/, '');
+    eligibleSlugs.push(slug);
     const id = generateId(slug);
     const now = new Date().toISOString();
     const createdAt = publishAt.toISOString();
@@ -146,8 +201,14 @@ ON CONFLICT(slug) DO UPDATE SET
     execSql(batch.join('\n'), flag);
   }
 
+  if (PRUNE_STALE) {
+    console.log('Pruning stale posts...');
+    execSql(buildStalePostPruneStatements(eligibleSlugs).join('\n'), flag);
+  }
+
   console.log(`\n✅ Synced ${postStatements.length} post(s) to D1`);
   console.log(`✅ Synced ${chunkStatements.filter(s => s.startsWith('INSERT INTO post_chunks')).length} chunk(s) to post_chunks`);
+  if (PRUNE_STALE) console.log('✅ Pruned stale D1 post rows/chunks/FTS entries');
 }
 
 const isDirectExecution = process.argv[1]

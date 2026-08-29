@@ -67,6 +67,8 @@ export function buildFtsQuery(query: string): string | null {
   // 2) 再對每個 token，若混合 script（漢字+拉丁/數字）則按 script 邊界拆分
   const expanded = new Set<string>()
   for (const token of baseTokens) {
+    expanded.add(token)
+
     // 按 script 邊界拆分：漢字連續段 vs 非漢字連續段（拉丁/數字/其他）
     const parts = token.match(/[\p{Script=Han}]+|[^\p{Script=Han}]+/gu) ?? [token]
     for (const part of parts) {

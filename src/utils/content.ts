@@ -1,20 +1,8 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+export { isPublishedAt, isPublishedPostData } from './publishing';
+import { isPublishedAt, isPublishedPostData } from './publishing';
 
 export type Post = CollectionEntry<'posts'>;
-
-export function isPublishedAt(date: Date, now = new Date()): boolean {
-  const taipeiOffset = 8 * 60 * 60 * 1000;
-  const taipeiNow = new Date(now.getTime() + taipeiOffset);
-  const taipeiToday = new Date(Date.UTC(taipeiNow.getUTCFullYear(), taipeiNow.getUTCMonth(), taipeiNow.getUTCDate(), 23, 59, 59, 999));
-  return date.getTime() <= taipeiToday.getTime();
-}
-
-export function isPublishedPostData(
-  data: Pick<Post['data'], 'date' | 'draft'>,
-  now = new Date()
-): boolean {
-  return !data.draft && isPublishedAt(data.date, now);
-}
 
 export function isPublishedPost(post: Post, now = new Date()): boolean {
   return isPublishedPostData(post.data, now);

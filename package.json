@@ -29,6 +29,8 @@
     "seo:observe": "node scripts/seo-observability.mjs",
     "sync": "tsx scripts/sync-to-d1.ts",
     "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
+    "sync:embeddings:prod": "node scripts/sync-embeddings-prod.mjs",
+    "check:search-freshness": "node scripts/check-search-freshness.mjs",
     "prepare": "simple-git-hooks",
     "test": "vitest run",
     "test:watch": "vitest",

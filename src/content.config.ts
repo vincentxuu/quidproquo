@@ -17,6 +17,7 @@ const posts = defineCollection({
     description: z.string().optional(),
     tldr: z.string().optional(),
     draft: z.boolean().default(false),
+    search: z.boolean().default(true),
     pinned: z.boolean().default(false),
     type: z.enum(['debug', 'deep-dive', 'guide', 'project']).optional(),
     difficulty: z.enum(['入門', '進階', '深度']).optional(),

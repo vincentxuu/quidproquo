@@ -7,6 +7,10 @@ on:
     - cron: '5 16 * * *'
   workflow_dispatch:
 
+concurrency:
+  group: production-index-sync
+  cancel-in-progress: false
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
@@ -77,3 +81,19 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           wranglerVersion: "4"
           command: deploy --config dist/server/wrangler.json
+
+      - name: Sync posts to production D1
+        run: pnpm sync:prod
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+      - name: Sync post embeddings
+        run: pnpm sync:embeddings:prod
+        env:
+          CRAWL_SECRET: ${{ secrets.CRAWL_SECRET }}
+          WORKER_URL: https://quidproquo.cc
+
+      - name: Verify production search freshness
+        run: pnpm check:search-freshness
+        env:
+          SEARCH_FRESHNESS_BASE_URL: https://quidproquo.cc

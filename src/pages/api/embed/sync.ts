@@ -1,11 +1,16 @@
 import type { APIRoute } from 'astro'
+import { env } from 'cloudflare:workers'
 import { runEmbedPipeline } from '../../../lib/indexing/pipeline'
-import { verifySession } from '../../../lib/auth/session'
 import { EMBED_BATCH_SIZE } from '../../../lib/retrieval/tools/hybrid-search'
+import { requireScheduledAuth, UnauthorizedError } from '@/lib/auth/scheduled-auth'
+
+export const prerender = false
 
 export const POST: APIRoute = async ({ request, cookies }) => {
-  const session = cookies.get('session')?.value
-  if (!session || !(await verifySession(session))) {
+  try {
+    await requireScheduledAuth(cookies, request, env as unknown as { CRAWL_SECRET?: string })
+  } catch (error) {
+    if (!(error instanceof UnauthorizedError)) throw error
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 })
   }
 
