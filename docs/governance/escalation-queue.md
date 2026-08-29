@@ -157,6 +157,17 @@
   `.agents/skills/daily-digest-signals/SKILL.md`），額外建議：政策定案時一併明訂「日期窗可否超過
   48 小時」與「超過時如何強制跑跨天去重」，避免下一個接手者又重新踩一次 Q-018 發現的重複報導陷阱。
 
+## Q-019 daily-digest-github 的必要工具全部不可用：Groundlane 不存在、`gh` CLI 未安裝、GitHub MCP 被限定只能存取本 repo
+
+- 登錄：2026-08-30（來源：daily-digest-github routine 執行時發現）
+- 做什麼：本次執行 `.agents/skills/daily-digest-github/SKILL.md` 時，Step 4 要求的三個資料來源全部不可用：
+  1. **`gh api`**（Step 4a／4c，查框架 release 與高星新 repo 的主要方法）：`which gh` 回 `command not found`，`gh` CLI 未安裝在這個 CCR 雲端環境。
+  2. **Groundlane `web_search`**（Step 4b，找 trending repos 的主要方法）：依 skill 的工具契約先查了完整 callable tool inventory（含 deferred MCP tools），`ToolSearch` 查無任何 Groundlane 工具，本 session 只掛了 `mcp__Exa__*`、`mcp__Tavily__*`、`mcp__firecrawl__*`、`mcp__github__*`。而 skill 明文禁止拿 Exa／Tavily／Firecrawl 當替代（「不要自行改用...Exa、Tavily、Firecrawl...」），所以不能用僅存的這幾個工具硬湊。
+  3. **GitHub MCP（`mcp__github__get_latest_release` 等）**：本 session 的 system prompt 明確把 GitHub access 限定在 `vincentxuu/quidproquo` 一個 repo，且寫明「Do NOT read from...any repository not listed above — calls targeting them will be denied」。daily-digest-github 需要查的對象（`langchain-ai/langgraph`、`crewAIInc/crewAI`、`anthropics/claude-code` 等 13 個框架 repo，以及不限 owner 的 trending/新 repo 搜尋）全部超出這個授權範圍，不能呼叫。
+  - 三條路都被獨立擋死，等於這個 routine 完全沒有合規的資料來源可以查證任何一個 repo 的真實星數／release 日期／URL。若硬寫，只能靠訓練資料捏造星數與連結，違反 Tier 3「無來源寫事實」紅線，所以本次選擇不產出 `2026-08-30-ai-agent-github-digest.md`。
+- 為什麼現在不能做：三個都不是 repo 內能單方面改的設定——(a) 幫這個 CCR 雲端環境裝 `gh` CLI 或改用別的固定工具，屬環境設定；(b) Groundlane MCP 未掛載到這個 session，屬 connector/MCP 掛載設定；(c) 本 session 的 GitHub MCP 授權範圍是啟動時設定的（見「Repository Scope」段），要放寬到能查任意公開 repo 需要改 session 或 environment 層級的 GitHub 授權範圍，不是 skill 或 repo 檔案能改的。這三件事同時發生，跟 Q-012／Q-015／Q-016／Q-018 記錄的「額度用盡」不是同一類問題（額度用盡是配額，這次是工具/授權範圍本身不存在），需要人決定要幫這個環境補上哪些管道，或明確授權在 GitHub MCP 授權範圍內臨時放寬只讀公開 repo 的查詢。
+- 接手第一步：(1) 確認這個排程 session 之後每次執行時 GitHub MCP 的 repo scope 能否放寬成「任意公開 repo 唯讀」而非鎖死單一 repo（若可以，daily-digest-github 就能改用 `mcp__github__get_latest_release`／`search_repositories` 取代 `gh api`，不用碰 Groundlane）；(2) 若 scope 政策上必須維持鎖死，決定要不要把 Groundlane 正式掛到這個 CCR 環境（比照其他 daily-digest routine 依賴的搜尋工具），或改寫 `.agents/skills/daily-digest-github/SKILL.md` 明確列出 Exa/Tavily/firecrawl 作為 fallback 並說明何時可用；(3) 兩條路都需要人在 session/environment 層級做設定，選定後回來補跑今天缺的 2026-08-30 GitHub digest（若已經過了太久可以直接跳過當天，不用補），並視情況同步檢查其他同樣依賴 Groundlane 或 `gh api` 的 daily-digest-* routine（`arxiv`、`benchmark`、`framework`、`security`、`funding`、`tool`、`pricing`）是否也踩到同一個 repo-scope 限制。
+
 ---
 
 ## Done
