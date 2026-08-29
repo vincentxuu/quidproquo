@@ -118,6 +118,14 @@ export interface ToolUseEvent {
   durationMs?: number
 }
 
+export type SystemStatusState = 'working' | 'finished' | 'waiting_approval' | 'error'
+
+export interface SystemStatusEvent {
+  type: 'system/status'
+  state: SystemStatusState
+  message?: string
+}
+
 export type SessionEvent =
   | SystemInitEvent
   | UserEvent
@@ -133,6 +141,7 @@ export type SessionEvent =
   | ToolProgressEvent
   | RateLimitEvent
   | ToolUseEvent
+  | SystemStatusEvent
 
 export interface StoredEvent {
   eventId: number

@@ -26,6 +26,7 @@ if (!isLoggedIn) {
 }
 
 const currentPath = Astro.url.pathname;
+const isHome = section === 'home';
 
 type NavChild = { href: string; label: string };
 type NavItem = {
@@ -34,7 +35,6 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { href: '/admin',          label: 'Home',     key: 'home',     icon: 'layout-dashboard' },
   { href: '/admin/sessions', label: 'Sessions', key: 'sessions', icon: 'activity' },
   { href: '/admin/routines', label: 'Routines', key: 'routines', icon: 'refresh-cw' },
   { href: '/admin/flows',    label: 'Flows',    key: 'flows',    icon: 'workflow' },
@@ -83,18 +83,25 @@ const sectionLabels: Record<string, string> = {
           <span class="brand-mark">qp</span>
           <span class="brand-text">
             <strong>quidproquo</strong>
-            <span>{sectionLabels[section]}</span>
           </span>
         </a>
       </div>
+
+      <div class="sidebar-actions">
+        <a href="/admin" class="new-session-btn">
+          <span class="new-session-plus">+</span>
+          <span>New</span>
+        </a>
+      </div>
+
       <nav class="sidebar-nav" aria-label="Admin navigation">
         {navItems.map(item => item.children ? (
           <details class="nav-group" open={isActive(item.key)}>
             <summary class:list={['nav-item', { active: isActive(item.key) }]} title={item.label}>
-              <Icons name={item.icon} size={16} />
+              <Icons name={item.icon} size={15} />
               <span class="nav-label">{item.label}</span>
               <span class="nav-chevron">
-                <Icons name="chevron-right" size={12} />
+                <Icons name="chevron-right" size={11} />
               </span>
             </summary>
             <div class="nav-children">
@@ -115,89 +122,137 @@ const sectionLabels: Record<string, string> = {
             aria-current={isActive(item.key) ? 'page' : undefined}
             title={item.label}
           >
-            <Icons name={item.icon} size={16} />
+            <Icons name={item.icon} size={15} />
             <span class="nav-label">{item.label}</span>
           </a>
         ))}
       </nav>
+
+      <div class="sidebar-recents" id="sidebar-recents">
+        <div class="recents-header">
+          <span>Recents</span>
+        </div>
+        <div class="recents-list" id="recents-list">
+          <span class="recents-empty">載入中…</span>
+        </div>
+      </div>
+
       <div class="sidebar-footer">
-        <a href="/" class="nav-item" title="回到網站">
-          <Icons name="home" size={16} />
+        <a href="/" class="nav-item footer-item" title="回到網站">
+          <Icons name="home" size={15} />
           <span class="nav-label">回到網站</span>
         </a>
         <form method="POST" action="/api/auth/logout">
           <button type="submit" class="logout-btn" title="登出">
-            <Icons name="log-out" size={16} />
+            <Icons name="log-out" size={15} />
             <span class="nav-label">登出</span>
           </button>
         </form>
       </div>
     </aside>
-    <main class="admin-main">
-      <header class="admin-header">
-        <details class="mobile-nav">
-          <summary class="mobile-nav-trigger" aria-label="選單">
-            <Icons name="list" size={18} />
-            <span>選單</span>
-          </summary>
-          <div class="mobile-nav-panel">
-            {navItems.map(item => (
-              <a
-                href={item.href}
-                class:list={['mobile-nav-item', { active: isActive(item.key) }]}
-                aria-current={isActive(item.key) ? 'page' : undefined}
-              >
-                <Icons name={item.icon} size={16} />
-                {item.label}
-              </a>
-            ))}
-            <div class="mobile-nav-actions">
-              <a href="/" class="mobile-nav-item">
-                <Icons name="home" size={16} />
-                回到網站
-              </a>
-              <form method="POST" action="/api/auth/logout">
-                <button type="submit" class="mobile-nav-item mobile-nav-button">
-                  <Icons name="log-out" size={16} />
-                  登出
-                </button>
-              </form>
-            </div>
+
+    <main class:list={['admin-main', { 'home-mode': isHome }]}>
+      {isHome ? (
+        <div class="home-layout">
+          <div class="home-greeting">
+            <slot />
           </div>
-        </details>
-        <div>
-          <p class="admin-kicker">{sectionLabels[section]}</p>
-          {breadcrumb && breadcrumb.length > 0 ? (
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-              {breadcrumb.map((crumb, i) => (
-                <span class="breadcrumb-item">
-                  {i > 0 && <span class="breadcrumb-sep" aria-hidden="true">/</span>}
-                  {crumb.href ? (
-                    <a href={crumb.href} class="breadcrumb-link">{crumb.label}</a>
-                  ) : (
-                    <span aria-current="page">{crumb.label}</span>
-                  )}
-                </span>
-              ))}
-            </nav>
-          ) : (
-            <h2>{title}</h2>
-          )}
         </div>
-        <div class="header-actions" aria-label="Admin shortcuts">
-          <a href="/admin/sessions" class="admin-icon-button" title="Sessions">
-            <Icons name="activity" size={16} />
-          </a>
-          <a href="/admin/settings" class="admin-icon-button" title="Settings">
-            <Icons name="settings" size={16} />
-          </a>
-        </div>
-      </header>
-      <div class="admin-content">
-        <slot />
-      </div>
+      ) : (
+        <Fragment>
+          <header class="admin-header">
+            <details class="mobile-nav">
+              <summary class="mobile-nav-trigger" aria-label="選單">
+                <Icons name="list" size={18} />
+                <span>選單</span>
+              </summary>
+              <div class="mobile-nav-panel">
+                <a href="/admin" class="mobile-nav-item">
+                  <span class="new-session-plus-sm">+</span>
+                  New
+                </a>
+                {navItems.map(item => (
+                  <a
+                    href={item.href}
+                    class:list={['mobile-nav-item', { active: isActive(item.key) }]}
+                    aria-current={isActive(item.key) ? 'page' : undefined}
+                  >
+                    <Icons name={item.icon} size={16} />
+                    {item.label}
+                  </a>
+                ))}
+                <div class="mobile-nav-actions">
+                  <a href="/" class="mobile-nav-item">
+                    <Icons name="home" size={16} />
+                    回到網站
+                  </a>
+                  <form method="POST" action="/api/auth/logout">
+                    <button type="submit" class="mobile-nav-item mobile-nav-button">
+                      <Icons name="log-out" size={16} />
+                      登出
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </details>
+            <div>
+              <p class="admin-kicker">{sectionLabels[section]}</p>
+              {breadcrumb && breadcrumb.length > 0 ? (
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                  {breadcrumb.map((crumb, i) => (
+                    <span class="breadcrumb-item">
+                      {i > 0 && <span class="breadcrumb-sep" aria-hidden="true">/</span>}
+                      {crumb.href ? (
+                        <a href={crumb.href} class="breadcrumb-link">{crumb.label}</a>
+                      ) : (
+                        <span aria-current="page">{crumb.label}</span>
+                      )}
+                    </span>
+                  ))}
+                </nav>
+              ) : (
+                <h2>{title}</h2>
+              )}
+            </div>
+            <div class="header-actions" aria-label="Admin shortcuts">
+              <a href="/admin/sessions" class="admin-icon-button" title="Sessions">
+                <Icons name="activity" size={16} />
+              </a>
+              <a href="/admin/settings" class="admin-icon-button" title="Settings">
+                <Icons name="settings" size={16} />
+              </a>
+            </div>
+          </header>
+          <div class="admin-content">
+            <slot />
+          </div>
+        </Fragment>
+      )}
     </main>
   </div>
+
+  <script>
+    async function loadRecents() {
+      try {
+        const res = await fetch('/api/admin/sessions?limit=15');
+        if (!res.ok) return;
+        const data = await res.json();
+        const list = document.getElementById('recents-list');
+        if (!list) return;
+        const sessions = data.sessions ?? data ?? [];
+        if (!Array.isArray(sessions) || sessions.length === 0) {
+          list.innerHTML = '<span class="recents-empty">尚無 Session</span>';
+          return;
+        }
+        list.innerHTML = sessions.map((s: { id: string; name?: string; instruction?: string; status?: string }) => {
+          const label = s.name || s.instruction?.slice(0, 40) || s.id.slice(0, 8);
+          const statusClass = s.status === 'running' ? 'running' : s.status === 'failed' ? 'failed' : 'done';
+          return `<a href="/admin/sessions/${s.id}" class="recent-item"><span class="status-dot ${statusClass}"></span><span class="recent-label">${label}</span></a>`;
+        }).join('');
+      } catch { /* silent */ }
+    }
+    document.addEventListener('DOMContentLoaded', loadRecents);
+  </script>
 </body>
 </html>
 
@@ -242,7 +297,7 @@ const sectionLabels: Record<string, string> = {
     min-height: 100vh;
   }
 
-  /* ── Sidebar (desktop) ── */
+  /* ── Sidebar ── */
 
   .admin-sidebar {
     width: var(--sidebar-width);
@@ -259,14 +314,13 @@ const sectionLabels: Record<string, string> = {
   }
 
   .sidebar-header {
-    padding: 1rem 0.9rem;
-    border-bottom: 1px solid var(--admin-border);
+    padding: 0.75rem 0.85rem;
   }
 
   .admin-brand {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.6rem;
     color: var(--admin-text);
     text-decoration: none;
   }
@@ -274,50 +328,82 @@ const sectionLabels: Record<string, string> = {
   .brand-mark {
     display: grid;
     place-items: center;
-    width: 38px;
-    height: 38px;
+    width: 32px;
+    height: 32px;
     border: 1px solid var(--brand-700);
     border-radius: var(--admin-radius);
     background: var(--brand-900);
     color: var(--admin-surface);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     letter-spacing: 0;
-  }
-
-  .brand-text {
-    display: grid;
-    gap: 0.05rem;
+    flex-shrink: 0;
   }
 
   .brand-text strong {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 800;
     letter-spacing: -0.01em;
   }
 
-  .brand-text span {
-    color: var(--admin-text-muted);
-    font-size: 0.76rem;
+  /* ── + New button ── */
+
+  .sidebar-actions {
+    padding: 0 0.65rem 0.5rem;
   }
 
+  .new-session-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--admin-radius);
+    background: var(--brand-900);
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.15s, box-shadow 0.15s;
+  }
+
+  .new-session-btn:hover {
+    background: var(--brand-700);
+    box-shadow: 0 2px 6px rgba(26, 46, 26, 0.2);
+  }
+
+  .new-session-plus {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .new-session-plus-sm {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  /* ── Nav ── */
+
   .sidebar-nav {
-    flex: 1;
-    padding: 0.85rem 0.75rem;
+    padding: 0.25rem 0.65rem;
+    border-bottom: 1px solid var(--admin-border);
   }
 
   .nav-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    min-height: 42px;
-    padding: 0.5rem 0.65rem;
+    gap: 0.6rem;
+    min-height: 36px;
+    padding: 0.35rem 0.55rem;
     border-radius: var(--admin-radius);
     color: var(--admin-text-muted);
     text-decoration: none;
-    margin-bottom: 0.15rem;
-    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+    margin-bottom: 0.1rem;
+    transition: background 0.12s, color 0.12s;
     cursor: pointer;
+    font-size: 0.85rem;
   }
 
   .nav-item:hover {
@@ -326,20 +412,18 @@ const sectionLabels: Record<string, string> = {
   }
 
   .nav-item.active {
-    background: var(--brand-900);
-    color: #ffffff;
+    background: var(--brand-100);
+    color: var(--brand-900);
     font-weight: 650;
-    box-shadow: 0 1px 2px rgba(26, 46, 26, 0.16);
   }
 
   .nav-label {
-    font-size: 0.9rem;
     flex: 1;
   }
 
   .nav-chevron {
     margin-left: auto;
-    opacity: 0.5;
+    opacity: 0.4;
     transition: transform 0.15s;
   }
 
@@ -360,32 +444,26 @@ const sectionLabels: Record<string, string> = {
     transform: rotate(90deg);
   }
 
-  .nav-group[open] > summary.active {
-    border-radius: var(--admin-radius) var(--admin-radius) 0 0;
-    margin-bottom: 0;
-  }
-
   .nav-children {
     display: flex;
     flex-direction: column;
-    padding: 0.25rem 0 0.5rem 0;
-    margin-bottom: 0.25rem;
-    background: rgba(0, 0, 0, 0.03);
-    border-radius: 0 0 var(--admin-radius) var(--admin-radius);
+    padding: 0.15rem 0 0.35rem 0;
+    margin-bottom: 0.15rem;
   }
 
   .nav-child {
-    padding: 0.4rem 0.75rem 0.4rem 2.5rem;
-    font-size: 0.82rem;
-    color: var(--admin-text);
+    padding: 0.3rem 0.6rem 0.3rem 2.2rem;
+    font-size: 0.8rem;
+    color: var(--admin-text-muted);
     text-decoration: none;
     border-radius: var(--admin-radius);
-    margin: 0 0.5rem;
-    transition: background 0.1s;
+    margin: 0 0.35rem;
+    transition: background 0.1s, color 0.1s;
   }
 
   .nav-child:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: var(--admin-muted);
+    color: var(--brand-900);
   }
 
   .nav-child.active {
@@ -394,26 +472,115 @@ const sectionLabels: Record<string, string> = {
     font-weight: 600;
   }
 
+  /* ── Recents ── */
+
+  .sidebar-recents {
+    flex: 1;
+    padding: 0.5rem 0.65rem;
+    overflow-y: auto;
+    min-height: 0;
+  }
+
+  .recents-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem 0.3rem 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--admin-text-muted);
+  }
+
+  .recents-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  :global(.recents-empty) {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted);
+    padding: 0.3rem;
+  }
+
+  :global(.recent-item) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: var(--admin-radius);
+    color: var(--admin-text);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: background 0.1s;
+    overflow: hidden;
+  }
+
+  :global(.recent-item:hover) {
+    background: var(--admin-muted);
+  }
+
+  :global(.status-dot) {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--admin-text-muted);
+  }
+
+  :global(.status-dot.running) {
+    background: var(--brand-500);
+    box-shadow: 0 0 4px var(--brand-500);
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
+
+  :global(.status-dot.failed) {
+    background: #c44;
+  }
+
+  :global(.status-dot.done) {
+    background: var(--admin-border);
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  :global(.recent-label) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* ── Footer ── */
+
   .sidebar-footer {
-    padding: 0.75rem;
+    padding: 0.5rem 0.65rem;
     border-top: 1px solid var(--admin-border);
+  }
+
+  .footer-item {
+    min-height: 34px;
+    font-size: 0.82rem;
   }
 
   .logout-btn {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    min-height: 38px;
-    padding: 0.5rem 0.65rem;
+    gap: 0.6rem;
+    min-height: 34px;
+    padding: 0.35rem 0.55rem;
     border: none;
     border-radius: var(--admin-radius);
     background: transparent;
     color: var(--admin-text-muted);
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     text-align: left;
-    transition: background 0.15s;
+    transition: background 0.12s;
   }
 
   .logout-btn:hover {
@@ -429,11 +596,32 @@ const sectionLabels: Record<string, string> = {
     min-height: 100vh;
     min-width: 0;
     max-width: calc(100vw - var(--sidebar-width));
+    display: flex;
+    flex-direction: column;
   }
 
+  .admin-main.home-mode {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-greeting {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header (non-home pages) ── */
+
   .admin-header {
-    min-height: 64px;
-    padding: 0.85rem 1.75rem;
+    min-height: 56px;
+    padding: 0.65rem 1.5rem;
     border-bottom: 1px solid var(--admin-border);
     background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(10px);
@@ -447,16 +635,16 @@ const sectionLabels: Record<string, string> = {
   }
 
   .admin-header h2 {
-    font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
     font-weight: 800;
     letter-spacing: 0;
   }
 
   .admin-kicker {
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.05rem;
     color: var(--admin-text-soft);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -469,7 +657,7 @@ const sectionLabels: Record<string, string> = {
     align-items: center;
     flex-wrap: wrap;
     gap: 0.1rem;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 700;
   }
 
@@ -499,31 +687,32 @@ const sectionLabels: Record<string, string> = {
   }
 
   .admin-content {
+    flex: 1;
     width: 100%;
     max-width: 1600px;
     min-width: 0;
-    padding: 1.25rem 1.75rem 2.5rem;
+    padding: 1.25rem 1.5rem 2.5rem;
   }
 
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .admin-icon-button,
   :global(.icon-button) {
     display: inline-grid;
     place-items: center;
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     background: var(--admin-surface);
     color: var(--admin-text-muted);
     text-decoration: none;
     cursor: pointer;
-    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
   }
 
   .admin-icon-button:hover,
@@ -533,7 +722,7 @@ const sectionLabels: Record<string, string> = {
     background: var(--brand-50);
   }
 
-  /* ── Mobile nav (dropdown, Console pattern) ── */
+  /* ── Mobile nav ── */
 
   .mobile-nav {
     display: none;
@@ -600,8 +789,8 @@ const sectionLabels: Record<string, string> = {
   }
 
   .mobile-nav-item.active {
-    background: var(--brand-900);
-    color: #ffffff;
+    background: var(--brand-100);
+    color: var(--brand-900);
   }
 
   .mobile-nav-button {
@@ -714,7 +903,7 @@ const sectionLabels: Record<string, string> = {
     background: var(--admin-surface);
     color: var(--admin-text);
     cursor: pointer;
-    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
   }
 
   :global(.action-btn:hover),

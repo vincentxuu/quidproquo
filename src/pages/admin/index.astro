@@ -4,65 +4,125 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
 ---
 
 <AdminV2Layout title="Home" section="home">
-  <section id="needs-you" class="needs-you collapsed">
-    <p class="needs-you-ok">✓ 一切正常</p>
-    <div class="needs-you-items" hidden></div>
-  </section>
+  <div class="home-center">
+    <div class="greeting" id="greeting">
+      <h1 class="greeting-text">What's up next?</h1>
+    </div>
 
-  <section class="composer-section">
-    <form id="composer-form" class="composer">
+    <div id="needs-you" class="needs-you" hidden>
+      <div class="needs-you-items" id="needs-you-items"></div>
+    </div>
+  </div>
+
+  <div class="home-composer">
+    <div class="composer-top-row">
+      <div class="composer-pills">
+        <div class="composer-pill env-pill">
+          <span class="pill-icon">◇</span>
+          <select id="composer-env" name="runner_provider" class="pill-select">
+            <option value="mac" selected>Mac</option>
+            <option value="sandbox">Sandbox</option>
+          </select>
+        </div>
+        <div class="composer-pill repo-pill" id="repo-pill">
+          <span class="pill-icon">+</span>
+          <select id="composer-repo" name="repo" class="pill-select">
+            <option value="" selected>Select repo…</option>
+          </select>
+        </div>
+        <input
+          type="text"
+          id="composer-branch"
+          name="branch"
+          class="branch-input"
+          placeholder="branch"
+          hidden
+        />
+      </div>
+    </div>
+
+    <form id="composer-form" class="composer-input-area">
       <textarea
         id="composer-input"
         name="instruction"
-        class="composer-input"
-        placeholder="輸入指令，讓 agent 執行…"
-        rows="3"
+        class="chat-input"
+        placeholder="Describe a task or ask a question"
+        rows="1"
         required
       ></textarea>
-      <div class="composer-controls">
-        <select id="composer-mode" name="mode" class="composer-select">
+      <button type="submit" class="send-btn" id="composer-submit" aria-label="送出">
+        <span class="send-arrow">↑</span>
+      </button>
+    </form>
+
+    <div class="composer-bottom-row">
+      <div class="bottom-left">
+        <select id="composer-mode" name="mode" class="bottom-select">
           <option value="auto" selected>Auto</option>
           <option value="default">Accept edits</option>
           <option value="plan">Plan</option>
         </select>
-        <select id="composer-model" name="model" class="composer-select">
+        <label class="bottom-toggle" title="Fast mode">
+          <input type="checkbox" id="composer-fast" name="fast_mode" />
+          <span>Fast</span>
+        </label>
+      </div>
+      <div class="bottom-right">
+        <select id="composer-model" name="model" class="bottom-select model-select">
           <option value="">預設模型</option>
         </select>
-        <button type="submit" class="composer-submit" id="composer-submit">執行</button>
+        <select id="composer-effort" name="effort" class="bottom-select effort-select">
+          <option value="high" selected>High</option>
+          <option value="auto">Auto</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+        </select>
       </div>
-    </form>
-  </section>
-
-  <section class="recents-section">
-    <h3 class="section-title">最近 Sessions</h3>
-    <div id="recents-list" class="recents-list">
-      <p class="empty-text">載入中…</p>
     </div>
-  </section>
 
-  <section class="usage-section">
-    <span id="usage-line" class="usage-line">用量統計載入中…</span>
-  </section>
+    <div class="usage-bar" id="usage-bar">
+      <span id="usage-line"></span>
+    </div>
+  </div>
 </AdminV2Layout>
 
 <script is:inline>
   (function () {
     const form = document.getElementById('composer-form');
     const submitBtn = document.getElementById('composer-submit');
-    const needsYouSection = document.getElementById('needs-you');
-    const needsYouItems = needsYouSection?.querySelector('.needs-you-items');
-    const needsYouOk = needsYouSection?.querySelector('.needs-you-ok');
-    const recentsList = document.getElementById('recents-list');
-    const usageLine = document.getElementById('usage-line');
+    const input = document.getElementById('composer-input');
     const modelSelect = document.getElementById('composer-model');
+    const repoSelect = document.getElementById('composer-repo');
+    const branchInput = document.getElementById('composer-branch');
+    const needsYou = document.getElementById('needs-you');
+    const needsYouItems = document.getElementById('needs-you-items');
+    const greeting = document.getElementById('greeting');
+    const usageLine = document.getElementById('usage-line');
+
+    // Auto-grow textarea
+    input?.addEventListener('input', () => {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 200) + 'px';
+    });
+
+    // Enter to submit (Shift+Enter for newline)
+    input?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        form?.requestSubmit();
+      }
+    });
+
+    repoSelect?.addEventListener('change', () => {
+      if (branchInput) branchInput.hidden = !repoSelect.value;
+    });
 
     async function loadModels() {
       try {
         const res = await fetch('/api/admin/settings/models');
         if (!res.ok) return;
         const data = await res.json();
-        const providers = data.providers || [];
-        for (const p of providers) {
+        for (const p of (data.providers || [])) {
           const opt = document.createElement('option');
           opt.value = p.id || p.provider_id || '';
           opt.textContent = p.display_name || p.id || '';
@@ -77,138 +137,83 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
         if (!res.ok) return;
         const data = await res.json();
         const total = data.totalItems || 0;
-        if (total === 0) {
-          needsYouSection?.classList.add('collapsed');
-          if (needsYouOk) needsYouOk.hidden = false;
-          if (needsYouItems) needsYouItems.hidden = true;
-          return;
+        if (total === 0) { needsYou && (needsYou.hidden = true); return; }
+        needsYou && (needsYou.hidden = false);
+        if (greeting) greeting.hidden = true;
+        if (!needsYouItems) return;
+        needsYouItems.innerHTML = '';
+        for (const a of (data.pendingApprovals || [])) {
+          const el = document.createElement('div');
+          el.className = 'ny-item ny-approval';
+          el.innerHTML = '<span>⚠ ' + (a.display_name || 'Tool') + ': ' + truncate(a.reason || '', 50) + '</span>'
+            + '<span class="ny-actions">'
+            + '<button class="ny-btn ny-allow" data-id="' + a.approval_id + '" data-sid="' + a.run_id + '">Allow</button>'
+            + '<button class="ny-btn ny-deny" data-id="' + a.approval_id + '" data-sid="' + a.run_id + '">Deny</button>'
+            + '</span>';
+          needsYouItems.appendChild(el);
         }
-        needsYouSection?.classList.remove('collapsed');
-        if (needsYouOk) needsYouOk.hidden = true;
-        if (needsYouItems) {
-          needsYouItems.hidden = false;
-          needsYouItems.innerHTML = '';
-          for (const a of (data.pendingApprovals || [])) {
-            const item = document.createElement('div');
-            item.className = 'needs-you-item needs-you-approval';
-            const label = document.createElement('span');
-            label.textContent = '⚠ ' + (a.display_name || 'Tool') + ': ' + truncate(a.input_json || a.reason || '', 60);
-            const actions = document.createElement('span');
-            actions.className = 'needs-you-actions';
-            const allowBtn = document.createElement('button');
-            allowBtn.className = 'btn-sm btn-primary';
-            allowBtn.textContent = '核准';
-            allowBtn.onclick = () => handleApproval(a.approval_id, a.run_id, 'allow', item);
-            const denyBtn = document.createElement('button');
-            denyBtn.className = 'btn-sm btn-danger';
-            denyBtn.textContent = '拒絕';
-            denyBtn.onclick = () => handleApproval(a.approval_id, a.run_id, 'deny', item);
-            actions.append(allowBtn, denyBtn);
-            item.append(label, actions);
-            needsYouItems.appendChild(item);
-          }
-          for (const s of (data.failedSessions || [])) {
-            const item = document.createElement('a');
-            item.href = '/admin/sessions/' + encodeURIComponent(s.id);
-            item.className = 'needs-you-item';
-            item.textContent = '✗ ' + (s.name || s.id.slice(0, 8)) + ': ' + (s.summary_detail || 'failed');
-            needsYouItems.appendChild(item);
-          }
-          for (const s of (data.needsActionSessions || [])) {
-            const item = document.createElement('a');
-            item.href = '/admin/sessions/' + encodeURIComponent(s.id);
-            item.className = 'needs-you-item';
-            item.textContent = '📋 ' + (s.name || s.id.slice(0, 8)) + ': ' + (s.summary_detail || '');
-            needsYouItems.appendChild(item);
-          }
+        for (const s of (data.failedSessions || [])) {
+          const el = document.createElement('a');
+          el.href = '/admin/sessions/' + encodeURIComponent(s.id);
+          el.className = 'ny-item ny-failed';
+          el.textContent = '✗ ' + (s.name || s.id.slice(0, 8)) + ': ' + (s.summary_detail || 'failed');
+          needsYouItems.appendChild(el);
         }
-      } catch {}
-    }
-
-    async function handleApproval(approvalId, sessionId, behavior, el) {
-      try {
-        const res = await fetch('/api/admin/sessions/' + encodeURIComponent(sessionId) + '/approve', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ approval_id: approvalId, behavior }),
+        for (const s of (data.needsActionSessions || [])) {
+          const el = document.createElement('a');
+          el.href = '/admin/sessions/' + encodeURIComponent(s.id);
+          el.className = 'ny-item';
+          el.textContent = '📋 ' + (s.name || s.id.slice(0, 8)) + ': ' + (s.summary_detail || '');
+          needsYouItems.appendChild(el);
+        }
+        needsYouItems.addEventListener('click', async (e) => {
+          const btn = e.target.closest('.ny-btn');
+          if (!btn) return;
+          const behavior = btn.classList.contains('ny-allow') ? 'allow' : 'deny';
+          const sid = btn.dataset.sid;
+          const aid = btn.dataset.id;
+          try {
+            await fetch('/api/admin/sessions/' + sid + '/approve', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ approval_id: aid, behavior }),
+            });
+            btn.closest('.ny-item')?.remove();
+            loadNeedsYou();
+          } catch {}
         });
-        if (res.ok) { el.remove(); loadNeedsYou(); }
       } catch {}
-    }
-
-    function truncate(s, n) { return s.length > n ? s.slice(0, n) + '…' : s; }
-
-    async function loadRecents() {
-      try {
-        const res = await fetch('/api/admin/sessions?limit=10');
-        if (!res.ok) throw new Error();
-        const data = await res.json();
-        const sessions = data.sessions || [];
-        if (!recentsList) return;
-        if (sessions.length === 0) {
-          recentsList.innerHTML = '<p class="empty-text">尚無 Session</p>';
-          return;
-        }
-        recentsList.innerHTML = '';
-        for (const s of sessions) {
-          const row = document.createElement('a');
-          row.href = '/admin/sessions/' + encodeURIComponent(s.id);
-          row.className = 'recent-row';
-
-          const left = document.createElement('div');
-          left.className = 'recent-left';
-          const nameEl = document.createElement('span');
-          nameEl.className = 'recent-name';
-          nameEl.textContent = s.name || truncate(s.instruction || s.id, 60);
-          const detail = document.createElement('span');
-          detail.className = 'recent-detail';
-          detail.textContent = s.summary_detail || '';
-          left.append(nameEl, detail);
-
-          const right = document.createElement('div');
-          right.className = 'recent-right';
-          const badge = document.createElement('span');
-          badge.className = 'badge badge-' + badgeClass(s.status);
-          badge.textContent = s.status;
-          const time = document.createElement('span');
-          time.className = 'recent-time';
-          time.textContent = relativeTime(s.created_at);
-          right.append(badge, time);
-
-          row.append(left, right);
-          recentsList.appendChild(row);
-        }
-      } catch {
-        if (recentsList) recentsList.innerHTML = '<p class="empty-text">無法載入</p>';
-      }
     }
 
     async function loadUsage() {
       try {
         const res = await fetch('/api/admin/settings/cost');
-        if (!res.ok) throw new Error();
+        if (!res.ok) return;
         const data = await res.json();
-        const tokens = data.total_tokens ?? 0;
-        const cost = data.total_cost_usd ?? 0;
-        if (usageLine) usageLine.textContent = '本週 tokens: ' + tokens.toLocaleString() + ' · 費用: $' + cost.toFixed(4);
-      } catch {
-        if (usageLine) usageLine.textContent = '用量統計暫時無法載入';
-      }
+        if (usageLine) usageLine.textContent = (data.total_tokens ?? 0).toLocaleString() + ' tokens · $' + (data.total_cost_usd ?? 0).toFixed(4);
+      } catch {}
     }
+
+    function truncate(s, n) { return s.length > n ? s.slice(0, n) + '…' : s; }
 
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const instruction = document.getElementById('composer-input')?.value?.trim();
+      const instruction = input?.value?.trim();
       if (!instruction) return;
       submitBtn.disabled = true;
-      submitBtn.textContent = '建立中…';
       try {
-        const mode = document.getElementById('composer-mode')?.value || 'auto';
-        const model = document.getElementById('composer-model')?.value || undefined;
+        const body = {
+          instruction,
+          mode: document.getElementById('composer-mode')?.value || 'auto',
+          model: document.getElementById('composer-model')?.value || undefined,
+          repo: repoSelect?.value || undefined,
+          branch: branchInput?.value?.trim() || undefined,
+          effort: document.getElementById('composer-effort')?.value || 'high',
+          fast_mode: document.getElementById('composer-fast')?.checked || false,
+          runner_provider: document.getElementById('composer-env')?.value || 'mac',
+        };
         const res = await fetch('/api/admin/sessions', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ instruction, mode, model }),
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
         });
         const data = await res.json();
         if (res.ok && data.id) {
@@ -216,127 +221,271 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
         } else {
           alert(data.error || '建立失敗');
           submitBtn.disabled = false;
-          submitBtn.textContent = '執行';
         }
       } catch {
         alert('網路錯誤');
         submitBtn.disabled = false;
-        submitBtn.textContent = '執行';
       }
     });
 
-    function badgeClass(status) {
-      switch (status) {
-        case 'done': return 'success';
-        case 'failed': return 'error';
-        case 'running': return 'running';
-        case 'cancelled': return 'muted';
-        default: return 'pending';
-      }
-    }
-
-    function truncate(s, max) {
-      return s.length > max ? s.slice(0, max) + '…' : s;
-    }
-
-    function relativeTime(ts) {
-      if (!ts) return '';
-      const diff = Date.now() - (typeof ts === 'number' ? ts : new Date(ts).getTime());
-      const sec = Math.floor(diff / 1000);
-      if (sec < 60) return sec + 's';
-      const min = Math.floor(sec / 60);
-      if (min < 60) return min + 'm';
-      const hr = Math.floor(min / 60);
-      if (hr < 24) return hr + 'h';
-      return Math.floor(hr / 24) + 'd';
-    }
-
     loadModels();
     loadNeedsYou();
-    loadRecents();
     loadUsage();
   })();
 </script>
 
 <style>
+  /* ── Home center (greeting + needs-you) ── */
+  .home-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem 1rem;
+    min-height: 0;
+  }
+
+  .greeting {
+    text-align: center;
+  }
+
+  .greeting-text {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--admin-text);
+  }
+
   .needs-you {
+    width: 100%;
+    max-width: 680px;
+    margin-top: 1rem;
+  }
+
+  .needs-you-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  :global(.ny-item) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
     border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius, 6px);
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
+    border-radius: var(--admin-radius);
     background: var(--admin-surface);
+    text-decoration: none;
+    color: var(--admin-text);
+    font-size: 0.85rem;
   }
-  .needs-you.collapsed .needs-you-ok {
-    color: var(--admin-success);
+
+  :global(.ny-item:hover) { background: var(--admin-muted); }
+
+  :global(.ny-actions) { display: flex; gap: 0.3rem; flex-shrink: 0; }
+
+  :global(.ny-btn) {
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 4px;
+    background: var(--admin-surface);
+    font-size: 0.78rem;
     font-weight: 600;
-    font-size: 0.9rem;
+    cursor: pointer;
   }
-  .needs-you-items { display: flex; flex-direction: column; gap: 0.5rem; }
-  .needs-you-item {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.5rem 0.75rem; border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius, 6px); text-decoration: none;
-    color: var(--admin-text); background: var(--admin-color-surface-subtle);
+
+  :global(.ny-allow) { color: var(--brand-700); }
+  :global(.ny-allow:hover) { background: var(--brand-100); }
+  :global(.ny-deny) { color: #c44; }
+  :global(.ny-deny:hover) { background: #fde; }
+  :global(.ny-failed) { border-left: 3px solid #c44; }
+
+  /* ── Bottom composer ── */
+  .home-composer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem 1.25rem;
   }
-  .needs-you-item:hover { background: var(--admin-muted); }
-  .composer-section { margin-bottom: 1.5rem; }
-  .composer { display: flex; flex-direction: column; gap: 0.5rem; }
-  .composer-input {
-    width: 100%; padding: 0.75rem; border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius, 6px); background: var(--admin-surface);
-    color: var(--admin-text); font: inherit; font-size: 0.95rem;
-    resize: vertical; min-height: 80px;
+
+  .composer-top-row {
+    margin-bottom: 0.5rem;
   }
-  .composer-input:focus {
-    outline: none; border-color: var(--admin-accent);
+
+  .composer-pills {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .composer-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.3rem 0.15rem 0.3rem 0.5rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    background: var(--admin-surface);
+    font-size: 0.8rem;
+    color: var(--admin-text-muted);
+  }
+
+  .pill-icon {
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+
+  .pill-select {
+    border: none;
+    background: transparent;
+    color: var(--admin-text);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding-right: 0.3rem;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .pill-select:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .branch-input {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    width: 120px;
+  }
+
+  /* ── Chat input ── */
+  .composer-input-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    background: var(--admin-surface);
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .composer-input-area:focus-within {
+    border-color: var(--admin-accent);
     box-shadow: 0 0 0 2px var(--admin-color-primary-soft);
   }
-  .composer-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-  .composer-select {
-    min-height: 2.75rem; padding: 0.45rem 0.6rem; border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius, 6px); background: var(--admin-surface);
-    color: var(--admin-text); font: inherit; font-size: 0.85rem;
+
+  .chat-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--admin-text);
+    font: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    resize: none;
+    min-height: 24px;
+    max-height: 200px;
+    overflow-y: auto;
   }
-  .composer-submit {
-    min-height: 2.75rem; padding: 0.45rem 1.2rem; border: none;
-    border-radius: var(--admin-radius, 6px); background: var(--admin-accent);
-    color: #fff; font: inherit; font-weight: 600; font-size: 0.85rem; cursor: pointer;
+
+  .chat-input:focus {
+    outline: none;
+    box-shadow: none;
   }
-  .composer-submit:hover { background: var(--admin-accent-hover); }
-  .composer-submit:disabled { opacity: 0.6; cursor: wait; }
-  .section-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
-  .recents-list {
-    display: flex; flex-direction: column; border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius, 6px); overflow: hidden;
+
+  .chat-input::placeholder {
+    color: var(--admin-text-muted);
   }
-  .recent-row {
-    display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
-    padding: 0.65rem 1rem; text-decoration: none; color: var(--admin-text);
-    border-bottom: 1px solid var(--admin-border);
+
+  .send-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: var(--brand-900);
+    color: #fff;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    transition: background 0.12s;
   }
-  .recent-row:last-child { border-bottom: none; }
-  .recent-row:hover { background: var(--admin-color-surface-subtle); }
-  .recent-left { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; flex: 1; }
-  .recent-name { font-size: 0.9rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .recent-detail { font-size: 0.8rem; color: var(--admin-text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .recent-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
-  .recent-time { font-size: 0.78rem; color: var(--admin-text-soft); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-  .badge { display: inline-block; padding: 0.15em 0.55em; border-radius: 999px; font-size: 0.75em; font-weight: 600; white-space: nowrap; }
-  .badge-success { background: var(--admin-color-success-soft); color: var(--admin-color-success); }
-  .badge-error { background: var(--admin-color-danger-soft); color: var(--admin-color-danger); }
-  .badge-running { background: var(--admin-color-info-soft); color: var(--admin-color-info); }
-  .badge-pending { background: var(--admin-color-warning-soft); color: var(--admin-color-warning); }
-  .badge-muted { background: var(--admin-muted); color: var(--admin-text-muted); }
-  .usage-section {
-    margin-top: 1.5rem; padding: 0.65rem 1rem; border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius, 6px); background: var(--admin-color-surface-subtle);
+
+  .send-btn:hover { background: var(--brand-700); }
+  .send-btn:disabled { opacity: 0.4; cursor: wait; }
+
+  .send-arrow {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
   }
-  .usage-line { font-size: 0.85rem; color: var(--admin-text-muted); }
-  .empty-text { padding: 1rem; color: var(--admin-text-muted); font-size: 0.85rem; text-align: center; }
+
+  /* ── Bottom controls ── */
+  .composer-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 0.25rem 0;
+    gap: 0.5rem;
+  }
+
+  .bottom-left,
+  .bottom-right {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .bottom-select {
+    border: none;
+    background: transparent;
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.2rem 0.1rem;
+  }
+
+  .bottom-select:focus { outline: none; box-shadow: none; }
+
+  .bottom-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+  }
+
+  .bottom-toggle input { width: 13px; height: 13px; accent-color: var(--brand-700); }
+
+  .model-select { font-weight: 600; color: var(--admin-text); }
+  .effort-select { font-weight: 600; }
+
+  /* ── Usage bar ── */
+  .usage-bar {
+    text-align: center;
+    padding: 0.35rem 0 0;
+    font-size: 0.72rem;
+    color: var(--admin-text-muted);
+  }
+
+  /* ── Responsive ── */
   @media (max-width: 768px) {
-    .composer-controls { flex-direction: column; }
-    .composer-select, .composer-submit { width: 100%; }
-    .recent-row { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
-    .recent-right { align-self: flex-end; }
+    .home-composer {
+      padding: 0 1rem 1rem;
+    }
+    .composer-bottom-row {
+      flex-wrap: wrap;
+    }
   }
 </style>

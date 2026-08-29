@@ -19,15 +19,28 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
     <div class="session-meta">
       <h2 id="session-name" class="session-name">載入中…</h2>
       <span id="session-status" class="badge badge-muted">—</span>
+      <span id="status-indicator" class="status-indicator" hidden></span>
     </div>
     <div class="session-actions">
       <button type="button" class="action-btn" id="btn-stop" hidden>停止</button>
       <button type="button" class="action-btn" id="btn-resume" hidden>續聊</button>
+      <button type="button" class="action-btn" id="btn-diff">Diff</button>
       <button type="button" class="action-btn" id="btn-rename">重新命名</button>
       <button type="button" class="action-btn" id="btn-archive" hidden>封存</button>
       <button type="button" class="action-btn" id="btn-share">分享</button>
       <button type="button" class="action-btn danger" id="btn-delete">刪除</button>
     </div>
+  </div>
+
+  <!-- Provisioning progress indicator -->
+  <div id="provision-bar" class="provision-bar" hidden>
+    <div class="prov-step pending" data-pstep="provision"><span class="prov-icon">○</span> Allocating sandbox</div>
+    <div class="prov-conn"></div>
+    <div class="prov-step pending" data-pstep="clone"><span class="prov-icon">○</span> Cloning repository</div>
+    <div class="prov-conn"></div>
+    <div class="prov-step pending" data-pstep="setup_script"><span class="prov-icon">○</span> Running setup</div>
+    <div class="prov-conn"></div>
+    <div class="prov-step pending" data-pstep="start_agent"><span class="prov-icon">○</span> Starting agent</div>
   </div>
 
   <div class="event-stream" id="event-stream">
@@ -39,6 +52,18 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
       <textarea id="resume-input" class="composer-input" rows="2" placeholder="輸入續聊訊息…" required></textarea>
       <button type="submit" class="composer-submit">送出</button>
     </form>
+  </div>
+
+  <!-- Diff slide-in panel -->
+  <div id="diff-overlay" class="diff-overlay" hidden></div>
+  <div id="diff-panel" class="diff-panel" hidden>
+    <div class="diff-panel-header">
+      <h3>Diff</h3>
+      <button type="button" class="diff-close" id="diff-close" aria-label="關閉">&times;</button>
+    </div>
+    <div id="diff-content" class="diff-content">
+      <p class="empty-text">載入中…</p>
+    </div>
   </div>
 </AdminV2Layout>
 
@@ -56,9 +81,62 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
     const resumePanel = document.getElementById('resume-panel');
     const resumeForm = document.getElementById('resume-form');
 
+    const btnDiff = document.getElementById('btn-diff');
+    const diffPanel = document.getElementById('diff-panel');
+    const diffOverlay = document.getElementById('diff-overlay');
+    const diffContent = document.getElementById('diff-content');
+    const diffClose = document.getElementById('diff-close');
+    const provisionBar = document.getElementById('provision-bar');
+
     let eventSource = null;
     let lastEventId = null;
     let sessionStatus = 'unknown';
+
+    // --- Provision bar ---
+    const PROV_STEPS = ['provision', 'clone', 'setup_script', 'start_agent'];
+    const provState = {};
+    PROV_STEPS.forEach(function (s) { provState[s] = 'pending'; });
+
+    function updateProvBar(step, status) {
+      provisionBar.hidden = false;
+      provState[step] = status;
+      PROV_STEPS.forEach(function (s) {
+        var el = provisionBar.querySelector('[data-pstep="' + s + '"]');
+        if (!el) return;
+        var icon = el.querySelector('.prov-icon');
+        el.className = 'prov-step ' + provState[s];
+        if (provState[s] === 'completed') icon.textContent = '✓';
+        else if (provState[s] === 'started') icon.textContent = '⟳';
+        else if (provState[s] === 'failed') icon.textContent = '✗';
+        else if (provState[s] === 'skipped') icon.textContent = '—';
+        else icon.textContent = '○';
+      });
+    }
+
+    // --- Diff panel ---
+    function closeDiff() { diffPanel.hidden = true; diffOverlay.hidden = true; }
+    btnDiff?.addEventListener('click', async function () {
+      diffPanel.hidden = false; diffOverlay.hidden = false;
+      diffContent.innerHTML = '<p class="empty-text">載入中…</p>';
+      try {
+        var res = await fetch('/api/admin/sessions/' + encodeURIComponent(sessionId) + '/diff');
+        var data = await res.json();
+        if (!data.available) { diffContent.innerHTML = '<p class="empty-text">' + esc(data.reason || '尚無 Diff') + '</p>'; return; }
+        var html = '<div class="diff-summary">' + esc(data.summary || '') + '</div>';
+        if (data.files && data.files.length) {
+          html += '<div class="diff-files">';
+          data.files.forEach(function (f) {
+            html += '<div class="diff-file"><span class="diff-fname">' + esc(f.name) + '</span>'
+              + '<span class="diff-adds">+' + (f.additions || 0) + '</span>'
+              + '<span class="diff-dels">-' + (f.deletions || 0) + '</span></div>';
+          });
+          html += '</div>';
+        }
+        diffContent.innerHTML = html || '<p class="empty-text">No changes</p>';
+      } catch { diffContent.innerHTML = '<p class="empty-text">載入失敗</p>'; }
+    });
+    diffClose?.addEventListener('click', closeDiff);
+    diffOverlay?.addEventListener('click', closeDiff);
 
     async function loadSession() {
       try {
@@ -93,9 +171,10 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
         if (streamEl.querySelector('.empty-text')) streamEl.innerHTML = '';
       };
       const types = [
-        'system/init', 'user', 'assistant', 'tool_use', 'result',
+        'system/init', 'system/status', 'system/post_turn_summary',
+        'user', 'assistant', 'tool_use', 'result',
         'control_request', 'control_response', 'env_manager_log',
-        'system/post_turn_summary', 'prompt_suggestion',
+        'prompt_suggestion',
         'vcs_state_changed', 'compact_boundary', 'tool_progress', 'rate_limit_event'
       ];
       for (const type of types) {
@@ -113,6 +192,44 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
       };
     }
 
+    const statusIndicator = document.getElementById('status-indicator');
+
+    function setStatusIndicator(state, message) {
+      if (!statusIndicator) return;
+      statusIndicator.hidden = false;
+      statusIndicator.className = 'status-indicator status-' + state;
+      switch (state) {
+        case 'working':
+          statusIndicator.innerHTML = '<span class="status-dot pulse"></span>' + esc(message || 'Agent is working…');
+          break;
+        case 'finished':
+          statusIndicator.innerHTML = '<span class="status-check">✓</span>' + esc(message || 'Agent finished');
+          break;
+        case 'waiting_approval':
+          statusIndicator.innerHTML = '<span class="status-dot waiting"></span>' + esc(message || 'Waiting for approval');
+          break;
+        case 'error':
+          statusIndicator.innerHTML = '<span class="status-dot error-dot"></span>' + esc(message || 'Error');
+          break;
+        default:
+          statusIndicator.hidden = true;
+      }
+    }
+
+    function renderToolLabel(toolName) {
+      var labels = {
+        'Bash': 'Ran a command',
+        'Read': 'Read a file',
+        'Write': 'Wrote a file',
+        'Edit': 'Edited a file',
+        'Glob': 'Listed files',
+        'Grep': 'Searched files',
+        'WebSearch': 'Searched the web',
+        'WebFetch': 'Fetched a URL',
+      };
+      return labels[toolName] || toolName;
+    }
+
     function renderEvent(type, payload) {
       const card = document.createElement('div');
       card.className = 'event-card event-' + type.replace('/', '-');
@@ -120,27 +237,64 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
         case 'user':
           card.innerHTML = '<div class="event-role">User</div><div class="event-content">' + esc(payload.content || '') + '</div>';
           break;
-        case 'assistant':
-          card.innerHTML = '<div class="event-role">Assistant</div><div class="event-content">' + esc(payload.content || '') + '</div>';
+        case 'assistant': {
+          var html = '<div class="event-role">Assistant</div>';
+          var content = payload.content || '';
+          var contentBlocks = payload.contentBlocks || payload.content_blocks;
+          if (Array.isArray(contentBlocks)) {
+            for (var i = 0; i < contentBlocks.length; i++) {
+              var block = contentBlocks[i];
+              if (block.type === 'thinking') {
+                html += '<details class="thinking-block"><summary>Thinking…</summary>'
+                  + '<div class="thinking-content">' + esc(block.thinking || block.text || '') + '</div></details>';
+              } else if (block.type === 'text') {
+                html += '<div class="event-content">' + esc(block.text || '') + '</div>';
+              }
+            }
+          } else {
+            html += '<div class="event-content">' + esc(content) + '</div>';
+          }
+          card.innerHTML = html;
           break;
+        }
         case 'tool_use': {
-          const name = payload.name || payload.tool || 'tool';
-          card.innerHTML = '<details class="event-tool"><summary class="event-role">🔧 ' + esc(name)
-            + '</summary><pre class="event-pre">' + esc(JSON.stringify(payload.input || {}).slice(0, 200)) + '</pre></details>';
+          var toolName = payload.toolName || payload.name || payload.tool || 'tool';
+          var hasResult = payload.result !== undefined && payload.result !== null;
+          var hasError = !!payload.error;
+          var borderClass = hasError ? ' tool-error' : hasResult ? ' tool-success' : '';
+          var inputStr = JSON.stringify(payload.input || {}, null, 2);
+          if (inputStr.length > 500) inputStr = inputStr.slice(0, 500) + '…';
+          var resultHtml = '';
+          if (hasError) {
+            resultHtml = '<div class="tool-result-label">Error</div><pre class="event-pre tool-error-output">' + esc(String(payload.error).slice(0, 2000)) + '</pre>';
+          } else if (hasResult) {
+            var resStr = typeof payload.result === 'string' ? payload.result : JSON.stringify(payload.result, null, 2);
+            if (resStr.length > 2000) resStr = resStr.slice(0, 2000) + '…';
+            resultHtml = '<div class="tool-result-label">Output</div><pre class="event-pre">' + esc(resStr) + '</pre>';
+          }
+          card.innerHTML = '<details class="tool-card' + borderClass + '">'
+            + '<summary class="tool-summary"><span class="tool-icon">🔧</span> <strong>' + esc(toolName) + '</strong> — ' + esc(renderToolLabel(toolName))
+            + (payload.durationMs ? ' <span class="tool-duration">(' + (payload.durationMs / 1000).toFixed(1) + 's)</span>' : '')
+            + '</summary>'
+            + '<div class="tool-body">'
+            + '<div class="tool-result-label">Input</div><pre class="event-pre">' + esc(inputStr) + '</pre>'
+            + resultHtml
+            + '</div></details>';
           break;
         }
         case 'result': {
-          const out = typeof payload.output === 'string' ? payload.output : JSON.stringify(payload.output || '');
-          card.innerHTML = '<details class="event-tool"><summary class="event-role">📋 Result</summary>'
-            + '<pre class="event-pre">' + esc(out.slice(0, 2000)) + '</pre></details>';
+          var out = typeof payload.content === 'string' ? payload.content : JSON.stringify(payload.content || payload.output || '');
+          card.innerHTML = '<details class="tool-card"><summary class="tool-summary"><span class="tool-icon">📋</span> <strong>Result</strong>'
+            + (payload.totalTokens ? ' · ' + payload.totalTokens + ' tokens' : '')
+            + '</summary><pre class="event-pre">' + esc(out.slice(0, 2000)) + '</pre></details>';
           break;
         }
         case 'control_request': {
           card.className += ' event-approval';
-          const p = payload.payload || payload;
-          const reqId = p.requestId || p.id || '';
-          const isExitPlan = (payload.subtype === 'exit_plan_mode');
-          let buttonsHtml;
+          var p = payload.payload || payload;
+          var reqId = p.requestId || p.id || '';
+          var isExitPlan = (payload.subtype === 'exit_plan_mode');
+          var buttonsHtml;
           if (isExitPlan) {
             buttonsHtml = '<button class="action-btn" data-approve="accept">接受</button>'
               + '<button class="action-btn" data-approve="accept_auto">接受 + Auto mode</button>'
@@ -149,22 +303,69 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
             buttonsHtml = '<button class="action-btn" data-approve="allow">允許</button>'
               + '<button class="action-btn danger" data-approve="deny">拒絕</button>';
           }
-          const displayName = p.displayName || p.display_name || p.toolName || '';
-          const reason = p.decisionReason || p.decision_reason || 'Permission request';
+          var displayName = p.displayName || p.display_name || p.toolName || '';
+          var reason = p.decisionReason || p.decision_reason || 'Permission request';
           card.innerHTML = '<div class="event-role">⚠️ ' + esc(displayName) + ' — ' + esc(reason) + '</div>'
             + (isExitPlan && p.input?.plan ? '<pre class="event-pre plan-preview">' + esc(String(p.input.plan).slice(0, 2000)) + '</pre>' : '')
             + '<div class="approval-buttons">' + buttonsHtml + '</div>';
           card.querySelectorAll('[data-approve]').forEach(function (btn) {
             btn.addEventListener('click', function () { handleApproval(reqId, btn.dataset.approve); });
           });
+          setStatusIndicator('waiting_approval', displayName);
           break;
         }
+        case 'control_response':
+          card.innerHTML = '<div class="event-log">✅ ' + esc(payload.behavior || '') + (payload.requestId ? ' (' + esc(payload.requestId.slice(0, 8)) + ')' : '') + '</div>';
+          setStatusIndicator('working');
+          break;
+        case 'system/status':
+          setStatusIndicator(payload.state, payload.message);
+          return;
         case 'system/post_turn_summary':
-          updateStatus(payload.status_category || sessionStatus);
-          card.innerHTML = '<div class="event-log">📊 ' + esc(payload.status_detail || 'Turn complete') + '</div>';
+          updateStatus(payload.statusCategory || payload.status_category || sessionStatus);
+          card.innerHTML = '<div class="event-log">📊 ' + esc(payload.statusDetail || payload.status_detail || 'Turn complete') + '</div>';
+          setStatusIndicator('finished', payload.statusDetail || payload.status_detail);
           break;
         case 'system/init':
           card.innerHTML = '<div class="event-log">🚀 Session started · model: ' + esc(payload.model || '—') + ' · mode: ' + esc(payload.mode || '—') + '</div>';
+          setStatusIndicator('working', 'Starting…');
+          break;
+        case 'env_manager_log': {
+          updateProvBar(payload.step, payload.status);
+          var stepLabels = { provision: 'Allocating sandbox', clone: 'Cloning repository', setup_script: 'Running setup script', start_agent: 'Starting agent' };
+          var stepLabel = stepLabels[payload.step] || payload.step;
+          var statusIcon = payload.status === 'completed' ? '✓' : payload.status === 'failed' ? '✗' : '⏳';
+          var statusClass = payload.status === 'completed' ? 'step-done' : payload.status === 'failed' ? 'step-fail' : 'step-running';
+          card.className += ' event-env-step';
+          card.innerHTML = '<div class="env-step ' + statusClass + '"><span class="env-step-icon">' + statusIcon + '</span> ' + esc(stepLabel)
+            + (payload.durationMs ? ' <span class="tool-duration">(' + (payload.durationMs / 1000).toFixed(1) + 's)</span>' : '')
+            + (payload.message ? ' — ' + esc(payload.message) : '') + '</div>';
+          break;
+        }
+        case 'prompt_suggestion': {
+          var suggestions = payload.suggestions || [];
+          if (!suggestions.length) return;
+          card.className += ' event-suggestions';
+          var chipsHtml = suggestions.map(function (s) {
+            return '<button class="suggestion-chip">' + esc(s) + '</button>';
+          }).join('');
+          card.innerHTML = '<div class="prompt-suggestions">' + chipsHtml + '</div>';
+          card.querySelectorAll('.suggestion-chip').forEach(function (chip) {
+            chip.addEventListener('click', function () {
+              var input = document.getElementById('resume-input');
+              if (input) { input.value = chip.textContent; input.focus(); resumePanel.hidden = false; }
+            });
+          });
+          break;
+        }
+        case 'tool_progress':
+          card.innerHTML = '<div class="event-log">⏳ ' + esc(payload.toolName || '') + ': ' + esc(payload.progress || '') + '</div>';
+          break;
+        case 'vcs_state_changed':
+          card.innerHTML = '<div class="event-log">🔀 Branch: ' + esc(payload.branch || '') + (payload.commitSha ? ' · ' + esc(payload.commitSha.slice(0, 7)) : '') + (payload.diffStat ? ' · ' + esc(payload.diffStat) : '') + '</div>';
+          break;
+        case 'rate_limit_event':
+          card.innerHTML = '<div class="event-log">⏱️ Rate limited' + (payload.provider ? ' (' + esc(payload.provider) + ')' : '') + ' — retry in ' + ((payload.retryAfterMs || 0) / 1000).toFixed(0) + 's</div>';
           break;
         default:
           card.innerHTML = '<div class="event-log">' + esc(type) + ': ' + esc(JSON.stringify(payload).slice(0, 200)) + '</div>';
@@ -229,11 +430,55 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
   .event-user { background: var(--admin-color-info-soft); }
   .event-role { font-size: 0.78rem; font-weight: 700; color: var(--admin-text-muted); margin-bottom: 0.25rem; }
   .event-content { font-size: 0.9rem; white-space: pre-wrap; word-break: break-word; line-height: 1.55; }
-  .event-tool summary { cursor: pointer; }
-  .event-pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; background: var(--admin-color-surface-subtle); padding: 0.5rem; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin-top: 0.35rem; max-height: 300px; overflow-y: auto; }
+  .event-pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; background: var(--admin-color-surface-subtle, #f5f5f5); padding: 0.5rem; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin-top: 0.35rem; max-height: 300px; overflow-y: auto; }
   .event-approval { background: var(--admin-color-warning-soft); border-left: 3px solid var(--admin-color-warning); }
   .approval-buttons { display: flex; gap: 0.4rem; margin-top: 0.4rem; }
   .event-log { font-size: 0.8rem; color: var(--admin-text-muted); }
+
+  /* #4 — Tool result cards */
+  .tool-card { border: 1px solid var(--admin-border); border-radius: 6px; overflow: hidden; margin: 0.15rem 0; }
+  .tool-card.tool-success { border-left: 3px solid var(--admin-color-success, #22c55e); }
+  .tool-card.tool-error { border-left: 3px solid var(--admin-color-danger, #ef4444); }
+  .tool-summary { padding: 0.5rem 0.75rem; cursor: pointer; font-size: 0.82rem; display: flex; align-items: center; gap: 0.35rem; list-style: none; }
+  .tool-summary::-webkit-details-marker { display: none; }
+  .tool-summary::before { content: '▸'; font-size: 0.7rem; margin-right: 0.2rem; transition: transform 0.15s; }
+  details[open] > .tool-summary::before { transform: rotate(90deg); }
+  .tool-icon { flex-shrink: 0; }
+  .tool-duration { font-size: 0.75rem; color: var(--admin-text-muted); }
+  .tool-body { padding: 0 0.75rem 0.75rem; }
+  .tool-result-label { font-size: 0.72rem; font-weight: 600; color: var(--admin-text-muted); margin-top: 0.5rem; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .tool-error-output { color: var(--admin-color-danger, #ef4444); }
+
+  /* #5 — Thinking blocks */
+  .thinking-block { margin: 0.35rem 0; border: 1px dashed var(--admin-border); border-radius: 6px; overflow: hidden; }
+  .thinking-block > summary { padding: 0.4rem 0.75rem; cursor: pointer; font-size: 0.8rem; font-style: italic; color: var(--admin-text-muted); list-style: none; }
+  .thinking-block > summary::-webkit-details-marker { display: none; }
+  .thinking-block > summary::before { content: '▸ '; font-size: 0.7rem; font-style: normal; }
+  .thinking-block[open] > summary::before { content: '▾ '; }
+  .thinking-content { padding: 0.5rem 0.75rem; font-size: 0.82rem; font-style: italic; color: var(--admin-text-muted); line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+
+  /* #6 — Prompt suggestions */
+  .event-suggestions { background: transparent; border-bottom: none; padding: 0.5rem 1rem; }
+  .prompt-suggestions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .suggestion-chip { display: inline-flex; align-items: center; padding: 0.35rem 0.75rem; border: 1px solid var(--brand-300, #adc5aa); border-radius: 999px; background: var(--brand-50, #f0f7ef); color: var(--brand-900, #1f4b30); font: inherit; font-size: 0.8rem; cursor: pointer; transition: background 0.1s, border-color 0.1s; white-space: nowrap; }
+  .suggestion-chip:hover { background: var(--brand-100, #e4f3e5); border-color: var(--brand-500, #3f8f59); }
+
+  /* #7 — Status indicator */
+  .status-indicator { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; color: var(--admin-text-muted); margin-left: 0.5rem; }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+  .status-dot.pulse { background: var(--brand-500, #3f8f59); animation: pulse-dot 1.5s infinite; }
+  .status-dot.waiting { background: var(--admin-color-warning, #f59e0b); animation: pulse-dot 2s infinite; }
+  .status-dot.error-dot { background: var(--admin-color-danger, #ef4444); }
+  .status-check { color: var(--admin-color-success, #22c55e); font-weight: 700; }
+  @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  /* #2 — Env manager provisioning steps */
+  .event-env-step { padding: 0.35rem 1rem; }
+  .env-step { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; }
+  .env-step-icon { width: 1.2em; text-align: center; flex-shrink: 0; }
+  .step-done { color: var(--admin-color-success, #22c55e); }
+  .step-fail { color: var(--admin-color-danger, #ef4444); }
+  .step-running { color: var(--admin-text-muted); }
   .resume-panel { margin-top: 0.75rem; }
   .resume-form { display: flex; gap: 0.5rem; align-items: flex-end; }
   .resume-form .composer-input { flex: 1; min-height: 50px; padding: 0.6rem; border: 1px solid var(--admin-border); border-radius: var(--admin-radius, 6px); background: var(--admin-surface); color: var(--admin-text); font: inherit; font-size: 0.9rem; resize: vertical; }
@@ -245,6 +490,62 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
   .badge-pending { background: var(--admin-color-warning-soft); color: var(--admin-color-warning); }
   .badge-muted { background: var(--admin-muted); color: var(--admin-text-muted); }
   .empty-text { padding: 2rem; text-align: center; color: var(--admin-text-muted); font-size: 0.85rem; }
+
+  /* Provision bar — horizontal step indicator */
+  .provision-bar {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.75rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius, 6px);
+    overflow-x: auto;
+    gap: 0;
+  }
+  .prov-step {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+  }
+  .prov-icon { font-weight: 700; width: 1.2em; text-align: center; }
+  .prov-step.pending { color: var(--admin-text-muted); opacity: 0.5; }
+  .prov-step.started { color: var(--admin-color-info, #1a73e8); font-weight: 600; }
+  .prov-step.started .prov-icon { animation: prov-spin 1s linear infinite; display: inline-block; }
+  .prov-step.completed { color: var(--brand-700); }
+  .prov-step.failed { color: var(--admin-color-danger, #ef4444); }
+  .prov-step.skipped { color: var(--admin-text-muted); text-decoration: line-through; opacity: 0.5; }
+  .prov-conn { width: 20px; height: 2px; background: var(--admin-border); flex-shrink: 0; }
+  @keyframes prov-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  /* Diff slide-in panel */
+  .diff-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.25); z-index: 40; }
+  .diff-panel {
+    position: fixed; top: 0; right: 0;
+    width: min(400px, 90vw); height: 100vh;
+    background: var(--admin-surface);
+    border-left: 1px solid var(--admin-border);
+    z-index: 50;
+    display: flex; flex-direction: column;
+    box-shadow: -4px 0 16px rgba(0,0,0,0.08);
+  }
+  .diff-panel-header { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; border-bottom: 1px solid var(--admin-border); }
+  .diff-panel-header h3 { font-size: 1rem; margin: 0; }
+  .diff-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--admin-text-muted); padding: 0.25rem; line-height: 1; }
+  .diff-content { flex: 1; overflow-y: auto; padding: 1rem; }
+  .diff-summary { font-size: 0.85rem; color: var(--admin-text-muted); margin-bottom: 0.75rem; }
+  .diff-files { display: flex; flex-direction: column; gap: 0.2rem; }
+  .diff-file { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .diff-file:hover { background: var(--admin-color-surface-subtle, #f5f5f5); }
+  .diff-fname { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .diff-file .diff-adds { color: var(--brand-700); font-weight: 600; min-width: 2.5em; text-align: right; font-size: 0.78rem; }
+  .diff-file .diff-dels { color: var(--admin-color-danger, #ef4444); font-weight: 600; min-width: 2.5em; text-align: right; font-size: 0.78rem; }
+
   @media (max-width: 768px) {
     .session-header { flex-direction: column; }
     .session-actions { width: 100%; }

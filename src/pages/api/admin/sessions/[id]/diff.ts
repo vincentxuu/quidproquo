@@ -7,6 +7,14 @@ import { requireAdmin } from '@/lib/auth/admin'
 import { json, notFound } from '@/lib/api/response'
 import { createSessionManager } from '@/lib/agent/session-manager'
 
+interface VcsPayload {
+  branch?: string
+  commitSha?: string
+  diffStat?: string
+  files?: Array<{ name: string; additions?: number; deletions?: number }>
+  summary?: string
+}
+
 export const GET: APIRoute = async ({ cookies, params }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
@@ -18,17 +26,29 @@ export const GET: APIRoute = async ({ cookies, params }) => {
   const session = await mgr.get(id)
   if (!session) return notFound('session not found')
 
-  if (!session.repo || !session.git_ref) {
-    return json({ ok: true, available: false, reason: 'no repo or git ref attached' })
+  const rows = await db.prepare(
+    `SELECT payload_json FROM agent_events
+     WHERE session_id = ? AND type = 'vcs_state_changed'
+     ORDER BY seq DESC LIMIT 1`
+  ).bind(id).all<{ payload_json: string }>()
+
+  const row = rows.results?.[0]
+  if (!row) {
+    return json({
+      ok: true,
+      available: false,
+      reason: session.repo ? 'No VCS changes recorded yet' : 'No repo attached to this session',
+    })
   }
 
-  // Phase 5: walk GitHub compare API (compare/{base}...{head})
-  // For now return a placeholder
+  const payload: VcsPayload = JSON.parse(row.payload_json)
   return json({
     ok: true,
-    available: false,
-    reason: 'diff via GitHub compare will be available in Phase 5 (Cloudflare Sandbox)',
+    available: true,
+    branch: payload.branch ?? null,
+    commitSha: payload.commitSha ?? null,
+    summary: payload.diffStat ?? payload.summary ?? '',
+    files: payload.files ?? [],
     repo: session.repo,
-    git_ref: session.git_ref,
   })
 }
