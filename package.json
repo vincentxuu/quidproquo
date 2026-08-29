@@ -33,6 +33,7 @@
     "check:search-freshness": "node scripts/check-search-freshness.mjs",
     "prepare": "simple-git-hooks",
     "test": "vitest run",
+    "test:admin-session-thread": "node scripts/admin-session-thread-smoke.mjs",
     "test:watch": "vitest",
     "eval:rag": "node scripts/eval-rag-baseline.mjs",
     "eval:rag:ci": "RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs",

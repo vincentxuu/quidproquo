@@ -54,3 +54,6 @@ pnpm-debug.log*
 # embedded clone used only as a local reading source
 .work/stanford-cs221-notes/source/
 .work/lecture20-read/nist.html
+
+# generated admin session UI smoke screenshots
+.work/admin-session-thread-screenshots/

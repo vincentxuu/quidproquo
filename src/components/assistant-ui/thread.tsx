@@ -1,5 +1,6 @@
 import {
   AssistantRuntimeProvider,
+  ComposerPrimitive,
   MessagePrimitive,
   ThreadPrimitive,
   fromThreadMessageLike,
@@ -10,21 +11,32 @@ import {
   type ThreadMessageLike,
   type ToolCallMessagePartProps,
 } from '@assistant-ui/react'
-import { ClipboardList, Wrench } from 'lucide-react'
+import { ClipboardList, SendHorizontal, Wrench } from 'lucide-react'
 import { useCallback } from 'react'
 
 import { MessageContent as MessageBody, MessageLabel, MessageResponse } from '@/components/ai-elements/message'
 import { Reasoning, ReasoningContent, ReasoningTrigger } from '@/components/ai-elements/reasoning'
 import { Tool, ToolCode, ToolContent, ToolHeader } from '@/components/ai-elements/tool'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 interface AssistantThreadProps {
   messages: ThreadMessageLike[]
   running?: boolean
+  composer?: boolean
+  composerInputId?: string
+  composerPlaceholder?: string
   onSend?: (text: string) => Promise<void>
 }
 
-export function AssistantThread({ messages, running = false, onSend }: AssistantThreadProps) {
+export function AssistantThread({
+  messages,
+  running = false,
+  composer = false,
+  composerInputId,
+  composerPlaceholder = '輸入訊息...',
+  onSend,
+}: AssistantThreadProps) {
   const handleNew = useCallback(async (message: AppendMessage) => {
     const text = message.content
       .filter((part): part is { type: 'text'; text: string } => part.type === 'text' && typeof part.text === 'string')
@@ -51,8 +63,30 @@ export function AssistantThread({ messages, running = false, onSend }: Assistant
           </ThreadPrimitive.Empty>
           <ThreadPrimitive.Messages components={{ UserMessage, AssistantMessage, SystemMessage }} />
         </ThreadPrimitive.Viewport>
+        {composer ? <AssistantComposer inputId={composerInputId} placeholder={composerPlaceholder} /> : null}
       </ThreadPrimitive.Root>
     </AssistantRuntimeProvider>
+  )
+}
+
+function AssistantComposer({ inputId, placeholder }: { inputId?: string; placeholder: string }) {
+  return (
+    <ComposerPrimitive.Root className="flex items-end gap-2 border-t border-[var(--admin-border)] bg-[var(--admin-surface)] p-2">
+      <ComposerPrimitive.Input
+        id={inputId}
+        rows={2}
+        submitMode="enter"
+        unstable_insertNewlineOnTouchEnter
+        placeholder={placeholder}
+        className="min-h-14 flex-1 resize-y rounded-[var(--admin-radius-sm)] border border-[var(--admin-border)] bg-[var(--admin-surface)] px-3 py-2 text-sm text-[var(--admin-text)] outline-none focus:border-[var(--admin-accent)] focus:ring-2 focus:ring-[rgba(47,111,70,0.18)]"
+      />
+      <ComposerPrimitive.Send asChild>
+        <Button type="submit" aria-label="送出">
+          <SendHorizontal className="size-4" />
+          送出
+        </Button>
+      </ComposerPrimitive.Send>
+    </ComposerPrimitive.Root>
   )
 }
 

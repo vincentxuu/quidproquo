@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   AlertTriangle,
   Archive,
@@ -12,112 +12,34 @@ import {
   Trash2,
   X,
 } from 'lucide-react'
-import type { ThreadMessageLike } from '@assistant-ui/react'
 
 import { AssistantThread, AdminSystemMessage } from '@/components/assistant-ui/thread'
-import { PromptInput, PromptInputFooter, PromptInputTextarea } from '@/components/ai-elements/prompt-input'
 import { ToolCode } from '@/components/ai-elements/tool'
 import { Button } from '@/components/ui/button'
+import {
+  EVENT_TYPES,
+  PROV_STEPS,
+  STEP_LABELS,
+  asString,
+  eventsToThreadMessages,
+  truncate,
+  type DiffPayload,
+  type EventRow,
+  type SessionEventPayload,
+  type SessionEventType,
+  type SessionPayload,
+  type SessionStatus,
+  type StatusIndicatorState,
+} from '@/lib/admin/session-thread-adapter'
 import { cn } from '@/lib/utils'
-
-type SessionStatus = 'unknown' | 'queued' | 'running' | 'paused' | 'done' | 'failed' | 'cancelled' | string
-type StatusIndicatorState = 'working' | 'finished' | 'waiting_approval' | 'error' | null
-
-type SessionEventType =
-  | 'system/init'
-  | 'system/status'
-  | 'system/post_turn_summary'
-  | 'user'
-  | 'assistant'
-  | 'tool_use'
-  | 'result'
-  | 'control_request'
-  | 'control_response'
-  | 'env_manager_log'
-  | 'prompt_suggestion'
-  | 'vcs_state_changed'
-  | 'compact_boundary'
-  | 'tool_progress'
-  | 'rate_limit_event'
-
-interface EventRow {
-  id: string
-  type: SessionEventType
-  payload: Record<string, unknown>
-}
-
-interface SessionPayload {
-  name?: string
-  status?: SessionStatus
-  instruction?: string
-}
-
-interface SessionEventPayload {
-  event_id?: string
-  payload_json?: string
-  seq?: number
-  type?: string
-}
-
-interface DiffPayload {
-  available?: boolean
-  reason?: string
-  summary?: string
-  files?: Array<{ name: string; additions?: number; deletions?: number }>
-}
 
 interface AdminSessionChatProps {
   sessionId: string
+  initialSession?: SessionPayload
+  initialEvents?: EventRow[]
+  disableLiveUpdates?: boolean
 }
 
-const EVENT_TYPES: SessionEventType[] = [
-  'system/init',
-  'system/status',
-  'system/post_turn_summary',
-  'user',
-  'assistant',
-  'tool_use',
-  'result',
-  'control_request',
-  'control_response',
-  'env_manager_log',
-  'prompt_suggestion',
-  'vcs_state_changed',
-  'compact_boundary',
-  'tool_progress',
-  'rate_limit_event',
-]
-
-const PROV_STEPS = ['provision', 'clone', 'setup_script', 'start_agent'] as const
-
-const STEP_LABELS: Record<string, string> = {
-  provision: 'Allocating sandbox',
-  clone: 'Cloning repository',
-  setup_script: 'Running setup script',
-  start_agent: 'Starting agent',
-}
-
-function asString(value: unknown, fallback = '') {
-  return typeof value === 'string' ? value : fallback
-}
-
-function asNumber(value: unknown) {
-  return typeof value === 'number' && Number.isFinite(value) ? value : undefined
-}
-
-function stringify(value: unknown, fallback = '') {
-  if (typeof value === 'string') return value
-  if (value === undefined || value === null) return fallback
-  try {
-    return JSON.stringify(value, null, 2)
-  } catch {
-    return String(value)
-  }
-}
-
-function truncate(value: string, max: number) {
-  return value.length > max ? `${value.slice(0, max)}...` : value
-}
 
 function badgeClass(status: SessionStatus) {
   switch (status) {
@@ -249,116 +171,6 @@ function ApprovalRow({
   )
 }
 
-function renderLog(type: SessionEventType, payload: Record<string, unknown>) {
-  if (type === 'control_response') {
-    const requestId = asString(payload.requestId)
-    return `${asString(payload.behavior)}${requestId ? ` (${requestId.slice(0, 8)})` : ''}`
-  }
-  if (type === 'system/post_turn_summary') {
-    return asString(payload.statusDetail || payload.status_detail, 'Turn complete')
-  }
-  if (type === 'system/init') {
-    return `Session started · model: ${asString(payload.model, '-')} · mode: ${asString(payload.mode, '-')}`
-  }
-  if (type === 'env_manager_log') {
-    const durationMs = asNumber(payload.durationMs)
-    return `${STEP_LABELS[asString(payload.step)] || asString(payload.step)}${durationMs ? ` (${(durationMs / 1000).toFixed(1)}s)` : ''}${payload.message ? ` - ${asString(payload.message)}` : ''}`
-  }
-  if (type === 'tool_progress') return `${asString(payload.toolName)}: ${asString(payload.progress)}`
-  if (type === 'vcs_state_changed') {
-    return `Branch: ${asString(payload.branch)}${payload.commitSha ? ` · ${asString(payload.commitSha).slice(0, 7)}` : ''}${payload.diffStat ? ` · ${asString(payload.diffStat)}` : ''}`
-  }
-  if (type === 'rate_limit_event') {
-    const retryAfterMs = asNumber(payload.retryAfterMs) || 0
-    return `Rate limited${payload.provider ? ` (${asString(payload.provider)})` : ''} · retry in ${(retryAfterMs / 1000).toFixed(0)}s`
-  }
-  if (type === 'compact_boundary') {
-    return `Context compacted: ${asNumber(payload.beforeTokens) || 0} -> ${asNumber(payload.afterTokens) || 0} tokens`
-  }
-  return null
-}
-
-function eventToThreadMessage(row: EventRow): ThreadMessageLike | null {
-  const { id, type, payload } = row
-
-  if (type === 'user') {
-    return {
-      id,
-      role: 'user',
-      content: asString(payload.content),
-      metadata: { custom: { eventType: type } },
-    }
-  }
-
-  if (type === 'assistant') {
-    const blocks = (payload.contentBlocks || payload.content_blocks) as unknown
-    if (!Array.isArray(blocks)) {
-      return {
-        id,
-        role: 'assistant',
-        content: asString(payload.content),
-        status: { type: 'complete', reason: 'stop' },
-        metadata: { custom: { eventType: type } },
-      }
-    }
-    const content: Array<{ type: 'text'; text: string } | { type: 'reasoning'; text: string }> = []
-    for (const block of blocks) {
-      if (!block || typeof block !== 'object') continue
-      const item = block as Record<string, unknown>
-      if (item.type === 'thinking') content.push({ type: 'reasoning', text: asString(item.thinking || item.text) })
-      if (item.type === 'text') content.push({ type: 'text', text: asString(item.text) })
-    }
-    return {
-      id,
-      role: 'assistant',
-      content,
-      status: { type: 'complete', reason: 'stop' },
-      metadata: { custom: { eventType: type } },
-    }
-  }
-
-  if (type === 'tool_use') {
-    const toolName = asString(payload.toolName || payload.name || payload.tool, 'tool')
-    const hasError = Boolean(payload.error)
-    return {
-      id,
-      role: 'assistant',
-      content: [{
-        type: 'tool-call',
-        toolCallId: id,
-        toolName,
-        argsText: truncate(stringify(payload.input || {}), 500),
-        result: hasError ? payload.error : payload.result,
-        isError: hasError,
-      }],
-      status: { type: 'complete', reason: 'stop' },
-      metadata: { custom: { eventType: type } },
-    }
-  }
-
-  if (type === 'result') {
-    const totalTokens = asNumber(payload.totalTokens)
-    const output = truncate(stringify(payload.content || payload.output), 2000)
-    return {
-      id,
-      role: 'system',
-      content: `Result${totalTokens ? ` · ${totalTokens} tokens` : ''}${output ? `\n${output}` : ''}`,
-      metadata: { custom: { eventType: type } },
-    }
-  }
-
-  if (type === 'control_request' || type === 'prompt_suggestion') return null
-
-  const log = renderLog(type, payload)
-  if (!log) return null
-  return {
-    id,
-    role: 'system',
-    content: log,
-    metadata: { custom: { eventType: type } },
-  }
-}
-
 function PendingAdminEvents({
   events,
   onApprove,
@@ -393,12 +205,16 @@ function PendingAdminEvents({
   )
 }
 
-export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
-  const [sessionName, setSessionName] = useState('載入中...')
-  const [sessionStatus, setSessionStatus] = useState<SessionStatus>('unknown')
+export function AdminSessionChat({
+  sessionId,
+  initialSession,
+  initialEvents = [],
+  disableLiveUpdates = false,
+}: AdminSessionChatProps) {
+  const [sessionName, setSessionName] = useState(initialSession?.name || initialSession?.instruction?.slice(0, 80) || '載入中...')
+  const [sessionStatus, setSessionStatus] = useState<SessionStatus>(initialSession?.status || 'unknown')
   const [statusIndicator, setStatusIndicator] = useState<{ state: StatusIndicatorState; message?: string }>({ state: null })
-  const [events, setEvents] = useState<EventRow[]>([])
-  const [resumeInput, setResumeInput] = useState('')
+  const [events, setEvents] = useState<EventRow[]>(initialEvents)
   const [diffOpen, setDiffOpen] = useState(false)
   const [diff, setDiff] = useState<DiffPayload | null>(null)
   const [diffLoading, setDiffLoading] = useState(false)
@@ -407,13 +223,13 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
   )
   const eventSourceRef = useRef<EventSource | null>(null)
   const lastEventIdRef = useRef<string | null>(null)
-  const sessionStatusRef = useRef<SessionStatus>('unknown')
-  const seenEventIdsRef = useRef(new Set<string>())
+  const sessionStatusRef = useRef<SessionStatus>(initialSession?.status || 'unknown')
+  const seenEventIdsRef = useRef(new Set(initialEvents.map(event => event.id)))
   const rowCounterRef = useRef(0)
 
   const running = sessionStatus === 'running' || sessionStatus === 'queued' || sessionStatus === 'paused'
   const showComposer = sessionStatus !== 'unknown' && !running
-  const threadMessages = useMemo(() => events.map(eventToThreadMessage).filter((message): message is ThreadMessageLike => Boolean(message)), [events])
+  const threadMessages = useMemo(() => eventsToThreadMessages(events), [events])
 
   const updateStatus = useCallback((status?: SessionStatus) => {
     if (!status) return
@@ -515,6 +331,7 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
   }, [appendEvent, sessionId])
 
   useEffect(() => {
+    if (disableLiveUpdates) return undefined
     let cancelled = false
     void loadSession().finally(() => {
       if (!cancelled) connectSSE()
@@ -523,7 +340,7 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
       cancelled = true
       eventSourceRef.current?.close()
     }
-  }, [connectSSE, loadSession])
+  }, [connectSSE, disableLiveUpdates, loadSession])
 
   const handleDiff = useCallback(async () => {
     setDiffOpen(true)
@@ -560,9 +377,8 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
     }
   }, [sessionId])
 
-  const handleResume = useCallback(async (event: FormEvent) => {
-    event.preventDefault()
-    const message = resumeInput.trim()
+  const handleResume = useCallback(async (messageText: string) => {
+    const message = messageText.trim()
     if (!message) return
     try {
       await fetch(`/api/admin/sessions/${encodeURIComponent(sessionId)}/resume`, {
@@ -570,13 +386,12 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
       })
-      setResumeInput('')
       updateStatus('running')
       connectSSE()
     } catch {
       setStatusIndicator({ state: 'error', message: 'Resume failed' })
     }
-  }, [connectSSE, resumeInput, sessionId, updateStatus])
+  }, [connectSSE, sessionId, updateStatus])
 
   const actions = useMemo(() => ({
     stop: async () => {
@@ -684,35 +499,23 @@ export function AdminSessionChat({ sessionId }: AdminSessionChatProps) {
 
       <ProvisionBar steps={provisionSteps} />
 
-      <AssistantThread messages={threadMessages} running={running} />
+      <AssistantThread
+        messages={threadMessages}
+        running={running}
+        composer={showComposer}
+        composerInputId="resume-input"
+        composerPlaceholder="輸入續聊訊息..."
+        onSend={handleResume}
+      />
 
       <PendingAdminEvents
         events={events}
         onApprove={handleApproval}
-        onUseSuggestion={value => {
-          setResumeInput(value)
-          document.getElementById('resume-input')?.focus()
-        }}
+        onUseSuggestion={value => void handleResume(value)}
       />
 
       {events.length === 0 && statusIndicator.state ? (
         <AdminSystemMessage>{statusIndicator.message || 'Starting...'}</AdminSystemMessage>
-      ) : null}
-
-      {showComposer ? (
-        <PromptInput className="sticky bottom-4 z-10 shadow-[0_8px_24px_rgba(31,59,41,0.08)]" onSubmit={handleResume}>
-          <PromptInputTextarea
-            id="resume-input"
-            rows={2}
-            placeholder="輸入續聊訊息..."
-            value={resumeInput}
-            onChange={event => setResumeInput(event.currentTarget.value)}
-            required
-          />
-          <PromptInputFooter>
-            <Button type="submit">送出</Button>
-          </PromptInputFooter>
-        </PromptInput>
       ) : null}
 
       {diffOpen ? (
