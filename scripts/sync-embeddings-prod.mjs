@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 const origin = process.env.WORKER_URL || process.env.CF_PAGES_URL || 'https://quidproquo.cc'
-const secret = process.env.CRAWL_SECRET
+const secret = process.env.INDEX_SYNC_SECRET
 const limit = Number(process.env.EMBED_SYNC_LIMIT ?? '80')
 const maxBatches = Number(process.env.EMBED_SYNC_MAX_BATCHES ?? '500')
 
 if (!secret) {
-  console.error('CRAWL_SECRET is required to run production embedding sync')
+  console.error('INDEX_SYNC_SECRET is required to run production embedding sync')
   process.exit(1)
 }
 
@@ -31,7 +31,7 @@ while (hasMore && batchCount < maxBatches) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Crawl-Secret': secret,
+      'X-Index-Sync-Secret': secret,
     },
     body: JSON.stringify({ sources: ['posts'], offset, limit }),
   })

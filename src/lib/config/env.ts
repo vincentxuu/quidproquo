@@ -17,6 +17,7 @@ export interface Env {
   AI: Ai
   R2_IMAGES: R2Bucket
   CRAWL_SECRET?: string
+  INDEX_SYNC_SECRET?: string
   ADMIN_PASSWORD?: string
   LLM_PROVIDER?: string
   URL?: string

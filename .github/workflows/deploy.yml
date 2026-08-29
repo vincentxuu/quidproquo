@@ -90,7 +90,7 @@ jobs:
       - name: Sync post embeddings
         run: pnpm sync:embeddings:prod
         env:
-          CRAWL_SECRET: ${{ secrets.CRAWL_SECRET }}
+          INDEX_SYNC_SECRET: ${{ secrets.INDEX_SYNC_SECRET }}
           WORKER_URL: https://quidproquo.cc
 
       - name: Verify production search freshness
