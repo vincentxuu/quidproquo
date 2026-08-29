@@ -91,6 +91,7 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
     let eventSource = null;
     let lastEventId = null;
     let sessionStatus = 'unknown';
+    const seenEvents = new Set();
 
     // --- Provision bar ---
     const PROV_STEPS = ['provision', 'clone', 'setup_script', 'start_agent'];
@@ -114,12 +115,19 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
     }
 
     // --- Diff panel ---
-    function closeDiff() { diffPanel.hidden = true; diffOverlay.hidden = true; }
+    function closeDiff() {
+      diffPanel.hidden = true;
+      diffOverlay.hidden = true;
+      diffContent.innerHTML = '<p class="empty-text">載入中…</p>';
+    }
     btnDiff?.addEventListener('click', async function () {
       diffPanel.hidden = false; diffOverlay.hidden = false;
       diffContent.innerHTML = '<p class="empty-text">載入中…</p>';
+      const controller = new AbortController();
+      const timeout = setTimeout(function () { controller.abort(); }, 10_000);
       try {
-        var res = await fetch('/api/admin/sessions/' + encodeURIComponent(sessionId) + '/diff');
+        var res = await fetch('/api/admin/sessions/' + encodeURIComponent(sessionId) + '/diff', { signal: controller.signal });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
         var data = await res.json();
         if (!data.available) { diffContent.innerHTML = '<p class="empty-text">' + esc(data.reason || '尚無 Diff') + '</p>'; return; }
         var html = '<div class="diff-summary">' + esc(data.summary || '') + '</div>';
@@ -133,7 +141,11 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
           html += '</div>';
         }
         diffContent.innerHTML = html || '<p class="empty-text">No changes</p>';
-      } catch { diffContent.innerHTML = '<p class="empty-text">載入失敗</p>'; }
+      } catch (error) {
+        diffContent.innerHTML = '<div class="diff-empty"><p>Diff 載入失敗</p><small>' + esc(error?.name === 'AbortError' ? '請求逾時，可以關閉後重試。' : String(error?.message || error || 'Unknown error')) + '</small></div>';
+      } finally {
+        clearTimeout(timeout);
+      }
     });
     diffClose?.addEventListener('click', closeDiff);
     diffOverlay?.addEventListener('click', closeDiff);
@@ -146,7 +158,24 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
         const s = data.session || data;
         nameEl.textContent = s.name || s.instruction?.slice(0, 80) || sessionId.slice(0, 8);
         updateStatus(s.status);
+        renderHistory(data.events || []);
       } catch {}
+    }
+
+    function renderHistory(events) {
+      if (!Array.isArray(events) || events.length === 0) return;
+      if (streamEl.querySelector('.empty-text')) streamEl.innerHTML = '';
+      for (const row of events) {
+        try {
+          const type = String(row.type || '');
+          const key = row.event_id ? String(row.event_id) : type + ':' + String(row.seq ?? '');
+          if (seenEvents.has(key)) continue;
+          seenEvents.add(key);
+          lastEventId = row.event_id ? String(row.event_id) : lastEventId;
+          renderEvent(type, JSON.parse(String(row.payload_json || '{}')), key);
+        } catch {}
+      }
+      streamEl.scrollTop = streamEl.scrollHeight;
     }
 
     function updateStatus(status) {
@@ -179,8 +208,11 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
       ];
       for (const type of types) {
         eventSource.addEventListener(type, function (e) {
-          lastEventId = e.lastEventId;
-          renderEvent(type, JSON.parse(e.data));
+          const key = e.lastEventId || type + ':' + e.timeStamp + ':' + e.data;
+          lastEventId = e.lastEventId || lastEventId;
+          if (seenEvents.has(key)) return;
+          seenEvents.add(key);
+          renderEvent(type, JSON.parse(e.data), key);
           streamEl.scrollTop = streamEl.scrollHeight;
         });
       }
@@ -230,14 +262,23 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
       return labels[toolName] || toolName;
     }
 
-    function renderEvent(type, payload) {
+    function renderTextBlock(text) {
+      const value = String(text || '');
+      if (!value.trim()) return '<div class="event-content muted">空訊息</div>';
+      return '<div class="event-content">' + esc(value) + '</div>';
+    }
+
+    function renderEvent(type, payload, key) {
       const card = document.createElement('div');
       card.className = 'event-card event-' + type.replace('/', '-');
+      if (key) card.dataset.eventKey = key;
       switch (type) {
         case 'user':
-          card.innerHTML = '<div class="event-role">User</div><div class="event-content">' + esc(payload.content || '') + '</div>';
+          card.className += ' message-card message-user';
+          card.innerHTML = '<div class="event-role">User</div>' + renderTextBlock(payload.content || '');
           break;
         case 'assistant': {
+          card.className += ' message-card message-assistant';
           var html = '<div class="event-role">Assistant</div>';
           var content = payload.content || '';
           var contentBlocks = payload.contentBlocks || payload.content_blocks;
@@ -248,11 +289,11 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
                 html += '<details class="thinking-block"><summary>Thinking…</summary>'
                   + '<div class="thinking-content">' + esc(block.thinking || block.text || '') + '</div></details>';
               } else if (block.type === 'text') {
-                html += '<div class="event-content">' + esc(block.text || '') + '</div>';
+                html += renderTextBlock(block.text || '');
               }
             }
           } else {
-            html += '<div class="event-content">' + esc(content) + '</div>';
+            html += renderTextBlock(content);
           }
           card.innerHTML = html;
           break;
@@ -284,7 +325,7 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
         }
         case 'result': {
           var out = typeof payload.content === 'string' ? payload.content : JSON.stringify(payload.content || payload.output || '');
-          card.innerHTML = '<details class="tool-card"><summary class="tool-summary"><span class="tool-icon">📋</span> <strong>Result</strong>'
+          card.innerHTML = '<details class="tool-card result-card"><summary class="tool-summary"><span class="tool-icon">📋</span> <strong>Result</strong>'
             + (payload.totalTokens ? ' · ' + payload.totalTokens + ' tokens' : '')
             + '</summary><pre class="event-pre">' + esc(out.slice(0, 2000)) + '</pre></details>';
           break;
@@ -410,8 +451,7 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
     function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
     function badgeClass(status) { switch (status) { case 'done': return 'success'; case 'failed': return 'error'; case 'running': return 'running'; case 'cancelled': return 'muted'; default: return 'pending'; } }
 
-    loadSession();
-    connectSSE();
+    loadSession().finally(connectSSE);
   })();
 </script>
 
@@ -424,22 +464,87 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
   .action-btn:hover { background: var(--admin-muted); }
   .action-btn.danger { border-color: var(--admin-color-danger-soft); color: var(--admin-color-danger); }
   .action-btn:disabled { opacity: 0.5; cursor: wait; }
-  .event-stream { border: 1px solid var(--admin-border); border-radius: var(--admin-radius, 6px); background: var(--admin-surface); max-height: 70vh; overflow-y: auto; }
-  .event-card { padding: 0.65rem 1rem; border-bottom: 1px solid var(--admin-border); }
+  .event-stream {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius, 6px);
+    background: var(--admin-surface);
+    max-height: calc(100vh - 230px);
+    min-height: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.8rem;
+  }
+  .event-card {
+    min-width: 0;
+    max-width: 100%;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    overflow: hidden;
+  }
   .event-card:last-child { border-bottom: none; }
-  .event-user { background: var(--admin-color-info-soft); }
-  .event-role { font-size: 0.78rem; font-weight: 700; color: var(--admin-text-muted); margin-bottom: 0.25rem; }
-  .event-content { font-size: 0.9rem; white-space: pre-wrap; word-break: break-word; line-height: 1.55; }
-  .event-pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; background: var(--admin-color-surface-subtle, #f5f5f5); padding: 0.5rem; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin-top: 0.35rem; max-height: 300px; overflow-y: auto; }
+  .message-card {
+    width: min(100%, 980px);
+    border-color: var(--admin-border);
+    background: #fff;
+  }
+  .message-user {
+    align-self: flex-end;
+    max-width: min(82%, 720px);
+    background: var(--brand-50, #f0f7ef);
+    border-color: var(--brand-200, var(--admin-border));
+  }
+  .message-assistant {
+    align-self: flex-start;
+    background: #fff;
+  }
+  .event-system-init,
+  .event-system-post_turn_summary,
+  .event-control_response,
+  .event-tool_progress,
+  .event-vcs_state_changed,
+  .event-rate_limit_event,
+  .event-env_manager_log {
+    align-self: stretch;
+    padding: 0.25rem 0.4rem;
+  }
+  .event-role { font-size: 0.72rem; font-weight: 750; color: var(--admin-text-muted); margin-bottom: 0.35rem; }
+  .event-content {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+    color: var(--admin-text);
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+  .event-content.muted { color: var(--admin-text-muted); }
+  .event-pre {
+    max-width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    background: var(--admin-color-surface-subtle, #f5f5f5);
+    padding: 0.65rem;
+    border-radius: 5px;
+    overflow: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    margin-top: 0.35rem;
+    max-height: 300px;
+  }
   .event-approval { background: var(--admin-color-warning-soft); border-left: 3px solid var(--admin-color-warning); }
   .approval-buttons { display: flex; gap: 0.4rem; margin-top: 0.4rem; }
-  .event-log { font-size: 0.8rem; color: var(--admin-text-muted); }
+  .event-log { font-size: 0.8rem; color: var(--admin-text-muted); overflow-wrap: anywhere; }
 
   /* #4 — Tool result cards */
-  .tool-card { border: 1px solid var(--admin-border); border-radius: 6px; overflow: hidden; margin: 0.15rem 0; }
+  .tool-card { max-width: 100%; border: 1px solid var(--admin-border); border-radius: 6px; overflow: hidden; margin: 0.15rem 0; background: #fff; }
   .tool-card.tool-success { border-left: 3px solid var(--admin-color-success, #22c55e); }
   .tool-card.tool-error { border-left: 3px solid var(--admin-color-danger, #ef4444); }
-  .tool-summary { padding: 0.5rem 0.75rem; cursor: pointer; font-size: 0.82rem; display: flex; align-items: center; gap: 0.35rem; list-style: none; }
+  .tool-summary { padding: 0.5rem 0.75rem; cursor: pointer; font-size: 0.82rem; display: flex; align-items: center; gap: 0.35rem; list-style: none; overflow-wrap: anywhere; }
   .tool-summary::-webkit-details-marker { display: none; }
   .tool-summary::before { content: '▸'; font-size: 0.7rem; margin-right: 0.2rem; transition: transform 0.15s; }
   details[open] > .tool-summary::before { transform: rotate(90deg); }
@@ -525,6 +630,8 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
 
   /* Diff slide-in panel */
   .diff-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.25); z-index: 40; }
+  .diff-overlay[hidden],
+  .diff-panel[hidden] { display: none; }
   .diff-panel {
     position: fixed; top: 0; right: 0;
     width: min(400px, 90vw); height: 100vh;
@@ -538,6 +645,9 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
   .diff-panel-header h3 { font-size: 1rem; margin: 0; }
   .diff-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--admin-text-muted); padding: 0.25rem; line-height: 1; }
   .diff-content { flex: 1; overflow-y: auto; padding: 1rem; }
+  .diff-empty { display: grid; gap: 0.25rem; min-height: 12rem; place-content: center; text-align: center; color: var(--admin-text-muted); }
+  .diff-empty p { color: var(--admin-text); font-weight: 700; }
+  .diff-empty small { font-size: 0.78rem; }
   .diff-summary { font-size: 0.85rem; color: var(--admin-text-muted); margin-bottom: 0.75rem; }
   .diff-files { display: flex; flex-direction: column; gap: 0.2rem; }
   .diff-file { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
@@ -551,5 +661,15 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
     .session-actions { width: 100%; }
     .action-btn { flex: 1; }
     .resume-form { flex-direction: column; }
+    .event-stream { max-height: none; min-height: 55vh; padding: 0.6rem; }
+    .message-card,
+    .message-user {
+      width: 100%;
+      max-width: 100%;
+      align-self: stretch;
+    }
+    .diff-panel {
+      width: min(100vw, 420px);
+    }
   }
 </style>

@@ -283,7 +283,13 @@ const sectionLabels: Record<string, string> = {
         const data = await res.json();
         const list = document.getElementById('recents-list');
         if (!list) return;
-        const sessions = data.sessions ?? data ?? [];
+        const sourceSessions = data.sessions ?? data ?? [];
+        const seen = new Set();
+        const sessions = Array.isArray(sourceSessions) ? sourceSessions.filter((s) => {
+          if (!s?.id || seen.has(s.id)) return false;
+          seen.add(s.id);
+          return true;
+        }) : [];
         if (!Array.isArray(sessions) || sessions.length === 0) {
           list.innerHTML = '<span class="recents-empty">尚無 Session</span>';
           return;
@@ -291,9 +297,32 @@ const sectionLabels: Record<string, string> = {
         list.innerHTML = sessions.map((s) => {
           const label = s.name || s.instruction?.slice(0, 40) || s.id.slice(0, 8);
           const statusClass = s.status === 'running' ? 'running' : s.status === 'failed' ? 'failed' : 'done';
-          return `<a href="/admin/sessions/${s.id}" class="recent-item"><span class="status-dot ${statusClass}"></span><span class="recent-label">${label}</span></a>`;
+          const stamp = formatRecentTime(s.updated_at || s.created_at);
+          return `<a href="/admin/sessions/${encodeURIComponent(s.id)}" class="recent-item" title="${esc(label)}">
+            <span class="status-dot ${statusClass}"></span>
+            <span class="recent-text">
+              <span class="recent-label">${esc(label)}</span>
+              <span class="recent-meta">${esc(stamp)} · ${esc(s.id.slice(-4))}</span>
+            </span>
+          </a>`;
         }).join('');
       } catch { /* silent */ }
+    }
+
+    function formatRecentTime(value) {
+      const time = Number(value);
+      if (!Number.isFinite(time)) return '';
+      const diff = Math.max(0, Date.now() - time);
+      if (diff < 60_000) return 'now';
+      if (diff < 3_600_000) return Math.floor(diff / 60_000) + 'm';
+      if (diff < 86_400_000) return Math.floor(diff / 3_600_000) + 'h';
+      return new Date(time).toLocaleDateString('zh-TW', { month: 'numeric', day: 'numeric' });
+    }
+
+    function esc(value) {
+      const d = document.createElement('div');
+      d.textContent = String(value ?? '');
+      return d.innerHTML;
     }
     document.addEventListener('DOMContentLoaded', loadRecents);
 
@@ -642,7 +671,7 @@ const sectionLabels: Record<string, string> = {
 
   :global(.recent-item) {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
     padding: 0.35rem 0.5rem;
     border-radius: var(--admin-radius);
@@ -663,6 +692,7 @@ const sectionLabels: Record<string, string> = {
     border-radius: 50%;
     flex-shrink: 0;
     background: var(--admin-text-muted);
+    margin-top: 0.45rem;
   }
 
   :global(.status-dot.running) {
@@ -684,10 +714,27 @@ const sectionLabels: Record<string, string> = {
     50% { opacity: 0.4; }
   }
 
+  :global(.recent-text) {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.05rem;
+  }
+
   :global(.recent-label) {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  :global(.recent-meta) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--admin-text-soft);
+    font-size: 0.68rem;
+    line-height: 1.25;
   }
 
   /* ── Footer ── */
