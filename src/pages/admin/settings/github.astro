@@ -14,7 +14,15 @@ if (gate) return gate;
         <h2>GitHub App</h2>
         <p>連接 GitHub repo 給 admin agent 使用。</p>
       </div>
-      <button id="sync-btn" class="btn" type="button">Sync repos</button>
+      <div class="actions">
+        <a href="/admin" class="btn secondary">Back to admin</a>
+        <button id="sync-btn" class="btn" type="button">Sync repos</button>
+      </div>
+    </div>
+
+    <div id="install-return" class="notice" hidden>
+      <strong>GitHub App installed.</strong>
+      <span>Syncing repositories…</span>
     </div>
 
     <dl class="status-list">
@@ -28,7 +36,7 @@ if (gate) return gate;
       </div>
     </dl>
 
-    <a id="install-link" class="install-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+    <a id="install-link" class="install-link" href="#" rel="noopener noreferrer" hidden>
       Install GitHub App
     </a>
     <p id="message" class="message"></p>
@@ -42,9 +50,28 @@ if (gate) return gate;
     const installLink = document.getElementById('install-link');
     const syncBtn = document.getElementById('sync-btn');
     const messageEl = document.getElementById('message');
+    const installReturn = document.getElementById('install-return');
 
     function setMessage(text) {
       if (messageEl) messageEl.textContent = text || '';
+    }
+
+    function readInstallReturn() {
+      const params = new URLSearchParams(window.location.search);
+      const installationId = params.get('installation_id');
+      const setupAction = params.get('setup_action');
+      return {
+        installationId,
+        setupAction,
+        shouldSync: Boolean(installationId && (setupAction === 'install' || setupAction === 'update')),
+      };
+    }
+
+    function clearInstallParams() {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('installation_id');
+      url.searchParams.delete('setup_action');
+      history.replaceState({}, '', url.pathname + url.search + url.hash);
     }
 
     async function loadStatus() {
@@ -61,26 +88,52 @@ if (gate) return gate;
       }
     }
 
-    syncBtn?.addEventListener('click', async () => {
+    async function syncRepos(source) {
+      if (!syncBtn) return;
       syncBtn.disabled = true;
+      if (source === 'install-return' && installReturn) {
+        installReturn.hidden = false;
+        installReturn.querySelector('span').textContent = 'Syncing repositories…';
+      }
       setMessage('Syncing…');
       try {
         const res = await fetch('/api/admin/github-app/sync', { method: 'POST' });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) {
           setMessage(data.error || ('Sync failed (HTTP ' + res.status + ')'));
+          if (source === 'install-return' && installReturn) {
+            installReturn.querySelector('span').textContent = 'Sync failed. Use the button to retry.';
+          }
           return;
         }
         setMessage('Synced ' + data.repositories + ' repos from ' + data.installations + ' installation(s).');
+        if (source === 'install-return') {
+          clearInstallParams();
+          if (installReturn) {
+            installReturn.querySelector('span').textContent = 'Repositories synced. You can return to admin.';
+          }
+        }
         await loadStatus();
       } catch {
         setMessage('Sync failed.');
+        if (source === 'install-return' && installReturn) {
+          installReturn.querySelector('span').textContent = 'Sync failed. Use the button to retry.';
+        }
       } finally {
         syncBtn.disabled = false;
       }
+    }
+
+    syncBtn?.addEventListener('click', async () => {
+      await syncRepos('manual');
     });
 
-    loadStatus().catch(() => setMessage('Unable to load GitHub App status.'));
+    loadStatus()
+      .then(async () => {
+        const install = readInstallReturn();
+        if (install.shouldSync) await syncRepos('install-return');
+      })
+      .catch(() => setMessage('Unable to load GitHub App status.'));
   })();
 </script>
 
@@ -100,6 +153,12 @@ if (gate) return gate;
     gap: 1rem;
   }
 
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   h2 {
     margin: 0 0 0.25rem;
     font-size: 1rem;
@@ -113,6 +172,9 @@ if (gate) return gate;
 
   .btn,
   .install-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid var(--admin-border);
     border-radius: 8px;
     background: var(--brand-900);
@@ -123,9 +185,28 @@ if (gate) return gate;
     cursor: pointer;
   }
 
+  .btn.secondary {
+    background: var(--admin-surface);
+    color: var(--admin-text);
+  }
+
   .btn:disabled {
     opacity: 0.5;
     cursor: wait;
+  }
+
+  .notice {
+    margin-top: 1rem;
+    border: 1px solid color-mix(in srgb, var(--brand-700), transparent 45%);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--brand-900), transparent 88%);
+    padding: 0.75rem;
+    color: var(--admin-text);
+    font-size: 0.85rem;
+  }
+
+  .notice strong {
+    margin-right: 0.35rem;
   }
 
   .status-list {
@@ -159,6 +240,11 @@ if (gate) return gate;
   @media (max-width: 560px) {
     .panel-head {
       flex-direction: column;
+    }
+
+    .actions {
+      width: 100%;
+      flex-direction: column-reverse;
     }
 
     .btn,
