@@ -4,8 +4,80 @@ import matter from 'gray-matter';
 
 const POSTS_ROOT = path.resolve('src/content/posts');
 
-// 不強制每篇中文都要有英文版——那是編輯決定。
-// 這支只檢查「兩邊都存在時有沒有分岔」：改了一邊忘了另一邊。
+const TRANSLATION_REQUIRED_CATEGORIES = new Set([
+  'ai',
+  'tech',
+  'learning',
+  'education',
+  'policy',
+  'design',
+  'marketing',
+  'product',
+]);
+
+// Legacy published zh-TW posts that predate the bilingual hard gate.
+// New published structured posts should ship with an adjacent -en.md file.
+const LEGACY_ZH_ONLY_POSTS = new Set([
+  'src/content/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark.md',
+  'src/content/posts/ai/2026-08-22-coding-agent-native-conversation-tui.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2021-cv.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2021-ml.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2021-nlp.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2021-topics.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2022-cv.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2022-ml.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2022-nlp.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2022-topics.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2023-cv.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2023-ml.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2023-nlp.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2023-topics.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2024-cv.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2024-ml.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2024-nlp.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2024-topics.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2025-cv.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2025-ml.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2025-nlp.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-2025-topics.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-independent-researcher.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-submission-to-publication.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-tracks-main-findings-db.md',
+  'src/content/posts/ai/2026-08-24-ai-conference-who-submits.md',
+  'src/content/posts/ai/2026-08-25-apple-pcc-free-afm3.md',
+  'src/content/posts/ai/2026-08-25-byteplus-modelark-coding-plan.md',
+  'src/content/posts/design/2026-06-05-design-system-color-palettes.md',
+  'src/content/posts/learning/2026-08-20-taste-as-amplifier.md',
+  'src/content/posts/learning/2026-08-21-cmu-ai-degree.md',
+  'src/content/posts/learning/2026-08-21-conference-content-machine.md',
+  'src/content/posts/tech/2026-08-23-agent-platform-cloudflare-deployment.md',
+  'src/content/posts/tech/2026-08-23-agent-platform-evaluation.md',
+  'src/content/posts/tech/2026-08-23-agent-platform-flow-runtime.md',
+  'src/content/posts/tech/2026-08-23-agent-platform-observability.md',
+  'src/content/posts/tech/2026-08-23-agent-platform-overview.md',
+  'src/content/posts/tech/2026-08-23-agent-platform-policy-engine.md',
+  'src/content/posts/tech/2026-08-23-agent-platform-provider-router.md',
+  'src/content/posts/tech/2026-08-23-agent-platform-skill-system.md',
+  'src/content/posts/tech/2026-08-23-stock-agent-1-why-taiwan.md',
+  'src/content/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture.md',
+  'src/content/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback.md',
+  'src/content/posts/tech/2026-08-23-stock-agent-4-backtest-accountability.md',
+  'src/content/posts/tech/2026-08-23-stock-agent-5-walkforward-eval.md',
+  'src/content/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations.md',
+  'src/content/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop.md',
+  'src/content/posts/tech/2026-08-23-stock-agent-8-execution-contracts.md',
+  'src/content/posts/tech/2026-08-23-stock-agent-9-cloudflare-deployment.md',
+  'src/content/posts/tech/2026-08-24-ai-model-evaluation-sources.md',
+  'src/content/posts/tech/2026-08-24-ai-model-family-deepseek.md',
+  'src/content/posts/tech/2026-08-24-ai-model-landscape-overview.md',
+  'src/content/posts/tech/2026-08-25-ai-model-family-apple.md',
+  'src/content/posts/tech/2026-08-26-ai-model-family-flux.md',
+  'src/content/posts/tech/2026-08-26-ai-model-family-speech-audio.md',
+  'src/content/posts/tech/2026-08-26-ai-model-family-video-generation.md',
+  'src/content/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug.md',
+]);
+
+// Also checks existing pairs for drift: changed one language, forgot the other.
 const STRUCTURE_DRIFT_RATIO = 0.25;
 
 function walk(dir) {
@@ -25,6 +97,16 @@ function readPost(file) {
   };
 }
 
+function shouldRequireEnglishVersion(file, post) {
+  const rel = path.relative(process.cwd(), file).replace(/\\/g, '/');
+  return (
+    post.data.lang === 'zh-TW' &&
+    post.data.draft !== true &&
+    TRANSLATION_REQUIRED_CATEGORIES.has(post.data.category) &&
+    !LEGACY_ZH_ONLY_POSTS.has(rel)
+  );
+}
+
 function main() {
   const problems = [];
   let pairs = 0;
@@ -32,11 +114,17 @@ function main() {
   for (const zhFile of walk(POSTS_ROOT)) {
     if (zhFile.endsWith('-en.md')) continue;
     const enFile = zhFile.replace(/\.md$/, '-en.md');
-    if (!fs.existsSync(enFile)) continue;
-
     pairs += 1;
     const rel = path.relative(process.cwd(), zhFile);
     const zh = readPost(zhFile);
+
+    if (!fs.existsSync(enFile)) {
+      if (shouldRequireEnglishVersion(zhFile, zh)) {
+        problems.push(`${rel}\n  已發布的 ${zh.data.category} / zh-TW 文章缺少英文版：${path.relative(process.cwd(), enFile)}`);
+      }
+      continue;
+    }
+
     const en = readPost(enFile);
 
     if (en.data.lang !== 'en') {
