@@ -1,6 +1,6 @@
 # Admin v2 — Phase 3 實作計畫
 
-狀態：草稿（2026-08-29）。前置：Phase 2（Session 引擎 + Mac runner）。
+狀態：已完成（2026-08-29）。本檔保留 Phase 3 實作計畫；待 production/preview 觀察排程與通知。
 規格：`docs/admin-v2-spec.md` §4（Routine）、§4.1（Routine vs Flow）。
 
 ## 0. 目標

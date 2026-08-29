@@ -7,6 +7,15 @@ import type { SessionEvent } from '../../lib/agent/events'
 import { fromSessionEvent } from '../../lib/agent/events'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 
+type StartRunOptions = {
+  skill?: string
+  mode?: 'auto' | 'default' | 'plan'
+  model?: string
+  repo?: string
+  runnerProvider?: string
+  trigger?: string
+}
+
 export class AgentSessionDO extends DurableObject<Env> {
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env)
@@ -26,10 +35,25 @@ export class AgentSessionDO extends DurableObject<Env> {
       return new Response(null, { status: 101, webSocket: client })
     }
     if (url.pathname.endsWith('/run') && request.method === 'POST') {
-      const body = (await request.json().catch(() => ({}))) as { prompt?: string; skill?: string; sessionId?: string; model?: string }
+      const body = (await request.json().catch(() => ({}))) as {
+        prompt?: string
+        skill?: string
+        sessionId?: string
+        mode?: 'auto' | 'default' | 'plan'
+        model?: string
+        repo?: string
+        runner_provider?: string
+      }
       const sessionId = body.sessionId ?? url.searchParams.get('sessionId') ?? `sess_${Date.now()}`
       const prompt = body.prompt ?? 'hello'
-      await this.startRun(sessionId, prompt, body.skill, body.model)
+      await this.startRun(sessionId, prompt, {
+        skill: body.skill,
+        mode: body.mode,
+        model: body.model,
+        repo: body.repo,
+        runnerProvider: body.runner_provider,
+        trigger: 'manual',
+      })
       return Response.json({ sessionId })
     }
     if (url.pathname.endsWith('/approve') && request.method === 'POST') {
@@ -62,10 +86,26 @@ export class AgentSessionDO extends DurableObject<Env> {
   override async webSocketMessage(_ws: WebSocket, message: string | ArrayBuffer): Promise<void> {
     const text = typeof message === 'string' ? message : new TextDecoder().decode(message)
     try {
-      const data = JSON.parse(text) as { type?: string; prompt?: string; skill?: string; sessionId?: string; model?: string }
+      const data = JSON.parse(text) as {
+        type?: string
+        prompt?: string
+        skill?: string
+        sessionId?: string
+        mode?: 'auto' | 'default' | 'plan'
+        model?: string
+        repo?: string
+        runner_provider?: string
+      }
       if (data.type === 'prompt' && data.prompt) {
         const sessionId = data.sessionId ?? `sess_${Date.now()}`
-        await this.startRun(sessionId, data.prompt, data.skill, data.model)
+        await this.startRun(sessionId, data.prompt, {
+          skill: data.skill,
+          mode: data.mode,
+          model: data.model,
+          repo: data.repo,
+          runnerProvider: data.runner_provider,
+          trigger: 'ws',
+        })
       } else if (data.type === 'approve' && (data as unknown as { requestId?: string }).requestId) {
         const reqId = (data as unknown as { requestId: string }).requestId
         this.ctx.storage.sql.exec('DELETE FROM pending WHERE requestId = ?', reqId)
@@ -121,14 +161,18 @@ export class AgentSessionDO extends DurableObject<Env> {
     }
   }
 
-  private async startRun(sessionId: string, prompt: string, skill?: string, model?: string): Promise<void> {
+  private async startRun(sessionId: string, prompt: string, options: StartRunOptions = {}): Promise<void> {
     const mgr = createSessionManager(this.env.DB)
     let session = await mgr.get(sessionId)
     if (!session) {
       session = await mgr.create({
+        id: sessionId,
         instruction: prompt,
-        model: model ?? undefined,
-        trigger: 'ws',
+        model: options.model,
+        mode: options.mode,
+        repo: options.repo,
+        runnerProvider: options.runnerProvider,
+        trigger: options.trigger ?? 'manual',
       })
     }
     await mgr.transition(session.id, 'running')
@@ -136,8 +180,8 @@ export class AgentSessionDO extends DurableObject<Env> {
     const initEvent: SessionEvent = {
       type: 'system/init',
       sessionId: session.id,
-      model: model ?? 'default',
-      mode: (session.mode as 'auto' | 'default' | 'plan') ?? 'auto',
+      model: options.model ?? session.model ?? 'default',
+      mode: options.mode ?? (session.mode as 'auto' | 'default' | 'plan') ?? 'auto',
       tools: [],
     }
     await this.persistEventToD1(session.id, initEvent)
@@ -150,9 +194,9 @@ export class AgentSessionDO extends DurableObject<Env> {
     await this.persistMessage(session.id, userMsg)
 
     let skillContext = ''
-    if (skill) {
+    if (options.skill) {
       const row = await this.env.DB.prepare('SELECT content FROM user_skills WHERE name = ?')
-        .bind(skill)
+        .bind(options.skill)
         .first<{ content: string }>()
       if (row?.content) skillContext = row.content.slice(0, 8000)
     }
@@ -170,7 +214,7 @@ export class AgentSessionDO extends DurableObject<Env> {
         modelInvoke: async (msgs) => {
           try {
             const lcMessages = [
-              ...(skillContext ? [new SystemMessage(`Skill ${skill}:\n${skillContext}`)] : []),
+              ...(skillContext ? [new SystemMessage(`Skill ${options.skill}:\n${skillContext}`)] : []),
               ...msgs.map(toBaseMessage),
             ]
             const res = (await kernel.tools.syscall(
@@ -178,7 +222,7 @@ export class AgentSessionDO extends DurableObject<Env> {
               { agentId: 'console', runId: session.id } as unknown as Parameters<typeof kernel.tools.syscall>[1],
               'model.invoke',
               {
-                config: { model: model ?? 'groq/llama-3.3-70b-versatile', temperature: 0.3 } as unknown as never,
+                config: { model: options.model ?? 'groq/llama-3.3-70b-versatile', temperature: 0.3 } as unknown as never,
                 stage: 'console',
                 messages: lcMessages,
               } as never,
@@ -187,7 +231,7 @@ export class AgentSessionDO extends DurableObject<Env> {
             return { content: String(content), stopReason: 'stop' }
           } catch (e) {
             const msg = e instanceof Error ? e.message : String(e)
-            return { content: `model error: ${msg} (skill: ${skill ?? 'none'})`, stopReason: 'stop' }
+            return { content: `model error: ${msg} (skill: ${options.skill ?? 'none'})`, stopReason: 'stop' }
           }
         },
         syscall: async (name, input) => {

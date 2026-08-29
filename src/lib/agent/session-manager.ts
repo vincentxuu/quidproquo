@@ -26,7 +26,9 @@ export interface SessionRecord {
 }
 
 export interface CreateSessionInput {
+  id?: string
   instruction: string
+  name?: string
   model?: string
   mode?: 'auto' | 'default' | 'plan'
   repo?: string
@@ -117,18 +119,20 @@ export function createSessionManager(db: D1Database) {
 
     async create(input: CreateSessionInput): Promise<SessionRecord> {
       const now = Date.now()
-      const id = `sess_${now}_${Math.random().toString(36).slice(2, 6)}`
+      const id = input.id ?? `sess_${now}_${Math.random().toString(36).slice(2, 6)}`
+      const name = input.name ?? input.instruction.slice(0, 80)
 
       await db
         .prepare(`
           INSERT INTO agent_sessions
-            (id, agent_id, trigger, status, model, mode, repo, runner_provider, routine_id, created_at, updated_at)
-          VALUES (?, ?, ?, 'pending', ?, ?, ?, ?, ?, ?, ?)
+            (id, agent_id, trigger, status, name, model, mode, repo, runner_provider, routine_id, created_at, updated_at)
+          VALUES (?, ?, ?, 'pending', ?, ?, ?, ?, ?, ?, ?, ?)
         `)
         .bind(
           id,
           'default',
           input.trigger ?? 'manual',
+          name,
           input.model ?? null,
           input.mode ?? 'auto',
           input.repo ?? null,

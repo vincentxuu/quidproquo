@@ -1,6 +1,6 @@
 # Admin v2 規格：自製 coding agent 的操作台
 
-狀態：討論定案（2026-08-27），尚未實作。決策來自逐題確認，範本為 Claude Code on the web
+狀態：Phase 1–6 代碼完成（2026-08-29），本機整合驗證通過；待 production/preview 環境觀察。決策來自逐題確認，範本為 Claude Code on the web
 （實測紀錄：`.research/2026-08-27-claude-code-web-new-session-walkthrough.md`、
 `.research/2026-08-27-claude-code-routines-web-ui-walkthrough.md`）。現況路由見 `docs/admin-route-map.md`。
 
@@ -23,7 +23,7 @@
 | Workflow 工具 | Session 內 agent 可呼叫的編排工具（對齊 Claude Code `Workflow`），與 Flow 是兩個東西，另外做 | `Workflow` tool |
 | Pipeline job | 舊內容 pipeline，維持獨立，不併入 Session | — |
 
-儲存：**Session 正本＝`agent_runs`／`agent_run_events`**（事件流形態，對齊 stream-json）；**Flow run 正本＝`flow_runs`／`flow_step_runs`**（節點狀態表）。兩邊各自獨立，接點只有 `flow_step_runs.session_id` 指向 agent 節點建出的 Session；Session 頁可回鏈所屬 flow run。
+儲存：**Session 正本＝`agent_sessions`／`agent_messages`／`agent_events`**（對話＋事件流形態，對齊 stream-json）；**Flow run 正本＝`flow_runs`／`flow_step_runs`**（節點狀態表）。兩邊各自獨立，接點只有 `flow_step_runs.session_id` 指向 agent 節點建出的 Session；Session 頁可回鏈所屬 flow run。`agent_runs` 保留給 scheduler／legacy agent run 紀錄，不作為 Admin v2 chat session 正本。
 
 ## 3. Session 參數（第 1–7 題）
 
@@ -36,6 +36,8 @@
 | 5 | Mode | **三檔照抄**：Auto／Accept edits（送 `default`）／Plan |
 | 6 | Repo | **可選**：可不掛、可掛一或多個；不掛時仍起環境，只是無 clone 步驟 |
 | 7 | 生命週期動作 | **全套**：Stop、續聊、Diff、Share（Private／Public）、Rename、Transcript view、Archive、Delete。不做 Open in Terminal／Desktop |
+
+建 Session contract：Session 就是 chat。前端 composer 送出的第一句話是 `instruction`；後端相容 `instruction` 與 `prompt`，統一轉成第一個 `user` event/message，並用同一個 `sessionId` 建 D1 session 與 Durable Object run。Routine 的 Instructions 也是同構的第一個 user event，不另建一套「session contract」。
 
 ### 3.1 工具三層
 
@@ -151,7 +153,7 @@ Routine＝「一個 agent＋觸發器」；Flow＝「多節點圖＋觸發節點
 | `/console/cost` | Home 的 Usage 一行＋Settings › Models 的費用明細 |
 | `/console/providers`、`/console/policies`、`/console/rbac` | Settings › Models／Permissions／Access |
 | `agent-ecosystem`、`agent-skills` | Settings › Extensions（兩頁合一，資料搬到 D1） |
-| `/api/admin/agents/*`（agent-os） | 成為 Session API 的基礎（若選 `agent_runs` 為正本） |
+| `/api/admin/agents/*`（agent-os） | 保留為 legacy/scheduler 基礎；Admin v2 chat session 走 `/api/admin/sessions/*` |
 | `/api/admin/agents/scheduled`、presets | Routine 的 Schedule trigger 與參數包 |
 | 舊 Site Admin 13 頁 | Settings › Site |
 | 兩套 Layout | 一套 |
@@ -161,7 +163,7 @@ Routine＝「一個 agent＋觸發器」；Flow＝「多節點圖＋觸發節點
 | 項目 | 定案 |
 |---|---|
 | Flow 定義 | 可視化自動化編排，獨立一級區（§2、§4.1）；Session 內 Workflow 工具另外做 |
-| Session 正本表 | `agent_runs` 為 Session 正本，`flow_runs` 為 Flow run 正本，以 `flow_step_runs.session_id` 相接（§2） |
+| Session 正本表 | `agent_sessions`／`agent_messages`／`agent_events` 為 Session 正本；`flow_runs` 為 Flow run 正本，以 `flow_step_runs.session_id` 相接（§2） |
 | Cloudflare Sandbox | 符合需求，採 `@next`；持久化策略見 §6 |
 | Diff | **走 GitHub compare**（照抄範本）：push 後 Workers 打 `compare/{base}...{head}`；Stop hook commit 後事件流附 `git diff --stat` 摘要；不掛 repo 或未 push 無 Diff。理由：容器拋棄式、git 是持久層、GitHub 是可信方 |
 | Share Public | **照抄範本**：整份 transcript 可看＋Usage Policy 警語（風險已提示：tool_result 可能含金鑰／個資，使用者自行判斷）。附帶：分享 id 不可猜、可撤回（撤回後 404） |

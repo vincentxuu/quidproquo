@@ -10,10 +10,8 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- **Admin v2 Phase 1–6 代碼完成（2026-08-29）**：Phase 1 路由全遷 + lib 重組；
-  Phase 2 Session 引擎；Phase 3 Routine trigger + 通知；Phase 4 Mode + 權限協定；
-  Phase 5 Sandbox provider + 多通道通知 + GitHub webhook；Phase 6 MCP proxy + Marketplace。
-  全部 verify 全綠，待整合測試 + migration apply + 實際環境驗證。
+- **Admin v2 Phase 1–6 代碼完成並完成本機串接驗證（2026-08-29）**：文件已對齊 Claude Code 研究；
+  本機 Astro dev E2E、最小 DO `/run` smoke、`pnpm verify` 均通過。剩 production/preview migration apply、binding/env 檢查與實際環境觀察。
 - **「跟成熟 coding agent 學設計」系列 38 篇雙語（78 檔）已完成待 review**（0126e687＋收尾篇，
   docs/content-plan-coding-agent-design-series.md）：第一部 25 篇已實作對照（order 2–25，總覽佔 1）＋
   第二部 13 篇改善路線圖（26–38，收尾篇 agent-as-service 於 2026-08-26 補齊「38 篇」定案數）。

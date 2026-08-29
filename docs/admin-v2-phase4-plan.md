@@ -1,6 +1,6 @@
 # Admin v2 — Phase 4 實作計畫
 
-狀態：草案（2026-08-29）。前置：Phase 2（Session 引擎）+ Phase 3（Routine trigger）。
+狀態：已完成（2026-08-29）。本檔保留 Phase 4 實作計畫；待 production/preview 觀察核准與 mode 流程。
 Spec 參考：`docs/admin-v2-spec.md` §3.2、§3.3、§5.1。
 
 ## 1. 目標
@@ -144,18 +144,18 @@ ExitPlanMode 不走 control_request/can_use_tool，而是一個特殊事件：
 
 資料來源：
 - 待核准：`agent_approval_requests WHERE status = 'pending'`（含 approval 按鈕，直接操作不需跳頁）
-- 失敗：`agent_runs WHERE status = 'failed' AND NOT archived`（顯示錯誤 + 重試按鈕）
-- needs_action：`agent_run_events WHERE type = 'system/post_turn_summary' AND needs_action = true`（顯示 status_detail + 前往按鈕）
+- 失敗：`agent_sessions WHERE status = 'failed' AND archived = 0`（顯示錯誤 + 重試按鈕）
+- needs_action：`agent_sessions.needs_action = 1`（由 `system/post_turn_summary` 更新，顯示 status_detail + 前往按鈕）
 - 站況紅燈：現有 `/api/admin/site/status` 的紅燈項
 
 空的時候收起成一行：「✓ 一切正常」綠字。
 
 ## 6. Schema 變更
 
-### 修改 `agent_runs` 表
+### 修改 `agent_sessions` 表
 
 ```sql
-ALTER TABLE agent_runs ADD COLUMN mode TEXT DEFAULT 'default';
+ALTER TABLE agent_sessions ADD COLUMN mode TEXT DEFAULT 'auto';
 -- 'auto' | 'default' | 'plan'
 ```
 

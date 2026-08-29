@@ -1006,3 +1006,10 @@ zh/en 各 21 篇。order 0 導讀含 41 層 roadmap，逐層對照過站上 1,14
   errors 兩頁實抓撰寫）；原 troubleshooting-collection{,-en} 正文改為三篇索引（order 36，
   slug/date 未動）。H6/H7 由並行任務產出。check:references／lint 全綠；astro check 的
   10 個 error 為 src/lib・src/server 既有 TS 問題。待使用者 review。
+
+## 2026-08-29 Admin v2 Phase 1-6 本機串接驗證
+
+- Phase 1–6 代碼完成：Phase 1 路由全遷 + lib 重組；Phase 2 Session 引擎；Phase 3 Routine trigger + 通知；Phase 4 Mode + 權限協定；Phase 5 Sandbox provider + 多通道通知 + GitHub webhook；Phase 6 MCP proxy + Marketplace。
+- 文件已對齊 Claude Code 研究：Session 就是 chat，composer `instruction`／API `prompt` 都是第一個 user event；Admin v2 正本為 `agent_sessions`／`agent_messages`／`agent_events`，`agent_runs` 保留給 scheduler/legacy run。
+- 驗證：本機 Astro dev E2E 通過（`.work/admin-v2-e2e/2026-08-29T09-37-25-766Z/evidence.json`）；最小 Durable Object `/run` smoke 通過（`.work/admin-do-smoke/do-run.json`，session `smoke_admin_do_20260829_002`，events 含 `system/init`、`user`、`assistant`、`result`）；`pnpm verify` 全綠。
+- 剩餘只屬 production/preview 操作：migration apply、binding/env 檢查與實際環境觀察；正式 deploy 需使用者另行拍板。

@@ -1,6 +1,6 @@
 # Admin v2 — Phase 1 實作計畫
 
-狀態：待使用者確認後開工（2026-08-28）。
+狀態：已完成（2026-08-29）。本檔保留 Phase 1 實作計畫與稽核基準。
 前置：`docs/admin-v2-spec.md`（定案）、`docs/admin-route-map.md`（現況）。
 
 ## 0. Phase 1 目標

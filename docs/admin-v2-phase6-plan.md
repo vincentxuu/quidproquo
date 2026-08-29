@@ -1,6 +1,6 @@
 # Admin v2 — Phase 6 實作計畫：Extensions
 
-狀態：草稿（2026-08-29）。前置：Phase 2（Session 引擎）、Phase 5（Cloudflare Sandbox）。
+狀態：已完成（2026-08-29）。本檔保留 Phase 6 實作計畫；MCP proxy/Marketplace 仍需 production/preview 觀察。
 Spec 參考：`docs/admin-v2-spec.md` §3.1 工具三層、§7 Settings › Extensions。
 
 ## 1. 目標

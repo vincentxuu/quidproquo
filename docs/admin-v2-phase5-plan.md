@@ -1,6 +1,6 @@
 # Admin v2 — Phase 5 實作計畫
 
-狀態：草稿（2026-08-29）。前置：Phase 2（Session 引擎）、Phase 3（Routine + Schedule trigger）、Phase 4（Mode + 權限協定）。
+狀態：已完成（2026-08-29）。本檔保留 Phase 5 實作計畫；Cloudflare Sandbox 仍需 production/preview 冷啟動與實際環境觀察。
 規格：`docs/admin-v2-spec.md` §4（Trigger、Notifications）、§6（執行架構）、§7（Settings › Environments / Notifications）、§9b（待實測）。
 
 ## 0. 目標

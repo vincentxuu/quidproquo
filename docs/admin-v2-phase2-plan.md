@@ -1,6 +1,6 @@
 # Admin v2 — Phase 2 實作計畫
 
-狀態：Tier 2 全部確認，可開工（2026-08-29）。
+狀態：已完成（2026-08-29）。本檔保留 Phase 2 實作計畫；Session 正本決策以 §2.1 為準。
 前置：Phase 1 完成（路由全遷 + lib 重組），見 `docs/admin-v2-phase1-plan.md`。
 
 ## 0. 目標
@@ -22,8 +22,8 @@ Home 打一句話讓自己的 agent 跑，在 Session 頁看即時事件流，�
 | **Storage backends** | `src/lib/agent/storage.ts` | D1: runs, events, tool_calls, processes, permissions, approvals, memory；KV: cancel signals；R2: blobs；Vectorize: embeddings |
 | **D1 表（agent_runs 系列）** | migration `0011_agent_os.sql` | `agent_runs`、`agent_run_events`、`agent_tool_calls`、`agent_processes`、`agent_permissions`、`agent_approval_requests`、`agent_memory_items` |
 | **D1 表（agent_sessions 系列）** | migration `0026_agent_sessions.sql` | `agent_sessions`（id, agent_id, trigger, status, git_ref, timestamps）、`agent_messages`（session_id, seq, role, content_json, tool_call_id）、`agent_events`（session_id, seq, type, payload_json） |
-| **Durable Object** | `src/server/agents/session-do.ts` `AgentSessionDO` | WebSocket 雙工：接 prompt→呼叫 `runLoop()`→broadcast events。支援 approve。有 DO 內部 SQLite `pending` 表。但 import 路徑尚未更新（仍指 `agent-os`） |
-| **Session API** | `src/pages/api/admin/sessions/index.ts` | GET 列表（D1 `agent_sessions`）、POST 建 session（proxy 到 DO）、WebSocket upgrade proxy |
+| **Durable Object** | `src/server/agents/session-do.ts` `AgentSessionDO` | WebSocket 雙工與 `/run`：接 prompt→呼叫 `runLoop()`→broadcast events。支援 approve。有 DO 內部 SQLite `pending` 表。 |
+| **Session API** | `src/pages/api/admin/sessions/index.ts` | GET 列表（D1 `agent_sessions`）、POST 建 session（相容 `instruction`/`prompt`，proxy 到 DO）、WebSocket upgrade proxy |
 | **Session detail API** | `src/pages/api/admin/sessions/[id].ts` | GET session + messages + events（D1） |
 | **wrangler.jsonc** | DO binding `AGENT_SESSION_DO` → `AgentSessionDO`，已有 D1、KV、R2、Vectorize、AI bindings |
 
@@ -32,7 +32,7 @@ Home 打一句話讓自己的 agent 跑，在 Session 頁看即時事件流，�
 | 缺口 | 說明 |
 |---|---|
 | **SSE watch 端點** | 現在用 WebSocket，spec 要求 SSE `sessions/:id/watch`（帶 resume_token），對齊 Agent SDK stream-json |
-| **Session 正本統一** | 兩套表並存：`agent_runs` + `agent_run_events`（scheduler 用）與 `agent_sessions` + `agent_messages` + `agent_events`（DO 用）。spec 說正本＝`agent_runs` / `agent_run_events` |
+| **Session 正本統一** | 已採 `agent_sessions` + `agent_messages` + `agent_events` 作 Admin v2 chat session 正本；`agent_runs` + `agent_run_events` 保留給 scheduler/legacy run 紀錄 |
 | **事件流型別** | 現在 events 是自由格式，spec §3.3 定義了 14 種事件型別（system/init, assistant, user, result, control_request/response, env_manager_log, post_turn_summary 等） |
 | **Session lifecycle actions** | 只有基本的 run→done。缺 Stop（cancel + wait）、續聊（resume）、Rename、Archive、Delete、Share |
 | **Home composer** | Home 頁面目前是 dashboard metrics，沒有 composer（指令框 + 控制項） |
