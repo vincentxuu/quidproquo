@@ -24,7 +24,7 @@ The data was first collected on August 21, 2026 and updated on August 22 using o
 |---|---|---|---|
 | Recurring allowance | The provider explicitly says daily, monthly, or billing cycle | [Tavily](https://docs.tavily.com/documentation/api-credits), [SerpAPI](https://serpapi.com/pricing), [Cloudflare Browser Run](https://developers.cloudflare.com/browser-rendering/pricing/) | Sustainable low-volume services |
 | Balance top-up | The remaining balance is restored to a ceiling instead of incremented by a fixed amount | [Linkup](https://docs.linkup.so/pages/documentation/platform/pricing) | Search prototypes with a bounded allowance |
-| Persistent rate limit | There is no monthly credit pool, only an RPM or QPS ceiling | [Jina Reader](https://jina.ai/en-US/reader/) | Low-volume content reading |
+| Persistent rate limit | There is no monthly credit pool, only an RPM or QPS ceiling | [Jina Reader](https://jina.ai/en-US/reader/), [TinyFish Search/Fetch](https://www.tinyfish.ai/blog/search-and-fetch-are-now-free-for-every-agent-everywhere) | Low-volume content reading and agent retrieval |
 | One-time trial | Signup or trial credits do not return after exhaustion | [Serper](https://serper.dev/), [You.com API](https://you.com/docs/administration/billing), [Hyperbrowser](https://www.hyperbrowser.ai/pricing) | API validation and short benchmarks |
 | Local or self-hosted | There is no SaaS quota; the cost moves to compute, proxies, and operations | [SearXNG](https://github.com/searxng/searxng), [Crawl4AI](https://github.com/unclecode/crawl4ai), [Qdrant](https://github.com/qdrant/qdrant) | Private data and stable high-volume workloads |
 
@@ -42,6 +42,7 @@ The data was first collected on August 21, 2026 and updated on August 22 using o
 | [SerpAPI](https://serpapi.com/pricing) | 250 successful searches per billing cycle | Resets when a new cycle starts; cached, failed, and errored searches do not count; Free rollover is not published |
 | [Parallel](https://parallel.ai/blog/free-tier-parallel) | $5 in monthly credits for eligible organizations | A card is required; credits expire at month-end and do not roll over; overage is charged at standard rates |
 | [You.com free MCP](https://you.com/docs/quickstart) | 100 keyless `you-search` queries per day | Search only; Contents, Research, and Finance are excluded; reset time and timezone are not published |
+| [TinyFish Search/Fetch](https://www.tinyfish.ai/pricing) | Search 30 requests/min; Fetch 150 URLs/min | No card, no monthly minimum, and usable with a $0 Wallet balance; only Agent and Browser draw from Wallet funds |
 
 Linkup is easy to misread. The official wording says an eligible account is topped **back to $20** each month. That restores the balance to a ceiling; it does not add another $20. If $7 remains when the top-up occurs, the grant is $13. The exact top-up date is not public, so it should not be described as a month-end settlement.
 
@@ -88,6 +89,10 @@ A large one-time grant is still not steady-state capacity. Serper's 2,500 querie
 [Perplexity Search API](https://docs.perplexity.ai/docs/getting-started/pricing) has no complimentary API credits. Free, Pro, and Max consumer subscriptions do not include API usage. Search API costs $5 per 1,000 successful requests, requires prepaid credits, and blocks the API key when the balance reaches zero.
 
 [Google Custom Search JSON API](https://developers.google.com/custom-search/v1/overview) is closed to new customers. Existing customers retain 100 queries per day until the service shuts down on January 1, 2027. Google's free, ad-supported Standard Search Element is a client-side JavaScript widget, not a backend JSON API for an agent.
+
+[TinyFish Search/Fetch](https://www.tinyfish.ai/blog/search-and-fetch-are-now-free-for-every-agent-everywhere) follows the same persistent-rate-limit model: Search allows 30 requests/min, Fetch allows 150 URLs/min, a $0 Wallet balance still works, and failed Fetch URLs do not count. The difference from Jina is scope. TinyFish runs pages through its Chromium infrastructure and returns cleaned Markdown, JSON, or HTML, so it is closer to a complete discovery-plus-reading layer for agents than a plain article reader.
+
+TinyFish's paid boundary is also explicit: Search and Fetch are free, while Agent costs $0.016/step and Browser costs $0.002/min. In practice, public discovery and page reading can stay on the free rate-limited path; login, clicking, form filling, and long-lived browser sessions move into Wallet billing. Handle `429` carefully: a response with `details.limit` / `details.unit` means the account hit its per-minute limit and should respect `Retry-After` or upgrade; a response without `details` may indicate upstream throttling or capacity, so retry with backoff instead of treating it as a plan-limit problem.
 
 ## Open Source Moves the Bill Somewhere Else
 
@@ -139,6 +144,7 @@ The most sustainable free plan is not the one with the largest headline number. 
 
 ## Update Log
 
+- 2026-08-29: Added TinyFish Search/Fetch's persistent free rate limit, $0 Wallet boundary, Agent/Browser paid boundary, and 429 handling distinction.
 - 2026-08-22: Separated recurring allowances, persistent rate limits, and one-time trials; added Search, browser, and scraping services.
 - 2026-08-22: Corrected Hyperbrowser's 5,000 credits to a one-time grant and revised the quota descriptions for Exa, Linkup, AgentQL, Browserbase, Bright Data, and Jina.
 - 2026-08-22: Added Perplexity and Google Custom Search JSON API as counterexamples so consumer plans and frontend widgets are not mistaken for free APIs.
@@ -156,6 +162,10 @@ The most sustainable free plan is not the one with the largest headline number. 
 - [Parallel Pricing](https://parallel.ai/pricing)
 - [Parallel Free Tier Mechanics](https://parallel.ai/blog/free-tier-parallel)
 - [You.com Quickstart and Free MCP](https://you.com/docs/quickstart)
+- [TinyFish Search and Fetch are now free](https://www.tinyfish.ai/blog/search-and-fetch-are-now-free-for-every-agent-everywhere)
+- [TinyFish Pricing](https://www.tinyfish.ai/pricing)
+- [TinyFish Developer Documentation](https://docs.tinyfish.ai/)
+- [TinyFish Error Codes](https://docs.tinyfish.ai/error-codes)
 
 ### Browser, Scraping, and Rate-Limited Access
 

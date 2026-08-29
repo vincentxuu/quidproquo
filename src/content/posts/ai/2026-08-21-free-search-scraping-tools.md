@@ -24,7 +24,7 @@ draft: false
 |---|---|---|---|
 | 週期額度 | 官方明寫 daily、monthly 或 billing cycle | [Tavily](https://docs.tavily.com/documentation/api-credits)、[SerpAPI](https://serpapi.com/pricing)、[Cloudflare Browser Run](https://developers.cloudflare.com/browser-rendering/pricing/) | 可持續的小流量服務 |
 | 餘額補回 | 把餘額補到上限，不是固定再加一筆 | [Linkup](https://docs.linkup.so/pages/documentation/platform/pricing) | 成本封頂的搜尋原型 |
-| 持續限速 | 沒有每月 credit pool，只限制 RPM／QPS | [Jina Reader](https://jina.ai/en-US/reader/) | 低流量正文讀取 |
+| 持續限速 | 沒有每月 credit pool，只限制 RPM／QPS | [Jina Reader](https://jina.ai/en-US/reader/)、[TinyFish Search/Fetch](https://www.tinyfish.ai/blog/search-and-fetch-are-now-free-for-every-agent-everywhere) | 低流量正文讀取與 agent 檢索 |
 | 一次性試用 | signup／trial credits 用完不恢復 | [Serper](https://serper.dev/)、[You.com API](https://you.com/docs/administration/billing)、[Hyperbrowser](https://www.hyperbrowser.ai/pricing) | API 驗證與短期 benchmark |
 | 本機／自架 | 沒有 SaaS quota，成本轉成主機、proxy 與維運 | [SearXNG](https://github.com/searxng/searxng)、[Crawl4AI](https://github.com/unclecode/crawl4ai)、[Qdrant](https://github.com/qdrant/qdrant) | 私有資料或穩定的大量工作負載 |
 
@@ -43,8 +43,9 @@ draft: false
 | [Parallel](https://parallel.ai/blog/free-tier-parallel) | eligible organization 每月 5 美元 credits | 必須綁卡；月底失效、不 rollover；超額按標準費率扣卡 |
 | [You.com free MCP](https://you.com/docs/quickstart) | keyless `you-search` 每日 100 queries | 只含 Search，不含 Contents、Research、Finance；reset 時刻與時區未公開 |
 | [Keenable](https://keenable.ai/pricing) | 每月 100K free requests；keyless endpoint 另限 1,000 req/hour + 10 req/sec per IP | 免卡；Search 與 Fetch 共用同一 allowance；keyless pool 是 shared per-IP，不適合 production；精確 reset 日未公開 |
+| [TinyFish Search/Fetch](https://www.tinyfish.ai/pricing) | Search 30 requests/min；Fetch 150 URLs/min | 免信用卡、無月費、Wallet 餘額 $0 仍可用；Agent 與 Browser 才扣 Wallet |
 
-Linkup 最容易誤讀。官方寫的是每月把 eligible account 的餘額 `top up back to $20`，意思是補回上限，不是每月固定再送 20 美元。補值發生時若仍有 7 美元，只補 13 美元；官方沒有公開精確 top-up 日期，因此也不該擅自寫成「月底結算」。
+Linkup 最容易誤讀。官方寫的是每月把 eligible account 的餘額 `top up back to $20`，意思是補回上限，不是每月固定再送 20 美元。補值發生時若仍有 7 美元，只補 13 美元；官方沒有公開精確 top-up 日期，因此也不該擅自寫成「月底結算」。Linkup 的使用方式與 deep/standard 深度差異在 [Linkup Search API 完整指南](/posts/ai/2026-08-21-linkup-search-api-guide)。
 
 Parallel 則是另一種風險：每月贈送額度是真的，但必須綁卡，超過 5 美元後會按標準費率扣款。週期性免費不等於 hard stop，router 仍要有自己的 spending cap。
 
@@ -90,7 +91,9 @@ Bright Data 也不能用一句「各產品都有 5,000」帶過。一般 Free Ti
 
 [Google Custom Search JSON API](https://developers.google.com/custom-search/v1/overview) 已停止接受新客戶。既有客戶才保留每天 100 queries，並將於 2027 年 1 月 1 日停止服務。Google 仍提供免費、含廣告的 Standard Search Element，但那是前端 JavaScript widget，不是 agent 可以從後端呼叫的 JSON API。
 
-[TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier) 也是同样的持續限速路線：Search 30 requests/min、Fetch 150 URLs/min，Wallet 餘額 $0 仍可用，失敗的 Fetch 不計額。它和 Jina 的差別在於機器渲染後的乾淨 Markdown 與 batch selector 抽取，更適合喂進 context window。
+[TinyFish Search/Fetch](https://www.tinyfish.ai/blog/search-and-fetch-are-now-free-for-every-agent-everywhere) 也是同樣的持續限速路線：Search 30 requests/min、Fetch 150 URLs/min，Wallet 餘額 $0 仍可用，失敗的 Fetch 不計額。它和 Jina 的差別在於用自建 Chromium 叢集做完整渲染，回傳清洗後的 Markdown、JSON 或 HTML。若 agent 需要先找網址再讀頁面，TinyFish 比單純正文 reader 更像一個完整檢索層。
+
+TinyFish 的付費邊界也比較清楚：Search 與 Fetch 免費，Agent 是 $0.016/step、Browser 是 $0.002/min。也就是說，找資料與讀公開頁面可以走免費限速；一旦任務需要登入、點擊、填表或長時間持有瀏覽器會話，就進入 Wallet 計費。正式接入時要分開處理兩種 429。有 `details.limit` / `details.unit` 的是自己帳號撞到 per-minute limit，可依 `Retry-After` 退避或升級。沒有 `details` 的可能是上游或容量問題，應退避而不是誤判成該升級方案。
 
 [AutoScraper](https://github.com/alirezamika/autoscraper)、[Trafilatura](https://github.com/adbar/trafilatura) 與 [Readability](https://github.com/mozilla/readability) 沒有「每月 API 額度」，因為它們本來就是在自己的環境執行的 library。[Scrapy](https://github.com/scrapy/scrapy)、SearXNG、Crawl4AI、Qdrant 與 Meilisearch 也是同一類，只是負責的層次不同。
 
@@ -140,6 +143,7 @@ return result;
 
 ## 更新紀錄
 
+- 2026-08-29：補入 TinyFish Search/Fetch 的持續限速免費層、$0 Wallet 邊界、Agent/Browser 付費邊界與 429 處理差異。
 - 2026-08-22：將週期額度、持續限速與一次性 trial 分表，補入 Search、browser 與 scraping 服務。
 - 2026-08-22：將 Hyperbrowser 5,000 credits 更正為一次性，並修正 Exa、Linkup、AgentQL、Browserbase、Bright Data 與 Jina 的額度說明。
 - 2026-08-22：加入 Perplexity 與 Google Custom Search JSON API 反例，避免把 consumer plan 或前端 widget 當成免費 API。
@@ -157,6 +161,10 @@ return result;
 - [Parallel Pricing](https://parallel.ai/pricing)
 - [Parallel Free Tier Mechanics](https://parallel.ai/blog/free-tier-parallel)
 - [You.com Quickstart and Free MCP](https://you.com/docs/quickstart)
+- [TinyFish Search and Fetch are now free](https://www.tinyfish.ai/blog/search-and-fetch-are-now-free-for-every-agent-everywhere)
+- [TinyFish Pricing](https://www.tinyfish.ai/pricing)
+- [TinyFish Developer Documentation](https://docs.tinyfish.ai/)
+- [TinyFish Error Codes](https://docs.tinyfish.ai/error-codes)
 
 ### Browser、Scrape 與持續限速
 
