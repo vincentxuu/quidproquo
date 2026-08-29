@@ -22,6 +22,7 @@ import {
   STEP_LABELS,
   asString,
   eventsToThreadMessages,
+  stringify,
   truncate,
   type DiffPayload,
   type EventRow,
@@ -54,6 +55,36 @@ function badgeClass(status: SessionStatus) {
     default:
       return 'bg-[var(--admin-color-warning-soft)] text-[var(--admin-warning)]'
   }
+}
+
+function isRunningStatus(status: SessionStatus) {
+  return status === 'running' || status === 'queued' || status === 'pending' || status === 'paused'
+}
+
+function normalizeSessionStatus(status?: string): SessionStatus | undefined {
+  if (!status) return undefined
+  if (status === 'waiting') return 'paused'
+  return status
+}
+
+function eventFingerprint(type: SessionEventType, payload: Record<string, unknown>) {
+  if (type === 'assistant') {
+    return `${type}:${asString(payload.content)}:${asString(payload.stopReason || payload.stop_reason)}`
+  }
+  if (type === 'user' || type === 'result') {
+    return `${type}:${asString(payload.content)}`
+  }
+  if (type === 'system/init') {
+    return `${type}:${asString(payload.sessionId || payload.session_id)}:${asString(payload.model)}:${asString(payload.mode)}`
+  }
+  if (type === 'tool_use') {
+    return `${type}:${asString(payload.toolCallId || payload.tool_call_id)}:${asString(payload.toolName || payload.tool_name)}:${stringify(payload.input)}`
+  }
+  if (type === 'control_request') {
+    const nested = (payload.payload && typeof payload.payload === 'object' ? payload.payload : payload) as Record<string, unknown>
+    return `${type}:${asString(nested.requestId || nested.id)}:${asString(nested.toolName || nested.tool_name)}`
+  }
+  return `${type}:${stringify(payload)}`
 }
 
 function StatusIndicator({ state, message }: { state: StatusIndicatorState; message?: string }) {
@@ -225,16 +256,31 @@ export function AdminSessionChat({
   const lastEventIdRef = useRef<string | null>(null)
   const sessionStatusRef = useRef<SessionStatus>(initialSession?.status || 'unknown')
   const seenEventIdsRef = useRef(new Set(initialEvents.map(event => event.id)))
+  const seenEventFingerprintsRef = useRef(new Set(initialEvents.map(event => eventFingerprint(event.type, event.payload))))
   const rowCounterRef = useRef(0)
 
-  const running = sessionStatus === 'running' || sessionStatus === 'queued' || sessionStatus === 'paused'
+  const running = isRunningStatus(sessionStatus)
   const showComposer = sessionStatus !== 'unknown' && !running
   const threadMessages = useMemo(() => eventsToThreadMessages(events), [events])
+  const visibleThreadMessages = useMemo(() => {
+    if (!running) return threadMessages
+    const runningText = statusIndicator.message || (sessionStatus === 'queued' || sessionStatus === 'pending' ? '等待執行器啟動...' : 'Agent 正在處理...')
+    return [
+      ...threadMessages,
+      {
+        id: 'session-running-indicator',
+        role: 'system' as const,
+        content: runningText,
+        metadata: { custom: { eventType: 'system/status' } },
+      },
+    ]
+  }, [running, sessionStatus, statusIndicator.message, threadMessages])
 
   const updateStatus = useCallback((status?: SessionStatus) => {
-    if (!status) return
-    sessionStatusRef.current = status
-    setSessionStatus(status)
+    const normalized = normalizeSessionStatus(status)
+    if (!normalized) return
+    sessionStatusRef.current = normalized
+    setSessionStatus(normalized)
   }, [])
 
   const appendEvent = useCallback((type: SessionEventType, payload: Record<string, unknown>, eventId?: string, fallbackKey?: string) => {
@@ -242,6 +288,9 @@ export function AdminSessionChat({
     if (seenEventIdsRef.current.has(key)) return
     seenEventIdsRef.current.add(key)
     if (eventId) lastEventIdRef.current = eventId
+    const fingerprint = eventFingerprint(type, payload)
+    if (seenEventFingerprintsRef.current.has(fingerprint)) return
+    seenEventFingerprintsRef.current.add(fingerprint)
 
     if (type === 'system/status') {
       setStatusIndicator({
@@ -258,11 +307,20 @@ export function AdminSessionChat({
       })
     }
     if (type === 'system/init') setStatusIndicator({ state: 'working', message: 'Starting...' })
+    if (type === 'assistant') setStatusIndicator({ state: 'working', message: '回覆已更新' })
+    if (type === 'result') {
+      updateStatus('done')
+      setStatusIndicator({ state: 'finished', message: asString(payload.content, 'Session complete') })
+    }
     if (type === 'control_request') {
+      updateStatus('paused')
       const nested = (payload.payload && typeof payload.payload === 'object' ? payload.payload : payload) as Record<string, unknown>
       setStatusIndicator({ state: 'waiting_approval', message: asString(nested.displayName || nested.display_name || nested.toolName) })
     }
-    if (type === 'control_response') setStatusIndicator({ state: 'working' })
+    if (type === 'control_response') {
+      updateStatus('running')
+      setStatusIndicator({ state: 'working' })
+    }
     if (type === 'env_manager_log') {
       const step = asString(payload.step)
       const status = asString(payload.status)
@@ -324,11 +382,13 @@ export function AdminSessionChat({
 
     source.onerror = () => {
       source.close()
-      if (sessionStatusRef.current === 'running' || sessionStatusRef.current === 'queued') {
+      void loadSession()
+      if (isRunningStatus(sessionStatusRef.current)) {
+        setStatusIndicator({ state: 'working', message: '重新連線中...' })
         window.setTimeout(connectSSE, 2000)
       }
     }
-  }, [appendEvent, sessionId])
+  }, [appendEvent, loadSession, sessionId])
 
   useEffect(() => {
     if (disableLiveUpdates) return undefined
@@ -500,7 +560,7 @@ export function AdminSessionChat({
       <ProvisionBar steps={provisionSteps} />
 
       <AssistantThread
-        messages={threadMessages}
+        messages={visibleThreadMessages}
         running={running}
         composer={showComposer}
         composerInputId="resume-input"

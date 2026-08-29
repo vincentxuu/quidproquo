@@ -114,8 +114,13 @@ server.registerTool(
     inputSchema: {
       url: z
         .string()
-        .url()
-        .refine((value) => ["http:", "https:"].includes(new URL(value).protocol), {
+        .refine((value) => {
+          try {
+            return ["http:", "https:"].includes(new URL(value).protocol);
+          } catch {
+            return false;
+          }
+        }, {
           message: "Only HTTP and HTTPS URLs are allowed",
         })
         .describe("Public HTTP(S) URL to fetch"),

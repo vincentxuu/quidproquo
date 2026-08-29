@@ -138,13 +138,12 @@ function richTextToMd(titleArr) {
     const text = seg[0] || '';
     const anns = seg[1] || [];
     let result = text;
-    let hasLink = false;
     for (const ann of anns) {
       if (!Array.isArray(ann)) continue;
       if (ann[0] === 'b') result = `**${result}**`;
       if (ann[0] === 'i') result = `*${result}*`;
       if (ann[0] === 'c') result = `\`${result}\``;
-      if (ann[0] === 'a' && ann[1]) { result = `[${text}](${ann[1]})`; hasLink = true; }
+      if (ann[0] === 'a' && ann[1]) result = `[${text}](${ann[1]})`;
     }
     return result;
   }).join('');

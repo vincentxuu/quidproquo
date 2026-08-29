@@ -163,7 +163,6 @@ export async function runLoop(
       toolCalls: res.toolCalls?.map((tc) => ({ id: tc.id, name: tc.name, input: tc.input })),
     }
     await writeEventToD1(deps, assistantEvent)
-    await deps.persistEvent('assistant', { content: res.content, stopReason: res.stopReason })
     deps.broadcast?.({ type: 'assistant', content: res.content, turn: state.turnCount })
 
     if (!res.toolCalls || res.toolCalls.length === 0 || res.stopReason !== 'tool_use') {
@@ -209,7 +208,6 @@ export async function runLoop(
 
         const controlEvent = buildControlRequestEvent(req)
         await writeEventToD1(deps, controlEvent)
-        await deps.persistEvent('control_request', { requestId: req.requestId, toolName: tc.name, input: tc.input })
         deps.broadcast?.({ type: 'control_request', requestId: req.requestId, toolName: tc.name, input: tc.input })
 
         if (deps.persistApproval) {
@@ -258,7 +256,6 @@ export async function runLoop(
           durationMs,
         }
         await writeEventToD1(deps, toolUseEvent)
-        await deps.persistEvent('tool_result', { toolId: tc.id, toolName: tc.name })
         deps.broadcast?.({ type: 'tool_result', toolName: tc.name, turn: state.turnCount })
       } catch (e) {
         const err = e instanceof Error ? e.message : String(e)
@@ -295,7 +292,6 @@ export async function runLoop(
       totalCostUsd: 0,
     }
     await writeEventToD1(deps, resultEvent)
-    await deps.persistEvent('max_turns', { turnCount: state.turnCount })
   }
 
   return state

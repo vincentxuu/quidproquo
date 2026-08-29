@@ -15,8 +15,6 @@
 
 import { spawn } from 'node:child_process'
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
-import { glob as fsGlob } from 'node:fs'
-import { promisify } from 'node:util'
 import { hostname } from 'node:os'
 import { resolve, dirname } from 'node:path'
 import WebSocket from 'ws'

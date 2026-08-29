@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, { useState, useCallback, useEffect, useRef, type ChangeEvent, type SubmitEvent as ReactSubmitEvent } from 'react'
 import './SearchWidget.css'
 
 interface SearchResult {
@@ -201,7 +201,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [searchAttempted, isLoading, results, focusedIndex])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: ReactSubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (query.trim()) {
       const nextQuery = query.trim()
@@ -210,7 +210,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     }
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value)
     if (e.target.value.length === 0) {
       setShowSuggestions(true)

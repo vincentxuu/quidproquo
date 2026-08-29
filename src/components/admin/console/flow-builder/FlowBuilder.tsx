@@ -44,7 +44,6 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
     const handler = (e: BeforeUnloadEvent) => {
       if (isDirtyRef.current) {
         e.preventDefault()
-        e.returnValue = ''
       }
     }
     window.addEventListener('beforeunload', handler)
