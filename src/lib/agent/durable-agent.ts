@@ -11,6 +11,11 @@
 import type { SessionEvent } from './events'
 import { fromSessionEvent } from './events'
 import type { RunnerHandle } from './runner/types'
+import type { SessionMode, ToolPermissionPolicy } from './mode'
+import { shouldRequestApproval, decisionReason } from './mode'
+import { buildToolControlRequest, buildControlRequestEvent } from './control-protocol'
+import { waitForApproval } from './approval-queue'
+import { isPlanModeExitRequest } from './plan-mode'
 
 export type LoopMessage = {
   role: 'user' | 'assistant' | 'tool_result'
@@ -44,6 +49,17 @@ export type LoopDeps = {
   kv?: KVNamespace
   runner?: RunnerHandle
   emitSessionEvent?: (event: SessionEvent) => Promise<void>
+
+  mode?: SessionMode
+  toolPolicies?: Map<string, ToolPermissionPolicy>
+  persistApproval?: (req: {
+    approvalId: string
+    subtype: string
+    displayName: string
+    inputJson: string
+    riskScore: number
+  }) => Promise<void>
+  transitionSession?: (status: string) => Promise<void>
 }
 
 const MAX_TURNS = 30
@@ -155,28 +171,69 @@ export async function runLoop(
     }
 
     for (const tc of res.toolCalls) {
-      if (deps.shouldBlockForApproval?.(tc.name, tc.input)) {
-        const reqId = `appr_${Date.now()}_${tc.id}`
-        state.pendingApprovals.set(reqId, { toolName: tc.name, input: tc.input })
+      const mode = deps.mode ?? 'auto'
+      const needsApproval = shouldRequestApproval(mode, tc.name, tc.input, deps.toolPolicies)
+        || deps.shouldBlockForApproval?.(tc.name, tc.input)
 
-        const controlEvent: SessionEvent = {
-          type: 'control_request',
-          subtype: 'can_use_tool',
-          payload: { requestId: reqId, toolName: tc.name, input: tc.input },
-        }
+      if (isPlanModeExitRequest(tc.name) && mode === 'plan') {
+        const planContent = typeof tc.input === 'object' && tc.input !== null
+          ? (tc.input as Record<string, unknown>).plan as string ?? JSON.stringify(tc.input)
+          : String(tc.input)
+        const req = buildToolControlRequest('ExitPlanMode', { plan: planContent }, 'Plan complete — review and approve')
+        req.subtype = 'exit_plan_mode'
+        const controlEvent = buildControlRequestEvent(req)
         await writeEventToD1(deps, controlEvent)
-        await deps.persistEvent('control_request', { requestId: reqId, toolName: tc.name, input: tc.input })
-        deps.broadcast?.({ type: 'control_request', requestId: reqId, toolName: tc.name, input: tc.input })
-
-        const toolMsg: LoopMessage = {
-          role: 'tool_result',
-          content: `Approval required for ${tc.name} (requestId: ${reqId}) — waiting for human. Returning error so LLM can adapt.`,
-          toolCallId: tc.id,
-          toolName: tc.name,
+        if (deps.persistApproval) {
+          await deps.persistApproval({ approvalId: req.requestId, subtype: 'exit_plan_mode', displayName: 'Exit Plan Mode', inputJson: JSON.stringify({ plan: planContent }), riskScore: 0 })
         }
-        state.messages.push(toolMsg)
-        await deps.persistMessage(toolMsg)
+        if (deps.transitionSession) await deps.transitionSession('paused')
+        try {
+          await waitForApproval(req.requestId)
+          const toolMsg: LoopMessage = { role: 'tool_result', content: 'Plan approved — proceeding.', toolCallId: tc.id, toolName: tc.name }
+          state.messages.push(toolMsg)
+          await deps.persistMessage(toolMsg)
+          if (deps.transitionSession) await deps.transitionSession('running')
+        } catch {
+          const toolMsg: LoopMessage = { role: 'tool_result', content: 'Plan rejected — staying in plan mode.', toolCallId: tc.id, toolName: tc.name }
+          state.messages.push(toolMsg)
+          await deps.persistMessage(toolMsg)
+          if (deps.transitionSession) await deps.transitionSession('running')
+        }
         continue
+      }
+
+      if (needsApproval) {
+        const reason = decisionReason(mode, tc.name, tc.input)
+        const req = buildToolControlRequest(tc.name, tc.input, reason)
+        state.pendingApprovals.set(req.requestId, { toolName: tc.name, input: tc.input })
+
+        const controlEvent = buildControlRequestEvent(req)
+        await writeEventToD1(deps, controlEvent)
+        await deps.persistEvent('control_request', { requestId: req.requestId, toolName: tc.name, input: tc.input })
+        deps.broadcast?.({ type: 'control_request', requestId: req.requestId, toolName: tc.name, input: tc.input })
+
+        if (deps.persistApproval) {
+          await deps.persistApproval({ approvalId: req.requestId, subtype: 'can_use_tool', displayName: tc.name, inputJson: JSON.stringify(tc.input), riskScore: req.riskScore })
+        }
+        if (deps.transitionSession) await deps.transitionSession('paused')
+
+        try {
+          await waitForApproval(req.requestId)
+          state.pendingApprovals.delete(req.requestId)
+          if (deps.transitionSession) await deps.transitionSession('running')
+        } catch {
+          state.pendingApprovals.delete(req.requestId)
+          if (deps.transitionSession) await deps.transitionSession('running')
+          const toolMsg: LoopMessage = {
+            role: 'tool_result',
+            content: `Tool ${tc.name} was denied by human reviewer.`,
+            toolCallId: tc.id,
+            toolName: tc.name,
+          }
+          state.messages.push(toolMsg)
+          await deps.persistMessage(toolMsg)
+          continue
+        }
       }
 
       const toolUseStart = Date.now()

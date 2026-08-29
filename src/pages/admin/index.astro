@@ -73,11 +73,11 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
 
     async function loadNeedsYou() {
       try {
-        const res = await fetch('/api/admin/sessions?needs_action=1&limit=10');
+        const res = await fetch('/api/admin/home/needs-you');
         if (!res.ok) return;
         const data = await res.json();
-        const sessions = data.sessions || [];
-        if (sessions.length === 0) {
+        const total = data.totalItems || 0;
+        if (total === 0) {
           needsYouSection?.classList.add('collapsed');
           if (needsYouOk) needsYouOk.hidden = false;
           if (needsYouItems) needsYouItems.hidden = true;
@@ -88,21 +88,55 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
         if (needsYouItems) {
           needsYouItems.hidden = false;
           needsYouItems.innerHTML = '';
-          for (const s of sessions) {
+          for (const a of (data.pendingApprovals || [])) {
+            const item = document.createElement('div');
+            item.className = 'needs-you-item needs-you-approval';
+            const label = document.createElement('span');
+            label.textContent = '⚠ ' + (a.display_name || 'Tool') + ': ' + truncate(a.input_json || a.reason || '', 60);
+            const actions = document.createElement('span');
+            actions.className = 'needs-you-actions';
+            const allowBtn = document.createElement('button');
+            allowBtn.className = 'btn-sm btn-primary';
+            allowBtn.textContent = '核准';
+            allowBtn.onclick = () => handleApproval(a.approval_id, a.run_id, 'allow', item);
+            const denyBtn = document.createElement('button');
+            denyBtn.className = 'btn-sm btn-danger';
+            denyBtn.textContent = '拒絕';
+            denyBtn.onclick = () => handleApproval(a.approval_id, a.run_id, 'deny', item);
+            actions.append(allowBtn, denyBtn);
+            item.append(label, actions);
+            needsYouItems.appendChild(item);
+          }
+          for (const s of (data.failedSessions || [])) {
             const item = document.createElement('a');
             item.href = '/admin/sessions/' + encodeURIComponent(s.id);
             item.className = 'needs-you-item';
-            const badge = document.createElement('span');
-            badge.className = 'badge badge-' + badgeClass(s.status);
-            badge.textContent = s.status;
-            const label = document.createElement('span');
-            label.textContent = s.name || s.summary_detail || s.id.slice(0, 8);
-            item.append(badge, label);
+            item.textContent = '✗ ' + (s.name || s.id.slice(0, 8)) + ': ' + (s.summary_detail || 'failed');
+            needsYouItems.appendChild(item);
+          }
+          for (const s of (data.needsActionSessions || [])) {
+            const item = document.createElement('a');
+            item.href = '/admin/sessions/' + encodeURIComponent(s.id);
+            item.className = 'needs-you-item';
+            item.textContent = '📋 ' + (s.name || s.id.slice(0, 8)) + ': ' + (s.summary_detail || '');
             needsYouItems.appendChild(item);
           }
         }
       } catch {}
     }
+
+    async function handleApproval(approvalId, sessionId, behavior, el) {
+      try {
+        const res = await fetch('/api/admin/sessions/' + encodeURIComponent(sessionId) + '/approve', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ approval_id: approvalId, behavior }),
+        });
+        if (res.ok) { el.remove(); loadNeedsYou(); }
+      } catch {}
+    }
+
+    function truncate(s, n) { return s.length > n ? s.slice(0, n) + '…' : s; }
 
     async function loadRecents() {
       try {

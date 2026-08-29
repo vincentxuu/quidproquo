@@ -47,7 +47,7 @@ export interface ControlRequestPayload {
 
 export interface ControlRequestEvent {
   type: 'control_request'
-  subtype: 'can_use_tool'
+  subtype: 'can_use_tool' | 'exit_plan_mode'
   payload: ControlRequestPayload
 }
 

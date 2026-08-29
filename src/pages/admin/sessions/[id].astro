@@ -137,12 +137,25 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
         }
         case 'control_request': {
           card.className += ' event-approval';
-          card.innerHTML = '<div class="event-role">⚠️ ' + esc(payload.decision_reason || 'Permission request') + '</div>'
-            + '<div class="approval-buttons">'
-            + '<button class="action-btn" data-approve="allow">允許</button>'
-            + '<button class="action-btn danger" data-approve="deny">拒絕</button></div>';
+          const p = payload.payload || payload;
+          const reqId = p.requestId || p.id || '';
+          const isExitPlan = (payload.subtype === 'exit_plan_mode');
+          let buttonsHtml;
+          if (isExitPlan) {
+            buttonsHtml = '<button class="action-btn" data-approve="accept">接受</button>'
+              + '<button class="action-btn" data-approve="accept_auto">接受 + Auto mode</button>'
+              + '<button class="action-btn danger" data-approve="reject">拒絕</button>';
+          } else {
+            buttonsHtml = '<button class="action-btn" data-approve="allow">允許</button>'
+              + '<button class="action-btn danger" data-approve="deny">拒絕</button>';
+          }
+          const displayName = p.displayName || p.display_name || p.toolName || '';
+          const reason = p.decisionReason || p.decision_reason || 'Permission request';
+          card.innerHTML = '<div class="event-role">⚠️ ' + esc(displayName) + ' — ' + esc(reason) + '</div>'
+            + (isExitPlan && p.input?.plan ? '<pre class="event-pre plan-preview">' + esc(String(p.input.plan).slice(0, 2000)) + '</pre>' : '')
+            + '<div class="approval-buttons">' + buttonsHtml + '</div>';
           card.querySelectorAll('[data-approve]').forEach(function (btn) {
-            btn.addEventListener('click', function () { handleApproval(payload.id || '', btn.dataset.approve); });
+            btn.addEventListener('click', function () { handleApproval(reqId, btn.dataset.approve); });
           });
           break;
         }
@@ -159,8 +172,14 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
       streamEl.appendChild(card);
     }
 
-    async function handleApproval(id, decision) {
-      try { await fetch('/api/admin/sessions/approvals/' + encodeURIComponent(id) + '/' + decision, { method: 'POST' }); } catch {}
+    async function handleApproval(approvalId, behavior) {
+      try {
+        await fetch('/api/admin/sessions/' + encodeURIComponent(sessionId) + '/approve', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ approval_id: approvalId, behavior }),
+        });
+      } catch {}
     }
 
     btnStop?.addEventListener('click', async function () {
