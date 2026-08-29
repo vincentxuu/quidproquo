@@ -34,9 +34,12 @@ type NavItem = {
   children?: NavChild[];
 };
 
-const navItems: NavItem[] = [
+const chatNavItems: NavItem[] = [
   { href: '/admin/sessions', label: 'Sessions', key: 'sessions', icon: 'activity' },
   { href: '/admin/routines', label: 'Routines', key: 'routines', icon: 'refresh-cw' },
+];
+
+const adminNavItems: NavItem[] = [
   { href: '/admin/flows',    label: 'Flows',    key: 'flows',    icon: 'workflow' },
   { href: '/admin/settings', label: 'Settings', key: 'settings', icon: 'settings', children: [
     { href: '/admin/settings/site',         label: 'Site' },
@@ -49,6 +52,9 @@ const navItems: NavItem[] = [
     { href: '/admin/settings/behavior',     label: 'Behavior' },
   ]},
 ];
+
+const isChatSection = section === 'home' || section === 'sessions' || section === 'routines';
+const defaultMode = isChatSection ? 'chat' : 'admin';
 
 function isActive(key: string): boolean {
   if (key === 'home') return currentPath === '/admin' || currentPath === '/admin/';
@@ -85,6 +91,14 @@ const sectionLabels: Record<string, string> = {
             <strong>quidproquo</strong>
           </span>
         </a>
+        <div class="mode-toggle" id="mode-toggle">
+          <button class:list={['mode-btn', { active: defaultMode === 'chat' }]} data-mode="chat" title="Chat mode" aria-label="Chat mode">
+            <Icons name="list" size={14} />
+          </button>
+          <button class:list={['mode-btn', { active: defaultMode === 'admin' }]} data-mode="admin" title="Admin mode" aria-label="Admin mode">
+            <Icons name="settings" size={14} />
+          </button>
+        </div>
       </div>
 
       <div class="sidebar-actions">
@@ -94,8 +108,22 @@ const sectionLabels: Record<string, string> = {
         </a>
       </div>
 
-      <nav class="sidebar-nav" aria-label="Admin navigation">
-        {navItems.map(item => item.children ? (
+      <nav class="sidebar-nav chat-nav" data-nav="chat" aria-label="Chat navigation" style={defaultMode === 'admin' ? 'display:none' : ''}>
+        {chatNavItems.map(item => (
+          <a
+            href={item.href}
+            class:list={['nav-item', { active: isActive(item.key) }]}
+            aria-current={isActive(item.key) ? 'page' : undefined}
+            title={item.label}
+          >
+            <Icons name={item.icon} size={15} />
+            <span class="nav-label">{item.label}</span>
+          </a>
+        ))}
+      </nav>
+
+      <nav class="sidebar-nav admin-nav" data-nav="admin" aria-label="Admin navigation" style={defaultMode === 'chat' ? 'display:none' : ''}>
+        {adminNavItems.map(item => item.children ? (
           <details class="nav-group" open={isActive(item.key)}>
             <summary class:list={['nav-item', { active: isActive(item.key) }]} title={item.label}>
               <Icons name={item.icon} size={15} />
@@ -128,7 +156,7 @@ const sectionLabels: Record<string, string> = {
         ))}
       </nav>
 
-      <div class="sidebar-recents" id="sidebar-recents">
+      <div class="sidebar-recents" id="sidebar-recents" style={defaultMode === 'admin' ? 'display:none' : ''}>
         <div class="recents-header">
           <span>Recents</span>
         </div>
@@ -171,7 +199,7 @@ const sectionLabels: Record<string, string> = {
                   <span class="new-session-plus-sm">+</span>
                   New
                 </a>
-                {navItems.map(item => (
+                {[...chatNavItems, ...adminNavItems].map(item => (
                   <a
                     href={item.href}
                     class:list={['mobile-nav-item', { active: isActive(item.key) }]}
@@ -231,7 +259,7 @@ const sectionLabels: Record<string, string> = {
     </main>
   </div>
 
-  <script>
+  <script data-default-mode={defaultMode} is:inline>
     async function loadRecents() {
       try {
         const res = await fetch('/api/admin/sessions?limit=15');
@@ -244,7 +272,7 @@ const sectionLabels: Record<string, string> = {
           list.innerHTML = '<span class="recents-empty">尚無 Session</span>';
           return;
         }
-        list.innerHTML = sessions.map((s: { id: string; name?: string; instruction?: string; status?: string }) => {
+        list.innerHTML = sessions.map((s) => {
           const label = s.name || s.instruction?.slice(0, 40) || s.id.slice(0, 8);
           const statusClass = s.status === 'running' ? 'running' : s.status === 'failed' ? 'failed' : 'done';
           return `<a href="/admin/sessions/${s.id}" class="recent-item"><span class="status-dot ${statusClass}"></span><span class="recent-label">${label}</span></a>`;
@@ -252,6 +280,41 @@ const sectionLabels: Record<string, string> = {
       } catch { /* silent */ }
     }
     document.addEventListener('DOMContentLoaded', loadRecents);
+
+    // Mode toggle
+    function setMode(mode) {
+      const chatNav = document.querySelector('[data-nav="chat"]') ;
+      const adminNav = document.querySelector('[data-nav="admin"]') ;
+      const recents = document.getElementById('sidebar-recents');
+      const chatBtn = document.querySelector('[data-mode="chat"]');
+      const adminBtn = document.querySelector('[data-mode="admin"]');
+      if (!chatNav || !adminNav) return;
+
+      if (mode === 'chat') {
+        chatNav.style.display = '';
+        adminNav.style.display = 'none';
+        if (recents) recents.style.display = '';
+        chatBtn?.classList.add('active');
+        adminBtn?.classList.remove('active');
+      } else {
+        chatNav.style.display = 'none';
+        adminNav.style.display = '';
+        if (recents) recents.style.display = 'none';
+        chatBtn?.classList.remove('active');
+        adminBtn?.classList.add('active');
+      }
+      try { localStorage.setItem('admin-mode', mode); } catch {}
+    }
+
+    document.getElementById('mode-toggle')?.addEventListener('click', (e) => {
+      const btn = (e.target ).closest('[data-mode]');
+      if (btn) setMode(btn.dataset.mode);
+    });
+
+    const scriptEl = document.querySelector('script[data-default-mode]');
+    const pageDefaultMode = scriptEl?.getAttribute('data-default-mode') || 'chat';
+    const saved = (() => { try { return localStorage.getItem('admin-mode'); } catch { return null; } })();
+    setMode(saved || pageDefaultMode);
   </script>
 </body>
 </html>
@@ -315,6 +378,40 @@ const sectionLabels: Record<string, string> = {
 
   .sidebar-header {
     padding: 0.75rem 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mode-toggle {
+    display: flex;
+    background: var(--admin-border);
+    border-radius: 6px;
+    padding: 2px;
+    gap: 2px;
+  }
+
+  .mode-btn {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 26px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .mode-btn:hover {
+    color: var(--admin-text);
+  }
+
+  .mode-btn.active {
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
   }
 
   .admin-brand {
