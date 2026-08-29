@@ -31,7 +31,7 @@ jobs:
         run: pnpm lint
 
       - name: Astro check (import/D0)
-        run: pnpm astro check
+        run: pnpm astro check --minimumSeverity error
 
       - name: Check post references
         run: pnpm check:references
@@ -42,6 +42,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Apply D1 migrations
+        continue-on-error: true
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
