@@ -124,8 +124,15 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     currentQueryRef.current = searchQuery
 
     try {
+      const params = new URLSearchParams({
+        q: searchQuery,
+        mode: 'hybrid',
+        lang,
+        limit: String(PAGE_SIZE),
+        offset: String(offset),
+      })
       const res: SearchResponse = await fetch(
-        `/api/search?q=${encodeURIComponent(searchQuery)}&mode=hybrid&limit=${PAGE_SIZE}&offset=${offset}`
+        `/api/search?${params.toString()}`
       ).then(r => r.json())
 
       if (res.error === 'rate_limit') {
@@ -147,7 +154,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
       setIsLoading(false)
       setIsLoadingMore(false)
     }
-  }, [t.error, t.rateLimited, saveToHistory, results.length])
+  }, [lang, t.error, t.rateLimited, saveToHistory, results.length])
 
   useEffect(() => {
     if (initialUrlSearchRan.current) return
