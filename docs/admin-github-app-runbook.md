@@ -51,6 +51,8 @@ The content index path is conditional. `content:ops`, `seo:freshness`, `seo:obse
 
 This keeps admin-only or docs-only deploys from re-syncing all posts and chunks to production D1.
 
+The workflow uses `actions/checkout` with `fetch-depth: 0` because the content detector compares `github.event.before` with `github.sha`. Shallow checkout does not always contain the previous commit and can make `git diff` fail with `fatal: bad object`.
+
 ## Required GitHub App Values
 
 Set these as production Worker secrets:
