@@ -165,6 +165,7 @@
   - 本次處置：不產出 `2026-08-30-funding-*.md`（無法依 skill 規定的工具與交叉驗證流程查證任何融資事件，若改用未授權工具硬湊會違反 Tier 3「無來源寫事實」與 skill 明文禁止事項）。
 - 為什麼現在不能做：Groundlane 是否要 `enabledInChat: true` 是這個 chat／session 的 connector 設定（見系統訊息 `enabledInChat` 欄位），屬於使用者或 workspace 管理者在 claude.ai 的 connector 設定頁面操作範圍，repo 內無法自行改。是否要放寬 skill 允許 Exa/Tavily 當 fallback，也需要人拍板（會弱化 skill 明文的「僅 Groundlane」品質要求，且違反 skill 現有的 Tier 3 精神），屬批次改動多支 skill 的 Tier 2 決策。
 - 接手第一步：(1) 使用者到這個 chat／workspace 的 connector 設定裡把 groundlane 的 `enabledInChat` 打開（不需要重新授權，`installState` 已是 connected）；(2) 打開後找一支已知受影響的 routine（例如本條或 daily-digest-model-card）重跑一次確認 `ToolSearch` 能查到 Groundlane 工具；(3) 若打開後仍查不到，才需要再往 connector credential／授權失敗的方向排查（那才是 skill 原本設計要處理的「authorization 失敗」情境）；(4) 確認解決後，把本條與 progress.txt 裡舊的「Q-016（撞號）」筆記一併標記完成、移到 Done 區。
+- **2026-08-30 確認（來源：daily-digest-signals routine 執行時再次確認）**：`ToolSearch` 查詢 `"Groundlane"` 與 `"web_search web_fetch web_extract"` 皆查無任何 Groundlane 工具；`ListConnectors` 再次回報同一狀態 `{"name":"groundlane","installState":"connected","connected":true,"enabledInChat":false}`，與 daily-digest-funding 當天記錄的現象完全一致，非偶發。daily-digest-signals 是 Stage 2 routine，餵給 Stage 3 `daily-digest-report`——本次同樣不產出 `src/data/daily-signals/2026-08-30.json`（無法依 skill 規定的 86 次查詢工具契約執行，硬用 Exa/Tavily 湊數會違反 skill 明文禁止與 Tier 3「無來源寫事實」精神），連帶今日 Stage 3 日報組裝也會因缺 Stage 2 中繼檔而受影響，需一併留意。累計已知受影響 routine：model-card、funding、signals（framework／github 屬於 Q-019 的獨立成因，不算在 Q-020 內）。
 
 ## Q-019 daily-digest-github 的必要工具全部不可用：Groundlane 不存在、`gh` CLI 未安裝、GitHub MCP 被限定只能存取本 repo
 
