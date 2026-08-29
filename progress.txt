@@ -85,8 +85,5 @@ Recently completed
 Notes
 - Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md（agent 必讀：來源、已查證事實、URL 遷移、主題藍圖）；Anthropic 官方考點與資料管道地圖在 docs/anthropic-official-signals.md。
 - Some TODO entries are stale: English home about, Pagefind integration, OG image generation, and part of the redesign already exist in the repo.- CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，並明載影片在 Canvas、作業在 Ed、繳交在 Gradescope；Winter 2024–25 官方課表確認有開課且標示 SCPD，但未找到當期公開課站或 Stanford Online YouTube 完整播放清單。維持逐講阻塞，不用 Coursera 舊課或 2025 tutorial 冒充當期授課；來源與下次複查順序已記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
-- agent-* projects (foundation/evidence/flow/artifact/policy/pipelines-unify/
-  console/providers/os): code complete, pending production observation windows.
-  Status snapshots in docs/progress-archive.md; pending decisions in
-  docs/governance/escalation-queue.md.
+- agent-* projects (foundation/evidence/flow/artifact/policy/pipelines-unify/console/providers/os): code complete, pending production observation windows. Status snapshots in docs/progress-archive.md; pending decisions in docs/governance/escalation-queue.md.
 - **Q-015（2026-08-27）**：Tavily API 額度用盡（432），daily-digest-signals 今日未產出（寧缺不湊數）；影響所有依賴 Tavily 的 daily-digest routine，待人決定升級方案或改 skill fallback。

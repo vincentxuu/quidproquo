@@ -1,0 +1,125 @@
+{
+  "generated_at": "2026-08-29T05:56:02.484Z",
+  "config": {
+    "paths": {
+      "contentOps": "docs/content-ops-report.json",
+      "queries": "docs/seo-observability-queries.json",
+      "report": "docs/seo-observability-report.json"
+    },
+    "searchConsole": {
+      "siteUrl": "sc-domain:quidproquo.cc",
+      "dimensions": [
+        "query",
+        "page"
+      ],
+      "type": "web",
+      "rowLimit": 1000,
+      "tokenEnv": "GSC_ACCESS_TOKEN",
+      "configured": false
+    },
+    "ga4": {
+      "propertyId": "",
+      "dimensions": [
+        "pagePath"
+      ],
+      "metrics": [
+        "activeUsers",
+        "screenPageViews",
+        "sessions"
+      ],
+      "rowLimit": 1000,
+      "tokenEnv": "GA4_ACCESS_TOKEN",
+      "configured": false
+    },
+    "dateRange": {
+      "startDate": "2026-07-31",
+      "endDate": "2026-08-27"
+    }
+  },
+  "inputs": {
+    "content_ops": "docs/content-ops-report.json",
+    "queries": "docs/seo-observability-queries.json",
+    "gsc": null,
+    "bing": null,
+    "llm": null,
+    "live_fetch": {
+      "gsc": false,
+      "ga4": false
+    }
+  },
+  "technical": {
+    "built_artifacts": {
+      "checked": true,
+      "sitemap_admin_urls": 0,
+      "home_has_website_jsonld": true,
+      "post_has_blogposting_jsonld": true,
+      "post_has_double_slash_og": false
+    }
+  },
+  "content": {
+    "generated_at": "2026-08-22T07:11:34.822Z",
+    "summary": {
+      "posts": 2240,
+      "missing_tldr": 4,
+      "missing_description": 2,
+      "missing_difficulty": 2120,
+      "duplicate_candidates": 16099,
+      "freshness_candidates": 939,
+      "content_gaps": 0
+    }
+  },
+  "search": {
+    "google_search_console": {
+      "rows": 0,
+      "clicks": 0,
+      "impressions": 0,
+      "ctr": 0,
+      "top_pages": [],
+      "low_ctr_opportunities": []
+    },
+    "bing_webmaster": {
+      "rows": 0,
+      "clicks": 0,
+      "impressions": 0,
+      "ctr": 0,
+      "top_pages": [],
+      "low_ctr_opportunities": []
+    }
+  },
+  "analytics": {
+    "ga4": {
+      "rows": 0,
+      "totals": {
+        "activeUsers": 0,
+        "screenPageViews": 0,
+        "sessions": 0
+      },
+      "top_pages": []
+    }
+  },
+  "aeo": {
+    "configured_probes": 5,
+    "observed_probes": 0,
+    "runs": 0,
+    "cited_runs": 0,
+    "missing_probe_results": [
+      "llms-txt-project-need",
+      "ai-agent-framework-selection",
+      "rag-chinese-empty-results",
+      "coding-agent-design",
+      "cloudflare-workers-d1-vectorize-rag"
+    ],
+    "coverage": []
+  },
+  "live_warnings": [],
+  "priorities": [
+    "Fill 2 missing meta descriptions.",
+    "Fill 4 missing TLDR fields for answer extraction.",
+    "Review 939 freshness candidates before optimizing stale pages.",
+    "Add Google Search Console export to observe impressions, CTR, and indexed query/page pairs.",
+    "Add Bing Webmaster export to observe Bing/Copilot-side search visibility.",
+    "Add GA4 export or env-gated fetch to observe page engagement after search clicks.",
+    "Run fixed AEO probes across answer engines and store public citation results.",
+    "Run missing AEO probes: llms-txt-project-need, ai-agent-framework-selection, rag-chinese-empty-results, coding-agent-design, cloudflare-workers-d1-vectorize-rag."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "updated_at": "2026-08-29",
+  "site": "https://quidproquo.cc",
+  "aeo_probes": [
+    {
+      "id": "llms-txt-project-need",
+      "query": "llms.txt 對個人技術部落格有必要嗎",
+      "intent": "evaluate llms.txt adoption and tradeoffs",
+      "target_paths": [
+        "/posts/tech/2026-08-21-llms-txt/"
+      ]
+    },
+    {
+      "id": "ai-agent-framework-selection",
+      "query": "AI agent framework 怎麼選 LangGraph CrewAI Mastra Pydantic AI",
+      "intent": "framework comparison",
+      "target_paths": [
+        "/posts/ai/2026-08-22-agent-framework-selection-guide/"
+      ]
+    },
+    {
+      "id": "rag-chinese-empty-results",
+      "query": "RAG 中文查詢為什麼搜尋不到結果 FTS5 BM25",
+      "intent": "debug chinese retrieval failure",
+      "target_paths": [
+        "/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug/"
+      ]
+    },
+    {
+      "id": "coding-agent-design",
+      "query": "coding agent 架構設計 tool loop provider abstraction sandbox",
+      "intent": "coding agent architecture",
+      "target_paths": [
+        "/series/coding-agent/"
+      ]
+    },
+    {
+      "id": "cloudflare-workers-d1-vectorize-rag",
+      "query": "Cloudflare Workers D1 Vectorize 做 RAG 實戰",
+      "intent": "cloudflare rag implementation",
+      "target_paths": [
+        "/tags/cloudflare-vectorize/",
+        "/tags/d1/",
+        "/tags/rag/"
+      ]
+    }
+  ],
+  "search_console_dimensions": [
+    "query",
+    "page"
+  ],
+  "tracked_bots": [
+    "Googlebot",
+    "Bingbot",
+    "GPTBot",
+    "ClaudeBot",
+    "PerplexityBot",
+    "Applebot"
+  ]
+}

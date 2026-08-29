@@ -12,7 +12,7 @@
 
 import { execSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
 
 const ROOT = resolve('.');
 const results = [];
@@ -99,6 +99,38 @@ function checkDurableObjectsExport() {
   }
 }
 
+function checkCronEntryImports() {
+  try {
+    const generatorPath = resolve(ROOT, 'scripts/create-cron-entry.mjs');
+    if (!existsSync(generatorPath)) {
+      results.push({ name: 'cron-entry imports', ok: true });
+      return;
+    }
+    const generator = readFileSync(generatorPath, 'utf8');
+    const contentMatch = generator.match(/const content = `([\s\S]*?)`\n\nwriteFileSync/);
+    if (!contentMatch) {
+      results.push({ name: 'cron-entry imports', ok: false, detail: 'Could not find generated cron entry content template' });
+      return;
+    }
+    const generatedPath = resolve(ROOT, 'dist/cron-entry.js');
+    const generatedDir = dirname(generatedPath);
+    const missing = [];
+    for (const match of contentMatch[1].matchAll(/(?:import|export)\s+(?:[^'"]+\s+from\s+)?['"]([^'"]+)['"]/g)) {
+      const specifier = match[1];
+      if (!specifier.startsWith('../src/')) continue;
+      const resolvedPath = resolve(generatedDir, specifier);
+      if (!existsSync(resolvedPath)) missing.push(specifier);
+    }
+    results.push(
+      missing.length === 0
+        ? { name: 'cron-entry imports', ok: true }
+        : { name: 'cron-entry imports', ok: false, detail: `Generated cron entry imports missing files: ${missing.join(', ')}` }
+    );
+  } catch (e) {
+    results.push({ name: 'cron-entry imports', ok: false, detail: String(e) });
+  }
+}
+
 runStep('astro check (types)', 'npx astro check');
 runStep('lint (oxlint)', 'pnpm lint');
 runStep('check:references', 'pnpm check:references');
@@ -107,11 +139,13 @@ runStep('check:tw (台灣用語 A 級)', 'pnpm check:tw');
 runStep('check:glossary', 'pnpm check:glossary');
 runStep('check:series-order', 'pnpm check:series-order');
 runStep('check:lang-parity', 'pnpm check:lang-parity');
+runStep('check:seo-smoke', 'pnpm check:seo-smoke');
 runStep('skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs');
 // check:links 故意不放這裡：它會打外網，pre-commit 不該依賴網路。手動或排程跑 `pnpm check:links`。
 checkDailySkillTimezones();
 checkProgress();
 checkDurableObjectsExport();
+checkCronEntryImports();
 
 let failed = 0;
 process.stdout.write('\n=== pnpm verify ===\n');
