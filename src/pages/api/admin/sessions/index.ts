@@ -20,6 +20,21 @@ interface CreateChatBody {
   runner_provider?: unknown
 }
 
+function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {
+  const typedLocals = locals as {
+    cfContext?: { waitUntil?: (promise: Promise<unknown>) => void }
+    runtime?: { ctx?: { waitUntil?: (promise: Promise<unknown>) => void } }
+  }
+  const cfContext = typedLocals.cfContext
+  if (cfContext?.waitUntil) return cfContext.waitUntil.bind(cfContext)
+  const runtimeCtx = typedLocals.runtime?.ctx
+  return runtimeCtx?.waitUntil?.bind(runtimeCtx)
+}
+
+function getAgentSessionStub(e: Env, id: string): DurableObjectStub {
+  return e.AGENT_SESSION_DO.get(e.AGENT_SESSION_DO.idFromName(id))
+}
+
 function readOptionalString(value: unknown): string | undefined {
   return typeof value === 'string' && value.trim() ? value.trim() : undefined
 }
@@ -73,15 +88,18 @@ async function createDevSessionFallback(e: Env, id: string, input: {
   runner_provider?: string
 }): Promise<Record<string, unknown>> {
   const mgr = createSessionManager(e.DB)
-  const session = await mgr.create({
-    id,
-    instruction: input.prompt,
-    mode: input.mode,
-    model: input.model,
-    repo: input.repo,
-    runnerProvider: input.runner_provider,
-    trigger: 'manual',
-  })
+  let session = await mgr.get(id)
+  if (!session) {
+    session = await mgr.create({
+      id,
+      instruction: input.prompt,
+      mode: input.mode,
+      model: input.model,
+      repo: input.repo,
+      runnerProvider: input.runner_provider,
+      trigger: 'manual',
+    })
+  }
   await mgr.transition(id, 'running')
   await persistSessionEvent(e.DB, e.SESSION, id, {
     type: 'system/init',
@@ -99,6 +117,18 @@ async function createDevSessionFallback(e: Env, id: string, input: {
   return { sessionId: id, session: await mgr.get(id), dev_fallback: true }
 }
 
+async function markSessionStartFailed(e: Env, sessionId: string, error: unknown): Promise<void> {
+  const msg = error instanceof Error ? error.message : String(error)
+  const mgr = createSessionManager(e.DB)
+  await persistSessionEvent(e.DB, e.SESSION, sessionId, {
+    type: 'result',
+    content: `Session failed to start: ${msg}`,
+    totalTokens: 0,
+    totalCostUsd: 0,
+  })
+  await mgr.transition(sessionId, 'failed')
+}
+
 export const GET: APIRoute = async ({ cookies, request }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
@@ -110,7 +140,7 @@ export const GET: APIRoute = async ({ cookies, request }) => {
     const url = new URL(request.url)
     const id = url.searchParams.get('id')
     if (!id || !e.AGENT_SESSION_DO) return forbidden()
-    const stub = e.AGENT_SESSION_DO.getByName(id)
+    const stub = getAgentSessionStub(e, id)
     return stub.fetch(request as unknown as Request)
   }
   const url = new URL(request.url)
@@ -124,7 +154,7 @@ export const GET: APIRoute = async ({ cookies, request }) => {
   return json({ sessions })
 }
 
-export const POST: APIRoute = async ({ cookies, request }) => {
+export const POST: APIRoute = async ({ cookies, request, locals }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
   const d = ensureAgentOsEnabled()
@@ -144,23 +174,47 @@ export const POST: APIRoute = async ({ cookies, request }) => {
     repo: readOptionalString(body.repo),
     runner_provider: readOptionalString(body.runner_provider),
   }
-  // proxy to DO via getByName
-  const stub = e.AGENT_SESSION_DO.getByName(id)
-  let data: Record<string, unknown>
-  try {
-    const res = await stub.fetch(
-      new Request(`https://do/run?sessionId=${id}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(runInput),
-      }),
-    )
-    data = (await res.json().catch(() => ({}))) as Record<string, unknown>
-  } catch (error) {
-    if (!import.meta.env.DEV) throw error
-    data = await createDevSessionFallback(e, id, runInput)
+
+  const mgr = createSessionManager(e.DB)
+  const session = await mgr.create({
+    id,
+    instruction: prompt,
+    mode: runInput.mode,
+    model: runInput.model,
+    repo: runInput.repo,
+    runnerProvider: runInput.runner_provider,
+    trigger: 'manual',
+  })
+
+  // proxy to DO by stable session name
+  const stub = getAgentSessionStub(e, id)
+  const runPromise = stub.fetch(
+    new Request(`https://do/run?sessionId=${id}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(runInput),
+    }),
+  ).then(async (res) => {
+    if (!res.ok) {
+      const detail = await res.text().catch(() => '')
+      throw new Error(detail || `AgentSessionDO returned ${res.status}`)
+    }
+  }).catch(async (error) => {
+    if (import.meta.env.DEV) {
+      await createDevSessionFallback(e, id, runInput)
+      return
+    }
+    await markSessionStartFailed(e, id, error)
+  })
+
+  const waitUntil = getWaitUntil(locals)
+  if (waitUntil) {
+    waitUntil(runPromise)
+  } else {
+    runPromise.catch((error) => console.error('[admin-sessions] background run failed:', error))
   }
-  return json({ id, ...data })
+
+  return json({ id, session, queued: true })
 }
 
 // WebSocket upgrade + approve proxy: GET ?upgrade=websocket handled by DO
@@ -171,6 +225,6 @@ export const ALL: APIRoute = async ({ cookies, request }) => {
   const url = new URL(request.url)
   const id = url.searchParams.get('id')
   if (!id || !e.AGENT_SESSION_DO) return forbidden()
-  const stub = e.AGENT_SESSION_DO.getByName(id)
+  const stub = getAgentSessionStub(e, id)
   return stub.fetch(request as unknown as Request)
 }

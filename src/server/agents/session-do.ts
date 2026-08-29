@@ -6,6 +6,9 @@ import { createSessionManager } from '../../lib/agent/session-manager'
 import type { SessionEvent } from '../../lib/agent/events'
 import { fromSessionEvent } from '../../lib/agent/events'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
+import { invokeModel } from '../../lib/retrieval/model'
+import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
+import { initialState, type RagRuntimeConfig } from '../../lib/retrieval/state'
 
 type StartRunOptions = {
   skill?: string
@@ -14,6 +17,88 @@ type StartRunOptions = {
   repo?: string
   runnerProvider?: string
   trigger?: string
+}
+
+type ModelProvider = RagRuntimeConfig['defaultProvider']
+
+const DEFAULT_PROVIDER: ModelProvider = 'groq'
+const DEFAULT_MODEL = 'openai/gpt-oss-120b'
+const PROVIDER_ALIASES: Record<string, ModelProvider> = {
+  'llm.groq': 'groq',
+  'llm.openai': 'openai',
+  'llm.anthropic': 'anthropic',
+  'llm.gemini': 'gemini',
+  'llm.openrouter': 'openrouter',
+  groq: 'groq',
+  openai: 'openai',
+  anthropic: 'anthropic',
+  google: 'google',
+  gemini: 'gemini',
+  cloudflare: 'cloudflare',
+  openrouter: 'openrouter',
+  opencode: 'opencode',
+  nvidia: 'nvidia',
+  cerebras: 'cerebras',
+  ollama_cloud: 'ollama_cloud',
+  ollama: 'ollama',
+}
+
+function defaultModelForProvider(provider: ModelProvider): string {
+  const defaults: Partial<Record<ModelProvider, string>> = {
+    groq: DEFAULT_MODEL,
+    openai: 'gpt-4.1-mini',
+    google: 'gemini-3.7-flash',
+    gemini: 'gemini-3.7-flash',
+    openrouter: 'openrouter/auto',
+    opencode: 'deepseek-v4-flash',
+    nvidia: 'deepseek-ai/deepseek-r1',
+    cerebras: 'gpt-oss-120b',
+    cloudflare: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
+  }
+  return defaults[provider] ?? DEFAULT_MODEL
+}
+
+function resolveModelConfig(raw: string | undefined): RagRuntimeConfig {
+  const base = initialState().config
+  if (!raw) {
+    return { ...base, defaultProvider: DEFAULT_PROVIDER, defaultModel: DEFAULT_MODEL }
+  }
+
+  const trimmed = raw.trim()
+  const providerOnly = PROVIDER_ALIASES[trimmed]
+  if (providerOnly) {
+    return {
+      ...base,
+      defaultProvider: providerOnly,
+      defaultModel: defaultModelForProvider(providerOnly),
+    }
+  }
+
+  const separator = trimmed.indexOf(':')
+  if (separator > 0) {
+    const providerRaw = trimmed.slice(0, separator)
+    const model = trimmed.slice(separator + 1).trim()
+    const provider = PROVIDER_ALIASES[providerRaw]
+    if (provider && model) {
+      return { ...base, defaultProvider: provider, defaultModel: model }
+    }
+  }
+
+  return { ...base, defaultProvider: DEFAULT_PROVIDER, defaultModel: trimmed }
+}
+
+function stringifyModelContent(content: unknown): string {
+  if (typeof content === 'string') return content
+  if (Array.isArray(content)) {
+    return content.map((part) => {
+      if (typeof part === 'string') return part
+      if (part && typeof part === 'object' && 'text' in part) {
+        return String((part as { text?: unknown }).text ?? '')
+      }
+      return JSON.stringify(part)
+    }).filter(Boolean).join('\n')
+  }
+  return content == null ? '' : JSON.stringify(content)
 }
 
 export class AgentSessionDO extends DurableObject<Env> {
@@ -202,6 +287,8 @@ export class AgentSessionDO extends DurableObject<Env> {
     }
 
     const kernel = createKernel(this.env)
+    const modelConfig = resolveModelConfig(options.model)
+    const apiKeys = await resolveProviderApiKeys(this.env.DB)
     const toBaseMessage = (m: LoopMessage) =>
       m.role === 'user' ? new HumanMessage(m.content) : new SystemMessage(m.content)
 
@@ -217,18 +304,8 @@ export class AgentSessionDO extends DurableObject<Env> {
               ...(skillContext ? [new SystemMessage(`Skill ${options.skill}:\n${skillContext}`)] : []),
               ...msgs.map(toBaseMessage),
             ]
-            const res = (await kernel.tools.syscall(
-              // @ts-expect-error syscall helper typed with run context
-              { agentId: 'console', runId: session.id } as unknown as Parameters<typeof kernel.tools.syscall>[1],
-              'model.invoke',
-              {
-                config: { model: options.model ?? 'groq/llama-3.3-70b-versatile', temperature: 0.3 } as unknown as never,
-                stage: 'console',
-                messages: lcMessages,
-              } as never,
-            )) as unknown as { response?: { content?: string }; content?: string }
-            const content = res?.response?.content ?? res?.content ?? JSON.stringify(res)
-            return { content: String(content), stopReason: 'stop' }
+            const res = await invokeModel(modelConfig, 'console', lcMessages, 512, apiKeys)
+            return { content: stringifyModelContent(res.response.content), stopReason: 'stop' }
           } catch (e) {
             const msg = e instanceof Error ? e.message : String(e)
             return { content: `model error: ${msg} (skill: ${options.skill ?? 'none'})`, stopReason: 'stop' }

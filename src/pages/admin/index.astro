@@ -122,10 +122,11 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
         const res = await fetch('/api/admin/settings/models');
         if (!res.ok) return;
         const data = await res.json();
-        for (const p of (data.providers || [])) {
+        for (const p of ((data.catalog && data.catalog.models) || [])) {
+          if (p.enabled === false) continue;
           const opt = document.createElement('option');
-          opt.value = p.id || p.provider_id || '';
-          opt.textContent = p.display_name || p.id || '';
+          opt.value = (p.provider || '') + ':' + (p.model || '');
+          opt.textContent = p.displayName || ((p.provider || '') + ' / ' + (p.model || ''));
           modelSelect?.appendChild(opt);
         }
       } catch {}
@@ -137,8 +138,11 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
         if (!res.ok) return;
         const data = await res.json();
         const total = data.totalItems || 0;
-        if (total === 0) { needsYou && (needsYou.hidden = true); return; }
-        needsYou && (needsYou.hidden = false);
+        if (total === 0) {
+          if (needsYou) needsYou.hidden = true;
+          return;
+        }
+        if (needsYou) needsYou.hidden = false;
         if (greeting) greeting.hidden = true;
         if (!needsYouItems) return;
         needsYouItems.innerHTML = '';
@@ -215,7 +219,10 @@ import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body),
         });
-        const data = await res.json();
+        const contentType = res.headers.get('content-type') || '';
+        const data = contentType.includes('application/json')
+          ? await res.json()
+          : { error: await res.text() };
         if (res.ok && data.id) {
           window.location.href = '/admin/sessions/' + encodeURIComponent(data.id);
         } else {
