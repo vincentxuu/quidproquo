@@ -47,6 +47,7 @@ describe('buildFtsQuery', () => {
 
     const result = buildFtsQuery('正2系統')
     expect(result).toContain('"正2系統"')
+    expect(result).toContain('"正2"')
     expect(result).toContain('"系統"')
   })
 

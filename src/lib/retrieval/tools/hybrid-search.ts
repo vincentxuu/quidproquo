@@ -71,6 +71,10 @@ export function buildFtsQuery(query: string): string | null {
 
     // 按 script 邊界拆分：漢字連續段 vs 非漢字連續段（拉丁/數字/其他）
     const parts = token.match(/[\p{Script=Han}]+|[^\p{Script=Han}]+/gu) ?? [token]
+    for (let i = 0; i < parts.length - 1; i++) {
+      const pair = `${parts[i]}${parts[i + 1]}`.trim()
+      if (pair.length >= 2) expanded.add(pair)
+    }
     for (const part of parts) {
       const trimmed = part.trim()
       if (trimmed.length < 2) continue

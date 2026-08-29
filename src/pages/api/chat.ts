@@ -11,6 +11,7 @@ import type { GraphState, RagRuntimeConfig } from '../../lib/retrieval/state'
 import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
 import type { Env } from '@/lib/config/env'
 import { normalizeAnswerLanguage } from '../../lib/retrieval/language'
+import { shouldExposeRetrievedLinks } from '../../lib/retrieval/presentation'
 
 type PipelineEngineOverride = RagRuntimeConfig['pipelineEngine']
 type TraceScope = 'production' | 'admin' | 'eval'
@@ -202,11 +203,13 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
           ).run().catch(() => {})
         }
 
-        const seenUrls = new Set<string>()
-        const sources = state.search_results
-          .filter(r => { if (seenUrls.has(r.source_url)) return false; seenUrls.add(r.source_url); return true })
-          .map(r => ({ title: r.title ?? r.source_url, url: r.source_url, slug: r.slug }))
-        if (sources.length > 0) send('sources', sources)
+        if (shouldExposeRetrievedLinks(state)) {
+          const seenUrls = new Set<string>()
+          const sources = state.search_results
+            .filter(r => { if (seenUrls.has(r.source_url)) return false; seenUrls.add(r.source_url); return true })
+            .map(r => ({ title: r.title ?? r.source_url, url: r.source_url, slug: r.slug }))
+          if (sources.length > 0) send('sources', sources)
+        }
 
         const remainingQuota = !isAdmin
           ? await (async () => {

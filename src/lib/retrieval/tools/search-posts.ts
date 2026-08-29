@@ -23,6 +23,15 @@ function parseJsonArray(s: string): unknown[] {
   try { return JSON.parse(s) } catch { return [] }
 }
 
+function extractFtsTokens(query: string): string[] {
+  const ftsQuery = buildFtsQuery(query)
+  if (!ftsQuery) return []
+  return ftsQuery
+    .split(' OR ')
+    .map(t => t.slice(1, -1).replace(/""/g, '"'))
+    .filter(t => t.length >= 2)
+}
+
 function containsHan(text: string): boolean {
   return /\p{Script=Han}/u.test(text)
 }
@@ -63,14 +72,7 @@ async function searchLikePosts(
   const { DB } = env as unknown as Env
 
   // Use buildFtsQuery tokens for OR-based LIKE (not whole query)
-  const ftsQuery = buildFtsQuery(query)
-  if (!ftsQuery) return []
-
-  // ftsQuery is already "token1" OR "token2" ... extract tokens
-  const tokens = ftsQuery
-    .split(' OR ')
-    .map(t => t.slice(1, -1).replace(/""/g, '"'))
-    .filter(t => t.length >= 2)
+  const tokens = extractFtsTokens(query)
 
   if (tokens.length === 0) return []
 
@@ -169,6 +171,69 @@ async function fetchPostsByMetadata(
   }
 
   return results
+}
+
+async function searchMetadataPosts(
+  query: string,
+  limit: number,
+  category?: string,
+  lang?: string
+): Promise<PostSearchRow[]> {
+  const tokens = extractFtsTokens(query)
+    .filter(token => !['文章', '找文', '搜尋', '推薦', '關於'].includes(token))
+    .slice(0, 12)
+  if (tokens.length === 0) return []
+
+  const { DB } = env as unknown as Env
+  const likeClauses = tokens
+    .map(() => '(p.title LIKE ? OR p.description LIKE ? OR p.tldr LIKE ? OR p.tags LIKE ?)')
+    .join(' OR ')
+  const params = tokens.flatMap(t => [`%${t}%`, `%${t}%`, `%${t}%`, `%${t}%`])
+
+  const rows = await DB.prepare(
+    `SELECT
+      COALESCE(pc.id, 'post:' || p.id) AS chunk_id,
+      COALESCE(pc.sentence_window, pc.content, p.tldr, p.description, substr(p.content, 1, 600)) AS content,
+      p.slug,
+      p.title,
+      p.category,
+      p.lang,
+      substr(p.created_at, 1, 10) AS date,
+      '[]' AS images,
+      '[]' AS links
+    FROM posts p
+    LEFT JOIN post_chunks pc
+      ON pc.post_id = p.id
+      AND pc.chunk_index = (
+        SELECT MIN(pc2.chunk_index)
+        FROM post_chunks pc2
+        WHERE pc2.post_id = p.id
+      )
+    WHERE (${likeClauses})
+      ${category ? 'AND p.category = ?' : ''}
+      ${lang ? 'AND p.lang = ?' : ''}
+    ORDER BY p.created_at DESC
+    LIMIT ?`
+  )
+    .bind(
+      ...params,
+      ...(category ? [category] : []),
+      ...(lang ? [lang] : []),
+      Math.max(limit * 3, BM25_SHORT_CIRCUIT_THRESHOLD)
+    )
+    .all<{
+      chunk_id: string
+      content: string
+      slug: string
+      title: string
+      category: string
+      lang: string
+      date: string
+      images: string
+      links: string
+    }>()
+
+  return rows.results.map(rowToResult)
 }
 
 async function fetchPostRowsByChunkIds(
@@ -336,12 +401,13 @@ export async function searchBlogPosts(args: {
 }): Promise<SearchResult[]> {
   const { query, category, lang, limit = 8, shortCircuit = true } = args
   const started = Date.now()
+  const metadataResults = await searchMetadataPosts(query, limit, category, lang)
   const bm25Started = Date.now()
   const bm25Results = await searchBm25Posts(query, limit, category, lang)
   const bm25Ms = Date.now() - bm25Started
 
   if (shouldUseBm25ShortCircuit(query, bm25Results.length, shortCircuit)) {
-    const results = dedupeBySlug(reciprocalRankFuse([bm25Results], limit * 3), limit)
+    const results = dedupeBySlug(reciprocalRankFuse([metadataResults, bm25Results], limit * 3), limit)
     return attachSearchMetrics(results, {
       source: 'posts',
       query_kind: isPrecisionQuery(query) ? 'precision' : 'general',
@@ -361,7 +427,7 @@ export async function searchBlogPosts(args: {
   const vectorResults = await searchVectorPosts(query, limit, category, lang).catch(() => [] as PostSearchRow[])
   const vectorMs = Date.now() - vectorStarted
 
-  const results = dedupeBySlug(reciprocalRankFuse([vectorResults, bm25Results], limit * 3), limit)
+  const results = dedupeBySlug(reciprocalRankFuse([metadataResults, vectorResults, bm25Results], limit * 3), limit)
   return attachSearchMetrics(results, {
     source: 'posts',
     query_kind: isPrecisionQuery(query) ? 'precision' : 'general',

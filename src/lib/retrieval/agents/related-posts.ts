@@ -2,8 +2,13 @@ import { env } from 'cloudflare:workers'
 import type { GraphState } from '../state'
 import type { Env } from '@/lib/config/env'
 import { embedQueries } from '../embedding'
+import { shouldExposeRetrievedLinks } from '../presentation'
 
 export async function relatedPostsNode(state: GraphState): Promise<Partial<GraphState>> {
+  if (!shouldExposeRetrievedLinks(state)) {
+    return { related_posts: [] }
+  }
+
   const { VECTORIZE_INDEX, AI, DB } = env as unknown as Env
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage.content === 'string' ? lastMessage.content : ''
