@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-30
+Last updated: 2026-08-30 (Stage 3 daily-digest-report blocker confirmed)
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -83,5 +83,5 @@ Notes
 - Some TODO entries are stale: English home about, Pagefind integration, OG image generation, and part of the redesign already exist in the repo.- CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，並明載影片在 Canvas、作業在 Ed、繳交在 Gradescope；Winter 2024–25 官方課表確認有開課且標示 SCPD，但未找到當期公開課站或 Stanford Online YouTube 完整播放清單。維持逐講阻塞，不用 Coursera 舊課或 2025 tutorial 冒充當期授課；來源與下次複查順序已記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
 - agent-* projects (foundation/evidence/flow/artifact/policy/pipelines-unify/console/providers/os): code complete, pending production observation windows. Status snapshots in docs/progress-archive.md; pending decisions in docs/governance/escalation-queue.md.
 - **Q-015（2026-08-27）**：Tavily API 額度用盡（432），daily-digest-signals 今日未產出（寧缺不湊數）；影響所有依賴 Tavily 的 daily-digest routine，待人決定升級方案或改 skill fallback。
-- **Q-020（2026-08-30，正式登錄於 escalation-queue.md，取代舊撞號筆記）**：Groundlane connector 在 org 端已連線（connected: true）但本 session `enabledInChat: false`，daily-digest-model-card（2026-08-29）、daily-digest-funding、daily-digest-signals（皆 2026-08-30）皆未產出（skill 明文禁止改用 Exa/Tavily/Firecrawl 等 fallback）；signals 是 Stage 2，缺檔會連帶影響今日 Stage 3 daily-digest-report。需使用者到 chat/workspace connector 設定啟用 Groundlane 的 `enabledInChat`。
+- **Q-020（2026-08-30，正式登錄於 escalation-queue.md，取代舊撞號筆記）**：Groundlane connector 在 org 端已連線（connected: true）但本 session `enabledInChat: false`，daily-digest-model-card（2026-08-29）、daily-digest-funding、daily-digest-signals（皆 2026-08-30）皆未產出（skill 明文禁止改用 Exa/Tavily/Firecrawl 等 fallback）；signals 是 Stage 2，缺檔已確認連帶讓今日 Stage 3 daily-digest-report 也未產出（只剩 2 個獨立事件，不足以支撐深度分析＋覆蓋率檢查）。需使用者到 chat/workspace connector 設定啟用 Groundlane 的 `enabledInChat`。
 - **Q-019（2026-08-30，daily-digest-framework 同日確認為系統性問題）**：Groundlane 未掛載、`gh` CLI 未安裝、GitHub MCP 被限定只能存取 `vincentxuu/quidproquo` 一個 repo，三條資料來源全被擋死；daily-digest-github 與 daily-digest-framework 今日皆未產出。待人決定放寬 GitHub MCP repo scope 或補掛 Groundlane，一次解掉全部依賴這兩者的 daily-digest-* routine。
