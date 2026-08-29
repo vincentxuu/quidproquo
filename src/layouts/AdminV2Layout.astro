@@ -35,7 +35,6 @@ type NavItem = {
 };
 
 const chatNavItems: NavItem[] = [
-  { href: '/admin/sessions', label: 'Sessions', key: 'sessions', icon: 'activity' },
   { href: '/admin/routines', label: 'Routines', key: 'routines', icon: 'refresh-cw' },
 ];
 
@@ -109,17 +108,24 @@ const sectionLabels: Record<string, string> = {
       </div>
 
       <nav class="sidebar-nav chat-nav" data-nav="chat" aria-label="Chat navigation" style={defaultMode === 'admin' ? 'display:none' : ''}>
-        {chatNavItems.map(item => (
-          <a
-            href={item.href}
-            class:list={['nav-item', { active: isActive(item.key) }]}
-            aria-current={isActive(item.key) ? 'page' : undefined}
-            title={item.label}
-          >
-            <Icons name={item.icon} size={15} />
-            <span class="nav-label">{item.label}</span>
-          </a>
-        ))}
+        <a href="/admin/sessions/artifacts" class="nav-item" title="Artifacts">
+          <Icons name="copy" size={15} />
+          <span class="nav-label">Artifacts</span>
+        </a>
+        <a href="/admin/routines" class:list={['nav-item', { active: isActive('routines') }]} title="Routines">
+          <Icons name="refresh-cw" size={15} />
+          <span class="nav-label">Routines</span>
+        </a>
+        <details class="nav-more">
+          <summary class="nav-item">
+            <Icons name="chevron-right" size={15} />
+            <span class="nav-label">More</span>
+          </summary>
+          <div class="nav-children">
+            <a href="/admin/sessions" class="nav-child">All Sessions</a>
+            <a href="/admin/sessions/evidence" class="nav-child">Evidence</a>
+          </div>
+        </details>
       </nav>
 
       <nav class="sidebar-nav admin-nav" data-nav="admin" aria-label="Admin navigation" style={defaultMode === 'chat' ? 'display:none' : ''}>
