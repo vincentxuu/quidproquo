@@ -144,7 +144,7 @@ const breadcrumb = [
 
   document.getElementById('perm-close-btn')!.addEventListener('click', () => permDialog.close());
   document.getElementById('perm-save-btn')!.addEventListener('click', async () => {
-    const selects = permDialog.querySelectorAll('.perm-select') as NodeListOf<HTMLSelectElement>;
+    const selects = permDialog.querySelectorAll('.perm-select') as unknown as NodeListOf<HTMLSelectElement>;
     const perms: Record<string, string> = {};
     selects.forEach(s => { perms[s.dataset.tool!] = s.value; });
     await fetch(`${API}/${encodeURIComponent(currentPermServerId)}`, {
@@ -159,7 +159,7 @@ const breadcrumb = [
     e.preventDefault();
     const body = {
       name: (document.getElementById('server-name') as HTMLInputElement).value,
-      type: (document.getElementById('server-type') as HTMLSelectElement).value,
+      type: (document.getElementById('server-type') as unknown as HTMLSelectElement).value,
       url: (document.getElementById('server-url') as HTMLInputElement).value || null,
       description: (document.getElementById('server-desc') as HTMLInputElement).value || null,
     };

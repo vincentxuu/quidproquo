@@ -54,7 +54,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     }
   }
 
-  const routineTrigger = createRoutineTrigger(e.DB)
+  const routineTrigger = createRoutineTrigger((env as unknown as Env).DB)
   const routineResults = await routineTrigger.triggerDueRoutines()
 
   return json({ ok: true, source, runs: results, routines: routineResults })

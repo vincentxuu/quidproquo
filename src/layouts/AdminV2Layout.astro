@@ -28,9 +28,10 @@ if (!isLoggedIn) {
 const currentPath = Astro.url.pathname;
 const isHome = section === 'home';
 
+import type { IconName } from '../components/icons/koboyo';
 type NavChild = { href: string; label: string };
 type NavItem = {
-  href: string; label: string; key: string; icon: string;
+  href: string; label: string; key: string; icon: IconName;
   children?: NavChild[];
 };
 

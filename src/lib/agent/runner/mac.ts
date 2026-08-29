@@ -22,6 +22,8 @@ interface RunnerResponse {
 const COMMAND_TIMEOUT_MS = 120_000
 
 export class MacRunnerHandle implements RunnerHandle {
+  providerId = 'mac'
+  networkMode = 'full' as const
   sessionId: string
   private ws: WebSocket
   private pending = new Map<string, PendingRequest>()
@@ -114,6 +116,7 @@ export class MacRunnerHandle implements RunnerHandle {
 
 export class MacRunnerProvider implements RunnerProvider {
   id = 'mac'
+  label = 'Mac（本機）'
   private db: D1Database
   private activeHandles = new Map<string, MacRunnerHandle>()
   private runnerWebSockets = new Map<string, WebSocket>()

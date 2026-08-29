@@ -9,13 +9,18 @@ export async function verifyDiscordInteraction(
   const encoder = new TextEncoder()
   const key = await crypto.subtle.importKey(
     'raw',
-    hexToUint8Array(publicKey),
-    { name: 'Ed25519' },
+    hexToUint8Array(publicKey) as unknown as ArrayBuffer,
+    { name: 'NODE-ED25519', namedCurve: 'NODE-ED25519' } as unknown as AlgorithmIdentifier,
     false,
     ['verify'],
   )
   const message = encoder.encode(timestamp + body)
-  return crypto.subtle.verify('Ed25519', key, hexToUint8Array(signature), message)
+  return crypto.subtle.verify(
+    { name: 'NODE-ED25519' } as unknown as AlgorithmIdentifier,
+    key,
+    hexToUint8Array(signature) as unknown as ArrayBuffer,
+    message as unknown as ArrayBuffer,
+  )
 }
 
 function hexToUint8Array(hex: string): Uint8Array {

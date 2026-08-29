@@ -76,7 +76,7 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   const eventId = result.meta?.last_row_id
   if (eventId) {
     await db.prepare('UPDATE agent_events SET event_id = ? WHERE session_id = ? AND seq = ?').bind(eventId, sessionId, seq).run()
-    if (e.KV) await e.KV.put(`session:${sessionId}:last_event`, String(eventId))
+    if (e.SESSION) await e.SESSION.put(`session:${sessionId}:last_event`, String(eventId))
   }
 
   if (isAllow) {

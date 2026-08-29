@@ -9,7 +9,7 @@ export const searchBlogPostsTool = new DynamicStructuredTool({
   schema: z.object({
     query: z.string().describe('Search query'),
   }),
-  async func(input) {
+  async func(input: { query: string }) {
     const results = await searchBlogPosts({ query: input.query })
     return JSON.stringify(results)
   },
@@ -21,7 +21,7 @@ export const searchDocsTool = new DynamicStructuredTool({
   schema: z.object({
     query: z.string().describe('Search query'),
   }),
-  async func(input) {
+  async func(input: { query: string }) {
     const results = await searchDocs({ query: input.query })
     return JSON.stringify(results)
   },

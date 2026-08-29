@@ -122,10 +122,10 @@ const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
   async function loadConfig() {
     try {
       const res = await fetch('/api/admin/settings/environments');
-      const data = await res.json();
+      const data = await res.json() as Record<string, unknown>;
       if (!data.ok) return;
 
-      const config = data.config || {};
+      const config = (data.config || {}) as Record<string, string>;
       const provider = config.runner_provider || 'sandbox';
       const mode = config.network_mode || 'trusted';
 
@@ -142,7 +142,7 @@ const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
         (document.getElementById('setup-script') as HTMLTextAreaElement).value = config.setup_script;
       }
 
-      for (const v of data.variables || []) addEnvVarRow(v.name, true);
+      for (const v of (data.variables || []) as Array<{ name: string }>) addEnvVarRow(v.name, true);
     } catch {}
   }
 
@@ -163,7 +163,7 @@ const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ config }),
       });
-      const data = await res.json();
+      const data = await res.json() as Record<string, unknown>;
       status.textContent = data.ok ? 'Saved' : 'Error';
     } catch {
       status.textContent = 'Failed';

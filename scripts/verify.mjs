@@ -6,8 +6,9 @@
 // preview CI. Full details: docs/governance/operating-charter.md.
 //
 // Deliberately NOT included (slow or network-dependent): pnpm test,
-// pnpm build, astro check, post-quality/glossary advisory checks.
+// pnpm build, post-quality/glossary advisory checks.
 // Those belong to deploy-preflight, CI build, or per-skill flows.
+// astro check IS included — catches TS errors that block CI deploy.
 
 import { execSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
@@ -98,6 +99,7 @@ function checkDurableObjectsExport() {
   }
 }
 
+runStep('astro check (types)', 'npx astro check');
 runStep('lint (oxlint)', 'pnpm lint');
 runStep('check:references', 'pnpm check:references');
 runStep('check:post-quality', 'pnpm check:post-quality');

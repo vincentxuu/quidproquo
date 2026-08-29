@@ -8,7 +8,7 @@ import { resolveProviderApiKeys } from '../retrieval/provider-key-store'
 import { loadRagSettings, withConfigOverrides } from '../retrieval/settings'
 import { SUPPORTED_PROVIDERS } from '../retrieval/providers'
 import type { ProviderApiKeys } from '../retrieval/model'
-import type { AgentSkill } from '../agent-skills'
+import type { AgentSkill } from '../extensions'
 import type { Env } from '@/lib/config/env'
 
 type Provider = RagRuntimeConfig['defaultProvider']
