@@ -107,6 +107,22 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'rivumi',
+    names: { 'zh-TW': 'Rivumi 架構拆解', en: 'Rivumi Architecture Notes' },
+    descriptions: {
+      'zh-TW': '拆解 Rivumi 這個 Python-first coding agent harness：provider-neutral loop、disposable clone、工具與路徑隔離、state-first event journaling、外部 CLI runtime、local model gateway、TUI 與 Cloudflare Sandbox 切片。',
+      en: 'Architecture notes for Rivumi, a Python-first coding agent harness: provider-neutral loops, disposable clones, tool and path isolation, state-first event journaling, external CLI runtimes, local model gateway, TUI, and the Cloudflare Sandbox slice.',
+    },
+  },
+  {
+    slug: 'coding-agent',
+    names: { 'zh-TW': '跟成熟 coding agent 學設計', en: '跟成熟 coding agent 學設計' },
+    descriptions: {
+      'zh-TW': '以 Rivumi 為實作載體，逐題對照 pi、OMP、OpenCode、Codex CLI 與 Claude Code：先拆已落地的 agent loop、workspace、approval、verification、runtime 與 gateway，再把 context、MCP、sandbox、LSP、telemetry、Agent as a Service 等差距寫成後續設計路線。',
+      en: 'A Rivumi-driven coding-agent design series comparing pi, OMP, OpenCode, Codex CLI, and Claude Code topic by topic: shipped loop, workspace, approval, verification, runtime, and gateway decisions first, then the roadmap for context, MCP, sandboxing, LSP, telemetry, and Agent as a Service.',
+    },
+  },
+  {
     slug: 'ai',
     names: { 'zh-TW': 'AI 模型家族', en: 'AI Model Families' },
     descriptions: {

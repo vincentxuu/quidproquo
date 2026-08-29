@@ -8,8 +8,8 @@ series:
   order: 1
 tags: [coding-agent, agent-loop, harness-engineering, rivumi, open-source]
 lang: zh-TW
-tldr: "我在寫自己的 Python coding agent「rivumi」，這個系列把 pi、oh-my-pi、opencode、codex、claude-code 五個成熟專案的原始碼逐題對照——每篇固定走「設計問題→五家做法→rivumi 選擇→學術依據→改善路線」五段，證據一律給到 file#symbol 層級。"
-description: "coding agent 設計系列總覽：為什麼自己寫 rivumi、五個參考專案（pi、oh-my-pi、opencode、codex、claude-code）各自的定位，以及本系列兩部曲 36 篇的讀法與證據標準。"
+tldr: "我在寫自己的 Python coding agent「rivumi」，這個系列把 pi、oh-my-pi、opencode、codex、claude-code 五個成熟專案的原始碼逐題對照，也對照 Rivumi 現在已經落地的 TUI、外部 CLI runtime、local gateway、usage/OTel/session 工具與 Cloudflare 切片。每篇固定走「設計問題→五家做法→rivumi 選擇→學術依據→改善路線」五段，證據一律給到 file#symbol 層級。"
+description: "coding agent 設計系列總覽：為什麼自己寫 rivumi、五個參考專案（pi、oh-my-pi、opencode、codex、claude-code）各自的定位，以及本系列兩部曲 38 篇的讀法與證據標準。"
 draft: false
 ---
 
@@ -28,9 +28,11 @@ draft: false
 rivumi 的架構刻意分成兩條平行的執行路徑：
 
 1. **原生 harness**：自己擁有 agent loop、審批、session、工具集、驗證閘門和 model API adapter。
-2. **外部 CLI runtime**：明確選定的外部 coding CLI（pi、omp、opencode、codex）當 backend，它們跑自己的 loop，但共享 rivumi 的對話 UI、工作區安全、patch 稽核和驗證邊界。
+2. **外部 CLI runtime**：明確選定的外部 coding CLI（Claude Code、Codex CLI、OpenCode、Pi、OMP）當 backend，它們跑自己的 loop，但共享 rivumi 的對話 UI、工作區安全、patch 稽核和驗證邊界。
 
 關鍵紀律是一條路徑永遠不偽裝成另一條。外部 CLI 就是外部 CLI，不會假裝那是原生實作。這條紀律本身，就是讀了別人的原始碼之後才學會的。
+
+現在的 Rivumi 已經不只是早期 Python harness。它有 provider-neutral `ModelProvider` contract、OpenAI-compatible / Anthropic / Gemini / Workers AI / scripted adapters、state-first event journaling、`rivumi resume`、runtime-first TUI、usage/statusline/OTel/session 工具、local model gateway，以及 Worker control plane + Cloudflare Sandbox 的受限部署切片。所以這個系列讀每個設計點時，不只看「五家怎麼做」，也看 Rivumi 目前把那個設計推到了哪一層邊界。
 
 ## 五個參考專案是誰
 
@@ -58,11 +60,11 @@ OpenAI 的官方 CLI，核心在 `codex-rs/`——一個 Rust workspace，crate 
 
 ## 這個系列怎麼讀
 
-兩部曲共 36 篇，全部中英雙語。
+兩部曲共 38 篇，全部中英雙語。
 
 **第一部「已實作的對照」（24 篇）**：rivumi 已經做掉的主題——agent loop 的形狀、workspace 隔離、approval 分級、verification gate、ModelProvider 抽象、retry policy、訂閱 OAuth、外部 CLI 當 backend、edit 工具取捨、沙箱與遠端執行、CLI 人體工學等。每篇都是「五家怎麼做 vs 我怎麼做」的正面對決，包含我做錯的部分。
 
-**第二部「尚未實作——改善路線圖」（12 篇）**：五家都有、rivumi 還沒有的能力——context 壓縮、跨 session 記憶、危險指令攔截、OS 級沙箱、MCP 整合、hooks/skills/plugins、subagent 與 worktree 隔離、session 錄製 replay、telemetry 成本追蹤、model catalog 路由、LSP 整合、code mode。每篇結尾是一份 rivumi 的設計草案，不是空談 wishlist。
+**第二部「尚未實作——改善路線圖」（13 篇）**：五家都有、rivumi 還沒有或才剛補上邊界的能力——context 壓縮、跨 session 記憶、危險指令攔截、OS 級沙箱、MCP 整合、hooks/skills/plugins、subagent 與 worktree 隔離、session 錄製 replay、telemetry 成本追蹤、model catalog 路由、LSP 整合、code mode、Agent as a Service。每篇結尾是一份 rivumi 的設計草案，不是空談 wishlist。
 
 每篇固定五段結構：
 
@@ -82,6 +84,7 @@ OpenAI 的官方 CLI，核心在 `codex-rs/`——一個 Rust workspace，crate 
 
 ## 參考資料
 
+- [vincentxuu/rivumi](https://github.com/vincentxuu/rivumi) — Rivumi 公開 repo 與 README
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono) — pi 原始碼，TypeScript monorepo
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) — omp 原始碼，pi 的 fork
 - [sst/opencode](https://github.com/sst/opencode) — opencode 原始碼

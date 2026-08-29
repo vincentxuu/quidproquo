@@ -5,8 +5,8 @@ category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, git, sandbox, artifacts]
 lang: zh-TW
-tldr: "Rivumi 永遠不編輯源 repo——它在 `LocalGitWorkspace.prepare()` 用 `--no-hardlinks` 跟 detached HEAD 從 pinned base commit 複製出一個 disposable clone,所有 patch、test、verification 都在 clone 裡跑。跑完後留下 6 個 artifact:request.json / events.jsonl / checkpoint.json / changes.patch / test.log / result.json(加上 verification.json)。這套 disposable clone + run bundle 設計讓 review 跟 replay 可以同時存在,而且源 worktree 的 HEAD、status、bytes 在 run 之後完全沒變。"
-description: "深入 Rivumi 的 workspace 隔離設計：LocalGitWorkspace 的 full SHA 驗證、no-hardlinks、detached HEAD、run_dir-not-inside-source 檢查;6 個 artifact 的寫入時機與對應 reader;為什麼這個 disposable clone 不是真的 OS sandbox。"
+tldr: "Rivumi 永遠不編輯源 repo——它在 `LocalGitWorkspace.prepare()` 用 `--no-hardlinks` 跟 detached HEAD 從 pinned base commit 複製出一個 disposable clone,所有 patch、test、verification 都在 clone 裡跑。跑完後留下 request.json / events.jsonl / checkpoint.json / session.json / changes.patch / test.log / result.json / verification.json；`rivumi resume` 與 `rivumi sessions` 也是從這組 bundle 找回狀態。這套 disposable clone + run bundle 設計讓 review、resume、patch audit 可以同時存在,而且源 worktree 的 HEAD、status、bytes 在 run 之後完全沒變。"
+description: "深入 Rivumi 的 workspace 隔離設計：LocalGitWorkspace 的 full SHA 驗證、no-hardlinks、detached HEAD、run_dir-not-inside-source 檢查;run bundle、session manifest 與 artifact 的寫入時機;為什麼這個 disposable clone 不是真的 OS sandbox。"
 series:
   name: "Rivumi 架構拆解"
   order: 2
@@ -134,9 +134,9 @@ def prepare(self, *, timeout_seconds: float | None = None) -> Path:
 
 這套準備流程**完全沒有寫到 source repo 的任何檔案**——所有 git 操作都是 read-only 或在 workspace 內。`_git()` 還用了 `sanitized_subprocess_env`(下一篇細講),把 subprocess 環境清空、避免 Git 從父行程繼承任何設定。
 
-## Run bundle:6 個 artifact 對應 6 種讀者
+## Run bundle:artifact 對應不同讀者
 
-Loop 結束後留下的檔案結構,在 `loop.py:691-697` 可以看到完整路徑表:
+Loop 結束後留下的檔案結構,在 `loop.py:691-697` 可以看到核心路徑表:
 
 ```python
 artifacts={
@@ -149,7 +149,7 @@ artifacts={
 },
 ```
 
-加上 `verification.json`(在 `_verify_all` 寫入),總共 7 個檔案。每個都對應不同的「審計者想問的問題」:
+加上 `verification.json`(在 `_verify_all` 寫入)與 `session.json` manifest,每個都對應不同的「審計者或 CLI 想問的問題」:
 
 | 檔案 | 寫入時機 | 回答的問題 |
 |---|---|---|
@@ -160,6 +160,7 @@ artifacts={
 | `test.log` | 每次 verification 跑完 + run 結束時 | 每條 verification 命令的 stdout / stderr,失敗時也寫空檔保證存在 |
 | `result.json` | run 結束時(`loop.py:704`)| `RunResult` 的 frozen snapshot,含 status / terminal_reason / verification outcomes / artifacts 路徑 |
 | `verification.json` | `_verify_all` 結束時(`loop.py:608`)| 純粹是 `VerificationOutcome` list 的 JSON dump,給快速查驗用 |
+| `session.json` | 每次狀態提交 | resume 的 state-of-record,保存 messages / usage / step / event sequence / writer lease |
 
 注意 `RunResult.artifacts` 是個路徑字典——**它把「這個 run 的所有產出在哪裡」本身當作 result 的一部分記下來**。意思是審計者拿到 `result.json` 就知道「要看 events 在這、看 patch 在那」,不用再開 loop 才知道檔案 layout。
 
@@ -210,9 +211,9 @@ TaskContract ──► AgentRunner
 
 ## 整體來說
 
-disposable clone + run bundle 是一組配套設計:**前者保證 source 不被改,後者保證改的過程被記得**。前者靠的是 LocalGitWorkspace 的 `prepare()` 把每一個攻擊面都 explicit reject;後者靠的是 7 個 artifact 在固定的 path 寫入,RunResult 直接指向它們。
+disposable clone + run bundle 是一組配套設計:**前者保證 source 不被改,後者保證改的過程被記得**。前者靠的是 LocalGitWorkspace 的 `prepare()` 把每一個攻擊面都 explicit reject;後者靠的是固定 artifact path、`session.json` manifest、append-only events 與 RunResult artifact map。最新的 external runtime 也吃同一條邊界:Codex CLI、Claude Code、OpenCode、Pi、OMP 都在 disposable clone 裡工作,跑完之後由 Rivumi 做 path-bounded patch audit 與 final verification,不讓外部 CLI 直接把 source repo 當工作區。
 
-這個保證的代價是顯而易見的:每次 run 都多一次完整 clone(`--no-hardlinks` 強制檔案複製,在大型 repo 上可能數秒到數分鐘)。回報是:**審計不需要 trust agent**,審計者只要讀 `result.json` 跟 `changes.patch` 就能完整回答「這次 run 做了什麼、為什麼這樣做、結果是什麼」,不需要看 agent 的內部記憶體狀態、不需要 replay 整個 loop。
+這個保證的代價是顯而易見的:每次 run 都多一次完整 clone(`--no-hardlinks` 強制檔案複製,在大型 repo 上可能數秒到數分鐘)。回報是:**審計不需要 trust agent**,審計者只要讀 `result.json` 跟 `changes.patch` 就能完整回答「這次 run 做了什麼、為什麼這樣做、結果是什麼」;需要繼續做時,`rivumi resume` 從 `session.json` 找回 state,不需要重放整個 loop。
 
 下一篇拆工具隔離(`SafePathPolicy` / `ToolExecutor` / `sanitized_subprocess_env`)——disposable clone 保證了 workspace 之外不會被改,但 workspace 之內的「哪些路徑 / 哪些指令 / 哪些環境變數」可以動,還要靠更細的 boundary。
 

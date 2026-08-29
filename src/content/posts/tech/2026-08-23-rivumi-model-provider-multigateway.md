@@ -1,23 +1,23 @@
 ---
-title: "Rivumi 的 ModelProvider 多閘道：五個 transport 共用一個 canonical contract"
+title: "Rivumi 的 ModelProvider 多閘道：多個 protocol 共用一個 canonical contract"
 date: 2026-08-23
 category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, model-provider, openai, anthropic, gemini, workers-ai]
 lang: zh-TW
-tldr: "Rivumi 把『打哪家的模型 API』抽象成一個 Protocol:OpenAI-compatible(Ollama / vLLM / 官方)、Anthropic Messages API、Gemini generateContent、Cloudflare Workers AI,加上一個 scripted deterministic adapter。Protocol 只有四個屬性 + 一個 `complete()` 方法,內部把所有 SDK 特定的例外、HTTP status code、Workers AI 的 7505 / 7502 等錯誤碼,全部收斂成五個 `ProviderErrorKind`:RETRYABLE / AUTH / RATE_LIMIT / INVALID_REQUEST / PROVIDER。同一個 provider adapter 還能透過 `ModelGateway`(純 ASGI)開成 OpenAI-compatible endpoint,讓外部 client 也能用 Rivumi 已經驗證過的 transport。"
-description: "深入 Rivumi 的 ModelProvider 多閘道設計：五個 adapter(OpenAI-compatible / Anthropic / Gemini / Workers AI / Scripted)怎麼翻譯成 canonical ModelTurn;ProviderErrorKind 五類錯誤收斂;ModelGateway 純 ASGI 怎麼把同一個 adapter 暴露成 OpenAI-compatible HTTP endpoint。"
+tldr: "Rivumi 把『打哪家的模型 API』抽象成一個 Protocol:OpenAI-compatible(Ollama / vLLM / 官方 / custom endpoint)、OpenAI Responses、Anthropic Messages API、Gemini generateContent、Cloudflare Workers AI,加上一個 scripted deterministic adapter。Protocol 只有四個屬性 + 一個 `complete()` 方法,內部把所有 SDK 特定的例外、HTTP status code、Workers AI 的 7505 / 7502 等錯誤碼,全部收斂成五個 `ProviderErrorKind`:RETRYABLE / AUTH / RATE_LIMIT / INVALID_REQUEST / PROVIDER。同一個 provider adapter 還能透過 `rivumi gateway` 暴露 `/healthz`、`/v1/models` 與非 streaming `/v1/chat/completions`,讓外部 client 也能用 Rivumi 已經驗證過的 transport。"
+description: "深入 Rivumi 的 ModelProvider 多閘道設計：OpenAI-compatible / OpenAI Responses / Anthropic / Gemini / Workers AI / Scripted adapter 怎麼翻譯成 canonical ModelTurn;ProviderErrorKind 五類錯誤收斂;ModelGateway 純 ASGI 怎麼把同一個 adapter 暴露成 OpenAI-compatible HTTP endpoint。"
 series:
   name: "Rivumi 架構拆解"
   order: 6
 draft: false
 ---
 
-上一篇拆 ExternalCodingRunner,這篇回到 Rivumi 自家 loop——看 `ModelProvider` Protocol 怎麼把五個 transport 收斂成同一個介面,以及同一個 adapter 怎麼被 `ModelGateway` 開成對外服務。
+上一篇拆 ExternalCodingRunner,這篇回到 Rivumi 自家 loop——看 `ModelProvider` Protocol 怎麼把多個 protocol adapter 收斂成同一個介面,以及同一個 adapter 怎麼被 `ModelGateway` 開成對外服務。
 
 這個收斂是必要的:AgentRunner 的 `_complete_model_or_cancel` 只看到 `ModelProvider` Protocol,從頭到尾不知道下游是 OpenAI SDK、Anthropic SDK、httpx、還是 Workers AI 的 REST。**所有 provider-specific 的差異——SDK 例外型別、HTTP status code、Workers AI 的自定義 error code、reasoning token 怎麼算——都必須在 adapter 內部被消化掉**。失敗的時候 AgentRunner 看到的是 `ProviderError(kind=..., status_code=..., retryable=...)`,而不是 `openai.APIStatusError` 或 `httpx.HTTPStatusError`。
 
-## 五個 transport,一個 contract
+## 多個 protocol,一個 contract
 
 `src/rivumi/models.py:64-79` 是整個抽象的核心:
 
@@ -40,19 +40,20 @@ class ModelProvider(Protocol):
     async def aclose(self) -> None: ...
 ```
 
-四個屬性加一個方法。`provider_name` 是身份標籤(`openai-compatible` / `anthropic` / `gemini` / `workers-ai` / `scripted`),`model_id` 是具體模型(`gpt-4o` / `claude-sonnet-4.5` / `gemini-2.5-pro` / `@cf/meta/llama-3.3-70b-instruct-fp8-fast` / scripted fixture 名)。`protocol` 是 wire protocol,跟 provider 身份解耦——同樣是 OpenAI SDK,可以走 `OPENAI_CHAT`(一般 API)或 `OPENAI_CODEX_RESPONSES`(Codex Responses API),Protocol 允許未來加新 wire format 而不破壞既有 adapter。
+四個屬性加一個方法。`provider_name` 是身份標籤(`openai-compatible` / `openai-responses` / `anthropic` / `gemini` / `workers-ai` / `scripted`),`model_id` 是具體模型(`gpt-4o` / responses-only model / `claude-sonnet-4.5` / `gemini-2.5-pro` / `@cf/meta/llama-3.3-70b-instruct-fp8-fast` / scripted fixture 名)。`protocol` 是 wire protocol,跟 provider 身份解耦——同樣是 OpenAI 來源,可以走 `OPENAI_CHAT`(一般 chat completions)或 `OPENAI_CODEX_RESPONSES`(Responses API),Protocol 允許未來加新 wire format 而不破壞既有 adapter。
 
 `capabilities` 是 `ModelCapabilities(tool_calling=..., streaming=..., structured_output=...)`——目前只有 `tool_calling` 真的會被 loop 用到(`AgentRunner.run()` 開頭會拒絕不支援 tool calling 的 provider),其兩個保留給未來。**AgentRunner 預設不啟用 streaming**——`complete()` 回的是一次性 `ModelTurn`,delta 在 loop 內部用 `bounded_text()` 統一截斷,而不是讓每個 adapter 自己處理 streaming chunk。
 
 `complete()` 的輸入是 canonical `ConversationItem`(上一篇文章提到的 `Message | ToolObservation`),不是 provider-specific 的 message 物件。輸出是 canonical `ModelTurn(content, tool_calls, usage, finish_reason)`。**Provider 在邊界上消失**——下游可以是任何東西,只要能裝進這四個欄位。
 
-## 五個 adapter 的關鍵差異
+## Adapter 的關鍵差異
 
-`models.py` 裡五個 adapter 各自用不同的底層 SDK / HTTP client:
+`models.py` 裡各個 adapter 各自用不同的底層 SDK / HTTP client:
 
 | Adapter | 底層 | 主要 transport |
 |---|---|---|
 | `OpenAICompatibleModel` | `openai.AsyncOpenAI` SDK | `/chat/completions` |
+| OpenAI Responses adapter | OpenAI Responses wire | `/responses` |
 | `AnthropicModel` | `httpx.AsyncClient`(line 469-479 `_HttpModel`) | `/v1/messages` |
 | `GeminiModel` | `httpx.AsyncClient` | `/v1beta/models/{model}:generateContent` |
 | `WorkersAIModel` | `httpx.AsyncClient` | `/accounts/{id}/ai/run/{model}` |
@@ -137,7 +138,7 @@ else:
 
 ## OpenAI-compatible 的特殊位置
 
-`OpenAICompatibleModel` 不是「OpenAI 專用」,而是所有走 `/v1/chat/completions` wire 的 adapter——Ollama、vLLM、LM Studio、OpenAI 官方都吃這個 wire。`__init__` 裡特別的設計:
+`OpenAICompatibleModel` 不是「OpenAI 專用」,而是所有走 `/v1/chat/completions` wire 的 adapter——Ollama、vLLM、LM Studio、OpenAI 官方與 custom OpenAI-compatible URL 都吃這個 wire。Responses-only 模型則走獨立的 Responses protocol adapter,不把兩種 wire format 硬塞進同一個 class。`__init__` 裡特別的設計:
 
 ```python
 validated_base_url = _validated_openai_base_url(base_url)
@@ -203,9 +204,9 @@ class ModelGateway:
 
 ## 整體來說
 
-`ModelProvider` Protocol 是 Rivumi 把「模型」當成元件的具體表現:**四個欄位 + 一個方法 + 五類錯誤**,五個 transport(OpenAI-compatible / Anthropic / Gemini / Workers AI / Scripted)各自負責把 provider-specific 的 wire format 跟錯誤碼翻譯進來,AgentRunner 從頭到尾只看到 canonical 介面。
+`ModelProvider` Protocol 是 Rivumi 把「模型」當成元件的具體表現:**四個欄位 + 一個方法 + 五類錯誤**,各個 protocol adapter(OpenAI-compatible / OpenAI Responses / Anthropic / Gemini / Workers AI / Scripted)各自負責把 provider-specific 的 wire format 跟錯誤碼翻譯進來,AgentRunner 從頭到尾只看到 canonical 介面。
 
-這個抽象的代價顯而易見:寫 adapter 的人要懂兩邊——canonical contract 跟 provider wire,而且每次 provider 改 wire(Anthropic 加新欄位、Gemini 換 response shape)都要跟著改。但回報也同樣清楚:**同樣的 AgentRunner、同樣的 disposable clone、同樣的 verification 閘,跑五種模型不需要改 loop 一行**;同樣的 transport 還能透過 `ModelGateway` 服務外部 client;同樣的 `ProviderErrorKind` 分類讓 retry 跟 fail-closed 決策統一。
+這個抽象的代價顯而易見:寫 adapter 的人要懂兩邊——canonical contract 跟 provider wire,而且每次 provider 改 wire(Anthropic 加新欄位、Gemini 換 response shape、OpenAI 新增 responses-only 模型)都要跟著改。但回報也同樣清楚:**同樣的 AgentRunner、同樣的 disposable clone、同樣的 verification 閘,接多個 protocol 不需要改 loop 一行**;同樣的 transport 還能透過 `ModelGateway` 服務外部 client;`rivumi gateway` 目前的公開面維持在 `/healthz`、`/v1/models`、非 streaming `/v1/chat/completions`,可選 `RIVUMI_GATEWAY_TOKEN`,不是任意 URL passthrough。同樣的 `ProviderErrorKind` 分類讓 retry 跟 fail-closed 決策統一。
 
 下一篇拆 TUI 跟 CLI 人因工程——互動模式怎麼把 AgentRunner 的純 async 流程變成 daily-driver UX,approval flow 怎麼不被 spam、resume 怎麼不被 panic、wide/narrow 終端機怎麼都被支援。
 

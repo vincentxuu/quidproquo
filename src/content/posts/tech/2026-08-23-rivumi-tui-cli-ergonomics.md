@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, cli, tui, ux, terminal]
 lang: zh-TW
-tldr: "Rivumi 把 daily-driver UX 切成兩個 mode:`interactive`(有 TTY、有 TUI、走 approval prompt)跟 `headless`(CI / 排程、純 stdout)。approval policy 不是寫死 y/n——`ApprovalDecision` 有四個值:ALLOW_ONCE / ALLOW_SESSION / DENY / CANCEL,搭配 `TTYApprovalPolicy` 的 session-scoped grants,使用者在一次 session 內允許某類 effect 後就不再問。Resume 是另一條關鍵 UX:`AgentRunner.resume()` 在 `rivumi resume <session>` 觸發,從 `SessionStore.claim_and_validate_resume` 把 manifest 還原成 in-memory 狀態(`_step` / `_messages` / `_last_fingerprint` / `_repeat_count` 全部繼承),然後 `_sequence` 從 `manifest.last_event_sequence + 1` 接續。整個 TUI layout 變更還要跑 geometry test + 兩張 wide/narrow screenshot 才算完成。"
+tldr: "Rivumi 把 daily-driver UX 切成兩個 mode:`interactive`(有 TTY、有 TUI、走 approval prompt)跟 `headless`(CI / 排程、純 stdout)。approval policy 不是寫死 y/n——`ApprovalDecision` 有四個值:ALLOW_ONCE / ALLOW_SESSION / DENY / CANCEL,搭配 `TTYApprovalPolicy` 的 session-scoped grants,使用者在一次 session 內允許某類 effect 後就不再問。最新 TUI 已改成 runtime-first：bare `rivumi` 進互動畫面,可選 Rivumi Agent / Claude Code / Codex CLI / OpenCode / Pi / OMP,並有 statusline usage、`/usage`、`/context`、`/model`、`/new`、`/resume`、`/history`。整個 TUI layout 變更還要跑 geometry test + wide/narrow/loading screenshot 才算完成。"
 description: "深入 Rivumi 的 TUI/CLI 設計:_terminal_supports_tui 偵測、_stdin_is_tty 切 mode、TTYApprovalPolicy 的 session-scoped grants、ApprovalDecision 四值、AgentRunner.resume 怎麼還原 in-memory state、scripts/render_tui_screenshot.py 的 wide/narrow 渲染測試流程。"
 series:
   name: "Rivumi 架構拆解"
@@ -212,19 +212,25 @@ rivumi command (Typer)
 ├── rivumi config         → show / interactive / write CLI config
 ├── rivumi gateway        → start ModelGateway on loopback
 ├── rivumi status         → list runs in run_root
-└── rivumi (provider commands)
-    ├── rivumi openai     → subscription-backed external coding
-    ├── rivumi codex      → Codex CLI backend
-    └── rivumi claude     → Claude Code CLI backend
+├── rivumi sessions       → list resumable / completed sessions
+├── rivumi export-otel    → export run events as OTel-style telemetry
+└── interactive runtime selector
+    ├── Rivumi Agent      → native AgentRunner
+    ├── Claude Code       → official CLI runtime
+    ├── Codex CLI         → official CLI runtime
+    ├── OpenCode          → local-only runtime
+    ├── Pi                → local-only runtime
+    └── OMP               → local-only runtime
 
 AgentRunner (pure async) ←— ApprovalPolicy (TTY | Headless | Callback)
        ↑
        └── EventSink → CompositeEventSink(JsonlEventSink, TUI sink)
+                      └── TUI slash commands: /usage /context /model /new /resume /history
 ```
 
 ## 整體來說
 
-CLI / TUI 層的核心斷言:**AgentRunner 是純 async,harness 不知道有 TTY**。所有 daily-driver UX 的責任都在 `cli.py` + `approvals.py` + TUI module——approval 是 prompt 還是自動、resume 怎麼還原狀態、TUI layout 怎麼跨 terminal size、onboarding 怎麼探測本地模型、config 怎麼分 secret / non-secret。
+CLI / TUI 層的核心斷言:**AgentRunner 是純 async,harness 不知道有 TTY**。所有 daily-driver UX 的責任都在 `cli.py` + `approvals.py` + TUI module——approval 是 prompt 還是自動、resume 怎麼還原狀態、TUI layout 怎麼跨 terminal size、onboarding 怎麼探測本地模型、config 怎麼分 secret / non-secret。最新的方向是 runtime-first:使用者在同一個互動畫面切 Rivumi Agent / 官方 Claude Code / 官方 Codex CLI / local-only OpenCode / Pi / OMP,狀態列直接顯示用量與 context,需要查帳或排查時再用 `/usage`、`/context`、`rivumi sessions`、`rivumi export-otel` 往下鑽。
 
 這個分工的代價:CLI 程式碼量比 loop 還大(`cli.py` 1733 行 vs `loop.py` 1051 行)、onboarding / resume / TUI 三條 path 各自有自己的 edge case 需要被 spec。回報是:**AgentRunner 可以直接被 `AgentRunner.resume()` / `ModelGateway` / Cloudflare Worker 拿來用,不需要任何「互動模式」分支**——所有需要人拍板的決策都收斂在 `ApprovalPolicy` Protocol 裡,實作可以換 TTY prompt / callback / headless 自動放行,但 AgentRunner 完全不感知。
 

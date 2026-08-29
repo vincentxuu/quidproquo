@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, ai-agent, python, sandbox]
 lang: zh-TW
-tldr: "上一篇拆了 Rivumi 的 provider-neutral loop,這篇拆它真正危險的那一層:tool 邊界。一個 coding agent 的執行表面不是模型,是「檔案系統 + 子行程」;只要這兩條邊界守住,prompt injection 沒有槓桿可以放大傷害。Rivumi 的做法是三層收斂:路徑層用 `SafePathPolicy` 做 segment-aware glob + 符號連結逸出偵測 + `.git` 永久屏蔽;argv 層讓 `VerificationCommand` 只能是預先 allowlist 的 tuple、執行時 `shell=False`;子行程層用 `sanitized_subprocess_env` 清掉所有 host credential、用 `start_new_session=True` 開 process group、`SIGTERM` 0.5s 後升 `SIGKILL`,輸出用 `_BoundedCapture` 同時 cap head 與 tail。這篇逐層拆。"
+tldr: "上一篇拆了 Rivumi 的 provider-neutral loop,這篇拆它真正危險的那一層:tool 邊界。一個 coding agent 的執行表面不是模型,是「檔案系統 + 子行程」;只要這兩條邊界守住,prompt injection 沒有槓桿可以放大傷害。Rivumi 的做法是三層收斂:路徑層用 `SafePathPolicy` 做 segment-aware glob + 符號連結逸出偵測 + `.git` 永久屏蔽;argv 層讓 `VerificationCommand` 只能是預先 allowlist 的 tuple、執行時 `shell=False`;子行程層用 `sanitized_subprocess_env` 清掉所有 host credential、用 `start_new_session=True` 開 process group、`SIGTERM` 0.5s 後升 `SIGKILL`,輸出用 `_BoundedCapture` 同時 cap head 與 tail。外部 CLI runtime 走自己的工具集,但回來的 patch 仍要再過同一套 path-bounded audit 與 verification。"
 description: "深入拆解 Rivumi coding agent 的工具隔離設計:SafePathPolicy 路徑 allowlist、VerificationCommand argv 嚴格化、sanitized_subprocess_env credential 清空、process group timeout 與 _BoundedCapture 輸出 cap,以及為什麼 prompt injection 在這層沒有槓桿。"
 series:
   name: "Rivumi 架構拆解"
@@ -316,6 +316,8 @@ else:
 ## 整體來說
 
 Rivumi 的「loop 屬於 harness」這個斷言,在 tool 這層會翻譯成:**任何 prompt 能觸發的副作用,都先被 Python 型別系統靜態驗證,再被 runtime guard 動態驗證**。`SafePathPolicy` 讓模型看到的「檔案系統」是一個白名單的子集,而且這個白名單不能含 `.git`、不能含 `..`、不能含符號連結逸出;`VerificationCommand` 讓模型看到的「執行指令」是一個 allowlist 的 key 集合,argv 是 tuple 而且走 `shell=False`;`sanitized_subprocess_env` + `_BoundedCapture` + process group timeout 讓子行程是 credential-free、輸出有界、整棵 process tree 一定會死。
+
+最新的外部 CLI runtime 不改這條原則,只是把邊界往後移:Claude Code / Codex CLI / OpenCode / Pi / OMP 可以在自己的 loop 裡使用自己的工具,但它們只在 Rivumi 準備的 disposable clone 裡動作;回到 Rivumi 時,patch 仍要被 `SafePathPolicy`、二進位 / symlink / rename / copy 檢查、final verification 與 source invariant 擋一次。Cloudflare 切片也是同樣邏輯:Worker ingress 先擋路徑與 argv,Sandbox 裡跑 native bounded toolset,provider credential 留在 Worker model proxy。
 
 這層一旦守住,prompt injection 的攻擊面就被壓縮成「讓模型講錯話」——但講錯話的後果頂多是多浪費幾輪 token,**不會是讀到 `~/.aws/credentials`** 或 **`curl … | sh` 拿到主機 shell**。下一篇拆 `LocalGitWorkspace`:為什麼 workspace 是 disposable clone 而不是 source repo 的 alias,為什麼 HEAD 必須 detach,為什麼 `.task-env` 是 sandbox 與 host 的實際接縫。
 

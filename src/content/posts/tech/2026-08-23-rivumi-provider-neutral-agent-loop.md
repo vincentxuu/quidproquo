@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, ai-agent, python, llm]
 lang: zh-TW
-tldr: "Rivumi 是一個 Python-first coding agent。它的核心斷言是『loop 屬於 harness，不屬於模型』：ModelProvider 是個 Protocol，OpenAI / Anthropic / Gemini / Workers AI 都只是 transport；AgentRunner 自己持有 step / repetition / wall-time 三層 guards，所有 deterministic 規則——路徑 allowlist、argv、process group、token 預算、驗證閘——都寫在 Python 程式碼裡，不寫在 prompt。這篇拆解它的設計決定、執行骨架、跟 Claude Code / Codex / Aider / mini-SWE-agent 的差異，以及為什麼這種 provider-neutral 的代價是值得的。"
+tldr: "Rivumi 是一個 Python-first coding agent。它的核心斷言是『loop 屬於 harness，不屬於模型』：ModelProvider 是個 Protocol，OpenAI-compatible、OpenAI Responses、Anthropic、Gemini、Workers AI 與 scripted adapter 都只是 protocol boundary；AgentRunner 自己持有 step / repetition / wall-time 三層 guards，所有 deterministic 規則——路徑 allowlist、argv、process group、token 預算、驗證閘——都寫在 Python 程式碼裡，不寫在 prompt。這篇拆解它的設計決定、執行骨架、跟 Claude Code / Codex / Aider / mini-SWE-agent 的差異，以及為什麼這種 provider-neutral 的代價是值得的。"
 description: "深入介紹 Rivumi coding agent 的 provider-neutral loop 設計：AgentRunner 的 step / repetition / wall-time guards、ModelProvider Protocol、ContractModel 不可變設計、與 Claude Code / Codex / Aider 等的架構差異。"
 series:
   name: "Rivumi 架構拆解"
@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-[Rivumi](https://github.com/vincentxuu/rivumi) 是一個 Python-first coding agent,作者把它定位成「provider-neutral coding agent harness」。這八篇系列要把它拆開看——這是第一篇,核心斷言:**agent loop 不屬於模型,屬於 harness**。模型是個被呼叫的元件,不是 orchestrator;OpenAI / Anthropic / Gemini / Workers AI / Ollama 都只是 `ModelProvider` Protocol 下的 transport。所有的 deterministic 規則——路徑 allowlist、argv 嚴格化、process group timeout、token / step / wall-time budget、verification 閘——都寫在 Python 程式碼裡,不寫在 prompt。
+[Rivumi](https://github.com/vincentxuu/rivumi) 是一個 Python-first coding agent,作者把它定位成「provider-neutral coding agent harness」。這八篇系列要把它拆開看——這是第一篇,核心斷言:**agent loop 不屬於模型,屬於 harness**。模型是個被呼叫的元件,不是 orchestrator;OpenAI-compatible / OpenAI Responses / Anthropic / Gemini / Workers AI / scripted 都只是 `ModelProvider` Protocol 下的 protocol adapter,Ollama 與自架 vLLM 則走 OpenAI-compatible 的 loopback / custom endpoint 路徑。所有的 deterministic 規則——路徑 allowlist、argv 嚴格化、process group timeout、token / step / wall-time budget、verification 閘——都寫在 Python 程式碼裡,不寫在 prompt。
 
 理解這個斷言之後,Rivumi 其他的設計決定(為什麼源 repo 不被改、為什麼 disposable clone 必須 detached、為什麼 `LocalGitWorkspace` 不是 sandbox、為什麼 verification 失敗才算 loop 終止)就全部串起來了。
 
@@ -130,7 +130,7 @@ def _record_fingerprint(self, call: ToolCall) -> bool:
 
 把這個放進 Python 而不是 prompt,理由跟在限速器或重試邏輯上一樣:**這個決定不該被模型自己改**。如果寫成「如果三次重複就停下」這種 instruction,模型可以假裝忘記、可以辯稱「這次跟上次不一樣因為 X」、可以在壓力下忽略;寫成 `_record_fingerprint`,模型連看到這段規則的機會都沒有——它只能從 `terminal_reason="repeated_action"` 這個回傳值知道發生過。
 
-## ModelProvider:五個 transport 共用一個 Protocol
+## ModelProvider:多個 protocol adapter 共用一個 contract
 
 `models.py:64-79`:
 
@@ -215,13 +215,13 @@ class Limits(ContractModel):
 
 | 專案 | Loop 歸屬 | Provider boundary | Verification gate |
 |---|---|---|---|
-| **Rivumi** | 自己寫的 `AgentRunner` | Canonical `ModelProvider` Protocol,五個 transport | 自己 rerun 全部 `verification` argv 才算 COMPLETED |
+| **Rivumi** | 自己寫的 `AgentRunner` | Canonical `ModelProvider` Protocol,多個 protocol adapter | 自己 rerun 全部 `verification` argv 才算 COMPLETED |
 | **Claude Code** | 跟 Anthropic SDK 綁定 | Anthropic 為主 | 由模型宣告 + 內部 heuristic |
 | **Codex CLI** | OpenAI Responses + 自家 loop | OpenAI 為主,OAuth 訂閱 | 模型宣告 + CLI 內 sandbox 退出碼 |
 | **Aider** | 跟模型 API 直連 | 多 provider 但各自寫 adapter | 依賴模型主動呼叫 lint / test |
 | **mini-SWE-agent** | 極簡 Python loop | 多 provider | 跟 Aider 類似 |
 
-差異的本質是兩個:**loop 是公開抽象還是隱私,verification 是 Python guard 還是模型自我宣告**。Rivumi 選前者,代表它可以(也真的)在不改 loop 的前提下加 Ollama、加 Workers AI、把 CodeX CLI 包成外部 runtime(`ExternalCodingRunner`)卻仍然跑同一份 verification——這些在後續幾篇會拆。
+差異的本質是兩個:**loop 是公開抽象還是隱私,verification 是 Python guard 還是模型自我宣告**。Rivumi 選前者,代表它可以在不改 loop 的前提下接 OpenAI-compatible、OpenAI Responses、Anthropic、Gemini、Workers AI、scripted fixture、Ollama / vLLM 類 loopback endpoint;官方 Codex CLI、Claude Code、OpenCode、Pi、OMP 則維持在外部 runtime(`ExternalCodingRunner`)邊界,不混成 `ModelProvider`。這些在後續幾篇會拆。
 
 ## 整體架構
 
@@ -232,7 +232,8 @@ TaskContract ──┐
         │      │  \
         │      │   └── ModelProvider (Protocol)
         │      │         ├─ Scripted (deterministic fixture)
-        │      │         ├─ OpenAI-compatible (Ollama / vLLM / 官方)
+        │      │         ├─ OpenAI-compatible (Ollama / vLLM / 官方 / custom endpoint)
+        │      │         ├─ OpenAI Responses
         │      │         ├─ Anthropic (Messages API)
         │      │         ├─ Gemini (generateContent)
         │      │         └─ Workers AI (run endpoint)

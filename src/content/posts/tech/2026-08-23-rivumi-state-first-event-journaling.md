@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, crash-recovery, journaling, file-locking]
 lang: zh-TW
-tldr: "Rivumi 同時維護兩份寫入路徑:append-only 的 `events.jsonl` 跟原子替換的 `session.json` manifest。當 process 在兩者之間 crash,單靠任何一份都會誤判狀態——只看 JSONL 會以為某個 side effect 沒跑,只看 manifest 會以為某個 tool call 已經完成。所以 Rivumi 把 manifest 當作 state-of-record、events 當作 audit trail,resume 時先用 `manifest.last_event_sequence` 對 JSONL 做 reconciliation,再用 `last_event_type` 決定能不能自動續跑。停在哪個事件決定恢復策略——停在前半段可以無腦 resume,停在 `tool.started` 或 `verification.started` 必須 hard fail,因為 side effect 是否真的執行過無法靠 state 證明。"
+tldr: "Rivumi 同時維護兩份寫入路徑:append-only 的 `events.jsonl` 跟原子替換的 `session.json` manifest。當 process 在兩者之間 crash,單靠任何一份都會誤判狀態——只看 JSONL 會以為某個 side effect 沒跑,只看 manifest 會以為某個 tool call 已經完成。所以 Rivumi 把 manifest 當作 state-of-record、events 當作 audit trail,resume 時先用 `manifest.last_event_sequence` 對 JSONL 做 reconciliation,再用 `last_event_type` 決定能不能自動續跑。停在哪個事件決定恢復策略——停在前半段可以 resume,停在 `tool.started` 或 `verification.started` 必須 hard fail；TUI 的 `/new`、`/resume`、`/history` 與 `rivumi sessions` 都是建立在這個 state-first contract 上。"
 description: "深入 Rivumi 的 crash-safe 設計：atomic_write_json 用同目錄 temp file + fsync,EventWriter 用 O_APPEND + fsync,SessionWriterLease 用 fcntl.flock + O_NOFOLLOW,claim_and_validate_resume 的 manifest_was_ahead 邏輯,以及為什麼 tool.started / verification.started 不能自動 resume。"
 series:
   name: "Rivumi 架構拆解"
@@ -197,6 +197,8 @@ Resume 時兩者合在一起:manifest 提供「現在進行式」的 state-of-re
 ## 整體來說
 
 State-first journal 不是「多加一層保險」,是 append-only 跟 atomic-rename 兩種檔案語意各有局限時的**強迫分工**:audit 跟 control 不能用同一個檔案,因為它們的寫入模式根本相反(append vs replace);寫在一起不是冗餘,是把「發生過什麼」跟「現在到哪裡」拆清楚。
+
+這也是最新 TUI / session 工具能成立的原因:`/resume` 不是從螢幕文字猜狀態,`/history` 不是倒放 vendor transcript,`rivumi sessions` 也不是掃一堆臨時 log。它們共同讀的是 versioned `session.json` 與 append-only events。外部 CLI runtime 的 vendor session id 不必變成 Rivumi 的 source of truth;Rivumi 只保存自己能驗證的狀態、patch、usage 與 event sequence。
 
 下一篇拆 `ExternalCodingRunner`——這個設計在 Rivumi 裡的角色特別刁鑽:Rivumi 同時又是 orchestration,讓 Codex CLI / Claude Code CLI 跑它們自己的 loop,然後回頭用同一份 verification 跟 patch audit 驗證結果——這套「兩個 loop 共用一份 verification」要怎麼不踩到「state-first journal 寫進去的東西跟 external runtime 寫進去的東西會打架」的雷,是這篇之後會拆的。
 

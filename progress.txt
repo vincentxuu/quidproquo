@@ -17,9 +17,8 @@ In progress
 - **「跟成熟 coding agent 學設計」系列 38 篇雙語（78 檔）已完成待 review**（0126e687＋收尾篇，
   docs/content-plan-coding-agent-design-series.md）：第一部 25 篇已實作對照（order 2–25，總覽佔 1）＋
   第二部 13 篇改善路線圖（26–38，收尾篇 agent-as-service 於 2026-08-26 補齊「38 篇」定案數）。
-  複查修正：cli-ergonomics zh/en 標題編號 12→13。五家 server API 取證與 rivumi 草案見 order 38；
-  抽樣事實複查結論：74 檔 frontmatter/互鏈/參考資料全過，rivumi 數字主張未重跑、外部連結未線上
-  驗證兩項仍開放。舊 python-coding-agent M1–M10 十篇已刪（5247d6cc）。
+  2026-08-29 已依 Rivumi 公開 repo 最新狀態直接更新系列 metadata、八篇 Rivumi 正文、coding-agent 總覽與 telemetry 文；內容融入正文，不加補充章節。
+  複查修正：cli-ergonomics zh/en 標題編號 12→13。五家 server API 取證與 rivumi 草案見 order 38；抽樣事實複查結論：74 檔 frontmatter/互鏈/參考資料全過，rivumi 數字主張未重跑、外部連結未線上驗證兩項仍開放。舊 python-coding-agent M1–M10 十篇已刪（5247d6cc）。
   待使用者 review 後 push＋deploy。
 - Stanford NLP／Agent／圖分支：CS124 W26 10 週、CS224N W26 19 講、CS224V F25 14 單元、CS224W F25 19 講雙語稿與乾淨複核已完成，待 review；CS224U 改等 Spring 2027，現為 0 個可發布單元。
 - **發佈狀態盤點＋內容審讀（2026-08-25）**：CS124／CS224N／CS224V／CS224W／CS229／CS336、

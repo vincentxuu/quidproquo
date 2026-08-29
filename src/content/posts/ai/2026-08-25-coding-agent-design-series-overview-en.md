@@ -8,8 +8,8 @@ series:
   order: 1
 tags: [coding-agent, agent-loop, harness-engineering, rivumi, open-source]
 lang: en
-tldr: "I'm building my own Python coding agent called rivumi. This series dissects the source code of five mature projects — pi, oh-my-pi, opencode, codex, and claude-code — topic by topic. Every post follows a fixed five-part structure: design problem → how five projects do it → rivumi's choice → academic grounding → improvement roadmap, with evidence cited at file#symbol level."
-description: "Overview of the coding agent design series: why I'm building rivumi, what each of the five reference projects (pi, oh-my-pi, opencode, codex, claude-code) actually is, and how to read the 36-post two-part series and its evidence standard."
+tldr: "I'm building my own Python coding agent called rivumi. This series dissects the source code of five mature projects — pi, oh-my-pi, opencode, codex, and claude-code — topic by topic, while also comparing them with Rivumi's current TUI, external CLI runtimes, local gateway, usage/OTel/session tooling, and Cloudflare slice. Every post follows a fixed five-part structure: design problem → how five projects do it → rivumi's choice → academic grounding → improvement roadmap, with evidence cited at file#symbol level."
+description: "Overview of the coding agent design series: why I'm building rivumi, what each of the five reference projects (pi, oh-my-pi, opencode, codex, claude-code) actually is, and how to read the 38-post two-part series and its evidence standard."
 draft: false
 ---
 
@@ -28,9 +28,11 @@ What I want is a **Python-first** agent that works as an interactive daily CLI, 
 rivumi deliberately splits into two parallel runtime paths:
 
 1. **The native harness**: we own the loop, approvals, sessions, tools, verification gate, and model API adapters.
-2. **External CLI runtimes**: explicitly selected external coding CLIs (pi, omp, opencode, codex) act as backends. They run their own loops but share rivumi's conversation UI, workspace safety, patch audit, and verification boundary.
+2. **External CLI runtimes**: explicitly selected external coding CLIs (Claude Code, Codex CLI, OpenCode, Pi, and OMP) act as backends. They run their own loops but share rivumi's conversation UI, workspace safety, patch audit, and verification boundary.
 
 The key discipline: one path is never disguised as the other. An external CLI is an external CLI; we never pretend it's our native implementation. That discipline itself is something I learned only after reading other people's source code.
+
+Rivumi is no longer just the early Python harness. It now has a provider-neutral `ModelProvider` contract, OpenAI-compatible / Anthropic / Gemini / Workers AI / scripted adapters, state-first event journaling, `rivumi resume`, a runtime-first TUI, usage/statusline/OTel/session tooling, a local model gateway, and a bounded Worker control plane plus Cloudflare Sandbox deployment slice. So each design topic in this series reads both "how the five mature projects do it" and "how far Rivumi has pushed that boundary."
 
 ## Who the five reference projects are
 
@@ -58,11 +60,11 @@ Honesty first: the official anthropics/claude-code repo only ships minified bund
 
 ## How to read this series
 
-Two parts, 36 posts total, all bilingual (Chinese and English).
+Two parts, 38 posts total, all bilingual (Chinese and English).
 
 **Part 1, "Implemented comparisons" (24 posts)**: topics rivumi has already shipped — the shape of the agent loop, workspace isolation, approval grading, verification gates, the ModelProvider abstraction, retry policies, subscription OAuth, external CLIs as backends, edit-tool trade-offs, sandboxing and remote execution, CLI ergonomics, and more. Each post is a head-to-head comparison of "how five projects do it vs how I did it", including where I got it wrong.
 
-**Part 2, "Not yet implemented — an improvement roadmap" (12 posts)**: capabilities all five have and rivumi doesn't — context compaction, cross-session memory, dangerous-command interception, OS-level sandboxing, MCP integration, hooks/skills/plugins, subagents and worktree isolation, session recording and replay, telemetry and cost tracking, model catalog routing, LSP integration, and code mode. Each post ends with a concrete design draft for rivumi, not a wish list.
+**Part 2, "Not yet implemented — an improvement roadmap" (13 posts)**: capabilities all five have and rivumi either still lacks or has only recently bounded — context compaction, cross-session memory, dangerous-command interception, OS-level sandboxing, MCP integration, hooks/skills/plugins, subagents and worktree isolation, session recording and replay, telemetry and cost tracking, model catalog routing, LSP integration, code mode, and Agent as a Service. Each post ends with a concrete design draft for rivumi, not a wish list.
 
 Every post follows the same five-part structure:
 
@@ -82,6 +84,7 @@ If you're building your own agent, or just want to know what Claude Code and Cod
 
 ## References
 
+- [vincentxuu/rivumi](https://github.com/vincentxuu/rivumi) — public Rivumi repo and README
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono) — pi source code, TypeScript monorepo
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) — omp source code, a fork of pi
 - [sst/opencode](https://github.com/sst/opencode) — opencode source code

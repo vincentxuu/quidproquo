@@ -5,8 +5,8 @@ category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, codex-cli, claude-code, orchestration]
 lang: zh-TW
-tldr: "Rivumi 同時有自家 loop(AgentRunner)跟外部 runtime 的整合路徑(ExternalCodingRunner)。後者不是把 Codex CLI / Claude Code CLI 當成 ModelProvider 用——它們有自己的 model loop,Rivumi 不該插手;它只做幾件事:用同一套 LocalGitWorkspace 建 disposable clone、把 `allowed_paths` 跟 verification 指令明確餵給外部 CLI、跑完後用 SafePathPolicy + ToolExecutor 重新驗證整個 patch、再用 source-invariant 對比確認 source repo 完全沒被動。整個設計的關鍵斷言是「ExternalCodingRunner 永遠不會變成 ModelProvider,也不會讀它的 credential store」。"
-description: "深入 Rivumi 的 ExternalCodingRunner 設計：跟 AgentRunner 的分工、為什麼 Codex/Claude Code CLI 不是 ModelProvider、disposable clone + patch boundary + final verification + source invariant 四道關卡、codex_conversation.py / claude_agent_session.py / opencode_backend.py / omp_backend.py 各自的整合策略。"
+tldr: "Rivumi 同時有自家 loop(AgentRunner)跟外部 runtime 的整合路徑(ExternalCodingRunner)。後者不是把官方 Codex CLI / Claude Code CLI 或 local-only OpenCode / Pi / OMP 當成 ModelProvider 用——它們有自己的 model loop,Rivumi 不該插手;它只做幾件事:用同一套 LocalGitWorkspace 建 disposable clone、把 `allowed_paths` 跟 verification 指令明確餵給外部 CLI、跑完後用 SafePathPolicy + ToolExecutor 重新驗證整個 patch、再用 source-invariant 對比確認 source repo 完全沒被動。整個設計的關鍵斷言是「ExternalCodingRunner 永遠不會變成 ModelProvider,也不會讀它的 credential store」。"
+description: "深入 Rivumi 的 ExternalCodingRunner 設計：跟 AgentRunner 的分工、為什麼 Codex/Claude Code CLI 與 OpenCode/Pi/OMP 不是 ModelProvider、disposable clone + patch boundary + final verification + source invariant 四道關卡、官方 CLI 與 local-only experimental backend 各自的整合策略。"
 series:
   name: "Rivumi 架構拆解"
   order: 5
@@ -109,14 +109,13 @@ Rivumi 把「怎麼跟某個 CLI 對接」拆成兩個檔案:
 - `src/rivumi/backends.py` 提供 `ExternalAgentBackend` Protocol,定義 `async def run(task, working_directory, event_sink) -> ExternalAgentResult`。這是契約,所有 backend 都實作它。
 - `src/rivumi/external_cli_base.py` 是共用 base class,處理「spawn subprocess → capture JSONL stream → parse event → call event_sink.emit」的 boilerplate。每個具體 backend 只負責「把 CLI 啟動、把 CLI 的輸出 parse 成 `ExternalAgentEvent`」。
 
-具體四個 backend 各自有自己的檔案:
+具體 backend 分成兩類:官方 CLI runtime 與 local-only experimental runtime。
 
 - `src/rivumi/codex_conversation.py`(168 行)——包 Codex CLI 用 ChatGPT OAuth 訂閱,輸出是 JSONL streaming,parse 成 sequence / event_type / text。
 - `src/rivumi/claude_agent_session.py`(764 行)——包 Claude Code CLI,根據 M5 文件「the narrowest policy-compatible Claude Code path」,只用 file tools(`read_file` / `write_file` / `edit`),不開 shell / network / MCP。這個限制比 Claude Code 預設還窄,但 Claude Code CLI 本身支援「自訂 tool set」flag,所以 Rivumi 直接傳一個縮減的 tool list 進去。
-- `src/rivumi/opencode_backend.py`(106 行)——包 OpenCode,local-only,experimental。
-- `src/rivumi/omp_backend.py`(24 行)——包 OMP(quidproquo 自己的編輯器模式),local-only。
+- OpenCode / Pi / OMP——README 把這三個列在 local-only runtime 邊界,都是 experimental,由外部 CLI 自己管理 loop 與工具,Rivumi 只接任務、收 patch、重跑驗證。
 
-`backend_name` 跟 `local_only` 跟 `experimental` 是 `ExternalAgentBackend` Protocol 的 attribute,UI 用 `local_only` 標記哪些 backend 不能在 Cloudflare Sandbox 跑、`experimental` 標記哪些還沒在 production 用過。`codex_conversation` 是 `local_only=False` 但 `experimental=True`(M5 仍標 experimental),`opencode` / `omp` 都是 `local_only=True experimental=True`,`claude_agent_session` 是 `local_only=False experimental=True`。
+`backend_name` 跟 `local_only` 跟 `experimental` 是 `ExternalAgentBackend` Protocol 的 attribute,UI 用 `local_only` 標記哪些 backend 不能在 Cloudflare Sandbox 跑、`experimental` 標記哪些還沒在 production 用過。官方 Codex CLI / Claude Code 走可審計 subprocess integration;OpenCode / Pi / OMP 明確標成 local-only,不借 Cloudflare 切片偷渡。
 
 ## 為什麼這不是「provider credential 偷渡管道」
 
@@ -134,7 +133,7 @@ Rivumi 不這樣做的理由很具體:
 
 ExternalCodingRunner 解決的是「我想用 Codex 訂閱但不想失去 Rivumi 的安全保證」這個矛盾。答案是:**loop 給它,boundary 留給我**。所有 Rivumi 的核心 invariant——disposable clone、SafePathPolicy、verification-as-gate、source-isolation E2E——在 external 路徑裡全部保留;外部 CLI 只是 Rivumi 借來的「自動駕駛」,但方向盤跟煞車還是 Rivumi 自己握的。
 
-下一篇拆 `ModelProvider` 多閘道——這是跟 ExternalCodingRunner 的鏡像對照:Rivumi 自己有 loop,模型只是被呼叫的元件。下一篇看 OpenAI / Anthropic / Gemini / Workers AI / Ollama 五個 transport 怎麼用同一個 `ModelProvider` Protocol 接到同一個 loop。
+下一篇拆 `ModelProvider` 多閘道——這是跟 ExternalCodingRunner 的鏡像對照:Rivumi 自己有 loop,模型只是被呼叫的元件。下一篇看 OpenAI-compatible / OpenAI Responses / Anthropic / Gemini / Workers AI / scripted adapter 怎麼用同一個 `ModelProvider` Protocol 接到同一個 loop。
 
 ---
 

@@ -8,7 +8,7 @@ series:
   order: 34
 tags: [coding-agent, telemetry, cost-tracking, opentelemetry, rivumi]
 lang: en
-tldr: "All five mature projects separate usage from money: pi embeds itemized cost inside the Usage type itself, omp syncs session JSONL into SQLite for dashboards; claude-code keeps a price table plus an honest 'unknown model' flag; codex estimates USD locally while polling its backend for the authoritative bill. rivumi already accumulates usage and logs token events to events.jsonl — what's missing is a price table, cost fields, and schema-shaped spans. Filling those gaps is easy; the hard part is never mistaking an estimate for a bill."
+tldr: "All five mature projects separate usage from money: pi embeds itemized cost inside the Usage type itself, omp syncs session JSONL into SQLite for dashboards; claude-code keeps a price table plus an honest 'unknown model' flag; codex estimates USD locally while polling its backend for the authoritative bill. rivumi already accumulates usage and exposes a TUI usage row, /usage, /context, session listing, and OTel export; what remains missing is a price table, cost fields, and a clear estimated-versus-authoritative billing boundary."
 description: "Comparing telemetry and cost-tracking design across pi, omp, opencode, codex, and claude-code: span schemas, OpenTelemetry export, price tables, and unknown-model handling — plus a design proposal for rivumi."
 draft: false
 ---
@@ -27,7 +27,7 @@ Every provider's API response carries usage, so every agent "has token counts". 
 2. **Where did the money go?** Was it the main model re-reading context over and over, or hidden calls from compaction and subagents? Without per-model, per-span attribution you can't say.
 3. **Can you trust the number?** Custom models, subscription quotas, and cache pricing changes all distort local estimates. Users need to know whether the number on screen is exact or a guess.
 
-An honest inventory of rivumi today: `contracts.py#Usage` normalizes input/output/cached_input/reasoning tokens; `loop.py` accumulates them via `_add_usage` into checkpoints and RunResult, and the `model.completed` event carries per-turn usage; the startup path has an env-gated `_StartupTracer`. But grepping `cost` across the repo hits nothing relevant — **usage without cost**.
+An honest inventory of rivumi today: `contracts.py#Usage` normalizes input/output/cached_input/reasoning tokens; `loop.py` accumulates them via `_add_usage` into checkpoints and RunResult, and the `model.completed` event carries per-turn usage; the TUI footer shows token estimates, context percentage, and elapsed time; `/usage`, `/context`, `rivumi sessions`, and `rivumi export-otel` cover query and export paths. The gap is no longer "no visible usage." It is **usage without trustworthy cost**: the price table, cost fields, unknown-model markers, and the boundary between provider-authoritative billing and local estimates still need to be added.
 
 ## How the five projects do it
 
@@ -59,22 +59,23 @@ The five projects converge exactly where OpenTelemetry's GenAI semantic conventi
 
 ## A design sketch for rivumi
 
-In rivumi's taste (contracts-first, stdlib, zero-dependency by default):
+In rivumi's taste (contracts-first, stdlib, zero-dependency by default), I would build on the existing usage / session / OTel surface:
 
 1. **Add a CostBreakdown next to Usage.** New `CostBreakdown(input=..., output=..., cache_read=..., cache_write=..., total=...)` in `contracts.py`, computed by adapters at response time and attached to turns, leaving Usage's own semantics untouched (cached_input remains a subset of input). The pricing function mirrors pi's `calculateCost`: pure, tiered, testable.
 2. **Price table lives in model_catalog.** Static dict + user overrides; unknown models resolve to `None` with a `has_unknown_model_cost` flag — claude-code's honesty route, never inventing a number.
 3. **Zero new concepts in the event stream.** events.jsonl is already append-only JSONL and `model.completed` already carries per-turn usage; adding cost fields is enough, plus `cost_total` on RunResult. omp proves "write the log well, analyze later" suffices.
-4. **Generalize startup_trace into an opt-in tracer.** Promote `_StartupTracer.span(name)` to spans with attributes (keeping the env switch, stderr/file sink, and stdlib-only constraint), naming attributes after the `gen_ai.*` conventions so swapping in an OTel collector later is just a sink change.
+4. **Use the existing OTel export outlet.** `rivumi export-otel` already exists, so cost spans should not invent another JSON shape; use `gen_ai.*` names directly and mark estimates with `estimated=true` or an equivalent field.
 5. **Stop discarding external CLI bills.** Today `claude_backend.py` keeps only is_error and subtype when parsing result events, throwing away the CLI-reported `total_cost_usd` and usage. Putting them into event data is the cheapest possible first step.
 
 ## How it fits the existing architecture
 
-This sketch barely touches the existing skeleton: the accumulation point exists (the loop's `_add_usage`), the persistence formats exist (checkpoint, RunResult, events.jsonl), and the only new pieces are a price table and one pure function. I'd sequence it as step 5 (external backend fidelity) → steps 1–2 (native-path cost) → step 3 (event fields) → step 4 (tracer generalization), each verifiable independently.
+This sketch barely touches the existing skeleton: the accumulation point exists (the loop's `_add_usage`), the persistence formats exist (checkpoint, RunResult, events.jsonl), and query/export already has `/usage`, `rivumi sessions`, and `export-otel`. The only new pieces are a price table, a cost pure function, and an estimate marker. I'd sequence it as step 5 (external backend fidelity) → steps 1–2 (native-path cost) → step 3 (event fields) → step 4 (OTel export alignment), each verifiable independently.
 
 Only one principle needs guarding — the shared lesson of all five projects: **always label estimates as estimates**. claude-code's inaccurate-cost notice and codex's estimated-versus-authoritative dual track both exist so users never mistake a guess for a bill. You can add telemetry later; broken trust is very hard to repair.
 
 ## References
 
+- [vincentxuu/rivumi](https://github.com/vincentxuu/rivumi) — public Rivumi repo and README
 - [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) — the source of `gen_ai.usage.*` attribute naming
 - [OpenTelemetry OTLP specification](https://opentelemetry.io/docs/specs/otlp/) — the common export protocol
 - [badlogic/pi-mono packages/telemetry](https://github.com/badlogic/pi-mono/tree/main/packages/telemetry) — full typed span-schema implementation

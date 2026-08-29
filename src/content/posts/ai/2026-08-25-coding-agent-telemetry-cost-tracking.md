@@ -8,7 +8,7 @@ series:
   order: 34
 tags: [coding-agent, telemetry, cost-tracking, opentelemetry, rivumi]
 lang: zh-TW
-tldr: "五家成熟專案都把「用量」和「錢」分開記：pi 在 Usage 型別裡直接內嵌逐項 cost、omp 再把 session JSONL 同步進 SQLite 做儀表板；claude-code 用價目表 fallback 加「未知模型」誠實標記；codex 本地估 USD 之餘還向後端查權威帳單。rivumi 已有 usage 累加與 events.jsonl token 事件，缺的是價目表、cost 欄位和 schema 化的 span——補起來不難，難在別把估計值當真帳。"
+tldr: "五家成熟專案都把「用量」和「錢」分開記：pi 在 Usage 型別裡直接內嵌逐項 cost、omp 再把 session JSONL 同步進 SQLite 做儀表板；claude-code 用價目表 fallback 加「未知模型」誠實標記；codex 本地估 USD 之餘還向後端查權威帳單。rivumi 已有 usage 累加、TUI 用量列、/usage、/context、sessions 清單和 OTel 匯出；缺的是價目表、cost 欄位，以及 estimated / authoritative billing 的清楚邊界。"
 description: "對照 pi、omp、opencode、codex、claude-code 五家的 telemetry 與成本追蹤設計：span schema、OTel 上報、價目表與未知模型處理，並提出 rivumi 的設計草案與銜接方式。"
 draft: false
 ---
@@ -27,7 +27,7 @@ draft: false
 2. **錢花在哪？** 是主模型反覆重讀 context？還是 compaction 或 subagent 的隱形呼叫？沒有 per-model、per-span 歸因就答不出來。
 3. **數字可不可信？** 自訂模型、訂閱額度、快取計價改版，都會讓本地估算失真。使用者需要知道眼前這個數字是精算還是猜的。
 
-rivumi 目前的盤點如實說：`contracts.py#Usage` 有正規化的 input/output/cached_input/reasoning tokens；`loop.py` 每輪用 `_add_usage` 累加、寫進 checkpoint 和 RunResult，`model.completed` 事件也帶 per-turn usage；啟動路徑有 env 開關的 `_StartupTracer`。但全 repo grep `cost` 只命中無關檔案——**有用量、零成本**。
+rivumi 目前的盤點如實說：`contracts.py#Usage` 有正規化的 input/output/cached_input/reasoning tokens；`loop.py` 每輪用 `_add_usage` 累加、寫進 checkpoint 和 RunResult，`model.completed` 事件也帶 per-turn usage；TUI footer 會顯示 token 估算、context 百分比與耗時，`/usage`、`/context`、`rivumi sessions`、`rivumi export-otel` 則把查詢與匯出面補起來。缺口已經不是「看不到 usage」，而是**usage 還沒有變成可信 cost**：價目表、cost 欄位、未知模型標記，以及 provider 權威帳單和本地估計值的界線都還要補。
 
 ## 五家怎麼做
 
@@ -59,22 +59,23 @@ codex 的 Rust workspace 有獨立的 `codex-rs/otel` crate。`codex-rs/otel/src
 
 ## rivumi 設計草案
 
-照 rivumi 的品味（契約優先、stdlib、零依賴預設），我會這樣做：
+照 rivumi 的品味（契約優先、stdlib、零依賴預設），我會從現有 usage / session / OTel surface 往 cost 層補：
 
 1. **Usage 旁邊加 CostBreakdown**。`contracts.py` 新增 `CostBreakdown(input=..., output=..., cache_read=..., cache_write=..., total=...)`，由 adapter 在收到回應時計好掛到 turn 上，不改動 Usage 本身的語意（cached_input 是 input 子集那條規則保持不變）。計價函式對齊 pi 的 `calculateCost`：純函式、tiered、測得起來。
 2. **價目表進 model_catalog**。靜態 dict + 使用者 override，查不到的模型回 `None` 並設 `has_unknown_model_cost` 旗標——學 claude-code 的誠實路線，絕不硬掰一個數字。
 3. **事件流零新概念**。events.jsonl 已是 append-only JSONL，`model.completed` 已帶 per-turn usage；加上 cost 欄位即可，RunResult 加 `cost_total`。omp 證明了「log 寫好、分析事後」就夠用。
-4. **startup_trace 泛化成 opt-in tracer**。把 `_StartupTracer.span(name)` 推廣成帶屬性的 span（env 開關、stderr/file sink、stdlib-only 都保留），屬性名對齊 `gen_ai.*` 慣例，未來要接 OTel collector 只是換 sink。
+4. **OTel 匯出沿用既有出口**。`rivumi export-otel` 已經存在，cost span 不該再開另一套 JSON；屬性名直接對齊 `gen_ai.*` 慣例，估計值另掛 `estimated=true` 或等價欄位。
 5. **外部 CLI backend 別丟帳單**。現在 `claude_backend.py` 解析 result 事件時只留 is_error 和 subtype，CLI 回傳的 `total_cost_usd` 和 usage 直接被扔掉。先把它們放進 event data，這是成本最低的一步。
 
 ## 與現有架構的銜接
 
-這份草案幾乎不碰現有骨架：累加點已經存在（loop 的 `_add_usage`），持久化格式已經存在（checkpoint、RunResult、events.jsonl），唯一的新東西是價目表和一個純函式。順序上我會先做第 5 點（外部 backend 保真）→ 第 1、2 點（native path 的 cost）→ 第 3 點（事件欄位）→ 第 4 點（tracer 泛化），每步都能獨立驗證。
+這份草案幾乎不碰現有骨架：累加點已經存在（loop 的 `_add_usage`），持久化格式已經存在（checkpoint、RunResult、events.jsonl），查詢和匯出面也已經有 `/usage`、`rivumi sessions`、`export-otel`。唯一的新東西是價目表、cost 純函式和估計值標記。順序上我會先做第 5 點（外部 backend 保真）→ 第 1、2 點（native path 的 cost）→ 第 3 點（事件欄位）→ 第 4 點（OTel export 對齊），每步都能獨立驗證。
 
 真正要守住的原則只有一句，也是五家共同的教訓：**估計值永遠標明是估計值**。claude-code 的 inaccurate 提示、codex 的 estimated vs. 權威帳單雙軌，都是為了不讓使用者把猜的數字當成帳單。telemetry 可以事後補，信任壞了很難修。
 
 ## 參考資料
 
+- [vincentxuu/rivumi](https://github.com/vincentxuu/rivumi) — Rivumi 公開 repo 與 README
 - [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) — `gen_ai.usage.*` 屬性命名的規範來源
 - [OpenTelemetry OTLP specification](https://opentelemetry.io/docs/specs/otlp/) — telemetry export 的共通協定
 - [badlogic/pi-mono packages/telemetry](https://github.com/badlogic/pi-mono/tree/main/packages/telemetry) — span schema 型別化的完整實作

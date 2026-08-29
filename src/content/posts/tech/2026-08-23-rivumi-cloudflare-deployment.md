@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, cloudflare, workers, durable-objects, sandbox, capability]
 lang: zh-TW
-tldr: "Rivumi 的 Cloudflare 切片是 M6 milestone 的工作,跟前面七篇看到的本地架構共享同一個 Python AgentRunner,差別在執行位置與憑證位置。邊界只有一句話:Worker 持有 provider credentials 與 HTTP 協調,Sandbox 容器只拿到一支五分鐘、run-scoped、HMAC 簽章的模型 capability;每次模型呼叫要再過一次 Capability DO 的 atomic 預算扣減,run 結束或失敗都會 revoke 能力並 destroy 容器。這篇拆 Worker ingress / model proxy / Capability DO / Sandbox entrypoint 四塊,以及這個邊界為什麼沒打破前七篇的 loop / clone / isolation / state / external runtime / multi-gateway / TUI 任何一個保證。"
+tldr: "Rivumi 的 Cloudflare 切片是 M6 milestone 的工作,不是已驗證的 production service。它跟前面七篇看到的本地架構共享同一個 Python AgentRunner,差別在執行位置與憑證位置。邊界只有一句話:Worker 持有 provider credentials 與 HTTP 協調,Sandbox 容器只拿到一支五分鐘、run-scoped、HMAC 簽章的模型 capability;每次模型呼叫要再過一次 Capability DO 的 atomic 預算扣減,run 結束或失敗都會 revoke 能力並 destroy 容器。這篇拆 Worker ingress / model proxy / Capability DO / Sandbox entrypoint 四塊,以及這個邊界為什麼沒打破前七篇的 loop / clone / isolation / state / external runtime / multi-gateway / TUI 任何一個保證。"
 description: "深入解析 Rivumi Cloudflare 部署切片:Worker 控制面只接受驗證過的請求,Sandbox 容器只收到 HMAC 簽章的短期 capability,Capability DO 控管每 run 的模型請求預算——同一份 Python AgentRunner 從本機到 Cloudflare 都跑相同的 loop、相同的 disposable clone、相同的 verification gate。"
 series:
   name: "Rivumi 架構拆解"
@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-前七篇把 Rivumi 的本地架構拆完——provider-neutral loop、disposable clone、tool isolation、state-first journaling、ExternalCodingRunner、ModelProvider multi-gateway、TUI/CLI ergonomics。本地能跑的東西,Cloudflare 跑法不應該是不同的 agent:第八篇要回答的是「Cloudflare 切片怎麼承接前面所有保證,而憑證不外洩」。M6 milestone 的進度條只有一句結論:**Keep HTTP coordination and provider credentials in a Worker; pass only a short-lived, run-scoped model capability into the Sandbox container** (`progress.md` M6, bullet 1)。這篇把這句結論的程式碼依據拆開。
+前七篇把 Rivumi 的本地架構拆完——provider-neutral loop、disposable clone、tool isolation、state-first journaling、ExternalCodingRunner、ModelProvider multi-gateway、TUI/CLI ergonomics。本地能跑的東西,Cloudflare 跑法不應該是不同的 agent:第八篇要回答的是「Cloudflare 切片怎麼承接前面所有保證,而憑證不外洩」。先講邊界:這篇描述的是公開 repo 裡已收斂的 Worker + Sandbox deployment slice,不是宣稱它已經是經 production traffic 驗證的雲端服務。M6 milestone 的進度條只有一句結論:**Keep HTTP coordination and provider credentials in a Worker; pass only a short-lived, run-scoped model capability into the Sandbox container** (`progress.md` M6, bullet 1)。這篇把這句結論的程式碼依據拆開。
 
 ## 邊界一句話,程式碼四塊
 
@@ -198,7 +198,7 @@ result = await AgentRunner(task, selected_model, runs, allow_unsafe_local_exec=T
 | Disposable clone + allowed_paths (post 2) | Worker 上傳 source tree → Sandbox `git init` 後 commit;allowed_paths 從 request JSON 帶進 `TaskContract` |
 | Tool isolation + argv allowlist (post 3) | Worker ingress 已經拒絕非 allowlist 的 `checks` argv;Sandbox 跑的是同一個 `run_bounded_command` 跟 `sanitized_subprocess_env` |
 | State-first events.jsonl + atomic_write (post 4) | Sandbox 寫入 `/workspace/runs/<run_id>/` 同一份 `request.json / events.jsonl / checkpoint.json / changes.patch / test.log / result.json` 六件,Worker 用 `readSandboxFileBounded` 串流讀出 |
-| ExternalCodingRunner 不是 ModelProvider (post 5) | Sandbox 跑的只有 native AgentRunner;沒有把 Codex / Claude Code / OpenCode 借路到 Cloudflare |
+| ExternalCodingRunner 不是 ModelProvider (post 5) | Sandbox 跑的只有 native AgentRunner;官方 Claude/Codex 與 local-only OpenCode/Pi/OMP 不借路到 Cloudflare |
 | ModelProvider multi-gateway (post 6) | `MODEL_API_URL` + `OPENAI_MODEL` 雙綁定,Groq / OpenRouter / 官方 OpenAI 都能掛,但 worker 仍走 canonical `OpenAICompatibleModel`,繼續吃 `ProviderError` canonical 化 |
 | TUI / CLI ergonomics (post 7) | 不被影響——這是 headless 切片,沒 TUI;`rivumi run` 在本機仍然是同一個 `AgentRunner`,不會用到 Cloudflare 邊界 |
 
@@ -210,9 +210,9 @@ Worker 拿到 response 之後做 `validateSandboxResponse`(control-plane.ts:613-
 
 Rivumi 的 Cloudflare 切片不重新發明 agent——它把本地那份 AgentRunner 放進 digest-pinned Sandbox、用 Worker 包 ingress 與 model proxy、用 Capability DO 包 per-run 預算,然後**只讓一支 HMAC token 過 Worker/Sandbox 邊界**。邊界上的每個欄位都重做一次 canonical 化,沒有一個 trust decision 留給 prompt 或 sandbox process。
 
-這個設計的代價是顯而易見的:多寫 967 行的 TypeScript + 175 行的 capability DO + 28 行的 shell wrapper + Dockerfile;Worker、Sandbox、DO 三層邊界都要重做 request 驗證;HTTPS-only、digest-pinned base image、hash-locked requirements、`--no-new-privs`、`prctl PR_SET_DUMPABLE=0`、`O_NOFOLLOW`、`constantTimeEqual` 這些細節都要守。它的回報是:**Cloudflare 切片對「loop 怎麼跑」一無所知**——未來想把 `rivumi.sandbox_entry` 換成別的 Python entrypoint(例如加一個 streaming-mode adapter、加 multi-turn session resume)、想加第十個 provider、想把 verification argv 從四個擴到八個、想把 max steps 從 20 拉到 50,都不需要改 control-plane.ts 或 capability-do.ts;Worker 那一側的所有保證——HMAC 驗證、DO 預算、source path 校驗、argv 嚴格比對、Sandbox response schema 校驗——都跟 loop 解耦。
+這個設計的代價是顯而易見的:多寫 967 行的 TypeScript + 175 行的 capability DO + 28 行的 shell wrapper + Dockerfile;Worker、Sandbox、DO 三層邊界都要重做 request 驗證;HTTPS-only、digest-pinned base image、hash-locked requirements、`--no-new-privs`、`prctl PR_SET_DUMPABLE=0`、`O_NOFOLLOW`、`constantTimeEqual` 這些細節都要守。它的回報是:**Cloudflare 切片對「loop 怎麼跑」一無所知**——未來想把 `rivumi.sandbox_entry` 換成別的 Python entrypoint(例如加一個 streaming-mode adapter、加 multi-turn session resume)、想加第十個 provider、想把 verification argv 從四個擴到八個、想把 max steps 從 20 拉到 50,都不需要改 control-plane.ts 或 capability-do.ts;Worker 那一側的所有保證——HMAC 驗證、DO 預算、source path 校驗、argv 嚴格比對、Sandbox response schema 校驗——都跟 loop 解耦。只是到目前為止,公開證據能支持的是「部署切片的邊界已經寫清楚」,不是「production service 已經跑穩」。
 
-下一篇回到呼叫端:Cloudflare 切片怎麼被本機 `rivumi` CLI / TUI 觸發、`CONTROL_PLANE_TOKEN` 怎麼保管、dry-run 跟真實 deploy 之間的 evidence chain 怎麼留。
+如果後續要寫雲端呼叫端,重點不該是再重寫 agent loop,而是把本機 `rivumi` CLI / TUI 怎麼觸發 Cloudflare 切片、`CONTROL_PLANE_TOKEN` 怎麼保管、dry-run 跟真實 deploy 之間的 evidence chain 怎麼留清楚。
 
 ---
 
