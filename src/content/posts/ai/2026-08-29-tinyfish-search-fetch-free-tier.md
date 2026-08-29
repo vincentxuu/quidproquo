@@ -6,6 +6,9 @@ tags: ["tinyfish", "web-scraping", "search-api", "fetch-api", "ai-agent"]
 lang: zh-TW
 tldr: "TinyFish 為 AI agent 提供四個 Web API——Search、Fetch、Agent、Browser，其中 Search 與 Fetch 為 $0 永久免費且免信用卡，適合做 RAG 與文件檢索的預設層。"
 description: "介紹 TinyFish 的定位與四個 API，深入解析 Search 與 Fetch 的設計、免費層邊界、程式碼範例，以及與 Firecrawl、Tavily 等方案的取捨。"
+series:
+  name: "搜尋與爬取實戰"
+  order: 15
 draft: false
 ---
 
@@ -104,6 +107,8 @@ TinyFish 的差異在於把清洗做在基礎設施層——去 nav/script/cooki
 ## 整體來說
 
 TinyFish 把「瀏覽」與「自動化」拆成兩個商業單位：瀏覽層用速率換免費，自動化層用 Wallet 賺推理與瀏覽器成本。對開發者，決策點不在「要不要付費才能搜」，而在「瓶頸是找得到、讀得乾淨，還是操作得動」——前者已經免費，後者才需付費。若你的 agent 還在用模型記憶回答或手寫 Playwright 抓文件，先把 Search/Fetch 接上去當預設檢索層，通常是最低成本、最高穩定度的起點。
+
+> 這篇屬於「[搜尋與爬取實戰](/series/search-and-scraping)」系列。如果你在比對各家 Search API 的免費額度，我們有一篇 [免費搜尋、爬取與 Browser API 怎麼選](/posts/ai/2026-08-21-free-search-scraping-tools) 把各方案的額度、重置規則與超額行為整理成判斷表，TinyFish 的「持續限速」路線也在其中。
 
 ---
 

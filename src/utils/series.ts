@@ -24,6 +24,14 @@ export interface SeriesSummary {
 // slug 是系列的身分：zh 與 en 版共用同一個 slug，只差 /en 前綴，中英切換才接得起來。
 const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
+    slug: 'statistics-ml-ai',
+    names: { 'zh-TW': '從考試到 ML/AI 的統計學導讀', en: 'Statistics from Exams to ML/AI' },
+    descriptions: {
+      'zh-TW': '從台大資管統計備考出發，補齊基礎統計、統計推論與應用建模，並在每一篇說明它如何接到 ML/AI 的訓練、評估、實驗與資料工作流。',
+      en: 'A statistics learning path that starts from NTU IM exam preparation, builds through statistical inference and applied modeling, and connects each topic to ML/AI training, evaluation, experiments, and data workflows.',
+    },
+  },
+  {
     slug: 'private-corpus-pipeline',
     names: { 'zh-TW': '私有語料管線', en: 'Private Corpus Pipeline' },
     descriptions: {

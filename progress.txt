@@ -10,6 +10,7 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- **統計學：從考試到 ML/AI 系列（2026-08-29）**：已重建 53 篇規劃與來源分層；三層 1–53 中英 draft 已齊（106 檔），全部仍 `draft: true`。order 1–35 已完成第一輪升級（來源使用方式、題型辨識、追加練習骨架）；114–115 考古題篇只作拆題框架，待逐題核 PDF 題面；全系列待逐篇補章節級參考、完整算例與人工 review 後才可發布。
 - **Admin v2 Phase 1–6 代碼完成並完成本機串接驗證（2026-08-29）**：文件已對齊 Claude Code 研究；
   本機 Astro dev E2E、最小 DO `/run` smoke、`pnpm verify` 均通過。剩 production/preview migration apply、binding/env 檢查與實際環境觀察。
 - **「跟成熟 coding agent 學設計」系列 38 篇雙語（78 檔）已完成待 review**（0126e687＋收尾篇，

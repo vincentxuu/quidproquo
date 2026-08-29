@@ -89,7 +89,7 @@ Bright Data 也不能用一句「各產品都有 5,000」帶過。一般 Free Ti
 
 [Google Custom Search JSON API](https://developers.google.com/custom-search/v1/overview) 已停止接受新客戶。既有客戶才保留每天 100 queries，並將於 2027 年 1 月 1 日停止服務。Google 仍提供免費、含廣告的 Standard Search Element，但那是前端 JavaScript widget，不是 agent 可以從後端呼叫的 JSON API。
 
-## 開源免費，是把帳單換到別的地方
+[TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier) 也是同样的持續限速路線：Search 30 requests/min、Fetch 150 URLs/min，Wallet 餘額 $0 仍可用，失敗的 Fetch 不計額。它和 Jina 的差別在於機器渲染後的乾淨 Markdown 與 batch selector 抽取，更適合喂進 context window。
 
 [AutoScraper](https://github.com/alirezamika/autoscraper)、[Trafilatura](https://github.com/adbar/trafilatura) 與 [Readability](https://github.com/mozilla/readability) 沒有「每月 API 額度」，因為它們本來就是在自己的環境執行的 library。[Scrapy](https://github.com/scrapy/scrapy)、SearXNG、Crawl4AI、Qdrant 與 Meilisearch 也是同一類，只是負責的層次不同。
 
