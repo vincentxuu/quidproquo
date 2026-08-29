@@ -28,7 +28,7 @@ export function ApprovalCard({ approvalId, reason, context, ttlSeconds, createdA
   async function resolve(decision: 'approve' | 'reject') {
     setLoading(true)
     try {
-      const res = await fetch(`/api/admin/agents/approvals/${approvalId}/${decision}`, { method: 'POST' })
+      const res = await fetch(`/api/admin/sessions/approvals/${approvalId}/${decision}`, { method: 'POST' })
       if (!res.ok) throw new Error(await res.text())
       setResolved(true)
       success(`操作已${decision === 'approve' ? '核准' : '拒絕'}`)

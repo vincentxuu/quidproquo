@@ -34,7 +34,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
   async function resolveOne(approvalId: string, decision: 'approve' | 'reject') {
     setRow(approvalId, { status: 'loading', decision })
     try {
-      const res = await fetch(`/api/admin/agents/approvals/${approvalId}/${decision}`, {
+      const res = await fetch(`/api/admin/sessions/approvals/${approvalId}/${decision}`, {
         method: 'POST',
       })
       if (!res.ok) throw new Error(await res.text())

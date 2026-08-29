@@ -130,7 +130,7 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
   ];
 
   async function load() {
-    const res = await fetch('/api/admin/rag');
+    const res = await fetch('/api/admin/site/rag');
     if (res.status === 401) {
       const message = document.createElement('p');
       message.textContent = '需要管理員登入。請先登入後台。';
@@ -364,7 +364,7 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
     }
 
     settingsStatus.textContent = '儲存中...';
-    const res = await fetch('/api/admin/rag', {
+    const res = await fetch('/api/admin/site/rag', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ settings }),
@@ -380,7 +380,7 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
 
   document.getElementById('run-embed').addEventListener('click', async () => {
     opsOutput.textContent = '正在執行 embedding 批次...';
-    const res = await fetch('/api/admin/pipelines', {
+    const res = await fetch('/api/admin/site/pipelines', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -408,7 +408,7 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
     const engine = engineSelect.value;
     const query = smokeQueryInput.value.trim() || 'RAG 的核心步驟是什麼？';
     opsOutput.textContent = `正在對 ${engine} 執行 smoke test...`;
-    const res = await fetch('/api/admin/rag-smoke', {
+    const res = await fetch('/api/admin/site/rag-smoke', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ engine, query }),
@@ -418,7 +418,7 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
 
   async function runEngineProbe(engine) {
     opsOutput.textContent = `正在對 ${engine} 執行 index probe...`;
-    const res = await fetch('/api/admin/rag-smoke', {
+    const res = await fetch('/api/admin/site/rag-smoke', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -450,7 +450,7 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
     }
     const caseCount = Math.max(1, Math.min(20, Number(evalCasesInput.value || defaultCaseCount)));
     opsOutput.textContent = `正在對 ${selectedEngines.join(', ')} 執行 eval matrix...`;
-    const res = await fetch('/api/admin/rag-eval', {
+    const res = await fetch('/api/admin/site/rag-eval', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

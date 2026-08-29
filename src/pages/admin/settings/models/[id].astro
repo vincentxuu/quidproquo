@@ -287,7 +287,7 @@ function maskKey(masked: string | null): string {
         <p class="placeholder-note">
           {t('providers.rotateNote', { id: providerId })}
         </p>
-        <form method="POST" action={`/api/admin/providers/${providerId}/rotate-key`} class="rotate-form">
+        <form method="POST" action={`/api/admin/settings/models/${providerId}/rotate-key`} class="rotate-form">
           <button type="submit" class="rotate-btn">{t('providers.rotateButton')}</button>
           <span class="rotate-note">{t('providers.irreversible')}</span>
         </form>

@@ -10,7 +10,7 @@ if (!secret) {
   process.exit(1)
 }
 
-const response = await fetch(`${origin}/api/admin/traces/retention`, {
+const response = await fetch(`${origin}/api/admin/site/traces/retention`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

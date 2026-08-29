@@ -1077,7 +1077,7 @@ const bootstrapJson = JSON.stringify(bootstrap ?? null).replace(/</g, '\\u003c')
       button.textContent = '送出中…';
 
       try {
-        const res = await fetch(`/api/admin/agents/approvals/${encodeURIComponent(approvalId)}/${action}`, {
+        const res = await fetch(`/api/admin/sessions/approvals/${encodeURIComponent(approvalId)}/${action}`, {
           method: 'POST',
         });
         if (!res.ok) throw new Error('request failed');

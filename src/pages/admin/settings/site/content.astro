@@ -293,7 +293,7 @@ import AdminTable from '@/components/admin/AdminTable.astro';
 
   async function loadInventory() {
     try {
-      const res = await fetch('/api/admin/content/inventory');
+      const res = await fetch('/api/admin/site/content/inventory');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       renderInventory(data);
@@ -345,7 +345,7 @@ import AdminTable from '@/components/admin/AdminTable.astro';
   async function loadOverview() {
     const el = document.getElementById('overview');
     try {
-      const res = await fetch('/api/admin/content/overview');
+      const res = await fetch('/api/admin/site/content/overview');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const frag = document.createDocumentFragment();
@@ -365,7 +365,7 @@ import AdminTable from '@/components/admin/AdminTable.astro';
   async function loadMissingMetadata() {
     const el = document.getElementById('missing-metadata');
     try {
-      const res = await fetch('/api/admin/content/issues');
+      const res = await fetch('/api/admin/site/content/issues');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.issues?.length) {
@@ -385,7 +385,7 @@ import AdminTable from '@/components/admin/AdminTable.astro';
   async function loadDrafts() {
     const el = document.getElementById('drafts');
     try {
-      const res = await fetch('/api/admin/content/drafts');
+      const res = await fetch('/api/admin/site/content/drafts');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.drafts?.length) {
@@ -405,7 +405,7 @@ import AdminTable from '@/components/admin/AdminTable.astro';
   async function loadFreshness() {
     const el = document.getElementById('freshness');
     try {
-      const res = await fetch('/api/admin/content/freshness');
+      const res = await fetch('/api/admin/site/content/freshness');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.candidates?.length) {
@@ -425,7 +425,7 @@ import AdminTable from '@/components/admin/AdminTable.astro';
   async function loadLinkOpportunities() {
     const el = document.getElementById('link-ops');
     try {
-      const res = await fetch('/api/admin/content/links');
+      const res = await fetch('/api/admin/site/content/links');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.opportunities?.length) {

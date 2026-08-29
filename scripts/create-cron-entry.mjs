@@ -71,10 +71,10 @@ export default {
     }
 
     const baseUrl = normalizeCronBaseUrl(env.APP_BASE_URL || env.CRAWL_BASE_URL || env.WORKER_URL || env.CF_PAGES_URL || 'https://quidproquo.cc')
-    const retentionUrl = baseUrl + '/api/admin/traces/retention'
+    const retentionUrl = baseUrl + '/api/admin/site/traces/retention'
     const crawlUrl = baseUrl + '/api/crawl/sync'
-    const pipelineUrl = baseUrl + '/api/admin/pipelines/scheduled'
-    const agentScheduledUrl = baseUrl + '/api/admin/agents/scheduled'
+    const pipelineUrl = baseUrl + '/api/admin/site/pipelines/scheduled'
+    const agentScheduledUrl = baseUrl + '/api/admin/sessions/scheduled'
 
     const isWeeklyCrawl = event.cron === '0 2 * * SUN'
     const scheduledPipelineTasks = {

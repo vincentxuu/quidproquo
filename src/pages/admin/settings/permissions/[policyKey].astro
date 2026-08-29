@@ -104,7 +104,7 @@ const breadcrumb = [
     saveButton.setAttribute('disabled', 'true');
     try {
       const policyBody = JSON.parse(rawBody);
-      const response = await fetch(`/api/admin/policies/${encodeURIComponent(policyKey)}`, {
+      const response = await fetch(`/api/admin/settings/permissions/${encodeURIComponent(policyKey)}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ label, policy_body: policyBody }),
@@ -126,7 +126,7 @@ const breadcrumb = [
     if (!key || !window.confirm(message)) return;
     archiveButton.setAttribute('disabled', 'true');
     try {
-      const response = await fetch(`/api/admin/policies/${encodeURIComponent(key)}`, { method: 'DELETE' });
+      const response = await fetch(`/api/admin/settings/permissions/${encodeURIComponent(key)}`, { method: 'DELETE' });
       if (!response.ok) throw new Error(await response.text());
       window.location.href = lang === 'en' ? '/admin/policies?lang=en' : '/admin/policies';
     } catch (error) {

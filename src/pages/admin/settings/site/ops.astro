@@ -73,7 +73,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   // Load recent jobs
   async function loadJobs() {
     try {
-      const res = await fetch('/api/admin/jobs?limit=20');
+      const res = await fetch('/api/admin/site/jobs?limit=20');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       renderJobs(data.jobs || []);
@@ -169,7 +169,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
 
   async function runPipeline(pipelineId, input = {}) {
     try {
-      const res = await fetch('/api/admin/pipelines/run', {
+      const res = await fetch('/api/admin/site/pipelines/run', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ pipelineId, input }),

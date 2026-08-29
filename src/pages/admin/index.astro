@@ -175,7 +175,7 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
   async function loadSystemStatus() {
     const el = document.getElementById('system-status');
     try {
-      const res = await fetch('/api/admin/status');
+      const res = await fetch('/api/admin/site/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       clearNode(el);
@@ -188,7 +188,7 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
   async function loadRAGHealth() {
     const el = document.getElementById('rag-health');
     try {
-      const res = await fetch('/api/admin/rag');
+      const res = await fetch('/api/admin/site/rag');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const recentTraces = data.traces?.slice(0, 5) || [];
@@ -210,7 +210,7 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
   async function loadIndexHealth() {
     const el = document.getElementById('index-health');
     try {
-      const res = await fetch('/api/admin/status');
+      const res = await fetch('/api/admin/site/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       clearNode(el);
@@ -227,7 +227,7 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
   async function loadContentHealth() {
     const el = document.getElementById('content-health');
     try {
-      const res = await fetch('/api/admin/status');
+      const res = await fetch('/api/admin/site/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       clearNode(el);
@@ -249,7 +249,7 @@ import AdminPanel from '../../components/admin/AdminPanel.astro';
   async function loadRecentJobs() {
     const el = document.getElementById('recent-jobs');
     try {
-      const res = await fetch('/api/admin/jobs?limit=5');
+      const res = await fetch('/api/admin/site/jobs?limit=5');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       if (!data.jobs?.length) {

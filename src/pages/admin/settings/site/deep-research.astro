@@ -286,7 +286,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
 
   async function loadProviderCatalog() {
     try {
-      const res = await fetch('/api/admin/providers');
+      const res = await fetch('/api/admin/settings/models');
       if (!res.ok) throw new Error('unable to load provider catalog');
       const payload = await res.json();
       state.providers = Array.isArray(payload.providers) ? payload.providers : [];
@@ -378,7 +378,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
     params.set('offset', String(state.offset));
 
     try {
-      const res = await fetch(`/api/admin/deep-research?${params.toString()}`);
+      const res = await fetch(`/api/admin/site/deep-research?${params.toString()}`);
       if (res.status === 401) {
         ui.status.textContent = '請先登入後台。';
         ui.rows.replaceChildren(createEmptyRow('請先登入後台。'));
@@ -568,7 +568,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
     if (!window.confirm('確定刪除這份 deep research 報告？此動作無法復原。')) return;
 
     try {
-      const res = await fetch('/api/admin/deep-research', {
+      const res = await fetch('/api/admin/site/deep-research', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ reportId }),
@@ -604,7 +604,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
         return;
       }
 
-      const res = await fetch('/api/admin/deep-research/retention', {
+      const res = await fetch('/api/admin/site/deep-research/retention', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

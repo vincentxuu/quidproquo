@@ -56,7 +56,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
 
     const results = await Promise.allSettled(
       Array.from(selected).map((flowId) =>
-        fetch(`/api/admin/policies/${encodeURIComponent(policyId)}/assignments`, {
+        fetch(`/api/admin/settings/permissions/${encodeURIComponent(policyId)}/assignments`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ flowId, scope: 'flow_definition' }),

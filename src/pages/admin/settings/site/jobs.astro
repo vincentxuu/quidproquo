@@ -42,7 +42,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
 
     deadLetterList && (deadLetterList.textContent = '');
 
-    const res = await fetch(`/api/admin/jobs/${encodeURIComponent(id)}`);
+    const res = await fetch(`/api/admin/site/jobs/${encodeURIComponent(id)}`);
     if (!res.ok) {
       detail.textContent = 'Unable to load job.';
       artifactList.textContent = '';
@@ -58,8 +58,8 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
 
   async function loadList() {
     const [jobsRes, deadRes] = await Promise.all([
-      fetch('/api/admin/jobs?limit=50'),
-      fetch('/api/admin/jobs?limit=50&status=dead_letter'),
+      fetch('/api/admin/site/jobs?limit=50'),
+      fetch('/api/admin/site/jobs?limit=50&status=dead_letter'),
     ])
 
     if (!jobsRes.ok) {
@@ -204,7 +204,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   }
 
   async function actOnJob(jobId, action, payload = {}) {
-    const res = await fetch(`/api/admin/jobs/${encodeURIComponent(jobId)}`, {
+    const res = await fetch(`/api/admin/site/jobs/${encodeURIComponent(jobId)}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action, ...payload }),

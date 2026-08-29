@@ -132,7 +132,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   async function loadContentVolume() {
     const el = document.getElementById('content-volume');
     try {
-      const res = await fetch(`/api/admin/stats/content?days=${currentRange}`);
+      const res = await fetch(`/api/admin/site/stats/content?days=${currentRange}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const grid = createMetricGrid([
@@ -155,7 +155,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   async function loadKnowledgeBase() {
     const el = document.getElementById('knowledge-base');
     try {
-      const res = await fetch('/api/admin/stats/knowledge');
+      const res = await fetch('/api/admin/site/stats/knowledge');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const grid = createMetricGrid([
@@ -175,7 +175,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   async function loadPipelineHealth() {
     const el = document.getElementById('pipeline-health');
     try {
-      const res = await fetch(`/api/admin/stats/pipelines?days=${currentRange}`);
+      const res = await fetch(`/api/admin/site/stats/pipelines?days=${currentRange}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const grid = createMetricGrid([
@@ -193,7 +193,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   async function loadRagUsage() {
     const el = document.getElementById('rag-usage');
     try {
-      const res = await fetch(`/api/admin/stats/rag?days=${currentRange}`);
+      const res = await fetch(`/api/admin/site/stats/rag?days=${currentRange}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const grid = createMetricGrid([
@@ -210,7 +210,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   async function loadContentQuality() {
     const el = document.getElementById('content-quality');
     try {
-      const res = await fetch('/api/admin/stats/quality');
+      const res = await fetch('/api/admin/site/stats/quality');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const grid = createMetricGrid([
@@ -228,7 +228,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   async function loadGlossaryStats() {
     const el = document.getElementById('glossary-stats');
     try {
-      const res = await fetch(`/api/admin/stats/glossary?days=${currentRange}`);
+      const res = await fetch(`/api/admin/site/stats/glossary?days=${currentRange}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const grid = createMetricGrid([
@@ -269,7 +269,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   });
 
   document.getElementById('export-csv').addEventListener('click', async () => {
-    const res = await fetch(`/api/admin/stats/export?days=${currentRange}`);
+    const res = await fetch(`/api/admin/site/stats/export?days=${currentRange}`);
     const blob = await res.blob();
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');

@@ -117,7 +117,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   async function loadTraces() {
     const el = document.getElementById('traces-list');
     try {
-      const res = await fetch(`/api/admin/traces?${buildTraceListUrlParams()}`);
+      const res = await fetch(`/api/admin/site/traces?${buildTraceListUrlParams()}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const traces = data.traces || [];
@@ -294,7 +294,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
     });
 
     try {
-      const res = await fetch(`/api/admin/traces/${traceId}`);
+      const res = await fetch(`/api/admin/site/traces/${traceId}`);
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       currentTraceDetail = data;
@@ -562,7 +562,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
     const scope = document.getElementById('retention-scope').value;
     output.textContent = dryRun ? '正在預覽 retention 清理...' : '正在執行 retention 清理...';
     try {
-      const res = await fetch('/api/admin/traces/retention', {
+      const res = await fetch('/api/admin/site/traces/retention', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ scope, dryRun }),

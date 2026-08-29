@@ -33,7 +33,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro'
 </AdminV2Layout>
 <script is:inline>
   // Skill catalog → dropdown
-  fetch('/api/skills').then(r => r.json()).then(data => {
+  fetch('/api/admin/settings/extensions/skills').then(r => r.json()).then(data => {
     const sel = document.getElementById('skillSelect')
     const skills = data.skills ?? []
     skills.forEach(s => {
@@ -51,7 +51,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro'
     document.getElementById('instructions').value = cur ? cur + '\n\n' + tmpl : tmpl
   }
   // Connectors from real providers
-  fetch('/api/admin/providers/registry').then(r => r.json()).then(data => {
+  fetch('/api/admin/settings/models/registry').then(r => r.json()).then(data => {
     const c = document.getElementById('connectors')
     const providers = data.providers ?? []
     const names = providers.length ? providers.map(p => p.providerId) : ['Exa','Figma','firecrawl','Google Drive','groundlane','linkup','Notion','Tavily','visualize']

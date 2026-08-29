@@ -1,0 +1,107 @@
+export const prerender = false
+
+import type { APIRoute } from 'astro'
+import { runChatSmoke, type RagPipelineEngine } from '../../../../lib/retrieval/admin-eval'
+import { initialState } from '../../../../lib/retrieval/state'
+import { resolveRagEngine } from '../../../../lib/conversation/engines/registry'
+import { requireAdmin } from '@/lib/auth/admin'
+import { json } from '@/lib/api/response'
+
+const SUPPORTED_ENGINES: RagPipelineEngine[] = ['manual', 'langgraph', 'llamaindex']
+const DEFAULT_QUERY = 'RAG 的核心步驟是什麼？'
+
+interface SmokeRequestBody {
+  engine?: RagPipelineEngine
+  query?: string
+  mode?: 'query' | 'index'
+  indexProfile?: {
+    sourceFilters?: Array<'posts' | 'docs'>
+    offset?: number
+    limit?: number
+  }
+}
+
+export const POST: APIRoute = async ({ request, cookies }) => {
+  const auth = await requireAdmin(cookies)
+  if (!auth.ok) return auth.response
+
+  const body = await request.json().catch(() => ({})) as SmokeRequestBody
+  const engine = SUPPORTED_ENGINES.includes(body.engine ?? 'langgraph') ? body.engine ?? 'langgraph' : 'langgraph'
+  const query = (body.query ?? '').trim() || DEFAULT_QUERY
+  const mode = body.mode === 'index' ? 'index' : 'query'
+  const origin = new URL(request.url).origin
+
+  if (mode === 'index') {
+    return runEngineIndex(engine, {
+      mode,
+      query,
+      indexProfile: body.indexProfile,
+    })
+  }
+
+  const result = await runChatSmoke(origin, query, engine, 'eval')
+  return json({
+    mode,
+    ...result,
+  })
+}
+
+async function runEngineIndex(
+  engine: RagPipelineEngine,
+  options: {
+    mode: 'index'
+    query: string
+    indexProfile?: {
+      sourceFilters?: Array<'posts' | 'docs'>
+      offset?: number
+      limit?: number
+    }
+  }
+) {
+  const engineRunner = resolveRagEngine(engine)
+  if (!engineRunner.index) {
+    return json({ error: `Engine ${engine} has no index method.` }, 400)
+  }
+
+  const startedAt = Date.now()
+  const config = {
+    ...initialState().config,
+    pipelineEngine: engine,
+  }
+
+  try {
+    const result = await engineRunner.index({
+      message: options.query,
+      traceId: 'admin-index-smoke',
+      threadId: crypto.randomUUID(),
+      config,
+      indexProfile: options.indexProfile,
+      conversationSummary: undefined,
+    }, {
+      onStep: () => {},
+      onToken: () => {},
+      onRelated: () => {},
+    })
+
+    return json({
+      mode: 'index',
+      engine,
+      query: options.query,
+      answer: `Index run via ${engine}`,
+      sourceCount: result.search_results?.length ?? 0,
+      sources: [],
+      durationMs: Date.now() - startedAt,
+      threadId: 'admin-index-smoke',
+      config,
+      nativeTrace: result.native_trace,
+      traceSteps: result.trace_steps,
+      usage: result.token_usage,
+      models: result.model_usage,
+    })
+  } catch (error) {
+    return json({ mode: 'index', engine, query: options.query, answer: '', sourceCount: 0, sources: [], durationMs: Date.now() - startedAt, error: error instanceof Error ? error.message : 'index failed' }, 500)
+  }
+}
+
+
+

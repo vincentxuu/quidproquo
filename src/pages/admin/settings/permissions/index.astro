@@ -229,7 +229,7 @@ function formatTs(ms: number | null): string {
     if (status) status.textContent = '';
     try {
       const policyBody = JSON.parse(rawBody);
-      const response = await fetch('/api/admin/policies', {
+      const response = await fetch('/api/admin/settings/permissions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ policy_key: key, label, policy_body: policyBody }),
@@ -252,7 +252,7 @@ function formatTs(ms: number | null): string {
       if (!policyKey || !window.confirm(message)) return;
       button.setAttribute('disabled', 'true');
       try {
-        const response = await fetch(`/api/admin/policies/${encodeURIComponent(policyKey)}`, {
+        const response = await fetch(`/api/admin/settings/permissions/${encodeURIComponent(policyKey)}`, {
           method: 'DELETE',
         });
         if (!response.ok) throw new Error(await response.text());

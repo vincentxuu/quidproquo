@@ -32,7 +32,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
   const refresh = document.getElementById('refresh');
 
   async function load() {
-    const res = await fetch('/api/admin/pipelines');
+    const res = await fetch('/api/admin/site/pipelines');
     if (!res.ok) {
       pipelineList.textContent = '無法載入流程。';
       jobList.textContent = '';
@@ -140,7 +140,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
     }
 
     output.textContent = `正在執行 ${pipeline.id}...`;
-    const res = await fetch('/api/admin/pipelines', {
+    const res = await fetch('/api/admin/site/pipelines', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ pipelineId: pipeline.id, input }),
@@ -205,7 +205,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
         return
       }
     }
-    const res = await fetch(`/api/admin/jobs/${encodeURIComponent(jobId)}`, {
+    const res = await fetch(`/api/admin/site/jobs/${encodeURIComponent(jobId)}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(reviewNote ? { action, reviewNote } : { action }),

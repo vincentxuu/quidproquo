@@ -488,7 +488,7 @@ const t = createConsoleTranslator(lang);
   }
 
   async function loadProviderCatalog() {
-    const res = await fetch('/api/admin/providers');
+    const res = await fetch('/api/admin/settings/models');
     if (!res.ok) throw new Error('Failed to load provider catalog');
     const data = await res.json();
     providerCatalog = {
@@ -513,7 +513,7 @@ const t = createConsoleTranslator(lang);
     if (button instanceof HTMLElement) button.disabled = true;
     setSyncStatus(provider, messages.syncing, 'info');
     try {
-      const res = await fetch(`/api/admin/providers/sync/${encodeURIComponent(provider)}`, {
+      const res = await fetch(`/api/admin/settings/models/sync/${encodeURIComponent(provider)}`, {
         method: 'POST',
       });
       const data = await res.json().catch(() => ({}));
@@ -587,7 +587,7 @@ const t = createConsoleTranslator(lang);
   async function loadRagProviders() {
     const el = document.getElementById('rag-providers');
     try {
-      const res = await fetch('/api/admin/rag');
+      const res = await fetch('/api/admin/site/rag');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
 
@@ -714,7 +714,7 @@ const t = createConsoleTranslator(lang);
 
   async function saveCatalog() {
     catalogControls.status.textContent = messages.saving;
-    const res = await fetch('/api/admin/providers', {
+    const res = await fetch('/api/admin/settings/models', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ models: providerCatalog.models }),
@@ -755,7 +755,7 @@ const t = createConsoleTranslator(lang);
 
   async function saveProviderSecret(key, value) {
     secretControls.status.textContent = messages.saving;
-    const res = await fetch('/api/admin/providers', {
+    const res = await fetch('/api/admin/settings/models', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -776,7 +776,7 @@ const t = createConsoleTranslator(lang);
 
   async function deleteProviderSecret(key) {
     secretControls.status.textContent = messages.deleting;
-    const res = await fetch('/api/admin/providers', {
+    const res = await fetch('/api/admin/settings/models', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -861,7 +861,7 @@ const t = createConsoleTranslator(lang);
       rag_fallback_provider: routingControls.fallbackProvider.value,
       rag_fallback_model: routingControls.fallbackModel.value,
     };
-    const res = await fetch('/api/admin/rag', {
+    const res = await fetch('/api/admin/site/rag', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ settings }),
@@ -878,7 +878,7 @@ const t = createConsoleTranslator(lang);
   testControls.run.addEventListener('click', async () => {
     testControls.status.textContent = messages.testing;
     testControls.result.textContent = messages.waitingModel;
-    const res = await fetch('/api/admin/providers', {
+    const res = await fetch('/api/admin/settings/models', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -906,7 +906,7 @@ const t = createConsoleTranslator(lang);
   async function loadEmbedProviders() {
     const el = document.getElementById('embed-providers');
     try {
-      const res = await fetch('/api/admin/status');
+      const res = await fetch('/api/admin/site/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const workersAiOk = data.statuses?.find((s) => s.name === 'Workers AI')?.ok;
@@ -939,7 +939,7 @@ const t = createConsoleTranslator(lang);
   async function loadSecretsStatus() {
     const el = document.getElementById('secrets-status');
     try {
-      const res = await fetch('/api/admin/status');
+      const res = await fetch('/api/admin/site/status');
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       const secrets = [
