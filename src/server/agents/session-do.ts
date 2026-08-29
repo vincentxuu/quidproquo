@@ -105,6 +105,61 @@ function stringifyModelContent(content: unknown): string {
   return content == null ? '' : JSON.stringify(content)
 }
 
+function truncateForPrompt(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text
+  return `${text.slice(0, maxLength)}\n...[truncated]`
+}
+
+function shellSingleQuote(value: string): string {
+  return `'${value.replace(/'/g, `'\\''`)}'`
+}
+
+async function buildRepoContext(runner: RunnerHandle, repo: string, branch?: string): Promise<string> {
+  const overviewScript = [
+    'cd /workspace',
+    'printf "Repository: "',
+    'printf "%s\\n" ' + shellSingleQuote(repo),
+    branch ? 'printf "Requested branch: "' : '',
+    branch ? 'printf "%s\\n" ' + shellSingleQuote(branch) : '',
+    'printf "Current branch: "',
+    'git rev-parse --abbrev-ref HEAD 2>/dev/null || true',
+    'printf "Latest commit: "',
+    'git log -1 --oneline 2>/dev/null || true',
+    'echo ""',
+    'echo "Top-level files:"',
+    'find . -maxdepth 2 -type f | sed "s#^./##" | sort | head -120',
+  ].filter(Boolean).join('\n')
+
+  const docsScript = [
+    'cd /workspace',
+    'for file in README.md readme.md README package.json pnpm-workspace.yaml pyproject.toml Cargo.toml go.mod deno.json deno.jsonc wrangler.toml wrangler.jsonc; do',
+    '  if [ -f "$file" ]; then',
+    '    echo ""',
+    '    echo "----- $file -----"',
+    '    sed -n "1,120p" "$file"',
+    '  fi',
+    'done',
+  ].join('\n')
+
+  const [overview, docs] = await Promise.all([
+    runner.exec(['sh', '-lc', overviewScript]).catch((error) => ({ exitCode: 1, stdout: '', stderr: String(error) })),
+    runner.exec(['sh', '-lc', docsScript]).catch((error) => ({ exitCode: 1, stdout: '', stderr: String(error) })),
+  ])
+
+  const overviewText = overview.stdout || overview.stderr
+  const docsText = docs.stdout || docs.stderr
+  return truncateForPrompt([
+    'A GitHub repository is already cloned at /workspace for this session.',
+    'Use this repository context when answering. If the request needs details not shown here, say which file or command is needed instead of claiming no repository context exists.',
+    '',
+    '--- Repository overview ---',
+    overviewText,
+    '',
+    '--- Entry files ---',
+    docsText || 'No common entry files found.',
+  ].join('\n'), 18_000)
+}
+
 export class AgentSessionDO extends DurableObject<Env> {
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env)
@@ -300,6 +355,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     const toBaseMessage = (m: LoopMessage) =>
       m.role === 'user' ? new HumanMessage(m.content) : new SystemMessage(m.content)
     let runner: RunnerHandle | undefined
+    let repoContext = ''
 
     if (options.repo && (options.runnerProvider ?? session.runner_provider) === 'sandbox' && this.env.SANDBOX) {
       const cloneUrl = await resolveCloneUrl(this.env, options.repo)
@@ -312,6 +368,7 @@ export class AgentSessionDO extends DurableObject<Env> {
         },
         options.branch,
       )
+      repoContext = await buildRepoContext(runner, options.repo, options.branch)
     }
 
     try {
@@ -326,6 +383,7 @@ export class AgentSessionDO extends DurableObject<Env> {
             try {
               const lcMessages = [
                 ...(skillContext ? [new SystemMessage(`Skill ${options.skill}:\n${skillContext}`)] : []),
+                ...(repoContext ? [new SystemMessage(repoContext)] : []),
                 ...msgs.map(toBaseMessage),
               ]
               const res = await invokeModel(modelConfig, 'console', lcMessages, 512, apiKeys)
