@@ -182,7 +182,7 @@ pnpm sync:prod           # Sync to production D1
 
 Deployment is automated via GitHub Actions: pushes to `main` run lint, verify, build, and deploy to production.
 
-**Required secret:** `CLOUDFLARE_API_TOKEN` (see [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)).
+**Required secrets:** `CLOUDFLARE_API_TOKEN` for deployment and `INDEX_SYNC_SECRET` for protected embedding sync (see [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)). If the deployment token does not include D1 import/write permissions, also set `CLOUDFLARE_D1_API_TOKEN`; the D1 sync step will prefer it over `CLOUDFLARE_API_TOKEN`.
 
 ### Manual Deploy
 

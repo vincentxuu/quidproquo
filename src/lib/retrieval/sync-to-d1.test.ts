@@ -49,14 +49,14 @@ describe('buildStalePostPruneStatements', () => {
     const statements = buildStalePostPruneStatements(['ai/current', "tech/editor's-note"])
     const sql = statements.join('\n')
 
-    expect(sql).toContain('CREATE TEMP TABLE _sync_eligible_posts')
-    expect(sql).toContain("('ai/current')")
-    expect(sql).toContain("('tech/editor''s-note')")
+    expect(sql).not.toContain('CREATE TEMP TABLE')
+    expect(sql).toContain("'ai/current'")
+    expect(sql).toContain("'tech/editor''s-note'")
     expect(sql).toContain('DELETE FROM chunks_fts')
     expect(sql).toContain("WHERE source_type='post'")
     expect(sql).toContain('DELETE FROM post_chunks')
     expect(sql).toContain('DELETE FROM posts')
-    expect(sql).toContain('DROP TABLE IF EXISTS _sync_eligible_posts')
+    expect(statements).toHaveLength(3)
   })
 
   it('refuses to prune when the manifest is empty', () => {

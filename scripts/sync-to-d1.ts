@@ -14,6 +14,7 @@ import { chunkMarkdown } from '../src/lib/crawl/chunker';
 import { isSearchIndexEligiblePostData } from '../src/utils/publishing';
 
 const POSTS_DIR = 'src/content/posts';
+const DB_NAME = 'quidproquo-db';
 const IS_PROD = process.argv.includes('--prod');
 const INCLUDE_FUTURE = process.argv.includes('--include-future');
 const PRUNE_STALE = !process.argv.includes('--no-prune');
@@ -76,46 +77,33 @@ export function buildStalePostPruneStatements(eligibleSlugs: string[]): string[]
     throw new Error('Refusing to prune posts with an empty eligible slug manifest');
   }
 
-  const statements = [
-    'DROP TABLE IF EXISTS _sync_eligible_posts;',
-    'CREATE TEMP TABLE _sync_eligible_posts (slug TEXT PRIMARY KEY);',
-  ];
+  const slugList = [...new Set(eligibleSlugs)].sort().map(slug => `'${escape(slug)}'`).join(', ');
 
-  for (const batch of chunkArray([...new Set(eligibleSlugs)].sort(), 400)) {
-    const values = batch.map(slug => `('${escape(slug)}')`).join(', ');
-    statements.push(`INSERT INTO _sync_eligible_posts (slug) VALUES ${values};`);
-  }
-
-  statements.push(
+  return [
     `DELETE FROM chunks_fts
 WHERE source_type='post'
   AND chunk_id IN (
     SELECT pc.id
     FROM post_chunks pc
     JOIN posts p ON p.id = pc.post_id
-    LEFT JOIN _sync_eligible_posts e ON e.slug = p.slug
-    WHERE e.slug IS NULL
+    WHERE p.slug NOT IN (${slugList})
   );`,
     `DELETE FROM post_chunks
 WHERE post_id IN (
   SELECT p.id
   FROM posts p
-  LEFT JOIN _sync_eligible_posts e ON e.slug = p.slug
-  WHERE e.slug IS NULL
+  WHERE p.slug NOT IN (${slugList})
 );`,
     `DELETE FROM posts
-WHERE slug NOT IN (SELECT slug FROM _sync_eligible_posts);`,
-    'DROP TABLE IF EXISTS _sync_eligible_posts;',
-  );
-
-  return statements;
+WHERE slug NOT IN (${slugList});`,
+  ];
 }
 
 function execSql(sql: string, flag: string) {
   const tmpFile = join(tmpdir(), `d1-sync-${Date.now()}.sql`);
   writeFileSync(tmpFile, sql, 'utf-8');
   try {
-    execSync(`npx wrangler d1 execute quidproquo-db ${flag} --file="${tmpFile}"`, { stdio: 'inherit' });
+    execSync(`npx wrangler d1 execute ${DB_NAME} ${flag} --file="${tmpFile}"`, { stdio: 'inherit' });
   } finally {
     unlinkSync(tmpFile);
   }
