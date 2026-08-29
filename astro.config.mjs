@@ -46,6 +46,11 @@ function rehypeLazyImages() {
   };
 }
 
+function isPublicSitemapPage(page) {
+  const { pathname } = new URL(page);
+  return pathname !== '/admin' && !pathname.startsWith('/admin/');
+}
+
 export default defineConfig({
   site: 'https://quidproquo.cc',
   output: 'server',
@@ -75,7 +80,9 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    sitemap(),
+    sitemap({
+      filter: isPublicSitemapPage,
+    }),
     {
       name: 'pagefind',
       hooks: {

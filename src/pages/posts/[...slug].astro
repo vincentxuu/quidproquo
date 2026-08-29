@@ -51,9 +51,9 @@ const glossaryEntries = resolveGlossaryForLang(
   lang,
 );
 
-const ogImage = `${Astro.site ?? 'https://quidproquo.cc'}/og/${post.id}.png`;
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://quidproquo.cc';
-const postUrl = `${siteUrl}/posts/${post.id}`;
+const ogImage = `${siteUrl}/og/${post.id}.png`;
+const postUrl = `${siteUrl}/posts/${post.id}/`;
 
 // Translation pairing: link to the counterpart if it exists, else fall back to
 // the other language's home with an `untranslated` hint for the fallback banner.
@@ -67,8 +67,8 @@ const switchHref = counterpart
 // hreflang alternates: emit only when the pair exists. x-default points at zh-TW.
 const enId = lang === 'en' ? post.id : counterpart?.id;
 const zhId = lang === 'en' ? counterpart?.id : post.id;
-const enHref = enId ? `${siteUrl}/posts/${enId}` : undefined;
-const zhHref = zhId ? `${siteUrl}/posts/${zhId}` : undefined;
+const enHref = enId ? `${siteUrl}/posts/${enId}/` : undefined;
+const zhHref = zhId ? `${siteUrl}/posts/${zhId}/` : undefined;
 
 const modifiedDate = post.data.updated ?? post.data.date;
 
