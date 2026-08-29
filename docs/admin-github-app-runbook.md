@@ -59,7 +59,7 @@ Set these as production Worker secrets:
 
 - `GITHUB_APP_ID`: the app ID shown on the GitHub App settings page.
 - `GITHUB_APP_SLUG`: the slug from the app URL. For `https://github.com/apps/quidproquo-agent`, the slug is `quidproquo-agent`.
-- `GITHUB_APP_PRIVATE_KEY`: the full PEM private key downloaded from the GitHub App settings page.
+- `GITHUB_APP_PRIVATE_KEY`: the full PEM private key downloaded from the GitHub App settings page. GitHub commonly downloads this as a PKCS#1 `BEGIN RSA PRIVATE KEY` PEM. The admin sync code accepts both that format and PKCS#8 `BEGIN PRIVATE KEY` PEM.
 
 Only the deploy/operator needs to set these. Regular admin users should only install or sync the app through UI.
 
@@ -119,6 +119,14 @@ Start with the minimum permission set. Expanding permissions later requires inst
    pnpm wrangler secret put GITHUB_APP_SLUG
    pnpm wrangler secret put GITHUB_APP_PRIVATE_KEY
    ```
+
+   For the private key, prefer stdin from the downloaded PEM file so the terminal does not truncate pasted multi-line content:
+
+   ```sh
+   pnpm wrangler secret put GITHUB_APP_PRIVATE_KEY --config wrangler.jsonc < ~/Downloads/your-github-app-key.pem
+   ```
+
+   If the settings page reports `invalid base64` or `atob() called with invalid base64-encoded data`, the stored secret is malformed or the production deploy is still running old code. Re-set the secret from the PEM file with stdin, then re-deploy.
 
 8. Deploy the Worker.
 9. Open `/admin/settings/github`.

@@ -52,15 +52,82 @@ function normalizePrivateKey(raw: string): string {
   return raw.includes('\\n') ? raw.replace(/\\n/g, '\n') : raw
 }
 
-function pemToArrayBuffer(pem: string): ArrayBuffer {
-  const body = normalizePrivateKey(pem)
-    .replace(/-----BEGIN PRIVATE KEY-----/g, '')
-    .replace(/-----END PRIVATE KEY-----/g, '')
+function toArrayBuffer(bytes: Uint8Array): ArrayBuffer {
+  const copy = new Uint8Array(bytes.length)
+  copy.set(bytes)
+  return copy.buffer
+}
+
+function decodePemBody(pem: string, label: string): Uint8Array {
+  const normalized = normalizePrivateKey(pem)
+  const begin = `-----BEGIN ${label}-----`
+  const end = `-----END ${label}-----`
+  if (!normalized.includes(begin) || !normalized.includes(end)) {
+    throw new Error(`GitHub App private key must include ${begin} and ${end}`)
+  }
+
+  const body = normalized
+    .slice(normalized.indexOf(begin) + begin.length, normalized.indexOf(end))
     .replace(/\s+/g, '')
-  const binary = atob(body)
-  const bytes = new Uint8Array(binary.length)
-  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i)
-  return bytes.buffer
+
+  try {
+    const binary = atob(body)
+    const bytes = new Uint8Array(binary.length)
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i)
+    return bytes
+  } catch (error) {
+    throw new Error(`GitHub App private key has invalid base64 payload: ${error instanceof Error ? error.message : String(error)}`)
+  }
+}
+
+function encodeDerLength(length: number): Uint8Array {
+  if (length < 0x80) return new Uint8Array([length])
+  const bytes: number[] = []
+  let value = length
+  while (value > 0) {
+    bytes.unshift(value & 0xff)
+    value >>= 8
+  }
+  return new Uint8Array([0x80 | bytes.length, ...bytes])
+}
+
+function concatDer(...parts: Uint8Array[]): Uint8Array {
+  const total = parts.reduce((sum, part) => sum + part.length, 0)
+  const out = new Uint8Array(total)
+  let offset = 0
+  for (const part of parts) {
+    out.set(part, offset)
+    offset += part.length
+  }
+  return out
+}
+
+function der(tag: number, value: Uint8Array): Uint8Array {
+  return concatDer(new Uint8Array([tag]), encodeDerLength(value.length), value)
+}
+
+function wrapPkcs1RsaPrivateKey(pkcs1: Uint8Array): Uint8Array {
+  const version = der(0x02, new Uint8Array([0x00]))
+  const rsaEncryptionOid = new Uint8Array([0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01])
+  const nullParam = new Uint8Array([0x05, 0x00])
+  const algorithmIdentifier = der(0x30, concatDer(rsaEncryptionOid, nullParam))
+  const privateKey = der(0x04, pkcs1)
+  return der(0x30, concatDer(version, algorithmIdentifier, privateKey))
+}
+
+export function privateKeyPemToPkcs8Der(pem: string): ArrayBuffer {
+  const normalized = normalizePrivateKey(pem)
+  if (normalized.includes('-----BEGIN PRIVATE KEY-----')) {
+    return toArrayBuffer(decodePemBody(normalized, 'PRIVATE KEY'))
+  }
+  if (normalized.includes('-----BEGIN RSA PRIVATE KEY-----')) {
+    return toArrayBuffer(wrapPkcs1RsaPrivateKey(decodePemBody(normalized, 'RSA PRIVATE KEY')))
+  }
+  throw new Error('GitHub App private key must be a PEM PKCS#8 PRIVATE KEY or PKCS#1 RSA PRIVATE KEY')
+}
+
+function pemToArrayBuffer(pem: string): ArrayBuffer {
+  return privateKeyPemToPkcs8Der(pem)
 }
 
 async function createAppJwt(env: Env): Promise<string> {
