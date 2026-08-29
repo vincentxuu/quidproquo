@@ -1,0 +1,63 @@
+---
+title: "Security Alert｜The llms.txt Supply-Chain Gap: AI Agents Installed Unclaimed Packages Into Fortune 500 Networks Just by Reading a Vendor's Own Docs"
+date: 2026-08-29
+category: daily
+tags: [ai-agent, security, daily, supply-chain]
+lang: en
+description: "An Israeli stealth security startup scanned llms.txt/llms-full.txt files across 6,214 domains and found 237+ install commands pointing to packages and domains that were never registered; after claiming a few and wiring in a phone-home beacon, a Fortune 500 company's Claude, Codex, or Hermes agent installed and ran one within 4 minutes — and a live malicious package was already sitting in Clerk's own documentation"
+tldr: "Researchers scanned 8,565 llms.txt/llms-full.txt files (the emerging robots.txt for AI agents) across 6,214 domains and found 237+ install instructions pointing to PyPI/npm/RubyGems packages or domains that had never been registered. They claimed a handful, embedded a benign phone-home beacon, and waited: the first Fortune 500 machine executed it within 4 minutes, followed by dozens more callbacks whose parent-process chains traced back to Claude, Codex, and Hermes agents — no prompt injection or attacker interaction required. Separately, they found a live in-the-wild case: Clerk's own llms.txt already pointed agents at a confirmed malicious package (MAL-2026-11069); any agent that followed the doc got infected. Clerk has since fixed it. Mitigations: audit package ownership and whitelist before install, require human approval for agent shell commands, and start treating vendor-published docs as attack surface, not an inherently trusted source."
+series:
+  name: "AI Security Alert"
+  order: 15
+---
+
+> 🌏 [中文版](/posts/daily/2026-08-29-security-llmstxt-supply-chain)
+
+## Incident Overview
+
+An Israeli stealth security startup, led by researcher Alon Hertz, scanned 6,214 domains — spanning defense contractors, Fortune 500 companies, and Big Tech — and found 8,565 `llms.txt`/`llms-full.txt` files, an emerging convention that acts as a "robots.txt for AI agents": a machine-readable instruction set telling agents what to read, which APIs to call, and which packages to install. OpenAI, Anthropic, and Google each publish their own. The researchers found that 237+ of the install commands inside these files — spanning PyPI, npm, RubyGems, NuGet, crates.io, and Packagist — pointed to package names and domains that had never actually been registered by anyone. They claimed a small set of the empty names and embedded a purely benign "phone-home" beacon that only reported the fact of installation. The first callback from a Fortune 500 company arrived within four minutes; dozens more followed within the hour, and tracing the parent-process chain confirmed the installs came from Claude, OpenAI's Codex, and Nous Research's Hermes agents. None of this required prompt injection or an attacker in the loop — the agents were simply doing what they were built to do, following a vendor's own official documentation. In the course of the research, the team also stumbled onto a real in-the-wild incident: Clerk's official `llms.txt` contained a line whose target package name had already been claimed by a third party and loaded with malicious code, meaning any agent that followed the documentation as written would install genuinely malicious software.
+
+**Key Facts**
+
+| Item | Detail |
+|---|---|
+| Incident Type | Supply Chain Attack (llms.txt pointing to unregistered packages/domains + npx package-name confusion) |
+| Scope | Dozens of confirmed Fortune 500 companies and startups whose agents executed the researchers' benign PoC; Clerk's own documentation briefly pointed at a live malicious package |
+| Severity | High (one confirmed in-the-wild malicious package; the Fortune 500 callbacks were the researchers' own benign PoC, with no publicly confirmed real-world breach beyond the Clerk case) |
+| CVE | No public CVE; the malicious package is catalogued by Google OSV.dev and Amazon Inspector as MAL-2026-11069 (CWE-506: embedded malicious code) |
+| Sources | [Ars Technica](https://arstechnica.com/security/2026/08/claude-codex-and-hermes-installed-unowned-code-inside-corporate-networks/), [Alon Hertz's original research writeup (Medium)](https://medium.com/@alonhertz1/data-became-code-we-ran-code-inside-fortune-500s-using-files-they-published-for-ai-agents-0cd67ffbbffc) |
+
+## Attack Surface Analysis
+
+The attack path has two layers. The first is the researchers' own controlled experiment: `llms.txt` is an emerging convention where vendors publish, at the root of their website, an instruction list for AI agents — what to read, what to install, what to trust. The researchers found that a large number of these files contained correctly spelled package names that had simply never been registered by anyone on the corresponding registry — effectively a public announcement of an open slot. They claimed a handful and wired in beacons that only reported the fact of an install, and not only did Fortune 500 agents install them directly — even a minimal, generic prompt like "using [vendor]'s docs, build and run a Node.js project with [vendor]'s SDK," with no URL and no mention of `llms.txt` at all, was enough to send an agent hunting for the official docs on its own, find the install line, and run it — succeeding in 100 out of 100 test runs. The second layer is a real case the researchers stumbled onto while analyzing the corpus: Clerk's documentation contained the line `npx clerk-next-fix-auth-protection`, intended to run the executable bundled inside Clerk's own scoped package `@clerk/eslint-plugin`. But if an agent runs that bare command before the scoped package is installed locally, `npx`'s name-resolution behavior falls back to looking up the same name as an independent package on the public npm registry — and that name had already been claimed by a third party and loaded with code that exfiltrates the installing user's username, machine name, working directory, and timestamp to an external server on every install.
+
+Why do existing security controls miss this? The researchers' explanation is direct: an agent sees a file served over HTTPS from the vendor's own official domain, in a standardized format built for AI consumption — it has no reason to question the content, doesn't verify whether the named package namespace actually belongs to the company, and doesn't notice that a linked documentation domain expired three months ago. The trust chain is transitive, too: the `llms.txt` an agent reads doesn't have to belong to the target company itself — a trusted third party's partner docs, SDK reference, or setup guide creates the exact same exposure. And from an endpoint-security standpoint, the whole sequence looks completely clean: `pip install` against `pypi.org` is a domain every corporate proxy already allows, run by a coding agent the company deliberately installed and authorized to execute shell commands. No anomaly, no alert. The failure sits upstream, in the gap between the instruction and the execution — not somewhere an endpoint tool was ever positioned to see it.
+
+Mapped against the OWASP LLM Top 10, this incident lands squarely on **LLM03 Supply Chain Vulnerabilities** — extending supply-chain integrity failures into the first-party documentation an agent consumes — and also implicates **LLM06 Excessive Agency**: agents are granted the autonomy to read documentation and run install commands, with no mechanism to verify whether the namespace named in that documentation actually belongs to the publishing vendor. The researchers' core thesis is that this marks a boundary collapsing between data and code: for two decades, web content was written for humans and carried no integrity guarantees, but agents now treat anything they read as a potential instruction to act on — quietly turning the entire corpus of public web content into an execution surface.
+
+## Defensive Measures
+
+**Immediate Actions**
+- Audit whether your company publishes an `llms.txt`/`llms-full.txt`, and check line by line whether every named package or domain is actually owned by your company (or a known, verified partner) — don't assume that a name appearing in an "official" doc means it has been verified
+- If your organization uses coding agents (Claude Code, Codex, agentic CLIs) that can install packages or run shell commands autonomously, add an ownership check before install: does the package exist, and does its publisher match the vendor the documentation claims to represent — rather than "it resolves in the registry, so install it"
+- Pay particular attention to `npx`/`npm exec`-style execution, which falls back to the public registry when a local cache miss occurs — even when documentation refers to an executable bundled inside an already-scoped package, an uninstalled local copy leaves room for a same-named public package to hijack the call
+- Check whether your organization has recently installed a newly registered package by following official vendor documentation; if so, treat it like any other supply-chain compromise — audit the package's behavior and rotate credentials on affected machines as needed
+
+**Long-Term Architecture**
+- Formally add "any document an agent consumes" — llms.txt, README files, SDK references, third-party docs — to your attack-surface model, and require the same integrity verification you'd apply to code dependencies, rather than defaulting to trust
+- Put a human-approval gate in front of agent shell execution and package installs, especially for first-time installs or installs whose source doesn't match a known project dependency manifest
+- Consider AI/ML supply-chain security tools such as Protect AI from watchlist B7 for package-namespace and model-supply-chain scanning, or Netzilo's agent governance model to enforce an allowlist over what agents are permitted to install
+- If your own company publishes an `llms.txt`, treat every package name and domain referenced in it as an asset requiring ongoing monitoring — pre-registering it yourself is far cheaper than having someone else claim it and load it with malware later
+
+## Impact
+
+The researchers emphasize that their own Fortune 500 callbacks were a benign PoC (the beacon only reported the fact of installation, with no further action), and there is no publicly confirmed real-world breach beyond that. The Clerk case, however, is a confirmed in-the-wild malicious incident: anyone who ran that documented command before Clerk's fix may have installed the malicious package locally or in CI, potentially exposing the executing user's username, machine name, working directory, and timestamp. Clerk has since taken the documentation down and fixed it, and the malicious package is catalogued by OSV.dev and Amazon Inspector (MAL-2026-11069). The researchers note that the exposure is still limited in scope today — only about 7.4% of Fortune 500 companies currently publish an `llms.txt` — but with Google Lighthouse now including "publish an llms.txt" as part of its Agentic browsing audit and more vendors adopting the convention, this attack surface is only going to grow. If your organization relies on coding agents for development or operations automation, this incident is a reminder that a vendor's own official documentation is itself now an attack surface requiring integrity verification — "HTTPS plus an official domain" is no longer sufficient grounds for trust.
+
+## Today's Takeaway
+
+What's most unsettling about this incident is that it required no prompt injection and no attacker interaction at all — the agents simply followed a vendor's own correctly formatted, HTTPS-served documentation, doing exactly what they were built to do, and that alone was enough to install packages that had never existed into Fortune 500 networks. This pushes my understanding of supply-chain risk one step past typosquatting: there's no impersonation needed here, because the legitimate name itself was never claimed by its legitimate owner in the first place. As "data becomes code" turns into the norm, content integrity stops being optional and becomes a baseline line item in every organization's security budget — for every public document an agent might ever read.
+
+## 參考資料
+
+- [Ars Technica: Claude, Codex, and Hermes installed unowned code inside corporate networks](https://arstechnica.com/security/2026/08/claude-codex-and-hermes-installed-unowned-code-inside-corporate-networks/)
+- [Alon Hertz's original research writeup (Medium): Data Became Code](https://medium.com/@alonhertz1/data-became-code-we-ran-code-inside-fortune-500s-using-files-they-published-for-ai-agents-0cd67ffbbffc)
