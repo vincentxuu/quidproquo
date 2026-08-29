@@ -4,6 +4,7 @@ import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
+import tailwindcss from '@tailwindcss/vite';
 import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
 
 // Rehype plugin: external links open in new tab
@@ -77,6 +78,9 @@ export default defineConfig({
     inspectorPort: false,
     prerenderEnvironment: 'node',
   }),
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
     react(),
     mdx(),
