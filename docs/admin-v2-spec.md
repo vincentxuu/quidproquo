@@ -1,6 +1,6 @@
 # Admin v2 規格：自製 coding agent 的操作台
 
-狀態：Phase 1–6 代碼完成（2026-08-29），本機整合驗證通過；待 production/preview 環境觀察。決策來自逐題確認，範本為 Claude Code on the web
+狀態：Phase 1–6 代碼完成（2026-08-29），本機整合驗證通過；production/preview 尚未驗證，驗證清單見 `docs/admin-v2-production-verification.md`。決策來自逐題確認，範本為 Claude Code on the web
 （實測紀錄：`.research/2026-08-27-claude-code-web-new-session-walkthrough.md`、
 `.research/2026-08-27-claude-code-routines-web-ui-walkthrough.md`）。現況路由見 `docs/admin-route-map.md`。
 
@@ -170,8 +170,7 @@ Routine＝「一個 agent＋觸發器」；Flow＝「多節點圖＋觸發節點
 
 ## 9b. 仍待實測
 
-- Cloudflare Sandbox 冷啟動秒數。
-- `@next` 的 API 在 1.0 正式版前可能再變。
+本機驗證已證明 Admin v2 的前後端 chat contract 可以串起來；尚未證明 production/preview 的 Cloudflare 綁定、遠端 D1 migration、Sandbox/provider、通知與 MCP proxy 在真實環境可用。完整清單與通過條件見 `docs/admin-v2-production-verification.md`。
 
 ## 10. 分期（定案 2026-08-27）
 
