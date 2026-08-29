@@ -3,7 +3,7 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
-import { MacRunnerProvider, MacRunnerHandle } from '@/lib/agent/runner/mac'
+import { MacRunnerProvider } from '@/lib/agent/runner/mac'
 
 let macProvider: MacRunnerProvider | undefined
 

@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
-import { json, badRequest, notFound } from '@/lib/api/response'
+import { json, badRequest } from '@/lib/api/response'
 import { loadServers, discoverTools } from '@/lib/mcp-proxy/registry'
 import { dispatchMcpTool, isMcpTool } from '@/lib/mcp-proxy/dispatcher'
 

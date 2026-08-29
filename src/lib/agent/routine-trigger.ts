@@ -107,7 +107,7 @@ function computeNextRun(cron: string, staggerSeconds: number): number | null {
   const parts = cron.trim().split(/\s+/)
   if (parts.length !== 5) return null
 
-  const [minStr, hourStr, domStr, monStr, dowStr] = parts
+  const [minStr, hourStr, domStr, _monStr, dowStr] = parts
 
   if (minStr === '*' && hourStr === '*') {
     return now.getTime() + 60 * 60 * 1000 + staggerSeconds * 1000

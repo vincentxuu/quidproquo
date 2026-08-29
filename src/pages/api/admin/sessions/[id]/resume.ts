@@ -30,7 +30,7 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   const message = typeof body.message === 'string' ? body.message.trim() : ''
   if (!message) return badRequest('message is required')
 
-  const now = Date.now()
+  const _now = Date.now()
   const nextSeq = await db
     .prepare('SELECT COALESCE(MAX(seq), 0) + 1 AS next FROM agent_messages WHERE session_id = ?')
     .bind(id)

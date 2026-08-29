@@ -11,7 +11,7 @@
     "deploy": "wrangler d1 migrations apply quidproquo-db --remote && pnpm build && wrangler deploy --config dist/server/wrangler.json",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "oxlint src/ --ignore-pattern '*.astro'",
+    "lint": "oxlint src/ --ignore-pattern '*.astro' --deny-warnings",
     "verify": "node scripts/verify.mjs",
     "check:skills-sync": "node scripts/check-skills-sync.mjs",
     "skills:sync": "node scripts/check-skills-sync.mjs --fix",

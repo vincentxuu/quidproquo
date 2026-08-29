@@ -1,7 +1,6 @@
 import type { SessionMode } from './mode'
-import { isToolBlockedInPlanMode } from './mode'
 import { buildPlanModeRequest, buildControlRequestEvent } from './control-protocol'
-import { waitForApproval, resolveWaitingApproval, rejectWaitingApproval } from './approval-queue'
+import { waitForApproval } from './approval-queue'
 import type { SessionEvent } from './events'
 
 export const PLAN_MODE_SYSTEM_PROMPT = `You are in Plan mode. You may ONLY read files, search, and think.

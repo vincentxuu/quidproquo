@@ -1,4 +1,4 @@
-import type { ControlRequestEvent, ControlResponseEvent, SessionEvent } from './events'
+import type { ControlRequestEvent, ControlResponseEvent } from './events'
 import { scoreRisk } from '@/lib/policy/enforcement/human/risk'
 
 export interface ControlRequest {
