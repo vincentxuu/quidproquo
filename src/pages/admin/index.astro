@@ -1,277 +1,308 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '../../layouts/AdminV2Layout.astro';
-import Icons from '../../components/Icons.astro';
-import AdminButton from '../../components/admin/AdminButton.astro';
-import AdminPanel from '../../components/admin/AdminPanel.astro';
 ---
 
-<AdminV2Layout title="Dashboard" section="home">
-  <section class="dashboard-hero">
-    <div>
-      <p class="hero-kicker">Operations Snapshot</p>
-      <h1>內容、RAG 與任務狀態總覽</h1>
-      <p>快速確認索引健康度、內容缺漏與近期 pipeline 執行結果。</p>
-    </div>
-    <div class="hero-actions">
-      <AdminButton href="/admin/content" icon="file-text">
-        Content Ops
-      </AdminButton>
-      <AdminButton href="/admin/rag" variant="primary" icon="brain-circuit">
-        RAG Console
-      </AdminButton>
+<AdminV2Layout title="Home" section="home">
+  <section id="needs-you" class="needs-you collapsed">
+    <p class="needs-you-ok">✓ 一切正常</p>
+    <div class="needs-you-items" hidden></div>
+  </section>
+
+  <section class="composer-section">
+    <form id="composer-form" class="composer">
+      <textarea
+        id="composer-input"
+        name="instruction"
+        class="composer-input"
+        placeholder="輸入指令，讓 agent 執行…"
+        rows="3"
+        required
+      ></textarea>
+      <div class="composer-controls">
+        <select id="composer-mode" name="mode" class="composer-select">
+          <option value="auto" selected>Auto</option>
+          <option value="default">Accept edits</option>
+          <option value="plan">Plan</option>
+        </select>
+        <select id="composer-model" name="model" class="composer-select">
+          <option value="">預設模型</option>
+        </select>
+        <button type="submit" class="composer-submit" id="composer-submit">執行</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="recents-section">
+    <h3 class="section-title">最近 Sessions</h3>
+    <div id="recents-list" class="recents-list">
+      <p class="empty-text">載入中…</p>
     </div>
   </section>
 
-  <div class="dashboard-grid">
-    <AdminPanel class="status-card metric-card">
-      <div class="card-head">
-        <span class="card-icon"><Icons name="server-cog" size={16} /></span>
-        <h3>System Status</h3>
-      </div>
-      <div id="system-status" class="status-content">Loading...</div>
-    </AdminPanel>
-
-    <AdminPanel class="status-card metric-card">
-      <div class="card-head">
-        <span class="card-icon"><Icons name="brain-circuit" size={16} /></span>
-        <h3>RAG Health</h3>
-      </div>
-      <div id="rag-health" class="status-content">Loading...</div>
-    </AdminPanel>
-
-    <AdminPanel class="status-card metric-card">
-      <div class="card-head">
-        <span class="card-icon"><Icons name="bar-chart-3" size={16} /></span>
-        <h3>Index Health</h3>
-      </div>
-      <div id="index-health" class="status-content">Loading...</div>
-    </AdminPanel>
-
-    <AdminPanel class="status-card metric-card">
-      <div class="card-head">
-        <span class="card-icon"><Icons name="file-text" size={16} /></span>
-        <h3>Content Health</h3>
-      </div>
-      <div id="content-health" class="status-content">Loading...</div>
-    </AdminPanel>
-
-    <AdminPanel class="status-card wide table-card">
-      <div class="section-heading">
-        <div>
-          <h3>Recent Jobs</h3>
-          <p>最近 5 筆 pipeline 執行紀錄。</p>
-        </div>
-        <a href="/admin/jobs" class="icon-button" title="開啟任務列表">
-          <Icons name="arrow-up-right" size={15} />
-        </a>
-      </div>
-      <div id="recent-jobs" class="status-content">Loading...</div>
-    </AdminPanel>
-
-    <AdminPanel class="status-card wide">
-      <div class="section-heading">
-        <div>
-          <h3>Quick Actions</h3>
-          <p>常用工作入口。</p>
-        </div>
-      </div>
-      <div class="quick-actions">
-        <a href="/admin/ops" class="action-btn"><Icons name="refresh-cw" size={15} />Run Jobs</a>
-        <a href="/admin/rag" class="action-btn"><Icons name="settings" size={15} />RAG Settings</a>
-        <a href="/admin/content" class="action-btn"><Icons name="file-text" size={15} />Content Ops</a>
-        <a href="/admin/stats" class="action-btn"><Icons name="bar-chart-3" size={15} />View Stats</a>
-      </div>
-    </AdminPanel>
-  </div>
+  <section class="usage-section">
+    <span id="usage-line" class="usage-line">用量統計載入中…</span>
+  </section>
 </AdminV2Layout>
 
 <script is:inline>
-  function clearNode(el) {
-    el.textContent = '';
-  }
+  (function () {
+    const form = document.getElementById('composer-form');
+    const submitBtn = document.getElementById('composer-submit');
+    const needsYouSection = document.getElementById('needs-you');
+    const needsYouItems = needsYouSection?.querySelector('.needs-you-items');
+    const needsYouOk = needsYouSection?.querySelector('.needs-you-ok');
+    const recentsList = document.getElementById('recents-list');
+    const usageLine = document.getElementById('usage-line');
+    const modelSelect = document.getElementById('composer-model');
 
-  function makeLine(label, value) {
-    const row = document.createElement('div');
-    row.className = 'metric-line';
-
-    const labelEl = document.createElement('span');
-    labelEl.textContent = label;
-    const valueEl = document.createElement('strong');
-    valueEl.textContent = String(value);
-
-    row.append(labelEl, valueEl);
-    return row;
-  }
-
-  function renderStatusList(statuses) {
-    const frag = document.createDocumentFragment();
-    if (!statuses?.length) {
-      const empty = document.createElement('p');
-      empty.className = 'empty';
-      empty.textContent = 'No status data';
-      frag.append(empty);
-      return frag;
+    async function loadModels() {
+      try {
+        const res = await fetch('/api/admin/settings/models');
+        if (!res.ok) return;
+        const data = await res.json();
+        const providers = data.providers || [];
+        for (const p of providers) {
+          const opt = document.createElement('option');
+          opt.value = p.id || p.provider_id || '';
+          opt.textContent = p.display_name || p.id || '';
+          modelSelect?.appendChild(opt);
+        }
+      } catch {}
     }
-    for (const s of statuses) {
-      const row = document.createElement('div');
-      row.className = 'status-item';
-      const dot = document.createElement('span');
-      dot.className = `status-indicator ${s?.ok ? 'ok' : 'error'}`;
-      const name = document.createElement('span');
-      name.textContent = s?.name ?? '';
-      const result = document.createElement('strong');
-      result.textContent = s?.ok ? 'OK' : 'Issue';
-      row.append(dot, name, result);
-      frag.append(row);
+
+    async function loadNeedsYou() {
+      try {
+        const res = await fetch('/api/admin/sessions?needs_action=1&limit=10');
+        if (!res.ok) return;
+        const data = await res.json();
+        const sessions = data.sessions || [];
+        if (sessions.length === 0) {
+          needsYouSection?.classList.add('collapsed');
+          if (needsYouOk) needsYouOk.hidden = false;
+          if (needsYouItems) needsYouItems.hidden = true;
+          return;
+        }
+        needsYouSection?.classList.remove('collapsed');
+        if (needsYouOk) needsYouOk.hidden = true;
+        if (needsYouItems) {
+          needsYouItems.hidden = false;
+          needsYouItems.innerHTML = '';
+          for (const s of sessions) {
+            const item = document.createElement('a');
+            item.href = '/admin/sessions/' + encodeURIComponent(s.id);
+            item.className = 'needs-you-item';
+            const badge = document.createElement('span');
+            badge.className = 'badge badge-' + badgeClass(s.status);
+            badge.textContent = s.status;
+            const label = document.createElement('span');
+            label.textContent = s.name || s.summary_detail || s.id.slice(0, 8);
+            item.append(badge, label);
+            needsYouItems.appendChild(item);
+          }
+        }
+      } catch {}
     }
-    return frag;
-  }
 
-  function renderJobRows(jobs) {
-    const frag = document.createDocumentFragment();
-    for (const job of jobs) {
-      const row = document.createElement('article');
-      row.className = 'job-row';
-      const status = document.createElement('span');
-      status.className = `job-status status-${job.status}`;
-      status.textContent = job.status;
+    async function loadRecents() {
+      try {
+        const res = await fetch('/api/admin/sessions?limit=10');
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        const sessions = data.sessions || [];
+        if (!recentsList) return;
+        if (sessions.length === 0) {
+          recentsList.innerHTML = '<p class="empty-text">尚無 Session</p>';
+          return;
+        }
+        recentsList.innerHTML = '';
+        for (const s of sessions) {
+          const row = document.createElement('a');
+          row.href = '/admin/sessions/' + encodeURIComponent(s.id);
+          row.className = 'recent-row';
 
-      const pipeline = document.createElement('span');
-      pipeline.className = 'job-pipeline';
-      pipeline.textContent = job.pipeline_id;
+          const left = document.createElement('div');
+          left.className = 'recent-left';
+          const nameEl = document.createElement('span');
+          nameEl.className = 'recent-name';
+          nameEl.textContent = s.name || truncate(s.instruction || s.id, 60);
+          const detail = document.createElement('span');
+          detail.className = 'recent-detail';
+          detail.textContent = s.summary_detail || '';
+          left.append(nameEl, detail);
 
-      const id = document.createElement('code');
-      id.textContent = job.id;
+          const right = document.createElement('div');
+          right.className = 'recent-right';
+          const badge = document.createElement('span');
+          badge.className = 'badge badge-' + badgeClass(s.status);
+          badge.textContent = s.status;
+          const time = document.createElement('span');
+          time.className = 'recent-time';
+          time.textContent = relativeTime(s.created_at);
+          right.append(badge, time);
 
-      const time = document.createElement('span');
-      time.className = 'job-time';
-      time.textContent = formatTime(job.created_at);
-
-      row.append(status, pipeline, id, time);
-      frag.append(row);
-    }
-    return frag;
-  }
-
-  function setLoadError(target, message) {
-    const p = document.createElement('p');
-    p.className = 'error';
-    p.textContent = message;
-    clearNode(target);
-    target.append(p);
-  }
-
-  async function loadDashboard() {
-    await Promise.all([
-      loadSystemStatus(),
-      loadRAGHealth(),
-      loadIndexHealth(),
-      loadContentHealth(),
-      loadRecentJobs(),
-    ]);
-  }
-
-  async function loadSystemStatus() {
-    const el = document.getElementById('system-status');
-    try {
-      const res = await fetch('/api/admin/site/status');
-      if (!res.ok) throw new Error('Failed');
-      const data = await res.json();
-      clearNode(el);
-      el.append(renderStatusList(data.statuses));
-    } catch {
-      setLoadError(el, 'Unable to load');
-    }
-  }
-
-  async function loadRAGHealth() {
-    const el = document.getElementById('rag-health');
-    try {
-      const res = await fetch('/api/admin/site/rag');
-      if (!res.ok) throw new Error('Failed');
-      const data = await res.json();
-      const recentTraces = data.traces?.slice(0, 5) || [];
-      clearNode(el);
-      el.append(
-        makeLine('Queries (7d)', recentTraces.length),
-        makeLine('Recent Errors', recentTraces.filter((t) => t.output_summary?.includes('error')).length),
-      );
-      const link = document.createElement('a');
-      link.href = '/admin/rag';
-      link.className = 'card-link';
-      link.textContent = 'View RAG Settings ->';
-      el.append(link);
-    } catch {
-      setLoadError(el, 'Unable to load');
-    }
-  }
-
-  async function loadIndexHealth() {
-    const el = document.getElementById('index-health');
-    try {
-      const res = await fetch('/api/admin/site/status');
-      if (!res.ok) throw new Error('Failed');
-      const data = await res.json();
-      clearNode(el);
-      el.append(
-        makeLine('Post Chunks', data.index?.postChunks ?? 'N/A'),
-        makeLine('Doc Chunks', data.index?.docChunks ?? 'N/A'),
-        makeLine('Last Embed', data.index?.lastEmbed ?? 'Never'),
-      );
-    } catch {
-      setLoadError(el, 'Unable to load');
-    }
-  }
-
-  async function loadContentHealth() {
-    const el = document.getElementById('content-health');
-    try {
-      const res = await fetch('/api/admin/site/status');
-      if (!res.ok) throw new Error('Failed');
-      const data = await res.json();
-      clearNode(el);
-      el.append(
-        makeLine('Total Posts', data.content?.total ?? 'N/A'),
-        makeLine('Drafts', data.content?.drafts ?? 'N/A'),
-        makeLine('Missing Type', data.content?.missingType ?? 'N/A'),
-      );
-      const link = document.createElement('a');
-      link.href = '/admin/content';
-      link.className = 'card-link';
-      link.textContent = 'View Content ->';
-      el.append(link);
-    } catch {
-      setLoadError(el, 'Unable to load');
-    }
-  }
-
-  async function loadRecentJobs() {
-    const el = document.getElementById('recent-jobs');
-    try {
-      const res = await fetch('/api/admin/site/jobs?limit=5');
-      if (!res.ok) throw new Error('Failed');
-      const data = await res.json();
-      if (!data.jobs?.length) {
-        const empty = document.createElement('p');
-        empty.className = 'empty';
-        empty.textContent = 'No jobs yet';
-        clearNode(el);
-        el.append(empty);
-        return;
+          row.append(left, right);
+          recentsList.appendChild(row);
+        }
+      } catch {
+        if (recentsList) recentsList.innerHTML = '<p class="empty-text">無法載入</p>';
       }
-      clearNode(el);
-      el.append(renderJobRows(data.jobs));
-    } catch {
-      setLoadError(el, 'Unable to load');
     }
-  }
 
-  function formatTime(iso) {
-    if (!iso) return 'N/A';
-    const d = new Date(iso);
-    return d.toLocaleString('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-  }
+    async function loadUsage() {
+      try {
+        const res = await fetch('/api/admin/settings/cost');
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        const tokens = data.total_tokens ?? 0;
+        const cost = data.total_cost_usd ?? 0;
+        if (usageLine) usageLine.textContent = '本週 tokens: ' + tokens.toLocaleString() + ' · 費用: $' + cost.toFixed(4);
+      } catch {
+        if (usageLine) usageLine.textContent = '用量統計暫時無法載入';
+      }
+    }
 
-  loadDashboard();
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const instruction = document.getElementById('composer-input')?.value?.trim();
+      if (!instruction) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = '建立中…';
+      try {
+        const mode = document.getElementById('composer-mode')?.value || 'auto';
+        const model = document.getElementById('composer-model')?.value || undefined;
+        const res = await fetch('/api/admin/sessions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ instruction, mode, model }),
+        });
+        const data = await res.json();
+        if (res.ok && data.id) {
+          window.location.href = '/admin/sessions/' + encodeURIComponent(data.id);
+        } else {
+          alert(data.error || '建立失敗');
+          submitBtn.disabled = false;
+          submitBtn.textContent = '執行';
+        }
+      } catch {
+        alert('網路錯誤');
+        submitBtn.disabled = false;
+        submitBtn.textContent = '執行';
+      }
+    });
+
+    function badgeClass(status) {
+      switch (status) {
+        case 'done': return 'success';
+        case 'failed': return 'error';
+        case 'running': return 'running';
+        case 'cancelled': return 'muted';
+        default: return 'pending';
+      }
+    }
+
+    function truncate(s, max) {
+      return s.length > max ? s.slice(0, max) + '…' : s;
+    }
+
+    function relativeTime(ts) {
+      if (!ts) return '';
+      const diff = Date.now() - (typeof ts === 'number' ? ts : new Date(ts).getTime());
+      const sec = Math.floor(diff / 1000);
+      if (sec < 60) return sec + 's';
+      const min = Math.floor(sec / 60);
+      if (min < 60) return min + 'm';
+      const hr = Math.floor(min / 60);
+      if (hr < 24) return hr + 'h';
+      return Math.floor(hr / 24) + 'd';
+    }
+
+    loadModels();
+    loadNeedsYou();
+    loadRecents();
+    loadUsage();
+  })();
 </script>
+
+<style>
+  .needs-you {
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius, 6px);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    background: var(--admin-surface);
+  }
+  .needs-you.collapsed .needs-you-ok {
+    color: var(--admin-success);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .needs-you-items { display: flex; flex-direction: column; gap: 0.5rem; }
+  .needs-you-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 0.75rem; border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius, 6px); text-decoration: none;
+    color: var(--admin-text); background: var(--admin-color-surface-subtle);
+  }
+  .needs-you-item:hover { background: var(--admin-muted); }
+  .composer-section { margin-bottom: 1.5rem; }
+  .composer { display: flex; flex-direction: column; gap: 0.5rem; }
+  .composer-input {
+    width: 100%; padding: 0.75rem; border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius, 6px); background: var(--admin-surface);
+    color: var(--admin-text); font: inherit; font-size: 0.95rem;
+    resize: vertical; min-height: 80px;
+  }
+  .composer-input:focus {
+    outline: none; border-color: var(--admin-accent);
+    box-shadow: 0 0 0 2px var(--admin-color-primary-soft);
+  }
+  .composer-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .composer-select {
+    min-height: 2.75rem; padding: 0.45rem 0.6rem; border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius, 6px); background: var(--admin-surface);
+    color: var(--admin-text); font: inherit; font-size: 0.85rem;
+  }
+  .composer-submit {
+    min-height: 2.75rem; padding: 0.45rem 1.2rem; border: none;
+    border-radius: var(--admin-radius, 6px); background: var(--admin-accent);
+    color: #fff; font: inherit; font-weight: 600; font-size: 0.85rem; cursor: pointer;
+  }
+  .composer-submit:hover { background: var(--admin-accent-hover); }
+  .composer-submit:disabled { opacity: 0.6; cursor: wait; }
+  .section-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .recents-list {
+    display: flex; flex-direction: column; border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius, 6px); overflow: hidden;
+  }
+  .recent-row {
+    display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
+    padding: 0.65rem 1rem; text-decoration: none; color: var(--admin-text);
+    border-bottom: 1px solid var(--admin-border);
+  }
+  .recent-row:last-child { border-bottom: none; }
+  .recent-row:hover { background: var(--admin-color-surface-subtle); }
+  .recent-left { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; flex: 1; }
+  .recent-name { font-size: 0.9rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .recent-detail { font-size: 0.8rem; color: var(--admin-text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .recent-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+  .recent-time { font-size: 0.78rem; color: var(--admin-text-soft); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .badge { display: inline-block; padding: 0.15em 0.55em; border-radius: 999px; font-size: 0.75em; font-weight: 600; white-space: nowrap; }
+  .badge-success { background: var(--admin-color-success-soft); color: var(--admin-color-success); }
+  .badge-error { background: var(--admin-color-danger-soft); color: var(--admin-color-danger); }
+  .badge-running { background: var(--admin-color-info-soft); color: var(--admin-color-info); }
+  .badge-pending { background: var(--admin-color-warning-soft); color: var(--admin-color-warning); }
+  .badge-muted { background: var(--admin-muted); color: var(--admin-text-muted); }
+  .usage-section {
+    margin-top: 1.5rem; padding: 0.65rem 1rem; border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius, 6px); background: var(--admin-color-surface-subtle);
+  }
+  .usage-line { font-size: 0.85rem; color: var(--admin-text-muted); }
+  .empty-text { padding: 1rem; color: var(--admin-text-muted); font-size: 0.85rem; text-align: center; }
+  @media (max-width: 768px) {
+    .composer-controls { flex-direction: column; }
+    .composer-select, .composer-submit { width: 100%; }
+    .recent-row { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+    .recent-right { align-self: flex-end; }
+  }
+</style>

@@ -1,668 +1,126 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
-import AdminState from '@/components/admin/AdminState.astro';
-import AdminPanel from '@/components/admin/AdminPanel.astro';
-import AdminTable from '@/components/admin/AdminTable.astro';
-import { getEnv } from '@/lib/config/env';
 import { ensureConsoleUmbrella } from '../_guard';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
-
-
-interface RunRow {
-  flow_run_id: string;
-  flow_id: string;
-  status: string;
-  started_at: number;
-  finished_at: number | null;
-  latency_ms: number | null;
-  display_name: string | null;
-  cost_usd: number | null;
-  updated_at: number | null;
-}
-
-interface FlowOption {
-  flow_id: string;
-  display_name: string | null;
-}
-
-let runs: RunRow[] = [];
-let loadError = false;
-let flowOptions: FlowOption[] = [];
-let totalRuns = 0;
-
-const url = new URL(Astro.url);
-const selectedStatus = url.searchParams.get('status')?.trim().toLowerCase() ?? '';
-const selectedFlow = url.searchParams.get('flow')?.trim() ?? '';
-const selectedFrom = url.searchParams.get('from')?.trim() ?? '';
-const selectedTo = url.searchParams.get('to')?.trim() ?? '';
-const selectedPage = Number.parseInt(url.searchParams.get('page') ?? '1', 10);
-const page = Number.isFinite(selectedPage) && selectedPage > 0 ? selectedPage : 1;
-const offset = (page - 1) * 50;
-const PAGE_SIZE = 50;
-
-try {
-  const db = getEnv().DB;
-  const flowDefinitionInfo = await db.prepare('PRAGMA table_info(flow_definitions)').all<{ name: string }>();
-  const flowRunInfo = await db.prepare('PRAGMA table_info(flow_runs)').all<{ name: string }>();
-  const flowDefinitionColumns = new Set((flowDefinitionInfo.results ?? []).map((column) => column.name));
-  const flowRunColumns = new Set((flowRunInfo.results ?? []).map((column) => column.name));
-  const flowNameExpr = flowDefinitionColumns.has('display_name')
-    ? 'fd.display_name'
-    : flowDefinitionColumns.has('name')
-      ? 'fd.name'
-      : 'fd.flow_id';
-  const flowOptionNameExpr = flowDefinitionColumns.has('display_name')
-    ? 'display_name'
-    : flowDefinitionColumns.has('name')
-      ? 'name'
-      : 'flow_id';
-  const costExpr = flowRunColumns.has('cost_usd')
-    ? 'fr.cost_usd'
-    : flowRunColumns.has('total_cost_usd')
-      ? 'fr.total_cost_usd'
-      : 'NULL';
-
-  const whereParts: string[] = []
-  const bindings: Array<string | number> = []
-
-  if (selectedStatus) {
-    whereParts.push('fr.status = ?')
-    bindings.push(selectedStatus)
-  }
-
-  if (selectedFlow) {
-    whereParts.push('fr.flow_id = ?')
-    bindings.push(selectedFlow)
-  }
-
-  if (selectedFrom) {
-    const fromMs = new Date(selectedFrom).getTime()
-    if (!Number.isNaN(fromMs)) {
-      whereParts.push('fr.started_at >= ?')
-      bindings.push(fromMs)
-    }
-  }
-
-  if (selectedTo) {
-    const toMs = new Date(selectedTo)
-    toMs.setHours(23, 59, 59, 999)
-    const toTs = toMs.getTime()
-    if (!Number.isNaN(toTs)) {
-      whereParts.push('fr.started_at <= ?')
-      bindings.push(toTs)
-    }
-  }
-
-  const whereClause = whereParts.length > 0 ? `WHERE ${whereParts.join(' AND ')}` : ''
-
-  const result = await db
-    .prepare(
-      `SELECT fr.flow_run_id, fr.flow_id, fr.status, fr.started_at, fr.finished_at, fr.latency_ms,
-              ${costExpr} AS cost_usd, fr.updated_at, ${flowNameExpr} AS display_name
-       FROM flow_runs fr
-       LEFT JOIN flow_definitions fd ON fd.flow_id = fr.flow_id
-       ${whereClause}
-       ORDER BY fr.started_at DESC
-       LIMIT ? OFFSET ?`,
-    )
-    .bind(...bindings, PAGE_SIZE, offset)
-    .all<RunRow>();
-  runs = result.results ?? [];
-
-  const flowRows = await db
-    .prepare(`SELECT flow_id, ${flowOptionNameExpr} AS display_name FROM flow_definitions ORDER BY flow_id ASC`)
-    .all<FlowOption>();
-  flowOptions = flowRows.results ?? [];
-
-  const countResult = await db
-    .prepare(`SELECT COUNT(*) AS total
-      FROM flow_runs fr ${whereClause}`)
-    .bind(...bindings)
-    .first<{ total: number }>()
-  totalRuns = Number(countResult?.total ?? 0)
-} catch {
-  loadError = true;
-}
-
-const totalPages = Math.max(1, Math.ceil(totalRuns / PAGE_SIZE));
-const activeFilters = [
-  selectedStatus ? `狀態=${selectedStatus}` : '',
-  selectedFlow ? `工作流程=${flowOptions.find((item) => item.flow_id === selectedFlow)?.display_name ?? selectedFlow}` : '',
-  selectedFrom ? `從 ${selectedFrom}` : '',
-  selectedTo ? `到 ${selectedTo}` : '',
-].filter(Boolean);
-const hasActiveFilters = activeFilters.length > 0;
-const visibleStart = totalRuns === 0 ? 0 : offset + 1;
-const visibleEnd = Math.min(offset + runs.length, totalRuns);
-
-function listHref(p: number) {
-  const u = new URL(url);
-  if (p <= 1) {
-    u.searchParams.delete('page');
-  } else {
-    u.searchParams.set('page', String(p));
-  }
-  return u.pathname + u.search;
-}
-
-function formatRelative(ms: number): string {
-  const diffMs = Date.now() - ms;
-  const diffSec = Math.floor(diffMs / 1000);
-  if (diffSec < 60) return `${diffSec}s ago`;
-  const diffMin = Math.floor(diffSec / 60);
-  if (diffMin < 60) return `${diffMin}m ago`;
-  const diffHr = Math.floor(diffMin / 60);
-  if (diffHr < 24) return `${diffHr}h ago`;
-  const diffDay = Math.floor(diffHr / 24);
-  return `${diffDay}d ago`;
-}
-
-function formatDuration(ms: number | null): string {
-  if (ms === null) return '—';
-  if (ms < 1000) return `${ms}ms`;
-  return `${(ms / 1000).toFixed(1)}s`;
-}
-
-function statusClass(status: string): string {
-  switch (status) {
-    case 'done': return 'badge-success';
-    case 'failed': return 'badge-error';
-    case 'running': return 'badge-running';
-    case 'queued':
-    case 'paused':
-    case 'cancelling':
-      return 'badge-pending';
-    case 'cancelled': return 'badge-muted';
-    default: return 'badge-muted';
-  }
-}
-
-function isCancellableRun(status: string): boolean {
-  return status === 'queued' || status === 'running' || status === 'paused';
-}
 ---
 
-<AdminV2Layout title="執行記錄" section="sessions">
-  {loadError && (
-    <AdminState tone="error">無法載入執行記錄。</AdminState>
-  )}
-  {!loadError && runs.length === 0 && (
-    <AdminState tone="empty">尚無執行記錄，請從<a href="/admin">工作流程選擇器</a>啟動。</AdminState>
-  )}
-  {!loadError && runs.length > 0 && (
-    <AdminPanel title="所有執行記錄 — 最近 50 筆">
-      <form class="toolbar" method="GET" action="/admin/runs" data-runs-filter-form>
-        <label for="status">狀態</label>
-        <select id="status" name="status">
-          <option value="">全部</option>
-          <option value="queued" selected={selectedStatus === 'queued'}>排隊中</option>
-          <option value="running" selected={selectedStatus === 'running'}>執行中</option>
-          <option value="paused" selected={selectedStatus === 'paused'}>暫停中</option>
-          <option value="done" selected={selectedStatus === 'done'}>完成</option>
-          <option value="failed" selected={selectedStatus === 'failed'}>失敗</option>
-          <option value="cancelled" selected={selectedStatus === 'cancelled'}>已取消</option>
-        </select>
+<AdminV2Layout title="Sessions" section="sessions">
+  <div class="tabs">
+    <button type="button" class="tab active" data-tab="recent">最近</button>
+    <button type="button" class="tab" data-tab="pinned">釘選</button>
+    <button type="button" class="tab" data-tab="archived">已封存</button>
+  </div>
 
-        <label for="flow">工作流程</label>
-        <select id="flow" name="flow">
-          <option value="">所有工作流程</option>
-          {flowOptions.map((item) => (
-            <option value={item.flow_id} selected={selectedFlow === item.flow_id}>
-              {item.display_name ?? item.flow_id}
-            </option>
-          ))}
-        </select>
-
-        <label for="from">開始日期</label>
-        <input id="from" name="from" type="date" value={selectedFrom} />
-
-        <label for="to">結束日期</label>
-        <input id="to" name="to" type="date" value={selectedTo} />
-
-        <button type="submit" class="btn-secondary">套用</button>
-        {(selectedStatus || selectedFlow || selectedFrom || selectedTo) && (
-          <a href="/admin/runs" class="btn-clear">清除</a>
-        )}
-      </form>
-      <div class="filter-summary" role="status" aria-live="polite">
-        <span>
-          {hasActiveFilters
-            ? `目前篩選：${activeFilters.join('、')}`
-            : '目前篩選：全部執行記錄'}
-        </span>
-        <span>共 {totalRuns.toLocaleString()} 筆，顯示 {visibleStart.toLocaleString()}–{visibleEnd.toLocaleString()} 筆</span>
-        {hasActiveFilters && <a href="/admin/runs">清除篩選</a>}
-      </div>
-      <AdminTable minWidth="640px" flush>
-        <thead>
-        <tr>
-            <th>開始時間</th>
-            <th>工作流程</th>
-            <th>狀態</th>
-            <th>耗時</th>
-            <th>費用 (USD)</th>
-            <th>更新時間</th>
-            <th>執行 ID</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          {runs.map((run) => (
-            <tr
-              data-run-id={run.flow_run_id}
-              data-run-flow={run.display_name ?? run.flow_id}
-              data-run-status-value={run.status}
-            >
-              <td class="mono">{formatRelative(run.started_at)}</td>
-              <td class="flow-name">{run.display_name ?? run.flow_id}</td>
-              <td>
-                <span class:list={['badge', statusClass(run.status)]} data-run-status>{run.status}</span>
-              </td>
-              <td class="mono">{formatDuration(run.latency_ms)}</td>
-              <td class="mono">{run.cost_usd == null ? '—' : run.cost_usd.toFixed(4)}</td>
-              <td class="mono">{formatRelative(run.updated_at ?? run.started_at)}</td>
-              <td class="mono run-id">
-                <a href={`/admin/sessions/${run.flow_run_id}`}>
-                  {run.flow_run_id.slice(0, 8)}&hellip;
-                </a>
-              </td>
-              <td class="run-actions-cell">
-                <a href={`/admin/sessions/${run.flow_run_id}`} class="table-action">檢視</a>
-                <a href={`/admin/sessions/${run.flow_run_id}/evidence`} class="table-action">證據</a>
-                {isCancellableRun(run.status) && (
-                  <button
-                    type="button"
-                    class="table-action danger"
-                    data-cancel-run
-                    data-run-id={run.flow_run_id}
-                    data-run-label={(run.display_name ?? run.flow_id)}
-                    data-run-current-status={run.status}
-                    aria-label={`取消執行 ${run.flow_run_id}`}
-                  >
-                    取消
-                  </button>
-                )}
-                {isCancellableRun(run.status) && (
-                  <span class="row-operation-preview" data-cancel-operation-preview>
-                    取消會將此執行標記為 cancelled，已完成的步驟與稽核紀錄會保留。
-                  </span>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </AdminTable>
-
-      <p id="runs-list-action-status" class="runs-list-action-status" role="status" aria-live="polite" hidden></p>
-
-      {totalPages > 1 && (
-        <div class="pagination">
-          {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
-          <span class="page-info">第 {page} / {totalPages} 頁</span>
-          {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
-        </div>
-      )}
-    </AdminPanel>
-  )}
+  <div id="session-list" class="session-list">
+    <p class="empty-text">載入中…</p>
+  </div>
 </AdminV2Layout>
 
 <script is:inline>
-  (function setupRunsListActions() {
-    const status = document.getElementById('runs-list-action-status');
-    const table = document.querySelector('[data-run-id]')?.closest('table');
-    const filterForm = document.querySelector('[data-runs-filter-form]');
+  (function () {
+    const listEl = document.getElementById('session-list');
+    const tabs = document.querySelectorAll('[data-tab]');
+    let currentTab = 'recent';
 
-    filterForm?.addEventListener('submit', () => {
-      const button = filterForm.querySelector('button[type="submit"]');
-      if (button instanceof HTMLButtonElement) {
-        button.disabled = true;
-        button.textContent = '篩選中';
-      }
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        currentTab = tab.dataset.tab;
+        loadSessions();
+      });
     });
 
-    if (!table || !status) return;
-
-    function setStatus(message, tone = '') {
-      status.hidden = false;
-      status.textContent = message;
-      status.className = `runs-list-action-status ${tone}`;
-    }
-
-    function errorLabel(error) {
-      switch (error) {
-        case 'run_terminal':
-          return '此執行已結束，不能取消。';
-        case 'flow_run_id_required':
-          return '缺少執行 ID，不能取消。';
-        case 'permission_denied':
-          return '目前帳號沒有取消此執行的權限。';
-        default:
-          return error || '無法取消執行。';
-      }
-    }
-
-    function cssStatusClass(nextStatus) {
-      switch (nextStatus) {
-        case 'done': return 'badge-success';
-        case 'failed': return 'badge-error';
-        case 'running': return 'badge-running';
-        case 'queued':
-        case 'paused':
-        case 'cancelling':
-          return 'badge-pending';
-        case 'cancelled': return 'badge-muted';
-        default: return 'badge-muted';
-      }
-    }
-
-    function setBadge(row, nextStatus) {
-      const badge = row.querySelector('[data-run-status]');
-      if (!badge) return;
-      badge.textContent = nextStatus;
-      badge.className = `badge ${cssStatusClass(nextStatus)}`;
-    }
-
-    table.addEventListener('click', async (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLButtonElement)) return;
-      if (target.dataset.cancelRun === undefined) return;
-      event.preventDefault();
-      event.stopPropagation();
-
-      const runId = target.dataset.runId;
-      const runLabel = target.dataset.runLabel || runId || '此執行';
-      const currentStatus = target.dataset.runCurrentStatus || 'running';
-      const row = target.closest('tr[data-run-id]');
-      if (!runId || !(row instanceof HTMLElement)) return;
-      const message = [
-        `確定要取消 ${runLabel}（${runId.slice(0, 8)}）？`,
-        `目前狀態：${currentStatus}。`,
-        '取消後不會自動重跑；已完成的步驟、成本與稽核紀錄會保留。',
-      ].join('\n');
-      setStatus(`準備取消 ${runId.slice(0, 8)}：會停止後續步驟並保留已完成紀錄。`);
-      if (!window.confirm(message)) {
-        setStatus('已取消操作。');
-        return;
-      }
-      const previousStatus = row.querySelector('[data-run-status]')?.textContent || 'running';
-
-      target.disabled = true;
-      target.textContent = '取消中';
-      setBadge(row, 'cancelling');
-      setStatus(`正在取消 ${runId.slice(0, 8)}...`);
+    async function loadSessions() {
+      listEl.innerHTML = '<p class="empty-text">載入中…</p>';
+      const params = new URLSearchParams({ limit: '50' });
+      if (currentTab === 'pinned') params.set('pinned', '1');
+      if (currentTab === 'archived') params.set('archived', '1');
       try {
-        const res = await fetch(`/api/admin/sessions/${encodeURIComponent(runId)}/cancel`, {
-          method: 'POST',
-        });
-        const body = await res.json().catch(() => ({}));
-        if (!res.ok) {
-          target.disabled = false;
-          target.textContent = '取消';
-          setBadge(row, previousStatus);
-          setStatus(errorLabel(body.error), 'error');
-          return;
+        const res = await fetch('/api/admin/sessions?' + params.toString());
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        const sessions = data.sessions || [];
+        if (sessions.length === 0) { listEl.innerHTML = '<p class="empty-text">沒有符合條件的 Session</p>'; return; }
+        listEl.innerHTML = '';
+        for (const s of sessions) {
+          const row = document.createElement('a');
+          row.href = '/admin/sessions/' + encodeURIComponent(s.id);
+          row.className = 'session-row';
+          const left = document.createElement('div');
+          left.className = 'session-left';
+          const nameEl = document.createElement('span');
+          nameEl.className = 'session-name';
+          nameEl.textContent = s.name || (s.instruction || s.id).slice(0, 60);
+          left.appendChild(nameEl);
+          if (s.summary_detail) {
+            const detail = document.createElement('span');
+            detail.className = 'session-detail';
+            detail.textContent = s.summary_detail;
+            left.appendChild(detail);
+          }
+          const right = document.createElement('div');
+          right.className = 'session-right';
+          const tag = document.createElement('span');
+          tag.className = 'session-tag';
+          tag.textContent = s.trigger || (s.routine_id ? 'routine' : 'manual');
+          right.appendChild(tag);
+          const badge = document.createElement('span');
+          badge.className = 'badge badge-' + badgeClass(s.status);
+          badge.textContent = s.status;
+          right.appendChild(badge);
+          const time = document.createElement('span');
+          time.className = 'session-time';
+          time.textContent = relativeTime(s.created_at);
+          right.appendChild(time);
+          row.append(left, right);
+          listEl.appendChild(row);
         }
-        setBadge(row, body.status || 'cancelled');
-        row.dataset.runStatusValue = body.status || 'cancelled';
-        const preview = row.querySelector('[data-cancel-operation-preview]');
-        if (preview) preview.textContent = '已送出取消；此執行不會再顯示取消操作。';
-        target.remove();
-        setStatus(`已取消 ${runId.slice(0, 8)}。`, 'success');
       } catch {
-        target.disabled = false;
-        target.textContent = '取消';
-        setBadge(row, previousStatus);
-        setStatus('無法取消執行。', 'error');
+        listEl.innerHTML = '<p class="empty-text">無法載入</p>';
       }
-    });
+    }
+
+    function badgeClass(st) { switch (st) { case 'done': return 'success'; case 'failed': return 'error'; case 'running': return 'running'; case 'cancelled': return 'muted'; default: return 'pending'; } }
+    function relativeTime(ts) {
+      if (!ts) return '';
+      const d = Date.now() - (typeof ts === 'number' ? ts : new Date(ts).getTime());
+      const s = Math.floor(d / 1000);
+      if (s < 60) return s + 's'; const m = Math.floor(s / 60);
+      if (m < 60) return m + 'm'; const h = Math.floor(m / 60);
+      if (h < 24) return h + 'h'; return Math.floor(h / 24) + 'd';
+    }
+    loadSessions();
   })();
 </script>
 
 <style>
-.toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-  margin-bottom: 0.8rem;
-}
-
-.toolbar label {
-  font-size: 0.8rem;
-  color: var(--admin-text-muted, #64748b);
-}
-
-.toolbar select,
-.toolbar input {
-  min-height: 2.75rem;
-  border: 1px solid var(--admin-border, #e2e8f0);
-  border-radius: var(--admin-radius, 6px);
-  background: var(--admin-surface, #fff);
-  padding: 0.45rem 0.6rem;
-}
-
-.btn-clear,
-.btn-secondary {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--admin-border, #e2e8f0);
-  border-radius: var(--admin-radius, 6px);
-  padding: 0.45rem 0.7rem;
-  text-decoration: none;
-  color: var(--admin-text, #1e293b);
-  background: var(--admin-surface, #fff);
-  font-size: 0.82rem;
-}
-
-.btn-clear:hover,
-.btn-secondary:hover {
-  background: var(--admin-muted, #f1f5f9);
-}
-
-  .mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85em;
-  }
-
-  .flow-name {
-    font-size: 0.9em;
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .run-id a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.75rem;
-    color: var(--admin-accent, #2563eb);
-    text-decoration: none;
-  }
-
-  .run-id a:hover {
-    text-decoration: underline;
-  }
-
-  .badge {
-    display: inline-block;
-    padding: 0.15em 0.55em;
-    border-radius: 999px;
-    font-size: 0.78em;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .badge-success {
-    background: var(--admin-success-bg, #dcfce7);
-    color: var(--admin-success, #166534);
-  }
-
-  .badge-error {
-    background: var(--admin-error-bg, #fee2e2);
-    color: var(--admin-error, #991b1b);
-  }
-
-  .badge-running {
-    background: var(--admin-accent-bg, #dbeafe);
-    color: var(--admin-accent, #1d4ed8);
-  }
-
-  .badge-pending {
-    background: #fefce8;
-    color: #713f12;
-  }
-
-  .badge-muted {
-    background: var(--admin-muted, #f1f5f9);
-    color: var(--admin-text-muted, #64748b);
-  }
-
-  .run-actions-cell {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    align-items: center;
-  }
-
-  .table-action {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-surface, #fff);
-    color: var(--admin-accent, #2563eb);
-    cursor: pointer;
-    font: inherit;
-    font-size: 0.8rem;
-    padding: 0.45rem 0.7rem;
-    text-decoration: none;
-  }
-
-  .table-action.danger {
-    border-color: #fecaca;
-    color: #b91c1c;
-    background: #fef2f2;
-  }
-
-  .table-action:disabled {
-    cursor: wait;
-    opacity: 0.65;
-  }
-
-  .runs-list-action-status {
-    margin: 0.75rem 1rem 1rem;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-muted, #f1f5f9);
-    color: var(--admin-text-muted, #64748b);
-    font-size: 0.85rem;
-    padding: 0.65rem 0.75rem;
-  }
-
-  .runs-list-action-status.success {
-    border-color: #86efac;
-    background: #f0fdf4;
-    color: #15803d;
-  }
-
-  .runs-list-action-status.error {
-    border-color: #fca5a5;
-    background: #fef2f2;
-    color: #b91c1c;
-  }
-
-  .filter-summary {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 0.85rem;
-    align-items: center;
-    border-top: 1px solid var(--admin-border, #e2e8f0);
-    padding: 0.7rem 1rem;
-    color: var(--admin-text-muted, #64748b);
-    font-size: 0.84rem;
-    line-height: 1.45;
-  }
-
-  .filter-summary a {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    color: var(--admin-accent, #2563eb);
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .row-operation-preview {
-    flex-basis: 100%;
-    color: var(--admin-text-muted, #64748b);
-    font-size: 0.76rem;
-    line-height: 1.35;
-  }
-
-  .pagination {
-    margin-top: 0.75rem;
-    display: flex;
-    gap: 0.4rem;
-    align-items: center;
-  }
-
-  .page-btn {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    padding: 0.45rem 0.7rem;
-    background: var(--admin-surface, #fff);
-    text-decoration: none;
-    color: var(--admin-text, #1e293b);
-    font-size: 0.82rem;
-  }
-
-  .page-btn.disabled {
-    opacity: 0.45;
-    pointer-events: none;
-  }
-
-  .page-info {
-    font-size: 0.82rem;
-    color: var(--admin-text-muted, #64748b);
-  }
-
-  @media (max-width: 720px) {
-    .toolbar {
-      align-items: stretch;
-      flex-direction: column;
-      padding: 0.75rem 1rem 0;
-    }
-
-    .toolbar select,
-    .toolbar input,
-    .btn-clear,
-    .btn-secondary,
-    .table-action,
-    .run-actions-cell,
-    .page-btn {
-      width: 100%;
-    }
-
-    .filter-summary,
-    .pagination {
-      align-items: stretch;
-      flex-direction: column;
-    }
-
-    .run-actions-cell {
-      align-items: stretch;
-    }
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--admin-border); margin-bottom: 1rem; }
+  .tab { padding: 0.6rem 1rem; border: none; background: none; color: var(--admin-text-muted); font: inherit; font-size: 0.88rem; font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent; min-height: 2.75rem; }
+  .tab:hover { color: var(--admin-text); }
+  .tab.active { color: var(--admin-accent); border-bottom-color: var(--admin-accent); }
+  .session-list { display: flex; flex-direction: column; border: 1px solid var(--admin-border); border-radius: var(--admin-radius, 6px); overflow: hidden; }
+  .session-row { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 0.65rem 1rem; text-decoration: none; color: var(--admin-text); border-bottom: 1px solid var(--admin-border); }
+  .session-row:last-child { border-bottom: none; }
+  .session-row:hover { background: var(--admin-color-surface-subtle); }
+  .session-left { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; flex: 1; }
+  .session-name { font-size: 0.9rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .session-detail { font-size: 0.8rem; color: var(--admin-text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .session-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+  .session-tag { font-size: 0.72rem; padding: 0.1em 0.45em; border-radius: 4px; background: var(--admin-muted); color: var(--admin-text-muted); text-transform: uppercase; font-weight: 600; }
+  .session-time { font-size: 0.78rem; color: var(--admin-text-soft); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .badge { display: inline-block; padding: 0.15em 0.55em; border-radius: 999px; font-size: 0.75em; font-weight: 600; }
+  .badge-success { background: var(--admin-color-success-soft); color: var(--admin-color-success); }
+  .badge-error { background: var(--admin-color-danger-soft); color: var(--admin-color-danger); }
+  .badge-running { background: var(--admin-color-info-soft); color: var(--admin-color-info); }
+  .badge-pending { background: var(--admin-color-warning-soft); color: var(--admin-color-warning); }
+  .badge-muted { background: var(--admin-muted); color: var(--admin-text-muted); }
+  .empty-text { padding: 2rem; text-align: center; color: var(--admin-text-muted); font-size: 0.85rem; }
+  @media (max-width: 768px) {
+    .session-row { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+    .session-right { align-self: flex-end; }
   }
 </style>

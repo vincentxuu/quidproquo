@@ -1,7 +1,10 @@
 import { DurableObject } from 'cloudflare:workers'
 import type { Env } from '../../lib/config/env'
-import { runLoop, type LoopMessage } from '../../lib/agent-os/durable-agent'
-import { createKernel } from '../../lib/agent-os/kernel'
+import { runLoop, type LoopMessage } from '../../lib/agent/durable-agent'
+import { createKernel } from '../../lib/agent/kernel'
+import { createSessionManager } from '../../lib/agent/session-manager'
+import type { SessionEvent } from '../../lib/agent/events'
+import { fromSessionEvent } from '../../lib/agent/events'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 
 export class AgentSessionDO extends DurableObject<Env> {
@@ -23,18 +26,33 @@ export class AgentSessionDO extends DurableObject<Env> {
       return new Response(null, { status: 101, webSocket: client })
     }
     if (url.pathname.endsWith('/run') && request.method === 'POST') {
-      const body = (await request.json().catch(() => ({}))) as { prompt?: string; skill?: string }
-      const sessionId = url.searchParams.get('sessionId') ?? `sess_${Date.now()}`
+      const body = (await request.json().catch(() => ({}))) as { prompt?: string; skill?: string; sessionId?: string; model?: string }
+      const sessionId = body.sessionId ?? url.searchParams.get('sessionId') ?? `sess_${Date.now()}`
       const prompt = body.prompt ?? 'hello'
-      await this.startRun(sessionId, prompt, body.skill)
+      await this.startRun(sessionId, prompt, body.skill, body.model)
       return Response.json({ sessionId })
     }
     if (url.pathname.endsWith('/approve') && request.method === 'POST') {
       const body = (await request.json().catch(() => ({}))) as { requestId?: string; decision?: string }
       if (body.requestId) {
         this.ctx.storage.sql.exec('DELETE FROM pending WHERE requestId = ?', body.requestId)
-        this.broadcast({ type: 'control_response', requestId: body.requestId, decision: body.decision ?? 'allow' })
+        const responseEvent: SessionEvent = {
+          type: 'control_response',
+          requestId: body.requestId,
+          behavior: (body.decision ?? 'allow') as 'allow' | 'deny',
+        }
+        this.broadcast(responseEvent)
         await this.ctx.storage.setAlarm(Date.now() + 100)
+      }
+      return Response.json({ ok: true })
+    }
+    if (url.pathname.endsWith('/stop') && request.method === 'POST') {
+      const sessionId = url.searchParams.get('sessionId')
+      if (sessionId) {
+        const mgr = createSessionManager(this.env.DB)
+        await mgr.stop(sessionId)
+        await this.env.SESSION.put(`session:${sessionId}:cancel`, '1', { expirationTtl: 300 })
+        this.broadcast({ type: 'result', content: 'Session cancelled', totalTokens: 0, totalCostUsd: 0 } satisfies SessionEvent)
       }
       return Response.json({ ok: true })
     }
@@ -44,14 +62,14 @@ export class AgentSessionDO extends DurableObject<Env> {
   override async webSocketMessage(_ws: WebSocket, message: string | ArrayBuffer): Promise<void> {
     const text = typeof message === 'string' ? message : new TextDecoder().decode(message)
     try {
-      const data = JSON.parse(text) as { type?: string; prompt?: string; skill?: string }
+      const data = JSON.parse(text) as { type?: string; prompt?: string; skill?: string; sessionId?: string; model?: string }
       if (data.type === 'prompt' && data.prompt) {
-        const sessionId = `sess_${Date.now()}`
-        await this.startRun(sessionId, data.prompt, data.skill)
+        const sessionId = data.sessionId ?? `sess_${Date.now()}`
+        await this.startRun(sessionId, data.prompt, data.skill, data.model)
       } else if (data.type === 'approve' && (data as unknown as { requestId?: string }).requestId) {
         const reqId = (data as unknown as { requestId: string }).requestId
         this.ctx.storage.sql.exec('DELETE FROM pending WHERE requestId = ?', reqId)
-        this.broadcast({ type: 'control_response', requestId: reqId, decision: 'allow' })
+        this.broadcast({ type: 'control_response', requestId: reqId, behavior: 'allow' } satisfies SessionEvent)
         await this.ctx.storage.setAlarm(Date.now() + 100)
       }
     } catch {
@@ -64,14 +82,13 @@ export class AgentSessionDO extends DurableObject<Env> {
   }
 
   override async alarm(): Promise<void> {
-    // resume next turn — runLoop will be re-entered via stored sessionId in storage
     const row = this.ctx.storage.sql.exec<{ payload: string }>('SELECT payload FROM pending LIMIT 1').toArray()[0]
     if (row) {
-      this.broadcast({ type: 'resume', pending: row.payload })
+      this.broadcast({ type: 'tool_progress', toolCallId: '', toolName: 'resume', progress: row.payload } satisfies SessionEvent)
     }
   }
 
-  private broadcast(event: unknown): void {
+  private broadcast(event: SessionEvent | unknown): void {
     const msg = JSON.stringify(event)
     for (const ws of this.ctx.getWebSockets()) {
       try {
@@ -82,16 +99,55 @@ export class AgentSessionDO extends DurableObject<Env> {
     }
   }
 
-  private async startRun(sessionId: string, prompt: string, skill?: string): Promise<void> {
-    const now = Date.now()
-    await this.env.DB.prepare(
-      'INSERT OR IGNORE INTO agent_sessions (id, agent_id, trigger, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
+  private async persistEventToD1(sessionId: string, event: SessionEvent): Promise<void> {
+    const seqRow = await this.env.DB.prepare('SELECT COALESCE(MAX(seq), -1) + 1 AS n FROM agent_events WHERE session_id = ?')
+      .bind(sessionId)
+      .first<{ n: number }>()
+    const seq = seqRow?.n ?? 0
+    const row = fromSessionEvent(sessionId, seq, event)
+
+    const result = await this.env.DB.prepare(
+      'INSERT INTO agent_events (session_id, seq, type, payload_json, created_at, event_id) VALUES (?, ?, ?, ?, ?, NULL)',
     )
-      .bind(sessionId, 'console', 'ws', 'running', now, now)
+      .bind(row.session_id, row.seq, row.type, row.payload_json, row.created_at)
       .run()
 
+    const eventId = result.meta?.last_row_id
+    if (eventId) {
+      await this.env.DB.prepare('UPDATE agent_events SET event_id = ? WHERE session_id = ? AND seq = ?')
+        .bind(eventId, sessionId, seq)
+        .run()
+      await this.env.SESSION.put(`session:${sessionId}:last_event`, String(eventId))
+    }
+  }
+
+  private async startRun(sessionId: string, prompt: string, skill?: string, model?: string): Promise<void> {
+    const mgr = createSessionManager(this.env.DB)
+    let session = await mgr.get(sessionId)
+    if (!session) {
+      session = await mgr.create({
+        instruction: prompt,
+        model: model ?? undefined,
+        trigger: 'ws',
+      })
+    }
+    await mgr.transition(session.id, 'running')
+
+    const initEvent: SessionEvent = {
+      type: 'system/init',
+      sessionId: session.id,
+      model: model ?? 'default',
+      mode: (session.mode as 'auto' | 'default' | 'plan') ?? 'auto',
+      tools: [],
+    }
+    await this.persistEventToD1(session.id, initEvent)
+    this.broadcast(initEvent)
+
+    const userEvent: SessionEvent = { type: 'user', content: prompt }
+    await this.persistEventToD1(session.id, userEvent)
+
     const userMsg: LoopMessage = { role: 'user', content: prompt }
-    await this.persistMessage(sessionId, userMsg)
+    await this.persistMessage(session.id, userMsg)
 
     let skillContext = ''
     if (skill) {
@@ -108,19 +164,21 @@ export class AgentSessionDO extends DurableObject<Env> {
     await runLoop(
       [userMsg],
       {
+        sessionId: session.id,
+        db: this.env.DB,
+        kv: this.env.SESSION,
         modelInvoke: async (msgs) => {
           try {
             const lcMessages = [
               ...(skillContext ? [new SystemMessage(`Skill ${skill}:\n${skillContext}`)] : []),
               ...msgs.map(toBaseMessage),
             ]
-            // minimal RagRuntimeConfig stub — reuse env provider routing via kernel syscall
             const res = (await kernel.tools.syscall(
-              // @ts-expect-error syscall helper typed with run context; call underlying invoke via registry
-              { agentId: 'console', runId: sessionId } as unknown as Parameters<typeof kernel.tools.syscall>[1],
+              // @ts-expect-error syscall helper typed with run context
+              { agentId: 'console', runId: session.id } as unknown as Parameters<typeof kernel.tools.syscall>[1],
               'model.invoke',
               {
-                config: { model: 'groq/llama-3.3-70b-versatile', temperature: 0.3 } as unknown as never,
+                config: { model: model ?? 'groq/llama-3.3-70b-versatile', temperature: 0.3 } as unknown as never,
                 stage: 'console',
                 messages: lcMessages,
               } as never,
@@ -135,7 +193,7 @@ export class AgentSessionDO extends DurableObject<Env> {
         syscall: async (name, input) => {
           try {
             const r = await kernel.tools.syscall(
-              { agentId: 'console', runId: sessionId } as unknown as never,
+              { agentId: 'console', runId: session.id } as unknown as never,
               name as never,
               input as never,
             )
@@ -144,16 +202,17 @@ export class AgentSessionDO extends DurableObject<Env> {
             return `tool:${name} error ${e instanceof Error ? e.message : String(e)}`
           }
         },
-        persistMessage: (m) => this.persistMessage(sessionId, m),
-        persistEvent: (type, payload) => this.persistEvent(sessionId, type, payload),
-        broadcast: (e) => this.broadcast(e),
+        persistMessage: (m) => this.persistMessage(session.id, m),
+        persistEvent: (type, payload) => this.persistLegacyEvent(session.id, type, payload),
+        broadcast: (e) => this.broadcast(e as SessionEvent),
       },
     )
 
-    await this.env.DB.prepare('UPDATE agent_sessions SET status = ?, updated_at = ? WHERE id = ?')
-      .bind('done', Date.now(), sessionId)
-      .run()
-    this.broadcast({ type: 'done', sessionId })
+    await mgr.transition(session.id, 'done')
+
+    const resultEvent: SessionEvent = { type: 'result', content: 'Session complete', totalTokens: 0, totalCostUsd: 0 }
+    await this.persistEventToD1(session.id, resultEvent)
+    this.broadcast(resultEvent)
   }
 
   private async persistMessage(sessionId: string, msg: LoopMessage): Promise<void> {
@@ -168,7 +227,7 @@ export class AgentSessionDO extends DurableObject<Env> {
       .run()
   }
 
-  private async persistEvent(sessionId: string, type: string, payload: unknown): Promise<void> {
+  private async persistLegacyEvent(sessionId: string, type: string, payload: unknown): Promise<void> {
     const seqRow = await this.env.DB.prepare('SELECT COALESCE(MAX(seq), -1) + 1 AS n FROM agent_events WHERE session_id = ?')
       .bind(sessionId)
       .first<{ n: number }>()

@@ -1,0 +1,94 @@
+---
+export const prerender = false;
+import { getEnv } from '@/lib/config/env';
+import '@/styles/admin-tokens.css';
+
+const token = Astro.params.token;
+if (!token) return new Response('Not found', { status: 404 });
+
+const db = getEnv().DB;
+const session = await db
+  .prepare('SELECT id, name, status, model, mode, created_at, finished_at FROM agent_sessions WHERE share_token = ? LIMIT 1')
+  .bind(token)
+  .first<{ id: string; name: string | null; status: string; model: string | null; mode: string | null; created_at: number; finished_at: number | null }>();
+
+if (!session) return new Response('Not found', { status: 404 });
+
+const events = await db
+  .prepare('SELECT seq, type, payload_json, event_id FROM agent_events WHERE session_id = ? ORDER BY seq ASC LIMIT 500')
+  .bind(session.id)
+  .all<{ seq: number; type: string; payload_json: string; event_id: number | null }>();
+
+const eventRows = events.results ?? [];
+const title = session.name || session.id.slice(0, 8);
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title} — Shared Session</title>
+</head>
+<body>
+  <div class="shared-container">
+    <div class="policy-banner">
+      ⚠️ 此為公開分享的 Session transcript。內容可能包含敏感資訊，分享者應自行審查後再公開。
+    </div>
+    <header class="shared-header">
+      <h1>{title}</h1>
+      <div class="shared-meta">
+        <span class:list={['badge', 'badge-' + (session.status === 'done' ? 'success' : session.status === 'failed' ? 'error' : 'muted')]}>
+          {session.status}
+        </span>
+        {session.model && <span class="meta-item">Model: {session.model}</span>}
+        <span class="meta-item">建立於 {new Date(session.created_at).toLocaleString('zh-TW')}</span>
+      </div>
+    </header>
+    <div class="event-stream">
+      {eventRows.length === 0 && <p class="empty-text">此 Session 沒有事件記錄。</p>}
+      {eventRows.map((row) => {
+        const payload = JSON.parse(row.payload_json || '{}');
+        return (
+          <div class={`event-card event-${row.type.replace('/', '-')}`}>
+            {row.type === 'user' && (<><div class="event-role">User</div><div class="event-content">{payload.content || ''}</div></>)}
+            {row.type === 'assistant' && (<><div class="event-role">Assistant</div><div class="event-content">{payload.content || ''}</div></>)}
+            {row.type === 'tool_use' && (<details class="event-tool"><summary class="event-role">🔧 {payload.name || 'tool'}</summary><pre class="event-pre">{JSON.stringify(payload.input || {}).slice(0, 500)}</pre></details>)}
+            {row.type === 'result' && (<details class="event-tool"><summary class="event-role">📋 Result</summary><pre class="event-pre">{(typeof payload.output === 'string' ? payload.output : JSON.stringify(payload.output || '')).slice(0, 2000)}</pre></details>)}
+            {!['user', 'assistant', 'tool_use', 'result'].includes(row.type) && (<div class="event-log">{row.type}: {JSON.stringify(payload).slice(0, 200)}</div>)}
+          </div>
+        );
+      })}
+    </div>
+    <footer class="shared-footer"><a href="/">quidproquo.cc</a></footer>
+  </div>
+</body>
+</html>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans TC Local', 'PingFang TC', Inter, ui-sans-serif, system-ui, sans-serif; background: var(--admin-bg, #f5f7f4); color: var(--admin-text, #172017); line-height: 1.5; }
+  .shared-container { max-width: 800px; margin: 0 auto; padding: 1rem; }
+  .policy-banner { background: var(--admin-color-warning-soft, #fffaeb); border: 1px solid var(--admin-color-warning, #b54708); border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--admin-color-warning, #b54708); margin-bottom: 1rem; }
+  .shared-header { margin-bottom: 1rem; }
+  .shared-header h1 { font-size: 1.3rem; font-weight: 700; }
+  .shared-meta { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.35rem; flex-wrap: wrap; }
+  .meta-item { font-size: 0.82rem; color: var(--admin-text-muted, #46614d); }
+  .event-stream { border: 1px solid var(--admin-border, #d8e4d5); border-radius: 6px; background: var(--admin-surface, #fff); overflow: hidden; }
+  .event-card { padding: 0.65rem 1rem; border-bottom: 1px solid var(--admin-border, #d8e4d5); }
+  .event-card:last-child { border-bottom: none; }
+  .event-user { background: var(--admin-color-info-soft, #eff6ff); }
+  .event-role { font-size: 0.78rem; font-weight: 700; color: var(--admin-text-muted, #46614d); margin-bottom: 0.25rem; }
+  .event-content { font-size: 0.9rem; white-space: pre-wrap; word-break: break-word; line-height: 1.55; }
+  .event-tool summary { cursor: pointer; }
+  .event-pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; background: var(--admin-color-surface-subtle, #f8fbf7); padding: 0.5rem; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin-top: 0.35rem; max-height: 300px; overflow-y: auto; }
+  .event-log { font-size: 0.8rem; color: var(--admin-text-muted, #46614d); }
+  .badge { display: inline-block; padding: 0.15em 0.55em; border-radius: 999px; font-size: 0.75em; font-weight: 600; }
+  .badge-success { background: var(--admin-color-success-soft, #ecfdf3); color: var(--admin-color-success, #067647); }
+  .badge-error { background: var(--admin-color-danger-soft, #fef3f2); color: var(--admin-color-danger, #b42318); }
+  .badge-muted { background: var(--admin-muted, #edf7ee); color: var(--admin-text-muted, #46614d); }
+  .empty-text { padding: 2rem; text-align: center; color: var(--admin-text-muted, #46614d); }
+  .shared-footer { margin-top: 1.5rem; text-align: center; font-size: 0.82rem; }
+  .shared-footer a { color: var(--admin-accent, #2f6f46); text-decoration: none; }
+  @media (max-width: 768px) { .shared-container { padding: 0.75rem; } }
+</style>
