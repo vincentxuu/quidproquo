@@ -77,25 +77,42 @@ export function buildStalePostPruneStatements(eligibleSlugs: string[]): string[]
     throw new Error('Refusing to prune posts with an empty eligible slug manifest');
   }
 
-  const slugList = [...new Set(eligibleSlugs)].sort().map(slug => `'${escape(slug)}'`).join(', ');
+  const slugInsertStatements = chunkArray([...new Set(eligibleSlugs)].sort(), 200)
+    .map((batch) => {
+      const values = batch.map(slug => `('${escape(slug)}')`).join(', ');
+      return `INSERT OR IGNORE INTO _sync_eligible_post_slugs (slug) VALUES ${values};`;
+    });
 
   return [
+    'DROP TABLE IF EXISTS _sync_eligible_post_slugs;',
+    'CREATE TEMP TABLE _sync_eligible_post_slugs (slug TEXT PRIMARY KEY);',
+    ...slugInsertStatements,
     `DELETE FROM chunks_fts
 WHERE source_type='post'
   AND chunk_id IN (
     SELECT pc.id
     FROM post_chunks pc
     JOIN posts p ON p.id = pc.post_id
-    WHERE p.slug NOT IN (${slugList})
+    WHERE NOT EXISTS (
+      SELECT 1 FROM _sync_eligible_post_slugs eligible
+      WHERE eligible.slug = p.slug
+    )
   );`,
     `DELETE FROM post_chunks
 WHERE post_id IN (
   SELECT p.id
   FROM posts p
-  WHERE p.slug NOT IN (${slugList})
+  WHERE NOT EXISTS (
+    SELECT 1 FROM _sync_eligible_post_slugs eligible
+    WHERE eligible.slug = p.slug
+  )
 );`,
     `DELETE FROM posts
-WHERE slug NOT IN (${slugList});`,
+WHERE NOT EXISTS (
+  SELECT 1 FROM _sync_eligible_post_slugs eligible
+  WHERE eligible.slug = posts.slug
+);`,
+    'DROP TABLE IF EXISTS _sync_eligible_post_slugs;',
   ];
 }
 

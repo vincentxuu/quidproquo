@@ -49,14 +49,29 @@ describe('buildStalePostPruneStatements', () => {
     const statements = buildStalePostPruneStatements(['ai/current', "tech/editor's-note"])
     const sql = statements.join('\n')
 
-    expect(sql).not.toContain('CREATE TEMP TABLE')
+    expect(sql).toContain('CREATE TEMP TABLE _sync_eligible_post_slugs')
+    expect(sql).toContain('INSERT OR IGNORE INTO _sync_eligible_post_slugs')
     expect(sql).toContain("'ai/current'")
     expect(sql).toContain("'tech/editor''s-note'")
+    expect(sql).not.toContain('NOT IN')
     expect(sql).toContain('DELETE FROM chunks_fts')
     expect(sql).toContain("WHERE source_type='post'")
     expect(sql).toContain('DELETE FROM post_chunks')
     expect(sql).toContain('DELETE FROM posts')
-    expect(statements).toHaveLength(3)
+    expect(statements.at(-1)).toBe('DROP TABLE IF EXISTS _sync_eligible_post_slugs;')
+  })
+
+  it('batches the eligible slug manifest inserts to avoid oversized D1 statements', () => {
+    const slugs = Array.from({ length: 401 }, (_, index) => `ai/post-${index}`)
+    const statements = buildStalePostPruneStatements(slugs)
+    const inserts = statements.filter(statement =>
+      statement.startsWith('INSERT OR IGNORE INTO _sync_eligible_post_slugs'),
+    )
+
+    expect(inserts).toHaveLength(3)
+    expect(inserts[0].match(/\('/g)).toHaveLength(200)
+    expect(inserts[1].match(/\('/g)).toHaveLength(200)
+    expect(inserts[2].match(/\('/g)).toHaveLength(1)
   })
 
   it('refuses to prune when the manifest is empty', () => {

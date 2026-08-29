@@ -28,6 +28,29 @@ Do not expose the GitHub App private key in the browser. Do not store it in comm
 
 The sandbox checkout path is wired through `AgentSessionDO`, but it only provisions a real sandbox runner when the Worker environment has a `SANDBOX` binding.
 
+## CI/CD Notes
+
+Pushes to `main` deploy production through `.github/workflows/deploy.yml`.
+
+The deploy job always runs the normal code path:
+
+- lint
+- Astro type check
+- post reference check
+- build
+- D1 migrations
+- Worker deploy
+
+The content index path is conditional. `content:ops`, `seo:freshness`, `seo:observe`, `sync:prod`, `sync:embeddings:prod`, and production search freshness only run when one of these is true:
+
+- the workflow is triggered by the schedule
+- the workflow is triggered manually with `workflow_dispatch`
+- the push changes `src/content/posts/**/*.md`
+- the push changes `docs/rag-golden-fixture.json`
+- the push changes `docs/rag-golden-dataset.json`
+
+This keeps admin-only or docs-only deploys from re-syncing all posts and chunks to production D1.
+
 ## Required GitHub App Values
 
 Set these as production Worker secrets:
@@ -73,7 +96,11 @@ Start with the minimum permission set. Expanding permissions later requires inst
    If GitHub requires a URL, use https://quidproquo.cc/api/admin/webhooks/github
    ```
 
-   If GitHub shows a separate Setup URL field, set it to `https://quidproquo.cc/admin/settings/github` as well. The webhook endpoint is for future routine triggers. Repository sync and repo picker access do not depend on it.
+   If GitHub shows a separate Setup URL field, set it to `https://quidproquo.cc/admin/settings/github` as well.
+
+   If GitHub shows `Redirect on update`, enable it. This makes repository authorization changes, such as adding or removing repositories from an existing installation, redirect back to the setup page so `/admin/settings/github` can sync the updated repository list.
+
+   The webhook endpoint is for future routine triggers. Repository sync and repo picker access do not depend on it.
 
 4. Set repository permissions to at least `Contents: Read-only` and `Metadata: Read-only`.
 5. Generate a private key and download the PEM file.
@@ -97,6 +124,7 @@ Start with the minimum permission set. Expanding permissions later requires inst
 11. GitHub should redirect back to `/admin/settings/github?installation_id=...&setup_action=install`.
 12. The settings page automatically syncs repositories and then removes the install query string from the URL.
 13. Confirm `/admin` shows the installed repositories in the repo picker.
+14. When changing repository access later, keep `Redirect on update` enabled so GitHub returns to `/admin/settings/github?installation_id=...&setup_action=update` and triggers the same sync flow.
 
 ## Security Notes
 
