@@ -2,7 +2,8 @@
 // Postbuild script: generates OG images for all posts using Satori + Resvg
 // Run after: astro build
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { copyFileSync, existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { resolve, join } from 'node:path';
 import matter from 'gray-matter';
 import satori from 'satori';
@@ -10,7 +11,9 @@ import { Resvg } from '@resvg/resvg-js';
 
 const POSTS_DIR = resolve('src/content/posts');
 const OUT_DIR = resolve('dist/client/og');
+const CACHE_DIR = resolve('.cache/og-images');
 const FONT_PATH = resolve('public/fonts/NotoSansTC-Medium.otf');
+const TEMPLATE_VERSION = '2026-08-29-v1';
 
 const catColors = {
   tech: '#1a1a1a',
@@ -37,6 +40,29 @@ function slugFromPath(fullPath) {
   // The content loader uses `category/filename` as the ID
   const relative = fullPath.replace(POSTS_DIR + '/', '');
   return relative.replace(/\.md$/, '');
+}
+
+function sha256(input) {
+  return createHash('sha256').update(input).digest('hex');
+}
+
+function cachePathFor(parts) {
+  return join(CACHE_DIR, `${sha256(JSON.stringify(parts))}.png`);
+}
+
+async function writeCachedOgImage({ cacheKey, outPath, generate }) {
+  mkdirSync(join(outPath, '..'), { recursive: true });
+  const cachedPath = cachePathFor(cacheKey);
+  if (existsSync(cachedPath)) {
+    copyFileSync(cachedPath, outPath);
+    return 'reused';
+  }
+
+  const png = await generate();
+  mkdirSync(CACHE_DIR, { recursive: true });
+  writeFileSync(cachedPath, png);
+  writeFileSync(outPath, png);
+  return 'generated';
 }
 
 async function generateOgImage({ title, category, slug: _slug, fontData }) {
@@ -116,74 +142,103 @@ async function generateOgImage({ title, category, slug: _slug, fontData }) {
 
 async function main() {
   const fontData = readFileSync(FONT_PATH);
+  const fontHash = sha256(fontData);
   mkdirSync(OUT_DIR, { recursive: true });
+  mkdirSync(CACHE_DIR, { recursive: true });
 
   // Generate homepage OG image with logo
   const logoSvg = readFileSync(resolve('public/favicon.svg'), 'utf-8');
   const logoDataUrl = `data:image/svg+xml;base64,${Buffer.from(logoSvg).toString('base64')}`;
-  const homeSvg = await satori(
-    {
-      type: 'div',
-      props: {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '32px',
-          width: '1200px',
-          height: '630px',
-          background: '#1a2e1a',
-          fontFamily: 'Noto Sans TC',
-        },
-        children: [
-          {
-            type: 'img',
-            props: { src: logoDataUrl, width: 160, height: 160, style: {} },
-          },
-          {
-            type: 'div',
-            props: {
-              style: { fontSize: '72px', fontWeight: 500, color: '#ffffff', letterSpacing: '-0.02em' },
-              children: 'quidproquo',
-            },
-          },
-          {
-            type: 'div',
-            props: {
-              style: { fontSize: '28px', color: '#a7c4a0', fontWeight: 500 },
-              children: 'AI、技術、產品、攀岩、衝浪、咖啡',
-            },
-          },
-        ],
-      },
+  const homeStatus = await writeCachedOgImage({
+    cacheKey: {
+      kind: 'home',
+      version: TEMPLATE_VERSION,
+      title: 'quidproquo',
+      subtitle: 'AI、技術、產品、攀岩、衝浪、咖啡',
+      logoHash: sha256(logoSvg),
+      fontHash,
     },
-    { width: 1200, height: 630, fonts: [{ name: 'Noto Sans TC', data: fontData, weight: 500, style: 'normal' }] }
-  );
-  const homeResvg = new Resvg(homeSvg, { fitTo: { mode: 'width', value: 1200 } });
-  writeFileSync(join(OUT_DIR, 'home.png'), homeResvg.render().asPng());
+    outPath: join(OUT_DIR, 'home.png'),
+    generate: async () => {
+      const homeSvg = await satori(
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '32px',
+              width: '1200px',
+              height: '630px',
+              background: '#1a2e1a',
+              fontFamily: 'Noto Sans TC',
+            },
+            children: [
+              {
+                type: 'img',
+                props: { src: logoDataUrl, width: 160, height: 160, style: {} },
+              },
+              {
+                type: 'div',
+                props: {
+                  style: { fontSize: '72px', fontWeight: 500, color: '#ffffff', letterSpacing: '-0.02em' },
+                  children: 'quidproquo',
+                },
+              },
+              {
+                type: 'div',
+                props: {
+                  style: { fontSize: '28px', color: '#a7c4a0', fontWeight: 500 },
+                  children: 'AI、技術、產品、攀岩、衝浪、咖啡',
+                },
+              },
+            ],
+          },
+        },
+        { width: 1200, height: 630, fonts: [{ name: 'Noto Sans TC', data: fontData, weight: 500, style: 'normal' }] }
+      );
+      const homeResvg = new Resvg(homeSvg, { fitTo: { mode: 'width', value: 1200 } });
+      return homeResvg.render().asPng();
+    },
+  });
 
   const markdownFiles = collectMarkdownFiles(POSTS_DIR);
-  let count = 0;
+  let generated = homeStatus === 'generated' ? 1 : 0;
+  let reused = homeStatus === 'reused' ? 1 : 0;
+  let skippedDrafts = 0;
 
   for (const filePath of markdownFiles) {
     const content = readFileSync(filePath, 'utf-8');
     const { data } = matter(content);
 
-    if (data.draft) continue;
+    if (data.draft) {
+      skippedDrafts++;
+      continue;
+    }
 
     const slug = slugFromPath(filePath);
     const title = data.title ?? 'quidproquo';
     const category = data.category ?? 'tech';
-
-    const png = await generateOgImage({ title, category, slug, fontData });
     const outPath = join(OUT_DIR, `${slug}.png`);
-    mkdirSync(join(OUT_DIR, slug.split('/').slice(0, -1).join('/')), { recursive: true });
-    writeFileSync(outPath, png);
-    count++;
+    const status = await writeCachedOgImage({
+      cacheKey: {
+        kind: 'post',
+        version: TEMPLATE_VERSION,
+        slug,
+        title,
+        category,
+        fontHash,
+      },
+      outPath,
+      generate: () => generateOgImage({ title, category, slug, fontData }),
+    });
+    if (status === 'generated') generated++;
+    else reused++;
   }
 
-  console.log(`[og-images] Generated ${count} OG images in dist/client/og/`);
+  console.log(`[og-images] Generated ${generated}, reused ${reused}, skipped ${skippedDrafts} drafts in dist/client/og/`);
 }
 
 main().catch(err => {
