@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency:
       group: production-worker-deploy
-      cancel-in-progress: true
+      cancel-in-progress: false
     outputs:
       should_sync: ${{ steps.content-index.outputs.should_sync }}
       reason: ${{ steps.content-index.outputs.reason }}
