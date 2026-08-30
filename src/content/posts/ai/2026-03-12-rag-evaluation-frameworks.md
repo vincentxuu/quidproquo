@@ -1,13 +1,13 @@
 ---
-title: "RAG 評估框架：RAGAS、DeepEval、TruLens 怎麼用"
+title: "RAG 評估框架與工具選型：Promptfoo、RAGAS、DeepEval、TruLens"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-08-30
 type: guide
 category: ai
-tags: [rag, evaluation, ragas, deepeval, trulens, metrics, quality]
+tags: [rag, evaluation, promptfoo, ragas, deepeval, trulens, metrics, quality]
 lang: zh-TW
-tldr: "RAG 系統的品質很難用直覺評估。RAGAS、DeepEval、TruLens 提供了系統化的指標框架，讓你知道是哪個環節出問題。"
-description: "RAG 評估框架的比較：RAGAS 的核心指標、DeepEval 的測試框架、TruLens 的 triad 評估，以及如何設計 RAG 的評估管線。"
+tldr: "RAG 評估沒有指定工具的業界標準；先把 retrieval、generation、operation 分開量，再依技術棧選 Promptfoo、RAGAS、DeepEval 或 TruLens。"
+description: "RAG 評估框架與工具選型：正式標準管什麼、Promptfoo 如何接 TypeScript CI、RAGAS／DeepEval／TruLens 的定位，以及 Ask AI retrieval 事故如何寫成回歸測試。"
 draft: false
 series:
   name: "RAG 技法大全"
@@ -19,6 +19,35 @@ series:
 RAG 系統的品質評估是個難題：你能感覺到回答不好，但說不清楚是哪個環節的問題——是搜尋找錯了文件，還是 LLM 從正確的文件中提取出了錯誤的資訊？
 
 系統化的評估框架把「感覺不好」量化成具體的指標，讓優化有方向。
+
+## 先講結論：業界沒有指定工具的標準
+
+NIST AI RMF 把 **Measure** 列為核心職能；ISO/IEC 42001 則要求 performance evaluation、monitoring 與 continual improvement。兩者都要求組織評估系統是否有效、可靠，卻沒有指定要安裝 Promptfoo、RAGAS、DeepEval 或 TruLens。
+
+OpenTelemetry 的 GenAI attributes 已經定義 evaluation name、score、label 與 explanation 等欄位。這些欄位解決「評估結果怎麼記錄與交換」，不替你決定評分方法。
+
+因此，工具選型不能從「誰是業界標準」開始，而要先問這次要擋哪一種退化：
+
+| 評估層 | 要回答的問題 | 適合的檢查 |
+|---|---|---|
+| Retrieval | 該找的文章有沒有找到？前幾名是不是相關？ | Recall@k、Precision@k、MRR／nDCG、必要來源斷言 |
+| Generation | 回答有沒有依據 context？有沒有真的回答問題？ | Faithfulness、Answer Relevance、Correctness |
+| Operation | 改完是否更慢、更貴、更不穩？ | latency、token／API 成本、錯誤率、重試率 |
+
+這三層要分開看。把它們平均成一個總分，retrieval 漏資料可能會被流暢的文筆掩蓋，延遲退化也可能完全消失在品質分數裡。
+
+## Promptfoo：TypeScript 專案先從 CI 回歸測試開始
+
+Promptfoo 是 MIT 授權的 TypeScript CLI／函式庫。它可以呼叫一般 HTTP endpoint、載入自訂 provider，並在同一份測試裡混用固定斷言與 model-graded metrics。內建的 RAG 評分包含 context recall、context relevance 與 context faithfulness。
+
+對 Astro＋Cloudflare Workers 專案，這條路比先建立 Python 評估環境短。不過本站的 `/api/chat` 回傳 SSE，不能只把 URL 填進設定檔就算完成。自訂 provider 要負責收完串流，分別交出 final answer、retrieved sources 與 context；評分器才知道 retrieval 和 generation 各自拿到什麼。
+
+這類 CI 先分兩級：
+
+1. PR 必跑 deterministic checks：必要 slug、禁止來源、unique source count、格式與延遲上限。這層不呼叫 judge LLM，結果穩定。
+2. 每日或手動跑 model-graded checks：context relevance、faithfulness、answer relevance。先保留報表，等 judge model、prompt 與波動範圍固定後，再考慮阻擋部署。
+
+Promptfoo 是這個專案的工程選擇，不是通用標準。Python 團隊或已經全面使用 LangSmith／Phoenix 的團隊，答案很可能不同。
 
 ## RAGAS（RAG Assessment）
 
@@ -256,6 +285,24 @@ run_dashboard(session)      # 開起本機 UI
 
 ---
 
+## 開源、stars 與維護狀態怎麼看
+
+下面是 2026-08-30 的 GitHub repository 快照。stars 是社群關注度，不是品質分數；最近 push 也只能證明有人改程式，不能證明 API 穩定。把授權、語言、活動與專案整合成本放在一起看才有意義。
+
+| 專案 | 授權／主要語言 | Stars | 維護快照 |
+|---|---|---:|---|
+| Promptfoo | MIT／TypeScript | 24,667 | 2026-08-30 有 push |
+| DeepEval | Apache-2.0／Python | 17,957 | 2026-08-29 有 push；Python 4.2.0 於 8/24 發布 |
+| Ragas | Apache-2.0／Python | 15,544 | 最後 push 為 2026-02-24；最新 release 為 1/13 的 0.4.3 |
+| Phoenix | Elastic License 2.0／Python | 11,245 | 2026-08-29 有 push；可讀原始碼，但 ELv2 不應直接寫成 OSI 開源 |
+| TruLens | MIT／Python | 3,529 | 2026-08-28 有 push；2.13.1 於 8/20 發布 |
+
+如果條件是「OSI 常見開源授權、Node／TypeScript、CI、社群規模、近期仍活躍」，Promptfoo 是這個專案最合適的第一步。
+
+團隊若本來就維護 Python 評估環境，DeepEval 的測試框架更完整。Ragas 適合研究指標與資料集實驗；TruLens、Phoenix 的價值則更靠近 tracing、實驗管理與 dashboard。
+
+---
+
 ## 設計 RAG 評估管線
 
 ### 測試資料集的建立
@@ -290,6 +337,21 @@ testset = generator.generate_with_langchain_docs(
 
 生成流程本身還在改（transforms、query distribution、knowledge graph 都可調），詳細參數請看[官方的 testset generation 文件](https://docs.ragas.io/en/stable/getstarted/rag_testset_generation/)。
 
+### 一次真的 retrieval 事故要怎麼變成測試
+
+本站 Ask AI 收到「有哪些課程文章」時，介面顯示找到 15 個結果。回答卻漏掉大量 Stanford、MIT、CMU、Berkeley 等大學課程導讀，反而混進 Cloudflare Cache Rules、AI Gateway。
+
+查 production D1 後，課程文章與 chunks 都在。問題發生在 retrieval：查詢把「哪些」「文章」等泛詞展開成 OR 條件，近期但無關的內容佔滿 top-k；同一篇文章的不同 chunk 又重複消耗 Writer context。
+
+這個案例不能只寫成「answer relevance 應該高於 0.75」。有效的 regression contract 至少要有：
+
+- 查詢被路由為 article catalog／recommendation intent，retrieval keyword 保留「課程」，移除「哪些」「文章」等 wrapper。
+- retrieved sources 至少命中預先標注的大學課程地圖；Cloudflare Cache Rules、AI Gateway 等已知無關來源不得出現。
+- 同一 slug 只算一篇，UI 顯示 unique articles，不顯示 raw chunk count。
+- model judge 另外評 context relevance 與 faithfulness，避免固定 slug 全中但回答仍跑題。
+
+本站原本已有 `docs/rag-golden-dataset.json` 與 `pnpm eval:rag`，但截至 2026-08-30，GitHub Actions 沒有執行這組 live eval；既有報表來自四題 offline fixture。腳本裡的 faithfulness、answer relevance、context recall 也是字詞、來源 URL 與禁止敘述的 deterministic scoring，不是 RAGAS、DeepEval 或 Promptfoo 的 judge。檔名與指標名稱存在，不等於評估已經接上 production。
+
 ### 持續評估
 
 不只在發布前評估，而是持續監控：
@@ -319,12 +381,17 @@ testset = generator.generate_with_langchain_docs(
 
 RAG 評估框架幫你把「感覺不好」轉化為「是哪個指標在哪個查詢類型上低於閾值」。這個量化才能讓優化工作有針對性，而不是盲目試各種技術。
 
-先選一個框架（RAGAS 入門最快），建立一個 50-100 個測試案例的小資料集，建立基準分數，然後每次優化後對比分數變化。這個習慣建立起來，RAG 系統的迭代會有效率很多。
+先建立 20 個能重現真實失敗的案例，把必要來源、禁止來源與 latency 寫成 deterministic checks。接著才加 context relevance、faithfulness 等 model-graded metrics。
+
+對 TypeScript／HTTP／CI 專案，Promptfoo 是合理起點。Python 研究管線可能更適合 Ragas 或 DeepEval；已經需要全套 tracing 與實驗平台時，再評估 TruLens 或 Phoenix。
+
+工具可以換，評估契約不能跟著消失。資料集版本、judge model、judge prompt、threshold 與原始結果都要留下來，否則這次的 0.82 和下次的 0.76 根本不一定是同一把尺。
 
 ---
 
 ## 更新紀錄
 
+- 2026-08-30：補上正式標準與工具的分界、Promptfoo 選型、開源維護快照，以及 Ask AI 課程文章 retrieval 事故的 regression contract
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
@@ -334,6 +401,16 @@ RAG 評估框架幫你把「感覺不好」轉化為「是哪個指標在哪個�
 - [RAGAS RAG 評估上手範例](https://docs.ragas.io/en/stable/getstarted/rag_eval/)
 - [DeepEval 指標總覽](https://deepeval.com/docs/metrics-introduction)
 - [DeepEval：在 CI/CD 裡跑單元測試](https://deepeval.com/docs/evaluation-unit-testing-in-ci-cd)
+- [Promptfoo：Evaluating RAG pipelines](https://www.promptfoo.dev/docs/guides/evaluate-rag/)
+- [Promptfoo HTTP／HTTPS provider](https://www.promptfoo.dev/docs/providers/http/)
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+- [ISO/IEC 42001:2023 — AI management systems](https://www.iso.org/standard/42001)
+- [OpenTelemetry GenAI semantic convention attributes](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/)
+- [Promptfoo GitHub repository](https://github.com/promptfoo/promptfoo)
+- [DeepEval GitHub repository](https://github.com/confident-ai/deepeval)
+- [Ragas GitHub repository](https://github.com/vibrantlabsai/ragas)
+- [TruLens GitHub repository](https://github.com/truera/trulens)
+- [Phoenix GitHub repository與 ELv2 LICENSE](https://github.com/Arize-ai/phoenix/blob/main/LICENSE)
 - [ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems (2023)](https://arxiv.org/abs/2311.09476)
 - [TruLens RAG Triad — Context Relevance, Groundedness, Answer Relevance](https://www.trulens.org/getting_started/core_concepts/rag_triad/)
 - [TruLens：從 Feedback 遷移到 Metric](https://www.trulens.org/component_guides/evaluation/metric_migration/)
