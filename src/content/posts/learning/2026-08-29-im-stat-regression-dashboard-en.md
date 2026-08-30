@@ -10,7 +10,7 @@ series:
   order: 16
 tldr: "A regression table is not a p-value list: coef, SE, t, F, and R-squared answer effect size, uncertainty, single-coefficient tests, overall model signal, and in-sample explanation."
 description: "A beginner guide to regression output: coef, standard error, t, p-value, F test, R-squared, adjusted R-squared, and ML baseline reports."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-regression-dashboard)

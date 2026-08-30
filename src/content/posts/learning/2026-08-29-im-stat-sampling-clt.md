@@ -10,7 +10,7 @@ series:
   order: 8
 tldr: "抽樣讓樣本統計量有波動，標準誤描述這個波動。這篇分清楚 SD、SE、抽樣分布與 CLT，並接到 benchmark 分數的不確定性。"
 description: "統計學抽樣、標準誤與中央極限定理導讀：如何理解樣本平均的抽樣分布、SD 和 SE 的差別，以及它們在 ML/AI benchmark 評估中的用途。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-sampling-clt-en)

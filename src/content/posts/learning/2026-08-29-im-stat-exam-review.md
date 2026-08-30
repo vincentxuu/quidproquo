@@ -10,7 +10,7 @@ series:
   order: 20
 tldr: "考前最後階段要練的是題型辨識：先判斷資料型態、未知量與決策目標，再選公式，最後用語境結論收束。"
 description: "第一層統計考前複習：30 秒判斷工具、14 天安排、錯題歸因，以及 ML/AI 評估題的拆解流程。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-exam-review-en)

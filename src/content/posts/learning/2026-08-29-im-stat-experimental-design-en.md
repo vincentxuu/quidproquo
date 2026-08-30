@@ -10,7 +10,7 @@ series:
   order: 43
 tldr: "Experimental design decides whether a result can be interpreted. Randomization, control, blocking, replication, blinding, and pre-specified outcomes give inference a usable foundation."
 description: "Statistics from Exams to ML/AI, post 43: treatment, control, experimental units, randomization, blocking, replication, blinding, and ML/AI evaluations."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-experimental-design)

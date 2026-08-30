@@ -10,7 +10,7 @@ series:
   order: 36
 tldr: "OLS is a useful baseline, but coefficient interpretation, inference, prediction, and diagnosis depend on assumptions about linearity, errors, independence, and variance."
 description: "A guide to OLS beyond the first formula: assumptions, coefficient interpretation, residuals, robust limitations, prediction versus explanation, and ML/AI baseline diagnostics."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-linear-models-deep-dive)

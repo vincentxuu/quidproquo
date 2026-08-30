@@ -10,7 +10,7 @@ series:
   order: 49
 tldr: "Missing data can change representativeness, bias estimates, and mislead ML systems. The first question is why the data are missing."
 description: "Statistics from Exams to ML/AI, post 49: MCAR, MAR, MNAR, complete-case analysis, imputation, dataset bias, missing labels, and AI evaluation limits."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-missing-data)

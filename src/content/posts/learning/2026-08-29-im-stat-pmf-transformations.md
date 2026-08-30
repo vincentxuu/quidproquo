@@ -10,7 +10,7 @@ series:
   order: 18
 tldr: "聯合 PMF 題要把所有格子列完；邊際化、條件機率和變數轉換，本質上都是對原始格子的加總與重新分組。"
 description: "Joint PMF 與變數轉換入門：從 2x2 機率表、marginal、conditional 到 Z=X+Y 的完整手算。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-pmf-transformations-en)

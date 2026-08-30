@@ -10,7 +10,7 @@ series:
   order: 29
 tldr: "A confidence interval is built by defining the target estimate, describing its sampling error, and choosing a rule that turns uncertainty into a range."
 description: "A guide to general confidence-interval construction: estimates, standard errors, coverage, test inversion, likelihood intervals, bootstrap, and ML/AI metric intervals."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-general-confidence-intervals)

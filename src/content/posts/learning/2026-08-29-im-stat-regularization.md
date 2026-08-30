@@ -10,7 +10,7 @@ series:
   order: 41
 tldr: "Ridge、Lasso、weight decay 為什麼能讓模型穩一點？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 41 篇：Ridge、Lasso、weight decay 為什麼能讓模型穩一點？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-regularization-en)

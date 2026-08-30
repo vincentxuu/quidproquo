@@ -10,7 +10,7 @@ series:
   order: 14
 tldr: "An estimator is a rule for using samples to infer a population parameter. To judge whether it is good, look at bias, variance, and MSE together."
 description: "A beginner guide to estimators: estimator versus estimate, bias, variance, MSE, and how validation scores estimate model generalization."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-estimators)

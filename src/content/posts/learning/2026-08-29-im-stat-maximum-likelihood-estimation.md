@@ -10,7 +10,7 @@ series:
   order: 25
 tldr: "MLE 把資料固定、比較不同參數讓這批資料出現的合理程度；log likelihood 讓乘積變加總，也接上 ML 的 negative log loss。"
 description: "Maximum Likelihood Estimation 入門：likelihood、log likelihood、Bernoulli MLE 推導，以及 cross entropy 與 next-token loss 的連接。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-maximum-likelihood-estimation-en)

@@ -5,6 +5,7 @@ import {
   getSeriesMeta,
   getSeriesMetaBySlug,
   getSeriesSummaries,
+  SERIES_CATEGORIES,
   validateSeriesDefinitions,
 } from './series';
 import { getSeriesNavs } from './seriesNav';
@@ -168,6 +169,24 @@ describe('Stanford course series registry', () => {
     expect(summaries.map(item => item.slug)).toEqual(['stanford-cs161', 'stanford-cs103']);
     expect(summaries[0].latestDate).toEqual(new Date('2026-08-20'));
     expect(summaries[0].posts.map(item => item.id)).toEqual([newestFirst.id, olderLast.id]);
+  });
+
+  it('assigns stable navigation categories to registered and fallback series', () => {
+    const course = post('learning/statistics', 'zh-TW', { name: '從考試到 ML/AI 的統計學導讀', order: 1 });
+    const fallback = post('learning/fallback', 'zh-TW', { name: '新的學習系列', order: 1 });
+    const summaries = getSeriesSummaries([course, fallback], 'zh-TW', new Date('2026-08-21'));
+
+    expect(SERIES_CATEGORIES.map(category => category.id)).toEqual([
+      'ai-agents',
+      'courses',
+      'engineering',
+      'learning-research',
+      'product-career',
+      'industry-projects',
+      'updates',
+    ]);
+    expect(summaries.find(item => item.slug === 'statistics-ml-ai')?.category).toBe('courses');
+    expect(summaries.find(item => item.name === '新的學習系列')?.category).toBe('learning-research');
   });
 
   it('navigates primary and additional series independently with canonical post slugs', () => {

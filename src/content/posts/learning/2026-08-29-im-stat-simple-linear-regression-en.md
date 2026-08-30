@@ -10,7 +10,7 @@ series:
   order: 15
 tldr: "Simple linear regression uses one X to describe the average change in Y. Slope, intercept, residuals, and squared error form the smallest supervised learning model."
 description: "A beginner guide to simple linear regression: OLS, slope, intercept, residuals, prediction, interpretation, and the supervised-learning baseline."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-simple-linear-regression)

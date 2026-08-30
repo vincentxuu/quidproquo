@@ -10,7 +10,7 @@ series:
   order: 40
 tldr: "Variable selection is not only about choosing predictors. It is about avoiding noisy training-set wins that do not generalize."
 description: "Statistics from Exams to ML/AI, post 40: adjusted R-squared, AIC, BIC, selection procedures, cross-validation, leakage, and ML feature selection."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-variable-selection)

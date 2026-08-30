@@ -10,7 +10,7 @@ series:
   order: 17
 tldr: "logistic regression 把線性分數接到 0 到 1 的機率；讀懂 odds、log odds、odds ratio，才不會把分類模型係數解釋錯。"
 description: "Logistic regression 入門：從機率、odds、log odds、sigmoid、odds ratio 到分類 threshold 與 cross entropy。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-logistic-regression-en)

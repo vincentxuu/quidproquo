@@ -10,7 +10,7 @@ series:
   order: 33
 tldr: "Bayesian inference 怎麼把 prior、資料與 posterior 串起來？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 33 篇：Bayesian inference 怎麼把 prior、資料與 posterior 串起來？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-bayesian-inference-en)

@@ -10,7 +10,7 @@ series:
   order: 44
 tldr: "A/B testing turns a product change into an estimate with uncertainty. A useful report covers effect size, confidence, guardrails, randomization, and launch risk."
 description: "Statistics from Exams to ML/AI, post 44: A/B testing, two-proportion inference, sample ratio mismatch, guardrail metrics, peeking, and ML product experiments."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-ab-testing)

@@ -10,7 +10,7 @@ series:
   order: 42
 tldr: "Nonparametric methods 少做哪些分布假設？彈性又要付出什麼代價？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 42 篇：Nonparametric methods 少做哪些分布假設？彈性又要付出什麼代價？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-nonparametric-methods-en)

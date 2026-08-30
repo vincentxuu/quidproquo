@@ -10,7 +10,7 @@ series:
   order: 6
 tldr: "Distributions are names for data-generating situations, not formula cards. Learn when Bernoulli, Binomial, Poisson, and Normal distributions fit a problem."
 description: "A beginner guide to common distributions: how to recognize Bernoulli, Binomial, Poisson, and Normal settings, and how they appear in labels, counts, errors, and model evaluation."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-common-distributions)

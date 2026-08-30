@@ -10,7 +10,7 @@ series:
   order: 7
 tldr: "Expectation describes long-run center; variance describes fluctuation. This post computes E[X], E[X^2], and Var(X), then connects them to average loss and model stability."
 description: "A beginner guide to expectation and variance: how to compute E[X], E[X^2], Var(X), understand linear transformations and independent sums, and connect them to ML/AI loss and variance."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-expectation-variance)

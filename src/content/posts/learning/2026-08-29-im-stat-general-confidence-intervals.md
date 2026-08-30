@@ -10,7 +10,7 @@ series:
   order: 29
 tldr: "信賴區間不只 t 表：一般建構到底怎麼想？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 29 篇：信賴區間不只 t 表：一般建構到底怎麼想？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-general-confidence-intervals-en)

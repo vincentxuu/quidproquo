@@ -10,7 +10,7 @@ series:
   order: 18
 tldr: "Joint PMF problems require listing every cell. Marginalization, conditional probability, and variable transformations are all sums or regroupings of the original cells."
 description: "A beginner guide to joint PMFs and transformations: 2x2 probability tables, marginals, conditionals, and a full hand calculation for Z = X + Y."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-pmf-transformations)

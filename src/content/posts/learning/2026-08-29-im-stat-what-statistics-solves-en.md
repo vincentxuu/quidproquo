@@ -10,7 +10,7 @@ series:
   order: 2
 tldr: "The core of statistics is judgment: describe data, estimate unknowns, compare differences, inspect associations, and make decisions under uncertainty."
 description: "A beginner guide to what statistics actually does: how exam questions and ML/AI evaluation both depend on data, unknown quantities, uncertainty, and decisions."
-draft: true
+draft: false
 ---
 
 > [Mandarin version](/posts/learning/2026-08-29-im-stat-what-statistics-solves)

@@ -10,7 +10,7 @@ series:
   order: 50
 tldr: "Monte Carlo repeats a data-generating process many times so sampling variation, power, coverage, and evaluation instability become visible."
 description: "Statistics from Exams to ML/AI, post 50: simulation, Monte Carlo error, sampling variability, power, coverage, robustness testing, and agent evaluation."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-simulation-monte-carlo)

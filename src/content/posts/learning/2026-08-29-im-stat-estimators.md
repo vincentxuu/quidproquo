@@ -10,7 +10,7 @@ series:
   order: 14
 tldr: "估計量是用樣本推母體的計算規則；判斷它好不好，要一起看 bias、variance 與 MSE。"
 description: "估計量入門：分清估計量與估計值，手算 bias、variance、MSE，並連到 validation score 與模型泛化判斷。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-estimators-en)

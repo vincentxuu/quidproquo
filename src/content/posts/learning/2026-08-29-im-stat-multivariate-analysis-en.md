@@ -10,7 +10,7 @@ series:
   order: 48
 tldr: "Multivariate analysis looks at features together. Covariance, correlation, and PCA reveal shared directions that univariate summaries miss."
 description: "Statistics from Exams to ML/AI, post 48: covariance matrices, correlation, PCA, eigenvalues, dimensionality reduction, embeddings, and ML diagnostics."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-multivariate-analysis)

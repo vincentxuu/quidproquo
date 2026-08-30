@@ -10,7 +10,7 @@ series:
   order: 24
 tldr: "Method of Moments 用樣本矩對上理論母體矩，再解出參數；它不一定最有效率，但很適合建立參數估計的第一個直覺。"
 description: "Method of Moments 入門：一階矩、二階矩、Uniform 與 Exponential 手算例題，以及 ML 校準與 distribution matching 的連接。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-method-of-moments-en)

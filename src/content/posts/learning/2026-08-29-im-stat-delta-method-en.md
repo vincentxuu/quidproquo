@@ -10,7 +10,7 @@ series:
   order: 31
 tldr: "The delta method transfers uncertainty through a smooth function: the local derivative expands or shrinks the estimator's original standard error."
 description: "A guide to the delta method: tangent approximation, transformed standard errors, log-scale intervals, gradients, covariance matrices, and uncertainty for F1 or ratio metrics."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-delta-method)

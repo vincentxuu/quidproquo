@@ -10,7 +10,7 @@ series:
   order: 5
 tldr: "Random variables turn uncertain outcomes into numbers. PMF, PDF, and CDF then let you compute discrete probabilities, continuous interval probabilities, thresholds, and model-score distributions."
 description: "A beginner guide to random variables: how to distinguish PMF, PDF, and CDF, compute discrete and continuous probabilities, and connect them to ML/AI score distributions and token sampling."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-random-variables)

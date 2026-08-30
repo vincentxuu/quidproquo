@@ -10,7 +10,7 @@ series:
   order: 28
 tldr: "Neyman-Pearson 把檢定看成決策規則：在固定第一型錯誤 alpha 下，選出 power 最高的拒絕區域。"
 description: "Neyman-Pearson 觀點入門：alpha、beta、power、likelihood ratio、most powerful test，以及分類器 threshold 的 ML 類比。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-neyman-pearson-en)

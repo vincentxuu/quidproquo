@@ -10,7 +10,7 @@ series:
   order: 10
 tldr: "A hypothesis test is a decision process under uncertainty: write H0/H1, choose alpha, compute a test statistic and p-value, then decide whether the data is strong enough to challenge H0."
 description: "A beginner guide to hypothesis testing: H0/H1, alpha, p-values, t tests, Type I/II errors, and test logic in model comparison."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-hypothesis-testing)

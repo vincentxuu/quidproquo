@@ -10,7 +10,7 @@ series:
   order: 19
 tldr: "考古題的價值是訓練拆題紀律，不是用兩年題型猜完整範圍；每題都要回到資料型態、未知量、工具、計算與語境結論。"
 description: "台大資管統計考古題拆題方法：如何使用 114–115 題面、避免過度推論，並把題型接回完整統計學習地圖。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-ntu-past-papers-walkthrough-en)

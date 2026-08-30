@@ -10,7 +10,7 @@ series:
   order: 43
 tldr: "實驗設計怎麼讓結果可以被解讀，而不是只像相關？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 43 篇：實驗設計怎麼讓結果可以被解讀，而不是只像相關？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-experimental-design-en)

@@ -10,7 +10,7 @@ series:
   order: 42
 tldr: "Nonparametric methods are not assumption-free. They relax fixed distributional forms, often gaining flexibility while paying in efficiency, interpretation, or overfitting risk."
 description: "Statistics from Exams to ML/AI, post 42: rank tests, permutation tests, empirical distributions, KDE, kNN, trees, and flexible ML baselines."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-nonparametric-methods)

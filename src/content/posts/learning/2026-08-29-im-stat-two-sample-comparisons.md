@@ -10,7 +10,7 @@ series:
   order: 11
 tldr: "兩組比較要先判斷 outcome 是數值還是比例、兩組資料是否獨立；這一步會決定標準誤、檢定統計量與結論可信度。"
 description: "兩樣本比較入門：獨立平均數、Welch t、成對比較、兩比例差異，以及 ML/AI 模型評估中的 paired design。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-two-sample-comparisons-en)

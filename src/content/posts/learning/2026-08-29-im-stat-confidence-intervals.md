@@ -10,7 +10,7 @@ series:
   order: 9
 tldr: "信賴區間把點估計放回抽樣波動裡看；會寫上下界只是第一步，真正要會的是解釋標準誤、臨界值與 coverage。"
 description: "信賴區間入門：從平均數 t 區間、比例區間、正確解釋，到模型 accuracy 的不確定性報告。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-confidence-intervals-en)

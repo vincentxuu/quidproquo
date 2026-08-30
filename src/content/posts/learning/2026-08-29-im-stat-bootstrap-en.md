@@ -10,7 +10,7 @@ series:
   order: 32
 tldr: "Bootstrap estimates uncertainty by resampling from the observed sample with replacement, rebuilding many sample-like datasets, and watching the statistic fluctuate."
 description: "A guide to bootstrap: resampling with replacement, percentile intervals, paired bootstrap, cluster bootstrap, and uncertainty estimation for ML/AI metrics."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-bootstrap)

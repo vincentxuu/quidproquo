@@ -10,7 +10,7 @@ series:
   order: 52
 tldr: "A useful ML/AI evaluation report turns statistical evidence into a decision: ship, stage, roll back, or run more experiments."
 description: "Statistics from Exams to ML/AI, post 52: metric definition, uncertainty, paired comparison, segment analysis, guardrail metrics, raw traces, and decision-ready evaluation reports."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-ml-ai-evaluation-report)

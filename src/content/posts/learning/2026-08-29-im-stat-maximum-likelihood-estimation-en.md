@@ -10,7 +10,7 @@ series:
   order: 25
 tldr: "MLE fixes the observed data and compares which parameter values make that data most plausible; log likelihood turns products into sums and connects directly to negative log loss."
 description: "A beginner guide to Maximum Likelihood Estimation: likelihood, log likelihood, Bernoulli MLE, cross entropy, and next-token loss."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-maximum-likelihood-estimation)

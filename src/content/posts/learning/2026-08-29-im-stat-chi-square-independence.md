@@ -10,7 +10,7 @@ series:
   order: 12
 tldr: "卡方檢定處理類別資料的次數差異；先分清楚一個變數對理論比例的適合度，還是兩個類別變數之間的獨立性。"
 description: "卡方檢定入門：適合度、獨立性、expected count、自由度、手算 2x2 表，以及資料偏差檢查中的 ML/AI 應用。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-chi-square-independence-en)

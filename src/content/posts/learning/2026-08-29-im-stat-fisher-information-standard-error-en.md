@@ -10,7 +10,7 @@ series:
   order: 26
 tldr: "Fisher information uses likelihood curvature to measure how well the data locate a parameter; larger information usually means a smaller standard error for the MLE."
 description: "A beginner guide to Fisher information: score, curvature, observed information, standard error, Wald intervals, ML uncertainty, and natural gradient intuition."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-fisher-information-standard-error)

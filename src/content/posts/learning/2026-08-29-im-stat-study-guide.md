@@ -10,7 +10,7 @@ series:
   order: 1
 tldr: "準備統計學不要從背公式開始。這篇先建立讀書順序：資料、機率、抽樣、推論、迴歸，再接到模型評估、A/B testing 與 ML/AI 的不確定性判斷。"
 description: "給統計學初學者的讀書起點：如何從考試題型出發，建立資料、機率、抽樣、推論與迴歸的順序，並理解這些概念在 ML/AI 評估中的用途。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-study-guide-en)

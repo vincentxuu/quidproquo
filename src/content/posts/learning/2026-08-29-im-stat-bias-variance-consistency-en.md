@@ -10,7 +10,7 @@ series:
   order: 23
 tldr: "Bias checks whether an estimator is centered correctly, variance checks sampling fluctuation, MSE combines both, and consistency asks whether the estimator approaches truth as sample size grows."
 description: "A guide to point-estimation quality: bias, variance, MSE, consistency, worked calculations, and the ML bias-variance tradeoff."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-bias-variance-consistency)

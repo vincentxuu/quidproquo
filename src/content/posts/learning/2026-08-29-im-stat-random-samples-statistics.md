@@ -10,7 +10,7 @@ series:
   order: 21
 tldr: "樣本是資料，統計量是樣本的函數，抽樣分布是統計量在重複抽樣下的分布；這三者分清楚，推論公式才會有意義。"
 description: "隨機樣本、統計量與抽樣分布入門：iid、樣本平均、標準誤，以及 validation metric 為什麼也是統計量。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-random-samples-statistics-en)

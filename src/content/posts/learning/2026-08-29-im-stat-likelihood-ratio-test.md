@@ -10,7 +10,7 @@ series:
   order: 27
 tldr: "LRT 比較受限模型和完整模型的 log likelihood 差；只有在 nested model 與近似條件成立時，常見卡方參考分布才有意義。"
 description: "Likelihood ratio test 入門：full model、restricted model、nested condition、卡方近似與 ML model comparison。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-likelihood-ratio-test-en)
