@@ -156,8 +156,33 @@ describe('writer agent parity', () => {
     const systemPrompt = String((messages?.[0] as { content?: unknown } | undefined)?.content ?? '')
     const userPrompt = String((messages?.[1] as { content?: unknown } | undefined)?.content ?? '')
     expect(systemPrompt).toContain('currently retrieved top matches')
+    expect(systemPrompt).toContain('article catalog lookup')
+    expect(systemPrompt).toContain('does not invent recommendation reasons')
+    expect(systemPrompt).not.toContain('gives a concrete recommendation reason')
     expect(userPrompt).toContain('[Source 12]')
     expect(userPrompt).toContain('Title: Course 12')
+  })
+
+  it('keeps evidence-backed recommendation reasons for ordinary recommendations', async () => {
+    const state = makeState({
+      messages: [new HumanMessage('推薦幾篇適合開始學 RAG 的文章')] as RagMessage[],
+      plan: {
+        intent: 'recommendation',
+        complexity: 'simple',
+        needs_clarification: false,
+        subtasks: [],
+        search_keywords: ['RAG'],
+        specialists: [],
+      },
+    })
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult('推薦文章。'))
+
+    await writerNode(state)
+
+    const messages = vi.mocked(invokeModel).mock.calls.at(-1)?.[2]
+    const systemPrompt = String((messages?.[0] as { content?: unknown } | undefined)?.content ?? '')
+    expect(systemPrompt).toContain('gives a concrete recommendation reason')
+    expect(systemPrompt).not.toContain('article catalog lookup')
   })
 })
 

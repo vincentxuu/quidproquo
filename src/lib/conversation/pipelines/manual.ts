@@ -9,7 +9,7 @@ import { validationNode } from '../../retrieval/agents/validation'
 import { criticNode } from '../../retrieval/agents/critic'
 import { relatedPostsNode } from '../../retrieval/agents/related-posts'
 import { fallbackNode } from '../../retrieval/agents/fallback'
-import { shouldDegrade, shouldRetry } from '../../retrieval/agents/critic-routing'
+import { shouldAcceptReviewedCatalogDraft, shouldDegrade, shouldRetry } from '../../retrieval/agents/critic-routing'
 import type { ProviderApiKeys } from '../../retrieval/model'
 import { countUniquePostResults } from '../../retrieval/search-result-format'
 
@@ -79,6 +79,7 @@ export async function runManualPipeline(
     if (!state.config.criticEnabled) break
     await runStep('critic', (state) => criticNode(state, { apiKeys: options?.providerApiKeys }))
     callbacks.onStep('Critic')
+    if (shouldAcceptReviewedCatalogDraft(state)) break
     if (!shouldRetry(state)) break
   }
 

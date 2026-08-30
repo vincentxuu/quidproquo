@@ -3,6 +3,7 @@ import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { invokeModel, type ProviderApiKeys } from '../model'
 import { defineAgent } from '../../agent/access'
 import { normalizeAnswerLanguage } from '../language'
+import { isBroadArticleCatalogQuery } from '../query-strategy'
 
 type ResultProfile = {
   writerContextSources?: number
@@ -94,6 +95,7 @@ function buildWriterPrompts(
   )))
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage?.content === 'string' ? lastMessage.content : ''
+  const isCatalogQuery = state.plan.intent === 'recommendation' && isBroadArticleCatalogQuery(query)
 
   const language = state.language === 'en' ? 'English' : '繁體中文'
 
@@ -111,7 +113,11 @@ Respond in ${language}.
 
 Describe the successful end state by producing an answer that:
 - directly resolves the user's question before adding extra detail
-- for recommendation intent, returns a structured list with title, category/link, and a concrete recommendation reason before any narrative
+- for recommendation intent, returns a structured list with title and category/link before any narrative
+${state.plan.intent === 'recommendation' && !isCatalogQuery ? '- gives a concrete recommendation reason for each item when the retrieved evidence supports that reason' : ''}
+${isCatalogQuery ? `- treats this as an article catalog lookup: list each matching provided post with its title and exact source URL
+- does not invent recommendation reasons from titles or metadata
+- does not claim the list is the complete site catalog` : ''}
 ${state.plan.intent === 'recommendation' ? `- includes every distinct provided post source that actually matches the question; do not include an irrelevant source merely because it was retrieved
 - explicitly describes an article list as the currently retrieved top matches rather than a complete site catalog` : ''}
 - stays grounded in the provided sources only

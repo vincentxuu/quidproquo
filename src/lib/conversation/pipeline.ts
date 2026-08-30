@@ -30,10 +30,10 @@ export async function runPipeline(
       config: effectiveConfig,
       providerApiKeys: options?.providerApiKeys,
     },
-    callbacks
+    { ...callbacks, onToken: () => {} }
   )
 
-  return normalizeRagLifecycleOutput(
+  const finalState = normalizeRagLifecycleOutput(
     {
       message: input.message,
       traceId: input.traceId,
@@ -43,4 +43,7 @@ export async function runPipeline(
     },
     output
   )
+
+  if (finalState.final_response) callbacks.onToken(finalState.final_response)
+  return finalState
 }

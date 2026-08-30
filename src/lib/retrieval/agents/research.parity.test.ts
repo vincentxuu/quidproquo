@@ -204,6 +204,47 @@ describe('research agent parity', () => {
     expect(result.search_results?.[0].chunk_id).toBe('post-2')
   })
 
+  it('caps merged retry catalog results at the recommendation limit', async () => {
+    let call = 0
+    vi.mocked(searchBlogPosts).mockImplementation(async () => {
+      const batch = call++
+      return Array.from({ length: 20 }, (_, index) => ({
+        ...postResult,
+        chunk_id: `course-${batch}-${index}`,
+        slug: `course-${batch}-${index}`,
+        source_url: `https://quidproquo.cc/posts/learning/course-${batch}-${index}`,
+      }))
+    })
+    vi.mocked(searchDocs).mockResolvedValue([])
+    vi.mocked(searchAbstractIndex).mockResolvedValue([])
+    vi.mocked(searchExternalTools).mockResolvedValue([])
+    vi.mocked(pageIndexSearch).mockResolvedValue([])
+
+    const result = await researchNode(makeState({
+      messages: [new HumanMessage('有哪些課程文章')] as RagMessage[],
+      iteration: 1,
+      critique: {
+        confidence: 0.4,
+        answer_relevance: 0.5,
+        intent_alignment: 0.9,
+        drift_detected: false,
+        ungrounded_claims: [],
+        gaps: ['大學課程導讀'],
+      },
+      plan: {
+        intent: 'recommendation',
+        complexity: 'simple',
+        needs_clarification: false,
+        subtasks: [],
+        search_keywords: ['課程'],
+        specialists: [],
+      },
+    }))
+
+    expect(searchBlogPosts).toHaveBeenCalledTimes(2)
+    expect(result.search_results).toHaveLength(20)
+  })
+
   it('preserves chunk-level retrieval for factual questions', async () => {
     const firstChunk = { ...postResult, chunk_id: 'post-1', slug: 'agent-os', relevance_score: 0.7 }
     const secondChunk = { ...postResult, chunk_id: 'post-2', slug: 'agent-os', relevance_score: 0.9 }

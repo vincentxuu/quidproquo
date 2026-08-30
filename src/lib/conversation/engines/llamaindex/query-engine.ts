@@ -2,7 +2,7 @@ import { HumanMessage } from '@langchain/core/messages'
 import type { SearchResult } from '../../../retrieval/state'
 import { runLlamaIndexRetriever } from './retriever'
 import { searchExternalTools } from '../../../retrieval/tools/external-search'
-import { shouldDegrade, shouldRetry } from '../../../retrieval/agents/critic-routing'
+import { shouldAcceptReviewedCatalogDraft, shouldDegrade, shouldRetry } from '../../../retrieval/agents/critic-routing'
 import { plannerNode } from '../../../retrieval/agents/planner'
 import { normalizeResultsNode } from '../../../retrieval/agents/normalize-results'
 import { writerNode } from '../../../retrieval/agents/writer'
@@ -208,6 +208,10 @@ export async function runLlamaIndexQueryEngine(
 
     await runStep('critic', () => criticNode(state, { apiKeys: input.providerApiKeys }))
     callbacks.onStep('Critic')
+
+    if (shouldAcceptReviewedCatalogDraft(state)) {
+      break
+    }
 
     if (!shouldRetry(state)) {
       break

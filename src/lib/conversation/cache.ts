@@ -34,7 +34,7 @@ async function embedQuery(query: string): Promise<number[]> {
   return queryVector
 }
 
-export const SEMANTIC_CACHE_GENERATION = 'retrieval-v2'
+export const SEMANTIC_CACHE_GENERATION = 'retrieval-v3'
 export const SEMANTIC_CACHE_TTL_HOURS = 24
 export const SEMANTIC_CACHE_ID_PREFIX = `${EMBEDDING_VERSION}:${SEMANTIC_CACHE_GENERATION}`
 export const SEMANTIC_CACHE_ID_PATTERN = `${SEMANTIC_CACHE_ID_PREFIX}:%`

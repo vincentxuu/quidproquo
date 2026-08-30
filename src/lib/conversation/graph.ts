@@ -12,7 +12,7 @@ import { normalizeResultsNode } from '../retrieval/agents/normalize-results'
 import { writerNode } from '../retrieval/agents/writer'
 import { validationNode } from '../retrieval/agents/validation'
 import { criticNode } from '../retrieval/agents/critic'
-import { shouldRetry, shouldDegrade } from '../retrieval/agents/critic-routing'
+import { shouldAcceptReviewedCatalogDraft, shouldRetry, shouldDegrade } from '../retrieval/agents/critic-routing'
 import { relatedPostsNode } from '../retrieval/agents/related-posts'
 import { fallbackNode } from '../retrieval/agents/fallback'
 import type { RagMessage, PipelineCallbacks } from '../retrieval/state'
@@ -99,13 +99,15 @@ export function buildGraph(options?: { providerApiKeys?: ProviderApiKeys }) {
   graph.addEdge('writer', 'deterministic_validation')
 
   graph.addConditionalEdges('critic', (state: GraphState) =>
-    shouldRetry(state) ? 'research' : shouldDegrade(state) ? 'fallback' : 'related'
+    shouldAcceptReviewedCatalogDraft(state)
+      ? 'related'
+      : shouldRetry(state) ? 'research' : shouldDegrade(state) ? 'fallback' : 'related'
   )
 
   graph.addConditionalEdges('deterministic_validation', (state: GraphState) =>
     !state.validation.passed
       ? shouldRetry(state) ? 'research' : 'fallback'
-      : state.config.criticEnabled ? 'critic' : 'related'
+      : !state.config.criticEnabled ? 'related' : 'critic'
   )
 
   graph.addEdge('fallback', 'related')

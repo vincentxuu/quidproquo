@@ -122,6 +122,28 @@ describe('critic agent parity', () => {
     expect(systemPrompt).toContain('A citation URL by itself is not evidence.')
   })
 
+  it('uses title-and-link review criteria for broad catalog queries', async () => {
+    const state = makeState({
+      messages: [new HumanMessage('有哪些課程文章')] as RagMessage[],
+      plan: {
+        intent: 'recommendation',
+        complexity: 'simple',
+        needs_clarification: false,
+        subtasks: [],
+        specialists: [],
+      },
+    })
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult(cases[0].critique))
+
+    await criticNode(state)
+
+    const messages = vi.mocked(invokeModel).mock.calls.at(-1)?.[2]
+    const systemPrompt = String((messages?.[0] as { content?: unknown } | undefined)?.content ?? '')
+    expect(systemPrompt).toContain('Catalog-query guide')
+    expect(systemPrompt).toContain('Do not require recommendation reasons')
+    expect(systemPrompt).toContain('title and URL claims against the retrieved metadata')
+  })
+
   it('fails closed when the critic returns malformed output', async () => {
     vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult('not-json'))
 

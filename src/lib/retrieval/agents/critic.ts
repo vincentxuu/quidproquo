@@ -2,6 +2,7 @@ import type { Critique, GraphState } from '../state'
 import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { invokeModel, type ProviderApiKeys } from '../model'
 import { defineAgent } from '../../agent/access'
+import { isBroadArticleCatalogQuery } from '../query-strategy'
 export { shouldRetry } from './critic-routing'
 
 type CriticModelResult = Awaited<ReturnType<typeof invokeModel>>
@@ -81,6 +82,8 @@ function getQuery(state: GraphState): string {
 }
 
 function buildCriticSystemPrompt(state: GraphState, skillInstructions?: string): string {
+  const query = getQuery(state)
+  const isCatalogQuery = state.plan.intent === 'recommendation' && isBroadArticleCatalogQuery(query)
   const evidence = state.search_results.slice(0, 12).map((result, index) => ({
     source: index + 1,
     url: result.source_url,
@@ -109,6 +112,7 @@ Original plan complexity: ${state.plan.complexity}
 Confidence guide: 1.0=fully grounded, 0.6=mostly ok, below 0.6=needs retry
 Answer relevance guide: below 0.75 means the answer does not directly answer the user's question.
 Intent alignment guide: below 0.75 or drift_detected=true means the response wandered away from the requested task.
+${isCatalogQuery ? `Catalog-query guide: success means a concise list of relevant retrieved post titles with exact retrieved URLs. Do not require recommendation reasons or claim that the list covers the entire site. Judge title and URL claims against the retrieved metadata.` : ''}
 ${skillInstructions ? `\nAgent skill instructions:\n${skillInstructions}` : ''}`
 }
 

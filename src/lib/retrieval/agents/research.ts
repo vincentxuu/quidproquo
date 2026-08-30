@@ -251,7 +251,7 @@ async function runResearch(
     ...webSearchResults,
   ]
   const broadResults = state.plan.intent === 'recommendation'
-    ? dedupePostResultsByDocument(broadCandidates)
+    ? dedupePostResultsByDocument(broadCandidates).slice(0, postLimit)
     : mergeUniqueChunks(broadCandidates)
   const pageIndexResults = state.config.pageIndexEnabled && state.plan.complexity === 'complex'
     ? (await Promise.all(
@@ -269,7 +269,7 @@ async function runResearch(
 
   const allCandidates = [...broadResults, ...pageIndexResults]
   const allResults = state.plan.intent === 'recommendation'
-    ? dedupePostResultsByDocument(allCandidates)
+    ? dedupePostResultsByDocument(allCandidates).slice(0, postLimit)
     : mergeUniqueChunks(allCandidates)
 
   return {
