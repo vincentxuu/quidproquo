@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-30 (Stage 3 daily-digest-report blocker confirmed)
+Last updated: 2026-08-30
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -11,9 +11,8 @@ Current focus
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
 - **Cloudflare Edge Platform / AI Stack 兩條內容線（2026-08-30）**：docs/content-plan-cloudflare-edge-ai-stack.md 已完成；兩條導讀與 explicit service coverage 已補齊並發布中英文章，既有 Workers、Hono、OpenNext、D1、KV、R2、Workers AI、模型選型、Gemma、AI Search、Sandbox SDK、Durable Objects、Queues 已掛入新系列或 additionalSeries；已發布，後續只剩人工抽樣校對與必要修訂。
-- **統計學：從考試到 ML/AI 系列（2026-08-29）**：已重建 53 篇規劃與來源分層；三層 1–53 中英 draft 已齊（106 檔），全部仍 `draft: true`。order 1–53 已完成第一輪升級（來源使用方式、題型辨識、追加練習骨架）；order 1–53 已完成第二輪正文化（初學者解釋、公式、完整算例與 ML/AI 接點）；order 1–53 已完成第三輪強化（章節級來源對照、精準練習與算式修正）；114–115 考古題篇只作拆題框架，待逐題核 PDF 題面；全系列已完成章節級參考與精準練習；仍待逐篇人工 review、考古題 PDF 題面核對與發布前最終校對後才可發布。
-- **Admin v2 Phase 1–6 代碼完成並完成本機串接驗證（2026-08-29）**：文件已對齊 Claude Code 研究；
-  本機 Astro dev E2E、最小 DO `/run` smoke、`pnpm verify` 均通過。剩 production/preview migration apply、binding/env 檢查與實際環境觀察。
+- **統計學：從考試到 ML/AI 系列（2026-08-29）**：已重建 53 篇規劃與來源分層；三層 1–53 中英 draft 已齊（106 檔），全部仍 `draft: true`。order 1–53 已完成第一輪升級（來源使用方式、題型辨識、追加練習骨架）；order 1–53 已完成第二輪正文化（初學者解釋、公式、完整算例與 ML/AI 接點）；order 1–53 已完成第三輪強化（章節級來源對照、精準練習與算式修正）；114–115 考古題篇只作拆題框架，待逐題核 PDF 題面；使用者指出標題與內容仍過於簡陋，已退回第四輪文章化重寫；106 檔標題與 metadata 已改成讀者問題導向，order 1–53 中文版已重寫成使用者確認的新標準稿，三層中文版主線已收束；英文版 order 1–53 已依中文新結構重寫同步；仍待逐篇人工 review、考古題 PDF 題面核對與發布前最終校對後才可發布。
+- **Admin v2 Phase 1–6 代碼完成並完成本機串接驗證（2026-08-29）**：文件已對齊 Claude Code 研究；本機 Astro dev E2E、最小 DO `/run` smoke、`pnpm verify` 均通過。剩 production/preview migration apply、binding/env 檢查與實際環境觀察。
 - **「跟成熟 coding agent 學設計」系列 38 篇雙語（78 檔）已完成待 review**（0126e687＋收尾篇，
   docs/content-plan-coding-agent-design-series.md）：第一部 25 篇已實作對照（order 2–25，總覽佔 1）＋
   第二部 13 篇改善路線圖（26–38，收尾篇 agent-as-service 於 2026-08-26 補齊「38 篇」定案數）。
@@ -74,6 +73,7 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
+- **Admin session chat UX 修正（2026-08-30）**：修正 `runLoop` 重複寫入 legacy event 導致 SSE 漏事件/重複列的問題；`AdminSessionChat` 現在會立即 hydrate 歷史事件、用 event id/fingerprint 去重、running/queued/pending/paused 都有明確 loading row，並在 result/control 事件更新狀態。
 - **台灣語氣規格化（2026-08-29）**：台灣文章來源、寫作 skill 專案與站內 voice reference
   已研究完成，並收進 `post-polish` / `post-review` 的台灣讀者位置規則；新增
   `writing-phrase-ledger` 收錄使用者指出的 AI 句型與不像台灣中文的用詞。
