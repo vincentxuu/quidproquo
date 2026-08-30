@@ -7,11 +7,12 @@ F="${1:?用法: register-scan.sh <post.md>}"
 # 正文 = 去掉 frontmatter、附錄與參考資料之後的部分
 body() {
   awk '/^---$/{n++; next} n>=2' "$F" \
-  | awk '/^#+ (附錄|Appendix)/{exit} {print}'
+  | awk '/^#+ (附錄|Appendix|更新紀錄|Update Log|參考資料|References)/{exit} {print}'
 }
 # 去掉 markdown 連結網址、程式碼、表格列，只留可讀散文
 prose() {
-  body | grep -v '^[|>#]' | grep -v '^\s*$' \
+  body | awk '/^```/{code=!code; next} !code' \
+       | grep -v '^[|>#]' | grep -v '^\s*$' \
        | sed -E 's/\[([^]]*)\]\([^)]*\)/\1/g; s/https?:\/\/[^ )]*//g; s/`[^`]*`//g'
 }
 
@@ -50,3 +51,12 @@ echo "── 7. 模板化轉折句型（同篇反覆會有 AI 感）"
 prose | grep -nE '不是[^。；]*而是|不只是[^。；]*而是|可以[^。；]*但不能|有意思[，,]?但|值得[^。；]*是因為|不能只[^。；]*必須|不是單純[^。；]*而是|還不到[^。；]*(理由|程度|答案)' \
   | sed -E 's/^/  /' | head -12 || true
 echo "  合計 $(prose | grep -cE '不是[^。；]*而是|不只是[^。；]*而是|可以[^。；]*但不能|有意思[，,]?但|值得[^。；]*是因為|不能只[^。；]*必須|不是單純[^。；]*而是|還不到[^。；]*(理由|程度|答案)' || true) 處"
+
+echo
+echo "── 8. 一般英文術語密度（中文散文，人工判讀）"
+generic_english_re='(^|[^[:alnum:]_])(production traffic|hard stop|spending cap|billing|browser|quota|credits?|requests?|router|unknown|rollover|proxy|library|benchmark|trial|signup|endpoint|reset|usage)([^[:alnum:]_]|$)'
+prose | grep -niE "$generic_english_re" \
+  | sed -E 's/^/  /' | head -12 || true
+generic_english_count=$(prose | grep -oiE "$generic_english_re" | wc -l | tr -d ' ' || true)
+echo "  合計 ${generic_english_count:-0} 次"
+echo "  （品牌、API 欄位、官方 UI／計價單位可保留；開頭、建議、結論的一般敘述優先用自然中文）"

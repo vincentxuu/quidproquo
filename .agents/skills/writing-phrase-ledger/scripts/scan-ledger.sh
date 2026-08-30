@@ -25,3 +25,8 @@ echo
 echo "── 台灣中文高風險用詞"
 prose | grep -nE '台灣語境|本地[[:alnum:]一-龥]*|在地媒體' \
   | sed -E 's/^/  /' || true
+
+echo
+echo "── 標題中的壓縮分類語氣"
+body | grep -nE '^#{2,6} .*(沒有免費 API|別混進[^。]*(表|清單))' \
+  | sed -E 's/^/  /' || true
