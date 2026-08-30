@@ -9,7 +9,7 @@ on:
 
 concurrency:
   group: production-index-sync
-  cancel-in-progress: ${{ github.event_name == 'push' }}
+  cancel-in-progress: true
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
