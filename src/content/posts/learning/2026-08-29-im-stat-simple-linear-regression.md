@@ -10,7 +10,7 @@ series:
   order: 15
 tldr: "簡單線性迴歸用一個 X 描述 Y 的平均變化；斜率、截距、殘差和平方誤差共同構成最小的 supervised learning 模型。"
 description: "簡單線性迴歸入門：OLS、斜率、截距、殘差、預測解釋，以及它如何接到 supervised learning baseline。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-simple-linear-regression-en)

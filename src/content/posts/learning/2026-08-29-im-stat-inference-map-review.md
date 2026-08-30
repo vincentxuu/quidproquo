@@ -10,7 +10,7 @@ series:
   order: 35
 tldr: "估計、檢定、likelihood、Bayes 要怎麼放在同一張推論地圖？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 35 篇：估計、檢定、likelihood、Bayes 要怎麼放在同一張推論地圖？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-inference-map-review-en)

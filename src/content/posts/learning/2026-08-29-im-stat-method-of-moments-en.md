@@ -10,7 +10,7 @@ series:
   order: 24
 tldr: "Method of Moments matches sample moments to theoretical population moments, then solves for parameters. It is not always the most efficient method, but it builds the first intuition for parameter estimation."
 description: "A beginner guide to Method of Moments: first moments, second moments, Uniform and Exponential worked examples, and links to ML calibration and distribution matching."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-method-of-moments)

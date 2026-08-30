@@ -10,7 +10,7 @@ series:
   order: 50
 tldr: "Monte Carlo 怎麼用重複模擬回答算不動的統計問題？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 50 篇：Monte Carlo 怎麼用重複模擬回答算不動的統計問題？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-simulation-monte-carlo-en)

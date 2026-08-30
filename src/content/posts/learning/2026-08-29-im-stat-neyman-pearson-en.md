@@ -10,7 +10,7 @@ series:
   order: 28
 tldr: "The Neyman-Pearson view treats a test as a decision rule: under a fixed Type I error rate alpha, choose the rejection region with the highest power."
 description: "A beginner guide to Neyman-Pearson: alpha, beta, power, likelihood ratio, most powerful tests, and the ML analogy with classifier thresholds."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-neyman-pearson)

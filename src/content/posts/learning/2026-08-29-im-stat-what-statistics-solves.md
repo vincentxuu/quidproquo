@@ -10,7 +10,7 @@ series:
   order: 2
 tldr: "統計學的核心不是公式，而是判斷：描述資料、估計未知量、比較差異、檢查關聯，最後在不確定性下做決策。"
 description: "統計學初學者常把章節讀成公式表。這篇用考題與 ML/AI 評估場景，說明統計學真正處理的是資料、未知量、不確定性與決策。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-what-statistics-solves-en)

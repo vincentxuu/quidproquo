@@ -10,7 +10,7 @@ series:
   order: 16
 tldr: "迴歸表不是 p 值清單；coef、SE、t、F、R2 分別回答效果大小、不確定性、單一係數、整體模型與樣本內解釋力。"
 description: "迴歸輸出表入門：讀 coef、standard error、t、p-value、F test、R2 與 adjusted R2，並連到 ML baseline 和 feature effect 報告。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-regression-dashboard-en)

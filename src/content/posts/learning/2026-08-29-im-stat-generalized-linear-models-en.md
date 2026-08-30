@@ -10,7 +10,7 @@ series:
   order: 38
 tldr: "A generalized linear model starts from the response type, chooses a suitable distribution, and uses a link function to connect the mean to a linear predictor."
 description: "Statistics from Exams to ML/AI, post 38: GLM components, response types, link functions, Poisson rate ratios, and ML baselines."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-generalized-linear-models)

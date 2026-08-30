@@ -10,7 +10,7 @@ series:
   order: 4
 tldr: "機率題的難點常在視角，不在公式。這篇用事件、條件機率、獨立與 Bayes rule，說明考題如何從原因到結果、再從結果反推原因。"
 description: "統計學機率基礎導讀：如何分辨事件、條件機率、獨立、互斥與 Bayes rule，並理解它們在分類模型 precision、recall 和 base rate 中的用途。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-probability-basics-en)

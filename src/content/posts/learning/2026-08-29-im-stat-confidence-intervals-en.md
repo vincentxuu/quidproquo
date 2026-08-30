@@ -10,7 +10,7 @@ series:
   order: 9
 tldr: "A confidence interval puts a point estimate back inside sampling fluctuation. Computing bounds is only the first step; you also need to explain standard error, critical values, and coverage."
 description: "A beginner guide to confidence intervals: mean t intervals, proportion intervals, correct interpretation, and uncertainty reports for model accuracy."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-confidence-intervals)

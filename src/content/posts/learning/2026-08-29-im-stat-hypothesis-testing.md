@@ -10,7 +10,7 @@ series:
   order: 10
 tldr: "假設檢定是一套在不確定資料中做決策的流程：先寫 H0/H1，再用檢定統計量與 p 值判斷資料是否足夠反駁原假設。"
 description: "假設檢定入門：H0/H1、alpha、p 值、t 檢定、第一型與第二型錯誤，以及模型比較中的檢定思維。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-hypothesis-testing-en)

@@ -10,7 +10,7 @@ series:
   order: 11
 tldr: "Two-group comparisons start by classifying the outcome and the design: numeric or binary, independent or paired. That choice determines the standard error, test statistic, and conclusion."
 description: "A beginner guide to two-sample comparisons: independent means, Welch t, paired comparisons, two-proportion differences, and paired design in ML/AI evaluation."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-two-sample-comparisons)

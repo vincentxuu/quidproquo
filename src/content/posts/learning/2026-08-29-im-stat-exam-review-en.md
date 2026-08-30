@@ -10,7 +10,7 @@ series:
   order: 20
 tldr: "At the final review stage, train problem recognition: identify data type, unknown quantity, and decision goal before choosing a formula and writing a contextual conclusion."
 description: "A Layer One statistics exam review: 30-second tool selection, 14-day schedule, mistake classification, and ML/AI evaluation problem analysis."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-exam-review)

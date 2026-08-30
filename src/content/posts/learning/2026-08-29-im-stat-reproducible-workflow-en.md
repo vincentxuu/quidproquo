@@ -10,7 +10,7 @@ series:
   order: 51
 tldr: "A reproducible workflow preserves the evidence chain from data to conclusion. Results need data versions, code, seeds, environment, metrics, and raw outputs."
 description: "Statistics from Exams to ML/AI, post 51: reproducible statistical workflow, dataset versioning, random seeds, metric definitions, evaluation pipelines, and raw traces."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-reproducible-workflow)

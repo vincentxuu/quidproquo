@@ -10,7 +10,7 @@ series:
   order: 40
 tldr: "變數選擇怎麼避免把訓練資料背起來？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 40 篇：變數選擇怎麼避免把訓練資料背起來？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-variable-selection-en)

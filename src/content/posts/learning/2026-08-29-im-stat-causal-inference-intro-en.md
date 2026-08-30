@@ -10,7 +10,7 @@ series:
   order: 45
 tldr: "Causal inference separates prediction from effect. A model can predict who will buy without proving that an intervention will make them buy."
 description: "Statistics from Exams to ML/AI, post 45: causal inference, counterfactuals, treatment effects, confounders, randomized experiments, and ML/AI policy evaluation."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-causal-inference-intro)

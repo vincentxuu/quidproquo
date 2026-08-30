@@ -16,9 +16,65 @@ export interface SeriesSummary {
   name: string;
   slug: string;
   description: string;
+  category: SeriesCategoryId;
   posts: SeriesPost[];
   count: number;
   latestDate: Date;
+}
+
+export type SeriesCategoryId =
+  | 'ai-agents'
+  | 'courses'
+  | 'engineering'
+  | 'learning-research'
+  | 'product-career'
+  | 'industry-projects'
+  | 'updates';
+
+export interface SeriesCategoryDefinition {
+  id: SeriesCategoryId;
+  labels: Record<Lang, string>;
+}
+
+export const SERIES_CATEGORIES: SeriesCategoryDefinition[] = [
+  { id: 'ai-agents', labels: { 'zh-TW': 'AI 與 Agent', en: 'AI & Agents' } },
+  { id: 'courses', labels: { 'zh-TW': '課程導讀', en: 'Course Guides' } },
+  { id: 'engineering', labels: { 'zh-TW': '工程與工具', en: 'Engineering & Tools' } },
+  { id: 'learning-research', labels: { 'zh-TW': '學習與研究', en: 'Learning & Research' } },
+  { id: 'product-career', labels: { 'zh-TW': '產品與職涯', en: 'Product & Career' } },
+  { id: 'industry-projects', labels: { 'zh-TW': '產業與專案', en: 'Industry & Projects' } },
+  { id: 'updates', labels: { 'zh-TW': '趨勢與日報', en: 'Updates & Digests' } },
+];
+
+function inferSeriesCategory(slug: string, posts: SeriesPost[]): SeriesCategoryId {
+  if (/(?:daily|digest|changelog|tracker|pricing-watch|security-alert|tool-of-the-day|funding|region-focus|weekly-review|arxiv|github)/.test(slug)) {
+    return 'updates';
+  }
+  if (/^(?:stanford-|harvard-|reading-harvard|mit-|reading-mit|berkeley-|cmu-|reading-cmu|cs\d|global-ai.*course|ai-cs$|statistics-ml-ai$)/.test(slug)) {
+    return 'courses';
+  }
+  if (/(?:interview|cert-prep|media-company)/.test(slug)) return 'product-career';
+  if (/(?:drone-industry|nobodyclimb)/.test(slug)) return 'industry-projects';
+  if (/(?:statistics|taste-cultivation|learning-how-to-learn|top-conferences)/.test(slug)) {
+    return 'learning-research';
+  }
+  if (/(?:cloudflare|search|scraping|document-parsing|private-corpus|browser-automation|self-hosted|tech-stack|aeo-geo)/.test(slug)) {
+    return 'engineering';
+  }
+
+  const categoryCounts = new Map<string, number>();
+  for (const post of posts) {
+    categoryCounts.set(post.data.category, (categoryCounts.get(post.data.category) ?? 0) + 1);
+  }
+  const dominantPostCategory = [...categoryCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0];
+
+  if (dominantPostCategory === 'daily') return 'updates';
+  if (dominantPostCategory === 'learning' || dominantPostCategory === 'education') return 'learning-research';
+  if (['career', 'product', 'marketing', 'design'].includes(dominantPostCategory ?? '')) return 'product-career';
+  if (dominantPostCategory === 'tech') return 'engineering';
+  if (dominantPostCategory === 'ai') return 'ai-agents';
+  return 'industry-projects';
 }
 
 // slug 是系列的身分：zh 與 en 版共用同一個 slug，只差 /en 前綴，中英切換才接得起來。
@@ -606,6 +662,7 @@ export function getSeriesSummaries(posts: Post[], lang: Lang, now = new Date()):
         name,
         slug: meta.slug,
         description: meta.descriptions[lang],
+        category: inferSeriesCategory(meta.slug, orderedPosts),
         posts: orderedPosts,
         count: orderedPosts.length,
         latestDate,

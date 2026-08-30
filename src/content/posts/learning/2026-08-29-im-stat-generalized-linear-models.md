@@ -10,7 +10,7 @@ series:
   order: 38
 tldr: "GLM 怎麼依資料型態選分布和 link function？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 38 篇：GLM 怎麼依資料型態選分布和 link function？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-generalized-linear-models-en)

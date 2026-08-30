@@ -10,7 +10,7 @@ series:
   order: 46
 tldr: "Matching and weighting do not turn observational data into a true experiment. They try to make treatment and control comparable on observed variables."
 description: "Statistics from Exams to ML/AI, post 46: propensity scores, matching, inverse probability weighting, balance, overlap, logged data, and ML policy evaluation."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-matching-weighting)

@@ -10,7 +10,7 @@ series:
   order: 7
 tldr: "期望值描述長期平均，變異數描述波動大小。這篇用離散分布算例說明 E[X]、E[X^2]、Var(X)，並接到平均 loss 和模型穩定度。"
 description: "統計學期望值與變異數導讀：如何計算 E[X]、E[X^2]、Var(X)，理解線性轉換與獨立加總，並接到 ML/AI 的 loss 和 variance。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-expectation-variance-en)

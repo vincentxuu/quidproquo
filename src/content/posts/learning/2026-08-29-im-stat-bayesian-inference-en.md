@@ -10,7 +10,7 @@ series:
   order: 33
 tldr: "Bayesian inference updates uncertainty about an unknown parameter by combining prior belief with the likelihood from observed data, producing a posterior distribution."
 description: "A guide to Bayesian inference: prior, likelihood, posterior, conjugate Beta-Binomial updating, credible intervals, and uncertainty-aware ML/AI decisions."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-bayesian-inference)

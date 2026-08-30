@@ -10,7 +10,7 @@ series:
   order: 30
 tldr: "Large-sample normal approximation describes the behavior of estimators, not raw data. It is useful, but dependence, boundaries, and distribution shift can make it unreliable."
 description: "A guide to asymptotic normality: sqrt(n) scaling, standard errors, large-sample intervals, failure modes, and uncertainty in large ML/AI evaluations."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-asymptotic-normality)

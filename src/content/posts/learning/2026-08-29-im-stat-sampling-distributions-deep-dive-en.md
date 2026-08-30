@@ -10,7 +10,7 @@ series:
   order: 22
 tldr: "A sampling distribution describes how a statistic fluctuates under repeated sampling. Means, proportions, and variances each connect to common distributions used in intervals and tests."
 description: "A deeper guide to sampling distributions: sample means, sample proportions, sample variances, chi-square, CLT, and uncertainty in model evaluation metrics."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-sampling-distributions-deep-dive)

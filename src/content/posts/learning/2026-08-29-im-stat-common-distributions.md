@@ -10,7 +10,7 @@ series:
   order: 6
 tldr: "分布不是公式清單，而是資料生成情境的名字。這篇用 Bernoulli、Binomial、Normal、Poisson 說明如何從題目敘述選分布。"
 description: "統計學常見分布導讀：如何判斷 Bernoulli、Binomial、Normal、Poisson 何時適用，並理解它們在 label、count event、誤差與模型評估中的角色。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-common-distributions-en)

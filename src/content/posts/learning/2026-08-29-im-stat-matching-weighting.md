@@ -10,7 +10,7 @@ series:
   order: 46
 tldr: "Matching 和 weighting 怎麼讓觀察資料比較像實驗？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 46 篇：Matching 和 weighting 怎麼讓觀察資料比較像實驗？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-matching-weighting-en)

@@ -10,7 +10,7 @@ series:
   order: 26
 tldr: "Fisher information 用 likelihood 的曲率衡量資料對參數的定位能力；資訊越大，MLE 的標準誤通常越小。"
 description: "Fisher information 入門：score、curvature、observed information、standard error，以及 ML uncertainty 與 natural gradient 的連接。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-fisher-information-standard-error-en)

@@ -10,7 +10,7 @@ series:
   order: 8
 tldr: "Sampling makes sample statistics fluctuate, and standard error describes that fluctuation. This post separates SD, SE, sampling distributions, and CLT, then connects them to benchmark uncertainty."
 description: "A beginner guide to sampling, standard error, and the central limit theorem: how sample means fluctuate, how SD differs from SE, and why ML/AI benchmark scores need uncertainty."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-sampling-clt)

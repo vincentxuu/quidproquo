@@ -10,7 +10,7 @@ series:
   order: 37
 tldr: "Logistic regression estimates probabilities first. Classification decisions come later, when thresholds turn those probabilities into actions under real error costs."
 description: "Statistics from Exams to ML/AI, post 37: log odds, odds ratios, likelihood, binary cross entropy, thresholds, calibration, and classification error costs."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-logistic-regression-deep-dive)

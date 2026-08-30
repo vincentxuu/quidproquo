@@ -10,7 +10,7 @@ series:
   order: 27
 tldr: "The likelihood-ratio test compares the log likelihood of a restricted model with a full model; the usual chi-square reference only makes sense under nested-model and approximation conditions."
 description: "A beginner guide to the likelihood-ratio test: full model, restricted model, nested condition, chi-square approximation, and ML model comparison."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-likelihood-ratio-test)

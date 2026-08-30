@@ -10,7 +10,7 @@ series:
   order: 34
 tldr: "MAP maximizes the posterior. After taking logs, the prior becomes a penalty term, which connects Bayesian estimation to L1, L2, and regularized ML objectives."
 description: "A guide to MAP and regularization: posterior maximization, Gaussian priors, L2 penalty, Laplace priors, L1 penalty, and validation-based regularization strength."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-map-regularization)

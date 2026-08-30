@@ -10,7 +10,7 @@ series:
   order: 53
 tldr: "The series does not finish all of statistics. It gives beginners a working map for exams, ML/AI evaluation, causality, Bayesian thinking, time series, and mathematical statistics."
 description: "Statistics from Exams to ML/AI, post 53: the full learning map, exam prep path, ML evaluation path, causality path, Bayesian path, time-series path, and mathematical statistics path."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-series-map-next-steps)

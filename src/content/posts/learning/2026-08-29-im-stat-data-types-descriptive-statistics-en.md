@@ -10,7 +10,7 @@ series:
   order: 3
 tldr: "Data type determines the statistical tools you can use. Start with categorical, numeric, count, and time-ordered data, then choose summaries that fit the question."
 description: "A beginner guide to data types and descriptive statistics: how to inspect variables, choose summaries, and connect dataset checks to ML evaluation."
-draft: true
+draft: false
 ---
 
 > [Mandarin version](/posts/learning/2026-08-29-im-stat-data-types-descriptive-statistics)

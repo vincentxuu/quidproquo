@@ -10,7 +10,7 @@ series:
   order: 13
 tldr: "ANOVA first checks whether three or more group means differ overall, so you do not inflate false-positive risk by running many pairwise t tests."
 description: "A beginner guide to ANOVA: multi-group mean comparison, between-group and within-group variation, the F statistic, and model or prompt experiments in ML/AI."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-anova)

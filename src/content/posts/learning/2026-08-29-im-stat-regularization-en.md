@@ -10,7 +10,7 @@ series:
   order: 41
 tldr: "Regularization adds a preference against extreme parameters. Ridge, Lasso, and weight decay trade some training fit for a model that generalizes more reliably."
 description: "Statistics from Exams to ML/AI, post 41: Ridge, Lasso, L1/L2 penalties, weight decay, validation tuning, and the bias-variance tradeoff."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-regularization)

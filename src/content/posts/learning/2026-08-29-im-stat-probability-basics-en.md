@@ -10,7 +10,7 @@ series:
   order: 4
 tldr: "Probability problems are often hard because the viewpoint changes. Define events first, then distinguish conditioning, independence, mutual exclusivity, and Bayes' rule."
 description: "A beginner guide to probability basics: events, conditional probability, independence, mutual exclusivity, Bayes' rule, and their link to precision, recall, and base rates."
-draft: true
+draft: false
 ---
 
 > [Mandarin version](/posts/learning/2026-08-29-im-stat-probability-basics)

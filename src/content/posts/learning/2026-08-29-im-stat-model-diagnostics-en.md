@@ -10,7 +10,7 @@ series:
   order: 39
 tldr: "Model diagnostics turn fitted errors into evidence: residual patterns, outliers, leverage, and influential points reveal how a model fails."
 description: "Statistics from Exams to ML/AI, post 39: residual plots, outliers, leverage, Cook distance, diagnostics, and ML error analysis."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-model-diagnostics)

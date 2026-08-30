@@ -10,7 +10,7 @@ series:
   order: 22
 tldr: "抽樣分配描述統計量在重複抽樣下的波動；平均、比例、變異數各有常用分布，信賴區間和檢定都從這裡長出來。"
 description: "抽樣分配深入導讀：樣本平均、樣本比例、樣本變異數、chi-square、CLT，以及模型評估指標的不確定性。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-sampling-distributions-deep-dive-en)

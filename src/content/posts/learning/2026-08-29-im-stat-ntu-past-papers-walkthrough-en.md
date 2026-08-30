@@ -10,7 +10,7 @@ series:
   order: 19
 tldr: "Past papers train question-analysis discipline, not fortune-telling. Each problem should return to data type, unknown quantity, statistical tool, calculation path, and contextual conclusion."
 description: "A guide to using NTU IM 114-115 statistics past papers: how to analyze prompts, avoid overgeneralizing from two years, and connect questions back to the full statistics map."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-ntu-past-papers-walkthrough)

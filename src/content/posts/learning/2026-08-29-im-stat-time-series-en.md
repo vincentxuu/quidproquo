@@ -10,7 +10,7 @@ series:
   order: 47
 tldr: "Time-series data have order. Random splits can leak future information into training and make forecasting or monitoring results look better than they are."
 description: "Statistics from Exams to ML/AI, post 47: trend, seasonality, autocorrelation, lag, moving average, rolling validation, forecasting, monitoring, and drift detection."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-time-series)

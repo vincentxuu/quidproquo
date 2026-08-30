@@ -10,7 +10,7 @@ series:
   order: 5
 tldr: "隨機變數把事件結果轉成數字。這篇用 PMF、PDF、CDF 說明離散與連續機率怎麼計算，並接到模型分數、threshold 和 token 機率分布。"
 description: "統計學隨機變數導讀：如何分辨 PMF、PDF、CDF，計算離散與連續機率，並理解它們在 ML/AI score distribution 和 token sampling 的用途。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-random-variables-en)

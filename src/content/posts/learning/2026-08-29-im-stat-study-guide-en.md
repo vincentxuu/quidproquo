@@ -10,7 +10,7 @@ series:
   order: 1
 tldr: "Do not start statistics exam prep by memorizing formulas. Start with the sequence of data, probability, sampling, inference, regression, then connect those ideas to model evaluation, A/B testing, and uncertainty in ML/AI."
 description: "A beginner-friendly starting point for statistics: how to build a study order from exam recognition to data, probability, sampling, inference, regression, and ML/AI evaluation."
-draft: true
+draft: false
 ---
 
 > [Mandarin version](/posts/learning/2026-08-29-im-stat-study-guide)

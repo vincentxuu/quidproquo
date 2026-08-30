@@ -10,7 +10,7 @@ series:
   order: 3
 tldr: "資料型態決定你能用什麼統計工具。這篇從類別、數值、計數與時間資料開始，說明平均數、比例、變異數、列聯表在考題和 ML 資料檢查中的用途。"
 description: "統計學初學者看到資料不要先算平均。這篇教你先判斷資料型態，再選描述統計、圖表與後續推論工具，並接到 ML dataset summary。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-data-types-descriptive-statistics-en)

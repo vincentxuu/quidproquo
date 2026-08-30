@@ -10,7 +10,7 @@ series:
   order: 13
 tldr: "ANOVA 先檢查三組以上平均是否有整體差異，避免你用一堆兩兩 t 檢定把 false positive 風險一路放大。"
 description: "ANOVA 入門：從多組平均比較、組間與組內變異、F 統計量，到多模型版本與 prompt 實驗的統計判讀。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-anova-en)

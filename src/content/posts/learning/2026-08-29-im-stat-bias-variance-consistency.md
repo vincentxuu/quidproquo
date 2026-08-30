@@ -10,7 +10,7 @@ series:
   order: 23
 tldr: "bias 看估計中心有沒有歪，variance 看抽樣波動，MSE 合併兩者，consistency 則問樣本變大時估計量會不會靠近真值。"
 description: "點估計品質導讀：bias、variance、MSE、consistency 的定義、手算例題，以及 ML bias-variance tradeoff。"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-bias-variance-consistency-en)

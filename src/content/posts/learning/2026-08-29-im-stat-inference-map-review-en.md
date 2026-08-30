@@ -10,7 +10,7 @@ series:
   order: 35
 tldr: "The inference map starts with the question type: point estimate, uncertainty interval, decision test, likelihood model comparison, Bayesian update, or resampling."
 description: "A Layer Two review of statistical inference: estimation, standard error, confidence intervals, hypothesis tests, likelihood, LRT, Bayes, bootstrap, and ML/AI evaluation reports."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-inference-map-review)

@@ -10,7 +10,7 @@ series:
   order: 37
 tldr: "Logistic regression 怎麼從機率走到 threshold 和錯誤成本？ 這篇會從考試題型、核心直覺、手算例子一路接到 ML/AI 的實際工作流。"
 description: "從考試到 ML/AI 的統計學導讀第 37 篇：Logistic regression 怎麼從機率走到 threshold 和錯誤成本？"
-draft: true
+draft: false
 ---
 
 > [English version](/en/posts/learning/2026-08-29-im-stat-logistic-regression-deep-dive-en)

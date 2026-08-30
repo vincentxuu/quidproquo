@@ -10,7 +10,7 @@ series:
   order: 21
 tldr: "A sample is the data, a statistic is a function of the sample, and a sampling distribution is the distribution of that statistic under repeated sampling."
 description: "A beginner guide to random samples, statistics, sampling distributions, iid assumptions, sample means, standard errors, and why validation metrics are also statistics."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-random-samples-statistics)

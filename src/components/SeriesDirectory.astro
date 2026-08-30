@@ -1,0 +1,228 @@
+---
+import type { Lang } from '../i18n/utils';
+import {
+  getSeriesHref,
+  SERIES_CATEGORIES,
+  type SeriesCategoryId,
+  type SeriesSummary,
+} from '../utils/series';
+
+interface Props {
+  lang: Lang;
+  seriesList: SeriesSummary[];
+}
+
+const { lang, seriesList } = Astro.props;
+const isEn = lang === 'en';
+const counts = new Map<SeriesCategoryId, number>();
+for (const series of seriesList) counts.set(series.category, (counts.get(series.category) ?? 0) + 1);
+const visibleCategories = SERIES_CATEGORIES.filter(category => (counts.get(category.id) ?? 0) > 0);
+---
+
+<section class="series-directory" data-series-directory aria-labelledby="series-directory-title">
+  <header class="directory-header">
+    <p class="directory-kicker">{isEn ? 'Reading paths' : '主題閱讀路徑'}</p>
+    <h1 id="series-directory-title">{isEn ? 'Series' : '系列文章'}</h1>
+    <p>{isEn ? 'Start with the problem you want to solve. You do not need to remember the series name.' : '從你想解決的問題開始，不必先記住系列名稱。'}</p>
+  </header>
+
+  {seriesList.length === 0 ? (
+    <p class="empty">{isEn ? 'No published series yet.' : '目前還沒有已發布的系列文章。'}</p>
+  ) : (
+    <>
+      <div class="category-shelf" role="group" aria-label={isEn ? 'Filter series by category' : '依分類篩選系列'}>
+        <button type="button" class="category-tab active" data-series-filter="all" aria-pressed="true">
+          <span>{isEn ? 'All' : '全部'}</span>
+          <strong>{seriesList.length}</strong>
+        </button>
+        {visibleCategories.map(category => (
+          <button
+            type="button"
+            class="category-tab"
+            data-series-filter={category.id}
+            aria-pressed="false"
+          >
+            <span>{category.labels[lang]}</span>
+            <strong>{counts.get(category.id)}</strong>
+          </button>
+        ))}
+      </div>
+
+      <p class="filter-status" data-series-filter-status aria-live="polite">
+        {isEn ? `${seriesList.length} published series` : `顯示 ${seriesList.length} 個已發布系列`}
+      </p>
+
+      <div class="series-grid">
+        {seriesList.map(series => {
+          const category = SERIES_CATEGORIES.find(item => item.id === series.category)!;
+          return (
+            <a
+              href={getSeriesHref(series.name, lang)}
+              class="series-card"
+              data-series-category={series.category}
+            >
+              <div class="series-meta">
+                <span class="series-category">{category.labels[lang]}</span>
+                <span>{series.count} {isEn ? (series.count === 1 ? 'post' : 'posts') : '篇'}</span>
+                <time datetime={series.latestDate.toISOString()}>{series.latestDate.toLocaleDateString(isEn ? 'en-US' : 'zh-TW')}</time>
+              </div>
+              <h2>{series.name}</h2>
+              <p>{series.description}</p>
+            </a>
+          );
+        })}
+      </div>
+    </>
+  )}
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector('[data-series-directory]');
+    if (!root) return;
+
+    const buttons = [...root.querySelectorAll('[data-series-filter]')];
+    const cards = [...root.querySelectorAll('[data-series-category]')];
+    const status = root.querySelector('[data-series-filter-status]');
+    const validFilters = new Set(buttons.map(button => button.dataset.seriesFilter));
+    const isEnglish = document.documentElement.lang === 'en';
+
+    const applyFilter = (requestedFilter, updateUrl = true) => {
+      const filter = validFilters.has(requestedFilter) ? requestedFilter : 'all';
+      let visibleCount = 0;
+
+      buttons.forEach(button => {
+        const isActive = button.dataset.seriesFilter === filter;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+      cards.forEach(card => {
+        const isVisible = filter === 'all' || card.dataset.seriesCategory === filter;
+        card.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+      if (status) {
+        status.textContent = isEnglish
+          ? `${visibleCount} published series`
+          : `顯示 ${visibleCount} 個已發布系列`;
+      }
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (filter === 'all') url.searchParams.delete('category');
+        else url.searchParams.set('category', filter);
+        window.history.pushState({ seriesCategory: filter }, '', url);
+      }
+    };
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => applyFilter(button.dataset.seriesFilter));
+    });
+    window.addEventListener('popstate', () => {
+      const filter = new URL(window.location.href).searchParams.get('category') || 'all';
+      applyFilter(filter, false);
+    });
+    applyFilter(new URL(window.location.href).searchParams.get('category') || 'all', false);
+  })();
+</script>
+
+<style>
+  .directory-header { margin-bottom: 1.1rem; }
+  .directory-kicker {
+    margin: 0 0 0.25rem;
+    color: var(--brand-500);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  h1 { margin: 0 0 0.35rem; }
+  .directory-header > p:last-child { margin: 0; color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; }
+  .category-shelf {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.65rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .category-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 2.35rem;
+    padding: 0.4rem 0.62rem 0.4rem 0.7rem;
+    border: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    border-radius: 5px;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.73rem;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+  .category-tab:hover { border-color: var(--brand-500); color: var(--text-primary); }
+  .category-tab:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+  .category-tab.active {
+    border-color: var(--border);
+    border-left-color: var(--brand-500);
+    background: var(--brand-100);
+    color: var(--brand-900);
+  }
+  .category-tab strong {
+    min-width: 1.4rem;
+    padding: 0.05rem 0.32rem;
+    border-radius: 999px;
+    background: var(--bg-subtle);
+    color: var(--text-muted);
+    font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
+    font-size: 0.66rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  .category-tab.active strong { background: var(--bg-card); color: var(--brand-700); }
+  .filter-status { margin: 0.65rem 0 0; color: var(--text-muted); font-size: 0.7rem; text-align: right; }
+  .series-grid { display: grid; gap: 0.65rem; margin-top: 0.75rem; }
+  .series-card {
+    display: block;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-card);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+  .series-card:hover { border-color: var(--brand-500); box-shadow: var(--shadow-card-hover); transform: translateY(-1px); }
+  .series-card:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+  .series-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.69rem;
+  }
+  .series-meta time { margin-left: auto; }
+  .series-category {
+    color: var(--brand-700);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .series-category::after { content: '·'; margin-left: 0.45rem; color: var(--border-strong, var(--text-muted)); }
+  h2 { margin: 0 0 0.3rem; color: var(--brand-900); font-size: 1.08rem; }
+  .series-card p { margin: 0; color: var(--text-secondary); font-size: 0.84rem; line-height: 1.65; }
+  .empty { color: var(--text-muted); margin-top: 1.5rem; }
+  [hidden] { display: none !important; }
+
+  @media (max-width: 560px) {
+    .category-tab { flex: 1 1 calc(50% - 0.4rem); justify-content: space-between; }
+    .series-meta { flex-wrap: wrap; }
+    .series-meta time { width: 100%; margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .category-tab,
+    .series-card { transition: none; }
+  }
+</style>

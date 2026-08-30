@@ -10,7 +10,7 @@ series:
   order: 17
 tldr: "Logistic regression connects a linear score to a probability between 0 and 1. Understanding odds, log odds, and odds ratios prevents wrong coefficient interpretations."
 description: "A beginner guide to logistic regression: probability, odds, log odds, sigmoid, odds ratios, classification thresholds, and cross entropy."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-logistic-regression)

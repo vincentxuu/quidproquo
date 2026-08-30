@@ -10,7 +10,7 @@ series:
   order: 12
 tldr: "Chi-square tests compare observed counts with expected counts. First decide whether the problem is goodness-of-fit for one categorical variable or independence for two categorical variables."
 description: "A beginner guide to chi-square tests: goodness-of-fit, independence, expected counts, degrees of freedom, a 2x2 worked example, and ML/AI data-bias checks."
-draft: true
+draft: false
 ---
 
 > [中文版](/posts/learning/2026-08-29-im-stat-chi-square-independence)
