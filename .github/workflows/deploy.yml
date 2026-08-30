@@ -14,9 +14,6 @@ jobs:
   detect-content-index:
     name: Detect content index changes
     runs-on: ubuntu-latest
-    concurrency:
-      group: production-worker-deploy
-      cancel-in-progress: false
     outputs:
       should_sync: ${{ steps.content-index.outputs.should_sync }}
       reason: ${{ steps.content-index.outputs.reason }}
@@ -81,6 +78,9 @@ jobs:
       needs.quality.result == 'success' &&
       (needs.seo-observability.result == 'success' || needs.seo-observability.result == 'skipped')
     runs-on: ubuntu-latest
+    concurrency:
+      group: production-worker-deploy
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
