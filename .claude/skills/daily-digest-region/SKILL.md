@@ -1,15 +1,17 @@
 ---
 name: daily-digest-region
-description: "Routine M: weekly regional AI ecosystem focus for quidproquo.cc/daily. Runs every Friday, deep-dives into 1-2 regions (US/China/Taiwan/Japan-Korea/Europe/Israel/SEA/Middle East/India), picked by coverage-gap priority not just signal volume."
+description: "Routine M: weekly global AI ecosystem focus for quidproquo.cc/daily. Runs every Friday, deep-dives into 1-2 regions across North America, East Asia, Southeast/South Asia, Europe, the Middle East, Africa, Latin America, and Oceania, picked by coverage-gap priority rather than signal volume."
 ---
 
 # daily-digest-region
 
 每週五執行。從本週的信號和補充搜尋中，選出最需要補寫的 1-2 個區域深入寫。必含對台灣創業者的啟示。
 
-**候選區域包含美國（F0）**：Anthropic/OpenAI/Google/Microsoft/Meta 等 A1 大廠雖然天天在 daily 有個別報導，但那是「以公司/模型為單位」的報導，不等於「以區域生態系為單位」的整體觀察（政策、投資氛圍、產業結構）。同類媒體（如 IAPP 的區域 newsletter、AI Aura Index）多半把美國列為固定比較的區域之一，不是隱藏的預設基準，所以 F0 美國比照 F1-F8 一起參與週選。
+**候選區域涵蓋全球矩陣**：北美（美國、加拿大）、中國、台灣、日韓、東南亞、印度／南亞、歐洲、中東（含以色列）、非洲、拉丁美洲、大洋洲。Anthropic/OpenAI/Google/Microsoft/Meta 等 A1 大廠雖然天天在 daily 有個別報導，但那不等於「以區域生態系為單位」的政策、投資與產業結構觀察，所以美國仍參與週選；同理，watchlist 公司少的非洲、拉丁美洲與大洋洲不能因訊號量小就被排除。
 
-**選區邏輯是「覆蓋缺口優先」，不是單純信號量最高者勝**：F1 中國、F2 台灣 watchlist 公司數最多（各 14 家），信號量結構性地比 F4-F8（各 1-4 家）高，若單純比信號量，中國/台灣會幾乎每週勝出，歐洲/以色列/中東/印度這些「daily 本來就少提到」的區域反而永遠輪不到——這正好違背 region 篇「補 daily 沒覆蓋到的地方」的本意。因此改成優先選「最久沒被 region 篇寫過」的區域，信號量只在缺口相近時當 tie-breaker。
+**選區邏輯是「覆蓋缺口優先」，不是單純信號量最高者勝**：中國、台灣、美國的 watchlist 公司多，信號量結構性地高；若單純比信號量，非洲、拉丁美洲、大洋洲、加拿大與南亞會永遠輪不到。優先選「最久沒被 region 篇寫過」的區域，信號量只在缺口相近時當 tie-breaker。
+
+**以色列的分類**：地理覆蓋統計一律把 `IL` 歸入 `middle-east`。既有 `region-israel` 文章與 slug 保留，不改 URL；計算覆蓋缺口時，它視為中東的一次 country focus，不再把「以色列」和「中東」當成互斥的兩個母區域。
 
 **信號量統計用 `region` 欄位分組，不是靠 `section` 前綴**：watchlist 每家公司本來就有 `region`（國家代碼，如 `FR`/`DE`/`IL`）欄位。舊邏輯只認 `section` 開頭是 `F` 的公司才算進區域信號量，但 Mistral（`A2`/`FR`）、Aleph Alpha（`A2`/`DE`）、Qdrant（`C3`/`DE`）、Poolside（`B1`/`FR`）這些歐洲公司都不是 F-section，會被漏算，導致歐洲信號量長期被低估。改成直接用 `region` 欄位分組，不需要另外幫每家公司補標 F-section。
 
@@ -31,8 +33,9 @@ ls src/content/posts/daily/${TODAY}-region-*.md 2>/dev/null && echo "已有 regi
 # Step 4: 讀 watchlist 全部公司，依 region 欄位（國家代碼）分組——見下方「區域 slug 對應」表
 cat src/data/agent-watchlist.json | jq '[.companies[] | {name, slug, region}] | group_by(.region)'
 
-# Step 4b: 算覆蓋缺口 —— 每個 region slug 上次被寫距今幾週（沒寫過 = 無限久，最優先）
+# Step 4b: 算覆蓋缺口 —— 每個 canonical region slug 上次被寫距今幾週（沒寫過 = 無限久，最優先）
 # 只看 zh-TW 檔（排除 -en 版本，避免同一篇被算兩次）
+# `region-israel` 在統計時正規化成 `middle-east`，但不改既有檔名或 URL。
 ls src/content/posts/daily/*-region-*.md 2>/dev/null | grep -v -- '-en\.md$' | sed -E 's#.*/([0-9-]+)-region-([a-z-]+)\.md#\2 \1#' | sort -k1,1 -k2,2r | awk '!seen[$1]++'
 
 # Step 5: 讀取本週 signals，篩選區域相關
@@ -59,10 +62,10 @@ done
 ```
 
 篩選邏輯：
-- `companies` 欄位裡的公司 slug，查 watchlist 對應的 `region`（國家代碼），再依下方「區域 slug 對應」表歸入 F0-F8 → 該信號屬於對應區域
-- `category` 為 `region-news` → 直接歸入區域
-- 統計每個區域（F0-F8）本週的信號數量
-- 國家代碼不在對應表裡（如 CA、AU）→ 不計入任何區域候選，維持只在 daily 個別公司報導範圍內
+- `companies` 欄位裡的公司 slug，查 watchlist 對應的 `region`（國家代碼），再依下方「區域 slug 對應」表歸入 canonical region
+- `category` 為 `region-news` 且 `companies` 為空時，從 title、summary 與來源國家判斷地理區域；無法可靠判斷才標為未分類，不可任意歸區
+- 統計每個 canonical region 本週的信號數量
+- 國家代碼不在表內時，依 ISO 國家所屬宏觀區域補入最接近的 canonical region；不再排除加拿大、澳洲、非洲或拉丁美洲國家
 
 ---
 
@@ -86,7 +89,7 @@ done
 
 ### Step 6：對每個區域做 1 組補充搜尋
 
-用 Groundlane `web_search` 搜尋，每組取 5 則。**只搜尋 Step 4b 算出缺口最大的前 3 名區域**（節省 API 額度）。中文/台灣區域加重 Tavily（中文效果較好）。
+用 Groundlane `web_search` 搜尋，每組取 5 則。**只搜尋 Step 4b 算出缺口最大的前 3 名 canonical region**（節省 API 額度）。中文/台灣區域可指定中文效果較好的 Groundlane provider，但仍只能透過 Groundlane MCP 呼叫。
 
 #### F0 美國
 
@@ -97,6 +100,12 @@ done
 | `AI agent policy OR regulation United States 2026` | 美國聯邦/州級 AI 政策動態 |
 | `AI startup funding ecosystem Silicon Valley 2026` | 矽谷投資氛圍、新創生態 |
 | `AI agent enterprise adoption United States 2026` | 企業採用面的宏觀趨勢 |
+
+#### F0b 加拿大
+
+| query | 目標 |
+|---|---|
+| `Canada AI agent policy startup funding ecosystem 2026` | 加拿大政策、投資與企業採用 |
 
 #### F1 中國
 
@@ -138,11 +147,13 @@ done
 | `"EU AI Act" 2026 enforcement OR compliance` | EU AI Act 進展 |
 | `Aleph Alpha OR Dust OR Poolside AI 2026` | 歐洲 AI 公司 |
 
-#### F5 以色列
+#### F5 以色列（中東的 country-focus 子查詢）
 
 | query | 目標 |
 |---|---|
 | `Zenity OR AI21 OR Lightricks AI agent 2026` | 以色列 AI 公司 |
+
+此查詢命中的信號與既有 `region-israel` 文章，都計入 `middle-east` 的覆蓋與信號量；需要以國家為主題時仍可沿用 `israel` slug。
 
 #### F6 東南亞
 
@@ -151,17 +162,38 @@ done
 | `"Sea Group" OR Grab OR "Pints AI" AI agent 2026` | 東南亞大廠 |
 | `MAS AI governance OR "AI Singapore" 2026` | 新加坡政策 |
 
-#### F7 印度
+#### F7 印度／南亞
 
 | query | 目標 |
 |---|---|
 | `Emergent OR Krutrim OR "Sarvam AI" 2026` | 印度 AI 新創 |
+| `(Pakistan OR Bangladesh OR Sri Lanka) AI agent policy startup 2026` | 其他南亞市場 |
 
 #### F8 中東
 
 | query | 目標 |
 |---|---|
-| `G42 OR MBZUAI OR SDAIA AI 2026` | 中東 AI 機構 |
+| `G42 OR MBZUAI OR SDAIA OR AI21 OR Zenity AI 2026` | 中東 AI 機構與以色列公司 |
+| `(Israel OR Saudi Arabia OR UAE OR Qatar) AI agent policy funding 2026` | 中東政策、投資與企業採用 |
+
+#### F9 非洲
+
+| query | 目標 |
+|---|---|
+| `(South Africa OR Nigeria OR Kenya OR Egypt) AI agent startup funding policy 2026` | 非洲主要 AI 生態系 |
+| `Africa AI governance local language model agent 2026` | 泛非治理與在地語言模型 |
+
+#### F10 拉丁美洲
+
+| query | 目標 |
+|---|---|
+| `(Brazil OR Mexico OR Chile OR Colombia OR Argentina) AI agent startup funding policy 2026` | 拉丁美洲政策、投資與企業採用 |
+
+#### F11 大洋洲
+
+| query | 目標 |
+|---|---|
+| `(Australia OR New Zealand) AI agent policy startup funding 2026` | 澳洲／紐西蘭治理與生態 |
 
 ---
 
@@ -180,16 +212,19 @@ done
 | Section | slug | 中文名 | 英文名 | 涵蓋 `region` 國家代碼 |
 |---|---|---|---|---|
 | F0 | `us` | 美國 | United States | `US` |
+| F0b | `canada` | 加拿大 | Canada | `CA` |
 | F1 | `china` | 中國 | China | `CN` |
 | F2 | `taiwan` | 台灣 | Taiwan | `TW` |
 | F3 | `japan-korea` | 日韓 | Japan & Korea | `JP`, `KR` |
 | F4 | `europe` | 歐洲 | Europe | `DE`, `FR`, `UK`, `NL`, `SE`, `CH`, `CZ`, `IE`（及其他歐盟/英國國家代碼） |
-| F5 | `israel` | 以色列 | Israel | `IL` |
 | F6 | `southeast-asia` | 東南亞 | Southeast Asia | `SG`（及其他東南亞國家代碼，如 `ID`/`VN`/`TH`/`PH`/`MY`） |
-| F7 | `india` | 印度 | India | `IN` |
-| F8 | `middle-east` | 中東 | Middle East | `AE`, `SA`（及其他波灣國家代碼，如 `QA`） |
+| F7 | `india-south-asia` | 印度／南亞 | India & South Asia | `IN`, `PK`, `BD`, `LK`, `NP` |
+| F8 | `middle-east` | 中東（含以色列） | Middle East (including Israel) | `IL`, `AE`, `SA`, `QA`, `BH`, `KW`, `OM`, `JO`, `LB` 等 |
+| F9 | `africa` | 非洲 | Africa | `ZA`, `NG`, `KE`, `EG`, `GH`, `RW`, `MA` 等非洲國家代碼 |
+| F10 | `latin-america` | 拉丁美洲 | Latin America | `BR`, `MX`, `CL`, `CO`, `AR`, `PE` 等中南美洲國家代碼 |
+| F11 | `oceania` | 大洋洲 | Oceania | `AU`, `NZ` 及其他大洋洲國家代碼 |
 
-不在此表的國家代碼（如 `CA` 加拿大、`AU` 澳洲）不計入 region 篇候選。
+相容規則：既有 `israel` slug 保留並計入 `middle-east` 覆蓋；既有 `india` slug 保留並計入 `india-south-asia` 覆蓋。不要改既有文章 slug 或 URL。新文章優先使用 canonical slug。其他國家代碼依 ISO 所屬宏觀區域歸類，不得因不在範例列舉中而排除。
 
 ---
 
@@ -345,6 +380,7 @@ CAC 的管理辦法則增加了新的競爭門檻（五力的「進入壁壘」�
 - [ ] 「深度分析」使用了至少 1 個 MIS 框架（明確標記）
 - [ ] 「對台灣創業者的啟示」給的是具體建議（「如果你在做 X：Y」），不是泛泛的「值得關注」
 - [ ] 「今日收穫」是認知差
-- [ ] region slug 正確（us/china/taiwan/japan-korea/europe/israel/southeast-asia/middle-east/india）
+- [ ] region slug 正確（us/canada/china/taiwan/japan-korea/europe/southeast-asia/india-south-asia/middle-east/africa/latin-america/oceania；israel/india 僅供既有 URL 相容）
+- [ ] 全球覆蓋缺口統計沒有排除 CA、AU、NZ、非洲或拉丁美洲國家；IL 已計入 middle-east
 - [ ] `description` 和 `tldr` 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）

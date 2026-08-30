@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-30-ai-agent-daily-en)
+> 🌏 [English version](/posts/daily/2026-08-30-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -85,16 +85,40 @@ Cursor 被 SpaceX 收購後遭 OpenAI 斷 API，OpenAI 自己則在往「持續�
 **中國**
 ByteDance Seedance 2.0 上線後，中國 2026 年 Q1 已有約 12.8 萬部短劇上線（是 2025 全年三倍），95% 為 AI 生成，一分鐘成本僅 90–120 美元，演員與直播主開始被迫「蒸餾」聲音與外型供 AI 工具使用。（[來源](https://the-decoder.com/ai-generated-videos-are-already-displacing-actors-and-livestreamers-across-chinas-entertainment-industry/)）
 
-**日韓**
-LINE Yahoo 宣布把既有 AI 服務獨立成單一 App「Agent i」，10 月在日本上線，並揭露旗下 AI agent 導購流通占比 7 月已達整體兩成。（[來源](https://www.sankei.com/article/20260828-RJSFTQBT3VMEPN5EQIQZX4TG4U/)）韓國新創週報則點名 LG 電子投種子輪給企業 AI 程式平台 MachineFlow。（[來源](https://en.wowtale.net/2026/08/29/234933/)）
+**日本**
+LINE Yahoo 宣布把既有 AI 服務獨立成單一 App「Agent i」，10 月在日本上線，並揭露旗下 AI agent 導購流通占比 7 月已達整體兩成。（[來源](https://www.sankei.com/article/20260828-RJSFTQBT3VMEPN5EQIQZX4TG4U/)）
+
+**韓國**
+韓國新創週報則點名 LG 電子投種子輪給企業 AI 程式平台 MachineFlow。（[來源](https://en.wowtale.net/2026/08/29/234933/)）
+
+**印度**
+Sarvam AI 的 B 輪從原訂 2–2.5 億美元擴大到 3 億美元、估值 15 億美元，由 HCLTech 領投、Nvidia 跟投；孟買 AI 雲端新創 Neysa 同週完成 3,000 萬美元募資。（[來源](https://www.moneycontrol.com/artificial-intelligence/india-s-ai-funding-momentum-gathers-pace-as-startups-draw-bigger-growth-cheques-article-14017918.html)、[來源](https://economictimes.indiatimes.com/tech/startups/ai-startup-neysa-raises-30-million-in-funding-round-led-by-nttvc-others/articleshow/114432414.cms)）
+
+**東南亞（新加坡）**
+新加坡法務部與智慧財產局 8 月 26 日啟動 AI 與智財制度公開諮詢，議題涵蓋 AI 訓練資料例外、生成內容侵權責任，以及人機共同發明時的專利認定。（[來源](https://www.mlaw.gov.sg/public-consultation-on-artificial-intelligence-and-singapore-s-intellectual-property-regime/)）
+
+**歐洲**
+歐盟執委會更新 AI Act 執法框架：AI Office 與各國主管機關的調查、裁罰權已自 8 月 2 日生效，涵蓋通用 AI 模型義務、部分禁止行為與透明度要求；高風險系統規則則依類型延至 2027、2028 年生效。（[來源](https://digital-strategy.ec.europa.eu/en/policies/enforcement-ai-act)）
+
+**中東**
+Mistral 與沙烏地阿拉伯 HUMAIN 宣布數億歐元規模的主權 AI 合作，涵蓋區域算力、阿拉伯語模型，以及資安與語音應用，並鎖定受監管產業的在地部署。（[來源](https://mistral.ai/news/mistral-x-humain/)）
+
+**非洲（南非）**
+開普敦新創 Verascient 完成 120 萬美元種子輪，開發讓企業 AI agent 共用時間知識圖譜、權限與工作流程的底層系統，並把工程團隊留在南非擴編。（[來源](https://techmoran.com/2026/08/24/south-africas-verascient-raises-1-2-million-to-build-infrastructure-for-ai-native-businesses/)）
+
+**拉丁美洲（巴西）**
+巴西眾議院科技委員會通過公共安全 AI 草案，要求所有 AI 決策保留人工監督，禁止無人工介入的自動逮捕與無法院命令的大規模監控；草案仍須經後續委員會與兩院審議。（[來源](https://www.camara.leg.br/noticias/1299090-comissao-da-camara-aprova-projeto-que-preve-uso-supervisionado-de-ia-na-seguranca-publica)）
+
+**大洋洲（澳洲）**
+澳洲國會兩院 8 月 20 日成立 AI 聯合特別委員會，將檢查現行法律、資料主權、國安、deepfake、消費者保護與勞動影響，預計 11 月 30 日前提出報告。（[來源](https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Artificial_Intelligence)、[交叉確認](https://www.claytonutz.com/insights/2026/august/from-patchwork-to-playbook-the-joint-select-committee-on-ai-and-what-it-means-for-business)）
+
+本輪也檢索台灣、以色列與紐西蘭，未找到同一時間窗內來源與重要性都足以收錄的獨立事件，因此沒有拿舊聞補版面。
 
 ### 商業案例 / 融資
 
 **Salesforce Q2**：Agentforce 加 Data 360 年經常性營收近 39 億美元（年增逾 210%），Agentforce 單獨突破 15 億美元（年增逾 240%），單季處理 32 億個 agentic work unit。（[來源](https://sunmedia.tw/news/technology/1787873563-Salesforce%20AI%20%E8%A1%A8%E7%8F%BE%E4%BA%AE%E7%9C%BC%E3%80%80%E7%8D%B2%E5%88%A9%E8%88%87%E7%87%9F%E6%94%B6%E5%B1%95%E6%9C%9B%E9%9B%99%E9%9B%99%E4%B8%8A%E4%BF%AE)）
 
 **Palantir**：Q2 美國政府營收年增 90% 達 8.09 億美元，Pentagon 封殺 Anthropic 案敗訴降低了其 13 億美元 Maven 專案在模型層被迫重組的尾部風險。（[來源](https://edgen.tech/news/post/judge-blocks-pentagon-ai-ban-easing-palantirs-13b-maven-risk)）
-
-**Sarvam AI**：印度 B 輪從原訂 2-2.5 億美元擴大到 3 億美元、估值 15 億美元，HCLTech 領投、Nvidia 跟投。（[來源](https://www.moneycontrol.com/artificial-intelligence/india-s-ai-funding-momentum-gathers-pace-as-startups-draw-bigger-growth-cheques-article-14017918.html)）另一家印度 AI 雲新創 **Neysa** 同週完成 3000 萬美元募資。（[來源](https://economictimes.indiatimes.com/tech/startups/ai-startup-neysa-raises-30-million-in-funding-round-led-by-nttvc-others/articleshow/114432414.cms)）
 
 **太空 AI 運算**：2026 年太空新創募資創 203 億美元新高，軌道資料中心成為新投資題材，K2 Space 完成 5 億美元募資，但尚無商用規模的軌道運算服務上線。（[來源](https://www.techtimes.com/articles/325962/20260829/space-startup-funding-hits-record-203b-2026-orbital-compute-leads-surge.htm)）
 
@@ -131,6 +155,10 @@ LINE Yahoo 宣布把既有 AI 服務獨立成單一 App「Agent i」，10 月在
 
 之前以為模型廠商之間的競爭主要發生在能力與定價這兩個維度；今天看到 OpenAI 直接對被競爭對手（SpaceX）收購的 Cursor 動用「拔 API」這種基礎設施層級的商業手段，才意識到模型存取權本身已經變成廠商用來懲罰「你被誰收購」的槓桿——對任何把單一模型供應商當作核心依賴的台灣團隊而言，這代表供應商多元化不只是技術風險管理，也是在管理一個你完全無法控制的商業關係風險。
 
+## 更新紀錄
+
+- 2026-08-30：拆開日本與韓國新聞段落，完成全球區域覆蓋稽核，補入印度、新加坡、歐洲、中東、南非、巴西與澳洲動態。
+
 ## 參考資料
 
 - [OpenAI Hugging Face Incident Technical Report — Axios 報導](https://www.axios.com/2026/08/26/openai-hugging-face-technical-report-ai-hack)
@@ -155,6 +183,13 @@ LINE Yahoo 宣布把既有 AI 服務獨立成單一 App「Agent i」，10 月在
 - [Sourcegraph: a smarter way to run code migrations](https://sourcegraph.com/blog/a-smarter-way-to-run-code-migrations-with-less-llm-context)
 - [Sarvam AI funding momentum — Moneycontrol](https://www.moneycontrol.com/artificial-intelligence/india-s-ai-funding-momentum-gathers-pace-as-startups-draw-bigger-growth-cheques-article-14017918.html)
 - [Neysa raises $30M — Economic Times](https://economictimes.indiatimes.com/tech/startups/ai-startup-neysa-raises-30-million-in-funding-round-led-by-nttvc-others/articleshow/114432414.cms)
+- [The enforcement framework of the AI Act — European Commission](https://digital-strategy.ec.europa.eu/en/policies/enforcement-ai-act)
+- [Mistral x HUMAIN — Mistral AI](https://mistral.ai/news/mistral-x-humain/)
+- [Public Consultation on AI and Singapore's IP Regime — Singapore Ministry of Law](https://www.mlaw.gov.sg/public-consultation-on-artificial-intelligence-and-singapore-s-intellectual-property-regime/)
+- [South Africa's Verascient raises $1.2M — TechMoran](https://techmoran.com/2026/08/24/south-africas-verascient-raises-1-2-million-to-build-infrastructure-for-ai-native-businesses/)
+- [巴西公共安全 AI 草案 — Câmara dos Deputados](https://www.camara.leg.br/noticias/1299090-comissao-da-camara-aprova-projeto-que-preve-uso-supervisionado-de-ia-na-seguranca-publica)
+- [Joint Select Committee on Artificial Intelligence — Parliament of Australia](https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Artificial_Intelligence)
+- [Australia's Joint Select Committee on AI — Clayton Utz](https://www.claytonutz.com/insights/2026/august/from-patchwork-to-playbook-the-joint-select-committee-on-ai-and-what-it-means-for-business)
 - [Space startup funding hits record $20.3B — Tech Times](https://www.techtimes.com/articles/325962/20260829/space-startup-funding-hits-record-203b-2026-orbital-compute-leads-surge.htm)
 - [Korean startup weekly news — WOWTALE](https://en.wowtale.net/2026/08/29/234933/)
 - [Multica — GitHub](https://github.com/multica-ai/multica)

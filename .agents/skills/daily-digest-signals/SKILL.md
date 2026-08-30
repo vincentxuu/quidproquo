@@ -60,15 +60,15 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ## 搜尋方法
 
-三層策略，總共約 56 個查詢（但搜尋 API 只用 15 次）：
+三層策略，總共約 94 次呼叫（搜尋 API 19 次，其餘為已知 URL 直讀）：
 
-1. **廣域主題查詢**（8 個 Tavily）— 不限特定公司，按主題掃全網
-2. **官方 blog 直讀**（41 個 Groundlane `web_fetch`）— 直接抓 blog 列表頁讀日期，0 搜尋配額
-3. **社群 + 區域來源**（Groundlane `web_search`）— HN、Reddit、中文、台灣
+1. **廣域主題查詢**（8 個 Groundlane `web_search`）— 不限特定公司，按主題掃全網
+2. **官方 blog 直讀**（約 75 個 Groundlane `web_fetch`）— 直接抓 blog 列表頁讀日期，0 搜尋配額
+3. **社群 + 全球區域來源**（Groundlane `web_search`）— HN、Reddit，加上東亞、東南亞、南亞、歐洲、中東、非洲、拉丁美洲與大洋洲
 
 所有結果在 Step 6b 用 watchlist 293 家公司名比對，未在第二層的公司靠廣域查詢兜底。
 
-### 第一層：廣域主題查詢（Tavily × 8）
+### 第一層：廣域主題查詢（Groundlane `web_search` × 8）
 
 覆蓋整個 AI 生態，不綁特定公司。
 
@@ -88,12 +88,12 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 7 | `AI agent enterprise deployment case study` | 企業落地 |
 | 8 | `AI regulation policy government` | 法規治理 |
 
-### 第二層：官方 blog 直讀（Groundlane `web_fetch` / firecrawl，0 搜尋配額）
+### 第二層：官方 blog 直讀（Groundlane `web_fetch`，0 搜尋配額）
 
 直接抓每家的 blog 列表頁，讀日期判斷有沒有新文章。不用搜尋 API。
 
 ```
-工具：Groundlane `web_fetch`（優先）→ firecrawl（Groundlane `web_fetch` 被擋時 fallback）
+工具：Groundlane `web_fetch`。若直讀被擋，可調整同一工具的 `render`／timeout／output 上限；仍失敗就記錄該來源無法確認，不得改用 legacy 抓取工具。
 prompt: "List the 5 most recent articles with their title and published date. Format: DATE | TITLE"
 ```
 
@@ -103,8 +103,8 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 |---|-----|------|------|
 | 1 | `https://www.anthropic.com/news` | Anthropic | Groundlane `web_fetch` |
 | 2 | `https://www.anthropic.com/research` | Anthropic | Groundlane `web_fetch` |
-| 3 | `https://openai.com/news` | OpenAI | firecrawl |
-| 4 | `https://openai.com/research/index` | OpenAI | firecrawl |
+| 3 | `https://openai.com/news` | OpenAI | Groundlane `web_fetch` |
+| 4 | `https://openai.com/research/index` | OpenAI | Groundlane `web_fetch` |
 | 5 | `https://deepmind.google/blog` | Google DeepMind | Groundlane `web_fetch` |
 | 5b | `https://research.google/blog` | Google Research | Groundlane `web_fetch` |
 | 6 | `https://devblogs.microsoft.com/ai` | Microsoft | Groundlane `web_fetch` |
@@ -121,16 +121,16 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 15 | `https://blogs.nvidia.com/blog/category/generative-ai` | NVIDIA | Groundlane `web_fetch` |
 | 16 | `https://developer.nvidia.com/blog` | NVIDIA Developer | Groundlane `web_fetch` |
 | 16b | `https://research.nvidia.com/publications` | NVIDIA Research | Groundlane `web_fetch` |
-| 17 | `https://x.ai/news` | xAI/SpaceXAI | firecrawl |
+| 17 | `https://x.ai/news` | xAI/SpaceXAI | Groundlane `web_fetch` |
 | 18 | `https://blog.cloudflare.com/tag/ai` | Cloudflare | Groundlane `web_fetch` |
 | 19 | `https://blog.cloudflare.com/tag/developers` | Cloudflare | Groundlane `web_fetch` |
 | 20 | `https://www.snowflake.com/blog` | Snowflake | Groundlane `web_fetch` |
 | 21 | `https://www.databricks.com/blog` | Databricks | Groundlane `web_fetch` |
 | 22 | `https://research.ibm.com/blog` | IBM | Groundlane `web_fetch` |
 | 23 | `https://www.apple.com/newsroom/topics/apple-intelligence` | Apple | Groundlane `web_fetch` |
-| 24 | `https://news.sap.com/topics/artificial-intelligence` | SAP | firecrawl |
-| 25 | `https://writer.com/blog` | Writer | firecrawl |
-| 26 | `https://blog.palantir.com` | Palantir | firecrawl |
+| 24 | `https://news.sap.com/topics/artificial-intelligence` | SAP | Groundlane `web_fetch` |
+| 25 | `https://writer.com/blog` | Writer | Groundlane `web_fetch` |
+| 26 | `https://blog.palantir.com` | Palantir | Groundlane `web_fetch` |
 
 **HuggingFace 社群 + 模型 trending**
 
@@ -215,9 +215,9 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 | 41 | `https://github.com/QwenLM` | Qwen/阿里（repo 動態） | Groundlane `web_fetch` |
 | 42 | `https://seed.bytedance.com/en/research` | ByteDance/Seed（研究） | Groundlane `web_fetch` |
 | 42b | `https://www.byteplus.com/en/blog` | BytePlus（海外雲） | Groundlane `web_fetch` |
-| 43 | `https://www.deepseek.com/en/news` | DeepSeek | firecrawl |
+| 43 | `https://www.deepseek.com/en/news` | DeepSeek | Groundlane `web_fetch` |
 | 44 | `https://huggingface.co/deepseek-ai` | DeepSeek（模型發佈） | Groundlane `web_fetch` |
-| 45 | `https://www.minimaxi.com/news` | MiniMax | firecrawl |
+| 45 | `https://www.minimaxi.com/news` | MiniMax | Groundlane `web_fetch` |
 | 46 | `https://www.kimi.com/blog` | Moonshot/Kimi | Groundlane `web_fetch` |
 | 47 | `https://www.sensetime.com/cn/news` | 商湯 SenseTime | Groundlane `web_fetch` |
 | 48 | `https://manus.im/blog` | Manus | Groundlane `web_fetch` |
@@ -231,8 +231,8 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 
 | # | URL | 說明 | 工具 |
 |---|-----|------|------|
-| M1 | `https://www.ycombinator.com/blog` | Y Combinator blog | firecrawl |
-| M1b | `https://a16z.com/ai` | a16z AI（投資 + podcast + 文章） | firecrawl |
+| M1 | `https://www.ycombinator.com/blog` | Y Combinator blog | Groundlane `web_fetch` |
+| M1b | `https://a16z.com/ai` | a16z AI（投資 + podcast + 文章） | Groundlane `web_fetch` |
 | M1c | `https://www.bvp.com/atlas` | Bessemer Atlas（AI 分析） | Groundlane `web_fetch` |
 | M1d | `https://lsvp.com/stories` | Lightspeed Stories | Groundlane `web_fetch` |
 | M2 | `https://the-decoder.com` | AI 新聞（每日更新） | Groundlane `web_fetch` |
@@ -247,9 +247,9 @@ prompt: "List the 5 most recent articles with their title and published date. Fo
 3. 今天沒發文的公司 = 0 筆，正確行為
 4. 有新文章的，把標題和 URL 加入信號候選
 
-### 第三層：社群 + 區域來源
+### 第三層：社群 + 全球區域來源
 
-**社群（Exa × 3）**
+**社群（Groundlane `web_search` × 3）**
 
 ```
 工具：Groundlane MCP → web_search
@@ -262,29 +262,38 @@ max_results: 5 each
 | 2 | `site:reddit.com/r/MachineLearning AI agent` |
 | 3 | `site:reddit.com/r/LocalLLaMA model release` |
 
-**中文/台灣（Tavily × 4）**
+**全球區域矩陣（Groundlane `web_search` × 8）**
 
 ```
 工具：Groundlane MCP → web_search
-max_results: 5, time_range: "day"
+每個查詢：max_results: 8, time_range: "day"
+不同區域的查詢可在同一個 message 內平行發出，但不可派 subagent。
 ```
 
-| # | query |
-|---|-------|
-| 1 | `site:36kr.com AI agent 人工智能` |
-| 2 | `site:jiqizhixin.com AI agent 大模型` |
-| 3 | `site:ithome.com.tw AI 人工智慧 agent` |
-| 4 | `site:bnext.com.tw AI 人工智慧` |
+| # | 區域 | query |
+|---|---|---|
+| 1 | 東亞 | `(Taiwan OR China OR Hong Kong OR Japan OR Korea) AI agent launch regulation funding`；另保留 `site:ithome.com.tw`／`site:bnext.com.tw`／`site:36kr.com` 等中文來源候選 |
+| 2 | 東南亞 | `(Singapore OR Indonesia OR Vietnam OR Thailand OR Philippines OR Malaysia) AI agent launch regulation funding` |
+| 3 | 南亞 | `(India OR Pakistan OR Bangladesh OR Sri Lanka) AI agent launch regulation funding` |
+| 4 | 歐洲 | `Europe AI agent launch regulation funding EU AI Act` |
+| 5 | 中東 | `(Israel OR Saudi Arabia OR UAE OR Qatar) AI agent launch regulation funding` |
+| 6 | 非洲 | `(Africa OR South Africa OR Nigeria OR Kenya OR Egypt) AI agent launch regulation funding` |
+| 7 | 拉丁美洲 | `(Latin America OR Brazil OR Mexico OR Chile OR Colombia OR Argentina) AI agent launch regulation funding` |
+| 8 | 大洋洲 | `(Australia OR New Zealand) AI agent launch regulation funding` |
+
+北美不另開第九個區域查詢：第一層 8 個英文廣域查詢與第二層美國／加拿大公司官方來源已高度覆蓋北美。信號處理時仍要把北美列入覆蓋稽核，不能把它當成不需檢查的預設基準。
+
+這是**檢索覆蓋要求，不是收錄配額**。每組都必須真的查過；找不到 48 小時內、來源可靠且跟 AI 直接相關的事件時，0 筆是正確結果，不得拿舊聞、泛市場報告或薄弱轉載補數量。以色列歸入中東；澳洲與紐西蘭歸入大洋洲。
 
 ### API 用量摘要
 
 | 工具 | 查詢數 | 說明 |
 |------|--------|------|
-| Tavily | 12 | 8 廣域 + 4 中文台灣 |
-| Exa | 3 | 社群（HN + Reddit） |
-| Groundlane `web_fetch` | 67 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
-| firecrawl | 8 | OpenAI ×2, xAI, DeepSeek, SAP, Writer, Palantir, MiniMax |
-| **總計** | **86** | 搜尋 API 只用 15 次 |
+| Groundlane `web_search`（廣域） | 8 | AI 生態主題 |
+| Groundlane `web_search`（區域） | 8 | 全球區域矩陣 |
+| Groundlane `web_search`（社群） | 3 | HN + Reddit |
+| Groundlane `web_fetch` | 約 75 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
+| **總計** | **約 94** | 搜尋 API 共 19 次，其餘為已知 URL 直讀 |
 
 ### 去重與時間過濾
 
@@ -533,5 +542,7 @@ node -e "const cats=new Set(['vendor-update','model-release','pricing-change','b
 - [ ] `companies` slug 與 watchlist 一致（不是自己編的 slug）
 - [ ] 跨天去重：`seen-signal-urls.txt` 中的 URL 沒有出現在本次 signals 中
 - [ ] `seen-signal-urls.txt` 已追加本次所有 URL
+- [ ] 全球區域矩陣 8 組皆已實際查詢；以色列歸中東、澳洲／紐西蘭歸大洋洲，0 筆區域是查無合格事件而非漏搜
+- [ ] `region-news` 沒有只集中在東亞；若最終仍只有 1-2 個宏觀區域，已重新檢查其他區域候選的日期、來源與排除理由
 - [ ] commit 包含 JSON + seen-signal-urls.txt 兩個檔案
 - [ ] commit message 是 `chore(daily): signals ${TODAY}`（不是 `post(daily)`）
