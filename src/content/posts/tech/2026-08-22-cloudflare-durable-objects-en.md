@@ -10,6 +10,11 @@ description: "Cloudflare Durable Object identity, single-threaded coordination, 
 series:
   name: "Technology Choices in the AI Era"
   order: 110
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 7
+  - name: "Cloudflare AI Stack"
+    order: 14
 draft: false
 ---
 

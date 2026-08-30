@@ -10,8 +10,11 @@ tldr: "env.AI is not just run(). It also exposes toMarkdown (document-to-Markdow
 description: "Starting from the markdown.new service, this post unpacks four overlooked built-in methods on the Cloudflare Workers AI binding: run, toMarkdown, autorag, and gateway. Includes code examples, a decision table, and known limitations."
 draft: false
 series:
-  name: "The Cloudflare Edge Stack"
-  order: 7
+  name: "Cloudflare AI Stack"
+  order: 1
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 26
 ---
 
 🌏 [中文版](/posts/tech/2026-04-17-cloudflare-workers-ai-binding-utilities)

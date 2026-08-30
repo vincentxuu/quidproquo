@@ -10,6 +10,11 @@ description: "介紹 Cloudflare Durable Objects identity、single-threaded coord
 series:
   name: "AI 時代的技術選擇"
   order: 110
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 7
+  - name: "Cloudflare AI Stack"
+    order: 14
 draft: false
 ---
 

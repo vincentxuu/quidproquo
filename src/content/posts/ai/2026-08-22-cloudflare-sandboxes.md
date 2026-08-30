@@ -7,6 +7,9 @@ tags: [cloudflare-sandboxes, ai-agent, cloudflare-workers, durable-objects, cont
 lang: zh-TW
 tldr: "Cloudflare Sandboxes 把 Worker 當入口、Durable Object 當具名控制面、獨立 VM 內的 Container 當執行面；適合已在 Cloudflare 上、需要大量短暫 Linux 工作區的 agent，但持久資料、安全邊界與三層費用都得自己設計。"
 description: "拆解 Cloudflare Sandbox SDK 的三層架構、生命週期、最小用法、計價、安全模型與選型界線，說明它和一般代管 sandbox 服務的差異。"
+series:
+  name: "Cloudflare AI Stack"
+  order: 10
 draft: false
 ---
 

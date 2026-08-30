@@ -7,6 +7,9 @@ tags: [cloudflare-sandboxes, ai-agent, cloudflare-workers, durable-objects, cont
 lang: en
 tldr: "Cloudflare Sandboxes uses a Worker as the entry point, a named Durable Object as the control plane, and a Container inside an isolated VM as the execution plane. It fits Cloudflare-native fleets of ephemeral Linux workspaces, but persistence, security boundaries, and three layers of billing remain your responsibility."
 description: "A practical breakdown of Cloudflare Sandbox SDK architecture, lifecycle, minimal usage, pricing, security model, limitations, and its selection boundary versus managed sandbox services."
+series:
+  name: "Cloudflare AI Stack"
+  order: 10
 draft: false
 ---
 

@@ -8,8 +8,11 @@ lang: en
 tldr: "Formerly AutoRAG, the managed search primitive: drop files into built-in storage or attach R2 and websites, auto-index with Markdown conversion plus vector and BM25, retrieve with hybrid, RRF, and reranking, and query from Workers via namespace or instance bindings, REST, or MCP."
 description: "From data sources and indexing pipelines to model choices, retrieval tuning, and bindings — a complete breakdown of Cloudflare AI Search, its limits, and when to build on Vectorize instead."
 series:
-  name: "The Cloudflare Edge Stack"
-  order: 14
+  name: "Cloudflare AI Stack"
+  order: 5
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 23
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-29-cloudflare-ai-search-guide)

@@ -10,8 +10,8 @@ tldr: "Hono is a web framework designed specifically for edge runtimes like Clou
 description: "An introduction to Hono, the lightweight web framework: why it's a better fit than Express on edge runtimes, its core design philosophy, code examples, and when you should — or shouldn't — reach for it."
 draft: false
 series:
-  name: "The Cloudflare Edge Stack"
-  order: 5
+  name: "Cloudflare Edge Platform"
+  order: 2
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-hono-web-framework)

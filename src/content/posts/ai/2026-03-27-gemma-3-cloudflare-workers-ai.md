@@ -9,8 +9,8 @@ tldr: "在 Cloudflare Workers AI 上跑繁中 LLM，Gemma 系列的指令跟隨�
 description: "為什麼在 Cloudflare Workers AI 上選 Gemma 而不是 Llama，使用方式、限制與取捨，以及在 nobodyclimb 繁中 RAG 系統的實際觀察。2026-05-30 gemma-3-12b-it 標為退場後，本文以 gemma-4-26b-a4b-it 為主，並附遷移說明。"
 draft: false
 series:
-  name: "Cloudflare 邊緣tech stack"
-  order: 9
+  name: "Cloudflare AI Stack"
+  order: 3
 ---
 
 選 LLM 不是選「最強的那個」，是選「在你的限制條件下夠用的那個」。nobodyclimb 跑在 Cloudflare Workers 上，AI 推論也繼續留在 Cloudflare 生態系——在這個限制下，Gemma 系列一直是繁體中文最順的選項。

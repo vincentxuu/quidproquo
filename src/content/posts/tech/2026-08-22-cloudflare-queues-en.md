@@ -10,6 +10,9 @@ description: "Cloudflare Queues producers, consumers, batches, retries, DLQs, pu
 series:
   name: "Technology Choices in the AI Era"
   order: 32
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 8
 draft: false
 ---
 

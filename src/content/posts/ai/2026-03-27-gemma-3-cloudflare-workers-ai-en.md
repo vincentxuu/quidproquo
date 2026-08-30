@@ -9,8 +9,8 @@ tldr: "For running Traditional Chinese LLM workloads on Cloudflare Workers AI, t
 description: "Why pick Gemma over Llama on Cloudflare Workers AI, how to use it, its limitations and trade-offs, and real observations from the nobodyclimb Traditional Chinese RAG system. After gemma-3-12b-it's 2026-05-30 removal, this post centers on gemma-4-26b-a4b-it and includes migration notes."
 draft: false
 series:
-  name: "The Cloudflare Edge Stack"
-  order: 9
+  name: "Cloudflare AI Stack"
+  order: 3
 ---
 
 > 🌏 [中文版](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)

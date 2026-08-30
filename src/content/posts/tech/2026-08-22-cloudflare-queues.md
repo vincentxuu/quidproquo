@@ -10,6 +10,9 @@ description: "介紹 Cloudflare Queues 的 producer／consumer、批次、重試
 series:
   name: "AI 時代的技術選擇"
   order: 32
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 8
 draft: false
 ---
 

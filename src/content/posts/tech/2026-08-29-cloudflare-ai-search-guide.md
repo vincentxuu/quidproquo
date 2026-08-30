@@ -8,8 +8,11 @@ lang: zh-TW
 tldr: "前身 AutoRAG 的託管搜尋原語：丟文件進內建儲存或綁 R2／網站，自動走 Markdown 轉換、切分與向量加 BM25 索引，透過 hybrid 加 RRF 加 rerank 檢索，並以 namespace 與 instance 兩種綁定或 REST 與 MCP 在 Worker 與 Agent 內查詢。"
 description: "從資料來源、索引管線、模型選擇到檢索與綁定，完整拆解 Cloudflare AI Search 的架構、用法與限制，並對照自建 Vectorize 方案的取捨。"
 series:
-  name: "Cloudflare 邊緣tech stack"
-  order: 14
+  name: "Cloudflare AI Stack"
+  order: 5
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 23
 ---
 
 > 🌏 [English version](/en/posts/tech/2026-08-29-cloudflare-ai-search-guide-en)
