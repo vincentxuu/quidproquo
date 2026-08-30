@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { env } from 'cloudflare:workers'
 import {
-  applyPostSyncOperation,
+  applyPostSyncOperations,
   listPostSyncManifest,
 } from '../../../../lib/indexing/post-sync'
 import { GET, POST } from './sync'
@@ -10,7 +10,7 @@ vi.mock('../../../../lib/indexing/post-sync', async (importOriginal) => {
   const original = await importOriginal<typeof import('../../../../lib/indexing/post-sync')>()
   return {
     ...original,
-    applyPostSyncOperation: vi.fn(async () => undefined),
+    applyPostSyncOperations: vi.fn(async () => undefined),
     listPostSyncManifest: vi.fn(async () => [{ slug: 'tech/example', sourceHash: 'hash' }]),
   }
 })
@@ -32,7 +32,7 @@ describe('/api/index/posts/sync', () => {
   beforeEach(() => {
     for (const key of Object.keys(workerEnv)) delete workerEnv[key]
     Object.assign(workerEnv, { DB: {}, INDEX_SYNC_SECRET: 'test-secret' })
-    vi.mocked(applyPostSyncOperation).mockClear()
+    vi.mocked(applyPostSyncOperations).mockClear()
     vi.mocked(listPostSyncManifest).mockClear()
   })
 
@@ -53,7 +53,7 @@ describe('/api/index/posts/sync', () => {
   it('rejects malformed writes before touching D1', async () => {
     const response = await POST({ request: request('POST', { operations: [] }) } as never)
     expect(response.status).toBe(400)
-    expect(applyPostSyncOperation).not.toHaveBeenCalled()
+    expect(applyPostSyncOperations).not.toHaveBeenCalled()
   })
 
   it('applies validated bounded operations', async () => {
@@ -63,6 +63,6 @@ describe('/api/index/posts/sync', () => {
     } as never)
 
     expect(response.status).toBe(200)
-    expect(applyPostSyncOperation).toHaveBeenCalledWith(workerEnv.DB, operation)
+    expect(applyPostSyncOperations).toHaveBeenCalledWith(workerEnv.DB, [operation])
   })
 })

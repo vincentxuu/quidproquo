@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import {
   applyPostSyncOperation,
+  applyPostSyncOperations,
   parsePostSyncOperations,
   type PostSyncOperation,
 } from './post-sync'
@@ -78,10 +79,23 @@ describe('post index D1 sync', () => {
     expect(statements.every(statement => statement.params[0] === 'tech/stale')).toBe(true)
   })
 
+  it('applies multiple operations in one D1 batch', async () => {
+    const { db, batch } = fakeDb()
+    await applyPostSyncOperations(db, [
+      upsertOperation(),
+      { type: 'delete', slug: 'tech/stale' },
+    ])
+
+    expect(batch).toHaveBeenCalledTimes(1)
+    const statements = batch.mock.calls[0][0] as BoundStatement[]
+    expect(statements).toHaveLength(11)
+    expect(statements.at(-1)?.sql).toContain('DELETE FROM posts')
+  })
+
   it('rejects oversized or malformed API payloads', () => {
     expect(() => parsePostSyncOperations({ operations: [] })).toThrow('operations must contain')
     expect(() => parsePostSyncOperations({
-      operations: Array.from({ length: 11 }, () => ({ type: 'delete', slug: 'x' })),
+      operations: Array.from({ length: 51 }, () => ({ type: 'delete', slug: 'x' })),
     })).toThrow('operations must contain')
     expect(() => parsePostSyncOperations({ operations: [{ type: 'delete' }] }))
       .toThrow('operations[0].slug must be a string')

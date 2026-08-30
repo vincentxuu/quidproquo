@@ -29,7 +29,7 @@ export type PostSyncOperation =
   | { type: 'upsert'; post: PostSyncPost; chunks: PostSyncChunk[] }
   | { type: 'delete'; slug: string }
 
-export const MAX_POST_SYNC_OPERATIONS = 10
+export const MAX_POST_SYNC_OPERATIONS = 50
 const MAX_CHUNKS_PER_POST = 250
 export const MAX_POST_SYNC_STATEMENTS = 800
 
@@ -67,15 +67,29 @@ export async function applyPostSyncOperation(
   db: D1Database,
   operation: PostSyncOperation,
 ): Promise<void> {
-  if (operation.type === 'delete') {
-    await deletePost(db, operation.slug)
-    return
-  }
-  await upsertPost(db, operation.post, operation.chunks)
+  await applyPostSyncOperations(db, [operation])
 }
 
-async function deletePost(db: D1Database, slug: string): Promise<void> {
-  await db.batch([
+export async function applyPostSyncOperations(
+  db: D1Database,
+  operations: PostSyncOperation[],
+): Promise<void> {
+  const statements = operations.flatMap(operation => buildPostSyncStatements(db, operation))
+  await db.batch(statements)
+}
+
+function buildPostSyncStatements(
+  db: D1Database,
+  operation: PostSyncOperation,
+): D1PreparedStatement[] {
+  if (operation.type === 'delete') {
+    return buildDeletePostStatements(db, operation.slug)
+  }
+  return buildUpsertPostStatements(db, operation.post, operation.chunks)
+}
+
+function buildDeletePostStatements(db: D1Database, slug: string): D1PreparedStatement[] {
+  return [
     db.prepare(`INSERT OR IGNORE INTO vector_delete_queue (chunk_id)
       SELECT pc.id FROM post_chunks pc JOIN posts p ON p.id = pc.post_id WHERE p.slug = ?`).bind(slug),
     db.prepare(`DELETE FROM chunks_fts WHERE source_type = 'post' AND chunk_id IN (
@@ -83,14 +97,14 @@ async function deletePost(db: D1Database, slug: string): Promise<void> {
     )`).bind(slug),
     db.prepare('DELETE FROM post_chunks WHERE post_id IN (SELECT id FROM posts WHERE slug = ?)').bind(slug),
     db.prepare('DELETE FROM posts WHERE slug = ?').bind(slug),
-  ])
+  ]
 }
 
-async function upsertPost(
+function buildUpsertPostStatements(
   db: D1Database,
   post: PostSyncPost,
   chunks: PostSyncChunk[],
-): Promise<void> {
+): D1PreparedStatement[] {
   const statements: D1PreparedStatement[] = [
     db.prepare(`INSERT OR IGNORE INTO vector_delete_queue (chunk_id)
       SELECT id FROM post_chunks WHERE post_id = ?`).bind(post.id),
@@ -143,7 +157,7 @@ async function upsertPost(
     )
   }
 
-  await db.batch(statements)
+  return statements
 }
 
 function parseOperation(value: unknown, index: number): PostSyncOperation {

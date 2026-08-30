@@ -180,6 +180,15 @@ describe('incremental production sync', () => {
     expect(batches[1]).toEqual([operations[1], operations[2]])
   })
 
+  it('packs small operations up to the API operation limit', () => {
+    const operations = Array.from({ length: 101 }, (_, index) => ({
+      type: 'delete' as const,
+      slug: `tech/stale-${index}`,
+    }))
+
+    expect(buildPostSyncApiBatches(operations).map(batch => batch.length)).toEqual([50, 50, 1])
+  })
+
   it('rejects a single operation that cannot fit the API statement budget', () => {
     const post = makePost('tech/oversized', 'hash')
     post.chunks = Array.from({ length: 266 }, (_, index) => ({

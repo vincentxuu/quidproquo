@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import {
-  applyPostSyncOperation,
+  applyPostSyncOperations,
   listPostSyncManifest,
   parsePostSyncOperations,
 } from '../../../../lib/indexing/post-sync'
@@ -35,9 +35,7 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: message }, 400)
   }
 
-  for (const operation of operations) {
-    await applyPostSyncOperation(bindings.DB, operation)
-  }
+  await applyPostSyncOperations(bindings.DB, operations)
   return json({ ok: true, applied: operations.length })
 }
 
