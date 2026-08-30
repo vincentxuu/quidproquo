@@ -11,6 +11,8 @@ series:
   order: 14
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-29-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天的專案剛好落在 agent 能力堆疊的兩端——OpenMontage 示範「應用層」可以疊多厚：700 多個 skill 檔把一個通用 coding agent 變成完整的影片後製棚；agentmemory 和 agenttrail 則在補「底層基礎設施」還很薄的兩塊地基，一個管記憶跨 session 存活，一個管你到底看不看得到 agent 在幹嘛。同時 Anthropic 自己的官方外掛市集也在持續長大，代表整個生態系的「信任層」還在同步跟上。

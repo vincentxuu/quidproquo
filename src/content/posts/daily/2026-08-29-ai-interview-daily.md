@@ -11,6 +11,8 @@ series:
   order: 10
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-29-ai-interview-daily-en)
+
 ## 今日主題
 
 Paper reading round 是 research-adjacent AI Engineer 職位的標配關卡，尤其在 frontier lab（Anthropic、OpenAI、DeepMind）更常見。這關不考記憶力，考的是「研究品味」：你能不能在有限時間內抓到一篇論文真正的貢獻、看穿它跟既有方法的根本差異，並針對「如果換成你會怎麼做」給出有信服力的答案。今天練這個能直接對應到 onsite 裡的 research discussion 環節，也是判斷候選人能不能跟研究團隊對話的關鍵一關。

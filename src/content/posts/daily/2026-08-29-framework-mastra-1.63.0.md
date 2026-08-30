@@ -11,6 +11,8 @@ series:
   order: 9
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-29-framework-mastra-1.63.0-en)
+
 ## 版本資訊
 
 | 項目 | 值 |
