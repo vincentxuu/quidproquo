@@ -1,27 +1,27 @@
 ---
 title: "Rivumi's state-first event journaling: recovering between manifest commits and JSONL appends"
-date: 2026-08-23
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, crash-recovery, journaling, file-locking]
 lang: en
-tldr: "Rivumi maintains two write paths: append-only `events.jsonl` and atomically replaced `session.json`. If the process crashes between them, either file alone can mislead recovery. Rivumi treats the manifest as the state of record and events as the audit trail; resume reconciles `manifest.last_event_sequence` against JSONL and uses `last_event_type` to decide whether automatic resume is safe."
+tldr: "Rivumi maintains append-only `events.jsonl` and atomically replaced `session.json`, reconciling sequences before crash recovery. The same event contract now supports deterministic replay, canonical JSON replay, fork seeds at a selected sequence, and new workspaces without replaying old side effects; ambiguous `tool.started` or `verification.started` states still hard-fail."
 description: "A deep dive into Rivumi's crash-safe design: same-directory temp files and fsync for atomic JSON writes, O_APPEND event logs, fcntl.flock writer leases, claim_and_validate_resume reconciliation, and why tool.started and verification.started cannot auto-resume."
 series:
-  name: "Rivumi 架構拆解"
-  order: 4
+  name: "Rivumi Architecture Notes"
+  order: 12
 draft: false
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-23-rivumi-state-first-event-journaling)
 
-The earlier articles covered the loop, the disposable clone, and tool isolation. This article covers why that system can recover from crashes: Rivumi separates audit from control by writing both append-only `events.jsonl` and atomically replaced `session.json`.
+[Order 11](/posts/tech/2026-08-30-rivumi-tool-program-transactions-en) composes tool calls into bounded programs and rollback-capable transactions. This article follows the state lifecycle from completion or crash through resume, replay, and fork. Its core remains two files with different semantics: append-only `events.jsonl` and atomically replaced `session.json`.
 
-Maintaining two write paths is not redundant. **Either file alone is insufficient to decide where a crashed process stopped.**
+Maintaining two write paths is not redundant. **Either file alone is insufficient to decide where a crashed process stopped or to provide both control state and reconstructable history.**
 
 Suppose `AgentRunner` is about to run `replace_text`. It has appended a `tool.started` event to `events.jsonl`, but the process receives SIGKILL before the tool actually runs. The manifest still shows the previous state, while JSONL contains a new "started" line. Reading only the manifest suggests the tool never started. Reading only JSONL suggests it started but never completed. Both interpretations are unsafe.
 
-Rivumi's answer is not "just retry." The manifest carries `last_event_sequence` and `last_event_type`; resume aligns those fields with JSONL, then either continues, resynchronizes, or hard-fails depending on where the crash happened.
+Rivumi's answer is not "just retry." The manifest carries `last_event_sequence`; event validation derives `last_event_type` from the validated JSONL tail. Resume combines sequence, tail-event type, and manifest state, then continues, resynchronizes, or hard-fails depending on where the crash happened.
 
 ## Two write paths, two guarantees
 
@@ -183,6 +183,12 @@ The inverse is not safe. If JSONL ends at `tool.started` or `verification.starte
 
 For production recovery, duplicated side effects are worse than a stuck run.
 
+## The event log now supports replay and fork
+
+The early implementation treated `events.jsonl` primarily as an audit trail. `session_replay.py` now provides a deterministic reducer that validates run IDs, duplicate sequences, JSONL bounds, and text bounds before producing canonical replay state. The CLI exposes `rivumi sessions --replay`, `--replay-json`, and `--fork-from-event ... --sequence ...`. A fork seed describes only state proven before the chosen sequence. It does not rerun old tools, and continuing work prepares a new workspace instead of secretly rewinding the old one.
+
+This sharpens the split: the manifest remains the authority for what happens next, while the event log becomes machine-reducible history rather than human-only audit. It does not erase the hard-fail boundary. A log ending inside an uncertain side effect, carrying duplicate sequences, or drifting between run IDs is rejected instead of being normalized into a plausible story. Server-hosted replay, complete redaction/deduplication, and live production traces remain open validation work.
+
 ## State-first is the result of the file semantics
 
 Rivumi is not state-first because it chose the phrase first. It becomes state-first because atomic state and append-only audit have different responsibilities:
@@ -200,15 +206,16 @@ State-first journaling is not extra insurance. It is a forced split between audi
 
 This is why the current TUI and session tooling can exist. `/resume` does not infer state from screen text. `/history` is not a vendor transcript replay. `rivumi sessions` does not scan temporary logs. They all read versioned `session.json` and append-only events. External CLI vendor session IDs do not become Rivumi's source of truth; Rivumi stores the state, patch, usage, and event sequence that it can validate.
 
-The next article covers `ExternalCodingRunner`: Rivumi delegates a loop to Codex CLI or Claude Code CLI, then brings the result back through the same verification and patch-audit boundary.
+This lifecycle stops at the fork boundary; it does not extend into an SDK facade or WebSocket conversation ownership. The [next article](/posts/tech/2026-08-30-rivumi-context-compaction-en) covers context pressure, compaction, and reinjection: how a long conversation preserves decisions and workspace state as it approaches its limit. SDK and embedding boundaries remain in order 17.
 
 ---
 
 ## References
 
 - [Rivumi official repo](https://github.com/vincentxuu/rivumi) -- the ground truth for all code references in this article
+- [Rivumi `session_replay.py` at 2ed5efb](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/session_replay.py) -- deterministic replay reducer and fork seeds
 - [Rivumi M3 docs](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m3-reliable-editing-real-provider-eval.md) -- official milestone notes for checkpoint and resume
-- [POSIX `flock` locks](https://man7.org/linux/man-pages/man2/flock.leases.5.html) -- the system-call family behind writer leases
+- [Linux `flock(2)` advisory locks](https://man7.org/linux/man-pages/man2/flock.2.html) -- the locking semantics behind writer leases
 - [Linux `open(2)` and `O_APPEND`](https://man7.org/linux/man-pages/man2/open.2.html) -- append behavior
 - [SQLite WAL mode](https://www.sqlite.org/wal.html) -- a useful conceptual comparison for append-ahead recovery
 - [Crash-only software](https://lwn.net/Articles/191059/) -- recovery-oriented design background

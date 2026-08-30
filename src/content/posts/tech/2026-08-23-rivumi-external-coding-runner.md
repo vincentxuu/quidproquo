@@ -1,21 +1,21 @@
 ---
 title: "Rivumi 的 ExternalCodingRunner：為什麼 Codex/Claude Code CLI 是外部 runtime,不是 ModelProvider"
-date: 2026-08-23
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, codex-cli, claude-code, orchestration]
 lang: zh-TW
-tldr: "Rivumi 同時有自家 loop(AgentRunner)跟外部 runtime 的整合路徑(ExternalCodingRunner)。後者不是把官方 Codex CLI / Claude Code CLI 或 local-only OpenCode / Pi / OMP 當成 ModelProvider 用——它們有自己的 model loop,Rivumi 不該插手;它只做幾件事:用同一套 LocalGitWorkspace 建 disposable clone、把 `allowed_paths` 跟 verification 指令明確餵給外部 CLI、跑完後用 SafePathPolicy + ToolExecutor 重新驗證整個 patch、再用 source-invariant 對比確認 source repo 完全沒被動。整個設計的關鍵斷言是「ExternalCodingRunner 永遠不會變成 ModelProvider,也不會讀它的 credential store」。"
-description: "深入 Rivumi 的 ExternalCodingRunner 設計：跟 AgentRunner 的分工、為什麼 Codex/Claude Code CLI 與 OpenCode/Pi/OMP 不是 ModelProvider、disposable clone + patch boundary + final verification + source invariant 四道關卡、官方 CLI 與 local-only experimental backend 各自的整合策略。"
+tldr: "`ExternalCodingRunner` 是 Rivumi 的第二條 runtime lane：外部 coding CLI 擁有自己的 model loop 與 credential，Rivumi 只交付任務與 disposable clone，再把回傳 patch 當成不受信任輸入，重跑 path audit、verification 與 source invariant。它是有明確 capability boundary 的 handoff，不是另一種 `ModelProvider`。"
+description: "深入 Rivumi 的 ExternalCodingRunner handoff：為什麼外部 coding CLI 不是 ModelProvider、Rivumi 交出哪些能力，以及 returned patch 如何經過 boundary validation、final verification 與 source invariant audit。"
 series:
   name: "Rivumi 架構拆解"
-  order: 5
+  order: 7
 draft: false
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-23-rivumi-external-coding-runner-en)
 
-前四篇拆的是 Rivumi 自家 loop 怎麼跑。這一篇拆它的「鏡像路徑」——同樣要解同一個任務,但 loop 是別人家的:Codex CLI / Claude Code CLI / OpenCode / Pi / OMP,它們各有自己的 model loop。Rivumi 不接管那些 loop,只做 orchestration:送任務過去、收回 patch、自己重新驗證。
+依完整系列規劃，orders 4–6 先走完 Rivumi 的 native lane：從 loop 到 provider contract，再到 routing 與 fallback。這一篇切到第二條 runtime lane——同樣要解任務，但 loop 屬於 Codex CLI、Claude Code CLI、OpenCode、Pi 或 OMP。Rivumi 不接管那些 loop，只負責 handoff：送出任務與受限 workspace、收回 patch，再自行稽核。
 
 `src/rivumi/backends.py` 的 module docstring 第一句話就把這條界線寫死:
 
@@ -30,9 +30,9 @@ draft: false
 Rivumi 不這樣做,理由至少有四個:
 
 - **loop 不能合併**:Codex CLI 內部有自己的 tool loop、自己的 approval、自己的 retry、自己對 prompt injection 的對策。把這些抽象成 `ModelProvider.complete(messages, tools) -> ModelTurn` 會丟掉所有這些語意——`complete` 只回一個非串流 `ModelTurn`,沒地方放「Codex CLI 跑了三輪才決定打 read_file」這種 stream。
-- **tool set 不一樣**:Codex CLI 預設能跑 shell、能讀 MCP server、能 push commit;Rivumi 自家 loop 的 tool set 是七個(前一篇拆的)—把兩者合併成一個 tool 介面,模型會同時看到「可以跑 shell」跟「不能跑 shell」的矛盾指令,反而更不安全。
-- **auth model 不一樣**:Codex CLI 用 ChatGPT 訂閱 OAuth,Rivumi 自家 loop 用 canonical API key。同一個 `ModelProvider` 介面要同時對應兩種 auth,程式碼會被 if-else 淹沒。
-- **verification boundary 不能變**:前一篇講的 verification-as-gate 是「Rivumi 跑完 verification 才算 COMPLETED」。如果 loop 在外部 CLI 裡、verification 也由外部 CLI 跑,那 Rivumi 就只是在當 broker,所有 M1 的安全保證(workspace 不被改、argv 嚴格化、process group timeout)都不再適用。
+- **tool set 不一樣**:Codex CLI 可以管理自己的 shell、MCP 與 Git 能力；Rivumi native lane 則有七個單步工具，以及另外受限的 program／transaction 與動態 capability。把兩者硬併成一份 tool schema，會讓能力所有權與 approval 邊界變得不清楚。
+- **auth owner 不一樣**:外部 Codex CLI 自己管理 ChatGPT 訂閱 OAuth。Native lane 的 provider 可以使用 API key，也有 app-owned、明確標成 experimental 的 Codex OAuth adapter；兩者都由 Rivumi adapter 持有 credential lifecycle，不會去抽取外部 CLI 的登入資料。
+- **verification boundary 不能變**:order 4 的 verification-as-gate 是「Rivumi 跑完 verification 才算 COMPLETED」。如果 loop 在外部 CLI 裡、verification 也由外部 CLI 決定，Rivumi 就只是在當 broker，workspace、argv 與 timeout 等外層保證也失去最後驗收點。
 
 所以 Rivumi 開了第二條路徑:**外部 CLI 是 `ExternalAgentBackend`,跑在 Rivumi 準備的 disposable clone 裡,跑完後 patch 回到 Rivumi 自己驗**。Loop 是它的,boundary 是我的。
 
@@ -111,13 +111,9 @@ Rivumi 把「怎麼跟某個 CLI 對接」拆成兩個檔案:
 - `src/rivumi/backends.py` 提供 `ExternalAgentBackend` Protocol,定義 `async def run(task, working_directory, event_sink) -> ExternalAgentResult`。這是契約,所有 backend 都實作它。
 - `src/rivumi/external_cli_base.py` 是共用 base class,處理「spawn subprocess → capture JSONL stream → parse event → call event_sink.emit」的 boilerplate。每個具體 backend 只負責「把 CLI 啟動、把 CLI 的輸出 parse 成 `ExternalAgentEvent`」。
 
-具體 backend 分成兩類:官方 CLI runtime 與 local-only experimental runtime。
+具體實作依 CLI 分檔：`codex_backend.py`、`claude_backend.py`、`opencode_backend.py`、`pi_backend.py` 與 `omp_backend.py`。它們各自組 argv、解析輸出與投影 `ExternalAgentEvent`，最後都把 patch 交回 `ExternalCodingRunner` 驗收。`codex_conversation.py` 與 `claude_agent_session.py` 屬於 order 17 的 conversation/client 整合，不是這條 order 7 backend handoff 的實作。
 
-- `src/rivumi/codex_conversation.py`(168 行)——包 Codex CLI 用 ChatGPT OAuth 訂閱,輸出是 JSONL streaming,parse 成 sequence / event_type / text。
-- `src/rivumi/claude_agent_session.py`(764 行)——包 Claude Code CLI,根據 M5 文件「the narrowest policy-compatible Claude Code path」,只用 file tools(`read_file` / `write_file` / `edit`),不開 shell / network / MCP。這個限制比 Claude Code 預設還窄,但 Claude Code CLI 本身支援「自訂 tool set」flag,所以 Rivumi 直接傳一個縮減的 tool list 進去。
-- OpenCode / Pi / OMP——README 把這三個列在 local-only runtime 邊界,都是 experimental,由外部 CLI 自己管理 loop 與工具,Rivumi 只接任務、收 patch、重跑驗證。
-
-`backend_name` 跟 `local_only` 跟 `experimental` 是 `ExternalAgentBackend` Protocol 的 attribute,UI 用 `local_only` 標記哪些 backend 不能在 Cloudflare Sandbox 跑、`experimental` 標記哪些還沒在 production 用過。官方 Codex CLI / Claude Code 走可審計 subprocess integration;OpenCode / Pi / OMP 明確標成 local-only,不借 Cloudflare 切片偷渡。
+`backend_name`、`local_only` 與 `experimental` 是 `ExternalAgentBackend` Protocol 的 attribute。現有 Codex、Claude Code、OpenCode、Pi、OMP backend 全都標成 `local_only=True, experimental=True`：這代表它們是本機實驗性 delegation，不是 Cloudflare runtime，也不是 production-ready 分級。
 
 ## 為什麼這不是「provider credential 偷渡管道」
 
@@ -125,17 +121,17 @@ Rivumi 把「怎麼跟某個 CLI 對接」拆成兩個檔案:
 
 Rivumi 不這樣做的理由很具體:
 
-- **license / ToS**:Codex CLI 的 OAuth token 是給 Codex CLI 用的,不是給 arbitrary 第三方程式用的;從 `~/.codex/auth.json` 偷 token 出去,即使技術上能跑,在 OpenAI 的 ToS 下是 account compromise。
+- **credential scope**:CLI 登入資料由該 CLI 的認證流程管理。把檔案中的 token 抽出來交給另一條 provider path，會繞過原本的 credential owner 與更新／撤銷流程。
 - **isolation boundary 會破壞**:同一個 token 被兩個程式同時用,Codex CLI 自己 revoke 的時候 Rivumi 就完全沒轍;反過來,Rivumi 的 loop bug 把 token 寫進 log,Codex CLI 那邊的 session 也要跟著 rotate。互相耦合。
 - **verification gate 失去意義**:如果 Rivumi 拿訂閱 token 直接打 OpenAI API,那跟「把外部 CLI 當 ModelProvider」沒差別——整個 disposable clone + external patch validation + source invariant 這套 boundary 全部退化。
 
-所以 `ExternalCodingRunner` 的設計契約是:**backend 自己讀自己的 credential,跑自己的 loop,回結果給 Rivumi**。Rivumi 從來不碰 OAuth flow、從來不讀 `~/.config` 下的 token、從來不把任何 auth 字串寫進自己的 `events.jsonl`。如果 backend 報錯需要使用者重新登入,Rivumi 只能印一句「please run `codex login` again」(透過 `external_failure_hint`),不能幫使用者登入。
+所以 `ExternalCodingRunner` 的設計契約是：**backend 透過自己的 CLI 登入狀態跑自己的 loop，再把結果交回 Rivumi**。這條 external path 不會抽取 CLI credential、轉交給 `ModelProvider`，也不會把 auth 字串寫進 `events.jsonl`。Rivumi 其他 native provider 可以有自己的 OAuth 實作，但那是另一條明確分開的 credential path。外部 backend 若需要重新登入，runner 只回傳修復提示，不代替 CLI 接管登入資料。
 
 ## 整體來說
 
 ExternalCodingRunner 解決的是「我想用 Codex 訂閱但不想失去 Rivumi 的安全保證」這個矛盾。答案是:**loop 給它,boundary 留給我**。所有 Rivumi 的核心 invariant——disposable clone、SafePathPolicy、verification-as-gate、source-isolation E2E——在 external 路徑裡全部保留;外部 CLI 只是 Rivumi 借來的「自動駕駛」,但方向盤跟煞車還是 Rivumi 自己握的。
 
-下一篇拆 `ModelProvider` 多閘道——這是跟 ExternalCodingRunner 的鏡像對照:Rivumi 自己有 loop,模型只是被呼叫的元件。下一篇看 OpenAI-compatible / OpenAI Responses / Anthropic / Gemini / Workers AI / scripted adapter 怎麼用同一個 `ModelProvider` Protocol 接到同一個 loop。
+下一篇回到兩條 runtime lane 都依賴的機械邊界：一個 tool call 的 path、argv、env、atomic write 與 timeout 怎麼被 `ToolExecutor` 約束。
 
 ---
 
@@ -144,8 +140,8 @@ ExternalCodingRunner 解決的是「我想用 Codex 訂閱但不想失去 Rivumi
 - [Rivumi 官方 repo](https://github.com/vincentxuu/rivumi)——本文所有引用來源的 ground truth
 - [Rivumi M4 文件](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m4-provider-completion.md)——subscription-backed 路徑的官方里程碑
 - [Rivumi M5 文件](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m5-subscription-backed-external-coding.md)——`ExternalCodingRunner` 的契約定義
-- [OpenAI Codex CLI](https://github.com/openai/codex)——`codex_conversation.py` 整合的對象
-- [Claude Code CLI](https://docs.claude.com/en/docs/claude-code)——`claude_agent_session.py` 整合的對象,看它的 custom tool set flag
+- [OpenAI Codex CLI](https://github.com/openai/codex)——`codex_backend.py` 整合的對象
+- [Claude Code CLI](https://docs.claude.com/en/docs/claude-code)——`claude_backend.py` 整合的對象
 - [OpenCode](https://opencode.ai/)——`opencode_backend.py` 整合的對象
 - [Anthropic Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk/overview)——理解 Claude Code CLI 怎麼被包成可審計 subprocess 的背景知識
 - [Process spawning patterns for untrusted CLIs](https://docs.python.org/3/library/asyncio-subprocess.html)——`asyncio.subprocess` 在處理外部 CLI JSONL stream 時的注意事項

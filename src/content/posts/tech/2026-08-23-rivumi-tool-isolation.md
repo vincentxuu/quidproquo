@@ -1,27 +1,27 @@
 ---
 title: "Rivumi 的工具隔離：path allowlist、argv 嚴格化、process group 與 credential-free subprocess"
-date: 2026-08-23
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, ai-agent, python, sandbox]
 lang: zh-TW
-tldr: "上一篇拆了 Rivumi 的 provider-neutral loop,這篇拆它真正危險的那一層:tool 邊界。一個 coding agent 的執行表面不是模型,是「檔案系統 + 子行程」;只要這兩條邊界守住,prompt injection 沒有槓桿可以放大傷害。Rivumi 的做法是三層收斂:路徑層用 `SafePathPolicy` 做 segment-aware glob + 符號連結逸出偵測 + `.git` 永久屏蔽;argv 層讓 `VerificationCommand` 只能是預先 allowlist 的 tuple、執行時 `shell=False`;子行程層用 `sanitized_subprocess_env` 清掉所有 host credential、用 `start_new_session=True` 開 process group、`SIGTERM` 0.5s 後升 `SIGKILL`,輸出用 `_BoundedCapture` 同時 cap head 與 tail。外部 CLI runtime 走自己的工具集,但回來的 patch 仍要再過同一套 path-bounded audit 與 verification。"
+tldr: "這篇只拆 Rivumi 的 tool executor 如何把一次呼叫安全落地：`SafePathPolicy` 限制 path 並阻擋 symlink escape，`VerificationCommand` 固定 argv 且使用 `shell=False`，subprocess 只拿清理過的 env，寫入走 read-version hash 與 atomic replace，timeout 會終止整個 process group。權限決策、OS sandbox 與 tool program 各留給後續專篇。"
 description: "深入拆解 Rivumi coding agent 的工具隔離設計:SafePathPolicy 路徑 allowlist、VerificationCommand argv 嚴格化、sanitized_subprocess_env credential 清空、process group timeout 與 _BoundedCapture 輸出 cap,以及為什麼 prompt injection 在這層沒有槓桿。"
 series:
   name: "Rivumi 架構拆解"
-  order: 3
+  order: 8
 draft: false
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-23-rivumi-tool-isolation-en)
 
-[上一篇](2026-08-23-rivumi-provider-neutral-agent-loop.md)拆了 Rivumi 的 loop——`AgentRunner` 對模型宣告「你給 tool_calls,我幫你跑;什麼時候結束,我跑過 verification 算數」。但那段敘事一直把「我幫你跑」當作黑盒子。事實上,**「幫你跑」才是整個系統最危險的部分**:一個 coding agent 的執行表面不是模型,是檔案系統 + 子行程;只要這兩條邊界守住,prompt injection 沒有槓桿可以放大傷害。Rivumi 把這個觀念變成三層收斂——路徑層、argv 層、子行程層——每一層都用 Python 型別系統而不是 prompt 來執行。
+前一篇把 native loop 與 external CLI runtime 分成兩條 lane。無論走哪一條，最後都要回答同一題：path、argv 或寫入要求，怎麼在 workspace 裡安全落地？這篇只追 Rivumi 的機械執行邊界——path、argv、env、atomic write 與 timeout。呼叫該 allow、ask 還是 deny，留到 order 9；作業系統 containment 與 tool program/transaction，分別留到 orders 10、11。
 
 ## 為什麼 tool 邊界比 model 重要
 
 模型可以被 prompt injection。檔案系統不會。子行程在 `execvp` 之後的行為可以被 POSIX signal 中斷。換句話說,**最容易出事的不是模型講錯話,是模型被注入後請系統「幫我讀 `~/.ssh/id_rsa`」或「幫我跑 `curl … | sh`」**。任何 coding agent 的安全性,最後都會塌縮到「檔案系統呼叫與子行程呼叫有沒有被 allowlist」。
 
-Rivumi 的工具表面只有七個:`list_files` / `read_file` / `search_text` / `replace_text` / `apply_patch` / `run_check` / `git_diff`(定義在 `src/rivumi/tools.py:130-217`)。前五個走檔案系統,`run_check` 走子行程,`git_diff` 是 workspace 內 git 的讀取入口。每個都通過同一個守門員:**`SafePathPolicy`**(路徑)+ **`VerificationCommand` 預先 allowlist**(argv)+ **`sanitized_subprocess_env` + process group**(子行程)。
+本文會用七個單步 native tool 說明 executor：`list_files` / `read_file` / `search_text` / `replace_text` / `apply_patch` / `run_check` / `git_diff`。前三個讀檔案，兩個 edit tool 寫檔，`run_check` 跑預先宣告的子行程，`git_diff` 讀 workspace diff。它們共同服從 `SafePathPolicy` 與有界執行契約；這裡不展開更上層的 authority policy，也不把 tool program、MCP 或 subagent 的編排塞進同一條資料流。
 
 ## 路徑層:SafePathPolicy,segment-aware glob 與符號連結逸出
 
@@ -67,9 +67,9 @@ def resolve(
     ...
 ```
 
-`_walk_files`(`tools.py:219-237`)用 `followlinks=False` 進一步確保遍歷不會被符號連結牽引到外部目錄。**這層不只是「不讀到 `/etc/passwd`」,而是「不會被惡意 symlink 引導到任何非 workspace 檔案」**——包括執行過程中新建的 symlink。
+`_walk_files`(`tools.py:219-237`)用 `followlinks=False` 進一步確保遍歷不會被符號連結牽引到外部目錄。這層同時擋住 `/etc/passwd` 與任何被惡意 symlink 指向的非 workspace 檔案，包括執行過程中新建的 symlink。
 
-`allowed_paths` 不是 glob 簡寫,而是**segment-aware**。`_match_path_glob`(`policy.py:70-92`)只把**完整的 `**` segment** 當作跨目錄匹配符,其他 `*` 跟 `?` 走 `fnmatchcase`,逐 segment 比對:
+`allowed_paths` 採用 **segment-aware** glob。`_match_path_glob`(`policy.py:70-92`)只把完整的 `**` segment 當作跨目錄匹配符，其他 `*` 跟 `?` 走 `fnmatchcase`，逐 segment 比對：
 
 ```python
 @staticmethod
@@ -145,7 +145,7 @@ run_check_name["enum"] = sorted(self.verification_commands)
 
 ## 子行程層:sanitized env、process group、bounded capture
 
-第三層把焦點放在 subprocess 本身。`run_bounded_command`(`runtime.py:246-358`)是所有外部指令的單一入口,從 `run_check` 到 `apply_patch` 的 `git apply --check`、到 `LocalGitWorkspace` 的 `git clone`,全部走它。它的設計原則是:**環境要清掉 host credentials、process 要有獨立 session、輸出要同時 cap head 跟 tail、超時要走 process group 而不是單行程**。
+第三層把焦點放在 subprocess 本身。`run_bounded_command` 是 base native tool executor、verification 與 workspace Git 操作的共同入口；MCP、LSP、TUI sidecar 與 conversation runtime 仍有各自的 subprocess 路徑。這個共同入口的原則是：**環境要清掉 host credentials、process 要有獨立 session、輸出要同時 cap head 跟 tail、超時要走 process group 而不是單行程**。
 
 ### Credential-free 環境
 
@@ -178,7 +178,7 @@ def sanitized_subprocess_env(*, task_home: Path | None = None) -> dict[str, str]
 
 兩個關鍵設計:第一,**白名單制**——只接受 11 個安全的 locale / path / tmp 變數;不是黑名單,所以 `MY_APP_TOKEN`、`ANTHROPIC_API_KEY`、`GH_TOKEN` 等「環境裡有的敏感變數」全部不會被繼承。第二,**assert 守門**——白名單套完之後再掃一次所有 key,如果哪個 key 名字含敏感 marker,就讓進程直接 crash 而不是悄悄漏出去。配合 `GIT_ASKPASS=/usr/bin/false` 跟 `GIT_TERMINAL_PROMPT=0`,git 不會跳出密碼 prompt 或讀 `~/.git-credentials`;`PYTHONDONTWRITEBYTECODE=1` 避免子行程把 bytecode 寫到 `__pycache__`。
 
-如果是 workspace 內的呼叫,還會把 `task_home` 注入 `XDG_CACHE_HOME` / `XDG_CONFIG_HOME` / `PIP_CACHE_DIR` / `UV_CACHE_DIR` / `TMPDIR`——所有 cache 跟 temp 都走 `run_dir/.task-env`,不會汙染 home 目錄(下一篇 disposable clone 篇會詳談這個 `task_home` 是怎麼準備的)。
+如果是 workspace 內的呼叫,還會把 `task_home` 注入 `XDG_CACHE_HOME` / `XDG_CONFIG_HOME` / `PIP_CACHE_DIR` / `UV_CACHE_DIR` / `TMPDIR`——所有 cache 跟 temp 都走 `run_dir/.task-env`,不會汙染 home 目錄。這個目錄由 order 2 的 disposable workspace 準備；本文只處理 executor 收到它之後怎麼限制 env。
 
 ### Process group + 真超時
 
@@ -260,7 +260,7 @@ if read_version != current_version:
 
 寫入本身走 `_atomic_replace_file`(`tools.py:452-473`):寫到 `target.name.rivumi-replace-<uuid>` 暫存檔、`fsync`、`os.replace` 原子替換、再 `fsync` 目錄;全程 `O_NOFOLLOW` 拒絕符號連結、`O_EXCL` 拒絕搶佔。如果中途失敗,還會用原始 bytes 把檔案回滾(`tools.py:554-569`)。
 
-最後一道 gate 是 `git ls-files --error-unmatch`(`tools.py:534-541`):只有 git 已追蹤的檔案才能用 `replace_text` 改。新檔案必須走 `apply_patch`,因為新檔案需要 `git add --intent-to-add`(`tools.py:427-442`)才能進入 reviewable diff,這在下一篇 disposable clone 篇會接著拆。
+最後一道 gate 是 `git ls-files --error-unmatch`(`tools.py:534-541`):只有 git 已追蹤的檔案才能用 `replace_text` 改。新檔案必須走 `apply_patch`,因為新檔案需要 `git add --intent-to-add`(`tools.py:427-442`)才能進入 reviewable diff。order 2 已交代 workspace 與 run bundle 的所有權；這裡只追單次寫入如何成為可審查 diff。
 
 ## 執行面的最後一塊:工具 dispatch 的 timeout 守門
 
@@ -321,17 +321,16 @@ Rivumi 的「loop 屬於 harness」這個斷言,在 tool 這層會翻譯成:**�
 
 最新的外部 CLI runtime 不改這條原則,只是把邊界往後移:Claude Code / Codex CLI / OpenCode / Pi / OMP 可以在自己的 loop 裡使用自己的工具,但它們只在 Rivumi 準備的 disposable clone 裡動作;回到 Rivumi 時,patch 仍要被 `SafePathPolicy`、二進位 / symlink / rename / copy 檢查、final verification 與 source invariant 擋一次。Cloudflare 切片也是同樣邏輯:Worker ingress 先擋路徑與 argv,Sandbox 裡跑 native bounded toolset,provider credential 留在 Worker model proxy。
 
-這層一旦守住,prompt injection 的攻擊面就被壓縮成「讓模型講錯話」——但講錯話的後果頂多是多浪費幾輪 token,**不會是讀到 `~/.aws/credentials`** 或 **`curl … | sh` 拿到主機 shell**。下一篇拆 `LocalGitWorkspace`:為什麼 workspace 是 disposable clone 而不是 source repo 的 alias,為什麼 HEAD 必須 detach,為什麼 `.task-env` 是 sandbox 與 host 的實際接縫。
-
----
+這層守住後，prompt injection 能直接利用的 host 表面會縮小；但它還不能回答「誰有權執行」或「process 能否碰到 kernel 層資源」。後續依序是 [permission layering](/posts/tech/2026-08-30-rivumi-permission-layering)、[本機 OS sandbox](/posts/tech/2026-08-30-rivumi-local-os-sandbox)，以及 [tool programs／transactions](/posts/tech/2026-08-30-rivumi-tool-program-transactions)。這三層不能拿本文的 path/argv 檢查代替。
 
 ## 參考資料
 
 - [Rivumi 官方 repo](https://github.com/vincentxuu/rivumi)——本文所有引用來源的 ground truth
+- [Rivumi `tools.py`（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/tools.py)——核心工具、path-bounded 搜尋、atomic write 與 timeout dispatch
 - [Rivumi M1 文件](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m1-local-harness.md)——harness 設計說明
 - [Pydantic v2 — `field_validator` 與 `ConfigDict`](https://docs.pydantic.dev/latest/concepts/validators/)——`VerificationCommand.validate_argv` 與 `TaskContract.validate_allowed_paths` 行為文件
 - [POSIX `killpg(3)` — process group signaling](https://man7.org/linux/man-pages/man3/killpg.3.html)——`_signal_process_group` 行為依據
 - [Python `subprocess` — `start_new_session` 與 process group](https://docs.python.org/3/library/subprocess.html#subprocess.Popen)——`run_bounded_command` 啟動參數文件
 - [OpenAI Codex CLI](https://github.com/openai/codex)——Rivumi 採用「sandbox capability 與人為 approval 分離」的參考對象
-- [SWE-ReX](https://github.com/SWE-bench/SWE-ReX)——Rivumi 採用「agent / runtime 分離」概念的參考對象
+- [SWE-ReX](https://github.com/SWE-agent/SWE-ReX)——Rivumi 採用「agent / runtime 分離」概念的參考對象
 - [Aider](https://aider.chat/)——Rivumi 採用 unified diff 與 git 作為 review boundary 的參考對象

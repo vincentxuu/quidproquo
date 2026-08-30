@@ -1,29 +1,27 @@
 ---
 title: "Rivumi's tool isolation: path allowlists, strict argv, process groups, and credential-free subprocesses"
-date: 2026-08-23
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, ai-agent, python, sandbox]
 lang: en
-tldr: "The dangerous part of a coding agent is not the model itself; it is the filesystem and subprocess surface the model can trigger. Rivumi narrows that surface in three layers: `SafePathPolicy` for segment-aware glob matching, symlink escape detection, and permanent `.git` blocking; `VerificationCommand` for pre-allowlisted tuple argv with `shell=False`; and `sanitized_subprocess_env`, process groups, SIGTERM-to-SIGKILL cleanup, and `_BoundedCapture` for credential-free bounded subprocess execution."
+tldr: "This article follows one Rivumi tool call through its mechanical execution boundary: `SafePathPolicy` for paths and symlink escape, fixed argv with `shell=False`, a sanitized subprocess environment, read-version hashes plus atomic replace for writes, and process-group cleanup at timeout. Permission policy, OS containment, and tool programs are reserved for later articles."
 description: "A deep dive into Rivumi's tool isolation design: SafePathPolicy path allowlists, strict VerificationCommand argv, credential-free sanitized_subprocess_env, process-group timeouts, _BoundedCapture output caps, and why prompt injection has little leverage at this layer."
 series:
-  name: "Rivumi 架構拆解"
-  order: 3
+  name: "Rivumi Architecture Notes"
+  order: 8
 draft: false
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-23-rivumi-tool-isolation)
 
-[The previous article](2026-08-23-rivumi-provider-neutral-agent-loop-en.md) covered Rivumi's loop: `AgentRunner` tells the model, "give me tool calls; I will run them; when you stop, verification decides." That phrasing hides the riskiest part of the system. **"I will run them" is where the real danger lives.**
-
-A coding agent's execution surface is not the model. It is the filesystem plus subprocesses. If those two boundaries hold, prompt injection loses most of its leverage. Rivumi turns that into three layers of narrowing: path policy, argv policy, and subprocess policy. Each layer is enforced by Python types and runtime checks, not by prompt text.
+The previous article separated the native loop from the external CLI runtime. Either lane eventually reaches the same question: how does a path, argv, or write request land safely in a workspace? This article follows only Rivumi's mechanical execution boundary: path, argv, environment, atomic writes, and timeout cleanup. Whether a call should be allowed, asked, or denied belongs to order 9; OS containment belongs to order 10; programs and transactions belong to order 11.
 
 ## Why the tool boundary matters more than the model
 
 Models can be prompt-injected. Filesystem APIs cannot. A subprocess can be put in a process group and killed. The most damaging failure mode is not "the model says something wrong"; it is "the injected model asks the system to read `~/.ssh/id_rsa` or run `curl ... | sh`."
 
-Rivumi exposes seven native tools: `list_files`, `read_file`, `search_text`, `replace_text`, `apply_patch`, `run_check`, and `git_diff` (`src/rivumi/tools.py:130-217`). File tools go through `SafePathPolicy`; `run_check` goes through a predeclared `VerificationCommand`; subprocess execution goes through `sanitized_subprocess_env` and process-group cleanup.
+Seven single-step native tools are enough to explain this executor: `list_files`, `read_file`, `search_text`, `replace_text`, `apply_patch`, `run_check`, and `git_diff`. The first three read files, two edit tools write, `run_check` executes predeclared commands, and `git_diff` reads the workspace diff. They share `SafePathPolicy` and bounded execution contracts. Higher-level authority policy, tool programs, MCP, and subagent orchestration are outside this article's data flow.
 
 ## Path layer: SafePathPolicy and symlink escape detection
 
@@ -127,7 +125,7 @@ Even if a provider adapter fails to enforce the schema, `ToolExecutor.run_check`
 
 ## Subprocess layer: clean env, process groups, bounded capture
 
-`run_bounded_command` in `runtime.py:246-358` is the single subprocess entrypoint for verification, `git apply --check`, and workspace Git operations. Its rules are: strip host credentials, start a new process group, capture bounded output, and kill the whole process tree on timeout.
+`run_bounded_command` is the common subprocess entrypoint for the base native tool executor, verification, and workspace Git operations. MCP, LSP, TUI sidecars, and conversation runtimes have separate subprocess paths. The common helper strips host credentials, starts a new process group, captures bounded output, and kills the whole process tree on timeout.
 
 `sanitized_subprocess_env` builds from a small allowlist:
 
@@ -286,21 +284,20 @@ The model cannot set `timeout_seconds=86400` to route around the harness. Timeou
 
 ## The trade-off
 
-At the tool layer, Rivumi's "the loop belongs to the harness" claim becomes this: **every side effect a prompt can trigger is first statically narrowed by Python types and then dynamically checked at runtime**. The model sees a filesystem subset, an argv-name allowlist, and bounded credential-free subprocesses.
+For the seven single-step base tools described here, Rivumi's "the loop belongs to the harness" claim becomes concrete: **each side effect is statically narrowed by Python types and dynamically checked at runtime**. Dynamic MCP capabilities and other subprocess-owning integrations have separate boundaries. The native model sees a filesystem subset, an argv-name allowlist, and bounded credential-free subprocesses.
 
 The external CLI runtime does not remove this principle; it moves the boundary later. Claude Code, Codex CLI, OpenCode, Pi, and OMP may use their own tools inside their own loops, but only inside a disposable clone. When they return to Rivumi, their patch still passes path-bounded audit, binary/symlink/rename/copy checks, final verification, and source-invariant comparison. The Cloudflare slice follows the same shape: Worker ingress validates paths and argv, the Sandbox runs the native bounded toolset, and provider credentials remain in the Worker model proxy.
 
-If this layer holds, prompt injection is reduced to making the model say the wrong thing. It should not become a read of `~/.aws/credentials` or `curl ... | sh` on the host.
-
----
+If this layer holds, prompt injection has less host surface to exploit. It still does not answer who has authority to execute a call or what kernel resources a process can reach. The next layers are [allow/ask/deny permissions](/posts/tech/2026-08-30-rivumi-permission-layering-en), [local OS sandboxing](/posts/tech/2026-08-30-rivumi-local-os-sandbox-en), and [tool programs with rollback-capable transactions](/posts/tech/2026-08-30-rivumi-tool-program-transactions-en). None can be replaced by the path and argv checks described here.
 
 ## References
 
 - [Rivumi official repo](https://github.com/vincentxuu/rivumi) -- the ground truth for all code references in this article
+- [Rivumi `tools.py` at 2ed5efb](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/tools.py) -- core tools, path-bounded search, atomic writes, and timeout dispatch
 - [Rivumi M1 docs](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m1-local-harness.md) -- harness design notes
 - [Pydantic v2 validators](https://docs.pydantic.dev/latest/concepts/validators/) -- behavior behind `VerificationCommand.validate_argv` and `TaskContract.validate_allowed_paths`
 - [POSIX `killpg(3)`](https://man7.org/linux/man-pages/man3/killpg.3.html) -- process-group signaling
 - [Python `subprocess.Popen`](https://docs.python.org/3/library/subprocess.html#subprocess.Popen) -- `start_new_session` behavior
 - [OpenAI Codex CLI](https://github.com/openai/codex) -- a reference point for sandbox capability and human approval
-- [SWE-ReX](https://github.com/SWE-bench/SWE-ReX) -- a reference point for separating agent and runtime
+- [SWE-ReX](https://github.com/SWE-agent/SWE-ReX) -- a reference point for separating agent and runtime
 - [Aider](https://aider.chat/) -- a reference point for unified diff and Git review boundaries

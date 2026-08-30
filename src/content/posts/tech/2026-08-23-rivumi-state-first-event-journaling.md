@@ -1,25 +1,25 @@
 ---
 title: "Rivumi 的 state-first event journaling：為什麼 manifest commit 跟 JSONL append 之間的 crash 要靠 state 修"
-date: 2026-08-23
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, crash-recovery, journaling, file-locking]
 lang: zh-TW
-tldr: "Rivumi 同時維護兩份寫入路徑:append-only 的 `events.jsonl` 跟原子替換的 `session.json` manifest。當 process 在兩者之間 crash,單靠任何一份都會誤判狀態——只看 JSONL 會以為某個 side effect 沒跑,只看 manifest 會以為某個 tool call 已經完成。所以 Rivumi 把 manifest 當作 state-of-record、events 當作 audit trail,resume 時先用 `manifest.last_event_sequence` 對 JSONL 做 reconciliation,再用 `last_event_type` 決定能不能自動續跑。停在哪個事件決定恢復策略——停在前半段可以 resume,停在 `tool.started` 或 `verification.started` 必須 hard fail；TUI 的 `/new`、`/resume`、`/history` 與 `rivumi sessions` 都是建立在這個 state-first contract 上。"
+tldr: "Rivumi 同時維護 append-only 的 `events.jsonl` 與原子替換的 `session.json`，用 sequence reconciliation 判斷 crash 後能否安全續跑。這份 event contract 現在也支援 deterministic replay、JSON replay、從指定 sequence 建立 fork seed，以及在不重放副作用的前提下建立新 workspace；遇到停在 `tool.started` 或 `verification.started` 的不確定狀態仍然 hard fail。"
 description: "深入 Rivumi 的 crash-safe 設計：atomic_write_json 用同目錄 temp file + fsync,EventWriter 用 O_APPEND + fsync,SessionWriterLease 用 fcntl.flock + O_NOFOLLOW,claim_and_validate_resume 的 manifest_was_ahead 邏輯,以及為什麼 tool.started / verification.started 不能自動 resume。"
 series:
   name: "Rivumi 架構拆解"
-  order: 4
+  order: 12
 draft: false
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-23-rivumi-state-first-event-journaling-en)
 
-前一篇拆了 loop,前兩篇拆了 disposable clone 跟 run bundle。這一篇拆它們能 crash-safe 的原因——也是 Rivumi 把 audit 跟 state 拆成兩份不同檔案的理由:append-only 的 `events.jsonl` 跟原子替換的 `session.json` manifest。同時維護兩份寫入路徑不是冗餘,是因為**單靠任何一份都無法正確判定「process 在哪一步 crash」**。
+[Order 11](/posts/tech/2026-08-30-rivumi-tool-program-transactions)先把多個 tool call 組成有界 program 與可 rollback transaction。這一篇沿著 run 結束、crash、resume、replay 到 fork，追完整條 state lifecycle。核心仍是兩份語意不同的檔案：append-only 的 `events.jsonl` 與原子替換的 `session.json` manifest。同時維護兩份寫入路徑不是冗餘，是因為**單靠任何一份都無法正確判定 process 停在哪一步，也無法同時支撐控制與歷史重建**。
 
 這個斷言聽起來抽象,放進具體情境就清楚:假設 AgentRunner 正在跑 `replace_text`,這個 tool call 已經寫進 `events.jsonl`(`tool.started` 事件已經 append),但 tool 還沒真的執行就被 SIGKILL。manifest 上還是上一輪的快照,JSONL 卻已經多了一行「started」。下次重啟時,光是讀 manifest 會以為「這個 tool 還沒開始」,光是讀 JSONL 會以為「這個 tool 已經跑了但結果沒寫回來」。兩種判讀都不對。
 
-Rivumi 的解法不是「retry 一次就好」,而是讓 manifest 自帶 `last_event_sequence` 跟 `last_event_type`,resume 時拿這兩個欄位去跟 JSONL 對齊——對得上就 resume,對不上就依情況 hard fail 或 partial-resync。
+Manifest 自帶 `last_event_sequence`；resume 驗證 JSONL 時，再從已驗證的尾端事件取得 `last_event_type`。流程用 sequence、尾端事件型別與 manifest state 一起判斷能否續跑；對不上就依情況 hard fail 或 partial-resync。直接 retry 無法處理這種不確定性。
 
 ## 兩種寫入,兩個保證
 
@@ -185,9 +185,15 @@ async def claim_and_validate_resume(
 
 這個選擇是 deliberate 的:與其可能重複執行一個 side effect(`replace_text` 寫了兩次、`run_check` 跑了兩遍、verification 又重跑一次),不如直接 raise `SessionValidationError` 讓使用者決定。對 production 環境來說,**重複 side effect 比「run 卡住」糟糕得多**——patch 已經寫進去了,再跑一次 `apply_patch` 可能會因為找不到要替換的字串而 fail,更糟的是把整個 run 標記成 COMPLETED 卻留下一個被破壞的 workspace。
 
+## Event log 現在也能 replay 與 fork
+
+早期版本只把 `events.jsonl` 當 audit trail；現在 `session_replay.py` 已有 deterministic reducer，會先驗證 run ID、sequence 重複、JSONL 大小與文字界線，再把事件折疊成 canonical replay state。CLI 提供 `rivumi sessions --replay`、`--replay-json` 與 `--fork-from-event ... --sequence ...`。fork seed 只描述指定 sequence 前可證明的狀態，不會重新執行原本的 tool call；真正建立後續 run 時會準備新的 workspace，而不是把舊 workspace 偷偷倒帶。
+
+這讓 state-first 的分工更清楚：manifest 仍是「下一步怎麼走」的依據，event log 則從只供人審計，升級成可被程式確定性還原的歷史。它也沒有抹掉原本的 hard-fail 邊界。若 log 停在 side effect started、sequence 重複或 run ID 漂移，reducer 會拒絕產生看似合法的 replay/fork。現在仍缺 server-hosted replay API、完整 redaction/dedup 與 live production trace；本機 CLI baseline 不能等同遠端服務已經驗證。
+
 ## 整體:state-first 是結果不是方法
 
-回頭看,Rivumi 不是「先決定要 state-first 才這樣寫」,而是把所有需要 atomic 的欄位放進 `SessionManifest`、把所有需要 audit 的事件放進 `events.jsonl` 之後,**自然就變成 state-first 了**。原因是:
+回頭看，state-first 是檔案責任拆分後的結果。需要 atomic 的欄位進 `SessionManifest`，需要 audit 的事件進 `events.jsonl`，兩者因此形成以下分工：
 
 - events.jsonl 是「已經發生」的事——append-only,所以任何一行都不會被改;但它**不知道現在進行到哪一步**,只看它無法決定「下一步該怎麼做」。
 - session.json 是「現在狀態」——原子替換,所以隨時可以讀到一致快照;但它**不知道這狀態是怎麼走到這裡的**,只看它無法決定「這次執行到底算不算數」。
@@ -202,15 +208,16 @@ State-first journal 不是「多加一層保險」,是 append-only 跟 atomic-re
 
 這也是最新 TUI / session 工具能成立的原因:`/resume` 不是從螢幕文字猜狀態,`/history` 不是倒放 vendor transcript,`rivumi sessions` 也不是掃一堆臨時 log。它們共同讀的是 versioned `session.json` 與 append-only events。外部 CLI runtime 的 vendor session id 不必變成 Rivumi 的 source of truth;Rivumi 只保存自己能驗證的狀態、patch、usage 與 event sequence。
 
-下一篇拆 `ExternalCodingRunner`——這個設計在 Rivumi 裡的角色特別刁鑽:Rivumi 同時又是 orchestration,讓 Codex CLI / Claude Code CLI 跑它們自己的 loop,然後回頭用同一份 verification 跟 patch audit 驗證結果——這套「兩個 loop 共用一份 verification」要怎麼不踩到「state-first journal 寫進去的東西跟 external runtime 寫進去的東西會打架」的雷,是這篇之後會拆的。
+這條 lifecycle 到 fork 為止，不延伸到 SDK facade 或 WebSocket conversation ownership。[下一篇](/posts/tech/2026-08-30-rivumi-context-compaction)處理 context pressure、compaction 與 reinjection：當 manifest 裡的 conversation 長到接近上限時，如何保住決策與 workspace 狀態。SDK 與 embedding boundary 留到 order 17。
 
 ---
 
 ## 參考資料
 
 - [Rivumi 官方 repo](https://github.com/vincentxuu/rivumi)——本文所有引用來源的 ground truth
+- [Rivumi `session_replay.py`（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/session_replay.py)——deterministic replay reducer 與 fork seed
 - [Rivumi M3 文件](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m3-reliable-editing-real-provider-eval.md)——checkpoint / resume 的官方里程碑紀錄
-- [POSIX `fcntl.flock` advisory locks](https://man7.org/linux/man-pages/man2/flock.leases.5.html)——Rivumi 的 writer lease 用的系統呼叫
+- [Linux `flock(2)` advisory locks](https://man7.org/linux/man-pages/man2/flock.2.html)——Rivumi writer lease 使用的系統呼叫語意
 - [Linux `O_APPEND` atomicity guarantee](https://man7.org/linux/man-pages/man2/open.2.html)——為什麼 `events.jsonl` 的 append 在同行程內不會被切開
 - [SQLite WAL mode](https://www.sqlite.org/wal.html)——另一個用「append-ahead + state-from-state」的 crash-safe 設計,概念對照
 - [Crash-only software: designing for recovery](https://lwn.net/Articles/191059/)——「crash 是常態不是例外」的工程典範,Rivumi 的設計哲學對齊

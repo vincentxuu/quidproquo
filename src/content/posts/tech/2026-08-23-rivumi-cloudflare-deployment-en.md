@@ -1,27 +1,27 @@
 ---
-title: "Rivumi's Cloudflare deployment slice: Worker control plane, Sandbox container, and Capability Durable Object"
-date: 2026-08-23
+title: "Rivumi remote execution on Cloudflare: Worker, Sandbox, Capability DO, and durable RunSession"
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, cloudflare, workers, durable-objects, sandbox, capability]
 lang: en
-tldr: "Rivumi's Cloudflare slice is M6 milestone work, not a production service proven by traffic. It shares the same Python AgentRunner used locally, but moves execution and credentials to different places. The boundary is: the Worker holds provider credentials and HTTP coordination; the Sandbox receives only a five-minute, run-scoped, HMAC-signed model capability; every model call consumes budget through a Capability Durable Object; completion or failure revokes the capability and destroys the container."
-description: "A deep dive into Rivumi's Cloudflare deployment slice: Worker ingress, model proxy, HMAC run tokens, Capability Durable Object request budgets, Sandbox entrypoint hardening, and how the same Python AgentRunner keeps the local loop, disposable clone, and verification gate intact."
+tldr: "Rivumi's old synchronous M6 path completed one real deployed coding run. It has since grown into an asynchronous control plane with RunSession, SSE, approvals, cancellation, and artifacts, but that newer path has not been live-revalidated. Audience-separated HMAC capabilities enter the Sandbox while provider credentials stay in the Worker; this is not production-traffic or SLO proof."
+description: "A deep dive into Rivumi remote execution on Cloudflare: Worker ingress, Sandbox, Capability DO, durable RunSession, async status, SSE events, approval/cancel/artifact routes, and token-audience boundaries."
 series:
-  name: "Rivumi 架構拆解"
-  order: 8
+  name: "Rivumi Architecture Notes"
+  order: 19
 draft: false
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-23-rivumi-cloudflare-deployment)
 
-The previous seven articles covered Rivumi's local architecture: provider-neutral loop, disposable clone, tool isolation, state-first journaling, `ExternalCodingRunner`, `ModelProvider` multi-gateway, and TUI/CLI ergonomics. The Cloudflare path should not be a different agent. It should carry those guarantees into a cloud execution slice without leaking credentials.
+The [previous IDE/LSP bridge article](/posts/tech/2026-08-30-rivumi-ide-lsp-vscode-bridge-en) completes the local path through orders 0–18. This capstone asks which local guarantees survive the Worker/container boundary and which responsibilities must move into a remote control plane.
 
-First, the status boundary: this article describes the Worker + Sandbox deployment slice that exists in the public repo. It does **not** claim that Rivumi is already a production service proven by real traffic. The M6 milestone summary is the design sentence: **keep HTTP coordination and provider credentials in a Worker; pass only a short-lived, run-scoped model capability into the Sandbox container**.
+First, the evidence boundary: the 2026-08-21 M6 record proves one deployed synchronous Worker → Sandbox → Groq → tool/edit/check run. The newer asynchronous RunSession, SSE, approval, cancel, and artifact lifecycle has code and test evidence but has not been live-revalidated. Neither layer proves production traffic, long-lived attachments, high concurrency, or an SLO.
 
 ## One boundary, four components
 
-The Cloudflare slice does not rewrite `AgentRunner` in TypeScript. It packages the same Python `rivumi` wheel into a Cloudflare Sandbox container, places a Cloudflare Worker in front as the control plane, and uses a Durable Object for per-run model-call budget.
+The Cloudflare slice does not rewrite `AgentRunner` in TypeScript. It packages the same Python `rivumi` wheel into a Cloudflare Sandbox container, places a Worker in front as the control plane, then uses Capability DO and RunSession DO for model-call budget and durable run state. The boundary has four components.
 
 ```
 Caller -> [Worker: handleRun] ---- HMAC run token ----> [Sandbox: rivumi-sandbox-run]
@@ -41,7 +41,7 @@ The provider API key never enters the Sandbox environment, source tree, request 
 
 ## Boundary 1: Worker ingress trusts nothing
 
-`POST /v1/runs` is the only non-healthcheck public entrypoint. `validateRunRequest` re-canonicalizes all caller input:
+`POST /v1/runs` creates the run; the resource surface then includes `/v1/runs/:id`, events, approvals, cancel, and artifacts. `validateRunRequest` re-canonicalizes creation input:
 
 - `instruction`: non-empty string, no NUL, at most 32,000 characters.
 - `model`: must exactly match `env.OPENAI_MODEL`; the caller cannot choose a model.
@@ -134,25 +134,37 @@ The DO stores only model, expiration, max requests, and used requests. It does n
 
 On completion or failure, the Worker calls `revokeCapability` and `destroySandbox` in a `finally` block, each wrapped in bounded timeout helpers. Cleanup failure is surfaced as `sandbox_cleanup_failed`, not silently ignored.
 
+## RunSession DO: from synchronous response to attachable durable run
+
+`POST /v1/runs` now creates a queued `RunSession` Durable Object before `ctx.waitUntil` launches the Sandbox, then immediately returns status, event, and approval URLs. RunSession transactionally maintains queued / running / completed / failed / cancelled state, terminal metadata, artifact keys, pending approvals, and decision history. Late completion cannot overwrite a cancelled terminal state. Cancellation is best-effort: a queued run can terminate immediately, while a running run records `cancelRequested` and relies on cooperative shutdown.
+
+Events have two read modes. `/events` returns NDJSON by default; `?stream=1` replays the bounded buffer, pushes new SSE events, sends idle heartbeats, and honors `Last-Event-ID` for integer-sequence catch-up. Model proxying, event append, and approval polling use separate HMAC token audiences. Each token enters the Sandbox as an owner-only file and is removed after reading, so one token cannot acquire all three authorities. Clients can inspect pending approvals, submit allow_once / allow_session / deny / cancel, and fetch artifacts after termination.
+
+Durable does not mean permanently connected. DO eviction or a client network break requires SSE reconnection with `Last-Event-ID`; the event buffer is bounded and artifacts are not an unlimited history store. Unit tests and local contracts cover these routes, but live Cloudflare authorization, long attaches, and high-concurrency runs still need production validation.
+
 ## Sandbox container: same Python runner, hardened entrypoint
 
-The Sandbox image starts from a digest-pinned `cloudflare/sandbox:0.12.7-python` base, installs the `rivumi` wheel and hash-locked requirements, and exposes one root-owned `0555` wrapper: `rivumi-sandbox-run`.
+The Sandbox image starts from a digest-pinned `cloudflare/sandbox:0.12.7-python` base, installs the `rivumi` wheel and hash-locked requirements, and exposes one root-owned `0555` wrapper: `rivumi-sandbox-run`. The control plane writes model, event, and approval audience tokens; the wrapper checks the model and event files, while the Python entrypoint securely reads and removes all three.
 
 ```sh
 #!/bin/sh
 set -eu
 workspace=/workspace
 token_file=/workspace/.rivumi-run-token
+event_token_file=/workspace/.rivumi-event-token
 
 test "$(id -u)" -eq 0
 test -d "$workspace/source"
 test -f "$workspace/request.json"
 test -f "$token_file"
 test ! -L "$token_file"
+test -f "$event_token_file"
+test ! -L "$event_token_file"
 
 chown -R rivumi:rivumi "$workspace"
 chmod 0700 "$workspace"
 chmod 0600 "$token_file"
+chmod 0600 "$event_token_file"
 
 exec setpriv --reuid=rivumi --regid=rivumi --init-groups --no-new-privs \
   env HOME=/home/rivumi PATH=/usr/local/bin:/usr/bin:/bin \
@@ -162,7 +174,7 @@ exec setpriv --reuid=rivumi --regid=rivumi --init-groups --no-new-privs \
       python3 -m rivumi.sandbox_entry /workspace/request.json
 ```
 
-Caller data is never inserted into a shell command. The wrapper verifies the token is not a symlink, changes ownership to a non-root `rivumi` user, applies `--no-new-privs`, and launches one fixed Python module.
+Caller data is never inserted into a shell command. The wrapper verifies its required token files, changes ownership to a non-root `rivumi` user, applies `--no-new-privs`, and launches one fixed Python module. The approval token is handled by the Python entrypoint's `O_NOFOLLOW` read-and-remove path even though it is not checked in this shell excerpt.
 
 Python then builds a normal `TaskContract` and runs the same `AgentRunner`:
 
@@ -192,15 +204,14 @@ result = await AgentRunner(task, selected_model, runs, allow_unsafe_local_exec=T
 
 ## How the cloud boundary preserves local guarantees
 
-| Local guarantee | Cloudflare equivalent |
+| Local boundary established earlier | Cloudflare equivalent |
 |---|---|
-| Provider-neutral `AgentRunner` loop | Same wheel, same `python3 -m rivumi.sandbox_entry` runner |
-| Disposable clone and allowed paths | Uploaded source tree becomes a Git repo; `allowed_paths` enter `TaskContract` |
-| Tool isolation and argv allowlist | Worker ingress rejects non-allowlisted checks; Sandbox uses the same bounded runtime |
-| State-first event journaling | Sandbox writes the same `request.json`, `events.jsonl`, `checkpoint.json`, `changes.patch`, `test.log`, and `result.json` bundle |
-| `ExternalCodingRunner` is not `ModelProvider` | Cloud slice runs native `AgentRunner`; official CLIs and local-only runtimes are not tunneled into Cloudflare |
-| ModelProvider multi-gateway | Worker proxy binds `MODEL_API_URL` and `OPENAI_MODEL`, while Sandbox uses canonical `OpenAICompatibleModel` |
-| TUI/CLI ergonomics | Unchanged locally; this is a headless cloud slice |
+| Workspace and artifact contract | The Worker uploads source, the Sandbox prepares the workspace, and the Worker validates output size, paths, and shape |
+| Native loop and provider contract | The Sandbox runs the same Python `AgentRunner`; provider credentials stay in the Worker's model proxy |
+| Tools, permission, and containment | Ingress narrows paths and argv, the Sandbox keeps bounded execution, and token audiences separate model, event, and approval authority |
+| Journal and durable state | The Sandbox creates the run bundle; RunSession DO stores remote status, events, approvals, cancellation, and artifact metadata |
+| Extensions and collaboration | External CLIs, MCP, skills, and subagent transport are not silently treated as cloud capabilities when this slice has not connected them |
+| Client, SDK, and IDE | Cloudflare exposes a headless run resource and SSE attach; it does not replace local conversation ownership or the IDE bridge |
 
 After the Sandbox returns, `validateSandboxResponse` checks result shape, run ID, status/exit-code consistency, verification argv equality, and changed files within `allowedPaths`. Sandbox output is not a trust boundary. The Worker and DO are.
 
@@ -208,19 +219,21 @@ After the Sandbox returns, `validateSandboxResponse` checks result shape, run ID
 
 Rivumi's Cloudflare slice does not reinvent the agent. It puts the local Python `AgentRunner` into a digest-pinned Sandbox, keeps ingress and model proxying in a Worker, keeps per-run budget in a Capability DO, and lets only an HMAC token cross the Worker/Sandbox boundary.
 
-The cost is substantial: TypeScript control-plane code, a Durable Object, a wrapper script, a Dockerfile, repeated request validation, HTTPS-only provider URLs, pinned images, hash-locked requirements, `--no-new-privs`, `PR_SET_DUMPABLE=0`, `O_NOFOLLOW`, and constant-time HMAC checks. The return is that the Cloudflare slice does not need to know how the loop works. Future changes to the Python entrypoint, provider adapters, verification argv set, or model count do not have to rewrite the core Worker trust decisions.
+The cost is substantial: the Worker, Sandbox, Capability DO, RunSession DO, and internal event/approval routes all repeat request validation while preserving HTTPS-only URLs, pinned images, hash-locked requirements, `--no-new-privs`, `PR_SET_DUMPABLE=0`, `O_NOFOLLOW`, token audiences, and constant-time HMAC checks. The return is that the control plane manages run resources, capabilities, events, and artifacts without taking ownership of the native agent loop.
 
-The evidence supports "the deployment boundary is defined in code," not "a production service has been proven under traffic." A future cloud client should focus on invocation, `CONTROL_PLANE_TOKEN` handling, dry-run versus deploy evidence, and clear run-bundle provenance rather than rewriting the agent loop.
+The planned series therefore has a specific shape: establish contracts locally, then project them into a remote control plane. The old synchronous M6 path has one real deployed smoke; the async RunSession/SSE/approval path still needs live revalidation. Client invocation, `CONTROL_PLANE_TOKEN` handling, long attachments, high concurrency, and production traffic remain unproven.
 
 ---
 
 ## References
 
 - [Rivumi official repo](https://github.com/vincentxuu/rivumi) -- the ground truth for all code references in this article
-- [Rivumi M6 docs](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m6-cloudflare-sandbox.md) -- official M6 deployment-slice design notes
+- [Rivumi `run-session-do.ts` at 2ed5efb](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/cloudflare/src/run-session-do.ts) -- durable status, SSE, approvals, cancellation, and artifact resources
+- [Rivumi M6 docs](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m6-cloudflare-sandbox-service.md) -- official M6 deployment-slice design notes
+- [Rivumi M6 live evidence](https://github.com/vincentxuu/rivumi/blob/main/docs/research/m6-live-evidence.md) -- the 2026-08-21 deployed smoke and its evidence boundary
 - [Cloudflare Sandbox](https://developers.cloudflare.com/sandbox/) -- `@cloudflare/sandbox` SDK behavior
 - [Cloudflare Durable Objects SQLite storage](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/) -- transaction behavior behind `RunCapability`
 - [Cloudflare Workers bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) -- Worker binding model
 - [HMAC](https://en.wikipedia.org/wiki/HMAC) -- background for HMAC-signed run tokens and constant-time comparison
-- [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat) -- the OpenAI-compatible wire forwarded by `/internal/v1/chat/completions`
+- [OpenAI Chat Completions API](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create) -- the OpenAI-compatible wire forwarded by `/internal/v1/chat/completions`
 - [Linux `prctl(2)`](https://man7.org/linux/man-pages/man2/prctl.2.html) -- `PR_SET_DUMPABLE` process hardening

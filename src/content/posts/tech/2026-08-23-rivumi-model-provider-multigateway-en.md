@@ -1,21 +1,21 @@
 ---
 title: "Rivumi's ModelProvider multi-gateway: multiple protocols, one canonical contract"
-date: 2026-08-23
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, model-provider, openai, anthropic, gemini, workers-ai]
 lang: en
-tldr: "Rivumi abstracts model APIs behind one Protocol: OpenAI-compatible endpoints for Ollama, vLLM, official OpenAI, and custom URLs; OpenAI Responses; Anthropic Messages; Gemini generateContent; Cloudflare Workers AI; and a deterministic scripted adapter. Every SDK exception, HTTP status, and Workers AI error code is collapsed into five `ProviderErrorKind` values. The same adapter can also be exposed through `rivumi gateway` as `/healthz`, `/v1/models`, and non-streaming `/v1/chat/completions`."
-description: "A deep dive into Rivumi's ModelProvider multi-gateway design: how OpenAI-compatible, OpenAI Responses, Anthropic, Gemini, Workers AI, and Scripted adapters translate into canonical ModelTurn values; how ProviderErrorKind collapses failure modes; and how ModelGateway exposes the same adapter as an OpenAI-compatible HTTP endpoint."
+tldr: "Rivumi collapses OpenAI-compatible, Responses, Anthropic, Gemini, Workers AI, scripted, and experimental Codex OAuth adapters into one `ModelProvider` contract. The Codex OAuth transport reads SSE but still reduces it inside the adapter into one canonical `ModelTurn`; AgentRunner does not consume token deltas."
+description: "A deep dive into Rivumi's seven ModelProvider adapters, how Codex OAuth SSE preserves the non-streaming loop contract, and where ProviderErrorKind and ModelGateway sit."
 series:
-  name: "Rivumi 架構拆解"
-  order: 6
+  name: "Rivumi Architecture Notes"
+  order: 5
 draft: false
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-23-rivumi-model-provider-multigateway)
 
-The previous article covered `ExternalCodingRunner`. This one returns to Rivumi's native loop: how `ModelProvider` collapses multiple protocol adapters into one interface, and how the same adapter can be exposed as an external service through `ModelGateway`.
+The previous article followed Rivumi's native loop. This one moves down a layer: how `ModelProvider` collapses multiple protocol adapters into one interface, and how the same adapter can be exposed as an external service through `ModelGateway`.
 
 That collapse is necessary because `AgentRunner._complete_model_or_cancel` sees only the `ModelProvider` Protocol. It does not know whether the lower layer uses the OpenAI SDK, Anthropic's wire format, `httpx`, or Workers AI REST. **All provider-specific differences must be consumed inside the adapter.** On failure, `AgentRunner` sees `ProviderError(kind=..., status_code=..., retryable=...)`, not `openai.APIStatusError` or `httpx.HTTPStatusError`.
 
@@ -42,7 +42,9 @@ class ModelProvider(Protocol):
     async def aclose(self) -> None: ...
 ```
 
-Four attributes and one method. `provider_name` is the identity label; `model_id` is the concrete model; `protocol` is the wire protocol; `capabilities` advertises tool calling, streaming, and structured output. Today, the loop uses `tool_calling` and rejects providers that do not advertise it.
+Four attributes and one method. `provider_name` is an identity label such as `openai-compatible`, `anthropic`, `workers-ai`, `scripted`, or `openai-codex`; `model_id` is the concrete model; and `protocol` names the wire. The same OpenAI family may use chat completions, Responses wire, or the experimental Codex OAuth Responses SSE path.
+
+`capabilities` advertises tool calling, streaming, and structured output. The loop enforces `tool_calling`, while canonical `complete()` still returns one complete `ModelTurn`. `OpenAICodexResponsesModel` advertises `streaming=True` because its transport reads SSE; the adapter collects those events before returning the turn, so the loop does not consume token deltas.
 
 `complete()` accepts canonical `ConversationItem` values and returns a canonical `ModelTurn(content, tool_calls, usage, finish_reason)`. The provider disappears at the boundary.
 
@@ -58,10 +60,11 @@ The adapters in `models.py` use different lower-level transports:
 | `GeminiModel` | `httpx.AsyncClient` | `/v1beta/models/{model}:generateContent` |
 | `WorkersAIModel` | `httpx.AsyncClient` | `/accounts/{id}/ai/run/{model}` |
 | `ScriptedModel` | Python deque | queued fixture turns |
+| `OpenAICodexResponsesModel` | `httpx.AsyncClient` + app-owned OAuth | Codex Responses SSE |
 
 `ScriptedModel` is for contract tests and offline demos. It pops queued `ModelTurn`s from an internal deque and raises a canonical provider error when the script is exhausted. Tests do not need to mock SDKs; they feed canned canonical turns.
 
-Real adapters differ in three places: message translation, tool translation, and response translation. Anthropic wants `system` as a separate field. Gemini uses `system_instruction`. Workers AI and OpenAI accept OpenAI-style messages. Tool schemas and tool-call result shapes also differ across providers.
+The six network-backed adapters differ in message translation, tool translation, and response translation. Anthropic, Gemini, the OpenAI family, and Workers AI use different system fields, tool schemas, and response shapes. Codex OAuth additionally owns credential refresh and SSE event reduction, but still returns the same canonical turn.
 
 Each adapter owns helper functions such as `_xxx_messages()`, `_xxx_tools()`, and `_xxx_tool_call()`. That is the adapter's job: translate canonical values into provider wire format, call the provider, then translate the result back into canonical values. The adapter does not know what `AgentRunner`, disposable clones, or `SafePathPolicy` do.
 
@@ -96,12 +99,12 @@ class ProviderError(RuntimeError):
         return self.kind in {ProviderErrorKind.RETRYABLE, ProviderErrorKind.RATE_LIMIT}
 ```
 
-The five kinds cover the runner's decisions:
+The five kinds give different transports a stable failure vocabulary:
 
-- `AUTH`: 401, 403, or provider-specific auth codes. Terminal reason becomes `provider_auth`.
-- `RATE_LIMIT`: 429 or Workers AI 7505. Retryable, but not automatically retried.
-- `INVALID_REQUEST`: 400, 404, 405, 409, 415, 422, or Workers AI invalid-request codes. Fail closed.
-- `RETRYABLE`: 5xx, connection errors, and timeouts.
+- `AUTH`: 401, 403, or provider-specific auth codes. This identifies a credential or authorization failure.
+- `RATE_LIMIT`: 429 or Workers AI 7505. `retry_after_seconds` preserves the provider's suggested delay.
+- `INVALID_REQUEST`: 400, 404, 405, 409, 415, 422, or Workers AI invalid-request codes. Resending the same schema cannot repair it.
+- `RETRYABLE`: 5xx, connection errors, and timeouts. The adapter classifies the transport failure but does not choose a retry budget.
 - `PROVIDER`: malformed responses or unclassified failures.
 
 HTTP status mapping lives in `_error_kind()`:
@@ -132,9 +135,7 @@ else:
     kind = ProviderErrorKind.PROVIDER
 ```
 
-`ProviderError` also stores `request_id` and `retry_after_seconds`, so the final run result can give actionable feedback without leaking provider-specific exception objects upward.
-
-Rivumi does not automatically retry even when `retryable=True`. The current loop feeds provider failure back into the conversation and lets the next turn decide what to do. That keeps retry behavior visible to the harness and avoids amplifying side effects behind the user's back.
+`ProviderError` also stores `request_id` and `retry_after_seconds`, so the layer above can act without receiving provider-specific exception objects. The adapter stops there: it does not decide the retry count, select a fallback model, or route by price or provider health. The next article covers retry, fallback, cache hints, and estimated cost as a separate operational concern.
 
 ## OpenAI-compatible as a shared wire, not an OpenAI-only path
 
@@ -192,23 +193,23 @@ Key choices:
 
 `_parse_chat_request()` converts OpenAI-style messages and tools into canonical values; `_encode_turn()` converts `ModelTurn` back into OpenAI chat-completion response shape. The gateway introduces no new model protocol. It is just another translator around the same canonical contract.
 
-## Why streaming is not enabled yet
+## Transport streaming is not loop streaming
 
-`ModelCapabilities.streaming` exists, but adapters default it to `False`. The reason is design scope, not provider limitation:
+Most adapters default `streaming` to `False`, but `OpenAICodexResponsesModel` already sets it to `True`: it sends `stream: true`, reads SSE lines, and reduces them through `_turn_from_events()` into a complete `ModelTurn`. That proves transport-level streaming, not token-by-token projection in `AgentRunner` or the TUI.
 
 - `AgentRunner` consumes one `ModelTurn` at a time. Streaming deltas would have to be accumulated into a turn anyway.
-- Interactive token-by-token display is a UI concern; it could be represented as events without changing `complete()`.
+- Interactive token-by-token display still needs a delta-event contract and UI projection; current `complete()` does not expose partial content to the loop.
 - `ExternalCodingRunner` deals in `ExternalAgentResult`, not model deltas.
 
-If streaming arrives, the likely shape is `ModelCapabilities.streaming=True` plus a separate `complete_stream()` async generator. Changing the return type of `complete()` would break the stable contract.
+Claims about "streaming support" therefore need a layer qualifier. The Codex OAuth adapter streams its transport today; the canonical loop and UI remain full-turn consumers. Exposing deltas would require an incremental interface and event semantics that do not break `complete()`.
 
 ## The trade-off
 
-`ModelProvider` is Rivumi's concrete expression of "the model is a component": four fields, one method, and five error kinds. Every protocol adapter translates provider-specific wire format and error codes into that contract, while `AgentRunner` stays provider-blind.
+`ModelProvider` is Rivumi's concrete expression of "the model is a component": four fields, one method, and five error kinds. Seven adapters—OpenAI-compatible, Responses, Anthropic, Gemini, Workers AI, Scripted, and experimental Codex OAuth—translate wire format, authentication, and error codes into that contract while `AgentRunner` stays provider-blind.
 
 The cost is adapter work. The author has to understand both the canonical contract and each provider's wire. When providers change response shapes or add new fields, adapters must be maintained. The return is that **the same `AgentRunner`, disposable clone, and verification gate can support multiple protocols without changing the loop**. The same transport can serve outside clients through `ModelGateway`; `rivumi gateway` remains limited to `/healthz`, `/v1/models`, and non-streaming `/v1/chat/completions`, with optional `RIVUMI_GATEWAY_TOKEN`, not arbitrary URL passthrough.
 
-The next article covers TUI and CLI ergonomics: how a pure async runner becomes a daily-driver interactive tool.
+The [next article](/posts/tech/2026-08-30-rivumi-model-routing-fallback-cost-en) follows a model request upward: how model roles choose candidates, what happens on retry or fallback, and what cache traces and estimated cost can and cannot prove.
 
 ---
 
@@ -216,10 +217,11 @@ The next article covers TUI and CLI ergonomics: how a pure async runner becomes 
 
 - [Rivumi official repo](https://github.com/vincentxuu/rivumi) -- the ground truth for all code references in this article
 - [Rivumi M2 docs](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m2-interactive-cli-provider-gateway.md) -- provider-boundary and gateway milestone notes
-- [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat) -- the wire target for `OpenAICompatibleModel`
+- [Rivumi `codex_oauth.py`](https://github.com/vincentxuu/rivumi/blob/main/src/rivumi/codex_oauth.py) -- experimental app-owned OAuth and SSE reduction
+- [OpenAI Chat Completions API](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create) -- the wire target for `OpenAICompatibleModel`
 - [Anthropic Messages API](https://docs.anthropic.com/en/api/messages) -- the wire target for `AnthropicModel`
 - [Google Gemini generateContent](https://ai.google.dev/api/generate-content) -- the wire target for `GeminiModel`
 - [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/) -- the wire target and error-code source for `WorkersAIModel`
-- [Ollama OpenAI-compatible API](https://github.com/ollama/ollama/blob/main/docs/openai.md) -- a common loopback user of `OpenAICompatibleModel`
+- [Ollama OpenAI compatibility](https://docs.ollama.com/api/openai-compatibility) -- a common loopback user of `OpenAICompatibleModel`
 - [Pydantic v2 protocols](https://docs.pydantic.dev/latest/concepts/types/#protocols) -- background for runtime-checkable Protocol typing
 - [ASGI specification](https://asgi.readthedocs.io/en/latest/) -- the basis for `ModelGateway`

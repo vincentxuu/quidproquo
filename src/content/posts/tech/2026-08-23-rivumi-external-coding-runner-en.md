@@ -1,21 +1,21 @@
 ---
 title: "Rivumi's ExternalCodingRunner: why Codex and Claude Code CLI are external runtimes, not ModelProviders"
-date: 2026-08-23
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [rivumi, coding-agent, codex-cli, claude-code, orchestration]
 lang: en
-tldr: "Rivumi has its native loop (`AgentRunner`) and an external-runtime integration path (`ExternalCodingRunner`). The latter does not wrap official Codex CLI, Claude Code CLI, or local-only OpenCode, Pi, and OMP as `ModelProvider`s. They own their own model loops. Rivumi creates the disposable clone, passes allowed paths and verification commands, validates the returned patch with SafePathPolicy and ToolExecutor, reruns final verification, and checks that the source repo did not change."
-description: "A deep dive into Rivumi's ExternalCodingRunner design: how it splits responsibilities from AgentRunner, why Codex and Claude Code CLI are not ModelProviders, and how disposable clone, patch boundary validation, final verification, and source invariants preserve Rivumi's safety guarantees."
+tldr: "`ExternalCodingRunner` is Rivumi's second runtime lane. The external coding CLI owns its model loop and credentials; Rivumi hands off a task and disposable clone, then treats the returned patch as untrusted input and reruns path audit, verification, and the source invariant. This is a capability-bounded handoff, not another `ModelProvider`."
+description: "A deep dive into Rivumi's ExternalCodingRunner handoff: why an external coding CLI is not a ModelProvider, which capabilities Rivumi delegates, and how returned patches pass boundary validation, final verification, and source-invariant audit."
 series:
-  name: "Rivumi 架構拆解"
-  order: 5
+  name: "Rivumi Architecture Notes"
+  order: 7
 draft: false
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-23-rivumi-external-coding-runner)
 
-The first four articles covered Rivumi's native loop. This article covers its mirror path: the same task may be delegated to a runtime that already owns its own loop, such as Codex CLI, Claude Code CLI, OpenCode, Pi, or OMP. Rivumi does not take over those loops. It orchestrates: sends the task, receives a patch, and verifies the result itself.
+In the complete series plan, orders 4–6 cover Rivumi's native lane, from the loop and provider contract through routing and fallback. This article switches to the second runtime lane: the same task may be delegated to Codex CLI, Claude Code CLI, OpenCode, Pi, or OMP, each of which already owns its own loop. Rivumi handles the handoff: it sends a task and bounded workspace, receives a patch, and audits that patch itself.
 
 The module docstring in `src/rivumi/backends.py` makes the boundary explicit:
 
@@ -30,9 +30,9 @@ The tempting design is to make Codex CLI a `ModelProvider`. Then Rivumi's native
 Rivumi avoids that for four reasons:
 
 - **The loops cannot be merged**: Codex CLI and Claude Code CLI have their own tool loops, approval flows, retries, and prompt-injection defenses. Squashing that into one non-streaming `ModelTurn` loses their semantics.
-- **The tool sets differ**: official CLIs may run shell, access MCP servers, or manage Git differently. Rivumi's native loop exposes seven tools. Combining them creates contradictory capabilities.
-- **The auth model differs**: official CLIs often use subscription OAuth, while Rivumi's native loop uses canonical API-key providers.
-- **The verification boundary must remain Rivumi-owned**: if the external loop both edits and decides verification, Rivumi becomes a broker and loses its M1 guarantees.
+- **The tool sets differ**: official CLIs manage their own shell, MCP, and Git capabilities. Rivumi's native lane has seven single-step tools plus separately bounded programs, transactions, and dynamic capabilities. Forcing both lanes into one schema would blur capability ownership and approval boundaries.
+- **The credential owner differs**: external Codex CLI owns its ChatGPT subscription OAuth. Native providers may use API keys or Rivumi's explicit experimental, app-owned Codex OAuth adapter; neither path extracts the external CLI's login state.
+- **The verification boundary must remain Rivumi-owned**: order 4 requires Rivumi verification before completion. If the external loop both edits and accepts its own result, the workspace, argv, and timeout guarantees lose their final acceptance gate.
 
 So Rivumi creates a second path: **an external CLI is an `ExternalAgentBackend`; it runs inside Rivumi's disposable clone; the resulting patch returns to Rivumi for audit and verification.** The loop is theirs. The boundary is Rivumi's.
 
@@ -109,13 +109,9 @@ Rivumi splits backend integration into two layers:
 - `src/rivumi/backends.py` defines the `ExternalAgentBackend` Protocol: `async def run(task, working_directory, event_sink) -> ExternalAgentResult`.
 - `src/rivumi/external_cli_base.py` handles common subprocess work: spawn the CLI, capture a JSONL stream, parse events, and emit `ExternalAgentEvent`s.
 
-Concrete backends fall into two groups:
+Concrete implementations live in `codex_backend.py`, `claude_backend.py`, `opencode_backend.py`, `pi_backend.py`, and `omp_backend.py`. Each constructs its CLI invocation, parses output, projects `ExternalAgentEvent`s, and returns a patch to `ExternalCodingRunner`. The `codex_conversation.py` and `claude_agent_session.py` modules belong to the order 17 conversation/client integration, not this order 7 backend handoff.
 
-- `src/rivumi/codex_conversation.py` wraps Codex CLI, using ChatGPT OAuth subscription flow owned by Codex itself.
-- `src/rivumi/claude_agent_session.py` wraps Claude Code CLI through the narrowest policy-compatible path, using file tools and avoiding shell, network, and MCP.
-- OpenCode, Pi, and OMP are marked local-only experimental runtimes. They own their loops and tools; Rivumi receives the patch and verifies it.
-
-`backend_name`, `local_only`, and `experimental` are protocol attributes, so UI can label which runtimes are official subprocess integrations and which are local-only experiments.
+`backend_name`, `local_only`, and `experimental` are protocol attributes. The current Codex, Claude Code, OpenCode, Pi, and OMP backends all set `local_only=True` and `experimental=True`: they are local experimental delegation paths, not Cloudflare runtimes or production-readiness labels.
 
 ## Why this is not credential tunneling
 
@@ -123,11 +119,11 @@ M4 introduced a real temptation: users already have subscriptions logged into of
 
 It does not. The reasons are concrete:
 
-- **License and account boundary**: a CLI OAuth token is for that CLI's own use, not for arbitrary third-party code.
+- **Credential scope**: CLI login state belongs to that CLI's authentication flow. Extracting its token into another provider path bypasses the original credential owner and its refresh or revocation lifecycle.
 - **Isolation**: sharing the token couples two programs' failure modes and log surfaces.
 - **Verification boundary**: using the subscription token directly as a `ModelProvider` would collapse the whole external patch-audit path.
 
-The contract is: **the backend reads its own credential, runs its own loop, and returns a result**. Rivumi never touches OAuth flows, never reads CLI credential files, and never writes auth strings into `events.jsonl`. If a backend needs login repair, Rivumi can only surface a hint such as "please run `codex login` again."
+The contract is: **the backend runs through its CLI-owned login state and returns a result**. This external path does not extract CLI credentials, forward them into `ModelProvider`, or write authentication strings into `events.jsonl`. Rivumi may implement OAuth for a separate native provider path, but that credential boundary stays explicit. If an external backend needs login repair, the runner surfaces a repair hint instead of taking ownership of the CLI's login data.
 
 ## The trade-off
 
@@ -135,7 +131,7 @@ The contract is: **the backend reads its own credential, runs its own loop, and 
 
 Disposable clones, `SafePathPolicy`, verification-as-gate, and source-isolation E2E remain in force. The external CLI is the delegated driver, but Rivumi decides whether the result is acceptable.
 
-The next article turns back to the native loop and looks at the `ModelProvider` multi-gateway boundary.
+The next article covers the mechanical boundary both runtime lanes depend on: how `ToolExecutor` constrains a tool call's path, argv, environment, atomic write, and timeout.
 
 ---
 
@@ -144,8 +140,8 @@ The next article turns back to the native loop and looks at the `ModelProvider` 
 - [Rivumi official repo](https://github.com/vincentxuu/rivumi) -- the ground truth for all code references in this article
 - [Rivumi M4 docs](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m4-provider-completion.md) -- official milestone for subscription-backed paths
 - [Rivumi M5 docs](https://github.com/vincentxuu/rivumi/blob/main/docs/stages/m5-subscription-backed-external-coding.md) -- `ExternalCodingRunner` contract definition
-- [OpenAI Codex CLI](https://github.com/openai/codex) -- the runtime wrapped by `codex_conversation.py`
-- [Claude Code CLI](https://docs.claude.com/en/docs/claude-code) -- the runtime wrapped by `claude_agent_session.py`
+- [OpenAI Codex CLI](https://github.com/openai/codex) -- the runtime wrapped by `codex_backend.py`
+- [Claude Code CLI](https://docs.claude.com/en/docs/claude-code) -- the runtime wrapped by `claude_backend.py`
 - [OpenCode](https://opencode.ai/) -- a local-only runtime integration target
 - [Anthropic Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk/overview) -- background for wrapping Claude Code-style agent sessions
 - [Python asyncio subprocesses](https://docs.python.org/3/library/asyncio-subprocess.html) -- subprocess-stream handling background

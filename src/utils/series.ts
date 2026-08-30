@@ -174,16 +174,16 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'rivumi',
     names: { 'zh-TW': 'Rivumi 架構拆解', en: 'Rivumi Architecture Notes' },
     descriptions: {
-      'zh-TW': '拆解 Rivumi 這個 Python-first coding agent harness：provider-neutral loop、disposable clone、工具與路徑隔離、state-first event journaling、外部 CLI runtime、local model gateway、TUI 與 Cloudflare Sandbox 切片。',
-      en: 'Architecture notes for Rivumi, a Python-first coding agent harness: provider-neutral loops, disposable clones, tool and path isolation, state-first event journaling, external CLI runtimes, local model gateway, TUI, and the Cloudflare Sandbox slice.',
+      'zh-TW': '沿著一次 coding-agent 任務的實際路徑拆解 Rivumi：從 TUI、disposable workspace、prompt 與兩條 runtime lane，走到工具權限、state/event lifecycle、MCP、subagents、SDK/IDE，最後把同一套邊界延伸到 Cloudflare 遠端執行。每篇只追一條 data flow、failure boundary 與測試證據。',
+      en: 'Follow one coding-agent task through Rivumi: from the TUI, disposable workspace, prompt, and two runtime lanes through tool authority, the state/event lifecycle, MCP, subagents, SDK/IDE integrations, and finally Cloudflare remote execution. Each article traces one data flow, failure boundary, and test surface.',
     },
   },
   {
     slug: 'coding-agent',
-    names: { 'zh-TW': '跟成熟 coding agent 學設計', en: '跟成熟 coding agent 學設計' },
+    names: { 'zh-TW': '跟成熟 coding agent 學設計', en: 'Learning Coding-Agent Design from Mature Systems' },
     descriptions: {
-      'zh-TW': '以 Rivumi 為實作載體，逐題對照 pi、OMP、OpenCode、Codex CLI 與 Claude Code：先拆已落地的 agent loop、workspace、approval、verification、runtime 與 gateway，再把 context、MCP、sandbox、LSP、telemetry、Agent as a Service 等差距寫成後續設計路線。',
-      en: 'A Rivumi-driven coding-agent design series comparing pi, OMP, OpenCode, Codex CLI, and Claude Code topic by topic: shipped loop, workspace, approval, verification, runtime, and gateway decisions first, then the roadmap for context, MCP, sandboxing, LSP, telemetry, and Agent as a Service.',
+      'zh-TW': '以 Rivumi 為實作載體，逐題對照 pi、OMP、OpenCode、Codex CLI 與 Claude Code：從 loop、workspace、approval 與 verification，一路追到已落地 baseline 的 memory、compaction、MCP、sandbox、subagents、replay、LSP、cost tracking 與 Agent as a Service，並保留 production validation 與跨 runtime parity 的真實缺口。',
+      en: 'A Rivumi-driven comparison of pi, OMP, OpenCode, Codex CLI, and Claude Code, from loops, workspaces, approvals, and verification through shipped baselines for memory, compaction, MCP, sandboxing, subagents, replay, LSP, cost tracking, and Agent as a Service, with production validation and runtime-parity gaps kept explicit.',
     },
   },
   {
