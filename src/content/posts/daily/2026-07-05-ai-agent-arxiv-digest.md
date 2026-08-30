@@ -59,7 +59,7 @@ LLM 的 context window 越來越長，但「能看到」≠「能用好」——
 #### 方法
 
 ReContext 在生成最終答案前，先多做一個步驟：
-- 用模型自己的 attention score（注意力分數）作為相關度信號，從長文裡遞迴挑出最相關片段，組成 evidence pool（證據池）
+- 用模型自己的 attention score（注意力分數）作為相關度訊號，從長文裡遞迴挑出最相關片段，組成 evidence pool（證據池）
 - 將 evidence pool 拼在完整原文前一起送進模型生成答案
 - 全程不截斷原文、不訓練模型、不外接任何工具
 

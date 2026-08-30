@@ -102,7 +102,7 @@ AgentFugue 加了一個「共享推理 hub」（Shared Reasoning Hub），像一
 
 ### 領域背景
 
-Agent benchmark（如 WebArena、SWE-bench）通常用「outcome check（結果檢查）」判斷任務成功與否：任務結束後跑一段程式碼，看某個狀態是否符合預期。問題在於 outcome check 通常只查一個表面信號（按了哪個按鈕、某個欄位值是多少），而不追蹤整條 action path 是否真的達成語意上的成功。
+Agent benchmark（如 WebArena、SWE-bench）通常用「outcome check（結果檢查）」判斷任務成功與否：任務結束後跑一段程式碼，看某個狀態是否符合預期。問題在於 outcome check 通常只查一個表面訊號（按了哪個按鈕、某個欄位值是多少），而不追蹤整條 action path 是否真的達成語意上的成功。
 
 ### 中階導讀
 

@@ -35,7 +35,7 @@ Trajectory 是做「持續學習」（continual learning）基礎設施的公司
 
 目前客戶包括 Clay（AI 銷售）、Decagon（AI 客服）、Harvey（AI 法律）、Mercor、Rogo 等知名 AI-native 公司，部分已進入生產環境。創辦團隊來自 Google DeepMind、Apple、OpenAI、Meta Superintelligence Labs 等研究機構，2026 年 5 月才剛結束隱身模式。
 
-## 這筆融資的信號
+## 這筆融資的訊號
 
 ### 對 Agent 生態的意義
 

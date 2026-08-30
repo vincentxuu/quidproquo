@@ -124,9 +124,9 @@ LLM 應用的評估是面試常考的難題，因為沒有像傳統 ML 那樣清
 
 > **架構概述。** 我會設計一個三層 pipeline。第一層是 retrieval：每個產品線有獨立的向量索引（避免跨產品污染），用 hybrid search（BM25 + dense embedding）做初檢，reranker 做精排。多語言的處理放在 query 端——用多語言 embedding model（如 BGE-M3），讓使用者用任何語言查詢都能命中英文或中文的原始文件，不做翻譯。
 >
-> **生成與驗證。** 第二層是 LLM generation，system prompt 包含產品線上下文和回答規範（例如不能編造退款政策）。第三層是 output validation——我會用三個信號來決定要不要 escalate：retrieval confidence（top-k 的相似度分數低於閾值）、LLM 自我評估（prompt 要求模型標注 confidence level）、以及 guardrail 檢查（有沒有偏離 retrieved context 的 hallucination）。三個信號用加權投票，任兩個 flag 就 escalate。
+> **生成與驗證。** 第二層是 LLM generation，system prompt 包含產品線上下文和回答規範（例如不能編造退款政策）。第三層是 output validation——我會用三個訊號來決定要不要 escalate：retrieval confidence（top-k 的相似度分數低於閾值）、LLM 自我評估（prompt 要求模型標注 confidence level）、以及 guardrail 檢查（有沒有偏離 retrieved context 的 hallucination）。三個訊號用加權投票，任兩個 flag 就 escalate。
 >
-> **Escalation 與監控。** Escalation 不是簡單的「轉人工」——要把 retrieval context、LLM 的生成過程、和 confidence 信號一起傳給人類客服，讓他們不用從零開始。監控重點是 escalation rate（目標 < 15%）和 false negative rate（送出去但被使用者標記錯誤的比例）。上線後用 A/B test 調整 confidence 閾值。
+> **Escalation 與監控。** Escalation 不是簡單的「轉人工」——要把 retrieval context、LLM 的生成過程、和 confidence 訊號一起傳給人類客服，讓他們不用從零開始。監控重點是 escalation rate（目標 < 15%）和 false negative rate（送出去但被使用者標記錯誤的比例）。上線後用 A/B test 調整 confidence 閾值。
 
 ### 自我核對清單
 
@@ -135,7 +135,7 @@ LLM 應用的評估是面試常考的難題，因為沒有像傳統 ML 那樣清
 | 產品線知識庫隔離策略 | |
 | 多語言的處理方式（query 端 vs 文件端） | |
 | Retrieval + reranking 的雙層設計 | |
-| Escalation 的多信號判斷機制 | |
+| Escalation 的多訊號判斷機制 | |
 | Escalation 時傳遞 context 給人類客服 | |
 | Monitoring 指標（escalation rate、false negative rate） | |
 | 加分：A/B test 調整 confidence 閾值 | |

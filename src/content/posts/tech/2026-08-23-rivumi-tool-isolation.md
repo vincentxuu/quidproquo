@@ -182,7 +182,7 @@ def sanitized_subprocess_env(*, task_home: Path | None = None) -> dict[str, str]
 
 ### Process group + 真超時
 
-子行程不能假裝「超時」是「送個 SIGTERM 然後等」——很多指令會 fork grandchild(`make -j`、`pytest --forked`、`npm test` 啟動 webpack daemon),送 SIGTERM 給 process group leader 會殺掉 leader 但 grandchild 還活著,接著繼續寫檔、繼續吃 CPU。Rivumi 用 POSIX `start_new_session=True`(`runtime.py:278`)把子行程放到新 session 與新 process group,然後 `_signal_process_group`(`runtime.py:219-228`)用 `os.killpg(process.pid, sig)` 對整個 group 送信號:
+子行程不能假裝「超時」是「送個 SIGTERM 然後等」——很多指令會 fork grandchild(`make -j`、`pytest --forked`、`npm test` 啟動 webpack daemon),送 SIGTERM 給 process group leader 會殺掉 leader 但 grandchild 還活著,接著繼續寫檔、繼續吃 CPU。Rivumi 用 POSIX `start_new_session=True`(`runtime.py:278`)把子行程放到新 session 與新 process group,然後 `_signal_process_group`(`runtime.py:219-228`)用 `os.killpg(process.pid, sig)` 對整個 group 送訊號:
 
 ```python
 def _signal_process_group(process: subprocess.Popen[bytes], sig: int) -> None:

@@ -50,7 +50,7 @@ NLP 與 LLM 是 AI Engineer 面試中最快暴露深度差距的環節。面試�
 
 面試常見問法：「RLHF 的三個步驟是什麼？」「reward hacking 是什麼意思？」
 
-RLHF 的標準流程：（1）SFT——用高品質示範資料 supervised fine-tune 一個基礎模型；（2）Reward Model——收集人類偏好對比資料（A 回答比 B 好），訓練一個打分模型；（3）PPO——用 reward model 的分數作為獎勵信號，對 SFT 模型做 reinforcement learning。
+RLHF 的標準流程：（1）SFT——用高品質示範資料 supervised fine-tune 一個基礎模型；（2）Reward Model——收集人類偏好對比資料（A 回答比 B 好），訓練一個打分模型；（3）PPO——用 reward model 的分數作為獎勵訊號，對 SFT 模型做 reinforcement learning。
 
 **DPO（Direct Preference Optimization）** 是 2023 年提出的替代方案，跳過 reward model 訓練，直接用偏好資料優化 policy。DPO 更簡單、更穩定，但犧牲了一些靈活性——你沒辦法像 RLHF 那樣在訓練中動態調整 reward。
 

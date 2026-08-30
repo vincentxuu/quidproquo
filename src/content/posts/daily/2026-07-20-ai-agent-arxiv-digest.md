@@ -108,7 +108,7 @@ AI coding agent 在 setup 環境時，行為就像一個照著 README 操作的�
 
 ### 領域背景
 
-用強化學習（RL，Reinforcement Learning）訓練 LLM agent 已是主流方向：給 agent 一個 sandbox 讓它解任務，用「有沒有完成」當獎勵。但現有算法（PPO、RLOO、GRPO）都繼承自 RLHF 的設計：每個 prompt 採樣 N 條完全獨立的軌跡（trajectories）從頭到尾跑完，再比較哪條好。對長任務 agent 來說，這代表大量算力花在「大家都一樣」的前幾步，只有末尾的分歧才是真正有用的學習信號。
+用強化學習（RL，Reinforcement Learning）訓練 LLM agent 已是主流方向：給 agent 一個 sandbox 讓它解任務，用「有沒有完成」當獎勵。但現有算法（PPO、RLOO、GRPO）都繼承自 RLHF 的設計：每個 prompt 採樣 N 條完全獨立的軌跡（trajectories）從頭到尾跑完，再比較哪條好。對長任務 agent 來說，這代表大量算力花在「大家都一樣」的前幾步，只有末尾的分歧才是真正有用的學習訊號。
 
 ### 中階導讀
 
@@ -120,7 +120,7 @@ AI coding agent 在 setup 環境時，行為就像一個照著 README 操作的�
 #### 方法
 
 BPO（Branching Policy Optimization）引入三個機制：
-1. **Entropy 偵測**：在主幹軌跡（backbone trajectory）執行過程中，動態偵測輸出 distribution 熵值高的步驟——這是「model 不確定、值得多試幾條路」的信號
+1. **Entropy 偵測**：在主幹軌跡（backbone trajectory）執行過程中，動態偵測輸出 distribution 熵值高的步驟——這是「model 不確定、值得多試幾條路」的訊號
 1. **Sandbox snapshot**：在這個決策點快照整個 sandbox 狀態（檔案系統、環境、執行上下文）
 1. **Fork & compare**：從同一個快照點分叉 K 條替代路徑各自跑完，用兄弟路徑的 return 差異（而非 group baseline）計算 per-step advantage
 

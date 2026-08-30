@@ -84,7 +84,7 @@ LLM Agent 近期開始使用「長期記憶」，儲存過去的推理歷程與�
 ### 給你的 take-away
 
 - 如果你的 Agent 平台有記憶功能（session memory、experience buffer、episodic memory），現在就評估記憶寫入路徑有沒有任何完整性驗證；沒有的話，本文就是你的威脅模型出發點
-- SENTINEL 的「Reasoning Guard」5 個信號框架值得借鑒，即使不照單全收，可以作為設計自己記憶安全模組的結構參考
+- SENTINEL 的「Reasoning Guard」5 個訊號框架值得借鑒，即使不照單全收，可以作為設計自己記憶安全模組的結構參考
 
 ---
 

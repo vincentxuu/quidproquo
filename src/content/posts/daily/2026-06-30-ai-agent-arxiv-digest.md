@@ -178,7 +178,7 @@ Red Queen Gödel Machine（RQGM）的核心是 epoch 架構：(1) 每個 epoch �
 ### 深入要點
 
 - 名稱典故：「Red Queen Effect」來自演化生物學——獵物和天敵彼此施壓持續演化，「必須一直跑才能留在原地」；這裡 agent 和 evaluator 互相施壓，誰也不能停下
-- Coding 結果：用 agent-as-a-judge 的 code review 信號輔助 test pass，比 SOTA 少用 1.35x-1.72x 的 tokens 達到更高 test pass rate
+- Coding 結果：用 agent-as-a-judge 的 code review 訊號輔助 test pass，比 SOTA 少用 1.35x-1.72x 的 tokens 達到更高 test pass rate
 - Writing 結果：co-evolved writers 的 paper 在 agent judge panel 的接受率提升 1.78x-1.86x
 - Grading 結果：co-evolved graders 在 Olympiad 數學題的 ground-truth accuracy 提升 9%
 - **⚠️ Writing 的 1.78x-1.86x 是以 agent judge panel 評分，不是人類評審**——最亮眼的數字缺乏獨立的人類驗證，存疑

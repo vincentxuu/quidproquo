@@ -52,7 +52,7 @@ JobLeads 的實驗操盤手 Edd Saunders 把「找瓶頸」這步做成可操作
 
 你在一家線上記帳 App 帶成長，過去兩季新戶月活躍留存率停滯不動。執行長認為問題出在「獲客量不夠」，要求你把行銷預算翻倍，並優先上線一個推薦好友拿獎勵金的計畫，因為「competitor 都有推薦計畫」。你會怎麼回應？
 
-（來源：自擬 based on Growth PM 面試常見的「診斷 vs 直覺方案」情境，參考 Johnny Mai 對 Growth PM 面試信號的觀察與 JobLeads 問題地圖框架的精神）
+（來源：自擬 based on Growth PM 面試常見的「診斷 vs 直覺方案」情境，參考 Johnny Mai 對 Growth PM 面試訊號的觀察與 JobLeads 問題地圖框架的精神）
 
 ### 拆解思路
 
@@ -102,5 +102,5 @@ JobLeads 的產品實驗經理 Edd Saunders 在顧問時期，曾帶一家大型
 ## 參考資料
 
 - [Reforge Blog：Growth Loops are the New Funnels](https://www.reforge.com/blog/growth-loops) — 對應「核心框架速記」的 Growth Loop 部分。
-- [Johnny Mai：The Growth PM Interview: How to Signal High-Velocity Impact](https://sirjohnnymai.com/blog/product-growth-pm-interview-qa-2026growth-pm-interview/) — 對應「核心框架速記」的診斷鏈與「不要跳過瓶頸」的面試信號觀察。
+- [Johnny Mai：The Growth PM Interview: How to Signal High-Velocity Impact](https://sirjohnnymai.com/blog/product-growth-pm-interview-qa-2026growth-pm-interview/) — 對應「核心框架速記」的診斷鏈與「不要跳過瓶頸」的面試訊號觀察。
 - [GrowthBook Blog：How JobLeads 10x'd Experiment Velocity](https://www.growthbook.io/blog/from-22-clicks-to-5-the-zero-impact-experiment-that-shaped-how-edd-saunders-at-jobleads-tests) — 對應「今日案例」的數據與問題地圖框架。

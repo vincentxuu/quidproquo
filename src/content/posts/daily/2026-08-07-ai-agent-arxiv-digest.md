@@ -59,7 +59,7 @@ LLM Agent 用工具時，現有方法多從歷史軌跡中建立「工具層圖�
 - 在 2 個 ID 和 3 個 OOD 基準上持續超越 SOTA 基線
 - OOD 泛化是核心賣點：Agent 面對從未見過的工具集仍能正確規劃 ⚠️（作者自測，需等外部複現）
 - 解耦設計：工作流規劃用 FWG 的全局結構引導，工具選擇用局部匹配
-- RL 獎勵設計引入 source-gated 和 skill-specific 兩種信號，防止工具間傳錯資料
+- RL 獎勵設計引入 source-gated 和 skill-specific 兩種訊號，防止工具間傳錯資料
 - 落地門檻：需要一批已有的工具使用軌跡作為種子資料
 - 與 LangGraph / AutoGen 的 tool registry 概念互補——它們管工具註冊，ToolLIFT 管規劃遷移
 - Limitation：目前的功能抽象由 LLM 完成，品質依賴模型的語義理解能力

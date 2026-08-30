@@ -125,7 +125,7 @@ PaperPilot 把搜尋任務化成「**工作流程歸納（Workflow Induction）*
 - **訓練資料生成**：對正確工作流程施加「受控破壞（controlled workflow corruptions）」生成負樣本，做 preference optimization——比隨機生成負樣本更針對性
 - **Base model**：Qwen3.5-9B；PaperPilot-9B 在多輪互動下優於同模型的 toolset agent baseline
 - **評測結果（⚠️ 為論文內部 baseline，未見第三方重現）**：Hit@5 58.0→77.0（+19 pts），MRR 47.5→59.4，nDCG@10 26.8→32.5，工作流程執行錯誤率 9.5%→0%
-- **多輪互動設計**：系統追蹤使用者哪些結果被接受/拒絕，作為下一輪 DAG 修改的信號，不只修改 query 字串，而是修改整個算子拓撲
+- **多輪互動設計**：系統追蹤使用者哪些結果被接受/拒絕，作為下一輪 DAG 修改的訊號，不只修改 query 字串，而是修改整個算子拓撲
 - **Limitation**：benchmark 僅在學術文獻搜尋場景；DAG 算子集合目前是預定義的，不支援開放域新算子生成；需要人工正確工作流程示範作為訓練資料，收集成本較高
 - **與主流 framework 的關係**：DAG 工作流程可對應到 LangGraph 的 Graph 概念；preference optimization 方式可借鑒 DPO
 
@@ -168,7 +168,7 @@ SEA：讓 Agent 在邊跑邊自我改良的同時，每次改良都需通過「�
 
 #### 方法
 
-SEA 架構三件套：（1）**凍結的 base model + 小型 steering adapter**（只改 adapter，不動 base model，降低惡性覆蓋的風險）；（2）**Versioned harness**（每次更新都有版本號，失敗可回退）；（3）**Anytime-valid gate**（使用隨時有效的統計檢驗，在任意時間點停下來都能得到有保障的結論，並輸出一張「審核通過憑證」）。五種 verifier 機制從任務文字本身提取信號，不依賴外部人工標注。
+SEA 架構三件套：（1）**凍結的 base model + 小型 steering adapter**（只改 adapter，不動 base model，降低惡性覆蓋的風險）；（2）**Versioned harness**（每次更新都有版本號，失敗可回退）；（3）**Anytime-valid gate**（使用隨時有效的統計檢驗，在任意時間點停下來都能得到有保障的結論，並輸出一張「審核通過憑證」）。五種 verifier 機制從任務文字本身提取訊號，不依賴外部人工標注。
 
 #### 為什麼重要
 

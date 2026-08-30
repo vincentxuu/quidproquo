@@ -169,7 +169,7 @@ agent 系統還不穩定就上線時，傳統任務層監控會失靈；這篇�
 作者提出把監控分成 **3 個維度 × 3 個監控範圍** 的框架：
 - **維度**：品質（quality）、適合度（suitability）、效率（efficiency）
 - **範圍**：單次執行（within-run）、跨次執行（cross-run）、結構層（structural）
-使用「變異係數（coefficient of variation, CV）」作為信號：CV 接近 0 代表問題具確定性（結構問題），CV 大代表隨機性（偶發問題）。嚴重度分類套用工業界的 FMEA 方法論。
+使用「變異係數（coefficient of variation, CV）」作為訊號：CV 接近 0 代表問題具確定性（結構問題），CV 大代表隨機性（偶發問題）。嚴重度分類套用工業界的 FMEA 方法論。
 
 #### 為什麼重要
 
@@ -177,7 +177,7 @@ agent 系統還不穩定就上線時，傳統任務層監控會失靈；這篇�
 
 ### 深入要點
 
-- **3×3 監控矩陣**：9 個監控切面，每個切面的信號解讀方式不同；cross-run 層是傳統監控最容易遺漏的
+- **3×3 監控矩陣**：9 個監控切面，每個切面的訊號解讀方式不同；cross-run 層是傳統監控最容易遺漏的
 - **CV 示範**：within-run CV=0.02（確定性缺陷）vs cross-run CV=1.25（隨機整合問題）vs structural CV=0.00（完美一致的整合缺口）——三種故障用同一個 metric 就能區分模式 ⚠️（來自 220 次合成測試，非真實生產數據）
 - **FMEA 嚴重度分類**：L2 以上路由給人工介入，減少 alert fatigue
 - **成熟度三階段**：characterization（新部署期）→ error detection（逐漸穩定）→ reliability tracking（成熟運作）；對應不同的監控策略重點

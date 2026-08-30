@@ -20,7 +20,7 @@ series:
 
 面試時最常被問的直覺問題是：「為什麼 CNN 對圖像有效？」好的回答要點出兩件事。第一，局部性——圖像中的有意義 pattern（邊緣、紋理、物體部件）通常是局部的。第二，**平移不變性**（translation invariance）——同一個 kernel 在整張圖上滑動，不管物體出現在哪個位置，都能被偵測到。
 
-**Pooling** 的作用不只是降維。Max pooling 提取局部區域中最強的信號，提供對微小位移的容忍度。但 pooling 也丟失了精確的空間位置資訊，這就是為什麼語義分割任務（需要像素級定位）後來改用 dilated convolution 或 encoder-decoder 架構取代 pooling。
+**Pooling** 的作用不只是降維。Max pooling 提取局部區域中最強的訊號，提供對微小位移的容忍度。但 pooling 也丟失了精確的空間位置資訊，這就是為什麼語義分割任務（需要像素級定位）後來改用 dilated convolution 或 encoder-decoder 架構取代 pooling。
 
 架構演進的脈絡：LeNet → AlexNet（深度 + ReLU + Dropout）→ VGGNet（統一 3×3 kernel）→ GoogLeNet/Inception（多尺度平行卷積）→ ResNet（skip connection 解決深度退化）→ EfficientNet（compound scaling）。面試不需要背每個架構的細節，但要能說出 **ResNet 的 skip connection 為什麼有效**——它讓梯度可以直接回傳到淺層，解決了深層網路的退化問題（注意：是退化不是過擬合，深層網路的訓練 loss 比淺層高）。
 

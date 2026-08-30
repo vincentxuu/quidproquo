@@ -158,7 +158,7 @@ AIP-C01 在本系列裡是特別的一張：它是**唯一一張把「訓練模�
 
 > To align with the rapid pace of AI innovation, the standard version of the exam has been refreshed to reflect changes in AWS services, including the addition of Amazon Bedrock AgentCore. The last day to take the beta version of the exam is March 31, 2026.
 
-**判斷法**：翻教材目錄找 **Bedrock AgentCore、Strands Agents、AWS Agent Squad、MCP、Bedrock reranker、Kiro**。這些一個都沒提到，就是 2026 年 3 月以前的東西。另一個信號是它寫「Amazon SageMaker」而不是現行的「Amazon SageMaker AI」。
+**判斷法**：翻教材目錄找 **Bedrock AgentCore、Strands Agents、AWS Agent Squad、MCP、Bedrock reranker、Kiro**。這些一個都沒提到，就是 2026 年 3 月以前的東西。另一個訊號是它寫「Amazon SageMaker」而不是現行的「Amazon SageMaker AI」。
 
 ## 考完之後
 

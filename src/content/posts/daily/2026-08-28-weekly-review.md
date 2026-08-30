@@ -44,7 +44,7 @@ Google Cloud 為 Gemini Enterprise 推出 Flexible Savings Plans（1 年期折 1
 
 ## 企業落地觀察
 
-我認為本週最值得企業注意的信號，是 Google 這次「不砍價、改砍帳單結構」的操作。
+我認為本週最值得企業注意的訊號，是 Google 這次「不砍價、改砍帳單結構」的操作。
 
 用轉換成本框架分析：Flexible Savings Plans 不是打折，是把客戶綁進 1 到 3 年不可取消的月支出承諾——一旦簽了，換供應商的成本不再只是「重寫程式碼串接新 API」，還多了一筆已經沉沒的合約承諾。這跟 OpenAI GPT-5.6 Sol 那種直接降標價的打法完全不同：降價贏的是新客戶，鎖帳單贏的是留住老客戶，Google 這次打的是後者。
 
@@ -62,7 +62,7 @@ Google Cloud 為 Gemini Enterprise 推出 Flexible Savings Plans（1 年期折 1
 
 ### 🆕 建議加入
 
-本週所有信號中出現的公司全部已在 watchlist 內，沒有任何 watchlist 外公司達到「本週出現 ≥ 3 次」的加入門檻。本週的新面孔集中在融資事件（各出現 1 次），已列入下方新創雷達觀察，暫不建議直接加入 watchlist。
+本週所有訊號中出現的公司全部已在 watchlist 內，沒有任何 watchlist 外公司達到「本週出現 ≥ 3 次」的加入門檻。本週的新面孔集中在融資事件（各出現 1 次），已列入下方新創雷達觀察，暫不建議直接加入 watchlist。
 
 ### ⚠️ 考慮移除
 

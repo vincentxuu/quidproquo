@@ -104,7 +104,7 @@ HORMA（Hierarchical Organize-and-Retrieve Memory Agent）把工作記憶拆成�
 
 ### 領域背景
 
-現在主流做法是用 RLVR 訓練 Agent：讓 Agent 跑很多次任務（rollout），答對給正獎勵，答錯給負獎勵，然後更新模型。問題是：如果任務太簡單（每次都對）或太難（每次都錯），這批 rollout 就沒有學習信號，訓練白跑了——這叫做 reward contrast 不足。
+現在主流做法是用 RLVR 訓練 Agent：讓 Agent 跑很多次任務（rollout），答對給正獎勵，答錯給負獎勵，然後更新模型。問題是：如果任務太簡單（每次都對）或太難（每次都錯），這批 rollout 就沒有學習訊號，訓練白跑了——這叫做 reward contrast 不足。
 
 ### 中階導讀
 

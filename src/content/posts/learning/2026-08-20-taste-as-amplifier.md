@@ -60,9 +60,9 @@ Paul Graham 在 2002 年寫了 [Taste for Makers](https://paulgraham.com/taste.h
 | **反人性** | 刻意逆了什麼人性？為什麼？存錢 app 故意讓提款變難 |
 | **倫理** | 規模化後世界變好還是變壞？ |
 | **市場** | 時機對不對？結構上誰會贏？護城河在哪？ |
-| **信號感知** | 使用前它就在傳達什麼訊息？包裝、重量、開箱手感 |
+| **訊號感知** | 使用前它就在傳達什麼訊息？包裝、重量、開箱手感 |
 
-光會看工藝的人只能當評論員，能同時讀懂人性跟市場的人才能做產品。[Ben Thompson 的 Aggregation Theory](https://stratechery.com/2015/aggregation-theory/) 是理解網路市場結構最乾淨的框架。信號感知來自 Markkula 1977 年寫的 Apple Marketing Philosophy 第三條——Impute：人真的會以貌取人，你怎麼呈現就決定了別人怎麼感知。
+光會看工藝的人只能當評論員，能同時讀懂人性跟市場的人才能做產品。[Ben Thompson 的 Aggregation Theory](https://stratechery.com/2015/aggregation-theory/) 是理解網路市場結構最乾淨的框架。訊號感知來自 Markkula 1977 年寫的 Apple Marketing Philosophy 第三條——Impute：人真的會以貌取人，你怎麼呈現就決定了別人怎麼感知。
 
 ### 後果思考——看遠一點
 

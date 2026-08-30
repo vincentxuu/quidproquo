@@ -11,6 +11,8 @@ series:
   order: 11
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-30-ai-interview-daily-en)
+
 ## 本週行為面試練習
 
 ### 故事框架：生產環境模型效果驟降的應對與跨團隊斡旋

@@ -35,7 +35,7 @@ Callosum 是做「異質運算編排層」的公司——它坐在 AI 應用和�
 
 創辦人 Danyal Akarca 與 Jascha Achterberg 在劍橋讀博時相識，研究主題是大腦如何靠組合多種專門化迴路（而非放大單一迴路）達成智能，兩人合計發表逾 70 篇論文。公司 2026 年 4 月成為英國 £500M 主權 AI 基金（Sovereign AI Fund）投資的第一家公司，也是英國先進研究機構 ARIA 旗下 Scaling Inference Lab 的創始成員。矽晶合作夥伴包括 Cerebras、Rebellions、Axelera、d-Matrix、Lumai、Tendrils，基礎設施夥伴為 Supermicro 與 HPE。
 
-## 這筆融資的信號
+## 這筆融資的訊號
 
 ### 對 Agent 生態的意義
 

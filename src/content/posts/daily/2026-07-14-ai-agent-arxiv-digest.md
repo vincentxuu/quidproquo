@@ -22,7 +22,7 @@ series:
 | 白話解釋 | 詞 |
 |---|---|
 | 多個 AI agent 分工合作的系統，例如一個 agent 負責搜尋、一個負責寫程式、一個負責驗證 | **Multi-Agent System (MAS)** |
-| LLM 計算時每一層神經網路的中間數值，可視為「LLM 在想什麼」的低階信號，白盒監控用 | **激活空間 (Activation Space)** |
+| LLM 計算時每一層神經網路的中間數值，可視為「LLM 在想什麼」的低階訊號，白盒監控用 | **激活空間 (Activation Space)** |
 | 包在 LLM 外面的基礎設施：控制 agent 能看到哪些工具、怎麼處理錯誤、要不要讓人類確認 | **Agent Harness（代理框架）** |
 | 兩個函式雖然名字和業務域不同，但解題的「中間步驟順序」相似，如都先驗證→搜尋→格式化輸出 | **程序相似性 (Procedural Similarity)** |
 | 同一任務、同一 LLM，但因 harness 不同，agent 對任務進度、風險、下一步的判斷出現明顯差異 | **Belief Divergence（信念偏差）** |
@@ -122,7 +122,7 @@ Repository-level code generation（倉庫級程式碼生成）指讓 AI 在理�
 
 #### 為什麼重要
 
-核心洞察直接可套用到任何 coding agent 產品：**retrieval 的維度越豐富，context 品質越高，生成準確率就越好**。「程序相似性」是一個被忽略但有價值的信號，而且可與現有 retrieval 管道疊加，不需要替換整套架構。
+核心洞察直接可套用到任何 coding agent 產品：**retrieval 的維度越豐富，context 品質越高，生成準確率就越好**。「程序相似性」是一個被忽略但有價值的訊號，而且可與現有 retrieval 管道疊加，不需要替換整套架構。
 
 ### 深入要點
 

@@ -35,7 +35,7 @@ Vals AI 是做獨立 AI 模型評測的公司——用真實世界的專業任�
 
 目前 Vals 的評測結果已被 OpenAI、Anthropic、Google、Meta、xAI 引用在各自的 model card 中，企業客戶則用它的分數來決定哪個模型能上線。公司自述 2025 年全年營收成長 8 倍，客戶數翻倍，團隊規模在過去六個月內成長 3 倍。此前僅在 2024 年募得 $5M 種子輪，由 8VC、Bloomberg Beta、Pear VC 投資。
 
-## 這筆融資的信號
+## 這筆融資的訊號
 
 ### 對 Agent 生態的意義
 

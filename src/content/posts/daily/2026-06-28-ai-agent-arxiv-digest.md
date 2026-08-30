@@ -173,14 +173,14 @@ APPO 提出兩個核心創新：① Branching Score（分支分數）：對每�
 
 #### 為什麼重要
 
-對 Agent 訓練團隊而言，APPO 在不改變整體訓練框架的情況下，讓 RL 能更精準地找到「真正值得優化的決策點」，降低訓練信號的噪聲。13 個 benchmark 的穩定提升說明這不是 overfitting 到特定任務，而是改善了信用分配這個核心機制。
+對 Agent 訓練團隊而言，APPO 在不改變整體訓練框架的情況下，讓 RL 能更精準地找到「真正值得優化的決策點」，降低訓練訊號的噪聲。13 個 benchmark 的穩定提升說明這不是 overfitting 到特定任務，而是改善了信用分配這個核心機制。
 
 ### 深入要點
 
 - 13 個 benchmark 涵蓋 coding、tool use、reasoning 多種任務類型，一致提升約 4 分，改進穩健而非 task-specific
 - Branching Score 計算需要對候選分支點模擬後續生成，計算成本高於傳統 entropy-only 方法 **⚠️ 原文未詳細量化計算 overhead**
 - APPO 定位為 GRPO/PPO 的上層改進，可在 verl、OpenRLHF 等現有訓練框架上疊加，不需重寫整個 pipeline
-- 訓練出的 Agent 維持高效工具呼叫（不增加多餘呼叫次數），且行為可解釋性提升（因為訓練信號更精準）
+- 訓練出的 Agent 維持高效工具呼叫（不增加多餘呼叫次數），且行為可解釋性提升（因為訓練訊號更精準）
 - 核心洞察「重要決策點廣泛分布而非集中在 tool call」是對 Agent RL 領域的重要修正，方向正確
 - Limitation：Branching Score 在長 context 任務上的 scaling 效率未被討論；batch training 時的 overhead 量化不足
 - 機構組合（USTC + 阿里 AMAP）偏向工業落地，代碼預計會有開源計劃

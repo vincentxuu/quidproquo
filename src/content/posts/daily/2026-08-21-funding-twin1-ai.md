@@ -35,7 +35,7 @@ Twin1 AI 是做「個人層級知識分身」的公司——它為組織裡的�
 
 團隊是 Eigen Technologies 的原班人馬。共同創辦人 Dr. Lewis Z. Liu、Tom Cahn、Huiting Liu、Dr. Jonathan Budd 中有三位來自 Eigen，Eigen 累計募資逾 $100M，服務全球半數最大銀行與 20% 的 AmLaw 100 律所，處理過超過 $100 兆美元的金融合約，2024 年 5 月被 Sirion 收購。Liu 的說法是這次算「未竟之事」——Eigen 在 ChatGPT 之前做企業 AI，做得早但沒吃到後來的紅利。目前公司未公布客戶數或營收。
 
-## 這筆融資的信號
+## 這筆融資的訊號
 
 ### 對 Agent 生態的意義
 

@@ -174,7 +174,7 @@ ACCORD 在每個 action 執行前加入一個「主動接地步驟（active grou
 
 #### 為什麼重要
 
-這是 AI coding agent 從「試用」走向「日常工作流核心工具」的實證信號。對 Agent 平台開發者而言：整合 coding agent 的框架需求正在快速增加；AI-assisted commit 比例上升也意味著程式碼庫的「AI 生成程式碼比例」在快速提高，這對 code review、測試、安全審計工具都有連鎖影響。
+這是 AI coding agent 從「試用」走向「日常工作流核心工具」的實證訊號。對 Agent 平台開發者而言：整合 coding agent 的框架需求正在快速增加；AI-assisted commit 比例上升也意味著程式碼庫的「AI 生成程式碼比例」在快速提高，這對 code review、測試、安全審計工具都有連鎖影響。
 
 ### 深入要點
 

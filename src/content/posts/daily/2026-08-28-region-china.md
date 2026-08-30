@@ -33,11 +33,11 @@ series:
 
 ### 智譜（Z.ai）開源 GLM-5.3-Flash：MIT 授權、跑在國產晶片上，價格僅前代十分之一
 
-智譜旗下 Z.ai 於 8 月 26 日發布 GLM-5.3-Flash，是 GLM-5 系列首個原生多模態模型，320B 總參數、僅啟用 18B，支援 100 萬 token 上下文。架構上首次採用稀疏注意力與線性注意力的混合設計（KDA 線性注意力＋NoPE 稀疏 MLA），並導入 IndexPool 壓縮索引向量，官方宣稱注意力運算量降低約 3 倍、KV 快取縮小 4.4 倍。定價為每百萬 token 輸入 0.15 美元、輸出 0.50 美元，約為 GLM-5.2 的十分之一，Terminal-Bench 2.1 拿下 84.3 分，逼近 Claude Opus 4.8；模型權重以 MIT 授權開源在 HuggingFace，且完全在國產晶片上完成訓練與推論。值得一提的是，這款模型上市前一週曾以匿名帳號「Ox Alpha」在 OpenCode 與 OpenRouter 的程式碼榜單短暫刷榜，直到鑑識線索指向智譜才曝光身份——與本站上週信號追蹤到的社群風向完全吻合。GLM-5.3-Flash 這類「更便宜、更強」的開源模型持續壓低模型層的價格，正是騰訊 WorkBuddy 這類聚合器打法能夠持續划算的底層條件。（[Z.ai 官方部落格](https://z.ai/blog/glm-5.3-flash)、[MarkTechPost](https://www.marktechpost.com/2026/08/26/z-ai-releases-glm-5-3-flash-a-320b-a18b-natively-multimodal-moe-with-a-1m-token-context/)、[Hugging Face](https://huggingface.co/zai-org/GLM-5.3-Flash)）
+智譜旗下 Z.ai 於 8 月 26 日發布 GLM-5.3-Flash，是 GLM-5 系列首個原生多模態模型，320B 總參數、僅啟用 18B，支援 100 萬 token 上下文。架構上首次採用稀疏注意力與線性注意力的混合設計（KDA 線性注意力＋NoPE 稀疏 MLA），並導入 IndexPool 壓縮索引向量，官方宣稱注意力運算量降低約 3 倍、KV 快取縮小 4.4 倍。定價為每百萬 token 輸入 0.15 美元、輸出 0.50 美元，約為 GLM-5.2 的十分之一，Terminal-Bench 2.1 拿下 84.3 分，逼近 Claude Opus 4.8；模型權重以 MIT 授權開源在 HuggingFace，且完全在國產晶片上完成訓練與推論。值得一提的是，這款模型上市前一週曾以匿名帳號「Ox Alpha」在 OpenCode 與 OpenRouter 的程式碼榜單短暫刷榜，直到鑑識線索指向智譜才曝光身份——與本站上週訊號追蹤到的社群風向完全吻合。GLM-5.3-Flash 這類「更便宜、更強」的開源模型持續壓低模型層的價格，正是騰訊 WorkBuddy 這類聚合器打法能夠持續划算的底層條件。（[Z.ai 官方部落格](https://z.ai/blog/glm-5.3-flash)、[MarkTechPost](https://www.marktechpost.com/2026/08/26/z-ai-releases-glm-5-3-flash-a-320b-a18b-natively-multimodal-moe-with-a-1m-token-context/)、[Hugging Face](https://huggingface.co/zai-org/GLM-5.3-Flash)）
 
 ## 深度分析
 
-我認為本週最值得注意的信號，是中國四家平台（騰訊、阿里巴巴、字節跳動、百度）幾乎在同一時間得出同一個策略結論：真正的護城河不在模型層，而在轉換成本與流量分發層。用護城河理論（Economic Moat：轉換成本、網路效應、成本優勢、無形資產四種類型）拆解本週的動態，脈絡相當一致：
+我認為本週最值得注意的訊號，是中國四家平台（騰訊、阿里巴巴、字節跳動、百度）幾乎在同一時間得出同一個策略結論：真正的護城河不在模型層，而在轉換成本與流量分發層。用護城河理論（Economic Moat：轉換成本、網路效應、成本優勢、無形資產四種類型）拆解本週的動態，脈絡相當一致：
 
 **轉換成本護城河，是這波整併的真正目標**：豆包 Work 要求使用者用飛書帳號登入才能解鎖完整能力，一旦綁定，Agent 就能直接讀取整個組織的聊天紀錄、文件與權限體系，而生成的文件又存回飛書雲文檔——這意味著換掉豆包 Work，等於同時要換掉整個團隊的協作平台，遷移成本被刻意做高。阿里巴巴把 QoderWork、MuleRun、Wukong 三合一，也是同一邏輯：先讓使用者在單一入口累積工作流與資料，才能談長期留存。
 
