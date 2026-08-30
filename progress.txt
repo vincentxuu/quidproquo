@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-30
+Last updated: 2026-08-31
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -78,6 +78,9 @@ Recently completed
   github digest 用 `gh api` 查 13 個框架 release（僅 pydantic-ai v2.36.0 落在窗內）＋GitHub
   Trending 頁面挑出 5 個 repo（chrome-devtools-mcp、GitNexus、context-mode、google/skills、
   livekit/agents），series order 15，`pnpm verify` 全綠。
+- **daily-digest-report 2026-08-31 略過（Q-017 復發）**：排程於 Taipei 凌晨 04:14 觸發，Stage 1/2
+  尚未產出任何 2026-08-31 內容（最新仍是 08-30 全套已發佈），依 Q-017 先例不硬跑 fallback、不產出
+  當日日報，避免冪等檢查鎖死正式版；詳見 escalation-queue.md Q-017 復發記錄。
 Notes
 - Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md（agent 必讀：來源、已查證事實、URL 遷移、主題藍圖）；Anthropic 官方考點與資料管道地圖在 docs/anthropic-official-signals.md。
 - CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，未找到當期公開課站或完整播放清單，維持逐講阻塞；來源記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
