@@ -1,6 +1,6 @@
 ---
-title: "Learning Design from Mature Coding Agents (7): Provider Retry Policy and Error Classification — Why One 5xx Can Kill an Entire Run"
-date: 2026-08-25
+title: "Learning Design from Mature Coding Agents (7): Provider Retry Policy — From One 5xx to Bounded Retry and Fallback"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -9,7 +9,7 @@ series:
 tags: [coding-agent, harness-engineering, llm-api, retry, error-handling, llm-agents]
 lang: en
 description: "How pi, OMP, OpenCode, Codex, and Claude Code classify provider errors and structure retries — the division of labor between SDK built-in retries and harness-level retries, respecting Retry-After, jitter, and fallback — compared with rivumi's fix for 'one 5xx fails the whole run'."
-tldr: "NVIDIA NIM intermittently returned 500s for one model, and rivumi's ProviderError.retryable was only written to the event log with no consumer — a single 5xx marked the whole run FAILED, and the TUI showed just 'provider retryable'. All five reference projects keep retries at the harness layer: pi explicitly requires setting the SDK's max_retries to 0 and wrapping requests in an abortable retry; OpenCode force-retries 5xx even when the SDK doesn't flag them as retryable; Claude Code honors the x-should-retry header with a 10-attempt ceiling. Rivumi took the same path: AsyncOpenAI max_retries=0, three exponential-backoff attempts (1s/2s/4s), delay = max(backoff, Retry-After), cancellation shortens the backoff sleep, and every retry emits a model.retry event."
+tldr: "Intermittent NVIDIA NIM 500s exposed Rivumi's early gap: classified errors with no retry consumer. SDK retries are now disabled; the harness gives each candidate up to five attempts with jittered exponential backoff and capped Retry-After handling, then can move to an explicitly configured fallback model. Both model.retry and model.fallback enter the event log."
 draft: false
 ---
 
@@ -51,11 +51,13 @@ Claude Code's `claude-code-source/src/services/api/withRetry.ts#withRetry` is an
 
 The fix follows pi's route but leaner: **all retries unified at the harness layer**. Every `AsyncOpenAI` client sets `max_retries=0` (at the client construction in `rivumi/src/rivumi/models.py`; `provider_verification.py:144` likewise), with a comment explaining why: SDK-internal retries would multiply upstream requests 3×3 and bypass the audit trail.
 
-The harness core is `rivumi/src/rivumi/loop.py#_complete_model_with_retry`: each model step gets at most 3 attempts, only `exc.retryable` (RETRYABLE or RATE_LIMIT) triggers retries, and AUTH and INVALID_REQUEST re-raise immediately. Delay is `max(backoff[attempt], retry_after_seconds)` — the table is fixed at 1s/2s/4s, but the server's `Retry-After` has final say. Two details deserve mention. The backoff wait uses `rivumi/src/rivumi/loop.py#_backoff_sleep` implemented with `asyncio.wait`: user cancellation wakes it early, the next attempt observes the cancel signal immediately, and the run follows its normal CANCELLED path. And each retry emits a `model.retry` event (with attempt, provider, error, delay_seconds) first, so a run's full retry history can be replayed from events.jsonl.
+The harness core is `rivumi/src/rivumi/loop.py#_complete_model_with_retry`: each candidate model gets at most 5 attempts per step, only `exc.retryable` (RETRYABLE or RATE_LIMIT) triggers retries, and AUTH and INVALID_REQUEST re-raise immediately. `#retry_delay_seconds` applies exponential backoff capped at 30 seconds with ±15% jitter. A server `Retry-After` value wins directly, subject to a 300-second safety cap. Backoff remains cancel-aware, and every retry emits `model.retry`, preserving replayable history in events.jsonl.
+
+Exhaustion no longer means immediate failure. Repeated CLI `--fallback-model provider/model` values, or static role aliases such as `--fallback-model @cheap`, build an ordered candidate list. After five transient failures on the primary, the loop emits `model.fallback` with source/target models and failure codes, then gives the next candidate a fresh retry budget. Only exhausting every candidate produces the terminal `ProviderError`. This is an explicitly configured baseline, not an automatic best-model selector, and it does not fall back on non-transient auth or invalid-request failures.
 
 The give-up presentation got fixed too: the `except ProviderError` path in `loop.py` now composes a human-readable message like "nvidia-nim failed 3 consecutive model requests (500, 503, 500); the service is temporarily unavailable..." into `RunResult.error`, which the TUI renders instead of "provider retryable"; `terminal_reason="provider_retryable"` stays untouched as the machine-readable field.
 
-Compared with the five, rivumi is deliberately simple right now: no jitter, no credential rotation, no transport fallback, no source-aware retry budgets. These aren't oversights but stage-appropriate tradeoffs — get the three things right first: classification has a consumer, retries are observable, and giving up speaks plainly.
+Compared with the five, Rivumi remains deliberately simple: jitter and model fallback exist, but credential rotation, same-model transport fallback, and source-aware or cross-step retry budgets do not. The shipped baseline makes classification, retries, fallback, and final failure observable; it does not prove production resilience during a provider outage.
 
 ## Prior art
 
@@ -63,9 +65,9 @@ Exponential backoff with jitter isn't a matter of taste. The [AWS Architecture B
 
 ## Improvement roadmap
 
-1. **Add jitter.** Rivumi's 1s/2s/4s is deterministic; multiple failing runs would retry in lockstep. Full jitter (`random(0, backoff)`) per the AWS post is a one-line change.
-2. **Cross-step retry budget.** Each model step currently gets its own 3 attempts; a run with dozens of steps could theoretically swallow hundreds of 5xxes. An SRE-style global budget (abandon the run once the consecutive failure rate crosses a threshold) better matches overload semantics.
-3. **Fallback chains.** When retries exhaust: OMP switches models, codex switches transports, claude-code falls back to another model. Rivumi already has a runtime registry; suggesting a provider switch in the status line after consecutive failures is the minimal version.
+1. **Evaluate the jitter distribution.** The current ±15% band breaks perfect synchronization, but it is not AWS full jitter. Concurrent outage tests should decide whether `random(0, backoff)` is better.
+2. **Cross-step retry budget.** Each candidate now gets 5 attempts per model step; long runs with multiple candidates can still amplify an upstream outage. An SRE-style global budget better matches overload semantics.
+3. **Validate fallback policy.** Chains have landed, but role aliases come from a static table. Quality, latency, and data-governance evidence must precede sending a sensitive repository to another provider merely because the primary failed.
 4. **Per-provider policy tables.** NIM's free tier is inherently flaky. OMP's reason-specific backoff lanes and pi's configurable settings (maxRetries/baseDelayMs) point the same way: retry parameters should follow the provider, not be global constants.
 
 One-sentence summary: **a retry policy isn't "try more times" — it's turning "which errors deserve another bet" into explicit classification, server-directed delays, and fully observable attempts — and when you do give up, telling humans clearly what happened.**
@@ -81,3 +83,4 @@ One-sentence summary: **a retry policy isn't "try more times" — it's turning "
 - [Google SRE Book: Addressing Cascading Failures](https://sre.google/sre-book/addressing-cascading-failures/)
 - [MDN: Retry-After header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
 - [OpenAI API docs: Rate limits and error handling](https://platform.openai.com/docs/guides/rate-limits)
+- [Rivumi retry/fallback loop at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/loop.py)

@@ -1,6 +1,6 @@
 ---
-title: "跟成熟 coding agent 學設計（33）：Session 錄製與 replay——錄了，卻放不出來"
-date: 2026-08-25
+title: "跟成熟 coding agent 學設計（33）：Session 錄製與 replay——從事件檔走到可重播、可分叉"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 33
 tags: [coding-agent, session-replay, observability, rivumi, codex, trace]
 lang: zh-TW
-tldr: "codex 的 rollout-trace 把『觀察』和『解讀』切成兩段：執行期只寫 raw event spine，事後用確定性的 reducer 重播成狀態圖；omp 的 metaharness 把每次 run 的 trace 放進 SQLite 加 dashboard，還能叫便宜模型把 trace 寫成敘事報告；pi 要求每個工具宣告 replay 是 safe 還是 never，resume 時才知道哪些步驟可以重跑。rivumi 的 JSONL 素材都在，但沒有任何東西能把錄好的事件『放』出來——這是本篇的缺口。"
-description: "對照 codex、omp、opencode、pi、claude-code 的 session 錄製與 replay 機制，整理 observe-first 設計、trace 儲存與重播策略，提出 rivumi 的設計草案。"
+tldr: "rivumi 已把 events.jsonl 接成 deterministic reducer、CLI timeline、canonical JSON、SDK replay 與安全分叉；分叉不會重跑舊工具或模型呼叫。剩下的是 provider／live runtime 驗證、redaction 與更完整的 replay hook。"
+description: "對照成熟 coding agent 的 session 錄製與 replay，並檢視 rivumi 已落地的 deterministic replay、CLI、SDK 與安全分叉基線。"
 draft: false
 ---
 
@@ -21,7 +21,7 @@ draft: false
 
 ## 能力問題：素材都在，就是放不出來
 
-rivumi 其實已經錄得很勤。每個 run 目錄有 `events.jsonl`（`loop.py#EventWriter`），conversation 有自己的事件流，crash recovery 也靠這些檔案。問題是這些錄影帶只能**事後用眼睛讀**：想重演一次 run、在第三個 tool call 前停下來看看當時的狀態、或問「這個爛輸出到底是哪個請求產生的」——沒有任何指令做得到。
+rivumi 一開始只有錄製面：每個 run 目錄有 `events.jsonl`，conversation 也有自己的事件流。現在已能把事件折疊成 replay state、顯示時間軸，或從指定 sequence 建立安全分叉。問題因此往下一層移：reducer 能還原哪些狀態、怎麼拒絕壞掉的事件檔，以及怎麼確保分叉不會重複副作用。
 
 錄製和 replay 是兩種能力。錄製考驗寫入端的紀律（不丟事件、不拖慢主流程），replay 考驗的是**解讀端的工程**：誰負責把一串 raw 事件折疊回可檢視的狀態？哪些步驟可以重新執行、哪些絕對不行？五家專案在這兩端各有值得抄的設計。
 
@@ -63,25 +63,18 @@ pi 要求每個工具宣告重跑政策：`pi-mono/packages/agent/src/harness/ag
 
 「錄 raw 事件、事後解讀」正是 [event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) 的標準論述：事件流是不可變的事實來源，各種投影（狀態、報表、除檢視圖）都是事後摺疊的產物，隨時可以用新版邏輯重算——codex 換 reducer 版本就能重建 state.json，不用重跑 session。確定性 record-and-replay 在系統除錯領域有成熟的先行者：[rr](https://rr-project.org/) 用「錄一次、反覆重播」把多執行緒 bug 的除錯成本壓到接近單步執行；HTTP 測試的 [VCR](https://vcrpy.readthedocs.io/) 系工具則證明了「錄下的互動 + 匹配規則 + diff 診斷」這個三元組足夠通用。metaharness 的做法另有一層意義：trace 一旦進了結構化儲存，LLM 就成了新的消費端——這和 log 分析自動化是同一個方向。
 
-## rivumi 設計草案
+## rivumi 已落地的基線
 
-如實描述現狀：`events.jsonl` 有序、有 `sequence`、pydantic frozen model 保證不可變（`events.py#RunEvent`），素材品質夠格。缺的是三樣：折疊器、檢視器、重跑政策。
+`session_replay.py` 已把 reducer 做成 bounded 純函式：它會拒絕過大事件、重複 sequence 與 ID 漂移，再輸出 `ReplayState` 和穩定的 canonical JSON。`rivumi sessions --replay` 可看緊湊時間軸，`--replay-json` 給機器讀；SDK 也公開 `replay_run_events()`。
 
-**折疊器**：新增 `src/rivumi/replay.py`，核心是把現在散在 `loop.py` 裡的狀態轉移抽成純函式 reducer，live 路徑和 replay 路徑共用同一份——這是 codex「observe first」的直接翻版。`rivumi replay <run_id>` 先掃事件流，若旁邊的 `.state.json` 快取比事件新就直接用（學 `REDUCED_STATE_FILE_NAME`），否則離線折疊後寫回。
+分叉採用安全語意。`--fork-from-event` 與 `fork_run_at_event()` 從事件前綴和原始 base commit 建立新工作區，seed 明確記錄 `side_effects_replayed: false`；舊工具、檢查、subprocess、模型呼叫與 commit 都不會重跑。
 
-**檢視器**：第一版不必做 web dashboard。既有 `transcript_export.py` 已經能把事件渲染成文字 transcript，replay 只需在其上加時間軸巡遊：跳到第 N 個事件、展開某個 tool call 前後的完整上下文。`--report` 旗標走 provider gateway 叫便宜模型生成敘事報告（學 metaharness 的 trace-report），這一步 rivumi 幾乎免費——gateway 早就有了。
-
-**重跑政策**：在 `tools.py` 的工具定義加 `replay: Literal["safe", "never"]` 欄位（照抄 pi），replay 分兩級——read-only 永遠可用；step-through 重執行只允許 safe 工具，never 工具顯示錄下的結果並標注「未重跑」。
-
-**Redaction**：任何匯出／分享路徑都先過一層敏感內容遮蔽（學 `UnsafeCassetteError` 的立場：擋下來，不是警告）。這一步 rivumi 目前完全沒有，testing 那篇已經點名過。
-
-## 與現有架構的銜接
-
-好消息是這個缺口不需要動架構，只需要長出新模組：事件 spine（`events.py#EventWriter`）不變；`conversation.py#completed_turns` 的 replay 語意（給 provider 的歷史重建）和這裡講的 replay（給人的診斷重播）是兩件事，互不干擾；外部 CLI backend 底下的 runtime 自己錄自己的，rivumi 層的 replay 只涵蓋 adapter 觀察到的事件，範圍誠實標清楚。入口做成 `/replay <run_id>` slash command，和現有的 export 命令並列。
-
-優先順序上我會把折疊器排最前面：它是唯一「不做，其他都是空中樓閣」的部分。檢視器和報告都可以等真除過一次 bug 之後，按實際痛點再加。
+這還不是任意副作用的 replay 平台。provider／live runtime 路徑尚待實測，分享前 redaction、replay 專用 hook 與更完整的因果圖也還沒補齊。現在能確認的是事件可確定性還原、檢視與安全分叉。
 
 ## 參考資料
+
+- [rivumi `session_replay.py`（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/session_replay.py)
+- [rivumi SDK replay / fork 文件（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/docs/sdk.md)
 
 - [openai/codex — codex-rs/rollout-trace](https://github.com/openai/codex/tree/main/codex-rs/rollout-trace)
 - [openai/codex — codex-rs/thread-store](https://github.com/openai/codex/tree/main/codex-rs/thread-store)

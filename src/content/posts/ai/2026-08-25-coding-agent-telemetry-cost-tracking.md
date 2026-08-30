@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（34）：Telemetry 與成本追蹤——token 記了，然後呢"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 34
 tags: [coding-agent, telemetry, cost-tracking, opentelemetry, rivumi]
 lang: zh-TW
-tldr: "五家成熟專案都把「用量」和「錢」分開記：pi 在 Usage 型別裡直接內嵌逐項 cost、omp 再把 session JSONL 同步進 SQLite 做儀表板；claude-code 用價目表 fallback 加「未知模型」誠實標記；codex 本地估 USD 之餘還向後端查權威帳單。rivumi 已有 usage 累加、TUI 用量列、/usage、/context、sessions 清單和 OTel 匯出；缺的是價目表、cost 欄位，以及 estimated / authoritative billing 的清楚邊界。"
-description: "對照 pi、omp、opencode、codex、claude-code 五家的 telemetry 與成本追蹤設計：span schema、OTel 上報、價目表與未知模型處理，並提出 rivumi 的設計草案與銜接方式。"
+tldr: "rivumi 已加入 CostBreakdown、明確標示 estimated 的 GPT-5 家族靜態價目表、per-lane usage/cost 與 OTel cost 欄位；未知模型仍只顯示 token，不硬算美元。價目覆蓋、外部 CLI 權威帳單與 live billing 對帳仍待補。"
+description: "對照成熟 coding agent 的 telemetry 與成本追蹤，並檢視 rivumi 已落地的估算成本、per-lane 歸因與 OTel 基線。"
 draft: false
 ---
 
@@ -27,7 +27,7 @@ draft: false
 2. **錢花在哪？** 是主模型反覆重讀 context？還是 compaction 或 subagent 的隱形呼叫？沒有 per-model、per-span 歸因就答不出來。
 3. **數字可不可信？** 自訂模型、訂閱額度、快取計價改版，都會讓本地估算失真。使用者需要知道眼前這個數字是精算還是猜的。
 
-rivumi 目前的盤點如實說：`contracts.py#Usage` 有正規化的 input/output/cached_input/reasoning tokens；`loop.py` 每輪用 `_add_usage` 累加、寫進 checkpoint 和 RunResult，`model.completed` 事件也帶 per-turn usage；TUI footer 會顯示 token 估算、context 百分比與耗時，`/usage`、`/context`、`rivumi sessions`、`rivumi export-otel` 則把查詢與匯出面補起來。缺口已經不是「看不到 usage」，而是**usage 還沒有變成可信 cost**：價目表、cost 欄位、未知模型標記，以及 provider 權威帳單和本地估計值的界線都還要補。
+rivumi 的 `Usage` 會正規化並累加 input/output/cached_input/reasoning tokens，TUI、`/usage`、sessions 與 OTel 也有查詢出口。現在又多了靜態價目表和 `CostBreakdown`，所以缺口不再是「沒有 cost」，而是**估算覆蓋與帳單權威性**：已知模型能估，未知模型不硬算；provider 權威帳單和本地估計仍要分開。
 
 ## 五家怎麼做
 
@@ -57,23 +57,16 @@ codex 的 Rust workspace 有獨立的 `codex-rs/otel` crate。`codex-rs/otel/src
 
 五家的共同收斂點，正好對上 OpenTelemetry 的 gen-ai 語意慣例：屬性名用 `gen_ai.usage.*`、token 分 input/output/cache 三路記、cost 作為衍生指標而非原始事件。[OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) 明確要求 usage 屬性分項命名，[OTLP](https://opentelemetry.io/docs/specs/otlp/) 則是各家 exporter 的共通出口——codex 直接用 otel crate 對接，claude-code 的 counter 抽象也是同構的。價目表維護則依賴 [models.dev](https://models.dev) 這類社群目錄（pi 與 opencode 的 model catalog 都源自它）或官方 pricing page 手工同步。
 
-## rivumi 設計草案
+## rivumi 已落地的基線
 
-照 rivumi 的品味（契約優先、stdlib、零依賴預設），我會從現有 usage / session / OTel surface 往 cost 層補：
+`contracts.py` 已有 `CostBreakdown`，`provider_catalog.py` 也有純函式 `estimate_cost()`。靜態價目表目前只收官方頁面核對過的 GPT-5 家族資料；cached input 會拆開計價，找不到價格就回 `None`。`RunResult`、`/usage` 與 OTel 匯出因此能把 `estimated` 成本和 token 用量分開呈現。
 
-1. **Usage 旁邊加 CostBreakdown**。`contracts.py` 新增 `CostBreakdown(input=..., output=..., cache_read=..., cache_write=..., total=...)`，由 adapter 在收到回應時計好掛到 turn 上，不改動 Usage 本身的語意（cached_input 是 input 子集那條規則保持不變）。計價函式對齊 pi 的 `calculateCost`：純函式、tiered、測得起來。
-2. **價目表進 model_catalog**。靜態 dict + 使用者 override，查不到的模型回 `None` 並設 `has_unknown_model_cost` 旗標——學 claude-code 的誠實路線，絕不硬掰一個數字。
-3. **事件流零新概念**。events.jsonl 已是 append-only JSONL，`model.completed` 已帶 per-turn usage；加上 cost 欄位即可，RunResult 加 `cost_total`。omp 證明了「log 寫好、分析事後」就夠用。
-4. **OTel 匯出沿用既有出口**。`rivumi export-otel` 已經存在，cost span 不該再開另一套 JSON；屬性名直接對齊 `gen_ai.*` 慣例，估計值另掛 `estimated=true` 或等價欄位。
-5. **外部 CLI backend 別丟帳單**。現在 `claude_backend.py` 解析 result 事件時只留 is_error 和 subtype，CLI 回傳的 `total_cost_usd` 和 usage 直接被扔掉。先把它們放進 event data，這是成本最低的一步。
-
-## 與現有架構的銜接
-
-這份草案幾乎不碰現有骨架：累加點已經存在（loop 的 `_add_usage`），持久化格式已經存在（checkpoint、RunResult、events.jsonl），查詢和匯出面也已經有 `/usage`、`rivumi sessions`、`export-otel`。唯一的新東西是價目表、cost 純函式和估計值標記。順序上我會先做第 5 點（外部 backend 保真）→ 第 1、2 點（native path 的 cost）→ 第 3 點（事件欄位）→ 第 4 點（OTel export 對齊），每步都能獨立驗證。
-
-真正要守住的原則只有一句，也是五家共同的教訓：**估計值永遠標明是估計值**。claude-code 的 inaccurate 提示、codex 的 estimated vs. 權威帳單雙軌，都是為了不讓使用者把猜的數字當成帳單。telemetry 可以事後補，信任壞了很難修。
+auto-review 等 role lane 也會留下 per-lane usage/cost attribution，主模型和 reviewer 不再混成單一總數。這些數字仍不是 provider 帳單：價目覆蓋有限，外部 CLI 回傳的權威成本還沒有一致正規化，也尚未做 live billing reconciliation。未知模型只顯示 token，仍是這套設計最重要的誠實邊界。
 
 ## 參考資料
+
+- [rivumi `provider_catalog.py`（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/provider_catalog.py)
+- [rivumi cost contract（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/contracts.py)
 
 - [vincentxuu/rivumi](https://github.com/vincentxuu/rivumi) — Rivumi 公開 repo 與 README
 - [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) — `gen_ai.usage.*` 屬性命名的規範來源

@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（29）：OS 級沙箱"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 29
 tags: [coding-agent, harness-engineering, sandbox, landlock, seatbelt, bubblewrap]
 lang: zh-TW
-description: "rivumi 的 Git workspace 隔離保得住來源 repo，保不住主機。拆解 Codex 的跨平台沙箱架構、Claude Code 的沙箱決策層，以及 Pi-ISO 快照與安全邊界的差別，產出一份 Python 可落地的 OS 沙箱設計草案。"
-tldr: "應用層 path policy 再嚴也只是一道字串關卡，真正的保證要靠核心不看字串。Codex 用三種平台機制收尾並堅持 fail-closed、Claude Code 把「要不要沙箱」做成獨立決策層；rivumi 的草案是：macOS 走 sandbox-exec、Linux 優先 ctypes 直掛 Landlock、不支援就拒絕執行——沙箱沒生效不等於可以不沙箱。"
+description: "拆解成熟 coding agent 的 OS 沙箱邊界，並核對 Rivumi macOS sandbox-exec、Linux Landlock/seccomp 與 fail-closed verification baseline。"
+tldr: "OS 沙箱是 path policy 之外的核心防線。rivumi 已落地 fail-closed `CommandSandbox`：macOS 包 sandbox-exec，Linux 用 Landlock 加 seccomp，verification 預設在能證明 containment 時進沙箱；不支援時回 exit 126。剩餘限制是目前主要只包 verification、外部 CI 結果仍待確認。"
 draft: false
 ---
 
@@ -46,7 +46,7 @@ Claude Code 的有趣之處是把「這條指令該不該進沙箱」抽成自�
 
 Codex 的 macOS policy 第一行 `(deny default)` 直接註明致敬 [Chrome renderer sandbox](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/mac_sandboxing.md)——瀏覽器花了十幾年證明「解析不受信內容的行程必須預設全拒、逐項開放」。Linux 側的 [Landlock](https://docs.kernel.org/userspace-api/landlock.html) 是 5.13 起內建的非特權存取控制：不需要 root、不需要額外 daemon、由 process 自己疊加規則，這正是無 daemon 架構等了多年的拼圖。[seccomp](https://man7.org/linux/man-pages/man2/seccomp.2.html) 補上網路與 syscall 面。SWE-agent 的 ACI 框架則提醒我們：這些機制的「介面設計」——什麼時候啟用、失效時怎麼表現——和機制本身一樣重要（[Yang et al., 2024](https://arxiv.org/abs/2405.15793)）。五家的共識可以濃縮成一句話：**沙箱必須 fail-closed**。Codex 在 `restrict_self()` 後檢查 `RulesetStatus::NotEnforced` 就直接報錯拒絕執行；Claude Code 平台不支援就回報不可用。没有一家把「沙箱起不來」翻譯成「那就裸奔吧」。
 
-## rivumi 設計草案
+## 原始設計草案（2026-08-25）
 
 目標：一個 `LocalSandbox` 包裝層，包住現有的 `run_bounded_command`，純標準庫，不引入 daemon。
 
@@ -69,7 +69,16 @@ Codex 的 macOS policy 第一行 `(deny default)` 直接註明致敬 [Chrome ren
 
 一句話收尾：第一部說「後者是下一戰」，這篇就是把戰場畫好——機制選型、fail-closed 契約、與既有三層（policy、workspace、cloud sandbox）的位置關係。剩下的就是照著寫。
 
+## rivumi 現在的實作
+
+截至 `2ed5efb`，這份草案已有 baseline。`runtime.py#CommandSandbox` 會依平台產生 wrapper：macOS 使用 `sandbox-exec` profile；Linux 由 `landlock_run.py` 套用 filesystem rules，並串接 seccomp backend。named profile 與 read roots 可由 CLI config 傳入 verification runner；無法證明沙箱可用時 fail-closed，以 exit 126 拒絕啟動 repo code。
+
+Linux Landlock/seccomp 有本機 smoke 與 CI workflow，macOS 包裝也有單元測試。不過目前 containment 主要涵蓋 native verification commands，還不是任意 agent process 的全面沙箱；外部 CI run 結果與更廣平台矩陣也仍待確認。因此能宣稱的是「沙箱設定鏈與拒絕預設已落地」，不是「所有執行都已 production 隔離」。
+
 ## 參考資料
+
+- [Rivumi CommandSandbox（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime.py)
+- [Rivumi Linux Landlock runner（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/landlock_run.py)
 
 - [Landlock: unprivileged access control (kernel docs)](https://docs.kernel.org/userspace-api/landlock.html) — rivumi OS sandbox 草案的 Linux 核心機制依據。
 - [landlock_create_ruleset(2) — Linux man page](https://man7.org/linux/man-pages/man2/landlock_create_ruleset.2.html)

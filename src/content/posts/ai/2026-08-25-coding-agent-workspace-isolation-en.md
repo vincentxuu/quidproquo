@@ -1,6 +1,6 @@
 ---
 title: "Learning from Mature Coding Agents (3): Workspace Isolation and Path Policy"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 3
 tags: [coding-agent, harness-engineering, sandbox, path-traversal, git-worktree, tool-use]
 lang: en
-description: "How Codex, Claude Code, OpenCode, Pi, and OMP handle workspace isolation and path validation, compared against rivumi's disposable Git workspace: pinned SHA, SafePathPolicy, and the missing OS-level sandbox."
-tldr: "Mature agents share one consensus—model-supplied paths are untrusted—but place the defense line differently: Codex backs everything with an OS sandbox, Claude Code validates per-call at the permission layer, OpenCode draws a project boundary. rivumi uses a disposable Git workspace plus a pure-Python SafePathPolicy: it protects the source repo, not the host, and that gap is the next post's topic."
+description: "How Codex, Claude Code, OpenCode, Pi, and OMP isolate workspaces, compared with Rivumi's disposable clone, SafePathPolicy, verification sandbox, and Cloudflare remote slice."
+tldr: "Rivumi's disposable clone and SafePathPolicy protect the source repo. `--sandbox-checks` can now wrap verification commands with macOS sandbox-exec, Linux bubblewrap, or Landlock, while Cloudflare provides a separate bounded Sandbox slice. Network policy, external-runtime coverage, and production hardening are not yet consistent across those backends."
 draft: false
 ---
 
@@ -61,8 +61,8 @@ rivumi M1's isolation strategy is a **disposable Git workspace**, built from two
 
 Compared with the five projects, the differences are clear and deserve honesty:
 
-- **I have no OS-level sandbox.** Codex's Landlock/Seatbelt constrains a process's syscalls and filesystem view; rivumi's clone only protects the source repo. Check commands running inside the workspace still carry full user privileges, can see host files, and can reach the network. The M1 doc lists this as a known limitation, which is why local verification refuses to run by default and requires an explicit `--unsafe-local-exec`.
-- **Fail-closed was learned, but only applied to capability assertions so far.** Codex's spirit of refusing to execute when the kernel can't enforce maps in rivumi to "tool calling disabled by default for unknown providers, requiring explicit capability assertion"; fail-closed execution itself has to wait for the OS sandbox.
+- **There is now a verification-sandbox baseline, not one universal runtime sandbox.** `--sandbox-checks` routes `run_check` and final verification through `src/rivumi/runtime.py#resolve_command_sandbox`: macOS uses `sandbox-exec`; Linux `auto` prefers bubblewrap and otherwise uses Rivumi's Landlock wrapper. If an explicitly requested backend is unavailable, the command fails closed with exit 126. This wraps declared verification argv; it does not mean external CLIs, provider transports, and every host process share that boundary.
+- **Remote execution has a separate bounded container slice.** The `cloudflare/` Worker/Sandbox control plane accepts bounded text source maps, not Git URLs, archives, shell strings, or caller credentials. That proves the isolation boundary can move into a container, but does not prove production traffic behavior or complete hostile-code hardening.
 - **Path policy stricter than Pi, shallower than Codex.** Pi outsources the boundary; rivumi, like OpenCode, draws it at the application layer, but adds blanket `.git` denial and resolved symlink escape checks. The cost: all these checks are Python string handling, so any parser bug is an escape hatch. OS sandboxes don't have this problem because the kernel doesn't parse strings.
 
 ## Academic Grounding
@@ -73,12 +73,12 @@ The SWE-agent team's ACI (agent–computer interface) concept shows that interfa
 
 In priority order:
 
-1. **An OS-level sandbox is the biggest gap — and the setup for what's next.** Codex's Landlock (Linux) / Seatbelt (macOS) dual track, fail-closed enforcement checks, and seccomp network filtering are the direct blueprint for rivumi Part Two #29, "OS-Level Sandboxing". The short-term substitute is a container backend (Cloudflare Sandbox or local Docker), which the M1 doc already names as a prerequisite for hostile code.
-2. **Network egress policy.** Check commands currently have unrestricted network access; there's no blocked channel for secret exfiltration.
-3. **Artifact secret scanning.** Patches and logs should be scanned for credential patterns before entering the artifact bundle.
+1. **Make sandbox coverage explicit and expand it deliberately.** The bounded surfaces today are verification commands and the Cloudflare remote slice; external runtimes still own their execution semantics. The next step is a per-runtime matrix of filesystem, process, and network capabilities, with fail-closed or an explicit trusted-local label where enforcement is unavailable.
+2. **Unify network egress policy.** Bubblewrap's network namespace, the macOS profile, and the Landlock wrapper do not expose identical controls. A production claim needs one deny-by-default contract and cross-platform tests.
+3. **Complete secret scanning across the artifact boundary.** `run_check` stdout/stderr are scanned and redacted, and external-runtime patches are scanned. Native patches, sessions, and every other artifact still need one audited policy plus tests for uncovered credential formats.
 4. **Keep the existing strengths.** Pinned full SHA, no-hardlinks clone, HEAD re-verification, segment-aware globs — a level of rigor uncommon even among the five projects. Once the OS sandbox lands, they remain worth keeping as a second wall.
 
-One-line summary: a disposable workspace solves "don't dirty your repo"; an OS sandbox solves "don't wreck your machine". rivumi already does the former; the latter is the next battle.
+One-line summary: the disposable workspace protects the source repo, and `--sandbox-checks` plus Cloudflare Sandbox add two enforceable slices. The broader claim — that every runtime cannot damage the machine — still requires cross-platform, cross-backend enforcement and production validation.
 
 ## References
 
@@ -89,3 +89,4 @@ One-line summary: a disposable workspace solves "don't dirty your repo"; an OS s
 - [anthropics/claude-code](https://github.com/anthropics/claude-code)
 - [sst/opencode](https://github.com/sst/opencode)
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono)
+- [Rivumi command sandbox at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime.py)

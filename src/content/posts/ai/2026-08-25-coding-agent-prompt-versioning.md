@@ -1,6 +1,6 @@
 ---
 title: "Prompt 版本控制：改一個字可能讓 eval 從 5/5 掉到 0/5"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 tags: [coding-agent, prompt-engineering, versioning, eval, ab-testing]
@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "跟成熟 coding agent 學設計"
   order: 25
-tldr: "五個成熟 coding agent 都把 system prompt 當受版本控制的資產管理：codex 每個模型世代一份 prompt 檔並隨 model catalog 發佈，claude-code 用 feature flag 切換 prompt 段落做內部 A/B，opencode 按模型選檔案。rivumi 走最重的那條路——prompt 字串帶語義版本號、寫進 run artifact、每次改動都要過真實 provider eval。"
+tldr: "Rivumi 的 prompt 已到 `m3-exact-edit-v4`：版本寫進 artifact，core/tool/interaction/runtime/instructions/skills/workspace/memory 以 stable/dynamic section 組裝，並加入 replace_text、unified diff、direct reply 的正反例。unit tests 已釘住結構，live eval 覆蓋仍需擴大。"
 description: "以五個成熟 coding agent 的原始碼為證，分析 prompt 版本控制的四種做法與取捨：per-model prompt 檔、feature flag A/B、模板渲染、版本號常數綁 eval，以及 rivumi 的選擇。"
 draft: false
 ---
@@ -39,13 +39,14 @@ Prompt 是 coding agent 裡最奇怪的一種程式碼：它沒有型別、沒�
 
 rivumi 走的是五家都沒有那麼極端的路：**prompt 字串帶語義版本號常數，且版本演進必須綁 eval 證據**。
 
-`rivumi/src/rivumi/prompts.py#CODING_AGENT_PROMPT_VERSION` 目前是 `"m3-exact-edit-v3"`，整個 system prompt 就是一個帶此版本的常數。這個版本號不是裝飾——`rivumi/src/rivumi/session.py:133` 讓新 session 建立時持久化它，pre-M3 的舊 manifest 則補上 `"m2-unversioned-patch"` 相容預設，resume 時可以驗證 schema 相容性；`rivumi/src/rivumi/loop.py:880` 把它寫進 `run.created` 事件，所以每一筆 run artifact 都能回答「這次跑的到底是哪版 prompt」。
+`rivumi/src/rivumi/prompts.py#CODING_AGENT_PROMPT_VERSION` 目前是 `"m3-exact-edit-v4"`。版本號仍會持久化進 session 與 `run.created`，但 prompt 已不再只是單一裸字串：`#PromptSection`、`#render_prompt_sections`、`#build_coding_agent_system_prompt` 會依序組出 core policy、tool policy、interaction policy、runtime context、instructions、skills、workspace state、memory，並明標 stable / dynamic cache metadata。這是 assembly baseline，不表示所有 provider 都已用相同 cache protocol 或命中率通過 production trace 驗證。
 
 v1→v3 的演進是教科書式的觀察驅動：
 
 - **v1**（M3）：只講 replace_text vs apply_patch 的分工與 read-before-edit，為的是救 qwen3:4b 找到正確修改卻吐出 malformed unified diff 的失敗模式。帶著 v1 跑真實 Ollama eval，5/5 通過。
 - **v2**：互動中發現 agent 對打招呼也會去探索 repo、跑檢查。診斷文件 `docs/diagnoses/conversational-turn-redesign.md` 明確記錄改法參考了 kimi.txt 的條件式規則與 codex 的 chit-chat 措辭——加上的不是空話，而是「trigger→action」分支：沒有變更就直接跳到答案、不要碰 repository。
-- **v3**：再收緊——capability questions（「你能幫我寫程式嗎？」）也要直接回覆，且不得探索 repo 或枚舉各種解讀來消歧義。`rivumi/tests/test_prompts.py` 把這些子句釘成測試，prompt 成了受測試保護的合約。
+- **v3**：再收緊——capability questions（「你能幫我寫程式嗎？」）也要直接回覆，且不得探索 repo 或枚舉各種解讀來消歧義。
+- **v4**：把寫法從抽象規則補成小型 examples 區。正例示範 `read_file → replace_text` 的 byte-for-byte 流程與 unified diff 形狀；反例明講不要猜 old_text；direct-reply example 說清楚 greeting、small talk、capability question 不該叫工具。`tests/test_prompts.py` 同時釘版本、例句與 section ordering。
 
 跟五家的差異很清楚：codex/claude-code 有 eval 基礎建設但不公開單一 prompt 改動對應的 eval 證據；opencode/pi 靠 git history；rivumi 則把「版本號 → 觀察到的失敗 → eval 結果」三方綁死在一條 commit 鏈上。代價也很誠實：eval 只覆蓋一個小 Python 任務加一個本地 4B 模型，5/5 不代表全面可靠——stage doc 自己就先聲明了。
 
@@ -55,9 +56,9 @@ v1→v3 的演進是教科書式的觀察驅動：
 
 ## 改善路線
 
-1. **eval manifest 多樣化**：目前 `evals/live/tiny-python-bug.json` 只有一個 fixture；v3 的對話路由子句至少該配一個「純問答不應觸發工具」的 eval case，否則 v3 沒有被驗證過。
+1. **eval manifest 多樣化**：examples 與 v4 已有 unit tests，但 live eval 仍主要是 tiny Python task；至少要加入「純問答不觸發工具」與「錯誤 old_text 應回頭讀檔」案例，才算驗證新例子是否真的改變模型行為。
 2. **prompt diff 進 CI**：`tests/test_prompts.py` 釘子句是好的第一步，下一步是讓 prompt 版本跳號必須附 eval summary 路徑，仿 M3 stage doc 的 evidence 格式。
-3. **考慮段落化**：學 omp/claude-code 把單一字串拆成段落陣列，未來才有可能做 per-section 快取或 A/B；但個人專案規模下，先保持一個字串的可讀性也是誠實的取捨。
+3. **用 trace 驗證 section/cache 策略**：named stable/dynamic sections 已落地；下一步不是再拆更多段，而是確認各 provider payload 真的保留穩定前綴、cache trace 能解釋 hit/miss，再決定是否更動預設排序。
 4. **catalog 化還不用做**：codex 的 per-model prompt 目錄是為幾十個模型服務的，rivumi 目前只需在 provider adapter 層記錄「哪版 prompt 配哪些模型跑過 eval」即可。
 
 ## 參考資料
@@ -72,3 +73,4 @@ v1→v3 的演進是教科書式的觀察驅動：
 - [OpenAI GPT-4.1 Prompting Guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
 - [Anthropic Prompt Engineering Overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Anthropic Prompt Caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
+- [Rivumi prompts（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/prompts.py)

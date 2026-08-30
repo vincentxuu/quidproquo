@@ -1,6 +1,6 @@
 ---
-title: "Learning Design from Mature Coding Agents (33): Session Recording and Replay — Recorded, but Never Played Back"
-date: 2026-08-25
+title: "Learning Design from Mature Coding Agents (33): Session Recording and Replay — From Event Logs to Safe Forks"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 33
 tags: [coding-agent, session-replay, observability, rivumi, codex, trace]
 lang: en
-tldr: "codex's rollout-trace splits 'observing' from 'interpreting': the hot path only writes a raw event spine, and a deterministic reducer replays it into a state graph afterwards. omp's metaharness puts every run's trace into SQLite with a dashboard, then lets cheap models turn traces into narrative reports. pi makes every tool declare replay safety as safe or never. rivumi has all the JSONL material — but nothing that can actually play it back."
-description: "Comparing how codex, omp, opencode, pi, and claude-code implement session recording and replay; distilling observe-first design, trace storage, and re-execution policy into a design draft for rivumi."
+tldr: "rivumi now connects events.jsonl to a deterministic reducer, CLI timeline, canonical JSON, SDK replay, and safe event-point forks. Forking never replays prior tools or model calls; provider/live-runtime validation, redaction, and richer replay hooks remain open."
+description: "Comparing session recording and replay across mature coding agents, including rivumi's implemented deterministic replay, CLI, SDK, and safe-fork baseline."
 draft: false
 ---
 
@@ -21,7 +21,7 @@ Scope note: pi (badlogic/pi-mono), omp (can1357/oh-my-pi), opencode (sst/opencod
 
 ## The capability gap: all the footage, no projector
 
-rivumi already records diligently. Every run directory gets an `events.jsonl` (`loop.py#EventWriter`), conversations keep their own event streams, and crash recovery runs on these same files. The problem is the tapes can only be **read by eyeball after the fact**: replaying a run, pausing before the third tool call to inspect the state at that moment, or asking "which request produced this garbage output" — no command does any of it.
+rivumi began with only the recording side: every run directory had `events.jsonl`, and conversations kept their own event streams. It can now fold events into replay state, print a timeline, and create a safe fork from a chosen sequence. The question has moved down a layer: which state can the reducer restore, how does it reject malformed logs, and how can a fork avoid repeating side effects?
 
 Recording and replay are different capabilities. Recording tests write-side discipline (no dropped events, no slowing the main flow); replay tests **interpretation-side engineering**: who folds raw events back into an inspectable state? Which steps can be re-executed and which absolutely must not? The five projects each have designs worth stealing on both ends.
 
@@ -63,25 +63,18 @@ A small but concrete case: in SDK mode, the `--replay-user-messages` flag re-emi
 
 "Record raw events, interpret later" is the standard [event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) argument: the event stream is the immutable source of truth, and every projection (state, reports, debug views) is folded afterwards — re-runnable with new logic anytime, which is why codex can rebuild state.json with a newer reducer without re-running sessions. Deterministic record-and-replay has mature predecessors in systems debugging: [rr](https://rr-project.org/) made multi-threaded bug hunting nearly single-step cheap by "record once, replay forever," and VCR-style HTTP tools like [VCR.py](https://vcrpy.readthedocs.io/) proved that recorded interactions + matching rules + diff diagnostics generalize well. metaharness adds one more layer: once traces live in structured storage, LLMs become a new class of consumers — the same direction as automated log analysis.
 
-## A design draft for rivumi
+## The baseline now implemented in rivumi
 
-Honest current state: `events.jsonl` is ordered, sequenced, and immutable thanks to frozen pydantic models (`events.py#RunEvent`) — the material quality passes. What's missing is three things: a folder, a viewer, and a re-execution policy.
+`session_replay.py` implements the reducer as a bounded pure function. It rejects oversized events, duplicate sequences, and ID drift, then produces `ReplayState` and stable canonical JSON. `rivumi sessions --replay` prints a compact timeline, `--replay-json` serves machine-readable output, and the SDK exports `replay_run_events()`.
 
-**Folder**: a new `src/rivumi/replay.py`. The core move is extracting the state transitions currently scattered across `loop.py` into pure-function reducers shared by both live and replay paths — a direct translation of codex's observe-first split. `rivumi replay <run_id>` scans the stream first; if a `.state.json` cache beside it is newer than the events, use it (learning from `REDUCED_STATE_FILE_NAME`); otherwise fold offline and write back.
+Forking uses safe semantics. `--fork-from-event` and `fork_run_at_event()` create a new workspace from an event prefix and the recorded base commit. The seed explicitly records `side_effects_replayed: false`; prior tools, checks, subprocesses, model calls, and commits never run again.
 
-**Viewer**: version one doesn't need a web dashboard. The existing `transcript_export.py` already renders events into text transcripts; replay only adds timeline navigation on top — jump to event N, expand the full context around a tool call. A `--report` flag goes through the provider gateway to have a cheap model generate a narrative report (learning from metaharness's trace-report); this step is nearly free since the gateway already exists.
-
-**Re-execution policy**: add a `replay: Literal["safe", "never"]` field to tool definitions in `tools.py` (copying pi). Replay gets two tiers — read-only inspection always available; step-through re-execution restricted to safe tools, while never tools show their recorded result annotated "not re-run."
-
-**Redaction**: every export/share path passes through a sensitive-content masking layer first (adopting `UnsafeCassetteError`'s stance: block, don't warn). rivumi has none today; the testing post already called this out.
-
-## Fitting the existing architecture
-
-The good news: this gap needs no architectural change, only a new module. The event spine (`events.py#EventWriter`) stays; `conversation.py#completed_turns` replay semantics (history reconstruction for the provider) and this article's replay (diagnostic playback for humans) are separate concerns that don't interfere; external CLI backends' runtimes record themselves, so rivumi-layer replay covers only what the adapters observed — scoped honestly. Entry point: a `/replay <run_id>` slash command alongside the existing export commands.
-
-Priority-wise, the folder comes first: it's the only piece where nothing else exists without it. Viewer and report can wait until one real debugging session reveals where the pain actually is.
+This is not an arbitrary side-effect replay platform. Provider/live-runtime paths still need real runs, while export redaction, replay-specific hooks, and richer causal graphs remain open. The supported claim is deterministic restoration, inspection, and safe forking.
 
 ## References
+
+- [rivumi `session_replay.py` at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/session_replay.py)
+- [rivumi SDK replay/fork documentation at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/docs/sdk.md)
 
 - [openai/codex — codex-rs/rollout-trace](https://github.com/openai/codex/tree/main/codex-rs/rollout-trace)
 - [openai/codex — codex-rs/thread-store](https://github.com/openai/codex/tree/main/codex-rs/thread-store)

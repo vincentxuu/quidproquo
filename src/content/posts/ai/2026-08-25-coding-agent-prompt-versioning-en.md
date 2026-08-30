@@ -1,6 +1,6 @@
 ---
 title: "Prompt Version Control: Changing One Word Can Drop an Eval from 5/5 to 0/5"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 tags: [coding-agent, prompt-engineering, versioning, eval, ab-testing]
@@ -8,7 +8,7 @@ lang: en
 series:
   name: "跟成熟 coding agent 學設計"
   order: 25
-tldr: "All five mature coding agents treat the system prompt as a versioned asset: codex ships one prompt file per model generation via its model catalog, claude-code switches prompt sections behind feature flags for internal A/B tests, opencode selects a file per model. rivumi takes the heaviest route — the prompt string carries a semantic version, is persisted into run artifacts, and every change must pass a real-provider eval."
+tldr: "Rivumi's prompt is now `m3-exact-edit-v4`: the version persists into artifacts; core/tool/interaction/runtime/instructions/skills/workspace/memory are composed as stable or dynamic sections; and positive/negative examples cover replace_text, unified diffs, and direct replies. Unit tests pin the structure, while live-eval coverage still needs expansion."
 description: "Evidence from the source of five mature coding agents on four approaches to prompt version control — per-model prompt files, feature-flag A/B testing, template rendering, and version constants bound to evals — plus rivumi's choice."
 draft: false
 ---
@@ -39,13 +39,14 @@ They share exactly one conviction: **the prompt is not a string literal scattere
 
 rivumi takes the road none of the five go quite as far on: **a semantic version constant in the prompt string, with every evolution bound to eval evidence**.
 
-`rivumi/src/rivumi/prompts.py#CODING_AGENT_PROMPT_VERSION` currently reads `"m3-exact-edit-v3"`, and the whole system prompt is a single versioned constant. That version number is not decoration — `rivumi/src/rivumi/session.py:133` persists it whenever a new session is created, while pre-M3 manifests get an `"m2-unversioned-patch"` compatibility default so resume can validate schema compatibility; `rivumi/src/rivumi/loop.py:880` writes it into the `run.created` event, so every run artifact can answer "which prompt version actually ran here."
+`rivumi/src/rivumi/prompts.py#CODING_AGENT_PROMPT_VERSION` now reads `"m3-exact-edit-v4"`. The version still persists into sessions and `run.created`, but the system prompt is no longer one bare string. `#PromptSection`, `#render_prompt_sections`, and `#build_coding_agent_system_prompt` compose ordered core policy, tool policy, interaction policy, runtime context, instructions, skills, workspace state, and memory, with explicit stable/dynamic cache metadata. This is an assembly baseline; it does not prove every provider uses the same cache protocol or achieves production trace hit rates.
 
 The v1→v3 evolution is textbook observation-driven iteration:
 
 - **v1** (M3): only the replace_text vs apply_patch division of labor and read-before-edit, added to rescue qwen3:4b after it found the correct fix twice but emitted malformed unified diffs. Running the real Ollama eval with v1 passed 5/5.
 - **v2**: interactive use showed the agent exploring the repo and running checks even for greetings. The diagnosis doc `docs/diagnoses/conversational-turn-redesign.md` explicitly records that the fix borrowed kimi.txt's conditional rule style and codex's chit-chat wording — not vague advice but a trigger→action branch: when no change was made, skip straight to the answer and don't touch the repository.
-- **v3**: tightened further — capability questions ("can you help me write a program?") also deserve a direct reply, without exploring the repo or enumerating interpretations to disambiguate. `rivumi/tests/test_prompts.py` pins these clauses as tests; the prompt became a test-guarded contract.
+- **v3**: tightened further — capability questions ("can you help me write a program?") also deserve a direct reply, without exploring the repo or enumerating interpretations to disambiguate.
+- **v4**: replaces some abstract advice with a compact examples section. A positive example demonstrates byte-for-byte `read_file → replace_text`, another shows unified-diff shape, a negative example forbids guessed old text, and a direct-reply example keeps greetings, small talk, and capability questions tool-free. `tests/test_prompts.py` pins the version, examples, and section ordering.
 
 The contrast with the five is clear: codex and claude-code have eval infrastructure but don't publish per-change eval evidence alongside individual prompt edits; opencode and pi lean on git history. rivumi binds "version number → observed failure → eval result" into one commit chain. The cost is equally honest: the eval covers one small Python task on one local 4B model — 5/5 does not mean broadly reliable, as the stage doc itself states upfront.
 
@@ -55,9 +56,9 @@ The contrast with the five is clear: codex and claude-code have eval infrastruct
 
 ## Improvement roadmap
 
-1. **Diversify the eval manifest**: `evals/live/tiny-python-bug.json` currently has a single fixture; v3's conversational-routing clauses deserve at least one "pure Q&A should not trigger tools" eval case — otherwise v3 has never been verified.
+1. **Diversify the eval manifest**: examples and v4 have unit tests, but live evaluation still centers on a tiny Python task. Add at least "pure Q&A calls no tools" and "bad old_text forces a reread" cases before claiming the examples changed model behavior.
 2. **Prompt diffs in CI**: pinning clauses in `tests/test_prompts.py` is a good first step; next, require every prompt version bump to reference an eval summary path, following the M3 stage doc's evidence format.
-3. **Consider sectioning**: like omp/claude-code, split the single string into a section array to enable future per-section caching or A/B; at personal-project scale, keeping one readable string is also an honest trade-off.
+3. **Validate section/cache strategy with traces**: named stable/dynamic sections have landed. The next step is confirming each provider payload preserves the stable prefix and cache traces explain hits and misses before changing default ordering again.
 4. **No catalog needed yet**: codex's per-model prompt catalog serves dozens of models; rivumi only needs its provider adapter layer to record "which prompt version was evaluated against which models."
 
 ## References
@@ -72,3 +73,4 @@ The contrast with the five is clear: codex and claude-code have eval infrastruct
 - [OpenAI GPT-4.1 Prompting Guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
 - [Anthropic Prompt Engineering Overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Anthropic Prompt Caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
+- [Rivumi prompts at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/prompts.py)

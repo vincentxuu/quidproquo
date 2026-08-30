@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（37）：Code mode——把工具呼叫編譯成程式碼批次執行"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 37
 tags: [coding-agent, code-mode, tool-use, sandbox, codex, opencode, rivumi]
 lang: zh-TW
-tldr: "code mode 讓模型寫一小段程式去呼叫工具，迴圈、分支、平行呼叫都在沙箱裡一次跑完，中間結果不必回流 context。五家中只有 codex 和 opencode 做了：codex 用獨立 V8 host process 加 exec/wait 兩個工具，opencode 自己寫了一個受限 JS 直譯器。rivumi 的草案是先做唯讀批次執行，approval 從逐次請求升級成整段程式的效果分類。"
-description: "對照 codex 與 opencode 的 code mode 實作——受限直譯器、API 簽名生成、錯誤分類、approval 路由——並提出 rivumi 的設計草案。"
+tldr: "rivumi 已先做 bounded tool-program DSL：唯讀程式支援 list/read/search/diff、repeat 與 if_contains；modify/check transaction 會經整體 approval，失敗時回滾 touched paths。它還不是任意 JavaScript/Python code mode，也沒有平行 transaction execution。"
+description: "對照 codex 與 opencode 的 code mode，並檢視 rivumi 已落地的唯讀 tool program 與可回滾 modify/check transaction 基線。"
 draft: false
 ---
 
@@ -53,22 +53,18 @@ opencode 的做法更激進：不用 V8，自己在 `packages/codemode` 寫了�
 
 「用程式碼統合多步工具呼叫」最直接的學術印證是 [CodeAct](https://arxiv.org/abs/2402.01030)（Executable Code Actions Elicit Better LLM Agents，ICML 2024）：把 agent action 空間從一個個 JSON tool call 換成可執行程式碼，讓模型利用程式語言的控制流組合多個動作、在中間狀態上迭代。code mode 基本上就是 CodeAct 加上生產級的沙箱與審計。工程面則有 Anthropic 的 [Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)（含上面提的 token 數據）與 Cloudflare 的 [Code Mode](https://blog.cloudflare.com/code-mode/)，兩篇都強調同一件事：LLM 很會寫程式，就該讓它寫程式去呼叫工具。[Anthropic 官方 tool use 文件](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)裡的 parallel tool use 一節也承認：直接工具呼叫的正交平行只是起點，複雜依賴結構需要更強的編排原語。
 
-## rivumi 設計草案
+## rivumi 已落地的基線
 
-rivumi 目前的 native harness 是純逐一工具呼叫：每次呼叫產生事件、過 `approvals.py` 的 policy、等結果。加 code mode 我會分四步：
+rivumi 沒有直接嵌入 JavaScript 或 Python，而是先做一套 bounded DSL。`tool_program` 只開 `list_files`、`read_file`、`search_text`、`git_diff` 等唯讀操作，並支援上限內的 `repeat` 與 `if_contains`。這讓模型能在一次 tool call 裡表達簡單控制流，同時把可執行語言縮到宿主能完整檢查的範圍。
 
-1. **先做唯讀批次**。第一批只開 read-only 工具（read/grep/glob/list），執行環境用 RestrictedPython 或同等受限直譯器，注入的只有工具函式，沒有 IO 原語。唯讀集合的 approval 本來就能自動放行，風險最低。
-2. **Approval 升級為整段程式效果分類**。靜態掃描程式引用了哪些工具符號：全是 auto-approve 集合就直接跑；只要碰到一個 mutating 符號，整段程式升級為一次 approval 請求，預覽列出效果聯集。執行期每個 nested call 仍走原本的 `ApprovalPolicy.decide`——deny 就中止程式。這是 codex `call_nested_tool` 的做法，確保 code mode 不會變成繞過 approval 的後門。
-3. **三個限制旋鈕照抄 opencode**：wall-clock timeout、maxToolCalls、輸出截斷，當作 host 政策而非 library 預設。
-4. **API 面生成與探索**。從現有工具 schema 渲染型別化簽名放進 prompt；等 MCP 整合（第 30 篇）之後工具數量暴增，再加 search 式的 progressive disclosure。
+需要修改時走另一個 `tool_transaction`：它先收集 touched paths，整體經過既有 approval/policy，再執行 replace／patch／check；任何步驟失敗都嘗試把受影響檔案回滾到 transaction 前。後端仍有 turn limit，步數和輸出也受限。
 
-## 與現有架構的銜接
-
-事件流方面，code mode 對外只需一個 `execute` 工具，但 transcript 不能只顯示一行「跑了段程式」——nested 工具呼叫應該重用現有的 `ToolStartedEvent`/`ToolCompletedEvent` 配上 correlation ID，TUI 的 semantic transcript 才能把每次子呼叫掛在正確的位置。外部 CLI backend（OpenCode/Pi/OMP adapter）完全不受影響，它們有自己的 harness；code mode 是 rivumi native path 的能力。M6 的 Cloudflare sandbox service 未來可以承接執行環境，把「受限直譯器」換成「遠端沙箱」，架構位置不變。
-
-誠實的結尾：這是新興能力，兩家的設計都還在動（codex 的 code mode host 目前要另行安裝、opencode 的直譯器子集邊界持續調整）。現在值得吸收的不是特定實作，而是兩條共識——工具呼叫照樣走完整 approval/policy 管線，以及執行限制是 host 政策。
+這套 baseline 解決的是「批次工具程式」，還不是 codex/opencode 那種任意受限語言 runtime。平行 transaction execution、較豐富的 DSL，以及是否值得承擔完整直譯器的安全成本，仍是開放問題。
 
 ## 參考資料
+
+- [rivumi tool program / transaction 實作（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/tools.py)
+- [rivumi native loop policy integration（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/loop.py)
 
 - [Executable Code Actions Elicit Better LLM Agents (CodeAct)](https://arxiv.org/abs/2402.01030)
 - [Anthropic Engineering: Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)

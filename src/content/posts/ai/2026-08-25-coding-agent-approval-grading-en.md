@@ -1,6 +1,6 @@
 ---
 title: "Learning Agent Design from Mature Coding Agents (4): Approval Grading and the Audit Trail"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,7 +8,7 @@ series:
   order: 4
 tags: [coding-agent, approval, permissions, audit-trail, rivumi, claude-code, codex]
 lang: en
-tldr: "All five mature agents make action grading code, not prompt text: claude-code uses permission modes plus a fixed rule chain, codex keeps approval and sandbox as two independent controls and only auto-approves when a sandbox can actually enforce it, omp ranks read/write/exec tiers against mode ceilings, and opencode's last-matching-wildcard rule defaults to ask. rivumi requires every tool to declare an effect (read/modify/execute) and fails closed on unclassified tools, writes approval events to events.jsonl before UI projection, and scopes session grants down to 'this exact set of file changes' or 'this specific backend'."
+tldr: "Rivumi now grades effects as read/modify/modify_execute/execute and fails closed on unclassified tools. Native MCP tools default to execute unless trusted read-only metadata lowers them. Approval events still land in events.jsonl first and grants can scope to one change set or backend; general command rules and universal sandbox coupling remain unfinished."
 description: "Comparing how pi, omp, opencode, codex, and claude-code grade tool actions, scope session grants, and record approval decisions — plus how rivumi's ToolEffect classification, durable audit events, and process-local scoped grants differ, and why dangerous-command interception is next."
 draft: false
 ---
@@ -57,7 +57,7 @@ pi-mono's core deliberately has no built-in permission system; approval is an ex
 
 Rivumi's answer has three layers: effect classification, injected policy, durable audit.
 
-**Classification is hard.** `rivumi/src/rivumi/approvals.py#ToolEffect` has exactly read/modify/execute, the `TOOL_EFFECTS` table declares per tool, and `#effect_for_tool` raises on any unclassified new tool — fail-closed like omp, but stricter: not "treat unlisted as highest tier," an explicit error. Reads pass automatically; `apply_patch`, model-requested checks, and final verification all flow through the same `ApprovalPolicy` interface.
+**Classification is hard.** `rivumi/src/rivumi/approvals.py#ToolEffect` now has read / modify / modify_execute / execute. `tool_transaction` can combine edits and checks into a rollback-capable batch, so it cannot masquerade as plain modify. `TOOL_EFFECTS` declares every built-in, and `#effect_for_tool` raises for an unclassified tool. Native MCP uses `#effect_for_tool_definition`: resource/prompt bridges are read, remote tools default to execute, and only an explicit `readOnlyHint` annotation lowers one to read. Unknown tools and missing trust metadata are never guessed safe.
 
 **Policy is injected.** `#TTYApprovalPolicy` offers four choices: once / session / deny / cancel, where session consent just adds the effect to a grant set; `#HeadlessApprovalPolicy` never reads stdin, so CI cannot hang waiting for input. A denied action becomes a failed `ToolObservation` the model can adapt to; cancellation produces an auditable terminal result.
 
@@ -65,7 +65,7 @@ Rivumi's answer has three layers: effect classification, injected policy, durabl
 
 **Grant scope went through one deliberate narrowing.** In the M2 era a session grant was effect-grained: approve modify once, every later modify passes. When external CLIs arrived in M10, grants became process-local and scoped: `rivumi/src/rivumi/runtime_semantics.py#ProcessLocalGrant`'s docstring says non-persistent, and read access may never be stored as a grant; `#decide_permission` makes `READ_ONLY` mode a hard ceiling — stale grants cannot re-enable side effects after a mode switch. Scope comes from `rivumi/src/rivumi/tui.py#_grant_scope`: external backends get strings like `external_agent:codex-cli`, so consent for codex-cli doesn't cover Claude Code; command grants carry the full argv. The strictest case is Codex file changes: `rivumi/src/rivumi/codex_app_server.py#_file_change_grant_scope` fingerprints the proposed changes with SHA256, so a session grant covers exactly that identical change set and nothing else.
 
-Compared with the five, what rivumi hasn't built is a rule language (opencode's wildcards, claude-code's allow/deny rules) and sandbox coupling (codex's "auto-approve only with an enforceable sandbox"). The former is a feature trade-off; the latter is currently held up by the disposable clone plus the explicit `--unsafe-local-exec` acknowledgement.
+Compared with the five, Rivumi now has user/org/project allow-deny sources, deny-first precedence, and a dangerous-command classifier. It still lacks opencode wildcards or a Codex `exec_policy`-style inspectable, amendable language that covers external CLIs, and it does not universally require a proven sandbox before auto-approval. `--sandbox-checks` and conservative MCP classification are baselines, not a production authorization model.
 
 ## Engineering references
 
@@ -73,7 +73,7 @@ No classic paper is titled "how to ask humans," but engineering consensus is cle
 
 ## What could improve
 
-1. **Dangerous-command interception is the biggest gap, and the setup for Part Two's #28 ("dangerous-command interception and shell escalation").** Rivumi has no general shell tool today, so the attack surface is small; but external CLI backends bring arbitrary commands back, and rivumi's only lever there is "ask once." Codex already demonstrates the full ladder: `Decision::Prompt` rules in `codex-rs/core/src/exec_policy.rs`, `ReviewDecision::ApprovedExecpolicyAmendment` upgrading "allow this time" into "allow this rule permanently," and `tools/runtimes/zsh_fork/unix_escalation.rs` handling controlled escalation after in-sandbox failures. That deserves its own post.
+1. **Extend existing rules across external CLIs.** The native path has classification and allow/deny layering but no general shell; external CLIs own their command loops. The next step is a policy bridge into those runtimes, not another native classifier.
 2. **A human-readable approval history view**: the audit trail already sits in events.jsonl, but there's no UI to replay it.
 3. **A rule language**: not urgent until real usage proves always-asking is too annoying, but opencode's findLast-wins semantics are worth copying — simple, predictable, default ask.
 
@@ -87,3 +87,4 @@ No classic paper is titled "how to ask humans," but engineering consensus is cle
 - [sst/opencode (GitHub)](https://github.com/sst/opencode)
 - [badlogic/pi-mono (GitHub)](https://github.com/badlogic/pi-mono)
 - [can1357/oh-my-pi (GitHub)](https://github.com/can1357/oh-my-pi)
+- [Rivumi approval classification at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/approvals.py)

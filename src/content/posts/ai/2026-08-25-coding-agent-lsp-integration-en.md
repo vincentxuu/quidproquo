@@ -1,6 +1,6 @@
 ---
 title: "Learning Design from Mature Coding Agents (36): LSP Integration — Pushing Compiler Diagnostics into Agent Context"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 36
 tags: [coding-agent, lsp, diagnostics, rivumi, oh-my-pi, claude-code, opencode]
 lang: en
-tldr: "omp makes LSP a mandatory writethrough for every file edit, injecting late diagnostics into the next turn after freshness checks via mutationVersion; claude-code passively subscribes to publishDiagnostics and delivers them as attachments on the next query with per-file cap of 10 and total cap of 30; opencode simply appends an error-only block to edit/write tool results; pi and codex have no LSP at all. rivumi currently has only a run_check exact-argv allowlist — my plan is two phases: pull-on-edit first, then long-lived servers with deferred injection."
-description: "A source-level comparison of how oh-my-pi, claude-code, and opencode turn LSP real-time diagnostics into the agent's senses: writethrough, deferred diagnostics, dedup and volume limiting — plus rivumi's adoption roadmap."
+tldr: "rivumi can now inject repository diagnostics and open-file state into the next model turn, push typed IDE context over WebSocket, package a VS Code bridge, and supervise long-lived LSP subprocesses through ManagedLspServer. Language-specific initialize/didOpen/didChange adapters and live-editor validation remain open."
+description: "Comparing LSP diagnostic injection across mature coding agents, including rivumi's IDE context, WebSocket, VS Code, and ManagedLspServer baseline."
 draft: false
 ---
 
@@ -19,7 +19,7 @@ The previous post covered [model catalogs and routing](/posts/ai/2026-08-25-codi
 
 ## The capability gap: verification signal latency
 
-rivumi currently has exactly one way to learn "is the code correct": `run_check` — an exact-argv allowlist. The model edits files, actively calls it, and waits for an entire test suite or typecheck to finish before knowing whether anything broke. The upside is trustworthy signals (if it ran, it ran). The downside is slow, coarse feedback: one loop iteration can take tens of seconds, and what comes back is often thousands of lines of test output where the actual error — line, column, reason — must be excavated.
+`run_check` remains rivumi's quality gate for deciding whether code is correct, but it is no longer the model's only feedback source. IDE/LSP diagnostics and open-file state can be injected into the next turn, revealing precise locations before a full test run. The roles are explicit: LSP is advisory; checks are verification evidence.
 
 Human engineers don't work this way. The moment you hit save, the language server in your editor has already drawn red squiggles — type errors, undefined variables, a misspelled import — all marked at precise locations. [LSP, the Language Server Protocol](https://microsoft.github.io/language-server-protocol/), standardizes exactly this: the editor sends didOpen/didChange, and the server pushes back structured errors via `textDocument/publishDiagnostics`.
 
@@ -65,24 +65,18 @@ The theoretical basis here is old news: the [SWE-agent paper](https://arxiv.org/
 
 The costs deserve honesty: one or more long-lived subprocesses per project (rust-analyzer eats memory without apology), indexing takes time to warm up (omp has a warmup mechanism and a `DIAGNOSTICS_PIPELINE_GRACE_MS = 10_000` pipeline grace window), and diagnostics are advisory, not verdicts — a crashed server, a cold index, or misconfiguration means silence, and silence is not proof of correctness.
 
-## rivumi design draft
+## The baseline now implemented in rivumi
 
-rivumi is Python, and [pyright](https://microsoft.github.io/pyright/)'s `pyright-langserver --stdio` is a ready starting point. Two phases:
+`ide.py` defines bounded diagnostics and open-file snapshots. The native loop injects them into the next model turn as marked context and emits `ide.diagnostics_injected` / `ide.open_files_injected` events. The stateful WebSocket also accepts typed IDE context, and `editors/vscode` can be packaged and smoked locally.
 
-**Phase 1: pull-on-edit.** Steal opencode's minimal approach — after `edit_file` / `write_file` succeeds, do one bounded diagnostic query for that file (spawn pyright or reuse an existing server, wait 1–3 seconds), error-only, max 10 per file, rendered as a block appended to the tool result. No changes to run_check, no long-lived processes, silent skip on failure. This step alone captures most of the value: the model knows what it just broke before the next turn starts, instead of waiting for run_check.
+`ManagedLspServer` owns the long-lived process: exact argv, bounded message sizes, stdio `Content-Length` framing, `publishDiagnostics` parsing, atomic snapshot writes, and bounded shutdown are implemented. `run_check` remains the verification gate; LSP stays advisory.
 
-**Phase 2: long-lived server + deferred injection.** Server subprocess lifecycle management sits alongside external_runner (subject to the same approval grading and timeout budgets), with didOpen/didChange support; late diagnostics follow omp — per-file mutationVersion staleness checks, a ledger keyed by message identity for dedup, and anything past the inline budget queued and injected as a system message next turn.
-
-Three invariant principles: run_check remains the sole verification gate — LSP diagnostics are always advisory; volume control first (per-file cap, total cap, error-first) — diagnostics inform the model, they don't drown it; server failures fail silently, falling back to the Phase 0 world (run_check only) — a broken LSP must never drag down the loop.
-
-## Fitting into the existing architecture
-
-- `tools.py#run_check` stays untouched; Phase 1's diagnostic query becomes an internal helper, bypassing approval (read-only)
-- Subprocess management mirrors `external_runner.py#ExternalCodingRunner`'s deadline/cancel pattern
-- At the transcript layer, deferred diagnostics are written into the session log as clearly tagged events, identifiable during replay
-- The shortest summary of five projects: **opencode proves pull-on-edit suffices, omp proves deferred injection is worth building, claude-code proves you can't skip volume control and dedup, and pi/codex prove you can survive without any of it** — rivumi takes the first square, keeping the second on the roadmap
+Language-specific initialize, didOpen, and didChange adapter details still need work, along with live validation in real VS Code and multilingual projects. Current tests establish process ownership and context injection, not plug-and-play support for every language server.
 
 ## References
+
+- [rivumi `lsp.py` at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/lsp.py)
+- [rivumi IDE bridge at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/ide.py)
 
 - [Language Server Protocol official site](https://microsoft.github.io/language-server-protocol/) / [LSP 3.17 Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/)
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793)

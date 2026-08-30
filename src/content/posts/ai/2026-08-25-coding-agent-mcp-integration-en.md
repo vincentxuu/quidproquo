@@ -1,6 +1,6 @@
 ---
 title: "Learning Design from Mature Coding Agents (30): MCP Integration — the Standard Socket for Tool Ecosystems"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,14 +8,14 @@ series:
   order: 30
 tags: [coding-agent, mcp, rivumi, tool-integration, elicitation, lazy-connect]
 lang: en
-tldr: "MCP lets an agent plug into the external tool ecosystem without hand-writing every integration — but a bad integration drags down startup, bloats context, and bypasses approval. codex builds on the RMCP SDK with background prewarming; claude-code wraps MCP tools as instances of a single Tool template behind a project-level approval dialog; opencode refreshes its tool list dynamically via ToolsChanged notifications; omp runs a process-global singleton that even reads other tools' configs; pi deliberately opts out. rivumi has no MCP client of its own yet — only pass-through via external backends. The design draft boils down to: lazy connect, deny-by-default allowlist, and elicitation mapped into the existing approval grading."
-description: "Comparing the MCP client implementations of codex, claude-code, opencode, pi, and omp in source — server lifecycle, dynamic tool registration, approval — plus an MCP integration draft for rivumi."
+tldr: "An MCP client must handle transports, tool refresh, approvals, and credential boundaries together. rivumi now supports allowlisted stdio, Streamable HTTP/SSE, tools/resources/prompts, tools/list_changed, OAuth metadata/PKCE, and a 0600 credential store. A real authorization-server E2E and MCP-specific confirmation UX remain open."
+description: "Comparing MCP lifecycle, dynamic registration, and approvals across five agents, then checking Rivumi's stdio/HTTP, resources/prompts, and OAuth PKCE baseline."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-mcp-integration)
 
-The [previous post](/posts/ai/2026-08-25-coding-agent-os-level-sandboxing-en) covered OS-level sandboxing. This one covers a capability rivumi doesn't have at all: MCP.
+The [previous post](/posts/ai/2026-08-25-coding-agent-os-level-sandboxing-en) covered OS-level sandboxing. This post first dissects MCP design, then checks rivumi's current native-client baseline.
 
 ## The capability problem
 
@@ -41,7 +41,7 @@ The honest state of rivumi: **no MCP client of its own**. `docs/progress.md` lis
 
 The official MCP documentation draws the responsibilities clearly: the [architecture page](https://modelcontextprotocol.io/docs/concepts/architecture) defines the host–client–server three layers, where a host holds multiple clients and each client maps to one server — this is the normative basis for keeping connection management in one place. The [Tools concept page](https://modelcontextprotocol.io/docs/concepts/tools) explicitly supports the `listChanged` capability declaration — servers may add or remove tools at runtime and clients must handle the `tools/list_changed` notification; opencode's `ToolsChanged` forwarding is precisely this spec implemented. The elicitation spec lets servers request user input or confirmation mid-execution — which is why MCP tool approval can't be static configuration only.
 
-## The rivumi design draft
+## Original rivumi design draft (2026-08-25)
 
 One principle up front: **MCP initialization stays off the startup critical path** — this commitment is already written into the startup-performance checklist in `docs/progress.md`, and the draft must honor it.
 
@@ -57,7 +57,16 @@ The good news: the foundations exist. The capability handshake already has `src/
 
 The order is clear too: land the allowlist semantics and the tool template in the native loop first, then consider exposing rivumi itself as a server. The ecosystem-position choice can wait — but the shape of the socket needs to be drawn correctly now.
 
+## Rivumi's current implementation
+
+As of `2ed5efb`, native MCP is no longer mere pass-through. `mcp_client.py` loads a deny-by-default `.mcp.json` allowlist, supports stdio and Streamable HTTP including SSE responses, and maps tools, resources/list/read, and prompts/list/get into `mcp__`, `mcp_resource__`, and `mcp_prompt__` bridge tools. Tool annotations become conservative trust metadata; calls still pass through the existing approval, event, and timeout path, and server processes close at run end.
+
+The HTTP path includes protected-resource metadata discovery, authorization-code plus PKCE helpers, and an app-owned credential store that rejects symlinks and requires mode 0600. Tool-list change notifications refresh dynamic tools. Remaining gaps are a complete E2E against a real authorization server and MCP-specific confirmation/elicitation UX; local tests are not production-server parity.
+
 ## References
+
+- [Rivumi native MCP client (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/mcp_client.py)
+- [Rivumi MCP tests (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_mcp_client.py)
 
 - [Model Context Protocol — Introduction](https://modelcontextprotocol.io/docs/getting-started/intro)
 - [MCP Architecture](https://modelcontextprotocol.io/docs/concepts/architecture)

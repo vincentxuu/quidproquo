@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（4）：Approval 分級與 audit trail"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,7 +8,7 @@ series:
   order: 4
 tags: [coding-agent, approval, permissions, audit-trail, rivumi, claude-code, codex]
 lang: zh-TW
-tldr: "五家成熟 agent 都把「動作分級」做成程式碼而不是提示詞：claude-code 用 mode 加規則鏈，codex 把審批與沙箱分成兩個獨立控制、auto-approve 只在沙箱可執行時出現，omp 用 read/write/exec 三層 tier 對上三種 mode，opencode 的規則比對最後一筆命中且預設 ask。rivumi 每個工具必須宣告 effect（read/modify/execute）、未分類直接 fail-closed，審批事件先進 events.jsonl 再投影到畫面，grant 精確到「同一組檔案變更」或「特定 backend」。"
+tldr: "Rivumi 的 effect 已有 read/modify/modify_execute/execute 四級，未分類工具 fail closed；native MCP tool 預設 execute，只有可信 read-only annotation 才降級。審批仍先進 events.jsonl，grant 可精確到同一組變更或 backend；一般化 command 規則與全 runtime sandbox coupling 仍未完成。"
 description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼的 permission 分級、session grant 範圍與審批記錄機制，說明 rivumi 的 ToolEffect 分類、durable audit events、process-local scoped grant 怎麼取捨，以及危險指令攔截為什麼是下一步。"
 draft: false
 ---
@@ -57,7 +57,7 @@ pi-mono 的核心刻意沒有內建 permission 系統，審批是 extension hook
 
 rivumi 的答案是三層：effect 分類、注入式 policy、durable audit。
 
-**分類是硬性的。** `rivumi/src/rivumi/approvals.py#ToolEffect` 只有 read/modify/execute 三值，`TOOL_EFFECTS` 表逐工具宣告，`#effect_for_tool` 對未分類的新工具直接 raise——跟 omp 一樣 fail-closed，但 rivumi 連「忘了宣告就當最高級」都不給，是明確報錯。讀類自動放行；`apply_patch`、model 要求的 check、最終驗證全部過同一個 `ApprovalPolicy` 介面。
+**分類是硬性的。** `rivumi/src/rivumi/approvals.py#ToolEffect` 現在有 read / modify / modify_execute / execute 四值；`tool_transaction` 因為能把修改與檢查綁成一個可 rollback 的批次，不能再塞進單純 modify。`TOOL_EFFECTS` 逐工具宣告，`#effect_for_tool` 對未分類的新工具直接 raise。native MCP 則走 `#effect_for_tool_definition`：resource/prompt bridge 固定 read，遠端 tool 預設 execute，只有 server annotation 明示 `readOnlyHint` 時才降成 read。未知工具與缺少 trust metadata 都不會猜成安全。
 
 **Policy 是注入的。** `#TTYApprovalPolicy` 提供四個選項：once / session / deny / cancel，session 同意只累加 effect 到 grant 集合；`#HeadlessApprovalPolicy` 根本不接受 stdin，CI 不可能掛在等待輸入上。被拒絕的動作會變成一個 failed `ToolObservation` 讓模型自己調整，cancel 則產生可稽核的 terminal result。
 
@@ -65,7 +65,7 @@ rivumi 的答案是三層：effect 分類、注入式 policy、durable audit。
 
 **Grant 範圍經歷了一次收窄。** M2 時代的 session grant 是 effect 粒度：同意過一次 modify，之後所有 modify 都過。M10 外部 CLI 進來後改成 process-local、精確到 scope：`rivumi/src/rivumi/runtime_semantics.py#ProcessLocalGrant` 文件字串就寫著 non-persistent，且 read 不允許存成 grant；`#decide_permission` 保證 `READ_ONLY` mode 是硬天花板——殘留的 stale grant 不能在切模式後重新啟用 side effect。scope 由 `rivumi/src/rivumi/tui.py#_grant_scope` 決定：外部 backend 是 `external_agent:codex-cli` 這種形式，給 codex-cli 的同意不涵蓋 Claude Code；command grant 是完整 argv。最極端的是 Codex 檔案變更：`rivumi/src/rivumi/codex_app_server.py#_file_change_grant_scope` 把 proposed changes 做 SHA256 指紋，session grant 只涵蓋「一模一樣的那組變更」。
 
-跟五家比起來，rivumi 沒有做的是規則語言（opencode 的 wildcard、claude-code 的 allow/deny rules）和沙箱聯動（codex 的「有沙箱才 auto-approve」）。前者是功能取捨，後者目前靠 disposable clone + 明確的 `--unsafe-local-exec` 承認頂著。
+跟五家比起來，Rivumi 已有 user/org/project allow-deny source、deny-first precedence 與危險指令 classifier，但還沒有 opencode wildcard 或 Codex `exec_policy` 那種可檢查、可修訂、涵蓋外部 CLI 的完整規則語言，也沒有把「sandbox 確實生效」變成所有 auto-approval 的共同前提。`--sandbox-checks` 與 MCP 動態分類是 baseline，不是 production 授權模型。
 
 ## 工程依據
 
@@ -73,7 +73,7 @@ rivumi 的答案是三層：effect 分類、注入式 policy、durable audit。
 
 ## 還能改善什麼
 
-1. **危險指令攔截是最大缺口，也是第二部 #28〈危險指令攔截與 shell escalation〉的伏筆。** rivumi 目前沒有一般 shell 工具，所以攻擊面小；但外部 CLI backend 把任意指令帶回來了，而 rivumi 對那層只有「問一次」可用。Codex 已示範完整階梯：`codex-rs/core/src/exec_policy.rs` 的 `Decision::Prompt` 規則、`ReviewDecision::ApprovedExecpolicyAmendment` 讓「這次允許」可以升級成「這條規則永久允許」、`tools/runtimes/zsh_fork/unix_escalation.rs` 處理沙箱內失敗後的受控提權。這套值得拆成獨立一篇。
+1. **把既有規則擴到外部 CLI。** 原生 loop 已有 classifier 與 allow/deny layering，但沒有一般 shell；外部 CLI 又擁有自己的 command loop。下一步是把可檢查、可修訂的 policy bridge 到那些 runtime，而不是重做一次 native classifier。
 2. **審批事件的 UI 重放**：audit trail 已經在 events.jsonl 裡，但還沒有「給人看的審批歷史」視圖。
 3. **規則語言**：等真實使用量證明「每次都問」太煩之前不急，但 opencode 的 findLast-wins 語意值得抄——簡單、可預測、預設 ask。
 
@@ -87,3 +87,4 @@ rivumi 的答案是三層：effect 分類、注入式 policy、durable audit。
 - [sst/opencode（GitHub）](https://github.com/sst/opencode)
 - [badlogic/pi-mono（GitHub）](https://github.com/badlogic/pi-mono)
 - [can1357/oh-my-pi（GitHub）](https://github.com/can1357/oh-my-pi)
+- [Rivumi approval 分類（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/approvals.py)

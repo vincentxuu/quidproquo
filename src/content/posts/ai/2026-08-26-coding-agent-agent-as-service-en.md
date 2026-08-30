@@ -1,6 +1,6 @@
 ---
 title: "Learning Design from Mature Coding Agents (38): Agent as a Service — Wrapping Your Loop in Something Other Programs Can Call"
-date: 2026-08-26
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 38
 tags: [coding-agent, server-api, sse, websocket, rivumi, opencode, codex]
 lang: en
-tldr: "Only opencode ships a full REST+SSE server surface with an official SDK; codex goes JSON-RPC over stdio/WebSocket; omp is the most radical, encrypting all collab traffic with AES-GCM so the relay sees nothing but ciphertext; pi outsources auth to Unix socket file permissions; claude-code's server lives in Anthropic's cloud. The shared pattern: session as the core resource, events streamed not polled, trust boundary defaults to localhost. rivumi today has only the events.jsonl artifact and zero network surface — the final gap this closing post of the series addresses."
-description: "Comparing how pi, omp, opencode, codex, and claude-code design their server APIs: route shapes, event subscription, multi-session multiplexing, and auth boundaries, plus a design sketch for rivumi's agent-as-a-service layer."
+tldr: "rivumi now has a Cloudflare Durable Object run resource with async creation, status/cancel/artifacts, live NDJSON, and Last-Event-ID SSE; remote approvals use a separate short-lived capability. Python also provides an attach client and a stateful conversation WebSocket. Production deployment, cross-runtime parity, and full multi-tenant hardening remain unverified."
+description: "Comparing server APIs across mature coding agents, including rivumi's implemented durable-run, SSE/WebSocket attach, and remote-approval baseline."
 draft: false
 ---
 
@@ -21,7 +21,7 @@ Evidence scope as usual: pi (badlogic/pi-mono), omp (can1357/oh-my-pi), opencode
 
 ## The capability gap: what's still missing after the loop works
 
-[Order 21 of this series](/posts/ai/2026-08-25-coding-agent-headless-ci-mode-en) solved the "nobody to click approve" problem, but a headless CLI remains a **one-shot** interaction model: spawn a process, feed it a prompt, collect artifacts, exit. Three things stay impossible:
+[Order 21 of this series](/posts/ai/2026-08-25-coding-agent-headless-ci-mode-en) solved the "nobody to click approve" problem; a plain headless CLI still remains a **one-shot** interaction model. Rivumi's later service surface addresses these three limitations:
 
 1. **Mid-flight observation**: while a task runs, external programs can't see progress — they can only wait for the end.
 2. **Persistent reuse**: every call reloads the system prompt and rebuilds workspace state, paying startup cost again.
@@ -67,18 +67,19 @@ Stripping away transport details, the five converge on three things:
 
 The wider ecosystem converges the same way: [Model Context Protocol](https://modelcontextprotocol.io) standardized the tool surface, and [Agent Client Protocol](https://agentclientprotocol.com) standardized editor-to-agent communication — omp's ACP mapping plugs into the latter. The space for bespoke private protocols is shrinking.
 
-## The rivumi design sketch
+## The service surface now implemented in rivumi
 
-Current state: rivumi has zero network surface. The repo carries no HTTP framework dependency; the only outward interfaces are the CLI and on-disk artifacts — `src/rivumi/loop.py#_event` writes every [RunEvent](/posts/ai/2026-08-25-coding-agent-run-artifacts-contract-en) into events.jsonl, which is an auditable record, not a live interface. Against the five, the sketch has four steps:
+The Cloudflare control plane represents each run as a Durable Object resource. `POST /v1/runs` returns `202` and starts an isolated Sandbox in the background. Clients can read status, cancel, retrieve artifacts, and consume live NDJSON. `?stream=1` upgrades events to SSE, replaying a bounded buffer before pushing new events; `Last-Event-ID` resumes after an integer sequence cursor, and terminal state closes the stream.
 
-1. **Add an SSE outlet to EventSink**. `src/rivumi/console.py#CompositeEventSink` already reserved the slot — secondary sink failures never invalidate the authoritative disk write. Adding an `SseEventSink` gives simultaneous file-and-network emission with zero loop intrusion.
-2. **Resume via the existing sequence**. RunEvent already carries a strictly increasing sequence; SSE's `Last-Event-ID` reconnect semantics map directly: client reports its sequence, server replays from events.jsonl. No new state to invent.
-3. **Resource model from opencode, transport from pi**. Routes cover exactly four session-level operations (create, prompt, subscribe to events, interrupt); bind localhost or a Unix socket and let file permissions be the auth. No public-deployment story.
-4. **Approvals never auto-approve over the network**. approval.requested events may be pushed to a remote UI, but if the approval decision itself comes from remote, it must ride a separate explicit authorization channel — opening the event stream must never downgrade EXECUTE approvals to automatic allow.
+Remote approval does not smuggle trust through the event channel. Model requests, event append, and approval use separate short-lived capability audiences. Clients explicitly submit `allow_once`, `allow_session`, `deny`, or `cancel` through approval routes, while the Sandbox polls a dedicated internal endpoint. Python's `CloudflareRunClient` covers start/status/cancel/artifact/attach, and the SDK also exposes a stateful `/v1/conversation/attach` WebSocket for turns, approvals, and injected context.
 
-One-sentence summary: turning an agent into a service isn't about opening a port — it's about deciding which decisions stay local forever. The five projects agree: events may broadcast; trust may not.
+These are source- and test-backed baselines, not a production-success claim. Production deployment, long real-provider runs, cross-runtime attach parity, Durable Object restart behavior, and full multi-tenant hardening still require separate validation.
 
 ## References
+
+- [rivumi Cloudflare control-plane documentation at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/cloudflare/README.md)
+- [rivumi Python attach client at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/cloudflare_client.py)
+- [rivumi conversation WebSocket at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/conversation_websocket.py)
 
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono)
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)

@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（6）：ModelProvider 抽象——為什麼不能直接包 SDK 就好"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -61,7 +61,7 @@ Claude Code（decompiled v2.1.88）根本不做多 provider。它是 Anthropic �
 
 **三、錯誤在 adapter 邊界就分類完。** `rivumi/src/rivumi/models.py#ProviderErrorKind` 只有五種：retryable、auth、rate_limit、invalid_request、provider。狀態碼到分類的映射集中在 `rivumi/src/rivumi/models.py#_error_kind`，retry-after header 和 request id 一併抽出來。關鍵細節：`OpenAICompatibleModel` 建構時把 SDK 的 `max_retries=0`（`rivumi/src/rivumi/models.py#OpenAICompatibleModel`），理由寫在註解裡——重試統一由 `rivumi/src/rivumi/loop.py#AgentRunner._complete_model_with_retry` 做，否則 SDK 內建重試會加倍上游流量還繞過 audit trail。分類的好處直接兌現：retryable/rate_limit 指數退避重試，auth 和 invalid_request 立刻放棄，`retry_after_seconds` 會抬高退避下限。
 
-與五家相比，rivumi 比 pi 多了 URL 安全驗證（`models.py#_validated_openai_base_url`：遠端必 HTTPS、HTTP 只准 loopback、拒絕 URL 內嵌憑證），比 Claude Code/Codex 多了真多 provider，但少了 streaming 和動態 OAuth 刷新——這是有意的範圍裁剪，非串流對 harness 的 checkpoint 語意簡單得多。
+與五家相比，rivumi 比 pi 多了 URL 安全驗證（`models.py#_validated_openai_base_url`：遠端必 HTTPS、HTTP 只准 loopback、拒絕 URL 內嵌憑證），比 Claude Code/Codex 多了真多 provider，但少了 native streaming。contract 外圍則多出兩個 baseline：`provider_catalog.py#estimate_cost` 用小型靜態價格表把 canonical `Usage` 換成明標 `estimated` 的成本，未知模型就回 `None`；`#role_candidates` 提供 primary、cheap、fast、summarizer、reviewer 等靜態候選。它們已接進 run/session usage 與 SDK，但價格覆蓋很窄，role label 也不是會自行學習或自動驗證品質的 production router。
 
 ## 學術依據
 
@@ -70,8 +70,8 @@ Provider 抽象沒有經典論文，但各家官方 API 文件本身就是最好
 ## 改善路線
 
 1. **Streaming**。目前 `ModelCapabilities.streaming` 恆為 False，長任務的首 token 延遲體驗差。pi 的 event stream 設計（AssistantMessageEventStream）是可以直接參考的形狀，但要先解決 non-streaming checkpoint 與 streaming 中途取消的語意衝突。
-2. **Cost 計算進 contract**。pi 的 Usage 內建 cost 欄位、OMP 有 openai-pricing 模組；rivumi 目前只累積 token 數，價格表還沒進來。
-3. **動態 model discovery 泛化**。`rivumi/src/rivumi/model_catalog.py#snapshot` 已對 OpenRouter 這類目錄型 endpoint 做 24 小時 TTL 快取，但只覆蓋少數 provider；OMP 的 `dynamicModelsAuthoritative` 分類法（哪些 provider 的清單可信）值得一併抄。
+2. **擴大成本資料但保留 estimated 語意**。成本欄位與靜態表已落地，現在只覆蓋少數明確列出的模型。下一步是來源日期、alias 與 provider 覆蓋的維護流程；表內沒有的模型繼續只顯示 token，不能猜價格。
+3. **動態 model discovery 泛化並與 role route 分開**。`rivumi/src/rivumi/model_catalog.py#snapshot` 已對部分目錄型 endpoint 做 TTL 快取；`role_candidates` 則是明確的靜態 metadata。未來可以擴大 discovery，但不能把「API 列得出來」誤當成「適合 reviewer 或 summarizer」。
 4. **OAuth 刷新 fencing**。Codex 訂閱路徑目前是手動登入，跨程序的 token 刷新競爭還沒處理——pi 的 `Models.getAuth` 錯誤碼設計（oauth/auth 分開、保留 credential 供重試）是现成的藍圖。
 
 一句話總結：**ModelProvider 抽象的本質不是隱藏差異，而是把差異翻譯到你唯一需要負責的那一層——contract。**
@@ -90,3 +90,4 @@ Provider 抽象沒有經典論文，但各家官方 API 文件本身就是最好
 - [Cloudflare Workers AI 文件](https://developers.cloudflare.com/workers-ai/)
 - [models.dev](https://models.dev)
 - [Codex：移除 chat wire_api 的討論串 #7782](https://github.com/openai/codex/discussions/7782)
+- [Rivumi provider catalog（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/provider_catalog.py)

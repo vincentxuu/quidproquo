@@ -1,6 +1,6 @@
 ---
-title: "Learning Agent Design from Mature Coding Agents (27): Cross-Session Memory — Why Every Agent Starts Each Day with Amnesia"
-date: 2026-08-25
+title: "Learning Agent Design from Mature Coding Agents (27): Cross-Session Memory — From Explicit Remembering to Semantic Recall"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 27
 tags: [coding-agent, agent-memory, rivumi, claude-code, oh-my-pi]
 lang: en
-tldr: "Of the five reference projects, omp ships a full SQLite memory engine (mnemopi) with working/episodic tiers plus sleep-time consolidation, and claude-code pairs an auto memory directory with periodic LLM extraction; the other three only have manual AGENTS.md files. rivumi today can resume conversation history but has no semantic memory layer at all. This post dissects storage formats, retrieval, and write timing across the five, then proposes a rivumi design: typed memories in SQLite, extracted at bounded-task boundaries, shared across all backends."
-description: "Comparing omp mnemopi, claude-code memdir/SessionMemory, and pi/opencode/codex AGENTS.md mechanisms for cross-session memory — storage, retrieval, and write gating — with a concrete design draft for rivumi."
+tldr: "omp and claude-code provide cross-session memory while the other references mostly rely on instruction files. rivumi now has an explicit remember/list/inject baseline: typed JSONL memories enter prompts across sessions, but retrieval is scope-and-recency only, with no semantic ranking, deduplication, forget command, or automatic extraction."
+description: "Comparing cross-session memory in mature coding agents, then documenting Rivumi's fixed-commit typed JSONL store, scope filtering, and prompt-injection baseline."
 draft: false
 ---
 
@@ -21,7 +21,7 @@ Evidence base: **omp** (can1357/oh-my-pi), **claude-code** (community decompiled
 
 I work on the same machine and the same handful of projects, yet every new agent session starts blind: it doesn't know my commit conventions, doesn't remember last week's D1 batch timeout fix, and needs the project norms explained again. However long the in-session context is, it dies when the process exits.
 
-This is a Part 2 topic: capabilities all five reference projects have that rivumi doesn't. To be precise about rivumi's current state — I grepped `~/Projects/rivumi/src/rivumi/` end to end. `conversation.py` can persist and resume conversations and `events.py` keeps an append-only event log, but there is no embedding, vector index, or semantic memory layer anywhere in the codebase. rivumi can continue an unfinished conversation; it cannot recall something learned three weeks ago.
+This article originally documented a blank. Rivumi has since moved one boundary forward: `memory.py` provides typed JSONL memory, TUI `/remember` explicitly writes user/project preferences or project facts, and the native loop injects relevant entries into the system prompt's Known context. It can now carry user-stated information across sessions, but it is not the semantic memory system shown by the mature references: there is still no embedding index, ranking/decay, deduplication, edit/delete, or automatic extraction. The comparison below therefore asks what comes after an explicit baseline rather than how to start from zero.
 
 ## omp: mnemopi, a complete memory engine
 
@@ -61,20 +61,20 @@ Honest boundary discussion: these are **manual memory** — a human decides what
 
 The best-known starting point is [Generative Agents](https://arxiv.org/abs/2304.03442) (Park et al., 2023): twenty-five simulated townsfolk share a memory stream where retrieval scores recency × importance × relevance, and an LLM reflects higher-level conclusions out of raw records. omp's importance/veracity fields and claude-code's periodic extraction are both engineering variants of that architecture. [MemGPT](https://arxiv.org/abs/2310.08560) argues the other side: instead of bolting on a vector store, give the agent an explicit tiered memory interface (main context / external storage) it accesses through calls — which is precisely omp's `retain`/`recall` tools.
 
-## A design draft for rivumi
+## The baseline rivumi has now implemented
 
-Synthesizing the two implementations, here's how I'd slice rivumi's memory layer:
+As of `2ed5efb`, rivumi has more than resumable conversation history. `memory.py` defines typed `MemoryEntry` records persisted to an append-only JSONL user-memory file, with `RIVUMI_MEMORY_PATH` available as an override. The CLI remember path requires an explicit memory type and scope, so the agent does not silently guess which details deserve permanent storage.
 
-1. **Storage**: one SQLite file (`~/.rivumi/memory.db`), schema borrowed from mnemopi in miniature: `content`, `memory_type` (adopting claude-code's four-way split), `importance`, `veracity`, `superseded_by`. No embeddings in v1 — claude-code proves a frontmatter manifest plus a small-model picker is enough, and rivumi already has a provider abstraction for calling a cheap model.
-2. **Write timing**: hook the end of a bounded task in `loop.py`. Only after a run completes and verification passes does one extraction subtask fire, prompted with a single question: "What from this run is worth remembering next time and not derivable from the repo?" Throttling comes for free — no need for claude-code's token-threshold state machine.
-3. **Retrieval timing**: when `conversation.py` opens a new conversation, scan the manifest and inject it into the system prompt. No mid-conversation dynamic recall; behavior stays predictable.
-4. **Governance**: memory files live under rivumi's artifact directory, with `forget` and `superseded_by` as first-class citizens — wrong memories must be explicitly retractable, which is why the veracity field exists.
+For a new run, `relevant_memory_entries()` filters by scope and selects recent records; `render_known_context()` turns them into a bounded known-context prompt section. The boundary is deliberate: writes are user-directed, the file is inspectable, injection is predictable, and the mechanism does not depend on an external backend's private session store.
 
-## Fitting into the existing architecture
+## What remains open
 
-Three deliberate choices here. First, the memory layer sits in rivumi's harness itself, not in any backend: since M13, rivumi drives both native runtimes and external adapters for pi/omp/codex/opencode (external CLIs even run with `--no-session-persistence`), so memory implemented at harness level works uniformly across backends — a structural advantage none of the five has. Second, extraction fires only at task boundaries, consistent with rivumi's append-only, replayable event philosophy: an extraction result is just another event, recoverable by replay if corrupted. Third, refusing embeddings in v1 isn't laziness, it's deferred complexity: once memory volume exceeds what one scannable manifest handles, a vector index enters, and mnemopi's hybrid retrieval is the ready-made blueprint.
+“Relevant” currently means scope and recency, not semantic similarity. There is no embedding, relevance ranking, decay, near-duplicate handling, or `/memory forget` editing/deletion flow, and no bounded-task-end auto-extraction. Rivumi now has a safe minimal cross-session memory loop, but not mnemopi-style working/episodic consolidation or claude-code-style feedback-derived recall.
 
 ## References
+
+- [Rivumi typed memory store and scoped retrieval (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/memory.py)
+- [Rivumi memory tests (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_memory.py)
 
 - [can1357/oh-my-pi — packages/mnemopi](https://github.com/can1357/oh-my-pi/tree/main/packages/mnemopi) — full source of the SQLite memory engine
 - [anthropics/claude-code](https://github.com/anthropics/claude-code) — official repo; memdir/SessionMemory citations come from community-decompiled v2.1.88

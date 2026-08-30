@@ -1,6 +1,6 @@
 ---
 title: "Hooks, Skills, Plugins: The Three-Layer Extension System of Mature Coding Agents"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 tags: [coding-agent, hooks, skills, plugins, extensibility, claude-code, codex, opencode, rivumi]
@@ -8,8 +8,8 @@ lang: en
 series:
   name: "跟成熟 coding agent 學設計"
   order: 31
-tldr: "All five mature coding agents split user-extensibility into three layers: hooks intercept events, skills inject knowledge, plugins package and distribute. The shared rule — control flow goes through hooks, knowledge through skills, ecosystems through plugins. rivumi currently has zero extension points; the minimal starting point is a PreToolUse/PostToolUse event pair between AgentRunner and ToolExecutor."
-description: "Source-code evidence from five coding agents on how hooks, skills, and plugins differ in design yet converge on the same three-layer pattern, plus a draft extension-point design for rivumi."
+tldr: "Hooks govern control flow, skills inject knowledge, and plugins package both. rivumi now has opt-in deny-only project hooks, a bounded SKILL.md loader, exact enabled_skills selection, plugin manifests/install/list, and external-runtime projection. Input rewriting, full lifecycle coverage, remote registries, and a mature marketplace remain open."
+description: "Comparing hooks, skills, and plugins across five agents, then checking Rivumi's deny-only hooks, bounded skills, and local plugin-manifest baseline."
 draft: false
 ---
 
@@ -17,11 +17,9 @@ draft: false
 
 ## The capability gap: an agent you can't customize is a toy
 
-Every piece of rivumi's behavior so far is hardcoded. Want to inject project conventions before each prompt? Edit the source. Auto-run a formatter after every Bash call? Edit the source. Share a team-wide pre-deploy checklist the agent can look up? There is no mechanism.
+Rivumi no longer hardcodes every behavior. Repository-local `.rivumi/skills/*.md` can be selected explicitly, blocking hooks can deny at lifecycle boundaries, plugin manifests package skills and hooks, and the CLI supports local install/list. Resolved bundles project into native and external runtimes. This is intentionally narrower than the mature references: hooks are deny-only rather than arbitrary tool-input rewrites, and plugins have no marketplace or remote auto-install path.
 
-I grepped `~/Projects/rivumi/src/rivumi/` honestly: the only matches are `core.hooksPath=/dev/null` set for isolation in `external_runner.py` (that's git's hooking, not ours) and a stub labeled "No-op lifecycle hook" in `models.py`. In other words, rivumi has no extension points at all.
-
-That's fine for a single-player toy, but every mature project has crossed this bridge, and the five reference projects give a remarkably consistent answer: **three layers** — hooks decide when to intercept, skills decide what the agent knows, plugins decide how it's packaged. Evidence layer by layer below.
+The five reference projects still converge on **three layers** — hooks decide when to intercept, skills decide what the agent knows, and plugins decide how it is packaged. The sections below examine those mature implementations, then measure Rivumi's deny-only, repository-local baseline against them.
 
 ## Layer one: hooks — interception points on lifecycle events
 
@@ -49,7 +47,7 @@ The division isn't accidental. [Voyager](https://arxiv.org/abs/2305.16291) valid
 
 Failure cases confirm it from the other side: with only one layer, either everything can be modified (a security nightmare) or nothing can (rivumi today). The three layers answer different questions; merging them breaks both.
 
-## Draft design for rivumi
+## Original design draft (2026-08-25)
 
 In dependency order, three phases:
 
@@ -63,7 +61,19 @@ In dependency order, three phases:
 
 Good news: rivumi's earlier designs left seams ready. `rivumi/permissions.py#PermissionGuard` is already the de facto PreToolUse interceptor — once the hook system lands, it becomes simply the built-in hook with highest priority. The event stream in `rivumi/events.py` can double as the bus underneath the hook system. And the capability handshake from the external CLI runtime generalization (OpenCode/Pi/OMP adapters) means: if a host CLI has its own hook system, rivumi's adapter layer can translate rather than reimplement. The risk concentrates on hooks rewriting tool input: once `updatedInput` exists, the audit trail must record before/after diffs, which touches the run artifacts contract. Phase 1 keeps rewriting disabled — allow/deny/additionalContext only — until the audit surface catches up.
 
+## Rivumi's current implementation
+
+As of `2ed5efb`, all three layers have a baseline. Hooks load exact argv from `.rivumi/hooks.json` only when `RIVUMI_ENABLE_PROJECT_HOOKS=1`; `pre_tool_use`, `post_tool_use`, `approval_request`, `pre_compact`, and `post_compact` use bounded IO/timeouts, and decisions can only deny—not silently grant permission or rewrite input.
+
+Skills load frontmatter from `.rivumi/skills/<name>/SKILL.md`, reject symlinks, and cap count and size. `TaskContract.enabled_skills` selects exact skills for native or external runners. Plugins package local skill/hook references in validated manifests, with install/list CLI support and discovery metadata; child app-server `skills/changed` notifications also enter the timeline.
+
+Hooks still lack input rewriting and a full session lifecycle. Plugins are a local-package baseline, not a signed/version-resolved remote marketplace, and external-runtime skill surfacing still needs packaging and live validation.
+
 ## References
+
+- [Rivumi hooks (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/hooks.py)
+- [Rivumi skills (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/skills.py)
+- [Rivumi plugins (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/plugins.py)
 
 - [badlogic/pi-mono — packages/coding-agent/src/core/extensions](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent/src/core/extensions): ExtensionAPI event subscription and tool registration
 - [can1357/oh-my-pi — src/extensibility](https://github.com/can1357/oh-my-pi): skills/hooks/plugins as separately maintained modules

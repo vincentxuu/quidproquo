@@ -1,6 +1,6 @@
 ---
 title: "Learning Design from Mature Coding Agents (28): Dangerous Command Interception and Shell Escalation — Between Allowlists and Always Ask"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,14 +8,14 @@ series:
   order: 28
 tags: [coding-agent, shell-execution, security, approval, rivumi, codex, claude-code, omp]
 lang: en
-tldr: "All five projects converge on the same shape for free-shell risk handling: a three-way decision (run / escalate for approval / deny outright), a critical-pattern list, per-segment inspection of compound commands, and fail-closed defaults on timeout or rejection. codex even builds escalation as a separate server that intercepts the execve syscall. rivumi's run_check is an exact argv allowlist — safe but with no middle layer: one step off the allowlist and it's all or nothing."
-description: "Comparing dangerous command detection and escalation mechanisms across codex, claude-code, omp, pi, and opencode — decision tiers and fail-closed conventions — with a risk-grading design draft for rivumi."
+tldr: "All five projects combine allow/ask/deny decisions, compound-command inspection, and fail-closed behavior. rivumi now has a deny-first classifier, critical floor, shell segmentation, timeout-deny, configured allow/deny rules, and visible policy reasons. Broader syntax coverage and live interactive validation remain open."
+description: "Comparing dangerous-command escalation across five coding agents, then checking Rivumi's allow/ask/deny classifier, critical floor, and policy-audit baseline."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-dangerous-command-interception)
 
-Part two of the series, post three: as before, one capability that all five mature projects have and rivumi doesn't. Scope note: pi (badlogic/pi-mono), omp (can1357/oh-my-pi), opencode (sst/opencode), codex (openai/codex Rust workspace), and claude-code (community decompiled v2.1.88). Every citation was actually grepped in local clones.
+This Part Two article originally treated dangerous-command grading as a missing capability. Rivumi now has a deterministic allow / ask / deny classifier, deny-first rule layering, a critical-command floor, and approval-visible policy reasons. The evidence base remains pi, omp, opencode, codex, and claude-code; their implementations now test what Rivumi's baseline still lacks in free-shell parsing depth, persistent-rule UX, and cross-platform sandbox parity.
 
 ## The capability problem: binary decisions can't carry a free shell
 
@@ -55,7 +55,7 @@ opencode's bash tool (`packages/core/src/tool/bash.ts`) calls `permission.assert
 
 The common ancestor of these designs is least privilege: Saltzer and Schroeder's classic 1975 paper [The Protection of Information in Computer Systems](https://www.cs.virginia.edu/~evans/cs551/saltzer/) defines "least privilege" — every subject should hold the minimum permissions needed for its current task. codex's three-way decision is that principle engineered: minimal in-sandbox privilege by default (`Run`), exceptions require explicit authorization (`Escalate`), forbidden things leave no room for negotiation (`Deny`). "Deny by default" directly implements another entry from the same paper, fail-safe defaults: timeouts, cancellations, and missing responses all land on deny. Anthropic's own [security documentation](https://docs.anthropic.com/en/docs/claude-code/security) also positions permission prompts and sandboxing as two independent lines of defense — warning systems (claude-code's destructive warnings) exist to inform human decisions, while sandboxing and approvals enforce boundaries; merging their responsibilities serves neither.
 
-## rivumi design draft
+## Original design draft (2026-08-25)
 
 The current state, honestly: rivumi has **no free-shell tool**. Its only EXECUTE channel is `tools.py#run_check`: verification commands come from config with fully fixed argv, and the tool schema even restricts names to an enum. Effect grading relies on `approvals.py#ToolEffect` (READ/MODIFY/EXECUTE); headless runs default `HeadlessApprovalPolicy.allow_execute` to False, and the only way to enable it is the CLI-level `--unsafe-local-exec` boolean flag.
 
@@ -73,7 +73,15 @@ The good news: the foundation exists — ToolEffect grading, callback/headless/T
 
 Ordering matters too: this should come before OS-level sandboxing (the next post's topic). Pattern grading is cheap, pure software, immediately useful; the landlock/seatbelt layer is the backstop for when grading gets it wrong. Grading first — otherwise the sandbox has nothing to back up.
 
+## Rivumi's current implementation
+
+As of `2ed5efb`, the old binary-decision description is obsolete. `permissions.py` splits shell-shaped commands into segments, then `classify_command_policy()` returns `allow`, `ask`, or `deny`. The critical floor and explicit deny rules precede session grants and allow rules; shell interpreters, network/package operations, permission changes, archives, and suspicious compound shapes escalate, while suspicious long timeouts are denied.
+
+`ApprovalRequest.policy_reason` reaches TTY/TUI surfaces, run events, and persisted audit records; legacy `exec/run` and resume paths use the same guard. This remains command-text classification, not execve interception. Shell expansion, wrapper programs, and adversarial obfuscation require conservative handling, with the OS sandbox as the second boundary.
+
 ## References
+
+- [Rivumi command policy (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/permissions.py)
 
 - [openai/codex — codex-rs/execpolicy](https://github.com/openai/codex/tree/main/codex-rs/execpolicy): Allow/Prompt/Forbidden three-way decisions and the prefix rule engine
 - [openai/codex — codex-rs/shell-escalation](https://github.com/openai/codex/tree/main/codex-rs/shell-escalation): execve-intercepting escalation server

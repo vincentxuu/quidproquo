@@ -1,6 +1,6 @@
 ---
 title: "Learning Design from Mature Coding Agents (6): The ModelProvider Abstraction — Why Wrapping an SDK Is Not Enough"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -61,7 +61,7 @@ On top of that, three decisions:
 
 **Three, errors are fully classified at the adapter boundary.** `rivumi/src/rivumi/models.py#ProviderErrorKind` has exactly five kinds: retryable, auth, rate_limit, invalid_request, provider. The status-code-to-kind mapping lives in one place, `rivumi/src/rivumi/models.py#_error_kind`, which also extracts retry-after headers and request ids. The crucial detail: `OpenAICompatibleModel` constructs the SDK with `max_retries=0` (`rivumi/src/rivumi/models.py#OpenAICompatibleModel`), and the comment explains why — retries belong to `rivumi/src/rivumi/loop.py#AgentRunner._complete_model_with_retry`; otherwise built-in SDK retries would multiply upstream requests and bypass the audit trail. The classification pays off immediately: retryable/rate_limit errors get exponential backoff, auth and invalid_request fail fast, and `retry_after_seconds` raises the backoff floor.
 
-Compared to the five: rivumi adds URL safety validation that pi lacks (`models.py#_validated_openai_base_url` — remote requires HTTPS, HTTP allowed only for loopback, embedded URL credentials rejected), has more real providers than Claude Code or Codex, but lacks streaming and dynamic OAuth refresh — a deliberate scope cut, since non-streaming makes checkpoint semantics far simpler for the harness.
+Compared with the five, Rivumi adds URL safety validation that pi lacks (`models.py#_validated_openai_base_url`: remote requires HTTPS, HTTP is loopback-only, embedded credentials are rejected), has more real providers than Claude Code or Codex, but still lacks native streaming. Two baselines now sit around the contract: `provider_catalog.py#estimate_cost` translates canonical `Usage` through a small static table into explicitly `estimated` cost, returning `None` for unknown models; `#role_candidates` exposes static candidates for primary, cheap, fast, summarizer, reviewer, and other roles. They feed run/session usage and the SDK, but the pricing coverage is narrow and role labels are not a production router that learns or validates model quality.
 
 ## Evidence base
 
@@ -70,8 +70,8 @@ There is no classic paper on provider abstraction, but the vendors' own API docu
 ## What could improve
 
 1. **Streaming**. `ModelCapabilities.streaming` is currently always False, hurting time-to-first-token for long tasks. pi's event-stream shape (AssistantMessageEventStream) is directly referenceable, but the semantic conflict between non-streaming checkpoints and mid-stream cancellation must be resolved first.
-2. **Cost inside the contract**. pi's Usage carries cost fields and OMP ships an openai-pricing module; rivumi accumulates tokens only, with no price tables yet.
-3. **Generalizing dynamic model discovery**. `rivumi/src/rivumi/model_catalog.py#snapshot` already caches catalog-style endpoints like OpenRouter with a 24-hour TTL, but coverage is narrow; OMP's `dynamicModelsAuthoritative` taxonomy (which providers' lists are trustworthy) is worth copying too.
+2. **Expand pricing data while preserving the estimated label.** Cost records and a static table have landed, but only for a few explicit models. The next step is a maintenance process for source dates, aliases, and provider coverage. Models absent from the table must continue to show tokens without an invented price.
+3. **Generalize dynamic discovery without conflating it with role routing.** `rivumi/src/rivumi/model_catalog.py#snapshot` caches listings for some catalog-style endpoints, while `role_candidates` is explicit static metadata. Discovery can broaden, but "the API listed this model" must not become "this model is a proven reviewer or summarizer."
 4. **OAuth refresh fencing**. The Codex subscription path is manual login today, with cross-process token-refresh races unhandled — pi's `Models.getAuth` error-code design (oauth/auth split, credentials preserved for retry) is a ready-made blueprint.
 
 One-line summary: **the essence of the ModelProvider abstraction is not hiding differences, but translating them into the one layer you're responsible for — the contract.**
@@ -90,3 +90,4 @@ One-line summary: **the essence of the ModelProvider abstraction is not hiding d
 - [Cloudflare Workers AI docs](https://developers.cloudflare.com/workers-ai/)
 - [models.dev](https://models.dev)
 - [Codex discussion #7782: chat wire_api removal](https://github.com/openai/codex/discussions/7782)
+- [Rivumi provider catalog at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/provider_catalog.py)

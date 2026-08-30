@@ -1,6 +1,6 @@
 ---
-title: "跟成熟 coding agent 學設計（26）：Context 壓縮與 compaction——五家都有、rivumi 還沒有的能力"
-date: 2026-08-25
+title: "跟成熟 coding agent 學設計（26）：Context 壓縮與 compaction——從缺口到可審計 baseline"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,14 +8,14 @@ series:
   order: 26
 tags: [coding-agent, compaction, context-window, rivumi, claude-code, codex]
 lang: zh-TW
-tldr: "claude-code 用「context window 減保留額」算觸發門檻、失敗三次就熔斷；codex 把 compaction 做成可注入 initial context 的獨立 task；omp 的 snapcompact 乾脆把舊歷史渲染成 PNG 給視覺模型讀；pi 和 opencode 都用 cut-point 保證不切壞 turn。rivumi 目前只有「最近 12 個 turn」的硬截斷，被丟掉的上下文沒有任何摘要補償——這是第二部系列的第一個缺口。"
-description: "對照 pi、omp、opencode、codex、claude-code 五家的 compaction 實作，整理觸發時機、切點策略與摘要生成，提出 rivumi 的設計草案。"
+tldr: "五家成熟 agent 的 compaction 都要處理觸發、完整 turn 切點與失敗恢復。rivumi 已補上 85% high-watermark、自動 compaction、原生 loop 的 deterministic fallback summary、checkpoint 落盤與 workspace context 重新注入；目前仍缺跨 runtime 等價 fallback、模型品質摘要，以及真實 provider 的長 session 驗證。"
+description: "對照五家 coding agent 的 compaction 實作，並以 Rivumi 固定 commit 說明自動觸發、fallback summary、checkpoint 與 context reinjection baseline。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-context-compaction-en)
 
-進入系列第二部：每篇講一個「五家成熟專案都有、rivumi 還沒有」的能力。第一個就選最要命的——context 管理。
+進入系列第二部：每篇從一個成熟 agent 能力出發，再追蹤 rivumi 的落地進度。第一個就選最要命的——context 管理。
 
 先交代取證範圍：pi（badlogic/pi-mono）、omp（can1357/oh-my-pi）、opencode（sst/opencode）、codex（openai/codex Rust workspace）、claude-code（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入）。所有引用都是我在本地 clone 實際 grep 過的。
 
@@ -60,27 +60,22 @@ Rust 端把整件事做成獨立模組群：`codex-rs/core/src/compact.rs#run_co
 
 為什麼摘要有效而不是單純損失？因為長 context 本來就有衰減問題。[Liu et al. 的 "Lost in the Middle"](https://arxiv.org/abs/2307.03172) 實測模型對 context 中段的資訊召回明顯較差——塞更多不等於記得更多。[Chroma 的 context rot 研究](https://research.trychroma.com/context-rot)進一步指出效能隨 context 長度增加而普遍下滑。[MemGPT](https://arxiv.org/abs/2310.08560) 則把作業系統的分頁概念搬進 LLM：主 context 放熱資料、外部儲存放冷資料、靠中斷機制換頁——compaction 可以看作它「換頁」策略的工程化簡化版。Anthropic 自己的[context engineering 文章](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)也把 compaction 列為長任務 agent 的核心技術。
 
-## rivumi 設計草案
+## rivumi 已落地的 baseline
 
-先如實描述現狀：grep 整個 `~/Projects/rivumi/src/rivumi/`，**沒有任何 compaction 機制**。現有的只有三個硬邊界——`conversation.py#MAX_REPLAY_MESSAGES = 12`、`conversation.py#MAX_REPLAY_CHARS = 48_000`、`conversation.py#MAX_MESSAGE_CHARS = 16_000`。`ConversationStore.completed_turns` 只回傳最後 12 個完整 turn 給 replay 路徑，第 13 個 turn 之前的內容**靜默消失**，沒有摘要、沒有標記、沒有事件。`loop.py#bounded_text` 只是把 artifact preview 截短，救不了對話記憶。
+截至 `2ed5efb`，這一節原本的「完全沒有 compaction」已經過期。`runtime_semantics.py` 現在有純函式 high-watermark policy：長駐 runtime 在已知 context window 且用量達 85% 時才自動 compact，失敗後要降到 70% 才重新武裝。TUI 會在一個 turn 完成後、送出 queued follow-up 前觸發，手動 `/compact` 與自動路徑共用 lifecycle event reducer。
 
-若要做，草案如下：
+原生 `AgentRunner` 沒有把所有希望押在 provider API 上。當 task token 壓力過高時，`loop.py` 會保留 system/task seed 與最近尾端，把較舊的完整訊息區間換成 `prompts.py` 產生的版本化、有長度上限的 deterministic summary。這不是另一顆模型寫的語意摘要，而是可重現的 lossly fallback；套用前後會跑 `pre_compact`／`post_compact` hook，接著再注入 changed files、verification 狀態、近期重要路徑與 active constraints，避免壓縮後連工作區現況也忘掉。
 
-**介面位置**：新增 `src/rivumi/compaction.py`，定義 `Compactor` protocol（`should_compact(usage) -> bool`、`summarize(turns) -> str`），實作走既有的 `ModelProvider` 抽象——provider gateway 在 M2 就做好了，不需要新依賴。
+Compaction 邊界也不再只是畫面狀態。`ContextCheckpoint` 驗證 source turns 與 retained turns 不重疊、壓縮後佔用量不得增加；conversation store 能把成功 checkpoint 寫成 `context.compacted` 事件，replay 時明確排除已被取代的內容。Codex app-server 則有真正的 `thread/compact/start` lifecycle；不支援原生 compact 的 Claude adapter 會明確拒絕，不會假裝成功。
 
-**資料流**：每次 turn 完成後從 snapshot events 估算 context 大小（沿用 pi 的字元啟發法即可）；超過 `window - reserve` 就把待摘要的 turn 區間送 `summarize`，摘要以一個新的 conversation event 類型（例如 `compaction_summary`）append 進 JSONL，replay 時 `completed_turns` 改成「summary + 之後的完整 turn」。compaction 本身也落盤成事件，audit trail 不斷裂——這點和 rivumi 既有的事件溯源設計完全同構。
+## 還沒完成的部分
 
-**風險與取捨**：
-
-- **外部 CLI backend 不歸 rivumi 管**。M11 之後 rivumi 主力是長駐外部 session，pi/omp/codex adapter 底下的 CLI 有自己的 compaction；rivumi 層再做一份會雙重摘要。所以第一版只該覆蓋 native conversation 路徑，external backend 明確標記為「由 runtime 自理」。
-- **摘要品質不可驗證**：摘要寫壞等於記憶損毀。至少要把摘要原文留在事件裡可檢視，並允許 `/compact <instructions>` 式的手動干預。
-- **成本**：每次 compaction 多一次 LLM 呼叫。修剪優先（學 opencode）：先把超長工具輸出截短重算，真的還超標才請模型摘要。
-
-## 與現有架構的銜接
-
-目前缺這塊的具體影響：native 路徑上任何超過 12 個 turn 的 session，早期決策都在無紀錄的情況下消失，而且使用者完全不知道——TUI 上看不到任何「這裡有東西被丟掉了」的邊界。五家裡最起碼的共識是**compaction 必須是一個可見、可審計的邊界事件**（omp 的 cmp entry、codex 的 CompactionEvent、claude-code 的 CompactBoundaryMessage 都是）。rivumi 既有的事件流和 transcript UI 已經能把這個邊界畫出來，缺的只是承認「硬截斷不是策略」。這是改善路線圖上性價比最高的一格。
+現在的 native fallback 是機械式摘要，優點是便宜、可測，缺點是語意品質遠不如模型摘要。自動 provider compaction 也只涵蓋宣告支援、能回報 window 的長駐 runtime；其他 external runtime 還沒有等價 fallback。最重要的證據缺口仍是真實 provider 的長 session：checkpoint persistence、workspace reinjection 與失敗 debounce 都有測試，但尚不能把這些測試寫成跨 provider 的 production parity。
 
 ## 參考資料
+
+- [Rivumi compaction policy 與 checkpoint（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime_semantics.py)
+- [Rivumi native fallback 與 reinjection（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/loop.py)
 
 - [Lost in the Middle（Liu et al., 2023）](https://arxiv.org/abs/2307.03172)
 - [Context Rot（Chroma Research）](https://research.trychroma.com/context-rot)

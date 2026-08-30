@@ -1,6 +1,6 @@
 ---
-title: "Learning Design from Mature Coding Agents (35): Model Catalogs and Per-Role Multi-Provider Routing — a capability all five have and rivumi doesn't"
-date: 2026-08-25
+title: "Learning Design from Mature Coding Agents (35): Model Catalogs and Per-Role Routing — rivumi's Role Aliases and Reviewer Lane"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 35
 tags: [coding-agent, model-routing, llm, rivumi, oh-my-pi, codex]
 lang: en
-tldr: "omp splits 'which model' into ten roles, each with a cross-provider fallback chain; codex ships its model catalog from the server, versioned together with the system prompt; opencode and claude-code both have dedicated resolution paths for small models. rivumi has a static provider catalog and disk-cached model listings, but the whole program only knows 'the current model' — role routing and fallback chains are the next most cost-effective gap on the improvement roadmap."
-description: "Comparing the catalog data layer and per-role routing strategies of pi, omp, opencode, codex, and claude-code, with a design draft for rivumi."
+tldr: "rivumi now has static ModelRole/ModelRoute candidates, opt-in aliases such as --model @cheap, cross-provider fallback, and a no-tool reviewer lane that runs after verification. Role inheritance/override rules and automatic summarizer, parser, or scout routing remain open."
+description: "Comparing model catalogs and per-role routing across mature coding agents, including rivumi's implemented role aliases, fallback, and reviewer-lane baseline."
 draft: false
 ---
 
@@ -26,7 +26,7 @@ So "multi-provider support" is just the entry ticket. The real capabilities are 
 1. **A catalog data layer**: the system knows which providers expose which models and what each supports (context window, reasoning, vision), and that data stays fresh.
 2. **Per-role routing**: strategies like "cheap fast model for commits, strong model for planning, smallest for summaries" are first-class citizens rather than hardcoded strings scattered around.
 
-rivumi currently has half of each — details below.
+rivumi has moved beyond a single "current model": catalog data, role aliases, fallback, and a reviewer lane all have first implementations. Automatic per-role routing remains partial, as detailed below.
 
 ## What the five do
 
@@ -68,32 +68,18 @@ The simplest, most pragmatic entry in the decompiled source: `claude-code/src/ut
 
 Model routing is not premature optimization. [FrugalGPT](https://arxiv.org/abs/2305.05176) demonstrated back in 2023 that cascade-style routing cuts cost substantially while preserving quality; [RouteLLM](https://arxiv.org/abs/2406.18665) turned "which queries don't need the strongest model" into a learnable problem. None of the five implement learned routing — they use a more conservative version: **hand-curated role → candidate chains, plus runtime health-based elimination**. That's sound engineering judgment: a coding agent's task types are few and enumerable (commit, summary, planning, main loop), static chains beat black-box routers on predictability and debuggability, and fallback chains already capture most of the savings. OpenRouter's own [provider routing docs](https://openrouter.ai/docs/features/provider-routing) follow the same philosophy: declare a preference order, let the runtime handle failover.
 
-## Design draft for rivumi
+## The baseline now implemented in rivumi
 
-First, the honest current state. The data layer has two pieces:
+Beyond the data layer, `provider_catalog.py` now defines `ModelRole`, `ModelRoute`, and ordered `role_candidates()`. Native CLI users can opt into aliases such as `--model @cheap` and `--fallback-model @cheap`, resolving roles to explicit provider/model pairs. Retry exhaustion can switch providers without reusing the primary model's custom API endpoint.
 
-- `src/rivumi/provider_catalog.py#OPENAI_COMPATIBLE_BASE_URLS`: fixed endpoints for nine OpenAI-compatible providers, plus `RESPONSES_PROTOCOL_MODELS` handling protocol split-off for models that only speak the Responses API (`uses_responses_protocol`).
-- `src/rivumi/model_catalog.py#CatalogSnapshot`: per-provider disk cache of model listings, one-day TTL, stale-while-revalidate, keyed by credential fingerprint. `default_model()` picks defaults via family preferences in `_PROVIDER_BRAND_PATTERNS`.
+The first independent role lane is `--auto-review`: only after editing and verification succeed does Rivumi send the patch to a no-tool reviewer model, persist `review.md`, emit `role_lane.*` events, and attribute usage/cost per lane. External runtime selectors remain owned by their runtimes rather than silently inheriting native aliases.
 
-The routing layer does not exist. The TUI's Ctrl+L (the `ctrl+l` binding in `src/rivumi/tui.py`) offers bounded choices for switching, defaulting to the runtime-first Automatic — external CLI backends let the runtime choose the model. The entire native path has only "the current model": no roles, no chains. The concrete gaps: auxiliary tasks like summaries and titles would be forced onto the main model; when the main model hits 429s or rate limits, the native path has only the single-provider retry from post #6 — no cross-provider escape route.
-
-If built, the draft:
-
-**Step one: a role table, not a router.** Add `src/rivumi/model_roles.py` defining just four roles: `main`, `aux` (summaries/titles and similar helper tasks), `fast`, `fallback`. Follow omp's priority.json shape: an ordered pattern list per role (`provider/model-id` format, bare ids allowed); resolution picks the first candidate whose credentials exist and whose provider is reachable. Skip fuzzy matching and globs initially — omp's five-stage `matchModel` pipeline was forced into existence by hundreds of providers; nine providers only need exact matching.
-
-**Step two: hang fallback chains off the existing retry policy.** Post #6's NVIDIA NIM retry hardening already classifies errors; wire the "retries exhausted" exit to the next candidate in the role's chain. No new mechanism needed. Key discipline from omp: the chain's identity follows the role — carry the whole chain along when spawning subagents or opening conversations, so the main model never switches while its fallback still points at the old one.
-
-**Step three: start equivalence checks at the crudest level.** Copy `modelsAreEqual`: provider + exact id equality, nothing more. Leave `X-thinking` pair collapsing until it actually hurts — today's free-model lists haven't produced that pain yet.
-
-**What not to do**: learned routing, dynamic cost optimization, server-delivered catalogs (codex's approach needs a backend; rivumi has none). External CLI backends, per M13 convention, get explicitly marked "model selection owned by the runtime"; role routing covers only the native path.
-
-## Fitting into the existing architecture
-
-This cell has high ROI precisely because the foundations exist: provider abstraction was post #5, retry and error classification post #6, the disk-cache pattern validated in the startup-performance piece — role routing just stitches those three together with one settings table. The genuinely new work is two things: admitting "different tasks deserve different models" as a first-class concept, and changing "current model" from a single value to a role mapping without breaking the existing Ctrl+L UX (what Ctrl+L switches is really the `main` role; other roles start hidden in user config).
-
-The lesson from all five compresses into one sentence: **the value of a routing strategy is not cleverness — it is predictable behavior when things fail.** omp's provider lock, codex's prompt-catalog binding, opencode's three-stage resolution: all exist so that "which model took this request" has an answer at every moment.
+This is not yet a complete per-role router. Role inheritance/override rules remain unsettled, and summarizer, parser, and scout lanes are not automatically selected. The static candidate table and reviewer lane are an opt-in, testable baseline.
 
 ## References
+
+- [rivumi model roles and pricing catalog at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/provider_catalog.py)
+- [rivumi role-lane SDK documentation at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/docs/sdk.md)
 
 - [FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance (Chen et al., 2023)](https://arxiv.org/abs/2305.05176)
 - [RouteLLM: Learning to Route LLMs with Preference Data (Ong et al., 2024)](https://arxiv.org/abs/2406.18665)

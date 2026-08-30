@@ -1,6 +1,6 @@
 ---
-title: "Learning Design from Mature Coding Agents (26): Context Compression and Compaction — A Capability All Five Have and rivumi Doesn't"
-date: 2026-08-25
+title: "Learning Design from Mature Coding Agents (26): Context Compression and Compaction — From Gap to Auditable Baseline"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,14 +8,14 @@ series:
   order: 26
 tags: [coding-agent, compaction, context-window, rivumi, claude-code, codex]
 lang: en
-tldr: "claude-code computes its trigger threshold as context window minus reserved buffers and trips a circuit breaker after three consecutive failures; codex makes compaction a first-class task with protocol-aware initial-context injection; omp's snapcompact renders discarded history into PNGs for vision models to read back; pi and opencode both use turn-boundary cut points so history is never split mid-tool-call. rivumi currently has only a hard 'last 12 turns' cutoff with no summary compensation — the first gap in part two of this series."
-description: "Comparing compaction implementations across pi, omp, opencode, codex, and claude-code — trigger timing, cut-point strategy, summary generation — with a design draft for rivumi."
+tldr: "Mature-agent compaction must handle triggers, complete-turn cut points, and recovery. rivumi now has an 85% high-watermark, automatic compaction, a deterministic native-loop fallback summary, persisted checkpoints, and workspace-context reinjection. Cross-runtime fallback, model-quality summaries, and live-provider long-session validation remain open."
+description: "Comparing compaction across five coding agents, then documenting Rivumi's fixed-commit baseline for automatic triggers, fallback summaries, checkpoints, and context reinjection."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-context-compaction)
 
-Part two of the series begins here: each post covers one capability that all five mature projects have and rivumi doesn't. First up, the most critical one — context management.
+Part two begins with capabilities mature agents need, then tracks how far rivumi has implemented them. First up, the most critical one — context management.
 
 Scope note: pi (badlogic/pi-mono), omp (can1357/oh-my-pi), opencode (sst/opencode), codex (openai/codex Rust workspace), and claude-code (community decompiled v2.1.88; symbol names may differ from the original). Every citation was actually grepped in local clones.
 
@@ -60,27 +60,22 @@ On the Rust side the whole thing is a family of dedicated modules: `codex-rs/cor
 
 Why do summaries work rather than just lose information? Because long contexts already degrade. [Liu et al.'s "Lost in the Middle"](https://arxiv.org/abs/2307.03172) measured markedly worse recall for information in the middle of the context — more input does not mean more memory. [Chroma's context rot research](https://research.trychroma.com/context-rot) shows performance broadly declining as context length grows. [MemGPT](https://arxiv.org/abs/2310.08560) ports OS paging concepts into LLMs: hot data in the main context, cold data in external storage, page swaps via interrupts — compaction can be seen as an engineering-simplified version of its paging strategy. Anthropic's own [context engineering article](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) also lists compaction as core technique for long-task agents.
 
-## rivumi design draft
+## The baseline rivumi has now implemented
 
-First, an honest account of current state: grepping all of `~/Projects/rivumi/src/rivumi/`, **there is no compaction mechanism**. There are only three hard bounds — `conversation.py#MAX_REPLAY_MESSAGES = 12`, `conversation.py#MAX_REPLAY_CHARS = 48_000`, `conversation.py#MAX_MESSAGE_CHARS = 16_000`. `ConversationStore.completed_turns` returns only the last 12 complete turns on the replay path; anything before turn 13 **silently disappears** — no summary, no marker, no event. `loop.py#bounded_text` merely shortens artifact previews and does nothing for conversational memory.
+As of `2ed5efb`, this section's original claim that rivumi had no compaction is obsolete. `runtime_semantics.py` now provides a pure high-watermark policy: an eligible long-lived runtime auto-compacts at 85% of a known context window, and a failed context must fall to 70% before the trigger rearms. The TUI invokes it after a completed turn and before a queued follow-up; manual `/compact` and automatic compaction share the same lifecycle-event reducer.
 
-If we build it, the draft looks like this:
+The native `AgentRunner` does not rely entirely on provider APIs. Under task-token pressure, `loop.py` preserves the system/task seed and recent tail, replacing an older complete-message span with a versioned, bounded deterministic summary from `prompts.py`. It is a reproducible lossy fallback, not an LLM-authored semantic summary. The path runs `pre_compact` and `post_compact` hooks, then reinjects changed files, verification state, recent important paths, and active constraints so the agent does not forget the workspace after compression.
 
-**Interface location**: add `src/rivumi/compaction.py` defining a `Compactor` protocol (`should_compact(usage) -> bool`, `summarize(turns) -> str`), implemented through the existing `ModelProvider` abstraction — the provider gateway has existed since M2, so no new dependencies.
+Compaction boundaries are durable too. `ContextCheckpoint` validates that source and retained turns do not overlap and that occupancy cannot increase. The conversation store can persist successful checkpoints as `context.compacted` events and exclude replaced material on replay. Codex app-server has a real `thread/compact/start` lifecycle; the Claude adapter explicitly refuses native compaction instead of pretending it succeeded.
 
-**Data flow**: after each completed turn, estimate context size from snapshot events (pi-style character heuristics suffice); past `window - reserve`, send the target range to `summarize`, and append the summary into the JSONL as a new conversation event type (say `compaction_summary`). Replay then becomes "summary + complete turns after it". Compaction itself is persisted as an event, keeping the audit trail unbroken — fully isomorphic with rivumi's existing event-sourcing design.
+## What remains open
 
-**Risks and tradeoffs**:
-
-- **External CLI backends aren't rivumi's to manage**. Since M11, rivumi's primary mode is a long-lived external session; the CLIs behind the pi/omp/codex adapters have their own compaction, and duplicating it would double-summarize. Version one should cover only the native conversation path, with external backends explicitly marked "handled by the runtime".
-- **Summary quality is unverifiable**: a bad summary equals memory corruption. At minimum keep the raw summary inspectable in the event log, and allow manual intervention à la `/compact <instructions>`.
-- **Cost**: every compaction costs an extra LLM call. Prune first (learn from opencode): truncate oversized tool outputs and re-measure; only summarize if still over.
-
-## Fit with the existing architecture
-
-The concrete impact of missing this today: any native-path session longer than 12 turns loses early decisions without a trace, and the user has no idea — nothing in the TUI marks "something was dropped here". The bare-minimum consensus among all five projects is that **compaction must be a visible, auditable boundary event** (omp's cmp entry, codex's CompactionEvent, claude-code's CompactBoundaryMessage). rivumi's existing event stream and transcript UI could already render such a boundary; what's missing is simply admitting that "hard truncation is not a strategy". This is the highest-value cell on the improvement roadmap.
+The native fallback is mechanical: cheap and testable, but semantically weaker than a model-written summary. Automatic provider compaction covers only long-lived runtimes that advertise support and report a context window; other external runtimes still lack equivalent fallback. The largest evidence gap is a real-provider long session. Checkpoint persistence, workspace reinjection, and failure debounce are tested, but those tests are not production-parity proof across providers.
 
 ## References
+
+- [Rivumi compaction policy and checkpoints (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime_semantics.py)
+- [Rivumi native fallback and reinjection (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/loop.py)
 
 - ["Lost in the Middle" (Liu et al., 2023)](https://arxiv.org/abs/2307.03172)
 - [Context Rot (Chroma Research)](https://research.trychroma.com/context-rot)

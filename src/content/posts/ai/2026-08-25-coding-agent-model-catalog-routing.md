@@ -1,6 +1,6 @@
 ---
-title: "跟成熟 coding agent 學設計（35）：Model catalog 與 per-role 多 provider 路由——五家都有、rivumi 還沒有的能力"
-date: 2026-08-25
+title: "跟成熟 coding agent 學設計（35）：Model catalog 與 per-role 多 provider 路由——rivumi 的 role alias 與 reviewer lane"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 35
 tags: [coding-agent, model-routing, llm, rivumi, oh-my-pi, codex]
 lang: zh-TW
-tldr: "omp 把「用哪顆模型」拆成十種 role，每個 role 一條跨 provider 的 fallback 候選鏈；codex 的模型目錄由伺服器下發、帶著自己的 system prompt 版本；opencode 和 claude-code 至少都有 small model 的獨立解析路徑。rivumi 有靜態 provider 目錄和磁碟快取的 model listing，但整個程式只有「當前這顆模型」的概念——role 路由和 fallback 鏈是改善路線圖上成本效益最直接的下一格。"
-description: "對照 pi、omp、opencode、codex、claude-code 五家的 model catalog 資料層與 per-role 路由策略，提出 rivumi 的 role 路由設計草案。"
+tldr: "rivumi 已有 ModelRole／ModelRoute 靜態候選表、--model @cheap 等 opt-in alias、跨 provider fallback，以及驗證完成後才啟動的 no-tool reviewer lane；下一步是補 role inheritance／override 規則，並決定 summarizer、parser、scout 是否自動路由。"
+description: "對照成熟 coding agent 的 model catalog 與 per-role 路由，檢視 rivumi 已落地的 role alias、fallback 與 reviewer lane 基線。"
 draft: false
 ---
 
@@ -26,7 +26,7 @@ draft: false
 1. **Catalog 資料層**：系統知道哪些 provider 有哪些模型、各自支援什麼（context window、reasoning、vision），而且資料會更新。
 2. **Per-role 路由**：「commit 用便宜的快模型、規劃用強模型、摘要用最小的」這類策略是一等公民，而不是散落在各處的 hardcoded 字串。
 
-rivumi 目前兩個都只有一半，後面細講。
+rivumi 已經跨過「只有目前模型」的階段：catalog、role alias、fallback 與 reviewer lane 都有第一版；自動 per-role 分流仍只有一部分，後面細講。
 
 ## 五家怎麼做
 
@@ -68,32 +68,18 @@ codex 走的是完全不同的路：`codex-rs/models-manager/models.json` 描述
 
 模型路由不是過早最佳化。[FrugalGPT](https://arxiv.org/abs/2305.05176) 早在 2023 年就示範了 cascade 式路由能在保住品質的前提下大幅壓低成本；[RouteLLM](https://arxiv.org/abs/2406.18665) 則把「哪些 query 不需要最強模型」做成可學習的問題。五家的實作都沒有做到學習式路由——它們用的是更保守的版本：**人手策劃的 role → 候選鏈，加上執行期的健康度淘汰**。這其實是合理的工程判斷：coding agent 的任務類型有限且可列舉（commit、摘要、規劃、主迴圈），靜態鏈的可預測性和 debug 性遠勝黑盒路由器，fallback 鏈已經吃掉了大部分收益。OpenRouter 自己的[模型路由文件](https://openrouter.ai/docs/features/provider-routing)也是同樣哲學：宣告偏好序，讓執行期處理故障轉移。
 
-## rivumi 設計草案
+## rivumi 已落地的基線
 
-先如實描述現狀。資料層已有兩塊：
+資料層之外，`provider_catalog.py` 已加入 `ModelRole`、`ModelRoute` 與有序的 `role_candidates()`。native CLI 可用 `--model @cheap`、`--fallback-model @cheap` 這類 opt-in alias，把 role 解析成明確的 provider/model；retry 耗盡後也能切到另一個 provider，而不會沿用主模型的自訂 API endpoint。
 
-- `src/rivumi/provider_catalog.py#OPENAI_COMPATIBLE_BASE_URLS`：九個 OpenAI 相容 provider 的固定 endpoint，外加 `RESPONSES_PROTOCOL_MODELS` 處理「這顆模型只能走 Responses API」的協定分流（`uses_responses_protocol`）。
-- `src/rivumi/model_catalog.py#CatalogSnapshot`：per-provider 的 model listing 磁碟快取，TTL 一天，stale-while-revalidate，key 含 credential fingerprint。`default_model()` 用 `_PROVIDER_BRAND_PATTERNS` 的家族偏好挑預設模型。
+第一條真正獨立的 role lane 是 `--auto-review`：主流程完成修改與驗證後，patch 才送進沒有工具權限的 reviewer model，另存 `review.md`、`role_lane.*` 事件與 per-lane usage/cost。external runtime selector 仍由各 runtime 自己管理，沒有偷偷套用 native alias。
 
-路由層則不存在。TUI 的 Ctrl+L（`src/rivumi/tui.py` 的 `ctrl+l` binding）提供 bounded choices 切換，預設值是 runtime-first 的 Automatic——外部 CLI backend 由 runtime 自選模型。整個 native 路徑只有「當前這顆模型」，沒有 role，沒有鏈。缺的具體場景：摘要、標題這類輔助任務如果做了，會被迫用主模型跑；主模型 429 或限流時，native 路徑只有第 6 篇寫的單一 provider 重試，沒有跨 provider 的退路。
-
-若要做，草案如下：
-
-**第一步：role 表，不是 router。** 新增 `src/rivumi/model_roles.py`，先只定義四個 role：`main`、`aux`（摘要/標題等輔助任務）、`fast`、`fallback`。學 omp 的 priority.json 形狀：每個 role 一個有序 pattern 清單（`provider/model-id` 格式，支援裸 id），解析時依序找第一個「憑證存在且 provider 可達」的候選。不要一開始就做模糊匹配和 glob——omp 那套 `matchModel` 五階段管線是被幾百個 provider 的現實逼出來的，rivumi 九個 provider 用精確比對就夠。
-
-**第二步：fallback 鏈掛進既有 retry policy。** 第 6 篇的 NVIDIA NIM retry 強化已經有錯誤分類，把「重試次數耗盡」這個出口接到 role 鏈的下一個候選即可，不需要新機制。關鍵紀律學 omp：鏈的身份跟著 role 走，spawn subagent 或開新 conversation 時整條鏈一起帶下去，避免「主模型換了、fallback 還指著舊的」。
-
-**第三步：等價判定先做最粗版。** 學 `modelsAreEqual`：provider + id 全等才算同顆。`X-thinking` 成對摺疊那些留到真的遇到再說——rivumi 目前的免費模型清單裡還沒有這種痛。
-
-**不做的事**：學習式路由、動態成本最佳化、伺服器下發 catalog（codex 那套需要後端，rivumi 沒有）。external CLI backend 照 M13 的慣例明確標記「模型選擇由 runtime 自理」，role 路由只覆蓋 native 路徑。
-
-## 與現有架構的銜接
-
-這一格的性價比高的原因在於：地基都已經在了。provider 抽象是第 5 篇的主題、重試與錯誤分類是第 6 篇、磁碟快取模式在 startup-performance 那篇驗證過——role 路由只是把這三塊用一張設定表縫起來。真正的新工作只有兩件：承認「不同任務該用不同模型」是一等概念，以及把「當前模型」從單值改成 role 映射而不破壞現有的 Ctrl+L UX（Ctrl+L 切的其實是 `main` role，其他 role 先藏在使用者設定檔裡）。
-
-五家給的教訓濃縮成一句話：**路由策略的價值不在聰明，在於失敗時的行為可預測**。omp 的 provider-lock、codex 的 prompt-catalog 綁定、opencode 的三段式解析，全都是為了讓「哪顆模型接了這個請求」在任何時刻都能回答。
+目前還不是完整的 per-role router。role inheritance／override 規則待定，summarizer、parser、scout 也尚未自動分流；現有靜態候選表和 reviewer lane 是可驗證的 opt-in 基線。
 
 ## 參考資料
+
+- [rivumi model role 與價格目錄（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/provider_catalog.py)
+- [rivumi role lane SDK 說明（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/docs/sdk.md)
 
 - [FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance（Chen et al., 2023）](https://arxiv.org/abs/2305.05176)
 - [RouteLLM: Learning to Route LLMs with Preference Data（Ong et al., 2024）](https://arxiv.org/abs/2406.18665)

@@ -1,6 +1,6 @@
 ---
 title: "Learning Design from Mature Coding Agents (37): Code Mode — Compiling Tool Calls into Batches of Executable Code"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 37
 tags: [coding-agent, code-mode, tool-use, sandbox, codex, opencode, rivumi]
 lang: en
-tldr: "Code mode lets the model write a small program that calls tools — loops, branches, and parallel calls run inside a sandbox in one shot, with only the final result flowing back into context. Of the five reference projects, only codex and opencode ship it: codex uses a standalone V8 host process with just exec and wait tools, while opencode wrote its own confined JavaScript interpreter. The rivumi draft starts with read-only batch execution, upgrading approval from per-call requests to whole-program effect classification."
-description: "Comparing codex and opencode code mode implementations — confined interpreters, API signature generation, error taxonomy, approval routing — with a design draft for rivumi."
+tldr: "rivumi now ships a bounded tool-program DSL: read-only programs support list/read/search/diff, repeat, and if_contains; modify/check transactions receive whole-transaction approval and roll back touched paths on failure. This is not arbitrary JavaScript/Python code mode, and transaction execution is not parallel."
+description: "Comparing code mode in codex and opencode, including rivumi's implemented read-only tool programs and rollback-capable modify/check transaction baseline."
 draft: false
 ---
 
@@ -53,22 +53,18 @@ Three details deserve their own mention:
 
 The most direct academic grounding for consolidating multi-step tool calls into code is [CodeAct](https://arxiv.org/abs/2402.01030) (Executable Code Actions Elicit Better LLM Agents, ICML 2024): switching the action space from individual JSON tool calls to executable programs lets the model use programming-language control flow to compose actions and iterate over intermediate state. Code mode is essentially CodeAct plus production-grade sandboxing and auditing. On the engineering side, Anthropic's [Code Execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp) (source of the token numbers above) and Cloudflare's [Code Mode](https://blog.cloudflare.com/code-mode/) make the same point: LLMs are good at writing code, so let them write code to call tools. The [parallel tool use section of Anthropic's tool use docs](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) also acknowledges that orthogonal direct parallel calls are only a starting point — complex dependency structures need stronger orchestration primitives.
 
-## A design draft for rivumi
+## The baseline now implemented in rivumi
 
-rivumi's native harness currently does pure one-call-at-a-time tool invocation: every call produces events, goes through the policy in `approvals.py`, and waits for results. I would add code mode in four steps:
+Rather than embedding arbitrary JavaScript or Python, rivumi first ships a bounded DSL. `tool_program` exposes only read-only operations such as `list_files`, `read_file`, `search_text`, and `git_diff`, plus bounded `repeat` and `if_contains`. The model gets simple control flow in one tool call while the host can fully inspect the executable language.
 
-1. **Read-only batches first**. The first cut exposes only read-only tools (read/grep/glob/list), executed via RestrictedPython or an equivalent confined interpreter with nothing injected except tool functions — no IO primitives. Read-only sets can already be auto-approved today, so risk is minimal.
-2. **Upgrade approval to whole-program effect classification**. Statically scan which tool symbols the program references: if they're all in the auto-approve set, run immediately; if even one mutating symbol appears, escalate the entire program to a single approval request whose preview lists the union of effects. At runtime each nested call still goes through the existing `ApprovalPolicy.decide` — a deny aborts the program. This mirrors codex's `call_nested_tool`, ensuring code mode never becomes a side door around approval.
-3. **Copy opencode's three limit knobs**: wall-clock timeout, maxToolCalls, and output truncation, treated as host policy rather than library defaults.
-4. **API surface generation and discovery**. Render typed signatures from existing tool schemas into the prompt; once MCP integration (post #30) makes the tool count explode, add search-style progressive disclosure.
+Mutations use a separate `tool_transaction`. It collects touched paths, sends the whole transaction through existing approval/policy, then executes replace/patch/check steps. Any failure triggers an attempt to restore affected files to their pre-transaction state. Backend turn limits, step caps, and bounded output still apply.
 
-## Fitting into the existing architecture
-
-On the event stream, code mode looks like a single `execute` tool from the outside, but the transcript must not collapse into one line saying "ran a program" — nested tool calls should reuse the existing `ToolStartedEvent`/`ToolCompletedEvent` with correlation IDs so the TUI's semantic transcript attaches each child call to the right place. External CLI backends (the OpenCode/Pi/OMP adapters) are entirely unaffected since they bring their own harnesses; code mode is a capability of rivumi's native path. The M6 Cloudflare sandbox service could later take over execution, swapping "confined interpreter" for "remote sandbox" without changing the architecture slot.
-
-An honest closing: this is an emerging capability and both designs are still moving (codex's code mode host currently requires separate installation; opencode's interpreter subset keeps shifting). What's worth absorbing now isn't either specific implementation but two points of consensus — tool calls still traverse the full approval/policy pipeline, and execution limits are host policy.
+This baseline solves batched tool programs; it is not the arbitrary confined-language runtime shipped by codex or opencode. Parallel transaction execution, a richer DSL, and whether a full interpreter is worth its security cost remain open.
 
 ## References
+
+- [rivumi tool program/transaction implementation at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/tools.py)
+- [rivumi native-loop policy integration at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/loop.py)
 
 - [Executable Code Actions Elicit Better LLM Agents (CodeAct)](https://arxiv.org/abs/2402.01030)
 - [Anthropic Engineering: Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)

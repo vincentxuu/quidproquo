@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計：系列總覽——拆五個專案的原始碼，蓋自己的 agent"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -32,7 +32,7 @@ rivumi 的架構刻意分成兩條平行的執行路徑：
 
 關鍵紀律是一條路徑永遠不偽裝成另一條。外部 CLI 就是外部 CLI，不會假裝那是原生實作。這條紀律本身，就是讀了別人的原始碼之後才學會的。
 
-現在的 Rivumi 已經不只是早期 Python harness。它有 provider-neutral `ModelProvider` contract、OpenAI-compatible / Anthropic / Gemini / Workers AI / scripted adapters、state-first event journaling、`rivumi resume`、runtime-first TUI、usage/statusline/OTel/session 工具、local model gateway，以及 Worker control plane + Cloudflare Sandbox 的受限部署切片。所以這個系列讀每個設計點時，不只看「五家怎麼做」，也看 Rivumi 目前把那個設計推到了哪一層邊界。
+現在的 Rivumi 已經不只是早期 Python harness。除了 provider-neutral `ModelProvider` contract、state-first event journaling、`rivumi resume`、runtime-first TUI、local model gateway，以及 Worker control plane + Cloudflare Sandbox 的受限部署切片，原生 loop 也已有 allowlist MCP、明確 JSONL 記憶、context pressure 自動壓縮、model fallback、靜態價格表成本估算、ripgrep-backed 搜尋與有界工具批次。這些都是可跑、可測的 baseline；跨 runtime parity、完整 provider 價格覆蓋、hostile-code production hardening 和實際 production traffic 仍未由這些本機實作證明。
 
 ## 五個參考專案是誰
 
@@ -64,7 +64,7 @@ OpenAI 的官方 CLI，核心在 `codex-rs/`——一個 Rust workspace，crate 
 
 **第一部「已實作的對照」（24 篇）**：rivumi 已經做掉的主題——agent loop 的形狀、workspace 隔離、approval 分級、verification gate、ModelProvider 抽象、retry policy、訂閱 OAuth、外部 CLI 當 backend、edit 工具取捨、沙箱與遠端執行、CLI 人體工學等。每篇都是「五家怎麼做 vs 我怎麼做」的正面對決，包含我做錯的部分。
 
-**第二部「尚未實作——改善路線圖」（13 篇）**：五家都有、rivumi 還沒有或才剛補上邊界的能力——context 壓縮、跨 session 記憶、危險指令攔截、OS 級沙箱、MCP 整合、hooks/skills/plugins、subagent 與 worktree 隔離、session 錄製 replay、telemetry 成本追蹤、model catalog 路由、LSP 整合、code mode、Agent as a Service。每篇結尾是一份 rivumi 的設計草案，不是空談 wishlist。
+**第二部「改善路線與落地追蹤」（13 篇）**：這批文章最初從缺口出發，但 Rivumi 後來已補上多個 baseline，包括 context 壓縮、明確記憶、native MCP、hooks/skills/plugins、subagent、replay/fork、usage/OTel/成本估算、靜態 model role 路由、IDE/LSP snapshot、有界 code-mode 工具程式，以及 Cloudflare control plane。文章現在同時記錄「已落地到哪」與 remaining gaps；危險指令規則語言、全面 egress 控制、跨 runtime 一致性與 production validation 仍不能寫成完成。
 
 每篇固定五段結構：
 
@@ -84,7 +84,7 @@ OpenAI 的官方 CLI，核心在 `codex-rs/`——一個 Rust workspace，crate 
 
 ## 參考資料
 
-- [vincentxuu/rivumi](https://github.com/vincentxuu/rivumi) — Rivumi 公開 repo 與 README
+- [Rivumi README（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/README.md) — 目前能力、兩條 runtime 路徑與安全邊界
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono) — pi 原始碼，TypeScript monorepo
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) — omp 原始碼，pi 的 fork
 - [sst/opencode](https://github.com/sst/opencode) — opencode 原始碼

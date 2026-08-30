@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（32）：Subagent 與 worktree 隔離——讓主 loop 學會分工"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 32
 tags: [coding-agent, subagent, multi-agent, git-worktree, rivumi, claude-code]
 lang: zh-TW
-tldr: "claude-code 的 AgentTool 讓每個 subagent 帶自己的 system prompt、工具池、甚至獨立 git worktree，跑完沒動靜就自動刪掉；omp 更進一步把子代理做成有生命週期的常駐物件（running/idle/parked/aborted），隔離後端從 APFS clone 一路 fallback 到 recursive copy；opencode 用「一個 subagent 一個 session」加深度限制預設只准一層。rivumi 目前完全沒有 subagent 概念，但它「每次 run 都是一次 pinned-SHA 拋棄式 clone」的架構，反而讓隔離這關幾乎免費——缺的只是編排層。"
-description: "對照 omp、claude-code、opencode 的 subagent 編排與隔離設計（含 codex cloud-tasks 對照），整理結果回傳協議與生命週期管理，提出 rivumi 的設計草案。"
+tldr: "成熟 subagent 需要角色、fan-out 上限、權限收窄與成果回傳契約。rivumi 已有 native named-role schedule、平行 fan-out、子 task allowed_paths 不得超出 parent、預設禁用 unsafe exec，以及 parent-approved transaction proposal baseline；常駐 background lifecycle、遞迴深度管理與自動 worktree merge 仍未完成。"
+description: "對照成熟 coding agent 的 subagent 編排與隔離，並核對 Rivumi named roles、bounded fan-out、權限收窄與 transaction proposal baseline。"
 draft: false
 ---
 
@@ -73,9 +73,9 @@ codex 的 `codex-rs/cloud-tasks` 不是 in-process subagent，而是把任務派
 
 多 agent 協作的價值與風險都有實證。[MetaGPT](https://arxiv.org/abs/2308.00352) 證明給 agent 分配角色、按 SOP 傳遞結構化產物，能顯著降低「幻覺滾雪球」——這正是 subagent_type 加 outputSchema 的學理版。[CAMEL](https://arxiv.org/abs/2303.17760) 更早示範角色扮演式的雙 agent 協作，但也記錄了 agent 對話容易發散、需要中途干預——呼應 opencode 把「別亂碰彼此的檔案」寫進 prompt。Anthropic 自己的多 agent 研究系統文章（[How we built our multi-agent research system](https://www.anthropic.com/engineering/built-multi-agent-research-system)）則給了工程側的教訓：lead agent 學會拆任務、子代理平行省時間，但 token 消耗大約是單 agent 聊天的十幾倍——平行不是免費的。
 
-## rivumi 設計草案
+## 原始設計草案（2026-08-25）
 
-先如實描述現狀：grep 整個 `~/Projects/rivumi/src/rivumi/`，**沒有任何 subagent 或 spawn 子 session 的機制**。native 路徑是一個 conversation 配一個 `ConversationWorkspace`（`conversation.py` 的 controller 驅動）；external 路徑把 pi/omp/opencode/codex 當外部 runtime 驅動，它們各自的 subagent 發生在 rivumi 視野外。
+這份草案記錄的是 2026-08-25 當時的起點：native 路徑還沒有 subagent，external runtime 內部的子代理也不在 Rivumi 視野內。下列介面與隔離規則是當時的設計假設；文章後段會逐條核對 `2ed5efb` 已落地的 named-role fan-out 與 transaction proposal，避免把歷史草案誤讀成現在狀態。
 
 草案如下：
 
@@ -98,13 +98,24 @@ codex 的 `codex-rs/cloud-tasks` 不是 in-process subagent，而是把任務派
 
 ## 與現有架構的銜接
 
-目前缺這塊的具體影響：native 路徑上任何探索性工作都污染主對話，而 compaction（系列第 26 篇）只能事後補救；使用者想要「先派三個方向各查一輪」只能手動開三個 process。
+在草案當時，native 路徑的探索會污染主對話，「先派三個方向各查一輪」只能手動開三個 process。現在的 bounded dispatch 已解掉第一層問題；常駐 background lifecycle、遞迴深度管理與自動 worktree merge 仍不在 baseline 內。
 
-好消息是周邊都已就位：artifact 契約（run artifacts）已經能裝 patch 和 log，事件溯源設計天然支援 `parent_run_id` 這種附加欄位，approval audit trail 只要加上「哪個子代理想做」的歸因欄位。真正要新寫的只有 `SubagentRunner` 本身和 spawn 工具的 prompt 設計——這是改善路線圖上少數「基礎建設都在、只差拼裝」的一格。
+周邊 artifact、事件與 approval 歸因也已接進 `subagents.py` 與 planner tool，不再只是「只差拼裝」。仍需驗證的是 production trace、role override/inheritance 與多個寫入提案的整合策略。
 
-一句話總結：成熟專案的共識是 subagent 必須有**明確的結束協議、輸出上限、深度閘門和隔離邊界**——四樣缺任何一件，平行化就會退化成失控的成本產生器。rivumi 已經有了最難的第四樣。
+一句話總結：成熟專案的共識是 subagent 必須有**明確的結束協議、輸出上限、深度閘門和隔離邊界**。Rivumi baseline 已落地角色、fan-out、權限收窄與 parent transaction approval；尚未完成的是常駐 lifecycle 與自動合併，而不是「完全沒有 subagent」。
+
+## rivumi 現在的實作
+
+截至 `2ed5efb`，native 路徑已經有 subagent baseline。`subagents.py` 定義 named roles 與各角色 instruction，能正規化 schedule、從 parent `TaskContract` 派生 child task，並驗證 child `allowed_paths` 不得擴張 parent 範圍。`loop.py` 的 planner tool 可一次提交多個 agent spec，執行層做 bounded parallel fan-out，結果以摘要與 artifact 資訊回到 parent。
+
+安全預設也已落地：child runner 的 unsafe local execution 預設關閉，modify/execute approval 不會自動繼承；寫入型工作可以先提出 transaction proposal，由 parent 路徑批准後再套用。schedule event 另有分析器檢查 overlap、序列與角色分布，讓 fan-out 不只靠 prompt 約定。
+
+這還不是 omp 那種可 park/revive 的常駐 lifecycle，也沒有完整 background task 管理、遞迴深度樹或自動 worktree merge/cherry-pick。既有 disposable workspace 是隔離地基，但「每個 child 的 branch 如何安全匯回」仍需要更完整的衝突與審批協議。
 
 ## 參考資料
+
+- [Rivumi subagent scheduling 與 task derivation（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/subagents.py)
+- [Rivumi subagent tests（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_subagents.py)
 
 - [MetaGPT: Meta Programming for Multi-Agent Collaborative Framework（Hong et al., 2023）](https://arxiv.org/abs/2308.00352)
 - [CAMEL: Communicative Agents for "Mind" Exploration（Li et al., 2023）](https://arxiv.org/abs/2303.17760)

@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（18）：工具集設計哲學——tool surface 的邊界劃分"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 18
 tags: [coding-agent, tool-design, rivumi, function-calling, claude-code]
 lang: zh-TW
-tldr: "pi 只給模型八個內建工具並分成 coding/read-only 兩組；omp 工具爆量後靠 essential/discoverable 分級把常用工具釘在最上層；opencode 依模型動態換編輯工具（gpt-* 給 apply_patch、其他給 edit/write）；codex 用 feature flag 和 model_info 逐項組裝 surface；claude-code 每個工具都標註唯讀/破壞性/可平行。rivumi 只有七個工具、沒有 shell，run_check 是 exact argv allowlist，每次修改後重驗累積 patch 上限。"
-description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼，拆解 tool surface 的邊界設計：工具數量、effect 標註、動態暴露與 bounded 參數，以及 rivumi 為什麼只留七個工具。"
+tldr: "Rivumi 的核心 surface 已從七個長到九個：新增 read-only `tool_program` 與可 rollback 的 `tool_transaction`，搜尋優先走 ripgrep，仍不開任意 shell；native MCP 只從 allowlist 動態加入，缺少可信 read-only metadata 就按 execute 審批。"
+description: "對照五個成熟 coding agent 的 tool surface，拆解 Rivumi 九個核心工具、有界工具程式、transaction rollback、ripgrep 搜尋與 native MCP 動態暴露。"
 draft: false
 ---
 
@@ -55,17 +55,19 @@ claude-code 的 `src/tools` 目錄下有四十三個工具資料夾，但真正�
 
 還有一個反直覺的細節：BashTool 的 input schema 裡有一個內部欄位 `_simulatedSedEdit`，被刻意從模型可見的 schema omit 掉（`src/tools/BashTool/BashTool.tsx#inputSchema`）——註解明講，暴露它會讓模型配對無害命令加任意檔案寫入來繞過權限與沙箱。schema 不只是給模型的 API，也是攻擊面。
 
-## rivumi 的選擇：七個工具，沒有 shell
+## rivumi 的選擇：有界核心工具，沒有任意 shell
 
-rivumi 的完整 surface 在 `src/rivumi/tools.py#_tool_definitions`：`list_files`、`read_file`、`search_text`、`replace_text`、`apply_patch`、`run_check`、`git_diff`，七個，全部 `additionalProperties: False`。跟五家比起來最刺眼的是**沒有 bash**。取而代之的是 `run_check`：模型只能在 enum 裡選一個任務契約宣告過的名字（`tools.py#run_check`），執行的是那份契約釘死的 exact argv，`shell=False`，環境變數另經 sanitize。模型可以跑測試，但不能跑任何未經宣告的指令。這是 M1 文件裡那句「a tiny fixture does not justify arbitrary host shell authority」的直接實作。
+rivumi 的核心 surface 在 `src/rivumi/tools.py#_tool_definitions`。原本七個工具仍在：`list_files`、`read_file`、`search_text`、`replace_text`、`apply_patch`、`run_check`、`git_diff`；現在再加 `tool_program` 與 `tool_transaction`。前者在一次 model tool call 裡執行最多八步 read-only 小程式，支援有界 `repeat` / `if_contains`，把多次 read/search 的 round trip 收進 harness；後者把 read/edit/allowlisted check 組成可 rollback 的 modify+execute transaction。兩者的 control flow、步數與可呼叫 op 都由 schema 夾住，仍然沒有任意 bash。
+
+`search_text` 也不再只是 Python walk：ripgrep 存在時會用 literal `rg` 並尊重 `.gitignore`，之後仍通過 allowed path 與輸出上限。`run_check` 則只接受任務契約宣告的 enum name，執行 exact argv、`shell=False`、sanitized environment。這些改善的是大型 repository 的搜尋成本與多工具 round trip，不會把窄工具面偷偷變成 shell。
 
 第二個差異是**上限是累積的，不是單次的**。`apply_patch` 和 `replace_text` 每次成功後都重跑 `tools.py#reviewable_patch`，重新檢查整個工作區的未提交 diff 是否還在 byte/line/file 上限內，超了就 rollback 本次操作。很多個「各自很小」的編輯加總起來可能超出最終 artifact 的可審查預算——單次檢查抓不到這種滲漏。
 
 第三個是**編輯前必讀的機械化**。`tools.py#replace_text` 維護一個 `_read_versions` ledger：`read_file` 完整讀完才記 SHA-256，編輯時 hash 不符就拒絕。SWE-agent 式的「先看再改」在這裡不是 prompt 約定，是 Python 程式碼。加上 old_text 必須恰好出現一次、新檔案只能走 `apply_patch`（diff 才可審）、原子寫入加失敗回滚，這個工具窄到幾乎不會做出不可預期的事。
 
-第四是 effect 分級有，但在 harness 側而不是工具側：`src/rivumi/approvals.py#ToolEffect` 定義 READ/MODIFY/EXECUTE 三級，審批策略按級決策——方向跟 claude-code 的 `isReadOnly` 相同，只是 rivumi 的分類是靜態的（每工具一級），不像 claude-code 能按 input 細分。
+第四是 effect metadata 已經有一部分搬到 `ToolDefinition`：`read_only` 與 `concurrency_safe` 同時供 prompt policy、平行調度與 MCP trust classification 使用；`approvals.py` 仍保留 READ/MODIFY/MODIFY_EXECUTE/EXECUTE 的最終 fail-closed 對照。native MCP tool 也能動態加入 surface，但只載入 allowlist server，resource/prompt bridge 固定 read，遠端 tool 沒有可信 read-only annotation 就按 execute 審批。
 
-代價也很清楚：七個工具做不了探索性的大工程、不能平行跑任意命令、遇到契約外的需求只能失敗。rivumi 押的是 M1/M3 文件裡的反命題——對一個目標明確、有驗證閘門的 bounded task，可控性比通用性值錢。
+代價也很清楚：core surface 雖然從七個長到九個，外加 opt-in MCP/subagent，仍做不了任意 shell 工作流；`tool_program` 不能修改、跑 check 或叫 MCP，`tool_transaction` 任一步失敗就 rollback。這是可測的 baseline，不是大型 repository 成功率或第三方 MCP production 安全性的證明。
 
 ## 學術依據
 
@@ -75,10 +77,10 @@ function calling 的官方文件從 API 角度補了另一半：[Anthropic 的 t
 
 ## 還能改善什麼
 
-1. **工具數會隨功能長，分級要先建好**。rivumi 未來接 MCP 時必然突破七個，應該現在就把 omp 的 essential/discoverable 或 claude-code 的 `shouldDefer` + ToolSearch 模式納入 `ToolDefinition`，而不是到時候把所有 MCP 工具平鋪進 surface。
-2. **effect 標註搬到工具定義上**。現在 READ/MODIFY/EXECUTE 分散在 approvals.py 的分類邏輯裡；學 claude-code 把 `is_read_only`、甚至按 input 細分的判斷放進 `ToolDefinition`，審批和平行調度就能共用同一份真相。
+1. **MCP discovery 需要真正的 surface 分級**。allowlist 與動態 refresh 已落地，但多 server 時仍可能把大量 schema 平鋪給模型。下一步才是 omp essential/discoverable 或 ToolSearch 式延遲載入。
+2. **把 input-sensitive effect 做完整**。`ToolDefinition` 已有 read-only/concurrency metadata，MCP annotation 也會被翻譯；但像「同一工具因參數而改變風險」仍缺統一判斷與不信任 server annotation 的驗證層。
 3. **動態 description**。opencode 的 `describeTask` 示範了描述可以是執行期的路由表。rivumi 的 run_check enum 已經是動態生成的，下一步可以把每個 check 的最近一次結果摘要進描述，讓模型不用盲選。
-4. **bounded 參數交給模型**。codex 的 `yield_time_ms`/`max_output_tokens` 是好榜樣：控制權給模型、範圍由 harness 夾住。rivumi 目前 timeout 全由 harness 決定，簡單但少了模型自調的空間。
+4. **用量測決定批次界線**。`tool_program` / `tool_transaction` 已證明 bounded code mode 可行；接下來要用真實 run 比較 round trip、token、rollback 與誤用率，再決定八步上限或更多 control flow，而不是直接擴成通用語言。
 
 系列下一篇回頭處理 session 的另一面：run artifacts 的契約——一次執行結束後，磁碟上應該留下哪些互相印證的檔案。
 
@@ -91,3 +93,4 @@ function calling 的官方文件從 API 角度補了另一半：[Anthropic 的 t
 - [anthropics/claude-code](https://github.com/anthropics/claude-code) — 官方 repo（發布 minified bundle；本篇引用自社群反編譯 v2.1.88）
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793) — ACI 設計對 agent 表現的影響
 - [Anthropic Tool Use 文件](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)、[OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling) — 工具描述品質與數量的官方建議
+- [Rivumi tools（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/tools.py)

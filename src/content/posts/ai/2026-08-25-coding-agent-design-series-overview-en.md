@@ -1,6 +1,6 @@
 ---
 title: "Learning Agent Design from Mature Coding Agents: Series Overview — Reading Five Codebases to Build My Own"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -32,7 +32,7 @@ rivumi deliberately splits into two parallel runtime paths:
 
 The key discipline: one path is never disguised as the other. An external CLI is an external CLI; we never pretend it's our native implementation. That discipline itself is something I learned only after reading other people's source code.
 
-Rivumi is no longer just the early Python harness. It now has a provider-neutral `ModelProvider` contract, OpenAI-compatible / Anthropic / Gemini / Workers AI / scripted adapters, state-first event journaling, `rivumi resume`, a runtime-first TUI, usage/statusline/OTel/session tooling, a local model gateway, and a bounded Worker control plane plus Cloudflare Sandbox deployment slice. So each design topic in this series reads both "how the five mature projects do it" and "how far Rivumi has pushed that boundary."
+Rivumi is no longer just the early Python harness. Beyond its provider-neutral `ModelProvider` contract, state-first event journal, `rivumi resume`, runtime-first TUI, local model gateway, and bounded Worker plus Cloudflare Sandbox slice, the native loop now has allowlisted MCP, explicit JSONL memory, automatic context-pressure compaction, model fallback, static-table cost estimates, ripgrep-backed search, and bounded tool programs. These are runnable, tested baselines. They do not prove cross-runtime parity, complete provider pricing, hostile-code production hardening, or behavior under real production traffic.
 
 ## Who the five reference projects are
 
@@ -64,7 +64,7 @@ Two parts, 38 posts total, all bilingual (Chinese and English).
 
 **Part 1, "Implemented comparisons" (24 posts)**: topics rivumi has already shipped — the shape of the agent loop, workspace isolation, approval grading, verification gates, the ModelProvider abstraction, retry policies, subscription OAuth, external CLIs as backends, edit-tool trade-offs, sandboxing and remote execution, CLI ergonomics, and more. Each post is a head-to-head comparison of "how five projects do it vs how I did it", including where I got it wrong.
 
-**Part 2, "Not yet implemented — an improvement roadmap" (13 posts)**: capabilities all five have and rivumi either still lacks or has only recently bounded — context compaction, cross-session memory, dangerous-command interception, OS-level sandboxing, MCP integration, hooks/skills/plugins, subagents and worktree isolation, session recording and replay, telemetry and cost tracking, model catalog routing, LSP integration, code mode, and Agent as a Service. Each post ends with a concrete design draft for rivumi, not a wish list.
+**Part 2, "Improvement roadmaps and implementation tracking" (13 posts)**: these posts began as gap analyses, but Rivumi has since shipped baselines for context compaction, explicit memory, native MCP, hooks/skills/plugins, subagents, replay/fork, usage/OTel/cost estimates, static model-role routing, IDE/LSP snapshots, bounded code-mode tool programs, and a Cloudflare control plane. They now record both what landed and what remains. Dangerous-command rule policy, comprehensive egress controls, cross-runtime consistency, and production validation are still not complete.
 
 Every post follows the same five-part structure:
 
@@ -84,7 +84,7 @@ If you're building your own agent, or just want to know what Claude Code and Cod
 
 ## References
 
-- [vincentxuu/rivumi](https://github.com/vincentxuu/rivumi) — public Rivumi repo and README
+- [Rivumi README at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/README.md) — current capabilities, runtime split, and safety boundary
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono) — pi source code, TypeScript monorepo
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) — omp source code, a fork of pi
 - [sst/opencode](https://github.com/sst/opencode) — opencode source code

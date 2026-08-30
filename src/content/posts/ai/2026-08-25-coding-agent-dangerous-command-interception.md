@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（28）：危險指令攔截與 shell escalation——在白名單和每次都問之間"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,14 +8,14 @@ series:
   order: 28
 tags: [coding-agent, shell-execution, security, approval, rivumi, codex, claude-code, omp]
 lang: zh-TW
-tldr: "五家對自由 shell 的風險處理收斂成同一個形狀：三層決策（放行／升級詢問／直接拒絕）、危險 pattern 清單、複合指令逐段檢查、使用者拒絕或逾時一律 fail-closed。codex 甚至把 escalation 做成攔截 execve 系統呼叫的獨立 server。rivumi 目前的 run_check 是 exact argv 白名單，安全但沒有中間層——只要跨出白名單一步就是全有或全無。"
-description: "比對 codex、claude-code、omp、pi、opencode 五家的危險指令偵測與 escalation 機制，整理決策分層與 fail-closed 慣例，提出 rivumi 的風險分級設計草案。"
+tldr: "五家對自由 shell 的風險處理都包含放行／詢問／拒絕、複合指令檢查與 fail-closed。rivumi 已補上 deny-first command classifier、critical floor、複合 shell 分段、timeout-deny、設定式 allow/deny rule 與可見的 policy reason；仍需擴大語法涵蓋與真實互動流程驗證。"
+description: "比對五家 coding agent 的危險指令 escalation，並核對 Rivumi allow/ask/deny classifier、critical floor 與 policy audit baseline。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-dangerous-command-interception-en)
 
-系列第二部第三篇，照舊講一個「五家都有、rivumi 還沒有」的能力。取證範圍同前：pi（badlogic/pi-mono）、omp（can1357/oh-my-pi）、opencode（sst/opencode）、codex（openai/codex Rust workspace）、claude-code（社群反編譯 v2.1.88）。所有引用都是我在本地 clone 實際 grep 過的。
+系列第二部第三篇原本把危險指令分級列成缺口；Rivumi 現在已有 deterministic allow / ask / deny classifier、deny-first rule layering、critical command floor 與 approval-visible reason。取證範圍仍是 pi、omp、opencode、codex 與 claude-code；正文保留五家比較，再用它們檢查 Rivumi baseline 仍缺的自由 shell 解析深度、持久規則 UX 與跨平台 sandbox parity。
 
 ## 能力問題：二元決策撐不起自由 shell
 
@@ -55,7 +55,7 @@ opencode 的 bash 工具（`packages/core/src/tool/bash.ts`）在執行前呼叫
 
 這些設計的共同祖先是最小權限原則：Saltzer 和 Schroeder 在 1975 年的經典論文 [The Protection of Information in Computer Systems](https://www.cs.virginia.edu/~evans/cs551/saltzer/) 裡定義的 "least privilege"——每個主體只應持有完成當前任務所需的最小權限。codex 的三值決策就是把這個原則工程化：預設沙箱內最小權限（`Run`），例外需要顯式授權（`Escalate`），明確禁止的不留協商空間（`Deny`）。「預設拒絕」則是同一份論文裡 "fail-safe defaults" 條目的直接實踐：逾時、取消、缺省一律落到 deny。Anthropic 自己的[安全文件](https://docs.anthropic.com/en/docs/claude-code/security)也把權限提示與沙箱並列為兩道獨立防線——警告系統（claude-code 的 destructive warning）負責讓人類決策有資訊，沙箱與審批負責強制邊界，兩者故意不分權責混在一起反而會兩頭落空。
 
-## rivumi 設計草案
+## 原始設計草案（2026-08-25）
 
 先如實描述現狀。rivumi 目前**沒有自由 shell 工具**，唯一的 EXECUTE 通道是 `tools.py#run_check`：從設定檔讀入 `verification_commands`，argv 完全固定，工具 schema 還把 name 限制成 enum（`tools.py` 的 `run_check_schema`）。效果分級靠 `approvals.py#ToolEffect`（READ/MODIFY/EXECUTE 三值），headless 下 `HeadlessApprovalPolicy` 的 `allow_execute` 預設 False，唯一放行方式是 CLI 層的 `--unsafe-local-exec` 布林旗標。
 
@@ -73,7 +73,15 @@ opencode 的 bash 工具（`packages/core/src/tool/bash.ts`）在執行前呼叫
 
 順序上也該排在 OS 級沙箱（系列下一篇的主題）之前：pattern 分級便宜、純軟體、立刻有用；landlock/seatbelt 那層是給「分級錯了」的時候兜底的。先有分級，沙箱才有意義。
 
+## rivumi 現在的實作
+
+截至 `2ed5efb`，原本的二元決策描述已過期。`permissions.py` 會把 shell-shaped command 切成 segments，再由 `classify_command_policy()` 回傳 `allow`、`ask` 或 `deny`。critical floor 與明確 deny rule 優先於 session grant 和 allow rule；shell interpreter、network/package、權限變更、archive 與可疑 compound shape 會升級詢問，危險長 timeout 則直接拒絕。
+
+`ApprovalRequest.policy_reason` 會把理由送到 TTY/TUI、run event 與 persisted audit；legacy `exec/run` 和 resume 入口也使用同一個 guard。這仍是 command-text classifier，不是 execve 攔截器；shell 展開、包裝命令與惡意混淆只能保守處理，OS sandbox 仍是第二道邊界。
+
 ## 參考資料
+
+- [Rivumi command policy（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/permissions.py)
 
 - [openai/codex — codex-rs/execpolicy](https://github.com/openai/codex/tree/main/codex-rs/execpolicy)：Allow/Prompt/Forbidden 三值決策與前綴規則引擎
 - [openai/codex — codex-rs/shell-escalation](https://github.com/openai/codex/tree/main/codex-rs/shell-escalation)：execve 攔截式 escalation server

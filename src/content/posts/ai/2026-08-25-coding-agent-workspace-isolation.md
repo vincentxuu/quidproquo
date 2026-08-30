@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（3）：Workspace 隔離與 path policy"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 3
 tags: [coding-agent, harness-engineering, sandbox, path-traversal, git-worktree, tool-use]
 lang: zh-TW
-description: "拆解 Codex、Claude Code、OpenCode、Pi、OMP 五家的 workspace 隔離與路徑校驗設計，對照 rivumi 的 disposable Git workspace：pinned SHA、SafePathPolicy、以及還缺的 OS 級沙箱。"
-tldr: "成熟 agent 的共識是「模型給的路徑一律不可信」，但防線位置不同：Codex 用 OS 級沙箱收尾、Claude Code 在 permission 層逐筆校驗、OpenCode 劃 project 邊界；rivumi 選了 disposable Git workspace 加純 Python 的 SafePathPolicy——保得住來源 repo，保不住主機本身，這個差距就是下一篇 OS 沙箱的主題。"
+description: "拆解 Codex、Claude Code、OpenCode、Pi、OMP 五家的 workspace 隔離與路徑校驗，對照 rivumi 的 disposable clone、SafePathPolicy、verification sandbox 與 Cloudflare remote slice。"
+tldr: "Rivumi 的 disposable clone 與 SafePathPolicy 保護來源 repo；現在 `--sandbox-checks` 也能用 macOS sandbox-exec、Linux bubblewrap 或 Landlock 包住 verification command，Cloudflare 另有受限 Sandbox slice。但不同 backend 的 network policy、外部 runtime coverage 與 production hardening 仍未一致驗證。"
 draft: false
 ---
 
@@ -61,8 +61,8 @@ rivumi M1 的隔離策略是**disposable Git workspace**，兩個模組撐起來
 
 跟五家比起來，差異很清楚，而且必須誠實講：
 
-- **我沒有 OS 級沙箱。** Codex 的 Landlock/Seatbelt 能限制 process 的 syscall 和檔案系統視野；rivumi 的 clone 只保護來源 repo，workspace 裡跑的檢查命令仍然擁有使用者權限，看得到 host 檔案、能連網路。M1 文件自己就寫明了這條 known limitation，也因此 local verification 預設拒絕執行，必須顯式加 `--unsafe-local-exec`。
-- **fail-closed 學到了，但只用在能力宣告上。** Codex 在 kernel 不支援時拒絕執行的精神，rivumi 對應到「未知 provider 的 tool calling 預設停用、需明確斷言能力」；但執行環境本身的 fail-closed 要等 OS 沙箱進來才完整。
+- **OS sandbox 已有 verification baseline，但不是整個 runtime 的通用沙箱。** `--sandbox-checks` 會把 `run_check` 與 final verification 交給 `src/rivumi/runtime.py#resolve_command_sandbox`：macOS 用 `sandbox-exec`，Linux `auto` 先找 bubblewrap，否則走專案內的 Landlock wrapper；明確要求的 backend 不可用時，command 以 126 fail closed。它包的是已宣告的 verification argv，不代表外部 CLI、provider transport 或所有 host process 都被同一套 policy 包住。
+- **遠端另有受限 container slice。** `cloudflare/` 的 Worker/Sandbox control plane 只收 bounded text source map，不收 Git URL、archive、shell string 或 caller credential。這證明隔離邊界能搬進 container，但仍只是受限部署切片，不是 production traffic 與 hostile-code hardening 的完成證明。
 - **path policy 比 Pi 嚴、比 Codex 淺。** Pi 把邊界外包，rivumi 和 OpenCode 一樣在應用層劃界，但 rivumi 多了 `.git` 全面禁入和 symlink escape 的 resolve 檢查——代價是這些檢查全是 Python 字串處理，理論上任何 parser bug 都是逃脫口。OS 沙箱沒有這個問題，因為核心不看字串。
 
 ## 學術依據
@@ -73,12 +73,12 @@ SWE-agent 團隊提出的 ACI（agent–computer interface）概念指出：介�
 
 按優先順序：
 
-1. **OS 級沙箱是最大缺口，也是伏筆。** Codex 的 Landlock（Linux）/Seatbelt（macOS）雙軌、fail-closed 檢查、seccomp 網路過濾，是 rivumi 第二部 #29〈OS 級沙箱〉的直接藍圖；短期替代方案是容器後端（Cloudflare Sandbox 或本地 Docker），M1 文件本來就把它列為 hostile code 的前提。
-2. **網路 egress policy。** 目前檢查命令能自由連網，連 secrets 外洩的通道都沒堵。
-3. **artifact 秘密掃描。** Patch 和 log 進 artifact bundle 前應掃過 credential 樣式。
+1. **把 sandbox coverage 說清楚並持續擴大。** 目前有界的是 verification command 和 Cloudflare remote slice；外部 runtime 仍各自擁有執行語意。下一步是逐 runtime 列出 filesystem、process、network 能力，沒有可強制邊界時明確 fail closed 或標為 trusted-local。
+2. **統一網路 egress policy。** bubblewrap 的 network namespace、macOS profile 與 Landlock wrapper 的能力並不完全相同；在 production 宣稱成立前，需要一致的 deny-by-default 規則和跨平台測試。
+3. **把秘密掃描補到完整 artifact 邊界。** `run_check` stdout/stderr 已掃描並遮罩，外部 runtime patch 也會先掃；仍需盤點 native patch、session 與其他 artifact 是否都經同一政策，並測試未涵蓋的 credential 格式。
 4. **保留現有的強項。** Pinned full-SHA、no-hardlinks、HEAD 重驗證、segment glob——這些是五家裡也不常見的嚴謹度，OS 沙箱進來之後仍值得留著當第二道牆。
 
-一句話總結：disposable workspace 解決的是「不要弄髒你的 repo」，OS 沙箱解決的才是「不要弄壞你的機器」。rivumi 已經做到前者，後者是下一戰。
+一句話總結：disposable workspace 已保護來源 repo，`--sandbox-checks` 與 Cloudflare Sandbox 也補上兩塊可執行邊界；但「所有 runtime 都不會弄壞機器」仍需要跨平台、跨 backend 的強制與 production 驗證。
 
 ## 參考資料
 
@@ -89,3 +89,4 @@ SWE-agent 團隊提出的 ACI（agent–computer interface）概念指出：介�
 - [anthropics/claude-code](https://github.com/anthropics/claude-code)
 - [sst/opencode](https://github.com/sst/opencode)
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono)
+- [Rivumi command sandbox（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime.py)

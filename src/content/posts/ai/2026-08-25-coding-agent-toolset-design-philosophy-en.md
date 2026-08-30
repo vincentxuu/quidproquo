@@ -1,6 +1,6 @@
 ---
 title: "Learning Design from Mature Coding Agents (18): Toolset Design Philosophy — Drawing the Tool Surface Boundary"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 18
 tags: [coding-agent, tool-design, rivumi, function-calling, claude-code]
 lang: en
-tldr: "pi exposes only eight built-in tools grouped into coding and read-only sets; after its tool count exploded, omp introduced an essential/discoverable split to pin the common ones at top level; opencode swaps editing tools per model (apply_patch for gpt-*, edit/write for everyone else); codex assembles its surface item by item from feature flags and model_info; claude-code annotates every tool with read-only/destructive/parallel-safe predicates. rivumi keeps seven tools, no shell — run_check is an exact-argv allowlist, and cumulative patch limits are re-checked after every mutation."
-description: "A source-level comparison of pi, omp, opencode, codex, and claude-code on tool surface design: tool counts, effect annotations, dynamic exposure, and bounded parameters — plus why rivumi keeps exactly seven tools."
+tldr: "Rivumi's core surface has grown from seven tools to nine with a read-only `tool_program` and rollback-capable `tool_transaction`; search prefers ripgrep and arbitrary shell remains absent. Native MCP tools join only from allowlisted servers and default to execute approval without trusted read-only metadata."
+description: "A source-level comparison of five mature coding agents with Rivumi's nine core tools, bounded tool programs, transaction rollback, ripgrep search, and dynamic native MCP exposure."
 draft: false
 ---
 
@@ -55,17 +55,19 @@ Facing tool explosion, its answer parallels omp: `shouldDefer` marks tools as de
 
 One counterintuitive detail: BashTool's input schema contains an internal field `_simulatedSedEdit` deliberately omitted from the model-facing schema (`src/tools/BashTool/BashTool.tsx#inputSchema`) — the comment states outright that exposing it would let the model pair an innocuous command with arbitrary file writes to bypass permission checks and the sandbox. Schema is not just the model-facing API; it is also attack surface.
 
-## rivumi's choice: seven tools, no shell
+## rivumi's choice: bounded core tools, no arbitrary shell
 
-rivumi's complete surface is in `src/rivumi/tools.py#_tool_definitions`: `list_files`, `read_file`, `search_text`, `replace_text`, `apply_patch`, `run_check`, `git_diff`. Seven, all `additionalProperties: False`. Compared with the five above, the most conspicuous absence is **no bash**. Instead there's `run_check`: the model can only pick a name from an enum seeded with names declared in the task contract (`tools.py#run_check`); execution runs that contract's exact argv with `shell=False` and a sanitized environment. The model can run tests but cannot run anything undeclared. This is the direct implementation of M1's doc line: "a tiny fixture does not justify arbitrary host shell authority."
+Rivumi's core surface lives at `src/rivumi/tools.py#_tool_definitions`. The original seven remain — `list_files`, `read_file`, `search_text`, `replace_text`, `apply_patch`, `run_check`, and `git_diff` — plus `tool_program` and `tool_transaction`. The former executes at most eight read-only steps in one model tool call, with bounded `repeat` and `if_contains`, moving multi-read/search round trips into the harness. The latter combines reads, edits, and allowlisted checks into a rollback-capable modify+execute transaction. Their control flow, step count, and callable operations are schema-bounded; neither introduces arbitrary bash.
+
+`search_text` is no longer just a Python walk: when ripgrep is present it uses literal `rg`, respects `.gitignore`, then still applies allowed-path and output bounds. `run_check` accepts only an enum name declared in the task contract and executes exact argv with `shell=False` and a sanitized environment. These changes reduce search cost and model round trips on larger repositories without quietly turning the narrow surface into a shell.
 
 Second difference: **limits are cumulative, not per-call**. After every successful `apply_patch` or `replace_text`, `tools.py#reviewable_patch` re-checks the workspace's entire uncommitted diff against byte/line/file limits; exceeding them rolls back the current operation. Many individually small edits can sum past the reviewable budget of the final artifact — per-call checks cannot catch that leak.
 
 Third: **read-before-edit, mechanized**. `tools.py#replace_text` maintains a `_read_versions` ledger: only a complete `read_file` records the SHA-256; a mismatched hash at edit time is rejected. SWE-agent-style "look before you leap" is not a prompt convention here, it's Python code. Add old_text occurring exactly once, new files restricted to `apply_patch` (diffs stay reviewable), atomic writes with rollback on failure — this tool is narrow enough that surprises are nearly impossible.
 
-Fourth: effect classification exists, but harness-side rather than tool-side. `src/rivumi/approvals.py#ToolEffect` defines READ/MODIFY/EXECUTE, and approval policy decides by tier — same direction as claude-code's `isReadOnly`, except rivumi's classification is static (one tier per tool), unlike claude-code's input-sensitive predicates.
+Fourth: some effect metadata now lives on `ToolDefinition`. `read_only` and `concurrency_safe` feed prompt policy, scheduling, and MCP trust classification, while `approvals.py` retains the final fail-closed READ/MODIFY/MODIFY_EXECUTE/EXECUTE mapping. Native MCP tools can join dynamically, but only from allowlisted servers; resource/prompt bridges are fixed read operations, and a remote tool without trusted read-only metadata is approved as execute.
 
-The costs are clear too: seven tools can't do exploratory mega-tasks, can't run arbitrary commands in parallel, and simply fail outside the contract. rivumi bets on the contrapositive stated in M1/M3 docs — for bounded tasks with clear goals and verification gates, controllability is worth more than generality.
+The costs remain clear: the core grew from seven to nine, with opt-in MCP and subagents around it, but it still cannot express arbitrary shell workflows. `tool_program` cannot edit, run checks, or call MCP; `tool_transaction` rolls back on any failed step. This is a tested baseline, not evidence of success rates on large repositories or production safety for third-party MCP servers.
 
 ## The academic grounding
 
@@ -75,10 +77,10 @@ Official function calling docs supply the other half from the API side: both [An
 
 ## Improvement roadmap
 
-1. **Tiering must exist before the tool count grows.** Adding MCP will inevitably push rivumi past seven tools; build omp's essential/discoverable or claude-code's `shouldDefer` + ToolSearch pattern into `ToolDefinition` now, rather than flattening every future MCP tool onto the surface.
-2. **Move effect annotations onto tool definitions.** READ/MODIFY/EXECUTE currently lives in approvals.py classification logic; following claude-code, put `is_read_only` — even input-sensitive variants — into `ToolDefinition` so approval and parallel scheduling share one source of truth.
+1. **MCP discovery still needs real surface tiers.** Allowlisting and dynamic refresh have landed, but many servers can still flatten many schemas into the model context. OMP essential/discoverable or ToolSearch-style deferred loading is the next boundary.
+2. **Complete input-sensitive effect classification.** `ToolDefinition` now carries read-only/concurrency metadata and MCP annotations are translated, but one tool changing risk by arguments still lacks a unified predicate and a validation layer that does not blindly trust server annotations.
 3. **Dynamic descriptions.** opencode's `describeTask` shows descriptions can be runtime routing tables. rivumi's run_check enum is already generated dynamically; next step: summarize each check's latest result into its description so the model picks blind less often.
-4. **Hand some bounded parameters to the model.** codex's `yield_time_ms`/`max_output_tokens` is a good template: control to the model, range clamped by the harness. rivumi currently fixes all timeouts itself — simple, but leaves no room for model self-tuning.
+4. **Use measurements to set batching boundaries.** `tool_program` and `tool_transaction` establish that bounded code mode is viable. Real runs should compare round trips, tokens, rollback frequency, and misuse before raising the eight-step cap or adding more control flow.
 
 The next post turns to the other side of sessions: the run artifacts contract — after a run ends, which mutually corroborating files should be on disk.
 
@@ -91,3 +93,4 @@ The next post turns to the other side of sessions: the run artifacts contract �
 - [anthropics/claude-code](https://github.com/anthropics/claude-code) — official repo (ships minified bundle; cited here from community decompilation v2.1.88)
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793) — ACI design impact on agent performance
 - [Anthropic Tool Use Docs](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) and [OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling) — official guidance on tool description quality and counts
+- [Rivumi tools at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/tools.py)

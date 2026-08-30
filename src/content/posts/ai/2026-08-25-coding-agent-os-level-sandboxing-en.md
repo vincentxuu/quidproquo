@@ -1,6 +1,6 @@
 ---
 title: "Learning from Mature Coding Agents (29): OS-Level Sandboxing"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 29
 tags: [coding-agent, harness-engineering, sandbox, landlock, seatbelt, bubblewrap]
 lang: en
-description: "rivumi's Git workspace isolation protects the source repo, not the host. Dissecting Codex's cross-platform sandbox architecture, Claude Code's sandbox decision layer, and the difference between Pi-ISO snapshots and security boundaries — producing a Python-implementable OS sandbox design draft."
-tldr: "Application-layer path policy is only a string checkpoint; real guarantees come from the kernel, which doesn't read strings. Codex backs three platform mechanisms with fail-closed discipline, Claude Code makes 'sandbox or not' its own decision layer. rivumi's draft: sandbox-exec on macOS, ctypes-mounted Landlock on Linux, and refusal to execute when neither is available — an unenforced sandbox is not permission to run unsandboxed."
+description: "Dissecting OS-sandbox boundaries in mature coding agents, then checking Rivumi's sandbox-exec, Landlock/seccomp, and fail-closed verification baseline."
+tldr: "An OS sandbox is the kernel boundary beyond path policy. rivumi now ships a fail-closed CommandSandbox: sandbox-exec on macOS, Landlock plus seccomp on Linux, and exit 126 when containment cannot be proven. Coverage still focuses on verification commands, and external CI confirmation remains open."
 draft: false
 ---
 
@@ -46,7 +46,7 @@ These two illustrate commonly confused near-misses. OpenCode's `opencode/package
 
 The first line of Codex's macOS policy, `(deny default)`, credits the [Chrome renderer sandbox](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/mac_sandboxing.md) — browsers spent over a decade proving that processes parsing untrusted content must default to denying everything and opt into each capability. On Linux, [Landlock](https://docs.kernel.org/userspace-api/landlock.html) has shipped since kernel 5.13 as unprivileged access control: no root, no extra daemon, rules stacked by the process itself — precisely the puzzle piece daemon-free architectures have been waiting for. [seccomp](https://man7.org/linux/man-pages/man2/seccomp.2.html) covers the network and syscall surface. And SWE-agent's ACI framework reminds us that interface design — when these mechanisms activate, how they behave on failure — matters as much as the mechanisms ([Yang et al., 2024](https://arxiv.org/abs/2405.15793)). Five projects compress into one sentence: **the sandbox must fail closed**. Codex errors out and refuses to execute when `restrict_self()` reports `RulesetStatus::NotEnforced`; Claude Code reports unavailability on unsupported platforms. None of them translates "the sandbox failed to start" into "then run naked".
 
-## A Design Draft for rivumi
+## Original Design Draft (2026-08-25)
 
 Goal: a `LocalSandbox` wrapper around the existing `run_bounded_command`, standard library only, no daemon.
 
@@ -69,7 +69,16 @@ Four points, in dependency order:
 
 To close: part one said "the latter is the next battle." This post maps the battlefield — mechanism selection, the fail-closed contract, and where the new layer sits relative to the existing three (policy, workspace, cloud sandbox). What remains is writing it.
 
+## Rivumi's Current Implementation
+
+As of `2ed5efb`, the draft has a working baseline. `runtime.py#CommandSandbox` builds platform wrappers: a sandbox-exec profile on macOS, and filesystem rules from `landlock_run.py` combined with a seccomp backend on Linux. Named profiles and read roots flow from CLI config into verification runners; if availability cannot be proven, execution fails closed with exit 126 before repository code starts.
+
+Linux Landlock/seccomp has a local smoke and CI workflow, and the macOS wrapper has unit coverage. Containment still primarily wraps native verification commands rather than every agent process, however, and external CI results plus a broader platform matrix remain unconfirmed. The supported claim is that the configuration chain and deny-by-default behavior exist, not that every execution path has production isolation.
+
 ## References
+
+- [Rivumi CommandSandbox (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime.py)
+- [Rivumi Linux Landlock runner (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/landlock_run.py)
 
 - [Landlock: unprivileged access control (kernel docs)](https://docs.kernel.org/userspace-api/landlock.html)
 - [landlock_create_ruleset(2) — Linux man page](https://man7.org/linux/man-pages/man2/landlock_create_ruleset.2.html)

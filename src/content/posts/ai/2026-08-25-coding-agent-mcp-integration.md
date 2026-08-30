@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（30）：MCP 整合——工具生態的標準插座"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,14 +8,14 @@ series:
   order: 30
 tags: [coding-agent, mcp, rivumi, tool-integration, elicitation, lazy-connect]
 lang: zh-TW
-tldr: "MCP 讓 agent 不用自己寫每個整合就能接上外部工具生態，但接得不好會拖垮啟動、炸大 context、繞過 approval。codex 用 RMCP SDK 加背景 prewarm、claude-code 把 MCP 工具包成單一 Tool 範本加專案層級 approval 對話框、opencode 靠 ToolsChanged 通知動態刷新工具表、omp 做成 process-global singleton 還能讀別家設定；pi 刻意不做。rivumi 目前沒有自己的 MCP client，只有外部 backend 的 pass-through——設計草案的核心是：lazy connect、allowlist 預設拒絕、elicitation 接回既有 approval 分級。"
-description: "對照 codex、claude-code、opencode、pi、omp 五家的 MCP client 實作原始碼，整理 server 生命週期、動態工具註冊與 approval 的設計取捨，並給 rivumi 的 MCP 整合草案。"
+tldr: "MCP client 要同時處理 transport、工具刷新、approval 與 credential 邊界。rivumi 已支援 allowlisted stdio、Streamable HTTP/SSE、tools/resources/prompts、tools/list_changed、OAuth metadata/PKCE 與 0600 credential store；尚缺真實 authorization server E2E 與 MCP 專用確認 UX。"
+description: "對照五家 MCP client 的生命週期、工具註冊與 approval，並核對 Rivumi stdio/HTTP、resources/prompts、OAuth PKCE baseline。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-mcp-integration-en)
 
-上一篇談 [OS 級沙箱](/posts/ai/2026-08-25-coding-agent-os-level-sandboxing)。這篇談一個 rivumi 完全還沒有的能力：MCP。
+上一篇談 [OS 級沙箱](/posts/ai/2026-08-25-coding-agent-os-level-sandboxing)。這篇先拆 MCP 的設計問題，再核對 rivumi 現在的 native client baseline。
 
 ## 能力問題
 
@@ -41,7 +41,7 @@ rivumi 現況如實說：**沒有自己的 MCP client**。`docs/progress.md` 把
 
 MCP 官方文件把職責切得很清楚：[架構頁](https://modelcontextprotocol.io/docs/concepts/architecture)定義 host—client—server 三層，host 持有多個 client、每個 client 對應一個 server，這正是「連線管理該收斂在一處」的規範依據。[Tools 概念頁](https://modelcontextprotocol.io/docs/concepts/tools)則明文支援 `listChanged` 能力宣告——server 可以在執行期增刪工具，client 必須處理 `tools/list_changed` 通知，opencode 的 `ToolsChanged` 轉發就是這條規範的實作。Elicitation 規範讓 server 在執行中向使用者要輸入或確認，這是 MCP 工具 approval 不能只做靜態設定的原因。
 
-## rivumi 設計草案
+## 原始設計草案（2026-08-25）
 
 原則先講死：**MCP 初始化不進啟動關鍵路徑**——這是 `docs/progress.md` 啟動效能清單裡已經寫下的承諾，草案必須兌現它。
 
@@ -57,7 +57,16 @@ MCP 官方文件把職責切得很清楚：[架構頁](https://modelcontextproto
 
 順序上也清楚：先把 allowlist 語意和工具範本做進 native loop，再考慮反向暴露 rivumi 自己為 server。生態位的選擇可以晚一點做，但插座的形狀現在就要畫對。
 
+## rivumi 現在的實作
+
+截至 `2ed5efb`，native MCP 已不只是 pass-through。`mcp_client.py` 能載入預設拒絕的 `.mcp.json` allowlist，支援 stdio 與 Streamable HTTP（包含 SSE response），把 tools、resources/list/read、prompts/list/get 映射成 `mcp__`、`mcp_resource__`、`mcp_prompt__` bridge tools。工具 annotation 會轉成保守的 trust metadata，呼叫仍經既有 approval、event 與 timeout 路徑；server process 在 run 結束時關閉。
+
+HTTP 路徑也有 OAuth protected-resource metadata discovery、authorization-code + PKCE helper，以及拒絕 symlink、要求 `0600` 的 app-owned credential store。tools list changed 可刷新動態工具表。還沒完成的是對真實 authorization server 跑完整 E2E，以及 MCP 特有的 confirmation/elicitation UX；local tests 不能替代 production server parity。
+
 ## 參考資料
+
+- [Rivumi native MCP client（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/mcp_client.py)
+- [Rivumi MCP tests（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_mcp_client.py)
 
 - [Model Context Protocol — Introduction](https://modelcontextprotocol.io/docs/getting-started/intro)
 - [MCP Architecture](https://modelcontextprotocol.io/docs/concepts/architecture)

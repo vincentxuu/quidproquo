@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（36）：LSP 整合——把編譯器診斷推進 agent context"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 36
 tags: [coding-agent, lsp, diagnostics, rivumi, oh-my-pi, claude-code, opencode]
 lang: zh-TW
-tldr: "omp 把 LSP 做成編輯工具的必經 writethrough，遲到診斷用 mutationVersion 判新鮮度後注入下一個 turn；claude-code 走被動訂閱 publishDiagnostics、下個 query 以 attachment 送出，每檔上限 10 筆、總量 30；opencode 只在 edit/write 的 tool result 後面附加 error-only 區塊；pi 和 codex 都沒做 LSP。rivumi 目前只有 run_check exact argv allowlist，草案分兩階段：先做 pull-on-edit，再上長駐 server 加 deferred 注入。"
-description: "對照 omp、claude-code、opencode 的原始碼，拆解 coding agent 怎麼把 LSP 即時診斷變成 agent 的感官：writethrough、deferred diagnostics、去重與量控，以及 rivumi 的導入路線。"
+tldr: "rivumi 已能把 repo 內 diagnostics 與 open-file 狀態注入下一個 model turn，也有 typed WebSocket IDE context push、可封裝的 VS Code bridge，以及管理長駐 LSP subprocess 的 ManagedLspServer。剩下的是各語言 initialize／didOpen／didChange adapter 的打磨與 live editor 驗證。"
+description: "對照成熟 coding agent 的 LSP 診斷注入，並檢視 rivumi 的 IDE context、WebSocket、VS Code 與 ManagedLspServer 基線。"
 draft: false
 ---
 
@@ -19,7 +19,7 @@ draft: false
 
 ## 能力問題：驗證訊號的延遲落差
 
-rivumi 現在取得「程式碼對不對」的方式只有一條路：`run_check`——一張 exact argv 白名單，模型改完檔案、主動呼叫、等整個測試或 typecheck 跑完，才知道有沒有弄壞東西。這個設計的好處是訊號可信（跑過就是跑過），壞處是回饋又慢又粗：一次迴圈動輒數十秒，而且回給模型的常常是幾千行測試 output，錯誤藏在第幾行第幾欄要自己撈。
+`run_check` 仍是 rivumi 判定「程式碼對不對」的品質閘門，但已不是模型取得回饋的唯一來源。IDE/LSP diagnostics 和 open-file state 可以先注入下一個 turn，讓模型在完整測試前看到精確位置；兩種訊號分工清楚：LSP 是 advisory，check 才是驗證證據。
 
 人類工程師不是這樣工作的。你存檔那一秒，編輯器裡的語言伺服器已經把紅色波浪線畫好了——型別錯、未定義變數、import 少一個字母，全部標在精確位置。[LSP（Language Server Protocol）](https://microsoft.github.io/language-server-protocol/)就是把「編輯器的即時診斷」標準化的協議：編輯器送 didOpen/didChange，server 用 `textDocument/publishDiagnostics` 推回結構化錯誤。
 
@@ -65,24 +65,18 @@ client 端有個細節值得抄：`src/lsp/client.ts` 特意不在 didChange 時
 
 代價面要誠實：每個 project 多養一到數個長駐子程序（rust-analyzer 吃起記憶體不客氣）、啟動索引要時間（omp 有 warmup 機制和 `DIAGNOSTICS_PIPELINE_GRACE_MS = 10_000` 的管線寬限）、而且診斷是「顧問」不是「判決」——server 掛了、索引還沒建好、或設定不對時，安靜地沒有訊號不等於沒有錯誤。
 
-## rivumi 設計草案
+## rivumi 已落地的基線
 
-rivumi 是 Python，生態系裡 [pyright](https://microsoft.github.io/pyright/) 的 `pyright-langserver --stdio` 是現成的起點。分兩階段：
+`ide.py` 已定義 bounded diagnostics 與 open-file snapshot，native loop 會把它們以標記過的 injected context 放進下一個 model turn，並留下 `ide.diagnostics_injected`／`ide.open_files_injected` 事件。stateful WebSocket 也接受 typed IDE context push；`editors/vscode` 已能封裝與做本機 smoke。
 
-**Phase 1：pull-on-edit。** 學 opencode 的最簡做法——`edit_file` / `write_file` 成功後，對該檔案做一次 bounded 診斷查詢（spawn pyright 或沿用既有 server，等 1–3 秒），error-only、每檔上限 10 筆，render 成區塊附加在 tool result 後面。不改 run_check、不加長駐程序、失敗就靜默跳過。這一步就能吃到八成的價值：模型在下一個 turn 開始前就知道自己剛剛弄壞了什麼，不用等 run_check 跑完。
+長駐程序由 `ManagedLspServer` 管理：exact argv、受限訊息大小、stdio `Content-Length` framing、`publishDiagnostics` 解析、原子寫入 snapshot，以及 bounded shutdown 都已存在。run_check 仍是驗證閘門，LSP 只提供 advisory context。
 
-**Phase 2：長駐 server＋deferred 注入。** server 子程序的生命週期管理掛在 external_runner 旁邊（同樣吃 approval 分級和 timeout 預算），支援 didOpen/didChange；遲到診斷學 omp——每檔 mutationVersion 判 stale，ledger 按 message identity 去重，超過 inline 預算的診斷排進佇列、下一個 turn 以系統訊息注入。
-
-三條不變的原則：run_check 仍是唯一驗證閘門，LSP 診斷永遠是 advisory；量控先行（per-file cap、total cap、error-first），診斷是給模型看的，不是給它淹的；server 故障一律 fail-silent，退回 Phase 0 的世界（只有 run_check），不能讓 LSP 掛掉拖垮整個 loop。
-
-## 與現有架構的銜接
-
-- `tools.py#run_check` 不動；Phase 1 的診斷查詢做成新的內部 helper，不走 approval（唯讀）
-- 子程序管理比照 `external_runner.py#ExternalCodingRunner` 的 deadline/cancel 模式
-- transcript 層面，deferred 診斷以明確標記的事件寫進 session log，replay 時可辨識
-- 五家對照的最短摘要：**opencode 證明 pull-on-edit 夠用，omp 證明 deferred 注入值得做，claude-code 證明量控與去重不能省，pi/codex 證明不做也能活**——rivumi 先走第一格，留第二格給 roadmap
+剩下的是 language-specific initialize、didOpen、didChange adapter 細節，以及在真實 VS Code／多語言專案的 live 驗證。現有測試證明 process ownership 與 context injection，不等於所有 language server 都已可直接使用。
 
 ## 參考資料
+
+- [rivumi `lsp.py`（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/lsp.py)
+- [rivumi IDE bridge（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/ide.py)
 
 - [Language Server Protocol 官網](https://microsoft.github.io/language-server-protocol/)／[LSP 3.17 Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/)
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793)

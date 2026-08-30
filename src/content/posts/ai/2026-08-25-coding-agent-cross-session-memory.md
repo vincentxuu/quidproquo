@@ -1,6 +1,6 @@
 ---
-title: "跟成熟 coding agent 學設計（27）：跨 session 記憶——agent 為什麼每天開工都像失憶"
-date: 2026-08-25
+title: "跟成熟 coding agent 學設計（27）：跨 session 記憶——從 explicit remember 到 semantic recall"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 27
 tags: [coding-agent, agent-memory, rivumi, claude-code, oh-my-pi]
 lang: zh-TW
-tldr: "五家參考專案裡，omp 用 SQLite 記憶引擎（mnemopi）做完整的工作／情節記憶加睡眠整併，claude-code 用記憶目錄加定期 LLM 萃取；另外三家只有 AGENTS.md 這種手動記憶。rivumi 目前只有對話歷史可以 resume，沒有語意記憶層。這篇拆解各家的儲存格式、檢索方式與寫入時機，並提出 rivumi 的設計草案：SQLite 加型別化記憶，掛在 bounded task 結束時萃取，對所有 backend 一體適用。"
-description: "對照 omp mnemopi、claude-code memdir 與 SessionMemory、pi/opencode/codex 的 AGENTS.md 機制，分析跨 session 記憶的儲存、檢索與寫入設計，並給出 rivumi 的實作草案。"
+tldr: "omp 與 claude-code 都有跨 session 記憶，其他參考專案主要靠 instruction files。rivumi 已落地明確的 remember/list/inject baseline：型別化 JSONL 記憶可跨 session 注入 prompt，但目前只按 scope 與近期排序，還沒有語意檢索、去重、遺忘指令或自動萃取。"
+description: "比較成熟 coding agent 的跨 session 記憶，並說明 Rivumi 固定 commit 中型別化 JSONL 儲存、scope 過濾與 prompt 注入 baseline。"
 draft: false
 ---
 
@@ -21,7 +21,7 @@ draft: false
 
 我固定用同一台機器、同一批專案工作，但每次開一個新的 agent session，它都不認得我：不知道我偏好的 commit 格式、不記得上週那個 D1 batch timeout 的解法、還要重新解釋一次專案慣例。session 內的 context 再長，關掉就沒了。
 
-這正是第二部的主題：五家都有、rivumi 還沒有的能力。先講清楚 rivumi 的現況——`grep` 過 `~/Projects/rivumi/src/rivumi/` 全域，`conversation.py` 可以持久化並 resume 對話、`events.py` 做 append-only 事件日誌，但整個 codebase 找不到任何 embedding、向量索引或語意記憶層。也就是說 rivumi 能「接續上次沒講完的話」，不能「記得三個禮拜前學到的事」。
+這篇原本記錄的是 Rivumi 的空白，現在邊界已往前推一格：`memory.py` 提供 typed JSONL memory，TUI 的 `/remember` 可以明確寫入 user/project preference 或 project fact，native loop 會把相關項目放進 system prompt 的 Known context。它已能跨 session 記住使用者主動交代的事，但還不是五家成熟方案那種語意記憶：沒有 embedding、向量索引、ranking/decay、dedupe、edit/delete 或自動擷取。所以下面比較的重點從「怎麼從零開始」改成「explicit baseline 下一步缺什麼」。
 
 ## omp：mnemopi，一個完整的記憶引擎
 
@@ -61,20 +61,20 @@ pi、opencode、codex 都沒有自動記憶層，但有近親：專案說明檔�
 
 這條路線最有名的出發點是 [Generative Agents](https://arxiv.org/abs/2304.03442)（Park et al., 2023）：25 個虛擬小鎮居民共用一條 memory stream，召回時用 recency × importance × relevance 三因子打分，再用 LLM 反思出高階結論。omp 的 importance/veracity 欄位和 claude-code 的定期萃取，都是這套架構的工程化變體。[MemGPT](https://arxiv.org/abs/2310.08560) 則論證了另一面：與其塞向量庫，不如給 agent 明確的分層記憶介面（main context / external storage），讓它自己呼叫存取——omp 把記憶做成 `retain`/`recall` 工具正是這個思路。
 
-## rivumi 設計草案
+## rivumi 已落地的 baseline
 
-綜合兩家的做法，rivumi 的記憶層我會這樣切：
+截至 `2ed5efb`，rivumi 不再只有可 resume 的 conversation history。`memory.py` 定義 typed `MemoryEntry`，以 append-only JSONL 寫進使用者層 memory file；`RIVUMI_MEMORY_PATH` 可覆寫位置。CLI 的 `remember` 入口要求明確指定記憶類型與 scope，避免 agent 在背景自行猜哪些資訊值得永久保存。
 
-1. **儲存**：單一 SQLite 檔（`~/.rivumi/memory.db`），schema 抄 mnemopi 的精簡版：`content`、`memory_type`（沿用 claude-code 四分法）、`importance`、`veracity`、`superseded_by`。第一版不做 embedding——claude-code 證明了「frontmatter 清單＋小模型挑選」就夠用，而且 rivumi 本来就有 provider 抽象可以呼叫便宜模型。
-2. **寫入時機**：掛在 `loop.py` 的 bounded task 結束點。run 完成、verification 過了，才觸發一次萃取子任務，prompt 只問一件事：「這次 run 有什麼下次該記住、且無法從 repo 推導的事？」天然有節流，不需要 claude-code 那套 token 門檻狀態機。
-3. **檢索時機**：`conversation.py` 開新對話時，掃記憶清單注入 system prompt；對話中途不再動態召回，保持行為可預測。
-4. **治理**：記憶檔案納入 rivumi 的 artifact 目錄，`forget` 和 `superseded_by` 一等公民——記錯的記憶必須能明確作廢，這是 veracity 欄位存在的原因。
+新 run 會透過 `relevant_memory_entries()` 先按 scope 過濾，再取近期項目，最後由 `render_known_context()` 產生有長度上限的 known-context 區塊進入 prompt。這個 baseline 的邊界很刻意：使用者明確寫入、檔案格式可檢查、注入內容可預測，也不依賴某個 external backend 自己的 session store。
 
-## 與現有架構的銜接
+## 還沒完成的部分
 
-這個草案有三個刻意選擇。第一，記憶層放在 rivumi harness 自己身上，不在各 backend 裡：M13 之後 rivumi 同時驅動原生 runtime 與 pi/omp/codex/opencode 外部 adapter（外部 CLI 甚至以 `--no-session-persistence` 關掉自家 session），記憶做在 harness 層才能跨 backend 一體適用——這是 rivumi 相對五家的結構性優勢。第二，萃取只在 task 邊界觸發，和 rivumi「事件 append-only、狀態可重放」的哲學一致：萃取結果也是一筆事件，壞了可以重放。第三，先拒絕 embedding 不是省事，是延後複雜度：等記憶量真的超過「一份清單掃得完」的規模，再引入向量索引，屆時 mnemopi 的混合檢索就是現成藍圖。
+目前的 relevant 只代表 scope 與 recency，不是語意相似度。它沒有 embedding、relevance ranking、decay、相似項去重，也沒有 `/memory forget` 這類可編輯／刪除介面；更不會在 bounded task 結束後自動萃取。rivumi 已有跨 session 記憶的安全最小閉環，但離 mnemopi 的 working/episodic consolidation 或 claude-code 的 feedback-derived recall 還有一段距離。
 
 ## 參考資料
+
+- [Rivumi typed memory store 與 scope retrieval（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/memory.py)
+- [Rivumi memory tests（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_memory.py)
 
 - [can1357/oh-my-pi — packages/mnemopi](https://github.com/can1357/oh-my-pi/tree/main/packages/mnemopi) — SQLite 記憶引擎完整原始碼
 - [anthropics/claude-code](https://github.com/anthropics/claude-code) — 官方 repo；本文 memdir／SessionMemory 引用來自社群反編譯 v2.1.88

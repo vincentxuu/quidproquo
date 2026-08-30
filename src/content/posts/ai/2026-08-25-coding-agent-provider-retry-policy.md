@@ -1,6 +1,6 @@
 ---
-title: "跟成熟 coding agent 學設計（7）：Provider retry policy 與錯誤分類——一個 5xx 為什麼會炸掉整個 run"
-date: 2026-08-25
+title: "跟成熟 coding agent 學設計（7）：Provider retry policy——從單次 5xx 到有界 retry 與 fallback"
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -9,7 +9,7 @@ series:
 tags: [coding-agent, harness-engineering, llm-api, retry, error-handling, llm-agents]
 lang: zh-TW
 description: "拆解 pi、OMP、OpenCode、Codex、Claude Code 五家如何做 provider 錯誤分類與重試——SDK 內建 retry 與 harness 層 retry 的分工、Retry-After 的尊重、jitter 與 fallback——並對照 rivumi 從「一個 5xx 就失敗」到統一 harness 層重試的修復過程。"
-tldr: "NVIDIA NIM 對某個模型間歇回 500，rivumi 的 ProviderError.retryable 只是被寫進 event log，沒有任何消費者——一個 5xx 直接把 run 標成 FAILED，TUI 只顯示「provider retryable」。五家參考專案都把重試收在 harness 層：pi 明文要求把 SDK 的 max_retries 設成 0 再自己包可中斷的重試；OpenCode 連「SDK 沒標記可重試的 5xx」也強制重試；Claude Code 用 x-should-retry header 加 10 次上限。rivumi 的修法是同一條路：AsyncOpenAI max_retries=0、3 次指數退避（1s/2s/4s）、取 max(backoff, Retry-After)、退避中被取消會提前醒來、每次重試發 model.retry event。"
+tldr: "NVIDIA NIM 間歇 500 暴露了 rivumi 早期只有錯誤分類、沒有重試消費者的缺口。現在 SDK retry 關閉，harness 對每個候選最多嘗試 5 次，使用帶 jitter 的指數退避並尊重有上限的 Retry-After；耗盡後可依明確設定切到 fallback model，model.retry 與 model.fallback 都進 event log。"
 draft: false
 ---
 
@@ -51,11 +51,13 @@ Claude Code 的 `claude-code-source/src/services/api/withRetry.ts#withRetry` 是
 
 修復遵循 pi 的路線但更精簡：**所有重試統一收到 harness 層**。所有 `AsyncOpenAI` client 都設 `max_retries=0`（`rivumi/src/rivumi/models.py` 的 `AsyncOpenAI` 建構處，`provider_verification.py:144` 同步），註解寫明理由：SDK 內建重試會把上游請求乘出 3×3，而且繞過 audit trail。
 
-harness 層的核心是 `rivumi/src/rivumi/loop.py#_complete_model_with_retry`：每個模型 step 最多 3 次嘗試，只有 `exc.retryable`（RETRYABLE 或 RATE_LIMIT）會重試，AUTH 和 INVALID_REQUEST 立即 re-raise。延遲取 `max(backoff[attempt], retry_after_seconds)`——退避表固定 1s/2s/4s，但伺服器的 `Retry-After` 說了算。兩個細節值得說：退避等待用 `rivumi/src/rivumi/loop.py#_backoff_sleep` 以 `asyncio.wait` 實作，使用者取消會提前醒來、下一次嘗試立即觀察到取消訊號，run 走原本的 CANCELLED 路徑；每次重試前發 `model.retry` event（帶 attempt、provider、error、delay_seconds），事後可以從 events.jsonl 完整重播一次 run 的重試歷史。
+harness 層的核心是 `rivumi/src/rivumi/loop.py#_complete_model_with_retry`：每個候選模型每個 step 最多 5 次嘗試，只有 `exc.retryable`（RETRYABLE 或 RATE_LIMIT）會重試，AUTH 和 INVALID_REQUEST 立即 re-raise。`#retry_delay_seconds` 是上限 30 秒的指數退避加 ±15% jitter；伺服器若給 `Retry-After` 就直接採用，但安全上限夾在 300 秒。退避等待仍可被 cancel 提前喚醒，每次重試前也照樣發 `model.retry` event，事後可以從 events.jsonl 重播歷史。
+
+重試耗盡後不再只能失敗。CLI 的重複 `--fallback-model provider/model`，或 `--fallback-model @cheap` 這類靜態 role alias，會建立 ordered candidates；primary 五次仍是 transient failure 時，loop 發 `model.fallback`，記下來源／目標模型與 failure codes，讓下一個候選拿到全新的 retry budget。所有候選都耗盡才進最終 `ProviderError`。這是明確配置的 baseline，不是自動替使用者挑「最佳」模型，也不處理 auth/invalid request 這類非 transient 錯誤。
 
 放棄之後的呈現也修了：`loop.py` 的 `except ProviderError` 路徑現在組出「nvidia-nim failed 3 consecutive model requests (500, 503, 500); the service is temporarily unavailable...」這種人類可讀訊息填進 `RunResult.error`，TUI 顯示它而不是「provider retryable」；`terminal_reason="provider_retryable"` 原樣保留當機器可讀欄位。
 
-跟五家比起來，rivumi 目前刻意簡單：沒有 jitter、沒有憑證輪換、沒有 transport fallback、也沒有來源感知的重試預算。這些不是疏忽，是階段取捨——先把「分類有消費者、重試可觀測、放棄說人話」這三件事做對。
+跟五家比起來，rivumi 仍刻意簡單：已有 jitter 與模型 fallback，但沒有憑證輪換、同模型 transport fallback，也沒有來源感知或跨 step 的重試預算。先做到的是「分類有消費者、重試與 fallback 可觀測、放棄說人話」；這不等於 provider outage 下的 production resilience 已驗證。
 
 ## 學術依據
 
@@ -63,9 +65,9 @@ harness 層的核心是 `rivumi/src/rivumi/loop.py#_complete_model_with_retry`�
 
 ## 改善路線
 
-1. **加 jitter**。rivumi 的 1s/2s/4s 是確定性的，多個 run 同時失敗會同步重試。照 AWS 文章做 full jitter（`random(0, backoff)`）是一行改動。
-2. **跨 step 的 retry budget**。目前每個模型 step 各有 3 次額度，一個 run 幾十個 step 理論上可以吞幾百次 5xx。SRE 式的全局 budget（連續失敗率超過門檻就提前放棄整個 run）更符合過載語意。
-3. **fallback chain**。連續重試耗盡後，OMP 換模型、codex 換 transport、claude-code 換 fallback model；rivumi 已有 runtime registry，連續 provider 失敗時在 status 列提示切換是最小版本。
+1. **評估 jitter 分布。** 目前是基準值上下 15%，已打破完全同步，但不是 AWS 的 full jitter。要不要改成 `random(0, backoff)` 應由併發 outage 測試決定。
+2. **跨 step 的 retry budget**。目前每個候選、每個模型 step 各有 5 次額度，多候選長 run 仍可能放大上游故障。SRE 式全局 budget 更符合過載語意。
+3. **fallback policy 驗證**。chain 已落地，但 role alias 來自靜態表；仍需測量品質、延遲與資料治理，不能只因 primary 失敗就把敏感 repository 自動送到另一家 provider。
 4. **per-provider 政策表**。NIM 免費額度本來就不穩，OMP 的「按原因分流 backoff」和 pi 的 settings（maxRetries/baseDelayMs 可設定）都指向同一個方向：重試參數應該跟著 provider 走，而不是全域常數。
 
 一句話總結：**retry policy 的本質不是「多試幾次」，而是把「哪些錯誤值得再賭一次」變成分類明確、延遲聽伺服器的、每一次嘗試都可觀測的決策——然後在放棄時，好好告訴人類發生了什麼。**
@@ -81,3 +83,4 @@ harness 層的核心是 `rivumi/src/rivumi/loop.py#_complete_model_with_retry`�
 - [Google SRE Book: Addressing Cascading Failures](https://sre.google/sre-book/addressing-cascading-failures/)
 - [MDN: Retry-After header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
 - [OpenAI API: Rate limits 與錯誤處理文件](https://platform.openai.com/docs/guides/rate-limits)
+- [Rivumi retry/fallback loop（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/loop.py)

@@ -1,6 +1,6 @@
 ---
 title: "Learning Design from Mature Coding Agents (32): Subagents and Worktree Isolation — Teaching the Main Loop to Delegate"
-date: 2026-08-25
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 32
 tags: [coding-agent, subagent, multi-agent, git-worktree, rivumi, claude-code]
 lang: en
-tldr: "claude-code's AgentTool gives each subagent its own system prompt, tool pool, and optionally a private git worktree that is auto-deleted if nothing changed; omp goes further and turns child agents into lifecycle-managed residents (running/idle/parked/aborted) with an isolation backend chain that falls back from APFS clones down to recursive copy; opencode uses one-session-per-subagent with a depth limit defaulting to one. rivumi has no subagent concept at all today — but its every-run-is-a-pinned-SHA-disposable-clone architecture makes isolation nearly free; only the orchestration layer is missing."
-description: "Comparing subagent orchestration and isolation across omp, claude-code, and opencode (with codex cloud-tasks as contrast) — result-return protocols, lifecycle management — plus a design draft for rivumi."
+tldr: "Mature subagents need roles, bounded fan-out, narrowed permissions, and a result contract. rivumi now has native named-role schedules, parallel fan-out, child allowed_paths constrained by the parent, unsafe execution disabled by default, and parent-approved transaction proposals. Persistent background lifecycles, recursion trees, and automatic worktree merging remain open."
+description: "Comparing subagent orchestration and isolation, then checking Rivumi's named roles, bounded fan-out, narrowed permissions, and transaction-proposal baseline."
 draft: false
 ---
 
@@ -73,9 +73,9 @@ codex's `codex-rs/cloud-tasks` isn't in-process subagents; it dispatches tasks t
 
 Both the value and the risk of multi-agent collaboration have empirical backing. [MetaGPT](https://arxiv.org/abs/2308.00352) shows that assigning roles and passing structured artifacts along SOPs significantly reduces hallucination cascades — the academic version of `subagent_type` plus output schemas. [CAMEL](https://arxiv.org/abs/2303.17760) demonstrated role-playing dual-agent cooperation even earlier, but also recorded how agent conversations drift and need mid-course intervention — echoing opencode writing "don't touch each other's files" into prompts. Anthropic's own engineering post ([How we built our multi-agent research system](https://www.anthropic.com/engineering/built-multi-agent-research-system)) delivers the engineering lessons: lead agents learn to decompose tasks and parallel children save wall-clock time, but token consumption runs roughly an order of magnitude above single-agent chat — parallelism isn't free.
 
-## rivumi design draft
+## Original design draft (2026-08-25)
 
-Honest current state first: grepping all of `~/Projects/rivumi/src/rivumi/` finds **no subagent or child-session spawning mechanism whatsoever**. The native path is one conversation paired with one `ConversationWorkspace` driven by the controller in `conversation.py`; the external path drives pi/omp/opencode/codex CLIs whose internal subagents happen outside rivumi's visibility.
+This draft records the starting point on 2026-08-25: the native path had no subagent mechanism, and child agents inside external runtimes were outside Rivumi's visibility. The interface and isolation rules below were design hypotheses at that time. A later section checks them against the named-role fan-out and transaction-proposal baseline shipped by `2ed5efb`, so the historical draft is not mistaken for current status.
 
 The draft:
 
@@ -98,13 +98,24 @@ The draft:
 
 ## Fitting the existing architecture
 
-The concrete impact of missing this today: any exploratory work on the native path pollutes the main conversation, and compaction (series post 26) only remediates after the fact; "dispatch three directions and scout each once" currently means manually launching three processes.
+At draft time, exploratory native work polluted the main conversation and "dispatch three directions and scout each once" meant manually launching three processes. Bounded dispatch now closes that first gap; persistent background lifecycle, recursive depth management, and automatic worktree merge remain outside the baseline.
 
-The good news is the surroundings are already built: the run-artifacts contract already carries patches and logs; the event-sourcing design naturally supports additive fields like `parent_run_id`; the approval audit trail just needs an attribution field for "which child wanted this." The only genuinely new code is `SubagentRunner` itself plus the spawn tool's prompt design — one of the few roadmap cells where the infrastructure exists and only assembly remains.
+Artifacts, event attribution, and parent approval are now connected through `subagents.py` and the planner tool rather than waiting for assembly. What remains is production trace validation, role override/inheritance hardening, and integration strategy for multiple write proposals.
 
-One-line summary: mature projects agree a subagent needs **an explicit termination protocol, output caps, a depth gate, and an isolation boundary** — miss any one of the four and parallelism degenerates into an uncontrolled cost generator. rivumi already has the hardest one.
+One-line summary: mature projects agree a subagent needs **an explicit termination protocol, output caps, a depth gate, and an isolation boundary**. Rivumi's baseline now ships roles, bounded fan-out, narrowed authority, and parent-approved transactions; persistent lifecycle and automatic merge remain open, not subagents as a whole.
+
+## Rivumi's current implementation
+
+As of `2ed5efb`, the native path has a subagent baseline. `subagents.py` defines named roles and role instructions, normalizes schedules, derives child tasks from the parent `TaskContract`, and rejects any child `allowed_paths` expansion beyond the parent. The planner tool in `loop.py` accepts multiple agent specs, the executor performs bounded parallel fan-out, and results return to the parent as summaries plus artifact information.
+
+Safe defaults are implemented too: child runners disable unsafe local execution, and modify/execute approval does not silently inherit. Write-oriented work can propose a transaction that the parent path approves before application. A schedule-event analyzer checks overlap, sequencing, and role distribution so coordination is not purely a prompt convention.
+
+This is not yet omp-style park/revive lifecycle management. Full background tasks, recursion-tree depth management, and automatic worktree merge/cherry-pick remain absent. Disposable workspaces provide an isolation substrate, but safely reconciling each child's branch still needs a stronger conflict and approval protocol.
 
 ## References
+
+- [Rivumi subagent scheduling and task derivation (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/subagents.py)
+- [Rivumi subagent tests (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_subagents.py)
 
 - [MetaGPT: Meta Programming for Multi-Agent Collaborative Framework (Hong et al., 2023)](https://arxiv.org/abs/2308.00352)
 - [CAMEL: Communicative Agents for "Mind" Exploration (Li et al., 2023)](https://arxiv.org/abs/2303.17760)

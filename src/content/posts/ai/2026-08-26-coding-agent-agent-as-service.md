@@ -1,6 +1,6 @@
 ---
 title: "跟成熟 coding agent 學設計（38）：Agent as a Service——把 loop 包成別的程式可以呼叫的服務"
-date: 2026-08-26
+date: 2026-08-30
 category: ai
 type: deep-dive
 series:
@@ -8,8 +8,8 @@ series:
   order: 38
 tags: [coding-agent, server-api, sse, websocket, rivumi, opencode, codex]
 lang: zh-TW
-tldr: "五家裡只有 opencode 做出完整的 REST+SSE server 面和官方 SDK；codex 走 JSON-RPC over stdio/WebSocket；omp 最激進，collab 流量全程 AES-GCM 加密、relay 只看得到密文；pi 用 Unix socket 把認證外包給檔案權限；claude-code 的 server 在 Anthropic 雲端。共同模式是 session 即資源、事件用串流不輪詢、安全邊界預設 localhost。rivumi 目前只有 events.jsonl 這個 artifact，沒有任何網路面——這是本系列收尾的最後一個缺口。"
-description: "對照 pi、omp、opencode、codex、claude-code 五家的 server API 設計：路由形狀、事件訂閱、多 session 複用與認證邊界，提出 rivumi 的 agent-as-a-service 設計草案。"
+tldr: "rivumi 已有 Cloudflare Durable Object run resource：非同步建立、狀態／取消／artifact、live NDJSON 與支援 Last-Event-ID 的 SSE；遠端 approval 走獨立短效 capability。Python 另有 attach client 與 stateful conversation WebSocket。production deploy、跨 runtime parity 與完整多租戶 hardening 尚未驗證。"
+description: "對照成熟 coding agent 的 server API，並檢視 rivumi 已落地的 durable run、SSE／WebSocket attach 與遠端 approval 基線。"
 draft: false
 ---
 
@@ -21,7 +21,7 @@ draft: false
 
 ## 能力問題：loop 之後還缺什麼
 
-[系列的 order 21](/posts/ai/2026-08-25-coding-agent-headless-ci-mode) 已經解決了「沒有人按 approve」的問題，但 headless CLI 仍是**一次一格**的互動模型：起一個行程、餵一個 prompt、收一份 artifacts、結束。這個模型有三件事做不了：
+[系列的 order 21](/posts/ai/2026-08-25-coding-agent-headless-ci-mode) 解決了「沒有人按 approve」的問題；單純 headless CLI 仍是**一次一格**的互動模型。Rivumi 後來補上的服務面，正是在處理這三個限制：
 
 1. **中途觀察**：任務跑到一半，外部程式看不到進度，只能等它結束。
 2. **常駐複用**：每次呼叫都重新載入系統提示、重建 workspace 狀態，付一遍啟動成本。
@@ -67,18 +67,19 @@ claude-code 的方向跟其他四家相反：它的遠端 session 架構裡，se
 
 業界也在往同一個方向收斂：[Model Context Protocol](https://modelcontextprotocol.io) 標準化了工具面，[Agent Client Protocol](https://agentclientprotocol.com) 標準化了編輯器與 agent 的通訊——omp 的 ACP 映射就是接在後者上。自訂私有協議的空間正在變小。
 
-## rivumi 設計草案
+## rivumi 已落地的服務面
 
-rivumi 現況：完全沒有網路面。repo 裡沒有任何 HTTP framework 依賴，對外介面只有 CLI 和落盤的 artifacts——`src/rivumi/loop.py#_event` 把每筆 [RunEvent](/posts/ai/2026-08-25-coding-agent-run-artifacts-contract)寫進 events.jsonl，那是事後可審計的紀錄，不是即時介面。對照五家，草案分四步：
+Cloudflare control plane 已把 run 做成 Durable Object 資源。`POST /v1/runs` 回 `202`，背景建立隔離 Sandbox；client 可查狀態、取消、取 artifact，也能在執行中讀 live NDJSON。`?stream=1` 會升級成 SSE，先補播 bounded event buffer，再推新事件；`Last-Event-ID` 只補比 cursor 新的 sequence，terminal state 會關閉連線。
 
-1. **EventSink 加一個 SSE 出口**。`src/rivumi/console.py#CompositeEventSink` 的設計已經留好了位置——次要 sink 失敗不影響權威落盤。加一個 `SseEventSink` 掛進去，事件就同時進檔案和網路，零侵入 loop。
-2. **斷線續傳用現成的 sequence**。RunEvent 本來就有嚴格遞增的 sequence，SSE 的 `Last-Event-ID` 重連語意可以直接映射：client 報序號，server 從 events.jsonl 補播。不用發明任何新狀態。
-3. **資源模型抄 opencode，transport 抄 pi**。路由只做 session 級的四件事（建立、送 prompt、訂閱事件、中斷）；綁 localhost 或 Unix socket，認證交給檔案權限。不做公網部署故事。
-4. **審批永不過網路自動放行**。approval.requested 事件可以推出去給遠端 UI 看，但放行決策若要遠端下，必須走獨立的顯式授權通道——絕不因為「事件流已經開了」就把 EXECUTE 審批降級成自動允許。
+遠端 approval 沒有借用 event stream 偷渡信任。模型請求、事件上傳、approval 各用不同 audience 的短效 capability；client 從 approval route 明確送出 `allow_once`、`allow_session`、`deny` 或 `cancel`，Sandbox 再透過專用內部路由輪詢。Python `CloudflareRunClient` 已封裝 start/status/cancel/artifact/attach，SDK 另有 `/v1/conversation/attach` 的 stateful WebSocket，可送 turn、approval 與 injected context。
 
-一句話總結：把 agent 變成服務，難的不是開一個 port，而是想清楚哪些決策永遠留在本機——五家的共識是事件可以廣播，信任不可以。
+這些是 source 與測試涵蓋的 baseline，不是 production 成功宣告。正式 deploy、真實 provider 長任務、跨 runtime attach parity、Durable Object restart 行為與完整多租戶 hardening 仍要另外驗證。
 
 ## 參考資料
+
+- [rivumi Cloudflare control plane 說明（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/cloudflare/README.md)
+- [rivumi Python attach client（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/cloudflare_client.py)
+- [rivumi conversation WebSocket（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/conversation_websocket.py)
 
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono)
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)
