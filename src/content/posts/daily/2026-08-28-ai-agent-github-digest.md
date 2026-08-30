@@ -11,6 +11,8 @@ series:
   order: 13
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-28-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天最大的主題是 agent 的「記憶/context」基礎設施在補位——claude-mem 和 OpenViking 都在解決同一個痛點（agent 一 compact context 就忘記自己在幹嘛），一個做成跨工具的記憶外掛，一個做成獨立的 context 資料庫；與此同時 Apache 軟體基金會第一次收編了一個 agent 執行紀錄專案（apache/maka），把這層基礎設施拉進了孵化出 Kafka、Spark 的同一套治理機制。
