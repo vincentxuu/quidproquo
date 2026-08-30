@@ -4,8 +4,8 @@ date: 2026-08-30
 category: daily
 tags: [ai-agent, arxiv, daily]
 lang: en
-description: "Today's theme is what comes after agent memory works at all — not just remembering more and retrieving accurately, but evolving skills on its own, organizing multimodal evidence into structure, and actively checking whether a memory has gone stale"
-tldr: "Recuris separates progress tracking from skill memory in a recursive loop, improving 35 of 37 model-benchmark pairs and pushing Claude Opus 5 to 87.9% on tau-bench; GraphMemix replaces offline summarization and pure similarity retrieval with a query-driven evidence forest, setting a new accuracy-cost Pareto frontier across four multimodal long-term memory benchmarks; When Stale Constraints Go Unchecked finds agents still act on superseded constraints 74.7%–77.3% of the time under a limited verification budget"
+description: "Three new papers examine the control gates that fail before an AI agent takes action: misleading evidence, tool-output authorization, and cross-loop safety state"
+tldr: "Richly packaged fabricated evidence raises pooled action commitment from 6.5% to 54.0%; SARA separates tool-induced actions from runtime authorization and reduces attack success to 0.06%-0.17% on two benchmarks; LoopHarness shows why decaying safety state can be bypassed by waiting, but its evidence is limited to one frozen model-role configuration and one execution seed"
 series:
   name: "AI Agent Arxiv Digest"
   order: 98
@@ -15,161 +15,182 @@ series:
 
 ## Today's Overview
 
-Today's three papers approach the same problem from three different angles: agent memory can't be judged on relevance alone. Recuris is about how memory evolves on its own — separating "tracking task progress" from "accumulating skill experience," using locatable execution evidence to correct the skill library so a long-horizon agent can keep improving without getting dragged down by its own history. GraphMemix is about how memory gets organized — replacing offline summarization or pure vector-similarity retrieval with a query-driven evidence forest that catches evidence which looks unrelated on the surface but is genuinely relevant in meaning. And "When Stale Constraints Go Unchecked" is a wake-up call — even a perfectly organized memory system still has agents acting on superseded rules more than 70% of the time, as long as nothing explicitly checks whether a given memory has expired. Taken together, the bar for comparing memory systems is shifting from "how much does it remember, how accurately does it retrieve" toward "is what it remembers still fresh, and can it evolve on its own."
+All three papers ask the same engineering question: after an agent says “I know,” what allows it to actually act? The first finds that a polished but fabricated evidence panel can make models more willing to act on an unknowable event. The second separates an action induced by tool content from runtime authorization. The third argues that safety state which decays across loops can be bypassed simply by waiting. The first two provide broad experiments and explicit limitations. The third combines formal analysis with clear ablations, but uses one frozen model-role assignment and one execution seed, so it is a design warning rather than a widely replicated result.
 
 ## Terms Worth Knowing Before You Read
 
 | Term | Plain-language explanation |
 |---|---|
-| Agent | An AI system that plans its own steps, calls tools, and executes iteratively — not a one-shot question-and-answer chatbot |
-| Long-Horizon Task | A task that takes many rounds of interaction to complete; the longer the history, the easier it is for "what should happen right now" to get buried |
-| Harness | The software framework driving an agent — system prompt, tool definitions, the execution loop — not the model itself |
-| Skill Memory | The part of memory where an agent stores reusable ways of doing things it has learned, distinct from a plain event log |
-| Provenance Path | The trail showing where a memory came from and why it's valid; the record itself is immutable, but which record is currently the valid one can change (supersession) |
-| Evidence Forest | Organizing memory as a set of tree-shaped relational structures instead of a flat list, so retrieval can keep multiple complementary, trustworthy evidence chains at once |
+| Action commitment | The model goes beyond proposing an answer and agrees to take a costly or irreversible action |
+| Indirect prompt injection (IPI) | Malicious instructions hidden in a page, document, or tool result that the agent reads as data |
+| Execution authorization | A runtime decision, after a tool call is proposed, about whether the action may actually run |
+| Action provenance | A record of whether an action originated with the user, a trusted rule, or untrusted tool content |
+| Attack success rate (ASR) | The share of tests in which the attack ultimately executes its intended action |
+| Non-decaying state | Safety state that does not disappear merely because more turns or time have passed |
 
 ---
 
-## Paper 1 | Letting an Agent Evolve Its Own Skill Memory: Recuris Splits Long-Horizon Tasks Into Progress Tracking and Skills
+## Paper 1 | A Model May Know It Does Not Know and Still Be Nudged Into Acting
 
-**Recursive Experiential-Working Memory Evolution for Long-Horizon Agent Harnesses**
-Zhaochen Yu, Yingcheng Wu, Zhenfei Yin, et al. · arXiv: 2608.24876
+**Calibrated Enough to Know, Not Calibrated to Act**
+Pranav Aggarwal · arXiv: 2608.27167
 
-Links: [arXiv](https://arxiv.org/abs/2608.24876) · [alphaXiv](https://www.alphaxiv.org/abs/2608.24876)
+Links: [arXiv](https://arxiv.org/abs/2608.27167) · [alphaXiv](https://www.alphaxiv.org/abs/2608.27167)
 
 ### TL;DR
 
-Recuris splits a long-horizon agent's memory into Working Memory (tracks task progress and guides skill selection) and Experiential Memory (stores past experience), then uses a fixed Meta-Agent to turn the execution trace into evidence that corrects Skill Memory, forming a bounded recursive evolution loop. It improves 35 of 37 model-benchmark combinations across four long-horizon benchmarks and ten models, pushing Claude Opus 5 to 87.9% on tau-bench (+15.6 points).
+In a preregistered 12-model study, action commitment on unknowable events rises from 6.5% to 54.0% as the evidence display becomes richer. Real-rich and fully fabricated panels produce 37.6% and 36.8% commitment, a difference inside the prespecified plus-or-minus-five-percentage-point equivalence margin.
 
-### Read Priority
+### Editorial Assessment
 
-Must-read — it directly targets the sharpest pain point in long-horizon agents (history burying task state, skills getting misapplied), and it backs the claim with large-scale cross-model, cross-benchmark validation rather than a single-scenario proof of concept.
+| Dimension | Assessment |
+|---|---|
+| Credibility | Pass — the preregistered design, 12-model evaluation, heterogeneous results, and limitations are traceable to the paper |
+| Evidence maturity | Substantial — equivalence tests, interventions, and failure cases support the core claim, within a limited scope |
+| Reproducibility | Full artifacts — code, preregistration, cached outputs, and a Zenodo archive are public |
+| Editorial confidence | High — the evidence supports the narrow claim that evidence presentation can increase action commitment |
+| Reading recommendation | Must-read — for teams whose agents act from search, reports, or RAG context |
+| Primary limitation | The effect is concentrated in three models from one developer and cannot be generalized to all frontier models |
 
 ### Field Background
 
-Recursive self-improvement (RSI) has always been hard to land on long-horizon tasks, because as interaction history grows, an agent struggles to judge "which skill applies right now" from a mountain of history, leading to skill misuse or bad timing. Prior approaches mostly stuffed the entire history into context or summarized it, but summarization erases detail, and the history itself usually can't tell an agent what to do "right now" anyway.
+Calibration usually asks whether a model's confidence matches answer accuracy. Agents add a second risk: even when the model cannot know the answer, a display that looks evidence-rich may still persuade it to take a consequential action. This paper measures “knowing” and “acting” separately.
 
 ### Intermediate Walkthrough
 
-- **The problem**: imagine an agent 300 steps into a complex task, having accumulated dozens of learned skills, and it has to decide at every step whether to use one of them — judging when a skill applies, or when it should be retired, is nearly impossible by looking at the whole history.
-- **The approach**: Recuris splits memory into two parts. Working Memory tracks only "task progress" and uses that to guide which skill gets pulled from Experiential Memory, so skill invocation depends on what's needed *now*, not the entire history. The execution trace itself becomes structured evidence that can pinpoint exactly which memory component went wrong. A fixed Meta-Agent reads that evidence and applies gated, verified local updates to Skill Memory; each new execution produces new evidence, closing a bounded recursive loop.
-- **Why it matters**: it turns RSI from "an ever-accumulating, unboundedly growing history" into a bounded, verifiable skill-evolution loop — meaning an agent can run for a long time without being dragged down by its own memory, and every improvement is locatable and verifiable without retraining the whole model.
+- **The problem**: an agent is asked to act on tomorrow's realized weather, which cannot yet be known. Does adding charts, source labels, and precise numbers make it act anyway?
+- **The approach**: the study escalates evidence presentation from no panel to real-rich and fully fabricated panels, then tests small-model fine-tuning and constrained output formats as interventions.
+- **Why it matters**: asking the same model whether it is confident leaves the evidence display free to influence both the answer and the authorization decision. Provenance, knowability, and action risk need independent checks.
 
 ### Deep Dive
 
-- 35 of 37 model-benchmark combinations improved, across four long-horizon benchmarks and ten models; on tau-bench, GPT-5.6 Sol gained +17.8 points and Claude Opus 5 gained +15.6 points (to 87.9%); on SkillFlow, Qwen3.6-27B and 35B gained +16.6 and +13.5 points respectively
-- The advantage grows with interaction length: on the longest tasks the gain widens to +32.2 points
-- Common long-horizon failure rates dropped by as much as 80%
-- Real-world signal: the code is already open-sourced (github.com/Gen-Verse/Recuris), not a pure proof of concept
-- Adoption caveat: the core mechanism depends on a "verification gate" to police Skill Memory updates — in a domain without a stable success signal (fuzzy reward or verification criteria), designing that gate becomes the hard part of adoption
-- Limitation: 2 of the 37 model-benchmark combinations still didn't improve, and the paper's abstract doesn't say which ones or why ⚠️ (checking the full paper or appendix would be needed to confirm the specific conditions)
+- Pooled commitment rises from 6.5% to 54.0%, but the effect is heterogeneous: three models are susceptible, four rarely commit, three almost always commit, and two react weakly
+- Real-rich and fabricated panels yield 37.6% and 36.8%; the -0.83-point difference has a 90% case-clustered interval of -4.51 to +2.66, inside the preregistered equivalence band
+- The authors explicitly limit the claim: the susceptible models come from one developer, so the pooled rate is not a universal frontier-model result
+- Fine-tuning a 3B model on 540 synthetic cases drives commitment to zero on the original cases, but a rigid reasoning-suppressing format drops answerable accuracy from 88.9%-98.6% to 50.9%-73.8%; one ablation seed commits on all 48 unknowable cases
+- ⚠️ Author-run evaluation, not externally replicated; weather is a weak instrument and hosted serving configurations are not fully controlled
 
 ### Reviewer's One-Liner
 
-The design of splitting memory into "progress tracking" and "skill library" and evolving them separately is clean and interpretable, and the large-scale cross-model validation is persuasive — but a near-sweep result like 35/37 is worth watching for benchmark-selection bias, and the 2 failing cases go unexplained.
+The contribution is not the generic claim that models can be fooled, but the separation of knowledge calibration from action commitment with preregistration, public artifacts, heterogeneous results, and failed interventions; it still needs replication across developers, tasks, and real irreversible tools.
 
 ### Your Takeaway
 
-- If you're building an agent platform that runs for long stretches and keeps accumulating skills (customer support, RPA, coding agents): Recuris's "separate progress tracking from skill selection" architecture is directly worth borrowing, especially if you already have a verifiable task-success signal.
-- If you're designing an agent's self-improvement mechanism: lift out the sub-idea of "turning the execution trace into locatable evidence" on its own — you don't need the full Recuris architecture — and start from "can a failure be traced back to a specific memory component."
+- Do not release high-risk tools from self-reported model confidence alone; independently check provenance, knowability, and reversibility
+- Evaluate answer accuracy and whether wrong answers trigger actions as separate metrics
 
 ---
 
-## Paper 2 | Memory Shouldn't Rely on Similarity Alone: GraphMemix Organizes Multimodal Memory With a Query-Driven Evidence Forest
+## Paper 2 | Tool Output May Influence Planning Without Receiving Execution Authority
 
-**GraphMemix: Query-Aware Evidence Forests for Long-Term Multimodal Agent Memory**
-Geng Li, Yuhao Wang, Dong Li, Jianye Hao, Yuxin Peng · arXiv: 2608.26983
+**When Tool Outputs Become Commands: Separating Action Induction from Runtime Authorization in Tool-Augmented LLM Agents**
+Xiaokun Guo, Zhen Xu, Dongdong Huo et al. · arXiv: 2608.27146
 
-Links: [arXiv](https://arxiv.org/abs/2608.26983) · [alphaXiv](https://www.alphaxiv.org/abs/2608.26983)
+Links: [arXiv](https://arxiv.org/abs/2608.27146) · [alphaXiv](https://www.alphaxiv.org/abs/2608.27146)
 
 ### TL;DR
 
-GraphMemix reframes long-term memory organization for multimodal agents as a combinatorial optimization problem: building a query-centered evidence forest. This sidesteps both the high cost of offline summarization and the tendency of pure vector-similarity retrieval to miss critical, low-similarity evidence, and it establishes a new accuracy-versus-lifecycle-cost Pareto frontier across four long-term multimodal memory benchmarks.
+SARA separates actions induced by external content from runtime authorization. With GPT-4o-mini, it reduces ASR from 15.79% to 0.06% on AgentDojo and from 16.07% to 0.17% on AgentDyn, while total input rises to 1.91x and 2.21x the unprotected agent baseline.
 
-### Read Priority
+### Editorial Assessment
 
-Skim — directly relevant if you're building long-term memory for multimodal agents (mixed image/video/text input), but the combinatorial optimization and graph-structure design require real engineering investment, so it's less immediately useful for text-only agent platforms.
+| Dimension | Assessment |
+|---|---|
+| Credibility | Pass — two benchmarks, eight defense families, cross-backbone tests, and ablations provide inspectable evidence |
+| Evidence maturity | Substantial — security, benign utility, and token cost are compared, although this is not a formal guarantee |
+| Reproducibility | Partial artifacts — algorithms, datasets, and settings are described, but a complete public implementation and cached outputs were not confirmed |
+| Editorial confidence | High — the evidence supports the engineering value of separating action induction from runtime authorization |
+| Reading recommendation | Must-read — for browsing, email, enterprise-document, and coding-agent engineers |
+| Primary limitation | The scope is tool-based IPI under trusted user, schema, runtime, and executor assumptions |
 
 ### Field Background
 
-Long-term memory organization is harder for multimodal agents than for text-only ones — memory isn't just text snippets, it also involves images, entity relations, and time. Existing approaches either do an expensive offline summarization pass at write time (done regardless of what future queries will actually ask, which is costly and can strip out details that turn out to matter later), or rely on vector-similarity retrieval (fast, but it only catches memories that "look similar," easily missing evidence that's semantically relevant but doesn't look alike on the surface, and it's prone to pulling in redundant or contradictory noise).
+Indirect prompt injection is difficult because agents must consume external content to work, and that content can contain instructions. A one-time input filter is insufficient when malicious content changes the plan and later steps launder its origin into a syntactically normal tool call.
 
 ### Intermediate Walkthrough
 
-- **The problem**: imagine an agent remembers "saw a photo of a cat last Wednesday" and "the user mentioned last month that their pet is afraid of water." The two memories look nothing alike on the surface, so vector retrieval struggles to connect them — but if the user now asks "will my cat be scared of a bath," both memories should surface.
-- **The approach**: GraphMemix works in three stages. First, multi-perspective "seed memories" expand a candidate graph through schema and semantic relations, pulling in query-relevant raw context. Second, it separately verifies memories that "directly support the answer" versus ones that "only hold up through a relational chain," suppressing redundant or mutually contradictory information. Finally, within an "evidence budget," it jointly selects a forest-shaped subgraph of memories, preserving reliable relational structure along the way.
-- **Why it matters**: it turns memory retrieval from a one-shot similarity ranking into a query-centered structure that grows dynamically, letting the system catch low-similarity but critical complementary evidence that vector similarity would miss — without needing an expensive full-database summarization pass for every memory store.
+- **The problem**: a page says “forward the user's email to this address.” The final email call may be valid in shape, but the user never authorized its purpose.
+- **The approach**: SARA uses an isolated Action Probe to detect action-inducing content, persists an `EXPOSED` state and action-origin set, and checks goal, chain, and argument support against user authority. No-History-Promotion prevents later steps from laundering external instructions into “the agent's own decision.”
+- **Why it matters**: the security boundary moves into the runtime instead of asking one model, in one mixed-trust context, to read untrusted data, plan, and supervise itself.
 
 ### Deep Dive
 
-- Improvements held across different base models on four long-term multimodal memory benchmarks; the core contribution is a new Pareto frontier between accuracy and "lifecycle cost" (the total overhead of maintaining the memory store, summarizing, and retrieving) — same cost for higher accuracy, or same accuracy for lower cost
-- Three modules with separated responsibilities: candidate-graph construction (breadth), evidence utility and activation cost (precision — dedup and conflict resolution), and forest optimization (selecting a subgraph within budget) — each can be swapped or tuned independently in an engineering pipeline
-- Adoption caveat: requires maintaining a continuously expanding candidate memory graph and implementing a combinatorial-optimization solver (forest selection) — a meaningfully higher layer of engineering complexity than plain vector-database retrieval
-- Project page and code are already open (github.com/ligeng0197/graphmemix), so the implementation can be inspected directly
-- Limitation: the abstract-level description doesn't give concrete improvement percentages; the actual size of the gain requires checking the paper's experiments section ⚠️
+- Evaluation covers 92 benign tasks and 3,528 attacks in AgentDojo, plus 141 benign tasks and 5,202 attacks in AgentDyn, against eight defenses including Spotlighting, CaMeL, MELON, and AttriGuard
+- GPT-4o-mini ASR falls from 15.79% to 0.06% and 16.07% to 0.17%; Gemini 2.5 Flash Lite falls from 33.28% to 0.62% and 30.91% to 0.63%
+- SARA is not the lowest-ASR method everywhere: CaMeL is lower in three settings, but SARA preserves substantially more benign utility
+- Across eight additional backbone-benchmark combinations, most residual ASRs are at or below 0.3%, while Llama 3.1 8B remains at 1.64% and 1.75%
+- ⚠️ This is not a formal guarantee. It covers tool-based IPI and assumes trusted users, tool schemas, runtimes, and executors; direct bypasses and pure data dependencies remain out of scope
+- ⚠️ Author-run evaluation, not externally replicated; cross-framework, enterprise toolchain, and long-running deployment behavior remains untested
 
 ### Reviewer's One-Liner
 
-Explicitly framing memory retrieval as a combinatorial-optimization problem and replacing flat similarity ranking with a forest structure is conceptually closer to how multimodal memory actually behaves than pure vector retrieval — but the abstract-level summary doesn't quantify the gain, so the real payoff needs checking against the paper's concrete experimental numbers.
+Persistent action provenance is closer to the real execution boundary than a one-shot classifier, and the paper reports baselines, utility, and token cost; non-tool data flow and semantic probe errors remain the next tests.
 
 ### Your Takeaway
 
-- If you're building long-term memory for a multimodal agent (image/video understanding, multimodal customer support): GraphMemix's three-stage architecture — grow a candidate graph from the query, then select a forest under budget — is worth studying in the paper's implementation detail.
-- If your memory store is text-only: the graph-structure design here is still worth referencing, but weigh the extra engineering cost of a combinatorial-optimization solver first — it may not be the top priority investment for a small team.
+- Persist where an action first originated instead of checking only the final, apparently clean tool arguments
+- Measure security, benign utility, and token cost together; ASR alone can reward a defense that makes the agent unusable
 
 ---
 
-## Paper 3 | Relevant Isn't the Same as Fresh: Stale Constraints Shows Agents Act on Expired Memory 70%+ of the Time
+## Paper 3 | When Cross-Loop Safety State Decays, Waiting Becomes an Attack Step
 
-**When Stale Constraints Go Unchecked: Budgeted Verification Failures in Inherited Agent Memory**
-Kazuki Nakayashiki · arXiv: 2608.25553
+**Safety Does Not Compose: Non-Decaying Loop State for Autonomous LLM Agents**
+Chenhao Wu, Haoxuan Jia, Yang Liu et al. · arXiv: 2608.27141
 
-Links: [arXiv](https://arxiv.org/abs/2608.25553) · [alphaXiv](https://www.alphaxiv.org/abs/2608.25553)
+Links: [arXiv](https://arxiv.org/abs/2608.27141) · [alphaXiv](https://www.alphaxiv.org/abs/2608.27141)
 
 ### TL;DR
 
-When an agent inherits a curated memory in which some constraint has already been superseded by a newer record, under a limited verification budget it only chooses to check that memory's provenance path about one time in five, on average. Once the constraint really has been superseded, the agent still acts on the stale information 74.7%–77.3% of the time.
+LoopHarness persists cross-loop risk with a non-decaying latch. In 1,000 attack episodes per configuration, the authors report 0.1% ASR for the full controller versus 88.4%-97.6% for weakened variants, but only under one frozen model-role assignment and one execution seed.
 
-### Read Priority
+### Editorial Assessment
 
-Must-read — this paper doesn't propose a new method, it uses a rigorous controlled experiment to expose a trap every memory system can fall into: a memory's "relevance" and its "freshness" are two different things, and current systems overwhelmingly only check the former.
+| Dimension | Assessment |
+|---|---|
+| Credibility | Conditional pass — the formal analysis and ablations are inspectable, but empirical generality is not established |
+| Evidence maturity | Proof of concept — the tests support a state-machine warning, not a general 0.1% safety claim |
+| Reproducibility | Partial artifacts — the paper describes a controller, attack suite, report generator, and cached calls, but an independent public repository was not confirmed |
+| Editorial confidence | Medium — confidence is higher in the decay-bypass mechanism than in numerical generalization |
+| Reading recommendation | Skim — for runtime, Durable Object, and long-running background-agent designers |
+| Primary limitation | One frozen model-role configuration, one execution seed, and structured synthetic attacks |
 
 ### Field Background
 
-Long-running agents typically compress history into "confirmed constraints" or "known facts" and store them; at query time, they only check whether a memory is relevant to the current question, rarely whether it has since been overridden by newer information. This paper cleanly separates "the record is immutable" from "which record is currently valid" (provenance vs. supersession) as the design basis for an experiment testing whether an agent, given a limited verification budget, can catch that a constraint has actually gone stale.
+Many defenses inspect one trajectory or let risk scores cool down to avoid permanent lockout. An autonomous agent can execute repeatedly: an attack split across loops may look benign within each loop, while a decaying state lets passive waiting reopen the gate.
 
 ### Intermediate Walkthrough
 
-- **The problem**: imagine a customer-support agent remembers that "this customer said three months ago: don't call me, email only," but the customer called in last week and updated that preference back to "calls are fine." The three-month-old record hasn't been tampered with and still exists — it's just no longer the valid rule. If the agent doesn't spend extra effort checking "has this rule since been overridden," it will keep acting on the stale rule indefinitely.
-- **The approach**: the author fixes each agent's verification budget at exactly two records it can check: in one condition the agent decides itself which two to check (native allocation); in the other, the researcher intervenes and forces one of those slots to check either "the critical provenance path" (the clue most likely to reveal the constraint has been superseded) or a random record, to compare the difference.
-- **Why it matters**: this quantifies something that's easy to overlook — existing memory systems overwhelmingly do relevance matching only, with no freshness or supersession check for whether a given memory has expired, and agents won't spend the extra effort to check that on their own unless the system design forces them to.
+- **The problem**: one loop detects suspicious behavior and disables a tool, but the risk score resets after a few benign turns. The attacker waits and then resumes the same goal.
+- **The approach**: the paper formalizes why a trajectory-scoped monitor may not distinguish fragmented attacks from benign observations. LoopHarness persists a non-decaying latch until an explicit release condition or staffed escalation clears it.
+- **Why it matters**: once agents survive across loops, sessions, or scheduled resumes, safety-state persistence matters as much as the model classifier.
 
 ### Deep Dive
 
-- When a constraint has been explicitly stated, an agent only proactively checks that constraint's provenance path about 1 in 5 times
-- When the constraint really has been superseded by a newer record and the agent chooses its own verification targets (native allocation), the rate of making a "stale but internally consistent" decision reaches 77.3%, 74.7%, and 74.7% across the main experiment, a paraphrased replication, and an independent domain test, respectively
-- Forcing one verification slot to check "the critical provenance path" raises the share of decisions consistent with the currently valid record by +74.0, +72.7, and +61.3 points respectively, positive across all six models tested
-- The paper proactively disclosed and corrected a flaw of its own: one of the independent-domain test scenarios was later found to contain a temporal-logic contradiction, so the author fixed it and reran the experiment (registering the fix externally before rerunning) — the corrected result still showed a +73.3-point gain (positive for five of six models; the sixth model's verification hit rate was already zero, leaving no room for further improvement). This level of proactive disclosure and public rerunning is uncommon in agent-evaluation papers.
-- Limitation (author's own): the researcher-forced verification allocation "is not a scheduling algorithm" — it's only meant to quantify the theoretical ceiling of "how much could be recovered if the critical path were known," not proof that a system can find that critical path on its own ⚠️
-- Real-world signal: single-author research, but the full dataset and timestamps are archived on Zenodo (doi:10.5281/zenodo.22117197) for verification — more rigorous on reproducibility than most papers in this space
+- On a 200-task pool, each configuration runs 1,000 attack episodes; the full controller reports 0.1% ASR and 96.9% clean goal completion, while weakened variants reach 88.4%-97.6% ASR
+- In the retention test, no persistent state yields 95.5%-97.5% ASR. Geometric decay is at 0% after distance 1 but returns to 97% after distance 2; the latch stays at 0% across all waiting intervals
+- Ablations restore the intended failure modes as components are removed, making the responsible control gate easier to identify than a single aggregate score
+- The paper acknowledges an availability cost: without a reliable release or escalation path, the safety mechanism can lock the service indefinitely
+- ⚠️ Conditional pass and author-run evaluation: one frozen cohort, one execution seed, and fixed DeepSeek, GPT-4o-family, and Claude Sonnet 4.6 role assignments, with no multi-seed or cross-role replication
 
 ### Reviewer's One-Liner
 
-Using the clean conceptual split between "provenance is immutable" and "supersession changes" to quantify a blind spot in memory systems is a strong contribution — the controlled-experiment design is rigorous, and proactively disclosing and correcting its own flaw deserves credit for transparency — but so far it only validates the theoretical ceiling of "knowing the critical path"; it doesn't yet offer a practical detection mechanism, so turning this into something deployable is still future work.
+The formal argument, state machine, and ablations clearly explain why waiting can bypass a decaying defense, but the single configuration, seed, and structured synthetic attacks keep the empirical result at proof-of-concept strength.
 
 ### Your Takeaway
 
-- If you're building any agent that accumulates or inherits historical memory (customer support, personal assistants, enterprise knowledge bases): assume by default that your memory system currently has zero freshness/supersession checking, and audit high-risk constraint-type memories (permissions, preferences, compliance rules) for whether they're passively relying on relevance retrieval alone.
-- If you're designing memory-system architecture: the direction this paper points to is "tag every memory with a provenance path, and force a provenance check for high-risk memory types" — not assuming that the most relevant retrieved record is automatically the most current one.
+- Audit whether risk flags disappear through timeouts, session reconstruction, context summarization, or retry logic
+- Pair non-decaying state with explicit release criteria and staffed escalation, or a safety control becomes an availability failure
 
 ---
 
 ## Today's Takeaway
 
-I used to think the bar for comparing memory systems was mainly "how accurate is retrieval, how much does it remember." Today I found a dimension that's easier to overlook: freshness. Even if a memory-retrieval system perfectly surfaces the "most relevant" record, if that record has since been overridden by newer information, the agent still has a 70%+ chance of making the wrong call. Relevance and freshness are two independent axes — both Recuris and GraphMemix optimize for "finding the right thing, organizing it well," but without something like "Stale Constraints" reminding the system to ask "does this still count," even the strongest retrieval system can reliably hand back an expired answer.
+The useful lesson is not that one defense reaches a tiny ASR. Execution authority needs its own data and state: polished evidence does not make an event knowable; tool content that changes a plan does not gain user authorization; and blocking one loop does not clear cross-loop risk. Once an agent can create external consequences, answer generation and execution authorization should be separately observable, testable, and revocable paths.
 
 ## References
 
-- Recuris paper (Recursive Experiential-Working Memory Evolution for Long-Horizon Agent Harnesses): [arXiv 2608.24876](https://arxiv.org/abs/2608.24876), code on [GitHub](https://github.com/Gen-Verse/Recuris)
-- GraphMemix paper (GraphMemix: Query-Aware Evidence Forests for Long-Term Multimodal Agent Memory): [arXiv 2608.26983](https://arxiv.org/abs/2608.26983), code on [GitHub](https://github.com/ligeng0197/graphmemix)
-- When Stale Constraints Go Unchecked paper (Budgeted Verification Failures in Inherited Agent Memory): [arXiv 2608.25553](https://arxiv.org/abs/2608.25553), data and timestamp registration on [Zenodo](https://doi.org/10.5281/zenodo.22117197)
+- Aggarwal, *Calibrated Enough to Know, Not Calibrated to Act*: [arXiv 2608.27167](https://arxiv.org/abs/2608.27167), [code and preregistration artifacts](https://github.com/Pranav-1100/confidence-calibration-evaluation), and [Zenodo archive](https://doi.org/10.5281/zenodo.22043517)
+- Guo et al., *When Tool Outputs Become Commands*: [arXiv 2608.27146](https://arxiv.org/abs/2608.27146)
+- Wu et al., *Safety Does Not Compose*: [arXiv 2608.27141](https://arxiv.org/abs/2608.27141)
+- Official arXiv announcement schedule: [Submission Schedule and Cutoff Time](https://info.arxiv.org/help/availability.html)

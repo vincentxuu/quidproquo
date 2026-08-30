@@ -133,7 +133,7 @@ Both houses of Australia's Parliament established a Joint Select Committee on AI
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-arxiv-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-github-digest)
 - 📄 [Model Card｜BreezeBlue Breeze TTS 2](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2-en)
 - 📄 [Pricing Watch｜OpenAI Assistants API Officially Retired](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset-en)

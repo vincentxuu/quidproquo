@@ -1,11 +1,11 @@
 ---
 name: daily-digest-arxiv
-description: "Routine A: daily Arxiv cs.AI/cs.CL/cs.MA digest for quidproquo.cc/daily. Scans arxiv for AI Agent related papers, produces a structured digest post."
+description: "Routine A: daily Arxiv cs.AI/cs.CL/cs.MA digest for quidproquo.cc/daily. Screens new AI Agent papers through a credibility gate, then selects up to three directions worth knowing today."
 ---
 
 # daily-digest-arxiv
 
-每日掃描 arxiv 新論文，篩選 3 篇與 AI Agent 最相關的論文，產出深讀導讀文章。
+每日掃描 arxiv 新論文，先排除證據撐不起主張的內容，再選出最多 3 篇今天值得知道的 AI Agent 新方向，產出深讀導讀文章。合格候選不足時可以少於 3 篇；沒有合格候選就不硬產文章。
 
 ---
 
@@ -15,20 +15,28 @@ description: "Routine A: daily Arxiv cs.AI/cs.CL/cs.MA digest for quidproquo.cc/
 # Step 1: 準備
 git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
+SCREENING_RECORD=".research/daily-arxiv-screening/${TODAY}.json"
 
 # Step 2: 冪等檢查——已產出就不重做
 [ -f "src/content/posts/daily/${TODAY}-ai-agent-arxiv-digest.md" ] && echo "已產出" && exit 0
+[ -f "${SCREENING_RECORD}" ] && echo "今日篩選已完成" && exit 0
 
 # Step 3: 讀 watchlist（判斷論文相關性時用）
 cat src/data/agent-watchlist.json | head -100
 
-# Step 4: 執行「搜尋方法」取得候選論文
-# Step 5: 執行「篩選規則」從候選中選 3 篇
-# Step 6: 對每篇論文執行「論文詳情抓取」
-# Step 7: 依「輸出格式」撰寫文章
+# Step 4: 取得尚未篩選的最新官方公告批次候選論文
+# Step 5: 執行「選案標準」，先過可信度門檻，再選 0-3 篇
+# Step 6: 對入選論文完成 metadata 與證據核對
+# Step 7: 依「輸出格式」撰寫 zh-TW 與英文文章，維持雙向語言連結與結構 parity
 # Step 8: 提交
-git add src/content/posts/daily/${TODAY}-ai-agent-arxiv-digest.md
-git commit -m "post(daily): arxiv digest ${TODAY}"
+git add "${SCREENING_RECORD}" src/data/daily-signals/seen-arxiv-ids.txt
+if [ -f "src/content/posts/daily/${TODAY}-ai-agent-arxiv-digest.md" ]; then
+  git add "src/content/posts/daily/${TODAY}-ai-agent-arxiv-digest.md" \
+    "src/content/posts/daily/${TODAY}-ai-agent-arxiv-digest-en.md"
+  git commit -m "post(daily): arxiv digest ${TODAY}"
+else
+  git commit -m "chore(daily): arxiv screening ${TODAY}"
+fi
 git push origin main || { git pull --rebase origin main && git push origin main; }
 ```
 
@@ -50,7 +58,18 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ## 搜尋方法
 
-### Step 4a：用 Groundlane `web_search` 搜尋（跑 3 組查詢，兩個引擎都跑）
+### Step 4a：先鎖定官方公告批次
+
+每日時間窗以 arXiv 官方 `list/{category}/new` 顯示的最新公告批次為準，不以 Atom API 的 `published`／作者 submission timestamp 直接推算「過去 48 小時」。arXiv 原則上只在週日至週四公告；週末、假日或品質檢查延遲時，submission timestamp 與公開可讀日期可能不同。
+
+1. 讀取 `https://arxiv.org/list/cs.AI/new`、`cs.CL/new`、`cs.MA/new`，記錄頁面顯示的公告日期。
+2. 選擇三類中最新、且尚未留下篩選紀錄的公告批次；若當天沒有新公告，就沿用最近一次尚未篩選的公開批次，不把週末解讀為「零篇投稿」。
+3. 把公告批次日期與來源 URL 寫入篩選紀錄；`submittedAt` 另存為 metadata，兩者不得混用。
+4. 若最新批次已完整篩選，冪等結束，不重選已見論文。
+
+官方公告時程：[arXiv Submission Schedule and Cutoff Time](https://info.arxiv.org/help/availability.html)。
+
+### Step 4b：用 Groundlane `web_search` 補充發現
 
 對每組查詢跑 Groundlane `web_search`，合併結果並以 URL 去重：
 
@@ -76,13 +95,15 @@ time_range: "day"
 max_results: 10
 ```
 
-### Step 4b：去重
+### Step 4c：去重
 
 合併所有結果，用 arxiv ID 去重。此時應有 15-30 篇候選論文。
 
 ---
 
 ## 篩選與主題決定
+
+執行本節前，完整閱讀 [`references/selection-standard.md`](references/selection-standard.md)。該文件定義可信度門檻、方向價值標籤、選取數量、篩選紀錄與文章語氣；不得只依標題、摘要、作者聲望或單一 relevance score 決定入選。
 
 ### Step 5a：初篩（從 15-30 篇候選中排除不相關的）
 
@@ -101,13 +122,26 @@ max_results: 10
 
 初篩後應剩 5-15 篇候選。
 
-### Step 5b：找聚類，決定今日主題
+### Step 5b：可信度門檻
+
+對初篩後候選先讀摘要，再對可能入選者讀取足以核對主張的正文段落，至少涵蓋方法、實驗／分析、比較基準與限制。依選案標準標為「通過／有條件通過／排除」。
+
+- 只讀摘要不得判定「通過」。
+- 新穎性不能抵銷證據缺陷。
+- 「有條件通過」可以入選，但文章必須說明證據仍初步或適用範圍有限。
+- 「排除」不得進入後續排序。
+
+### Step 5c：比較今天是否值得知道
+
+對通過可信度門檻的候選標註：本站相關性、方向新意、今日重要性、實務連結。先選最值得知道的方向，再看能否形成自然主題；不要先找最大聚類再硬塞較弱論文。
+
+### Step 5d：找聚類，決定今日主題
 
 對剩餘候選論文做主題聚類：
 
 1. **讀每篇的標題和摘要**，用一個詞概括它在談什麼（如「記憶」「安全」「評測」「工具呼叫」「多Agent」）
-2. **找最大的自然聚類**——哪個主題詞出現最多？有沒有 3+ 篇論文可以被同一條線串起來？
-3. **決定今日主題**——用一句話寫出這個聚類的共同問題（如「Agent 怎麼記住重要的事」「現有評測是否反映真實能力」）
+2. **找最有編輯價值的自然聚類**——哪個共同問題最值得讀者今天知道？篇數只是輔助訊號，不以最大聚類自動勝出。
+3. **決定今日主題**——用一句話寫出入選論文的共同問題（如「Agent 怎麼記住重要的事」「現有評測是否反映真實能力」）
 
 **聚類判斷範例**：
 
@@ -119,11 +153,11 @@ max_results: 10
 | Adaptive Adversaries Benchmark | 安全 | |
 | Multi-Agent Protocol Design | 多Agent | |
 
-→ 今日主題：「Agent 的記憶管理」，選這三篇。
+→ 三篇都通過可信度門檻且今日重要性較高時，今日主題可定為「Agent 的記憶管理」。
 
-### Step 5c：選 3 篇（同一聚類，不同角度）
+### Step 5e：選 0-3 篇
 
-從最大聚類中選 3 篇，確保覆蓋不同角度：
+依方向價值選最多 3 篇；有 2 篇以上時，盡量覆蓋不同角度：
 
 | 角度 | 說明 | 範例 |
 |---|---|---|
@@ -131,16 +165,20 @@ max_results: 10
 | 評測/極限 | 測試或揭示能力邊界 | Shadow Eval 證明 Agent 不能做研究 |
 | 應用/安全 | 實際部署或安全面 | Adaptive Adversaries 揭示評測漏洞 |
 
-**如果找不到 3 篇同聚類**：放寬到 2 篇同聚類 + 1 篇最佳獨立論文，主題寫成「X 與 Y」的並列形式。
+**如果只有 1-2 篇合格**：只寫 1-2 篇，不用獨立低分論文補滿；標題與總覽按實際篇數撰寫。
 
-**如果完全沒有聚類**（每篇都不同主題）：選 3 篇最高影響力的，主題寫成「今天三個獨立的重要進展」，但這應該很少發生。
+**如果入選論文沒有聚類**：可用「今天值得知道的 N 個獨立方向」，但每篇仍須個別通過門檻。
 
-### Step 5d：去重記錄
+**如果 0 篇合格**：不產文章、不拿舊聞或低可信度候選補版面；在篩選紀錄標為 `no-publication`，並回報本時間窗沒有同時通過可信度門檻與今日重要性判斷的論文。
 
-選定 3 篇後，把它們的 arxiv ID 追加到去重檔案：
+### Step 5f：保存篩選與去重記錄
+
+依選案標準把完整候選決策寫入 `.research/daily-arxiv-screening/${TODAY}.json`。即使候選被排除，也要保存簡短理由，供後續校正 selection standard；讀者文章不列未入選清單。
+
+選定 1-3 篇後，把入選者的 arxiv ID 追加到去重檔案：
 
 ```bash
-echo "${TODAY}: {id1}, {id2}, {id3}" >> src/data/daily-signals/seen-arxiv-ids.txt
+echo "${TODAY}: {selected_ids}" >> src/data/daily-signals/seen-arxiv-ids.txt
 ```
 
 ---
@@ -153,8 +191,10 @@ echo "${TODAY}: {id1}, {id2}, {id3}" >> src/data/daily-signals/seen-arxiv-ids.tx
 
 1. 優先用 arXiv API / official export 取得 metadata。
 2. 用 Groundlane `web_fetch` 抓 `https://arxiv.org/abs/{arxiv_id}` 讀摘要頁。
-3. 若已知 URL 失敗，用 Groundlane `web_search` 搜尋 `arxiv.org/abs/{arxiv_id}` 找可讀鏡像或官方替代頁。
-4. 若 Groundlane 未授權，回報 blocker，請使用者依 Groundlane free API / free tier 方式完成授權。
+3. 對可能入選者，再用 Groundlane 讀官方 HTML／PDF 中與方法、實驗、比較、限制有關的正文段落；控制擷取範圍，不要把全文一次塞入 context。
+4. 若官方正文不可讀，最多只能判為「有條件通過」，不得假裝已核對完整研究證據。
+5. 若已知 URL 失敗，用 Groundlane `web_search` 搜尋 `arxiv.org/abs/{arxiv_id}` 找可讀的官方替代頁。
+6. 若 Groundlane 未授權，回報 blocker，請使用者依 Groundlane free API / free tier 方式完成授權。
 
 從抓取結果中提取（**缺任何一項就換下一篇候選**）：
 - **標題**
@@ -162,10 +202,11 @@ echo "${TODAY}: {id1}, {id2}, {id3}" >> src/data/daily-signals/seen-arxiv-ids.tx
 - **機構**（若有）
 - **arxiv ID**
 - **摘要**（用於寫導讀，但不直接翻譯貼上）
-- **提交日期**：確認是過去 48 小時內
+- **公告批次日期**：確認屬於本次鎖定的官方 `new` listing 批次
+- **提交日期**：另存 metadata，不拿來替代公告批次日期
 - **分類**：確認屬於目標分類（cs.AI / cs.CL / cs.MA）
 
-**注意**：不要抓 `/html/` 全文版（會超過 token 上限），只抓 `/abs/` 摘要頁即可。
+**注意**：摘要頁用於 metadata 與初篩，不足以判定研究可信度。正文採分段、selector 或 bounded extraction；不要一次讀入完整 `/html/` 或 PDF。
 
 ---
 
@@ -180,8 +221,8 @@ date: YYYY-MM-DD
 category: daily
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
-description: "一句話，串起今天三篇論文的共同主題"
-tldr: "三篇論文的一句話結論，用分號隔開"
+description: "一句話，串起今天入選論文的共同主題"
+tldr: "入選論文的一句話結論，用分號隔開"
 series:
   name: "AI Agent Arxiv Digest"
   order: N
@@ -195,8 +236,8 @@ series:
 ```markdown
 ## 今日總覽
 
-{3-5 行，串起今天三篇論文的共同主題。不是列表，是一段有觀點的文字。
- 要回答：今天這三篇合起來告訴我們什麼？}
+{3-5 行，串起今天入選論文的共同主題。不是列表，是一段有觀點的文字。
+ 要回答：這些論文合起來告訴我們什麼？證據成熟到什麼程度？}
 
 ## 讀這篇前該知道的詞
 
@@ -204,7 +245,7 @@ series:
 |---|---|
 | {術語} | {一句話解釋，假設讀者是工程師但不是 ML 研究者} |
 
-{列 4-6 個術語，涵蓋三篇論文中非顯而易見的概念}
+{列 4-6 個術語，涵蓋入選論文中非顯而易見的概念}
 
 ---
 
@@ -219,9 +260,16 @@ series:
 
 {一句話結論。必須包含具體數字或核心發現。}
 
-### Read Priority
+### 編輯判斷
 
-{必讀 / 略讀 / 跳過} — {一句話理由，說清楚對誰有用}
+| 面向 | 判斷 |
+|---|---|
+| 可信度 | {通過／有條件通過} — {一句具體依據} |
+| 證據成熟度 | {較完整／初步／概念驗證} — {一句具體依據} |
+| 可復現性 | {完整產物／部分產物／未提供} — {公開了哪些重跑材料} |
+| 編輯信心 | {高／中／低} — {目前敘述強度為何可被支持} |
+| 閱讀建議 | {必讀／略讀／跳過} — {對誰有用} |
+| 主要限制 | {最影響判斷的一項證據限制；沒有就寫「未見重大缺口」} |
 
 ### 領域背景
 
@@ -253,7 +301,7 @@ series:
 
 ---
 
-{論文二、論文三重複以上結構}
+{依實際入選數量重複以上結構，最多三篇}
 
 ## 今日收穫
 
@@ -308,9 +356,16 @@ Shengguang Wu, Hao Zhu, Yuhui Zhang et al.（Stanford University）　·　arxiv
 
 把「記憶管理」當成獨立技能來訓練，完全不改模型的任務行為，光是優化記憶就讓 32B 開源模型在長程遊戲上達到 Claude Opus 4.5 的水準（Crafter 51.4% vs 49.5%）。
 
-### Read Priority
+### 編輯判斷
 
-必讀 — Agent 平台最痛的問題之一就是長程任務的記憶管理。AutoMem 提出一套「讓 LLM 自己學如何管記憶」的自動化框架，效果顯著且架構清楚——是目前最有參考價值的記憶自動調優設計藍圖。
+| 面向 | 判斷 |
+|---|---|
+| 可信度 | 通過 — 正文提供跨 benchmark 實驗與對照組 |
+| 證據成熟度 | 初步 — 核心結果完整，但任務仍限於遊戲環境 |
+| 可復現性 | 部分產物 — 方法與設定可查，主要外部複現仍待補 |
+| 編輯信心 | 高 — 足以支持「記憶可獨立優化」的限縮主張 |
+| 閱讀建議 | 必讀 — 長程 Agent 平台可直接參考架構 |
+| 主要限制 | 尚未驗證真實工作負載的遷移效果 |
 
 ### 領域背景
 
@@ -355,12 +410,18 @@ LLM Agent 做長程任務（long-horizon task，跑幾千步才完成）時，�
 
 ## 品質檢查清單（撰寫完成後逐項確認）
 
-- [ ] 3 篇論文，覆蓋至少 2 個不同面向
+- [ ] 實際收錄 1-3 篇；沒有用低可信度或舊論文補足篇數
+- [ ] 每篇都有「通過／有條件通過」可信度判定，且有正文證據，不只看摘要
+- [ ] 入選論文的內部紀錄包含 `presentation` 與具體理由；沒有把寫作清楚誤當成研究可信
+- [ ] 每篇都有「編輯判斷」表格，包含證據成熟度、可復現性、編輯信心、閱讀建議與主要限制
+- [ ] 收錄 2 篇以上時，盡量覆蓋至少 2 個不同面向
+- [ ] 完整候選與排除理由已寫入 `.research/daily-arxiv-screening/YYYY-MM-DD.json`
 - [ ] 每篇論文都有 arxiv ID 和 `[arxiv]()` + `[alphaxiv]()` 雙連結
 - [ ] 「讀這篇前該知道的詞」有 4-6 個術語
 - [ ] 每篇的「深入要點」包含至少 1 個具體數字
-- [ ] 未複現結果標注 ⚠️ 並說明是誰的自測
-- [ ] 每篇的「給你的 take-away」用「如果你在做 X：」句式，給出具體行動建議
+- [ ] 未複現結果標注 ⚠️ 並說明是誰的自測；有條件通過的論文已降低語氣強度
+- [ ] 每篇的「給你的 take-away」都寫出具體使用情境與可執行動作，不只說「值得關注」
+- [ ] zh-TW 與英文文章同時產出，雙向語言連結、入選篇數與章節結構一致
 - [ ] 「今日收穫」是認知差（之前以為 X → 現在知道 Y），不是摘要
 - [ ] 全文 < 3000 字
 - [ ] description 和 tldr 已填寫
