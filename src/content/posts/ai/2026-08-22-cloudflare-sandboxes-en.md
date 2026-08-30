@@ -8,6 +8,9 @@ lang: en
 tldr: "Cloudflare Sandboxes uses a Worker as the entry point, a named Durable Object as the control plane, and a Container inside an isolated VM as the execution plane. It fits Cloudflare-native fleets of ephemeral Linux workspaces, but persistence, security boundaries, and three layers of billing remain your responsibility."
 description: "A practical breakdown of Cloudflare Sandbox SDK architecture, lifecycle, minimal usage, pricing, security model, limitations, and its selection boundary versus managed sandbox services."
 draft: false
+series:
+  name: "Cloudflare AI Stack"
+  order: 10
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cloudflare-sandboxes)
@@ -112,6 +115,10 @@ The real selection question is whether the team wants to operate Workers, Durabl
 Cloudflare Sandboxes does not invent a new isolation primitive. Its advantage is connecting a complete Linux environment to Cloudflare's existing application control plane. The Worker enforces policy, the Durable Object owns identity and lifecycle, and the Container in an isolated VM handles risky execution. Once those boundaries are explicit, it becomes clear which state disappears, which secrets must stay outside the Container, and which three bills grow together.
 
 Before adopting it, run one real task end to end: derive a sandbox from a tenant ID, clone a repository, install dependencies, run tests, upload artifacts, let it sleep, rebuild it, then measure cold-start latency and total cost. If that flow holds up, Sandboxes is an agent runtime. Otherwise, it is only an attractive `exec()` demo.
+
+## Update Log
+
+- 2026-08-30: Added the post to Cloudflare AI Stack as the Sandbox SDK / agent code execution entry.
 
 ## References
 

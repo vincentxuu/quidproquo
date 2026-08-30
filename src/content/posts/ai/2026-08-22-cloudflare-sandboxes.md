@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Cloudflare Sandboxes 把 Worker 當入口、Durable Object 當具名控制面、獨立 VM 內的 Container 當執行面；適合已在 Cloudflare 上、需要大量短暫 Linux 工作區的 agent，但持久資料、安全邊界與三層費用都得自己設計。"
 description: "拆解 Cloudflare Sandbox SDK 的三層架構、生命週期、最小用法、計價、安全模型與選型界線，說明它和一般代管 sandbox 服務的差異。"
 draft: false
+series:
+  name: "Cloudflare AI Stack"
+  order: 10
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-cloudflare-sandboxes-en)
@@ -16,7 +19,7 @@ draft: false
 
 這個定位很重要。若 agent 要 clone repository、安裝套件、跑測試或啟動開發伺服器，isolate 通常太窄，常駐 VM 又容易浪費閒置資源。Sandboxes 選的是中間路線：保留完整 Linux 工具鏈，用名稱重連同一個執行環境，閒置後自動休眠。截至 2026 年 8 月，Sandboxes 與底層 Containers 已在 4 月[正式 GA](https://blog.cloudflare.com/sandbox-ga/)；Cloudflare 公開的採用案例是 Figma Make，而不是一串難以核對的「客戶數」。
 
-## 三層不是包裝，而是產品的核心取捨
+## 三層架構是產品的核心取捨
 
 官方[架構文件](https://developers.cloudflare.com/sandbox/concepts/architecture/)把請求路徑拆成三層：
 
@@ -33,9 +36,9 @@ Sandbox Durable Object     sandbox ID、路由、生命週期
 獨立 VM 內的 Container     shell、檔案、程序、網路服務
 ```
 
-Worker 是你應該放 authentication、rate limit 與租戶規則的地方。`getSandbox(namespace, id)` 回傳的不是一台剛建立的機器，而是指向具名 Durable Object 的操作介面；相同 ID 會被送回相同位置。Durable Object 擁有 Container 的生命週期，Container 才執行 `exec()`、檔案操作與背景程序。
+Worker 是你應該放 authentication、rate limit 與租戶規則的地方。`getSandbox(namespace, id)` 回傳的不是一台剛建立的機器；它是指向具名 Durable Object 的操作介面，相同 ID 會被送回相同位置。Durable Object 擁有 Container 的生命週期，Container 才執行 `exec()`、檔案操作與背景程序。
 
-這讓 Cloudflare 現有元件自然接在一起：HTTP、WebSocket、Workers binding、日誌與 Cloudflare 網路都在同一套平台內。代價也很直接：你不是只買「sandbox 秒數」，而是在操作 Worker、Durable Object、Container 三個會各自產生限制與費用的元件。
+這讓 Cloudflare 現有元件自然接在一起：HTTP、WebSocket、Workers binding、日誌與 Cloudflare 網路都在同一套平台內。代價也很直接：你買到的不只是一段「sandbox 秒數」；實際上是在操作 Worker、Durable Object、Container 三個會各自產生限制與費用的元件。
 
 預設 transport 讓每個 SDK 動作成為一次 HTTP subrequest。大量連續讀寫時，可依[平台限制文件](https://developers.cloudflare.com/sandbox/platform/limits/)設定 `SANDBOX_TRANSPORT=rpc`，把多個操作 multiplex 到單一持續連線。Paid plan 的單次 Worker request 上限為 1,000 個 subrequests，這不是等流量上來才該處理的細節。
 
@@ -111,9 +114,13 @@ E2B、Modal、Daytona、Runloop 與 Vercel Sandbox 都能提供隔離執行環�
 
 ## 整體來說
 
-Cloudflare Sandboxes 的強項不是發明新的隔離原理，而是把完整 Linux 執行環境接進 Cloudflare 已有的應用控制面。Worker 負責政策，Durable Object 負責身分與生命週期，獨立 VM 內的 Container 負責風險較高的執行。這條邊界理解正確，才知道哪些狀態會消失、哪些 secret 不該進 Container、哪三份帳單會一起成長。
+Cloudflare Sandboxes 的強項不在發明新的隔離原理；它把完整 Linux 執行環境接進 Cloudflare 已有的應用控制面。Worker 負責政策，Durable Object 負責身分與生命週期，獨立 VM 內的 Container 負責風險較高的執行。這條邊界理解正確，才知道哪些狀態會消失、哪些 secret 不該進 Container、哪三份帳單會一起成長。
 
 導入前可以先做一個真實任務的壓力測試。以租戶 ID 建 sandbox，clone repository、安裝依賴、跑測試、上傳產物、休眠後重建，再量冷啟動與總成本。這一輪若能通過，Sandboxes 才是 agent runtime；否則它只是很好看的 `exec()` demo。
+
+## 更新紀錄
+
+- 2026-08-30：納入 Cloudflare AI Stack，作為 Sandbox SDK / agent code execution 篇。
 
 ## 參考資料
 

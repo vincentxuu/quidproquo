@@ -8,8 +8,11 @@ lang: en
 tldr: "Formerly AutoRAG, the managed search primitive: drop files into built-in storage or attach R2 and websites, auto-index with Markdown conversion plus vector and BM25, retrieve with hybrid, RRF, and reranking, and query from Workers via namespace or instance bindings, REST, or MCP."
 description: "From data sources and indexing pipelines to model choices, retrieval tuning, and bindings — a complete breakdown of Cloudflare AI Search, its limits, and when to build on Vectorize instead."
 series:
-  name: "The Cloudflare Edge Stack"
-  order: 14
+  name: "Cloudflare AI Stack"
+  order: 5
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 23
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-29-cloudflare-ai-search-guide)
@@ -197,6 +200,10 @@ Conversely, if the job is "hybrid search over a corpus with exact-term hits, dyn
 The increment is not "can do RAG" — it is "RAG without the dirty work as a primitive": built-in storage per instance, auto-sync for Website and R2 sources, hybrid retrieval with `boost_by` and `filters` tunable per request, and namespace bindings plus cross-instance search that make multi-tenant and multi-agent isolation cheap.
 
 Start with one `ai_search` instance (minimal config), validate recall and `match_threshold`, then compare `vector` vs `keyword` vs `hybrid` with `reranking`; only move to `ai_search_namespaces` and `instance_ids` when you need tenancy. A concrete next step tonight: take a corpus you already have (e.g., `src/content/posts/`), create a test instance on a Paid account, upload 50 documents to built-in storage, query the same questions with the three retrieval types, and log `scoring_details` (`vector_score`/`keyword_score`/`fusion_method`) before choosing a default.
+
+## Update Log
+
+- 2026-08-30: Added the post to the Cloudflare AI Stack series and kept the Edge Platform reading path through additionalSeries.
 
 ## References
 

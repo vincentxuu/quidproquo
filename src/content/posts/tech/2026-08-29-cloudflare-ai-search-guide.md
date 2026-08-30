@@ -8,8 +8,11 @@ lang: zh-TW
 tldr: "前身 AutoRAG 的託管搜尋原語：丟文件進內建儲存或綁 R2／網站，自動走 Markdown 轉換、切分與向量加 BM25 索引，透過 hybrid 加 RRF 加 rerank 檢索，並以 namespace 與 instance 兩種綁定或 REST 與 MCP 在 Worker 與 Agent 內查詢。"
 description: "從資料來源、索引管線、模型選擇到檢索與綁定，完整拆解 Cloudflare AI Search 的架構、用法與限制，並對照自建 Vectorize 方案的取捨。"
 series:
-  name: "Cloudflare 邊緣tech stack"
-  order: 14
+  name: "Cloudflare AI Stack"
+  order: 5
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 23
 ---
 
 > 🌏 [English version](/en/posts/tech/2026-08-29-cloudflare-ai-search-guide-en)
@@ -18,7 +21,7 @@ series:
 
 ## AI Search 是什麼：為何叫 search primitive
 
-設計哲學是把「可搜尋」做成跟 [Workers](https://developers.cloudflare.com/workers/) 的 `fetch()` 一樣基礎的能力。文件說它是 *the search primitive for your applications and agents*（[Overview](https://developers.cloudflare.com/ai-search/)）。不是再給你一個向量資料庫，而是給你一條端到端管線：上傳或綁定資料來源、自動索引與同步、混合檢索、回傳附來源的 chunks，必要時再串生成。
+設計哲學是把「可搜尋」做成跟 [Workers](https://developers.cloudflare.com/workers/) 的 `fetch()` 一樣基礎的能力。文件說它是 *the search primitive for your applications and agents*（[Overview](https://developers.cloudflare.com/ai-search/)）。它給你的重點不在另一個向量資料庫，而是一條端到端管線：上傳或綁定資料來源、自動索引與同步、混合檢索、回傳附來源的 chunks，必要時再串生成。
 
 跟常見替代方案的差別：
 
@@ -199,6 +202,10 @@ await env.MY_SEARCH.search({ messages: [{ role: "user", content: "什麼是 Clou
 AI Search 的增量不在「能做 RAG」，而在「把 RAG 的髒活收進原語」。內建儲存讓 instance 自帶索引、Website／R2 綁定讓同步自動化、混合檢索與 `boost_by`／`filters` 讓排序可在請求面微調、namespace 綁定與跨 instance 查詢讓多租戶與多 Agent 的隔離變便宜。
 
 實作建議：從一個 `ai_search` 單 instance 起步（最少設定），驗證召回與 `match_threshold` 後，再開 `hybrid` 與 `reranking` 做對比。需要多租戶時再切 `ai_search_namespaces` 並把 `instance_ids` 搜尋補上。今晚就能做的是：挑一份現有文件集（例如 `src/content/posts/`），建一個 Paid 帳號的測試 instance，丟 50 份文件進內建儲存，分別用 `vector`／`keyword`／`hybrid` 查同一組問題，記錄 `scoring_details`（`vector_score`／`keyword_score`／`fusion_method`）再決定預設檢索策略。
+
+## 更新紀錄
+
+- 2026-08-30：納入 Cloudflare AI Stack 系列，並以 additionalSeries 保留 Edge Platform 閱讀路徑。
 
 ## 參考資料
 
