@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-turnstile, security, forms, bot-protection]
 lang: zh-TW
 tldr: "Turnstile 是 Cloudflare 的 CAPTCHA 替代方案：前端 widget 產生 token，後端必須用 Siteverify API 驗證。token 有效 300 秒、只能驗一次；只放 widget 不驗 token，等於沒有完成防護。"
 description: "從 Turnstile widget、Managed/Non-interactive/Invisible 模式、implicit/explicit rendering、Siteverify API、token 期限、testing keys、analytics 與 plan 限制，拆解它如何保護表單與公開 endpoint。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 15

@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-email-service, email, workers, notifications, secu
 lang: zh-TW
 tldr: "Cloudflare Email Service 把產品常見的交易信、magic link、通知與收信 routing 接進 Workers。寄任意收件人目前需要 Workers Paid；收信 routing 可在 Free/Paid 使用，但仍要注意 DNS、配額、message size、bounce 和 anti-spam 邊界。"
 description: "從 Cloudflare Email Service 的 Email Sending、Email Routing、Workers binding、REST API、SMTP、pricing、limits 與安全檢查，拆解它在 Edge Platform 裡適合承擔哪一段產品通訊流程。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 14

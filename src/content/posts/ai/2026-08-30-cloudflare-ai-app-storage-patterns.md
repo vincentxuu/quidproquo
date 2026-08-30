@@ -7,7 +7,7 @@ tags: [cloudflare, d1, r2, durable-objects, rag, agents]
 lang: zh-TW
 tldr: "AI app 不該把 conversation、artifact、memory、retrieval document、lock、eval trace 全塞進同一個 storage。D1 適合查詢與產品資料，R2 適合大型檔案與 artifact，Durable Objects 適合具名協調、WebSocket、per-session state；Agent Memory / AI Search / Vectorize 則分別處理記憶與檢索。"
 description: "從 Cloudflare D1、R2、Durable Objects、Agent Memory、AI Search、Vectorize 與 Analytics Engine 的資料形狀，整理 AI / RAG / agent app 在 Cloudflare 上的 storage architecture。"
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 12

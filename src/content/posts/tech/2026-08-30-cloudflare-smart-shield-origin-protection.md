@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-smart-shield, cdn, performance, origin-protection]
 lang: zh-TW
 tldr: "Smart Shield 是 Cloudflare 的 origin protection bundle：用 Smart Tiered Cache、connection reuse、Argo Smart Routing、Regional Tiered Cache、Cache Reserve、Health Checks 和 Dedicated CDN Egress IPs，減少打到 origin 的 request 與 connection。"
 description: "從 Smart Tiered Cache、connection reuse、Argo Smart Routing、Regional Tiered Cache、Cache Reserve、Health Checks 到 Dedicated CDN Egress IPs，拆解 Cloudflare Smart Shield 如何降低 origin load，以及和 Cache Rules 的分工。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 12

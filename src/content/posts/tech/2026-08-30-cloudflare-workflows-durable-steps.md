@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-workflows, cloudflare-workers, durable-execution, 
 lang: zh-TW
 tldr: "Cloudflare Workflows 把 Workers 上的多步驟流程拆成可持久化的 step：每個 step 可以 retry、sleep、waitForEvent、rollback，instance 可以查狀態、暫停、恢復或終止。Queues 適合單步背景工作；Workflows 適合要記住進度的長流程。"
 description: "從 WorkflowEntrypoint、step.do、sleep、waitForEvent、retry、rollback、instance lifecycle 到 limits/pricing，拆解 Cloudflare Workflows 和 Queues 的邊界。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 9

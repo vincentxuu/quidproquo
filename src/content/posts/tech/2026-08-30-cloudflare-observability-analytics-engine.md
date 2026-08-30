@@ -7,7 +7,7 @@ tags: [cloudflare, observability, analytics-engine, monitoring, logs, metrics]
 lang: zh-TW
 tldr: "Workers Observability 負責 debug 和 request tracing；Workers Analytics Engine 負責高基數產品事件與自訂 metrics；GraphQL Analytics API 則查 Cloudflare 既有產品資料。把三者分清楚，才不會把 log 當資料庫，也不會把 billing、monitoring、產品分析混在一起。"
 description: "從 Cloudflare Workers Logs、real-time logs、Tail Workers、Logpush、traces、metrics、Workers Analytics Engine、SQL API 與 GraphQL Analytics API，拆解 Cloudflare app 上線後該怎麼觀測。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 16

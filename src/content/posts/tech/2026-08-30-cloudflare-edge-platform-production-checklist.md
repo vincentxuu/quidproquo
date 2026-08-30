@@ -7,7 +7,7 @@ tags: [cloudflare, workers, deployment, custom-domains, limits, checklist]
 lang: zh-TW
 tldr: "Cloudflare app 上線前不要只看 deploy 成功。Custom Domains、Routes、www/root redirect、維護頁、CPU/memory/subrequest limits、log sampling、fallback path 都要先檢查。這篇把 Edge Platform 系列裡的 production pitfall 收斂成一份 checklist。"
 description: "整理 Cloudflare Edge Platform 上線前的 production checklist：Workers Custom Domains、Routes、Custom Errors、maintenance page、CPU/memory limits、subrequests、observability 與既有踩坑文連結。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 19

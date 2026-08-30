@@ -7,7 +7,7 @@ tags: [cloudflare, observability, analytics-engine, monitoring, logs, metrics]
 lang: en
 tldr: "Workers Observability is for debugging and request tracing; Workers Analytics Engine is for high-cardinality product events and custom metrics; GraphQL Analytics API is for querying existing Cloudflare product data. Keeping those roles separate prevents logs from becoming a database and keeps billing, monitoring, and product analytics from blending together."
 description: "A practical guide to Cloudflare Workers Logs, real-time logs, Tail Workers, Logpush, traces, metrics, Workers Analytics Engine, SQL API, and GraphQL Analytics API for production apps on Cloudflare."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 16

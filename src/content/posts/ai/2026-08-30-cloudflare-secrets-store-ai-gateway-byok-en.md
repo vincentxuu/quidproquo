@@ -7,7 +7,7 @@ tags: [cloudflare, secrets-store, ai-gateway, workers, byok, security]
 lang: en
 tldr: "Secrets Store is Cloudflare's open beta account-level secret store, currently integrated with Workers and AI Gateway. It fits provider API keys, BYOK keys, and secrets reused across Workers; per-Worker secrets still work, but the governance scope is different."
 description: "A practical guide to Cloudflare Secrets Store: account-level secrets, Workers bindings, local versus production behavior, permissions, AI Gateway BYOK, key aliases, and rotation."
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 11

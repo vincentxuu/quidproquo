@@ -7,7 +7,7 @@ tags: [cloudflare, workers, deployment, custom-domains, limits, checklist]
 lang: en
 tldr: "Before a Cloudflare app goes live, do not stop at a successful deploy. Check Custom Domains, Routes, www/root redirects, maintenance pages, CPU/memory/subrequest limits, log sampling, and fallback paths. This appendix turns the Edge Platform series into a production checklist."
 description: "A Cloudflare Edge Platform production checklist covering Workers Custom Domains, Routes, Custom Errors, maintenance pages, CPU and memory limits, subrequests, observability, and related pitfall posts."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 19

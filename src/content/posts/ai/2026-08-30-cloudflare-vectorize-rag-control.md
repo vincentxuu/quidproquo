@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-vectorize, rag, vector-database, embeddings, retri
 lang: zh-TW
 tldr: "Vectorize 是 Cloudflare 的向量資料庫。AI Search 適合先把 RAG pipeline 交給平台；Vectorize 適合你要自己控制 chunking、embedding、metadata filter、hybrid retrieval、重新索引與降級策略。"
 description: "從 Cloudflare Vectorize 的 index、Workers binding、insert/upsert/query、metadata filtering、namespace、limits 與 pricing，拆解它在 RAG app 裡適合承擔哪一層，以及何時該自己做 retrieval。"
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 6

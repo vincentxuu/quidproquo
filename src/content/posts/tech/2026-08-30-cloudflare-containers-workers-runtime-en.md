@@ -7,7 +7,7 @@ tags: [cloudflare, containers, workers, durable-objects, runtime, deployment]
 lang: en
 tldr: "Cloudflare Containers let a Workers app call on-demand serverless containers for workloads that need a full filesystem, a specific runtime, existing container images, or more CPU, memory, and disk. They do not replace Workers; Workers still handle entry, routing, and platform bindings while containers run the heavy runtime-specific work."
 description: "A practical guide to Cloudflare Containers: Worker routing, Container class, Durable Objects bindings, image deployment, instance types, limits, pricing, and the boundary with Browser Run."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 18

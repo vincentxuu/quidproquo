@@ -7,7 +7,7 @@ tags: [cloudflare, browser-run, workers, scraping, screenshots, automation, agen
 lang: en
 tldr: "Browser Run gives Workers access to Cloudflare-managed headless Chrome. Quick Actions fit one-shot tasks such as screenshots, PDFs, HTML, JSON, and crawls; Browser Sessions fit Puppeteer, Playwright, CDP, and Stagehand automation where you need full control."
 description: "A practical guide to Cloudflare Browser Run: Quick Actions, Browser Sessions, Workers bindings, Puppeteer, Playwright, CDP, limits, pricing, and agent browsing in the Edge Platform and AI Stack."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 17

@@ -7,7 +7,7 @@ tags: [cloudflare, ai-stack, workers-ai, rag, agents, architecture]
 lang: zh-TW
 tldr: "Cloudflare AI Stack 這條系列回答 AI app 的基礎設施問題：模型怎麼跑、gateway 怎麼控、RAG 怎麼做、agent 怎麼持續執行、memory 怎麼治理、browser/sandbox/secrets 怎麼接進產品。"
 description: "Cloudflare AI Stack 系列導讀，整理 Workers AI、AI Gateway、AI Search、Vectorize、Agents、Agent Memory、Browser Run、Sandbox SDK、Secrets Store、D1/R2/DO 與 observability 的閱讀順序。"
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 0

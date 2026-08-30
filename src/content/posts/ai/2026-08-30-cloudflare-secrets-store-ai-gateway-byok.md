@@ -7,7 +7,7 @@ tags: [cloudflare, secrets-store, ai-gateway, workers, byok, security]
 lang: zh-TW
 tldr: "Secrets Store 是 Cloudflare 的 open beta account-level secret store，目前整合 Workers 和 AI Gateway。它適合把 provider API keys、BYOK key、跨 Worker 共用 secret 集中管理；per-Worker secret 仍可用，但治理範圍不同。"
 description: "從 Cloudflare Secrets Store 的 account-level secrets、Workers binding、local/production 差異、權限、AI Gateway BYOK、key alias 與 rotation，拆解它在 Cloudflare AI Stack 裡的角色。"
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 11

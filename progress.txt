@@ -10,7 +10,7 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- **Cloudflare Edge Platform / AI Stack 兩條內容線（2026-08-30）**：docs/content-plan-cloudflare-edge-ai-stack.md 已完成；兩條導讀與 explicit service coverage 已補齊中英 draft，既有 Workers、Hono、OpenNext、D1、KV、R2、Workers AI、模型選型、Gemma、AI Search、Sandbox SDK、Durable Objects、Queues 已掛入新系列或 additionalSeries；待 publish review。
+- **Cloudflare Edge Platform / AI Stack 兩條內容線（2026-08-30）**：docs/content-plan-cloudflare-edge-ai-stack.md 已完成；兩條導讀與 explicit service coverage 已補齊並發布中英文章，既有 Workers、Hono、OpenNext、D1、KV、R2、Workers AI、模型選型、Gemma、AI Search、Sandbox SDK、Durable Objects、Queues 已掛入新系列或 additionalSeries；已發布，後續只剩人工抽樣校對與必要修訂。
 - **統計學：從考試到 ML/AI 系列（2026-08-29）**：已重建 53 篇規劃與來源分層；三層 1–53 中英 draft 已齊（106 檔），全部仍 `draft: true`。order 1–53 已完成第一輪升級（來源使用方式、題型辨識、追加練習骨架）；order 1–53 已完成第二輪正文化（初學者解釋、公式、完整算例與 ML/AI 接點）；order 1–53 已完成第三輪強化（章節級來源對照、精準練習與算式修正）；114–115 考古題篇只作拆題框架，待逐題核 PDF 題面；全系列已完成章節級參考與精準練習；仍待逐篇人工 review、考古題 PDF 題面核對與發布前最終校對後才可發布。
 - **Admin v2 Phase 1–6 代碼完成並完成本機串接驗證（2026-08-29）**：文件已對齊 Claude Code 研究；
   本機 Astro dev E2E、最小 DO `/run` smoke、`pnpm verify` 均通過。剩 production/preview migration apply、binding/env 檢查與實際環境觀察。

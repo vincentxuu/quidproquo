@@ -7,7 +7,7 @@ tags: [cloudflare, agent-memory, agents, rag, memory, retrieval]
 lang: en
 tldr: "Agent Memory is a Cloudflare private beta service for letting agents remember users, teams, projects, and task context across conversations. It fits facts, events, instructions, and tasks; RAG documents, product data, files, and audit logs should still live in AI Search, Vectorize, D1, or R2."
 description: "A practical guide to Cloudflare Agent Memory: namespaces, profiles, ingest, remember, recall, list, delete, memory types, deduplication, and the boundary with RAG."
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 8

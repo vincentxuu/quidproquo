@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-smart-shield, cdn, performance, origin-protection]
 lang: en
 tldr: "Smart Shield is Cloudflare's origin protection bundle: Smart Tiered Cache, connection reuse, Argo Smart Routing, Regional Tiered Cache, Cache Reserve, Health Checks, and Dedicated CDN Egress IPs reduce requests and connections reaching your origin."
 description: "A practical guide to Cloudflare Smart Shield: Smart Tiered Cache, connection reuse, Argo Smart Routing, Regional Tiered Cache, Cache Reserve, Health Checks, Dedicated CDN Egress IPs, and how it differs from Cache Rules."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 12

@@ -7,7 +7,7 @@ tags: [cloudflare, agents, workers-ai, durable-objects, tools, websockets]
 lang: en
 tldr: "Cloudflare Agents turns an agent session into a durable runtime: each agent instance has stable identity, local SQLite, WebSockets, scheduled work, recoverable execution, and tools. It is not just a chat example; it composes Workers, Durable Objects, AI models, Browser, Sandbox, AI Search, and MCP into a deployable agent app."
 description: "A practical guide to Cloudflare Agents: communication channels, agent harness, Agents SDK runtime, Agent class, state, sessions, WebSockets, scheduling, tools, and the Durable Objects dependency."
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 7

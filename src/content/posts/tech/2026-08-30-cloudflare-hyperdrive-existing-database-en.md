@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-hyperdrive, database, postgres, mysql, serverless]
 lang: en
 tldr: "Hyperdrive solves the latency and connection-pooling problem when Workers connect to existing Postgres / MySQL databases. It uses edge connection setup, database-near pooling, and read query caching so a regional database works better with global Workers."
 description: "A practical guide to Cloudflare Hyperdrive: positioning, Postgres/MySQL connectivity, Workers bindings, connection pooling, query caching, read-after-write behavior, limits, pricing, and observability."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 10

@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-hyperdrive, database, postgres, mysql, serverless]
 lang: zh-TW
 tldr: "Hyperdrive 解的是 Workers 連到既有 Postgres / MySQL 的延遲與連線池問題。它用 edge connection setup、靠近資料庫的 connection pool、read query cache，讓單區資料庫比較適合被全球 Workers 存取。"
 description: "從 Cloudflare Hyperdrive 的定位、Postgres/MySQL 連線、Workers binding、connection pooling、query caching、read-after-write、limits、pricing 與 observability，拆解它適合放在 Edge Platform 的哪一層。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 10

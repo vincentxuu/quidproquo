@@ -7,7 +7,7 @@ tags: [cloudflare, edge-platform, workers, architecture, deployment]
 lang: en
 tldr: "The Cloudflare Edge Platform series answers one product question: how do Workers, D1, KV, R2, Durable Objects, Queues, Workflows, Cache, Images, Email, Turnstile, Observability, Browser Run, and Containers help you run a website or app cheaply and reliably?"
 description: "A guide to the Cloudflare Edge Platform series, covering Workers compute, app frameworks, data, state, async work, cache, origin protection, media, email, security, observability, browser automation, and containers."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 0

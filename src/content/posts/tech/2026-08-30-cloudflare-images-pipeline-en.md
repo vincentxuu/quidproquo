@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-images, images, media, performance, cdn]
 lang: en
 tldr: "Cloudflare Images has two paths: transform images stored in R2/S3/origin at the edge, or store images in Images and deliver named variants. The first is priced by unique transformations; the second also involves stored and delivered images."
 description: "A practical guide to Cloudflare Images: remote transformations, hosted images, variants, URL formats, Workers usage, format conversion, limits, pricing, and where it fits in the Edge Platform."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 13

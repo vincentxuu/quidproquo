@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-images, images, media, performance, cdn]
 lang: zh-TW
 tldr: "Cloudflare Images 有兩條路：把 R2/S3/origin 圖片拿來做 edge transformations，或直接把圖片存進 Images 再用 variant delivery。前者按 unique transformations 看成本，後者還要看 stored 和 delivered images。"
 description: "從 Cloudflare Images 的 remote transformations、hosted images、variants、URL 格式、Workers binding、格式轉換、limits 與 pricing，拆解它在 Edge Platform 裡適合承擔哪一段圖片管線。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 13

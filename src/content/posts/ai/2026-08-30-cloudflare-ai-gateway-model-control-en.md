@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-ai-gateway, cloudflare-workers-ai, llm, observabil
 lang: en
 tldr: "AI Gateway is the control plane for AI calls: one layer for logs, analytics, cache, rate limits, retry/fallback, BYOK, and Unified Billing. In Workers, use env.AI.run(..., { gateway }); with external SDKs, change the baseURL or provider-native endpoint."
 description: "A practical guide to Cloudflare AI Gateway: Workers bindings, REST API, provider-native endpoints, caching, rate limiting, dynamic routing, BYOK, Unified Billing, and where it fits in an AI app."
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 4

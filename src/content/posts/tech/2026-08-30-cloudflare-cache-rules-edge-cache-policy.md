@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-cache-rules, cdn, caching, edge-computing, perform
 lang: zh-TW
 tldr: "Cloudflare Cache Rules 是 zone 層的快取政策：用 request expression 決定哪些內容 eligible for cache、Edge TTL/Browser TTL 怎麼算、cache key 包哪些維度，以及遇到 stale、ETag、purge 時怎麼處理。它適合管理 CDN 快取規則；Worker Cache API 則適合程式化存取。"
 description: "從預設快取行為、Cache eligibility、Edge TTL、Browser TTL、custom cache key、CF-Cache-Status、Rulesets API 到 Cloudflare Trace，拆解 Cloudflare Cache Rules 的實務設計。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 11

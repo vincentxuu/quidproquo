@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-cache-rules, cdn, caching, edge-computing, perform
 lang: en
 tldr: "Cloudflare Cache Rules are zone-level cache policy: request expressions decide what is eligible for cache, how Edge TTL and Browser TTL behave, what dimensions enter the cache key, and how stale content, ETags, and purge interact. Use them for CDN cache policy; use the Worker Cache API for programmatic caching."
 description: "A practical guide to Cloudflare Cache Rules: default cache behavior, cache eligibility, Edge TTL, Browser TTL, custom cache keys, CF-Cache-Status, Rulesets API, Terraform, and Cloudflare Trace."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 11

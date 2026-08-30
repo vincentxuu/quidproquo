@@ -7,7 +7,7 @@ tags: [cloudflare, agents, workers-ai, durable-objects, tools, websockets]
 lang: zh-TW
 tldr: "Cloudflare Agents 把 agent session 做成 durable runtime：每個 agent instance 有穩定 identity、local SQLite、WebSocket、scheduled work、recoverable execution 和 tools。它不只是聊天範例；真正處理的是怎麼把 Workers、Durable Objects、AI model、Browser、Sandbox、AI Search、MCP 接成可部署的 agent app。"
 description: "從 Cloudflare Agents 的 communication channels、agent harness、Agents SDK runtime、Agent class、state、sessions、WebSockets、scheduling、tools 與 Durable Objects 依賴，拆解它在 AI Stack 裡的位置。"
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 7

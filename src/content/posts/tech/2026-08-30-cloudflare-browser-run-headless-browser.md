@@ -7,7 +7,7 @@ tags: [cloudflare, browser-run, workers, scraping, screenshots, automation, agen
 lang: zh-TW
 tldr: "Browser Run 讓 Workers 使用 Cloudflare 管理的 headless Chrome。Quick Actions 適合 screenshot、PDF、HTML、JSON、crawl 這類單次任務；Browser Sessions 則適合 Puppeteer、Playwright、CDP、Stagehand 這類需要完整控制的 automation。"
 description: "從 Cloudflare Browser Run 的 Quick Actions、Browser Sessions、Workers binding、Puppeteer/Playwright/CDP、limits、pricing 與 agent browsing 場景，拆解它在 Edge Platform 和 AI Stack 裡的位置。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 17

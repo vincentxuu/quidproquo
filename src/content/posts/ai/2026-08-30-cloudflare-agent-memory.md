@@ -7,7 +7,7 @@ tags: [cloudflare, agent-memory, agents, rag, memory, retrieval]
 lang: zh-TW
 tldr: "Agent Memory 是 Cloudflare 的 private beta 服務，用來讓 agent 跨對話記住使用者、團隊、專案與任務脈絡。它適合存 facts、events、instructions、tasks；RAG 文件、產品資料、檔案和 audit log 仍應該放在 AI Search、Vectorize、D1 或 R2。"
 description: "從 Cloudflare Agent Memory 的 namespaces、profiles、ingest、remember、recall、list、delete、memory types、deduplication 與 RAG 邊界，拆解它在 Cloudflare AI Stack 裡的位置。"
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 8

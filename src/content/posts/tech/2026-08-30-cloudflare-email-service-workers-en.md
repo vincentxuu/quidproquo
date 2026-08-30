@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-email-service, email, workers, notifications, secu
 lang: en
 tldr: "Cloudflare Email Service connects transactional email, magic links, notifications, and inbound routing to Workers. Arbitrary outbound sending currently requires Workers Paid; inbound routing is available on Free and Paid, with DNS, quota, message-size, bounce, and anti-spam limits still shaping the design."
 description: "A practical guide to Cloudflare Email Service: Email Sending, Email Routing, Workers bindings, REST API, SMTP, pricing, limits, security checks, and where it fits in the Edge Platform."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 14

@@ -7,7 +7,7 @@ tags: [cloudflare, edge-platform, workers, architecture, deployment]
 lang: zh-TW
 tldr: "Cloudflare Edge Platform 這條系列回答一個產品問題：怎麼用 Workers、D1、KV、R2、Durable Objects、Queues、Workflows、Cache、Images、Email、Turnstile、Observability、Browser Run、Containers，把網站或 app 跑起來、跑穩、跑便宜。"
 description: "Cloudflare Edge Platform 系列導讀，整理 Workers compute、app framework、data、state、async work、cache、origin protection、media、email、安全、observability、browser automation 與 containers 的閱讀順序。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 0

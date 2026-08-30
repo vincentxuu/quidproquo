@@ -7,7 +7,7 @@ tags: [cloudflare, d1, r2, durable-objects, rag, agents]
 lang: en
 tldr: "An AI app should not put conversations, artifacts, memory, retrieval documents, locks, and eval traces into one store. D1 fits queryable product data, R2 fits large files and artifacts, Durable Objects fit named coordination and per-session state, and Agent Memory / AI Search / Vectorize handle memory and retrieval."
 description: "A practical storage architecture for AI, RAG, and agent apps on Cloudflare, covering D1, R2, Durable Objects, Agent Memory, AI Search, Vectorize, and Analytics Engine."
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 12

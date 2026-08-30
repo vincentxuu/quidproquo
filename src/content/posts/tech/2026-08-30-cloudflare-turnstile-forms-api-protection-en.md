@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-turnstile, security, forms, bot-protection]
 lang: en
 tldr: "Turnstile is Cloudflare's CAPTCHA alternative: the client widget generates a token, and the server must validate it with the Siteverify API. Tokens expire after 300 seconds and are single-use; a widget without server validation is incomplete."
 description: "A practical guide to Turnstile widgets, Managed/Non-interactive/Invisible modes, implicit and explicit rendering, the Siteverify API, token expiry, testing keys, analytics, and plan limits."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 15

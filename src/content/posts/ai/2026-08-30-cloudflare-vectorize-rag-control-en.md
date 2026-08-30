@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-vectorize, rag, vector-database, embeddings, retri
 lang: en
 tldr: "Vectorize is Cloudflare's vector database. AI Search is the right starting point for a managed RAG pipeline; Vectorize is the better fit when you need control over chunking, embeddings, metadata filters, hybrid retrieval, reindexing, and fallback behavior."
 description: "A practical guide to Cloudflare Vectorize: indexes, Workers bindings, insert/upsert/query, metadata filtering, namespaces, limits, pricing, and where it belongs in a RAG application."
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 6

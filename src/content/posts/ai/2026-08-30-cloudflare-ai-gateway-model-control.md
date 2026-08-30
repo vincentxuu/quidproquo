@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-ai-gateway, cloudflare-workers-ai, llm, observabil
 lang: zh-TW
 tldr: "AI Gateway 解的是 AI 呼叫的控制問題：同一層處理 logs、analytics、cache、rate limit、retry/fallback、BYOK 與 Unified Billing。Workers 內可用 env.AI.run(..., { gateway })，外部 SDK 則改 baseURL 或 provider-native endpoint。"
 description: "從 Workers binding、REST API、provider-native endpoint 到 cache、rate limiting、dynamic routing、BYOK 與 Unified Billing，拆解 Cloudflare AI Gateway 適合放在 AI app 哪一層，以及哪些限制要先知道。"
-draft: true
+draft: false
 series:
   name: "Cloudflare AI Stack"
   order: 4

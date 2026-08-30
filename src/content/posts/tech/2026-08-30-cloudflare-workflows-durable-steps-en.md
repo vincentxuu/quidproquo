@@ -7,7 +7,7 @@ tags: [cloudflare, cloudflare-workflows, cloudflare-workers, durable-execution, 
 lang: en
 tldr: "Cloudflare Workflows turns multi-step Workers processes into durable steps: each step can retry, sleep, wait for events, and register rollbacks, while instances can be inspected, paused, resumed, or terminated. Queues fit single-step background work; Workflows fit long processes that must remember progress."
 description: "A practical guide to Cloudflare Workflows: WorkflowEntrypoint, step.do, sleep, waitForEvent, retries, rollback, instance lifecycle, limits, pricing, and the boundary with Queues."
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 9

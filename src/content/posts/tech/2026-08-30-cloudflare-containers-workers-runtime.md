@@ -7,7 +7,7 @@ tags: [cloudflare, containers, workers, durable-objects, runtime, deployment]
 lang: zh-TW
 tldr: "Cloudflare Containers 讓 Workers app 呼叫 on-demand serverless container，適合需要完整 filesystem、特定 runtime、既有 container image、更多 CPU/memory/disk 的工作。它不取代 Workers；Worker 保留入口與 routing，container 處理 runtime 太重的那段。"
 description: "從 Cloudflare Containers 的 Worker routing、Container class、Durable Objects binding、image deploy、instance types、limits、pricing 與 Browser Run 邊界，拆解它在 Edge Platform 裡的定位。"
-draft: true
+draft: false
 series:
   name: "Cloudflare Edge Platform"
   order: 18
