@@ -13,6 +13,7 @@ const TRANSLATION_REQUIRED_CATEGORIES = new Set([
   'design',
   'marketing',
   'product',
+  'daily',
 ]);
 
 // Legacy published zh-TW posts that predate the bilingual hard gate.
@@ -75,6 +76,27 @@ const LEGACY_ZH_ONLY_POSTS = new Set([
   'src/content/posts/tech/2026-08-26-ai-model-family-speech-audio.md',
   'src/content/posts/tech/2026-08-26-ai-model-family-video-generation.md',
   'src/content/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug.md',
+  // 'daily' category added to the hard gate on 2026-08-30 (Q: check-lang-parity had no
+  // enforcement for 'daily', so daily-digest routines silently stopped shipping English
+  // versions for several days without pnpm verify catching it). These pre-existing gaps
+  // are grandfathered; any new zh-TW daily post from here on must ship with an -en.md sibling.
+  'src/content/posts/daily/2026-08-27-ai-agent-arxiv-digest.md',
+  'src/content/posts/daily/2026-08-27-ai-agent-daily.md',
+  'src/content/posts/daily/2026-08-27-ai-agent-github-digest.md',
+  'src/content/posts/daily/2026-08-27-framework-mastra-1.62.0.md',
+  'src/content/posts/daily/2026-08-27-product-builder-interview-daily.md',
+  'src/content/posts/daily/2026-08-27-tool-pgbot.md',
+  'src/content/posts/daily/2026-08-28-ai-agent-arxiv-digest.md',
+  'src/content/posts/daily/2026-08-28-ai-agent-daily.md',
+  'src/content/posts/daily/2026-08-28-ai-agent-github-digest.md',
+  'src/content/posts/daily/2026-08-28-tool-vercel-run-sdk.md',
+  'src/content/posts/daily/2026-08-28-weekly-review.md',
+  'src/content/posts/daily/2026-08-29-ai-agent-daily.md',
+  'src/content/posts/daily/2026-08-29-ai-agent-github-digest.md',
+  'src/content/posts/daily/2026-08-29-ai-interview-daily.md',
+  'src/content/posts/daily/2026-08-29-framework-mastra-1.63.0.md',
+  'src/content/posts/daily/2026-08-29-product-builder-interview-daily.md',
+  'src/content/posts/daily/2026-08-29-tool-localagents-mcp.md',
 ]);
 
 // Also checks existing pairs for drift: changed one language, forgot the other.
