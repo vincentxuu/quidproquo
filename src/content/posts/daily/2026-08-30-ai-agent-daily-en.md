@@ -112,8 +112,6 @@ A Brazilian Chamber technology committee approved a public-security AI bill requ
 **Oceania (Australia)**
 Both houses of Australia's Parliament established a Joint Select Committee on AI on August 20 to review existing law, data sovereignty, national security, deepfakes, consumer protection, and workforce impacts, with a report due November 30. ([source](https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Artificial_Intelligence), [cross-check](https://www.claytonutz.com/insights/2026/august/from-patchwork-to-playbook-the-joint-select-committee-on-ai-and-what-it-means-for-business))
 
-This scan also checked Taiwan, Israel, and New Zealand but found no independent event in the same time window with both sufficient sourcing and significance, so older items were not used to fill space.
-
 ### Deals / Funding / M&A
 
 **Salesforce Q2**: combined Agentforce + Data 360 annual recurring revenue hit nearly $3.9B (up 210%+ YoY), with Agentforce alone surpassing $1.5B (up 240%+); Agentforce and Slack processed 3.2 billion "agentic work units" in the quarter. ([source](https://sunmedia.tw/news/technology/1787873563-Salesforce%20AI%20%E8%A1%A8%E7%8F%BE%E4%BA%AE%E7%9C%BC%E3%80%80%E7%8D%B2%E5%88%A9%E8%88%87%E7%87%9F%E6%94%B6%E5%B1%95%E6%9C%9B%E9%9B%99%E9%9B%99%E4%B8%8A%E4%BF%AE))

@@ -112,8 +112,6 @@ Mistral 與沙烏地阿拉伯 HUMAIN 宣布數億歐元規模的主權 AI 合作
 **大洋洲（澳洲）**
 澳洲國會兩院 8 月 20 日成立 AI 聯合特別委員會，將檢查現行法律、資料主權、國安、deepfake、消費者保護與勞動影響，預計 11 月 30 日前提出報告。（[來源](https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Artificial_Intelligence)、[交叉確認](https://www.claytonutz.com/insights/2026/august/from-patchwork-to-playbook-the-joint-select-committee-on-ai-and-what-it-means-for-business)）
 
-本輪也檢索台灣、以色列與紐西蘭，未找到同一時間窗內來源與重要性都足以收錄的獨立事件，因此沒有拿舊聞補版面。
-
 ### 商業案例 / 融資
 
 **Salesforce Q2**：Agentforce 加 Data 360 年經常性營收近 39 億美元（年增逾 210%），Agentforce 單獨突破 15 億美元（年增逾 240%），單季處理 32 億個 agentic work unit。（[來源](https://sunmedia.tw/news/technology/1787873563-Salesforce%20AI%20%E8%A1%A8%E7%8F%BE%E4%BA%AE%E7%9C%BC%E3%80%80%E7%8D%B2%E5%88%A9%E8%88%87%E7%87%9F%E6%94%B6%E5%B1%95%E6%9C%9B%E9%9B%99%E9%9B%99%E4%B8%8A%E4%BF%AE)）
