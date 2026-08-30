@@ -10,7 +10,7 @@ tldr: "Cloudflare Workers 用 V8 Isolate 取代容器，沒有 cold start，全�
 description: "Cloudflare Workers 的核心原理、Bindings 系統、wrangler 工具、定價，以及什麼時候該用、什麼時候不該用的實際判斷。"
 draft: false
 series:
-  name: "Cloudflare 邊緣tech stack"
+  name: "Cloudflare Edge Platform"
   order: 1
 ---
 

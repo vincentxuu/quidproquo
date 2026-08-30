@@ -10,8 +10,8 @@ tldr: "KV is Cloudflare's globally distributed key-value store. Reads are served
 description: "An introduction to Cloudflare KV: a globally distributed key-value store with low-latency edge reads and native TTL support. Covers Workers binding usage, type conversion patterns, a decision matrix comparing KV vs D1, and a real-world AI response caching implementation."
 draft: false
 series:
-  name: "The Cloudflare Edge Stack"
-  order: 3
+  name: "Cloudflare Edge Platform"
+  order: 5
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-cloudflare-kv-key-value-store)

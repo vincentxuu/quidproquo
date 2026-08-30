@@ -10,8 +10,8 @@ tldr: "R2 is Cloudflare's object storage service — S3-compatible API, zero egr
 description: "An introduction to Cloudflare R2 object storage: S3-compatible with zero egress fees, native low-latency Workers binding, and ideal for media-intensive apps. Includes Worker operation examples, S3 SDK access patterns, and real-world usage from the NobodyClimb climbing platform."
 draft: false
 series:
-  name: "The Cloudflare Edge Stack"
-  order: 4
+  name: "Cloudflare Edge Platform"
+  order: 6
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-cloudflare-r2-object-storage)

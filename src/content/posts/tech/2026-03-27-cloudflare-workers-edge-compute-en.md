@@ -10,7 +10,7 @@ tldr: "Cloudflare Workers uses V8 Isolates instead of containers — no cold sta
 description: "A practical look at how Cloudflare Workers works under the hood: V8 Isolates, the Bindings system, the wrangler CLI, pricing, and when to use it — or not."
 draft: false
 series:
-  name: "The Cloudflare Edge Stack"
+  name: "Cloudflare Edge Platform"
   order: 1
 ---
 

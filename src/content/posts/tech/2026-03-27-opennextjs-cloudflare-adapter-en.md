@@ -10,8 +10,8 @@ tldr: "@opennextjs/cloudflare enables Next.js App Router deployments on Cloudfla
 description: "How the @opennextjs/cloudflare adapter works: splitting Next.js SSR and static assets for deployment on Cloudflare's edge network. Real-world limitations and use cases illustrated with NobodyClimb."
 draft: false
 series:
-  name: "The Cloudflare Edge Stack"
-  order: 6
+  name: "Cloudflare Edge Platform"
+  order: 3
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter)

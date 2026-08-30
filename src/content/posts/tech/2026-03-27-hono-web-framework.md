@@ -10,8 +10,8 @@ tldr: "Hono 是專為 Cloudflare Workers、Deno、Bun 等 edge runtime 設計的
 description: "介紹 Hono 這個輕量 Web framework：為什麼它在 edge runtime 上比 Express 更合適、核心設計、程式碼範例，以及你什麼時候應該選它、什麼時候不應該。"
 draft: false
 series:
-  name: "Cloudflare 邊緣tech stack"
-  order: 5
+  name: "Cloudflare Edge Platform"
+  order: 2
 ---
 
 🌏 [English version](/posts/tech/2026-03-27-hono-web-framework-en)

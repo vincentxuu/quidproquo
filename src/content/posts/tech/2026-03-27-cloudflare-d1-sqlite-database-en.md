@@ -10,8 +10,8 @@ tldr: "D1 is Cloudflare's serverless SQLite database that binds directly to Work
 description: "An introduction to Cloudflare D1: a SQLite-based serverless relational database. Covers Workers binding, basic CRUD, wrangler migration workflow, comparison with PostgreSQL/MySQL, and when to choose D1 over KV."
 draft: false
 series:
-  name: "The Cloudflare Edge Stack"
-  order: 2
+  name: "Cloudflare Edge Platform"
+  order: 4
 ---
 
 🌏 [中文版](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database)

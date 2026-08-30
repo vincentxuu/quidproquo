@@ -10,8 +10,11 @@ tldr: "env.AI 這個 binding 不是只有 run()。它還掛了 toMarkdown（文�
 description: "從 markdown.new 這個服務切入，拆解 Cloudflare Workers AI binding 上四組被忽略的內建方法：run、toMarkdown、autorag、gateway。附程式碼範例、決策表、限制。"
 draft: false
 series:
-  name: "Cloudflare 邊緣tech stack"
-  order: 7
+  name: "Cloudflare AI Stack"
+  order: 1
+additionalSeries:
+  - name: "Cloudflare Edge Platform"
+    order: 26
 ---
 
 🌏 [English version](/posts/tech/2026-04-17-cloudflare-workers-ai-binding-utilities-en)

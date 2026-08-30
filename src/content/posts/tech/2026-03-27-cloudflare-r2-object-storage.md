@@ -10,8 +10,8 @@ tldr: "R2 是 Cloudflare 的物件儲存，S3 相容 API、零 egress 費用、W
 description: "Cloudflare R2 物件儲存介紹：S3 相容但零 egress 費用，Workers binding 原生低延遲，適合媒體密集應用。包含 Worker 操作範例、S3 SDK 存取方式，以及 NobodyClimb 攀岩平台的實際用法。"
 draft: false
 series:
-  name: "Cloudflare 邊緣tech stack"
-  order: 4
+  name: "Cloudflare Edge Platform"
+  order: 6
 ---
 
 🌏 [English version](/posts/tech/2026-03-27-cloudflare-r2-object-storage-en)
