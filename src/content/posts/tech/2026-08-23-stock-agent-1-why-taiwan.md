@@ -17,6 +17,8 @@ glossary:
     definition: "用固定歷史切點標注正確答案、用來衡量 agent 輸出品質的基準測試集。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
+
 > **台股研究 Agent 實戰系列（篇 1 / 9）**：本篇為系列開端 ｜ [下一篇：LangGraph 並行架構——五個分析師同時開工](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture) ｜ 完整目錄就在本篇下方
 
 這是一個我自己在寫、還在演進中的開源專案 [stock-research-agent](https://github.com/vincentxuu/stock-research-agent)：一個用 LangGraph 編排的台股多分析師研究系統，核心規矩只有一條——LLM 的每個結論，都要先通過「同一組訊號的歷史回測」才能進報告。這篇是系列第一篇，講為什麼是台股、為什麼是我、以及這條規矩從哪來。讀完你會拿到：一份截至 2026-08-22 的 GitHub 對照調查結論、三個 side project 怎麼收斂成一個 agent、以及目前誠實到有點難看的 baseline 數字。

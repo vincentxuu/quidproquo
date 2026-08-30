@@ -10,6 +10,8 @@ description: "BytePlus ModelArk Coding Plan 介紹：定價、配額、支援模
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-25-byteplus-modelark-coding-plan-en)
+
 BytePlus 是字節跳動的海外雲服務品牌，ModelArk 是其 AI 模型推論平台。Coding Plan 是 ModelArk 針對開發者 AI 編碼場景推出的訂閱方案——一個月費涵蓋多家模型，直接在 Claude Code、Cursor 這類工具裡使用，不需要自己管 API key 或設定推論端點。
 
 ## 定位：開發者的多模型月票

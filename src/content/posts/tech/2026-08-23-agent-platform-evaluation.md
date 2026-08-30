@@ -8,6 +8,8 @@ description: "Agent Platform Evaluation System 深度解析：7 類 Eval（Flow/
 tldr: "Evaluation 是 Agent Platform 的「品質免疫系統」：不只是事後統計，而是內建於執行流程的 Pre-run/In-run/Post-run 三階段把關。7 類 Eval 全覆蓋 Flow→Step→Skill→Artifact→Evidence→Policy→Regression。Skill 發布必須通過 Trigger→Functional→Policy→Regression→Human Review 五關，任一失敗即阻擋。Learning Loop 從 Run 捕獲 Signal → 產生 Proposal → Human Review → Sandbox Eval → Quality Gate → Publish，嚴守「Agent 提案、人類審核、Eval 閘門」鐵律。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-agent-platform-evaluation-en)
+
 ## TL;DR
 
 Evaluation System 是 Agent Platform 的**「品質控制層」**，而非事後報表：

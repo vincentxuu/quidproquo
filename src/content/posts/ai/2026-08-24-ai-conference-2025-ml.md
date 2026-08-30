@@ -23,6 +23,8 @@ glossary:
     context: "Gated Attention 的 sigmoid 門控可以消除此現象。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2025-ml-en)
+
 > 本文是「[AI 頂會導讀](/posts/ai/2026-08-23-what-is-ai-top-conference)」系列的 2025 年機器學習篇，涵蓋 NeurIPS、ICML、ICLR 三大會議以及 AAAI、IJCAI。
 
 2025 年是 ML 頂會的規模紀錄年。NeurIPS 投稿量從 2024 年的 15,671 篇跳到 21,575 篇（+37.6%），ICML 從 9,473 跳到 12,107（+27.8%），ICLR 從 7,304 跳到 11,565（+58.3%）——三場會議的年增率都是近五年最高的。審稿系統的壓力也到了極限：NeurIPS 動用了 20,518 位 reviewer、1,663 位 Area Chair、199 位 Senior Area Chair，一場會議的審稿人池規模已經相當於一所中型大學的全部學術人員。

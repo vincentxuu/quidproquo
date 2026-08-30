@@ -23,6 +23,8 @@ glossary:
     context: "審稿流程的層級結構，Main Track 與 D&B Track 共用同一套 AC 體系。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-tracks-main-findings-db-en)
+
 > 🌏 系列文章：[AI 頂會是什麼](/posts/ai/2026-08-23-what-is-ai-top-conference)（篇 0）→ 本篇（篇 1）
 
 [上一篇](/posts/ai/2026-08-23-what-is-ai-top-conference)整理了「AI 頂會」這個標籤是怎麼被三套獨立排名系統撐起來的。但光知道哪些會議是頂會不夠——同一場會議內部，論文走的路徑就有明顯的 prestige 分層。一篇投到 NeurIPS 的論文，進了 Main Track 跟進了 D&B Track，在學術圈讀起來是不同的訊號；一篇投到 ACL 的論文，上了主軌跟進了 Findings，在 CV 上的份量也不一樣。

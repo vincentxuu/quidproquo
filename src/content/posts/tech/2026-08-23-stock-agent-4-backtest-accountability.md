@@ -19,6 +19,8 @@ glossary:
     definition: "Average True Range，衡量近期波動幅度的技術指標，用來定義停損距離"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability-en)
+
 > **台股研究 Agent 實戰系列（篇 4 / 9）**：[上一篇：LLM 分層與降級鏈](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback) ｜ [下一篇：評估方法學：walk-forward、run card 與 50% 的誠實 baseline](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
 「回測看起來很美，上線實盤卻一直賠錢」——這是量化圈最老的梗，老到變成面試考題。這篇講我怎麼在 stock-research-agent 裡回答它：不靠紀律口號，而是把「回測必須發生在 LLM 寫結論之前」做成 graph 的結構，讓 synthesis 只能解釋已經存在的回測證據，而不是先寫結論再找理由撐它。讀完你會知道這個系統怎麼擋四種最常見的回測謊言，以及它現在仍然誠實承認做不到什麼。

@@ -23,6 +23,8 @@ glossary:
     context: "ICCV 2025 Best Student Paper FlowEdit 就是基於 flow model 的圖像編輯方法。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2025-cv-en)
+
 2025 年是電腦視覺的雙會年——CVPR（6 月，Nashville）和 ICCV（10 月，Honolulu）同時在同一年舉辦。兩場會議的投稿量都創下新高，加起來超過 24,000 篇投稿、5,500 篇接受，幾乎是五年前（2021）同期的兩倍。這一年的 CV 研究有幾個清晰的主題：3D Gaussian Splatting 全面取代 NeRF、影片生成從學術走向商業、flow model 開始挑戰 diffusion model 的主導地位、embodied AI 把視覺理解跟機器人操作越拉越近。
 
 ## CVPR 2025

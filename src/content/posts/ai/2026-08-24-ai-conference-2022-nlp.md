@@ -23,6 +23,8 @@ glossary:
     context: "2022 年是 instruction tuning 方法論走向成熟的關鍵年。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2022-nlp-en)
+
 2022 年的 NLP 有兩個不同的世界：年底之前和年底之後。12 月之前，學術圈還在做傳統的 benchmark 推分和方法論改進；12 月 ChatGPT 上線之後，幾乎所有人都在重新思考「NLP 研究到底還能做什麼」。但回頭看，ChatGPT 的技術基礎——RLHF、instruction tuning、chain-of-thought——全部在 2022 年的頂會論文裡就位了。
 
 這篇整理 2022 年 ACL、EMNLP、NAACL 三場 NLP 頂會的 Best Paper、最具影響力的論文、以及這一年的研究趨勢。

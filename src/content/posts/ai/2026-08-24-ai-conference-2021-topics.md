@@ -23,6 +23,8 @@ glossary:
     context: "2020 年底 Google 提出 ViT，2021 年各個 CV 會議立刻出現大量 Transformer-based 視覺模型。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2021-topics-en)
+
 2021 年的 AI 頂會處在一個特殊的時間點：GPT-3 剛在前一年發表但還沒有 ChatGPT，Stable Diffusion 還不存在，RLHF 只是少數人在研究的冷門題目。但如果你翻開 2021 年各大會議的得獎論文和接受論文關鍵詞，會發現所有即將在 2022-2024 年爆發的方向——Diffusion Model、多模態、大型語言模型的對齊——都已經在 2021 年留下了清楚的訊號。這篇從「研究方向」而非「單場會議」的角度，整理 2021 年九大 AI 頂會到底在收什麼題目。
 
 ## 最熱門：Transformer 從 NLP 吃掉所有領域

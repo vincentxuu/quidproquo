@@ -10,6 +10,8 @@ description: "Apple 第三代 Foundation Models（AFM 3）完整介紹：五個�
 draft: false
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-25-apple-pcc-free-afm3-en)
+
 Apple 在 2026 年 6 月的 WWDC 2026 發表第三代 Apple Foundation Models（AFM 3），同時宣布符合資格的小型開發者可以**免費**使用跑在 Private Cloud Compute（PCC）上的雲端模型。這件事容易被淹沒在 WWDC 的大量更新裡，但對獨立開發者和小型工作室來說，這可能是第一次不用先燒雲端 AI 帳單就能在 App 裡接入 frontier 等級模型的機會。
 
 ## 免費額度的資格條件

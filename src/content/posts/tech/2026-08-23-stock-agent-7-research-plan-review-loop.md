@@ -17,6 +17,8 @@ glossary:
     definition: "把惡意指令藏在被餵給 LLM 的文字裡、讓模型聽它的而不是聽你的攻擊手法。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop-en)
+
 > **台股研究 Agent 實戰系列（篇 7 / 9）**：[上一篇：讓 LLM 報告的每個數字都可稽核](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations) ｜ [下一篇：研究到模擬單的邊界：content-addressed 執行合約](/posts/tech/2026-08-23-stock-agent-8-execution-contracts) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
 篇 1 到篇 6 講的是「一次研究怎麼不被幻覺污染」。篇 7 開始講另一個維度：這個系統不是給你一個問題就悶著頭跑到底的黑盒子，而是一個 **Copilot loop**——研究請求 → 計畫批准 → 可驗證來源 → 回測查核 → 人類審查回饋。M5 的核心是：花錢之前要先批准、證據進報告之前要先驗證、人的評語進系統之前要先消毒。

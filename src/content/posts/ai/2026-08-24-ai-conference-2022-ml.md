@@ -23,6 +23,8 @@ glossary:
     context: "Tri Dao 等人的 FlashAttention 發表於 NeurIPS 2022，日後成為幾乎所有大模型訓練框架的標準組件。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2022-ml-en)
+
 2022 年是 ChatGPT 發佈的前夜，而事後回看，那場爆發所需要的每一塊拼圖——scaling laws 的修正、RLHF 的方法論、推理能力的解鎖、高效注意力機制——都在這一年的頂會上各就各位。NeurIPS 首度收到超過一萬篇投稿，選了 13 篇 Outstanding Paper，數量之多反映了那一年成果密度之高。這篇以 NeurIPS、ICML、ICLR 三大 ML 會議為主軸，附帶 AAAI 與 IJCAI 的重點，整理 2022 年的得獎論文與高影響力工作。
 
 ## NeurIPS 2022

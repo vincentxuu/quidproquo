@@ -22,6 +22,8 @@ glossary:
     context: "quidproquo 的搜尋 API 用這個策略避免每次查詢都呼叫 Vectorize。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark-en)
+
 [上一篇](/posts/ai/2026-08-06-document-parsing-layout-ocr)討論了[解析層](/posts/ai/2026-08-06-document-parsing-three-layers)的工具選型邏輯：先看授權、再看語料類型、最後才看 benchmark 總分。但那些都是別人的 benchmark。這篇把工具拿來實際跑一遍，用的是我自己手上的素材——台大碩班掃描考古題。
 
 ## 測試素材

@@ -8,6 +8,8 @@ description: "Agent Platform Observability/Evidence/Artifacts 深度解析：結
 tldr: "Observability 不是事後加的 log，而是第一公民：結構化 Trace 連結 FlowRun→StepRun→SkillInvocation→ProviderCall→ToolInvocation→GuardResult→EvidenceItem→ArtifactVersion。Evidence Store 讓每個 claim 追溯到 source/excerpt/citation/confidence/conflict。Artifact 版本化支援 approve/reject/regenerate 不刪除歷史。Context Snapshot 按類別分配 token budget，超額自動壓縮記錄決定。Memory 分 procedural/episodic/semantic 三類，寫入需 proposal 經人工審核。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-agent-platform-observability-en)
+
 ## TL;DR
 
 Agent Platform 把**可觀測性、證據追溯、產出版本化**做成第一公民，不是事後補上的 log：

@@ -25,6 +25,8 @@ glossary:
     definition: "Google DeepMind 的隱形浮水印技術，直接嵌在生成的像素或音訊波形裡，肉眼不可見但偵測工具可讀。Veo 與 Imagen 輸出皆內建。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-26-ai-model-family-video-generation-en)
+
 2024 年 2 月，OpenAI 丟出 Sora 預覽：一分鐘的東京街景、逼真的物理反射，整個業界第一次意識到「文生影片」要認真了。當時 Sora 只給少數電影人測試，連公開產品都不是——但它把未來兩年的競爭議程定死了。兩年半後的今天，這是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的第十五篇家族深拆，主角換了一批人：Sora 本尊已宣布退場，取而代之的是 Veo、Kling、Runway 的三強割據。
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列第十五篇家族深度介紹。

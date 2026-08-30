@@ -20,6 +20,8 @@ glossary:
     def: "DeepSeek 的投機解碼模組，內建在 V4 模型中，加速推論"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-deepseek-en)
+
 2026 年 8 月，DeepSeek V4 Flash 以 11.6T tokens 的處理量穩坐 OpenRouter 用量第一；DeepSeek-R1 在 HuggingFace 拿下全站 text-generation 最高的 13,585 個 likes；所有模型全部 MIT 授權。這個從複製 Llama-2 起家的中國團隊，用兩年半的時間走出了一條獨特的技術路線——不拚最大規模，拚最聰明的架構。這篇追蹤 DeepSeek 從 V1 到 V4 的完整演化、R1 推理線的分叉、核心架構創新、以及每個版本該怎麼選。
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的第一篇家族深度介紹。

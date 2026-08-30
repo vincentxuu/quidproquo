@@ -23,7 +23,7 @@ glossary:
     context: "2024 年近 90% 的 notable model 來自業界，但學術界仍主導高引用論文。"
 ---
 
-> 🌏 English version (coming soon)
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-who-submits-en)
 
 [上一篇](/posts/ai/2026-08-23-what-is-ai-top-conference)整理了「頂會」的判定標準和代表會議清單。這篇接著問一個更具體的問題：這些會議的論文，到底是誰寫的？
 

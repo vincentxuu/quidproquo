@@ -23,6 +23,8 @@ glossary:
     context: "CVPR 2024 的 Best Student Paper（Mip-Splatting）就是這個方向。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2024-topics-en)
+
 2024 年是 AI 研究全面「LLM 化」的一年。一項對五大 AI 會議（ACL、CVPR、ICLR、ICML、NeurIPS）約 80,000 篇已接受論文的縱向分析顯示，LLM 相關論文的佔比在 2024 年繼續急升，agent 相關關鍵詞成長 4.3 倍，而 diffusion model 與 LLM 並列成為兩大生成式 AI 主軸。這篇從得獎論文和主題分布兩個維度，拆解 2024 年 AI 頂會到底在收什麼題目。
 
 ## 2024 年得獎論文一覽

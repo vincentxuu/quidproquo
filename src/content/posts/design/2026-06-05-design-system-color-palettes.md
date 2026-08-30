@@ -10,6 +10,8 @@ description: "比較主流 design system 的色彩系統設計：Tailwind 的 50
 draft: false
 ---
 
+> 🌏 [English version](/posts/design/2026-06-05-design-system-color-palettes-en)
+
 做網站配色的真正難點從來不是「挑一個好看的顏色」，而是挑完之後的工程問題：hover 跟 disabled 的變化色怎麼推、灰階要幾層、文字對比夠不夠 WCAG、dark mode 要不要重調一輪。主流 design system 已經把這些問題各自解過一遍，這篇整理 7 套系統的配色架構與它們收斂出的共同模式，做新網站時可以直接借用，不用從零發明。
 
 ## 七大系統總覽

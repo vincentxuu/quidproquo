@@ -21,6 +21,8 @@ glossary:
     definition: "權限能力清單，角色能進行哪些操作明確定義。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-8-execution-contracts-en)
+
 > **台股研究 Agent 實戰系列（篇 8 / 9）**：[上一篇：Copilot loop：計畫合約、可驗證來源與人類審查](https://quidproquo.cc/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop) ｜ [下一篇：部署邊界：Docker 到 Cloudflare Containers 的公開 API](https://quidproquo.cc/posts/tech/2026-08-23-stock-agent-9-cloudflare-deployment) ｜ [完整目錄在篇 1](https://quidproquo.cc/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
 研究 agent 幫你寫策略、跑回測、出報告，這些都還算安全——直到它要碰到真錢。這篇講我在 stock-research-agent 裡畫下的那條線：從「研究產出」到「模擬單下單」之間，我用三個不可變的 Pydantic 合約串成一條鏈，讓 LLM 永遠摸不到憑證、永遠改不動評估結果、永遠拿不到 live 權限。這是專案裡我寫得最不妥協的一段程式碼，也希望你看完能理解為什麼。

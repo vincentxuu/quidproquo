@@ -23,6 +23,8 @@ glossary:
     context: "2023 年發表於 SIGGRAPH，以即時渲染速度和可微分訓練挑戰 NeRF，成為 3D 表示的新主流方向。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2023-cv-en)
+
 2023 年的電腦視覺圈回到了久違的實體會議模式——CVPR 在溫哥華、ICCV 在巴黎，兩場都恢復了面對面交流。但更大的變化在論文內容本身：擴散模型從「能生成」演進到「能控制」，分割從需要訓練變成 zero-shot 通用能力，3D 表示從 NeRF 的隱式場走向 Gaussian Splatting 的顯式表示。這篇回顧這兩場會議的得獎論文、高影響力研究，以及定義 2023 年 CV 走向的三條技術趨勢。
 
 ## CVPR 2023

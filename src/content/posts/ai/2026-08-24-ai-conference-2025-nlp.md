@@ -23,6 +23,8 @@ glossary:
     context: "EMNLP 2025 的 Findings 接受量幾乎跟主軌的 1,811 篇一樣多。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2025-nlp-en)
+
 2025 年的 NLP 頂會，最直觀的變化是規模：ACL 投稿量從 2024 年的 4,407 篇暴增到 8,360 篇（+90%），EMNLP 從 6,105 篇增長到 8,174 篇（+34%）。但更深層的變化是身份問題——當幾乎每篇論文都在某種程度上跟 LLM 有關，NLP 會議跟 ML 會議（NeurIPS/ICML/ICLR）的邊界還在哪裡？
 
 這篇整理 2025 年 ACL、EMNLP、NAACL 三場 NLP 頂會的 Best Paper、主要趨勢、以及這一年圍繞 NLP 會議定位的爭論。

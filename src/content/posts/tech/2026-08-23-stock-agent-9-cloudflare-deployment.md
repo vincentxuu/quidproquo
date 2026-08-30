@@ -19,6 +19,8 @@ glossary:
     definition: "Cloudflare Workers 裡把服務（KV、D1、Durable Objects、Containers）掛載到 Worker 執行環境的機制，不經網路、零延遲。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-9-cloudflare-deployment-en)
+
 > **台股研究 Agent 實戰系列（篇 9 / 9）**：[上一篇：研究到模擬單的邊界：content-addressed 執行合約](/posts/tech/2026-08-23-stock-agent-8-execution-contracts) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
 前八篇拆的都是「agent 內部怎麼跑」——graph 拓樸、LLM 分層、回測查核、citation 護欄、copilot loop、執行合約。這篇回答最後一個問題：**這些東西怎麼讓別人用？** 從本機 `uv run` 到 Docker 到 Cloudflare Containers 的公開 API，三層部署各解決什麼問題、secret 住在哪裡、為什麼公開服務刻意關掉 LLM、以及一個 side project 怎麼做到「沒人用時不花錢」。

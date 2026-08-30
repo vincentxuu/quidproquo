@@ -7,6 +7,8 @@ lang: zh-TW
 description: "Agent Platform Skill System 深度解析：skill.yaml + SKILL.md 雙檔架構、四層漸進式揭露、FlowStep 顯式綁定 `@version`、Invocation 完整追蹤、內建四大 Deep Research skills，以及 Learning Loop 從 signal 到 proposal 再到 eval gate 的閉環機制。"
 tldr: "Skill = 可版本化、可安裝、可審計的能力包。雙檔架構分離 metadata 與指令，顯式綁定替代模型路由，invocation 全記錄。Learning Loop 從 run 產生 signal → proposal → sandbox eval → human review → publish，嚴守「Agent 提案、人類審核、Eval 閘門」原則。"
 ---
+> 🌏 [English version](/posts/tech/2026-08-23-agent-platform-skill-system-en)
+
 tags: ["ai-agent", "skill-system", "learning-loop", "agent-platform", "evaluation", "versioning", "skill-package", "progressive-disclosure"]
 ## TL;DR
 

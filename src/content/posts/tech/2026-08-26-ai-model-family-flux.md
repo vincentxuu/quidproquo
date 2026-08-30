@@ -23,6 +23,8 @@ glossary:
     definition: "FLUX 3 的統一多模態架構名稱，在同一組權重內共同學習圖像、影片、音訊與機器人動作預測，是 BFL 從圖像工具轉向「視覺智慧／世界模型」的技術底座。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-26-ai-model-family-flux-en)
+
 2024 年 8 月，四個從 Stability AI 出走的德國研究者——Robin Rombach、Patrick Esser、Andreas Blattmann、Dominik Lorenz——在 Freiburg 成立了 [Black Forest Labs](https://bfl.ai)。這不是普通團隊：Rombach 是 Latent Diffusion 論文的第一作者，Stable Diffusion 背後的架構就出自這批人之手。母公司財務動盪、核心研究員集體出走，然後在同月把首款模型 [FLUX.1](https://bfl.ai/blog/flux-2) 丟上市場，12B 參數直接把自家老東家的後繼版本打下去。這是 AI 模型家族系列的第十三篇，追蹤這家「德國復仇者」如何用兩年時間從一款開源模型長成涵蓋圖像、影片、機器人的視覺智慧公司。
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列第十三篇家族深度介紹。

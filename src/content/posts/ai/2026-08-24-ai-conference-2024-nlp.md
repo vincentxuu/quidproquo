@@ -20,6 +20,8 @@ glossary:
     context: "多篇 EMNLP 2024 論文探討 LLM-as-Judge 的偏見與局限。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2024-nlp-en)
+
 2024 年的 NLP 頂會面對一個前所未有的身份問題：當大型語言模型能處理幾乎所有傳統 NLP 任務，NLP 作為一個獨立研究領域還剩下什麼？三場會議各自給出了不同的回應——ACL 把開放科學立為年度主題，EMNLP 深挖多語言與可解釋性，NAACL 則在視覺接地和低資源語言上找到新空間。
 
 ## ACL 2024：語言模型能力邊界的七個問號

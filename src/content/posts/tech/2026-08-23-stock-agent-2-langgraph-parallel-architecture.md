@@ -19,6 +19,8 @@ glossary:
     definition: "只看到歷史當下能看到的資料，不用事後資訊回答歷史問題。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture-en)
+
 > **台股研究 Agent 實戰系列（篇 2 / 9）**：[上一篇：為什麼台股需要自己的研究 Agent](/posts/tech/2026-08-23-stock-agent-1-why-taiwan) ｜ [下一篇：LLM 分層與降級鏈](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
 這篇講整個 agent 的骨架：graph 長什麼樣子、為什麼 analyst 要並行跑、以及為什麼回測一定得排在 synthesis 前面。讀完你會拿到一張可以直接抄的拓樸圖，和「什麼情況下值得用 LangGraph、什麼情況自寫 loop 就好」的判斷標準。

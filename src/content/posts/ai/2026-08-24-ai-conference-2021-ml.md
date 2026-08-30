@@ -23,6 +23,8 @@ glossary:
     context: "Diffusion Models Beat GANs 的標題本身就是一個時代轉折的宣言。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2021-ml-en)
+
 2021 年是機器學習會議的轉折年。投稿量還沒到後來 2024–2025 年的爆炸程度，但已經在快速爬升；更重要的是，幾個日後定義整個領域走向的研究方向——diffusion model、自監督學習的理論化、RL 評估方法論——都在這一年的頂會上交出了關鍵論文。這篇以 NeurIPS、ICML、ICLR 三大 ML 會議為主軸，附帶 AAAI 與 IJCAI 的重點，整理 2021 年得獎論文與高影響力工作，並用後見之明回看哪些論文真正改變了後來的研究方向。
 
 ## NeurIPS 2021

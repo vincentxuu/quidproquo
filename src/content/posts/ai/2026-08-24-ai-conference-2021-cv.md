@@ -23,6 +23,8 @@ glossary:
     context: "SimSiam、DINO、MoCo v3 等自監督方法在 2021 年取得重大突破，縮小了與監督學習的性能差距。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2021-cv-en)
+
 2021 年的電腦視覺圈，兩件大事同時發生：COVID-19 讓 CVPR 和 ICCV 兩場最重要的會議都改成全線上舉辦，而 Transformer 架構正式從 NLP 跨界入侵 CV，開始動搖 CNN 長達十年的統治地位。這篇回顧這兩場會議的得獎論文、最具影響力的研究，以及三條定義了 2021 年 CV 走向的技術趨勢。
 
 ## CVPR 2021

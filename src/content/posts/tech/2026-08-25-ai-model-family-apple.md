@@ -25,7 +25,7 @@ glossary:
     definition: "Apple 提供的原生 Swift API，讓開發者以統一介面調用 on-device 和 PCC 雲端模型，支援 guided generation、tool calling 和第三方模型接入"
 ---
 
-> 🌏 English version 待翻譯
+> 🌏 [English version](/posts/tech/2026-08-25-ai-model-family-apple-en)
 
 2024 年 6 月，Apple 在 WWDC 2024 發佈了 Apple Intelligence，底層是兩個自研基礎模型——一個 3B 跑在手機上，一個跑在自家雲端。兩年後的 2026 年 6 月，AFM 3 家族已經擴展到五個模型，其中 AFM 3 Core Advanced 用 200 億參數的稀疏架構跑在 iPhone 上，每次只啟動 1–4B 參數；最強的 AFM 3 Cloud Pro 跑在 Google Cloud 的 NVIDIA GPU 上，用 Gemini 做蒸餾精煉。這是「AI 模型家族」系列的第十一篇，追蹤 Apple 從 AFM 第一代到 AFM 3 的完整演化。
 

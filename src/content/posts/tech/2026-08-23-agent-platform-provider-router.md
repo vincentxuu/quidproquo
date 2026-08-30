@@ -7,6 +7,7 @@ lang: zh-TW
 description: "Agent Platform Provider Router 深度解析：統一 Provider Registry、10+ LLM + 12 Search + 2 Reader providers、Groundlane MCP 整合、Step-local tool selection、Fallback chain with health-aware routing、OpenAI 相容 Proxy API（/v1/chat/completions）、model alias mapping 與跨 provider 格式正規化。"
 tldr: "Provider Router 是 Agent Platform 的「模型與工具網關」：統一 30+ providers、MCP tool discovery、step-local 權限控制、fallback chain with RRF fusion、OpenAI 相容 Proxy 讓現有 SDK 零改動接入。配置驅動而非硬編碼，provider 健康度感知路由。"
 ---
+> 🌏 [English version](/posts/tech/2026-08-23-agent-platform-provider-router-en)
 
 ## TL;DR
 

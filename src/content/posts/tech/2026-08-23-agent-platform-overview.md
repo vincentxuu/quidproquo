@@ -7,6 +7,8 @@ lang: zh-TW
 description: "Agent Platform 是一個 local-first、可部署到 Cloudflare 的 AI agent 工作流控制平台。本文為系列第一篇，解析其產品定位、系統分層、核心抽象與設計哲學。"
 tldr: "Agent Platform 把 AI agent 從「空白聊天視窗」升級為「可定義、可版本化、可觀測、可驗證、可改進」的結構化工作流平台，內建 Deep Research seed flow 示範完整閉環。"
 ---
+> 🌏 [English version](/posts/tech/2026-08-23-agent-platform-overview-en)
+
 tags: ["ai-agent", "workflow", "control-plane", "cloudflare", "agent-platform", "system-architecture"]
 ## TL;DR
 

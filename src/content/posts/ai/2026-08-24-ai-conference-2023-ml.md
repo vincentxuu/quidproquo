@@ -23,6 +23,8 @@ glossary:
     context: "Mamba 以 arXiv 預印本形式發布於 2023 年 12 月，在 NeurIPS 2023 會場引起大量討論。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2023-ml-en)
+
 2023 年 GPT-4 發佈、LLaMA 開源、ChatGPT 席捲全球——LLM 從研究主題變成產業基礎設施，這股浪潮直接反映在頂會的投稿量和論文主題分布上。NeurIPS 投稿首度突破 12,000 篇，ICML 和 ICLR 也創下各自新高。得獎論文的主題結構出現明顯轉向：2022 年還是 diffusion model 與 scaling laws 平分天下，2023 年幾乎所有焦點都圍繞著大語言模型——怎麼對齊、怎麼評估、怎麼高效微調、怎麼保護隱私。
 
 ## NeurIPS 2023

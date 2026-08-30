@@ -23,6 +23,8 @@ glossary:
     context: "2025 年以 4.0 倍成長率進入「預爆發」階段的新興方向。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2025-topics-en)
+
 2025 年是 AI 頂會歷史上投稿量最大的一年：NeurIPS 收了 21,575 篇、CVPR 13,008 篇、ICML 12,107 篇、AAAI 12,957 篇，每一場都在刷新自己的紀錄。但投稿量只是表象——真正的故事在題目的分布裡。一篇對五大會議（ACL、CVPR、ICLR、ICML、NeurIPS）2017–2025 年共 80,814 篇主軌論文的大規模主題分析（Khanbayov & Kurban, 2026）揭示了一個清晰的模式：AI 研究的主題不是平滑演進的，而是經歷「主題相變」（topical phase transitions）——在邊緣待上幾年，然後在一到三年內跨會議同時爆發。
 
 2025 年，我們正目睹至少兩場這樣的相變。

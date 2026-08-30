@@ -23,6 +23,8 @@ glossary:
     context: "成為後續 LLM 事實查核研究的標準框架。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2023-nlp-en)
+
 2023 年是 ChatGPT 之後的第一個完整學術年。NLP 頂會的投稿量繼續攀升，但比投稿數字更深刻的變化是：整個領域的研究議程被 LLM 重寫了。「怎麼讓模型在 benchmark 上多幾個百分點」不再是核心關注，取而代之的是三個更根本的問題——模型為什麼能做到這些事（in-context learning 的機制）、模型在什麼時候會騙你（hallucination 與事實查核）、以及模型能不能被攻破（prompt injection 與安全）。
 
 這篇整理 2023 年 ACL、EMNLP、EACL 三場 NLP 頂會的 Best Paper、高影響力論文、以及這一年的研究趨勢。

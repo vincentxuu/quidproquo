@@ -10,6 +10,8 @@ description: "拆解 @aiDotEngineer YouTube 頻道穩定產出的底層邏輯：
 draft: false
 ---
 
+> 🌏 [English version](/posts/learning/2026-08-21-conference-content-machine-en)
+
 YouTube 上有個頻道叫 [AI Engineer](https://www.youtube.com/@aiDotEngineer)，2023 年 9 月才開，三年不到就突破 60 萬訂閱，近 30 天還在以每月 7 萬的速度成長。更不可思議的是它幾乎**從不斷更**——每週都有新影片，品質穩定，而且講者陣容是 Jensen Huang、Andrej Karpathy、Greg Brockman 這個級別的。
 
 第一次看到的反應通常是：「這團隊到底多大？製作預算多少？」

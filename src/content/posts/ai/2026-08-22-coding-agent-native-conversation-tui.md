@@ -14,6 +14,8 @@ glossary:
     definition: "模型真正準備讀檔、改檔或執行命令的邊界；PCA 在此處套用 policy 與使用者核准。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-22-coding-agent-native-conversation-tui-en)
+
 ## TL;DR
 
 要做出 Claude Code 或 Codex 的 TUI，關鍵不是滿版配色，而是長生命期 session、typed transcript 與 tool-boundary approval。

@@ -23,6 +23,8 @@ glossary:
     context: "reviewer bidding 結合 TPMS 匹配分數是目前主流會議分配審稿人的標準方法。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-submission-to-publication-en)
+
 > 本文是「[AI 頂會導讀](/posts/ai/2026-08-23-what-is-ai-top-conference)」系列的第三篇。前篇介紹了頂會怎麼被認定、代表會議有哪些；這篇拆解一篇論文從按下 submit 到最終見刊的完整流程。
 
 在上一篇裡我們把審稿流程濃縮成四步：submission → review → rebuttal → decision。實際跑起來遠比這複雜——每一步都有具體的規則、時程壓力和可能出錯的地方。這篇逐步拆開，用 NeurIPS、ICML、ICLR、CVPR 四場主要會議的 2025-2026 年實際流程做對照。

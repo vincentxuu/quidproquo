@@ -20,6 +20,8 @@ glossary:
     context: "WSDM 2017 的隨機對照實驗和 ICLR 的單盲→雙盲切換研究都發現了 prestige bias 的統計證據。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-independent-researcher-en)
+
 > 🌏 本文為 [AI 頂會導讀](/tags/ai-conference) 系列篇 5
 
 「沒有機構、沒有指導教授、沒有計算資源，可以投頂會嗎？」這個問題在 Reddit r/MachineLearning 和各種 ML 社群裡反覆被問。答案是：不被禁止。所有主流 AI 會議——NeurIPS、ICML、ICLR、ACL——都不要求機構隸屬，OpenReview 帳號人人可以註冊，提交系統不會因為你填了「Independent Researcher」就退件。

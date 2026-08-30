@@ -20,6 +20,8 @@ glossary:
     def: "HuggingFace 的任務分類標籤，用來歸類模型的用途（如 text-generation、text-to-image）"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-24-ai-model-landscape-overview-en)
+
 這篇是「AI 模型家族」系列的導讀。HuggingFace 上有 47 種任務分類、超過 300 萬個模型，加上各家閉源 API，整個生態圈已經大到沒人能全部追完。這篇把它們按用途橫切成七大類、20 多個子用途，每個用途附上主要模型和選型建議——讓你從「我要做什麼」快速找到「該用哪個模型」。
 
 每個主要家族（Qwen、DeepSeek、Claude、GPT 等）會有獨立的深度介紹文，從演化脈絡到版本選擇指南。怎麼解讀各用途的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。

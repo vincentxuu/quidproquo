@@ -23,6 +23,8 @@ glossary:
     context: "CVPR 2022 發表，是 CNN 陣營對 Vision Transformer 浪潮的正面回應。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2022-cv-en)
+
 [上一篇（2021 電腦視覺篇）](/posts/ai/2026-08-24-ai-conference-2021-cv)把 Vision Transformer 入侵 CV 的元年和 NeRF 的起飛講完了。2022 年的變化更劇烈——最大的轉折不在「辨識」而在「生成」：一篇在 CVPR 發表的 Latent Diffusion Models 論文，幾個月後變成了席捲全球的 Stable Diffusion。
 
 ## CVPR 2022

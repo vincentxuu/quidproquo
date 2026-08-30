@@ -23,6 +23,8 @@ glossary:
     context: "Chinchilla 證明之前的大模型嚴重欠訓練——同樣的計算預算，用更小的模型配更多資料效果更好。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2022-topics-en)
+
 2021 年的 AI 頂會還在探索 Diffusion Model 的理論基礎、自監督學習的極限、和 Transformer 的跨領域擴散。一年後的 2022 年，這些方向全部加速了——但真正讓 2022 年成為分水嶺的，不是任何單一方向的突破，而是幾個方向同時成熟並交會：Diffusion Model 從學術實驗變成商業產品（DALL·E 2、Stable Diffusion），scaling laws 被改寫（Chinchilla），語言模型學會了推理（Chain-of-Thought），而 RLHF 從論文技術變成 ChatGPT 背後的核心引擎。
 
 這篇從「研究方向」的維度，整理 2022 年九大 AI 頂會到底在收什麼題目、哪些方向在加速、哪些開始消退，以及站在 2026 年回頭看哪些選擇的回報最高。

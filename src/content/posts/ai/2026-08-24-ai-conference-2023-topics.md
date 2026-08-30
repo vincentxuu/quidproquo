@@ -23,6 +23,8 @@ glossary:
     context: "2023 年 12 月發佈 preprint，成為挑戰 Transformer 注意力壟斷的標誌性工作。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2023-topics-en)
+
 2023 年的 AI 頂會發生了一件很少見的事：一整個領域的研究議程被一個產品——ChatGPT——在一年之內重新排列。2022 年 11 月 ChatGPT 上線，2023 年是它影響學術圈的第一個完整年度。翻開這一年各大會議的得獎論文和投稿關鍵詞，你會看到一幅跟 2022 年截然不同的圖景：LLM alignment 從冷門躍為主流、hallucination 從邊緣詞彙變成每場會議的熱門 track、agent 和 tool use 從概念走向實作——而傳統的 task-specific NLP pipeline 論文量開始明確萎縮。
 
 ## 最熱門：LLM 對齊、評估與安全

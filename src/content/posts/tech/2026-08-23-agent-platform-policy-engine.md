@@ -7,6 +7,7 @@ lang: zh-TW
 description: "Agent Platform Policy Engine 深度解析：版本化 Policy 配置、四層 Guard Pipeline（Input/Tool/Output/Budget）、Human Approval Gate 外部寫入核准、Loop Detection 與 Circuit Breaker、Escalation Records、Proxy API 專用 Policy、以及標準 Research Policy 範例。"
 tldr: "Policy Engine 是 Agent Platform 的「憲法與執法者」：Policy 版本化綁定 Flow/Preset、四層 Guard 在 step boundary 強制執行、Budget 多維度限制（cost/tokens/runtime/iterations/tool_calls）、External write 必須人工核准、Loop detection 自動熔斷、Escalation 記錄可審計軌跡。配置驅動而非硬編碼，新增規則只改 JSON。"
 ---
+> 🌏 [English version](/posts/tech/2026-08-23-agent-platform-policy-engine-en)
 
 ## TL;DR
 

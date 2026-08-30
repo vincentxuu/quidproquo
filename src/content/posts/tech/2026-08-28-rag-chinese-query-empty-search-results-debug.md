@@ -1,14 +1,17 @@
 ---
 title: "問「我想找入門的ai課程」卻回 0 筆？RAG 中文分詞與資料鏈路脫節除錯實戰"
 date: 2026-08-28
+updated: 2026-08-30
 category: tech
 type: debug
 tags: [rag, hybrid-search, fts5, bm25, vector-search, cloudflare, d1, vectorize]
 lang: zh-TW
-tldr: "在 Ask AI 輸入「我想找入門的ai課程」顯示搜尋文章 0 筆並觸發拒答，底部的延伸閱讀卻精準推薦相關文章。問題在於無空格中英混寫被 FTS5 當成單一長 token、LIKE fallback 拿整句查表命中 0，以及向量檢索未帶 post filter 且強依賴 post_chunks 造成空回傳；解法為引入 Script 邊界切詞、漢字 2-gram 滑窗與 Vectorize metadata 雙重保險。"
-description: "深度拆解 RAG 問答系統中「搜尋文章 0 筆拒答但延伸閱讀精準命中」的矛盾現象：從 FTS5 斷詞缺陷、中英混合無空格連寫、LIKE 降級失效到 Vectorize 與 D1 post_chunks 鏈路脫節的完整根因與修復方案。"
+tldr: "在 Ask AI 輸入「我想找入門的ai課程」顯示搜尋文章 0 筆並觸發拒答，底部的延伸閱讀卻精準推薦相關文章。第一輪修正中文斷詞、LIKE fallback 與 Vectorize 資料鏈路；第二輪再補漢字＋數字短詞、文章 metadata 檢索，以及只在 Validation／Critic 通過後顯示來源。"
+description: "深度拆解 RAG 問答系統中「搜尋文章 0 筆拒答但延伸閱讀精準命中」的矛盾現象，並追蹤後續優化：中文分詞、metadata 搜尋、RRF 融合、來源顯示門檻與 Cloudflare AI Search shadow rollout。"
 draft: false
 ---
+
+> 🌏 [English version](/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug-en)
 
 ## TL;DR
 
@@ -20,6 +23,8 @@ draft: false
 3. **向量檢索缺少 Filter 且強綁定 D1 `post_chunks`**：`searchPosts` 查向量未限定 `post` 類型，且查到 chunk 後必須到 D1 的 `post_chunks` 做 SQL JOIN；若 chunk ID 脫節就直接回空，而「延伸閱讀」直接讀取 Vectorize 的 metadata 因而成功命中。
 
 解法為：在檢索層加入**漢字/非漢字 Script 邊界切割**、**長中文 2-gram 滑窗拆解**、**LIKE 多詞 OR 查詢（排除單字噪音）**，並在向量搜尋補上 `type: post` 過濾與 metadata 直讀備援。
+
+8 月 29 日的第二輪修正又補了兩個缺口：`正2系統` 這類漢字＋數字短查詢會保留相鄰組合 `正2`；文章搜尋也會查 title、description、tldr、tags，再與 BM25、Vectorize 結果做 RRF。若最終回答沒有通過 Validation 或 Critic，來源卡片與延伸閱讀一律隱藏，不再讓拒答畫面帶著看似已驗證的推薦。
 
 ---
 
@@ -47,7 +52,7 @@ draft: false
 將整個請求鏈路分層拆解，發現了三個斷點：
 
 ### 1. BM25 路徑：分詞邏輯將中英混寫視為單一長 Token
-在 `src/lib/rag/tools/hybrid-search.ts` 的 `buildFtsQuery` 函數中：
+在 `src/lib/retrieval/tools/hybrid-search.ts` 的 `buildFtsQuery` 函數中：
 ```ts
 const rawTokens = normalized.match(/[\p{L}\p{N}][\p{L}\p{N}-]*/gu) ?? []
 ```
@@ -106,7 +111,7 @@ buildFtsQuery('推薦新手學習深度學習')
 
 ### 1. 優化 `buildFtsQuery`（Script 邊界與 2-gram 展開）
 
-在 `src/lib/rag/tools/hybrid-search.ts` 中：
+在 `src/lib/retrieval/tools/hybrid-search.ts` 中：
 ```ts
 export function buildFtsQuery(query: string): string | null {
   const normalized = query.trim().replace(/["']/g, ' ')
@@ -118,8 +123,14 @@ export function buildFtsQuery(query: string): string | null {
 
   const expanded = new Set<string>()
   for (const token of baseTokens) {
+    expanded.add(token)
+
     // 2) 按 Script 邊界拆分：漢字連續段 vs 非漢字連續段（拉丁/數字）
     const parts = token.match(/[\p{Script=Han}]+|[^\p{Script=Han}]+/gu) ?? [token]
+    for (let i = 0; i < parts.length - 1; i++) {
+      const pair = `${parts[i]}${parts[i + 1]}`.trim()
+      if (pair.length >= 2) expanded.add(pair)
+    }
     for (const part of parts) {
       const trimmed = part.trim()
       if (trimmed.length < 2) continue
@@ -149,12 +160,9 @@ export function buildFtsQuery(query: string): string | null {
 
 ### 2. 升級 `searchLikePosts`（Token-based OR LIKE 且排除單字噪音）
 
-在 `src/lib/rag/tools/search-posts.ts` 中，將 LIKE fallback 改為使用 `buildFtsQuery` 產生的有效 Token（長度 $\ge 2$）：
+在 `src/lib/retrieval/tools/search-posts.ts` 中，將 LIKE fallback 改為使用 `buildFtsQuery` 產生的有效 Token（長度 $\ge 2$）：
 ```ts
-  const tokens = ftsQuery
-    .split(' OR ')
-    .map(t => t.slice(1, -1).replace(/""/g, '"'))
-    .filter(t => t.length >= 2) // 排除單字避免高頻字噪音
+  const tokens = extractFtsTokens(query)
 
   if (tokens.length === 0) return []
 
@@ -177,6 +185,54 @@ export function buildFtsQuery(query: string): string | null {
 1. 傳入 `filter: { type: { $eq: 'post' } }`，防止其他文檔擠佔名額。
 2. 當 `fetchPostRowsByChunkIds` 因 D1 chunk 脫節回傳 0 筆時，自動 fallback 到 `fetchPostsByMetadata`，直接藉由 Vectorize metadata 裡記錄的 `slug` 從 `posts` 主表讀取內文與摘要。
 
+### 4. 第二輪：補短詞邊界與文章 metadata 搜尋
+
+第一輪對長中文句子有效，卻還有一個短查詢地雷：`正2系統` 會被切成 `正`、`2`、`系統`，前兩段各只有一個字元，會被長度門檻排除。現在 `buildFtsQuery` 會先保留相鄰 Script 組合，因此能留下 `正2` 與 `2系統`；測試也直接鎖住 `正2系統` 必須產生 `正2`。
+
+只查 chunk 仍然不夠。使用者說「找正2文章」時，最強訊號可能在 title、description、tldr 或 tags，不一定逐字出現在某個 chunk。`searchMetadataPosts` 現在用同一套 token 查這四個欄位，並過濾「文章、找文、搜尋、推薦、關於」等泛詞；結果再依執行路徑與 BM25，或與 BM25＋Vectorize 一起做 RRF：
+
+```ts
+const metadataResults = await searchMetadataPosts(query, limit, category, lang)
+const bm25Results = await searchBm25Posts(query, limit, category, lang)
+
+if (shouldUseBm25ShortCircuit(query, bm25Results.length, shortCircuit)) {
+  return dedupeBySlug(
+    reciprocalRankFuse([metadataResults, bm25Results], limit * 3),
+    limit
+  )
+}
+
+const vectorResults = await searchVectorPosts(query, limit, category, lang)
+return dedupeBySlug(
+  reciprocalRankFuse([metadataResults, vectorResults, bm25Results], limit * 3),
+  limit
+)
+```
+
+這次改動處理的已經不只是「0 筆」：即使 BM25 找到一些泛用 chunk，title 與 tags 的明確命中也能進入融合排序，不會被提到「文章」兩字的內容搶走前排。
+
+### 5. 拒答時不再顯示來源與延伸閱讀
+
+原始事故的 UI 矛盾還需要呈現層修正。系統現在共用 `shouldExposeRetrievedLinks`：必須真的有 `search_results`，而且 Validation 與 Critic 都沒有失敗，才允許輸出來源。
+
+```ts
+export function shouldExposeRetrievedLinks(state): boolean {
+  return (
+    state.search_results.length > 0 &&
+    !hasValidationFailure(state.validation) &&
+    !hasCriticFailure(state.critique)
+  )
+}
+```
+
+這個門檻同時放在 `/api/chat` 的 sources 事件與 `relatedPostsNode`。因此低信心、引用驗證失敗、回答偏題或仍有無依據主張時，不只回答會降級，下面也不會再掛一排容易被誤認為「本回答證據」的文章卡片。
+
+### 6. Search Page 的後續路徑：AI Search 只先跑 shadow
+
+8 月 30 日，站內 Search Page 另外接上設定驅動的多來源 fan-out：D1 keyword、既有 D1／Vectorize hybrid，以及 Cloudflare AI Search adapter。可見來源以 weighted RRF 合併；每個來源各自有 enabled、visible、shadow、weight 與 timeout。
+
+這條路徑目前不能寫成「Ask AI 已換成 Cloudflare AI Search」。程式預設讓 AI Search `enabled: false`、`visible: false`、`shadow: true`，也就是先保留 adapter、binding、健康檢查與評估位置，尚未讓它影響公開排序。真正切到 visible 之前，仍要比較繁中召回、來源 URL、延遲與失敗降級。
+
 ---
 
 ## 為什麼會這樣
@@ -186,6 +242,7 @@ export function buildFtsQuery(query: string): string | null {
    - 檢索層 0 筆 $\to$ 狀態標記為 `weak_retrieval`。
    - `Writer` 節點依據 Prompt 指令，遇到 0 筆證據時嚴格拒答（避免幻覺）。
    - 後續的 `Related` 節點因為檢索機制不同（直讀 metadata）成功撈出文章，造成了 UI 上「回答說沒有、下方推薦卻有」的強烈視覺衝突。
+3. **召回與呈現原本沒有共用信心門檻**：能召回一篇文章，不代表回答已經通過引用與品質檢查。把 sources 和 Related Reading 綁到同一個 Validation／Critic 結果後，才不會把候選資料誤呈現成已驗證證據。
 
 ---
 
@@ -194,6 +251,14 @@ export function buildFtsQuery(query: string): string | null {
 * **中文檢索不能假設有空格或純英文邊界**：混合 Script（Han + Latin）的交界處是天然的斷詞點，必須透過 Script 正則顯式切分。
 * **LIKE Fallback 必須與分詞連動**：Lexical 降級不能傻傻拿原始問句 `LIKE '%query%'`，而要用拆出的子詞組合 `OR LIKE`，但同時要過濾掉單字高頻詞（$\text{len} < 2$）以防雜訊污染排序。
 * **多節點資料流需要一致的容錯層**：若系統中有兩處用到向量檢索（如 RAG 內文檢索 vs 延伸閱讀），兩者的 Filter 規則與查表 Fallback 策略應該保持對齊，避免產生自相矛盾的使用者體驗。
+* **文章搜尋不能只盯正文 chunk**：對「找某篇文章」的 query，title、description、tldr、tags 往往比正文更接近使用者的命名方式；metadata 應該是獨立召回來源，再與 BM25／Vectorize 融合。
+* **檢索結果與可展示來源是兩個決策**：前者回答「有哪些候選」，後者回答「這些候選是否真的支撐最後回答」。兩者共用 Validation／Critic 門檻，才能守住 UI 的證據語意。
+
+---
+
+## 更新紀錄
+
+- 2026-08-30：同步 8 月 29–30 日的第二輪搜尋優化，補充漢字＋數字短詞、文章 metadata 檢索、來源顯示門檻，以及 Cloudflare AI Search shadow rollout 的邊界。
 
 ---
 
@@ -203,3 +268,4 @@ export function buildFtsQuery(query: string): string | null {
 - [Hybrid Search：BM25 + 向量搜尋彌補彼此的盲區](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)
 - [SQLite FTS5 Extension Documentation](https://sqlite.org/fts5.html)
 - [Cloudflare Vectorize Metadata Filtering](https://developers.cloudflare.com/vectorize/best-practices/metadata-filtering/)
+- [Cloudflare AI Search 怎麼用：資料來源、混合檢索與 Workers 綁定的完整解析](/posts/tech/2026-08-29-cloudflare-ai-search-guide)

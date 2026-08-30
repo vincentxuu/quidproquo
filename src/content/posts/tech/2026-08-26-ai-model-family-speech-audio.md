@@ -26,6 +26,8 @@ glossary:
     definition: "只給幾秒鐘參考音訊就能合成該說話者的聲音，不需重新訓練模型。XTTS v2 約 6 秒、Chatterbox 約 5 秒即可克隆"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-26-ai-model-family-speech-audio-en)
+
 2022 年 9 月，OpenAI 把 [Whisper](https://github.com/openai/whisper) 以 MIT 授權丟上 GitHub——一個用 680K 小時網路音訊弱監督訓練出來的 encoder-decoder 模型，最大版 1.55B 參數。當時商業 ASR 一小時音訊要價不斐，Whisper 直接把「自己跑一個接近 SOTA 的轉錄模型」變成筆電能做的事，整個語音新創與開源社群的遊戲規則被重寫。同一時間軸上另一條線，ElevenLabs 在 2022 年成立，四年後以 [Series D $500M、估值 $11B](https://elevenlabs.io/blog/series-d)、ARR 破 $500M 成為語音 API 的事實霸主。這是 AI 模型家族系列的第十四篇，把語音拆成 ASR 與 TTS 兩條子線一次看懂。
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列第十四篇家族深度介紹。

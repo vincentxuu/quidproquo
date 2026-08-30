@@ -7,6 +7,8 @@ lang: zh-TW
 description: "Agent Platform 核心子系統 Flow Runtime 深度解析：FlowVersion 不變性設計、Step DAG 執行邏輯、Checkpoint 持久化、Resume/Retry-step 控制，以及 Deep Research seed flow 的實際結構。"
 tldr: "Flow Runtime 是 Agent Platform 的心臟：Flow 發布即不可變、Run 綁定具體 version+preset、Step 以 DAG 邊緣條件流轉、每個邊界存 checkpoint、支援 resume/retry-step 不丟失 trace 歷史。"
 ---
+> 🌏 [English version](/posts/tech/2026-08-23-agent-platform-flow-runtime-en)
+
 tags: ["ai-agent", "workflow", "flow-runtime", "checkpoint", "versioning", "agent-platform", "durable-execution", "step-dag"]
 ## TL;DR
 

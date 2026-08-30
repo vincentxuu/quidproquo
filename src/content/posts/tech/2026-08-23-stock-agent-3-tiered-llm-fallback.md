@@ -17,6 +17,8 @@ glossary:
     definition: "寫入本地 artifact 的呼叫紀錄，只保留 role、model、latency、token 與成本，不含 prompt、error message 或 credential"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback-en)
+
 > **台股研究 Agent 實戰系列（篇 3 / 9）**：[上一篇：LangGraph 並行架構——五個分析師同時開工](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture) ｜ [下一篇：為什麼回測會說謊](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
 這篇記錄我的開源專案 stock-research-agent 怎麼管 LLM 呼叫：哪些節點配叫 LLM、配叫的又走什麼降級鏈、成本怎麼記帳。讀完你會知道怎麼在一個「多 agent」系統裡反而少燒 token，以及為什麼我把「不知道多少錢」跟「免費」分開記。

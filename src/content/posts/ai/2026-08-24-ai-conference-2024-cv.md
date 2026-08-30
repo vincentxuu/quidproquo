@@ -20,6 +20,8 @@ glossary:
     context: "CVPR 2024 出現多篇用 world model 做自動駕駛規劃的論文（Drive-WM、GenAD、DriveWorld）。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2024-cv-en)
+
 > 本文是「[AI 頂會導讀](/posts/ai/2026-08-23-what-is-ai-top-conference)」系列的電腦視覺 2024 年度篇。
 
 2024 年的電腦視覺研究有一個明確的主旋律：**生成式 AI 從 2D 全面擴展到 3D 和影片**。3D Gaussian Splatting（3DGS）在 2023 年底橫空出世後，2024 年的兩場大會被 3DGS 相關論文淹沒；Sora 在年初的 announcement 把 video generation 推上風口；vision-language model 則從通用走向醫學、生物、自動駕駛等垂直領域。CVPR 投稿量首次突破 11,500 篇，ECCV 也收到 8,585 篇——都是歷史新高。

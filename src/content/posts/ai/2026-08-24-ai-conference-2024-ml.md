@@ -20,6 +20,8 @@ glossary:
     context: "ICML 2024 Best Paper 之一就是 rectified flow 的 scaling 研究。"
 ---
 
+> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2024-ml-en)
+
 > 本文是[「AI 頂會導讀」系列](/tags/ai-conference)的一部分。系列總覽見[〈AI 頂會是什麼〉](/posts/ai/2026-08-23-what-is-ai-top-conference)。
 
 2024 年是 ML 頂會歷史上最擁擠的一年。NeurIPS 投稿量首次突破 15,000 篇，ICML 逼近萬篇，ICLR 也站上 7,400 的新高。但最值得注意的不是規模本身——而是這一年的研究重心出現了明確的轉向：從「怎麼把模型練更大」到「怎麼在推論時花算力花得更聰明」，test-time compute scaling 成為年度最重要的新主題。

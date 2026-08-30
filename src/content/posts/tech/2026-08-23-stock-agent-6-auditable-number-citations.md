@@ -19,6 +19,8 @@ glossary:
     definition: "驗證不通過時預設拒絕，而不是預設放行。"
 ---
 
+> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations-en)
+
 > **台股研究 Agent 實戰系列（篇 6 / 9）**：[上一篇：評估方法學：walk-forward、run card 與 50% 的誠實 baseline](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval) ｜ [下一篇：Copilot loop：計畫合約、可驗證來源與人類審查](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
 這篇講一個我以為很小、後來發現是整個系統可信度地基的東西：**研究報告裡的數字從哪來**。讀完你會知道為什麼我完全不讓 LLM 打阿拉伯數字進報告、什麼是「引用護欄會整份丟棄 LLM prose」，以及為什麼這個護欄只保證數字可稽核、不保證解讀正確。
