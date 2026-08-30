@@ -74,16 +74,15 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
-- **Admin session chat UX 修正（2026-08-30）**：修正 `runLoop` 重複寫入 legacy event 導致 SSE 漏事件/重複列的問題；`AdminSessionChat` 現在會立即 hydrate 歷史事件、用 event id/fingerprint 去重、running/queued/pending/paused 都有明確 loading row，並在 result/control 事件更新狀態。
-- **台灣語氣規格化（2026-08-29）**：台灣文章來源、寫作 skill 專案與站內 voice reference
-  已研究完成，並收進 `post-polish` / `post-review` 的台灣讀者位置規則；新增
-  `writing-phrase-ledger` 收錄使用者指出的 AI 句型與不像台灣中文的用詞。
-- **Keenable.ai 導讀文（2026-08-29）**：新增 ai/deep-dive 中英文稿與 research note；
-  使用者已 review OK，`pnpm verify` 全綠。
+- **daily-digest routine 重跑 2026-08-30（model-card／framework／github，Q-019/Q-020 解除確認）**：
+  詳見 docs/progress-archive.md「2026-08-30 daily-digest routine 重跑」；三支皆已重跑成功。
+  github digest 用 `gh api` 查 13 個框架 release（僅 pydantic-ai v2.36.0 落在窗內）＋GitHub
+  Trending 頁面挑出 5 個 repo（chrome-devtools-mcp、GitNexus、context-mode、google/skills、
+  livekit/agents），series order 15，`pnpm verify` 全綠。
 Notes
 - Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md（agent 必讀：來源、已查證事實、URL 遷移、主題藍圖）；Anthropic 官方考點與資料管道地圖在 docs/anthropic-official-signals.md。
-- Some TODO entries are stale: English home about, Pagefind integration, OG image generation, and part of the redesign already exist in the repo.- CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，並明載影片在 Canvas、作業在 Ed、繳交在 Gradescope；Winter 2024–25 官方課表確認有開課且標示 SCPD，但未找到當期公開課站或 Stanford Online YouTube 完整播放清單。維持逐講阻塞，不用 Coursera 舊課或 2025 tutorial 冒充當期授課；來源與下次複查順序已記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
+- Some TODO entries are stale: English home about, Pagefind integration, OG image generation, and part of the redesign already exist in the repo.
+- CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，未找到當期公開課站或完整播放清單，維持逐講阻塞；來源記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
 - agent-* projects (foundation/evidence/flow/artifact/policy/pipelines-unify/console/providers/os): code complete, pending production observation windows. Status snapshots in docs/progress-archive.md; pending decisions in docs/governance/escalation-queue.md.
 - **Q-015（2026-08-27）**：Tavily API 額度用盡（432），daily-digest-signals 今日未產出（寧缺不湊數）；影響所有依賴 Tavily 的 daily-digest routine，待人決定升級方案或改 skill fallback。
-- **Q-020（2026-08-30，正式登錄於 escalation-queue.md，取代舊撞號筆記）**：Groundlane connector 在 org 端已連線（connected: true）但本 session `enabledInChat: false`，daily-digest-model-card（2026-08-29）、daily-digest-funding、daily-digest-signals（皆 2026-08-30）皆未產出（skill 明文禁止改用 Exa/Tavily/Firecrawl 等 fallback）；signals 是 Stage 2，缺檔已確認連帶讓今日 Stage 3 daily-digest-report 也未產出（只剩 2 個獨立事件，不足以支撐深度分析＋覆蓋率檢查）。需使用者到 chat/workspace connector 設定啟用 Groundlane 的 `enabledInChat`。
-- **Q-019（2026-08-30，daily-digest-framework 同日確認為系統性問題）**：Groundlane 未掛載、`gh` CLI 未安裝、GitHub MCP 被限定只能存取 `vincentxuu/quidproquo` 一個 repo，三條資料來源全被擋死；daily-digest-github 與 daily-digest-framework 今日皆未產出。待人決定放寬 GitHub MCP repo scope 或補掛 Groundlane，一次解掉全部依賴這兩者的 daily-digest-* routine。
+- **Q-020 更新（2026-08-30）**：daily-digest-model-card 重跑時 Groundlane 工具（`web_search`／`web_fetch`）已可正常載入並回傳真實結果，`enabledInChat` 問題在本 session 未重現，判斷使用者已在 connector 設定啟用。model-card 本身已正常產出（見上）；funding／signals／report 三支當天受影響的 routine 仍待各自重跑確認後才能全部標記解決，詳見 escalation-queue.md Q-020。

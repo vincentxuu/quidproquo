@@ -1018,3 +1018,15 @@ zh/en 各 21 篇。order 0 導讀含 41 層 roadmap，逐層對照過站上 1,14
 
 - 使用者確認 web retrieval benchmark、web extraction quality benchmark、self-improving agent skills 三組雙語稿可上線後，6 檔已改為 `draft: false`。
 - Benchmark 文定位為規格發布，仍不宣稱尚未完成 raw run 的排名、延遲、成本或成功率；結果表待 live/raw artifacts 補齊後另寫。
+
+## 2026-08-30 歸檔
+
+- **Admin session chat UX 修正**：修正 `runLoop` 重複寫入 legacy event 導致 SSE 漏事件/重複列的問題；`AdminSessionChat` 現在會立即 hydrate 歷史事件、用 event id/fingerprint 去重、running/queued/pending/paused 都有明確 loading row，並在 result/control 事件更新狀態。
+- **台灣語氣規格化**：台灣文章來源、寫作 skill 專案與站內 voice reference 已研究完成，並收進 `post-polish` / `post-review` 的台灣讀者位置規則；新增 `writing-phrase-ledger` 收錄使用者指出的 AI 句型與不像台灣中文的用詞。
+- **Keenable.ai 導讀文**：新增 ai/deep-dive 中英文稿與 research note；使用者已 review OK，`pnpm verify` 全綠。
+
+## 2026-08-30 daily-digest routine 重跑（Q-019／Q-020 解除確認）
+
+- **daily-digest-model-card**：Groundlane 在本 session 已確認可用（`enabledInChat` 問題不再重現，見 escalation-queue.md Q-020 更新）；HF API 兩層過濾後唯一符合條件的新模型是 BreezeBlue Breeze TTS 2（開放權重、無 base_model tag、7 天內建立、Artificial Analysis 開放權重榜首）。已產出中英文模型卡（series order 10），`pnpm verify` 全綠。
+- **daily-digest-framework（Q-019 重跑後解決，見 escalation-queue.md 同條）**：本次 session 的 `gh` CLI 已安裝且個人帳號 token 可查任意公開 repo（非 GitHub MCP 受限 scope），Groundlane 工具也可正常載入；用 `gh api` 查 12 個 watchlist 框架 repo release，僅 `pydantic/pydantic-ai` v2.36.0 落在 24 小時窗內且達「minor 版本有重要新功能」門檻（新增 `@durable_operation` durable-execution 原語＋第三方引擎公開 backend API；breaking change：MCP 工具移除 durable opt-out）。已產出中英文（series order 10），`pnpm verify` 全綠。
+- **daily-digest-github（Q-019 同日再確認解決）**：`gh` CLI（個人帳號 token）與 Groundlane MCP（`web_search`／`web_fetch`）皆正常。`gh api` 查 13 個 watchlist 框架的最新 release，過去 48 小時內僅 `pydantic/pydantic-ai` v2.36.0 達標（與 daily-digest-framework 同一個 release，未重複收錄；`mastra-ai/mastra` @mastra/core@1.63.0 已於前一日 2026-08-29 digest 提過並判定為例行 patch，今日跳過避免重複）。Trending repo 改用 Groundlane `web_fetch` 直接讀 `github.com/trending/{python,typescript}?since=daily` 取得真實榜單（比 `gh api search/repositories` 的候選數量與品質好很多），挑出 5 個橫跨 MCP server／coding agent 工具／agent skills／voice agent 框架的 repo：`ChromeDevTools/chrome-devtools-mcp`（Google 官方 Chrome DevTools MCP server）、`abhigyanpatwari/GitNexus`（瀏覽器端程式碼知識圖譜 + Graph RAG agent）、`mksglu/context-mode`（coding agent context window 壓縮，README 「企業採用」徽章連結為空，已在文中註明未查證）、`google/skills`（Google 官方 Agent Skills 套件庫）、`livekit/agents`（語音 AI agent 框架）。已產出 `src/content/posts/daily/2026-08-30-ai-agent-github-digest.md`（series order 15，僅中文，本 daily 系列不出英文版），`pnpm verify` 全綠。
