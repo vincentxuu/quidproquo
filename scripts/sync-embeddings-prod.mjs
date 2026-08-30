@@ -2,26 +2,38 @@
 
 const origin = process.env.WORKER_URL || process.env.CF_PAGES_URL || 'https://quidproquo.cc'
 const secret = process.env.INDEX_SYNC_SECRET
-const limit = Number(process.env.EMBED_SYNC_LIMIT ?? '80')
-const maxBatches = Number(process.env.EMBED_SYNC_MAX_BATCHES ?? '500')
+const MAX_API_LIMIT = 500
+
+function readNumberFlag(name, fallback) {
+  const exactIndex = process.argv.indexOf(name)
+  if (exactIndex >= 0) return Number(process.argv[exactIndex + 1])
+
+  const prefix = `${name}=`
+  const inline = process.argv.find(arg => arg.startsWith(prefix))
+  return inline ? Number(inline.slice(prefix.length)) : Number(fallback)
+}
+
+const limit = readNumberFlag('--limit', process.env.EMBED_SYNC_LIMIT ?? '80')
+const maxBatches = readNumberFlag('--max-batches', process.env.EMBED_SYNC_MAX_BATCHES ?? '500')
+const full = process.argv.includes('--full')
 
 if (!secret) {
   console.error('INDEX_SYNC_SECRET is required to run production embedding sync')
   process.exit(1)
 }
 
-if (!Number.isInteger(limit) || limit <= 0) {
-  console.error('EMBED_SYNC_LIMIT must be a positive integer')
+if (!Number.isInteger(limit) || limit <= 0 || limit > MAX_API_LIMIT) {
+  console.error(`Embedding sync limit must be an integer from 1 to ${MAX_API_LIMIT}`)
   process.exit(1)
 }
 
-let offset = Number(process.env.EMBED_SYNC_OFFSET ?? '0')
-if (!Number.isInteger(offset) || offset < 0) {
-  console.error('EMBED_SYNC_OFFSET must be a non-negative integer')
+if (!Number.isInteger(maxBatches) || maxBatches <= 0) {
+  console.error('EMBED_SYNC_MAX_BATCHES must be a positive integer')
   process.exit(1)
 }
 
 let totalVectors = 0
+let totalDeleted = 0
 let batchCount = 0
 let hasMore = true
 
@@ -33,7 +45,7 @@ while (hasMore && batchCount < maxBatches) {
       'Content-Type': 'application/json',
       'X-Index-Sync-Secret': secret,
     },
-    body: JSON.stringify({ sources: ['posts'], offset, limit }),
+    body: JSON.stringify({ sources: ['posts'], limit, full: full && batchCount === 1 }),
   })
 
   const text = await response.text()
@@ -47,7 +59,6 @@ while (hasMore && batchCount < maxBatches) {
   if (!response.ok || !payload.ok) {
     console.error('Embedding sync failed', JSON.stringify({
       status: response.status,
-      offset,
       limit,
       payload,
     }, null, 2))
@@ -68,14 +79,19 @@ while (hasMore && batchCount < maxBatches) {
   }
 
   totalVectors += Number(postResult.vectors ?? 0)
+  totalDeleted += Number(postResult.deleted ?? 0)
   hasMore = Boolean(postResult.hasMore)
-  offset = Number(postResult.nextOffset ?? offset + limit)
-  console.log(`[embed-sync] batch=${batchCount} vectors=${postResult.vectors} nextOffset=${offset} hasMore=${hasMore}`)
+  console.log(`[embed-sync] batch=${batchCount} vectors=${postResult.vectors} deleted=${postResult.deleted ?? 0} hasMore=${hasMore}`)
 }
 
 if (hasMore) {
-  console.error(`Embedding sync still has more work after ${maxBatches} batches`)
-  process.exit(1)
+  const message = `[embed-sync] paused after ${maxBatches} batches; pending work remains`
+  if (full) {
+    console.error(message)
+    process.exit(1)
+  }
+  console.log(message)
+  process.exit(0)
 }
 
-console.log(`[embed-sync] complete batches=${batchCount} vectors=${totalVectors}`)
+console.log(`[embed-sync] complete batches=${batchCount} vectors=${totalVectors} deleted=${totalDeleted}`)

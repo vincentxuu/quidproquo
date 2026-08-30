@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import {
   buildPostChunkSyncStatements,
+  buildPostSyncPlan,
   buildStalePostPruneStatements,
+  computeDesiredEmbeddingHash,
+  computePostSourceHash,
+  type PreparedPost,
 } from '../../../scripts/sync-to-d1'
 import { isSearchIndexEligiblePostData } from '../../utils/publishing'
 
@@ -78,6 +82,74 @@ describe('buildStalePostPruneStatements', () => {
     expect(() => buildStalePostPruneStatements([])).toThrow(
       'Refusing to prune posts with an empty eligible slug manifest',
     )
+  })
+})
+
+describe('incremental production sync', () => {
+  const makePost = (slug: string, sourceHash: string): PreparedPost => ({
+    post: {
+      id: `id-${slug}`,
+      slug,
+      title: slug,
+      category: 'tech',
+      lang: 'zh-TW',
+      description: null,
+      tldr: null,
+      content: 'content',
+      tags: '[]',
+      createdAt: '2026-08-30T00:00:00.000Z',
+      updatedAt: '2026-08-30T01:00:00.000Z',
+      sourceHash,
+    },
+    chunks: [],
+  })
+
+  it('only upserts changed posts and deletes stale slugs', () => {
+    const operations = buildPostSyncPlan(
+      [makePost('tech/unchanged', 'same'), makePost('tech/changed', 'new')],
+      [
+        { slug: 'tech/unchanged', sourceHash: 'same' },
+        { slug: 'tech/changed', sourceHash: 'old' },
+        { slug: 'tech/deleted', sourceHash: 'old' },
+      ],
+    )
+
+    expect(operations.map(operation => [operation.type, operation.type === 'delete'
+      ? operation.slug
+      : operation.post.slug])).toEqual([
+      ['upsert', 'tech/changed'],
+      ['delete', 'tech/deleted'],
+    ])
+  })
+
+  it('forces all eligible posts into a full rebuild', () => {
+    const post = makePost('tech/unchanged', 'same')
+    expect(buildPostSyncPlan([post], [
+      { slug: 'tech/unchanged', sourceHash: 'same' },
+    ], true)).toHaveLength(1)
+  })
+
+  it('refuses an empty local manifest before planning deletions', () => {
+    expect(() => buildPostSyncPlan([], [{ slug: 'tech/current', sourceHash: 'hash' }]))
+      .toThrow('Refusing to sync with an empty eligible post manifest')
+  })
+
+  it('uses canonical content and embedding versions in stable hashes', () => {
+    const post = {
+      slug: 'tech/example',
+      title: 'Example',
+      category: 'tech',
+      lang: 'en',
+      description: null,
+      tldr: null,
+      content: 'Body',
+      tags: '[]',
+      createdAt: '2026-08-30T00:00:00.000Z',
+    }
+    expect(computePostSourceHash(post)).toBe(computePostSourceHash({ ...post }))
+    expect(computePostSourceHash({ ...post, content: 'Changed' })).not.toBe(computePostSourceHash(post))
+    expect(computeDesiredEmbeddingHash('context')).toBe(computeDesiredEmbeddingHash('context'))
+    expect(computeDesiredEmbeddingHash('different')).not.toBe(computeDesiredEmbeddingHash('context'))
   })
 })
 

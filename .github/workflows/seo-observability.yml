@@ -1,0 +1,48 @@
+name: SEO Observability
+
+on:
+  workflow_call:
+    secrets:
+      GSC_ACCESS_TOKEN:
+        required: false
+      GA4_ACCESS_TOKEN:
+        required: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  observe:
+    name: Generate reports
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build content operations report
+        run: pnpm content:ops
+      - name: Build freshness priorities
+        run: pnpm seo:freshness
+      - name: Observe SEO/AEO signals
+        run: pnpm seo:observe -- --fetch-gsc --fetch-ga4
+        env:
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+          GSC_ACCESS_TOKEN: ${{ secrets.GSC_ACCESS_TOKEN }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+          GA4_ACCESS_TOKEN: ${{ secrets.GA4_ACCESS_TOKEN }}
+      - name: Upload SEO/AEO observability reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-aeo-observability
+          path: |
+            docs/content-ops-report.json
+            docs/seo-freshness-priorities.json
+            docs/seo-freshness-priorities.md
+            docs/seo-observability-report.json
+          if-no-files-found: error

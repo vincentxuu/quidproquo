@@ -7,9 +7,22 @@ import type { Env } from '@/lib/config/env'
 interface EmbedResult {
   source: string
   vectors: number
+  deleted: number
   errors: string[]
   hasMore: boolean
-  nextOffset: number
+}
+
+interface PendingPostChunk {
+  id: string
+  slug: string
+  title: string
+  category: string
+  lang: string
+  created_at: string
+  chunk_id: string
+  content: string
+  chunk_index: number
+  desired_embedding_hash: string
 }
 
 async function embedKnowledgeDocuments(texts: string[]): Promise<number[][]> {
@@ -23,18 +36,75 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
   )
 }
 
-export async function embedPosts(offset = 0, limit = EMBED_BATCH_SIZE): Promise<EmbedResult> {
+async function hasQueuedVectorDeletes(db: D1Database): Promise<boolean> {
+  const row = await db.prepare('SELECT 1 AS pending FROM vector_delete_queue LIMIT 1').first<{ pending: number }>()
+  return Boolean(row)
+}
+
+async function hasPendingPostEmbeddings(db: D1Database): Promise<boolean> {
+  const row = await db.prepare(
+    `SELECT 1 AS pending
+     FROM post_chunks
+     WHERE desired_embedding_hash IS NOT NULL
+       AND (embedded_hash IS NULL OR embedded_hash != desired_embedding_hash)
+     LIMIT 1`
+  ).first<{ pending: number }>()
+  return Boolean(row)
+}
+
+async function drainVectorDeleteQueue(
+  db: D1Database,
+  vectorize: VectorizeIndex,
+  limit: number,
+): Promise<number> {
+  const queued = await db.prepare(
+    'SELECT chunk_id FROM vector_delete_queue ORDER BY chunk_id LIMIT ?'
+  ).bind(limit).all<{ chunk_id: string }>()
+
+  let deleted = 0
+  for (const batch of chunkArray(queued.results, 100)) {
+    const ids = batch.map(row => row.chunk_id)
+    await vectorize.deleteByIds(ids)
+
+    const placeholders = ids.map(() => '?').join(', ')
+    await db.prepare(
+      `DELETE FROM vector_delete_queue WHERE chunk_id IN (${placeholders})`
+    ).bind(...ids).run()
+    deleted += ids.length
+  }
+
+  return deleted
+}
+
+async function resetPostEmbeddingCheckpoints(db: D1Database): Promise<void> {
+  await db.prepare(
+    'UPDATE post_chunks SET embedded_hash = NULL WHERE desired_embedding_hash IS NOT NULL'
+  ).run()
+}
+
+export async function embedPosts(limit = EMBED_BATCH_SIZE, full = false): Promise<EmbedResult> {
   const { DB, VECTORIZE_INDEX } = env as unknown as Env
   const errors: string[] = []
 
-  const posts = await DB.prepare(
-    'SELECT p.id, p.slug, p.title, p.category, p.lang, p.created_at, pc.id as chunk_id, pc.content, pc.chunk_index FROM post_chunks pc JOIN posts p ON p.id = pc.post_id LIMIT ? OFFSET ?'
-  ).bind(limit, offset).all<{
-    id: string; slug: string; title: string; category: string; lang: string;
-    created_at: string; chunk_id: string; content: string; chunk_index: number
-  }>()
+  if (full) await resetPostEmbeddingCheckpoints(DB)
 
-  const vectors: VectorizeVector[] = []
+  const deleted = await drainVectorDeleteQueue(DB, VECTORIZE_INDEX, limit)
+  if (await hasQueuedVectorDeletes(DB)) {
+    return { source: 'posts', vectors: 0, deleted, errors, hasMore: true }
+  }
+
+  const posts = await DB.prepare(
+    `SELECT p.id, p.slug, p.title, p.category, p.lang, p.created_at,
+            pc.id as chunk_id, pc.content, pc.chunk_index, pc.desired_embedding_hash
+     FROM post_chunks pc
+     JOIN posts p ON p.id = pc.post_id
+     WHERE pc.desired_embedding_hash IS NOT NULL
+       AND (pc.embedded_hash IS NULL OR pc.embedded_hash != pc.desired_embedding_hash)
+     ORDER BY pc.id
+     LIMIT ?`
+  ).bind(limit).all<PendingPostChunk>()
+
+  let vectorCount = 0
 
   for (const batch of chunkArray(posts.results, EMBED_BATCH_SIZE)) {
     try {
@@ -47,9 +117,10 @@ export async function embedPosts(offset = 0, limit = EMBED_BATCH_SIZE): Promise<
 
       const embeddedBatch = await embedKnowledgeDocuments(contextualBatch)
 
+      const vectors: VectorizeVector[] = []
       for (let index = 0; index < batch.length; index += 1) {
         const row = batch[index]
-        const id = await generateChunkId('post', row.slug, row.chunk_index)
+        const id = row.chunk_id
 
         vectors.push({
           id,
@@ -68,20 +139,23 @@ export async function embedPosts(offset = 0, limit = EMBED_BATCH_SIZE): Promise<
           },
         })
       }
+
+      await VECTORIZE_INDEX.upsert(vectors)
+
+      await DB.batch(batch.map(row => DB.prepare(
+        `UPDATE post_chunks
+         SET embedded_hash = ?
+         WHERE id = ? AND desired_embedding_hash = ?`
+      ).bind(row.desired_embedding_hash, row.chunk_id, row.desired_embedding_hash)))
+      vectorCount += vectors.length
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err)
       errors.push(...batch.map(row => `post chunk ${row.chunk_id}: ${message}`))
     }
   }
 
-  for (const batch of chunkArray(vectors, 100)) {
-    const ids = batch.map(v => v.id)
-    await VECTORIZE_INDEX.deleteByIds(ids).catch(() => {})
-    await VECTORIZE_INDEX.upsert(batch)
-  }
-
-  const hasMore = posts.results.length === limit
-  return { source: 'posts', vectors: vectors.length, errors, hasMore, nextOffset: offset + limit }
+  const hasMore = await hasPendingPostEmbeddings(DB)
+  return { source: 'posts', vectors: vectorCount, deleted, errors, hasMore }
 }
 
 export async function embedDocs(): Promise<EmbedResult> {
@@ -136,16 +210,17 @@ export async function embedDocs(): Promise<EmbedResult> {
     await VECTORIZE_INDEX.upsert(batch)
   }
 
-  return { source: 'docs', vectors: vectors.length, errors, hasMore: false, nextOffset: 0 }
+  return { source: 'docs', vectors: vectors.length, deleted: 0, errors, hasMore: false }
 }
 
 export async function runEmbedPipeline(
   sources: ('posts' | 'docs')[] = ['posts', 'docs'],
-  offset = 0,
-  limit = EMBED_BATCH_SIZE
+  _legacyOffset = 0,
+  limit = EMBED_BATCH_SIZE,
+  full = false,
 ): Promise<EmbedResult[]> {
   const results: EmbedResult[] = []
-  if (sources.includes('posts')) results.push(await embedPosts(offset, limit))
+  if (sources.includes('posts')) results.push(await embedPosts(limit, full))
   if (sources.includes('docs')) results.push(await embedDocs())
   return results
 }

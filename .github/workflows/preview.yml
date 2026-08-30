@@ -8,32 +8,39 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
+  quality:
+    name: Quality gate
+    uses: ./.github/workflows/quality.yml
+
   preview:
+    name: Build and deploy preview
+    needs: quality
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
-
       - uses: pnpm/action-setup@v4
         with:
           version: 10
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
-
-      - run: pnpm install
-
-      - name: Verify (lint + references + skills-sync + progress)
-        run: pnpm verify
-
+      - run: pnpm install --frozen-lockfile
+      - name: Restore OG image cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/og-images
+          key: >-
+            ${{ runner.os }}-og-${{ hashFiles('scripts/generate-og-images.mjs', 'public/fonts/NotoSansTC-Medium.otf', 'public/favicon.svg', 'pnpm-lock.yaml') }}-${{ hashFiles('src/content/posts/**/*.md') }}
+          restore-keys: |
+            ${{ runner.os }}-og-${{ hashFiles('scripts/generate-og-images.mjs', 'public/fonts/NotoSansTC-Medium.otf', 'public/favicon.svg', 'pnpm-lock.yaml') }}-
       - name: Build
         run: pnpm build
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-
       - name: Deploy preview
         id: deploy
         uses: cloudflare/wrangler-action@v4
@@ -41,7 +48,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           wranglerVersion: "4"
           command: deploy --config dist/server/wrangler.json --env preview
-
       - name: Comment preview URL
         uses: actions/github-script@v7
         with:
@@ -50,5 +56,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `🔍 Preview: ${{ steps.deploy.outputs.deployment-url }}`
+              body: `Preview: ${{ steps.deploy.outputs.deployment-url }}`
             })

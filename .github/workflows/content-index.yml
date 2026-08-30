@@ -1,0 +1,104 @@
+name: Content Index
+
+on:
+  workflow_call:
+    inputs:
+      worker_url:
+        description: Production Worker origin
+        required: false
+        type: string
+        default: https://quidproquo.cc
+      embedding_max_batches:
+        description: Maximum embedding batches processed by this deploy
+        required: false
+        type: number
+        default: 20
+      lock_group:
+        description: Concurrency group for this invocation
+        required: false
+        type: string
+        default: production-index-sync
+      confirmation:
+        description: Reserved for the standalone full-rebuild entry point
+        required: false
+        type: string
+        default: ""
+    secrets:
+      INDEX_SYNC_SECRET:
+        required: true
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Type FULL_REBUILD to reconcile all content and embeddings
+        required: true
+        type: string
+      worker_url:
+        description: Production Worker origin
+        required: false
+        type: string
+        default: https://quidproquo.cc
+      embedding_max_batches:
+        description: Safety limit for one maintenance run
+        required: false
+        type: number
+        default: 600
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  sync:
+    name: Sync production content index
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ inputs.lock_group || 'production-index-sync' }}
+      cancel-in-progress: false
+    steps:
+      - name: Confirm full rebuild
+        if: inputs.confirmation != ''
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: |
+          if [ "$CONFIRMATION" != "FULL_REBUILD" ]; then
+            echo "Confirmation must be exactly FULL_REBUILD" >&2
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Sync pending posts to production D1
+        if: inputs.confirmation == ''
+        run: pnpm sync:prod
+        env:
+          INDEX_SYNC_SECRET: ${{ secrets.INDEX_SYNC_SECRET }}
+          INDEX_SYNC_URL: ${{ inputs.worker_url }}
+          WORKER_URL: ${{ inputs.worker_url }}
+      - name: Rebuild production D1 content
+        if: inputs.confirmation == 'FULL_REBUILD'
+        run: pnpm sync:prod -- --full
+        env:
+          INDEX_SYNC_SECRET: ${{ secrets.INDEX_SYNC_SECRET }}
+          INDEX_SYNC_URL: ${{ inputs.worker_url }}
+          WORKER_URL: ${{ inputs.worker_url }}
+      - name: Sync pending post embeddings
+        if: inputs.confirmation == ''
+        run: pnpm sync:embeddings:prod -- --max-batches "${{ inputs.embedding_max_batches }}"
+        env:
+          INDEX_SYNC_SECRET: ${{ secrets.INDEX_SYNC_SECRET }}
+          WORKER_URL: ${{ inputs.worker_url }}
+      - name: Rebuild all post embeddings
+        if: inputs.confirmation == 'FULL_REBUILD'
+        run: pnpm sync:embeddings:prod -- --full --max-batches "${{ inputs.embedding_max_batches }}"
+        env:
+          INDEX_SYNC_SECRET: ${{ secrets.INDEX_SYNC_SECRET }}
+          WORKER_URL: ${{ inputs.worker_url }}
+      - name: Verify production search freshness
+        run: pnpm check:search-freshness
+        env:
+          SEARCH_FRESHNESS_BASE_URL: ${{ inputs.worker_url }}

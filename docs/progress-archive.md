@@ -2,6 +2,10 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-08-30 歸檔
+
+- 完成 CI/CD 增量索引與 workflow 拆分：`deploy.yml` 收斂為 production 編排與 Worker deploy，品質、SEO 觀測、內容索引拆成獨立 reusable workflows，preview 重用品質閘門，deploy/preview 加入 OG image cache。Production 文章同步改由受保護 Worker API 比對 source hash 並以 D1 binding batch 寫入；新增 chunk embedding checkpoint 與 Vectorize deletion outbox，正常部署只跑 bounded maintenance，手動 `FULL_REBUILD` 才要求完整跑完。完整 501 tests、`pnpm verify`、production build、Wrangler dry-run 與 migration SQLite smoke 均通過；未執行 remote migration、production sync 或 deploy。分析與執行計畫在 `.work/cicd-analysis/`。
+
 ## 2026-08-22 歸檔
 
 - 2026-08-22: 修正「世界名校 AI／CS 課程地圖」傘狀系列：Stanford 中英文地圖加入 additionalSeries order 1，系列檢查器納入額外系列並補回歸測試；全球入口至 Harvard 現為 order 0–5，無缺號警告。
