@@ -11,6 +11,8 @@ series:
   order: 8
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-27-product-builder-interview-daily)
+
 ## 今日主題
 
 AI Product Design 面試考的不是「你能不能講出 LLM 是什麼」，而是「當模型注定會犯錯，你怎麼設計系統讓錯誤被攔住，而不是直接傷害使用者信任」。這類題目常見於 AI-native 新創或大廠 AI 產品組的面試，面試官想看的是你有沒有把 human-in-the-loop 當成「系統的一部分」在設計，而不是出包後才補上的救火機制。

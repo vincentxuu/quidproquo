@@ -11,6 +11,8 @@ series:
   order: 7
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-27-framework-mastra-1.62.0)
+
 ## 版本資訊
 
 | 項目 | 值 |
