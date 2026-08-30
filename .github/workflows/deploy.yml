@@ -7,10 +7,6 @@ on:
     - cron: "5 16 * * *"
   workflow_dispatch:
 
-concurrency:
-  group: production-index-sync
-  cancel-in-progress: true
-
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
@@ -18,6 +14,9 @@ jobs:
   detect-content-index:
     name: Detect content index changes
     runs-on: ubuntu-latest
+    concurrency:
+      group: production-worker-deploy
+      cancel-in-progress: true
     outputs:
       should_sync: ${{ steps.content-index.outputs.should_sync }}
       reason: ${{ steps.content-index.outputs.reason }}
@@ -126,5 +125,5 @@ jobs:
     with:
       worker_url: https://quidproquo.cc
       embedding_max_batches: 20
-      lock_group: production-index-sync-${{ github.run_id }}
+      lock_group: production-index-sync
     secrets: inherit
