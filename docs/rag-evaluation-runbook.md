@@ -63,3 +63,63 @@ The `/api/chat` stream exposes generated tokens, displayed `sources`, related it
 - A cached response may omit sources and agent steps; q21's Promptfoo contract requires an uncached response for this reason.
 
 To change artifact locations, set `RAG_EVAL_ARTIFACT_ROOT` or the individual `RAG_EVAL_REPORT_PATH`, `RAG_EVAL_OUTPUTS_PATH`, `RAG_EVAL_SCORES_PATH`, and `RAG_EVAL_TRACES_PATH` variables.
+
+## Production incident: q21 course catalog retrieval
+
+### Symptom
+
+The Ask AI question `有哪些課程文章` did not reliably demonstrate that university course guides were being retrieved. The first production q21 observation was served from an older semantic-cache entry, so its missing course links could not prove a failure in the newly deployed retriever.
+
+After semantic-cache generation `retrieval-v2` forced a real first-hit query, retrieval found all four required course maps:
+
+- Stanford: `learning/2026-08-20-stanford-cs-course-map`
+- MIT: `learning/2026-08-21-mit-ai-ml-course-map`
+- CMU: `learning/2026-08-21-cmu-ai-ml-course-map`
+- Berkeley: `learning/2026-08-21-berkeley-ai-ml-course-map`
+
+That run still failed q21 because it took 51.169 seconds, above the 30-second contract. Its public trace showed three Research → Writer → Validation → Critic passes. The evidence changed the diagnosis: source recall was working; the remaining failure was generation and review-loop convergence.
+
+### Diagnosed mechanism
+
+The production trace did not retain raw drafts or every Critic field, so it cannot prove one individual Critic score was the sole root cause. The mechanism most consistent with the code path and observed retries was the mismatch between a metadata-only catalog query and the ordinary recommendation rubric.
+
+q21 is a broad catalog query using metadata-only post evidence. The Writer still treated every `recommendation` intent as a normal recommendation task and requested a concrete reason for every item. That could encourage claims the title-and-URL metadata could not support, while the Critic still evaluated the draft with the ordinary recommendation rubric.
+
+Each retry added Critic gaps to a new query. Before the fix, results from multiple retry queries were deduplicated but not capped globally, so the source set grew from 20 to 26 without improving the required-source result. Each Writer draft was also emitted immediately; because the SSE consumer appends token events, repeated drafts could be concatenated into one visible answer.
+
+The public trace showed Validation completing before every Critic step, but did not expose the validation result or full engine state. Under the deployed/default LangGraph routing, that sequence is consistent with validation passing before Critic; it is not independent proof of the hidden validation field.
+
+### Fix
+
+The q21 repair was delivered across three commits:
+
+- `ff973444`: clean broad catalog queries, use metadata-only post retrieval, deduplicate at the article level, widen Writer context, and make the UI source count document-aware.
+- `765f7000`: add authenticated admin-only `cacheMode: bypass`, prevent public eval impersonation, add a 24-hour versioned semantic-cache boundary, require live adapters to use the admin cookie, and check forbidden sources in both source metadata and answer text.
+- `b30ac957`: give broad catalog queries a title-plus-exact-link Writer and Critic rubric; cap merged recommendation results at the configured `postLimit` (20 in the deployed/default profile); let a reviewed catalog draft stop after one pass only when validation, citation membership, answer relevance, intent alignment, drift, and ungrounded-claim checks pass; emit only the accepted final response through the shared pipeline facade; advance the cache generation to `retrieval-v3`.
+
+The narrow catalog acceptance does not disable the Critic. A malformed Critic response, unknown citation, fewer than four retrieved citations, low relevance, low intent alignment, drift, or an ungrounded claim still follows the existing retry or fallback path. Only low confidence by itself may be tolerated after all stronger checks pass.
+
+### Production evidence
+
+The first uncached q21 request after the `retrieval-v3` deployment produced:
+
+| Check | Result |
+|---|---:|
+| Semantic cache | `cached: false` |
+| Latency | 26.821 seconds |
+| Latency contract | ≤ 30 seconds |
+| Required course maps | 4/4 |
+| Unique displayed sources | 20/20 |
+| Forbidden Cloudflare sources | 0 |
+| Pipeline passes | 1 |
+| Retrieval contract | 8/8 |
+
+The observed trace was Planner → Research → Writer → Validation → Critic, with no second Research or Writer step. GitHub Actions run `33298638227` proves that commit `b30ac957` passed its gates and deployed; the production response measurements above are the operator observation recorded in commit `a65b801e`. No sanitized raw live-output, score, or trace artifact was committed, so the repository cannot independently recompute those measurements.
+
+This is one production regression observation, not a long-term latency benchmark or a model-graded faithfulness result. It verifies the public q21 contract for that uncached request. It still does not expose raw Writer context, ranked retrieval chunks, or all Critic fields.
+
+### Regression rule
+
+Keep q21 only in `docs/rag-golden-dataset.json`; do not copy its source or latency expectations into Promptfoo YAML or baseline code. Promptfoo and baseline must continue loading it through the shared adapter.
+
+For repeated live checks, use an authenticated admin session with `cacheMode: bypass`. Do not bump the semantic-cache generation merely to run routine evaluation. A public first-hit request is acceptable only as a one-time post-deployment observation when a real retrieval-generation change already requires cache invalidation.
