@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L05: CNN Architectures — From Convolution Kernels to Translation Equivariance"
-date: 2026-10-01
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [mit-67960, deep-learning, pytorch, cnn, convolution, translation-equivariance, pooling]

@@ -1,6 +1,6 @@
 ---
 title: "Harvard CS50 AI Week 4: Learning — Supervised Learning, k-NN, SVM, Reinforcement Learning Q-learning & Nim"
-date: 2026-09-24
+date: 2026-08-30
 category: tech
 tags: [harvard-cs50ai, ai, machine-learning, supervised-learning, knn, svm, reinforcement-learning, q-learning, nim, shopping, python, cs50]
 lang: en

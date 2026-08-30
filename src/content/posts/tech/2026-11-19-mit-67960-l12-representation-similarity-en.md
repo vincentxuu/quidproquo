@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L12: Representation Learning (Similarity-Based) — Metric Learning, Contrastive, InfoNCE"
-date: 2026-11-19
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

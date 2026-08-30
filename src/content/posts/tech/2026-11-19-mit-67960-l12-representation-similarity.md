@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L12：表示學習（相似性式）—— 度量學習、對比學習與 InfoNCE"
-date: 2026-11-19
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

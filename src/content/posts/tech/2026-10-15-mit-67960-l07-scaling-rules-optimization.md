@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L07：優化縮放定律 —— 譜視角、特徵學習與超參數遷移"
-date: 2026-10-15
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

@@ -1,6 +1,6 @@
 ---
 title: "Harvard CS50 AI Week 5：Neural Networks——反向傳播、TensorFlow/Keras、CNN 與交通號誌辨識"
-date: 2026-10-01
+date: 2026-08-30
 category: tech
 tags: [harvard-cs50ai, ai, neural-networks, backpropagation, tensorflow, keras, cnn, traffic, python, cs50]
 lang: zh-TW

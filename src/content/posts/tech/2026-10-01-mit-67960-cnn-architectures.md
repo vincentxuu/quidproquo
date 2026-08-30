@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L05：CNN 架構全解析——從卷積核到平移等變性的感知機制"
-date: 2026-10-01
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [mit-67960, deep-learning, pytorch, cnn, convolution, translation-equivariance, pooling]

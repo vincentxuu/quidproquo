@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 近似理論（Approximation Theory）—— 萬能近似、Barron 定理與深度為何有用"
-date: 2026-12-10
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

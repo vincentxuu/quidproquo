@@ -1,6 +1,6 @@
 ---
 title: "Harvard CS50 AI Week 3：Optimization——局部搜尋、模擬退火、約束滿足問題與填字遊戲"
-date: 2026-09-17
+date: 2026-08-30
 category: tech
 tags: [harvard-cs50ai, ai, optimization, local-search, simulated-annealing, csp, ac-3, backtracking, crossword, python, cs50]
 lang: zh-TW

@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L18: Transfer Learning — Pretraining, Feature Extraction, and Fine-Tuning Strategies"
-date: 2027-01-21
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L13: Theory of Representation — Inductive Biases, Gaussian Processes, and the NN–GP Correspondence"
-date: 2026-11-26
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

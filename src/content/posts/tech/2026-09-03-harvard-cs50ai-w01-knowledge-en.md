@@ -1,6 +1,6 @@
 ---
 title: "Harvard CS50 AI Week 1: Knowledge — Propositional Logic, Model Checking, Inference Rules & Knowledge Representation"
-date: 2026-09-03
+date: 2026-08-30
 category: tech
 tags: [harvard-cs50ai, ai, logic, knowledge, model-checking, resolution, python, cs50]
 lang: en

@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L03：優化總覽——SGD、Adam、學習率排程與縮放規則"
-date: 2026-09-10
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [mit-67960, deep-learning, pytorch, optimization, sgd, adam, learning-rate-schedule]

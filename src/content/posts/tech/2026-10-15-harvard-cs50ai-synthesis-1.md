@@ -1,6 +1,6 @@
 ---
 title: "Harvard CS50 AI 綜論（一）：從搜尋到語言——七週 AI 知識弧線的完整圖譜"
-date: 2026-10-15
+date: 2026-08-30
 category: tech
 tags: [harvard-cs50ai, ai, synthesis, search, logic, probability, optimization, learning, neural-networks, language, python, cs50]
 lang: zh-TW

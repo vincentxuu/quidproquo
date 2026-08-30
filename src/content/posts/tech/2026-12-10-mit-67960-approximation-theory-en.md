@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 Approximation Theory — Universal Approximation, Barron's Theorem, and Why Depth Matters"
-date: 2026-12-10
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

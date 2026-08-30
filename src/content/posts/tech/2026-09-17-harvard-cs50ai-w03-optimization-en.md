@@ -1,6 +1,6 @@
 ---
 title: "Harvard CS50 AI Week 3: Optimization — Local Search, Simulated Annealing, CSP & Crossword Generation"
-date: 2026-09-17
+date: 2026-08-30
 category: tech
 tags: [harvard-cs50ai, ai, optimization, local-search, simulated-annealing, csp, ac-3, backtracking, crossword, python, cs50]
 lang: en

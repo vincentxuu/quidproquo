@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L17: Out-of-Distribution Generalization — Distribution Shift, Spurious Correlations, and Three Practical Remedies"
-date: 2027-01-14
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

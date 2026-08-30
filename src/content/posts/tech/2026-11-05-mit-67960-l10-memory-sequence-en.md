@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L10: Memory and Sequence Modeling — RNNs, LSTMs, and Vanishing/Exploding Gradients"
-date: 2026-11-05
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

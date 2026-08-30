@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L08: Transformers — Tokens, Attention, Positional Codes, and How They Relate to MLPs/CNNs/GNNs"
-date: 2026-10-22
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

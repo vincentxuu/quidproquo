@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L17：out-of-distribution 泛化 —— 領域偏移、虛假相關、與三條實務對策"
-date: 2027-01-14
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L08：Transformer —— Token、Attention 與位置編碼，以及它和 MLP/CNN/GNN 的關係"
-date: 2026-10-22
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

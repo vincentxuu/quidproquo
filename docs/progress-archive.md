@@ -4,6 +4,8 @@
 
 ## 2026-08-30 歸檔
 
+- 完成未來文章日期校正：將 58 篇已發布、日期原落在 2026-09-03 至 2027-01-21 的 CS50 AI／MIT 6.7960 中英文文章 frontmatter `date` 統一改為 `2026-08-30`；保留原檔名、slug 與內文。逐檔 diff 複核為單行替換，重新掃描無未來日期，`pnpm verify` 全綠。
+
 - 完成 CI/CD 增量索引與 workflow 拆分：`deploy.yml` 收斂為 production 編排與 Worker deploy，品質、SEO 觀測、內容索引拆成獨立 reusable workflows，preview 重用品質閘門，deploy/preview 加入 OG image cache。Production 文章同步改由受保護 Worker API 比對 source hash 並以 D1 binding batch 寫入；新增 chunk embedding checkpoint 與 Vectorize deletion outbox，正常部署只跑 bounded maintenance，手動 `FULL_REBUILD` 才要求完整跑完。完整 501 tests、`pnpm verify`、production build、Wrangler dry-run 與 migration SQLite smoke 均通過；未執行 remote migration、production sync 或 deploy。分析與執行計畫在 `.work/cicd-analysis/`。
 
 ## 2026-08-22 歸檔

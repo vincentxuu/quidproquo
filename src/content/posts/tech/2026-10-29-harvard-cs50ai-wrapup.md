@@ -1,6 +1,6 @@
 ---
 title: "Harvard CS50 AI 總結：什麼永恆、什麼改變、下一步走哪條路"
-date: 2026-10-29
+date: 2026-08-30
 category: tech
 tags: [harvard-cs50ai, ai, wrapup, retrospective, career, learning-path, llm, python, cs50]
 lang: zh-TW

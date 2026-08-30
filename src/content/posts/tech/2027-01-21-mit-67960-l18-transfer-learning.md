@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L18：遷移學習（Transfer Learning）—— 預訓練、特徵抽取、與微調策略"
-date: 2027-01-21
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

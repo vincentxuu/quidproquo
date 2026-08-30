@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L07: Scaling Rules for Optimization — Spectral View, Feature Learning, Hyperparameter Transfer"
-date: 2026-10-15
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

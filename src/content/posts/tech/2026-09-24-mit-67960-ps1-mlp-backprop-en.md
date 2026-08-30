@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 PS1 Walkthrough: From NumPy MLP to PyTorch Autograd Backprop"
-date: 2026-09-24
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [mit-67960, deep-learning, pytorch, backpropagation, autograd, mlp, homework, numpy]

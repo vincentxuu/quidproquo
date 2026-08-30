@@ -1,6 +1,6 @@
 ---
 title: "Harvard CS50 AI Week 2：Uncertainty——機率、貝氏網路、馬可夫模型與遺傳推斷"
-date: 2026-09-10
+date: 2026-08-30
 category: tech
 tags: [harvard-cs50ai, ai, probability, bayesian-network, markov-model, heredity, pagerank, python, cs50]
 lang: zh-TW

@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L04：正則化實戰——Weight Decay、Dropout、Batch Norm 與標籤平滑"
-date: 2026-09-17
+date: 2026-08-30
 category: tech
 type: deep-dive
 tags: [mit-67960, deep-learning, pytorch, regularization, weight-decay, dropout, batch-norm, label-smoothing]

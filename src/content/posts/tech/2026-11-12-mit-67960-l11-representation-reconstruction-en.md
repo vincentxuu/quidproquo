@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L11: Representation Learning (Reconstruction-Based) — Autoencoders, VQ, Self-Supervision"
-date: 2026-11-12
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960

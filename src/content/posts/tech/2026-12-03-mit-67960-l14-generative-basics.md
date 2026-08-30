@@ -1,6 +1,6 @@
 ---
 title: "MIT 6.7960 L14：生成模型基礎 —— 密度／能量模型、GAN、自回歸與擴散"
-date: 2026-12-03
+date: 2026-08-30
 category: tech
 tags:
   - mit-67960
