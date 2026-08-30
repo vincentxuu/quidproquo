@@ -12,6 +12,8 @@ series:
   order: 12
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-27-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **垂直產業的資料護城河正在轉譯成模型控制權——Thomson Reuters 自建法律模型迎頭對上 Google 殺進法律 AI 賽道，Google 同時用不可取消的長期帳單鎖住雲端客戶，兩條轉換成本戰線今天同時開打。**

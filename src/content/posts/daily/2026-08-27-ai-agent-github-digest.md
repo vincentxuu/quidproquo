@@ -11,6 +11,8 @@ series:
   order: 12
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-27-ai-agent-github-digest-en)
+
 ## 今日亮點
 
 今天最大的訊號不是某個新功能，是規模——DeepSeek 開源的 agent harness dsh 一週內從零衝到近 20 萬星，直接把「harness 層要不要標準化」的戰場從一堆新創公司拉進了大廠對決；同時 PrimeIntellect-ai/prime-agent 和 liqiwa/mcp-radar 從兩個方向補位：一個賭「agent 要能自己跑更久」，一個賭「生態太快了，需要自動化工具才追得上」。
