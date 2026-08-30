@@ -85,7 +85,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.7",
     "@axe-core/playwright": "^4.11.3",
-    "@cloudflare/workers-types": "^4.20260510.1",
+    "@cloudflare/workers-types": "5.20260830.1",
     "@fontsource/noto-sans-tc": "^5.2.9",
     "@resvg/resvg-js": "^2.6.2",
     "@types/mdast": "^4.0.4",
@@ -101,7 +101,7 @@
     "tsx": "^4.21.0",
     "vfile": "^6.0.3",
     "vitest": "^4.1.5",
-    "wrangler": "4.72.0"
+    "wrangler": "4.127.1"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm verify"

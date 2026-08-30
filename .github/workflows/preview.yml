@@ -34,9 +34,10 @@ jobs:
         with:
           path: .cache/og-images
           key: >-
-            ${{ runner.os }}-og-${{ hashFiles('scripts/generate-og-images.mjs', 'public/fonts/NotoSansTC-Medium.otf', 'public/favicon.svg', 'pnpm-lock.yaml') }}-${{ hashFiles('src/content/posts/**/*.md') }}
+            ${{ runner.os }}-og-v2-${{ hashFiles('scripts/generate-og-images.mjs', 'public/fonts/NotoSansTC-Medium.otf', 'public/favicon.svg') }}-${{ hashFiles('src/content/posts/**/*.md') }}
           restore-keys: |
-            ${{ runner.os }}-og-${{ hashFiles('scripts/generate-og-images.mjs', 'public/fonts/NotoSansTC-Medium.otf', 'public/favicon.svg', 'pnpm-lock.yaml') }}-
+            ${{ runner.os }}-og-v2-${{ hashFiles('scripts/generate-og-images.mjs', 'public/fonts/NotoSansTC-Medium.otf', 'public/favicon.svg') }}-
+            ${{ runner.os }}-og-
       - name: Build
         run: pnpm build
         env:

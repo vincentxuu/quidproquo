@@ -63,15 +63,12 @@
 	"ai": {
 		"binding": "AI"
 	},
-	"unsafe": {
-		"bindings": [
-			{
-				"name": "AI_SEARCH",
-				"type": "ai_search",
-				"instance_name": "quidproquo-public"
-			}
-		]
-	},
+	"ai_search": [
+		{
+			"binding": "AI_SEARCH",
+			"instance_name": "quidproquo-public"
+		}
+	],
 	"queues": {
 		"producers": [
 			{

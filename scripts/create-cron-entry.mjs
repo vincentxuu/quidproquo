@@ -27,6 +27,8 @@ const NON_INHERITABLE_ENV_KEYS = [
   'dispatch_namespaces',
   'mtls_certificates',
   'ai',
+  'ai_search',
+  'ai_search_namespaces',
   'images',
   'pipelines',
   'secrets_store_secrets',
@@ -167,6 +169,10 @@ if (existsSync(SERVER_WRANGLER)) {
     const sourceConfig = JSON.parse(readFileSync(SOURCE_WRANGLER, 'utf-8'))
     if (sourceConfig.durable_objects) wranglerConfig.durable_objects = clone(sourceConfig.durable_objects)
     if (sourceConfig.migrations) wranglerConfig.migrations = clone(sourceConfig.migrations)
+    if (sourceConfig.ai_search) wranglerConfig.ai_search = clone(sourceConfig.ai_search)
+    if (sourceConfig.ai_search_namespaces) {
+      wranglerConfig.ai_search_namespaces = clone(sourceConfig.ai_search_namespaces)
+    }
     if (sourceConfig.env) {
       wranglerConfig.env = hydrateEnvConfig(wranglerConfig, sourceConfig.env)
     }

@@ -29,9 +29,9 @@ export type PostSyncOperation =
   | { type: 'upsert'; post: PostSyncPost; chunks: PostSyncChunk[] }
   | { type: 'delete'; slug: string }
 
-const MAX_OPERATIONS = 10
+export const MAX_POST_SYNC_OPERATIONS = 10
 const MAX_CHUNKS_PER_POST = 250
-const MAX_STATEMENTS_PER_REQUEST = 800
+export const MAX_POST_SYNC_STATEMENTS = 800
 
 export async function listPostSyncManifest(db: D1Database): Promise<PostSyncManifestRow[]> {
   const result = await db.prepare(
@@ -44,17 +44,23 @@ export function parsePostSyncOperations(value: unknown): PostSyncOperation[] {
   if (!isRecord(value) || !Array.isArray(value.operations)) {
     throw new Error('Expected an operations array')
   }
-  if (value.operations.length === 0 || value.operations.length > MAX_OPERATIONS) {
-    throw new Error(`operations must contain 1-${MAX_OPERATIONS} items`)
+  if (value.operations.length === 0 || value.operations.length > MAX_POST_SYNC_OPERATIONS) {
+    throw new Error(`operations must contain 1-${MAX_POST_SYNC_OPERATIONS} items`)
   }
 
   const operations = value.operations.map((operation, index) => parseOperation(operation, index))
-  const statementCount = operations.reduce((total, operation) =>
-    total + (operation.type === 'upsert' ? 4 + operation.chunks.length * 3 : 4), 0)
-  if (statementCount > MAX_STATEMENTS_PER_REQUEST) {
-    throw new Error(`operations exceed ${MAX_STATEMENTS_PER_REQUEST} D1 statements`)
+  const statementCount = operations.reduce(
+    (total, operation) => total + estimatePostSyncStatements(operation),
+    0,
+  )
+  if (statementCount > MAX_POST_SYNC_STATEMENTS) {
+    throw new Error(`operations exceed ${MAX_POST_SYNC_STATEMENTS} D1 statements`)
   }
   return operations
+}
+
+export function estimatePostSyncStatements(operation: PostSyncOperation): number {
+  return operation.type === 'upsert' ? 4 + operation.chunks.length * 3 : 4
 }
 
 export async function applyPostSyncOperation(

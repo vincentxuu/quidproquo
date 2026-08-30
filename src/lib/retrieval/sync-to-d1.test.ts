@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   buildPostChunkSyncStatements,
+  buildPostSyncApiBatches,
   buildPostSyncPlan,
   buildStalePostPruneStatements,
   computeDesiredEmbeddingHash,
@@ -150,6 +151,46 @@ describe('incremental production sync', () => {
     expect(computePostSourceHash({ ...post, content: 'Changed' })).not.toBe(computePostSourceHash(post))
     expect(computeDesiredEmbeddingHash('context')).toBe(computeDesiredEmbeddingHash('context'))
     expect(computeDesiredEmbeddingHash('different')).not.toBe(computeDesiredEmbeddingHash('context'))
+  })
+
+  it('packs API batches by operation count and D1 statement budget', () => {
+    const largePost = makePost('tech/large', 'large')
+    largePost.chunks = Array.from({ length: 200 }, (_, index) => ({
+      id: `chunk-${index}`,
+      chunkIndex: index,
+      content: 'content',
+      desiredEmbeddingHash: `hash-${index}`,
+    }))
+    const mediumPost = makePost('tech/medium', 'medium')
+    mediumPost.chunks = Array.from({ length: 100 }, (_, index) => ({
+      id: `medium-${index}`,
+      chunkIndex: index,
+      content: 'content',
+      desiredEmbeddingHash: `hash-${index}`,
+    }))
+    const operations = [
+      { type: 'upsert' as const, ...largePost },
+      { type: 'upsert' as const, ...mediumPost },
+      { type: 'delete' as const, slug: 'tech/stale' },
+    ]
+
+    const batches = buildPostSyncApiBatches(operations)
+    expect(batches).toHaveLength(2)
+    expect(batches[0]).toEqual([operations[0]])
+    expect(batches[1]).toEqual([operations[1], operations[2]])
+  })
+
+  it('rejects a single operation that cannot fit the API statement budget', () => {
+    const post = makePost('tech/oversized', 'hash')
+    post.chunks = Array.from({ length: 266 }, (_, index) => ({
+      id: `chunk-${index}`,
+      chunkIndex: index,
+      content: 'content',
+      desiredEmbeddingHash: `hash-${index}`,
+    }))
+
+    expect(() => buildPostSyncApiBatches([{ type: 'upsert', ...post }]))
+      .toThrow('requires 802 statements; limit is 800')
   })
 })
 

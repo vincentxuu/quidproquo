@@ -15,13 +15,17 @@ import type {
   PostSyncOperation,
   PostSyncPost,
 } from '../src/lib/indexing/post-sync'
+import {
+  estimatePostSyncStatements,
+  MAX_POST_SYNC_OPERATIONS,
+  MAX_POST_SYNC_STATEMENTS,
+} from '../src/lib/indexing/post-sync'
 import { EMBEDDING_VERSION } from '../src/lib/retrieval/embedding'
 import { isSearchIndexEligiblePostData } from '../src/utils/publishing'
 
 const POSTS_DIR = 'src/content/posts'
 const DB_NAME = 'quidproquo-db'
 const SYNC_SCHEMA_VERSION = 'post-sync-v2'
-const API_BATCH_SIZE = 5
 const IS_PROD = process.argv.includes('--prod')
 const FULL_REBUILD = process.argv.includes('--full')
 const INCLUDE_FUTURE = process.argv.includes('--include-future')
@@ -134,6 +138,41 @@ export function buildPostSyncPlan(
   return operations
 }
 
+export function buildPostSyncApiBatches(
+  operations: PostSyncOperation[],
+  maxOperations = MAX_POST_SYNC_OPERATIONS,
+  maxStatements = MAX_POST_SYNC_STATEMENTS,
+): PostSyncOperation[][] {
+  const batches: PostSyncOperation[][] = []
+  let batch: PostSyncOperation[] = []
+  let statementCount = 0
+
+  for (const operation of operations) {
+    const operationStatements = estimatePostSyncStatements(operation)
+    if (operationStatements > maxStatements) {
+      throw new Error(
+        `Post sync operation for ${operation.type === 'delete' ? operation.slug : operation.post.slug} `
+        + `requires ${operationStatements} statements; limit is ${maxStatements}`,
+      )
+    }
+
+    if (batch.length > 0 && (
+      batch.length >= maxOperations
+      || statementCount + operationStatements > maxStatements
+    )) {
+      batches.push(batch)
+      batch = []
+      statementCount = 0
+    }
+
+    batch.push(operation)
+    statementCount += operationStatements
+  }
+
+  if (batch.length > 0) batches.push(batch)
+  return batches
+}
+
 export function computePostSourceHash(post: Omit<PostSyncPost, 'id' | 'updatedAt' | 'sourceHash'>): string {
   return sha256(JSON.stringify({ version: SYNC_SCHEMA_VERSION, ...post }))
 }
@@ -209,7 +248,7 @@ async function syncProduction(posts: PreparedPost[]): Promise<void> {
   const deletes = operations.length - upserts
   console.log(`Eligible ${posts.length}; changed ${upserts}; stale ${deletes}`)
 
-  const batches = chunkArray(operations, API_BATCH_SIZE)
+  const batches = buildPostSyncApiBatches(operations)
   for (const [index, batch] of batches.entries()) {
     const response = await fetchWithRetry(endpoint, {
       method: 'POST',
