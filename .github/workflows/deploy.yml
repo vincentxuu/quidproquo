@@ -9,7 +9,7 @@ on:
 
 concurrency:
   group: production-index-sync
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'push' }}
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
@@ -69,7 +69,7 @@ jobs:
 
   seo-observability:
     name: SEO observability
-    needs: [detect-content-index, quality]
+    needs: [detect-content-index]
     if: needs.detect-content-index.outputs.should_sync == 'true'
     uses: ./.github/workflows/seo-observability.yml
     secrets: inherit

@@ -10,25 +10,26 @@
 // Those belong to deploy-preflight, CI build, or per-skill flows.
 // astro check IS included — catches TS errors that block CI deploy.
 
-import { execSync } from 'node:child_process';
+import { exec } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { promisify } from 'node:util';
 
 const ROOT = resolve('.');
 const results = [];
+const execAsync = promisify(exec);
 
-function runStep(name, command) {
+async function runStep(name, command) {
   try {
-    execSync(command, {
+    await execAsync(command, {
       cwd: ROOT,
       encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'pipe'],
       maxBuffer: 64 * 1024 * 1024,
     });
-    results.push({ name, ok: true });
+    return { name, ok: true };
   } catch (error) {
     const out = [error.stdout, error.stderr].map((s) => s?.toString().trim()).filter(Boolean).join('\n');
-    results.push({ name, ok: false, detail: out || error.message });
+    return { name, ok: false, detail: out || error.message };
   }
 }
 
@@ -136,16 +137,19 @@ function checkCronEntryImports() {
   }
 }
 
-runStep('astro check (types)', 'npx astro check');
-runStep('lint (oxlint)', 'pnpm lint');
-runStep('check:references', 'pnpm check:references');
-runStep('check:post-quality', 'pnpm check:post-quality');
-runStep('check:tw (台灣用語 A 級)', 'pnpm check:tw');
-runStep('check:glossary', 'pnpm check:glossary');
-runStep('check:series-order', 'pnpm check:series-order');
-runStep('check:lang-parity', 'pnpm check:lang-parity');
-runStep('check:seo-smoke', 'pnpm check:seo-smoke');
-runStep('skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs');
+const commandResults = await Promise.all([
+  runStep('astro check (types)', 'npx astro check'),
+  runStep('lint (oxlint)', 'pnpm lint'),
+  runStep('check:references', 'pnpm check:references'),
+  runStep('check:post-quality', 'pnpm check:post-quality'),
+  runStep('check:tw (台灣用語 A 級)', 'pnpm check:tw'),
+  runStep('check:glossary', 'pnpm check:glossary'),
+  runStep('check:series-order', 'pnpm check:series-order'),
+  runStep('check:lang-parity', 'pnpm check:lang-parity'),
+  runStep('check:seo-smoke', 'pnpm check:seo-smoke'),
+  runStep('skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs'),
+]);
+results.push(...commandResults);
 // check:links 故意不放這裡：它會打外網，pre-commit 不該依賴網路。手動或排程跑 `pnpm check:links`。
 checkDailySkillTimezones();
 checkProgress();

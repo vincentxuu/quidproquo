@@ -57,9 +57,8 @@ function getGlossaryCoverage(file, defaultTerms) {
   const source = fs.readFileSync(file, 'utf8');
   const { data, content } = matter(source);
   const frontmatterTerms = Array.isArray(data.glossary) ? data.glossary : [];
-  const defaultMatches = defaultTerms
-    .filter(({ pattern }) => pattern.test(content))
-    .map(({ term }) => term);
+  const defaultMatch = defaultTerms.find(({ pattern }) => pattern.test(content));
+  const defaultMatches = defaultMatch ? [defaultMatch.term] : [];
 
   return {
     file,
