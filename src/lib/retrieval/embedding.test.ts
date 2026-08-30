@@ -9,6 +9,7 @@ import {
 } from './embedding'
 import {
   buildSemanticCacheId,
+  SEMANTIC_CACHE_GENERATION,
   SEMANTIC_CACHE_ID_PATTERN,
   SEMANTIC_CACHE_ID_PREFIX,
 } from '../conversation/cache'
@@ -80,12 +81,13 @@ describe('embedding provider abstraction', () => {
 })
 
 describe('semantic cache embedding isolation', () => {
-  it('namespaces cache rows by the active embedding version', async () => {
+  it('namespaces cache rows by embedding and retrieval generation', async () => {
     const id = await buildSemanticCacheId('什麼是 RAG？')
 
-    expect(SEMANTIC_CACHE_ID_PREFIX).toBe(ACTIVE_EMBEDDING_PROVIDER.cacheNamespace)
-    expect(SEMANTIC_CACHE_ID_PATTERN).toBe(`${ACTIVE_EMBEDDING_PROVIDER.cacheNamespace}:%`)
-    expect(id).toMatch(new RegExp(`^${ACTIVE_EMBEDDING_PROVIDER.cacheNamespace}:[a-f0-9]{32}$`))
+    const expectedPrefix = `${ACTIVE_EMBEDDING_PROVIDER.cacheNamespace}:${SEMANTIC_CACHE_GENERATION}`
+    expect(SEMANTIC_CACHE_ID_PREFIX).toBe(expectedPrefix)
+    expect(SEMANTIC_CACHE_ID_PATTERN).toBe(`${expectedPrefix}:%`)
+    expect(id).toMatch(new RegExp(`^${expectedPrefix}:[a-f0-9]{32}$`))
   })
 
   it('generates stable IDs without colliding with legacy unprefixed rows', async () => {

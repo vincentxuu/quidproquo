@@ -53,3 +53,16 @@ test('fails an empty answer or provider error', () => {
   assert.match(result.reason, /Answer must not be empty/)
   assert.match(result.reason, /Provider error/)
 })
+
+test('detects a forbidden source named only in cached answer text', () => {
+  const result = retrievalContract('仍然列出 Cloudflare Cache Rules', {
+    config: {
+      ...config,
+      forbiddenSources: ['tech/2026-03-12-cloudflare-cache-rules'],
+    },
+    metadata: { sources: [], latencyMs: 100, cached: true, error: null },
+  })
+
+  assert.equal(result.pass, false)
+  assert.match(result.reason, /Forbidden sources found: tech\/2026-03-12-cloudflare-cache-rules/)
+})

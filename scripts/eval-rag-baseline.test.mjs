@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildOfflineResponse, resolveArtifactPaths, scoreCase } from './eval-rag-baseline.mjs';
+import { buildLiveRequestBody, buildOfflineResponse, resolveArtifactPaths, scoreCase } from './eval-rag-baseline.mjs';
 
 const rubric = {
   id: 'case-1',
@@ -77,4 +77,13 @@ test('keeps live and fixture artifacts in separate directories', () => {
   assert.match(fixture.report, /\.work\/rag-evals\/fixture\/baseline-report\.json$/);
   assert.notEqual(live.outputs, fixture.outputs);
   assert.notEqual(live.traces, fixture.traces);
+});
+
+test('builds uncached admin evaluation requests for the live baseline', () => {
+  assert.deepEqual(buildLiveRequestBody('有哪些課程文章', 'manual'), {
+    message: '有哪些課程文章',
+    traceScope: 'eval',
+    cacheMode: 'bypass',
+    pipelineEngine: 'manual',
+  });
 });

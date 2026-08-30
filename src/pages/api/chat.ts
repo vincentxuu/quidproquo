@@ -12,15 +12,21 @@ import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
 import type { Env } from '@/lib/config/env'
 import { normalizeAnswerLanguage } from '../../lib/retrieval/language'
 import { shouldExposeRetrievedLinks } from '../../lib/retrieval/presentation'
+import {
+  ChatRequestPolicyError,
+  resolveChatRequestPolicy,
+  type ChatCacheMode,
+  type TraceScope,
+} from '../../lib/conversation/request-policy'
 
 type PipelineEngineOverride = RagRuntimeConfig['pipelineEngine']
-type TraceScope = 'production' | 'admin' | 'eval'
 
 type ChatBody = {
   message: string
   thread_id?: string
   pipelineEngine?: PipelineEngineOverride
   traceScope?: TraceScope
+  cacheMode?: ChatCacheMode
 }
 
 type StepEvent = {
@@ -67,6 +73,30 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   const isAdmin = sessionToken ? await verifySession(sessionToken) : false
   const startedAt = Date.now()
 
+  const body = await request.json() as ChatBody
+  const { message, thread_id = crypto.randomUUID() } = body
+  let requestPolicy: ReturnType<typeof resolveChatRequestPolicy>
+  try {
+    requestPolicy = resolveChatRequestPolicy({
+      requestedTraceScope: body.traceScope,
+      requestedCacheMode: body.cacheMode,
+      isAdmin,
+    })
+  } catch (error) {
+    if (error instanceof ChatRequestPolicyError) {
+      return new Response(JSON.stringify({ error: error.code, message: error.message }), {
+        status: error.status,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+    throw error
+  }
+  const { traceScope, cacheMode, bypassSemanticCache } = requestPolicy
+
+  if (!message?.trim()) {
+    return new Response(JSON.stringify({ error: 'Empty message' }), { status: 400 })
+  }
+
   if (!isAdmin) {
     const ip = clientAddress ?? request.headers.get('CF-Connecting-IP') ?? 'unknown'
     const limit = await getVisitorLimit()
@@ -77,14 +107,6 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         { status: 429, headers: { 'Content-Type': 'application/json' } }
       )
     }
-  }
-
-  const body = await request.json() as ChatBody
-  const { message, thread_id = crypto.randomUUID() } = body
-  const traceScope = normalizeTraceScope(body.traceScope, isAdmin)
-
-  if (!message?.trim()) {
-    return new Response(JSON.stringify({ error: 'Empty message' }), { status: 400 })
   }
 
   const traceId = crypto.randomUUID()
@@ -103,7 +125,9 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   }
   const traceStepEvents: StepEvent[] = []
 
-  const cached = await lookupSemanticCache(message, ragConfig.semanticCacheThreshold).catch(() => null)
+  const cached = bypassSemanticCache
+    ? null
+    : await lookupSemanticCache(message, ragConfig.semanticCacheThreshold).catch(() => null)
   if (cached) {
     return new Response(new ReadableStream({
       start(controller) {
@@ -136,6 +160,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
     metadata: {
       request_path: '/api/chat',
       trace_scope: traceScope,
+      cache_mode: cacheMode,
       pipeline_engine: ragConfig.pipelineEngine,
       thread_id,
       started_at: new Date(startedAt).toISOString(),
@@ -224,6 +249,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
           usage: state.token_usage,
           confidence: state.critique?.confidence ?? 1,
           thread_id,
+          cached: false,
           ...(remainingQuota !== null ? { remaining: remainingQuota } : {}),
         })
         const builtSpans = buildStepSpans({
@@ -257,6 +283,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
             request_path: '/api/chat',
             duration_ms: Date.now() - startedAt,
             trace_scope: traceScope,
+            cache_mode: cacheMode,
             answer_relevance: state.critique?.answer_relevance,
             intent_alignment: state.critique?.intent_alignment,
             drift_detected: state.critique?.drift_detected,
@@ -281,7 +308,9 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         if (intentAlignmentScore !== null) {
           enqueueTraceOp(scoreTrace(traceId, 'intent_alignment', intentAlignmentScore))
         }
-        await storeSemanticCache(message, state.final_response ?? '', state.critique?.confidence ?? 0).catch(() => {})
+        if (!bypassSemanticCache) {
+          await storeSemanticCache(message, state.final_response ?? '', state.critique?.confidence ?? 0).catch(() => {})
+        }
         await maybeSaveCheckpoint(state, ragConfig.checkpointThresholdRatio).catch(() => {})
         await persistTraceSteps(traceId, thread_id, state, traceScope, stepSpanMapping).catch(() => {})
 
@@ -295,6 +324,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
             error_summary: msg,
             duration_ms: Date.now() - startedAt,
             trace_scope: traceScope,
+            cache_mode: cacheMode,
           },
         }))
         send('error', { type: 'internal', message: msg })
@@ -516,11 +546,4 @@ function buildStepSpans({
       mappingMode: usedMapped ? 'mapped' : 'fallback',
     }]
   })
-}
-
-function normalizeTraceScope(requestedScope: string | undefined, isAdminUser: boolean): TraceScope {
-  if (requestedScope === 'admin' || requestedScope === 'eval' || requestedScope === 'production') {
-    return requestedScope
-  }
-  return isAdminUser ? 'admin' : 'production'
 }

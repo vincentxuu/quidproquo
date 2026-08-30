@@ -30,6 +30,14 @@ function matches(locators, expected) {
   return locators.some((locator) => locator === target || locator.endsWith(target) || locator.includes(target))
 }
 
+function answerMentions(output, expected) {
+  const answer = String(output ?? '').toLowerCase().replace(/[-_/]+/g, ' ').replace(/\s+/g, ' ')
+  const target = normalizeLocator(expected)
+  const slugTail = target.split('/').pop() ?? target
+  const semanticTail = slugTail.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/[-_]+/g, ' ')
+  return semanticTail.length > 0 && answer.includes(semanticTail)
+}
+
 function component(pass, reason, metric) {
   return { pass, score: pass ? 1 : 0, reason, metric }
 }
@@ -42,7 +50,7 @@ export default function retrievalContract(output, context = {}) {
   const requiredSources = Array.isArray(config.requiredSources) ? config.requiredSources : []
   const forbiddenSources = Array.isArray(config.forbiddenSources) ? config.forbiddenSources : []
   const missing = requiredSources.filter((expected) => !matches(locators, expected))
-  const forbidden = forbiddenSources.filter((expected) => matches(locators, expected))
+  const forbidden = forbiddenSources.filter((expected) => matches(locators, expected) || answerMentions(output, expected))
   const uniqueSources = new Set(identities)
   const minUniqueSources = Number(config.minUniqueSources ?? 0)
   const maxLatencyMs = Number(config.maxLatencyMs ?? Number.POSITIVE_INFINITY)
@@ -67,4 +75,4 @@ export default function retrievalContract(output, context = {}) {
   }
 }
 
-export { normalizeLocator, sourceIdentities, sourceLocators }
+export { answerMentions, normalizeLocator, sourceIdentities, sourceLocators }

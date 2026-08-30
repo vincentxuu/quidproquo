@@ -173,6 +173,10 @@ export default class AskAiProvider {
     const timeoutMs = Number(this.config.timeoutMs || process.env.RAG_PROMPTFOO_TIMEOUT_MS || DEFAULT_TIMEOUT_MS)
     const startedAt = Date.now()
 
+    if (!cookie) {
+      return { error: 'RAG_EVAL_COOKIE is required for uncached live Ask AI evaluation' }
+    }
+
     try {
       const response = await fetch(`${baseUrl}/api/chat`, {
         method: 'POST',
@@ -184,6 +188,7 @@ export default class AskAiProvider {
           message: query,
           thread_id: randomUUID(),
           traceScope: 'eval',
+          cacheMode: 'bypass',
           ...(pipelineEngine ? { pipelineEngine } : {}),
         }),
         signal: AbortSignal.timeout(timeoutMs),

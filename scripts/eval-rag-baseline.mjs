@@ -50,9 +50,21 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+export function buildLiveRequestBody(query, pipelineEngine) {
+  return {
+    message: query,
+    traceScope: 'eval',
+    cacheMode: 'bypass',
+    ...(pipelineEngine ? { pipelineEngine } : {}),
+  };
+}
+
 async function ask(query, pipelineEngine) {
   if (OFFLINE_MODE) {
     throw new Error('OFFLINE mode does not support ask()');
+  }
+  if (!COOKIE) {
+    throw new Error('RAG_EVAL_COOKIE is required for uncached live Ask AI evaluation');
   }
 
   let attempt = 0;
@@ -64,10 +76,7 @@ async function ask(query, pipelineEngine) {
         'Content-Type': 'application/json',
         ...(COOKIE ? { Cookie: COOKIE } : {}),
       },
-      body: JSON.stringify({
-        message: query,
-        ...(pipelineEngine ? { pipelineEngine } : {}),
-      }),
+      body: JSON.stringify(buildLiveRequestBody(query, pipelineEngine)),
     });
 
     if (response.ok && response.body) {

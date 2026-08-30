@@ -34,7 +34,9 @@ async function embedQuery(query: string): Promise<number[]> {
   return queryVector
 }
 
-export const SEMANTIC_CACHE_ID_PREFIX = EMBEDDING_VERSION
+export const SEMANTIC_CACHE_GENERATION = 'retrieval-v2'
+export const SEMANTIC_CACHE_TTL_HOURS = 24
+export const SEMANTIC_CACHE_ID_PREFIX = `${EMBEDDING_VERSION}:${SEMANTIC_CACHE_GENERATION}`
 export const SEMANTIC_CACHE_ID_PATTERN = `${SEMANTIC_CACHE_ID_PREFIX}:%`
 
 export async function buildSemanticCacheId(query: string): Promise<string> {
@@ -50,8 +52,17 @@ export async function lookupSemanticCache(query: string, threshold: number): Pro
   const { DB } = env as unknown as CacheEnv
   const queryVector = await embedQuery(query)
   const rows = await DB.prepare(
-    'SELECT id, response, confidence, query_vector FROM semantic_cache WHERE id LIKE ? ORDER BY updated_at DESC LIMIT 25'
-  ).bind(SEMANTIC_CACHE_ID_PATTERN).all<{ id: string; response: string; confidence: number; query_vector: string }>()
+    `SELECT id, response, confidence, query_vector
+     FROM semantic_cache
+     WHERE id LIKE ? AND created_at >= datetime('now', ?)
+     ORDER BY updated_at DESC
+     LIMIT 25`
+  ).bind(SEMANTIC_CACHE_ID_PATTERN, `-${SEMANTIC_CACHE_TTL_HOURS} hours`).all<{
+    id: string
+    response: string
+    confidence: number
+    query_vector: string
+  }>()
 
   let best: SemanticCacheHit | null = null
   let bestId: string | null = null
@@ -96,6 +107,7 @@ export async function storeSemanticCache(query: string, response: string, confid
        response = excluded.response,
        query_vector = excluded.query_vector,
        confidence = excluded.confidence,
+       created_at = datetime('now'),
        updated_at = datetime('now')`
   )
     .bind(cacheId, query, response, JSON.stringify(queryVector), confidence)

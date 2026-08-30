@@ -43,7 +43,7 @@ RAG_EVAL_COOKIE='admin-session-cookie' pnpm eval:rag
 RAG_EVAL_COOKIE='admin-session-cookie' pnpm eval:promptfoo
 ```
 
-The default target is `http://127.0.0.1:4321`; override it with `RAG_EVAL_BASE_URL`. An authenticated admin cookie avoids the public daily question quota during repeated evaluation. Live artifacts go under `.work/rag-evals/live/`, separate from fixture output.
+The default target is `http://127.0.0.1:4321`; override it with `RAG_EVAL_BASE_URL`. An authenticated admin cookie avoids the public daily question quota during repeated evaluation. Live runners require this cookie and send `cacheMode: bypass`; the API accepts bypass only after the session verifies as an admin. Evaluation requests skip both semantic-cache reads and writes instead of silently grading or storing a cached answer. Live artifacts go under `.work/rag-evals/live/`, separate from fixture output.
 
 For the baseline engine matrix:
 
