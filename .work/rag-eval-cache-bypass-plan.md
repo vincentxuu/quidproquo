@@ -1,6 +1,6 @@
 # Production RAG eval cache-bypass plan
 
-Status: retrieval passed in production; catalog latency fix locally verified
+Status: production q21 passed
 
 - [x] Add an admin-only `cacheMode: bypass` request policy and prevent public eval trace impersonation.
 - [x] Skip semantic-cache lookup and writes during authenticated evaluation runs.
@@ -13,4 +13,5 @@ Status: retrieval passed in production; catalog latency fix locally verified
 - [x] Diagnose the remaining 51.2s failure as three Critic retries, not retrieval loss.
 - [x] Align Writer and Critic around title-plus-link catalog evidence while preserving grounding checks.
 - [x] Bound retry retrieval to 20 posts and emit only the accepted final draft once.
-- [ ] Commit/push/deploy cache generation v3, then rerun uncached production q21.
+- [x] Commit/push/deploy cache generation v3, then rerun uncached production q21.
+- [x] Confirm q21 contract 8/8 at 26.821s with one Planner→Research→Writer→Validation→Critic pass.
