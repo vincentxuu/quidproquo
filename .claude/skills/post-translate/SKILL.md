@@ -1,6 +1,6 @@
 ---
 name: post-translate
-description: Translate an existing zh-TW post under src/content/posts/<category>/ into an English version, write it to the same category folder with `lang: en`, and link the two posts to each other. Use when user says 翻成英文 / 翻成 en / translate post / 出個英文版 and references an existing zh-TW post by URL, slug, filename, or title keyword. Skip when the source post is already `lang: en`.
+description: "Translate an existing zh-TW post under a category directory in src/content/posts/ into an English version, write it to the same category folder with `lang: en`, and link the two posts to each other. Use when user says 翻成英文 / 翻成 en / translate post / 出個英文版 and references an existing zh-TW post by URL, slug, filename, or title keyword. Skip when the source post is already `lang: en`."
 ---
 
 # post-translate skill

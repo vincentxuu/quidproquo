@@ -1,6 +1,6 @@
 ---
 name: post-update
-description: Update an existing Markdown post under src/content/posts/<category>/ on quidproquo.cc — fix typos, refresh outdated info, add missing references, append a "更新紀錄" section, or rewrite a paragraph — while preserving the original slug, file path, and frontmatter `date`. Use when user says 更新文章 / 修一下 / 補資料 / 補參考資料 / 補充 / 翻新 / 改錯字 / refresh post / update post and references an existing post by URL, slug, filename, or title keyword. Do NOT use to create a brand new post — use the `post` skill instead.
+description: 'Update an existing Markdown post under a category directory in src/content/posts/ on quidproquo.cc — fix typos, refresh outdated info, add missing references, append an "更新紀錄" section, or rewrite a paragraph — while preserving the original slug, file path, and frontmatter `date`. Use when user says 更新文章 / 修一下 / 補資料 / 補參考資料 / 補充 / 翻新 / 改錯字 / refresh post / update post and references an existing post by URL, slug, filename, or title keyword. Do NOT use to create a brand new post — use the `post` skill instead.'
 ---
 
 # post-update skill
