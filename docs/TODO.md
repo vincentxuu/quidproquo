@@ -137,7 +137,7 @@
 > 設計鐵律執行點：先有 flag、先有 baseline、再加複雜性
 
 - [x] **RAGAS baseline eval + Golden Dataset**（20-25 個測試案例：精確查詢、概念解釋、跨文章綜合、不在知識庫、中英混雜；**提前至此階段，P3 太晚**）
-  - 目前狀態：已新增 `docs/rag-golden-dataset.json`（20 cases）與 `pnpm eval:rag` baseline script；首次 live baseline 分數仍需在有實際 chat 環境時執行
+  - 目前狀態：`docs/rag-golden-dataset.json` 已是 21 題 canonical contract，baseline 與 Promptfoo 透過 adapter 共用；offline fixture、live output、scores、traces 與 reports 分開保存。首次 live baseline 分數仍需在有實際 chat 環境時執行
   - 通過門檻需定義：Faithfulness ≥ 0.8、Answer Relevance ≥ 0.75、Context Recall ≥ 0.7
   - 無此 baseline 無法判斷後續 HyDE/reranker/critic 是改善還是加負擔
 - [x] **RAG pipeline feature flag**（HyDE、Multi-query、Reranker、Critic 各自可開關）

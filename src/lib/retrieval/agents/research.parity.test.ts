@@ -126,6 +126,104 @@ describe('research agent parity', () => {
     }))
     expect(searchDocs).toHaveBeenCalledWith(expect.objectContaining({ shortCircuit: false }))
   })
+
+  it('uses cleaned planner keywords and a wider post window for recommendation queries', async () => {
+    vi.mocked(searchBlogPosts).mockResolvedValue([postResult])
+    vi.mocked(searchDocs).mockResolvedValue([])
+    vi.mocked(searchAbstractIndex).mockResolvedValue([])
+    vi.mocked(searchExternalTools).mockResolvedValue([])
+    vi.mocked(pageIndexSearch).mockResolvedValue([])
+
+    await researchNode(makeState({
+      messages: [new HumanMessage('有哪些課程文章')] as RagMessage[],
+      plan: {
+        intent: 'recommendation',
+        complexity: 'simple',
+        needs_clarification: false,
+        subtasks: [],
+        search_keywords: ['課程', '文章'],
+        specialists: [],
+      },
+    }))
+
+    expect(searchBlogPosts).toHaveBeenCalledTimes(1)
+    expect(searchBlogPosts).toHaveBeenCalledWith(expect.objectContaining({
+      query: '課程',
+      limit: 20,
+      lang: 'zh-TW',
+      metadataOnly: true,
+    }))
+    expect(searchDocs).not.toHaveBeenCalled()
+    expect(searchExternalTools).not.toHaveBeenCalled()
+  })
+
+  it('cleans the original query when recommendation keywords are unavailable', async () => {
+    vi.mocked(searchBlogPosts).mockResolvedValue([postResult])
+
+    await researchNode(makeState({
+      messages: [new HumanMessage('有哪些課程文章')] as RagMessage[],
+      plan: {
+        intent: 'recommendation',
+        complexity: 'simple',
+        needs_clarification: false,
+        subtasks: [],
+        search_keywords: [],
+        specialists: [],
+      },
+    }))
+
+    expect(searchBlogPosts).toHaveBeenCalledWith(expect.objectContaining({
+      query: '課程',
+      metadataOnly: true,
+    }))
+    expect(searchDocs).not.toHaveBeenCalled()
+  })
+
+  it('deduplicates different chunks from the same post for recommendation results', async () => {
+    const firstChunk = { ...postResult, chunk_id: 'post-1', slug: 'agent-os', relevance_score: 0.7 }
+    const secondChunk = { ...postResult, chunk_id: 'post-2', slug: 'agent-os', relevance_score: 0.9 }
+    vi.mocked(searchBlogPosts).mockResolvedValueOnce([firstChunk, secondChunk])
+    vi.mocked(searchDocs).mockResolvedValue([])
+    vi.mocked(searchAbstractIndex).mockResolvedValue([])
+    vi.mocked(searchExternalTools).mockResolvedValue([])
+    vi.mocked(pageIndexSearch).mockResolvedValue([])
+
+    const result = await researchNode(makeState({
+      plan: {
+        intent: 'recommendation',
+        complexity: 'simple',
+        needs_clarification: false,
+        subtasks: [],
+        search_keywords: ['agent kernel'],
+        specialists: [],
+      },
+    }))
+
+    expect(searchBlogPosts).toHaveBeenCalledTimes(1)
+    expect(result.search_results).toHaveLength(1)
+    expect(result.search_results?.[0].chunk_id).toBe('post-2')
+  })
+
+  it('preserves chunk-level retrieval for factual questions', async () => {
+    const firstChunk = { ...postResult, chunk_id: 'post-1', slug: 'agent-os', relevance_score: 0.7 }
+    const secondChunk = { ...postResult, chunk_id: 'post-2', slug: 'agent-os', relevance_score: 0.9 }
+    vi.mocked(searchBlogPosts).mockResolvedValue([firstChunk, secondChunk])
+    vi.mocked(searchDocs).mockResolvedValue([])
+    vi.mocked(searchAbstractIndex).mockResolvedValue([])
+
+    const result = await researchNode(makeState({
+      plan: {
+        intent: 'factual',
+        complexity: 'simple',
+        needs_clarification: false,
+        subtasks: [],
+        search_keywords: [],
+        specialists: [],
+      },
+    }))
+
+    expect(result.search_results).toHaveLength(2)
+  })
 })
 
 async function expectParity(state: GraphState) {

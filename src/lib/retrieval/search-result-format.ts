@@ -1,3 +1,5 @@
+import type { SearchResult } from './state'
+
 const DEFAULT_EXCERPT_LENGTH = 220
 
 export function formatSearchExcerpt(input: string, maxLength = DEFAULT_EXCERPT_LENGTH): string {
@@ -42,4 +44,29 @@ export function dedupeSearchResultsByUrl<T extends { source_url: string; relevan
   }
 
   return [...byUrl.values()]
+}
+
+export function dedupePostResultsByDocument(items: SearchResult[]): SearchResult[] {
+  const merged = new Map<string, SearchResult>()
+
+  for (const item of items) {
+    const key = item.type === 'post'
+      ? `post:${item.slug || item.source_url}`
+      : `chunk:${item.chunk_id}`
+    const existing = merged.get(key)
+    if (!existing || item.relevance_score > existing.relevance_score) {
+      merged.set(key, item)
+    }
+  }
+
+  return [...merged.values()]
+}
+
+export function countUniquePostResults(items: SearchResult[]): number {
+  return new Set(
+    items
+      .filter(item => item.type === 'post')
+      .map(item => item.slug || item.source_url)
+      .filter(Boolean)
+  ).size
 }

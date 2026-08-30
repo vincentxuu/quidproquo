@@ -1,0 +1,16 @@
+description: Ask AI deterministic retrieval regression contracts
+
+prompts:
+  - "{{query}}"
+
+providers:
+  - id: file://providers/ask-ai.mjs
+    label: Ask AI SSE
+
+evaluateOptions:
+  maxConcurrency: 1
+  cache: false
+  timeoutMs: 70000
+  showProgressBar: false
+
+tests: file://adapters/promptfoo-tests.mjs

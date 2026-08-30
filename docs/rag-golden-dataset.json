@@ -1,4 +1,8 @@
-[
+{
+  "schema_version": "1.0",
+  "dataset_id": "quidproquo-ask-ai-golden",
+  "evidence_kind": "golden-contract",
+  "cases": [
   {
     "id": "q01",
     "query": "你寫過哪些 AI Agent 相關的文章？",
@@ -218,5 +222,37 @@
     "forbidden_claims": ["忽略監控與診斷面向"],
     "scenario": "observability-summary",
     "allowed_trace_patterns": ["planner", "research", "writer", "validation", "critic", "related"]
+  },
+  {
+    "id": "q21",
+    "query": "有哪些課程文章",
+    "category": "course-catalog",
+    "language": "zh-TW",
+    "expected_answer_points": ["列出多所大學的課程導讀", "提供可閱讀的課程地圖連結"],
+    "expected_sources": [
+      "posts/learning/2026-08-20-stanford-cs-course-map",
+      "posts/learning/2026-08-21-mit-ai-ml-course-map",
+      "posts/learning/2026-08-21-cmu-ai-ml-course-map",
+      "posts/learning/2026-08-21-berkeley-ai-ml-course-map"
+    ],
+    "forbidden_claims": ["Cloudflare Cache Rules", "Cloudflare AI Gateway"],
+    "scenario": "catalog-retrieval-regression",
+    "allowed_trace_patterns": ["planner", "research", "writer", "validation", "critic", "related"],
+    "retrieval_contract": {
+      "required_sources": [
+        "learning/2026-08-20-stanford-cs-course-map",
+        "learning/2026-08-21-mit-ai-ml-course-map",
+        "learning/2026-08-21-cmu-ai-ml-course-map",
+        "learning/2026-08-21-berkeley-ai-ml-course-map"
+      ],
+      "forbidden_sources": [
+        "tech/2026-03-12-cloudflare-cache-rules",
+        "tech/2026-03-12-cloudflare-ai-gateway"
+      ],
+      "min_unique_sources": 4,
+      "max_latency_ms": 30000,
+      "require_uncached": true
+    }
   }
-]
+  ]
+}

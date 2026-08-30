@@ -8,6 +8,8 @@ import { collectSearchMetrics, type SearchMetrics } from '../tools/hybrid-search
 import { HumanMessage, SystemMessage, type BaseMessageLike } from '@langchain/core/messages'
 import { invokeModel, resolveModelRoute, type ProviderApiKeys } from '../model'
 import { defineAgent } from '../../agent/access'
+import { buildRecommendationSearchQuery, isBroadArticleCatalogQuery } from '../query-strategy'
+import { dedupePostResultsByDocument } from '../search-result-format'
 
 type SearchProfile = {
   maxAbstractResults?: number
@@ -99,19 +101,6 @@ Return plain text only.`),
   return content.length > 0 ? content : null
 }
 
-function mergeUniqueResults(results: SearchResult[]): SearchResult[] {
-  const merged = new Map<string, SearchResult>()
-
-  for (const result of results) {
-    const existing = merged.get(result.chunk_id)
-    if (!existing || result.relevance_score > existing.relevance_score) {
-      merged.set(result.chunk_id, result)
-    }
-  }
-
-  return [...merged.values()]
-}
-
 export async function researchNode(
   state: GraphState,
   options?: ResearchRunOptions
@@ -139,6 +128,19 @@ export const researchAgent = defineAgent<GraphState, Partial<GraphState>>({
   },
 })
 
+function mergeUniqueChunks(results: SearchResult[]): SearchResult[] {
+  const merged = new Map<string, SearchResult>()
+
+  for (const result of results) {
+    const existing = merged.get(result.chunk_id)
+    if (!existing || result.relevance_score > existing.relevance_score) {
+      merged.set(result.chunk_id, result)
+    }
+  }
+
+  return [...merged.values()]
+}
+
 async function runResearch(
   state: GraphState,
   options: ResearchRunOptions | undefined,
@@ -147,7 +149,12 @@ async function runResearch(
   const maxSearchCalls = Math.max(1, Math.min(8, Math.round(options?.maxSearchCalls ?? 2)))
   const searchProfile = options?.searchProfile ?? {}
   const abstractLimit = clampProfileInt(searchProfile.maxAbstractResults, 4, 1, 20)
-  const postLimit = clampProfileInt(searchProfile.maxPostResults, 8, 1, 30)
+  const postLimit = clampProfileInt(
+    searchProfile.maxPostResults,
+    state.plan.intent === 'recommendation' ? 20 : 8,
+    1,
+    30
+  )
   const docLimit = clampProfileInt(searchProfile.maxDocResults, 5, 1, 30)
   const webLimit = clampProfileInt(searchProfile.maxWebSearchResults, state.config.searchToolMaxResults, 1, 20)
   const pageIndexSeedLimit = clampProfileInt(searchProfile.maxPageIndexSeeds, 3, 1, 6)
@@ -158,9 +165,13 @@ async function runResearch(
     ? `${query} ${state.plan.subtasks.join(' ')}`
     : query
 
-  const searchQueries = [baseQuery]
+  const recommendationQuery = state.plan.intent === 'recommendation'
+    ? buildRecommendationSearchQuery(baseQuery, state.plan)
+    : null
+  const metadataOnly = state.plan.intent === 'recommendation' && isBroadArticleCatalogQuery(query)
+  const searchQueries = [recommendationQuery ?? baseQuery]
 
-  if (state.plan.search_keywords && state.plan.search_keywords.length > 0) {
+  if (state.plan.intent !== 'recommendation' && state.plan.search_keywords && state.plan.search_keywords.length > 0) {
     const keywordQuery = state.plan.search_keywords.join(' ').trim()
     if (keywordQuery && keywordQuery !== baseQuery) {
       searchQueries.push(keywordQuery)
@@ -172,7 +183,7 @@ async function runResearch(
   // context. Include the critic's missing coverage as a deterministic rewrite
   // and force hybrid retrieval below.
   if (state.iteration > 0 && state.critique.gaps.length > 0 && maxSearchCalls >= 2) {
-    searchQueries.push(`${query} ${state.critique.gaps.join(' ')}`)
+    searchQueries.push(`${recommendationQuery ?? query} ${state.critique.gaps.join(' ')}`)
   }
 
   if (state.config.hydeEnabled && state.plan.complexity !== 'simple' && maxSearchCalls >= 2) {
@@ -191,9 +202,9 @@ async function runResearch(
     && state.iteration === 0
     && !state.needs_web_search
 
-  const webSearchResults = state.config.searchToolsEnabled
+  const webSearchResults = state.config.searchToolsEnabled && !metadataOnly
     ? await runtime.searchExternal({
-      query: baseQuery,
+      query: recommendationQuery ?? baseQuery,
       limit: webLimit,
       timeoutMs: state.config.searchToolTimeoutMs,
       providers: state.config.searchToolProviders,
@@ -211,12 +222,15 @@ async function runResearch(
         lang: state.language === 'en' ? 'en' : 'zh-TW',
         limit: postLimit,
         shortCircuit: allowBm25ShortCircuit,
+        metadataOnly,
       }).catch(() => ({ results: [] as SearchResult[], metrics: null })),
-      runtime.searchDocs({
-        query: searchQuery,
-        limit: docLimit,
-        shortCircuit: allowBm25ShortCircuit,
-      }).catch(() => ({ results: [] as SearchResult[], metrics: null })),
+      metadataOnly
+        ? Promise.resolve({ results: [] as SearchResult[], metrics: null })
+        : runtime.searchDocs({
+            query: searchQuery,
+            limit: docLimit,
+            shortCircuit: allowBm25ShortCircuit,
+          }).catch(() => ({ results: [] as SearchResult[], metrics: null })),
     ])
 
     return {
@@ -232,10 +246,13 @@ async function runResearch(
     }
   }))
 
-  const broadResults = mergeUniqueResults([
+  const broadCandidates = [
     ...perQueryResults.flatMap(item => item.results),
     ...webSearchResults,
-  ])
+  ]
+  const broadResults = state.plan.intent === 'recommendation'
+    ? dedupePostResultsByDocument(broadCandidates)
+    : mergeUniqueChunks(broadCandidates)
   const pageIndexResults = state.config.pageIndexEnabled && state.plan.complexity === 'complex'
     ? (await Promise.all(
       broadResults
@@ -250,7 +267,10 @@ async function runResearch(
     )).flat()
     : []
 
-  const allResults = mergeUniqueResults([...broadResults, ...pageIndexResults])
+  const allCandidates = [...broadResults, ...pageIndexResults]
+  const allResults = state.plan.intent === 'recommendation'
+    ? dedupePostResultsByDocument(allCandidates)
+    : mergeUniqueChunks(allCandidates)
 
   return {
     search_results: allResults,

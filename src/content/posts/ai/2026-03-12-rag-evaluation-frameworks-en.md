@@ -337,6 +337,30 @@ testset = generator.generate_with_langchain_docs(
 
 The generation pipeline itself is still changing (transforms, query distribution, and the knowledge graph are all configurable), so pull the parameters from the [official testset generation docs](https://docs.ragas.io/en/stable/getstarted/rag_testset_generation/).
 
+### One golden dataset, separate adapters for each runner
+
+Test cases should not belong to a particular runner. Promptfoo can load tests from external JSON, JSONL, or JavaScript files. Ragas uses `EvaluationDataset` and `SingleTurnSample` to separate query, reference, retrieved contexts, and response into structured fields. DeepEval likewise distinguishes an unexecuted `Golden` from a test case that already has an actual output. Their interfaces differ, but they share one boundary: expected behavior and the output of a particular run have different lifecycles.
+
+This site therefore treats `docs/rag-golden-dataset.json` as the canonical test specification. Stable IDs, queries, expected answer points, required and forbidden sources, and trace contracts are maintained there once. The legacy baseline runner and Promptfoo do not keep independent copies of those cases; adapters translate the same contract into the shape each runner expects.
+
+```text
+docs/rag-golden-dataset.json       # queries, references, retrieval contracts
+              |
+          adapters
+          +-----------+
+          v           v
+legacy baseline      Promptfoo
+          |           |
+          +--- actual runs ---+
+                  |
+                  v
+fixtures / live outputs / scores / traces / reports
+```
+
+Those actual artifacts belong below the runner boundary and must not be written back into the golden dataset. A fixture is a fixed output for an offline test. A live output records one call to a real system. Scores and traces belong to the runner, model, prompt, and configuration used for that run. LangSmith separates dataset examples from experiments; Phoenix similarly reruns a new application version over the same dataset inputs, then stores new outputs and evaluation results separately. Writing scores or generated answers back into the golden data would make the next regression test validate itself against the previous run's products.
+
+The dataset also evolves. Both LangSmith and Phoenix document a loop from production feedback into offline evaluation: triage a failed trace, confirm that it represents a real defect, then promote it into a regression case with a stable ID and explicit expected behavior. That turns a production incident into a reproducible pre-release test instead of leaving it as a one-off story in a chat log.
+
 ### Turning a real retrieval incident into a test
 
 When this site's Ask AI received “有哪些課程文章” (“What course articles are there?”), the UI reported 15 results. The answer still omitted many Stanford, MIT, CMU, and Berkeley course guides while including Cloudflare Cache Rules and AI Gateway. Production D1 inspection showed that the course posts and their chunks existed. Retrieval was the failure: broad wrapper terms equivalent to “which” and “articles” became OR conditions, recent unrelated content filled the top-k window, and multiple chunks from one post consumed Writer context repeatedly.
@@ -348,7 +372,9 @@ An effective regression contract cannot stop at “answer relevance must exceed 
 - counting each slug once and displaying unique articles rather than raw chunk count;
 - separately judging context relevance and faithfulness, because correct source slugs do not guarantee an on-topic answer.
 
-The repository already contained `docs/rag-golden-dataset.json` and `pnpm eval:rag`. As of 2026-08-30, however, GitHub Actions did not execute the live evaluation, and the saved report came from four offline fixture cases. The script's faithfulness, answer relevance, and context recall values were deterministic comparisons of terms, source URLs, and forbidden claims—not RAGAS, DeepEval, or Promptfoo judges. Having files and metric-shaped names is not the same as evaluating production.
+This change promotes the course-article incident into the canonical dataset and adds a Promptfoo adapter, SSE provider, and deterministic retrieval contract. Those files demonstrate that both runners can consume the same case specification; they do not demonstrate that live evaluation or model-graded metrics are running in CI.
+
+As of August 30, 2026, GitHub Actions still did not run this live evaluation, and the saved report came from four offline fixture cases. The legacy baseline's scores named faithfulness, answer relevance, and context recall were deterministic comparisons of terms, source URLs, and forbidden claims. They were not model judges from Ragas, DeepEval, or Promptfoo.
 
 ### Continuous Evaluation
 
@@ -387,6 +413,7 @@ Tools can change without invalidating the evaluation contract. Dataset version, 
 
 ## Changelog
 
+- 2026-08-30: Added the canonical golden-dataset lifecycle: runner adapters, separate actual artifacts, and promotion of production failures into regression cases.
 - 2026-08-30: Added the boundary between formal standards and tools, Promptfoo selection criteria, an open-source maintenance snapshot, and a regression contract from the Ask AI course-article retrieval incident.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
@@ -398,7 +425,14 @@ Tools can change without invalidating the evaluation contract. Dataset version, 
 - [DeepEval metrics overview](https://deepeval.com/docs/metrics-introduction)
 - [DeepEval: unit testing in CI/CD](https://deepeval.com/docs/evaluation-unit-testing-in-ci-cd)
 - [Promptfoo: Evaluating RAG pipelines](https://www.promptfoo.dev/docs/guides/evaluate-rag/)
+- [Promptfoo test cases and external test files](https://www.promptfoo.dev/docs/configuration/test-cases/)
 - [Promptfoo HTTP/HTTPS provider](https://www.promptfoo.dev/docs/providers/http/)
+- [Ragas Evaluation Dataset](https://docs.ragas.io/en/stable/concepts/components/eval_dataset/)
+- [DeepEval Evaluation Datasets](https://deepeval.com/docs/evaluation-datasets)
+- [LangSmith evaluation concepts: datasets, experiments, and production feedback](https://docs.langchain.com/langsmith/evaluation-concepts)
+- [LangSmith: manage and version datasets](https://docs.langchain.com/langsmith/manage-datasets)
+- [Phoenix: Dataset concepts](https://arize.com/docs/phoenix/datasets-and-experiments/concepts-datasets)
+- [Phoenix: Datasets and experiments quickstart](https://arize.com/docs/phoenix/get-started/get-started-datasets-and-experiments)
 - [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 - [ISO/IEC 42001:2023 — AI management systems](https://www.iso.org/standard/42001)
 - [OpenTelemetry GenAI semantic convention attributes](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/)

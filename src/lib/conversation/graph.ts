@@ -17,6 +17,7 @@ import { relatedPostsNode } from '../retrieval/agents/related-posts'
 import { fallbackNode } from '../retrieval/agents/fallback'
 import type { RagMessage, PipelineCallbacks } from '../retrieval/state'
 import type { ProviderApiKeys } from '../retrieval/model'
+import { countUniquePostResults } from '../retrieval/search-result-format'
 
 type MigratedAgentId = 'planner' | 'research' | 'writer' | 'critic'
 type GraphNode = (state: GraphState) => Promise<Partial<GraphState>>
@@ -164,7 +165,10 @@ export async function runPipeline(
     if (nodeName === 'planner') {
       callbacks.onStep('Planner')
     } else if (nodeName === 'research') {
-      callbacks.onStep('Research', { chunks_found: (update.search_results ?? []).length })
+      callbacks.onStep('Research', {
+        sources_found: countUniquePostResults(update.search_results ?? []),
+        evidence_chunks: (update.search_results ?? []).length,
+      })
     } else if (nodeName === 'writer') {
       callbacks.onStep('Writer')
       if (update.final_response) callbacks.onToken(update.final_response)

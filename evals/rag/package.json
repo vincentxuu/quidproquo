@@ -1,0 +1,15 @@
+{
+  "name": "@quidproquo/rag-evals",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "eval": "PROMPTFOO_DISABLE_TELEMETRY=1 PROMPTFOO_DISABLE_UPDATE=1 promptfoo eval -c promptfooconfig.yaml --no-cache --no-progress-bar -o ../../.work/rag-evals/live/promptfoo-report.json",
+    "eval:fixture": "RAG_PROMPTFOO_FIXTURE_PATH=../../docs/rag-golden-fixture.json PROMPTFOO_DISABLE_TELEMETRY=1 PROMPTFOO_DISABLE_UPDATE=1 promptfoo eval -c promptfooconfig.yaml --no-cache --no-progress-bar -o ../../.work/rag-evals/fixture/promptfoo-report.json"
+  },
+  "devDependencies": {
+    "promptfoo": "0.122.2"
+  }
+}

@@ -41,6 +41,9 @@
     "eval:rag:fixture:ci": "RAG_EVAL_OFFLINE=1 RAG_EVAL_ENFORCE=1 node scripts/eval-rag-baseline.mjs",
     "eval:rag:matrix": "RAG_ENGINE=manual,langgraph,llamaindex node scripts/eval-rag-baseline.mjs",
     "eval:rag:matrix:ci": "RAG_EVAL_ENFORCE=1 RAG_ENGINE=manual,langgraph,llamaindex node scripts/eval-rag-baseline.mjs",
+    "test:promptfoo": "node --test evals/rag/adapters/golden-dataset.test.mjs evals/rag/provider.test.mjs evals/rag/assertions.test.mjs",
+    "eval:promptfoo": "pnpm --dir evals/rag eval",
+    "eval:promptfoo:fixture": "pnpm --dir evals/rag eval:fixture",
     "rag:trace-retention": "node scripts/rag-trace-retention.mjs",
     "rag:trace-retention:dry-run": "RAG_TRACE_RETENTION_DRY_RUN=1 node scripts/rag-trace-retention.mjs"
   },

@@ -12,6 +12,10 @@ import { fallbackNode } from '../../../retrieval/agents/fallback'
 import { relatedPostsNode } from '../../../retrieval/agents/related-posts'
 import { initialState, type GraphState, type PipelineCallbacks, type RagRuntimeConfig, type RagMessage } from '../../../retrieval/state'
 import type { ProviderApiKeys } from '../../../retrieval/model'
+import {
+  buildRecommendationSearchQuery,
+} from '../../../retrieval/query-strategy'
+import { countUniquePostResults, dedupePostResultsByDocument } from '../../../retrieval/search-result-format'
 
 export interface LlamaIndexNativeTraceEvent {
   stage: string
@@ -22,6 +26,7 @@ export interface LlamaIndexNativeTraceEvent {
 
 function summarizeSources(results: SearchResult[]): {
   chunks_found: number
+  sources_found: number
   source_breakdown: Record<string, number>
 } {
   const sourceBreakdown: Record<string, number> = {}
@@ -30,8 +35,18 @@ function summarizeSources(results: SearchResult[]): {
   }
   return {
     chunks_found: results.length,
+    sources_found: countUniquePostResults(results),
     source_breakdown: sourceBreakdown,
   }
+}
+
+function mergeUniqueSearchResults(results: SearchResult[]): SearchResult[] {
+  const seen = new Set<string>()
+  return results.filter((result) => {
+    if (!result.chunk_id || seen.has(result.chunk_id)) return false
+    seen.add(result.chunk_id)
+    return true
+  })
 }
 
 function tokenDelta(previous: GraphState['token_usage'], next: GraphState['token_usage'] | undefined): GraphState['token_usage'] | undefined {
@@ -40,16 +55,6 @@ function tokenDelta(previous: GraphState['token_usage'], next: GraphState['token
     input: Math.max(0, next.input - previous.input),
     output: Math.max(0, next.output - previous.output),
   }
-}
-
-function mergeUniqueSearchResults(results: SearchResult[]): SearchResult[] {
-  const seen = new Set<string>()
-  return results.filter((result) => {
-    if (!result.chunk_id) return false
-    if (seen.has(result.chunk_id)) return false
-    seen.add(result.chunk_id)
-    return true
-  })
 }
 
 function buildIterationSummary(state: Pick<GraphState, 'token_usage' | 'trace_steps'>): string {
@@ -139,12 +144,18 @@ export async function runLlamaIndexQueryEngine(
 
   for (let iteration = 0; iteration < 3; iteration += 1) {
     const queryStarted = Date.now()
-    const { results, metrics, nativeTrace } = await runLlamaIndexRetriever(input.message, {
-      topK: 8,
+    const retrievalQuery = state.plan.intent === 'recommendation'
+      ? buildRecommendationSearchQuery(input.message, state.plan)
+      : input.message
+    const { results, metrics, nativeTrace } = await runLlamaIndexRetriever(retrievalQuery, {
+      topK: state.plan.intent === 'recommendation' ? 20 : 8,
       shortCircuit: state.config.bm25ShortCircuitEnabled,
       providerApiKeys: input.providerApiKeys,
     })
-    const mergedResults = mergeUniqueSearchResults(results.concat(webSearchResults))
+    const mergedCandidates = results.concat(webSearchResults)
+    const mergedResults = state.plan.intent === 'recommendation'
+      ? dedupePostResultsByDocument(mergedCandidates)
+      : mergeUniqueSearchResults(mergedCandidates)
     state = {
       ...state,
       search_results: mergedResults,

@@ -127,6 +127,38 @@ describe('writer agent parity', () => {
     expect(result.final_response).toBe('這個軟體會快取網路資料。')
     expect(result.draft).toBe(result.final_response)
   })
+
+  it('passes a wider source window and states the catalog boundary for recommendations', async () => {
+    const searchResults = Array.from({ length: 12 }, (_, index) => ({
+      ...makeState({}).search_results[0],
+      chunk_id: `course-${index + 1}`,
+      slug: `course-${index + 1}`,
+      title: `Course ${index + 1}`,
+      source_url: `https://quidproquo.cc/posts/course-${index + 1}`,
+    }))
+    const state = makeState({
+      messages: [new HumanMessage('有哪些課程文章')] as RagMessage[],
+      plan: {
+        intent: 'recommendation',
+        complexity: 'simple',
+        needs_clarification: false,
+        subtasks: [],
+        search_keywords: ['課程'],
+        specialists: [],
+      },
+      search_results: searchResults,
+    })
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult('以下是目前取回的相關文章。'))
+
+    await writerNode(state)
+
+    const messages = vi.mocked(invokeModel).mock.calls.at(-1)?.[2]
+    const systemPrompt = String((messages?.[0] as { content?: unknown } | undefined)?.content ?? '')
+    const userPrompt = String((messages?.[1] as { content?: unknown } | undefined)?.content ?? '')
+    expect(systemPrompt).toContain('currently retrieved top matches')
+    expect(userPrompt).toContain('[Source 12]')
+    expect(userPrompt).toContain('Title: Course 12')
+  })
 })
 
 function makeState(overrides: Partial<GraphState>): GraphState {

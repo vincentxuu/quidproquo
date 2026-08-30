@@ -1,7 +1,11 @@
+import React from 'react'
+
 interface AgentStep {
   agent: string
   status: 'started' | 'completed'
   chunks_found?: number
+  sources_found?: number
+  evidence_chunks?: number
 }
 
 export function AgentSteps({ steps }: { steps: AgentStep[] }) {
@@ -20,7 +24,9 @@ export function AgentSteps({ steps }: { steps: AgentStep[] }) {
         <span key={`${s.agent}:${i}`} style={styles.step}>
           <span style={s.status === 'completed' ? styles.dotDone : styles.dotActive} aria-hidden="true" />
           <span>{labels[s.agent] ?? s.agent}</span>
-          {s.chunks_found !== undefined ? <span style={styles.meta}>{s.chunks_found}</span> : null}
+          {s.sources_found !== undefined || s.chunks_found !== undefined
+            ? <span style={styles.meta}>{s.sources_found !== undefined ? `${s.sources_found} 篇` : s.chunks_found}</span>
+            : null}
         </span>
       ))}
     </div>

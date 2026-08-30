@@ -1,14 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { loadRagDataset } from '../evals/rag/adapters/golden-dataset.mjs';
 
 const DATASET_PATH = path.resolve('docs/rag-golden-dataset.json');
 const FIXTURE_DATASET_PATH = path.resolve(process.env.RAG_EVAL_FIXTURE_PATH ?? 'docs/rag-golden-fixture.json');
 const BASE_URL = process.env.RAG_EVAL_BASE_URL ?? 'http://127.0.0.1:4321';
 const COOKIE = process.env.RAG_EVAL_COOKIE ?? '';
-const REPORT_PATH = process.env.RAG_EVAL_REPORT_PATH ?? 'docs/rag-eval-report.json';
 const ENFORCE = process.env.RAG_EVAL_ENFORCE === '1';
 const OFFLINE_MODE = process.env.RAG_EVAL_OFFLINE === '1';
+const RUN_KIND = OFFLINE_MODE ? 'fixture' : 'live';
 const RAG_EVAL_MAX_ATTEMPTS = Number(process.env.RAG_EVAL_MAX_ATTEMPTS ?? 3);
 const RAG_EVAL_INITIAL_DELAY_MS = Number(process.env.RAG_EVAL_INITIAL_DELAY_MS ?? 700);
 const RAG_ENGINES = (process.env.RAG_ENGINE?.split(',') ?? [''])
@@ -19,6 +20,16 @@ const THRESHOLDS = {
   answerRelevance: Number(process.env.RAG_EVAL_MIN_ANSWER_RELEVANCE ?? '0.75'),
   contextRecall: Number(process.env.RAG_EVAL_MIN_CONTEXT_RECALL ?? '0.7'),
 };
+
+export function resolveArtifactPaths(runKind = RUN_KIND) {
+  const artifactRoot = path.resolve(process.env.RAG_EVAL_ARTIFACT_ROOT ?? '.work/rag-evals', runKind);
+  return {
+    report: path.resolve(process.env.RAG_EVAL_REPORT_PATH ?? path.join(artifactRoot, 'baseline-report.json')),
+    outputs: path.resolve(process.env.RAG_EVAL_OUTPUTS_PATH ?? path.join(artifactRoot, 'baseline-outputs.jsonl')),
+    scores: path.resolve(process.env.RAG_EVAL_SCORES_PATH ?? path.join(artifactRoot, 'baseline-scores.jsonl')),
+    traces: path.resolve(process.env.RAG_EVAL_TRACES_PATH ?? path.join(artifactRoot, 'baseline-traces.jsonl')),
+  };
+}
 
 export function tokenize(text) {
   const normalized = String(text ?? '').toLowerCase();
@@ -65,19 +76,27 @@ async function ask(query, pipelineEngine) {
       let buffer = '';
       let answer = '';
       let sources = [];
+      let related = [];
+      const agentSteps = [];
+      let doneEvent = {};
+      let errorEvent = null;
 
       const processBlock = (block) => {
         const lines = block.split('\n');
         let eventType = 'token';
-        let dataStr = '';
+        const dataLines = [];
         for (const line of lines) {
           if (line.startsWith('event:')) eventType = line.slice(6).trim();
-          else if (line.startsWith('data:')) dataStr = line.slice(5).trim();
+          else if (line.startsWith('data:')) dataLines.push(line.slice(5).trimStart());
         }
-        if (!dataStr) return;
-        const data = JSON.parse(dataStr);
+        if (dataLines.length === 0) return;
+        const data = JSON.parse(dataLines.join('\n'));
         if (eventType === 'token') answer += data.text ?? '';
         if (eventType === 'sources') sources = data;
+        if (eventType === 'related') related = data;
+        if (eventType === 'agent_step') agentSteps.push(data);
+        if (eventType === 'done') doneEvent = data;
+        if (eventType === 'error') errorEvent = data;
       };
 
       while (true) {
@@ -92,7 +111,15 @@ async function ask(query, pipelineEngine) {
       }
 
       if (buffer.trim()) processBlock(buffer);
-      return { answer, sources };
+      return {
+        answer,
+        sources,
+        related,
+        agentSteps,
+        done: doneEvent,
+        error: errorEvent,
+        evidenceKind: 'live-output',
+      };
     }
 
     if (response.status !== 429 || attempt >= RAG_EVAL_MAX_ATTEMPTS) {
@@ -113,6 +140,11 @@ export function buildOfflineResponse(item) {
   return {
     answer: item.candidate_answer,
     sources: item.candidate_sources.map((source) => ({ source_url: String(source) })),
+    related: [],
+    agentSteps: [],
+    done: {},
+    error: null,
+    evidenceKind: 'offline-fixture',
   };
 }
 
@@ -231,10 +263,18 @@ function summarize(rows) {
   };
 }
 
+function writeJsonl(filePath, rows) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''));
+}
+
 async function main() {
   const datasetPath = OFFLINE_MODE ? FIXTURE_DATASET_PATH : DATASET_PATH;
-  const dataset = JSON.parse(fs.readFileSync(datasetPath, 'utf8'));
+  const dataset = loadRagDataset(datasetPath, { fixture: OFFLINE_MODE });
+  const artifactPaths = resolveArtifactPaths();
   const results = [];
+  const outputs = [];
+  const traces = [];
   const askFn = OFFLINE_MODE
     ? async (item) => buildOfflineResponse(item)
     : async (item, engine) => ask(item.query, engine || undefined);
@@ -243,13 +283,31 @@ async function main() {
   const perEngineSummaries = new Map();
   for (const engine of activeEngines) {
     const engineRows = []
-    for (const item of dataset) {
-      const { answer, sources } = OFFLINE_MODE
+    for (const item of dataset.cases) {
+      const response = OFFLINE_MODE
         ? await askFn(item)
         : await askFn(item, engine);
-      const scored = { ...scoreCase(item, answer, sources), engine: engine || 'default' };
+      const engineName = engine || 'default';
+      const scored = { ...scoreCase(item, response.answer, response.sources), engine: engineName };
       results.push(scored);
       engineRows.push(scored);
+      outputs.push({
+        caseId: item.id,
+        engine: engineName,
+        evidenceKind: response.evidenceKind,
+        answer: response.answer,
+        sources: response.sources,
+        related: response.related,
+        done: response.done,
+        error: response.error,
+      });
+      traces.push({
+        caseId: item.id,
+        engine: engineName,
+        evidenceKind: response.evidenceKind,
+        agentSteps: response.agentSteps,
+        allowedTracePatterns: item.allowed_trace_patterns ?? [],
+      });
     }
     perEngineSummaries.set(engine || 'default', summarize(engineRows));
   }
@@ -259,6 +317,12 @@ async function main() {
     thresholds: THRESHOLDS,
     generatedAt: new Date().toISOString(),
     engines: RAG_ENGINES.length > 0 ? RAG_ENGINES : ['default'],
+    schemaVersion: dataset.schema_version,
+    datasetId: dataset.dataset_id,
+    evidenceKind: dataset.evidence_kind,
+    runKind: RUN_KIND,
+    liveEvidence: !OFFLINE_MODE,
+    artifacts: artifactPaths,
   };
 
   const perEngine = Object.fromEntries(Array.from(perEngineSummaries.entries()).map(([engine, engineSummary]) => {
@@ -271,7 +335,11 @@ async function main() {
     ]
   }));
   const report = { summary, perEngine, results };
-  fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2) + '\n');
+  fs.mkdirSync(path.dirname(artifactPaths.report), { recursive: true });
+  fs.writeFileSync(artifactPaths.report, JSON.stringify(report, null, 2) + '\n');
+  writeJsonl(artifactPaths.outputs, outputs);
+  writeJsonl(artifactPaths.scores, results);
+  writeJsonl(artifactPaths.traces, traces);
   console.log(JSON.stringify(report, null, 2));
 
   const failed = Object.values(perEngine).some((engineSummary) =>
@@ -280,7 +348,7 @@ async function main() {
     || engineSummary.contextRecall < THRESHOLDS.contextRecall
   );
   if (ENFORCE && failed) {
-    throw new Error(`RAG eval below threshold. See ${REPORT_PATH}`);
+    throw new Error(`RAG eval below threshold. See ${artifactPaths.report}`);
   }
 }
 

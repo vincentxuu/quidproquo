@@ -86,10 +86,11 @@ function buildWriterPrompts(
   state: GraphState,
   options?: Pick<WriterRunOptions, 'resultProfile' | 'skillInstructions'>
 ): { systemPrompt: string; userPrompt: string } {
+  const defaultWriterContextSources = state.plan.intent === 'recommendation' ? 12 : 8
   const writerContextSources = Math.max(1, Math.min(40, Math.round(
     typeof options?.resultProfile?.writerContextSources === 'number' && Number.isFinite(options.resultProfile.writerContextSources)
       ? options.resultProfile.writerContextSources
-      : 8
+      : defaultWriterContextSources
   )))
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage?.content === 'string' ? lastMessage.content : ''
@@ -98,7 +99,7 @@ function buildWriterPrompts(
 
   const contextParts = state.search_results.slice(0, writerContextSources).map((r, i) => {
     const imgs = r.images.length > 0 ? `\nImages: ${r.images.join(', ')}` : ''
-    return `[Source ${i + 1}] ${r.source_url}\n${r.evidence_excerpt}${imgs}`
+    return `[Source ${i + 1}] ${r.source_url}\nTitle: ${r.title || 'Untitled'}\n${r.evidence_excerpt}${imgs}`
   })
 
   const needsDisclaimer = (state.critique?.confidence ?? 1) < 0.6 || state.validation?.passed === false
@@ -111,6 +112,8 @@ Respond in ${language}.
 Describe the successful end state by producing an answer that:
 - directly resolves the user's question before adding extra detail
 - for recommendation intent, returns a structured list with title, category/link, and a concrete recommendation reason before any narrative
+${state.plan.intent === 'recommendation' ? `- includes every distinct provided post source that actually matches the question; do not include an irrelevant source merely because it was retrieved
+- explicitly describes an article list as the currently retrieved top matches rather than a complete site catalog` : ''}
 - stays grounded in the provided sources only
 - cites factual claims inline as [short human-readable label](source_url) using the EXACT source_url from the provided sources
 - never prints bare URLs, URL-only link text, or a separate "sources/articles/reference list"; the UI renders retrieved sources separately

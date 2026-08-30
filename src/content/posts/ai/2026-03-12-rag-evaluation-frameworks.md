@@ -337,6 +337,29 @@ testset = generator.generate_with_langchain_docs(
 
 生成流程本身還在改（transforms、query distribution、knowledge graph 都可調），詳細參數請看[官方的 testset generation 文件](https://docs.ragas.io/en/stable/getstarted/rag_testset_generation/)。
 
+### 一份 golden dataset，不同 runner 各自轉接
+
+測試題不應該隸屬某個 runner。Promptfoo 可以從外部 JSON、JSONL 或 JavaScript 載入測試。Ragas 用 `EvaluationDataset` 和 `SingleTurnSample` 把 query、reference、retrieved contexts 與 response 分成結構化欄位。DeepEval 也把尚未執行的 `Golden` 與已有 actual output 的 test case 分開。這些介面不同，共通點是「預期行為」和「這次跑出什麼」不是同一份資料。
+
+本站因此把 `docs/rag-golden-dataset.json` 定為 canonical test specification。每題的 stable ID、query、預期回答要點、必要／禁止來源與 trace contract 只在這裡維護。原有 baseline runner 與 Promptfoo 不再各複製一份題目，而是透過 adapter 把同一份 contract 轉成各自需要的格式。
+
+```text
+docs/rag-golden-dataset.json       # 問題、參考與檢索契約
+              │
+          adapters
+          ┌─────┴─────┐
+          ↓           ↓
+legacy baseline      Promptfoo
+          │           │
+          └── actual runs ──┘
+                  ↓
+fixtures / live outputs / scores / traces / reports
+```
+
+下半部這些 actual artifacts 要另存，不得寫回 golden dataset。Fixture 是離線測試用的固定輸出，live output 是某次呼叫真實系統的結果，scores 與 traces 則綁定當次的 runner、model、prompt 和設定。LangSmith 把 dataset examples 與 experiments 分開，Phoenix 也讓 experiment 對同一批 dataset inputs 重跑新版 application，再另存 outputs 與 evaluation results。如果把分數或回答倒灌回 golden，下次 regression 就會拿這次的產物驗證自己。
+
+Dataset 也不是寫完就凍結。LangSmith 與 Phoenix 的官方流程都把 production feedback 納入 offline evaluation。先對失敗 trace 做人工 triage，確認是真問題後，再加成一個有固定 ID 與預期行為的 regression case。這樣 production 事故才會變成下次發布前可重現的測試，不是留在 chat log 裡的一次性故事。
+
 ### 一次真的 retrieval 事故要怎麼變成測試
 
 本站 Ask AI 收到「有哪些課程文章」時，介面顯示找到 15 個結果。回答卻漏掉大量 Stanford、MIT、CMU、Berkeley 等大學課程導讀，反而混進 Cloudflare Cache Rules、AI Gateway。
@@ -350,7 +373,9 @@ testset = generator.generate_with_langchain_docs(
 - 同一 slug 只算一篇，UI 顯示 unique articles，不顯示 raw chunk count。
 - model judge 另外評 context relevance 與 faithfulness，避免固定 slug 全中但回答仍跑題。
 
-本站原本已有 `docs/rag-golden-dataset.json` 與 `pnpm eval:rag`，但截至 2026-08-30，GitHub Actions 沒有執行這組 live eval；既有報表來自四題 offline fixture。腳本裡的 faithfulness、answer relevance、context recall 也是字詞、來源 URL 與禁止敘述的 deterministic scoring，不是 RAGAS、DeepEval 或 Promptfoo 的 judge。檔名與指標名稱存在，不等於評估已經接上 production。
+這次把課程文章事故收進 canonical dataset，並補上 Promptfoo 的 adapter、SSE provider 與 deterministic retrieval contract。這些檔案證明兩個 runner 可以共用同一題規格，不證明 live eval 或 model-graded metrics 已在 CI 運作。
+
+截至 2026-08-30，GitHub Actions 仍沒有執行這組 live eval；既有報表來自四題 offline fixture。原 baseline 腳本裡名為 faithfulness、answer relevance、context recall 的分數，是字詞、來源 URL 與禁止敘述的 deterministic scoring。這些分數不是 Ragas、DeepEval 或 Promptfoo 的 model judge。
 
 ### 持續評估
 
@@ -391,6 +416,7 @@ RAG 評估框架幫你把「感覺不好」轉化為「是哪個指標在哪個�
 
 ## 更新紀錄
 
+- 2026-08-30：補上 canonical golden dataset、runner adapter、actual artifact 分離，以及 production failure 回流 regression case 的完整資料生命週期
 - 2026-08-30：補上正式標準與工具的分界、Promptfoo 選型、開源維護快照，以及 Ask AI 課程文章 retrieval 事故的 regression contract
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
@@ -402,7 +428,14 @@ RAG 評估框架幫你把「感覺不好」轉化為「是哪個指標在哪個�
 - [DeepEval 指標總覽](https://deepeval.com/docs/metrics-introduction)
 - [DeepEval：在 CI/CD 裡跑單元測試](https://deepeval.com/docs/evaluation-unit-testing-in-ci-cd)
 - [Promptfoo：Evaluating RAG pipelines](https://www.promptfoo.dev/docs/guides/evaluate-rag/)
+- [Promptfoo test cases 與外部測試檔](https://www.promptfoo.dev/docs/configuration/test-cases/)
 - [Promptfoo HTTP／HTTPS provider](https://www.promptfoo.dev/docs/providers/http/)
+- [Ragas Evaluation Dataset](https://docs.ragas.io/en/stable/concepts/components/eval_dataset/)
+- [DeepEval Evaluation Datasets](https://deepeval.com/docs/evaluation-datasets)
+- [LangSmith evaluation concepts：datasets、experiments 與 production feedback](https://docs.langchain.com/langsmith/evaluation-concepts)
+- [LangSmith：管理與版本化 datasets](https://docs.langchain.com/langsmith/manage-datasets)
+- [Phoenix：Dataset concepts](https://arize.com/docs/phoenix/datasets-and-experiments/concepts-datasets)
+- [Phoenix：Datasets and experiments quickstart](https://arize.com/docs/phoenix/get-started/get-started-datasets-and-experiments)
 - [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 - [ISO/IEC 42001:2023 — AI management systems](https://www.iso.org/standard/42001)
 - [OpenTelemetry GenAI semantic convention attributes](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/)

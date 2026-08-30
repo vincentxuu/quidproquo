@@ -18,7 +18,13 @@ export interface Message {
   id: string
   role: 'user' | 'assistant'
   content: string
-  steps?: { agent: string; status: 'started' | 'completed'; chunks_found?: number }[]
+  steps?: {
+    agent: string
+    status: 'started' | 'completed'
+    chunks_found?: number
+    sources_found?: number
+    evidence_chunks?: number
+  }[]
   sources?: LinkLike[]
   related?: LinkLike[]
   confidence?: number

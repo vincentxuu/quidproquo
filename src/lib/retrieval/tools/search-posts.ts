@@ -233,7 +233,27 @@ async function searchMetadataPosts(
       links: string
     }>()
 
-  return rows.results.map(rowToResult)
+  return rankMetadataResults(
+    rows.results.map(rowToResult).map(result => ({
+      ...result,
+      claim: result.title,
+    })),
+    tokens
+  )
+}
+
+function rankMetadataResults(results: PostSearchRow[], tokens: string[]): PostSearchRow[] {
+  const overviewPattern = /(?:總覽|完整|地圖|指南|overview|guide)/iu
+  const installmentPattern = /(?:lecture|week|homework|\bhw\d*\b|第\s*\d+\s*(?:講|週|章))/iu
+  const score = (result: PostSearchRow): number => {
+    const title = result.title.toLowerCase()
+    const titleMatches = tokens.filter(token => title.includes(token.toLowerCase())).length
+    return (titleMatches * 4)
+      + (overviewPattern.test(result.title) ? 2 : 0)
+      - (installmentPattern.test(result.title) ? 1 : 0)
+  }
+
+  return [...results].sort((a, b) => score(b) - score(a) || b.date.localeCompare(a.date))
 }
 
 async function fetchPostRowsByChunkIds(
@@ -398,10 +418,30 @@ export async function searchBlogPosts(args: {
   lang?: string
   limit?: number
   shortCircuit?: boolean
+  metadataOnly?: boolean
 }): Promise<SearchResult[]> {
-  const { query, category, lang, limit = 8, shortCircuit = true } = args
+  const { query, category, lang, limit = 8, shortCircuit = true, metadataOnly = false } = args
   const started = Date.now()
-  const metadataResults = await searchMetadataPosts(query, limit, category, lang)
+  const metadataSearchLimit = metadataOnly
+    ? Math.ceil(Math.min(limit * 10, 200) / 3)
+    : limit
+  const metadataResults = await searchMetadataPosts(query, metadataSearchLimit, category, lang)
+  if (metadataOnly) {
+    const results = dedupeBySlug(metadataResults, limit)
+    return attachSearchMetrics(results, {
+      source: 'posts',
+      query_kind: isPrecisionQuery(query) ? 'precision' : 'general',
+      bm25_results: 0,
+      vector_results: 0,
+      result_count: results.length,
+      bm25_ms: 0,
+      vector_ms: null,
+      total_ms: Date.now() - started,
+      skipped_vector: true,
+      short_circuit_threshold: BM25_SHORT_CIRCUIT_THRESHOLD,
+      estimated_latency_saved_ms: null,
+    })
+  }
   const bm25Started = Date.now()
   const bm25Results = await searchBm25Posts(query, limit, category, lang)
   const bm25Ms = Date.now() - bm25Started
@@ -455,6 +495,7 @@ export const searchPostsSyscall = defineSyscall<Parameters<typeof searchBlogPost
       lang: { type: 'string', enum: ['zh-TW', 'en'] },
       limit: { type: 'number', default: 8 },
       shortCircuit: { type: 'boolean', default: true },
+      metadataOnly: { type: 'boolean', default: false },
     },
   },
   outputSchema: {

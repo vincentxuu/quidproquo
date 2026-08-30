@@ -22,3 +22,30 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Verify (lint + references + skills-sync + progress)
         run: pnpm verify
+
+  rag-eval:
+    name: Promptfoo RAG contract (non-blocking)
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.22.0
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --dir evals/rag install --frozen-lockfile
+      - name: Test Promptfoo provider and deterministic assertions
+        run: pnpm test:promptfoo
+      - name: Run offline Promptfoo retrieval contract
+        run: pnpm eval:promptfoo:fixture
+      - name: Upload Promptfoo report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: promptfoo-rag-results
+          path: .work/rag-evals/fixture/promptfoo-report.json
+          if-no-files-found: warn

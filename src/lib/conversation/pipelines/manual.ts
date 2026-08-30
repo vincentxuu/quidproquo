@@ -11,6 +11,7 @@ import { relatedPostsNode } from '../../retrieval/agents/related-posts'
 import { fallbackNode } from '../../retrieval/agents/fallback'
 import { shouldDegrade, shouldRetry } from '../../retrieval/agents/critic-routing'
 import type { ProviderApiKeys } from '../../retrieval/model'
+import { countUniquePostResults } from '../../retrieval/search-result-format'
 
 export async function runManualPipeline(
   input: {
@@ -64,7 +65,10 @@ export async function runManualPipeline(
 
   for (let i = 0; i < 3; i += 1) {
     const research = await runStep('research', (state) => researchNode(state, { apiKeys: options?.providerApiKeys }))
-    callbacks.onStep('Research', { chunks_found: research.search_results?.length ?? state.search_results.length })
+    callbacks.onStep('Research', {
+      sources_found: countUniquePostResults(research.search_results ?? state.search_results),
+      evidence_chunks: research.search_results?.length ?? state.search_results.length,
+    })
     await runStep('normalize_results', normalizeResultsNode)
     await runStep('writer', (state) => writerNode(state, { apiKeys: options?.providerApiKeys }))
     callbacks.onStep('Writer')

@@ -1,4 +1,9 @@
-[
+{
+  "schema_version": "1.0",
+  "dataset_id": "quidproquo-ask-ai-offline-fixture",
+  "evidence_kind": "offline-fixture",
+  "source_dataset_id": "quidproquo-ask-ai-golden",
+  "cases": [
   {
     "id": "q01",
     "query": "你寫過哪些 AI Agent 相關的文章？",
@@ -67,5 +72,30 @@
       "https://quidproquo.cc/posts/ai/2026-03-27-langgraph-agent-orchestration",
       "https://quidproquo.cc/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture"
     ]
+  },
+  {
+    "id": "q21",
+    "query": "有哪些課程文章",
+    "category": "course-catalog",
+    "language": "zh-TW",
+    "expected_answer_points": [
+      "列出多所大學的課程導讀",
+      "提供可閱讀的課程地圖連結"
+    ],
+    "expected_sources": [
+      "posts/learning/2026-08-20-stanford-cs-course-map",
+      "posts/learning/2026-08-21-mit-ai-ml-course-map",
+      "posts/learning/2026-08-21-cmu-ai-ml-course-map",
+      "posts/learning/2026-08-21-berkeley-ai-ml-course-map"
+    ],
+    "forbidden_claims": ["Cloudflare Cache Rules", "Cloudflare AI Gateway"],
+    "candidate_answer": "這裡有多所大學的課程導讀與可閱讀的課程地圖連結，包括 [Stanford CS](https://quidproquo.cc/posts/learning/2026-08-20-stanford-cs-course-map)、[MIT AI／ML](https://quidproquo.cc/posts/learning/2026-08-21-mit-ai-ml-course-map)、[CMU AI／ML](https://quidproquo.cc/posts/learning/2026-08-21-cmu-ai-ml-course-map) 與 [Berkeley AI／ML](https://quidproquo.cc/posts/learning/2026-08-21-berkeley-ai-ml-course-map)。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/learning/2026-08-20-stanford-cs-course-map",
+      "https://quidproquo.cc/posts/learning/2026-08-21-mit-ai-ml-course-map",
+      "https://quidproquo.cc/posts/learning/2026-08-21-cmu-ai-ml-course-map",
+      "https://quidproquo.cc/posts/learning/2026-08-21-berkeley-ai-ml-course-map"
+    ]
   }
-]
+  ]
+}

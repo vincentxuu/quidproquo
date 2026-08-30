@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildOfflineResponse, scoreCase } from './eval-rag-baseline.mjs';
+import { buildOfflineResponse, resolveArtifactPaths, scoreCase } from './eval-rag-baseline.mjs';
 
 const rubric = {
   id: 'case-1',
@@ -67,4 +67,14 @@ test('not-in-kb case passes only without fabricated sources or citations', () =>
   assert.equal(result.contextRecall, 1);
   assert.equal(result.answerRelevance, 1);
   assert.equal(result.passed, true);
+});
+
+test('keeps live and fixture artifacts in separate directories', () => {
+  const live = resolveArtifactPaths('live');
+  const fixture = resolveArtifactPaths('fixture');
+
+  assert.match(live.report, /\.work\/rag-evals\/live\/baseline-report\.json$/);
+  assert.match(fixture.report, /\.work\/rag-evals\/fixture\/baseline-report\.json$/);
+  assert.notEqual(live.outputs, fixture.outputs);
+  assert.notEqual(live.traces, fixture.traces);
 });

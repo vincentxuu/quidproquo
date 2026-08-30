@@ -1,0 +1,7 @@
+packages:
+  - "."
+
+ignoredOptionalDependencies:
+  - "@huggingface/transformers"
+  - "@openai/codex-security"
+  - natural
