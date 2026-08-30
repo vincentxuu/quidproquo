@@ -71,8 +71,19 @@ cat src/content/posts/daily/${TODAY}-ai-agent-github-digest.md 2>/dev/null
 ```
 
 從這兩篇中提取：
-- Arxiv digest → 取「今日總覽」的主題，放入日報的「技術進展」
+- Arxiv digest → 取「今日總覽」的共同方向，依下方「Arxiv 摘要契約」放入日報的「技術進展」
 - GitHub digest → 取亮點 repo，放入日報的「工具與生態」
+
+#### Arxiv 摘要契約（同日有 Digest 就不可省略）
+
+只要同日存在非 draft 的 Arxiv Digest，主 AI 日報就必須在「技術進展」正文中放入一段 **1-2 句的編輯摘要 + 站內連結**；只把連結列在「今日 Digest 一覽」或「參考資料」不算完成。
+
+- 摘要回答「今天這批論文共同指出哪個新方向或能力缺口」，不要逐篇重述 abstract。
+- 用「論文指出／實驗顯示／作者主張」保留證據邊界，不把預印本結論寫成已被產業證實的事實。
+- 若 Digest 已標註可信度、限制或 watch 狀態，主日報只提對讀者決策必要的限制，其餘導向 Digest 閱讀。
+- 可與同日 framework / GitHub 信號做跨文章連線，但不能讓其他事件取代 Arxiv 摘要本身。
+- 中英文主日報都要連到各自語言的 Digest。英文文章實際路由沿用內容 id 的 `-en` 後綴，例如 `/posts/daily/YYYY-MM-DD-ai-agent-arxiv-digest-en`；不要寫成中文版路由，也不要自行改成不存在的 `/en/posts/...`。
+- 主日報不做三篇論文的深度分析或重新評分；完整方法、數字、可信度與限制留在 Arxiv Digest。
 
 ### Step 4c：讀取 Stage 1 事件驅動產出（不一定有）
 
@@ -384,6 +395,15 @@ ls src/content/posts/daily/${TODAY}-*.md | grep -v "ai-agent-daily"
 ```
 
 每一篇都必須出現在「今日 Digest 一覽」中。漏了就補。
+
+若同日有 Arxiv Digest，再檢查一次：它除了出現在「今日 Digest 一覽」與「參考資料」，還必須出現在「技術進展」正文，而且附近有共同方向的摘要。**單純有三次連結不等於完成；要看連結所在段落。**
+
+```bash
+# 先看連結出現位置，再人工確認其中一處位於「技術進展」正文
+rg -n -C 3 "${TODAY}-ai-agent-arxiv-digest" \
+  "src/content/posts/daily/${TODAY}-ai-agent-daily.md" \
+  "src/content/posts/daily/${TODAY}-ai-agent-daily-en.md"
+```
 
 ### Check 2：Signals JSON 全部掃過
 

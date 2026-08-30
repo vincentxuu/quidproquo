@@ -84,7 +84,7 @@ Sharp unveiled the second-generation character for its companion AI robot "Poket
 
 ## Technical Developments
 
-Today's Arxiv Digest features three papers all plugging trust gaps during agent runtime — COTA uses a tiny comparator that doesn't need to solve the task for real-time intervention, CAS uses conformal prediction to calibrate search agent confidence, and AID-Guard uses stateful authorization to block approved actions from replaying. See [Arxiv Digest](/en/posts/daily/2026-08-26-ai-agent-arxiv-digest).
+Today's Arxiv Digest features three papers all plugging trust gaps during agent runtime — COTA uses a tiny comparator that doesn't need to solve the task for real-time intervention, CAS uses conformal prediction to calibrate search agent confidence, and AID-Guard uses stateful authorization to block approved actions from replaying. See [Arxiv Digest](/posts/daily/2026-08-26-ai-agent-arxiv-digest-en).
 
 **Haystack 3.1.0**: Adds CompactionHook for context compression and AgentTool for multi-agent delegation, while patching multiple pipeline deserialization RCE vulnerabilities. See [Framework Update](/en/posts/daily/2026-08-26-framework-haystack-3.1.0).
 
@@ -112,7 +112,7 @@ Today's GitHub Digest covers OpenHuman (local-first personal memory brain, early
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-26](/en/posts/daily/2026-08-26-ai-agent-arxiv-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-26](/en/posts/daily/2026-08-26-ai-agent-github-digest)
 - 📄 [Model Card | Wan3.0](/en/posts/daily/2026-08-26-model-alibaba-wan3-0)
 - 📄 [Security Alert | NVIDIA NemoClaw DNS Rebinding Model Poisoning](/en/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning)

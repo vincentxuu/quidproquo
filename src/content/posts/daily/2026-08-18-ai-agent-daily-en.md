@@ -58,6 +58,10 @@ What this means for practitioners: if you're evaluating whether to connect an Ag
 
 **Framework Updates**: LangChain's Managed Deep Agents service enters public Beta, and in partnership with AWS Bedrock AgentCore launches Payments middleware enabling agents to autonomously pay for premium content, real-time market data, and similar services via deterministic guardrails. ([Deep Agents](https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta), [AgentCore Payments](https://www.langchain.com/blog/langchain-agentcore-payments))
 
+### Technical Progress
+
+**Execution traces and recovery**: three papers shift the safety focus from final answers to the execution process. Their experiments respectively find that cowork-agent traces remain attackable, same-model multi-stage pipelines can fail together, and a pluggable recovery graph can detect drift and choose rollbacks without retraining the primary agent. See today's [AI Agent Arxiv Digest](/posts/daily/2026-08-18-ai-agent-arxiv-digest-en) for the methods and limitations.
+
 ### Security Incidents
 
 **11 Vulnerabilities Across Six Frameworks**: Check Point disclosed at Black Hat USA 2026 a total of 11 vulnerabilities across LangChain, LangGraph, CrewAI, AutoGen, Microsoft Agent Framework, and Google ADK, including SQLite injection and deserialization RCE in LangGraph — demonstrating that framework infrastructure is broadly not treated as a security boundary. ([Source](https://forkast.news/check-point-finds-11-flaws-across-every-major-agent-framework-and-the-bugs-were-already-classics))
@@ -103,7 +107,7 @@ South Korea launched a localized AI data center investment wave totaling 1.2 tri
 
 ## Today's Digest Index
 
-- [AI Agent Arxiv Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-arxiv-digest)
+- [AI Agent Arxiv Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-arxiv-digest-en)
 - [AI Agent GitHub Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-github-digest)
 - [Funding Brief | Higgsfield Series B $400M](/posts/daily/2026-08-18-funding-higgsfield)
 - [Funding Brief | Wispr Series B $280M](/posts/daily/2026-08-18-funding-wispr)
@@ -120,9 +124,13 @@ South Korea launched a localized AI data center investment wave totaling 1.2 tri
 
 I used to think Agent security risks were mainly about "whether the model could be tricked into doing bad things" (alignment problems). After reading through Check Point's 11-vulnerability list and the details of Flowise's fourth RCE today, I realized that the breaches actually happening are mostly classic software security issues (SQLite injection, deserialization, environment variable validation bypass) — almost unrelated to whether the LLM is aligned. The foundations of Agent frameworks themselves are still not solid.
 
+## Update Log
+
+- 2026-08-30: Restored the Arxiv Digest technical-progress summary.
+
 ## References
 
-- [AI Agent Arxiv Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-arxiv-digest)
+- [AI Agent Arxiv Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-arxiv-digest-en)
 - [AI Agent GitHub Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-github-digest)
 - [Stripe finalizes $7B+ acquisition of OpenRouter](https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b)
 - [Check Point discloses 11 vulnerabilities across 6 agent frameworks](https://forkast.news/check-point-finds-11-flaws-across-every-major-agent-framework-and-the-bugs-were-already-classics)

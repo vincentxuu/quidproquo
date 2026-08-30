@@ -74,7 +74,7 @@ What this means for practitioners: if you're building multi-agent systems, audit
 
 **Vercel**: also launched the Workflow SDK, letting durable workflows be written as ordinary code and run on existing infrastructure. ([source](https://vercel.com/blog/the-best-workflow-engine-is-a-programming-language))
 
-Today's [Arxiv Digest](/en/posts/daily/2026-08-28-ai-agent-arxiv-digest) (three papers on Scroll, EARM, and PolyMemDB) and [GitHub Digest](/en/posts/daily/2026-08-28-ai-agent-github-digest) (claude-mem, OpenViking, apache/maka) converge on the same point today: agent memory shouldn't be serialized and compressed — it should stay in a queryable, raw form. Academia and industry happened to land on this exact same conclusion at the same time.
+Today's [Arxiv Digest](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en) (three papers on Scroll, EARM, and PolyMemDB) and [GitHub Digest](/en/posts/daily/2026-08-28-ai-agent-github-digest) (claude-mem, OpenViking, apache/maka) converge on the same point today: agent memory shouldn't be serialized and compressed — it should stay in a queryable, raw form. Academia and industry happened to land on this exact same conclusion at the same time.
 
 ## Tools & Ecosystem
 
@@ -98,7 +98,7 @@ Today's [Arxiv Digest](/en/posts/daily/2026-08-28-ai-agent-arxiv-digest) (three 
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-28](/en/posts/daily/2026-08-28-ai-agent-arxiv-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-28](/en/posts/daily/2026-08-28-ai-agent-github-digest)
 - 📄 [Framework Update | CrewAI 1.15.18](/en/posts/daily/2026-08-28-framework-crewai-1.15.18)
 - 📄 [Funding Brief | Deep Cogito Series A $43M](/en/posts/daily/2026-08-28-funding-deep-cogito)

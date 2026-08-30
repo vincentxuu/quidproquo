@@ -58,6 +58,10 @@ Stripe 以逾 $7B 收購 OpenRouter，邏輯也相通，只是換了個切入點
 
 **框架動態**：LangChain 的 Managed Deep Agents 服務進入公開 Beta，並與 AWS Bedrock AgentCore 合作推出 Payments middleware，讓代理能以確定性防護機制自主為付費內容、即時市場數據等服務付款。（[Deep Agents](https://www.langchain.com/blog/managed-deep-agents-is-now-in-public-beta)、[AgentCore Payments](https://www.langchain.com/blog/langchain-agentcore-payments)）
 
+### 技術進展
+
+**執行軌跡與復原**：今天三篇論文都把安全焦點從最終回答移到執行過程。作者的實驗分別顯示，協作型 Agent 的軌跡仍可能被攻擊、同模型多階段管線會共同失敗，而外掛式復原圖可在不重訓主 Agent 的情況下偵測漂移並決定回滾；完整方法與限制見今日 [AI Agent Arxiv Digest](/posts/daily/2026-08-18-ai-agent-arxiv-digest)。
+
 ### 資安事件
 
 **六大框架 11 個漏洞**：Check Point 在 Black Hat USA 2026 揭露 LangChain、LangGraph、CrewAI、AutoGen、Microsoft Agent Framework、Google ADK 共 11 個漏洞，含 LangGraph 的 SQLite 注入與反序列化 RCE，顯示框架基礎設施普遍未被當作安全邊界看待。（[來源](https://forkast.news/check-point-finds-11-flaws-across-every-major-agent-framework-and-the-bugs-were-already-classics)）
@@ -119,6 +123,10 @@ Stripe 以逾 $7B 收購 OpenRouter，邏輯也相通，只是換了個切入點
 ## 今日收穫
 
 之前以為 Agent 的安全風險主要出在「模型會不會被騙去做壞事」（對齊問題），今天看完 Check Point 的 11 個漏洞清單和 Flowise 第四次 RCE 的細節才意識到，目前真正在爆的破口大多是傳統軟體安全的老問題（SQLite 注入、反序列化、環境變數繞過驗證），跟 LLM 有沒有被對齊幾乎無關——Agent 框架的地基本身還沒打穩。
+
+## 更新紀錄
+
+- 2026-08-30：補回 Arxiv Digest 的技術進展摘要。
 
 ## 參考資料
 

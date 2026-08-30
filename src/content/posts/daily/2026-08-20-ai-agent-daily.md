@@ -54,6 +54,10 @@ Benchmark 端另有兩則更新：Zhipu GLM-5.3 的分數解讀值得細看標�
 
 **UiPath** 推出 Maestro Flow，主打 coding agent 編排；**Mastra** 發表 Trace Intelligence 功能協助除錯 Agent 執行軌跡；**Netwrix** 新增 AI Agent 發現與 Entra ID 風險評估；**LMSYS** 開源 Miles v0.1，號稱可直接用於生產環境的 post-training 系統；**BNB Chain** 推出 Agent Studio v2 讓鏈上 Agent 可自主賺取收益。另有 comfy-mcp 讓 Agent 直接操控本機 ComfyUI，詳見 [工具推薦｜comfy-mcp](/posts/daily/2026-08-20-tool-comfy-mcp)；GitHub trending 上 Agent 記憶層是今天主軸，詳見 [AI Agent GitHub Digest](/posts/daily/2026-08-20-ai-agent-github-digest)。
 
+### 技術進展
+
+**記憶系統的風險面**：今天三篇論文分別檢查記憶管線的故障定位、自我進化方法對任務順序的敏感度，以及少量污染記憶如何在多 Agent 社群擴散。這些結果提醒團隊，加入長期記憶時也要同時設計可診斷、可證偽與防污染機制；完整實驗與限制見今日 [AI Agent Arxiv Digest](/posts/daily/2026-08-20-ai-agent-arxiv-digest)。
+
 ### 區域動態
 
 **台灣**：外貿協會示警，台灣 AI 使用強度是亞洲四地（含日韓、中國）中唯一下滑的地區，形容台灣「硬體巨人、應用侏儒」——晶片製造領先，但企業導入 AI 應用的速度落後鄰近市場。（[來源](https://www.bnext.com.tw/article/91912/taiwan-ai-usage-intensity-decline)）
@@ -92,6 +96,10 @@ Benchmark 端另有兩則更新：Zhipu GLM-5.3 的分數解讀值得細看標�
 ## 今日收穫
 
 之前以為 Agent 記憶的風險主要來自「記錯」這種功能性缺陷，今天發現記憶系統的攻擊面比想像中更早成熟——GraphWake 論文才剛證明理論可行性，同一天 CoSnitch 就展示了幾乎同款手法的真實漏洞，學術研究到產業攻擊的落差已經縮短到「零時差」。
+
+## 更新紀錄
+
+- 2026-08-30：補回 Arxiv Digest 的技術進展摘要。
 
 ## 參考資料
 

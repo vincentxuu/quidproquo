@@ -54,6 +54,10 @@ Other benchmark updates: Zhipu GLM-5.3's scores deserve a closer look at what th
 
 **UiPath** launched Maestro Flow for coding agent orchestration; **Mastra** released Trace Intelligence for debugging agent execution traces; **Netwrix** added AI agent discovery and Entra ID risk assessment; **LMSYS** open-sourced Miles v0.1, billed as a production-ready post-training system; **BNB Chain** shipped Agent Studio v2 enabling on-chain agents to earn autonomously. Also: comfy-mcp lets agents control a local ComfyUI instance — see [Tool Pick | comfy-mcp](/posts/daily/2026-08-20-tool-comfy-mcp); agent memory layers dominated GitHub trending today — see [AI Agent GitHub Digest](/posts/daily/2026-08-20-ai-agent-github-digest).
 
+### Technical Progress
+
+**Memory as a risk surface**: three papers examine failure localization inside memory pipelines, the sensitivity of self-improving methods to task order, and how poisoning a small set of memories can spread through a multi-agent community. The results suggest that teams adding long-term memory also need diagnosability, falsifiable improvement claims, and defenses against contamination. See today's [AI Agent Arxiv Digest](/posts/daily/2026-08-20-ai-agent-arxiv-digest-en) for the experiments and limitations.
+
 ### Regional
 
 **Taiwan**: The Taiwan External Trade Development Council warned that Taiwan is the only market among four Asian regions (alongside Japan/Korea and China) where AI usage intensity declined, describing Taiwan as a "hardware giant, application dwarf" — leading in chip manufacturing but lagging neighbors in enterprise AI adoption. ([source](https://www.bnext.com.tw/article/91912/taiwan-ai-usage-intensity-decline))
@@ -74,7 +78,7 @@ UK enterprise knowledge-graph company Prevalent AI secured $22M in its first ins
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-arxiv-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-github-digest)
 - 📄 [Model Card | Grok 4.6](/posts/daily/2026-08-20-model-xai-grok-4-6)
 - 📄 [Security Alert | CoSnitch](/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration)
@@ -93,9 +97,13 @@ UK enterprise knowledge-graph company Prevalent AI secured $22M in its first ins
 
 I used to think the main risk with agent memory was functional — agents simply remembering things wrong. Today showed that the attack surface of memory systems matured faster than I expected: GraphWake proved the theoretical viability, and CoSnitch demonstrated a near-identical technique as a real vulnerability on the same day. The gap between academic research and production exploits has shrunk to effectively zero.
 
+## Update Log
+
+- 2026-08-30: Restored the Arxiv Digest technical-progress summary.
+
 ## References
 
-- [AI Agent Arxiv Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-arxiv-digest)
+- [AI Agent Arxiv Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-arxiv-digest-en)
 - [AI Agent GitHub Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-github-digest)
 - [Model Card | Grok 4.6 — 2026-08-20](/posts/daily/2026-08-20-model-xai-grok-4-6)
 - [Security Alert | CoSnitch — 2026-08-20](/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration)

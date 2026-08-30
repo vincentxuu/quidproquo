@@ -52,6 +52,8 @@ series:
 
 **NVIDIA**：下一代 Vera Rubin NVL72 通用上市延後約半年至 2027 下半年，Q3 2026 開放預訂；同期 CoreWeave 宣布量化交易巨頭 Hudson River Trading 將以 Vera Rubin NVL72 叢集建置新一代研究平台。
 
+### 技術進展
+
 今天的 [AI Agent Arxiv Digest](/posts/daily/2026-08-21-ai-agent-arxiv-digest) 也呼應這條主線的另一面：DART-SD、SkillForge、Post-Training AI 三篇論文合起來說明 agent 已經很會「執行」與「累積技能」，但還沒有機制能在執行途中自己推翻大方向——這正是路由層再怎麼整併也補不上的能力缺口。
 
 ### 工具與生態
@@ -116,6 +118,10 @@ Stripe 收購 OpenRouter、Ramp 收購 router.com 詳見深度分析。另外：
 ## 今日收穫
 
 之前以為模型路由層是「幫忙比價」的中介工具，今天意識到它其實是支付/報帳平台鎖定客戶的下一張門票——Stripe 和 Ramp 幾乎同時出手，說明路由層的價值不在技術本身，而在「誰能把它綁進既有的企業帳務關係」。
+
+## 更新紀錄
+
+- 2026-08-30：將 Arxiv Digest 摘要移入獨立的技術進展段落。
 
 ## 參考資料
 

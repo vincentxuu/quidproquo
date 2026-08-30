@@ -74,7 +74,7 @@ Omnigent's three critical CVEs are detailed in today's [security alert](/posts/d
 
 ### Technical Advances
 
-Today's [AI Agent Arxiv Digest](/posts/daily/2026-08-23-ai-agent-arxiv-digest) covers three papers that happen to span the training, generalization, and selection stages of agent skill systems. One paper directly references Claude Code and Codex's skill selection mechanisms as a baseline, echoing today's scaling risk theme.
+Today's [AI Agent Arxiv Digest](/posts/daily/2026-08-23-ai-agent-arxiv-digest-en) covers three papers that happen to span the training, generalization, and selection stages of agent skill systems. One paper directly references Claude Code and Codex's skill selection mechanisms as a baseline, echoing today's scaling risk theme.
 
 **Mastra**: Launched Fine-Grained Authorization. ([source](https://mastra.ai/blog))
 
@@ -110,11 +110,11 @@ Shin Cheng Industrial shared a four-phase Agentic AI transformation playbook —
 | SkillSpector scan results | 26.1% vulnerable, 5.2% suspected malicious | [GitHub](https://github.com/nvidia/skillspector) |
 | Omnigent highest CVE severity | CVSS 9.0 | [Security alert](/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce) |
 | GPT-5.6 Sol official rate cut | Input ↓20%, Output ↓33% | [Pricing tracker](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut) |
-| BPS skill selection token savings | ↓28% (success rate 0.73 vs rivals 0.20–0.52) | [AI Agent Arxiv Digest](/posts/daily/2026-08-23-ai-agent-arxiv-digest) |
+| BPS skill selection token savings | ↓28% (success rate 0.73 vs rivals 0.20–0.52) | [AI Agent Arxiv Digest](/posts/daily/2026-08-23-ai-agent-arxiv-digest-en) |
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-arxiv-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-github-digest)
 - 📄 [Pricing Tracker | OpenAI GPT-5.6 Sol Official 20–33% Price Cut](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut)
 - 📄 [Security Alert | Omnigent Agent Bundle Upload Vulnerability](/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce)
@@ -134,7 +134,7 @@ I previously assumed AI governance would clearly lag behind technical evolution,
 
 ## References
 
-- [AI Agent Arxiv Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-arxiv-digest)
+- [AI Agent Arxiv Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-arxiv-digest-en)
 - [AI Agent GitHub Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-github-digest)
 - [Anthropic Claude Security × Claude Mythos 5](https://www.marktechpost.com)
 - [Mistral Agentic Search](https://mistral.ai/news)

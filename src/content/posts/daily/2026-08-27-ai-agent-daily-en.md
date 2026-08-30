@@ -52,7 +52,7 @@ Two more tools/ecosystem stories today: a read-only MCP tool that reads Postgres
 
 ### Technical Developments
 
-Today's [Arxiv Digest](/en/posts/daily/2026-08-27-ai-agent-arxiv-digest-en) covers three blind spots in tool-calling reliability (disconnected training, resource blindness, state-action competition); the [Mastra 1.62 update](/posts/daily/2026-08-27-framework-mastra-1.62.0) (zh-TW only) turns desktop control into the workspace's 12th tool type, while shipping 7 breaking changes.
+Today's [Arxiv Digest](/posts/daily/2026-08-27-ai-agent-arxiv-digest-en) covers three blind spots in tool-calling reliability (disconnected training, resource blindness, state-action competition); the [Mastra 1.62 update](/posts/daily/2026-08-27-framework-mastra-1.62.0) (zh-TW only) turns desktop control into the workspace's 12th tool type, while shipping 7 breaking changes.
 
 ### Security Incidents
 
@@ -80,7 +80,7 @@ Runable closed a $21M Series A, welding "build a website/app" and "take over day
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-27](/en/posts/daily/2026-08-27-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent Arxiv Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-27](/en/posts/daily/2026-08-27-ai-agent-github-digest-en)
 - 📄 [Framework Update | Mastra @mastra/core@1.62.0](/posts/daily/2026-08-27-framework-mastra-1.62.0) (zh-TW only)
 - 📄 [Funding Brief | Runable Series A $21M](/en/posts/daily/2026-08-27-funding-runable-en)

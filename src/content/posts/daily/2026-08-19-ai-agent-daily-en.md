@@ -60,7 +60,7 @@ On the enterprise governance front: WorkOS released a step-up re-authentication 
 
 ## Technical Advances
 
-Three arxiv papers today converge on a single bottleneck: "retrievable" is no longer sufficient for agent memory and retrieval systems. QUMem segments long-term memory into episodes and decomposes them into independently retrievable typed memories; LENS uses an index-free progressive narrowing approach for frequently updated documents, with zero accuracy loss in stale-index scenarios; Intent-Guided Decoding arbitrates at decode time between trusting retrieved content versus the model's own memory, achieving up to 65.4 percentage points of accuracy gain on fact-conflict benchmarks. ([Full Arxiv Digest](/posts/daily/2026-08-19-ai-agent-arxiv-digest))
+Three arxiv papers today converge on a single bottleneck: "retrievable" is no longer sufficient for agent memory and retrieval systems. QUMem segments long-term memory into episodes and decomposes them into independently retrievable typed memories; LENS uses an index-free progressive narrowing approach for frequently updated documents, with zero accuracy loss in stale-index scenarios; Intent-Guided Decoding arbitrates at decode time between trusting retrieved content versus the model's own memory, achieving up to 65.4 percentage points of accuracy gain on fact-conflict benchmarks. ([Full Arxiv Digest](/posts/daily/2026-08-19-ai-agent-arxiv-digest-en))
 
 Mastra @mastra/core 1.60.0 enables saved agents to run durable execution with `durable: true` without redeployment, and adds a Cloudflare Sandbox provider and MCP `2026-07-28` protocol support. ([Source](/posts/daily/2026-08-19-framework-mastra-1.60.0)) Google's Agent2Agent (A2A) protocol governance has been absorbed into AAIF (Agentic AI Foundation); the standard has gained support from AWS, Microsoft, Salesforce, SAP, ServiceNow, and PayPal since its donation to the Linux Foundation in 2025, continuing to expand the cross-vendor agent interoperability ecosystem. ([Source](https://www.devopsdigest.com/google-agent2agent-protocol-joins-aaif))
 
@@ -127,7 +127,7 @@ I used to think the main competitive battlefield between model companies was ben
 - [WorkOS Step-Up Re-Authentication for AI Agents](https://workos.com/blog/step-up-authentication-ai-agents)
 - [TestMu AI Launches Agent Assurance](https://sg.finance.yahoo.com/news/testmu-ai-launches-agent-assurance-135600119.html)
 - [Google Tests Computer Use on Gemini Desktop](https://www.testingcatalog.com/google-tests-computer-use-on-gemini-desktop)
-- [AI Agent Arxiv Digest — 2026-08-19](/posts/daily/2026-08-19-ai-agent-arxiv-digest)
+- [AI Agent Arxiv Digest — 2026-08-19](/posts/daily/2026-08-19-ai-agent-arxiv-digest-en)
 - [Mastra @mastra/core 1.60.0 Framework Update](/posts/daily/2026-08-19-framework-mastra-1.60.0)
 - [Google A2A Protocol Governance Joins AAIF](https://www.devopsdigest.com/google-agent2agent-protocol-joins-aaif)
 - [Fortinet Acquires Virtue AI](https://www.ithome.com.tw/news/178212)

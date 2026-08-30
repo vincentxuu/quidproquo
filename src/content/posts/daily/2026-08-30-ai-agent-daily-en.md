@@ -44,6 +44,10 @@ What this means for practitioners: OpenAI, Anthropic, and 100+ other companies s
 
 **Pydantic AI v2.36.0**: adds `@durable_operation`, letting third-party durable-execution engines plug into agent fault-tolerant execution without touching any private API — see today's framework update. ([internal](/posts/daily/2026-08-30-framework-pydantic-ai-2.36.0-en))
 
+### Technical Progress
+
+**Agent execution authorization**: three new papers converge on the same warning: a model proposing an action does not mean the runtime should execute it. Polished fabricated evidence, instructions embedded in tool outputs, and cross-loop safety state that decays over time can each reopen a failed control gate. See today's [AI Agent Arxiv Digest](/posts/daily/2026-08-30-ai-agent-arxiv-digest-en) for the experiments, credibility assessments, and limitations.
+
 ### Pricing & API Lifecycle
 
 OpenAI's Assistants API was officially retired on Aug 26 with no migration tool — see today's pricing tracker. ([internal](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset-en)) Separately, OpenAI cut GPT-5.6 Sol's official price to $4/$20 per million input/output tokens on Aug 21; layered on top of OpenRouter and Vercel AI Gateway promotions, Sol's OpenRouter usage jumped nearly 14x in August, a move that tracks pricing pressure from Anthropic and Chinese labs DeepSeek and Moonshot. ([source](https://startupfortune.com/openais-price-cut-on-gpt-56-sol-sent-openrouter-usage-up-nearly-14-times/))
@@ -155,6 +159,7 @@ I used to think competition between model vendors mainly played out on capabilit
 
 ## Update log
 
+- 2026-08-30: Restored the Arxiv Digest technical-progress summary, linking the shared research direction to the full evidence assessment.
 - 2026-08-30: Split the Japan and South Korea items, completed a global regional-coverage audit, and added India, Singapore, Europe, the Middle East, South Africa, Brazil, and Australia.
 
 ## References

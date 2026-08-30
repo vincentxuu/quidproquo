@@ -52,7 +52,9 @@ Beyond SpaceX's Cursor acquisition (see deep analysis), xAI also launched **Grok
 
 **NVIDIA**: General availability of next-gen Vera Rubin NVL72 delayed roughly six months to H2 2027, with preorders opening in Q3 2026. Separately, CoreWeave announced that quantitative trading giant Hudson River Trading will build its next-gen research platform on Vera Rubin NVL72 clusters.
 
-Today's [AI Agent Arxiv Digest](/posts/daily/2026-08-21-ai-agent-arxiv-digest) echoes the flip side of this thread: three papers — DART-SD, SkillForge, Post-Training AI — collectively show that agents have gotten very good at "executing" and "accumulating skills" but still lack mechanisms to course-correct their own high-level direction mid-execution — a capability gap that no amount of routing-layer consolidation can fill.
+### Technical Progress
+
+Today's [AI Agent Arxiv Digest](/posts/daily/2026-08-21-ai-agent-arxiv-digest-en) echoes the flip side of this thread: three papers — DART-SD, SkillForge, Post-Training AI — collectively show that agents have gotten very good at "executing" and "accumulating skills" but still lack mechanisms to course-correct their own high-level direction mid-execution — a capability gap that no amount of routing-layer consolidation can fill.
 
 ### Tools & Ecosystem
 
@@ -98,7 +100,7 @@ Stripe's OpenRouter and Ramp's router.com acquisitions are covered in the deep a
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-arxiv-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-github-digest)
 - 📄 [AI Engineer Interview Prep — 2026-08-21: Coding (ML From-Scratch)](/posts/daily/2026-08-21-ai-interview-daily)
 - 📄 [Product Builder Interview Prep — 2026-08-21: Growth & Experimentation](/posts/daily/2026-08-21-product-builder-interview-daily)
@@ -116,6 +118,10 @@ Stripe's OpenRouter and Ramp's router.com acquisitions are covered in the deep a
 ## Today's Takeaway
 
 I used to think the model routing layer was a "price comparison" intermediary tool. Today I realized it's actually the next ticket for payment/expense platforms to lock in customers — Stripe and Ramp moved almost simultaneously, showing that the routing layer's value isn't in the technology itself, but in "who can tie it into existing enterprise billing relationships."
+
+## Update Log
+
+- 2026-08-30: Moved the Arxiv Digest summary into a dedicated technical-progress section.
 
 ## References
 

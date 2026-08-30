@@ -82,7 +82,7 @@ Today's GitHub Digest spotlights two projects that "augment existing tools" — 
 
 **OWASP Agentic AI / MCP Top 10**: Published risk list (MCP01:2025–MCP10:2025, Phase 3 beta) systematically cataloging common attack vectors against the MCP layer, including ungoverned "shadow MCP servers" — different facet of the same "agent infrastructure security" front as the CoreBreak dispatch-layer vulnerabilities below. ([Source](https://www.imperva.com/blog/owasp-llm-top-10-what-comes-next-agentic-mcp))
 
-Today's Arxiv Digest focuses on cost vs. accuracy tradeoffs in agent memory systems — see [AI Arxiv Digest](/posts/daily/2026-08-17-ai-agent-arxiv-digest); AG2 v1.0.2 strengthened A2A communication signature verification and gRPC TLS transport — see [framework update](/posts/daily/2026-08-17-framework-ag2-1.0.2).
+Today's Arxiv Digest focuses on cost vs. accuracy tradeoffs in agent memory systems — see [AI Arxiv Digest](/posts/daily/2026-08-17-ai-agent-arxiv-digest-en); AG2 v1.0.2 strengthened A2A communication signature verification and gRPC TLS transport — see [framework update](/posts/daily/2026-08-17-framework-ag2-1.0.2).
 
 ### Security Incidents
 
@@ -128,7 +128,7 @@ Mistral announced its local inference infrastructure, open-source models, and ne
 
 ## Today's Digest Index
 
-- [AI Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
+- [AI Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest-en)
 - [AI GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
 - [Framework Update | AG2 v1.0.2](/posts/daily/2026-08-17-framework-ag2-1.0.2)
 - [Model Card | Muse Glimmer](/posts/daily/2026-08-17-model-meta-muse-glimmer)
@@ -148,7 +148,7 @@ I used to think startups getting acquired was mostly about "running out of money
 
 ## References
 
-- [AI Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
+- [AI Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest-en)
 - [AI GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
 - [Anthropic Frontier Red Team: Multi-Agent Systems Research](https://www.anthropic.com/research/multiagent-systems)
 - [OpenAI Ultrafast Mode Preview](https://openai.com/index/previewing-ultrafast/)

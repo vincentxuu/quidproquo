@@ -82,9 +82,9 @@ Today's trending GitHub projects land on both ends of capability expansion — A
 
 **Mastra**: Added multi-turn conversation evaluation to its agent eval framework — deterministic gates can assert tool call counts, and LLM-as-judge can score entire conversations. ([source](https://mastra.ai/blog/introducing-multi-turn-evals))
 
-### Research
+### Technical Progress
 
-Three arxiv papers today poke at the same point from different scales: "occasionally succeeding" isn't enough for agents. StartupBench tests against market-validated real startup requirements and the strongest models only complete ~30% of tasks; Thinkingbox shows the gap between "succeeded once" and "succeeded 20/20 times" is massive; DeltaML-Bench finds that replacing search-based scaffolding can simultaneously raise success rates and eliminate spec gaming. See [Arxiv Digest](/posts/daily/2026-08-25-ai-agent-arxiv-digest).
+Three arxiv papers today poke at the same point from different scales: "occasionally succeeding" isn't enough for agents. StartupBench tests against market-validated real startup requirements and the strongest models only complete ~30% of tasks; Thinkingbox shows the gap between "succeeded once" and "succeeded 20/20 times" is massive; DeltaML-Bench finds that replacing search-based scaffolding can simultaneously raise success rates and eliminate spec gaming. See [Arxiv Digest](/posts/daily/2026-08-25-ai-agent-arxiv-digest-en).
 
 **Agno 3.0.0**: Major database overhaul — runs migrated from session JSON blobs to independent typed tables, reducing write amplification from O(N^2) to O(N). Migration must be run before upgrading or the app will crash. See [Framework Update](/posts/daily/2026-08-25-framework-agno-3.0.0).
 
@@ -113,7 +113,7 @@ Three arxiv papers today poke at the same point from different scales: "occasion
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-arxiv-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-github-digest)
 - 📄 [Framework Update | Agno 3.0.0](/posts/daily/2026-08-25-framework-agno-3.0.0)
 - 📄 [Funding Brief | Rundoo Series B $30M](/posts/daily/2026-08-25-funding-rundoo)

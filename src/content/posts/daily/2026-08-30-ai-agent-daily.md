@@ -44,6 +44,10 @@ series:
 
 **Pydantic AI v2.36.0**：新增 `@durable_operation`，讓第三方 durable execution 引擎不碰私有 API 就能接上 agent 容錯執行，詳見今日框架更新。（[站內](/posts/daily/2026-08-30-framework-pydantic-ai-2.36.0)）
 
+### 技術進展
+
+**Agent 執行授權**：今天三篇新論文共同指出，模型能提出動作不代表 runtime 應該允許執行；包裝完整的假證據、混入工具輸出的指令，以及會隨時間衰減的跨迴圈安全狀態，都可能讓控制閘門失效。完整實驗、可信度與限制見今日 [AI Agent Arxiv Digest](/posts/daily/2026-08-30-ai-agent-arxiv-digest)。
+
 ### 定價與 API 生命週期
 
 OpenAI Assistants API 已於 8/26 正式停用、無遷移工具，詳見今日定價追蹤。（[站內](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset)）另外，OpenAI 8/21 已把 GPT-5.6 Sol 官方定價降到 $4/$20（每百萬 token 輸入/輸出），疊加 OpenRouter、Vercel AI Gateway 的促銷折扣，8 月 OpenRouter 上的 Sol 用量暴增近 14 倍，跟進的是 Anthropic 與 DeepSeek、Moonshot 的價格戰壓力。（[來源](https://startupfortune.com/openais-price-cut-on-gpt-56-sol-sent-openrouter-usage-up-nearly-14-times/)）
@@ -155,6 +159,7 @@ Mistral 與沙烏地阿拉伯 HUMAIN 宣布數億歐元規模的主權 AI 合作
 
 ## 更新紀錄
 
+- 2026-08-30：補回 Arxiv Digest 的技術進展摘要，連結今日論文共同方向與完整證據評估。
 - 2026-08-30：拆開日本與韓國新聞段落，完成全球區域覆蓋稽核，補入印度、新加坡、歐洲、中東、南非、巴西與澳洲動態。
 
 ## 參考資料

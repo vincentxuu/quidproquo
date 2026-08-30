@@ -60,7 +60,7 @@ Xinference's use of `eval()` to parse Llama3 tool calls yielded a CVSS 10.0 unau
 
 ### Technical Advances
 
-Today's [AI Agent Arxiv Digest](/posts/daily/2026-08-24-ai-agent-arxiv-digest) features three papers poking holes in the reliability of "agent memory systems" from three angles — false majority in shared memory, cognitive traps triggered even by correct memories, and the decision problem of whether to commit information to persistent memory at all.
+Today's [AI Agent Arxiv Digest](/posts/daily/2026-08-24-ai-agent-arxiv-digest-en) features three papers poking holes in the reliability of "agent memory systems" from three angles — false majority in shared memory, cognitive traps triggered even by correct memories, and the decision problem of whether to commit information to persistent memory at all.
 
 The [AI Agent GitHub Digest](/posts/daily/2026-08-24-ai-agent-github-digest) observes a tug-of-war in the MCP ecosystem: the official GitHub MCP Server v1.10.0 is busy patching security holes, while the community is growing specialized tools in ultra-niche domains like reverse engineering (x64dbg-mcp-server) and AI compliance (mediagen).
 
@@ -98,7 +98,7 @@ Japan's Ministry of Economy, Trade and Industry (METI) launched the FRONTia proj
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-arxiv-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-github-digest)
 - 📄 [Model Card | Muse Spark 1.2](/posts/daily/2026-08-24-model-meta-muse-spark-1-2)
 - 📄 [Security Alert | Xinference eval() for LLM Tool Calls](/posts/daily/2026-08-24-security-xinference-eval-injection-rce)

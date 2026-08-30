@@ -54,7 +54,9 @@ What this means for practitioners: when evaluating an AI company's moat, don't j
 
 **Aikido Security Benchmark**: DeepSeek, GLM-5.3, and Qwen3.8-Max have matched or even surpassed some closed-source frontier models on vulnerability discovery tasks — open-source catch-up in vertical domains is more noteworthy than the gap on general leaderboards. ([source](https://www.aikido.dev/blog/ai-model-benchmarks-aug-21-2026))
 
-Today's [Arxiv Digest](/posts/daily/2026-08-22-ai-agent-arxiv-digest) also highlights the flip side: the Agent capability narrative is running ahead of evaluation methodology.
+### Technical Progress
+
+Today's [Arxiv Digest](/posts/daily/2026-08-22-ai-agent-arxiv-digest-en) also highlights the flip side: the Agent capability narrative is running ahead of evaluation methodology.
 
 ### Security Incidents
 
@@ -87,7 +89,7 @@ Beyond the Stripe-OpenRouter acquisition, Broadcom chip financing, Fractile valu
 
 ## Today's Digest Index
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-arxiv-digest)
+- 📄 [AI Agent Arxiv Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-arxiv-digest-en)
 - 📄 [AI Agent GitHub Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-github-digest)
 - 📄 [Framework Update | CrewAI 1.15.17](/posts/daily/2026-08-22-framework-crewai-1.15.17)
 - 📄 [Pricing Tracker | GPT-5.6 Sol 50% Off on Two Platforms](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount)
@@ -106,9 +108,13 @@ Beyond the Stripe-OpenRouter acquisition, Broadcom chip financing, Fractile valu
 
 I used to think the "open-source catching up to closed-source" story was mainly about narrowing score gaps on general leaderboards — a few points closer today, a few more tomorrow. But Aikido's security benchmark shows that open-source models like DeepSeek, GLM-5.3, and Qwen3.8-Max have already matched or even surpassed some closed-source frontier models on specific vertical tasks like vulnerability discovery. This made me realize the catch-up is happening at the domain level, not as a gradual convergence of general scores — on certain specialized tasks, open-source may no longer be "behind" but "on par."
 
+## Update Log
+
+- 2026-08-30: Moved the Arxiv Digest summary into a dedicated technical-progress section.
+
 ## References
 
-- [AI Agent Arxiv Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-arxiv-digest)
+- [AI Agent Arxiv Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-arxiv-digest-en)
 - [AI Agent GitHub Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-github-digest)
 - [Stripe Acquires OpenRouter — OpenRouter Blog](https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe)
 - [Broadcom Over $60B AI Chip Financing — Inside](https://www.inside.com.tw/article/42154-broadcom-60-billion-ai-chip-debt-financing)
