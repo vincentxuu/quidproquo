@@ -2,6 +2,27 @@
 
 This runbook keeps the evaluation contract, offline fixtures, live observations, and derived scores separate. A passing fixture run is a deterministic harness check; it is not evidence that the deployed Ask AI pipeline retrieved or generated the same result.
 
+## Current completeness status
+
+Status reviewed on 2026-08-30. "Complete" below means the repository contains an executable end-to-end path for that scope. It does not imply that production credentials, external-service delivery, or a current deployment were verified during the review.
+
+| Capability | Status | Evidence boundary |
+|---|---|---|
+| Ask AI runtime | Complete | `/api/chat` runs the configured pipeline, streams the accepted answer and presentation events, and stores local chat and trace-step records. This is a code-path assessment, not a new production smoke result. |
+| Langfuse observability | Partial | Ask AI creates traces and spans and sends `confidence`, `answer_relevance`, and `intent_alignment` scores. Export is fail-open: missing credentials skip delivery and delivery errors do not fail chat. The repository does not prove that production credentials are configured or that a trace was accepted by Langfuse. Semantic-cache hits return before trace creation. |
+| Offline Promptfoo evaluation | Complete for the current narrow contract | The pinned Promptfoo package, offline fixture, custom provider, deterministic retrieval assertion, tests, and report artifact are present. The 21-case golden dataset currently produces one Promptfoo retrieval contract, q21; this is not 21-case Promptfoo coverage. |
+| Blocking pull-request RAG gate | Not enabled | `.github/workflows/quality.yml` runs the Promptfoo fixture job with `continue-on-error: true`. A regression can fail the job's internal step without blocking the overall workflow or merge. |
+| Live Ask AI evaluation | Partial | Live baseline and Promptfoo runners can call `/api/chat` with an authenticated admin cookie, `traceScope: eval`, and `cacheMode: bypass`. They are manual entry points; the repository has no scheduled production run or committed live result artifact. |
+| Langfuse dataset and experiment loop | Not connected | The repository has no Langfuse dataset synchronization, experiment runner, evaluator, LLM-as-a-judge rule, or `langfuse/experiment-action` workflow. Repository JSON remains the canonical golden dataset. |
+| Langfuse MCP | Optional and not connected | Langfuse's native MCP server can help a coding agent inspect or manage Langfuse data, but it is not part of the Ask AI runtime or evaluation contract. Connecting it does not by itself make the quality gate complete; start with a read-only client allowlist if it is added. |
+
+The current system is therefore complete as an Ask AI runtime with one reproducible offline retrieval-regression slice. It is not yet a closed production-quality loop. Closing that loop requires explicit decisions and evidence:
+
+1. Verify one production Langfuse round trip: issue an evaluation-scoped uncached request, retrieve the same trace ID from Langfuse, and retain a sanitized result or health artifact. Do not infer delivery from a locally generated trace URL.
+2. Decide whether RAG regressions should block merges. Before removing `continue-on-error`, expand deterministic contracts beyond q21 and establish acceptable false-positive and infrastructure-failure handling.
+3. Add a Langfuse dataset and experiment layer only when version comparison, production-case collection, human review, or LLM-as-a-judge is required. Pin dataset, action, SDK, evaluator, prompt, and model versions for CI use.
+4. Treat Langfuse MCP as an operator convenience. It is not a completion criterion for the product, and write tools should not be enabled by default for diagnostic agents.
+
 ## Canonical inputs
 
 - `docs/rag-golden-dataset.json` is the source of truth for evaluation cases. Its `schema_version` is `1.0`, its `evidence_kind` is `golden-contract`, and `cases` contains q01-q21.
