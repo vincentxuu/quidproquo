@@ -9,9 +9,14 @@ lang: en
 tldr: "Entering '我想找入門的ai課程' in Ask AI showed zero searched posts and triggered a refusal, while Related Reading recommended exactly the right article. The first fix addressed Chinese tokenization, the LIKE fallback, and the Vectorize data path. A second pass added short Han-and-number tokens, post metadata retrieval, and a rule that exposes sources only after both Validation and Critic pass."
 description: "A detailed diagnosis of a contradictory RAG result—zero searched posts and a refusal alongside a precise Related Reading match—and the subsequent improvements to Chinese tokenization, metadata search, RRF fusion, source-display gates, and the Cloudflare AI Search shadow rollout."
 draft: false
+series:
+  name: "Ask AI in Practice"
+  order: 7
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug)
+
+> **Optional companion reading:** Beginners can read this article directly. For extra context, see [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) and [RAG Common Failure Modes](/posts/ai/2026-03-12-rag-failure-modes-en).
 
 ## TL;DR
 
@@ -282,6 +287,8 @@ This path cannot yet be described as “Ask AI has switched to Cloudflare AI Sea
 
 ## Update Log
 
+- 2026-08-30: Added companion reading from the “RAG Techniques” series.
+- 2026-08-30: Added to the “Ask AI in Practice” series as the second Chinese-retrieval incident.
 - 2026-08-30: Synchronized the second round of search improvements from August 29–30, covering short Han-and-number tokens, post metadata retrieval, the source-display gate, and the boundary of the Cloudflare AI Search shadow rollout.
 
 ---

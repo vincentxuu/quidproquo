@@ -9,9 +9,14 @@ lang: zh-TW
 tldr: "在 Ask AI 輸入「我想找入門的ai課程」顯示搜尋文章 0 筆並觸發拒答，底部的延伸閱讀卻精準推薦相關文章。第一輪修正中文斷詞、LIKE fallback 與 Vectorize 資料鏈路；第二輪再補漢字＋數字短詞、文章 metadata 檢索，以及只在 Validation／Critic 通過後顯示來源。"
 description: "深度拆解 RAG 問答系統中「搜尋文章 0 筆拒答但延伸閱讀精準命中」的矛盾現象，並追蹤後續優化：中文分詞、metadata 搜尋、RRF 融合、來源顯示門檻與 Cloudflare AI Search shadow rollout。"
 draft: false
+series:
+  name: "Ask AI 實戰"
+  order: 7
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug-en)
+
+> **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配 [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) 與 [RAG 常見失敗模式](/posts/ai/2026-03-12-rag-failure-modes)。
 
 ## TL;DR
 
@@ -258,6 +263,8 @@ export function shouldExposeRetrievedLinks(state): boolean {
 
 ## 更新紀錄
 
+- 2026-08-30：新增「RAG 技法大全」搭配閱讀。
+- 2026-08-30：納入「Ask AI 實戰」系列，作為中文召回事故二。
 - 2026-08-30：同步 8 月 29–30 日的第二輪搜尋優化，補充漢字＋數字短詞、文章 metadata 檢索、來源顯示門檻，以及 Cloudflare AI Search shadow rollout 的邊界。
 
 ---

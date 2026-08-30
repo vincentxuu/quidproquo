@@ -8,9 +8,14 @@ lang: zh-TW
 tldr: "查「認證」只有 10 筆，149 篇裡 41 篇命中被漏掉：D1 FTS5 的 unicode61 對 2 字中文失效、本地 chunks_fts 0 筆、加上硬上限 12 的共同結果；用 LIKE fallback 與拆字 OR 先把召回補回來，再補 trigram 重建與分頁。"
 description: "以 quidproquo.cc 從 Pagefind 到 D1+Vectorize Hybrid Search 的完整演進為線，拆解「認證」2 字中文召回失敗的現場、FTS5 tokenizer 與分頁疊加的成因，並給出可複製的三層修復。"
 draft: false
+series:
+  name: "Ask AI 實戰"
+  order: 6
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-26-d1-fts5-hybrid-search-cjk-recall-en)
+
+> **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配 [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) 與 [RAG 常見失敗模式](/posts/ai/2026-03-12-rag-failure-modes)。
 
 ## TL;DR
 
@@ -182,6 +187,11 @@ INSERT INTO chunks_fts(content, chunk_id, source_type)
 * **安靜的失敗最貴**：FTS `0` 不報錯，只少召回。`f1904014` 已在 `getSearchMetrics()` 暴露 `bm25_results=0`，應在 API 回傳 `metrics` 的同時告警，而非僅記錄。
 * **Hybrid 的價值在互補**：向量對模糊查詢有效、BM25 對精確詞有效，兩路皆弱時（`2` 字中文 + 短查詢泛化），`RRF` 無法憑空生出召回，必須有第三路 `LIKE` baseline——這正是 `v4` 短路修正想解決但未對中文生效的同一問題。
 * **先修召回，再調排序**：如 `Pagefind` 與 `Algolia` 強調，先有 `data-pagefind-body` / `searchableAttributes` 與查詢集，再談權重與 reranker。`v5` 先調 `dedupe` 能把 `7` 修到 `12`，但對 `MATCH 0` 毫無幫助。
+
+## 更新紀錄
+
+- 2026-08-30：新增「RAG 技法大全」搭配閱讀。
+- 2026-08-30：納入「Ask AI 實戰」系列，作為中文召回事故一。
 
 ## 參考資料
 

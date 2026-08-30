@@ -8,9 +8,14 @@ lang: en
 tldr: "Querying “認證” returned only ~10 hits while 149 files (509 occurrences) matched; 41 posts and 76 chunks were found via LIKE, but D1 chunks_fts had 0 rows and unicode61/trigram both returned 0 for 2-char CJK terms. Fix: LIKE fallback with char-level OR first, then trigram migration + pnpm sync, then pagination beyond the hard limit of 12."
 description: "Tracing quidproquo.cc search from Pagefind to D1+Vectorize Hybrid Search via git log, diagnosing why 2-char Chinese queries silently lost recall, and a three-layer fix you can copy."
 draft: false
+series:
+  name: "Ask AI in Practice"
+  order: 6
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-26-d1-fts5-hybrid-search-cjk-recall)
+
+> **Optional companion reading:** Beginners can read this article directly. For extra context, see [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) and [RAG Common Failure Modes](/posts/ai/2026-03-12-rag-failure-modes-en).
 
 ## TL;DR
 
@@ -181,6 +186,11 @@ A stack of `v1..v6`, each necessary:
 * **Silent failures are the most expensive**: FTS returning `0` throws no error — it just recalls less. `f1904014` already exposed `bm25_results=0` in `getSearchMetrics()`; return `metrics` from the API and alert on it, not just log it.
 * **Hybrid value is complementarity**: vectors help vague queries, BM25 helps exact terms; when both are weak (2-char Chinese + short-query generalization), `RRF` cannot invent recall — a third `LIKE` baseline is required, the same problem `v4`'s short-circuit tried to solve but never for Chinese.
 * **Fix recall before ranking**: as both `Pagefind` and `Algolia` articles stress, get `data-pagefind-body` / `searchableAttributes` and a query set right before tuning weights or rerankers. `v5`'s dedup fix moved `7` to `12`, but did nothing for `MATCH 0`.
+
+## Update Log
+
+- 2026-08-30: Added companion reading from the “RAG Techniques” series.
+- 2026-08-30: Added to the “Ask AI in Practice” series as the first Chinese-retrieval incident.
 
 ## References
 

@@ -114,6 +114,14 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'ask-ai-practice',
+    names: { 'zh-TW': 'Ask AI 實戰', en: 'Ask AI in Practice' },
+    descriptions: {
+      'zh-TW': '沿著 quidproquo Ask AI 的真實資料流，從索引、混合檢索、Writer 與來源門檻走到串流、快取、事故鑑識與可重跑評估；每篇只追一條責任與它能證明的邊界。',
+      en: 'Follow the real quidproquo Ask AI data path from indexing, hybrid retrieval, writing, and source gates through streaming, caching, incident analysis, and reproducible evaluation. Each post traces one responsibility and the boundary of what its evidence can prove.',
+    },
+  },
+  {
     slug: 'cloudflare-edge-stack',
     names: { 'zh-TW': 'Cloudflare 邊緣技術棧', en: 'The Cloudflare Edge Stack' },
     descriptions: {
