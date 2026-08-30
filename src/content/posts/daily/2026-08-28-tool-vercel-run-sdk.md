@@ -11,6 +11,8 @@ series:
   order: 13
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-28-tool-vercel-run-sdk-en)
+
 ## 工具資訊
 
 | 項目 | 值 |

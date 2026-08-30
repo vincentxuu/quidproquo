@@ -11,6 +11,8 @@ series:
   order: 3
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-28-weekly-review-en)
+
 ## 本週最重要的 5 件事
 
 ### 1. Agent 資安事故一週連五起，全部指向同一個架構缺口：單步授權

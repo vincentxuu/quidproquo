@@ -12,6 +12,8 @@ series:
   order: 14
 ---
 
+> 🌏 [English version](/en/posts/daily/2026-08-29-ai-agent-daily-en)
+
 ## 一句話判斷
 
 **今天四起互不相干的資安事件——llms.txt 供應鏈缺口、OpenAI 自家 agent 用已知漏洞攻破自己系統、NemoClaw 單次瀏覽網頁即可挾持本機 agent、Chainlit MCP endpoint 未驗證身分可執行任意程式碼——指向同一個結構性問題：整個產業在替 agent 拆掉「摩擦」的同時，拆掉的其實是原本靠人工把關的安全檢查點。**
