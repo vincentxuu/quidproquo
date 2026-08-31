@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-31",
+  "date": "2026-09-01",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -8,9 +8,9 @@
     { "rank": 5, "model": "Atlassian Rovo Dev", "org": "Atlassian", "score": 76.80 }
   ],
   "lmsys_agent_top3": [
-    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.99, "ci": "±1.71%" },
-    { "rank": 2, "model": "Claude Opus 5 (Max)", "score": 12.73, "ci": "±1.96%" },
-    { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.70, "ci": "±1.62%" }
+    { "rank": 1, "model": "Claude Opus 5 (High)", "org": "Anthropic", "score": 13.88, "ci": "±1.83%" },
+    { "rank": 2, "model": "Claude Opus 5 (Max)", "org": "Anthropic", "score": 12.00, "ci": "±2.06%" },
+    { "rank": 3, "model": "Claude Fable 5 (High)", "org": "Anthropic", "score": 10.86, "ci": "±1.56%" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59 },
@@ -23,5 +23,5 @@
     { "rank": 3, "model": "Claude Opus 5", "org": "Anthropic", "score": 70.0, "note": "Max config" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-31：LMArena Agent Arena（lmarena.ai/leaderboard/agent → 實際導向 arena.ai/leaderboard/agent，Groundlane web_fetch，engine=browser）前 3 名分數 12.99%±1.71% / 12.73%±1.96% / 11.70%±1.62% 與前次快照逐位數字完全一致（頁面 JS 渲染表格未回傳模型名稱文字，僅回傳數值，但數值序列與 rank 1-3 一致，判定無變動）。CursorBench（cursor.com/cursorbench，直接 HTTP fetch 取得完整表格）前 3 名 Grok 4.6 Extra High 70.8% → Fable 5 Max 70.5% → Opus 5 Max 70.0%，與前次快照逐位一致，無異動。AA Agentic Index（artificialanalysis.ai/models/capabilities/agentic）頁面為圖表視覺化，Groundlane web_fetch 僅取得章節標題文字、未取得可讀表格數值，本次未能覆核；因近日多次覆核皆顯示無變動，沿用前值不視為異動。SWE-bench Verified 官方 Full leaderboard（www.swebench.com）Groundlane web_fetch 回傳 OUTPUT_LIMIT（頁面過大、純前端 SPA，多次嘗試 markdown/text/selector 皆同樣失敗，與過去數日結論一致，工具側限制）。改用 web_search 查「SWE-bench Verified leaderboard new SOTA 2026」與「SWE-bench Chatbot Arena LMSYS new result score 2026」，僅查到 benchlm.ai／lmmarketcap.com／llm-stats.com／scale.com 等站的「LM-only」或「SWE-bench Pro」榜單（如 Claude Opus 5 96%、SWE-bench Pro Claude Mythos 5 80.3%），皆與本快照追蹤的 SWE-bench Verified「Full leaderboard（含 scaffold/agent 系統）」為不同榜單，依 skill 既定判斷不覆蓋、不當作異動，swebench_verified_top5 沿用前值。MorphLLM Leaderboard 本次未重新查證，沿用前值 null。今日無 Benchmark 異動，未產出文章。"
+  "notes": "2026-09-01：LMArena Agent Arena（arena.ai/leaderboard/agent，Groundlane web_fetch render=always 成功取得含模型名稱的完整表格，改用 web_extract img[alt] + row selector 取得可讀名稱，解決前次「僅回傳數值」的問題）前 3 名仍為 Claude Opus 5 (High) → Claude Opus 5 (Max) → Claude Fable 5 (High)，名次與前次快照完全相同，僅分數在 CI 範圍內微幅波動（13.88%±1.83% / 12.00%±2.06% / 10.86%±1.56%，對比前次 12.99% / 12.73% / 11.70%，變動量 <1pp，未達 2pp 觸發門檻），判定無顯著異動。CursorBench（cursor.com/cursorbench，直接 HTTP fetch）前 3 名 Grok 4.6 Extra High 70.8% → Fable 5 Max 70.5% → Opus 5 Max 70.0%，與前次快照逐位一致，無異動。SWE-bench Verified 官方 Full leaderboard（www.swebench.com）Groundlane web_fetch 持續回傳 OUTPUT_LIMIT（嘗試 markdown/selector/放寬 maxBytes 皆同樣失敗），與過去數日結論一致，判定為工具側持續限制，非資料異動，swebench_verified_top5 沿用前值。web_search 查「SWE-bench Verified leaderboard new SOTA 2026」與「SWE-bench Chatbot Arena LMSYS new result score 2026」，查到的仍是 benchlm.ai／lmmarketcap.com／llm-stats.com／vals.ai／codingfleet.com（SWE-bench Pro）等第三方彙整站或不同榜單（如「LM-only」分數、SWE-bench Pro 而非 Verified Full leaderboard），依既定判斷不覆蓋、不當作本追蹤標的異動。AA Agentic Index（artificialanalysis.ai/models/capabilities/agentic）頁面持續為圖表視覺化，Groundlane web_fetch render=always 僅取得章節標題文字、無可讀表格數值，本次未能覆核，沿用前值。MorphLLM Leaderboard（morphllm.com/leaderboard）本次被 Vercel Security Checkpoint 擋下（HTTP 429），未能取得資料，沿用前值 null。今日無 Benchmark 異動，未產出文章。"
 }
