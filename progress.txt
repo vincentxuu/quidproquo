@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-31
+Last updated: 2026-09-01
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -73,14 +73,14 @@ Next steps
 Recently completed
 - **Rivumi 系列 Batch A–C（2026-08-30）**：orders 0–19 單一路徑已定案；Batch C 新增 native MCP、skills/hooks/plugins、subagent scheduling orders 14–16 三組雙語文章。現在 36 posts／18 組雙語，orders 0–16 連續、order 19 capstone 已發布，只缺 17–18。以 Rivumi `main@2ed5efb` 完成 source/test evidence、唯讀審稿與 fact audit；50 個 focused pytest、series audit、台灣用語、post quality、references、lang parity、`pnpm verify` 全綠。未 commit/push/deploy；Batch D 待後續執行。
 - **Legacy published zh-TW 英文回填（2026-08-30）**：57／57 組相鄰 `-en.md`、雙向語言連結與 metadata／章節 parity 已完成，`LEGACY_ZH_ONLY_POSTS` 豁免清空；RAG 中文查詢 debug 中英版同步補入 8/29–30 metadata lane、來源顯示門檻與 AI Search shadow 邊界。
-- **daily-digest routine 重跑 2026-08-30（model-card／framework／github，Q-019/Q-020 解除確認）**：
-  詳見 docs/progress-archive.md「2026-08-30 daily-digest routine 重跑」；三支皆已重跑成功。
-  github digest 用 `gh api` 查 13 個框架 release（僅 pydantic-ai v2.36.0 落在窗內）＋GitHub
-  Trending 頁面挑出 5 個 repo（chrome-devtools-mcp、GitNexus、context-mode、google/skills、
-  livekit/agents），series order 15，`pnpm verify` 全綠。
-- **daily-digest-report 2026-08-31 補跑成功（Q-017 復發後續）**：Stage 1（7 篇）／Stage 2（signals
-  30 則）到位後正常組裝 zh+en 雙語日報（series order 16），`pnpm verify` 全綠，已 push 到
-  `claude/eager-hamilton-a8isdk`。
+- **daily-digest-report 2026-08-31 補跑成功（Q-017 復發後續）**：詳見 docs/progress-archive.md
+  「2026-08-30 daily-digest routine 重跑」。Stage 1（7 篇）／Stage 2（signals 30 則）到位後正常
+  組裝 zh+en 雙語日報（series order 16），`pnpm verify` 全綠，已 push 到 `claude/eager-hamilton-a8isdk`。
+- **daily-digest-report 2026-09-01 fallback 模式成功（series order 17）**：當日無 signals JSON、無
+  GitHub digest，依 skill 用 Groundlane fallback 搜尋＋全球區域缺口補掃完成 zh+en 雙語日報，涵蓋
+  台灣／中國／日韓／東南亞／印度／中東／非洲／拉美／大洋洲；深度分析用交易成本框架連結 Uber agent
+  factory、Visa/Mastercard APA 與當日 arxiv K-GAT。`pnpm verify` 全綠，已 push 到
+  `claude/eager-hamilton-u53odn`（依本 session 分支規範，未直推 main）。
 Notes
 - Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md（agent 必讀：來源、已查證事實、URL 遷移、主題藍圖）；Anthropic 官方考點與資料管道地圖在 docs/anthropic-official-signals.md。
 - CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，未找到當期公開課站或完整播放清單，維持逐講阻塞；來源記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
