@@ -13,6 +13,7 @@ description: "Routine A: daily Arxiv cs.AI/cs.CL/cs.MA digest for quidproquo.cc/
 
 ```bash
 # Step 1: 準備
+git checkout main
 git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 SCREENING_RECORD=".research/daily-arxiv-screening/${TODAY}.json"

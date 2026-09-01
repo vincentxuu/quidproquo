@@ -13,6 +13,7 @@ description: "Routine L: weekly AI Agent review for quidproquo.cc/daily. Runs ev
 
 ```bash
 # Step 1: 準備
+git checkout main
 git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 

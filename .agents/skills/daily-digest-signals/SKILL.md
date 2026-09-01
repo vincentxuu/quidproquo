@@ -15,6 +15,7 @@ Stage 2 routine。掃描所有新聞來源，篩出 30-50 則與 AI 生態相關
 
 ```bash
 # Step 1: 準備
+git checkout main
 git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 

@@ -13,6 +13,7 @@ description: "Routine F: event-driven AI Agent framework release detection for q
 
 ```bash
 # Step 1: 準備
+git checkout main
 git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 YESTERDAY=$(date -d yesterday +%Y-%m-%dT00:00:00Z 2>/dev/null || date -v-1d +%Y-%m-%dT00:00:00Z)

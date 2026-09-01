@@ -21,6 +21,7 @@ description: "Routine M: weekly global AI ecosystem focus for quidproquo.cc/dail
 
 ```bash
 # Step 1: 準備
+git checkout main
 git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 

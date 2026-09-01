@@ -13,6 +13,7 @@ description: "Routine I: event-driven AI API pricing/sunset tracking for quidpro
 
 ```bash
 # Step 1: 準備
+git checkout main
 git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 

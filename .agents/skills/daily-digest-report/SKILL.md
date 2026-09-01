@@ -15,6 +15,7 @@ Stage 3 彙整 routine。讀取 Stage 1（arxiv/github/event-driven posts）和 
 
 ```bash
 # Step 1: 準備
+git checkout main
 git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 

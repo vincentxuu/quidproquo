@@ -40,6 +40,7 @@ description: "Routine O: daily Product Builder interview prep for quidproquo.cc/
 
 ```bash
 # Step 1: 準備
+git checkout main
 git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 DOW=$(TZ=Asia/Taipei date +%u)  # 1=Mon ... 7=Sun
