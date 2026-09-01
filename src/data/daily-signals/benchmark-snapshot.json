@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-31",
+  "date": "2026-09-02",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -17,11 +17,13 @@
     { "rank": 1, "model": "GLM-5.3 (max)", "org": "Z.ai", "score": 59 },
     { "rank": 1, "model": "Grok 4.6 (high)", "org": "xAI", "score": 59 }
   ],
-  "cursorbench_top3": [
-    { "rank": 1, "model": "Grok 4.6", "org": "xAI", "score": 70.8, "note": "Extra High config；Cursor 官方 cursor.com/cursorbench CursorBench 3.2" },
-    { "rank": 2, "model": "Claude Fable 5", "org": "Anthropic", "score": 70.5, "note": "Max config" },
-    { "rank": 3, "model": "Claude Opus 5", "org": "Anthropic", "score": 70.0, "note": "Max config" }
+  "cursorbench_top5": [
+    { "rank": 1, "model": "Fable 5.1 Max", "org": "Anthropic", "score": 73.4, "costPerTask": 9.64, "tokensPerTask": 72060 },
+    { "rank": 2, "model": "Fable 5.1 Extra High", "org": "Anthropic", "score": 72.8, "costPerTask": 6.96, "tokensPerTask": 51349 },
+    { "rank": 3, "model": "Grok 4.6 Extra High", "org": "xAI", "score": 70.8, "costPerTask": 2.81, "tokensPerTask": 41136 },
+    { "rank": 4, "model": "Fable 5 Max", "org": "Anthropic", "score": 70.5, "costPerTask": 17.32, "tokensPerTask": 103525 },
+    { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-08-31：LMArena Agent Arena（lmarena.ai/leaderboard/agent → 實際導向 arena.ai/leaderboard/agent，Groundlane web_fetch，engine=browser）前 3 名分數 12.99%±1.71% / 12.73%±1.96% / 11.70%±1.62% 與前次快照逐位數字完全一致（頁面 JS 渲染表格未回傳模型名稱文字，僅回傳數值，但數值序列與 rank 1-3 一致，判定無變動）。CursorBench（cursor.com/cursorbench，直接 HTTP fetch 取得完整表格）前 3 名 Grok 4.6 Extra High 70.8% → Fable 5 Max 70.5% → Opus 5 Max 70.0%，與前次快照逐位一致，無異動。AA Agentic Index（artificialanalysis.ai/models/capabilities/agentic）頁面為圖表視覺化，Groundlane web_fetch 僅取得章節標題文字、未取得可讀表格數值，本次未能覆核；因近日多次覆核皆顯示無變動，沿用前值不視為異動。SWE-bench Verified 官方 Full leaderboard（www.swebench.com）Groundlane web_fetch 回傳 OUTPUT_LIMIT（頁面過大、純前端 SPA，多次嘗試 markdown/text/selector 皆同樣失敗，與過去數日結論一致，工具側限制）。改用 web_search 查「SWE-bench Verified leaderboard new SOTA 2026」與「SWE-bench Chatbot Arena LMSYS new result score 2026」，僅查到 benchlm.ai／lmmarketcap.com／llm-stats.com／scale.com 等站的「LM-only」或「SWE-bench Pro」榜單（如 Claude Opus 5 96%、SWE-bench Pro Claude Mythos 5 80.3%），皆與本快照追蹤的 SWE-bench Verified「Full leaderboard（含 scaffold/agent 系統）」為不同榜單，依 skill 既定判斷不覆蓋、不當作異動，swebench_verified_top5 沿用前值。MorphLLM Leaderboard 本次未重新查證，沿用前值 null。今日無 Benchmark 異動，未產出文章。"
+  "notes": "2026-09-02：CursorBench（cursor.com/cursorbench，直接 HTTP fetch 取得含模型名稱的完整表格）出現顯著異動——Fable 5.1 Max（73.4%）與 Fable 5.1 Extra High（72.8%）首次上榜即包辦第一、第二名，將前次快照（2026-08-31）冠軍 Grok 4.6 Extra High（70.8%，分數本身未變，純被擠名次）擠到第三；已依 skill 判斷觸發『前 3 名有新模型進入』與『第 1 名易主』兩條規則，產出 src/content/posts/daily/2026-09-02-benchmark-cursorbench.md。⚠️ Anthropic 官方（anthropic.com/claude/fable、platform.claude.com 模型文件）截至撰文仍只列出 claude-fable-5，無 Fable 5.1 正式公告；『Fable 5.1』名稱來自社群觀察（Bedrock 新模型代號、EAP 代稱 Melon/Marshmallow），文章方法論面已標注此點，snapshot 沿用 CursorBench 頁面顯示的名稱，若後續官方正式命名不同需回頭修正。SWE-bench Verified 官方 Full leaderboard（www.swebench.com）Groundlane web_fetch 再次因頁面過大回傳 OUTPUT_LIMIT（含 selector:table 與 maxBytes:20000000 皆失敗），與過去數日結論一致，工具側限制，swebench_verified_top5 沿用前值未覆核。改用 web_search 查『SWE-bench Verified leaderboard top model September 2026』，查到的多為 vals.ai／benchlm.ai／llm-stats.com 等『LM-only』或不同任務集的榜單（如 Claude Opus 5 97.0% 引用自 vals.ai 而非 swebench.com 官方 Full leaderboard），依 skill 既定判斷不覆蓋、不當作 SWE-bench Verified 官方榜異動。LMArena Agent Arena（arena.ai/leaderboard/agent，Groundlane web_fetch engine=browser）本次抓到的表格新增了很多欄位、rank1 headline score 變成 13.77%±1.81%（與前次快照 12.99%±1.71% 不同），但頁面仍未回傳模型名稱文字，且欄位結構與前次不同（無法確認是否為同一比較口徑），為避免誤判改版型態為排名異動，本次判定為工具側資料結構不穩定、不採用、不覆蓋 lmsys_agent_top3，沿用前值待後續穩定後再覆核。AA Agentic Index 與 MorphLLM 本次未重新查證（MorphLLM 持續 429 Vercel Security Checkpoint 阻擋），沿用前值。今日已針對 CursorBench 異動產出文章。"
 }
