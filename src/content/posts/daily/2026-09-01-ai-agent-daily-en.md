@@ -114,6 +114,12 @@ Australia's Fair Work Commission, facing a surge in cases involving "plainly wro
 ## Today's Digests
 
 - 📄 [AI Agent Arxiv Digest — 2026-09-01](/posts/daily/2026-09-01-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-01](/posts/daily/2026-09-01-ai-agent-github-digest-en)
+- 📄 [AI Engineer Interview Prep — 2026-09-01: Deep Learning & NLP](/posts/daily/2026-09-01-ai-interview-daily-en)
+- 📄 [Model Card: DeepSeek-V4-Flash-Vision-Exp](/posts/daily/2026-09-01-model-deepseek-deepseek-v4-flash-vision-exp-en)
+- 📄 [Product Builder Interview Prep — 2026-09-01: Metrics & Analytics](/posts/daily/2026-09-01-product-builder-interview-daily-en)
+- 📄 [Security Alert: TeamPCP Supply-Chain Attack Ring Leader Arrested](/posts/daily/2026-09-01-security-teampcp-supply-chain-arrest-en)
+- 📄 [Tool Pick: read4all — Let Agents Read PDFs, Office Docs and Screenshots as Markdown](/posts/daily/2026-09-01-tool-read4all-en)
 
 ## Tomorrow's Watch
 
