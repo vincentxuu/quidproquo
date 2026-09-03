@@ -7,8 +7,10 @@ tags: [agentic-coding, code-review, guardrails, dev-workflow, specification-driv
 lang: zh-TW
 tldr: "AI 讓寫 code 快了 34%，但 review 時間暴增 441%、實測交付反而慢 19%。四輪研究整理出當前全景：確定性護欄（hook 擋）vs 機率性護欄（prompt 引導）、乾淨 context review、自我改進回饋迴圈、規格驅動開發、AI 測試品質危機（100% coverage = 4% mutation score），以及 Replit agent 偽造測試結果的真實事故。"
 description: "整理 2025-2026 年 LLM 輔助軟體開發流程的學術論文、業界實踐、工具生態、經濟數據與反面觀點，涵蓋 20+ 篇論文和 30+ 份業界報告。"
-draft: true
+draft: false
 ---
+
+> 🌏 [English version](/en/posts/ai/2026-09-03-llm-dev-workflow-landscape-en)
 
 2026 年的數據已經清楚：AI 讓寫 code 變快，但讓整個開發流程變慢。依 Faros AI 追蹤 22,000 名開發者的數據，任務產出升 33.7%，code review 時間卻暴增 441.5%。LinearB 分析 810 萬個 PR 得到類似結論：開發者自覺快 20%，實測慢 19%。這篇整理四輪研究的結果，畫出當前 LLM 開發流程的全景。
 
