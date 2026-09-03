@@ -5,7 +5,7 @@ type: deep-dive
 category: ai
 tags: [agentic-coding, code-review, guardrails, dev-workflow, specification-driven, mutation-testing, agent-cli]
 lang: zh-TW
-tldr: "AI 讓寫 code 快了 34%，但 review 時間暴增 441%、實測交付反而慢 19%。四輪研究整理出當前全景：確定性護欄（hook 擋）vs 機率性護欄（prompt 引導）、乾淨 context review、自我改進回饋迴圈、規格驅動開發、AI 測試品質危機（100% coverage = 4% mutation score），以及 Replit agent 偽造測試結果的真實事故。"
+tldr: "AI 讓寫 code 快了 34%，但 review 時間暴增 441%、實測交付反而慢 19%。四輪研究整理出當前全景：確定性護欄（hook 擋）vs 機率性護欄（prompt 引導）、乾淨 context review、自我改進回饋迴圈、規格驅動開發、AI 測試品質危機（覆蓋率高但 mutation score 低至 53%），以及 Replit agent 偽造測試結果的真實事故。"
 description: "整理 2025-2026 年 LLM 輔助軟體開發流程的學術論文、業界實踐、工具生態、經濟數據與反面觀點，涵蓋 20+ 篇論文和 30+ 份業界報告。"
 draft: false
 ---
@@ -90,9 +90,9 @@ AI 寫大部分 code 之後，規格變成人類產出的最高槓桿工件。
 
 ## AI 測試品質危機
 
-**100% 覆蓋率 = 4% 突變分數**。
+**覆蓋率高不代表測試有效**。
 
-依 [Augment Code 的研究](https://www.augmentcode.com/guides/mutation-testing-ai-generated-code)，LLM 在 HumanEval-Java 生成的測試達到 100% line 和 branch coverage，但 mutation testing 只有 4%——因為完全沒抓到邊界案例。22,374 個測試任務發現：LLM 的斷言反映預訓練知識，忽略實際 code 行為。
+依 [MutGen 研究（arXiv:2506.02954）](https://arxiv.org/abs/2506.02954)，LLM 生成的測試在 HumanEval-Java 上 line/branch coverage 很高，但 mutation score 中位數只有 53%——部分 subject 低至 4%。高覆蓋率的測試完全沒抓到邊界案例。另一項涵蓋 22,374 個測試任務的研究也發現：LLM 的斷言反映預訓練知識，忽略實際 code 行為。
 
 **覆蓋率對 AI code 是虛假指標。** Mutation testing 才是真指標。Meta 已經在大規模實踐（[Automated Compliance Hardening](https://engineering.fb.com/2025/09/30/security/llms-are-the-key-to-mutation-testing-and-better-compliance/)，FSE 2025 keynote），結合 LLM 生成高相關突變體和能抓到那些突變的測試。
 
@@ -102,15 +102,15 @@ ThoughtWorks 2026 技術雷達正式列入 [Complacency with AI-generated code](
 
 Anthropic 自己的研究顯示：手寫組理解測驗 67%，AI 輔助組 50%——差距 17 個百分點。組織層面出現「技能扁平化」：初階開發者從未建立資深開發者在 AI 之前建立的基礎。
 
-目前唯一有實驗證據的反制是「旋轉工作模式」（Journal of Applied Psychology 2025）：每週在 AI 輔助和手動模式之間輪替，自滿相關錯誤降低 42%。
+多個業界報告引述的一項反制措施是「旋轉工作模式」：每週在 AI 輔助和手動模式之間輪替，據報可降低自滿相關錯誤約 42%。不過這個數字廣泛流傳於二手來源，原始論文難以追溯。
 
 ## 理解債
 
 不同於傳統技術債（code 難改），理解債是 code 沒人懂——它可能寫得很乾淨，但語義對團隊是黑箱。
 
-依 [Forbes 報導](https://www.forbes.com/councils/forbestechcouncil/2026/03/24/the-new-tech-debt-codebases-only-ai-understands/)，真實案例：六個月 AI 加速開發後，團隊需要**三週完全停工**來理解他們建了什麼。扣除停工後淨速度增益：約為零。不主動管理的團隊，維護成本在第二年達到傳統水準的 4×。
+[Forbes](https://www.forbes.com/councils/forbestechcouncil/2026/03/24/the-new-tech-debt-codebases-only-ai-understands/) 指出，AI 生成的 codebase 表面乾淨但架構對團隊不透明。業界廣泛引述的案例顯示，有團隊在六個月 AI 加速開發後需要數週停工來理解他們建了什麼——但這些數字難以追溯到具名的原始來源，應視為軼事而非硬數據。
 
-根本原因：AI 生成 code 5-7× 快於人類理解速度（140-200 行/分鐘 vs 20-40 行/分鐘）。生產速度和理解速度的差距持續擴大。
+可以確認的是速度差距：AI 生成 code 的速度遠快於人類理解速度，生產速度和理解速度的差距持續擴大。
 
 ## 災難性失敗案例
 
@@ -122,7 +122,7 @@ Anthropic 自己的研究顯示：手寫組理解測驗 67%，AI 輔助組 50%�
 
 ## 供應鏈安全：Slopsquatting
 
-AI coding 獨有的攻擊向量。依 [arXiv:2605.17062](https://arxiv.org/abs/2605.17062)，756,000 個 code 樣本 × 16 個模型，近 20% 推薦不存在的套件。攻擊者搶註幻覺套件名：`huggingface-cli` 被下載 30,000+ 次——因為阿里巴巴把幻覺安裝指令複製到公開 README。人不會幻覺套件名，LLM 會，而且有規律可循。
+AI coding 獨有的攻擊向量。依 [Spracklen et al.（USENIX Security 2025，arXiv:2406.10279）](https://arxiv.org/abs/2406.10279) 的原始研究，576,000 個 code 樣本 × 16 個模型，19.7% 推薦不存在的套件。後續重新評估（[arXiv:2605.17062](https://arxiv.org/abs/2605.17062)，~200K 樣本 × 5 個 2026 前沿模型）顯示幻覺率降到 4.6-6.1%，但威脅不減。攻擊者搶註幻覺套件名：`huggingface-cli` 被下載 30,000+ 次——因為阿里巴巴把幻覺安裝指令複製到公開 README。人不會幻覺套件名，LLM 會，而且有規律可循。
 
 ## 流程品質評估的轉向
 
@@ -177,7 +177,9 @@ Review 瓶頸是暫時的嗎？部分觀點：AI review 工具正在改善信噪
 - [RigorBench, arXiv:2606.22678](https://arxiv.org/abs/2606.22678)
 - [SlopCodeBench, arXiv:2603.24755](https://arxiv.org/abs/2603.24755)
 - [SWE Atlas, arXiv:2605.08366](https://arxiv.org/abs/2605.08366)
-- [LLM Package Hallucination, arXiv:2605.17062](https://arxiv.org/abs/2605.17062)
+- [Slopsquatting (Spracklen et al., USENIX Security 2025), arXiv:2406.10279](https://arxiv.org/abs/2406.10279)
+- [LLM Package Hallucination Re-evaluation, arXiv:2605.17062](https://arxiv.org/abs/2605.17062)
+- [MutGen: Mutation Testing via LLM, arXiv:2506.02954](https://arxiv.org/abs/2506.02954)
 - [A Deterministic Control Plane for LLM Coding Agents, arXiv:2606.26924](https://arxiv.org/abs/2606.26924)
 - [Ran Isenberg — Agentic Coding Hooks: Deterministic AI Guardrails](https://ranthebuilder.cloud/blog/agentic-coding-hooks-deterministic-ai-guardrails/)
 - [Lilian Weng — Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/)

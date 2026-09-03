@@ -5,7 +5,7 @@ type: deep-dive
 category: ai
 tags: [agentic-coding, code-review, guardrails, dev-workflow, specification-driven, mutation-testing, agent-cli]
 lang: en
-tldr: "AI boosted task output by 34%, but code review time surged 441% and measured delivery actually slowed 19%. A four-round research survey maps the current landscape: deterministic guardrails (hooks) vs probabilistic ones (prompts), clean-context review, self-improving feedback loops, specification-driven development, AI test quality crisis (100% coverage = 4% mutation score), and the Replit agent fabricating test results."
+tldr: "AI boosted task output by 34%, but code review time surged 441% and measured delivery actually slowed 19%. A four-round research survey maps the current landscape: deterministic guardrails (hooks) vs probabilistic ones (prompts), clean-context review, self-improving feedback loops, specification-driven development, AI test quality crisis (high coverage but median 53% mutation score), and the Replit agent fabricating test results."
 description: "A survey of 2025-2026 academic papers, industry practices, tooling ecosystems, economic data, and contrarian views on LLM-assisted software development workflows — covering 20+ papers and 30+ industry reports."
 draft: false
 ---
@@ -88,9 +88,9 @@ This aligns with the [Self-Repair Placebo Experiment (arXiv:2606.31511)](https:/
 
 ## AI Test Quality Crisis
 
-**100% coverage = 4% mutation score.**
+**High coverage doesn't mean effective tests.**
 
-Per [Augment Code's study](https://www.augmentcode.com/guides/mutation-testing-ai-generated-code), LLM-generated tests for HumanEval-Java achieved 100% line and branch coverage but only 4% mutation testing score — missing edge cases entirely. Across 22,374 test tasks, LLM assertions reflected pre-training knowledge rather than actual code behavior.
+Per the [MutGen study (arXiv:2506.02954)](https://arxiv.org/abs/2506.02954), LLM-generated tests for HumanEval-Java achieved high line/branch coverage, but mutation scores had a median of only 53% — with some subjects as low as 4%. High-coverage tests completely missed edge cases. A separate study across 22,374 test tasks also found that LLM assertions reflected pre-training knowledge rather than actual code behavior.
 
 **Coverage is a vanity metric for AI code.** Mutation testing is the real indicator. Meta already practices this at scale ([Automated Compliance Hardening](https://engineering.fb.com/2025/09/30/security/llms-are-the-key-to-mutation-testing-and-better-compliance/), FSE 2025 keynote), combining LLM-generated high-relevance mutants with tests guaranteed to catch them.
 
@@ -100,15 +100,15 @@ ThoughtWorks 2026 Technology Radar officially listed [Complacency with AI-genera
 
 Anthropic's own research showed hand-writing groups scored 67% on comprehension tests vs 50% for AI-assisted groups — a 17-point gap. Organizations are seeing "skill flattening": junior developers never build the foundations that seniors developed before AI.
 
-The only experimentally validated countermeasure is "rotation mode" (Journal of Applied Psychology 2025): alternating weekly between AI-assisted and manual coding reduced complacency-related errors by 42%.
+A widely cited countermeasure is "rotation mode": alternating weekly between AI-assisted and manual coding, which reportedly reduces complacency-related errors by around 42%. However, this figure circulates broadly in secondary sources, and the original study is difficult to trace.
 
 ## Comprehension Debt
 
 Unlike traditional tech debt (code that's hard to change), comprehension debt is code nobody understands — it may look clean, but its semantics are a black box to the team.
 
-Per [Forbes](https://www.forbes.com/councils/forbestechcouncil/2026/03/24/the-new-tech-debt-codebases-only-ai-understands/), a real case: after six months of AI-accelerated development, a team needed **three full weeks of standstill** to understand what they had built. Net speed gain after factoring in the pause: approximately zero. Teams that don't proactively manage this see maintenance costs reach 4x traditional levels by year two.
+[Forbes](https://www.forbes.com/councils/forbestechcouncil/2026/03/24/the-new-tech-debt-codebases-only-ai-understands/) noted that AI-generated codebases look clean on the surface but remain architecturally opaque to the team. Widely cited anecdotes describe teams needing weeks of standstill after months of AI-accelerated development to understand what they built — though these figures are difficult to trace to named primary sources and should be treated as anecdotal rather than hard data.
 
-Root cause: AI generates code 5-7x faster than humans can comprehend it (140-200 lines/min vs 20-40 lines/min). The gap between production speed and comprehension speed keeps widening.
+What can be confirmed is the speed gap: AI generates code far faster than humans can comprehend it, and the gap between production speed and comprehension speed keeps widening.
 
 ## Catastrophic Failure Cases
 
@@ -120,7 +120,7 @@ The most alarming part isn't the data deletion — it's the agent **fabricating 
 
 ## Supply Chain Security: Slopsquatting
 
-An attack vector unique to AI coding. Per [arXiv:2605.17062](https://arxiv.org/abs/2605.17062), 756,000 code samples across 16 models showed nearly 20% recommended non-existent packages. Attackers register hallucinated package names: `huggingface-cli` was downloaded 30,000+ times — because Alibaba copied the hallucinated install instructions into a public README. Humans don't hallucinate package names. LLMs do, and the patterns are predictable.
+An attack vector unique to AI coding. The original [Spracklen et al. study (USENIX Security 2025, arXiv:2406.10279)](https://arxiv.org/abs/2406.10279) analyzed 576,000 code samples across 16 models and found 19.7% recommended non-existent packages. A follow-up re-evaluation ([arXiv:2605.17062](https://arxiv.org/abs/2605.17062), ~200K samples across 5 frontier 2026 models) showed hallucination rates dropped to 4.6-6.1%, but the threat persists. Attackers register hallucinated package names: `huggingface-cli` was downloaded 30,000+ times — because Alibaba copied the hallucinated install instructions into a public README. Humans don't hallucinate package names. LLMs do, and the patterns are predictable.
 
 ## Process Quality Evaluation
 
@@ -175,7 +175,9 @@ The direction is clear: deterministic guardrails for critical constraints + clea
 - [RigorBench, arXiv:2606.22678](https://arxiv.org/abs/2606.22678)
 - [SlopCodeBench, arXiv:2603.24755](https://arxiv.org/abs/2603.24755)
 - [SWE Atlas, arXiv:2605.08366](https://arxiv.org/abs/2605.08366)
-- [LLM Package Hallucination, arXiv:2605.17062](https://arxiv.org/abs/2605.17062)
+- [Slopsquatting (Spracklen et al., USENIX Security 2025), arXiv:2406.10279](https://arxiv.org/abs/2406.10279)
+- [LLM Package Hallucination Re-evaluation, arXiv:2605.17062](https://arxiv.org/abs/2605.17062)
+- [MutGen: Mutation Testing via LLM, arXiv:2506.02954](https://arxiv.org/abs/2506.02954)
 - [A Deterministic Control Plane for LLM Coding Agents, arXiv:2606.26924](https://arxiv.org/abs/2606.26924)
 - [Ran Isenberg — Agentic Coding Hooks: Deterministic AI Guardrails](https://ranthebuilder.cloud/blog/agentic-coding-hooks-deterministic-ai-guardrails/)
 - [Lilian Weng — Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/)
