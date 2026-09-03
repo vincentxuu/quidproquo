@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-03",
+  "date": "2026-09-04",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -25,5 +25,5 @@
     { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-09-03：CursorBench（cursor.com/cursorbench）重新抓取，前 5 名模型與分數與前次快照（2026-09-02）逐項一致（Fable 5.1 Max 73.4%／Fable 5.1 Extra High 72.8%／Grok 4.6 Extra High 70.8%／Fable 5 Max 70.5%／Opus 5 Max 70.0%），Changelog 也僅多一筆 Sep 2 的 Gemini 3.8 Flash 新增（非 P1/P2 watchlist 範圍內模型的排名變動），不觸發任何規則，cursorbench_top5 沿用不覆蓋。SWE-bench Verified 官方 Full leaderboard（www.swebench.com）Groundlane web_fetch 再次因頁面過大回傳 OUTPUT_LIMIT（含 selector:table、maxBytes:20000000 皆失敗），與過去數日結論一致，工具側限制，swebench_verified_top5 沿用前值未覆核；web_search 補充查證同樣只找到 vals.ai／bracai.eu／modelpricelab.com（PinchBench）等非 swebench.com 官方 Full leaderboard 的第三方榜單，依既定判斷不採用、不當異動。MorphLLM（morphllm.com/leaderboard）持續回傳 429 Vercel Security Checkpoint，沿用前值。LMArena Agent Arena（arena.ai/leaderboard/agent，Groundlane web_fetch engine=browser）本次 rank1 headline score 為 13.74%±1.80%（與昨日記錄的 13.77%±1.81% 幾乎相同，惟與 2026-09-02 快照中 12.99%±1.71% 仍有落差），頁面仍未回傳模型名稱文字、欄位結構仍不穩定，持續判定為工具側資料結構問題、不覆蓋 lmsys_agent_top3，沿用前值待來源穩定後再覆核。AA Agentic Index 本次未重新查證，沿用前值。今日各 P1/P2 來源均無可判定的顯著排名異動，依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章。"
+  "notes": "2026-09-04：LMSYS Chatbot Arena（lmarena.ai/?leaderboard）Groundlane web_fetch 仍重導向 arena.ai 並回傳空白 JS 文件（fallbackReason: js_empty_document），無可用內容。改抓 arena.ai/leaderboard/agent（engine=browser）：本次 rank1 headline score 為 13.74%±1.80%，與近日觀測到的 13.7%±1.8% 區間一致，但頁面持續未回傳模型名稱文字、僅有數字欄位，與過去數日相同的工具側資料結構問題，無法核對是否為同一模型，不覆蓋 lmsys_agent_top3，沿用前值。SWE-bench Verified 官方 Full leaderboard（www.swebench.com）Groundlane web_fetch 不論預設、selector:table 皆再次回傳 OUTPUT_LIMIT（頁面過大），與過去數日結論一致，工具側限制，swebench_verified_top5 沿用前值未覆核。MorphLLM（morphllm.com/leaderboard）持續回傳 429 Vercel Security Checkpoint，沿用前值。CursorBench（cursor.com/cursorbench，非 skill P1-P3 表列但作補充參照）重新抓取，前 5 名模型與分數與前次快照逐項一致（Fable 5.1 Max 73.4%／Fable 5.1 Extra High 72.8%／Grok 4.6 Extra High 70.8%／Fable 5 Max 70.5%／Opus 5 Max 70.0%），Changelog 無新條目（最新仍是 Sep 2 的 Gemini 3.8 Flash 新增），不觸發任何規則，cursorbench_top5 沿用不覆蓋。web_search 補充查詢（SOTA 公告、SWE-bench/Chatbot Arena 新分數）僅找到第三方聚合站（swfte.com、thundercompute.com、benchlm.ai、mercor.com 等）的非官方鏡像數據，日期多為 7-8 月或無法對應到今日快照日期，未見官方 P1/P2 榜單今日發生第 1 名易主、前 3 新進、或同模型系列 >2 個百分點的分數躍升。AA Agentic Index 本次未重新查證，沿用前值。今日各 P1/P2 來源均無可判定的顯著排名異動，依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章。"
 }
