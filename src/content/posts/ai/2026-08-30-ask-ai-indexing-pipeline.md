@@ -116,6 +116,40 @@ Repo 與單元測試能證明索引流程的程式契約：增量 hash、chunk I
 
 另外，`pnpm sync` 的 local path 只同步本機 D1 與 FTS，不能拿來證明 production Vectorize checkpoint 流程。下一篇會從索引的另一端出發，追 Planner 如何把使用者問題送進 metadata、BM25 與 vector lanes。
 
+## 已知限制與改進方向
+
+上面描述的 pipeline 能完成增量同步、FTS 與向量一致性追蹤，但 chunking 階段有幾個已知弱點，值得記在這裡。
+
+### 表格切塊會丟失表頭
+
+`chunkMarkdown` 依 H1–H3 和段落邊界切分。當一張 Markdown 表格跨越 1,500 字元邊界，只有第一個 chunk 保留表頭（`|...|` + `|---|`）。後續 chunk 變成一堆無上下文的 `| cell | cell |` 行，embedding 品質明顯下降——向量無法反映「這是哪張表、哪個欄位」。
+
+最小改動的修補是 **Header Propagation**：splitter 切完後掃描每個 chunk，偵測到 Markdown 表格行但缺少表頭時，把原始表頭 prepend 回去。開源工具 [Chonkie TableChunker](https://docs.chonkie.ai) 已實作此模式：「splits markdown tables by row, always preserving the header」。[arXiv:2605.00318](https://arxiv.org/abs/2605.00318) 的 STC 框架更進一步，以 row 為最小單位切分表格，在 MAUD 法律文件上把 Recall@1 從 0.347 提升到 0.539，chunk 數量反而減少 40%。
+
+Header Propagation 每個 chunk 多約 50 tokens，受影響的文件需要重新 embed。
+
+### Metadata Enrichment 可以再做更多
+
+目前 pipeline 在 embedding 前 prepend 文章標題、分類與日期。這已經是輕量版的 metadata enrichment。[arXiv:2601.11863](https://arxiv.org/abs/2601.11863)（Utilizing Metadata for Better RAG）發現公司名稱加年份提供最強的區分訊號；章節標題路徑主要幫助 chunk 級別的定位。[Microsoft Azure RAG Enrichment Phase](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase) 建議的完整欄位是 Title、Summary、Keywords、Questions——後兩者需要 LLM 生成，但前兩者不需要額外成本。
+
+對 Ask AI 來說，下一步是把章節標題路徑（H1 → H2 → H3）也加進 contextual content。這不需要 LLM，改動範圍小，可以跟 Header Propagation 疊加。
+
+### Contextual Chunking 是主要升級路徑
+
+[Anthropic Contextual Retrieval](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide) 在 ingestion 時用 LLM 為每個 chunk 生成一段 50–100 tokens 的上下文描述，prepend 後再 embed。依 Anthropic 官方數據，搭配 reranking 後 top-20 retrieval failure rate 降低 67%。成本約 $1.02/百萬 document tokens（使用 prompt caching）。
+
+這不只解決表格問題——所有 chunk 的 embedding 品質都會提升。目前 Ask AI 已使用 Claude，prompt caching 可控成本。但需要一次性重新處理所有 chunks。
+
+### Late Chunking 用另一條路省掉 LLM
+
+[Late Chunking](https://arxiv.org/abs/2409.04701)（Günther et al., EMNLP 2024 / SIGIR 2025）反轉傳統的「先切再 embed」順序：把整份文件丟進 long-context embedding model（8K+ tokens），讓 attention 看過全文後才切分。每個 chunk 的 embedding 天然帶有全文上下文，不需要額外 LLM 生成描述。
+
+限制是需要支援 8K+ context 的 embedding model（如 jina-embeddings-v3），而且大文件可能超出 context window。目前 Ask AI 使用 Cloudflare Workers AI 的 embedding model，context 長度是一個需要確認的前提。
+
+## 更新紀錄
+
+- 2026-09-03：補充「已知限制與改進方向」段落與四篇參考資料
+
 ## 參考資料
 
 - [Markdown to D1 sync script](https://github.com/vincentxuu/quidproquo/blob/main/scripts/sync-to-d1.ts)
@@ -126,3 +160,9 @@ Repo 與單元測試能證明索引流程的程式契約：增量 hash、chunk I
 - [Embedding sync API](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/embed/sync.ts)
 - [CJK trigram FTS5 migration](https://github.com/vincentxuu/quidproquo/blob/main/migrations/0025_search_cjk_trigram.sql)
 - [Production content-index workflow](https://github.com/vincentxuu/quidproquo/blob/main/.github/workflows/content-index.yml)
+- [arXiv:2605.00318 — Structure-Aware Chunking for Tabular Data in RAG](https://arxiv.org/abs/2605.00318) (2025)
+- [arXiv:2601.11863 — Utilizing Metadata for Better RAG](https://arxiv.org/abs/2601.11863) (2025)
+- [Anthropic — Contextual Retrieval (Claude Cookbook)](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide)
+- [arXiv:2409.04701 — Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models](https://arxiv.org/abs/2409.04701) (EMNLP 2024 / SIGIR 2025)
+- [Microsoft Azure — RAG Enrichment Phase](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase)
+- [Chonkie TableChunker](https://docs.chonkie.ai)

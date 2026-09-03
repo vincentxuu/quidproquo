@@ -1,13 +1,13 @@
 ---
 title: "Chunking Strategies: How You Split Text Determines Whether RAG Can Find the Answer"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
-tags: [rag, chunking, indexing, text-splitting, retrieval]
+tags: [rag, chunking, indexing, text-splitting, retrieval, table-chunking]
 lang: en
-tldr: "Chunks too large and retrieval loses precision; too small and you lose context. Chunking is the most underrated part of RAG — pick the wrong strategy and no amount of downstream optimization will save you."
-description: "A comparison of RAG chunking strategies — Fixed-size, Sentence-based, Recursive, and Semantic Chunking — covering their use cases and implementation trade-offs."
+tldr: "Chunks too large and retrieval loses precision; too small and you lose context; hit a table and retrieval falls apart entirely. Chunking is the most underrated part of RAG — pick the wrong strategy and no amount of downstream optimization will save you."
+description: "A comparison of RAG chunking strategies — Fixed-size, Sentence-based, Recursive, Semantic Chunking, and table-aware splitting — covering their use cases and implementation trade-offs."
 draft: false
 series:
   name: "The RAG Techniques Compendium"
@@ -202,6 +202,49 @@ A 2025 comparison (arXiv:2504.19754) evaluated both: Contextual Retrieval preser
 
 ---
 
+## The Table Chunking Problem
+
+Every strategy discussed above was designed for continuous prose — paragraphs, sentences, semantic spans. When they hit a **table**, they all run into the same structural failure: the header row appears only in the first chunk, and every subsequent chunk becomes a pile of values with no column names.
+
+A PDF table split by `SentenceSplitter(chunk_size=512)` into 8 chunks keeps the header in chunk 1 only. The remaining 7 chunks produce embeddings that cannot encode "which table, which column," making semantic retrieval miss critical rows. A 2026 Towards Data Science analysis calls tables "The Retrieval Black Hole" — the odds of retrieving what you need are close to random.
+
+Three response strategies, from simplest to most involved:
+
+### Header Propagation
+
+Add one post-processing step after splitting: detect Markdown table structure (`|...|` + `|---|`) and prepend the header row to every subsequent chunk that lacks one.
+
+```
+Before:
+  Chunk 5: real-estate limited to Taiwan... | counterparty | ... | prohibited | ...
+
+After:
+  Chunk 5: | Project | 【B1】| 【B2】| 【B3】| 【B4】|  ← header prepended
+           real-estate limited to Taiwan... | counterparty | ... | prohibited | ...
+```
+
+Minimal change, deterministically testable ("every table chunk starts with a header row"), directly improves embedding quality. The cost is one extra header row per chunk (~50 tokens); affected files need re-embedding. For an open-source implementation, [Chonkie](https://docs.chonkie.ai)'s TableChunker "splits markdown tables by row, always preserving the header"; Microsoft Azure Data Parsing also provides built-in column header restoration and cross-page table merging.
+
+### Table-Aware Chunking (Structure-Aware Splitting)
+
+Change the splitting logic at the root: use **rows** as the atomic unit so tables are never sliced across columns. The 2025 STC framework (arXiv:2605.00318, *Structure-Aware Chunking for Tabular Data in RAG*) works in three steps:
+
+1. **Row Tree**: Convert the table into a root → sheet → row hierarchy, each row in key-value format
+2. **Token-budget recursive splitting**: Only subdivide when a chunk exceeds the budget
+3. **Greedy merging**: Combine adjacent small chunks
+
+On the MAUD legal-document dataset, Recall@1 rose from a baseline of 0.347 to **0.539** (+55%), while chunk count dropped 40% — smarter splits, smaller index. In BM25-only scenarios the improvement was even larger: Recall@1 jumped from 0.366 to **0.754**.
+
+Limitations: requires replacing the existing SentenceSplitter and modifying the ingestion pipeline; the paper evaluated CSV/Excel formats, so PDF → Markdown conversion quality is a prerequisite.
+
+### Proposition Chunking
+
+The opposite extreme: use an LLM to decompose text into atomic factual propositions (arXiv:2312.06648, *Dense X Retrieval*, EMNLP 2024). Each proposition is a self-contained, independent statement.
+
+Recall@5 improves by roughly +12%, but chunk count explodes (a single paragraph can yield 5–10× more propositions), and LLM processing costs are high. For tabular data that is already structured, proposition format is not necessarily better than preserving the original table structure — the structure is already there; the problem is that splitting destroyed it.
+
+---
+
 ## The Chunk Size Trade-off
 
 | Chunk size | Retrieval precision | Context completeness | Index size |
@@ -246,6 +289,7 @@ The most practical starting point: Recursive Chunking + Contextual Retrieval. Th
 
 ## Changelog
 
+- 2026-09-03: Added "The Table Chunking Problem" section covering Header Propagation, Table-Aware Chunking (STC), and Proposition Chunking, with associated references.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
@@ -258,5 +302,10 @@ The most practical starting point: Recursive Chunking + Contextual Retrieval. Th
 - [Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models (arXiv:2409.04701)](https://arxiv.org/abs/2409.04701)
 - [Reconstructing Context: Evaluating Advanced Chunking Strategies for RAG (arXiv:2504.19754)](https://arxiv.org/abs/2504.19754)
 - [Unstructured.io - Chunking Best Practices](https://docs.unstructured.io/open-source/core-functionality/chunking)
+- [Structure-Aware Chunking for Tabular Data in RAG (arXiv:2605.00318)](https://arxiv.org/abs/2605.00318)
+- [Dense X Retrieval: What Retrieval Granularity Should We Use? (arXiv:2312.06648, EMNLP 2024)](https://arxiv.org/abs/2312.06648)
+- [Beyond Chunk-Then-Embed: Comprehensive Taxonomy of Chunking Strategies (arXiv:2602.16974)](https://arxiv.org/abs/2602.16974)
+- [A Systematic Investigation of Document Chunking Strategies (arXiv:2603.06976)](https://arxiv.org/abs/2603.06976)
+- [Chonkie TableChunker — row-level table splitting with header preservation](https://docs.chonkie.ai)
 - [NobodyClimb System Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

@@ -116,6 +116,40 @@ The repository and unit tests establish the indexing contract: incremental hashe
 
 Also, the local `pnpm sync` path updates local D1 and FTS only. It does not prove the production Vectorize checkpoint path. The next article starts at the other end of the index and follows a user question through metadata, BM25, and vector retrieval.
 
+## Known Limitations and Improvement Paths
+
+The pipeline above handles incremental sync, FTS alignment, and vector consistency tracking. But the chunking stage has several known weaknesses worth documenting here.
+
+### Table chunks lose their headers
+
+`chunkMarkdown` splits at H1–H3 headings and paragraph boundaries. When a Markdown table crosses the 1,500-character boundary, only the first chunk retains the header row (`|...|` + `|---|`). Subsequent chunks become contextless `| cell | cell |` lines, and embedding quality drops — the vector cannot reflect which table or which column the data belongs to.
+
+The smallest fix is **Header Propagation**: after the splitter finishes, scan each chunk for Markdown table rows missing a header, and prepend the original header. The open-source [Chonkie TableChunker](https://docs.chonkie.ai) implements this pattern: "splits markdown tables by row, always preserving the header." [arXiv:2605.00318](https://arxiv.org/abs/2605.00318) (STC framework) goes further, using rows as the minimum split unit for tables — on MAUD legal documents, Recall@1 improved from 0.347 to 0.539, and chunk count dropped by 40%.
+
+Header Propagation adds roughly 50 tokens per chunk. Affected files need re-embedding.
+
+### Metadata enrichment can go further
+
+The current pipeline prepends post title, category, and date before embedding. This is already a lightweight form of metadata enrichment. [arXiv:2601.11863](https://arxiv.org/abs/2601.11863) (Utilizing Metadata for Better RAG) found that company name plus year provides the strongest discriminating signal; section header paths mainly help with chunk-level localization. [Microsoft Azure's RAG Enrichment Phase](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase) recommends Title, Summary, Keywords, and Questions — the last two require LLM generation, but the first two add no extra cost.
+
+For Ask AI, the next step is adding section header paths (H1 → H2 → H3) to contextual content. This needs no LLM, has a small change surface, and stacks with Header Propagation.
+
+### Contextual Chunking is the main upgrade path
+
+[Anthropic Contextual Retrieval](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide) uses an LLM at ingestion time to generate a 50–100 token context description for each chunk, prepended before embedding. According to Anthropic's published data, combined with reranking, top-20 retrieval failure rate drops by 67%. Cost is approximately $1.02 per million document tokens (with prompt caching).
+
+This improves all chunks, not just tables. Ask AI already uses Claude, and prompt caching keeps costs manageable. However, it requires a one-time reprocessing of all existing chunks.
+
+### Late Chunking avoids LLM cost with a different approach
+
+[Late Chunking](https://arxiv.org/abs/2409.04701) (Günther et al., EMNLP 2024 / SIGIR 2025) inverts the traditional "chunk first, embed second" order: feed the entire document into a long-context embedding model (8K+ tokens), let attention see the full text, then split. Each chunk's embedding naturally carries full-document context without extra LLM-generated descriptions.
+
+The limitation is that it requires an embedding model supporting 8K+ context (e.g., jina-embeddings-v3), and large documents may exceed the context window. Ask AI currently uses Cloudflare Workers AI embeddings, so the context length is a prerequisite to verify.
+
+## Update Log
+
+- 2026-09-03: Added "Known Limitations and Improvement Paths" section with four new references
+
 ## References
 
 - [Markdown to D1 sync script](https://github.com/vincentxuu/quidproquo/blob/main/scripts/sync-to-d1.ts)
@@ -126,3 +160,9 @@ Also, the local `pnpm sync` path updates local D1 and FTS only. It does not prov
 - [Embedding sync API](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/embed/sync.ts)
 - [CJK trigram FTS5 migration](https://github.com/vincentxuu/quidproquo/blob/main/migrations/0025_search_cjk_trigram.sql)
 - [Production content-index workflow](https://github.com/vincentxuu/quidproquo/blob/main/.github/workflows/content-index.yml)
+- [arXiv:2605.00318 — Structure-Aware Chunking for Tabular Data in RAG](https://arxiv.org/abs/2605.00318) (2025)
+- [arXiv:2601.11863 — Utilizing Metadata for Better RAG](https://arxiv.org/abs/2601.11863) (2025)
+- [Anthropic — Contextual Retrieval (Claude Cookbook)](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide)
+- [arXiv:2409.04701 — Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models](https://arxiv.org/abs/2409.04701) (EMNLP 2024 / SIGIR 2025)
+- [Microsoft Azure — RAG Enrichment Phase](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase)
+- [Chonkie TableChunker](https://docs.chonkie.ai)

@@ -16,7 +16,7 @@ series:
 
 > 🌏 [English version](/posts/ai/2026-03-12-agentic-rag-react-loop-en)
 
-標準 RAG 是單次搜尋：查詢 → 檢索 → 生成。這個流程對大多數問題夠用，但碰到需要多跳推理的複雜問題就不行了。
+標準 RAG 是單次搜尋：查詢 → 檢索 → 生成。這個流程對大多數問題夠用，但碰到需要多跳推理的複雜問題就不行了。近年多篇系統性調查（[Singh et al. 2025](https://arxiv.org/abs/2501.09136)、[Liang et al. 2025](https://arxiv.org/abs/2506.10408)、[Mishra et al. 2026](https://arxiv.org/abs/2603.07379)）把這類「讓 LLM 主導檢索決策」的做法歸納為 **Agentic RAG**——一個從單次檢索走向多輪推理檢索的架構範式。
 
 「幫我規劃一條從台中出發、適合中級攀岩者、週末去得了、有不同難度適合不同夥伴的攀岩行程」
 
@@ -108,7 +108,7 @@ Agentic RAG 不是預設啟動的。需要：
 1. `rag_strategy === 'agentic'` 或 `rag_strategy === 'auto'`（auto 模式下根據 queryType 選擇）
 2. `queryType === 'complex'`
 
-原因很簡單：Agentic RAG 的延遲比標準 RAG 高很多（多次 LLM 呼叫 + 多次搜尋），不適合所有查詢。
+原因很簡單：Agentic RAG 的延遲比標準 RAG 高很多（多次 LLM 呼叫 + 多次搜尋），不適合所有查詢。[Lin et al. (2025)](https://arxiv.org/abs/2509.04820) 對比了 one-shot 與 iterative retrieval，發現多輪迭代在多跳問題上顯著提升召回率，但簡單查詢反而因為額外步驟引入噪音。這驗證了「只在需要時才啟動」的策略。
 
 這個系統上量到的量級（會隨模型、檢索後端與步驟數變動，不是通用數字）：
 
@@ -117,7 +117,7 @@ Standard RAG: 5-8 秒
 Agentic RAG:  10-20 秒（視步驟數）
 ```
 
-使用者願意等更久換取更完整的回答嗎？取決於查詢的複雜度。`auto` 模式讓系統自己判斷。
+使用者願意等更久換取更完整的回答嗎？取決於查詢的複雜度。`auto` 模式讓系統自己判斷。另一個值得注意的問題是**搜尋效率**：agent 可能發出冗餘或次優查詢。[Wu et al. (2025)](https://arxiv.org/abs/2505.17281) 提出透過降低不確定性來減少次優搜尋步驟，在 EMNLP 2025 上展示了用更少的檢索步驟達到同等品質的做法。
 
 ## 與 CRAG 的差異
 
@@ -148,7 +148,7 @@ CRAG 是**零結果時的規則型修正**，Agentic RAG 是**有結果但不夠
 
 ## 整體來說
 
-Agentic RAG 代表 RAG 系統從「被動檢索」向「主動推理」的演進。它不適合高流量、對延遲敏感的場景，但對複雜的規劃型和多跳推理型查詢，品質提升是顯著的。
+Agentic RAG 代表 RAG 系統從「被動檢索」向「主動推理」的演進。它不適合高流量、對延遲敏感的場景，但對複雜的規劃型和多跳推理型查詢，品質提升是顯著的。[Xi et al. (2025)](https://arxiv.org/abs/2505.15872) 的 InfoDeepSeek benchmark 也證實了這點：在需要多來源整合的資訊搜尋任務中，agentic 策略的完整性顯著優於單次檢索。
 
 核心設計原則：**給 LLM 充分的資訊而不是讓它猜**。與其讓 LLM 從不完整的 context 中瞎猜，不如讓它多搜幾次拿到足夠的資訊再回答。Agentic RAG 就是把這個判斷權還給 LLM。
 
@@ -156,11 +156,18 @@ Agentic RAG 代表 RAG 系統從「被動檢索」向「主動推理」的演進
 
 ## 更新紀錄
 
+- 2026-09-03：補充 6 篇 Agentic RAG 調查與評測論文，強化學術基礎
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
 
 - [ReAct: Synergizing Reasoning and Acting in Language Models (2022)](https://arxiv.org/abs/2210.03629)
 - [Toolformer: Language Models Can Teach Themselves to Use Tools (2023)](https://arxiv.org/abs/2302.04761)
+- [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG (2025)](https://arxiv.org/abs/2501.09136)
+- [A Survey on Reasoning Agentic RAG (2025)](https://arxiv.org/abs/2506.10408)
+- [SoK: Agentic Retrieval-Augmented Generation (2026)](https://arxiv.org/abs/2603.07379)
+- [Search Wisely: Mitigating Sub-optimal Agentic Searches By Reducing Uncertainty — EMNLP 2025](https://arxiv.org/abs/2505.17281)
+- [Exploring One-shot vs. Iterative Retrieval Strategies for RAG (2025)](https://arxiv.org/abs/2509.04820)
+- [InfoDeepSeek: Benchmarking Agentic Information Seeking for RAG (2025)](https://arxiv.org/abs/2505.15872)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

@@ -1,13 +1,13 @@
 ---
 title: "Chunking 策略：切塊方式決定 RAG 能不能找到答案"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
-tags: [rag, chunking, indexing, text-splitting, retrieval]
+tags: [rag, chunking, indexing, text-splitting, retrieval, table-chunking]
 lang: zh-TW
-tldr: "切太大找不準，切太小失去上下文。Chunking 是 RAG 最被低估的環節，策略選錯，後面再多優化都是白費。"
-description: "RAG 系統的 Chunking 策略比較：Fixed-size、Sentence-based、Recursive、Semantic Chunking，各自的適用場景和實作考量。"
+tldr: "切太大找不準，切太小失去上下文，碰到表格更是全軍覆沒。Chunking 是 RAG 最被低估的環節，策略選錯，後面再多優化都是白費。"
+description: "RAG 系統的 Chunking 策略比較：Fixed-size、Sentence-based、Recursive、Semantic Chunking、表格感知切分，各自的適用場景和實作考量。"
 draft: false
 series:
   name: "RAG 技法大全"
@@ -202,6 +202,49 @@ Jina AI 在 2024 年提出的另一條路（arXiv:2409.04701）：不是「切�
 
 ---
 
+## 表格的切塊難題
+
+上面介紹的策略都是為「連續文字」設計的——段落、句子、語義片段。碰到**表格**，所有文字切割器都踩到同一個結構性問題：表頭只出現在第一個 chunk，後續 chunk 變成一堆沒有欄位名稱的數值碎片。
+
+一份 PDF 表格被 `SentenceSplitter(chunk_size=512)` 切成 8 塊，只有第一塊帶表頭。後面 7 塊的 embedding 向量無法反映「這是哪張表的哪個欄位」，語意檢索自然漏掉關鍵列。2026 年一篇 Towards Data Science 分析直接稱表格為「The Retrieval Black Hole」——向量搜得到的機率跟運氣差不多。
+
+三種應對思路，由簡到繁：
+
+### Header Propagation（表頭傳播）
+
+切完之後加一步 post-processing：偵測 Markdown 表格結構（`|...|` + `|---|`），把表頭行 prepend 到每個缺少表頭的後續 chunk。
+
+```
+Before:
+  Chunk 5: 不動產限臺灣本島... | 代償對象 | ... | 禁止條款 | ...
+
+After:
+  Chunk 5: | 專案名稱 | 【B1】| 【B2】| 【B3】| 【B4】|  ← 表頭 prepend
+           不動產限臺灣本島... | 代償對象 | ... | 禁止條款 | ...
+```
+
+改動最小，可寫確定性 unit test（「每個表格 chunk 都以表頭開頭」），直接改善 embedding 品質。代價是每個 chunk 多一行表頭（約 50 tokens），受影響的文件需重新 embed。開源實作可參考 [Chonkie](https://docs.chonkie.ai) 的 TableChunker——「splits markdown tables by row, always preserving the header」；Microsoft Azure Data Parsing 也內建了 column headers restoration 與跨頁表格合併。
+
+### Table-Aware Chunking（結構感知切分）
+
+從根本改變切分邏輯：以 **row** 為最小單位，不讓表格被橫切。2025 年的 STC 框架（arXiv:2605.00318, *Structure-Aware Chunking for Tabular Data in RAG*）分三步：
+
+1. **Row Tree**：表格轉 root → sheet → row 階層，每 row 用 key-value 格式
+2. **Token-budget 遞迴切分**：超出 budget 才往下切
+3. **Greedy 合併**：相鄰小 chunk 合起來
+
+在 MAUD 法律文件資料集上，Recall@1 從 baseline 的 0.347 提升到 **0.539**（+55%），chunk 數量反而減少 40%——切得更聰明，索引更小。BM25-only 的場景改善更大，Recall@1 從 0.366 跳到 **0.754**。
+
+限制：需要替換現有的 SentenceSplitter，改 ingestion pipeline；論文評估在 CSV/Excel 格式，PDF → Markdown 的轉換品質是前提。
+
+### Proposition Chunking（命題切分）
+
+另一個極端：用 LLM 把文字拆成原子事實命題（arXiv:2312.06648, *Dense X Retrieval*, EMNLP 2024）。每個命題是一個獨立、自足的陳述。
+
+Recall@5 提升約 +12%，但 chunk 數量暴增（一段文字拆出 5-10 倍的命題），LLM 處理成本高。對表格這種已經結構化的資料，拆成命題格式未必比保留原始表格結構更好——結構已經在那裡，問題不是缺結構，而是切割破壞了結構。
+
+---
+
 ## Chunk 大小的取捨
 
 | chunk 大小 | 搜尋精度 | 上下文完整性 | 索引大小 |
@@ -246,6 +289,7 @@ Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少
 
 ## 更新紀錄
 
+- 2026-09-03：新增「表格的切塊難題」章節，補充 Header Propagation、Table-Aware Chunking（STC）、Proposition Chunking 三種應對策略及相關參考文獻
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
@@ -258,5 +302,10 @@ Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少
 - [Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models（arXiv:2409.04701）](https://arxiv.org/abs/2409.04701)
 - [Reconstructing Context: Evaluating Advanced Chunking Strategies for RAG（arXiv:2504.19754）](https://arxiv.org/abs/2504.19754)
 - [Unstructured.io - Chunking Best Practices](https://docs.unstructured.io/open-source/core-functionality/chunking)
+- [Structure-Aware Chunking for Tabular Data in RAG（arXiv:2605.00318）](https://arxiv.org/abs/2605.00318)
+- [Dense X Retrieval: What Retrieval Granularity Should We Use?（arXiv:2312.06648, EMNLP 2024）](https://arxiv.org/abs/2312.06648)
+- [Beyond Chunk-Then-Embed: Comprehensive Taxonomy of Chunking Strategies（arXiv:2602.16974）](https://arxiv.org/abs/2602.16974)
+- [A Systematic Investigation of Document Chunking Strategies（arXiv:2603.06976）](https://arxiv.org/abs/2603.06976)
+- [Chonkie TableChunker — row-level table splitting with header preservation](https://docs.chonkie.ai)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

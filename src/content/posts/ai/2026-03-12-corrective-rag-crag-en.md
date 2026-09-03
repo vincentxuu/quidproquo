@@ -1,7 +1,7 @@
 ---
 title: "CRAG: Automatically Relaxing Filters When Retrieval Comes Up Empty"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
 tags: [rag, crag, corrective-rag, retrieval, fallback]
@@ -85,6 +85,26 @@ CRAG is **rule-based** correction that runs automatically within the pipeline �
 
 CRAG handles "we got nothing at all." Agentic RAG handles "we got something, but not enough."
 
+## The Adaptive Retrieval Spectrum: Between CRAG and Agentic RAG
+
+The table above frames CRAG and Agentic RAG as two poles — but between them sits a family of adaptive retrieval strategies, each striking a different balance between autonomy and cost:
+
+| Method | Who decides whether to retrieve | When it triggers | Extra cost |
+|---|---|---|---|
+| CRAG | Rules (zero results) | After search | One extra search |
+| **FLARE** | LLM confidence scores | Mid-generation | Depends on low-confidence token count |
+| **Self-RAG** | Special reflection tokens | Mid-generation | Slight inference overhead (reflection tokens) |
+| **Adaptive-RAG** | Classifier | At query time | One classification + corresponding path |
+| Agentic RAG | LLM agent loop | After search / after generation | Multiple LLM calls |
+
+**FLARE** (Forward-Looking Active REtrieval) monitors the LLM's confidence as it generates an answer. When the next sentence's predicted tokens drop below a confidence threshold, it assembles the low-confidence tokens into a new query, retrieves fresh documents, and feeds them back into the generation flow. The trigger granularity is finer than CRAG — instead of waiting for an entire search to return empty, FLARE intervenes mid-sentence.
+
+**Self-RAG** goes further: during training, the model learns to emit four types of reflection tokens (`[Retrieve]`, `[IsRel]`, `[IsSup]`, `[IsUse]`) that let it decide at inference time whether to fetch documents, whether what came back is relevant, and whether the generated response is supported. No external agent loop or classifier needed — retrieval decisions are internalized into the model itself.
+
+**Adaptive-RAG** takes a different tack. A lightweight classifier at the front gate evaluates query complexity and routes it to one of three paths: no retrieval (LLM answers directly), single-pass retrieval (standard RAG), or multi-hop retrieval (iterative retrieval). Compared to CRAG's reactive correction or Agentic RAG's full agent loop, the classifier adds minimal latency — but it needs labeled training data to calibrate the routing thresholds.
+
+These approaches aren't mutually exclusive. CRAG works well as the lowest safety net (zero-result correction). Adaptive-RAG or FLARE handles the grey zone of "we got results but aren't sure they're good enough." Agentic RAG is reserved for genuinely complex queries that demand multi-step reasoning. A mature system can stack multiple layers.
+
 ## Why Relax Filters Rather Than Expand the Source
 
 Another approach is "if nothing comes back, search an external knowledge base (e.g., Wikipedia)." The original CRAG paper actually includes this design (Web Search fallback). But in a climbing community context, users are asking about specific crags and routes — pulling in generic climbing content from the web is more likely to mislead than help. Better to honestly communicate "this crag doesn't have routes at that grade" and show the closest relevant information instead.
@@ -99,6 +119,7 @@ CRAG is a safety net for your RAG pipeline. The cost is low (one extra search), 
 
 ## Changelog
 
+- 2026-09-03: Added "Adaptive Retrieval Spectrum" section (Self-RAG, Adaptive-RAG, FLARE) to fill the gap between CRAG and Agentic RAG; added five new references.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
@@ -106,5 +127,10 @@ CRAG is a safety net for your RAG pipeline. The cost is low (one extra search), 
 - [Corrective Retrieval Augmented Generation (2024)](https://arxiv.org/abs/2401.15884)
 - [Official implementation of the CRAG paper (HuskyInSalt/CRAG)](https://github.com/HuskyInSalt/CRAG)
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)](https://arxiv.org/abs/2005.11401)
+- [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection — ICLR 2024](https://arxiv.org/abs/2310.11511)
+- [Adaptive-RAG: Learning to Adapt Retrieval-Augmented LLMs through Question Complexity — NAACL 2024](https://arxiv.org/abs/2403.14403)
+- [Active Retrieval Augmented Generation (FLARE) — EMNLP 2023](https://arxiv.org/abs/2305.06983)
+- [Lightweight Query Routing for Adaptive RAG (2026)](https://arxiv.org/abs/2604.03455)
+- [RetrievalQA: Assessing Adaptive Retrieval-Augmented Generation for Short-form QA — ACL 2024](https://arxiv.org/abs/2402.16457)
 - [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

@@ -16,7 +16,7 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-03-12-agentic-rag-react-loop)
 
-Standard RAG is a single-pass pipeline: query → retrieve → generate. That works fine for most questions, but falls apart when a query requires multi-hop reasoning.
+Standard RAG is a single-pass pipeline: query → retrieve → generate. That works fine for most questions, but falls apart when a query requires multi-hop reasoning. Recent systematic surveys ([Singh et al. 2025](https://arxiv.org/abs/2501.09136), [Liang et al. 2025](https://arxiv.org/abs/2506.10408), [Mishra et al. 2026](https://arxiv.org/abs/2603.07379)) have codified this class of approaches — where the LLM drives retrieval decisions — as **Agentic RAG**: an architectural paradigm that moves from single-shot retrieval to multi-turn reasoning-driven search.
 
 "Plan me a climbing trip leaving from Taichung — intermediate level, doable on a weekend, with routes at different grades so everyone in the group can climb."
 
@@ -108,7 +108,7 @@ Agentic RAG isn't on by default. It requires:
 1. `rag_strategy === 'agentic'` or `rag_strategy === 'auto'` (in auto mode, the strategy is chosen based on `queryType`)
 2. `queryType === 'complex'`
 
-The reason is straightforward: Agentic RAG has significantly higher latency than standard RAG (multiple LLM calls + multiple searches), so it's not appropriate for every query.
+The reason is straightforward: Agentic RAG has significantly higher latency than standard RAG (multiple LLM calls + multiple searches), so it's not appropriate for every query. [Lin et al. (2025)](https://arxiv.org/abs/2509.04820) compared one-shot and iterative retrieval head-to-head, finding that multi-round iteration significantly improves recall on multi-hop questions — but for simple queries, the extra steps introduce noise. This validates an "activate only when needed" strategy.
 
 Rough magnitudes measured on this system (they shift with the model, the retrieval backend, and the step count — these are not universal figures):
 
@@ -117,7 +117,7 @@ Standard RAG: 5–8 s
 Agentic RAG:  10–20 s (depending on number of steps)
 ```
 
-Are users willing to wait longer in exchange for a more complete answer? That depends on how complex the query is. `auto` mode lets the system make that call.
+Are users willing to wait longer in exchange for a more complete answer? That depends on how complex the query is. `auto` mode lets the system make that call. Another concern worth noting is **search efficiency**: agents can issue redundant or sub-optimal queries. [Wu et al. (2025)](https://arxiv.org/abs/2505.17281) showed at EMNLP 2025 that reducing uncertainty can cut unnecessary retrieval steps while maintaining answer quality.
 
 ## How It Differs from CRAG
 
@@ -148,7 +148,7 @@ Each step fills a specific gap in the context rather than throwing one broad sea
 
 ## The Takeaway
 
-Agentic RAG represents the evolution of RAG systems from *passive retrieval* to *active reasoning*. It's not suited for high-traffic, latency-sensitive scenarios — but for complex planning and multi-hop reasoning queries, the quality improvement is substantial.
+Agentic RAG represents the evolution of RAG systems from *passive retrieval* to *active reasoning*. It's not suited for high-traffic, latency-sensitive scenarios — but for complex planning and multi-hop reasoning queries, the quality improvement is substantial. The [InfoDeepSeek benchmark (Xi et al. 2025)](https://arxiv.org/abs/2505.15872) confirms this: on information-seeking tasks that require synthesizing multiple sources, agentic strategies achieve significantly higher completeness than single-pass retrieval.
 
 The core design principle: **give the LLM enough information instead of making it guess**. Rather than asking the model to reason from an incomplete context, let it run a few more searches until it has what it needs. Agentic RAG hands that judgment back to the LLM.
 
@@ -156,11 +156,18 @@ The core design principle: **give the LLM enough information instead of making i
 
 ## Changelog
 
+- 2026-09-03: Added 6 Agentic RAG survey and evaluation papers to strengthen academic grounding
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
 
 - [ReAct: Synergizing Reasoning and Acting in Language Models (2022)](https://arxiv.org/abs/2210.03629)
 - [Toolformer: Language Models Can Teach Themselves to Use Tools (2023)](https://arxiv.org/abs/2302.04761)
+- [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG (2025)](https://arxiv.org/abs/2501.09136)
+- [A Survey on Reasoning Agentic RAG (2025)](https://arxiv.org/abs/2506.10408)
+- [SoK: Agentic Retrieval-Augmented Generation (2026)](https://arxiv.org/abs/2603.07379)
+- [Search Wisely: Mitigating Sub-optimal Agentic Searches By Reducing Uncertainty — EMNLP 2025](https://arxiv.org/abs/2505.17281)
+- [Exploring One-shot vs. Iterative Retrieval Strategies for RAG (2025)](https://arxiv.org/abs/2509.04820)
+- [InfoDeepSeek: Benchmarking Agentic Information Seeking for RAG (2025)](https://arxiv.org/abs/2505.15872)
 - [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

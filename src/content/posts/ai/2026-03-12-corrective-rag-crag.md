@@ -1,7 +1,7 @@
 ---
 title: "CRAG：檢索失敗時，自動放寬條件重試"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
 tags: [rag, crag, corrective-rag, retrieval, fallback]
@@ -85,6 +85,26 @@ CRAG 是**規則型**的修正，在 pipeline 內自動執行，不需要 LLM �
 
 CRAG 解決的是「根本沒東西」的問題，Agentic RAG 解決的是「有東西但不夠好」的問題。
 
+## Adaptive Retrieval 光譜：從 CRAG 到 Agentic RAG 之間
+
+上面的比較表把 CRAG 和 Agentic RAG 擺成兩極，但實際上兩者之間存在一系列 adaptive retrieval 策略，各自在「自主性」和「成本」之間取不同的平衡點：
+
+| 方法 | 誰決定要不要檢索 | 觸發時機 | 額外成本 |
+|---|---|---|---|
+| CRAG | 規則（零結果） | 搜尋後 | 一次搜尋 |
+| **FLARE** | LLM 信心分數 | 生成途中 | 按低信心 token 數而定 |
+| **Self-RAG** | 特殊 reflection tokens | 生成途中 | 推論時微增（reflection token 開銷） |
+| **Adaptive-RAG** | 分類器 | 查詢進來時 | 一次分類 + 對應路徑 |
+| Agentic RAG | LLM agent loop | 搜尋後 / 生成後 | 多輪 LLM 呼叫 |
+
+**FLARE**（Forward-Looking Active REtrieval）在生成回答的過程中，偵測到下一句的預測信心偏低時，主動用低信心的 token 組成新查詢去檢索，再把結果插回生成流程。觸發時機比 CRAG 更細緻——不是等整個搜尋回來零結果，而是生成到一半就即時補檢索。
+
+**Self-RAG** 更進一步：在訓練階段就教模型產生四種 reflection token（`[Retrieve]`、`[IsRel]`、`[IsSup]`、`[IsUse]`），讓模型在推論時自己判斷「現在需不需要去查資料」、「查回來的東西有沒有用」。不需要外部的 agent loop 或分類器，retrieval 決策內化到模型本身。
+
+**Adaptive-RAG** 的做法是在查詢進來的第一步就用一個輕量分類器判斷複雜度，把查詢路由到三條路徑：不需要檢索（LLM 直接回答）、單次檢索（標準 RAG）、多跳檢索（iterative retrieval）。比起 CRAG 的被動修正或 Agentic RAG 的全程代理，Adaptive-RAG 的分類器成本最低，但需要訓練資料來校準路由。
+
+這些方法不互斥。CRAG 適合當最底層的安全網（零結果修正），Adaptive-RAG 或 FLARE 處理「有結果但品質未知」的灰色地帶，Agentic RAG 留給真正需要多步推理的複雜查詢。一個成熟的系統可能同時疊加多層。
+
 ## 為什麼是放寬而不是擴大範圍
 
 另一個思路是「沒結果就去外部知識庫搜尋（如 Wikipedia）」。CRAG 原始論文也有這個設計（Web Search fallback）。但在攀岩社群的場景，使用者問的問題通常是關於特定岩場和路線，外部搜尋引入的通用攀岩知識反而可能誤導，不如誠實說「這個岩場沒有這個難度的路線」，輔以相近的資訊。
@@ -99,6 +119,7 @@ CRAG 是 RAG pipeline 的安全網，成本低（多一次搜尋），卻能防�
 
 ## 更新紀錄
 
+- 2026-09-03：補充 Adaptive Retrieval 光譜段落（Self-RAG、Adaptive-RAG、FLARE），填補 CRAG↔Agentic RAG 之間的策略空白；新增五篇參考文獻
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
@@ -106,5 +127,10 @@ CRAG 是 RAG pipeline 的安全網，成本低（多一次搜尋），卻能防�
 - [Corrective Retrieval Augmented Generation (2024)](https://arxiv.org/abs/2401.15884)
 - [CRAG 論文官方實作（HuskyInSalt/CRAG）](https://github.com/HuskyInSalt/CRAG)
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)](https://arxiv.org/abs/2005.11401)
+- [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection — ICLR 2024](https://arxiv.org/abs/2310.11511)
+- [Adaptive-RAG: Learning to Adapt Retrieval-Augmented LLMs through Question Complexity — NAACL 2024](https://arxiv.org/abs/2403.14403)
+- [Active Retrieval Augmented Generation (FLARE) — EMNLP 2023](https://arxiv.org/abs/2305.06983)
+- [Lightweight Query Routing for Adaptive RAG (2026)](https://arxiv.org/abs/2604.03455)
+- [RetrievalQA: Assessing Adaptive Retrieval-Augmented Generation for Short-form QA — ACL 2024](https://arxiv.org/abs/2402.16457)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
