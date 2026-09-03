@@ -2,6 +2,7 @@
 title: "Security Alert｜LiteLLM MCP Test Endpoint Command Injection Chains to Unauthenticated RCE — Wiz's 90-Day Honeypot Study Exposes Three AI Infrastructure Attack Patterns"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain]
 lang: en
 description: "Wiz Threat Research published 90 days of honeypot telemetry showing active exploitation of LiteLLM's MCP auth bypass (CVE-2026-59822) and command injection (CVE-2026-42271, now in CISA's KEV), chainable with a Starlette host-header bypass (CVE-2026-48710) into full unauthenticated RCE, alongside blind prompt injection against LangChain, Flowise, and other agent frameworks."

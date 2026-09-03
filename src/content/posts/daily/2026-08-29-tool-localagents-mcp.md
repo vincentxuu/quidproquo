@@ -2,6 +2,7 @@
 title: "工具推薦｜localagents — 把 Claude Code 的苦力活丟給你自己的 GPU 做"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "MCP server 讓 Claude Code 把重複性的程式碼工作委派給本地跑的 llama.cpp / vLLM 模型執行，Claude 只負責設計和審查，省下 Anthropic token 額度"

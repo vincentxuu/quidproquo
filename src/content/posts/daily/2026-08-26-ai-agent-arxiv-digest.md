@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-26"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "今天三篇論文都在補「Agent 執行期間」的可信度缺口——用會比較不會解題的迷你顧問即時介入、用保形預測校準搜尋型 Agent 的信心、用狀態化授權堵住核准動作重複生效的漏洞"

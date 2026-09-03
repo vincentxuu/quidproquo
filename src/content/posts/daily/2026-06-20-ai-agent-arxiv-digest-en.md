@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-20"
 date: 2026-06-20
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-framework, agent-memory]
 lang: en
 description: "Three papers tackle 'making agents more reliable' from different angles: EinsteinArena builds a persistent platform for multi-agent collective intelligence that found 12 new best-known solutions in math; APEX extends agent self-evolution beyond prompt tuning to simultaneously evolve principles and workflow topology; AI Economist Agent demonstrates how to ground every quantitative claim in formal model execution via knowledge graphs."

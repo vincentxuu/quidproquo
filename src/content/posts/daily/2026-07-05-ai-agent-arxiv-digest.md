@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-05"
 date: 2026-07-05
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-rag, agent-framework]
 lang: zh-TW
 description: "今天三篇從不同角度觸碰 agent 平台的核心痛點：ReContext 提出免訓練的 inference-time 解法，讓 LLM 在 128K 長文中不再「視而不見」關鍵證據；第二篇揭示 multi-agent 辯論系統中，agent 因社會階層情境出現系統性「表裡不一」（divergence "

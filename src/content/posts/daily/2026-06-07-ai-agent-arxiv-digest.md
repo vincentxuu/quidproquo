@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-07"
 date: 2026-06-07
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-memory, agent-framework]
 lang: zh-TW
 description: "今天三篇都在問 agent 平台的「基礎建設怎麼選」：ADK Arena 首度量化比較 LangGraph、AutoGen、CrewAI 等多個主流框架的真實任務完成率與成本差距，讓框架選型終於有量化依據；Agent Memory 提供第一個從電腦系統視角分析 10 種記憶方案的 taxonomy，"

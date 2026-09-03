@@ -2,6 +2,7 @@
 title: "Security Alert｜One Line in a Git Config Can Make Claude Code, Codex, Cursor and Four Other AI Coding Agents Run Arbitrary Code — GitSpawn Leaves Four Tools Still Unpatched"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation]
 lang: en
 description: "Manifold Security disclosed GitSpawn: AI coding agents call git on startup to gather project context, but never strip the repository's own git config first — letting a malicious repo run arbitrary commands as the user, before any trust dialog is accepted. goose, Codex, and one Claude Code path are patched; Hermes Agent, Qwen Code, Grok Build, and a second Claude Code path remain exploitable."

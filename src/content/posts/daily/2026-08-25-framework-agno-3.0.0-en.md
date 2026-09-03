@@ -2,6 +2,7 @@
 title: "Framework Update | Agno 3.0.0"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, agno]
 lang: en
 description: "Agno 3.0 is a database-breaking major release: runs move from session JSON blobs into dedicated typed tables, cutting write amplification from O(N²) to O(N) — but you must run migration before upgrading"

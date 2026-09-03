@@ -2,6 +2,7 @@
 title: "資安警報｜Grok 遭加密提示注入攻擊——零點擊竊取對話紀錄與個資"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection, data-exfiltration]
 lang: zh-TW
 description: "資安公司 Adversa AI 揭露 Cryptographic Context Injection 技術，只要請 xAI Grok 摘要一個惡意網頁，就能在使用者無感、無需點擊的情況下竊取姓名、位置、訂閱等級與完整對話紀錄；漏洞自 6 月通報至今 xAI 仍未修補"

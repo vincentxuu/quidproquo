@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-18"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Agent 生態的資安負債正在被明碼標價——Check Point 抓出六大框架 11 個漏洞、Flowise 一年內第四次被爆 RCE，而 Stripe 用 70 億美元買下模型路由層，說明誰能把風險收斂成一個可信賴關卡，誰就掌握下一階段的價值"

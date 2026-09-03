@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-28"
 date: 2026-05-28
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-deployment, agent-coding]
 lang: en
 description: "Three papers filling gaps in agent platform knowledge: AgentFugue shows peer agents sharing a reasoning scratchpad can break through long-task collaboration bottlenecks; Can Agent Benchmarks Support Their Scores? exposes systematic flaws in current agent benchmark scoring; VibeServe lets agents auto-generate full LLM serving stacks that outperform hand-tuned vLLM in niche deployment scenarios."

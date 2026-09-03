@@ -2,6 +2,7 @@
 title: "工具推薦｜Vercel Run SDK — 讓 agent 生成的程式碼在沙盒裡跑，卡在核可也不用重來"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, sdk]
 lang: zh-TW
 description: "Vercel 開源的 QuickJS 沙盒執行環境，讓 agent 生成的 JS/TS 只能呼叫你明確開放的 host function，中斷等人核可後還能從斷點續跑、不重跑已完成的呼叫"

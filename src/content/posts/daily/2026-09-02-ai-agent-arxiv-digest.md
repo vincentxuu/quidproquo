@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-09-02"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory]
 lang: zh-TW
 description: "三篇論文從不同層次審視 Agent 的記憶與 context 管理——訓練 Agent 自己判斷哪個記憶操作值得留、拿受控實驗檢驗知識圖記憶是否真的比較好、以及該怎麼決定該留哪個工具的輸出"

@@ -2,6 +2,7 @@
 title: "Agent Platform Deep Dive (Part 4) — Provider Router & MCP: Multi-Provider Routing, Fallback Chains, and an OpenAI-Compatible Proxy"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "provider-router", "mcp", "openai-proxy", "fallback", "model-mapping", "agent-platform"]
 lang: en
 description: "A deep dive into the Agent Platform Provider Router: a unified Provider Registry, 10+ LLM and 12 Search providers plus 2 Reader providers, Groundlane MCP integration, step-local tool selection, fallback chains with health-aware routing, an OpenAI-compatible Proxy API (/v1/chat/completions), model alias mapping, and cross-provider format normalization."

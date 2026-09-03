@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-22"
 date: 2026-07-22
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-deployment]
 lang: zh-TW
 description: "三篇論文從基礎設施、可觀測性、評估三個角度切入同一個核心問題：「如何打造真正可靠的 agent 系統"

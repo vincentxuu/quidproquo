@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-17"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-rag, cost-optimization]
 lang: en
 description: "Three papers converge on a single theme — agent memory systems need more than retrieval accuracy: RippleMem uses associative spreading from initial evidence as cues, Total Recall reveals that memory serving costs are unpredictable from conversation length and not necessarily cheaper than resending the full history, and MESA shows how to dynamically select memory structures while balancing accuracy and cost"

@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L01：課程導論 —— Deep Learning 的地圖、為什麼深，以及第一個訓練 loop"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

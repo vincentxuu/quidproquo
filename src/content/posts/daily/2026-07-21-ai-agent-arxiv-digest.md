@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-21"
 date: 2026-07-21
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, multi-agent, agent-framework]
 lang: zh-TW
 description: "今天三篇論文從不同層面回答同一個問題：「怎樣才算一個真正能用的 agent 系統"

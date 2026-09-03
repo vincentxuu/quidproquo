@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-08-27: LLM & Agent Engineering"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, llm-engineering]
 lang: en
 description: "Today's practice covers LLM and agent engineering: when to upgrade RAG to agentic RAG, the layered structure of a context window and the lost-in-the-middle problem, guardrails that resist prompt injection, and how to tell apart RLHF and the three agent failure modes."

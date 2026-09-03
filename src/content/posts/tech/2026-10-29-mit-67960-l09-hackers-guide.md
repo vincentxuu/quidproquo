@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L09：深度學習駭客指南 —— 讓網路真正聽你使喚的實作心法"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

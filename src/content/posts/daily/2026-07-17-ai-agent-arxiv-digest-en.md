@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-17"
 date: 2026-07-17
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-framework, agent-evaluation]
 lang: en
 description: "Three papers tackling core agent platform pain points from different angles: the first proposes a framework for making e-commerce sites AI browser-agent friendly, boosting success rates from 49% to 89%; the second uses dynamic abstention-aware RL to teach search agents when to say 'I don't know'; the third introduces an agent OS for embodied robots whose multi-modal graph memory and context-isolated skill execution offer direct inspiration for general agent platforms."

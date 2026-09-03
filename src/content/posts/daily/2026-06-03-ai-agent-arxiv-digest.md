@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-03"
 date: 2026-06-03
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-memory, agent-framework]
 lang: zh-TW
 description: "今天三篇論文從 agent 記憶的「互通標準化」、「隱層效率化」、到「預算感知缺失」三個維度切入：第一篇獨立研究者提出跨框架記憶電線格式，試圖解決 mem0、Letta、Cognee 各自為政的碎片化；第二篇把過去經驗的「文字塞 context」改成在 LLM 隱層空間做向量檢索，12/13 ben"

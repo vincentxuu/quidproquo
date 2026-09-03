@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-09-03：LLM & Agent Engineering"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, llm-engineering]
 lang: zh-TW
 description: "今日練 LLM 與 Agent 工程：為什麼 retrieval 準確率高、答案準確率卻低，agent context window 變大反而讓品質下降的『context pollution』，以及 RAG 和 fine-tuning、LLM-as-judge 該怎麼用在對的地方。"

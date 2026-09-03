@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-30"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "Agent autonomy is collapsing the transaction cost of both doing real work and doing damage — today had no direction, only speed"

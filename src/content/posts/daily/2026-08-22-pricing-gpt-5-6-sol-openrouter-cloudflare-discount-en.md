@@ -2,6 +2,7 @@
 title: "Pricing Watch | GPT-5.6 Sol Half-Price on Both OpenRouter and Cloudflare Through 9/18"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, openai]
 lang: en
 description: "OpenRouter and Cloudflare AI Gateway both slashed GPT-5.6 Sol pricing by 50% ($5/$30 down to $2.50/$15 per million tokens) — non-BYOK traffic only, running through 2026-09-18"

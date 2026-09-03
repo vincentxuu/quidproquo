@@ -2,6 +2,7 @@
 title: "Model Card｜Tencent Hy4 Preview"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, tencent, model-family-hunyuan]
 lang: en
 description: "Tencent Hunyuan open-sources Hy4 preview — a 770B/49B-active MoE flagship with 1M context that, for the first time, lets the model participate in optimizing its own training and inference, lifting end-to-end throughput 31.8%"

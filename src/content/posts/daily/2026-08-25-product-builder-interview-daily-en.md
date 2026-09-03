@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-25: Metrics & Analytics"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [product-builder-interview, daily, metrics]
 lang: en
 description: "Today's Metrics & Analytics interview practice: metric trees, the AARRR framework, and a real Google PM analytics round case study — 'DAU is up but advertisers are leaving.'"

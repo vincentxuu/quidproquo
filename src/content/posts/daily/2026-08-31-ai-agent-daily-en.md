@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-31"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "Agent attack chains are standardizing into cross-vendor-reusable exploit patterns — defense and regulatory response now need to shift from 'wait for the CVE' to 'assume it's already been exploited'"

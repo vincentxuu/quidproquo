@@ -2,6 +2,7 @@
 title: "Model Card | Muse Spark 1.2"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, meta]
 lang: en
 description: "Meta releases Muse Spark 1.2 and its first code agent Muse Code — 1M context, pricing unchanged at $1.25/$4.25, GDPval-AA v2 Elo jumps 260 points"

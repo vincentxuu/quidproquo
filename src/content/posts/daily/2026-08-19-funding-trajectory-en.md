@@ -2,6 +2,7 @@
 title: "Funding Brief｜Trajectory Series A $40M"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, trajectory, continual-learning]
 lang: en
 description: "AI Agent continual learning infrastructure Trajectory closes $40M Series A led by Sequoia, valuation jumping from $115M to $300M in 3 months"

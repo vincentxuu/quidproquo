@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-19"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "DeepSeek 開源 agent harness「dsh」一小時破兩萬星創 GitHub 最快紀錄；xAI 完成收購 Cursor；Anthropic 年化營收衝上 $65B 同時控訴中國業者工業規模蒸餾 Claude；台灣政府遭中國 AI agent 群體入侵"

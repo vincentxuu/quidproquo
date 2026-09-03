@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-12"
 date: 2026-06-12
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-deployment, agent-reasoning]
 lang: zh-TW
 description: "今天三篇論文從「如何評量 agent」和「agent 究竟是什麼」兩個角度出發：T1-Bench 建出橫跨 25 個真實業務領域的高仿真 benchmark，讓多領域跨域推理能力首次有系統性量化基準；VISTA 解決「用 LLM 模擬使用者測 agent」的可信度難題，提供 6 個指標量化你的測試有"

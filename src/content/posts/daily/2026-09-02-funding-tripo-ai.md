@@ -2,6 +2,7 @@
 title: "融資速報｜Tripo AI Series B + B+ 合計人民幣 30 億"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, tripo-ai, generative-3d]
 lang: zh-TW
 description: "Watchlist 公司 Tripo AI（母公司 VAST）完成 Series B 與 B+ 合併輪，募得約人民幣 30 億元，MPCi 領投"

@@ -2,6 +2,7 @@
 title: "融資速報｜Onyx Security Series B $113M"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, onyx-security, agent-security]
 lang: zh-TW
 description: "Onyx Security 完成 $113M Series B，由 Bessemer 領投，估值約 $640M——要做「AI Agent 版的 CrowdStrike」"

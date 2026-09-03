@@ -2,6 +2,7 @@
 title: "定價追蹤｜Claude Sonnet 5 漲價喊卡，$2/$10 定價變永久"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, anthropic]
 lang: zh-TW
 description: "Anthropic 取消原訂 2026-09-01 生效的 Claude Sonnet 5 漲價，上市促銷價 $2/$10（每百萬 tokens input/output）直接轉為永久標準價，迴避了本應到來的 50% 漲幅"

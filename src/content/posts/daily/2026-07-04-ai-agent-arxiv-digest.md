@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-04"
 date: 2026-07-04
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-framework, agent-memory]
 lang: zh-TW
 description: "今天三篇各自揭露了 agent 系統的一個評估盲點：記憶讓 agent 更「諂媚」卻少被測試（MemSyco-Bench）；現有安全 benchmark 把所有失敗壓成 pass/fail，分不清真正原因（Adversarial Pragmatics）；多個 LLM agent 組成的集群，因為以自"

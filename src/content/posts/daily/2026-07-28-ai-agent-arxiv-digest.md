@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-28"
 date: 2026-07-28
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-deployment, agent-reasoning]
 lang: zh-TW
 description: "今天三篇論文從三個角度直擊 Agent 平台核心挑戰：**AgentCompass** 提出可組合的開源評測基礎設施，終結 agent 評測各自為政的碎片化亂象；**Agents in the Wild** 是少見的生產落地報告，從藥物研發與金融系統的真實部署歸納出可複用的設計模式；**Nanbei"

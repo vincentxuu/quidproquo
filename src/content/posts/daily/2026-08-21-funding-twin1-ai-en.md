@@ -2,6 +2,7 @@
 title: "Funding Brief｜Twin1 AI $20M Seed Round"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, twin1-ai, agent-memory]
 lang: en
 description: "Twin1 AI, built by the original Eigen Technologies team, emerges from stealth with a $20M seed round co-led by Bessemer, Tribeca, and Aramco Ventures — building a digital twin for every professional knowledge worker"

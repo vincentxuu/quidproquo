@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L01: Course Introduction — A Map of Deep Learning, Why Depth Works, and Your First Training Loop"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

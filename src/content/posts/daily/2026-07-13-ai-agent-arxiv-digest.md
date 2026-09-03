@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-13"
 date: 2026-07-13
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-deployment, agent-evaluation]
 lang: zh-TW
 description: "今天三篇論文共同呼應一個趨勢：生產環境 agent 的瓶頸已不在模型能力，而在「狀態管理」"

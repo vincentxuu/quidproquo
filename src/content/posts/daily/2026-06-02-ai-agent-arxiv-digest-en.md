@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-02"
 date: 2026-06-02
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-memory, agent-security]
 lang: en
 description: "Three papers tackling core pain points of agent platforms from different angles: the first proposes fine-tuning orchestrator logic directly into small model weights, cutting per-conversation cost by 128–462×; the second, from IBM Research, builds a three-level automated evaluation framework for agent execution behavior; the third, from Microsoft, proposes a cross-platform portable memory protocol for agents."

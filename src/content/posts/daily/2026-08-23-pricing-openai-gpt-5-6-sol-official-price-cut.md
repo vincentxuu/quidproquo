@@ -2,6 +2,7 @@
 title: "定價追蹤｜OpenAI 親自出手，GPT-5.6 Sol 官方標準價砍 20-33%"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, openai]
 lang: zh-TW
 description: "OpenAI 8/21 直接調降旗艦模型 GPT-5.6 Sol 的官方標準費率，input 從 $5 降到 $4（↓20%）、output 從 $30 降到 $20（↓33%），促銷期至少到 2026-11-21，這次不是平台代打折，是廠商自己動手"

@@ -2,6 +2,7 @@
 title: "Funding Brief｜Runable Series A $21M"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, runable, agent-platform]
 lang: en
 description: "Indian startup Runable closes $21M Series A for an AI agent that builds a business, then runs and grows it — hit $2M ARR in three weeks"

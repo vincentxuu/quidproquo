@@ -2,6 +2,7 @@
 title: "模型卡｜Tencent Hy4 Preview"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, tencent, model-family-hunyuan]
 lang: zh-TW
 description: "騰訊混元開源 Hy4 preview——770B 總參數／49B 活躍的 MoE 旗艦，1M context，首度讓模型參與自己的訓練與推理優化，端到端吞吐量因此提升 31.8%"

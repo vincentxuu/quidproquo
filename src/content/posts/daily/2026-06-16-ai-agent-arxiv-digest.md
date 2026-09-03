@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-16"
 date: 2026-06-16
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-deployment, agent-evaluation, agent-framework]
 lang: zh-TW
 description: "今天三篇論文從「訓練 → 架構 → 環境」三個層次，一起回答同一個問題：怎麼讓 Agent 在真實系統裡更可靠"

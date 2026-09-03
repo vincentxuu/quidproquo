@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-24"
 date: 2026-06-24
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-evaluation, agent-reasoning]
 lang: en
 description: "Three papers tackling agent platform pain points from tool reliability, protocol selection, and multi-agent collaboration: PlanBench-XL shows top LLMs collapse when tools fail in large ecosystems (GPT-5.4 drops from 52% to 11%); TU Munich delivers the first technical taxonomy of 9 protocols including MCP/A2A/ACP/ANP; AMD's Arbor proposes tree search as a shared cognition layer for multi-agent systems."

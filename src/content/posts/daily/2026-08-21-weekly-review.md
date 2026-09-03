@@ -2,6 +2,7 @@
 title: "AI Agent 週回顧 — 2026-08-21"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, weekly, daily]
 lang: zh-TW
 description: "本週最大的認知變化：AI 的價值正從模型層移向整併層與 harness 層，而 Agent 記憶同時變成了互補資產與新攻擊面"

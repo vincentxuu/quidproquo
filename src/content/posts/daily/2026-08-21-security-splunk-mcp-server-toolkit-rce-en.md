@@ -2,6 +2,7 @@
 title: "Security Alert | Splunk MCP Server Hit with CVSS 9.1 Deserialization RCE, AI Toolkit Also Affected"
 date: 2026-08-21
 category: daily
+type: digest
 lang: en
 tags: [ai-agent, security, daily, privilege-escalation, mcp]
 description: "Splunk patches 17 vulnerabilities in one batch — the MCP Server app's credential management component has a deserialization flaw letting admin-role users achieve host-level arbitrary command execution, and the AI Toolkit's model-loading API has a similar deserialization RCE"

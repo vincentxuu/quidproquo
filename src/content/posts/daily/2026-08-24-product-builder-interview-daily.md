@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-24：Product Sense"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [product-builder-interview, daily, product-sense]
 lang: zh-TW
 description: "今日練 Product Sense 面試：CIRCLES 框架、MECE 使用者分群技巧，以及一道改編自 Google PM 真實面試 debrief 的「幫銀髮族改善 YouTube 搜尋體驗」題目拆解。"

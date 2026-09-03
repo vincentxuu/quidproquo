@@ -2,6 +2,7 @@
 title: "模型卡｜DeepSeek-V4-Flash-Vision-Exp"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, deepseek, model-family-deepseek]
 lang: zh-TW
 description: "DeepSeek 為 V4-Flash 系列首次裝上「眼睛」——同一套 MoE 骨幹加視覺模組，文字 agent 分數不降反升，多模態 agent 表現逼近 Claude Opus 4.8，定價卻與純文字版完全相同"

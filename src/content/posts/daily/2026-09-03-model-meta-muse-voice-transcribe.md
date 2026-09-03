@@ -2,6 +2,7 @@
 title: "模型卡｜Muse Voice Transcribe"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, meta, model-family-muse]
 lang: zh-TW
 description: "Meta 發佈首款即時語音感知模型 Muse Voice Transcribe——單一模型整合 streaming ASR、20+ 人 diarization 與 endpointing，WER 3.1% 拿下 Artificial Analysis 串流語音辨識第一"

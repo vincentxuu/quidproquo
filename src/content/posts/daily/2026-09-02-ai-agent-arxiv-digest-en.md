@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-09-02"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory]
 lang: en
 description: "Three papers examine agent memory and context management at different levels — training an agent to judge which memory operations are worth keeping, testing whether graph-structured memory actually helps, and deciding which tool outputs to retain in-session"

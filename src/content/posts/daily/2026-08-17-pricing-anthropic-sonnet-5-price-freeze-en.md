@@ -2,6 +2,7 @@
 title: "Pricing Watch｜Claude Sonnet 5 Price Hike Canceled — $2/$10 Becomes Permanent"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, anthropic]
 lang: en
 description: "Anthropic cancels the planned 2026-09-01 price increase for Claude Sonnet 5 — the launch promo rate of $2/$10 per million tokens (input/output) is now the permanent standard price, sidestepping a 50% hike"

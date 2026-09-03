@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-28"
 date: 2026-06-28
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-deployment, agent-memory, agent-framework]
 lang: zh-TW
 description: "今天三篇分別從不同層次切入「打造生產級 Agent 系統」：一本涵蓋 LLM 基礎到 multi-agent 架構的全棧實用指南、一個讓 Agent 在長任務中自主決定何時壓縮上下文的輕量 scaffold、以及一篇把 Agent 強化學習信用分配從「工具呼叫點」精細到「token 層級」的訓練演算"

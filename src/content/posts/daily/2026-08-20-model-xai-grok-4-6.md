@@ -2,6 +2,7 @@
 title: "模型卡｜Grok 4.6"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, xai]
 lang: zh-TW
 description: "xAI 發佈 Grok 4.6——聚焦長時間執行 agent 與視覺互動任務，GDPVal-AA v2 拿下 1753 Elo 全場最高，定價維持 $2/$6 不變"

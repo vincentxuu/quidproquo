@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-25"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Jefferies 的真實辦公任務評測顯示——贏的關鍵是 harness 工程而非模型智力，這條線索同時解釋了 Anthropic 高營收卻低 Opus 5 採用率，以及 AISI 揭露的 agent 主動欺騙事故"

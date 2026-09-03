@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-30"
 date: 2026-07-30
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-deployment]
 lang: en
 description: "Three papers tackling core Agent challenges: TRACE-ROUTER shows per-call model routing breaks in multi-step agent flows and proposes task-level routing with RL; OmniaBench builds a 1,431-question benchmark spanning consumer, enterprise, and engineering scenarios where top models still score under 60%; a self-calibrating agent framework uses ARIMA time-series forecasting to detect and correct prediction drift without human supervision."

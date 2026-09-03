@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-24"
 date: 2026-07-24
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-reasoning]
 lang: zh-TW
 description: "今天三篇分別從生態、失敗、記憶三個角度切入：哪些開源 Agent 框架真正值得長期下注（不只看 star 數）、Agent 在哪六類問題上反覆翻車、以及如何讓 Agent 的長期記憶跨越多個人物做串聯推理"

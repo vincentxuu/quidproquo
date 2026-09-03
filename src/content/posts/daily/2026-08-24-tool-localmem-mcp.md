@@ -2,6 +2,7 @@
 title: "工具推薦｜localmem-mcp — 不叫 LLM、不連雲端的 Agent 記憶體"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "localmem-mcp 是一個本機優先的 MCP 記憶體伺服器：用 SQLite + 本機 embedding 做語意搜尋，recall 完全不叫 LLM，也不需要任何 API key，20+ 種 coding agent 都能共用同一份記憶"

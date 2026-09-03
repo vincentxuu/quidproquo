@@ -2,6 +2,7 @@
 title: "資安警報｜Claude Code Auto Mode 被繞過——一句「幫我摘要這個網站」靠 Python 模組覆蓋打出 80% 遠端程式碼執行"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection]
 lang: zh-TW
 description: "資安研究者 Johann Rehberger（wunderwuzzi）證實，Claude Code Opus 5 在官方新預設的 Auto Mode 下，光靠「摘要一個網站」的正常任務就能被誘導成遠端程式碼執行，三種攻擊變體的成功率介於 60%–80%，Anthropic 將回報結案為「設計如此」"

@@ -2,6 +2,7 @@
 title: "Agent Platform 深度解析（四）— Provider Router & MCP：多 Provider 路由、Fallback 鏈與 OpenAI 相容 Proxy"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "provider-router", "mcp", "openai-proxy", "fallback", "model-mapping", "agent-platform"]
 lang: zh-TW
 description: "Agent Platform Provider Router 深度解析：統一 Provider Registry、10+ LLM + 12 Search + 2 Reader providers、Groundlane MCP 整合、Step-local tool selection、Fallback chain with health-aware routing、OpenAI 相容 Proxy API（/v1/chat/completions）、model alias mapping 與跨 provider 格式正規化。"

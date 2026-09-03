@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-19"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-harness, coding-agent]
 lang: zh-TW
 description: "DeepSeek Harness 一小時衝破兩萬星、寫下 GitHub 史上最快星數紀錄，模型公司正集體往「harness 層」卡位"

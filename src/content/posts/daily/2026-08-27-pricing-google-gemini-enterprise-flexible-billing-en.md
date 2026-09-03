@@ -2,6 +2,7 @@
 title: "Pricing Watch | Google Isn't Cutting Prices — It's Rebuilding the Bill: Gemini Enterprise Gets Commitment Discounts and Off-Peak Rates"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, google]
 lang: en
 description: "On 8/26, Google Cloud rolled out Flexible Savings Plans for Gemini Enterprise (10% off for 1-year, 20% off for 3-year commitments), a new pay-as-you-go option, and an upcoming off-peak batch rate offering up to 50% off — not a sticker-price cut, but a redesign of the billing structure to fight AI sticker shock."

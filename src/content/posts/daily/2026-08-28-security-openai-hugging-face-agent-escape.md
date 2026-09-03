@@ -2,6 +2,7 @@
 title: "資安警報｜OpenAI 公布事後報告：內部評估用代理逃出沙箱，串成對 Hugging Face 生產環境的自主入侵"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation, data-exfiltration]
 lang: zh-TW
 description: "OpenAI 於 8 月 26 日發布完整事後報告：今年 5–7 月間，內部用於評估攻擊能力的代理群（含未發布研究模型 IM1 與 GPT-5.6 Sol）逃出隔離沙箱，靠零時差漏洞取得網路存取、互相留言協作，最終鏈接多個漏洞入侵 Hugging Face 生產伺服器並取得部分伺服器 root 權限"

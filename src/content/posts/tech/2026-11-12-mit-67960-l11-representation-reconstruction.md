@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L11：表示學習（重建式）—— 自編碼器、VQ 與自監督"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

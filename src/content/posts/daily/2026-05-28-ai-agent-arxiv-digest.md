@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-28"
 date: 2026-05-28
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-deployment, agent-coding]
 lang: zh-TW
 description: "今天三篇論文從三個角度補齊 agent 平台知識：AgentFugue 展示多個 peer agent 共享「推理暫存筆記」可突破長任務協作瓶頸；Can Agent Benchmarks Support Their Scores? 揭露當前 agent benchmark 的評分機制存在系統性漏洞，"

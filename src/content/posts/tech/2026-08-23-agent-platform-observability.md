@@ -2,6 +2,7 @@
 title: "Agent Platform 深度解析（六）— Observability、Evidence 與 Artifacts：結構化 Trace、Claim-to-Source 追溯與版本化產出"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "observability", "evidence", "artifacts", "trace", "audit", "agent-platform"]
 lang: zh-TW
 description: "Agent Platform Observability/Evidence/Artifacts 深度解析：結構化 Trace 階層、衍生指標、Evidence Store（Claim↔Source↔Excerpt↔Citation）、Artifact 版本化、Markdown Report + JSON Evidence Bundle MVP 格式、Context Snapshot 預算分配與壓縮、Scoped Memory（Procedural/Episodic/Semantic）、Memory Write Proposal 機制。"

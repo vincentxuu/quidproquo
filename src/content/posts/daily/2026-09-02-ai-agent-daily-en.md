@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-09-02"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "Model leaderboard position is decoupling from procurement decisions — the same day Claude Fable 5.1 swept CursorBench's top two spots, the Pentagon bypassed Anthropic for ChatGPT and Grok"

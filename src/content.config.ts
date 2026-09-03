@@ -19,7 +19,7 @@ const posts = defineCollection({
     draft: z.boolean().default(false),
     search: z.boolean().default(true),
     pinned: z.boolean().default(false),
-    type: z.enum(['debug', 'deep-dive', 'guide', 'project']).optional(),
+    type: z.enum(['debug', 'deep-dive', 'digest', 'guide', 'project']).optional(),
     difficulty: z.enum(['入門', '進階', '深度']).optional(),
     readingTime: z.number().optional(),
     // Rendered as a visible FAQ section and emitted as FAQPage structured data.

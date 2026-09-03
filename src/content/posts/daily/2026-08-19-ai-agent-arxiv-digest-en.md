@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-19"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, rag]
 lang: en
 description: "Three papers today tackle the same problem — an agent's memory and retrieval system must not only find information but store it right, retrieve it accurately, and trust it appropriately: QUMem splits long-term memory into independently retrievable typed episodes, LENS uses index-free iterative narrowing for constantly-updated documents, and Intent-Guided Decoding arbitrates at decode time whether to trust retrieved content or the model's own memory"

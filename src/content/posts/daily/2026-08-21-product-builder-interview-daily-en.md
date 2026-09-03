@@ -2,6 +2,7 @@
 title: "Product Builder Interview Prep — 2026-08-21: Growth & Experimentation"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [product-builder-interview, daily, growth]
 lang: en
 description: "Today's practice covers growth and experimentation design interviews: the difference between growth loops and funnels, a six-step experiment diagnosis framework, and how to turn experiment results into a business story."

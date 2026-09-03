@@ -2,6 +2,7 @@
 title: "定價追蹤｜OpenAI Assistants API 正式停用，遷移選模型牽動成本"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, openai]
 lang: zh-TW
 description: "OpenAI Assistants API 已於 2026-08-26 正式停用，無降級模式也無官方遷移工具；被迫遷移到 Responses/Conversations API 時選 Sol 還是 Terra，同一個工作量的月成本可以差到 44%"

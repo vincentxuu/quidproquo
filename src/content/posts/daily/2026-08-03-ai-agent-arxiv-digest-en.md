@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-03"
 date: 2026-08-03
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-framework, agent-security]
 lang: en
 description: "Three papers tackling multi-agent platform challenges from three angles: organizational design, security isolation, and user-level authorization"

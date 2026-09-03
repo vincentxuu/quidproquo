@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-11"
 date: 2026-08-11
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, multi-agent, agent-evaluation]
 lang: zh-TW
 description: "今天三篇共同指向同一個問題——多 Agent 系統從 demo 走進 production 的三道關卡：記憶不該只檢索要能編譯、角色分工要深入參數層、壞了要有統一的歸因模型"

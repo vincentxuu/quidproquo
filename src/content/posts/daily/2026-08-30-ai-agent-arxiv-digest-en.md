@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-30"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "Three new papers examine the control gates that fail before an AI agent takes action: misleading evidence, tool-output authorization, and cross-loop safety state"

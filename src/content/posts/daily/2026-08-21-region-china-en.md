@@ -2,6 +2,7 @@
 title: "Region Focus | China"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, region, daily, china]
 lang: en
 description: "DeepSeek open-sources its Agent execution framework DeepSeek Harness while sharply raising API prices; Alibaba open-sources flagship Qwen weights; Zhipu delays GLM-5.3 open-source over 'emergent' cybersecurity capabilities; ByteDance and Tencent approved to import H200 chips"

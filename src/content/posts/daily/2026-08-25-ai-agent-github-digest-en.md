@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-25"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-framework, plugin-marketplace, sre-agent]
 lang: en
 description: "Today's trending projects split into two poles — Agent-Reach gives agents eyes across the entire web, opensre puts agents on incident response in production, while LangChain and Anthropic are each building foundational infrastructure for agent harnesses and plugin trust layers"

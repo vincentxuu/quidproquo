@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-17"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp-server, deepseek]
 lang: zh-TW
 description: "DeepSeek 官方 CLI harness dsh 一週內在中文開發者社群冒出至少五個獨立桌面包裝版；同時兩個新工具選擇補強既有 agent loop，而不是再造一個框架"

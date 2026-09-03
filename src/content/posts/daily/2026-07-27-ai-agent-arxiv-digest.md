@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-27"
 date: 2026-07-27
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-rag, agent-evaluation]
 lang: zh-TW
 description: ""

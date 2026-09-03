@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-27"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "今天三篇論文戳破 agent 工具呼叫的三層盲點——寫工具和用工具的模型互相脫節、平行呼叫工具時對資源視而不見、多輪對話裡早期資訊在生成下一步動作時被悄悄蓋掉"

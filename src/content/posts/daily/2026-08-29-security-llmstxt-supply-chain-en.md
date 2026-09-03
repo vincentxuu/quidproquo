@@ -2,6 +2,7 @@
 title: "Security Alert｜The llms.txt Supply-Chain Gap: AI Agents Installed Unclaimed Packages Into Fortune 500 Networks Just by Reading a Vendor's Own Docs"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain]
 lang: en
 description: "An Israeli stealth security startup scanned llms.txt/llms-full.txt files across 6,214 domains and found 237+ install commands pointing to packages and domains that were never registered; after claiming a few and wiring in a phone-home beacon, a Fortune 500 company's Claude, Codex, or Hermes agent installed and ran one within 4 minutes — and a live malicious package was already sitting in Clerk's own documentation"

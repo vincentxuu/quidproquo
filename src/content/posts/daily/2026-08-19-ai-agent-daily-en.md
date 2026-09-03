@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-19"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "DeepSeek open-sources agent harness 'dsh' hitting 20K GitHub stars in one hour — the fastest ever; xAI completes Cursor acquisition; Anthropic ARR hits $65B while accusing Chinese firms of industrial-scale Claude distillation; Taiwan government breached by Chinese AI agent swarm"

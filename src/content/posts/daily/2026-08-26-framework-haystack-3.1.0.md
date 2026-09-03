@@ -2,6 +2,7 @@
 title: "框架更新｜Haystack 3.1.0"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, haystack]
 lang: zh-TW
 description: "Haystack 3.1 補齊了兩個生產必需品：用 Hook + Compactor 組合出的 context compaction，以及能把整個 Agent 包成一個 Tool 的 AgentTool，同時關掉了好幾個反序列化 RCE 洞"

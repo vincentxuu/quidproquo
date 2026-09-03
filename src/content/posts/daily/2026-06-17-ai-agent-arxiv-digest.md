@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-17"
 date: 2026-06-17
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-rag, agent-deployment]
 lang: zh-TW
 description: "今天三篇從不同角度挑戰「agent 工具使用與記憶」的基本假設：Evoflux 揭示小模型在 MCP 工具目錄前幾乎失能（執行成功率僅 3%），並用推論時演化搜尋把數字拉到 17-24%；FlowBank 指出 agent workflow 不必每次重新生成，預計算多樣化 workflow 倉庫再智"

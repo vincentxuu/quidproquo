@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L14: Generative Models Basics — Density/Energy Models, GANs, Autoregressive, Diffusion"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

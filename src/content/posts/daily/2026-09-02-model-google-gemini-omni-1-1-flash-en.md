@@ -2,6 +2,7 @@
 title: "Model Card｜Gemini Omni 1.1 Flash"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, google, model-family-gemini]
 lang: en
 description: "Google graduates Gemini Omni Flash from preview to gemini-omni-1.1-flash — scene extension now reads 10 seconds of context instead of just the last one, adds first/last-frame camera control, ships 4K output via upscaling, and prices by resolution tier ($0.03 to $0.30 per second)"

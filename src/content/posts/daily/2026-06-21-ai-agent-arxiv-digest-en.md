@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-21"
 date: 2026-06-21
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-reasoning]
 lang: en
 description: "Three papers paint a full picture of how agents land in the real world: Perplexity + Harvard Business School use production data to quantify the agent vs. chatbot gap for the first time — 87% faster task completion, and agents attract cognitively harder work; Self-Harness shows how agent scaffolding can automatically mine weaknesses and fix itself, yielding 33-60% relative gains across three models; The Consistency Illusion exposes a core trap in multi-agent debate — output-level consensus can mask fundamentally misaligned reasoning underneath."

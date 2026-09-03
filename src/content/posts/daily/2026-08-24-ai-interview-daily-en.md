@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-08-24: ML Fundamentals"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, machine-learning]
 lang: en
 description: "Today's ML fundamentals drill: diagnosing bias-variance gaps, geometric intuition behind L1/L2 regularization, choosing loss functions that match business objectives, and why AdamW differs from Adam with L2."

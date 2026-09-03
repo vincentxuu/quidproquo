@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-30：Behavioral & Weekly Review"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [product-builder-interview, daily, behavioral]
 lang: zh-TW
 description: "今日練 Behavioral 面試：用 STAR-R 框架（比經典 STAR 多一個 Reflection）拆解一道『沒有職權卻要說服工程主管』的真實情境題，並附上本週七天回顧。"

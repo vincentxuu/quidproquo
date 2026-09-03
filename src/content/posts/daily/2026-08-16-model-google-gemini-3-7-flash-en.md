@@ -2,6 +2,7 @@
 title: "Model Card | Gemini 3.7 Flash"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, google]
 lang: en
 description: "Google releases Gemini 3.7 Flash — same pricing as 3.6 Flash, DeepSWE v1.1 jumps from 48.6% to 65.3%, targeting enterprise-grade agentic coding and long-running automation"

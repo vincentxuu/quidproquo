@@ -2,6 +2,7 @@
 title: "資安警報｜AI 安全研究機構 METR 遭竊 API 金鑰、燒掉 60 萬美元推論額度——攻擊者靠憑證透明度紀錄找到曝露的 agent dashboard"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation]
 lang: zh-TW
 description: "METR 公布兩起 2026 年安全事件：3 月有研究員自架的 vibe-coded agent dashboard 因 fail-open 漏洞讓驗證形同虛設,被攻擊者直接對 agent 下指令騙出 API 金鑰,盜用三週燒掉約 60 萬美元推論額度;5 月則遭有組織攻擊者系統性掃描,意外曝露的唯讀 SQL 查詢端點差點洩漏未發布評測資料"

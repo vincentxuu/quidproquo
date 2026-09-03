@@ -2,6 +2,7 @@
 title: "資安警報｜CoreBreak——AWS Bedrock、Google ADK、Vercel AI SDK 派發層漏洞讓工具呼叫繞過模型直接執行"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation]
 lang: zh-TW
 description: "資安研究團隊 Stealth 在 Black Hat USA 2026 揭露 CoreBreak：AWS Bedrock AgentCore、Google ADK、Vercel AI SDK 的工具派發層都能在模型完全沒有執行的情況下觸發工具呼叫，讓所有 system prompt、內容過濾、拒絕訓練等模型層防禦形同虛設"

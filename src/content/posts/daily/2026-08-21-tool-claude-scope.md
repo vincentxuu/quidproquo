@@ -2,6 +2,7 @@
 title: "工具推薦｜claude-scope — 搜尋你的 Claude Code 對話歷史，結果保證不過期"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: zh-TW
 description: "一個 Claude Code 原生外掛，把 session 記錄索引成 SQLite FTS5，每次搜尋前先做增量同步，保證連正在進行的對話都搜得到"

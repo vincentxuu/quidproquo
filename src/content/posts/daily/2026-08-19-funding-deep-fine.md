@@ -2,6 +2,7 @@
 title: "融資速報｜DEEP.FINE Series B $6.6M"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, deep-fine, industrial-ai]
 lang: zh-TW
 description: "南韓工業空間智能新創 DEEP.FINE 完成 $6.6M B 輪，效性創投領投，把現場 AI Agent 從專案模式轉向 SaaS 訂閱"

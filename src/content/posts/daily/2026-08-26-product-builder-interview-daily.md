@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-26：Strategy & Execution"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [product-builder-interview, daily, strategy]
 lang: zh-TW
 description: "今日練 Strategy 面試：TAM-SAM-SOM 與 Porter's Five Forces 框架，以及一道改編自 Perplexity 2026 年競爭格局的『市佔率只有 2%，該怎麼鞏固定位』拆解題。"

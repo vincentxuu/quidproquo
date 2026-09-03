@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-04"
 date: 2026-08-04
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-evaluation, agent-rag]
 lang: zh-TW
 description: "今天三篇各從不同角度審視 AI Agent 的能力與極限：AutoMem 告訴你「記憶管理」是可以自動學習的獨立技能，光優化記憶就讓 32B 開源模型達到頂級商用模型水準；Shadow Evaluation 用真實 NeurIPS 投稿測試頂尖 Agent 能否做開放式 AI 研究——答案是否定的，"

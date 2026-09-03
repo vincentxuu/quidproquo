@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-07"
 date: 2026-07-07
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-framework, multi-agent]
 lang: zh-TW
 description: "今天三篇論文都圍繞「讓 agent 系統更安全、更可預測、不出包」這個主軸"

@@ -2,6 +2,7 @@
 title: "融資速報｜Owner Series D $240M"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, owner, vertical-agent]
 lang: zh-TW
 description: "餐飲業 AI 代理平台 Owner 完成 $240M D 輪，Goldman Sachs Alternatives 領投，估值來到 $2.3B"

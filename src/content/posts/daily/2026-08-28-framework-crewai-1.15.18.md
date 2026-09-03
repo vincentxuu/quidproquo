@@ -2,6 +2,7 @@
 title: "框架更新｜CrewAI 1.15.18"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, crewai]
 lang: zh-TW
 description: "CrewAI 1.15.18 把 conversational Flow 從實驗性功能升為穩定 API，正式匯入路徑改到 crewai.flow，舊的 crewai.experimental 路徑靠相容 shim 留著不壞"

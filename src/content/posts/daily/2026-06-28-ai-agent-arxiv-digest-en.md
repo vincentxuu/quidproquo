@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-28"
 date: 2026-06-28
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-deployment, agent-memory, agent-framework]
 lang: en
 description: "Three papers tackling production-grade agent systems from different angles: a full-stack practical guide from LLM foundations to multi-agent architectures, a lightweight scaffold that lets agents decide when to compress their own context, and an RL training algorithm that refines credit assignment from tool-call boundaries down to the token level."

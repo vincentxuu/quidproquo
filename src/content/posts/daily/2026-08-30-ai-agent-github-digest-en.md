@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-30"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp-server, agent-coding]
 lang: en
 description: "chrome-devtools-mcp tops today's TypeScript trending — coding agents' 'perception layer' (browser, code structure, context usage) is getting patched up all at once; pydantic-ai ships a pluggable durable-execution backend API"

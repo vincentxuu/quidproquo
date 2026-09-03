@@ -2,6 +2,7 @@
 title: "模型卡｜Qwen3.8-Flash-Next"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, qwen, model-family-qwen]
 lang: zh-TW
 description: "阿里通義千問釋出 Qwen3.8-Flash-Next——Qwen4 架構首次公開預覽，125B 參數只活躍 6B，靠 QSA 稀疏注意力與 N-gram Embedding 把長 context agent 任務的推理成本壓到 Qwen3.7-Plus 的訓練成本九分之一"

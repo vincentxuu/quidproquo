@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-11"
 date: 2026-07-11
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-evaluation, agent-framework]
 lang: zh-TW
 description: "今天三篇論文都在追問同一件事：Agent 系統如何才能「可靠地」運作"

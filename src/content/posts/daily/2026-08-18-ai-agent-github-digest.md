@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-18"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, context-engineering, mcp-server]
 lang: zh-TW
 description: "headroom 靠 context 壓縮衝上 6.6 萬星、agentmemory 用跨 agent 記憶衝上 2.7 萬星，今天的 GitHub Trending 說明 agent 生態的下一步戰場不在框架而在上下文"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-20"
 date: 2026-07-20
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, multi-agent, agent-evaluation]
 lang: zh-TW
 description: "今日三篇論文從三個不同角度審視 AI coding agent 的落地挑戰：第一篇用系統性實驗揭露 coding agent 在安裝套件時可被普通 README 發動供應鏈攻擊，且防禦能力主要取決於 harness 框架而非模型本身；第二篇提出 BPO 演算法，專為 sandbox-native a"

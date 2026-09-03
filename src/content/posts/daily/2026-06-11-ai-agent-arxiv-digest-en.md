@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-11"
 date: 2026-06-11
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-reasoning, agent-deployment]
 lang: en
 description: "Three papers today explore 'agent-native infrastructure' at different layers: the first redesigns API error responses to give agents structured recovery hints, dramatically improving tool-call success rates; the second argues Agent OS is the right abstraction for long-running agents; the third builds a hardware-aware simulator for multi-turn agent serving to quantify KV cache scheduling trade-offs."

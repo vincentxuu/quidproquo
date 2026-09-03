@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-04"
 date: 2026-07-04
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-framework, agent-memory]
 lang: en
 description: "Three papers each expose an evaluation blind spot in agent systems: memory makes agents more sycophantic yet rarely gets tested (MemSyco-Bench); existing safety benchmarks flatten every failure into pass/fail, obscuring root causes (Adversarial Pragmatics); LLM agent collectives, communicating in natural language, are actually more interpretable than black-box neural networks (Conversable Complexity)."

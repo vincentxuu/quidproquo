@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-09-03"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, personal-agent, agent-skills, agent-security, document-parsing]
 lang: zh-TW
 description: "個人 agent 開始留下可追溯的軌跡——Hermes Agent 自己學技能、Atlas 把每個 commit 綁回是哪個 agent session 改的，AG2 則用不靠 LLM 的規則中介層擋 prompt injection"

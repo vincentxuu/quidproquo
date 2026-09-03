@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-15"
 date: 2026-06-15
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-reasoning]
 lang: zh-TW
 description: "今天三篇從不同角度描繪「2026 年的 agent 現實」：UC Berkeley 用 1,000+ 個真實職場任務做成的 benchmark 顯示，當前最強 agent 在最難任務上平均只通過 2.6%；Microsoft 研究者訪談 17 位開發者後發現，他們都在無意識地發展出 4 種即興「監督"

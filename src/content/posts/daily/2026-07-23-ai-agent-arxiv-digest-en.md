@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-23"
 date: 2026-07-23
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-coding, agent-tool-use]
 lang: en
 description: "Today's common theme: **the way we evaluate agents is itself broken**"

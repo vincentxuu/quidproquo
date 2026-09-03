@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-14"
 date: 2026-08-14
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-harness, agent-evaluation, agent-safety]
 lang: en
 description: "Three papers point to the same thing — the harness around the model, not the model itself, determines Agent quality: instruction following is overestimated, safety boundaries can be auto-evolved from trajectories, and decomposed verifiers make self-improvement 5x cheaper"

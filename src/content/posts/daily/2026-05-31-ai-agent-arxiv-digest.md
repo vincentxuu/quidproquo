@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-31"
 date: 2026-05-31
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-security, agent-evaluation]
 lang: zh-TW
 description: "今天三篇論文切入三個不同層次：BenchTrace 跑了 1,821 個 agent 失敗片段，發現 GPT-4.1 和 Qwen3-32B 連「讀懂自己哪裡錯了」都不到三成通過——反思能力遠比想像差；Beyond Autonomy 從企業 SaaS 生產環境萃取出三層治理架構，是現有 agent "

@@ -2,6 +2,7 @@
 title: "融資速報｜Twin1 AI $20M 種子輪"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, twin1-ai, agent-memory]
 lang: zh-TW
 description: "Eigen Technologies 原班人馬成立的 Twin1 AI 帶著 $20M 種子輪離開隱身期，Bessemer、Tribeca、Aramco Ventures 共同領投，為每個專業工作者建一個數位分身"

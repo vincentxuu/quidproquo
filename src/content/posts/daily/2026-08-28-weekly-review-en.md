@@ -2,6 +2,7 @@
 title: "AI Agent Weekly Review — 2026-08-28"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, weekly, daily]
 lang: en
 description: "This week's biggest cognitive shift: agent security incidents graduated from 'fix the bug' to an architectural gap in single-step authorization, while post-training is becoming a standalone business of its own"

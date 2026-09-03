@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-18"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, context-engineering, mcp-server]
 lang: en
 description: "headroom hits 66K stars with context compression, agentmemory reaches 27K stars with cross-agent memory — today's GitHub Trending shows the next battleground in the agent ecosystem is context, not frameworks"

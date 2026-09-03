@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-07"
 date: 2026-06-07
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-memory, agent-framework]
 lang: en
 description: "Three papers tackle agent infrastructure decisions: ADK Arena quantitatively compares LangGraph, AutoGen, CrewAI and other frameworks on real-task completion rates and costs; Agent Memory offers the first computer-systems taxonomy of 10 memory designs covering latency, bandwidth, and scalability trade-offs; Search-Time Contamination questions deep research agent benchmarks—scores may be inflated by up to 4%."

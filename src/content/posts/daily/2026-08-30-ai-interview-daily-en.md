@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-08-30: Weekly Review & Behavioral"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, behavioral]
 lang: en
 description: "This week's behavioral practice: use the STAR framework to tell a real story about a production model's performance suddenly collapsing, plus a review of the five topics practiced this week."

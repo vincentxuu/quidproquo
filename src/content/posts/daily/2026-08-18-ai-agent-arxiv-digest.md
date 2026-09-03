@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-18"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-safety, multi-agent, agent-security]
 lang: zh-TW
 description: "今天三篇論文合起來戳破「多一層防護就等於安全」的迷思——ActBench 證明換框架擋不住高達 94% 的攻擊成功率，Agent Behavioral Contracts II 揭穿「條件獨立」假設不成立，Graph-Based RL Drift Diagnosis 則示範用小模型外掛復原圖來偵測漂移並回滾"

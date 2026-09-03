@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L17: Out-of-Distribution Generalization — Distribution Shift, Spurious Correlations, and Three Practical Remedies"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

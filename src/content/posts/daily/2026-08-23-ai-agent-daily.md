@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-23"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "開源生態的規模正在快速反超官方，但同一批擴張中的 skill 與 MCP server，也正在變成資安掃描工具鎖定的新攻擊面"

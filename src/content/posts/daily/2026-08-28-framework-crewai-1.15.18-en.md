@@ -2,6 +2,7 @@
 title: "Framework Update | CrewAI 1.15.18"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, crewai]
 lang: en
 description: "CrewAI 1.15.18 promotes conversational Flow from experimental to a stable API, moving the canonical import path to crewai.flow while keeping crewai.experimental working via compatibility shims"

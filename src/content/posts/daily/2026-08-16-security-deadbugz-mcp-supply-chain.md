@@ -2,6 +2,7 @@
 title: "資安警報｜Deadbugz——偽裝成文字工具、三次呼叫後才變臉的惡意 MCP Server 供應鏈攻擊"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain]
 lang: zh-TW
 description: "安全研究公司 Pillar Security 揭露一個仍在進行中的 MCP 供應鏈攻擊活動 Deadbugz：攻擊者透過 23 個 GitHub PR 把偽裝成文字格式化工具的惡意 MCP server 塞進不相關專案的設定檔，該 server 在累積三次正常呼叫後才會變臉，回傳誘導 Agent 竊取 SSH 金鑰、AWS 憑證等機密的指令"

@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-26：ML System Design"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, system-design]
 lang: zh-TW
 description: "今日練 ML system design：feature store 的 online/offline 雙軌設計、training-serving skew、二階段推薦架構，以及怎麼設計一場真的能看出模型效果的 A/B test。"

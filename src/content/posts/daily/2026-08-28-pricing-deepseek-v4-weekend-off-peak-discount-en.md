@@ -2,6 +2,7 @@
 title: "Pricing Watch | DeepSeek Drops to Off-Peak Rates All Weekend — The Other Half of Last Week's Hike Story"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, deepseek]
 lang: en
 description: "DeepSeek stopped charging peak-hour rates on weekends starting 8/23 — Saturdays and Sundays now bill entirely at off-peak rates. Just a week after hiking peak V4 pricing by 355%+, this is the other half of the story."

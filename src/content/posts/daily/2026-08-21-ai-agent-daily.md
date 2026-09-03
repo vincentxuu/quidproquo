@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-21"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "SpaceX 買 Cursor、Stripe 買 OpenRouter、Ramp 買 router.com——Agent 生態的路由層與介面層正被上游平台當成鎖定客戶的必要互補資產搶購"

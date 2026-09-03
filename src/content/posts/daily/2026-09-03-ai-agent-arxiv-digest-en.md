@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-09-03"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-safety]
 lang: en
 description: "As agents move from single assistants to fleet-scale deployment, three infrastructure problems surface at once: whether cross-episode memory caches can be trusted, when composed actions get intercepted, and how to account for a fleet's irreversible risk"

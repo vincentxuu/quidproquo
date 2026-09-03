@@ -2,6 +2,7 @@
 title: "框架更新｜Mastra @mastra/core@1.63.0"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, mastra]
 lang: zh-TW
 description: "Mastra 1.63 把 trace 和原生 log 綁在同一筆記錄上、補上 worker /health endpoint 讓部署平台能判斷 rollout 就緒，同時帶了一個 playground-ui breaking change"

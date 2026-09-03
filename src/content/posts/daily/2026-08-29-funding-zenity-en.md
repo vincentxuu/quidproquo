@@ -2,6 +2,7 @@
 title: "Funding Brief｜Zenity Series C $125M"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, zenity, agent-security]
 lang: en
 description: "Watchlist company Zenity closes a $125M Series C led by Norwest on the thesis that the agent, not the network, is now the security perimeter"

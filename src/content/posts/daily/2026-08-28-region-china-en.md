@@ -2,6 +2,7 @@
 title: "Region Focus | China"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, region, daily, china]
 lang: en
 description: "ByteDance launches Doubao Work, folding in Feishu to challenge Tencent head-on; Alibaba opens QwenWork International targeting Asia, the Middle East, and Latin America; Tencent's WorkBuddy model-aggregation play, paired with Zhipu's open-sourced GLM-5.3-Flash, shows China's office-agent war has moved from the model layer to the platform layer"

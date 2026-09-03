@@ -2,6 +2,7 @@
 title: "資安警報｜NVIDIA NemoClaw 一次網頁瀏覽即可下毒本機 AI 模型（CVE-2026-65105）"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection, mcp]
 lang: zh-TW
 description: "Oasis Security 揭露：NVIDIA NemoClaw 部署的本機 Ollama 因綁定 0.0.0.0 而被 DNS rebinding 攻破，攻擊者能悄悄竄改模型 chat template，植入連 agent 自帶 system prompt 都蓋不掉的持久指令"

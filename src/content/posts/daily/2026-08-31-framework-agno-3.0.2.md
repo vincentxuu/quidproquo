@@ -2,6 +2,7 @@
 title: "框架更新｜Agno 3.0.2"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, agno]
 lang: zh-TW
 description: "Agno 3.0.2 讓 Agent、Team、Workflow 和 Toolkit 都能直接發佈成具名 MCP tool，同時悄悄翻轉了 metadata 解析優先序，是一次表面看是 patch、實際上動了行為契約的版本"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-13"
 date: 2026-08-13
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, multi-agent, agent-security]
 lang: en
 description: "All three papers today tackle the same core problem — agent memory needs to be editable, access-controlled, and shareable across agents, and each layer introduces new failure modes"

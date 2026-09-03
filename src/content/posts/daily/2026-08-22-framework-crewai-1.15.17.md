@@ -2,6 +2,7 @@
 title: "框架更新｜CrewAI 1.15.17"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, crewai]
 lang: zh-TW
 description: "CrewAI 1.15.17 讓宣告式（YAML/JSON）Flow 定義也能直接驅動實驗性的 conversational Flow 對話模式，不必再手寫 Python 子類別"

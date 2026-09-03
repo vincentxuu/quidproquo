@@ -2,6 +2,7 @@
 title: "Security Alert | Flowise Custom MCP Node Command Injection — Fourth RCE CVE in One Year (CVE-2026-73601)"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation, mcp]
 lang: en
 description: "Open-source AI Agent builder Flowise has a new command injection vulnerability CVE-2026-73601 in its Custom MCP node. Authenticated users can achieve host-level arbitrary command execution via environment variables and working directory tricks in stdio mode — the fourth RCE reported against the same feature in one year."

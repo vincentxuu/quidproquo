@@ -2,6 +2,7 @@
 title: "Security Alert｜NVIDIA NemoClaw: One Website Visit Can Poison Your Local AI Model (CVE-2026-65105)"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection, mcp]
 lang: en
 description: "Oasis Security reveals that NVIDIA NemoClaw's local Ollama deployment binds to 0.0.0.0, disabling DNS rebinding protection and letting attackers silently modify model chat templates to inject persistent instructions that even the agent's own system prompt can't override"

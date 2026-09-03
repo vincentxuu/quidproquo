@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-24: Product Sense"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [product-builder-interview, daily, product-sense]
 lang: en
 description: "Today's Product Sense interview practice: the CIRCLES framework, MECE user segmentation techniques, and a breakdown of 'improve YouTube search for seniors' — adapted from a real Google PM interview debrief."

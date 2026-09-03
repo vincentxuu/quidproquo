@@ -2,6 +2,7 @@
 title: "Agent Platform Deep Dive (VII)—Evaluation & Quality Gates: Comprehensive Evaluation, Regression Prevention, and an Immune System for Skill Releases"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "evaluation", "quality-gates", "regression-testing", "skill-publishing", "agent-platform"]
 lang: en
 description: "A deep dive into the Agent Platform Evaluation System: seven eval categories (Flow, Step, Skill, Artifact, Evidence, Policy, and Regression), three execution stages (Pre-run, In-run, and Post-run), a ten-dimension core Scorecard, five Quality Gates for Skill releases, the Learning Loop from Signal to Proposal, conversion of real Runs into Eval Cases, and mandatory Quality Gates that block unqualified releases."

@@ -2,6 +2,7 @@
 title: "模型卡｜Muse Glimmer"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, meta]
 lang: zh-TW
 description: "Meta 開源 Muse Glimmer——30B 參數本地 agentic 模型，Apache 2.0 全開源，MCP Atlas 75.5 分大幅領先同級模型，DFlash 投機解碼讓 RTX 5090 解碼速度提升 3.1 倍"

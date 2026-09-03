@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-31"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "AI agent 的攻擊鏈正在標準化成跨廠牌可複製的漏洞模式——防禦與監理的反應速度必須從『等 CVE 公告』提升到『假設已遭利用』"

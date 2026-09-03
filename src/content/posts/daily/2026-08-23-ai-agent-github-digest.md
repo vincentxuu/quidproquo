@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-23"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp-server, coding-agent, computer-use-agent]
 lang: zh-TW
 description: "今天的主線是「社群跑得比官方快」——Bruno 的社群版 MCP server 比官方版早兩個月上線，搬家改名後的 opencode 星數已經超車 Anthropic 自家的 Claude Code"

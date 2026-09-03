@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-20"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Agent 記憶正在從加分項變成不可或缺的互補資產，但今天學術界與業界同一天各自證明：互補資產一旦存在，就會被當成攻擊面盯上"

@@ -2,6 +2,7 @@
 title: "Agent Platform 深度解析（七）— Evaluation & Quality Gates：全維度評測、Regression Prevention 與技能發布免疫系統"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "evaluation", "quality-gates", "regression-testing", "skill-publishing", "agent-platform"]
 lang: zh-TW
 description: "Agent Platform Evaluation System 深度解析：7 類 Eval（Flow/Step/Skill/Artifact/Evidence/Policy/Regression）、三種執行時機（Pre-run/In-run/Post-run）、核心 Scorecard 10 維度、Skill 發布 Quality Gate 五關、Learning Loop 從 Signal 到 Proposal 的閉環、Eval Case 從真實 Run 轉化、Quality Gate 強制阻擋不合格發布。"

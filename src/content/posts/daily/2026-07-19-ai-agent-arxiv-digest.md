@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-19"
 date: 2026-07-19
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-security, agent-rag]
 lang: zh-TW
 description: "今天三篇分別對應 agent 平台的三個核心課題：MyAG 用圖論視角重新拆解「如何組裝 agent 系統」，提出 component / workflow / search 三層圖分離關注點；自我改進綜述用統一公式框架整理「agent 如何從經驗進化」的整個研究方向；MemPoison 則揭示「持"

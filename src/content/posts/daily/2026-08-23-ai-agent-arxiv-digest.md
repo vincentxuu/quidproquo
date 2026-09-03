@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-23"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "今天三篇論文剛好覆蓋 Agent 技能系統的三個階段——怎麼教會模型用工具、技能該怎麼歸納才不會幫倒忙、技能庫變大之後怎麼選才不浪費 token,而且直接點名 Claude Code、Codex 這類正在生產環境跑的系統"

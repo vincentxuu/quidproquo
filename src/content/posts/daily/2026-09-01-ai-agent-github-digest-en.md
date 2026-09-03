@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-09-01"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp, agent-memory, self-hosted-agent, durable-execution]
 lang: en
 description: "Self-hosted personal agents are moving from toy projects to something people actually rely on — nanobot and CowAgent bet on a small core plus long-term memory, while conductor and context-mode fill in the durable-execution and context-management infrastructure underneath"

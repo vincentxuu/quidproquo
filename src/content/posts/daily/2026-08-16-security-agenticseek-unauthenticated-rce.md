@@ -2,6 +2,7 @@
 title: "資安警報｜AgenticSeek 未授權 RCE 漏洞——2.6 萬星開源 Agent 專案的 /query 端點可被任意執行 shell 指令"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection]
 lang: zh-TW
 description: "開源本地 AI Agent 專案 AgenticSeek 被發現 POST /query API 端點無需任何驗證即可觸發任意 shell 指令執行，CVSS 9.3，已有修補但預設網路曝險設定仍需手動加固"

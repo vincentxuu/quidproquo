@@ -2,6 +2,7 @@
 title: "Model Card｜Qwen3.8-Flash-Next"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, qwen, model-family-qwen]
 lang: en
 description: "Alibaba's Qwen team releases Qwen3.8-Flash-Next — the first public preview of the Qwen4 architecture, 125B parameters with only 6B active, using QSA sparse attention and N-gram Embedding to cut long-context agent inference cost while training at roughly a ninth of Qwen3.7-Plus's cost"

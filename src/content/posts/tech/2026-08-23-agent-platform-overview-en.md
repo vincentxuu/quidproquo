@@ -2,6 +2,7 @@
 title: "Agent Platform: An In-Depth Look at an Open-Source AI Workflow Control Plane (Part 1)—Architecture and Positioning"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "workflow", "control-plane", "cloudflare", "agent-platform", "architecture"]
 lang: en
 description: "Agent Platform is a local-first AI agent workflow control platform that can be deployed to Cloudflare. This first article in the series examines its product positioning, system layers, core abstractions, and design philosophy."

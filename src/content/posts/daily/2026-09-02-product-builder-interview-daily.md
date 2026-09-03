@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-09-02：Strategy & Execution"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [product-builder-interview, daily, strategy]
 lang: zh-TW
 description: "今日練 Strategy & Execution 面試：用五力分析加 TAM-SAM-SOM 拆解 Google 該不該跨足線上家具零售市場，並用 Zoom 在飽和的視訊會議市場硬是打出一條血路的案例，練「後進者怎麼找到護城河」。"

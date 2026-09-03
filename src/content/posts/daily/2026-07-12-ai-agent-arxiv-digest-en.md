@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-12"
 date: 2026-07-12
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-framework, agent-memory]
 lang: en
 description: "Three papers today revolve around two themes: **security** and **evaluation**"

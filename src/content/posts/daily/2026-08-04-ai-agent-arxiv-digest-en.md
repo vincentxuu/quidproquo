@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-04"
 date: 2026-08-04
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-evaluation, agent-rag]
 lang: en
 description: "Three papers examining AI Agent capabilities and limits from different angles: AutoMem shows memory management is a learnable skill that lifts a 32B open-source model to top commercial model levels; Shadow Evaluation tests whether frontier Agents can do open-ended AI research with real NeurIPS submissions — the answer is no."

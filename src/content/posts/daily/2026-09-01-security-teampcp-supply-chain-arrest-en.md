@@ -2,6 +2,7 @@
 title: "Security Alert｜TeamPCP Supply-Chain Ringleaders Arrested — Unpacking the Trivy→LiteLLM→Mercor Trust Cascade"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain]
 lang: en
 description: "Australian Federal Police and the FBI arrested two Western Australian men accused of leading the TeamPCP supply-chain crew. Charging details reveal how stolen publishing credentials for the Trivy scanner cascaded into compromises of Checkmarx KICS and the AI gateway LiteLLM, hitting over 1,000 organizations."

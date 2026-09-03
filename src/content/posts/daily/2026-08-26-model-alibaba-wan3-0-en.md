@@ -2,6 +2,7 @@
 title: "Model Card｜Wan3.0"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, alibaba, model-family-wan]
 lang: en
 description: "Alibaba Cloud's Tongyi Wan officially releases Wan3.0 — single-shot 30-second video generation, document/slide/spreadsheet input support, priced at $0.05–$0.20 per second, and the first Wan release to drop open-source weights"

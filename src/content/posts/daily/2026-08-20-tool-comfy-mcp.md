@@ -2,6 +2,7 @@
 title: "工具推薦｜comfy-mcp — Comfy 官方 MCP server，讓 Agent 直接開你本機的 ComfyUI"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "Comfy 官方推出的 local MCP server，把 comfy-cli 包成 39 個 MCP tool，讓 Claude Code、Cursor 等 Agent 直接跑你電腦上的 ComfyUI workflow，不用你手動開終端機"

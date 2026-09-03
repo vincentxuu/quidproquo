@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-02"
 date: 2026-07-02
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-memory, agent-evaluation]
 lang: zh-TW
 description: "今日三篇分別瞄準 Agent 平台的三大核心難題：**記憶如何從「撈資料」升級成「推理狀態」**（User as Code）、**多 Agent 如何去掉中央協調者卻更省成本**（DeLM），以及**Web Agent 執行後如何讓人快速驗證結果**（HANSEL）"

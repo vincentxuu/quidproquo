@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-26"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "OpenAI 自研推理晶片實測超越 Nvidia Blackwell，同日 Anthropic 扶持的晶片新創估值半年暴增逾 6 倍——兩大模型公司都在用真金白銀削弱 Nvidia 的晶片議價力"

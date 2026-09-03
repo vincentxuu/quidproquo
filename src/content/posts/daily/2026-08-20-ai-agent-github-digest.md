@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-20"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-memory, context-database, multi-agent, ai-security]
 lang: zh-TW
 description: "Volcengine 開源『檔案系統式』的 Agent 記憶資料庫 OpenViking 空降今日 GitHub trending 榜首，同一天還有兩個從不同角度做記憶延續的工具搶版面"

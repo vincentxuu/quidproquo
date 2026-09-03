@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-23"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "Three papers covering three stages of agent skill systems — how to teach models to use tools, how to generalize skills without hurting performance, and how to select skills at scale without wasting tokens — directly referencing production systems like Claude Code and Codex"

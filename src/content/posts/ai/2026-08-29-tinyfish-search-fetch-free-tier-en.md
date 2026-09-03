@@ -2,6 +2,7 @@
 title: "TinyFish: Free Search and Fetch Infrastructure for AI Agents"
 date: 2026-08-29
 category: ai
+type: deep-dive
 tags: ["tinyfish", "web-scraping", "search-api", "fetch-api", "ai-agent"]
 lang: en
 tldr: "TinyFish provides four web APIs for AI agents: Search, Fetch, Agent, and Browser. Search and Fetch are permanently priced at $0 with no credit card requirement, making them a practical default layer for RAG and document retrieval."

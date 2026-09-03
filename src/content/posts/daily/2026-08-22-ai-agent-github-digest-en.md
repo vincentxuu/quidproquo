@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-22"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-framework, mcp-server, productivity-tool]
 lang: en
 description: "Today's two fastest-growing projects run in opposite directions — genoffice shoves agents into Office file formats while nanobot packages an agent runtime anyone can self-host; on the framework side, pydantic-ai ships a breaking change driven by an upstream SDK dependency"

@@ -2,6 +2,7 @@
 title: "資安警報｜Xinference 用 eval() 解析 LLM 工具呼叫——CVSS 10.0 未認證 RCE（CVE-2026-61539）"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection]
 lang: zh-TW
 description: "開源推論伺服器 Xinference 在解析 Llama3 工具呼叫輸出時直接對模型產生的字串呼叫 Python eval()，攻擊者只要能影響模型輸出（一句 prompt 就夠），就能在預設不開驗證的部署上取得伺服器層級任意指令執行"

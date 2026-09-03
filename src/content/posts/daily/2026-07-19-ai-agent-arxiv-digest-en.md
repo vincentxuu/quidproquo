@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-19"
 date: 2026-07-19
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-security, agent-rag]
 lang: en
 description: "Three papers tackling three core agent-platform challenges: MyAG introduces a graph-theoretic decomposition of agent systems into component / workflow / search layers; a self-improvement survey unifies the entire 'how agents evolve from experience' landscape under one formula; and MemPoison reveals persistent memory as the most vulnerable attack surface, with a 1,227-case benchmark."

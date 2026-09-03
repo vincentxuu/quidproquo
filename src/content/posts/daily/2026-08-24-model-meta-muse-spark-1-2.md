@@ -2,6 +2,7 @@
 title: "模型卡｜Muse Spark 1.2"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, meta]
 lang: zh-TW
 description: "Meta 發佈 Muse Spark 1.2 與首款程式碼 agent Muse Code——1M context、定價維持 $1.25/$4.25 不變，GDPval-AA v2 Elo 大跳 260 分"

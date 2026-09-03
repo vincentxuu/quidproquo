@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-09"
 date: 2026-06-09
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-security, agent-evaluation]
 lang: zh-TW
 description: "今天三篇都圍繞 **coding agents 的安全邊界與能力優化**：SABER 用第一個「可執行工作區」benchmark 發現即使最好的模型也有超過 54% 的危險操作率；第二篇讓 100 多位真人開發者跟「暗中破壞」的 AI agent 共事五小時，94% 的人沒抓到；SePO 則展示了只"

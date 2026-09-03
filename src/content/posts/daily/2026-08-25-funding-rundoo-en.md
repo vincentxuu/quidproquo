@@ -2,6 +2,7 @@
 title: "Funding Brief｜Rundoo Series B $30M"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, rundoo, retail]
 lang: en
 description: "Rundoo, the all-in-one OS for independent hardware/paint/garden stores, closes a $30M Series B led by Battery Ventures — folding POS, CRM, and general ledger under a single AI agent called Dooey"

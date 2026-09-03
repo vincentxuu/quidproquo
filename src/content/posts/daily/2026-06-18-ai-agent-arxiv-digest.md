@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-18"
 date: 2026-06-18
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-security]
 lang: zh-TW
 description: "今天三篇論文圍繞 Agent 平台的三個關鍵基礎設施層：HarnessX 提出一套「Harness 即可進化元件」的框架，讓 Agent 執行環境從靜態腳架變成自我最佳化系統，在 5 個 benchmark 上平均提升 +14.5%；第二篇研究多 Agent 協作中的「技能條件信任」路由問題，揭露什"

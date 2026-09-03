@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-25"
 date: 2026-06-25
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-evaluation, agent-reasoning]
 lang: zh-TW
 description: "今天三篇都在探索「agent 能力的邊界與突破路徑」"

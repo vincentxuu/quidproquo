@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-26"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "Three papers tackling the trustworthiness gap during Agent execution — a tiny comparator that intervenes at runtime without needing to solve the task, conformal prediction to calibrate search-agent confidence, and stateful authorization to prevent approved actions from firing twice"

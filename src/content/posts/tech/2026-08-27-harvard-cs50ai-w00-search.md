@@ -2,6 +2,7 @@
 title: "Harvard CS50 AI Week 0：Search——從 DFS、BFS、A* 到 Minimax 與 Alpha-Beta 剪枝"
 date: 2026-08-27
 category: tech
+type: guide
 tags: [harvard-cs50ai, ai, search, bfs, minimax, alpha-beta, python, cs50]
 lang: zh-TW
 series:

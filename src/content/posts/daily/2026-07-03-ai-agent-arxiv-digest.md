@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-03"
 date: 2026-07-03
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-deployment]
 lang: zh-TW
 description: "今日三篇共同揭示一個核心張力：現有 agent 系統在封閉環境下表現亮眼，但只要環境稍有偏移就會出現嚴重退化"

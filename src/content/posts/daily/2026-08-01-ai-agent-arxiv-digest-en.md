@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-01"
 date: 2026-08-01
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-deployment, agent-evaluation, agent-framework]
 lang: en
 description: "Three papers probe the real-world limits of AI Agents from different angles: ORCA-bench drops LLM Agents into production SRE on-call for root cause analysis — the best model scores only 40%; AgentS4D reveals the safety blind spot of workspace agents — 66% of 'successful' runs still triggered dangerous behavior; a Context Files study finds that AGENTS.md / CLAUDE.md files show no measurable improvement in coding agent correctness across 288 controlled trials."

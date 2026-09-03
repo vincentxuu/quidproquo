@@ -2,6 +2,7 @@
 title: "Model Card｜Grok 4.6"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, xai]
 lang: en
 description: "xAI releases Grok 4.6 — built for long-running agents and visual/interactive tasks, tops GDPVal-AA v2 at 1753 Elo, pricing unchanged at $2/$6"

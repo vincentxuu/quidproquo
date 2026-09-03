@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-23"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp-server, coding-agent, computer-use-agent]
 lang: en
 description: "Today's theme: the community moves faster than the vendor — Bruno's community MCP server shipped two months before the official one, and opencode's star count has overtaken Anthropic's own Claude Code"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-12"
 date: 2026-08-12
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-architecture, agent-memory, agent-safety]
 lang: en
 description: "All three papers today converge on one point: agent performance and safety hinge not on model size, but on how tools are packaged, memory is organized, and rules are enforced"

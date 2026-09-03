@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-21"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "今天三篇都在問同一件事：Agent 能不能從自己的執行軌跡裡學會變強——答案是能學執行、學技能，但學不會改策略"

@@ -2,6 +2,7 @@
 title: "Harvard CS50 AI Synthesis (1): From Search to Language — The Complete Arc of Seven Weeks"
 date: 2026-08-30
 category: tech
+type: deep-dive
 tags: [harvard-cs50ai, ai, synthesis, search, logic, probability, optimization, learning, neural-networks, language, python, cs50]
 lang: en
 series:

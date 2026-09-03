@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-31: Product Sense"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [product-builder-interview, daily, product-sense]
 lang: en
 description: "Today's Product Sense interview practice: pairing the CIRCLES framework with a symptom-hypothesis-verification root-cause breakdown, using a real 2026 Adobe PM interview question — 'design a feature for LinkedIn.'"

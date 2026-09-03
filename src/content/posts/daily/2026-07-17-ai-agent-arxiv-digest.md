@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-17"
 date: 2026-07-17
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-framework, agent-evaluation]
 lang: zh-TW
 description: "今天三篇各從不同角度解決 agent 平台的核心痛點：第一篇從「前端 UX 設計」切入，提出讓電商網站對 AI 瀏覽器 agent 友善的框架，成功率從 49% 提升至 89%；第二篇攻的是「搜尋型 agent 亂猜答案」問題，用動態棄答 RL 訓練讓 agent 知道何時該說「我不確定」；第三篇則"

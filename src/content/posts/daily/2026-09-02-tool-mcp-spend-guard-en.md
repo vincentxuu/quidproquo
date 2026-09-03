@@ -2,6 +2,7 @@
 title: "Tool Pick | mcp-spend-guard — A Spend Cap and Circuit Breaker for Any MCP Server"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "mcp-spend-guard is a proxy that wraps any stdio MCP server, using SQLite-backed counters to enforce a hard spend cap, a per-minute call limit, a timeout circuit breaker, and a kill switch you can trigger by touching a file."

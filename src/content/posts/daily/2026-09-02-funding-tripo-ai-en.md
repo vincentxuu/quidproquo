@@ -2,6 +2,7 @@
 title: "Funding Brief｜Tripo AI Series B + B+ Totaling RMB 3 Billion"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, tripo-ai, generative-3d]
 lang: en
 description: "Watchlist company Tripo AI (parent VAST) closes a combined Series B and B+ round worth roughly RMB 3 billion, led by MPCi"

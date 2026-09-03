@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-18"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "The security debt of the Agent ecosystem is being priced in the open — Check Point exposed 11 vulnerabilities across six major frameworks, Flowise got its fourth RCE in a year, and Stripe spent $7B to acquire the model routing layer, signaling that whoever can collapse risk into one trusted checkpoint owns the next phase of value"

@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-29"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-skills, agent-memory]
 lang: en
 description: "OpenMontage packages an entire video-production pipeline as 700+ agent skills, claude-plugins-official rounds out the official plugin marketplace, and coding-agent memory and observability are getting foundational work at the same time"

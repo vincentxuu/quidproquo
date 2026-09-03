@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-10"
 date: 2026-06-10
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-tool-use]
 lang: zh-TW
 description: "今天三篇論文呼應同一主題——讓 Agent 從實驗走向可靠的生產環境：一篇是超大規模雲端部署的多 Agent 故障排除架構實戰，自主解決率達 90%+；一篇提出讓 Agent 記住過去工具呼叫成功失敗的記憶機制，不用重訓模型就能持續進步；一篇則首次系統比較六款 AI 輔助開發流程框架，提供六個維度的"

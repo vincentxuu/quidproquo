@@ -2,6 +2,7 @@
 title: "工具推薦｜pbx-mcp — 讓 Agent 用同一套工具讀懂 Asterisk 和 FreeSWITCH"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "MCP server 讓 AI Agent 直接查詢 Asterisk 和 FreeSWITCH 這兩套語法完全不同的開源 PBX 系統，統一成一組工具介面，預設唯讀且寫入工具在唯讀模式下根本不會註冊"

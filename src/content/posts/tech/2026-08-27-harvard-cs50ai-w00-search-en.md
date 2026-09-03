@@ -2,6 +2,7 @@
 title: "Harvard CS50 AI Week 0: Search — From DFS, BFS, A* to Minimax and Alpha-Beta Pruning"
 date: 2026-08-27
 category: tech
+type: guide
 tags: [harvard-cs50ai, ai, search, bfs, minimax, alpha-beta, python, cs50]
 lang: en
 series:

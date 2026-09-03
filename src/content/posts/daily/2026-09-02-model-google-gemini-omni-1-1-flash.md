@@ -2,6 +2,7 @@
 title: "模型卡｜Gemini Omni 1.1 Flash"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, google, model-family-gemini]
 lang: zh-TW
 description: "Google 將 Gemini Omni Flash 從 preview 轉正為 gemini-omni-1.1-flash——scene extension 從只讀最後 1 秒延伸到 10 秒、新增 first/last frame 控鏡，4K 輸出以 upscale 方式提供，定價按解析度分層（360p $0.03～4K $0.30／秒）"

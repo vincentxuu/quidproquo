@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-09-01"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "Three papers tackle how multi-agent systems get managed, from different angles: letting retrieved evidence decide collaboration topology, reflecting only the agent that actually caused a failure, and giving agent societies a control room you can question, steer, and replay"

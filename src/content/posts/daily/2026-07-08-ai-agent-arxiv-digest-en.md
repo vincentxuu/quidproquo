@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-08"
 date: 2026-07-08
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-memory]
 lang: en
 description: "Three papers today converge on a single core issue: the massive gap between how AI Agent systems perform in idealized labs versus real-world deployments"

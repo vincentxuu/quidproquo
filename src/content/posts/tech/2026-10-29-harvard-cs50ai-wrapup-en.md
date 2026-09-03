@@ -2,6 +2,7 @@
 title: "Harvard CS50 AI Wrap-up: What's Timeless, What's Changed, and Where to Go Next"
 date: 2026-08-30
 category: tech
+type: deep-dive
 tags: [harvard-cs50ai, ai, wrapup, retrospective, career, learning-path, llm, python, cs50]
 lang: en
 series:

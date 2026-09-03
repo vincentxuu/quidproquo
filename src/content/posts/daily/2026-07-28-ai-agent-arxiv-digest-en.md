@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-28"
 date: 2026-07-28
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-deployment, agent-reasoning]
 lang: en
 description: "Three papers tackle core AI agent platform challenges from different angles: **AgentCompass** introduces composable open-source evaluation infrastructure to end the fragmentation of agent benchmarking; **Agents in the Wild** is a rare production deployment report distilling reusable design patterns from pharma and finance; **Nanbeige4.2-3B** proves a 3B model with Looped Transformers and large-scale agentic RL can outperform 9B and even 12B competitors on agent tasks — directly relevant for edge deployment and cost-sensitive scenarios."

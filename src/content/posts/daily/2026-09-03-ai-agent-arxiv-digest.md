@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-09-03"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-safety]
 lang: zh-TW
 description: "當 Agent 從單一助理走向機隊規模部署，記憶快取的可信度、動作攔截的時機、風險曝險的記帳方式，三個基礎設施問題同時浮上檯面"

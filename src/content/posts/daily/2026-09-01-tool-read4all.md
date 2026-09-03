@@ -2,6 +2,7 @@
 title: "工具推薦｜read4all — 讓 Agent 把 PDF、Office、截圖都讀成 Markdown"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "MCP server 讓 Agent 直接把 PDF / Office / 圖片 / 網頁文件轉成 Markdown，MinerU 雲端優先、無 key 時自動降級到秒級可用的本地函式庫"

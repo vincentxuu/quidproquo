@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-09-01"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "Agent competitiveness is shifting from 'how smart is the model' to 'how low is the coordination cost' — Uber's skill registry and the Visa/Mastercard-led industry alliance both proved this today, from two completely different industries"

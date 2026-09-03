@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-26"
 date: 2026-07-26
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-coding]
 lang: zh-TW
 description: "今天三篇論文從三個角度精準刺中 AI coding agent 的能力邊界：**ICAE-Bench** 挑戰「模糊需求下的互動式開發」場景，揭示當前 benchmark 跟不上 vibe-coding 時代；**EvoAgentBench** 揭露 agent 自我進化能力轉移的陷阱，主流方法竟造"

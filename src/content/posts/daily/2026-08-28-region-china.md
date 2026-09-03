@@ -2,6 +2,7 @@
 title: "區域焦點｜中國"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, region, daily, china]
 lang: zh-TW
 description: "字節跳動推出「豆包 Work」整併飛書正面挑戰騰訊，阿里巴巴 QwenWork 國際版開放公測鎖定亞洲中東拉美，騰訊 WorkBuddy 的模型聚合打法搭配智譜開源的 GLM-5.3-Flash，揭示中國辦公 Agent 大戰的真正戰場已經從模型層移到平台層"

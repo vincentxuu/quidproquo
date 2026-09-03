@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-30：本週回顧與行為面試"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, behavioral]
 lang: zh-TW
 description: "本週行為面試練習：用 STAR 框架講一個『生產環境模型效果驟降』的真實情境，並回顧這週練過的五個主題。"

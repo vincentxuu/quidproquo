@@ -2,6 +2,7 @@
 title: "Funding Brief｜Capacity Series E $54M"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, capacity, agent-platform]
 lang: en
 description: "Agentic support automation platform Capacity closes a $54M Series E after crossing $100M ARR, up 20x in 3.5 years"

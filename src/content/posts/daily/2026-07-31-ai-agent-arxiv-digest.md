@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-31"
 date: 2026-07-31
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-tool-use]
 lang: zh-TW
 description: "今天三篇論文都在問同一個核心問題：**現在的 AI Agent 真的能用嗎"

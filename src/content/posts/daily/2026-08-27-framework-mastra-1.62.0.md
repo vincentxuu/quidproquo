@@ -2,6 +2,7 @@
 title: "框架更新｜Mastra @mastra/core@1.62.0"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, mastra]
 lang: zh-TW
 description: "Mastra 1.62 把桌面操作（screenshot／滑鼠／鍵盤）做成 workspace 的第 12 種工具，同時補上 Elasticsearch／Valkey storage backend，但也帶了 7 個 breaking changes"

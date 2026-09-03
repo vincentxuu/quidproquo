@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-29"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "llms.txt 讓 agent 讀文件就自動安裝套件，同一個用來省交易成本的設計，今天被證明也是不需要 prompt injection 就能入侵財星 500 大企業的攻擊面"

@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-08-21: Coding (ML From-Scratch Implementation)"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, coding]
 lang: en
 description: "Today's ML coding round practice: NumPy vectorization, softmax numerical stability, multi-head attention from scratch, and padding/masking for batch inference."

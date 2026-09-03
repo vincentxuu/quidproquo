@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-20"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-safety]
 lang: en
 description: "Three papers interrogating the trustworthiness of agent memory systems — pinpointing which pipeline stage fails, exposing self-improving agent gains as noise, and weaponizing memory to polarize agent communities"

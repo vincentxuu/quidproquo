@@ -2,6 +2,7 @@
 title: "資安警報｜Git 設定檔裡藏一行指令,就能讓 Claude Code、Codex、Cursor 等七款 AI coding agent 執行任意程式碼——GitSpawn 手法仍有四款未修補"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation]
 lang: zh-TW
 description: "資安研究機構 Manifold Security 揭露名為 GitSpawn 的攻擊手法:AI coding agent 開機時呼叫 git 蒐集專案資訊,卻沒有清掉 repo 自帶的 git 設定,讓惡意 repo 能在使用者核准信任對話框之前,於本機以使用者權限執行任意指令。goose、Codex、Claude Code 已修補,Hermes Agent、Qwen Code、Grok Build 及 Claude Code 的第二條路徑仍未修補。"

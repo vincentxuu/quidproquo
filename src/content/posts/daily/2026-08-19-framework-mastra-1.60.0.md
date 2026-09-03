@@ -2,6 +2,7 @@
 title: "框架更新｜Mastra @mastra/core 1.60.0"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, mastra]
 lang: zh-TW
 description: "Mastra 1.60.0 讓已儲存的 Agent 可以直接以 durable: true 跑持久化執行，再加上 Cloudflare Sandbox provider 與 MCP 2026-07-28 協定支援，是把 Mastra 往「免部署也能長跑」推進的一版"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-14"
 date: 2026-06-14
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-memory, multi-agent]
 lang: zh-TW
 description: "今天三篇論文從不同角度切入同一核心問題：**如何在真實部署條件下評估與運行 AI Agent"

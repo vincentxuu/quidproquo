@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-27"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-harness, coding-agent, mcp-server]
 lang: en
 description: "DeepSeek's open-source agent harness dsh hits nearly 200k stars in one week, pulling the 'harness layer' battle out of a crowd of startups and into big-lab territory"

@@ -2,6 +2,7 @@
 title: "Funding Brief｜Owner Series D $240M"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, owner, vertical-agent]
 lang: en
 description: "Restaurant AI agent platform Owner closes a $240M Series D led by Goldman Sachs Alternatives at a $2.3B valuation"

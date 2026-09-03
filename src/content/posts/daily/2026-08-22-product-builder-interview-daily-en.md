@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-22: Technical PM"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [product-builder-interview, daily, technical-pm]
 lang: en
 description: "Today's Technical PM interview prep: the five-step system design method, three signals interviewers actually score on, and a full breakdown of 'Design Google Keep for enterprise.'"

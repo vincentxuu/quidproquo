@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-12"
 date: 2026-08-12
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-architecture, agent-memory, agent-safety]
 lang: zh-TW
 description: "今天三篇都在說同一件事：Agent 的效能與安全，決定性因素不是模型大小，而是工具怎麼包裝、記憶怎麼組織、規則怎麼執行"

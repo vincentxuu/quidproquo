@@ -2,6 +2,7 @@
 title: "Product Builder Interview Prep — 2026-08-20: Strategy & Execution"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [product-builder-interview, daily, strategy]
 lang: en
 description: "Today's product interview practice: market positioning, competitive moats, roadmap trade-offs, and stakeholder management."

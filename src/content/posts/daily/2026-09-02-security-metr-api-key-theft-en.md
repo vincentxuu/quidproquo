@@ -2,6 +2,7 @@
 title: "Security Alert｜AI Safety Research Org METR Had an API Key Stolen and Burned $600K in Inference Credits — Attackers Found the Exposed Agent Dashboard via Certificate Transparency Logs"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation]
 lang: en
 description: "METR disclosed two 2026 security incidents: in March, a fail-open bug in a researcher's vibe-coded agent dashboard silently disabled auth, letting attackers prompt the agent directly to hand over its API key and burn roughly $600K in inference credits over three weeks; in May, a systematic attack campaign coincided with an accidentally exposed read-only SQL endpoint that nearly leaked unpublished evaluation data."

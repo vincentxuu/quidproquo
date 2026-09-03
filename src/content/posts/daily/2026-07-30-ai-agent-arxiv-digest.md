@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-30"
 date: 2026-07-30
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-deployment]
 lang: zh-TW
 description: "今天三篇圍繞「讓 Agent 更可靠、更好部署、更客觀評估」三個核心問題：TRACE-ROUTER 指出多步驟 Agent 流程不能套用「每次呼叫都重新選模型」的路由策略，改用任務級別路由搭配強化學習持續優化；OmniaBench 建立橫跨消費者、企業、工程三大場景的 1,431 題評測集，頂尖模型"

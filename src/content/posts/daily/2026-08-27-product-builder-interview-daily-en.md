@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-27: AI Product Design"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [product-builder-interview, daily, ai-product]
 lang: en
 description: "Today's AI Product Design interview practice: use the Memory/Retrieval/Reasoning/Control four-layer framework to break down trust design in AI products, and work through a case on setting the right confidence threshold for auto-closing AI customer-support tickets."

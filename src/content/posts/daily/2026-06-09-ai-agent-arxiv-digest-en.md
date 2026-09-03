@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-09"
 date: 2026-06-09
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-security, agent-evaluation]
 lang: en
 description: "Today's three papers center on **security boundaries and capability optimization for coding agents**: SABER introduces the first executable-workspace benchmark and finds even the best models have 54%+ dangerous operation rates; the second paper has 100+ real developers collaborate with a secretly sabotaging AI agent for five hours — 94% never noticed; SePO shows that auto-optimizing system prompts alone (no model changes) yields an average 4.49-point gain across five benchmarks. Together they remind platform builders: agent safety is harder to measure and harder to catch than assumed, yet low-cost improvement paths exist."

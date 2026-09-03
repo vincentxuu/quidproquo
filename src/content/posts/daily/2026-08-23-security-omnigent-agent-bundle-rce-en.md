@@ -2,6 +2,7 @@
 title: "Security Alert｜Omnigent Agent Bundle Upload Vulnerabilities — Three Critical CVEs Let Authenticated Users Own the Runner Host"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation, mcp]
 lang: en
 description: "Open-source AI agent meta-harness Omnigent (GitHub 9,100+ stars, wraps Claude Code / Codex / Cursor) disclosed three critical vulnerabilities — any authenticated user with basic session-edit permissions can upload a crafted agent bundle to achieve RCE or arbitrary file access on the runner host"

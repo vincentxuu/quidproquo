@@ -2,6 +2,7 @@
 title: "TinyFish 介紹：為 AI Agent 設計的免費 Search 與 Fetch 基礎設施"
 date: 2026-08-29
 category: ai
+type: deep-dive
 tags: ["tinyfish", "web-scraping", "search-api", "fetch-api", "ai-agent"]
 lang: zh-TW
 tldr: "TinyFish 為 AI agent 提供四個 Web API——Search、Fetch、Agent、Browser，其中 Search 與 Fetch 為 $0 永久免費且免信用卡，適合做 RAG 與文件檢索的預設層。"

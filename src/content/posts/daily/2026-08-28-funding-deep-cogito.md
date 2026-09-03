@@ -2,6 +2,7 @@
 title: "融資速報｜Deep Cogito Series A $43M"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, deep-cogito, post-training]
 lang: zh-TW
 description: "後訓練研究實驗室 Deep Cogito 完成 $43M Series A，TQ Ventures 領投，Zscaler 以客戶身分入股"

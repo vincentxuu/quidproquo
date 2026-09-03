@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-16"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-framework, multi-agent]
 lang: zh-TW
 description: "今天四個新面孔的 agent 框架不約而同拋棄『先編譯一張圖』的舊思路——Vercel、Prime Intellect、Hive、nanobot 都選擇把協調決策留到執行期才做"

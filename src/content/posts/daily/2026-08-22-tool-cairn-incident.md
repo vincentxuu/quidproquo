@@ -2,6 +2,7 @@
 title: "工具推薦｜Cairn — 用自然語言問「為什麼半夜三點延遲飆高」的事故分析 Copilot"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: zh-TW
 description: "開源事故分析 Copilot：用一句自然語言查詢，串接觀測系統、部署時間軸和 runbook，提出有證據佐證的根因，修復動作要人核准才會執行"

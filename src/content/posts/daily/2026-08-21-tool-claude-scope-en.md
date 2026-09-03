@@ -2,6 +2,7 @@
 title: "Tool Pick | claude-scope — Search Your Claude Code Conversation History with Guaranteed Freshness"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: en
 description: "A native Claude Code plugin that indexes session logs into SQLite FTS5 and runs an incremental sync before every search, so even your in-progress conversation is searchable"

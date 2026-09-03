@@ -2,6 +2,7 @@
 title: "Funding Brief｜AIR Security Two Seed Rounds Totaling $50M"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, air-security, agent-security]
 lang: en
 description: "Agent supply-chain security startup AIR Security exits stealth with $50M across two seed rounds, led separately by Sequoia and Greenoaks"

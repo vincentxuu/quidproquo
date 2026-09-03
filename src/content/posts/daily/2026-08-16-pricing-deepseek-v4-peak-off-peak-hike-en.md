@@ -2,6 +2,7 @@
 title: "Pricing Watch｜DeepSeek V4 Hikes Prices Across the Board, Peak Hours Up to 1,100%"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, deepseek]
 lang: en
 description: "DeepSeek raised API pricing for V4-Pro / V4-Flash on 8/16 16:00 UTC and introduced peak/off-peak dual-rate billing. Peak Output prices rose 355%-371%, while Cache Hit Input surged up to 1,114% during peak hours, ending nearly a year of aggressive low-price strategy."

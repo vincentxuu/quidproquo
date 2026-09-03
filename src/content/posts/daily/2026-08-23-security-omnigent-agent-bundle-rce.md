@@ -2,6 +2,7 @@
 title: "資安警報｜Omnigent Agent Bundle 上傳漏洞——三個嚴重 CVE 讓已登入使用者拿下 Runner 主機"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation, mcp]
 lang: zh-TW
 description: "開源 AI agent meta-harness Omnigent（GitHub 9,100+ stars，可包裝 Claude Code / Codex / Cursor）被揭露三個嚴重漏洞，任何已登入的一般使用者都能透過上傳 agent bundle 拿到 runner 主機的指令執行權限或任意檔案存取"

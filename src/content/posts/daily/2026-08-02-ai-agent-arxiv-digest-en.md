@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-02"
 date: 2026-08-02
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-security, multi-agent]
 lang: en
 description: "Three papers tackle 'what goes wrong when agents hit production' from different angles: ProACT addresses when an agent should speak up in multi-user collaboration (an Agent UX design problem); the second uses real GitHub data to reveal that coding agents clash with their own PRs (a platform ops pain point); the third surveys five vulnerability classes of cyber-capable agents, using July 2026 HuggingFace/OpenAI incidents as case studies. Together, they form a crash course in post-deployment agent headaches."

@@ -2,6 +2,7 @@
 title: "資安警報｜「思想病毒」研究——自我傳播 Payload 可透過 SOUL.md/MEMORY.md 在 AI Agent 間擴散"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection]
 lang: zh-TW
 description: "Anthropic 與 EPFL 研究團隊發布預印本，證明自我演化的『思想病毒』payload 能透過 OpenClaw 風格 agent 架構中會被注入 system prompt 的持久化檔案（SOUL.md/MEMORY.md），在多 agent 系統間自我傳播，並實測造成真實的檔案刪除行為。"

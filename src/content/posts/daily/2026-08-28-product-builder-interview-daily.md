@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-28：Growth & Experimentation"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [product-builder-interview, daily, growth]
 lang: zh-TW
 description: "今日練 Growth PM 面試：用 Growth Loop 取代 Funnel 思維，配合『Goal→Metric→Bottleneck→Hypothesis→Experiment→Measurement』診斷鏈，練一道『老闆要加碼推薦好友計畫，你要不要照做』的拆解題。"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-01"
 date: 2026-06-01
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-reasoning, agent-memory, multi-agent]
 lang: zh-TW
 description: "今天三篇論文聚焦「agent 規模化部署的成本-能力邊界」：SR²AM 重新設計規劃架構，讓 30B 模型少用九成 token 就能競爭 685B-1T 系統；GroupMemBench 揭示現有記憶系統在多人群組對話中徹底崩潰（最強系統只有 46% 準確率，1990 年代的 BM25 關鍵字搜尋反"

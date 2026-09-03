@@ -2,6 +2,7 @@
 title: "融資速報｜Prevalent AI $22M 首輪機構融資"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, prevalent-ai, knowledge-graph]
 lang: zh-TW
 description: "英國企業知識圖譜公司 Prevalent AI 在自籌資金 9 年後首度取得 $22M 機構投資，由 Integrity Growth Partners 領投，把安全數據脈絡層擴展為 AI Agent 的信任基礎設施"

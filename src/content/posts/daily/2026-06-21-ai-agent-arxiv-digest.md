@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-21"
 date: 2026-06-21
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-reasoning]
 lang: zh-TW
 description: "今天三篇從不同切面拼出「agent 在真實世界怎麼落地」的全貌：Perplexity + 哈佛商學院用生產數據首次量化 agent 對比對話助理的差距——完成時間縮短 87%，而且 agent 吸引了認知複雜度更高的工作類型；Self-Harness 示範 agent scaffolding 如何不"

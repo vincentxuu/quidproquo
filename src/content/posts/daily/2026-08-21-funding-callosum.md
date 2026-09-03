@@ -2,6 +2,7 @@
 title: "融資速報｜Callosum $100M 種子輪"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, callosum, agent-deployment]
 lang: zh-TW
 description: "倫敦異質運算新創 Callosum 完成 $100M 種子輪，Atomico 領投，把 Agent workload 拆解後分派到最適合的模型與晶片"

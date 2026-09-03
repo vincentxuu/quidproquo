@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-21"
 date: 2026-07-21
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, multi-agent, agent-framework]
 lang: en
 description: "Three papers tackling the same question from different angles: what does it take to build an agent system that actually works in production?"

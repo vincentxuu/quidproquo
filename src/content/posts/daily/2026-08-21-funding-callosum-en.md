@@ -2,6 +2,7 @@
 title: "Funding Brief | Callosum $100M Seed Round"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, callosum, agent-deployment]
 lang: en
 description: "London-based heterogeneous compute startup Callosum closes a $100M seed round led by Atomico, routing agent workloads across the best-fit model and chip for each sub-task"

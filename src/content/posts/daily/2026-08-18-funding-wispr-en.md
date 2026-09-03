@@ -2,6 +2,7 @@
 title: "Funding Brief｜Wispr Series B $280M"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, wispr, voice-ai]
 lang: en
 description: "AI voice dictation startup Wispr closes $280M Series B at $2B valuation, led by Menlo Ventures betting on 'voice replacing the text box'"

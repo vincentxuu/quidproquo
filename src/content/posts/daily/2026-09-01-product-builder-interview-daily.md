@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-09-01：Metrics & Analytics"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [product-builder-interview, daily, metrics]
 lang: zh-TW
 description: "今日練 Metrics & Analytics 面試：用指標樹拆解「留言數上升、觀看時長卻下降」的執行題，並用 Facebook「7 天內加 7 位好友」的相關性陷阱案例，練怎麼分辨北極星指標背後的因果關係。"

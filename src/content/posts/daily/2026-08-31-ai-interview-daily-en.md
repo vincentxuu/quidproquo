@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-08-31: ML Fundamentals"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, machine-learning]
 lang: en
 description: "Today's ML fundamentals drill: why AUC-ROC inflates on imbalanced data, why classifiers use cross-entropy instead of MSE, what bagging and boosting each fix, and why multicollinearity kills interpretability but not predictive accuracy."

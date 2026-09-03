@@ -2,6 +2,7 @@
 title: "定價追蹤｜DeepSeek V4 全面調漲，尖峰時段最高漲 1,100%"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, deepseek]
 lang: zh-TW
 description: "DeepSeek 於 8/16 16:00 UTC 對 V4-Pro / V4-Flash 全面調漲 API 定價並導入尖峰/離峰雙軌計費，尖峰 Output 漲 355%-371%，Cache Hit Input 尖峰時段最高漲 1,114%，終結近一年的低價策略"

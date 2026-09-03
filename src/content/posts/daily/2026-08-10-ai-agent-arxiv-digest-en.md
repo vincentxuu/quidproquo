@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-10"
 date: 2026-08-10
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-harness, self-evolution, agent-safety]
 lang: en
 description: "Three papers tackle the same question — agent harnesses shouldn't be static: Evo-Bench is the first benchmark to quantify LLM self-improvement of harnesses, MEGA makes optimization knowledge self-evolving, and SHE proves safety boundaries can learn and evolve from trajectories"

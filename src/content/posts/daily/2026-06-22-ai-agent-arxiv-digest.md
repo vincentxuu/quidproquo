@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-22"
 date: 2026-06-22
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-deployment, agent-evaluation, agent-reasoning]
 lang: zh-TW
 description: "今天三篇從「agent 在生產環境的可靠性與安全性」出發，覆蓋推論期、訓練期、基礎設施三個層次"

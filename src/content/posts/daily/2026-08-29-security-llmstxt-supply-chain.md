@@ -2,6 +2,7 @@
 title: "資安警報｜llms.txt 供應鏈缺口——AI 代理讀廠商官方文件就把未註冊套件裝進財星 500 大公司網路"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain]
 lang: zh-TW
 description: "以色列資安新創掃描 6,214 個網域的 llms.txt／llms-full.txt 檔案，發現 237+ 個安裝指令指向從未被註冊的套件與網域；註冊其中幾個掛上回呼信標後，4 分鐘內就有財星 500 大公司的 Claude、Codex、Hermes 代理主動裝進來執行，同時發現 Clerk 官方文件已被真實掛上惡意套件"

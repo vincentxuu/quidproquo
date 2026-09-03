@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-09-02"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "模型分數的領先位置正在跟採購決策脫鉤——Claude Fable 5.1 拿下 CursorBench 冠亞軍的同一天，五角大廈卻繞過 Anthropic，把 ChatGPT 與 Grok 加進軍用 AI 平台"

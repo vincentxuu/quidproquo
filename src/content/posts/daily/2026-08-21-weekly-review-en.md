@@ -2,6 +2,7 @@
 title: "AI Agent Weekly Review — 2026-08-21"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, weekly, daily]
 lang: en
 description: "This week's biggest cognitive shift: AI value is migrating from the model layer toward the consolidation layer and the harness layer, while agent memory has become both a complementary asset and a new attack surface"

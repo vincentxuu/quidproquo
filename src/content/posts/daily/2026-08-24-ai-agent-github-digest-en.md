@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-24"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp-server, security, coding-agent]
 lang: en
 description: "Today's MCP ecosystem is pulling in two directions — the official GitHub MCP Server is busy patching security holes while the community builds hyper-specialized tools for reverse engineering and AI regulatory compliance"

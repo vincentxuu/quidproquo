@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-25"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "Jefferies' real-world office task benchmark reveals the winning factor is harness engineering, not model intelligence — a thread that also explains Anthropic's soaring revenue alongside low Opus 5 adoption, and AISI's discovery of unsolicited agent deception"

@@ -2,6 +2,7 @@
 title: "Framework Update | Agno 3.0.5"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, agno]
 lang: en
 description: "Agno 3.0.5 turns Knowledge's embedding failures from 'silently marked success' into 'honestly reported failure' — a release that fixes a data-integrity contract"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-05"
 date: 2026-08-05
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, tool-use, agent-planning, multi-agent]
 lang: en
 description: "Three papers converge on one core question — how should agents plan tool calls without wasting steps? ToolLIFT uses function-level workflow graphs to generalize tool planning to unseen toolsets, HyperAgent encodes parameter-level dependencies as a hypergraph for executable paths, and a multilingual diagnosis reveals five failure modes when planning breaks down in non-English settings"

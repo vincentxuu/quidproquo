@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-07"
 date: 2026-07-07
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-framework, multi-agent]
 lang: en
 description: "All three papers today center on making agent systems safer, more predictable, and less failure-prone"

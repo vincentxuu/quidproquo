@@ -2,6 +2,7 @@
 title: "資安警報｜CoSnitch——Copilot 被「話術」出自己的漏洞，一鍵外洩 Gmail 與永久記憶體"
 date: 2026-08-20
 category: daily
+type: digest
 lang: zh-TW
 tags: [ai-agent, security, daily, prompt-injection]
 description: "Varonis Threat Labs 用「meta-hacking」反覆追問，讓 Microsoft Copilot Personal 自己說出未公開的 URL 參數，串成一鍵資料外洩與永久記憶體污染攻擊鏈 CoSnitch（CVE-2026-24301）"

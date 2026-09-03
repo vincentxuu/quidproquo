@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-06"
 date: 2026-06-06
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-evaluation, agent-framework]
 lang: en
 description: "Three papers tackling three deep questions in agent systems: **memory architecture** (which design truly generalizes across scenarios?), **self-evolution** (can AI develop its own agents?), and **security blind spots** (how much does CUA safety vary across domains?)."

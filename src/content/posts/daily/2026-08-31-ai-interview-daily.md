@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-31：ML Fundamentals"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, machine-learning]
 lang: zh-TW
 description: "今日練 ML 基礎面試：AUC-ROC 在不平衡資料下為什麼會虛高、分類問題為什麼該用 cross-entropy 而不是 MSE、bagging 與 boosting 各修正哪種誤差，以及多重共線性為什麼不傷預測力卻毀了可解釋性。"

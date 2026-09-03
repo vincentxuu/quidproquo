@@ -2,6 +2,7 @@
 title: "融資速報｜Higgsfield Series B $400M"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, higgsfield, video-generation]
 lang: zh-TW
 description: "AI 影片生成平台 Higgsfield 完成 $400M B 輪，估值 8 個月內從 $1.3B 跳到 $5.4B，年化營收達 $700M"

@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-09-01"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp, agent-memory, self-hosted-agent, durable-execution]
 lang: zh-TW
 description: "自架個人 Agent 正在從玩具走向長期依賴——nanobot、CowAgent 主打小核心加長期記憶，conductor 和 context-mode 則從耐久執行與 context 管理補上基礎設施"

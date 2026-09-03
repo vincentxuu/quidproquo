@@ -2,6 +2,7 @@
 title: "Agent Platform 深度解析（五）— Policy Engine：Runtime Guards、Budget Control、Human Approval 與 Loop Protection"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "policy-engine", "runtime-guards", "budget-control", "human-approval", "loop-protection", "agent-platform"]
 lang: zh-TW
 description: "Agent Platform Policy Engine 深度解析：版本化 Policy 配置、四層 Guard Pipeline（Input/Tool/Output/Budget）、Human Approval Gate 外部寫入核准、Loop Detection 與 Circuit Breaker、Escalation Records、Proxy API 專用 Policy、以及標準 Research Policy 範例。"

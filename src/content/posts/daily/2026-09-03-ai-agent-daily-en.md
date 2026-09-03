@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-09-03"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "Agent security's next battleground isn't blocking a single malicious input — it's fleet-level risk accounting and identity governance, and today's vulnerabilities, research, and a security-vendor acquisition all point the same way"

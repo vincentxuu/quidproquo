@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-25"
 date: 2026-07-25
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-deployment, agent-memory]
 lang: zh-TW
 description: "今天三篇從三個互補角度探索「讓 Agent 更可靠地解決複雜任務」"

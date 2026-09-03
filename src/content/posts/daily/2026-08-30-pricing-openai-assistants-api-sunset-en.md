@@ -2,6 +2,7 @@
 title: "Pricing Watch | OpenAI Assistants API Sunsets, Migration Forces a Model Choice"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, openai]
 lang: en
 description: "OpenAI's Assistants API officially sunset on 2026-08-26 with no degraded mode and no official migration tool. Whether you migrate to Sol or Terra for the same workload changes your monthly bill by 44%."

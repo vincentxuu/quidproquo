@@ -2,6 +2,7 @@
 title: "框架更新｜Mastra @mastra/core 1.59.0"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, mastra]
 lang: zh-TW
 description: "Mastra 1.59.0 把 CostGuard 升級成可分層預算的 TokenCostControl，並把 Factory 的自動跑 Agent 行為改成預設關閉，是一次帶 breaking changes 的營運強化版"

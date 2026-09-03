@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-25"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-framework, plugin-marketplace, sre-agent]
 lang: zh-TW
 description: "今天的熱門專案分成兩極——Agent-Reach 讓 agent 長出眼睛看遍全網，opensre 讓 agent 下場處理正式環境事故，而 LangChain 和 Anthropic 官方則分別在補「agent harness」和「外掛信任層」兩塊基礎設施"

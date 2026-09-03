@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-01"
 date: 2026-08-01
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-deployment, agent-evaluation, agent-framework]
 lang: zh-TW
 description: "今天三篇論文從不同角度逼問「AI Agent 在現實任務中的真實極限」：ORCA-bench 把 LLM Agent 丟進 SRE on-call 的生產環境做根因分析，最強模型也只答對 40%；AgentS4D 揭露工作區 Agent 的安全黑箱——66% 的「成功執行」背後仍觸發了危險行為，任務"

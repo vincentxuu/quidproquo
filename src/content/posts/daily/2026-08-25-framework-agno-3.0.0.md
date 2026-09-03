@@ -2,6 +2,7 @@
 title: "框架更新｜Agno 3.0.0"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, agno]
 lang: zh-TW
 description: "Agno 3.0 是一次會 break 生產環境的資料庫大改版：runs 從 session JSON blob 搬進獨立的型別化資料表，寫入放大從 O(N²) 降到 O(N)，但升級前必須先跑 migration"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-31"
 date: 2026-05-31
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-security, agent-evaluation]
 lang: en
 description: "Three papers at three different layers: BenchTrace ran 1,821 agent failure episodes and found GPT-4.1 and Qwen3-32B pass less than 30% on diagnosing their own failures — reflection is far weaker than assumed; Beyond Autonomy distills a three-tier governance architecture from enterprise SaaS production; Insuring Every Action prices every agent action using actuarial science."

@@ -2,6 +2,7 @@
 title: "Harvard CS50 AI Week 6：Language——N-gram 語言模型、TF-IDF 問答系統、Parser 與 Attention"
 date: 2026-08-30
 category: tech
+type: guide
 tags: [harvard-cs50ai, ai, nlp, n-gram, tf-idf, parser, attention, language-model, questions, python, cs50]
 lang: zh-TW
 series:

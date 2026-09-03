@@ -2,6 +2,7 @@
 title: "融資速報｜Capacity Series E $54M"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, capacity, agent-platform]
 lang: zh-TW
 description: "Agentic 客服自動化平台 Capacity 完成 $54M Series E,ARR 破 $100M,3.5 年成長 20 倍"

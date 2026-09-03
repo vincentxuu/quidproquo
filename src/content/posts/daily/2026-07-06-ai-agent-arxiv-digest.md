@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-06"
 date: 2026-07-06
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-coding, agent-evaluation]
 lang: zh-TW
 description: "今天三篇論文從不同角度同攻一個核心問題：**如何讓 Agent 工作流程在生產環境中真正可靠**"

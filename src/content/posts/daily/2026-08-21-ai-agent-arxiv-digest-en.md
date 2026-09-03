@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-21"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "Three papers asking the same question: can agents learn to improve from their own trajectories? They can learn execution and skills, but not how to change strategy"

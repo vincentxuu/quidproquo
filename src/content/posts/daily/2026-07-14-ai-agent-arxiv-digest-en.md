@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-14"
 date: 2026-07-14
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-coding, agent-evaluation]
 lang: en
 description: "Three papers tackle AI Agent platforms from practical angles: the first exposes stealthy security threats in multi-agent systems and proposes activation-space detection (F1 +0.55 over graph methods in async settings); the second introduces procedural similarity retrieval for coding agents; the third warns that swapping the agent harness alone causes significant belief divergence in the same LLM."

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-07"
 date: 2026-08-07
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-tool-use, agent-evaluation, agent-security]
 lang: en
 description: "Three papers on agent tool use — ToolLIFT abstracts tool planning to a function layer for cross-toolset transfer, SkillTV-Bench shows agent judges need skill awareness, and TRIO-20 finds GPT-5.6 never makes unauthorized calls across 840 trajectories but reasons about rules more often at higher effort"

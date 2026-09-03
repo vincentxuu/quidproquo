@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-10"
 date: 2026-07-10
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-evaluation, agent-framework]
 lang: en
 description: "Three papers today map the 'evolutionary frontier' of Agent platforms: EvoSOP lets agents extract reusable SOPs from past execution traces instead of replanning from scratch; AgenticSTS proposes a strict bounded-memory contract with five typed layers replacing endless context stacking; Spider 2.0-AIFunc reveals that AI functions are already embedded in cloud SQL syntax, yet the best model hits only ~67% accuracy — a new challenge every data agent must face."

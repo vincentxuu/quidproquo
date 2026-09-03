@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-10"
 date: 2026-06-10
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-tool-use]
 lang: en
 description: "Three papers today converge on one theme — moving agents from experiments to reliable production: a multi-agent troubleshooting architecture deployed at hyperscale cloud with 90%+ autonomous resolution; a memory mechanism that lets agents learn from past tool-call successes and failures without retraining; and the first systematic comparison of six AI-assisted development process frameworks across six dimensions."

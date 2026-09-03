@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-22"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "今天三篇都在問同一件事：我們真的知道 Agent 做了什麼、做得多好嗎——從稽核證據鏈、揭穿記憶評測的盲點，到戳破「AI 能自己改良訓練演算法」的假象"

@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-09-01：Deep Learning & NLP"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, deep-learning]
 lang: zh-TW
 description: "今日練深度學習與 NLP：attention 機制的直覺、tokenization 為什麼是有損的設計決策，以及『embedding 是一個向量空間契約』這個常被忽略的核心觀念。"

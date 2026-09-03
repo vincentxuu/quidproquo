@@ -2,6 +2,7 @@
 title: "Security Alert｜Claude Code Auto Mode Bypassed — A Routine 'Summarize This Site' Task Reaches 80% Remote Code Execution via Python Module Shadowing"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection]
 lang: en
 description: "Researcher Johann Rehberger (wunderwuzzi) shows that Claude Code Opus 5 running the new default Auto Mode can be steered from a routine 'summarize this website' task into remote code execution, with three attack variants succeeding 60%-80% of the time. Anthropic closed the report as working as designed."

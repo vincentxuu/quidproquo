@@ -2,6 +2,7 @@
 title: "Agent Platform Deep Dive (Part 2) — Flow Runtime: Versioned Flows, Checkpoints, and Resume/Retry Mechanisms"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "workflow", "flow-runtime", "checkpoint", "versioning", "agent-platform", "durable-execution"]
 lang: en
 description: "A deep dive into Agent Platform's core Flow Runtime subsystem: immutable FlowVersions, Step DAG execution, checkpoint persistence, resume and retry-step controls, and the actual structure of the Deep Research seed flow."

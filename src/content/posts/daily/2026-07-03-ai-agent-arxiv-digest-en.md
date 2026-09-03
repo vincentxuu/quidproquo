@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-03"
 date: 2026-07-03
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-deployment]
 lang: en
 description: "Three papers today reveal a core tension: current agent systems shine in closed environments but degrade sharply once conditions shift even slightly"

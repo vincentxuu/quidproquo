@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-17"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp-server, deepseek]
 lang: en
 description: "DeepSeek's official CLI harness dsh spawned at least five independent desktop wrappers from Chinese developer communities within a week; meanwhile two new tools chose to reinforce existing agent loops rather than build yet another framework"

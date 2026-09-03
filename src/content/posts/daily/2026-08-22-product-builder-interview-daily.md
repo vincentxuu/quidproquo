@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-22：Technical PM"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [product-builder-interview, daily, technical-pm]
 lang: zh-TW
 description: "今日練 Technical PM 面試：系統設計五步法、面試官真正在打分的三個技術判斷訊號，以及「設計企業版 Google Keep」的完整拆解。"

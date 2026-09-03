@@ -2,6 +2,7 @@
 title: "融資速報｜Runable Series A $21M"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, runable, agent-platform]
 lang: zh-TW
 description: "印度新創 Runable 完成 $21M Series A，AI Agent 一手包辦「建站、營運、成長」全流程，3 週衝到 $2M ARR"

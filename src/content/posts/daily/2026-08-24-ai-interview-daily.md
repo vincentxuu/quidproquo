@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-24：ML Fundamentals"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, machine-learning]
 lang: zh-TW
 description: "今日練 ML 基礎面試：bias-variance 診斷、L1/L2 正則化的幾何直覺、loss function 選型，以及 AdamW 為什麼跟 Adam 加 L2 不一樣。"

@@ -2,6 +2,7 @@
 title: "工具推薦｜mcp-guardrail — 幫每個 MCP tool 呼叫加一層准駁與稽核"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "mcp-guardrail 是一個攔在 MCP client 和真正 MCP server 之間的 stdio proxy，用 policy.yaml 決定 agent 能呼叫哪些 tool、把每次呼叫寫進稽核 log，並掃描 config 裡貼死的 API key"

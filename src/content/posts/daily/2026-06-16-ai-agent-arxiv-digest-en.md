@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-16"
 date: 2026-06-16
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-deployment, agent-evaluation, agent-framework]
 lang: en
 description: "Three papers tackling the same question from training, architecture, and environment: how to make agents more reliable in production"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-11"
 date: 2026-07-11
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-evaluation, agent-framework]
 lang: en
 description: "Three papers today all ask the same question: how can Agent systems operate reliably?"

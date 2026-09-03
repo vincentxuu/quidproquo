@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-18"
 date: 2026-07-18
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-tool-use, multi-agent]
 lang: en
 description: "Three papers tackle production-grade agent reliability from different angles: MemCon models memory operations as an RL problem so agents learn when to store, retrieve, and forget — up to +15.2 points on 6 benchmarks; AgentCheck turns MCP servers into a debugging surface for reproducing tool faults and verifying fixes; AgentAbstain reveals that even top frontier models get 'should-not-act' scenarios right less than 60% of the time, and abstention ability barely correlates with task-solving ability."

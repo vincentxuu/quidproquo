@@ -2,6 +2,7 @@
 title: "框架更新｜Pydantic AI 2.36.0"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, pydantic-ai]
 lang: zh-TW
 description: "Pydantic AI 2.36.0 把 durable_exec 重寫成單一 @durable_operation 宣告式介面，讓第三方（Lambda、Restate、Absurd 等）durable 引擎不用碰任何私有 API 就能接上 Agent 的容錯執行"

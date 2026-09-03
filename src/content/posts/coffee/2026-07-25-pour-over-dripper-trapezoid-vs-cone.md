@@ -2,6 +2,7 @@
 title: "梯形 vs 錐形濾杯：SCA 研究告訴你的事，跟咖啡師沒說的事"
 date: 2026-07-25
 category: coffee
+type: deep-dive
 tags: [coffee, pour-over, dripper, brewing]
 lang: zh-TW
 description: "從 SCA/UC Davis 研究與 Gagne 流體力學出發，比較梯形、錐形、平底三種手沖濾杯的物理差異、風味傾向、容錯率與選購建議。"

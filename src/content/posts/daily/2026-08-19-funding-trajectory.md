@@ -2,6 +2,7 @@
 title: "融資速報｜Trajectory Series A $40M"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, trajectory, continual-learning]
 lang: zh-TW
 description: "AI Agent 持續學習基礎設施 Trajectory 完成 $40M A 輪，Sequoia 領投，3 個月內估值從 $115M 跳到 $300M"

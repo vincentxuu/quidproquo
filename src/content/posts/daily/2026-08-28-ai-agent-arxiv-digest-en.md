@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-28"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "Three papers attack the same problem from different layers — Agent memory should stop being serialized into the prompt: Scroll turns an entire session into an executable environment, EARM lets a retriever accumulate its own scoring experience, and PolyMemDB routes different memory types into separate databases"

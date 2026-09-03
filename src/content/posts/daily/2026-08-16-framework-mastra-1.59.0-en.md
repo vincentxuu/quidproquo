@@ -2,6 +2,7 @@
 title: "Framework Update｜Mastra @mastra/core 1.59.0"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, mastra]
 lang: en
 description: "Mastra 1.59.0 upgrades CostGuard into TokenCostControl with tiered budgets, and flips Factory's auto-run default to off — a breaking-change release focused on production operations"

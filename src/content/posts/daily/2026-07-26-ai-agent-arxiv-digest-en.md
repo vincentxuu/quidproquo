@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-26"
 date: 2026-07-26
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-coding]
 lang: en
 description: "Three papers today strike at the capability boundaries of AI coding agents from three angles: **ICAE-Bench** tackles interactive development under ambiguous requirements, exposing how current benchmarks lag behind the vibe-coding era; **EvoAgentBench** reveals the pitfalls of agent self-evolution ability transfer, where a mainstream method causes a −12.3 point negative transfer; **PERFOPT-Bench** opens the new track of performance optimization as an agentic task and finds that framework choice often matters more than model choice. The takeaway: production agent evaluation is far harder than existing tools suggest, and the field urgently needs benchmarks closer to real-world scenarios."

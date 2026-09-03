@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-26"
 date: 2026-05-26
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-framework, agent-reasoning]
 lang: en
 description: "Three papers tackling agent infrastructure from different angles: Microsoft proposes a brain-inspired six-mechanism memory architecture that compresses memory stores by 58% while retaining 97.2% precision on real codebase data; Megagon Labs challenges the step-by-step reasoning default, showing that full-horizon planning saves 2–4.7x tokens on data-centric tasks; and a neuroscience-informed framework turns multi-agent topology selection (Chain / Star / Mesh) from guesswork into computable diagnostics."

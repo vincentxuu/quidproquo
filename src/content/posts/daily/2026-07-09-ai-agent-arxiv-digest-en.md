@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-09"
 date: 2026-07-09
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-framework, agent-memory]
 lang: en
 description: "Three papers sound the Agent security alarm from different angles: FARMA silently corrupts Agent reasoning memory with 100% success rate bypassing all defenses; Vera tests 4 production Agent frameworks (including Claude Code) with 93.9% average attack success rate; PiSAs reveals cross-user information leakage in shared Agent environments as a severely underexplored problem."

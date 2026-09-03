@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-09-03：AI Product Design"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [product-builder-interview, daily, ai-product]
 lang: zh-TW
 description: "今日練 AI Product Design 面試：用「地圖失敗模式→定義 MVQ→設計 Guardrail」框架拆解一個 Slack 摘要助理誤判 owner 的真實案例，並看 GitHub Copilot 怎麼用 Ghost Text 把「不信任的成本」設計到趨近於零。"

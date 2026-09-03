@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-23"
 date: 2026-06-23
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-rag, agent-framework]
 lang: en
 description: ""

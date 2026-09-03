@@ -2,6 +2,7 @@
 title: "Tool Pick | Sovereign MCP — Catching Insecure Terraform Before the Agent Finishes Writing It"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "An MCP server scans Terraform for security misconfigurations the moment an agent generates it, and fixes what it can, instead of waiting for a PR or CI to catch it"

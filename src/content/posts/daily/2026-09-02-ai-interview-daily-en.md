@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-09-02: ML System Design"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, system-design]
 lang: en
 description: "Today's ML system design drill: how a feature store solves training-serving skew, the four-tier deployment strategy (canary/shadow/A-B/blue-green), and how to layer drift monitoring."

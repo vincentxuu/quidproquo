@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-09-01"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "三篇論文從不同角度處理多 Agent 系統怎麼被管好——用檢索證據決定協作拓撲、只讓決定性犯錯的 Agent 反省、給 Agent 社會一間可問可控可重播的控制室"

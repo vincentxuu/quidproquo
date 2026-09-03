@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-24"
 date: 2026-06-24
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-evaluation, agent-reasoning]
 lang: zh-TW
 description: "今天三篇從工具可靠性、協定選型、多 Agent 協作三個角度切入 Agent 平台的痛點：PlanBench-XL 揭露頂尖 LLM 在真實大型工具環境下一遇到工具失效就崩潰（GPT-5.4 從 52% 跌至 11%）；TU Munich 給出第一份 MCP/A2A/ACP/ANP 等 9 個協定的"

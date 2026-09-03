@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-15"
 date: 2026-08-15
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-skill, agent-memory, agent-evaluation]
 lang: zh-TW
 description: "今天三篇圍繞同一個問題——Agent 技能怎麼自動進化？SkillEvo 用多輪互動回饋產生不會衰減的進化梯度；SkillShapley 用賽局論歸因告訴你一個 skill 裡哪些步驟真正在做事；MindMemOS 則把記憶與技能進化做成一個可攜帶的作業系統層"

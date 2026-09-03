@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-08"
 date: 2026-06-08
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-framework, agent-evaluation]
 lang: zh-TW
 description: "今天三篇分別對應 agent 平台堆疊的三個層次：AgentJet（訓練層）提出讓多個異質 LLM 同步做強化學習訓練的分散式框架，解決現有工具只能單模型訓練的根本痛點；AdaPlanBench（評測層）用 67.75% 的成績上限揭示 LLM agent 在「規則邊走邊揭露」的現實場景中遠未成熟，"

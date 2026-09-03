@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-05"
 date: 2026-06-05
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-deployment]
 lang: zh-TW
 description: "今天三篇分別從「評測診斷」、「工具進化」、「安全對齊」三個角度補強 Agent 平台的核心短板：APB 提出一套 4,209 道題的診斷型 benchmark，首次能把「規劃失敗」和「執行失敗」分開來看；MetaForge 讓 agent 能在運行時「自行鍛造」沒有的工具，打破靜態工具庫的天花板；R"

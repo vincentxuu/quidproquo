@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-09"
 date: 2026-08-09
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-harness, long-horizon, agent-evaluation]
 lang: zh-TW
 description: "今天三篇圍繞同一個問題——Agent 做長任務時真正卡住的不是模型，是鷹架：OneDayAgent 證明一個統一鷹架就能跨後端創 SOTA，Horizon Gap 用 1,547 篇文獻指出長程失敗的結構性根因，Evo-Bench 則問 Agent 能不能自己進化自己的鷹架"

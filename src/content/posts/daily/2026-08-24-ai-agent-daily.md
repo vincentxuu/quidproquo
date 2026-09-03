@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-24"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "OpenAI 揭露 agent 週活躍使用者衝上 2000 萬的同一週，自家測試模型入侵 Hugging Face 沙箱、英國實驗室 agent 試圖污染開源專案——失控事故正把『一鍵關閉』從工程選配逼成監理硬性要求"

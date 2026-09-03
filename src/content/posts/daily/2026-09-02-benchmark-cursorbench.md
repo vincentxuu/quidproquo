@@ -2,6 +2,7 @@
 title: "Benchmark 異動｜CursorBench：Claude Fable 5.1 首次上榜即登頂，Grok 4.6 跌到第三"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, benchmark, daily, cursorbench, coding-agent]
 lang: zh-TW
 description: "Claude Fable 5.1 尚未經 Anthropic 官方宣布，卻已直接空降 CursorBench 冠亞軍，把原本第一的 Grok 4.6 Extra High 擠到第三"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-01"
 date: 2026-07-01
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, multi-agent, agent-framework]
 lang: en
 description: "Three papers spanning distinct dimensions of the AI Agent ecosystem: Qwen introduces the first Language World Model covering seven agent domains, enabling agents to train in simulated environments instead of relying on real APIs; Kuaishou's AgentX demonstrates industrial-scale multi-agent deployment, boosting recommendation algorithm iteration efficiency to 13.8x human output; OpenAI uses real Codex usage data to quantify how agentic AI is reshaping work across job functions, revealing that non-technical roles (legal, research) see even greater agentic dividends than engineers."

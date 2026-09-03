@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-16"
 date: 2026-07-16
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-reasoning, multi-agent]
 lang: en
 description: "Three papers converge on the same question: how should each execution unit of an agent be designed so it's auditable, reusable, and recoverable at minimal blast radius when things go wrong?"

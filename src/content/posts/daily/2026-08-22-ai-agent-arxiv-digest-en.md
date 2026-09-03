@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-22"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "All three papers today ask the same question: do we really know what agents are doing and how well they do it — from audit evidence chains, to exposing blind spots in memory benchmarks, to puncturing the myth that AI can improve its own training algorithms"

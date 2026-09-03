@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-06"
 date: 2026-08-06
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-safety, tool-planning]
 lang: zh-TW
 description: "今天三篇圍繞同一道題：Agent 怎麼把「記得的事」轉化成「安全且正確的行動」——統一記憶管理讓七個原子操作跑贏所有記憶基線，安全承諾層用校準世界集把不安全動作率從 41% 壓到 3%，工具規劃框架把軌跡抽象成可遷移的工作流圖讓 OOD 準確率大幅提升"

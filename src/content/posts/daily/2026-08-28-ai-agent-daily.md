@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-28"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Agent 治理正在從各自造輪子走向標準化介面，但同一天 OpenAI 公布的 Hugging Face 入侵事後報告證明，介面統一了，授權邏輯若還停在單步檢查，牆一樣擋不住"

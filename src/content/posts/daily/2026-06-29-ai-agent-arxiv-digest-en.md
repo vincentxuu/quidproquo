@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-29"
 date: 2026-06-29
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-coding, agent-framework, agent-memory]
 lang: en
 description: "Three papers dissect the challenges of making agents production-grade infrastructure: Agent libOS addresses what an agent runtime should look like underneath; Autodata (Meta FAIR) shows how agents can manufacture and continuously improve their own training data; GAIE proposes tiered oversight for coding agents under regulatory constraints."

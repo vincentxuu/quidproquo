@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L10：記憶與序列建模 —— RNN、LSTM 與梯度消失／爆炸"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

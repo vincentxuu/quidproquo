@@ -2,6 +2,7 @@
 title: "融資速報｜Vals AI Series A $40M"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, vals-ai, model-evaluation]
 lang: zh-TW
 description: "獨立 AI 模型評測新創 Vals AI 完成 $40M Series A，Andreessen Horowitz 領投，估值 $400M，主打用真實工作任務取代學術考題"

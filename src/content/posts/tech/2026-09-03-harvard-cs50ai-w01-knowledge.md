@@ -2,6 +2,7 @@
 title: "Harvard CS50 AI Week 1：Knowledge——命題邏輯、模型檢查、推理規則與知識表示"
 date: 2026-08-30
 category: tech
+type: guide
 tags: [harvard-cs50ai, ai, logic, knowledge, model-checking, resolution, python, cs50]
 lang: zh-TW
 series:

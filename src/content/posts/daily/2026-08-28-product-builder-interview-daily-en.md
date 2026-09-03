@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-28: Growth & Experimentation"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [product-builder-interview, daily, growth]
 lang: en
 description: "Today's Growth PM interview practice: replace funnel thinking with Growth Loops, pair it with a six-step diagnostic chain (Goal→Metric→Bottleneck→Hypothesis→Experiment→Measurement), and work through a case on whether to double down on a referral program."

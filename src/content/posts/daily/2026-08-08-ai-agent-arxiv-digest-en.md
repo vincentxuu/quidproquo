@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-08"
 date: 2026-08-08
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, self-improving-agent, tool-use]
 lang: en
 description: "Three papers tackle the same question — when agents learn from experience, how do memory and tool planning break down? Memory rewards inflate, memory feedback dilutes, and tool planning overfits to specific tools"

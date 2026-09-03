@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-01"
 date: 2026-07-01
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, multi-agent, agent-framework]
 lang: zh-TW
 description: "今天三篇涵蓋 AI Agent 生態的不同維度：Qwen 團隊推出首個跨七大 agent 領域的「語言世界模型」，讓 agent 能在模擬環境中訓練而非倚賴真實 API；快手 AgentX 展示多 Agent 系統在工業規模下的生產部署成果，把推薦算法迭代效率提升至人工的 13.8 倍；OpenAI"

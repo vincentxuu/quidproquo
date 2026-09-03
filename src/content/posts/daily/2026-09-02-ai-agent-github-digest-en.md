@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-09-02"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp, agent-security, personal-agent, rag]
 lang: en
 description: "The personal-agent boom keeps growing while an NVIDIA-grade skill security scanner ships in the same week — OpenClaw passes 380k stars, SkillSpector patches the supply-chain gap underneath it"

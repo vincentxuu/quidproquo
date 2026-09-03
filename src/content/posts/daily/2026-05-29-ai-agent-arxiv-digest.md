@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-29"
 date: 2026-05-29
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-framework, agent-deployment]
 lang: zh-TW
 description: "今天三篇論文從三個切面同時問「如何讓 agentic AI 跑得更好」：第一篇（UIUC × Intel）量測 agent 真實工作負載，發現瓶頸在 KV-cache 管理而非長 prompt；第二篇（PwC）用對照實驗打臉 RAG-first 預設，指出 grep 在 agent loop 裡常勝"

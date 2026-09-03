@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Prep — 2026-08-22: Paper Reading"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, paper-reading]
 lang: en
 description: "Today we close-read a fresh arXiv paper on long-horizon agent harnesses (OneDayAgent) and practice the follow-up questions interviewers love to ask."

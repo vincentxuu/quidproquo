@@ -2,6 +2,7 @@
 title: "定價追蹤｜Google 不砍價，改砍帳單結構：Gemini Enterprise 推出承諾折扣與離峰費率"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, google]
 lang: zh-TW
 description: "Google Cloud 8/26 為 Gemini Enterprise 推出 Flexible Savings Plans（1 年期折 10%、3 年期折 20%）、新的 pay-as-you-go 方案，以及即將上線的離峰批次最高 5 折——不是調降標價，是重新設計帳單結構來對抗 AI 帳單震撼"

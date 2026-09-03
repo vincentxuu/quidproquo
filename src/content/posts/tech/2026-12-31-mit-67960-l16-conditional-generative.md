@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L16：條件生成模型（Conditional Generative Models）—— cGAN、cVAE 與 Classifier-Free Guidance"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

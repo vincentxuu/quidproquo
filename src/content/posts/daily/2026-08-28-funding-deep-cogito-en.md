@@ -2,6 +2,7 @@
 title: "Funding Brief｜Deep Cogito Series A $43M"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, deep-cogito, post-training]
 lang: en
 description: "Post-training research lab Deep Cogito closes a $43M Series A led by TQ Ventures, with cybersecurity firm Zscaler joining as both customer and investor"

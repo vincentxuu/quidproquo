@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-29：Paper Reading（論文精讀）"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, paper-reading]
 lang: zh-TW
 description: "今天精讀一篇剛掛上 arXiv 的 context 效率論文 SparseRead，練習在讀題時間內講清楚『事前過濾』與『事後裁剪』兩種 context 節省路線的根本差異。"

@@ -2,6 +2,7 @@
 title: "Agent Platform 深度解析（二）— Flow Runtime：版本化流程、Checkpoint 與 Resume/Retry 機制"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "workflow", "flow-runtime", "checkpoint", "versioning", "agent-platform", "durable-execution"]
 lang: zh-TW
 description: "Agent Platform 核心子系統 Flow Runtime 深度解析：FlowVersion 不變性設計、Step DAG 執行邏輯、Checkpoint 持久化、Resume/Retry-step 控制，以及 Deep Research seed flow 的實際結構。"

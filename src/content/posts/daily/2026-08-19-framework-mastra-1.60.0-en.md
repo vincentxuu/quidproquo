@@ -2,6 +2,7 @@
 title: "Framework Update | Mastra @mastra/core 1.60.0"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, mastra]
 lang: en
 description: "Mastra 1.60.0 lets Stored Agents opt into durable execution with a single durable: true flag, adds a Cloudflare Sandbox provider, and picks up the MCP 2026-07-28 protocol revision — pushing Mastra closer to 'production-grade without redeployment'"

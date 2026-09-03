@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-24"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp-server, security, coding-agent]
 lang: zh-TW
 description: "今天的 MCP 生態兩端拉扯——官方 GitHub MCP Server 忙著補資安洞，社群卻在往逆向工程、AI 法遵這類超細分領域長出專精工具"

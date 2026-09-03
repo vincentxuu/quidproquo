@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-09-03"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Agent 安全的下一個戰場不是擋惡意輸入，而是替整個機隊做風險記帳與身分治理——資安漏洞、學術研究與資安大廠收購案同一天指向同一個轉向"

@@ -2,6 +2,7 @@
 title: "模型卡｜BreezeBlue Breeze TTS 2"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, breezeblue, model-family-breeze-tts]
 lang: zh-TW
 description: "BreezeBlue 開源即時語音模型 Breeze TTS 2——開放權重 TTS 榜首（1,215 Elo），首度把語音設計、語音導演、低延遲串流三項能力整合進單一模型"

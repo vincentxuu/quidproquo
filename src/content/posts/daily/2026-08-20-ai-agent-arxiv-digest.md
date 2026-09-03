@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-20"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-safety]
 lang: zh-TW
 description: "今天三篇論文都在拷問 Agent 記憶系統的可信度——記憶管線出錯時怎麼定位是哪一階段壞的、記憶型自我進化的效果有多少其實是雜訊、以及記憶本身能不能被當成武器操縱一群 Agent 的集體立場"

@@ -2,6 +2,7 @@
 title: "Tool Pick | mcp-guardrail — Add an Approval and Audit Layer to Every MCP Tool Call"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "mcp-guardrail is a stdio proxy sitting between the MCP client and the real MCP server. It uses a policy.yaml to decide which tools an agent may call, logs every invocation to an audit file, and scans config files for hard-coded API keys."

@@ -2,6 +2,7 @@
 title: "Agent Platform Deep Dive (Part 6) — Observability, Evidence, and Artifacts: Structured Traces, Claim-to-Source Lineage, and Versioned Outputs"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "observability", "evidence", "artifacts", "trace", "audit", "agent-platform"]
 lang: en
 description: "A deep dive into Agent Platform's observability, evidence, and artifact systems: structured trace hierarchies, derived metrics, the Evidence Store (Claim↔Source↔Excerpt↔Citation), artifact versioning, the Markdown Report and JSON Evidence Bundle MVP formats, Context Snapshot budget allocation and compression, scoped procedural/episodic/semantic memory, and the Memory Write Proposal mechanism."

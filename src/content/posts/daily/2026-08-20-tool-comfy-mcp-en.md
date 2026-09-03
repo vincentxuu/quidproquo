@@ -2,6 +2,7 @@
 title: "Tool Pick | comfy-mcp — Comfy's Official MCP Server That Lets Agents Run ComfyUI on Your Machine"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "Comfy's official local MCP server wraps comfy-cli into 39 MCP tools, letting Claude Code, Cursor, and other agents run ComfyUI workflows on your machine without you touching the terminal"

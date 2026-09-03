@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-26"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-framework, coding-agent, personal-agent]
 lang: zh-TW
 description: "OpenHuman 想當你的個人記憶大腦、OpenBot 想把 agent 包成先審後動的數位同事，而 Agno v3 和 Haystack v3.1 則在啃『跑起來會壞在哪』的底層細節"

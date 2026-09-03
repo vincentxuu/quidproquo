@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-31：Product Sense"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [product-builder-interview, daily, product-sense]
 lang: zh-TW
 description: "今日練 Product Sense 面試：用「症狀 → 假設 → 驗證」的根因拆解法補強 CIRCLES 框架，練一道最近 Adobe PM 面試真實出現的『幫 LinkedIn 設計新功能』題目。"

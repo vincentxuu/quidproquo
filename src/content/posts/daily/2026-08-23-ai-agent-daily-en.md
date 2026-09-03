@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-23"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "The open-source ecosystem is outpacing official offerings at scale, but the same expanding pool of skills and MCP servers is becoming the new attack surface security scanners are targeting"

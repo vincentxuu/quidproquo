@@ -2,6 +2,7 @@
 title: "融資速報｜Wonderful Series C $550M"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, wonderful, agent-platform]
 lang: zh-TW
 description: "企業 AI OS 新創 Wonderful 完成 $550M Series C，Insight Partners 領投、Salesforce 首次入股，估值半年內從 $2B 衝到 $5B"

@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-29"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "llms.txt lets agents read a doc and auto-install packages — the same design meant to cut transaction costs was shown today to also be an attack surface that breaches Fortune 500 companies without any prompt injection at all"

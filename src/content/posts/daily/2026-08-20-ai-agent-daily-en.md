@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-20"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "Agent memory is shifting from nice-to-have to indispensable complement, but today academia and industry independently proved: once a complement exists, adversaries will treat it as an attack surface"

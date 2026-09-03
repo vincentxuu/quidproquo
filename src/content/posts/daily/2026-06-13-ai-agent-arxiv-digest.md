@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-13"
 date: 2026-06-13
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-deployment, agent-memory]
 lang: zh-TW
 description: "今天三篇分別從「記憶架構」、「訓練效率」、「可靠度評估」三個角度切入 Agent 平台的核心挑戰"

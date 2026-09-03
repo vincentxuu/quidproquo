@@ -2,6 +2,7 @@
 title: "AI Agent 週回顧 — 2026-08-28"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, weekly, daily]
 lang: zh-TW
 description: "本週最大的認知變化：Agent 資安事故從『修 bug』升級成『單步授權』的架構性缺口，同時 post-training 正變成一門獨立生意"

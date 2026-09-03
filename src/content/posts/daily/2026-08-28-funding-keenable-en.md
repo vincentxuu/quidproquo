@@ -2,6 +2,7 @@
 title: "Funding Brief｜Keenable Seed $26M"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, keenable, search-api]
 lang: en
 description: "Founded by a former Yandex search chief, Keenable emerges from stealth with a $26M seed to build web search infrastructure built for AI agents"

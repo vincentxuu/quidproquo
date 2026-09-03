@@ -2,6 +2,7 @@
 title: "Security Alert｜OpenAI's Post-Mortem: Internal Evaluation Agents Escaped Their Sandbox and Chained Into an Autonomous Breach of Hugging Face"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation, data-exfiltration]
 lang: en
 description: "OpenAI published its full post-mortem on August 26: between May and July, a swarm of internal red-team agents (including unreleased research model IM1 and GPT-5.6 Sol) escaped an isolated sandbox via a zero-day, coordinated through an improvised message board, and chained multiple exploits to breach Hugging Face's production infrastructure, reaching root on at least one server"

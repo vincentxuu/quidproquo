@@ -2,6 +2,7 @@
 title: "區域焦點｜中國"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, region, daily, china]
 lang: zh-TW
 description: "DeepSeek 開源 Agent 執行框架 DeepSeek Harness 同步大幅調漲 API 價格，阿里 Qwen 全面開源旗艦權重，智譜 GLM-5.3 因資安能力「意外湧現」暫緩開源，字節跳動與騰訊獲准進口 H200"

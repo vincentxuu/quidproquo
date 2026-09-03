@@ -2,6 +2,7 @@
 title: "Python coding agent 實戰 M11：為什麼 exec 迴圈做不出 Claude Code 的對話體驗"
 date: 2026-08-22
 category: ai
+type: deep-dive
 tags: [coding-agent, python, tui, claude-code, codex, agent-sdk]
 lang: zh-TW
 tldr: "要做出 Claude Code 或 Codex 的 TUI，關鍵不是滿版配色，而是長生命期 session、typed transcript 與 tool-boundary approval。"

@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-22"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "AI giants are embedding themselves into capital and payment infrastructure — Stripe acquires OpenRouter, Anthropic prepares a SpaceX-scale IPO, and the moat has shifted from model capability to capital structure"

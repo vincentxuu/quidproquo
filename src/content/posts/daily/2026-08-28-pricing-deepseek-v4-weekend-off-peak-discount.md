@@ -2,6 +2,7 @@
 title: "定價追蹤｜DeepSeek 週末全時段降到離峰價，上週漲價的另一半故事"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, deepseek]
 lang: zh-TW
 description: "DeepSeek 於 8/23 起取消週末的尖峰時段計費，週六日全天改按離峰價收費——上週才把 V4 尖峰價調漲 355% 以上，這週用「週末半價」補了一手，等於把定價新聞拆成兩篇才讀得完整"

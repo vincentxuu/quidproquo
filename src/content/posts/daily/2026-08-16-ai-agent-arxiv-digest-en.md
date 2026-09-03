@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-16"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, prompt-injection, agent-skills]
 lang: en
 description: "Three papers converge on the same issue — agent skills and extensions are becoming a new attack surface: red-team systems can breach defenses at minimal cost, seemingly benign skills cause task failures on their own, and theoretical analysis shows individually harmless mechanisms can compound into systemic risk"

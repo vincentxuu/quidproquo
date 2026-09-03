@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-09-02: Strategy & Execution"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [product-builder-interview, daily, strategy]
 lang: en
 description: "Today's Strategy & Execution interview practice: using Porter's Five Forces plus TAM-SAM-SOM to decide whether Google should enter the online furniture market, plus how Zoom fought its way into a saturated video conferencing market — a lesson in finding a moat as a late entrant."

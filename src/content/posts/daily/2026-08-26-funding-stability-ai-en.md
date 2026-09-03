@@ -2,6 +2,7 @@
 title: "Funding Brief｜Stability AI Series B $76M"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, stability-ai, image-generation]
 lang: en
 description: "Open-source image generation pioneer Stability AI closes $76M Series B with Universal, Warner, and Sony Music all taking equity stakes; valuation undisclosed"

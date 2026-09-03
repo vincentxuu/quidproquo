@@ -6,6 +6,7 @@ tags: [leveraged-etf, index-investing, asset-allocation, rebalancing, books]
 lang: en
 type: deep-dive
 description: "A Threads post by @jj.investnote laid out a 2x leveraged ETF system built on three books: 60% 2x ETF + 40% cash, Beta=1.2 target, ±10% rebalancing trigger, and a crash protocol."
+tldr: "A 2x leveraged ETF system traces its philosophy to three books: A Random Walk Down Wall Street answers 'what to hold' (index funds), Lifecycle Investing answers 'how to accelerate' (leverage to diversify time risk), and The Four Pillars of Investing answers 'how to survive' (rebalancing discipline). Combined: 60% 2x ETF + 40% cash, Beta=1.2, ±10% rebalancing trigger."
 ---
 
 > 🌏 [中文版](/posts/investing/2026-06-19-2x-etf-system-three-books)

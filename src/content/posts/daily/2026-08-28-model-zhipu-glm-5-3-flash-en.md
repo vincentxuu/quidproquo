@@ -2,6 +2,7 @@
 title: "Model Card｜GLM-5.3-Flash"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, zhipu, model-family-glm]
 lang: en
 description: "Z.ai reveals that the anonymous model that ran free for a week as 'Ox Alpha' is GLM-5.3-Flash — the GLM-5 series' first natively multimodal model, 320B total parameters with only 18B active, MIT-licensed open weights, priced at roughly a ninth of its own GLM-5.3"

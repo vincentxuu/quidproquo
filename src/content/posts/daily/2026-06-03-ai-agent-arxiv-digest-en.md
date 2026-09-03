@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-03"
 date: 2026-06-03
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-memory, agent-framework]
 lang: en
 description: "Three papers tackle agent memory from three angles: interoperability standardization, latent-space efficiency, and budget-awareness gaps. The first proposes a cross-framework memory wire format to unify mem0, Letta, and Cognee; the second replaces text-in-context experience retrieval with latent-space vector search (best on 12/13 benchmarks); the third is a large-scale evaluation revealing all five frontier models are systematically over-optimistic and unable to sense mid-task budget shortfalls — task strength ≠ budget awareness (r=0.35)."

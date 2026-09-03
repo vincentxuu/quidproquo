@@ -2,6 +2,7 @@
 title: "Model Card｜Muse Voice Transcribe"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, meta, model-family-muse]
 lang: en
 description: "Meta ships Muse Voice Transcribe, its first real-time audio perception model — a single model handling streaming ASR, 20+ speaker diarization, and endpointing, ranking #1 on Artificial Analysis streaming speech-to-text at 3.1% WER"

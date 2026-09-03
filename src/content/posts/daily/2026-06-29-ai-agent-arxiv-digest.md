@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-29"
 date: 2026-06-29
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-coding, agent-framework, agent-memory]
 lang: zh-TW
 description: "今天三篇從不同角度剖析「Agent 走向生產級基礎設施」的挑戰：Agent libOS 回答「agent 的 runtime 底層該長什麼樣子」；Autodata（Meta FAIR）示範「agent 如何自己製造並持續優化訓練資料」；GAIE 則提出「企業在法規約束下如何分級監督 coding a"

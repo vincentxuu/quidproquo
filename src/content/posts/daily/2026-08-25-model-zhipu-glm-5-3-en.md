@@ -2,6 +2,7 @@
 title: "Model Card｜GLM-5.3"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, zhipu, model-family-glm]
 lang: en
 description: "Z.ai releases GLM-5.3 — same GLM-5.2 base model, pure post-training scaling pushes Terminal-Bench 3.0 from 4.6% to 28.3%, CyberGym vulnerability discovery score overtakes every listed closed-source frontier model for the first time"

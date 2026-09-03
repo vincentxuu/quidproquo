@@ -2,6 +2,7 @@
 title: "融資速報｜Instinct Series B $250M"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, instinct, personal-agent]
 lang: zh-TW
 description: "個人 AI 助理新創 Instinct 完成 $250M Series B，估值 5 週內從 $500M 衝到 $2.5B，Index Ventures 與 Benchmark 共同領投"

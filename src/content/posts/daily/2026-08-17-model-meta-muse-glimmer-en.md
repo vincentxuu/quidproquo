@@ -2,6 +2,7 @@
 title: "Model Card｜Muse Glimmer"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, meta]
 lang: en
 description: "Meta open-sources Muse Glimmer — a 30B-parameter local agentic model under Apache 2.0, scoring 75.5 on MCP Atlas far ahead of same-tier models, with DFlash speculative decoding delivering 3.1x decode speedup on RTX 5090"

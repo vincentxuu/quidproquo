@@ -2,6 +2,7 @@
 title: "Harvard CS50 AI Synthesis (2): Project Portfolio — All 12 Projects Compared, Difficulty Tiered & Skill Mapped"
 date: 2026-08-30
 category: tech
+type: deep-dive
 tags: [harvard-cs50ai, ai, projects, comparison, difficulty, portfolio, python, cs50]
 lang: en
 series:

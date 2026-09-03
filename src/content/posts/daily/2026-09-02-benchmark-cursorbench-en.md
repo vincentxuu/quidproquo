@@ -2,6 +2,7 @@
 title: "Benchmark Shift｜CursorBench: Claude Fable 5.1 Debuts at #1, Bumps Grok 4.6 to Third"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, benchmark, daily, cursorbench, coding-agent]
 lang: en
 description: "Claude Fable 5.1 has no official Anthropic announcement yet, but it just parachuted straight into first and second place on CursorBench, pushing the previous leader Grok 4.6 Extra High down to third"

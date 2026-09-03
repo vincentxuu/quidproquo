@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-17"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "AI 基礎設施的併購浪潮開打——SpaceX 買下 Cursor、Stripe 買下 OpenRouter、Anthropic 買下 Decart，三筆同週交易背後是同一套互補資產邏輯"

@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-30"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Agent 自主性正在同時把『辦正事』與『搞破壞』的成本壓到接近零——今天沒有方向性，只有速度"

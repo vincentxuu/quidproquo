@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-23: Behavioral & Weekly Review"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [product-builder-interview, daily, behavioral]
 lang: en
 description: "Today's behavioral interview practice: the STAR-R framework, how to distinguish Failure Stories from Problem Stories, and a full breakdown of an 'influencing without authority' real interview question. Plus a four-day weekly recap."

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-18"
 date: 2026-06-18
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-security]
 lang: en
 description: "Three papers targeting three critical infrastructure layers of Agent platforms: HarnessX introduces a 'harness as evolvable component' framework that turns static Agent scaffolding into a self-optimizing system (+14.5% average across 5 benchmarks); the second studies skill-conditional trust routing in multi-agent collaboration, revealing when fine-grained trust helps and how attackers can hijack it; OCELOT tackles security with a 'posterior leakage budget' mechanism to prevent Agents from gradually leaking user privacy to external services."

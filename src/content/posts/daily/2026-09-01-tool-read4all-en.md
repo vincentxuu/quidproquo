@@ -2,6 +2,7 @@
 title: "Tool Pick | read4all — Letting an Agent Read PDFs, Office Files, and Screenshots as Markdown"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "An MCP server that converts PDFs, Office files, images, and web documents into Markdown, preferring a MinerU cloud engine and falling back to fast local libraries when no key is set"

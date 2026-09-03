@@ -2,6 +2,7 @@
 title: "工具推薦｜Sovereign MCP — 在 Agent 寫出不安全的 Terraform 之前先攔下來"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "MCP server 在 Agent 生成 Terraform 的當下就掃描安全設定問題並自動修正，而不是等 PR 或 CI 才發現"

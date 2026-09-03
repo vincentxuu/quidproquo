@@ -2,6 +2,7 @@
 title: "融資速報｜Rundoo Series B $30M"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, rundoo, retail]
 lang: zh-TW
 description: "獨立五金／油漆／園藝店的系統之母 Rundoo 完成 $30M B 輪，Battery Ventures 領投，把 POS、CRM、總帳全部收進一個叫 Dooey 的 AI agent 底下"

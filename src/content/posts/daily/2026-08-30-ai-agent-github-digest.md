@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-30"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp-server, agent-coding]
 lang: zh-TW
 description: "chrome-devtools-mcp 衝上今日 TypeScript trending 冠軍，coding agent 生態的「感知層」（瀏覽器、程式碼結構、context 用量）同時在補課；pydantic-ai 交出可插拔的 durable execution 後端 API"

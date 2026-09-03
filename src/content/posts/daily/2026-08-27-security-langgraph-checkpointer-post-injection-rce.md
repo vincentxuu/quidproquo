@@ -2,6 +2,7 @@
 title: "資安警報｜Check Point 稽核六大 AI Agent 框架揪出 21 個問題——LangGraph Checkpointer 一條鏈就是未授權 RCE"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection, supply-chain]
 lang: zh-TW
 description: "Check Point Research 在 Black Hat USA 2026 發表為期一年的橫向稽核：LangChain、LangGraph、CrewAI、AutoGen、Microsoft Agent Framework、Google ADK 六大框架共 21 項問題、12 個 CVE，核心是攻擊者不需呼叫任何工具，只要讓資料寫進框架自己的狀態持久化層，下次讀取時就會觸發程式碼執行"

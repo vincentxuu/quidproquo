@@ -2,6 +2,7 @@
 title: "工具推薦｜mcp-spend-guard — 幫每個 MCP server 加一個花費上限與斷路器"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "mcp-spend-guard 是一個包住任意 stdio MCP server 的 proxy，用 SQLite 計數強制花費上限、每分鐘呼叫數、逾時斷路器和一個 touch 檔案就能觸發的緊急停止鍵"

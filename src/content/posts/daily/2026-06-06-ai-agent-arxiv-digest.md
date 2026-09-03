@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-06"
 date: 2026-06-06
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-evaluation, agent-framework]
 lang: zh-TW
 description: "今天三篇圍繞 agent 系統三個深層問題：**記憶架構**（哪種設計能真正跨場景通用"

@@ -2,6 +2,7 @@
 title: "Harvard CS50 AI 綜論（二）：專案組合全景——十二個 Projects 逐一比較、難度分級與技能對照表"
 date: 2026-08-30
 category: tech
+type: deep-dive
 tags: [harvard-cs50ai, ai, projects, comparison, difficulty, portfolio, python, cs50]
 lang: zh-TW
 series:

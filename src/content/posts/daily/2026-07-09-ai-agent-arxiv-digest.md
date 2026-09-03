@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-09"
 date: 2026-07-09
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-framework, agent-memory]
 lang: zh-TW
 description: "今天三篇論文從不同維度敲響「Agent 安全警報」：FARMA 能以 100% 成功率悄悄竄改 Agent 的推理記憶，繞過現有所有防禦機制；Vera 框架對 4 套生產級 Agent 系統（含 Claude Code）做系統化安全測試，平均攻擊成功率高達 93.9%；PiSAs 則揭示在多用戶共享"

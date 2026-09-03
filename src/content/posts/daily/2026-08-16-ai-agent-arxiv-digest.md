@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-16"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, prompt-injection, agent-skills]
 lang: zh-TW
 description: "今天三篇圍繞同一個問題——Agent 的技能與擴充模組正在變成新的攻擊面：紅隊系統能用極低成本高效攻破，看似無害的技能本身就會讓任務失敗，理論分析則說明分散的無害機制疊加後可能構成系統性風險"

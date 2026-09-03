@@ -2,6 +2,7 @@
 title: "工具推薦｜upnote-mcp — 讓 Claude 直接讀寫本機 UpNote 筆記，不用雲端不用 API key"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "MCP server 讓 Claude 直接讀寫桌面筆記軟體 UpNote 的本機資料庫，靠逆向工程 WAL 快照解決讀取正確性，寫入則透過官方 URL scheme，全程不碰雲端、不用 API key"

@@ -2,6 +2,7 @@
 title: "Framework Update | Haystack 3.1.0"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, haystack]
 lang: en
 description: "Haystack 3.1 fills two production gaps: context compaction via Hook + Compactor combos, and AgentTool for wrapping an entire Agent as a callable Tool — plus several deserialization RCE fixes"

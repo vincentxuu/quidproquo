@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-26"
 date: 2026-06-26
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, multi-agent]
 lang: en
 description: "Three papers, three angles: **RigorBench** evaluates coding agents on process discipline rather than just pass rates, introducing five dimensions of engineering rigor; a production-focused paper shows how to customize and accelerate large multi-agent systems for enterprise use (4.48x throughput gain); and a governance paper proposes a formal protocol language for specifying human-agent boundaries in the software development lifecycle."

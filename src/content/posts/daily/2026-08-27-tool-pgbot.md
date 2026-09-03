@@ -2,6 +2,7 @@
 title: "工具推薦｜pgbot — 讓 AI agent 唯讀連進 Postgres，秒判斷資料庫哪裡不對"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "pgbot 是一個唯讀的 Go 靜態執行檔，讀 Postgres 自己的統計視圖產生 findings-first 健康報告，也能跑成 MCP server 讓 AI agent 直接呼叫，不用部署任何監控平台"

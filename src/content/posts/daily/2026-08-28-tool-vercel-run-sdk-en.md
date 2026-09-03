@@ -2,6 +2,7 @@
 title: "Tool Pick | Vercel Run SDK — Run Agent-Generated Code in a Sandbox That Survives Approval Pauses"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, sdk]
 lang: en
 description: "Vercel's open-source QuickJS sandbox lets agent-generated JS/TS call only the host functions you explicitly expose, and resumes from an approval pause without replaying calls that already succeeded"

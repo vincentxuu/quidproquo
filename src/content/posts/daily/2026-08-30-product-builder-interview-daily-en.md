@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-30: Behavioral & Weekly Review"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [product-builder-interview, daily, behavioral]
 lang: en
 description: "Today's Behavioral practice: use the STAR-R framework (STAR plus a Reflection step) to break down a real scenario about persuading an engineering lead with no formal authority, plus a seven-day weekly review."

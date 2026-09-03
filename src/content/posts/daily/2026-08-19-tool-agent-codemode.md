@@ -2,6 +2,7 @@
 title: "工具推薦｜agent-codemode — 讓 Coding Agent 自己寫腳本呼叫 MCP server，省下 99% context"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: zh-TW
 description: "CLI + TypeScript SDK，把 Claude Code 已經認證好的 MCP server 讀出來給你的腳本直接呼叫，一個 script 取代幾十次 tool call round trip，不用另外設 API key 或走 OAuth"

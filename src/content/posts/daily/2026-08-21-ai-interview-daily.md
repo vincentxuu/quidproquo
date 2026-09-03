@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-21：Coding（ML 手刻實作）"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, coding]
 lang: zh-TW
 description: "今日練 ML coding round 手刻實作：NumPy 向量化、softmax 數值穩定性、multi-head attention 從零實作，以及批次推論的 padding/masking 處理。"

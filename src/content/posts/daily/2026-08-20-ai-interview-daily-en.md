@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-08-20: ML System Design"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, system-design]
 lang: en
 description: "Today's ML system design interview practice: feature store architecture, training-serving skew, model deployment strategies, and production monitoring."

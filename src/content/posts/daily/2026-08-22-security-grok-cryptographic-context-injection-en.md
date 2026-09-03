@@ -2,6 +2,7 @@
 title: "Security Alert｜Grok Hit by Encrypted Prompt Injection — Zero-Click Exfiltration of Chat History and Personal Data"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection, data-exfiltration]
 lang: en
 description: "Security firm Adversa AI discloses Cryptographic Context Injection, a technique that exfiltrates a user's name, location, subscription tier, and full chat history simply by asking xAI's Grok to summarize a malicious webpage — zero clicks required, no user awareness; the vulnerability remains unpatched since being reported in June"

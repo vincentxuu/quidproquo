@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-27：LLM & Agent Engineering"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, llm-engineering]
 lang: zh-TW
 description: "今日練 LLM 與 Agent 工程：RAG vs Agentic RAG 怎麼選、context window 的分層結構與 lost-in-the-middle、guardrails 怎麼擋住 prompt injection，以及 RLHF 與 agent 三種失敗模式的拆解。"

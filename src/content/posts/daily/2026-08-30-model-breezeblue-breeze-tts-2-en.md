@@ -2,6 +2,7 @@
 title: "Model Card｜BreezeBlue Breeze TTS 2"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, breezeblue, model-family-breeze-tts]
 lang: en
 description: "BreezeBlue open-sources Breeze TTS 2, a real-time voice model that tops the open-weights TTS leaderboard (1,215 Elo) by bundling voice design, voice direction, and low-latency streaming into one model"

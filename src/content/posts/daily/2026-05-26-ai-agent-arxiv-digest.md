@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-26"
 date: 2026-05-26
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-framework, agent-reasoning]
 lang: zh-TW
 description: "今天三篇分別從三個基礎設施層面深挖 Agent 平台：微軟提出仿人腦六機制的記憶管理架構，在大型 codebase 資料上讓記憶庫壓縮 58% 還保住 97.2% 精確率；Megagon Labs 的研究顛覆「逐步推理」慣例，證明先生成完整計劃再批次執行工具可省 2–4.7x token；最後一篇借"

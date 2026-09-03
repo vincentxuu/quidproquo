@@ -2,6 +2,7 @@
 title: "Funding Brief｜Instinct Series B $250M"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, instinct, personal-agent]
 lang: en
 description: "Personal AI assistant startup Instinct closes a $250M Series B, re-rating from $500M to $2.5B in five weeks, co-led by Index Ventures and Benchmark"

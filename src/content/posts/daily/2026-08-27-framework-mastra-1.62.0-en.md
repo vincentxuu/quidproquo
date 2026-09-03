@@ -2,6 +2,7 @@
 title: "Framework Update | Mastra @mastra/core 1.62.0"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, mastra]
 lang: en
 description: "Mastra 1.62 turns desktop control — screenshots, mouse, keyboard — into a 12th workspace tool, adds Elasticsearch and Valkey storage backends, and ships 7 breaking changes"

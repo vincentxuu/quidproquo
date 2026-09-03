@@ -2,6 +2,7 @@
 title: "框架更新｜AG2 v1.0.2"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, ag2]
 lang: zh-TW
 description: "AG2 v1.0.2 讓 Agent 能雙向暴露成 ACP 服務、A2A agent card 改為簽章驗證，並補上 gRPC TLS 傳輸層，是一次補強跨 Agent 互通安全性的版本"

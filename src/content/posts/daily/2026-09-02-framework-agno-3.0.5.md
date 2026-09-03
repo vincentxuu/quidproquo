@@ -2,6 +2,7 @@
 title: "框架更新｜Agno 3.0.5"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, agno]
 lang: zh-TW
 description: "Agno 3.0.5 讓 Knowledge 的向量嵌入失敗從『默默回報成功』改成『誠實回報失敗』，是一次修正資料完整性契約的版本"

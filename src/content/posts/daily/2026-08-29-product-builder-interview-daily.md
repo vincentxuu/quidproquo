@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-29：Technical PM"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [product-builder-interview, daily, technical-pm]
 lang: zh-TW
 description: "今日練 Technical PM 面試：用「PM 系統設計四步法」與 ADR 拆解 API breaking change 決策，練一道『客戶要求破壞既有格式』的真實面試題。"

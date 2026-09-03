@@ -2,6 +2,7 @@
 title: "Framework Update | AG2 v1.0.2"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, ag2]
 lang: en
 description: "AG2 v1.0.2 lets agents bi-directionally expose themselves as ACP services, switches A2A agent cards to signature verification, and adds gRPC TLS transport — a release focused on hardening cross-agent interop security"

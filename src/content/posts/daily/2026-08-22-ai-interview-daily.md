@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-22：Paper Reading（論文精讀）"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, paper-reading]
 lang: zh-TW
 description: "今天精讀一篇剛掛上 arXiv 的長程 agent harness 論文 OneDayAgent，練習面試官最愛問的『你會怎麼追問這篇論文』。"

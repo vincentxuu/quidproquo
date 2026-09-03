@@ -2,6 +2,7 @@
 title: "Funding Brief｜Wonderful Series C $550M"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, wonderful, agent-platform]
 lang: en
 description: "Enterprise AI OS startup Wonderful closes a $550M Series C led by Insight Partners with Salesforce's first-ever investment, tripling its valuation in six months"

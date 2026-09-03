@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-28"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-memory, agent-runtime]
 lang: en
 description: "Agent 'memory layers' filled two gaps at once today — claude-mem and OpenViking attack the amnesia problem from opposite directions, and the Apache Foundation adopts its first agent execution-log project"

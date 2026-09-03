@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-21"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-framework, local-first, agent-tool-use]
 lang: en
 description: "Four trending Agent repos today all converge on the same direction — moving agents from cloud black boxes back to the local filesystem, replacing abstract APIs with readable, auditable, offline-capable structures"

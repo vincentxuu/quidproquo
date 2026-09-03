@@ -2,6 +2,7 @@
 title: "Security Alert｜Deadbugz — A Malicious MCP Server Disguised as a Text Tool That Only Turns Hostile After Three Calls"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain]
 lang: en
 description: "Security firm Pillar Security exposed an ongoing MCP supply-chain attack campaign called Deadbugz: an attacker submitted 23 GitHub PRs injecting a malicious MCP server disguised as a text formatting tool into unrelated projects' config files. The server behaves normally for the first three tool calls, then switches to returning instructions that trick the Agent into exfiltrating SSH keys, AWS credentials, and other secrets."

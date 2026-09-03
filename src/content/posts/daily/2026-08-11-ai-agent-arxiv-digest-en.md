@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-11"
 date: 2026-08-11
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, multi-agent, agent-evaluation]
 lang: en
 description: "Three papers point to the same problem — three barriers multi-agent systems must cross to go from demo to production: memory should compile not just retrieve, role specialization must reach the parameter level, and failures need a unified attribution model"

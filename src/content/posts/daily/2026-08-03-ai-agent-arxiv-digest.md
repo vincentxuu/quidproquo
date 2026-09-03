@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-03"
 date: 2026-08-03
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-framework, agent-security]
 lang: zh-TW
 description: "今天三篇論文分別從多 Agent 的「組織設計」、「安全隔離」與「使用者授權」三個維度切入平台建設難題"

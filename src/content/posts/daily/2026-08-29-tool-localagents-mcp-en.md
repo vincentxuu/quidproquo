@@ -2,6 +2,7 @@
 title: "Tool Pick | localagents — Offload Claude Code's Grunt Work to Your Own GPU"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "An MCP server lets Claude Code delegate repetitive coding subtasks to a local llama.cpp / vLLM model, so Claude only handles design and review while your Anthropic token budget goes further"

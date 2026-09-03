@@ -2,6 +2,7 @@
 title: "模型卡｜Gemini 3.7 Flash"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, google]
 lang: zh-TW
 description: "Google 發佈 Gemini 3.7 Flash——沿用 3.6 Flash 定價，DeepSWE v1.1 從 48.6% 衝上 65.3%，主打企業級 agentic coding 與長流程自動化"

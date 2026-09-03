@@ -2,6 +2,7 @@
 title: "Security Alert｜CoreBreak — Dispatch Layer Flaws in AWS Bedrock, Google ADK, and Vercel AI SDK Allow Tool Calls to Bypass the Model Entirely"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation]
 lang: en
 description: "Security research firm Stealth disclosed CoreBreak at Black Hat USA 2026: the tool dispatch layers in AWS Bedrock AgentCore, Google ADK, and Vercel AI SDK can all trigger tool calls without the model ever running, rendering every model-level defense — system prompts, content filters, refusal training — completely ineffective"

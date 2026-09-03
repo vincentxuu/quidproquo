@@ -2,6 +2,7 @@
 title: "Pricing Watch | OpenAI Cuts GPT-5.6 Sol Official Prices by 20-33%"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, openai]
 lang: en
 description: "On 8/21, OpenAI cut the official standard rates for its flagship GPT-5.6 Sol — input from $5 to $4 (↓20%), output from $30 to $20 (↓33%). Promotional pricing runs at least through 2026-11-21. This time it's the vendor itself, not a platform discount."

@@ -2,6 +2,7 @@
 title: "Funding Brief｜DEEP.FINE Series B $6.6M"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, deep-fine, industrial-ai]
 lang: en
 description: "South Korean industrial spatial AI startup DEEP.FINE closes $6.6M Series B led by Hyosung Ventures, pivoting from project-based delivery to SaaS subscriptions for on-site AI Agents"

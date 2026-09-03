@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-08"
 date: 2026-08-08
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, self-improving-agent, tool-use]
 lang: zh-TW
 description: "今天三篇論文圍繞同一個問題——Agent 從經驗中學習時，記憶和工具規劃各自會怎麼壞掉，又該怎麼修：記憶獎勵會膨脹、記憶回饋會稀釋、工具規劃會綁死在特定工具上"

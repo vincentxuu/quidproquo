@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-25"
 date: 2026-05-25
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-framework, agent-memory]
 lang: en
 description: "Three papers on the most pressing question for agent platforms in 2026: can safety constraints in multi-agent systems actually hold up during execution?"

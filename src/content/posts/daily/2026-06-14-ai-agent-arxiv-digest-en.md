@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-14"
 date: 2026-06-14
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-memory, multi-agent]
 lang: en
 description: "Three papers tackle the same core question from different angles: how to evaluate and operate AI Agents under real deployment conditions"

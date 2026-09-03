@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-23：Behavioral（本週回顧）"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, behavioral]
 lang: zh-TW
 description: "本週行為面試練習：AI 專案上線後出包，你怎麼定位問題、重建利害關係人信任，再回顧這週練過的三個主題。"

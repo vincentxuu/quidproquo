@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-28"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "Agent governance is moving from everyone rolling their own wheel toward standardized interfaces — but the same day OpenAI published its post-mortem on the Hugging Face breach, proving that unifying the interface doesn't help if authorization logic is still stuck checking one step at a time"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-30"
 date: 2026-06-30
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-coding]
 lang: zh-TW
 description: "今天三篇論文共同聚焦在一個核心問題：**我們到底怎麼評估 agent 夠不夠好"

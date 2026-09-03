@@ -2,6 +2,7 @@
 title: "Tool Pick | agent-codemode — Let Coding Agents Write Scripts That Call MCP Servers Directly, Saving 99% Context"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: en
 description: "A CLI + TypeScript SDK that reads the MCP servers already authenticated in Claude Code and lets your scripts call them directly — one script replaces dozens of tool-call round trips, no extra API keys or OAuth needed"

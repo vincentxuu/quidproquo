@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-08-29: Paper Reading"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, paper-reading]
 lang: en
 description: "Today we close-read SparseRead, a context-efficiency paper fresh on arXiv, and practice explaining the core difference between pre-filtering and post-hoc pruning within the time limit of a real reading round."

@@ -2,6 +2,7 @@
 title: "Security Alert｜Check Point Audits Six AI Agent Frameworks, Finds 21 Issues — LangGraph's Checkpointer Chains Straight to Unauthenticated RCE"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection, supply-chain]
 lang: en
 description: "Check Point Research's year-long audit at Black Hat USA 2026 covers LangChain, LangGraph, CrewAI, AutoGen, Microsoft Agent Framework, and Google ADK — 21 findings, 12 CVEs, and a core insight: attackers don't need to call a single tool, they just need to get data written into a framework's own state-persistence layer"

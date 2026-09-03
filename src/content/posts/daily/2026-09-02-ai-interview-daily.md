@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-09-02：ML System Design"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, system-design]
 lang: zh-TW
 description: "今日練 ML System Design：feature store 怎麼解決 training-serving skew、部署策略的四種選擇（canary/shadow/A-B/blue-green），以及 drift 監控該分幾層看。"

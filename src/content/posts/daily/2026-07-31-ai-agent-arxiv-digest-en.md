@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-31"
 date: 2026-07-31
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-tool-use]
 lang: en
 description: "Three papers today ask the same core question: can AI Agents actually work in production? The answer is consistently — not yet."

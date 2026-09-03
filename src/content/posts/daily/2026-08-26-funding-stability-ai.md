@@ -2,6 +2,7 @@
 title: "融資速報｜Stability AI Series B $76M"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, stability-ai, image-generation]
 lang: zh-TW
 description: "開源生圖始祖 Stability AI 完成 $76M B 輪，環球、華納、索尼三大唱片公司同時入股，估值未揭露"

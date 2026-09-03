@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-09-03: AI Product Design"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [product-builder-interview, daily, ai-product]
 lang: en
 description: "Today's AI Product Design interview practice: using the 'Map failure modes → Define MVQ → Design guardrails' framework to break down a real case of a Slack-summary assistant misassigning owners, then looking at how GitHub Copilot's ghost text drives the cost of distrust toward zero."

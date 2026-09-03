@@ -2,6 +2,7 @@
 title: "資安警報｜Flowise Custom MCP 節點命令注入——一年內第四個 RCE CVE（CVE-2026-73601）"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, security, daily, privilege-escalation, mcp]
 lang: zh-TW
 description: "開源 AI Agent 建構平台 Flowise 的 Custom MCP 節點被揭露新一輪命令注入漏洞 CVE-2026-73601，已認證使用者可透過環境變數與工作目錄手法在 stdio 模式下取得主機層級任意指令執行，這已是同一功能一年內第四次被回報 RCE。"

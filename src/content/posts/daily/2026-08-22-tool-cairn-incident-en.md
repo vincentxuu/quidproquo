@@ -2,6 +2,7 @@
 title: "Tool Pick | Cairn — An Incident Analysis Copilot You Query in Plain English"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: en
 description: "Open-source incident analysis Copilot: ask a natural-language question, and it cross-references your observability stack, deploy timeline, and runbooks to propose evidence-backed root causes — remediation actions require human approval before execution"

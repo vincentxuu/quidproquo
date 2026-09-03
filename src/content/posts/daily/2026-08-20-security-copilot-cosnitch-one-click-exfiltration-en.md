@@ -2,6 +2,7 @@
 title: "Security Alert | CoSnitch — Copilot Was Social-Engineered Into Revealing Its Own Vulnerability, Enabling One-Click Gmail Exfiltration and Persistent Memory Poisoning"
 date: 2026-08-20
 category: daily
+type: digest
 lang: en
 tags: [ai-agent, security, daily, prompt-injection]
 description: "Varonis Threat Labs used 'meta-hacking' — repeatedly asking why something was impossible — to get Microsoft Copilot Personal to reveal undocumented URL parameters, chaining them into a one-click data exfiltration and persistent memory poisoning attack called CoSnitch (CVE-2026-24301)"

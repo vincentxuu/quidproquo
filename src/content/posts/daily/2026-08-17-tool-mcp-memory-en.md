@@ -2,6 +2,7 @@
 title: "Tool Pick | mcp-memory — Long-Term Agent Memory Using Google's OKF Standard"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "An MCP server that stores Agent memory as Google Open Knowledge Format (OKF) Markdown files with local SQLite FTS5 indexing for cross-session millisecond retrieval — no cloud account or API key required"

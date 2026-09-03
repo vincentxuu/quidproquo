@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-19"
 date: 2026-06-19
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-reasoning]
 lang: en
 description: "Three papers challenging conventional wisdom in the agent space: ACCORD shows agents act on assumptions instead of observations and fixes it with active grounding (AppWorld 42% → 62.6%); 'The Illusion of Multi-Agent Advantage' proves auto-generated MAS underperforms single-agent CoT-SC at 10x the cost; 'Agentic Very Much' provides large-scale GitHub evidence that coding agent adoption in new projects has more than doubled year-over-year."

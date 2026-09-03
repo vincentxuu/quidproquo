@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-14"
 date: 2026-08-14
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-harness, agent-evaluation, agent-safety]
 lang: zh-TW
 description: "今天三篇都指向同一件事——模型之外的 harness 才是決定 Agent 品質的工程面：指令遵從度被高估、安全邊界可以從軌跡自動學、驗證器分解讓自我改進便宜 5 倍"

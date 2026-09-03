@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-09-01: Metrics & Analytics"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [product-builder-interview, daily, metrics]
 lang: en
 description: "Today's Metrics & Analytics interview practice: using a metric tree to diagnose a real execution question — comments up, watch time down — plus Facebook's '7 friends in 10 days' story as a lesson in correlation versus causation."

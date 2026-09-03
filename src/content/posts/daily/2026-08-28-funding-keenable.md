@@ -2,6 +2,7 @@
 title: "融資速報｜Keenable Seed $26M"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, keenable, search-api]
 lang: zh-TW
 description: "前 Yandex 搜尋部門主管創立 Keenable，出關即拿下 $26M Seed，要做「給 AI Agent 用」的搜尋基礎設施"

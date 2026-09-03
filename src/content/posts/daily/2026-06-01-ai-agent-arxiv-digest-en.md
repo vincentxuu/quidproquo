@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-01"
 date: 2026-06-01
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-reasoning, agent-memory, multi-agent]
 lang: en
 description: "Three papers today zero in on the cost-capability frontier of agent deployment at scale: SR²AM redesigns planning architecture so a 30B model uses 90% fewer tokens while competing with 685B-1T systems; GroupMemBench reveals that existing memory systems completely fall apart in multi-party group conversations (the best system hits only 46% accuracy, and 1990s BM25 keyword search actually beats it); AgentFloor confirms with 16,542 test runs that the bulk of short-range tool use in agent pipelines simply doesn't need a large model."

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-19"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, rag]
 lang: zh-TW
 description: "今天三篇論文圍繞同一個問題——Agent 的記憶與檢索系統不只要查得到，還要記得對、查得準、信得對：QUMem 把長期記憶拆成可獨立檢索的類型化情節，LENS 用免索引的邊查邊縮小範圍應對常態更新的文件，Intent-Guided Decoding 則在解碼當下仲裁該信檢索內容還是模型自己的記憶"

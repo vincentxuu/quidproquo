@@ -2,6 +2,7 @@
 title: "工具推薦｜Phinq — 讓 Agent 動手前先問你，高風險操作攔下來再說"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: zh-TW
 description: "開源的 Agent 執行期守門員：攔截每一次 tool call，依風險分級，不可逆操作暫停等你在 Telegram／Slack 上按核准，並留下防竄改的雜湊鏈稽核紀錄"

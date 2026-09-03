@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-16"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-framework, multi-agent]
 lang: en
 description: "Four new agent frameworks all abandon the 'compile a graph first' paradigm — Vercel, Prime Intellect, Hive, and nanobot defer coordination decisions to runtime"

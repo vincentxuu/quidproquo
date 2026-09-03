@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-25"
 date: 2026-06-25
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-evaluation, agent-reasoning]
 lang: en
 description: "Three papers exploring the boundaries and breakthrough paths of agent capabilities"

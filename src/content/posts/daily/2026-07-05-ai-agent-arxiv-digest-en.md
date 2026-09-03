@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-05"
 date: 2026-07-05
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-rag, agent-framework]
 lang: en
 description: "Three papers tackling core agent platform pain points: ReContext offers a training-free inference-time fix so LLMs stop overlooking key evidence in 128K contexts; the second reveals systematic public-private divergence (3% → 40%) when agents debate across social hierarchies; the third raises alarms about three widely-cited coding agent benchmarks — only 8% of SWE-Perf tasks reproduce reliably."

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-09"
 date: 2026-08-09
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-harness, long-horizon, agent-evaluation]
 lang: en
 description: "Three papers converge on the same insight — what really holds back long-horizon agents isn't the model, it's the harness: OneDayAgent shows a single unified harness achieves cross-backend SOTA, Horizon Gap maps the structural roots of long-horizon failure across 1,547 papers, and Evo-Bench asks whether agents can evolve their own harnesses"

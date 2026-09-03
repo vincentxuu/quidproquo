@@ -2,6 +2,7 @@
 title: "工具推薦｜mcp-memory — 用 Google 的 OKF 標準給 Agent 做長期記憶"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "MCP server 讓 Agent 把記憶存成 Google 發佈的 Open Knowledge Format（OKF）Markdown 檔，本機 SQLite FTS5 索引，跨 session 秒級檢索，不需要任何雲端帳號或 API key"

@@ -2,6 +2,7 @@
 title: "Security Alert | 'Mind Virus' Research — Self-Propagating Payloads Can Spread Across AI Agents via SOUL.md/MEMORY.md"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection]
 lang: en
 description: "A preprint by Anthropic and EPFL demonstrates that self-evolving 'mind virus' payloads can propagate across multi-agent systems through persistent files (SOUL.md/MEMORY.md) that get injected into system prompts in OpenClaw-style agent architectures, with one test run causing real file deletion."

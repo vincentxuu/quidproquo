@@ -2,6 +2,7 @@
 title: "Security Alert | AgenticSeek Unauthenticated RCE — 26K-Star Open-Source Agent Project's /query Endpoint Allows Arbitrary Shell Execution"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection]
 lang: en
 description: "Open-source local AI Agent project AgenticSeek found to have a POST /query API endpoint requiring no authentication that triggers arbitrary shell command execution, CVSS 9.3, patched but default network exposure settings still require manual hardening"

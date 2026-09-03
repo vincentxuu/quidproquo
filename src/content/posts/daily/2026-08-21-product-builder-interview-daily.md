@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-21：Growth & Experimentation"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [product-builder-interview, daily, growth]
 lang: zh-TW
 description: "今日練成長與實驗設計面試：growth loop 與漏斗的差別、實驗診斷六步法、以及怎麼把實驗結果講成商業故事。"

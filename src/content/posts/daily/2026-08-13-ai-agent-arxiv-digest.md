@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-13"
 date: 2026-08-13
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, multi-agent, agent-security]
 lang: zh-TW
 description: "今天三篇都在處理同一個問題——Agent 的記憶不只要存得好，還要能修、能管權限、能跨 Agent 共用，而每一步都可能引入新的失敗模式"

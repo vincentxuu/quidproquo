@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-13"
 date: 2026-06-13
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-deployment, agent-memory]
 lang: en
 description: "Three papers tackling core Agent platform challenges from the angles of memory architecture, training efficiency, and reliability evaluation"

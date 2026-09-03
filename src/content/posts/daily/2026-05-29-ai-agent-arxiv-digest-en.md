@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-29"
 date: 2026-05-29
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-framework, agent-deployment]
 lang: en
 description: "Three papers tackle 'how to make agentic AI work better' from three angles: the first (UIUC × Intel) profiles real agent workloads and finds the bottleneck is KV-cache management, not long prompts; the second (PwC) runs controlled experiments challenging the RAG-first default, showing grep often beats vector search in agent loops"

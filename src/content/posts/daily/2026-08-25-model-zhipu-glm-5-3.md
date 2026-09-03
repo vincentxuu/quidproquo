@@ -2,6 +2,7 @@
 title: "模型卡｜GLM-5.3"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, zhipu, model-family-glm]
 lang: zh-TW
 description: "Z.ai 發佈 GLM-5.3——沿用 GLM-5.2 同一顆 base model，純靠 post-training 把 Terminal-Bench 3.0 從 4.6% 拉到 28.3%，CyberGym 漏洞挖掘分數首度反超所有列名的閉源前緣模型"

@@ -2,6 +2,7 @@
 title: "工具推薦｜proton-safe-mcp — 讓 Agent 讀信、寫草稿，但永遠按不到寄送鍵"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "MCP server 讓 Agent 能讀取、搜尋 Proton Mail 並準備附件草稿，但程式碼裡完全不存在寄送功能，草稿必須經過本地終端機的人工核可才能建立"

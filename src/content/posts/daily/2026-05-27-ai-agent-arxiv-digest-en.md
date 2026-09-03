@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-27"
 date: 2026-05-27
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-rag, agent-framework]
 lang: en
 description: "Three papers today point to three gates agents must pass on the road from demo to production: AgentTrust adds a runtime interception layer before tool calls, filling the gap between static blocklists and post-hoc benchmarks; Hermes scans 600 production endpoints and finds existing REST API docs almost universally unfit for MCP agents (4 issues per endpoint on average); PARPO pushes personalization from the prompt layer down into RL training so agents behave differently per user instead of being 'okay for everyone.'"

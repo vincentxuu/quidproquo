@@ -2,6 +2,7 @@
 title: "Agent Platform：開源 AI Workflow Control Plane 深度解析（一）— 架構與定位"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "workflow", "control-plane", "cloudflare", "agent-platform", "architecture"]
 lang: zh-TW
 description: "Agent Platform 是一個 local-first、可部署到 Cloudflare 的 AI agent 工作流控制平台。本文為系列第一篇，解析其產品定位、系統分層、核心抽象與設計哲學。"

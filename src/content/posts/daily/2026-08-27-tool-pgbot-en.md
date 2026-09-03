@@ -2,6 +2,7 @@
 title: "Tool Pick | pgbot — Read-Only Postgres Access for AI Agents to Instantly Spot What's Wrong"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "pgbot is a read-only, statically compiled Go binary that reads Postgres's own statistics views to produce a findings-first health report, and it can run as an MCP server so AI agents can call it directly — no monitoring platform to deploy"

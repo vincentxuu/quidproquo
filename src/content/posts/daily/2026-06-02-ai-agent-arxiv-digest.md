@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-02"
 date: 2026-06-02
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-memory, agent-security]
 lang: zh-TW
 description: "今天三篇論文從不同角度解決 Agent 平台的核心痛點：第一篇提出把 LangGraph 那種「外掛 orchestrator」邏輯直接燒進小模型 weights，讓每對話成本降低 128–462 倍；第二篇來自 IBM Research，打造自動分析 agent 執行行為的三層評估框架，解決「ag"

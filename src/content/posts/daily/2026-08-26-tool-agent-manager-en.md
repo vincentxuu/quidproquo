@@ -2,6 +2,7 @@
 title: "Tool Pick | agent-manager — Wrangle All Your Coding Agent Terminal Tabs Into One tmux TUI"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: en
 description: "agent-manager is a Go-based tmux TUI that unifies management of multiple coding agent sessions (Claude Code, Codex, OpenCode, etc.) — one-key replies, one-key worktree creation, full-file diff with inline comments sent back to the agent"

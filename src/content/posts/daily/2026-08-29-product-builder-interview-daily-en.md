@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-29: Technical PM"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [product-builder-interview, daily, technical-pm]
 lang: en
 description: "Today's Technical PM practice: use the four-step PM system design framework plus a lightweight ADR to break down an API breaking-change decision, based on a real interview question about a customer demanding a format break."

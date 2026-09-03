@@ -2,6 +2,7 @@
 title: "Funding Brief｜Vals AI Series A $40M"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, vals-ai, model-evaluation]
 lang: en
 description: "Independent AI model evaluation startup Vals AI closes $40M Series A led by Andreessen Horowitz at a $400M valuation, betting on real-world task benchmarks over academic exams"

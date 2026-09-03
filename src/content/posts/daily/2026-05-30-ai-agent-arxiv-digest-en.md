@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-30"
 date: 2026-05-30
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, multi-agent, agent-framework]
 lang: en
 description: "Three papers tackle AI Agent practice from three angles: a design language, a security map, and cognitive limitations. The first builds a two-axis classification framework giving engineers and researchers a shared vocabulary for agent architecture trade-offs; the second systematically catalogs safety and privacy risks across tool calls, memory, and multi-step execution in agentic AI; the third is the most impactful — a large-scale experiment with nearly 40,000 AI-generated ideas reveals that AI research agents tend to circle existing literature rather than genuinely broadening scientific exploration."

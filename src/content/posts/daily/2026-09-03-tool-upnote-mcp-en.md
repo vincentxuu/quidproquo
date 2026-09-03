@@ -2,6 +2,7 @@
 title: "Tool Pick | upnote-mcp — Let Claude Read and Write Your Local UpNote Notes, No Cloud, No API Key"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "An MCP server that reads and writes the desktop note app UpNote's local database directly — solving read correctness with a reverse-engineered WAL snapshot, and writes through UpNote's own URL scheme, no cloud and no API key involved"

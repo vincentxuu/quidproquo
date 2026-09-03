@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-28"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-memory, agent-runtime]
 lang: zh-TW
 description: "Agent 的「記憶層」今天集體補位——claude-mem 和 OpenViking 從兩個方向解決 agent 忘記脈絡的問題，Apache 基金會也第一次收編了一個 agent 執行紀錄專案"

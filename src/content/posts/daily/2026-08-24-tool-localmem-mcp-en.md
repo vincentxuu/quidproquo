@@ -2,6 +2,7 @@
 title: "Tool Pick | localmem-mcp — Agent Memory Without LLM Calls or Cloud Services"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "localmem-mcp is a local-first MCP memory server: SQLite + on-device embedding for semantic search, recall never calls an LLM, no API key required, and 20+ coding agents can share the same memory store"

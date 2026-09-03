@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-25：Metrics & Analytics"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [product-builder-interview, daily, metrics]
 lang: zh-TW
 description: "今日練 Metrics & Analytics 面試：指標樹與 AARRR 框架，以及一道改編自 Google PM analytics round 真實案例的「DAU 上升但廣告主流失」拆解題。"

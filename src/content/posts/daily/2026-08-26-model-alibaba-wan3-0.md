@@ -2,6 +2,7 @@
 title: "模型卡｜Wan3.0"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, alibaba, model-family-wan]
 lang: zh-TW
 description: "阿里雲通義萬相正式發布 Wan3.0——單次生成 30 秒影片、支援文件／簡報／試算表當輸入素材，定價每秒 $0.05～$0.20，且首度放棄 Wan 系列的開源權重傳統"

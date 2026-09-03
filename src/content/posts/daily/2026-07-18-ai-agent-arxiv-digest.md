@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-18"
 date: 2026-07-18
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-tool-use, multi-agent]
 lang: zh-TW
 description: "今天三篇論文從三個維度切入「生產等級 Agent 可靠性」：MemCon 把記憶體操作建模為強化學習問題，讓 agent 自學何時存、取、忘，在 6 個 benchmark 上任務成功率最高提升 15.2 分；AgentCheck 把 MCP 伺服器變成除錯介面，開發者可重現工具故障、注入修復並驗證"

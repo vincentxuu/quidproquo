@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-08"
 date: 2026-06-08
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-framework, agent-evaluation]
 lang: en
 description: "Three papers mapping to three layers of the agent platform stack: AgentJet (training layer) introduces a distributed framework for simultaneous RL training of multiple heterogeneous LLMs, solving the fundamental limitation of single-model-only training tools; AdaPlanBench (evaluation layer) reveals with a 67.75% ceiling that LLM agents are far from ready for real-world scenarios where rules are disclosed progressively."

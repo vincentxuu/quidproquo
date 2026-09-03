@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-20：Strategy & Execution"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [product-builder-interview, daily, strategy]
 lang: zh-TW
 description: "今日練產品策略與執行面試：市場定位、競爭護城河、roadmap 取捨與 stakeholder management。"

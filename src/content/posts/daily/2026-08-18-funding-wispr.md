@@ -2,6 +2,7 @@
 title: "融資速報｜Wispr Series B $280M"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, wispr, voice-ai]
 lang: zh-TW
 description: "AI 語音聽寫新創 Wispr 完成 $280M B 輪，估值 $2B，Menlo Ventures 領投看好「語音取代文字框」"

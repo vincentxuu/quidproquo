@@ -2,6 +2,7 @@
 title: "AI Engineer 面試日練 — 2026-08-28：Coding（推論排程與除錯手刻）"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, coding]
 lang: zh-TW
 description: "今日練 ML coding round 的新趨勢：讀別人的 ML 程式碼抓 bug、用狀態機拆解 LLM 推論排程、pandas 時序特徵防洩漏，以及 AUC-ROC 從零手刻。"

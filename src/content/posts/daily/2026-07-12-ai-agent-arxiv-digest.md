@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-12"
 date: 2026-07-12
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-framework, agent-memory]
 lang: zh-TW
 description: "今天三篇論文圍繞兩大主軸：**安全**與**評測**"

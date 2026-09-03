@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-13"
 date: 2026-07-13
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-deployment, agent-evaluation]
 lang: en
 description: "Three papers converge on one trend: the bottleneck for production agents is no longer model capability — it's state management"

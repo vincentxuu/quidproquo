@@ -2,6 +2,7 @@
 title: "Agent Platform Deep Dive (Part 5) — Policy Engine: Runtime Guards, Budget Control, Human Approval, and Loop Protection"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "policy-engine", "runtime-guards", "budget-control", "human-approval", "loop-protection", "agent-platform"]
 lang: en
 description: "A deep dive into the Agent Platform Policy Engine: versioned policy configuration, the four-layer guard pipeline for input, tools, output, and budgets, approval for external writes, loop detection and circuit breakers, escalation records, proxy-specific policies, and a standard research policy example."

@@ -2,6 +2,7 @@
 title: "工具推薦｜mcp-anything — 一個 MCP server 搜遍全世界 7.5 萬個 MCP server"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: zh-TW
 description: "meta-MCP gateway：把官方 registry、PulseMCP、npm、Glama 四個來源的 MCP server 索引成本機 BM25 搜尋，只用 5 個 meta-tools 就能讓 agent 自己找到、檢視、呼叫任何 MCP server，context 成本不隨生態成長"

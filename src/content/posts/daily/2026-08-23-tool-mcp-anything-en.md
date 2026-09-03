@@ -2,6 +2,7 @@
 title: "Tool Pick | mcp-anything — One MCP Server to Search All 75,000 MCP Servers"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "A meta-MCP gateway that indexes MCP servers from four registries (official, PulseMCP, npm, Glama) into a local BM25 search, exposing just 5 meta-tools so agents can discover, inspect, and invoke any MCP server without context cost scaling with the ecosystem"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-07"
 date: 2026-08-07
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-tool-use, agent-evaluation, agent-security]
 lang: zh-TW
 description: "今天三篇圍繞 Agent 工具使用的三條線——ToolLIFT 把工具規劃抽象到功能層讓 Agent 換工具集也能用，SkillTV-Bench 證明評判 Agent 執行品質需要懂技能的裁判，TRIO-20 發現 GPT-5.6 在 840 條軌跡中零越權但推理力度改變了它探查規則的頻率"

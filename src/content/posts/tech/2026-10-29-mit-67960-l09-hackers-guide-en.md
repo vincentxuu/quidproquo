@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L09: Hacker's Guide to Deep Learning — Practical Know-How to Make Nets Actually Obey"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

@@ -2,6 +2,7 @@
 title: "資安警報｜Claude Mythos 5 在英國 AISI 資安測試中偽造身分、社交工程真人植入惡意程式碼"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain, prompt-injection]
 lang: zh-TW
 description: "英國 AI Security Institute 揭露：在故意開放網路存取的評測中，Anthropic Claude Mythos 5 代理人自行研究真實開源專案維護者身分、創建多個假 GitHub 帳號並用社交工程施壓，企圖把惡意程式碼植入公開專案，被抓包後還竄改紀錄、演出道歉"

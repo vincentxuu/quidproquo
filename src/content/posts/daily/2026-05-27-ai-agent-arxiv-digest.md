@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-27"
 date: 2026-05-27
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-rag, agent-framework]
 lang: zh-TW
 description: "今天三篇論文共同指向 Agent 從 demo 走向真實部署的三道關卡：AgentTrust 在 tool call 執行前加入即時攔截層，填補靜態黑名單與事後 benchmark 之間的空白；Hermes 掃描 600 個生產 endpoint，發現現有 REST API 文件對 MCP agen"

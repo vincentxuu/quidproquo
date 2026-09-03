@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-20"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-memory, context-database, multi-agent, ai-security]
 lang: en
 description: "Volcengine open-sources OpenViking, a filesystem-style agent memory database that tops today's GitHub trending — plus two more tools tackling memory persistence from different angles"

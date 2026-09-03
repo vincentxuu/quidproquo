@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-30"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "三篇新論文從錯誤信心、工具輸出與跨迴圈狀態，檢查 Agent 在真正執行動作前會失效的控制閘門"

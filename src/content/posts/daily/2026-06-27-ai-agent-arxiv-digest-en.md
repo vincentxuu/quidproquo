@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-27"
 date: 2026-06-27
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-evaluation, agent-memory]
 lang: en
 description: "Three papers tackling core Agent platform pain points: one decomposes Agent memory into four measurable system modules, revealing that current evaluations only checking 'did it get the answer right' are far from enough; one borrows the software engineering concept of 'design review' to enable automated verification of Agentic Workflows before deployment; and one uses 14 large-scale parallel experiments to prove that the benchmark leaderboard you trust reshuffles its rankings when the context changes — and proposes a more reliable alternative metric."

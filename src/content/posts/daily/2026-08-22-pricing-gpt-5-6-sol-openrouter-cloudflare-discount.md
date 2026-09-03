@@ -2,6 +2,7 @@
 title: "定價追蹤｜GPT-5.6 Sol 雙平台打對折，OpenRouter 與 Cloudflare 同步降價至 9/18"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, pricing, daily, openai]
 lang: zh-TW
 description: "OpenRouter 與 Cloudflare AI Gateway 幾乎同時對 OpenAI GPT-5.6 Sol 祭出 50% 折扣（$5/$30 降到 $2.50/$15，每百萬 tokens），只適用非 BYOK 流量，促銷到 2026-09-18 為止"

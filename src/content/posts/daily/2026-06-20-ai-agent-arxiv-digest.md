@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-20"
 date: 2026-06-20
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-framework, agent-memory]
 lang: zh-TW
 description: "今天三篇由三個不同角度探問「讓 Agent 更可靠」：EinsteinArena 提出讓多個 AI agents 彼此共享解題思路與失敗記錄的持久化平台，已在數學難題上集體找到 12 個人類從未發現的新最佳解；APEX 把 agent 自我演化從「只改 prompt」擴展到同時演化行為原則（prin"

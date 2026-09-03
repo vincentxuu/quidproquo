@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-09-01: Deep Learning & NLP"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, deep-learning]
 lang: en
 description: "Today's deep learning and NLP drill: the intuition behind attention, why tokenization is a lossy design decision, and the often-overlooked idea that an embedding is a vector-space contract."

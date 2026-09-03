@@ -2,6 +2,7 @@
 title: "Agent Platform 深度解析（八）— Context/Memory 與 Cloudflare 部署：本機開發到生產環境的零縫隙遷移"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "cloudflare", "workers", "durable-objects", "workflows", "d1", "kv", "r2", "vectorize", "queues", "deployment", "agent-platform"]
 lang: zh-TW
 description: "Agent Platform Cloudflare 部署深度解析：Cloudflare-first 架構映射、Durable Objects 做 Run Coordinator、Workflows 做 Step 執行、D1/KV/R2/Vectorize/Queues 服務邊界、本機 Node 模擬同介面零感知遷移、wrangler 部署流程、CI/CD 自動化、資源佈建腳本。"

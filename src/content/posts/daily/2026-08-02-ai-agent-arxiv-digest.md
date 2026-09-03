@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-02"
 date: 2026-08-02
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-security, multi-agent]
 lang: zh-TW
 description: "今天三篇各從不同角度逼視「Agent 在真實環境裡出事了怎麼辦」：ProACT 問的是多人協作中 Agent 應何時開口（Agent UX 設計問題）；第二篇用真實 GitHub 資料揭露 Coding Agent 和自己開的 PR 互衝（平台 ops 痛點）；第三篇從安全視角整理 Cyber-ca"

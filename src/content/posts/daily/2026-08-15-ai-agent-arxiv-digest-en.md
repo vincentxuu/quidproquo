@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-15"
 date: 2026-08-15
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-skill, agent-memory, agent-evaluation]
 lang: en
 description: "Three papers today orbit the same question — how do Agent skills auto-evolve? SkillEvo uses multi-turn interaction feedback to produce non-decaying evolution gradients; SkillShapley applies game-theoretic attribution to reveal which steps in a skill actually matter; MindMemOS turns memory and skill evolution into a portable OS layer"

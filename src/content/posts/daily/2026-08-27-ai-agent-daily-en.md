@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-27"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "Vertical-industry data moats are turning into model control — Thomson Reuters' in-house legal model collides head-on with Google's push into legal AI, while Google locks in cloud customers with non-cancelable long-term billing; two switching-cost battle lines open at once"

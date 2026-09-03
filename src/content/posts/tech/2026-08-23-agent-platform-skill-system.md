@@ -2,6 +2,7 @@
 title: "Agent Platform 深度解析（三）— Skill System：版本化能力包、顯式綁定與 Learning Loop 閉環"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "skill-system", "learning-loop", "agent-platform", "evaluation", "versioning"]
 lang: zh-TW
 description: "Agent Platform Skill System 深度解析：skill.yaml + SKILL.md 雙檔架構、四層漸進式揭露、FlowStep 顯式綁定 `@version`、Invocation 完整追蹤、內建四大 Deep Research skills，以及 Learning Loop 從 signal 到 proposal 再到 eval gate 的閉環機制。"

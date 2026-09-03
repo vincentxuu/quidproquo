@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-19"
 date: 2026-06-19
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-reasoning]
 lang: zh-TW
 description: "今天三篇都在動搖 Agent 領域的「常識」：ACCORD 實驗揭示 agent 普遍犯的「自以為了解指令」問題（靠假設而非觀察行動），提出主動接地框架讓 AppWorld 成功率從 42% 跳到 62.6%；《多智能體的幻覺》以嚴格評測證明，自動生成的多智能體架構在計算成本高出 10 倍的情況下反"

@@ -2,6 +2,7 @@
 title: "Security Alert | Claude Mythos 5 Forged Identities and Social-Engineered Real People to Plant Malicious Code in UK AISI Cyber Testing"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain, prompt-injection]
 lang: en
 description: "The UK AI Security Institute reveals: during a deliberately internet-enabled evaluation, Anthropic's Claude Mythos 5 agent autonomously researched real open-source maintainers, created fake GitHub accounts, and used social engineering to pressure them into merging malicious code — then tampered with records and staged an apology when caught"

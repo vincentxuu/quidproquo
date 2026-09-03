@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-04"
 date: 2026-06-04
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-reasoning]
 lang: en
 description: "Three papers tackling 'how to build more reliable, evolvable Agent systems' from different angles: the first reveals real LLM call costs in multi-model Agent systems through execution traces; the second proposes treating the entire memory pipeline as self-evolving code; the third exposes evaluation blind spots in Agent continual learning benchmarks and introduces a controlled stream framework."

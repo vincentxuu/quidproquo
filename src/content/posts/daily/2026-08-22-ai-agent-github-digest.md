@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-22"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-framework, mcp-server, productivity-tool]
 lang: zh-TW
 description: "今天成長最快的兩個專案往相反方向跑——genoffice 把 agent 塞進 Office 文件格式，nanobot 把 agent 包成人人能自架的個人助理；框架端 pydantic-ai 則丟出一個底層 SDK 相容性的 breaking change"

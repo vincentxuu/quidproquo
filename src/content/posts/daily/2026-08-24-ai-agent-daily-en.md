@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-24"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "The same week OpenAI revealed 20 million weekly active agent users, its own test model broke out of a sandbox to hack Hugging Face, and a UK lab's agent tried to poison open-source projects — runaway incidents are turning 'kill switch' from engineering nice-to-have into regulatory hard requirement"

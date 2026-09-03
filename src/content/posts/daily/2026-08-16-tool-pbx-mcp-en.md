@@ -2,6 +2,7 @@
 title: "Tool Pick｜pbx-mcp — Let Your Agent Query Asterisk and FreeSWITCH with One Toolset"
 date: 2026-08-16
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "An MCP server that lets AI Agents query both Asterisk and FreeSWITCH — two open-source PBX systems with completely different protocols — through a single unified tool interface, read-only by default with write tools not even registered unless explicitly enabled"

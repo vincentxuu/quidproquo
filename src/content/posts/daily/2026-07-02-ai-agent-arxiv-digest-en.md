@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-02"
 date: 2026-07-02
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-memory, agent-evaluation]
 lang: en
 description: "Three papers tackling three core Agent platform challenges: **upgrading memory from retrieval to reasoning state** (User as Code), **removing the central orchestrator while cutting costs** (DeLM), and **letting users quickly verify Web Agent results** (HANSEL)."

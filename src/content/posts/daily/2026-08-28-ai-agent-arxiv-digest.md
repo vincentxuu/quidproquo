@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-28"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "今天三篇論文從不同層次攻同一個問題——Agent 記憶不該再靠序列化進 prompt:Scroll 把整個 session 變成可執行的程式環境、EARM 讓檢索器自己累積打分經驗、PolyMemDB 用多資料庫架構分別存不同型態的記憶"

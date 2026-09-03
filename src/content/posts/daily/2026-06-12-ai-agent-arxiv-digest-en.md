@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-12"
 date: 2026-06-12
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-deployment, agent-reasoning]
 lang: en
 description: "Three papers today approach agents from two angles — how to evaluate them and what they fundamentally are: T1-Bench introduces a high-fidelity benchmark spanning 25 real business domains for systematic cross-domain reasoning evaluation; VISTA tackles the credibility gap in LLM-based user simulation with 6 quality metrics; and Agentic Software argues from first principles that when the LLM becomes the primary reasoning engine, the nature of software itself has changed."

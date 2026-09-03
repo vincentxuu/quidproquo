@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-05"
 date: 2026-06-05
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-deployment]
 lang: en
 description: "Three papers tackling core agent platform gaps from three angles: APB introduces a 4,209-question diagnostic benchmark that separates planning failures from execution failures; MetaForge lets agents forge missing tools at runtime, breaking the static-toolbox ceiling; RUBAS decomposes agent safety into four scoring dimensions and uses RL to balance helpfulness against safety."

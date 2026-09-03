@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-22"
 date: 2026-07-22
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-deployment]
 lang: en
 description: "Three papers tackle the same core question from infrastructure, observability, and evaluation angles: how do you build truly reliable agent systems?"

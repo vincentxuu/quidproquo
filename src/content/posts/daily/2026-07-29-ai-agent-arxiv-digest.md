@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-29"
 date: 2026-07-29
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-security, agent-framework]
 lang: zh-TW
 description: "今天三篇論文共同聚焦在「生產級多代理人系統的基礎設施可靠性」：第一篇比較 MCP 與 A2A 兩個協定如何分工、不是競爭而是互補；第二篇實測工具升版後 12 個頂尖模型的能力退化，發現前沿模型也會掉分 13-14%；第三篇揭示把安全模型串成 pipeline 之後整體反而不安全，因為防護其實是靠雲端"

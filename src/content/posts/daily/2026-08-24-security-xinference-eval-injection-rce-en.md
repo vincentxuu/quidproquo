@@ -2,6 +2,7 @@
 title: "Security Alert｜Xinference Uses eval() to Parse LLM Tool Calls — CVSS 10.0 Unauthenticated RCE (CVE-2026-61539)"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, security, daily, prompt-injection]
 lang: en
 description: "Open-source inference server Xinference calls Python eval() directly on model-generated strings when parsing Llama3 tool-call output. An attacker who can influence model output — one prompt is enough — gets arbitrary command execution on deployments that ship with authentication disabled by default"

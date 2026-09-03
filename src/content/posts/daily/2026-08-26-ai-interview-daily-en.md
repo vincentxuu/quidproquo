@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-08-26: ML System Design"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, system-design]
 lang: en
 description: "Today's practice covers ML system design: online/offline dual-track feature stores, training-serving skew, two-stage recommendation architecture, and how to design an A/B test that actually tells you whether your model works."

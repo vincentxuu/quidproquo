@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-21"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "SpaceX acquires Cursor, Stripe acquires OpenRouter, Ramp acquires router.com — the routing and interface layers of the agent ecosystem are being snapped up by upstream platforms as must-have complementary assets for customer lock-in"

@@ -2,6 +2,7 @@
 title: "Product Builder Interview Daily — 2026-08-26: Strategy & Execution"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [product-builder-interview, daily, strategy]
 lang: en
 description: "Today's Strategy interview practice: TAM-SAM-SOM and Porter's Five Forces frameworks, plus a Perplexity-inspired breakdown — 'You have only 2% market share. How do you defend your position?'"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-22"
 date: 2026-06-22
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-deployment, agent-evaluation, agent-reasoning]
 lang: en
 description: "Three papers approaching agent reliability and safety in production from three layers: inference-time, training-time, and infrastructure"

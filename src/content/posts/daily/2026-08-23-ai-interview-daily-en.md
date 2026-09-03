@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Prep — 2026-08-23: Behavioral (Weekly Review)"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, behavioral]
 lang: en
 description: "This week's behavioral interview practice: how to triage a post-launch AI failure, rebuild stakeholder trust, plus a recap of the three topics covered this week."

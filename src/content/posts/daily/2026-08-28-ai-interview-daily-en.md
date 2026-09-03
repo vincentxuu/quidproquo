@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-08-28: Coding (Inference Scheduling & Debugging)"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, coding]
 lang: en
 description: "Today's ML coding round practice: reading and fixing someone else's ML code, a state-machine approach to LLM inference scheduling, leakage-safe pandas time-series features, and AUC-ROC from scratch."

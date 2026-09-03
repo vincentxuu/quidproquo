@@ -2,6 +2,7 @@
 title: "Framework Update | CrewAI 1.15.17"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, crewai]
 lang: en
 description: "CrewAI 1.15.17 lets declarative (YAML/JSON) Flow definitions drive the experimental conversational Flow mode directly, eliminating the need to hand-write Python subclasses"

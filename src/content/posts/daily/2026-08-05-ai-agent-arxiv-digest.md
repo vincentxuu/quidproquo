@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-05"
 date: 2026-08-05
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, tool-use, agent-planning, multi-agent]
 lang: zh-TW
 description: "今天三篇圍繞同一個核心問題——Agent 怎麼規劃工具呼叫才不會走冤枉路：ToolLIFT 用函數級工作流圖讓工具規劃泛化到沒見過的工具集，HyperAgent 用超圖結構把工具的參數依賴編成可執行路徑，多語言診斷則揭示非英語環境下規劃失敗的五種模式"

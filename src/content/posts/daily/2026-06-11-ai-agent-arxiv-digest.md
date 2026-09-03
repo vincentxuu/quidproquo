@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-11"
 date: 2026-06-11
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-reasoning, agent-deployment]
 lang: zh-TW
 description: "今天三篇論文從不同層次探索「agent-native 基礎設施」的設計：第一篇從 API 界面出發，提出讓 API 在出錯時主動給 agent 結構化修復建議，大幅提升工具呼叫成功率；第二篇拉高到系統架構層，主張 Agent OS 才是讓 agent 長期穩定運行的正確抽象；第三篇直擊推理服務底層，"

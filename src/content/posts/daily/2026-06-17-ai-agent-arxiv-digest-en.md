@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-17"
 date: 2026-06-17
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-rag, agent-deployment]
 lang: en
 description: "Three papers challenging core assumptions about agent tool use and memory: Evoflux shows compact models nearly fail at MCP tool catalogs (3% success) and uses inference-time evolutionary search to reach 17-24%; FlowBank precomputes diverse workflow portfolios and routes at inference time, beating handcrafted designs by ~15%; GitOfThoughts reveals memory only helps when problems are near-duplicates, but git offers an engineering path through auditability."

@@ -2,6 +2,7 @@
 title: "Tool Pick | Phinq — Make Your Agent Ask Before It Acts, Catch High-Risk Operations Before They Land"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: en
 description: "An open-source runtime gatekeeper for AI agents: intercepts every tool call, classifies risk, pauses irreversible operations for your approval on Telegram/Slack, and keeps a tamper-proof hash-chain audit log"

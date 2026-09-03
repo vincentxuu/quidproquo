@@ -2,6 +2,7 @@
 title: "Funding Brief | Higgsfield Series B $400M"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, higgsfield, video-generation]
 lang: en
 description: "AI video generation platform Higgsfield closes $400M Series B, valuation jumping from $1.3B to $5.4B in 8 months, with annualized revenue hitting $700M"

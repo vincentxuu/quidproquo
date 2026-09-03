@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-09-02"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, mcp, agent-security, personal-agent, rag]
 lang: zh-TW
 description: "個人 Agent 生態持續擴張的同時，官方等級的 skill 安全掃描器也上線——OpenClaw 破 38 萬星，NVIDIA SkillSpector 補上供應鏈防線"

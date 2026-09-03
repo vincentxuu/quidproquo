@@ -2,6 +2,7 @@
 title: "Agent Platform Deep Dive (3) — Skill System: Versioned Capability Packages, Explicit Binding, and the Learning Loop"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "skill-system", "learning-loop", "agent-platform", "evaluation", "versioning"]
 lang: en
 description: "A deep dive into Agent Platform's Skill System: its dual-file skill.yaml + SKILL.md architecture, four-layer progressive disclosure, explicit FlowStep binding with @version, complete invocation tracking, four built-in Deep Research skills, and a closed Learning Loop from signals to proposals and eval gates."

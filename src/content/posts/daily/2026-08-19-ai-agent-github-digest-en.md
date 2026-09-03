@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-19"
 date: 2026-08-19
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-harness, coding-agent]
 lang: en
 description: "DeepSeek Harness hit 20K stars in one hour — the fastest in GitHub history — as model companies race to own the harness layer"

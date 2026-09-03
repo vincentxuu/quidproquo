@@ -2,6 +2,7 @@
 title: "Python Coding Agent M11: Why an Exec Loop Cannot Reproduce the Claude Code Conversation Experience"
 date: 2026-08-22
 category: ai
+type: deep-dive
 tags: [coding-agent, python, tui, claude-code, codex, agent-sdk]
 lang: en
 tldr: "A Claude Code- or Codex-style TUI depends on long-lived sessions, typed transcripts, and approval at tool boundaries—not a screen full of color."

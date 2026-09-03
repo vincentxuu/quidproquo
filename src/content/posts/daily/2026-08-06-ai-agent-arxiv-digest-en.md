@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-06"
 date: 2026-08-06
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-safety, tool-planning]
 lang: en
 description: "Three papers converging on one question: how agents turn 'what they remember' into 'safe, correct actions' — unified memory management beats all memory baselines with seven atomic ops, a safety commitment layer cuts unsafe action rate from 41% to 3%, and a tool planning framework lifts trajectories into transferable workflow graphs for major OOD accuracy gains"

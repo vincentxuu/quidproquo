@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-10"
 date: 2026-07-10
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-memory, agent-evaluation, agent-framework]
 lang: zh-TW
 description: "今天三篇論文共同描繪 Agent 平台的「進化前線」：EvoSOP 讓 Agent 不再每次從零重組工具，而是從過去執行歷程中自動萃取可重用的 SOP，讓工作效率顯著提升；AgenticSTS 對長任務記憶提出嚴格的「有界合約」設計，用五層結構化提取取代無止盡的 context 堆疊；Spider "

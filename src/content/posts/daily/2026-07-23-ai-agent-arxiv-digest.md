@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-23"
 date: 2026-07-23
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-coding, agent-tool-use]
 lang: zh-TW
 description: "今天三篇的共同主題是：**我們測 agent 的方式，本身就有問題**"

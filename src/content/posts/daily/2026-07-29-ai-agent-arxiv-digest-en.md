@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-29"
 date: 2026-07-29
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-security, agent-framework]
 lang: en
 description: "Three papers today converge on infrastructure reliability for production multi-agent systems: the first compares how MCP and A2A divide responsibilities (complementary, not competing); the second benchmarks capability degradation across 12 top models after tool version updates, finding 13-14% drops even in frontier models; the third reveals that chaining safe models into a pipeline does not yield a safe system — defenses actually rely on cloud-provider server-side filters."

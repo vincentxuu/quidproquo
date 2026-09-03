@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-26"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "OpenAI's in-house inference chip benchmarks above Nvidia Blackwell while Anthropic-backed chip startup's valuation jumps 6x — both model companies are spending real money to weaken Nvidia's chip pricing power"

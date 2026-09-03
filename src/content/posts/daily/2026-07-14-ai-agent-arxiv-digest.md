@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-14"
 date: 2026-07-14
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-coding, agent-evaluation]
 lang: zh-TW
 description: "今天三篇論文從三個實戰角度切入 AI Agent 平台：第一篇揭露多 Agent 系統在生產環境中面臨的隱蔽安全威脅，並提出以「激活空間」偵測惡意 agent 的新框架（非同步環境下 F1 比現有方法高出 +0.55）；第二篇改善 coding agent 的 retrieval 策略，引入「程序相"

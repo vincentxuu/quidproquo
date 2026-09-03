@@ -6,6 +6,7 @@ tags: [leveraged-etf, index-investing, asset-allocation, rebalancing, books]
 lang: zh-TW
 type: deep-dive
 description: "在 Threads 看到 @jj.investnote 分享了一套正2投資系統：60% 正2 + 40% 現金、Beta=1.2 目標、±10% 觸發再平衡。追溯哲學根源，是三本書各自回答了一個問題。"
+tldr: "一套正2投資系統的哲學根源來自三本書：《漫步華爾街》回答「持什麼」（大盤指數）、《生命週期投資法》回答「怎麼加速」（槓桿分散時間風險）、《投資金律》回答「如何不被淘汰」（再平衡紀律）。組合起來就是 60% 正2 + 40% 現金、Beta=1.2、±10% 觸發再平衡。"
 ---
 
 > 🌏 [English version](/posts/investing/2026-06-19-2x-etf-system-three-books-en)

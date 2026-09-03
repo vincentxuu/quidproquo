@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-30"
 date: 2026-06-30
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-coding]
 lang: en
 description: "Three papers today converge on a single core question: how do we actually evaluate whether an agent is good enough?"

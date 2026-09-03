@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-09-01"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Agent 的競爭力正在從『模型多聰明』轉向『分工協調成本壓得多低』——Uber 的技能註冊表與 Visa/Mastercard 主導的產業聯盟，今天從兩個完全不同的產業各自證明了這件事"

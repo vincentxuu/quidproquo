@@ -2,6 +2,7 @@
 title: "Framework Update | Pydantic AI 2.36.0"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, pydantic-ai]
 lang: en
 description: "Pydantic AI 2.36.0 rebuilds durable_exec around a single declarative @durable_operation decorator, giving third-party durable engines (Lambda, Restate, Absurd, etc.) a public backend API with zero private imports"

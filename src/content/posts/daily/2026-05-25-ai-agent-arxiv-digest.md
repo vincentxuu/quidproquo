@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-25"
 date: 2026-05-25
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-framework, agent-memory]
 lang: zh-TW
 description: "今天三篇圍繞 2026 年 agent 平台最迫切的問題：**多代理系統的安全規範，在執行過程中能維持住嗎"

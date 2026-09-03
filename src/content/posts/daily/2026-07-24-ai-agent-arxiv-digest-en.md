@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-24"
 date: 2026-07-24
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-reasoning]
 lang: en
 description: "Three papers from ecosystem, failure, and memory angles: which open-source Agent frameworks are worth a long-term bet (beyond star counts), the six failure categories where Agents repeatedly stumble, and how to give Agents long-term memory that reasons across multiple entities"

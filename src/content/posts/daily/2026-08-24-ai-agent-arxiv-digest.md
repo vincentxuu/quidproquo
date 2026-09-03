@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-24"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "今天三篇論文戳穿 Agent 記憶系統沒有表面上可靠——多 agent 共享記憶裡的『假多數』、正確記憶也可能誘發的認知陷阱、以及該不該把資訊寫進永久記憶的決策難題"

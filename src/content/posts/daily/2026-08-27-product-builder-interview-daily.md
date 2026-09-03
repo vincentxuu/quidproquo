@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-27：AI Product Design"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [product-builder-interview, daily, ai-product]
 lang: zh-TW
 description: "今日練 AI Product Design 面試：用「記憶／檢索／推理／控制」四層架構拆解 AI 產品的信任設計，練一道『AI 客服自動結案該設多高的信心門檻』的拆解題。"

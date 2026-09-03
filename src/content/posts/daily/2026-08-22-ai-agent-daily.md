@@ -2,6 +2,7 @@
 title: "AI 日報 — 2026-08-22"
 date: 2026-08-22
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "AI 巨頭正把自己嵌進資本與支付基礎設施——Stripe 收購 OpenRouter、Anthropic 籌備堪比 SpaceX 的 IPO，護城河已從模型能力移向資本結構本身"

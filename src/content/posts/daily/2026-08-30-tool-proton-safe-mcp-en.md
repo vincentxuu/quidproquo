@@ -2,6 +2,7 @@
 title: "Tool Pick | proton-safe-mcp — Lets an Agent Read and Draft Email, But Never Reach the Send Button"
 date: 2026-08-30
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, mcp-server]
 lang: en
 description: "An MCP server lets an agent read, search Proton Mail, and prepare draft attachments — but there is no send capability anywhere in the codebase, and drafts require human approval from a local terminal before they're written"

@@ -2,6 +2,7 @@
 title: "資安警報｜TeamPCP 供應鏈攻擊集團主嫌落網——起底 Trivy→LiteLLM→Mercor 的信任鏈式攻擊"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain]
 lang: zh-TW
 description: "澳洲聯邦警察與 FBI 聯手逮捕兩名涉嫌主導 TeamPCP 供應鏈攻擊集團的西澳男子，起訴書揭露該集團如何靠竊取 Trivy 掃描工具的發布憑證，一路級聯攻陷 Checkmarx KICS 與 AI 閘道 LiteLLM，波及逾千家組織"

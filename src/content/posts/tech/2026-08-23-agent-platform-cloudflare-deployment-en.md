@@ -2,6 +2,7 @@
 title: "Agent Platform Deep Dive (8) — Context/Memory and Cloudflare Deployment: Seamless Migration from Local Development to Production"
 date: 2026-08-23
 category: tech
+type: deep-dive
 tags: ["ai-agent", "cloudflare", "workers", "durable-objects", "workflows", "d1", "kv", "r2", "vectorize", "queues", "deployment", "agent-platform"]
 lang: en
 description: "A deep dive into deploying Agent Platform on Cloudflare: Cloudflare-first architecture mapping, Durable Objects as Run Coordinators, Workflows for step execution, service boundaries across D1/KV/R2/Vectorize/Queues, seamless migration through matching local Node interfaces, the Wrangler deployment flow, CI/CD automation, and resource-provisioning scripts."

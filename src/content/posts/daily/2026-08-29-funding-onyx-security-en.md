@@ -2,6 +2,7 @@
 title: "Funding Brief｜Onyx Security Series B $113M"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, onyx-security, agent-security]
 lang: en
 description: "Onyx Security closes a $113M Series B led by Bessemer at roughly a $640M valuation — building what its lead investor calls the CrowdStrike of the agentic era"

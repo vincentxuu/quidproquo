@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L13：表示學習的理論視角 —— 歸納偏置、高斯過程與 NN–GP 對應"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

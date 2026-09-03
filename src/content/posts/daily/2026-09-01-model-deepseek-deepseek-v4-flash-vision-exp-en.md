@@ -2,6 +2,7 @@
 title: "Model Card｜DeepSeek-V4-Flash-Vision-Exp"
 date: 2026-09-01
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, deepseek, model-family-deepseek]
 lang: en
 description: "DeepSeek gives the V4-Flash line its first pair of eyes — same MoE backbone plus a vision module, text-agent scores go up rather than down, multimodal-agent performance closes in on Claude Opus 4.8, and the price tag doesn't move at all"

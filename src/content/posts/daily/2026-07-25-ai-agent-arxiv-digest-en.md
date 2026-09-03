@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-25"
 date: 2026-07-25
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-deployment, agent-memory]
 lang: en
 description: "Three papers tackling 'how to make agents reliably solve complex tasks' from three complementary angles"

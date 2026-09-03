@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-27"
 date: 2026-06-27
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-rag, agent-evaluation, agent-memory]
 lang: zh-TW
 description: "今天三篇從不同角度觸碰 Agent 平台的核心痛點：一篇把 Agent 記憶體拆成四個可量測的系統模組，揭示現有評估只看「答對沒」根本不夠；一篇借用軟體工程「設計審查」觀念，讓 Agentic Workflow 在上線前就能被自動驗證；另一篇用 14 組大規模平行實驗證明——你信任的那個 bench"

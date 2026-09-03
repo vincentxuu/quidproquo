@@ -2,6 +2,7 @@
 title: "資安警報｜LiteLLM MCP 測試端點命令注入可串成未授權 RCE——Wiz 90 天蜜罐實測揭露 AI 基礎設施三種攻擊模式"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, security, daily, supply-chain]
 lang: zh-TW
 description: "Wiz Threat Research 公布 90 天蜜罐觀測結果：攻擊者正主動利用 LiteLLM 的 MCP 認證繞過（CVE-2026-59822）與命令注入（CVE-2026-42271，已列入 CISA KEV），並可串接 Starlette host header 繞過（CVE-2026-48710）打出完整未授權 RCE，同時對 LangChain、Flowise 等 agent 框架發動盲打 prompt injection"

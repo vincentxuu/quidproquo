@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-09-03"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, personal-agent, agent-skills, agent-security, document-parsing]
 lang: en
 description: "Personal agents are starting to leave an auditable trail — Hermes Agent teaches itself skills, Atlas ties every commit back to the agent session that made it, and AG2 adds a rule-based middleware to block prompt injection without an LLM in the loop"

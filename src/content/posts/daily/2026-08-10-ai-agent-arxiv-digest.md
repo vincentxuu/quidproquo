@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-10"
 date: 2026-08-10
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-harness, self-evolution, agent-safety]
 lang: zh-TW
 description: "今天三篇圍繞同一個問題——Agent 的鷹架不該是寫死的：Evo-Bench 首次量化 LLM 自主改進鷹架的能力，MEGA 讓知識在優化循環中自我進化，SHE 則證明安全邊界也能從軌跡中學習演化"

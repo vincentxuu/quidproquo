@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-04"
 date: 2026-06-04
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-evaluation, agent-reasoning]
 lang: zh-TW
 description: "今天三篇從不同層次切入「如何建造更可靠、更可進化的 Agent 系統」：第一篇用真實執行軌跡首次揭示多模型 Agent 系統的 LLM 呼叫成本，讓平台工程師能用數字說話；第二篇提出把整個記憶流水線當成可自我演化的程式碼，解決長期任務中記憶架構對齊失效的痛點；第三篇補上評測盲點，指出現有 Agent"

@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-18"
 date: 2026-08-18
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-safety, multi-agent, agent-security]
 lang: en
 description: "Three papers debunk the myth that 'adding another safety layer equals security' — ActBench shows attack success rates up to 94% regardless of framework, Agent Behavioral Contracts II proves the conditional independence assumption fails, and Graph-Based RL Drift Diagnosis demonstrates drift detection and rollback via a small-model recovery graph"

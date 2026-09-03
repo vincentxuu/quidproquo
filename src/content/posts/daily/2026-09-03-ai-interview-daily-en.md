@@ -2,6 +2,7 @@
 title: "AI Engineer Interview Daily — 2026-09-03: LLM & Agent Engineering"
 date: 2026-09-03
 category: daily
+type: digest
 tags: [ai-engineer-interview, daily, llm-engineering]
 lang: en
 description: "Today's LLM and agent engineering drill: why high retrieval accuracy doesn't guarantee correct answers, why a bigger context window makes 'context pollution' worse instead of better, and where RAG, fine-tuning, and LLM-as-judge each belong."

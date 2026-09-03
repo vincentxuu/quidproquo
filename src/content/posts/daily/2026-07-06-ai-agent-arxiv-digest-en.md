@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-06"
 date: 2026-07-06
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-coding, agent-evaluation]
 lang: en
 description: "Three papers today converge on one core question: **how to make agent workflows truly reliable in production**"

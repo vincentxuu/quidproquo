@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-25"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "Three new benchmarks all ask the same question — agents look capable, but can they actually be trusted with real work? From real startup product requirements to enterprise state-change workflows to trustworthy ML research improvements"

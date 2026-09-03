@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-20"
 date: 2026-07-20
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, multi-agent, agent-evaluation]
 lang: en
 description: "Three papers examining real-world challenges for AI coding agents: the first systematically demonstrates how coding agents can be tricked into supply-chain attacks via manipulated READMEs, with defenses depending more on the harness than the model; the second introduces BPO, a reinforcement learning algorithm that branches only at high-entropy decision points for more efficient agent training; the third shows how MCP can serve as a standard protocol for connecting agents to domain-specific simulation tools in industrial settings."

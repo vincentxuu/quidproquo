@@ -2,6 +2,7 @@
 title: "Product Builder 面試日練 — 2026-08-23：Behavioral & Weekly Review"
 date: 2026-08-23
 category: daily
+type: digest
 tags: [product-builder-interview, daily, behavioral]
 lang: zh-TW
 description: "今日練 Behavioral 面試：STAR-R 框架、失敗故事 vs 問題故事的分岔判斷，以及一道「無授權影響力」的真實面試題拆解。附本週四天回顧。"

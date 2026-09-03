@@ -2,6 +2,7 @@
 title: "Funding Brief｜Prevalent AI $22M First Institutional Round"
 date: 2026-08-20
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, prevalent-ai, knowledge-graph]
 lang: en
 description: "UK enterprise knowledge graph company Prevalent AI secures $22M in its first institutional round after 9 years of bootstrapping, led by Integrity Growth Partners, expanding its secure data context layer into trust infrastructure for AI Agents"

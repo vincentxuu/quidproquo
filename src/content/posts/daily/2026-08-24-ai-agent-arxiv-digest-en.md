@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-24"
 date: 2026-08-24
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "Three papers expose how agent memory systems are less reliable than they seem — false majorities in shared multi-agent memory, cognitive traps triggered by correct memories, and the hard decision of what should become permanent memory"

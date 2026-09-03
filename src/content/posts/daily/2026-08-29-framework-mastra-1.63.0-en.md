@@ -2,6 +2,7 @@
 title: "Framework Update | Mastra @mastra/core 1.63.0"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, mastra]
 lang: en
 description: "Mastra 1.63 binds trace data directly into native log records, adds a worker /health endpoint so deployment platforms can gate rollouts, and ships one playground-ui breaking change"

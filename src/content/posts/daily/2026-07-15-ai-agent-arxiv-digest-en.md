@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-15"
 date: 2026-07-15
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, agent-evaluation, agent-rag]
 lang: en
 description: "Three papers illuminate the AI agent landscape from very different angles: LHTB benchmarks 46 long-horizon terminal tasks and finds even the best model solves only ~28%; a second paper reveals a fragmentation effect in multi-agent systems that defeats per-agent monitoring; a third argues that in-process memory retrieval—1000× faster than cloud vector stores—fundamentally changes agent reasoning quality."

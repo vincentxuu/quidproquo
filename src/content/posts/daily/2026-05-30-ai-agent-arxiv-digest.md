@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-05-30"
 date: 2026-05-30
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-security, multi-agent, agent-framework]
 lang: zh-TW
 description: "今天三篇分別從「設計語言」、「安全地圖」、「認知侷限」三個面向挑戰 AI Agent 實務：第一篇建立雙軸分類框架，讓工程師和研究者有共同語言溝通 agent 架構的設計取捨；第二篇系統整理 agentic AI 在工具呼叫、記憶體、多步驟執行中的安全與隱私風險全景；第三篇最具衝擊——用近 4 萬個"

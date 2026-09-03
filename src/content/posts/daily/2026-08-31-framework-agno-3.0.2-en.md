@@ -2,6 +2,7 @@
 title: "Framework Update | Agno 3.0.2"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, framework, daily, agno]
 lang: en
 description: "Agno 3.0.2 lets Agents, Teams, Workflows, and Toolkits publish themselves as named MCP tools, while quietly flipping the metadata resolution order — a patch release that actually changes behavior contracts"

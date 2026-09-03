@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-21"
 date: 2026-08-21
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-framework, local-first, agent-tool-use]
 lang: zh-TW
 description: "今日 trending 上四個上榜的 Agent 專案不約而同往同一個方向走——把 agent 從雲端黑盒搬回本機檔案系統，用可讀、可稽核、可離線的結構取代抽象 API"

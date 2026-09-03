@@ -2,6 +2,7 @@
 title: "工具推薦｜agent-manager — 把一堆 terminal tab 裡的 coding agent 收進一個 tmux TUI"
 date: 2026-08-26
 category: daily
+type: digest
 tags: [ai-agent, tool, daily, cli-tool]
 lang: zh-TW
 description: "agent-manager 用一個 Go 寫的 tmux TUI 統一管理 Claude Code、Codex、OpenCode 等多個 coding agent session，一鍵回覆、一鍵開 worktree、一鍵看整檔 diff 並把行內註解送回 agent"

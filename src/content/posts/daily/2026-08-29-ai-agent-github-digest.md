@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-29"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-skills, agent-memory]
 lang: zh-TW
 description: "OpenMontage 把整套影片後製流程包成 700+ 個 agent skill，claude-plugins-official 補完官方外掛市集，coding agent 的記憶與可觀察性也在同時補地基"

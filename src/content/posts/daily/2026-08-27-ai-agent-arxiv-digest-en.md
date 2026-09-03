@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-27"
 date: 2026-08-27
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: en
 description: "Three papers today puncture three separate blind spots in agent tool-calling: models that write tools and models that use them are disconnected from each other, parallel tool calls that ignore resource limits, and early context in multi-turn conversations getting silently overwritten when the next action is generated"

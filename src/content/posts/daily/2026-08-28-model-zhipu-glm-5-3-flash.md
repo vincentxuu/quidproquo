@@ -2,6 +2,7 @@
 title: "模型卡｜GLM-5.3-Flash"
 date: 2026-08-28
 category: daily
+type: digest
 tags: [ai-agent, model-release, daily, zhipu, model-family-glm]
 lang: zh-TW
 description: "Z.ai 揭曉先前以「Ox Alpha」匿名跑了一週的模型正是 GLM-5.3-Flash——GLM-5 系列首個原生多模態模型，320B 總參數僅活躍 18B，MIT 授權開權重，定價只有前代 GLM-5.3 的九分之一"

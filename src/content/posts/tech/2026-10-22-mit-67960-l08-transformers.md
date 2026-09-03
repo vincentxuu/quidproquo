@@ -2,6 +2,7 @@
 title: "MIT 6.7960 L08：Transformer —— Token、Attention 與位置編碼，以及它和 MLP/CNN/GNN 的關係"
 date: 2026-08-30
 category: tech
+type: guide
 tags:
   - mit-67960
   - deep-learning

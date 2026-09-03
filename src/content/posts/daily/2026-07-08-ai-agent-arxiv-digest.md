@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-08"
 date: 2026-07-08
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-memory]
 lang: zh-TW
 description: "今天三篇論文聚焦同一個核心問題：現有 AI Agent 系統在「理想實驗室」與「真實部署」之間存在巨大落差"

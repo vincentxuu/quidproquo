@@ -2,6 +2,7 @@
 title: "Harvard CS50 AI Week 2: Uncertainty — Probability, Bayesian Networks, Markov Models & Genetic Inference"
 date: 2026-08-30
 category: tech
+type: guide
 tags: [harvard-cs50ai, ai, probability, bayesian-network, markov-model, heredity, pagerank, python, cs50]
 lang: en
 series:

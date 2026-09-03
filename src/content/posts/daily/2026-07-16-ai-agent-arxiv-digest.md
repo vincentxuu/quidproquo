@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-07-16"
 date: 2026-07-16
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-framework, agent-reasoning, multi-agent]
 lang: zh-TW
 description: "三篇論文不約而同都在問同一個問題：agent 的每一步執行單元，到底應該怎麼設計才能讓它可稽核、可重用、出了錯能最小範圍修復"

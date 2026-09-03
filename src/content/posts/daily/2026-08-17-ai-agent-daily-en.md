@@ -2,6 +2,7 @@
 title: "AI Daily — 2026-08-17"
 date: 2026-08-17
 category: daily
+type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "The M&A wave in AI infrastructure is on — SpaceX acquires Cursor, Stripe acquires OpenRouter, Anthropic acquires Decart. Three same-week deals driven by the same complementary-asset logic"

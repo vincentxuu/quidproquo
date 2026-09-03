@@ -2,6 +2,7 @@
 title: "AI Agent GitHub Digest — 2026-08-31"
 date: 2026-08-31
 category: daily
+type: digest
 tags: [ai-agent, github, open-source, daily, agent-skills, mcp, agent-coding]
 lang: en
 description: "agno v3.0.2 lets Agents, Teams, and Workflows publish themselves as named MCP tools; GitHub's trending charts surfaced two Agent Skills libraries for completely different audiences, plus a coding-agent fork that out-benchmarked the original it forked from"

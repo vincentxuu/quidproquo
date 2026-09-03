@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-08-25"
 date: 2026-08-25
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "今天三個新基準都在問同一件事——Agent 表現看起來不錯，但真的能被信任交付真實工作嗎？從新創產品的真實需求、企業的狀態變更流程，到機器學習研究的可信改進"

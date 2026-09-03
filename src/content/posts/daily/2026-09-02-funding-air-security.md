@@ -2,6 +2,7 @@
 title: "融資速報｜AIR Security 兩輪 Seed 合計 $50M"
 date: 2026-09-02
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, air-security, agent-security]
 lang: zh-TW
 description: "Agent 供應鏈安全新創 AIR Security 出匿蹤，兩輪 Seed 合計募得 $50M，Sequoia 與 Greenoaks 分別領投"

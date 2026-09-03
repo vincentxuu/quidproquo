@@ -2,6 +2,7 @@
 title: "融資速報｜Zenity Series C $125M"
 date: 2026-08-29
 category: daily
+type: digest
 tags: [ai-agent, funding, daily, zenity, agent-security]
 lang: zh-TW
 description: "Watchlist 公司 Zenity 完成 $125M Series C,由 Norwest 領投,主張「Agent 就是新的資安邊界」"

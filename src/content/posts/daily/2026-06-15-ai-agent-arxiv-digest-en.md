@@ -2,6 +2,7 @@
 title: "AI Agent Arxiv Digest — 2026-06-15"
 date: 2026-06-15
 category: daily
+type: digest
 tags: [ai-agent, arxiv, daily, agent-evaluation, agent-framework, agent-reasoning]
 lang: en
 description: "Three papers paint the 'agent reality of 2026' from different angles: UC Berkeley's benchmark of 1,000+ real workplace tasks shows top agents pass only 2.6% of the hardest tier; Microsoft researchers interview 17 developers and find four spontaneous 'oversight work' patterns that current tools barely support; Reins AI argues that traditional task-level monitoring is blind to the most severe structural failures in immature agent deployments."
