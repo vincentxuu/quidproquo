@@ -1,7 +1,7 @@
 ---
 title: "HyDE：用假設答案提升向量搜尋的 Recall"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
 tags: [rag, hyde, embedding, vector-search, query-enhancement]
@@ -93,6 +93,8 @@ const [queryResults, hydeResults] = await Promise.all([
 
 第三，成本面也有人提出替代方案。ReDE-RF（2024）把「生成假設文件」改寫成「讓 LLM 判斷哪些文件相關」的相關性估計任務：LLM 只需輸出單一 token，不必生成整篇文件，也不需要具備該領域知識，論文回報在多個低資源檢索資料集上同時贏過 HyDE 並大幅降低每次查詢延遲。如果你卡在 HyDE 的 token 成本，這是值得看的方向。
 
+第四，如果你不想全開或全關，**Adaptive HyDE** 提供了折衷路線。Mackie 等人（2025）在 JetBrains 的開發者文件檢索場景中，把 HyDE 做成條件式觸發：先用原始查詢跑一輪檢索，只有在初始結果品質不足時才啟動假設文件生成。這樣做避免了對已經能精準命中的查詢浪費 LLM 呼叫，同時在弱召回場景仍然拿到 HyDE 的增益。論文標題「Never Come Up Empty」點出了核心目標——不是提升平均分數，而是消除「完全搜不到東西」的尾部情境。如果你的系統已經有弱召回偵測機制（例如 CRAG 的 score threshold），Adaptive HyDE 可以自然疊上去。
+
 ## 限制
 
 - 多一次 LLM 呼叫，有延遲成本（雖然並行，還是消耗 token）
@@ -106,6 +108,7 @@ const [queryResults, hydeResults] = await Promise.all([
 
 ## 更新紀錄
 
+- 2026-09-03：補充 Adaptive HyDE（arXiv:2507.16754）——條件式觸發的折衷路線
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
@@ -113,5 +116,6 @@ const [queryResults, hydeResults] = await Promise.all([
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE) (Gao et al., 2022)](https://arxiv.org/abs/2212.10496)
 - [When do Generative Query and Document Expansions Fail? (Weller et al., EACL 2024)](https://arxiv.org/abs/2309.08541)
 - [Zero-Shot Dense Retrieval with Embeddings from Relevance Feedback（ReDE-RF, 2024）](https://arxiv.org/abs/2410.21242)
+- [Never Come Up Empty: Adaptive HyDE Retrieval for Improving LLM Developer Support (Mackie et al., 2025)](https://arxiv.org/abs/2507.16754)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

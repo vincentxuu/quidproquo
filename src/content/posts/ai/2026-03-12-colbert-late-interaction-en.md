@@ -1,10 +1,10 @@
 ---
 title: "ColBERT: The Third Way in Vector Search"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
-tags: [rag, colbert, late-interaction, retrieval, reranking]
+tags: [rag, colbert, late-interaction, retrieval, reranking, colpali, visual-rag]
 lang: en
 tldr: "Bi-Encoders are too coarse, Cross-Encoders are too slow — ColBERT's Late Interaction finds the sweet spot: token-level comparison between query and document, but with document vectors that can be precomputed."
 description: "How ColBERT Late Interaction works: a comparison with Bi-Encoders and Cross-Encoders, the MaxSim scoring mechanism, and where it fits in a RAG pipeline."
@@ -108,6 +108,21 @@ If you only want ColBERT as a reranker and would rather not build an index at al
 
 In a TypeScript / Cloudflare Workers environment, ColBERT support is still very limited. Using it would require running a separate Python service, adding meaningful architectural complexity.
 
+## ColPali: Late Interaction Goes Visual
+
+ColBERT's MaxSim mechanism operates on **text tokens**. ColPali (Faysse et al., ICLR 2025) takes the same core idea and applies it to **image patches** — it skips OCR and text parsing entirely, renders each PDF page as an image, and uses a vision-language model (PaliGemma) to produce patch-level multi-vector embeddings. Retrieval still uses MaxSim, just over a different modality.
+
+```
+ColBERT:  Query text tokens  ⟷ MaxSim ⟷  Document text tokens
+ColPali:  Query text tokens  ⟷ MaxSim ⟷  Document image patches
+```
+
+The approach shines on table-heavy documents. Particula's evaluation shows that on financial PDFs, traditional dense retrieval recall sits at 62%, while ColQwen (ColPali's architecture with Qwen2-VL) reaches 84% — the widest gap occurs precisely on tables, charts, and complex layouts, because the table structure is preserved in full rather than shattered by text chunking.
+
+**The costs are equally clear**: each page produces far more patches than a text document has tokens, so storage is roughly 100× that of ColBERT; a GPU is required to run the vision model; and because there is no text extraction at all, BM25 full-text search is completely unavailable — you rely on vector retrieval alone.
+
+For now, ColPali is best positioned as a **specialized tool for specific scenarios** (heavy tables / charts / layout-dense PDFs) rather than a general-purpose replacement for ColBERT. But it demonstrates the extensibility of the late interaction concept — MaxSim is not limited to text; any modality that can produce a multi-vector representation is fair game.
+
 ## Bottom Line
 
 ColBERT occupies an interesting middle ground in vector search — elegant in theory. The Python-side tooling has actually filled in over the last couple of years: PyLate is maintained, and the index backends have grown beyond PLAID to include WARP and TACHIOM, some of which target CPU-only deployment. Two things remain genuinely unsolved: the index is still **one vector per token** (compression lowers the multiplier, it does not remove it), and **TypeScript / edge runtimes have essentially no native support**, so a non-Python stack has to run an extra service to use it at all.
@@ -118,6 +133,7 @@ For most RAG systems, the established Bi-Encoder retrieval + Cross-Encoder reran
 
 ## Changelog
 
+- 2026-09-03: Added ColPali / Visual Late Interaction section with three new references.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
@@ -125,5 +141,8 @@ For most RAG systems, the established Bi-Encoder retrieval + Cross-Encoder reran
 - [ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT (2020)](https://arxiv.org/abs/2004.12832)
 - [ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction (NAACL 2022)](https://arxiv.org/abs/2112.01488)
 - [PyLate: Flexible Training and Retrieval for Late Interaction Models (LightOn)](https://lightonai.github.io/pylate/)
+- [ColPali: Efficient Document Retrieval with Vision Language Models (ICLR 2025)](https://arxiv.org/abs/2407.01449)
+- [An Overview of Late Interaction Retrieval Models — Weaviate](https://weaviate.io/blog/late-interaction-overview)
+- [Visual RAG vs OCR: ColPali for PDF Tables and Charts — Particula](https://particula.tech/blog/visual-rag-vs-ocr-colpali-pdf-tables-charts)
 - [NobodyClimb System Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

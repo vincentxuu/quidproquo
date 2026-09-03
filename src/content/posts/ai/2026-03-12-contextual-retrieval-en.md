@@ -1,7 +1,7 @@
 ---
 title: "Contextual Retrieval: Giving Every Chunk Its \"What This Is About\" Context"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
 tags: [rag, contextual-retrieval, chunking, indexing, embedding]
@@ -163,9 +163,23 @@ A 2025 comparison study (arXiv:2504.19754) put Contextual Retrieval head to head
 
 In a climbing context, the gains are especially pronounced: many route-information chunks are inherently short ("the crux of the third pitch is..."), and they're nearly meaningless without context. Once you inject the crag name, grade, and route style, the relevance of those same chunks improves dramatically.
 
+## The Chunk Enrichment Cost Ladder
+
+The "original vs. simplified" framing above is binary, but in practice chunk enrichment has a finer cost gradient. Ordered by LLM call count:
+
+| Level | Approach | LLM calls | Effect |
+|---|---|---|---|
+| Level 0 | Metadata Prepend — prepend existing structured metadata (filename, section header path, page number) to each chunk | Zero | Medium |
+| Level 1 | Document Summary — generate one summary per document, inject into all chunks | One per document | Low-medium (Anthropic reported *very limited gains*) |
+| Level 2 | Per-chunk Context — Anthropic Contextual Retrieval original | One per chunk | High |
+
+Level 0 deserves attention because it costs nothing yet delivers real signal. arXiv:2601.11863 studied which metadata types help retrieval most and found that **company name + year** provide the strongest discriminating signal; section headers mainly aid chunk-level positioning. Microsoft Azure's [RAG Enrichment Phase guide](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase) recommends enriching with Title, Summary, Keywords, and Questions — the first two need no LLM, the latter two do.
+
+In practice you stack these: start with Level 0 (zero cost), and add Level 1 or jump to Level 2 only if retrieval quality is still insufficient. The enterprise knowledge retrieval framework in arXiv:2512.05411 also recommends phased adoption rather than jumping straight to the most expensive option.
+
 ## Cost Considerations
 
-The original variant costs one LLM call **per chunk**; the simplified variant costs one **per document**. That order-of-magnitude difference is the whole reason the simplified variant exists.
+Level 2 (the original) costs one LLM call **per chunk** — an order of magnitude higher.
 
 Anthropic notes that what makes the original economically viable is **prompt caching**: every chunk's prompt contains the entire document, but that document is a shared prefix and can be cached rather than reprocessed each time. Turn it on before running the original at any scale, or the bill gets ugly fast (unit prices change — check the provider's current pricing page).
 
@@ -185,6 +199,7 @@ Contextual Retrieval addresses a root-level problem in RAG systems: chunking des
 
 ## Changelog
 
+- 2026-09-03: Added "Chunk Enrichment Cost Ladder" section with metadata enrichment as a zero-cost alternative (arXiv:2601.11863, Microsoft Azure RAG Enrichment Phase, arXiv:2512.05411).
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
@@ -198,4 +213,8 @@ Contextual Retrieval addresses a root-level problem in RAG systems: chunking des
 - [Full text queries (Elasticsearch / BM25 hybrid retrieval)](https://www.elastic.co/docs/reference/query-languages/query-dsl/full-text-queries)
 - [iThome — Contextual Retrieval article](https://ithelp.ithome.com.tw/articles/10389779)
 - [NobodyClimb Architecture: Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
+- [Utilizing Metadata for Better RAG (arXiv:2601.11863, 2025)](https://arxiv.org/abs/2601.11863)
+- [RAG Enrichment Phase (Microsoft Azure Architecture Guide)](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase)
+- [A Systematic Framework for Enterprise Knowledge Retrieval (arXiv:2512.05411, 2025)](https://arxiv.org/abs/2512.05411)
+- [How to Use Metadata in RAG for Better Contextual Results (Unstructured)](https://unstructured.io/insights/how-to-use-metadata-in-rag-for-better-contextual-results)
 - [NobodyClimb AI Architecture: 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

@@ -1,7 +1,7 @@
 ---
 title: "Contextual Retrieval：幫每個 Chunk 加上「這段在說什麼」"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
 tags: [rag, contextual-retrieval, chunking, indexing, embedding]
@@ -160,9 +160,23 @@ async function indexDocument(doc: Document, env: Env, ctx: ExecutionContext) {
 
 在攀岩這個場景，效益特別明顯：許多路線資訊的 chunk 本身很短（「第三段的技術關鍵是...」），脫離上下文幾乎沒有意義。注入岩場名稱、難度、類型之後，同樣的 chunk 搜尋相關性大幅提升。
 
+## Chunk 增強的成本階梯
+
+上面用了「原版 vs 簡化版」的二分法，但實務上 chunk 增強有更細的成本梯度。按 LLM 呼叫次數排列：
+
+| 層級 | 做法 | LLM 呼叫 | 效果 |
+|---|---|---|---|
+| Level 0 | Metadata Prepend — 把檔案名稱、章節標題路徑、頁碼等既有結構化資訊 prepend 到 chunk 前 | 零 | 中 |
+| Level 1 | 文件摘要 — 每份文件生成一段摘要，注入所有 chunk | 每份文件一次 | 中低（Anthropic 稱 *very limited gains*） |
+| Level 2 | 逐 chunk 上下文 — Anthropic Contextual Retrieval 原版 | 每個 chunk 一次 | 高 |
+
+Level 0 值得注意的是，它的成本是零但效果不差。arXiv:2601.11863 研究了各類 metadata 對檢索的影響，發現**公司名稱 + 年份**提供最強的區分信號；章節標題則主要幫助 chunk 級別的定位。Microsoft Azure 的 [RAG Enrichment Phase 指南](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase)推薦的增強欄位是 Title、Summary、Keywords、Questions——前兩個不需 LLM，後兩個需要。
+
+實際場景通常是疊加使用：先做 Level 0（零成本），效果不足再加 Level 1 或直接跳到 Level 2。arXiv:2512.05411 的企業知識檢索框架也建議分階段導入，而不是一步到位。
+
 ## 成本考量
 
-原版是**每個 chunk** 一次 LLM 呼叫，簡化版是**每份文件**一次。前者的成本高一個量級，這也是簡化版存在的理由。
+Level 2（原版）是**每個 chunk** 一次 LLM 呼叫，成本高一個量級。
 
 Anthropic 指出，原版之所以在成本上可行，關鍵是 **prompt caching**：每個 chunk 的 prompt 都包含整份文件，但整份文件那段是共用前綴，可以被快取，不必每次重算。實作原版時務必啟用，否則帳單會非常難看（具體單價會變動，以官方定價頁為準）。
 
@@ -182,6 +196,7 @@ Contextual Retrieval 解決的是 RAG 系統的一個底層問題：chunk 切割
 
 ## 更新紀錄
 
+- 2026-09-03：新增「Chunk 增強的成本階梯」段落，補充 metadata enrichment 作為零成本替代方案的研究（arXiv:2601.11863、Microsoft Azure RAG Enrichment Phase、arXiv:2512.05411）
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
@@ -195,4 +210,8 @@ Contextual Retrieval 解決的是 RAG 系統的一個底層問題：chunk 切割
 - [Full text queries（Elasticsearch / BM25 混合檢索）](https://www.elastic.co/docs/reference/query-languages/query-dsl/full-text-queries)
 - [iThome 鐵人賽 — Contextual Retrieval 相關文章](https://ithelp.ithome.com.tw/articles/10389779)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+- [Utilizing Metadata for Better RAG（arXiv:2601.11863，2025）](https://arxiv.org/abs/2601.11863)
+- [RAG Enrichment Phase（Microsoft Azure Architecture Guide）](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase)
+- [A Systematic Framework for Enterprise Knowledge Retrieval（arXiv:2512.05411，2025）](https://arxiv.org/abs/2512.05411)
+- [How to Use Metadata in RAG for Better Contextual Results（Unstructured）](https://unstructured.io/insights/how-to-use-metadata-in-rag-for-better-contextual-results)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

@@ -1,7 +1,7 @@
 ---
 title: "Cross-Encoder Reranking：讓最相關的文件排到前面"
 date: 2026-03-12
-updated: 2026-08-25
+updated: 2026-09-03
 type: guide
 category: ai
 tags: [rag, reranking, cross-encoder, bge-reranker, retrieval]
@@ -121,6 +121,7 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 **效益最大**：
 - 多路搜尋（HyDE + Multi-Query + BM25）帶來大量候選，品質參差不齊
 - 查詢意圖複雜，簡單的 cosine similarity 排序容易偏掉
+- **結構化文件（表格、財報）**：2026 年一份針對金融文件的 benchmark 顯示，在 BM25 → hybrid → contextual → corrective 的完整 pipeline 中，reranking 是 single most impactful component，MRR@3 提升 **+17.2 個百分點**——這個數字高於 query expansion、hybrid search、甚至 corrective retrieval 各自的增益
 
 **效益較小**：
 - 候選本來就少（< 5 個）
@@ -132,6 +133,7 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 
 ## 更新紀錄
 
+- 2026-09-03：補充金融文件 benchmark 數據（arXiv:2604.01733），reranking 在表格密集文件中 MRR@3 +17.2pp
 - 2026-08-25：增補 2025 進展（jina-reranker-v3 / v3.5，0.6B listwise、BEIR 61.94→63.20、半結構化 +9.6、混合注意力），說明 listwise 同窗 causal attention 與適用情境，提醒需以自家標註集對照驗證
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
@@ -145,3 +147,4 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 - [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2023)](https://arxiv.org/abs/2312.10997)
 - [jina-reranker-v3: Last but Not Late Interaction for Document Reranking (2025-09-29)](https://arxiv.org/abs/2509.25085)
 - [jina-reranker-v3.5: Efficient Listwise Reranker with Hybrid Attention and Self-Distillation (2026-07-20)](https://arxiv.org/abs/2607.18152)
+- [From BM25 to Corrective RAG: Benchmarking Retrieval Strategies for Financial RAG (2026)](https://arxiv.org/abs/2604.01733)

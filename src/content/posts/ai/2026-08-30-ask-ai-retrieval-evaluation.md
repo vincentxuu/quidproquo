@@ -154,6 +154,20 @@ pnpm exec node --test scripts/eval-rag-baseline.test.mjs
 
 這套流程的價值不在多一個分數，而是每個分數旁邊都保留 evidence kind、dataset ID 與 artifact path。測不到的資料就明講沒有；下一輪需要時，再擴 API 或 trace contract。
 
+## 與通用 Table QA 基準的定位差異
+
+Ask AI 的 q01–q21 是針對自身場景設計的 task-specific evaluation：固定的問題、預期來源、禁止主張，測的是「這個系統在這些問題上有沒有退步」。學術界另有一系列通用表格問答基準，測的是「模型／pipeline 在跨資料集上的泛化能力」：
+
+- **WikiTableQuestions**（Pasupat & Liang, 2015）：22,033 個 query-table 配對，表格 QA 的開山之作，至今仍是 leaderboard 標配。
+- **HybridQA**（Chen et al., 2020）：跨表格與自由文字的 multi-hop QA，迫使 pipeline 同時做結構化查詢與語意檢索。
+- **TableRAG**（arXiv:2506.10380, 2025）：最新的異質文件推理框架，用 HeteQA + HybridQA + WikiTQ 三組 benchmark 評測 RAG 對表格的處理能力。
+
+兩者互補而非替代：task-specific contract 測系統的真實行為退步（regression），standard benchmark 測跨場景的泛化能力（generalization）。如果未來 Ask AI 要處理更多結構化內容（表格、清單、比較矩陣），把 WikiTableQuestions 子集納入 golden dataset 是一個可行的擴展方向。
+
+## 更新紀錄
+
+- 2026-09-03：補充通用 Table QA 基準（WikiTableQuestions、HybridQA、TableRAG）的定位比較
+
 ## 參考資料
 
 - [Ask AI RAG evaluation runbook](https://github.com/vincentxuu/quidproquo/blob/main/docs/rag-evaluation-runbook.md)
@@ -162,3 +176,6 @@ pnpm exec node --test scripts/eval-rag-baseline.test.mjs
 - [Golden dataset adapter](https://github.com/vincentxuu/quidproquo/blob/main/evals/rag/adapters/golden-dataset.mjs)
 - [Promptfoo test generation](https://github.com/vincentxuu/quidproquo/blob/main/evals/rag/adapters/promptfoo-tests.mjs)
 - [Baseline live／fixture runner and deterministic scoring](https://github.com/vincentxuu/quidproquo/blob/main/scripts/eval-rag-baseline.mjs)
+- [WikiTableQuestions](https://ppasupat.github.io/WikiTableQuestions/) — Pasupat & Liang (2015)，表格 QA 開山 benchmark
+- [HybridQA](https://hybridqa.github.io/) — Chen et al. (2020)，跨表格 + 文字的 multi-hop QA
+- [arXiv:2506.10380 — TableRAG: A RAG Framework for Heterogeneous Document Reasoning](https://arxiv.org/abs/2506.10380) (2025)

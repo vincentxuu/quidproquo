@@ -1,7 +1,7 @@
 ---
 title: "Cross-Encoder Reranking: Surfacing the Most Relevant Documents"
 date: 2026-03-12
-updated: 2026-08-25
+updated: 2026-09-03
 type: guide
 category: ai
 tags: [rag, reranking, cross-encoder, bge-reranker, retrieval]
@@ -119,6 +119,7 @@ Reranking has the greatest impact on final output quality in the following scena
 **Highest benefit**:
 - Multi-path retrieval (HyDE + Multi-Query + BM25) produces many candidates of uneven quality
 - Complex query intent where simple cosine similarity ordering tends to drift off target
+- **Structured documents (tables, financial reports)**: a 2026 financial-document benchmark found that across a full BM25 → hybrid → contextual → corrective pipeline, reranking was the single most impactful component, lifting MRR@3 by **+17.2 percentage points** — exceeding the individual gains from query expansion, hybrid search, and corrective retrieval
 
 **Lower benefit**:
 - Already few candidates (< 5)
@@ -130,6 +131,7 @@ Overall, reranking is the most direct lever for improving precision in a RAG pip
 
 ## Changelog
 
+- 2026-09-03: Added financial-document benchmark data (arXiv:2604.01733) — reranking as single most impactful component at +17.2pp MRR@3 on table-heavy documents
 - 2026-08-25: Added 2025 update (jina-reranker-v3 / v3.5, 0.6B listwise, BEIR 61.94→63.20, +9.6 on semi-structured, hybrid attention). Explained same-window causal attention and when it helps; noted that results must be validated on your own labelled set.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
@@ -143,3 +145,4 @@ Overall, reranking is the most direct lever for improving precision in a RAG pip
 - [A Survey on RAG — Retrieval-Augmented Generation for Large Language Models (2023)](https://arxiv.org/abs/2312.10997)
 - [jina-reranker-v3: Last but Not Late Interaction for Document Reranking (2025-09-29)](https://arxiv.org/abs/2509.25085)
 - [jina-reranker-v3.5: Efficient Listwise Reranker with Hybrid Attention and Self-Distillation (2026-07-20)](https://arxiv.org/abs/2607.18152)
+- [From BM25 to Corrective RAG: Benchmarking Retrieval Strategies for Financial RAG (2026)](https://arxiv.org/abs/2604.01733)

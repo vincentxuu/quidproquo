@@ -1,10 +1,10 @@
 ---
 title: "ColBERT：向量搜尋的第三條路"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
-tags: [rag, colbert, late-interaction, retrieval, reranking]
+tags: [rag, colbert, late-interaction, retrieval, reranking, colpali, visual-rag]
 lang: zh-TW
 tldr: "Bi-Encoder 太粗糙，Cross-Encoder 太慢，ColBERT 的 Late Interaction 在兩者之間找到平衡：token 級別的相互比較，但可以預先計算文件向量。"
 description: "ColBERT Late Interaction 的設計原理：與 Bi-Encoder、Cross-Encoder 的比較，MaxSim 計算方式，以及在 RAG 系統中的應用場景。"
@@ -108,6 +108,21 @@ scores = retriever.retrieve(
 
 但在 TypeScript / Cloudflare Workers 的環境，ColBERT 的支援還是很有限。要用的話，需要起一個獨立的 Python 服務，增加了架構複雜度。
 
+## ColPali：Late Interaction 的視覺延伸
+
+ColBERT 的 MaxSim 機制是在**文字 token** 之間做 late interaction。ColPali（Faysse et al., ICLR 2025）把同一個概念搬到了**圖片 patch** 上——跳過 OCR 和文字解析，直接把 PDF 頁面渲染成圖片，用 vision-language model（PaliGemma）產生 patch-level 的 multi-vector embedding，檢索時一樣用 MaxSim 計算相關性。
+
+```
+ColBERT:  Query text tokens  ⟷ MaxSim ⟷  Document text tokens
+ColPali:  Query text tokens  ⟷ MaxSim ⟷  Document image patches
+```
+
+這個做法在表格密集的文件上效果特別顯著。Particula 的評測顯示，金融 PDF 上傳統 dense retrieval recall 只有 62%，ColQwen（ColPali 架構的 Qwen2-VL 版本）達到 84%——差距最大的場景正是表格、圖表這類結構化版面，因為表格結構被 100% 保留，不會像文字 chunking 那樣切碎。
+
+**代價也很明確**：每個頁面的 patch 數量遠多於文字 token 數，儲存量大約是 ColBERT 的再 100 倍；需要 GPU 跑 vision model；而且因為沒有文字抽取，BM25 全文搜尋完全不可用，只能靠向量檢索。
+
+目前 ColPali 更適合定位成**特定場景的專用方案**（大量表格 / 圖表 / 版面複雜的 PDF），而不是通用的 ColBERT 替代品。但它示範了 late interaction 這個核心概念的延展性——MaxSim 不只能比較文字，任何可以產生 multi-vector 表示的模態都適用。
+
 ## 整體來說
 
 ColBERT 是向量搜尋架構的一個有趣中間地帶，理論上很漂亮。Python 這側的生態系這兩年其實補得不錯——PyLate 有人維護，索引後端也從 PLAID 長出了 WARP、TACHIOM 等選擇，其中部分主打 CPU 上就能跑。真正還沒解的是兩件事：**索引仍然是每 token 一個向量**（壓縮只是把倍率壓下來，不是消掉），以及 **TypeScript / edge runtime 幾乎沒有原生支援**，非 Python 的tech stack要用就得多養一個服務。
@@ -118,6 +133,7 @@ ColBERT 是向量搜尋架構的一個有趣中間地帶，理論上很漂亮。
 
 ## 更新紀錄
 
+- 2026-09-03：新增 ColPali / Visual Late Interaction 段落，補充三篇參考資料
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料
@@ -125,5 +141,8 @@ ColBERT 是向量搜尋架構的一個有趣中間地帶，理論上很漂亮。
 - [ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT (2020)](https://arxiv.org/abs/2004.12832)
 - [ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction (NAACL 2022)](https://arxiv.org/abs/2112.01488)
 - [PyLate：Late Interaction 模型的訓練與檢索套件（LightOn）](https://lightonai.github.io/pylate/)
+- [ColPali: Efficient Document Retrieval with Vision Language Models (ICLR 2025)](https://arxiv.org/abs/2407.01449)
+- [An Overview of Late Interaction Retrieval Models — Weaviate](https://weaviate.io/blog/late-interaction-overview)
+- [Visual RAG vs OCR: ColPali for PDF Tables and Charts — Particula](https://particula.tech/blog/visual-rag-vs-ocr-colpali-pdf-tables-charts)
 - [NobodyClimb 系統架構：Cloudflare 全端攀岩社群平台](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 - [NobodyClimb AI 架構：20 節點 RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)

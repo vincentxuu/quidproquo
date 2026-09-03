@@ -154,6 +154,20 @@ Before promoting a retrieval change, verify that:
 
 The useful part of this workflow is not another score. Every score retains an evidence kind, dataset ID, and artifact path. When the API does not expose a signal, say that it was not measured; expand the API or trace contract only when the next investigation requires it.
 
+## Positioning Against Standard Table QA Benchmarks
+
+Ask AI's q01–q21 is a task-specific evaluation: fixed queries, expected sources, and forbidden claims, designed to catch regressions in this particular system. The academic community maintains a separate lineage of general-purpose table QA benchmarks that measure cross-dataset generalization:
+
+- **WikiTableQuestions** (Pasupat & Liang, 2015): 22,033 query–table pairs. The foundational table QA benchmark and still a standard leaderboard fixture.
+- **HybridQA** (Chen et al., 2020): Multi-hop QA across tables and free text, forcing pipelines to combine structured lookup with semantic retrieval.
+- **TableRAG** (arXiv:2506.10380, 2025): A recent heterogeneous-document reasoning framework evaluated on HeteQA, HybridQA, and WikiTQ, measuring how well RAG handles tabular content.
+
+The two evaluation styles are complementary, not competing: task-specific contracts detect behavioral regression; standard benchmarks measure generalization. If Ask AI grows to handle more structured content (tables, lists, comparison matrices), incorporating a WikiTableQuestions subset into the golden dataset is a viable next step.
+
+## Update Log
+
+- 2026-09-03: Added positioning against standard Table QA benchmarks (WikiTableQuestions, HybridQA, TableRAG)
+
 ## References
 
 - [Ask AI RAG evaluation runbook](https://github.com/vincentxuu/quidproquo/blob/main/docs/rag-evaluation-runbook.md)
@@ -162,3 +176,6 @@ The useful part of this workflow is not another score. Every score retains an ev
 - [Golden dataset adapter](https://github.com/vincentxuu/quidproquo/blob/main/evals/rag/adapters/golden-dataset.mjs)
 - [Promptfoo test generation](https://github.com/vincentxuu/quidproquo/blob/main/evals/rag/adapters/promptfoo-tests.mjs)
 - [Baseline live and fixture runner with deterministic scoring](https://github.com/vincentxuu/quidproquo/blob/main/scripts/eval-rag-baseline.mjs)
+- [WikiTableQuestions](https://ppasupat.github.io/WikiTableQuestions/) — Pasupat & Liang (2015), foundational table QA benchmark
+- [HybridQA](https://hybridqa.github.io/) — Chen et al. (2020), multi-hop QA across tables and free text
+- [arXiv:2506.10380 — TableRAG: A RAG Framework for Heterogeneous Document Reasoning](https://arxiv.org/abs/2506.10380) (2025)

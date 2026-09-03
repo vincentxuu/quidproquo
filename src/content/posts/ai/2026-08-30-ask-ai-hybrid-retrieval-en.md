@@ -100,6 +100,18 @@ The repository establishes how queries are composed, when Vectorize can be skipp
 
 Most importantly, `search_results` is a candidate evidence set for Writer, not the complete set of relevant posts on the site. Top-k, deduplication, and the context window all narrow the population. The next article examines how much of that set Writer receives and why it may cite only URLs contained in it.
 
+## Why Not Just Stuff Everything into Long Context
+
+Ask AI uses hybrid retrieval instead of stuffing all site content into a long context window, and recent research supports this architectural choice. Self-Route (Zhao et al., EMNLP 2024) proposes routing queries by type: fact-lookup queries perform better with RAG, while cross-passage reasoning queries benefit from long context. Ask AI's Planner already does something similar—`intent` and `complexity` determine which retrieval lanes activate.
+
+NVIDIA's OP-RAG (Wu et al., 2024) further demonstrates that even when the context window can hold all documents, RAG retains an advantage in token efficiency—there is no need to pay the inference cost of processing the entire corpus for every query. Xu et al. (2024) reach a complementary conclusion in their systematic comparison: the two approaches supplement rather than replace each other, and hybrid architectures (small document sets in context + large corpora via retrieval) tend to perform best.
+
+For Ask AI, with 1,600+ posts, stuffing everything into context would be technically possible but economically unreasonable per query. Hybrid retrieval keeps most queries processing only top-k chunks, making both cost and latency manageable.
+
+## Update Log
+
+- 2026-09-03: Added "Why Not Just Stuff Everything into Long Context" section with Self-Route, OP-RAG, and Long Context vs RAG references
+
 ## References
 
 - [Ask AI Planner](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/retrieval/agents/planner.ts)
@@ -108,3 +120,6 @@ Most importantly, `search_results` is a candidate evidence set for Writer, not t
 - [Post search implementation](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/retrieval/tools/search-posts.ts)
 - [Hybrid search and RRF helpers](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/retrieval/tools/hybrid-search.ts)
 - [Result normalization](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/retrieval/agents/normalize-results.ts)
+- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach (Self-Route)](https://arxiv.org/abs/2407.16833) — Zhao et al., EMNLP 2024
+- [In Defense of RAG in the Era of Long-Context Language Models (OP-RAG)](https://arxiv.org/abs/2409.01666) — Wu et al., NVIDIA, 2024
+- [Long Context vs. RAG for LLMs: An Evaluation and Revisits](https://arxiv.org/abs/2501.01880) — Xu et al., 2024

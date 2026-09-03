@@ -1,7 +1,7 @@
 ---
 title: "HyDE: Boosting Vector Search Recall with Hypothetical Answers"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-09-03
 type: guide
 category: ai
 tags: [rag, hyde, embedding, vector-search, query-enhancement]
@@ -93,6 +93,8 @@ That is why keeping the original query lane present matters: even if the HyDE la
 
 Third, there is a cost-side alternative. ReDE-RF (2024) reframes hypothetical document generation as a relevance estimation task: instead of writing a whole document, the LLM only picks which documents are relevant, so it needs to emit a single token and requires no domain knowledge of its own. The paper reports beating HyDE across a range of low-resource retrieval datasets while substantially cutting per-query latency. If HyDE's token cost is what is blocking you, that is the direction worth reading.
 
+Fourth, if you don't want all-or-nothing, **Adaptive HyDE** offers a middle ground. Mackie et al. (2025) deployed HyDE conditionally in JetBrains' developer documentation retrieval: run an initial search with the raw query first, and only trigger hypothetical document generation when the initial results fall below a quality threshold. This avoids wasting LLM calls on queries that already retrieve well, while still capturing HyDE's gains in weak-recall scenarios. The paper's title — "Never Come Up Empty" — names the core goal: not to improve average scores, but to eliminate the tail cases where the search returns nothing useful at all. If your system already has a weak-recall detection mechanism (e.g., CRAG's score threshold), Adaptive HyDE layers on naturally.
+
 ## Limitations
 
 - One extra LLM call adds latency cost (even though it runs in parallel, it still consumes tokens)
@@ -106,6 +108,7 @@ Overall, for complex or ambiguous natural language queries, and where the underl
 
 ## Changelog
 
+- 2026-09-03: Added Adaptive HyDE (arXiv:2507.16754) — conditional triggering as a middle ground.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References
@@ -113,5 +116,6 @@ Overall, for complex or ambiguous natural language queries, and where the underl
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE) (Gao et al., 2022)](https://arxiv.org/abs/2212.10496)
 - [When do Generative Query and Document Expansions Fail? (Weller et al., EACL 2024)](https://arxiv.org/abs/2309.08541)
 - [Zero-Shot Dense Retrieval with Embeddings from Relevance Feedback (ReDE-RF, 2024)](https://arxiv.org/abs/2410.21242)
+- [Never Come Up Empty: Adaptive HyDE Retrieval for Improving LLM Developer Support (Mackie et al., 2025)](https://arxiv.org/abs/2507.16754)
 - [NobodyClimb System Architecture: A Full-Stack Climbing Community on Cloudflare](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture-en)
 - [NobodyClimb AI Architecture: A 20-Node RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)

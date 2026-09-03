@@ -100,6 +100,18 @@ rg -n "hydeEnabled|multiQueryEnabled|rerankerEnabled|bm25ShortCircuitEnabled" \
 
 更重要的是，`search_results` 是 Writer 的候選證據，不是「網站所有相關文章」。top-k、去重與 context window 都會讓完整母群縮小。下一篇會接著看 Writer 實際拿到多少來源，以及它為什麼只能引用候選集合裡的 URL。
 
+## 為什麼不直接把所有文章塞進 Long Context
+
+Ask AI 選擇 hybrid retrieval 而不是把全站內容塞進 long context window，這個決策背後有學術支持。Self-Route（Zhao et al., EMNLP 2024）提出按查詢類型路由：事實查找型查詢用 RAG 較精準，需要跨段落推理的查詢才值得用 long context。Ask AI 的 Planner 已經在做類似的事——`intent` 和 `complexity` 決定要走哪些 lane。
+
+NVIDIA 的 OP-RAG（Wu et al., 2024）進一步證明，即使 context window 足夠容納所有文件，RAG 在 token 效率上仍有優勢——不需要為每次查詢付出處理整個語料庫的推理成本。Xu et al.（2024）的系統性比較則得出結論：兩者是互補而非替代關係，混合架構（小量文件塞 context + 大量文件走 retrieval）往往表現最好。
+
+對 Ask AI 來說，目前 1,600+ 篇文章的規模即使塞得進去，每次查詢的 token 消耗也不合理。Hybrid retrieval 讓大多數查詢只需處理 top-k 的 chunk，成本與延遲都可控。
+
+## 更新紀錄
+
+- 2026-09-03：新增「為什麼不直接把所有文章塞進 Long Context」段落，補充 Self-Route、OP-RAG、Long Context vs RAG 三篇參考文獻
+
 ## 參考資料
 
 - [Ask AI Planner](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/retrieval/agents/planner.ts)
@@ -108,3 +120,6 @@ rg -n "hydeEnabled|multiQueryEnabled|rerankerEnabled|bm25ShortCircuitEnabled" \
 - [Post search implementation](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/retrieval/tools/search-posts.ts)
 - [Hybrid search and RRF helpers](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/retrieval/tools/hybrid-search.ts)
 - [Result normalization](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/retrieval/agents/normalize-results.ts)
+- [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach (Self-Route)](https://arxiv.org/abs/2407.16833) — Zhao et al., EMNLP 2024
+- [In Defense of RAG in the Era of Long-Context Language Models (OP-RAG)](https://arxiv.org/abs/2409.01666) — Wu et al., NVIDIA, 2024
+- [Long Context vs. RAG for LLMs: An Evaluation and Revisits](https://arxiv.org/abs/2501.01880) — Xu et al., 2024
