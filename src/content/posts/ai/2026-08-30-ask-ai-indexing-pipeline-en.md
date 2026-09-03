@@ -146,6 +146,8 @@ This improves all chunks, not just tables. Ask AI already uses Claude, and promp
 
 The limitation is that it requires an embedding model supporting 8K+ context (e.g., jina-embeddings-v3), and large documents may exceed the context window. Ask AI currently uses Cloudflare Workers AI embeddings, so the context length is a prerequisite to verify.
 
+Further improvement paths: [Hierarchical Chunking + Auto-Merge](/en/posts/ai/2026-09-03-hierarchical-chunking-auto-merge-en) uses multi-granularity indexing to resolve the "small chunks are precise but lack context" dilemma; [Table Serialization](/en/posts/ai/2026-09-03-table-serialization-rag-en) explores how table serialization format affects embedding quality.
+
 ## Update Log
 
 - 2026-09-03: Added "Known Limitations and Improvement Paths" section with four new references

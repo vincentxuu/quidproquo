@@ -148,7 +148,7 @@ CRAG 是**零結果時的規則型修正**，Agentic RAG 是**有結果但不夠
 
 ## 整體來說
 
-Agentic RAG 代表 RAG 系統從「被動檢索」向「主動推理」的演進。它不適合高流量、對延遲敏感的場景，但對複雜的規劃型和多跳推理型查詢，品質提升是顯著的。[Xi et al. (2025)](https://arxiv.org/abs/2505.15872) 的 InfoDeepSeek benchmark 也證實了這點：在需要多來源整合的資訊搜尋任務中，agentic 策略的完整性顯著優於單次檢索。
+Agentic RAG 代表 RAG 系統從「被動檢索」向「主動推理」的演進。它不適合高流量、對延遲敏感的場景，但對複雜的規劃型和多跳推理型查詢，品質提升是顯著的。多跳推理的具體架構比較見 [Multi-hop Retrieval：當答案散落在多份文件裡](/posts/ai/2026-09-03-multi-hop-retrieval-rag)；不需要完整 agent loop 的替代方案見 [Self-RAG：用 Reflection Token 讓模型自己決定要不要檢索](/posts/ai/2026-09-03-self-rag-reflection-tokens)。[Xi et al. (2025)](https://arxiv.org/abs/2505.15872) 的 InfoDeepSeek benchmark 也證實了這點：在需要多來源整合的資訊搜尋任務中，agentic 策略的完整性顯著優於單次檢索。
 
 核心設計原則：**給 LLM 充分的資訊而不是讓它猜**。與其讓 LLM 從不完整的 context 中瞎猜，不如讓它多搜幾次拿到足夠的資訊再回答。Agentic RAG 就是把這個判斷權還給 LLM。
 

@@ -285,6 +285,8 @@ Chunking 是 RAG 系統裡最底層也最影響全局的決策。後面加多少
 
 最務實的建議：從 Recursive Chunking + Contextual Retrieval 開始，然後根據實際的搜尋品質（查看 trace 裡命中的 chunk 是否有意義）決定要不要換策略。
 
+延伸閱讀：[Hierarchical Chunking + Auto-Merge：小 chunk 精準命中，大 chunk 保完整上下文](/posts/ai/2026-09-03-hierarchical-chunking-auto-merge)、[Table Serialization：表格該怎麼轉成文字才能讓 RAG 找到](/posts/ai/2026-09-03-table-serialization-rag)、[Agentic Parsing：讓 Agent 決定怎麼解析文件](/posts/ai/2026-09-03-agentic-parsing-document-agents)。
+
 ---
 
 ## 更新紀錄

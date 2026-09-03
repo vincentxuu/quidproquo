@@ -125,7 +125,7 @@ Reranking has the greatest impact on final output quality in the following scena
 - Already few candidates (< 5)
 - Simple queries with clear semantics where the first-round results are already decent
 
-Overall, reranking is the most direct lever for improving precision in a RAG pipeline, and the cost is well within reason — running cross-attention over 30 candidates is much cheaper than a single LLM generation pass.
+Overall, reranking is the most direct lever for improving precision in a RAG pipeline, and the cost is well within reason — running cross-attention over 30 candidates is much cheaper than a single LLM generation pass. In multi-hop retrieval, reranking after each hop filters noise and prevents error accumulation — see [Multi-hop Retrieval: When the Answer Is Scattered Across Multiple Documents](/en/posts/ai/2026-09-03-multi-hop-retrieval-rag-en).
 
 ---
 

@@ -127,7 +127,7 @@ Reranking 對最終結果品質的影響集中在幾種場景：
 - 候選本來就少（< 5 個）
 - Simple 查詢語義清晰，第一輪搜尋結果本來就不差
 
-整體來說，Reranking 是 RAG pipeline 中 precision 提升最直接的環節，成本也在可接受範圍內（對 30 個候選做 cross-attention 比一次 LLM 生成便宜很多）。
+整體來說，Reranking 是 RAG pipeline 中 precision 提升最直接的環節，成本也在可接受範圍內（對 30 個候選做 cross-attention 比一次 LLM 生成便宜很多）。在多跳檢索場景中，每一跳之後做 reranking 能有效過濾噪音，避免錯誤累積——詳見 [Multi-hop Retrieval：當答案散落在多份文件裡](/posts/ai/2026-09-03-multi-hop-retrieval-rag)。
 
 ---
 

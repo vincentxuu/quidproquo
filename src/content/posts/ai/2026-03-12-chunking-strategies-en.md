@@ -285,6 +285,8 @@ Chunking is the most foundational — and most globally impactful — decision i
 
 The most practical starting point: Recursive Chunking + Contextual Retrieval. Then evaluate actual retrieval quality — look at the chunks that get hit in your traces and ask whether they make sense — before deciding whether to switch strategies.
 
+Further reading: [Hierarchical Chunking + Auto-Merge: Small Chunks for Precision, Large Chunks for Context](/en/posts/ai/2026-09-03-hierarchical-chunking-auto-merge-en), [Table Serialization: How to Turn Tables into Text for RAG](/en/posts/ai/2026-09-03-table-serialization-rag-en), [Agentic Parsing: Letting Agents Decide How to Parse Documents](/en/posts/ai/2026-09-03-agentic-parsing-document-agents-en).
+
 ---
 
 ## Changelog

@@ -121,7 +121,7 @@ ColPali:  Query text tokens  ⟷ MaxSim ⟷  Document image patches
 
 **代價也很明確**：每個頁面的 patch 數量遠多於文字 token 數，儲存量大約是 ColBERT 的再 100 倍；需要 GPU 跑 vision model；而且因為沒有文字抽取，BM25 全文搜尋完全不可用，只能靠向量檢索。
 
-目前 ColPali 更適合定位成**特定場景的專用方案**（大量表格 / 圖表 / 版面複雜的 PDF），而不是通用的 ColBERT 替代品。但它示範了 late interaction 這個核心概念的延展性——MaxSim 不只能比較文字，任何可以產生 multi-vector 表示的模態都適用。
+目前 ColPali 更適合定位成**特定場景的專用方案**（大量表格 / 圖表 / 版面複雜的 PDF），而不是通用的 ColBERT 替代品。但它示範了 late interaction 這個核心概念的延展性——MaxSim 不只能比較文字，任何可以產生 multi-vector 表示的模態都適用。完整介紹見 [ColPali：跳過 OCR，直接用圖片做文件檢索](/posts/ai/2026-09-03-colpali-visual-document-retrieval)。
 
 ## 整體來說
 

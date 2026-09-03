@@ -121,7 +121,7 @@ The approach shines on table-heavy documents. Particula's evaluation shows that 
 
 **The costs are equally clear**: each page produces far more patches than a text document has tokens, so storage is roughly 100× that of ColBERT; a GPU is required to run the vision model; and because there is no text extraction at all, BM25 full-text search is completely unavailable — you rely on vector retrieval alone.
 
-For now, ColPali is best positioned as a **specialized tool for specific scenarios** (heavy tables / charts / layout-dense PDFs) rather than a general-purpose replacement for ColBERT. But it demonstrates the extensibility of the late interaction concept — MaxSim is not limited to text; any modality that can produce a multi-vector representation is fair game.
+For now, ColPali is best positioned as a **specialized tool for specific scenarios** (heavy tables / charts / layout-dense PDFs) rather than a general-purpose replacement for ColBERT. But it demonstrates the extensibility of the late interaction concept — MaxSim is not limited to text; any modality that can produce a multi-vector representation is fair game. For the full deep-dive, see [ColPali: Skipping OCR to Retrieve Documents as Images](/en/posts/ai/2026-09-03-colpali-visual-document-retrieval-en).
 
 ## Bottom Line
 

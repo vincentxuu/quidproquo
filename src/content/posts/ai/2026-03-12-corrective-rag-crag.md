@@ -99,7 +99,7 @@ CRAG 解決的是「根本沒東西」的問題，Agentic RAG 解決的是「有
 
 **FLARE**（Forward-Looking Active REtrieval）在生成回答的過程中，偵測到下一句的預測信心偏低時，主動用低信心的 token 組成新查詢去檢索，再把結果插回生成流程。觸發時機比 CRAG 更細緻——不是等整個搜尋回來零結果，而是生成到一半就即時補檢索。
 
-**Self-RAG** 更進一步：在訓練階段就教模型產生四種 reflection token（`[Retrieve]`、`[IsRel]`、`[IsSup]`、`[IsUse]`），讓模型在推論時自己判斷「現在需不需要去查資料」、「查回來的東西有沒有用」。不需要外部的 agent loop 或分類器，retrieval 決策內化到模型本身。
+**Self-RAG** 更進一步：在訓練階段就教模型產生四種 reflection token（`[Retrieve]`、`[IsRel]`、`[IsSup]`、`[IsUse]`），讓模型在推論時自己判斷「現在需不需要去查資料」、「查回來的東西有沒有用」。不需要外部的 agent loop 或分類器，retrieval 決策內化到模型本身。詳見 [Self-RAG：用 Reflection Token 讓模型自己決定要不要檢索](/posts/ai/2026-09-03-self-rag-reflection-tokens)。
 
 **Adaptive-RAG** 的做法是在查詢進來的第一步就用一個輕量分類器判斷複雜度，把查詢路由到三條路徑：不需要檢索（LLM 直接回答）、單次檢索（標準 RAG）、多跳檢索（iterative retrieval）。比起 CRAG 的被動修正或 Agentic RAG 的全程代理，Adaptive-RAG 的分類器成本最低，但需要訓練資料來校準路由。
 

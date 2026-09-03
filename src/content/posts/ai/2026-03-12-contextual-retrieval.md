@@ -194,6 +194,8 @@ Contextual Retrieval 解決的是 RAG 系統的一個底層問題：chunk 切割
 
 「垃圾進，垃圾出」是 RAG 系統最常見的失敗原因。Contextual Retrieval 確保進去的每個 chunk 都是「有意義的資訊單元」，而不只是被截斷的文字片段。
 
+另一個不需 LLM 成本的替代思路是 [Hierarchical Chunking + Auto-Merge](/posts/ai/2026-09-03-hierarchical-chunking-auto-merge)：用結構設計（多粒度索引 + 自動合併）而非 LLM 來補回上下文。
+
 ## 更新紀錄
 
 - 2026-09-03：新增「Chunk 增強的成本階梯」段落，補充 metadata enrichment 作為零成本替代方案的研究（arXiv:2601.11863、Microsoft Azure RAG Enrichment Phase、arXiv:2512.05411）

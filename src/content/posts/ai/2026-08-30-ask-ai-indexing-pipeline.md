@@ -146,6 +146,8 @@ Header Propagation 每個 chunk 多約 50 tokens，受影響的文件需要重�
 
 限制是需要支援 8K+ context 的 embedding model（如 jina-embeddings-v3），而且大文件可能超出 context window。目前 Ask AI 使用 Cloudflare Workers AI 的 embedding model，context 長度是一個需要確認的前提。
 
+更多改進方向：[Hierarchical Chunking + Auto-Merge](/posts/ai/2026-09-03-hierarchical-chunking-auto-merge) 用多粒度索引解決「小 chunk 精準但上下文不足」的矛盾；[Table Serialization](/posts/ai/2026-09-03-table-serialization-rag) 探討表格序列化格式對 embedding 品質的影響。
+
 ## 更新紀錄
 
 - 2026-09-03：補充「已知限制與改進方向」段落與四篇參考資料
