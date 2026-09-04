@@ -4,6 +4,7 @@ date: 2026-09-04
 category: daily
 tags: [ai-agent, region, daily, europe]
 lang: zh-TW
+type: deep-dive
 description: "EU AI Act 透明義務 8/2 正式執法，Mistral Medium 3.5 開源挑戰閉源陣營，歐洲 AI 走出「監管先行、產品落後」的刻板印象"
 tldr: "EU AI Act 第 50 條透明義務 8 月 2 日開始執法，任何觸及歐盟使用者的 AI 系統都需標示 AI 生成內容；Mistral 發布 128B 參數開源模型 Medium 3.5，並與象牙海岸簽署主權 AI 合作；歐洲正從「只會立法」轉型為「監管 + 模型 + 主權 AI 輸出」三軌並進的生態系"
 series:

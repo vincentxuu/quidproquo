@@ -4,6 +4,7 @@ date: 2026-09-04
 category: daily
 tags: [ai-agent, region, daily, middle-east]
 lang: en
+type: deep-dive
 description: "UAE Cabinet deploys 32 AI advisers, Saudi LEAP 2026 announces $15B+ in AI investment, and data centers become military targets — the triple reality of Middle Eastern AI"
 tldr: "The UAE Cabinet announced 32 AI advisers for government decision-making on September 2; Saudi Arabia's LEAP 2026 unveiled over $15 billion in AI and advanced technology investments; Iran's March 2026 drone strikes on civilian data centers in the UAE and Bahrain marked the first time AI infrastructure became a deliberate military target"
 series:

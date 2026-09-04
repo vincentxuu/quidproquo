@@ -4,6 +4,7 @@ date: 2026-09-04
 category: daily
 tags: [ai-agent, region, daily, europe]
 lang: en
+type: deep-dive
 description: "EU AI Act transparency obligations took effect August 2, Mistral Medium 3.5 challenges closed-source incumbents, and Europe sheds its 'regulation-first, product-last' stereotype"
 tldr: "The EU AI Act's Article 50 transparency obligations became enforceable on August 2, requiring any AI system serving EU users to label AI-generated content; Mistral released its 128B-parameter open-weight model Medium 3.5 and signed a sovereign AI partnership with Côte d'Ivoire; Europe is evolving from 'the continent that only legislates' into a three-track ecosystem of regulation, models, and sovereign AI exports"
 series:

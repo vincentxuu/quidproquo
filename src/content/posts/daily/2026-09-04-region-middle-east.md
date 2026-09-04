@@ -4,6 +4,7 @@ date: 2026-09-04
 category: daily
 tags: [ai-agent, region, daily, middle-east]
 lang: zh-TW
+type: deep-dive
 description: "UAE 內閣部署 32 位 AI 顧問、沙烏地 LEAP 2026 逾 150 億美元 AI 投資、資料中心成為軍事標的——中東 AI 生態的三重現實"
 tldr: "UAE 內閣 9 月 2 日宣布部署 32 位 AI 顧問協助政府決策；沙烏地 LEAP 2026 大會宣布逾 150 億美元 AI 與先進技術投資；2026 年 3 月伊朗無人機首次攻擊 UAE 和巴林的民間資料中心，AI 基礎設施正式成為地緣政治靶心"
 series:
