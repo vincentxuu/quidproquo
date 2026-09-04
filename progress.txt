@@ -11,19 +11,19 @@ Current focus
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
 - **Looplane 系列 Batch D（2026-08-30，內容完成／共享 gate blocked）**：orders 17–18 兩組雙語文章完成，Astro type check 被 Playwright 型別衝突阻塞。不 commit/push/deploy。
-- **Ask AI：RAG 實戰子系列（2026-09-04 已發布）**：16 檔翻為 `draft: false`，`pnpm verify` 全綠。
-- **Admin v2 Phase 1–6 已部署 production（2026-08-30 起）**：代碼經 CI 自動部署（含 D1 migration apply），管線穩定。剩環境觀察：手動 session E2E、Routine trigger、Sandbox、MCP proxy、通知通道各跑一次實測。
-- Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles Workers AI 3030 errors.
-- Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：索引排隊中（queued 7213、errors 0），待索引完成與 golden eval。
+- **Admin v2 Phase 1–6 已部署 production（2026-08-30 起）**：管線穩定，剩環境觀察實測。
+- **Qwen3 embeddings（代碼已 commit，CI/CD 自動部署）**：provider/adaptive splitting/cache namespace 已到位，待 production 向量重建與 20 題 live eval 確認品質。
+- Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：索引排隊中，待索引完成與 golden eval。
 - Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.
 Next steps
-1. Finish and verify the Qwen3 embedding rollout; backfill missing post `type` and `tldr` fields.
+1. Backfill missing post `type` and `tldr` fields.
 2. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
-- **Rivumi → Looplane 全站改名（2026-09-04）**：38 檔改名、82 檔內容修改，series.ts slug／display name 更新，零殘留。
-- **13 項「待 review」內容全數確認已發布（2026-09-04）**：Cloudflare Edge/AI Stack、統計學 106 檔、CS124/224N/224V/224W/229/336、Claude Code 深入介紹 87 檔、AI 模型家族 3 篇、Agent 記憶服務 4 篇、Agent 框架 5 組、雲端 LLM API 7 組、私有語料管線 4 篇、非 Stanford 名校課程 73 組、CMU 07-280 29 篇——全數 `draft: false` 已 commit。
+- **Ask AI：RAG 實戰子系列（2026-09-04）**：16 檔翻為 `draft: false` 發布。
+- **Rivumi → Looplane 全站改名（2026-09-04）**：38 檔改名、82 檔內容修改，零殘留。
+- **13 項「待 review」內容全數已發布（2026-09-04）**：全數 `draft: false` 已 commit。
 - **Looplane 系列 Batch A–C（2026-08-30）**：orders 0–19 單一路徑已定案，36 posts／18 組雙語。
 - **Legacy published zh-TW 英文回填（2026-08-30）**：57／57 組完成。
 - **daily-digest-report 2026-08-31 補跑成功**。
