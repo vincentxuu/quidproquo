@@ -8,8 +8,8 @@ series:
   order: 11
 tags: [coding-agent, harness-engineering, sandbox, cloudflare-workers, durable-objects, sse]
 lang: en
-description: "How Codex, Claude Code, OpenCode, Pi, and OMP handle sandboxing—and why local OS sandboxes and cloud sandboxes are two different problems. Compared against rivumi's real deployment on Cloudflare Workers with a control plane, Durable Objects, and a Sandbox binding, including SSE file stream decoding and stale wheel pitfalls."
-tldr: "A local sandbox limits the blast radius of an agent on your machine; a cloud sandbox is about moving code safely onto someone else's machine. All five mature projects solve the first problem; only rivumi actually deployed the second. Lessons from production: mocks can't catch SSE framing, green CI can't catch a stale wheel, and cleanup paths deserve timeouts just as much as success paths."
+description: "How Codex, Claude Code, OpenCode, Pi, and OMP handle sandboxing—and why local OS sandboxes and cloud sandboxes are two different problems. Compared against looplane's real deployment on Cloudflare Workers with a control plane, Durable Objects, and a Sandbox binding, including SSE file stream decoding and stale wheel pitfalls."
+tldr: "A local sandbox limits the blast radius of an agent on your machine; a cloud sandbox is about moving code safely onto someone else's machine. All five mature projects solve the first problem; only looplane actually deployed the second. Lessons from production: mocks can't catch SSE framing, green CI can't catch a stale wheel, and cleanup paths deserve timeouts just as much as success paths."
 draft: false
 ---
 
@@ -21,7 +21,7 @@ When an agent needs to execute model-generated code, the instinctive answer is "
 
 **Local sandboxing** asks: when the agent runs commands on the user's machine, how do we limit the blast radius? The defense line is the operating system—Seatbelt, Landlock, restricted tokens. **Remote sandboxing** asks something entirely different: when we move code onto a disposable machine, how do credentials stay off it? Who owns the run lifecycle? How do results come back safely?
 
-The five reference projects almost exclusively answer the first question. You only learn how deep the second one goes after deploying it yourself—this post is rivumi's record from having jumped in.
+The five reference projects almost exclusively answer the first question. You only learn how deep the second one goes after deploying it yourself—this post is looplane's record from having jumped in.
 
 ## What the Five Projects Do
 
@@ -45,15 +45,15 @@ OMP (a Pi fork) ships `oh-my-pi/crates/pi-iso/src/apfs.rs` for APFS clonefile wo
 
 A self-correction from my own research: OpenCode's `opencode/packages/containers/` sounds like an agent execution sandbox, but the README reveals they're prebuilt images for GitHub Actions—`base/Dockerfile` is just Ubuntu 24.04 plus build tools, pushed to ghcr.io by `script/build.ts` to speed up CI. There is no built-in untrusted-code sandbox. Lesson: when you see the word "container," first ask who runs what, where.
 
-## rivumi's Choice and Pitfalls
+## looplane's Choice and Pitfalls
 
-With M6, rivumi took on the second question: actually deploying the Python agent loop to Cloudflare. The architecture has three layers:
+With M6, looplane took on the second question: actually deploying the Python agent loop to Cloudflare. The architecture has three layers:
 
-**The Worker is a control plane, not the agent.** `cloudflare/wrangler.jsonc` defines the Worker `rivumi-control-plane`, one `lite` container class, and two Durable Object bindings. The request contract is deliberately narrow: `cloudflare/src/control-plane.ts#validateRunRequest` accepts only a UTF-8 text file map, four check commands whitelisted by exact argv (`ALLOWED_CHECK_ARGV`), and hard size caps. Git credentials, arbitrary shells, and caller-chosen images never enter the contract.
+**The Worker is a control plane, not the agent.** `cloudflare/wrangler.jsonc` defines the Worker `looplane-control-plane`, one `lite` container class, and two Durable Object bindings. The request contract is deliberately narrow: `cloudflare/src/control-plane.ts#validateRunRequest` accepts only a UTF-8 text file map, four check commands whitelisted by exact argv (`ALLOWED_CHECK_ARGV`), and hard size caps. Git credentials, arbitrary shells, and caller-chosen images never enter the contract.
 
 **A Durable Object owns capability lifecycles.** `cloudflare/src/capability-do.ts#RunCapability` uses a SQLite-backed DO for per-run activation, atomic budget consumption (`maxSteps + 2` model requests), expiry, and revocation. The model API key lives only in Worker secrets; the container-side agent holds nothing but a short-lived HMAC run token whose audience is pinned to the internal proxy path.
 
-**Least privilege inside the container.** The entrypoint is fixed at `FIXED_COMMAND` (`/usr/local/bin/rivumi-sandbox-run`). A root-owned wrapper drops privileges via `setpriv --reuid=rivumi --no-new-privs` before handing over to Python; the token is written as an owner-only file rather than an env var, consumed and immediately unlinked by `sandbox_entry.py#_read_and_remove_run_token`, with `PR_SET_DUMPABLE 0` disabling dumpability. The base image is pinned by digest.
+**Least privilege inside the container.** The entrypoint is fixed at `FIXED_COMMAND` (`/usr/local/bin/looplane-sandbox-run`). A root-owned wrapper drops privileges via `setpriv --reuid=looplane --no-new-privs` before handing over to Python; the token is written as an owner-only file rather than an env var, consumed and immediately unlinked by `sandbox_entry.py#_read_and_remove_run_token`, with `PR_SET_DUMPABLE 0` disabling dumpability. The base image is pinned by digest.
 
 Then came what a real deployment taught me—two things mocks completely missed:
 
@@ -65,7 +65,7 @@ One more design principle: **cleanup paths get bounds just like success paths**.
 
 ## Engineering Rationale
 
-The core model of the [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) is: one Durable Object class equals one container. Workers get a `getSandbox()` handle through the [Containers](https://developers.cloudflare.com/containers/) binding; each instance has its own filesystem and exec interface, with lifecycle managed by the platform. rivumi uses the run id directly as the sandbox id, so "one disposable container per run" requires no scheduler of our own. The strong-consistency requirement for capabilities—budget consumption for the same run must not race—is precisely what [Durable Objects](https://developers.cloudflare.com/durable-objects/) are designed for: single-point serialization backed by SQLite storage. SSE is a common streaming transport choice for such SDKs, and its event framing comes at a price: consumers must use a matching decoder; MDN's description of the [EventSource data format](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) maps directly onto `streamFile()`'s input.
+The core model of the [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) is: one Durable Object class equals one container. Workers get a `getSandbox()` handle through the [Containers](https://developers.cloudflare.com/containers/) binding; each instance has its own filesystem and exec interface, with lifecycle managed by the platform. looplane uses the run id directly as the sandbox id, so "one disposable container per run" requires no scheduler of our own. The strong-consistency requirement for capabilities—budget consumption for the same run must not race—is precisely what [Durable Objects](https://developers.cloudflare.com/durable-objects/) are designed for: single-point serialization backed by SQLite storage. SSE is a common streaming transport choice for such SDKs, and its event framing comes at a price: consumers must use a matching decoder; MDN's description of the [EventSource data format](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) maps directly onto `streamFile()`'s input.
 
 ## Improvement Roadmap
 

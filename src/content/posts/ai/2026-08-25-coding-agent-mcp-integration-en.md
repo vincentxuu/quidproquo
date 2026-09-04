@@ -6,16 +6,16 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 30
-tags: [coding-agent, mcp, rivumi, tool-integration, elicitation, lazy-connect]
+tags: [coding-agent, mcp, looplane, tool-integration, elicitation, lazy-connect]
 lang: en
-tldr: "An MCP client must handle transports, tool refresh, approvals, and credential boundaries together. rivumi now supports allowlisted stdio, Streamable HTTP/SSE, tools/resources/prompts, tools/list_changed, OAuth metadata/PKCE, and a 0600 credential store. A real authorization-server E2E and MCP-specific confirmation UX remain open."
-description: "Comparing MCP lifecycle, dynamic registration, and approvals across five agents, then checking Rivumi's stdio/HTTP, resources/prompts, and OAuth PKCE baseline."
+tldr: "An MCP client must handle transports, tool refresh, approvals, and credential boundaries together. looplane now supports allowlisted stdio, Streamable HTTP/SSE, tools/resources/prompts, tools/list_changed, OAuth metadata/PKCE, and a 0600 credential store. A real authorization-server E2E and MCP-specific confirmation UX remain open."
+description: "Comparing MCP lifecycle, dynamic registration, and approvals across five agents, then checking Looplane's stdio/HTTP, resources/prompts, and OAuth PKCE baseline."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-mcp-integration)
 
-The [previous post](/posts/ai/2026-08-25-coding-agent-os-level-sandboxing-en) covered OS-level sandboxing. This post first dissects MCP design, then checks rivumi's current native-client baseline.
+The [previous post](/posts/ai/2026-08-25-coding-agent-os-level-sandboxing-en) covered OS-level sandboxing. This post first dissects MCP design, then checks looplane's current native-client baseline.
 
 ## The capability problem
 
@@ -23,7 +23,7 @@ The [previous post](/posts/ai/2026-08-25-coding-agent-os-level-sandboxing-en) co
 
 First, lifecycle: servers are child processes or remote connections that crash, hang, and demand OAuth. Second, context cost: every server wants its tool descriptions in the system prompt; five servers can mean tens of thousands of tokens. Third, security: `mcp__github__create_issue` travels the same model-call path as built-in tools — if the approval mechanism doesn't cover it, you've opened a backdoor for external code.
 
-The honest state of rivumi: **no MCP client of its own**. `docs/progress.md` lists MCP under "Deferred future capabilities"; the only MCP capability comes from external CLI backend pass-through — the Codex app-server path forwards `mcpToolCall` events, and the Claude backend lets tools prefixed with `mcp__` through untouched.
+The honest state of looplane: **no MCP client of its own**. `docs/progress.md` lists MCP under "Deferred future capabilities"; the only MCP capability comes from external CLI backend pass-through — the Codex app-server path forwards `mcpToolCall` events, and the Claude backend lets tools prefixed with `mcp__` through untouched.
 
 ## What the five projects do
 
@@ -41,23 +41,23 @@ The honest state of rivumi: **no MCP client of its own**. `docs/progress.md` lis
 
 The official MCP documentation draws the responsibilities clearly: the [architecture page](https://modelcontextprotocol.io/docs/concepts/architecture) defines the host–client–server three layers, where a host holds multiple clients and each client maps to one server — this is the normative basis for keeping connection management in one place. The [Tools concept page](https://modelcontextprotocol.io/docs/concepts/tools) explicitly supports the `listChanged` capability declaration — servers may add or remove tools at runtime and clients must handle the `tools/list_changed` notification; opencode's `ToolsChanged` forwarding is precisely this spec implemented. The elicitation spec lets servers request user input or confirmation mid-execution — which is why MCP tool approval can't be static configuration only.
 
-## Original rivumi design draft (2026-08-25)
+## Original looplane design draft (2026-08-25)
 
 One principle up front: **MCP initialization stays off the startup critical path** — this commitment is already written into the startup-performance checklist in `docs/progress.md`, and the draft must honor it.
 
 1. **Lazy connect**: MCPManager only accepts config in its constructor; a server spawns/connects the first time its tools are actually needed, with results cached. codex's prewarm lesson applies inversely to the TUI: background MCP connections get scheduled only after the controller warms up, and failures are always swallowed.
-2. **Deny-by-default allowlist**: `src/rivumi/codex_app_server.py#allowed_mcp_servers` already demonstrates the right posture — servers outside the whitelist don't pass, and names must pass format validation before entering config. The native client reuses these semantics directly.
+2. **Deny-by-default allowlist**: `src/looplane/codex_app_server.py#allowed_mcp_servers` already demonstrates the right posture — servers outside the whitelist don't pass, and names must pass format validation before entering config. The native client reuses these semantics directly.
 3. **A single tool template**: following claude-code, no N dynamic tool classes; one MCPTemplate named `mcp__<server>__<tool>`, schemas forwarded verbatim, aligned with the existing `RuntimeToolKind.MCP`.
 4. **Approval grading takes over**: MCP tool calls go through the existing grading in `permissions.py` — read-only tools get a low bar, side-effectful ones are treated like shell commands; server elicitation requests map onto the same approval UI, no separate channel.
 5. **Context budget**: tool descriptions get truncated and compressed before entering the prompt; disabled servers consume zero tokens — more on this in the code mode post.
 
 ## Fitting into the existing architecture
 
-The good news: the foundations exist. The capability handshake already has `src/rivumi/runtime_registry.py#RuntimeCapability.MCP`, so the contract closes whenever an external runtime reports MCP support; the event layer's `src/rivumi/conversation_runtime.py#RuntimeToolKind.MCP` means transcript and audit trail already recognize MCP calls. What's missing is the middle: a native MCPManager, a tool template wired into the dynamic registration point in `tools.py`, and the bridge from elicitation to approval. The external-backend pass-through (`src/rivumi/claude_agent_session.py` letting `mcp__`-prefixed tools through) should converge into the same policy once the native client lands, instead of two behaviors.
+The good news: the foundations exist. The capability handshake already has `src/looplane/runtime_registry.py#RuntimeCapability.MCP`, so the contract closes whenever an external runtime reports MCP support; the event layer's `src/looplane/conversation_runtime.py#RuntimeToolKind.MCP` means transcript and audit trail already recognize MCP calls. What's missing is the middle: a native MCPManager, a tool template wired into the dynamic registration point in `tools.py`, and the bridge from elicitation to approval. The external-backend pass-through (`src/looplane/claude_agent_session.py` letting `mcp__`-prefixed tools through) should converge into the same policy once the native client lands, instead of two behaviors.
 
-The order is clear too: land the allowlist semantics and the tool template in the native loop first, then consider exposing rivumi itself as a server. The ecosystem-position choice can wait — but the shape of the socket needs to be drawn correctly now.
+The order is clear too: land the allowlist semantics and the tool template in the native loop first, then consider exposing looplane itself as a server. The ecosystem-position choice can wait — but the shape of the socket needs to be drawn correctly now.
 
-## Rivumi's current implementation
+## Looplane's current implementation
 
 As of `2ed5efb`, native MCP is no longer mere pass-through. `mcp_client.py` loads a deny-by-default `.mcp.json` allowlist, supports stdio and Streamable HTTP including SSE responses, and maps tools, resources/list/read, and prompts/list/get into `mcp__`, `mcp_resource__`, and `mcp_prompt__` bridge tools. Tool annotations become conservative trust metadata; calls still pass through the existing approval, event, and timeout path, and server processes close at run end.
 
@@ -65,8 +65,8 @@ The HTTP path includes protected-resource metadata discovery, authorization-code
 
 ## References
 
-- [Rivumi native MCP client (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/mcp_client.py)
-- [Rivumi MCP tests (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_mcp_client.py)
+- [Looplane native MCP client (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/mcp_client.py)
+- [Looplane MCP tests (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_mcp_client.py)
 
 - [Model Context Protocol — Introduction](https://modelcontextprotocol.io/docs/getting-started/intro)
 - [MCP Architecture](https://modelcontextprotocol.io/docs/concepts/architecture)

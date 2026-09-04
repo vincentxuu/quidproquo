@@ -179,19 +179,19 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
-    slug: 'rivumi',
-    names: { 'zh-TW': 'Rivumi 架構拆解', en: 'Rivumi Architecture Notes' },
+    slug: 'looplane',
+    names: { 'zh-TW': 'Looplane 架構拆解', en: 'Looplane Architecture Notes' },
     descriptions: {
-      'zh-TW': '沿著一次 coding-agent 任務的實際路徑拆解 Rivumi：從 TUI、disposable workspace、prompt 與兩條 runtime lane，走到工具權限、state/event lifecycle、MCP、subagents、SDK/IDE，最後把同一套邊界延伸到 Cloudflare 遠端執行。每篇只追一條 data flow、failure boundary 與測試證據。',
-      en: 'Follow one coding-agent task through Rivumi: from the TUI, disposable workspace, prompt, and two runtime lanes through tool authority, the state/event lifecycle, MCP, subagents, SDK/IDE integrations, and finally Cloudflare remote execution. Each article traces one data flow, failure boundary, and test surface.',
+      'zh-TW': '沿著一次 coding-agent 任務的實際路徑拆解 Looplane：從 TUI、disposable workspace、prompt 與兩條 runtime lane，走到工具權限、state/event lifecycle、MCP、subagents、SDK/IDE，最後把同一套邊界延伸到 Cloudflare 遠端執行。每篇只追一條 data flow、failure boundary 與測試證據。',
+      en: 'Follow one coding-agent task through Looplane: from the TUI, disposable workspace, prompt, and two runtime lanes through tool authority, the state/event lifecycle, MCP, subagents, SDK/IDE integrations, and finally Cloudflare remote execution. Each article traces one data flow, failure boundary, and test surface.',
     },
   },
   {
     slug: 'coding-agent',
     names: { 'zh-TW': '跟成熟 coding agent 學設計', en: 'Learning Coding-Agent Design from Mature Systems' },
     descriptions: {
-      'zh-TW': '以 Rivumi 為實作載體，逐題對照 pi、OMP、OpenCode、Codex CLI 與 Claude Code：從 loop、workspace、approval 與 verification，一路追到已落地 baseline 的 memory、compaction、MCP、sandbox、subagents、replay、LSP、cost tracking 與 Agent as a Service，並保留 production validation 與跨 runtime parity 的真實缺口。',
-      en: 'A Rivumi-driven comparison of pi, OMP, OpenCode, Codex CLI, and Claude Code, from loops, workspaces, approvals, and verification through shipped baselines for memory, compaction, MCP, sandboxing, subagents, replay, LSP, cost tracking, and Agent as a Service, with production validation and runtime-parity gaps kept explicit.',
+      'zh-TW': '以 Looplane 為實作載體，逐題對照 pi、OMP、OpenCode、Codex CLI 與 Claude Code：從 loop、workspace、approval 與 verification，一路追到已落地 baseline 的 memory、compaction、MCP、sandbox、subagents、replay、LSP、cost tracking 與 Agent as a Service，並保留 production validation 與跨 runtime parity 的真實缺口。',
+      en: 'A Looplane-driven comparison of pi, OMP, OpenCode, Codex CLI, and Claude Code, from loops, workspaces, approvals, and verification through shipped baselines for memory, compaction, MCP, sandboxing, subagents, replay, LSP, cost tracking, and Agent as a Service, with production validation and runtime-parity gaps kept explicit.',
     },
   },
   {

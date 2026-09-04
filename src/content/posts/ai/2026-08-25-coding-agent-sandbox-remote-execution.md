@@ -8,8 +8,8 @@ series:
   order: 11
 tags: [coding-agent, harness-engineering, sandbox, cloudflare-workers, durable-objects, sse]
 lang: zh-TW
-description: "拆解 Codex、Claude Code、OpenCode、Pi、OMP 五家的沙箱策略：本地 OS 級沙箱與雲端沙箱其實是兩種問題。對照 rivumi 用 Cloudflare Worker control plane + Durable Object + Sandbox binding 做遠端執行的實戰，包括 SSE file stream 解碼與 stale wheel 兩個真實踩坑。"
-tldr: "本地沙箱管的是『agent 在你的機器上爆炸半徑多大』，雲端沙箱管的是『怎麼把程式碼安全地搬到別人的機器上跑』——五家成熟專案幾乎都在做前者，只有 rivumi 真的部署了後者。實戰教訓：mock 測不出 SSE framing、CI 綠燈擋不住 stale wheel，而清理路徑要跟成功路徑一樣有 timeout。"
+description: "拆解 Codex、Claude Code、OpenCode、Pi、OMP 五家的沙箱策略：本地 OS 級沙箱與雲端沙箱其實是兩種問題。對照 looplane 用 Cloudflare Worker control plane + Durable Object + Sandbox binding 做遠端執行的實戰，包括 SSE file stream 解碼與 stale wheel 兩個真實踩坑。"
+tldr: "本地沙箱管的是『agent 在你的機器上爆炸半徑多大』，雲端沙箱管的是『怎麼把程式碼安全地搬到別人的機器上跑』——五家成熟專案幾乎都在做前者，只有 looplane 真的部署了後者。實戰教訓：mock 測不出 SSE framing、CI 綠燈擋不住 stale wheel，而清理路徑要跟成功路徑一樣有 timeout。"
 draft: false
 ---
 
@@ -21,7 +21,7 @@ Agent 要跑模型生成的程式碼，第一反應是「加個沙箱」。但�
 
 **本地沙箱**問的是：agent 在使用者的機器上執行指令時，爆炸半徑怎麼壓？防線是作業系統——Seatbelt、Landlock、restricted token。**遠端沙箱**問的是完全不同的事：把程式碼搬到一台用完就丟的機器上跑，憑證怎麼不落地？run 的生命週期誰管？結果怎麼安全地傳回來？
 
-五家參考專案幾乎都只回答了第一題。第二題要等你自己部署才知道水有多深——這篇就是 rivumi 跳下去之後的紀錄。
+五家參考專案幾乎都只回答了第一題。第二題要等你自己部署才知道水有多深——這篇就是 looplane 跳下去之後的紀錄。
 
 ## 五家怎麼做
 
@@ -45,15 +45,15 @@ OMP（pi fork）的 `oh-my-pi/crates/pi-iso/src/apfs.rs` 用 APFS clonefile 做 
 
 這是我查證時修正自己的一次：OpenCode 的 `opencode/packages/containers/` 看名字以為是 agent 執行沙箱，讀了 README 才知道是給 GitHub Actions 用的預建映像——`base/Dockerfile` 就是 Ubuntu 24.04 加 build tools，`script/build.ts` 推到 ghcr.io 加速 CI。它沒有內建的不可信程式碼沙箱。這也是個提醒：看到「container」三個字先問是誰在什麼場景跑什麼。
 
-## rivumi 的選擇與踩坑
+## looplane 的選擇與踩坑
 
-rivumi M6 選了第二題：真的把 Python agent loop 部署到 Cloudflare。架構分三層：
+looplane M6 選了第二題：真的把 Python agent loop 部署到 Cloudflare。架構分三層：
 
-**Worker 是 control plane，不是 agent。** `cloudflare/wrangler.jsonc` 定義 Worker `rivumi-control-plane`、一個 `lite` 容器 class、兩個 Durable Object binding。請求契約極窄：`cloudflare/src/control-plane.ts#validateRunRequest` 只收 UTF-8 文字檔 map、白名單 argv 的四條檢查指令（`ALLOWED_CHECK_ARGV`）、以及大小上限；Git 憑證、任意 shell、自選映像全部進不來。
+**Worker 是 control plane，不是 agent。** `cloudflare/wrangler.jsonc` 定義 Worker `looplane-control-plane`、一個 `lite` 容器 class、兩個 Durable Object binding。請求契約極窄：`cloudflare/src/control-plane.ts#validateRunRequest` 只收 UTF-8 文字檔 map、白名單 argv 的四條檢查指令（`ALLOWED_CHECK_ARGV`）、以及大小上限；Git 憑證、任意 shell、自選映像全部進不來。
 
 **Durable Object 管 capability 生命週期。** `cloudflare/src/capability-do.ts#RunCapability` 用 SQLite DO 做 per-run 的啟用、原子性扣款（`maxSteps + 2` 次模型請求預算）、到期與撤銷。模型 API key 只活在 Worker secrets，容器裡的 agent 拿到的只是一枚短命 HMAC run token，audience 綁死內部 proxy 路徑。
 
-**容器內最小權限。** 入口固定為 `FIXED_COMMAND`（`/usr/local/bin/rivumi-sandbox-run`），root-owned wrapper 用 `setpriv --reuid=rivumi --no-new-privs` 降權後才交給 Python；token 寫成 owner-only 檔案而非環境變數，Python 側 `sandbox_entry.py#_read_and_remove_run_token` 讀完立即 unlink，並用 `PR_SET_DUMPABLE 0` 關掉 dumpability。基礎映像 pin 到 digest。
+**容器內最小權限。** 入口固定為 `FIXED_COMMAND`（`/usr/local/bin/looplane-sandbox-run`），root-owned wrapper 用 `setpriv --reuid=looplane --no-new-privs` 降權後才交給 Python；token 寫成 owner-only 檔案而非環境變數，Python 側 `sandbox_entry.py#_read_and_remove_run_token` 讀完立即 unlink，並用 `PR_SET_DUMPABLE 0` 關掉 dumpability。基礎映像 pin 到 digest。
 
 然後是真實部署教會我的事，兩件事 mock 全都沒抓到：
 
@@ -65,7 +65,7 @@ rivumi M6 選了第二題：真的把 Python agent loop 部署到 Cloudflare。�
 
 ## 工程依據
 
-[Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) 的核心模型是一個 Durable Object class 即一台容器：Worker 用 [Containers](https://developers.cloudflare.com/containers/) binding 取得 `getSandbox()` handle，每個 instance 有自己的檔案系統與 exec 介面，生命週期由平台管理。rivumi 把 run id 直接當 sandbox id，於是「一 run 一拋棄式容器」不需要自己寫排程器。capability 的強一致性需求（同一 run 的預算扣款不能 race）正是 [Durable Objects](https://developers.cloudflare.com/durable-objects/) 的設計用途——單點序列化，SQLite storage 保狀態。SSE 則是這類 SDK 常見的串流傳輸選擇，事件框架的代價就是消費端必須用對應的 decoder，MDN 對 [EventSource 資料格式](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)的描述可以直接對照 `streamFile()` 的輸入格式。
+[Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) 的核心模型是一個 Durable Object class 即一台容器：Worker 用 [Containers](https://developers.cloudflare.com/containers/) binding 取得 `getSandbox()` handle，每個 instance 有自己的檔案系統與 exec 介面，生命週期由平台管理。looplane 把 run id 直接當 sandbox id，於是「一 run 一拋棄式容器」不需要自己寫排程器。capability 的強一致性需求（同一 run 的預算扣款不能 race）正是 [Durable Objects](https://developers.cloudflare.com/durable-objects/) 的設計用途——單點序列化，SQLite storage 保狀態。SSE 則是這類 SDK 常見的串流傳輸選擇，事件框架的代價就是消費端必須用對應的 decoder，MDN 對 [EventSource 資料格式](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)的描述可以直接對照 `streamFile()` 的輸入格式。
 
 ## 改善路線
 

@@ -6,9 +6,9 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 17
-tags: [coding-agent, startup-performance, rivumi, hyperfine, lazy-import, benchmark]
+tags: [coding-agent, startup-performance, looplane, hyperfine, lazy-import, benchmark]
 lang: zh-TW
-tldr: "CLI 工具每次叫用都要付一次啟動成本，而沒有 baseline 的效能優化等於沒有回歸保護。codex 用 daemon 重用與 skill snapshot 快取、claude-code 把入口切成七十個動態 import 加上內建啟動 profiler、opencode/omp 各有 lazy 載入紀律；pi 則什麼都沒做，靠 Bun 的速度快撐著。rivumi 是 Python，天生慢，所以把紀律做滿：lazy import、單飛磁碟快取、背景預熱 controller、hyperfine paired benchmark 加上 CI 大於 10% 退步就擋 merge。"
+tldr: "CLI 工具每次叫用都要付一次啟動成本，而沒有 baseline 的效能優化等於沒有回歸保護。codex 用 daemon 重用與 skill snapshot 快取、claude-code 把入口切成七十個動態 import 加上內建啟動 profiler、opencode/omp 各有 lazy 載入紀律；pi 則什麼都沒做，靠 Bun 的速度快撐著。looplane 是 Python，天生慢，所以把紀律做滿：lazy import、單飛磁碟快取、背景預熱 controller、hyperfine paired benchmark 加上 CI 大於 10% 退步就擋 merge。"
 description: "對照 codex、claude-code、opencode、pi、omp 五家的啟動效能處理原始碼，說明 Python CLI 如何用工程紀律補回語言劣勢，以及為什麼效能沒有 baseline 就沒有保護。"
 draft: false
 ---
@@ -35,15 +35,15 @@ CLI agent 和常駐服務不一樣——使用者一天叫它二十次，每一�
 
 **pi** 是反面教材，或者說另一種選擇。入口 `pi-mono/packages/coding-agent/src/cli.ts` 直接 eager import main，`main.ts` 頂層九百多行的靜態 import，沒有任何 lazy 紀律。它賭的是 Bun 夠快、模組夠少，啟動可以接受。這在模組數量小的時候成立——但這是「還沒痛」，不是「設計過」。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi 是 Python，CPython 的 import 成本比 Bun 高一個量級，「靠 runtime 快」這條路直接封死，所以五原則全部手動做滿。整套規劃寫在 `docs/plans/m12-startup-performance-plan.md`，經驗提煉自 Codex 0.148.0 的 life cycle 重做——官方 changelog 的優化全是流程層級，單一 PR 就把 TUI 中位數啟動從 833ms 砍到 504ms（數字出自該 PR 附帶的 paired benchmark，轉述自我們的 [startup playbook](https://github.com/xiaoxu/rivumi/blob/main/docs/startup-performance-playbook.md)）。
+looplane 是 Python，CPython 的 import 成本比 Bun 高一個量級，「靠 runtime 快」這條路直接封死，所以五原則全部手動做滿。整套規劃寫在 `docs/plans/m12-startup-performance-plan.md`，經驗提煉自 Codex 0.148.0 的 life cycle 重做——官方 changelog 的優化全是流程層級，單一 PR 就把 TUI 中位數啟動從 833ms 砍到 504ms（數字出自該 PR 附帶的 paired benchmark，轉述自我們的 [startup playbook](https://github.com/xiaoxu/looplane/blob/main/docs/startup-performance-playbook.md)）。
 
-第一步是凍結 baseline 才動手。2026-08-22 實測（playbook 裡記錄的歷史基準）：`python -c "import rivumi.cli"` 要 0.701 秒，`-X importtime` 顯示元兇是 `codex_oauth` 一口氣拉進 openai SDK 的 247ms。解法是 `src/rivumi/cli.py` 全面改成函式內 lazy import 加 `TYPE_CHECKING` guard——`--help`、`config` 這些輕路由再也不載入 provider SDK、uvicorn 或 Textual。
+第一步是凍結 baseline 才動手。2026-08-22 實測（playbook 裡記錄的歷史基準）：`python -c "import looplane.cli"` 要 0.701 秒，`-X importtime` 顯示元兇是 `codex_oauth` 一口氣拉進 openai SDK 的 247ms。解法是 `src/looplane/cli.py` 全面改成函式內 lazy import 加 `TYPE_CHECKING` guard——`--help`、`config` 這些輕路由再也不載入 provider SDK、uvicorn 或 Textual。
 
-量測本身做成產品設施：`src/rivumi/startup_trace.py#_StartupTracer` 在啟動路徑打點，設 `RIVUMI_STARTUP_LOG` 才輸出 JSON span，關閉時每次 span 只剩一個 flag check。這和 claude-code 的 startupProfiler 同構，只是輸出給本機開發者而不是 Statsig。
+量測本身做成產品設施：`src/looplane/startup_trace.py#_StartupTracer` 在啟動路徑打點，設 `LOOPLANE_STARTUP_LOG` 才輸出 JSON span，關閉時每次 span 只剩一個 flag check。這和 claude-code 的 startupProfiler 同構，只是輸出給本機開發者而不是 Statsig。
 
-「掃描不得重做」落實在 `src/rivumi/startup_cache.py#cached_scan`：版本化 schema、config hash 當 key、磁碟快取加 TTL，並且 single-flight——並行請求同一資源只放行第一個，失敗結果永不回填。Ollama model 探索就是第一個受益者（`src/rivumi/cli.py#_discover_local_ollama_models`）。
+「掃描不得重做」落實在 `src/looplane/startup_cache.py#cached_scan`：版本化 schema、config hash 當 key、磁碟快取加 TTL，並且 single-flight——並行請求同一資源只放行第一個，失敗結果永不回填。Ollama model 探索就是第一個受益者（`src/looplane/cli.py#_discover_local_ollama_models`）。
 
 最有趣的一招是背景預熱。TUI 掛載不等於 controller ready，Codex backend 冷啟動要約 2.1 秒（commit `ece3552` 的量測：controller.start 約 352ms／2140ms）。做法是 App `on_mount` 時用 `asyncio.create_task` 排程預熱 native controller，使用者還在打第一個字，controller 已經在背後 spawn；首輪 `_ensure_started` 命中快取降到 0.01ms。預熱例外一律吞掉——它是最佳化，不是正確性的一部分。
 
@@ -51,11 +51,11 @@ rivumi 是 Python，CPython 的 import 成本比 Bun 高一個量級，「靠 ru
 
 ## 工程依據
 
-量測工具的選擇本身就是方法論。[hyperfine](https://github.com/sharkdp/hyperfine) 的核心價值是三件事：warmup runs 消除冷快取雜訊、統計顯著的多轮執行取中位數、以及 paired before/after 交替執行避免「candidate 剛好跑到機器比較空的時段」。rivumi 的 `bench_startup.sh` 參數就照這套打：`--warmup 3 --min-runs 10`，paired 模式下 before/after JSON 交給同一個比較器算百分比變化，只做相對比較、不做跨機器的絕對宣稱——m12 plan 裡明文禁止拿不同機器的秒數互相比。importtime 定位病因，hyperfine 驗證療效，兩者是診斷和驗收的分工，不能混用。
+量測工具的選擇本身就是方法論。[hyperfine](https://github.com/sharkdp/hyperfine) 的核心價值是三件事：warmup runs 消除冷快取雜訊、統計顯著的多轮執行取中位數、以及 paired before/after 交替執行避免「candidate 剛好跑到機器比較空的時段」。looplane 的 `bench_startup.sh` 參數就照這套打：`--warmup 3 --min-runs 10`，paired 模式下 before/after JSON 交給同一個比較器算百分比變化，只做相對比較、不做跨機器的絕對宣稱——m12 plan 裡明文禁止拿不同機器的秒數互相比。importtime 定位病因，hyperfine 驗證療效，兩者是診斷和驗收的分工，不能混用。
 
 ## 改善路線
 
-現在的門檻還有明顯的粗糙處。第一，CI 用的是 fallback timer 而非 hyperfine，噪音地板還沒正式建立，10% 這個閾值目前是慣例而非量測出來的統計邊界——plan 裡「先 reporting-only 跑到確認噪音地板」那一條還欠著。第二，北極星指標 time-to-first-editable-composer 需要 TTY，benchmark 只能測代理場景（help/config/import），真實 TUI ready 時間目前只靠 `RIVUMI_STARTUP_LOG` 事後看，還沒自動化進 CI。第三，並行化獨立啟動步驟（config 讀取、auth refresh、workspace 準備）只在預熱這一件事上做了，依賴圖還沒系統性盤點。第四，stale-while-revalidate 已經在 `startup_cache.read_entry` 留好逃生口，但還沒有 UI 場景真正用它——「先顯示舊資料、背景刷新」是把快取從省時間升級成體感設計的下一步。
+現在的門檻還有明顯的粗糙處。第一，CI 用的是 fallback timer 而非 hyperfine，噪音地板還沒正式建立，10% 這個閾值目前是慣例而非量測出來的統計邊界——plan 裡「先 reporting-only 跑到確認噪音地板」那一條還欠著。第二，北極星指標 time-to-first-editable-composer 需要 TTY，benchmark 只能測代理場景（help/config/import），真實 TUI ready 時間目前只靠 `LOOPLANE_STARTUP_LOG` 事後看，還沒自動化進 CI。第三，並行化獨立啟動步驟（config 讀取、auth refresh、workspace 準備）只在預熱這一件事上做了，依賴圖還沒系統性盤點。第四，stale-while-revalidate 已經在 `startup_cache.read_entry` 留好逃生口，但還沒有 UI 場景真正用它——「先顯示舊資料、背景刷新」是把快取從省時間升級成體感設計的下一步。
 
 慢的從來不是語言，是 life cycle 設計。而工程品味最好的展示方式，是公開的 before/after 數字。
 

@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "跟成熟 coding agent 學設計"
   order: 23
-tldr: "五個成熟 coding agent 沒有一家用 Python——pi/opencode/claude-code 用 TypeScript，codex 從 TS 重寫成 Rust，omp 把熱路徑補上 8 萬行 Rust native crate。rivumi 仍選 Python，代價是啟動效能與打包，補償手段是 lazy import、uv 和 Cloudflare Sandbox。"
-description: "以五個成熟 coding agent 的原始碼為證，分析 coding agent 語言選擇的工程取捨：為什麼主流都選 TS/Rust，rivumi 為什麼仍選 Python，以及 lazy import、uv、遠端沙箱三層補償。"
+tldr: "五個成熟 coding agent 沒有一家用 Python——pi/opencode/claude-code 用 TypeScript，codex 從 TS 重寫成 Rust，omp 把熱路徑補上 8 萬行 Rust native crate。looplane 仍選 Python，代價是啟動效能與打包，補償手段是 lazy import、uv 和 Cloudflare Sandbox。"
+description: "以五個成熟 coding agent 的原始碼為證，分析 coding agent 語言選擇的工程取捨：為什麼主流都選 TS/Rust，looplane 為什麼仍選 Python，以及 lazy import、uv、遠端沙箱三層補償。"
 draft: false
 ---
 
@@ -35,21 +35,21 @@ Coding agent 的形狀很尷尬：它是一個使用者每天要開幾十次的 
 
 三種策略：pi 押注小而美的 TS；codex 直接重寫；omp 用 Rust native crate 補洞但不搬家。共同點是——**沒有人覺得 Python 值得一試**。原因不難猜：模型 API 不過是 HTTP + JSON，任何語言都能做；而 CLI 啟動速度和單檔發佈恰恰是 Python 最弱的兩項。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi 選了 Python，而且是知道代價之後選的。
+looplane 選了 Python，而且是知道代價之後選的。
 
 理由有三。第一，AI 生態系確實長在 Python 這邊：evals 工具、模型 SDK、資料處理腳本的預設語言都是它，`pyproject.toml` 裡 `openai>=1.68.0` 一行就接好整個 OpenAI 相容世界。第二，開發速度——agent 的 prompt 與工具邏輯每週都在改，Python 的改寫迴路最短。第三，個人專案的可維護性：6 個 runtime dependencies（對照 opencode 的 117 個），一個人讀得完自己的供應鏈。
 
-代價也很誠實。**啟動效能**：2026-08-22 實測 `.venv/bin/python -c "import rivumi.cli"` 要 701ms，TUI 還沒出現就燒掉了；`python -X importtime` 顯示最大元兇是頂層 eager import 的 openai SDK（247ms）。**發佈打包**：TS 可以 bundle 成單檔（claude-code 就是這樣），Rust 出靜態 binary，Python 得帶著直譯器和虛擬環境走，使用者機器上有沒有合適的 Python 是個真問題。
+代價也很誠實。**啟動效能**：2026-08-22 實測 `.venv/bin/python -c "import looplane.cli"` 要 701ms，TUI 還沒出現就燒掉了；`python -X importtime` 顯示最大元兇是頂層 eager import 的 openai SDK（247ms）。**發佈打包**：TS 可以 bundle 成單檔（claude-code 就是這樣），Rust 出靜態 binary，Python 得帶著直譯器和虛擬環境走，使用者機器上有沒有合適的 Python 是個真問題。
 
-補償分三層。第一層 lazy import：`src/rivumi/cli.py` 頂部現在明確註記重模組（provider SDK、vendor backend、Textual、uvicorn）全部延遲載入，型別用 `TYPE_CHECKING` guard，光此項預期砍掉 300–400ms。第二層 uv：開發與測試全走 `uv run`，環境建立從分鐘級降到秒級。第三層 Cloudflare Sandbox：M6 設計把整個 Python `AgentRunner` 放進一次性 Sandbox 裡跑（`docs/research/m6-cloudflare-sandbox-design.md`），Worker 只負責驗證與 teardown——本地直譯器版本問題被「根本不在使用者機器上跑」直接繞掉。
+補償分三層。第一層 lazy import：`src/looplane/cli.py` 頂部現在明確註記重模組（provider SDK、vendor backend、Textual、uvicorn）全部延遲載入，型別用 `TYPE_CHECKING` guard，光此項預期砍掉 300–400ms。第二層 uv：開發與測試全走 `uv run`，環境建立從分鐘級降到秒級。第三層 Cloudflare Sandbox：M6 設計把整個 Python `AgentRunner` 放進一次性 Sandbox 裡跑（`docs/research/m6-cloudflare-sandbox-design.md`），Worker 只負責驗證與 teardown——本地直譯器版本問題被「根本不在使用者機器上跑」直接繞掉。
 
 ## 工程依據
 
-「Python 慢」這件事需要拆開看。[uv 的官方文件](https://docs.astral.sh/uv/)把 Python 工具鏈最痛的環境管理做成了 Rust 級速度，這代表生態系自己已經在補這個洞——慢的往往不是執行期，是工具鏈。啟動延遲的部分，[CPython 的 `-X importtime`](https://docs.python.org/3/using/cmdline.html#cmdoption-X-importtime) 是官方提供的診斷入口，rivumi 的 701ms 幾乎全是 import 成本而非 interpreter 冷啟動（裸直譯器啟動只有幾十毫秒）。
+「Python 慢」這件事需要拆開看。[uv 的官方文件](https://docs.astral.sh/uv/)把 Python 工具鏈最痛的環境管理做成了 Rust 級速度，這代表生態系自己已經在補這個洞——慢的往往不是執行期，是工具鏈。啟動延遲的部分，[CPython 的 `-X importtime`](https://docs.python.org/3/using/cmdline.html#cmdoption-X-importtime) 是官方提供的診斷入口，looplane 的 701ms 幾乎全是 import 成本而非 interpreter 冷啟動（裸直譯器啟動只有幾十毫秒）。
 
-更有說服力的反例來自 codex 本身。依 rivumi 內部的 startup-performance-playbook 紀錄，Codex CLI 0.148.0 的啟動加速優化全在流程層——憑證讀取加速、plugin discovery 快取、並行探索——單一 PR（openai/codex#26469）就把 TUI 中位數啟動從 833ms 做到 504ms。Codex 本來就是 Rust，慢的不是語言，是 life cycle 設計。這對 Python 專案是好消息：既然流程層優化能救 Rust，也能救 Python。
+更有說服力的反例來自 codex 本身。依 looplane 內部的 startup-performance-playbook 紀錄，Codex CLI 0.148.0 的啟動加速優化全在流程層——憑證讀取加速、plugin discovery 快取、並行探索——單一 PR（openai/codex#26469）就把 TUI 中位數啟動從 833ms 做到 504ms。Codex 本來就是 Rust，慢的不是語言，是 life cycle 設計。這對 Python 專案是好消息：既然流程層優化能救 Rust，也能救 Python。
 
 ## 改善路線
 
@@ -58,7 +58,7 @@ rivumi 選了 Python，而且是知道代價之後選的。
 3. **發佈形式實驗**：評估 `uv tool install` 與 PyInstaller 單檔兩條路，目標是使用者不需要自己管 Python 版本。
 4. **熱路徑下沉的界線**：學 omp 而不學 codex——如果未來真的有 CPU 密集需求（例如大規模 AST 比對），先考慮單點 Rust extension 或 vendored binary，而不是整套重寫。80k 行 Rust 是一個團隊的產出，不是個人專案的選項。
 
-語言選擇的最終判準不是 benchmark 排行榜，而是「你的瓶頸到底在哪」。五家用 TS/Rust 是因為他們的瓶頸在散發給百萬使用者的啟動體感；rivumi 用 Python 是因為它的瓶頸在一個人能否持續迭代一個複雜系統。誠實列出代價、逐項補償，比選對語言更重要。
+語言選擇的最終判準不是 benchmark 排行榜，而是「你的瓶頸到底在哪」。五家用 TS/Rust 是因為他們的瓶頸在散發給百萬使用者的啟動體感；looplane 用 Python 是因為它的瓶頸在一個人能否持續迭代一個複雜系統。誠實列出代價、逐項補償，比選對語言更重要。
 
 ## 參考資料
 

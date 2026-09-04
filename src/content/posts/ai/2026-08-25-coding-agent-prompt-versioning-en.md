@@ -8,8 +8,8 @@ lang: en
 series:
   name: "跟成熟 coding agent 學設計"
   order: 25
-tldr: "Rivumi's prompt is now `m3-exact-edit-v4`: the version persists into artifacts; core/tool/interaction/runtime/instructions/skills/workspace/memory are composed as stable or dynamic sections; and positive/negative examples cover replace_text, unified diffs, and direct replies. Unit tests pin the structure, while live-eval coverage still needs expansion."
-description: "Evidence from the source of five mature coding agents on four approaches to prompt version control — per-model prompt files, feature-flag A/B testing, template rendering, and version constants bound to evals — plus rivumi's choice."
+tldr: "Looplane's prompt is now `m3-exact-edit-v4`: the version persists into artifacts; core/tool/interaction/runtime/instructions/skills/workspace/memory are composed as stable or dynamic sections; and positive/negative examples cover replace_text, unified diffs, and direct replies. Unit tests pin the structure, while live-eval coverage still needs expansion."
+description: "Evidence from the source of five mature coding agents on four approaches to prompt version control — per-model prompt files, feature-flag A/B testing, template rendering, and version constants bound to evals — plus looplane's choice."
 draft: false
 ---
 
@@ -35,11 +35,11 @@ Standard code review is helpless here: a reviewer cannot tell whether changing "
 
 They share exactly one conviction: **the prompt is not a string literal scattered through code but a first-class asset** — standalone files, centralized management, explicit selection logic.
 
-## rivumi's choice and how it differs
+## looplane's choice and how it differs
 
-rivumi takes the road none of the five go quite as far on: **a semantic version constant in the prompt string, with every evolution bound to eval evidence**.
+looplane takes the road none of the five go quite as far on: **a semantic version constant in the prompt string, with every evolution bound to eval evidence**.
 
-`rivumi/src/rivumi/prompts.py#CODING_AGENT_PROMPT_VERSION` now reads `"m3-exact-edit-v4"`. The version still persists into sessions and `run.created`, but the system prompt is no longer one bare string. `#PromptSection`, `#render_prompt_sections`, and `#build_coding_agent_system_prompt` compose ordered core policy, tool policy, interaction policy, runtime context, instructions, skills, workspace state, and memory, with explicit stable/dynamic cache metadata. This is an assembly baseline; it does not prove every provider uses the same cache protocol or achieves production trace hit rates.
+`looplane/src/looplane/prompts.py#CODING_AGENT_PROMPT_VERSION` now reads `"m3-exact-edit-v4"`. The version still persists into sessions and `run.created`, but the system prompt is no longer one bare string. `#PromptSection`, `#render_prompt_sections`, and `#build_coding_agent_system_prompt` compose ordered core policy, tool policy, interaction policy, runtime context, instructions, skills, workspace state, and memory, with explicit stable/dynamic cache metadata. This is an assembly baseline; it does not prove every provider uses the same cache protocol or achieves production trace hit rates.
 
 The v1→v3 evolution is textbook observation-driven iteration:
 
@@ -48,7 +48,7 @@ The v1→v3 evolution is textbook observation-driven iteration:
 - **v3**: tightened further — capability questions ("can you help me write a program?") also deserve a direct reply, without exploring the repo or enumerating interpretations to disambiguate.
 - **v4**: replaces some abstract advice with a compact examples section. A positive example demonstrates byte-for-byte `read_file → replace_text`, another shows unified-diff shape, a negative example forbids guessed old text, and a direct-reply example keeps greetings, small talk, and capability questions tool-free. `tests/test_prompts.py` pins the version, examples, and section ordering.
 
-The contrast with the five is clear: codex and claude-code have eval infrastructure but don't publish per-change eval evidence alongside individual prompt edits; opencode and pi lean on git history. rivumi binds "version number → observed failure → eval result" into one commit chain. The cost is equally honest: the eval covers one small Python task on one local 4B model — 5/5 does not mean broadly reliable, as the stage doc itself states upfront.
+The contrast with the five is clear: codex and claude-code have eval infrastructure but don't publish per-change eval evidence alongside individual prompt edits; opencode and pi lean on git history. looplane binds "version number → observed failure → eval result" into one commit chain. The cost is equally honest: the eval covers one small Python task on one local 4B model — 5/5 does not mean broadly reliable, as the stage doc itself states upfront.
 
 ## Engineering evidence
 
@@ -59,7 +59,7 @@ The contrast with the five is clear: codex and claude-code have eval infrastruct
 1. **Diversify the eval manifest**: examples and v4 have unit tests, but live evaluation still centers on a tiny Python task. Add at least "pure Q&A calls no tools" and "bad old_text forces a reread" cases before claiming the examples changed model behavior.
 2. **Prompt diffs in CI**: pinning clauses in `tests/test_prompts.py` is a good first step; next, require every prompt version bump to reference an eval summary path, following the M3 stage doc's evidence format.
 3. **Validate section/cache strategy with traces**: named stable/dynamic sections have landed. The next step is confirming each provider payload preserves the stable prefix and cache traces explain hits and misses before changing default ordering again.
-4. **No catalog needed yet**: codex's per-model prompt catalog serves dozens of models; rivumi only needs its provider adapter layer to record "which prompt version was evaluated against which models."
+4. **No catalog needed yet**: codex's per-model prompt catalog serves dozens of models; looplane only needs its provider adapter layer to record "which prompt version was evaluated against which models."
 
 ## References
 
@@ -73,4 +73,4 @@ The contrast with the five is clear: codex and claude-code have eval infrastruct
 - [OpenAI GPT-4.1 Prompting Guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
 - [Anthropic Prompt Engineering Overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Anthropic Prompt Caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
-- [Rivumi prompts at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/prompts.py)
+- [Looplane prompts at fixed commit `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/prompts.py)

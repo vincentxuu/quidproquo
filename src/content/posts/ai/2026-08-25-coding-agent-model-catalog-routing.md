@@ -1,15 +1,15 @@
 ---
-title: "跟成熟 coding agent 學設計（35）：Model catalog 與 per-role 多 provider 路由——rivumi 的 role alias 與 reviewer lane"
+title: "跟成熟 coding agent 學設計（35）：Model catalog 與 per-role 多 provider 路由——looplane 的 role alias 與 reviewer lane"
 date: 2026-08-30
 category: ai
 type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 35
-tags: [coding-agent, model-routing, llm, rivumi, oh-my-pi, codex]
+tags: [coding-agent, model-routing, llm, looplane, oh-my-pi, codex]
 lang: zh-TW
-tldr: "rivumi 已有 ModelRole／ModelRoute 靜態候選表、--model @cheap 等 opt-in alias、跨 provider fallback，以及驗證完成後才啟動的 no-tool reviewer lane；下一步是補 role inheritance／override 規則，並決定 summarizer、parser、scout 是否自動路由。"
-description: "對照成熟 coding agent 的 model catalog 與 per-role 路由，檢視 rivumi 已落地的 role alias、fallback 與 reviewer lane 基線。"
+tldr: "looplane 已有 ModelRole／ModelRoute 靜態候選表、--model @cheap 等 opt-in alias、跨 provider fallback，以及驗證完成後才啟動的 no-tool reviewer lane；下一步是補 role inheritance／override 規則，並決定 summarizer、parser、scout 是否自動路由。"
+description: "對照成熟 coding agent 的 model catalog 與 per-role 路由，檢視 looplane 已落地的 role alias、fallback 與 reviewer lane 基線。"
 draft: false
 ---
 
@@ -26,7 +26,7 @@ draft: false
 1. **Catalog 資料層**：系統知道哪些 provider 有哪些模型、各自支援什麼（context window、reasoning、vision），而且資料會更新。
 2. **Per-role 路由**：「commit 用便宜的快模型、規劃用強模型、摘要用最小的」這類策略是一等公民，而不是散落在各處的 hardcoded 字串。
 
-rivumi 已經跨過「只有目前模型」的階段：catalog、role alias、fallback 與 reviewer lane 都有第一版；自動 per-role 分流仍只有一部分，後面細講。
+looplane 已經跨過「只有目前模型」的階段：catalog、role alias、fallback 與 reviewer lane 都有第一版；自動 per-role 分流仍只有一部分，後面細講。
 
 ## 五家怎麼做
 
@@ -68,7 +68,7 @@ codex 走的是完全不同的路：`codex-rs/models-manager/models.json` 描述
 
 模型路由不是過早最佳化。[FrugalGPT](https://arxiv.org/abs/2305.05176) 早在 2023 年就示範了 cascade 式路由能在保住品質的前提下大幅壓低成本；[RouteLLM](https://arxiv.org/abs/2406.18665) 則把「哪些 query 不需要最強模型」做成可學習的問題。五家的實作都沒有做到學習式路由——它們用的是更保守的版本：**人手策劃的 role → 候選鏈，加上執行期的健康度淘汰**。這其實是合理的工程判斷：coding agent 的任務類型有限且可列舉（commit、摘要、規劃、主迴圈），靜態鏈的可預測性和 debug 性遠勝黑盒路由器，fallback 鏈已經吃掉了大部分收益。OpenRouter 自己的[模型路由文件](https://openrouter.ai/docs/features/provider-routing)也是同樣哲學：宣告偏好序，讓執行期處理故障轉移。
 
-## rivumi 已落地的基線
+## looplane 已落地的基線
 
 資料層之外，`provider_catalog.py` 已加入 `ModelRole`、`ModelRoute` 與有序的 `role_candidates()`。native CLI 可用 `--model @cheap`、`--fallback-model @cheap` 這類 opt-in alias，把 role 解析成明確的 provider/model；retry 耗盡後也能切到另一個 provider，而不會沿用主模型的自訂 API endpoint。
 
@@ -78,8 +78,8 @@ codex 走的是完全不同的路：`codex-rs/models-manager/models.json` 描述
 
 ## 參考資料
 
-- [rivumi model role 與價格目錄（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/provider_catalog.py)
-- [rivumi role lane SDK 說明（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/docs/sdk.md)
+- [looplane model role 與價格目錄（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/provider_catalog.py)
+- [looplane role lane SDK 說明（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/docs/sdk.md)
 
 - [FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance（Chen et al., 2023）](https://arxiv.org/abs/2305.05176)
 - [RouteLLM: Learning to Route LLMs with Preference Data（Ong et al., 2024）](https://arxiv.org/abs/2406.18665)

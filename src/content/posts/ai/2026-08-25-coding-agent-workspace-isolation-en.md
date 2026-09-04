@@ -8,8 +8,8 @@ series:
   order: 3
 tags: [coding-agent, harness-engineering, sandbox, path-traversal, git-worktree, tool-use]
 lang: en
-description: "How Codex, Claude Code, OpenCode, Pi, and OMP isolate workspaces, compared with Rivumi's disposable clone, SafePathPolicy, verification sandbox, and Cloudflare remote slice."
-tldr: "Rivumi's disposable clone and SafePathPolicy protect the source repo. `--sandbox-checks` can now wrap verification commands with macOS sandbox-exec, Linux bubblewrap, or Landlock, while Cloudflare provides a separate bounded Sandbox slice. Network policy, external-runtime coverage, and production hardening are not yet consistent across those backends."
+description: "How Codex, Claude Code, OpenCode, Pi, and OMP isolate workspaces, compared with Looplane's disposable clone, SafePathPolicy, verification sandbox, and Cloudflare remote slice."
+tldr: "Looplane's disposable clone and SafePathPolicy protect the source repo. `--sandbox-checks` can now wrap verification commands with macOS sandbox-exec, Linux bubblewrap, or Landlock, while Cloudflare provides a separate bounded Sandbox slice. Network policy, external-runtime coverage, and production hardening are not yet consistent across those backends."
 draft: false
 ---
 
@@ -23,7 +23,7 @@ Every file tool in a coding agent takes a path as its first argument. That path 
 2. Where does path validation live — tool code, the permission system, or the operating system?
 3. If validation is bypassed, what is the worst-case blast radius?
 
-The combination of these answers decides whether an agent is merely "convenient" or actually "trustworthy". This post lays out how five mature projects answer them, then compares my own choices in rivumi.
+The combination of these answers decides whether an agent is merely "convenient" or actually "trustworthy". This post lays out how five mature projects answer them, then compares my own choices in looplane.
 
 ## What the Five Projects Do
 
@@ -51,19 +51,19 @@ badlogic/pi-mono is the most minimal: the tool layer only normalizes relative pa
 
 oh-my-pi, being a fork of Pi, keeps the same ExecutionEnv path model but adds a worktree baseline to its autoresearch workflow: `oh-my-pi/packages/coding-agent/src/autoresearch/index.ts` records the baseline commit, resets the worktree to it on discard, and warns when you're not on the dedicated branch that revert safety is incomplete.
 
-## rivumi's Choice and How It Differs
+## looplane's Choice and How It Differs
 
-rivumi M1's isolation strategy is a **disposable Git workspace**, built from two modules:
+looplane M1's isolation strategy is a **disposable Git workspace**, built from two modules:
 
-**Layer one: the workspace itself is a disposable clone pinned to an exact commit.** `src/rivumi/runtime.py#LocalGitWorkspace.prepare` requires base_sha to be a full 40-character SHA, verifies the commit exists via `rev-parse --verify`, clones with `clone --no-hardlinks --no-checkout` (no-hardlinks guarantees physically separate files), and after detaching HEAD re-verifies that `rev-parse HEAD` equals base_sha before handing over the workspace. The run dir is forbidden from living inside the source repo. The source worktree is never touched, and the final output is an unstaged patch reviewed by a human.
+**Layer one: the workspace itself is a disposable clone pinned to an exact commit.** `src/looplane/runtime.py#LocalGitWorkspace.prepare` requires base_sha to be a full 40-character SHA, verifies the commit exists via `rev-parse --verify`, clones with `clone --no-hardlinks --no-checkout` (no-hardlinks guarantees physically separate files), and after detaching HEAD re-verifies that `rev-parse HEAD` equals base_sha before handing over the workspace. The run dir is forbidden from living inside the source repo. The source worktree is never touched, and the final output is an unstaged patch reviewed by a human.
 
-**Layer two: every model-supplied path passes through `src/rivumi/policy.py#SafePathPolicy.resolve`.** It rejects absolute paths, backslashes, NUL bytes, `..` traversal, `.git` in any segment, and after resolution confirms via `relative_to(workspace_root)` that nothing escaped through a symlink. Globs are segment-aware — `*` doesn't cross directories; only a complete `**` segment does, so `src/*.py` never accidentally covers `src/deep/x.py`.
+**Layer two: every model-supplied path passes through `src/looplane/policy.py#SafePathPolicy.resolve`.** It rejects absolute paths, backslashes, NUL bytes, `..` traversal, `.git` in any segment, and after resolution confirms via `relative_to(workspace_root)` that nothing escaped through a symlink. Globs are segment-aware — `*` doesn't cross directories; only a complete `**` segment does, so `src/*.py` never accidentally covers `src/deep/x.py`.
 
 Compared with the five projects, the differences are clear and deserve honesty:
 
-- **There is now a verification-sandbox baseline, not one universal runtime sandbox.** `--sandbox-checks` routes `run_check` and final verification through `src/rivumi/runtime.py#resolve_command_sandbox`: macOS uses `sandbox-exec`; Linux `auto` prefers bubblewrap and otherwise uses Rivumi's Landlock wrapper. If an explicitly requested backend is unavailable, the command fails closed with exit 126. This wraps declared verification argv; it does not mean external CLIs, provider transports, and every host process share that boundary.
+- **There is now a verification-sandbox baseline, not one universal runtime sandbox.** `--sandbox-checks` routes `run_check` and final verification through `src/looplane/runtime.py#resolve_command_sandbox`: macOS uses `sandbox-exec`; Linux `auto` prefers bubblewrap and otherwise uses Looplane's Landlock wrapper. If an explicitly requested backend is unavailable, the command fails closed with exit 126. This wraps declared verification argv; it does not mean external CLIs, provider transports, and every host process share that boundary.
 - **Remote execution has a separate bounded container slice.** The `cloudflare/` Worker/Sandbox control plane accepts bounded text source maps, not Git URLs, archives, shell strings, or caller credentials. That proves the isolation boundary can move into a container, but does not prove production traffic behavior or complete hostile-code hardening.
-- **Path policy stricter than Pi, shallower than Codex.** Pi outsources the boundary; rivumi, like OpenCode, draws it at the application layer, but adds blanket `.git` denial and resolved symlink escape checks. The cost: all these checks are Python string handling, so any parser bug is an escape hatch. OS sandboxes don't have this problem because the kernel doesn't parse strings.
+- **Path policy stricter than Pi, shallower than Codex.** Pi outsources the boundary; looplane, like OpenCode, draws it at the application layer, but adds blanket `.git` denial and resolved symlink escape checks. The cost: all these checks are Python string handling, so any parser bug is an escape hatch. OS sandboxes don't have this problem because the kernel doesn't parse strings.
 
 ## Academic Grounding
 
@@ -89,4 +89,4 @@ One-line summary: the disposable workspace protects the source repo, and `--sand
 - [anthropics/claude-code](https://github.com/anthropics/claude-code)
 - [sst/opencode](https://github.com/sst/opencode)
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono)
-- [Rivumi command sandbox at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime.py)
+- [Looplane command sandbox at fixed commit `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/runtime.py)

@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 18
-tags: [coding-agent, tool-design, rivumi, function-calling, claude-code]
+tags: [coding-agent, tool-design, looplane, function-calling, claude-code]
 lang: zh-TW
-tldr: "Rivumi 的核心 surface 已從七個長到九個：新增 read-only `tool_program` 與可 rollback 的 `tool_transaction`，搜尋優先走 ripgrep，仍不開任意 shell；native MCP 只從 allowlist 動態加入，缺少可信 read-only metadata 就按 execute 審批。"
-description: "對照五個成熟 coding agent 的 tool surface，拆解 Rivumi 九個核心工具、有界工具程式、transaction rollback、ripgrep 搜尋與 native MCP 動態暴露。"
+tldr: "Looplane 的核心 surface 已從七個長到九個：新增 read-only `tool_program` 與可 rollback 的 `tool_transaction`，搜尋優先走 ripgrep，仍不開任意 shell；native MCP 只從 allowlist 動態加入，缺少可信 read-only metadata 就按 execute 審批。"
+description: "對照五個成熟 coding agent 的 tool surface，拆解 Looplane 九個核心工具、有界工具程式、transaction rollback、ripgrep 搜尋與 native MCP 動態暴露。"
 draft: false
 ---
 
@@ -55,9 +55,9 @@ claude-code 的 `src/tools` 目錄下有四十三個工具資料夾，但真正�
 
 還有一個反直覺的細節：BashTool 的 input schema 裡有一個內部欄位 `_simulatedSedEdit`，被刻意從模型可見的 schema omit 掉（`src/tools/BashTool/BashTool.tsx#inputSchema`）——註解明講，暴露它會讓模型配對無害命令加任意檔案寫入來繞過權限與沙箱。schema 不只是給模型的 API，也是攻擊面。
 
-## rivumi 的選擇：有界核心工具，沒有任意 shell
+## looplane 的選擇：有界核心工具，沒有任意 shell
 
-rivumi 的核心 surface 在 `src/rivumi/tools.py#_tool_definitions`。原本七個工具仍在：`list_files`、`read_file`、`search_text`、`replace_text`、`apply_patch`、`run_check`、`git_diff`；現在再加 `tool_program` 與 `tool_transaction`。前者在一次 model tool call 裡執行最多八步 read-only 小程式，支援有界 `repeat` / `if_contains`，把多次 read/search 的 round trip 收進 harness；後者把 read/edit/allowlisted check 組成可 rollback 的 modify+execute transaction。兩者的 control flow、步數與可呼叫 op 都由 schema 夾住，仍然沒有任意 bash。
+looplane 的核心 surface 在 `src/looplane/tools.py#_tool_definitions`。原本七個工具仍在：`list_files`、`read_file`、`search_text`、`replace_text`、`apply_patch`、`run_check`、`git_diff`；現在再加 `tool_program` 與 `tool_transaction`。前者在一次 model tool call 裡執行最多八步 read-only 小程式，支援有界 `repeat` / `if_contains`，把多次 read/search 的 round trip 收進 harness；後者把 read/edit/allowlisted check 組成可 rollback 的 modify+execute transaction。兩者的 control flow、步數與可呼叫 op 都由 schema 夾住，仍然沒有任意 bash。
 
 `search_text` 也不再只是 Python walk：ripgrep 存在時會用 literal `rg` 並尊重 `.gitignore`，之後仍通過 allowed path 與輸出上限。`run_check` 則只接受任務契約宣告的 enum name，執行 exact argv、`shell=False`、sanitized environment。這些改善的是大型 repository 的搜尋成本與多工具 round trip，不會把窄工具面偷偷變成 shell。
 
@@ -71,7 +71,7 @@ rivumi 的核心 surface 在 `src/rivumi/tools.py#_tool_definitions`。原本七
 
 ## 學術依據
 
-[SWE-agent 論文](https://arxiv.org/abs/2405.15793)（Yang et al., 2024）提出 ACI 設計四原則，其中最相關的實驗證據是：同一個模型，換不同的檔案檢視介面（有無行號、有無搜尋）成功率差距顯著——他們設計的 search/read/edit 介面讓 agent 成功率明顯高於開放式 shell 操作。五家的收斂也印證這點：pi 和 opencode 的 grep/find/read 分立、rivumi 的 search_text，全是論文裡那套「窄而明確」的介面形狀。
+[SWE-agent 論文](https://arxiv.org/abs/2405.15793)（Yang et al., 2024）提出 ACI 設計四原則，其中最相關的實驗證據是：同一個模型，換不同的檔案檢視介面（有無行號、有無搜尋）成功率差距顯著——他們設計的 search/read/edit 介面讓 agent 成功率明顯高於開放式 shell 操作。五家的收斂也印證這點：pi 和 opencode 的 grep/find/read 分立、looplane 的 search_text，全是論文裡那套「窄而明確」的介面形狀。
 
 function calling 的官方文件從 API 角度補了另一半：[Anthropic 的 tool use 文件](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)和 [OpenAI 的 function calling guide](https://platform.openai.com/docs/guides/function-calling)都強調工具描述品質直接影響選擇正確率，且建議工具數量保持精簡、語意不重疊——「少而清晰」不是風格偏好，是模型行為的已知約束。
 
@@ -79,7 +79,7 @@ function calling 的官方文件從 API 角度補了另一半：[Anthropic 的 t
 
 1. **MCP discovery 需要真正的 surface 分級**。allowlist 與動態 refresh 已落地，但多 server 時仍可能把大量 schema 平鋪給模型。下一步才是 omp essential/discoverable 或 ToolSearch 式延遲載入。
 2. **把 input-sensitive effect 做完整**。`ToolDefinition` 已有 read-only/concurrency metadata，MCP annotation 也會被翻譯；但像「同一工具因參數而改變風險」仍缺統一判斷與不信任 server annotation 的驗證層。
-3. **動態 description**。opencode 的 `describeTask` 示範了描述可以是執行期的路由表。rivumi 的 run_check enum 已經是動態生成的，下一步可以把每個 check 的最近一次結果摘要進描述，讓模型不用盲選。
+3. **動態 description**。opencode 的 `describeTask` 示範了描述可以是執行期的路由表。looplane 的 run_check enum 已經是動態生成的，下一步可以把每個 check 的最近一次結果摘要進描述，讓模型不用盲選。
 4. **用量測決定批次界線**。`tool_program` / `tool_transaction` 已證明 bounded code mode 可行；接下來要用真實 run 比較 round trip、token、rollback 與誤用率，再決定八步上限或更多 control flow，而不是直接擴成通用語言。
 
 系列下一篇回頭處理 session 的另一面：run artifacts 的契約——一次執行結束後，磁碟上應該留下哪些互相印證的檔案。
@@ -93,4 +93,4 @@ function calling 的官方文件從 API 角度補了另一半：[Anthropic 的 t
 - [anthropics/claude-code](https://github.com/anthropics/claude-code) — 官方 repo（發布 minified bundle；本篇引用自社群反編譯 v2.1.88）
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793) — ACI 設計對 agent 表現的影響
 - [Anthropic Tool Use 文件](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)、[OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling) — 工具描述品質與數量的官方建議
-- [Rivumi tools（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/tools.py)
+- [Looplane tools（固定 commit `2ed5efb`）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/tools.py)

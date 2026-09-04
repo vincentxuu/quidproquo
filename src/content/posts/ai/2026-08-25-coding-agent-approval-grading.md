@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 4
-tags: [coding-agent, approval, permissions, audit-trail, rivumi, claude-code, codex]
+tags: [coding-agent, approval, permissions, audit-trail, looplane, claude-code, codex]
 lang: zh-TW
-tldr: "Rivumi 的 effect 已有 read/modify/modify_execute/execute 四級，未分類工具 fail closed；native MCP tool 預設 execute，只有可信 read-only annotation 才降級。審批仍先進 events.jsonl，grant 可精確到同一組變更或 backend；一般化 command 規則與全 runtime sandbox coupling 仍未完成。"
-description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼的 permission 分級、session grant 範圍與審批記錄機制，說明 rivumi 的 ToolEffect 分類、durable audit events、process-local scoped grant 怎麼取捨，以及危險指令攔截為什麼是下一步。"
+tldr: "Looplane 的 effect 已有 read/modify/modify_execute/execute 四級，未分類工具 fail closed；native MCP tool 預設 execute，只有可信 read-only annotation 才降級。審批仍先進 events.jsonl，grant 可精確到同一組變更或 backend；一般化 command 規則與全 runtime sandbox coupling 仍未完成。"
+description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼的 permission 分級、session grant 範圍與審批記錄機制，說明 looplane 的 ToolEffect 分類、durable audit events、process-local scoped grant 怎麼取捨，以及危險指令攔截為什麼是下一步。"
 draft: false
 ---
 
@@ -53,19 +53,19 @@ Approval 系統要回答三件事：
 
 pi-mono 的核心刻意沒有內建 permission 系統，審批是 extension hook：`pi-mono/packages/coding-agent/examples/extensions/permission-gate.ts` 攔 `tool_call` 事件、用 regex 抓 `rm -rf`／`sudo`，有 UI 就彈 `ctx.ui.select` 確認。它的 fail-closed 在無 UI 分支：headless 模式直接 `{block:true}`——不能問人的環境一律擋下。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi 的答案是三層：effect 分類、注入式 policy、durable audit。
+looplane 的答案是三層：effect 分類、注入式 policy、durable audit。
 
-**分類是硬性的。** `rivumi/src/rivumi/approvals.py#ToolEffect` 現在有 read / modify / modify_execute / execute 四值；`tool_transaction` 因為能把修改與檢查綁成一個可 rollback 的批次，不能再塞進單純 modify。`TOOL_EFFECTS` 逐工具宣告，`#effect_for_tool` 對未分類的新工具直接 raise。native MCP 則走 `#effect_for_tool_definition`：resource/prompt bridge 固定 read，遠端 tool 預設 execute，只有 server annotation 明示 `readOnlyHint` 時才降成 read。未知工具與缺少 trust metadata 都不會猜成安全。
+**分類是硬性的。** `looplane/src/looplane/approvals.py#ToolEffect` 現在有 read / modify / modify_execute / execute 四值；`tool_transaction` 因為能把修改與檢查綁成一個可 rollback 的批次，不能再塞進單純 modify。`TOOL_EFFECTS` 逐工具宣告，`#effect_for_tool` 對未分類的新工具直接 raise。native MCP 則走 `#effect_for_tool_definition`：resource/prompt bridge 固定 read，遠端 tool 預設 execute，只有 server annotation 明示 `readOnlyHint` 時才降成 read。未知工具與缺少 trust metadata 都不會猜成安全。
 
 **Policy 是注入的。** `#TTYApprovalPolicy` 提供四個選項：once / session / deny / cancel，session 同意只累加 effect 到 grant 集合；`#HeadlessApprovalPolicy` 根本不接受 stdin，CI 不可能掛在等待輸入上。被拒絕的動作會變成一個 failed `ToolObservation` 讓模型自己調整，cancel 則產生可稽核的 terminal result。
 
-**Audit 先落盤再投影。** `rivumi/src/rivumi/loop.py#_approval` 的順序是固定的：先把 phase 改成 `WAITING_APPROVAL` 存 manifest、發 `approval.requested` 事件，拿到決策後寫 `approval.resolved`，session grant 更新連同 `ApprovalAuditRecord`（request + decision + 時間戳）一起進 `SessionManifest.approval_history`（`rivumi/src/rivumi/session.py#ApprovalAuditRecord`）。重複使用既有 grant 也會記 `approval.reused`。事後重現「模型當時要求了什麼、人答了什麼、哪些是 reuse」，events.jsonl 就是答案。
+**Audit 先落盤再投影。** `looplane/src/looplane/loop.py#_approval` 的順序是固定的：先把 phase 改成 `WAITING_APPROVAL` 存 manifest、發 `approval.requested` 事件，拿到決策後寫 `approval.resolved`，session grant 更新連同 `ApprovalAuditRecord`（request + decision + 時間戳）一起進 `SessionManifest.approval_history`（`looplane/src/looplane/session.py#ApprovalAuditRecord`）。重複使用既有 grant 也會記 `approval.reused`。事後重現「模型當時要求了什麼、人答了什麼、哪些是 reuse」，events.jsonl 就是答案。
 
-**Grant 範圍經歷了一次收窄。** M2 時代的 session grant 是 effect 粒度：同意過一次 modify，之後所有 modify 都過。M10 外部 CLI 進來後改成 process-local、精確到 scope：`rivumi/src/rivumi/runtime_semantics.py#ProcessLocalGrant` 文件字串就寫著 non-persistent，且 read 不允許存成 grant；`#decide_permission` 保證 `READ_ONLY` mode 是硬天花板——殘留的 stale grant 不能在切模式後重新啟用 side effect。scope 由 `rivumi/src/rivumi/tui.py#_grant_scope` 決定：外部 backend 是 `external_agent:codex-cli` 這種形式，給 codex-cli 的同意不涵蓋 Claude Code；command grant 是完整 argv。最極端的是 Codex 檔案變更：`rivumi/src/rivumi/codex_app_server.py#_file_change_grant_scope` 把 proposed changes 做 SHA256 指紋，session grant 只涵蓋「一模一樣的那組變更」。
+**Grant 範圍經歷了一次收窄。** M2 時代的 session grant 是 effect 粒度：同意過一次 modify，之後所有 modify 都過。M10 外部 CLI 進來後改成 process-local、精確到 scope：`looplane/src/looplane/runtime_semantics.py#ProcessLocalGrant` 文件字串就寫著 non-persistent，且 read 不允許存成 grant；`#decide_permission` 保證 `READ_ONLY` mode 是硬天花板——殘留的 stale grant 不能在切模式後重新啟用 side effect。scope 由 `looplane/src/looplane/tui.py#_grant_scope` 決定：外部 backend 是 `external_agent:codex-cli` 這種形式，給 codex-cli 的同意不涵蓋 Claude Code；command grant 是完整 argv。最極端的是 Codex 檔案變更：`looplane/src/looplane/codex_app_server.py#_file_change_grant_scope` 把 proposed changes 做 SHA256 指紋，session grant 只涵蓋「一模一樣的那組變更」。
 
-跟五家比起來，Rivumi 已有 user/org/project allow-deny source、deny-first precedence 與危險指令 classifier，但還沒有 opencode wildcard 或 Codex `exec_policy` 那種可檢查、可修訂、涵蓋外部 CLI 的完整規則語言，也沒有把「sandbox 確實生效」變成所有 auto-approval 的共同前提。`--sandbox-checks` 與 MCP 動態分類是 baseline，不是 production 授權模型。
+跟五家比起來，Looplane 已有 user/org/project allow-deny source、deny-first precedence 與危險指令 classifier，但還沒有 opencode wildcard 或 Codex `exec_policy` 那種可檢查、可修訂、涵蓋外部 CLI 的完整規則語言，也沒有把「sandbox 確實生效」變成所有 auto-approval 的共同前提。`--sandbox-checks` 與 MCP 動態分類是 baseline，不是 production 授權模型。
 
 ## 工程依據
 
@@ -79,7 +79,7 @@ rivumi 的答案是三層：effect 分類、注入式 policy、durable audit。
 
 ## 參考資料
 
-- [Building Effective Agents — Anthropic Engineering](https://www.anthropic.com/engineering/building-effective-agents) — human-in-the-loop approval、audit trail 與 rivumi 對照的工程基準。
+- [Building Effective Agents — Anthropic Engineering](https://www.anthropic.com/engineering/building-effective-agents) — human-in-the-loop approval、audit trail 與 looplane 對照的工程基準。
 - [OpenAI Codex CLI 官方文件](https://developers.openai.com/codex/cli/)
 - [Claude Code IAM 與權限設定文件](https://docs.claude.com/en/docs/claude-code/iam)
 - [opencode Permissions 文件](https://opencode.ai/docs/permissions/)
@@ -87,4 +87,4 @@ rivumi 的答案是三層：effect 分類、注入式 policy、durable audit。
 - [sst/opencode（GitHub）](https://github.com/sst/opencode)
 - [badlogic/pi-mono（GitHub）](https://github.com/badlogic/pi-mono)
 - [can1357/oh-my-pi（GitHub）](https://github.com/can1357/oh-my-pi)
-- [Rivumi approval 分類（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/approvals.py)
+- [Looplane approval 分類（固定 commit `2ed5efb`）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/approvals.py)

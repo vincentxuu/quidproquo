@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 37
-tags: [coding-agent, code-mode, tool-use, sandbox, codex, opencode, rivumi]
+tags: [coding-agent, code-mode, tool-use, sandbox, codex, opencode, looplane]
 lang: zh-TW
-tldr: "rivumi 已先做 bounded tool-program DSL：唯讀程式支援 list/read/search/diff、repeat 與 if_contains；modify/check transaction 會經整體 approval，失敗時回滾 touched paths。它還不是任意 JavaScript/Python code mode，也沒有平行 transaction execution。"
-description: "對照 codex 與 opencode 的 code mode，並檢視 rivumi 已落地的唯讀 tool program 與可回滾 modify/check transaction 基線。"
+tldr: "looplane 已先做 bounded tool-program DSL：唯讀程式支援 list/read/search/diff、repeat 與 if_contains；modify/check transaction 會經整體 approval，失敗時回滾 touched paths。它還不是任意 JavaScript/Python code mode，也沒有平行 transaction execution。"
+description: "對照 codex 與 opencode 的 code mode，並檢視 looplane 已落地的唯讀 tool program 與可回滾 modify/check transaction 基線。"
 draft: false
 ---
 
@@ -53,9 +53,9 @@ opencode 的做法更激進：不用 V8，自己在 `packages/codemode` 寫了�
 
 「用程式碼統合多步工具呼叫」最直接的學術印證是 [CodeAct](https://arxiv.org/abs/2402.01030)（Executable Code Actions Elicit Better LLM Agents，ICML 2024）：把 agent action 空間從一個個 JSON tool call 換成可執行程式碼，讓模型利用程式語言的控制流組合多個動作、在中間狀態上迭代。code mode 基本上就是 CodeAct 加上生產級的沙箱與審計。工程面則有 Anthropic 的 [Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)（含上面提的 token 數據）與 Cloudflare 的 [Code Mode](https://blog.cloudflare.com/code-mode/)，兩篇都強調同一件事：LLM 很會寫程式，就該讓它寫程式去呼叫工具。[Anthropic 官方 tool use 文件](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)裡的 parallel tool use 一節也承認：直接工具呼叫的正交平行只是起點，複雜依賴結構需要更強的編排原語。
 
-## rivumi 已落地的基線
+## looplane 已落地的基線
 
-rivumi 沒有直接嵌入 JavaScript 或 Python，而是先做一套 bounded DSL。`tool_program` 只開 `list_files`、`read_file`、`search_text`、`git_diff` 等唯讀操作，並支援上限內的 `repeat` 與 `if_contains`。這讓模型能在一次 tool call 裡表達簡單控制流，同時把可執行語言縮到宿主能完整檢查的範圍。
+looplane 沒有直接嵌入 JavaScript 或 Python，而是先做一套 bounded DSL。`tool_program` 只開 `list_files`、`read_file`、`search_text`、`git_diff` 等唯讀操作，並支援上限內的 `repeat` 與 `if_contains`。這讓模型能在一次 tool call 裡表達簡單控制流，同時把可執行語言縮到宿主能完整檢查的範圍。
 
 需要修改時走另一個 `tool_transaction`：它先收集 touched paths，整體經過既有 approval/policy，再執行 replace／patch／check；任何步驟失敗都嘗試把受影響檔案回滾到 transaction 前。後端仍有 turn limit，步數和輸出也受限。
 
@@ -63,8 +63,8 @@ rivumi 沒有直接嵌入 JavaScript 或 Python，而是先做一套 bounded DSL
 
 ## 參考資料
 
-- [rivumi tool program / transaction 實作（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/tools.py)
-- [rivumi native loop policy integration（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/loop.py)
+- [looplane tool program / transaction 實作（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/tools.py)
+- [looplane native loop policy integration（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/loop.py)
 
 - [Executable Code Actions Elicit Better LLM Agents (CodeAct)](https://arxiv.org/abs/2402.01030)
 - [Anthropic Engineering: Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)

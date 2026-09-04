@@ -6,16 +6,16 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 19
-tags: [coding-agent, session-persistence, crash-recovery, rivumi, claude-code]
+tags: [coding-agent, session-persistence, crash-recovery, looplane, claude-code]
 lang: zh-TW
-tldr: "五家 agent 的 session 儲存幾乎都是 append-only JSONL 加上某種單寫者保護，但 crash recovery 的差別在細節：pi 會修 torn tail、codex 寫失敗會重開檔重試、rivumi 選了「manifest 先落盤」讓唯一的 crash window 變成可修復的一格。這篇拆解每家的寫入順序與 fail-closed 條件，全部附 file#symbol 證據。"
-description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼的 session 持久化設計：事件格式、單寫者 fencing、crash window 分析，以及 rivumi 為什麼選擇 manifest 先行加驗證式 resume。"
+tldr: "五家 agent 的 session 儲存幾乎都是 append-only JSONL 加上某種單寫者保護，但 crash recovery 的差別在細節：pi 會修 torn tail、codex 寫失敗會重開檔重試、looplane 選了「manifest 先落盤」讓唯一的 crash window 變成可修復的一格。這篇拆解每家的寫入順序與 fail-closed 條件，全部附 file#symbol 證據。"
+description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼的 session 持久化設計：事件格式、單寫者 fencing、crash window 分析，以及 looplane 為什麼選擇 manifest 先行加驗證式 resume。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)
 
-本篇取證範圍：**pi**（badlogic/pi-mono）、**omp**（can1357/oh-my-pi）、**opencode**（sst/opencode）、**codex**（openai/codex Rust workspace）、**claude-code**（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入），對照我自己的 **rivumi**。所有引用都在本地 clone 實際讀過。
+本篇取證範圍：**pi**（badlogic/pi-mono）、**omp**（can1357/oh-my-pi）、**opencode**（sst/opencode）、**codex**（openai/codex Rust workspace）、**claude-code**（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入），對照我自己的 **looplane**。所有引用都在本地 clone 實際讀過。
 
 ## 設計問題：agent 跑到一半死掉，狀態怎麼救
 
@@ -67,33 +67,33 @@ claude-code 的主 transcript 是每個專案目錄下一個 `<sessionId>.jsonl`
 
 prompt history 是另一個檔（config 目錄下的 `history.jsonl`），寫入前用 lockfile 加鎖、失敗重試、cleanup hook 收尾（`src/history.ts#immediateFlushHistory`）。`src/migrations/` 目錄則展示了另一種遷移：不搬 session 資料本身，而是把設定和模型偏好逐版升級（例如 `migrations/migrateSonnet45ToSonnet46.ts`），舊的 inline history 欄位清掉指向新檔（`utils/config.ts#removeProjectHistory`）。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi 的 session 目錄裡有三樣東西：`request.json`（任務契約）、`events.jsonl`（append-only 事件流）、`session.json`（manifest：完整可續跑狀態，含 messages、usage、step、授權歷史、事件序號）。
+looplane 的 session 目錄裡有三樣東西：`request.json`（任務契約）、`events.jsonl`（append-only 事件流）、`session.json`（manifest：完整可續跑狀態，含 messages、usage、step、授權歷史、事件序號）。
 
-**寫入順序是核心決策**。每個事件的流程是：先把完整可續跑狀態和「意圖中的序號」原子寫進 manifest，再 append JSONL（`src/rivumi/loop.py#_event`）。這個順序決定了唯一的 crash window：死在中間，manifest 會比事件流多一格。resume 時 `_validate_events` 重放整條事件流驗證序號連續，發現 manifest 恰好多一格就把它修回來（`src/rivumi/session.py#claim_and_validate_resume` 的 manifest-ahead 修復）。一格以內可修、超過一格就是資料壞了直接 fail closed——修復路徑只有一種，且可證明。
+**寫入順序是核心決策**。每個事件的流程是：先把完整可續跑狀態和「意圖中的序號」原子寫進 manifest，再 append JSONL（`src/looplane/loop.py#_event`）。這個順序決定了唯一的 crash window：死在中間，manifest 會比事件流多一格。resume 時 `_validate_events` 重放整條事件流驗證序號連續，發現 manifest 恰好多一格就把它修回來（`src/looplane/session.py#claim_and_validate_resume` 的 manifest-ahead 修復）。一格以內可修、超過一格就是資料壞了直接 fail closed——修復路徑只有一種，且可證明。
 
-單寫者用 OS 層的 `flock`：`session.py#SessionStore.acquire_writer` 以 `O_NOFOLLOW` 打開 `.writer.lock`、`LOCK_EX | LOCK_NB` 取得排他鎖，並把隨機 token 寫進鎖檔。之後每次 save 都先確認磁碟上的 manifest 還記著自己的 token 才准寫（`session.py#save`）——就算 lock 因為任何原因失效，stale writer 也過不了 token 檢查。flock 保護的是「兩個活著的 process 互踩」；它**不**保護 crash 中途的 torn write 或斷電，那部分靠 atomic write（temp file + `os.replace` + 檔案與目錄都 fsync，`src/rivumi/events.py#_atomic_write`）和 resume 時的全量驗證兜底。
+單寫者用 OS 層的 `flock`：`session.py#SessionStore.acquire_writer` 以 `O_NOFOLLOW` 打開 `.writer.lock`、`LOCK_EX | LOCK_NB` 取得排他鎖，並把隨機 token 寫進鎖檔。之後每次 save 都先確認磁碟上的 manifest 還記著自己的 token 才准寫（`session.py#save`）——就算 lock 因為任何原因失效，stale writer 也過不了 token 檢查。flock 保護的是「兩個活著的 process 互踩」；它**不**保護 crash 中途的 torn write 或斷電，那部分靠 atomic write（temp file + `os.replace` + 檔案與目錄都 fsync，`src/looplane/events.py#_atomic_write`）和 resume 時的全量驗證兜底。
 
 fail closed 的邊界畫在副作用上：如果最後一筆 durable 事件是 `tool.started` 或 `verification.started`，自動 resume 直接拒絕——你無法證明那個動作做完還是沒做完（`session.py#claim_and_validate_resume` 尾段的檢查）。pending approval 在 resume 時一律視為「未執行的動作」放棄，讓模型可以重新請求，而不是假設授權仍然有效。resume 還會驗 workspace 的 git HEAD 等於 manifest 記的 base SHA、拒絕 symlink、拒絕 terminal 狀態——寧可不動手，不要猜。
 
-跟五家比起來：pi/codex/claude-code 都是純事件流、resume 靠 replay 重建狀態；rivumi 多養一份 manifest 換到 O(1) hydration，代價是要維護 manifest 與 log 的一致性——而寫入順序加上一格修復就是把這個代價壓到只剩一個可推理的 case。fence/token 這點倒是殊途同歸：pi 的 SQLite fence counter、codex 的 lock file、rivumi 的 flock 加 token，解的是同一個問題。
+跟五家比起來：pi/codex/claude-code 都是純事件流、resume 靠 replay 重建狀態；looplane 多養一份 manifest 換到 O(1) hydration，代價是要維護 manifest 與 log 的一致性——而寫入順序加上一格修復就是把這個代價壓到只剩一個可推理的 case。fence/token 這點倒是殊途同歸：pi 的 SQLite fence counter、codex 的 lock file、looplane 的 flock 加 token，解的是同一個問題。
 
 ## 工程依據
 
-- **原子替換**：temp file 寫完再 `rename` 是 POSIX 保證原子性的置換方式（[rename(2)](https://man7.org/linux/man-pages/man2/rename.2.html)，同一檔案系統內）。pi、omp、rivumi 的 atomic write 都是這個模式。
-- **fsync 不能省**：rename 原子性不含 durability，斷電後順序可能不如預期。[LWN 對 ext4 資料遺失事件的整理](https://lwn.net/Articles/457667/)講得很清楚：要讓資料在斷電後存在，必須明確 fsync 檔案（必要時連目錄）。rivumi 的 `_atomic_write` 連目錄 fsync 都做了。
-- **WAL 的啟示**：SQLite 用 append-only 的 write-ahead log 加 checkpoint 達到崩潰安全，正是「事件流為真相、snapshot 為加速」的工業級版本（[SQLite Atomic Commit](https://www.sqlite.org/atomiccommit.html)、[WAL 文件](https://www.sqlite.org/wal.html)）。rivumi 的 manifest/checkpoint 加 JSONL 就是同一招的小型重演。
+- **原子替換**：temp file 寫完再 `rename` 是 POSIX 保證原子性的置換方式（[rename(2)](https://man7.org/linux/man-pages/man2/rename.2.html)，同一檔案系統內）。pi、omp、looplane 的 atomic write 都是這個模式。
+- **fsync 不能省**：rename 原子性不含 durability，斷電後順序可能不如預期。[LWN 對 ext4 資料遺失事件的整理](https://lwn.net/Articles/457667/)講得很清楚：要讓資料在斷電後存在，必須明確 fsync 檔案（必要時連目錄）。looplane 的 `_atomic_write` 連目錄 fsync 都做了。
+- **WAL 的啟示**：SQLite 用 append-only 的 write-ahead log 加 checkpoint 達到崩潰安全，正是「事件流為真相、snapshot 為加速」的工業級版本（[SQLite Atomic Commit](https://www.sqlite.org/atomiccommit.html)、[WAL 文件](https://www.sqlite.org/wal.html)）。looplane 的 manifest/checkpoint 加 JSONL 就是同一招的小型重演。
 - **Fencing token**：單調遞增的租約編號防止失效的舊寫者回頭亂寫，出自分散式系統租約的標準做法（Kleppmann 在 [How to do distributed locking](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html) 有完整論證）。pi 的 fence column 是教科書實作。
 - 學術側，agent 的可恢復性少有專門論文，但 [ReAct](https://arxiv.org/abs/2210.03629) 式的 loop 每一步都有外部副作用，正是「exactly-once 無法免費拿到、只能 fail closed」的根本原因。
 
 ## 改善路線
 
-rivumi 目前缺的，照重要性排：
+looplane 目前缺的，照重要性排：
 
 1. **Torn tail 修復**。現在 `events.jsonl` 最後一行若因 crash 寫到一半，resume 會解析失敗然後 fail closed——安全但不方便。pi 的做法（判定最後一行語法錯誤即為 torn tail，原子化截斷）可以直接抄，前提是 append 都是單行小 payload。
-2. **寫入重試**。codex 的 pending queue 加 reopen-and-retry 讓暫時性 I/O 錯誤不丟事件；rivumi 目前寫入失敗會直接讓 run 失敗。把 EventWriter 包一層 retry buffer 是低成本高回報的升級。
-3. **Manifest 心跳與 stale 偵測**。rivumi 已經記 `writer_heartbeat_at` 但沒有消費它；codex 的 stale lock 清掃和 pi 的租約過期都是現成的設計參考。加上去之後，殺掉殘留 writer 不需要人為判斷。
+2. **寫入重試**。codex 的 pending queue 加 reopen-and-retry 讓暫時性 I/O 錯誤不丟事件；looplane 目前寫入失敗會直接讓 run 失敗。把 EventWriter 包一層 retry buffer 是低成本高回報的升級。
+3. **Manifest 心跳與 stale 偵測**。looplane 已經記 `writer_heartbeat_at` 但沒有消費它；codex 的 stale lock 清掃和 pi 的租約過期都是現成的設計參考。加上去之後，殺掉殘留 writer 不需要人為判斷。
 4. **Reverse scan**。事件流變長之後，resume 全量 replay 會變慢；codex 的 `ReverseJsonlScanner` 提示了一條路：配合定期 checkpoint，只需從尾部掃到最後一個 checkpoint。
 
 ## 參考資料

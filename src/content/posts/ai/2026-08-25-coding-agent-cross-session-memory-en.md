@@ -6,22 +6,22 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 27
-tags: [coding-agent, agent-memory, rivumi, claude-code, oh-my-pi]
+tags: [coding-agent, agent-memory, looplane, claude-code, oh-my-pi]
 lang: en
-tldr: "omp and claude-code provide cross-session memory while the other references mostly rely on instruction files. rivumi now has an explicit remember/list/inject baseline: typed JSONL memories enter prompts across sessions, but retrieval is scope-and-recency only, with no semantic ranking, deduplication, forget command, or automatic extraction."
-description: "Comparing cross-session memory in mature coding agents, then documenting Rivumi's fixed-commit typed JSONL store, scope filtering, and prompt-injection baseline."
+tldr: "omp and claude-code provide cross-session memory while the other references mostly rely on instruction files. looplane now has an explicit remember/list/inject baseline: typed JSONL memories enter prompts across sessions, but retrieval is scope-and-recency only, with no semantic ranking, deduplication, forget command, or automatic extraction."
+description: "Comparing cross-session memory in mature coding agents, then documenting Looplane's fixed-commit typed JSONL store, scope filtering, and prompt-injection baseline."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-cross-session-memory)
 
-Evidence base: **omp** (can1357/oh-my-pi), **claude-code** (community decompiled v2.1.88 — symbol names may differ from the official build), **pi** (badlogic/pi-mono), **opencode** (sst/opencode), **codex** (openai/codex Rust workspace), compared against my own **rivumi**. All citations were read in local clones.
+Evidence base: **omp** (can1357/oh-my-pi), **claude-code** (community decompiled v2.1.88 — symbol names may differ from the official build), **pi** (badlogic/pi-mono), **opencode** (sst/opencode), **codex** (openai/codex Rust workspace), compared against my own **looplane**. All citations were read in local clones.
 
 ## The capability problem: starting from zero every day
 
 I work on the same machine and the same handful of projects, yet every new agent session starts blind: it doesn't know my commit conventions, doesn't remember last week's D1 batch timeout fix, and needs the project norms explained again. However long the in-session context is, it dies when the process exits.
 
-This article originally documented a blank. Rivumi has since moved one boundary forward: `memory.py` provides typed JSONL memory, TUI `/remember` explicitly writes user/project preferences or project facts, and the native loop injects relevant entries into the system prompt's Known context. It can now carry user-stated information across sessions, but it is not the semantic memory system shown by the mature references: there is still no embedding index, ranking/decay, deduplication, edit/delete, or automatic extraction. The comparison below therefore asks what comes after an explicit baseline rather than how to start from zero.
+This article originally documented a blank. Looplane has since moved one boundary forward: `memory.py` provides typed JSONL memory, TUI `/remember` explicitly writes user/project preferences or project facts, and the native loop injects relevant entries into the system prompt's Known context. It can now carry user-stated information across sessions, but it is not the semantic memory system shown by the mature references: there is still no embedding index, ranking/decay, deduplication, edit/delete, or automatic extraction. The comparison below therefore asks what comes after an explicit baseline rather than how to start from zero.
 
 ## omp: mnemopi, a complete memory engine
 
@@ -61,20 +61,20 @@ Honest boundary discussion: these are **manual memory** — a human decides what
 
 The best-known starting point is [Generative Agents](https://arxiv.org/abs/2304.03442) (Park et al., 2023): twenty-five simulated townsfolk share a memory stream where retrieval scores recency × importance × relevance, and an LLM reflects higher-level conclusions out of raw records. omp's importance/veracity fields and claude-code's periodic extraction are both engineering variants of that architecture. [MemGPT](https://arxiv.org/abs/2310.08560) argues the other side: instead of bolting on a vector store, give the agent an explicit tiered memory interface (main context / external storage) it accesses through calls — which is precisely omp's `retain`/`recall` tools.
 
-## The baseline rivumi has now implemented
+## The baseline looplane has now implemented
 
-As of `2ed5efb`, rivumi has more than resumable conversation history. `memory.py` defines typed `MemoryEntry` records persisted to an append-only JSONL user-memory file, with `RIVUMI_MEMORY_PATH` available as an override. The CLI remember path requires an explicit memory type and scope, so the agent does not silently guess which details deserve permanent storage.
+As of `2ed5efb`, looplane has more than resumable conversation history. `memory.py` defines typed `MemoryEntry` records persisted to an append-only JSONL user-memory file, with `LOOPLANE_MEMORY_PATH` available as an override. The CLI remember path requires an explicit memory type and scope, so the agent does not silently guess which details deserve permanent storage.
 
 For a new run, `relevant_memory_entries()` filters by scope and selects recent records; `render_known_context()` turns them into a bounded known-context prompt section. The boundary is deliberate: writes are user-directed, the file is inspectable, injection is predictable, and the mechanism does not depend on an external backend's private session store.
 
 ## What remains open
 
-“Relevant” currently means scope and recency, not semantic similarity. There is no embedding, relevance ranking, decay, near-duplicate handling, or `/memory forget` editing/deletion flow, and no bounded-task-end auto-extraction. Rivumi now has a safe minimal cross-session memory loop, but not mnemopi-style working/episodic consolidation or claude-code-style feedback-derived recall.
+“Relevant” currently means scope and recency, not semantic similarity. There is no embedding, relevance ranking, decay, near-duplicate handling, or `/memory forget` editing/deletion flow, and no bounded-task-end auto-extraction. Looplane now has a safe minimal cross-session memory loop, but not mnemopi-style working/episodic consolidation or claude-code-style feedback-derived recall.
 
 ## References
 
-- [Rivumi typed memory store and scoped retrieval (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/memory.py)
-- [Rivumi memory tests (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_memory.py)
+- [Looplane typed memory store and scoped retrieval (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/memory.py)
+- [Looplane memory tests (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_memory.py)
 
 - [can1357/oh-my-pi — packages/mnemopi](https://github.com/can1357/oh-my-pi/tree/main/packages/mnemopi) — full source of the SQLite memory engine
 - [anthropics/claude-code](https://github.com/anthropics/claude-code) — official repo; memdir/SessionMemory citations come from community-decompiled v2.1.88

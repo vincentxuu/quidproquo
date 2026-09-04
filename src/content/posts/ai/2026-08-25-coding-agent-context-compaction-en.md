@@ -6,16 +6,16 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 26
-tags: [coding-agent, compaction, context-window, rivumi, claude-code, codex]
+tags: [coding-agent, compaction, context-window, looplane, claude-code, codex]
 lang: en
-tldr: "Mature-agent compaction must handle triggers, complete-turn cut points, and recovery. rivumi now has an 85% high-watermark, automatic compaction, a deterministic native-loop fallback summary, persisted checkpoints, and workspace-context reinjection. Cross-runtime fallback, model-quality summaries, and live-provider long-session validation remain open."
-description: "Comparing compaction across five coding agents, then documenting Rivumi's fixed-commit baseline for automatic triggers, fallback summaries, checkpoints, and context reinjection."
+tldr: "Mature-agent compaction must handle triggers, complete-turn cut points, and recovery. looplane now has an 85% high-watermark, automatic compaction, a deterministic native-loop fallback summary, persisted checkpoints, and workspace-context reinjection. Cross-runtime fallback, model-quality summaries, and live-provider long-session validation remain open."
+description: "Comparing compaction across five coding agents, then documenting Looplane's fixed-commit baseline for automatic triggers, fallback summaries, checkpoints, and context reinjection."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-context-compaction)
 
-Part two begins with capabilities mature agents need, then tracks how far rivumi has implemented them. First up, the most critical one — context management.
+Part two begins with capabilities mature agents need, then tracks how far looplane has implemented them. First up, the most critical one — context management.
 
 Scope note: pi (badlogic/pi-mono), omp (can1357/oh-my-pi), opencode (sst/opencode), codex (openai/codex Rust workspace), and claude-code (community decompiled v2.1.88; symbol names may differ from the original). Every citation was actually grepped in local clones.
 
@@ -60,9 +60,9 @@ On the Rust side the whole thing is a family of dedicated modules: `codex-rs/cor
 
 Why do summaries work rather than just lose information? Because long contexts already degrade. [Liu et al.'s "Lost in the Middle"](https://arxiv.org/abs/2307.03172) measured markedly worse recall for information in the middle of the context — more input does not mean more memory. [Chroma's context rot research](https://research.trychroma.com/context-rot) shows performance broadly declining as context length grows. [MemGPT](https://arxiv.org/abs/2310.08560) ports OS paging concepts into LLMs: hot data in the main context, cold data in external storage, page swaps via interrupts — compaction can be seen as an engineering-simplified version of its paging strategy. Anthropic's own [context engineering article](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) also lists compaction as core technique for long-task agents.
 
-## The baseline rivumi has now implemented
+## The baseline looplane has now implemented
 
-As of `2ed5efb`, this section's original claim that rivumi had no compaction is obsolete. `runtime_semantics.py` now provides a pure high-watermark policy: an eligible long-lived runtime auto-compacts at 85% of a known context window, and a failed context must fall to 70% before the trigger rearms. The TUI invokes it after a completed turn and before a queued follow-up; manual `/compact` and automatic compaction share the same lifecycle-event reducer.
+As of `2ed5efb`, this section's original claim that looplane had no compaction is obsolete. `runtime_semantics.py` now provides a pure high-watermark policy: an eligible long-lived runtime auto-compacts at 85% of a known context window, and a failed context must fall to 70% before the trigger rearms. The TUI invokes it after a completed turn and before a queued follow-up; manual `/compact` and automatic compaction share the same lifecycle-event reducer.
 
 The native `AgentRunner` does not rely entirely on provider APIs. Under task-token pressure, `loop.py` preserves the system/task seed and recent tail, replacing an older complete-message span with a versioned, bounded deterministic summary from `prompts.py`. It is a reproducible lossy fallback, not an LLM-authored semantic summary. The path runs `pre_compact` and `post_compact` hooks, then reinjects changed files, verification state, recent important paths, and active constraints so the agent does not forget the workspace after compression.
 
@@ -74,8 +74,8 @@ The native fallback is mechanical: cheap and testable, but semantically weaker t
 
 ## References
 
-- [Rivumi compaction policy and checkpoints (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime_semantics.py)
-- [Rivumi native fallback and reinjection (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/loop.py)
+- [Looplane compaction policy and checkpoints (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/runtime_semantics.py)
+- [Looplane native fallback and reinjection (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/loop.py)
 
 - ["Lost in the Middle" (Liu et al., 2023)](https://arxiv.org/abs/2307.03172)
 - [Context Rot (Chroma Research)](https://research.trychroma.com/context-rot)

@@ -8,8 +8,8 @@ series:
   order: 22
 tags: [coding-agent, harness-engineering, llm-api, api-gateway, openai-compatible, llm-agents]
 lang: zh-TW
-description: "拆解 pi、OMP、OpenCode、Codex、Claude Code 五家如何處理 OpenAI 相容端點問題——native 多方言、protocol translator、受控 egress proxy 三種形態——並對照 rivumi 純 ASGI gateway 的翻譯邊界與 event loop 生命週期細節。"
-tldr: "生態系都把 /v1/chat/completions 當共通語，但你手上的 provider 不一定講這個方言。五家的答案分三派：pi 和 OpenCode 讓 client 本身講多種方言所以不做 gateway；OMP 做了真正的 protocol translator（foreign wire → 中立 context → provider adapter，禁止 raw passthrough）；Codex 和 Claude Code 的 proxy 不翻譯，只負責強制流量管控。rivumi 抄 OMP 的邊界但收斂成一進一出：只收 OpenAI Chat，嚴格解析成 canonical contract，後面接任何 ModelProvider——順便踩掉一個 cross-event-loop client close bug，教訓是 provider 的生命週期必須交給 ASGI lifespan。"
+description: "拆解 pi、OMP、OpenCode、Codex、Claude Code 五家如何處理 OpenAI 相容端點問題——native 多方言、protocol translator、受控 egress proxy 三種形態——並對照 looplane 純 ASGI gateway 的翻譯邊界與 event loop 生命週期細節。"
+tldr: "生態系都把 /v1/chat/completions 當共通語，但你手上的 provider 不一定講這個方言。五家的答案分三派：pi 和 OpenCode 讓 client 本身講多種方言所以不做 gateway；OMP 做了真正的 protocol translator（foreign wire → 中立 context → provider adapter，禁止 raw passthrough）；Codex 和 Claude Code 的 proxy 不翻譯，只負責強制流量管控。looplane 抄 OMP 的邊界但收斂成一進一出：只收 OpenAI Chat，嚴格解析成 canonical contract，後面接任何 ModelProvider——順便踩掉一個 cross-event-loop client close bug，教訓是 provider 的生命週期必須交給 ASGI lifespan。"
 draft: false
 ---
 
@@ -47,19 +47,19 @@ Claude Code 的 `src/upstreamproxy` 又不一樣：它是容器端的出口管�
 
 三種形態整理：**native 多方言**（pi、OpenCode——不做）、**protocol translator**（OMP）、**受控 egress**（Codex、Claude Code）。前者的成本在 client 端維護所有方言，後兩者的成本在多跑一個本地服務。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi 需要的是第一種場景：讓只講 OpenAI 方言的工具打到 canonical `ModelProvider` 後面的任何 provider。所以抄的是 OMP 的邊界，但收斂得更狠。
+looplane 需要的是第一種場景：讓只講 OpenAI 方言的工具打到 canonical `ModelProvider` 後面的任何 provider。所以抄的是 OMP 的邊界，但收斂得更狠。
 
-`rivumi/src/rivumi/gateway.py#ModelGateway` 是純 ASGI translator，模組 docstring 開宗明義：翻譯外來 wire 成 `ConversationItem` 再叫 provider，「不是任意 HTTP passthrough，因此不能用來指定上游 URL」。和 OMP 三進三出不同，rivumi 一進一出：只收 OpenAI Chat Completions，吐回 OpenAI Chat 格式；`/healthz` 和 `/v1/models` 是唯二的輔助端點，`stream=true` 直接拒絕（`gateway.py#_parse_chat_request`）。
+`looplane/src/looplane/gateway.py#ModelGateway` 是純 ASGI translator，模組 docstring 開宗明義：翻譯外來 wire 成 `ConversationItem` 再叫 provider，「不是任意 HTTP passthrough，因此不能用來指定上游 URL」。和 OMP 三進三出不同，looplane 一進一出：只收 OpenAI Chat Completions，吐回 OpenAI Chat 格式；`/healthz` 和 `/v1/models` 是唯二的輔助端點，`stream=true` 直接拒絕（`gateway.py#_parse_chat_request`）。
 
-嚴格度上比 OMP 的 schema 解析更囉嗦：tool message 必須引用先前出現過的 `tool_call_id` 且 ID 全域唯一（`gateway.py#_parse_messages`），tool call 的 `arguments` 必須是合法 JSON object 不是字串（`gateway.py#_parse_tool_calls`）。model 固定為建構時那一顆，其他 model id 一律 404——這不是彈性缺口，是把 gateway 釘死在單一 configured provider 上。安全細節包括 1 MiB 請求上限（`gateway.py#_read_json`）、`hmac.compare_digest` 的 bearer 檢查（`gateway.py#_authorize`），以及一條刻意的規則：未預期的例外一律回籠統的 502，因為 SDK 例外字串可能含 request header 或憑證。loopback-only binding 則在 CLI 層強制（`rivumi/src/rivumi/cli.py#serve_gateway`）。
+嚴格度上比 OMP 的 schema 解析更囉嗦：tool message 必須引用先前出現過的 `tool_call_id` 且 ID 全域唯一（`gateway.py#_parse_messages`），tool call 的 `arguments` 必須是合法 JSON object 不是字串（`gateway.py#_parse_tool_calls`）。model 固定為建構時那一顆，其他 model id 一律 404——這不是彈性缺口，是把 gateway 釘死在單一 configured provider 上。安全細節包括 1 MiB 請求上限（`gateway.py#_read_json`）、`hmac.compare_digest` 的 bearer 檢查（`gateway.py#_authorize`），以及一條刻意的規則：未預期的例外一律回籠統的 502，因為 SDK 例外字串可能含 request header 或憑證。loopback-only binding 則在 CLI 層強制（`looplane/src/looplane/cli.py#serve_gateway`）。
 
 M2 實測留下一個值得寫下來的教訓：第一次 Ctrl-C shutdown 時，httpx client 在錯的 event loop 上被 close，直接炸掉。修法是把 provider 的生命週期整個交給 ASGI lifespan——`gateway.py#_lifespan` 收到 `lifespan.shutdown` 才呼叫 `provider.aclose()`，並以 `uvicorn.run(gateway, ..., lifespan="on")` 啟用（`cli.py#serve_gateway`）。第二次 shutdown 乾淨退出，同一輪實測拿到 health、model catalog 和 `GATEWAY_OK`。教訓很簡單：async client 的生死要跟著擁有它的 event loop 走，不要跟著 signal handler 走。
 
 ## 工程依據
 
-OpenAI Chat Completions 成為事實標準有官方背書：[Ollama 的 OpenAI compatibility 文件](https://github.com/ollama/ollama/blob/main/docs/openai.md)說明它如何伺服 `/v1/chat/completions`，[vLLM 也內建 OpenAI-compatible server](https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html)。[OpenAI 官方 API reference](https://platform.openai.com/docs/api-reference/chat) 就是這個方言的規範源頭。但「相容」從不等於「同義」——tool call 的 `arguments` 是 JSON 字串還是物件、`finish_reason` 的取值集合、usage 欄位語意，各實作都有出入，這正是 LiteLLM 用一整個 [translation layer](https://docs.litellm.ai/) 換來的東西。OMP 的「no raw passthrough」決策和 rivumi 的嚴格解析都是同一個判斷：**翻譯邊界就是驗證邊界**，放過去的每一個欄位都以後都要還。至於 Codex 和 Claude Code 則展示了 proxy 的另一半價值：能看見所有流量，才能執行政策。
+OpenAI Chat Completions 成為事實標準有官方背書：[Ollama 的 OpenAI compatibility 文件](https://github.com/ollama/ollama/blob/main/docs/openai.md)說明它如何伺服 `/v1/chat/completions`，[vLLM 也內建 OpenAI-compatible server](https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html)。[OpenAI 官方 API reference](https://platform.openai.com/docs/api-reference/chat) 就是這個方言的規範源頭。但「相容」從不等於「同義」——tool call 的 `arguments` 是 JSON 字串還是物件、`finish_reason` 的取值集合、usage 欄位語意，各實作都有出入，這正是 LiteLLM 用一整個 [translation layer](https://docs.litellm.ai/) 換來的東西。OMP 的「no raw passthrough」決策和 looplane 的嚴格解析都是同一個判斷：**翻譯邊界就是驗證邊界**，放過去的每一個欄位都以後都要還。至於 Codex 和 Claude Code 則展示了 proxy 的另一半價值：能看見所有流量，才能執行政策。
 
 ## 改善路線
 

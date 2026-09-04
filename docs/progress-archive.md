@@ -2,6 +2,14 @@
 
 `progress.txt` 是 working memory，不是日誌：完成、過期或不再需要每個 session 都看到的條目移到這裡（最新的段落放最上面）。協定見 `docs/governance/operating-charter.md`。
 
+## 2026-09-04 歸檔
+
+- **Rivumi → Looplane 全站改名**：38 個檔案改名（19 組中英文 slug rivumi→looplane）、82 個檔案內容修改（series.ts、content plan、76 篇 coding-agent 系列交叉引用、2 篇日報、progress.txt），零殘留。
+- **13 項「待 review」內容盤點確認全數已發布**：Cloudflare Edge/AI Stack（73 檔）、統計學（106 檔）、Stanford CS124/224N/224V/224W/229/336、Claude Code 深入介紹（87 檔）、AI 模型家族 3 篇、Agent 記憶服務 4 篇、Agent 框架 5 組、雲端 LLM API 7 組、私有語料管線 4 篇、非 Stanford 名校課程 73 組、CMU 07-280 29 篇——全數 `draft: false` 已 commit。
+- AI 日報區域動態修復（2026-08-30）完成，scoped commit/push 已完成。
+- 發佈狀態盤點＋內容審讀（2026-08-25）完成。
+- 導讀教訓：durable execution 軸線修正見 2d9a562；稽核計數一律用字界比對，跑前確認路徑存在。
+
 ## 2026-08-30 歸檔
 
 - 完成未來文章日期校正：將 58 篇已發布、日期原落在 2026-09-03 至 2027-01-21 的 CS50 AI／MIT 6.7960 中英文文章 frontmatter `date` 統一改為 `2026-08-30`；保留原檔名、slug 與內文。逐檔 diff 複核為單行替換，重新掃描無未來日期，`pnpm verify` 全綠。

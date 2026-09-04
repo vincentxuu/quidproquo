@@ -6,22 +6,22 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 27
-tags: [coding-agent, agent-memory, rivumi, claude-code, oh-my-pi]
+tags: [coding-agent, agent-memory, looplane, claude-code, oh-my-pi]
 lang: zh-TW
-tldr: "omp 與 claude-code 都有跨 session 記憶，其他參考專案主要靠 instruction files。rivumi 已落地明確的 remember/list/inject baseline：型別化 JSONL 記憶可跨 session 注入 prompt，但目前只按 scope 與近期排序，還沒有語意檢索、去重、遺忘指令或自動萃取。"
-description: "比較成熟 coding agent 的跨 session 記憶，並說明 Rivumi 固定 commit 中型別化 JSONL 儲存、scope 過濾與 prompt 注入 baseline。"
+tldr: "omp 與 claude-code 都有跨 session 記憶，其他參考專案主要靠 instruction files。looplane 已落地明確的 remember/list/inject baseline：型別化 JSONL 記憶可跨 session 注入 prompt，但目前只按 scope 與近期排序，還沒有語意檢索、去重、遺忘指令或自動萃取。"
+description: "比較成熟 coding agent 的跨 session 記憶，並說明 Looplane 固定 commit 中型別化 JSONL 儲存、scope 過濾與 prompt 注入 baseline。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-cross-session-memory-en)
 
-本篇取證範圍：**omp**（can1357/oh-my-pi）、**claude-code**（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入）、**pi**（badlogic/pi-mono）、**opencode**（sst/opencode）、**codex**（openai/codex Rust workspace），對照我自己的 **rivumi**。所有引用都在本地 clone 實際讀過。
+本篇取證範圍：**omp**（can1357/oh-my-pi）、**claude-code**（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入）、**pi**（badlogic/pi-mono）、**opencode**（sst/opencode）、**codex**（openai/codex Rust workspace），對照我自己的 **looplane**。所有引用都在本地 clone 實際讀過。
 
 ## 能力問題：每次開工都從零開始
 
 我固定用同一台機器、同一批專案工作，但每次開一個新的 agent session，它都不認得我：不知道我偏好的 commit 格式、不記得上週那個 D1 batch timeout 的解法、還要重新解釋一次專案慣例。session 內的 context 再長，關掉就沒了。
 
-這篇原本記錄的是 Rivumi 的空白，現在邊界已往前推一格：`memory.py` 提供 typed JSONL memory，TUI 的 `/remember` 可以明確寫入 user/project preference 或 project fact，native loop 會把相關項目放進 system prompt 的 Known context。它已能跨 session 記住使用者主動交代的事，但還不是五家成熟方案那種語意記憶：沒有 embedding、向量索引、ranking/decay、dedupe、edit/delete 或自動擷取。所以下面比較的重點從「怎麼從零開始」改成「explicit baseline 下一步缺什麼」。
+這篇原本記錄的是 Looplane 的空白，現在邊界已往前推一格：`memory.py` 提供 typed JSONL memory，TUI 的 `/remember` 可以明確寫入 user/project preference 或 project fact，native loop 會把相關項目放進 system prompt 的 Known context。它已能跨 session 記住使用者主動交代的事，但還不是五家成熟方案那種語意記憶：沒有 embedding、向量索引、ranking/decay、dedupe、edit/delete 或自動擷取。所以下面比較的重點從「怎麼從零開始」改成「explicit baseline 下一步缺什麼」。
 
 ## omp：mnemopi，一個完整的記憶引擎
 
@@ -61,20 +61,20 @@ pi、opencode、codex 都沒有自動記憶層，但有近親：專案說明檔�
 
 這條路線最有名的出發點是 [Generative Agents](https://arxiv.org/abs/2304.03442)（Park et al., 2023）：25 個虛擬小鎮居民共用一條 memory stream，召回時用 recency × importance × relevance 三因子打分，再用 LLM 反思出高階結論。omp 的 importance/veracity 欄位和 claude-code 的定期萃取，都是這套架構的工程化變體。[MemGPT](https://arxiv.org/abs/2310.08560) 則論證了另一面：與其塞向量庫，不如給 agent 明確的分層記憶介面（main context / external storage），讓它自己呼叫存取——omp 把記憶做成 `retain`/`recall` 工具正是這個思路。
 
-## rivumi 已落地的 baseline
+## looplane 已落地的 baseline
 
-截至 `2ed5efb`，rivumi 不再只有可 resume 的 conversation history。`memory.py` 定義 typed `MemoryEntry`，以 append-only JSONL 寫進使用者層 memory file；`RIVUMI_MEMORY_PATH` 可覆寫位置。CLI 的 `remember` 入口要求明確指定記憶類型與 scope，避免 agent 在背景自行猜哪些資訊值得永久保存。
+截至 `2ed5efb`，looplane 不再只有可 resume 的 conversation history。`memory.py` 定義 typed `MemoryEntry`，以 append-only JSONL 寫進使用者層 memory file；`LOOPLANE_MEMORY_PATH` 可覆寫位置。CLI 的 `remember` 入口要求明確指定記憶類型與 scope，避免 agent 在背景自行猜哪些資訊值得永久保存。
 
 新 run 會透過 `relevant_memory_entries()` 先按 scope 過濾，再取近期項目，最後由 `render_known_context()` 產生有長度上限的 known-context 區塊進入 prompt。這個 baseline 的邊界很刻意：使用者明確寫入、檔案格式可檢查、注入內容可預測，也不依賴某個 external backend 自己的 session store。
 
 ## 還沒完成的部分
 
-目前的 relevant 只代表 scope 與 recency，不是語意相似度。它沒有 embedding、relevance ranking、decay、相似項去重，也沒有 `/memory forget` 這類可編輯／刪除介面；更不會在 bounded task 結束後自動萃取。rivumi 已有跨 session 記憶的安全最小閉環，但離 mnemopi 的 working/episodic consolidation 或 claude-code 的 feedback-derived recall 還有一段距離。
+目前的 relevant 只代表 scope 與 recency，不是語意相似度。它沒有 embedding、relevance ranking、decay、相似項去重，也沒有 `/memory forget` 這類可編輯／刪除介面；更不會在 bounded task 結束後自動萃取。looplane 已有跨 session 記憶的安全最小閉環，但離 mnemopi 的 working/episodic consolidation 或 claude-code 的 feedback-derived recall 還有一段距離。
 
 ## 參考資料
 
-- [Rivumi typed memory store 與 scope retrieval（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/memory.py)
-- [Rivumi memory tests（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_memory.py)
+- [Looplane typed memory store 與 scope retrieval（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/memory.py)
+- [Looplane memory tests（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_memory.py)
 
 - [can1357/oh-my-pi — packages/mnemopi](https://github.com/can1357/oh-my-pi/tree/main/packages/mnemopi) — SQLite 記憶引擎完整原始碼
 - [anthropics/claude-code](https://github.com/anthropics/claude-code) — 官方 repo；本文 memdir／SessionMemory 引用來自社群反編譯 v2.1.88

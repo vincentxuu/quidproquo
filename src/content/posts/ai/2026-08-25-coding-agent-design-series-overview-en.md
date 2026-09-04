@@ -6,18 +6,18 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 1
-tags: [coding-agent, agent-loop, harness-engineering, rivumi, open-source]
+tags: [coding-agent, agent-loop, harness-engineering, looplane, open-source]
 lang: en
-tldr: "I'm building my own Python coding agent called rivumi. This series dissects the source code of five mature projects — pi, oh-my-pi, opencode, codex, and claude-code — topic by topic, while also comparing them with Rivumi's current TUI, external CLI runtimes, local gateway, usage/OTel/session tooling, and Cloudflare slice. Every post follows a fixed five-part structure: design problem → how five projects do it → rivumi's choice → academic grounding → improvement roadmap, with evidence cited at file#symbol level."
-description: "Overview of the coding agent design series: why I'm building rivumi, what each of the five reference projects (pi, oh-my-pi, opencode, codex, claude-code) actually is, and how to read the 38-post two-part series and its evidence standard."
+tldr: "I'm building my own Python coding agent called looplane. This series dissects the source code of five mature projects — pi, oh-my-pi, opencode, codex, and claude-code — topic by topic, while also comparing them with Looplane's current TUI, external CLI runtimes, local gateway, usage/OTel/session tooling, and Cloudflare slice. Every post follows a fixed five-part structure: design problem → how five projects do it → looplane's choice → academic grounding → improvement roadmap, with evidence cited at file#symbol level."
+description: "Overview of the coding agent design series: why I'm building looplane, what each of the five reference projects (pi, oh-my-pi, opencode, codex, claude-code) actually is, and how to read the 38-post two-part series and its evidence standard."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-design-series-overview)
 
-For the past six months I've been writing my own coding agent called **rivumi**. I got stuck far more often than expected: how should the agent loop terminate, how fine-grained should approvals be, how do you resume a session after a crash, how do you stop a small model from emitting garbage diffs? Every time I designed something from scratch, two weeks later I'd discover some open-source project had already stepped on the same landmine.
+For the past six months I've been writing my own coding agent called **looplane**. I got stuck far more often than expected: how should the agent loop terminate, how fine-grained should approvals be, how do you resume a session after a crash, how do you stop a small model from emitting garbage diffs? Every time I designed something from scratch, two weeks later I'd discover some open-source project had already stepped on the same landmine.
 
-So I inverted the process: read five mature codebases first, then decide how rivumi does it. The findings piled up faster than I could use them, so they became a series. This post is the overview — three things it needs to answer: what problem rivumi solves, who the five reference projects are, and how to read this series.
+So I inverted the process: read five mature codebases first, then decide how looplane does it. The findings piled up faster than I could use them, so they became a series. This post is the overview — three things it needs to answer: what problem looplane solves, who the five reference projects are, and how to read this series.
 
 ## Why write your own coding agent
 
@@ -25,14 +25,14 @@ There are already plenty of coding CLIs on the market. There is only one reason 
 
 What I want is a **Python-first** agent that works as an interactive daily CLI, and switches to a bounded, auditable headless mode for CI and, eventually, Cloudflare execution. It sounds simple, but that sentence hides a pile of design decisions — how tightly should the workspace be isolated, who signs off before a patch lands, does a failed verification count as failure, and how much code changes when you swap model APIs.
 
-rivumi deliberately splits into two parallel runtime paths:
+looplane deliberately splits into two parallel runtime paths:
 
 1. **The native harness**: we own the loop, approvals, sessions, tools, verification gate, and model API adapters.
-2. **External CLI runtimes**: explicitly selected external coding CLIs (Claude Code, Codex CLI, OpenCode, Pi, and OMP) act as backends. They run their own loops but share rivumi's conversation UI, workspace safety, patch audit, and verification boundary.
+2. **External CLI runtimes**: explicitly selected external coding CLIs (Claude Code, Codex CLI, OpenCode, Pi, and OMP) act as backends. They run their own loops but share looplane's conversation UI, workspace safety, patch audit, and verification boundary.
 
 The key discipline: one path is never disguised as the other. An external CLI is an external CLI; we never pretend it's our native implementation. That discipline itself is something I learned only after reading other people's source code.
 
-Rivumi is no longer just the early Python harness. Beyond its provider-neutral `ModelProvider` contract, state-first event journal, `rivumi resume`, runtime-first TUI, local model gateway, and bounded Worker plus Cloudflare Sandbox slice, the native loop now has allowlisted MCP, explicit JSONL memory, automatic context-pressure compaction, model fallback, static-table cost estimates, ripgrep-backed search, and bounded tool programs. These are runnable, tested baselines. They do not prove cross-runtime parity, complete provider pricing, hostile-code production hardening, or behavior under real production traffic.
+Looplane is no longer just the early Python harness. Beyond its provider-neutral `ModelProvider` contract, state-first event journal, `looplane resume`, runtime-first TUI, local model gateway, and bounded Worker plus Cloudflare Sandbox slice, the native loop now has allowlisted MCP, explicit JSONL memory, automatic context-pressure compaction, model fallback, static-table cost estimates, ripgrep-backed search, and bounded tool programs. These are runnable, tested baselines. They do not prove cross-runtime parity, complete provider pricing, hostile-code production hardening, or behavior under real production traffic.
 
 ## Who the five reference projects are
 
@@ -40,7 +40,7 @@ All five exist as shallow clones on my machine. The descriptions below were writ
 
 ### pi (badlogic/pi-mono)
 
-A TypeScript monorepo that takes a minimalist approach. `packages/` splits into `agent` (the loop), `ai` (the provider layer), `coding-agent`, `tui`, `protocol`, `server`, `session-backends`, `telemetry`, and `evals`. Its value is its smallness: the entire loop is one exported function at `pi-mono/packages/agent/src/agent-loop.ts#agentLoop` — the perfect textbook for reading a "minimum viable agent". rivumi's provider table derives from the definitions in `packages/ai`.
+A TypeScript monorepo that takes a minimalist approach. `packages/` splits into `agent` (the loop), `ai` (the provider layer), `coding-agent`, `tui`, `protocol`, `server`, `session-backends`, `telemetry`, and `evals`. Its value is its smallness: the entire loop is one exported function at `pi-mono/packages/agent/src/agent-loop.ts#agentLoop` — the perfect textbook for reading a "minimum viable agent". looplane's provider table derives from the definitions in `packages/ai`.
 
 ### omp (can1357/oh-my-pi)
 
@@ -62,15 +62,15 @@ Honesty first: the official anthropics/claude-code repo only ships minified bund
 
 Two parts, 38 posts total, all bilingual (Chinese and English).
 
-**Part 1, "Implemented comparisons" (24 posts)**: topics rivumi has already shipped — the shape of the agent loop, workspace isolation, approval grading, verification gates, the ModelProvider abstraction, retry policies, subscription OAuth, external CLIs as backends, edit-tool trade-offs, sandboxing and remote execution, CLI ergonomics, and more. Each post is a head-to-head comparison of "how five projects do it vs how I did it", including where I got it wrong.
+**Part 1, "Implemented comparisons" (24 posts)**: topics looplane has already shipped — the shape of the agent loop, workspace isolation, approval grading, verification gates, the ModelProvider abstraction, retry policies, subscription OAuth, external CLIs as backends, edit-tool trade-offs, sandboxing and remote execution, CLI ergonomics, and more. Each post is a head-to-head comparison of "how five projects do it vs how I did it", including where I got it wrong.
 
-**Part 2, "Improvement roadmaps and implementation tracking" (13 posts)**: these posts began as gap analyses, but Rivumi has since shipped baselines for context compaction, explicit memory, native MCP, hooks/skills/plugins, subagents, replay/fork, usage/OTel/cost estimates, static model-role routing, IDE/LSP snapshots, bounded code-mode tool programs, and a Cloudflare control plane. They now record both what landed and what remains. Dangerous-command rule policy, comprehensive egress controls, cross-runtime consistency, and production validation are still not complete.
+**Part 2, "Improvement roadmaps and implementation tracking" (13 posts)**: these posts began as gap analyses, but Looplane has since shipped baselines for context compaction, explicit memory, native MCP, hooks/skills/plugins, subagents, replay/fork, usage/OTel/cost estimates, static model-role routing, IDE/LSP snapshots, bounded code-mode tool programs, and a Cloudflare control plane. They now record both what landed and what remains. Dangerous-command rule policy, comprehensive egress controls, cross-runtime consistency, and production validation are still not complete.
 
 Every post follows the same five-part structure:
 
 1. **The design question**: what is this really asking, and why is it hard.
 2. **How five projects do it**: each reference project's solution, with source-level evidence.
-3. **rivumi's choice**: what I chose and why it differs (or why I copied).
+3. **looplane's choice**: what I chose and why it differs (or why I copied).
 4. **Academic grounding**: what papers and technical reports like ReAct, SWE-agent, or Reflexion say, with inline links on first mention.
 5. **Improvement roadmap**: can it be better? Concrete enough to start building.
 
@@ -78,13 +78,13 @@ Every post follows the same five-part structure:
 
 Every claim in this series requires a **file#symbol citation**, in the form `codex-rs/sandboxing/src/landlock.rs#create_linux_sandbox_command_args_for_permission_profile` — file plus function or type name, never line numbers (clones update; line numbers drift). If I can't find it, I'll say so; fabrication is off-limits. Before writing any Part 2 topic, I'll grep all five codebases to confirm every citation location. And if a project simply doesn't implement something, that's a fact worth recording too.
 
-One aside: this "research first, write second, evidence on disk" workflow is itself the series' methodology — I took the research-note process I use while developing rivumi and repurposed it as a writing process.
+One aside: this "research first, write second, evidence on disk" workflow is itself the series' methodology — I took the research-note process I use while developing looplane and repurposed it as a writing process.
 
 If you're building your own agent, or just want to know what Claude Code and Codex look like under the hood, this series is for you. The first substantive post starts with the agent loop — the foundation of everything else.
 
 ## References
 
-- [Rivumi README at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/README.md) — current capabilities, runtime split, and safety boundary
+- [Looplane README at fixed commit `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/README.md) — current capabilities, runtime split, and safety boundary
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono) — pi source code, TypeScript monorepo
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) — omp source code, a fork of pi
 - [sst/opencode](https://github.com/sst/opencode) — opencode source code

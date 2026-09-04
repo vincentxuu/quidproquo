@@ -8,8 +8,8 @@ series:
   order: 7
 tags: [coding-agent, harness-engineering, llm-api, retry, error-handling, llm-agents]
 lang: zh-TW
-description: "拆解 pi、OMP、OpenCode、Codex、Claude Code 五家如何做 provider 錯誤分類與重試——SDK 內建 retry 與 harness 層 retry 的分工、Retry-After 的尊重、jitter 與 fallback——並對照 rivumi 從「一個 5xx 就失敗」到統一 harness 層重試的修復過程。"
-tldr: "NVIDIA NIM 間歇 500 暴露了 rivumi 早期只有錯誤分類、沒有重試消費者的缺口。現在 SDK retry 關閉，harness 對每個候選最多嘗試 5 次，使用帶 jitter 的指數退避並尊重有上限的 Retry-After；耗盡後可依明確設定切到 fallback model，model.retry 與 model.fallback 都進 event log。"
+description: "拆解 pi、OMP、OpenCode、Codex、Claude Code 五家如何做 provider 錯誤分類與重試——SDK 內建 retry 與 harness 層 retry 的分工、Retry-After 的尊重、jitter 與 fallback——並對照 looplane 從「一個 5xx 就失敗」到統一 harness 層重試的修復過程。"
+tldr: "NVIDIA NIM 間歇 500 暴露了 looplane 早期只有錯誤分類、沒有重試消費者的缺口。現在 SDK retry 關閉，harness 對每個候選最多嘗試 5 次，使用帶 jitter 的指數退避並尊重有上限的 Retry-After；耗盡後可依明確設定切到 fallback model，model.retry 與 model.fallback 都進 event log。"
 draft: false
 ---
 
@@ -17,9 +17,9 @@ draft: false
 
 ## 設計問題
 
-這篇的起點是一個真實 bug：NVIDIA NIM 對 `nvidia/nemotron-3-ultra-550b-a55b` 間歇性回 500 和 503 overloaded。模型 ID 有效、payload 相容（用真實程式路徑重放驗證過），但 rivumi 的 run 就是一次一次地標成 FAILED，TUI 上只留下一行毫無資訊量的「Error: provider retryable」。
+這篇的起點是一個真實 bug：NVIDIA NIM 對 `nvidia/nemotron-3-ultra-550b-a55b` 間歇性回 500 和 503 overloaded。模型 ID 有效、payload 相容（用真實程式路徑重放驗證過），但 looplane 的 run 就是一次一次地標成 FAILED，TUI 上只留下一行毫無資訊量的「Error: provider retryable」。
 
-診斷報告（`rivumi/docs/diagnoses/nim-500-diagnosis.md`）拆出來的事實很難堪：錯誤分類早就存在——`rivumi/src/rivumi/models.py#_error_kind` 把 status code >= 500 分到 `RETRYABLE`，`ProviderError.retryable` property 也定義正確——但這個欄位**只是被寫進 event log，沒有任何消費者**。全 repo 找不到任何以 `exc.retryable` 為條件的迴圈或 backoff。唯一在運作的重試是 openai SDK 內建的 `DEFAULT_MAX_RETRIES = 2`，藏在使用者看不見的地方：SDK 悄悄重試兩次、用盡之後 raise，harness 層立刻放棄整個 run。
+診斷報告（`looplane/docs/diagnoses/nim-500-diagnosis.md`）拆出來的事實很難堪：錯誤分類早就存在——`looplane/src/looplane/models.py#_error_kind` 把 status code >= 500 分到 `RETRYABLE`，`ProviderError.retryable` property 也定義正確——但這個欄位**只是被寫進 event log，沒有任何消費者**。全 repo 找不到任何以 `exc.retryable` 為條件的迴圈或 backoff。唯一在運作的重試是 openai SDK 內建的 `DEFAULT_MAX_RETRIES = 2`，藏在使用者看不見的地方：SDK 悄悄重試兩次、用盡之後 raise，harness 層立刻放棄整個 run。
 
 所以「一個 5xx 為什麼會炸掉整個 run」的完整答案有三層：分類沒有消費者、真正的重試被 SDK 偷偷做了（不可觀測、不可調整）、失敗呈現只給了分類名稱而不是給人看的訊息。這三件事剛好就是 retry policy 設計的三個核心：**誰負責重試、重試要可觀測、放棄時要說人話**。
 
@@ -47,21 +47,21 @@ Codex 在 Rust 端把重試做成三件套。基礎退避在 `codex/codex-rs/cor
 
 Claude Code 的 `claude-code-source/src/services/api/withRetry.ts#withRetry` 是單檔八百行的重試總集：預設最多 10 次（`claude-code-source/src/services/api/withRetry.ts#getDefaultMaxRetries` 可用環境變數覆寫）、500ms base、封頂 32 秒加最多 25% 正向 jitter（`claude-code-source/src/services/api/withRetry.ts#getRetryDelay`）。`claude-code-source/src/services/api/withRetry.ts#shouldRetry` 先尊重非標準的 `x-should-retry` header，再按 408/409/429/5xx/連線錯誤分類，401 時清快取並在迴圈內刷新 OAuth token。兩個獨到的設計：一是**來源感知**——背景任務（摘要、標題、分類器）撞到 529 一律立即放棄，因為容量風暴時每次重試都是 3 到 10 倍的 gateway 放大；二是連續三次 529 就觸發模型 fallback（`FallbackTriggeredError`）。無人值守模式還能把退避拉長到五分鐘、切成 30 秒心跳塊避免 host 判定 idle。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-修復遵循 pi 的路線但更精簡：**所有重試統一收到 harness 層**。所有 `AsyncOpenAI` client 都設 `max_retries=0`（`rivumi/src/rivumi/models.py` 的 `AsyncOpenAI` 建構處，`provider_verification.py:144` 同步），註解寫明理由：SDK 內建重試會把上游請求乘出 3×3，而且繞過 audit trail。
+修復遵循 pi 的路線但更精簡：**所有重試統一收到 harness 層**。所有 `AsyncOpenAI` client 都設 `max_retries=0`（`looplane/src/looplane/models.py` 的 `AsyncOpenAI` 建構處，`provider_verification.py:144` 同步），註解寫明理由：SDK 內建重試會把上游請求乘出 3×3，而且繞過 audit trail。
 
-harness 層的核心是 `rivumi/src/rivumi/loop.py#_complete_model_with_retry`：每個候選模型每個 step 最多 5 次嘗試，只有 `exc.retryable`（RETRYABLE 或 RATE_LIMIT）會重試，AUTH 和 INVALID_REQUEST 立即 re-raise。`#retry_delay_seconds` 是上限 30 秒的指數退避加 ±15% jitter；伺服器若給 `Retry-After` 就直接採用，但安全上限夾在 300 秒。退避等待仍可被 cancel 提前喚醒，每次重試前也照樣發 `model.retry` event，事後可以從 events.jsonl 重播歷史。
+harness 層的核心是 `looplane/src/looplane/loop.py#_complete_model_with_retry`：每個候選模型每個 step 最多 5 次嘗試，只有 `exc.retryable`（RETRYABLE 或 RATE_LIMIT）會重試，AUTH 和 INVALID_REQUEST 立即 re-raise。`#retry_delay_seconds` 是上限 30 秒的指數退避加 ±15% jitter；伺服器若給 `Retry-After` 就直接採用，但安全上限夾在 300 秒。退避等待仍可被 cancel 提前喚醒，每次重試前也照樣發 `model.retry` event，事後可以從 events.jsonl 重播歷史。
 
 重試耗盡後不再只能失敗。CLI 的重複 `--fallback-model provider/model`，或 `--fallback-model @cheap` 這類靜態 role alias，會建立 ordered candidates；primary 五次仍是 transient failure 時，loop 發 `model.fallback`，記下來源／目標模型與 failure codes，讓下一個候選拿到全新的 retry budget。所有候選都耗盡才進最終 `ProviderError`。這是明確配置的 baseline，不是自動替使用者挑「最佳」模型，也不處理 auth/invalid request 這類非 transient 錯誤。
 
 放棄之後的呈現也修了：`loop.py` 的 `except ProviderError` 路徑現在組出「nvidia-nim failed 3 consecutive model requests (500, 503, 500); the service is temporarily unavailable...」這種人類可讀訊息填進 `RunResult.error`，TUI 顯示它而不是「provider retryable」；`terminal_reason="provider_retryable"` 原樣保留當機器可讀欄位。
 
-跟五家比起來，rivumi 仍刻意簡單：已有 jitter 與模型 fallback，但沒有憑證輪換、同模型 transport fallback，也沒有來源感知或跨 step 的重試預算。先做到的是「分類有消費者、重試與 fallback 可觀測、放棄說人話」；這不等於 provider outage 下的 production resilience 已驗證。
+跟五家比起來，looplane 仍刻意簡單：已有 jitter 與模型 fallback，但沒有憑證輪換、同模型 transport fallback，也沒有來源感知或跨 step 的重試預算。先做到的是「分類有消費者、重試與 fallback 可觀測、放棄說人話」；這不等於 provider outage 下的 production resilience 已驗證。
 
 ## 學術依據
 
-指數退避加 jitter 不是品味問題。[AWS Architecture Blog 的〈Exponential Backoff And Jitter〉](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)用實測數據說明：故障恢復期間所有 client 若用相同的固定退避，會形成同步波峰持續打爆 server，「full jitter」能把完成時間砍掉一個量級。這正是 Claude Code、OpenCode、codex 都加 jitter、而 rivumi 還沒加的原因。[Google SRE Book 第 22 章〈Addressing Cascading Failures〉](https://sre.google/sre-book/addressing-cascading-failures/)則把 retry 視為潛在的放大器，主張用 retry budget（例如「重試請求不得超過總請求的 10%」）限制系統在過載時的自我傷害——Claude Code 對背景任務直接禁止重試 529，就是同一思想的具體化。至於 `Retry-After` 本身，語意由 [MDN 的 HTTP 文件](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)定義：它是伺服器的指令，不是建議——五家全部把它當權威延遲，pi 甚至對超過 60 秒的伺服器指定延遲直接失敗而不是硬等。
+指數退避加 jitter 不是品味問題。[AWS Architecture Blog 的〈Exponential Backoff And Jitter〉](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)用實測數據說明：故障恢復期間所有 client 若用相同的固定退避，會形成同步波峰持續打爆 server，「full jitter」能把完成時間砍掉一個量級。這正是 Claude Code、OpenCode、codex 都加 jitter、而 looplane 還沒加的原因。[Google SRE Book 第 22 章〈Addressing Cascading Failures〉](https://sre.google/sre-book/addressing-cascading-failures/)則把 retry 視為潛在的放大器，主張用 retry budget（例如「重試請求不得超過總請求的 10%」）限制系統在過載時的自我傷害——Claude Code 對背景任務直接禁止重試 529，就是同一思想的具體化。至於 `Retry-After` 本身，語意由 [MDN 的 HTTP 文件](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)定義：它是伺服器的指令，不是建議——五家全部把它當權威延遲，pi 甚至對超過 60 秒的伺服器指定延遲直接失敗而不是硬等。
 
 ## 改善路線
 
@@ -83,4 +83,4 @@ harness 層的核心是 `rivumi/src/rivumi/loop.py#_complete_model_with_retry`�
 - [Google SRE Book: Addressing Cascading Failures](https://sre.google/sre-book/addressing-cascading-failures/)
 - [MDN: Retry-After header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
 - [OpenAI API: Rate limits 與錯誤處理文件](https://platform.openai.com/docs/guides/rate-limits)
-- [Rivumi retry/fallback loop（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/loop.py)
+- [Looplane retry/fallback loop（固定 commit `2ed5efb`）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/loop.py)

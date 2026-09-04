@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 34
-tags: [coding-agent, telemetry, cost-tracking, opentelemetry, rivumi]
+tags: [coding-agent, telemetry, cost-tracking, opentelemetry, looplane]
 lang: zh-TW
-tldr: "rivumi 已加入 CostBreakdown、明確標示 estimated 的 GPT-5 家族靜態價目表、per-lane usage/cost 與 OTel cost 欄位；未知模型仍只顯示 token，不硬算美元。價目覆蓋、外部 CLI 權威帳單與 live billing 對帳仍待補。"
-description: "對照成熟 coding agent 的 telemetry 與成本追蹤，並檢視 rivumi 已落地的估算成本、per-lane 歸因與 OTel 基線。"
+tldr: "looplane 已加入 CostBreakdown、明確標示 estimated 的 GPT-5 家族靜態價目表、per-lane usage/cost 與 OTel cost 欄位；未知模型仍只顯示 token，不硬算美元。價目覆蓋、外部 CLI 權威帳單與 live billing 對帳仍待補。"
+description: "對照成熟 coding agent 的 telemetry 與成本追蹤，並檢視 looplane 已落地的估算成本、per-lane 歸因與 OTel 基線。"
 draft: false
 ---
 
@@ -27,7 +27,7 @@ draft: false
 2. **錢花在哪？** 是主模型反覆重讀 context？還是 compaction 或 subagent 的隱形呼叫？沒有 per-model、per-span 歸因就答不出來。
 3. **數字可不可信？** 自訂模型、訂閱額度、快取計價改版，都會讓本地估算失真。使用者需要知道眼前這個數字是精算還是猜的。
 
-rivumi 的 `Usage` 會正規化並累加 input/output/cached_input/reasoning tokens，TUI、`/usage`、sessions 與 OTel 也有查詢出口。現在又多了靜態價目表和 `CostBreakdown`，所以缺口不再是「沒有 cost」，而是**估算覆蓋與帳單權威性**：已知模型能估，未知模型不硬算；provider 權威帳單和本地估計仍要分開。
+looplane 的 `Usage` 會正規化並累加 input/output/cached_input/reasoning tokens，TUI、`/usage`、sessions 與 OTel 也有查詢出口。現在又多了靜態價目表和 `CostBreakdown`，所以缺口不再是「沒有 cost」，而是**估算覆蓋與帳單權威性**：已知模型能估，未知模型不硬算；provider 權威帳單和本地估計仍要分開。
 
 ## 五家怎麼做
 
@@ -57,7 +57,7 @@ codex 的 Rust workspace 有獨立的 `codex-rs/otel` crate。`codex-rs/otel/src
 
 五家的共同收斂點，正好對上 OpenTelemetry 的 gen-ai 語意慣例：屬性名用 `gen_ai.usage.*`、token 分 input/output/cache 三路記、cost 作為衍生指標而非原始事件。[OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) 明確要求 usage 屬性分項命名，[OTLP](https://opentelemetry.io/docs/specs/otlp/) 則是各家 exporter 的共通出口——codex 直接用 otel crate 對接，claude-code 的 counter 抽象也是同構的。價目表維護則依賴 [models.dev](https://models.dev) 這類社群目錄（pi 與 opencode 的 model catalog 都源自它）或官方 pricing page 手工同步。
 
-## rivumi 已落地的基線
+## looplane 已落地的基線
 
 `contracts.py` 已有 `CostBreakdown`，`provider_catalog.py` 也有純函式 `estimate_cost()`。靜態價目表目前只收官方頁面核對過的 GPT-5 家族資料；cached input 會拆開計價，找不到價格就回 `None`。`RunResult`、`/usage` 與 OTel 匯出因此能把 `estimated` 成本和 token 用量分開呈現。
 
@@ -65,10 +65,10 @@ auto-review 等 role lane 也會留下 per-lane usage/cost attribution，主模�
 
 ## 參考資料
 
-- [rivumi `provider_catalog.py`（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/provider_catalog.py)
-- [rivumi cost contract（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/contracts.py)
+- [looplane `provider_catalog.py`（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/provider_catalog.py)
+- [looplane cost contract（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/contracts.py)
 
-- [vincentxuu/rivumi](https://github.com/vincentxuu/rivumi) — Rivumi 公開 repo 與 README
+- [vincentxuu/looplane](https://github.com/vincentxuu/looplane) — Looplane 公開 repo 與 README
 - [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) — `gen_ai.usage.*` 屬性命名的規範來源
 - [OpenTelemetry OTLP specification](https://opentelemetry.io/docs/specs/otlp/) — telemetry export 的共通協定
 - [badlogic/pi-mono packages/telemetry](https://github.com/badlogic/pi-mono/tree/main/packages/telemetry) — span schema 型別化的完整實作

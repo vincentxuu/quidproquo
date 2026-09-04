@@ -8,8 +8,8 @@ series:
   order: 3
 tags: [coding-agent, harness-engineering, sandbox, path-traversal, git-worktree, tool-use]
 lang: zh-TW
-description: "拆解 Codex、Claude Code、OpenCode、Pi、OMP 五家的 workspace 隔離與路徑校驗，對照 rivumi 的 disposable clone、SafePathPolicy、verification sandbox 與 Cloudflare remote slice。"
-tldr: "Rivumi 的 disposable clone 與 SafePathPolicy 保護來源 repo；現在 `--sandbox-checks` 也能用 macOS sandbox-exec、Linux bubblewrap 或 Landlock 包住 verification command，Cloudflare 另有受限 Sandbox slice。但不同 backend 的 network policy、外部 runtime coverage 與 production hardening 仍未一致驗證。"
+description: "拆解 Codex、Claude Code、OpenCode、Pi、OMP 五家的 workspace 隔離與路徑校驗，對照 looplane 的 disposable clone、SafePathPolicy、verification sandbox 與 Cloudflare remote slice。"
+tldr: "Looplane 的 disposable clone 與 SafePathPolicy 保護來源 repo；現在 `--sandbox-checks` 也能用 macOS sandbox-exec、Linux bubblewrap 或 Landlock 包住 verification command，Cloudflare 另有受限 Sandbox slice。但不同 backend 的 network policy、外部 runtime coverage 與 production hardening 仍未一致驗證。"
 draft: false
 ---
 
@@ -23,7 +23,7 @@ Coding agent 的每個檔案工具，第一個參數幾乎都是路徑。這條�
 2. 路徑校驗做在哪一層——工具程式碼、permission 系統、還是作業系統？
 3. 就算校驗被繞過，最壞情況的爆炸半徑是什麼？
 
-這三題答案的組合，決定了一個 agent 是「方便」還是「可信」。這篇把五個成熟專案的答案攤開來比，再對照我在 rivumi 上的選擇。
+這三題答案的組合，決定了一個 agent 是「方便」還是「可信」。這篇把五個成熟專案的答案攤開來比，再對照我在 looplane 上的選擇。
 
 ## 五家怎麼做
 
@@ -51,19 +51,19 @@ badlogic/pi-mono 的做法最極簡：工具層只負責把相對路徑正規化
 
 oh-my-pi 作為 Pi 的 fork，沿用同一套 ExecutionEnv 路徑模型，但在 autoresearch 工作流補上了 worktree 基線：`oh-my-pi/packages/coding-agent/src/autoresearch/index.ts` 會記住 baseline commit，discard 時 reset worktree 回基準點，並在不在專用分支上時警告使用者 revert 安全性不完整。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi M1 的隔離策略是**disposable Git workspace**，兩個模組撐起來：
+looplane M1 的隔離策略是**disposable Git workspace**，兩個模組撐起來：
 
-**第一層：workspace 本身是拋棄式的固定 commit clone。** `src/rivumi/runtime.py#LocalGitWorkspace.prepare` 要求 base_sha 必須是完整 40 字元 SHA，先 `rev-parse --verify` 確認 commit 存在，再用 `clone --no-hardlinks --no-checkout` 複製（no-hardlinks 確保實體檔案分離），detach HEAD 後還要重新驗證 `rev-parse HEAD` 等於 base_sha 才肯交付。run_dir 也被禁止放在來源 repo 內部。來源 worktree 從頭到尾不被碰，最後產出的是 unstaged patch，由人類審查。
+**第一層：workspace 本身是拋棄式的固定 commit clone。** `src/looplane/runtime.py#LocalGitWorkspace.prepare` 要求 base_sha 必須是完整 40 字元 SHA，先 `rev-parse --verify` 確認 commit 存在，再用 `clone --no-hardlinks --no-checkout` 複製（no-hardlinks 確保實體檔案分離），detach HEAD 後還要重新驗證 `rev-parse HEAD` 等於 base_sha 才肯交付。run_dir 也被禁止放在來源 repo 內部。來源 worktree 從頭到尾不被碰，最後產出的是 unstaged patch，由人類審查。
 
-**第二層：所有模型給的路徑過 `src/rivumi/policy.py#SafePathPolicy.resolve`。** 它拒絕絕對路徑、反斜線、NUL byte、`..` traversal、任何段落的 `.git`，最後 resolve 完還要 `relative_to(workspace_root)` 確認沒有從 symlink 逃出去。glob 是 segment-aware 的——`*` 不跨目錄，只有完整的 `**` segment 才會跨，避免 `src/*.py` 意外涵蓋 `src/deep/x.py`。
+**第二層：所有模型給的路徑過 `src/looplane/policy.py#SafePathPolicy.resolve`。** 它拒絕絕對路徑、反斜線、NUL byte、`..` traversal、任何段落的 `.git`，最後 resolve 完還要 `relative_to(workspace_root)` 確認沒有從 symlink 逃出去。glob 是 segment-aware 的——`*` 不跨目錄，只有完整的 `**` segment 才會跨，避免 `src/*.py` 意外涵蓋 `src/deep/x.py`。
 
 跟五家比起來，差異很清楚，而且必須誠實講：
 
-- **OS sandbox 已有 verification baseline，但不是整個 runtime 的通用沙箱。** `--sandbox-checks` 會把 `run_check` 與 final verification 交給 `src/rivumi/runtime.py#resolve_command_sandbox`：macOS 用 `sandbox-exec`，Linux `auto` 先找 bubblewrap，否則走專案內的 Landlock wrapper；明確要求的 backend 不可用時，command 以 126 fail closed。它包的是已宣告的 verification argv，不代表外部 CLI、provider transport 或所有 host process 都被同一套 policy 包住。
+- **OS sandbox 已有 verification baseline，但不是整個 runtime 的通用沙箱。** `--sandbox-checks` 會把 `run_check` 與 final verification 交給 `src/looplane/runtime.py#resolve_command_sandbox`：macOS 用 `sandbox-exec`，Linux `auto` 先找 bubblewrap，否則走專案內的 Landlock wrapper；明確要求的 backend 不可用時，command 以 126 fail closed。它包的是已宣告的 verification argv，不代表外部 CLI、provider transport 或所有 host process 都被同一套 policy 包住。
 - **遠端另有受限 container slice。** `cloudflare/` 的 Worker/Sandbox control plane 只收 bounded text source map，不收 Git URL、archive、shell string 或 caller credential。這證明隔離邊界能搬進 container，但仍只是受限部署切片，不是 production traffic 與 hostile-code hardening 的完成證明。
-- **path policy 比 Pi 嚴、比 Codex 淺。** Pi 把邊界外包，rivumi 和 OpenCode 一樣在應用層劃界，但 rivumi 多了 `.git` 全面禁入和 symlink escape 的 resolve 檢查——代價是這些檢查全是 Python 字串處理，理論上任何 parser bug 都是逃脫口。OS 沙箱沒有這個問題，因為核心不看字串。
+- **path policy 比 Pi 嚴、比 Codex 淺。** Pi 把邊界外包，looplane 和 OpenCode 一樣在應用層劃界，但 looplane 多了 `.git` 全面禁入和 symlink escape 的 resolve 檢查——代價是這些檢查全是 Python 字串處理，理論上任何 parser bug 都是逃脫口。OS 沙箱沒有這個問題，因為核心不看字串。
 
 ## 學術依據
 
@@ -89,4 +89,4 @@ SWE-agent 團隊提出的 ACI（agent–computer interface）概念指出：介�
 - [anthropics/claude-code](https://github.com/anthropics/claude-code)
 - [sst/opencode](https://github.com/sst/opencode)
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono)
-- [Rivumi command sandbox（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime.py)
+- [Looplane command sandbox（固定 commit `2ed5efb`）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/runtime.py)

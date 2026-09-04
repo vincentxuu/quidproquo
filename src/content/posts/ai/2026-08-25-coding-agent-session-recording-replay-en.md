@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 33
-tags: [coding-agent, session-replay, observability, rivumi, codex, trace]
+tags: [coding-agent, session-replay, observability, looplane, codex, trace]
 lang: en
-tldr: "rivumi now connects events.jsonl to a deterministic reducer, CLI timeline, canonical JSON, SDK replay, and safe event-point forks. Forking never replays prior tools or model calls; provider/live-runtime validation, redaction, and richer replay hooks remain open."
-description: "Comparing session recording and replay across mature coding agents, including rivumi's implemented deterministic replay, CLI, SDK, and safe-fork baseline."
+tldr: "looplane now connects events.jsonl to a deterministic reducer, CLI timeline, canonical JSON, SDK replay, and safe event-point forks. Forking never replays prior tools or model calls; provider/live-runtime validation, redaction, and richer replay hooks remain open."
+description: "Comparing session recording and replay across mature coding agents, including looplane's implemented deterministic replay, CLI, SDK, and safe-fork baseline."
 draft: false
 ---
 
@@ -21,7 +21,7 @@ Scope note: pi (badlogic/pi-mono), omp (can1357/oh-my-pi), opencode (sst/opencod
 
 ## The capability gap: all the footage, no projector
 
-rivumi began with only the recording side: every run directory had `events.jsonl`, and conversations kept their own event streams. It can now fold events into replay state, print a timeline, and create a safe fork from a chosen sequence. The question has moved down a layer: which state can the reducer restore, how does it reject malformed logs, and how can a fork avoid repeating side effects?
+looplane began with only the recording side: every run directory had `events.jsonl`, and conversations kept their own event streams. It can now fold events into replay state, print a timeline, and create a safe fork from a chosen sequence. The question has moved down a layer: which state can the reducer restore, how does it reject malformed logs, and how can a fork avoid repeating side effects?
 
 Recording and replay are different capabilities. Recording tests write-side discipline (no dropped events, no slowing the main flow); replay tests **interpretation-side engineering**: who folds raw events back into an inspectable state? Which steps can be re-executed and which absolutely must not? The five projects each have designs worth stealing on both ends.
 
@@ -63,9 +63,9 @@ A small but concrete case: in SDK mode, the `--replay-user-messages` flag re-emi
 
 "Record raw events, interpret later" is the standard [event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) argument: the event stream is the immutable source of truth, and every projection (state, reports, debug views) is folded afterwards — re-runnable with new logic anytime, which is why codex can rebuild state.json with a newer reducer without re-running sessions. Deterministic record-and-replay has mature predecessors in systems debugging: [rr](https://rr-project.org/) made multi-threaded bug hunting nearly single-step cheap by "record once, replay forever," and VCR-style HTTP tools like [VCR.py](https://vcrpy.readthedocs.io/) proved that recorded interactions + matching rules + diff diagnostics generalize well. metaharness adds one more layer: once traces live in structured storage, LLMs become a new class of consumers — the same direction as automated log analysis.
 
-## The baseline now implemented in rivumi
+## The baseline now implemented in looplane
 
-`session_replay.py` implements the reducer as a bounded pure function. It rejects oversized events, duplicate sequences, and ID drift, then produces `ReplayState` and stable canonical JSON. `rivumi sessions --replay` prints a compact timeline, `--replay-json` serves machine-readable output, and the SDK exports `replay_run_events()`.
+`session_replay.py` implements the reducer as a bounded pure function. It rejects oversized events, duplicate sequences, and ID drift, then produces `ReplayState` and stable canonical JSON. `looplane sessions --replay` prints a compact timeline, `--replay-json` serves machine-readable output, and the SDK exports `replay_run_events()`.
 
 Forking uses safe semantics. `--fork-from-event` and `fork_run_at_event()` create a new workspace from an event prefix and the recorded base commit. The seed explicitly records `side_effects_replayed: false`; prior tools, checks, subprocesses, model calls, and commits never run again.
 
@@ -73,8 +73,8 @@ This is not an arbitrary side-effect replay platform. Provider/live-runtime path
 
 ## References
 
-- [rivumi `session_replay.py` at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/session_replay.py)
-- [rivumi SDK replay/fork documentation at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/docs/sdk.md)
+- [looplane `session_replay.py` at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/session_replay.py)
+- [looplane SDK replay/fork documentation at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/docs/sdk.md)
 
 - [openai/codex — codex-rs/rollout-trace](https://github.com/openai/codex/tree/main/codex-rs/rollout-trace)
 - [openai/codex — codex-rs/thread-store](https://github.com/openai/codex/tree/main/codex-rs/thread-store)

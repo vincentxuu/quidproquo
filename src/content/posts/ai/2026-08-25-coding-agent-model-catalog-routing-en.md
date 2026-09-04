@@ -1,15 +1,15 @@
 ---
-title: "Learning Design from Mature Coding Agents (35): Model Catalogs and Per-Role Routing — rivumi's Role Aliases and Reviewer Lane"
+title: "Learning Design from Mature Coding Agents (35): Model Catalogs and Per-Role Routing — looplane's Role Aliases and Reviewer Lane"
 date: 2026-08-30
 category: ai
 type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 35
-tags: [coding-agent, model-routing, llm, rivumi, oh-my-pi, codex]
+tags: [coding-agent, model-routing, llm, looplane, oh-my-pi, codex]
 lang: en
-tldr: "rivumi now has static ModelRole/ModelRoute candidates, opt-in aliases such as --model @cheap, cross-provider fallback, and a no-tool reviewer lane that runs after verification. Role inheritance/override rules and automatic summarizer, parser, or scout routing remain open."
-description: "Comparing model catalogs and per-role routing across mature coding agents, including rivumi's implemented role aliases, fallback, and reviewer-lane baseline."
+tldr: "looplane now has static ModelRole/ModelRoute candidates, opt-in aliases such as --model @cheap, cross-provider fallback, and a no-tool reviewer lane that runs after verification. Role inheritance/override rules and automatic summarizer, parser, or scout routing remain open."
+description: "Comparing model catalogs and per-role routing across mature coding agents, including looplane's implemented role aliases, fallback, and reviewer-lane baseline."
 draft: false
 ---
 
@@ -26,7 +26,7 @@ So "multi-provider support" is just the entry ticket. The real capabilities are 
 1. **A catalog data layer**: the system knows which providers expose which models and what each supports (context window, reasoning, vision), and that data stays fresh.
 2. **Per-role routing**: strategies like "cheap fast model for commits, strong model for planning, smallest for summaries" are first-class citizens rather than hardcoded strings scattered around.
 
-rivumi has moved beyond a single "current model": catalog data, role aliases, fallback, and a reviewer lane all have first implementations. Automatic per-role routing remains partial, as detailed below.
+looplane has moved beyond a single "current model": catalog data, role aliases, fallback, and a reviewer lane all have first implementations. Automatic per-role routing remains partial, as detailed below.
 
 ## What the five do
 
@@ -68,18 +68,18 @@ The simplest, most pragmatic entry in the decompiled source: `claude-code/src/ut
 
 Model routing is not premature optimization. [FrugalGPT](https://arxiv.org/abs/2305.05176) demonstrated back in 2023 that cascade-style routing cuts cost substantially while preserving quality; [RouteLLM](https://arxiv.org/abs/2406.18665) turned "which queries don't need the strongest model" into a learnable problem. None of the five implement learned routing — they use a more conservative version: **hand-curated role → candidate chains, plus runtime health-based elimination**. That's sound engineering judgment: a coding agent's task types are few and enumerable (commit, summary, planning, main loop), static chains beat black-box routers on predictability and debuggability, and fallback chains already capture most of the savings. OpenRouter's own [provider routing docs](https://openrouter.ai/docs/features/provider-routing) follow the same philosophy: declare a preference order, let the runtime handle failover.
 
-## The baseline now implemented in rivumi
+## The baseline now implemented in looplane
 
 Beyond the data layer, `provider_catalog.py` now defines `ModelRole`, `ModelRoute`, and ordered `role_candidates()`. Native CLI users can opt into aliases such as `--model @cheap` and `--fallback-model @cheap`, resolving roles to explicit provider/model pairs. Retry exhaustion can switch providers without reusing the primary model's custom API endpoint.
 
-The first independent role lane is `--auto-review`: only after editing and verification succeed does Rivumi send the patch to a no-tool reviewer model, persist `review.md`, emit `role_lane.*` events, and attribute usage/cost per lane. External runtime selectors remain owned by their runtimes rather than silently inheriting native aliases.
+The first independent role lane is `--auto-review`: only after editing and verification succeed does Looplane send the patch to a no-tool reviewer model, persist `review.md`, emit `role_lane.*` events, and attribute usage/cost per lane. External runtime selectors remain owned by their runtimes rather than silently inheriting native aliases.
 
 This is not yet a complete per-role router. Role inheritance/override rules remain unsettled, and summarizer, parser, and scout lanes are not automatically selected. The static candidate table and reviewer lane are an opt-in, testable baseline.
 
 ## References
 
-- [rivumi model roles and pricing catalog at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/provider_catalog.py)
-- [rivumi role-lane SDK documentation at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/docs/sdk.md)
+- [looplane model roles and pricing catalog at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/provider_catalog.py)
+- [looplane role-lane SDK documentation at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/docs/sdk.md)
 
 - [FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance (Chen et al., 2023)](https://arxiv.org/abs/2305.05176)
 - [RouteLLM: Learning to Route LLMs with Preference Data (Ong et al., 2024)](https://arxiv.org/abs/2406.18665)

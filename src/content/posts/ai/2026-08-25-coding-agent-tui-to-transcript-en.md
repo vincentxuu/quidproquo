@@ -2,11 +2,11 @@
 title: "Learning Design from Mature Coding Agents (15): From Full-Screen TUI to Semantic Transcript"
 date: 2026-08-25
 category: ai
-tags: [coding-agent, tui, textual, claude-code, codex, opencode, rivumi]
+tags: [coding-agent, tui, textual, claude-code, codex, opencode, looplane]
 lang: en
 type: deep-dive
-description: "Comparing how Claude Code, Codex, Pi, and OpenCode turn event streams into readable terminal UIs, dissecting the semantic transcript design, and tracing rivumi's three-stage evolution from full-screen composition through runtime-first dual modes to one unified conversation."
-tldr: "Mature coding agent TUIs never print the event stream directly — they build a typed projection layer first and update it in place. rivumi took three steps (full-screen composition, runtime-first dual modes, removing the Ask/Agent split) before two old constraints — non-streaming output and resume-without-replay — were truly lifted."
+description: "Comparing how Claude Code, Codex, Pi, and OpenCode turn event streams into readable terminal UIs, dissecting the semantic transcript design, and tracing looplane's three-stage evolution from full-screen composition through runtime-first dual modes to one unified conversation."
+tldr: "Mature coding agent TUIs never print the event stream directly — they build a typed projection layer first and update it in place. looplane took three steps (full-screen composition, runtime-first dual modes, removing the Ask/Agent split) before two old constraints — non-streaming output and resume-without-replay — were truly lifted."
 draft: false
 series:
   name: "跟成熟 coding agent 學設計"
@@ -45,17 +45,17 @@ OpenCode writes its TUI in SolidJS. The session route is a `<For each={messages(
 
 Different mechanisms, same convergence: **none of them print events directly — they build semantic items with stable IDs first, then let events update those items in place.**
 
-## rivumi's Choice and Its Three-Stage Evolution
+## looplane's Choice and Its Three-Stage Evolution
 
-The heart of this story isn't "who rivumi copied" — it's **how each generation's constraint was lifted by the next**.
+The heart of this story isn't "who looplane copied" — it's **how each generation's constraint was lifted by the next**.
 
-**Stage one (M9): full-screen composition.** The first version used Textual to assemble onboarding, task input, activity, approval, and results into one screen (`rivumi/src/rivumi/tui.py#RivumiApp`). Textual's [Screen](https://textual.textualize.io/guide/screens/) and worker machinery handled alternate-screen details and async; a [RichLog](https://textual.textualize.io/widgets/rich_log/) took raw events. But the model contract had no streaming back then, so activity could only tick per step/tool; resume still went through the old line-oriented path because historical event streams couldn't replay inside the TUI. The limits were clear — but "one coherent screen" was proven.
+**Stage one (M9): full-screen composition.** The first version used Textual to assemble onboarding, task input, activity, approval, and results into one screen (`looplane/src/looplane/tui.py#LooplaneApp`). Textual's [Screen](https://textual.textualize.io/guide/screens/) and worker machinery handled alternate-screen details and async; a [RichLog](https://textual.textualize.io/widgets/rich_log/) took raw events. But the model contract had no streaming back then, so activity could only tick per step/tool; resume still went through the old line-oriented path because historical event streams couldn't replay inside the TUI. The limits were clear — but "one coherent screen" was proven.
 
 **Stage two (M10): runtime-first dual modes.** After wiring up Claude Code / Codex CLI logins, the composer split into Ask and Agent: Ask read-only with a process-local bounded transcript; Agent behind the full safety gates. This fixed "usable without a raw model ID," but created new awkwardness — every prompt launched a fresh child process and the previous answer got re-fed as hidden prompt text; casual questions and coding requests were forced into two worlds, even though Claude Code and Codex treat them as turns in one session.
 
-**Stage three (M11): removing the split.** This stage did three things. First, one long-lived external session: `rivumi/src/rivumi/conversation_controller.py#ConversationController` holds a single child against the Codex app-server or Claude Agent SDK sidecar, shared across turns. Second, the semantic transcript became first-class: `rivumi/src/rivumi/tui.py#conversation_runtime_event_received` is the sole reducer — `TextDeltaEvent` accumulates streaming text, and `RuntimeToolStartedEvent` finds the existing tool row via `_ensure_tool_action` and flips its state in place. No more one-Activity-line-per-event flood. Third, approvals docked into the transcript flow: `rivumi/src/rivumi/tui.py#request_approval` mounts an `InlineApprovalBlock` right under the tool row that triggered it — diff preview and choices sit in context while the transcript stays visible and scrollable.
+**Stage three (M11): removing the split.** This stage did three things. First, one long-lived external session: `looplane/src/looplane/conversation_controller.py#ConversationController` holds a single child against the Codex app-server or Claude Agent SDK sidecar, shared across turns. Second, the semantic transcript became first-class: `looplane/src/looplane/tui.py#conversation_runtime_event_received` is the sole reducer — `TextDeltaEvent` accumulates streaming text, and `RuntimeToolStartedEvent` finds the existing tool row via `_ensure_tool_action` and flips its state in place. No more one-Activity-line-per-event flood. Third, approvals docked into the transcript flow: `looplane/src/looplane/tui.py#request_approval` mounts an `InlineApprovalBlock` right under the tool row that triggered it — diff preview and choices sit in context while the transcript stays visible and scrollable.
 
-And M9's leftover resume problem? Lifted by `rivumi/src/rivumi/conversation.py#ConversationStore`: a strict user/assistant turn schema, 0600 files under a 0700 directory, no vendor session IDs persisted. After restart, rivumi opens a fresh native session and supplies bounded completed-turn replay once — replay went from "impossible" to a first-class operation.
+And M9's leftover resume problem? Lifted by `looplane/src/looplane/conversation.py#ConversationStore`: a strict user/assistant turn schema, 0600 files under a 0700 directory, no vendor session IDs persisted. After restart, looplane opens a fresh native session and supplies bounded completed-turn replay once — replay went from "impossible" to a first-class operation.
 
 ## Engineering Grounding
 
@@ -63,7 +63,7 @@ Three Textual design decisions underpin this evolution. [Screens](https://textua
 
 ## What Can Still Improve
 
-Measured against the five references, rivumi is missing three things. First, **grouping and collapsing**: Claude Code collapses consecutive reads (`claude-code-source/src/utils/collapseReadSearch.ts#collapseReadSearchGroups`) and Codex coalesces exec groups; rivumi's `ToolGroupBlock` has the skeleton but a crude grouping policy. Second, **rendering scale on long conversations**: Claude Code switches to a virtualized list past 200 messages and only renders rows near the viewport (`MAX_MESSAGES_WITHOUT_VIRTUALIZATION` in `claude-code-source/src/components/Messages.tsx`); rivumi currently mounts every semantic row in the DOM, which gets heavy on long sessions. Third, **rewind/fork**: OpenCode reverts to any message, and `ConversationStore.fork_before_turn` already exists but isn't wired to the UI yet. The semantic transcript isn't the destination — it's the foundation that gives these features somewhere to grow.
+Measured against the five references, looplane is missing three things. First, **grouping and collapsing**: Claude Code collapses consecutive reads (`claude-code-source/src/utils/collapseReadSearch.ts#collapseReadSearchGroups`) and Codex coalesces exec groups; looplane's `ToolGroupBlock` has the skeleton but a crude grouping policy. Second, **rendering scale on long conversations**: Claude Code switches to a virtualized list past 200 messages and only renders rows near the viewport (`MAX_MESSAGES_WITHOUT_VIRTUALIZATION` in `claude-code-source/src/components/Messages.tsx`); looplane currently mounts every semantic row in the DOM, which gets heavy on long sessions. Third, **rewind/fork**: OpenCode reverts to any message, and `ConversationStore.fork_before_turn` already exists but isn't wired to the UI yet. The semantic transcript isn't the destination — it's the foundation that gives these features somewhere to grow.
 
 ## References
 

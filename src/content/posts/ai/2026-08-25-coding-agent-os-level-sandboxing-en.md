@@ -8,8 +8,8 @@ series:
   order: 29
 tags: [coding-agent, harness-engineering, sandbox, landlock, seatbelt, bubblewrap]
 lang: en
-description: "Dissecting OS-sandbox boundaries in mature coding agents, then checking Rivumi's sandbox-exec, Landlock/seccomp, and fail-closed verification baseline."
-tldr: "An OS sandbox is the kernel boundary beyond path policy. rivumi now ships a fail-closed CommandSandbox: sandbox-exec on macOS, Landlock plus seccomp on Linux, and exit 126 when containment cannot be proven. Coverage still focuses on verification commands, and external CI confirmation remains open."
+description: "Dissecting OS-sandbox boundaries in mature coding agents, then checking Looplane's sandbox-exec, Landlock/seccomp, and fail-closed verification baseline."
+tldr: "An OS sandbox is the kernel boundary beyond path policy. looplane now ships a fail-closed CommandSandbox: sandbox-exec on macOS, Landlock plus seccomp on Linux, and exit 126 when containment cannot be proven. Coverage still focuses on verification commands, and external CI confirmation remains open."
 draft: false
 ---
 
@@ -19,9 +19,9 @@ draft: false
 
 The previous post on [workspace isolation and path policy](/posts/ai/2026-08-25-coding-agent-workspace-isolation) ended with one sentence: a disposable workspace solves "don't dirty my repo"; the OS sandbox solves "don't wreck my machine". This post tackles that admitted gap head-on.
 
-The problem is concrete: when rivumi runs verification commands inside the workspace, that process holds the user's full privileges — it can read `~/.ssh`, reach the network, overwrite shell config. `SafePathPolicy` only inspects the path arguments the model supplies; it cannot control child processes the command spawns. Every pure application-layer check shares one structural weakness: it is all string processing, and any parser bug is an escape hatch. Kernel-level isolation has no such weakness — at the syscall layer nothing reads strings; what matters is which file descriptors actually get opened.
+The problem is concrete: when looplane runs verification commands inside the workspace, that process holds the user's full privileges — it can read `~/.ssh`, reach the network, overwrite shell config. `SafePathPolicy` only inspects the path arguments the model supplies; it cannot control child processes the command spawns. Every pure application-layer check shares one structural weakness: it is all string processing, and any parser bug is an escape hatch. Kernel-level isolation has no such weakness — at the syscall layer nothing reads strings; what matters is which file descriptors actually get opened.
 
-So the question here: if rivumi wants an OS-grade defense line in pure Python, without introducing a daemon architecture, whose homework should it copy?
+So the question here: if looplane wants an OS-grade defense line in pure Python, without introducing a daemon architecture, whose homework should it copy?
 
 ## What the Five Projects Do
 
@@ -52,11 +52,11 @@ Goal: a `LocalSandbox` wrapper around the existing `run_bounded_command`, standa
 
 **macOS: sandbox-exec with an absolute path.** Copy Codex and hardcode `/usr/bin/sandbox-exec`, avoiding PATH hijacking. Generate `.sbpl` dynamically from writable roots (workspace directory + tempdir + Python site-packages): `(deny default)` baseline, workspace read-write, everything else read-only or denied. Apple has never formally endorsed sandbox-exec, but it still ships and is the shared macOS choice of both Codex and Claude Code — following those two carries the lowest risk.
 
-**Linux: mount Landlock via ctypes, ahead of bubblewrap.** Landlock's API is four syscalls (`landlock_create_ruleset`, `add_rule`, `restrict_self`, …), callable directly through ctypes with zero new dependencies — which matters given rivumi's startup-performance discipline. Bubblewrap serves as fallback: probe the external binary's usability (a user namespace probe, per `bwrap.rs`) and never pretend it exists when it doesn't. For network isolation, version one skips hand-written seccomp BPF (too fragile from Python) in favor of `unshare(CLONE_NEWNET)` or an explicitly documented known limitation.
+**Linux: mount Landlock via ctypes, ahead of bubblewrap.** Landlock's API is four syscalls (`landlock_create_ruleset`, `add_rule`, `restrict_self`, …), callable directly through ctypes with zero new dependencies — which matters given looplane's startup-performance discipline. Bubblewrap serves as fallback: probe the external binary's usability (a user namespace probe, per `bwrap.rs`) and never pretend it exists when it doesn't. For network isolation, version one skips hand-written seccomp BPF (too fragile from Python) in favor of `unshare(CLONE_NEWNET)` or an explicitly documented known limitation.
 
 **Fail-closed is an acceptance criterion, not a footnote.** Check enforced status after Landlock's `restrict_self()`; kernel too old, sandbox-exec missing, bwrap without namespace access — all fall back to today's behavior: refuse to run verification unless `--unsafe-local-exec` is passed explicitly. In other words, "no sandbox" changes from an implicit accident into an explicit, user-signed exception.
 
-**Process hardening lands first.** This partially exists already: `src/rivumi/sandbox_entry.py#_harden_linux_process` already does `PR_SET_DUMPABLE 0`. Generalizing it to the local execution path, adding a zeroed core-dump rlimit and environment scrubbing costs about an hour and removes half the attack surface even when the sandbox is absent.
+**Process hardening lands first.** This partially exists already: `src/looplane/sandbox_entry.py#_harden_linux_process` already does `PR_SET_DUMPABLE 0`. Generalizing it to the local execution path, adding a zeroed core-dump rlimit and environment scrubbing costs about an hour and removes half the attack surface even when the sandbox is absent.
 
 ## Fitting Into the Existing Architecture
 
@@ -69,7 +69,7 @@ Four points, in dependency order:
 
 To close: part one said "the latter is the next battle." This post maps the battlefield — mechanism selection, the fail-closed contract, and where the new layer sits relative to the existing three (policy, workspace, cloud sandbox). What remains is writing it.
 
-## Rivumi's Current Implementation
+## Looplane's Current Implementation
 
 As of `2ed5efb`, the draft has a working baseline. `runtime.py#CommandSandbox` builds platform wrappers: a sandbox-exec profile on macOS, and filesystem rules from `landlock_run.py` combined with a seccomp backend on Linux. Named profiles and read roots flow from CLI config into verification runners; if availability cannot be proven, execution fails closed with exit 126 before repository code starts.
 
@@ -77,8 +77,8 @@ Linux Landlock/seccomp has a local smoke and CI workflow, and the macOS wrapper 
 
 ## References
 
-- [Rivumi CommandSandbox (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime.py)
-- [Rivumi Linux Landlock runner (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/landlock_run.py)
+- [Looplane CommandSandbox (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/runtime.py)
+- [Looplane Linux Landlock runner (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/landlock_run.py)
 
 - [Landlock: unprivileged access control (kernel docs)](https://docs.kernel.org/userspace-api/landlock.html)
 - [landlock_create_ruleset(2) — Linux man page](https://man7.org/linux/man-pages/man2/landlock_create_ruleset.2.html)

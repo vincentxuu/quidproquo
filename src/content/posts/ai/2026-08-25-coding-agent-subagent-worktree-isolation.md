@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 32
-tags: [coding-agent, subagent, multi-agent, git-worktree, rivumi, claude-code]
+tags: [coding-agent, subagent, multi-agent, git-worktree, looplane, claude-code]
 lang: zh-TW
-tldr: "成熟 subagent 需要角色、fan-out 上限、權限收窄與成果回傳契約。rivumi 已有 native named-role schedule、平行 fan-out、子 task allowed_paths 不得超出 parent、預設禁用 unsafe exec，以及 parent-approved transaction proposal baseline；常駐 background lifecycle、遞迴深度管理與自動 worktree merge 仍未完成。"
-description: "對照成熟 coding agent 的 subagent 編排與隔離，並核對 Rivumi named roles、bounded fan-out、權限收窄與 transaction proposal baseline。"
+tldr: "成熟 subagent 需要角色、fan-out 上限、權限收窄與成果回傳契約。looplane 已有 native named-role schedule、平行 fan-out、子 task allowed_paths 不得超出 parent、預設禁用 unsafe exec，以及 parent-approved transaction proposal baseline；常駐 background lifecycle、遞迴深度管理與自動 worktree merge 仍未完成。"
+description: "對照成熟 coding agent 的 subagent 編排與隔離，並核對 Looplane named roles、bounded fan-out、權限收窄與 transaction proposal baseline。"
 draft: false
 ---
 
@@ -75,26 +75,26 @@ codex 的 `codex-rs/cloud-tasks` 不是 in-process subagent，而是把任務派
 
 ## 原始設計草案（2026-08-25）
 
-這份草案記錄的是 2026-08-25 當時的起點：native 路徑還沒有 subagent，external runtime 內部的子代理也不在 Rivumi 視野內。下列介面與隔離規則是當時的設計假設；文章後段會逐條核對 `2ed5efb` 已落地的 named-role fan-out 與 transaction proposal，避免把歷史草案誤讀成現在狀態。
+這份草案記錄的是 2026-08-25 當時的起點：native 路徑還沒有 subagent，external runtime 內部的子代理也不在 Looplane 視野內。下列介面與隔離規則是當時的設計假設；文章後段會逐條核對 `2ed5efb` 已落地的 named-role fan-out 與 transaction proposal，避免把歷史草案誤讀成現在狀態。
 
 草案如下：
 
-**介面位置**：新增 `src/rivumi/subagent.py`，定義 `SubagentRunner.spawn(task, *, agent_profile, isolation) -> SubagentResult`。`SubagentResult` 是固定契約：`final_text`（截斷上限）、`patch_path`（若有檔案變更）、`usage`、`status`。這就是 omp `yield` 和 claude-code worktree 通知的合體——**成果永遠是「文字 + artifact 路徑」，不是整份 transcript**。
+**介面位置**：新增 `src/looplane/subagent.py`，定義 `SubagentRunner.spawn(task, *, agent_profile, isolation) -> SubagentResult`。`SubagentResult` 是固定契約：`final_text`（截斷上限）、`patch_path`（若有檔案變更）、`usage`、`status`。這就是 omp `yield` 和 claude-code worktree 通知的合體——**成果永遠是「文字 + artifact 路徑」，不是整份 transcript**。
 
-**隔離幾乎免費**：這是 rivumi 架構的意外紅利。`runtime.py#LocalGitWorkspace.prepare` 和 `conversation_workspace.py#ConversationWorkspace.create` 本來就每次 run 建 pinned-SHA 的拋棄式 clone——subagent 只不過是「多開一個 workspace」。不需要 omp 那十種 filesystem 後端，也不需要 claude-code 的臨時 worktree 管理，隔離邊界現成就有。
+**隔離幾乎免費**：這是 looplane 架構的意外紅利。`runtime.py#LocalGitWorkspace.prepare` 和 `conversation_workspace.py#ConversationWorkspace.create` 本來就每次 run 建 pinned-SHA 的拋棄式 clone——subagent 只不過是「多開一個 workspace」。不需要 omp 那十種 filesystem 後端，也不需要 claude-code 的臨時 worktree 管理，隔離邊界現成就有。
 
 **編排規則**（抄共識）：
 
 - 深度閘門預設 1（學 opencode），超頂直接從工具清單移除 spawn 工具。
 - session 級 Semaphore 限 fan-out。
-- 審批 fail-closed：headless 子代理遇到需要批准的操作**預設拒絕**並回報，而不是像 omp 強制 yolo——rivumi 的信任模型裡沒有「子代理工具集已被充分裁剪」的前提，方向必須反過來。
+- 審批 fail-closed：headless 子代理遇到需要批准的操作**預設拒絕**並回報，而不是像 omp 強制 yolo——looplane 的信任模型裡沒有「子代理工具集已被充分裁剪」的前提，方向必須反過來。
 - 子事件以 `parent_run_id` 落進既有 JSONL 事件流，transcript 可以畫出巢狀邊界。
 
 **風險與取捨**：
 
-- **多子代理寫同一個 repo 會衝突**。第一版直接禁止：要嘛每個 subagent 各自 workspace 最後人工排序合 patch（rivumi 的 patch 本來就要人審），要嘛序列化執行寫入型任務。
+- **多子代理寫同一個 repo 會衝突**。第一版直接禁止：要嘛每個 subagent 各自 workspace 最後人工排序合 patch（looplane 的 patch 本來就要人審），要嘛序列化執行寫入型任務。
 - **成本**：Anthropic 自己說多 agent 是十幾倍 token。spawn 工具的 description 要寫明「探索型任務才用」。
-- **external backend 不歸管**：omp adapter 底下的 omp 自己會開子代理，rivumi 看不到也不該管，標記為 runtime 自理即可。
+- **external backend 不歸管**：omp adapter 底下的 omp 自己會開子代理，looplane 看不到也不該管，標記為 runtime 自理即可。
 
 ## 與現有架構的銜接
 
@@ -102,9 +102,9 @@ codex 的 `codex-rs/cloud-tasks` 不是 in-process subagent，而是把任務派
 
 周邊 artifact、事件與 approval 歸因也已接進 `subagents.py` 與 planner tool，不再只是「只差拼裝」。仍需驗證的是 production trace、role override/inheritance 與多個寫入提案的整合策略。
 
-一句話總結：成熟專案的共識是 subagent 必須有**明確的結束協議、輸出上限、深度閘門和隔離邊界**。Rivumi baseline 已落地角色、fan-out、權限收窄與 parent transaction approval；尚未完成的是常駐 lifecycle 與自動合併，而不是「完全沒有 subagent」。
+一句話總結：成熟專案的共識是 subagent 必須有**明確的結束協議、輸出上限、深度閘門和隔離邊界**。Looplane baseline 已落地角色、fan-out、權限收窄與 parent transaction approval；尚未完成的是常駐 lifecycle 與自動合併，而不是「完全沒有 subagent」。
 
-## rivumi 現在的實作
+## looplane 現在的實作
 
 截至 `2ed5efb`，native 路徑已經有 subagent baseline。`subagents.py` 定義 named roles 與各角色 instruction，能正規化 schedule、從 parent `TaskContract` 派生 child task，並驗證 child `allowed_paths` 不得擴張 parent 範圍。`loop.py` 的 planner tool 可一次提交多個 agent spec，執行層做 bounded parallel fan-out，結果以摘要與 artifact 資訊回到 parent。
 
@@ -114,8 +114,8 @@ codex 的 `codex-rs/cloud-tasks` 不是 in-process subagent，而是把任務派
 
 ## 參考資料
 
-- [Rivumi subagent scheduling 與 task derivation（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/subagents.py)
-- [Rivumi subagent tests（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_subagents.py)
+- [Looplane subagent scheduling 與 task derivation（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/subagents.py)
+- [Looplane subagent tests（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_subagents.py)
 
 - [MetaGPT: Meta Programming for Multi-Agent Collaborative Framework（Hong et al., 2023）](https://arxiv.org/abs/2308.00352)
 - [CAMEL: Communicative Agents for "Mind" Exploration（Li et al., 2023）](https://arxiv.org/abs/2303.17760)

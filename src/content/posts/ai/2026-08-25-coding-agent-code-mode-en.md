@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 37
-tags: [coding-agent, code-mode, tool-use, sandbox, codex, opencode, rivumi]
+tags: [coding-agent, code-mode, tool-use, sandbox, codex, opencode, looplane]
 lang: en
-tldr: "rivumi now ships a bounded tool-program DSL: read-only programs support list/read/search/diff, repeat, and if_contains; modify/check transactions receive whole-transaction approval and roll back touched paths on failure. This is not arbitrary JavaScript/Python code mode, and transaction execution is not parallel."
-description: "Comparing code mode in codex and opencode, including rivumi's implemented read-only tool programs and rollback-capable modify/check transaction baseline."
+tldr: "looplane now ships a bounded tool-program DSL: read-only programs support list/read/search/diff, repeat, and if_contains; modify/check transactions receive whole-transaction approval and roll back touched paths on failure. This is not arbitrary JavaScript/Python code mode, and transaction execution is not parallel."
+description: "Comparing code mode in codex and opencode, including looplane's implemented read-only tool programs and rollback-capable modify/check transaction baseline."
 draft: false
 ---
 
@@ -53,9 +53,9 @@ Three details deserve their own mention:
 
 The most direct academic grounding for consolidating multi-step tool calls into code is [CodeAct](https://arxiv.org/abs/2402.01030) (Executable Code Actions Elicit Better LLM Agents, ICML 2024): switching the action space from individual JSON tool calls to executable programs lets the model use programming-language control flow to compose actions and iterate over intermediate state. Code mode is essentially CodeAct plus production-grade sandboxing and auditing. On the engineering side, Anthropic's [Code Execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp) (source of the token numbers above) and Cloudflare's [Code Mode](https://blog.cloudflare.com/code-mode/) make the same point: LLMs are good at writing code, so let them write code to call tools. The [parallel tool use section of Anthropic's tool use docs](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) also acknowledges that orthogonal direct parallel calls are only a starting point — complex dependency structures need stronger orchestration primitives.
 
-## The baseline now implemented in rivumi
+## The baseline now implemented in looplane
 
-Rather than embedding arbitrary JavaScript or Python, rivumi first ships a bounded DSL. `tool_program` exposes only read-only operations such as `list_files`, `read_file`, `search_text`, and `git_diff`, plus bounded `repeat` and `if_contains`. The model gets simple control flow in one tool call while the host can fully inspect the executable language.
+Rather than embedding arbitrary JavaScript or Python, looplane first ships a bounded DSL. `tool_program` exposes only read-only operations such as `list_files`, `read_file`, `search_text`, and `git_diff`, plus bounded `repeat` and `if_contains`. The model gets simple control flow in one tool call while the host can fully inspect the executable language.
 
 Mutations use a separate `tool_transaction`. It collects touched paths, sends the whole transaction through existing approval/policy, then executes replace/patch/check steps. Any failure triggers an attempt to restore affected files to their pre-transaction state. Backend turn limits, step caps, and bounded output still apply.
 
@@ -63,8 +63,8 @@ This baseline solves batched tool programs; it is not the arbitrary confined-lan
 
 ## References
 
-- [rivumi tool program/transaction implementation at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/tools.py)
-- [rivumi native-loop policy integration at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/loop.py)
+- [looplane tool program/transaction implementation at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/tools.py)
+- [looplane native-loop policy integration at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/loop.py)
 
 - [Executable Code Actions Elicit Better LLM Agents (CodeAct)](https://arxiv.org/abs/2402.01030)
 - [Anthropic Engineering: Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)

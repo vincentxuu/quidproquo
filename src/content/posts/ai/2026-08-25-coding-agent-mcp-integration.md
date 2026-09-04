@@ -6,16 +6,16 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 30
-tags: [coding-agent, mcp, rivumi, tool-integration, elicitation, lazy-connect]
+tags: [coding-agent, mcp, looplane, tool-integration, elicitation, lazy-connect]
 lang: zh-TW
-tldr: "MCP client 要同時處理 transport、工具刷新、approval 與 credential 邊界。rivumi 已支援 allowlisted stdio、Streamable HTTP/SSE、tools/resources/prompts、tools/list_changed、OAuth metadata/PKCE 與 0600 credential store；尚缺真實 authorization server E2E 與 MCP 專用確認 UX。"
-description: "對照五家 MCP client 的生命週期、工具註冊與 approval，並核對 Rivumi stdio/HTTP、resources/prompts、OAuth PKCE baseline。"
+tldr: "MCP client 要同時處理 transport、工具刷新、approval 與 credential 邊界。looplane 已支援 allowlisted stdio、Streamable HTTP/SSE、tools/resources/prompts、tools/list_changed、OAuth metadata/PKCE 與 0600 credential store；尚缺真實 authorization server E2E 與 MCP 專用確認 UX。"
+description: "對照五家 MCP client 的生命週期、工具註冊與 approval，並核對 Looplane stdio/HTTP、resources/prompts、OAuth PKCE baseline。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-mcp-integration-en)
 
-上一篇談 [OS 級沙箱](/posts/ai/2026-08-25-coding-agent-os-level-sandboxing)。這篇先拆 MCP 的設計問題，再核對 rivumi 現在的 native client baseline。
+上一篇談 [OS 級沙箱](/posts/ai/2026-08-25-coding-agent-os-level-sandboxing)。這篇先拆 MCP 的設計問題，再核對 looplane 現在的 native client baseline。
 
 ## 能力問題
 
@@ -23,7 +23,7 @@ draft: false
 
 第一是生命週期：server 是子進程或遠端連線，會掛掉、會慢、會要 OAuth。第二是 context 成本：每個 server 都想把自己的工具描述塞進 system prompt，五個 server 可能就是幾十 K token。第三是安全：`mcp__github__create_issue` 和內建工具走同一條模型呼叫路徑，如果 approval 機制不覆蓋它，等於給外部程式開了後門。
 
-rivumi 現況如實說：**沒有自己的 MCP client**。`docs/progress.md` 把 MCP 列在「Deferred future capabilities」；唯一的 MCP 能力來自外部 CLI backend 的 pass-through——Codex app-server 路徑會轉發 `mcpToolCall` 事件，Claude backend 看到 `mcp__` 開頭的工具直接放行。
+looplane 現況如實說：**沒有自己的 MCP client**。`docs/progress.md` 把 MCP 列在「Deferred future capabilities」；唯一的 MCP 能力來自外部 CLI backend 的 pass-through——Codex app-server 路徑會轉發 `mcpToolCall` 事件，Claude backend 看到 `mcp__` 開頭的工具直接放行。
 
 ## 五家怎麼做
 
@@ -46,18 +46,18 @@ MCP 官方文件把職責切得很清楚：[架構頁](https://modelcontextproto
 原則先講死：**MCP 初始化不進啟動關鍵路徑**——這是 `docs/progress.md` 啟動效能清單裡已經寫下的承諾，草案必須兌現它。
 
 1. **Lazy connect**：MCPManager 只在建構子收設定，第一次真的需要某 server 的工具時才 spawn／連線，連線結果快取。codex 的 prewarm 經驗反過來用在 TUI 上：controller 預熱起來後才排背景 MCP 連線，且失敗一律吞掉。
-2. **Allowlist 預設拒絕**：`src/rivumi/codex_app_server.py#allowed_mcp_servers` 已經示範了正確姿勢——白名單外的 server 不放行，名稱必須通過格式驗證才能進設定。native client 直接沿用這套語意。
+2. **Allowlist 預設拒絕**：`src/looplane/codex_app_server.py#allowed_mcp_servers` 已經示範了正確姿勢——白名單外的 server 不放行，名稱必須通過格式驗證才能進設定。native client 直接沿用這套語意。
 3. **單一工具範本**：學 claude-code，不做 N 個動態工具類別；一個 MCPTemplate，name 用 `mcp__<server>__<tool>`，schema 原樣轉發，對齊既有的 `RuntimeToolKind.MCP`。
 4. **Approval 分級接管**：MCP 工具呼叫走 `permissions.py` 的既有分級，唯讀工具低門檻、有副作用的比照 shell 指令；server 的 elicitation 請求映射到同一個 approval UI，不另開通道。
 5. **Context 預算**：工具描述進 prompt 前先截斷壓縮，未啟用的 server 不佔 token——這條留到 code mode 那篇再展開。
 
 ## 與現有架構的銜接
 
-好消息是地基都在。Capability handshake 已經有 `src/rivumi/runtime_registry.py#RuntimeCapability.MCP` 這個欄位，外部 runtime 回報 MCP 支援時契約就通了；事件層的 `src/rivumi/conversation_runtime.py#RuntimeToolKind.MCP` 讓 transcript 和 audit trail 已經認得 MCP 呼叫。缺的是中段：一個 native MCPManager、工具範本接到 `tools.py` 的動態註冊點、以及 elicitation 到 approval 的橋。外部 backend pass-through（`src/rivumi/claude_agent_session.py` 對 `mcp__` 前綴的放行）在 native client 落地後可以收斂成同一套 policy，而不是兩套行為。
+好消息是地基都在。Capability handshake 已經有 `src/looplane/runtime_registry.py#RuntimeCapability.MCP` 這個欄位，外部 runtime 回報 MCP 支援時契約就通了；事件層的 `src/looplane/conversation_runtime.py#RuntimeToolKind.MCP` 讓 transcript 和 audit trail 已經認得 MCP 呼叫。缺的是中段：一個 native MCPManager、工具範本接到 `tools.py` 的動態註冊點、以及 elicitation 到 approval 的橋。外部 backend pass-through（`src/looplane/claude_agent_session.py` 對 `mcp__` 前綴的放行）在 native client 落地後可以收斂成同一套 policy，而不是兩套行為。
 
-順序上也清楚：先把 allowlist 語意和工具範本做進 native loop，再考慮反向暴露 rivumi 自己為 server。生態位的選擇可以晚一點做，但插座的形狀現在就要畫對。
+順序上也清楚：先把 allowlist 語意和工具範本做進 native loop，再考慮反向暴露 looplane 自己為 server。生態位的選擇可以晚一點做，但插座的形狀現在就要畫對。
 
-## rivumi 現在的實作
+## looplane 現在的實作
 
 截至 `2ed5efb`，native MCP 已不只是 pass-through。`mcp_client.py` 能載入預設拒絕的 `.mcp.json` allowlist，支援 stdio 與 Streamable HTTP（包含 SSE response），把 tools、resources/list/read、prompts/list/get 映射成 `mcp__`、`mcp_resource__`、`mcp_prompt__` bridge tools。工具 annotation 會轉成保守的 trust metadata，呼叫仍經既有 approval、event 與 timeout 路徑；server process 在 run 結束時關閉。
 
@@ -65,8 +65,8 @@ HTTP 路徑也有 OAuth protected-resource metadata discovery、authorization-co
 
 ## 參考資料
 
-- [Rivumi native MCP client（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/mcp_client.py)
-- [Rivumi MCP tests（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_mcp_client.py)
+- [Looplane native MCP client（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/mcp_client.py)
+- [Looplane MCP tests（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_mcp_client.py)
 
 - [Model Context Protocol — Introduction](https://modelcontextprotocol.io/docs/getting-started/intro)
 - [MCP Architecture](https://modelcontextprotocol.io/docs/concepts/architecture)

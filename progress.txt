@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-08-31
+Last updated: 2026-09-04
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -10,80 +10,27 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- **Rivumi 系列 Batch D（2026-08-30，內容完成／共享 gate blocked）**：orders 17–18 兩組雙語文章、order 16→17→18→19 互鏈、source evidence、唯讀 editorial review／fact audit 均完成；40 個 Rivumi focused tests、VS Code extension compile、40-post series audit 與文章 focused checks 全綠。`pnpm verify` 其餘項目通過，但 Astro type check 被共享工作樹既有 `tests/console/a11y.spec.ts:56` Playwright `Page` 型別衝突阻塞；相關 `package.json`／`pnpm-lock.yaml` Promptfoo 變更不屬本批，未修改。不 commit/push/deploy。
-- **AI 日報區域動態修復（2026-08-30）**：8/30 日報原把 LINE Yahoo 與 MachineFlow 合併成同一段，區域段也只呈現中國／日韓。中英文已拆段並完成全球覆蓋稽核，現涵蓋中國、日本、韓國、印度、新加坡、歐洲、中東、南非、巴西、澳洲；台灣、以色列、紐西蘭查無同時間窗合格事件，未拿舊聞硬補。`daily-digest-signals` 已加入全球 8 組區域掃描，`daily-digest-report` 已加入 signals 存在時仍執行的缺口補掃，`daily-digest-region` 已納入加拿大、非洲、拉丁美洲、大洋洲，並將新加坡歸東南亞、以色列歸中東（保留舊 slug 相容）。skills sync、雙語本機渲染與 `pnpm verify` 全綠；使用者已確認 scoped commit/push，未 deploy。
-- **Ask AI：RAG 實戰子系列（2026-08-30，雙語草稿完成／待 review）**：規劃見 `.work/ask-ai-practical-series-plan.md`；獨立系列 orders 0–9 完整，新寫 0–5／8–9 共 16 檔，既有兩篇事故文納入 6–7。20 篇中英文文章皆加入對應的「RAG 技法大全」選讀導引，零基礎可直接閱讀；orders 6–7 補更新紀錄，發布狀態不變。Golden dataset q01-q21 是唯一測試規格；offline baseline 5/5、Promptfoo tests 12/12、q21 fixture 1/1，`pnpm verify` 全綠。q21 的 26.821 秒與 contract 8/8 只寫成單次觀察；未 commit/push/deploy。
-- **Cloudflare Edge Platform / AI Stack 兩條內容線（2026-08-30）**：已建立 `docs/content-plan-cloudflare-edge-ai-stack.md`；兩條 series overview、AI Gateway、Workflows、Hyperdrive、Cache Rules、Smart Shield、Images、Email Service、Turnstile、Observability / Analytics Engine、Browser Run、Containers、Vectorize、Agents、Agent Memory、Secrets Store、D1/R2/DO for AI apps、Edge production appendix 中英 draft 已新增；Durable Objects、Queues 既有中英文已重寫並納入 Edge Platform；AI Search、Sandbox SDK 既有文已掛入 AI Stack。後續：metadata migration review、publish review。
-- **統計學：從考試到 ML/AI 系列（2026-08-30）**：53 篇中英內容共 106 檔已由使用者確認可發布，工作樹已將全系列翻為 `draft: false`；中英文各自 order 1–53 完整。系列索引同步新增 7 類雙語篩選與可分享的 `?category=` 狀態，不改文章 schema、slug 或系列 URL。目前待全站 verify、diff review、scoped commit、push 與 deploy；發布時每語 53 篇同日進首頁與 RSS 的洗版風險須一併確認。
-- **Admin v2 Phase 1–6 代碼完成並完成本機串接驗證（2026-08-29）**：文件已對齊 Claude Code 研究；本機 Astro dev E2E、最小 DO `/run` smoke、`pnpm verify` 均通過。剩 production/preview migration apply、binding/env 檢查與實際環境觀察。
-- Stanford NLP／Agent／圖分支：CS124 W26 10 週、CS224N W26 19 講、CS224V F25 14 單元、CS224W F25 19 講雙語稿與乾淨複核已完成，待 review；CS224U 改等 Spring 2027，現為 0 個可發布單元。
-- **發佈狀態盤點＋內容審讀（2026-08-25）**：CS124／CS224N／CS224V／CS224W／CS229／CS336、
-  CMU 07-280／11-785 等「待 review」系列皆已 `draft: false` 上線。本日新上線：Stanford CS221
-  逐講 20 講中英（40 檔）、CS111 逐講 28 講中英（56 檔）、Python coding agent M1–M10（10 檔純中文，
-  無英文版；M11 不存在）、Agent／RAG 框架選型指南、Flowise／n8n 深入介紹。審稿修正：
-  CS111 L25-en series name、L28 逐頁清單筆誤。
-- **Claude Code 深入介紹系列（docs/content-plan-claude-code-series-v2.md）本輪完成**：叢集 A–F＋G/H。
-  新檔 9 篇：A1 how-it-works、A2 claude-directory、A3 sessions、B2 permissions-auto-mode、
-  C2 prompt-caching、E2b code-review、F1 multi-agent-overview、F3 agent-view、F4 dynamic-workflows
-  （互鏈 ai/ harness 三篇）；骨架展開 13 篇：A4/A5、B1、B3 memory 改題、C1、D3/D4/D5、E1 headless→SDK、
-  E2 github-actions+gitlab、E3 channels、G1 chrome、G3 slack+claude-tag；拆分改題 H1 sandboxing
-  （原合集檔）＋新檔 H2 devcontainer、H3 costs-usage；troubleshooting 拆三篇 H6 install／H7 runtime／
-  H8 debug-config，原合集轉索引頁。已發佈文刷新：B2b bypass、D1 hooks 增量、E4a 排程補 goal mode＋
-  E4b loop 互鏈；D2 skill-design-guide 與三件套附錄歸隊。G4 remote-control-guide 骨架展開
-  （order 37，僅本地接續範圍，雲端 web/mobile 依 plan 暫緩）。**G5 雲端篇補齊**：經查證
-  claude-code-on-the-web／web-quickstart／mobile 三頁官方文檔現已夠厚（推翻 plan「頁面薄」假設），
-  新增 on-the-web 中英（order 38：--cloud/--teleport 單向性、GitHub App≠存取控制、auto-fix PR、
-  安全隔離、手機三入口），G4 暫緩聲明改為互鏈。order 1–38 全數有正文，
-  空殼清零，全部 draft: true，pnpm verify 全綠。
-  待使用者 review 與抽樣事實複查後再決定翻 draft。
-- **仍為草稿，不可誤翻**：Claude Code 深入介紹系列其餘骨架檔仍是空殼大綱（`<!-- TODO: 待撰寫 -->`，
-  只有 Planned Outline 無正文；A–E 已有正文）。另 CS221 待使用者審稿。
-- **AI 模型家族系列新增三篇非文字家族深拆（2026-08-26）**：FLUX/BFL（order 13）、語音
-  Whisper×ElevenLabs（order 14）、影片生成 Sora/Veo/Kling/Runway（order 15），tech/deep-dive，
-  未 commit。三篇並行 post-verify 子代理查證＋post-review：修掉 FLUX 授權誤解（dev 輸出可商用、
-  限制在自架部署）、Fish Speech 授權已改 Research License、多處 Elo/定價快照錨點與死連結。
-  pnpm verify 全綠；待使用者 review 後 commit。
-- Mem0、Zep／Graphiti、Cognee、Letta／MemGPT 四篇 Agent 記憶服務中英文 canonical 專文已完成初稿與必要驗證，待使用者 review。
-- Agent 框架 5 組中英文個別介紹已完成（AG2、LangChain、Mastra、Pydantic AI、DSPy），待 review。
-- 雲端 LLM API 與路由 7 組中英文個別介紹已完成（OpenRouter、Bedrock、Vertex、Together、Fireworks、LiteLLM、Portkey），待 review。
-- Stanford CS229 已改為 2026 官方主講義逐章雙語導讀：依 278 頁 PDF 完成 21 章／42 檔（orders 2–22），逐章頁碼、來源、雙語互鏈與交叉審稿修正已完成，待使用者 review；原 Spring 2021 L1–L18 共 36 份未追蹤草稿可復原地封存於 `.research/archived-drafts/cs229-spring2021/`，不進站、不混用。
-- Stanford CS336 Spring 2026 的 17 講主課逐講雙語導讀已完成 34 個中英文草稿（orders 2–18）：官方 manifest、逐講 artifact、雙語互鏈與系列順序已核對，Daniel Selsam／Dan Fu guest sessions 未混入主系列；待最終全站閘門與使用者 review。
-- 「私有語料管線」4 篇中英文草稿已完成：邊界與架構、來源到索引、查詢權限／刪除／freshness，
-  以及 Retrieval Eval 評估契約。前三篇可進 review；第 4 篇盤點出現有 20 題 golden dataset 缺
-  document-level qrels、runner、raw ranked results、latency 與 corpus manifest，因此未捏造實測分數，
-  要補齊這些 artifact 並實際跑 lexical／vector／hybrid 後才能把結果表改成正式實測。
-- 非 Stanford 名校課程系列已完成雙語初稿與交叉查證：MIT 6.S191 13 篇／語言、Berkeley CS188 7 篇、
-  CS288 6 篇、CS285 6 篇、CMU 10-301/601 10 篇、11-785 29 篇，另有 CMU 核心改制與 Pacman 血統比較各 1 篇；
-  共 73 組中英文內容，固定 2026 主版本並標示 LMS、grader、錄影與算力限制，待使用者 review。
-- CMU 07-280 完整課程導讀已完成 29 篇／58 個雙語 Markdown（總覽、24 講、3 篇階段複習、結業路線）與來源 manifest，待使用者審稿；Harvard 地圖亦待審。
-- Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles Workers AI 3030 errors. Normalize zh-TW answers with OpenCC while preserving Markdown literals, then verify the production Groq-to-Cloudflare fallback path.
-- Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：adapter、public search 多來源 fan-out、Search Page/RAG settings keys、admin health status、Wrangler unsafe binding 已完成本機型別與目標測試；Cloudflare instance `quidproquo-public` 已建立（default namespace，web-crawler sitemap，2026-08-29），初次 scheduled sync job 正在排隊索引（最後觀察 queued 7213、errors 0）；AI Search 預設 disabled+shadow，待索引完成與 golden eval 後才能 visible。
-- Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.  **導讀曾被 agent 查證推翻一次**：durable execution 的軸線不是 replay vs checkpoint
-  （DBOS、Hatchet 用 checkpoint 詞彙卻同樣要求決定性），而是「復原時要不要重跑你的編排碼」，
-  已於 2d9a562 修正。平行寫稿的教訓：agent 抓錯我兩次、我抓錯 agent 兩次，雙向查證有效。
-- **稽核方法的教訓（重要，別再犯）**：計數一律用字界比對。`grep -i exa` 會命中 example、
-  `grep -i modal` 會命中 multimodal——導讀曾因此寫錯「Exa 提及 39 次」（實際既有文章 4 篇），
-  已於 c0459e2 更正。另有幾輪 cd 到錯目錄導致 grep 靜默回零，誤判「vLLM 無專文」（實際
-  ai/2026-03-14-vllm-inference-engine.md 早就存在）。跑稽核前先確認路徑存在。
+- **Looplane 系列 Batch D（2026-08-30，內容完成／共享 gate blocked）**：orders 17–18 兩組雙語文章完成，Astro type check 被 Playwright 型別衝突阻塞。不 commit/push/deploy。
+- **Ask AI：RAG 實戰子系列（2026-08-30，仍為 draft: true）**：16 檔已 commit 但尚未翻為發布。
+- **Admin v2 Phase 1–6 已部署 production（2026-08-30 起）**：代碼經 CI 自動部署（含 D1 migration apply），管線穩定。剩環境觀察：手動 session E2E、Routine trigger、Sandbox、MCP proxy、通知通道各跑一次實測。
+- Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles Workers AI 3030 errors.
+- Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：索引排隊中（queued 7213、errors 0），待索引完成與 golden eval。
+- Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.
 Next steps
 1. Finish and verify the Qwen3 embedding rollout; backfill missing post `type` and `tldr` fields.
 2. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
-- **Rivumi 系列 Batch A–C（2026-08-30）**：orders 0–19 單一路徑已定案；Batch C 新增 native MCP、skills/hooks/plugins、subagent scheduling orders 14–16 三組雙語文章。現在 36 posts／18 組雙語，orders 0–16 連續、order 19 capstone 已發布，只缺 17–18。以 Rivumi `main@2ed5efb` 完成 source/test evidence、唯讀審稿與 fact audit；50 個 focused pytest、series audit、台灣用語、post quality、references、lang parity、`pnpm verify` 全綠。未 commit/push/deploy；Batch D 待後續執行。
-- **Legacy published zh-TW 英文回填（2026-08-30）**：57／57 組相鄰 `-en.md`、雙向語言連結與 metadata／章節 parity 已完成，`LEGACY_ZH_ONLY_POSTS` 豁免清空；RAG 中文查詢 debug 中英版同步補入 8/29–30 metadata lane、來源顯示門檻與 AI Search shadow 邊界。
-- **daily-digest routine 重跑 2026-08-30（model-card／framework／github，Q-019/Q-020 解除確認）**：
-  詳見 docs/progress-archive.md「2026-08-30 daily-digest routine 重跑」；三支皆已重跑成功。
-  github digest 用 `gh api` 查 13 個框架 release（僅 pydantic-ai v2.36.0 落在窗內）＋GitHub
-  Trending 頁面挑出 5 個 repo（chrome-devtools-mcp、GitNexus、context-mode、google/skills、
-  livekit/agents），series order 15，`pnpm verify` 全綠。
-- **daily-digest-report 2026-08-31 補跑成功（Q-017 復發後續）**：Stage 1（7 篇）／Stage 2（signals
-  30 則）到位後正常組裝 zh+en 雙語日報（series order 16），`pnpm verify` 全綠，已 push 到
-  `claude/eager-hamilton-a8isdk`。
+- **Rivumi → Looplane 全站改名（2026-09-04）**：38 檔改名、82 檔內容修改，series.ts slug／display name 更新，零殘留。
+- **13 項「待 review」內容全數確認已發布（2026-09-04）**：Cloudflare Edge/AI Stack、統計學 106 檔、CS124/224N/224V/224W/229/336、Claude Code 深入介紹 87 檔、AI 模型家族 3 篇、Agent 記憶服務 4 篇、Agent 框架 5 組、雲端 LLM API 7 組、私有語料管線 4 篇、非 Stanford 名校課程 73 組、CMU 07-280 29 篇——全數 `draft: false` 已 commit。
+- **Looplane 系列 Batch A–C（2026-08-30）**：orders 0–19 單一路徑已定案，36 posts／18 組雙語。
+- **Legacy published zh-TW 英文回填（2026-08-30）**：57／57 組完成。
+- **daily-digest-report 2026-08-31 補跑成功**。
 Notes
-- Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md（agent 必讀：來源、已查證事實、URL 遷移、主題藍圖）；Anthropic 官方考點與資料管道地圖在 docs/anthropic-official-signals.md。
-- CS228 複查結論（2026-08-22）：公開官方課站仍停在 Winter 2023–24，未找到當期公開課站或完整播放清單，維持逐講阻塞；來源記在 `.research/2026-08-21-ai-cs-course-access-inventory.md`。
-- agent-* projects (foundation/evidence/flow/artifact/policy/pipelines-unify/console/providers/os): code complete, pending production observation windows. Status snapshots in docs/progress-archive.md; pending decisions in docs/governance/escalation-queue.md.
-- **Q-015（2026-08-27）**：Tavily API 額度用盡（432），daily-digest-signals 今日未產出（寧缺不湊數）；影響所有依賴 Tavily 的 daily-digest routine，待人決定升級方案或改 skill fallback。
-- **Q-020 更新（2026-08-30）**：daily-digest-model-card 重跑時 Groundlane 工具（`web_search`／`web_fetch`）已可正常載入並回傳真實結果，`enabledInChat` 問題在本 session 未重現，判斷使用者已在 connector 設定啟用。model-card 本身已正常產出（見上）；funding／signals／report 三支當天受影響的 routine 仍待各自重跑確認後才能全部標記解決，詳見 escalation-queue.md Q-020。
+- Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md。
+- CS228 複查結論（2026-08-22）：公開官方課站停在 Winter 2023–24，維持逐講阻塞。
+- agent-* projects: code complete, pending production observation windows. Details in docs/progress-archive.md; pending decisions in escalation-queue.md.
+- **Q-015（2026-08-27）**：Tavily API 額度用盡（432），待人決定升級方案或改 skill fallback。
+- **稽核方法的教訓**：計數一律用字界比對，跑稽核前先確認路徑存在。詳見 archive。
+- Stanford CS109 有 24 個 `draft: true` 檔案（Lecture 07–18 中英文），不在待 review 清單內。

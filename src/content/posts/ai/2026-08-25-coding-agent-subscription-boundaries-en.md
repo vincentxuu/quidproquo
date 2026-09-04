@@ -8,8 +8,8 @@ series:
   order: 8
 tags: [coding-agent, oauth, credential-security, harness-engineering, llm-agents, subscription]
 lang: en
-description: "Want to run your own agent on an existing ChatGPT Plus or Claude Pro subscription without violating anyone's terms? We read the source of Codex, Claude Code, pi, OMP, and OpenCode, then compare against rivumi's three credential rules."
-tldr: "The five reference projects split into three camps on subscription auth. Codex and Claude Code implement OAuth only for their own official clients and store tokens in the OS keyring. pi and OMP directly reuse Claude Code's client ID to implement Pro/Max OAuth — technically feasible, but Anthropic's docs explicitly bar third parties from offering claude.ai login without approval. OpenCode removed its bundled Pro/Max plugins entirely, the cleanest policy precedent in the ecosystem. Rivumi's rules: own your grant, never scrape another CLI's credentials, accept third-party OAuth only when the provider clearly supports it, and never copy or forward credentials."
+description: "Want to run your own agent on an existing ChatGPT Plus or Claude Pro subscription without violating anyone's terms? We read the source of Codex, Claude Code, pi, OMP, and OpenCode, then compare against looplane's three credential rules."
+tldr: "The five reference projects split into three camps on subscription auth. Codex and Claude Code implement OAuth only for their own official clients and store tokens in the OS keyring. pi and OMP directly reuse Claude Code's client ID to implement Pro/Max OAuth — technically feasible, but Anthropic's docs explicitly bar third parties from offering claude.ai login without approval. OpenCode removed its bundled Pro/Max plugins entirely, the cleanest policy precedent in the ecosystem. Looplane's rules: own your grant, never scrape another CLI's credentials, accept third-party OAuth only when the provider clearly supports it, and never copy or forward credentials."
 draft: false
 ---
 
@@ -45,15 +45,15 @@ Fact layer: this proves technical feasibility. Judgment layer: borrowing the off
 
 OpenCode once bundled Claude Pro/Max OAuth plugins but removed them in version 1.3.0. Its official provider docs state plainly: "There are plugins that allow you to use your Claude Pro/Max models with OpenCode. Anthropic explicitly prohibits this" — and instead advertise zero-setup support for subscriptions providers **do** allow, like ChatGPT Plus and GitHub Copilot. Credential storage is plain: `packages/opencode/src/auth/index.ts` writes each provider's token to an `auth.json` under its own data directory with mode 0600. Removing a feature takes more discipline than keeping one; it is the best demonstration in the ecosystem.
 
-## Rivumi's choices, and where they differ
+## Looplane's choices, and where they differ
 
-Since M4/M5, rivumi has operated under three iron rules:
+Since M4/M5, looplane has operated under three iron rules:
 
-**Rule one: own your grant.** To reach ChatGPT subscription access, run the full OAuth PKCE dance yourself. `rivumi/src/rivumi/oauth_login.py#wait_for_codex_callback` binds 127.0.0.1 before announcing readiness, validates state with `hmac.compare_digest`, and gives up on timeout. Credentials go into rivumi's own store — `rivumi/src/rivumi/codex_oauth.py#CodexCredentialStore` rejects symlinks, forces 0700/0600 modes, fsyncs a temp file before atomic replacement, and redacts everything in `repr`. To be honest about the gray component here: the client ID is the public Codex client shared with the pinned OpenCode/Pi implementations (`app_EMoamEEZ73f0CkXaXp7hrann`). That is why the adapter stays fail-closed behind `experimental=True`, and upstream policy must be re-checked before any release. The difference is that we label this as judgment rather than authorization, and we never disguise ourselves as the official CLI.
+**Rule one: own your grant.** To reach ChatGPT subscription access, run the full OAuth PKCE dance yourself. `looplane/src/looplane/oauth_login.py#wait_for_codex_callback` binds 127.0.0.1 before announcing readiness, validates state with `hmac.compare_digest`, and gives up on timeout. Credentials go into looplane's own store — `looplane/src/looplane/codex_oauth.py#CodexCredentialStore` rejects symlinks, forces 0700/0600 modes, fsyncs a temp file before atomic replacement, and redacts everything in `repr`. To be honest about the gray component here: the client ID is the public Codex client shared with the pinned OpenCode/Pi implementations (`app_EMoamEEZ73f0CkXaXp7hrann`). That is why the adapter stays fail-closed behind `experimental=True`, and upstream policy must be re-checked before any release. The difference is that we label this as judgment rather than authorization, and we never disguise ourselves as the official CLI.
 
-**Rule two: never scrape another CLI's credentials.** No reading `~/.codex/auth.json`, no touching the Claude Code-credentials keychain item, no importing anyone else's refresh token. To use an official CLI, delegate the whole task: `rivumi/src/rivumi/claude_backend.py#ClaudeCodeBackend` preserves the child process's `HOME` so the official CLI resolves its own login, while rivumi parses no credentials at all; `rivumi/src/rivumi/external_cli_base.py#StreamJsonCliBackend` applies "child owns its credentials, never a proxy" uniformly to all external CLI backends. Additionally, the Codex Responses adapter in `rivumi/src/rivumi/codex_oauth.py` deliberately has no `base_url` parameter — the subscription token's audience is fixed, so it cannot accidentally hit another host.
+**Rule two: never scrape another CLI's credentials.** No reading `~/.codex/auth.json`, no touching the Claude Code-credentials keychain item, no importing anyone else's refresh token. To use an official CLI, delegate the whole task: `looplane/src/looplane/claude_backend.py#ClaudeCodeBackend` preserves the child process's `HOME` so the official CLI resolves its own login, while looplane parses no credentials at all; `looplane/src/looplane/external_cli_base.py#StreamJsonCliBackend` applies "child owns its credentials, never a proxy" uniformly to all external CLI backends. Additionally, the Codex Responses adapter in `looplane/src/looplane/codex_oauth.py` deliberately has no `base_url` parameter — the subscription token's audience is fixed, so it cannot accidentally hit another host.
 
-**Rule three: triple opt-in for subscription paths.** `rivumi/src/rivumi/cli.py` requires all three flags — `--experimental-subscription`, `--allow-external-modify`, and `--unsafe-local-exec` — before any subscription-backed external editing runs, and the result is still treated as an untrusted candidate patch that must pass the full verification gate.
+**Rule three: triple opt-in for subscription paths.** `looplane/src/looplane/cli.py` requires all three flags — `--experimental-subscription`, `--allow-external-modify`, and `--unsafe-local-exec` — before any subscription-backed external editing runs, and the result is still treated as an untrusted candidate patch that must pass the full verification gate.
 
 ## Policy grounds
 
@@ -66,11 +66,11 @@ Below I separate facts (the documents exist and say this) from judgments (my rea
 
 ## Improvement roadmap
 
-1. **Upgrade JSON files to the OS keyring.** Rivumi currently uses its own 0600 JSON files; Codex's `keyring-store` crate shows the correct endgame: hand secrets to the operating system and shrink the file-leak blast radius to zero.
-2. **Add device code flow.** `codex/codex-rs/login/src/device_code_auth.rs` supports login without a browser; rivumi currently only has the loopback callback, which stalls over SSH or headless setups.
+1. **Upgrade JSON files to the OS keyring.** Looplane currently uses its own 0600 JSON files; Codex's `keyring-store` crate shows the correct endgame: hand secrets to the operating system and shrink the file-leak blast radius to zero.
+2. **Add device code flow.** `codex/codex-rs/login/src/device_code_auth.rs` supports login without a browser; looplane currently only has the loopback callback, which stalls over SSH or headless setups.
 3. **Status surfaces return enums only.** Login status queries should answer `ready` / `signed_out` / `unknown` — no email, account IDs, or token fragments. `status-codex` already takes the minimal path; formalize it as a contract.
 4. **Cross-process refresh lock and gateway daemon.** When multiple processes share one grant, token rotation needs a single canonical writer; OMP's broker/gateway split is a ready reference.
-5. **Automate policy re-checks.** Before each release, refetch the Anthropic/OpenAI terms and doc pages and diff them; if evidence changed or turned ambiguous, keep the experimental flag off. This rule is already written into rivumi's release checklist, but it should become a script rather than human memory.
+5. **Automate policy re-checks.** Before each release, refetch the Anthropic/OpenAI terms and doc pages and diff them; if evidence changed or turned ambiguous, keep the experimental flag off. This rule is already written into looplane's release checklist, but it should become a script rather than human memory.
 
 ## References
 

@@ -2,11 +2,11 @@
 title: "跟成熟 coding agent 學設計（13）：CLI 人體工學——讓新工具長得像使用者已經會用的工具"
 date: 2026-08-25
 category: ai
-tags: [coding-agent, cli, developer-experience, codex, claude-code, opencode, rivumi]
+tags: [coding-agent, cli, developer-experience, codex, claude-code, opencode, looplane]
 lang: zh-TW
 type: deep-dive
-description: "比對 Claude Code、Codex、Pi、OMP、OpenCode 五家 CLI 的指令表面，解釋 positional prompt、exec/resume、-p print 等慣例，以及 rivumi 如何吸收這些慣例而不犧牲安全邊界。"
-tldr: "成熟的 coding agent CLI 都收斂到同一套慣例：positional prompt、-p 是 print、exec 是 headless、resume 是一級指令、-C 換目錄；rivumi 直接繼承這套詞彙，把學習成本壓到接近零。"
+description: "比對 Claude Code、Codex、Pi、OMP、OpenCode 五家 CLI 的指令表面，解釋 positional prompt、exec/resume、-p print 等慣例，以及 looplane 如何吸收這些慣例而不犧牲安全邊界。"
+tldr: "成熟的 coding agent CLI 都收斂到同一套慣例：positional prompt、-p 是 print、exec 是 headless、resume 是一級指令、-C 換目錄；looplane 直接繼承這套詞彙，把學習成本壓到接近零。"
 draft: false
 series:
   name: "跟成熟 coding agent 學設計"
@@ -69,19 +69,19 @@ OpenCode 的 yargs 定義裡，default command（`$0`）是 `cmd/tui.ts` 的 `$0
 
 五家各自獨立演化，卻收斂在同一組答案上——這不是巧合，是命令列四十年的沉澱。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi 是我自己用 Python 寫的 coding agent。M7 stage 的目標就一句話：讓它感覺像日常在用的 coding CLI，但不換掉 loop、不弱化安全邊界（stage doc：rivumi/docs/stages/m7-familiar-cli-ergonomics.md）。
+looplane 是我自己用 Python 寫的 coding agent。M7 stage 的目標就一句話：讓它感覺像日常在用的 coding CLI，但不換掉 loop、不弱化安全邊界（stage doc：looplane/docs/stages/m7-familiar-cli-ergonomics.md）。
 
 具體做法分三層。
 
-**第一層：預設路由。** Typer 的 command group 預設要求子指令，但 rivumi 要的是「`rivumi 修好這個 bug`」直接能跑。所以有一個自訂的 `DefaultCommandGroup`：第一個參數若不是已知子指令，就悄悄插入隱藏的 `chat` 指令（`src/rivumi/cli.py` 的 `DefaultCommandGroup.parse_args`）。這樣 `rivumi resume`、`rivumi auth` 正常分派，任意文字則變成初始 prompt——和 Codex 的 usage 宣言同一種形狀，只是用 Python 實作。
+**第一層：預設路由。** Typer 的 command group 預設要求子指令，但 looplane 要的是「`looplane 修好這個 bug`」直接能跑。所以有一個自訂的 `DefaultCommandGroup`：第一個參數若不是已知子指令，就悄悄插入隱藏的 `chat` 指令（`src/looplane/cli.py` 的 `DefaultCommandGroup.parse_args`）。這樣 `looplane resume`、`looplane auth` 正常分派，任意文字則變成初始 prompt——和 Codex 的 usage 宣言同一種形狀，只是用 Python 實作。
 
-**第二層：詞彙對齊。** `chat()` 上掛著 `--cd/-C/--repo` 三個 alias（`-C` 學 Codex/git，`--repo` 相容舊自動化）、`--print/-p` 表示非互動輸出 JSON（`src/rivumi/cli.py` 的 `chat`）。`exec` 是 `run` 的 alias，都是 headless 路徑；`resume` 是一級指令，預設值 `"last"`，對應 Claude Code 的 `-c` 心智模型。原本 `-p` 曾經指 provider，M7 特意改掉並留下 migration 錯誤訊息——因為 Claude Code 和 Pi 的使用者會期待 `-p` 是 print。
+**第二層：詞彙對齊。** `chat()` 上掛著 `--cd/-C/--repo` 三個 alias（`-C` 學 Codex/git，`--repo` 相容舊自動化）、`--print/-p` 表示非互動輸出 JSON（`src/looplane/cli.py` 的 `chat`）。`exec` 是 `run` 的 alias，都是 headless 路徑；`resume` 是一級指令，預設值 `"last"`，對應 Claude Code 的 `-c` 心智模型。原本 `-p` 曾經指 provider，M7 特意改掉並留下 migration 錯誤訊息——因為 Claude Code 和 Pi 的使用者會期待 `-p` 是 print。
 
-**第三層：config 不存秘密。** `rivumi config` 只存 `provider`、`model`、`api_url` 三個非秘密欄位（`src/rivumi/cli_config.py` 的 `CliConfig`），schema `extra="forbid"`、原子寫入、權限 0600，API key 一律走環境變數或 credential store。便利性不能換走安全性：省下的是打字，不是審批。
+**第三層：config 不存秘密。** `looplane config` 只存 `provider`、`model`、`api_url` 三個非秘密欄位（`src/looplane/cli_config.py` 的 `CliConfig`），schema `extra="forbid"`、原子寫入、權限 0600，API key 一律走環境變數或 credential store。便利性不能換走安全性：省下的是打字，不是審批。
 
-和五家相比，rivumi 刻意**不做**的事也值得記錄：不做全螢幕 TUI、不做 slash command、不做 fuzzy 拼字修正——拼錯子指令時，那個字就照 Codex 的邏輯被當成 prompt。每一項都是有意識的取捨，不是缺工。
+和五家相比，looplane 刻意**不做**的事也值得記錄：不做全螢幕 TUI、不做 slash command、不做 fuzzy 拼字修正——拼錯子指令時，那個字就照 Codex 的邏輯被當成 prompt。每一項都是有意識的取捨，不是缺工。
 
 ## 工程／UX 依據
 
@@ -94,11 +94,11 @@ rivumi 是我自己用 Python 寫的 coding agent。M7 stage 的目標就一句�
 
 ## 改善路線
 
-rivumi 已經拿到「看起來熟悉」的分數，下一階段可以往三個方向推：
+looplane 已經拿到「看起來熟悉」的分數，下一階段可以往三個方向推：
 
 1. **補齊 continue**：目前只有 `resume [session]`，可加無參數的「續聊最近 session」路徑，對齊 Claude Code 的 `-c`。
-2. **session picker**：Claude Code 和 Codex 的 resume 都內建互動選擇器（picker by default）；rivumi 目前只接受 ID 或 `last`。
-3. **fork 語意**：Codex 的 `Fork`、Claude Code 的 `--fork-session` 顯示「從舊 session 分岔出新分支」已是公認需求，但 rivumi 的 stage doc 刻意 deferred——改動 durable task 需要 protocol 決策，不該只是 parser 糖。
+2. **session picker**：Claude Code 和 Codex 的 resume 都內建互動選擇器（picker by default）；looplane 目前只接受 ID 或 `last`。
+3. **fork 語意**：Codex 的 `Fork`、Claude Code 的 `--fork-session` 顯示「從舊 session 分岔出新分支」已是公認需求，但 looplane 的 stage doc 刻意 deferred——改動 durable task 需要 protocol 決策，不該只是 parser 糖。
 
 CLI 人體工學最誠實的檢驗方式：找一個每天用 Claude Code 或 Codex 的人，不看任何文件直接敲你的工具。他們的手指會告訴你答案。
 

@@ -8,8 +8,8 @@ series:
   order: 8
 tags: [coding-agent, oauth, credential-security, harness-engineering, llm-agents, subscription]
 lang: zh-TW
-description: "想用自己的 ChatGPT Plus 或 Claude Pro 訂閱跑自製 agent，怎樣算正道、怎樣算違規？實際讀 Codex、Claude Code、pi、OMP、OpenCode 原始碼，對照 rivumi 的三條 credential 鐵律。"
-tldr: "五家在「訂閱認證」上分成三派：Codex 和 Claude Code 只為自己官方 client 做 OAuth 並把 token 收進 OS keyring；pi 和 OMP 直接重用 Claude Code 的 client ID 實作 Pro/Max OAuth（技術可行但 Anthropic 文件明文禁止第三方未經核准提供 claude.ai 登入）；OpenCode 則把內建 Pro/Max plugin 整組移除，是生態系最乾淨的政策先例。rivumi 的原則：自己的 grant 自己做、絕不刮別家 CLI 的 credential 檔、第三方 client 要 provider 明確支援才接 OAuth、credential 不複製不轉發。"
+description: "想用自己的 ChatGPT Plus 或 Claude Pro 訂閱跑自製 agent，怎樣算正道、怎樣算違規？實際讀 Codex、Claude Code、pi、OMP、OpenCode 原始碼，對照 looplane 的三條 credential 鐵律。"
+tldr: "五家在「訂閱認證」上分成三派：Codex 和 Claude Code 只為自己官方 client 做 OAuth 並把 token 收進 OS keyring；pi 和 OMP 直接重用 Claude Code 的 client ID 實作 Pro/Max OAuth（技術可行但 Anthropic 文件明文禁止第三方未經核准提供 claude.ai 登入）；OpenCode 則把內建 Pro/Max plugin 整組移除，是生態系最乾淨的政策先例。looplane 的原則：自己的 grant 自己做、絕不刮別家 CLI 的 credential 檔、第三方 client 要 provider 明確支援才接 OAuth、credential 不複製不轉發。"
 draft: false
 ---
 
@@ -45,15 +45,15 @@ Claude Code 的 `claude-code-source/src/services/oauth/index.ts#OAuthService.sta
 
 OpenCode 曾經內建 Claude Pro/Max 的 OAuth plugin，但在 1.3.0 移除了。它的官方文件（providers 頁）白紙黑字寫：「There are plugins that allow you to use your Claude Pro/Max models with OpenCode. Anthropic explicitly prohibits this」，並改為主打零設定的 ChatGPT Plus、GitHub Copilot 等**provider 明確允許**的訂閱。它的 credential 儲存很樸素：`packages/opencode/src/auth/index.ts` 把各 provider 的 token 寫進自己資料夾下的 `auth.json`（0600）。移除功能比保留功能需要更多紀律，這是生態系裡最好的示範。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi 從 M4/M5 起立了三條鐵律：
+looplane 從 M4/M5 起立了三條鐵律：
 
-**第一，自己的 grant 自己做。** 要接 ChatGPT 訂閱就跑完整的 OAuth PKCE：`rivumi/src/rivumi/oauth_login.py#wait_for_codex_callback` 先綁 127.0.0.1 才宣布就緒、用 `hmac.compare_digest` 驗 state、逾時即棄。credential 存自己的檔案——`rivumi/src/rivumi/codex_oauth.py#CodexCredentialStore` 拒絕 symlink、強制 0700/0600、臨時檔 fsync 後原子替換、repr 一律 `<redacted>`。要坦白的是：這裡有個灰色成分——client ID 用的是公開的 Codex client（與 OpenCode/Pi 相同的 `app_EMoamEEZ73f0CkXaXp7hrann`），所以整個 adapter 是 `experimental=True` 才啟用、fail-closed，發佈前必須重新確認 provider 政策。差別在於：我們標注了這是判斷而非授權，且不偽裝成官方 CLI。
+**第一，自己的 grant 自己做。** 要接 ChatGPT 訂閱就跑完整的 OAuth PKCE：`looplane/src/looplane/oauth_login.py#wait_for_codex_callback` 先綁 127.0.0.1 才宣布就緒、用 `hmac.compare_digest` 驗 state、逾時即棄。credential 存自己的檔案——`looplane/src/looplane/codex_oauth.py#CodexCredentialStore` 拒絕 symlink、強制 0700/0600、臨時檔 fsync 後原子替換、repr 一律 `<redacted>`。要坦白的是：這裡有個灰色成分——client ID 用的是公開的 Codex client（與 OpenCode/Pi 相同的 `app_EMoamEEZ73f0CkXaXp7hrann`），所以整個 adapter 是 `experimental=True` 才啟用、fail-closed，發佈前必須重新確認 provider 政策。差別在於：我們標注了這是判斷而非授權，且不偽裝成官方 CLI。
 
-**第二，絕不刮別家 CLI 的 credential。** 不讀 `~/.codex/auth.json`、不碰 keychain 裡的 Claude Code-credentials、不 import 任何別家 refresh token。要用官方 CLI 就委派整個任務：`rivumi/src/rivumi/claude_backend.py#ClaudeCodeBackend` 保留子程序的 `HOME` 讓官方 CLI 自己解析登入，rivumi 全程不解析任何 credential；`rivumi/src/rivumi/external_cli_base.py#StreamJsonCliBackend` 對所有外部 CLI backend 一體適用「child owns its credentials, never a proxy」。另外 `rivumi/src/rivumi/codex_oauth.py` 的 Codex Responses adapter 刻意沒有 `base_url` 參數——訂閱 token 的 audience 固定，不可能意外打到別的 host。
+**第二，絕不刮別家 CLI 的 credential。** 不讀 `~/.codex/auth.json`、不碰 keychain 裡的 Claude Code-credentials、不 import 任何別家 refresh token。要用官方 CLI 就委派整個任務：`looplane/src/looplane/claude_backend.py#ClaudeCodeBackend` 保留子程序的 `HOME` 讓官方 CLI 自己解析登入，looplane 全程不解析任何 credential；`looplane/src/looplane/external_cli_base.py#StreamJsonCliBackend` 對所有外部 CLI backend 一體適用「child owns its credentials, never a proxy」。另外 `looplane/src/looplane/codex_oauth.py` 的 Codex Responses adapter 刻意沒有 `base_url` 參數——訂閱 token 的 audience 固定，不可能意外打到別的 host。
 
-**第三，訂閱路徑三重 opt-in。** `rivumi/src/rivumi/cli.py` 要求同時給 `--experimental-subscription`、`--allow-external-modify`、`--unsafe-local-exec` 三個旗標才會走訂閱外部改碼，且結果一律視為不可信候選 patch，照樣過完整的驗證 gate。
+**第三，訂閱路徑三重 opt-in。** `looplane/src/looplane/cli.py` 要求同時給 `--experimental-subscription`、`--allow-external-modify`、`--unsafe-local-exec` 三個旗標才會走訂閱外部改碼，且結果一律視為不可信候選 patch，照樣過完整的驗證 gate。
 
 ## 政策依據
 
@@ -66,11 +66,11 @@ rivumi 從 M4/M5 起立了三條鐵律：
 
 ## 改善路線
 
-1. **JSON 檔升級成 OS keyring。** rivumi 目前用自己的 0600 JSON 檔，Codex 的 `keyring-store` crate 示範了正確終點：金鑰交給作業系統保管，檔案洩漏半徑歸零。
-2. **補 device code flow。** `codex/codex-rs/login/src/device_code_auth.rs` 支援無瀏覽器環境的登入；rivumi 目前只有 loopback callback，SSH 或 headless 場景會卡住。
+1. **JSON 檔升級成 OS keyring。** looplane 目前用自己的 0600 JSON 檔，Codex 的 `keyring-store` crate 示範了正確終點：金鑰交給作業系統保管，檔案洩漏半徑歸零。
+2. **補 device code flow。** `codex/codex-rs/login/src/device_code_auth.rs` 支援無瀏覽器環境的登入；looplane 目前只有 loopback callback，SSH 或 headless 場景會卡住。
 3. **status 只吐狀態枚舉。** 登入狀態查詢應回 `ready`／`signed_out`／`unknown` 三值，不含 email、帳號 ID、token 片段——目前 `status-codex` 已走精簡路線，可以再收斂成正式契約。
 4. **跨程序 refresh 鎖與 gateway daemon。** 多程序共用一張 grant 時，token 輪替要有單一寫入者；OMP 的 broker/gateway 分離是現成參考。
-5. **政策複查自動化。** 每次 release 前重新抓一次 Anthropic/OpenAI 的條款與文件頁，比對是否變動；證據變了或變模糊，experimental flag 就保持關閉。這條已經寫進 rivumi 的發佈檢查，但要變成 script 而不是人的記性。
+5. **政策複查自動化。** 每次 release 前重新抓一次 Anthropic/OpenAI 的條款與文件頁，比對是否變動；證據變了或變模糊，experimental flag 就保持關閉。這條已經寫進 looplane 的發佈檢查，但要變成 script 而不是人的記性。
 
 ## 參考資料
 

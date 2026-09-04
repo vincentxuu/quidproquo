@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 24
-tags: [coding-agent, testing, rivumi, codex, textual]
+tags: [coding-agent, testing, looplane, codex, textual]
 lang: en
-tldr: "An agent's two dependencies — the LLM and external CLIs — are both non-deterministic, but mature projects separate 'the moving parts' from 'the shape of the boundary': codex fakes the Responses API with wiremock plus a scripted SSE server and pins its TUI with insta snapshots; opencode built a VCR-style http-recorder package; pi splits model-backed evals from unit tests into two vitest configs; omp wraps its edit benchmark itself in unit tests. rivumi stacks four layers against external CLIs: unit tests, fake-CLI contract tests, recorded-stream integration proofs, and Textual pilot TUI tests. The methodology in one line: record real non-deterministic output, then make deterministic assertions about it."
-description: "Comparing testing strategies across codex, opencode, pi, omp, and claude-code to unpack how to test a non-deterministic system that depends on an LLM and external CLIs — plus rivumi's four-layer M13 test design: unit, fake-CLI contracts, recorded-stream integration, Textual pilot."
+tldr: "An agent's two dependencies — the LLM and external CLIs — are both non-deterministic, but mature projects separate 'the moving parts' from 'the shape of the boundary': codex fakes the Responses API with wiremock plus a scripted SSE server and pins its TUI with insta snapshots; opencode built a VCR-style http-recorder package; pi splits model-backed evals from unit tests into two vitest configs; omp wraps its edit benchmark itself in unit tests. looplane stacks four layers against external CLIs: unit tests, fake-CLI contract tests, recorded-stream integration proofs, and Textual pilot TUI tests. The methodology in one line: record real non-deterministic output, then make deterministic assertions about it."
+description: "Comparing testing strategies across codex, opencode, pi, omp, and claude-code to unpack how to test a non-deterministic system that depends on an LLM and external CLIs — plus looplane's four-layer M13 test design: unit, fake-CLI contracts, recorded-stream integration, Textual pilot."
 draft: false
 ---
 
@@ -17,7 +17,7 @@ draft: false
 
 The [series overview](/posts/ai/2026-08-25-coding-agent-design-series-overview-en) promised five sections per post with evidence at `repo/path/file.ext#symbolName`. This post covers the hardest kind of tests: tests for a system under test that misbehaves on purpose.
 
-Scope first: all five projects were grepped locally — **codex** (openai/codex Rust workspace), **opencode** (sst/opencode), **pi** (badlogic/pi-mono), **omp** (can1357/oh-my-pi), and **claude-code** (community-decompiled v2.1.88). On the rivumi side I cite the M13 stage doc and commits `573c752`/`a1bfaca`/`b84fe3a`.
+Scope first: all five projects were grepped locally — **codex** (openai/codex Rust workspace), **opencode** (sst/opencode), **pi** (badlogic/pi-mono), **omp** (can1357/oh-my-pi), and **claude-code** (community-decompiled v2.1.88). On the looplane side I cite the M13 stage doc and commits `573c752`/`a1bfaca`/`b84fe3a`.
 
 ## The design problem: both dependencies misbehave — so what do you test?
 
@@ -56,9 +56,9 @@ omp's `packages/typescript-edit-benchmark` shows a third role: benchmark-as-test
 
 You won't find a formal test suite in the decompiled claude-code-source (fair enough — shipped bundles don't carry tests). But there's an interesting leftover: `claude-code-source/src/tools/testing/TestingPermissionTool.tsx` — a test tool that always pops a permission dialog, enabled only when `isEnabled()` returns `"production" === 'test'`. Even a closed-source commercial agent plants test hooks in product code so end-to-end flows can trigger specific interaction paths. Test requirements shape product code; this is indirect proof.
 
-## rivumi's four layers
+## looplane's four layers
 
-rivumi drives five external CLIs (M13) and faces exactly the same problem. Its current answer is four layers, cheapest first:
+looplane drives five external CLIs (M13) and faces exactly the same problem. Its current answer is four layers, cheapest first:
 
 **Layer 1: plain unit tests.** Deterministic modules like policy, tools, and normalizers get conventional coverage (`tests/test_policy.py`, `tests/test_tools.py`). All green is table stakes.
 
@@ -76,9 +76,9 @@ Layer 4 has official backing: [Textual's testing guide](https://textual.textuali
 
 The four layers work, but measured against the five projects three gaps remain:
 
-1. **Recorded coverage is narrow.** Current fixtures hold single-turn read-only tasks plus one error stream; real streams for multi-turn resume, approval round-trips, and diff reconciliation aren't recorded yet (the stage doc lists this as a limitation). opencode's http-recorder even handles redaction; rivumi's capture harness has no automated sensitive-content masking step.
-2. **No model-backed eval layer.** pi makes "is the model behaving" a repeatable, artifact-producing routine via `describeEval`; rivumi has one-off live smokes but no repeatable eval suite. Once the native harness's prompts start iterating (prompt versioning comes later in this series), lacking evals means relying on vibes.
-3. **TUI tests cover interactions, not visuals.** Pilot tests behavior, not pixels. codex pins every rendered state with insta snapshots; if rivumi wants layout changes without fear, a rendering-snapshot layer is inevitable (the SVG screenshot export path already validated in smoke runs puts it half a step away).
+1. **Recorded coverage is narrow.** Current fixtures hold single-turn read-only tasks plus one error stream; real streams for multi-turn resume, approval round-trips, and diff reconciliation aren't recorded yet (the stage doc lists this as a limitation). opencode's http-recorder even handles redaction; looplane's capture harness has no automated sensitive-content masking step.
+2. **No model-backed eval layer.** pi makes "is the model behaving" a repeatable, artifact-producing routine via `describeEval`; looplane has one-off live smokes but no repeatable eval suite. Once the native harness's prompts start iterating (prompt versioning comes later in this series), lacking evals means relying on vibes.
+3. **TUI tests cover interactions, not visuals.** Pilot tests behavior, not pixels. codex pins every rendered state with insta snapshots; if looplane wants layout changes without fear, a rendering-snapshot layer is inevitable (the SVG screenshot export path already validated in smoke runs puts it half a step away).
 
 One-line takeaway: a non-deterministic system isn't untestable — you just can't test it one way. Pin schemas with fake CLIs, record real behavior as streams, pin screens as snapshots, hand model behavior to evals. Four layers, each covering a segment, turn a "moving agent" into a system you can refactor without fear.
 

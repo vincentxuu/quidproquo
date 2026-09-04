@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 21
-tags: [coding-agent, ci, headless, approval, rivumi, claude-code, codex]
+tags: [coding-agent, ci, headless, approval, looplane, claude-code, codex]
 lang: zh-TW
-tldr: "agent 進 CI 後最大的問題是審批：沒有終端機、沒有人可以按 approve。五家的解法收斂成兩條路——把權限決策外包給呼叫端（claude-code 的 control protocol），或直接換掉審批語意（codex 預設 Never 配沙箱、opencode 預設自動拒絕）。rivumi 用同一個 AgentRunner loop 注入不同的 ApprovalPolicy：headless 下用 HeadlessApprovalPolicy，不讀 stdin 所以不可能卡住 pipeline，EXECUTE 預設 fail closed。"
-description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼，拆解 headless／CI 模式的權限設計：預先授權、自動拒絕、fail closed，以及 rivumi 為什麼堅持同一個 loop 兩種介面。"
+tldr: "agent 進 CI 後最大的問題是審批：沒有終端機、沒有人可以按 approve。五家的解法收斂成兩條路——把權限決策外包給呼叫端（claude-code 的 control protocol），或直接換掉審批語意（codex 預設 Never 配沙箱、opencode 預設自動拒絕）。looplane 用同一個 AgentRunner loop 注入不同的 ApprovalPolicy：headless 下用 HeadlessApprovalPolicy，不讀 stdin 所以不可能卡住 pipeline，EXECUTE 預設 fail closed。"
+description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼，拆解 headless／CI 模式的權限設計：預先授權、自動拒絕、fail closed，以及 looplane 為什麼堅持同一個 loop 兩種介面。"
 draft: false
 ---
 
@@ -51,13 +51,13 @@ pi 的模式判斷在 `pi-mono/packages/coding-agent/src/main.ts#resolveAppMode`
 
 omp 是 pi 的 fork，它在這件事上的增量是把審批等級變成一等參數：`--approval-mode always-ask|write|yolo`，以及 `--auto-approve`/`--yolo` 別名。`oh-my-pi/packages/coding-agent/src/main.ts#approvalMode` 一段把它寫進 settings override（註解特別強調是 runtime override、不會持久化），讓下游所有讀 `tools.approvalMode` 的地方——包括 ACP 權限橋接——都看到同一個意圖。另外 piped input 會自動觸發 print mode，不用手動加 `-p`。
 
-## rivumi 的選擇：同一個 loop、兩種 policy
+## looplane 的選擇：同一個 loop、兩種 policy
 
-rivumi 的答案是五家的第四種組合：**審批不是被拿掉，而是被注入**。`src/rivumi/loop.py#AgentRunner` 的建構子接受 `approval_policy`，沒給就用 `HeadlessApprovalPolicy`；interactive 路徑傳入 `TTYApprovalPolicy`。同一個 agent loop，兩種介面差異被壓縮成一個 policy 物件。
+looplane 的答案是五家的第四種組合：**審批不是被拿掉，而是被注入**。`src/looplane/loop.py#AgentRunner` 的建構子接受 `approval_policy`，沒給就用 `HeadlessApprovalPolicy`；interactive 路徑傳入 `TTYApprovalPolicy`。同一個 agent loop，兩種介面差異被壓縮成一個 policy 物件。
 
-headless 那份 policy 的 docstring 就是整個設計：「A deterministic policy that never reads stdin and therefore cannot hang CI」（`src/rivumi/approvals.py#HeadlessApprovalPolicy`）。它的決策表只有三行：READ 永遠允許、MODIFY 允許（但仍受 path policy 和累積 patch 上限約束）、EXECUTE 預設拒絕——fail closed，跟 opencode 同向。`src/rivumi/cli.py#run` 再往上疊契約式邊界：`--check` 只收 exact argv、`--max-steps` 和 `--wall-time` 是硬預算、disposable workspace 釘在 base SHA、結束吐完整 artifacts 並以 status 非 completed 回 exit code 1。
+headless 那份 policy 的 docstring 就是整個設計：「A deterministic policy that never reads stdin and therefore cannot hang CI」（`src/looplane/approvals.py#HeadlessApprovalPolicy`）。它的決策表只有三行：READ 永遠允許、MODIFY 允許（但仍受 path policy 和累積 patch 上限約束）、EXECUTE 預設拒絕——fail closed，跟 opencode 同向。`src/looplane/cli.py#run` 再往上疊契約式邊界：`--check` 只收 exact argv、`--max-steps` 和 `--wall-time` 是硬預算、disposable workspace 釘在 base SHA、結束吐完整 artifacts 並以 status 非 completed 回 exit code 1。
 
-跟五家最大的差異在於：rivumi 的 headless **沒有**「預先全面授權」的選項。codex 有 danger-full-access、claude-code 有 skip-permissions、omp 有 yolo；rivumi 最接近的是 `--unsafe-local-exec`，但它只放行任務契約裡宣告過的那幾條 exact argv 檢查指令，不是任意 shell。代價是彈性——很多 CI 任務它做不了；好處是 CI 使用邊界非常清楚：能跑的就是契約寫的那些，audit trail 裡每筆審批決策都有記錄可查。
+跟五家最大的差異在於：looplane 的 headless **沒有**「預先全面授權」的選項。codex 有 danger-full-access、claude-code 有 skip-permissions、omp 有 yolo；looplane 最接近的是 `--unsafe-local-exec`，但它只放行任務契約裡宣告過的那幾條 exact argv 檢查指令，不是任意 shell。代價是彈性——很多 CI 任務它做不了；好處是 CI 使用邊界非常清楚：能跑的就是契約寫的那些，audit trail 裡每筆審批決策都有記錄可查。
 
 ## 工程依據
 
@@ -73,18 +73,18 @@ headless 那份 policy 的 docstring 就是整個設計：「A deterministic pol
 
 ## 改善路線
 
-rivumi 目前已經拿到的：不 hang、fail closed、artifacts 齊全、exit code 可判讀。對照五家，還有四條值得走的路：
+looplane 目前已經拿到的：不 hang、fail closed、artifacts 齊全、exit code 可判讀。對照五家，還有四條值得走的路：
 
-1. **Structured output schema**。codex 的 `--output-schema` 讓 CI 直接拿到可驗證的 JSON 而不是自然語言；rivumi 的 result.json 已經是結構化的，缺的是讓使用者自訂 schema 約束最終回覆。
-2. **穩定的串流事件合約**。claude-code 的 stream-json 加上 stdout guard（防止任何雜訊污染 JSON 流）是外部編排的基礎建設；rivumi 的 events.jsonl 是 artifact 不是即時介面，CI 中途觀察目前做不到。
-3. **沙箱配 EXECUTE 放行**。codex 的啟示是 approval Never 必須配 OS 級隔離才敢用；rivumi 若要在 CI 放寬 execute，正確順序是先補沙箱（對應系列後續的 OS-level sandboxing 主題），而不是加一個更大的 allowlist flag。
-4. **Resume 進 pipeline**。codex exec 有 `resume` 子命令，失敗的 job 可以接著跑而不必重頭來；rivumi 的 session resume 已存在於 interactive 路徑，還沒接到 headless 契約上。
+1. **Structured output schema**。codex 的 `--output-schema` 讓 CI 直接拿到可驗證的 JSON 而不是自然語言；looplane 的 result.json 已經是結構化的，缺的是讓使用者自訂 schema 約束最終回覆。
+2. **穩定的串流事件合約**。claude-code 的 stream-json 加上 stdout guard（防止任何雜訊污染 JSON 流）是外部編排的基礎建設；looplane 的 events.jsonl 是 artifact 不是即時介面，CI 中途觀察目前做不到。
+3. **沙箱配 EXECUTE 放行**。codex 的啟示是 approval Never 必須配 OS 級隔離才敢用；looplane 若要在 CI 放寬 execute，正確順序是先補沙箱（對應系列後續的 OS-level sandboxing 主題），而不是加一個更大的 allowlist flag。
+4. **Resume 進 pipeline**。codex exec 有 `resume` 子命令，失敗的 job 可以接著跑而不必重頭來；looplane 的 session resume 已存在於 interactive 路徑，還沒接到 headless 契約上。
 
 一句話總結：headless 模式不是把互動模式的 UI 拔掉，而是把「人類即時判斷」這個依賴，整個替換成事先宣告的契約與安全的預設值。
 
 ## 參考資料
 
-- [Claude Code Agent SDK 文件](https://docs.anthropic.com/en/docs/claude-code/sdk) — headless CI、approve policy 與 rivumi loop/policy 對照。
+- [Claude Code Agent SDK 文件](https://docs.anthropic.com/en/docs/claude-code/sdk) — headless CI、approve policy 與 looplane loop/policy 對照。
 - [Claude Code CLI reference](https://docs.anthropic.com/en/docs/claude-code/cli-reference)
 - [Claude Code GitHub Actions](https://docs.anthropic.com/en/docs/claude-code/github-actions)
 - [Codex `codex exec` 文件](https://github.com/openai/codex/blob/main/docs/exec.md)

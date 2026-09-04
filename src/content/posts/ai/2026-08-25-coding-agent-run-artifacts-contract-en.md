@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 20
-tags: [coding-agent, run-artifacts, auditability, rivumi, observability]
+tags: [coding-agent, run-artifacts, auditability, looplane, observability]
 lang: en
-tldr: "After an agent run finishes, 'the model said it's done' is not evidence. Codex splits traces into a manifest + JSONL + payloads bundle, omp mirrors on-disk files into SQLite, pi indexes native session files with runs.jsonl. Rivumi picked the strictest option: six fixed files per run, the run is incomplete if any is missing, and patch review reads changes.patch—not anyone's verbal claim."
-description: "Comparing source code from codex, omp, pi, opencode, and claude-code to break down three storage trade-offs for run artifacts—fixed-schema files, single JSONL, and SQLite—plus the reasoning behind rivumi's six-file contract and its improvement roadmap."
+tldr: "After an agent run finishes, 'the model said it's done' is not evidence. Codex splits traces into a manifest + JSONL + payloads bundle, omp mirrors on-disk files into SQLite, pi indexes native session files with runs.jsonl. Looplane picked the strictest option: six fixed files per run, the run is incomplete if any is missing, and patch review reads changes.patch—not anyone's verbal claim."
+description: "Comparing source code from codex, omp, pi, opencode, and claude-code to break down three storage trade-offs for run artifacts—fixed-schema files, single JSONL, and SQLite—plus the reasoning behind looplane's six-file contract and its improvement roadmap."
 draft: false
 ---
 
@@ -35,13 +35,13 @@ So the real question is three questions: **what do you use to reconstruct the pr
 
 **claude-code** is the simplest: one directory per project, one `.jsonl` transcript per session (`anthropics/claude-code src/utils/listSessionsImpl.ts` scans `.jsonl` under `getProjectsDir()`), plus a one-line-per-entry `history.jsonl` for prompt history (`src/history.ts`). A single append-only file, good enough.
 
-## rivumi's choice and how it differs
+## looplane's choice and how it differs
 
-Rivumi's contract lives in `docs/progress.md` under "Required artifacts per run": every run directory contains exactly six fixed files—`request.json`, `events.jsonl`, `checkpoint.json`, `changes.patch`, `test.log`, `result.json` (the implementation also writes a seventh, `verification.json`, holding each check's exit code and output). The M1 stage doc's acceptance criteria explicitly require "all six files exist and agree about terminal state."
+Looplane's contract lives in `docs/progress.md` under "Required artifacts per run": every run directory contains exactly six fixed files—`request.json`, `events.jsonl`, `checkpoint.json`, `changes.patch`, `test.log`, `result.json` (the implementation also writes a seventh, `verification.json`, holding each check's exit code and output). The M1 stage doc's acceptance criteria explicitly require "all six files exist and agree about terminal state."
 
 Compared with the five projects, several deliberate differences:
 
-**Fixed-schema files instead of a single JSONL.** claude-code and pi use one JSONL for everything, but rivumi wants different consumers pulling different files: someone reviewing patches opens only `changes.patch`; failure triage starts at `terminal_reason` in `result.json`; only debugging requires reading `events.jsonl`. The boundaries between the six files mirror the boundaries between six audit questions.
+**Fixed-schema files instead of a single JSONL.** claude-code and pi use one JSONL for everything, but looplane wants different consumers pulling different files: someone reviewing patches opens only `changes.patch`; failure triage starts at `terminal_reason` in `result.json`; only debugging requires reading `events.jsonl`. The boundaries between the six files mirror the boundaries between six audit questions.
 
 **The patch is the evidence.** `loop.py#_finish` re-collects the reviewable diff at teardown and writes `changes.patch`; if even the patch cannot be produced, the whole run downgrades to `failed` / `patch_artifact_failed`—never leaving behind a directory that claims success without a patch. "The model said it changed things" never enters the evidence chain; the evidence is the git diff and verification exit codes.
 
@@ -53,15 +53,15 @@ Compared with the five projects, several deliberate differences:
 
 The three storage trade-offs compress into one sentence: **JSONL buys durability, SQLite buys queryability, fixed files buy legibility.**
 
-Append-only JSONL's core value is crash safety: die while writing line N and lines 1..N−1 remain valid. Codex's uniform `RawTraceEvent` envelope and rivumi's `events.py#EventWriter.append` (O_APPEND + fsync) are making the same bet. SQLite's value is aggregate queries—opencode and codex's state db both exist to serve "list/search/sort sessions"; but omp's design carries the key reminder: the index can be derived data, **the raw record must be a human-readable file**, so when the database corrupts or the schema evolves, what's on disk still speaks. Rivumi chose fixed files, putting legibility first; queryability is unused today (a single run doesn't need SQL), and durability is covered by `events.py#atomic_write_json`'s temp-file + rename + directory fsync.
+Append-only JSONL's core value is crash safety: die while writing line N and lines 1..N−1 remain valid. Codex's uniform `RawTraceEvent` envelope and looplane's `events.py#EventWriter.append` (O_APPEND + fsync) are making the same bet. SQLite's value is aggregate queries—opencode and codex's state db both exist to serve "list/search/sort sessions"; but omp's design carries the key reminder: the index can be derived data, **the raw record must be a human-readable file**, so when the database corrupts or the schema evolves, what's on disk still speaks. Looplane chose fixed files, putting legibility first; queryability is unused today (a single run doesn't need SQL), and durability is covered by `events.py#atomic_write_json`'s temp-file + rename + directory fsync.
 
 On the academic side this connects to evaluation reproducibility: SWE-bench ([arXiv:2310.06770](https://arxiv.org/abs/2310.06770)) became a common reference point precisely because every instance has a fixed input contract and pass/fail criterion; SWE-agent ([arXiv:2405.15793](https://arxiv.org/2405.15793)) promoted the agent–computer interface to a first-class design object. A run artifacts contract extends the same idea toward operations: judgment criteria must not live inside the conversation. [Anthropic's Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) likewise lists observability as a precondition for production agents—and the minimal unit of observability is one complete record of a run.
 
 ## What can be improved
 
 1. **No secret scanner.** The environment allowlist blocks the main channel, but tool output itself (say, `cat`-ing a file containing a key) could still carry secrets into events.jsonl. The M1 stage doc honestly lists this as a limitation; gitleaks-style artifact scanning is the next step.
-2. **No experiment layer.** omp's experiment → run → trace hierarchy lets different arms of the same question be compared side by side; rivumi's runs are currently islands, compared by manually opening directories.
-3. **No reduced view.** codex's reducer replays raw events into a semantic `RolloutTrace` (cached as `state.json`); rivumi's events.jsonl is raw text only, and human review cost will climb as runs grow.
+2. **No experiment layer.** omp's experiment → run → trace hierarchy lets different arms of the same question be compared side by side; looplane's runs are currently islands, compared by manually opening directories.
+3. **No reduced view.** codex's reducer replays raw events into a semantic `RolloutTrace` (cached as `state.json`); looplane's events.jsonl is raw text only, and human review cost will climb as runs grow.
 4. **result.json could carry artifact checksums.** The current `artifacts` dict stores paths only; adding SHA-256 would prove "this result describes exactly these files," closing the audit chain.
 
 The next post in the series covers headless mode and CI usage—the artifacts contract is precisely what makes headless trustworthy.

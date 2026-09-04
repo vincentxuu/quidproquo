@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 38
-tags: [coding-agent, server-api, sse, websocket, rivumi, opencode, codex]
+tags: [coding-agent, server-api, sse, websocket, looplane, opencode, codex]
 lang: zh-TW
-tldr: "rivumi 已有 Cloudflare Durable Object run resource：非同步建立、狀態／取消／artifact、live NDJSON 與支援 Last-Event-ID 的 SSE；遠端 approval 走獨立短效 capability。Python 另有 attach client 與 stateful conversation WebSocket。production deploy、跨 runtime parity 與完整多租戶 hardening 尚未驗證。"
-description: "對照成熟 coding agent 的 server API，並檢視 rivumi 已落地的 durable run、SSE／WebSocket attach 與遠端 approval 基線。"
+tldr: "looplane 已有 Cloudflare Durable Object run resource：非同步建立、狀態／取消／artifact、live NDJSON 與支援 Last-Event-ID 的 SSE；遠端 approval 走獨立短效 capability。Python 另有 attach client 與 stateful conversation WebSocket。production deploy、跨 runtime parity 與完整多租戶 hardening 尚未驗證。"
+description: "對照成熟 coding agent 的 server API，並檢視 looplane 已落地的 durable run、SSE／WebSocket attach 與遠端 approval 基線。"
 draft: false
 ---
 
@@ -21,7 +21,7 @@ draft: false
 
 ## 能力問題：loop 之後還缺什麼
 
-[系列的 order 21](/posts/ai/2026-08-25-coding-agent-headless-ci-mode) 解決了「沒有人按 approve」的問題；單純 headless CLI 仍是**一次一格**的互動模型。Rivumi 後來補上的服務面，正是在處理這三個限制：
+[系列的 order 21](/posts/ai/2026-08-25-coding-agent-headless-ci-mode) 解決了「沒有人按 approve」的問題；單純 headless CLI 仍是**一次一格**的互動模型。Looplane 後來補上的服務面，正是在處理這三個限制：
 
 1. **中途觀察**：任務跑到一半，外部程式看不到進度，只能等它結束。
 2. **常駐複用**：每次呼叫都重新載入系統提示、重建 workspace 狀態，付一遍啟動成本。
@@ -67,7 +67,7 @@ claude-code 的方向跟其他四家相反：它的遠端 session 架構裡，se
 
 業界也在往同一個方向收斂：[Model Context Protocol](https://modelcontextprotocol.io) 標準化了工具面，[Agent Client Protocol](https://agentclientprotocol.com) 標準化了編輯器與 agent 的通訊——omp 的 ACP 映射就是接在後者上。自訂私有協議的空間正在變小。
 
-## rivumi 已落地的服務面
+## looplane 已落地的服務面
 
 Cloudflare control plane 已把 run 做成 Durable Object 資源。`POST /v1/runs` 回 `202`，背景建立隔離 Sandbox；client 可查狀態、取消、取 artifact，也能在執行中讀 live NDJSON。`?stream=1` 會升級成 SSE，先補播 bounded event buffer，再推新事件；`Last-Event-ID` 只補比 cursor 新的 sequence，terminal state 會關閉連線。
 
@@ -77,9 +77,9 @@ Cloudflare control plane 已把 run 做成 Durable Object 資源。`POST /v1/run
 
 ## 參考資料
 
-- [rivumi Cloudflare control plane 說明（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/cloudflare/README.md)
-- [rivumi Python attach client（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/cloudflare_client.py)
-- [rivumi conversation WebSocket（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/conversation_websocket.py)
+- [looplane Cloudflare control plane 說明（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/cloudflare/README.md)
+- [looplane Python attach client（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/cloudflare_client.py)
+- [looplane conversation WebSocket（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/conversation_websocket.py)
 
 - [badlogic/pi-mono](https://github.com/badlogic/pi-mono)
 - [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)

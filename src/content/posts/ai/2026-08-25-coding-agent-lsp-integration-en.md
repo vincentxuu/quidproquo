@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 36
-tags: [coding-agent, lsp, diagnostics, rivumi, oh-my-pi, claude-code, opencode]
+tags: [coding-agent, lsp, diagnostics, looplane, oh-my-pi, claude-code, opencode]
 lang: en
-tldr: "rivumi can now inject repository diagnostics and open-file state into the next model turn, push typed IDE context over WebSocket, package a VS Code bridge, and supervise long-lived LSP subprocesses through ManagedLspServer. Language-specific initialize/didOpen/didChange adapters and live-editor validation remain open."
-description: "Comparing LSP diagnostic injection across mature coding agents, including rivumi's IDE context, WebSocket, VS Code, and ManagedLspServer baseline."
+tldr: "looplane can now inject repository diagnostics and open-file state into the next model turn, push typed IDE context over WebSocket, package a VS Code bridge, and supervise long-lived LSP subprocesses through ManagedLspServer. Language-specific initialize/didOpen/didChange adapters and live-editor validation remain open."
+description: "Comparing LSP diagnostic injection across mature coding agents, including looplane's IDE context, WebSocket, VS Code, and ManagedLspServer baseline."
 draft: false
 ---
 
@@ -19,7 +19,7 @@ The previous post covered [model catalogs and routing](/posts/ai/2026-08-25-codi
 
 ## The capability gap: verification signal latency
 
-`run_check` remains rivumi's quality gate for deciding whether code is correct, but it is no longer the model's only feedback source. IDE/LSP diagnostics and open-file state can be injected into the next turn, revealing precise locations before a full test run. The roles are explicit: LSP is advisory; checks are verification evidence.
+`run_check` remains looplane's quality gate for deciding whether code is correct, but it is no longer the model's only feedback source. IDE/LSP diagnostics and open-file state can be injected into the next turn, revealing precise locations before a full test run. The roles are explicit: LSP is advisory; checks are verification evidence.
 
 Human engineers don't work this way. The moment you hit save, the language server in your editor has already drawn red squiggles — type errors, undefined variables, a misspelled import — all marked at precise locations. [LSP, the Language Server Protocol](https://microsoft.github.io/language-server-protocol/), standardizes exactly this: the editor sends didOpen/didChange, and the server pushes back structured errors via `textDocument/publishDiagnostics`.
 
@@ -57,7 +57,7 @@ One client-side detail worth stealing: `src/lsp/client.ts` deliberately does not
 
 ### pi and codex: nothing
 
-Negative findings get recorded too. No LSP integration anywhere in pi-mono's core; codex-rs likewise has none. Codex's philosophy is that the shell is the single source of truth — verify by running builds and tests — making it the closest blood relative to rivumi's run_check. And omp's entire LSP stack was added after forking pi; the two generations together are a design document in themselves: upstream decided "execution results suffice," the fork decided "real-time diagnostics justify a few extra subprocesses."
+Negative findings get recorded too. No LSP integration anywhere in pi-mono's core; codex-rs likewise has none. Codex's philosophy is that the shell is the single source of truth — verify by running builds and tests — making it the closest blood relative to looplane's run_check. And omp's entire LSP stack was added after forking pi; the two generations together are a design document in themselves: upstream decided "execution results suffice," the fork decided "real-time diagnostics justify a few extra subprocesses."
 
 ## Academic and engineering grounding
 
@@ -65,7 +65,7 @@ The theoretical basis here is old news: the [SWE-agent paper](https://arxiv.org/
 
 The costs deserve honesty: one or more long-lived subprocesses per project (rust-analyzer eats memory without apology), indexing takes time to warm up (omp has a warmup mechanism and a `DIAGNOSTICS_PIPELINE_GRACE_MS = 10_000` pipeline grace window), and diagnostics are advisory, not verdicts — a crashed server, a cold index, or misconfiguration means silence, and silence is not proof of correctness.
 
-## The baseline now implemented in rivumi
+## The baseline now implemented in looplane
 
 `ide.py` defines bounded diagnostics and open-file snapshots. The native loop injects them into the next model turn as marked context and emits `ide.diagnostics_injected` / `ide.open_files_injected` events. The stateful WebSocket also accepts typed IDE context, and `editors/vscode` can be packaged and smoked locally.
 
@@ -75,8 +75,8 @@ Language-specific initialize, didOpen, and didChange adapter details still need 
 
 ## References
 
-- [rivumi `lsp.py` at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/lsp.py)
-- [rivumi IDE bridge at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/ide.py)
+- [looplane `lsp.py` at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/lsp.py)
+- [looplane IDE bridge at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/ide.py)
 
 - [Language Server Protocol official site](https://microsoft.github.io/language-server-protocol/) / [LSP 3.17 Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/)
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793)

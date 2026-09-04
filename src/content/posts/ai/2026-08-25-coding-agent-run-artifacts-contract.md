@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 20
-tags: [coding-agent, run-artifacts, auditability, rivumi, observability]
+tags: [coding-agent, run-artifacts, auditability, looplane, observability]
 lang: zh-TW
-tldr: "agent 跑完之後，「模型說它做完了」不是證據。codex 把 trace 拆成 manifest + JSONL + payloads 的 bundle、omp 用 SQLite 鏡像磁碟上的固定檔案、pi 用 runs.jsonl 索引原生 session 檔。rivumi 選了最硬的一條：每個 run 固定六個檔案，缺一個就不算完成，patch 審計看 changes.patch 不看口頭宣稱。"
-description: "對照 codex、omp、pi、opencode、claude-code 五家原始碼，拆解 run artifacts 的三種儲存取捨——固定 schema 檔案、單一 JSONL、SQLite——以及 rivumi 六檔契約的設計理由與改善路線。"
+tldr: "agent 跑完之後，「模型說它做完了」不是證據。codex 把 trace 拆成 manifest + JSONL + payloads 的 bundle、omp 用 SQLite 鏡像磁碟上的固定檔案、pi 用 runs.jsonl 索引原生 session 檔。looplane 選了最硬的一條：每個 run 固定六個檔案，缺一個就不算完成，patch 審計看 changes.patch 不看口頭宣稱。"
+description: "對照 codex、omp、pi、opencode、claude-code 五家原始碼，拆解 run artifacts 的三種儲存取捨——固定 schema 檔案、單一 JSONL、SQLite——以及 looplane 六檔契約的設計理由與改善路線。"
 draft: false
 ---
 
@@ -35,13 +35,13 @@ Agent run 有兩個特性讓事後審計變難。第一，過程不可重現：�
 
 **claude-code** 最樸素：每個專案一個目錄、每個 session 一個 `.jsonl` transcript（`anthropics/claude-code src/utils/listSessionsImpl.ts` 掃 `getProjectsDir()` 底下的 `.jsonl`），prompt 歷史另存一行式 `history.jsonl`（`src/history.ts`）。單一 append-only 檔案，夠用就好。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi 的契約在 `docs/progress.md` 的「Required artifacts per run」：每個 run 目錄固定六個檔案——`request.json`、`events.jsonl`、`checkpoint.json`、`changes.patch`、`test.log`、`result.json`（實作還會多寫一個 `verification.json` 存每次檢查的 exit code 與輸出）。M1 stage doc 的驗收標準明文要求「六個檔案存在且對 terminal state 的描述一致」。
+looplane 的契約在 `docs/progress.md` 的「Required artifacts per run」：每個 run 目錄固定六個檔案——`request.json`、`events.jsonl`、`checkpoint.json`、`changes.patch`、`test.log`、`result.json`（實作還會多寫一個 `verification.json` 存每次檢查的 exit code 與輸出）。M1 stage doc 的驗收標準明文要求「六個檔案存在且對 terminal state 的描述一致」。
 
 跟五家比起來，幾個刻意的差異：
 
-**固定 schema 檔案，而不是單一 JSONL。** claude-code 和 pi 用一個 JSONL 打天下，但 rivumi 要的是不同消費者各取所需：審 patch 的人只開 `changes.patch`、查失敗先看 `result.json` 的 `terminal_reason`、除錯才翻 `events.jsonl`。六個檔案的邊界就是六種審計問題的邊界。
+**固定 schema 檔案，而不是單一 JSONL。** claude-code 和 pi 用一個 JSONL 打天下，但 looplane 要的是不同消費者各取所需：審 patch 的人只開 `changes.patch`、查失敗先看 `result.json` 的 `terminal_reason`、除錯才翻 `events.jsonl`。六個檔案的邊界就是六種審計問題的邊界。
 
 **patch 即證據。** `loop.py#_finish` 在收尾時重新收集 reviewable diff 寫入 `changes.patch`；如果連 patch 都收不出來，整個 run 直接降級成 `failed` / `patch_artifact_failed`，不會留下一個「說成功但拿不出 patch」的目錄。「模型說改好了」永遠不進證據鏈——證據只有 git diff 和 verification exit code。
 
@@ -53,15 +53,15 @@ rivumi 的契約在 `docs/progress.md` 的「Required artifacts per run」：每
 
 三種儲存的取捨可以收斂成一句話：**JSONL 換 durability，SQLite 換 queryability，固定檔案換 legibility。**
 
-Append-only JSONL 的核心價值是 crash-safe：寫到第 N 行掛掉，前 N−1 行仍然有效。codex 的 `RawTraceEvent` 統一信封、rivumi `events.py#EventWriter.append` 的 O_APPEND + fsync，都是同一個賭注。SQLite 的價值在聚合查詢，opencode 和 codex 的 state db 都是為了「列出/搜尋/排序 session」這類操作；但 omp 的做法提醒了關鍵：索引可以是 derived data，**原始紀錄必須是人可讀的檔案**，資料庫壞了或 schema 演進了，磁碟上的東西還在。rivumi 選固定檔案，等於是把 legibility 放在第一位，queryability 目前用不上（單 run 的規模不需要 SQL），durability 由 `events.py#atomic_write_json` 的 temp-file + rename + directory fsync 補上。
+Append-only JSONL 的核心價值是 crash-safe：寫到第 N 行掛掉，前 N−1 行仍然有效。codex 的 `RawTraceEvent` 統一信封、looplane `events.py#EventWriter.append` 的 O_APPEND + fsync，都是同一個賭注。SQLite 的價值在聚合查詢，opencode 和 codex 的 state db 都是為了「列出/搜尋/排序 session」這類操作；但 omp 的做法提醒了關鍵：索引可以是 derived data，**原始紀錄必須是人可讀的檔案**，資料庫壞了或 schema 演進了，磁碟上的東西還在。looplane 選固定檔案，等於是把 legibility 放在第一位，queryability 目前用不上（單 run 的規模不需要 SQL），durability 由 `events.py#atomic_write_json` 的 temp-file + rename + directory fsync 補上。
 
 學術側對應的是 evaluation 可重現性這條線：SWE-bench（[arXiv:2310.06770](https://arxiv.org/abs/2310.06770)）之所以能成為共同參考點，正是因為每個實例都有固定的輸入契約和 pass/fail 判定；SWE-agent（[arXiv:2405.15793](https://arxiv.org/2405.15793)）進一步把 agent–computer interface 當成一等設計物件。Run artifacts 契約是同一個思想往營運端的延伸：判定標準不能活在對話裡。[Anthropic 的 Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) 也把 observability 列為 agent 上生產線的前置條件，而 observability 的最小單位就是一份完整的 run 紀錄。
 
 ## 還能改善什麼
 
 1. **沒有 secret scanner。** 環境白名單擋住了主要通道，但工具輸出本身（例如 `cat` 到一個含 key 的檔案）仍可能把秘密帶進 events.jsonl。M1 stage doc 已誠實列為 limitation；gitleaks 式的 artifact 掃描是下一步。
-2. **缺 experiment 層。** omp 的 experiment → run → trace 三層讓「同一個問題的不同 arm」可以併排比較；rivumi 目前每個 run 是孤島，比較靠人肉開目錄。
-3. **沒有 reduced view。** codex 的 reducer 把原始事件重放成語意化的 `RolloutTrace`（`state.json` 快取），rivumi 的 events.jsonl 只有原文，run 大了之後人審成本會上升。
+2. **缺 experiment 層。** omp 的 experiment → run → trace 三層讓「同一個問題的不同 arm」可以併排比較；looplane 目前每個 run 是孤島，比較靠人肉開目錄。
+3. **沒有 reduced view。** codex 的 reducer 把原始事件重放成語意化的 `RolloutTrace`（`state.json` 快取），looplane 的 events.jsonl 只有原文，run 大了之後人審成本會上升。
 4. **result.json 可以帶 artifact checksum。** 現在 `artifacts` dict 只存路徑；加上 SHA-256 才能證明「這份 result 描述的就是這些檔案」，審計鏈才算閉環。
 
 系列下一篇講 headless 模式與 CI 使用——artifacts 契約正是 headless 能被信任的前提。

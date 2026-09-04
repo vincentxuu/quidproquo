@@ -8,8 +8,8 @@ series:
   order: 12
 tags: [coding-agent, small-models, evaluation, harness-engineering, ollama, llm-agents]
 lang: en
-description: "qwen3:4b read the right file but emitted a broken diff — does that count as coding ability? How pi, OMP, and Codex design model-backed evals and edit formats, contrasted with rivumi's five-run live Ollama evaluation and its evidence discipline."
-tldr: "Small models don't fail at reasoning first — they fail at format stability: tool-call JSON, diff hunk arithmetic, and context budgets all break. The mature harnesses build evals on real model behavior (pi's model-backed evals, OMP calibrating benchmarks from real session logs, Codex even relaxing its parser for weaker models). rivumi picks the narrowest but hardest path: one fixture, five real Ollama runs, a manifest declaring exactly which files and patch fragments count as success — and M2's failure kept verbatim as evidence. Never pass mock off as E2E; never spin partial success into full passes."
+description: "qwen3:4b read the right file but emitted a broken diff — does that count as coding ability? How pi, OMP, and Codex design model-backed evals and edit formats, contrasted with looplane's five-run live Ollama evaluation and its evidence discipline."
+tldr: "Small models don't fail at reasoning first — they fail at format stability: tool-call JSON, diff hunk arithmetic, and context budgets all break. The mature harnesses build evals on real model behavior (pi's model-backed evals, OMP calibrating benchmarks from real session logs, Codex even relaxing its parser for weaker models). looplane picks the narrowest but hardest path: one fixture, five real Ollama runs, a manifest declaring exactly which files and patch fragments count as success — and M2's failure kept verbatim as evidence. Never pass mock off as E2E; never spin partial success into full passes."
 draft: false
 ---
 
@@ -17,7 +17,7 @@ draft: false
 
 ## The Design Problem
 
-A true story first. In milestone M2, rivumi hooked up a local Ollama instance running Qwen3's `qwen3:4b` with a task that could not have been smaller: calculator implemented subtraction with a minus sign where addition was needed — fix that one line so pytest passes. The result: the model twice correctly read the target file and correctly identified the broken line, then emitted a unified diff with wrong hunk line counts. `git apply --check` rejected it outright, the response budget burned out, and the task failed. That record is preserved in `docs/stages/m2-interactive-cli-provider-gateway.md` — deliberately not deleted.
+A true story first. In milestone M2, looplane hooked up a local Ollama instance running Qwen3's `qwen3:4b` with a task that could not have been smaller: calculator implemented subtraction with a minus sign where addition was needed — fix that one line so pytest passes. The result: the model twice correctly read the target file and correctly identified the broken line, then emitted a unified diff with wrong hunk line counts. `git apply --check` rejected it outright, the response budget burned out, and the task failed. That record is preserved in `docs/stages/m2-interactive-cli-provider-gateway.md` — deliberately not deleted.
 
 This is the classic failure profile of a 4B-class small model, and it has three parts:
 
@@ -43,9 +43,9 @@ One level up, `oh-my-pi/packages/metaharness/src/store.ts#RunRow` and `#TraceRow
 
 `codex/codex-rs/apply-patch/src/parser.rs#PARSE_IN_STRICT_MODE` may be the most honest line of code in this whole study: the constant is `false`, with a comment stating plainly that the only OpenAI model known to require lenient parsing is gpt-4.1, so lenient mode applies to all models. Codex uses a custom `*** Begin Patch` format instead of strict unified diffs, and the parser deliberately tolerates format quirks for specific models — **the harness is designed around model weaknesses rather than pretending they don't exist**. Meanwhile Claude Code relies on `claude-code-source/src/services/compact/autoCompact.ts` to compact automatically near the context ceiling — an admission that assuming sufficient context is itself a design error. (OpenCode, for completeness, ships no standalone benchmark package in-repo; its eval strategy leans on external CI workflows — which is itself a position on the spectrum.)
 
-## rivumi's Choice and How It Differs
+## looplane's Choice and How It Differs
 
-M2's failure became M3's spec directly. rivumi's answer has three parts:
+M2's failure became M3's spec directly. looplane's answer has three parts:
 
 **The task is declared in a manifest, not in code.** `evals/live/tiny-python-bug.json` pins down: only `src/tiny_python_bug/calculator.py` may change; the patch must contain both fragments `-    return left - right` and `+    return left + right`; `replace_text` must complete successfully; bounds of 8 steps and 300 seconds; at least 4 of 5 attempts must pass.
 
@@ -53,19 +53,19 @@ M2's failure became M3's spec directly. rivumi's answer has three parts:
 
 **Per-dimension records — failures are evidence too.** Transport, tool-use, edit, verification, and task-completion are tracked separately: M2's 4B reading the correct file was a tool-use-layer success and an edit-layer failure, and the two are never conflated. M3 ultimately passed 5/5 (threshold was 4/5), yet the stage doc explicitly states "M3 does not interpret the 5/5 result as broad 4B-model reliability" — the conclusion is locked to the single fixture in the manifest.
 
-The difference from the five references is clear: rivumi has none of OMP's large-scale benchmark infrastructure. It chose **narrow but hard** — one task, five repeats, reproducible artifacts and hashes. The cost is near-zero coverage; the payoff is that every claim points to a file.
+The difference from the five references is clear: looplane has none of OMP's large-scale benchmark infrastructure. It chose **narrow but hard** — one task, five repeats, reproducible artifacts and hashes. The cost is near-zero coverage; the payoff is that every claim points to a file.
 
 ## Academic Grounding
 
-[SWE-bench](https://arxiv.org/abs/2310.06770) established two things: eval tasks should come from real software (GitHub issues), and the criterion should be executable tests rather than model self-report. rivumi's fail-to-pass pytest plus patch assertions is essentially a miniature of it. On the model side, the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388) shows 4B-class models pairing real reasoning capability with real limitations — they can reason toward a fix, but output format stability remains the weak spot, consistent with what M2/M3 observed.
+[SWE-bench](https://arxiv.org/abs/2310.06770) established two things: eval tasks should come from real software (GitHub issues), and the criterion should be executable tests rather than model self-report. looplane's fail-to-pass pytest plus patch assertions is essentially a miniature of it. On the model side, the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388) shows 4B-class models pairing real reasoning capability with real limitations — they can reason toward a fix, but output format stability remains the weak spot, consistent with what M2/M3 observed.
 
 ## Improvement Roadmap
 
 In priority order:
 
 1. **Diversify fixtures.** Reproducibility for a one-line fix is proven; the next step is multi-file tasks requiring several edits — otherwise the eval only covers replace_text's sweet spot.
-2. **Borrow metaharness's unified recording.** The experiment → run → trace SQLite model suits future cross-model comparisons in rivumi (qwen3 versus other small models) without hand-assembling summary.json each time.
-3. **Measure yourself like edit-shape-stats does.** Once rivumi has real usage volume, feed it back into fixture calibration so the benchmark doesn't stay a toy.
+2. **Borrow metaharness's unified recording.** The experiment → run → trace SQLite model suits future cross-model comparisons in looplane (qwen3 versus other small models) without hand-assembling summary.json each time.
+3. **Measure yourself like edit-shape-stats does.** Once looplane has real usage volume, feed it back into fixture calibration so the benchmark doesn't stay a toy.
 4. **Consider Codex-style format concessions.** replace_text already routes around diff arithmetic; if stronger local models gain support later, re-evaluate whether unified diffs come back — otherwise keep the status quo.
 
 Can small models code? The current answer: yes, they find the correct semantic change — but the harness must absorb every bit of format risk for them, and you need an eval that doesn't fool yourself before you're entitled to answer the question at all.

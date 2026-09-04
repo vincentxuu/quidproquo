@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 2
-tags: [coding-agent, agent-loop, rivumi, session-persistence, claude-code]
+tags: [coding-agent, agent-loop, looplane, session-persistence, claude-code]
 lang: en
-tldr: "pi's loop is a double while-loop wrapped in an EventStream; claude-code's source openly says stop_reason is unreliable and uses tool_use blocks observed during streaming as the sole continue signal; codex models a turn as a cancellable SessionTask and records sessions with a dedicated rollout crate. rivumi chose an ordering — manifest first, JSONL second — that turns Ctrl-C into verified resumption instead of a rerun. All evidence cited at file#symbol level."
-description: "Comparing pi, claude-code, and codex source code across four design axes of the agent loop: event stream shape, tool-call iteration and termination, cancellation semantics, and checkpoint/resume — plus what rivumi does differently and what still needs improving."
+tldr: "pi's loop is a double while-loop wrapped in an EventStream; claude-code's source openly says stop_reason is unreliable and uses tool_use blocks observed during streaming as the sole continue signal; codex models a turn as a cancellable SessionTask and records sessions with a dedicated rollout crate. looplane chose an ordering — manifest first, JSONL second — that turns Ctrl-C into verified resumption instead of a rerun. All evidence cited at file#symbol level."
+description: "Comparing pi, claude-code, and codex source code across four design axes of the agent loop: event stream shape, tool-call iteration and termination, cancellation semantics, and checkpoint/resume — plus what looplane does differently and what still needs improving."
 draft: false
 ---
 
@@ -59,16 +59,16 @@ The Rust side separates concerns more cleanly. `codex-rs/core/src/tasks/regular.
 
 Persistence is its own crate, `codex-rs/rollout`: `recorder.rs#RolloutRecorder` records sessions as JSONL, with `RolloutRecorder::resume` rebuilding directly from a file; `reverse_jsonl_scanner.rs#ReverseJsonlScanner` is a read-only scanner starting from the tail that can freeze a "prefix up to this byte offset" — resume only needs the tail, never the full history. This is append-only-log-as-source-of-truth taken all the way.
 
-## rivumi's choice: write ordering is crash semantics
+## looplane's choice: write ordering is crash semantics
 
-rivumi's main loop lives in `src/rivumi/loop.py#AgentRunner.run`, plainer in shape than all three above: a single while-loop that checks the cancel flag and remaining wall-time at each step boundary, executing tool calls one by one. No parallel tool execution, no mid-turn steering — M1's scope demanded provable correctness first.
+looplane's main loop lives in `src/looplane/loop.py#AgentRunner.run`, plainer in shape than all three above: a single while-loop that checks the cancel flag and remaining wall-time at each step boundary, executing tool calls one by one. No parallel tool execution, no mid-turn steering — M1's scope demanded provable correctness first.
 
 Persistence is where I diverged from all three. Every `_event` call (`loop.py#_event`) does two things in fixed order:
 
 1. Write the **complete resumable state** (messages, usage, step, repeated-action fingerprint, event sequence) into the `session.json` manifest;
 2. Only then append the JSONL record to `events.jsonl`.
 
-This ordering creates exactly one known crash window — the manifest one sequence ahead of the JSONL — and `src/rivumi/session.py#SessionStore.claim_and_validate_resume` repairs precisely that (rewinding the manifest by one) while refusing everything else. In particular, if the last durable event is `tool.started` or `verification.started`, resume fails closed: you cannot prove whether that side effect completed, and guessing beats refusing only in fiction. The workspace is validated too: the Git root must exist and HEAD must equal the pinned base_sha, otherwise you'd be continuing on the wrong code.
+This ordering creates exactly one known crash window — the manifest one sequence ahead of the JSONL — and `src/looplane/session.py#SessionStore.claim_and_validate_resume` repairs precisely that (rewinding the manifest by one) while refusing everything else. In particular, if the last durable event is `tool.started` or `verification.started`, resume fails closed: you cannot prove whether that side effect completed, and guessing beats refusing only in fiction. The workspace is validated too: the Git root must exist and HEAD must equal the pinned base_sha, otherwise you'd be continuing on the wrong code.
 
 The checkpoint itself is `checkpoint.json`, written by `loop.py#_checkpoint` via `events.py#atomic_write_json` (temp file + rename + directory fsync). `loop.py#AgentRunner.resume` is strict hydration: provider/model/protocol must match, the event sequence must be contiguous — and it conservatively sets `_made_changes` back to True, because the workspace may hold unfinished modifications and the final verification gate must stay armed. If an approval was hanging when the process died, `_reconcile_interrupted_approval` records it as a failed `ToolObservation` plus an `approval.abandoned` event so the model can request it again, rather than silently honoring a stale approval.
 
@@ -76,10 +76,10 @@ Where this diverges furthest from an idealized ReAct-style loop is exactly in th
 
 ## What could still improve
 
-1. **No streaming**. pi's `message_update` events and codex's per-item streaming UI both rest on streaming; rivumi currently waits for the whole response before persisting, which hurts interactivity and forfeits detect-tool-calls-as-they-stream.
+1. **No streaming**. pi's `message_update` events and codex's per-item streaming UI both rest on streaming; looplane currently waits for the whole response before persisting, which hurts interactivity and forfeits detect-tool-calls-as-they-stream.
 2. **Checkpoint cost is O(entire history)**. Every event rewrites the whole manifest; long sessions will slow down. Codex's rollout approach — append-only JSONL plus a reverse scanner reading only the tail — is a ready-made upgrade path.
 3. **No parallel tools**. pi supports parallel batches in `executeToolCalls` (unless a tool declares sequential); read-only tools would benefit immediately.
-4. **Coarse cancellation**. rivumi's cancel only takes effect at step boundaries; a running tool is bounded only by timeout. AbortSignal-style immediate propagation is worth adding.
+4. **Coarse cancellation**. looplane's cancel only takes effect at step boundaries; a running tool is bounded only by timeout. AbortSignal-style immediate propagation is worth adding.
 
 Next post in the series: workspace isolation and path policy — the other safety line outside the loop.
 

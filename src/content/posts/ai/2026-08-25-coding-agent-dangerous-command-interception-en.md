@@ -6,16 +6,16 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 28
-tags: [coding-agent, shell-execution, security, approval, rivumi, codex, claude-code, omp]
+tags: [coding-agent, shell-execution, security, approval, looplane, codex, claude-code, omp]
 lang: en
-tldr: "All five projects combine allow/ask/deny decisions, compound-command inspection, and fail-closed behavior. rivumi now has a deny-first classifier, critical floor, shell segmentation, timeout-deny, configured allow/deny rules, and visible policy reasons. Broader syntax coverage and live interactive validation remain open."
-description: "Comparing dangerous-command escalation across five coding agents, then checking Rivumi's allow/ask/deny classifier, critical floor, and policy-audit baseline."
+tldr: "All five projects combine allow/ask/deny decisions, compound-command inspection, and fail-closed behavior. looplane now has a deny-first classifier, critical floor, shell segmentation, timeout-deny, configured allow/deny rules, and visible policy reasons. Broader syntax coverage and live interactive validation remain open."
+description: "Comparing dangerous-command escalation across five coding agents, then checking Looplane's allow/ask/deny classifier, critical floor, and policy-audit baseline."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-dangerous-command-interception)
 
-This Part Two article originally treated dangerous-command grading as a missing capability. Rivumi now has a deterministic allow / ask / deny classifier, deny-first rule layering, a critical-command floor, and approval-visible policy reasons. The evidence base remains pi, omp, opencode, codex, and claude-code; their implementations now test what Rivumi's baseline still lacks in free-shell parsing depth, persistent-rule UX, and cross-platform sandbox parity.
+This Part Two article originally treated dangerous-command grading as a missing capability. Looplane now has a deterministic allow / ask / deny classifier, deny-first rule layering, a critical-command floor, and approval-visible policy reasons. The evidence base remains pi, omp, opencode, codex, and claude-code; their implementations now test what Looplane's baseline still lacks in free-shell parsing depth, persistent-rule UX, and cross-platform sandbox parity.
 
 ## The capability problem: binary decisions can't carry a free shell
 
@@ -57,15 +57,15 @@ The common ancestor of these designs is least privilege: Saltzer and Schroeder's
 
 ## Original design draft (2026-08-25)
 
-The current state, honestly: rivumi has **no free-shell tool**. Its only EXECUTE channel is `tools.py#run_check`: verification commands come from config with fully fixed argv, and the tool schema even restricts names to an enum. Effect grading relies on `approvals.py#ToolEffect` (READ/MODIFY/EXECUTE); headless runs default `HeadlessApprovalPolicy.allow_execute` to False, and the only way to enable it is the CLI-level `--unsafe-local-exec` boolean flag.
+The current state, honestly: looplane has **no free-shell tool**. Its only EXECUTE channel is `tools.py#run_check`: verification commands come from config with fully fixed argv, and the tool schema even restricts names to an enum. Effect grading relies on `approvals.py#ToolEffect` (READ/MODIFY/EXECUTE); headless runs default `HeadlessApprovalPolicy.allow_execute` to False, and the only way to enable it is the CLI-level `--unsafe-local-exec` boolean flag.
 
 The design is safe, but the gap is clear: **decisions are binary**. An allowlist hit runs; everything else falls to "ask the user" or stays disabled. The moment you want to add a bash tool, or let a trusted repo ship its own check commands (the `--unsafe-local-exec` help text already hints at this direction), the three-value ToolEffect cannot express "this command is dangerous but negotiable" — the middle ground. Draft:
 
-**Layer one: a three-valued decision engine.** Add `src/rivumi/shell_policy.py` defining `ShellDecision = ALLOW | PROMPT | FORBIDDEN` (aligned with codex's naming), taking parsed argv and workdir as input. Two rule sources: prefix rules from config (reusing run_check's exact-argv thinking, loosened to prefixes), plus a built-in critical-regex list following omp's tightening principle — only shapes that are virtually never legitimate in automation.
+**Layer one: a three-valued decision engine.** Add `src/looplane/shell_policy.py` defining `ShellDecision = ALLOW | PROMPT | FORBIDDEN` (aligned with codex's naming), taking parsed argv and workdir as input. Two rule sources: prefix rules from config (reusing run_check's exact-argv thinking, loosened to prefixes), plus a built-in critical-regex list following omp's tightening principle — only shapes that are virtually never legitimate in automation.
 
 **Layer two: per-segment inspection of compound commands.** Split on `;`, `&&`, `||`, `|` boundaries with `shlex`; FORBIDDEN/PROMPT fires on any matching segment; ALLOW must cover every segment and contain no control syntax — omp's hard-won semantics, copied verbatim.
 
-**Layer three: fail-closed escalation.** PROMPT goes through the existing `TTYApprovalPolicy`, but session-level consent should change from today's global grant set (`approvals.py#_grants`) to per-pattern grants, so "approved pytest once" doesn't mean "approved everything". Timeouts and rejections always deny, matching codex. Every decision (with rule name and justification) writes to the audit trail — the event stream is rivumi's existing strength; this plugs right in.
+**Layer three: fail-closed escalation.** PROMPT goes through the existing `TTYApprovalPolicy`, but session-level consent should change from today's global grant set (`approvals.py#_grants`) to per-pattern grants, so "approved pytest once" doesn't mean "approved everything". Timeouts and rejections always deny, matching codex. Every decision (with rule name and justification) writes to the audit trail — the event stream is looplane's existing strength; this plugs right in.
 
 ## Fitting into the existing architecture
 
@@ -73,7 +73,7 @@ The good news: the foundation exists — ToolEffect grading, callback/headless/T
 
 Ordering matters too: this should come before OS-level sandboxing (the next post's topic). Pattern grading is cheap, pure software, immediately useful; the landlock/seatbelt layer is the backstop for when grading gets it wrong. Grading first — otherwise the sandbox has nothing to back up.
 
-## Rivumi's current implementation
+## Looplane's current implementation
 
 As of `2ed5efb`, the old binary-decision description is obsolete. `permissions.py` splits shell-shaped commands into segments, then `classify_command_policy()` returns `allow`, `ask`, or `deny`. The critical floor and explicit deny rules precede session grants and allow rules; shell interpreters, network/package operations, permission changes, archives, and suspicious compound shapes escalate, while suspicious long timeouts are denied.
 
@@ -81,7 +81,7 @@ As of `2ed5efb`, the old binary-decision description is obsolete. `permissions.p
 
 ## References
 
-- [Rivumi command policy (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/permissions.py)
+- [Looplane command policy (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/permissions.py)
 
 - [openai/codex — codex-rs/execpolicy](https://github.com/openai/codex/tree/main/codex-rs/execpolicy): Allow/Prompt/Forbidden three-way decisions and the prefix rule engine
 - [openai/codex — codex-rs/shell-escalation](https://github.com/openai/codex/tree/main/codex-rs/shell-escalation): execve-intercepting escalation server

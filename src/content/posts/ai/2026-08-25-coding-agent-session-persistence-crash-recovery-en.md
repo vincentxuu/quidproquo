@@ -6,16 +6,16 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 19
-tags: [coding-agent, session-persistence, crash-recovery, rivumi, claude-code]
+tags: [coding-agent, session-persistence, crash-recovery, looplane, claude-code]
 lang: en
-tldr: "All five agents store sessions as append-only JSONL plus some form of single-writer protection, but crash recovery lives in the details: pi repairs torn tails, codex reopens and retries after write failures, and rivumi picked a 'manifest first' ordering that reduces the only crash window to one repairable slot. This post dissects each project's write ordering and fail-closed conditions, all cited at file#symbol level."
-description: "Comparing session persistence across pi, omp, opencode, codex, and claude-code source code: event formats, single-writer fencing, crash window analysis, and why rivumi chose manifest-first writes with validated resume."
+tldr: "All five agents store sessions as append-only JSONL plus some form of single-writer protection, but crash recovery lives in the details: pi repairs torn tails, codex reopens and retries after write failures, and looplane picked a 'manifest first' ordering that reduces the only crash window to one repairable slot. This post dissects each project's write ordering and fail-closed conditions, all cited at file#symbol level."
+description: "Comparing session persistence across pi, omp, opencode, codex, and claude-code source code: event formats, single-writer fencing, crash window analysis, and why looplane chose manifest-first writes with validated resume."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery)
 
-Evidence scope for this post: **pi** (badlogic/pi-mono), **omp** (can1357/oh-my-pi), **opencode** (sst/opencode), **codex** (openai/codex Rust workspace), and **claude-code** (community-decompiled v2.1.88; symbol names may differ from the original), compared against my own **rivumi**. Every citation below was read in my local clones.
+Evidence scope for this post: **pi** (badlogic/pi-mono), **omp** (can1357/oh-my-pi), **opencode** (sst/opencode), **codex** (openai/codex Rust workspace), and **claude-code** (community-decompiled v2.1.88; symbol names may differ from the original), compared against my own **looplane**. Every citation below was read in my local clones.
 
 ## The design problem: how do you rescue state when an agent dies mid-run?
 
@@ -67,33 +67,33 @@ Deletion is interesting: on tombstone receipt there's no full-file scan — inst
 
 Prompt history is a separate file (`history.jsonl`), written under a lockfile with retries and cleanup hooks (`src/history.ts#immediateFlushHistory`). The `src/migrations/` directory shows another migration style: rather than moving session data itself, settings and model preferences get upgraded version by version (e.g., `migrations/migrateSonnet45ToSonnet46.ts`), and the old inline history field is cleaned out in favor of the new file (`utils/config.ts#removeProjectHistory`).
 
-## rivumi's choice, and how it differs
+## looplane's choice, and how it differs
 
-A rivumi session directory holds three things: `request.json` (the task contract), `events.jsonl` (append-only event stream), and `session.json` (a manifest containing complete resumable state: messages, usage, step count, approval history, event sequence).
+A looplane session directory holds three things: `request.json` (the task contract), `events.jsonl` (append-only event stream), and `session.json` (a manifest containing complete resumable state: messages, usage, step count, approval history, event sequence).
 
-**Write ordering is the core decision.** For every event, rivumi first atomically writes the full resumable state and the intended sequence number into the manifest, then appends to the JSONL (`src/rivumi/loop.py#_event`). That ordering defines the single crash window: dying in between leaves the manifest exactly one slot ahead of the event log. At resume, `_validate_events` replays the whole stream checking sequence contiguity, and if the manifest is precisely one ahead, repairs it (`src/rivumi/session.py#claim_and_validate_resume`). Within one slot it's repairable; beyond that, data is corrupt and resume fails closed — exactly one repair path, provably.
+**Write ordering is the core decision.** For every event, looplane first atomically writes the full resumable state and the intended sequence number into the manifest, then appends to the JSONL (`src/looplane/loop.py#_event`). That ordering defines the single crash window: dying in between leaves the manifest exactly one slot ahead of the event log. At resume, `_validate_events` replays the whole stream checking sequence contiguity, and if the manifest is precisely one ahead, repairs it (`src/looplane/session.py#claim_and_validate_resume`). Within one slot it's repairable; beyond that, data is corrupt and resume fails closed — exactly one repair path, provably.
 
-Single-writer protection is an OS-level `flock`: `session.py#SessionStore.acquire_writer` opens `.writer.lock` with `O_NOFOLLOW`, takes `LOCK_EX | LOCK_NB`, and writes a random token into the lock file. Every save then verifies the on-disk manifest still names this writer's token before writing (`session.py#save`) — so even if the lock fails for any reason, a stale writer cannot pass the token check. flock protects against two live processes stomping each other; it does **not** protect against mid-crash torn writes or power loss. That layer is covered by atomic writes (temp file + `os.replace`, fsync of both file and directory — `src/rivumi/events.py#_atomic_write`) plus full validation at resume.
+Single-writer protection is an OS-level `flock`: `session.py#SessionStore.acquire_writer` opens `.writer.lock` with `O_NOFOLLOW`, takes `LOCK_EX | LOCK_NB`, and writes a random token into the lock file. Every save then verifies the on-disk manifest still names this writer's token before writing (`session.py#save`) — so even if the lock fails for any reason, a stale writer cannot pass the token check. flock protects against two live processes stomping each other; it does **not** protect against mid-crash torn writes or power loss. That layer is covered by atomic writes (temp file + `os.replace`, fsync of both file and directory — `src/looplane/events.py#_atomic_write`) plus full validation at resume.
 
 The fail-closed boundary sits on side effects: if the last durable event is `tool.started` or `verification.started`, automatic resume refuses outright — you cannot prove whether that action completed (`session.py#claim_and_validate_resume`, final checks). Pending approvals are always abandoned as explicitly unexecuted actions so the model can re-request them, rather than assuming authorization survives. Resume also validates that the workspace git HEAD matches the manifest's base SHA, rejects symlinks, rejects terminal states — better to do nothing than to guess.
 
-Compared with the five: pi/codex/claude-code all use pure event streams where resume rebuilds state by replay. rivumi keeps an additional manifest for O(1) hydration, at the cost of maintaining manifest/log consistency — and write ordering plus one-slot repair compresses that cost down to a single reasonable case. On fencing, though, everyone converges: pi's SQLite fence counter, codex's lock files, rivumi's flock-plus-token all solve the same problem.
+Compared with the five: pi/codex/claude-code all use pure event streams where resume rebuilds state by replay. looplane keeps an additional manifest for O(1) hydration, at the cost of maintaining manifest/log consistency — and write ordering plus one-slot repair compresses that cost down to a single reasonable case. On fencing, though, everyone converges: pi's SQLite fence counter, codex's lock files, looplane's flock-plus-token all solve the same problem.
 
 ## Engineering grounding
 
-- **Atomic replacement**: writing a temp file then calling `rename` is the POSIX-guaranteed atomic swap ([rename(2)](https://man7.org/linux/man-pages/man2/rename.2.html), same filesystem). pi, omp, and rivumi's atomic writes all follow this pattern.
-- **fsync is not optional**: rename's atomicity says nothing about durability, and post-power-loss ordering can surprise you. [LWN's coverage of the ext4 data-loss episode](https://lwn.net/Articles/457667/) makes it clear: data survives power loss only if you explicitly fsync the file (and the directory when needed). rivumi's `_atomic_write` even fsyncs the directory.
-- **The WAL lesson**: SQLite achieves crash safety with an append-only write-ahead log plus checkpointing — the industrial-grade version of "event stream as truth, snapshot as accelerator" ([SQLite Atomic Commit](https://www.sqlite.org/atomiccommit.html), [WAL](https://www.sqlite.org/wal.html)). rivumi's manifest/checkpoint plus JSONL is a small-scale rerun of the same move.
+- **Atomic replacement**: writing a temp file then calling `rename` is the POSIX-guaranteed atomic swap ([rename(2)](https://man7.org/linux/man-pages/man2/rename.2.html), same filesystem). pi, omp, and looplane's atomic writes all follow this pattern.
+- **fsync is not optional**: rename's atomicity says nothing about durability, and post-power-loss ordering can surprise you. [LWN's coverage of the ext4 data-loss episode](https://lwn.net/Articles/457667/) makes it clear: data survives power loss only if you explicitly fsync the file (and the directory when needed). looplane's `_atomic_write` even fsyncs the directory.
+- **The WAL lesson**: SQLite achieves crash safety with an append-only write-ahead log plus checkpointing — the industrial-grade version of "event stream as truth, snapshot as accelerator" ([SQLite Atomic Commit](https://www.sqlite.org/atomiccommit.html), [WAL](https://www.sqlite.org/wal.html)). looplane's manifest/checkpoint plus JSONL is a small-scale rerun of the same move.
 - **Fencing tokens**: monotonically increasing lease numbers prevent an invalidated old writer from writing again — standard distributed-leases practice, fully argued in [Martin Kleppmann: How to do distributed locking](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html). pi's fence column is a textbook implementation.
 - On the academic side, recoverability of agents has little dedicated literature, but [ReAct](https://arxiv.org/abs/2210.03629)-style loops take external side effects at every step — which is exactly why exactly-once delivery can't be free and the honest answer is fail closed.
 
 ## Improvement roadmap
 
-What rivumi is missing, ranked:
+What looplane is missing, ranked:
 
 1. **Torn-tail repair**. Right now a half-written last line in `events.jsonl` fails JSON parsing and fails closed — safe but inconvenient. pi's approach (last-line-syntax-error equals torn tail; atomically truncate) can be copied directly, given that appends are small single-line payloads.
-2. **Write retries**. codex's pending queue with reopen-and-retry means transient I/O errors don't drop events; rivumi currently fails the run outright. Wrapping EventWriter with a retry buffer is low-cost, high-return.
-3. **Manifest heartbeat and staleness detection**. rivumi already records `writer_heartbeat_at` but nothing consumes it; codex's stale-lock sweep and pi's expiring leases are ready-made references. With that in place, clearing leftover writers needs no human judgment.
+2. **Write retries**. codex's pending queue with reopen-and-retry means transient I/O errors don't drop events; looplane currently fails the run outright. Wrapping EventWriter with a retry buffer is low-cost, high-return.
+3. **Manifest heartbeat and staleness detection**. looplane already records `writer_heartbeat_at` but nothing consumes it; codex's stale-lock sweep and pi's expiring leases are ready-made references. With that in place, clearing leftover writers needs no human judgment.
 4. **Reverse scanning**. As event streams grow, full replay at resume gets slow; codex's `ReverseJsonlScanner` hints at the path: pair periodic checkpoints with scanning backward from the tail only to the latest checkpoint.
 
 ## References

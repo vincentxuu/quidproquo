@@ -3,13 +3,13 @@ title: "Hooks／Skills／Plugins：成熟 coding agent 的三層擴展機制"
 date: 2026-08-30
 category: ai
 type: deep-dive
-tags: [coding-agent, hooks, skills, plugins, extensibility, claude-code, codex, opencode, rivumi]
+tags: [coding-agent, hooks, skills, plugins, extensibility, claude-code, codex, opencode, looplane]
 lang: zh-TW
 series:
   name: "跟成熟 coding agent 學設計"
   order: 31
-tldr: "Hooks 管控制流、skills 注入知識、plugins 負責打包。rivumi 已有 opt-in deny-only project hooks、bounded SKILL.md loader、exact enabled_skills 選擇、plugin manifest/install/list 與 external runtime projection；仍缺 hook input rewrite、完整 lifecycle、遠端 registry 與成熟 marketplace。"
-description: "拆解五家 coding agent 的 hooks、skills、plugins，並核對 Rivumi deny-only hooks、bounded skills 與 local plugin manifest baseline。"
+tldr: "Hooks 管控制流、skills 注入知識、plugins 負責打包。looplane 已有 opt-in deny-only project hooks、bounded SKILL.md loader、exact enabled_skills 選擇、plugin manifest/install/list 與 external runtime projection；仍缺 hook input rewrite、完整 lifecycle、遠端 registry 與成熟 marketplace。"
+description: "拆解五家 coding agent 的 hooks、skills、plugins，並核對 Looplane deny-only hooks、bounded skills 與 local plugin manifest baseline。"
 draft: false
 ---
 
@@ -17,9 +17,9 @@ draft: false
 
 ## 能力問題：行為改不掉的 agent 是玩具
 
-Rivumi 已經不再把所有行為寫死在原始碼裡。Repository-local `.rivumi/skills/*.md` 可以被明確選用，blocking hooks 能在 lifecycle boundary deny，plugin manifest 可以把 skills 與 hooks 打包，CLI 也有本機 install/list；resolved bundle 會投影給 native 與 external runtime。這是一個刻意收斂的 baseline：hook 只允許阻擋，不讓任意程式改寫 tool input；plugin 也沒有 marketplace 或遠端自動安裝。
+Looplane 已經不再把所有行為寫死在原始碼裡。Repository-local `.looplane/skills/*.md` 可以被明確選用，blocking hooks 能在 lifecycle boundary deny，plugin manifest 可以把 skills 與 hooks 打包，CLI 也有本機 install/list；resolved bundle 會投影給 native 與 external runtime。這是一個刻意收斂的 baseline：hook 只允許阻擋，不讓任意程式改寫 tool input；plugin 也沒有 marketplace 或遠端自動安裝。
 
-五家參考專案給出的答案仍然可以整理成**三層擴展**——hooks 管「何時攔」，skills 管「知道什麼」，plugins 管「怎麼打包」。以下逐層看成熟實作，再回頭檢查 Rivumi 這個 deny-only、repository-local baseline 的邊界。
+五家參考專案給出的答案仍然可以整理成**三層擴展**——hooks 管「何時攔」，skills 管「知道什麼」，plugins 管「怎麼打包」。以下逐層看成熟實作，再回頭檢查 Looplane 這個 deny-only、repository-local baseline 的邊界。
 
 ## 第一層：Hooks——生命週期事件的攔截點
 
@@ -45,35 +45,35 @@ claude-code 的 plugin 基礎建設最重：`claude-code-source/src/utils/plugin
 
 這個分工不是偶然。[Voyager](https://arxiv.org/abs/2305.16291) 在 Minecraft agent 上驗證過：把成功經驗固化成可檢索的 skill library，能持續提升後續任務成功率——skills 的本質就是這個思路的產品化，而「描述觸發、按需載入」則是它在大 context 成本下的必要修正。Anthropic 在 [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices) 和 [Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) 兩篇工程文裡也明確把 hooks 定位成確定性的控制流鉤子、skills 定位成漸進揭露的領域知識——確定性需求歸 hook，語義判斷歸 model，這條線畫得非常清楚。
 
-反過來看失敗案例也有印證：如果只用一層，要嘛什麼都能改（安全惡夢）、要嘛什麼都不能改（回到 rivumi 現狀）。三層各自回答不同問題，混在一起就兩邊都做不好。
+反過來看失敗案例也有印證：如果只用一層，要嘛什麼都能改（安全惡夢）、要嘛什麼都不能改（回到 looplane 現狀）。三層各自回答不同問題，混在一起就兩邊都做不好。
 
 ## 原始設計草案（2026-08-25）
 
 按依賴順序，分三期：
 
-**第一期：hook 事件匯流排（不做 shell 執行）。** rivumi 已有 `rivumi/loop.py#AgentRunner` 和 `rivumi/tools.py#ToolExecutor` 兩個天然切點。先定義 Python 層的事件協議：`before_tool_use(tool_name, input) -> HookResult`，HookResult 可以放行、否決、改寫 input、附加 context。第一版只支援程序內 Python callback——學 pi 不學 claude-code，因為 rivumi 使用者就是開發者本人，subprocess 隔離的成本可以先欠。事件集從五個開始：SessionStart、UserPromptSubmit、PreToolUse、PostToolUse、Stop，對齊 codex 的收斂集合而非 claude-code 的 27 個。
+**第一期：hook 事件匯流排（不做 shell 執行）。** looplane 已有 `looplane/loop.py#AgentRunner` 和 `looplane/tools.py#ToolExecutor` 兩個天然切點。先定義 Python 層的事件協議：`before_tool_use(tool_name, input) -> HookResult`，HookResult 可以放行、否決、改寫 input、附加 context。第一版只支援程序內 Python callback——學 pi 不學 claude-code，因為 looplane 使用者就是開發者本人，subprocess 隔離的成本可以先欠。事件集從五個開始：SessionStart、UserPromptSubmit、PreToolUse、PostToolUse、Stop，對齊 codex 的收斂集合而非 claude-code 的 27 個。
 
-**第二期：skill 目錄與描述路由。** 讀取 `.rivumi/skills/<name>/SKILL.md`，frontmatter 取 name/description，系統提示只放 name＋description 清單，模型要求時才注入全文。直接抄 codex 的 `allows_implicit_invocation` 語義：預設需要顯式提及才展開，降低 prompt injection 面。這一步不需要任何新依賴，純檔案協議。
+**第二期：skill 目錄與描述路由。** 讀取 `.looplane/skills/<name>/SKILL.md`，frontmatter 取 name/description，系統提示只放 name＋description 清單，模型要求時才注入全文。直接抄 codex 的 `allows_implicit_invocation` 語義：預設需要顯式提及才展開，降低 prompt injection 面。這一步不需要任何新依賴，純檔案協議。
 
-**第三期（緩）：plugin 打包。** 等 hook 和 skill 各自穩定後，再考慮把兩者捆成一個目錄格式。rivumi 沒有 marketplace 野心，這一期可能永遠不來——刻意不抄 claude-code 的 npm 安裝鏈。
+**第三期（緩）：plugin 打包。** 等 hook 和 skill 各自穩定後，再考慮把兩者捆成一個目錄格式。looplane 沒有 marketplace 野心，這一期可能永遠不來——刻意不抄 claude-code 的 npm 安裝鏈。
 
 ## 與現有架構的銜接
 
-好訊息是 rivumi 先前的設計正好留了縫：`rivumi/permissions.py#PermissionGuard` 已經是事實上的 PreToolUse 攔截者，hook 系統接上後它只是優先級最高的內建 hook；`rivumi/events.py` 的事件流可以复用為 hook 匯流排的底座；外部 CLI runtime 泛化（OpenCode/Pi/OMP adapter）那套 capability handshake 也意味著——如果宿主 CLI 自己有 hook 系統，rivumi 的 adapter 層可以直接轉譯而不是重複實作。風險最集中的地方是 hook 對工具輸入的改寫權：一旦 hook 能改 `updatedInput`，audit trail 就必須記錄改寫前後的完整 diff，這會牽動 run artifacts 契約，草案第一期先把改寫權限關掉，只留 approve/deny/additionalContext 三種結果，等 audit 面補齊再開。
+好訊息是 looplane 先前的設計正好留了縫：`looplane/permissions.py#PermissionGuard` 已經是事實上的 PreToolUse 攔截者，hook 系統接上後它只是優先級最高的內建 hook；`looplane/events.py` 的事件流可以复用為 hook 匯流排的底座；外部 CLI runtime 泛化（OpenCode/Pi/OMP adapter）那套 capability handshake 也意味著——如果宿主 CLI 自己有 hook 系統，looplane 的 adapter 層可以直接轉譯而不是重複實作。風險最集中的地方是 hook 對工具輸入的改寫權：一旦 hook 能改 `updatedInput`，audit trail 就必須記錄改寫前後的完整 diff，這會牽動 run artifacts 契約，草案第一期先把改寫權限關掉，只留 approve/deny/additionalContext 三種結果，等 audit 面補齊再開。
 
-## rivumi 現在的實作
+## looplane 現在的實作
 
-截至 `2ed5efb`，三層都已有 baseline。Hooks 從 `.rivumi/hooks.json` 載入 exact argv，只有 `RIVUMI_ENABLE_PROJECT_HOOKS=1` 才啟用；`pre_tool_use`、`post_tool_use`、`approval_request`、`pre_compact`、`post_compact` 都有 bounded IO/timeout，決策只能 deny，不能偷偷放寬權限或改寫 input。
+截至 `2ed5efb`，三層都已有 baseline。Hooks 從 `.looplane/hooks.json` 載入 exact argv，只有 `LOOPLANE_ENABLE_PROJECT_HOOKS=1` 才啟用；`pre_tool_use`、`post_tool_use`、`approval_request`、`pre_compact`、`post_compact` 都有 bounded IO/timeout，決策只能 deny，不能偷偷放寬權限或改寫 input。
 
-Skills 從 `.rivumi/skills/<name>/SKILL.md` 讀 frontmatter，拒絕 symlink、限制數量與大小；`TaskContract.enabled_skills` 可精確選擇要注入 native 或 external runner 的 skill。Plugins 則以本機 manifest 打包 skill/hook references，已有 install/list CLI、路徑驗證與 discovery metadata，child app-server 的 `skills/changed` 也能進 timeline。
+Skills 從 `.looplane/skills/<name>/SKILL.md` 讀 frontmatter，拒絕 symlink、限制數量與大小；`TaskContract.enabled_skills` 可精確選擇要注入 native 或 external runner 的 skill。Plugins 則以本機 manifest 打包 skill/hook references，已有 install/list CLI、路徑驗證與 discovery metadata，child app-server 的 `skills/changed` 也能進 timeline。
 
 邊界同樣清楚：hooks 還沒有 input rewrite 或完整 session lifecycle；plugin 目前是 local package baseline，不是帶簽章、版本解決與遠端 registry 的 marketplace；external runtime 的 skill surfacing 仍需更多 packaging 與 live validation。
 
 ## 參考資料
 
-- [Rivumi hooks（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/hooks.py)
-- [Rivumi skills（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/skills.py)
-- [Rivumi plugins（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/plugins.py)
+- [Looplane hooks（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/hooks.py)
+- [Looplane skills（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/skills.py)
+- [Looplane plugins（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/plugins.py)
 
 - [badlogic/pi-mono — packages/coding-agent/src/core/extensions](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent/src/core/extensions)：ExtensionAPI 事件訂閱與工具註冊
 - [can1357/oh-my-pi — src/extensibility](https://github.com/can1357/oh-my-pi)：skills／hooks／plugins 分模組維護

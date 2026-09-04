@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 21
-tags: [coding-agent, ci, headless, approval, rivumi, claude-code, codex]
+tags: [coding-agent, ci, headless, approval, looplane, claude-code, codex]
 lang: en
-tldr: "The biggest problem when an agent enters CI is approval: no TTY, nobody to click approve. The five reference projects converge on two strategies — delegate permission decisions to the calling program (claude-code's control protocol), or replace approval semantics entirely (codex defaults to Never plus sandboxing, opencode auto-rejects). rivumi keeps one AgentRunner loop and injects a different ApprovalPolicy: headless uses HeadlessApprovalPolicy, which never reads stdin so it cannot hang the pipeline, and denies EXECUTE by default — fail closed."
-description: "A source-level comparison of headless/CI permission design across pi, omp, opencode, codex, and claude-code: pre-authorization vs. delegation vs. fail closed, and why rivumi insists on one loop with two interfaces."
+tldr: "The biggest problem when an agent enters CI is approval: no TTY, nobody to click approve. The five reference projects converge on two strategies — delegate permission decisions to the calling program (claude-code's control protocol), or replace approval semantics entirely (codex defaults to Never plus sandboxing, opencode auto-rejects). looplane keeps one AgentRunner loop and injects a different ApprovalPolicy: headless uses HeadlessApprovalPolicy, which never reads stdin so it cannot hang the pipeline, and denies EXECUTE by default — fail closed."
+description: "A source-level comparison of headless/CI permission design across pi, omp, opencode, codex, and claude-code: pre-authorization vs. delegation vs. fail closed, and why looplane insists on one loop with two interfaces."
 draft: false
 ---
 
@@ -51,13 +51,13 @@ pi's mode selection lives in `pi-mono/packages/coding-agent/src/main.ts#resolveA
 
 omp is a fork of pi, and its increment here is promoting approval level to a first-class parameter: `--approval-mode always-ask|write|yolo`, with `--auto-approve`/`--yolo` aliases. The block at `oh-my-pi/packages/coding-agent/src/main.ts#approvalMode` writes it into a settings override (the comment stresses it is a runtime override and is not persisted) so every downstream reader of `tools.approvalMode` — including the ACP permission bridge — sees the same intent. Also, piped input automatically triggers print mode; no manual `-p` needed.
 
-## rivumi's choice: one loop, two policies
+## looplane's choice: one loop, two policies
 
-rivumi's answer is a fourth combination: **approval is not removed, it is injected**. The constructor of `src/rivumi/loop.py#AgentRunner` accepts an `approval_policy`; if none is given it uses `HeadlessApprovalPolicy`. The interactive path passes `TTYApprovalPolicy`. One agent loop, with the interface difference compressed into a single policy object.
+looplane's answer is a fourth combination: **approval is not removed, it is injected**. The constructor of `src/looplane/loop.py#AgentRunner` accepts an `approval_policy`; if none is given it uses `HeadlessApprovalPolicy`. The interactive path passes `TTYApprovalPolicy`. One agent loop, with the interface difference compressed into a single policy object.
 
-The docstring of the headless policy is the whole design: "A deterministic policy that never reads stdin and therefore cannot hang CI" (`src/rivumi/approvals.py#HeadlessApprovalPolicy`). Its decision table has three rows: READ always allowed, MODIFY allowed (still bounded by path policy and cumulative patch limits), EXECUTE denied by default — fail closed, aligned with opencode. On top, `src/rivumi/cli.py#run` stacks contract-style boundaries: `--check` accepts only exact argv, `--max-steps` and `--wall-time` are hard budgets, the disposable workspace is pinned to a base SHA, and the command prints full artifacts and exits 1 whenever status is not completed.
+The docstring of the headless policy is the whole design: "A deterministic policy that never reads stdin and therefore cannot hang CI" (`src/looplane/approvals.py#HeadlessApprovalPolicy`). Its decision table has three rows: READ always allowed, MODIFY allowed (still bounded by path policy and cumulative patch limits), EXECUTE denied by default — fail closed, aligned with opencode. On top, `src/looplane/cli.py#run` stacks contract-style boundaries: `--check` accepts only exact argv, `--max-steps` and `--wall-time` are hard budgets, the disposable workspace is pinned to a base SHA, and the command prints full artifacts and exits 1 whenever status is not completed.
 
-The biggest difference from the five: rivumi's headless mode offers **no "pre-authorize everything" option**. codex has danger-full-access, claude-code has skip-permissions, omp has yolo; rivumi's closest thing is `--unsafe-local-exec`, and even that only allows the exact argv check commands declared in the task contract, not arbitrary shell. The cost is flexibility — many CI jobs are out of reach. The benefit is a crystal-clear CI usage boundary: exactly what the contract declares can run, and every approval decision lands in an inspectable audit trail.
+The biggest difference from the five: looplane's headless mode offers **no "pre-authorize everything" option**. codex has danger-full-access, claude-code has skip-permissions, omp has yolo; looplane's closest thing is `--unsafe-local-exec`, and even that only allows the exact argv check commands declared in the task contract, not arbitrary shell. The cost is flexibility — many CI jobs are out of reach. The benefit is a crystal-clear CI usage boundary: exactly what the contract declares can run, and every approval decision lands in an inspectable audit trail.
 
 ## Engineering references
 
@@ -73,12 +73,12 @@ The shared pattern worth copying: **headless safety does not rest on a few flags
 
 ## Improvement roadmap
 
-What rivumi already has: cannot hang, fails closed, complete artifacts, machine-readable exit codes. Against the five, four paths remain:
+What looplane already has: cannot hang, fails closed, complete artifacts, machine-readable exit codes. Against the five, four paths remain:
 
-1. **Structured output schema**. codex's `--output-schema` gives CI verifiable JSON instead of prose. rivumi's result.json is already structured; what's missing is letting users constrain the final reply with their own schema.
-2. **A stable streaming event contract**. claude-code's stream-json plus its stdout guard (keeping any noise from polluting the JSON stream) is infrastructure for external orchestration. rivumi's events.jsonl is an artifact, not a live interface — mid-run observability in CI is currently impossible.
-3. **Pair sandboxing with EXECUTE allow**. codex's lesson is that approval Never is only safe with OS-level isolation. If rivumi ever relaxes execute in CI, the right order is sandbox first (the subject of a later post in this series), not a bigger allowlist flag.
-4. **Resume in the pipeline**. codex exec has a `resume` subcommand so failed jobs continue instead of restarting; rivumi's session resume exists on the interactive path but is not yet wired into the headless contract.
+1. **Structured output schema**. codex's `--output-schema` gives CI verifiable JSON instead of prose. looplane's result.json is already structured; what's missing is letting users constrain the final reply with their own schema.
+2. **A stable streaming event contract**. claude-code's stream-json plus its stdout guard (keeping any noise from polluting the JSON stream) is infrastructure for external orchestration. looplane's events.jsonl is an artifact, not a live interface — mid-run observability in CI is currently impossible.
+3. **Pair sandboxing with EXECUTE allow**. codex's lesson is that approval Never is only safe with OS-level isolation. If looplane ever relaxes execute in CI, the right order is sandbox first (the subject of a later post in this series), not a bigger allowlist flag.
+4. **Resume in the pipeline**. codex exec has a `resume` subcommand so failed jobs continue instead of restarting; looplane's session resume exists on the interactive path but is not yet wired into the headless contract.
 
 One-line summary: headless mode is not interactive mode with the UI ripped out — it replaces the dependency on human judgment entirely with contracts declared up front and safe defaults.
 

@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 24
-tags: [coding-agent, testing, rivumi, codex, textual]
+tags: [coding-agent, testing, looplane, codex, textual]
 lang: zh-TW
-tldr: "agent 的兩個依賴——LLM 和外部 CLI——都不是決定性的，但成熟專案的招式是把「會動的部分」與「邊界的形狀」切開：codex 用 wiremock 假 Responses API 加腳本化 SSE server，TUI 用 insta 快照；opencode 乾脆做了 VCR 式的 http-recorder 錄放套件；pi 把 eval 與 unit test 分成兩份 vitest config；omp 把 edit benchmark 本身用 unit test 圍起來。rivumi 對外部 CLI 做了四層：單元測試、fake-CLI 合約、錄製串流整合、Textual pilot TUI 測試。核心方法論一句話：錄下真實的非決定性輸出，對它做決定性的斷言。"
-description: "對照 codex、opencode、pi、omp、claude-code 五家的測試策略，拆解「如何測試一個依賴 LLM 與外部 CLI 的非決定性系統」，並說明 rivumi M13 的四層測試設計：單元、fake-CLI 合約、錄製串流整合、Textual pilot TUI。"
+tldr: "agent 的兩個依賴——LLM 和外部 CLI——都不是決定性的，但成熟專案的招式是把「會動的部分」與「邊界的形狀」切開：codex 用 wiremock 假 Responses API 加腳本化 SSE server，TUI 用 insta 快照；opencode 乾脆做了 VCR 式的 http-recorder 錄放套件；pi 把 eval 與 unit test 分成兩份 vitest config；omp 把 edit benchmark 本身用 unit test 圍起來。looplane 對外部 CLI 做了四層：單元測試、fake-CLI 合約、錄製串流整合、Textual pilot TUI 測試。核心方法論一句話：錄下真實的非決定性輸出，對它做決定性的斷言。"
+description: "對照 codex、opencode、pi、omp、claude-code 五家的測試策略，拆解「如何測試一個依賴 LLM 與外部 CLI 的非決定性系統」，並說明 looplane M13 的四層測試設計：單元、fake-CLI 合約、錄製串流整合、Textual pilot TUI。"
 draft: false
 ---
 
@@ -17,7 +17,7 @@ draft: false
 
 [系列總覽](/posts/ai/2026-08-25-coding-agent-design-series-overview)說好每篇五段、證據給到 `repo/path/file.ext#symbolName`。這篇的主題是最難寫的那種測試：受測系統自己不聽話。
 
-先講取證範圍：五家都在本地 clone 實際 grep 過——**codex**（openai/codex Rust workspace）、**opencode**（sst/opencode）、**pi**（badlogic/pi-mono）、**omp**（can1357/oh-my-pi）、**claude-code**（社群反編譯 v2.1.88）。rivumi 側引用 M13 stage doc 與 commits `573c752`/`a1bfaca`/`b84fe3a`。
+先講取證範圍：五家都在本地 clone 實際 grep 過——**codex**（openai/codex Rust workspace）、**opencode**（sst/opencode）、**pi**（badlogic/pi-mono）、**omp**（can1357/oh-my-pi）、**claude-code**（社群反編譯 v2.1.88）。looplane 側引用 M13 stage doc 與 commits `573c752`/`a1bfaca`/`b84fe3a`。
 
 ## 設計問題：兩個依賴都不聽話，要測什麼
 
@@ -56,9 +56,9 @@ omp 的 `packages/typescript-edit-benchmark` 展示了第三種角色：benchmar
 
 反編譯的 claude-code-source 裡找不到正式測試套件（合理，發佈的 bundle 不帶測試）。但有個有趣的殘留：`claude-code-source/src/tools/testing/TestingPermissionTool.tsx`——一個「永遠跳權限確認框」的測試工具，`isEnabled()` 寫著 `"production" === 'test'` 才啟用。連閉源商業 agent 都會在產品碼裡埋測試掛鉤，方便 end-to-end 測試觸發特定互動路徑。測試需求會塑造產品碼的形狀，這是間接證據。
 
-## rivumi 的四層測試
+## looplane 的四層測試
 
-rivumi 要驅動五種外部 CLI（M13），面對的就是上面同樣的問題。目前的答案是四層，由便宜到貴：
+looplane 要驅動五種外部 CLI（M13），面對的就是上面同樣的問題。目前的答案是四層，由便宜到貴：
 
 **第一層：純單元測試。** policy、tools、normalizer 這些決定性模組照常規測（`tests/test_policy.py`、`tests/test_tools.py`）。全綠是基本盤。
 
@@ -74,11 +74,11 @@ rivumi 要驅動五種外部 CLI（M13），面對的就是上面同樣的問題
 
 ## 改善路線
 
-rivumi 四層已經能跑，但照五家的標準看還有三個縫：
+looplane 四層已經能跑，但照五家的標準看還有三個縫：
 
-1. **錄製範圍太窄。** 目前 fixtures 只有單輪唯讀任務加一條錯誤流；多輪 resume、approval 往返、diff 對帳的真實串流還沒錄（stage doc 自己也列為限制）。opencode 的 http-recorder 連 redaction 都做好了，rivumi 的 capture harness 還沒有自動遮蔽敏感內容的步驟。
-2. **缺 model-backed eval 層。** pi 用 `describeEval` 把「模型行為對不對」變成可比較、留 artifact 的例行公事；rivumi 目前只有一次性 live smoke，沒有可重複的 eval suite。native harness 的 prompt 一旦開始迭代（系列第 24 篇之後的 prompt versioning），沒有 eval 就只能靠手感。
-3. **TUI 測試偏互動流程、缺視覺回歸。** pilot 測的是行為，不是畫面。codex 用 insta 快照把每個渲染狀態釘死；rivumi 若要在改 layout 時不怕改壞，遲早要補一層渲染快照（Textual 匯出 SVG 截圖的路徑已在 smoke 流程驗證過，離快照化只差半步）。
+1. **錄製範圍太窄。** 目前 fixtures 只有單輪唯讀任務加一條錯誤流；多輪 resume、approval 往返、diff 對帳的真實串流還沒錄（stage doc 自己也列為限制）。opencode 的 http-recorder 連 redaction 都做好了，looplane 的 capture harness 還沒有自動遮蔽敏感內容的步驟。
+2. **缺 model-backed eval 層。** pi 用 `describeEval` 把「模型行為對不對」變成可比較、留 artifact 的例行公事；looplane 目前只有一次性 live smoke，沒有可重複的 eval suite。native harness 的 prompt 一旦開始迭代（系列第 24 篇之後的 prompt versioning），沒有 eval 就只能靠手感。
+3. **TUI 測試偏互動流程、缺視覺回歸。** pilot 測的是行為，不是畫面。codex 用 insta 快照把每個渲染狀態釘死；looplane 若要在改 layout 時不怕改壞，遲早要補一層渲染快照（Textual 匯出 SVG 截圖的路徑已在 smoke 流程驗證過，離快照化只差半步）。
 
 一句話收尾：非決定性系統不是不能測，是不能只用一種方式測。把 schema 釘在 fake-CLI、把真實行為錄成串流、把畫面釘成快照、把模型行為丟給 eval——四層各管一段，「會動的 agent」就變成一套可以放心重構的系統。
 

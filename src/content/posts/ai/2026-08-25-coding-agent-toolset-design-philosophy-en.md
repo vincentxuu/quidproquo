@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 18
-tags: [coding-agent, tool-design, rivumi, function-calling, claude-code]
+tags: [coding-agent, tool-design, looplane, function-calling, claude-code]
 lang: en
-tldr: "Rivumi's core surface has grown from seven tools to nine with a read-only `tool_program` and rollback-capable `tool_transaction`; search prefers ripgrep and arbitrary shell remains absent. Native MCP tools join only from allowlisted servers and default to execute approval without trusted read-only metadata."
-description: "A source-level comparison of five mature coding agents with Rivumi's nine core tools, bounded tool programs, transaction rollback, ripgrep search, and dynamic native MCP exposure."
+tldr: "Looplane's core surface has grown from seven tools to nine with a read-only `tool_program` and rollback-capable `tool_transaction`; search prefers ripgrep and arbitrary shell remains absent. Native MCP tools join only from allowlisted servers and default to execute approval without trusted read-only metadata."
+description: "A source-level comparison of five mature coding agents with Looplane's nine core tools, bounded tool programs, transaction rollback, ripgrep search, and dynamic native MCP exposure."
 draft: false
 ---
 
@@ -55,9 +55,9 @@ Facing tool explosion, its answer parallels omp: `shouldDefer` marks tools as de
 
 One counterintuitive detail: BashTool's input schema contains an internal field `_simulatedSedEdit` deliberately omitted from the model-facing schema (`src/tools/BashTool/BashTool.tsx#inputSchema`) — the comment states outright that exposing it would let the model pair an innocuous command with arbitrary file writes to bypass permission checks and the sandbox. Schema is not just the model-facing API; it is also attack surface.
 
-## rivumi's choice: bounded core tools, no arbitrary shell
+## looplane's choice: bounded core tools, no arbitrary shell
 
-Rivumi's core surface lives at `src/rivumi/tools.py#_tool_definitions`. The original seven remain — `list_files`, `read_file`, `search_text`, `replace_text`, `apply_patch`, `run_check`, and `git_diff` — plus `tool_program` and `tool_transaction`. The former executes at most eight read-only steps in one model tool call, with bounded `repeat` and `if_contains`, moving multi-read/search round trips into the harness. The latter combines reads, edits, and allowlisted checks into a rollback-capable modify+execute transaction. Their control flow, step count, and callable operations are schema-bounded; neither introduces arbitrary bash.
+Looplane's core surface lives at `src/looplane/tools.py#_tool_definitions`. The original seven remain — `list_files`, `read_file`, `search_text`, `replace_text`, `apply_patch`, `run_check`, and `git_diff` — plus `tool_program` and `tool_transaction`. The former executes at most eight read-only steps in one model tool call, with bounded `repeat` and `if_contains`, moving multi-read/search round trips into the harness. The latter combines reads, edits, and allowlisted checks into a rollback-capable modify+execute transaction. Their control flow, step count, and callable operations are schema-bounded; neither introduces arbitrary bash.
 
 `search_text` is no longer just a Python walk: when ripgrep is present it uses literal `rg`, respects `.gitignore`, then still applies allowed-path and output bounds. `run_check` accepts only an enum name declared in the task contract and executes exact argv with `shell=False` and a sanitized environment. These changes reduce search cost and model round trips on larger repositories without quietly turning the narrow surface into a shell.
 
@@ -71,7 +71,7 @@ The costs remain clear: the core grew from seven to nine, with opt-in MCP and su
 
 ## The academic grounding
 
-The [SWE-agent paper](https://arxiv.org/abs/2405.15793) (Yang et al., 2024) lays out ACI design principles; its most relevant experimental evidence shows that with the same model, changing file-view interfaces (line numbers, search support) shifts success rates significantly — their narrow search/read/edit interface outperformed open-ended shell interaction. The five projects' convergence confirms it: pi's and opencode's separate grep/find/read tools, and rivumi's search_text, all follow the paper's narrow-and-explicit interface shape.
+The [SWE-agent paper](https://arxiv.org/abs/2405.15793) (Yang et al., 2024) lays out ACI design principles; its most relevant experimental evidence shows that with the same model, changing file-view interfaces (line numbers, search support) shifts success rates significantly — their narrow search/read/edit interface outperformed open-ended shell interaction. The five projects' convergence confirms it: pi's and opencode's separate grep/find/read tools, and looplane's search_text, all follow the paper's narrow-and-explicit interface shape.
 
 Official function calling docs supply the other half from the API side: both [Anthropic's tool use guide](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) and [OpenAI's function calling guide](https://platform.openai.com/docs/guides/function-calling) stress that description quality directly drives selection accuracy and recommend keeping tool counts lean and semantics non-overlapping — "few and clear" is not a style preference, it's a known constraint on model behavior.
 
@@ -79,7 +79,7 @@ Official function calling docs supply the other half from the API side: both [An
 
 1. **MCP discovery still needs real surface tiers.** Allowlisting and dynamic refresh have landed, but many servers can still flatten many schemas into the model context. OMP essential/discoverable or ToolSearch-style deferred loading is the next boundary.
 2. **Complete input-sensitive effect classification.** `ToolDefinition` now carries read-only/concurrency metadata and MCP annotations are translated, but one tool changing risk by arguments still lacks a unified predicate and a validation layer that does not blindly trust server annotations.
-3. **Dynamic descriptions.** opencode's `describeTask` shows descriptions can be runtime routing tables. rivumi's run_check enum is already generated dynamically; next step: summarize each check's latest result into its description so the model picks blind less often.
+3. **Dynamic descriptions.** opencode's `describeTask` shows descriptions can be runtime routing tables. looplane's run_check enum is already generated dynamically; next step: summarize each check's latest result into its description so the model picks blind less often.
 4. **Use measurements to set batching boundaries.** `tool_program` and `tool_transaction` establish that bounded code mode is viable. Real runs should compare round trips, tokens, rollback frequency, and misuse before raising the eight-step cap or adding more control flow.
 
 The next post turns to the other side of sessions: the run artifacts contract — after a run ends, which mutually corroborating files should be on disk.
@@ -93,4 +93,4 @@ The next post turns to the other side of sessions: the run artifacts contract �
 - [anthropics/claude-code](https://github.com/anthropics/claude-code) — official repo (ships minified bundle; cited here from community decompilation v2.1.88)
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793) — ACI design impact on agent performance
 - [Anthropic Tool Use Docs](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) and [OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling) — official guidance on tool description quality and counts
-- [Rivumi tools at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/tools.py)
+- [Looplane tools at fixed commit `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/tools.py)

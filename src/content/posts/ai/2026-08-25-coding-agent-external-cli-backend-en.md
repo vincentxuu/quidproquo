@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 9
-tags: [coding-agent, external-cli, rivumi, sandbox, codex, claude-code]
+tags: [coding-agent, external-cli, looplane, sandbox, codex, claude-code]
 lang: en
-tldr: "Every mature coding agent ships a machine interface: codex has `exec --json` plus a full app-server JSON-RPC protocol, claude-code has `-p` with stream-json, and pi/opencode/omp each expose a JSON event stream. Wrapping these CLIs as your backend is the fastest path to subscription-backed coding — but they own their agent loop, their login, and their permission model. rivumi's answer: let the external CLI fully own its loop while rivumi holds only three things — an isolated working copy, patch audit, and final verification. One runtime never impersonates another."
-description: "Comparing the headless machine interfaces of codex, claude-code, opencode, pi, and omp at source level, the design tension of using external CLIs as coding backends, and how rivumi draws its boundary with disposable clones and patch audit."
+tldr: "Every mature coding agent ships a machine interface: codex has `exec --json` plus a full app-server JSON-RPC protocol, claude-code has `-p` with stream-json, and pi/opencode/omp each expose a JSON event stream. Wrapping these CLIs as your backend is the fastest path to subscription-backed coding — but they own their agent loop, their login, and their permission model. looplane's answer: let the external CLI fully own its loop while looplane holds only three things — an isolated working copy, patch audit, and final verification. One runtime never impersonates another."
+description: "Comparing the headless machine interfaces of codex, claude-code, opencode, pi, and omp at source level, the design tension of using external CLIs as coding backends, and how looplane draws its boundary with disposable clones and patch audit."
 draft: false
 ---
 
@@ -33,23 +33,23 @@ But wrapping is where the problems start. First, an external CLI is not a librar
 
 The common denominator is clear: all five treat the headless machine interface as a first-class citizen, and both codex and claude-code make approval bidirectional rather than a post-hoc log read.
 
-## rivumi's choice, and where it differs
+## looplane's choice, and where it differs
 
-rivumi wrote the principle down in M5, in the docstring of `src/rivumi/external_runner.py#ExternalCodingRunner`: the external runtime may edit only a disposable Git clone; rivumi independently validates the patch boundary and executes final verification. Concretely, three walls:
+looplane wrote the principle down in M5, in the docstring of `src/looplane/external_runner.py#ExternalCodingRunner`: the external runtime may edit only a disposable Git clone; looplane independently validates the patch boundary and executes final verification. Concretely, three walls:
 
 1. **Workspace boundary**: before delegation, pin the source HEAD, require a clean worktree, and snapshot the entire non-`.git` filesystem with a streaming SHA-256 hash — ignored files included (`_filesystem_snapshot`). The clone uses no hardlinks, `.git` moves outside the child cwd (`_isolate_git_metadata`), and origin is removed.
 2. **Patch audit**: after the child exits, verify source integrity first, then take a full diff against the immutable index, apply path policy and cumulative limits, and reject binary/symlink/untracked output (`_validate_external_patch`). What the CLI claims it changed doesn't count.
-3. **Final verification**: every check command runs through rivumi's own bounded verifier; afterwards the patch is compared again to prove the checks didn't mutate the artifact.
+3. **Final verification**: every check command runs through looplane's own bounded verifier; afterwards the patch is compared again to prove the checks didn't mutate the artifact.
 
-M10/M11 extended this boundary from one-shot tasks to long-lived conversations: `codex_app_server.py#CodexAppServerSession` opens a JSONL connection to `codex app-server`, one thread serving many turns, with file-change and command approvals routed back through rivumi via the protocol. On the Claude side, the Agent SDK's `canUseTool` provides PreToolUse correlation. But vendor thread/session IDs stay inside the adapter — only rivumi-generated IDs ever reach the renderer or the durable store. The external runtime never pollutes the native data model.
+M10/M11 extended this boundary from one-shot tasks to long-lived conversations: `codex_app_server.py#CodexAppServerSession` opens a JSONL connection to `codex app-server`, one thread serving many turns, with file-change and command approvals routed back through looplane via the protocol. On the Claude side, the Agent SDK's `canUseTool` provides PreToolUse correlation. But vendor thread/session IDs stay inside the adapter — only looplane-generated IDs ever reach the renderer or the durable store. The external runtime never pollutes the native data model.
 
 Generalizing in M13 didn't break the principle either: `external_cli_base.py#StreamJsonCliBackend` folds opencode/pi/omp into one base class — subclasses supply only argv and a tolerant normalizer, while bounded subprocess execution, environment control, and event caps are shared. `runtime_registry.py#RUNTIME_REGISTRY` declares per-runtime differences in a capability matrix (opencode has MCP, pi doesn't), so the TUI and dispatch read the registry instead of growing per-runtime branches anywhere else.
 
-The deepest difference is a negative sentence: **an external CLI is never wrapped as a `ModelProvider`**. rivumi's provider abstraction consumes model IDs and API keys; an external CLI is a complete agent runtime with its own loop and login. Merging them would blur who decides, who executes, and who answers for side effects. So the subscription path stays labeled local/private-experimental behind three explicit opt-in flags.
+The deepest difference is a negative sentence: **an external CLI is never wrapped as a `ModelProvider`**. looplane's provider abstraction consumes model IDs and API keys; an external CLI is a complete agent runtime with its own loop and login. Merging them would blur who decides, who executes, and who answers for side effects. So the subscription path stays labeled local/private-experimental behind three explicit opt-in flags.
 
 ## Academic and engineering grounding
 
-"The agent's output is untrusted input" has a research name: [indirect prompt injection](https://arxiv.org/abs/2302.12173) showed that LLM-integrated applications can be hijacked into hostile tool calls — exactly why rivumi refuses to trust the CLI-reported diff and recomputes it from Git instead. [SWE-agent](https://arxiv.org/abs/2405.15793) argued that agent-computer interface design determines behavior quality; an app-server protocol is essentially an ACI upgraded from "shell + files" to "typed events + approval requests". On the engineering side, [Codex sandboxing docs](https://developers.openai.com/codex/concepts/sandboxing) and [Claude Code permissions](https://code.claude.com/docs/en/iam) both candidly limit their own guarantees — neither promises OS-level isolation, which is first-party support for "the host must build its own boundary".
+"The agent's output is untrusted input" has a research name: [indirect prompt injection](https://arxiv.org/abs/2302.12173) showed that LLM-integrated applications can be hijacked into hostile tool calls — exactly why looplane refuses to trust the CLI-reported diff and recomputes it from Git instead. [SWE-agent](https://arxiv.org/abs/2405.15793) argued that agent-computer interface design determines behavior quality; an app-server protocol is essentially an ACI upgraded from "shell + files" to "typed events + approval requests". On the engineering side, [Codex sandboxing docs](https://developers.openai.com/codex/concepts/sandboxing) and [Claude Code permissions](https://code.claude.com/docs/en/iam) both candidly limit their own guarantees — neither promises OS-level isolation, which is first-party support for "the host must build its own boundary".
 
 ## What could improve
 

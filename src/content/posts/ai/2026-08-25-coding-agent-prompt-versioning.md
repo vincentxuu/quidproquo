@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "跟成熟 coding agent 學設計"
   order: 25
-tldr: "Rivumi 的 prompt 已到 `m3-exact-edit-v4`：版本寫進 artifact，core/tool/interaction/runtime/instructions/skills/workspace/memory 以 stable/dynamic section 組裝，並加入 replace_text、unified diff、direct reply 的正反例。unit tests 已釘住結構，live eval 覆蓋仍需擴大。"
-description: "以五個成熟 coding agent 的原始碼為證，分析 prompt 版本控制的四種做法與取捨：per-model prompt 檔、feature flag A/B、模板渲染、版本號常數綁 eval，以及 rivumi 的選擇。"
+tldr: "Looplane 的 prompt 已到 `m3-exact-edit-v4`：版本寫進 artifact，core/tool/interaction/runtime/instructions/skills/workspace/memory 以 stable/dynamic section 組裝，並加入 replace_text、unified diff、direct reply 的正反例。unit tests 已釘住結構，live eval 覆蓋仍需擴大。"
+description: "以五個成熟 coding agent 的原始碼為證，分析 prompt 版本控制的四種做法與取捨：per-model prompt 檔、feature flag A/B、模板渲染、版本號常數綁 eval，以及 looplane 的選擇。"
 draft: false
 ---
 
@@ -35,11 +35,11 @@ Prompt 是 coding agent 裡最奇怪的一種程式碼：它沒有型別、沒�
 
 共同點只有一個：**prompt 不是散落在程式碼裡的字面量，而是一等公民的資產**——獨立檔案、集中管理、有明確的選擇邏輯。
 
-## rivumi 的選擇與差異
+## looplane 的選擇與差異
 
-rivumi 走的是五家都沒有那麼極端的路：**prompt 字串帶語義版本號常數，且版本演進必須綁 eval 證據**。
+looplane 走的是五家都沒有那麼極端的路：**prompt 字串帶語義版本號常數，且版本演進必須綁 eval 證據**。
 
-`rivumi/src/rivumi/prompts.py#CODING_AGENT_PROMPT_VERSION` 目前是 `"m3-exact-edit-v4"`。版本號仍會持久化進 session 與 `run.created`，但 prompt 已不再只是單一裸字串：`#PromptSection`、`#render_prompt_sections`、`#build_coding_agent_system_prompt` 會依序組出 core policy、tool policy、interaction policy、runtime context、instructions、skills、workspace state、memory，並明標 stable / dynamic cache metadata。這是 assembly baseline，不表示所有 provider 都已用相同 cache protocol 或命中率通過 production trace 驗證。
+`looplane/src/looplane/prompts.py#CODING_AGENT_PROMPT_VERSION` 目前是 `"m3-exact-edit-v4"`。版本號仍會持久化進 session 與 `run.created`，但 prompt 已不再只是單一裸字串：`#PromptSection`、`#render_prompt_sections`、`#build_coding_agent_system_prompt` 會依序組出 core policy、tool policy、interaction policy、runtime context、instructions、skills、workspace state、memory，並明標 stable / dynamic cache metadata。這是 assembly baseline，不表示所有 provider 都已用相同 cache protocol 或命中率通過 production trace 驗證。
 
 v1→v3 的演進是教科書式的觀察驅動：
 
@@ -48,7 +48,7 @@ v1→v3 的演進是教科書式的觀察驅動：
 - **v3**：再收緊——capability questions（「你能幫我寫程式嗎？」）也要直接回覆，且不得探索 repo 或枚舉各種解讀來消歧義。
 - **v4**：把寫法從抽象規則補成小型 examples 區。正例示範 `read_file → replace_text` 的 byte-for-byte 流程與 unified diff 形狀；反例明講不要猜 old_text；direct-reply example 說清楚 greeting、small talk、capability question 不該叫工具。`tests/test_prompts.py` 同時釘版本、例句與 section ordering。
 
-跟五家的差異很清楚：codex/claude-code 有 eval 基礎建設但不公開單一 prompt 改動對應的 eval 證據；opencode/pi 靠 git history；rivumi 則把「版本號 → 觀察到的失敗 → eval 結果」三方綁死在一條 commit 鏈上。代價也很誠實：eval 只覆蓋一個小 Python 任務加一個本地 4B 模型，5/5 不代表全面可靠——stage doc 自己就先聲明了。
+跟五家的差異很清楚：codex/claude-code 有 eval 基礎建設但不公開單一 prompt 改動對應的 eval 證據；opencode/pi 靠 git history；looplane 則把「版本號 → 觀察到的失敗 → eval 結果」三方綁死在一條 commit 鏈上。代價也很誠實：eval 只覆蓋一個小 Python 任務加一個本地 4B 模型，5/5 不代表全面可靠——stage doc 自己就先聲明了。
 
 ## 工程依據
 
@@ -59,7 +59,7 @@ v1→v3 的演進是教科書式的觀察驅動：
 1. **eval manifest 多樣化**：examples 與 v4 已有 unit tests，但 live eval 仍主要是 tiny Python task；至少要加入「純問答不觸發工具」與「錯誤 old_text 應回頭讀檔」案例，才算驗證新例子是否真的改變模型行為。
 2. **prompt diff 進 CI**：`tests/test_prompts.py` 釘子句是好的第一步，下一步是讓 prompt 版本跳號必須附 eval summary 路徑，仿 M3 stage doc 的 evidence 格式。
 3. **用 trace 驗證 section/cache 策略**：named stable/dynamic sections 已落地；下一步不是再拆更多段，而是確認各 provider payload 真的保留穩定前綴、cache trace 能解釋 hit/miss，再決定是否更動預設排序。
-4. **catalog 化還不用做**：codex 的 per-model prompt 目錄是為幾十個模型服務的，rivumi 目前只需在 provider adapter 層記錄「哪版 prompt 配哪些模型跑過 eval」即可。
+4. **catalog 化還不用做**：codex 的 per-model prompt 目錄是為幾十個模型服務的，looplane 目前只需在 provider adapter 層記錄「哪版 prompt 配哪些模型跑過 eval」即可。
 
 ## 參考資料
 
@@ -73,4 +73,4 @@ v1→v3 的演進是教科書式的觀察驅動：
 - [OpenAI GPT-4.1 Prompting Guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
 - [Anthropic Prompt Engineering Overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Anthropic Prompt Caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
-- [Rivumi prompts（固定 commit `2ed5efb`）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/prompts.py)
+- [Looplane prompts（固定 commit `2ed5efb`）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/prompts.py)

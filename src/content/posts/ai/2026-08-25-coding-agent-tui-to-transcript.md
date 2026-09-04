@@ -2,11 +2,11 @@
 title: "跟成熟 coding agent 學設計（15）：從全螢幕 TUI 到 semantic transcript"
 date: 2026-08-25
 category: ai
-tags: [coding-agent, tui, textual, claude-code, codex, opencode, rivumi]
+tags: [coding-agent, tui, textual, claude-code, codex, opencode, looplane]
 lang: zh-TW
 type: deep-dive
-description: "比對 Claude Code、Codex、Pi、OpenCode 四家終端介面的事件流渲染策略，拆解 semantic transcript 的設計，以及 rivumi 從全螢幕組合、runtime-first 雙模式到統一對話的三段演進。"
-tldr: "成熟的 coding agent TUI 都不是把事件流印出來，而是先做一層 typed projection 再渲染；rivumi 走了全螢幕組合、runtime-first 雙模式、移除 Ask/Agent 分離三步，才把 non-streaming 和 resume 不能 replay 兩個舊限制真正解除。"
+description: "比對 Claude Code、Codex、Pi、OpenCode 四家終端介面的事件流渲染策略，拆解 semantic transcript 的設計，以及 looplane 從全螢幕組合、runtime-first 雙模式到統一對話的三段演進。"
+tldr: "成熟的 coding agent TUI 都不是把事件流印出來，而是先做一層 typed projection 再渲染；looplane 走了全螢幕組合、runtime-first 雙模式、移除 Ask/Agent 分離三步，才把 non-streaming 和 resume 不能 replay 兩個舊限制真正解除。"
 draft: false
 series:
   name: "跟成熟 coding agent 學設計"
@@ -45,17 +45,17 @@ OpenCode 用 SolidJS 寫 TUI。session 路由就是一個 `<For each={messages()
 
 五家做法不同，但收斂點一致：**都不是直接印事件，而是先建一層帶穩定 ID 的語意項目，再讓事件原地更新它**。
 
-## rivumi 的選擇與三段演進
+## looplane 的選擇與三段演進
 
-rivumi 這篇故事的核心不是「抄誰」，而是**每一代的舊限制怎麼被下一代解除**。
+looplane 這篇故事的核心不是「抄誰」，而是**每一代的舊限制怎麼被下一代解除**。
 
-**第一段（M9）：全螢幕組合。** 第一版用 Textual 把 onboarding、任務輸入、活動、審批、結果拼進一個畫面（`rivumi/src/rivumi/tui.py#RivumiApp`）。Textual 的 [Screen](https://textual.textualize.io/guide/screens/) 和 worker 機制負責 alternate screen 與非同步，[RichLog](https://textual.textualize.io/widgets/rich_log/) 收原始事件。但當時模型合約不支援串流，活動只能以 step/tool 為單位跳動；resume 也只能走舊的行式路徑，歷史事件流無法在 TUI 裡重放。限制很清楚，但先證明了「一個畫面」可行。
+**第一段（M9）：全螢幕組合。** 第一版用 Textual 把 onboarding、任務輸入、活動、審批、結果拼進一個畫面（`looplane/src/looplane/tui.py#LooplaneApp`）。Textual 的 [Screen](https://textual.textualize.io/guide/screens/) 和 worker 機制負責 alternate screen 與非同步，[RichLog](https://textual.textualize.io/widgets/rich_log/) 收原始事件。但當時模型合約不支援串流，活動只能以 step/tool 為單位跳動；resume 也只能走舊的行式路徑，歷史事件流無法在 TUI 裡重放。限制很清楚，但先證明了「一個畫面」可行。
 
 **第二段（M10）：runtime-first 雙模式。** 接上 Claude Code / Codex CLI 之後，composer 分出 Ask 和 Agent：Ask 只讀、process-local bounded transcript；Agent 走完整安全閘。這一步解決了「不用先給 raw model ID 就能用」，卻製造了新的彆扭——每個 prompt 都起一個新的子行程，上一輪的答案要用隱藏的 prompt 文字重餵回去；隨口的問題和寫程式的需求被迫走兩個世界，儘管 Claude Code 和 Codex 本來就把它們當同一個 session 的 turns。
 
-**第三段（M11）：移除分離。** 這代做了三件事。第一，一條長駐的外部 session：`rivumi/src/rivumi/conversation_controller.py#ConversationController` 對 Codex app-server 或 Claude Agent SDK sidecar 維持一個 child，多 turn 共享。第二，semantic transcript 成為一等公民：`rivumi/src/rivumi/tui.py#conversation_runtime_event_received` 是唯一的 reducer，`TextDeltaEvent` 累積串流文字、`RuntimeToolStartedEvent` 用 `_ensure_tool_action` 找到既有那行工具列原地改狀態——不再有每個事件一行 Activity 的洪水。第三，審批 docked 進 transcript 流：`rivumi/src/rivumi/tui.py#request_approval` 把 `InlineApprovalBlock` mount 在觸發它的那行工具正下方，diff 預覽和選項就在脈絡裡，transcript 保持可見可捲。
+**第三段（M11）：移除分離。** 這代做了三件事。第一，一條長駐的外部 session：`looplane/src/looplane/conversation_controller.py#ConversationController` 對 Codex app-server 或 Claude Agent SDK sidecar 維持一個 child，多 turn 共享。第二，semantic transcript 成為一等公民：`looplane/src/looplane/tui.py#conversation_runtime_event_received` 是唯一的 reducer，`TextDeltaEvent` 累積串流文字、`RuntimeToolStartedEvent` 用 `_ensure_tool_action` 找到既有那行工具列原地改狀態——不再有每個事件一行 Activity 的洪水。第三，審批 docked 進 transcript 流：`looplane/src/looplane/tui.py#request_approval` 把 `InlineApprovalBlock` mount 在觸發它的那行工具正下方，diff 預覽和選項就在脈絡裡，transcript 保持可見可捲。
 
-而 M9 留下的 resume 問題，由 `rivumi/src/rivumi/conversation.py#ConversationStore` 解除：嚴格 user/assistant turn schema、0600 檔案、0700 目錄，vendor session ID 不落盤。重啟後開新的 native session，用 bounded completed-turn replay 補一次上下文——replay 從「做不到」變成一等操作。
+而 M9 留下的 resume 問題，由 `looplane/src/looplane/conversation.py#ConversationStore` 解除：嚴格 user/assistant turn schema、0600 檔案、0700 目錄，vendor session ID 不落盤。重啟後開新的 native session，用 bounded completed-turn replay 補一次上下文——replay 從「做不到」變成一等操作。
 
 ## 工程依據
 
@@ -63,7 +63,7 @@ rivumi 這篇故事的核心不是「抄誰」，而是**每一代的舊限制�
 
 ## 改善路線
 
-對照五家，rivumi 還缺三件事。其一，**折疊與歸組**：Claude Code 能折疊連續讀檔（`claude-code-source/src/utils/collapseReadSearch.ts#collapseReadSearchGroups`）、Codex 能 coalesce exec 群組，rivumi 的 `ToolGroupBlock` 已有骨架但歸組策略仍粗。其二，**長對話的渲染規模**：Claude Code 超過 200 則訊息就切換虛擬化列表、只渲染視窗附近的列（`claude-code-source/src/components/Messages.tsx` 的 `MAX_MESSAGES_WITHOUT_VIRTUALIZATION`），rivumi 目前把每個語意列都掛在 DOM 裡，跑得久就會變重。其三，**rewind/fork**：OpenCode 有 revert 到任一訊息、`ConversationStore.fork_before_turn` 已存在但尚未接到 UI。semantic transcript 不是終點，它是讓這些功能「有地方長」的地基。
+對照五家，looplane 還缺三件事。其一，**折疊與歸組**：Claude Code 能折疊連續讀檔（`claude-code-source/src/utils/collapseReadSearch.ts#collapseReadSearchGroups`）、Codex 能 coalesce exec 群組，looplane 的 `ToolGroupBlock` 已有骨架但歸組策略仍粗。其二，**長對話的渲染規模**：Claude Code 超過 200 則訊息就切換虛擬化列表、只渲染視窗附近的列（`claude-code-source/src/components/Messages.tsx` 的 `MAX_MESSAGES_WITHOUT_VIRTUALIZATION`），looplane 目前把每個語意列都掛在 DOM 裡，跑得久就會變重。其三，**rewind/fork**：OpenCode 有 revert 到任一訊息、`ConversationStore.fork_before_turn` 已存在但尚未接到 UI。semantic transcript 不是終點，它是讓這些功能「有地方長」的地基。
 
 ## 參考資料
 

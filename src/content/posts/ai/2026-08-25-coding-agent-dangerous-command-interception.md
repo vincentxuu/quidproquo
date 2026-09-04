@@ -6,16 +6,16 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 28
-tags: [coding-agent, shell-execution, security, approval, rivumi, codex, claude-code, omp]
+tags: [coding-agent, shell-execution, security, approval, looplane, codex, claude-code, omp]
 lang: zh-TW
-tldr: "五家對自由 shell 的風險處理都包含放行／詢問／拒絕、複合指令檢查與 fail-closed。rivumi 已補上 deny-first command classifier、critical floor、複合 shell 分段、timeout-deny、設定式 allow/deny rule 與可見的 policy reason；仍需擴大語法涵蓋與真實互動流程驗證。"
-description: "比對五家 coding agent 的危險指令 escalation，並核對 Rivumi allow/ask/deny classifier、critical floor 與 policy audit baseline。"
+tldr: "五家對自由 shell 的風險處理都包含放行／詢問／拒絕、複合指令檢查與 fail-closed。looplane 已補上 deny-first command classifier、critical floor、複合 shell 分段、timeout-deny、設定式 allow/deny rule 與可見的 policy reason；仍需擴大語法涵蓋與真實互動流程驗證。"
+description: "比對五家 coding agent 的危險指令 escalation，並核對 Looplane allow/ask/deny classifier、critical floor 與 policy audit baseline。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-dangerous-command-interception-en)
 
-系列第二部第三篇原本把危險指令分級列成缺口；Rivumi 現在已有 deterministic allow / ask / deny classifier、deny-first rule layering、critical command floor 與 approval-visible reason。取證範圍仍是 pi、omp、opencode、codex 與 claude-code；正文保留五家比較，再用它們檢查 Rivumi baseline 仍缺的自由 shell 解析深度、持久規則 UX 與跨平台 sandbox parity。
+系列第二部第三篇原本把危險指令分級列成缺口；Looplane 現在已有 deterministic allow / ask / deny classifier、deny-first rule layering、critical command floor 與 approval-visible reason。取證範圍仍是 pi、omp、opencode、codex 與 claude-code；正文保留五家比較，再用它們檢查 Looplane baseline 仍缺的自由 shell 解析深度、持久規則 UX 與跨平台 sandbox parity。
 
 ## 能力問題：二元決策撐不起自由 shell
 
@@ -57,15 +57,15 @@ opencode 的 bash 工具（`packages/core/src/tool/bash.ts`）在執行前呼叫
 
 ## 原始設計草案（2026-08-25）
 
-先如實描述現狀。rivumi 目前**沒有自由 shell 工具**，唯一的 EXECUTE 通道是 `tools.py#run_check`：從設定檔讀入 `verification_commands`，argv 完全固定，工具 schema 還把 name 限制成 enum（`tools.py` 的 `run_check_schema`）。效果分級靠 `approvals.py#ToolEffect`（READ/MODIFY/EXECUTE 三值），headless 下 `HeadlessApprovalPolicy` 的 `allow_execute` 預設 False，唯一放行方式是 CLI 層的 `--unsafe-local-exec` 布林旗標。
+先如實描述現狀。looplane 目前**沒有自由 shell 工具**，唯一的 EXECUTE 通道是 `tools.py#run_check`：從設定檔讀入 `verification_commands`，argv 完全固定，工具 schema 還把 name 限制成 enum（`tools.py` 的 `run_check_schema`）。效果分級靠 `approvals.py#ToolEffect`（READ/MODIFY/EXECUTE 三值），headless 下 `HeadlessApprovalPolicy` 的 `allow_execute` 預設 False，唯一放行方式是 CLI 層的 `--unsafe-local-exec` 布林旗標。
 
 這個設計安全，但缺口很清楚：**決策是二元的**。白名單命中就跑，否則全部落到「問使用者」或整段關閉。一旦未來要加 bash 工具、或允許 trusted repo 自帶檢查指令（`--unsafe-local-exec` 的 help 文案已經暗示了這個方向），現有的 ToolEffect 三值根本表達不了「這條指令危險但可談判」的中間地帶。草案：
 
-**第一層：三值決策引擎。** 新增 `src/rivumi/shell_policy.py`，定義 `ShellDecision = ALLOW | PROMPT | FORBIDDEN`（對齊 codex 的命名），輸入是解析後的 argv 與工作目錄。規則兩種來源：設定檔的 prefix 規則（沿用 `run_check` 已有的 exact argv 思路，放寬到前綴），加一份內建的 critical regex 清單（學 omp 的收緊原則：只放「幾乎不會在自動化裡合法出現」的形狀）。
+**第一層：三值決策引擎。** 新增 `src/looplane/shell_policy.py`，定義 `ShellDecision = ALLOW | PROMPT | FORBIDDEN`（對齊 codex 的命名），輸入是解析後的 argv 與工作目錄。規則兩種來源：設定檔的 prefix 規則（沿用 `run_check` 已有的 exact argv 思路，放寬到前綴），加一份內建的 critical regex 清單（學 omp 的收緊原則：只放「幾乎不會在自動化裡合法出現」的形狀）。
 
 **第二層：複合指令逐段檢查。** 用 `shlex` 切 `;`、`&&`、`||`、`|` 邊界，FORBIDDEN/PROMPT 任一段命中即成立；ALLOW 必須覆蓋全部段且不含任何控制語法——omp 用血淚換來的語意，直接抄。
 
-**第三層：fail-closed 的 escalation。** PROMPT 走既有 `TTYApprovalPolicy`，但要把「本次 session 同意」從現在的全域 grant（`approvals.py` 的 `_grants` set）改成 per-pattern grant，避免「同意過一次 `pytest` 就等於同意一切」。逾時與拒絕一律 deny，對齊 codex。每次決策（含規則名稱與 justification）寫進 audit trail——事件流是 rivumi 既有的強項，正好接上。
+**第三層：fail-closed 的 escalation。** PROMPT 走既有 `TTYApprovalPolicy`，但要把「本次 session 同意」從現在的全域 grant（`approvals.py` 的 `_grants` set）改成 per-pattern grant，避免「同意過一次 `pytest` 就等於同意一切」。逾時與拒絕一律 deny，對齊 codex。每次決策（含規則名稱與 justification）寫進 audit trail——事件流是 looplane 既有的強項，正好接上。
 
 ## 與現有架構的銜接
 
@@ -73,7 +73,7 @@ opencode 的 bash 工具（`packages/core/src/tool/bash.ts`）在執行前呼叫
 
 順序上也該排在 OS 級沙箱（系列下一篇的主題）之前：pattern 分級便宜、純軟體、立刻有用；landlock/seatbelt 那層是給「分級錯了」的時候兜底的。先有分級，沙箱才有意義。
 
-## rivumi 現在的實作
+## looplane 現在的實作
 
 截至 `2ed5efb`，原本的二元決策描述已過期。`permissions.py` 會把 shell-shaped command 切成 segments，再由 `classify_command_policy()` 回傳 `allow`、`ask` 或 `deny`。critical floor 與明確 deny rule 優先於 session grant 和 allow rule；shell interpreter、network/package、權限變更、archive 與可疑 compound shape 會升級詢問，危險長 timeout 則直接拒絕。
 
@@ -81,7 +81,7 @@ opencode 的 bash 工具（`packages/core/src/tool/bash.ts`）在執行前呼叫
 
 ## 參考資料
 
-- [Rivumi command policy（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/permissions.py)
+- [Looplane command policy（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/permissions.py)
 
 - [openai/codex — codex-rs/execpolicy](https://github.com/openai/codex/tree/main/codex-rs/execpolicy)：Allow/Prompt/Forbidden 三值決策與前綴規則引擎
 - [openai/codex — codex-rs/shell-escalation](https://github.com/openai/codex/tree/main/codex-rs/shell-escalation)：execve 攔截式 escalation server

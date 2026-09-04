@@ -5,13 +5,13 @@
 
 ## 系列定位
 
-每篇固定結構：**設計問題 → 五個參考專案怎麼做（原始碼證據）→ rivumi 的選擇與為什麼不同 → 論文／技術報告印證 → 還能改善什麼**。
+每篇固定結構：**設計問題 → 五個參考專案怎麼做（原始碼證據）→ looplane 的選擇與為什麼不同 → 論文／技術報告印證 → 還能改善什麼**。
 
 五個參考專案（本地 shallow clone 在 `~/Projects/coding-agent-reference/`，證據格式 `repo/path/file.ext#symbolName`，禁止只給行號或編造）：
 pi（badlogic/pi-mono）、omp（can1357/oh-my-pi，pi 的 fork）、opencode（sst/opencode）、codex（openai/codex）、claude-code（anthropics/claude-code decompiled v2.1.88）。
 問題→查哪裡的路由表：`~/.claude/skills/coding-agent-reference/SKILL.md`。
 
-rivumi 實作載體：`~/Projects/rivumi/`（stage docs 在 `docs/stages/`，研究筆記在 `.research/`，progress 在 `docs/progress.md`）。專案已從 coding_agent/PCA 改名 rivumi；M11 已移除 Ask/Agent 分離、改長駐外部 session；M12 啟動效能；M13 外部 CLI runtime 泛化（OpenCode/Pi/OMP adapter）；另有 NVIDIA NIM retry 強化與 OpenAI Responses API adapter（commit 32de79a）。
+looplane 實作載體：`~/Projects/looplane/`（stage docs 在 `docs/stages/`，研究筆記在 `.research/`，progress 在 `docs/progress.md`）。專案已從 coding_agent/PCA 改名 looplane；M11 已移除 Ask/Agent 分離、改長駐外部 session；M12 啟動效能；M13 外部 CLI runtime 泛化（OpenCode/Pi/OMP adapter）；另有 NVIDIA NIM retry 強化與 OpenAI Responses API adapter（commit 32de79a）。
 
 ## 檔案規範
 
@@ -53,7 +53,7 @@ rivumi 實作載體：`~/Projects/rivumi/`（stage docs 在 `docs/stages/`，研
 
 ## 第二部「尚未實作——改善路線圖」（order 26–38）
 
-每篇＝五家都有、rivumi 還沒有的能力。五家做法（file#symbol 證據）→ 學術依據 → rivumi 設計草案。
+每篇＝五家都有、looplane 還沒有的能力。五家做法（file#symbol 證據）→ 學術依據 → looplane 設計草案。
 
 | # | slug | 主題 | 五家參考位置（routing table） |
 |---|------|------|------------------------------|
@@ -85,14 +85,14 @@ rivumi 實作載體：`~/Projects/rivumi/`（stage docs 在 `docs/stages/`，研
 - [x] pnpm check:references：0 error（14 條關鍵詞重疊 WARN，屬系列格式已知誤報）
 - [x] pnpm lint：0 error；check:tw：37 篇 zh 全數 0 blocking
 - [x] astro check：內容檔 0 error（src/server/agent-flow-workflow.ts 9 個 + src/lib/rag/model.ts 1 個為既有錯誤）
-- [x] 收尾篇 order 38 `agent-as-service` 雙語（2 檔，2026-08-26）：五家 server API 取證＋rivumi 草案，系列補足「38 篇」定案數
+- [x] 收尾篇 order 38 `agent-as-service` 雙語（2 檔，2026-08-26）：五家 server API 取證＋looplane 草案，系列補足「38 篇」定案數
 - [x] 已發佈為 `draft: false`（2026-08-29 frontmatter 重掃）
 - [ ] 內容層抽樣事實複查（各 agent 回報的待複查主張清單見 session 紀錄）
 
 ## 已知待複查重點（發佈前抽樣）
 
 - claude-code 引用全部來自 decompiled v2.1.88，symbol 名可能與原版有出入（多篇文章已標註免責）
-- rivumi 數字類主張未重跑驗證：M3 eval 5/5、511 tests、啟動 baseline 701ms/247ms
+- looplane 數字類主張未重跑驗證：M3 eval 5/5、511 tests、啟動 baseline 701ms/247ms
 - 外部連結未逐一線上驗證：Agent SDK 文件新路徑、opencode repo org 是否搬遷（anomalyco vs sst）、Cloudflare Sandbox 文件
 - 負向主張（「X 家沒有 Y」）基於 shallow clone 快照，上游可能已變
 

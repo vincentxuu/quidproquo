@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 36
-tags: [coding-agent, lsp, diagnostics, rivumi, oh-my-pi, claude-code, opencode]
+tags: [coding-agent, lsp, diagnostics, looplane, oh-my-pi, claude-code, opencode]
 lang: zh-TW
-tldr: "rivumi 已能把 repo 內 diagnostics 與 open-file 狀態注入下一個 model turn，也有 typed WebSocket IDE context push、可封裝的 VS Code bridge，以及管理長駐 LSP subprocess 的 ManagedLspServer。剩下的是各語言 initialize／didOpen／didChange adapter 的打磨與 live editor 驗證。"
-description: "對照成熟 coding agent 的 LSP 診斷注入，並檢視 rivumi 的 IDE context、WebSocket、VS Code 與 ManagedLspServer 基線。"
+tldr: "looplane 已能把 repo 內 diagnostics 與 open-file 狀態注入下一個 model turn，也有 typed WebSocket IDE context push、可封裝的 VS Code bridge，以及管理長駐 LSP subprocess 的 ManagedLspServer。剩下的是各語言 initialize／didOpen／didChange adapter 的打磨與 live editor 驗證。"
+description: "對照成熟 coding agent 的 LSP 診斷注入，並檢視 looplane 的 IDE context、WebSocket、VS Code 與 ManagedLspServer 基線。"
 draft: false
 ---
 
@@ -19,7 +19,7 @@ draft: false
 
 ## 能力問題：驗證訊號的延遲落差
 
-`run_check` 仍是 rivumi 判定「程式碼對不對」的品質閘門，但已不是模型取得回饋的唯一來源。IDE/LSP diagnostics 和 open-file state 可以先注入下一個 turn，讓模型在完整測試前看到精確位置；兩種訊號分工清楚：LSP 是 advisory，check 才是驗證證據。
+`run_check` 仍是 looplane 判定「程式碼對不對」的品質閘門，但已不是模型取得回饋的唯一來源。IDE/LSP diagnostics 和 open-file state 可以先注入下一個 turn，讓模型在完整測試前看到精確位置；兩種訊號分工清楚：LSP 是 advisory，check 才是驗證證據。
 
 人類工程師不是這樣工作的。你存檔那一秒，編輯器裡的語言伺服器已經把紅色波浪線畫好了——型別錯、未定義變數、import 少一個字母，全部標在精確位置。[LSP（Language Server Protocol）](https://microsoft.github.io/language-server-protocol/)就是把「編輯器的即時診斷」標準化的協議：編輯器送 didOpen/didChange，server 用 `textDocument/publishDiagnostics` 推回結構化錯誤。
 
@@ -57,7 +57,7 @@ client 端有個細節值得抄：`src/lsp/client.ts` 特意不在 didChange 時
 
 ### pi 和 codex：沒有
 
-負向發現也要記錄。pi-mono 核心程式碼 grep 不到任何 LSP 整合；codex-rs 同樣沒有。codex 的哲學是 shell 才是唯一真相——要驗證就跑 build、跑測試，跟 rivumi 的 run_check 血緣最近。而 omp 的整套 LSP 正是 fork 自 pi 之後加上的，兩代對照本身就是設計文件：上游認為「執行結果夠用」，fork 認為「即時診斷值得多養幾個子程序」。
+負向發現也要記錄。pi-mono 核心程式碼 grep 不到任何 LSP 整合；codex-rs 同樣沒有。codex 的哲學是 shell 才是唯一真相——要驗證就跑 build、跑測試，跟 looplane 的 run_check 血緣最近。而 omp 的整套 LSP 正是 fork 自 pi 之後加上的，兩代對照本身就是設計文件：上游認為「執行結果夠用」，fork 認為「即時診斷值得多養幾個子程序」。
 
 ## 學術與工程依據
 
@@ -65,7 +65,7 @@ client 端有個細節值得抄：`src/lsp/client.ts` 特意不在 didChange 時
 
 代價面要誠實：每個 project 多養一到數個長駐子程序（rust-analyzer 吃起記憶體不客氣）、啟動索引要時間（omp 有 warmup 機制和 `DIAGNOSTICS_PIPELINE_GRACE_MS = 10_000` 的管線寬限）、而且診斷是「顧問」不是「判決」——server 掛了、索引還沒建好、或設定不對時，安靜地沒有訊號不等於沒有錯誤。
 
-## rivumi 已落地的基線
+## looplane 已落地的基線
 
 `ide.py` 已定義 bounded diagnostics 與 open-file snapshot，native loop 會把它們以標記過的 injected context 放進下一個 model turn，並留下 `ide.diagnostics_injected`／`ide.open_files_injected` 事件。stateful WebSocket 也接受 typed IDE context push；`editors/vscode` 已能封裝與做本機 smoke。
 
@@ -75,8 +75,8 @@ client 端有個細節值得抄：`src/lsp/client.ts` 特意不在 didChange 時
 
 ## 參考資料
 
-- [rivumi `lsp.py`（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/lsp.py)
-- [rivumi IDE bridge（2ed5efb）](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/ide.py)
+- [looplane `lsp.py`（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/lsp.py)
+- [looplane IDE bridge（2ed5efb）](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/ide.py)
 
 - [Language Server Protocol 官網](https://microsoft.github.io/language-server-protocol/)／[LSP 3.17 Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/)
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793)

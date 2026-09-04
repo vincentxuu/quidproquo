@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 4
-tags: [coding-agent, approval, permissions, audit-trail, rivumi, claude-code, codex]
+tags: [coding-agent, approval, permissions, audit-trail, looplane, claude-code, codex]
 lang: en
-tldr: "Rivumi now grades effects as read/modify/modify_execute/execute and fails closed on unclassified tools. Native MCP tools default to execute unless trusted read-only metadata lowers them. Approval events still land in events.jsonl first and grants can scope to one change set or backend; general command rules and universal sandbox coupling remain unfinished."
-description: "Comparing how pi, omp, opencode, codex, and claude-code grade tool actions, scope session grants, and record approval decisions — plus how rivumi's ToolEffect classification, durable audit events, and process-local scoped grants differ, and why dangerous-command interception is next."
+tldr: "Looplane now grades effects as read/modify/modify_execute/execute and fails closed on unclassified tools. Native MCP tools default to execute unless trusted read-only metadata lowers them. Approval events still land in events.jsonl first and grants can scope to one change set or backend; general command rules and universal sandbox coupling remain unfinished."
+description: "Comparing how pi, omp, opencode, codex, and claude-code grade tool actions, scope session grants, and record approval decisions — plus how looplane's ToolEffect classification, durable audit events, and process-local scoped grants differ, and why dangerous-command interception is next."
 draft: false
 ---
 
@@ -53,19 +53,19 @@ The clearest statement of its philosophy is `codex/codex-rs/core/src/safety.rs#a
 
 pi-mono's core deliberately has no built-in permission system; approval is an extension hook: `pi-mono/packages/coding-agent/examples/extensions/permission-gate.ts` intercepts the `tool_call` event, regexes for `rm -rf`/`sudo`, and pops a `ctx.ui.select` confirm when a UI exists. Its fail-closed branch is the headless one: no UI means `{block:true}` — environments that cannot ask always block.
 
-## What rivumi does differently
+## What looplane does differently
 
-Rivumi's answer has three layers: effect classification, injected policy, durable audit.
+Looplane's answer has three layers: effect classification, injected policy, durable audit.
 
-**Classification is hard.** `rivumi/src/rivumi/approvals.py#ToolEffect` now has read / modify / modify_execute / execute. `tool_transaction` can combine edits and checks into a rollback-capable batch, so it cannot masquerade as plain modify. `TOOL_EFFECTS` declares every built-in, and `#effect_for_tool` raises for an unclassified tool. Native MCP uses `#effect_for_tool_definition`: resource/prompt bridges are read, remote tools default to execute, and only an explicit `readOnlyHint` annotation lowers one to read. Unknown tools and missing trust metadata are never guessed safe.
+**Classification is hard.** `looplane/src/looplane/approvals.py#ToolEffect` now has read / modify / modify_execute / execute. `tool_transaction` can combine edits and checks into a rollback-capable batch, so it cannot masquerade as plain modify. `TOOL_EFFECTS` declares every built-in, and `#effect_for_tool` raises for an unclassified tool. Native MCP uses `#effect_for_tool_definition`: resource/prompt bridges are read, remote tools default to execute, and only an explicit `readOnlyHint` annotation lowers one to read. Unknown tools and missing trust metadata are never guessed safe.
 
 **Policy is injected.** `#TTYApprovalPolicy` offers four choices: once / session / deny / cancel, where session consent just adds the effect to a grant set; `#HeadlessApprovalPolicy` never reads stdin, so CI cannot hang waiting for input. A denied action becomes a failed `ToolObservation` the model can adapt to; cancellation produces an auditable terminal result.
 
-**Audit lands on disk before projection.** `rivumi/src/rivumi/loop.py#_approval` runs in a fixed order: flip phase to `WAITING_APPROVAL` and save the manifest, emit `approval.requested`; after the decision write `approval.resolved`; session-grant updates land together with an `ApprovalAuditRecord` (request + decision + timestamp) appended to `SessionManifest.approval_history` (`rivumi/src/rivumi/session.py#ApprovalAuditRecord`). Even reusing an existing grant logs `approval.reused`. To reconstruct what the model requested, what the human answered, and what was reused — events.jsonl is the answer.
+**Audit lands on disk before projection.** `looplane/src/looplane/loop.py#_approval` runs in a fixed order: flip phase to `WAITING_APPROVAL` and save the manifest, emit `approval.requested`; after the decision write `approval.resolved`; session-grant updates land together with an `ApprovalAuditRecord` (request + decision + timestamp) appended to `SessionManifest.approval_history` (`looplane/src/looplane/session.py#ApprovalAuditRecord`). Even reusing an existing grant logs `approval.reused`. To reconstruct what the model requested, what the human answered, and what was reused — events.jsonl is the answer.
 
-**Grant scope went through one deliberate narrowing.** In the M2 era a session grant was effect-grained: approve modify once, every later modify passes. When external CLIs arrived in M10, grants became process-local and scoped: `rivumi/src/rivumi/runtime_semantics.py#ProcessLocalGrant`'s docstring says non-persistent, and read access may never be stored as a grant; `#decide_permission` makes `READ_ONLY` mode a hard ceiling — stale grants cannot re-enable side effects after a mode switch. Scope comes from `rivumi/src/rivumi/tui.py#_grant_scope`: external backends get strings like `external_agent:codex-cli`, so consent for codex-cli doesn't cover Claude Code; command grants carry the full argv. The strictest case is Codex file changes: `rivumi/src/rivumi/codex_app_server.py#_file_change_grant_scope` fingerprints the proposed changes with SHA256, so a session grant covers exactly that identical change set and nothing else.
+**Grant scope went through one deliberate narrowing.** In the M2 era a session grant was effect-grained: approve modify once, every later modify passes. When external CLIs arrived in M10, grants became process-local and scoped: `looplane/src/looplane/runtime_semantics.py#ProcessLocalGrant`'s docstring says non-persistent, and read access may never be stored as a grant; `#decide_permission` makes `READ_ONLY` mode a hard ceiling — stale grants cannot re-enable side effects after a mode switch. Scope comes from `looplane/src/looplane/tui.py#_grant_scope`: external backends get strings like `external_agent:codex-cli`, so consent for codex-cli doesn't cover Claude Code; command grants carry the full argv. The strictest case is Codex file changes: `looplane/src/looplane/codex_app_server.py#_file_change_grant_scope` fingerprints the proposed changes with SHA256, so a session grant covers exactly that identical change set and nothing else.
 
-Compared with the five, Rivumi now has user/org/project allow-deny sources, deny-first precedence, and a dangerous-command classifier. It still lacks opencode wildcards or a Codex `exec_policy`-style inspectable, amendable language that covers external CLIs, and it does not universally require a proven sandbox before auto-approval. `--sandbox-checks` and conservative MCP classification are baselines, not a production authorization model.
+Compared with the five, Looplane now has user/org/project allow-deny sources, deny-first precedence, and a dangerous-command classifier. It still lacks opencode wildcards or a Codex `exec_policy`-style inspectable, amendable language that covers external CLIs, and it does not universally require a proven sandbox before auto-approval. `--sandbox-checks` and conservative MCP classification are baselines, not a production authorization model.
 
 ## Engineering references
 
@@ -87,4 +87,4 @@ No classic paper is titled "how to ask humans," but engineering consensus is cle
 - [sst/opencode (GitHub)](https://github.com/sst/opencode)
 - [badlogic/pi-mono (GitHub)](https://github.com/badlogic/pi-mono)
 - [can1357/oh-my-pi (GitHub)](https://github.com/can1357/oh-my-pi)
-- [Rivumi approval classification at fixed commit `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/approvals.py)
+- [Looplane approval classification at fixed commit `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/approvals.py)

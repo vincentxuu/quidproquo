@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 34
-tags: [coding-agent, telemetry, cost-tracking, opentelemetry, rivumi]
+tags: [coding-agent, telemetry, cost-tracking, opentelemetry, looplane]
 lang: en
-tldr: "rivumi now has CostBreakdown, an explicitly estimated static GPT-5-family price table, per-lane usage/cost, and OTel cost fields. Unknown models still show tokens without invented dollars; broader pricing coverage, authoritative external-CLI bills, and live billing reconciliation remain open."
-description: "Comparing telemetry and cost tracking across mature coding agents, including rivumi's implemented estimated-cost, per-lane attribution, and OTel baseline."
+tldr: "looplane now has CostBreakdown, an explicitly estimated static GPT-5-family price table, per-lane usage/cost, and OTel cost fields. Unknown models still show tokens without invented dollars; broader pricing coverage, authoritative external-CLI bills, and live billing reconciliation remain open."
+description: "Comparing telemetry and cost tracking across mature coding agents, including looplane's implemented estimated-cost, per-lane attribution, and OTel baseline."
 draft: false
 ---
 
@@ -27,7 +27,7 @@ Every provider's API response carries usage, so every agent "has token counts". 
 2. **Where did the money go?** Was it the main model re-reading context over and over, or hidden calls from compaction and subagents? Without per-model, per-span attribution you can't say.
 3. **Can you trust the number?** Custom models, subscription quotas, and cache pricing changes all distort local estimates. Users need to know whether the number on screen is exact or a guess.
 
-rivumi normalizes and accumulates input/output/cached_input/reasoning tokens, with query paths in the TUI, `/usage`, sessions, and OTel. It now also has a static price table and `CostBreakdown`. The gap is therefore no longer "no cost" but **estimate coverage and billing authority**: known models can be estimated, unknown ones stay unpriced, and provider-authoritative bills remain separate from local estimates.
+looplane normalizes and accumulates input/output/cached_input/reasoning tokens, with query paths in the TUI, `/usage`, sessions, and OTel. It now also has a static price table and `CostBreakdown`. The gap is therefore no longer "no cost" but **estimate coverage and billing authority**: known models can be estimated, unknown ones stay unpriced, and provider-authoritative bills remain separate from local estimates.
 
 ## How the five projects do it
 
@@ -57,7 +57,7 @@ codex's Rust workspace has a dedicated `codex-rs/otel` crate. `codex-rs/otel/src
 
 The five projects converge exactly where OpenTelemetry's GenAI semantic conventions point: attribute names like `gen_ai.usage.*`, tokens split across input/output/cache, cost as a derived metric rather than a raw event. The [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) mandate itemized usage attributes, and [OTLP](https://opentelemetry.io/docs/specs/otlp/) is the common export wire — codex talks to it directly via the otel crate, and claude-code's counter abstraction is isomorphic. Price-table maintenance relies on community catalogs like [models.dev](https://models.dev/) (the source of both pi's and opencode's model catalogs) or manual sync from official pricing pages.
 
-## The baseline now implemented in rivumi
+## The baseline now implemented in looplane
 
 `contracts.py` now defines `CostBreakdown`, and `provider_catalog.py` provides the pure `estimate_cost()` function. The static table contains only GPT-5-family rows checked against official pages; cached input is priced separately, and missing prices return `None`. `RunResult`, `/usage`, and OTel export can therefore separate `estimated` cost from token usage.
 
@@ -65,10 +65,10 @@ Role lanes such as auto-review also retain per-lane usage/cost attribution inste
 
 ## References
 
-- [rivumi `provider_catalog.py` at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/provider_catalog.py)
-- [rivumi cost contract at `2ed5efb`](https://github.com/vincentxuu/rivumi/blob/2ed5efb/src/rivumi/contracts.py)
+- [looplane `provider_catalog.py` at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/provider_catalog.py)
+- [looplane cost contract at `2ed5efb`](https://github.com/vincentxuu/looplane/blob/2ed5efb/src/looplane/contracts.py)
 
-- [vincentxuu/rivumi](https://github.com/vincentxuu/rivumi) — public Rivumi repo and README
+- [vincentxuu/looplane](https://github.com/vincentxuu/looplane) — public Looplane repo and README
 - [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) — the source of `gen_ai.usage.*` attribute naming
 - [OpenTelemetry OTLP specification](https://opentelemetry.io/docs/specs/otlp/) — the common export protocol
 - [badlogic/pi-mono packages/telemetry](https://github.com/badlogic/pi-mono/tree/main/packages/telemetry) — full typed span-schema implementation

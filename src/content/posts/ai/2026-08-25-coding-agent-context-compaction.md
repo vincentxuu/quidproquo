@@ -6,16 +6,16 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 26
-tags: [coding-agent, compaction, context-window, rivumi, claude-code, codex]
+tags: [coding-agent, compaction, context-window, looplane, claude-code, codex]
 lang: zh-TW
-tldr: "五家成熟 agent 的 compaction 都要處理觸發、完整 turn 切點與失敗恢復。rivumi 已補上 85% high-watermark、自動 compaction、原生 loop 的 deterministic fallback summary、checkpoint 落盤與 workspace context 重新注入；目前仍缺跨 runtime 等價 fallback、模型品質摘要，以及真實 provider 的長 session 驗證。"
-description: "對照五家 coding agent 的 compaction 實作，並以 Rivumi 固定 commit 說明自動觸發、fallback summary、checkpoint 與 context reinjection baseline。"
+tldr: "五家成熟 agent 的 compaction 都要處理觸發、完整 turn 切點與失敗恢復。looplane 已補上 85% high-watermark、自動 compaction、原生 loop 的 deterministic fallback summary、checkpoint 落盤與 workspace context 重新注入；目前仍缺跨 runtime 等價 fallback、模型品質摘要，以及真實 provider 的長 session 驗證。"
+description: "對照五家 coding agent 的 compaction 實作，並以 Looplane 固定 commit 說明自動觸發、fallback summary、checkpoint 與 context reinjection baseline。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-context-compaction-en)
 
-進入系列第二部：每篇從一個成熟 agent 能力出發，再追蹤 rivumi 的落地進度。第一個就選最要命的——context 管理。
+進入系列第二部：每篇從一個成熟 agent 能力出發，再追蹤 looplane 的落地進度。第一個就選最要命的——context 管理。
 
 先交代取證範圍：pi（badlogic/pi-mono）、omp（can1357/oh-my-pi）、opencode（sst/opencode）、codex（openai/codex Rust workspace）、claude-code（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入）。所有引用都是我在本地 clone 實際 grep 過的。
 
@@ -60,7 +60,7 @@ Rust 端把整件事做成獨立模組群：`codex-rs/core/src/compact.rs#run_co
 
 為什麼摘要有效而不是單純損失？因為長 context 本來就有衰減問題。[Liu et al. 的 "Lost in the Middle"](https://arxiv.org/abs/2307.03172) 實測模型對 context 中段的資訊召回明顯較差——塞更多不等於記得更多。[Chroma 的 context rot 研究](https://research.trychroma.com/context-rot)進一步指出效能隨 context 長度增加而普遍下滑。[MemGPT](https://arxiv.org/abs/2310.08560) 則把作業系統的分頁概念搬進 LLM：主 context 放熱資料、外部儲存放冷資料、靠中斷機制換頁——compaction 可以看作它「換頁」策略的工程化簡化版。Anthropic 自己的[context engineering 文章](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)也把 compaction 列為長任務 agent 的核心技術。
 
-## rivumi 已落地的 baseline
+## looplane 已落地的 baseline
 
 截至 `2ed5efb`，這一節原本的「完全沒有 compaction」已經過期。`runtime_semantics.py` 現在有純函式 high-watermark policy：長駐 runtime 在已知 context window 且用量達 85% 時才自動 compact，失敗後要降到 70% 才重新武裝。TUI 會在一個 turn 完成後、送出 queued follow-up 前觸發，手動 `/compact` 與自動路徑共用 lifecycle event reducer。
 
@@ -74,8 +74,8 @@ Compaction 邊界也不再只是畫面狀態。`ContextCheckpoint` 驗證 source
 
 ## 參考資料
 
-- [Rivumi compaction policy 與 checkpoint（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/runtime_semantics.py)
-- [Rivumi native fallback 與 reinjection（固定 commit）](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/loop.py)
+- [Looplane compaction policy 與 checkpoint（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/runtime_semantics.py)
+- [Looplane native fallback 與 reinjection（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/loop.py)
 
 - [Lost in the Middle（Liu et al., 2023）](https://arxiv.org/abs/2307.03172)
 - [Context Rot（Chroma Research）](https://research.trychroma.com/context-rot)

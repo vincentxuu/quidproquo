@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 32
-tags: [coding-agent, subagent, multi-agent, git-worktree, rivumi, claude-code]
+tags: [coding-agent, subagent, multi-agent, git-worktree, looplane, claude-code]
 lang: en
-tldr: "Mature subagents need roles, bounded fan-out, narrowed permissions, and a result contract. rivumi now has native named-role schedules, parallel fan-out, child allowed_paths constrained by the parent, unsafe execution disabled by default, and parent-approved transaction proposals. Persistent background lifecycles, recursion trees, and automatic worktree merging remain open."
-description: "Comparing subagent orchestration and isolation, then checking Rivumi's named roles, bounded fan-out, narrowed permissions, and transaction-proposal baseline."
+tldr: "Mature subagents need roles, bounded fan-out, narrowed permissions, and a result contract. looplane now has native named-role schedules, parallel fan-out, child allowed_paths constrained by the parent, unsafe execution disabled by default, and parent-approved transaction proposals. Persistent background lifecycles, recursion trees, and automatic worktree merging remain open."
+description: "Comparing subagent orchestration and isolation, then checking Looplane's named roles, bounded fan-out, narrowed permissions, and transaction-proposal baseline."
 draft: false
 ---
 
@@ -75,26 +75,26 @@ Both the value and the risk of multi-agent collaboration have empirical backing.
 
 ## Original design draft (2026-08-25)
 
-This draft records the starting point on 2026-08-25: the native path had no subagent mechanism, and child agents inside external runtimes were outside Rivumi's visibility. The interface and isolation rules below were design hypotheses at that time. A later section checks them against the named-role fan-out and transaction-proposal baseline shipped by `2ed5efb`, so the historical draft is not mistaken for current status.
+This draft records the starting point on 2026-08-25: the native path had no subagent mechanism, and child agents inside external runtimes were outside Looplane's visibility. The interface and isolation rules below were design hypotheses at that time. A later section checks them against the named-role fan-out and transaction-proposal baseline shipped by `2ed5efb`, so the historical draft is not mistaken for current status.
 
 The draft:
 
-**Interface location**: add `src/rivumi/subagent.py` defining `SubagentRunner.spawn(task, *, agent_profile, isolation) -> SubagentResult`. `SubagentResult` is a fixed contract: `final_text` (truncation-capped), `patch_path` (if files changed), `usage`, `status` — the merger of omp's `yield` and claude-code's worktree notification. **Results are always "text + artifact path," never the full transcript.**
+**Interface location**: add `src/looplane/subagent.py` defining `SubagentRunner.spawn(task, *, agent_profile, isolation) -> SubagentResult`. `SubagentResult` is a fixed contract: `final_text` (truncation-capped), `patch_path` (if files changed), `usage`, `status` — the merger of omp's `yield` and claude-code's worktree notification. **Results are always "text + artifact path," never the full transcript.**
 
-**Isolation comes almost free**: this is an unexpected dividend of rivumi's architecture. `runtime.py#LocalGitWorkspace.prepare` and `conversation_workspace.py#ConversationWorkspace.create` already build a pinned-SHA disposable clone per run — a subagent is simply "one more workspace." No need for omp's ten filesystem backends or claude-code's temporary worktree management; the isolation boundary already exists.
+**Isolation comes almost free**: this is an unexpected dividend of looplane's architecture. `runtime.py#LocalGitWorkspace.prepare` and `conversation_workspace.py#ConversationWorkspace.create` already build a pinned-SHA disposable clone per run — a subagent is simply "one more workspace." No need for omp's ten filesystem backends or claude-code's temporary worktree management; the isolation boundary already exists.
 
 **Orchestration rules** (stealing the consensus):
 
 - Depth gate defaults to 1 (following opencode); past the limit, remove the spawn tool from the child's tool list.
 - Session-level Semaphore bounds fan-out.
-- Approvals fail closed: when a headless child hits an operation needing approval, **deny by default** and report — unlike omp forcing yolo. rivumi's trust model lacks the premise that "the child's tool set was sufficiently pruned," so the direction must invert.
+- Approvals fail closed: when a headless child hits an operation needing approval, **deny by default** and report — unlike omp forcing yolo. looplane's trust model lacks the premise that "the child's tool set was sufficiently pruned," so the direction must invert.
 - Child events land in the existing JSONL event stream tagged with `parent_run_id`, letting the transcript draw nested boundaries.
 
 **Risks and trade-offs**:
 
-- **Multiple children writing the same repo conflicts**. Forbid it in v1: either each subagent gets its own workspace with human-ordered patch merging afterwards (rivumi patches require human review anyway), or serialize write-type tasks.
+- **Multiple children writing the same repo conflicts**. Forbid it in v1: either each subagent gets its own workspace with human-ordered patch merging afterwards (looplane patches require human review anyway), or serialize write-type tasks.
 - **Cost**: Anthropic itself reports order-of-magnitude token overhead for multi-agent. The spawn tool's description should say explicitly: exploration-type tasks only.
-- **External backends out of scope**: under the omp adapter, omp spawns its own children — invisible to rivumi and rightly so; mark as runtime-managed.
+- **External backends out of scope**: under the omp adapter, omp spawns its own children — invisible to looplane and rightly so; mark as runtime-managed.
 
 ## Fitting the existing architecture
 
@@ -102,9 +102,9 @@ At draft time, exploratory native work polluted the main conversation and "dispa
 
 Artifacts, event attribution, and parent approval are now connected through `subagents.py` and the planner tool rather than waiting for assembly. What remains is production trace validation, role override/inheritance hardening, and integration strategy for multiple write proposals.
 
-One-line summary: mature projects agree a subagent needs **an explicit termination protocol, output caps, a depth gate, and an isolation boundary**. Rivumi's baseline now ships roles, bounded fan-out, narrowed authority, and parent-approved transactions; persistent lifecycle and automatic merge remain open, not subagents as a whole.
+One-line summary: mature projects agree a subagent needs **an explicit termination protocol, output caps, a depth gate, and an isolation boundary**. Looplane's baseline now ships roles, bounded fan-out, narrowed authority, and parent-approved transactions; persistent lifecycle and automatic merge remain open, not subagents as a whole.
 
-## Rivumi's current implementation
+## Looplane's current implementation
 
 As of `2ed5efb`, the native path has a subagent baseline. `subagents.py` defines named roles and role instructions, normalizes schedules, derives child tasks from the parent `TaskContract`, and rejects any child `allowed_paths` expansion beyond the parent. The planner tool in `loop.py` accepts multiple agent specs, the executor performs bounded parallel fan-out, and results return to the parent as summaries plus artifact information.
 
@@ -114,8 +114,8 @@ This is not yet omp-style park/revive lifecycle management. Full background task
 
 ## References
 
-- [Rivumi subagent scheduling and task derivation (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/rivumi/subagents.py)
-- [Rivumi subagent tests (fixed commit)](https://github.com/vincentxuu/rivumi/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_subagents.py)
+- [Looplane subagent scheduling and task derivation (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/subagents.py)
+- [Looplane subagent tests (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/tests/test_subagents.py)
 
 - [MetaGPT: Meta Programming for Multi-Agent Collaborative Framework (Hong et al., 2023)](https://arxiv.org/abs/2308.00352)
 - [CAMEL: Communicative Agents for "Mind" Exploration (Li et al., 2023)](https://arxiv.org/abs/2303.17760)

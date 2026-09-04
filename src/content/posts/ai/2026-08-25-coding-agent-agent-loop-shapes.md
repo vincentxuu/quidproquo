@@ -6,10 +6,10 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 2
-tags: [coding-agent, agent-loop, rivumi, session-persistence, claude-code]
+tags: [coding-agent, agent-loop, looplane, session-persistence, claude-code]
 lang: zh-TW
-tldr: "pi 的 loop 是雙層 while 加 EventStream；claude-code 明講 stop_reason 不可靠、改以串流中收到的 tool_use block 當唯一續跑訊號；codex 把 turn 做成可取消的 SessionTask 再靠 rollout crate 錄 JSONL；rivumi 選了「manifest 先落盤、JSONL 跟上」的寫入順序，讓 Ctrl-C 之後能做驗證式續跑而非重跑。這篇全部附 file#symbol 級證據。"
-description: "對照 pi、claude-code、codex 三家原始碼，拆解 agent loop 的四個設計軸：事件流形狀、工具呼叫迭代與收尾條件、取消語意、checkpoint 與 resume；並說明 rivumi 的選擇與還能改善什麼。"
+tldr: "pi 的 loop 是雙層 while 加 EventStream；claude-code 明講 stop_reason 不可靠、改以串流中收到的 tool_use block 當唯一續跑訊號；codex 把 turn 做成可取消的 SessionTask 再靠 rollout crate 錄 JSONL；looplane 選了「manifest 先落盤、JSONL 跟上」的寫入順序，讓 Ctrl-C 之後能做驗證式續跑而非重跑。這篇全部附 file#symbol 級證據。"
+description: "對照 pi、claude-code、codex 三家原始碼，拆解 agent loop 的四個設計軸：事件流形狀、工具呼叫迭代與收尾條件、取消語意、checkpoint 與 resume；並說明 looplane 的選擇與還能改善什麼。"
 draft: false
 ---
 
@@ -59,16 +59,16 @@ Rust 這邊的分工更清楚。`codex-rs/core/src/tasks/regular.rs#RegularTask:
 
 持久化獨立成 `codex-rs/rollout` crate：`recorder.rs#RolloutRecorder` 把 session 錄成 JSONL，甚至有 `RolloutRecorder::resume` 直接從檔案重建；`reverse_jsonl_scanner.rs#ReverseJsonlScanner` 是個從檔尾往前掃的唯讀 scanner，還能凍結「某個 byte offset 之前的前綴」——resume 時只需要尾巴，不用讀整份歷史。這是把「append-only log 當唯一真相」做到底的設計。
 
-## rivumi 的選擇：寫入順序就是 crash 語意
+## looplane 的選擇：寫入順序就是 crash 語意
 
-rivumi 的主迴圈在 `src/rivumi/loop.py#AgentRunner.run`，形狀比上面三家樸素：單層 while，每步開頭檢查 cancel flag 和剩餘 wall-time，模型回應後逐一執行 tool calls。不做平行工具執行、不做 mid-turn steering——M1 的範圍決定了先求可證明正確。
+looplane 的主迴圈在 `src/looplane/loop.py#AgentRunner.run`，形狀比上面三家樸素：單層 while，每步開頭檢查 cancel flag 和剩餘 wall-time，模型回應後逐一執行 tool calls。不做平行工具執行、不做 mid-turn steering——M1 的範圍決定了先求可證明正確。
 
 但持久化這塊我做了跟三家都不同的排序。每次發事件的 `_event`（`loop.py#_event`）固定先做兩件事：
 
 1. 把**完整的可續跑狀態**（messages、usage、step、重複動作指紋、event sequence）寫進 `session.json` manifest；
 2. 才 append JSONL 事件到 `events.jsonl`。
 
-這個順序製造了一個已知且唯一的 crash window：manifest 比 JSONL 多一個 sequence。而 `src/rivumi/session.py#SessionStore.claim_and_validate_resume` 明確修復它（manifest 回退一格重存），其他一切不一致都拒絕 resume。特別是最後一筆事件若是 `tool.started` 或 `verification.started`，直接 fail closed——你無法證明那個副作用到底做完沒有，猜測不如拒絕。workspace 也要驗：Git root 存在且 HEAD 等於釘住的 base_sha，否則續跑是在錯的程式碼上繼續。
+這個順序製造了一個已知且唯一的 crash window：manifest 比 JSONL 多一個 sequence。而 `src/looplane/session.py#SessionStore.claim_and_validate_resume` 明確修復它（manifest 回退一格重存），其他一切不一致都拒絕 resume。特別是最後一筆事件若是 `tool.started` 或 `verification.started`，直接 fail closed——你無法證明那個副作用到底做完沒有，猜測不如拒絕。workspace 也要驗：Git root 存在且 HEAD 等於釘住的 base_sha，否則續跑是在錯的程式碼上繼續。
 
 checkpoint 本體是 `loop.py#_checkpoint` 寫出的 `checkpoint.json`（`events.py#atomic_write_json` 做 temp-file + rename + directory fsync）。而 `loop.py#AgentRunner.resume` 是嚴格的 hydration：provider/model/protocol 必須相符、事件序列必須連續，然後把 `_made_changes` 保守地設回 True——因為中斷前的工作區可能有未完成的修改，最終驗證閘門必須武裝。如果死掉的時候有個審批懸著，`_reconcile_interrupted_approval` 會把它記成一個失敗的 `ToolObservation` 加一筆 `approval.abandoned` 事件，讓模型重新請求，而不是偷偷執行舊批准。
 
@@ -76,10 +76,10 @@ checkpoint 本體是 `loop.py#_checkpoint` 寫出的 `checkpoint.json`（`events
 
 ## 還能改善什麼
 
-1. **沒有串流**。pi 的 `message_update` 事件和 codex 的逐項串流 UI 都建立在串流上，rivumi 目前是整個回應等完才落盤，互動體感差一截，也少了「邊串邊偵測 tool call」的能力。
+1. **沒有串流**。pi 的 `message_update` 事件和 codex 的逐項串流 UI 都建立在串流上，looplane 目前是整個回應等完才落盤，互動體感差一截，也少了「邊串邊偵測 tool call」的能力。
 2. **checkpoint 成本是 O(整份歷史)**。每個事件都重寫整份 manifest，session 長了會變慢。codex 的 rollout 方案——append-only JSONL 加 reverse scanner 只讀尾部——是現成的升級路線。
 3. **工具不平行**。pi 在 `executeToolCalls` 支援平行批次（除非工具宣告 sequential），唯讀工具其實很適合。
-4. **取消粒度粗**。rivumi 的 cancel 只在步驟邊界生效，正在跑的工具靠 timeout 兜底；AbortSignal 那種即時貫穿值得補。
+4. **取消粒度粗**。looplane 的 cancel 只在步驟邊界生效，正在跑的工具靠 timeout 兜底；AbortSignal 那種即時貫穿值得補。
 
 系列下一篇換 workspace 隔離與 path policy——loop 之外的另一條安全線。
 

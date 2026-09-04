@@ -8,8 +8,8 @@ series:
   order: 10
 tags: [coding-agent, harness-engineering, edit-tool, unified-diff, llm, tool-design]
 lang: en
-description: "How Codex, Claude Code, OpenCode, Pi, and OMP design their file edit tools: why LLMs fail at unified diffs, the cost of fuzzy fallbacks, hashline's content-hash anchors, and how rivumi's constrained replace_text took qwen3:4b from reliable failure to 5/5."
-tldr: "LLMs break unified diffs on bookkeeping: wrong hunk counts, hallucinated context lines. The five reference projects split into two camps — simplify the diff grammar (Codex drops line numbers), or drop diffs entirely (Claude Code/Pi/OpenCode exact replace); OMP goes further by binding read state into the format via hash anchors. rivumi took the minimal-intervention path: keep the guarded apply_patch, add a zero-fuzzy replace_text, and its qwen3:4b eval went from stable failure to 5/5."
+description: "How Codex, Claude Code, OpenCode, Pi, and OMP design their file edit tools: why LLMs fail at unified diffs, the cost of fuzzy fallbacks, hashline's content-hash anchors, and how looplane's constrained replace_text took qwen3:4b from reliable failure to 5/5."
+tldr: "LLMs break unified diffs on bookkeeping: wrong hunk counts, hallucinated context lines. The five reference projects split into two camps — simplify the diff grammar (Codex drops line numbers), or drop diffs entirely (Claude Code/Pi/OpenCode exact replace); OMP goes further by binding read state into the format via hash anchors. looplane took the minimal-intervention path: keep the guarded apply_patch, add a zero-fuzzy replace_text, and its qwen3:4b eval went from stable failure to 5/5."
 draft: false
 ---
 
@@ -23,7 +23,7 @@ The edit tool is the most frequently called tool in a coding agent — and the o
 - Are the hunk header's start line and line count right? How much does the offset shift after this change?
 - Does the file end with a newline?
 
-Get any single digit wrong and `git apply` returns `corrupt patch`. When I ran local small models against rivumi, this is exactly the failure I saw: twice, the model found the right line and flipped minus to plus correctly — but the patch ended immediately after the added line, or declared hunk counts that didn't match the body. Semantically perfect, bookkeeping fatally wrong. A sneakier variant is the hallucinated context line: the model invents surrounding code from memory, the hunk is grammatically valid but the content doesn't exist, and apply fails all the same.
+Get any single digit wrong and `git apply` returns `corrupt patch`. When I ran local small models against looplane, this is exactly the failure I saw: twice, the model found the right line and flipped minus to plus correctly — but the patch ended immediately after the added line, or declared hunk counts that didn't match the body. Semantically perfect, bookkeeping fatally wrong. A sneakier variant is the hallucinated context line: the model invents surrounding code from memory, the hunk is grammatically valid but the content doesn't exist, and apply fails all the same.
 
 So every agent must answer: how much "precision" should the edit format demand from the model? And who cleans up when it fails?
 
@@ -57,9 +57,9 @@ Even more interesting is routing: `edit-mode.ts#resolveEditMode` queries a per-m
 
 OMP also ships measurements: in `oh-my-pi/packages/typescript-edit-benchmark/all_models_results.json`, deepseek-v3.2 scores 55% task success but 100% edit success — a reliable edit tool doesn't mean passing tasks. Conversely gemini-3f hits 80% task success with only 74% edit success. The two metrics decouple, which is precisely the point: the edit tool is an independent engineering variable.
 
-## rivumi's choice and how it differs
+## looplane's choice and how it differs
 
-rivumi's M2 had only a guarded `apply_patch`, and in real-provider evals qwen3:4b kept dying the same death: finding the right line, emitting a corrupt patch. For M3 I added a constrained exact edit, implemented in `src/rivumi/tools.py#replace_text`:
+looplane's M2 had only a guarded `apply_patch`, and in real-provider evals qwen3:4b kept dying the same death: finding the right line, emitting a corrupt patch. For M3 I added a constrained exact edit, implemented in `src/looplane/tools.py#replace_text`:
 
 - A prior `read_file` is mandatory, and the harness records the SHA-256 of the full content — any post-read change rejects the call outright. This upgrades Claude Code's mtime-heuristic freshness check into exact content comparison.
 - `old_text` must occur exactly once; zero matches report observed=0, multiple report observed=N. No trimming, no normalization.
@@ -67,7 +67,7 @@ rivumi's M2 had only a guarded `apply_patch`, and in real-provider evals qwen3:4
 - Writes use a sibling temp file with fsync and atomic replace; afterwards the tool runs `git diff --check` plus cumulative patch budget checks, and any failure restores the original bytes and mode.
 - No fuzzy matching, no regex, no replace_all, no whole-file writer.
 
-The prompt version `m3-exact-edit-v1` in `src/rivumi/prompts.py` encodes one decision rule: small changes to existing files use `replace_text`; create/delete and complex structural edits use `apply_patch`. The existing `src/rivumi/tools.py#apply_patch` is untouched and still enforces safe rejection via `git apply --whitespace=error-all`.
+The prompt version `m3-exact-edit-v1` in `src/looplane/prompts.py` encodes one decision rule: small changes to existing files use `replace_text`; create/delete and complex structural edits use `apply_patch`. The existing `src/looplane/tools.py#apply_patch` is untouched and still enforces safe rejection via `git apply --whitespace=error-all`.
 
 Result: on the same tiny-python-bug fixture, the real Ollama eval went from reliable failure to five consecutive passes (5/5). That's not qwen3:4b getting smarter — it's the harness taking "count hunk lines," a job deterministic code does better, away from the model. The difference from OpenCode's nine-replacer chain is one of attitude: I'd rather leave failures in place with classifiable messages (0 matches → re-read) than silently repair toward a target the model may not have meant.
 
@@ -77,9 +77,9 @@ None of this trade-off analysis is new. Aider's engineering benchmark ([unified 
 
 ## What could still improve
 
-- **Per-model edit mode routing.** OMP's `resolveEditMode` already demonstrates per-model variants; rivumi currently serves one toolset to all models. Supporting smaller models makes this the natural next step.
+- **Per-model edit mode routing.** OMP's `resolveEditMode` already demonstrates per-model variants; looplane currently serves one toolset to all models. Supporting smaller models makes this the natural next step.
 - **Richer approval preview.** Approval currently shows the path and both fragments; computing a diff preview before mutation, like OpenCode does, would improve informed review.
-- **Hashline-style content anchors.** rivumi already keeps a read-version ledger; in principle the hash could travel inside the edit call itself so stale edits are rejected at schema level rather than compared afterward. But beware: that couples writes to the read tool's output format — exactly why my M3 notes judged it "not the smallest answer."
+- **Hashline-style content anchors.** looplane already keeps a read-version ledger; in principle the hash could travel inside the edit call itself so stale edits are rejected at schema level rather than compared afterward. But beware: that couples writes to the read tool's output format — exactly why my M3 notes judged it "not the smallest answer."
 - **More fixtures.** The eval currently covers single-file small edits; CRLF, BOM, repeated lines needing disambiguation context, and multi-file refactors remain on the list. An edit tool's reliability claim extends exactly as far as its fixture list.
 
 The core lesson loops back to one sentence: give deterministic work to deterministic code. What models are good at is deciding *where* to change and *what* to change — not counting hunk lines.

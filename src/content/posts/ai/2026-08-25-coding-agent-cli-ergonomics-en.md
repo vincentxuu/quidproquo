@@ -2,11 +2,11 @@
 title: "Learning from Mature Coding Agents (13): CLI Ergonomics — Make New Tools Feel Already Familiar"
 date: 2026-08-25
 category: ai
-tags: [coding-agent, cli, developer-experience, codex, claude-code, opencode, rivumi]
+tags: [coding-agent, cli, developer-experience, codex, claude-code, opencode, looplane]
 lang: en
 type: deep-dive
-description: "Comparing the command surfaces of Claude Code, Codex, Pi, OMP, and OpenCode CLIs — positional prompts, exec/resume conventions, -p print mode — and how rivumi absorbs these conventions without weakening its safety boundaries."
-tldr: "Mature coding-agent CLIs have converged on the same conventions: positional prompt, -p means print, exec is headless, resume is a first-class command, -C changes directory; rivumi inherits this vocabulary directly, driving learning cost close to zero."
+description: "Comparing the command surfaces of Claude Code, Codex, Pi, OMP, and OpenCode CLIs — positional prompts, exec/resume conventions, -p print mode — and how looplane absorbs these conventions without weakening its safety boundaries."
+tldr: "Mature coding-agent CLIs have converged on the same conventions: positional prompt, -p means print, exec is headless, resume is a first-class command, -C changes directory; looplane inherits this vocabulary directly, driving learning cost close to zero."
 draft: false
 series:
   name: "跟成熟 coding agent 學設計"
@@ -69,19 +69,19 @@ In OpenCode's yargs definition, the default command (`$0`) is `$0 [project]` fro
 
 Five projects evolving independently converged on the same answers — not coincidence, but forty years of command-line sedimentation.
 
-## rivumi's Choice and Its Differences
+## looplane's Choice and Its Differences
 
-rivumi is my own Python coding agent. The M7 stage goal fits in one sentence: make it feel like a daily-driver coding CLI without replacing the loop or weakening safety boundaries (stage doc: rivumi/docs/stages/m7-familiar-cli-ergonomics.md).
+looplane is my own Python coding agent. The M7 stage goal fits in one sentence: make it feel like a daily-driver coding CLI without replacing the loop or weakening safety boundaries (stage doc: looplane/docs/stages/m7-familiar-cli-ergonomics.md).
 
 The implementation has three layers.
 
-**Layer one: default routing.** Typer's command groups demand a subcommand by default, but rivumi wants `rivumi fix this bug` to just run. So there's a custom `DefaultCommandGroup`: if the first argument isn't a known subcommand, it silently inserts a hidden `chat` command (`DefaultCommandGroup.parse_args` in `src/rivumi/cli.py`). This keeps `rivumi resume` and `rivumi auth` dispatching normally while arbitrary text becomes the initial prompt — the same shape as Codex's usage declaration, implemented in Python.
+**Layer one: default routing.** Typer's command groups demand a subcommand by default, but looplane wants `looplane fix this bug` to just run. So there's a custom `DefaultCommandGroup`: if the first argument isn't a known subcommand, it silently inserts a hidden `chat` command (`DefaultCommandGroup.parse_args` in `src/looplane/cli.py`). This keeps `looplane resume` and `looplane auth` dispatching normally while arbitrary text becomes the initial prompt — the same shape as Codex's usage declaration, implemented in Python.
 
-**Layer two: vocabulary alignment.** `chat()` carries three aliases `--cd/-C/--repo` (`-C` follows Codex/git; `--repo` preserves legacy automation), and `--print/-p` means non-interactive JSON output (the `chat` function in `src/rivumi/cli.py`). `exec` aliases `run`; both are the headless path. `resume` is a first-class command defaulting to `"last"`, matching Claude Code's `-c` mental model. Historically `-p` once meant provider; M7 deliberately changed it and left a migration error message — because Claude Code and Pi users expect `-p` to mean print.
+**Layer two: vocabulary alignment.** `chat()` carries three aliases `--cd/-C/--repo` (`-C` follows Codex/git; `--repo` preserves legacy automation), and `--print/-p` means non-interactive JSON output (the `chat` function in `src/looplane/cli.py`). `exec` aliases `run`; both are the headless path. `resume` is a first-class command defaulting to `"last"`, matching Claude Code's `-c` mental model. Historically `-p` once meant provider; M7 deliberately changed it and left a migration error message — because Claude Code and Pi users expect `-p` to mean print.
 
-**Layer three: config holds no secrets.** `rivumi config` stores only three non-secret fields: `provider`, `model`, and `api_url` (`CliConfig` in `src/rivumi/cli_config.py`), with an `extra="forbid"` schema, atomic writes, mode 0600; API keys always come from environment variables or credential stores. Convenience must not trade away safety: what gets saved is typing, not approval.
+**Layer three: config holds no secrets.** `looplane config` stores only three non-secret fields: `provider`, `model`, and `api_url` (`CliConfig` in `src/looplane/cli_config.py`), with an `extra="forbid"` schema, atomic writes, mode 0600; API keys always come from environment variables or credential stores. Convenience must not trade away safety: what gets saved is typing, not approval.
 
-Just as worth recording is what rivumi deliberately does **not** do: no full-screen TUI, no slash commands, no fuzzy spelling correction — mistype a subcommand and that word becomes a prompt, following Codex's logic. Each omission is a conscious trade-off, not missing work.
+Just as worth recording is what looplane deliberately does **not** do: no full-screen TUI, no slash commands, no fuzzy spelling correction — mistype a subcommand and that word becomes a prompt, following Codex's logic. Each omission is a conscious trade-off, not missing work.
 
 ## Engineering / UX Evidence
 
@@ -94,11 +94,11 @@ Worth emphasizing: these conventions aren't aesthetic preferences. For agentic C
 
 ## Improvement Roadmap
 
-rivumi already scores on "looks familiar." Three directions come next:
+looplane already scores on "looks familiar." Three directions come next:
 
 1. **Add continue**: today there's only `resume [session]`; a no-argument "continue most recent session" path would align with Claude Code's `-c`.
-2. **Session picker**: both Claude Code's and Codex's resume ship an interactive picker by default; rivumi only accepts an ID or `last`.
-3. **Fork semantics**: Codex's `Fork` and Claude Code's `--fork-session` show that branching a new thread off an old session is now an expected capability, but rivumi's stage doc deliberately defers it — mutating durable tasks needs a protocol decision, not parser sugar.
+2. **Session picker**: both Claude Code's and Codex's resume ship an interactive picker by default; looplane only accepts an ID or `last`.
+3. **Fork semantics**: Codex's `Fork` and Claude Code's `--fork-session` show that branching a new thread off an old session is now an expected capability, but looplane's stage doc deliberately defers it — mutating durable tasks needs a protocol decision, not parser sugar.
 
 The most honest test of CLI ergonomics: find someone who uses Claude Code or Codex daily and have them type at your tool with zero documentation. Their fingers will tell you the answer.
 
