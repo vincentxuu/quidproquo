@@ -20,7 +20,7 @@ This post synthesizes 6 articles from PTT, Preply, VoiceTube, and other sources,
 
 ### Shadowing
 
-[Shadowing](https://www.ptt.cc/bbs/Eng-Class/M.1658437916.A.DB0.html) (in Chinese) is the most frequently recommended speaking practice across all sources reviewed: play an English audio clip and repeat it 1–2 seconds behind the speaker, mimicking intonation, rhythm, and connected speech. A PhD student based in the US shared on PTT that shadowing, combined with translation drills, let him improve his speaking even outside an English-speaking environment.
+Shadowing is the most frequently recommended speaking practice across all sources reviewed: play an English audio clip and repeat it 1–2 seconds behind the speaker, mimicking intonation, rhythm, and connected speech. Both [EnggleTalk](https://enggletalk.com.tw/zh-TW/blog/busy-professional-30-min-english-routine) (in Chinese) and [VoiceTube](https://tw.blog.voicetube.com/archives/86106/tech-english-speaking-method) (in Chinese) recommend shadowing as foundational speaking practice. Separately, [a PhD student based in the US shared on PTT](https://www.ptt.cc/bbs/Eng-Class/M.1658437916.A.DB0.html) (in Chinese) a different approach: translation drills combined with memorizing English sentences, which let him improve his speaking even outside an English-speaking environment.
 
 **Do this tonight**: Find a 2–3 minute [TED-Ed](https://ed.ted.com/) video or podcast segment. Record yourself shadowing it on your phone. Play it back against the original — note which words you stressed or connected differently. Repeat with the same clip tomorrow.
 
@@ -28,7 +28,7 @@ This post synthesizes 6 articles from PTT, Preply, VoiceTube, and other sources,
 
 ### Scenario-Based Conversation Practice
 
-Don't practice generic English conversation. Simulate the exact work situations you encounter. [Preply's guide](https://preply.com/en/blog/how-to-improve-your-spoken-english-for-work) lists scenario practice as the most direct path to workplace speaking improvement.
+Don't practice generic English conversation. Simulate the exact work situations you encounter. [Preply's guide](https://preply.com/en/blog/how-to-improve-your-spoken-english-for-work) lists scenario practice as one of the key strategies for workplace speaking improvement.
 
 **Do this tonight**: Pick one scenario you'll face next week (a status update in a weekly meeting, a sync with an international colleague, replying to a client question). Say what you'd say — in English — and record it. You don't need a conversation partner; AI apps can serve as 24/7 practice partners (see the comparison below).
 
@@ -63,19 +63,19 @@ VoiceTube's "phrase extension method" is also worth trying: take one phrase and 
 | Commute | Flex | Listen to an English podcast; mentally repeat key phrases |
 | Before bed | 10 min | Review the day's phrases; say them once |
 
-Recommended frequency: 30 minutes a day, at least 5 days a week, for 12 weeks. EnggleTalk cites [Speak](https://www.speak.com/) user data showing 10 PM as the most active learning time among Taiwan users — most people practice in that pre-sleep window.
+Recommended frequency: 30 minutes a day, at least 5 days a week, for 12 weeks. Based on their own students' experience, EnggleTalk observes that most office workers tend to practice during the pre-sleep window.
 
 The specific time slot matters less than **consistency**. Pick a time you can sustain over having an unstable longer block.
 
 ## AI Speaking App Comparison
 
-The biggest advantage of AI speaking apps is a zero-pressure environment: no fear of embarrassment, no appointments needed, available anytime. [英文探長J tested 6 apps hands-on](https://00jenglish.com/the-best-ai-apps-for-learning-english) (in Chinese). Here's a summary based on that comparison:
+The biggest advantage of AI speaking apps is a zero-pressure environment: no fear of embarrassment, no appointments needed, available anytime. [英文探長J tested several AI speaking apps hands-on](https://00jenglish.com/the-best-ai-apps-for-learning-english) (in Chinese). Here's a summary based on that comparison, with ChatGPT added as a free alternative:
 
 | App | Monthly Cost (approx.) | Strength | Best For |
 |---|---|---|---|
-| [Speak](https://www.speak.com/) | NT$266–475 | Scenario role-play, real-time voice feedback | Beginner to intermediate, workplace scenarios |
+| [Speak](https://www.speak.com/) | Subscription | Scenario role-play, real-time voice feedback | Beginner to intermediate, workplace scenarios |
 | [ELSA](https://elsaspeak.com/) | Subscription | Pronunciation correction, accent training | Pronunciation-focused learners |
-| Toko | Free tier | Free-form conversation, news discussion | Intermediate+, natural conversation practice |
+| Toko | Free trial available | Free-form conversation, news discussion | Intermediate+, natural conversation practice |
 | TalkMe | Lowest price | Most features | Budget-conscious learners |
 | Dori | Subscription | Social-style UI, relaxed atmosphere | Low-pressure practice seekers |
 | EF Hello | Cheapest lifetime plan | Structured courses | Long-term systematic learners |

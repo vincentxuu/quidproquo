@@ -20,7 +20,7 @@ draft: false
 
 ### 跟讀法 (Shadowing)
 
-[跟讀法](https://www.ptt.cc/bbs/Eng-Class/M.1658437916.A.DB0.html)是被最多來源推薦的口說練習方式：播放一段英文音檔，延遲 1–2 秒跟著唸出來，模仿語調、節奏和連音。PTT 一位在美博士生分享，他靠跟讀法搭配翻譯練習，在非英語環境下也能有效訓練口說。
+跟讀法是被最多來源推薦的口說練習方式：播放一段英文音檔，延遲 1–2 秒跟著唸出來，模仿語調、節奏和連音。[EnggleTalk](https://enggletalk.com.tw/zh-TW/blog/busy-professional-30-min-english-routine) 和 [VoiceTube](https://tw.blog.voicetube.com/archives/86106/tech-english-speaking-method) 都推薦跟讀法作為口說基礎訓練。另外，[PTT 一位在美博士生](https://www.ptt.cc/bbs/Eng-Class/M.1658437916.A.DB0.html)分享了不同的方法：靠翻譯練習搭配背誦英文句子，在非英語環境下也能有效訓練口說。
 
 **今晚就能做的事**：找一段 2–3 分鐘的 [TED-Ed](https://ed.ted.com/) 影片或 Podcast 片段，用手機錄音 app 錄下自己跟讀的版本。播放對照原音，注意哪些字的重音和連音跟原本不同，明天用同一段再跟讀一次。
 
@@ -28,7 +28,7 @@ draft: false
 
 ### 情境式對話練習
 
-不要練抽象的英文會話，直接模擬你最常遇到的工作場景。[Preply 的教學文章](https://preply.com/en/blog/how-to-improve-your-spoken-english-for-work)把情境練習列為職場口說進步最直接的方式。
+不要練抽象的英文會話，直接模擬你最常遇到的工作場景。[Preply 的教學文章](https://preply.com/en/blog/how-to-improve-your-spoken-english-for-work)把情境練習列為職場口說的重要策略之一。
 
 **今晚就能做的事**：選一個你下週會遇到的場景（週會報告進度、跟外國同事 sync up、回覆客戶問題），用英文把你要講的內容說一遍，錄下來。不需要找語伴——AI App 可以 24 小時扮演對話對象（下面會比較各款 App）。
 
@@ -63,19 +63,19 @@ VoiceTube 提出的「片語延伸法」也值得一試：拿一個片語，分�
 | 通勤 | 零碎時間 | 聽英文 Podcast，跟著在心裡複述 |
 | 睡前 | 10 分鐘 | 回顧當天學的句子，說一遍 |
 
-建議頻率：每天 30 分鐘、每週至少 5 天、持續 12 週。EnggleTalk 引述 [Speak](https://www.speak.com/) 的台灣使用者資料，晚上 10 點是學習最活躍的時段——多數人是在睡前那個空檔練習。
+建議頻率：每天 30 分鐘、每週至少 5 天、持續 12 週。EnggleTalk 根據自身學員的經驗觀察，多數上班族傾向在睡前的空檔練習。
 
 重點不是時段，而是**固定節奏**。選一個你能持續的時間就好，比硬擠出一個不穩定的長時段有效。
 
 ## AI 口說工具比較
 
-AI 口說 App 的最大優勢是零壓力環境：不怕講錯被笑、不需要預約、隨時能練。[英文探長 J 親測了 6 款 App](https://00jenglish.com/the-best-ai-apps-for-learning-english)，以下是根據他的比較整理：
+AI 口說 App 的最大優勢是零壓力環境：不怕講錯被笑、不需要預約、隨時能練。[英文探長 J 親測了多款 AI 口說 App](https://00jenglish.com/the-best-ai-apps-for-learning-english)，以下是根據他的比較整理，另加入 ChatGPT 作為免費替代選項：
 
 | App | 月費（約） | 強項 | 適合 |
 |---|---|---|---|
-| [Speak](https://www.speak.com/) | NT$266–475 | 情境角色扮演、即時語音回饋 | 想練職場情境的初中級學習者 |
+| [Speak](https://www.speak.com/) | 需訂閱 | 情境角色扮演、即時語音回饋 | 想練職場情境的初中級學習者 |
 | [ELSA](https://elsaspeak.com/) | 需訂閱 | 發音矯正、口音訓練 | 想針對發音問題改善的人 |
-| Toko | 免費為主 | 自由對話、新聞討論 | 中級以上，想練自然對話 |
+| Toko | 有免費試用 | 自由對話、新聞討論 | 中級以上，想練自然對話 |
 | TalkMe | 最低價位 | 功能最齊全 | 預算有限的使用者 |
 | Dori | 需訂閱 | 交友式 UI、輕鬆氛圍 | 想在低壓環境中練習的人 |
 | EF Hello | 最低終身方案 | 結構化課程 | 想要長期系統學習的人 |
