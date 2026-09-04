@@ -1,6 +1,6 @@
 # Admin v2 規格：自製 coding agent 的操作台
 
-狀態：Phase 1–6 代碼完成（2026-08-29），本機整合驗證通過；production/preview 尚未驗證，驗證清單見 `docs/admin-v2-production-verification.md`。決策來自逐題確認，範本為 Claude Code on the web
+狀態：Phase 1–6 代碼完成（2026-08-29），已部署至 production（2026-08-30 起經 CI 自動部署，含 D1 migration apply）。環境觀察待確認項見 `docs/admin-v2-production-verification.md`。決策來自逐題確認，範本為 Claude Code on the web
 （實測紀錄：`.research/2026-08-27-claude-code-web-new-session-walkthrough.md`、
 `.research/2026-08-27-claude-code-routines-web-ui-walkthrough.md`）。現況路由見 `docs/admin-route-map.md`。
 
