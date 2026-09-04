@@ -7,7 +7,7 @@ tags: [rag, observability, sse, semantic-cache, langfuse]
 lang: zh-TW
 tldr: "Ask AI 同一次請求有五種不同證據：公開 SSE、Langfuse trace、D1 log、semantic cache 與 hidden shadow run。它們看見的資料不同，單看任一層都不能還原完整 retrieval context。"
 description: "沿一次 Ask AI request 的時間線，說明 SSE、Langfuse、D1 trace steps、semantic cache、checkpoint 與 shadow mode 各自能證明什麼。"
-draft: true
+draft: false
 series:
   name: "Ask AI 實戰"
   order: 5

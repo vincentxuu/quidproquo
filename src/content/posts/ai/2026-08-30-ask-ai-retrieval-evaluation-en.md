@@ -7,7 +7,7 @@ tags: [rag, evaluation, promptfoo, retrieval, regression-testing]
 lang: en
 tldr: "Ask AI keeps golden contracts, offline fixtures, live SSE output, and production observations separate. A passing fixture proves harness reproducibility; public sources can measure expected-source recall, but they do not expose hidden ranked chunks or establish model-graded faithfulness."
 description: "A practical guide to Ask AI's q01–q21 dataset and Promptfoo retrieval contract, with repeatable commands and explicit boundaries between fixture, live, and production evidence."
-draft: true
+draft: false
 series:
   name: "Ask AI in Practice"
   order: 9

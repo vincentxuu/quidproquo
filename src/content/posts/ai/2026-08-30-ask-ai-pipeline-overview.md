@@ -7,7 +7,7 @@ tags: [rag, ai-agent, langgraph, sse, retrieval, cloudflare-workers]
 lang: zh-TW
 tldr: "Ask AI 把一次提問拆成 UI、`/api/chat`、Planner、Research、Writer、Validation、Critic 與 Related 八段；回答文字、參考來源和延伸閱讀各有不同的產生與顯示條件。"
 description: "沿著 quidproquo Ask AI 的實際程式碼，追蹤一個問題從聊天介面、SSE API、RAG pipeline 到回答、來源與延伸閱讀卡片的完整資料流。"
-draft: true
+draft: false
 series:
   name: "Ask AI 實戰"
   order: 0

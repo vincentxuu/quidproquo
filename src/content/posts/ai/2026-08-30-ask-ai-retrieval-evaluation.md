@@ -7,7 +7,7 @@ tags: [rag, evaluation, promptfoo, retrieval, regression-testing]
 lang: zh-TW
 tldr: "Ask AI 把 golden contract、offline fixture、live SSE output 與 production observation 分開保存。fixture 全綠只證明 harness 可重現；public sources 可以量 expected-source recall，不能拿來宣稱看過 hidden ranked chunks 或 model-graded faithfulness。"
 description: "用 Ask AI q01–q21 的資料集與 Promptfoo 契約，示範如何建立可重跑的 retrieval regression checks，並避免把 fixture、live 與 production 證據混為一談。"
-draft: true
+draft: false
 series:
   name: "Ask AI 實戰"
   order: 9

@@ -7,7 +7,7 @@ tags: [rag, retrieval, evaluation, semantic-cache, langgraph, cloudflare]
 lang: zh-TW
 tldr: "「有哪些課程文章」第一次觀測被舊快取干擾；真正未命中的 request 已找回四所大學課程地圖，卻因三輪 Writer／Critic 重試花了 51.169 秒。修正 catalog 專用檢索與 review 契約後，一次未命中快取的 production observation 在 26.821 秒內通過 q21。"
 description: "重建 Ask AI q21 課程目錄事故：從舊 semantic cache、metadata-only retrieval、未封頂 retry source set，到 catalog Writer／Critic 契約與單輪收斂。"
-draft: true
+draft: false
 series:
   name: "Ask AI 實戰"
   order: 8

@@ -7,7 +7,7 @@ tags: [rag, indexing, chunking, d1, fts5, vectorize, cloudflare]
 lang: en
 tldr: "Ask AI indexing runs in two production stages: source-hash changes update D1, post chunks, and FTS5 first; embedding checkpoints and a delete queue then let Vectorize catch up asynchronously. The two stores do not share one transaction."
 description: "Trace a Markdown post through chunking, D1 and FTS5 synchronization, Workers AI embeddings, Vectorize upserts, deletion queues, and freshness checks."
-draft: true
+draft: false
 series:
   name: "Ask AI in Practice"
   order: 1

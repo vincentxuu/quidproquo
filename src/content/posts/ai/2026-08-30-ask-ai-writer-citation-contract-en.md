@@ -7,7 +7,7 @@ tags: [rag, citation, grounding, prompt-engineering, retrieval, validation]
 lang: en
 tldr: "Writer sees the first 8 candidates for a factual query or 12 for a recommendation by default. Citations must use an exact `source_url` from that set, and weak or empty retrieval triggers an instruction to abstain rather than fill gaps from model knowledge."
 description: "Inspect how Ask AI bounds Writer context, restricts citation URLs, handles catalog and weak-retrieval cases, and separates deterministic URL validation from factuality."
-draft: true
+draft: false
 series:
   name: "Ask AI in Practice"
   order: 3

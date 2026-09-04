@@ -7,7 +7,7 @@ tags: [rag, citation, grounding, prompt-engineering, retrieval, validation]
 lang: zh-TW
 tldr: "Writer 預設只讀 factual query 的前 8 筆或 recommendation 的前 12 筆候選證據，引用必須使用候選集合中的 exact `source_url`；檢索為空或被判為 weak 時，prompt 要求拒絕用模型常識補答案。"
 description: "拆解 Ask AI Writer 如何截取 evidence context、限制可引用 URL、處理 catalog query 與弱召回，並說明 deterministic citation validation 能證明與不能證明什麼。"
-draft: true
+draft: false
 series:
   name: "Ask AI 實戰"
   order: 3

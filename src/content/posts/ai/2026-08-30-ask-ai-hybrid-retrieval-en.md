@@ -7,7 +7,7 @@ tags: [rag, retrieval, hybrid-search, bm25, vector-search, rrf, langgraph]
 lang: en
 tldr: "Ask AI first extracts intent, complexity, and 1–4 search terms. It then routes across metadata, BM25, Vectorize, and RRF; a retry adds Critic gaps and disables the first-pass-only BM25 short circuit."
 description: "Trace query rewriting, hybrid retrieval, RRF, weak-retrieval detection, and retry through the Ask AI Planner, Research agent, and post-search implementation."
-draft: true
+draft: false
 series:
   name: "Ask AI in Practice"
   order: 2

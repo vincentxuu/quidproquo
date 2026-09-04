@@ -7,7 +7,7 @@ tags: [rag, retrieval, hybrid-search, bm25, vector-search, rrf, langgraph]
 lang: zh-TW
 tldr: "Ask AI 先由 Planner 抽出 intent、complexity 與 1–4 個搜尋詞，再依查詢型態走 metadata、BM25、Vectorize 與 RRF；第二輪搜尋會加入 Critic gaps，並關閉第一次才允許的 BM25 short circuit。"
 description: "沿著 Ask AI 的 Planner、Research 與 search-posts 實作，拆解查詢改寫、混合檢索、RRF、弱召回判斷與 retry 如何接在一起。"
-draft: true
+draft: false
 series:
   name: "Ask AI 實戰"
   order: 2

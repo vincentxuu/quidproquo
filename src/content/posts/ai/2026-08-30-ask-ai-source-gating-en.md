@@ -7,7 +7,7 @@ tags: [rag, validation, citations, retrieval]
 lang: en
 tldr: "Ask AI finding a post does not mean the UI should display it as a source. An answer must pass deterministic Markdown and URL validation, then the Critic's relevance, intent, and grounding checks; if either gate fails, source cards are withheld."
 description: "A code-level walkthrough of Ask AI's Writer, Validation, Critic, retry and degradation routing, and final source-presentation gate."
-draft: true
+draft: false
 series:
   name: "Ask AI in Practice"
   order: 4

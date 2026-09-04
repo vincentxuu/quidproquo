@@ -7,7 +7,7 @@ tags: [rag, retrieval, evaluation, semantic-cache, langgraph, cloudflare]
 lang: en
 tldr: "The first observation of 'What course articles do you have?' was contaminated by an old cache entry. A real cache miss retrieved all four university maps but spent 51.169 seconds across three Writer and Critic passes; after catalog-specific retrieval and review fixes, one uncached production observation passed q21 in 26.821 seconds."
 description: "A reconstruction of Ask AI's q21 course-catalog incident, from stale semantic cache and metadata-only retrieval to bounded retries, catalog-specific review, and one-pass convergence."
-draft: true
+draft: false
 series:
   name: "Ask AI in Practice"
   order: 8

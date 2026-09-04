@@ -7,7 +7,7 @@ tags: [rag, indexing, chunking, d1, fts5, vectorize, cloudflare]
 lang: zh-TW
 tldr: "Ask AI 的 production 索引分兩階段：先用 source hash 增量更新 D1、post_chunks 與 FTS5，再以 embedding checkpoint 和 delete queue 讓 Vectorize 非同步追上；兩邊不是同一個 transaction。"
 description: "追蹤 quidproquo Markdown 文章從 chunking、D1 與 FTS5 同步，到 Workers AI embedding、Vectorize upsert、刪除佇列與 freshness check 的完整索引流程。"
-draft: true
+draft: false
 series:
   name: "Ask AI 實戰"
   order: 1

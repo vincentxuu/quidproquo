@@ -11,7 +11,7 @@ Current focus
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
 - **Looplane 系列 Batch D（2026-08-30，內容完成／共享 gate blocked）**：orders 17–18 兩組雙語文章完成，Astro type check 被 Playwright 型別衝突阻塞。不 commit/push/deploy。
-- **Ask AI：RAG 實戰子系列（2026-08-30，仍為 draft: true）**：16 檔已 commit 但尚未翻為發布。
+- **Ask AI：RAG 實戰子系列（2026-09-04 已發布）**：16 檔翻為 `draft: false`，`pnpm verify` 全綠。
 - **Admin v2 Phase 1–6 已部署 production（2026-08-30 起）**：代碼經 CI 自動部署（含 D1 migration apply），管線穩定。剩環境觀察：手動 session E2E、Routine trigger、Sandbox、MCP proxy、通知通道各跑一次實測。
 - Roll out Qwen3 embeddings (`.work/rag-qwen3-rollout-plan.md`); adaptive batch splitting handles Workers AI 3030 errors.
 - Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：索引排隊中（queued 7213、errors 0），待索引完成與 golden eval。

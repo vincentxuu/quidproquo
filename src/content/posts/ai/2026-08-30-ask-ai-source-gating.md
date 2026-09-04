@@ -7,7 +7,7 @@ tags: [rag, validation, citations, retrieval]
 lang: zh-TW
 tldr: "Ask AI 找到文章，不代表畫面就該顯示來源。回答要先通過 Markdown／URL 的確定性驗證，再通過 Critic 的相關性、意圖與 groundedness 檢查；任一門檻失敗，來源卡片就不送到前端。"
 description: "沿著 quidproquo Ask AI 的 Writer、Validation、Critic、retry／degrade 與 presentation 程式碼，拆解回答和來源卡片何時可以公開。"
-draft: true
+draft: false
 series:
   name: "Ask AI 實戰"
   order: 4

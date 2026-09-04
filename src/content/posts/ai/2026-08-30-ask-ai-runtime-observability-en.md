@@ -7,7 +7,7 @@ tags: [rag, observability, sse, semantic-cache, langfuse]
 lang: en
 tldr: "One Ask AI request leaves five different evidence surfaces: public SSE, Langfuse traces, D1 logs, semantic cache, and a hidden shadow run. They expose different data, and no single surface reconstructs the complete retrieval context."
 description: "A request-timeline guide to what Ask AI's SSE, Langfuse and D1 traces, semantic cache, checkpoints, and shadow mode can and cannot prove."
-draft: true
+draft: false
 series:
   name: "Ask AI in Practice"
   order: 5

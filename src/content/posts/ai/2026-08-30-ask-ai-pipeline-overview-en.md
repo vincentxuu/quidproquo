@@ -7,7 +7,7 @@ tags: [rag, ai-agent, langgraph, sse, retrieval, cloudflare-workers]
 lang: en
 tldr: "Ask AI splits one question across the UI, `/api/chat`, Planner, Research, Writer, Validation, Critic, and Related stages. Answer text, displayed sources, and related-reading cards come from separate paths with separate gates."
 description: "Trace a question through the actual quidproquo Ask AI implementation, from the chat UI and SSE API to the RAG pipeline, final answer, displayed sources, and related-reading cards."
-draft: true
+draft: false
 series:
   name: "Ask AI in Practice"
   order: 0
