@@ -10,7 +10,7 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- **Looplane 系列 Batch D（2026-08-30，內容完成／共享 gate blocked）**：orders 17–18 兩組雙語文章完成，Astro type check 被 Playwright 型別衝突阻塞。不 commit/push/deploy。
+- **Looplane 系列 Batch D（2026-08-30，內容完成）**：orders 17–18 兩組雙語文章、rivumi 舊檔清除已 commit/push（2026-09-04）。Playwright 型別衝突已自行消解。
 - **Admin v2 Phase 1–6 已部署 production（2026-08-30 起）**：管線穩定，剩環境觀察實測。
 - **Qwen3 embeddings（代碼已 commit，CI/CD 自動部署）**：provider/adaptive splitting/cache namespace 已到位，待 production 向量重建與 20 題 live eval 確認品質。
 - Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：索引排隊中，待索引完成與 golden eval。

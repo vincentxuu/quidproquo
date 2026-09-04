@@ -52,11 +52,9 @@
 - 為什麼現在不能做：Tier 2（production flag flip）。前置條件：rollout 觀察窗結論。
 - 接手第一步：讀 `docs/agent-providers-runbook.md`。
 
-## Q-007 評估把 check:post-quality / check:glossary 納入 pnpm verify
+## Q-007 ✅ 已完成：check:post-quality / check:glossary 已納入 pnpm verify
 - 登錄：2026-07-06（來源：governance setup session）
-- 做什麼：這兩個檢查目前是 advisory（不在 verify 閘門內）。若它們對全站穩定全綠一段時間，考慮升級為 verify 的硬檢查。
-- 為什麼現在不能做：Tier 2（修改 verify 閘門內容）。且未確認全站目前能通過（貿然納入會讓所有 commit 被擋）。
-- 接手第一步：跑 `pnpm check:post-quality` 與 `pnpm check:glossary`，統計現況紅綠。
+- 完成：2026-09-04。兩個檢查已是 verify 閘門的硬檢查（見 `scripts/verify.mjs`），全站穩定全綠。
 
 ## Q-008 SEO/AEO batch 2（第一手原創素材）
 - 登錄：2026-08-06（來源：progress.txt 2026-07-25 條目歸檔時接住）
