@@ -31,5 +31,6 @@ Notes
 - CS228 複查結論（2026-08-22）：公開官方課站停在 Winter 2023–24，維持逐講阻塞。
 - agent-* projects: code complete, pending production observation windows. Details in docs/progress-archive.md; pending decisions in escalation-queue.md.
 - **Q-015（2026-08-27）**：Tavily API 額度用盡（432），待人決定升級方案或改 skill fallback。
+- **Q-021（2026-09-05）**：daily-digest-benchmark 執行時 Groundlane 顯示 connected+enabledInChat 但查無工具，未產出當日 benchmark 文章，見 escalation-queue。
 - **稽核方法的教訓**：計數一律用字界比對，跑稽核前先確認路徑存在。詳見 archive。
 - Stanford CS109 有 24 個 `draft: true` 檔案（Lecture 07–18 中英文），不在待 review 清單內。

@@ -188,6 +188,14 @@
 
 ---
 
+## Q-021 Groundlane connector 顯示 `connected:true`＋`enabledInChat:true`，但 session 內查無任何 Groundlane 工具
+
+- 登錄：2026-09-05（來源：`daily-digest-benchmark` routine 執行時發現）
+- 做什麼：本次執行 `daily-digest-benchmark` 時，`ToolSearch`（`"select:mcp__groundlane__web_search,mcp__groundlane__web_fetch,mcp__groundlane__web_extract"`、關鍵字 `"web_search web_fetch web_extract"`、關鍵字 `"groundlane"` 三種查法）皆查無任何 Groundlane 工具；但 `ListConnectors(["groundlane"])` 回報 `{"installState":"connected","connected":true,"enabledInChat":true}`——跟 Q-020 記錄的「`enabledInChat:false`」不是同一種現象：這次 connector 顯示的欄位全部正常（已連線、已在此 chat 啟用），工具卻依然沒有出現在這個 session 的 deferred tool 清單裡。系統最外層工具清單也只掛了 `mcp__Exa__*`／`mcp__Tavily__*`（Tavily 需另外授權）／`mcp__firecrawl__*`／`mcp__github__*`，同樣不含任何 `mcp__groundlane__*`。
+  - 影響：`daily-digest-benchmark` SKILL.md 的工具契約明文規定「公開網頁研究與抓取一律使用 Groundlane MCP」且禁止改用 Exa／Tavily／Firecrawl／`web.run` 等替代（同款措辭見於多支 `daily-digest-*` skill）。本次因此無法依 skill 規定的方法抓取 LMSYS／SWE-bench／MorphLLM 等排行榜頁面或搜尋新聞信號，選擇不產出 `2026-09-05-benchmark-*.md`，避免用未授權工具硬湊或憑訓練資料捏造分數（違反 Tier 3「無來源寫事實」）。
+- 為什麼現在不能做：Groundlane 工具在 connector 層級顯示的狀態（連線＋啟用）與 session 實際可呼叫的工具清單不一致，屬於這個 chat／session 或其底層 MCP 掛載機制的環境問題，不是 repo 內能修的東西；需要人確認是暫時性的 session 快照問題（比照 Q-019 最後幾條記錄裡「同一天不同 session 環境差異很大」的先例，很可能下次執行就自行恢復），或是需要另外處理的掛載故障。
+- 接手第一步：(1) 下次執行任一依賴 Groundlane 的 daily-digest routine 時，先用 `ListConnectors(["groundlane"])` 和 `ToolSearch("select:mcp__groundlane__web_search,...")` 各查一次，確認這次的 session 是否恢復（若恢復，直接比照 Q-020 8/30 的解除模式標記本條解決，不用重複記錄）；(2) 若連續多次都是「connector 顯示啟用但工具查無」，需要使用者或平台端檢查這個 workspace 的 Groundlane MCP 掛載設定是否有 session-level 快取或掛載時序問題；(3) 在此之前，所有明文要求「僅限 Groundlane」的 daily-digest-* routine 遇到同樣狀況時，比照本條處置——不要改用 Exa/Tavily/Firecrawl 頂替，寧可不產出。
+
 ## Done
 
 （完成的條目標記日期移到這裡）
