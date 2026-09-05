@@ -1,15 +1,17 @@
 # quidproquo progress
 
-Last updated: 2026-09-04
+Last updated: 2026-09-05
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
 
 Current focus
 - Close short-term blog infrastructure gaps from `docs/TODO.md`.
+- **OMP 深度導讀系列（2026-08-31，order 1–15 已完成，擴至 22 篇進行中）**：15 篇中英雙語（30 檔）已 commit；追加 order 16–22 與 Codex 同級（streaming internals、rulebook/TTSR、slash/custom tools、memory、task hub/advisor、blob/secrets/config、OMP 2 crate 全景），規劃見 `.work/omp-deep-dive-series-plan.md`。待 order 16–22 並行撰寫與全量抽檢。
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- **AI 模型家族 order 19 Thinking Machines Lab／Inkling（2026-09-05）**：中英雙版已 commit；另修掉擋 verify 的真問題（tw A 級 30 處、quality 6 ERROR、references 3 ERROR、parity 4 draft 標記，詳 Q-021），全在別人 session 草稿上，只修未代 commit。
 - **Looplane 系列 Batch D（2026-08-30，內容完成）**：orders 17–18 兩組雙語文章、rivumi 舊檔清除已 commit/push（2026-09-04）。Playwright 型別衝突已自行消解。
 - **Admin v2 Phase 1–6 已部署 production（2026-08-30 起）**：管線穩定，剩環境觀察實測。
 - **Qwen3 embeddings（代碼已 commit，CI/CD 自動部署）**：provider/adaptive splitting/cache namespace 已到位，待 production 向量重建與 20 題 live eval 確認品質。
