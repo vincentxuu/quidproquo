@@ -4,12 +4,13 @@
 
 替讀者找出今天最值得知道的 AI Agent 新方向。不是選出學術上最完整的論文，也不能因題目新奇就收錄證據撐不起主張的內容。
 
-選案分成兩關，順序不可顛倒：
+選案分成三關，順序不可顛倒：
 
 1. **可信度門檻**：判斷它是不是值得認真閱讀的研究。
-2. **方向價值排序**：判斷通過門檻的研究為什麼值得讀者今天知道。
+2. **背景信號查證**：查詢 venue、引用速度、機構、社群反應，記錄並透明呈現。
+3. **方向價值排序**：判斷通過門檻的研究為什麼值得讀者今天知道。
 
-新穎性不能抵銷可信度缺陷。不要把兩關壓成一個總分。
+新穎性不能抵銷可信度缺陷。不要把三關壓成一個總分。
 
 ## 第一關：可信度門檻
 
@@ -30,13 +31,31 @@
 
 | 判定 | 定義 | 後續 |
 |---|---|---|
-| 通過 | 方法與證據足以支持本文準備陳述的範圍 | 進入方向價值排序 |
+| 通過 | 方法與證據足以支持本文準備陳述的範圍 | 進入背景信號查證與方向價值排序 |
 | 有條件通過 | 證據初步或適用範圍窄，但沒有明顯失實，且方向值得注意 | 可入選，但必須揭露限制並降低語氣強度 |
 | 排除 | 核心主張缺乏相稱證據、數字不可追溯、比較明顯失衡，或結論嚴重外推 | 不得靠新穎性補回 |
 
-以下資訊可記錄為背景，但不得用來替代可信度判斷：引用數、作者／機構聲望、venue、社群熱度。
+## 第二關：背景信號查證
 
-## 第二關：方向價值排序
+以下資訊**必須查證並記錄**，且**必須在文章中對讀者透明呈現**，但**不得用來跳過可信度門檻**：
+
+| 信號 | 查詢方式 | 作用 |
+|---|---|---|
+| **Venue** | Semantic Scholar API `fields=venue,publicationVenue` | 是否經同行審查？哪個會議/期刊？ |
+| **引用速度** | Semantic Scholar API `fields=citationCount`，對比發布天數 | 學界關注度的客觀量化 |
+| **機構** | 論文 metadata / arXiv 摘要頁 | 背景參考，不作為選案依據 |
+| **社群信號** | HF Daily Papers 是否出現、Papers with Code 是否有 repo | 社群策展驗證、可復現性佐證 |
+
+**政策**：
+
+- 一篇頂會論文仍需通過可信度門檻才能入選；venue 不能跳過可信度。
+- 一篇 preprint 通過門檻後不因缺乏 venue 而被降級；preprint 不等於低品質。
+- 背景信號的兩個作用：(1) 幫助讀者判斷論文份量，(2) 作為 Layer C 回溯池的重新考慮觸發條件。
+- 作者／機構聲望不得取代可信度判斷，但必須記錄供讀者自行評估。
+
+**對所有通過 topic gate 的候選都必須查詢背景信號**（不只是入選者）。`watch` 候選至少要有 venue + citationCount + institution；只有 `off-topic` 排除的才可以跳過。
+
+## 第三關：方向價值排序
 
 只排序「通過」或「有條件通過」的論文。每篇使用文字標籤，不製造看似精確但沒有校準依據的百分制：
 
@@ -93,14 +112,25 @@ Presentation 不顯示在讀者文章，也不能代替可信度：寫得清楚�
   "date": "YYYY-MM-DD",
   "status": "published | no-publication",
   "selectedCount": 0,
-  "announcementBatch": "YYYY-MM-DD",
-  "announcementSources": ["https://arxiv.org/list/cs.AI/new"],
+  "candidateSources": {
+    "layerA": "arXiv /new batch YYYY-MM-DD",
+    "layerB": ["HF Daily Papers", "Semantic Scholar"],
+    "layerC": "lookback from YYYY-MM-DD to YYYY-MM-DD, N candidates re-entered"
+  },
   "generatedAt": "ISO-8601",
   "candidates": [
     {
       "arxivId": "0000.00000",
       "title": "Paper title",
+      "source": ["layerA", "layerB"],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 0,
       "topicGate": "pass | reject",
+      "venue": "arXiv preprint | NeurIPS 2026 accepted | ICML 2026 workshop | ...",
+      "citationCount": 12,
+      "citationVelocity": "12 citations in 3 days",
+      "institution": "DeepMind + Stanford",
+      "communitySignals": ["HF Daily Papers #3", "Papers with Code: 2 repos"],
       "credibility": "pass | conditional | reject | not-assessed",
       "credibilityEvidence": ["section/table/figure locator and what it supports"],
       "evidenceMaturity": "substantial | preliminary | proof-of-concept | not-assessed",
@@ -117,13 +147,29 @@ Presentation 不顯示在讀者文章，也不能代替可信度：寫得清楚�
       "todayImportance": "high | medium | low | not-assessed",
       "practicalLink": "clear | speculative | none | not-assessed",
       "decision": "selected | watch | rejected",
-      "reason": "short editorial reason"
+      "rejectionCategory": "stronger-competitor | evidence-insufficient | off-topic | stale",
+      "reason": "short editorial reason explaining WHY this paper is weaker than selected ones"
     }
   ]
 }
 ```
 
-`announcementBatch` 是官方 `new` listing 顯示的公開批次日期；個別論文的 `submittedAt` 可另存，但不得拿來製造「過去 48 小時」的假精確時間窗。週末或無公告日時，使用最近一次尚未篩選的官方批次。
+### rejectionCategory 定義
+
+每篇 `rejected` 或 `watch` 的論文必須標註 `rejectionCategory`：
+
+| 值 | 定義 | Layer C 回溯行為 |
+|---|---|---|
+| `stronger-competitor` | 本身合格，但同一天有更強候選 | 自動進入回溯池，新信號即可重新考慮 |
+| `evidence-insufficient` | 可信度不足或證據太弱 | 僅當出現 code 釋出、外部複現、或 venue 升級時才重新考慮 |
+| `off-topic` | 不在 AI Agent 主題範圍內 | 永久排除，不進回溯池 |
+| `stale` | 已被其他文章涵蓋 | 永久排除，不進回溯池 |
+
+`reason` 欄位必須具體說明：「為什麼這篇比 selected 的弱」或「哪個面向不足」。禁止使用 "not selected this round"、"incremental relative to selected papers" 等不具資訊量的理由。正確範例："記憶壓縮方向與入選的 PlanFence（dependency-scoped lineage）重疊，但 PlanFence 的正文證據更完整（controlled replay across 6 baselines vs 本篇僅有 2 組 ablation），且問題框架更具增量"。
+
+### candidateSources 說明
+
+舊版只記錄 `announcementBatch`（單一 arXiv 批次日期）。新版改為 `candidateSources` 物件，分別記錄三層各自的來源與候選數。個別論文的 `submittedAt` 可另存 metadata，不拿來製造「過去 48 小時」的假精確時間窗。
 
 排除紀錄是後續建立 relevance model 的標註資料。不得讓模型自行學習後取代可信度門檻；它只能協助排列人工審查順序。
 
@@ -137,4 +183,4 @@ Presentation 不顯示在讀者文章，也不能代替可信度：寫得清楚�
 
 避免把預印本寫成已被學界確認的定論。`Reviewer 一句話評` 必須同時指出可取之處、證據邊界與下一個應驗證的問題。
 
-讀者文章每篇在 TL;DR 後顯示一個「編輯判斷」表格，欄位固定為：可信度、證據成熟度、可復現性、編輯信心、閱讀建議、主要限制。標籤後必須補一句具體依據，不能只放形容詞。可復現性只描述公開 code、data、config、outputs 或預註冊是否足以重跑；缺少跨模型、多 seed 或外部複驗屬於證據成熟度／主要限制，不放進可復現性。
+讀者文章每篇在 TL;DR 後顯示一個「編輯判斷」表格，欄位固定為 14 欄：Venue、引用速度、機構、社群反應、可信度、證據成熟度、可復現性、為什麼選這篇、方向新意、今日重要性、實務連結、編輯信心、閱讀建議、主要限制。標籤後必須補一句具體依據，不能只放形容詞。可復現性只描述公開 code、data、config、outputs 或預註冊是否足以重跑；缺少跨模型、多 seed 或外部複驗屬於證據成熟度／主要限制，不放進可復現性。

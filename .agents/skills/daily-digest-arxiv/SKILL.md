@@ -1,11 +1,11 @@
 ---
 name: daily-digest-arxiv
-description: "Routine A: daily Arxiv cs.AI/cs.CL/cs.MA digest for quidproquo.cc/daily. Screens new AI Agent papers through a credibility gate, then selects up to three directions worth knowing today."
+description: "Routine A: daily Arxiv cs.AI/cs.CL/cs.MA digest for quidproquo.cc/daily. Screens AI Agent papers from a three-layer candidate pool (arXiv /new, community sources, 14-day lookback), applies credibility + background-signal gates, then selects up to three directions worth knowing today."
 ---
 
 # daily-digest-arxiv
 
-每日掃描 arxiv 新論文，先排除證據撐不起主張的內容，再選出最多 3 篇今天值得知道的 AI Agent 新方向，產出深讀導讀文章。合格候選不足時可以少於 3 篇；沒有合格候選就不硬產文章。
+每日從三層候選池（arXiv 官方公告、社群熱門、14 天回溯）掃描 AI Agent 論文，先排除證據撐不起主張的內容，再選出最多 3 篇今天值得知道的方向，產出深讀導讀文章。合格候選不足時可以少於 3 篇；沒有合格候選就不硬產文章。
 
 ---
 
@@ -18,14 +18,14 @@ git pull origin main
 TODAY=$(TZ=Asia/Taipei date +%Y-%m-%d)
 SCREENING_RECORD=".research/daily-arxiv-screening/${TODAY}.json"
 
-# Step 2: 冪等檢查——已產出就不重做
+# Step 2: 冪等檢查——文章已產出就不重做
 [ -f "src/content/posts/daily/${TODAY}-ai-agent-arxiv-digest.md" ] && echo "已產出" && exit 0
-[ -f "${SCREENING_RECORD}" ] && echo "今日篩選已完成" && exit 0
 
 # Step 3: 讀 watchlist（判斷論文相關性時用）
 cat src/data/agent-watchlist.json | head -100
 
-# Step 4: 取得尚未篩選的最新官方公告批次候選論文
+# Step 4: 三層候選池蒐集
+# Step 4-bg: 查詢每篇候選的背景信號（venue / 引用 / 機構 / 社群）
 # Step 5: 執行「選案標準」，先過可信度門檻，再選 0-3 篇
 # Step 6: 對入選論文完成 metadata 與證據核對
 # Step 7: 依「輸出格式」撰寫 zh-TW 與英文文章，維持雙向語言連結與結構 parity
@@ -49,7 +49,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 |---|---|---|
 | **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
-| **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
+| **結構化 API** | 直接呼叫（arxiv API、Semantic Scholar API、HuggingFace API） | 有 API 的來源不用搜尋工具 |
 
 ### Groundlane 工具契約
 
@@ -57,20 +57,21 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 ---
 
-## 搜尋方法
+## 搜尋方法：三層候選池
 
-### Step 4a：先鎖定官方公告批次
+每天執行全部三層，不因週末或假日跳過任何層。三層的候選以 arxiv ID 合併去重；同一篇出現在多層的，記錄 `sourceCount` 供排序加分。
+
+### Layer A：arXiv 官方公告批次
 
 每日時間窗以 arXiv 官方 `list/{category}/new` 顯示的最新公告批次為準，不以 Atom API 的 `published`／作者 submission timestamp 直接推算「過去 48 小時」。arXiv 原則上只在週日至週四公告；週末、假日或品質檢查延遲時，submission timestamp 與公開可讀日期可能不同。
 
 1. 讀取 `https://arxiv.org/list/cs.AI/new`、`cs.CL/new`、`cs.MA/new`，記錄頁面顯示的公告日期。
-2. 選擇三類中最新、且尚未留下篩選紀錄的公告批次；若當天沒有新公告，就沿用最近一次尚未篩選的公開批次，不把週末解讀為「零篇投稿」。
+2. 選擇三類中最新的公告批次。即使該批次在先前某天的 screening record 中已篩選過，仍收集其中的論文作為候選（不再以「已篩選」為由跳過整個批次）。先前已被 `selected` 的論文由 `seen-arxiv-ids.txt` hard dedup 排除。
 3. 把公告批次日期與來源 URL 寫入篩選紀錄；`submittedAt` 另存為 metadata，兩者不得混用。
-4. 若最新批次已完整篩選，冪等結束，不重選已見論文。
 
 官方公告時程：[arXiv Submission Schedule and Cutoff Time](https://info.arxiv.org/help/availability.html)。
 
-### Step 4b：用 Groundlane `web_search` 補充發現
+**Groundlane `web_search` 補充發現**：
 
 對每組查詢跑 Groundlane `web_search`，合併結果並以 URL 去重：
 
@@ -80,39 +81,91 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | Q2 | `site:arxiv.org "cs.CL" RAG retrieval-augmented context memory agent` | RAG / Context / 記憶管理 |
 | Q3 | `site:arxiv.org "cs.AI" OR "cs.MA" multi-agent protocol safety guardrails` | 多 Agent 協作 / 安全 / 護欄 |
 
-**Groundlane `web_search`（每組）：**
 ```
 工具：Groundlane MCP → web_search
 max_results: 10
-published_after: "{昨天的 ISO 日期，如 2026-08-15T00:00:00Z}"
+published_after: "{昨天的 ISO 日期}"
 provider: "auto"
 ```
 
-**Groundlane `web_search`（補充查詢）：**
+### Layer B：社群與學術熱門來源
+
+這些來源每天都有更新（含週末），彌補 arXiv 週末無公告的空窗。
+
+| 來源 | 方法 | 信號類型 |
+|---|---|---|
+| **HuggingFace Daily Papers** | Groundlane `web_fetch` 讀 `https://huggingface.co/api/daily_papers`，取最近 3 天 | 社群策展 + 投票數 |
+| **HuggingFace Trending / Papers with Code** | Groundlane `web_search` query: `site:paperswithcode.com OR site:huggingface.co/papers trending AI agent` | GitHub 星星速度、實作復現 |
+| **Semantic Scholar** | Groundlane `web_fetch` 讀 `https://api.semanticscholar.org/graph/v1/paper/search?query=AI+agent+tool+use+memory+safety&year=2026&fieldsOfStudy=Computer+Science&fields=title,externalIds,citationCount,venue,authors&limit=20&sort=citationCount:desc` | 引用速度、venue 資訊 |
+
+從 Layer B 結果中提取 arxiv ID（若有），加入候選池。沒有 arxiv ID 的結果記錄但不進入篩選。
+
+### Layer C：14 天回溯池
+
+讀取過去 14 天的 `.research/daily-arxiv-screening/*.json`，收集符合以下條件的候選：
+
+| 原始 decision | rejectionCategory | 回溯行為 |
+|---|---|---|
+| `watch` | 任何 | **自動進入**回溯池 |
+| `rejected` | `stronger-competitor` | 進入回溯池，需新信號才能克服衰減 |
+| `rejected` | `evidence-insufficient` | **僅當**出現新的 code 釋出或外部複現信號時才進入 |
+| `rejected` | `off-topic` | **永久排除** |
+| `rejected` | `stale` | **永久排除** |
+| `selected` | — | 由 `seen-arxiv-ids.txt` hard dedup 排除 |
+
+**14 天硬上限**：超過 14 天的論文不再回溯，無論信號多強。
+
+### 候選合併與排序
+
+三層候選以 arxiv ID 合併。對每篇候選計算：
+
 ```
-工具：Groundlane MCP → web_search
-query: "{同上 query}"
-time_range: "day"
-max_results: 10
+effective_score = base_relevance × decay(days_since_first_seen) × source_boost(source_count)
 ```
 
-### Step 4c：去重
+| 因子 | 計算 | 說明 |
+|---|---|---|
+| `base_relevance` | 由 Step 5 的方向價值排序決定 | 主題相關性、新意、今日重要性、實務連結 |
+| `decay(d)` | `0.85^d`，d = 距離首次出現的天數 | 5 天前的論文需要 ~2x 分數才能與今天的競爭 |
+| `source_boost` | 1 層 = 1.0、2 層 = 1.3、3 層 = 1.5 | 多來源佐證 = 更值得注意 |
 
-合併所有結果，用 arxiv ID 去重。此時應有 15-30 篇候選論文。
+排序用於輔助判斷，不機械取 top-N；最終選案仍由可信度門檻 + 編輯判斷決定。
+
+---
+
+## Step 4-bg：背景信號查詢
+
+對**每篇通過 topic gate 的候選**（不只是入選者），查詢以下背景信號。這些信號**必須查證並記錄**，且**必須在文章中對讀者透明呈現**，但**不得用來跳過可信度門檻**（詳見 `selection-standard.md`）。
+
+| 信號 | 查詢方式 | 記錄欄位 |
+|---|---|---|
+| **Venue** | Semantic Scholar API `fields=venue,publicationVenue` | 是否經同行審查？哪個會議/期刊？ |
+| **引用速度** | Semantic Scholar API `fields=citationCount`，對比發布天數 | N citations in D days |
+| **機構** | 論文 metadata / arXiv 摘要頁 | 前 3 作者的機構 |
+| **社群信號** | HF Daily Papers 是否出現、Papers with Code 是否有 repo | 社群策展排名 / 復現 repo 數量 |
+
+**Semantic Scholar 查詢範例**：
+
+```
+Groundlane web_fetch:
+  url: "https://api.semanticscholar.org/graph/v1/paper/ARXIV:{arxiv_id}?fields=title,venue,publicationVenue,citationCount,authors.name,authors.affiliations,externalIds"
+```
 
 ---
 
 ## 篩選與主題決定
 
-執行本節前，完整閱讀 [`references/selection-standard.md`](references/selection-standard.md)。該文件定義可信度門檻、方向價值標籤、選取數量、篩選紀錄與文章語氣；不得只依標題、摘要、作者聲望或單一 relevance score 決定入選。
+執行本節前，完整閱讀 [`references/selection-standard.md`](references/selection-standard.md)。該文件定義可信度門檻、背景信號政策、方向價值標籤、選取數量、篩選紀錄與文章語氣；不得只依標題、摘要、作者聲望或單一 relevance score 決定入選。
 
-### Step 5a：初篩（從 15-30 篇候選中排除不相關的）
+### Step 5a：初篩（從候選池中排除不相關的）
+
+三層合併後的候選池預計有 30-80 篇。
 
 **排除條件**（符合任一就排除）：
 - 純 CV / NLP 基礎研究（圖像分割、語法分析、語言模型預訓練方法）
 - 訓練方法論（RLHF 改良、新的預訓練技巧——除非直接改善 Agent 推理）
 - 硬體 / 晶片 / 機器人（除非直接影響 Agent 執行環境）
-- 已在 `src/data/daily-signals/seen-arxiv-ids.txt` 中的 ID（去重）
+- 已在 `src/data/daily-signals/seen-arxiv-ids.txt` 中的 ID（hard dedup：已發表過）
 
 **保留條件**（符合任一就保留）：
 - 直接涉及 Agent 架構 / 編排 / 記憶 / 安全
@@ -121,7 +174,7 @@ max_results: 10
 - RAG / 向量檢索 / 長期推理
 - Agent 評測方法論
 
-初篩後應剩 5-15 篇候選。
+初篩後應剩 5-20 篇候選。
 
 ### Step 5b：可信度門檻
 
@@ -131,6 +184,8 @@ max_results: 10
 - 新穎性不能抵銷證據缺陷。
 - 「有條件通過」可以入選，但文章必須說明證據仍初步或適用範圍有限。
 - 「排除」不得進入後續排序。
+
+**對 `watch` 候選的最低要求**：即使不入選，至少要讀方法章節做一次快速可信度掃描，不能全部留 `not-assessed`。這是為了 Layer C 回溯時有判斷依據。
 
 ### Step 5c：比較今天是否值得知道
 
@@ -176,6 +231,8 @@ max_results: 10
 
 依選案標準把完整候選決策寫入 `.research/daily-arxiv-screening/${TODAY}.json`。即使候選被排除，也要保存簡短理由，供後續校正 selection standard；讀者文章不列未入選清單。
 
+**被 reject/watch 的論文，`reason` 必須說明「為什麼這篇比 selected 的弱」或「哪個具體面向不足」，不得只寫 "not selected this round" 或 "incremental"。**
+
 選定 1-3 篇後，把入選者的 arxiv ID 追加到去重檔案：
 
 ```bash
@@ -203,7 +260,7 @@ echo "${TODAY}: {selected_ids}" >> src/data/daily-signals/seen-arxiv-ids.txt
 - **機構**（若有）
 - **arxiv ID**
 - **摘要**（用於寫導讀，但不直接翻譯貼上）
-- **公告批次日期**：確認屬於本次鎖定的官方 `new` listing 批次
+- **公告批次日期**：確認屬於哪一天的官方 `new` listing 批次（Layer A 候選）或首次出現來源（Layer B/C 候選）
 - **提交日期**：另存 metadata，不拿來替代公告批次日期
 - **分類**：確認屬於目標分類（cs.AI / cs.CL / cs.MA）
 
@@ -265,9 +322,17 @@ series:
 
 | 面向 | 判斷 |
 |---|---|
+| Venue | {arXiv preprint（未經同行審查）/ NeurIPS 2026 accepted / ICML 2026 workshop / ...} |
+| 引用速度 | {N citations in D days，來源 Semantic Scholar；preprint 剛發布則寫「發布 D 天，尚無引用資料」} |
+| 機構 | {前 3 作者的機構} |
+| 社群反應 | {HF Daily Papers 排名 / Papers with Code N 個復現 repo / 無社群信號} |
 | 可信度 | {通過／有條件通過} — {一句具體依據} |
 | 證據成熟度 | {較完整／初步／概念驗證} — {一句具體依據} |
 | 可復現性 | {完整產物／部分產物／未提供} — {公開了哪些重跑材料} |
+| 為什麼選這篇 | {直接／間接} — {一句話說明與 AI Agent 的關係} |
+| 方向新意 | {實質增量／應用改寫／舊概念包裝} — {新在哪} |
+| 今日重要性 | {高／中／低} — {為什麼今天要讀} |
+| 實務連結 | {明確／推測／無} — {影響哪些具體工程或產品情境} |
 | 編輯信心 | {高／中／低} — {目前敘述強度為何可被支持} |
 | 閱讀建議 | {必讀／略讀／跳過} — {對誰有用} |
 | 主要限制 | {最影響判斷的一項證據限制；沒有就寫「未見重大缺口」} |
@@ -314,7 +379,7 @@ series:
 
 ## 完整範例
 
-以下節錄自 2026-08-04 的 digest，展示預期的格式深度（僅含論文一，完整版含三篇）：
+以下節錄自 2026-08-04 的 digest，展示預期的格式深度（僅含論文一，完整版含三篇）。**注意：此範例使用舊版編輯判斷表格（6 欄），新版應包含 14 欄（含 Venue、引用速度、機構、社群反應、為什麼選這篇、方向新意、今日重要性、實務連結）。**
 
 ```markdown
 ---
@@ -361,9 +426,17 @@ Shengguang Wu, Hao Zhu, Yuhui Zhang et al.（Stanford University）　·　arxiv
 
 | 面向 | 判斷 |
 |---|---|
+| Venue | arXiv preprint（未經同行審查） |
+| 引用速度 | 發布 3 天，Semantic Scholar 尚無引用資料 |
+| 機構 | Stanford University |
+| 社群反應 | HF Daily Papers 未上榜 / Papers with Code 無復現 repo |
 | 可信度 | 通過 — 正文提供跨 benchmark 實驗與對照組 |
 | 證據成熟度 | 初步 — 核心結果完整，但任務仍限於遊戲環境 |
 | 可復現性 | 部分產物 — 方法與設定可查，主要外部複現仍待補 |
+| 為什麼選這篇 | 直接 — 記憶管理是 Agent 長程任務的核心瓶頸，本篇提出可自動學習的解法 |
+| 方向新意 | 實質增量 — 首次把記憶管理從「工程手調規則」改為「LLM 自動學習的獨立技能」 |
+| 今日重要性 | 高 — Agent 平台正在量產部署，記憶模組是最缺獨立投資的組件 |
+| 實務連結 | 明確 — Loop 1 鷹架修訂流程可直接套用到 LangGraph / AutoGen 記憶層 |
 | 編輯信心 | 高 — 足以支持「記憶可獨立優化」的限縮主張 |
 | 閱讀建議 | 必讀 — 長程 Agent 平台可直接參考架構 |
 | 主要限制 | 尚未驗證真實工作負載的遷移效果 |
@@ -400,7 +473,7 @@ LLM Agent 做長程任務（long-horizon task，跑幾千步才完成）時，�
 
 ---
 
-（論文二、三結構相同，完整版見 Notion 2026-08-04 digest）
+（論文二、三結構相同，完整版含三篇）
 
 ## 今日收穫
 
@@ -414,9 +487,10 @@ LLM Agent 做長程任務（long-horizon task，跑幾千步才完成）時，�
 - [ ] 實際收錄 1-3 篇；沒有用低可信度或舊論文補足篇數
 - [ ] 每篇都有「通過／有條件通過」可信度判定，且有正文證據，不只看摘要
 - [ ] 入選論文的內部紀錄包含 `presentation` 與具體理由；沒有把寫作清楚誤當成研究可信
-- [ ] 每篇都有「編輯判斷」表格，包含證據成熟度、可復現性、編輯信心、閱讀建議與主要限制
+- [ ] 每篇都有「編輯判斷」表格，包含全部 14 欄（Venue、引用速度、機構、社群反應、可信度、證據成熟度、可復現性、為什麼選這篇、方向新意、今日重要性、實務連結、編輯信心、閱讀建議、主要限制）
 - [ ] 收錄 2 篇以上時，盡量覆蓋至少 2 個不同面向
 - [ ] 完整候選與排除理由已寫入 `.research/daily-arxiv-screening/YYYY-MM-DD.json`
+- [ ] 每篇被 reject/watch 的論文都有具體 `reason`（不得只寫 "not selected this round"）和 `rejectionCategory`
 - [ ] 每篇論文都有 arxiv ID 和 `[arxiv]()` + `[alphaxiv]()` 雙連結
 - [ ] 「讀這篇前該知道的詞」有 4-6 個術語
 - [ ] 每篇的「深入要點」包含至少 1 個具體數字
