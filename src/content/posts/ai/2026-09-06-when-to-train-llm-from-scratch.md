@@ -8,14 +8,14 @@ lang: zh-TW
 series:
   name: "從零訓練一個 LLM"
   order: 6
-tldr: "從零訓練只在三種情況成立：你要學習訓練本身、你有開放模型沒見過的 10B+ 乾淨語料、或你需要全透明的訓練過程做研究。否則微調或 RAG 幾乎總是更便宜的答案。這篇把系列的六條路線收斂成一張成本梯度表與決策樹。"
+tldr: "從零訓練只在三種情況成立：你要學習訓練本身、你有開放模型沒見過的 10B+ 乾淨語料、或你需要全透明的訓練過程做研究。否則微調或 RAG 幾乎總是更便宜的答案。這篇把系列走過的主要路線收斂成一張成本梯度表與決策樹。"
 description: "「從零訓練一個 LLM」系列總結：從 3 元到 65B 的成本梯度、四種訓練動機對應的路線選擇、什麼時候不該從零訓練，以及整個系列的光譜回顧。"
 draft: false
 ---
 
 > 🌏 [English version](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en)
 
-這個系列走過了六條路線：3 塊錢的 [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch)、[100 美元的 nanochat](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c)、中文社群的小模型、榨乾每 token 價值的 YuLan-Mini、以及工業級全透明的 OLMo 3 與 LLM360。這篇收斂成一個問題：**你該走哪條路，或者根本不走。**
+這個系列走過的每條路線都可以用同一個透鏡看：3 塊錢的 [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch)、[100 美元的 nanochat](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c)、中文社群的小模型、榨乾每 token 價值的 YuLan-Mini、以及工業級全透明的 OLMo 3 與 LLM360。加上後續的國家級、效率與框架路線。這篇收斂成一個問題：**你該走哪條路，或者根本不走。**
 
 ## 成本梯度
 
@@ -34,7 +34,7 @@ draft: false
 
 ## 從這些專案學到的失敗模式
 
-六條路線反覆驗證了幾個同樣的教訓：
+這些路線反覆驗證了幾個同樣的教訓：
 
 - **資料比架構難**。每個專案的 README 裡，架構都只有幾頁，資料管線卻佔了大部分篇幅。MiniMind 為了統一資料格式重寫過三版；YuLan-Mini 的核心貢獻全部在資料課程；OLMo 乾脆把資料集做成一個獨立的開源專案（Dolma）。
 - **小模型的分數會說謊**。MiniMind 的評估章節展示了同一個模型在「有資料汙染」與「無汙染」條件下分數可以差到 97% 與 25%——差別不在能力，在測試集有沒有混進訓練資料。讀任何 from-scratch 專案的 benchmark 之前，先問資料汙染怎麼處理的。
@@ -79,4 +79,4 @@ draft: false
 - [LLM360 K2 論文](https://arxiv.org/pdf/2501.07124)
 - [SmolLM3 — Hugging Face](https://huggingface.co/HuggingFaceTB/SmolLM3-3B)
 - [Self-Training a Small LLM From Scratch (2026 Guide)](https://codersera.com/blog/self-training-small-llm-complete-guide-2026/)
-- 系列各篇：[order 0 導讀](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro)、[order 2 Karpathy 譜系](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c)、[order 3 中文社群路線](/posts/ai/2026-09-06-chinese-community-small-llm-training)、[order 4 YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining)、[order 5 全透明旗艦](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining)
+- 系列各篇：[order 0 導讀](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro)、[order 2 Karpathy 譜系](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c)、[order 3 中文社群路線](/posts/ai/2026-09-06-chinese-community-small-llm-training)、[order 4 YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining)、[order 5 全透明旗艦](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining)、[order 7 國家隊](/posts/ai/2026-09-06-national-multilingual-llm-training)、[order 8 效率邊緣](/posts/ai/2026-09-06-efficient-edge-llm-training)、[order 9 訓練框架](/posts/ai/2026-09-06-litgpt-from-scratch-framework)

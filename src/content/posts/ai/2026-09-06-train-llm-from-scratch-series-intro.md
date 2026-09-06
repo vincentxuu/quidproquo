@@ -8,14 +8,14 @@ lang: zh-TW
 series:
   name: "從零訓練一個 LLM"
   order: 0
-tldr: "開源社群把「從零訓練 LLM」的門檻壓到了驚人的低：MiniMind 用約 $0.4、單張 3090 兩小時就能跑完從 PreTrain 到 RL 的完整流程，另一端 OLMo 3 與 LLM360 K2 把 65B 模型的訓練資料、程式碼、每個階段的 checkpoint 全部公開。這個系列用 8 篇逛完從 $0.4 到 65B 的專案光譜，並標註這份地圖覆蓋不到的地方。"
-description: "「從零訓練一個 LLM」系列導讀：從 MiniMind 的 $0.4 教學專案到 LLM360 K2 65B 的完全復現，蒐集 9 個開源預訓練專案的成本與透明度，附覆蓋矩陣、偏誤標註與 8 篇學習路徑。"
+tldr: "開源社群把「從零訓練 LLM」的門檻壓到了驚人的低：MiniMind 用約 $0.4、單張 3090 兩小時就能跑完從 PreTrain 到 RL 的完整流程，另一端 OLMo 3 與 LLM360 K2 把 65B 模型的訓練資料、程式碼、每個階段的 checkpoint 全部公開。這個系列用 10 篇逛完從 $0.4 到 65B 的專案光譜，並標註這份地圖覆蓋不到的地方。"
+description: "「從零訓練一個 LLM」系列導讀：從 MiniMind 的 $0.4 教學專案到 LLM360 K2 65B 的完全復現，蒐集 13 個開源預訓練專案的成本與透明度，附覆蓋矩陣、偏誤標註與 10 篇學習路徑。"
 draft: false
 ---
 
 > 🌏 [English version](/en/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en)
 
-用 API 接 LLM 跟從零把一個 LLM 訓出來，是同一張地圖上的兩端。前者人人都試過；後者在幾年前還是「大廠限定」的活動——動輒上億美元預算、上千張 GPU。[MiniMind](https://github.com/jingyaogong/minimind) 把這條線拉到了約 $0.4（租一張 RTX 3090 兩小時的成本），另一端由 [LLM360 K2](https://github.com/LLM360/k2-train) 用 65B 參數、1.4T tokens 展示了「完全復現」的工業標準。這篇是「從零訓練一個 LLM」系列（8 篇）的導讀：先定義我們選了什麼專案、為什麼，再擺出成本光譜、覆蓋矩陣與偏誤標註，最後是整條學習路徑。
+用 API 接 LLM 跟從零把一個 LLM 訓出來，是同一張地圖上的兩端。前者人人都試過；後者在幾年前還是「大廠限定」的活動——動輒上億美元預算、上千張 GPU。[MiniMind](https://github.com/jingyaogong/minimind) 把這條線拉到了約 $0.4（租一張 RTX 3090 兩小時的成本），另一端由 [LLM360 K2](https://github.com/LLM360/k2-train) 用 65B 參數、1.4T tokens 展示了「完全復現」的工業標準。這篇是「從零訓練一個 LLM」系列（10 篇）的導讀：先定義我們選了什麼專案、為什麼，再擺出成本光譜、覆蓋矩陣與偏誤標註，最後是整條學習路徑。
 
 ## 本系列選了什麼
 
@@ -60,6 +60,8 @@ draft: false
 | 開放配方但規模較小 | SmolLM3、MiniCPM 等 | ⚠️ 部分提及 |
 | 研究用途退場 | Pythia、TinyLlama | ⚠️ 下面說明 |
 | 國家級／多語主權 | Apertus（瑞士）、LLM-jp（日本） | ✅ order 7 |
+| 效率／邊緣／多模態 | OpenELM（Apple）、MiniCPM（OpenBMB） | ✅ order 8 |
+| 從零訓練框架 | LitGPT（Lightning AI） | ✅ order 9 |
 | 非 Transformer 架構 | RWKV、Mamba 系 | ⚠️ order 7 對照段 |
 
 **退場案例**：本系列提到 [Pythia](https://github.com/EleutherAI/pythia)（EleutherAI 留下的 154 checkpoints 研究套組）與 [TinyLlama](https://github.com/jzhang38/TinyLlama)（1.1B、3T tokens），重點在於它們把任務做完後功成身退——Pythia 的價值在留給研究使用的中間權重，TinyLlama 則證明「小模型也能吃到 tokens 飽和」。它們是「過去式還在用的工具」，本系列只用來對照，不單獨成篇。
@@ -70,7 +72,7 @@ draft: false
 - **退場案例只有研究用途的 Pythia／TinyLlama**：本系列的「退場」指的是「完成任務後被迭代超車」，不是失敗紀錄。Pythia 的 154 個 checkpoints 至今仍是研究界動態分析的工具；TinyLlama 則把「1B 模型吃 3T tokens」的實驗跑完交卷。選它們是想說明：這個類別的淘汰通常意味著它把某件事做到了底。
 - **架構單一**：所有選案都是 Transformer。RWKV、Mamba 這些非注意力序列架構一度是熱門替代路線，但不符合本系列的「公開完整流程」選項，或者主流工具鏈沒有跟著走——想看替代架構，站上的 [CS336：Attention、MoE 與 Mamba](/posts/ai/2026-08-22-cs336-attention-moe) 是現成對照。
 
-## 8 篇弧線
+## 10 篇弧線
 
 ```
 $0.4 ──────────────────────────────→ 65B（數十萬美元級）
@@ -88,6 +90,8 @@ $0.4 ─────────────────────────
 | 5 | [OLMo 3 與 LLM360：完全開放的預訓練](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining) | checkpoint 級透明與完全復現 |
 | 6 | [什麼時候該從零訓練 LLM](/posts/ai/2026-09-06-when-to-train-llm-from-scratch) | 決策框架：把錢花在微調與 RAG 的對照 |
 | 7 | [國家隊的從零訓練：Apertus 與 LLM-jp](/posts/ai/2026-09-06-national-multilingual-llm-training) | 語言主權與法規合規路線 |
+| 8 | [效率與邊緣：OpenELM 與 MiniCPM](/posts/ai/2026-09-06-efficient-edge-llm-training) | 每參數效能與多模態部署 |
+| 9 | [從零訓練的框架：LitGPT](/posts/ai/2026-09-06-litgpt-from-scratch-framework) | 無抽象的從零實作骨架 |
 
 ## 怎麼讀
 
@@ -95,6 +99,8 @@ $0.4 ─────────────────────────
 - **研究派**：order 4 → 5。想要更扎實的底子，先讀 [CS336 課程導覽](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)——本系列的參照課程——再回來看實務上的成本與公開程度。
 - **決策者／預算管理者**：直接讀 order 6 的決策框架，再回頭補需要的個案。
 - **政策／合規角度**：order 7。非英語圈怎麼用國家級協作與資料治理換取主權與合法性，RWKV 當架構對照。
+- **效率／部署角度**：order 8。想在有限參數或多模態邊緣場景從零訓，OpenELM 與 MiniCPM 是裝備單。
+- **框架角度**：order 9。想用成熟工具從零重寫訓練而不是手寫每一行，LitGPT 是起點。
 
 每篇獨立可讀；但弧線的順序就是成本數量級與資料複雜度漸進，照著走最省力。
 

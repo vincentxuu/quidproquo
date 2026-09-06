@@ -8,14 +8,14 @@ lang: en
 series:
   name: "從零訓練一個 LLM"
   order: 6
-tldr: "Training from scratch only makes sense in three cases: you want to learn how training works, you have 10B+ clean tokens no open model has seen, or you need a fully transparent training process for research. Otherwise fine-tuning or RAG is almost always cheaper. This post collapses the series' six routes into one cost ladder and a decision tree."
+tldr: "Training from scratch only makes sense in three cases: you want to learn how training works, you have 10B+ clean tokens no open model has seen, or you need a fully transparent training process for research. Otherwise fine-tuning or RAG is almost always cheaper. This post collapses the series' main routes into one cost ladder and a decision tree."
 description: "The 'Train an LLM From Scratch' series conclusion: the cost ladder from $0.40 to 65B, which route matches which motivation, when not to train from scratch, and a recap of the whole spectrum."
 draft: false
 ---
 
 > [中文版](/posts/ai/2026-09-06-when-to-train-llm-from-scratch)
 
-This series walked six routes: [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) at $0.40, [nanochat at $100](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), the Chinese community's small models, YuLan-Mini squeezing value from every token, and the industrially fully-open OLMo 3 and LLM360. This post collapses them into one question: **which route should you take — or none at all.**
+Every route this series walked can be seen through one lens: [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) at $0.40, [nanochat at $100](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), the Chinese community's small models, YuLan-Mini squeezing value from every token, and the industrially fully-open OLMo 3 and LLM360 — plus the national, efficiency, and framework routes that followed. This post collapses them into one question: **which route should you take — or none at all.**
 
 ## The cost ladder
 
@@ -70,4 +70,4 @@ Recapping the spectrum: [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-fr
 - [LLM360 K2 paper](https://arxiv.org/pdf/2501.07124)
 - [SmolLM3 — Hugging Face](https://huggingface.co/HuggingFaceTB/SmolLM3-3B)
 - [Self-Training a Small LLM From Scratch (2026 Guide)](https://codersera.com/blog/self-training-small-llm-complete-guide-2026/)
-- Series posts: [order 0 intro](/en/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en), [order 2 Karpathy lineage](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), [order 3 Chinese community routes](/en/posts/ai/2026-09-06-chinese-community-small-llm-training-en), [order 4 YuLan-Mini](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en), [order 5 fully-open flagships](/en/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en)
+- Series posts: [order 0 intro](/en/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en), [order 2 Karpathy lineage](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), [order 3 Chinese community routes](/en/posts/ai/2026-09-06-chinese-community-small-llm-training-en), [order 4 YuLan-Mini](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en), [order 5 fully-open flagships](/en/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en), [order 7 national teams](/en/posts/ai/2026-09-06-national-multilingual-llm-training-en), [order 8 efficiency/edge](/en/posts/ai/2026-09-06-efficient-edge-llm-training-en), [order 9 training framework](/en/posts/ai/2026-09-06-litgpt-from-scratch-framework-en)

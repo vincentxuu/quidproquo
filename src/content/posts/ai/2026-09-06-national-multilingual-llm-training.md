@@ -46,7 +46,7 @@ draft: false
 
 ## 整體來說
 
-上一篇 [OLMo 3 與 LLM360](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining) 展示透明度的上限；這篇的兩個專案展示的其實是同一件事的另一面——**「開放」不只是研究者友善，也是一種主權策略**。Apertus 用合規換來部署的合法性（Swisscom、Public AI 網路都直接採用），LLM-jp 用國家協作換日文生態的自主性（[Rakuten AI 3.0](https://global.rakuten.com/corp/news/press/2026/0317_01.html) 這類商業模型也在同一個 GENIAC 框架下發展）。對系列最初的問題——什麼時候該從零訓練——這篇補上了第四個答案：**當你的需求是主權與合規，而開放模型給不了你時**。整個系列的收攏，見 [最終篇：什麼時候該自己訓 LLM](/posts/ai/2026-09-06-when-to-train-llm-from-scratch)。
+上一篇 [OLMo 3 與 LLM360](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining) 展示透明度的上限；這篇的兩個專案展示的其實是同一件事的另一面——**「開放」不只是研究者友善，也是一種主權策略**。Apertus 用合規換來部署的合法性（Swisscom、Public AI 網路都直接採用），LLM-jp 用國家協作換日文生態的自主性（[Rakuten AI 3.0](https://global.rakuten.com/corp/news/press/2026/0317_01.html) 這類商業模型也在同一個 GENIAC 框架下發展）。對系列最初的問題——什麼時候該從零訓練——這篇補上了第四個答案：**當你的需求是主權與合規，而開放模型給不了你時**。決策收斂見 [什麼時候該自己訓 LLM](/posts/ai/2026-09-06-when-to-train-llm-from-scratch)，後續兩篇補充效率路線與訓練框架。
 
 ## 參考資料
 
