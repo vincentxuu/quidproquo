@@ -35,5 +35,6 @@ Notes
 - **Q-015（2026-08-27）**：Tavily API 額度用盡（432），待人決定升級方案或改 skill fallback。
 - **Q-021（2026-09-05）**：daily-digest-benchmark 執行時 Groundlane 顯示 connected+enabledInChat 但查無工具，未產出當日 benchmark 文章，見 escalation-queue。
 - **Q-020（2026-09-06）**：同日 framework/funding/pricing/signals/report/arxiv/github 七支 routine 皆踩到「Groundlane connected+enabledInChat:true 但需認證、非互動 session 無法 OAuth」，均未產出，見 escalation-queue Q-020 尾端（github digest 額外確認 gh CLI 未裝、GitHub MCP scope 鎖死本 repo）。
+- **daily-digest-arxiv 2026-09-06 重跑**：Groundlane 已恢復可用（`ListConnectors`/`ToolSearch` 皆正常），但當天無新公告批次——arXiv `list/{cs.AI,cs.CL,cs.MA}/new` 仍顯示 Friday 2026-09-04 批次，ID 範圍與 2026-09-05 已完整篩選的批次完全重疊，依 skill Step 4a.4 冪等結束，不重選已見論文。未產文章，`.research/daily-arxiv-screening/2026-09-06.json` 已寫入 `status: no-publication` 說明。
 - **稽核方法的教訓**：計數一律用字界比對，跑稽核前先確認路徑存在。詳見 archive。
 - Stanford CS109 有 24 個 `draft: true` 檔案（Lecture 07–18 中英文），不在待 review 清單內。
