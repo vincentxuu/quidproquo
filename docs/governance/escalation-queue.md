@@ -200,6 +200,8 @@
 
 ---
 
+- **2026-09-06 第六次復現（來源：daily-digest-github routine 排程執行時發現）**：同一天再稍晚，`daily-digest-github` routine 也踩到完全相同的第三種失效模式，且是本 routine 特有的「三條路全被同時擋死」組合（同 2026-09-06 條目本身記錄的現象，這次是另一個 session 獨立重現）：(1) `ListConnectors(["groundlane"])` 回報 `{"installState":"connected","connected":true,"enabledInChat":true}`，但 `ToolSearch("groundlane web_search web_fetch web_extract")` 只回傳 `mcp__Exa__*`，查無任何 `mcp__groundlane__*`，且系統層級 deferred-tools 提示明確列出「Tavily, groundlane」需要認證、本 session 非互動無法跑 OAuth；(2) `which gh` 回 `command not found`，這個 CCR 容器未預裝 `gh` CLI；(3) 系統 Repository Scope 段落明寫 GitHub MCP 僅限 `vincentxuu/quidproquo`，daily-digest-github 需要查的 13 個框架 repo（`langchain-ai/langgraph`、`crewAIInc/crewAI`、`anthropics/claude-code` 等）與不限 owner 的 trending 搜尋全部超出範圍。確認冪等檢查：`${TODAY}`（Taipei）為 2026-09-06，`src/content/posts/daily/2026-09-06-ai-agent-github-digest.md` 尚不存在。三條路同時被擋死，無法查證任何 repo 的真實星數／release 日期／URL，比照同日 framework／funding／pricing／signals／report 五支 routine 的處置慣例，本次選擇**不產出 `2026-09-06-ai-agent-github-digest.md`、不 commit**，僅在此追加記錄，不另開新 Q 號。同日累計六支 routine（framework、funding、pricing、signals、report、github）中同一種失效模式，加強證實這是這一批排程 session 共用的 connector 認證問題，不是任何單一 routine 或本 repo 可單獨修復的。
+
 ## Q-021 Groundlane connector 顯示 `connected:true`＋`enabledInChat:true`，但 session 內查無任何 Groundlane 工具
 
 - 登錄：2026-09-05（來源：`daily-digest-benchmark` routine 執行時發現）
