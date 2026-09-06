@@ -62,6 +62,8 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 **在寫結論前**，把每個來源標上讀取程度（✅ 一手 / 🟡 摘要轉引 / 🔴 未讀），並註明阻礙原因。盤點表寫進 research note。結論依賴的來源還有 🔴 就在交接時明講。
 
+若來源可能跨文章或跨研究重複使用，接著呼叫 `research-source-registry`：建立六維 evidence profile，依 hard gates、discovery-only reasons 與 reuse cautions 決定處置；`reusable`／`conditional` 才能 upsert 到 `.research/source-registry.jsonl`。搜尋摘要、未讀頁與缺少主張邊界者只留在本輪 note。不得自行把 profile 轉成總分、真實機率或公認證據等級。
+
 ### 4. 交叉驗證
 
 把關鍵事實列成交叉表（`✅` / `⚠️ unverified` / `❌ conflict`）。
@@ -96,6 +98,7 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 ## 跟其他 skill 的關係
 
+- **deep-research → research-source-registry**：全文驗證後評價來源品質，將可重複使用且邊界清楚的來源沉澱到 registry
 - **deep-research → post**：研究完把草稿骨架交給 `post` skill（若已安裝）
 - **deep-research → post-update**：有相關既有文章時用 `post-update` 補進去
 - **deep-research vs ai-expert**：`ai-expert` 是「用已知回答」；`deep-research` 是「先查清楚再回」

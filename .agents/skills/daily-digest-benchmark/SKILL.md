@@ -44,10 +44,13 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 依環境可用性自動選擇，優先順序：
 1. **Groundlane MCP**（`web_search` / `web_fetch` / `web_extract`）— 首選
-2. **雲端 MCP fallback**（Groundlane 不可用或認證失敗時）— 依序嘗試：`Exa`、`Tavily`、`linkup`、`jina`、`firecrawl`
-3. **內建 `WebFetch`** — 最後手段
+2. **Groundlane 直接 HTTP**（MCP connector 不可用時）— 用 `WebFetch` POST `https://groundlane.vincent-xu-work.workers.dev/mcp`，繞過 claude.ai connector 層
+3. **Keenable keyless API**（`GET https://api.keenable.ai/v1/search/public`，Header: `X-Keenable-Title: quidproquo`）— 10 萬次/月免費，不需要 API key
+4. **You.com keyless**（`GET https://api.you.com/mcp?profile=free`）— 100 次/天免費，不需要 API key
+5. **雲端 MCP fallback**（以上皆不可用時）— 依序嘗試：`Exa`、`Tavily`、`linkup`、`jina`、`firecrawl`
+6. **內建 `WebFetch`** — 最後手段
 
-判斷方式：先 `ToolSearch` 查 Groundlane 工具是否存在且可呼叫；若不存在、認證失敗、或連續 3 次呼叫錯誤，自動降級到下一層。降級時在 screening record 或輸出中記錄 `toolDegradation: "groundlane unavailable, using Exa"` 等資訊，確保可追溯。
+判斷方式：先 `ToolSearch` 查 Groundlane MCP 工具是否存在且可呼叫；若不存在或認證失敗，嘗試直接 HTTP POST Groundlane；再失敗則嘗試 Keenable/You.com keyless API；仍失敗才用雲端 MCP 和內建 WebFetch。降級時在 screening record 或輸出中記錄 `toolDegradation: "groundlane unavailable, using Keenable keyless"` 等資訊，確保可追溯。
 
 **禁止的是**：不使用 `stealth_fetch`、`web-fetch/fetch_page`（已退役工具）。
 **不禁止的是**：在 Groundlane 不可用時使用 Exa/Tavily/linkup/jina/firecrawl 作為 fallback——這是全域規則允許的正常降級。
