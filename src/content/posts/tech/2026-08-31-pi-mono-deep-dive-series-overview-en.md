@@ -177,7 +177,7 @@ Topic-driven: Each part notes `Prerequisite: read order X first`, jump as needed
 | MCP Protocol | [MCP Protocol Complete Introduction](/posts/ai/2026-03-22-mcp-model-context-protocol-en) |
 | Cloudflare Workers / D1 / Vectorize | [Cloudflare Workers Complete Introduction](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en) |
 | TypeScript / ESM / tsgo | [TypeScript 7 Native Compiler](/posts/tech/2026-08-22-typescript-7-native-en) |
-| Differential Rendering / Virtual DOM | [Rivumi TUI Architecture](/posts/tech/2026-08-23-rivumi-tui-cli-ergonomics-en) |
+| Differential Rendering / Virtual DOM | [Looplane TUI Architecture](/posts/tech/2026-08-23-looplane-tui-cli-ergonomics-en) |
 
 ---
 
