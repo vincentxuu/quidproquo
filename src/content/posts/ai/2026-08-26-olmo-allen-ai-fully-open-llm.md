@@ -7,6 +7,9 @@ tags: [llm, open-source, olmo, allen-ai, training-data, dolma]
 lang: zh-TW
 tldr: "Allen AI 的 OLMo 是目前唯一把權重、訓練資料（Dolma，9.3 兆 token）、訓練程式碼、所有中間 checkpoint 和評估工具全部公開的語言模型家族。OLMo 3 的 32B Think 模型在 MATH 跑到 96.1%，同時你可以用 OlmoTrace 追溯任何輸出回到訓練資料的哪一段。"
 description: "Allen AI OLMo 模型家族深入介紹：從 Dolma 資料集到 OLMo 3 的完整 model flow，為什麼訓練資料開源在研究上有不可替代的意義。"
+series:
+  name: "從零訓練一個 LLM"
+  order: 5
 draft: false
 ---
 

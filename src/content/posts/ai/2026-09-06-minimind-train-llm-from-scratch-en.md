@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [minimind, llm, training, open-source, pytorch, pre-training, sft, lora, dpo, grpo, moe, reinforcement-learning]
 lang: en
+series:
+  name: "從零訓練一個 LLM"
+  order: 1
 tldr: "MiniMind is an open-source project for training LLMs from scratch: a 64M Dense model and a 198M-A64M MoE model that run the entire chain — Pretrain → SFT → LoRA → DPO → PPO/GRPO/CISPO → Agentic RL — in ~2 hours on a single RTX 3090 at roughly 3 RMB (~$0.40). Every core algorithm is implemented natively in PyTorch with no high-level wrappers."
 description: "A deep dive into the MiniMind open-source project: its from-scratch LLM training chain, model architecture tradeoffs, training costs, honest evaluation results, and ecosystem integration."
 draft: false

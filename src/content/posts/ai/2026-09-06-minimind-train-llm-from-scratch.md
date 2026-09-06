@@ -5,6 +5,9 @@ category: ai
 type: deep-dive
 tags: [minimind, llm, training, open-source, pytorch, pre-training, sft, lora, dpo, grpo, moe, reinforcement-learning]
 lang: zh-TW
+series:
+  name: "從零訓練一個 LLM"
+  order: 1
 tldr: "MiniMind 是一個從零開始訓練 LLM 的開源專案：64M 的 Dense 模型與 198M-A64M 的 MoE 模型，單張 3090 約 2 小時、約 3 元人民幣就能跑完 Pretrain → SFT → LoRA → DPO → PPO/GRPO/CISPO → Agentic RL 的完整流程。所有核心演算法用 PyTorch 原生實作，不依賴高階封裝。"
 description: "深度解析 MiniMind 開源專案：從 Pretrain 到 Agentic RL 的完整 LLM 訓練流程、模型架構取捨、訓練成本、誠實的評估結果與生態整合。"
 draft: false

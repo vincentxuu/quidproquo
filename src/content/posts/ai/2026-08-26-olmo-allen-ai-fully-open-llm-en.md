@@ -7,6 +7,9 @@ tags: [llm, open-source, olmo, allen-ai, training-data, dolma]
 lang: en
 tldr: "Allen AI's OLMo is the only language model family that fully publishes weights, training data (Dolma, 9.3T tokens), training code, all intermediate checkpoints, and evaluation tools. OLMo 3's 32B Think model hits 96.1% on MATH — and you can use OlmoTrace to trace any output back to the exact training data that produced it."
 description: "A deep dive into Allen AI's OLMo model family: from the Dolma dataset to OLMo 3's complete model flow, and why open-sourcing training data has irreplaceable research significance."
+series:
+  name: "從零訓練一個 LLM"
+  order: 5
 draft: false
 ---
 
