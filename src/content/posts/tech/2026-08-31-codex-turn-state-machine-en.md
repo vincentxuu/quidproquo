@@ -8,7 +8,7 @@ description: "深入解析 Codex 單一 turn 內部架構：TurnContext 如何�
 tldr: "TurnContext 在 turn 初始化時捕獲所有設定（模型、審批、token budget），後續 step 透過 StepContext 讀取快照；StepActivation 驗證設定變更不違反 legacy 安全約束；ContextManager 用 Arc<Vec> + 版本號實現 Copy-on-Write 歷史共享；壓縮觸發條件為 token_remaining < threshold，支援 remote v1/v2、local、model fallback 四條路徑。"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-codex-turn-state-machine)
+> 🌏 中文版撰寫中
 
 ## TL;DR
 

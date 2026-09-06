@@ -8,7 +8,7 @@ description: "深入解析 OpenAI Codex 的 Rust 單體倉庫架構：Bazel + Ca
 tldr: "Codex 以 Bazel 管理 140+ Rust crate，核心分為 core/tui/exec-server/protocol 四大塊；沙箱用 codex_sandboxing 統一 macOS Seatbelt、Linux Landlock/bwrap、Windows 沙箱三平台介面；exec-server 以 JSON-RPC + Noise Relay 實現遠端執行。"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-codex-architecture-overview)
+> 🌏 中文版撰寫中
 
 ## TL;DR
 

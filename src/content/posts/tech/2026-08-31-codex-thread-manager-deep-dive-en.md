@@ -8,7 +8,7 @@ description: "深入解析 Codex ThreadManager：ThreadManagerState 共享狀態
 tldr: "ThreadManager 持有 Arc<ThreadManagerState> 統管所有 thread，spawn_thread() 統一處理新建/恢復/分叉/子代理四種啟動路徑；ForkSnapshot 定義 TruncateBeforeNthUserMessage/Interrupted 兩種語義；AgentControl 透過 Weak<ThreadManagerState> 避免循環引用；agent_graph_store 追蹤 ThreadSpawnEdgeStatus::Open/Closed。"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-codex-thread-manager-deep-dive)
+> 🌏 中文版撰寫中
 
 ## TL;DR
 
