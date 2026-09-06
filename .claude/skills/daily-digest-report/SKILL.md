@@ -45,9 +45,17 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
-### Groundlane 工具契約
+### 搜尋工具 fallback 鏈（遵循全域規則）
 
-公開網頁研究與抓取一律使用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀已知 URL 或全文、`web_extract` 做 selector/table 欄位抽取。若最外層 tool list 沒看到 Groundlane，先檢查完整 callable tool inventory（含 deferred MCP tools）；仍沒有就回報 blocker。若 Groundlane 已掛載但 authorization 失敗，回報 blocker，並請使用者依 Groundlane free API / free tier 使用方式完成授權或修正 connector credential。不要自行改用 `web.run`、WebFetch、Playwright scraping、Exa、Tavily、Firecrawl、Jina、Linkup、`stealth_fetch`、`web-fetch` 或 `fetch_page`。
+依環境可用性自動選擇，優先順序：
+1. **Groundlane MCP**（`web_search` / `web_fetch` / `web_extract`）— 首選
+2. **雲端 MCP fallback**（Groundlane 不可用或認證失敗時）— 依序嘗試：`Exa`、`Tavily`、`linkup`、`jina`、`firecrawl`
+3. **內建 `WebFetch`** — 最後手段
+
+判斷方式：先 `ToolSearch` 查 Groundlane 工具是否存在且可呼叫；若不存在、認證失敗、或連續 3 次呼叫錯誤，自動降級到下一層。降級時在 screening record 或輸出中記錄 `toolDegradation: "groundlane unavailable, using Exa"` 等資訊，確保可追溯。
+
+**禁止的是**：不使用 `stealth_fetch`、`web-fetch/fetch_page`（已退役工具）。
+**不禁止的是**：在 Groundlane 不可用時使用 Exa/Tavily/linkup/jina/firecrawl 作為 fallback——這是全域規則允許的正常降級。
 
 ---
 
