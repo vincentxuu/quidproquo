@@ -3,12 +3,12 @@ title: "Codex ThreadManager：核心協調者的生命週期、分叉語義與 S
 date: 2026-08-31
 category: tech
 tags: [codex, rust, thread-manager, agent-loop, fork, resume, subagent, architecture]
-lang: en
+lang: zh-TW
 description: "深入解析 Codex ThreadManager：ThreadManagerState 共享狀態、start_thread/spawn_thread 流程、ForkSnapshot 三種分叉模式、AgentControl 如何 downgrade 存取、subagent 圖譜追蹤。"
 tldr: "ThreadManager 持有 Arc<ThreadManagerState> 統管所有 thread，spawn_thread() 統一處理新建/恢復/分叉/子代理四種啟動路徑；ForkSnapshot 定義 TruncateBeforeNthUserMessage/Interrupted 兩種語義；AgentControl 透過 Weak<ThreadManagerState> 避免循環引用；agent_graph_store 追蹤 ThreadSpawnEdgeStatus::Open/Closed。"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-codex-thread-manager-deep-dive)
+> 🌏 [English version](/posts/tech/2026-08-31-codex-thread-manager-deep-dive-en)
 
 ## TL;DR
 
@@ -150,7 +150,7 @@ pub enum ForkSnapshot {
 
 | ForkSnapshot | 適用場景 | 行為 |
 |-------------|---------|------|
-| `TruncateBeforeNthUserMessage(n)` | 用戶想「從第 n 輪對話重來」 | 嚴格切在 user message 邊界；超出範圍且源 thread 在 mid-turn 時，切在當前 turn 開頭，丟掉未完成 turn |
+| `TruncateBeforeNthUserMessage(n)` | 使用者想「從第 n 輪對話重來」 | 嚴格切在 user message 邊界；超出範圍且源 thread 在 mid-turn 時，切在當前 turn 開頭，丟掉未完成 turn |
 | `Interrupted` | `/fork`、`spawn_subagent` | 若源歷史在 mid-turn，補上 `<turn_aborted>` marker（同真實 interrupt）；已在 turn boundary 則不變 |
 
 實作在 `fork_history_from_snapshot`（2277-2308 行）：
@@ -288,7 +288,7 @@ pub trait AgentGraphStore: Send + Sync {
 1. **服務集中在 `ThreadManagerState`**——`spawn_thread` 一次 `Arc::clone` 所有服務傳給 `Session`，避免層層傳參
 2. **`ThreadSpawnRequest` 封裝所有變數**——`initial_history`、`session_source`、`fork_persistence`、`parent_thread_id`……四大路徑只需組裝不同的 Request
 3. **`Weak<ThreadManagerState>` 打破循環**——`AgentControl` 讓 thread 能向上委派，不持有強引用
-4. **`ForkSnapshot` 精確定義分叉語義**——`TruncateBeforeNthUserMessage` 給用戶可控制的切點，`Interrupted` 給系統級分叉（fork/subagent）
+4. **`ForkSnapshot` 精確定義分叉語義**——`TruncateBeforeNthUserMessage` 給使用者可控制的切點，`Interrupted` 給系統級分叉（fork/subagent）
 5. **`AgentGraphStore` 獨立持久化關係**——SQLite 記錄邊狀態，記憶體補充活躍子代理，查詢時合併
 
 ---
