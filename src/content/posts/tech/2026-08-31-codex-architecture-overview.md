@@ -3,12 +3,12 @@ title: "Codex 架構總覽：Rust Monorepo、Bazel 建構、跨平台沙箱"
 date: 2026-08-31
 category: tech
 tags: [codex, rust, bazel, sandbox, architecture, coding-agent]
-lang: en
+lang: zh-TW
 description: "深入解析 OpenAI Codex 的 Rust 單體倉庫架構：Bazel + Cargo 雙建構系統、四大核心 crate 分工、跨平台沙箱抽象層（Seatbelt/Landlock/Windows），以及 exec-server 的遠端執行協議。"
 tldr: "Codex 以 Bazel 管理 140+ Rust crate，核心分為 core/tui/exec-server/protocol 四大塊；沙箱用 codex_sandboxing 統一 macOS Seatbelt、Linux Landlock/bwrap、Windows 沙箱三平台介面；exec-server 以 JSON-RPC + Noise Relay 實現遠端執行。"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-codex-architecture-overview)
+> 🌏 [English version](/posts/tech/2026-08-31-codex-architecture-overview-en)
 
 ## TL;DR
 

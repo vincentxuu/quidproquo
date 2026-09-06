@@ -3,19 +3,19 @@ title: "Codex Turn 狀態機：TurnContext、StepActivation、Context Manager �
 date: 2026-08-31
 category: tech
 tags: [codex, rust, turn-context, step-activation, context-manager, compaction, token-budget, agent-loop]
-lang: en
+lang: zh-TW
 description: "深入解析 Codex 單一 turn 內部架構：TurnContext 如何凍結初始設定、StepActivation 如何驗證設定變更、Context Manager 以 Arc<Vec> 共享歷史、TokenBudget 怎麼解析模型預設值、四種壓縮策略何時觸發。"
 tldr: "TurnContext 在 turn 初始化時捕獲所有設定（模型、審批、token budget），後續 step 透過 StepContext 讀取快照；StepActivation 驗證設定變更不違反 legacy 安全約束；ContextManager 用 Arc<Vec> + 版本號實現 Copy-on-Write 歷史共享；壓縮觸發條件為 token_remaining < threshold，支援 remote v1/v2、local、model fallback 四條路徑。"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-codex-turn-state-machine)
+> 🌏 [English version](/posts/tech/2026-08-31-codex-turn-state-machine-en)
 
 ## TL;DR
 
 - **TurnContext**：turn 級不可變快照，`initial_settings: Arc<ResolvedStepSettings>` 凍結模型/審批/token budget；`current_settings: ArcSwap` 供步級更新
 - **StepActivation**：`check_legacy_turn_safety` 驗證 step 設定變更不改動「已承認」的審批政策、模型分類、prefix rules
 - **ContextManager**：`items: Arc<Vec<ResponseItemEnvelope>>` + `history_version`，Copy-on-Write 共享歷史；`token_info` 追蹤剩餘 token
-- **TokenBudget**：`resolve_token_budget` 先看用戶显式設定，再套用模型 `model_messages.token_budget` 預設值
+- **TokenBudget**：`resolve_token_budget` 先看使用者显式設定，再套用模型 `model_messages.token_budget` 預設值
 - **四種壓縮**：`run_remote_compact_task` (v1)、`run_inline_remote_auto_compact_task` (v2)、本地摘要、`compact_model_fallback`，依 `CompactionReason`/`CompactionPhase` 分派
 
 ---
@@ -89,7 +89,7 @@ pub struct TurnContext {
 **關鍵設計**：
 - `initial_settings` **只在 turn 初始化時建立一次**，之後**不再變更**——所有「legacy consumers」（如 `tools::approvals`、`guardian::review`）讀取這個快照，保證整輪 turn 審批政策一致
 - `current_settings: ArcSwap` 允許**步級更新**（如模型 fallback 後切換模型），新 step 捕獲新快照
-- `configured_token_budget` + `use_model_token_budget_defaults` 兩階段解析：先記錄用戶是否顯式設定，再決定是否套用模型預設值
+- `configured_token_budget` + `use_model_token_budget_defaults` 兩階段解析：先記錄使用者是否顯式設定，再決定是否套用模型預設值
 
 ### 2. StepActivation：受控設定變更驗證
 
@@ -184,8 +184,8 @@ pub(super) fn resolve_token_budget(
 ```
 
 **流程**：
-1. Turn 初始化時，`has_explicit_settings` 檢測用戶是否在 config 寫了 `token_budget` → 決定 `use_model_token_budget_defaults`
-2. 第一個 step 建立時，`resolve_token_budget` 合併用戶值 + 模型預設值 → 寫入 `TurnContext.initial_settings.token_budget`
+1. Turn 初始化時，`has_explicit_settings` 檢測使用者是否在 config 寫了 `token_budget` → 決定 `use_model_token_budget_defaults`
+2. 第一個 step 建立時，`resolve_token_budget` 合併使用者值 + 模型預設值 → 寫入 `TurnContext.initial_settings.token_budget`
 3. 壓縮時，`maybe_record` 讀取 `token_info.base_window_tokens_remaining` 決定是否觸發 auto-compact
 
 ### 5. 四種壓縮策略
@@ -194,7 +194,7 @@ pub(super) fn resolve_token_budget(
 |------|----------|----------|------|
 | **Remote v1** | `run_remote_compact_task` | `CompactionReason::Auto` + `phase: Initial` | 傳完整歷史給模型，模型回傳壓縮後 transcript |
 | **Remote v2 (Auto)** | `run_inline_remote_auto_compact_task` | `CompactionReason::Auto` + `phase: Inline` | 內嵌於 step 循環，支援 fallback step context |
-| **Remote v2 (Manual)** | 同上 | `CompactionReason::Manual` | 用戶手動 `/compact` 觸發 |
+| **Remote v2 (Manual)** | 同上 | `CompactionReason::Manual` | 使用者手動 `/compact` 觸發 |
 | **Local Fallback** | `compact_model_fallback::run_local_compact_task` | Remote 失敗或模型不支援 | 本地啟發式截斷（保留最近 N 輪、系統指令、工具結果摘要） |
 | **Model Fallback** | `compact_model_fallback` | Remote 模型回傳錯誤 | 切換到支援壓縮的模型重試 |
 
@@ -221,7 +221,7 @@ pub(super) async fn maybe_record(
 **壓縮後處理**（`compact_remote.rs:313-399`）：
 - `process_compacted_history`：模型回傳的 `compacted_history` 可能包含舊 `developer` 訊息、包裝用的 `user` 訊息 → `should_keep_compacted_history_item` 過濾
 - 保留：真實 `user` 訊息、`assistant` 訊息、壓縮生成的 summary、`hook` prompts
-- 丟棄：舊 `developer` 指令、非用戶內容的 `user` 訊息
+- 丟棄：舊 `developer` 指令、非使用者內容的 `user` 訊息
 - 最後 `ContextManager::replace_history(Compaction, filtered_items)` 替換歷史
 
 ---
@@ -234,7 +234,7 @@ Codex 以 **「Turn 級快照 + Step 級捕獲 + Copy-on-Write 歷史 + 兩階�
 2. **StepContext 捕獲當下快照**——新 step 讀取 `current_settings`（可能已被前一 step 更新），實現受控演進
 3. **StepActivation 守門**——任何設定變更必須通過 `check_legacy_turn_safety`，保證不破壞 legacy consumer 假設
 4. **ContextManager 共享歷史**——`Arc<Vec>` 讓多 consumer（模型推論、壓縮任務、匯出）同時讀取零複製；寫入時才複製
-5. **TokenBudget 分層解析**——用戶顯式值 > 模型預設值 > 無限制，壓縮閾值從合併結果計算
+5. **TokenBudget 分層解析**——使用者顯式值 > 模型預設值 > 無限制，壓縮閾值從合併結果計算
 6. **壓縮策略可插拔**——Remote v1/v2、Local、Model Fallback 四條路徑，依 `CompactionReason`/`CompactionPhase` 分派
 
 ---
@@ -243,11 +243,11 @@ Codex 以 **「Turn 級快照 + Step 級捕獲 + Copy-on-Write 歷史 + 兩階�
 
 | 設計決策 | 根因 |
 |----------|------|
-| `initial_settings` + `current_settings` 雙層 | 兼容 legacy consumer（讀初始）與新架構（讀步級），避免一次性重寫所有 consumer |
+| `initial_settings` + `current_settings` 雙層 | 相容 legacy consumer（讀初始）與新架構（讀步級），避免一次性重寫所有 consumer |
 | `ArcSwap<ResolvedStepSettings>` | 無鎖讀取、原子更新，適合「讀多寫少」的步級設定 |
 | `Arc<Vec>` + `history_version` | 歷史在 turn 內**只增不減**（除非壓縮/重置），Copy-on-Write 完美契合 |
-| `user_message_revision` 獨立於 `history_version` | 壓縮不改變「第幾條用戶訊息」，reset 才遞增——支援 `fork_thread(TruncateBeforeNthUserMessage)` 精確定位 |
-| 四種壓縮並存 | 不同模型支援度不同、網路可能失效、用戶可能手動觸發，需完整 fallback 鏈 |
+| `user_message_revision` 獨立於 `history_version` | 壓縮不改變「第幾條使用者訊息」，reset 才遞增——支援 `fork_thread(TruncateBeforeNthUserMessage)` 精確定位 |
+| 四種壓縮並存 | 不同模型支援度不同、網路可能失效、使用者可能手動觸發，需完整 fallback 鏈 |
 | `should_keep_compacted_history_item` 精細過濾 | 遠端模型回傳的 transcript 含大量噪聲（舊指令、包裝訊息），必須在本地清洗 |
 
 ---
@@ -256,7 +256,7 @@ Codex 以 **「Turn 級快照 + Step 級捕獲 + Copy-on-Write 歷史 + 兩階�
 
 1. **「凍結初始、捕獲當下」是處理長流程設定一致性的經典模式**——TurnContext/StepContext 分層對應 HTTP Request/Handler 的關係
 2. **Copy-on-Write 歷史向量**——當「讀取頻率 ≫ 寫入頻率」且「寫入多為尾部追加或整體替換」時，`Arc<Vec>` + 版本號極其高效
-3. **Token Budget 兩階段解析**——「用戶顯式值」與「模型預設值」分離，避免「用戶設為 0 卻被模型預設值覆蓋」的 bug
+3. **Token Budget 兩階段解析**——「使用者顯式值」與「模型預設值」分離，避免「使用者設為 0 卻被模型預設值覆蓋」的 bug
 4. **壓縮是「模型呼叫」而非本地演算法**——將壓縮委託給模型（Remote），本地只做 fallback，符合「模型最懂什麼重要」原則
 5. **Legacy 安全檢查是遷移期的必要之惡**——明確標註 `Temporary`、列出移除條件，避免永久殘留
 
