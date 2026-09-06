@@ -177,7 +177,7 @@ session-backends/sqlite-node
 | MCP 協定 | [MCP 協定完整介紹](/posts/ai/2026-03-22-mcp-model-context-protocol) |
 | Cloudflare Workers / D1 / Vectorize | [Cloudflare Workers 完整介紹](/posts/tech/2026-03-27-cloudflare-workers-edge-compute) |
 | TypeScript / ESM / tsgo | [TypeScript 7 Native 編譯器](/posts/tech/2026-08-22-typescript-7-native-en) |
-| Differential Rendering / Virtual DOM | [Looplane TUI 架構](/posts/tech/2026-08-23-looplane-tui-cli-ergonomics-en) |
+| Differential Rendering / Virtual DOM | [Looplane TUI 架構](/posts/tech/2026-08-23-looplane-tui-cli-ergonomics) |
 
 ---
 
