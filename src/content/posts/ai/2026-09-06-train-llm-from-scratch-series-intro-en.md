@@ -8,14 +8,14 @@ lang: en
 series:
   name: "從零訓練一個 LLM"
   order: 0
-tldr: "Open-source projects have pushed the cost of training an LLM from scratch absurdly low: MiniMind runs the full PreTrain-to-RL pipeline for about $0.4 (2 hours on a single RTX 3090), while at the other end OLMo 3 and LLM360 K2 publish everything — data, code, and stage-by-stage checkpoints of 65B models. This series walks the whole project spectrum from $0.4 to 65B in 7 articles, and flags where the map is biased."
-description: "Series introduction for 'Training an LLM from Scratch': 7 articles covering the open-source pre-training project spectrum — cost, data, and transparency — from MiniMind's $0.4 tutorial project to LLM360 K2's fully reproducible 65B run, with a coverage matrix, bias annotations, and a reading path."
+tldr: "Open-source projects have pushed the cost of training an LLM from scratch absurdly low: MiniMind runs the full PreTrain-to-RL pipeline for about $0.4 (2 hours on a single RTX 3090), while at the other end OLMo 3 and LLM360 K2 publish everything — data, code, and stage-by-stage checkpoints of 65B models. This series walks the whole project spectrum from $0.4 to 65B in 8 articles, and flags where the map is biased."
+description: "Series introduction for 'Training an LLM from Scratch': 8 articles covering the open-source pre-training project spectrum — cost, data, and transparency — from MiniMind's $0.4 tutorial project to LLM360 K2's fully reproducible 65B run, with a coverage matrix, bias annotations, and a reading path."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro)
 
-Calling an LLM through an API and training one from scratch are the two ends of the same map. Everyone has tried the former; a few years ago the latter was a "big-lab-only" activity — billion-dollar budgets and thousands of GPUs. [MiniMind](https://github.com/jingyaogong/minimind) pulled that line down to about $0.4 (the cost of renting one RTX 3090 for two hours), while at the other end [LLM360 K2](https://github.com/LLM360/k2-train) shows what "fully reproducible" looks like at industrial scale: 65B parameters, 1.4T tokens. This is the introduction to the "Training an LLM from Scratch" series (7 articles): first we define what we selected and why, then lay out the cost spectrum, the coverage matrix, and the bias annotations, and finally the learning path.
+Calling an LLM through an API and training one from scratch are the two ends of the same map. Everyone has tried the former; a few years ago the latter was a "big-lab-only" activity — billion-dollar budgets and thousands of GPUs. [MiniMind](https://github.com/jingyaogong/minimind) pulled that line down to about $0.4 (the cost of renting one RTX 3090 for two hours), while at the other end [LLM360 K2](https://github.com/LLM360/k2-train) shows what "fully reproducible" looks like at industrial scale: 65B parameters, 1.4T tokens. This is the introduction to the "Training an LLM from Scratch" series (8 articles): first we define what we selected and why, then lay out the cost spectrum, the coverage matrix, and the bias annotations, and finally the learning path.
 
 ## What this series covers
 
@@ -59,14 +59,14 @@ Framed as a matrix, you can see which dimensions this series has a dedicated par
 | Industrial full openness | OLMo 3, LLM360 K2 | ✅ part 5 |
 | Open recipe but smaller scale | SmolLM3, MiniCPM, etc. | ⚠️ partially covered |
 | Retired research tools | Pythia, TinyLlama | ⚠️ discussed below |
-| Non-Transformer architectures | RWKV, Mamba family | ❌ not covered |
-| Non-English / non-Chinese circles | LLM-jp, etc. | ❌ not covered |
+| National / multilingual sovereignty | Apertus (Switzerland), LLM-jp (Japan) | ✅ part 7 |
+| Non-Transformer architectures | RWKV, Mamba family | ⚠️ contrast section in part 7 |
 
 **Retired cases**: we mention [Pythia](https://github.com/EleutherAI/pythia) (EleutherAI's 154-checkpoint research suite) and [TinyLlama](https://github.com/jzhang38/TinyLlama) (1.1B, 3T tokens), not because they broke, but because they finished their job and retired gracefully — Pythia's value lies in the intermediate checkpoints it left for research; TinyLlama proved "small models can also eat tokens to saturation." They are "past-tense tools still in use," used here only as reference points.
 
 ## Bias note: what this map omits
 
-- **GitHub-star-selected population**: selection leans heavily toward English and Chinese circles (GitHub's star mechanism inherently favors large language markets), so projects from non-English, non-mainstream communities are easily missed — [LLM-jp](https://huggingface.co/llm-jp) has a complete Japanese ecosystem and high openness but did not make the cut on stars and mindshare alone. This is a known gap in this survey.
+- **GitHub-star-selected population**: selection leans heavily toward English and Chinese circles (GitHub's star mechanism inherently favors large language markets), so projects from non-English, non-mainstream communities are easily missed — [LLM-jp](https://huggingface.co/llm-jp) has a complete Japanese ecosystem and high openness but did not make the cut on stars and mindshare alone. This is a known gap in this survey. **(Update)**: this gap has been closed by part 7 — the two national-scale cases, Apertus and LLM-jp, are now part of the series.
 - **Retired cases are only research-oriented Pythia/TinyLlama**: "retired" here means "finished the job and got overtaken," not failed. Pythia's 154 checkpoints remain tools for studying learning dynamics; TinyLlama delivered the experiment "a 1B model trained on 3T tokens." Including them shows that obsolescence in this category usually means someone did something to completion.
 - **Architecturally one-sided**: every selection is a Transformer. RWKV and Mamba-style non-attention sequence models were once hot alternative paths but aren't part of the "fully open pipeline" selection here (or the main toolchains didn't follow) — for alternatives, [CS336: Attention, MoE, and Mamba](/en/posts/ai/2026-08-22-cs336-attention-moe-en) on this site is an existing match.
 
@@ -87,12 +87,14 @@ English → Chinese → academic data-efficiency ──→ industrial transparen
 | 4 | [YuLan-Mini: data-efficient pretraining](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) | 1.08T vs larger budgets: recipe and ablations |
 | 5 | [OLMo 3 and LLM360: fully open pretraining](/en/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en) | checkpoint-grade transparency and full reproducibility |
 | 6 | [When to train an LLM from scratch](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en) | decision framework: fine-tuning vs RAG, and when NOT to |
+| 7 | [National-team training: Apertus and LLM-jp](/en/posts/ai/2026-09-06-national-multilingual-llm-training-en) | language sovereignty and the compliance route |
 
 ## How to read this
 
 - **Hands-on readers**: parts 1 (MiniMind) → 2 (Karpathy) → 3 (Chinese community). Run the README once and you will have first-hand experience with training "your own" model from scratch.
 - **Research readers**: parts 4 → 5. For a solid theoretical base, first read the [CS336 overview](/en/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) — the reference course of this series — then come back for the cost and openness reality.
 - **Decision-makers / budget holders**: read part 6's decision framework first, then backfill the cases you need.
+- **Policy / compliance angle**: part 7. How non-English communities trade national-scale collaboration and data governance for sovereignty and legitimacy, with RWKV as the architecture contrast.
 
 Each part is self-contained, but the arc's order follows the graduation of cost magnitude and data complexity; following it is the least tiring path.
 
