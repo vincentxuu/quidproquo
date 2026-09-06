@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-06",
+  "status": "no-publication",
+  "selectedCount": 0,
+  "announcementBatch": "2026-09-04",
+  "announcementSources": [
+    "https://arxiv.org/list/cs.AI/new",
+    "https://arxiv.org/list/cs.CL/new",
+    "https://arxiv.org/list/cs.MA/new"
+  ],
+  "note": "2026-09-06 (Sunday, Taipei) has no new arXiv announcement; arxiv.org/list/{cs.AI,cs.CL,cs.MA}/new all still show 'Showing new listings for Friday, 4 September 2026'. Confirmed via web_extract on cs.AI/new that the new-submission ID range (2609.02981-2609.04198) is identical to, and fully contained within, the range already screened by the 2026-09-05 run (recorded there as covering ~2609.02889-2609.04199, selectedCount 3: 2609.04170, 2609.03035, 2609.03340 — all three already appended to seen-arxiv-ids.txt on 2026-09-05). Per skill Step 4a.4 ('若最新批次已完整篩選，冪等結束，不重選已見論文'), this is an idempotent stop, not a fresh 0-candidate screening round: no new candidate pool exists to screen today. No digest produced, no re-selection attempted, seen-arxiv-ids.txt not modified (nothing new to append). This also resolves the tool-availability blocker recorded earlier today in docs/governance/escalation-queue.md Q-020 (arxiv entry) — Groundlane web_search/web_fetch/web_extract are now loaded and working correctly (ListConnectors + ToolSearch both confirm mcp__groundlane__* tools available), but the outcome is unaffected because there was no new batch to fetch regardless.",
+  "generatedAt": "2026-09-06T00:00:00+08:00",
+  "candidates": []
+}
