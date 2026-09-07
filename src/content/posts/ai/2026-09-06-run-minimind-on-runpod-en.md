@@ -78,11 +78,11 @@ You need two files: `pretrain_t2t_mini.jsonl` (1.2GB) and `sft_t2t_mini.jsonl` (
 
 One heads-up: the dataset viewer on that page is currently broken — the HF worker throws a `DatasetGenerationError` because the jsonl files have inconsistent schemas (dpo.jsonl uses `chosen/rejected`, SFT files use `conversations`). So don't try `load_dataset()` on the whole repo; fetch the two files directly.
 
-Option 1, the HuggingFace CLI for specific files:
+Option 1, the HuggingFace CLI for specific files (note: the old `huggingface-cli` entry point is deprecated and no longer works — recent versions only ship `hf`):
 
 ```bash
 pip install -U huggingface_hub
-huggingface-cli download jingyaogong/minimind_dataset \
+hf download jingyaogong/minimind_dataset \
   pretrain_t2t_mini.jsonl sft_t2t_mini.jsonl \
   --repo-type dataset --local-dir ./dataset
 ```

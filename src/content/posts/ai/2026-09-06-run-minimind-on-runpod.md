@@ -51,7 +51,7 @@ Pod 開好後，在 pod 的 **Connect** 分頁複製 SSH 指令。有公開 IP �
 ssh root@<POD_IP> -p <PORT> -i ~/.ssh/id_ed25519
 ```
 
-使用者固定是 `root`，IP 與 port 每次 pod 不同，直接複製 console 給的指令最保險。連上後會落在容器內，工作目錄慣例用 `/workspace`（這個路徑在 pod 重建後仍可掛回，訓練產物放這裡）。
+使用者固定是 `root`，IP 與 port 每次 pod 不同，直接複製 console 給的指令最保險。連上後會落在容器內，工作目錄慣例用 `/workspace`（pod 停止或重啟後資料仍在，terminate 掉就沒了——訓練產物放這裡，收工前記得抓回本機）。
 
 ## Step 3：抓程式碼、裝環境
 
@@ -78,11 +78,11 @@ python -c "import torch; print(torch.cuda.is_available())"
 
 順帶一提：這個資料集頁的 dataset viewer 目前是壞的——HF worker 報 `DatasetGenerationError`，因為資料夾裡各 jsonl 的欄位結構不一致（dpo.jsonl 用 `chosen/rejected`，SFT 用 `conversations`）。所以別用 `load_dataset()` 整包載入，老老實實抓單檔。
 
-方式一，用 huggingface 的 CLI 抓指定檔案：
+方式一，用 huggingface 的 CLI 抓指定檔案（注意：舊指令 `huggingface-cli` 已廢棄，新版裝完只認 `hf`）：
 
 ```bash
 pip install -U huggingface_hub
-huggingface-cli download jingyaogong/minimind_dataset \
+hf download jingyaogong/minimind_dataset \
   pretrain_t2t_mini.jsonl sft_t2t_mini.jsonl \
   --repo-type dataset --local-dir ./dataset
 ```
