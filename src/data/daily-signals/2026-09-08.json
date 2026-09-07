@@ -1,0 +1,626 @@
+{
+  "date": "2026-09-08",
+  "generatedAt": "2026-09-08T02:30:00Z",
+  "routineId": "J",
+  "signalCount": 35,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "An Alien Mind — OpenAI chief scientist Jakub Pachocki on automated AI research",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/an-alien-mind/",
+      "publishedDate": "2026-09-06",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 首席科學家 Jakub Pachocki 發表文章，直言目前沒有任何實驗室把 alignment 和監控做到能安全支撐最大速度擴張的程度，預期會有自願性減速直到共同安全標準出現。",
+      "relevance": 0.78,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "hn",
+        "simonwillison"
+      ]
+    },
+    {
+      "id": "sig-002",
+      "title": "Research acceleration: The view inside OpenAI",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/research-acceleration-view-inside-openai/",
+      "publishedDate": "2026-09-06",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 揭露內部研究團隊使用 coding agent 的數據：agent runtime 已成長到每人每日 3.1 個 agent 工作天，但超過一半的 4-8 小時任務仍需人工介入才能完成。",
+      "relevance": 0.88,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "simonwillison",
+        "the-decoder",
+        "aiweekly"
+      ]
+    },
+    {
+      "id": "sig-003",
+      "title": "Anthropic reportedly signs $517 billion in compute deals after Amodei warned rivals about reckless risk",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/anthropic-reportedly-signs-517-billion-in-compute-deals-after-dario-amodei-warned-rivals-about-reckless-risk/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "The Information 報導 Anthropic 過去 11 個月簽下高達 5170 億美元的算力合約，年化營收已破 650 億美元；Dario Amodei 先前才警告對手「不理解自己承擔的風險」，如今換自己在追趕算力。",
+      "relevance": 0.85,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "theinformation",
+        "aiweekly"
+      ]
+    },
+    {
+      "id": "sig-004",
+      "title": "Qwen-Drive 1.0 tells you why it brakes, just don't expect the explanation to match the maneuver",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/qwen-drive-1-0-tells-you-why-it-brakes-just-dont-expect-the-explanation-to-match-the-maneuver/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "阿里巴巴研究團隊發佈 Qwen-Drive 1.0，整合環境感知、路況問答與路徑規劃於單一模型；研究顯示文字-影像模型不會自動理解三維空間，空間感需要專門訓練。",
+      "relevance": 0.55,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "aiweekly"
+      ]
+    },
+    {
+      "id": "sig-005",
+      "title": "GPT-6 Astra beat Portal start to finish without human help in under 24 hours",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/gpt-6-astra-beat-portal-start-to-finish-without-human-help-in-under-24-hours/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "community-signal",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "開發者 cozyblaze 讓 GPT-6 Astra 透過 MCP 操控 Portal 遊戲，在約 23 小時 43 分內獨立破關，token 花費逾 570 美元，展示 agent 長時間自主操作電腦的能力。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-006",
+      "title": "ChatGPT claws back web traffic share to 55.5 percent as Gemini's brief comeback fades",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/chatgpt-claws-back-web-traffic-share-to-55-5-percent-as-geminis-brief-comeback-fades/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [
+        "openai",
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Similarweb 數據顯示 ChatGPT 網頁流量占比回升至 55.5%，Gemini 從 27.8% 回落至 25.6%；年增率上看 Claude 從 1.9% 成長到 9.3%，DeepSeek、Grok 等仍是配角。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-007",
+      "title": "Tripo AI Secures 3 Billion Yuan in Series B and Series B+ Funding",
+      "source": "ai-insider",
+      "sourceUrl": "https://theaiinsider.tech/2026/09/07/tripo-ai-secures-3-billion-yuan-in-series-b-and-series-b-funding",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "tripo"
+      ],
+      "section": "C6",
+      "ring": 2,
+      "summary": "3D 生成 AI 新創 Tripo 完成人民幣 30 億元的 B 輪與 B+ 輪融資，反映中國 3D 內容生成賽道持續吸金。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-008",
+      "title": "Korea Lags as U.S., China Race Ahead in Security AI",
+      "source": "sedaily",
+      "sourceUrl": "https://en.sedaily.com/technology/2026/09/07/korea-lags-as-us-china-race-ahead-in-security-ai",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "南韓資安 AI 模型要到明年下半年才會問世，落後於美中在資安 AI 領域的競爭；業界呼籲政府加碼支持韓國本土 agent 開發，以彌補模型能力的落差。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-009",
+      "title": "Indonesia Calls for 'Meaningful AI' to Deliver Public Benefits",
+      "source": "opengovasia",
+      "sourceUrl": "https://opengovasia.com/2026/09/07/indonesia-calls-for-meaningful-ai-to-deliver-public-benefits",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "印尼政府官員呼籲 AI 發展要能實際服務公共利益，作為東南亞區域數位治理現代化的一環，與新加坡、越南近期的數位政策動作呼應。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-010",
+      "title": "Companies are spending millions rewiring how AI gets used — almost none can prove it's working",
+      "source": "venturebeat",
+      "sourceUrl": "https://venturebeat.com/orchestration/companies-are-spending-millions-rewiring-how-ai-gets-used-almost-none-can-prove-its-working",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "enterprise-deployment",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Gartner 預估今年企業 AI agent 軟體支出將逼近 2070 億美元，年增逾 139%，但企業普遍難以證明投資報酬率；token 定價的不可預測性讓 CFO 難以像傳統軟體一樣建模成本。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-011",
+      "title": "Why AI Agent Sandboxes Are Failing Security Tests",
+      "source": "securityaffairs",
+      "sourceUrl": "https://securityaffairs.com/198563/ai/why-ai-agent-sandboxes-are-failing-security-tests.html",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "資安研究指出多數 AI agent 沙盒環境在滲透測試中未能有效隔離惡意行為，凸顯目前業界對 agent 執行環境安全的信任程度可能過高。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-012",
+      "title": "Built for the Long Haul: Commerce Innovation at Daimler Truck North America",
+      "source": "sap-news",
+      "sourceUrl": "https://news.sap.com/2026/09/long-haul-commerce-innovation-daimler-truck-north-america/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [
+        "sap"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "SAP 分享與 Daimler Truck North America 的長期商務系統合作案例，說明經銷商與客戶互動如何透過持續的數位化投入獲得改善。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-013",
+      "title": "Linguistic drift at the frontier",
+      "source": "pydantic-ai-blog",
+      "sourceUrl": "https://pydantic.dev/articles/linguistic-drift-at-the-frontier",
+      "publishedDate": "2026-09-08",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "pydantic-ai"
+      ],
+      "section": "B2",
+      "ring": 2,
+      "summary": "Pydantic AI 團隊發文探討前沿模型語言行為的漂移現象，對建構 agent 框架時的 prompt 穩定性與版本管理提出觀察。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-014",
+      "title": "OpenAI developer claims Astra boosted productivity so much it pulled some plans forward by six months",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/openai-developer-claims-astra-boosted-productivity-so-much-it-pulled-some-plans-forward-by-six-months/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "community-signal",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 開發者 Thibault Sottiaux 在 X 上表示，內部使用 Astra 後生產力大增，部分計畫因此提前了半年；呼應 IAPS 對 25 名頂尖實驗室研究員的調查，多數人認為 AI 研究自動化是最大風險之一。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-015",
+      "title": "Google brings AI music generation directly into the Gemini app with its new Lyria 3.5 model",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/google-brings-ai-music-generation-directly-into-the-gemini-app-with-its-new-lyria-3-5-model/",
+      "publishedDate": "2026-09-06",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google 將 Lyria 3.5 音樂生成模型整合進 Gemini App 與 API，可選曲風、人聲或純樂器，並提供背景音樂與生日歌等範本；Google 稱僅用有授權內容訓練，但未公布訓練資料細節。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-016",
+      "title": "Meta's new real-time audio model is the foundation for AI assistants that never stop listening",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/metas-new-real-time-audio-model-is-the-foundation-for-ai-assistants-that-never-stop-listening/",
+      "publishedDate": "2026-09-06",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Meta Superintelligence Labs 發佈 Muse Voice Transcribe，可用 80 毫秒區塊即時轉錄、辨識說話者並偵測句界，被視為打造「持續聆聽」個人 AI 助理與智慧眼鏡的基礎模型。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "Taiwan flexes chip diplomacy muscles as it faces pressure to share AI wealth with allies",
+      "source": "asahi",
+      "sourceUrl": "https://www.asahi.com/ajw/articles/16868459",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 1,
+      "summary": "台灣在 SEMICON Taiwan 展會上將自己定位為 AI 革命中「民主且可靠」的晶片供應者，同時面臨美歐要求擴大海外產能分享的壓力；鴻海董事長劉揚偉呼籲「與台灣一起做，而非只在台灣做」。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-018",
+      "title": "HUMAIN Begins Building Team for Potential IPO",
+      "source": "waya-media",
+      "sourceUrl": "https://waya.media/humain-begins-building-team-for-potential-ipo",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "沙烏地阿拉伯主權 AI 公司 HUMAIN 開始招募團隊為潛在 IPO 做準備，顯示波灣地區 AI 巨頭正尋求引入外部資本以支撐龐大的基礎建設野心。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-019",
+      "title": "MiniCPM5-2B — a 2B open model that leads the pack",
+      "source": "ai-tldr",
+      "sourceUrl": "https://ai-tldr.dev/releases/openbmb-minicpm5-2b/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "open-source",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "OpenBMB 以 Apache 2.0 授權釋出 20 億參數的 MiniCPM5-2B，並同步公開背後的 RL 訓練語料 UltraData-RL-2609，可自由用於商業產品。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-020",
+      "title": "Baidu Xiaodu teases Sept 8 launch for AI-powered home hardware",
+      "source": "aiweekly",
+      "sourceUrl": "https://aiweekly.co/alerts/baidus-xiaodu-sets-sept-8-launch-for-ai-displays-speakers-and-cameras-running",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "baidu"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "百度小度預告 9 月 8 日發表新一代智慧顯示器、音箱與攝影機，將搭載升級版超能小度 AI 助理與第二代 AI 監控 agent。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "Tae Kim calls Astra's computer use AI's fourth demand wave",
+      "source": "taekim-substack",
+      "sourceUrl": "https://taekim.substack.com/p/gpt-6-astra-and-the-fourth-exponential",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "community-signal",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "半導體分析師 Tae Kim 撰文主張 GPT-6 Astra 的 computer use 能力代表 AI 算力需求的「第四波指數成長」，引用 OpenAI 研究員 Astra token 花費從近乎零飆升至每日 600 美元的數據。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "Five major chatbots reassure sleep apnea patients incorrectly in 1/3 of resistant cases",
+      "source": "medicalxpress",
+      "sourceUrl": "https://medicalxpress.com/news/2026-09-cases-ai-chatbots-wrongly-reassure.html",
+      "publishedDate": "2026-09-06",
+      "dateConfidence": "verified",
+      "category": "community-signal",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "歐洲呼吸學會研究測試 ChatGPT、Gemini、Claude、DeepSeek、Grok 共 700 段模擬睡眠呼吸中止症對話，發現病人若表現出抗拒時，僅 64% 的回覆給出正確轉診建議，嚴重案例更只剩 22%，研究者稱為「AI 諂媚」效應。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-023",
+      "title": "Meta AI pieced together kids' identities from one video",
+      "source": "freepressjournal",
+      "sourceUrl": "https://www.freepressjournal.in/amp/viral/whos-the-child-passenger-mother-raises-alarm-after-meta-ai-links-her-childrens-social-media-data-video",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "security-incident",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "一名美國創作者發布親子影片後，Facebook Meta AI 主動推薦「這位孩童乘客是誰」提示，點擊後拼湊出孩子姓名、生日與跨帳號的舊照片，凸顯 AI 助理跨資料源比對個資的隱私風險。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "UK AI architect Clifford quits ARIA over Anthropic role",
+      "source": "aiweekly",
+      "sourceUrl": "https://aiweekly.co/alerts/clifford-to-exit-aria-chair-by-nov-6-after-anthropic-hire-flap",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "英國 ARIA 主席、AI 機會行動計畫架構師 Matt Clifford 宣布將於 11 月 6 日前卸任，以避免與其新任 Anthropic 國際事務董事總經理職位產生利益衝突，此前國會科學委員會主席已警告此雙重身分「明顯利益衝突」。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "Altman calls AGI 'sloppy'; Amodei drops the term",
+      "source": "startupfortune",
+      "sourceUrl": "https://startupfortune.com/sam-altman-and-dario-amodei-cant-agree-on-what-agi-even-means/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai",
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Bloomberg 報導 Sam Altman 稱 AGI 是「很鬆散的詞」，改談約 2032 年抵達的「超級智慧」；Dario Amodei 則已大致棄用 AGI 一詞，改用「強大 AI」，兩家實驗室對關鍵里程碑仍無共同量尺。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "UForce nears $500M at $5B for autonomous defense drones",
+      "source": "aiweekly",
+      "sourceUrl": "https://aiweekly.co/alerts/ukrainian-drone-maker-uforce-in-talks-to-raise-500m-at-5b-led-by-valor-equity",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Bloomberg 報導倫敦的烏克蘭無人載具公司 UForce 洽談以約 50 億美元估值募資近 5 億美元，由 Valor Equity Partners 領投，若成交將鞏固其烏克蘭首家防務科技獨角獸地位。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-027",
+      "title": "Anthropic's Labs incubator hatched Claude Code and MCP",
+      "source": "aiweekly",
+      "sourceUrl": "https://aiweekly.co/alerts/business-insider-profiles-anthropic-labs-20-person-incubator-behind-claude-code",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "vendor-update",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Business Insider 側寫 Anthropic 內部約 20 人的新創孵化單位 Labs，其孵化出的 Claude Code 六個月內營收年化衝上 10 億美元，MCP 下載量已破一億次；Labs 計畫半年內人力翻倍。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-028",
+      "title": "Zhang Yiming personally leads ByteDance real-time world model",
+      "source": "aiweekly",
+      "sourceUrl": "https://aiweekly.co/alerts/bytedances-zhang-yiming-personally-leads-real-time-spatial-video-world-model",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "vendor-update",
+      "companies": [
+        "bytedance-coze"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "Bloomberg 報導字節跳動創辦人張一鳴親自督軍以 Seedance 為基礎的即時空間影片世界模型，最快下月推出，公司投入的世界模型訓練資料規模傳為對手三到四倍。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-029",
+      "title": "AI-designed drug appears to turn back the body's biological clock in early trial",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/ai-designed-drug-appears-to-turn-back-the-bodys-biological-clock-in-early-trial/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Nature Biotechnology 論文顯示 Insilico Medicine 靶點與分子皆由 AI 設計的藥物 rentosertib，在早期試驗中讓受試者六種老化生物鐘平均年輕約 3-4 歲，最高達 6 歲，但試驗僅 42 人且尚未在健康人群中測試。",
+      "relevance": 0.55,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "aiweekly"
+      ]
+    },
+    {
+      "id": "sig-030",
+      "title": "Pixxel raises $100M Series C for hyperspectral satellites, Earth AI",
+      "source": "technode-global",
+      "sourceUrl": "https://technode.global/2026/09/07/pixxel-100m-series-c-earth-intelligence/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "印度太空科技公司 Pixxel 完成由淡馬錫領投的 1 億美元 C 輪融資，累計募資達 1.95 億美元，創印度太空科技單輪最高紀錄，用於擴充高光譜衛星星系與 AI 驅動的地球情報平台 Aurora。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-031",
+      "title": "12.7M Chinese grads hit AI-shrunk entry-level job market",
+      "source": "aiweekly",
+      "sourceUrl": "https://aiweekly.co/alerts/nyt-record-127m-chinese-graduates-face-2026-job-market-where-ai-is-erasing",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "紐約時報報導 2026 年中國將有創紀錄的 1270 萬名大學畢業生投入就業市場，AI 正系統性侵蝕入門白領職缺，16-24 歲青年失業率達 15.6%，北京已推出「AI 相關」新職業就業策略因應。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-032",
+      "title": "Tesla eyes 24/7 robotaxi service in about a month via v15",
+      "source": "dsf-my",
+      "sourceUrl": "https://www.dsf.my/2026/09/tesla-robotaxi-moving-to-24-7-service-ai-chief-confirms-round-the-clock-rollout-soon/",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "vendor-update",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "特斯拉 AI 負責人 Ashok Elluswamy 表示，目前僅上午 6 點到晚上 10 點營運的付費 Robotaxi 車隊，約一個月內將隨 v15 全自動駕駛架構升級改為 24 小時服務，目前車隊已累積逾 38 萬英里商業里程無重大自駕事故。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-033",
+      "title": "Hawley probes Flock's 120k-camera AI surveillance network",
+      "source": "aiweekly",
+      "sourceUrl": "https://aiweekly.co/alerts/gop-sen-hawley-opens-probe-of-flocks-120000-camera-network-as-bipartisan",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "美國共和黨參議員 Josh Hawley 對 Flock Safety 遍布 49 州逾 12 萬支 AI 車牌辨識監控攝影機網路展開調查，起因是多起員警濫用系統跟蹤前伴侶與家人的案例；德州、佛州已下令州內停用或撤除相關攝影機。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-034",
+      "title": "Kalanick's Atoms builds robotaxi tech, took $100M from Uber",
+      "source": "aiweekly",
+      "sourceUrl": "https://aiweekly.co/alerts/ft-kalanicks-atoms-building-robotaxi-tech-uber-adds-100m",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "金融時報報導 Travis Kalanick 旗下 Atoms 正在開發 robotaxi 技術，聘用多名前 Uber 自駕團隊成員；Uber 已透過 a16z 領投的 17 億美元輪次悄悄投入 1 億美元，並洽談採用 Atoms 技術堆疊。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-035",
+      "title": "Nscale seeks $3.5B pre-IPO with Nvidia and Third Point",
+      "source": "aiweekly",
+      "sourceUrl": "https://aiweekly.co/alerts/nscale-seeks-35b-pre-ipo-financing-with-2b-from-nvidia-third-point-leads-15b",
+      "publishedDate": "2026-09-07",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "倫敦 AI 雲端公司 Nscale 洽談籌措最高 35 億美元的 Pre-IPO 融資，含 NVIDIA 約 20 億美元與 Third Point 主導的 15 億美元可轉債；受 8 月底簽下的 450 億美元 Anthropic 算力合約帶動，合約在手金額一個月內從 510 億美元暴增至約 1030 億美元。",
+      "relevance": 0.65,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "the-decoder"
+      ]
+    }
+  ]
+}
