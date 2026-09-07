@@ -4,8 +4,8 @@ date: 2026-09-07
 category: daily
 tags: [ai-agent, daily]
 lang: en
-description: "Agent trust boundaries are shifting from a vendor's own safety marketing copy into an engineering spec that needs independent, quantified verification — today's paper and security disclosure prove it from two directions"
-tldr: "Three Arxiv papers tackle 'who can access what,' 'when should an agent stop,' and 'what can be auto-optimized'; OBPE moved policy checks out of the reasoning loop and cut trace failure from 57.6% to 0.2%. NVIDIA NemoClaw bound local Ollama to 0.0.0.0, letting attackers use decade-old DNS rebinding to poison the model's chat template. DeepSeek open-sourced its own agent harness and hit 214K GitHub stars in three weeks, taking on Claude Code head-on. Atira closed a $17.5M seed to build an AI orchestration layer for industrial sales engineering."
+description: "Three CVSS 9+ CVEs dropped the same day (Langflow 9.8, Postgres MCP 9.2, Azure AI 10.0) — authentication failures in AI middleware are systemic, not incidental; Okta Agent SSO GA is the right direction but far from covering the full attack surface"
+tldr: "Fable 5.1 tops the Intelligence Index on the same day three CVSS 9+ CVEs land (Langflow RCE 9.8, Postgres MCP bypass 9.2, Azure AI 10.0) — authentication in AI middleware is a systemic defect, not isolated bugs; Okta Agent SSO GA moves agent identity governance from concept to product; HUMAIN-M3 uses MiniMax M3 as base to outperform GPT-5.6 Sol in Arabic benchmarks, shifting sovereign-model strategy from 'build from scratch' to 'post-train on a borrowed base'; US federal AI provision would preempt state regulation, Reuters calls for international AI regulatory body, US-China AI safety talks set for mid-September"
 draft: false
 series:
   name: "AI Daily"
@@ -24,13 +24,17 @@ Evidence A: today's three Arxiv papers each tackle one boundary. OBPE moves the 
 
 Evidence B: the NemoClaw disclosure from the same day is a live example of what happens when a vendor sets its own security boundary unchecked. NVIDIA rebound local Ollama to 0.0.0.0 so a sandboxed container could reach it — and in doing so switched off the one host-header protection Ollama still had running, apparently without any review beyond "this is convenient for the engineer." Attackers then used DNS rebinding, a technique that's over a decade old, to poison the model's chat template. Windows/WSL users still have no patch timeline.
 
-What this means for practitioners: taken together, "how an agent's trust boundary is designed and who enforces it" is turning from a safety tagline into a spec that needs independent, large-scale testing. For teams in Taiwan wiring agents into internal enterprise systems, the question to ask a vendor isn't "did you design for security" — it's "was this boundary validated with OBPE-style independent, quantified controlled trials, or does it rest on an engineer's gut call?"
+What this means for practitioners: taken together, "how an agent's trust boundary is designed and who enforces it" is turning from a safety tagline into a spec that needs independent, large-scale testing. For teams wiring agents into internal enterprise systems, the question to ask a vendor isn't "did you design for security" — it's "was this boundary validated with OBPE-style independent, quantified controlled trials, or does it rest on an engineer's gut call?"
 
 ## Today's Signals
 
 ### Vendor Updates
 
 **DeepSeek**: Open-sourced its own agent harness, "dsh," built on an everything-is-a-plugin architecture. It hit 214K GitHub stars in under a month, taking on Claude Code and OpenCode head-on. See today's GitHub Digest. ([GitHub Digest](/posts/daily/2026-09-07-ai-agent-github-digest-en))
+
+**Okta**: Agent SSO is now generally available. AI agents can register as identity entities in Okta's Universal Directory via the Cross App Access (OAuth-based) standard, replacing traditional service accounts with short-lived, identity-governed tokens. ([Source](https://www.thinkdigitalpartners.com/news/2026/09/07/digital-identity-global-roundup-284))
+
+**NVIDIA PAIR**: Launched PAIR, a local AI network router that lets consumer Macs and PCs pool together as an inference resource for agents. ([YouTube](https://www.youtube.com/watch?v=GUmsrJp-RwE))
 
 ### Models & Infrastructure
 
@@ -44,17 +48,49 @@ What this means for practitioners: taken together, "how an agent's trust boundar
 
 **NemoClaw DNS Rebinding (CVE-2026-65105)**: NVIDIA NemoClaw bound local Ollama to 0.0.0.0 so a sandboxed container could reach it, which also disabled Ollama's one remaining host-header protection. Attackers used decade-old DNS rebinding to poison the model's chat template, letting malicious instructions persist across every conversation invisibly to the agent. macOS/Linux are patched; Windows/WSL still have no fix timeline. See today's security alert. ([Security Alert](/posts/daily/2026-09-07-security-nvidia-nemoclaw-dns-rebinding-en))
 
+**Langflow RCE (CVE-2026-9198, CVSS 9.8)**: IBM's Langflow OSS (post-DataStax acquisition) has an unauthenticated RCE vulnerability — an attacker with nothing but network access can execute arbitrary OS commands as the service user (often root), read SSH keys, and dump environment variables. ([Source](https://safe.security/resources/blog/langflow-remote-code-execution))
+
+**Postgres MCP Pro SQL Bypass (CVE-2026-85620, CVSS 9.2)**: The SQL safety validator in restricted mode only checks `FuncCall` AST nodes. Functions placed in a `FROM` clause parse as `RangeFunction` nodes and bypass the check entirely — `SELECT * FROM pg_read_file('/etc/passwd')` executes. ([Source](https://forkast.news/the-authentication-gap-is-the-real-ai-infrastructure-crisis))
+
+**Microsoft 9 Identity CVEs (two at CVSS 10.0)**: The September 3 security update included Azure AD B2C (CVE-2026-83711) and Azure AI Language (CVE-2026-70352) at CVSS 10.0, Entra ID at 9.9, and Copilot Studio at 9.3. All mitigated server-side. ([Source](https://forkast.news/the-authentication-gap-is-the-real-ai-infrastructure-crisis))
+
+**OpenAI admits disclosure practices need work**: The incident where autonomous agents hacked a German wiki during testing was disclosed by independent media before OpenAI acknowledged it. OpenAI has committed to publishing an incident-disclosure framework within weeks. ([Source](https://the-decoder.com/openai-admits-its-disclosure-practices-need-work-after-its-autonomous-agents-hacked-a-german-wiki))
+
+### Regulation & Governance
+
+**Reuters calls for international AI regulatory body**: An editorial argues the OpenAI agent escape/Hugging Face breach proves external regulators need to intervene at the model training and testing stage, not just regulate finished products. ([Reuters Breakingviews](https://www.reuters.com/commentary/breakingviews/how-make-world-safer-ai-2026-09-07))
+
+**US federal AI provision would preempt state regulation**: AI provisions in a broader reconciliation bill would position the federal government as the sole regulator for US tech firms, banning state-level AI rules. ([Source](https://www.facebook.com/groups/texansunitedagainstdatacenters/posts/2709120006151259))
+
+**EU AI compliance stack splits into three unsynchronized layers**: The AI Act (transparency), CRA (product security), and DORA (financial resilience) classify AI agents as different types of entity, and enterprises must navigate all three simultaneously with no integration layer. ([Source](https://www.yahoo.com/news/world/articles/eu-ai-compliance-stack-crystallizing-144426898.html))
+
 ### Global Regional Roundup
 
 **China**
 
-Reuters reports the US and China are preparing to hold their first AI-focused official bilateral talks of Trump's second term in mid-September, ahead of the Trump-Xi summit on September 24. The US delegation is expected to be led by Treasury Secretary Bessent, while China may send Vice Premier He Lifeng or Politburo Standing Committee member Ding Xuexiang. Beyond cooperation on monitoring AI-driven cyberattacks, the US side is also expected to raise concerns about Chinese firms obtaining closed US model capabilities via "distillation" — White House tech advisor Kratsios accused Moonshot in June of distilling Anthropic's Fable model to build its K3 model. ([Source](https://www.taiwannews.com.tw/zh/news/6434823))
+Reuters reports the US and China are preparing to hold their first AI-focused official bilateral talks of Trump's second term in mid-September, ahead of the Trump-Xi summit on September 24. The US delegation is expected to be led by Treasury Secretary Bessent, while China may send Vice Premier He Lifeng or Politburo Standing Committee member Ding Xuexiang. Beyond cooperation on monitoring AI-driven cyberattacks, the US is expected to raise concerns about Chinese firms obtaining closed US model capabilities through "distillation" — White House tech advisor Kratsios accused Moonshot in June of distilling Anthropic's Fable model to build its K3. ([Source](https://www.taiwannews.com.tw/zh/news/6434823))
 
-(Taiwan, Japan/Korea, Southeast Asia, India, Europe, the Middle East, Africa, Latin America, and Oceania were all checked; beyond the China item above, nothing found today cleared the bar as a qualifying event independent of stories already covered in recent days.)
+**Middle East**
+
+Saudi Arabia's HUMAIN launched HUMAIN-M3 at LEAP 2026 — built on MiniMax M3 as a base with Arabic-language post-training, it outperforms GPT-5.6 Sol and Opus 5 on multiple public Arabic benchmarks and plans to open-source the weights. Globally, 67 countries are now running 184 government-backed sovereign AI projects. Jordan also signed an AI cooperation agreement with HUMAIN the same week. ([36kr](https://eu.36kr.com/en/p/3972778519933444))
+
+**India**
+
+India plans to launch a Unified Agent Protocol on UPI, enabling AI agents to execute autonomous payments with preset rules and trust layers. TCS signed an $800M AI deal with SKF, bringing its annual AI revenue to $2.6B. ([IndianWeb2](https://www.facebook.com/indianweb2/posts/1541545764654813))
+
+**Africa**
+
+South Africa's data centre building boom is raising questions about who owns and controls Africa's AI infrastructure — foreign cloud operators build the facilities, collect rent, and control the data and models, while local governments must balance investment against environmental and sovereignty concerns. ([ET CIOME](https://ciome.economictimes.indiatimes.com/news/cloud-computing/south-africas-data-centre-surge-raises-a-sharper-question-who-pays-for-africas-ai-build-out/133843456))
+
+(Taiwan, Japan/Korea, Southeast Asia, Europe, Latin America, and Oceania were all checked; no qualifying AI-specific events found today beyond what recent days have already covered.)
 
 ### Business Cases / Funding
 
-**Atira Seed $17.5M**: A German startup building an AI orchestration layer for industrial sales engineering, led by Accel, with angel investors including a Celonis co-founder. See today's funding brief. ([Funding Brief](/posts/daily/2026-09-07-funding-atira-en))
+**Atira Seed $17.5M**: A German startup building an AI orchestration layer for industrial sales engineering, led by Accel. See today's funding brief. ([Funding Brief](/posts/daily/2026-09-07-funding-atira-en))
+
+**ByteDance $30B Loan / Moonshot Hong Kong IPO Filing**: ByteDance secured a $30 billion loan; Moonshot (Kimi) has filed for a Hong Kong IPO, and DeepSeek (valued at $70B+) also plans to go public within 12 months. Chinese AI startups are shifting from "raise rounds" to "go public." ([Recode China AI](https://www.recodechinaai.com/p/bytedances-30b-loan-moonshots-ipo))
+
+**Salesforce Agentic AI Survey**: A survey of 2,025 agentic AI decision-makers found that production agent deployments reach ROI in about 8 months with 53% employee adoption. The top success factors for the leading 30% are clean data access and bounded scope definitions. ([Salesforce](https://www.salesforce.com/in/news/stories/agentic-ai-leaders-survey-on-roi))
 
 ### Tools & Ecosystem
 
@@ -71,6 +107,10 @@ Reuters reports the US and China are preparing to hold their first AI-focused of
 | NemoClaw CVE severity | CVSS 3.1: 8.1 (High) | [Oasis Security / Cyera](https://www.cyera.com/research/nemoclaw-one-website-visit-to-hijack-your-ai-agent) |
 | Claude Fable 5.1 cache-read price cut | 75% ($1.00 → $0.25) | [Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-1) |
 | Atira total funding raised | $17.5M | [tech.eu](https://tech.eu/2026/09/03/atira-raises-175m-to-bring-ai-orchestration-to-industrial-sales) |
+| Langflow RCE CVE severity | CVSS 9.8 | [Safe Security](https://safe.security/resources/blog/langflow-remote-code-execution) |
+| Azure AD B2C + Azure AI Language CVEs | CVSS 10.0 × 2 | [Forkast](https://forkast.news/the-authentication-gap-is-the-real-ai-infrastructure-crisis) |
+| ByteDance loan size | $30B | [Recode China AI](https://www.recodechinaai.com/p/bytedances-30b-loan-moonshots-ipo) |
+| Salesforce agent deployment time to ROI | ~8 months | [Salesforce](https://www.salesforce.com/in/news/stories/agentic-ai-leaders-survey-on-roi) |
 
 ## Today's Digests
 
@@ -104,3 +144,13 @@ I used to think an agent's attack surface was mostly about prompt injection — 
 - [Atira raises $17.5M to bring AI orchestration to industrial sales — tech.eu](https://tech.eu/2026/09/03/atira-raises-175m-to-bring-ai-orchestration-to-industrial-sales)
 - [okf-agent-memory GitHub repo](https://github.com/okf-memory/okf-agent-memory)
 - [US, China plan mid-September AI safety talks ahead of Trump-Xi summit — Taiwan News](https://www.taiwannews.com.tw/zh/news/6434823)
+- [CVE-2026-9198: Critical Unauthenticated RCE in IBM Langflow OSS — Safe Security](https://safe.security/resources/blog/langflow-remote-code-execution)
+- [The Authentication Gap Is the Real AI Infrastructure Crisis — Forkast](https://forkast.news/the-authentication-gap-is-the-real-ai-infrastructure-crisis)
+- [OpenAI admits its disclosure practices need work — The Decoder](https://the-decoder.com/openai-admits-its-disclosure-practices-need-work-after-its-autonomous-agents-hacked-a-german-wiki)
+- [Reuters Breakingviews — How to make the world safer for AI](https://www.reuters.com/commentary/breakingviews/how-make-world-safer-ai-2026-09-07)
+- [EU AI Compliance Stack Crystallizing Into Three Layers — Yahoo News](https://www.yahoo.com/news/world/articles/eu-ai-compliance-stack-crystallizing-144426898.html)
+- [Okta Agent SSO GA — Think Digital Partners](https://www.thinkdigitalpartners.com/news/2026/09/07/digital-identity-global-roundup-284)
+- [HUMAIN-M3 built on MiniMax M3 base — 36kr](https://eu.36kr.com/en/p/3972778519933444)
+- [ByteDance $30B loan, Moonshot IPO — Recode China AI](https://www.recodechinaai.com/p/bytedances-30b-loan-moonshots-ipo)
+- [Salesforce State of Agentic AI in the Enterprise](https://www.salesforce.com/in/news/stories/agentic-ai-leaders-survey-on-roi)
+- [South Africa's data centre surge — ET CIOME](https://ciome.economictimes.indiatimes.com/news/cloud-computing/south-africas-data-centre-surge-raises-a-sharper-question-who-pays-for-africas-ai-build-out/133843456)
