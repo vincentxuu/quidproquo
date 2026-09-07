@@ -8,7 +8,7 @@ description: "NVIDIA NemoClaw bound local Ollama to 0.0.0.0, letting attackers u
 tldr: "Oasis Security (being acquired by Cyera) disclosed CVE-2026-65105: to let its sandboxed container reach local Ollama, NVIDIA NemoClaw binds it to 0.0.0.0:11434 — which also disables the only remaining Host-header protection Ollama has. Attackers use DNS rebinding to make a victim's browser tab reach the local Ollama API the moment they visit a malicious page, poisoning the model's chat template (not the system prompt) so malicious instructions attach to every conversation permanently and invisibly to the agent. NemoClaw v0.0.35 patches macOS/Linux; Windows/WSL remains unfixed. Defense: check immediately whether Ollama is bound to 0.0.0.0, restrict network access to port 11434, and assume an agent's attack surface extends beyond the sandbox boundary to everything it's authorized to touch."
 series:
   name: "AI Security Alert"
-  order: 24
+  order: 25
 ---
 
 ## Incident Overview

@@ -9,7 +9,7 @@ description: "postgres-mcp (Postgres MCP Pro on PyPI) has a restricted-mode bypa
 tldr: "Independent researcher George Chen reported a restricted-mode bypass in postgres-mcp (Postgres MCP Pro, a PyPI package by crystaldba) on June 6, 2026: the SQL safety layer only validates functions called directly in a SELECT list, not functions used as a table source in a FROM clause — so dangerous functions like pg_read_file bypass the allowlist entirely and read arbitrary host files, and because these functions are read-only by Postgres's own classification, the read-only-transaction safeguard doesn't stop them either. CVE-2026-85620 was formally published on September 4, rated 9.2 (Critical) under CVSS v4.0. The vendor's security contact email has long been dead and no GitHub Security Advisory was ever enabled — three months after the report, there's still no patched release. Defense: check immediately whether your connecting database role can read server files, and pause routing untrusted input into the execute_sql tool."
 series:
   name: "AI Security Alert"
-  order: 23
+  order: 24
 ---
 
 > 🌏 [中文版](/posts/daily/2026-09-06-security-postgres-mcp-restricted-mode-bypass)

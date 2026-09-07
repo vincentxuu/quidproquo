@@ -9,7 +9,7 @@ description: "postgres-mcp(PyPI 上的 Postgres MCP Pro)存在限制模式繞過
 tldr: "獨立研究者 George Chen 於 2026 年 6 月 6 日回報 postgres-mcp(Postgres MCP Pro,PyPI 套件,by crystaldba)的限制模式繞過漏洞:SQL 安全層只檢查 SELECT 清單裡直接呼叫的函式,沒檢查 FROM 子句裡當成資料表使用的函式,導致 pg_read_file 等危險函式能繞過白名單讀出主機任意檔案,且因為這類函式本身是唯讀操作,連「唯讀交易」這層防護也擋不住。CVE-2026-85620 於 9 月 4 日正式公開,CVSS v4.0 評 9.2(Critical)。廠商安全信箱早已失聯、也沒開 GitHub Security Advisory,回報後三個月仍無修補版本。防禦:立即檢查連線角色是否具備讀檔權限,並暫停把不受信任輸入送進 execute_sql 工具。"
 series:
   name: "AI Security Alert"
-  order: 23
+  order: 24
 ---
 
 > 🌏 [English version](/en/posts/daily/2026-09-06-security-postgres-mcp-restricted-mode-bypass-en)

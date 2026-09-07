@@ -8,7 +8,7 @@ description: "NVIDIA NemoClaw 因把本機 Ollama 綁定到 0.0.0.0，讓攻擊�
 tldr: "Oasis Security（併入 Cyera）揭露 CVE-2026-65105：NVIDIA NemoClaw 為了讓沙箱容器連得到本機 Ollama，把它綁定在 0.0.0.0:11434，結果連帶關掉 Ollama 唯一還在運作的 Host header 防護。攻擊者用 DNS rebinding 讓瀏覽器分頁在受害者造訪惡意網頁時直接打到本機 Ollama API，竄改模型的 chat template（不是 system prompt），讓惡意指令永久附加在每一次對話上，且對 Agent 端完全不可見。NemoClaw v0.0.35 已修 macOS/Linux，Windows/WSL 目前仍無修補。防禦：立刻檢查 Ollama 是否綁定在 0.0.0.0、限制對 11434 port 的網路存取，並假設 Agent 的攻擊面不只是沙箱邊界，而是它有權碰到的所有組織資源。"
 series:
   name: "AI Security Alert"
-  order: 24
+  order: 25
 ---
 
 ## 事件概述

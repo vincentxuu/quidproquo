@@ -86,7 +86,7 @@ UK enterprise knowledge-graph company Prevalent AI secured $22M in its first ins
 - 📄 [Funding Brief | Prevalent AI](/posts/daily/2026-08-20-funding-prevalent-ai)
 - 📄 [Tool Pick | comfy-mcp](/posts/daily/2026-08-20-tool-comfy-mcp)
 - 📄 [AI Engineer Interview Daily — 2026-08-20: ML System Design](/posts/daily/2026-08-20-ai-interview-daily)
-- 📄 [Product Builder Interview Daily — 2026-08-20: Strategy & Execution](/posts/daily/2026-08-20-product-interview-daily)
+- 📄 [Product Builder Interview Daily — 2026-08-20: Strategy & Execution](/posts/daily/2026-08-20-product-builder-interview-daily)
 
 ## Tomorrow's Watch
 

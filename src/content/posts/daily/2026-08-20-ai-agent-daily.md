@@ -86,7 +86,7 @@ Benchmark 端另有兩則更新：Zhipu GLM-5.3 的分數解讀值得細看標�
 - 📄 [融資速報｜Prevalent AI](/posts/daily/2026-08-20-funding-prevalent-ai)
 - 📄 [工具推薦｜comfy-mcp](/posts/daily/2026-08-20-tool-comfy-mcp)
 - 📄 [AI Engineer 面試日練 — 2026-08-20：ML System Design](/posts/daily/2026-08-20-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-08-20：Strategy & Execution](/posts/daily/2026-08-20-product-interview-daily)
+- 📄 [Product Builder 面試日練 — 2026-08-20：Strategy & Execution](/posts/daily/2026-08-20-product-builder-interview-daily)
 
 ## 明日關注
 

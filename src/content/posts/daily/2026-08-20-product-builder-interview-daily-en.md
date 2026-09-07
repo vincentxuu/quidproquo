@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-20-product-interview-daily)
+> 🌏 [中文版](/posts/daily/2026-08-20-product-builder-interview-daily)
 
 ## Today's Topic
 
