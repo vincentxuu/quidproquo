@@ -8,14 +8,14 @@ lang: en
 series:
   name: "從零訓練一個 LLM"
   order: 0
-tldr: "Open-source projects have pushed the cost of training an LLM from scratch absurdly low: MiniMind runs the full PreTrain-to-RL pipeline for about $0.4 (2 hours on a single RTX 3090), while at the other end OLMo 3 and LLM360 K2 publish everything — data, code, and stage-by-stage checkpoints of 65B models. This series walks the whole project spectrum from $0.4 to 65B in 10 articles, and flags where the map is biased."
-description: "Series introduction for 'Training an LLM from Scratch': 10 articles covering the open-source pre-training project spectrum — cost, data, and transparency — from MiniMind's $0.4 tutorial project to LLM360 K2's fully reproducible 65B run, with a coverage matrix, bias annotations, and a reading path."
+tldr: "Open-source projects have pushed the cost of training an LLM from scratch absurdly low: MiniMind runs the full PreTrain-to-RL pipeline for about $0.4 (2 hours on a single RTX 3090), while at the other end OLMo 3 and LLM360 K2 publish everything — data, code, and stage-by-stage checkpoints of 65B models. This series walks the whole project spectrum from $0.4 to 65B in 11 articles, and flags where the map is biased."
+description: "Series introduction for 'Training an LLM from Scratch': 11 articles covering the open-source pre-training project spectrum — cost, data, and transparency — from MiniMind's $0.4 tutorial project to LLM360 K2's fully reproducible 65B run, with a coverage matrix, bias annotations, and a reading path."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro)
 
-Calling an LLM through an API and training one from scratch are the two ends of the same map. Everyone has tried the former; a few years ago the latter was a "big-lab-only" activity — billion-dollar budgets and thousands of GPUs. [MiniMind](https://github.com/jingyaogong/minimind) pulled that line down to about $0.4 (the cost of renting one RTX 3090 for two hours), while at the other end [LLM360 K2](https://github.com/LLM360/k2-train) shows what "fully reproducible" looks like at industrial scale: 65B parameters, 1.4T tokens. This is the introduction to the "Training an LLM from Scratch" series (10 articles): first we define what we selected and why, then lay out the cost spectrum, the coverage matrix, and the bias annotations, and finally the learning path.
+Calling an LLM through an API and training one from scratch are the two ends of the same map. Everyone has tried the former; a few years ago the latter was a "big-lab-only" activity — billion-dollar budgets and thousands of GPUs. [MiniMind](https://github.com/jingyaogong/minimind) pulled that line down to about $0.4 (the cost of renting one RTX 3090 for two hours), while at the other end [LLM360 K2](https://github.com/LLM360/k2-train) shows what "fully reproducible" looks like at industrial scale: 65B parameters, 1.4T tokens. This is the introduction to the "Training an LLM from Scratch" series (11 articles): first we define what we selected and why, then lay out the cost spectrum, the coverage matrix, and the bias annotations, and finally the learning path.
 
 ## What this series covers
 
@@ -72,7 +72,7 @@ Framed as a matrix, you can see which dimensions this series has a dedicated par
 - **Retired cases are only research-oriented Pythia/TinyLlama**: "retired" here means "finished the job and got overtaken," not failed. Pythia's 154 checkpoints remain tools for studying learning dynamics; TinyLlama delivered the experiment "a 1B model trained on 3T tokens." Including them shows that obsolescence in this category usually means someone did something to completion.
 - **Architecturally one-sided**: every selection is a Transformer. RWKV and Mamba-style non-attention sequence models were once hot alternative paths but aren't part of the "fully open pipeline" selection here (or the main toolchains didn't follow) — for alternatives, [CS336: Attention, MoE, and Mamba](/en/posts/ai/2026-08-22-cs336-attention-moe-en) on this site is an existing match.
 
-## The arc (10 posts)
+## The arc (11 posts)
 
 ```
 $0.4 ─────────────────────────────→ 65B (hundreds of thousands of dollars)
@@ -92,6 +92,7 @@ English → Chinese → academic data-efficiency ──→ industrial transparen
 | 7 | [National-team training: Apertus and LLM-jp](/en/posts/ai/2026-09-06-national-multilingual-llm-training-en) | language sovereignty and the compliance route |
 | 8 | [Efficiency and edge: OpenELM and MiniCPM](/en/posts/ai/2026-09-06-efficient-edge-llm-training-en) | per-parameter performance and multimodal deployment |
 | 9 | [The from-scratch framework: LitGPT](/en/posts/ai/2026-09-06-litgpt-from-scratch-framework-en) | abstraction-free from-scratch scaffolding |
+| 10 | [Running MiniMind on RunPod](/en/posts/ai/2026-09-06-run-minimind-on-runpod-en) | the only hands-on post: from renting a machine to chatting |
 
 ## How to read this
 

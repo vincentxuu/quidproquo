@@ -75,7 +75,7 @@ litgpt pretrain pythia-14m \
 
 ## 整體來說
 
-系列到這裡可以收成一句話：想讀懂每一行，去讀 [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch)；想讀懂又想訓出真東西，用 LitGPT；想評估要不要花這個錢，回 [order 6 的決策框架](/posts/ai/2026-09-06-when-to-train-llm-from-scratch)。上一篇 [效率與邊緣路線](/posts/ai/2026-09-06-efficient-edge-llm-training) 看的是 OpenELM 與 MiniCPM 兩個模型；這篇把工具交到你手上，也把限制講清楚——沒有 RLHF、資料自備、監控自接，它是骨架不是全餐。回到系列開頭的偏誤標註（偏英語圈與中文圈的 GitHub 明星專案、非 Transformer 架構未收），LitGPT 支援的模型裡其實有巴塞隆納超算中心的 [Salamandra](https://github.com/langtech-bsc/salamandra) 這類多語實作，算是少數例外。
+系列到這裡可以收成一句話：想讀懂每一行，去讀 [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch)；想讀懂又想訓出真東西，用 LitGPT；想評估要不要花這個錢，回 [order 6 的決策框架](/posts/ai/2026-09-06-when-to-train-llm-from-scratch)。上一篇 [效率與邊緣路線](/posts/ai/2026-09-06-efficient-edge-llm-training) 看的是 OpenELM 與 MiniCPM 兩個模型；這篇把工具交到你手上，也把限制講清楚——沒有 RLHF、資料自備、監控自接，它是骨架不是全餐。回到系列開頭的偏誤標註（偏英語圈與中文圈的 GitHub 明星專案、非 Transformer 架構未收），LitGPT 支援的模型裡其實有巴塞隆納超算中心的 [Salamandra](https://github.com/langtech-bsc/salamandra) 這類多語實作，算是少數例外。下一篇 [在 RunPod 上跑一遍 MiniMind](/posts/ai/2026-09-06-run-minimind-on-runpod) 是整個系列唯一的實作篇——不談架構，直接帶你從租機器到跟自己的模型對話。
 
 ## 參考資料
 

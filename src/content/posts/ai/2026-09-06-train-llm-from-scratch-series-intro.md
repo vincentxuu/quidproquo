@@ -8,14 +8,14 @@ lang: zh-TW
 series:
   name: "從零訓練一個 LLM"
   order: 0
-tldr: "開源社群把「從零訓練 LLM」的門檻壓到了驚人的低：MiniMind 用約 $0.4、單張 3090 兩小時就能跑完從 PreTrain 到 RL 的完整流程，另一端 OLMo 3 與 LLM360 K2 把 65B 模型的訓練資料、程式碼、每個階段的 checkpoint 全部公開。這個系列用 10 篇逛完從 $0.4 到 65B 的專案光譜，並標註這份地圖覆蓋不到的地方。"
-description: "「從零訓練一個 LLM」系列導讀：從 MiniMind 的 $0.4 教學專案到 LLM360 K2 65B 的完全復現，蒐集 13 個開源預訓練專案的成本與透明度，附覆蓋矩陣、偏誤標註與 10 篇學習路徑。"
+tldr: "開源社群把「從零訓練 LLM」的門檻壓到了驚人的低：MiniMind 用約 $0.4、單張 3090 兩小時就能跑完從 PreTrain 到 RL 的完整流程，另一端 OLMo 3 與 LLM360 K2 把 65B 模型的訓練資料、程式碼、每個階段的 checkpoint 全部公開。這個系列用 11 篇逛完從 $0.4 到 65B 的專案光譜，並標註這份地圖覆蓋不到的地方。"
+description: "「從零訓練一個 LLM」系列導讀：從 MiniMind 的 $0.4 教學專案到 LLM360 K2 65B 的完全復現，蒐集 13 個開源預訓練專案的成本與透明度，附覆蓋矩陣、偏誤標註與 11 篇學習路徑。"
 draft: false
 ---
 
 > 🌏 [English version](/en/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en)
 
-用 API 接 LLM 跟從零把一個 LLM 訓出來，是同一張地圖上的兩端。前者人人都試過；後者在幾年前還是「大廠限定」的活動——動輒上億美元預算、上千張 GPU。[MiniMind](https://github.com/jingyaogong/minimind) 把這條線拉到了約 $0.4（租一張 RTX 3090 兩小時的成本），另一端由 [LLM360 K2](https://github.com/LLM360/k2-train) 用 65B 參數、1.4T tokens 展示了「完全復現」的工業標準。這篇是「從零訓練一個 LLM」系列（10 篇）的導讀：先定義我們選了什麼專案、為什麼，再擺出成本光譜、覆蓋矩陣與偏誤標註，最後是整條學習路徑。
+用 API 接 LLM 跟從零把一個 LLM 訓出來，是同一張地圖上的兩端。前者人人都試過；後者在幾年前還是「大廠限定」的活動——動輒上億美元預算、上千張 GPU。[MiniMind](https://github.com/jingyaogong/minimind) 把這條線拉到了約 $0.4（租一張 RTX 3090 兩小時的成本），另一端由 [LLM360 K2](https://github.com/LLM360/k2-train) 用 65B 參數、1.4T tokens 展示了「完全復現」的工業標準。這篇是「從零訓練一個 LLM」系列（11 篇）的導讀：先定義我們選了什麼專案、為什麼，再擺出成本光譜、覆蓋矩陣與偏誤標註，最後是整條學習路徑。
 
 ## 本系列選了什麼
 
@@ -72,7 +72,7 @@ draft: false
 - **退場案例只有研究用途的 Pythia／TinyLlama**：本系列的「退場」指的是「完成任務後被迭代超車」，不是失敗紀錄。Pythia 的 154 個 checkpoints 至今仍是研究界動態分析的工具；TinyLlama 則把「1B 模型吃 3T tokens」的實驗跑完交卷。選它們是想說明：這個類別的淘汰通常意味著它把某件事做到了底。
 - **架構單一**：所有選案都是 Transformer。RWKV、Mamba 這些非注意力序列架構一度是熱門替代路線，但不符合本系列的「公開完整流程」選項，或者主流工具鏈沒有跟著走——想看替代架構，站上的 [CS336：Attention、MoE 與 Mamba](/posts/ai/2026-08-22-cs336-attention-moe) 是現成對照。
 
-## 10 篇弧線
+## 11 篇弧線
 
 ```
 $0.4 ──────────────────────────────→ 65B（數十萬美元級）
@@ -92,6 +92,7 @@ $0.4 ─────────────────────────
 | 7 | [國家隊的從零訓練：Apertus 與 LLM-jp](/posts/ai/2026-09-06-national-multilingual-llm-training) | 語言主權與法規合規路線 |
 | 8 | [效率與邊緣：OpenELM 與 MiniCPM](/posts/ai/2026-09-06-efficient-edge-llm-training) | 每參數效能與多模態部署 |
 | 9 | [從零訓練的框架：LitGPT](/posts/ai/2026-09-06-litgpt-from-scratch-framework) | 無抽象的從零實作骨架 |
+| 10 | [在 RunPod 上跑一遍 MiniMind](/posts/ai/2026-09-06-run-minimind-on-runpod) | 唯一的實作篇：租機器到能對話 |
 
 ## 怎麼讀
 
