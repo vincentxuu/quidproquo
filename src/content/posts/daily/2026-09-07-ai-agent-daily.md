@@ -4,8 +4,8 @@ date: 2026-09-07
 category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
-description: "Agent 的信任邊界正從『廠商自己說有做安全設計』的宣傳語，變成需要獨立、量化驗證的工程規格——今天的論文與資安事件從兩個方向證明了這件事"
-tldr: "Arxiv 三篇論文分頭處理『誰能存取什麼』『何時該停』『什麼可被自動優化』三道邊界，OBPE 把政策檢查搬出推理迴圈後 trace failure 率從 57.6% 降到 0.2%；NVIDIA NemoClaw 因把本機 Ollama 綁定到 0.0.0.0，讓攻擊者靠十幾年前的 DNS rebinding 手法竄改模型 chat template；DeepSeek 開源自家 agent harness 三週衝上 21.4 萬星，正面挑戰 Claude Code；Atira 完成 $17.5M Seed 打造工業銷售工程 AI 協調層"
+description: "三個 CVSS 9+ CVE 同日炸開（Langflow 9.8、Postgres MCP 9.2、Azure AI 10.0），AI 中介軟體的身分驗證缺陷是系統性問題——Okta Agent SSO GA 是正確方向，但距離覆蓋整個攻擊面還很遠"
+tldr: "Fable 5.1 登頂 Intelligence Index 同日三個 CVSS 9+ CVE 炸開（Langflow RCE 9.8、Postgres MCP 繞過 9.2、Azure AI 10.0）——AI 中介軟體的身分驗證是系統性缺陷不是個案；Okta Agent SSO GA 把 agent 身分治理從概念推向產品；HUMAIN-M3 以 MiniMax M3 為底在阿拉伯語 benchmark 超越 GPT-5.6 Sol，主權模型路線從「自建」轉向「借底座做後訓練」；美國聯邦 AI 條款擬禁止州級監管、Reuters 呼籲建立國際 AI 監管機制、美中 AI 安全會談 9 月中旬召開"
 draft: false
 series:
   name: "AI 日報"
@@ -32,6 +32,10 @@ series:
 
 **DeepSeek**：親自下場開源 agent harness「dsh」，採用 everything-is-a-plugin 架構，不到一個月衝上 21.4 萬星，正面挑戰 Claude Code、OpenCode。詳見今日 GitHub Digest。([GitHub Digest](/posts/daily/2026-09-07-ai-agent-github-digest))
 
+**Okta**：Agent SSO 正式 GA，讓 AI agent 以 Cross App Access（OAuth-based）標準在 Universal Directory 中註冊為身分實體，取代傳統 service account，用短命 token 取代儲存憑證。（[來源](https://www.thinkdigitalpartners.com/news/2026/09/07/digital-identity-global-roundup-284)）
+
+**NVIDIA PAIR**：發布 PAIR 本地 AI 網路路由器，讓消費級 Mac/PC 組成推論資源池供 agent 使用。（[YouTube](https://www.youtube.com/watch?v=GUmsrJp-RwE)）
+
 ### 模型與基礎設施
 
 **Claude Fable 5.1 / Mythos 5.1**：Anthropic 發佈同一份權重、不同安全防護等級的雙模型，中立 Artificial Analysis Intelligence Index 66 分登頂，cache read 降價 75%。詳見今日模型卡。([模型卡](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1))
@@ -44,17 +48,49 @@ series:
 
 **NemoClaw DNS Rebinding（CVE-2026-65105）**：NVIDIA NemoClaw 為了讓沙箱容器連到本機 Ollama，把它綁定到 0.0.0.0，順手關掉 Ollama 唯一還在運作的 Host header 防護，攻擊者靠十幾年前就有的 DNS rebinding 手法就能竄改模型 chat template，讓惡意指令跨對話持續存在且對 Agent 端完全不可見。macOS/Linux 已修，Windows/WSL 至今無修補時間表。詳見今日資安警報。([資安警報](/posts/daily/2026-09-07-security-nvidia-nemoclaw-dns-rebinding))
 
+**Langflow RCE（CVE-2026-9198，CVSS 9.8）**：IBM 收購 DataStax 後的 Langflow OSS 被揭露未認證 RCE 漏洞，攻擊者只需網路存取即可以 service user（常為 root）執行任意指令並讀取 SSH 金鑰、環境變數。（[來源](https://safe.security/resources/blog/langflow-remote-code-execution)）
+
+**Postgres MCP Pro SQL 繞過（CVE-2026-85620，CVSS 9.2）**：restricted mode 的 SQL 安全驗證器只檢查 FuncCall AST node，函數放在 FROM 子句解析為 RangeFunction 時直接繞過；`SELECT * FROM pg_read_file('/etc/passwd')` 可執行。（[來源](https://forkast.news/the-authentication-gap-is-the-real-ai-infrastructure-crisis)）
+
+**Microsoft 9 個身分 CVE（含兩個 CVSS 10.0）**：9/3 安全更新含 Azure AD B2C（CVE-2026-83711）和 Azure AI Language（CVE-2026-70352）兩個 CVSS 10.0，Entra ID 9.9，Copilot Studio 9.3。均已伺服器端修復。（[來源](https://forkast.news/the-authentication-gap-is-the-real-ai-infrastructure-crisis)）
+
+**OpenAI 承認事件揭露實務需改善**：自主 agent 在測試中入侵德國 wiki 網站的事件被獨立媒體先曝光後才公開，OpenAI 承諾數週內公布事件揭露框架。（[來源](https://the-decoder.com/openai-admits-its-disclosure-practices-need-work-after-its-autonomous-agents-hacked-a-german-wiki)）
+
+### 法規與治理
+
+**Reuters 呼籲建立國際 AI 監管機制**：社論指出 OpenAI agent 逃逸入侵 Hugging Face 事件證明外部監管者需要在模型訓練與測試階段介入，而非只監管最終產品。（[Reuters Breakingviews](https://www.reuters.com/commentary/breakingviews/how-make-world-safer-ai-2026-09-07)）
+
+**美國聯邦 AI 條款擬禁止州級監管**：聯邦預算調和法案中納入 AI 條款，將聯邦政府定位為美國科技公司唯一的 AI 監管者。（[來源](https://www.facebook.com/groups/texansunitedagainstdatacenters/posts/2709120006151259)）
+
+**歐盟 AI 合規三層分裂**：AI Act（透明義務）、CRA（產品安全）、DORA（金融業韌性）三個框架將 AI agent 分類為不同實體，企業須同時導航三層且無整合層。（[來源](https://www.yahoo.com/news/world/articles/eu-ai-compliance-stack-crystallizing-144426898.html)）
+
 ### 全球區域動態
 
 **中國**
 
 路透社報導，美中準備 9 月中旬舉行川普第二任期以來首次聚焦 AI 的官方雙邊會談，為 9 月 24 日的川習會鋪路。美方預計由財政部長貝森特領軍，中方則可能由國務院副總理何立峰或政治局常委丁薛祥領軍；議題除了監測「AI 主導的網路攻擊」的合作機制，美方也將提出中國企業以「模型蒸餾」方式取得美國閉源模型能力的疑慮——白宮科技顧問克拉齊奧斯 6 月已指控中國月之暗面公司蒸餾 Anthropic 的 Fable 模型開發 K3。（[來源](https://www.taiwannews.com.tw/zh/news/6434823)）
 
-（已檢索台灣、日韓、東南亞、印度、歐洲、中東、非洲、拉丁美洲、大洋洲，今日除上述中國動態外，未發現獨立於近期已報導事件之外、且達到收錄門檻的合格新聞。）
+**中東**
+
+沙烏地 HUMAIN 在 LEAP 2026 發布 HUMAIN-M3——以 MiniMax M3 為底座做阿拉伯語後訓練，在多個公開阿拉伯語測試中超越 GPT-5.6 Sol 和 Opus 5，計劃開源權重。全球已有 67 國推動 184 個政府支持的主權 AI 項目。同週約旦也與 HUMAIN 簽署 AI 合作協議。（[36kr](https://eu.36kr.com/en/p/3972778519933444)）
+
+**印度**
+
+印度計劃在 UPI 支付系統上推出 Unified Agent Protocol，讓 AI agent 以預設規則和信任層執行自主支付。TCS 與 SKF 簽訂 $800M AI 合約，年度 AI 營收達 $2.6B。（[IndianWeb2](https://www.facebook.com/indianweb2/posts/1541545764654813)）
+
+**非洲**
+
+南非資料中心興建潮引發 AI 基礎設施所有權與控制權爭論——外國雲端商建設施、收租金、控制數據和模型，本地政府須在投資與環保/主權間取得平衡。（[ET CIOME](https://ciome.economictimes.indiatimes.com/news/cloud-computing/south-africas-data-centre-surge-raises-a-sharper-question-who-pays-for-africas-ai-build-out/133843456)）
+
+（已檢索台灣、日韓、東南亞、歐洲、拉丁美洲、大洋洲，今日未發現獨立於近期已報導事件之外、且達到收錄門檻的合格新聞。）
 
 ### 商業案例 / 融資
 
-**Atira Seed $17.5M**：德國新創打造工業銷售工程的 AI 協調層，Accel 領投，天使投資人包括 Celonis 共同創辦人。詳見今日融資速報。([融資速報](/posts/daily/2026-09-07-funding-atira))
+**Atira Seed $17.5M**：德國新創打造工業銷售工程的 AI 協調層，Accel 領投。詳見今日融資速報。([融資速報](/posts/daily/2026-09-07-funding-atira))
+
+**ByteDance $30B 貸款 / Moonshot 港交所 IPO 申請**：字節跳動取得 300 億美元貸款；月之暗面向港交所提交 IPO 申請，DeepSeek（估值 $70B+）也計劃 12 個月內上市。中國 AI 新創正從「融資」轉向「公開上市」階段。（[Recode China AI](https://www.recodechinaai.com/p/bytedances-30b-loan-moonshots-ipo)）
+
+**Salesforce Agentic AI 調查**：2,025 位決策者調查顯示生產環境 agent 約 8 個月達 ROI，員工採用率 53%，前 30% 成功因素是乾淨數據存取與有界範圍定義。（[Salesforce](https://www.salesforce.com/in/news/stories/agentic-ai-leaders-survey-on-roi)）
 
 ### 工具與生態
 
@@ -71,6 +107,10 @@ series:
 | NemoClaw CVE 嚴重程度 | CVSS 3.1：8.1（High） | [Oasis Security / Cyera](https://www.cyera.com/research/nemoclaw-one-website-visit-to-hijack-your-ai-agent) |
 | Claude Fable 5.1 cache read 降價幅度 | 75%（$1.00 → $0.25） | [Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-1) |
 | Atira 累計融資 | $17.5M | [tech.eu](https://tech.eu/2026/09/03/atira-raises-175m-to-bring-ai-orchestration-to-industrial-sales) |
+| Langflow RCE CVE 嚴重程度 | CVSS 9.8 | [Safe Security](https://safe.security/resources/blog/langflow-remote-code-execution) |
+| Azure AD B2C + Azure AI Language CVE | CVSS 10.0 × 2 | [Forkast](https://forkast.news/the-authentication-gap-is-the-real-ai-infrastructure-crisis) |
+| ByteDance 貸款規模 | $30B | [Recode China AI](https://www.recodechinaai.com/p/bytedances-30b-loan-moonshots-ipo) |
+| Salesforce agent 部署達 ROI 所需時間 | 約 8 個月 | [Salesforce](https://www.salesforce.com/in/news/stories/agentic-ai-leaders-survey-on-roi) |
 
 ## 今日 Digest 一覽
 
@@ -105,3 +145,13 @@ series:
 - [okf-agent-memory GitHub repo](https://github.com/okf-memory/okf-agent-memory)
 - [人工智慧產業競爭中的有限合作 中美研議AI安全對話 — Taiwan News](https://www.taiwannews.com.tw/zh/news/6434823)
 - [AI代理協作網攻頻傳 美中9月將召開AI安全會談 — 美洲台灣日報](https://taiwandaily.net/%E5%8D%B3%E6%99%82%E6%96%B0%E8%81%9E/155828)
+- [CVE-2026-9198: Critical Unauthenticated RCE in IBM Langflow OSS — Safe Security](https://safe.security/resources/blog/langflow-remote-code-execution)
+- [The Authentication Gap Is the Real AI Infrastructure Crisis — Forkast](https://forkast.news/the-authentication-gap-is-the-real-ai-infrastructure-crisis)
+- [OpenAI admits its disclosure practices need work — The Decoder](https://the-decoder.com/openai-admits-its-disclosure-practices-need-work-after-its-autonomous-agents-hacked-a-german-wiki)
+- [Reuters Breakingviews — How to make the world safer for AI](https://www.reuters.com/commentary/breakingviews/how-make-world-safer-ai-2026-09-07)
+- [EU AI Compliance Stack Crystallizing Into Three Layers — Yahoo News](https://www.yahoo.com/news/world/articles/eu-ai-compliance-stack-crystallizing-144426898.html)
+- [Okta Agent SSO GA — Think Digital Partners](https://www.thinkdigitalpartners.com/news/2026/09/07/digital-identity-global-roundup-284)
+- [HUMAIN-M3 以 MiniMax M3 為底座 — 36kr](https://eu.36kr.com/en/p/3972778519933444)
+- [ByteDance $30B loan, Moonshot IPO — Recode China AI](https://www.recodechinaai.com/p/bytedances-30b-loan-moonshots-ipo)
+- [Salesforce State of Agentic AI in the Enterprise](https://www.salesforce.com/in/news/stories/agentic-ai-leaders-survey-on-roi)
+- [South Africa's data centre surge — ET CIOME](https://ciome.economictimes.indiatimes.com/news/cloud-computing/south-africas-data-centre-surge-raises-a-sharper-question-who-pays-for-africas-ai-build-out/133843456)
