@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-08",
+  "date": "2026-09-09",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -13,9 +13,9 @@
     { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.70, "ci": "±1.62%" }
   ],
   "aa_agentic_index_top3": [
-    { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59 },
-    { "rank": 1, "model": "GLM-5.3 (max)", "org": "Z.ai", "score": 59 },
-    { "rank": 1, "model": "Grok 4.6 (high)", "org": "xAI", "score": 59 }
+    { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
+    { "rank": 2, "model": "GLM-5.3 (max)", "org": "Z.ai", "score": 59.1 },
+    { "rank": 3, "model": "Grok 4.6 (high)", "org": "xAI", "score": 58.7 }
   ],
   "cursorbench_top5": [
     { "rank": 1, "model": "Fable 5.1 Max", "org": "Anthropic", "score": 73.4, "costPerTask": 9.64, "tokensPerTask": 72060 },
@@ -25,5 +25,5 @@
     { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-09-08：SWE-bench Verified 官方 Full leaderboard（www.swebench.com/verified.html）持續為 client-side 渲染表格，Groundlane web_fetch（format=markdown/render=never 與 format=text/render=always+maxOutputChars=50000 皆試過）只拿到靜態說明文字，表格本體因非同步 API 請求被 blockedSubrequests（13 個）擋下、無法取得，與 09-03～09-07 連續同一結論。改用 web_search／site:swebench.com 搜尋，僅命中頁面靜態說明（無表格數據）；另外找到的『SWE-bench Verified』分數（BenchLM：Claude Opus 5 96%／Claude Mythos 5 95.5%／Claude Fable 5 95%，Steel.dev leaderboard 索引等）均為廠商自報單一模型分數，方法論與官方 swebench.com 追蹤的『含 scaffold/agent 系統』Full leaderboard（如 live-SWE-agent、TRAE、Atlassian Rovo Dev 等）不可比，不視為快照對應榜單的異動，swebench_verified_top5 沿用前值不覆蓋。Arena.ai（前 LMSYS）Agent leaderboard 主表格 web_fetch 與 web_extract（selector=table tr, render=always）皆回傳 OUTPUT_LIMIT（rendered document 過大），與前幾日同一工具限制；web_search 只命中該頁面依 signal（Confirmed Success／Steerability／Tool Hallucination 等子指標）拆分的快取片段，各子指標排名互不一致（例如 Confirmed Success 子榜由 Kimi K3 Max 居首、Claude Opus 5 Max/High 居二三），並非快照追蹤的整體排名分數，無法直接比對快照的 12.99/12.73/11.70。另有 Arena.ai 官方 X 帳號貼文宣稱『Claude Fable 5.1 (Max) 在 Agent Arena 登頂、淨改善 +15.8%』，但缺乏可驗證的完整排行表格（rank/score）佐證，且與同批 web_extract 拿到的子指標快取不一致，無法排除是不同榜單或不同時間點的資料；在缺乏一致、可驗證整體排行表格前，判定證據不足以觸發『第 1 名易主』規則，lmsys_agent_top3 沿用前值，僅記錄待後續查證。MorphLLM leaderboard 頁面仍無法直接取得（無新嘗試，沿用 null）。AA Agentic Index、CursorBench 本次未重新查證，沿用前值。今日 web_search 補充查詢（SOTA 公告、SWE-bench/Chatbot Arena 新分數）命中內容均為第三方聚合站（gitautoreview、benchlm、swfte、llm-stats、morphllm 部落格文章等）且日期分散於全年，數字彼此矛盾（同一自稱『SWE-bench Verified』分數從 74% 到 97% 都有），判斷為聚合站方法論不一致造成的雜訊，非官方榜單今日的真實異動。綜合以上，各 P1/P2 官方來源今日均無可驗證的顯著排名異動，依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章。"
+  "notes": "2026-09-09：延續 09-03～09-08 連續同一結論。P1 官方來源今日再次無法取得：swebench.com 首頁（`/`）web_fetch 因 OUTPUT_LIMIT 直接失敗；改抓 `/verified.html` 只拿到方法論靜態說明文字（無排行表格，表格為 JS 渲染且被 blockedSubrequests 擋下），與前幾日同一結論，swebench_verified_top5 沿用前值不覆蓋。Arena.ai（前 LMSYS）`?leaderboard` 頁 web_fetch 回傳 200 但 content 只剩隱私權聲明樣板文字（`fallbackReason: js_empty_document`，blockedSubrequests: 20），無法取得任何排行資料，lmsys_agent_top3 沿用前值。MorphLLM leaderboard 頁面回傳 HTTP 429（Vercel Security Checkpoint 攔截），沿用前值 null。web_search 補充查詢（SOTA 公告、SWE-bench/Arena/LMSYS 新分數）命中內容同樣以第三方聚合站為主（benchlm.ai、swfte.com、llm-stats.com、bracai.eu、iternal.ai、vellum.ai 等），同一『SWE-bench Verified』名稱下分數從 40% 到 96% 都有，且多數頁面把『含 scaffold 的 SWE-bench Full leaderboard』與『純模型 SWE-bench Verified 自報分數』混為一談，方法論不可比，判斷為聚合站雜訊而非官方榜單今日的真實異動，不採用。額外查了 AA Agentic Index（因前幾日未覆核）：benchlm.ai 鏡射 2026-08-29 更新的完整表格顯示 Claude Opus 5 59.2%／GLM-5.3 59.1%／Grok 4.6 58.7%，比快照舊值（三者並列 59 分）多了小數位精度，但資料日期在 08-29、早於現有快照建立的 09-08，且名次順序（Opus 5 > GLM-5.3 > Grok 4.6）與快照原順序一致，不構成新的排名異動，僅補上精確分數；aa_agentic_index_top3 更新為含小數分數版本，未觸發任何篩選規則的『新變動』認定。另注意到 Artificial Analysis Intelligence Index v4.2（非 Agentic Index，watchlist 未追蹤此獨立榜單）有 Claude Fable 5.1 登頂、GPT-6 Astra 第二的消息，但屬不同榜單，不在快照追蹤範圍內，僅記錄供後續評估是否需新增追蹤項目。CursorBench 本次未重新查證，沿用前值。另外，skill 文件中 Terminal-Bench 的 URL（qaskills.sh）經確認並非 Terminal-Bench 排行榜頁面，而是一個不相關的『QA Skills Directory for AI Agents』網站，判斷是 skill 設定錯誤，本次未依此來源判斷異動，建議後續修正 skill 文件中的 URL（不在本次 daily-digest-benchmark 執行範圍內逕行修改 skill）。綜合以上，各 P1/P2 官方來源今日均無可驗證的顯著排名異動，依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章。"
 }
