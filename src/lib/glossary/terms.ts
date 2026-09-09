@@ -2697,6 +2697,18 @@ export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
     links: [{ label: 'Megatron-LM 論文', url: 'https://arxiv.org/abs/1909.08053' }],
     links_en: [{ label: 'Megatron-LM paper', url: 'https://arxiv.org/abs/1909.08053' }],
   },
+  {
+    term: '複合式 AI 系統',
+    aliases: ['Compound AI System', 'compound system', '複合系統'],
+    definition: '用多個互相配合的元件（多次模型呼叫、檢索器、外部工具）來解 AI 任務的系統；相對的是單一統計模型。和「模型越大越好」的思路不同，複合系統靠工程設計拿成績。',
+    definition_en: 'A system that tackles AI tasks with multiple interacting components (repeated model calls, retrievers, external tools), as opposed to a single statistical model. Instead of relying on bigger models, compound systems win through engineering.',
+    advanced: 'Zaharia 等人 2024 年 BAIR 文章的定義：重點不在單一模型，而在元件怎麼切分、怎麼一起調。RAG、tool use、agent loop 都是複合系統的實例；DSPy 想做的就是像 PyTorch 訓練神經網路那樣端到端優化它。',
+    advanced_en: 'From Zaharia et al.\u2019s 2024 BAIR post: the point is not a single model but how components are split and tuned together. RAG, tool use, and agent loops are all instances; DSPy aims to optimize them end-to-end the way PyTorch trains neural nets.',
+    context: 'Stanford CS329Z Week 1 主讀物，也是整門課「Engineering」三個字的意思：成績是系統工程堆出來的。',
+    context_en: 'The main Week 1 reading of Stanford CS329Z, and what the "Engineering" in the course title means: results are engineered, not just scaled.',
+    links: [{ label: 'BAIR 原文', url: 'https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/' }],
+    links_en: [{ label: 'BAIR original post', url: 'https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/' }],
+  },
 ]
 export function normalizeGlossaryTerms(entries: GlossaryEntry[]): GlossaryEntry[] {
   const seen = new Set<string>()
