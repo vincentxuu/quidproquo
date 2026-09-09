@@ -41,3 +41,4 @@ Notes
 - **daily-digest-arxiv 2026-09-10**：arXiv 批次前進到 Wednesday 2026-09-09。cs.AI `/new` 頁面持續超過 Groundlane 抓取位元組上限（OUTPUT_LIMIT，各種 format/maxBytes 組合皆同），改靠 Q1-Q3 搜尋＋HF Daily Papers 補足 Layer A 覆蓋，已記錄 toolDegradation。發布三篇治理層漏洞主題（Audit Without Verification／Beyond Agent Harnesses／Copying explains collective behavior，series order 109）。Semantic Scholar 全程 429/404（論文太新，尚未索引），citationVelocity 誠實標 not-checked 而非造假。
 - **稽核方法的教訓**：計數一律用字界比對，跑稽核前先確認路徑存在。詳見 archive。
 - Stanford CS109 有 24 個 `draft: true` 檔案（Lecture 07–18 中英文），不在待 review 清單內。
+- **Q-023（2026-09-10）**：daily-digest-benchmark 連續 8 天（09-03～09-10）抓不到 swebench.com／arena.ai／morphllm.com 排行榜原始資料——這次 Groundlane 本身正常，是三站 JS 渲染表格＋Groundlane 瀏覽器渲染已停用（"Browser rendering is disabled"）的結構性問題，非單次故障。今日仍判定「無 Benchmark 異動」、未產文章，snapshot 已更新，詳見 escalation-queue。
