@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-10",
+  "date": "2026-09-11",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -25,5 +25,5 @@
     { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-09-10：延續 09-03～09-09 連續同一結論，已連續 8 天無法取得官方榜單原始資料。P1 來源今日再次全部失敗：swebench.com 首頁 web_fetch 仍 OUTPUT_LIMIT；`/verified.html` 用 web_fetch 與 web_extract 都只拿到方法論靜態文字，無排行表格（表格為 JS 渲染），swebench_verified_top5 沿用前值。arena.ai/?leaderboard 與 arena.ai/leaderboard/agent 兩個 URL 的 web_fetch 皆為 UPSTREAM_ERROR（含一次 render:always 重試回傳 PROVIDER_UNAVAILABLE，瀏覽器渲染已停用），lmsys_agent_top3 沿用前值。morphllm.com/leaderboard 兩次 web_fetch（含 render:always）皆 UPSTREAM_ERROR，morphllm_top3 沿用前值 null。web_search 補充查詢命中內容仍是第三方聚合站（harnessrouter.ai、cleverhack.com、iternal.ai、metatext.io、felloai.com、openlm.ai、llm-stats.com）與 arena.ai/leaderboard/agent 的快取 snippet，各站對『SWE-bench』『Arena Elo』的定義與數值互不一致（同名基準分數差距極大、且多混雜 scaffold 分數與純模型分數），判斷為聚合站雜訊而非官方榜單今日的真實異動，不採用。AA Agentic Index、CursorBench 本次未重新查證，沿用前值。Terminal-Bench URL（qaskills.sh）錯誤問題延續前次記錄，未修正。綜合以上，P1/P2 官方來源今日均無可驗證資料，無法判斷是否有顯著排名異動，依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章。建議：Groundlane 對 swebench.com / arena.ai / morphllm.com 三個 JS 渲染站點已連續多日抓取失敗且瀏覽器渲染被停用，此 routine 靠這三個來源做排名比對已失去可行性，建議登錄 escalation queue 評估改用其他資料源（如官方 API、GitHub raw JSON、或人工週期性快照）。"
+  "notes": "2026-09-11：延續 09-03～09-10 連續同一結論，已連續 9 天無法取得官方榜單原始資料（見 escalation-queue Q-023）。P1 來源今日再次全部失敗：swebench.com 首頁 web_fetch 仍 OUTPUT_LIMIT；`/verified.html` web_fetch 為 UPSTREAM_ERROR，swebench_verified_top5 沿用前值。lmarena.ai/leaderboard/agent 的 web_fetch 為 UPSTREAM_ERROR，加 render:always 重試後回 PROVIDER_UNAVAILABLE（「Browser rendering is disabled」），lmsys_agent_top3 沿用前值。morphllm.com/leaderboard web_fetch 仍 UPSTREAM_ERROR，morphllm_top3 沿用前值 null。今日額外嘗試以結構化 API 繞過 JS 渲染：GitHub API `repos/swe-bench/experiments/contents/evaluation/verified` 可正常回應（200），但目錄列表只給檔名／路徑，不含分數欄位，且內容在 20 萬字元處被截斷，無法據此重建排名，判定此路徑不可行；`raw.githubusercontent.com/swe-bench/swe-bench.github.io/main/results.json` 回 404（該路徑不存在）。web_search 補充查詢（Q1/Q2）命中內容仍是第三方聚合站（pricepertoken.com、iternal.ai、llm-stats.com、benchlm.ai、lmcouncil.ai、demandsphere.com、openlm.ai、lmmarketcap.com），對『SWE-bench Verified』『Arena Elo』的數值互相矛盾（同名分數在不同站分別落在 49.8%～95.5%，且多混雜 scaffold 分數與純模型自報分數，快照日期不一），判斷為聚合站雜訊而非官方榜單今日的真實異動，不採用。AA Agentic Index、CursorBench 本次未重新查證，沿用前值。綜合以上，P1/P2 官方來源今日均無可驗證資料，無法判斷是否有顯著排名異動，依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章。Q-023 仍待人拍板資料來源策略，狀態未變。"
 }
