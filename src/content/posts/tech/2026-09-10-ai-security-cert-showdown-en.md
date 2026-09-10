@@ -241,6 +241,7 @@ Existing CISM/CISSP holders whose scope is expanding from traditional security m
 
 ## Still on the watchlist
 
+- **EC-Council COASP (Certified Offensive AI Security Professional)**: EC-Council's AI security certification, offense-oriented. [Uuu (恆逸) in Taiwan offers classroom training](https://www.uuu.com.tw/Course/Show/3332/COASP) — one of the only in-person AI security cert courses available in Taiwan.
 - **ISC2 CCAI**: In pilot (2025 Q4), pricing and exam format TBA. ISC2 brand plus security engineering focus has potential, but as of September 2026 you still can't register.
 - **OffSec OSAI (AI Red Teamer)**: Coming soon. OffSec's offensive-first style could become a direct competitor to CAISP on the attack side.
 - **GIAC GASAE**: Available since April 2026, focused on red/blue/purple team AI automation — complementary to GAIPS.

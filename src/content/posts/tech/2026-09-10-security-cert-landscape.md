@@ -170,8 +170,10 @@ Phase 3（長期王牌）
 
 | 機構 | 主要課程 | 特色 |
 |---|---|---|
-| [全智網科技 AI Network](https://ainetwork-training.com/) | CISSP、CCSP、CEH、SecAI+ | ISC2 官方授權，台北實體，附 2 天總複習班 |
-| 恆逸教育訓練中心 | CISSP、CISM、Security+、CEH | EC-Council / CompTIA 授權，課程選擇最多 |
+| [恆逸教育訓練中心](https://www.uuu.com.tw/Course/Show/47/CISSP) | CISSP、CCSP、CSSLP、Security+、[SecAI+](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-)、CEH、CPENT、[COASP AI 資安專家](https://www.uuu.com.tw/Course/Show/3332/COASP) | EC-Council / CompTIA / ISC2 三家授權，課程最齊全，台灣唯一同時開 SecAI+ 和 COASP 實體班 |
+| [全智網科技 AI Network](https://ainetwork-training.com/) | CISSP、CCSP、CEH、SecAI+ | ISC2 / Cisco / CompTIA / Palo Alto 官方授權，台北實體，附 2 天總複習班 |
+| [WUSON 吳文智老師](https://wentzwu.com/courses) | CISSP 專精 | 台灣唯一 CISSP 進階認證大滿貫（ISSAP + ISSEP + ISSMP），每月開班長期額滿，有志工教練團考前輔導 |
+| [DEVCORE](https://netmag.tw/2024/07/19/devcore-bring-global-security-training-agency-offsec-introduces-factory-instructor-physical-course-to-alive-taiwan-security-talent) | OSCP、OSWA、OSDA、OSEE | 與 OffSec 合作，台灣首家引進 OffSec 原廠講師實體課程 |
 | 巨匠電腦 | Security+、iPAS、基礎資安 | 全台連鎖、入門導向、價格較親民 |
 
 ### 考試地點（台灣）

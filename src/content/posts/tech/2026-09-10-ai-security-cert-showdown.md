@@ -241,6 +241,7 @@ ISACA 在 2025/8 推出的 AI 安全**管理**認證——注意是「管理」�
 
 ## 還在觀望的選項
 
+- **EC-Council COASP（Certified Offensive AI Security Professional）**：EC-Council 的 AI 資安專家認證，偏攻擊側。台灣[恆逸教育訓練中心有開實體班](https://www.uuu.com.tw/Course/Show/3332/COASP)，是目前台灣唯一有 AI 安全認證實體課程的管道之一。
 - **ISC2 CCAI**：pilot 中（2025 Q4），定價和考試格式未定。ISC2 品牌加上安全工程定位很有潛力，但 2026/09 仍無法報名。
 - **OffSec OSAI（AI Red Teamer）**：即將推出。OffSec 的攻擊導向風格可能會成為 CAISP 在攻擊面的直接競爭者。
 - **GIAC GASAE**：2026/4 已開賣，偏紅藍紫隊 AI 自動化，與 GAIPS 互補。

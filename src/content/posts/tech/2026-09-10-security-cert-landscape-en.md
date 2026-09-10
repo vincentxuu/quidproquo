@@ -172,8 +172,10 @@ Preparation ecosystems vary dramatically by certification. Here are the most com
 
 | Provider | Key courses | Notes |
 |---|---|---|
-| [AI Network (全智網科技)](https://ainetwork-training.com/) | CISSP, CCSP, CEH, SecAI+ | ISC2 authorized, Taipei classroom, includes 2-day review boot camp |
-| Uuu (恆逸教育訓練中心) | CISSP, CISM, Security+, CEH | EC-Council / CompTIA authorized, widest course selection |
+| [Uuu (恆逸教育訓練中心)](https://www.uuu.com.tw/Course/Show/47/CISSP) | CISSP, CCSP, CSSLP, Security+, [SecAI+](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-), CEH, CPENT, [COASP AI Security](https://www.uuu.com.tw/Course/Show/3332/COASP) | EC-Council / CompTIA / ISC2 authorized; widest selection; only Taiwan provider offering both SecAI+ and COASP classroom training |
+| [AI Network (全智網科技)](https://ainetwork-training.com/) | CISSP, CCSP, CEH, SecAI+ | ISC2 / Cisco / CompTIA / Palo Alto authorized, Taipei classroom, includes 2-day review boot camp |
+| [WUSON (吳文智老師)](https://wentzwu.com/courses) | CISSP only | Taiwan's only CISSP advanced triple-crown holder (ISSAP + ISSEP + ISSMP); monthly cohorts consistently sold out; volunteer coaching team for exam prep |
+| [DEVCORE](https://netmag.tw/2024/07/19/devcore-bring-global-security-training-agency-offsec-introduces-factory-instructor-physical-course-to-alive-taiwan-security-talent) | OSCP, OSWA, OSDA, OSEE | OffSec partnership; first to bring OffSec factory instructors to Taiwan for in-person courses |
 | Gjun (巨匠電腦) | Security+, iPAS, foundational security | Nationwide chain, beginner-friendly, budget pricing |
 
 ### Exam venues (Taiwan)
