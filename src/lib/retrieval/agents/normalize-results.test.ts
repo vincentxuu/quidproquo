@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
-import { applyMmrOrdering, parseMetadataArrays, orderByRelevance, rerankByQuery } from './normalize-results'
+import { describe, it, expect, vi } from 'vitest'
+import { applyMmrOrdering, parseMetadataArrays, orderByRelevance, rerankByQuery, rerankWithCrossEncoder } from './normalize-results'
 import type { SearchResult } from '../state'
 
 describe('parseMetadataArrays', () => {
@@ -71,6 +71,64 @@ describe('comparable result ordering', () => {
 
     expect(ordered[0].evidence_excerpt).toBe('rrf')
     expect(ordered[1].relevance_score).toBeCloseTo(0.495)
+  })
+})
+
+vi.mock('cloudflare:workers', () => ({
+  env: {
+    AI: {
+      run: vi.fn(),
+    },
+  },
+}))
+
+describe('rerankWithCrossEncoder', () => {
+  it('reorders results by cross-encoder score', async () => {
+    const { env: cfEnv } = await import('cloudflare:workers')
+    const mockAI = (cfEnv as unknown as { AI: { run: ReturnType<typeof vi.fn> } }).AI
+    mockAI.run.mockResolvedValueOnce({
+      response: [
+        { id: 0, score: -1.0 },
+        { id: 1, score: 2.5 },
+        { id: 2, score: 0.5 },
+      ],
+    })
+
+    const chunks = [
+      { relevance_score: 0.9, chunk_id: 'a', claim: 'generic', evidence_excerpt: 'generic text' },
+      { relevance_score: 0.7, chunk_id: 'b', claim: 'D1 batch timeout', evidence_excerpt: 'Cloudflare D1 batch timeout fix' },
+      { relevance_score: 0.5, chunk_id: 'c', claim: 'vector search', evidence_excerpt: 'vector search embedding' },
+    ] as SearchResult[]
+
+    const ranked = await rerankWithCrossEncoder(chunks, 'd1 timeout', 2)
+    expect(ranked[0].chunk_id).toBe('b')
+    expect(ranked[0].relevance_score).toBeGreaterThan(0.9)
+    expect(ranked[1].chunk_id).toBe('c')
+    expect(mockAI.run).toHaveBeenCalledWith('@cf/baai/bge-reranker-base', expect.objectContaining({
+      query: 'd1 timeout',
+      contexts: expect.arrayContaining([expect.objectContaining({ text: expect.stringContaining('generic') })]),
+    }))
+  })
+
+  it('returns empty array for empty input', async () => {
+    const ranked = await rerankWithCrossEncoder([], 'query', 3)
+    expect(ranked).toEqual([])
+  })
+
+  it('applies sigmoid normalization to scores', async () => {
+    const { env: cfEnv } = await import('cloudflare:workers')
+    const mockAI = (cfEnv as unknown as { AI: { run: ReturnType<typeof vi.fn> } }).AI
+    mockAI.run.mockResolvedValueOnce({
+      response: [{ id: 0, score: 5.0 }],
+    })
+
+    const chunks = [
+      { relevance_score: 0.5, chunk_id: 'a', claim: 'test', evidence_excerpt: 'test' },
+    ] as SearchResult[]
+
+    const ranked = await rerankWithCrossEncoder(chunks, 'test', 1)
+    expect(ranked[0].relevance_score).toBeGreaterThan(0.99)
+    expect(ranked[0].relevance_score).toBeLessThanOrEqual(1)
   })
 })
 

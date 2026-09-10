@@ -1,5 +1,10 @@
+import { env } from 'cloudflare:workers'
+import type { Env } from '../../config/env'
 import type { GraphState, SearchResult } from '../state'
 import { comparableRankingScore, isWeakRetrieval } from '../tools/hybrid-search'
+
+const RERANKER_MODEL = '@cf/baai/bge-reranker-base'
+const RERANKER_TOP_N = 20
 
 export function parseMetadataArrays(meta: { images: unknown; links: unknown }): {
   images: string[]
@@ -50,6 +55,43 @@ export function rerankByQuery(
   return ordered.slice(0, keepCount)
 }
 
+export async function rerankWithCrossEncoder(
+  results: SearchResult[],
+  query: string,
+  minKeep: number
+): Promise<SearchResult[]> {
+  if (results.length === 0) return []
+  const { AI } = env as unknown as Env
+  const candidates = results.slice(0, RERANKER_TOP_N)
+  const contexts = candidates.map(r => ({ text: `${r.claim}\n${r.evidence_excerpt}`.slice(0, 512) }))
+
+  // Workers AI types are missing the `query` field on Ai_Cf_Baai_Bge_Reranker_Base_Input
+  const output = await (AI as unknown as { run(model: string, inputs: unknown): Promise<unknown> })
+    .run(RERANKER_MODEL, { query, contexts })
+
+  const items = (output as { response?: Array<{ id: number; score: number }> }).response ?? []
+  const ranked = items
+    .filter(item => item.id >= 0 && item.id < candidates.length)
+    .sort((a, b) => b.score - a.score)
+    .map(item => ({
+      ...candidates[item.id],
+      relevance_score: clampCrossEncoderScore(item.score),
+    }))
+
+  const overflow = results.slice(RERANKER_TOP_N).map(r => ({
+    ...r,
+    relevance_score: r.relevance_score * 0.5,
+  }))
+
+  const keepCount = Math.max(minKeep, 1)
+  return [...ranked, ...overflow].slice(0, Math.max(keepCount, ranked.length))
+}
+
+function clampCrossEncoderScore(raw: number): number {
+  const sigmoid = 1 / (1 + Math.exp(-raw))
+  return Math.min(1, Math.max(0, sigmoid))
+}
+
 function jaccardSimilarity(a: string, b: string): number {
   const setA = new Set(tokenize(a))
   const setB = new Set(tokenize(b))
@@ -95,7 +137,8 @@ export async function normalizeResultsNode(state: GraphState): Promise<Partial<G
   const needsWebSearch = isWeakRetrieval(state.search_results)
   let ordered = orderByRelevance(state.search_results)
   if (state.config.rerankerEnabled) {
-    ordered = rerankByQuery(ordered, query, state.config.rerankerMinKeep)
+    ordered = await rerankWithCrossEncoder(ordered, query, state.config.rerankerMinKeep)
+      .catch(() => rerankByQuery(ordered, query, state.config.rerankerMinKeep))
     ordered = applyMmrOrdering(ordered, state.config.mmrLambda)
   }
 
