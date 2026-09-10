@@ -116,11 +116,7 @@ async function searchLikePosts(
       links: string
     }>()
 
-  const mapped = rows.results.map(rowToResult)
-  if (mapped.length === 0 && (category || lang)) {
-    return searchLikePosts(query, limit)
-  }
-  return mapped
+  return rows.results.map(rowToResult)
 }
 
 async function fetchPostsByMetadata(
@@ -299,6 +295,34 @@ async function fetchPostRowsByChunkIds(
   return chunkIds.map(id => byId.get(id)).filter((row): row is PostSearchRow => Boolean(row))
 }
 
+type PostVectorMatches = Awaited<ReturnType<Env['VECTORIZE_INDEX']['query']>>
+
+// Pushing lang into the Vectorize filter keeps topK from being half-filled by the
+// other language (every post has a bilingual twin). Falls back to a type-only
+// filter if the `lang` metadata index is missing, so deploy order doesn't matter.
+async function queryPostVectors(
+  index: Env['VECTORIZE_INDEX'],
+  queryVector: number[],
+  topK: number,
+  lang?: string
+): Promise<PostVectorMatches> {
+  const typeOnly = { type: { $eq: 'post' } }
+  if (!lang) {
+    return index.query(queryVector, { topK, filter: typeOnly, returnMetadata: 'all' })
+  }
+  try {
+    const filtered = await index.query(queryVector, {
+      topK,
+      filter: { ...typeOnly, lang: { $eq: lang } },
+      returnMetadata: 'all',
+    })
+    if (filtered.matches.length > 0) return filtered
+  } catch {
+    // metadata index for `lang` not created yet
+  }
+  return index.query(queryVector, { topK, filter: typeOnly, returnMetadata: 'all' })
+}
+
 async function searchVectorPosts(
   query: string,
   limit: number,
@@ -308,11 +332,7 @@ async function searchVectorPosts(
   const { VECTORIZE_INDEX, AI } = env as unknown as Env
   const [queryVector] = await embedQueries(AI, [query])
 
-  const results = await VECTORIZE_INDEX.query(queryVector, {
-    topK: limit * 3,
-    filter: { type: { $eq: 'post' } },
-    returnMetadata: 'all',
-  })
+  const results = await queryPostVectors(VECTORIZE_INDEX, queryVector, limit * 3, lang)
 
   const matches = results.matches.filter(match => {
     const meta = (match.metadata ?? {}) as Record<string, unknown>
@@ -325,9 +345,6 @@ async function searchVectorPosts(
   const chunkIds = matches.map(match => String(((match.metadata ?? {}) as Record<string, unknown>).chunk_id ?? match.id))
 
   let rows = await fetchPostRowsByChunkIds(chunkIds, category, lang)
-  if (rows.length === 0 && (category || lang)) {
-    rows = await fetchPostRowsByChunkIds(chunkIds)
-  }
   if (rows.length === 0 && matches.length > 0) {
     rows = await fetchPostsByMetadata(matches, category, lang)
   }
@@ -389,13 +406,8 @@ async function searchBm25Posts(
     }>()
 
   const mapped = rows.results.map(rowToResult)
-  if (mapped.length === 0) {
-    if (containsHan(query) && query.trim().length >= 2) {
-      return searchLikePosts(query, limit, category, lang)
-    }
-    if (category || lang) {
-      return searchBm25Posts(query, limit)
-    }
+  if (mapped.length === 0 && containsHan(query) && query.trim().length >= 2) {
+    return searchLikePosts(query, limit, category, lang)
   }
   return mapped
 }
