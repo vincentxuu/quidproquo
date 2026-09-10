@@ -1,6 +1,6 @@
 ---
 title: "Stanford CS329Z 導讀 Week 11（最終回）：從等指令到先出手——proactive agent 與 Demo Day"
-date: 2026-09-18
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]

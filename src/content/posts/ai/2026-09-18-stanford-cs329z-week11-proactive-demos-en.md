@@ -1,6 +1,6 @@
 ---
 title: "Reading Stanford CS329Z Week 11 (Finale): From Waiting for Orders to Acting First — Proactive Agents and Demo Day"
-date: 2026-09-18
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]

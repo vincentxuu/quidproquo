@@ -1,6 +1,6 @@
 ---
 title: "Stanford CS329Z 導讀 Week 6：資料飛輪轉起來——HW1 繳交週"
-date: 2026-09-14
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, compound-ai-systems]

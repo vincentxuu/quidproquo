@@ -1,6 +1,6 @@
 ---
 title: "Reading Stanford CS329Z Week 4: Learn to Think While Doing, Then Learn to Remember — ReAct and MemGPT"
-date: 2026-09-12
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]

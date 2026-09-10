@@ -1,6 +1,6 @@
 ---
 title: "Stanford CS329Z 導讀 Week 3：工具接進來，框架換上去——HW1 開工"
-date: 2026-09-11
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]

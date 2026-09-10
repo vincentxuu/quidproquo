@@ -1,6 +1,6 @@
 ---
 title: "Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent"
-date: 2026-09-16
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]

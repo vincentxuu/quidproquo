@@ -1,6 +1,6 @@
 ---
 title: "Reading Stanford CS329Z Week 3: Plug Tools In, Swap Frameworks Up — HW1 Begins"
-date: 2026-09-11
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]

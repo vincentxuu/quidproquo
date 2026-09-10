@@ -1,6 +1,6 @@
 ---
 title: "Stanford CS329Z 導讀 Week 7：分數別騙自己，資料再做大——期中驗收週"
-date: 2026-09-15
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent]

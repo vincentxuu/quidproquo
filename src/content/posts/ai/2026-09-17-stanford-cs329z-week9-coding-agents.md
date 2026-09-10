@@ -1,6 +1,6 @@
 ---
 title: "Stanford CS329Z 導讀 Week 9：寫程式的智慧體，先替它造一把順手的 IDE"
-date: 2026-09-17
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag]

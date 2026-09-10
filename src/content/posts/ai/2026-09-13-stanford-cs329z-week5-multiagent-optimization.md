@@ -1,6 +1,6 @@
 ---
 title: "Stanford CS329Z 導讀 Week 5：該單幹還是開會——多智慧體與優化三軸"
-date: 2026-09-13
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, compound-ai-systems]

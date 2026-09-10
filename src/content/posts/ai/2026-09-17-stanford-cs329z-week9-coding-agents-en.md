@@ -1,6 +1,6 @@
 ---
 title: "Reading Stanford CS329Z Week 9: Coding Agents Need Their Own IDE First"
-date: 2026-09-17
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag]

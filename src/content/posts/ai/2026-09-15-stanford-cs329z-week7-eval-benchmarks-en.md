@@ -1,6 +1,6 @@
 ---
 title: "Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint"
-date: 2026-09-15
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag]

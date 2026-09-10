@@ -1,6 +1,6 @@
 ---
 title: "Reading Stanford CS329Z Week 6: Spin Up the Data Flywheel — Submission Week"
-date: 2026-09-14
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, compound-ai-systems]

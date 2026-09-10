@@ -1,6 +1,6 @@
 ---
 title: "Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄"
-date: 2026-09-16
+date: 2026-09-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy]
