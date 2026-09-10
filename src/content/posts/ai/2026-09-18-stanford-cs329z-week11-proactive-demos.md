@@ -10,7 +10,7 @@ series:
   order: 11
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
-    order: 26
+    order: 29
 tldr: "最終回讀 Week 11：週一用 GUM 論文把等指令的 reactive 助理升級成會觀察、推測、先出手的 proactive agent，週三把 multimodal、long-running 與 production observability 收成三個 open problems；文末附 Demo Day 前檢查清單與全系列 11 篇地圖。"
 description: "帶讀 Stanford CS329Z Week 11 主讀物 Shaikh 等人的 General User Models：命題架構、Gumbo 助理、隱私信任兩難，以及 12 月 2 日 open problems 框架與 Demo Day 行前準備。"
 draft: false

@@ -10,7 +10,7 @@ series:
   order: 8
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
-    order: 23
+    order: 26
 tldr: "Week 7 是期中驗收週：週一談資料選擇，週三談評分與 benchmark 設計；Zhu 等人教你別被自己的分數騙，SWE-smith 把軟體工程任務資料做到 5 萬題，讀完為 HW2 寫下第一版 4-tuple。"
 description: "帶讀 Stanford CS329Z Week 7 三篇主讀物：agentic benchmark 最佳實踐檢查表、LLM 評審的人類對齊、SWE-smith 資料規模化管線，以及課程的 4-tuple 評估框架。"
 draft: false

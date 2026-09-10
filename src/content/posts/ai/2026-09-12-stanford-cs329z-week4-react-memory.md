@@ -10,7 +10,7 @@ series:
   order: 5
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
-    order: 20
+    order: 23
 tldr: "Week 4 週一用 ReAct 論文把 agent 迴圈定型為想—做—看的交錯序列，週三用 MemGPT 論文把記憶做成作業系統式的分層記憶體；同一週 HW1 Part A 進入收尾，迴圈形狀與記憶設計就是評分前要定案的兩件事。"
 description: "帶讀 Stanford CS329Z Week 4 兩篇主讀物：Yao 等人的 ReAct 如何交錯推理與行動，Packer 等人的 MemGPT 如何用虛擬記憶體管理突破 context 上限，以及它們如何對應 HW1 Part A 的收尾。"
 draft: false

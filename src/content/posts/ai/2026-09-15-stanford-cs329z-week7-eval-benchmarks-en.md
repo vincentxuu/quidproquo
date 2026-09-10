@@ -10,7 +10,7 @@ series:
   order: 8
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
-    order: 23
+    order: 26
 tldr: "Week 7 is midterm checkpoint week: data selection on Monday, evaluation and benchmark design on Wednesday. Zhu et al. teach you not to be fooled by your own scores, SWE-smith scales software-engineering tasks to 50,000 instances, and you close by drafting a first 4-tuple for HW2."
 description: "A guided reading of the Stanford CS329Z Week 7 anchors: the agentic benchmark best-practices checklist, human alignment of LLM judges, the SWE-smith data-scaling pipeline, and the course's 4-tuple evaluation frame."
 draft: false

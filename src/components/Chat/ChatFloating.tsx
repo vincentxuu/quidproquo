@@ -3,18 +3,24 @@ import { ChatWidget } from './ChatWidget'
 
 export function ChatFloating() {
   const [open, setOpen] = useState(false)
+  const [expanded, setExpanded] = useState(false)
 
   return (
     <>
       {open && (
         <div style={{
           position: 'fixed',
-          bottom: '5rem',
-          right: '1.5rem',
-          width: 'min(420px, calc(100vw - 2rem))',
-          height: 'min(560px, calc(100vh - 8rem))',
+          ...(expanded
+            ? { inset: '1rem', bottom: '1rem', width: 'auto', height: 'auto' }
+            : {
+                bottom: '5rem',
+                right: '1.5rem',
+                width: 'min(520px, calc(100vw - 2rem))',
+                height: 'min(680px, calc(100vh - 8rem))',
+              }
+          ),
           zIndex: 1000,
-          borderRadius: '8px',
+          borderRadius: expanded ? '12px' : '8px',
           boxShadow: 'var(--shadow-floating)',
           overflow: 'hidden',
           display: 'flex',
@@ -22,6 +28,7 @@ export function ChatFloating() {
           background: 'var(--bg-card)',
           border: '1px solid var(--border)',
           animation: 'chat-pop-in 0.18s ease',
+          transition: 'all 0.2s ease',
         }}>
           <div style={{
             padding: '0.85rem 1rem',
@@ -34,19 +41,20 @@ export function ChatFloating() {
             background: 'var(--bg-card)',
           }}>
             <span>Ask AI</span>
-            <button
-              onClick={() => setOpen(false)}
-              aria-label="關閉"
-              style={{
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                color: 'var(--text-secondary)',
-                padding: '0.25rem',
-                lineHeight: 1,
-                fontSize: '1.1rem',
-              }}
-            >✕</button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+              <button
+                onClick={() => setExpanded(v => !v)}
+                aria-label={expanded ? '縮小視窗' : '展開視窗'}
+                className="chat-header-btn"
+              >
+                {expanded ? '⊖' : '⊕'}
+              </button>
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="關閉"
+                className="chat-header-btn"
+              >✕</button>
+            </div>
           </div>
           <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
             <ChatWidget embedded />
@@ -89,6 +97,23 @@ export function ChatFloating() {
         @keyframes chat-pop-in {
           from { opacity: 0; transform: translateY(12px) scale(0.97); }
           to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .chat-header-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: var(--text-secondary);
+          padding: 0.25rem 0.4rem;
+          line-height: 1;
+          font-size: 1.1rem;
+          border-radius: 4px;
+          transition: background 0.12s, color 0.12s;
+        }
+
+        .chat-header-btn:hover {
+          background: var(--bg-hover, rgba(128, 128, 128, 0.15));
+          color: var(--text-primary);
         }
 
         .chat-float-close {

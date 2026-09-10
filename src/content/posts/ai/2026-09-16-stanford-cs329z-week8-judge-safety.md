@@ -10,7 +10,7 @@ series:
   order: 9
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
-    order: 24
+    order: 27
 tldr: "Week 8 週一用 MT-Bench 與 Anthropic 評測指南建立模型裁判，週三用 PrivacyLens 與四件護欄面對實戰洩漏；週五 paper video 到期，本週交付就是一份會動的裁判分數加一條許可檢查。"
 description: "帶讀 Stanford CS329Z Week 8 兩大主題：三種 grader、pairwise 與 pointwise 裁判形態、裁判偏誤與校準，以及 PrivacyLens 揭示的行動洩漏與提示注入、紅隊、沙箱、許可四件護欄。"
 draft: false

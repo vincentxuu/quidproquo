@@ -10,7 +10,7 @@ series:
   order: 10
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
-    order: 25
+    order: 28
 tldr: "第九週週三談寫程式智慧體：SWE-agent 證明介面即效能，OpenHands 把沙箱與評測做成通用底座；第二份作業週五到期，本週交付是一道會動的修 bug 考題。"
 description: "帶讀 Stanford CS329Z Week 9 兩大主讀物：SWE-agent 的 ACI 介面設計與消融證據、OpenHands 的事件流沙箱與多基準評測，以及 SWE-bench 四元組考題結構與一條可動手的打包建議。"
 draft: false

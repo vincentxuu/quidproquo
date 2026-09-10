@@ -10,7 +10,7 @@ series:
   order: 6
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
-    order: 21
+    order: 24
 tldr: "Week 5 週一用 AutoGen 把多智慧體協作寫成可程式的對話，週三用 GEPA 與 test-time compute 論文攤開優化三軸：改 prompt、改權重、加推理算力。HW1 在 10/30 截止，這是交卷前最後一個完整週，這篇幫你決定力氣花在哪一軸。"
 description: "帶讀 Stanford CS329Z Week 5 兩堂課：AutoGen 的 conversable agent 與 conversation programming，GEPA 的反思式 prompt 演化與 test-time compute 的按難度分配，以及它們如何收斂成 HW1 收尾的三選一。"
 draft: false

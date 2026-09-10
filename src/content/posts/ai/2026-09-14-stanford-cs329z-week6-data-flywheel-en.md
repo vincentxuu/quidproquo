@@ -10,7 +10,7 @@ series:
   order: 7
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
-    order: 22
+    order: 25
 tldr: "Week 6 assigns Shankar's data flywheel on Wednesday — evaluation, monitoring, and continual improvement feeding on the same production data — while HW1 comes due, HW2 drops, and the midpoint demo and report loom in early November."
 description: "A guided reading of the Stanford CS329Z Week 6 anchor, Shankar's Data Flywheels: traces, demonstrations, and feedback, data for optimization versus evaluation, plus a minimal trace-logging move for HW1 submission week."
 draft: false

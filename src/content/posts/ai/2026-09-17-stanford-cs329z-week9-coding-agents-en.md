@@ -10,7 +10,7 @@ series:
   order: 10
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
-    order: 25
+    order: 28
 tldr: "Week nine turns to coding agents: SWE-agent shows interface is performance, OpenHands packs sandbox plus benchmarks into one general base, and the second homework is due Friday — ship one working bug-fix exam this week."
 description: "A guided reading of Stanford CS329Z Week 9: SWE-agent's ACI design and ablation evidence, OpenHands' event-stream sandbox and multi-benchmark eval, the SWE-bench 4-tuple, and one hands-on packaging exercise."
 draft: false

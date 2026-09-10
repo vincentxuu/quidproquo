@@ -10,7 +10,7 @@ series:
   order: 7
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
-    order: 22
+    order: 25
 tldr: "Week 6 週三讀 Shankar 的資料飛輪：評估、監控、持續改進三站共用同一批生產資料；同一週 HW1 截止、HW2 發布，11 月初還有期中展示與期中報告。"
 description: "帶讀 Stanford CS329Z Week 6 主讀物 Shankar 的 Data Flywheels：軌跡、示範與回饋的收集，優化與評估兩種用途，以及給 HW1 繳交週的最小軌跡紀錄動作。"
 draft: false

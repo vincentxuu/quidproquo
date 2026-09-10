@@ -7,7 +7,7 @@ tags: [olmo, llm360, llm, open-source, pre-training, training-data]
 lang: zh-TW
 series:
   name: "從零訓練一個 LLM"
-  order: 5
+  order: 11
 tldr: "「開源 LLM」其實是一條光譜：只開權重（Llama）→ 權重加資料（多數 fully open 專案）→ 連資料順序、中間 checkpoint、訓練日誌都開（LLM360 K2、OLMo 3 的 model flow）。這篇拆解兩個把透明度推到極致的專案：OLMo 3 在 2025 年 11 月放出首個全開的 32B thinking 模型，K2 則是首個 65B 級、連 optimizer states 都公開的模型。"
 description: "拆解 OLMo 3 的 model flow 與 LLM360 K2 的 360° 開源：fully open 的定義光譜、中間 checkpoint 與訓練日誌的研究價值，以及什麼時候你真的需要這種等級的資源。"
 draft: false

@@ -10,7 +10,7 @@ series:
   order: 9
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
-    order: 24
+    order: 27
 tldr: "Week 8 builds model judges with MT-Bench and Anthropic's eval guide on Monday, then faces production leakage with PrivacyLens and four guardrails on Wednesday. The paper video is due Friday, and this week's deliverable is one working judge score plus one permission check."
 description: "A guided reading of Stanford CS329Z Week 8: three grader types, pairwise and pointwise judge shapes, judge bias and calibration, plus the action-time leakage PrivacyLens exposes and four guardrails — prompt injection, red-teaming, sandboxing, and permission."
 draft: false

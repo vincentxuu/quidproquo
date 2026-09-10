@@ -7,7 +7,7 @@ tags: [olmo, llm360, llm, open-source, pre-training, training-data]
 lang: en
 series:
   name: "從零訓練一個 LLM"
-  order: 5
+  order: 11
 tldr: "\"Open-source LLM\" is a spectrum: weights-only (Llama), weights plus data (most fully open projects), or data order, intermediate checkpoints, and training logs all released (LLM360 K2, OLMo 3's model flow). This piece unpacks the two projects that pushed transparency furthest: OLMo 3 shipped the first fully open 32B thinking model in November 2025, and K2 is the first 65B-class model whose checkpoints even include optimizer states."
 description: "A deep dive into OLMo 3's model flow and LLM360 K2's 360-degree open source: the definition spectrum of fully open, the research value of intermediate checkpoints and training logs, and when you actually need resources at this level."
 draft: false

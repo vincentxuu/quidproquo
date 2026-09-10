@@ -10,7 +10,7 @@ series:
   order: 11
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
-    order: 26
+    order: 29
 tldr: "The finale reads Week 11: Monday upgrades instruction-waiting reactive assistants into proactive agents that observe, infer, and act first via the GUM paper, while Wednesday folds multimodal systems, long-running agents, and production observability into three open problems. Ends with a pre-Demo-Day checklist and a one-line map of all 11 posts."
 description: "A guided reading of Stanford CS329Z Week 11 headliner General User Models by Shaikh et al.: the proposition architecture, the Gumbo assistant, the privacy-trust dilemma, plus the December 2 open-problems framing and Demo Day preparation."
 draft: false
