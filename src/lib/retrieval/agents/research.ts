@@ -68,7 +68,9 @@ async function generateQueryAlternatives(
 ): Promise<string[]> {
   const maxTokens = options?.maxTokens ?? 256
   const { response } = await runtime.modelInvoke([
-    new SystemMessage(`Generate up to ${maxQueries} diverse search rewrites for a blog/documentation RAG system.
+    new SystemMessage(`Generate up to ${maxQueries} diverse search rewrites for a bilingual zh-TW/en technical blog RAG system.
+Vary vocabulary and framing, not just phrasing. Preserve technical terms, product names, and API identifiers exactly (do not translate "BM25", "LangGraph", etc.).
+Write each rewrite in the same language as the original query.
 ${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInstructions}\n` : ''}
 Return JSON only: {"queries":["..."]}`),
     new HumanMessage(query),
@@ -91,7 +93,9 @@ async function generateHydeQuery(
 ): Promise<string | null> {
   const maxTokens = options?.maxTokens ?? 256
   const { response } = await runtime.modelInvoke([
-    new SystemMessage(`Write a short hypothetical answer paragraph that would help retrieve the right supporting documents.
+    new SystemMessage(`Write a short hypothetical answer paragraph in the same language as the question.
+Include specific technical terms, product names, and concepts that real blog posts about this topic would contain.
+The corpus is a bilingual zh-TW/en technical blog covering AI, RAG, LLM, and software engineering.
 ${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInstructions}\n` : ''}
 Return plain text only.`),
     new HumanMessage(query),
@@ -191,7 +195,7 @@ async function runResearch(
     if (hydeQuery) searchQueries.push(hydeQuery)
   }
 
-  if (state.config.multiQueryEnabled && state.plan.complexity === 'complex' && maxSearchCalls >= 3) {
+  if (state.config.multiQueryEnabled && state.plan.complexity !== 'simple' && maxSearchCalls >= 2) {
     const remainingSlots = Math.max(1, maxSearchCalls - searchQueries.length)
     const alternates = await generateQueryAlternatives(baseQuery, remainingSlots, runtime, options).catch(() => [])
     searchQueries.push(...alternates)
