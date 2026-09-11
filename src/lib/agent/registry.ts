@@ -6,6 +6,9 @@ import { writerAgent } from '../retrieval/agents/writer'
 import { frameworkDigestAgent } from '../digest/framework'
 import { securityDigestAgent } from '../digest/security'
 import { pricingDigestAgent } from '../digest/pricing'
+import { githubDigestAgent } from '../digest/github'
+import { fundingDigestAgent } from '../digest/funding'
+import { toolDigestAgent } from '../digest/tool'
 
 export async function registerAgentDefinitions(kernel: AgentOsKernel): Promise<void> {
   await kernel.defineAgent(criticAgent)
@@ -15,4 +18,7 @@ export async function registerAgentDefinitions(kernel: AgentOsKernel): Promise<v
   await kernel.defineAgent(frameworkDigestAgent)
   await kernel.defineAgent(securityDigestAgent)
   await kernel.defineAgent(pricingDigestAgent)
+  await kernel.defineAgent(githubDigestAgent)
+  await kernel.defineAgent(fundingDigestAgent)
+  await kernel.defineAgent(toolDigestAgent)
 }
