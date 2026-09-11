@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { applyMmrOrdering, parseMetadataArrays, orderByRelevance, rerankByQuery, rerankWithCrossEncoder } from './normalize-results'
+import { applyMmrOrdering, parseMetadataArrays, orderByRelevance, rerankByQuery, rerankWithCrossEncoder, isRecencySensitiveQuery, applyRecencyBoost } from './normalize-results'
 import type { SearchResult } from '../state'
 
 describe('parseMetadataArrays', () => {
@@ -129,6 +129,65 @@ describe('rerankWithCrossEncoder', () => {
     const ranked = await rerankWithCrossEncoder(chunks, 'test', 1)
     expect(ranked[0].relevance_score).toBeGreaterThan(0.99)
     expect(ranked[0].relevance_score).toBeLessThanOrEqual(1)
+  })
+})
+
+describe('isRecencySensitiveQuery', () => {
+  it('detects Chinese recency keywords', () => {
+    expect(isRecencySensitiveQuery('今天有什麼新消息')).toBe(true)
+    expect(isRecencySensitiveQuery('最近有什麼框架更新')).toBe(true)
+    expect(isRecencySensitiveQuery('最新的 AI 模型')).toBe(true)
+  })
+
+  it('detects English recency keywords', () => {
+    expect(isRecencySensitiveQuery('latest framework releases')).toBe(true)
+    expect(isRecencySensitiveQuery('what is new today')).toBe(true)
+    expect(isRecencySensitiveQuery('recent updates')).toBe(true)
+  })
+
+  it('returns false for non-recency queries', () => {
+    expect(isRecencySensitiveQuery('什麼是 RAG')).toBe(false)
+    expect(isRecencySensitiveQuery('explain BM25')).toBe(false)
+  })
+})
+
+describe('applyRecencyBoost', () => {
+  it('boosts results from today', () => {
+    const results = [
+      { relevance_score: 0.5, date: '2026-09-12' },
+      { relevance_score: 0.6, date: '2026-08-01' },
+    ] as SearchResult[]
+
+    const boosted = applyRecencyBoost(results, '2026-09-12')
+    expect(boosted[0].relevance_score).toBe(0.65)
+    expect(boosted[1].relevance_score).toBe(0.6)
+  })
+
+  it('applies smaller boost for 7-day-old results', () => {
+    const results = [
+      { relevance_score: 0.5, date: '2026-09-08' },
+    ] as SearchResult[]
+
+    const boosted = applyRecencyBoost(results, '2026-09-12')
+    expect(boosted[0].relevance_score).toBeCloseTo(0.58)
+  })
+
+  it('does not boost results older than 30 days', () => {
+    const results = [
+      { relevance_score: 0.5, date: '2026-07-01' },
+    ] as SearchResult[]
+
+    const boosted = applyRecencyBoost(results, '2026-09-12')
+    expect(boosted[0].relevance_score).toBe(0.5)
+  })
+
+  it('clamps score to 1', () => {
+    const results = [
+      { relevance_score: 0.95, date: '2026-09-12' },
+    ] as SearchResult[]
+
+    const boosted = applyRecencyBoost(results, '2026-09-12')
+    expect(boosted[0].relevance_score).toBe(1)
   })
 })
 

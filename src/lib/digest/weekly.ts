@@ -11,13 +11,13 @@ function todayTaipei(): string {
   return new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Taipei' })
 }
 
-function weekStartDate(friday: string): string {
+export function weekStartDate(friday: string): string {
   const d = new Date(`${friday}T00:00:00+08:00`)
   d.setDate(d.getDate() - (d.getDay() + 6) % 7)
   return d.toISOString().slice(0, 10)
 }
 
-function weekDates(start: string, end: string): string[] {
+export function weekDates(start: string, end: string): string[] {
   const dates: string[] = []
   const d = new Date(`${start}T00:00:00+08:00`)
   const endDate = new Date(`${end}T00:00:00+08:00`)

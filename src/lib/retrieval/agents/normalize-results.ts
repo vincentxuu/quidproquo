@@ -128,6 +128,24 @@ export function applyMmrOrdering(results: SearchResult[], lambda: number): Searc
   return selected
 }
 
+const RECENCY_EN = /\b(today|latest|recent|newest|new|update)\b/i
+const RECENCY_ZH = /這幾天|今天|最近|最新|新的|更新|近期/
+
+export function isRecencySensitiveQuery(query: string): boolean {
+  return RECENCY_EN.test(query) || RECENCY_ZH.test(query)
+}
+
+export function applyRecencyBoost(results: SearchResult[], today: string): SearchResult[] {
+  return results.map(result => {
+    if (!result.date) return result
+    const daysAgo = Math.max(0, (new Date(today).getTime() - new Date(result.date).getTime()) / 86_400_000)
+    const boost = daysAgo <= 1 ? 0.15 : daysAgo <= 7 ? 0.08 : daysAgo <= 30 ? 0.03 : 0
+    return boost > 0
+      ? { ...result, relevance_score: Math.min(1, result.relevance_score + boost) }
+      : result
+  })
+}
+
 export async function normalizeResultsNode(state: GraphState): Promise<Partial<GraphState>> {
   const lastContent = state.messages[state.messages.length - 1]?.content
   const query = typeof lastContent === 'string'
@@ -136,6 +154,13 @@ export async function normalizeResultsNode(state: GraphState): Promise<Partial<G
 
   const needsWebSearch = isWeakRetrieval(state.search_results)
   let ordered = orderByRelevance(state.search_results)
+
+  if (isRecencySensitiveQuery(query)) {
+    const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Taipei' })
+    ordered = applyRecencyBoost(ordered, today)
+    ordered.sort((a, b) => b.relevance_score - a.relevance_score)
+  }
+
   if (state.config.rerankerEnabled) {
     ordered = await rerankWithCrossEncoder(ordered, query, state.config.rerankerMinKeep)
       .catch(() => rerankByQuery(ordered, query, state.config.rerankerMinKeep))

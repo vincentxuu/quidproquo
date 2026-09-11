@@ -47,11 +47,11 @@ function yesterdayIso(): string {
   return d.toISOString()
 }
 
-function todayTaipei(): string {
+export function todayTaipei(): string {
   return new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Taipei' })
 }
 
-function isSignificantRelease(release: GitHubRelease): boolean {
+export function isSignificantRelease(release: GitHubRelease): boolean {
   if (release.prerelease || release.draft) return false
   const tag = release.tag_name.replace(/^v/, '')
   if (/alpha|beta|rc|dev|preview|canary/i.test(tag)) return false
@@ -90,7 +90,7 @@ async function fetchLatestRelease(token: string, repo: string): Promise<{ releas
   }
 }
 
-function buildFrontmatter(r: DetectedRelease, today: string, seriesOrder: number): string {
+export function buildFrontmatter(r: DetectedRelease, today: string, seriesOrder: number): string {
   const name = r.repo.split('/')[1]
   const slug = name.toLowerCase().replace(/[^a-z0-9-]/g, '-')
   const tag = r.release.tag_name
