@@ -99,6 +99,50 @@ describe('research agent parity', () => {
     await expectParity(state)
   })
 
+  it('generates alternative queries when multiQueryEnabled and complexity is medium', async () => {
+    vi.mocked(invokeModel).mockResolvedValue({
+      response: { content: '{"queries":["alternative query 1","alternative query 2"]}' },
+      route,
+    } as unknown as Awaited<ReturnType<typeof invokeModel>>)
+
+    const altPostResult1 = makeResult('alt-post-1', 'post', 'https://quidproquo.cc/posts/alt-1')
+    const altPostResult2 = makeResult('alt-post-2', 'post', 'https://quidproquo.cc/posts/alt-2')
+    let callIndex = 0
+    vi.mocked(searchBlogPosts).mockImplementation(async () => {
+      const results = [postResult, altPostResult1, altPostResult2]
+      return [results[callIndex++ % results.length]]
+    })
+    vi.mocked(searchDocs).mockResolvedValue([])
+    vi.mocked(searchAbstractIndex).mockResolvedValue([])
+    vi.mocked(searchExternalTools).mockResolvedValue([])
+    vi.mocked(pageIndexSearch).mockResolvedValue([])
+
+    const state = makeState({
+      config: {
+        ...initialState().config,
+        multiQueryEnabled: true,
+      },
+      plan: {
+        intent: 'factual',
+        complexity: 'medium',
+        needs_clarification: false,
+        subtasks: [],
+        search_keywords: [],
+        specialists: [],
+      },
+    })
+    const result = await researchNode(state, { maxSearchCalls: 4 })
+
+    expect(searchBlogPosts).toHaveBeenCalledTimes(3)
+    expect(searchBlogPosts).toHaveBeenCalledWith(expect.objectContaining({ query: 'alternative query 1' }))
+    expect(searchBlogPosts).toHaveBeenCalledWith(expect.objectContaining({ query: 'alternative query 2' }))
+    const chunkIds = result.search_results?.map(r => r.chunk_id) ?? []
+    expect(chunkIds).toContain('post-1')
+    expect(chunkIds).toContain('alt-post-1')
+    expect(chunkIds).toContain('alt-post-2')
+    expect(result.model_usage?.some(u => u.stage === 'research')).toBe(true)
+  })
+
   it('changes retrieval on retry by using critic gaps and disabling BM25 short-circuit', async () => {
     vi.mocked(searchBlogPosts).mockResolvedValue([postResult])
     vi.mocked(searchDocs).mockResolvedValue([docResult])
