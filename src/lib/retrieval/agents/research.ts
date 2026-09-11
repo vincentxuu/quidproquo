@@ -190,9 +190,13 @@ async function runResearch(
     searchQueries.push(`${recommendationQuery ?? query} ${state.critique.gaps.join(' ')}`)
   }
 
+  const hydeQueries = new Set<string>()
   if (state.config.hydeEnabled && state.plan.complexity !== 'simple' && maxSearchCalls >= 2) {
     const hydeQuery = await generateHydeQuery(baseQuery, runtime, options).catch(() => null)
-    if (hydeQuery) searchQueries.push(hydeQuery)
+    if (hydeQuery) {
+      searchQueries.push(hydeQuery)
+      hydeQueries.add(hydeQuery.trim())
+    }
   }
 
   if (state.config.multiQueryEnabled && state.plan.complexity !== 'simple' && maxSearchCalls >= 2) {
@@ -217,6 +221,7 @@ async function runResearch(
     : ([] as SearchResult[])
 
   const perQueryResults = await Promise.all(queryVariants.map(async searchQuery => {
+    const isHydeVariant = hydeQueries.has(searchQuery)
     const [abstractResults, postResults, docResults] = await Promise.all([
       state.plan.complexity === 'simple'
         ? Promise.resolve([] as SearchResult[])
@@ -225,15 +230,17 @@ async function runResearch(
         query: searchQuery,
         lang: state.language === 'en' ? 'en' : 'zh-TW',
         limit: postLimit,
-        shortCircuit: allowBm25ShortCircuit,
+        shortCircuit: allowBm25ShortCircuit && !isHydeVariant,
         metadataOnly,
+        vectorOnly: isHydeVariant,
       }).catch(() => ({ results: [] as SearchResult[], metrics: null })),
       metadataOnly
         ? Promise.resolve({ results: [] as SearchResult[], metrics: null })
         : runtime.searchDocs({
             query: searchQuery,
             limit: docLimit,
-            shortCircuit: allowBm25ShortCircuit,
+            shortCircuit: allowBm25ShortCircuit && !isHydeVariant,
+            vectorOnly: isHydeVariant,
           }).catch(() => ({ results: [] as SearchResult[], metrics: null })),
     ])
 

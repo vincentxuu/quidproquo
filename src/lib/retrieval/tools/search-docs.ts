@@ -215,9 +215,31 @@ export async function searchDocs(args: {
   source_name?: string
   limit?: number
   shortCircuit?: boolean
+  vectorOnly?: boolean
 }): Promise<SearchResult[]> {
-  const { query, source_name, limit = 8, shortCircuit = true } = args
+  const { query, source_name, limit = 8, shortCircuit = true, vectorOnly = false } = args
   const started = Date.now()
+
+  if (vectorOnly) {
+    const vectorStarted = Date.now()
+    const vectorResults = await searchVectorDocs(query, limit, source_name).catch(() => [] as DocSearchRow[])
+    const vectorMs = Date.now() - vectorStarted
+    const results = reciprocalRankFuse([vectorResults], limit)
+    return attachSearchMetrics(results, {
+      source: 'docs',
+      query_kind: 'general',
+      bm25_results: 0,
+      vector_results: vectorResults.length,
+      result_count: results.length,
+      bm25_ms: 0,
+      vector_ms: vectorMs,
+      total_ms: Date.now() - started,
+      skipped_vector: false,
+      short_circuit_threshold: BM25_SHORT_CIRCUIT_THRESHOLD,
+      estimated_latency_saved_ms: null,
+    })
+  }
+
   const bm25Started = Date.now()
   const bm25Results = await searchBm25Docs(query, limit, source_name)
   const bm25Ms = Date.now() - bm25Started
@@ -270,6 +292,7 @@ export const searchDocsSyscall = defineSyscall<Parameters<typeof searchDocs>[0],
       source_name: { type: 'string' },
       limit: { type: 'number', default: 8 },
       shortCircuit: { type: 'boolean', default: true },
+      vectorOnly: { type: 'boolean', default: false },
     },
   },
   outputSchema: {

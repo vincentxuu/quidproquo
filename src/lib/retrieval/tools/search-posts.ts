@@ -431,8 +431,9 @@ export async function searchBlogPosts(args: {
   limit?: number
   shortCircuit?: boolean
   metadataOnly?: boolean
+  vectorOnly?: boolean
 }): Promise<SearchResult[]> {
-  const { query, category, lang, limit = 8, shortCircuit = true, metadataOnly = false } = args
+  const { query, category, lang, limit = 8, shortCircuit = true, metadataOnly = false, vectorOnly = false } = args
   const started = Date.now()
   const metadataSearchLimit = metadataOnly
     ? Math.ceil(Math.min(limit * 10, 200) / 3)
@@ -454,6 +455,26 @@ export async function searchBlogPosts(args: {
       estimated_latency_saved_ms: null,
     })
   }
+  if (vectorOnly) {
+    const vectorStarted = Date.now()
+    const vectorResults = await searchVectorPosts(query, limit, category, lang).catch(() => [] as PostSearchRow[])
+    const vectorMs = Date.now() - vectorStarted
+    const results = dedupeBySlug(reciprocalRankFuse([metadataResults, vectorResults], limit * 3), limit)
+    return attachSearchMetrics(results, {
+      source: 'posts',
+      query_kind: 'general',
+      bm25_results: 0,
+      vector_results: vectorResults.length,
+      result_count: results.length,
+      bm25_ms: 0,
+      vector_ms: vectorMs,
+      total_ms: Date.now() - started,
+      skipped_vector: false,
+      short_circuit_threshold: BM25_SHORT_CIRCUIT_THRESHOLD,
+      estimated_latency_saved_ms: null,
+    })
+  }
+
   const bm25Started = Date.now()
   const bm25Results = await searchBm25Posts(query, limit, category, lang)
   const bm25Ms = Date.now() - bm25Started
@@ -508,6 +529,7 @@ export const searchPostsSyscall = defineSyscall<Parameters<typeof searchBlogPost
       limit: { type: 'number', default: 8 },
       shortCircuit: { type: 'boolean', default: true },
       metadataOnly: { type: 'boolean', default: false },
+      vectorOnly: { type: 'boolean', default: false },
     },
   },
   outputSchema: {
