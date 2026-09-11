@@ -4,6 +4,8 @@ import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { createModel } from '../../../lib/retrieval/model'
 import { findDefaultGlossaryEntry, type GlossaryEntry, type GlossaryLink } from '../../../lib/glossary/terms'
 import { json } from '@/lib/api/response'
+import { capture } from '@lanefoundry/gatelane-sdk/capture'
+import { initGatelane } from '../../../lib/gatelane'
 
 interface D1StatementLike {
   bind: (...values: unknown[]) => {
@@ -112,7 +114,14 @@ async function explainWithModel(env: RuntimeEnv, term: string, level: 'beginner'
     })),
   ]
 
-  const response = await model.invoke(prompt)
+  const response = await capture({
+    prompt: [
+      { role: 'system', content: 'glossary-explainer' },
+      { role: 'user', content: JSON.stringify({ term, level, context }) },
+    ],
+    model: 'default',
+    metadata: { endpoint: '/api/glossary/explain', stage: 'glossary' },
+  }, () => model.invoke(prompt))
   const parsed = parseModelJson(response.content)
   if (!parsed) return null
 
@@ -148,6 +157,7 @@ async function recordLookup(env: RuntimeEnv, term: string, slug: string, level: 
 }
 
 export const POST: APIRoute = async ({ request }) => {
+  initGatelane()
   const runtimeEnv = env as unknown as RuntimeEnv
   let body: GlossaryRequest
   try {

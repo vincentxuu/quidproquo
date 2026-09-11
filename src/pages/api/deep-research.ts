@@ -2,11 +2,13 @@ export const prerender = false
 
 import type { APIRoute } from 'astro'
 import { env as cloudflareEnv } from 'cloudflare:workers'
+import { initGatelane } from '../../lib/gatelane'
 import { verifySession } from '../../lib/auth/session'
 import { runDeepResearch, type DeepResearchBody } from '../../lib/research/orchestrator'
 import type { Env } from '@/lib/config/env'
 
 export const POST: APIRoute = async (context) => {
+  initGatelane()
   try {
     const { request, cookies } = context
     const routeEnv = (context as unknown as { env?: Env }).env

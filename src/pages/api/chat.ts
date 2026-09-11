@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
+import { initGatelane } from '../../lib/gatelane'
 import { verifySession } from '../../lib/auth/session'
 import { checkAndIncrementRateLimit } from '../../lib/auth/rate-limit'
 import { runPipeline } from '../../lib/conversation/pipeline'
@@ -69,6 +70,7 @@ function sseEvent(type: string, data: unknown): string {
 }
 
 export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
+  initGatelane()
   const sessionToken = cookies.get('session')?.value
   const isAdmin = sessionToken ? await verifySession(sessionToken) : false
   const startedAt = Date.now()

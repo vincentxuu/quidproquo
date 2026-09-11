@@ -6,6 +6,7 @@ import { AIMessage } from '@langchain/core/messages'
 import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
 import type { BaseMessageLike } from '@langchain/core/messages'
+import { capture, type CaptureInput } from '@lanefoundry/gatelane-sdk/capture'
 
 /**
  * Structural response type for chat model invocations.
@@ -465,6 +466,17 @@ export function resolveFallbackRoute(config: RagRuntimeConfig): ModelRoute | nul
   return { provider: config.fallbackProvider, model: config.fallbackModel, fallback: true }
 }
 
+function messagesToCapturePrompt(messages: BaseMessageLike[]): Array<{ role: string; content: string }> {
+  return messages.map(m => {
+    if (typeof m === 'string') return { role: 'user', content: m }
+    if (Array.isArray(m)) return { role: String(m[0]), content: String(m[1]) }
+    const msg = m as { role?: string; _getType?: () => string; content?: unknown }
+    const role = msg.role ?? msg._getType?.() ?? 'user'
+    const content = typeof msg.content === 'string' ? msg.content : JSON.stringify(msg.content)
+    return { role, content }
+  })
+}
+
 export async function invokeModel(
   config: RagRuntimeConfig,
   stage: string,
@@ -473,13 +485,26 @@ export async function invokeModel(
   apiKeys: ProviderApiKeys = {}
 ) {
   const primary = resolveModelRoute(config, stage)
+  const captureInput: CaptureInput = {
+    prompt: messagesToCapturePrompt(messages),
+    model: `${primary.provider}/${primary.model}`,
+    metadata: { stage, provider: primary.provider, maxTokens },
+  }
+
   try {
-    const response = await createModel(maxTokens, { route: primary, apiKeys }).invoke(messages)
-    return { response, route: primary }
+    return await capture(captureInput, async () => {
+      const response = await createModel(maxTokens, { route: primary, apiKeys }).invoke(messages)
+      return { response, route: primary }
+    })
   } catch (error) {
     const fallback = resolveFallbackRoute(config)
     if (!fallback) throw error
-    const response = await createModel(maxTokens, { route: fallback, apiKeys }).invoke(messages)
-    return { response, route: fallback }
+    return capture(
+      { ...captureInput, model: `${fallback.provider}/${fallback.model}`, metadata: { ...captureInput.metadata, isFallback: true } },
+      async () => {
+        const response = await createModel(maxTokens, { route: fallback, apiKeys }).invoke(messages)
+        return { response, route: fallback }
+      },
+    )
   }
 }

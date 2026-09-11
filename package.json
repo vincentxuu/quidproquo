@@ -55,6 +55,7 @@
     "@astrojs/react": "^5.0.4",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.7.1",
+    "@lanefoundry/gatelane-sdk": "file:../gatelane/packages/gatelane-sdk",
     "@langchain/core": "^1.1.41",
     "@langchain/google-genai": "^2.1.28",
     "@langchain/groq": "^1.2.0",
