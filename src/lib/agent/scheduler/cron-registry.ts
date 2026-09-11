@@ -61,4 +61,40 @@ export const scheduledAgentEntries: ScheduledAgentEntry[] = [
     label: 'Product Builder interview prep',
     timezone: 'Asia/Taipei',
   },
+  {
+    agentId: 'daily-digest-arxiv',
+    cron: '15 20 * * *',
+    label: 'arXiv paper screening',
+    timezone: 'Asia/Taipei',
+  },
+  {
+    agentId: 'daily-digest-benchmark',
+    cron: '30 20 * * *',
+    label: 'Benchmark leaderboard watch',
+    timezone: 'Asia/Taipei',
+  },
+  {
+    agentId: 'daily-digest-signals',
+    cron: '0 21 * * *',
+    label: 'Stage 2 — news signals scan',
+    timezone: 'Asia/Taipei',
+  },
+  {
+    agentId: 'daily-digest-report',
+    cron: '30 21 * * *',
+    label: 'Stage 3 — daily report assembly',
+    timezone: 'Asia/Taipei',
+  },
+  {
+    agentId: 'daily-digest-weekly',
+    cron: '0 22 * * 5',
+    label: 'Weekly AI Agent review (Friday)',
+    timezone: 'Asia/Taipei',
+  },
+  {
+    agentId: 'daily-digest-region',
+    cron: '30 22 * * 5',
+    label: 'Regional AI ecosystem (Friday)',
+    timezone: 'Asia/Taipei',
+  },
 ]
