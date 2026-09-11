@@ -115,6 +115,8 @@ export interface RegionDigestOutput {
   date: string
   region: CanonicalRegion
   published: boolean
+  skipped?: boolean
+  reason?: string
 }
 
 export const regionDigestAgent = defineAgent<RegionDigestInput, RegionDigestOutput>({
@@ -134,6 +136,12 @@ export const regionDigestAgent = defineAgent<RegionDigestInput, RegionDigestOutp
     const { syscallContext, syscall } = runtime as AgentRuntime
     const e = env as unknown as Env
     const today = input.date ?? todayTaipei()
+
+    const dayOfWeek = new Date().toLocaleDateString('en-US', { timeZone: 'Asia/Taipei', weekday: 'long' })
+    if (dayOfWeek !== 'Friday') {
+      return { date: today, region: (input.region ?? 'north-america') as CanonicalRegion, published: false, skipped: true, reason: `not Friday (${dayOfWeek})` }
+    }
+
     const weekStart = weekStartDate(today)
 
     const coverage = await getLastRegionCoverage(e.DB)

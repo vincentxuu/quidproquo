@@ -83,6 +83,23 @@ function generateSignalId(date: string, index: number): string {
   return `${date}-${String(index + 1).padStart(3, '0')}`
 }
 
+async function loadStageOneTitles(
+  syscallContext: unknown,
+  syscall: (ctx: unknown, name: string, input: unknown) => Promise<unknown>,
+  today: string
+): Promise<string[]> {
+  const contentsResult = await syscall(syscallContext, 'knowledge.github.read', {
+    sub: 'repo.contents',
+    owner: 'vincentxuu',
+    repo: 'quidproquo',
+    path: 'src/content/posts/daily',
+  }).catch(() => ({ items: [] })) as { items: Array<{ name: string }> }
+
+  return (contentsResult.items ?? [])
+    .filter(item => item.name.startsWith(`${today}-`) && item.name.endsWith('.md') && !item.name.endsWith('-en.md'))
+    .map(item => item.name.replace(/\.md$/, '').replace(`${today}-`, '').replace(/-/g, ' ').toLowerCase())
+}
+
 export interface SignalsDigestInput {
   date?: string
 }
@@ -99,7 +116,7 @@ export const signalsDigestAgent = defineAgent<SignalsDigestInput, SignalsDigestO
   version: 1,
   displayName: 'Signals Scanner',
   description: 'Stage 2: scan news sources, produce intermediate signals JSON for Stage 3 daily report.',
-  syscalls: ['model.invoke', 'knowledge.github.write'],
+  syscalls: ['model.invoke', 'knowledge.github.read', 'knowledge.github.write'],
   memoryScopes: ['agent'],
   secrets: [],
   outboundDomains: ['*.tavily.com', '*.exa.ai', '*.jina.ai'],
@@ -119,6 +136,8 @@ export const signalsDigestAgent = defineAgent<SignalsDigestInput, SignalsDigestO
       return { date: today, signalCount: 0, stored: false, skipped: true }
     }
 
+    const stageOneTitles = await loadStageOneTitles(syscallContext, syscall, today)
+
     const allResults: SearchResultItem[] = []
     for (const query of SEARCH_QUERIES) {
       const searchResult = await syscall(syscallContext, 'search.external', {
@@ -133,6 +152,9 @@ export const signalsDigestAgent = defineAgent<SignalsDigestInput, SignalsDigestO
     const unique = dedupeByUrl(allResults).filter(r => r.title && r.url)
     const signals: DailySignal[] = unique.slice(0, 50).map((r, i) => {
       const category = classifySignal(r.title ?? '', r.snippet ?? '')
+      const matchesStageOne = stageOneTitles.some(t =>
+        r.title?.toLowerCase().includes(t) || (r.snippet ?? '').toLowerCase().includes(t)
+      )
       return {
         id: generateSignalId(today, i),
         title: r.title ?? '',
@@ -145,8 +167,8 @@ export const signalsDigestAgent = defineAgent<SignalsDigestInput, SignalsDigestO
         section: '',
         ring: 2 as const,
         summary: (r.snippet ?? '').slice(0, 300),
-        relevance: 0.5,
-        crossValidated: false,
+        relevance: matchesStageOne ? 0.8 : 0.5,
+        crossValidated: matchesStageOne,
         tags: [],
       }
     })

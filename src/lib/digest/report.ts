@@ -72,6 +72,55 @@ async function getMaxSeriesOrder(db: D1Database): Promise<number> {
   return row?.max_order ?? 0
 }
 
+const STAGE_ONE_PREFIXES = [
+  'arxiv-digest', 'github-digest', 'model-', 'security-', 'benchmark-',
+  'framework-', 'funding-', 'pricing-', 'tool-', 'ai-interview-', 'product-interview-',
+]
+
+function yesterdayTaipei(): string {
+  const d = new Date()
+  d.setDate(d.getDate() - 1)
+  return d.toLocaleDateString('sv-SE', { timeZone: 'Asia/Taipei' })
+}
+
+async function listDailyPostsByDate(
+  syscallContext: unknown,
+  syscall: (ctx: unknown, name: string, input: unknown) => Promise<unknown>,
+  date: string
+): Promise<Array<{ name: string; path: string }>> {
+  const contentsResult = await syscall(syscallContext, 'knowledge.github.read', {
+    sub: 'repo.contents',
+    owner: 'vincentxuu',
+    repo: 'quidproquo',
+    path: 'src/content/posts/daily',
+  }).catch(() => ({ items: [] })) as { items: Array<{ name: string; path: string }> }
+
+  return (contentsResult.items ?? []).filter(item =>
+    item.name.startsWith(`${date}-`) && item.name.endsWith('.md') && !item.name.endsWith('-en.md')
+  )
+}
+
+async function loadStageOnePosts(
+  syscallContext: unknown,
+  syscall: (ctx: unknown, name: string, input: unknown) => Promise<unknown>,
+  today: string
+): Promise<StageOnePost[]> {
+  let files = await listDailyPostsByDate(syscallContext, syscall, today)
+  const dateUsed = files.length > 0 ? today : yesterdayTaipei()
+  if (files.length === 0) {
+    files = await listDailyPostsByDate(syscallContext, syscall, dateUsed)
+  }
+
+  return files
+    .filter(item => STAGE_ONE_PREFIXES.some(p => item.name.startsWith(`${dateUsed}-${p}`)))
+    .map(item => ({
+      path: item.path,
+      title: item.name.replace(/\.md$/, '').replace(`${dateUsed}-`, ''),
+      tldr: '',
+      category: STAGE_ONE_PREFIXES.find(p => item.name.includes(p))?.replace(/-$/, '') ?? 'unknown',
+    }))
+}
+
 export interface ReportDigestInput {
   date?: string
 }
@@ -101,40 +150,22 @@ export const reportDigestAgent = defineAgent<ReportDigestInput, ReportDigestOutp
     const e = env as unknown as Env
     const today = input.date ?? todayTaipei()
 
-    const signalsRow = await e.DB.prepare(
+    let signalsRow = await e.DB.prepare(
       'SELECT signals_json FROM daily_signals WHERE date = ? LIMIT 1'
     ).bind(today).first<{ signals_json: string }>().catch(() => null)
+
+    if (!signalsRow) {
+      signalsRow = await e.DB.prepare(
+        'SELECT signals_json FROM daily_signals WHERE date = ? LIMIT 1'
+      ).bind(yesterdayTaipei()).first<{ signals_json: string }>().catch(() => null)
+    }
 
     let signals: SignalsFile | null = null
     if (signalsRow?.signals_json) {
       signals = JSON.parse(signalsRow.signals_json) as SignalsFile
     }
 
-    const stageOnePrefixes = [
-      'arxiv-digest', 'github-digest', 'model-', 'security-', 'benchmark-',
-      'framework-', 'funding-', 'pricing-', 'tool-',
-    ]
-    const stageOnePosts: StageOnePost[] = []
-
-    for (const prefix of stageOnePrefixes) {
-      const contentsResult = await syscall(syscallContext, 'knowledge.github.read', {
-        sub: 'repo.contents',
-        owner: 'vincentxuu',
-        repo: 'quidproquo',
-        path: `src/content/posts/daily`,
-      }).catch(() => ({ items: [] })) as { items: Array<{ name: string; path: string }> }
-
-      for (const item of contentsResult.items) {
-        if (item.name.startsWith(`${today}-${prefix}`) && item.name.endsWith('.md') && !item.name.endsWith('-en.md')) {
-          stageOnePosts.push({
-            path: item.path,
-            title: item.name.replace(/\.md$/, '').replace(`${today}-`, ''),
-            tldr: '',
-            category: prefix.replace(/-$/, ''),
-          })
-        }
-      }
-    }
+    const stageOnePosts = await loadStageOnePosts(syscallContext, syscall, today)
 
     const sections = signals ? groupSignalsBySection(signals.signals) : new Map<string, SignalsFile['signals']>()
     const stageOneSummary = buildStageOneSummary(stageOnePosts)

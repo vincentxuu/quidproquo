@@ -44,6 +44,8 @@ export interface WeeklyDigestInput {
 export interface WeeklyDigestOutput {
   date: string
   published: boolean
+  skipped?: boolean
+  reason?: string
   weekRange: string
   dailyReports: number
   signalDays: number
@@ -66,6 +68,11 @@ export const weeklyDigestAgent = defineAgent<WeeklyDigestInput, WeeklyDigestOutp
     const { syscallContext, syscall } = runtime as AgentRuntime
     const e = env as unknown as Env
     const today = input.date ?? todayTaipei()
+
+    const dayOfWeek = new Date().toLocaleDateString('en-US', { timeZone: 'Asia/Taipei', weekday: 'long' })
+    if (dayOfWeek !== 'Friday') {
+      return { date: today, published: false, skipped: true, reason: `not Friday (${dayOfWeek})`, weekRange: '', dailyReports: 0, signalDays: 0 }
+    }
     const weekStart = weekStartDate(today)
     const dates = weekDates(weekStart, today)
 

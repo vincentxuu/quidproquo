@@ -107,7 +107,9 @@ export default {
           cron: event.cron,
         }))
       }
-      for (const entry of scheduledAgents) {
+      // Non-staged agents dispatch immediately
+      const immediateAgents = scheduledAgents.filter((e) => !e.stage)
+      for (const entry of immediateAgents) {
         tasks.push(postWithSecret(agentScheduledUrl, secret, {
           agentId: entry.agentId,
           cronExpression: entry.cron,
@@ -116,21 +118,61 @@ export default {
       }
     }
 
+    // Staged agents: group by stage, stagger 20s within stage, 5min between stages
+    const stagedAgents = scheduledAgents.filter((e) => e.stage)
+    const stages = [...new Set(stagedAgents.map((e) => e.stage))].sort((a, b) => a - b)
+
     console.log('[cron] Scheduling maintenance jobs', JSON.stringify({
       cron: event.cron,
       retention: Boolean(secret),
       crawl: isWeeklyCrawl,
       pipelines: scheduledPipelines.map((pipeline) => pipeline.pipelineId),
       agents: scheduledAgents.map((entry) => entry.agentId),
+      stages: stages.length,
       tasks: tasks.length,
     }))
-    if (tasks.length === 0) return
+
+    if (tasks.length === 0 && stagedAgents.length === 0) return
 
     ctx.waitUntil(
       Promise.all(tasks).catch((err) => {
         console.error('[cron] Maintenance failed:', err)
       })
     )
+
+    if (secret && stagedAgents.length > 0) {
+      ctx.waitUntil(dispatchStagedAgents(stages, stagedAgents, agentScheduledUrl, secret))
+    }
+
+    async function dispatchStagedAgents(stageList, agents, url, secretValue) {
+      const INTRA_STAGE_DELAY_MS = 20_000
+      const INTER_STAGE_DELAY_MS = 5 * 60_000
+      try {
+        for (let si = 0; si < stageList.length; si++) {
+          const stageNum = stageList[si]
+          const batch = agents.filter((e) => e.stage === stageNum)
+          console.log('[cron] Dispatching stage', stageNum, batch.map((e) => e.agentId))
+          for (let ai = 0; ai < batch.length; ai++) {
+            const entry = batch[ai]
+            await postWithSecret(url, secretValue, {
+              agentId: entry.agentId,
+              cronExpression: entry.cron,
+              input: entry.input ?? {},
+            })
+            if (ai < batch.length - 1) {
+              await new Promise((r) => setTimeout(r, INTRA_STAGE_DELAY_MS))
+            }
+          }
+          if (si < stageList.length - 1) {
+            console.log('[cron] Waiting', INTER_STAGE_DELAY_MS / 1000, 's before stage', stageList[si + 1])
+            await new Promise((r) => setTimeout(r, INTER_STAGE_DELAY_MS))
+          }
+        }
+        console.log('[cron] All staged agents dispatched')
+      } catch (err) {
+        console.error('[cron] Staged dispatch failed:', err)
+      }
+    }
 
     async function postWithSecret(url, secretValue, body = {}) {
       try {
