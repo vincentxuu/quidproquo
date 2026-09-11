@@ -43,4 +43,22 @@ export const scheduledAgentEntries: ScheduledAgentEntry[] = [
     label: 'AI tool/MCP discovery',
     timezone: 'Asia/Taipei',
   },
+  {
+    agentId: 'daily-digest-model-card',
+    cron: '30 19 * * *',
+    label: 'New AI model detection',
+    timezone: 'Asia/Taipei',
+  },
+  {
+    agentId: 'daily-digest-ai-interview',
+    cron: '45 19 * * *',
+    label: 'AI Engineer interview prep',
+    timezone: 'Asia/Taipei',
+  },
+  {
+    agentId: 'daily-digest-product-interview',
+    cron: '0 20 * * *',
+    label: 'Product Builder interview prep',
+    timezone: 'Asia/Taipei',
+  },
 ]

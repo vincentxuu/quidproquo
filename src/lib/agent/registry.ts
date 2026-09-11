@@ -9,6 +9,9 @@ import { pricingDigestAgent } from '../digest/pricing'
 import { githubDigestAgent } from '../digest/github'
 import { fundingDigestAgent } from '../digest/funding'
 import { toolDigestAgent } from '../digest/tool'
+import { modelCardDigestAgent } from '../digest/model-card'
+import { aiInterviewDigestAgent } from '../digest/ai-interview'
+import { productInterviewDigestAgent } from '../digest/product-interview'
 
 export async function registerAgentDefinitions(kernel: AgentOsKernel): Promise<void> {
   await kernel.defineAgent(criticAgent)
@@ -21,4 +24,7 @@ export async function registerAgentDefinitions(kernel: AgentOsKernel): Promise<v
   await kernel.defineAgent(githubDigestAgent)
   await kernel.defineAgent(fundingDigestAgent)
   await kernel.defineAgent(toolDigestAgent)
+  await kernel.defineAgent(modelCardDigestAgent)
+  await kernel.defineAgent(aiInterviewDigestAgent)
+  await kernel.defineAgent(productInterviewDigestAgent)
 }
