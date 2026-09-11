@@ -25,7 +25,8 @@
 			"0 2 * * SUN",
 			"0 3 * * *",
 			"0 4 * * SUN",
-			"0 5 * * SUN"
+			"0 5 * * SUN",
+			"0 21 * * *"
 		]
 	},
 	"assets": {
@@ -89,9 +90,9 @@
 	"vars": {
 		"LLM_PROVIDER": "groq",
 		"AGENT_OS_ENABLED": "true",
-		"AGENT_OS_PLANNER": "false",
-		"AGENT_OS_RESEARCH": "false",
-		"AGENT_OS_WRITER": "false",
+		"AGENT_OS_PLANNER": "true",
+		"AGENT_OS_RESEARCH": "true",
+		"AGENT_OS_WRITER": "true",
 		"AGENT_OS_CRITIC": "true",
 		"AGENT_OS_MEMORY_R2": "false",
 		"AGENT_OS_TOOLS_MCP_EXTERNAL": "false",
