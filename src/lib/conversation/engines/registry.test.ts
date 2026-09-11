@@ -4,13 +4,12 @@ import { RAG_ENGINE_REGISTRY, resolveRagEngine } from './registry'
 import { initialState } from '../../retrieval/state'
 
 describe('RAG engine registry', () => {
-  it('exposes manual, langgraph, and llamaindex engines', () => {
+  it('exposes manual and langgraph engines', () => {
     expect(new Set(Object.keys(RAG_ENGINE_REGISTRY).sort())).toEqual(
-      new Set(['langgraph', 'llamaindex', 'manual'])
+      new Set(['langgraph', 'manual'])
     )
     expect(resolveRagEngine('manual').name).toBe('manual')
     expect(resolveRagEngine('langgraph').name).toBe('langgraph')
-    expect(resolveRagEngine('llamaindex').name).toBe('llamaindex')
   })
 })
 

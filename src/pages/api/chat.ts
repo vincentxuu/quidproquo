@@ -114,7 +114,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   const ragConfig = await loadRagSettings()
   const providerApiKeys = await resolveProviderApiKeys((env as unknown as Env).DB)
   const requestedEngine = body.pipelineEngine
-  if (requestedEngine && ['langgraph', 'manual', 'llamaindex'].includes(requestedEngine)) {
+  if (requestedEngine && ['langgraph', 'manual'].includes(requestedEngine)) {
     ragConfig.pipelineEngine = requestedEngine
   }
   const checkpointSummary = await loadLatestCheckpoint(thread_id)
@@ -433,7 +433,7 @@ function mapAgentToStep(agent: string): string {
   if (normalized === 'Critic') return 'critic'
   if (normalized === 'Fallback') return 'fallback'
   if (normalized === 'Related') return 'related'
-  if (normalized === 'Retriever') return 'llamaindex_retriever'
+  if (normalized === 'Retriever') return 'retriever'
   return normalizeStepName(normalized)
 }
 

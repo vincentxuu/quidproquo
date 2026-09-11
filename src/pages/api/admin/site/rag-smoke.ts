@@ -7,7 +7,7 @@ import { resolveRagEngine } from '../../../../lib/conversation/engines/registry'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
 
-const SUPPORTED_ENGINES: RagPipelineEngine[] = ['manual', 'langgraph', 'llamaindex']
+const SUPPORTED_ENGINES: RagPipelineEngine[] = ['manual', 'langgraph']
 const DEFAULT_QUERY = 'RAG 的核心步驟是什麼？'
 
 interface SmokeRequestBody {

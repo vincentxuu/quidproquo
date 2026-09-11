@@ -8,7 +8,7 @@ vi.mock('./engines/registry', () => ({
 }))
 
 describe('conversation pipeline output', () => {
-  it.each(['manual', 'langgraph', 'llamaindex'] as const)(
+  it.each(['manual', 'langgraph'] as const)(
     'emits only the normalized final response for %s',
     async pipelineEngine => {
       const state = initialState()

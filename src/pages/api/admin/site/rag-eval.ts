@@ -10,7 +10,7 @@ import {
 import { json } from '@/lib/api/response'
 import { nowIso } from '@/lib/utils/dates'
 
-const SUPPORTED_ENGINES: RagPipelineEngine[] = ['manual', 'langgraph', 'llamaindex']
+const SUPPORTED_ENGINES: RagPipelineEngine[] = ['manual', 'langgraph']
 const MAX_CASES = 12
 
 interface EvalRequestBody {
