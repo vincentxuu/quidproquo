@@ -123,7 +123,7 @@ async function inspectAiSearch(e: Env): Promise<StatusItem> {
     return { name: 'AI Search', ok: false, detail: 'Not bound' }
   }
 
-  const configuredInstance = await getSetting(e.DB, 'rag_ai_search_instance', { tableName: 'settings' })
+  const configuredInstance = await getSetting(e.DB, 'rag_ai_search_instance')
     .then(row => row?.value)
     .catch(() => undefined)
   const envInstance = e.AI_SEARCH_INSTANCE

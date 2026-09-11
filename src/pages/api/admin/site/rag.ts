@@ -9,7 +9,6 @@ import { json } from '@/lib/api/response'
 import { MANAGED_RAG_KEYS as MANAGED_KEYS } from '@/lib/config/settings-keys'
 import { getSetting, getSettingRows, setSetting } from '@/lib/db/settings-store'
 
-const LEGACY_SETTINGS_TABLE = { tableName: 'settings' as const }
 
 const DEFAULT_SETTINGS: Record<string, string> = {
   rag_pipeline_engine: 'langgraph',
@@ -71,7 +70,7 @@ export const GET: APIRoute = async ({ cookies }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
   const db = (env as unknown as Env).DB
-  const settings = await getSettingRows(db, MANAGED_KEYS, LEGACY_SETTINGS_TABLE)
+  const settings = await getSettingRows(db, MANAGED_KEYS)
   const rowsByKey = new Map(settings.map(row => [row.key, row]))
   const mergedSettings = MANAGED_KEYS.map(key => {
     const row = rowsByKey.get(key)
@@ -185,8 +184,8 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
   for (const [key, value] of Object.entries(updates)) {
     if (!(MANAGED_KEYS as readonly string[]).includes(key)) continue
-    const before = await getSetting(db, key, LEGACY_SETTINGS_TABLE)
-    await setSetting(db, key, String(value), LEGACY_SETTINGS_TABLE)
+    const before = await getSetting(db, key)
+    await setSetting(db, key, String(value))
     await db.prepare(
       `INSERT INTO rag_admin_audit (id, actor, action, target, before_json, after_json)
        VALUES (?, ?, ?, ?, ?, ?)`

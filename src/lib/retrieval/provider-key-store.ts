@@ -1,6 +1,7 @@
 import { env as workerEnv } from 'cloudflare:workers'
 import type { ProviderApiKeys } from './model'
 import { PROVIDER_KEY_PREFIX } from '@/lib/config/settings-keys'
+import { getSettings } from '@/lib/db/settings-store'
 export { PROVIDER_KEY_PREFIX }
 
 export interface ProviderSecretField {
@@ -99,15 +100,13 @@ export async function loadProviderKeyOverrides(db?: D1Database | null): Promise<
   try {
     const keys = UNIQUE_PROVIDER_KEYS.map((key) => `${PROVIDER_KEY_PREFIX}${key}`)
     if (keys.length === 0) return {}
-    const rows = await db.prepare(`SELECT key, value FROM settings WHERE key IN (${keys.map(() => '?').join(',')})`)
-      .bind(...keys)
-      .all<{ key: string; value: string }>()
+    const settingsMap = await getSettings(db, keys)
 
     const mapped: ProviderApiKeys = {}
-    for (const row of rows.results || []) {
-      const envKey = row.key.replace(PROVIDER_KEY_PREFIX, '')
-      if (envKey && row.value) {
-        mapped[envKey] = row.value
+    for (const [key, value] of settingsMap) {
+      const envKey = key.replace(PROVIDER_KEY_PREFIX, '')
+      if (envKey && value) {
+        mapped[envKey] = value
       }
     }
     return mapped

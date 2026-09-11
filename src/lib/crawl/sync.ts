@@ -2,6 +2,7 @@ import { env } from 'cloudflare:workers';
 import { CRAWL_TARGETS } from './config';
 import { crawlTarget } from './browser-rendering';
 import { chunkMarkdown, type DocChunk } from './chunker';
+import { getSetting, setSetting } from '@/lib/db/settings-store';
 
 interface CrawlSyncEnvConfig {
   CF_ACCOUNT_ID?: string;
@@ -89,7 +90,7 @@ function checkpointKey(targetName: string): string {
 async function getTargetCheckpoint(db: D1Database, targetName: string): Promise<number | undefined> {
   const key = checkpointKey(targetName);
   try {
-    const row = await db.prepare('SELECT value FROM settings WHERE key = ?').bind(key).first<{ value: string }>();
+    const row = await getSetting(db, key);
     if (row?.value) return Number(row.value);
   } catch (err) {
     console.warn(`[crawl] Could not read settings checkpoint for ${targetName}:`, err instanceof Error ? err.message : String(err));
@@ -104,10 +105,7 @@ async function getTargetCheckpoint(db: D1Database, targetName: string): Promise<
 
 async function setTargetCheckpoint(db: D1Database, targetName: string, timestamp: number): Promise<void> {
   try {
-    await db.prepare(
-      `INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))
-       ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`
-    ).bind(checkpointKey(targetName), String(timestamp)).run();
+    await setSetting(db, checkpointKey(targetName), String(timestamp));
   } catch (err) {
     console.warn(`[crawl] Could not write settings checkpoint for ${targetName}:`, err instanceof Error ? err.message : String(err));
   }

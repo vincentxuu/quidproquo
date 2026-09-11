@@ -289,7 +289,7 @@ async function deleteTraceRows(db: D1Database, traceIds: string[], includeNative
 async function loadSettings(db: D1Database): Promise<RetentionSettings> {
   const rows = await db.prepare(`
     SELECT key, value
-    FROM settings
+    FROM admin_settings
     WHERE key IN (${RETENTION_KEYS.map(() => '?').join(', ')})
   `).bind(...RETENTION_KEYS).all<{ key: string; value: string }>()
 

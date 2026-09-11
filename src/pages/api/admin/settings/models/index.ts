@@ -20,7 +20,6 @@ import {
 import { json } from '@/lib/api/response'
 import { deleteSetting, getSetting, setSetting } from '@/lib/db/settings-store'
 
-const LEGACY_SETTINGS_TABLE = { tableName: 'settings' as const }
 
 export interface ProviderModel {
   provider: RagRuntimeConfig['defaultProvider']
@@ -173,7 +172,7 @@ export const POST: APIRoute = async ({ cookies, request }) => {
 }
 
 export async function loadCatalog(db: D1Database): Promise<ProviderCatalog> {
-  const row = await getSetting(db, CATALOG_KEY, LEGACY_SETTINGS_TABLE)
+  const row = await getSetting(db, CATALOG_KEY)
   if (!row?.value) return DEFAULT_CATALOG
 
   try {
@@ -186,7 +185,7 @@ export async function loadCatalog(db: D1Database): Promise<ProviderCatalog> {
 }
 
 export async function saveCatalog(db: D1Database, catalog: ProviderCatalog): Promise<void> {
-  await setSetting(db, CATALOG_KEY, JSON.stringify(catalog), LEGACY_SETTINGS_TABLE)
+  await setSetting(db, CATALOG_KEY, JSON.stringify(catalog))
 }
 
 export async function loadProviderKeyStatuses(db: D1Database): Promise<ProviderSecretStatus[]> {
@@ -218,11 +217,11 @@ export async function loadProviderKeyStatuses(db: D1Database): Promise<ProviderS
 
 async function saveProviderSecret(db: D1Database, envKey: string, value: string): Promise<void> {
   const storageKey = `${PROVIDER_KEY_PREFIX}${envKey}`
-  await setSetting(db, storageKey, value, LEGACY_SETTINGS_TABLE)
+  await setSetting(db, storageKey, value)
 }
 
 async function deleteProviderSecret(db: D1Database, envKey: string): Promise<void> {
-  await deleteSetting(db, `${PROVIDER_KEY_PREFIX}${envKey}`, LEGACY_SETTINGS_TABLE)
+  await deleteSetting(db, `${PROVIDER_KEY_PREFIX}${envKey}`)
 }
 
 export function parseModels(value: unknown): ProviderModel[] | null {

@@ -2,6 +2,7 @@ import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
 import { SUPPORTED_PROVIDERS } from './providers'
 import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../search-tools'
+import { getSettings } from '@/lib/db/settings-store'
 
 interface SettingsEnv {
   DB: D1Database
@@ -108,13 +109,7 @@ function parseSearchToolProviders(value: string | undefined, fallback: string[])
 
 export async function loadRagSettings(): Promise<RagRuntimeConfig> {
   const { DB } = env as unknown as SettingsEnv
-  const rows = await DB.prepare(
-    `SELECT key, value FROM settings WHERE key IN (${Object.values(SETTINGS_KEYS).map(() => '?').join(', ')})`
-  )
-    .bind(...Object.values(SETTINGS_KEYS))
-    .all<{ key: string; value: string }>()
-
-  const byKey = new Map(rows.results.map(row => [row.key, row.value]))
+  const byKey = await getSettings(DB, Object.values(SETTINGS_KEYS))
 
   return {
     pipelineEngine: parseChoice(

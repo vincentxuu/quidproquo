@@ -210,7 +210,7 @@ export class AgentFlowWorkflow extends WorkflowEntrypoint<Env, FlowWorkflowParam
       try {
         const dbKeys = PROVIDER_ENV_KEYS.map(k => `${PROVIDER_KEY_PREFIX}${k}`)
         const rows = await db.prepare(
-          `SELECT key, value FROM settings WHERE key IN (${dbKeys.map(() => '?').join(',')})`
+          `SELECT key, value FROM admin_settings WHERE key IN (${dbKeys.map(() => '?').join(',')})`
         ).bind(...dbKeys).all<{ key: string; value: string }>()
         for (const row of rows.results || []) {
           const envKey = row.key.replace(PROVIDER_KEY_PREFIX, '')

@@ -71,7 +71,6 @@ const SEARCH_PAGE_SETTINGS_KEYS = [
   'rag_ai_search_metadata_filters_enabled',
 ] as const
 
-const LEGACY_SETTINGS_TABLE = { tableName: 'settings' as const }
 
 export const GET: APIRoute = async ({ request, clientAddress }) => {
   const url = new URL(request.url)
@@ -164,7 +163,7 @@ function parseBoundedInteger(raw: string | null, fallback: number, min: number, 
 
 async function loadSearchPageSettings(): Promise<SearchPageSettings> {
   const db = (env as unknown as Env).DB
-  const rows = await getSettings(db, SEARCH_PAGE_SETTINGS_KEYS, LEGACY_SETTINGS_TABLE)
+  const rows = await getSettings(db, SEARCH_PAGE_SETTINGS_KEYS)
   return {
     enabled: parseBooleanSetting(rows.get('search_page_enabled'), true),
     defaultMode: parseSearchMode(rows.get('search_page_default_mode') ?? null, 'keyword'),

@@ -10,6 +10,7 @@ import { lookupSemanticCache, storeSemanticCache } from '../../lib/conversation/
 import type { GraphState, RagRuntimeConfig } from '../../lib/retrieval/state'
 import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
 import type { Env } from '@/lib/config/env'
+import { getSetting } from '@/lib/db/settings-store'
 import { normalizeAnswerLanguage } from '../../lib/retrieval/language'
 import { shouldExposeRetrievedLinks } from '../../lib/retrieval/presentation'
 import {
@@ -59,8 +60,7 @@ type BuiltStepSpan = {
 
 async function getVisitorLimit(): Promise<number> {
   const { DB } = env as unknown as Env
-  const row = await DB.prepare('SELECT value FROM settings WHERE key = ?')
-    .bind('visitor_daily_limit').first<{ value: string }>()
+  const row = await getSetting(DB, 'visitor_daily_limit')
   return parseInt(row?.value ?? '5', 10)
 }
 
