@@ -113,6 +113,9 @@
   "pnpm": {
     "overrides": {
       "picomatch": "4.0.3"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@lanefoundry/gatelane-sdk@https://codeload.github.com/lanefoundry/gatelane/tar.gz/54c1ad0b993e550cd16cc0f6a01bbd03fc4c1f35#path:packages/gatelane-sdk"
+    ]
   }
 }
