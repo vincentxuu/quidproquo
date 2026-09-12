@@ -5,8 +5,10 @@ interface GatelaneEnv {
   GATELANE_CAPTURE_TOKEN?: string
 }
 
+type GatelaneCapture = typeof import('@lanefoundry/gatelane-sdk/capture').capture
+
 let initialized = false
-let captureImpl: ((input: unknown, call: () => Promise<unknown>) => Promise<unknown>) | null = null
+let captureImpl: GatelaneCapture | null = null
 
 export function initGatelane() {
   if (initialized) return
@@ -30,10 +32,10 @@ export async function gatelaneCapture<T>(
   if (!captureImpl) {
     try {
       const mod = await import('@lanefoundry/gatelane-sdk/capture')
-      captureImpl = mod.capture as typeof captureImpl
+      captureImpl = mod.capture
     } catch {
       return call()
     }
   }
-  return captureImpl!(input, call) as Promise<T>
+  return captureImpl(input, call)
 }

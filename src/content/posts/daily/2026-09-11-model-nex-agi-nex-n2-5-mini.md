@@ -15,6 +15,8 @@ glossary:
     def: "Nex AGI 開發的開源 agentic 模型家族，分 mini／Pro／Max 三個量級，主打長時程任務中的電腦操作、瀏覽器操作與視覺回饋自我修正能力"
 ---
 
+> 🌏 [English version](/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini-en)
+
 ## 模型資訊
 
 | 項目 | 值 |

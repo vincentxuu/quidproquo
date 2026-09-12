@@ -15,6 +15,8 @@ glossary:
     def: "DeepSeek（深度求索）開發的旗艦大型語言模型家族，分 Flash（輕量）與 Pro（旗艦）兩線，2026 年起加入多模態與更激進的 KV cache 壓縮技術"
 ---
 
+> 🌏 [English version](/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash-en)
+
 ## 模型資訊
 
 | 項目 | 值 |
@@ -56,7 +58,7 @@ glossary:
 
 跟 Claude Opus 5、GPT-5.6 Sol 等閉源模型比，DeepSeek-V4.1-Flash 在 agentic 類 benchmark（Terminal-Bench、DeepSWE、AutomationBench）全面領先，但純推理與知識類仍有落差：GPQA Diamond 90.9 分落後 GPT-5.6 Sol 的 94.1，Humanity's Last Exam 只有 36.8 分（Opus 5 為 56.3）。這是一個「重 agentic、輕通用推理」的定位。
 
-定價策略上最激進的動作是官方直接讓 V4-Pro 退場：9 月 14 日 12:00（北京時間）起，所有打到 `deepseek-v4-pro` 的請求會全數改路由到 V4.1-Flash 並按 Flash 價計費，尖峰 input 從 $1.32 降到 $0.30（降 77%）、output 從 $3.96 降到 $1.20（降 70%），等於官方直接把旗艦定位讓給新模型，還順便替既有用戶大幅降價。
+定價策略上最激進的動作是官方直接讓 V4-Pro 退場：9 月 14 日 12:00（北京時間）起，所有打到 `deepseek-v4-pro` 的請求會全數改路由到 V4.1-Flash 並按 Flash 價計費，尖峰 input 從 $1.32 降到 $0.30（降 77%）、output 從 $3.96 降到 $1.20（降 70%），等於官方直接把旗艦定位讓給新模型，還順便替既有使用者大幅降價。
 
 ## 對 Agent 開發的意義
 

@@ -9,7 +9,7 @@ description: "DeepSeek 換架構不換代號——Causal Encoder-Decoder 讓啟�
 tldr: "DeepSeek-V4.1-Flash（API model：deepseek-flash）：2026-09-10 發佈，552B 總參數 MoE（Causal Encoder-Decoder，輸入僅啟用 8B、輸出啟用 16B）、1M context、MIT 開源；定價尖峰 input $0.30／output $1.20（每 1M tokens，離峰砍半），比前代 V4-Flash 更便宜；Terminal-Bench 4.0 從前代 7.0 分衝到 31.2 分，DeepSWE v1.1 追平 Claude Opus 5（74.2 vs 74.0）；KV cache 壓到每 token 890 bytes（前代 1/4、對比 DeepSeek-V1 少 437 倍）；官方宣布 9/14 起自家旗艦 V4-Pro 全部流量轉發給這隻 Flash 版並按 Flash 計價"
 series:
   name: "AI Model Tracker"
-  order: 19
+  order: 21
 glossary:
   - term: "DeepSeek V4.1"
     def: "DeepSeek 於 2026 年 9 月推出的新一代模型架構家族，首發的 Flash 版把前代 MoE decoder 換成 Causal Encoder-Decoder，主打更低的 KV cache 與 agentic 任務效能"

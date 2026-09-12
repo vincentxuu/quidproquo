@@ -9,7 +9,7 @@ description: "DeepSeek swaps architecture without bumping the generation number 
 tldr: "DeepSeek-V4.1-Flash (API model: deepseek-flash): released 2026-09-10, 552B-parameter MoE with a Causal Encoder-Decoder architecture (only 8B active parameters for input, 16B for output), 1M-token context, MIT-licensed. Peak pricing: input $0.30 / output $1.20 per 1M tokens (off-peak halved) — cheaper than the predecessor V4-Flash. Terminal-Bench 4.0 jumps from 7.0 to 31.2, DeepSWE v1.1 (74.2) ties Claude Opus 5 (74.0). KV cache compressed to 890 bytes/token (1/4 of the predecessor, 437x less than DeepSeek-V1). DeepSeek announced that starting Sept 14, all traffic to its own V4-Pro flagship will be routed to this Flash model and billed at Flash rates."
 series:
   name: "AI Model Tracker"
-  order: 19
+  order: 21
 glossary:
   - term: "DeepSeek V4.1"
     def: "A new model architecture family DeepSeek introduced in September 2026; the first release, Flash, replaces the predecessor's MoE decoder with a Causal Encoder-Decoder, optimized for a smaller KV cache and stronger agentic performance"
