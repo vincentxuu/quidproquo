@@ -258,3 +258,10 @@
 - 為什麼現在不能做：這不是單次工具故障（重試/等待就會恢復的那種），而是這個 CCR 環境的 Groundlane 部署本身把瀏覽器渲染（headless browser rendering）關閉了（"Browser rendering is disabled"），而 SWE-bench Verified、Arena（前 LMSYS）、MorphLLM 三個 P1/P2 排行榜頁面的實際排名表格都是前端 JS 渲染、非渲染快照抓不到內容。這代表 `daily-digest-benchmark` skill 目前指定的「直接抓取排行榜頁面（主要方法）」章節列的三個網址，在目前環境設定下**結構性地**不可行，不是哪天運氣好或重試次數夠多就會恢復——需要人決定要不要改變資料來源策略或環境設定，屬於 Tier 2（改 skill 方法論／可能牽涉環境設定）而非本 session 能自行決定的範圍。
 - 接手第一步：(1) 確認 Groundlane 部署方是否能針對這三個站台開放渲染（或加入特定站台白名單），如果不行就是長期限制，需要換路線；(2) 若無法開放渲染，評估三個排行榜是否有非 JS 的資料來源可用——例如 SWE-bench 官方 GitHub repo（`princeton-nlp/SWE-bench` 或 `swe-bench/swe-bench.github.io`）裡是否有原始榜單資料的 JSON/CSV 檔案可直接讀取而非爬網頁、Arena 是否有官方 API 或 HuggingFace 上鏡射的資料集、MorphLLM 是否有替代的官方資料出口；(3) 若都沒有結構化資料源，考慮修改 `.agents/skills/daily-digest-benchmark/SKILL.md` 的「搜尋方法」章節，把這三個 URL 標記為「目前環境不可行」並改成明確以受信任的單一聚合站（需先做可信度評估，不能像現在這樣多站互相矛盾就每天判定為雜訊）或改成更低頻率的人工週期性快照比對；(4) 決定後記得 `pnpm skills:sync` + `pnpm verify`。順帶一提：skill 文件裡 Terminal-Bench 的 URL（`qaskills.sh`）先前已被記錄為與「Terminal-Bench 排行榜」無關的錯誤連結（見 09-09 前的 snapshot notes），若這次一併修 skill，建議順手修正。
 - 更新（2026-09-12）：連續第 10 天（09-03～09-12）同一結構性故障，無新資訊——三站仍是 OUTPUT_LIMIT／UPSTREAM_ERROR／`PROVIDER_UNAVAILABLE("Browser rendering is disabled")`，web_search 補充查詢命中的仍是彼此矛盾的第三方聚合站，且完全未提及我們追蹤的官方 scaffold 排名。狀態未變，仍待人依上述「接手第一步」拍板，本次不再重複列出逐站錯誤細節。
+
+## Q-024 AIP-C01 文章更新的全站驗證被既有工作區問題阻擋
+- 登錄：2026-09-12（來源：AIP-C01 指南更新；`.work/aip-c01-update/` 驗證紀錄）
+- 做什麼：修復全站品質閘門後，再驗證並審閱 AIP-C01 中英文更新。
+- 為什麼現在不能做：本次範圍是 AIP-C01 文章。`pnpm astro check` 與 `pnpm verify` 均遇到 `src/lib/gatelane.ts` 的 SDK `capture`／`storage-http`／`storage` 模組缺失；全站 references／quality 另被既有 Marker 雙語文章缺參考資料及失效 MinerU 連結阻擋。daily 2026-09-11 的 DeepSeek／Nex 文章缺英文配對，DeepSeek 中文有 A 級用語問題，並與 09-12 的 DeepSeek 文章撞 series order 19。這些屬其他工作區改動，未覆寫，也未弱化檢查。
+- 更新（2026-09-12）：最新 `pnpm verify` 仍有 5 項失敗：`src/lib/gatelane.ts:33` 的 `captureImpl` 型別轉換錯誤、全站 references／post-quality／tw 檢查，以及 2026-09-11 DeepSeek／Nex 中英文文章的標題層級不一致。AIP-C01 中英文檔案的目標檢查維持通過。
+- 接手第一步：讀 `.work/aip-c01-update/verify-final.log`、`astro.log`、`references-all.log`、`quality-all.log`、`tw-all.log`、`series-all.log`，確認各檔案負責中的 session 與最新狀態，再安排修復並重跑 `pnpm verify`。

@@ -11,6 +11,7 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- **AIP-C01 備考指南補強（2026-09-12）**：中英已補四步準備法、教材比較、實作與應考提醒，另補四份標準版後的獨立考生紀錄，區分 beta 與標準版並標註背景差異；targeted references／tw／diff check 通過，quality 僅既有 `career` tag 提示。全站 verify 既有 blocker 見 Q-024；未 commit／deploy，詳 `.work/aip-c01-update/`。
 - **AI 模型家族 order 19 Thinking Machines Lab／Inkling（2026-09-05）**：中英雙版已 commit；另修掉擋 verify 的真問題（tw A 級 30 處、quality 6 ERROR、references 3 ERROR、parity 4 draft 標記，詳 Q-021），全在別人 session 草稿上，只修未代 commit。
 - **Looplane 系列 Batch D（2026-08-30，內容完成）**：orders 17–18 兩組雙語文章、rivumi 舊檔清除已 commit/push（2026-09-04）。Playwright 型別衝突已自行消解。
 - **Admin v2 Phase 1–6 已部署 production（2026-08-30 起）**：管線穩定，剩環境觀察實測。
@@ -22,6 +23,8 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
+- **Stanford CS329Z 導讀補強（2026-09-12）**：Week 11 系列地圖已明示 Week 10 為 Thanksgiving Recess、無課亦無指定閱讀；Week 2、8 共六篇 additional readings 已補成實質導讀，中英文、參考資料與更新紀錄同步完成。官方 23/23 required readings 與 27/27 additional readings 均可在系列正文找到對應說明。
+- **首頁文章取消釘選（2026-09-12）**：三篇既有釘選文章的中英 frontmatter 已移除 `pinned: true`；全站文章釘選掃描為零。`pnpm verify` 仍被非本次範圍的既有 gatelane module、daily 語言配對與文章品質問題擋住。
 - **daily-digest-product-interview 2026-09-10**：AI Product Design 主題(風險×信心矩陣＋漸進式委任 progressive delegation),案例是 Gusto Cofounder 團隊 2026-09-02 才發布的「AI 主持訪談只用在低風險範圍」決策。中英雙版已 commit,series order 22,`pnpm verify` 全綠。
 - **daily-digest-framework 2026-09-10**：24h 內掃到 4 個符合 REPOS 清單的新 release（Mastra @mastra/core@1.65.0／Pydantic AI v2.42.0／Agno v3.0.9／claude-code v2.1.266），後兩者為純 bug fix patch 依規則跳過；Mastra（4 項 breaking changes）與 Pydantic AI（compatibility note）各自成篇，中英四檔已 commit，series order 17／18，`pnpm verify` 全綠。GitHub REST API 直接 curl 因本 session repo scope 鎖死被擋（`api.github.com` 走 sandbox proxy）、`gh` CLI 未裝，改用 Groundlane `web_fetch` 打 `api.github.com/.../releases/latest`＋GitHub `.atom` release feed＋`img.shields.io` 星數 badge 三路组合繞過，未撞 Q-020 的 OAuth 卡關（本次 Groundlane 全程可用）；`/releases?per_page=N` 端點常觸發 Groundlane `OUTPUT_LIMIT` 或 GitHub rate limit，改用 `/releases/latest`、單一 release id、`.atom` feed 更穩定。
 - **Ask AI：RAG 實戰子系列（2026-09-04）**：16 檔翻為 `draft: false` 發布。
