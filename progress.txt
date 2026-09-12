@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-09-13
+Last updated: 2026-09-13 (product-builder-interview 追加一筆)
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -23,6 +23,7 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
+- **daily-digest-product-interview 2026-09-13**：DOW=7（週日）Behavioral & Weekly Review，權重全 1 未加練覆寫。用 STAR 疊 Amazon Bar Raiser 輪 ownership-under-failure 四檢查點（self-awareness／ownership／reflection／judgment under ambiguity），練 Amazon PM 面試真題「說一次你沒能兌現承諾的經驗」；案例是 Fire Phone 減損 1.7 億美元後教訓轉進 Echo/Alexa。本週回顧發現 09-11 Growth & Experimentation 當日未產出，已在回顧表與下週預告中標記補練，未回頭補寫。中英雙版已 commit/push（beec78a），series order 25。沿用 Q-024 繞法（scratch 裝 gray-matter 複製進 node_modules）跑通 references／series-order／lang-parity／tw-terms／post-quality 五支腳本，皆 0 blocking；push 時撞到另一 session 同時提交（AI engineer interview daily），已 `git pull --rebase` 化解。
 - **daily-digest-funding 2026-09-13**：Cognition／Harvey／Clay 三個候選皆已在 09-09～09-11 撞號發過，改篩到兩筆未發過的：Archy（牙醫診所 AI agent，$50M Series C，JMI Equity 領投）與 GenHealth.ai（醫療後勤 RCM AI agent，$16.5M Series A，Flare Capital Partners 領投），兩者皆非傳聞、雙來源以上交叉驗證。中英四檔已 commit，series order 32／33。沿用 Q-024 繞法手動裝 `gray-matter` 到 `node_modules`，這次額外把 `check-series-order`／`check-lang-parity`／`check-tw-terms`／`check-post-quality` 四支腳本也一併跑通（皆只需 gray-matter，無其他外部依賴），四篇新文皆 0 blocking；`lint`／`astro check`／`skills:sync` 仍需完整 `pnpm install` 才能跑，未驗證。
 - **daily-digest-tool 2026-09-13**：推薦 agentgateway-lint（`shriramkv/agentgateway-lint`，MIT，19 stars，一個月內新專案）——針對 agentgateway（MCP/LLM/A2A 流量閘道）設定檔的靜態 linter，抓 CORS wildcard+credentials、LLM backend 無 rate limit、secret 明文寫死等安全誤設並給 A-F 分級，可當 CI gate；已排除 watchlist B/C 段既有工具與同日搜到但已過度知名（QwenPaw 3.5萬星／AionUi 3.3萬星）或非本日新建（ToolHive／agentgateway 本體皆已逾一年、且 ToolHive 已於 09-10 發過）的候選。中英雙版已寫入，series order 29，targeted `check:references` 通過（0 error，0 warning on 新檔）；`pnpm install` 仍卡在既有 Q-024 gatelane-sdk repo-scope 阻塞，沿用同日其他 routine 的繞法（scratch 目錄 npm 裝 gray-matter 複製進 node_modules 做 targeted 驗證），本機無啟用中 pre-commit hook，手動核對後逕行 commit。
 - **daily-digest-framework 2026-09-13**：REPOS 清單 24h 內（cutoff 2026-09-11T00:00 UTC）掃到 3 個候選——pydantic-ai v2.43.0（僅 1 個 `clai` UX 功能＋2 bug fix，非重要 Agent 原語）、claude-code v2.1.269（例行 patch 級功能，非里程碑版本）、DSPy 3.4.0b1（beta pre-release，且已被同日 daily-digest-github 文章涵蓋，series order 29）——均不符篩選規則「值得寫」門檻，依 Step 5 判定今日無框架更新，未產文章、未 commit 內容檔。
