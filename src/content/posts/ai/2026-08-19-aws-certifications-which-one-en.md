@@ -1,5 +1,5 @@
 ---
-title: "Choosing Among the Three AWS AI Certifications: MLA-C01 Has 40 Days Left, and Only in English"
+title: "Choosing Among the Three AWS AI Certifications: Current Guidance After MLA-C02 Beta Opens"
 date: 2026-08-19
 type: guide
 category: ai
@@ -8,112 +8,66 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 21
-tldr: "AIF-C01, MLA-C01, and AIP-C01 are not a difficulty ladder — they are three different job surfaces: AIF tests whether you can talk about it, MLA tests putting ML into production, AIP tests integrating someone else's foundation models into a system. But in August 2026 the choice is gated by time: the official certification page announces that the last day to take MLA-C01 in English is September 28, 2026 — 40 days from today — while MLA-C02 registration does not open until September 1 and its exam guide is unpublished. Non-English candidates (Japanese, Korean, Simplified Chinese) have a materially longer window. The same page also carries two codes, MLA-C02 and ME1-C02, with no stated relationship. And the renewal graph works backwards on ordering: passing AIP-C01 renews AIF-C01, MLA-C01, and Data Engineer – Associate for three years each."
-description: "A selection guide for the three AWS AI certifications (AIF-C01 / MLA-C01 / AIP-C01): the real boundaries drawn from official domain weightings and out-of-scope lists, the time branch created by MLA-C01's September 28, 2026 English retirement (including the different window for non-English candidates), the unexplained MLA-C02 / ME1-C02 code conflict on the official page, and how the renewal graph determines the optimal order to take them."
+tldr: "AIF-C01, MLA-C02, and AIP-C01 are not a difficulty ladder but three job-function slices: AIF tests AI business judgment, MLA tests whether you can put traditional ML, foundation models, and agentic workflows into production, and AIP tests whether you can integrate foundation models into a GenAI system. The MLA-C02 English beta is open for registration; general-availability dates and non-English versions remain unannounced."
+description: "A guide to choosing among AWS's three AI certifications (AIF-C01 / MLA-C02 / AIP-C01), using official scope and domain weights, the MLA-C02 beta status, and current renewal paths."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-19-aws-certifications-which-one)
 >
-> This is a selection guide built from official material, not an exam-day account — I have not sat these exams. Every "what it tests" points back to the official exam guides and every spec points back to the official certification pages. No leaked questions. Verified 2026-08-19.
+> This is a selection guide built from official material, not an exam-day account — I have not sat these exams. Every "what it tests" points back to the official exam guides and every spec points back to the official certification pages. No leaked questions. Last checked 2026-09-12.
 
-The series already covers the preparation paths for [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en) and [AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en). This post handles the trade-off between them, plus the third exam, MLA-C01 — whose current status is peculiar enough that a standalone preparation path would be irresponsible to write.
+The series already covers the preparation paths for [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en) and [AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en). This post handles the trade-off between them and Machine Learning Engineer – Associate, now updated to MLA-C02.
 
-**The conclusion first**: these three are not a beginner/intermediate/advanced ladder. Their official out-of-scope lists barely overlap, so the cost of choosing wrong is not "I picked something too easy" — it is **holding a certificate that attests to work you don't do**. And in August 2026 there is an extra constraint: one of them is counting down to retirement.
+**The conclusion first**: these three are not a beginner/intermediate/advanced ladder. Their official job scopes barely overlap, so the cost of choosing wrong is not "I picked something too easy" — it is **holding a certificate that attests to work you don't do**. The current variable is MLA-C02's beta: English beta registration is open, while general availability and other-language dates are still unannounced.
 
 For prices and validity across vendors, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en) — not repeated here.
 
 ## The three, side by side
 
-| | [AIF-C01](https://aws.amazon.com/certification/certified-ai-practitioner/) | [MLA-C01](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/) | [AIP-C01](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) |
+| | [AIF-C01](https://aws.amazon.com/certification/certified-ai-practitioner/) | [MLA-C02](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/) | [AIP-C01](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) |
 |---|---|---|---|
 | Level | Foundational | Associate | Professional |
-| Price | $100 | $150 | $300 |
-| Duration | 90 min | 130 min | 180 min |
-| Questions | 65 (50 scored) | 65 (50 scored) | 75 (65 scored) |
-| Passing score | 700 | **720** | **750** |
-| Question types | Multiple choice, multiple response, ordering, matching | Multiple choice, multiple response, **ordering, matching** | Multiple choice and multiple response only |
+| Price | $100 | $75 beta; $150 GA | $300 |
+| Duration | 90 min | 170 min beta; see guide for GA specification | 180 min |
+| Questions | 65 (50 scored) | 85 beta; 65 (50 scored) GA | 75 (65 scored) |
+| Passing score | 700 | **720** at GA; not applicable to beta | **750** |
+| Question types | Multiple choice, multiple response, ordering, matching | Multiple choice and multiple response | Multiple choice and multiple response only |
 | Validity | 3 years | 3 years | 3 years |
-| Languages | 12, **including Traditional Chinese** | English, Japanese, Korean, Simplified Chinese | English, Japanese, Korean, Simplified Chinese |
-| Recommended experience | Up to 6 months of exposure; "uses but does not necessarily build" | **1 year with SageMaker + 1 year in a related role** (backend dev, DevOps, data engineer, data scientist) | 2 years production development + 1 year GenAI implementation |
-| Current status | Exam guide v1.1 (2026-04-30) | **English version retires 2026-09-28** | Refreshed 2026-03, includes AgentCore |
+| Languages | 12, **including Traditional Chinese** | English-only beta; English, Japanese, Korean, Simplified Chinese at GA | English, Japanese, Korean, Simplified Chinese |
+| Recommended experience | Up to 6 months of exposure; "uses but does not necessarily build" | **1 year with SageMaker AI, Bedrock, and other ML services + 1 year in a related role** | 2 years production development + 1 year GenAI implementation |
+| Current status | Exam guide v1.1 (2026-04-30) | English beta registration open; delivery starts 2026-09-29 | Refreshed 2026-03, includes AgentCore |
 
-Passing scores climb 700 / 720 / 750. All three use compensatory scoring — no per-domain minimum.
+The GA passing scores climb 700 / 720 / 750. All three use compensatory scoring with no per-domain minimum; MLA-C02 beta does not use the GA passing score.
 
-**One question-type boundary is easy to miss.** AIF-C01 and MLA-C01 both include ordering (arrange 3–5 steps) and matching (3–7 pairs), and both are all-or-nothing — partial credit does not exist. The [AIP-C01 exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html) lists only multiple choice and multiple response. **The highest-level exam has the simplest question formats**, so pacing practice does not transfer across all three.
+**The question-type boundary has changed.** AIF-C01 retains ordering and matching, both all-or-nothing. [MLA-C02](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/machine-learning-engineer-associate-02.html) and [AIP-C01](https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html) list multiple choice and multiple response only. Pacing practice still does not transfer across all three, but MLA is no longer the more complex format.
 
-## The time branch: can you still take MLA-C01?
+## The time branch: can you take MLA-C02 now?
 
-This is the section that actually needs a decision today. The [MLA-C01 certification page](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/) carries this notice at the top:
+The [official certification page](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/) now makes the status clear: the English MLA-C02 beta is open for registration under exam code **ME1-C02**, with delivery beginning September 29. It costs $75, runs 170 minutes, and has 85 questions. General-availability registration and delivery dates remain TBD; Japanese, Korean, and Simplified Chinese arrive at GA.
 
-> This exam is being updated. Registration for the updated version (MLA-C02) opens September 1, 2026. The last day to take the current exam (MLA-C01) in English is September 28, 2026. The current exam in other languages (Korean, Japanese, and Simplified Chinese) will remain available until general availability of MLA-C02.
+That resolves the old code question: **MLA-C02 is the updated certification and ME1-C02 is the current beta exam code.** The exam guide is published. Its four domains remain, but the scope now includes foundation models, Bedrock, RAG, agentic workflows, and observability for those workflows.
 
-Counted from today, 2026-08-19:
+English candidates no longer need to compress a study plan around the C01 deadline. If you already meet AWS's recommended experience and accept the beta's 85-question format and score process, assess ME1-C02 beta. Otherwise prepare against the published C02 guide and wait for GA. Japanese, Korean, and Simplified Chinese candidates can still choose C01 until C02 GA, but an unannounced date is not an unlimited window.
 
-| Event | Date | From today |
-|---|---|---|
-| MLA-C02 registration opens | 2026-09-01 | **13 days** |
-| Last day for MLA-C01 in English | 2026-09-28 | **40 days** (5 weeks 5 days) |
-| Last day for MLA-C01 in Japanese / Korean / Simplified Chinese | Until MLA-C02 general availability | **No date published** |
-
-### English candidates: 40 days is not enough, so this path is closed for most
-
-The four domains in the [MLA-C01 exam guide](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-01/machine-learning-engineer-associate-01.html) weigh 28 / 26 / 22 / 24 — an unusually flat distribution, so there is no low-weight domain you can safely skip. And it is not a knowledge exam: data preparation, model development, deployment and CI/CD orchestration, monitoring and security all require hands-on work.
-
-Using this series' method — **schedule is determined by content volume and experience gap, not by a deadline** — MLA-C01 sits between the two already published: [AIF-C01 is four weeks](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en) (knowledge-only, no hands-on domains, six months of exposure assumed), [AIP-C01 is ten weeks](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en) (professional, heavy hands-on chapters, three years of experience assumed). MLA-C01 is associate-level, hands-on across all four domains, with two years of relevant experience assumed — **a reasonable range is six to eight weeks at 6–8 hours per week**.
-
-Forty days is about 5 weeks and 5 days, and those 40 days also have to absorb scheduling the test, travel, and slack. **The schedule doesn't fit, so for most people the answer is: do not start preparing for MLA-C01 in English now.**
-
-**The one exception** is someone already doing SageMaker ML engineering whose experience matches the official target candidate description exactly (1 year SageMaker + 1 year backend/DevOps/data engineering/data science). That person doesn't need six to eight weeks of learning — they need two or three weeks of mapping their experience onto the exam guide and adapting to the question formats, and booking now still works. The test is simple: read all four domains in the exam guide; if more than a third of the task statements are things you have never done, you are not the exception.
-
-Note the logic here: **the schedule is not being compressed because the exam is retiring — the path is closed because the schedule cannot be compressed.** The deadline is a branch condition, never a reason to hand you a plan you can't finish.
-
-### Japanese / Korean / Simplified Chinese candidates: the window really is longer
-
-This is a genuine difference and rarely stated. The official notice says the Japanese, Korean, and Simplified Chinese versions "will remain available until general availability of MLA-C02" — those candidates are **not bound by the September 28 line** and can go up to C02's general availability.
-
-Three limits on that, though:
-
-- **AWS has not published a GA date for C02.** September 1 is when registration opens, which is not the same as availability. So the window is "longer than 40 days," not "another six months."
-- Treat "GA could be announced at any time" as a scheduling risk. A six-to-eight-week plan is fine, but **book the exam date as early in the plan as you can** rather than at the end.
-- **Traditional Chinese is not on that list.** MLA-C01 is offered in English, Japanese, Korean, and Simplified Chinese only; the sole exam of the three with Traditional Chinese is AIF-C01.
-
-### Two codes in conflict: MLA-C02 or ME1-C02
-
-**The same page carries two new codes, and AWS does not state how they relate.** The notice above says MLA-C02. A separate line on that page says:
-
-> The beta exam (ME1-C02) will be available in English only. At general availability, the exam will be offered in English, Korean, Japanese, and Simplified Chinese.
-
-So MLA-C02 and ME1-C02 sit on one page, and **the GA language lists in the two passages match** (English, Korean, Japanese, Simplified Chinese), which looks like two names for one exam — beta as ME1-C02, GA as MLA-C02, perhaps. But **no sentence on the official page connects them.**
-
-This series' rule for conflicting or under-specified official sources is to cite both and mark it uncertain rather than pick one and present it as fact. So:
-
-- **Certain**: something opens for registration on September 1; the beta is English-only; GA covers four languages.
-- **Uncertain**: whether MLA-C02 and ME1-C02 are the same exam; whether what opens on September 1 is the beta or the standard version; when GA is.
-- **Practical effect**: check the exam code on the registration page before you pay. Do not assume "it's just the new ML one." Beta exams typically have more questions, longer duration, and delayed score reports; the registration page will state those.
-
-### C02's exam guide is unpublished
-
-The official exam guide URL for `machine-learning-engineer-associate-02` still returns 404 as of today (checked 2026-08-19). **No exam guide means no preparation path** — any "MLA-C02 study guide" circulating right now has no official basis.
-
-So if you want the associate tier, the rational move is to **wait for September 1**. The certification page says so itself: "Check back here on September 1 for more information about the MLA-C02 exam and exam preparation resources." Thirteen days for a published outline beats forty days gambling on an exam that is about to retire.
+MLA-C02 remains a hands-on associate exam. AWS targets candidates with at least one year using SageMaker AI, Bedrock, and other ML engineering services plus one year in a related role; it also expects both traditional ML and GenAI experience. Build that experience before scheduling if you do not have it.
 
 ## What the three actually test
 
-Retirement aside, the boundaries between these three are unusually clean, because each publishes an out-of-scope list and the three lists barely conflict.
+MLA-C02 adds GenAI overlap to the MLA/AIP boundary, but their job functions remain different: MLA operationalizes models, foundation models, and agentic workflows in an ML system; AIP integrates existing foundation models into GenAI applications.
 
-| | AIF-C01 | MLA-C01 | AIP-C01 |
+| | AIF-C01 | MLA-C02 | AIP-C01 |
 |---|---|---|---|
 | In one line | Can you talk about it | Can you put ML into production | Can you integrate someone else's models |
-| Domain weights | 20 / 24 / 28 / 14 / 14 | 28 / 26 / 22 / 24 | 31 / 26 / 20 / 12 / 11 |
-| Heaviest domain | Applications of foundation models (28%) | Data preparation for ML (28%) | FM integration, data management, compliance (31%) |
-| Explicitly **not** tested | Writing models or algorithms; data and feature engineering; hyperparameter tuning; building AI/ML pipelines or infrastructure; mathematical or statistical analysis of models; implementing security and compliance protocols; developing governance frameworks | Designing and architecting end-to-end ML solutions; setting best practices and guiding ML strategy; integrating a wide array of services or new tools; working deeply in two or more ML domains; quantizing models and analyzing accuracy impact | Model development and training; advanced ML techniques; data engineering and feature engineering |
+| Domain weights | 20 / 24 / 28 / 14 / 14 | 28 / 24 / 24 / 24 | 31 / 26 / 20 / 12 / 11 |
+| Heaviest domain | Applications of foundation models (28%) | Data preparation for ML and AI (28%) | FM integration, data management, compliance (31%) |
+| Explicitly **not** tested | Writing models or algorithms; data and feature engineering; hyperparameter tuning; building AI/ML pipelines or infrastructure; mathematical or statistical analysis of models; implementing security and compliance protocols; developing governance frameworks | Designing full end-to-end AI/ML architectures; setting best practices and guiding ML strategies; broad service integration; working deeply in two or more ML domains | Model development and training; advanced ML techniques; data engineering and feature engineering |
 
 Read the three exclusion lists together and the boundaries fall out:
 
-- **Nearly every item AIF-C01 excludes is an MLA-C01 in-scope task.** Hyperparameter tuning, pipelines, feature engineering — AIF doesn't test them, MLA tests all of them.
-- **Nearly every item AIP-C01 excludes is MLA-C01's core.** Model development and training, advanced ML, data and feature engineering — AIP excludes them outright, MLA is built on them.
-- **So MLA and AIP are not senior and junior; they are left and right.** MLA is "train and operate your own models"; AIP is "integrate someone else's foundation models." Take MLA to prove GenAI application skill and what you hold certifies SageMaker training and deployment instead. Take AIP to prove ML engineering skill and the guide explicitly says training is out of scope.
+- **Nearly every item AIF-C01 excludes is an MLA-C02 in-scope task.** Hyperparameter tuning, pipelines, feature engineering — AIF does not test them; MLA does.
+- **AIP-C01 excludes model development, training, and data and feature engineering, all still core MLA-C02 work.** MLA-C02 now also includes Bedrock, RAG, and agentic workflows, so it is no longer only a SageMaker exam.
+- **MLA and AIP are not senior and junior; they are left and right.** MLA builds, deploys, and operates AI/ML workflows; AIP integrates foundation models into GenAI applications. Both touch GenAI, but MLA still demands model-lifecycle, data, and MLOps skills.
 - **AIF's relationship to the other two genuinely is hierarchical**: its exclusion list is their job description, which is why it's the one exam all three audiences can start with.
 
 A quick heuristic: "I want to prove I can build RAG / agents / LLM applications" → AIP. "I want to prove I can train models and ship ML pipelines" → MLA. "I want to hold my own in conversations with the AI team" → AIF. **No two of those sentences point at the same exam.**
@@ -124,30 +78,30 @@ This is the least-written and most money-saving part. Per the [official recertif
 
 | What you hold | How to renew (all +3 years) |
 |---|---|
-| AIF-C01 | Retake AIF-C01, **or pass MLA-C01**, **or pass AIP-C01** |
-| MLA-C01 | Retake MLA-C01, **or pass AIP-C01** |
+| AIF-C01 | Retake AIF-C01, **or pass the latest MLA exam**, **or pass AIP-C01** |
+| MLA | Retake the latest MLA exam, **or pass AIP-C01** |
 | AIP-C01 | Retake AIP-C01 only |
 
-And [passing AIP-C01 renews AIF-C01, MLA-C01, and Data Engineer – Associate](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en) for three years each. That graph has three directional consequences:
+And [passing AIP-C01 renews AIF-C01, MLA, and Data Engineer – Associate](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en) for three years each. That graph has three directional consequences:
 
 **One: if AIP-C01 is in your future, take AIF-C01 early.** The $100 exam never becomes a maintenance burden — pass AIP within three years and AIF renews itself. Conversely, "I'll hold off on AIF and do them together" saves nothing; it just delays the credential by three years.
 
 **Two: AIP-C01 is the only one with no upstream exam.** It renews three certifications and can only be renewed by retaking it (at 50% off via the voucher in your AWS Certification Account, so $150). In long-run cost terms, AIP is the recurring three-year expense and the others are its byproducts.
 
-**Three: "take MLA to renew AIF" no longer works.** The path exists on the graph, but MLA-C01 in English retires September 28, and MLA-C02's renewal rules have not been published — renewal tables usually change when a code changes, and that won't be knowable until after September 1. Rushing an MLA-C01 in 40 days purely for renewal value does not pencil out.
+**Three: MLA still renews AIF.** AWS now says to pass the latest Machine Learning Engineer – Associate exam, so the C02 general release follows the same route. Do not rush C01 for renewal alone; treat MLA as proof of ML engineering work you already need.
 
 Two global rules worth repeating: **none of the three offers a "take a course instead" renewal** (AWS's maintain option covers only SAA, Developer, CloudOps, SAP, and DOP), and **you cannot retake the same exam within two years of passing it**, so early renewal by retaking is also out.
 
-## Decision paths, as of late August 2026
+## Decision paths, as of September 2026
 
 **You build GenAI applications (RAG, agents, LLM integration)**
 → AIP-C01. Unaffected by the retirement, and the exam guide already includes AgentCore. If your experience falls short, build first; the [ten-week schedule](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en) explains its derivation. Adding AIF-C01 as a cheap first credential is fine — AIP renews it anyway.
 
 **You do ML engineering (training, deployment, pipelines, monitoring)**
-→ **Wait for September 1**, unless your experience matches the official target candidate description exactly and you can book a seat before September 28. Once C02's guide is published you can plan six to eight weeks properly, which beats gambling on 40 days.
+→ MLA-C02. English readers who meet AWS's experience target can assess ME1-C02 beta; everyone else should prepare against the current guide and wait for GA. It now includes traditional ML, foundation models, and agentic workflows, so it is not just the old SageMaker exam.
 
 **You are testing in Japanese, Korean, or Simplified Chinese**
-→ The MLA-C01 window is still open, but GA has no announced date. If you take this path, **plan now and book the exam early in your schedule**, not at the end.
+→ C01 remains available until C02 GA, but GA has no announced date. Book early in the plan; taking the updated exam requires waiting for the relevant language at GA.
 
 **You are a PM, in sales, or in compliance — or an engineer building vocabulary first**
 → AIF-C01. The only one of the three in Traditional Chinese, $100, and since v1.1 the outline includes MCP and agentic AI (see the v1.1 change table in the [preparation path](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en)).
@@ -160,28 +114,32 @@ Two global rules worth repeating: **none of the three offers a "take a course in
 
 ## What will go stale (check here next time)
 
-| Item | Status (verified 2026-08-19) | When to recheck |
+| Item | Status (verified 2026-09-12) | When to recheck |
 |---|---|---|
-| MLA-C01 English retirement date | 2026-09-28 | After the September 1 update |
-| MLA-C02 registration opening | 2026-09-01 | On September 1 |
-| MLA-C02 / ME1-C02 code relationship | Both on one page, unexplained | After September 1 |
-| MLA-C02 exam guide | URL returns 404 | After September 1 |
-| MLA-C02 GA date and languages | No GA date; four languages at GA | After September 1 |
-| Renewal graph | AIP renews AIF / MLA / DEA | Must recheck once C02 ships |
+| MLA-C01 English retirement date | 2026-09-28 | Remove after September 28 |
+| MLA-C02 beta | Registration open; ME1-C02, English, $75 | Beta close and GA announcement |
+| MLA-C02 general availability | Registration and delivery both TBD | AWS announcement |
+| MLA-C02 exam guide | Published; four domains at 28 / 24 / 24 / 24 | Each revision |
+| MLA-C02 GA languages | English, Japanese, Korean, Simplified Chinese; date unannounced | AWS announcement |
+| Renewal graph | AIP renews AIF / latest MLA / DEA | Each certification revision |
 | Prices | $100 / $150 / $300 | Quarterly |
 | Passing scores | 700 / 720 / 750 | Each revision |
 
+## Update history
+
+- 2026-09-12: Updated MLA specifications, exam scope, code relationship, renewal table, and decision paths after English MLA-C02 beta registration opened.
+
 ## References
 
-- [AWS Certified Machine Learning Engineer – Associate certification page (carries both the MLA-C02 and ME1-C02 notices)](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)
-- [MLA-C01 official exam guide (four domain weights, 720 passing score, question types)](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-01/machine-learning-engineer-associate-01.html)
+- [AWS Certified Machine Learning Engineer – Associate certification page (MLA-C02 beta and GA status)](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)
+- [MLA-C02 official exam guide (new scope, domain weights, question types, and passing score)](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/machine-learning-engineer-associate-02.html)
 - [AWS Certified AI Practitioner certification page](https://aws.amazon.com/certification/certified-ai-practitioner/)
 - [AIF-C01 official exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html)
 - [AWS Certified Generative AI Developer – Professional certification page](https://aws.amazon.com/certification/certified-generative-ai-developer-professional)
 - [AIP-C01 official exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html)
 - [AWS Recertification (renewal paths and the 50% voucher)](https://aws.amazon.com/certification/recertification/)
 - [AWS Certification — After Testing (retake policy)](https://aws.amazon.com/certification/policies/after-testing/)
-- [AWS Skill Builder — MLA-C01 Exam Prep](https://skillbuilder.aws/category/exam-prep/machine-learning-engineer-associate-MLA-C01)
+- [AWS Skill Builder — MLA-C02 Exam Prep](https://skillbuilder.aws/category/exam-prep/machine-learning-engineer-associate-MLA-C02)
 
 **Related on this site**
 
