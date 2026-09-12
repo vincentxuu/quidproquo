@@ -74,6 +74,103 @@
     ]
   },
   {
+    "id": "q05",
+    "query": "RAG failure modes 你提過哪些？",
+    "category": "cross-post",
+    "language": "zh-TW",
+    "expected_answer_points": [
+      "列舉至少 2 個常見 failure mode",
+      "說明緩解方法"
+    ],
+    "expected_sources": ["posts/ai","posts/tech"],
+    "forbidden_claims": ["只給單一原因的簡化結論"],
+    "candidate_answer": "我在 [RAG 常見失敗模式](https://quidproquo.cc/posts/ai/2026-03-12-rag-failure-modes) 整理過 10 種常見問題，例如檢索不到相關 chunk（召回失敗）與檢索到但答錯（生成失敗），並各自對應緩解方法，像是 chunking 調整、hybrid search 與 reranking。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/ai/2026-03-12-rag-failure-modes"
+    ]
+  },
+  {
+    "id": "q06",
+    "query": "BM25 跟 vector search 怎麼搭配？",
+    "category": "cross-post",
+    "language": "zh-TW",
+    "expected_answer_points": [
+      "說明 lexical 與語意搜尋互補",
+      "提到短路/混合排序策略"
+    ],
+    "expected_sources": ["posts/ai","posts/tech"],
+    "forbidden_claims": ["宣稱兩者可完全取代彼此"],
+    "candidate_answer": "在 [Hybrid Search](https://quidproquo.cc/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) 裡我說明 BM25 負責精確詞彙比對、向量搜尋負責語意相近，兩者互補而非取代；實作上用 RRF 混合排序，並在明確關鍵字命中時短路直接回傳。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf"
+    ]
+  },
+  {
+    "id": "q09",
+    "query": "什麼是 MMR diversity reranking？",
+    "category": "concept",
+    "language": "zh-TW",
+    "expected_answer_points": [
+      "解釋去重與多樣性平衡",
+      "給出演算法直觀描述"
+    ],
+    "expected_sources": ["posts/ai","posts/tech"],
+    "forbidden_claims": ["只聚焦精度不提多樣性作用"],
+    "candidate_answer": "[MMR + 熱門度加權](https://quidproquo.cc/posts/ai/2026-03-12-mmr-diversity-reranking) 解釋了 MMR 如何在相關性與多樣性之間取平衡：每次挑選候選時同時獎勵與查詢的相似度、懲罰與已選結果的相似度，避免結果彼此重複。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/ai/2026-03-12-mmr-diversity-reranking"
+    ]
+  },
+  {
+    "id": "q11",
+    "query": "你有沒有寫過 semantic cache threshold 的取捨？",
+    "category": "precise-query",
+    "language": "zh-TW",
+    "expected_answer_points": [
+      "提到精準度與成本取捨",
+      "給出可操作門檻策略"
+    ],
+    "expected_sources": ["posts/ai","posts/tech"],
+    "forbidden_claims": ["完全否認閾值調整的實際影響"],
+    "candidate_answer": "有，在 [Semantic Caching](https://quidproquo.cc/posts/ai/2026-03-12-semantic-caching) 我討論過相似度門檻的取捨：門檻放寬可以提高命中率、省下成本，但會增加答非所問的風險；可操作的做法是從較嚴格的門檻起步，再依命中率與錯誤回饋逐步調整。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/ai/2026-03-12-semantic-caching"
+    ]
+  },
+  {
+    "id": "q15",
+    "query": "你有提過 CRAG 嗎？",
+    "category": "cross-post",
+    "language": "zh-TW",
+    "expected_answer_points": [
+      "提到 CRAG 名稱與核心概念",
+      "描述與傳統 RAG 的差異"
+    ],
+    "expected_sources": ["posts/ai","posts/tech"],
+    "forbidden_claims": ["直接否認或誤用術語"],
+    "candidate_answer": "有，[CRAG](https://quidproquo.cc/posts/ai/2026-03-12-corrective-rag-crag) 介紹了 Corrective RAG 的核心概念：先評估檢索結果品質，若不足就自動放寬條件重試，而不是像傳統 RAG 直接拿第一次檢索結果生成。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/ai/2026-03-12-corrective-rag-crag"
+    ]
+  },
+  {
+    "id": "q20",
+    "query": "請總結你寫過的 Langfuse 觀測性重點",
+    "category": "cross-post",
+    "language": "zh-TW",
+    "expected_answer_points": [
+      "提及 trace / scoring / scoring visibility",
+      "給出實務觀測要點"
+    ],
+    "expected_sources": ["posts/ai","posts/tech"],
+    "forbidden_claims": ["忽略監控與診斷面向"],
+    "candidate_answer": "重點整理在 [Langfuse 完整指南](https://quidproquo.cc/posts/ai/2026-03-26-langfuse-llm-observability-guide) 與 [RAG Observability](https://quidproquo.cc/posts/ai/2026-03-12-rag-observability-tracing)：用 trace 記錄每個節點的輸入輸出與延遲，搭配 scoring 讓評分結果可視化，才能定位是檢索還是生成階段出問題。",
+    "candidate_sources": [
+      "https://quidproquo.cc/posts/ai/2026-03-26-langfuse-llm-observability-guide",
+      "https://quidproquo.cc/posts/ai/2026-03-12-rag-observability-tracing"
+    ]
+  },
+  {
     "id": "q21",
     "query": "有哪些課程文章",
     "category": "course-catalog",
