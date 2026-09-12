@@ -4,8 +4,7 @@ import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 import { createModel } from '../../../lib/retrieval/model'
 import { findDefaultGlossaryEntry, type GlossaryEntry, type GlossaryLink } from '../../../lib/glossary/terms'
 import { json } from '@/lib/api/response'
-import { capture } from '@lanefoundry/gatelane-sdk/capture'
-import { initGatelane } from '../../../lib/gatelane'
+import { initGatelane, gatelaneCapture } from '../../../lib/gatelane'
 
 interface D1StatementLike {
   bind: (...values: unknown[]) => {
@@ -114,7 +113,7 @@ async function explainWithModel(env: RuntimeEnv, term: string, level: 'beginner'
     })),
   ]
 
-  const response = await capture({
+  const response = await gatelaneCapture({
     prompt: [
       { role: 'system', content: 'glossary-explainer' },
       { role: 'user', content: JSON.stringify({ term, level, context }) },

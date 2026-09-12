@@ -6,7 +6,7 @@ import { AIMessage } from '@langchain/core/messages'
 import { env } from 'cloudflare:workers'
 import type { RagRuntimeConfig } from './state'
 import type { BaseMessageLike } from '@langchain/core/messages'
-import { capture, type CaptureInput } from '@lanefoundry/gatelane-sdk/capture'
+import { gatelaneCapture } from '../gatelane'
 
 /**
  * Structural response type for chat model invocations.
@@ -485,21 +485,21 @@ export async function invokeModel(
   apiKeys: ProviderApiKeys = {}
 ) {
   const primary = resolveModelRoute(config, stage)
-  const captureInput: CaptureInput = {
+  const captureInput = {
     prompt: messagesToCapturePrompt(messages),
     model: `${primary.provider}/${primary.model}`,
     metadata: { stage, provider: primary.provider, maxTokens },
   }
 
   try {
-    return await capture(captureInput, async () => {
+    return await gatelaneCapture(captureInput, async () => {
       const response = await createModel(maxTokens, { route: primary, apiKeys }).invoke(messages)
       return { response, route: primary }
     })
   } catch (error) {
     const fallback = resolveFallbackRoute(config)
     if (!fallback) throw error
-    return capture(
+    return gatelaneCapture(
       { ...captureInput, model: `${fallback.provider}/${fallback.model}`, metadata: { ...captureInput.metadata, isFallback: true } },
       async () => {
         const response = await createModel(maxTokens, { route: fallback, apiKeys }).invoke(messages)

@@ -80,6 +80,9 @@ export default defineConfig({
   }),
   vite: {
     plugins: [tailwindcss()],
+    ssr: {
+      external: ['@lanefoundry/gatelane-sdk'],
+    },
   },
   integrations: [
     react(),
