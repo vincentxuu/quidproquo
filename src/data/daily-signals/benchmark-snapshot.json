@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-12",
+  "date": "2026-09-13",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -25,5 +25,5 @@
     { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-09-12：延續 09-03～09-11 連續同一結論，已連續 10 天無法取得官方榜單原始資料（見 escalation-queue Q-023）。P1 來源今日再次全部失敗：swebench.com 首頁 web_fetch 仍 OUTPUT_LIMIT；`/verified.html` web_fetch 為 UPSTREAM_ERROR，swebench_verified_top5 沿用前值。lmarena.ai/leaderboard/agent 的 web_fetch 為 UPSTREAM_ERROR，加 render:always 重試後回 PROVIDER_UNAVAILABLE（「Browser rendering is disabled」），lmsys_agent_top3 沿用前值。morphllm.com/leaderboard web_fetch 為 UPSTREAM_ERROR，加 render:always 重試後同樣回 PROVIDER_UNAVAILABLE，morphllm_top3 沿用前值 null。web_search 補充查詢（Q1/Q2）命中內容仍是第三方聚合站與自媒體（modelpricelab.com、iternal.ai、metatext.io、llm-stats.com、openlm.ai、felloai.com、o-mega.ai 等），對『SWE-bench Verified』『Arena Elo』的數值互相矛盾、方法論不可比（混雜 scaffold 分數、純模型自報分數、不同快照日期），且完全未提及我們追蹤的 P1/P2 官方榜單（live-SWE-agent／Sonar Foundation Agent／TRAE 等 scaffold 排名），判斷為聚合站雜訊而非官方榜單今日的真實異動，不採用。AA Agentic Index、CursorBench 本次未重新查證，沿用前值。綜合以上，P1/P2 官方來源今日均無可驗證資料，無法判斷是否有顯著排名異動，依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章。Q-023 仍待人拍板資料來源策略，狀態未變。"
+  "notes": "2026-09-13：延續 09-03～09-12 連續同一結論，已連續 11 天無法取得官方榜單原始資料（見 escalation-queue Q-023）。P1 來源今日再次全部失敗：swebench.com 首頁 web_fetch 仍 OUTPUT_LIMIT（含加大 maxBytes 至 20000000 重試，同樣失敗）；`#verified` 錨點以 text format 重試仍 OUTPUT_LIMIT，swebench_verified_top5 沿用前值。lmarena.ai/?leaderboard 這次未回 UPSTREAM_ERROR，而是 302 轉址到 arena.ai/?leaderboard 後以 browser engine 成功回應 200，但實際內容只有「Get started」（`fallbackReason: js_empty_document`）——前端 JS 未渲染出榜單表格，加 `render: always` + `waitFor: table` selector 重試回 INVALID_INPUT（selector 不存在），代表榜單區塊在這個環境仍抓不到，lmsys_agent_top3 沿用前值。morphllm.com/leaderboard 這次不是 UPSTREAM_ERROR 而是 429，內容為 Vercel Security Checkpoint 攔截頁（bot 防護觸發），morphllm_top3 沿用前值 null。web_search 補充查詢（Q1/Q2）命中內容仍是第三方聚合站與自媒體（o-mega.ai、cleverhack.com、swfte.com、llm-stats.com、iternal.ai、openlm.ai、lmmarketcap.com、benchlm.ai、modelpricewatch.com 等），對『SWE-bench Verified』『Arena Elo』的數值互相矛盾、方法論不可比（混雜 scaffold 分數、純模型自報分數、不同快照日期，一篇甚至提到 OpenAI 已認定 SWE-bench Verified 有 data contamination 疑慮），且完全未提及我們追蹤的 P1/P2 官方榜單（live-SWE-agent／Sonar Foundation Agent／TRAE 等 scaffold 排名），判斷為聚合站雜訊而非官方榜單今日的真實異動，不採用。AA Agentic Index、CursorBench 本次未重新查證，沿用前值。綜合以上，P1/P2 官方來源今日均無可驗證資料，無法判斷是否有顯著排名異動，依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章。三站失敗訊息型態逐日略有不同（OUTPUT_LIMIT／UPSTREAM_ERROR／PROVIDER_UNAVAILABLE／js_empty_document／429 bot 防護）但結論一致：結構性抓不到官方原始表格。Q-023 仍待人拍板資料來源策略，狀態未變。"
 }
