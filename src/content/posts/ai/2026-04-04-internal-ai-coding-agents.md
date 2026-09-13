@@ -333,6 +333,24 @@ Shopify 的內部 agent 叫 **River**，設計上最特別的地方是它只在*
 
 不是所有故事都發生在大公司。PostHog 的工程師公開了他們怎麼應付「agent 寫程式碼的速度快過任何人能審查的速度」：解法不是逼人審快一點，而是先讓別的 agent 幫忙擋一輪。他們同時派出多個帶著不同指令、甚至不同底層模型的 reviewer agent，分別盯資安漏洞、資料庫設計、效能、命名慣例。關鍵原則是**寫程式碼的 agent 不能審自己的程式碼**——agent 對自己的盲點通常沒有自覺。這跟 Coinbase 的 agent council 是同一個直覺，只是規模小到可以由個別工程師自己組裝。
 
+### Cloudflare — 用自己賣的產品，蓋自己的 AI 開發基礎設施
+
+Cloudflare 也在賣 Agents SDK、Workers AI 這類 agent 基礎設施給客戶，但 2026 年 4 月的官方部落格難得攤開了自己內部怎麼用：過去 11 個月，一個內部代號 iMARS（Internal MCP Agent/Server Rollout Squad）的臨時小組，全程只用 Cloudflare 自己賣的產品——AI Gateway、Workers AI、Access、Sandbox SDK、Agents SDK（Durable Objects）、Workflows——搭出全公司的 AI 開發基礎設施。
+
+過去 30 天的數字：全公司 6,100 名員工中有 3,683 人（**60%**）在用，R&D 部門滲透率高達 **93%**；每月 4,795 萬次 AI 請求，跨 295 個團隊；AI Gateway 每月路由 2,018 萬次請求、處理 2,413 億個 token。合併請求量的四週滾動平均從每週約 5,600 衝到 8,700+，尖峰週逼近 11,000。
+
+架構分三層，跟本文一路強調的「厚 gate」邏輯完全對得上：平台層（認證、路由、推論）、知識層（用開源工具 Backstage 建了一個 16,000+ 節點的知識圖譜，讓 agent 理解內部系統）、**執行層（enforcement layer）**——AI Code Reviewer 加上一套叫 Engineering Codex 的規範，負責在規模化之後還守得住品質。工程師端主力用的 agent 是開源的 **OpenCode**（跟 Ramp 同款選擇），Cloudflare 工程師已經往上游貢獻了 45+ 個 PR。
+
+### NVIDIA — 30,000+ 工程師，程式碼產出翻三倍
+
+NVIDIA 給內部工程師配了一個客製化的 Cursor 版本，2026 年 2 月的報導證實：**30,000+ 名工程師**在用，公司自稱「100% 的工程師都被動員起來用 AI 輔助寫程式」。效果是程式碼提交量翻了 **3 倍**，而 bug 率沒有跟著往上——這點呼應了前面 AWS CEO 對「程式碼量」這個指標的質疑：量能衝高不稀奇，NVIDIA 特別強調品質（bug 率）沒有跟著崩，才是真正值得看的部分。
+
+### Salesforce — 一邊賣 Agentforce，一邊也在買 Anthropic 的 token
+
+Salesforce 的內部工程用的正是自家賣的 **Agentforce**：SVP Jayesh Govindarajan 說，過去 30 天內所有部署到 production 的 Apex 程式碼裡，約 **20%** 由 Agentforce 產出——他們特別強調追蹤的是「真正部署上線」的程式碼，不是產生了多少。CEO Marc Benioff 在 2026 年 5 月進一步證實：工程團隊生產力提升超過 **30%**，公司從 2025 年起凍結工程師招募，並延續到 2026 年。
+
+但有個細節值得留意：Benioff 同一場合也提到 Salesforce 2026 年預計花將近 **3 億美元**在 Anthropic 的 token 上——賣自家 agent 產品的同時，公司內部也大量採購競品模型供應商的算力。這說明「自己吃自己的狗糧」跟「內部工程實際上用什麼」不一定是同一件事。
+
 ### Goldman Sachs — Devin 部署
 
 Goldman Sachs 是**第一家部署 Devin（Cognition）的大型銀行**（2025 年 7 月），從數百人擴展到 12,000 人的開發團隊。主要用於將內部程式碼遷移到新版語言。報告 3-4x 生產力提升。
@@ -355,6 +373,9 @@ Walmart 的開發者 agent **WIBEY** 是四個「super agent」之一，在 2024
 | Goldman Sachs | Devin | 首家銀行部署，12,000 開發者 |
 | Walmart | WIBEY | 400 萬小時節省 |
 | PostHog | StampHog + 多 agent review | agent 審 agent，不同角色/模型交叉審查 |
+| Cloudflare | 自家 AI Gateway/Workers AI + OpenCode | R&D 滲透率 93%（全公司 60%），3,683 名內部使用者 |
+| NVIDIA | 客製化 Cursor | 30,000+ 工程師使用，程式碼提交量 3x，bug 率持平 |
+| Salesforce | Agentforce | 20% production Apex 程式碼由 Agentforce 產出，工程生產力 +30% |
 | Block | Goose（開源）| 27,000 GitHub stars，Stripe Minions 的基底 |
 | Apple | Xcode Intelligence | Claude 整合，agentic coding |
 | Airbnb | 內部平台 | 2026 Q1 財報：60% 新程式碼由 AI 撰寫；技術債遷移成功率 97% |
@@ -379,6 +400,7 @@ Walmart 的開發者 agent **WIBEY** 是四個「super agent」之一，在 2024
 
 ## 更新紀錄
 
+- 2026-09-13：依 `agent-watchlist.json` A1（大廠）section 再補三個內部案例——Cloudflare（自家 AI Gateway/Workers AI 蓋出 R&D 93% 滲透率的內部工具鏈，含「厚 gate」對應的 enforcement layer）、NVIDIA（30,000+ 工程師用客製化 Cursor，程式碼提交量 3x）、Salesforce（Agentforce 佔 20% production Apex 程式碼，但同時也是 Anthropic token 大客戶）；Palantir、Oracle、SAP、Adobe、Snowflake 查無夠具體的內部案例，暫未收錄。
 - 2026-09-13：補上 2026 年中／下半年最新指標——Stripe Minions 1,300→7,000+ PRs/週、Ramp Inspect 30%→75% merged PRs、Spotify Honk 遷移瓶頸轉移案例；Coinbase Cloudbot 更名為 Forge，新增 Mux 多 agent 編排工具；補充 Amazon Q Developer 轉往 Kiro（含 AWS 自己用 Kiro 重寫 Bedrock 推論引擎的內部案例與 CEO 對「AI 生成程式碼佔比」這個指標的質疑）、Google 官方 75% AI 生成程式碼數字、Meta 新增 Muse Code、Uber 最新採用率與 inner/outer loop 架構；新增 Anthropic（Claude 寫自己 80%+ 的程式碼）、OpenAI（Codex 滲透率 97.9%）、Shopify River、PostHog agent-review-agent 共四個新案例；把「薄 spec + 厚 gate」與「circuit breaker」寫進 Blueprint 與共同架構模式章節，並把 "the walls matter more than the model" 拉高為全文貫穿的論點。
 
 ---
@@ -440,3 +462,8 @@ Walmart 的開發者 agent **WIBEY** 是四個「super agent」之一，在 2024
 - [Fortune: Top engineers at Anthropic, OpenAI say AI now writes 100% of their code](https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/)
 - [Metaintro: Nearly Every OpenAI Employee Now Codes With Codex](https://www.metaintro.com/blog/openai-employees-codex-ai-coding-preview-2026)
 - [ITPro: "While the engineers slept, the agents kept building" — AWS UK chief touts big gains with AI-powered coding](https://www.itpro.com/software/development/while-the-engineers-slept-the-agents-kept-building-aws-uk-chief-touts-big-gains-with-ai-powered-coding)
+- [Cloudflare Blog: The AI engineering stack we built internally — on the platform we ship](https://blog.cloudflare.com/internal-ai-engineering-stack/)
+- [Cloudflare Blog: Orchestrating AI Code Review at scale](https://blog.cloudflare.com/ai-code-review/)
+- [Tom's Hardware: Nvidia now produces three times as much code as before AI](https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-now-produces-three-times-as-much-code-as-before-ai-specialized-version-of-cursor-is-being-used-by-over-30-000-nvidia-engineers-internally)
+- [VentureBeat: This AI already writes 20% of Salesforce's code](https://venturebeat.com/ai/this-ai-already-writes-20-of-salesforces-code-heres-why-developers-arent-worried)
+- [EnterpriseDNA: Salesforce Spends $300M on AI, Freezes Engineering Hires](https://enterprisedna.co/resources/news/salesforce-300m-anthropic-tokens-engineer-hiring-freeze-2026/)

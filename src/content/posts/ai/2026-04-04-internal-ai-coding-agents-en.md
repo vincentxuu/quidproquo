@@ -335,6 +335,24 @@ Numbers from a 30-day window: **5,938 employees** used River across **4,450 chan
 
 Not every story here happens at a giant company. PostHog's engineers published how they deal with "agents writing code faster than any human can review": the fix isn't asking humans to review faster, it's having other agents catch a first pass. Their approach runs several reviewer agents at once, each with different instructions and even different underlying models (one watches for security holes, one for database design, one for performance, one for naming conventions) — with the key rule that **the agent that wrote the code can't be the one reviewing it**, since agents are typically blind to their own mistakes. It's the same intuition as Coinbase's agent council, just small enough for one engineer to assemble on their own.
 
+### Cloudflare — Building Its Own AI Development Infrastructure on the Products It Sells
+
+Cloudflare also sells agent infrastructure — Agents SDK, Workers AI — to customers, but an April 2026 blog post unusually laid out how the company uses it internally. Over eleven months, an internal task force codenamed iMARS (Internal MCP Agent/Server Rollout Squad) built the company's entire internal AI development stack using nothing but Cloudflare's own shipping products: AI Gateway, Workers AI, Access, Sandbox SDK, Agents SDK (Durable Objects), and Workflows.
+
+The numbers from a 30-day window: **3,683 of 6,100 employees (60%)** were using it, with **93%** penetration across R&D specifically; 47.95 million AI requests per month across 295 teams; AI Gateway routed 20.18 million requests a month, processing 241.37 billion tokens. The 4-week rolling average of merge requests climbed from roughly 5,600/week to over 8,700, peaking near 11,000 in one week.
+
+The architecture has three layers that map exactly onto the "thick gate" logic this article keeps returning to: a platform layer (auth, routing, inference), a knowledge layer (a 16,000+ node knowledge graph built on the open-source tool Backstage, so agents understand internal systems), and an **enforcement layer** — an AI Code Reviewer paired with a rulebook called the Engineering Codex, responsible for holding quality together once things scale. The primary agent engineers reach for is the open-source **OpenCode** (the same choice Ramp made) — Cloudflare engineers have already landed 45+ pull requests upstream.
+
+### NVIDIA — 30,000+ Engineers, Triple the Code Output
+
+NVIDIA equips its internal engineers with a customized version of Cursor, and a February 2026 report confirmed: **30,000+ engineers** use it, with the company claiming "100% of engineers mobilized" on AI-assisted programming. The result is a **3x** jump in code commits — without the bug rate climbing alongside it, an interesting counterpoint to AWS's CEO skepticism about the "share of AI-generated code" metric noted above: volume going up isn't remarkable on its own, but NVIDIA specifically flags that quality (bug rate) didn't collapse as the real thing worth paying attention to.
+
+### Salesforce — Selling Agentforce While Also Buying Anthropic Tokens
+
+Salesforce's own internal engineering runs on the same **Agentforce** it sells: SVP Jayesh Govindarajan said about **20%** of all Apex code deployed to production in a recent 30-day window came from Agentforce — he specifically emphasized they track code that's actually shipped, not just generated. CEO Marc Benioff confirmed in May 2026 that engineering productivity is up more than **30%**, and the company froze engineering hiring starting in 2025, a freeze that continued through 2026.
+
+One detail worth flagging: at the same event, Benioff also said Salesforce expects to spend close to **$300 million** on Anthropic tokens in 2026 — even while selling its own agent product, the company is buying substantial compute from a competing model vendor internally. A reminder that "eating your own dog food" and "what engineers actually use internally" aren't always the same thing.
+
 ### Goldman Sachs — Devin Deployment
 
 Goldman Sachs was the **first major bank to deploy Devin (Cognition)** (July 2025), scaling from hundreds to 12,000 developers. Primarily used to migrate internal code to newer language versions. Reported 3-4x productivity gains.
@@ -357,6 +375,9 @@ Walmart's developer agent **WIBEY** is one of four "super agents" that saved app
 | Goldman Sachs | Devin | First bank deployment, 12,000 developers |
 | Walmart | WIBEY | 4 million hours saved |
 | PostHog | StampHog + multi-agent review | Agents reviewing agents, cross-checked by different roles/models |
+| Cloudflare | Own AI Gateway/Workers AI + OpenCode | 93% R&D penetration (60% company-wide), 3,683 internal users |
+| NVIDIA | Customized Cursor | 30,000+ engineers, 3x code commit volume, bug rate held flat |
+| Salesforce | Agentforce | 20% of production Apex code from Agentforce, engineering productivity +30% |
 | Block | Goose (open source) | 27,000 GitHub stars, base for Stripe Minions |
 | Apple | Xcode Intelligence | Claude integration, agentic coding |
 | Airbnb | Internal platform | Q1 2026 earnings call: 60% of new code AI-written; 97% tech debt migration success rate |
@@ -381,6 +402,7 @@ For most teams, the question worth asking right now is: **How much of your engin
 
 ## Update Log
 
+- 2026-09-13: Added three more internal case studies from the A1 ("major tech") section of `agent-watchlist.json` — Cloudflare (built a 93%-R&D-penetration internal tool chain on its own AI Gateway/Workers AI, including an enforcement layer that maps onto this article's "thick gate" theme), NVIDIA (30,000+ engineers on a customized Cursor, 3x code commit volume), and Salesforce (Agentforce accounts for 20% of production Apex code, while the company is also a major Anthropic token customer). Palantir, Oracle, SAP, Adobe, and Snowflake didn't turn up a specific enough internal case study and were left out for now.
 - 2026-09-13: Added the latest mid/late-2026 metrics for the four flagship case studies — Stripe Minions 1,300 → 7,000+ PRs/week, Ramp Inspect 30% → 75% of merged PRs, and Spotify Honk's shift from migration bottleneck to review bottleneck. Renamed Coinbase Cloudbot to its current name, Forge, and added its new multi-agent orchestration tool, Mux. Added Amazon's transition from Q Developer to Kiro (including AWS's own internal use of Kiro to rebuild the Bedrock inference engine, plus its CEO's skepticism of the "share of AI-generated code" metric), Google's official 75% AI-generated-code figure, Meta's new Muse Code, and Uber's latest adoption figures and inner/outer loop architecture. Added four new case studies — Anthropic (Claude writes 80%+ of its own code), OpenAI (97.9% employee penetration for Codex), Shopify River, and PostHog's agent-reviews-agent pattern. Named the "thin spec, thick gate" and "circuit breaker" design patterns in the Blueprint and common-architecture sections, and elevated "the walls matter more than the model" into the article's throughline argument.
 
 ---
@@ -442,3 +464,8 @@ For most teams, the question worth asking right now is: **How much of your engin
 - [Fortune: Top engineers at Anthropic, OpenAI say AI now writes 100% of their code](https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/)
 - [Metaintro: Nearly Every OpenAI Employee Now Codes With Codex](https://www.metaintro.com/blog/openai-employees-codex-ai-coding-preview-2026)
 - [ITPro: "While the engineers slept, the agents kept building" — AWS UK chief touts big gains with AI-powered coding](https://www.itpro.com/software/development/while-the-engineers-slept-the-agents-kept-building-aws-uk-chief-touts-big-gains-with-ai-powered-coding)
+- [Cloudflare Blog: The AI engineering stack we built internally — on the platform we ship](https://blog.cloudflare.com/internal-ai-engineering-stack/)
+- [Cloudflare Blog: Orchestrating AI Code Review at scale](https://blog.cloudflare.com/ai-code-review/)
+- [Tom's Hardware: Nvidia now produces three times as much code as before AI](https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-now-produces-three-times-as-much-code-as-before-ai-specialized-version-of-cursor-is-being-used-by-over-30-000-nvidia-engineers-internally)
+- [VentureBeat: This AI already writes 20% of Salesforce's code](https://venturebeat.com/ai/this-ai-already-writes-20-of-salesforces-code-heres-why-developers-arent-worried)
+- [EnterpriseDNA: Salesforce Spends $300M on AI, Freezes Engineering Hires](https://enterprisedna.co/resources/news/salesforce-300m-anthropic-tokens-engineer-hiring-freeze-2026/)
