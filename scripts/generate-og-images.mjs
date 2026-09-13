@@ -1,19 +1,25 @@
 // scripts/generate-og-images.mjs
 // Postbuild script: generates OG images for all posts using Satori + Resvg
 // Run after: astro build
+//
+// Resvg's render() is a synchronous native call, so async concurrency (Promise.all)
+// does not parallelize it — only worker_threads (separate OS threads) do. Cache-miss
+// generation is fanned out across worker threads; cache hits stay on the main thread
+// since they're just a file copy.
 
 import { copyFileSync, existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { availableParallelism } from 'node:os';
 import { resolve, join } from 'node:path';
+import { Worker, isMainThread, parentPort, workerData } from 'node:worker_threads';
 import matter from 'gray-matter';
-import satori from 'satori';
-import { Resvg } from '@resvg/resvg-js';
 
 const POSTS_DIR = resolve('src/content/posts');
 const OUT_DIR = resolve('dist/client/og');
 const CACHE_DIR = resolve('.cache/og-images');
 const FONT_PATH = resolve('public/fonts/NotoSansTC-Medium.otf');
 const TEMPLATE_VERSION = '2026-08-29-v1';
+const MAX_WORKERS = 8;
 
 const catColors = {
   tech: '#1a1a1a',
@@ -50,22 +56,9 @@ function cachePathFor(parts) {
   return join(CACHE_DIR, `${sha256(JSON.stringify(parts))}.png`);
 }
 
-async function writeCachedOgImage({ cacheKey, outPath, generate }) {
-  mkdirSync(join(outPath, '..'), { recursive: true });
-  const cachedPath = cachePathFor(cacheKey);
-  if (existsSync(cachedPath)) {
-    copyFileSync(cachedPath, outPath);
-    return 'reused';
-  }
-
-  const png = await generate();
-  mkdirSync(CACHE_DIR, { recursive: true });
-  writeFileSync(cachedPath, png);
-  writeFileSync(outPath, png);
-  return 'generated';
-}
-
-async function generateOgImage({ title, category, slug: _slug, fontData }) {
+async function generateOgImage({ title, category, fontData }) {
+  const { default: satori } = await import('satori');
+  const { Resvg } = await import('@resvg/resvg-js');
   const badgeColor = catColors[category] ?? '#1a2e1a';
 
   const svg = await satori(
@@ -140,6 +133,62 @@ async function generateOgImage({ title, category, slug: _slug, fontData }) {
   return resvg.render().asPng();
 }
 
+if (isMainThread) {
+  main().catch(err => {
+    console.error('[og-images] Error:', err);
+    process.exit(1);
+  });
+} else {
+  runWorker().catch(err => {
+    console.error('[og-images] Worker error:', err);
+    process.exit(1);
+  });
+}
+
+async function writeCachedOgImage({ cacheKey, outPath, generate }) {
+  mkdirSync(join(outPath, '..'), { recursive: true });
+  const cachedPath = cachePathFor(cacheKey);
+  if (existsSync(cachedPath)) {
+    copyFileSync(cachedPath, outPath);
+    return 'reused';
+  }
+
+  const png = await generate();
+  mkdirSync(CACHE_DIR, { recursive: true });
+  writeFileSync(cachedPath, png);
+  writeFileSync(outPath, png);
+  return 'generated';
+}
+
+async function runWorker() {
+  const { tasks, fontPath } = workerData;
+  const fontData = readFileSync(fontPath);
+  let generated = 0;
+  for (const task of tasks) {
+    mkdirSync(join(task.outPath, '..'), { recursive: true });
+    const png = await generateOgImage({ title: task.title, category: task.category, fontData });
+    writeFileSync(task.cachedPath, png);
+    writeFileSync(task.outPath, png);
+    generated++;
+  }
+  parentPort.postMessage({ generated });
+}
+
+function runWorkerPool(tasks, fontPath) {
+  if (tasks.length === 0) return Promise.resolve(0);
+  const workerCount = Math.max(1, Math.min(MAX_WORKERS, availableParallelism(), tasks.length));
+  const chunks = Array.from({ length: workerCount }, () => []);
+  tasks.forEach((task, i) => chunks[i % workerCount].push(task));
+
+  return Promise.all(
+    chunks.map(chunk => new Promise((resolvePromise, reject) => {
+      const worker = new Worker(new URL(import.meta.url), { workerData: { tasks: chunk, fontPath } });
+      worker.on('message', ({ generated }) => resolvePromise(generated));
+      worker.on('error', reject);
+    }))
+  ).then(counts => counts.reduce((a, b) => a + b, 0));
+}
+
 async function main() {
   const fontData = readFileSync(FONT_PATH);
   const fontHash = sha256(fontData);
@@ -160,6 +209,8 @@ async function main() {
     },
     outPath: join(OUT_DIR, 'home.png'),
     generate: async () => {
+      const { default: satori } = await import('satori');
+      const { Resvg } = await import('@resvg/resvg-js');
       const homeSvg = await satori(
         {
           type: 'div',
@@ -208,6 +259,7 @@ async function main() {
   let generated = homeStatus === 'generated' ? 1 : 0;
   let reused = homeStatus === 'reused' ? 1 : 0;
   let skippedDrafts = 0;
+  const pending = [];
 
   for (const filePath of markdownFiles) {
     const content = readFileSync(filePath, 'utf-8');
@@ -222,26 +274,18 @@ async function main() {
     const title = data.title ?? 'quidproquo';
     const category = data.category ?? 'tech';
     const outPath = join(OUT_DIR, `${slug}.png`);
-    const status = await writeCachedOgImage({
-      cacheKey: {
-        kind: 'post',
-        version: TEMPLATE_VERSION,
-        slug,
-        title,
-        category,
-        fontHash,
-      },
-      outPath,
-      generate: () => generateOgImage({ title, category, slug, fontData }),
-    });
-    if (status === 'generated') generated++;
-    else reused++;
+    const cachedPath = cachePathFor({ kind: 'post', version: TEMPLATE_VERSION, slug, title, category, fontHash });
+
+    mkdirSync(join(outPath, '..'), { recursive: true });
+    if (existsSync(cachedPath)) {
+      copyFileSync(cachedPath, outPath);
+      reused++;
+    } else {
+      pending.push({ title, category, outPath, cachedPath });
+    }
   }
+
+  generated += await runWorkerPool(pending, FONT_PATH);
 
   console.log(`[og-images] Generated ${generated}, reused ${reused}, skipped ${skippedDrafts} drafts in dist/client/og/`);
 }
-
-main().catch(err => {
-  console.error('[og-images] Error:', err);
-  process.exit(1);
-});

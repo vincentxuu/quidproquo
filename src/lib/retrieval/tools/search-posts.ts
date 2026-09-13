@@ -188,8 +188,8 @@ async function searchMetadataPosts(
 
   const rows = await DB.prepare(
     `SELECT
-      COALESCE(pc.id, 'post:' || p.id) AS chunk_id,
-      COALESCE(pc.sentence_window, pc.content, p.tldr, p.description, substr(p.content, 1, 600)) AS content,
+      'post:' || p.id AS chunk_id,
+      COALESCE(p.tldr, p.description, substr(p.content, 1, 600)) AS content,
       p.slug,
       p.title,
       p.category,
@@ -198,13 +198,6 @@ async function searchMetadataPosts(
       '[]' AS images,
       '[]' AS links
     FROM posts p
-    LEFT JOIN post_chunks pc
-      ON pc.post_id = p.id
-      AND pc.chunk_index = (
-        SELECT MIN(pc2.chunk_index)
-        FROM post_chunks pc2
-        WHERE pc2.post_id = p.id
-      )
     WHERE (${likeClauses})
       ${category ? 'AND p.category = ?' : ''}
       ${lang ? 'AND p.lang = ?' : ''}
@@ -438,8 +431,9 @@ export async function searchBlogPosts(args: {
   const metadataSearchLimit = metadataOnly
     ? Math.ceil(Math.min(limit * 10, 200) / 3)
     : limit
-  const metadataResults = await searchMetadataPosts(query, metadataSearchLimit, category, lang)
+  const metadataResultsPromise = searchMetadataPosts(query, metadataSearchLimit, category, lang)
   if (metadataOnly) {
+    const metadataResults = await metadataResultsPromise
     const results = dedupeBySlug(metadataResults, limit)
     return attachSearchMetrics(results, {
       source: 'posts',
@@ -457,7 +451,10 @@ export async function searchBlogPosts(args: {
   }
   if (vectorOnly) {
     const vectorStarted = Date.now()
-    const vectorResults = await searchVectorPosts(query, limit, category, lang).catch(() => [] as PostSearchRow[])
+    const [metadataResults, vectorResults] = await Promise.all([
+      metadataResultsPromise,
+      searchVectorPosts(query, limit, category, lang).catch(() => [] as PostSearchRow[]),
+    ])
     const vectorMs = Date.now() - vectorStarted
     const results = dedupeBySlug(reciprocalRankFuse([metadataResults, vectorResults], limit * 3), limit)
     return attachSearchMetrics(results, {
@@ -476,7 +473,10 @@ export async function searchBlogPosts(args: {
   }
 
   const bm25Started = Date.now()
-  const bm25Results = await searchBm25Posts(query, limit, category, lang)
+  const [metadataResults, bm25Results] = await Promise.all([
+    metadataResultsPromise,
+    searchBm25Posts(query, limit, category, lang),
+  ])
   const bm25Ms = Date.now() - bm25Started
 
   if (shouldUseBm25ShortCircuit(query, bm25Results.length, shortCircuit)) {
