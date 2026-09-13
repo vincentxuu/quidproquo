@@ -167,7 +167,7 @@ async function loadSearchPageSettings(): Promise<SearchPageSettings> {
   return {
     enabled: parseBooleanSetting(rows.get('search_page_enabled'), true),
     defaultMode: parseSearchMode(rows.get('search_page_default_mode') ?? null, 'keyword'),
-    dailyLimit: parseBoundedInteger(rows.get('search_page_daily_limit') ?? rows.get('rag_search_daily_limit') ?? null, 20, 1, 500),
+    dailyLimit: parseBoundedInteger(rows.get('search_page_daily_limit') ?? rows.get('rag_search_daily_limit') ?? null, 200, 1, 500),
     sources: parseSourceList(rows.get('search_page_sources')),
     aiSearchInstance: rows.get('rag_ai_search_instance') || (env as unknown as Env).AI_SEARCH_INSTANCE,
     aiSearchMetadataFiltersEnabled: parseBooleanSetting(rows.get('rag_ai_search_metadata_filters_enabled'), true),

@@ -63,7 +63,7 @@ const DEFAULT_SETTINGS: Record<string, string> = {
   search_page_source_ai_search_shadow: '1',
   search_page_source_ai_search_weight: '1',
   search_page_source_ai_search_timeout_ms: '1500',
-  search_page_daily_limit: '20',
+  search_page_daily_limit: '200',
 }
 
 export const GET: APIRoute = async ({ cookies }) => {
