@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-09-13 (daily-digest-report 追加一筆)
+Last updated: 2026-09-13
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
