@@ -60,7 +60,7 @@ export function parsePostSyncOperations(value: unknown): PostSyncOperation[] {
 }
 
 export function estimatePostSyncStatements(operation: PostSyncOperation): number {
-  return operation.type === 'upsert' ? 4 + operation.chunks.length * 3 : 4
+  return operation.type === 'upsert' ? 6 + operation.chunks.length * 3 : 5
 }
 
 export async function applyPostSyncOperation(
@@ -95,6 +95,7 @@ function buildDeletePostStatements(db: D1Database, slug: string): D1PreparedStat
     db.prepare(`DELETE FROM chunks_fts WHERE source_type = 'post' AND chunk_id IN (
       SELECT pc.id FROM post_chunks pc JOIN posts p ON p.id = pc.post_id WHERE p.slug = ?
     )`).bind(slug),
+    db.prepare(`DELETE FROM posts_fts WHERE post_id IN (SELECT id FROM posts WHERE slug = ?)`).bind(slug),
     db.prepare('DELETE FROM post_chunks WHERE post_id IN (SELECT id FROM posts WHERE slug = ?)').bind(slug),
     db.prepare('DELETE FROM posts WHERE slug = ?').bind(slug),
   ]
@@ -110,6 +111,7 @@ function buildUpsertPostStatements(
       SELECT id FROM post_chunks WHERE post_id = ?`).bind(post.id),
     db.prepare(`DELETE FROM chunks_fts WHERE source_type = 'post'
       AND chunk_id IN (SELECT id FROM post_chunks WHERE post_id = ?)`).bind(post.id),
+    db.prepare('DELETE FROM posts_fts WHERE post_id = ?').bind(post.id),
     db.prepare('DELETE FROM post_chunks WHERE post_id = ?').bind(post.id),
     db.prepare(`INSERT INTO posts (
       id, slug, title, category, lang, description, tldr, content, tags,
@@ -137,6 +139,14 @@ function buildUpsertPostStatements(
       post.createdAt,
       post.updatedAt,
       post.sourceHash,
+    ),
+    db.prepare(`INSERT INTO posts_fts (title, description, tldr, tags, post_id)
+      VALUES (?, ?, ?, ?, ?)`).bind(
+      post.title,
+      post.description ?? '',
+      post.tldr ?? '',
+      post.tags,
+      post.id,
     ),
   ]
 

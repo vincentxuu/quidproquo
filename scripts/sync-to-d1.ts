@@ -101,6 +101,10 @@ WHERE source_type='post' AND chunk_id IN (
   SELECT pc.id FROM post_chunks pc JOIN posts p ON p.id = pc.post_id
   WHERE NOT EXISTS (SELECT 1 FROM _sync_eligible_post_slugs eligible WHERE eligible.slug = p.slug)
 );`,
+    `DELETE FROM posts_fts WHERE post_id IN (
+  SELECT p.id FROM posts p
+  WHERE NOT EXISTS (SELECT 1 FROM _sync_eligible_post_slugs eligible WHERE eligible.slug = p.slug)
+);`,
     `DELETE FROM post_chunks WHERE post_id IN (
   SELECT p.id FROM posts p
   WHERE NOT EXISTS (SELECT 1 FROM _sync_eligible_post_slugs eligible WHERE eligible.slug = p.slug)
@@ -268,6 +272,11 @@ async function syncLocal(posts: PreparedPost[]): Promise<void> {
     postStatements.push(`INSERT INTO posts (id, slug, title, category, lang, description, tldr, content, tags, created_at, updated_at)
 VALUES ('${post.id}', '${escapeSql(post.slug)}', '${escapeSql(post.title)}', '${escapeSql(post.category)}', '${escapeSql(post.lang)}', ${post.description ? `'${escapeSql(post.description)}'` : 'NULL'}, ${post.tldr ? `'${escapeSql(post.tldr)}'` : 'NULL'}, '${escapeSql(post.content)}', '${escapeSql(post.tags)}', '${post.createdAt}', '${post.updatedAt}')
 ON CONFLICT(slug) DO UPDATE SET title=excluded.title, category=excluded.category, lang=excluded.lang, description=excluded.description, tldr=excluded.tldr, content=excluded.content, tags=excluded.tags, updated_at=excluded.updated_at;`)
+    postStatements.push(
+      `DELETE FROM posts_fts WHERE post_id='${post.id}';`,
+      `INSERT INTO posts_fts (title, description, tldr, tags, post_id)
+VALUES ('${escapeSql(post.title)}', '${post.description ? escapeSql(post.description) : ''}', '${post.tldr ? escapeSql(post.tldr) : ''}', '${escapeSql(post.tags)}', '${post.id}');`,
+    )
     chunkStatements.push(...buildPostChunkSyncStatements(
       post.id,
       post.slug,

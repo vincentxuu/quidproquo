@@ -63,6 +63,8 @@ describe('post index D1 sync', () => {
       expect.stringContaining('desired_embedding_hash, embedded_hash'),
       expect.stringContaining('DELETE FROM vector_delete_queue WHERE chunk_id = ?'),
       expect.stringContaining('INSERT INTO chunks_fts'),
+      expect.stringContaining('DELETE FROM posts_fts WHERE post_id = ?'),
+      expect.stringContaining('INSERT INTO posts_fts'),
     ]))
     expect(statements.find(statement => statement.sql.includes('desired_embedding_hash'))?.params)
       .toContain('embedding-hash')
@@ -73,8 +75,9 @@ describe('post index D1 sync', () => {
     await applyPostSyncOperation(db, { type: 'delete', slug: 'tech/stale' })
 
     const statements = batch.mock.calls[0][0] as BoundStatement[]
-    expect(statements).toHaveLength(4)
+    expect(statements).toHaveLength(5)
     expect(statements[0].sql).toContain('INSERT OR IGNORE INTO vector_delete_queue')
+    expect(statements.some(statement => statement.sql.includes('DELETE FROM posts_fts'))).toBe(true)
     expect(statements.at(-1)?.sql).toContain('DELETE FROM posts')
     expect(statements.every(statement => statement.params[0] === 'tech/stale')).toBe(true)
   })
@@ -88,7 +91,7 @@ describe('post index D1 sync', () => {
 
     expect(batch).toHaveBeenCalledTimes(1)
     const statements = batch.mock.calls[0][0] as BoundStatement[]
-    expect(statements).toHaveLength(11)
+    expect(statements).toHaveLength(14)
     expect(statements.at(-1)?.sql).toContain('DELETE FROM posts')
   })
 

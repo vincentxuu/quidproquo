@@ -169,6 +169,8 @@ async function fetchPostsByMetadata(
   return results
 }
 
+const METADATA_STOPWORDS = ['文章', '找文', '搜尋', '推薦', '關於']
+
 async function searchMetadataPosts(
   query: string,
   limit: number,
@@ -176,10 +178,74 @@ async function searchMetadataPosts(
   lang?: string
 ): Promise<PostSearchRow[]> {
   const tokens = extractFtsTokens(query)
-    .filter(token => !['文章', '找文', '搜尋', '推薦', '關於'].includes(token))
+    .filter(token => !METADATA_STOPWORDS.includes(token))
     .slice(0, 12)
   if (tokens.length === 0) return []
 
+  const ftsResults = await searchMetadataPostsFts(tokens, limit, category, lang)
+  if (ftsResults.length > 0) return rankMetadataResults(ftsResults, tokens)
+
+  // FTS5 trigram can't MATCH tokens under 3 characters (e.g. "正2"); fall back
+  // to a LIKE scan for those short queries, same as searchBm25Posts does for chunks_fts.
+  return rankMetadataResults(await searchMetadataPostsLike(tokens, limit, category, lang), tokens)
+}
+
+async function searchMetadataPostsFts(
+  tokens: string[],
+  limit: number,
+  category?: string,
+  lang?: string
+): Promise<PostSearchRow[]> {
+  const { DB } = env as unknown as Env
+  const ftsQuery = tokens.map(t => `"${t.replace(/"/g, '""')}"`).join(' OR ')
+
+  const rows = await DB.prepare(
+    `SELECT
+      'post:' || p.id AS chunk_id,
+      COALESCE(p.tldr, p.description, substr(p.content, 1, 600)) AS content,
+      p.slug,
+      p.title,
+      p.category,
+      p.lang,
+      substr(p.created_at, 1, 10) AS date,
+      '[]' AS images,
+      '[]' AS links
+    FROM posts_fts
+    JOIN posts p ON p.id = posts_fts.post_id
+    WHERE posts_fts MATCH ?
+      ${category ? 'AND p.category = ?' : ''}
+      ${lang ? 'AND p.lang = ?' : ''}
+    ORDER BY bm25(posts_fts)
+    LIMIT ?`
+  )
+    .bind(
+      ftsQuery,
+      ...(category ? [category] : []),
+      ...(lang ? [lang] : []),
+      Math.max(limit * 3, BM25_SHORT_CIRCUIT_THRESHOLD)
+    )
+    .all<{
+      chunk_id: string
+      content: string
+      slug: string
+      title: string
+      category: string
+      lang: string
+      date: string
+      images: string
+      links: string
+    }>()
+    .catch(() => ({ results: [] }))
+
+  return rows.results.map(rowToResult).map(result => ({ ...result, claim: result.title }))
+}
+
+async function searchMetadataPostsLike(
+  tokens: string[],
+  limit: number,
+  category?: string,
+  lang?: string
+): Promise<PostSearchRow[]> {
   const { DB } = env as unknown as Env
   const likeClauses = tokens
     .map(() => '(p.title LIKE ? OR p.description LIKE ? OR p.tldr LIKE ? OR p.tags LIKE ?)')
@@ -222,13 +288,7 @@ async function searchMetadataPosts(
       links: string
     }>()
 
-  return rankMetadataResults(
-    rows.results.map(rowToResult).map(result => ({
-      ...result,
-      claim: result.title,
-    })),
-    tokens
-  )
+  return rows.results.map(rowToResult).map(result => ({ ...result, claim: result.title }))
 }
 
 function rankMetadataResults(results: PostSearchRow[], tokens: string[]): PostSearchRow[] {

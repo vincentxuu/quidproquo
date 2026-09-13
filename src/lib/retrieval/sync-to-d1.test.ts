@@ -199,7 +199,7 @@ describe('incremental production sync', () => {
     }))
 
     expect(() => buildPostSyncApiBatches([{ type: 'upsert', ...post }]))
-      .toThrow('requires 802 statements; limit is 800')
+      .toThrow('requires 804 statements; limit is 800')
   })
 })
 
