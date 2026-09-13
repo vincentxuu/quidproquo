@@ -1,6 +1,7 @@
 ---
 title: "Reading Stanford CS329Z Week 11 (Finale): From Waiting for Orders to Acting First — Proactive Agents and Demo Day"
 date: 2026-09-10
+updated: 2026-09-12
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -60,7 +61,7 @@ Production observability is Wednesday's other half. Tracing, monitoring, and cos
 
 **What to do**: turn tracing fully on and keep one replayable trace per rehearsal. Watch three things in monitoring: error rate, latency, and token spend. Put a hard cap on cost with automatic cutoff past the limit. Keep high-risk tools off by default and enable them by hand only for the live demo. Finally, prepare one failure case — a failure mode from your midway report, told well, persuades better than successes alone.
 
-## Series retrospective: all 11 posts in one line each
+## Series retrospective: 11 posts and one recess week
 
 1. [Course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en): build from scratch before frameworks, both homeworks and the syllabus git history in full.
 2. [Week 1](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en): stop tuning only the model; good scores are stacked up by compound systems.
@@ -72,13 +73,19 @@ Production observability is Wednesday's other half. Tracing, monitoring, and cos
 8. [Week 7](/en/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en): data selection and benchmark design, with evaluation converging on the 4-tuple.
 9. [Week 8](/en/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en): LLM-as-judge and safety guardrails, where the graders themselves get graded.
 10. [Week 9](/en/posts/ai/2026-09-17-stanford-cs329z-week9-coding-agents-en): interface is performance — SWE-agent proves editor design decides scores, while OpenHands turns sandbox and evaluation into a shared base.
-11. Week 11 (this post): from waiting for orders to acting first, closing with proactive agents and open problems.
+11. Week 10: Thanksgiving Recess; both meetings are canceled with no required or additional readings, so the series does not manufacture an empty guide.
+12. Week 11 (this post): from waiting for orders to acting first, closing with proactive agents and open problems.
 
 ## Course Material box
 
 - Monday 11/30 Proactive Agents: main reading GUM (covered above); further reading [Shaikh et al., Learning Next Action Predictors from Human-Computer Interaction](https://arxiv.org/abs/2603.05923). It formalizes predicting the next action from multimodal computer-use traces and introduces LongNAP, a model combining parametric and in-context learning. The data comes from continuous phone use by 20 users. Vision-language models labeled over 360K actions. An LLM-as-judge scores predicted versus actual next actions for similarity, and LongNAP clearly beats supervised-finetuning and prompted baselines.
 - Wednesday 12/2 Open Problems & Final Demos: no single main reading; further reading [OSWorld](https://arxiv.org/abs/2404.07972) (open-ended computer tasks in real operating systems) and [WebShop](https://arxiv.org/abs/2207.01206) (language grounding in a simulated store) — concrete numbers in the Wednesday section above.
+- Week 10 (Nov 23 and Nov 25): the official schedule marks both meetings `No Class — Thanksgiving Recess`, with empty required and additional reading lists.
 - Schedule source: [CS329Z schedule, Week 11](https://cs329z.stanford.edu/)
+
+## Update log
+
+- 2026-09-12: Made the Week 10 Thanksgiving recess explicit in the series map and course-material checklist so the Week 9-to-11 jump no longer looks like a missing post.
 
 ## References
 

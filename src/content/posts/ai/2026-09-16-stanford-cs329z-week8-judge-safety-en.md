@@ -1,6 +1,7 @@
 ---
 title: "Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent"
 date: 2026-09-10
+updated: 2026-09-12
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
@@ -56,6 +57,12 @@ Calibration is where trust comes from. The baseline is votes from fifty-eight ex
 
 Monday's third anchor changes the move: instead of hand-writing rubrics, generate the metrics. [Ryan et al.'s AutoMetrics](https://arxiv.org/abs/2512.17267) (note first author Michael Ryan teaches this course) starts from MetricBank's 48 ready-made metrics, generates LLM-judge criteria from lightweight human feedback, and composes the set against the human signal with regression. The test spans five tasks. Agreement with human ratings beats pure LLM-as-a-judge by up to a third. The price is under a hundred feedback points. The composed set doubles as a proxy reward matching verifiable rewards — prototype teams without money or traffic finally get a cheap, trustworthy optimization target.
 
+## Further reading: AutoLibra asks what the judge should measure
+
+[AutoLibra](https://openreview.net/forum?id=4BjGVZ7Bxn) pushes the question one step earlier. Task success is blunt: an agent can finish while repeatedly ignoring constraints, or behave well until failing at the final step. AutoLibra grounds open-ended human feedback in concrete trajectory behavior, clusters similar positive and negative behavior into metrics with definitions and examples, then asks an LLM judge to score new trajectories `+1`, `-1`, or `N/A`. Coverage and redundancy select a compact set that captures what people cared about without repeating itself.
+
+The metrics can become improvement targets. Across collaborative, social, web, and text-game environments, the best reported coverage varies from roughly sixty to nearly ninety percent; metric-guided prompt iteration and trajectory selection also improve success on specific benchmarks. Those results are not general guarantees. The study covers text-based observations and actions, most new labels come from the authors rather than diverse end users, and bias in the extraction model can harden into the rubric. MT-Bench and AutoMetrics ask whether a judge is reliable; AutoLibra asks whether users' actual concerns made it onto the exam.
+
 ## Four guardrails: passing grading is not production safety
 
 Wednesday's core evidence comes from PrivacyLens: acing the quiz still leaks in action. The theoretical footing is [contextual integrity](https://en.wikipedia.org/wiki/Contextual_integrity): privacy is not the secret itself but whether an information flow fits its context's norms. One sentence is harmless to a colleague and a disaster inside a letter to your manager.
@@ -74,6 +81,24 @@ Wednesday's other two anchors push the threat forward. [Zhang and Yang (Diyi Yan
 
 [Li's deanonymization study](https://arxiv.org/abs/2601.05918) stings more: in Anthropic's public Interviewer dataset, twenty-four scientist interviews mention published work. Six were linked back to specific paper authors. The attacker built nothing new — an LLM with search and agentic capabilities, a few prompts of cross-referencing. Safeguards break when decomposed into benign subtasks. Anthropic has been notified. Read it as the week's warning: once rich data is public, every anonymization assumption of the agent era needs recomputing.
 
+## Further reading: privacy guardrails need an alternative at each step
+
+[Contextualized Privacy Defense for LLM Agents](https://arxiv.org/abs/2603.02983) does not treat privacy as keyword blocking. Whether the same datum may be shared depends on the recipient, purpose, and relationship. Static system prompts can fade during long executions, while a post-generation guard can reject an action without showing the agent how to share only the permissible part. CDI places a separate, potentially smaller instructor model after a tool result enters context. It reads the current situation, writes step-specific privacy guidance, then hands control back to the main agent. Training reuses frozen contexts around the first leak as RL environments, optimizing privacy preservation, helpfulness, and appropriate disclosure together.
+
+Across 115 simulated configurations, the best setup reports 94.2% privacy preservation on unseen scenarios. A fresh attack round pushes that figure down to 79.5%, still above the paper's prompting and guarding baselines. This is not deployment proof: scenarios derive from PrivacyLens and model expansion, an LLM judge labels leakage, and the result depends on specific agent, instructor, and attacker models. The durable idea is that a guardrail need not only say yes or no at the end; it can shape a safer but still useful action while that action is forming.
+
+## Further reading: prompt injection has no silver bullet
+
+OpenAI's [Understanding Prompt Injections](https://openai.com/index/prompt-injections/) starts from a structural problem: third-party text in webpages, documents, and email enters the same context as trusted instructions. When an agent also holds private data, tools, and long-horizon autonomy, malicious text can cause exfiltration or unauthorized action rather than merely a wrong answer.
+
+The official proposal is defense in depth: instruction hierarchy and safety training, rapidly updated monitoring, sandboxing and privilege separation, human confirmation for consequential actions, red teaming, and a bug bounty. Every layer can miss, so the goal is to minimize authority and blast radius rather than trust a stronger prompt. The article explicitly calls prompt injection an ongoing open problem; no single layer has solved it. A Week 8 judge can catch only part of the failure surface, and one malicious external string should not gain high-impact authority when the judge misses.
+
+## Further reading: what happens after an eval crosses the line
+
+The assigned link is Anthropic's 2023 [Responsible Scaling Policy v1](https://www.anthropic.com/news/anthropics-responsible-scaling-policy). Borrowing from biosafety levels, it introduces AI Safety Levels: as models approach capabilities that could create catastrophic harm, security, deployment, evaluation, and red-team requirements must rise with them. The core governance commitment is not “one eval certifies safety.” Capability evaluations feed stop/go decisions, and scaling should pause when safeguards lag.
+
+This is a voluntary, revisable company policy, and the assigned reading is historical. At this update, [Anthropic's current policy page](https://www.anthropic.com/responsible-scaling-policy) lists v3.4, effective July 2026; v1 details cannot be described as unchanged current commitments. Its Week 8 value is the governance interface: the first half of the week builds judges and metrics, while RSP asks who may deploy, which protections must rise, and when development must stop after a threshold is crossed.
+
 ## What to do: ship one judge score and one permission check
 
 **What to do**: give your own agent one judge eval plus one guardrail. For the eval, pull twenty real tasks from the bug tracker, check correctness deterministically, and judge tone and completeness with one natural-language assertion each, rerunning weekly to catch regressions. For the guardrail, start with exactly one rule: irreversible moves like sending mail or deleting files need explicit permission first. This week's deliverable is one live judge score plus one permission check that has blocked a real incident.
@@ -84,13 +109,17 @@ Wednesday's other two anchors push the threat forward. [Zhang and Yang (Diyi Yan
 
 ## This week's course material
 
-- Mon 11/9 LLM-as-Judge & Evaluation Infrastructure: anchor readings Demystifying Evals, MT-Bench, AutoMetrics (covered above); further reading [Zhu et al., AutoLibra: metric induction from open-ended human feedback](https://openreview.net/forum?id=4BjGVZ7Bxn).
-- Wed 11/11 Agent Safety & Guardrails: anchor readings PrivacyLens, Zhang & Yang, Li (covered above); further reading [Wen et al., contextualized privacy defense](https://arxiv.org/abs/2603.02983), [OpenAI on prompt injections](https://openai.com/index/prompt-injections/), [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy).
+- Mon 11/9 LLM-as-Judge & Evaluation Infrastructure: anchor readings Demystifying Evals, MT-Bench, and AutoMetrics, plus [Zhu et al., AutoLibra](https://openreview.net/forum?id=4BjGVZ7Bxn); all are covered above.
+- Wed 11/11 Agent Safety & Guardrails: anchor readings PrivacyLens, Zhang & Yang, and Li, plus [Wen et al., Contextualized Privacy Defense](https://arxiv.org/abs/2603.02983), [OpenAI's prompt-injection threat model](https://openai.com/index/prompt-injections/), and [Anthropic's RSP v1](https://www.anthropic.com/news/anthropics-responsible-scaling-policy); all are covered above.
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
+
+## Update log
+
+- 2026-09-12: Added substantive guides to AutoLibra, CDI, prompt injection, and RSP, including the historical-version boundary for RSP.
 
 ## References
 
 - On this site: [Week 7: evals and benchmarks](/en/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en), [Week 3: MCP and DSPy](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
-- Sources: [Grace et al., Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents), [Zheng et al., Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena, NeurIPS 2023](https://arxiv.org/abs/2306.05685), [Ryan et al., AutoMetrics](https://arxiv.org/abs/2512.17267), [Shao et al., PrivacyLens, NeurIPS 2024](https://arxiv.org/abs/2409.00138), [Zhang & Yang, Searching for Privacy Risks via Simulation](https://arxiv.org/abs/2508.10880), [Li, Agentic LLMs as Powerful Deanonymizers](https://arxiv.org/abs/2601.05918)
+- Sources: [Grace et al., Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents), [Zheng et al., Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena, NeurIPS 2023](https://arxiv.org/abs/2306.05685), [Ryan et al., AutoMetrics](https://arxiv.org/abs/2512.17267), [Zhu et al., AutoLibra](https://openreview.net/forum?id=4BjGVZ7Bxn), [Shao et al., PrivacyLens, NeurIPS 2024](https://arxiv.org/abs/2409.00138), [Zhang & Yang, Searching for Privacy Risks via Simulation](https://arxiv.org/abs/2508.10880), [Li, Agentic LLMs as Powerful Deanonymizers](https://arxiv.org/abs/2601.05918), [Wen et al., Contextualized Privacy Defense](https://arxiv.org/abs/2603.02983), [OpenAI, Understanding Prompt Injections](https://openai.com/index/prompt-injections/), [Anthropic, Responsible Scaling Policy v1](https://www.anthropic.com/news/anthropics-responsible-scaling-policy), [Anthropic, current RSP](https://www.anthropic.com/responsible-scaling-policy)
 - Tools: [FastChat llm_judge](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge), [PrivacyLens](https://github.com/SALT-NLP/PrivacyLens)

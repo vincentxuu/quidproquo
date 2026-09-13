@@ -1,6 +1,7 @@
 ---
 title: "Stanford CS329Z 導讀 Week 11（最終回）：從等指令到先出手——proactive agent 與 Demo Day"
 date: 2026-09-10
+updated: 2026-09-12
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -60,7 +61,7 @@ production observability 是同一週的另一半。tracing、monitoring、cost 
 
 **怎麼做**：先把 tracing 全開，每次彩排都留一條可重播的 trace。monitoring 盯三件事：錯誤率、延遲、token 花費。cost 設硬上限，超標自動停。高風險工具預設關閉，現場 demo 才手動放行。最後準備一個失敗案例，midway report 寫過的 failure mode 拿出來講，比只秀成功更有說服力。
 
-## 全系列回顧：11 篇一句話地圖
+## 全系列回顧：11 篇文章與一個停課週
 
 1. [總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)：先手刻再用框架，兩份作業與 GitHub 課綱變動全覽。
 2. [Week 1](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)：別只調模型，好成績是複合系統堆出來的。
@@ -72,13 +73,19 @@ production observability 是同一週的另一半。tracing、monitoring、cost 
 8. [Week 7](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks)：資料選擇與基準設計，評估收斂成四元組。
 9. [Week 8](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)：LLM-as-judge 與安全護欄，評分者本身也要被評。
 10. [Week 9](/posts/ai/2026-09-17-stanford-cs329z-week9-coding-agents)：ACI 介面即效能，SWE-agent 證明編輯器設計決定分數，OpenHands 把沙箱與評測做成通用底座。
-11. Week 11（本篇）：從等指令到先出手，proactive agent 與 open problems 收官。
+11. Week 10：Thanksgiving Recess，兩堂都停課，沒有指定或延伸閱讀，因此系列沒有另寫一篇空白導讀。
+12. Week 11（本篇）：從等指令到先出手，proactive agent 與 open problems 收官。
 
 ## 本週 Course Material 對照
 
 - 週一 11/30 Proactive Agents：主讀物 GUM（本文已導讀）；延伸閱讀 [Shaikh 等人 Learning Next Action Predictors from Human-Computer Interaction](https://arxiv.org/abs/2603.05923)。它把「從多模態電腦使用痕跡預測下一步行動」形式化成任務，並提出結合參數與上下文學習的 LongNAP 模型。資料來自 20 位使用者的連續手機使用紀錄。團隊用 vision-language 模型標出超過 36 萬個行動。評估以 LLM-as-judge 對預測與真實下一步的相似度打分，LongNAP 明顯優於監督微調與提示基線。
 - 週三 12/2 Open Problems & Final Demos：無單一主讀物。延伸閱讀 [OSWorld](https://arxiv.org/abs/2404.07972)（真實作業系統中的開放式電腦任務基準）與 [WebShop](https://arxiv.org/abs/2207.01206)（模擬電商站上的語言 grounding 基準）。兩者的具體數字見上文週三一節。
+- Week 10（11/23、11/25）：官方課表兩堂均標為 `No Class — Thanksgiving Recess`，指定與延伸閱讀皆為空。
 - 課表原文：[CS329Z 官網 Week 11](https://cs329z.stanford.edu/)
+
+## 更新紀錄
+
+- 2026-09-12：在系列回顧與課表對照中明示 Week 10 為感恩節停課週，避免 Week 9 直接跳到 Week 11 造成漏文疑慮。
 
 ## 參考資料
 

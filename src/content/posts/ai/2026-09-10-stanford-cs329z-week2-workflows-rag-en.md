@@ -1,6 +1,7 @@
 ---
 title: "Reading Stanford CS329Z Week 2: Tell Workflows from Agents Apart, Then Hand-Build Your First RAG"
 date: 2026-09-10
+updated: 2026-09-12
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag, compound-ai-systems]
@@ -44,6 +45,14 @@ The building block is the augmented LLM: a model that writes its own search quer
 
 Anthropic's framework view is blunt: frameworks simplify model calls, tool definitions, and chaining, but each abstraction layer is a debugging blind spot — and an invitation to add complexity you don't need. Start with raw LLM APIs; the same patterns take a few lines of code. If you adopt a framework, understand what's underneath; wrong assumptions about internals are a top customer error source. Appendix 2 applies this to tool definitions: formats should be easy to write (diffs are harder than full rewrites, JSON escaping is costlier than markdown), models need tokens to think before committing, and definitions deserve junior-developer-grade docstrings. On SWE-bench the team spent more time tuning tools than the overall prompt — relative paths broke the model after directory changes, mandating absolute paths fixed it outright. That is ACI (agent-computer interface): whatever effort goes into HCI, tool interfaces deserve the same.
 
+## Further reading: context is a budget, not a bucket
+
+Anthropic's [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) widens the unit of design beyond prompt wording. Every inference sees a finite state assembled from system instructions, tool definitions, external data, message history, and tool results; the goal is the smallest set of high-signal tokens that still produces the desired behavior. Static context should stay crisp: tools with clear, non-overlapping contracts and token-efficient outputs, plus a few diverse canonical examples rather than an edge-case catalog.
+
+Dynamic context should arrive just in time. Keep lightweight references such as paths, saved queries, and URLs, then progressively disclose only what the next decision needs. Long tasks add three distinct controls: compaction for an overgrown trace, structured notes for durable state outside the window, and subagents for isolating deep exploration. None is free: compaction can erase details whose value appears later, while autonomous retrieval adds latency and can send the agent down dead ends. This is first-party applied guidance, not a benchmark paper; it supplies a design checklist rather than a promised accuracy gain.
+
+The Week 2 connection is operational. In the RAG exercise, do not stop at “retrieve top-k and paste it.” Hold the retriever fixed, vary top-k, chunk length, tool-result shape, and history pruning, then measure answer quality, tokens, and latency. A second variant can expose only source identifiers first and let the agent fetch full passages on demand.
+
 ## RAG: the recipe for a first compound system
 
 [Last week](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en) argued the systems era is here; this week hands over the recipe. The RAG paper's problem statement is precise: big models store knowledge in parameters and fine-tune well, yet remain weak at *retrieving and manipulating* that knowledge — with provenance and knowledge updates unsolved. The fix is parametric plus non-parametric memory: a seq2seq model ([BART](https://arxiv.org/abs/1910.13461)) over a dense Wikipedia index, reached through a neural retriever ([DPR](https://arxiv.org/abs/2004.04906)).
@@ -60,6 +69,14 @@ Knowledge updates are equally direct: swap the index file. The authors indexed t
 
 For the course, RAG is the cheapest compound-system template — Week 1's three design questions (control logic, resource allocation, end-to-end optimization) finally take a buildable shape.
 
+## Further reading: ColBERT keeps fine-grained matching until the end
+
+[ColBERT](https://arxiv.org/abs/2004.12832) targets the gap between two retrieval extremes. A bi-encoder compresses each query and passage into one vector, making offline indexing easy but discarding fine-grained matches. A cross-encoder jointly processes every query–passage pair, preserving full interaction but paying a Transformer forward pass per candidate. ColBERT encodes query and document separately while retaining a contextualized vector per token. At scoring time, each query token takes its maximum similarity to any document token, and those MaxSim values are summed.
+
+Document token vectors can be precomputed, so the same mechanism supports reranking and full-collection vector search. On the paper's MS MARCO setup, ColBERT reranking reached 34.9 MRR@10 at 61 ms, versus 34.7 at 10,700 ms for the cited BERT-base baseline in the same table. Its end-to-end run over 8.8 million passages reported 36.0 MRR@10, 96.8 Recall@1000, and 458 ms latency. Read those as a 2020 result under the paper's dataset, hardware, and implementation—not as a latency promise for a current deployment. The cost has not vanished either: storing many token vectors per passage makes the index substantially heavier.
+
+The paper measures passage ranking, not downstream RAG factuality or answer quality. That boundary suggests the exercise: compare BM25, a single-vector dense retriever, and ColBERT on the same queries; measure Recall@k or MRR first, then feed identical-sized result sets to the generator and test whether better ranking actually becomes better answers.
+
 ## What to do: modify last week's RAG
 
 **What to do**: take the two-stage RAG you hand-built in Week 1 and rewrite it with one of this week's five patterns. The smoothest pick is evaluator-optimizer: add a second LLM call checking the first call's output against the retrieved passages (exactly the example from the compound-AI post). Measure three things: accuracy delta, latency cost, which examples got fixed and which broke. Write the conclusion as one selection sentence: is this task worth an extra call? That is the question Anthropic wants answered before every complexity increase.
@@ -70,13 +87,17 @@ Week 2 opens HW1 Part A: Wednesday's hands-on RAG is the assignment's foundation
 
 ## This week's course material
 
-- Mon 9/28 LLMs for Builders: anchor reading Anthropic, Building Effective Agents (covered above); further reading [Rajasekaran et al., Effective Context Engineering for AI Agents (Anthropic, 2025)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents).
-- Wed 9/30 RAG: anchor reading Lewis et al., RAG (covered above); further reading [Khattab et al., ColBERT: efficient passage search via late interaction](https://arxiv.org/abs/2004.12832).
+- Mon 9/28 LLMs for Builders: anchor reading Anthropic, Building Effective Agents, plus [Rajasekaran et al., Effective Context Engineering for AI Agents (Anthropic, 2025)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents); both are covered above.
+- Wed 9/30 RAG: anchor reading Lewis et al., RAG, plus [Khattab et al., ColBERT](https://arxiv.org/abs/2004.12832); both are covered above.
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
+
+## Update log
+
+- 2026-09-12: Added substantive guided readings of Effective Context Engineering and ColBERT.
 
 ## References
 
 - On this site: [Reading Stanford CS329Z Week 1: stop tuning only the model](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
-- Sources: [Anthropic, Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents), [Lewis et al., Retrieval-Augmented Generation, NeurIPS 2020](https://arxiv.org/abs/2005.11401)
+- Sources: [Anthropic, Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents), [Anthropic, Effective Context Engineering for AI Agents (2025)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), [Lewis et al., Retrieval-Augmented Generation, NeurIPS 2020](https://arxiv.org/abs/2005.11401), [Khattab & Zaharia, ColBERT, SIGIR 2020](https://arxiv.org/abs/2004.12832)
 - Tools: [litellm docs](https://docs.litellm.ai/), [MCP specification](https://modelcontextprotocol.io/)

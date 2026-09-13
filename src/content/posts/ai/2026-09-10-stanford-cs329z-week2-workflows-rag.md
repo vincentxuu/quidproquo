@@ -1,6 +1,7 @@
 ---
 title: "Stanford CS329Z 導讀 Week 2：先分清 workflow 和 agent，再手刻第一個 RAG"
 date: 2026-09-10
+updated: 2026-09-12
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag, compound-ai-systems]
@@ -44,6 +45,14 @@ Anthropic 的第一刀切在定義上。Workflow 是 LLM 和工具照**預先寫
 
 Anthropic 的框架觀很硬：框架只是把調模型、定義工具、串呼叫變簡單，但多一層抽象就多一層除錯黑箱，還會誘惑你加不需要的複雜度。先直接用 LLM API，同樣的 pattern 幾行程式就寫得出來；真要用框架，先搞懂底層在幹嘛。附錄二把這句話做到工具定義上。工具格式要好寫：diff 比整檔重寫難寫，JSON 轉義比 markdown 累。給模型留思考 token，寫給 junior engineer 看得懂的 docstring。SWE-bench 實作裡，他們花在調工具上的時間比調總 prompt 還多。相對路徑害模型在換目錄後出錯，改成強制絕對路徑就好了。這就是 ACI（agent-computer interface）：花在 HCI 上的心力，工具介面也值得一份。
 
+## 延伸閱讀：context 是預算，不是水桶
+
+Anthropic 的 [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) 把設計單位從 prompt 擴到整個推論狀態。每一輪塞進模型的不只系統指令，還有工具定義、外部資料、訊息歷史與工具結果。目標不是把視窗填滿，而是留下最少、訊號最強、足以引出正確行為的 token。靜態內容要精簡：工具邊界不要重疊，回傳不要肥大，few-shot 範例寧可少而典型。
+
+動態內容則按需取回。先留路徑、查詢或 URL 等輕量索引，等下一個決策真的需要時才讀全文。長任務另有三種手段：compaction 壓縮過長軌跡、結構化筆記把重要狀態寫到視窗外、subagent 把深入探索隔離後只回傳結論。代價也不同：壓太兇會丟掉後來才變重要的細節，自主檢索則會增加延遲，也可能追錯線索。這是第一方實務指南，不是提供效果量的 benchmark；適合拿來做檢查表，不適合承諾用了就會漲幾分。
+
+對本週 RAG 練習，重點是別停在「抓 top-k 全貼上去」。固定檢索器後，分別改 top-k、chunk 長度、工具回傳格式與 history pruning，同時量答案品質、token 與延遲。另一版可以先只給來源索引，再讓 agent 按需讀段落，看看 progressive disclosure 是否真的省下成本。
+
 ## RAG：第一個複合系統的配方
 
 [上一週](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)說系統時代來了，這週直接給配方。RAG 論文的問題意識很準。大模型把知識存在參數裡，下游微調成績好看，但**拿知識出來用的能力**不行。出處交代和知識更新更是無解。解法是參數記憶加非參數記憶：seq2seq 模型（[BART](https://arxiv.org/abs/1910.13461)）配 Wikipedia 稠密向量索引，用神經檢索器（[DPR](https://arxiv.org/abs/2004.04906)）去查。
@@ -60,6 +69,16 @@ Anthropic 的框架觀很硬：框架只是把調模型、定義工具、串呼�
 
 對課程的意義：RAG 是最便宜的複合系統範本。 Week 1 的三個設計問題（控制邏輯、資源分配、端到端優化）第一次有了可以動手的具體形狀。
 
+## 延伸閱讀：ColBERT 把細粒度比對留到最後
+
+[ColBERT](https://arxiv.org/abs/2004.12832) 卡在兩種檢索器中間。Bi-encoder 把 query 與 passage 各壓成一個向量，方便離線建索引，卻丟掉細粒度對應。Cross-encoder 把每一組 query–passage 一起送進 BERT，保留完整互動，但每個候選都得重跑模型。ColBERT 分開編碼兩邊，卻保留每個 token 的 contextualized vector。打分時，每個 query token 去找文件 token 中最高的相似度，再把這些 MaxSim 分數加總。
+
+文件 token 可以預先計算，所以同一套機制既能 rerank，也能配向量索引做全庫檢索。論文在 MS MARCO 的設定下，rerank 得到 34.9 MRR@10、延遲 61 ms；同表引用的 BERT-base 是 34.7 與 10,700 ms。
+
+端到端搜尋 880 萬段落時，ColBERT 得到 36.0 MRR@10、96.8 Recall@1000 與 458 ms。這些是 2020 年論文在特定資料、硬體與實作下的結果，不是今天部署時的延遲保證。一篇文件要存多個 token vector，索引空間也明顯變重。
+
+它跟 RAG 的接點不是「換上去答案一定更準」，因為論文量的是 passage ranking，不是生成答案。真正的練習是把 retriever 當成可替換零件。在同一組 query 上比較 BM25、single-vector dense retrieval 與 ColBERT，先量 Recall@k 或 MRR。再把相同數量的段落餵給 generator，確認檢索排名改善有沒有一路傳到最終答案。
+
 ## 怎麼做：把上週的 RAG 拿來改
 
 **怎麼做**：拿 Week 1 手刻的兩段式 RAG，用本週五 pattern 挑一個改寫。最順手的是 evaluator-optimizer：加第二通 LLM 呼叫，檢查第一通的輸出有沒有貼著檢索段落。這正是 compound AI 原文舉的例子。量三件事：準確有沒有漲、延遲貴多少、什麼例子修好、什麼例子修壞。結論寫成一句選型理由：這個任務值得多付一通呼叫嗎？這就是 Anthropic 要你每次加複雜度之前回答的問題。
@@ -70,13 +89,17 @@ Week 2 是 HW1 Part A 的開工週：週三 hands-on 的 RAG 就是作業的底�
 
 ## 本週 Course Material 對照
 
-- 週一 9/28 LLMs for Builders：主讀物 Anthropic Building Effective Agents（本文已導讀）；延伸閱讀 [Rajasekaran 等人 Effective Context Engineering for AI Agents（Anthropic, 2025）](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)。
-- 週三 9/30 RAG：主讀物 Lewis 等人 RAG（本文已導讀）；延伸閱讀 [Khattab 等人 ColBERT，用 late interaction 做高效 passage 檢索](https://arxiv.org/abs/2004.12832)。
+- 週一 9/28 LLMs for Builders：主讀物 Anthropic Building Effective Agents、延伸閱讀 [Rajasekaran 等人 Effective Context Engineering for AI Agents（Anthropic, 2025）](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)，本文均已導讀。
+- 週三 9/30 RAG：主讀物 Lewis 等人 RAG、延伸閱讀 [Khattab 等人 ColBERT](https://arxiv.org/abs/2004.12832)，本文均已導讀。
 - 課表原文：[CS329Z 官網 Week 2](https://cs329z.stanford.edu/)
+
+## 更新紀錄
+
+- 2026-09-12：補上 Effective Context Engineering 與 ColBERT 兩篇延伸閱讀的實質導讀。
 
 ## 參考資料
 
 - 站內：[Stanford CS329Z 導讀 Week 1：別再只調模型了](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)、[Stanford CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)
-- 原文：[Anthropic, Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents)、[Lewis et al., Retrieval-Augmented Generation, NeurIPS 2020](https://arxiv.org/abs/2005.11401)
+- 原文：[Anthropic, Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents)、[Anthropic, Effective Context Engineering for AI Agents (2025)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)、[Lewis et al., Retrieval-Augmented Generation, NeurIPS 2020](https://arxiv.org/abs/2005.11401)、[Khattab & Zaharia, ColBERT, SIGIR 2020](https://arxiv.org/abs/2004.12832)
 - 工具：[litellm 文件](https://docs.litellm.ai/)、[MCP 規範](https://modelcontextprotocol.io/)

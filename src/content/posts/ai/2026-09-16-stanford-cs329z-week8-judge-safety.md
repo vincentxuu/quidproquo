@@ -1,6 +1,7 @@
 ---
 title: "Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄"
 date: 2026-09-10
+updated: 2026-09-12
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy]
@@ -56,6 +57,12 @@ Anthropic 把 grader 分成三種。Code-based 看確定性證據：字串比對
 
 同屬週一的第三篇主讀物換了做法：與其手寫評分規格，不如自動生指標。[Ryan 等人的 AutoMetrics](https://arxiv.org/abs/2512.17267)（注意第一作者 Michael Ryan 就是本課授課者）先從 MetricBank 撿現成的 48 個指標，再用少量人類回饋生 LLM-judge 標準，最後用迴歸把整組對齊人類訊號。評測橫跨五個任務。和人類評分的一致性比純 LLM-judge 最高多三成三。代價是不到一百個回饋點。生出來的整組指標還能直接當代理獎勵用，效果等同可驗證獎勵——沒錢沒流量的原型團隊，終於有便宜可靠的優化目標。
 
+## 延伸閱讀：AutoLibra 先問裁判該評什麼
+
+[AutoLibra](https://openreview.net/forum?id=4BjGVZ7Bxn) 把問題再往前推。任務成功率太粗：智慧體可能完成任務，過程卻反覆忽略限制；也可能前面都做對，只在最後一步失敗。系統先把使用者對完整 trajectory 的自然語言回饋，對回軌跡裡的具體行為。接著把相似的正負行為聚成帶定義與範例的 metric。新的軌跡交給 LLM judge 依各 metric 判 `+1`、`-1` 或 `N/A`，最後用 coverage 與 redundancy 選出較小、重複較少的指標集合。
+
+這些指標也能回頭當改進目標。論文在協作、社交、網頁操作與文字遊戲環境裡，最佳 coverage 依資料集落在六成到近九成。用指標引導 prompt 迭代或篩選訓練軌跡，也在特定 benchmark 上提高成功率。不過研究只處理文字型 observation 與 action，多數新增標註來自作者而非多元終端使用者，抽取 metric 的模型偏誤也可能被固化。MT-Bench 與 AutoMetrics 問裁判準不準，AutoLibra 問的是更早的一題：使用者真正介意的行為，有沒有先被寫進考卷。
+
 ## 護欄四件：評分過關不等於實戰安全
 
 安全課的核心證據來自 PrivacyLens：問答考得好，動手做照樣洩漏。理論地基是[情境完整性](https://en.wikipedia.org/wiki/Contextual_integrity)：隱私不是祕密本身，是資訊流動是否合乎情境規範。同一句話，說給同事聽沒事，寫進給主管的信就出事。
@@ -74,6 +81,26 @@ Anthropic 把 grader 分成三種。Code-based 看確定性證據：字串比對
 
 [Li 的去匿名化研究](https://arxiv.org/abs/2601.05918)更刺眼：Anthropic 公開的 Interviewer 訪談資料集裡，科學家子集中，二十四篇訪談提到已發表作品。其中六篇被現成工具連回具體論文作者。攻擊者沒寫任何新工具，就是 LLM 加搜尋加智慧體能力，幾個 prompt 交叉比對；防護拆成無害子任務就繞過。作者已通知 Anthropic。這篇是整週的警語：rich data 一公開，智慧體時代的匿名化假設全部要重算。
 
+## 延伸閱讀：隱私護欄要在每一步給替代走法
+
+[Contextualized Privacy Defense for LLM Agents](https://arxiv.org/abs/2603.02983) 不把隱私當關鍵字封鎖。同一筆資料能不能分享，取決於對象、目的與當下關係。靜態 system prompt 在長流程裡容易失效，事後 guard 也只會擋掉動作，不一定告訴智慧體怎麼改成「分享允許的部分」。
+
+它提出 CDI：工具結果進入 context 後，先讓一個獨立、可較小的 instructor model 讀取現況，產生這一步可執行的隱私建議，再交回主智慧體決定下一步。訓練時把首次洩漏前後的 frozen context 變成 RL 環境，目標同時顧 privacy preservation、helpfulness 與 appropriate disclosure。
+
+論文在 115 組模擬情境中測試，最佳設定在 unseen scenarios 報告 94.2% privacy preservation。新一輪攻擊會把數字壓回 79.5%，仍優於文中的 prompting 與 guarding 基線。這不是部署保證：情境由 PrivacyLens 與模型擴增，洩漏由 LLM judge 判定，結果也依賴特定的 agent、instructor 與 attacker。它真正補上的觀念是，護欄不必只在最後回答 yes 或 no，也能在 action 形成途中引導出安全但仍有用的替代方案。
+
+## 延伸閱讀：prompt injection 沒有銀彈
+
+OpenAI 的 [Understanding Prompt Injections](https://openai.com/index/prompt-injections/) 把威脅講得很直接：網頁、文件或 email 裡的第三方文字，會跟可信指令一起進入模型的 context。當智慧體同時拿得到私人資料、工具與長時間自主權，惡意文字造成的就不只是答錯，而可能是資料外洩或未授權行動。
+
+官方提出的是多層防禦：instruction hierarchy 與安全訓練、可快速更新的監控、沙箱和權限隔離、高後果動作前的人類確認、red team 與 bug bounty。每一層都可能失手，設計目標因此是縮小權限與爆炸半徑，而不是相信一個更強的 prompt。文章也明說 prompt injection 仍是開放問題，沒有任何單一層已經根治它。Week 8 的 judge 只能抓到一部分錯誤；就算判斷器漏掉，外部字串也不該直接取得高權限。
+
+## 延伸閱讀：評測越線之後，組織要做什麼
+
+課表連的是 Anthropic 2023 年發布的 [Responsible Scaling Policy v1](https://www.anthropic.com/news/anthropics-responsible-scaling-policy)。它借用生物安全等級提出 AI Safety Levels：模型越接近可造成大規模災難的危險能力，資安、部署、評測與紅隊要求就要同步提高。核心承諾不是「跑過一次 eval 就安全」，而是安全能力追不上時應暫停擴展，把 capability evaluation 真的接到 stop/go 決策。
+
+這是一份自願、可修訂的公司政策，而且課表指定的是歷史版本。[Anthropic 現行政策頁](https://www.anthropic.com/responsible-scaling-policy)在本次更新時列出的最新版已是 2026 年 7 月生效的 v3.4，不能把 v1 細節當成今天原封不動的承諾。它在 Week 8 的價值是治理接口：前半週把 judge 和 metric 做出來，RSP 追問分數越線後誰還能部署、要加什麼防護、何時必須停。
+
 ## 怎麼做：本週交出裁判分數與許可檢查
 
 **怎麼做**：給自己的智慧體加一個裁判評測，再加一條護欄。評測從錯誤回報撿二十個真實任務，正確性用確定性檢查，語氣與完整度各寫一條自然語言斷言請模型判，每週跑一次抓迴歸。護欄先只做一條：寄信刪檔這類不可逆動作，執行前一律要明確許可。本週交付就是一份會動的裁判分數，加一條擋住過真實事故的許可檢查。
@@ -86,13 +113,17 @@ Anthropic 把 grader 分成三種。Code-based 看確定性證據：字串比對
 
 以下對照以 CS329Z 官網課表為準，paper video 在週五到期。週一的三篇主讀物是評測指南、MT-Bench 與 AutoMetrics。週三的三篇是 PrivacyLens、模擬攻防與去匿名化。
 
-- 週一 11/9 LLM-as-Judge & Evaluation Infrastructure：主讀物 Demystifying Evals、MT-Bench、AutoMetrics（本文已導讀）；延伸閱讀 [Zhu 等人 AutoLibra，從開放式人類回饋歸納智慧體指標](https://openreview.net/forum?id=4BjGVZ7Bxn)。
-- 週三 11/11 Agent Safety & Guardrails：主讀物 PrivacyLens 等三篇（本文已導讀）；延伸閱讀 [Wen 等人 LLM 智慧體的情境化隱私防禦](https://arxiv.org/abs/2603.02983)、[OpenAI 談 prompt injection 前沿安全挑戰](https://openai.com/index/prompt-injections/)、[Anthropic 負責任擴展政策 RSP](https://www.anthropic.com/news/anthropics-responsible-scaling-policy)。
+- 週一 11/9 LLM-as-Judge & Evaluation Infrastructure：主讀物 Demystifying Evals、MT-Bench、AutoMetrics，以及延伸閱讀 [Zhu 等人 AutoLibra](https://openreview.net/forum?id=4BjGVZ7Bxn)，本文均已導讀。
+- 週三 11/11 Agent Safety & Guardrails：主讀物 PrivacyLens 等三篇，以及延伸閱讀 [Wen 等人情境化隱私防禦](https://arxiv.org/abs/2603.02983)、[OpenAI 的 prompt injection 威脅模型](https://openai.com/index/prompt-injections/)、[Anthropic RSP v1](https://www.anthropic.com/news/anthropics-responsible-scaling-policy)，本文均已導讀。
 - 課表原文：[CS329Z 官網 Week 8](https://cs329z.stanford.edu/)
+
+## 更新紀錄
+
+- 2026-09-12：補上 AutoLibra、CDI、prompt injection 與 RSP 四篇延伸閱讀的實質導讀，並標明 RSP 的歷史版本邊界。
 
 ## 參考資料
 
 - 站內：[Week 7：評測與基準](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks)、[Week 3：MCP 與 DSPy](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)
-- 原文：[Grace et al., Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)、[Zheng et al., Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena, NeurIPS 2023](https://arxiv.org/abs/2306.05685)、[Ryan et al., AutoMetrics](https://arxiv.org/abs/2512.17267)、[Shao et al., PrivacyLens, NeurIPS 2024](https://arxiv.org/abs/2409.00138)、[Zhang & Yang, Searching for Privacy Risks via Simulation](https://arxiv.org/abs/2508.10880)、[Li, Agentic LLMs as Powerful Deanonymizers](https://arxiv.org/abs/2601.05918)
+- 原文：[Grace et al., Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)、[Zheng et al., Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena, NeurIPS 2023](https://arxiv.org/abs/2306.05685)、[Ryan et al., AutoMetrics](https://arxiv.org/abs/2512.17267)、[Zhu et al., AutoLibra](https://openreview.net/forum?id=4BjGVZ7Bxn)、[Shao et al., PrivacyLens, NeurIPS 2024](https://arxiv.org/abs/2409.00138)、[Zhang & Yang, Searching for Privacy Risks via Simulation](https://arxiv.org/abs/2508.10880)、[Li, Agentic LLMs as Powerful Deanonymizers](https://arxiv.org/abs/2601.05918)、[Wen et al., Contextualized Privacy Defense](https://arxiv.org/abs/2603.02983)、[OpenAI, Understanding Prompt Injections](https://openai.com/index/prompt-injections/)、[Anthropic, Responsible Scaling Policy v1](https://www.anthropic.com/news/anthropics-responsible-scaling-policy)、[Anthropic, current RSP](https://www.anthropic.com/responsible-scaling-policy)
 - 工具：[FastChat llm_judge](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge)、[PrivacyLens](https://github.com/SALT-NLP/PrivacyLens)
