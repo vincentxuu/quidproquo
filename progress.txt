@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-09-14 (daily-digest-product-interview)
+Last updated: 2026-09-14 (daily-digest-report)
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -23,6 +23,7 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
+- **daily-digest-report 2026-09-14**：彙整 signals JSON（30 筆）+ Stage 1 產出（arxiv/github digest、Edge0 模型卡、面試日練 x2）。深度分析用五力分析框架串「Altman/Musk/Hassabis 附議減速呼籲」與「Nvidia 洽談 100 億美元投資 Anthropic 上看 2 兆估值 IPO」的落差,指出監理呼籲可能是墊高進入門檻的競爭手段。Step 4e 補掃三個缺口區域（Groundlane web_search+web_fetch）：確認阿爾及利亞成立五個委員會落實國家 AI 戰略、印度最高法院暫緩 Gujarat 深偽訴訟但全國性規則不變,均納入區域段；台灣查無獨立事件,已註明查過未收錄。中英雙版已建立,series order 30；沿用 Q-024 繞法（scratch 裝 gray-matter 複製進 node_modules）跑通 targeted check:references／check-series-order／check-lang-parity／check-tw-terms／check-post-quality,tw-terms 抓到「用戶」「技術棧」兩處 A 級用語已修正（修真問題非弱化檢查）,皆 0 blocking。已 commit/push（13ad00b）。
 - **daily-digest-product-interview 2026-09-14**：DOW=1（週一）Product Sense，權重全 1 未加練覆寫。用 CIRCLES 框架練 Google PM 面試真題「你是 Waymo 的 PM，設計一個新功能」，聚焦 Comprehend／Identify 兩步的問題釐清而非急著列方案；案例是 Slack 從失敗遊戲 Glitch 的內部工具長出來的故事，示範觀察使用者行為比問卷更接近產品洞察。中英雙版已建立，series order 26，沿用 Q-024 繞法（scratch 裝 gray-matter 複製進 node_modules）跑通 references／series-order／lang-parity／tw-terms／post-quality 五支腳本；tw-terms 抓到一處「用戶」已改為「使用者」，屬修真問題非弱化檢查。series-order 既有缺號 23（09-11 Growth 當日未產出）維持既有 warning 未新增新缺口。已 commit/push（ff7a73d），push 時撞到另一 session 的 progress.txt 更新，已 `git pull --rebase` 化解。
 - **daily-digest-ai-interview 2026-09-14**：DOW=1（週一）ML Fundamentals，權重全 1 未加練覆寫。核心概念涵蓋 bias-variance tradeoff、L1/L2/Elastic Net 正則化、overfitting/underfitting 判斷與修法、cross-validation 選擇、precision/recall/F1/AUC-ROC 情境選用；練習題用「模型上線後表現變差」排查框架（training-serving skew／distribution shift／concept drift／data leakage 分層排查）。中英雙版已建立，series order 26，沿用 Q-024 繞法（scratch 裝 gray-matter 複製進 node_modules，測完未刪，已於 .gitignore 範圍內不影響 git 狀態）跑通 references／series-order／lang-parity／tw-terms／post-quality 五支腳本，皆 0 blocking（新檔僅既有普遍性 WARN，如關鍵詞重疊提示與「閉環」用語提示）；已 commit/push（2da0d28）。
 - **daily-digest-framework 2026-09-14**：REPOS 清單 12 個框架逐一查 GitHub `.atom` release feed（GitHub MCP 仍鎖在僅本 repo scope，改用 Groundlane `web_fetch` 繞過），cutoff 2026-09-13T00:00 UTC 內全部掃到 0 個新 release（最近的是 pydantic-ai v2.43.0／claude-code v2.1.270 皆為 09-12，langgraph/crewAI/MCP spec/mastra/agno/composio/haystack/dspy/smolagents/llama_index 全部更早）。Step 3b Groundlane `web_search`（day range + 補充查詢）額外查到 watchlist 外的 microsoft/agent-framework 有多次 breaking-change release，但最新 dotnet-1.21.0 也是 09-11，同樣不在 24h 窗內。依 Step 5 判定今日無框架更新，未產文章、未 commit 內容檔。
