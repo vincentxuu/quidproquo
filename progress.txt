@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-09-14
+Last updated: 2026-09-14 (daily-digest-security re-run)
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
@@ -23,6 +23,7 @@ Next steps
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
 4. OCR 實測第二輪：docs/content-plan-ocr-benchmark-round2.md（費率已逐家查證，只有 GPU 期要定預算）。
 Recently completed
+- **daily-digest-security 2026-09-14**：跑完 Q1-Q4 + 補充查詢 + B7 公司掃描，三個候選事件（Grafana MCP SSRF CVE-2026-19516、Google GTIG 自主多代理人 6 小時憑證竊取、OpenAI agents RubyGems RCE）逐一核對後確認均為既有文章（分別為 09-05 order 22、09-10 order 26、09-13 order 28）的重複報導或延伸細節（如 DUSTMAKER/SANDCLOCK 惡意軟體家族、TeamPCP 攻擊者代號），非新事件；CISA AA26-251a 中國 AI 蒸餾攻擊公告不符本 skill 的 agent 安全觸發範圍（無 CVE/PoC，非 prompt injection/MCP/supply chain 類）。判定今日無新資安事件，依 Step 4 未產文章、未 commit。
 - **daily-digest-github 2026-09-14**：GitHub MCP `get_latest_release` 仍鎖在僅 `vincentxuu/quidproquo`（`search_repositories` 不受限，可查任意 repo metadata），改用 Groundlane `.atom` release feed 逐一查 watchlist 框架、用 GitHub trending 頁面（`selector: main`）拿到含當日漲幅的完整清單。5 個 repos（colibri／agent-skills／OpenResearch／OpenMontage／open-code-review）+ Claude Code v2.1.269 release 已寫入，series order 30；沿用 Q-024 繞法（scratch 裝 gray-matter 複製進 node_modules）跑通 targeted `check:references`（0 error/warning on 新檔，全站既有 2 error/68 warning 與本次無關）；已 commit/push（b9f8ea3）。
 - **daily-digest-report 2026-09-13**：彙整 Stage 1-2 全部產出（arxiv/github digest、model card、security alert、tool pick、2 篇 funding）+ signals JSON（30 筆）。深度分析用交易成本框架串 OpenAI RubyGems RCE（早於 HF 兩個月）+ EU 首次動用 AI Act 執法權 + Cursor Projects + Amodei 速度上限倡議。Step 4e 補掃四個缺口區域（Groundlane web_search+web_fetch）：確認 Anthropic 9 月威脅情報報告點名中國背景行為者模擬對台灣 12 處目標（含飛彈陣地）的電子戰攻擊（Reuters factbox 交叉驗證），納入台灣區域段；確認 EU 9/11 首次動用 AI Act 執法權（Straits Times/AFP 原始來源），納入歐洲段；印度、大洋洲查無合格事件，區域段已註明查過未收錄。sig-021（KYA 框架）與昨日日報重複已排除；sig-030（open-source 冷門專案）與 sig-004/005（OpenAI 低相關性 blog）判定低優先略過。中英雙版已建立，series order 29；targeted `check:references`（0 error，僅既有普遍性 WARN）、`check-lang-parity`、`check-tw-terms`（僅 1 個既有可忽略 WARN「賽道」）三支腳本通過。沿用 Q-024 繞法（scratch 裝 gray-matter 複製進 node_modules），`lint`／`astro check`／`pnpm verify` 全站仍卡在既有 gatelane-sdk repo-scope 阻塞，未跑。已 commit/push（e444e2b）。
 - **daily-digest-product-interview 2026-09-13**：DOW=7（週日）Behavioral & Weekly Review，權重全 1 未加練覆寫。用 STAR 疊 Amazon Bar Raiser 輪 ownership-under-failure 四檢查點（self-awareness／ownership／reflection／judgment under ambiguity），練 Amazon PM 面試真題「說一次你沒能兌現承諾的經驗」；案例是 Fire Phone 減損 1.7 億美元後教訓轉進 Echo/Alexa。本週回顧發現 09-11 Growth & Experimentation 當日未產出，已在回顧表與下週預告中標記補練，未回頭補寫。中英雙版已 commit/push（beec78a），series order 25。沿用 Q-024 繞法（scratch 裝 gray-matter 複製進 node_modules）跑通 references／series-order／lang-parity／tw-terms／post-quality 五支腳本，皆 0 blocking；push 時撞到另一 session 同時提交（AI engineer interview daily），已 `git pull --rebase` 化解。
