@@ -5,7 +5,7 @@ category: learning
 tags: [mit, ai-course, machine-learning, learning-path, open-course]
 lang: en
 series:
-  name: "Global AI and CS Course Maps"
+  name: "Global AI/CS Course Map"
   order: 93
 type: guide
 tldr: "MIT has offered Course 6-4, a formal BS in Artificial Intelligence and Decision Making, since 2022. For an outside learner, however, the current degree requirements, the 2025–2026 course sites, and the best OCW editions rarely line up. A workable route follows 6-4's programming, algorithms, linear algebra, and probability foundation, then selects among 6.S191, 6.3900, 6.4110, 6.7960, vision, and robotics according to what is actually public."

@@ -10,6 +10,8 @@ interface SeriesDefinition {
   /** 同一個系列在各語言的名稱。文章 frontmatter 寫的是名稱，這裡把兩邊配成一對。 */
   names: Record<Lang, string>;
   descriptions: Record<Lang, string>;
+  /** 指定時優先於 inferSeriesCategory 的猜測；同一學校前綴下主題差異很大的課程系列都需要它。 */
+  category?: SeriesCategoryId;
 }
 
 export interface SeriesSummary {
@@ -24,8 +26,14 @@ export interface SeriesSummary {
 
 export type SeriesCategoryId =
   | 'ai-agents'
-  | 'courses'
-  | 'engineering'
+  | 'courses-ai-ml'
+  | 'courses-nlp'
+  | 'courses-foundations'
+  | 'courses-agent-frontier'
+  | 'engineering-coding-agent'
+  | 'engineering-cloud'
+  | 'engineering-data'
+  | 'engineering-model-choice'
   | 'learning-research'
   | 'product-career'
   | 'industry-projects'
@@ -38,29 +46,41 @@ export interface SeriesCategoryDefinition {
 
 export const SERIES_CATEGORIES: SeriesCategoryDefinition[] = [
   { id: 'ai-agents', labels: { 'zh-TW': 'AI 與 Agent', en: 'AI & Agents' } },
-  { id: 'courses', labels: { 'zh-TW': '課程導讀', en: 'Course Guides' } },
-  { id: 'engineering', labels: { 'zh-TW': '工程與工具', en: 'Engineering & Tools' } },
+  { id: 'courses-ai-ml', labels: { 'zh-TW': 'AI／ML 核心課程', en: 'AI & ML Courses' } },
+  { id: 'courses-nlp', labels: { 'zh-TW': 'NLP 與對話課程', en: 'NLP & Dialogue Courses' } },
+  { id: 'courses-foundations', labels: { 'zh-TW': 'CS 基礎與理論課程', en: 'CS Foundations Courses' } },
+  { id: 'courses-agent-frontier', labels: { 'zh-TW': 'Agent 與前沿課程', en: 'Agent & Frontier Courses' } },
+  { id: 'engineering-coding-agent', labels: { 'zh-TW': 'Coding Agent 工具鏈', en: 'Coding Agent Tooling' } },
+  { id: 'engineering-cloud', labels: { 'zh-TW': '雲端與基礎設施', en: 'Cloud & Infrastructure' } },
+  { id: 'engineering-data', labels: { 'zh-TW': '資料擷取與處理', en: 'Data Acquisition & Processing' } },
+  { id: 'engineering-model-choice', labels: { 'zh-TW': 'AI 模型與技術選型', en: 'AI Models & Tech Choices' } },
   { id: 'learning-research', labels: { 'zh-TW': '學習與研究', en: 'Learning & Research' } },
   { id: 'product-career', labels: { 'zh-TW': '產品與職涯', en: 'Product & Career' } },
   { id: 'industry-projects', labels: { 'zh-TW': '產業與專案', en: 'Industry & Projects' } },
   { id: 'updates', labels: { 'zh-TW': '趨勢與日報', en: 'Updates & Digests' } },
 ];
 
+// 只當作沒登記在 SERIES_DEFINITIONS 裡的系列的安全網；已登記的課程/工程系列一律用
+// definition.category 明確指定主題子分類，這裡的規則猜不出「同校不同主題」的差異。
 function inferSeriesCategory(slug: string, posts: SeriesPost[]): SeriesCategoryId {
   if (/(?:daily|digest|changelog|tracker|pricing-watch|security-alert|tool-of-the-day|funding|region-focus|weekly-review|arxiv|github)/.test(slug)) {
     return 'updates';
-  }
-  if (/^(?:stanford-|harvard-|reading-harvard|mit-|reading-mit|berkeley-|cmu-|reading-cmu|cs\d|global-ai.*course|ai-cs$|statistics-ml-ai$)/.test(slug)) {
-    return 'courses';
   }
   if (/(?:interview|cert-prep|media-company)/.test(slug)) return 'product-career';
   if (/(?:drone-industry|nobodyclimb)/.test(slug)) return 'industry-projects';
   if (/(?:statistics|taste-cultivation|learning-how-to-learn|top-conferences)/.test(slug)) {
     return 'learning-research';
   }
-  if (/(?:cloudflare|search|scraping|document-parsing|private-corpus|browser-automation|self-hosted|tech-stack|aeo-geo)/.test(slug)) {
-    return 'engineering';
+  if (/(?:224n|224u|224v|-nlp-|cs288)/.test(slug)) return 'courses-nlp';
+  if (/(?:329z|329a|agent-frontier|cs146s)/.test(slug)) return 'courses-agent-frontier';
+  if (/^(?:cs10[3789]|cs111|cs161)$/.test(slug.replace(/^stanford-/, ''))) return 'courses-foundations';
+  if (/^(?:stanford-|harvard-|reading-harvard|mit-|reading-mit|berkeley-|cmu-|reading-cmu|cs\d|global-ai.*course|ai-cs$|statistics-ml-ai$)/.test(slug)) {
+    return 'courses-ai-ml';
   }
+  if (/(?:cloudflare|self-hosted|private-corpus)/.test(slug)) return 'engineering-cloud';
+  if (/(?:search|scraping|document-parsing|browser-automation)/.test(slug)) return 'engineering-data';
+  if (/(?:agent-cli|looplane|pi-mono|omp-|claude-code)/.test(slug)) return 'engineering-coding-agent';
+  if (/(?:tech-choices|tech-stack|aeo-geo)/.test(slug)) return 'engineering-model-choice';
 
   const categoryCounts = new Map<string, number>();
   for (const post of posts) {
@@ -72,7 +92,7 @@ function inferSeriesCategory(slug: string, posts: SeriesPost[]): SeriesCategoryI
   if (dominantPostCategory === 'daily') return 'updates';
   if (dominantPostCategory === 'learning' || dominantPostCategory === 'education') return 'learning-research';
   if (['career', 'product', 'marketing', 'design'].includes(dominantPostCategory ?? '')) return 'product-career';
-  if (dominantPostCategory === 'tech') return 'engineering';
+  if (dominantPostCategory === 'tech') return 'engineering-model-choice';
   if (dominantPostCategory === 'ai') return 'ai-agents';
   return 'industry-projects';
 }
@@ -81,6 +101,7 @@ function inferSeriesCategory(slug: string, posts: SeriesPost[]): SeriesCategoryI
 const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'statistics-ml-ai',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': '從考試到 ML/AI 的統計學導讀', en: 'Statistics from Exams to ML/AI' },
     descriptions: {
       'zh-TW': '從台大資管統計備考出發，補齊基礎統計、統計推論與應用建模，並在每一篇說明它如何接到 ML/AI 的訓練、評估、實驗與資料工作流。',
@@ -89,6 +110,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'private-corpus-pipeline',
+    category: 'engineering-data',
     names: { 'zh-TW': '私有語料管線', en: 'Private Corpus Pipeline' },
     descriptions: {
       'zh-TW': '私有資料如何安全且持續地進入索引、通過查詢權限被找到，並在來源更新或刪除後維持一致；重點是資料生命週期，不重複介紹 RAG 檢索技法。',
@@ -97,6 +119,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'claude-code-automation',
+    category: 'engineering-coding-agent',
     names: { 'zh-TW': 'Claude Code 自動化指南', en: 'Claude Code Automation Guide' },
     descriptions: {
       'zh-TW': '把 Claude Code 的 hooks、skills、remote agent、Routines 與團隊協作能力整理成可直接上手的實戰系列。',
@@ -123,6 +146,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'cloudflare-edge-stack',
+    category: 'engineering-cloud',
     names: { 'zh-TW': 'Cloudflare 邊緣技術棧', en: 'The Cloudflare Edge Stack' },
     descriptions: {
       'zh-TW': '把在 Cloudflare 邊緣上蓋一套完整應用需要的元件逐個讀過：Workers 的執行模型，D1、KV、R2 三種儲存各自的適用邊界，Hono 與 OpenNext 這層框架取捨，再到 Workers AI binding 與實際部署時會踩的網域、原生模組問題。',
@@ -131,6 +155,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'browser-automation-mcp',
+    category: 'engineering-data',
     names: { 'zh-TW': '瀏覽器自動化與 MCP', en: 'Browser Automation and MCP' },
     descriptions: {
       'zh-TW': '讓 agent 開瀏覽器的幾條路線：Playwright、Puppeteer、Chrome DevTools 三個 MCP server 的取捨，視覺驅動的 Midscene，以及各家 CLI agent 內建瀏覽器能力的差別。重點在什麼情況下哪條路線會失敗。',
@@ -147,6 +172,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'aeo-geo',
+    category: 'engineering-model-choice',
     names: { 'zh-TW': 'AEO / GEO 與 AI 搜尋', en: 'AEO, GEO, and AI Search' },
     descriptions: {
       'zh-TW': '當讀者換成 AI 之後，內容要怎麼寫才被引用：從傳統 SEO 的底子講到 answer engine optimization，內容結構與 structured data 的實際效果，再到追蹤工具能不能真的量到 AI 搜尋的能見度。',
@@ -155,6 +181,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'document-parsing',
+    category: 'engineering-data',
     names: { 'zh-TW': '文件解析實戰', en: 'Document Parsing in Practice' },
     descriptions: {
       'zh-TW': '把文件變成 LLM 可讀內容的三層階梯——轉換、抽取、解析。從選層邏輯到 MarkItDown、anydoc、MinerU 等各層工具的取捨比較。',
@@ -164,6 +191,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     // 文件解析實戰的上游：那個系列從「已經拿到檔案」開始，這個系列談怎麼先把東西弄到手。
     slug: 'search-and-scraping',
+    category: 'engineering-data',
     names: { 'zh-TW': '搜尋與爬取實戰', en: 'Search and Scraping in Practice' },
     descriptions: {
       'zh-TW': '把資料從外面弄進來的整條路：搜尋要租雲端 API 還是自己架、爬取工具怎麼選、被反爬擋住怎麼辦，最後怎麼把這些接成一條研究流程。每篇談一個決定，讀完能拼出一套自己的取得管道。',
@@ -180,6 +208,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'looplane',
+    category: 'engineering-coding-agent',
     names: { 'zh-TW': 'Looplane 架構拆解', en: 'Looplane Architecture Notes' },
     descriptions: {
       'zh-TW': '沿著一次 coding-agent 任務的實際路徑拆解 Looplane：從 TUI、disposable workspace、prompt 與兩條 runtime lane，走到工具權限、state/event lifecycle、MCP、subagents、SDK/IDE，最後把同一套邊界延伸到 Cloudflare 遠端執行。每篇只追一條 data flow、failure boundary 與測試證據。',
@@ -196,6 +225,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'ai',
+    category: 'engineering-model-choice',
     names: { 'zh-TW': 'AI 模型家族', en: 'AI Model Families' },
     descriptions: {
       'zh-TW': '從演化脈絡、架構、授權陷阱到版本選型，逐一拆開 Qwen、DeepSeek、Claude、GPT、Gemini、Llama、Mistral、GLM、Kimi 等主流模型家族，並附 Agent 開發者的選型建議。',
@@ -204,6 +234,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'ai-era-tech-choices',
+    category: 'engineering-model-choice',
     names: { 'zh-TW': 'AI 時代的技術選擇', en: 'Technology Choices in the AI Era' },
     descriptions: {
       'zh-TW': '以採用度為主判準，輔以 AI 時代新增的五條判準（文件機器可讀性、型別、原始碼在不在 repo、資料骨架、機器可呼叫性），整理從前端到後端、從雲端到自架的技術選型。',
@@ -245,6 +276,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'cs230',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'Stanford CS230 導讀', en: 'Reading Stanford CS230' },
     descriptions: {
       'zh-TW':
@@ -253,7 +285,18 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'global-ai-cs-course-map',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '世界名校 AI／CS 課程地圖', en: 'Global AI/CS Course Map' },
+    descriptions: {
+      'zh-TW':
+        '以 2025–2026 官方課程網站、課表與教材入口為依據，整理 Stanford、CMU、MIT、UC Berkeley 的 AI／CS 課程地圖，說明哪些能完整自學、哪些只有講義或歷史影片。',
+      en: 'A 2025–2026 guide to AI and CS course access at Stanford, CMU, MIT, and UC Berkeley, distinguishing complete self-study courses from public syllabi, partial materials, and historical videos.',
+    },
+  },
+  {
     slug: 'stanford-cs',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'Stanford CS 主線課程導讀', en: "Reading Stanford's Main-Line CS Courses" },
     descriptions: {
       'zh-TW': '從學位骨架到 AI、NLP、圖學習與 agent，整理 Stanford CS 主線課程的版本、先修關係與逐課導讀入口。',
@@ -262,6 +305,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs103',
+    category: 'courses-foundations',
     names: { 'zh-TW': 'Stanford CS103 導讀', en: 'Reading Stanford CS103' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS103：離散數學、邏輯、證明、集合、可計算性，以及它們如何成為後續 CS 課程的共同語言。',
@@ -270,6 +314,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs107',
+    category: 'courses-foundations',
     names: { 'zh-TW': 'Stanford CS107 導讀', en: 'Reading Stanford CS107' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS107：C、記憶體、組合語言、資料表示與系統除錯，從高階語言一路往機器底層走。',
@@ -278,6 +323,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs109',
+    category: 'courses-foundations',
     names: { 'zh-TW': 'Stanford CS109 導讀', en: 'Reading Stanford CS109' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS109：機率、隨機變數、推論與模擬，補齊機器學習與資料科學真正會用到的機率底座。',
@@ -286,6 +332,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs111',
+    category: 'courses-foundations',
     names: { 'zh-TW': 'Stanford CS111 導讀', en: 'Reading Stanford CS111' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS111：程序、執行緒、同步、虛擬記憶體、檔案系統與作業系統設計取捨。',
@@ -294,6 +341,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs161',
+    category: 'courses-foundations',
     names: { 'zh-TW': 'Stanford CS161 導讀', en: 'Reading Stanford CS161' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS161 Winter 2026：演算法設計、正確性證明與複雜度分析，完整對齊十八講公開教材。',
@@ -302,6 +350,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs221',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'Stanford CS221 導讀', en: 'Reading Stanford CS221' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS221：搜尋、馬可夫決策、機器學習、約束滿足與機率模型，建立人工智慧的共同骨架。',
@@ -310,6 +359,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs229',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'Stanford CS229 導讀', en: 'Reading Stanford CS229' },
     descriptions: {
       'zh-TW': '逐章讀 Stanford CS229 的 2026 官方主講義：從監督式學習與深度學習，走到基礎模型、LLM 推理與強化學習，共二十一章，不假裝對應單一學期的逐講進度。',
@@ -318,6 +368,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs336',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'Stanford CS336 導讀', en: 'Reading Stanford CS336' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS336：從 tokenizer、資料與 scaling，到訓練、平行化、評估與 alignment，拆開語言模型的完整製作流程。',
@@ -326,6 +377,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs124',
+    category: 'courses-nlp',
     names: { 'zh-TW': 'Stanford CS124 導讀', en: 'Reading Stanford CS124' },
     descriptions: {
       'zh-TW': '逐週讀 Stanford CS124：從語言模型與文字分類，到資訊抽取、問答與語音，追蹤自然語言處理的完整管線。',
@@ -334,6 +386,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs228',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'Stanford CS228 導讀', en: 'Reading Stanford CS228' },
     descriptions: {
       'zh-TW': '逐週讀一個明確版本的 Stanford CS228：機率圖模型、精確與近似推論、參數學習及結構學習。',
@@ -342,6 +395,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs224n',
+    category: 'courses-nlp',
     names: { 'zh-TW': 'Stanford CS224N 導讀', en: 'Reading Stanford CS224N' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS224N：從詞向量、序列模型與 Transformer，到大型語言模型、評估與責任議題。',
@@ -350,6 +404,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs224u',
+    category: 'courses-nlp',
     names: { 'zh-TW': 'Stanford CS224U 導讀', en: 'Reading Stanford CS224U' },
     descriptions: {
       'zh-TW': '逐單元讀 Stanford CS224U：語意表示、自然語言推論、問答與互動式語言系統，明確標示所採歷史學期。',
@@ -358,6 +413,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs224v',
+    category: 'courses-nlp',
     names: { 'zh-TW': 'Stanford CS224V 導讀', en: 'Reading Stanford CS224V' },
     descriptions: {
       'zh-TW': '逐單元讀 Stanford CS224V 的明確學期版本：對話式虛擬助理的理解、對話管理、生成、評估與部署。',
@@ -366,6 +422,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs224w',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'Stanford CS224W 導讀', en: 'Reading Stanford CS224W' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS224W：圖的表示、網路科學、圖神經網路、知識圖譜與可擴展圖學習。',
@@ -374,6 +431,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs329z',
+    category: 'courses-agent-frontier',
     names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
     descriptions: {
       'zh-TW': '逐講追蹤 Stanford CS329Z 的 agent engineering 課程；只在當期官方材料公開後撰寫，不用預告大綱代替實際講授。',
@@ -382,6 +440,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'stanford-cs329a',
+    category: 'courses-agent-frontier',
     names: { 'zh-TW': 'Stanford CS329A 導讀', en: 'Reading Stanford CS329A' },
     descriptions: {
       'zh-TW': '逐講追蹤 Stanford CS329A 的自我改進式 AI 系統；每篇以可對應官方 session 的材料為準，缺料時明列等待。',
@@ -390,6 +449,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'mit-6s191',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'MIT 6.S191 導讀', en: 'Reading MIT 6.S191' },
     descriptions: {
       'zh-TW': '依 2026 官方影片、投影片與實驗程式，讀完 MIT 6.S191 的九講與三個實驗，不混用歷史版本。',
@@ -397,7 +457,17 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'mit-6-7960-fall-2024-ocw',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'MIT 6.7960 導讀 (Fall 2024 OCW)', en: 'MIT 6.7960 導讀 (Fall 2024 OCW)' },
+    descriptions: {
+      'zh-TW': '逐講讀 MIT 6.7960（Fall 2024 OCW）：深度學習的優化、正則化、CNN、Transformer、生成模型與表示學習。',
+      en: 'A lecture-by-lecture reading of MIT 6.7960 (Fall 2024 OCW): optimization, regularization, CNNs, Transformers, generative models, and representation learning in deep learning.',
+    },
+  },
+  {
     slug: 'berkeley-cs188-spring-2026',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'Berkeley CS188 Spring 2026', en: 'Berkeley CS188 Spring 2026' },
     descriptions: {
       'zh-TW': '以 P0–P5 六個 projects 為主線，讀 Berkeley CS188 Spring 2026 的搜尋、決策、機率推論、強化學習與機器學習。',
@@ -406,6 +476,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'berkeley-cs288-spring-2026',
+    category: 'courses-nlp',
     names: { 'zh-TW': 'Berkeley CS288 Spring 2026', en: 'Berkeley CS288 Spring 2026' },
     descriptions: {
       'zh-TW': '依 18 組公開教材與三份作業，讀 Berkeley CS288 Spring 2026 從 n-gram 到 RAG、reasoning 與 agents 的進階 NLP 路線。',
@@ -414,6 +485,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'berkeley-cs285-spring-2026',
+    category: 'courses-ai-ml',
     names: { 'zh-TW': 'Berkeley CS285 Spring 2026 導讀', en: 'Reading Berkeley CS285 Spring 2026' },
     descriptions: {
       'zh-TW': '依 25 講投影片、九組討論與五份作業，讀 Berkeley CS285 Spring 2026 的深度強化學習路線與算力邊界。',
@@ -422,6 +494,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'cmu-10301-machine-learning',
+    category: 'courses-ai-ml',
     names: {
       'zh-TW': 'CMU 10-301 機器學習完整課程導讀',
       en: 'Reading CMU 10-301 Machine Learning',
@@ -433,6 +506,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'cmu-11785-deep-learning',
+    category: 'courses-ai-ml',
     names: {
       'zh-TW': 'CMU 11-785 深度學習完整課程導讀',
       en: 'Reading CMU 11-785 Deep Learning',
@@ -470,6 +544,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'cs146s',
+    category: 'courses-agent-frontier',
     names: {
       'zh-TW': 'CS146S：AI 原生開發十週',
       en: 'CS146S: Ten Weeks of AI-Native Development',
@@ -494,6 +569,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'agent-cli',
+    category: 'engineering-coding-agent',
     names: {
       'zh-TW': 'Agent CLI 選型指南',
       en: 'Choosing an Agent CLI',
@@ -564,6 +640,168 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'A daily product builder interview drill rotating through seven topics by day of the week — product sense, metrics, strategy, AI product design, growth, technical PM, and behavioral — pulling the latest case studies and interview questions from the web.',
     },
   },
+  {
+    slug: 'cmu-07-280',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'CMU 07-280 完整課程導讀', en: 'Reading CMU 07-280' },
+    descriptions: {
+      'zh-TW': '逐講讀 CMU AI 核心改制後的 07-280：從 linear regression、MLE 到 N-gram、attention/transformer 與 Q-learning，對照官方 Spring 2026 教材。',
+      en: 'A lecture-by-lecture reading of CMU 07-280, the first half of CMU’s redesigned AI core: linear regression, MLE, N-grams, attention/transformers, and Q-learning, against the official Spring 2026 materials.',
+    },
+  },
+  {
+    slug: 'cmu-07-380',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'CMU 07-380 完整課程導讀', en: 'Reading CMU 07-380' },
+    descriptions: {
+      'zh-TW': '接續 07-280，逐講讀 CMU 07-380 首開學期的 26 講：從邏輯與規劃到擴散模型，並標明 HW 與 Project 的公開進度。',
+      en: 'Continuing from 07-280, a lecture-by-lecture reading of CMU 07-380’s first-offering 26 lectures — from logic and planning through diffusion models — with the release status of homework and project materials noted throughout.',
+    },
+  },
+  {
+    slug: 'harvard-cs50-ai',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Harvard CS50 AI 導讀', en: 'Reading Harvard CS50 AI' },
+    descriptions: {
+      'zh-TW': '逐講讀 Harvard CS50 AI with Python：搜尋、知識表示、機率、機器學習、神經網路與語言模型的公開教材與作業。',
+      en: 'A lecture-by-lecture reading of Harvard CS50’s AI with Python: search, knowledge representation, probability, machine learning, neural networks, and language, based on the public course materials and assignments.',
+    },
+  },
+  {
+    slug: 'harvard-cs181',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Harvard CS181 逐週導讀', en: 'Harvard CS181 Weekly Guides' },
+    descriptions: {
+      'zh-TW': '逐週讀 Harvard CS181（Machine Learning）：線性代數、微積分與機率的補課，到線性迴歸與後續模型的公開作業。',
+      en: 'A week-by-week reading of Harvard CS181 (Machine Learning): the linear algebra, calculus, and probability refreshers, then linear regression and the models that follow, based on public homework.',
+    },
+  },
+  {
+    slug: 'berkeley-cs189-spring-2025',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Berkeley CS189 Spring 2025', en: 'Berkeley CS189 Spring 2025' },
+    descriptions: {
+      'zh-TW': '讀 Berkeley CS189 Spring 2025（Introduction to Machine Learning）的公開教材，補齊 CS188 之後更完整的 ML 數學基礎。',
+      en: 'Reading the public materials of Berkeley CS189 Spring 2025 (Introduction to Machine Learning), filling in the fuller mathematical foundations of ML after CS188.',
+    },
+  },
+  {
+    slug: 'claude-code-deep-dives',
+    category: 'engineering-coding-agent',
+    names: { 'zh-TW': 'Claude Code 深入介紹', en: 'Claude Code Deep Dives' },
+    descriptions: {
+      'zh-TW': '拆開 Claude Code 本體的設計：從 CLI 架構、權限模型到內部機制，補齊「Claude Code 自動化指南」沒談的產品內部細節。',
+      en: 'Taking apart Claude Code itself — CLI architecture, the permission model, and internal mechanics — filling in the product-internals detail that the automation guide series does not cover.',
+    },
+  },
+  {
+    slug: 'pi-mono-deep-dive',
+    category: 'engineering-coding-agent',
+    names: { 'zh-TW': 'pi-mono 深度導讀', en: 'pi-mono Deep Dive' },
+    descriptions: {
+      'zh-TW': '逐段讀 pi-mono 原始碼：agent loop、工具呼叫、審批與 session 管理的實作方式，作為跟成熟 coding agent 學設計的對照案例之一。',
+      en: 'A close reading of the pi-mono source: how it implements the agent loop, tool calls, approvals, and session management — one of the reference implementations in the mature-coding-agent-design comparison.',
+    },
+  },
+  {
+    slug: 'omp-internals-deep-dive',
+    category: 'engineering-coding-agent',
+    names: { 'zh-TW': 'OMP 內部設計導讀', en: 'OMP Internals Deep Dive' },
+    descriptions: {
+      'zh-TW': '逐段讀 oh-my-pi（OMP）原始碼：streaming、rulebook、slash/custom tools、memory 與 task hub 等內部設計。',
+      en: 'A close reading of oh-my-pi (OMP) source: streaming internals, the rulebook and TTSR, slash and custom tools, memory, and the task hub/advisor design.',
+    },
+  },
+  {
+    slug: 'cloudflare-ai-stack',
+    category: 'engineering-cloud',
+    names: { 'zh-TW': 'Cloudflare AI Stack', en: 'Cloudflare AI Stack' },
+    descriptions: {
+      'zh-TW': '把 Cloudflare 上的 AI 元件單獨拆出來讀：Workers AI、Vectorize、AI Gateway 等 binding 的能力邊界與實際取捨。',
+      en: 'The AI-specific pieces of Cloudflare’s platform, read on their own: Workers AI, Vectorize, AI Gateway, and the trade-offs of building on these bindings.',
+    },
+  },
+  {
+    slug: 'cloudflare-edge-platform',
+    category: 'engineering-cloud',
+    names: { 'zh-TW': 'Cloudflare Edge Platform', en: 'Cloudflare Edge Platform' },
+    descriptions: {
+      'zh-TW': '持續追蹤 Cloudflare 邊緣平台的元件與服務更新，作為「Cloudflare 邊緣技術棧」系列之後的延伸紀錄。',
+      en: 'An ongoing record of updates to Cloudflare’s edge platform components and services, extending past where "The Cloudflare Edge Stack" series left off.',
+    },
+  },
+  {
+    slug: 'self-hosted-inference',
+    category: 'engineering-cloud',
+    names: { 'zh-TW': '自架推論服務', en: 'Self-Hosted Inference' },
+    descriptions: {
+      'zh-TW': '自己架推論服務要考慮的取捨：硬體、模型 serving 框架、成本與維運，對照直接呼叫雲端 API 的分界點。',
+      en: 'The trade-offs of running your own inference service: hardware, model-serving frameworks, cost, and operations, weighed against just calling a cloud API.',
+    },
+  },
+  {
+    slug: 'groundlane',
+    category: 'engineering-data',
+    names: { 'zh-TW': 'Groundlane 實戰系列', en: 'Groundlane 實戰系列' },
+    descriptions: {
+      'zh-TW': '記錄 Groundlane 這個自架研究/爬取工具的設計與實戰使用心得，作為搜尋與爬取實戰系列的延伸案例。',
+      en: 'Notes on designing and using Groundlane, a self-hosted research and scraping tool — a companion case study to the search-and-scraping series.',
+    },
+  },
+  {
+    slug: 'security-cert-prep',
+    category: 'product-career',
+    names: { 'zh-TW': '資安證照攻略', en: '資安證照攻略' },
+    descriptions: {
+      'zh-TW': '以官方考綱為主軸的資安證照備考路徑：考什麼、配哪些官方材料、練什麼。',
+      en: 'Preparation paths for security certifications built on official exam guides: what each domain tests, which official material covers it, and what to practice.',
+    },
+  },
+  {
+    slug: 'solo-media-company',
+    category: 'product-career',
+    names: { 'zh-TW': '一個人的媒體公司', en: '一個人的媒體公司' },
+    descriptions: {
+      'zh-TW': '一個人經營內容/媒體事業的實務紀錄：定位、產出節奏、變現與 AI 工具怎麼放進流程。',
+      en: 'A practical record of running a one-person media business: positioning, output cadence, monetization, and where AI tools fit into the workflow.',
+    },
+  },
+  {
+    slug: 'llm-from-scratch',
+    category: 'ai-agents',
+    names: { 'zh-TW': '從零訓練一個 LLM', en: '從零訓練一個 LLM' },
+    descriptions: {
+      'zh-TW': '從零開始訓練一個語言模型的實作紀錄：資料、tokenizer、架構、訓練與評估的每一個決定。',
+      en: 'A hands-on record of training a language model from scratch: every decision across data, tokenizer, architecture, training, and evaluation.',
+    },
+  },
+  {
+    slug: 'meta-harness-agent',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'Meta-Harness 與 Agent 治理', en: 'Meta-Harness 與 Agent 治理' },
+    descriptions: {
+      'zh-TW': '當 agent 本身也要被治理：meta-harness 的設計、多 agent 協作的規則與邊界。',
+      en: 'When the agent itself needs governing: meta-harness design, and the rules and boundaries for multi-agent collaboration.',
+    },
+  },
+  {
+    slug: 'understanding-ai-models',
+    category: 'ai-agents',
+    names: { 'zh-TW': '認識 AI 模型', en: '認識 AI 模型' },
+    descriptions: {
+      'zh-TW': '給還不熟 AI 模型的讀者的入門系列：概念、名詞與怎麼挑一個模型來用。',
+      en: 'An introductory series for readers still new to AI models: concepts, terminology, and how to pick one to use.',
+    },
+  },
+  {
+    slug: 'ai-native-sdlc-playbook',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI-Native SDLC Playbook', en: 'AI-Native SDLC Playbook' },
+    descriptions: {
+      'zh-TW': '把 AI 放進軟體開發生命週期各階段的實作手冊：需求、設計、開發、測試、維運怎麼分別導入 agent。',
+      en: 'A playbook for putting AI into every stage of the software development lifecycle: how agents fit into requirements, design, development, testing, and operations.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
@@ -626,6 +864,7 @@ export function getSeriesMeta(name: string) {
       'zh-TW': `${name} 系列文章`,
       en: `Posts in the ${name} series`,
     },
+    category: definition?.category,
   };
 }
 
@@ -670,7 +909,7 @@ export function getSeriesSummaries(posts: Post[], lang: Lang, now = new Date()):
         name,
         slug: meta.slug,
         description: meta.descriptions[lang],
-        category: inferSeriesCategory(meta.slug, orderedPosts),
+        category: meta.category ?? inferSeriesCategory(meta.slug, orderedPosts),
         posts: orderedPosts,
         count: orderedPosts.length,
         latestDate,

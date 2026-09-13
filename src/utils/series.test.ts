@@ -178,14 +178,20 @@ describe('Stanford course series registry', () => {
 
     expect(SERIES_CATEGORIES.map(category => category.id)).toEqual([
       'ai-agents',
-      'courses',
-      'engineering',
+      'courses-ai-ml',
+      'courses-nlp',
+      'courses-foundations',
+      'courses-agent-frontier',
+      'engineering-coding-agent',
+      'engineering-cloud',
+      'engineering-data',
+      'engineering-model-choice',
       'learning-research',
       'product-career',
       'industry-projects',
       'updates',
     ]);
-    expect(summaries.find(item => item.slug === 'statistics-ml-ai')?.category).toBe('courses');
+    expect(summaries.find(item => item.slug === 'statistics-ml-ai')?.category).toBe('courses-ai-ml');
     expect(summaries.find(item => item.name === '新的學習系列')?.category).toBe('learning-research');
   });
 

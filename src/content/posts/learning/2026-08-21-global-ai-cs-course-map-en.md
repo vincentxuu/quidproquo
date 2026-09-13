@@ -5,7 +5,7 @@ category: learning
 tags: [ai-course, cs-course, learning-path, self-study, open-course]
 lang: en
 series:
-  name: "Global AI and CS Course Maps"
+  name: "Global AI/CS Course Map"
   order: 0
 type: guide
 tldr: "This map audits AI and CS courses at Stanford, CMU, MIT, and UC Berkeley in 2025–2026 using four access labels: A0 for a visible catalog entry, A1 for a public syllabus, A2 for partial materials, and A3 for a self-study-ready package. A course site or YouTube playlist can exist without giving outsiders access to the current videos, assignments, or starter code."

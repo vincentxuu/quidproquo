@@ -6,8 +6,8 @@ type: guide
 tags: [mit, ai-course, deep-learning, course-guide]
 lang: en
 series:
-  name: "Reading MIT 6.7960"
-  order: 0
+  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  order: 1
 tldr: "MIT 6.7960 Deep Learning (Fall 2025) publishes all 21 lecture decks as public Dropbox PDFs, and most required readings map to free textbook chapters; but the five problem sets are released only through Gradescope, and solutions plus recordings live behind Canvas login. This guide covers how the three instructors split the course, a topic map of all 21 lectures, textbook-based substitutes for lectures, and where outside self-learners realistically stop."
 description: "A guided tour of MIT 6.7960 Deep Learning Fall 2025: instructor roles, a topic map of 21 lectures, how to pair two free textbooks with the readings, and the exact gaps in psets and recordings for self-study."
 draft: false

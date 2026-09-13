@@ -5,7 +5,7 @@ category: learning
 tags: [harvard, ai-course, machine-learning, learning-path, open-course]
 lang: en
 series:
-  name: "Global AI and CS Course Maps"
+  name: "Global AI/CS Course Map"
   order: 95
 type: guide
 tldr: "CS50 AI is Harvard's most complete public entry point, but the Summer 2026 course still uses 2020 recordings and assignment assets while the rolling OCW projects have moved to other editions. CS181 Spring 2026 exposes current homework and notes without current recordings; CS182 Fall 2026 has not yet completed an offering."

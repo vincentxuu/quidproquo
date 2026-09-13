@@ -16,7 +16,7 @@ tldr: "Lecture 1 is the 6.7960 opener: deep learning took off because data + com
 draft: false
 series:
   name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
-  order: 1
+  order: 2
 additionalSeries:
   - name: "Global AI/CS Course Map"
     order: 28

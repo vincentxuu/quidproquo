@@ -10,7 +10,7 @@ tldr: "Cloudflare Custom Error Pages 需要付費方案，Free Plan 可改用 Wo
 description: "Cloudflare Free Plan 無法使用 Custom Error Pages，本文記錄用 Worker 攔截 nginx 5xx 並顯示自訂維護頁的解法。"
 draft: false
 series:
-  name: "Cloudflare 邊緣tech stack"
+  name: "Cloudflare 邊緣技術棧"
   order: 10
 ---
 

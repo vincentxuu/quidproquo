@@ -19,7 +19,7 @@ series:
   order: 14
 additionalSeries:
   - name: "Global AI/CS Course Map"
-    order: 20
+    order: 21
 ---
 
 > 🌏 [中文版](/posts/tech/2026-11-19-mit-67960-l12-representation-similarity)

@@ -22,7 +22,7 @@ series:
   order: 19
 additionalSeries:
   - name: "Global AI/CS Course Map"
-    order: 26
+    order: 27
 ---
 
 > 🌏 [中文版](/posts/tech/2026-12-31-mit-67960-l16-conditional-generative)

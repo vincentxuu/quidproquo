@@ -16,7 +16,7 @@ tldr: "本講是 6.7960 的導論：deep learning 之所以爆發是『資料 + 
 draft: false
 series:
   name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
-  order: 1
+  order: 2
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"
     order: 28

@@ -6,7 +6,7 @@ type: deep-dive
 tags: [mit-67960, deep-learning, pytorch, regularization, weight-decay, dropout, batch-norm, label-smoothing]
 lang: en
 series:
-  name: "MIT 6.7960 Fall 2024 OCW Guide"
+  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
   order: 5
 additionalSeries:
   - name: "Global AI/CS Course Map"

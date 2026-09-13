@@ -20,7 +20,7 @@ series:
   order: 16
 additionalSeries:
   - name: "Global AI/CS Course Map"
-    order: 22
+    order: 23
 ---
 
 > 🌏 [中文版](/posts/tech/2026-12-03-mit-67960-l14-generative-basics)

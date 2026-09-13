@@ -18,7 +18,7 @@ series:
   order: 11
 additionalSeries:
   - name: "Global AI/CS Course Map"
-    order: 17
+    order: 18
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-29-mit-67960-l09-hackers-guide)

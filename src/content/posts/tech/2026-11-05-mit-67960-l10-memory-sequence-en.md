@@ -19,7 +19,7 @@ series:
   order: 12
 additionalSeries:
   - name: "Global AI/CS Course Map"
-    order: 18
+    order: 19
 ---
 
 > 🌏 [中文版](/posts/tech/2026-11-05-mit-67960-l10-memory-sequence)

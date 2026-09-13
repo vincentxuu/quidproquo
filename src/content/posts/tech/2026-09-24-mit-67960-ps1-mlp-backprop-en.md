@@ -6,7 +6,7 @@ type: deep-dive
 tags: [mit-67960, deep-learning, pytorch, backpropagation, autograd, mlp, homework, numpy]
 lang: en
 series:
-  name: "MIT 6.7960 Fall 2024 OCW Guide"
+  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
   order: 6
 additionalSeries:
   - name: "Global AI/CS Course Map"

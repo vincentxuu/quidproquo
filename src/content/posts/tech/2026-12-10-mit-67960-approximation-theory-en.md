@@ -19,7 +19,7 @@ series:
   order: 3
 additionalSeries:
   - name: "Global AI/CS Course Map"
-    order: 23
+    order: 24
 ---
 
 > 🌏 [中文版](/posts/tech/2026-12-10-mit-67960-approximation-theory)

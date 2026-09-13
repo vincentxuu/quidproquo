@@ -14,8 +14,8 @@ series:
   name: "Reading Stanford's Main-Line CS Courses"
   order: 1
 additionalSeries:
-  - name: "Global AI and CS Course Maps"
-    order: 1
+  - name: "Global AI/CS Course Map"
+    order: 91
 type: guide
 tldr: "Stanford CS rests on CS103, CS107, CS109, CS111, and CS161; CS221 names three of those plus CS106B as preparation. This guide combines official prerequisites with an explicitly editorial reading order and marks public-material and offering risks."
 description: "A prerequisite-ordered ladder through Stanford CS from CS106A to CS336 and CS329A, built on the department's official core requirements and ExploreCourses entries, covering NLP/LLM, vision, reinforcement learning, graphs, and systems, with public-material status, self-study limits, and recent offering records."

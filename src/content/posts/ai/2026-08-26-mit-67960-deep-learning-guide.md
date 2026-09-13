@@ -6,8 +6,8 @@ type: guide
 tags: [mit, ai-course, deep-learning, course-guide]
 lang: zh-TW
 series:
-  name: "MIT 6.7960 導讀"
-  order: 0
+  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  order: 1
 tldr: "[MIT 6.7960 Deep Learning](https://deeplearning6-7960.github.io/) 有兩個公開程度截然不同的官方版本：Fall 2025 課站 21 講投影片全公開但 psets 在 Gradescope、解答與錄影鎖在 Canvas（A2）；[MIT OCW 的 Fall 2024 版](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)連影片、五份作業題目與起始檔都開放（接近 A3）。兩版綱要重疊約六成，講師從 Isola／Bernstein 換成 Kaiming He／Omar Khattab，不能拿舊影片硬配新講義。本文給出按目的分流的兩條自學路線。"
 description: "導讀 MIT 6.7960 Deep Learning 的兩個官方版本：Fall 2025 課站的 21 講投影片與免費教科書路線，MIT OCW Fall 2024 的錄影、五份作業與解答，以及按目的分流的兩條校外自學路線。"
 draft: false

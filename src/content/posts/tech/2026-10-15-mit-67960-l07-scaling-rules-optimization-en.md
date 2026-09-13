@@ -19,7 +19,7 @@ series:
   order: 9
 additionalSeries:
   - name: "Global AI/CS Course Map"
-    order: 15
+    order: 16
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-15-mit-67960-l07-scaling-rules-optimization)

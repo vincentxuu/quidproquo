@@ -19,7 +19,7 @@ series:
   order: 10
 additionalSeries:
   - name: "Global AI/CS Course Map"
-    order: 16
+    order: 17
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-22-mit-67960-l08-transformers)

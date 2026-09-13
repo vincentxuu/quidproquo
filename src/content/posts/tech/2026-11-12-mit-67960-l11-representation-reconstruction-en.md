@@ -19,7 +19,7 @@ series:
   order: 13
 additionalSeries:
   - name: "Global AI/CS Course Map"
-    order: 19
+    order: 20
 ---
 
 > 🌏 [中文版](/posts/tech/2026-11-12-mit-67960-l11-representation-reconstruction)

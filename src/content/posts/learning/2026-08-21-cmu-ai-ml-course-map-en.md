@@ -5,7 +5,7 @@ category: learning
 tags: [cmu, ai-course, machine-learning, learning-path, open-course]
 lang: en
 series:
-  name: "Global AI and CS Course Maps"
+  name: "Global AI/CS Course Map"
   order: 92
 type: guide
 tldr: "CMU's current BSAI now runs through 07-280 and 07-380 before branching into an NLP/vision core and four AI clusters, but 07-380 does not debut until Fall 2026. The residual Spring 2026 materials for 07-280 and the complete 10-301/601 site already support self-study; retired 15-281 remains a useful legacy route."
