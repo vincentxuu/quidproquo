@@ -170,7 +170,7 @@ async function indexDocument(doc: Document, env: Env, ctx: ExecutionContext) {
 | Level 1 | 文件摘要 — 每份文件生成一段摘要，注入所有 chunk | 每份文件一次 | 中低（Anthropic 稱 *very limited gains*） |
 | Level 2 | 逐 chunk 上下文 — Anthropic Contextual Retrieval 原版 | 每個 chunk 一次 | 高 |
 
-Level 0 值得注意的是，它的成本是零但效果不差。arXiv:2601.11863 研究了各類 metadata 對檢索的影響，發現**公司名稱 + 年份**提供最強的區分信號；章節標題則主要幫助 chunk 級別的定位。Microsoft Azure 的 [RAG Enrichment Phase 指南](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase)推薦的增強欄位是 Title、Summary、Keywords、Questions——前兩個不需 LLM，後兩個需要。
+Level 0 值得注意的是，它的成本是零但效果不差。arXiv:2601.11863 研究了各類 metadata 對檢索的影響，發現**公司名稱 + 年份**提供最強的區分訊號；章節標題則主要幫助 chunk 級別的定位。Microsoft Azure 的 [RAG Enrichment Phase 指南](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase)推薦的增強欄位是 Title、Summary、Keywords、Questions——前兩個不需 LLM，後兩個需要。
 
 實際場景通常是疊加使用：先做 Level 0（零成本），效果不足再加 Level 1 或直接跳到 Level 2。arXiv:2512.05411 的企業知識檢索框架也建議分階段導入，而不是一步到位。
 

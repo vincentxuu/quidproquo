@@ -172,7 +172,7 @@ jobs:
 
 Copilot Coding Agent 最大優勢是**零摩擦**——不需要在本機開任何東西，指派完就可以關電腦。代價是控制力低：你對 agent 如何解讀任務、做哪些搜尋，只能從 PR log 事後看，無法即時調整。
 
-Claude Code 的優勢在於更靈活的任務定義和直接控制（可以中途 interrupt、調整方向），適合需要來回溝通的複雜任務。Cursor Agent 跟 IDE 整合更深，UI 調整、視覺反饋很重要的任務體驗更好。
+Claude Code 的優勢在於更靈活的任務定義和直接控制（可以中途 interrupt、調整方向），適合需要來回溝通的複雜任務。Cursor Agent 跟 IDE 整合更深，UI 調整、視覺回饋很重要的任務體驗更好。
 
 ## 適用情境
 

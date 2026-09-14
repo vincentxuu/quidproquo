@@ -14,7 +14,7 @@ draft: false
 
 ## 什麼是 Agent Harness
 
-Harness 是包在 LLM 外面的基礎設施層。模型提供智能，Harness 提供操作能力——工具、記憶、觀察、行動、權限。用 OpenHarness 自己的說法：
+Harness 是包在 LLM 外面的基礎設施層。模型提供智慧，Harness 提供操作能力——工具、記憶、觀察、行動、權限。用 OpenHarness 自己的說法：
 
 > Harness = Tools + Knowledge + Observation + Action + Permissions
 

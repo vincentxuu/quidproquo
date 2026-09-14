@@ -189,7 +189,7 @@ $100 這一層在 2026 上半年變擁擠了——Codex 和 Kiro 都新增了這
 | **ruflo** | Claude 專用編排平台，CLI 內建任務分析 | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) |
 | **claw-router** | 14 維度加權評分器，< 1ms 決策（原 `iblai-openclaw-router`，已改名） | [iblai/claw-router](https://github.com/iblai/claw-router) |
 | **freerouter** | 自架路由器，支援手動覆蓋 `/max` | [openfreerouter/freerouter](https://github.com/openfreerouter/freerouter) |
-| **agent-router** | 多 agent 智能路由，含負載均衡 | [dabit3/agent-router](https://github.com/dabit3/agent-router) |
+| **agent-router** | 多 agent 智慧路由，含負載均衡 | [dabit3/agent-router](https://github.com/dabit3/agent-router) |
 | **llm-router** | NVIDIA 官方藍圖，意圖分析 | [NVIDIA-AI-Blueprints/llm-router](https://github.com/NVIDIA-AI-Blueprints/llm-router) |
 
 ## 設計你自己的多模型切換系統

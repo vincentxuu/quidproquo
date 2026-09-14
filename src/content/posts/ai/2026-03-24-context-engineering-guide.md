@@ -205,7 +205,7 @@ Anthropic 發了一篇 [Effective Context Engineering for AI Agents](https://www
 ✅ 告訴 agent 文件在哪，讓它用工具查
 ```
 
-這就是 **progressive disclosure（漸進式揭露）**——讓 agent 像開發者一樣自主探索，而不是一開始就信息轟炸。
+這就是 **progressive disclosure（漸進式揭露）**——讓 agent 像開發者一樣自主探索，而不是一開始就資訊轟炸。
 
 ### Agent 自己做筆記
 

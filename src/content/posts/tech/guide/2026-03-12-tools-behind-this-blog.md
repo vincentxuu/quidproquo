@@ -8,7 +8,6 @@ description: 介紹這個部落格的完整tech stack，從框架選擇、Cloudf
 tldr: Astro + Cloudflare 全家桶，靜態優先、邊緣運算、零維運成本
 draft: false
 type: guide
-pinned: true
 ---
 
 🌏 [English version](/posts/tech/guide/2026-03-12-tools-behind-this-blog-en)

@@ -634,7 +634,7 @@ RAG 的成本主要來自三個地方：embedding 計算、向量搜尋、LLM �
 如果你要把 RAG 系統上生產：
 
 1. [RAG Guardrails](/posts/ai/2026-03-12-rag-guardrails) — 輸入輸出防護
-2. [RAG Observability](/posts/ai/2026-03-12-rag-observability-tracing) — 全鏈路追蹤
+2. [RAG Observability](/posts/ai/2026-03-12-rag-observability-tracing) — 端到端追蹤
 3. [RAG 成本優化](/posts/ai/2026-03-12-rag-cost-optimization) — 控制花費
 4. [RAG A/B 測試](/posts/ai/2026-03-12-rag-ab-testing) — 科學地比較配置
 

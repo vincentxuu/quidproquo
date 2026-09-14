@@ -8,7 +8,6 @@ tags: [astro, cloudflare, d1, claude-code, blog]
 lang: en
 description: "Why I built quidproquo.cc, how I chose the tech stack, and how the post skill eliminates writing friction"
 draft: false
-pinned: true
 ---
 
 > 🌏 [中文版](/posts/product/2026-03-12-quidproquo-blog-from-scratch)

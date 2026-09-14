@@ -8,7 +8,6 @@ description: A complete overview of this blog's tech stack — from framework ch
 tldr: Astro + the full Cloudflare suite — static-first, edge-computed, zero maintenance cost
 draft: false
 type: guide
-pinned: true
 ---
 
 🌏 [中文版](/posts/tech/guide/2026-03-12-tools-behind-this-blog)

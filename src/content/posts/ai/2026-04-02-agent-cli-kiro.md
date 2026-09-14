@@ -153,7 +153,7 @@ Kiro 的 CLI 實作了 **Agent Client Protocol (ACP)**，這是一個標準化�
 - **Steering Files**：專案層級的 AI 行為設定檔
 - **AWS 原生整合**：Lambda、CDK、CloudFormation、CodeCatalyst 無縫對接
 
-對 AWS 重度使用者來說，Kiro 是目前唯一一個**從 IDE 到部署全鏈路都在 AWS 生態系內**的 AI 開發工具。
+對 AWS 重度使用者來說，Kiro 是目前唯一一個**從 IDE 到部署全程都在 AWS 生態系內**的 AI 開發工具。
 
 ## 適用場景
 

@@ -8,7 +8,6 @@ tags: [astro, cloudflare, d1, claude-code, blog]
 lang: zh-TW
 description: "為什麼建 quidproquo.cc、怎麼選tech stack、post skill 如何讓寫作零阻力"
 draft: false
-pinned: true
 ---
 
 ## 為什麼要建

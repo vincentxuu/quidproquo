@@ -8,7 +8,6 @@ tldr: "After finishing a debug session, just say 'write this up as a post' — C
 description: "A workflow that reduces technical documentation friction to zero: use Claude Code's post skill to turn a debug session directly into a structured article the moment it ends."
 draft: false
 type: guide
-pinned: true
 ---
 
 🌏 [中文版](/posts/tech/guide/2026-03-13-conversation-as-documentation)

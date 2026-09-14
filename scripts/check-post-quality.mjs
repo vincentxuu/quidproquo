@@ -164,7 +164,7 @@ function getTagConsistencyFindings(data, content) {
 
   const corpus = normalizeText(`${data.title ?? ''}\n${content}`);
   for (const tag of data.tags) {
-    const parts = tag.split('-').filter((part) => part.length >= 3);
+    const parts = (tag + "").split("-").filter((part) => part.length >= 3);
     if (parts.length === 0) {
       continue;
     }

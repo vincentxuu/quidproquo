@@ -49,7 +49,7 @@ Claude Code 的第二大類快取都是為了減少重複 I/O：
 - **Context Memoize**：`getSystemContext()`、`getUserContext()`、`getGitStatus()` 都用 `memoize` 包裝，`setSystemPromptInjection()` 觸發清除
 - **WebFetch URL Cache**：LRU，50MB 上限，15 分鐘 TTL
 
-### 應用層 Cache（運營用）
+### 應用層 Cache（營運用）
 
 第三類是給監控和分析用的：
 

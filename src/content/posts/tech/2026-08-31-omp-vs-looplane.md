@@ -140,6 +140,11 @@ omp 的 `packages/tui` differential rendering + `composer` 多模輸入 + vim �
 
 ## 參考資料
 
+- [OMP 內部設計導讀](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork)（本系列第 1 篇，總覽入口）
+- [looplane](https://github.com/looplane/looplane)（原 rivumi，本文對照的比較對象）
+
+## 附錄：涉及的程式碼位置
+
 - `packages/agent/src/append-only-context.ts` — longestStablePrefix
 - `packages/agent/src/compaction/compaction.ts` / `shake.ts` / `branch-summarization.ts` — 四策略
 - `packages/coding-agent/src/tools/approval.ts` — 三層決策

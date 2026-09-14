@@ -539,7 +539,7 @@ vs-copilot 的 Hook 強制記憶 + Basic Memory MCP 是目前看到最完整的�
 | [disler/claude-code-hooks-multi-agent-observability](https://github.com/disler/claude-code-hooks-multi-agent-observability) | 1.3k | Multi-agent 即時監控 dashboard |
 | [cs50victor/claude-code-teams-mcp](https://github.com/cs50victor/claude-code-teams-mcp) | 229 | Agent teams 協議做成 MCP server |
 | [baryhuang/claude-code-by-agents](https://github.com/baryhuang/claude-code-by-agents) | 826 | @mention 路由到本地/遠端實例 |
-| [lst97/claude-code-sub-agents](https://github.com/lst97/claude-code-sub-agents) | 1.5k | 33 subagent 智能自動委派 |
+| [lst97/claude-code-sub-agents](https://github.com/lst97/claude-code-sub-agents) | 1.5k | 33 subagent 智慧自動委派 |
 
 ---
 

@@ -8,7 +8,6 @@ tldr: "Debug 完直接說「把錯誤寫成文章」，Claude Code 會從對話�
 description: "一個把技術文件摩擦力降到零的工作流：用 Claude Code 的 post skill，在 debug session 結束後直接把過程轉成結構化文章。"
 draft: false
 type: guide
-pinned: true
 ---
 
 🌏 [English version](/posts/tech/guide/2026-03-13-conversation-as-documentation-en)

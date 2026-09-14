@@ -10,7 +10,7 @@ description: "介紹 karpathy/llm-council 的三階段多模型協作設計、�
 draft: false
 ---
 
-大多數人用 LLM 的方式是選一個模型，一路問到底。Andrej Karpathy 一個週末做的 [llm-council](https://github.com/karpathy/llm-council) 提出另一種玩法：**同一個問題，同時問多個模型，再讓它們互評，最後請一位「主席」做決議。** 成品是一個本地 ChatGPT 風格的 Web App，介面乾淨到可以直接拿來讀書做對照研究。
+大多數人用 LLM 的方式是選一個模型，一路問到底。Andrej Karpathy 一個週末做的 [llm-council](https://github.com/karpathy/llm-council) 提出另一種做法：**同一個問題，同時問多個模型，再讓它們互評，最後請一位「主席」做決議。** 成品是一個本地 ChatGPT 風格的 Web App，介面乾淨到可以直接拿來讀書做對照研究。
 
 ## 核心概念：三階段協作流程
 
