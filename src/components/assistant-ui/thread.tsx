@@ -123,7 +123,7 @@ function ResumeComposer({ inputId, placeholder, onSend }: { inputId?: string; pl
 function UserMessage() {
   return (
     <MessagePrimitive.Root className="flex w-full justify-end py-2">
-      <div className="max-w-[min(560px,80%)] rounded-2xl rounded-br-md bg-primary px-4 py-2.5 text-sm leading-6 text-primary-foreground shadow-sm">
+      <div className="max-w-[min(560px,80%)] rounded-2xl rounded-br-md bg-primary px-4 py-2.5 text-sm leading-6 text-primary-foreground shadow-sm [overflow-wrap:anywhere]">
         <MessagePrimitive.Parts components={{ Text: UserTextPart }} />
       </div>
     </MessagePrimitive.Root>
@@ -136,7 +136,7 @@ function AssistantMessage() {
       <div className="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-muted">
         <Bot className="size-4 text-muted-foreground" />
       </div>
-      <div className="min-w-0 flex-1 text-sm leading-6 text-foreground">
+      <div className="min-w-0 flex-1 text-sm leading-6 text-foreground [overflow-wrap:anywhere]">
         <MessagePrimitive.Parts components={{ Text: TextPart, Reasoning: ReasoningPart, tools: { Fallback: ToolPart } }} />
       </div>
     </MessagePrimitive.Root>
