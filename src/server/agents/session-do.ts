@@ -216,6 +216,19 @@ export class AgentSessionDO extends DurableObject<Env> {
       }
       return Response.json({ ok: true })
     }
+    if (url.pathname.endsWith('/resume') && request.method === 'POST') {
+      const body = (await request.json().catch(() => ({}))) as {
+        sessionId?: string
+        message?: string
+      }
+      const sessionId = body.sessionId ?? url.searchParams.get('sessionId')
+      const message = body.message
+      if (!sessionId || !message) {
+        return Response.json({ error: 'sessionId and message required' }, { status: 400 })
+      }
+      await this.resumeRun(sessionId, message)
+      return Response.json({ ok: true, sessionId })
+    }
     if (url.pathname.endsWith('/stop') && request.method === 'POST') {
       const sessionId = url.searchParams.get('sessionId')
       if (sessionId) {
@@ -418,6 +431,89 @@ export class AgentSessionDO extends DurableObject<Env> {
 
     const resultEvent: SessionEvent = { type: 'result', content: 'Session complete', totalTokens: 0, totalCostUsd: 0 }
     await this.persistEventToD1(session.id, resultEvent)
+    this.broadcast(resultEvent)
+  }
+
+  private async resumeRun(sessionId: string, message: string): Promise<void> {
+    const mgr = createSessionManager(this.env.DB)
+    const session = await mgr.get(sessionId)
+    if (!session) throw new Error('session not found')
+
+    await mgr.transition(session.id, 'running')
+
+    const historyRows = await this.env.DB.prepare(
+      'SELECT role, content_json FROM agent_messages WHERE session_id = ? ORDER BY seq',
+    )
+      .bind(sessionId)
+      .all<{ role: string; content_json: string }>()
+
+    const history: LoopMessage[] = (historyRows.results ?? []).map((row) => ({
+      role: row.role as 'user' | 'assistant',
+      content: (() => {
+        try {
+          const parsed = JSON.parse(row.content_json)
+          return typeof parsed === 'string' ? parsed : (parsed.text ?? JSON.stringify(parsed))
+        } catch {
+          return row.content_json
+        }
+      })(),
+    }))
+
+    const userMsg: LoopMessage = { role: 'user', content: message }
+    await this.persistMessage(sessionId, userMsg)
+    history.push(userMsg)
+
+    const userEvent: SessionEvent = { type: 'user', content: message }
+    await this.persistEventToD1(sessionId, userEvent)
+    this.broadcast(userEvent)
+
+    const kernel = createKernel(this.env)
+    const modelConfig = resolveModelConfig(session.model ?? undefined)
+    const apiKeys = await resolveProviderApiKeys(this.env.DB)
+    const toBaseMessage = (m: LoopMessage) =>
+      m.role === 'user' ? new HumanMessage(m.content) : new SystemMessage(m.content)
+
+    try {
+      await runLoop(
+        history,
+        {
+          sessionId,
+          db: this.env.DB,
+          kv: this.env.SESSION,
+          modelInvoke: async (msgs) => {
+            try {
+              const lcMessages = msgs.map(toBaseMessage)
+              const res = await invokeModel(modelConfig, 'console', lcMessages, 512, apiKeys)
+              return { content: stringifyModelContent(res.response.content), stopReason: 'stop' }
+            } catch (e) {
+              const msg = e instanceof Error ? e.message : String(e)
+              return { content: `model error: ${msg}`, stopReason: 'stop' }
+            }
+          },
+          syscall: async (name, input) => {
+            try {
+              return await kernel.tools.syscall(
+                { agentId: 'console', runId: sessionId } as unknown as never,
+                name as never,
+                input as never,
+              )
+            } catch (e) {
+              return `tool:${name} error ${e instanceof Error ? e.message : String(e)}`
+            }
+          },
+          persistMessage: (m) => this.persistMessage(sessionId, m),
+          persistEvent: (type, payload) => this.persistLegacyEvent(sessionId, type, payload),
+          broadcast: (e) => this.broadcast(e as SessionEvent),
+        },
+      )
+    } catch {
+      // runLoop error handled by transition below
+    }
+
+    await mgr.transition(session.id, 'done')
+
+    const resultEvent: SessionEvent = { type: 'result', content: 'Session complete', totalTokens: 0, totalCostUsd: 0 }
+    await this.persistEventToD1(sessionId, resultEvent)
     this.broadcast(resultEvent)
   }
 
