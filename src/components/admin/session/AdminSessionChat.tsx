@@ -15,7 +15,15 @@ import {
 
 import { AssistantThread, AdminSystemMessage } from '@/components/assistant-ui/thread'
 import { ToolCode } from '@/components/ai-elements/tool'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from '@/components/ui/sheet'
 import {
   EVENT_TYPES,
   PROV_STEPS,
@@ -42,18 +50,18 @@ interface AdminSessionChatProps {
 }
 
 
-function badgeClass(status: SessionStatus) {
+function badgeVariant(status: SessionStatus): 'default' | 'secondary' | 'destructive' | 'outline' {
   switch (status) {
     case 'done':
-      return 'bg-[var(--admin-color-success-soft)] text-[var(--admin-success)]'
+      return 'default'
     case 'failed':
-      return 'bg-[var(--admin-color-danger-soft)] text-[var(--admin-danger)]'
+      return 'destructive'
     case 'running':
-      return 'bg-[var(--admin-color-info-soft)] text-[var(--admin-color-info)]'
+      return 'secondary'
     case 'cancelled':
-      return 'bg-[var(--admin-muted)] text-[var(--admin-text-muted)]'
+      return 'outline'
     default:
-      return 'bg-[var(--admin-color-warning-soft)] text-[var(--admin-warning)]'
+      return 'secondary'
   }
 }
 
@@ -516,7 +524,7 @@ export function AdminSessionChat({
       <div className="mb-4 flex flex-wrap items-start justify-between gap-4">
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-3">
           <h2 className="truncate text-lg font-semibold text-[var(--admin-text)]">{sessionName}</h2>
-          <span className={cn('rounded-full px-2 py-0.5 text-xs font-semibold', badgeClass(sessionStatus))}>{sessionStatus}</span>
+          <Badge variant={badgeVariant(sessionStatus)}>{sessionStatus}</Badge>
           <StatusIndicator state={statusIndicator.state} message={statusIndicator.message} />
         </div>
         <div className="flex flex-wrap gap-2">
@@ -578,42 +586,32 @@ export function AdminSessionChat({
         <AdminSystemMessage>{statusIndicator.message || 'Starting...'}</AdminSystemMessage>
       ) : null}
 
-      {diffOpen ? (
-        <>
-          <button
-            type="button"
-            aria-label="關閉 Diff"
-            className="fixed inset-0 z-40 bg-black/25"
-            onClick={() => setDiffOpen(false)}
-          />
-          <aside className="fixed right-0 top-0 z-50 flex h-screen w-[min(400px,90vw)] flex-col border-l border-[var(--admin-border)] bg-[var(--admin-surface)] shadow-[-4px_0_16px_rgba(0,0,0,0.08)]">
-            <div className="flex items-center justify-between border-b border-[var(--admin-border)] px-4 py-3">
-              <h3 className="text-base font-semibold text-[var(--admin-text)]">Diff</h3>
-              <Button type="button" variant="ghost" size="icon" aria-label="關閉" onClick={() => setDiffOpen(false)}>
-                <X className="size-4" />
-              </Button>
-            </div>
-            <div className="flex-1 overflow-y-auto p-4">
-              {diffLoading ? <p className="text-sm text-[var(--admin-text-muted)]">載入中...</p> : null}
-              {!diffLoading && diff && !diff.available ? <p className="text-sm text-[var(--admin-text-muted)]">{diff.reason || '尚無 Diff'}</p> : null}
-              {!diffLoading && diff?.available ? (
-                <>
-                  <p className="mb-3 text-sm text-[var(--admin-text-muted)]">{diff.summary || ''}</p>
-                  <div className="space-y-1">
-                    {(diff.files || []).map(file => (
-                      <div key={file.name} className="flex items-center gap-2 rounded px-2 py-1 font-mono text-xs hover:bg-[var(--admin-color-surface-subtle)]">
-                        <span className="min-w-0 flex-1 truncate">{file.name}</span>
-                        <span className="min-w-10 text-right font-semibold text-[var(--admin-success)]">+{file.additions || 0}</span>
-                        <span className="min-w-10 text-right font-semibold text-[var(--admin-danger)]">-{file.deletions || 0}</span>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              ) : null}
-            </div>
-          </aside>
-        </>
-      ) : null}
+      <Sheet open={diffOpen} onOpenChange={setDiffOpen}>
+        <SheetContent side="right" className="w-[min(400px,90vw)]">
+          <SheetHeader>
+            <SheetTitle>Diff</SheetTitle>
+            <SheetDescription>Session 的檔案變更摘要</SheetDescription>
+          </SheetHeader>
+          <div className="flex-1 overflow-y-auto px-4 pb-4">
+            {diffLoading ? <p className="text-sm text-muted-foreground">載入中...</p> : null}
+            {!diffLoading && diff && !diff.available ? <p className="text-sm text-muted-foreground">{diff.reason || '尚無 Diff'}</p> : null}
+            {!diffLoading && diff?.available ? (
+              <>
+                <p className="mb-3 text-sm text-muted-foreground">{diff.summary || ''}</p>
+                <div className="space-y-1">
+                  {(diff.files || []).map(file => (
+                    <div key={file.name} className="flex items-center gap-2 rounded px-2 py-1 font-mono text-xs hover:bg-accent">
+                      <span className="min-w-0 flex-1 truncate">{file.name}</span>
+                      <span className="min-w-10 text-right font-semibold text-green-600">+{file.additions || 0}</span>
+                      <span className="min-w-10 text-right font-semibold text-red-600">-{file.deletions || 0}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : null}
+          </div>
+        </SheetContent>
+      </Sheet>
     </>
   )
 }

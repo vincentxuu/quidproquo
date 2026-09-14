@@ -1,126 +1,14 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import SessionsList from '@/components/admin/SessionsList.tsx';
 import { ensureConsoleUmbrella } from '../_guard';
+import '@/styles/globals.css';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 ---
 
 <AdminV2Layout title="Sessions" section="sessions">
-  <div class="tabs">
-    <button type="button" class="tab active" data-tab="recent">最近</button>
-    <button type="button" class="tab" data-tab="pinned">釘選</button>
-    <button type="button" class="tab" data-tab="archived">已封存</button>
-  </div>
-
-  <div id="session-list" class="session-list">
-    <p class="empty-text">載入中…</p>
-  </div>
+  <SessionsList client:load />
 </AdminV2Layout>
-
-<script is:inline>
-  (function () {
-    const listEl = document.getElementById('session-list');
-    const tabs = document.querySelectorAll('[data-tab]');
-    let currentTab = 'recent';
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        currentTab = tab.dataset.tab;
-        loadSessions();
-      });
-    });
-
-    async function loadSessions() {
-      listEl.innerHTML = '<p class="empty-text">載入中…</p>';
-      const params = new URLSearchParams({ limit: '50' });
-      if (currentTab === 'pinned') params.set('pinned', '1');
-      if (currentTab === 'archived') params.set('archived', '1');
-      try {
-        const res = await fetch('/api/admin/sessions?' + params.toString());
-        if (!res.ok) throw new Error();
-        const data = await res.json();
-        const sessions = data.sessions || [];
-        if (sessions.length === 0) { listEl.innerHTML = '<p class="empty-text">沒有符合條件的 Session</p>'; return; }
-        listEl.innerHTML = '';
-        for (const s of sessions) {
-          const row = document.createElement('a');
-          row.href = '/admin/sessions/' + encodeURIComponent(s.id);
-          row.className = 'session-row';
-          const left = document.createElement('div');
-          left.className = 'session-left';
-          const nameEl = document.createElement('span');
-          nameEl.className = 'session-name';
-          nameEl.textContent = s.name || (s.instruction || s.id).slice(0, 60);
-          left.appendChild(nameEl);
-          if (s.summary_detail) {
-            const detail = document.createElement('span');
-            detail.className = 'session-detail';
-            detail.textContent = s.summary_detail;
-            left.appendChild(detail);
-          }
-          const right = document.createElement('div');
-          right.className = 'session-right';
-          const tag = document.createElement('span');
-          tag.className = 'session-tag';
-          tag.textContent = s.trigger || (s.routine_id ? 'routine' : 'manual');
-          right.appendChild(tag);
-          const badge = document.createElement('span');
-          badge.className = 'badge badge-' + badgeClass(s.status);
-          badge.textContent = s.status;
-          right.appendChild(badge);
-          const time = document.createElement('span');
-          time.className = 'session-time';
-          time.textContent = relativeTime(s.created_at);
-          right.appendChild(time);
-          row.append(left, right);
-          listEl.appendChild(row);
-        }
-      } catch {
-        listEl.innerHTML = '<p class="empty-text">無法載入</p>';
-      }
-    }
-
-    function badgeClass(st) { switch (st) { case 'done': return 'success'; case 'failed': return 'error'; case 'running': return 'running'; case 'cancelled': return 'muted'; default: return 'pending'; } }
-    function relativeTime(ts) {
-      if (!ts) return '';
-      const d = Date.now() - (typeof ts === 'number' ? ts : new Date(ts).getTime());
-      const s = Math.floor(d / 1000);
-      if (s < 60) return s + 's'; const m = Math.floor(s / 60);
-      if (m < 60) return m + 'm'; const h = Math.floor(m / 60);
-      if (h < 24) return h + 'h'; return Math.floor(h / 24) + 'd';
-    }
-    loadSessions();
-  })();
-</script>
-
-<style>
-  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--admin-border); margin-bottom: 1rem; }
-  .tab { padding: 0.6rem 1rem; border: none; background: none; color: var(--admin-text-muted); font: inherit; font-size: 0.88rem; font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent; min-height: 2.75rem; }
-  .tab:hover { color: var(--admin-text); }
-  .tab.active { color: var(--admin-accent); border-bottom-color: var(--admin-accent); }
-  .session-list { display: flex; flex-direction: column; border: 1px solid var(--admin-border); border-radius: var(--admin-radius, 6px); overflow: hidden; }
-  .session-row { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 0.65rem 1rem; text-decoration: none; color: var(--admin-text); border-bottom: 1px solid var(--admin-border); }
-  .session-row:last-child { border-bottom: none; }
-  .session-row:hover { background: var(--admin-color-surface-subtle); }
-  .session-left { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; flex: 1; }
-  .session-name { font-size: 0.9rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .session-detail { font-size: 0.8rem; color: var(--admin-text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .session-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
-  .session-tag { font-size: 0.72rem; padding: 0.1em 0.45em; border-radius: 4px; background: var(--admin-muted); color: var(--admin-text-muted); text-transform: uppercase; font-weight: 600; }
-  .session-time { font-size: 0.78rem; color: var(--admin-text-soft); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-  .badge { display: inline-block; padding: 0.15em 0.55em; border-radius: 999px; font-size: 0.75em; font-weight: 600; }
-  .badge-success { background: var(--admin-color-success-soft); color: var(--admin-color-success); }
-  .badge-error { background: var(--admin-color-danger-soft); color: var(--admin-color-danger); }
-  .badge-running { background: var(--admin-color-info-soft); color: var(--admin-color-info); }
-  .badge-pending { background: var(--admin-color-warning-soft); color: var(--admin-color-warning); }
-  .badge-muted { background: var(--admin-muted); color: var(--admin-text-muted); }
-  .empty-text { padding: 2rem; text-align: center; color: var(--admin-text-muted); font-size: 0.85rem; }
-  @media (max-width: 768px) {
-    .session-row { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
-    .session-right { align-self: flex-end; }
-  }
-</style>
