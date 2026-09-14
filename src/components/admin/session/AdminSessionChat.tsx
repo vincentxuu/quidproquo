@@ -15,7 +15,6 @@ import {
 } from 'lucide-react'
 
 import { AssistantThread, AdminSystemMessage } from '@/components/assistant-ui/thread'
-import { ToolCode } from '@/components/ai-elements/tool'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -189,7 +188,7 @@ function ApprovalRow({
           {displayName} <span className="font-normal text-[var(--admin-text-muted)]">{reason}</span>
         </span>
       </div>
-      {isExitPlan && plan ? <ToolCode>{truncate(plan, 2000)}</ToolCode> : null}
+      {isExitPlan && plan ? <pre className="max-h-80 overflow-auto rounded-md bg-muted/50 p-3 text-xs leading-5 whitespace-pre-wrap break-all">{truncate(plan, 2000)}</pre> : null}
       <div className="mt-3 flex flex-wrap gap-2">
         {isExitPlan ? (
           <>
