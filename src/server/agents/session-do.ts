@@ -14,6 +14,9 @@ import { listDefaultSyscalls } from '../../lib/agent/tools/register-defaults'
 import { SandboxProvider } from '../../lib/agent/runner/sandbox'
 import type { RunnerHandle } from '../../lib/agent/runner/types'
 import { resolveCloneUrl } from '../../lib/github/app'
+import { loadServers, discoverTools } from '../../lib/mcp-proxy/registry'
+import { callTool as mcpCallTool } from '../../lib/mcp-proxy/client'
+import type { McpServerConfig, McpToolDefinition } from '../../lib/mcp-proxy/types'
 
 type StartRunOptions = {
   skill?: string
@@ -258,7 +261,12 @@ const SANDBOX_TOOL_DEFS: LangChainToolDef[] = [
   },
 ]
 
-function buildToolDefinitions(hasSandbox: boolean): LangChainToolDef[] {
+type McpToolEntry = { server: McpServerConfig; tool: McpToolDefinition }
+
+function buildToolDefinitions(
+  hasSandbox: boolean,
+  mcpTools?: Map<string, McpToolEntry>,
+): LangChainToolDef[] {
   const syscallDefs = listDefaultSyscalls().map((syscall) => ({
     type: 'function' as const,
     function: {
@@ -267,7 +275,26 @@ function buildToolDefinitions(hasSandbox: boolean): LangChainToolDef[] {
       parameters: syscall.inputSchema as Record<string, unknown>,
     },
   }))
-  return hasSandbox ? [...syscallDefs, ...SANDBOX_TOOL_DEFS] : syscallDefs
+
+  const mcpDefs: LangChainToolDef[] = []
+  if (mcpTools) {
+    for (const [qualifiedName, entry] of mcpTools) {
+      mcpDefs.push({
+        type: 'function',
+        function: {
+          name: qualifiedName,
+          description: entry.tool.description || `MCP tool from ${entry.server.name}`,
+          parameters: (entry.tool.inputSchema as Record<string, unknown>) || { type: 'object', properties: {} },
+        },
+      })
+    }
+  }
+
+  return [
+    ...syscallDefs,
+    ...(hasSandbox ? SANDBOX_TOOL_DEFS : []),
+    ...mcpDefs,
+  ]
 }
 
 type ToolCallResult = { id: string; name: string; input: unknown }
@@ -537,7 +564,27 @@ export class AgentSessionDO extends DurableObject<Env> {
       )
       repoContext = await buildRepoContext(runner, options.repo, options.branch)
     }
-    const toolDefs = buildToolDefinitions(!!runner)
+
+    // MCP server discovery — load enabled servers, fetch their tool lists
+    let mcpTools = new Map<string, McpToolEntry>()
+    try {
+      const servers = await loadServers(this.env.DB)
+      if (servers.length) {
+        mcpTools = await discoverTools(servers, apiKeys as Record<string, string>)
+      }
+    } catch { /* MCP discovery failure is non-fatal */ }
+
+    const toolDefs = buildToolDefinitions(!!runner, mcpTools)
+
+    // Build skill catalog system message for description-based routing
+    let skillCatalog = ''
+    try {
+      const rows = await this.env.DB.prepare('SELECT name, description FROM user_skills ORDER BY name').all<{ name: string; description: string }>()
+      if (rows.results?.length) {
+        skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
+          rows.results.map((r) => `- ${r.name}: ${r.description}`).join('\n')
+      }
+    } catch { /* skill catalog failure is non-fatal */ }
 
     try {
       await runLoop(
@@ -552,6 +599,7 @@ export class AgentSessionDO extends DurableObject<Env> {
               const lcMessages: BaseMessageLike[] = [
                 ...(skillContext ? [new SystemMessage(`Skill ${options.skill}:\n${skillContext}`)] : []),
                 ...(repoContext ? [new SystemMessage(repoContext)] : []),
+                ...(skillCatalog ? [new SystemMessage(skillCatalog)] : []),
                 ...msgs.map(toBaseMessage),
               ]
               return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs)
@@ -561,6 +609,21 @@ export class AgentSessionDO extends DurableObject<Env> {
             }
           },
           syscall: async (name, input) => {
+            // Route MCP tool calls to the appropriate server
+            const mcpEntry = mcpTools.get(name)
+            if (mcpEntry && mcpEntry.server.url) {
+              const headers: Record<string, string> = {}
+              const cred = (apiKeys as Record<string, string>)[mcpEntry.server.name]
+              if (cred) headers['Authorization'] = `Bearer ${cred}`
+              const result = await mcpCallTool(
+                { url: mcpEntry.server.url, headers },
+                mcpEntry.tool.name,
+                (input ?? {}) as Record<string, unknown>,
+              )
+              if (result.isError) return `mcp error: ${result.content}`
+              return result.content
+            }
+
             try {
               const r = await kernel.tools.syscall(
                 { agentId: 'console', runId: session.id } as unknown as never,
@@ -626,7 +689,16 @@ export class AgentSessionDO extends DurableObject<Env> {
     const kernel = createKernel(this.env)
     const modelConfig = resolveModelConfig(session.model ?? undefined)
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
-    const toolDefs = buildToolDefinitions(false)
+
+    let mcpTools = new Map<string, McpToolEntry>()
+    try {
+      const servers = await loadServers(this.env.DB)
+      if (servers.length) {
+        mcpTools = await discoverTools(servers, apiKeys as Record<string, string>)
+      }
+    } catch { /* non-fatal */ }
+
+    const toolDefs = buildToolDefinitions(false, mcpTools)
 
     try {
       await runLoop(
@@ -645,6 +717,20 @@ export class AgentSessionDO extends DurableObject<Env> {
             }
           },
           syscall: async (name, input) => {
+            const mcpEntry = mcpTools.get(name)
+            if (mcpEntry && mcpEntry.server.url) {
+              const headers: Record<string, string> = {}
+              const cred = (apiKeys as Record<string, string>)[mcpEntry.server.name]
+              if (cred) headers['Authorization'] = `Bearer ${cred}`
+              const result = await mcpCallTool(
+                { url: mcpEntry.server.url, headers },
+                mcpEntry.tool.name,
+                (input ?? {}) as Record<string, unknown>,
+              )
+              if (result.isError) return `mcp error: ${result.content}`
+              return result.content
+            }
+
             try {
               return await kernel.tools.syscall(
                 { agentId: 'console', runId: sessionId } as unknown as never,
