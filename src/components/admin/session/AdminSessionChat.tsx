@@ -5,8 +5,8 @@ import {
   Check,
   FileDiff,
   Loader2,
+  MoreHorizontal,
   Pencil,
-  Radio,
   Share2,
   Square,
   Trash2,
@@ -17,6 +17,13 @@ import { AssistantThread, AdminSystemMessage } from '@/components/assistant-ui/t
 import { ToolCode } from '@/components/ai-elements/tool'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import {
   Sheet,
   SheetContent,
@@ -124,7 +131,7 @@ function ProvisionBar({ steps }: { steps: Record<string, string> }) {
   if (!hasActivity) return null
 
   return (
-    <div className="mb-3 flex items-center overflow-x-auto rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-[var(--admin-surface)] px-4 py-2">
+    <div className="flex items-center overflow-x-auto border-b border-[var(--admin-border)] bg-[var(--admin-color-surface-subtle)] px-4 py-2">
       {PROV_STEPS.map((step, index) => {
         const status = steps[step] || 'pending'
         return (
@@ -174,7 +181,7 @@ function ApprovalRow({
   const plan = asString(input.plan)
 
   return (
-    <div className="rounded-[var(--admin-radius)] border border-[var(--admin-color-warning)] bg-[var(--admin-color-warning-soft)] p-3">
+    <div className="rounded-xl border border-[var(--admin-color-warning)] bg-[var(--admin-color-warning-soft)] p-3">
       <div className="flex items-start gap-2 text-sm font-medium text-[var(--admin-text)]">
         <AlertTriangle className="mt-0.5 size-4 shrink-0 text-[var(--admin-warning)]" />
         <span>
@@ -223,23 +230,25 @@ function PendingAdminEvents({
   if (!pending.length) return null
 
   return (
-    <div className="mt-3 space-y-2">
-      {pending.map(row => {
-        if (row.type === 'control_request') {
-          return <ApprovalRow key={row.id} payload={row.payload} onApprove={onApprove} />
-        }
-        const suggestions = Array.isArray(row.payload.suggestions) ? row.payload.suggestions.filter((item): item is string => typeof item === 'string') : []
-        if (!suggestions.length) return null
-        return (
-          <div key={row.id} className="flex flex-wrap gap-2">
-            {suggestions.map(item => (
-              <Button key={item} type="button" size="sm" variant="outline" onClick={() => onUseSuggestion(item)}>
-                {item}
-              </Button>
-            ))}
-          </div>
-        )
-      })}
+    <div className="border-t border-[var(--admin-border)] px-4 py-3 sm:px-6">
+      <div className="mx-auto max-w-[760px] space-y-2">
+        {pending.map(row => {
+          if (row.type === 'control_request') {
+            return <ApprovalRow key={row.id} payload={row.payload} onApprove={onApprove} />
+          }
+          const suggestions = Array.isArray(row.payload.suggestions) ? row.payload.suggestions.filter((item): item is string => typeof item === 'string') : []
+          if (!suggestions.length) return null
+          return (
+            <div key={row.id} className="flex flex-wrap gap-2">
+              {suggestions.map(item => (
+                <Button key={item} type="button" size="sm" variant="outline" onClick={() => onUseSuggestion(item)}>
+                  {item}
+                </Button>
+              ))}
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
@@ -520,48 +529,53 @@ export function AdminSessionChat({
   }), [sessionId, updateStatus])
 
   return (
-    <>
-      <div className="mb-4 flex flex-wrap items-start justify-between gap-4">
-        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-3">
-          <h2 className="truncate text-lg font-semibold text-[var(--admin-text)]">{sessionName}</h2>
-          <Badge variant={badgeVariant(sessionStatus)}>{sessionStatus}</Badge>
+    <div className="flex h-[calc(100vh-8rem)] flex-col overflow-hidden rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-[var(--admin-surface)]">
+      {/* Compact header */}
+      <div className="flex items-center gap-3 border-b border-[var(--admin-border)] px-4 py-2.5">
+        <div className="flex min-w-0 flex-1 items-center gap-2.5">
+          <h2 className="truncate text-sm font-semibold text-[var(--admin-text)]">{sessionName}</h2>
+          <Badge variant={badgeVariant(sessionStatus)} className="shrink-0">{sessionStatus}</Badge>
           <StatusIndicator state={statusIndicator.state} message={statusIndicator.message} />
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex shrink-0 items-center gap-1.5">
           {running ? (
-            <Button type="button" variant="outline" onClick={actions.stop}>
-              <Square className="size-4" />
+            <Button type="button" variant="outline" size="sm" onClick={actions.stop}>
+              <Square className="size-3.5" />
               停止
             </Button>
           ) : null}
-          {!running ? (
-            <Button type="button" variant="outline" onClick={() => document.getElementById('resume-input')?.focus()}>
-              <Radio className="size-4" />
-              續聊
-            </Button>
-          ) : null}
-          <Button type="button" variant="outline" onClick={handleDiff}>
-            <FileDiff className="size-4" />
+          <Button type="button" variant="ghost" size="sm" onClick={handleDiff}>
+            <FileDiff className="size-3.5" />
             Diff
           </Button>
-          <Button type="button" variant="outline" onClick={actions.rename}>
-            <Pencil className="size-4" />
-            重新命名
-          </Button>
-          {!running ? (
-            <Button type="button" variant="outline" onClick={actions.archive}>
-              <Archive className="size-4" />
-              封存
-            </Button>
-          ) : null}
-          <Button type="button" variant="outline" onClick={actions.share}>
-            <Share2 className="size-4" />
-            分享
-          </Button>
-          <Button type="button" variant="destructive" onClick={actions.delete}>
-            <Trash2 className="size-4" />
-            刪除
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button type="button" variant="ghost" size="icon" className="size-8">
+                <MoreHorizontal className="size-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={actions.rename}>
+                <Pencil />
+                重新命名
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={actions.share}>
+                <Share2 />
+                分享
+              </DropdownMenuItem>
+              {!running ? (
+                <DropdownMenuItem onClick={actions.archive}>
+                  <Archive />
+                  封存
+                </DropdownMenuItem>
+              ) : null}
+              <DropdownMenuSeparator />
+              <DropdownMenuItem variant="destructive" onClick={actions.delete}>
+                <Trash2 />
+                刪除
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
 
@@ -612,6 +626,6 @@ export function AdminSessionChat({
           </div>
         </SheetContent>
       </Sheet>
-    </>
+    </div>
   )
 }

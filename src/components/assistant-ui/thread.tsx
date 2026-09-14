@@ -11,10 +11,10 @@ import {
   type ThreadMessageLike,
   type ToolCallMessagePartProps,
 } from '@assistant-ui/react'
-import { ClipboardList, SendHorizontal, Wrench } from 'lucide-react'
+import { Bot, SendHorizontal, Wrench } from 'lucide-react'
 import { useCallback } from 'react'
 
-import { MessageContent as MessageBody, MessageLabel, MessageResponse } from '@/components/ai-elements/message'
+import { MessageResponse } from '@/components/ai-elements/message'
 import { Reasoning, ReasoningContent, ReasoningTrigger } from '@/components/ai-elements/reasoning'
 import { Tool, ToolCode, ToolContent, ToolHeader } from '@/components/ai-elements/tool'
 import { Button } from '@/components/ui/button'
@@ -56,12 +56,14 @@ export function AssistantThread({
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <ThreadPrimitive.Root className="flex min-h-[calc(100vh-22rem)] max-h-[calc(100vh-18rem)] flex-col overflow-hidden rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-[var(--admin-surface)]">
-        <ThreadPrimitive.Viewport autoScroll className="flex-1 overflow-y-auto px-5 py-4">
+      <ThreadPrimitive.Root className="flex flex-1 flex-col overflow-hidden">
+        <ThreadPrimitive.Viewport autoScroll className="flex-1 overflow-y-auto px-4 py-4 sm:px-6">
           <ThreadPrimitive.Empty>
             <p className="py-12 text-center text-sm text-[var(--admin-text-muted)]">連線中...</p>
           </ThreadPrimitive.Empty>
-          <ThreadPrimitive.Messages components={{ UserMessage, AssistantMessage, SystemMessage }} />
+          <div className="mx-auto max-w-[760px]">
+            <ThreadPrimitive.Messages components={{ UserMessage, AssistantMessage, SystemMessage }} />
+          </div>
         </ThreadPrimitive.Viewport>
         {composer ? <AssistantComposer inputId={composerInputId} placeholder={composerPlaceholder} /> : null}
       </ThreadPrimitive.Root>
@@ -71,19 +73,18 @@ export function AssistantThread({
 
 function AssistantComposer({ inputId, placeholder }: { inputId?: string; placeholder: string }) {
   return (
-    <ComposerPrimitive.Root className="flex items-end gap-2 border-t border-[var(--admin-border)] bg-[var(--admin-surface)] p-2">
+    <ComposerPrimitive.Root className="mx-auto flex w-full max-w-[760px] items-end gap-2 border-t border-[var(--admin-border)] bg-[var(--admin-surface)] px-4 py-3 sm:px-6">
       <ComposerPrimitive.Input
         id={inputId}
         rows={2}
         submitMode="enter"
         unstable_insertNewlineOnTouchEnter
         placeholder={placeholder}
-        className="min-h-14 flex-1 resize-y rounded-[var(--admin-radius-sm)] border border-[var(--admin-border)] bg-[var(--admin-surface)] px-3 py-2 text-sm text-[var(--admin-text)] outline-none focus:border-[var(--admin-accent)] focus:ring-2 focus:ring-[rgba(47,111,70,0.18)]"
+        className="min-h-11 flex-1 resize-y rounded-xl border border-[var(--admin-border)] bg-[var(--admin-bg)] px-4 py-2.5 text-sm text-[var(--admin-text)] outline-none focus:border-[var(--admin-accent)] focus:ring-2 focus:ring-[rgba(47,111,70,0.18)]"
       />
       <ComposerPrimitive.Send asChild>
-        <Button type="submit" aria-label="送出">
+        <Button type="submit" size="icon" className="size-10 shrink-0 rounded-xl" aria-label="送出">
           <SendHorizontal className="size-4" />
-          送出
         </Button>
       </ComposerPrimitive.Send>
     </ComposerPrimitive.Root>
@@ -92,43 +93,37 @@ function AssistantComposer({ inputId, placeholder }: { inputId?: string; placeho
 
 function UserMessage() {
   return (
-    <MessagePrimitive.Root
-      data-role="user"
-      className="flex w-full justify-end py-2"
-    >
-      <MessageBody className="max-w-[min(680px,86%)] border-[var(--brand-200)] bg-[var(--brand-50)]">
-        <MessageLabel>User</MessageLabel>
-        <MessagePrimitive.Parts components={{ Text: TextPart }} />
-      </MessageBody>
+    <MessagePrimitive.Root className="flex w-full justify-end py-2">
+      <div className="max-w-[min(560px,80%)] rounded-2xl rounded-br-md bg-[var(--brand-500)] px-4 py-2.5 text-sm leading-6 text-white shadow-sm">
+        <MessagePrimitive.Parts components={{ Text: UserTextPart }} />
+      </div>
     </MessagePrimitive.Root>
   )
 }
 
 function AssistantMessage() {
   return (
-    <MessagePrimitive.Root
-      data-role="assistant"
-      className="flex w-full justify-start py-2"
-    >
-      <MessageBody className="max-w-[min(760px,100%)] bg-white">
-        <MessageLabel>Assistant</MessageLabel>
+    <MessagePrimitive.Root className="flex w-full items-start gap-3 py-2">
+      <div className="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--admin-color-surface-subtle)]">
+        <Bot className="size-4 text-[var(--admin-text-muted)]" />
+      </div>
+      <div className="min-w-0 flex-1 text-sm leading-6 text-[var(--admin-text)]">
         <MessagePrimitive.Parts components={{ Text: TextPart, Reasoning: ReasoningPart, tools: { Fallback: ToolPart } }} />
-      </MessageBody>
+      </div>
     </MessagePrimitive.Root>
   )
 }
 
 function SystemMessage() {
   return (
-    <MessagePrimitive.Root
-      data-role="system"
-      className="flex w-full justify-center py-1"
-    >
-      <MessageBody className="max-w-[min(760px,100%)] border-transparent bg-transparent px-0 py-1 shadow-none">
-        <MessagePrimitive.Parts components={{ Text: SystemTextPart }} />
-      </MessageBody>
+    <MessagePrimitive.Root className="flex w-full justify-center py-1.5">
+      <MessagePrimitive.Parts components={{ Text: SystemTextPart }} />
     </MessagePrimitive.Root>
   )
+}
+
+function UserTextPart({ text }: TextMessagePartProps) {
+  return <span className="whitespace-pre-wrap break-words">{text}</span>
 }
 
 function TextPart({ text }: TextMessagePartProps) {
@@ -136,7 +131,11 @@ function TextPart({ text }: TextMessagePartProps) {
 }
 
 function SystemTextPart({ text }: TextMessagePartProps) {
-  return <div className="text-sm text-[var(--admin-text-muted)]">{text}</div>
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--admin-color-surface-subtle)] px-3 py-1 text-xs text-[var(--admin-text-muted)]">
+      {text}
+    </span>
+  )
 }
 
 function ReasoningPart({ text }: ReasoningMessagePartProps) {
@@ -175,11 +174,10 @@ function ToolPart(props: ToolCallMessagePartProps) {
 
 export function AdminSystemMessage({ children }: { children: string }) {
   return (
-    <div className="flex w-full justify-center py-1">
-      <div className="flex max-w-[min(760px,100%)] items-center gap-2 rounded-full border border-[var(--admin-border)] bg-[var(--admin-color-surface-subtle)] px-3 py-1.5 text-xs text-[var(--admin-text-muted)]">
-        <ClipboardList className="size-3.5" />
+    <div className="flex w-full justify-center py-1.5">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--admin-color-surface-subtle)] px-3 py-1 text-xs text-[var(--admin-text-muted)]">
         {children}
-      </div>
+      </span>
     </div>
   )
 }
