@@ -19,13 +19,13 @@ importers:
         version: 0.15.17(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(use-sync-external-store@1.6.0(react@19.2.5))
       '@astrojs/cloudflare':
         specifier: ^14.3.1
-        version: 14.3.1(@types/node@25.4.0)(astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.21.0)(wrangler@4.131.2(@cloudflare/workers-types@5.20260914.1)(@types/node@25.4.0))(yaml@2.9.0)
+        version: 14.3.1(@types/node@25.4.0)(astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(aws4fetch@1.0.20)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.21.0)(wrangler@4.131.2(@cloudflare/workers-types@5.20260914.1)(@types/node@25.4.0))(yaml@2.9.0)
       '@astrojs/markdown-remark':
         specifier: ^7.3.1
         version: 7.3.1
       '@astrojs/mdx':
         specifier: ^8.0.1
-        version: 8.0.1(@astrojs/markdown-remark@7.3.1)(@astrojs/markdown-satteri@0.4.1)(astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))
+        version: 8.0.1(@astrojs/markdown-remark@7.3.1)(@astrojs/markdown-satteri@0.4.1)(astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(aws4fetch@1.0.20)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))
       '@astrojs/react':
         specifier: ^6.0.5
         version: 6.0.5(@types/node@25.4.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(esbuild@0.28.1)(jiti@2.7.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(tsx@4.21.0)(yaml@2.9.0)
@@ -85,7 +85,7 @@ importers:
         version: 7.0.84(zod@4.3.6)
       astro:
         specifier: ^7.3.2
-        version: 7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0)
+        version: 7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(aws4fetch@1.0.20)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -171,6 +171,9 @@ importers:
       '@axe-core/playwright':
         specifier: ^4.11.3
         version: 4.11.3(playwright-core@1.58.2)
+      '@cloudflare/sandbox':
+        specifier: ^0.12.9
+        version: 0.12.9
       '@cloudflare/workers-types':
         specifier: 5.20260914.1
         version: 5.20260914.1
@@ -612,9 +615,26 @@ packages:
   '@clack/prompts@1.1.0':
     resolution: {integrity: sha512-pkqbPGtohJAvm4Dphs2M8xE29ggupihHdy1x84HNojZuMtFsHiUlRvqD24tM2+XmI+61LlfNceM3Wr7U5QES5g==}
 
+  '@cloudflare/containers@0.3.7':
+    resolution: {integrity: sha512-DM9dm3FnIBSyiSJ1FLavKwl/lk3oAmTaynCzZQ9pZR0ncRPquSxkxd8Nu2MFILxmDDsPkxKsSNEh9mHHMty4Fw==}
+
   '@cloudflare/kv-asset-handler@0.5.0':
     resolution: {integrity: sha512-jxQYkj8dSIzc0cD6cMMNdOc1UVjqSqu8BZdor5s8cGjW2I8BjODt/kWPVdY+u9zj3ms75Q5qaZgnxUad83+eAg==}
     engines: {node: '>=22.0.0'}
+
+  '@cloudflare/sandbox@0.12.9':
+    resolution: {integrity: sha512-JlCQ8adVaHT3TrZO13X6US2LJTyQ4YvoEZpfh5EewRqcxPfMHZNJPB/1dsRdiFqmtzpz+lMxGazSUa2H/g2IKg==}
+    peerDependencies:
+      '@openai/agents': ^0.3.3
+      '@opencode-ai/sdk': ^1.1.40
+      '@xterm/xterm': '>=5.0.0'
+    peerDependenciesMeta:
+      '@openai/agents':
+        optional: true
+      '@opencode-ai/sdk':
+        optional: true
+      '@xterm/xterm':
+        optional: true
 
   '@cloudflare/unenv-preset@2.16.1':
     resolution: {integrity: sha512-ECxObrMfyTl5bhQf/lZCXwo5G6xX9IAUo+nDMKK4SZ8m4Jvvxp52vilxyySSWh2YTZz8+HQ07qGH/2rEom1vDw==}
@@ -2906,6 +2926,9 @@ packages:
       '@astrojs/markdown-remark':
         optional: true
 
+  aws4fetch@1.0.20:
+    resolution: {integrity: sha512-/djoAN709iY65ETD6LKCtyyEI04XIBP5xVvfmNxsEP0uJB5tyaGBztSryRr4HqMStr9R06PisQE7m9zDTXKu6g==}
+
   axe-core@4.11.4:
     resolution: {integrity: sha512-KunSNx+TVpkAw/6ULfhnx+HWRecjqZGTOyquAoWHYLRSdK1tB5Ihce1ZW+UY3fj33bYAFWPu7W/GRSmmrCGuxA==}
     engines: {node: '>=4'}
@@ -2955,6 +2978,9 @@ packages:
 
   caniuse-lite@1.0.30001790:
     resolution: {integrity: sha512-bOoxfJPyYo+ds6W0YfptaCWbFnJYjh2Y1Eow5lRv+vI2u8ganPZqNm1JwNh0t2ELQCqIWg4B3dWEusgAmsoyOw==}
+
+  capnweb@0.8.0:
+    resolution: {integrity: sha512-BK/TuXUiyfLSKsmjojn70yN7oYG/JJzoURZ3tckjg5Zj2KcygPm0A5jyOlswK7SYB4f0Gh9tt+RZ132b80iLfA==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -3631,6 +3657,10 @@ packages:
   hex-rgb@4.3.0:
     resolution: {integrity: sha512-Ox1pJVrDCyGHMG9CFg1tmrRUMRPRsAWYc/PinY0XzJU4K7y7vjNoLKIQ7BR5UJMCxNN8EM1MNDmHWA/B3aZUuw==}
     engines: {node: '>=6'}
+
+  hono@4.13.7:
+    resolution: {integrity: sha512-c8/gF9ac8Y78/agExVocyLevgR+JlpNB444Py0FSX8pJoPdYUfUzRcXtYEYGwt6l19qIlVZPN5Mfsw9jFShmQQ==}
+    engines: {node: '>=16.9.0'}
 
   html-escaper@3.0.3:
     resolution: {integrity: sha512-RuMffC89BOWQoY0WKGpIhn5gX3iI54O6nRA0yC124NYVtzjmFWBIiFd8M0x+ZdX0P9R4lADg1mgP8C7PxGOWuQ==}
@@ -5657,12 +5687,12 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/cloudflare@14.3.1(@types/node@25.4.0)(astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.21.0)(wrangler@4.131.2(@cloudflare/workers-types@5.20260914.1)(@types/node@25.4.0))(yaml@2.9.0)':
+  '@astrojs/cloudflare@14.3.1(@types/node@25.4.0)(astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(aws4fetch@1.0.20)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.21.0)(wrangler@4.131.2(@cloudflare/workers-types@5.20260914.1)(@types/node@25.4.0))(yaml@2.9.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.11.0
       '@astrojs/underscore-redirects': 1.0.4
       '@cloudflare/vite-plugin': 1.54.9(@types/node@25.4.0)(vite@8.3.0(@types/node@25.4.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))(wrangler@4.131.2(@cloudflare/workers-types@5.20260914.1)(@types/node@25.4.0))
-      astro: 7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0)
+      astro: 7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(aws4fetch@1.0.20)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0)
       piccolore: 0.1.3
       vite: 8.3.0(@types/node@25.4.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0)
       wrangler: 4.131.2(@cloudflare/workers-types@5.20260914.1)(@types/node@25.4.0)
@@ -5808,11 +5838,11 @@ snapshots:
       github-slugger: 2.0.0
       satteri: 0.10.5
 
-  '@astrojs/mdx@8.0.1(@astrojs/markdown-remark@7.3.1)(@astrojs/markdown-satteri@0.4.1)(astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))':
+  '@astrojs/mdx@8.0.1(@astrojs/markdown-remark@7.3.1)(@astrojs/markdown-satteri@0.4.1)(astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(aws4fetch@1.0.20)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))':
     dependencies:
       '@astrojs/internal-helpers': 0.11.0
       '@astrojs/markdown-satteri': 0.4.1
-      astro: 7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0)
+      astro: 7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(aws4fetch@1.0.20)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0)
       es-module-lexer: 2.0.0
     optionalDependencies:
       '@astrojs/markdown-remark': 7.3.1
@@ -6040,7 +6070,16 @@ snapshots:
       '@clack/core': 1.1.0
       sisteransi: 1.0.5
 
+  '@cloudflare/containers@0.3.7': {}
+
   '@cloudflare/kv-asset-handler@0.5.0': {}
+
+  '@cloudflare/sandbox@0.12.9':
+    dependencies:
+      '@cloudflare/containers': 0.3.7
+      aws4fetch: 1.0.20
+      capnweb: 0.8.0
+      hono: 4.13.7
 
   '@cloudflare/unenv-preset@2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260911.1)':
     dependencies:
@@ -8135,7 +8174,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0):
+  astro@7.3.2(@astrojs/markdown-remark@7.3.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.4.0)(aws4fetch@1.0.20)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler-rs': 0.4.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)
       '@astrojs/internal-helpers': 0.11.0
@@ -8184,7 +8223,7 @@ snapshots:
       tinyglobby: 0.2.15
       ultrahtml: 1.6.0
       unifont: 0.7.5
-      unstorage: 1.17.5
+      unstorage: 1.17.5(aws4fetch@1.0.20)
       vite: 8.3.0(@types/node@25.4.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0)
       vitefu: 1.1.2(vite@8.3.0(@types/node@25.4.0)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.21.0)(yaml@2.9.0))
       xxhash-wasm: 1.1.0
@@ -8227,6 +8266,8 @@ snapshots:
       - uploadthing
       - yaml
 
+  aws4fetch@1.0.20: {}
+
   axe-core@4.11.4: {}
 
   axobject-query@4.1.0: {}
@@ -8263,6 +8304,8 @@ snapshots:
   camelize@1.0.1: {}
 
   caniuse-lite@1.0.30001790: {}
+
+  capnweb@0.8.0: {}
 
   ccount@2.0.1: {}
 
@@ -9076,6 +9119,8 @@ snapshots:
       space-separated-tokens: 2.0.2
 
   hex-rgb@4.3.0: {}
+
+  hono@4.13.7: {}
 
   html-escaper@3.0.3: {}
 
@@ -10927,7 +10972,7 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unstorage@1.17.5:
+  unstorage@1.17.5(aws4fetch@1.0.20):
     dependencies:
       anymatch: 3.1.3
       chokidar: 5.0.0
@@ -10937,6 +10982,8 @@ snapshots:
       node-fetch-native: 1.6.7
       ofetch: 1.5.1
       ufo: 1.6.4
+    optionalDependencies:
+      aws4fetch: 1.0.20
 
   update-browserslist-db@1.2.3(browserslist@4.28.2):
     dependencies:

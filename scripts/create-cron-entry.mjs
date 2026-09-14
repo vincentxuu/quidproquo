@@ -53,6 +53,7 @@ import { runConsoleRollupDaily } from '../src/lib/console/cost/rollup.ts';
 import { checkCostThresholds } from '../src/lib/console/cost/threshold.ts';
 export { AgentFlowWorkflow } from '../src/server/agent-flow-workflow.ts';
 export { AgentSessionDO } from '../src/server/agents/session-do.ts';
+export { AgentSandbox } from '../src/server/agents/agent-sandbox.ts';
 
 export default {
   // 保留 Astro 的所有 handlers
