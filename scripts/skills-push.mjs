@@ -5,7 +5,7 @@
 import { readdirSync, readFileSync, statSync, existsSync, writeFileSync, unlinkSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { join, relative } from 'node:path'
+import { join } from 'node:path'
 
 const SKILLS_DIR = '.agents/skills'
 const DB_NAME = 'quidproquo-db'
