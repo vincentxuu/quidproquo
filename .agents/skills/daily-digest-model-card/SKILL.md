@@ -24,10 +24,13 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" o
 # Step 4: 兩層過濾 → 判斷是否有值得寫的新模型
 # Step 5: 對每個新模型執行「詳情抓取」
 # Step 6: 依「輸出格式」撰寫模型卡
-# Step 7: 提交
-git add src/content/posts/daily/${TODAY}-model-*.md
-git commit -m "post(daily): model card ${TODAY}"
-git push origin main || { git pull --rebase origin main && git push origin main; }
+# Step 7: 提交（依 daily-digest-common 共用尾聲）
+# 見 .agents/skills/daily-digest-common/SKILL.md
+# E1: 產英文版（invoke post-translate）
+# E2: 修 check:references WARN
+# E3: 更新 progress.txt Last updated 行
+# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E5: git add / commit / push
 ```
 
 ---
@@ -399,3 +402,4 @@ MCP server-side execution 是這次最大的架構變化。之前 Claude 只能�
 - [ ] `tags` 包含 `model-family-{family-slug}` 家族 tag
 - [ ] 模型資訊表包含「家族」和「HuggingFace」欄位（開源模型）
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
+- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`

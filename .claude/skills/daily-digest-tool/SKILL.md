@@ -28,10 +28,13 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section | startsw
 # Step 5: 執行「篩選規則」
 # Step 6: 若無值得推薦的 → 輸出「今日無工具推薦」結束
 # Step 7: 依「輸出格式」撰寫文章
-# Step 8: 提交
-git add src/content/posts/daily/${TODAY}-tool-*.md
-git commit -m "post(daily): tool recommendation ${TODAY}"
-git push origin main || { git pull --rebase origin main && git push origin main; }
+# Step 8: 提交（依 daily-digest-common 共用尾聲）
+# 見 .agents/skills/daily-digest-common/SKILL.md
+# E1: 產英文版（invoke post-translate）
+# E2: 修 check:references WARN
+# E3: 更新 progress.txt Last updated 行
+# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E5: git add / commit / push
 ```
 
 ---
@@ -338,3 +341,4 @@ LIMIT 10;
 - [ ] 授權資訊正確（從 GitHub API 確認，不要猜）
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
+- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`

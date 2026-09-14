@@ -43,10 +43,13 @@ ls src/content/posts/daily/*-region-*.md 2>/dev/null | grep -v -- '-en\.md$' | s
 # Step 6: 補充搜尋各區域新聞
 # Step 7: 決定寫哪個區域（覆蓋缺口優先，信號量做 tie-breaker）
 # Step 8: 依「輸出格式」撰寫
-# Step 9: 提交
-git add src/content/posts/daily/${TODAY}-region-*.md
-git commit -m "post(daily): region focus ${TODAY}"
-git push origin main || { git pull --rebase origin main && git push origin main; }
+# Step 9: 提交（依 daily-digest-common 共用尾聲）
+# 見 .agents/skills/daily-digest-common/SKILL.md
+# E1: 產英文版（invoke post-translate）
+# E2: 修 check:references WARN
+# E3: 更新 progress.txt Last updated 行
+# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E5: git add / commit / push
 ```
 
 ---
@@ -396,3 +399,4 @@ CAC 的管理辦法則增加了新的競爭門檻（五力的「進入壁壘」�
 - [ ] 全球覆蓋缺口統計沒有排除 CA、AU、NZ、非洲或拉丁美洲國家；IL 已計入 middle-east
 - [ ] `description` 和 `tldr` 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
+- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`

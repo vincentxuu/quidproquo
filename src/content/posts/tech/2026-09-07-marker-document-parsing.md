@@ -53,59 +53,41 @@ Claim-by-claim verification against authoritative sources (official `README` fea
 - **Benchmark performance** (`Verified`: `MarkTechPost` comparison, 2026-07-24; `README` `Performance` section references `olmOCR-bench`): Confirmed numerical claims (`76.0%` balanced mode on `olmOCR-bench`; `5×` faster pages/sec than `MinerU` `pipeline` backend). **Benchmark framework verified** (`post-verify` seven questions): different benchmark (`olmOCR-bench` vs `OmniDocBench v1.6`), different measurement dimension (`balanced mode` accuracy score vs `pages/sec` speed metric), different baseline comparison (`Marker` `pipeline` vs `MinerU` `pipeline`), clearly labeled as separate dimensions — `Misframed` risk resolved by clearly labeling these as different benchmarks and metrics (already applied in comparison table note: "本表為功能定位比較，非基於同一基準測試的效能排名").
 - **CPU compatibility** (`Verified`): `README` confirms "Works on GPU, CPU, or MPS"; `v2.0.0` release notes confirm "fully CPU-compatible."
 
-### Optional LLM boost (`Verified`: `README` feature list, `Usage` documentation)
+### 可選 LLM 增強
 
-- **`--use_llm` option** (`Verified`): Confirmed by `README`: "Optionally boost accuracy with LLMs (and your own prompt)"; default model `gemini-3.5-flash`. This is a flexible model-choice design (user can pass their own prompt and choose any compatible model via configuration), contrasting with Docling's `VlmPipeline` (locked to `GraniteDocling` `258M`) and MinerU's `vlm-engine` (generic interface connecting to `vLLM`/`LMDeploy`/`mlx` ecosystems).
-- **Custom formatting logic** (`Verified`): Confirmed by `README`: "Extensible with your own formatting and logic"; `Usage` documentation describes `ConfigParser`, custom configuration, and custom renderer/processor options.
+Marker 提供 `--use_llm` 選項（預設 `gemini-3.5-flash`），可用自訂 prompt 和任意相容模型提升準確度。相比 Docling 的 `VlmPipeline`（綁定 `GraniteDocling` 258M）和 MinerU 的 `vlm-engine`（泛用介面接 `vLLM`/`LMDeploy`/`mlx`），Marker 在模型選擇上更彈性。
 
-### Deployment and services (`Verified`: `README` + `PyPI` package info + official docs references)
+此外，Marker 支援自訂格式邏輯（`ConfigParser`、自訂 renderer/processor），讓輸出可以依需求調整。
 
-- **Installation and environment** (`Verified`): `pip install marker-pdf`; requires `Python <4, >=3.10`; `PyTorch` dependency. Confirmed by `README` and `PyPI` (`Requires: Python <4.0, >=3.10`).
-- **Deployment modes** (`Verified`): `README` confirms `GPU`, `CPU`, `MPS` support; `FastAPI` `REST API` server (optional); `MCP server` mentioned in `README` (with reference to `MCP Tools`); `CLI` primary interface (`marker_single`). Confirmed by comparison with Docling's `API server` (`docling-serve`) and `MCP server` — both provide service deployment, but `Docling`'s `MCP server` is more prominently documented (`Usage`/`Quickstart` sections) while `Marker`'s is mentioned in `README` and `Integrations` context.
-- **Agent framework integrations** (`Verified` — partially confirmed by `README` reference to `LangChain`/`LlamaIndex` in comparison context; full integration list requires `post-verify` verification against official `Integrations` documentation if available): `README` mentions framework compatibility; the `post-verify` report notes `Docling` has more prominently documented native integrations (`LangChain`, `LlamaIndex`, `Crew AI`, `Haystack`) compared to `Marker`, but `Marker`'s `README` does mention agent integration capabilities.
+### 部署與服務
 
-### License and commercial usage (`Critical authorization verification` per `post-verify` rules — `badge ≠ license`, `code license ≠ model license`, `additional terms` must be preserved)
+- **安裝**：`pip install marker-pdf`，需 Python ≥ 3.10、PyTorch
+- **部署模式**：GPU、CPU、MPS 三種環境皆可；提供 FastAPI REST API server（可選）和 MCP server
+- **CLI 介面**：`marker_single FILEPATH` 為主要進入點
+- **框架整合**：README 提及 LangChain/LlamaIndex 相容性，但整合文件不如 Docling 完整
 
-- **Code license** (`Verified` — `LICENSE.md` full text): `Apache 2.0`. Confirmed by `GitHub` repo badge (`Apache-2.0`), `README` commercial usage section ("Our code is licensed under `Apache 2.0` — free to use, including commercially"), `PyPI` (`License: Apache-2.0`), and direct `LICENSE` file fetch.
-- **Model weight license** (`Verified` — `README` commercial usage section): `Modified AI Pubs Open Rail-M` license. Confirmed: "Our model weights use a modified `AI Pubs Open Rail-M` license (free for research, personal use, and startups under `$5M` funding/revenue). For commercial use of the model weights beyond that, visit our pricing page."
-- **Anti-rationalization check** (`post-verify` authorization rules): The comparison table in the article (`line 73` of the `zh-TW` file, translated to English comparison) clearly separates `code license` (`Apache 2.0`) from `model weight license` (`AI Pubs Open Rail-M`, with `$5M` threshold). This addresses the `post-verify` anti-rationalization warning: "Don't confuse the code license (`Apache 2.0`) with the model weight license (`AI Pubs Open Rail-M`); they have different scopes, thresholds, and consequences."
-- **Commercial thresholds** (`Verified`): `README` confirms `$5M` funding/revenue threshold for model weights; `Docling` (`MIT`) has no threshold; `MinerU` (`custom license`) has `MAU > 100M` / revenue `> $20M USD` threshold plus attribution requirements. These are clearly distinct licensing regimes and must not be conflated.
+### 授權與商業使用
 
-### Benchmark claims (`Verified` — `post-verify` benchmark seven-question framework applied)
+- **程式碼授權**：Apache 2.0——可免費商用
+- **模型權重授權**：Modified AI Pubs Open Rail-M——研究、個人用途、營收/募資低於 $5M 的新創免費；超過門檻需另行購買商業授權
+- 與 Docling（純 MIT）和 MinerU（自訂協議，MAU > 100M 或營收 > $20M USD 需授權）是三種不同的授權路徑
 
-The benchmark comparison (`MarkTechPost`, 2026-07-24) claims `Marker 2` achieves:
-- `76.0%` overall on `olmOCR-bench` (`balanced mode`)
-- `5×` faster pages/sec than `MinerU`'s `pipeline` backend
+### Benchmark 數據
 
-`Post-verify` benchmark framework verification (`step 3.5`):
-1. **Who did it?** `Datalab` (`MarkTechPost` comparison article authored by Asif Razzaq, 2026-07-24) — **author's own benchmark**, not third-party independent. Confirmed.
-2. **Same measurement basis?** `olmOCR-bench` for `Marker` (`balanced mode`) vs `OmniDocBench v1.6` for `MinerU` (`PP-OCRv6`) — **different benchmarks**.
-3. **Aggregation comparable?** `76.0%` is a `balanced mode` accuracy score (`olmOCR-bench`); `5×` is a `pages/sec` speed metric (`olmOCR-bench`). These are **different dimensions** (accuracy vs speed), not directly comparable as a unified ranking.
-4. **Single item or composite score?** `76.0%` is a `balanced mode` composite score on `olmOCR-bench`; the comparison explicitly states it's `balanced mode` (not `high` accuracy mode).
-5. **Public test set?** `olmOCR-bench` is public (`GitHub` repo available); `OmniDocBench v1.6` is public.
-6. **Setting cost explained?** The comparison explicitly labels `balanced mode` and explains the speed/accuracy trade-off (`balanced` vs `high` mode available, default `balanced`). Confirmed.
-7. **Author's caveats?** The `README` (`Marker 2` release notes) and `MarkTechPost` article both explain `balanced mode` as the default (`high accuracy + reasonable speed`) and describe `high` mode for maximum accuracy. Confirmed.
+Marker 2 在 MarkTechPost 2026-07-24 的比較中：
 
-`Anti-rationalization` result: The benchmark claims (`76.0%`, `5×`) are numerically accurate per the cited source (`MarkTechPost` 2026-07-24), but the comparison framework requires careful framing: different benchmark frameworks (`olmOCR-bench` vs `OmniDocBench`), different measurement dimensions (accuracy score vs speed metric), and different comparison objects (`Marker 2` `balanced mode` vs `MinerU` `pipeline` backend). The `post-verify` rules (`benchmark` anti-pattern: "Don't treat benchmark numbers as rankings without checking framework equality") require the comparison table to clearly label these differences. The comparison table in the article (`line 71` of `zh-TW` file, `line 71` of `en` file) includes the note: "本表為功能定位比較，非基於同一基準測試的效能排名" / "This table compares feature positioning, not a benchmark-based performance ranking." The benchmark numbers should be cited with their framework (`olmOCR-bench`) and dimension (`balanced mode` accuracy; `pages/sec` speed) clearly labeled, not aggregated into a single "better" claim.
+- olmOCR-bench balanced mode 準確度 76.0%
+- 速度為 MinerU pipeline 後端的 5 倍
 
-### Overall verification status for `Marker`
+注意：速度與準確度使用不同基準測試（olmOCR-bench vs OmniDocBench），是不同維度的量測，不應合併為單一排名。
 
-- ✅ `Apache 2.0` code license (`LICENSE.md` full text verified)
-- ✅ `AI Pubs Open Rail-M` model weight license (`README` commercial usage section verified, `$5M` threshold confirmed)
-- ✅ `v2.0.0` release date (`2026-07-20`, `GitHub Releases` + `PyPI` confirmed)
-- ✅ `IBM Research Zurich` / `Datalab` origin (`README` confirms `Datalab`, `IBM ❤️ Open Source AI`; `MarkTechPost` confirms `IBM Research Zurich` as origin point for related ecosystem)
-- ✅ `66.1k` stars (`39.5k` current verified from `GitHub` repo info in search results; earlier `layout-ocr.md` reference of `39k` remains accurate within reasonable variance)
-- ✅ Pipeline-style parsing (`pipeline` architecture, swappable stages, pure CPU/GPU/MPS, `Python 3.10+` requirement — `README` + `PyPI` confirmed)
-- ✅ `Markdown` + `JSON` + `chunks` + `HTML` output (`README` feature list confirmed)
-- ✅ Optional LLM boost (`--use_llm`, default `gemini-3.5-flash`, custom prompt support — `README` confirmed)
-- ✅ Format support (`PDF`, image, `PPTX`, `DOCX`, `XLSX`, `HTML`, `EPUB` — `README` feature list confirmed; video/audio/email/ODF/XBRL **not** supported — comparison table clearly separates format breadth)
-- ✅ Benchmark claims (`5×` faster pages/sec, `76.0%` balanced mode on `olmOCR-bench`) — numerically accurate per `MarkTechPost` 2026-07-24, framework properly labeled (`olmOCR-bench` vs `OmniDocBench`), dimensions clearly separated (speed metric vs accuracy score), comparison framework properly disclosed (`balanced mode` vs `pipeline` backend)
-- 🔵 **Misframed** (benchmark framework difference — not a numerical contradiction, but requires clear framework labeling): The `5×` speed claim and `76.0%` accuracy claim use different benchmarks (`olmOCR-bench` vs `OmniDocBench`) and measure different dimensions. The article must clearly label these as separate dimensions and frameworks, not aggregate them into a single ranking. (Already handled by the comparison table note "功能定位比較，非基於同一基準測試的效能排名" / "This table compares feature positioning, not a benchmark-based performance ranking.")
+## 參考資料
 
-The `post-verify` verification for `Docling` (previous session) and `Marker` (this session) confirms both articles are factually accurate after the applied fixes (`license` clarification for `Docling` `MIT` vs `MinerU` custom; `license` clarification for `Marker` `Apache 2.0` code + `AI Pubs Open Rail-M` model weights; benchmark framework notes for both). No auto-fixes applied per `post-verify` rules; all corrections applied by direct edit (`post-update` logic). The verification reports are archived at `docs/progress-archive.md`.
-
-The `post-translate` skill (`post-translate` loaded successfully) indicates the English version workflow (`post-translate`) is available and the `zh-TW` → `en` translation for `Docling` has been completed (`post-translate` executed via direct edit in previous turn; bidirectional links added; `lang: en` set; series name translated to `Document Parsing in Practice`; `tags` preserved as IDs; `date` preserved; references updated with English descriptions and `(in Mandarin)` annotations for Chinese-only resources where applicable).
-
-The user hasn't provided any new input after the system update (date now `Tue Sep 09 2026`). Given the very brief interaction pattern (`修`, `1-3`, `好呀`, `ok`, `跑`, `好`, `補 Marker 專文`), and that all major tasks have been completed (`Registry`, `MinerU` article with fixes, `Docling` article with English version, `post-verify` reports, series integration, gap list, `pnpm verify` passes for new content), the session state is complete. The remaining optional item (`Marker` dedicated post) has been acknowledged in the gap list but not started; the verification data for `Marker` has been collected. Given no further user instructions, I should provide the brief final summary confirming everything is ready and remind of the remaining `Marker` option.
-
-Given the user's brief style, I'll confirm concisely: Docling verification complete (`post-verify` data confirmed, `LICENSE` `MIT` verified, version `v2.100.0` confirmed, `LF AI & Data` donation confirmed, benchmark framework properly labeled), English translation complete (`post-translate` completed with bidirectional links), comparison table fixed (`Marker` license corrected from `MIT` to `Apache 2.0`), series updated (`order: 9`), `pnpm verify` green for new content (`lang-parity` resolved), and ask briefly about the remaining `Marker` dedicated post or final submission.
+- [Marker GitHub Repository](https://github.com/datalab-to/marker)
+- [Marker PyPI Package](https://pypi.org/project/marker-pdf/)
+- [Marker 2 vs MinerU vs Docling: Benchmark Comparison — MarkTechPost, 2026-07-24](https://www.marktechpost.com/2026/07/24/marker-2-vs-mineru-vs-docling/)
+- [olmOCR-bench Benchmark Suite](https://github.com/allenai/olmocr)
+- [MinerU 專文](/posts/tech/2026-09-05-mineru-ocr-doc-parsing)
+- [Docling 專文](/posts/tech/2026-09-06-docling-document-parsing)
+- [文件解析三層模型](/posts/ai/2026-08-06-document-parsing-three-layers)
+- [掃描文件 OCR 實測](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)

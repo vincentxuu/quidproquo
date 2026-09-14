@@ -29,7 +29,13 @@ cat src/data/agent-watchlist.json | head -100
 # Step 5: 執行「選案標準」，先過可信度門檻，再選 0-3 篇
 # Step 6: 對入選論文完成 metadata 與證據核對
 # Step 7: 依「輸出格式」撰寫 zh-TW 與英文文章，維持雙向語言連結與結構 parity
-# Step 8: 提交
+# Step 8: 提交（依 daily-digest-common 共用尾聲）
+# 見 .agents/skills/daily-digest-common/SKILL.md
+# E1: 跳過（本 skill 在 Step 7 已同時產出中英雙版）
+# E2: 修 check:references WARN
+# E3: 更新 progress.txt Last updated 行
+# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E5: git add / commit / push
 git add "${SCREENING_RECORD}" src/data/daily-signals/seen-arxiv-ids.txt
 if [ -f "src/content/posts/daily/${TODAY}-ai-agent-arxiv-digest.md" ]; then
   git add "src/content/posts/daily/${TODAY}-ai-agent-arxiv-digest.md" \
@@ -513,3 +519,4 @@ LLM Agent 做長程任務（long-horizon task，跑幾千步才完成）時，�
 - [ ] description 和 tldr 已填寫
 - [ ] series order 正確（距離 2026-05-25 的天數 + 1）
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
+- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`

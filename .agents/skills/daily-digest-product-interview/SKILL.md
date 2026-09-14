@@ -63,10 +63,13 @@ cat src/data/interview-focus.json | 讀取 product-builder.weights
 # Step 4: 執行搜尋，取得今日主題的最新素材
 # Step 5: 篩選並整理素材
 # Step 6: 撰寫文章
-# Step 7: 提交
-git add src/content/posts/daily/${TODAY}-product-builder-interview-daily.md
-git commit -m "post(daily): product builder interview daily ${TODAY}"
-git push origin main || { git pull --rebase origin main && git push origin main; }
+# Step 7: 提交（依 daily-digest-common 共用尾聲）
+# 見 .agents/skills/daily-digest-common/SKILL.md
+# E1: 產英文版（invoke post-translate）
+# E2: 修 check:references WARN
+# E3: 更新 progress.txt Last updated 行
+# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E5: git add / commit / push
 ```
 
 ---
@@ -263,3 +266,4 @@ series:
 - [ ] series order 正確（距離 2026-08-20 的天數 + 1）
 - [ ] 文末有「## 參考資料」區段（`pnpm check:references` 會擋）
 - [ ] tags 包含 `product-builder-interview` + `daily` + 主題 tag
+- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`

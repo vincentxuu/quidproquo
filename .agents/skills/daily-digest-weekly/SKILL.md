@@ -26,10 +26,13 @@ echo "本週範圍: ${WEEK_START} ~ ${TODAY}"
 
 # Step 4: 讀取所有輸入（見下方）
 # Step 5: 彙整撰寫（見輸出格式）
-# Step 6: 提交
-git add src/content/posts/daily/${TODAY}-weekly-review.md
-git commit -m "post(daily): 週回顧 ${TODAY}"
-git push origin main || { git pull --rebase origin main && git push origin main; }
+# Step 6: 提交（依 daily-digest-common 共用尾聲）
+# 見 .agents/skills/daily-digest-common/SKILL.md
+# E1: 產英文版（invoke post-translate）
+# E2: 修 check:references WARN
+# E3: 更新 progress.txt Last updated 行
+# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E5: git add / commit / push
 ```
 
 ---
@@ -339,3 +342,4 @@ $150M C 輪，估值超過多數模型公司。市場在說：會推理的基礎
 - [ ] 「我這週學到什麼」是認知差，不是「這週很精彩」
 - [ ] `description` 和 `tldr` 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
+- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
