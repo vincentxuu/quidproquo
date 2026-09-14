@@ -1,6 +1,5 @@
 import {
   AssistantRuntimeProvider,
-  ComposerPrimitive,
   MessagePrimitive,
   ThreadPrimitive,
   fromThreadMessageLike,
@@ -12,9 +11,9 @@ import {
   type ToolCallMessagePartProps,
 } from '@assistant-ui/react'
 import { Bot, SendHorizontal } from 'lucide-react'
-import { useCallback } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
-import { Message, MessageContent, MessageResponse } from '@/components/ai-elements/message'
+import { MessageResponse } from '@/components/ai-elements/message'
 import { Reasoning, ReasoningContent, ReasoningTrigger } from '@/components/ai-elements/reasoning'
 import { Tool, ToolContent, ToolHeader, ToolInput, ToolOutput } from '@/components/ai-elements/tool'
 import { Button } from '@/components/ui/button'
@@ -64,60 +63,91 @@ export function AssistantThread({
             <ThreadPrimitive.Messages components={{ UserMessage, AssistantMessage, SystemMessage }} />
           </div>
         </ThreadPrimitive.Viewport>
-        {composer ? <AssistantComposer inputId={composerInputId} placeholder={composerPlaceholder} /> : null}
+        {composer ? <ResumeComposer inputId={composerInputId} placeholder={composerPlaceholder} onSend={onSend} /> : null}
       </ThreadPrimitive.Root>
     </AssistantRuntimeProvider>
   )
 }
 
-function AssistantComposer({ inputId, placeholder }: { inputId?: string; placeholder: string }) {
+function ResumeComposer({ inputId, placeholder, onSend }: { inputId?: string; placeholder: string; onSend?: (text: string) => Promise<void> }) {
+  const [text, setText] = useState('')
+  const [sending, setSending] = useState(false)
+  const inputRef = useRef<HTMLTextAreaElement>(null)
+
+  const handleSubmit = useCallback(async () => {
+    const trimmed = text.trim()
+    if (!trimmed || sending) return
+    setSending(true)
+    try {
+      await onSend?.(trimmed)
+      setText('')
+    } finally {
+      setSending(false)
+    }
+  }, [text, sending, onSend])
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      handleSubmit()
+    }
+  }, [handleSubmit])
+
   return (
-    <ComposerPrimitive.Root className="mx-auto flex w-full max-w-[760px] items-end gap-2 border-t border-border bg-background px-4 py-3 sm:px-6">
-      <ComposerPrimitive.Input
+    <div className="mx-auto flex w-full max-w-[760px] items-end gap-2 border-t border-border bg-background px-4 py-3 sm:px-6">
+      <textarea
+        ref={inputRef}
         id={inputId}
-        rows={2}
-        submitMode="enter"
-        unstable_insertNewlineOnTouchEnter
+        rows={1}
+        value={text}
+        onChange={e => setText(e.target.value)}
+        onKeyDown={handleKeyDown}
         placeholder={placeholder}
-        className="min-h-11 flex-1 resize-y rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-ring focus:ring-2 focus:ring-ring/20"
+        disabled={sending}
+        className="min-h-11 flex-1 resize-none rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-ring focus:ring-2 focus:ring-ring/20 disabled:opacity-50"
       />
-      <ComposerPrimitive.Send asChild>
-        <Button type="submit" size="icon" className="size-10 shrink-0 rounded-xl" aria-label="送出">
-          <SendHorizontal className="size-4" />
-        </Button>
-      </ComposerPrimitive.Send>
-    </ComposerPrimitive.Root>
+      <Button
+        type="button"
+        size="icon"
+        className="size-10 shrink-0 rounded-xl"
+        aria-label="送出"
+        disabled={sending || !text.trim()}
+        onClick={handleSubmit}
+      >
+        <SendHorizontal className="size-4" />
+      </Button>
+    </div>
   )
 }
 
 function UserMessage() {
   return (
-    <Message from="user">
-      <MessageContent>
+    <MessagePrimitive.Root className="flex w-full justify-end py-2">
+      <div className="max-w-[min(560px,80%)] rounded-2xl rounded-br-md bg-primary px-4 py-2.5 text-sm leading-6 text-primary-foreground shadow-sm">
         <MessagePrimitive.Parts components={{ Text: UserTextPart }} />
-      </MessageContent>
-    </Message>
+      </div>
+    </MessagePrimitive.Root>
   )
 }
 
 function AssistantMessage() {
   return (
-    <Message from="assistant">
+    <MessagePrimitive.Root className="flex w-full items-start gap-3 py-2">
       <div className="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-muted">
         <Bot className="size-4 text-muted-foreground" />
       </div>
-      <MessageContent>
+      <div className="min-w-0 flex-1 text-sm leading-6 text-foreground">
         <MessagePrimitive.Parts components={{ Text: TextPart, Reasoning: ReasoningPart, tools: { Fallback: ToolPart } }} />
-      </MessageContent>
-    </Message>
+      </div>
+    </MessagePrimitive.Root>
   )
 }
 
 function SystemMessage() {
   return (
-    <Message from="system">
+    <MessagePrimitive.Root className="flex w-full justify-center py-1.5">
       <MessagePrimitive.Parts components={{ Text: SystemTextPart }} />
-    </Message>
+    </MessagePrimitive.Root>
   )
 }
 
