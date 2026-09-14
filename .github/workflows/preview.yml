@@ -27,7 +27,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Restore OG image cache
-        uses: actions/cache@v7
+        uses: actions/cache@v6
         with:
           path: .cache/og-images
           key: >-
