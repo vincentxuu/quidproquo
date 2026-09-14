@@ -536,7 +536,7 @@ export function AdminSessionChat({
   }), [sessionId, updateStatus])
 
   return (
-    <div className="flex h-[calc(100vh-8rem)] flex-col overflow-hidden rounded-[var(--admin-radius)] border border-[var(--admin-border)] bg-[var(--admin-surface)]">
+    <div className="flex h-full flex-col overflow-hidden bg-[var(--admin-surface)]">
       {/* Compact header */}
       <div className="flex items-center gap-3 border-b border-[var(--admin-border)] px-4 py-2.5">
         <div className="flex min-w-0 flex-1 items-center gap-2.5">

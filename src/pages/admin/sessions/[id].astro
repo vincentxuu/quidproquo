@@ -17,5 +17,17 @@ if (!sessionId) return Astro.redirect('/admin/sessions');
   section="sessions"
   breadcrumb={[{ label: 'Sessions', href: '/admin/sessions' }, { label: sessionId.slice(0, 8) }]}
 >
-  <AdminSessionChat sessionId={sessionId} client:load />
+  <div class="session-standalone">
+    <AdminSessionChat sessionId={sessionId} client:load />
+  </div>
+
+
+<style>
+  .session-standalone {
+    height: calc(100vh - 8rem);
+    overflow: hidden;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+  }
+</style>
 </AdminV2Layout>
