@@ -8,6 +8,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fonts-noto-cjk \
     fontconfig \
     libcairo2-dev \
+    libreoffice-core \
+    libreoffice-writer \
+    libreoffice-calc \
+    libreoffice-impress \
+    libreoffice-l10n-zh-tw \
     poppler-utils \
     pandoc \
     qpdf \
@@ -36,26 +41,29 @@ RUN pip install --no-cache-dir \
     pymupdf \
     pdf2image \
     pytesseract \
+    "markitdown[pptx]" \
     statsmodels \
     requests \
     beautifulsoup4 \
     lxml \
     defusedxml \
-    cairosvg
+    cairosvg \
+    anthropic \
+    mcp
 
 RUN pip install --no-cache-dir mplfonts \
     && mplfonts init \
     && mplfonts install --update Noto\ Sans\ CJK\ SC
 
-# Node.js for JS/TS execution
 RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs \
     npm \
     && rm -rf /var/lib/apt/lists/* \
     && npm install -g pnpm typescript tsx \
+       pptxgenjs docx react-icons react react-dom sharp \
     && npm cache clean --force
+ENV NODE_PATH=/usr/local/lib/node_modules:/usr/lib/node_modules
 
-# Default matplotlib to Noto CJK
 RUN MPLRC="$(python -c 'import matplotlib; print(matplotlib.matplotlib_fname())')" \
     && sed -i 's/^#font.sans-serif:.*/font.sans-serif: Noto Sans CJK SC, DejaVu Sans, sans-serif/' "$MPLRC" \
     && sed -i 's/^#axes.unicode_minus:.*/axes.unicode_minus: False/' "$MPLRC"
