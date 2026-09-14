@@ -3,6 +3,7 @@ import {
   AlertTriangle,
   Archive,
   Check,
+  Cpu,
   FileDiff,
   Loader2,
   MoreHorizontal,
@@ -260,6 +261,7 @@ export function AdminSessionChat({
   disableLiveUpdates = false,
 }: AdminSessionChatProps) {
   const [sessionName, setSessionName] = useState(initialSession?.name || initialSession?.instruction?.slice(0, 80) || '載入中...')
+  const [sessionModel, setSessionModel] = useState(initialSession?.model || '')
   const [sessionStatus, setSessionStatus] = useState<SessionStatus>(initialSession?.status || 'unknown')
   const [statusIndicator, setStatusIndicator] = useState<{ state: StatusIndicatorState; message?: string }>({ state: null })
   const [events, setEvents] = useState<EventRow[]>(initialEvents)
@@ -323,7 +325,11 @@ export function AdminSessionChat({
         message: asString(payload.statusDetail || payload.status_detail) || undefined,
       })
     }
-    if (type === 'system/init') setStatusIndicator({ state: 'working', message: 'Starting...' })
+    if (type === 'system/init') {
+      setStatusIndicator({ state: 'working', message: 'Starting...' })
+      const model = asString(payload.model)
+      if (model) setSessionModel(model)
+    }
     if (type === 'assistant') setStatusIndicator({ state: 'working', message: '回覆已更新' })
     if (type === 'result') {
       updateStatus('done')
@@ -353,6 +359,7 @@ export function AdminSessionChat({
       const data = await res.json() as { events?: SessionEventPayload[]; session?: SessionPayload } & SessionPayload
       const session = data.session || data
       setSessionName(session.name || session.instruction?.slice(0, 80) || sessionId.slice(0, 8))
+      if (session.model) setSessionModel(session.model)
       updateStatus(session.status)
       if (Array.isArray(data.events)) {
         for (const row of data.events) {
@@ -535,6 +542,12 @@ export function AdminSessionChat({
         <div className="flex min-w-0 flex-1 items-center gap-2.5">
           <h2 className="truncate text-sm font-semibold text-[var(--admin-text)]">{sessionName}</h2>
           <Badge variant={badgeVariant(sessionStatus)} className="shrink-0">{sessionStatus}</Badge>
+          {sessionModel ? (
+            <span className="inline-flex shrink-0 items-center gap-1 rounded-md bg-[var(--admin-color-surface-subtle)] px-2 py-0.5 text-xs text-[var(--admin-text-muted)]">
+              <Cpu className="size-3" />
+              {sessionModel.includes(':') ? sessionModel.split(':').pop() : sessionModel}
+            </span>
+          ) : null}
           <StatusIndicator state={statusIndicator.state} message={statusIndicator.message} />
         </div>
         <div className="flex shrink-0 items-center gap-1.5">

@@ -30,6 +30,7 @@ export interface SessionPayload {
   name?: string
   status?: SessionStatus
   instruction?: string
+  model?: string
 }
 
 export interface SessionEventPayload {
