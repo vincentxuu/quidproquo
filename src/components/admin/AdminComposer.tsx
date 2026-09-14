@@ -182,7 +182,7 @@ export default function AdminComposer() {
     <div className="flex w-full max-w-[720px] flex-col gap-3 px-4 pb-4 mx-auto">
       {/* Input area */}
       <form onSubmit={handleSubmit} className="relative">
-        <div className="flex items-end gap-2 rounded-xl border border-border bg-card p-2 pl-4 shadow-sm transition-colors focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20">
+        <div className="flex items-end gap-2 rounded-xl border border-border bg-card p-2 pl-4 shadow-sm transition-colors focus-within:border-ring">
           <textarea
             ref={textareaRef}
             value={instruction}
@@ -193,7 +193,7 @@ export default function AdminComposer() {
             onKeyDown={handleKeyDown}
             placeholder="Describe a task or ask a question"
             rows={1}
-            className="flex-1 resize-none border-0 bg-transparent text-sm leading-relaxed text-foreground placeholder:text-muted-foreground focus:outline-none"
+            className="flex-1 resize-none border-none bg-transparent text-sm leading-relaxed text-foreground shadow-none outline-none placeholder:text-muted-foreground focus:ring-0"
             style={{ minHeight: "24px", maxHeight: "200px" }}
           />
           <Button
