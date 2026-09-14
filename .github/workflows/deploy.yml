@@ -7,9 +7,6 @@ on:
     - cron: "5 16 * * *"
   workflow_dispatch:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-
 jobs:
   detect-content-index:
     name: Detect content index changes
@@ -18,7 +15,7 @@ jobs:
       should_sync: ${{ steps.content-index.outputs.should_sync }}
       reason: ${{ steps.content-index.outputs.reason }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - id: content-index
@@ -82,17 +79,17 @@ jobs:
       group: production-worker-deploy
       cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
         with:
           version: 10
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Restore OG image cache
-        uses: actions/cache@v4
+        uses: actions/cache@v7
         with:
           path: .cache/og-images
           key: >-

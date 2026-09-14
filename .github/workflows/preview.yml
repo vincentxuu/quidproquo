@@ -4,9 +4,6 @@ on:
   pull_request:
     branches: [main]
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-
 jobs:
   quality:
     name: Quality gate
@@ -20,17 +17,17 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
         with:
           version: 10
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Restore OG image cache
-        uses: actions/cache@v4
+        uses: actions/cache@v7
         with:
           path: .cache/og-images
           key: >-
@@ -50,7 +47,7 @@ jobs:
           wranglerVersion: "4"
           command: deploy --config dist/server/wrangler.json --env preview
       - name: Comment preview URL
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.createComment({
