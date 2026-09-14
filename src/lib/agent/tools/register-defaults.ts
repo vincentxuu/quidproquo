@@ -7,6 +7,7 @@ import { searchDocsSyscall } from '../../retrieval/tools/search-docs'
 import { searchPageIndexSyscall } from '../../retrieval/tools/pageindex'
 import { searchPostsSyscall } from '../../retrieval/tools/search-posts'
 import { skillReadSyscall } from '../../tool-registry/definitions/skill-read'
+import { skillListFilesSyscall, skillReadFileSyscall } from '../../tool-registry/definitions/skill-files'
 import { readUrlSyscall } from '../../tool-registry/definitions/read-url'
 import { registerSyscall } from './syscall'
 import { syscallToToolDefinition } from './define'
@@ -18,6 +19,8 @@ const defaultSyscalls: AnySyscallDefinition[] = [
   postGetDetailSyscall,
   modelInvokeSyscall,
   skillReadSyscall,
+  skillListFilesSyscall,
+  skillReadFileSyscall,
   searchPostsSyscall,
   searchDocsSyscall,
   searchAbstractIndexSyscall,

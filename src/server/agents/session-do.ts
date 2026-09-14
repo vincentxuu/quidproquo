@@ -576,13 +576,26 @@ export class AgentSessionDO extends DurableObject<Env> {
 
     const toolDefs = buildToolDefinitions(!!runner, mcpTools)
 
-    // Build skill catalog system message for description-based routing
     let skillCatalog = ''
     try {
-      const rows = await this.env.DB.prepare('SELECT name, description FROM user_skills ORDER BY name').all<{ name: string; description: string }>()
+      // New schema: skill + skill_version (published only)
+      const rows = await this.env.DB.prepare(`
+        SELECT s.slug, sv.description
+        FROM skill s JOIN skill_version sv ON sv.id = s.latest_version_id
+        WHERE sv.status = 'published'
+        ORDER BY s.slug
+      `).all<{ slug: string; description: string }>()
       if (rows.results?.length) {
         skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
-          rows.results.map((r) => `- ${r.name}: ${r.description}`).join('\n')
+          rows.results.map((r) => `- ${r.slug}: ${r.description}`).join('\n')
+      }
+      // Fallback: legacy user_skills table
+      if (!skillCatalog) {
+        const legacy = await this.env.DB.prepare('SELECT name, description FROM user_skills ORDER BY name').all<{ name: string; description: string }>()
+        if (legacy.results?.length) {
+          skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
+            legacy.results.map((r) => `- ${r.name}: ${r.description}`).join('\n')
+        }
       }
     } catch { /* skill catalog failure is non-fatal */ }
 

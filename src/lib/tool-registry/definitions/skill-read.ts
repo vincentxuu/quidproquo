@@ -5,9 +5,17 @@ export interface SkillReadInput {
   name: string
 }
 
+interface SkillVersionRow {
+  name: string
+  description: string
+  body: string | null
+  body_r2_key: string | null
+  version_id: string
+}
+
 export const skillReadSyscall = defineSyscall<SkillReadInput, { name: string; description: string; content: string } | null>({
   name: 'skill.read',
-  description: 'Read a project skill (SKILL.md) by name. Returns frontmatter + body.',
+  description: 'Read a skill by name. Returns the published version body.',
   inputSchema: {
     type: 'object',
     required: ['name'],
@@ -26,20 +34,35 @@ export const skillReadSyscall = defineSyscall<SkillReadInput, { name: string; de
     try {
       const env = getEnv() as unknown as { DB?: D1Database; R2_AGENT_ARTIFACT?: R2Bucket }
       if (!env.DB) return { name, description: `skill ${name}`, content: `# ${name}\nstub (no DB)` }
-      const row = await env.DB.prepare('SELECT description, content, r2_key FROM user_skills WHERE name = ?')
-        .bind(name)
-        .first<{ description: string; content: string; r2_key: string | null }>()
-      if (!row) return null
 
-      if (row.r2_key && env.R2_AGENT_ARTIFACT) {
-        const obj = await env.R2_AGENT_ARTIFACT.get(row.r2_key)
-        if (obj) {
-          const content = await obj.text()
-          return { name, description: row.description, content }
+      // Try new schema first (skill + skill_version)
+      const row = await env.DB.prepare(`
+        SELECT sv.name, sv.description, sv.body, sv.body_r2_key, sv.id AS version_id
+        FROM skill s
+        JOIN skill_version sv ON sv.id = s.latest_version_id
+        WHERE s.slug = ? AND sv.status = 'published'
+      `).bind(name).first<SkillVersionRow>()
+
+      if (row) {
+        let content = row.body ?? ''
+        if (row.body_r2_key && env.R2_AGENT_ARTIFACT) {
+          const obj = await env.R2_AGENT_ARTIFACT.get(row.body_r2_key)
+          if (obj) content = await obj.text()
         }
+        return { name: row.name, description: row.description, content }
       }
 
-      return { name, description: row.description, content: row.content }
+      // Fallback: legacy user_skills table
+      const legacy = await env.DB.prepare('SELECT description, content, r2_key FROM user_skills WHERE name = ?')
+        .bind(name)
+        .first<{ description: string; content: string; r2_key: string | null }>()
+      if (!legacy) return null
+
+      if (legacy.r2_key && env.R2_AGENT_ARTIFACT) {
+        const obj = await env.R2_AGENT_ARTIFACT.get(legacy.r2_key)
+        if (obj) return { name, description: legacy.description, content: await obj.text() }
+      }
+      return { name, description: legacy.description, content: legacy.content }
     } catch {
       return { name, description: `skill ${name}`, content: `# ${name}\nstub` }
     }
