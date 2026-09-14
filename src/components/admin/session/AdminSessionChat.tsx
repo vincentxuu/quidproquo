@@ -183,7 +183,7 @@ function ApprovalRow({
             <Button type="button" size="sm" onClick={() => onApprove(requestId, 'accept_auto')}>
               接受 + Auto mode
             </Button>
-            <Button type="button" size="sm" variant="danger" onClick={() => onApprove(requestId, 'reject')}>
+            <Button type="button" size="sm" variant="destructive" onClick={() => onApprove(requestId, 'reject')}>
               拒絕
             </Button>
           </>
@@ -192,7 +192,7 @@ function ApprovalRow({
             <Button type="button" size="sm" onClick={() => onApprove(requestId, 'allow')}>
               允許
             </Button>
-            <Button type="button" size="sm" variant="danger" onClick={() => onApprove(requestId, 'deny')}>
+            <Button type="button" size="sm" variant="destructive" onClick={() => onApprove(requestId, 'deny')}>
               拒絕
             </Button>
           </>
@@ -550,7 +550,7 @@ export function AdminSessionChat({
             <Share2 className="size-4" />
             分享
           </Button>
-          <Button type="button" variant="danger" onClick={actions.delete}>
+          <Button type="button" variant="destructive" onClick={actions.delete}>
             <Trash2 className="size-4" />
             刪除
           </Button>

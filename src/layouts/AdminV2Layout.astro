@@ -198,6 +198,42 @@ const sectionLabels: Record<string, string> = {
     <main class:list={['admin-main', { 'home-mode': isHome }]}>
       {isHome ? (
         <div class="home-layout">
+          <div class="home-mobile-header">
+            <details class="mobile-nav">
+              <summary class="mobile-nav-trigger" aria-label="選單">
+                <Icons name="list" size={18} />
+                <span>選單</span>
+              </summary>
+              <div class="mobile-nav-panel">
+                <a href="/admin" class="mobile-nav-item active">
+                  <span class="new-session-plus-sm">+</span>
+                  New
+                </a>
+                {[...chatNavItems, ...adminNavItems].map(item => (
+                  <a
+                    href={item.href}
+                    class:list={['mobile-nav-item', { active: isActive(item.key) }]}
+                    aria-current={isActive(item.key) ? 'page' : undefined}
+                  >
+                    <Icons name={item.icon} size={16} />
+                    {item.label}
+                  </a>
+                ))}
+                <div class="mobile-nav-actions">
+                  <a href="/" class="mobile-nav-item">
+                    <Icons name="home" size={16} />
+                    回到網站
+                  </a>
+                  <form method="POST" action="/api/auth/logout">
+                    <button type="submit" class="mobile-nav-item mobile-nav-button">
+                      <Icons name="log-out" size={16} />
+                      登出
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </details>
+          </div>
           <div class="home-greeting">
             <slot />
           </div>
@@ -905,6 +941,13 @@ const sectionLabels: Record<string, string> = {
     background: var(--brand-50);
   }
 
+  /* ── Home mobile header ── */
+
+  .home-mobile-header {
+    display: none;
+    padding: 0.75rem 1rem;
+  }
+
   /* ── Mobile nav ── */
 
   .mobile-nav {
@@ -1114,6 +1157,10 @@ const sectionLabels: Record<string, string> = {
 
     .admin-sidebar {
       display: none;
+    }
+
+    .home-mobile-header {
+      display: block;
     }
 
     .mobile-nav {
