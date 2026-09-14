@@ -365,7 +365,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
     <AdminState tone="error">無法載入費用資料。</AdminState>
   )}
   {!loadError && (
-    <>
+    <Fragment>
       <div class="grid grid-cols-4 gap-3 mb-4 max-[900px]:grid-cols-2 max-[480px]:grid-cols-1">
         <AdminMetric label="近 24 小時" value={formatCost(cost24h)} id="metric-24h" />
         <AdminMetric label="近 7 天" value={formatCost(cost7d)} />
@@ -598,7 +598,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
           </AdminPanel>
         </div>
       </div>
-    </>
+    </Fragment>
   )}
 </AdminV2Layout>
 

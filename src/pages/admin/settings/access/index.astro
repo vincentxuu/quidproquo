@@ -245,15 +245,15 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
                           >
                             <input type="hidden" name="redirect" value="/admin/rbac?tab=users" />
                             {u.disabled_at ? (
-                              <>
+                              <Fragment>
                                 <input type="hidden" name="action" value="enable" />
                                 <button type="submit" class="inline-flex min-h-[2.75rem] items-center justify-center rounded-lg border border-border bg-card px-3 text-xs font-bold hover:bg-muted max-sm:w-full" aria-label={`重新啟用 ${u.email}`}>啟用</button>
-                              </>
+                              </Fragment>
                             ) : (
-                              <>
+                              <Fragment>
                                 <input type="hidden" name="action" value="disable" />
                                 <button type="submit" class="inline-flex min-h-[2.75rem] items-center justify-center rounded-lg border border-red-600 bg-red-50 px-3 text-xs font-bold text-red-700 hover:bg-red-100 max-sm:w-full" aria-label={`停用 ${u.email}`}>停用</button>
-                              </>
+                              </Fragment>
                             )}
                           </form>
                           <form
