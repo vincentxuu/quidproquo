@@ -5,10 +5,12 @@ import { createKernel } from '../../lib/agent/kernel'
 import { createSessionManager } from '../../lib/agent/session-manager'
 import type { SessionEvent } from '../../lib/agent/events'
 import { fromSessionEvent } from '../../lib/agent/events'
-import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { invokeModel } from '../../lib/retrieval/model'
+import { AIMessage, HumanMessage, SystemMessage, ToolMessage } from '@langchain/core/messages'
+import type { BaseMessageLike } from '@langchain/core/messages'
+import { createRawModel, type ProviderApiKeys } from '../../lib/retrieval/model'
 import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
 import { initialState, type RagRuntimeConfig } from '../../lib/retrieval/state'
+import { listDefaultSyscalls } from '../../lib/agent/tools/register-defaults'
 import { SandboxProvider } from '../../lib/agent/runner/sandbox'
 import type { RunnerHandle } from '../../lib/agent/runner/types'
 import { resolveCloneUrl } from '../../lib/github/app'
@@ -158,6 +160,83 @@ async function buildRepoContext(runner: RunnerHandle, repo: string, branch?: str
     '--- Entry files ---',
     docsText || 'No common entry files found.',
   ].join('\n'), 18_000)
+}
+
+function loopMessageToLangChain(m: LoopMessage): BaseMessageLike {
+  if (m.role === 'user') return new HumanMessage(m.content)
+  if (m.role === 'tool_result' && m.toolCallId) return new ToolMessage({ content: m.content, tool_call_id: m.toolCallId })
+  if (m.role === 'assistant') {
+    if (m.toolCalls?.length) {
+      return new AIMessage({
+        content: m.content || '',
+        tool_calls: m.toolCalls.map((tc) => ({
+          id: tc.id,
+          name: tc.name,
+          args: (typeof tc.input === 'object' && tc.input !== null ? tc.input : {}) as Record<string, unknown>,
+        })),
+      })
+    }
+    return new AIMessage({ content: m.content })
+  }
+  return new SystemMessage(m.content)
+}
+
+type LangChainToolDef = { type: 'function'; function: { name: string; description: string; parameters: Record<string, unknown> } }
+
+function buildToolDefinitions(): LangChainToolDef[] {
+  return listDefaultSyscalls().map((syscall) => ({
+    type: 'function' as const,
+    function: {
+      name: syscall.name,
+      description: syscall.description,
+      parameters: syscall.inputSchema as Record<string, unknown>,
+    },
+  }))
+}
+
+type ToolCallResult = { id: string; name: string; input: unknown }
+
+interface ModelInvokeResult {
+  content: string
+  toolCalls?: ToolCallResult[]
+  stopReason: string
+}
+
+async function invokeModelWithTools(
+  modelConfig: RagRuntimeConfig,
+  apiKeys: ProviderApiKeys,
+  lcMessages: BaseMessageLike[],
+  toolDefs: LangChainToolDef[],
+): Promise<ModelInvokeResult> {
+  const route = {
+    provider: modelConfig.defaultProvider,
+    model: modelConfig.defaultModel,
+    fallback: false,
+  }
+  const rawModel = createRawModel(4096, { route, apiKeys })
+
+  let model = rawModel
+  if (toolDefs.length > 0 && typeof rawModel.bindTools === 'function') {
+    model = rawModel.bindTools(toolDefs) as typeof rawModel
+  }
+
+  const response = await model.invoke(lcMessages as Parameters<typeof model.invoke>[0])
+  const aiMsg = response as unknown as AIMessage
+
+  const content = stringifyModelContent(aiMsg.content)
+  const rawCalls = (aiMsg as unknown as { tool_calls?: Array<{ id?: string; name: string; args: Record<string, unknown> }> }).tool_calls
+  if (rawCalls && rawCalls.length > 0) {
+    return {
+      content,
+      toolCalls: rawCalls.map((tc) => ({
+        id: tc.id || `call_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+        name: tc.name,
+        input: tc.args,
+      })),
+      stopReason: 'tool_use',
+    }
+  }
+  return { content, stopReason: 'stop' }
 }
 
 export class AgentSessionDO extends DurableObject<Env> {
@@ -343,7 +422,7 @@ export class AgentSessionDO extends DurableObject<Env> {
       sessionId: session.id,
       model: options.model ?? session.model ?? 'default',
       mode: options.mode ?? (session.mode as 'auto' | 'default' | 'plan') ?? 'auto',
-      tools: [],
+      tools: listDefaultSyscalls().map((s) => s.name),
     }
     await this.persistEventToD1(session.id, initEvent)
     this.broadcast(initEvent)
@@ -365,8 +444,8 @@ export class AgentSessionDO extends DurableObject<Env> {
     const kernel = createKernel(this.env)
     const modelConfig = resolveModelConfig(options.model)
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
-    const toBaseMessage = (m: LoopMessage) =>
-      m.role === 'user' ? new HumanMessage(m.content) : new SystemMessage(m.content)
+    const toolDefs = buildToolDefinitions()
+    const toBaseMessage = loopMessageToLangChain
     let runner: RunnerHandle | undefined
     let repoContext = ''
 
@@ -394,13 +473,12 @@ export class AgentSessionDO extends DurableObject<Env> {
           runner,
           modelInvoke: async (msgs) => {
             try {
-              const lcMessages = [
+              const lcMessages: BaseMessageLike[] = [
                 ...(skillContext ? [new SystemMessage(`Skill ${options.skill}:\n${skillContext}`)] : []),
                 ...(repoContext ? [new SystemMessage(repoContext)] : []),
                 ...msgs.map(toBaseMessage),
               ]
-              const res = await invokeModel(modelConfig, 'console', lcMessages, 512, apiKeys)
-              return { content: stringifyModelContent(res.response.content), stopReason: 'stop' }
+              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs)
             } catch (e) {
               const msg = e instanceof Error ? e.message : String(e)
               return { content: `model error: ${msg} (skill: ${options.skill ?? 'none'})`, stopReason: 'stop' }
@@ -442,13 +520,13 @@ export class AgentSessionDO extends DurableObject<Env> {
     await mgr.transition(session.id, 'running')
 
     const historyRows = await this.env.DB.prepare(
-      'SELECT role, content_json FROM agent_messages WHERE session_id = ? ORDER BY seq',
+      'SELECT role, content_json, tool_call_id, tool_name FROM agent_messages WHERE session_id = ? ORDER BY seq',
     )
       .bind(sessionId)
-      .all<{ role: string; content_json: string }>()
+      .all<{ role: string; content_json: string; tool_call_id: string | null; tool_name: string | null }>()
 
     const history: LoopMessage[] = (historyRows.results ?? []).map((row) => ({
-      role: row.role as 'user' | 'assistant',
+      role: row.role as 'user' | 'assistant' | 'tool_result',
       content: (() => {
         try {
           const parsed = JSON.parse(row.content_json)
@@ -457,6 +535,8 @@ export class AgentSessionDO extends DurableObject<Env> {
           return row.content_json
         }
       })(),
+      ...(row.tool_call_id ? { toolCallId: row.tool_call_id } : {}),
+      ...(row.tool_name ? { toolName: row.tool_name } : {}),
     }))
 
     const userMsg: LoopMessage = { role: 'user', content: message }
@@ -470,8 +550,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     const kernel = createKernel(this.env)
     const modelConfig = resolveModelConfig(session.model ?? undefined)
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
-    const toBaseMessage = (m: LoopMessage) =>
-      m.role === 'user' ? new HumanMessage(m.content) : new SystemMessage(m.content)
+    const toolDefs = buildToolDefinitions()
 
     try {
       await runLoop(
@@ -482,9 +561,8 @@ export class AgentSessionDO extends DurableObject<Env> {
           kv: this.env.SESSION,
           modelInvoke: async (msgs) => {
             try {
-              const lcMessages = msgs.map(toBaseMessage)
-              const res = await invokeModel(modelConfig, 'console', lcMessages, 512, apiKeys)
-              return { content: stringifyModelContent(res.response.content), stopReason: 'stop' }
+              const lcMessages: BaseMessageLike[] = msgs.map(loopMessageToLangChain)
+              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs)
             } catch (e) {
               const msg = e instanceof Error ? e.message : String(e)
               return { content: `model error: ${msg}`, stopReason: 'stop' }

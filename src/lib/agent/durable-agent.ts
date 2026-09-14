@@ -22,6 +22,7 @@ export type LoopMessage = {
   content: string
   toolCallId?: string
   toolName?: string
+  toolCalls?: Array<{ id: string; name: string; input: unknown }>
 }
 
 export type LoopState = {
@@ -152,7 +153,11 @@ export async function runLoop(
     state.turnCount++
     const res = await deps.modelInvoke(state.messages)
 
-    const assistantMsg: LoopMessage = { role: 'assistant', content: res.content }
+    const assistantMsg: LoopMessage = {
+      role: 'assistant',
+      content: res.content,
+      ...(res.toolCalls?.length ? { toolCalls: res.toolCalls } : {}),
+    }
     state.messages.push(assistantMsg)
     await deps.persistMessage(assistantMsg)
 
