@@ -538,36 +538,36 @@ export function AdminSessionChat({
   return (
     <div className="flex h-full flex-col overflow-hidden bg-[var(--admin-surface)]">
       {/* Compact header */}
-      <div className="flex items-center gap-3 border-b border-[var(--admin-border)] px-4 py-2.5">
-        <div className="flex min-w-0 flex-1 items-center gap-2.5">
-          <h2 className="truncate text-sm font-semibold text-[var(--admin-text)]">{sessionName}</h2>
+      <div className="flex items-center gap-2 border-b border-[var(--admin-border)] px-3 py-2 sm:px-4 sm:py-2.5">
+        <div className="flex min-w-0 flex-1 items-center gap-2 overflow-hidden">
+          <h2 className="hidden truncate text-sm font-semibold text-[var(--admin-text)] sm:block">{sessionName}</h2>
           <Badge variant={badgeVariant(sessionStatus)} className="shrink-0">{sessionStatus}</Badge>
           {sessionModel ? (
-            <span className="inline-flex shrink-0 items-center gap-1 rounded-md bg-[var(--admin-color-surface-subtle)] px-2 py-0.5 text-xs text-[var(--admin-text-muted)]">
-              <Cpu className="size-3" />
-              {sessionModel.includes(':') ? sessionModel.split(':').pop() : sessionModel}
+            <span className="hidden items-center gap-1 truncate rounded-md bg-[var(--admin-color-surface-subtle)] px-2 py-0.5 text-xs text-[var(--admin-text-muted)] sm:inline-flex">
+              <Cpu className="size-3 shrink-0" />
+              <span className="truncate">{sessionModel.includes(':') ? sessionModel.split(':').pop() : sessionModel}</span>
             </span>
           ) : null}
           <StatusIndicator state={statusIndicator.state} message={statusIndicator.message} />
         </div>
-        <div className="flex shrink-0 items-center gap-1.5">
+        <div className="flex shrink-0 items-center gap-1">
           {running ? (
-            <Button type="button" variant="outline" size="sm" onClick={actions.stop}>
-              <Square className="size-3.5" />
-              停止
+            <Button type="button" variant="outline" size="sm" className="h-7 gap-1 px-2 text-xs" onClick={actions.stop}>
+              <Square className="size-3" />
+              <span className="hidden sm:inline">停止</span>
             </Button>
           ) : null}
-          <Button type="button" variant="ghost" size="sm" onClick={handleDiff}>
-            <FileDiff className="size-3.5" />
-            Diff
-          </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button type="button" variant="ghost" size="icon" className="size-8">
+              <Button type="button" variant="ghost" size="icon" className="size-7">
                 <MoreHorizontal className="size-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={handleDiff}>
+                <FileDiff />
+                Diff
+              </DropdownMenuItem>
               <DropdownMenuItem onClick={actions.rename}>
                 <Pencil />
                 重新命名

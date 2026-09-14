@@ -37,8 +37,8 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
     .first<{ next: number }>()
 
   await db
-    .prepare('INSERT INTO agent_messages (session_id, seq, role, content_json) VALUES (?, ?, ?, ?)')
-    .bind(id, nextSeq?.next ?? 1, 'user', JSON.stringify({ text: message }))
+    .prepare('INSERT INTO agent_messages (session_id, seq, role, content_json, created_at) VALUES (?, ?, ?, ?, ?)')
+    .bind(id, nextSeq?.next ?? 1, 'user', JSON.stringify({ text: message }), Date.now())
     .run()
 
   await mgr.resume(id, message)
