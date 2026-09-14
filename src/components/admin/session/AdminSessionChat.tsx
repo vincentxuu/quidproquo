@@ -405,11 +405,10 @@ export function AdminSessionChat({
 
     source.onerror = () => {
       source.close()
+      if (!isRunningStatus(sessionStatusRef.current)) return
       void loadSession()
-      if (isRunningStatus(sessionStatusRef.current)) {
-        setStatusIndicator({ state: 'working', message: '重新連線中...' })
-        window.setTimeout(connectSSE, 2000)
-      }
+      setStatusIndicator({ state: 'working', message: '重新連線中...' })
+      window.setTimeout(connectSSE, 3000)
     }
   }, [appendEvent, loadSession, sessionId])
 
@@ -463,18 +462,27 @@ export function AdminSessionChat({
   const handleResume = useCallback(async (messageText: string) => {
     const message = messageText.trim()
     if (!message) return
+
+    appendEvent('user', { content: message }, undefined, `user:resume:${Date.now()}`)
+
     try {
-      await fetch(`/api/admin/sessions/${encodeURIComponent(sessionId)}/resume`, {
+      const res = await fetch(`/api/admin/sessions/${encodeURIComponent(sessionId)}/resume`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
       })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({})) as Record<string, unknown>
+        setStatusIndicator({ state: 'error', message: asString(data.error, `Resume failed (${res.status})`) })
+        return
+      }
       updateStatus('running')
+      setStatusIndicator({ state: 'working', message: 'Agent 正在處理...' })
       connectSSE()
     } catch {
       setStatusIndicator({ state: 'error', message: 'Resume failed' })
     }
-  }, [connectSSE, sessionId, updateStatus])
+  }, [appendEvent, connectSSE, sessionId, updateStatus])
 
   const actions = useMemo(() => ({
     stop: async () => {
