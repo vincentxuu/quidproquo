@@ -1,0 +1,422 @@
+
+> quidproquo@0.0.1 astro /Users/xiaoxu/Projects/quidproquo
+> astro check
+
+21:59:37 [@astrojs/cloudflare] Enabling image processing with Cloudflare Images for production with the "IMAGES" Images binding.
+21:59:37 [@astrojs/cloudflare] Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+Using secrets defined in .dev.vars
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mAI bindings always access remote resources, and so may incur usage charges even in local dev. To suppress this warning, set `remote: true` for the binding definition in your configuration file.[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mAI Search Instance bindings always access remote resources, and so may incur usage charges even in local dev. To suppress this warning, set `remote: true` for the binding definition in your configuration file.[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mVectorize Index bindings do not support local development, and so parts of your Worker may not work correctly. You can set `remote: true` for the binding definition in your configuration file to access a remote version of the resource.[0m
+
+
+Using secrets defined in .dev.vars
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mAI bindings always access remote resources, and so may incur usage charges even in local dev. To suppress this warning, set `remote: true` for the binding definition in your configuration file.[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mAI Search Instance bindings always access remote resources, and so may incur usage charges even in local dev. To suppress this warning, set `remote: true` for the binding definition in your configuration file.[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mVectorize Index bindings do not support local development, and so parts of your Worker may not work correctly. You can set `remote: true` for the binding definition in your configuration file to access a remote version of the resource.[0m
+
+
+21:59:39 [vite] A DurableObjectNamespace in the config referenced the class "AgentSessionDO", but no such Durable Object class is exported from the worker. Please make sure the class name matches, it is exported, and the class extends 'DurableObject'. Attempts to call to this Durable Object class will fail at runtime, but historically this was not a startup-time error. Future versions of workerd may make this a startup-time error.
+21:59:39 [vite] Re-optimizing dependencies because vite config has changed
+21:59:39 [vite] Re-optimizing dependencies because vite config has changed
+21:59:40 [content] Syncing content
+21:59:43 [content] Synced content
+21:59:43 [types] Generated 5.94s
+21:59:43 [check] Getting diagnostics for Astro files in /Users/xiaoxu/Projects/quidproquo...
+[96msrc/components/assistant-ui/thread.tsx[0m:[93m63[0m:[93m29[0m - [93mwarning[0m[90m ts(6385): [0m'Empty' is deprecated.
+
+[7m63[0m           </ThreadPrimitive.Empty>
+[7m  [0m [93m                            ~~~~~[0m
+[96msrc/components/assistant-ui/thread.tsx[0m:[93m61[0m:[93m28[0m - [93mwarning[0m[90m ts(6385): [0m'Empty' is deprecated.
+
+[7m61[0m           <ThreadPrimitive.Empty>
+[7m  [0m [93m                           ~~~~~[0m
+[96msrc/components/assistant-ui/thread.tsx[0m:[93m54[0m:[93m32[0m - [93mwarning[0m[90m ts(6385): [0m'fromThreadMessageLike' is deprecated.
+
+[7m54[0m     convertMessage: message => fromThreadMessageLike(message, message.id || crypto.randomUUID(), { type: 'complete', reason: 'stop' }),
+[7m  [0m [93m                               ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/assistant-ui/thread.tsx[0m:[93m6[0m:[93m3[0m - [93mwarning[0m[90m ts(6385): [0m'fromThreadMessageLike' is deprecated.
+
+[7m6[0m   fromThreadMessageLike,
+[7m [0m [93m  ~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/lib/gatelane.ts[0m:[93m32[0m:[93m32[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@lanefoundry/gatelane-sdk/capture' or its corresponding type declarations.
+
+[7m32[0m       const mod = await import('@lanefoundry/gatelane-sdk/capture')
+[7m  [0m [91m                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/gatelane.ts[0m:[93m20[0m:[93m12[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@lanefoundry/gatelane-sdk/storage-http' or its corresponding type declarations.
+
+[7m20[0m     import('@lanefoundry/gatelane-sdk/storage-http').then(({ HttpStorage }) =>
+[7m  [0m [91m           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/gatelane.ts[0m:[93m19[0m:[93m10[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@lanefoundry/gatelane-sdk/storage' or its corresponding type declarations.
+
+[7m19[0m   import('@lanefoundry/gatelane-sdk/storage').then(({ setStorage }) =>
+[7m  [0m [91m         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/lib/agent/runner/sandbox.ts[0m:[93m44[0m:[93m23[0m - [93mwarning[0m[90m ts(6138): [0mProperty 'sandboxBinding' is declared but its value is never read.
+
+[7m44[0m   constructor(private sandboxBinding: unknown) {
+[7m  [0m [93m                      ~~~~~~~~~~~~~~[0m
+
+[96msrc/lib/digest/arxiv.ts[0m:[93m183[0m:[93m52[0m - [93mwarning[0m[90m ts(6133): [0m'today' is declared but its value is never read.
+
+[7m183[0m async function saveScreeningRecord(db: D1Database, today: string, decisions: ScreeningDecision[]): Promise<void> {
+[7m   [0m [93m                                                   ~~~~~[0m
+
+[96msrc/lib/digest/benchmark.ts[0m:[93m144[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'benchmarkId' is declared but its value is never read.
+
+[7m144[0m   benchmarkId: string,
+[7m   [0m [93m  ~~~~~~~~~~~[0m
+
+[96msrc/lib/digest/region.ts[0m:[93m17[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'_COUNTRY_TO_REGION' is declared but its value is never read.
+
+[7m17[0m const _COUNTRY_TO_REGION: Record<string, CanonicalRegion> = {
+[7m  [0m [93m      ~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/lib/evidence/conflict.ts[0m:[93m27[0m:[93m22[0m - [93mwarning[0m[90m ts(6138): [0mProperty 'store' is declared but its value is never read.
+
+[7m27[0m     private readonly store: EvidenceStore,
+[7m  [0m [93m                     ~~~~~[0m
+
+[96msrc/lib/flow/dsl/validate.ts[0m:[93m31[0m:[93m4[0m - [93mwarning[0m[90m ts(6385): [0m'(): ZodObject<{ kind: ZodString; step: ZodString; }, $loose>' is deprecated.
+
+[7m31[0m }).passthrough()
+[7m  [0m [93m   ~~~~~~~~~~~[0m
+[96msrc/lib/flow/dsl/validate.ts[0m:[93m26[0m:[93m4[0m - [93mwarning[0m[90m ts(6385): [0m'(): ZodObject<{ id: ZodString; type: ZodString; description: ZodOptional<ZodString>; }, $loose>' is deprecated.
+
+[7m26[0m }).passthrough()
+[7m  [0m [93m   ~~~~~~~~~~~[0m
+[96msrc/lib/flow/dsl/validate.ts[0m:[93m14[0m:[93m4[0m - [93mwarning[0m[90m ts(6385): [0m'(): ZodObject<{ id: ZodString; type: ZodString; }, $loose>' is deprecated.
+
+[7m14[0m }).passthrough()
+[7m  [0m [93m   ~~~~~~~~~~~[0m
+[96msrc/lib/flow/dsl/validate.ts[0m:[93m9[0m:[93m4[0m - [93mwarning[0m[90m ts(6385): [0m'(): ZodObject<{ name: ZodString; type: ZodString; required: ZodOptional<ZodBoolean>; default: ZodOptional<ZodUnknown>; }, $loose>' is deprecated.
+
+[7m9[0m }).passthrough()
+[7m [0m [93m   ~~~~~~~~~~~[0m
+
+[96msrc/lib/pipeline/job-store.ts[0m:[93m235[0m:[93m9[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+[7m235[0m   await updateJobStatus(db, id, 'dead_letter', {
+[7m   [0m [93m        ~~~~~~~~~~~~~~~[0m
+
+[96msrc/lib/pipeline/redirector.ts[0m:[93m12[0m:[93m15[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(id: string): PipelineDefinition | undefined' of 'getPipelineDefinition' is deprecated.
+
+[7m12[0m   const def = getPipelineDefinition(pipelineId)
+[7m  [0m [93m              ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/redirector.ts[0m:[93m1[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m1[0m import { getPipelineDefinition } from './registry'
+[7m [0m [93m         ~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/lib/pipeline/runner.ts[0m:[93m1532[0m:[93m10[0m - [93mwarning[0m[90m ts(80006): [0mThis may be converted to an async function.
+
+[7m1532[0m function withTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T> {
+[7m    [0m [93m         ~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m1520[0m:[93m15[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+[7m1520[0m         await updateJobStatus(db, jobId, 'failed', { error: message, failureReason: 'execution_failed' })
+[7m    [0m [93m              ~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m1482[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m1482[0m   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+[7m    [0m [93m                                            ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m1002[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m1002[0m   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+[7m    [0m [93m                                            ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m829[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m829[0m   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+[7m   [0m [93m                                            ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m624[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m624[0m   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+[7m   [0m [93m                                            ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m476[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m476[0m   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+[7m   [0m [93m                                            ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m407[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m407[0m   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+[7m   [0m [93m                                            ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m331[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m331[0m   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+[7m   [0m [93m                                            ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m215[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m215[0m   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+[7m   [0m [93m                                            ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m120[0m:[93m45[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m120[0m   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+[7m   [0m [93m                                            ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m112[0m:[93m9[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+[7m112[0m   await updateJobStatus(db, jobId, result.status, {
+[7m   [0m [93m        ~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m80[0m:[93m11[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+[7m80[0m     await updateJobStatus(db, jobId, 'failed', { error: 'Input/runtime guard failed', failureReason: 'guard_failed' })
+[7m  [0m [93m          ~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m63[0m:[93m9[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+[7m63[0m   await updateJobStatus(db, jobId, 'running')
+[7m  [0m [93m        ~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m62[0m:[93m23[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, definition: PipelineDefinition, input: Record<string, unknown>, requestedBy: string): Promise<string>' of 'createJob' is deprecated.
+
+[7m62[0m   const jobId = await createJob(db, definition, request.input, request.requestedBy)
+[7m  [0m [93m                      ~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m57[0m:[93m22[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(id: string): PipelineDefinition | undefined' of 'getPipelineDefinition' is deprecated.
+
+[7m57[0m   const definition = getPipelineDefinition(request.pipelineId)
+[7m  [0m [93m                     ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m37[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m37[0m import { getPipelineDefinition } from './registry'
+[7m  [0m [93m         ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m16[0m:[93m3[0m - [93mwarning[0m[90m ts(6385): [0m'updateJobStatus' is deprecated.
+
+[7m16[0m   updateJobStatus,
+[7m  [0m [93m  ~~~~~~~~~~~~~~~[0m
+[96msrc/lib/pipeline/runner.ts[0m:[93m11[0m:[93m3[0m - [93mwarning[0m[90m ts(6385): [0m'createJob' is deprecated.
+
+[7m11[0m   createJob,
+[7m  [0m [93m  ~~~~~~~~~[0m
+
+[96msrc/lib/pipeline/guards/input.ts[0m:[93m51[0m:[93m11[0m - [93mwarning[0m[90m ts(6133): [0m'_normalized' is declared but its value is never read.
+
+[7m51[0m     const _normalized = normalizeSlug(value)
+[7m  [0m [93m          ~~~~~~~~~~~[0m
+
+[96msrc/lib/providers/registry.ts[0m:[93m37[0m:[93m28[0m - [93mwarning[0m[90m ts(6133): [0m'db' is declared but its value is never read.
+
+[7m37[0m export async function boot(db: D1Database, backends: ProviderBackends): Promise<void> {
+[7m  [0m [93m                           ~~[0m
+
+[96msrc/lib/research/nodes/research.ts[0m:[93m50[0m:[93m13[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(): MessageType' of 'msg._getType' is deprecated.
+
+[7m50[0m     if (msg._getType() === 'tool') {
+[7m  [0m [93m            ~~~~~~~~[0m
+[96msrc/lib/research/nodes/research.ts[0m:[93m38[0m:[93m17[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(params: CreateReactAgentParams<AnnotationRoot<{ messages: BaseChannel<BaseMessage<MessageStructure<MessageToolSet>, MessageType>[], OverwriteValue<BaseMessage<MessageStructure<MessageToolSet>, MessageType>[]> | Messages, unknown>; }>, Record<...>, AnyAnnotationRoot>): CompiledStateGraph<...>' of 'createReactAgent' is deprecated.
+
+[7m38[0m   const agent = createReactAgent({
+[7m  [0m [93m                ~~~~~~~~~~~~~~~~[0m
+[96msrc/lib/research/nodes/research.ts[0m:[93m1[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'createReactAgent' is deprecated.
+
+[7m1[0m import { createReactAgent } from '@langchain/langgraph/prebuilt'
+[7m [0m [93m         ~~~~~~~~~~~~~~~~[0m
+
+[96msrc/lib/tool-registry/definitions/external-search.ts[0m:[93m1085[0m:[93m10[0m - [93mwarning[0m[90m ts(80006): [0mThis may be converted to an async function.
+
+[7m1085[0m function fetchWithTimeout(
+[7m    [0m [93m         ~~~~~~~~~~~~~~~~[0m
+
+[96msrc/lib/tool-registry/definitions/knowledge-github.ts[0m:[93m75[0m:[93m19[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(string: string): string' of 'unescape' is deprecated.
+
+[7m75[0m     content: btoa(unescape(encodeURIComponent(content))),
+[7m  [0m [93m                  ~~~~~~~~[0m
+
+[96msrc/pages/interview.astro[0m:[93m10[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m't' is declared but its value is never read.
+
+[7m10[0m const t = useTranslations('zh-TW');
+[7m  [0m [93m      ~[0m
+
+[96msrc/pages/login.astro[0m:[93m5[0m:[93m9[0m - [93mwarning[0m[90m ts(6133): [0m'next' is declared but its value is never read.
+
+[7m5[0m   const next = Astro.url.searchParams.get('next') || '/admin'
+[7m [0m [93m        ~~~~[0m
+
+[96msrc/pages/admin/flows/index.astro[0m:[93m216[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m216[0m <script define:vars={{ archiveFailed: t('flows.archiveFailed') }}>
+[7m   [0m [93m        ~~~~~~~~~~~[0m
+
+[96msrc/pages/admin/flows/new.astro[0m:[93m594[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'returnValue' is deprecated.
+
+[7m594[0m     event.returnValue = '';
+[7m   [0m [93m          ~~~~~~~~~~~[0m
+[96msrc/pages/admin/flows/new.astro[0m:[93m158[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m158[0m <script define:vars={{
+[7m   [0m [93m        ~~~~~~~~~~~[0m
+
+[96msrc/pages/admin/flows/[id]/index.astro[0m:[93m103[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m103[0m <script define:vars={{ lang, archiveFailed: t('flows.archiveFailed') }}>
+[7m   [0m [93m        ~~~~~~~~~~~[0m
+
+[96msrc/pages/admin/settings/models/[id].astro[0m:[93m41[0m:[93m5[0m - [93mwarning[0m[90m ts(6133): [0m'loadError' is declared but its value is never read.
+
+[7m41[0m let loadError = false;
+[7m  [0m [93m    ~~~~~~~~~[0m
+
+[96msrc/pages/admin/settings/permissions/[policyKey].astro[0m:[93m87[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m87[0m <script define:vars={{
+[7m  [0m [93m        ~~~~~~~~~~~[0m
+
+[96msrc/pages/admin/settings/permissions/index.astro[0m:[93m213[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m213[0m <script define:vars={{
+[7m   [0m [93m        ~~~~~~~~~~~[0m
+
+[96msrc/pages/admin/settings/site/rag.astro[0m:[93m4[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'SUPPORTED_SEARCH_TOOL_PROVIDERS' is declared but its value is never read.
+
+[7m4[0m import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/api/search.ts[0m:[93m340[0m:[93m10[0m - [93mwarning[0m[90m ts(80006): [0mThis may be converted to an async function.
+
+[7m340[0m function withSourceTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T> {
+[7m   [0m [93m         ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/api/admin/sessions/[id]/resume.ts[0m:[93m33[0m:[93m9[0m - [93mwarning[0m[90m ts(6133): [0m'_now' is declared but its value is never read.
+
+[7m33[0m   const _now = Date.now()
+[7m  [0m [93m        ~~~~[0m
+
+[96msrc/pages/api/admin/site/jobs/[id].ts[0m:[93m206[0m:[93m26[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, request: PipelineRunRequest): Promise<{ jobId: string; status: string; }>' of 'runPipeline' is deprecated.
+
+[7m206[0m     const result = await runPipeline(db, {
+[7m   [0m [93m                         ~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/jobs/[id].ts[0m:[93m196[0m:[93m24[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(id: string): PipelineDefinition | undefined' of 'getPipelineDefinition' is deprecated.
+
+[7m196[0m     const definition = getPipelineDefinition(job.pipeline_id)
+[7m   [0m [93m                       ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/jobs/[id].ts[0m:[93m186[0m:[93m11[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+[7m186[0m     await updateJobStatus(db, id, 'cancelled', {
+[7m   [0m [93m          ~~~~~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/jobs/[id].ts[0m:[93m173[0m:[93m11[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+[7m173[0m     await updateJobStatus(db, id, 'succeeded', {
+[7m   [0m [93m          ~~~~~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/jobs/[id].ts[0m:[93m165[0m:[93m11[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+[7m165[0m     await updateJobStatus(db, id, 'cancelled', { output: 'Cancelled by admin action', error: 'cancelled' })
+[7m   [0m [93m          ~~~~~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/jobs/[id].ts[0m:[93m12[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'getPipelineDefinition' is deprecated.
+
+[7m12[0m import { getPipelineDefinition } from '../../../../../lib/pipeline/registry'
+[7m  [0m [93m         ~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/jobs/[id].ts[0m:[93m11[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'runPipeline' is deprecated.
+
+[7m11[0m import { runPipeline } from '../../../../../lib/pipeline/runner'
+[7m  [0m [93m         ~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/jobs/[id].ts[0m:[93m10[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'updateJobStatus' is deprecated.
+
+[7m10[0m import { updateJobStatus } from '../../../../../lib/pipeline/job-store'
+[7m  [0m [93m         ~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/api/admin/site/pipelines/index.ts[0m:[93m73[0m:[93m26[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, request: PipelineRunRequest): Promise<{ jobId: string; status: string; }>' of 'runPipeline' is deprecated.
+
+[7m73[0m     const result = await runPipeline(db, {
+[7m  [0m [93m                         ~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/pipelines/index.ts[0m:[93m44[0m:[93m16[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(): PipelineDefinition[]' of 'listPipelines' is deprecated.
+
+[7m44[0m     pipelines: listPipelines(),
+[7m  [0m [93m               ~~~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/pipelines/index.ts[0m:[93m8[0m:[93m28[0m - [93mwarning[0m[90m ts(6385): [0m'runPipeline' is deprecated.
+
+[7m8[0m import { PipelineRunError, runPipeline } from '../../../../../lib/pipeline/runner'
+[7m [0m [93m                           ~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/pipelines/index.ts[0m:[93m6[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'listPipelines' is deprecated.
+
+[7m6[0m import { listPipelines } from '../../../../../lib/pipeline/registry'
+[7m [0m [93m         ~~~~~~~~~~~~~[0m
+
+[96msrc/pages/api/admin/site/pipelines/run.ts[0m:[93m27[0m:[93m26[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, request: PipelineRunRequest): Promise<{ jobId: string; status: string; }>' of 'runPipeline' is deprecated.
+
+[7m27[0m     const result = await runPipeline(db, {
+[7m  [0m [93m                         ~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/pipelines/run.ts[0m:[93m5[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'runPipeline' is deprecated.
+
+[7m5[0m import { runPipeline } from '../../../../../lib/pipeline/runner'
+[7m [0m [93m         ~~~~~~~~~~~[0m
+
+[96msrc/pages/api/admin/site/pipelines/scheduled.ts[0m:[93m43[0m:[93m26[0m - [93mwarning[0m[90m ts(6387): [0mThe signature '(db: D1Database, request: PipelineRunRequest): Promise<{ jobId: string; status: string; }>' of 'runPipeline' is deprecated.
+
+[7m43[0m     const result = await runPipeline(db, {
+[7m  [0m [93m                         ~~~~~~~~~~~[0m
+[96msrc/pages/api/admin/site/pipelines/scheduled.ts[0m:[93m5[0m:[93m28[0m - [93mwarning[0m[90m ts(6385): [0m'runPipeline' is deprecated.
+
+[7m5[0m import { PipelineRunError, runPipeline } from '../../../../../lib/pipeline/runner'
+[7m [0m [93m                           ~~~~~~~~~~~[0m
+
+[96msrc/pages/api/admin/webhooks/discord-interactions.ts[0m:[93m39[0m:[93m11[0m - [93mwarning[0m[90m ts(6133): [0m'_sm' is declared but its value is never read.
+
+[7m39[0m     const _sm = createSessionManager(e.DB)
+[7m  [0m [93m          ~~~[0m
+
+[96msrc/pages/daily/topics/[topic].astro[0m:[93m20[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m't' is declared but its value is never read.
+
+[7m20[0m const t = useTranslations('zh-TW');
+[7m  [0m [93m      ~[0m
+
+[96msrc/pages/daily/topics/index.astro[0m:[93m9[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m't' is declared but its value is never read.
+
+[7m9[0m const t = useTranslations('zh-TW');
+[7m [0m [93m      ~[0m
+
+[96msrc/pages/en/interview.astro[0m:[93m10[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m't' is declared but its value is never read.
+
+[7m10[0m const t = useTranslations('en');
+[7m  [0m [93m      ~[0m
+
+[96msrc/pages/en/daily/topics/[topic].astro[0m:[93m20[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m't' is declared but its value is never read.
+
+[7m20[0m const t = useTranslations('en');
+[7m  [0m [93m      ~[0m
+
+[96msrc/pages/en/daily/topics/index.astro[0m:[93m9[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m't' is declared but its value is never read.
+
+[7m9[0m const t = useTranslations('en');
+[7m [0m [93m      ~[0m
+
+[96msrc/server/agent-flow-workflow.ts[0m:[93m296[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'input' is declared but its value is never read.
+
+[7m296[0m   input: Record<string, unknown>,
+[7m   [0m [93m  ~~~~~[0m
+
+[96msrc/utils/content.ts[0m:[93m3[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'isPublishedAt' is declared but its value is never read.
+
+[7m3[0m import { isPublishedAt, isPublishedPostData } from './publishing';
+[7m [0m [93m         ~~~~~~~~~~~~~[0m
+
+Result (854 files): 
+- 3 errors
+- 0 warnings
+- 78 hints
+
+ ELIFECYCLE  Command failed with exit code 1.

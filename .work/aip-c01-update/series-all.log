@@ -1,0 +1,44 @@
+
+> quidproquo@0.0.1 check:series-order /Users/xiaoxu/Projects/quidproquo
+> node scripts/check-series-order.mjs
+
+[warn] AI Agent Arxiv Digest [en] — order 有缺號：97, 99（若系列尚未寫完可忽略）
+[warn] AI Agent Arxiv Digest [zh-TW] — order 有缺號：97, 99（若系列尚未寫完可忽略）
+[warn] AI Agent GitHub Digest [en] — order 有缺號：24（若系列尚未寫完可忽略）
+[warn] AI Agent GitHub Digest [zh-TW] — order 有缺號：24（若系列尚未寫完可忽略）
+[warn] AI Daily [en] — order 有缺號：4, 7, 9, 10, 22（若系列尚未寫完可忽略）
+[warn] AI Engineer Interview Daily [en] — order 有缺號：6, 7, 8, 9, 10, 11, 18（若系列尚未寫完可忽略）
+[warn] AI Engineer 面試日練 [en] — order 有缺號：5, 6, 12, 13, 14, 15, 16, 17（若系列尚未寫完可忽略）
+[warn] AI Engineer 面試日練 [zh-TW] — order 有缺號：6（若系列尚未寫完可忽略）
+[warn] AI Model Families [en] — order 有缺號：12, 13, 14, 15, 16, 17, 18（若系列尚未寫完可忽略）
+[warn] AI 日報 [en] — order 有缺號：5, 6, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21（若系列尚未寫完可忽略）
+[warn] AI 時代的技術選擇 [zh-TW] — order 有缺號：11（若系列尚未寫完可忽略）
+[warn] AI 模型家族 [en] — order 有缺號：2, 3, 4, 5, 6, 7, 8, 9, 10, 11（若系列尚未寫完可忽略）
+[warn] AI 頂會導讀 [en] — order 有缺號：14, 15, 16, 17（若系列尚未寫完可忽略）
+[warn] Claude Code Automation Guide [en] — order 有缺號：17, 18, 20, 21, 22, 23, 24, 25, 26, 27（若系列尚未寫完可忽略）
+[warn] Claude Code 自動化指南 [zh-TW] — order 有缺號：17, 18, 20, 21, 22, 23, 24, 25, 26, 27（若系列尚未寫完可忽略）
+[warn] Cloudflare AI Stack [en] — order 有缺號：2（若系列尚未寫完可忽略）
+[warn] Cloudflare AI Stack [zh-TW] — order 有缺號：2（若系列尚未寫完可忽略）
+[warn] Cloudflare 邊緣tech stack [zh-TW] — order 有缺號：9（若系列尚未寫完可忽略）
+[warn] Document Parsing in Practice [en] — order 有缺號：6, 8（若系列尚未寫完可忽略）
+[warn] Global AI and CS Course Maps [en] — order 有缺號：2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91（若系列尚未寫完可忽略）
+[warn] Global AI/CS Course Map [en] — order 有缺號：27（若系列尚未寫完可忽略）
+[warn] MIT 6.7960 導讀 (Fall 2024 OCW) [en] — order 有缺號：2, 4, 5, 6, 7（若系列尚未寫完可忽略）
+[warn] MIT 6.7960 導讀 (Fall 2024 OCW) [zh-TW] — order 有缺號：2, 4, 5, 6, 7（若系列尚未寫完可忽略）
+[warn] Product Builder 面試日練 [en] — order 有缺號：23（若系列尚未寫完可忽略）
+[warn] Product Builder 面試日練 [zh-TW] — order 有缺號：23（若系列尚未寫完可忽略）
+[warn] Search and Scraping in Practice [en] — order 有缺號：15（若系列尚未寫完可忽略）
+[warn] Technology Choices in the AI Era [en] — order 有缺號：11（若系列尚未寫完可忽略）
+[warn] The Cloudflare Edge Stack [en] — order 有缺號：9（若系列尚未寫完可忽略）
+[warn] 世界名校 AI／CS 課程地圖 [zh-TW] — order 有缺號：31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90（若系列尚未寫完可忽略）
+[warn] 從零訓練一個 LLM [en] — order 有缺號：5（若系列尚未寫完可忽略）
+[warn] 從零訓練一個 LLM [zh-TW] — order 有缺號：5（若系列尚未寫完可忽略）
+[warn] 文件解析實戰 [en] — order 有缺號：7（若系列尚未寫完可忽略）
+[warn] 文件解析實戰 [zh-TW] — order 有缺號：8（若系列尚未寫完可忽略）
+
+AI Model Tracker [zh-TW] — order 19 重複 2 次
+  src/content/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash.md
+  src/content/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash.md
+
+Summary: 1 blocking series order issue(s).
+ ELIFECYCLE  Command failed with exit code 1.

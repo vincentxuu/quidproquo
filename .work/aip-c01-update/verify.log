@@ -1,0 +1,190 @@
+
+> quidproquo@0.0.1 verify /Users/xiaoxu/Projects/quidproquo
+> node scripts/verify.mjs
+
+
+=== pnpm verify ===
+🔴 astro check (types)
+     22:00:37 [@astrojs/cloudflare] Enabling image processing with Cloudflare Images for production with the "IMAGES" Images binding.
+     22:00:37 [@astrojs/cloudflare] Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+     Using secrets defined in .dev.vars
+     Using secrets defined in .dev.vars
+     22:00:39 [vite] A DurableObjectNamespace in the config referenced the class "AgentSessionDO", but no such Durable Object class is exported from the worker. Please make sure the class name matches, it is exported, and the class extends 'DurableObject'. Attempts to call to this Durable Object class will fail at runtime, but historically this was not a startup-time error. Future versions of workerd may make this a startup-time error.
+     22:00:39 [content] Syncing content
+     22:00:41 [content] Synced content
+     22:00:41 [types] Generated 3.63s
+     22:00:41 [check] Getting diagnostics for Astro files in /Users/xiaoxu/Projects/quidproquo...
+     [96msrc/components/assistant-ui/thread.tsx[0m:[93m63[0m:[93m29[0m - [93mwarning[0m[90m ts(6385): [0m'Empty' is deprecated.
+     
+     [7m63[0m           </ThreadPrimitive.Empty>
+     [7m  [0m [93m                            ~~~~~[0m
+     [96msrc/components/assistant-ui/thread.tsx[0m:[93m61[0m:[93m28[0m - [93mwarning[0m[90m ts(6385): [0m'Empty' is deprecated.
+     
+     [7m61[0m           <ThreadPrimitive.Empty>
+     [7m  [0m [93m                           ~~~~~[0m
+     [96msrc/components/assistant-ui/thread.tsx[0m:[93m54[0m:[93m32[0m - [93mwarning[0m[90m ts(6385): [0m'fromThreadMessageLike' is deprecated.
+     
+     [7m54[0m     convertMessage: message => fromThreadMessageLike(message, message.id || crypto.randomUUID(), { type: 'complete', reason: 'stop' }),
+     [7m  [0m [93m                               ~~~~~~~~~~~~~~~~~~~~~[0m
+     [96msrc/components/assistant-ui/thread.tsx[0m:[93m6[0m:[93m3[0m - [93mwarning[0m[90m ts(6385): [0m'fromThreadMessageLike' is deprecated.
+     
+     [7m6[0m   fromThreadMessageLike,
+     [7m [0m [93m  ~~~~~~~~~~~~~~~~~~~~~[0m
+     
+     [96msrc/lib/gatelane.ts[0m:[93m32[0m:[93m32[0m - [91merror[0m[90m ts(2307): [0mCannot find module '@lanefoundry/gatelane-sdk/capture' or its corresponding type declarations.
+     
+     [7m32[0m       const mod = await import('@lanefoundry/gatelane-sdk/capture')
+     [7m  [0m [91m                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+✅ lint (oxlint)
+🔴 check:references
+     > quidproquo@0.0.1 check:references /Users/xiaoxu/Projects/quidproquo
+     > node scripts/check-post-references.mjs
+     
+     
+     src/content/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark-en.md
+       [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+     
+     src/content/posts/ai/2026-08-25-coding-agent-startup-performance-discipline-en.md
+       [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+     
+     src/content/posts/ai/2026-08-25-coding-agent-startup-performance-discipline.md
+       [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+     
+     src/content/posts/ai/2026-08-25-coding-agent-verification-gate.md
+       [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+     
+     src/content/posts/ai/2026-08-26-open-source-llm-self-hosting-guide.md
+       [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+     
+     src/content/posts/ai/2026-08-26-understanding-ai-models-embedding.md
+       [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+     
+     src/content/posts/ai/2026-08-26-understanding-ai-models-gradient-descent-en.md
+       [WARN ] 參考資料可能不足：主題段落 8 個，但只有 2 個連結
+     
+     src/content/posts/ai/2026-08-26-understanding-ai-models-gradient-descent.md
+       [WARN ] 參考資料可能不足：主題段落 8 個，但只有 2 個連結
+     
+     src/content/posts/ai/2026-08-26-understanding-ai-models-series-intro.md
+       [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+🔴 check:post-quality
+     > quidproquo@0.0.1 check:post-quality /Users/xiaoxu/Projects/quidproquo
+     > node scripts/check-post-quality.mjs
+     
+     
+     src/content/posts/ai/2026-03-12-rag-failure-modes-en.md
+       [WARN] tag `troubleshooting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+     
+     src/content/posts/ai/2026-03-12-rag-failure-modes.md
+       [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+       [WARN] tag `troubleshooting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+     
+     src/content/posts/ai/2026-03-12-rag-guardrails.md
+       [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+     
+     src/content/posts/ai/2026-03-12-rag-observability-tools.md
+       [WARN] tag `monitoring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+     
+     src/content/posts/ai/2026-03-12-rag-observability-tracing-en.md
+       [WARN] tag `monitoring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+     
+     src/content/posts/ai/2026-03-12-rag-observability-tracing.md
+       [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+       [WARN] tag `monitoring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+     
+     src/content/posts/ai/2026-03-12-rag-token-quota-system.md
+       [WARN] tag `cost-control` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+     
+     src/content/posts/ai/2026-03-12-rag-vs-fine-tuning.md
+       [WARN] tag `comparison` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+     
+🔴 check:tw (台灣用語 A 級)
+     > quidproquo@0.0.1 check:tw /Users/xiaoxu/Projects/quidproquo
+     > node scripts/check-tw-terms.mjs
+     
+     
+     src/content/posts/ai/2026-03-12-bge-m3-embedding-model-selection.md
+       [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+     
+     src/content/posts/ai/2026-03-12-contextual-retrieval.md
+       [WARN]  信號 ×1 → 訊號（引述原文不用改）
+     
+     src/content/posts/ai/2026-03-14-rag-patterns-complete-guide.md
+       [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+     
+     src/content/posts/ai/2026-03-28-openclaw-tools-browser-search.md
+       [WARN]  貼標 ×1 → 貼上標籤（「貼標籤」本身沒問題）
+     
+     src/content/posts/ai/2026-04-02-agent-cli-kiro.md
+       [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+     
+     src/content/posts/ai/2026-04-03-react-agent-cache-design.md
+       [WARN]  運營 ×1 → 營運、經營（引述中國公司名不用改）
+     
+     src/content/posts/ai/2026-04-05-openharness-agent-infrastructure.md
+       [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+     
+     src/content/posts/ai/2026-04-13-llm-council-karpathy-intro.md
+       [WARN]  玩法 ×1 → 方式、模式（遊戲語境不用改）
+     
+     src/content/posts/ai/2026-04-18-github-copilot-coding-agent-guide.md
+       [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+✅ check:glossary
+🔴 check:series-order
+     > quidproquo@0.0.1 check:series-order /Users/xiaoxu/Projects/quidproquo
+     > node scripts/check-series-order.mjs
+     
+     [warn] AI Agent Arxiv Digest [en] — order 有缺號：97, 99（若系列尚未寫完可忽略）
+     [warn] AI Agent Arxiv Digest [zh-TW] — order 有缺號：97, 99（若系列尚未寫完可忽略）
+     [warn] AI Agent GitHub Digest [en] — order 有缺號：24（若系列尚未寫完可忽略）
+     [warn] AI Agent GitHub Digest [zh-TW] — order 有缺號：24（若系列尚未寫完可忽略）
+     [warn] AI Daily [en] — order 有缺號：4, 7, 9, 10, 22（若系列尚未寫完可忽略）
+     [warn] AI Engineer Interview Daily [en] — order 有缺號：6, 7, 8, 9, 10, 11, 18（若系列尚未寫完可忽略）
+     [warn] AI Engineer 面試日練 [en] — order 有缺號：5, 6, 12, 13, 14, 15, 16, 17（若系列尚未寫完可忽略）
+     [warn] AI Engineer 面試日練 [zh-TW] — order 有缺號：6（若系列尚未寫完可忽略）
+     [warn] AI Model Families [en] — order 有缺號：12, 13, 14, 15, 16, 17, 18（若系列尚未寫完可忽略）
+     [warn] AI 日報 [en] — order 有缺號：5, 6, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21（若系列尚未寫完可忽略）
+     [warn] AI 時代的技術選擇 [zh-TW] — order 有缺號：11（若系列尚未寫完可忽略）
+     [warn] AI 模型家族 [en] — order 有缺號：2, 3, 4, 5, 6, 7, 8, 9, 10, 11（若系列尚未寫完可忽略）
+     [warn] AI 頂會導讀 [en] — order 有缺號：14, 15, 16, 17（若系列尚未寫完可忽略）
+     [warn] Claude Code Automation Guide [en] — order 有缺號：17, 18, 20, 21, 22, 23, 24, 25, 26, 27（若系列尚未寫完可忽略）
+     [warn] Claude Code 自動化指南 [zh-TW] — order 有缺號：17, 18, 20, 21, 22, 23, 24, 25, 26, 27（若系列尚未寫完可忽略）
+     [warn] Cloudflare AI Stack [en] — order 有缺號：2（若系列尚未寫完可忽略）
+     [warn] Cloudflare AI Stack [zh-TW] — order 有缺號：2（若系列尚未寫完可忽略）
+     [warn] Cloudflare 邊緣tech stack [zh-TW] — order 有缺號：9（若系列尚未寫完可忽略）
+     [warn] Document Parsing in Practice [en] — order 有缺號：6, 8（若系列尚未寫完可忽略）
+     [warn] Global AI and CS Course Maps [en] — order 有缺號：2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91（若系列尚未寫完可忽略）
+     [warn] Global AI/CS Course Map [en] — order 有缺號：27（若系列尚未寫完可忽略）
+     [warn] MIT 6.7960 導讀 (Fall 2024 OCW) [en] — order 有缺號：2, 4, 5, 6, 7（若系列尚未寫完可忽略）
+     [warn] MIT 6.7960 導讀 (Fall 2024 OCW) [zh-TW] — order 有缺號：2, 4, 5, 6, 7（若系列尚未寫完可忽略）
+     [warn] Product Builder 面試日練 [en] — order 有缺號：23（若系列尚未寫完可忽略）
+     [warn] Product Builder 面試日練 [zh-TW] — order 有缺號：23（若系列尚未寫完可忽略）
+     [warn] Search and Scraping in Practice [en] — order 有缺號：15（若系列尚未寫完可忽略）
+     [warn] Technology Choices in the AI Era [en] — order 有缺號：11（若系列尚未寫完可忽略）
+🔴 check:lang-parity
+     > quidproquo@0.0.1 check:lang-parity /Users/xiaoxu/Projects/quidproquo
+     > node scripts/check-lang-parity.mjs
+     
+     
+     src/content/posts/ai/2026-08-18-aws-aip-c01-prep-guide.md
+       章節數差太多：zh 25 個標題 / en 14 個——通常是只改了一邊
+     
+     src/content/posts/ai/2026-08-18-aws-aip-c01-prep-guide.md
+       更新紀錄筆數不一致：zh 1 / en 0——一邊更新了，另一邊沒跟上
+     
+     src/content/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash.md
+       已發布的 daily / zh-TW 文章缺少英文版：src/content/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash-en.md
+     
+     src/content/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini.md
+       已發布的 daily / zh-TW 文章缺少英文版：src/content/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini-en.md
+     
+     Summary: 4 parity issue(s) across 1854 pair(s).
+      ELIFECYCLE  Command failed with exit code 1.
+✅ check:seo-smoke
+✅ skills-sync (.agents ↔ .claude)
+✅ daily-skill timezones
+✅ progress.txt protocol
+✅ durable_objects export
+✅ cron-entry imports
+=== verify: 6 check(s) failed — fix before commit ===
+ ELIFECYCLE  Command failed with exit code 1.

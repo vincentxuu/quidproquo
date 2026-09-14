@@ -1,0 +1,213 @@
+
+> quidproquo@0.0.1 check:references /Users/xiaoxu/Projects/quidproquo
+> node scripts/check-post-references.mjs
+
+
+src/content/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/ai/2026-08-25-coding-agent-startup-performance-discipline-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/ai/2026-08-25-coding-agent-startup-performance-discipline.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/ai/2026-08-25-coding-agent-verification-gate.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/ai/2026-08-26-open-source-llm-self-hosting-guide.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-embedding.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-gradient-descent-en.md
+  [WARN ] 參考資料可能不足：主題段落 8 個，但只有 2 個連結
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-gradient-descent.md
+  [WARN ] 參考資料可能不足：主題段落 8 個，但只有 2 個連結
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-series-intro.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/ai/2026-08-29-screenshot-to-code-agent-architecture-en.md
+  [WARN ] 參考資料可能不足：主題段落 8 個，但只有 1 個連結
+
+src/content/posts/ai/2026-08-29-screenshot-to-code-agent-architecture.md
+  [WARN ] 參考資料可能不足：主題段落 6 個，但只有 1 個連結
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-02-capture-intent-en.md
+  [WARN ] 參考資料可能不足：主題段落 12 個，但只有 3 個連結
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-02-capture-intent.md
+  [WARN ] 參考資料可能不足：主題段落 12 個，但只有 3 個連結
+
+src/content/posts/daily/2026-08-24-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-24-ai-interview-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-25-ai-agent-daily-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-25-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-27-ai-agent-daily-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-27-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-28-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-28-weekly-review.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-29-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-29-security-llmstxt-supply-chain.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-30-ai-agent-daily-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-30-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-30-ai-interview-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-31-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-08-31-ai-interview-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-01-ai-agent-daily-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-01-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-02-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-03-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-04-ai-interview-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-04-region-europe-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-04-region-middle-east-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-04-weekly-review-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-04-weekly-review.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-05-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-05-ai-interview-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-06-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-06-ai-interview-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-07-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-07-ai-interview-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-08-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-09-ai-agent-daily-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-09-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-10-ai-agent-daily-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-10-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-11-ai-agent-daily-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-11-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-11-ai-interview-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-11-region-oceania-en.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-12-ai-agent-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/daily/2026-09-12-ai-interview-daily.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/tech/2026-08-23-stock-agent-1-why-taiwan.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/tech/2026-08-23-stock-agent-8-execution-contracts.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug.md
+  [WARN ] 參考資料和標題/主要段落缺少明顯關鍵詞重疊，可能沒有覆蓋文章主題
+
+src/content/posts/tech/2026-08-31-omp-agent-loop-double-while-en.md
+  [WARN ] 參考資料可能不足：主題段落 9 個，但只有 1 個連結
+
+src/content/posts/tech/2026-08-31-omp-agent-loop-double-while.md
+  [WARN ] 參考資料可能不足：主題段落 6 個，但只有 1 個連結
+
+src/content/posts/tech/2026-08-31-omp-collab-wire-en.md
+  [WARN ] 參考資料可能不足：主題段落 6 個，但只有 1 個連結
+
+src/content/posts/tech/2026-08-31-omp-kdl-rule-tree-en.md
+  [WARN ] 參考資料可能不足：主題段落 9 個，但只有 1 個連結
+
+src/content/posts/tech/2026-08-31-omp-kdl-rule-tree.md
+  [WARN ] 參考資料可能不足：主題段落 7 個，但只有 1 個連結
+
+src/content/posts/tech/2026-08-31-omp-session-tree-en.md
+  [WARN ] 參考資料可能不足：主題段落 11 個，但只有 2 個連結
+
+src/content/posts/tech/2026-08-31-omp-session-tree.md
+  [WARN ] 參考資料可能不足：主題段落 9 個，但只有 2 個連結
+
+src/content/posts/tech/2026-08-31-omp-vs-looplane-en.md
+  [WARN ] 參考資料可能不足：主題段落 5 個，但只有 1 個連結
+
+src/content/posts/tech/2026-09-07-marker-document-parsing-en.md
+  [ERROR] 缺少 `參考資料` / `References` 區段
+  [ERROR] 站內連結指向不存在的文章：/posts/tech/2026-09-05-mineru-ocr-doc-parsing
+
+src/content/posts/tech/2026-09-07-marker-document-parsing.md
+  [ERROR] 缺少 `參考資料` / `References` 區段
+  [ERROR] 站內連結指向不存在的文章：/posts/tech/2026-09-05-mineru-ocr-doc-parsing
+
+Summary: 4 error(s), 66 warning(s), 68 file(s) with issues.
+ ELIFECYCLE  Command failed with exit code 1.

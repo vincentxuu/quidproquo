@@ -20,7 +20,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { ArrowUp, Check, ChevronsUpDown } from "lucide-react";
 
 interface CatalogModel {

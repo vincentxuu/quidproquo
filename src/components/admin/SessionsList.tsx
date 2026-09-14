@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";

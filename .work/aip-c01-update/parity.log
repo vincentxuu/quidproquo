@@ -1,0 +1,13 @@
+
+> quidproquo@0.0.1 check:lang-parity /Users/xiaoxu/Projects/quidproquo
+> node scripts/check-lang-parity.mjs
+
+
+src/content/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash.md
+  已發布的 daily / zh-TW 文章缺少英文版：src/content/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash-en.md
+
+src/content/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini.md
+  已發布的 daily / zh-TW 文章缺少英文版：src/content/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini-en.md
+
+Summary: 2 parity issue(s) across 1854 pair(s).
+ ELIFECYCLE  Command failed with exit code 1.

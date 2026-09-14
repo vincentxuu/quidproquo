@@ -3,7 +3,6 @@ import {
   ComposerPrimitive,
   MessagePrimitive,
   ThreadPrimitive,
-  fromThreadMessageLike,
   useExternalStoreRuntime,
   type AppendMessage,
   type ReasoningMessagePartProps,
@@ -51,16 +50,26 @@ export function AssistantThread({
     isRunning: running,
     isSendDisabled: running,
     onNew: handleNew,
-    convertMessage: message => fromThreadMessageLike(message, message.id || crypto.randomUUID(), { type: 'complete', reason: 'stop' }),
+    convertMessage: (message, idx) => ({
+      ...message,
+      id: message.id || `message-${idx}`,
+      status: message.status || { type: 'complete', reason: 'stop' },
+      metadata: message.metadata
+        ? {
+            ...message.metadata,
+            custom: message.metadata.custom || {},
+          }
+        : {
+            custom: {},
+          },
+    }),
   })
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
       <ThreadPrimitive.Root className="flex flex-1 flex-col overflow-hidden">
         <ThreadPrimitive.Viewport autoScroll className="flex-1 overflow-y-auto px-4 py-4 sm:px-6">
-          <ThreadPrimitive.Empty>
-            <p className="py-12 text-center text-sm text-[var(--admin-text-muted)]">連線中...</p>
-          </ThreadPrimitive.Empty>
+          {messages.length ? null : <p className="py-12 text-center text-sm text-[var(--admin-text-muted)]">連線中...</p>}
           <div className="mx-auto max-w-[760px]">
             <ThreadPrimitive.Messages components={{ UserMessage, AssistantMessage, SystemMessage }} />
           </div>

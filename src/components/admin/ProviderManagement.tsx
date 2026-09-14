@@ -7,7 +7,7 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible'
 import { Switch } from '@/components/ui/switch'
-import { cn } from 'cn'
+import { cn } from '@/lib/utils'
 import {
   ChevronRight,
   Loader2,
@@ -253,7 +253,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
     setTimeout(() => setCatalogStatus(''), 2400)
   }
 
-  async function handleAddModel(e: React.FormEvent) {
+  async function handleAddModel(e: { preventDefault: () => void }) {
     e.preventDefault()
     if (!addProvider || !addModel.trim()) { setCatalogStatus(m.modelRequired); return }
     const next: CatalogModel = {
@@ -502,7 +502,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
             const sync = syncMessages[provider]
 
             return (
-              <Collapsible key={provider} open={isOpen} onOpenChange={(open) => setOpenProviders(prev => { const n = new Set(prev); if (open) { n.add(provider) } else { n.delete(provider) } return n })}>
+              <Collapsible key={provider} open={isOpen} onOpenChange={(open: boolean) => setOpenProviders(prev => { const n = new Set(prev); if (open) { n.add(provider) } else { n.delete(provider) } return n })}>
                 <div className="rounded-lg border border-border bg-card overflow-hidden">
                   <CollapsibleTrigger asChild>
                     <button className="flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left hover:bg-muted/50">

@@ -1,0 +1,6 @@
+
+> quidproquo@0.0.1 lint /Users/xiaoxu/Projects/quidproquo
+> oxlint src/ --ignore-pattern '*.astro' --deny-warnings
+
+Found 0 warnings and 0 errors.
+Finished in 42ms on 694 files with 93 rules using 12 threads.

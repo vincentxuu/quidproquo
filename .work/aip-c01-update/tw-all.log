@@ -1,0 +1,728 @@
+
+> quidproquo@0.0.1 check:tw /Users/xiaoxu/Projects/quidproquo
+> node scripts/check-tw-terms.mjs
+
+
+src/content/posts/ai/2026-03-12-bge-m3-embedding-model-selection.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-03-12-contextual-retrieval.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+
+src/content/posts/ai/2026-03-14-rag-patterns-complete-guide.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/ai/2026-03-28-openclaw-tools-browser-search.md
+  [WARN]  貼標 ×1 → 貼上標籤（「貼標籤」本身沒問題）
+
+src/content/posts/ai/2026-04-02-agent-cli-kiro.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/ai/2026-04-03-react-agent-cache-design.md
+  [WARN]  運營 ×1 → 營運、經營（引述中國公司名不用改）
+
+src/content/posts/ai/2026-04-05-openharness-agent-infrastructure.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-04-13-llm-council-karpathy-intro.md
+  [WARN]  玩法 ×1 → 方式、模式（遊戲語境不用改）
+
+src/content/posts/ai/2026-04-18-github-copilot-coding-agent-guide.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/ai/2026-05-09-daodao-auto-dev-agent-build.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression.md
+  [WARN]  激活 ×2 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/ai/2026-05-10-fde-openai-anthropic-palantir-playbook.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/ai/2026-05-23-codegraph-code-knowledge-graph-mcp.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-06-04-machine-theory-of-mind-agent-intent-inference.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-06-06-llm-agent-skill-lifecycle.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-07-25-ai-web-scraping-tools-landscape.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-07-27-3d-modeling-tools-landscape.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-08-06-anydoc-rust-document-markdown.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-08-16-cs230-inside-the-model.md
+  [WARN]  激活 ×8 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/ai/2026-08-18-genai-cost-latency-exam-domains.md
+  [WARN]  激活 ×4 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide.md
+  [WARN]  激活 ×2 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/ai/2026-08-18-self-hosted-personal-agents-landscape.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-mlops.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-08-21-composio-agent-tool-integration.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-08-21-self-hosted-search-stack.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/ai/2026-08-22-cs124-week6-neural-networks-llms.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-08-22-cs224n-rnn-language-models.md
+  [WARN]  質量 ×1 → 品質（物理語境不用改）
+
+src/content/posts/ai/2026-08-22-galileo-llm-evaluation.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-08-22-helicone-llm-observability.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-08-22-langsmith-observability-evaluation.md
+  [WARN]  閉環 ×2 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-08-22-slack-code-multiplayer-coding.md
+  [WARN]  賽道 ×2 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-04-learning-deep-networks.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-08-23-what-is-ai-top-conference.md
+  [WARN]  智能 ×2 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+  [WARN]  界面 ×1 → 介面（生物、地質的「界面」不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-2021-ml.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+  [WARN]  頭部 ×1 → 頂尖、領先（解剖學/物理語境不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-2021-topics.md
+  [WARN]  智能 ×2 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-2023-cv.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-2023-ml.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-2023-topics.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-2024-topics.md
+  [WARN]  智能 ×2 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-2025-ml.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-2025-nlp.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-2025-topics.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-08-24-ai-conference-tracks-main-findings-db.md
+  [WARN]  賽道 ×3 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/ai/2026-08-25-agentic-reasoning-rag.md
+  [WARN]  質量 ×1 → 品質（物理語境不用改）
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-08-25-coding-agent-cli-ergonomics.md
+  [WARN]  玩法 ×1 → 方式、模式（遊戲語境不用改）
+
+src/content/posts/ai/2026-08-25-coding-agent-cross-session-memory.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-08-25-coding-agent-run-artifacts-contract.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-08-26-harvard-cs50-ai-guide.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-09-03-llm-dev-workflow-landscape.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-09-06-efficient-edge-llm-training.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-08-feedback-loop.md
+  [WARN]  信號 ×2 → 訊號（引述原文不用改）
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-13-metrics-loop.md
+  [WARN]  信號 ×3 → 訊號（引述原文不用改）
+  [WARN]  閉環 ×3 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-14-closing.md
+  [WARN]  閉環 ×2 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-course-guide.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/career/2026-08-06-drone-industry-job-map.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/career/2026-08-26-daily-dose-of-ds-creator-journey.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/career/2026-08-26-dense-discovery-deliberate-small.md
+  [WARN]  運營 ×2 → 營運、經營（引述中國公司名不用改）
+
+src/content/posts/career/2026-08-26-morning-brew-dorm-to-media-empire.md
+  [WARN]  運營 ×1 → 營運、經營（引述中國公司名不用改）
+
+src/content/posts/career/2026-08-26-one-person-media-company-overview.md
+  [WARN]  運營 ×1 → 營運、經營（引述中國公司名不用改）
+
+src/content/posts/career/2026-08-26-the-hustle-newsletter-to-saas-funnel.md
+  [WARN]  運營 ×2 → 營運、經營（引述中國公司名不用改）
+
+src/content/posts/career/2026-08-26-tldr-ad-powered-tech-digest.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-05-28-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-05-30-ai-agent-arxiv-digest.md
+  [WARN]  質量 ×1 → 品質（物理語境不用改）
+
+src/content/posts/daily/2026-06-01-ai-agent-arxiv-digest.md
+  [WARN]  信息 ×1 → 資訊（專有名詞如「信息工程大學」不用改）
+
+src/content/posts/daily/2026-06-05-ai-agent-arxiv-digest.md
+  [WARN]  反饋 ×2 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/daily/2026-06-08-ai-agent-arxiv-digest.md
+  [WARN]  反饋 ×6 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/daily/2026-06-10-ai-agent-arxiv-digest.md
+  [WARN]  反饋 ×2 → 回饋（控制理論的「反饋」不用改）
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-06-11-ai-agent-arxiv-digest.md
+  [WARN]  界面 ×1 → 介面（生物、地質的「界面」不用改）
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/daily/2026-06-13-ai-agent-arxiv-digest.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/daily/2026-06-17-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-06-18-ai-agent-arxiv-digest.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-06-19-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×3 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-06-20-ai-agent-arxiv-digest.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-06-21-ai-agent-arxiv-digest.md
+  [WARN]  運營 ×1 → 營運、經營（引述中國公司名不用改）
+
+src/content/posts/daily/2026-07-01-ai-agent-arxiv-digest.md
+  [WARN]  閉環 ×3 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-07-03-ai-agent-arxiv-digest.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-07-08-ai-agent-arxiv-digest.md
+  [WARN]  閉環 ×3 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-07-09-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-07-14-ai-agent-arxiv-digest.md
+  [WARN]  激活 ×9 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/daily/2026-07-16-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-07-17-ai-agent-arxiv-digest.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/daily/2026-07-23-ai-agent-arxiv-digest.md
+  [WARN]  賽道 ×2 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-07-24-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×3 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-07-26-ai-agent-arxiv-digest.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-07-27-ai-agent-arxiv-digest.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/daily/2026-07-28-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-08-04-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-08-08-ai-agent-arxiv-digest.md
+  [WARN]  反饋 ×2 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/daily/2026-08-16-ai-agent-arxiv-digest.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/daily/2026-08-16-funding-vals-ai.md
+  [WARN]  賽道 ×2 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-17-ai-agent-daily.md
+  [WARN]  賽道 ×3 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-18-ai-agent-daily.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-18-funding-higgsfield.md
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+  [WARN]  賽道 ×4 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-18-funding-wispr.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-19-ai-agent-daily.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+  [WARN]  賽道 ×4 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-19-funding-deep-fine.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-08-19-funding-trajectory.md
+  [WARN]  打法 ×2 → 做法、策略（口語/運動語境不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-21-ai-agent-daily.md
+  [WARN]  賽道 ×2 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-21-ai-interview-daily.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-21-funding-callosum.md
+  [WARN]  智能 ×3 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-08-21-funding-twin1-ai.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-21-region-china.md
+  [WARN]  打法 ×2 → 做法、策略（口語/運動語境不用改）
+  [WARN]  頭部 ×2 → 頂尖、領先（解剖學/物理語境不用改）
+
+src/content/posts/daily/2026-08-21-weekly-review.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-08-22-ai-agent-daily.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-23-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-08-23-ai-agent-daily.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-24-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-08-25-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/daily/2026-08-25-ai-agent-daily.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-08-25-funding-rundoo.md
+  [WARN]  打法 ×4 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-08-26-ai-agent-daily.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-26-ai-interview-daily.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-08-26-funding-stability-ai.md
+  [WARN]  賽道 ×2 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-26-product-builder-interview-daily.md
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-08-27-ai-agent-arxiv-digest.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-08-27-ai-agent-daily.md
+  [WARN]  賽道 ×5 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-27-ai-agent-github-digest.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-27-funding-runable.md
+  [WARN]  賽道 ×3 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing.md
+  [WARN]  打法 ×2 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-08-28-ai-agent-arxiv-digest.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-08-28-funding-deep-cogito.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-28-funding-instinct.md
+  [WARN]  賽道 ×2 → 領域、市場（賽車/運動語境不用改）
+  [WARN]  頭部 ×2 → 頂尖、領先（解剖學/物理語境不用改）
+
+src/content/posts/daily/2026-08-28-funding-keenable.md
+  [WARN]  賽道 ×4 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-28-region-china.md
+  [WARN]  打法 ×7 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-08-28-weekly-review.md
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+  [WARN]  賽道 ×3 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-29-funding-onyx-security.md
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+  [WARN]  賽道 ×2 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-29-funding-zenity.md
+  [WARN]  賽道 ×3 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-30-ai-agent-daily.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2.md
+  [WARN]  賽道 ×3 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-31-ai-agent-daily.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-08-31-ai-agent-github-digest.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-08-31-funding-owner.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-09-01-ai-agent-daily.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-02-funding-air-security.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  賽道 ×4 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-02-funding-tripo-ai.md
+  [WARN]  智能 ×3 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  賽道 ×2 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-02-security-metr-api-key-theft.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+
+src/content/posts/daily/2026-09-03-ai-agent-daily.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/daily/2026-09-03-funding-capacity.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+
+src/content/posts/daily/2026-09-03-funding-wonderful.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-03-model-meta-muse-voice-transcribe.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-04-ai-agent-arxiv-digest.md
+  [WARN]  鏈路 ×3 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/daily/2026-09-04-funding-conveo.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+  [WARN]  賽道 ×4 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-04-funding-hiddenlayer.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes.md
+  [WARN]  打法 ×2 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-09-04-region-japan-korea.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  打法 ×4 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-09-04-region-middle-east.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  運營 ×1 → 營運、經營（引述中國公司名不用改）
+
+src/content/posts/daily/2026-09-04-weekly-review.md
+  [WARN]  信號 ×2 → 訊號（引述原文不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-05-ai-agent-arxiv-digest.md
+  [WARN]  激活 ×12 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/daily/2026-09-05-ai-agent-daily.md
+  [WARN]  激活 ×1 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/daily/2026-09-05-funding-gimlet-labs.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+
+src/content/posts/daily/2026-09-07-ai-agent-arxiv-digest.md
+  [WARN]  激活 ×4 → 啟用（機器學習的 activation 不用改）
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/daily/2026-09-07-funding-atira.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  賽道 ×3 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-08-ai-agent-daily.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-09-ai-agent-daily.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-09-ai-interview-daily.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/daily/2026-09-09-funding-cognition.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  賽道 ×3 → 領域、市場（賽車/運動語境不用改）
+  [WARN]  頭部 ×1 → 頂尖、領先（解剖學/物理語境不用改）
+
+src/content/posts/daily/2026-09-10-ai-agent-daily.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  賽道 ×3 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-10-funding-cymphony.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-10-funding-harvey.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+  [WARN]  賽道 ×5 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-10-product-builder-interview-daily.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+
+src/content/posts/daily/2026-09-11-funding-clay.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-11-funding-euno.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash.md
+  [ERROR] 用戶 ×1 → 使用者
+
+src/content/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini.md
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-09-11-region-india-south-asia.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/daily/2026-09-11-region-oceania.md
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/daily/2026-09-12-ai-agent-daily.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/daily/2026-09-12-funding-mistral.md
+  [WARN]  信號 ×2 → 訊號（引述原文不用改）
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/learning/2026-08-06-hybrid-paper-digital-learning.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/learning/2026-08-21-cmu-ai-ml-course-map.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters.md
+  [WARN]  質量 ×1 → 品質（物理語境不用改）
+
+src/content/posts/learning/2026-08-22-cs107-unix-and-c.md
+  [WARN]  閉環 ×2 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/learning/2026-08-22-harvard-ai-ml-course-map.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/learning/2026-08-22-stanford-cs111-lecture-03-dispatching-context-switch.md
+  [WARN]  閉環 ×3 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/marketing/2026-04-23-akiraxclaw-content-model.md
+  [WARN]  信息 ×1 → 資訊（專有名詞如「信息工程大學」不用改）
+
+src/content/posts/policy/2026-08-07-caa-drone-exam-question-bank.md
+  [WARN]  鏈路 ×4 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/policy/2026-08-08-drone-cybersecurity-testing-spec.md
+  [WARN]  鏈路 ×6 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/product/2026-03-12-daodao-product-design.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/product/2026-08-20-product-builder-interview-behavioral.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/product/2026-08-20-product-builder-interview-execution.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/product/2026-08-20-product-builder-interview-technical-pm.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+
+src/content/posts/tech/2026-03-31-gemini-cli-google-terminal-agent.md
+  [WARN]  賽道 ×2 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/tech/2026-04-21-bytedance-deer-flow-super-agent-harness.md
+  [WARN]  智能 ×1 → 智慧（專有名詞如「北京人工智能研究院」不用改）
+
+src/content/posts/tech/2026-05-03-warp-agentic-development-environment.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/tech/2026-05-08-cloudflare-tunnel-mac-remote-2026.md
+  [WARN]  玩法 ×2 → 方式、模式（遊戲語境不用改）
+
+src/content/posts/tech/2026-08-06-bvlos-three-jurisdictions.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-06-drone-industry-map.md
+  [WARN]  鏈路 ×4 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers.md
+  [WARN]  鏈路 ×2 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-07-counter-drone-why-hard.md
+  [WARN]  信號 ×5 → 訊號（引述原文不用改）
+  [WARN]  鏈路 ×3 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-07-drone-crash-anatomy.md
+  [WARN]  鏈路 ×2 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-07-drone-spec-sheet-reading.md
+  [WARN]  鏈路 ×3 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-08-drone-airframe-configurations.md
+  [WARN]  質量 ×3 → 品質（物理語境不用改）
+
+src/content/posts/tech/2026-08-08-drone-endurance-physics.md
+  [WARN]  質量 ×6 → 品質（物理語境不用改）
+  [WARN]  鏈路 ×2 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-08-drone-radio-link.md
+  [WARN]  鏈路 ×5 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-08-fpv-video-link-taiwan.md
+  [WARN]  鏈路 ×4 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-08-gps-jamming-flight-controller.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-09-drone-payload-cost-export-control.md
+  [WARN]  鏈路 ×3 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-09-drone-swarm-light-show.md
+  [WARN]  鏈路 ×4 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-23-agent-platform-evaluation.md
+  [WARN]  反饋 ×1 → 回饋（控制理論的「反饋」不用改）
+  [WARN]  閉環 ×2 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/tech/2026-08-23-agent-platform-flow-runtime.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/tech/2026-08-23-agent-platform-observability.md
+  [WARN]  鏈路 ×2 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-23-agent-platform-overview.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/tech/2026-08-23-agent-platform-policy-engine.md
+  [WARN]  運營 ×2 → 營運、經營（引述中國公司名不用改）
+
+src/content/posts/tech/2026-08-23-agent-platform-skill-system.md
+  [WARN]  閉環 ×3 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/tech/2026-08-23-stock-agent-1-why-taiwan.md
+  [WARN]  閉環 ×3 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/tech/2026-08-26-ai-model-family-speech-audio.md
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/tech/2026-08-26-ai-model-family-video-generation.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/tech/2026-08-26-minimax-model-family.md
+  [WARN]  賽道 ×1 → 領域、市場（賽車/運動語境不用改）
+
+src/content/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/tech/2026-08-27-harvard-cs181-overview.md
+  [WARN]  閉環 ×1 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug.md
+  [WARN]  鏈路 ×1 → 路徑、流程（網路/通訊的 link 不用改）
+
+src/content/posts/tech/2026-08-31-omp-extensibility.md
+  [WARN]  激活 ×1 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/tech/2026-08-31-omp-provider-quirks.md
+  [WARN]  質量 ×1 → 品質（物理語境不用改）
+
+src/content/posts/tech/2026-09-05-ai-model-family-inkling.md
+  [WARN]  打法 ×1 → 做法、策略（口語/運動語境不用改）
+
+src/content/posts/tech/2026-09-10-security-cert-roi.md
+  [WARN]  信號 ×1 → 訊號（引述原文不用改）
+
+src/content/posts/tech/2026-10-08-harvard-cs50ai-w06-language.md
+  [WARN]  質量 ×1 → 品質（物理語境不用改）
+
+src/content/posts/tech/2026-10-08-mit-67960-l06-modern-cnn.md
+  [WARN]  激活 ×1 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/tech/2026-10-29-harvard-cs50ai-wrapup.md
+  [WARN]  閉環 ×2 → 閉迴路、端到端（工程的 closed-loop 不用改）
+
+src/content/posts/tech/2026-10-29-mit-67960-l09-hackers-guide.md
+  [WARN]  激活 ×3 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/tech/2026-11-26-mit-67960-l13-representation-theory.md
+  [WARN]  激活 ×1 → 啟用（機器學習的 activation 不用改）
+
+src/content/posts/tech/2026-12-10-mit-67960-approximation-theory.md
+  [WARN]  激活 ×1 → 啟用（機器學習的 activation 不用改）
+
+checked 1853 zh-TW post file(s): 1 blocking, 464 to review.
+A 級是台灣沒有正當用法的詞，請改掉。B 級看語境自行判斷。
+ ELIFECYCLE  Command failed with exit code 1.

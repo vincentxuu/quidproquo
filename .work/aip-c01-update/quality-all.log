@@ -1,0 +1,3866 @@
+
+> quidproquo@0.0.1 check:post-quality /Users/xiaoxu/Projects/quidproquo
+> node scripts/check-post-quality.mjs
+
+
+src/content/posts/ai/2026-03-12-rag-failure-modes-en.md
+  [WARN] tag `troubleshooting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-12-rag-failure-modes.md
+  [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `troubleshooting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-12-rag-guardrails.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-12-rag-observability-tools.md
+  [WARN] tag `monitoring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-12-rag-observability-tracing-en.md
+  [WARN] tag `monitoring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-12-rag-observability-tracing.md
+  [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `monitoring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-12-rag-token-quota-system.md
+  [WARN] tag `cost-control` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-12-rag-vs-fine-tuning.md
+  [WARN] tag `comparison` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-12-semantic-caching.md
+  [WARN] tag `performance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-13-prompt-engineering-iteration-guide.md
+  [WARN] tag `iteration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-14-ollama-local-llm-guide.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-14-rag-patterns-complete-guide-en.md
+  [WARN] 第 113 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 329 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 427 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 480 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 553 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 588 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-03-14-rag-patterns-complete-guide.md
+  [WARN] 第 110 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 326 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 424 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 476 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 549 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 584 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-03-15-speculative-rag.md
+  [WARN] tag `latency-optimization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-16-multi-agent-rag-patterns-en.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-16-multi-agent-rag-patterns.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-18-ai-agent-patterns-guide.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-26-langfuse-llm-observability-guide.md
+  [WARN] tag `monitoring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai.md
+  [WARN] tag `traditional-chinese` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-27-langgraph-agent-orchestration.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `workflow` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-google-multi-agent-patterns-en.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-google-multi-agent-patterns.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-harness-engineering-evolution-en.md
+  [WARN] tag `agentic-ai` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-harness-engineering-evolution.md
+  [WARN] tag `agentic-ai` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-agent-loop.md
+  [WARN] tag `streaming` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `concurrency` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-automation-standing-orders.md
+  [WARN] tag `autonomy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-channels-overview-en.md
+  [WARN] tag `routing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-channels-overview.md
+  [WARN] tag `routing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-gateway-config.md
+  [WARN] tag `validation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-gateway-network-en.md
+  [WARN] tag `authentication` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-gateway-network.md
+  [WARN] tag `authentication` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-install-local.md
+  [WARN] tag `installation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-model-advanced-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-model-advanced.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-nodes-deep.md
+  [WARN] tag `remote-execution` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-overview.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `documentation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-platforms-mobile.md
+  [WARN] tag `mobile` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-plugins.md
+  [WARN] tag `supply-chain` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-threat-model-en.md
+  [WARN] tag `mitre-atlas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-threat-model.md
+  [WARN] tag `threat-model` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `mitre-atlas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-tools-browser-search-en.md
+  [WARN] tag `playwright` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-tools-browser-search.md
+  [WARN] tag `playwright` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-tools-exec-thinking.md
+  [WARN] tag `thinking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `slash-commands` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-tools-skills-subagents-en.md
+  [WARN] tag `clawhub` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-tools-skills-subagents.md
+  [WARN] tag `clawhub` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-tools-tts-pdf-lobster.md
+  [WARN] tag `plugins` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-28-openclaw-troubleshooting.md
+  [WARN] tag `diagnostics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-30-ticketing-dead-review-new-planning.md
+  [WARN] tag `developer-workflow` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-31-mobile-small-models.md
+  [WARN] tag `quantization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-03-31-open-source-llm-landscape.md
+  [WARN] tag `image-generation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-01-agent-cli-guidelines-en.md
+  [WARN] tag `agentic-ai` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-01-agent-cli-guidelines.md
+  [WARN] tag `agentic-ai` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-01-turboquant-plus-kv-cache-compression.md
+  [WARN] tag `quantization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-02-agent-cli-gemini-cli-en.md
+  [WARN] tag `pricing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-02-agent-cli-gemini-cli.md
+  [WARN] tag `pricing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-02-agent-cli-kiro-en.md
+  [WARN] tag `specs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-02-agent-cli-kiro.md
+  [WARN] tag `specs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-02-agent-cli-openai-codex.md
+  [WARN] tag `credits` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing.md
+  [WARN] tag `cost-optimization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-02-ai-hardware-local-inference-guide.md
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `local-inference` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-03-chemistry-times-analysis.md
+  [WARN] tag `quality-gates` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-04-internal-ai-coding-agents.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-05-clawhip-event-notification-router.md
+  [WARN] tag `notification` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-05-notebooklm-py-unofficial-api.md
+  [WARN] tag `reverse-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-05-oh-my-claudecode-multi-agent-claude.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-05-oh-my-codex-workflow-layer.md
+  [WARN] tag `workflow` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-05-oh-my-openagent-multi-model-orchestration.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-12-claude-managed-agents-intro-en.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-12-claude-managed-agents-intro.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-17-ai-native-team-practices.md
+  [WARN] tag `failure-handling` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-18-github-copilot-coding-agent-guide.md
+  [WARN] tag `sandbox` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `pr-automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-04-23-llm-knowledge-management-landscape.md
+  [WARN] tag `second-brain` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-05-06-groq-console-introduction.md
+  [WARN] tag `inference` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-05-09-auto-dev-agent-15-walls.md
+  [WARN] tag `defense-in-depth` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-05-09-auto-dev-agent-explained-en.md
+  [WARN] tag `pipeline` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-05-09-auto-dev-agent-explained.md
+  [WARN] tag `pipeline` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-05-09-build-your-own-auto-dev-agent.md
+  [WARN] tag `tutorial` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-05-19-system-prompts-leaks-archive-en.md
+  [WARN] tag `ai-transparency` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-05-19-system-prompts-leaks-archive.md
+  [WARN] tag `ai-transparency` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-05-24-llm-agent-skills-tools-code-interpreter-papers.md
+  [WARN] tag `paper-review` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-06-04-agent-observability-failure-detection.md
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-06-04-autonomous-deep-research-agent-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-06-04-autonomous-deep-research-agent.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-06-04-multi-agent-error-propagation-recovery-en.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-06-04-multi-agent-error-propagation-recovery.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-06-04-zh-tw-embedding-rag-failures.md
+  [WARN] tag `traditional-chinese` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-07-10-ai-courses-2026-guide.md
+  [WARN] tag `ai-literacy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-07-27-3d-modeling-tools-landscape.md
+  [WARN] tag `photogrammetry` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-06-ai-certifications-2026-fact-check.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-06-document-parsing-layout-ocr-en.md
+  [WARN] tag `rag` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-06-document-parsing-layout-ocr.md
+  [WARN] tag `rag` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-10-enterprise-agent-case-studies-en.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-10-enterprise-agent-case-studies.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-10-model-component-harness-system-en.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-10-model-component-harness-system.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-10-rag-graph-agentic-variants.md
+  [WARN] tag `retrieval` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs146s-agent-ready-codebase-en.md
+  [WARN] tag `developer-experience` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs146s-agent-ready-codebase.md
+  [WARN] tag `developer-experience` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs146s-ai-native-team-en.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs146s-ai-native-team.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `pricing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs146s-background-agents-en.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `developer-experience` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs146s-background-agents.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `developer-experience` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs146s-software-factory-en.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs146s-software-factory.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs230-adversarial-and-generative-en.md
+  [WARN] 第 16 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 191 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-08-16-cs230-adversarial-and-generative.md
+  [WARN] 第 16 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 191 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-08-16-cs230-agents-prompts-rag-en.md
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs230-agents-prompts-rag.md
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs230-ai-project-strategy-en.md
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs230-ai-project-strategy.md
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en.md
+  [WARN] 第 208 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf.md
+  [WARN] 第 208 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-08-16-cs230-full-cycle-dl-project-en.md
+  [WARN] tag `mlops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs230-full-cycle-dl-project.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `mlops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-16-cs230-inside-the-model-en.md
+  [WARN] 第 43 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 166 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-08-16-cs230-inside-the-model.md
+  [WARN] 第 43 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 166 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-08-18-ai-governance-frameworks-exam-domains-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-ai-governance-frameworks-exam-domains.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-aws-aif-c01-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-aws-aip-c01-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-claude-certified-architect-professional-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-claude-certified-architect-professional-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-claude-certified-associate-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-claude-certified-associate-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-claude-certified-developer-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-claude-certified-developer-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-genai-cost-latency-exam-domains-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-genai-cost-latency-exam-domains.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-google-pmle-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-google-pmle-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-hermes-agent-gateway-cron-en.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-hermes-agent-gateway-cron.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-hermes-agent-install.md
+  [WARN] tag `upgrade` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-hermes-agent-memory-skills.md
+  [WARN] tag `self-improvement` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-microsoft-ab-100-prep-guide.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-microsoft-ab-620-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-microsoft-ai-103-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-microsoft-ai-500-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-multi-agent-architecture-exam-domains.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-prompt-context-engineering-exam-domains-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-prompt-context-engineering-exam-domains.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-rag-evaluation-exam-domains-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-18-rag-evaluation-exam-domains.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-19-aws-certifications-which-one-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-19-aws-certifications-which-one.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-19-claude-certifications-which-one-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-19-claude-certifications-which-one.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-19-microsoft-ai-certifications-which-one-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-19-microsoft-ai-certifications-which-one.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-19-nvidia-certifications-which-one-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-19-nvidia-certifications-which-one.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-deep-learning-en.md
+  [WARN] tag `ai-engineer` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-deep-learning.md
+  [WARN] tag `interview` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `ai-engineer` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-llm-application.md
+  [WARN] tag `interview` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-ml-fundamentals-en.md
+  [WARN] tag `ai-engineer` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-ml-fundamentals.md
+  [WARN] tag `ai-engineer` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-ml-system-design-en.md
+  [WARN] tag `mlops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-ml-system-design.md
+  [WARN] tag `mlops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-mlops.md
+  [WARN] tag `interview` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-overview-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-overview.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-ai-engineer-interview-paper-reading.md
+  [WARN] tag `interview` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `ai-engineer` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `research` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents.md
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-agentql-semantic-web-extraction.md
+  [WARN] tag `structured-output` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-apify-actor-platform-guide.md
+  [WARN] tag `browser-automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-crawl4ai-complete-guide.md
+  [WARN] tag `structured-output` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-firecrawl-complete-guide.md
+  [WARN] tag `structured-output` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-free-search-scraping-tools-en.md
+  [WARN] tag `crawler` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-free-search-scraping-tools.md
+  [WARN] tag `crawler` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-modal-serverless-gpu.md
+  [WARN] tag `cost` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-searxng-complete-guide.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-self-hosted-search-stack.md
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-stanford-cs25-v6-en.md
+  [WARN] 第 6 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 18 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 86 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 96 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 116 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 126 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-08-21-stanford-cs25-v6.md
+  [WARN] tag `multimodal` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] 第 6 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 18 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 86 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 96 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 116 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 126 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/ai/2026-08-21-tavily-search-api-guide.md
+  [WARN] tag `web-scraping` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-21-vllm-self-host-decision.md
+  [WARN] tag `cost` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-academic-search-pipeline.md
+  [WARN] tag `literature-review` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-ag2-multi-agent-framework.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-amazon-bedrock-llm-platform.md
+  [WARN] tag `ai-governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cerebras-inference-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cerebras-inference.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-chroma-vector-database.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-01-introduction.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `a-star` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-03-adversarial-search-en.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-03-adversarial-search.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-04-constraint-satisfaction.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-05-ml-formulation.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-06-decision-trees-en.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-06-decision-trees.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-07-linear-regression-en.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-07-linear-regression.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization-en.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-09-logistic-regression-en.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-09-logistic-regression.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `classification` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization-en.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-11-neural-networks.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-12-backpropagation.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment-en.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `ai-safety` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `ai-safety` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-15-transfer-learning-en.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-15-transfer-learning.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood-en.md
+  [WARN] tag `probability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `probability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-19-word-embeddings-en.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-19-word-embeddings.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-20-attention-transformers.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-21-markov-decision-processes-en.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-21-markov-decision-processes.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-07280-lecture-23-deep-q-learning.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-01-introduction-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-01-introduction.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-02-universal-approximators.md
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-03-empirical-risk-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-03-empirical-risk.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-04-gradient-descent-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-04-gradient-descent.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-05-backpropagation.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-06-loss-surfaces-momentum-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-06-loss-surfaces-momentum.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-07-sgd-second-order-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-07-sgd-second-order.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-09-cnn-one-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-09-cnn-one.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-10-cnn-two-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-10-cnn-two.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-11-cnn-three-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-11-cnn-three.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-12-cnn-four-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-12-cnn-four.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-13-rnn-one-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-13-rnn-one.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-14-rnn-two-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-14-rnn-two.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-16-ctc-beam-search-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-16-ctc-beam-search.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-17-language-models-translation-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-17-language-models-translation.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-18-attention-transformers.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-19-transformer-architectures-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-19-transformer-architectures.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-20-large-language-models-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-20-large-language-models.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-21-representations-autoencoders-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-21-representations-autoencoders.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-23-diffusion-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-23-diffusion.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-24-gans.md
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-25-graph-neural-networks.md
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-26-reinforcement-learning-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-26-reinforcement-learning.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-27-hopfield-networks.md
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-28-boltzmann-machines-en.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-28-boltzmann-machines.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cmu-11785-course-overview.md
+  [WARN] tag `neural-networks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs124-week1-introduction.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs124-week2-tokens-ngram-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs124-week3-logistic-regression-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs124-week4-information-retrieval-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs124-week4-information-retrieval.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs124-week6-neural-networks-llms-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs124-week6-neural-networks-llms.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs124-week8-speech-git-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs124-week8-speech-git.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-final-projects-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-final-projects.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-pretraining-en.md
+  [WARN] tag `tokenization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-pretraining.md
+  [WARN] tag `tokenization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-reasoning-one.md
+  [WARN] tag `reinforcement-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-social-impacts-en.md
+  [WARN] tag `ai-safety` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-social-impacts.md
+  [WARN] tag `ai-safety` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-tinker-lora-en.md
+  [WARN] tag `model-adaptation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-tinker-lora.md
+  [WARN] tag `model-adaptation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-transformers-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-transformers.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-word-vectors-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224n-word-vectors.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `embeddings` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224v-multimodal-reactgenie-en.md
+  [WARN] tag `conversational-ui` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs224v-multimodal-reactgenie.md
+  [WARN] tag `conversational-ui` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-architectures-hyperparameters.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-attention-moe-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-attention-moe.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-data-curation-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-data-curation.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-data-sources-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-data-sources.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-evaluation-en.md
+  [WARN] tag `agents` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-evaluation.md
+  [WARN] tag `agents` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-gpu-tpu.md
+  [WARN] tag `performance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-kernels-triton.md
+  [WARN] tag `performance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-overview-tokenization-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-overview-tokenization.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-parallelism-strategies.md
+  [WARN] tag `distributed-training` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-resource-accounting-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-resource-accounting.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `performance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-scaling-laws-foundations-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-cs336-scaling-laws-foundations.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-daytona-agent-sandbox.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-dspy-ai-program-optimization-en.md
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-dspy-ai-program-optimization.md
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-e2b-agent-sandbox.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-helicone-llm-observability-en.md
+  [WARN] tag `llmops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-helicone-llm-observability.md
+  [WARN] tag `llmops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-hugging-face-hub-guide.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-jina-reader-guide.md
+  [WARN] tag `rag` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-langsmith-observability-evaluation-en.md
+  [WARN] tag `llmops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-langsmith-observability-evaluation.md
+  [WARN] tag `llmops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mastra-typescript-agent-framework-en.md
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mastra-typescript-agent-framework.md
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-milvus-vector-database-en.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-milvus-vector-database.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-l01-deep-learning.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-l02-sequence-modeling.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-l03-computer-vision.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-l05-reinforcement-learning.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-l06-new-frontiers.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-l07-three-laws-ai.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-l08-ai-for-science.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-l09-parallel-training.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-lab1-music-generation.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-lab2-debiasing.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-mit-6s191-lab3-lora-evaluation.md
+  [WARN] tag `ai-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-openviking-agent-memory.md
+  [WARN] tag `virtual-filesystem` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-patronus-ai-evaluation.md
+  [WARN] tag `ai-safety` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-pgvector-guide-en.md
+  [WARN] tag `rag` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-pgvector-guide.md
+  [WARN] tag `rag` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-portkey-ai-gateway.md
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-private-corpus-access-en.md
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-private-corpus-access.md
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-private-corpus-sync-en.md
+  [WARN] tag `indexing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-private-corpus-sync.md
+  [WARN] tag `data-pipeline` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `indexing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-r2r-retrieval-api.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-ragflow-document-rag-platform.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-search-results-reliable-citations.md
+  [WARN] tag `reproducibility` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-slack-code-multiplayer-coding.md
+  [WARN] tag `collaboration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-02-learning-backprop-regression-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-02-learning-backprop-regression.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-03-learning-linear-classification-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-03-learning-linear-classification.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-04-learning-deep-networks-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-04-learning-deep-networks.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-05-search-modeling-dp-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-05-search-modeling-dp.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-06-search-ucs-astar-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-06-search-ucs-astar.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-09-policy-gradient-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-09-policy-gradient.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-10-games-minimax-alpha-beta-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-10-games-minimax-alpha-beta.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-11-games-td-nash-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-11-games-td-nash.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-12-bayes-joint-inference.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-13-bayes-gibbs-sampling-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-13-bayes-gibbs-sampling.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-15-logic-propositional-sat-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-15-logic-propositional-sat.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-16-logic-first-order-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-16-logic-first-order.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-17-language-models.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-18-ai-society-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-18-ai-society.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-19-ai-supply-chains-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs221-lecture-19-ai-supply-chains.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `self-study` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression-en.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-03-generalized-linear-models-en.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-03-generalized-linear-models.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `exponential-family` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-05-kernel-methods.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `feature-maps` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-07-deep-learning.md
+  [WARN] tag `backpropagation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `bias-variance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `learning-theory` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `unsupervised-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-11-em-algorithms-en.md
+  [WARN] tag `unsupervised-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-11-em-algorithms.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `unsupervised-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-12-principal-components-analysis.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `unsupervised-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `dimensionality-reduction` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-13-independent-components-analysis-en.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `unsupervised-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-13-independent-components-analysis.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `unsupervised-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `source-separation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-15-foundation-models-overview.md
+  [WARN] tag `fine-tuning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-16-representation-learning.md
+  [WARN] tag `retrieval` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-18-reasoning-in-llms.md
+  [WARN] tag `chain-of-thought` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants-en.md
+  [WARN] tag `reinforcement-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants.md
+  [WARN] tag `reinforcement-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-22-steel-browser-infrastructure.md
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-24-marin-535b-hero-run-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-24-marin-535b-hero-run.md
+  [WARN] tag `mixture-of-experts` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-agentic-reasoning-rag.md
+  [WARN] tag `reinforcement-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-code-mode.md
+  [WARN] tag `sandbox` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-model-provider-abstraction.md
+  [WARN] tag `harness-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `llm-agents` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-onboarding-design-en.md
+  [WARN] tag `developer-experience` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-onboarding-design.md
+  [WARN] tag `developer-experience` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-prompt-versioning.md
+  [WARN] tag `ab-testing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-provider-retry-policy.md
+  [WARN] tag `llm-agents` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-run-artifacts-contract-en.md
+  [WARN] tag `auditability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-run-artifacts-contract.md
+  [WARN] tag `auditability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-runtime-capability-handshake.md
+  [WARN] tag `harness-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-sandbox-remote-execution.md
+  [WARN] tag `harness-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-session-recording-replay-en.md
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-session-recording-replay.md
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-small-model-coding-en.md
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-subscription-boundaries.md
+  [WARN] tag `harness-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `llm-agents` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-verification-gate-en.md
+  [WARN] tag `testing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-verification-gate.md
+  [WARN] tag `testing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-25-coding-agent-why-python.md
+  [WARN] tag `language-choice` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-agent-governance-policies-en.md
+  [WARN] tag `mcp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-agent-governance-policies.md
+  [WARN] tag `mcp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-moe-architecture-why-it-wins-en.md
+  [WARN] tag `deployment` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-moe-architecture-why-it-wins.md
+  [WARN] tag `inference` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `deployment` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-open-source-llm-self-hosting-guide.md
+  [WARN] tag `quantization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-self-improvement-rl-three-approaches.md
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `fine-tuning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-basics-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-basics.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-loss-function-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-loss-function.md
+  [WARN] tag `training` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-quantization.md
+  [WARN] tag `inference` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-scaling-laws-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-scaling-laws.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-tokenization.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-training-stages-en.md
+  [WARN] tag `alignment` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-training-stages.md
+  [WARN] tag `alignment` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-transformer-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-26-understanding-ai-models-transformer.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-29-self-improving-agent-skills.md
+  [WARN] tag `workflow` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-30-ask-ai-hybrid-retrieval-en.md
+  [WARN] tag `langgraph` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-30-ask-ai-hybrid-retrieval.md
+  [WARN] tag `langgraph` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-30-ask-ai-writer-citation-contract-en.md
+  [WARN] tag `grounding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-30-ask-ai-writer-citation-contract.md
+  [WARN] tag `grounding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-31-claude-code-routine-connector-auth-en.md
+  [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-08-31-claude-code-routine-connector-auth.md
+  [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-06-efficient-edge-llm-training.md
+  [WARN] tag `multimodal` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en.md
+  [WARN] tag `reinforcement-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-06-minimind-train-llm-from-scratch.md
+  [WARN] tag `training` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `reinforcement-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-06-run-minimind-on-runpod.md
+  [WARN] tag `training` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en.md
+  [WARN] tag `pytorch` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-06-train-llm-from-scratch-series-intro.md
+  [WARN] tag `pytorch` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en.md
+  [WARN] tag `scaling-laws` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-06-when-to-train-llm-from-scratch.md
+  [WARN] tag `cost` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `scaling-laws` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining.md
+  [WARN] tag `annealing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-01-introduction.md
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-02-capture-intent.md
+  [WARN] tag `requirements` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `context-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-04-plan-mode.md
+  [WARN] tag `context-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-05-claude-md.md
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-06-skills-en.md
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-06-skills.md
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-08-feedback-loop-en.md
+  [WARN] tag `testing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-08-feedback-loop.md
+  [WARN] tag `testing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-09-ci-evals-en.md
+  [WARN] tag `testing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-09-ci-evals.md
+  [WARN] tag `testing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-10-pr-review.md
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-11-hooks-en.md
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-11-hooks.md
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `enterprise` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-12-ci-cd-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-12-ci-cd.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-13-metrics-loop-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-13-metrics-loop.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-14-closing.md
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/ai/2026-09-12-ai-native-sdlc-playbook-course-guide.md
+  [WARN] tag `governance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-06-drone-industry-job-map-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `hiring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-06-drone-industry-job-map.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `hiring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-06-drone-market-entry-mechanics-en.md
+  [WARN] tag `startup` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-06-drone-market-entry-mechanics.md
+  [WARN] tag `startup` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `procurement` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-06-software-to-drone-transition-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-06-software-to-drone-transition.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-16-cs230-career-advice-in-ai-en.md
+  [WARN] 第 15 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 107 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/career/2026-08-16-cs230-career-advice-in-ai.md
+  [WARN] tag `ai-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `technical-debt` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `hiring` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] 第 15 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 107 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/career/2026-08-22-remote-work-platforms-beyond-upwork.md
+  [WARN] tag `freelance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-ahead-of-ai-academic-monthly.md
+  [WARN] tag `newsletter` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `academia` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `content-creation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-bytebytego-system-design-empire.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `software-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `content-creation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-daily-dose-of-ds-creator-journey.md
+  [WARN] tag `content-creation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-dense-discovery-deliberate-small-en.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-dense-discovery-deliberate-small.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `sustainability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `curation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-lennys-newsletter-pm-community-king-en.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-lennys-newsletter-pm-community-king.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-morning-brew-dorm-to-media-empire.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `advertising` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `acquisition` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-one-person-media-company-overview.md
+  [WARN] tag `content-creation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-pragmatic-engineer-big-tech-to-newsletter.md
+  [WARN] tag `content-creation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-stratechery-paid-newsletter-pioneer-en.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-stratechery-paid-newsletter-pioneer.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `content-creation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-the-hustle-newsletter-to-saas-funnel-en.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-the-hustle-newsletter-to-saas-funnel.md
+  [WARN] tag `newsletter` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `acquisition` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-tldr-ad-powered-tech-digest-en.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/career/2026-08-26-tldr-ad-powered-tech-digest.md
+  [WARN] tag `creator-economy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `advertising` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/coffee/2026-07-25-pour-over-dripper-trapezoid-vs-cone.md
+  [WARN] tag `brewing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-17-security-corebreak-dispatch-layer-bypass-en.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-17-security-corebreak-dispatch-layer-bypass.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-18-security-flowise-custom-mcp-command-injection.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-20-ai-agent-github-digest.md
+  [WARN] tag `context-database` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-21-security-splunk-mcp-server-toolkit-rce.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-22-ai-agent-github-digest.md
+  [WARN] tag `productivity-tool` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-24-ai-agent-github-digest.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-26-funding-stability-ai.md
+  [WARN] tag `image-generation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning-en.md
+  [WARN] tag `mcp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning.md
+  [WARN] tag `mcp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-28-framework-crewai-1.15.18-en.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-28-framework-crewai-1.15.18.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-28-funding-deep-cogito.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-28-funding-instinct.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-28-funding-keenable.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount-en.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-28-security-openai-hugging-face-agent-escape.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-29-funding-onyx-security.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-29-funding-zenity.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-30-tool-proton-safe-mcp.md
+  [WARN] tag `tool` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-08-31-funding-owner.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-01-ai-agent-github-digest.md
+  [WARN] tag `durable-execution` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-01-security-teampcp-supply-chain-arrest-en.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-01-security-teampcp-supply-chain-arrest.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-02-funding-air-security.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-02-funding-tripo-ai.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-02-security-metr-api-key-theft.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-03-ai-agent-github-digest.md
+  [WARN] tag `document-parsing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-03-funding-capacity.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-03-funding-wonderful.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-03-security-gitspawn-git-config-rce.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-04-funding-conveo.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-04-funding-hiddenlayer.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-04-region-europe-en.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-04-region-europe.md
+  [WARN] tag `region` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `europe` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-04-region-middle-east-en.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-04-region-middle-east.md
+  [WARN] tag `region` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `middle-east` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-05-funding-gimlet-labs.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-05-security-grafana-mcp-ssrf-session-spoofing.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-06-ai-agent-github-digest-en.md
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-06-ai-agent-github-digest.md
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-06-framework-pydantic-ai-2.40.0-en.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-06-framework-pydantic-ai-2.40.0.md
+  [WARN] tag `framework` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-06-security-openai-agent-wiki-coordination-sandbox-bypass-en.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-06-security-openai-agent-wiki-coordination-sandbox-bypass.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-06-security-postgres-mcp-restricted-mode-bypass.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-07-ai-agent-github-digest-en.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-07-ai-agent-github-digest.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `local-inference` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-07-funding-atira.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-07-security-nvidia-nemoclaw-dns-rebinding-en.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-07-security-nvidia-nemoclaw-dns-rebinding.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-08-model-openbmb-minicpm5-2b.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-09-ai-agent-github-digest.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-09-funding-cognition.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-10-ai-agent-github-digest-en.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-10-ai-agent-github-digest.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-10-funding-cymphony.md
+  [WARN] tag `funding` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-10-funding-harvey.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-10-security-gtig-autonomous-agent-credential-theft.md
+  [WARN] tag `data-exfiltration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-10-tool-toolhive-en.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-10-tool-toolhive.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-11-funding-clay.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-11-funding-euno.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-11-region-india-south-asia-en.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-11-region-india-south-asia.md
+  [WARN] tag `region` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-11-region-oceania-en.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-11-region-oceania.md
+  [WARN] tag `region` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `oceania` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-11-security-papercut-ai-agent-mass-exploit.md
+  [WARN] tag `privilege-escalation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `data-exfiltration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-12-ai-interview-daily.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/daily/2026-09-12-funding-mistral.md
+  [WARN] tag `daily` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/design/2026-06-05-design-system-color-palettes-en.md
+  [WARN] tag `accessibility` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/design/2026-06-05-design-system-color-palettes.md
+  [WARN] tag `accessibility` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/education/2026-03-12-daodao-for-learners.md
+  [WARN] tag `self-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `habit` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `learning-community` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `skill-development` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-06-19-2x-etf-system-three-books.md
+  [WARN] tag `asset-allocation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `rebalancing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-06-21-trading-performance-stock-futures-en.md
+  [WARN] tag `portfolio-management` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-06-21-trading-performance-stock-futures.md
+  [WARN] tag `warrants` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `portfolio-management` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `margin` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-07-01-srf-0050-etf-futures.md
+  [WARN] tag `leverage` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-08-06-drone-defense-budget-map-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-08-06-drone-defense-budget-map.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-08-06-drone-supply-chain-four-criteria.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-08-07-drone-maker-financials-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/investing/2026-08-07-drone-maker-financials.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-07-10-evergreen-books-2026.md
+  [WARN] tag `community-signals` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-04-generative-ai-and-learning-en.md
+  [WARN] tag `metacognition` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-04-generative-ai-and-learning.md
+  [WARN] tag `metacognition` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-04-learning-how-to-learn-en.md
+  [WARN] tag `metacognition` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] 第 10 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 45 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 121 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 155 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 172 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 180 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 188 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/learning/2026-08-04-learning-how-to-learn.md
+  [WARN] tag `spaced-repetition` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `metacognition` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] 第 10 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 45 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 121 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 155 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 172 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 180 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 188 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/learning/2026-08-06-hybrid-paper-digital-learning.md
+  [WARN] tag `spaced-repetition` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-20-taste-as-amplifier.md
+  [WARN] tag `judgment` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-conference-content-machine-en.md
+  [WARN] tag `community-building` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-conference-content-machine.md
+  [WARN] tag `community-building` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `flywheel` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-global-ai-cs-course-map.md
+  [WARN] tag `self-study` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs107-computer-systems.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs111-operating-systems-en.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs111-operating-systems.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-01-why-algorithm-analysis.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-02-asymptotics-worst-case-mergesort.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-03-recurrences-master-theorem.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-04-median-selection-en.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-04-median-selection.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-06-bucketsort-sorting-lower-bounds-en.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-06-bucketsort-sorting-lower-bounds.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-07-binary-search-red-black-trees.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-10-strongly-connected-components-en.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-10-strongly-connected-components.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-11-dijkstra-bellman-ford.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-12-dynamic-programming-shortest-paths-en.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-12-dynamic-programming-shortest-paths.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-13-dynamic-programming-lcs-knapsack-en.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-13-dynamic-programming-lcs-knapsack.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-15-minimum-spanning-trees.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson-en.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-17-stable-matching-gale-shapley-en.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-21-stanford-cs161-lecture-17-stable-matching-gale-shapley.md
+  [WARN] tag `algorithms` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters-en.md
+  [WARN] tag `bayesian-network` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters.md
+  [WARN] tag `bayesian-network` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs188-completion-route-en.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs188-completion-route.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `portfolio` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs188-sp26-overview.md
+  [WARN] tag `artificial-intelligence` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `open-course` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs285-homework-project-route.md
+  [WARN] tag `self-study` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en.md
+  [WARN] tag `self-study` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics.md
+  [WARN] tag `self-study` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview.md
+  [WARN] tag `self-study` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-agents-en.md
+  [WARN] tag `multimodal-ai` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-agents.md
+  [WARN] tag `multimodal-ai` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-foundations-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-foundations.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-overview-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-overview.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-rag-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-rag.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `evaluation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-transformers-en.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-berkeley-cs288-transformers.md
+  [WARN] tag `nlp` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-10301-hw2-decision-trees.md
+  [WARN] tag `information-theory` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-10301-hw3-classic-models-en.md
+  [WARN] tag `knn` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-10301-hw3-classic-models.md
+  [WARN] tag `knn` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-10301-hw4-logistic-regression-en.md
+  [WARN] tag `optimization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-10301-hw4-logistic-regression.md
+  [WARN] tag `optimization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-10301-hw7-deep-learning.md
+  [WARN] tag `neural-network` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-10301-hw9-learning-paradigms-en.md
+  [WARN] tag `clustering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-10301-hw9-learning-paradigms.md
+  [WARN] tag `clustering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-10301-overview.md
+  [WARN] tag `self-study` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cmu-ai-core-redesign.md
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cs107-bitwise-operators-en.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cs107-bitwise-operators.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cs107-integers-bits-bytes.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cs107-unix-and-c.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-cs107-welcome-unix-tour.md
+  [WARN] tag `self-study` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-pacman-ai-project-lineage.md
+  [WARN] tag `course-guide` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-01-introduction-set-theory.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-02-mathematical-proofs-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `theory-of-computation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-02-mathematical-proofs.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `theory-of-computation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-03-indirect-proofs-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `theory-of-computation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-03-indirect-proofs.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `theory-of-computation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-04-propositional-logic-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `theory-of-computation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-04-propositional-logic.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `theory-of-computation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-05-first-order-logic-1-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-05-first-order-logic-1.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-06-first-order-logic-2.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-07-functions-1-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-07-functions-1.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-08-functions-2-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-08-functions-2.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `theory-of-computation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-09-cardinality-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-09-cardinality.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-10-graphs-1.md
+  [WARN] tag `theory-of-computation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-13-induction-1-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-13-induction-1.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-14-induction-2-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-14-induction-2.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-15-finite-automata-1.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-16-finite-automata-2-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-16-finite-automata-2.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-17-finite-automata-3-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-17-finite-automata-3.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-18-regular-expressions.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-19-nonregular-languages-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-19-nonregular-languages.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-20-context-free-languages-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-20-context-free-languages.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-21-turing-machines-1-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-21-turing-machines-1.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-22-turing-machines-2-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-22-turing-machines-2.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-24-unsolvable-problems-1.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-25-unsolvable-problems-2-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-25-unsolvable-problems-2.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-26-unsolvable-problems-3-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-26-unsolvable-problems-3.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-28-wrap-up-en.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs103-lecture-28-wrap-up.md
+  [WARN] tag `discrete-mathematics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs107-buffer-overflows-security-en.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs107-buffer-overflows-security.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy.md
+  [WARN] tag `performance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs107-chars-c-strings.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs107-function-pointers-continued-en.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs107-function-pointers-continued.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs107-generics-void-pointer.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs107-stack-and-heap-en.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs107-stack-and-heap.md
+  [WARN] tag `c-language` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-01-what-is-probability-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-01-what-is-probability.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-02-conditional-probability-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-02-conditional-probability.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-04-counting-combinatorics-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-04-counting-combinatorics.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-05-random-variables-expectation-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-05-random-variables-expectation.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-06-moments-variance-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-06-moments-variance.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-07-poisson-distribution-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-07-poisson-distribution.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-08-continuous-random-variables-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-08-continuous-random-variables.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-10-probabilistic-models-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-10-probabilistic-models.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-11-inference-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-11-inference.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-12-general-inference-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-12-general-inference.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-13-multinomial-distribution-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-13-multinomial-distribution.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-14-beta-distribution-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-14-beta-distribution.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-15-central-limit-theorem-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-15-central-limit-theorem.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-17-probabilistic-algorithm-analysis-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-17-probabilistic-algorithm-analysis.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-18-information-theory-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-18-information-theory.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation.md
+  [WARN] tag `statistics` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs111-lecture-16-demand-paging-en.md
+  [WARN] tag `operating-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs111-lecture-16-demand-paging.md
+  [WARN] tag `operating-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs111-lecture-18-magnetic-disks-en.md
+  [WARN] tag `operating-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs111-lecture-18-magnetic-disks.md
+  [WARN] tag `operating-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs111-lecture-25-truth-trust-technology.md
+  [WARN] tag `operating-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/learning/2026-08-22-stanford-cs111-lecture-27-virtual-machines.md
+  [WARN] tag `operating-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/marketing/2026-04-21-aeo-geo-tracking-tools-landscape.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/marketing/2026-04-23-akiraxclaw-content-model-en.md
+  [WARN] tag `indie-builder` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/marketing/2026-04-23-akiraxclaw-content-model.md
+  [WARN] tag `indie-builder` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `monetization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-06-taiwan-drone-license-guide-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-06-taiwan-drone-license-guide.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-06-taiwan-drone-regulation-guide.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-07-caa-drone-exam-question-bank-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `education` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-07-caa-drone-exam-question-bank.md
+  [WARN] tag `regulation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `education` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-07-drone-privacy-taiwan-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-07-drone-privacy-taiwan.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-08-drone-cybersecurity-testing-spec.md
+  [WARN] tag `taiwan` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `compliance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `regulation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-09-airport-drone-incursions-taiwan.md
+  [WARN] tag `aviation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-09-who-may-down-a-drone-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/policy/2026-08-09-who-may-down-a-drone.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-03-12-daodao-market-opportunity-en.md
+  [WARN] tag `edtech` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `saas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-03-12-daodao-market-opportunity.md
+  [WARN] tag `edtech` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `saas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-03-12-daodao-product-design.md
+  [WARN] tag `learning-platform` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `behavioral-design` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-03-12-nobodyclimb-ai-why-and-what.md
+  [WARN] tag `climbing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `community` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-03-12-nobodyclimb-product.md
+  [WARN] tag `community` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `climbing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-07-agri-drone-unit-economics.md
+  [WARN] tag `agriculture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-07-drone-inspection-taiwan-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-07-drone-inspection-taiwan.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-07-drone-logistics-taiwan-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-07-drone-logistics-taiwan.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-07-drone-sar-value-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-07-drone-sar-value.md
+  [WARN] tag `taiwan` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `public-safety` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-20-product-builder-interview-ai-product.md
+  [WARN] tag `interview` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-20-product-builder-interview-behavioral.md
+  [WARN] tag `communication` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-20-product-builder-interview-metrics-en.md
+  [WARN] tag `experimentation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-20-product-builder-interview-metrics.md
+  [WARN] tag `experimentation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-20-product-builder-interview-overview-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-20-product-builder-interview-overview.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-20-product-builder-interview-product-sense.md
+  [WARN] tag `user-research` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-20-product-builder-interview-strategy.md
+  [WARN] tag `competitive-analysis` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/product/2026-08-20-product-builder-interview-technical-pm.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-13-git-conditional-includes-en.md
+  [WARN] tag `workflow` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-13-git-conditional-includes.md
+  [WARN] tag `workflow` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-15-cloudflare-origin-health-check-502-en.md
+  [WARN] tag `reverse-proxy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-15-cloudflare-origin-health-check-502.md
+  [WARN] tag `reverse-proxy` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-15-nginx-confd-multi-service-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-15-nginx-confd-multi-service.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions-en.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-17-docker-bind-mount-restart-not-reapplied-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-17-docker-bind-mount-restart-not-reapplied.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-20-docker-image-vulnerability-scan-packages-vs-npm-en.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-20-docker-image-vulnerability-scan-packages-vs-npm.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-20-intro-vulnerability-scanning-and-trivy-en.md
+  [WARN] tag `devsecops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-20-intro-vulnerability-scanning-and-trivy.md
+  [WARN] tag `devsecops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-20-mcp-server-job-scraper-en.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-20-mcp-server-job-scraper.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-20-mcp-tool-token-overflow-search-jobs.md
+  [WARN] tag `debug` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-24-action-maker-ai-integration-en.md
+  [WARN] tag `postgresql` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-24-action-maker-ai-integration.md
+  [WARN] tag `postgresql` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-bullmq-job-queue-nodejs.md
+  [WARN] tag `background-jobs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-claude-code-global-skills-not-found.md
+  [WARN] tag `troubleshooting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-cloudflare-kv-key-value-store.md
+  [WARN] tag `edge` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-cloudflare-workers-edge-compute.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-docker-container-basics-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-docker-container-basics.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `deployment` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-expressjs-node-backend-en.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-expressjs-node-backend.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-github-actions-ci-cd-en.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-github-actions-ci-cd.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-opennextjs-cloudflare-adapter-en.md
+  [WARN] tag `deployment` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-opennextjs-cloudflare-adapter.md
+  [WARN] tag `deployment` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-pm2-node-process-manager-en.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-pm2-node-process-manager.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `deployment` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-shadcn-ui-component-library-en.md
+  [WARN] tag `react` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-shadcn-ui-component-library.md
+  [WARN] tag `react` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-tailwindcss-utility-first-css-en.md
+  [WARN] tag `frontend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-tailwindcss-utility-first-css.md
+  [WARN] tag `frontend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-27-tanstack-query-server-state.md
+  [WARN] tag `caching` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-30-claude-code-spinner-verbs-en.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-30-claude-code-spinner-verbs.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `customization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent-en.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-31-codex-cli-openai-coding-agent.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-04-02-ai-agent-global-skills-paths-en.md
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-04-02-ai-agent-global-skills-paths.md
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-04-02-code-review-graph-knowledge-graph-ai-review.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-04-02-gitbook-documentation-platform.md
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-04-05-symlink-agents-md-claude-md.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-04-13-better-agent-terminal-intro.md
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-03-warp-agentic-development-environment.md
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-08-cloudflare-tunnel-mac-remote-2026-en.md
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `homelab` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-08-cloudflare-tunnel-mac-remote-2026.md
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `homelab` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-09-claude-code-loop-scheduling.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-18-llm-tool-description-hard-rules-en.md
+  [WARN] tag `prompt-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-18-llm-tool-description-hard-rules.md
+  [WARN] tag `prompt-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent-en.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-24-chrome-cookie-https-en.md
+  [WARN] tag `nextjs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-24-chrome-cookie-https.md
+  [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `nextjs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-25-bumblebee-supply-chain-scanner-en.md
+  [WARN] tag `golang` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-05-25-bumblebee-supply-chain-scanner.md
+  [WARN] tag `golang` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-06-07-ai-e2e-testing.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-06-bvlos-three-jurisdictions-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-06-bvlos-three-jurisdictions.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-06-drone-industry-cycle-history-en.md
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-06-drone-industry-cycle-history.md
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-06-drone-industry-map.md
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-06-phone-listening-ad-targeting-en.md
+  [WARN] tag `gdpr` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-06-phone-listening-ad-targeting.md
+  [WARN] tag `gdpr` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en.md
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers.md
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-07-counter-drone-why-hard-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-07-counter-drone-why-hard.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-07-drone-crash-anatomy-en.md
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-07-drone-crash-anatomy.md
+  [WARN] tag `taiwan` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `uav` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `safety` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-07-drone-spec-sheet-reading-en.md
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-07-drone-spec-sheet-reading.md
+  [WARN] tag `hardware` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `regulation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-08-drone-airframe-configurations.md
+  [WARN] tag `fuel-cell` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-08-fpv-video-link-taiwan.md
+  [WARN] tag `spectrum` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-09-drone-autonomy-modereason.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-09-drone-payload-cost-export-control.md
+  [WARN] tag `thermal` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-09-drone-production-ramp-procurement.md
+  [WARN] tag `manufacturing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-19-aider-terminal-pair-programming.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-19-amp-frontier-agent.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `pricing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-19-github-copilot-cli.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `pricing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-19-react-stack-ai-era-en.md
+  [WARN] tag `frontend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-19-react-stack-ai-era.md
+  [WARN] tag `frontend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-21-llms-txt.md
+  [WARN] tag `documentation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-21-shadcn-registry-mcp-en.md
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-21-shadcn-registry-mcp.md
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-21-tailscale-for-self-hosted-agents.md
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-21-trigger-dev-durable-tasks.md
+  [WARN] tag `background-jobs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-21-zh-tw-terminology-linters-tested-en.md
+  [WARN] 第 11 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 41 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 101 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 149 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 165 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 221 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/tech/2026-08-21-zh-tw-terminology-linters-tested.md
+  [WARN] tag `tooling` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] 第 11 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 41 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 101 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 149 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 165 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+  [WARN] 第 224 行在內文使用 H1（`#`）——頁面標題已是 H1，這會產生第二個
+
+src/content/posts/tech/2026-08-22-ably-realtime-messaging-en.md
+  [WARN] tag `pubsub` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-ably-realtime-messaging.md
+  [WARN] tag `pubsub` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-agent-sandbox-permission-boundaries.md
+  [WARN] tag `containers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-akamai-linode-cloud-en.md
+  [WARN] tag `infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-akamai-linode-cloud.md
+  [WARN] tag `infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-apache-kafka-event-streaming.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-apache-pulsar-messaging.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-appwrite-backend-platform-en.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-appwrite-backend-platform.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-assistant-ui-runtime.md
+  [WARN] tag `generative-ui` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-aws-lambda-compute-en.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-aws-lambda-compute.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-aws-sqs-sns-en.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `background-jobs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-aws-sqs-sns.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `background-jobs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-azure-app-service-en.md
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-azure-app-service.md
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-azure-container-apps.md
+  [WARN] tag `containers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-better-auth-framework.md
+  [WARN] tag `authentication` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `authorization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-better-auth-typescript.md
+  [WARN] tag `passkeys` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-caprover-self-hosted-paas-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-caprover-self-hosted-paas.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-codeql-semantic-code-analysis-en.md
+  [WARN] tag `sast` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-codeql-semantic-code-analysis.md
+  [WARN] tag `sast` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-convex-reactive-backend-en.md
+  [WARN] tag `baas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-convex-reactive-backend.md
+  [WARN] tag `baas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-coolify-self-hosted-paas-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-coolify-self-hosted-paas.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-copilotkit-agent-ui.md
+  [WARN] tag `generative-ui` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-coreweave-ai-cloud.md
+  [WARN] tag `ai-infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-digitalocean-app-platform-en.md
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-digitalocean-app-platform.md
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-digitalocean-cloud-platform-en.md
+  [WARN] tag `paas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-digitalocean-cloud-platform.md
+  [WARN] tag `paas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-dokku-self-hosted-paas-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-dokku-self-hosted-paas.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-dokploy-self-hosted-paas-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-dokploy-self-hosted-paas.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-elysia-web-framework-en.md
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-elysia-web-framework.md
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-fastify-web-framework-en.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-fastify-web-framework.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-firebase-backend-platform-en.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-firebase-backend-platform.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-fly-io-machines-platform-en.md
+  [WARN] tag `containers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `edge-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-fly-io-machines-platform.md
+  [WARN] tag `containers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `edge-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-gitleaks-secret-scanning-en.md
+  [WARN] tag `devsecops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-gitleaks-secret-scanning.md
+  [WARN] tag `devsecops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-google-cloud-model-armor-en.md
+  [WARN] tag `guardrails` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-google-cloud-model-armor.md
+  [WARN] tag `guardrails` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-google-cloud-run-en.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `paas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-google-cloud-run.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `containers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `paas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-google-kubernetes-engine-en.md
+  [WARN] tag `containers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-google-kubernetes-engine.md
+  [WARN] tag `containers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `platform-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-graphql-codegen-en.md
+  [WARN] tag `frontend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-grpc-connect-rpc-en.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-grpc-connect-rpc.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-hetzner-cloud-en.md
+  [WARN] tag `virtual-machine` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-hetzner-cloud.md
+  [WARN] tag `virtual-machine` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `self-hosting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-hono-rpc-client-en.md
+  [WARN] tag `edge-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-hono-rpc-client.md
+  [WARN] tag `edge-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-inngest-durable-functions.md
+  [WARN] tag `background-jobs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-kamal-deployment-tool-en.md
+  [WARN] tag `self-hosting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-kamal-deployment-tool.md
+  [WARN] tag `self-hosting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-koyeb-serverless-platform-en.md
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-koyeb-serverless-platform.md
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-kubernetes-container-orchestration-en.md
+  [WARN] tag `containers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-kubernetes-container-orchestration.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-kysely-query-builder.md
+  [WARN] tag `database` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-lambda-cloud-gpu-en.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-lambda-cloud-gpu.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-liveblocks-collaboration-platform-en.md
+  [WARN] tag `react` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-liveblocks-collaboration-platform.md
+  [WARN] tag `react` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-mongodb-document-database-en.md
+  [WARN] tag `nosql` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-mongodb-document-database.md
+  [WARN] tag `nosql` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-nats-jetstream-messaging-en.md
+  [WARN] tag `microservices` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-nats-jetstream-messaging.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `microservices` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-nebius-ai-cloud.md
+  [WARN] tag `ai-infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-nestjs-application-framework-en.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-nestjs-application-framework.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-netlify-web-platform-en.md
+  [WARN] tag `paas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-netlify-web-platform.md
+  [WARN] tag `paas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-ngrok-ingress-tunnel-en.md
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-ngrok-ingress-tunnel.md
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `webhooks` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-openapi-typescript-fetch-en.md
+  [WARN] tag `codegen` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-openapi-typescript-fetch.md
+  [WARN] tag `codegen` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-openstack-private-cloud-en.md
+  [WARN] tag `infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-openstack-private-cloud.md
+  [WARN] tag `virtualization` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-partykit-realtime-rooms.md
+  [WARN] tag `collaboration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-pi-v2-agent-harness-api-stable-en.md
+  [WARN] tag `typescript` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-pi-v2-agent-harness-api-stable.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `typescript` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-pocketbase-single-binary-backend-en.md
+  [WARN] tag `baas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-pocketbase-single-binary-backend.md
+  [WARN] tag `baas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-protobuf-buf-schema-en.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-protobuf-buf-schema.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-pulumi-infrastructure-as-code-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-pulumi-infrastructure-as-code.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-rabbitmq-message-routing.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `background-jobs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-railway-application-platform-en.md
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-railway-application-platform.md
+  [WARN] tag `cloud-computing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-ray-serve-inference.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-redis-streams.md
+  [WARN] tag `background-jobs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-redpanda-kafka-compatible.md
+  [WARN] tag `distributed-systems` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-render-cloud-platform-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-render-cloud-platform.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-renovate-dependency-updates-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-renovate-dependency-updates.md
+  [WARN] tag `supply-chain` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-replicate-model-api.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-restate-durable-execution-en.md
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-restate-durable-execution.md
+  [WARN] tag `backend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-runpod-gpu-cloud-en.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-runpod-gpu-cloud.md
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-scrapy-crawler-framework.md
+  [WARN] tag `web-scraping` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-selenium-browser-automation-en.md
+  [WARN] tag `testing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-selenium-browser-automation.md
+  [WARN] tag `testing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-semgrep-static-analysis-en.md
+  [WARN] tag `appsec` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-semgrep-static-analysis.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-sigstore-slsa-provenance-en.md
+  [WARN] tag `supply-chain` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-sigstore-slsa-provenance.md
+  [WARN] tag `supply-chain` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-snyk-developer-security-en.md
+  [WARN] tag `appsec` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-snyk-developer-security.md
+  [WARN] tag `appsec` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-socket-dev-supply-chain-security.md
+  [WARN] tag `dependencies` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-socketio-realtime-events-en.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-socketio-realtime-events.md
+  [WARN] tag `nodejs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-stainless-sdk-generation-en.md
+  [WARN] tag `codegen` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `developer-experience` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-stainless-sdk-generation.md
+  [WARN] tag `codegen` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `developer-experience` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-teleport-infrastructure-access-en.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-teleport-infrastructure-access.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-terraform-infrastructure-as-code-en.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-terraform-infrastructure-as-code.md
+  [WARN] tag `devops` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-triton-inference-server-en.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-triton-inference-server.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-trpc-typesafe-api-en.md
+  [WARN] tag `full-stack` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-trpc-typesafe-api.md
+  [WARN] tag `full-stack` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-twingate-zero-trust-access-en.md
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-twingate-zero-trust-access.md
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-typescript-7-native.md
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-typesense-site-search.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-vercel-frontend-cloud-en.md
+  [WARN] tag `paas` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `nextjs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-vercel-frontend-cloud.md
+  [WARN] tag `serverless` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `nextjs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-vite-8-rolldown-en.md
+  [WARN] tag `frontend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-vite-8-rolldown.md
+  [WARN] tag `frontend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-vitest-testing-framework.md
+  [WARN] tag `frontend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-vultr-cloud-platform-en.md
+  [WARN] tag `infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-vultr-cloud-platform.md
+  [WARN] tag `infrastructure` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-websocket-protocol-en.md
+  [WARN] tag `realtime` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-websocket-protocol.md
+  [WARN] tag `realtime` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-wireguard-vpn-tunnel-en.md
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-wireguard-vpn-tunnel.md
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-yjs-crdt-collaboration-en.md
+  [WARN] tag `realtime` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-yjs-crdt-collaboration.md
+  [WARN] tag `realtime` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-zerotier-virtual-network-en.md
+  [WARN] tag `vpn` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `sdwan` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-zerotier-virtual-network.md
+  [WARN] tag `vpn` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `networking` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `sdwan` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-zizmor-github-actions-security.md
+  [WARN] tag `supply-chain` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-zodios-api-client-en.md
+  [WARN] tag `typescript` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-zodios-api-client.md
+  [WARN] tag `typescript` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-22-zyte-api-scrapy-cloud.md
+  [WARN] tag `anti-bot` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-groundlane-series-1.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-groundlane-series-2-en.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `cloudflare-workers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-groundlane-series-2.md
+  [WARN] tag `ai-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `cloudflare-workers` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `safe-retrieval` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-groundlane-series-3.md
+  [WARN] tag `deterministic-extraction` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-groundlane-series-4.md
+  [WARN] tag `in-site-application` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-groundlane-series-5-en.md
+  [WARN] tag `ssrf` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-looplane-external-coding-runner-en.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-looplane-external-coding-runner.md
+  [WARN] tag `orchestration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-looplane-provider-neutral-agent-loop-en.md
+  [WARN] tag `python` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-looplane-provider-neutral-agent-loop.md
+  [WARN] tag `python` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-stock-agent-4-backtest-accountability.md
+  [WARN] tag `point-in-time` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `quant` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-stock-agent-5-walkforward-eval-en.md
+  [WARN] tag `backtesting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-stock-agent-5-walkforward-eval.md
+  [WARN] tag `backtesting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations.md
+  [WARN] tag `hallucination` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop-en.md
+  [WARN] tag `langgraph` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop.md
+  [WARN] tag `langgraph` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-23-stock-agent-8-execution-contracts.md
+  [WARN] tag `audit` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-family-claude-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-family-claude.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-family-gemini.md
+  [WARN] tag `multimodal` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-family-glm.md
+  [WARN] tag `huawei-ascend` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-family-gpt-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-family-gpt.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-family-grok-en.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-family-grok.md
+  [WARN] tag `llm` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-family-mistral.md
+  [WARN] tag `europe` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `multimodal` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-ai-model-landscape-overview.md
+  [WARN] tag `multimodal` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-antigravity-cli-gemini-replacement-google.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-grok-build-xai-privacy-incident-en.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-grok-build-xai-privacy-incident.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-24-muse-code-meta-coding-agent.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `llm-pricing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-25-mac-remote-desktop-tailscale-jump-rustdesk-en.md
+  [WARN] tag `productivity` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-25-mac-remote-desktop-tailscale-jump-rustdesk.md
+  [WARN] tag `productivity` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-25-tgi-text-generation-inference.md
+  [WARN] tag `self-hosted` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-26-minimax-model-family.md
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `pricing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `china-ai` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-26-nous-research-hermes.md
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `reinforcement-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review.md
+  [WARN] tag `calculus` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `probability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en.md
+  [WARN] tag `python` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `machine-learning` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-29-gputw-ai-taiwan-gpu-cloud.md
+  [WARN] tag `model-training` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `self-hosting` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-codex-thread-manager-deep-dive-en.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-codex-thread-manager-deep-dive.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-codex-turn-state-machine-en.md
+  [WARN] tag `agent-loop` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-codex-turn-state-machine.md
+  [WARN] tag `agent-loop` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-agent-loop-double-while-en.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-agent-loop-double-while.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-approval-three-layers.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-bash-tokenized-approval-en.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-bash-tokenized-approval.md
+  [WARN] tag `security` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-collab-wire.md
+  [WARN] tag `encryption` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-kdl-rule-tree-en.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-kdl-rule-tree.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-vs-looplane-en.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-omp-vs-looplane.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `retrospective` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-agent-harness-en.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-agent-harness.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-agent-loop-double-while-en.md
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-agent-loop-double-while.md
+  [WARN] tag `open-source` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-compaction-en.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-compaction.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-remote-session.md
+  [WARN] tag `reconnection` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-series-overview.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-session-tree-en.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-session-tree.md
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-telemetry-en.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-telemetry.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `observability` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-testing-quality-en.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-testing-quality.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-tool-system-en.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-tool-system.md
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-tui-architecture-en.md
+  [WARN] tag `coding-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-08-31-pi-mono-deep-dive-tui-architecture.md
+  [WARN] tag `coding-agent` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `ai-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `cli` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-01-cloud-routine-outcomes-branch-bug-en.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-01-cloud-routine-outcomes-branch-bug.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-05-ai-model-family-inkling.md
+  [WARN] tag `multimodal` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-06-docling-document-parsing.md
+  [WARN] tag `rag` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-07-marker-document-parsing-en.md
+  [ERROR] 內部文章連結不存在：/posts/tech/2026-09-05-mineru-ocr-doc-parsing
+  [ERROR] 內部文章連結不存在：/posts/tech/2026-09-05-mineru-ocr-doc-parsing
+
+src/content/posts/tech/2026-09-07-marker-document-parsing.md
+  [ERROR] 內部文章連結不存在：/posts/tech/2026-09-05-mineru-ocr-doc-parsing
+  [ERROR] 內部文章連結不存在：/posts/tech/2026-09-05-mineru-ocr-doc-parsing
+
+src/content/posts/tech/2026-09-10-security-cert-landscape-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-10-security-cert-landscape.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-10-security-cert-roi.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-10-taiwan-security-cert-ecosystem.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-24-harvard-cs50ai-w04-learning-en.md
+  [WARN] tag `knn` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-09-24-harvard-cs50ai-w04-learning.md
+  [WARN] tag `knn` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-10-01-harvard-cs50ai-w05-neural-networks.md
+  [WARN] tag `backpropagation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-10-01-mit-67960-cnn-architectures.md
+  [WARN] tag `translation-equivariance` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `pooling` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-10-22-harvard-cs50ai-synthesis-2-en.md
+  [WARN] tag `python` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-10-22-harvard-cs50ai-synthesis-2.md
+  [WARN] tag `comparison` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `difficulty` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `portfolio` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `python` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-10-29-harvard-cs50ai-wrapup-en.md
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `python` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-10-29-harvard-cs50ai-wrapup.md
+  [WARN] tag `retrospective` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `career` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `python` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/2026-10-29-mit-67960-l09-hackers-guide.md
+  [WARN] tag `debugging` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain-en.md
+  [WARN] tag `dns` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain.md
+  [WARN] tag `dns` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/debug/2026-04-19-ai-backend-auth-cookie-cross-domain-en.md
+  [WARN] tag `cors` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `nextjs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/debug/2026-04-19-ai-backend-auth-cookie-cross-domain.md
+  [WARN] tag `cors` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `nextjs` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy-en.md
+  [WARN] tag `monorepo` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy.md
+  [WARN] tag `monorepo` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide-en.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `workflow` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-28-claude-code-best-practices-workflows-en.md
+  [WARN] tag `tips` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `productivity` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-28-claude-code-best-practices-workflows.md
+  [WARN] tag `tips` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+  [WARN] tag `productivity` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide.md
+  [WARN] tag `safety` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-03-28-claude-code-settings-json-guide.md
+  [WARN] tag `configuration` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-04-20-youtube-to-notebooklm-extension-internals.md
+  [WARN] tag `reverse-engineering` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide.md
+  [WARN] tag `automation` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-07-09-postgres-unified-database.md
+  [WARN] tag `architecture` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-07-14-content-platform-feed-ranking.md
+  [WARN] tag `product` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape.md
+  [WARN] tag `licensing` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/deep-dive/2026-08-26-claude-code-prompt-caching.md
+  [WARN] tag `cost` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/guide/2026-03-13-conversation-as-documentation.md
+  [WARN] tag `workflow` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+
+src/content/posts/tech/guide/2026-04-02-documentation-platform-guide.md
+  [WARN] tag `developer-tools` 沒有在標題或內文出現明顯對應詞，請確認是否真的貼切
+ ELIFECYCLE  Command failed with exit code 1.
