@@ -111,12 +111,12 @@ function listHref(p: number) {
 }
 
 function statusBadgeClass(status: string | null): string {
-  if (!status) return 'badge muted';
+  if (!status) return 'inline-block rounded-full border border-slate-300 bg-slate-100 px-2 py-0.5 text-xs text-slate-500';
   const norm = status.toLowerCase();
-  if (norm === 'failed' || norm === 'cancelled') return 'badge muted';
-  if (norm === 'running') return 'badge running';
-  if (norm === 'queued' || norm === 'pending') return 'badge pending';
-  return 'badge ok';
+  if (norm === 'failed' || norm === 'cancelled') return 'inline-block rounded-full border border-slate-300 bg-slate-100 px-2 py-0.5 text-xs text-slate-500';
+  if (norm === 'running') return 'inline-block rounded-full border border-blue-300 bg-blue-50 px-2 py-0.5 text-xs text-blue-700';
+  if (norm === 'queued' || norm === 'pending') return 'inline-block rounded-full border border-yellow-300 bg-yellow-50 px-2 py-0.5 text-xs text-amber-700';
+  return 'inline-block rounded-full border border-green-300 bg-green-50 px-2 py-0.5 text-xs text-green-800';
 }
 
 function formatTs(ms: number | null): string {
@@ -133,18 +133,18 @@ function formatName(row: EvidenceRunRow): string {
 <AdminV2Layout title="來源證據" section="sessions">
     <>
       <AdminPanel title="來源證據執行記錄" eyebrow="含有收集到的來源證據之執行記錄">
-        <form class="toolbar" method="GET" action="/admin/sessions/evidence">
-          <label for="q" class="search-label">搜尋執行記錄</label>
+        <form class="mb-3 flex flex-wrap items-center gap-2" method="GET" action="/admin/sessions/evidence">
+          <label for="q" class="text-sm text-muted-foreground">搜尋執行記錄</label>
           <input
             id="q"
             name="q"
             type="text"
             value={q}
-            class="search-input"
+            class="min-w-60 rounded-md border border-input bg-card px-2.5 py-1.5 text-sm text-foreground"
             placeholder="依 run id、工作流程名稱、狀態搜尋"
           />
-          <button type="submit" class="btn-secondary">搜尋</button>
-          {q && <a href="/admin/sessions/evidence" class="btn-clear">清除</a>}
+          <button type="submit" class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm font-medium hover:bg-accent">搜尋</button>
+          {q && <a href="/admin/sessions/evidence" class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm font-medium hover:bg-accent">清除</a>}
         </form>
       </AdminPanel>
 
@@ -172,34 +172,36 @@ function formatName(row: EvidenceRunRow): string {
             <tbody>
               {runs.map((run) => (
                 <tr>
-                  <td class="mono"><a href={`/admin/sessions/${run.flow_run_id}`}>{run.flow_run_id}</a></td>
+                  <td class="font-mono text-sm"><a href={`/admin/sessions/${run.flow_run_id}`}>{run.flow_run_id}</a></td>
                   <td>{formatName(run)}</td>
                   <td><span class={statusBadgeClass(run.status || run.flow_status)}>{run.status || run.flow_status || '—'}</span></td>
-                  <td class="evidence-stats">
+                  <td class="text-sm text-muted-foreground">
                     來源 {run.source_count ?? 0} / 聲明 {run.claim_count ?? 0} / 衝突 {run.conflict_count ?? 0}
                     {run.pending_conflict_count > 0 && (
-                      <span class="pending-conflict-pill">待處理 {run.pending_conflict_count}</span>
+                      <span class="ml-1.5 inline-flex items-center rounded-full border border-yellow-400 bg-yellow-50 px-2 py-0.5 text-[0.7rem] font-bold text-yellow-800">待處理 {run.pending_conflict_count}</span>
                     )}
                   </td>
-                  <td class="mono">{formatTs(run.started_at)}</td>
-                  <td class="evidence-actions-cell">
-                    {run.pending_conflict_count > 0 ? (
-                      <>
-                        <a href={`/admin/sessions/${run.flow_run_id}/evidence#conflicts`} class="btn-danger">
-                          處理 {run.pending_conflict_count} 個衝突
-                        </a>
-                        <span class="row-operation-preview">進入右側衝突面板，可採用、排除或批次標記不處理。</span>
-                      </>
-                    ) : (
-                      <>
-                        <a href={`/admin/sessions/${run.flow_run_id}/evidence`} class="btn-secondary">
-                          {run.conflict_count > 0 ? '查看處理紀錄' : '檢視'}
-                        </a>
-                        <span class="row-operation-preview">
-                          {run.conflict_count > 0 ? '此執行沒有待處理衝突。' : '此執行目前沒有衝突。'}
-                        </span>
-                      </>
-                    )}
+                  <td class="font-mono text-sm">{formatTs(run.started_at)}</td>
+                  <td>
+                    <div class="flex flex-col items-start gap-1">
+                      {run.pending_conflict_count > 0 ? (
+                        <>
+                          <a href={`/admin/sessions/${run.flow_run_id}/evidence#conflicts`} class="inline-flex h-9 items-center rounded-md border border-destructive px-3 text-sm font-medium text-destructive hover:bg-destructive/10">
+                            處理 {run.pending_conflict_count} 個衝突
+                          </a>
+                          <span class="text-xs leading-snug text-muted-foreground">進入右側衝突面板，可採用、排除或批次標記不處理。</span>
+                        </>
+                      ) : (
+                        <>
+                          <a href={`/admin/sessions/${run.flow_run_id}/evidence`} class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm font-medium hover:bg-accent">
+                            {run.conflict_count > 0 ? '查看處理紀錄' : '檢視'}
+                          </a>
+                          <span class="text-xs leading-snug text-muted-foreground">
+                            {run.conflict_count > 0 ? '此執行沒有待處理衝突。' : '此執行目前沒有衝突。'}
+                          </span>
+                        </>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -207,11 +209,11 @@ function formatName(row: EvidenceRunRow): string {
           </AdminTable>
 
           {totalPages > 1 && (
-            <div class="pagination">
-              {page > 1 ? <a href={listHref(1)} class="page-btn">第一頁</a> : <span class="page-btn disabled">第一頁</span>}
-              {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
-              <span class="page-info">第 {page} / {totalPages} 頁</span>
-              {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
+            <div class="mt-4 flex flex-wrap items-center gap-2">
+              {page > 1 ? <a href={listHref(1)} class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm hover:bg-accent">第一頁</a> : <span class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm opacity-45">第一頁</span>}
+              {page > 1 ? <a href={listHref(page - 1)} class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm hover:bg-accent">上一頁</a> : <span class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm opacity-45">上一頁</span>}
+              <span class="text-sm text-muted-foreground">第 {page} / {totalPages} 頁</span>
+              {page < totalPages ? <a href={listHref(page + 1)} class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm hover:bg-accent">下一頁</a> : <span class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm opacity-45">下一頁</span>}
             </div>
           )}
         </AdminPanel>
@@ -219,145 +221,3 @@ function formatName(row: EvidenceRunRow): string {
     </>
   )}
 </AdminV2Layout>
-
-<style>
-  .toolbar {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 0.75rem;
-  }
-
-  .search-label {
-    color: var(--admin-text-muted);
-    font-size: 0.85rem;
-  }
-
-  .search-input {
-    min-width: 240px;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    padding: 0.42rem 0.65rem;
-    color: var(--admin-text);
-  }
-
-  .mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.82rem;
-  }
-
-  .evidence-stats {
-    font-size: 0.82rem;
-    color: var(--admin-text-muted);
-  }
-
-  .pending-conflict-pill {
-    display: inline-flex;
-    min-height: 1.45rem;
-    align-items: center;
-    margin-left: 0.35rem;
-    border: 1px solid #facc15;
-    border-radius: 999px;
-    background: #fefce8;
-    color: #713f12;
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 0.08rem 0.45rem;
-  }
-
-  .evidence-actions-cell {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    align-items: flex-start;
-  }
-
-  .row-operation-preview {
-    color: var(--admin-text-muted);
-    font-size: 0.75rem;
-    line-height: 1.35;
-  }
-
-  .btn-clear,
-  .btn-secondary,
-  .btn-danger,
-  .page-btn {
-    display: inline-flex;
-    min-height: 2.5rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    padding: 0.35rem 0.7rem;
-    text-decoration: none;
-    color: var(--admin-text);
-    background: var(--admin-surface);
-    font-size: 0.8rem;
-    line-height: 1.2;
-  }
-
-  .btn-danger {
-    border-color: var(--admin-danger, #b42318);
-    color: var(--admin-danger, #b42318);
-  }
-
-  .btn-clear:hover,
-  .btn-secondary:hover,
-  .btn-danger:hover,
-  .page-btn:hover:not(.disabled) {
-    background: var(--admin-muted);
-  }
-
-  .pagination {
-    margin-top: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    flex-wrap: wrap;
-  }
-
-  .page-info {
-    color: var(--admin-text-muted);
-    font-size: 0.83rem;
-  }
-
-  .disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  .badge {
-    display: inline-block;
-    padding: 0.08rem 0.45rem;
-    border-radius: 999px;
-    font-size: 0.72rem;
-    border: 1px solid transparent;
-  }
-
-  .badge.ok {
-    color: #166534;
-    border-color: #86efac;
-    background: #f0fdf4;
-  }
-
-  .badge.running {
-    color: #1d4ed8;
-    border-color: #93c5fd;
-    background: #eff6ff;
-  }
-
-  .badge.pending {
-    color: #b45309;
-    border-color: #fcd34d;
-    background: #fffbeb;
-  }
-
-  .badge.muted {
-    color: #64748b;
-    border-color: #cbd5e1;
-    background: #f1f5f9;
-  }
-</style>

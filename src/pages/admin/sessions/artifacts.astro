@@ -142,13 +142,13 @@ function formatTs(ms: number | null): string {
   return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
 }
 
-function statusClass(status: string | null): string {
-  if (!status) return 'pending';
+function statusBadgeClass(status: string | null): string {
+  if (!status) return 'border-border bg-muted text-muted-foreground';
   const norm = status.toLowerCase();
-  if (norm === 'approved') return 'approved';
-  if (norm === 'rejected') return 'rejected';
-  if (norm === 'exported' || norm === 'published') return 'published';
-  return 'pending';
+  if (norm === 'approved') return 'border-green-300 bg-green-50 text-green-800';
+  if (norm === 'rejected') return 'border-red-300 bg-red-50 text-red-900';
+  if (norm === 'exported' || norm === 'published') return 'border-blue-300 bg-blue-50 text-blue-800';
+  return 'border-border bg-muted text-muted-foreground';
 }
 
 function statusLabel(status: string | null): string {
@@ -192,17 +192,17 @@ function exportLabel(destination: string): string {
   {!backendUnavailable && !loadError && (
     <>
       <AdminPanel title="產出物">
-        <form class="toolbar" method="GET" action="/admin/sessions/artifacts">
-          <label for="q" class="search-label">搜尋產出物</label>
+        <form class="flex flex-wrap items-center gap-2 mb-3" method="GET" action="/admin/sessions/artifacts">
+          <label for="q" class="text-sm text-muted-foreground">搜尋產出物</label>
           <input
             id="q"
             name="q"
             value={q}
-            class="search-input"
+            class="min-w-[260px] h-10 rounded-md border border-input bg-card px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring focus:ring-2 focus:ring-ring/20"
             placeholder="依 artifact id、類型、邏輯名稱搜尋..."
           />
-          <button type="submit" class="btn-secondary">搜尋</button>
-          {q && <a href="/admin/sessions/artifacts" class="btn-clear">清除</a>}
+          <button type="submit" class="inline-flex h-10 items-center justify-center rounded-md border border-input bg-card px-3 text-sm font-medium text-foreground hover:bg-accent">搜尋</button>
+          {q && <a href="/admin/sessions/artifacts" class="inline-flex h-10 items-center justify-center rounded-md border border-input bg-card px-3 text-sm font-medium text-foreground hover:bg-accent no-underline">清除</a>}
         </form>
 
         {artifacts.length === 0 ? (
@@ -226,8 +226,8 @@ function exportLabel(destination: string): string {
                 const link = artifactLink(artifact);
                 return (
                   <tr>
-                    <td class="mono">
-                      <a href={link || '#'} class:list={{ disabled: !link }} aria-disabled={link ? 'false' : 'true'}>
+                    <td class="font-mono text-sm">
+                      <a href={link || '#'} class:list={[link ? 'text-primary hover:underline' : 'opacity-50 pointer-events-none cursor-not-allowed']} aria-disabled={link ? 'false' : 'true'}>
                         {rowLabel(artifact)}
                       </a>
                     </td>
@@ -235,45 +235,51 @@ function exportLabel(destination: string): string {
                     <td>{artifact.flow_display_name || artifact.flow_id || '—'}</td>
                     <td>{artifact.latest_version ?? '—'}</td>
                     <td>{artifact.flow_run_id ? artifact.flow_run_id.slice(0, 8) + '…' : '—'}</td>
-                    <td><span class={`artifact-status ${statusClass(artifact.status)}`}>{statusLabel(artifact.status)}</span></td>
-                    <td class="mono">{formatTs(artifact.last_seen_at)}</td>
-                    <td class="artifact-actions-cell">
-                      {artifact.flow_run_id && artifact.latest_version ? (
-                        <>
-                          <a href={`/admin/sessions/${artifact.flow_run_id}/artifacts/${artifact.artifact_id}`} class="btn-secondary">
-                            檢視
-                          </a>
-                          {artifact.latest_version_id && exportDestinations.length > 0 && (
-                            <div
-                              class="quick-export"
-                              data-quick-export
-                              data-version-id={artifact.latest_version_id}
-                              data-artifact-label={rowLabel(artifact)}
-                              data-current-status={artifact.status ?? 'pending'}
-                            >
-                              <label class="sr-only" for={`export-${artifact.latest_version_id}`}>匯出目的地</label>
-                              <select id={`export-${artifact.latest_version_id}`} class="quick-export-select" data-export-destination>
-                                {exportDestinations.map((destination) => (
-                                  <option value={destination}>{exportLabel(destination)}</option>
-                                ))}
-                              </select>
-                              <button
-                                type="button"
-                                class="btn-secondary export"
-                                data-export-button
-                                aria-label={`匯出 ${rowLabel(artifact)}`}
+                    <td>
+                      <span class:list={['inline-block rounded-full border px-2 py-0.5 text-xs capitalize', statusBadgeClass(artifact.status)]}>
+                        {statusLabel(artifact.status)}
+                      </span>
+                    </td>
+                    <td class="font-mono text-sm">{formatTs(artifact.last_seen_at)}</td>
+                    <td>
+                      <div class="flex flex-wrap items-center gap-1.5">
+                        {artifact.flow_run_id && artifact.latest_version ? (
+                          <>
+                            <a href={`/admin/sessions/${artifact.flow_run_id}/artifacts/${artifact.artifact_id}`} class="inline-flex h-9 items-center rounded-md border border-input bg-card px-2.5 text-xs font-medium text-foreground hover:bg-accent no-underline">
+                              檢視
+                            </a>
+                            {artifact.latest_version_id && exportDestinations.length > 0 && (
+                              <div
+                                class="flex flex-wrap items-center gap-1.5"
+                                data-quick-export
+                                data-version-id={artifact.latest_version_id}
+                                data-artifact-label={rowLabel(artifact)}
+                                data-current-status={artifact.status ?? 'pending'}
                               >
-                                匯出
-                              </button>
-                              <span class="row-operation-preview" data-export-preview>
-                                快速匯出最新版本 v{artifact.latest_version}。
-                              </span>
-                            </div>
-                          )}
-                        </>
-                      ) : (
-                        <span class="muted">—</span>
-                      )}
+                                <label class="sr-only" for={`export-${artifact.latest_version_id}`}>匯出目的地</label>
+                                <select id={`export-${artifact.latest_version_id}`} class="h-9 rounded-md border border-input bg-card px-2 text-xs text-foreground" data-export-destination>
+                                  {exportDestinations.map((destination) => (
+                                    <option value={destination}>{exportLabel(destination)}</option>
+                                  ))}
+                                </select>
+                                <button
+                                  type="button"
+                                  class="inline-flex h-9 items-center rounded-md border border-primary bg-card px-2.5 text-xs font-medium text-primary hover:bg-accent"
+                                  data-export-button
+                                  aria-label={`匯出 ${rowLabel(artifact)}`}
+                                >
+                                  匯出
+                                </button>
+                                <span class="w-full text-xs text-muted-foreground leading-snug" data-export-preview>
+                                  快速匯出最新版本 v{artifact.latest_version}。
+                                </span>
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          <span class="text-muted-foreground">—</span>
+                        )}
+                      </div>
                     </td>
                   </tr>
                 );
@@ -283,14 +289,14 @@ function exportLabel(destination: string): string {
         )}
 
         {totalPages > 1 && (
-          <div class="pagination">
-            {page > 1 ? <a href={listHref(1)} class="page-btn">第一頁</a> : <span class="page-btn disabled">第一頁</span>}
-            {page > 1 ? <a href={listHref(page - 1)} class="page-btn">上一頁</a> : <span class="page-btn disabled">上一頁</span>}
-            <span class="page-info">第 {page} / {totalPages} 頁</span>
-            {page < totalPages ? <a href={listHref(page + 1)} class="page-btn">下一頁</a> : <span class="page-btn disabled">下一頁</span>}
+          <div class="mt-4 flex flex-wrap items-center gap-2">
+            {page > 1 ? <a href={listHref(1)} class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-xs font-medium text-foreground hover:bg-accent no-underline">第一頁</a> : <span class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-xs font-medium text-foreground opacity-50">第一頁</span>}
+            {page > 1 ? <a href={listHref(page - 1)} class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-xs font-medium text-foreground hover:bg-accent no-underline">上一頁</a> : <span class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-xs font-medium text-foreground opacity-50">上一頁</span>}
+            <span class="text-sm text-muted-foreground">第 {page} / {totalPages} 頁</span>
+            {page < totalPages ? <a href={listHref(page + 1)} class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-xs font-medium text-foreground hover:bg-accent no-underline">下一頁</a> : <span class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-xs font-medium text-foreground opacity-50">下一頁</span>}
           </div>
         )}
-        <p id="artifact-list-action-status" class="action-status" role="status" aria-live="polite" hidden></p>
+        <p id="artifact-list-action-status" class="mt-3 mx-4 mb-4 rounded-md border border-border bg-muted p-3 text-sm text-muted-foreground" role="status" aria-live="polite" hidden></p>
       </AdminPanel>
     </>
   )}
@@ -304,20 +310,18 @@ function exportLabel(destination: string): string {
       if (!status) return;
       status.hidden = false;
       status.textContent = message;
-      status.className = `action-status ${tone}`;
+      status.className = tone === 'success'
+        ? 'mt-3 mx-4 mb-4 rounded-md border border-green-300 bg-green-50 p-3 text-sm text-green-800'
+        : tone === 'error'
+          ? 'mt-3 mx-4 mb-4 rounded-md border border-red-300 bg-red-50 p-3 text-sm text-red-900'
+          : 'mt-3 mx-4 mb-4 rounded-md border border-border bg-muted p-3 text-sm text-muted-foreground';
     }
 
     function destinationLabel(destination) {
       const labels = {
-        file: 'File',
-        csv_file: 'CSV file',
-        pdf: 'PDF',
-        pptx: 'PowerPoint',
-        notion: 'Notion',
-        github_issue: 'GitHub issue',
-        github_pr_review: 'GitHub PR review',
-        email: 'Email',
-        slack: 'Slack',
+        file: 'File', csv_file: 'CSV file', pdf: 'PDF', pptx: 'PowerPoint',
+        notion: 'Notion', github_issue: 'GitHub issue', github_pr_review: 'GitHub PR review',
+        email: 'Email', slack: 'Slack',
       };
       return labels[destination] || destination || '—';
     }
@@ -404,257 +408,3 @@ function exportLabel(destination: string): string {
     });
   })();
 </script>
-
-<style>
-  .toolbar {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 0.75rem;
-  }
-
-  .search-label {
-    color: var(--admin-text-muted);
-    font-size: 0.85rem;
-  }
-
-  .search-input {
-    min-width: 260px;
-    min-height: 2.75rem !important;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    padding: 0.42rem 0.65rem;
-    color: var(--admin-text);
-  }
-
-  :global(.admin-table-wrap) {
-    max-width: 100%;
-    overflow-x: auto;
-  }
-
-  .mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.82rem;
-  }
-
-  .artifact-status {
-    display: inline-block;
-    padding: 0.1rem 0.5rem;
-    border-radius: 999px;
-    border: 1px solid;
-    font-size: 0.72rem;
-    text-transform: capitalize;
-  }
-
-  .artifact-status.pending {
-    background: #f8fafc;
-    border-color: #cbd5e1;
-    color: #64748b;
-  }
-
-  .artifact-status.approved {
-    background: #f0fdf4;
-    border-color: #86efac;
-    color: #166534;
-  }
-
-  .artifact-status.rejected {
-    background: #fef2f2;
-    border-color: #fecaca;
-    color: #991b1b;
-  }
-
-  .artifact-status.published {
-    background: #eff6ff;
-    border-color: #93c5fd;
-    color: #1d4ed8;
-  }
-
-  .btn-secondary,
-  .btn-clear,
-  .page-btn {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    padding: 0.35rem 0.7rem;
-    text-decoration: none;
-    color: var(--admin-text);
-    background: var(--admin-surface);
-    font-size: 0.8rem;
-    line-height: 1.2;
-  }
-
-  .btn-secondary.export {
-    color: var(--admin-accent);
-  }
-
-  .btn-secondary:hover,
-  .btn-clear:hover,
-  .page-btn:hover:not(.disabled) {
-    background: var(--admin-muted);
-  }
-
-  .muted {
-    color: var(--admin-text-muted);
-  }
-
-  a.disabled,
-  .disabled {
-    opacity: 0.5;
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-
-  .pagination {
-    margin-top: 0.9rem;
-    display: flex;
-    gap: 0.45rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .page-info {
-    color: var(--admin-text-muted);
-    font-size: 0.83rem;
-  }
-
-  .artifact-actions-cell {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    align-items: center;
-  }
-
-  .quick-export {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    align-items: center;
-  }
-
-  .quick-export-select {
-    min-height: 2.75rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    font: inherit;
-    font-size: 0.8rem;
-    padding: 0.35rem 0.55rem;
-  }
-
-  .row-operation-preview {
-    flex-basis: 100%;
-    color: var(--admin-text-muted);
-    font-size: 0.76rem;
-    line-height: 1.35;
-  }
-
-  .action-status {
-    margin: 0.75rem 1rem 1rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-muted);
-    color: var(--admin-text-muted);
-    font-size: 0.85rem;
-    padding: 0.65rem 0.75rem;
-  }
-
-  .action-status.success {
-    border-color: #86efac;
-    background: #f0fdf4;
-    color: #166534;
-  }
-
-  .action-status.error {
-    border-color: #fca5a5;
-    background: #fef2f2;
-    color: #991b1b;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  @media (max-width: 720px) {
-    .toolbar,
-    .artifact-actions-cell,
-    .quick-export,
-    .pagination {
-      align-items: stretch;
-      flex-direction: column;
-    }
-
-    .search-input,
-    .btn-secondary,
-    .btn-clear,
-    .page-btn,
-    .quick-export-select,
-    .quick-export {
-      width: 100%;
-    }
-
-    :global(.admin-table) {
-      min-width: 0;
-    }
-
-    :global(.admin-table thead) {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-    }
-
-    :global(.admin-table tbody) {
-      display: grid;
-      gap: 0.75rem;
-      padding: 0.75rem;
-    }
-
-    :global(.admin-table tr) {
-      display: block;
-      border: 1px solid var(--admin-border);
-      border-radius: var(--admin-radius);
-      background: var(--admin-surface);
-      overflow: hidden;
-    }
-
-    :global(.admin-table td) {
-      display: grid;
-      grid-template-columns: minmax(6.5rem, 38%) minmax(0, 1fr);
-      gap: 0.65rem;
-      align-items: start;
-      border-top: 1px solid var(--admin-border);
-      padding: 0.65rem 0.75rem;
-      overflow-wrap: anywhere;
-    }
-
-    :global(.admin-table td:first-child) {
-      border-top: 0;
-    }
-
-    :global(.admin-table td::before) {
-      content: attr(data-label);
-      color: var(--admin-text-soft);
-      font-size: 0.72rem;
-      font-weight: 750;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-  }
-</style>

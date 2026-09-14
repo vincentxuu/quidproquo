@@ -473,50 +473,50 @@ const artifactExportMessages = {
   )}
 
   {!backendUnavailable && !loadError && !artifactMissing && targetVersion && (
-    <div class="artifact-viewer">
+    <div class="grid gap-5">
 
       {/* Header */}
-      <header class="artifact-header">
-        <div class="artifact-meta">
-          <span class="artifact-kind">{kind}</span>
-          <span id="artifact-status" class="artifact-status">{targetVersion.approval_status}</span>
-          <span class="artifact-id muted">{artifactId}</span>
+      <header class="flex flex-wrap items-center justify-between gap-4 rounded-lg border border-border bg-card p-3 px-4">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="inline-block rounded-full bg-primary px-2.5 py-0.5 font-mono text-xs font-semibold tracking-wide text-primary-foreground">{kind}</span>
+          <span id="artifact-status" class="text-sm capitalize text-muted-foreground">{targetVersion.approval_status}</span>
+          <span class="font-mono text-xs text-muted-foreground">{artifactId}</span>
         </div>
 
         <div
           id="artifact-export"
-          class="artifact-actions"
+          class="flex flex-wrap items-center gap-2"
           data-version-id={currentVersionId}
           data-current-status={targetVersion.approval_status}
         >
-          <button type="button" class="action-btn approve" data-artifact-action="approved" aria-label={`核准產出物 ${artifactId}`}>核准</button>
-          <button type="button" class="action-btn reject" data-artifact-action="rejected" aria-label={`拒絕產出物 ${artifactId}`}>拒絕</button>
-          <label for="export-destination" class="version-label">匯出</label>
-          <select id="export-destination" class="version-select" disabled={!canExport}>
+          <button type="button" class="h-9 rounded-md border border-green-500 bg-green-50 px-3 text-sm font-medium text-green-800 hover:bg-green-100" data-artifact-action="approved" aria-label={`核准產出物 ${artifactId}`}>核准</button>
+          <button type="button" class="h-9 rounded-md border border-red-500 bg-red-50 px-3 text-sm font-medium text-red-900 hover:bg-red-100" data-artifact-action="rejected" aria-label={`拒絕產出物 ${artifactId}`}>拒絕</button>
+          <label for="export-destination" class="text-sm text-muted-foreground whitespace-nowrap">匯出</label>
+          <select id="export-destination" class="h-9 rounded-md border border-input bg-card px-2.5 text-sm text-foreground" disabled={!canExport}>
             {exportDestinations.map((destination) => (
               <option value={destination}>{exportLabel(destination)}</option>
             ))}
           </select>
           <button
             type="button"
-            class="action-btn export"
+            class="h-9 rounded-md border border-primary bg-card px-3 text-sm font-medium text-primary hover:bg-accent"
             data-export-action
             aria-label={`匯出產出物 ${artifactId}`}
             disabled={!canExport}
           >匯出</button>
           {!canExport && (
-            <span class="export-hint" role="status">目前沒有啟用的匯出器。</span>
+            <span class="text-sm text-muted-foreground" role="status">目前沒有啟用的匯出器。</span>
           )}
-          <p id="artifact-operation-preview" class="operation-preview" aria-live="polite"></p>
+          <p id="artifact-operation-preview" class="w-full mt-0.5 rounded-md border border-border bg-background p-2 text-sm leading-snug text-muted-foreground" aria-live="polite"></p>
         </div>
 
         {/* Version dropdown */}
         {versions.length > 1 && (
-          <div class="version-controls">
-            <label for="version-select" class="version-label">版本</label>
+          <div class="flex flex-wrap items-center gap-2">
+            <label for="version-select" class="text-sm text-muted-foreground whitespace-nowrap">版本</label>
             <select
               id="version-select"
-              class="version-select"
+              class="h-9 rounded-md border border-input bg-card px-2.5 text-sm text-foreground"
               onchange={`location.href='?version='+this.value`}
             >
               {versions.map((v) => (
@@ -530,14 +530,13 @@ const artifactExportMessages = {
               ))}
             </select>
 
-            {/* Diff control */}
             {currentVersionNumber !== null && versions.length > 1 && (
-              <label for="diff-select" class="version-label">比對版本</label>
+              <label for="diff-select" class="text-sm text-muted-foreground whitespace-nowrap">比對版本</label>
             )}
             {currentVersionNumber !== null && versions.length > 1 && (
               <select
                 id="diff-select"
-                class="version-select"
+                class="h-9 rounded-md border border-input bg-card px-2.5 text-sm text-foreground"
                 onchange={`if(this.value){location.href='?version=${currentVersionNumber}&diff='+this.value}else{location.href='?version=${currentVersionNumber}'}`}
               >
                 <option value="">— 無 —</option>
@@ -554,11 +553,11 @@ const artifactExportMessages = {
 
       {/* Diff mode */}
       {isDiffMode && (
-        <section class="artifact-section" aria-label="Diff view">
-          <h3 class="section-title">
+        <section class="overflow-hidden rounded-lg border border-border bg-card" aria-label="Diff view">
+          <h3 class="m-0 border-b border-border bg-background px-4 py-2.5 text-sm font-bold">
             差異比對：v{diffM} → v{currentVersionNumber}
           </h3>
-          <pre class="diff"><code>{diffLines.map((line) => {
+          <pre class="m-0 max-h-[600px] overflow-auto whitespace-pre bg-background p-4 font-mono text-sm leading-relaxed"><code>{diffLines.map((line) => {
             const prefix = line.tag === 'add' ? '+ ' : line.tag === 'del' ? '- ' : '  ';
             return `${prefix}${line.text}`;
           }).join('\n')}</code></pre>
@@ -567,33 +566,33 @@ const artifactExportMessages = {
 
       {/* Normal content (no diff) */}
       {!isDiffMode && kind === 'markdown_report' && (
-        <section class="artifact-section prose-section" aria-label="Markdown report">
-          <article class="prose" set:html={markdownHtml} />
+        <section class="overflow-hidden rounded-lg border border-border bg-card px-6 py-5" aria-label="Markdown report">
+          <article class="prose max-w-[72ch] leading-relaxed [&_h1]:mt-5 [&_h1]:mb-2 [&_h1]:text-xl [&_h1]:font-bold [&_h2]:mt-5 [&_h2]:mb-2 [&_h2]:text-lg [&_h2]:font-bold [&_h3]:mt-4 [&_h3]:mb-2 [&_h3]:text-base [&_h3]:font-bold [&_p]:my-3 [&_code]:rounded [&_code]:border [&_code]:border-border [&_code]:bg-background [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.85em] [&_hr]:my-6 [&_hr]:border-t [&_hr]:border-border" set:html={markdownHtml} />
         </section>
       )}
 
       {!isDiffMode && kind === 'evidence_bundle' && (
-        <section class="artifact-section" aria-label="Evidence bundle">
+        <section class="overflow-hidden rounded-lg border border-border bg-card" aria-label="Evidence bundle">
           {evidenceData ? (
-            <table class="artifact-table">
+            <table class="w-full border-collapse text-sm">
               <thead>
                 <tr>
-                  <th>欄位</th>
-                  <th>值</th>
+                  <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">欄位</th>
+                  <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">值</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>來源數</td><td>{evidenceData.sources ?? '—'}</td></tr>
-                <tr><td>聲明數</td><td>{evidenceData.claims_count ?? '—'}</td></tr>
-                <tr><td>衝突數</td><td>{evidenceData.conflicts_count ?? '—'}</td></tr>
+                <tr class="hover:bg-muted/30"><td class="border-b border-border px-3 py-2">來源數</td><td class="border-b border-border px-3 py-2">{evidenceData.sources ?? '—'}</td></tr>
+                <tr class="hover:bg-muted/30"><td class="border-b border-border px-3 py-2">聲明數</td><td class="border-b border-border px-3 py-2">{evidenceData.claims_count ?? '—'}</td></tr>
+                <tr class="hover:bg-muted/30"><td class="px-3 py-2">衝突數</td><td class="px-3 py-2">{evidenceData.conflicts_count ?? '—'}</td></tr>
               </tbody>
             </table>
           ) : (
-            <div class="evidence-sections">
+            <div class="grid">
               {sections.map((s) => (
-                <div class="evidence-item">
-                  {s.heading && <h4 class="evidence-heading">{s.heading}</h4>}
-                  <p class="evidence-body">{s.body_text ?? '—'}</p>
+                <div class="border-b border-border px-4 py-3 last:border-b-0">
+                  {s.heading && <h4 class="mb-1.5 text-sm font-semibold">{s.heading}</h4>}
+                  <p class="m-0 text-sm leading-relaxed text-muted-foreground">{s.body_text ?? '—'}</p>
                 </div>
               ))}
             </div>
@@ -602,19 +601,19 @@ const artifactExportMessages = {
       )}
 
       {!isDiffMode && kind === 'csv_spreadsheet' && (
-        <section class="artifact-section" aria-label="CSV spreadsheet">
+        <section class="overflow-hidden rounded-lg border border-border bg-card" aria-label="CSV spreadsheet">
           {csvTable.headers.length > 0 ? (
-            <div class="table-scroll">
-              <table class="artifact-table csv-table">
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse whitespace-nowrap text-sm">
                 <thead>
                   <tr>
-                    {csvTable.headers.map((h) => <th>{h}</th>)}
+                    {csvTable.headers.map((h) => <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">{h}</th>)}
                   </tr>
                 </thead>
                 <tbody>
                   {csvTable.rows.map((row) => (
-                    <tr>
-                      {row.map((cell) => <td>{cell}</td>)}
+                    <tr class="hover:bg-muted/30">
+                      {row.map((cell) => <td class="border-b border-border px-3 py-2">{cell}</td>)}
                     </tr>
                   ))}
                 </tbody>
@@ -627,36 +626,36 @@ const artifactExportMessages = {
       )}
 
       {!isDiffMode && kind !== 'markdown_report' && kind !== 'evidence_bundle' && kind !== 'csv_spreadsheet' && (
-        <section class="artifact-section" aria-label="JSON payload">
-          <pre class="json-block"><code>{jsonPretty || '(empty)'}</code></pre>
+        <section class="overflow-hidden rounded-lg border border-border bg-card" aria-label="JSON payload">
+          <pre class="m-0 max-h-[600px] overflow-auto bg-background p-4 font-mono text-sm"><code>{jsonPretty || '(empty)'}</code></pre>
         </section>
       )}
 
       {/* Section list for multi-section artifacts */}
       {!isDiffMode && sections.length > 1 && kind !== 'csv_spreadsheet' && (
-        <section class="artifact-section" aria-label="Sections">
-          <h3 class="section-title">區段 ({sections.length})</h3>
-          <table class="artifact-table">
+        <section class="overflow-hidden rounded-lg border border-border bg-card" aria-label="Sections">
+          <h3 class="m-0 border-b border-border bg-background px-4 py-2.5 text-sm font-bold">區段 ({sections.length})</h3>
+          <table class="w-full border-collapse text-sm">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Key</th>
-                <th>標題</th>
-                <th>狀態</th>
-                <th>操作</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">#</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Key</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">標題</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">狀態</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">操作</th>
               </tr>
             </thead>
             <tbody>
               {sections.map((s, i) => (
-                <tr data-section-id={s.section_id}>
-                  <td class="muted">{i + 1}</td>
-                  <td><code>{s.section_key}</code></td>
-                  <td>{s.heading ?? '—'}</td>
-                  <td><span class="section-status">{s.approval_status}</span></td>
-                  <td>
-                    <div class="section-actions">
-                      <button type="button" class="mini-action" data-section-action="approved">核准</button>
-                      <button type="button" class="mini-action" data-section-action="rejected">拒絕</button>
+                <tr data-section-id={s.section_id} class="hover:bg-muted/30">
+                  <td class="border-b border-border px-3 py-2 text-muted-foreground">{i + 1}</td>
+                  <td class="border-b border-border px-3 py-2"><code class="text-xs">{s.section_key}</code></td>
+                  <td class="border-b border-border px-3 py-2">{s.heading ?? '—'}</td>
+                  <td class="border-b border-border px-3 py-2"><span class="section-status text-sm capitalize text-muted-foreground">{s.approval_status}</span></td>
+                  <td class="border-b border-border px-3 py-2">
+                    <div class="flex flex-wrap gap-1.5">
+                      <button type="button" class="h-7 rounded border border-green-500 bg-green-50 px-2 text-xs font-medium text-green-800" data-section-action="approved">核准</button>
+                      <button type="button" class="h-7 rounded border border-red-500 bg-red-50 px-2 text-xs font-medium text-red-900" data-section-action="rejected">拒絕</button>
                     </div>
                   </td>
                 </tr>
@@ -666,39 +665,49 @@ const artifactExportMessages = {
         </section>
       )}
 
-      <section id="artifact-export-history-section" class="artifact-section" aria-label="Export history">
-        <h3 class="section-title">匯出紀錄</h3>
+      <section id="artifact-export-history-section" class="overflow-hidden rounded-lg border border-border bg-card" aria-label="Export history">
+        <h3 class="m-0 border-b border-border bg-background px-4 py-2.5 text-sm font-bold">匯出紀錄</h3>
         {exports.length === 0 ? (
           <div id="artifact-export-empty">
             <AdminState tone="empty">此版本尚無匯出紀錄。</AdminState>
           </div>
         ) : (
-          <table class="artifact-table">
+          <table class="artifact-table w-full border-collapse text-sm">
             <thead>
               <tr>
-                <th>Destination</th>
-                <th>Status</th>
-                <th>Export ID</th>
-                <th>Result</th>
-                <th>Updated</th>
-                <th>Action</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Destination</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Status</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Export ID</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Result</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Updated</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Action</th>
               </tr>
             </thead>
             <tbody id="artifact-export-history">
               {exports.map((row) => (
-                <tr data-export-history-row data-export-history-status={row.status} data-export-history-destination={row.destination}>
-                  <td class="mono">{row.destination}</td>
-                  <td><span class:list={['export-status', `export-${row.status}`]}>{exportStatusLabel(row.status)}</span></td>
-                  <td class="mono">{row.export_id}</td>
-                  <td class="mono">{exportMetadataLabel(row.export_metadata_json)}</td>
-                  <td class="mono">{formatTs(row.updated_at || row.created_at)}</td>
-                  <td>
+                <tr data-export-history-row data-export-history-status={row.status} data-export-history-destination={row.destination} class="hover:bg-muted/30">
+                  <td class="border-b border-border px-3 py-2 font-mono text-sm">{row.destination}</td>
+                  <td class="border-b border-border px-3 py-2">
+                    <span class:list={[
+                      'inline-flex items-center rounded-full px-2 py-0.5 text-xs font-bold capitalize',
+                      row.status === 'done' ? 'bg-green-50 text-green-800' :
+                      row.status === 'pending' ? 'bg-blue-50 text-blue-800' :
+                      row.status === 'failed' ? 'bg-red-50 text-red-900' :
+                      'bg-muted text-muted-foreground'
+                    ]}>
+                      {exportStatusLabel(row.status)}
+                    </span>
+                  </td>
+                  <td class="border-b border-border px-3 py-2 font-mono text-sm">{row.export_id}</td>
+                  <td class="border-b border-border px-3 py-2 font-mono text-sm">{exportMetadataLabel(row.export_metadata_json)}</td>
+                  <td class="border-b border-border px-3 py-2 font-mono text-sm">{formatTs(row.updated_at || row.created_at)}</td>
+                  <td class="border-b border-border px-3 py-2">
                     {row.status === 'failed' ? (
-                      <button type="button" class="mini-action retry-export" data-export-history-retry>
+                      <button type="button" class="h-7 rounded border border-input bg-card px-2 text-xs font-medium text-foreground hover:bg-accent" data-export-history-retry>
                         {t('artifacts.retryExport')}
                       </button>
                     ) : (
-                      <span class="muted">—</span>
+                      <span class="text-muted-foreground">—</span>
                     )}
                   </td>
                 </tr>
@@ -708,29 +717,29 @@ const artifactExportMessages = {
         )}
       </section>
 
-      <section id="artifact-audit-history-section" class="artifact-section" aria-label="Artifact operation history">
-        <h3 class="section-title">操作紀錄</h3>
+      <section id="artifact-audit-history-section" class="overflow-hidden rounded-lg border border-border bg-card" aria-label="Artifact operation history">
+        <h3 class="m-0 border-b border-border bg-background px-4 py-2.5 text-sm font-bold">操作紀錄</h3>
         {auditRows.length === 0 ? (
           <div id="artifact-audit-empty">
             <AdminState tone="empty">此版本尚無管理操作紀錄。</AdminState>
           </div>
         ) : (
-          <table class="artifact-table">
+          <table class="artifact-table w-full border-collapse text-sm">
             <thead>
               <tr>
-                <th>Time</th>
-                <th>Action</th>
-                <th>Summary</th>
-                <th>Actor</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Time</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Action</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Summary</th>
+                <th class="border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Actor</th>
               </tr>
             </thead>
             <tbody id="artifact-audit-history">
               {auditRows.map((row) => (
-                <tr>
-                  <td class="mono">{formatTs(row.created_at)}</td>
-                  <td class="mono">{row.action}</td>
-                  <td>{auditPayloadLabel(row.payload_json)}</td>
-                  <td>{row.user_email ?? 'admin'}</td>
+                <tr class="hover:bg-muted/30">
+                  <td class="border-b border-border px-3 py-2 font-mono text-sm">{formatTs(row.created_at)}</td>
+                  <td class="border-b border-border px-3 py-2 font-mono text-sm">{row.action}</td>
+                  <td class="border-b border-border px-3 py-2">{auditPayloadLabel(row.payload_json)}</td>
+                  <td class="border-b border-border px-3 py-2">{row.user_email ?? 'admin'}</td>
                 </tr>
               ))}
             </tbody>
@@ -738,7 +747,7 @@ const artifactExportMessages = {
         )}
       </section>
 
-      <p id="artifact-action-status" class="action-status" role="status" aria-live="polite" hidden></p>
+      <p id="artifact-action-status" class="rounded-md border border-border bg-card p-3 text-sm text-muted-foreground" role="status" aria-live="polite" hidden></p>
 
     </div>
   )}
@@ -781,7 +790,11 @@ const artifactExportMessages = {
     if (!actionStatus) return;
     actionStatus.hidden = false;
     actionStatus.textContent = message;
-    actionStatus.className = `action-status ${tone}`;
+    actionStatus.className = tone === 'success'
+      ? 'rounded-md border border-green-300 bg-green-50 p-3 text-sm text-green-800'
+      : tone === 'error'
+        ? 'rounded-md border border-red-300 bg-red-50 p-3 text-sm text-red-900'
+        : 'rounded-md border border-border bg-card p-3 text-sm text-muted-foreground';
   }
 
   function currentApprovalStatus() {
@@ -808,7 +821,7 @@ const artifactExportMessages = {
     const status = currentApprovalStatus();
     if (!destination) {
       operationPreview.textContent = artifactExportMessages.selectExportDestination;
-      operationPreview.className = 'operation-preview warning';
+      operationPreview.className = 'w-full mt-0.5 rounded-md border border-yellow-400 bg-yellow-50 p-2 text-sm leading-snug text-yellow-800';
       return;
     }
     const warning = status !== 'approved' && status !== 'published'
@@ -816,8 +829,8 @@ const artifactExportMessages = {
       : '此版本已核准，可送出匯出。';
     operationPreview.textContent = `匯出目的地：${exportDestinationLabel(destination)}。${warning}`;
     operationPreview.className = status !== 'approved' && status !== 'published'
-      ? 'operation-preview warning'
-      : 'operation-preview success';
+      ? 'w-full mt-0.5 rounded-md border border-yellow-400 bg-yellow-50 p-2 text-sm leading-snug text-yellow-800'
+      : 'w-full mt-0.5 rounded-md border border-green-300 bg-green-50 p-2 text-sm leading-snug text-green-800';
   }
 
   function humanExportError(error, destination) {
@@ -859,14 +872,15 @@ const artifactExportMessages = {
     empty?.remove();
 
     const table = document.createElement('table');
-    table.className = 'artifact-table';
+    table.className = 'artifact-table w-full border-collapse text-sm';
+    const thCls = 'border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground';
     table.innerHTML = `
       <thead>
         <tr>
-          <th>Time</th>
-          <th>Action</th>
-          <th>Summary</th>
-          <th>Actor</th>
+          <th class="${thCls}">Time</th>
+          <th class="${thCls}">Action</th>
+          <th class="${thCls}">Summary</th>
+          <th class="${thCls}">Actor</th>
         </tr>
       </thead>
       <tbody id="artifact-audit-history"></tbody>
@@ -881,18 +895,21 @@ const artifactExportMessages = {
     if (!body) return;
     const tr = document.createElement('tr');
 
+    const tdCls = 'border-b border-border px-3 py-2';
     const time = document.createElement('td');
-    time.className = 'mono';
+    time.className = `${tdCls} font-mono text-sm`;
     time.textContent = formatExportTs(row.createdAt || Date.now());
 
     const action = document.createElement('td');
-    action.className = 'mono';
+    action.className = `${tdCls} font-mono text-sm`;
     action.textContent = String(row.action || 'artifact.operation');
 
     const summary = document.createElement('td');
+    summary.className = tdCls;
     summary.textContent = String(row.summary || '—');
 
     const actor = document.createElement('td');
+    actor.className = tdCls;
     actor.textContent = String(row.actor || 'admin');
 
     tr.append(time, action, summary, actor);
@@ -908,16 +925,17 @@ const artifactExportMessages = {
     empty?.remove();
 
     const table = document.createElement('table');
-    table.className = 'artifact-table';
+    table.className = 'artifact-table w-full border-collapse text-sm';
+    const ethCls = 'border-b border-border bg-background px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground';
     table.innerHTML = `
       <thead>
         <tr>
-          <th>Destination</th>
-          <th>Status</th>
-          <th>Export ID</th>
-          <th>Result</th>
-          <th>Updated</th>
-          <th>Action</th>
+          <th class="${ethCls}">Destination</th>
+          <th class="${ethCls}">Status</th>
+          <th class="${ethCls}">Export ID</th>
+          <th class="${ethCls}">Result</th>
+          <th class="${ethCls}">Updated</th>
+          <th class="${ethCls}">Action</th>
         </tr>
       </thead>
       <tbody id="artifact-export-history"></tbody>
@@ -935,40 +953,48 @@ const artifactExportMessages = {
     tr.dataset.exportHistoryStatus = String(row.status || 'pending');
     tr.dataset.exportHistoryDestination = String(row.destination || row.exporterId || '');
 
+    const eTdCls = 'border-b border-border px-3 py-2';
     const destination = document.createElement('td');
-    destination.className = 'mono';
+    destination.className = `${eTdCls} font-mono text-sm`;
     destination.textContent = String(row.destination || row.exporterId || '—');
 
     const statusCell = document.createElement('td');
+    statusCell.className = eTdCls;
     const status = document.createElement('span');
     const statusValue = String(row.status || 'pending');
-    status.className = `export-status export-${statusValue}`;
+    const statusColors = {
+      done: 'bg-green-50 text-green-800',
+      pending: 'bg-blue-50 text-blue-800',
+      failed: 'bg-red-50 text-red-900',
+    };
+    status.className = `inline-flex items-center rounded-full px-2 py-0.5 text-xs font-bold capitalize ${statusColors[statusValue] || 'bg-muted text-muted-foreground'}`;
     status.textContent = exportStatusLabel(statusValue);
     statusCell.append(status);
 
     const exportId = document.createElement('td');
-    exportId.className = 'mono';
+    exportId.className = `${eTdCls} font-mono text-sm`;
     exportId.textContent = String(row.exportId || '—');
 
     const result = document.createElement('td');
-    result.className = 'mono';
+    result.className = `${eTdCls} font-mono text-sm`;
     result.textContent = String(row.externalRef || row.externalId || row.destination || '—');
 
     const updated = document.createElement('td');
-    updated.className = 'mono';
+    updated.className = `${eTdCls} font-mono text-sm`;
     updated.textContent = formatExportTs(row.updatedAt || row.createdAt || Date.now());
 
     const action = document.createElement('td');
+    action.className = eTdCls;
     if (statusValue === 'failed') {
       const retry = document.createElement('button');
       retry.type = 'button';
-      retry.className = 'mini-action retry-export';
+      retry.className = 'h-7 rounded border border-input bg-card px-2 text-xs font-medium text-foreground hover:bg-accent';
       retry.dataset.exportHistoryRetry = '';
       retry.textContent = artifactExportMessages.retryExport;
       action.append(retry);
     } else {
       const empty = document.createElement('span');
-      empty.className = 'muted';
+      empty.className = 'text-muted-foreground';
       empty.textContent = '—';
       action.append(empty);
     }
@@ -1152,364 +1178,3 @@ const artifactExportMessages = {
   });
 </script>
 
-<style>
-  .artifact-viewer {
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  .artifact-header {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-  }
-
-  .artifact-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  .artifact-kind {
-    display: inline-block;
-    padding: 0.2rem 0.55rem;
-    border-radius: 999px;
-    background: var(--brand-900);
-    color: #fff;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-  }
-
-  .artifact-status {
-    font-size: 0.8rem;
-    color: var(--admin-text-soft);
-    text-transform: capitalize;
-  }
-
-  .artifact-id {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.75rem;
-  }
-
-  .muted {
-    color: var(--admin-text-muted);
-  }
-
-  .version-controls {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .artifact-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    flex-wrap: wrap;
-  }
-
-  .action-btn,
-  .mini-action {
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    cursor: pointer;
-    font-size: 0.8rem;
-    min-height: 34px;
-    padding: 0.3rem 0.65rem;
-  }
-
-  .action-btn.approve,
-  .mini-action[data-section-action="approved"] {
-    border-color: #16a34a;
-    color: #166534;
-    background: #f0fdf4;
-  }
-
-  .action-btn.reject,
-  .mini-action[data-section-action="rejected"] {
-    border-color: #dc2626;
-    color: #991b1b;
-    background: #fef2f2;
-  }
-
-  .action-btn.export {
-    border-color: var(--admin-accent);
-    color: var(--admin-accent);
-  }
-
-  .action-btn:disabled,
-  .version-select:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-  }
-
-  .export-hint {
-    color: var(--admin-text-muted);
-    font-size: 0.8rem;
-  }
-
-  .operation-preview {
-    flex-basis: 100%;
-    margin: 0.15rem 0 0;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-bg);
-    color: var(--admin-text-muted);
-    font-size: 0.82rem;
-    line-height: 1.45;
-    padding: 0.45rem 0.6rem;
-  }
-
-  .operation-preview.success {
-    border-color: #86efac;
-    background: #f0fdf4;
-    color: #166534;
-  }
-
-  .operation-preview.warning {
-    border-color: #facc15;
-    background: #fefce8;
-    color: #713f12;
-  }
-
-  .section-actions {
-    display: flex;
-    gap: 0.35rem;
-    flex-wrap: wrap;
-  }
-
-  .section-status {
-    text-transform: capitalize;
-    font-size: 0.82rem;
-    color: var(--admin-text-soft);
-  }
-
-  .export-status {
-    display: inline-flex;
-    min-height: 1.45rem;
-    align-items: center;
-    border-radius: 999px;
-    padding: 0.1rem 0.55rem;
-    font-size: 0.74rem;
-    font-weight: 700;
-    text-transform: capitalize;
-  }
-
-  .export-done {
-    background: #f0fdf4;
-    color: #166534;
-  }
-
-  .export-pending {
-    background: #eff6ff;
-    color: #1d4ed8;
-  }
-
-  .export-failed {
-    background: #fef2f2;
-    color: #991b1b;
-  }
-
-  .export-rejected,
-  .export-expired {
-    background: #f1f5f9;
-    color: #475569;
-  }
-
-  .action-status {
-    padding: 0.55rem 0.75rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text-muted);
-    font-size: 0.86rem;
-  }
-
-  .action-status.success {
-    border-color: #86efac;
-    background: #f0fdf4;
-    color: #166534;
-  }
-
-  .action-status.error {
-    border-color: #fca5a5;
-    background: #fef2f2;
-    color: #991b1b;
-  }
-
-  .version-label {
-    font-size: 0.8rem;
-    color: var(--admin-text-soft);
-    white-space: nowrap;
-  }
-
-  .version-select {
-    padding: 0.3rem 0.6rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    font-size: 0.82rem;
-    cursor: pointer;
-  }
-
-  .artifact-section {
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    overflow: hidden;
-  }
-
-  .section-title {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    border-bottom: 1px solid var(--admin-border);
-    background: var(--admin-bg);
-    margin: 0;
-  }
-
-  /* Markdown prose */
-  .prose-section {
-    padding: 1.25rem 1.5rem;
-  }
-
-  .prose {
-    line-height: 1.7;
-    max-width: 72ch;
-  }
-
-  .prose :global(h1),
-  .prose :global(h2),
-  .prose :global(h3) {
-    margin: 1.2em 0 0.4em;
-    font-weight: 700;
-    line-height: 1.3;
-  }
-
-  .prose :global(h1) { font-size: 1.4rem; }
-  .prose :global(h2) { font-size: 1.2rem; }
-  .prose :global(h3) { font-size: 1.05rem; }
-
-  .prose :global(p) {
-    margin: 0.75em 0;
-  }
-
-  .prose :global(code) {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85em;
-    background: var(--admin-bg);
-    border: 1px solid var(--admin-border);
-    border-radius: 3px;
-    padding: 0.1em 0.3em;
-  }
-
-  .prose :global(hr) {
-    border: none;
-    border-top: 1px solid var(--admin-border);
-    margin: 1.5em 0;
-  }
-
-  /* JSON / raw */
-  .json-block {
-    margin: 0;
-    padding: 1rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.8rem;
-    overflow: auto;
-    max-height: 600px;
-    background: var(--admin-bg);
-    border-radius: 0;
-  }
-
-  /* Diff */
-  .diff {
-    margin: 0;
-    padding: 1rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.8rem;
-    overflow: auto;
-    max-height: 600px;
-    background: var(--admin-bg);
-    line-height: 1.6;
-    white-space: pre;
-  }
-
-  /* Tables */
-  .table-scroll {
-    overflow-x: auto;
-  }
-
-  .artifact-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.83rem;
-  }
-
-  .artifact-table th,
-  .artifact-table td {
-    padding: 0.45rem 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid var(--admin-border);
-  }
-
-  .artifact-table th {
-    font-weight: 600;
-    background: var(--admin-bg);
-    color: var(--admin-text-soft);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .artifact-table tbody tr:last-child td {
-    border-bottom: none;
-  }
-
-  .artifact-table tbody tr:hover td {
-    background: var(--admin-surface-subtle, var(--admin-muted));
-  }
-
-  .csv-table {
-    white-space: nowrap;
-  }
-
-  /* Evidence */
-  .evidence-sections {
-    display: grid;
-    gap: 0;
-  }
-
-  .evidence-item {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--admin-border);
-  }
-
-  .evidence-item:last-child {
-    border-bottom: none;
-  }
-
-  .evidence-heading {
-    font-size: 0.88rem;
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-  }
-
-  .evidence-body {
-    font-size: 0.83rem;
-    color: var(--admin-text-muted);
-    line-height: 1.6;
-  }
-</style>

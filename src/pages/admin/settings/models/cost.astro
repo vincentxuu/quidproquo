@@ -366,31 +366,41 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
   )}
   {!loadError && (
     <>
-      <div class="metrics-row">
+      <div class="grid grid-cols-4 gap-3 mb-4 max-[900px]:grid-cols-2 max-[480px]:grid-cols-1">
         <AdminMetric label="近 24 小時" value={formatCost(cost24h)} id="metric-24h" />
         <AdminMetric label="近 7 天" value={formatCost(cost7d)} />
         <AdminMetric label="近 30 天" value={formatCost(cost30d)} />
         <AdminMetric label="本月至今" value={formatCost(costMtd)} />
       </div>
 
-      <div class="dimension-bar">
-        <span class="dimension-label">分組依據：</span>
-        <div class="dimension-tabs" role="tablist">
+      <div class="flex flex-wrap items-center gap-3 mb-3">
+        <span class="text-[0.85em] text-muted-foreground whitespace-nowrap">分組依據：</span>
+        <div class="flex flex-wrap overflow-hidden rounded-md border border-border" role="tablist">
           {dimensions.map((item) => (
             <a
               href={switcherHref(item.value)}
-              class:list={['dim-tab', { active: dimension === item.value }]}
+              class:list={[
+                'px-3.5 py-1 text-[0.85em] no-underline border-r border-border last:border-r-0 transition-colors',
+                dimension === item.value
+                  ? 'bg-primary text-primary-foreground font-semibold'
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+              ]}
               role="tab"
               aria-selected={dimension === item.value ? 'true' : 'false'}
             >{item.label}</a>
           ))}
         </div>
-        <span class="dimension-label period-label">期間：</span>
-        <div class="dimension-tabs" role="tablist">
+        <span class="text-[0.85em] text-muted-foreground whitespace-nowrap ml-2">期間：</span>
+        <div class="flex flex-wrap overflow-hidden rounded-md border border-border" role="tablist">
           {periods.map((item) => (
             <a
               href={periodHref(item.value)}
-              class:list={['dim-tab', { active: period === item.value }]}
+              class:list={[
+                'px-3.5 py-1 text-[0.85em] no-underline border-r border-border last:border-r-0 transition-colors',
+                period === item.value
+                  ? 'bg-primary text-primary-foreground font-semibold'
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+              ]}
               role="tab"
               aria-selected={period === item.value ? 'true' : 'false'}
             >{item.label}</a>
@@ -399,68 +409,65 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
       </div>
 
       <AdminPanel title="費用彙總回填" eyebrow="修補缺漏日期或首次部署後建立 rollup">
-        <form id="cost-backfill-form" class="backfill-form">
-          <div class="backfill-presets" aria-label="常用回填區間">
-            <button type="button" class="backfill-preset" value="7">近 7 天</button>
-            <button type="button" class="backfill-preset" value="30">近 30 天</button>
-            <button type="button" class="backfill-preset" value="90">近 90 天</button>
+        <form id="cost-backfill-form" class="flex flex-wrap items-end gap-3 px-4 pb-4 pt-3">
+          <div class="flex w-full flex-wrap gap-1.5" aria-label="常用回填區間">
+            <button type="button" class="backfill-preset min-h-[2.75rem] rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] text-foreground cursor-pointer hover:bg-muted" value="7">近 7 天</button>
+            <button type="button" class="backfill-preset min-h-[2.75rem] rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] text-foreground cursor-pointer hover:bg-muted" value="30">近 30 天</button>
+            <button type="button" class="backfill-preset min-h-[2.75rem] rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] text-foreground cursor-pointer hover:bg-muted" value="90">近 90 天</button>
           </div>
-          <p id="cost-backfill-preview" class="backfill-preview" aria-live="polite">
-            <span>回填區間</span>
-            <strong id="cost-backfill-preview-range">—</strong>
-            <span id="cost-backfill-preview-risk">請選擇日期。</span>
-            <small id="cost-backfill-preview-estimate">估計寫入列數會在選擇日期後顯示。</small>
+          <p id="cost-backfill-preview" class="grid w-full grid-cols-[auto_minmax(160px,1fr)_minmax(220px,1.5fr)] items-center gap-x-3 gap-y-1.5 rounded-md border border-border bg-secondary px-3 py-2.5 max-[1100px]:grid-cols-1" aria-live="polite">
+            <span class="text-[0.78rem] font-bold text-muted-foreground">回填區間</span>
+            <strong id="cost-backfill-preview-range" class="font-mono text-[0.86rem] text-foreground">—</strong>
+            <span id="cost-backfill-preview-risk" class="text-[0.84rem] text-muted-foreground">請選擇日期。</span>
+            <small id="cost-backfill-preview-estimate" class="col-span-full text-[0.78rem] leading-relaxed text-muted-foreground max-[1100px]:col-span-1">估計寫入列數會在選擇日期後顯示。</small>
           </p>
-          <div class="backfill-row">
-            <label for="backfill-from">起始日期</label>
-            <input id="backfill-from" name="from" type="date" required />
+          <div class="grid gap-1">
+            <label for="backfill-from" class="text-[0.82rem] font-bold text-muted-foreground">起始日期</label>
+            <input id="backfill-from" name="from" type="date" required class="min-h-[2.75rem] rounded-md border border-border bg-card px-2 py-1 text-foreground" />
           </div>
-          <div class="backfill-row">
-            <label for="backfill-to">結束日期</label>
-            <input id="backfill-to" name="to" type="date" required />
+          <div class="grid gap-1">
+            <label for="backfill-to" class="text-[0.82rem] font-bold text-muted-foreground">結束日期</label>
+            <input id="backfill-to" name="to" type="date" required class="min-h-[2.75rem] rounded-md border border-border bg-card px-2 py-1 text-foreground" />
           </div>
-          <button type="submit" class="backfill-button">執行回填</button>
-          <p id="cost-backfill-warning" class="backfill-warning" hidden></p>
-          <p id="cost-backfill-status" class="backfill-status" role="status" aria-live="polite" hidden></p>
-          <dl id="cost-backfill-summary" class="backfill-summary" hidden>
-            <div>
-              <dt>處理天數</dt>
-              <dd data-summary="days">—</dd>
+          <button type="submit" class="min-h-[2.75rem] rounded-md bg-primary px-3 py-1 text-[0.85rem] font-bold text-primary-foreground cursor-pointer disabled:cursor-wait disabled:opacity-65">執行回填</button>
+          <p id="cost-backfill-warning" class="m-0 w-full text-[0.84rem] text-[#92400e]" hidden></p>
+          <p id="cost-backfill-status" class="backfill-status m-0 text-[0.85rem] text-muted-foreground" role="status" aria-live="polite" hidden></p>
+          <dl id="cost-backfill-summary" class="grid w-full grid-cols-4 gap-2 m-0 max-[1100px]:grid-cols-2" hidden>
+            <div class="rounded-md border border-border bg-secondary px-2.5 py-2">
+              <dt class="text-[0.72rem] font-bold text-muted-foreground">處理天數</dt>
+              <dd data-summary="days" class="mt-0.5 m-0 font-mono text-[0.9rem] text-foreground">—</dd>
             </div>
-            <div>
-              <dt>寫入列數</dt>
-              <dd data-summary="rows">—</dd>
+            <div class="rounded-md border border-border bg-secondary px-2.5 py-2">
+              <dt class="text-[0.72rem] font-bold text-muted-foreground">寫入列數</dt>
+              <dd data-summary="rows" class="mt-0.5 m-0 font-mono text-[0.9rem] text-foreground">—</dd>
             </div>
-            <div>
-              <dt>費用</dt>
-              <dd data-summary="cost">—</dd>
+            <div class="rounded-md border border-border bg-secondary px-2.5 py-2">
+              <dt class="text-[0.72rem] font-bold text-muted-foreground">費用</dt>
+              <dd data-summary="cost" class="mt-0.5 m-0 font-mono text-[0.9rem] text-foreground">—</dd>
             </div>
-            <div>
-              <dt>Tokens</dt>
-              <dd data-summary="tokens">—</dd>
+            <div class="rounded-md border border-border bg-secondary px-2.5 py-2">
+              <dt class="text-[0.72rem] font-bold text-muted-foreground">Tokens</dt>
+              <dd data-summary="tokens" class="mt-0.5 m-0 font-mono text-[0.9rem] text-foreground">—</dd>
             </div>
           </dl>
         </form>
-        <div
-          id="cost-backfill-history"
-          class={recentBackfills.length === 0 ? 'backfill-history is-empty' : 'backfill-history'}
-        >
-          <h3>最近回填</h3>
-          <div id="cost-backfill-history-body" class="backfill-history-list">
+        <div id="cost-backfill-history" class="border-t border-border">
+          <h3 class="m-0 px-4 pt-3 pb-1.5 text-[0.82rem] font-bold text-muted-foreground">最近回填</h3>
+          <div id="cost-backfill-history-body" class="grid gap-2 px-4 pb-4">
             {recentBackfillRows.length === 0 ? (
-              <p data-empty-history>尚無回填紀錄。</p>
+              <p data-empty-history class="m-0 text-[0.86rem] text-muted-foreground">尚無回填紀錄。</p>
             ) : (
               recentBackfillRows.map((row) => (
-                <div class="backfill-history-row">
-                  <span class="mono">{row.createdAt}</span>
-                  <strong class="mono">{row.range}</strong>
+                <div class="backfill-history-row grid items-center gap-x-2.5 rounded-md border border-border bg-secondary px-3 py-2.5 text-[0.84rem] max-[1100px]:grid-cols-1" style="grid-template-columns: minmax(140px,1.2fr) minmax(180px,1.4fr) repeat(4,minmax(80px,auto)) auto">
+                  <span class="font-mono text-[0.85em]">{row.createdAt}</span>
+                  <strong class="font-mono text-[0.85em] text-foreground">{row.range}</strong>
                   <span>{row.rows} 列</span>
-                  <span class="cost">{row.cost}</span>
+                  <span class="font-mono tabular-nums text-[0.85em]">{row.cost}</span>
                   <span>{row.tokens} tokens</span>
                   <span>{row.userEmail}</span>
                   <button
                     type="button"
-                    class="backfill-repeat"
+                    class="backfill-repeat inline-flex min-h-[2.75rem] items-center justify-center rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] font-bold text-primary cursor-pointer hover:bg-muted disabled:cursor-not-allowed disabled:opacity-55 max-[1100px]:w-full"
                     data-repeat-backfill
                     data-from-day={row.fromDay ?? ''}
                     data-to-day={row.toDay ?? ''}
@@ -476,7 +483,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
         </div>
       </AdminPanel>
 
-      <div class="cost-layout">
+      <div class="grid gap-4 max-[1100px]:grid-cols-1" style="grid-template-columns: 1fr 340px">
         <AdminPanel title={`依 ${dimensionLabel} 分類費用 — ${activePeriod.label}`} class="cost-main">
           {dailyRows.length === 0 ? (
             <AdminState tone="empty">尚無彙總資料。請執行費用回填以填入此資料表。</AdminState>
@@ -495,17 +502,17 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
               <tbody>
                 {dailyRows.map((row) => (
                   <tr>
-                    <td class="mono">
+                    <td class="font-mono text-[0.85em]">
                       {formatDay(row.day)}
                       {row.day === latestDay && (
-                        <span class="live-badge" id="live-badge" aria-live="polite">即時 · 每 60 秒更新</span>
+                        <span class="ml-2 inline-block rounded-full bg-[#dcfce7] px-2 py-0.5 align-middle text-[0.75em] text-[#166534] whitespace-nowrap" id="live-badge" aria-live="polite">即時 · 每 60 秒更新</span>
                       )}
                     </td>
-                    <td class="flow-id">{row.dimension_value}</td>
-                    <td class="cost">{formatCost(row.cost_usd)}</td>
-                    <td class="num">{row.tokens_in.toLocaleString()}</td>
-                    <td class="num">{row.tokens_out.toLocaleString()}</td>
-                    <td class="num">{row.run_count}</td>
+                    <td class="font-mono text-[0.82em] text-muted-foreground max-w-[180px] overflow-hidden text-ellipsis whitespace-nowrap">{row.dimension_value}</td>
+                    <td class="font-mono tabular-nums text-[0.85em]">{formatCost(row.cost_usd)}</td>
+                    <td class="text-right tabular-nums text-[0.85em]">{row.tokens_in.toLocaleString()}</td>
+                    <td class="text-right tabular-nums text-[0.85em]">{row.tokens_out.toLocaleString()}</td>
+                    <td class="text-right tabular-nums text-[0.85em]">{row.run_count}</td>
                   </tr>
                 ))}
               </tbody>
@@ -513,7 +520,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
           )}
         </AdminPanel>
 
-        <div class="cost-rail-stack">
+        <div class="grid gap-4">
           <AdminPanel title={`${dimensionLabel} 費用排行`} class="cost-rail">
             {topEntities.length === 0 ? (
               <AdminState tone="empty">此期間無彙總資料。</AdminState>
@@ -529,9 +536,9 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
                 <tbody>
                   {topEntities.map((entity) => (
                     <tr>
-                      <td class="flow-id">{entity.value}</td>
-                      <td class="cost">{formatCost(entity.cost)}</td>
-                      <td class="num">{entity.runs.toLocaleString()}</td>
+                      <td class="font-mono text-[0.82em] text-muted-foreground max-w-[180px] overflow-hidden text-ellipsis whitespace-nowrap">{entity.value}</td>
+                      <td class="font-mono tabular-nums text-[0.85em]">{formatCost(entity.cost)}</td>
+                      <td class="text-right tabular-nums text-[0.85em]">{entity.runs.toLocaleString()}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -543,18 +550,18 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
             {budgetAlerts.length === 0 ? (
               <AdminState tone="empty">目前無執行項目超過預算上限的 80%。</AdminState>
             ) : (
-              <div class="budget-list">
+              <div class="grid gap-3">
                 {budgetAlerts.map((alert) => (
-                  <a class="budget-alert" href={`/admin/sessions/${alert.runId}`}>
-                    <span class="budget-head">
-                      <span class="flow-id">{alert.flowId}</span>
+                  <a class="grid gap-1.5 rounded-md border border-border p-3 no-underline text-inherit hover:border-primary hover:bg-muted" href={`/admin/sessions/${alert.runId}`}>
+                    <span class="flex items-center justify-between gap-3">
+                      <span class="font-mono text-[0.82em] text-muted-foreground max-w-[180px] overflow-hidden text-ellipsis whitespace-nowrap">{alert.flowId}</span>
                       <strong>{Math.round(alert.ratio * 100)}%</strong>
                     </span>
-                    <span class="budget-meta">{alert.policyKey}</span>
-                    <span class="budget-bar" aria-hidden="true">
-                      <span style={budgetWidthStyle(alert.ratio)}></span>
+                    <span class="text-[0.82em] text-muted-foreground">{alert.policyKey}</span>
+                    <span class="block h-1.5 overflow-hidden rounded-full bg-border" aria-hidden="true">
+                      <span class="block h-full rounded-full bg-[var(--admin-warning)]" style={budgetWidthStyle(alert.ratio)}></span>
                     </span>
-                    <span class="budget-cost">{formatCost(alert.costUsd)} / {formatCost(alert.limitUsd)}</span>
+                    <span class="text-[0.82em] text-muted-foreground">{formatCost(alert.costUsd)} / {formatCost(alert.limitUsd)}</span>
                   </a>
                 ))}
               </div>
@@ -577,12 +584,12 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
                 <tbody>
                   {topRuns.map((run) => (
                     <tr>
-                      <td class="mono run-id">
-                        <a href={`/admin/sessions/${run.run_id}`}>{run.run_id.slice(0, 8)}&hellip;</a>
+                      <td class="font-mono text-[0.85em]">
+                        <a href={`/admin/sessions/${run.run_id}`} class="text-primary no-underline hover:underline">{run.run_id.slice(0, 8)}&hellip;</a>
                       </td>
-                      <td class="flow-id">{run.agent_id}</td>
-                      <td class="cost">{formatCost(run.total_cost)}</td>
-                      <td class="num">{run.total_tokens.toLocaleString()}</td>
+                      <td class="font-mono text-[0.82em] text-muted-foreground max-w-[180px] overflow-hidden text-ellipsis whitespace-nowrap">{run.agent_id}</td>
+                      <td class="font-mono tabular-nums text-[0.85em]">{formatCost(run.total_cost)}</td>
+                      <td class="text-right tabular-nums text-[0.85em]">{run.total_tokens.toLocaleString()}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -655,7 +662,8 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
     function setStatus(message, tone = '') {
       status.hidden = false;
       status.textContent = message;
-      status.className = `backfill-status ${tone}`;
+      status.className = 'backfill-status m-0 text-[0.85rem] '
+        + (tone === 'success' ? 'text-[#15803d]' : tone === 'error' ? 'text-destructive' : 'text-muted-foreground');
     }
 
     function setWarning(message) {
@@ -747,20 +755,36 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
 
     function prependHistory(summary, opts = {}) {
       if (!(historyBody instanceof HTMLElement)) return;
-      history?.classList.remove('is-empty');
       historyBody.querySelector('[data-empty-history]')?.remove();
       const tokensTotal = Number(summary.tokensIn || 0) + Number(summary.tokensOut || 0);
       const row = document.createElement('div');
-      row.className = opts.failed ? 'backfill-history-row failed' : 'backfill-history-row';
-      row.innerHTML = `
-        <span class="mono">剛剛</span>
-        <strong class="mono">${formatDay(summary.fromDay)} → ${formatDay(summary.toDay)}</strong>
-        <span>${opts.failed ? '失敗' : `${Number(summary.rowsWritten || 0).toLocaleString()} 列`}</span>
-        <span class="cost">${opts.failed ? String(opts.error || '—') : `$${Number(summary.costUsd || 0).toFixed(4)}`}</span>
-        <span>${opts.failed ? '—' : `${tokensTotal.toLocaleString()} tokens`}</span>
-        <span>admin</span>
-        <button type="button" class="backfill-repeat" data-repeat-backfill data-from-day="${summary.fromDay}" data-to-day="${summary.toDay}">重跑</button>
-      `;
+      const baseCls = 'backfill-history-row grid items-center gap-x-2.5 rounded-md border px-3 py-2.5 text-[0.84rem]';
+      row.className = opts.failed
+        ? baseCls + ' border-destructive/30 bg-destructive/5 text-destructive'
+        : baseCls + ' border-border bg-secondary';
+      row.style.gridTemplateColumns = 'minmax(140px,1.2fr) minmax(180px,1.4fr) repeat(4,minmax(80px,auto)) auto';
+      const cells = [
+        { tag: 'span', cls: 'font-mono text-[0.85em]', text: '剛剛' },
+        { tag: 'strong', cls: 'font-mono text-[0.85em] text-foreground', text: formatDay(summary.fromDay) + ' → ' + formatDay(summary.toDay) },
+        { tag: 'span', cls: '', text: opts.failed ? '失敗' : Number(summary.rowsWritten || 0).toLocaleString() + ' 列' },
+        { tag: 'span', cls: 'font-mono tabular-nums text-[0.85em]', text: opts.failed ? String(opts.error || '—') : '$' + Number(summary.costUsd || 0).toFixed(4) },
+        { tag: 'span', cls: '', text: opts.failed ? '—' : tokensTotal.toLocaleString() + ' tokens' },
+        { tag: 'span', cls: '', text: 'admin' },
+      ];
+      for (const c of cells) {
+        const el = document.createElement(c.tag);
+        if (c.cls) el.className = c.cls;
+        el.textContent = c.text;
+        row.appendChild(el);
+      }
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'backfill-repeat inline-flex min-h-[2.75rem] items-center justify-center rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] font-bold text-primary cursor-pointer hover:bg-muted';
+      btn.dataset.repeatBackfill = '';
+      btn.dataset.fromDay = String(summary.fromDay);
+      btn.dataset.toDay = String(summary.toDay);
+      btn.textContent = '重跑';
+      row.appendChild(btn);
       historyBody.prepend(row);
     }
 
@@ -845,441 +869,3 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
   })();
 </script>
 
-<style>
-  .metrics-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--admin-space-3, 0.75rem);
-    margin-bottom: var(--admin-space-4, 1rem);
-  }
-
-  @media (max-width: 900px) {
-    .metrics-row {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .metrics-row {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .dimension-bar {
-    display: flex;
-    align-items: center;
-    gap: var(--admin-space-3, 0.75rem);
-    margin-bottom: var(--admin-space-3, 0.75rem);
-    flex-wrap: wrap;
-  }
-
-  .dimension-label {
-    font-size: 0.85em;
-    color: var(--admin-text-muted);
-    white-space: nowrap;
-  }
-
-  .dimension-tabs {
-    display: flex;
-    gap: 0;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: 6px;
-    overflow: hidden;
-    flex-wrap: wrap;
-  }
-
-  .dim-tab {
-    padding: 0.3rem 0.9rem;
-    font-size: 0.85em;
-    text-decoration: none;
-    color: var(--admin-text-muted, #64748b);
-    background: transparent;
-    border-right: 1px solid var(--admin-border, #e2e8f0);
-    transition: background 0.1s;
-  }
-
-  .dim-tab:last-child {
-    border-right: none;
-  }
-
-  .dim-tab:hover {
-    background: var(--admin-surface-hover, #f8fafc);
-    color: var(--admin-text, #0f172a);
-  }
-
-  .dim-tab.active {
-    background: var(--admin-accent, #2563eb);
-    color: #fff;
-    font-weight: 600;
-  }
-
-  .period-label {
-    margin-left: var(--admin-space-2, 0.5rem);
-  }
-
-  .cost-layout {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: var(--admin-space-4, 1rem);
-    align-items: start;
-  }
-
-  .backfill-form {
-    display: flex;
-    align-items: end;
-    gap: var(--admin-space-3, 0.75rem);
-    flex-wrap: wrap;
-    padding: 0.75rem 1rem 1rem;
-  }
-
-  .backfill-presets {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .backfill-presets button {
-    min-height: 2.75rem;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-surface, #fff);
-    color: var(--admin-text, #0f172a);
-    cursor: pointer;
-    font-size: 0.8rem;
-    padding: 0.25rem 0.65rem;
-  }
-
-  .backfill-presets button:hover {
-    background: var(--admin-muted, #f1f5f9);
-  }
-
-  .backfill-preview {
-    display: grid;
-    grid-template-columns: auto minmax(160px, 1fr) minmax(220px, 1.5fr);
-    gap: 0.45rem 0.75rem;
-    align-items: center;
-    width: 100%;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-surface-subtle, #f8fafc);
-    padding: 0.6rem 0.75rem;
-  }
-
-  .backfill-preview span:first-child {
-    color: var(--admin-text-soft, #64748b);
-    font-size: 0.78rem;
-    font-weight: 700;
-  }
-
-  .backfill-preview strong {
-    color: var(--admin-text, #0f172a);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.86rem;
-  }
-
-  #cost-backfill-preview-risk {
-    color: var(--admin-text-muted, #64748b);
-    font-size: 0.84rem;
-  }
-
-  #cost-backfill-preview-estimate {
-    grid-column: 2 / -1;
-    color: var(--admin-text-soft, #94a3b8);
-    font-size: 0.78rem;
-    line-height: 1.45;
-  }
-
-  .backfill-row {
-    display: grid;
-    gap: 0.3rem;
-  }
-
-  .backfill-row label {
-    color: var(--admin-text-soft);
-    font-size: 0.82rem;
-    font-weight: 700;
-  }
-
-  .backfill-row input {
-    min-height: 2.75rem;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-surface, #fff);
-    color: var(--admin-text, #0f172a);
-    padding: 0.35rem 0.55rem;
-  }
-
-  .backfill-button {
-    min-height: 2.75rem;
-    border: 1px solid var(--admin-accent, #2563eb);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-accent, #2563eb);
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 0.35rem 0.8rem;
-  }
-
-  .backfill-button:disabled {
-    cursor: wait;
-    opacity: 0.65;
-  }
-
-  .backfill-status {
-    margin: 0;
-    color: var(--admin-text-muted, #64748b);
-    font-size: 0.85rem;
-  }
-
-  .backfill-warning {
-    width: 100%;
-    margin: 0;
-    color: #92400e;
-    font-size: 0.84rem;
-  }
-
-  .backfill-warning[hidden] {
-    display: none;
-  }
-
-  .backfill-status.success {
-    color: #15803d;
-  }
-
-  .backfill-status.error {
-    color: #b91c1c;
-  }
-
-  .backfill-summary {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(90px, 1fr));
-    gap: 0.5rem;
-    width: 100%;
-    margin: 0;
-  }
-
-  .backfill-summary[hidden] {
-    display: none;
-  }
-
-  .backfill-summary div {
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-surface-subtle, #f8fafc);
-    padding: 0.55rem 0.65rem;
-  }
-
-  .backfill-summary dt {
-    color: var(--admin-text-soft, #94a3b8);
-    font-size: 0.72rem;
-    font-weight: 700;
-  }
-
-  .backfill-summary dd {
-    margin: 0.15rem 0 0;
-    color: var(--admin-text, #0f172a);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.9rem;
-  }
-
-  .backfill-history {
-    border-top: 1px solid var(--admin-border, #e2e8f0);
-  }
-
-  .backfill-history.is-empty .backfill-history-list {
-    color: var(--admin-text-muted, #64748b);
-  }
-
-  .backfill-history-list {
-    display: grid;
-    gap: 0.55rem;
-    padding: 0 1rem 1rem;
-  }
-
-  .backfill-history-list p {
-    margin: 0;
-    color: var(--admin-text-muted, #64748b);
-    font-size: 0.86rem;
-  }
-
-  .backfill-history-row {
-    display: grid;
-    grid-template-columns: minmax(140px, 1.2fr) minmax(180px, 1.4fr) repeat(4, minmax(80px, auto)) auto;
-    gap: 0.65rem;
-    align-items: center;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-surface-subtle, #f8fafc);
-    padding: 0.6rem 0.75rem;
-    font-size: 0.84rem;
-  }
-
-  .backfill-history-row strong {
-    color: var(--admin-text, #0f172a);
-  }
-
-  .backfill-history-row.failed {
-    border-color: #fecaca;
-    background: #fef2f2;
-    color: #991b1b;
-  }
-
-  .backfill-repeat {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-surface, #fff);
-    color: var(--admin-accent, #2563eb);
-    cursor: pointer;
-    font: inherit;
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 0.35rem 0.7rem;
-  }
-
-  .backfill-repeat:hover {
-    background: var(--admin-muted, #f1f5f9);
-  }
-
-  .backfill-repeat:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-  }
-
-  .backfill-history h3 {
-    margin: 0;
-    padding: 0.75rem 1rem 0.45rem;
-    color: var(--admin-text-soft, #64748b);
-    font-size: 0.82rem;
-    font-weight: 700;
-  }
-
-  .cost-rail-stack {
-    display: grid;
-    gap: var(--admin-space-4, 1rem);
-  }
-
-  @media (max-width: 1100px) {
-    .cost-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .backfill-summary {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .backfill-preview {
-      grid-template-columns: 1fr;
-    }
-
-    .backfill-history-row {
-      grid-template-columns: 1fr;
-    }
-
-    .backfill-repeat {
-      width: 100%;
-    }
-  }
-
-  .mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85em;
-  }
-
-  .run-id a {
-    color: var(--admin-accent, #2563eb);
-    text-decoration: none;
-  }
-
-  .run-id a:hover {
-    text-decoration: underline;
-  }
-
-  .flow-id {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.82em;
-    color: var(--admin-text-muted);
-    max-width: 180px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .cost {
-    font-variant-numeric: tabular-nums;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85em;
-  }
-
-  .num {
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-    font-size: 0.85em;
-  }
-
-  .budget-list {
-    display: grid;
-    gap: var(--admin-space-3, 0.75rem);
-  }
-
-  .budget-alert {
-    display: grid;
-    gap: 0.35rem;
-    padding: 0.75rem;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: 6px;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .budget-alert:hover {
-    border-color: var(--admin-accent, #2563eb);
-    background: var(--admin-surface-hover, #f8fafc);
-  }
-
-  .budget-head {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  .budget-meta,
-  .budget-cost {
-    color: var(--admin-text-muted, #64748b);
-    font-size: 0.82em;
-  }
-
-  .budget-bar {
-    display: block;
-    height: 6px;
-    overflow: hidden;
-    border-radius: 999px;
-    background: var(--admin-border, #e2e8f0);
-  }
-
-  .budget-bar span {
-    display: block;
-    height: 100%;
-    border-radius: inherit;
-    background: var(--admin-warning, #d97706);
-  }
-
-  .live-badge {
-    display: inline-block;
-    margin-left: 0.5em;
-    padding: 0.1em 0.5em;
-    font-size: 0.75em;
-    font-family: ui-sans-serif, system-ui, sans-serif;
-    background: var(--admin-success-bg, #dcfce7);
-    color: var(--admin-success, #166534);
-    border-radius: 999px;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-</style>

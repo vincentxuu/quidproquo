@@ -1,8 +1,8 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
-import ProviderManagement from '@/components/admin/ProviderManagement.astro';
-import { createConsoleTranslator, getConsoleLang } from '@/lib/console/admin/i18n';
+import ProviderManagement from '@/components/admin/ProviderManagement.tsx';
+import { createConsoleTranslator, getConsoleLang, type ConsoleI18nKey } from '@/lib/console/admin/i18n';
 import { ensureConsoleUmbrella } from '../../_guard';
 import '@/styles/globals.css';
 
@@ -11,8 +11,40 @@ if (gate) return gate;
 
 const lang = getConsoleLang(Astro.url);
 const t = createConsoleTranslator(lang);
+
+const providerKeys: ConsoleI18nKey[] = [
+  'providers.description', 'providers.routingTitle', 'providers.routingNote',
+  'providers.engine', 'providers.defaultProvider', 'providers.defaultModel',
+  'providers.fallbackProvider', 'providers.fallbackModel', 'providers.saveRouting',
+  'providers.catalogTitle', 'providers.catalogNote', 'providers.expandAll',
+  'providers.collapseAll', 'providers.provider', 'providers.modelName',
+  'providers.displayName', 'providers.notes', 'providers.notesPlaceholder',
+  'providers.addUpdate', 'providers.testTitle', 'providers.testNote',
+  'providers.maxTokens', 'providers.testName', 'providers.testNamePlaceholder',
+  'providers.prompt', 'providers.runTest', 'providers.secretsTitle',
+  'providers.secretsNote', 'providers.ragPipeline', 'providers.embedding',
+  'providers.secretsStatus', 'providers.active', 'providers.inactive',
+  'providers.delete', 'providers.saveSecret', 'providers.deleteAdmin',
+  'providers.secretConfiguredPlaceholder', 'providers.secretEmptyPlaceholder',
+  'providers.syncModels', 'providers.syncing', 'providers.syncFailed',
+  'providers.syncFailedRetry', 'providers.syncDone', 'providers.modelsEnabled',
+  'providers.noModels', 'providers.saving', 'providers.saved', 'providers.saveFailed',
+  'providers.deleting', 'providers.deleted', 'providers.deleteFailed',
+  'providers.modelRequired', 'providers.secretRequired', 'providers.testing',
+  'providers.waitingModel', 'providers.testFailed', 'providers.successMs',
+  'providers.unableToLoad', 'providers.unableSettings', 'providers.noEnabledModels',
+  'providers.configure',
+];
+
+const messages: Record<string, string> = {};
+for (const fullKey of providerKeys) {
+  const shortKey = fullKey.replace('providers.', '');
+  messages[shortKey] = t(fullKey);
+}
+messages.notTested = t('common.notTested');
+messages.testPrompt = t('flows.testPrompt');
 ---
 
 <AdminV2Layout title={t('providers.title')} section="settings">
-  <ProviderManagement />
+  <ProviderManagement client:load messages={messages} />
 </AdminV2Layout>
