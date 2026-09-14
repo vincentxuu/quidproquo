@@ -263,9 +263,88 @@ const SANDBOX_TOOL_DEFS: LangChainToolDef[] = [
 
 type McpToolEntry = { server: McpServerConfig; tool: McpToolDefinition }
 
+interface EnabledComponents {
+  skillCatalog: string
+  snapshotToolDefs: LangChainToolDef[]
+  snapshotToolRoutes: Map<string, { serverUrl: string; toolName: string; serverName: string }>
+}
+
+async function loadEnabledComponents(
+  db: D1Database,
+  subjectId: string,
+): Promise<EnabledComponents | null> {
+  // Query enablement for this session, falling back to workspace default
+  let rows: { component_type: string; component_id: string }[] = []
+  try {
+    const result = await db.prepare(`
+      SELECT component_type, component_id FROM enablement
+      WHERE enabled = 1 AND (
+        (subject_type = 'session' AND subject_id = ?)
+        OR (subject_type = 'workspace' AND subject_id = 'default')
+      )
+      ORDER BY component_type
+    `).bind(subjectId).all<{ component_type: string; component_id: string }>()
+    rows = result.results ?? []
+  } catch { return null }
+
+  if (rows.length === 0) return null
+
+  const skillIds = rows.filter(r => r.component_type === 'skill').map(r => r.component_id)
+  const toolIds = rows.filter(r => r.component_type === 'tool').map(r => r.component_id)
+
+  let skillCatalog = ''
+  if (skillIds.length > 0) {
+    try {
+      const placeholders = skillIds.map(() => '?').join(',')
+      const skillRows = await db.prepare(`
+        SELECT s.slug, sv.description
+        FROM skill s JOIN skill_version sv ON sv.id = s.latest_version_id
+        WHERE s.id IN (${placeholders}) AND sv.status = 'published'
+      `).bind(...skillIds).all<{ slug: string; description: string }>()
+      if (skillRows.results?.length) {
+        skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
+          skillRows.results.map((r) => `- ${r.slug}: ${r.description}`).join('\n')
+      }
+    } catch { /* non-fatal */ }
+  }
+
+  const snapshotToolDefs: LangChainToolDef[] = []
+  const snapshotToolRoutes = new Map<string, { serverUrl: string; toolName: string; serverName: string }>()
+  if (toolIds.length > 0) {
+    try {
+      const placeholders = toolIds.map(() => '?').join(',')
+      const toolRows = await db.prepare(`
+        SELECT ts.qualified_key, ts.tool_name, ts.description, ts.input_schema, ms.url, ms.name AS server_name
+        FROM tool_snapshot ts
+        JOIN mcp_server_v2 ms ON ms.id = ts.server_id
+        WHERE ms.id IN (${placeholders}) AND ts.removed_at IS NULL AND ms.enabled = 1
+      `).bind(...toolIds).all<{
+        qualified_key: string; tool_name: string; description: string;
+        input_schema: string; url: string | null; server_name: string
+      }>()
+      for (const row of toolRows.results ?? []) {
+        snapshotToolDefs.push({
+          type: 'function',
+          function: {
+            name: row.qualified_key,
+            description: row.description,
+            parameters: JSON.parse(row.input_schema || '{"type":"object","properties":{}}') as Record<string, unknown>,
+          },
+        })
+        if (row.url) {
+          snapshotToolRoutes.set(row.qualified_key, { serverUrl: row.url, toolName: row.tool_name, serverName: row.server_name })
+        }
+      }
+    } catch { /* non-fatal */ }
+  }
+
+  return { skillCatalog, snapshotToolDefs, snapshotToolRoutes }
+}
+
 function buildToolDefinitions(
   hasSandbox: boolean,
   mcpTools?: Map<string, McpToolEntry>,
+  enabledToolDefs?: LangChainToolDef[],
 ): LangChainToolDef[] {
   const syscallDefs = listDefaultSyscalls().map((syscall) => ({
     type: 'function' as const,
@@ -294,6 +373,7 @@ function buildToolDefinitions(
     ...syscallDefs,
     ...(hasSandbox ? SANDBOX_TOOL_DEFS : []),
     ...mcpDefs,
+    ...(enabledToolDefs ?? []),
   ]
 }
 
@@ -565,7 +645,11 @@ export class AgentSessionDO extends DurableObject<Env> {
       repoContext = await buildRepoContext(runner, options.repo, options.branch)
     }
 
-    // MCP server discovery — load enabled servers, fetch their tool lists
+    // Dynamic component loading: enablement table → tool_snapshot + skills
+    const enabled = await loadEnabledComponents(this.env.DB, session.id)
+    let snapshotToolRoutes = new Map<string, { serverUrl: string; toolName: string; serverName: string }>()
+
+    // MCP server discovery (live) — supplements enablement-based snapshots
     let mcpTools = new Map<string, McpToolEntry>()
     try {
       const servers = await loadServers(this.env.DB)
@@ -574,30 +658,31 @@ export class AgentSessionDO extends DurableObject<Env> {
       }
     } catch { /* MCP discovery failure is non-fatal */ }
 
-    const toolDefs = buildToolDefinitions(!!runner, mcpTools)
+    const toolDefs = buildToolDefinitions(!!runner, mcpTools, enabled?.snapshotToolDefs)
+    if (enabled) snapshotToolRoutes = enabled.snapshotToolRoutes
 
-    let skillCatalog = ''
-    try {
-      // New schema: skill + skill_version (published only)
-      const rows = await this.env.DB.prepare(`
-        SELECT s.slug, sv.description
-        FROM skill s JOIN skill_version sv ON sv.id = s.latest_version_id
-        WHERE sv.status = 'published'
-        ORDER BY s.slug
-      `).all<{ slug: string; description: string }>()
-      if (rows.results?.length) {
-        skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
-          rows.results.map((r) => `- ${r.slug}: ${r.description}`).join('\n')
-      }
-      // Fallback: legacy user_skills table
-      if (!skillCatalog) {
-        const legacy = await this.env.DB.prepare('SELECT name, description FROM user_skills ORDER BY name').all<{ name: string; description: string }>()
-        if (legacy.results?.length) {
+    // Skill catalog: enablement-derived first, then direct query fallback
+    let skillCatalog = enabled?.skillCatalog ?? ''
+    if (!skillCatalog) {
+      try {
+        const rows = await this.env.DB.prepare(`
+          SELECT s.slug, sv.description
+          FROM skill s JOIN skill_version sv ON sv.id = s.latest_version_id
+          WHERE sv.status = 'published' ORDER BY s.slug
+        `).all<{ slug: string; description: string }>()
+        if (rows.results?.length) {
           skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
-            legacy.results.map((r) => `- ${r.name}: ${r.description}`).join('\n')
+            rows.results.map((r) => `- ${r.slug}: ${r.description}`).join('\n')
         }
-      }
-    } catch { /* skill catalog failure is non-fatal */ }
+        if (!skillCatalog) {
+          const legacy = await this.env.DB.prepare('SELECT name, description FROM user_skills ORDER BY name').all<{ name: string; description: string }>()
+          if (legacy.results?.length) {
+            skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
+              legacy.results.map((r) => `- ${r.name}: ${r.description}`).join('\n')
+          }
+        }
+      } catch { /* non-fatal */ }
+    }
 
     try {
       await runLoop(
@@ -622,7 +707,22 @@ export class AgentSessionDO extends DurableObject<Env> {
             }
           },
           syscall: async (name, input) => {
-            // Route MCP tool calls to the appropriate server
+            // Route enablement-based tool snapshot calls
+            const snapshotRoute = snapshotToolRoutes.get(name)
+            if (snapshotRoute) {
+              const headers: Record<string, string> = {}
+              const cred = (apiKeys as Record<string, string>)[snapshotRoute.serverName]
+              if (cred) headers['Authorization'] = `Bearer ${cred}`
+              const result = await mcpCallTool(
+                { url: snapshotRoute.serverUrl, headers },
+                snapshotRoute.toolName,
+                (input ?? {}) as Record<string, unknown>,
+              )
+              if (result.isError) return `mcp error: ${result.content}`
+              return result.content
+            }
+
+            // Route live-discovered MCP tool calls
             const mcpEntry = mcpTools.get(name)
             if (mcpEntry && mcpEntry.server.url) {
               const headers: Record<string, string> = {}
@@ -703,6 +803,9 @@ export class AgentSessionDO extends DurableObject<Env> {
     const modelConfig = resolveModelConfig(session.model ?? undefined)
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
 
+    const enabled = await loadEnabledComponents(this.env.DB, sessionId)
+    let snapshotToolRoutes = new Map<string, { serverUrl: string; toolName: string; serverName: string }>()
+
     let mcpTools = new Map<string, McpToolEntry>()
     try {
       const servers = await loadServers(this.env.DB)
@@ -711,7 +814,8 @@ export class AgentSessionDO extends DurableObject<Env> {
       }
     } catch { /* non-fatal */ }
 
-    const toolDefs = buildToolDefinitions(false, mcpTools)
+    const toolDefs = buildToolDefinitions(false, mcpTools, enabled?.snapshotToolDefs)
+    if (enabled) snapshotToolRoutes = enabled.snapshotToolRoutes
 
     try {
       await runLoop(
@@ -730,6 +834,20 @@ export class AgentSessionDO extends DurableObject<Env> {
             }
           },
           syscall: async (name, input) => {
+            const snapshotRoute = snapshotToolRoutes.get(name)
+            if (snapshotRoute) {
+              const headers: Record<string, string> = {}
+              const cred = (apiKeys as Record<string, string>)[snapshotRoute.serverName]
+              if (cred) headers['Authorization'] = `Bearer ${cred}`
+              const result = await mcpCallTool(
+                { url: snapshotRoute.serverUrl, headers },
+                snapshotRoute.toolName,
+                (input ?? {}) as Record<string, unknown>,
+              )
+              if (result.isError) return `mcp error: ${result.content}`
+              return result.content
+            }
+
             const mcpEntry = mcpTools.get(name)
             if (mcpEntry && mcpEntry.server.url) {
               const headers: Record<string, string> = {}

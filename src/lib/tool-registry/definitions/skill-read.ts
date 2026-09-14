@@ -13,6 +13,25 @@ interface SkillVersionRow {
   version_id: string
 }
 
+function genInvocationId(): string {
+  return `inv_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
+}
+
+async function recordInvocation(
+  db: D1Database,
+  versionId: string,
+  sessionId: string | null,
+  outcome: string,
+): Promise<void> {
+  try {
+    await db.prepare(
+      'INSERT INTO skill_invocation (id, version_id, session_id, triggered_at, outcome) VALUES (?, ?, ?, ?, ?)',
+    ).bind(genInvocationId(), versionId, sessionId, Math.floor(Date.now() / 1000), outcome).run()
+  } catch {
+    // Table may not exist yet (migration not applied); non-fatal
+  }
+}
+
 export const skillReadSyscall = defineSyscall<SkillReadInput, { name: string; description: string; content: string } | null>({
   name: 'skill.read',
   description: 'Read a skill by name. Returns the published version body.',
@@ -29,8 +48,9 @@ export const skillReadSyscall = defineSyscall<SkillReadInput, { name: string; de
       content: { type: 'string' },
     },
   },
-  async handler(_ctx, input) {
+  async handler(ctx, input) {
     const { name } = input
+    const sessionId = (ctx as unknown as { runId?: string })?.runId ?? null
     try {
       const env = getEnv() as unknown as { DB?: D1Database; R2_AGENT_ARTIFACT?: R2Bucket }
       if (!env.DB) return { name, description: `skill ${name}`, content: `# ${name}\nstub (no DB)` }
@@ -49,6 +69,7 @@ export const skillReadSyscall = defineSyscall<SkillReadInput, { name: string; de
           const obj = await env.R2_AGENT_ARTIFACT.get(row.body_r2_key)
           if (obj) content = await obj.text()
         }
+        await recordInvocation(env.DB, row.version_id, sessionId, 'used')
         return { name: row.name, description: row.description, content }
       }
 
