@@ -1,83 +1,10 @@
 ---
 export const prerender = false
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro'
+import RoutineNew from '@/components/admin/RoutineNew.tsx'
+import '@/styles/globals.css'
 ---
 
 <AdminV2Layout title="New routine" section="routines">
-  <h2>⚡ Routines / New routine</h2>
-  <div class="admin-panel" style="padding:16px; max-width:800px;">
-    <label class="admin-field"><span class="admin-field-label">Name *</span><input id="name" class="input" placeholder="e.g., Daily code review" /></label>
-    <label class="admin-field"><span class="admin-field-label">Instructions</span>
-      <div style="display:flex; gap:8px; margin-bottom:8px;">
-        <select id="skillSelect" class="select" style="flex:1"><option value="">— 直接填寫或選 Skill 自動帶入 —</option></select>
-        <button id="loadSkill" class="btn-secondary" type="button">帶入</button>
-      </div>
-      <textarea id="instructions" class="textarea" rows="8" placeholder="Describe what Claude should do in each session"></textarea>
-    </label>
-    <label class="admin-field"><span class="admin-field-label">Repository</span><select id="repo" class="select"><option value="">Select a repository</option><option value="vincentxuu/quidproquo" selected>vincentxuu/quidproquo</option></select></label>
-    <div style="margin:12px 0;"><strong>Select a trigger</strong>
-      <div style="display:grid; gap:8px; margin-top:8px;">
-        <label style="border:1px solid var(--admin-border); padding:12px; border-radius:8px;"><input type="radio" name="trigger" value="schedule" checked /> Schedule — Run on a recurring cron schedule or once at a future time <input id="cron" class="input" placeholder="0 2 * * *" style="margin-top:8px; width:200px;" /></label>
-        <label style="border:1px solid var(--admin-border); padding:12px; border-radius:8px; opacity:0.6;"><input type="radio" name="trigger" value="github" disabled /> GitHub event — Run when a GitHub webhook event fires</label>
-        <label style="border:1px solid var(--admin-border); padding:12px; border-radius:8px;"><input type="radio" name="trigger" value="api" /> API — Trigger from your own code by sending a POST request</label>
-      </div>
-    </div>
-    <div><strong>Connectors</strong> <span class="page-desc">Integrations available to Claude during each run.（接 providers 真實開關）</span>
-      <div id="connectors" style="display:flex; gap:8px; flex-wrap:wrap; margin:8px 0;">
-        <span class="page-desc">載入中…</span>
-      </div>
-      <p style="background:#7a3a00; color:#fff; padding:8px; border-radius:6px; font-size:0.85rem;">⚠️ Claude can use all tools from these connectors — including writes — without asking for permission during runs.</p>
-    </div>
-    <div style="display:flex; gap:8px; margin-top:16px;"><button id="cancel" class="btn-secondary">Cancel</button><button id="create" class="btn">Create</button></div>
-  </div>
+  <RoutineNew client:load />
 </AdminV2Layout>
-<script is:inline>
-  // Skill catalog → dropdown
-  fetch('/api/admin/settings/extensions/skills').then(r => r.json()).then(data => {
-    const sel = document.getElementById('skillSelect')
-    const skills = data.skills ?? []
-    skills.forEach(s => {
-      const opt = document.createElement('option')
-      opt.value = s.name
-      opt.textContent = `${s.name} — ${s.description?.slice(0,40) ?? ''}`
-      sel.appendChild(opt)
-    })
-  }).catch(() => {})
-  document.getElementById('loadSkill').onclick = () => {
-    const v = document.getElementById('skillSelect').value
-    if (!v) return
-    const cur = document.getElementById('instructions').value
-    const tmpl = `git pull origin main\n讀 .agents/skills/${v}/SKILL.md，依照步驟執行。`
-    document.getElementById('instructions').value = cur ? cur + '\n\n' + tmpl : tmpl
-  }
-  // Connectors from real providers
-  fetch('/api/admin/settings/models/registry').then(r => r.json()).then(data => {
-    const c = document.getElementById('connectors')
-    const providers = data.providers ?? []
-    const names = providers.length ? providers.map(p => p.providerId) : ['Exa','Figma','firecrawl','Google Drive','groundlane','linkup','Notion','Tavily','visualize']
-    c.innerHTML = names.map(n => `<label style="border:1px solid var(--admin-border); padding:6px 10px; border-radius:6px;"><input type="checkbox" value="${n}" checked /> ${n}</label>`).join('')
-  }).catch(() => {
-    const c = document.getElementById('connectors')
-    c.innerHTML = ['Exa','Figma','firecrawl','Google Drive','groundlane','linkup','Notion','Tavily','visualize'].map(n => `<label style="border:1px solid var(--admin-border); padding:6px 10px; border-radius:6px;"><input type="checkbox" value="${n}" checked /> ${n}</label>`).join('')
-  })
-  document.getElementById('cancel').onclick = () => history.back()
-  document.getElementById('create').onclick = async () => {
-    const name = document.getElementById('name').value.trim()
-    if (!name) { alert('Name required'); return }
-    const trigger = document.querySelector('input[name="trigger"]:checked').value
-    const connectors = [...document.querySelectorAll('#connectors input:checked')].map(i => i.value)
-    const body = {
-      name,
-      instructions: document.getElementById('instructions').value,
-      repo: document.getElementById('repo').value,
-      trigger_type: trigger,
-      cron: document.getElementById('cron').value.trim() || null,
-      connectors,
-      model: 'sonnet-5',
-    }
-    const res = await fetch('/api/admin/routines', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) })
-    const data = await res.json()
-    if (!res.ok) { alert(data.error || 'failed'); return }
-    location.href = `/admin/routines/${data.routine.id}`
-  }
-</script>
