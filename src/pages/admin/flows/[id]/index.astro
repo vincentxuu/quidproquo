@@ -3,6 +3,7 @@
 // to coexist in Astro's routing. The original flows/[id].astro should be removed once
 // this copy is confirmed working.
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import '@/styles/globals.css';
 import AdminState from '@/components/admin/AdminState.astro';
 import FlowVersionList from '@/components/admin/console/FlowVersionList.astro';
 import FlowPresetList from '@/components/admin/console/FlowPresetList.astro';
@@ -42,15 +43,15 @@ const breadcrumb = [
   {loadError && <AdminState tone="error">{t('flows.loadError')}</AdminState>}
   {!loadError && !detail && <AdminState tone="empty">{t('flows.notFound', { id: flowId })}</AdminState>}
   {detail && (
-    <div class="flow-detail">
-      <header class="detail-head">
-        <h2>{detail.definition.name} <code>{detail.definition.id}</code></h2>
-        {detail.definition.description && <p class="desc">{detail.definition.description}</p>}
-        <div class="detail-actions">
-          <a href={consoleHref(`/admin/flows/${flowId}/edit`, lang)} class="btn-edit">{t('common.edit')}</a>
+    <div class="grid gap-6">
+      <header>
+        <h2 class="text-xl font-bold">{detail.definition.name} <code class="text-sm text-muted-foreground">{detail.definition.id}</code></h2>
+        {detail.definition.description && <p class="mt-1 text-sm text-muted-foreground">{detail.definition.description}</p>}
+        <div class="mt-3 flex gap-2">
+          <a href={consoleHref(`/admin/flows/${flowId}/edit`, lang)} class="inline-block rounded-md border border-border bg-card px-3 py-1.5 text-sm font-semibold transition-colors hover:border-primary hover:text-primary">{t('common.edit')}</a>
           <button
             type="button"
-            class="btn-danger"
+            class="inline-block rounded-md border border-destructive/40 bg-destructive/5 px-3 py-1.5 text-sm font-semibold text-destructive transition-colors hover:border-destructive hover:bg-destructive/10"
             id="archive-flow-btn"
             data-flow-id={flowId}
             data-confirm={t('flows.archiveConfirm', { id: flowId })}
@@ -59,19 +60,19 @@ const breadcrumb = [
       </header>
 
       <section aria-label="Current definition">
-        <h3>{t('flows.currentYaml', { version: detail.definition.version })}</h3>
-        <pre class="yaml-block">{currentYaml || t('flows.noYaml')}</pre>
+        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.currentYaml', { version: detail.definition.version })}</h3>
+        <pre class="m-0 max-h-[420px] overflow-auto rounded-lg border border-border bg-background p-3 font-mono text-[0.8rem]">{currentYaml || t('flows.noYaml')}</pre>
       </section>
 
       <section aria-label="Inputs">
-        <h3>{t('flows.inputs')}</h3>
+        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.inputs')}</h3>
         {detail.definition.inputs.length === 0 ? (
-          <p class="empty-note">{t('flows.noInputs')}</p>
+          <p class="text-sm text-muted-foreground">{t('flows.noInputs')}</p>
         ) : (
-          <ul class="inputs">
+          <ul class="m-0 grid list-none gap-1 p-0">
             {detail.definition.inputs.map((input) => (
               <li>
-                <code>{input.name}</code> <span class="muted">{input.type}{input.required ? ` · ${t('flows.required')}` : ''}</span>
+                <code>{input.name}</code> <span class="text-sm text-muted-foreground">{input.type}{input.required ? ` · ${t('flows.required')}` : ''}</span>
               </li>
             ))}
           </ul>
@@ -79,19 +80,19 @@ const breadcrumb = [
       </section>
 
       <section aria-label="Versions">
-        <h3>{t('flows.versions')}</h3>
+        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.versions')}</h3>
         <FlowVersionList versions={detail.versions} latestVersion={detail.definition.version} />
       </section>
 
       <section aria-label="Presets">
-        <h3>{t('flows.presets')}</h3>
+        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.presets')}</h3>
         <FlowPresetList presets={detail.presets} />
       </section>
 
       <section aria-label="Recent runs">
-        <h3>{t('flows.recentRuns')}</h3>
+        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.recentRuns')}</h3>
         {detail.recentRuns.length === 0 ? (
-          <p class="empty-note">{t('flows.noRuns')}</p>
+          <p class="text-sm text-muted-foreground">{t('flows.noRuns')}</p>
         ) : (
           <RunsTable runs={detail.recentRuns} />
         )}
@@ -121,77 +122,3 @@ const breadcrumb = [
   });
 </script>
 
-<style>
-  .flow-detail {
-    display: grid;
-    gap: 1.5rem;
-  }
-  .detail-head h2 {
-    font-size: 1.2rem;
-  }
-  .detail-head code {
-    font-size: 0.82rem;
-    color: var(--admin-text-soft);
-  }
-  .detail-head .desc {
-    color: var(--admin-text-muted);
-    margin-top: 0.25rem;
-  }
-  .detail-actions {
-    margin-top: 0.75rem;
-    display: flex;
-    gap: 0.5rem;
-  }
-  .btn-edit,
-  .btn-danger {
-    display: inline-block;
-    padding: 0.35rem 0.85rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    text-decoration: none;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: border-color 0.15s ease, color 0.15s ease;
-  }
-  .btn-edit:hover {
-    border-color: var(--admin-accent);
-    color: var(--brand-900);
-  }
-  .btn-danger {
-    color: #b91c1c;
-    background: #fef2f2;
-    border-color: #fecaca;
-  }
-  .btn-danger:hover {
-    border-color: #ef4444;
-    color: #991b1b;
-  }
-  .flow-detail h3 {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-  .yaml-block {
-    margin: 0;
-    padding: 0.75rem;
-    background: var(--admin-bg);
-    border: 1px solid var(--admin-border);
-    border-radius: 8px;
-    font-size: 0.8rem;
-    overflow: auto;
-    max-height: 420px;
-  }
-  .inputs {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.3rem;
-  }
-  .inputs .muted,
-  .empty-note {
-    color: var(--admin-text-muted);
-    font-size: 0.82rem;
-  }
-</style>

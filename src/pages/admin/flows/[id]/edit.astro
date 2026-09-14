@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import '@/styles/globals.css';
 import AdminState from '@/components/admin/AdminState.astro';
 import { FlowBuilder } from '@/components/admin/console/flow-builder/FlowBuilder';
 import { getEnv } from '@/lib/config/env';
@@ -59,7 +60,7 @@ const breadcrumb = [
 <AdminV2Layout title={t('flows.editTitle')} section="flows" breadcrumb={breadcrumb}>
   {loadError && <AdminState tone="error">{t('flows.loadError')}</AdminState>}
   {!loadError && (
-    <div class="builder-wrap">
+    <div class="flex flex-col overflow-hidden rounded-lg border border-border" style="height: calc(100vh - 100px);">
       <FlowBuilder
         initialNodes={JSON.parse(initialNodesJson)}
         initialEdges={JSON.parse(initialEdgesJson)}
@@ -71,13 +72,3 @@ const breadcrumb = [
   )}
 </AdminV2Layout>
 
-<style>
-  .builder-wrap {
-    height: calc(100vh - 100px);
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    overflow: hidden;
-  }
-</style>

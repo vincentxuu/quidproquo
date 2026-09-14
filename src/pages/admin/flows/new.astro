@@ -1,5 +1,6 @@
 ---
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import '@/styles/globals.css';
 import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/console/admin/i18n';
 import { ensureConsoleUmbrella } from '../_guard';
 
@@ -39,16 +40,16 @@ const breadcrumb = [
 ---
 
 <AdminV2Layout title={t('flows.newTitle')} section="flows" breadcrumb={breadcrumb}>
-    <form id="new-form" autocomplete="off" class="builder-shell">
-      <section class="setup-panel" aria-labelledby="setup-title">
-        <div class="panel-heading">
-          <span class="eyebrow">{t('flows.setup')}</span>
-          <h2 id="setup-title">{t('flows.setup')}</h2>
+    <form id="new-form" autocomplete="off" class="grid items-start gap-4 max-lg:grid-cols-1 lg:grid-cols-[minmax(220px,280px)_minmax(420px,1fr)_minmax(210px,260px)]">
+      <section class="sticky top-3 grid gap-4 rounded-lg border border-border bg-card p-4 max-lg:static" aria-labelledby="setup-title">
+        <div class="grid gap-1">
+          <span class="text-xs font-bold uppercase tracking-wide text-muted-foreground">{t('flows.setup')}</span>
+          <h2 id="setup-title" class="m-0 text-base font-bold">{t('flows.setup')}</h2>
         </div>
 
-        <div class="field">
-          <label for="template-select">{t('flows.template')}</label>
-          <select id="template-select" class="field-control">
+        <div class="grid gap-1.5">
+          <label for="template-select" class="text-sm font-semibold text-muted-foreground">{t('flows.template')}</label>
+          <select id="template-select" class="w-full min-h-[34px] rounded-md border border-input bg-background px-2 py-1.5 text-sm">
             <option value="single-agent">Single agent</option>
             <option value="research">Research flow</option>
             <option value="approval">Approval gate</option>
@@ -56,35 +57,35 @@ const breadcrumb = [
           </select>
         </div>
 
-        <div class="field">
-          <label for="flow-id">Flow ID <span class="required">{t('flows.idRequired')}</span></label>
-          <input id="flow-id" class="field-control mono" value="my-new-flow" spellcheck={false} />
+        <div class="grid gap-1.5">
+          <label for="flow-id" class="text-sm font-semibold text-muted-foreground">Flow ID <span class="text-xs font-normal text-muted-foreground">{t('flows.idRequired')}</span></label>
+          <input id="flow-id" class="w-full min-h-[34px] rounded-md border border-input bg-background px-2 py-1.5 font-mono text-sm" value="my-new-flow" spellcheck={false} />
         </div>
 
-        <div class="field">
-          <label for="flow-name">{t('common.name')}</label>
-          <input id="flow-name" class="field-control" value="New Flow" />
+        <div class="grid gap-1.5">
+          <label for="flow-name" class="text-sm font-semibold text-muted-foreground">{t('common.name')}</label>
+          <input id="flow-name" class="w-full min-h-[34px] rounded-md border border-input bg-background px-2 py-1.5 text-sm" value="New Flow" />
         </div>
 
-        <div class="field">
-          <label for="flow-version">{t('common.version')}</label>
-          <input id="flow-version" class="field-control" type="number" min="1" step="1" value="1" />
+        <div class="grid gap-1.5">
+          <label for="flow-version" class="text-sm font-semibold text-muted-foreground">{t('common.version')}</label>
+          <input id="flow-version" class="w-full min-h-[34px] rounded-md border border-input bg-background px-2 py-1.5 text-sm" type="number" min="1" step="1" value="1" />
         </div>
 
-        <div class="field">
-          <label for="flow-description">{t('common.description')}</label>
-          <textarea id="flow-description" class="field-control description-field" rows="4">Describe your flow here</textarea>
+        <div class="grid gap-1.5">
+          <label for="flow-description" class="text-sm font-semibold text-muted-foreground">{t('common.description')}</label>
+          <textarea id="flow-description" class="w-full min-h-[34px] resize-y rounded-md border border-input bg-background px-2 py-1.5 text-sm leading-relaxed" rows="4">Describe your flow here</textarea>
         </div>
       </section>
 
-      <section class="editor-panel" aria-labelledby="editor-title">
-        <div class="editor-toolbar">
-          <div class="editor-title-block">
-            <span class="eyebrow">{t('flows.definition')}</span>
-            <h2 id="editor-title">{t('flows.yamlLabel')}</h2>
+      <section class="grid gap-2.5" aria-labelledby="editor-title">
+        <div class="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-3 border-b border-border bg-background py-2.5">
+          <div class="grid gap-1">
+            <span class="text-xs font-bold uppercase tracking-wide text-muted-foreground">{t('flows.definition')}</span>
+            <h2 id="editor-title" class="m-0 text-base font-bold">{t('flows.yamlLabel')}</h2>
           </div>
-          <div class="toolbar-actions">
-            <select id="snippet-select" class="snippet-select" aria-label={t('flows.insertSnippet')}>
+          <div class="flex flex-wrap items-center gap-2 max-sm:w-full max-sm:[&>*]:flex-1">
+            <select id="snippet-select" class="min-w-[132px] rounded-md border border-input bg-card px-2 py-1.5 text-sm max-sm:w-full" aria-label={t('flows.insertSnippet')}>
               <option value="">{t('flows.insertSnippet')}</option>
               <option value="input">Input</option>
               <option value="agent">Agent step</option>
@@ -93,15 +94,15 @@ const breadcrumb = [
               <option value="edge">Edge</option>
               <option value="artifact">Artifact</option>
             </select>
-            <button type="button" id="copy-btn" class="btn btn-secondary">{t('common.copy')}</button>
-            <button type="button" id="validate-btn" class="btn btn-secondary">{t('common.validate')}</button>
-            <button type="button" id="create-btn" class="btn btn-primary">{t('common.create')}</button>
+            <button type="button" id="copy-btn" class="rounded-md border border-border bg-card px-3 py-1.5 text-sm font-semibold transition-colors hover:border-primary hover:text-primary">{t('common.copy')}</button>
+            <button type="button" id="validate-btn" class="rounded-md border border-border bg-card px-3 py-1.5 text-sm font-semibold transition-colors hover:border-primary hover:text-primary">{t('common.validate')}</button>
+            <button type="button" id="create-btn" class="rounded-md border border-primary bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">{t('common.create')}</button>
           </div>
         </div>
 
-        <div class="status-row">
-          <span id="save-status" class="save-status" aria-live="polite">{t('common.unchanged')}</span>
-          <span id="validation-pill" class="validation-pill unknown">{lang === 'en' ? 'Not validated' : '未驗證'}</span>
+        <div class="flex items-center justify-between gap-3">
+          <span id="save-status" class="save-status text-sm text-muted-foreground" aria-live="polite">{t('common.unchanged')}</span>
+          <span id="validation-pill" class="validation-pill unknown rounded-full border border-border bg-card px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">{lang === 'en' ? 'Not validated' : '未驗證'}</span>
         </div>
 
         <textarea
@@ -109,45 +110,46 @@ const breadcrumb = [
           name="yaml"
           rows={34}
           spellcheck={false}
-          class="yaml-textarea"
+          class="yaml-textarea w-full resize-y rounded-lg border border-border bg-card p-3 font-mono text-[13px] leading-relaxed [tab-size:2] [white-space:pre] [overflow-wrap:normal] overflow-x-auto focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/20"
+          style="min-height: min(72vh, 820px);"
         >{starterYaml}</textarea>
 
-        <div id="validation-errors" class="validation-errors" aria-live="polite" role="alert"></div>
+        <div id="validation-errors" class="validation-errors hidden" aria-live="polite" role="alert"></div>
       </section>
 
-      <aside class="summary-panel" aria-labelledby="summary-title">
-        <div class="panel-heading">
-          <span class="eyebrow">{t('flows.preview')}</span>
-          <h2 id="summary-title">{t('flows.preview')}</h2>
+      <aside class="sticky top-3 grid gap-4 rounded-lg border border-border bg-card p-4 max-lg:static" aria-labelledby="summary-title">
+        <div class="grid gap-1">
+          <span class="text-xs font-bold uppercase tracking-wide text-muted-foreground">{t('flows.preview')}</span>
+          <h2 id="summary-title" class="m-0 text-base font-bold">{t('flows.preview')}</h2>
         </div>
-        <dl class="summary-list">
-          <div>
-            <dt>Flow ID</dt>
-            <dd id="summary-id" class="mono">my-new-flow</dd>
+        <dl class="summary-list m-0 grid gap-3 max-lg:grid-cols-4 max-sm:grid-cols-2">
+          <div class="grid gap-0.5">
+            <dt class="text-xs font-bold uppercase tracking-wide text-muted-foreground">Flow ID</dt>
+            <dd id="summary-id" class="m-0 break-all font-mono text-sm">my-new-flow</dd>
           </div>
-          <div>
-            <dt>{t('common.name')}</dt>
-            <dd id="summary-name">New Flow</dd>
+          <div class="grid gap-0.5">
+            <dt class="text-xs font-bold uppercase tracking-wide text-muted-foreground">{t('common.name')}</dt>
+            <dd id="summary-name" class="m-0 text-sm">New Flow</dd>
           </div>
-          <div>
-            <dt>{t('common.version')}</dt>
-            <dd id="summary-version" class="mono">1</dd>
+          <div class="grid gap-0.5">
+            <dt class="text-xs font-bold uppercase tracking-wide text-muted-foreground">{t('common.version')}</dt>
+            <dd id="summary-version" class="m-0 font-mono text-sm">1</dd>
           </div>
-          <div>
-            <dt>Inputs</dt>
-            <dd id="summary-inputs" class="mono">1</dd>
+          <div class="grid gap-0.5">
+            <dt class="text-xs font-bold uppercase tracking-wide text-muted-foreground">Inputs</dt>
+            <dd id="summary-inputs" class="m-0 font-mono text-sm">1</dd>
           </div>
-          <div>
-            <dt>Steps</dt>
-            <dd id="summary-steps" class="mono">1</dd>
+          <div class="grid gap-0.5">
+            <dt class="text-xs font-bold uppercase tracking-wide text-muted-foreground">Steps</dt>
+            <dd id="summary-steps" class="m-0 font-mono text-sm">1</dd>
           </div>
-          <div>
-            <dt>Edges</dt>
-            <dd id="summary-edges" class="mono">1</dd>
+          <div class="grid gap-0.5">
+            <dt class="text-xs font-bold uppercase tracking-wide text-muted-foreground">Edges</dt>
+            <dd id="summary-edges" class="m-0 font-mono text-sm">1</dd>
           </div>
-          <div>
-            <dt>Artifacts</dt>
-            <dd id="summary-artifacts" class="mono">0</dd>
+          <div class="grid gap-0.5">
+            <dt class="text-xs font-bold uppercase tracking-wide text-muted-foreground">Artifacts</dt>
+            <dd id="summary-artifacts" class="m-0 font-mono text-sm">0</dd>
           </div>
         </dl>
       </aside>
@@ -345,28 +347,37 @@ artifacts: []
   function setStatus(msg, tone = '') {
     if (!saveStatus) return;
     saveStatus.textContent = msg;
-    saveStatus.className = `save-status ${tone}`.trim();
+    saveStatus.className = tone === 'ok'
+      ? 'text-sm font-semibold text-green-600'
+      : tone === 'dirty'
+        ? 'text-sm font-semibold text-amber-600'
+        : 'text-sm text-muted-foreground';
   }
 
   function setValidationState(state) {
     if (!validationPill) return;
     const text = state === 'valid' ? messages.validationPassed : state === 'invalid' ? messages.invalid : messages.unknown;
     validationPill.textContent = text;
-    validationPill.className = `validation-pill ${state}`;
+    validationPill.className = state === 'valid'
+      ? 'rounded-full border border-green-500 bg-green-50 px-2.5 py-0.5 text-xs font-semibold text-green-700'
+      : state === 'invalid'
+        ? 'rounded-full border border-destructive/50 bg-destructive/5 px-2.5 py-0.5 text-xs font-semibold text-destructive'
+        : 'rounded-full border border-border bg-card px-2.5 py-0.5 text-xs font-semibold text-muted-foreground';
   }
 
   function setErrors(errors) {
     if (!errorsEl) return;
     if (!errors.length) {
       errorsEl.textContent = '';
-      errorsEl.classList.remove('has-errors');
-      textarea?.classList.remove('has-errors');
+      errorsEl.hidden = true;
+      textarea?.classList.remove('!border-destructive/50');
       return;
     }
-    errorsEl.classList.add('has-errors');
-    textarea?.classList.add('has-errors');
+    errorsEl.hidden = false;
+    errorsEl.className = 'rounded-lg border border-destructive/50 bg-destructive/5 p-3 text-sm text-destructive';
+    textarea?.classList.add('!border-destructive/50');
     errorsEl.innerHTML = errors
-      .map((e) => `<div class="error-item"><span class="error-path">${escapeHtml(e.path)}</span>${escapeHtml(e.message)}</div>`)
+      .map((e) => `<div class="mb-1 last:mb-0"><span class="mr-1.5 inline-block font-mono font-bold">${escapeHtml(e.path)}</span>${escapeHtml(e.message)}</div>`)
       .join('');
   }
 
@@ -597,326 +608,3 @@ artifacts: []
   updateSummary();
 </script>
 
-<style>
-  .builder-shell {
-    display: grid;
-    grid-template-columns: minmax(220px, 280px) minmax(420px, 1fr) minmax(210px, 260px);
-    gap: 1rem;
-    align-items: start;
-  }
-
-  .setup-panel,
-  .editor-panel,
-  .summary-panel {
-    min-width: 0;
-  }
-
-  .setup-panel,
-  .summary-panel {
-    position: sticky;
-    top: 0.75rem;
-    display: grid;
-    gap: 0.9rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    padding: 0.9rem;
-  }
-
-  .editor-panel {
-    display: grid;
-    gap: 0.65rem;
-  }
-
-  .panel-heading {
-    display: grid;
-    gap: 0.2rem;
-  }
-
-  .panel-heading h2,
-  .editor-title-block h2 {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.35;
-    color: var(--admin-text);
-  }
-
-  .eyebrow {
-    color: var(--admin-text-muted);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .field {
-    display: grid;
-    gap: 0.35rem;
-  }
-
-  .field label {
-    color: var(--admin-text-soft);
-    font-size: 0.8rem;
-    font-weight: 650;
-  }
-
-  .required {
-    color: var(--admin-text-muted);
-    font-size: 0.72rem;
-    font-weight: 500;
-  }
-
-  .field-control,
-  .snippet-select {
-    width: 100%;
-    min-height: 34px;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-bg);
-    color: var(--admin-text);
-    padding: 0.42rem 0.55rem;
-    font: inherit;
-    font-size: 0.84rem;
-  }
-
-  .field-control:focus,
-  .snippet-select:focus,
-  .yaml-textarea:focus {
-    outline: none;
-    border-color: var(--admin-accent);
-    box-shadow: var(--admin-focus);
-  }
-
-  .description-field {
-    resize: vertical;
-    line-height: 1.45;
-  }
-
-  .editor-toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    padding: 0.65rem 0;
-    background: var(--admin-bg);
-    border-bottom: 1px solid var(--admin-border);
-  }
-
-  .toolbar-actions {
-    display: flex;
-    gap: 0.45rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .snippet-select {
-    width: auto;
-    min-width: 132px;
-    background: var(--admin-surface);
-  }
-
-  .status-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .save-status {
-    color: var(--admin-text-muted);
-    font-size: 0.82rem;
-  }
-
-  .save-status.ok {
-    color: #16a34a;
-    font-weight: 650;
-  }
-
-  .save-status.dirty {
-    color: #b45309;
-    font-weight: 650;
-  }
-
-  .validation-pill {
-    border: 1px solid var(--admin-border);
-    border-radius: 999px;
-    padding: 0.14rem 0.55rem;
-    background: var(--admin-surface);
-    color: var(--admin-text-muted);
-    font-size: 0.74rem;
-    font-weight: 650;
-  }
-
-  .validation-pill.valid {
-    border-color: #22c55e;
-    background: #f0fdf4;
-    color: #15803d;
-  }
-
-  .validation-pill.invalid {
-    border-color: #fca5a5;
-    background: #fef2f2;
-    color: #b91c1c;
-  }
-
-  .yaml-textarea {
-    width: 100%;
-    min-height: min(72vh, 820px);
-    box-sizing: border-box;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    padding: 0.8rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 13px;
-    line-height: 1.55;
-    resize: vertical;
-    tab-size: 2;
-    white-space: pre;
-    overflow-wrap: normal;
-    overflow-x: auto;
-  }
-
-  .yaml-textarea.has-errors {
-    border-color: #fca5a5;
-  }
-
-  .validation-errors {
-    display: none;
-    padding: 0.65rem 0.75rem;
-    border-radius: var(--admin-radius);
-  }
-
-  .validation-errors.has-errors {
-    display: block;
-    border: 1px solid #fca5a5;
-    background: #fef2f2;
-    color: #b91c1c;
-  }
-
-  .error-item {
-    font-size: 0.82rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .error-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .error-path {
-    display: inline-block;
-    margin-right: 0.35rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-weight: 700;
-  }
-
-  .summary-list {
-    display: grid;
-    gap: 0.7rem;
-    margin: 0;
-  }
-
-  .summary-list div {
-    display: grid;
-    gap: 0.18rem;
-  }
-
-  .summary-list dt {
-    color: var(--admin-text-muted);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  .summary-list dd {
-    margin: 0;
-    color: var(--admin-text);
-    font-size: 0.86rem;
-    overflow-wrap: anywhere;
-  }
-
-  .mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  }
-
-  .btn {
-    display: inline-block;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    padding: 0.4rem 0.85rem;
-    cursor: pointer;
-    font-size: 0.84rem;
-    font-weight: 650;
-    line-height: 1.2;
-    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-  }
-
-  .btn-secondary {
-    background: var(--admin-surface);
-    color: var(--admin-text);
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--admin-accent);
-    color: var(--brand-900);
-  }
-
-  .btn-primary {
-    background: var(--brand-900);
-    border-color: var(--brand-900);
-    color: #fff;
-  }
-
-  .btn-primary:hover {
-    background: var(--brand-700);
-    border-color: var(--brand-700);
-  }
-
-  @media (max-width: 1100px) {
-    .builder-shell {
-      grid-template-columns: minmax(220px, 300px) minmax(420px, 1fr);
-    }
-
-    .summary-panel {
-      position: static;
-      grid-column: 1 / -1;
-    }
-
-    .summary-list {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 760px) {
-    .builder-shell {
-      grid-template-columns: 1fr;
-    }
-
-    .setup-panel,
-    .summary-panel {
-      position: static;
-    }
-
-    .summary-list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .toolbar-actions {
-      width: 100%;
-    }
-
-    .toolbar-actions > * {
-      flex: 1 1 auto;
-    }
-
-    .snippet-select {
-      width: 100%;
-    }
-  }
-</style>

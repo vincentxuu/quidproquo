@@ -5,6 +5,7 @@ import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { ensureConsoleUmbrella } from '../../_guard';
+import '@/styles/globals.css';
 
 export const prerender = false;
 
@@ -261,11 +262,11 @@ function pageHref(p: number): string {
                   {auditRows.map((row) => (
                     <tr>
                       <td class="mono muted">{row.audit_id}</td>
-                      <td class="mono">{row.user_email ?? '—'}</td>
+                      <td class="font-mono text-[0.82rem]">{row.user_email ?? '—'}</td>
                       <td>{row.action}</td>
                       <td>{row.resource_kind}</td>
                       <td class="mono muted">{row.resource_id ?? '—'}</td>
-                      <td class="mono">{formatTs(row.created_at)}</td>
+                      <td class="font-mono text-[0.82rem]">{formatTs(row.created_at)}</td>
                       <td>
                         {row.payload_json ? (
                           <details class="payload-details">
@@ -273,7 +274,7 @@ function pageHref(p: number): string {
                             <pre class="payload-pre">{prettyPayload(row.payload_json)}</pre>
                           </details>
                         ) : (
-                          <span class="muted">—</span>
+                          <span class="text-sm text-muted-foreground">—</span>
                         )}
                       </td>
                     </tr>
@@ -291,7 +292,7 @@ function pageHref(p: number): string {
                   <dl>
                     <div>
                       <dt>使用者</dt>
-                      <dd class="mono">{row.user_email ?? '—'}</dd>
+                      <dd class="font-mono text-[0.82rem]">{row.user_email ?? '—'}</dd>
                     </div>
                     <div>
                       <dt>類型</dt>
@@ -299,11 +300,11 @@ function pageHref(p: number): string {
                     </div>
                     <div>
                       <dt>Resource ID</dt>
-                      <dd class="mono">{row.resource_id ?? '—'}</dd>
+                      <dd class="font-mono text-[0.82rem]">{row.resource_id ?? '—'}</dd>
                     </div>
                     <div>
                       <dt>時間</dt>
-                      <dd class="mono">{formatTs(row.created_at)}</dd>
+                      <dd class="font-mono text-[0.82rem]">{formatTs(row.created_at)}</dd>
                     </div>
                   </dl>
                   {row.payload_json ? (
@@ -348,266 +349,3 @@ function pageHref(p: number): string {
   });
 </script>
 
-<style>
-  .audit-layout {
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  .filter-form {
-    padding: 0.75rem 1rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem;
-    align-items: end;
-  }
-
-  .filter-row {
-    display: grid;
-    gap: 0.25rem;
-  }
-
-  .filter-label {
-    font-size: 0.78rem;
-    color: var(--admin-text-soft);
-    font-weight: 600;
-  }
-
-  .filter-input,
-  .filter-select {
-    box-sizing: border-box;
-    height: 2.75rem;
-    min-height: 2.75rem;
-    padding: 0.45rem 0.65rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    font-size: 0.875rem;
-  }
-
-  .filter-input:focus,
-  .filter-select:focus {
-    outline: none;
-    border-color: var(--admin-accent);
-  }
-
-  .filter-actions {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  .btn-filter {
-    box-sizing: border-box;
-    min-height: 2.75rem;
-    padding: 0.45rem 0.9rem;
-    border: 1px solid var(--admin-accent);
-    border-radius: var(--admin-radius);
-    background: var(--admin-accent);
-    color: #fff;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-
-  .btn-filter:hover {
-    opacity: 0.85;
-  }
-
-  .btn-clear {
-    box-sizing: border-box;
-    min-height: 2.75rem;
-    padding: 0.45rem 0.9rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: transparent;
-    color: var(--admin-text-muted);
-    font-size: 0.85rem;
-    text-decoration: none;
-    transition: background 0.1s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .btn-clear:hover {
-    background: var(--admin-muted);
-  }
-
-  .mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.8rem;
-    overflow-wrap: anywhere;
-  }
-
-  .muted {
-    color: var(--admin-text-muted);
-  }
-
-  .payload-details {
-    display: inline-block;
-  }
-
-  .payload-summary {
-    cursor: pointer;
-    color: var(--admin-accent);
-    font-size: 0.8rem;
-    min-height: 2.75rem;
-    display: inline-flex;
-    align-items: center;
-    user-select: none;
-  }
-
-  .payload-pre {
-    margin-top: 0.4rem;
-    padding: 0.5rem;
-    background: var(--admin-muted);
-    border: 1px solid var(--admin-border);
-    border-radius: 4px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.75rem;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    max-width: 400px;
-    max-height: 200px;
-    overflow: auto;
-  }
-
-  .pagination {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    border-top: 1px solid var(--admin-border);
-    font-size: 0.85rem;
-  }
-
-  .page-btn {
-    min-height: 2.75rem;
-    padding: 0.45rem 0.8rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    color: var(--admin-text-muted);
-    text-decoration: none;
-    transition: border-color 0.1s, color 0.1s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .page-btn:hover {
-    border-color: var(--admin-accent);
-    color: var(--admin-accent);
-  }
-
-  .page-info {
-    color: var(--admin-text-soft);
-  }
-
-  .filter-summary {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 0.85rem;
-    align-items: center;
-    border-top: 1px solid var(--admin-border);
-    padding: 0.7rem 1rem;
-    color: var(--admin-text-muted);
-    font-size: 0.84rem;
-    line-height: 1.45;
-  }
-
-  .filter-summary a {
-    color: var(--admin-accent);
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .audit-card-list {
-    display: none;
-  }
-
-  .audit-card {
-    display: grid;
-    gap: 0.75rem;
-    border-top: 1px solid var(--admin-border);
-    padding: 1rem;
-  }
-
-  .audit-card-head {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    align-items: baseline;
-  }
-
-  .audit-card dl {
-    display: grid;
-    gap: 0.55rem;
-    margin: 0;
-  }
-
-  .audit-card dl div {
-    display: grid;
-    gap: 0.18rem;
-  }
-
-  .audit-card dt {
-    color: var(--admin-text-soft);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  .audit-card dd {
-    margin: 0;
-    color: var(--admin-text);
-    overflow-wrap: anywhere;
-  }
-
-  .payload-empty {
-    margin: 0;
-  }
-
-  @media (max-width: 720px) {
-    .filter-form {
-      grid-template-columns: 1fr;
-      padding: 0.85rem;
-    }
-
-    .filter-actions,
-    .btn-filter,
-    .btn-clear,
-    .page-btn {
-      width: 100%;
-    }
-
-    .filter-actions,
-    .pagination {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .filter-summary {
-      align-items: stretch;
-      flex-direction: column;
-    }
-
-    .audit-table-wrap {
-      display: none;
-    }
-
-    .audit-card-list {
-      display: grid;
-    }
-
-    .payload-details,
-    .payload-summary {
-      width: 100%;
-    }
-
-    .payload-pre {
-      max-width: 100%;
-    }
-  }
-</style>

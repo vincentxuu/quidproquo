@@ -6,6 +6,7 @@ import AdminTable from '@/components/admin/AdminTable.astro';
 import { getEnv } from '@/lib/config/env';
 import { PERMISSION_PRESETS, formatGrant } from '@/lib/console/admin/rbac/presets';
 import { ensureConsoleUmbrella } from '../../../_guard';
+import '@/styles/globals.css';
 
 export const prerender = false;
 
@@ -164,18 +165,18 @@ const unassignedUsersJson = JSON.stringify(
       )}
 
       <AdminPanel title="角色資訊">
-        <div class="info-grid">
-          <div class="info-row">
-            <span class="info-label">角色 ID</span>
+        <div class="grid gap-2">
+          <div class="flex items-baseline gap-2">
+            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">角色 ID</span>
             <code>{role.role_id}</code>
           </div>
-          <div class="info-row">
-            <span class="info-label">名稱</span>
+          <div class="flex items-baseline gap-2">
+            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">名稱</span>
             <code>{role.name}</code>
           </div>
-          <div class="info-row">
-            <span class="info-label">描述</span>
-            <span class="muted">{role.description ?? '—'}</span>
+          <div class="flex items-baseline gap-2">
+            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">描述</span>
+            <span class="text-sm text-muted-foreground">{role.description ?? '—'}</span>
           </div>
         </div>
       </AdminPanel>
@@ -191,8 +192,8 @@ const unassignedUsersJson = JSON.stringify(
           data-unassigned-users={unassignedUsersJson}
         >
           <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
-          <label for="assign-user" class="form-label">加入既有使用者</label>
-          <select id="assign-user" name="user_id" class="form-select" disabled={unassignedUsers.length === 0} required>
+          <label for="assign-user" class="text-[0.82rem] font-bold text-muted-foreground">加入既有使用者</label>
+          <select id="assign-user" name="user_id" class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm" disabled={unassignedUsers.length === 0} required>
             <option value="">選擇使用者</option>
             {unassignedUsers.map((user) => (
               <option value={user.user_id}>
@@ -200,12 +201,12 @@ const unassignedUsersJson = JSON.stringify(
               </option>
             ))}
           </select>
-          <button type="submit" class="btn-primary" disabled={unassignedUsers.length === 0}>加入角色</button>
-          <p class="operation-preview" data-assign-user-preview role="status" aria-live="polite">
+          <button type="submit" class="rounded-lg border border-primary bg-primary px-3 py-1.5 text-sm font-bold text-primary-foreground" disabled={unassignedUsers.length === 0}>加入角色</button>
+          <p class="m-0 rounded-lg border border-border bg-muted px-3 py-2.5 text-sm leading-relaxed text-muted-foreground" data-assign-user-preview role="status" aria-live="polite">
             選擇使用者後會顯示角色指派預覽。
           </p>
           {unassignedUsers.length === 0 && (
-            <span class="muted">所有使用者都已擁有此角色。</span>
+            <span class="text-sm text-muted-foreground">所有使用者都已擁有此角色。</span>
           )}
         </form>
         {assignedUsers.length === 0 ? (
@@ -224,28 +225,28 @@ const unassignedUsersJson = JSON.stringify(
               {assignedUsers.map((user) => (
                 <tr>
                   <td>
-                    <a href={`/admin/settings/access/users/${user.user_id}`} class="link">
+                    <a href={`/admin/settings/access/users/${user.user_id}`} class="text-primary no-underline hover:underline">
                       {user.email}
                     </a>
                   </td>
                   <td>
                     {user.disabled_at ? (
-                      <span class="badge disabled">停用</span>
+                      <span class="inline-block rounded-full border border-red-600 bg-red-50 px-2 py-0.5 text-xs font-semibold text-red-600">停用</span>
                     ) : (
-                      <span class="badge active">啟用中</span>
+                      <span class="inline-block rounded-full border border-green-500 bg-green-50 px-2 py-0.5 text-xs font-semibold text-green-600">啟用中</span>
                     )}
                   </td>
-                  <td class="mono">{formatTs(user.assigned_at)}</td>
+                  <td class="font-mono text-[0.82rem]">{formatTs(user.assigned_at)}</td>
                   <td>
                     <form
                       method="POST"
                       action={`/api/admin/settings/access/roles/${roleId}/users/${user.user_id}/remove`}
-                      class="inline-form"
+                      class="inline-flex"
                       data-confirm={`確定要從 ${user.email} 移除角色 ${role.name}？`}
                       data-remove-role-form
                     >
                       <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
-                      <button type="submit" class="btn-danger">移除此角色</button>
+                      <button type="submit" class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700">移除此角色</button>
                     </form>
                   </td>
                 </tr>
@@ -270,13 +271,13 @@ const unassignedUsersJson = JSON.stringify(
         >
           <input type="hidden" name="action" value="update" />
           <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
-          <div class="form-row">
-            <label for="role_name" class="form-label">名稱</label>
+          <div class="grid gap-1">
+            <label for="role_name" class="text-[0.82rem] font-bold text-muted-foreground">名稱</label>
             <input
               id="role_name"
               type="text"
               name="name"
-              class="form-input"
+              class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm"
               value={role.name}
               pattern="[a-z][a-z0-9_-]{1,63}"
               autocomplete="off"
@@ -284,20 +285,20 @@ const unassignedUsersJson = JSON.stringify(
               required
             />
           </div>
-          <div class="form-row">
-            <label for="role_description" class="form-label">描述</label>
+          <div class="grid gap-1">
+            <label for="role_description" class="text-[0.82rem] font-bold text-muted-foreground">描述</label>
             <textarea
               id="role_description"
               name="description"
-              class="form-input"
+              class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm"
               rows="3"
               maxlength="500"
             >{role.description ?? ''}</textarea>
           </div>
-          <div class="form-actions">
-            <button type="submit" class="btn-primary">儲存角色</button>
+          <div class="flex items-center gap-2.5 flex-wrap">
+            <button type="submit" class="rounded-lg border border-primary bg-primary px-3 py-1.5 text-sm font-bold text-primary-foreground">儲存角色</button>
           </div>
-          <p class="operation-preview" data-role-edit-preview role="status" aria-live="polite">
+          <p class="m-0 rounded-lg border border-border bg-muted px-3 py-2.5 text-sm leading-relaxed text-muted-foreground" data-role-edit-preview role="status" aria-live="polite">
             角色資料尚未變更。
           </p>
         </form>
@@ -323,7 +324,7 @@ const unassignedUsersJson = JSON.stringify(
                   <li>{formatGrant(grant)}</li>
                 ))}
               </ul>
-              <button type="submit" class="btn-secondary">套用範本</button>
+              <button type="submit" class="rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-bold no-underline hover:bg-muted">套用範本</button>
             </form>
           ))}
         </div>
@@ -394,14 +395,14 @@ const unassignedUsersJson = JSON.stringify(
                     <form
                       method="POST"
                       action={`/api/admin/settings/access/roles/${roleId}/permissions/${p.permission_id}`}
-                      class="inline-form"
+                      class="inline-flex"
                       data-confirm={`確定移除 ${p.resource_kind} ${p.action} 權限？`}
                     >
                       <input type="hidden" name="form_action" value="delete" />
                       <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
                       <button
                         type="submit"
-                        class="btn-danger"
+                        class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700"
                         aria-label={`移除 ${p.resource_kind} ${p.action} 權限`}
                       >
                         移除
@@ -424,38 +425,38 @@ const unassignedUsersJson = JSON.stringify(
           data-existing-permissions={permissionGrantsJson}
         >
           <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
-          <div class="form-row">
-            <label for="resource_kind" class="form-label">資源類型</label>
-            <select id="resource_kind" name="resource_kind" class="form-select">
+          <div class="grid gap-1">
+            <label for="resource_kind" class="text-[0.82rem] font-bold text-muted-foreground">資源類型</label>
+            <select id="resource_kind" name="resource_kind" class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm">
               {RESOURCE_KINDS.map((k) => (
                 <option value={k}>{k}</option>
               ))}
             </select>
           </div>
-          <div class="form-row">
-            <label for="action" class="form-label">操作</label>
-            <select id="action" name="action" class="form-select">
+          <div class="grid gap-1">
+            <label for="action" class="text-[0.82rem] font-bold text-muted-foreground">操作</label>
+            <select id="action" name="action" class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm">
               {ACTIONS.map((a) => (
                 <option value={a}>{a}</option>
               ))}
             </select>
           </div>
-          <div class="form-row">
-            <label for="resource_id" class="form-label">Resource ID <span class="optional">（選填，留空表示萬用字元）</span></label>
+          <div class="grid gap-1">
+            <label for="resource_id" class="text-[0.82rem] font-bold text-muted-foreground">Resource ID <span class="optional">（選填，留空表示萬用字元）</span></label>
             <input
               id="resource_id"
               type="text"
               name="resource_id"
-              class="form-input"
+              class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm"
               placeholder="* (萬用字元)"
               autocomplete="off"
             />
           </div>
-          <p class="operation-preview" data-add-perm-preview role="status" aria-live="polite">
+          <p class="m-0 rounded-lg border border-border bg-muted px-3 py-2.5 text-sm leading-relaxed text-muted-foreground" data-add-perm-preview role="status" aria-live="polite">
             留空 Resource ID 會授予此資源類型的所有對象。
           </p>
-          <div class="form-actions">
-            <button type="submit" class="btn-primary">新增權限</button>
+          <div class="flex items-center gap-2.5 flex-wrap">
+            <button type="submit" class="rounded-lg border border-primary bg-primary px-3 py-1.5 text-sm font-bold text-primary-foreground">新增權限</button>
           </div>
         </form>
       </AdminPanel>
@@ -471,8 +472,8 @@ const unassignedUsersJson = JSON.stringify(
           >
             <input type="hidden" name="action" value="delete" />
             <input type="hidden" name="redirect" value="/admin/rbac?tab=roles" />
-            <button type="submit" class="btn-danger">刪除角色</button>
-            <span class="muted">刪除後無法從主控台還原。</span>
+            <button type="submit" class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700">刪除角色</button>
+            <span class="text-sm text-muted-foreground">刪除後無法從主控台還原。</span>
           </form>
         </AdminPanel>
       )}
@@ -691,372 +692,3 @@ document.addEventListener('submit', function (event) {
 });`}
 ></script>
 
-<style>
-  .role-detail {
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  .notice {
-    margin: 0;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    padding: 0.65rem 0.8rem;
-    font-size: 0.88rem;
-    font-weight: 700;
-  }
-
-  .notice.success {
-    border-color: #86efac;
-    background: #f0fdf4;
-    color: #166534;
-  }
-
-  .notice.error {
-    border-color: #fca5a5;
-    background: #fef2f2;
-    color: #991b1b;
-  }
-
-  .info-grid {
-    display: grid;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-  }
-
-  .info-row {
-    display: flex;
-    gap: 1rem;
-    align-items: baseline;
-    font-size: 0.875rem;
-  }
-
-  .info-label {
-    min-width: 100px;
-    color: var(--admin-text-soft);
-    font-size: 0.8rem;
-  }
-
-  .mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.82rem;
-  }
-
-  .muted {
-    color: var(--admin-text-muted);
-  }
-
-  .link {
-    color: var(--admin-accent);
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .link:hover {
-    text-decoration: underline;
-  }
-
-  .badge {
-    display: inline-block;
-    border: 1px solid;
-    border-radius: 999px;
-    padding: 0.1rem 0.55rem;
-    font-size: 0.74rem;
-    font-weight: 700;
-  }
-
-  .badge.active {
-    border-color: #16a34a;
-    background: #f0fdf4;
-    color: #166534;
-  }
-
-  .badge.disabled {
-    border-color: #dc2626;
-    background: #fef2f2;
-    color: #991b1b;
-  }
-
-  .add-perm-form,
-  .edit-role-form,
-  .assign-user-form {
-    padding: 0.75rem 1rem;
-    display: grid;
-    gap: 0.85rem;
-  }
-
-  .assign-user-form {
-    grid-template-columns: minmax(140px, 0.45fr) minmax(180px, 1fr) auto;
-    align-items: end;
-    border-bottom: 1px solid var(--admin-border);
-  }
-
-  .assign-user-form .muted {
-    align-self: center;
-    font-size: 0.82rem;
-  }
-
-  .assign-user-form .operation-preview {
-    grid-column: 1 / -1;
-  }
-
-  .preset-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    padding: 0.75rem 1rem 1rem;
-  }
-
-  .preset-card {
-    display: grid;
-    gap: 0.45rem;
-    align-content: start;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    padding: 0.75rem;
-  }
-
-  .preset-card strong {
-    color: var(--admin-text);
-    font-size: 0.9rem;
-  }
-
-  .preset-card span {
-    color: var(--admin-text-muted);
-    font-size: 0.8rem;
-    line-height: 1.45;
-  }
-
-  .preset-card .preset-count {
-    color: var(--admin-text-soft);
-    font-weight: 700;
-  }
-
-  .preset-grants {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    list-style: none;
-  }
-
-  .preset-grants li {
-    border: 1px solid var(--admin-border);
-    border-radius: 999px;
-    background: var(--admin-muted);
-    color: var(--admin-text-soft);
-    font-family: var(--admin-font-mono);
-    font-size: 0.78rem;
-    line-height: 1.2;
-    padding: 0.22rem 0.45rem;
-  }
-
-  .form-row {
-    display: grid;
-    gap: 0.3rem;
-  }
-
-  .form-label {
-    font-size: 0.82rem;
-    color: var(--admin-text-soft);
-    font-weight: 600;
-  }
-
-  .optional {
-    font-weight: 400;
-    color: var(--admin-text-muted);
-  }
-
-  .operation-preview,
-  .permission-preview {
-    margin: 0;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-muted);
-    color: var(--admin-text-muted);
-    padding: 0.55rem 0.65rem;
-    font-size: 0.8rem;
-    line-height: 1.45;
-  }
-
-  .permission-preview {
-    grid-column: 1 / -1;
-  }
-
-  .operation-preview.warning,
-  .permission-preview.warning {
-    border-color: #facc15;
-    background: #fefce8;
-    color: #713f12;
-  }
-
-  .operation-preview.error,
-  .permission-preview.error {
-    border-color: #fca5a5;
-    background: #fef2f2;
-    color: #991b1b;
-  }
-
-  .form-select,
-  .form-input {
-    padding: 0.35rem 0.65rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    font-size: 0.875rem;
-    max-width: 320px;
-  }
-
-  .form-select.compact,
-  .form-input.compact {
-    max-width: none;
-    min-width: 0;
-    padding: 0.28rem 0.5rem;
-    font-size: 0.8rem;
-  }
-
-  .permission-row-form {
-    display: grid;
-    grid-template-columns: minmax(110px, 0.8fr) minmax(100px, 0.7fr) minmax(120px, 1fr) auto;
-    align-items: center;
-    gap: 0.45rem;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  .form-select:focus,
-  .form-input:focus {
-    outline: none;
-    border-color: var(--admin-accent);
-  }
-
-  .form-input[readonly] {
-    color: var(--admin-text-muted);
-    background: var(--admin-muted);
-  }
-
-  textarea.form-input {
-    resize: vertical;
-  }
-
-  .form-actions {
-    margin-top: 0.25rem;
-  }
-
-  .danger-form {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 0.75rem 1rem;
-  }
-
-  .inline-form {
-    display: inline;
-  }
-
-  .btn-primary {
-    min-height: 44px;
-    padding: 0.4rem 1rem;
-    border: 1px solid var(--admin-accent);
-    border-radius: var(--admin-radius);
-    background: var(--admin-accent);
-    color: #fff;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-
-  .btn-secondary {
-    width: fit-content;
-    min-height: 44px;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 0.3rem 0.65rem;
-  }
-
-  .btn-secondary:hover {
-    background: var(--admin-muted);
-  }
-
-  .btn-primary.compact {
-    min-height: 44px;
-    padding: 0.28rem 0.65rem;
-    font-size: 0.8rem;
-  }
-
-  .btn-primary:hover {
-    opacity: 0.85;
-  }
-
-  .btn-primary:disabled,
-  .btn-secondary:disabled,
-  .btn-danger:disabled,
-  .form-select:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-  }
-
-  .btn-danger {
-    min-height: 44px;
-    border: 1px solid #dc2626;
-    border-radius: var(--admin-radius);
-    background: #fef2f2;
-    color: #b91c1c;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 0.3rem 0.65rem;
-  }
-
-  .btn-danger:hover {
-    background: #fee2e2;
-  }
-
-  @media (max-width: 720px) {
-    .preset-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .assign-user-form {
-      grid-template-columns: 1fr;
-      align-items: stretch;
-    }
-
-    .permission-row-form {
-      grid-template-columns: 1fr;
-      align-items: stretch;
-    }
-
-    .form-select,
-    .form-input,
-    .btn-primary,
-    .btn-secondary,
-    .btn-danger,
-    .danger-form {
-      width: 100%;
-      max-width: none;
-    }
-
-    .inline-form {
-      display: block;
-      width: 100%;
-    }
-  }
-</style>

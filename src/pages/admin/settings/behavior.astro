@@ -2,6 +2,7 @@
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
 import { ensureConsoleUmbrella } from '../_guard';
+import '@/styles/globals.css';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;

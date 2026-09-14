@@ -2,44 +2,45 @@
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
 import { ensureConsoleUmbrella } from '../_guard';
+import '@/styles/globals.css';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 ---
 
 <AdminV2Layout title="GitHub" section="settings">
-  <section class="panel">
-    <div class="panel-head">
+  <section class="max-w-[720px] rounded-lg border border-border bg-card p-4 shadow-sm">
+    <div class="flex items-start justify-between gap-4 max-sm:flex-col">
       <div>
-        <h2>GitHub App</h2>
-        <p>連接 GitHub repo 給 admin agent 使用。</p>
+        <h2 class="text-base font-semibold text-foreground mb-1">GitHub App</h2>
+        <p class="text-sm text-muted-foreground">連接 GitHub repo 給 admin agent 使用。</p>
       </div>
-      <div class="actions">
-        <a href="/admin" class="btn secondary">Back to admin</a>
-        <button id="sync-btn" class="btn" type="button">Sync repos</button>
+      <div class="flex items-center gap-2 max-sm:w-full max-sm:flex-col-reverse">
+        <a href="/admin" class="inline-flex items-center justify-center rounded-md border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground no-underline hover:border-primary hover:bg-accent max-sm:w-full max-sm:text-center">Back to admin</a>
+        <button id="sync-btn" class="inline-flex items-center justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-50 disabled:cursor-wait max-sm:w-full" type="button">Sync repos</button>
       </div>
     </div>
 
-    <div id="install-return" class="notice" hidden>
-      <strong>GitHub App installed.</strong>
+    <div id="install-return" class="mt-4 rounded-md border border-primary/40 bg-primary/10 px-3 py-2.5 text-sm text-foreground" hidden>
+      <strong class="mr-1.5">GitHub App installed.</strong>
       <span>Syncing repositories…</span>
     </div>
 
-    <dl class="status-list">
-      <div>
-        <dt>Status</dt>
-        <dd id="status">Loading…</dd>
+    <dl class="grid grid-cols-2 gap-3 my-4 max-sm:grid-cols-1">
+      <div class="rounded-md border border-border p-3">
+        <dt class="text-xs text-muted-foreground mb-0.5">Status</dt>
+        <dd id="status" class="font-bold text-foreground">Loading…</dd>
       </div>
-      <div>
-        <dt>Repos</dt>
-        <dd id="repo-count">-</dd>
+      <div class="rounded-md border border-border p-3">
+        <dt class="text-xs text-muted-foreground mb-0.5">Repos</dt>
+        <dd id="repo-count" class="font-bold text-foreground">-</dd>
       </div>
     </dl>
 
-    <a id="install-link" class="install-link" href="#" rel="noopener noreferrer" hidden>
+    <a id="install-link" class="inline-flex items-center justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground no-underline hover:bg-primary/90 max-sm:w-full max-sm:text-center" href="#" rel="noopener noreferrer" hidden>
       Install GitHub App
     </a>
-    <p id="message" class="message"></p>
+    <p id="message" class="text-sm text-muted-foreground mt-3"></p>
   </section>
 </AdminV2Layout>
 
@@ -136,125 +137,3 @@ if (gate) return gate;
       .catch(() => setMessage('Unable to load GitHub App status.'));
   })();
 </script>
-
-<style>
-  .panel {
-    max-width: 720px;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    padding: 1rem;
-  }
-
-  .panel-head {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .actions {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  h2 {
-    margin: 0 0 0.25rem;
-    font-size: 1rem;
-  }
-
-  p {
-    margin: 0;
-    color: var(--admin-text-muted);
-    font-size: 0.85rem;
-  }
-
-  .btn,
-  .install-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--admin-border);
-    border-radius: 8px;
-    background: var(--brand-900);
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 0.5rem 0.75rem;
-    cursor: pointer;
-  }
-
-  .btn.secondary {
-    background: var(--admin-surface);
-    color: var(--admin-text);
-  }
-
-  .btn:disabled {
-    opacity: 0.5;
-    cursor: wait;
-  }
-
-  .notice {
-    margin-top: 1rem;
-    border: 1px solid color-mix(in srgb, var(--brand-700), transparent 45%);
-    border-radius: 8px;
-    background: color-mix(in srgb, var(--brand-900), transparent 88%);
-    padding: 0.75rem;
-    color: var(--admin-text);
-    font-size: 0.85rem;
-  }
-
-  .notice strong {
-    margin-right: 0.35rem;
-  }
-
-  .status-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    margin: 1rem 0;
-  }
-
-  .status-list div {
-    border: 1px solid var(--admin-border);
-    border-radius: 8px;
-    padding: 0.75rem;
-  }
-
-  dt {
-    color: var(--admin-text-muted);
-    font-size: 0.75rem;
-    margin-bottom: 0.2rem;
-  }
-
-  dd {
-    margin: 0;
-    font-weight: 700;
-  }
-
-  .message {
-    margin-top: 0.75rem;
-  }
-
-  @media (max-width: 560px) {
-    .panel-head {
-      flex-direction: column;
-    }
-
-    .actions {
-      width: 100%;
-      flex-direction: column-reverse;
-    }
-
-    .btn,
-    .install-link {
-      width: 100%;
-      text-align: center;
-    }
-
-    .status-list {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

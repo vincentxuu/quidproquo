@@ -6,6 +6,7 @@ import { FlowAssignIsland } from '@/components/admin/console/FlowAssignModal';
 import { fetchPolicyDetail } from '@/lib/console/management';
 import { consoleHref, createConsoleTranslator, getConsoleLang } from '@/lib/console/admin/i18n';
 import { ensureConsoleUmbrella } from '../../_guard';
+import '@/styles/globals.css';
 
 export const prerender = false;
 
@@ -32,18 +33,18 @@ const breadcrumb = [
     <AdminState tone="empty">{t('policies.notFound', { key: policyKey })}</AdminState>
   )}
   {result.detail && (
-    <div class="policy-detail">
-      <header class="detail-head">
-        <h2>{result.detail.label} <code>{result.detail.policyKey}</code></h2>
-        <p class="meta">
-          <span class="category-chip">{result.detail.category}</span>
+    <div class="grid gap-6">
+      <header>
+        <h2 class="text-xl">{result.detail.label} <code class="text-[0.82rem] text-muted-foreground">{result.detail.policyKey}</code></h2>
+        <p class="mt-1 flex items-center gap-2.5 text-sm text-muted-foreground">
+          <span class="rounded-full border border-border px-2 py-0.5 text-xs capitalize">{result.detail.category}</span>
           <span>v{result.detail.version}</span>
         </p>
-        <div class="detail-actions">
+        <div class="mt-3">
           <button
             type="button"
             id="archive-policy-btn"
-            class="btn-danger"
+            class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700"
             data-policy-key={result.detail.policyKey}
             data-confirm={t('policies.archiveConfirm', { key: result.detail.policyKey })}
           >{t('policies.archivePolicy')}</button>
@@ -51,34 +52,34 @@ const breadcrumb = [
       </header>
 
       <section aria-label="定義">
-        <div class="section-head">
-          <h3>{t('policies.definition')}</h3>
-          <button type="button" id="save-policy-btn" class="btn-primary">{t('policies.saveDefinition')}</button>
+        <div class="mb-2 flex items-center justify-between">
+          <h3 class="text-[0.95rem]">{t('policies.definition')}</h3>
+          <button type="button" id="save-policy-btn" class="rounded-lg border border-primary bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground">{t('policies.saveDefinition')}</button>
         </div>
-        <form id="policy-edit-form" class="policy-edit-form">
-          <label>
+        <form id="policy-edit-form" class="grid gap-3">
+          <label class="grid gap-1 text-[0.82rem] font-semibold text-muted-foreground">
             {t('policies.label')}
-            <input id="policy-label" value={result.detail.label} />
+            <input id="policy-label" value={result.detail.label} class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm font-normal text-foreground" />
           </label>
-          <label>
+          <label class="grid gap-1 text-[0.82rem] font-semibold text-muted-foreground">
             {t('policies.bodyJson')}
-            <textarea id="policy-body" rows="16" spellcheck={false}>{result.detail.body}</textarea>
+            <textarea id="policy-body" rows="16" spellcheck={false} class="w-full rounded-lg border border-border bg-card px-2.5 py-2 font-mono text-[0.82rem] leading-relaxed text-foreground">{result.detail.body}</textarea>
           </label>
-          <span id="policy-save-status" class="form-status" aria-live="polite"></span>
+          <span id="policy-save-status" class="text-[0.82rem] text-muted-foreground" aria-live="polite"></span>
         </form>
       </section>
 
       <section aria-label="指派">
-        <div class="section-head">
-          <h3>{t('policies.assignments')}</h3>
+        <div class="mb-2 flex items-center justify-between">
+          <h3 class="text-[0.95rem]">{t('policies.assignments')}</h3>
           <FlowAssignIsland client:only="react" policyId={result.detail.policyKey} />
         </div>
         <PolicyAssignmentList assignments={result.assignments} />
       </section>
 
       <section aria-label="近期決策">
-        <h3>{t('policies.recentDecisions')}</h3>
-        <p class="empty-note">{t('policies.decisionsUnavailable')}</p>
+        <h3 class="mb-2 text-[0.95rem]">{t('policies.recentDecisions')}</h3>
+        <p class="text-sm text-muted-foreground">{t('policies.decisionsUnavailable')}</p>
       </section>
     </div>
   )}
@@ -136,110 +137,3 @@ const breadcrumb = [
   });
 </script>
 
-<style>
-  .policy-detail {
-    display: grid;
-    gap: 1.5rem;
-  }
-  .detail-head h2 {
-    font-size: 1.2rem;
-  }
-  .detail-head code {
-    font-size: 0.82rem;
-    color: var(--admin-text-soft);
-  }
-  .detail-head .meta {
-    display: flex;
-    gap: 0.6rem;
-    align-items: center;
-    margin-top: 0.3rem;
-    color: var(--admin-text-muted);
-    font-size: 0.85rem;
-  }
-  .detail-actions {
-    margin-top: 0.75rem;
-  }
-  .category-chip {
-    padding: 0.05rem 0.5rem;
-    border: 1px solid var(--admin-border);
-    border-radius: 999px;
-    font-size: 0.74rem;
-    text-transform: capitalize;
-  }
-  .section-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-  }
-  .section-head h3 {
-    margin: 0;
-  }
-  .policy-detail h3 {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-  .body-block {
-    margin: 0;
-    padding: 0.75rem;
-    background: var(--admin-bg);
-    border: 1px solid var(--admin-border);
-    border-radius: 8px;
-    font-size: 0.8rem;
-    overflow: auto;
-    max-height: 420px;
-  }
-  .policy-edit-form {
-    display: grid;
-    gap: 0.75rem;
-  }
-  .policy-edit-form label {
-    display: grid;
-    gap: 0.35rem;
-    color: var(--admin-text-soft);
-    font-size: 0.82rem;
-    font-weight: 650;
-  }
-  .policy-edit-form input,
-  .policy-edit-form textarea {
-    width: 100%;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    padding: 0.5rem 0.65rem;
-    font: inherit;
-  }
-  .policy-edit-form textarea {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.82rem;
-    line-height: 1.55;
-  }
-  .btn-primary,
-  .btn-danger {
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    padding: 0.4rem 0.85rem;
-    cursor: pointer;
-    font-size: 0.84rem;
-    font-weight: 650;
-  }
-  .btn-primary {
-    border-color: var(--brand-900);
-    background: var(--brand-900);
-    color: #fff;
-  }
-  .btn-danger {
-    background: #fef2f2;
-    border-color: #fecaca;
-    color: #b91c1c;
-  }
-  .form-status {
-    color: var(--admin-text-muted);
-    font-size: 0.82rem;
-  }
-  .empty-note {
-    color: var(--admin-text-muted);
-    font-size: 0.85rem;
-  }
-</style>

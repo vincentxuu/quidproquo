@@ -6,6 +6,7 @@ import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
 import { ensureConsoleUmbrella } from '../_guard';
 import { getEnv } from '@/lib/config/env';
+import '@/styles/globals.css';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;

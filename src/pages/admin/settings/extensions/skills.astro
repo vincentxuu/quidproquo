@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import '@/styles/globals.css';
 
 const breadcrumb = [
   { label: 'Settings', href: '/admin/settings' },
@@ -9,21 +10,21 @@ const breadcrumb = [
 ---
 
 <AdminV2Layout title="Skills" section="settings" breadcrumb={breadcrumb}>
-  <div class="admin-panel">
-    <div class="admin-panel-header">
+  <div class="rounded-lg border border-border bg-card p-4 shadow-sm">
+    <div class="flex items-start justify-between gap-4 mb-3 max-sm:flex-col">
       <div>
-        <h3>Skills</h3>
-        <p class="admin-section-desc">建立、編輯、匯入、匯出 agent skills。</p>
+        <h3 class="text-base font-semibold text-foreground">Skills</h3>
+        <p class="text-sm text-muted-foreground mt-0.5">建立、編輯、匯入、匯出 agent skills。</p>
       </div>
-      <div class="admin-actions">
-        <button id="import-btn" class="btn btn-secondary">匯入</button>
-        <button id="create-btn" class="btn btn-primary">新增 Skill</button>
+      <div class="flex gap-2 shrink-0">
+        <button id="import-btn" class="rounded-md border border-border bg-card px-3 py-1.5 text-sm font-medium text-foreground hover:border-primary hover:bg-accent">匯入</button>
+        <button id="create-btn" class="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/90">新增 Skill</button>
       </div>
     </div>
 
-    <div class="admin-toolbar">
-      <input id="search-input" type="text" class="input" placeholder="搜尋 skill…" />
-      <select id="source-filter" class="select">
+    <div class="flex gap-2 mb-3 max-sm:flex-col">
+      <input id="search-input" type="text" class="flex-1 rounded-md border border-input bg-background px-3 py-1.5 text-sm" placeholder="搜尋 skill…" />
+      <select id="source-filter" class="rounded-md border border-input bg-background px-3 py-1.5 text-sm">
         <option value="">全部來源</option>
         <option value="user">使用者</option>
         <option value="project">專案</option>
@@ -31,28 +32,28 @@ const breadcrumb = [
       </select>
     </div>
 
-    <div id="skills-list" class="admin-list"></div>
+    <div id="skills-list"></div>
   </div>
 
-  <dialog id="skill-dialog" class="admin-dialog">
-    <form id="skill-form" method="dialog">
-      <h3 id="dialog-title">新增 Skill</h3>
+  <dialog id="skill-dialog" class="rounded-lg border border-border p-6 shadow-lg backdrop:bg-black/40 max-w-[640px] w-[90vw]">
+    <form id="skill-form" method="dialog" class="flex flex-col gap-3">
+      <h3 id="dialog-title" class="text-lg font-semibold text-foreground">新增 Skill</h3>
       <input type="hidden" id="edit-skill-name" />
-      <label class="admin-field">
-        <span class="admin-field-label">名稱</span>
-        <input id="skill-name" name="name" class="input" required />
+      <label class="flex flex-col gap-1">
+        <span class="text-xs font-semibold text-muted-foreground">名稱</span>
+        <input id="skill-name" name="name" class="rounded-md border border-input bg-background px-3 py-1.5 text-sm" required />
       </label>
-      <label class="admin-field">
-        <span class="admin-field-label">描述</span>
-        <input id="skill-desc" name="description" class="input" />
+      <label class="flex flex-col gap-1">
+        <span class="text-xs font-semibold text-muted-foreground">描述</span>
+        <input id="skill-desc" name="description" class="rounded-md border border-input bg-background px-3 py-1.5 text-sm" />
       </label>
-      <label class="admin-field">
-        <span class="admin-field-label">內容</span>
-        <textarea id="skill-content" name="content" class="textarea" rows="12" required></textarea>
+      <label class="flex flex-col gap-1">
+        <span class="text-xs font-semibold text-muted-foreground">內容</span>
+        <textarea id="skill-content" name="content" class="rounded-md border border-input bg-background px-3 py-1.5 text-sm resize-y" rows="12" required></textarea>
       </label>
-      <div class="admin-actions">
-        <button type="button" id="cancel-btn" class="btn btn-secondary">取消</button>
-        <button type="submit" class="btn btn-primary">儲存</button>
+      <div class="flex justify-end gap-2 mt-2">
+        <button type="button" id="cancel-btn" class="rounded-md border border-border bg-card px-3 py-1.5 text-sm font-medium text-foreground hover:border-primary hover:bg-accent">取消</button>
+        <button type="submit" class="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/90">儲存</button>
       </div>
     </form>
   </dialog>
@@ -90,17 +91,17 @@ const breadcrumb = [
       (!src || s.source === src)
     );
     list.innerHTML = filtered.length === 0
-      ? '<p class="admin-section-desc">沒有找到 skill。</p>'
+      ? '<p class="text-sm text-muted-foreground py-2">沒有找到 skill。</p>'
       : filtered.map(s => `
-        <div class="admin-list-item" data-name="${s.name}">
-          <div>
-            <strong>${s.name}</strong>
-            <span class="admin-badge">${s.source}</span>
-            <p class="admin-section-desc">${s.description || ''}</p>
+        <div class="flex items-center justify-between gap-3 py-3 border-b border-border last:border-b-0" data-name="${s.name}">
+          <div class="min-w-0">
+            <strong class="text-sm font-semibold text-foreground">${s.name}</strong>
+            <span class="ml-1.5 inline-flex items-center rounded-sm border border-border bg-muted px-1.5 py-0.5 text-xs font-medium text-muted-foreground">${s.source}</span>
+            <p class="text-xs text-muted-foreground mt-0.5">${s.description || ''}</p>
           </div>
-          <div class="admin-actions">
-            <button class="btn btn-secondary btn-sm edit-btn" data-name="${s.name}">編輯</button>
-            <button class="btn btn-danger btn-sm delete-btn" data-name="${s.name}">刪除</button>
+          <div class="flex shrink-0 gap-1.5">
+            <button class="rounded-md border border-border bg-card px-2 py-1 text-xs font-medium text-foreground hover:border-primary hover:bg-accent edit-btn" data-name="${s.name}">編輯</button>
+            <button class="rounded-md border border-destructive/30 bg-destructive/5 px-2 py-1 text-xs font-medium text-destructive hover:bg-destructive/10 delete-btn" data-name="${s.name}">刪除</button>
           </div>
         </div>`).join('');
   }
@@ -170,12 +171,3 @@ const breadcrumb = [
 
   load();
 </script>
-
-<style>
-  .admin-toolbar { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
-  .admin-toolbar .input { flex: 1; }
-  .admin-list-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--admin-border); }
-  .admin-dialog { border: 1px solid var(--admin-border); border-radius: var(--admin-radius); padding: 1.5rem; max-width: 640px; width: 90vw; }
-  .admin-dialog::backdrop { background: rgba(0,0,0,0.4); }
-  .btn-sm { font-size: 0.8rem; padding: 0.25rem 0.5rem; }
-</style>

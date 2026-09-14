@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import '@/styles/globals.css';
 ---
 
 <AdminV2Layout section="settings" title="Deep Research 歷史">
@@ -66,9 +67,9 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
       </table>
     </div>
 
-    <div class="admin-pagination">
+    <div class="mt-3 flex items-center justify-between gap-3">
       <div id="pagination-info" class="admin-section-desc">尚未載入</div>
-      <div class="pagination-actions">
+      <div class="inline-flex gap-2">
         <button id="prev-page" class="btn-secondary" type="button">上一頁</button>
         <button id="next-page" class="btn-secondary" type="button">下一頁</button>
       </div>
@@ -109,94 +110,10 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
       <button id="retention-preview" class="btn-secondary" type="button">預覽清理</button>
       <button id="retention-run" class="btn-danger" type="button">執行清理</button>
     </div>
-    <pre id="retention-output">尚未執行 retention。</pre>
+    <pre id="retention-output" class="mt-3 max-h-48 overflow-auto whitespace-pre-wrap rounded-lg border border-border bg-[#0f172a] p-3 text-sm text-[#e2e8f0]">尚未執行 retention。</pre>
   </section>
 </AdminV2Layout>
 
-<style>
-  .admin-table th,
-  .admin-table td {
-    min-width: 0;
-  }
-
-  .dr-report-id,
-  .dr-report-id a,
-  .dr-report-summary {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 220px;
-  }
-
-  .dr-report-brief,
-  .dr-report-summary {
-    max-width: 320px;
-  }
-
-  .admin-pagination {
-    margin-top: 0.85rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-  }
-
-  .admin-pagination .pagination-actions {
-    display: inline-flex;
-    gap: 0.5rem;
-  }
-
-  .retention-panel {
-    display: block;
-  }
-
-  #retention-output {
-    margin: 0.75rem 0 0;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: #0f172a;
-    color: #e2e8f0;
-    padding: 0.7rem;
-    white-space: pre-wrap;
-    max-height: 190px;
-    overflow: auto;
-  }
-
-  .status-pill {
-    white-space: nowrap;
-  }
-
-  .status-success {
-    border-color: rgba(6, 118, 71, 0.28);
-    background: var(--admin-color-success-soft);
-    color: var(--admin-success);
-  }
-
-  .status-failed {
-    border-color: rgba(180, 35, 24, 0.28);
-    background: var(--admin-color-danger-soft);
-    color: var(--admin-danger);
-  }
-
-  .status-running,
-  .status-pending,
-  .status-cancelled {
-    border-color: rgba(181, 71, 8, 0.28);
-    background: var(--admin-color-warning-soft);
-    color: var(--admin-warning);
-  }
-
-  .status-completed {
-    border-color: rgba(6, 118, 71, 0.28);
-    background: var(--admin-color-success-soft);
-    color: var(--admin-success);
-  }
-
-  .status-pill,
-  .text-link {
-    text-decoration: none;
-  }
-</style>
 
 <script is:inline>
   const statusBadgeMap = {
@@ -430,7 +347,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
       createdAt.textContent = formatDateTime(safeText(report.created_at));
 
       const reportId = document.createElement('td');
-      reportId.className = 'dr-report-id';
+      reportId.className = 'max-w-[220px] overflow-hidden text-ellipsis whitespace-nowrap';
       const reportIdLink = document.createElement('a');
       reportIdLink.href = `/api/deep-research/${encodeURIComponent(safeText(report.report_id))}`;
       reportIdLink.target = '_blank';
@@ -440,7 +357,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
       reportId.append(reportIdLink);
 
       const brief = document.createElement('td');
-      brief.className = 'dr-report-brief';
+      brief.className = 'max-w-[320px] overflow-hidden text-ellipsis whitespace-nowrap';
       brief.textContent = truncate(safeText(report.brief), 120);
 
       const provider = document.createElement('td');
@@ -462,7 +379,7 @@ import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
       status.append(statusPill);
 
       const summary = document.createElement('td');
-      summary.className = 'dr-report-summary';
+      summary.className = 'max-w-[320px] overflow-hidden text-ellipsis whitespace-nowrap';
       summary.textContent = truncate(safeText(report.summary), 80);
 
       const actions = document.createElement('td');
