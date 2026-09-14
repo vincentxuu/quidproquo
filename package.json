@@ -15,6 +15,7 @@
     "verify": "node scripts/verify.mjs",
     "check:skills-sync": "node scripts/check-skills-sync.mjs",
     "skills:sync": "node scripts/check-skills-sync.mjs --fix",
+    "skills:push": "node scripts/skills-push.mjs",
     "session:start": "node scripts/session-start.mjs",
     "check:post-quality": "node scripts/check-post-quality.mjs",
     "check:references": "node scripts/check-post-references.mjs",
