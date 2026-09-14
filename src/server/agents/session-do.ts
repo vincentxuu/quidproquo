@@ -183,8 +183,83 @@ function loopMessageToLangChain(m: LoopMessage): BaseMessageLike {
 
 type LangChainToolDef = { type: 'function'; function: { name: string; description: string; parameters: Record<string, unknown> } }
 
-function buildToolDefinitions(): LangChainToolDef[] {
-  return listDefaultSyscalls().map((syscall) => ({
+const SANDBOX_TOOL_DEFS: LangChainToolDef[] = [
+  {
+    type: 'function',
+    function: {
+      name: 'Bash',
+      description: 'Execute a shell command in the sandbox and return stdout/stderr/exitCode.',
+      parameters: {
+        type: 'object',
+        required: ['command'],
+        properties: {
+          command: { type: 'string', description: 'The shell command to execute' },
+        },
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'Read',
+      description: 'Read the contents of a file at the given path.',
+      parameters: {
+        type: 'object',
+        required: ['file_path'],
+        properties: {
+          file_path: { type: 'string', description: 'Absolute path to the file' },
+        },
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'Write',
+      description: 'Write content to a file, creating or overwriting it.',
+      parameters: {
+        type: 'object',
+        required: ['file_path', 'content'],
+        properties: {
+          file_path: { type: 'string', description: 'Absolute path to the file' },
+          content: { type: 'string', description: 'Content to write' },
+        },
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'Glob',
+      description: 'List files matching a glob pattern.',
+      parameters: {
+        type: 'object',
+        required: ['pattern'],
+        properties: {
+          pattern: { type: 'string', description: 'Glob pattern (e.g. "src/**/*.ts")' },
+        },
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'Grep',
+      description: 'Search for a pattern in files.',
+      parameters: {
+        type: 'object',
+        required: ['pattern'],
+        properties: {
+          pattern: { type: 'string', description: 'Search pattern (regex)' },
+          path: { type: 'string', description: 'Directory or file to search in', default: '.' },
+        },
+      },
+    },
+  },
+]
+
+function buildToolDefinitions(hasSandbox: boolean): LangChainToolDef[] {
+  const syscallDefs = listDefaultSyscalls().map((syscall) => ({
     type: 'function' as const,
     function: {
       name: syscall.name,
@@ -192,6 +267,7 @@ function buildToolDefinitions(): LangChainToolDef[] {
       parameters: syscall.inputSchema as Record<string, unknown>,
     },
   }))
+  return hasSandbox ? [...syscallDefs, ...SANDBOX_TOOL_DEFS] : syscallDefs
 }
 
 type ToolCallResult = { id: string; name: string; input: unknown }
@@ -444,7 +520,6 @@ export class AgentSessionDO extends DurableObject<Env> {
     const kernel = createKernel(this.env)
     const modelConfig = resolveModelConfig(options.model)
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
-    const toolDefs = buildToolDefinitions()
     const toBaseMessage = loopMessageToLangChain
     let runner: RunnerHandle | undefined
     let repoContext = ''
@@ -462,6 +537,7 @@ export class AgentSessionDO extends DurableObject<Env> {
       )
       repoContext = await buildRepoContext(runner, options.repo, options.branch)
     }
+    const toolDefs = buildToolDefinitions(!!runner)
 
     try {
       await runLoop(
@@ -550,7 +626,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     const kernel = createKernel(this.env)
     const modelConfig = resolveModelConfig(session.model ?? undefined)
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
-    const toolDefs = buildToolDefinitions()
+    const toolDefs = buildToolDefinitions(false)
 
     try {
       await runLoop(
