@@ -51,9 +51,10 @@ import PostLayout from '../layouts/PostLayout.astro';
 
         <h2 class="about-section-h2"><span class="about-now-label"><span class="live-dot" aria-hidden="true"></span>現在</span></h2>
         <ul class="about-now-list">
-          <li><span class="about-now-text">在 <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> 做 AI Agent 開發，處理真實企業場景裡的 workflow 與落地問題</span></li>
+          <li><span class="about-now-text">在 <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> 負責 AI agent 產品核心系統開發——RAG 管線、Context Engineering、LLM 工具封裝、agent 記憶系統</span></li>
           <li><span class="about-now-text">和夥伴一起經營 <a href="https://daodao.so/" target="_blank" rel="noopener noreferrer">島島阿學</a>，把自主學習做成能持續發生的產品</span></li>
           <li><span class="about-now-text">持續打造 <a href="https://nobodyclimb.cc/" target="_blank" rel="noopener noreferrer">NobodyClimb</a>，記錄攀岩社群與路線故事</span></li>
+          <li><span class="about-now-text">維護多個 AI agent 開源專案，涵蓋安全閘門、MCP server、coding agent、考試平台</span></li>
           <li><span class="about-now-text">寫這個部落格，整理 AI、產品、學習與實作裡真正想過的事</span></li>
         </ul>
 
@@ -90,8 +91,8 @@ import PostLayout from '../layouts/PostLayout.astro';
             <div class="about-timeline-item">
               <div class="about-timeline-year">2023–Now</div>
               <div class="about-timeline-content">
-                <h3>工程師 / AI Agent 開發</h3>
-                <p>轉職做工程師，是因為我發現這份工作很適合我：需要持續學習，也一直有新的挑戰，同時能帶來很直接的成就感。</p>
+                <h3>AI Agent 工程師</h3>
+                <p>在 MaiAgent 負責 AI agent 產品核心系統——改進 RAG 管線、建立 agent 持久記憶與 Skills 系統、設計 Context Engineering、封裝外部能力為 LLM tool。日常使用 Claude Code、Codex 等 AI 工具開發，並協助優化團隊的 AI dev harness。</p>
               </div>
             </div>
           </div>
@@ -116,13 +117,115 @@ import PostLayout from '../layouts/PostLayout.astro';
 
         <h2 class="about-section-h2">Projects</h2>
         <div class="about-projects">
-          <div class="project-card">
+          <a href="/projects/groundlane" class="project-card project-card--linked">
+            <div class="project-header">
+              <span class="project-name">groundlane</span>
+              <span class="project-badge">MCP Server</span>
+            </div>
+            <p class="project-desc">
+              AI 代理的可信 Web 存取層：一個中立的 MCP server，讓 agent 只需要呼叫一份統一介面，背後自動在 14 個搜尋服務之間選擇與切換。除了搜尋，還能抓網頁、做問答研究、解析 PDF/DOCX/XLSX。所有存取都有安全限制，資料來源、執行路徑與 provider 全程可追蹤。
+            </p>
+            <div class="project-tags">
+              <span class="ptag">AI</span>
+              <span class="ptag">MCP</span>
+              <span class="ptag">Web Search</span>
+              <span class="ptag">Extraction</span>
+            </div>
+            <span class="project-detail-hint">詳細介紹 →</span>
+          </a>
+
+          <a href="/projects/gatelane" class="project-card project-card--linked">
+            <div class="project-header">
+              <span class="project-name">gatelane</span>
+              <span class="project-badge">Safety Gate</span>
+            </div>
+            <p class="project-desc">
+              Agent 上線前的安全與評測閘門。一個指令跑完測試、Red Team（50+ 攻擊向量）、Blue Team（誤擋 + 資訊洩漏偵測）跟 pipeline assertions。最核心的功能是把線上真實使用者查詢重跑在新版本上，自動比較有沒有退步，沒退步才放行。
+            </p>
+            <div class="project-tags">
+              <span class="ptag">AI</span>
+              <span class="ptag">Safety</span>
+              <span class="ptag">Eval</span>
+              <span class="ptag">Promotion</span>
+            </div>
+            <span class="project-detail-hint">詳細介紹 →</span>
+          </a>
+
+          <a href="/projects/looplane" class="project-card project-card--linked">
+            <div class="project-header">
+              <span class="project-name">looplane</span>
+              <span class="project-badge">Coding Agent</span>
+            </div>
+            <p class="project-desc">
+              Python 優先的本地 coding agent，在拋棄式 clone 裡執行任務，改壞了可以一鍵退回。有檔案存取限制是 AI 沒辦法繞過的。可以接不同的 AI 模型，也可以外接 Claude Code 或 Codex。
+            </p>
+            <div class="project-tags">
+              <span class="ptag">AI</span>
+              <span class="ptag">Coding</span>
+              <span class="ptag">Python</span>
+              <span class="ptag">CLI</span>
+            </div>
+            <span class="project-detail-hint">詳細介紹 →</span>
+          </a>
+
+          <a href="/projects/quidproquo" class="project-card project-card--linked">
+            <div class="project-header">
+              <span class="project-name">quidproquo.cc</span>
+              <span class="project-badge">Blog + AI Engine</span>
+            </div>
+            <p class="project-desc">
+              這個部落格本身就是一個 AI 專案——內建完整 RAG pipeline（embedding、向量搜尋、對話問答），加上每日 AI 訊號篩選與自動化內容生成管線，穩定跑在 production。
+            </p>
+            <div class="project-tags">
+              <span class="ptag">RAG</span>
+              <span class="ptag">Embedding</span>
+              <span class="ptag">LLM</span>
+              <span class="ptag">Content Pipeline</span>
+            </div>
+            <span class="project-detail-hint">詳細介紹 →</span>
+          </a>
+
+          <a href="/projects/aiexamprep" class="project-card project-card--linked">
+            <div class="project-header">
+              <span class="project-name">aiexamprep</span>
+              <span class="project-badge">AI Exam Platform</span>
+            </div>
+            <p class="project-desc">
+              AI 認證考試準備平台，涵蓋 AWS、Google、NVIDIA、Microsoft 四家認證題庫。四種學習模式：練習、模擬考、知識網路學習、RPG 像素風冒險闖關。
+            </p>
+            <div class="project-tags">
+              <span class="ptag">AI</span>
+              <span class="ptag">Education</span>
+              <span class="ptag">Gamification</span>
+              <span class="ptag">React</span>
+            </div>
+            <span class="project-detail-hint">詳細介紹 →</span>
+          </a>
+
+          <a href="/projects/nobodyclimb" class="project-card project-card--linked">
+            <div class="project-header">
+              <span class="project-name">NobodyClimb</span>
+              <span class="project-badge">Side Project</span>
+            </div>
+            <p class="project-desc">
+              攀岩社群平台，核心亮點是 AI 攀岩教練——根據問題類型自動選擇回答策略，簡單問題直接搜尋，複雜問題分步推理，還能做個人化路線推薦。Web 加 Mobile 的完整產品。
+            </p>
+            <div class="project-tags">
+              <span class="ptag">Community</span>
+              <span class="ptag">LangGraph</span>
+              <span class="ptag">RAG</span>
+              <span class="ptag">React Native</span>
+            </div>
+            <span class="project-detail-hint">詳細介紹 →</span>
+          </a>
+
+          <a href="/projects/daodao" class="project-card project-card--linked">
             <div class="project-header">
               <span class="project-name">島島阿學 DaoDao</span>
               <span class="project-badge">共同創辦人</span>
             </div>
             <p class="project-desc">
-              陪伴自主學習者從「想學」到真正完成目標、體驗學習成就感的社群平台，致力打造自主學習的生態圈。透過公開實踐、共同挑戰、AI 推薦，讓學習進展看得見、讓行動持續發生。榮獲 g0v 公民科技競賽與親子天下教育創新 100 獎。
+              開源教育平台，跟 AI 開發不太一樣，主要展示的是跨職能協作經驗。負責技術方向與架構決策，跟 PM 對需求、跟設計師對介面規格。不是一個人寫 code，是帶團隊做產品。榮獲 g0v 公民科技競賽與親子天下教育創新 100 獎。
             </p>
             <div class="project-tags">
               <span class="ptag">Product</span>
@@ -131,95 +234,8 @@ import PostLayout from '../layouts/PostLayout.astro';
               <span class="ptag">Next.js</span>
               <span class="ptag">RAG</span>
             </div>
-            <div class="project-links">
-              <a href="https://daodao.so/" class="project-link" target="_blank" rel="noopener noreferrer">官網 →</a>
-              <a href="https://app.daodao.so/" class="project-link" target="_blank" rel="noopener noreferrer">產品 →</a>
-              <a href="https://github.com/daodaoedu/daodao" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
-              <a href="/posts/product/2026-03-12-daodao-product-design" class="project-link">文章 →</a>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <span class="project-name">NobodyClimb</span>
-              <span class="project-badge">Side Project</span>
-            </div>
-            <p class="project-desc">
-              攀岩社群平台，讓每個攀岩人的故事留下來。台灣攀岩社群正在快速成長，但沒有一個地方真正屬於這群人——NobodyClimb 想填補這個空缺，讓每一段路線、每一次突破、每一個人的旅程都有地方被記住。
-            </p>
-            <div class="project-tags">
-              <span class="ptag">Community</span>
-              <span class="ptag">Cloudflare Workers</span>
-              <span class="ptag">LangGraph</span>
-              <span class="ptag">RAG</span>
-              <span class="ptag">React Native</span>
-            </div>
-            <a href="https://nobodyclimb.cc/" class="project-link" target="_blank" rel="noopener noreferrer">網站 →</a>
-              <a href="https://github.com/vincentxuu/nobodyclimb" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
-              <a href="/posts/product/2026-03-12-nobodyclimb-product" class="project-link">文章 →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-name">groundlane</span>
-            <span class="project-badge">MCP Server</span>
-          </div>
-          <p class="project-desc">
-            AI 代理的可信 Web 存取層：一個中立的 MCP server，把網路搜尋、網頁擷取、結構化欄位抽取與文件解析收斂成單一介面，資料來源、執行路徑與 provider 全程可追蹤。
-          </p>
-          <div class="project-tags">
-            <span class="ptag">AI</span>
-            <span class="ptag">MCP</span>
-            <span class="ptag">Web Search</span>
-            <span class="ptag">Extraction</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/lanefoundry/groundlane" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
-            <a href="https://github.com/lanefoundry/groundlane#documentation" class="project-link" target="_blank" rel="noopener noreferrer">文件 →</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-name">looplane</span>
-            <span class="project-badge">Coding Agent</span>
-          </div>
-          <p class="project-desc">
-            Python 優先的本地 coding agent，在拋棄式 clone 裡執行任務，用驗證閘門、可稽核的事件記錄與 SDD 驅動的 run，把模型改動限制在可驗證的範圍內。
-          </p>
-          <div class="project-tags">
-            <span class="ptag">AI</span>
-            <span class="ptag">Coding</span>
-            <span class="ptag">Python</span>
-            <span class="ptag">CLI</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/lanefoundry/looplane" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
-            <a href="https://github.com/lanefoundry/looplane#documentation" class="project-link" target="_blank" rel="noopener noreferrer">文件 →</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <span class="project-name">gatelane</span>
-            <span class="project-badge">Safety Gate</span>
-          </div>
-          <p class="project-desc">
-            AI 代理上線前的安全與評測閘門：在同一個引擎上跑紅隊攻擊測試與回測晉升閘門，實作出「依回測差距自動晉升」這個市場少見的基礎機制。
-          </p>
-          <div class="project-tags">
-            <span class="ptag">AI</span>
-            <span class="ptag">Safety</span>
-            <span class="ptag">Eval</span>
-            <span class="ptag">Promotion</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/lanefoundry/gatelane" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
-            <a href="https://github.com/lanefoundry/gatelane#documentation" class="project-link" target="_blank" rel="noopener noreferrer">文件 →</a>
-          </div>
-        </div>
+            <span class="project-detail-hint">詳細介紹 →</span>
+          </a>
         </div>
 
         <h2 class="about-section-h2">技能 & 工具</h2>
@@ -227,32 +243,30 @@ import PostLayout from '../layouts/PostLayout.astro';
           <div class="skill-row">
             <span class="skill-cat">Backend</span>
             <div class="skill-tags">
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">Django</span>
               <span class="tag-pill">Node.js</span>
               <span class="tag-pill">TypeScript</span>
-              <span class="tag-pill">Express.js</span>
-              <span class="tag-pill">Hono</span>
               <span class="tag-pill">FastAPI</span>
-              <span class="tag-pill">Python</span>
+              <span class="tag-pill">Celery</span>
             </div>
           </div>
           <div class="skill-row">
             <span class="skill-cat">Frontend</span>
             <div class="skill-tags">
+              <span class="tag-pill">Vue.js</span>
               <span class="tag-pill">React</span>
               <span class="tag-pill">Next.js</span>
               <span class="tag-pill">React Native</span>
               <span class="tag-pill">TailwindCSS</span>
-              <span class="tag-pill">Zustand</span>
-              <span class="tag-pill">TanStack Query</span>
             </div>
           </div>
           <div class="skill-row">
             <span class="skill-cat">Database</span>
             <div class="skill-tags">
               <span class="tag-pill">PostgreSQL</span>
-              <span class="tag-pill">MySQL</span>
+              <span class="tag-pill">Elasticsearch</span>
               <span class="tag-pill">Redis</span>
-              <span class="tag-pill">ClickHouse</span>
               <span class="tag-pill">D1 (SQLite)</span>
               <span class="tag-pill">Qdrant</span>
             </div>
@@ -261,31 +275,31 @@ import PostLayout from '../layouts/PostLayout.astro';
             <span class="skill-cat">DevOps</span>
             <div class="skill-tags">
               <span class="tag-pill">Docker</span>
+              <span class="tag-pill">AWS</span>
               <span class="tag-pill">GitHub Actions</span>
               <span class="tag-pill">Cloudflare Workers</span>
               <span class="tag-pill">Nginx</span>
-              <span class="tag-pill">PM2</span>
             </div>
           </div>
           <div class="skill-row">
             <span class="skill-cat">AI / ML</span>
             <div class="skill-tags">
-              <span class="tag-pill">LangGraph</span>
               <span class="tag-pill">RAG Pipeline</span>
+              <span class="tag-pill">Context Engineering</span>
+              <span class="tag-pill">LangGraph</span>
               <span class="tag-pill">LangChain</span>
-              <span class="tag-pill">Vectorize</span>
+              <span class="tag-pill">LLM API</span>
               <span class="tag-pill">LLM Evals</span>
-              <span class="tag-pill">Workers AI</span>
             </div>
           </div>
           <div class="skill-row">
             <span class="skill-cat">AI 開發工具</span>
             <div class="skill-tags">
               <span class="tag-pill">Claude Code</span>
-              <span class="tag-pill">GitHub Copilot</span>
-              <span class="tag-pill">Cursor</span>
-              <span class="tag-pill">OpenSpec</span>
               <span class="tag-pill">Codex</span>
+              <span class="tag-pill">Cursor</span>
+              <span class="tag-pill">GitHub Copilot</span>
+              <span class="tag-pill">OpenSpec</span>
             </div>
           </div>
           <div class="skill-row">
@@ -324,6 +338,8 @@ import PostLayout from '../layouts/PostLayout.astro';
           </a>
         </div>
       </div>
+    </div>
+  </div>
 </PostLayout>
 
 <style is:global>
@@ -590,6 +606,23 @@ import PostLayout from '../layouts/PostLayout.astro';
   .about-page .project-link:hover {
     color: var(--brand-900);
     text-decoration: none;
+  }
+
+  .about-page .project-card--linked {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .about-page .project-card--linked:hover {
+    text-decoration: none;
+  }
+
+  .about-page .project-detail-hint {
+    font-size: 0.77rem;
+    font-weight: 600;
+    color: var(--brand-500);
   }
 
   .about-page .ptag {
