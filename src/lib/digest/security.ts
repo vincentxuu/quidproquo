@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 
 const SEARCH_QUERIES = [
   '"prompt injection" OR "jailbreak" AI agent attack vulnerability 2026',
@@ -227,7 +228,7 @@ export const securityDigestAgent = defineAgent<SecurityDigestInput, SecurityDige
       const prompt = buildPrompt(incident)
 
       const llmResult = await syscall(syscallContext, 'model.invoke', {
-        config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+        config: getChatModelConfig(),
         stage: 'digest-security',
         messages: [
           { role: 'system', content: 'You are a security-focused technical writer for quidproquo.cc. Never include exploitable payloads or full attack code.' },

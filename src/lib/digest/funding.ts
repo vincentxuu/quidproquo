@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 
 const SEARCH_QUERIES = [
   'AI startup funding Series raises million 2026',
@@ -229,7 +230,7 @@ export const fundingDigestAgent = defineAgent<FundingDigestInput, FundingDigestO
       const prompt = buildPrompt(event)
 
       const llmResult = await syscall(syscallContext, 'model.invoke', {
-        config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+        config: getChatModelConfig(),
         stage: 'digest-funding',
         messages: [
           { role: 'system', content: 'You are a technical writer for quidproquo.cc covering AI funding.' },

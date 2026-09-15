@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 
 interface AgentRuntime {
   syscallContext: unknown
@@ -92,7 +93,7 @@ async function extractRankingsFromSearch(
 
   const benchmarkList = benchmarks.map(b => b.id).join(', ')
   const llmResult = await syscall(syscallContext, 'model.invoke', {
-    config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+    config: getChatModelConfig(),
     stage: 'digest-benchmark-extract',
     messages: [
       { role: 'system', content: `Extract AI benchmark leaderboard rankings from search results. Return JSON only.` },
@@ -289,7 +290,7 @@ export const benchmarkDigestAgent = defineAgent<BenchmarkDigestInput, BenchmarkD
     const prompt = buildPrompt(allChanges, today)
 
     const llmResult = await syscall(syscallContext, 'model.invoke', {
-      config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+      config: getChatModelConfig(),
       stage: 'digest-benchmark',
       messages: [
         { role: 'system', content: 'You are a technical writer for quidproquo.cc.' },

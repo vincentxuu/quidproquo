@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 
 const ARXIV_CATEGORIES = ['cs.AI', 'cs.CL', 'cs.MA']
 const SERIES_EPOCH = new Date('2026-05-25').getTime()
@@ -338,7 +339,7 @@ export const arxivDigestAgent = defineAgent<ArxivDigestInput, ArxivDigestOutput>
 
     const prompt = buildPrompt(selected, today)
     const llmResult = await syscall(syscallContext, 'model.invoke', {
-      config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+      config: getChatModelConfig(),
       stage: 'digest-arxiv',
       messages: [
         { role: 'system', content: 'You are a technical writer for quidproquo.cc, specializing in AI Agent research.' },

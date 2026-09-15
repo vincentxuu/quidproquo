@@ -1,4 +1,5 @@
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 
 interface AgentRuntime {
   syscallContext: unknown
@@ -185,7 +186,7 @@ export const aiInterviewDigestAgent = defineAgent<AiInterviewDigestInput, AiInte
     const prompt = buildPrompt(topic, today, searchResults, isSunday)
 
     const llmResult = await syscall(syscallContext, 'model.invoke', {
-      config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+      config: getChatModelConfig(),
       stage: 'digest-ai-interview',
       messages: [
         { role: 'system', content: 'You are an AI interview coach writing for quidproquo.cc.' },

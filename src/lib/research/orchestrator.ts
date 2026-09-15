@@ -10,6 +10,7 @@ import { SUPPORTED_PROVIDERS } from '../retrieval/providers'
 import type { ProviderApiKeys } from '../retrieval/model'
 import type { AgentSkill } from '../extensions'
 import type { Env } from '@/lib/config/env'
+import { getModel } from '@/lib/workers-ai-models'
 
 type Provider = RagRuntimeConfig['defaultProvider']
 
@@ -503,8 +504,9 @@ function normalizeModel(
 
 function defaultModelForProvider(provider: Provider): string {
   if (provider === 'openai') return 'gpt-4.1-mini'
-  if (provider === 'google') return 'gemini-3.7-flash'
-  return 'llama-3.3-70b-versatile'
+  if (provider === 'google' || provider === 'gemini') return 'gemini-3.7-flash'
+  if (provider === 'cloudflare') return getModel('chat')
+  return 'openai/gpt-oss-120b'
 }
 
 function clampInt(raw: unknown, fallback: number, min: number, max: number): number {

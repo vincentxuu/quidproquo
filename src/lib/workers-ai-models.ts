@@ -176,3 +176,12 @@ export type WorkersAiScenario = keyof typeof WORKERS_AI_MODELS
 export function getModel(scenario: WorkersAiScenario): string {
   return WORKERS_AI_MODELS[scenario].primary.id
 }
+
+/**
+ * Single source of truth for the site-wide default chat/RAG model config
+ * (digest routines, deep-research orchestrator, etc.). Change WORKERS_AI_MODELS.chat.primary
+ * above to roll the default forward everywhere at once.
+ */
+export function getChatModelConfig(): { defaultProvider: 'cloudflare'; defaultModel: string } {
+  return { defaultProvider: 'cloudflare', defaultModel: getModel('chat') }
+}

@@ -1,4 +1,5 @@
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 
 interface TopicConfig {
   name: string
@@ -224,7 +225,7 @@ export const productInterviewDigestAgent = defineAgent<ProductInterviewDigestInp
     const prompt = buildPrompt(topic, searchContext, isSunday)
 
     const llmResult = await syscall(syscallContext, 'model.invoke', {
-      config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+      config: getChatModelConfig(),
       stage: 'digest-product-interview',
       messages: [
         { role: 'system', content: 'You are a Product Builder interview coach for quidproquo.cc.' },

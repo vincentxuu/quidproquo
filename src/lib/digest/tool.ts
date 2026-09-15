@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 import { createInstallationToken, findStoredGitHubRepository } from '../github/app'
 
 interface GitHubSearchResult {
@@ -219,7 +220,7 @@ export const toolDigestAgent = defineAgent<ToolDigestInput, ToolDigestOutput>({
     const prompt = buildPrompt(pick)
 
     const llmResult = await syscall(syscallContext, 'model.invoke', {
-      config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+      config: getChatModelConfig(),
       stage: 'digest-tool',
       messages: [
         { role: 'system', content: 'You are a technical writer for quidproquo.cc.' },

@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 
 interface AgentRuntime {
   syscallContext: unknown
@@ -197,7 +198,7 @@ ${signalsSummary}
 用繁體中文（台灣用語）。每個事實附來源連結。`
 
     const llmResult = await syscall(syscallContext, 'model.invoke', {
-      config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+      config: getChatModelConfig(),
       stage: 'digest-report',
       messages: [
         { role: 'system', content: 'You are a daily AI report editor for quidproquo.cc.' },

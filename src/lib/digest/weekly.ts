@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 
 interface AgentRuntime {
   syscallContext: unknown
@@ -127,7 +128,7 @@ ${dailyPostList.map(n => `- ${n}`).join('\n') || '本週無文章。'}
 用繁體中文（台灣用語）。`
 
     const llmResult = await syscall(syscallContext, 'model.invoke', {
-      config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+      config: getChatModelConfig(),
       stage: 'digest-weekly',
       messages: [
         { role: 'system', content: 'You are a weekly AI review editor for quidproquo.cc.' },

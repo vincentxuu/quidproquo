@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { defineAgent } from '../agent/access'
+import { getChatModelConfig } from '@/lib/workers-ai-models'
 import { findStoredGitHubRepository } from '../github/app'
 
 interface PricingCheckTarget {
@@ -217,7 +218,7 @@ export const pricingDigestAgent = defineAgent<PricingDigestInput, PricingDigestO
     const prompt = buildPrompt(searchSignals, today)
 
     const llmResult = await syscall(syscallContext, 'model.invoke', {
-      config: { defaultProvider: 'groq', defaultModel: 'llama-3.3-70b-versatile' },
+      config: getChatModelConfig(),
       stage: 'digest-pricing',
       messages: [
         { role: 'system', content: 'You are a technical writer for quidproquo.cc.' },
