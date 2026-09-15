@@ -5,6 +5,21 @@
   padding: 0;
 }
 
+.project-back-top {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 1.2rem;
+  transition: color 0.15s;
+}
+
+.project-back-top:hover {
+  color: var(--brand-500);
+  text-decoration: none;
+}
+
 /* ── Hero ── */
 .project-hero {
   padding-bottom: 2.5rem;
