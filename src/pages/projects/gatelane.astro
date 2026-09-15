@@ -137,14 +137,14 @@ import '../../styles/project-page.css';
         </div>
         <div class="highlight-content">
           <span class="highlight-number">05</span>
-          <h2 class="highlight-title">依回測差距自動放行</h2>
+          <h2 class="highlight-title">依回測差距自動判定</h2>
           <p class="highlight-desc">
-            新版本跟 baseline 比，差距 Δ 達到閾值就自動 route 100% 流量到新版；低於就 auto-rollback，不需要人判斷。退步了會告訴你具體哪些查詢變差。
+            把線上真實查詢重跑在新版本上，跟 baseline 逐條比較。差距 Δ 達到閾值就 pass，沒達到就 fail 並列出具體哪些查詢退步了。是測試閘門，不是部署工具——pass/fail 的結論交給你的 CI/CD 決定下一步。
           </p>
           <div class="highlight-tags">
             <span class="htag">Backtest Delta</span>
-            <span class="htag">Auto-rollback</span>
-            <span class="htag">Traffic Routing</span>
+            <span class="htag">Pass / Fail Gate</span>
+            <span class="htag">Regression Report</span>
           </div>
         </div>
       </div>
