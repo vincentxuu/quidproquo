@@ -9,7 +9,7 @@ import type {
 } from './types'
 
 export class SkillsManager {
-  constructor(private db: D1Database) {}
+  constructor(private db: D1Database, private r2?: R2Bucket) {}
 
   /**
    * Generate a unique ID for a skill
@@ -52,12 +52,10 @@ export class SkillsManager {
 
     if (!row) return null
 
-    return this.rowToSkill(row)
+    const content = await this.resolveContent(row)
+    return this.rowToSkill(row, content)
   }
 
-  /**
-   * Get a skill by ID
-   */
   async getSkillById(id: string): Promise<Skill | null> {
     const row = await this.db
       .prepare('SELECT * FROM user_skills WHERE id = ?')
@@ -66,7 +64,8 @@ export class SkillsManager {
 
     if (!row) return null
 
-    return this.rowToSkill(row)
+    const content = await this.resolveContent(row)
+    return this.rowToSkill(row, content)
   }
 
   /**
@@ -76,19 +75,26 @@ export class SkillsManager {
     const id = this.generateId()
     const now = this.now()
 
+    let r2Key: string | null = null
+    if (this.r2) {
+      r2Key = `skills/${id}.md`
+      await this.r2.put(r2Key, input.content)
+    }
+
     await this.db
       .prepare(
-        `INSERT INTO user_skills (id, name, description, content, source, tags, version, created_at, updated_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        `INSERT INTO user_skills (id, name, description, content, source, tags, version, r2_key, created_at, updated_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       )
       .bind(
         id,
         input.name,
         input.description,
-        input.content,
+        r2Key ? '' : input.content,
         input.source || 'user',
         null,
         1,
+        r2Key,
         now,
         now
       )
@@ -209,11 +215,19 @@ export class SkillsManager {
   /**
    * Convert a database row to a Skill object
    */
-  private rowToSkill(row: Record<string, unknown>): Skill {
-    const content = row.content as string
+  private async resolveContent(row: Record<string, unknown>): Promise<string> {
+    const r2Key = row.r2_key as string | null
+    if (r2Key && this.r2) {
+      const obj = await this.r2.get(r2Key)
+      if (obj) return obj.text()
+    }
+    return (row.content as string) || ''
+  }
 
-    // Parse metadata from content
-    const metadataMatch = content.match(/^---\n([\s\S]*?)\n---/)
+  private rowToSkill(row: Record<string, unknown>, content?: string): Skill {
+    const resolvedContent = content ?? (row.content as string) ?? ''
+
+    const metadataMatch = resolvedContent.match(/^---\n([\s\S]*?)\n---/)
     let metadata = { name: row.name as string, description: row.description as string }
 
     if (metadataMatch) {
@@ -229,21 +243,18 @@ export class SkillsManager {
     return {
       name: row.name as string,
       description: row.description as string,
-      content,
-      path: `d1://user_skills/${row.id}`,
+      content: resolvedContent,
+      path: row.r2_key ? `r2://${row.r2_key}` : `d1://user_skills/${row.id}`,
       metadata,
-      hasScripts: content.includes('## Scripts') || content.includes('scripts/'),
-      hasReferences: content.includes('## References') || content.includes('references/'),
-      hasAssets: content.includes('## Assets') || content.includes('assets/'),
+      hasScripts: resolvedContent.includes('## Scripts') || resolvedContent.includes('scripts/'),
+      hasReferences: resolvedContent.includes('## References') || resolvedContent.includes('references/'),
+      hasAssets: resolvedContent.includes('## Assets') || resolvedContent.includes('assets/'),
       source: (row.source as SkillSource) || 'user',
       version: row.version as number,
     }
   }
 }
 
-/**
- * Create a new SkillsManager instance
- */
-export function createSkillsManager(db: D1Database): SkillsManager {
-  return new SkillsManager(db)
+export function createSkillsManager(db: D1Database, r2?: R2Bucket): SkillsManager {
+  return new SkillsManager(db, r2)
 }

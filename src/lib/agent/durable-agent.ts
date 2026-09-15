@@ -22,6 +22,7 @@ export type LoopMessage = {
   content: string
   toolCallId?: string
   toolName?: string
+  toolCalls?: Array<{ id: string; name: string; input: unknown }>
 }
 
 export type LoopState = {
@@ -31,6 +32,21 @@ export type LoopState = {
 }
 
 const SANDBOX_TOOLS = new Set(['Bash', 'Read', 'Write', 'Edit', 'Glob', 'Grep'])
+
+export type HookDecision = 'allow' | 'deny'
+
+export interface ToolHookResult {
+  decision: HookDecision
+  reason?: string
+  additionalContext?: string
+}
+
+export type ToolHook = (
+  event: 'pre_tool_use' | 'post_tool_use',
+  toolName: string,
+  input: unknown,
+  output?: unknown,
+) => Promise<ToolHookResult>
 
 export type LoopDeps = {
   sessionId: string
@@ -60,6 +76,7 @@ export type LoopDeps = {
     riskScore: number
   }) => Promise<void>
   transitionSession?: (status: string) => Promise<void>
+  hooks?: ToolHook[]
 }
 
 const MAX_TURNS = 30
@@ -97,7 +114,26 @@ async function writeEventToD1(
   }
 }
 
-async function dispatchTool(
+async function evaluateHooks(
+  hooks: ToolHook[] | undefined,
+  event: 'pre_tool_use' | 'post_tool_use',
+  toolName: string,
+  input: unknown,
+  output?: unknown,
+): Promise<ToolHookResult> {
+  if (!hooks?.length) return { decision: 'allow' }
+  for (const hook of hooks) {
+    try {
+      const result = await hook(event, toolName, input, output)
+      if (result.decision === 'deny') return result
+    } catch {
+      return { decision: 'deny', reason: 'hook threw an exception (fail-closed)' }
+    }
+  }
+  return { decision: 'allow' }
+}
+
+async function executeTool(
   deps: LoopDeps,
   toolName: string,
   input: unknown,
@@ -137,6 +173,30 @@ async function dispatchTool(
   return deps.syscall(toolName, input)
 }
 
+async function dispatchTool(
+  deps: LoopDeps,
+  toolName: string,
+  input: unknown,
+): Promise<unknown> {
+  const preResult = await evaluateHooks(deps.hooks, 'pre_tool_use', toolName, input)
+  if (preResult.decision === 'deny') {
+    throw new Error(`Tool ${toolName} denied by hook: ${preResult.reason ?? 'no reason'}`)
+  }
+
+  const output = await executeTool(deps, toolName, input)
+
+  const postResult = await evaluateHooks(deps.hooks, 'post_tool_use', toolName, input, output)
+  if (postResult.decision === 'deny') {
+    deps.broadcast?.({
+      type: 'system/status',
+      state: 'working',
+      message: `post_tool_use hook denied ${toolName}: ${postResult.reason ?? ''}`,
+    })
+  }
+
+  return output
+}
+
 export async function runLoop(
   initialMessages: LoopMessage[],
   deps: LoopDeps,
@@ -152,7 +212,11 @@ export async function runLoop(
     state.turnCount++
     const res = await deps.modelInvoke(state.messages)
 
-    const assistantMsg: LoopMessage = { role: 'assistant', content: res.content }
+    const assistantMsg: LoopMessage = {
+      role: 'assistant',
+      content: res.content,
+      ...(res.toolCalls?.length ? { toolCalls: res.toolCalls } : {}),
+    }
     state.messages.push(assistantMsg)
     await deps.persistMessage(assistantMsg)
 

@@ -244,7 +244,7 @@ function pageHref(p: number): string {
         {auditRows.length === 0 ? (
           <AdminState tone="empty">目前篩選條件下無稽核日誌記錄。</AdminState>
         ) : (
-          <>
+          <Fragment>
             <div class="audit-table-wrap">
               <AdminTable minWidth="780px" flush>
                 <thead>
@@ -318,7 +318,7 @@ function pageHref(p: number): string {
                 </article>
               ))}
             </div>
-          </>
+          </Fragment>
         )}
 
         {totalPages > 1 && (

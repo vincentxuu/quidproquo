@@ -260,7 +260,7 @@ function maskKey(masked: string | null): string {
             <code class="font-mono text-xs">{providerId}</code>
           </div>
           {keyRow ? (
-            <>
+            <Fragment>
               <div class="flex gap-4 items-baseline text-sm">
                 <span class="min-w-[120px] text-xs text-muted-foreground">{t('providers.envKey')}</span>
                 <code class="font-mono text-xs">{keyRow.env_key}</code>
@@ -273,7 +273,7 @@ function maskKey(masked: string | null): string {
                 <span class="min-w-[120px] text-xs text-muted-foreground">{t('providers.lastRotated')}</span>
                 <span>{formatTs(keyRow.last_rotated_at)}</span>
               </div>
-            </>
+            </Fragment>
           ) : (
             <p class="text-sm text-muted-foreground">{t('providers.noKeyMetadata')}</p>
           )}

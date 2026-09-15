@@ -1,0 +1,166 @@
+---
+// src/pages/projects/daodao.astro
+export const prerender = true;
+import PostLayout from '../../layouts/PostLayout.astro';
+import '../../styles/project-page.css';
+---
+
+<PostLayout
+  title="島島阿學 DaoDao"
+  lang="zh-TW"
+  description="陪伴自主學習者從「想學」到真正完成目標、體驗學習成就感的社群平台，致力打造自主學習的生態圈。"
+  switchHref="/en/projects/daodao"
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <div class="content project-page">
+
+    <a href="/about" class="project-back-top">← 關於我</a>
+
+    <!-- ── Hero ── -->
+    <section class="project-hero">
+      <div class="project-hero-badge">共同創辦人</div>
+      <h1 class="project-hero-title">島島阿學</h1>
+      <p class="project-hero-tagline">
+        自主學習的社群平台<br />
+        <span class="project-hero-sub">陪伴自主學習者從「想學」到真正完成目標、體驗學習成就感的社群平台，致力打造自主學習的生態圈。</span>
+      </p>
+      <div class="project-hero-links">
+        <a href="https://daodao.so/" class="hero-link hero-link--primary" target="_blank" rel="noopener noreferrer">
+          官網
+        </a>
+        <a href="https://app.daodao.so/" class="hero-link" target="_blank" rel="noopener noreferrer">產品 →</a>
+        <a href="https://github.com/daodaoedu/daodao" class="hero-link" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          GitHub
+        </a>
+        <a href="/posts/product/2026-03-12-daodao-product-design" class="hero-link">文章 →</a>
+      </div>
+    </section>
+
+    <!-- ── Highlights ── -->
+    <section class="project-highlights">
+
+      <!-- Highlight 1 -->
+      <div class="highlight">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="生態圈 Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">01</span>
+          <h2 class="highlight-title">自主學習生態圈</h2>
+          <p class="highlight-desc">
+            不只是學習資源平台，是陪伴學習者從「想學」到真正完成目標、體驗成就感的完整生態。透過目標設定、進度追蹤、社群互助，把「學習」從孤獨的事變成有人一起走的旅程。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">目標設定</span>
+            <span class="htag">進度追蹤</span>
+            <span class="htag">社群互助</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 2 -->
+      <div class="highlight highlight--reverse">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="實踐 Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">02</span>
+          <h2 class="highlight-title">公開實踐 + 共同挑戰</h2>
+          <p class="highlight-desc">
+            讓學習進展看得見、讓行動持續發生。透過公開實踐和共同挑戰，解決「學了但沒做」的問題。學習者公開自己的學習歷程，互相激勵、互相問責，把想法變成行動。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">公開實踐</span>
+            <span class="htag">共同挑戰</span>
+            <span class="htag">行為設計</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 3 -->
+      <div class="highlight">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="團隊協作">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>截圖待補</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">03</span>
+          <h2 class="highlight-title">跨職能團隊協作</h2>
+          <p class="highlight-desc">
+            不是一個人寫 code，是帶團隊做產品。負責技術方向與架構決策，跟 PM 對需求、跟設計師對介面規格。從開源社群出發，建立起可持續運作的產品開發流程。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">Tech Lead</span>
+            <span class="htag">Open Source</span>
+            <span class="htag">Product</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 4 -->
+      <div class="highlight highlight--reverse">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="獎項">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <span>截圖待補</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">04</span>
+          <h2 class="highlight-title">獲獎肯定</h2>
+          <p class="highlight-desc">
+            榮獲 g0v 公民科技競賽獎與親子天下教育創新 100 獎，證明自主學習社群平台的模式可行。從一個想法出發，走到被產業與公民社群認可的階段。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">g0v 公民科技</span>
+            <span class="htag">親子天下教育創新 100</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Tech Stack ── -->
+    <section class="project-stack">
+      <h2 class="project-section-title">技術</h2>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <span class="stack-label">Frontend</span>
+          <span class="stack-value">Next.js / React</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Backend</span>
+          <span class="stack-value">Node.js</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">AI</span>
+          <span class="stack-value">RAG 推薦系統</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Awards</span>
+          <span class="stack-value">g0v 公民科技 / 親子天下教育創新 100</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Back ── -->
+    <div class="project-back">
+      <a href="/about" class="project-back-link">← 回到關於我</a>
+    </div>
+
+  </div>
+</PostLayout>

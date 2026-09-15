@@ -15,7 +15,8 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
 
-  const db = (env as unknown as Env).DB
+  const e = env as unknown as Env
+  const db = e.DB
   const mgr = createSessionManager(db)
   const id = params.id!
 
@@ -30,18 +31,21 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   const message = typeof body.message === 'string' ? body.message.trim() : ''
   if (!message) return badRequest('message is required')
 
-  const _now = Date.now()
-  const nextSeq = await db
-    .prepare('SELECT COALESCE(MAX(seq), 0) + 1 AS next FROM agent_messages WHERE session_id = ?')
-    .bind(id)
-    .first<{ next: number }>()
+  if (!e.AGENT_SESSION_DO) {
+    return json({ error: 'AGENT_SESSION_DO not configured' }, 500)
+  }
 
-  await db
-    .prepare('INSERT INTO agent_messages (session_id, seq, role, content_json, created_at) VALUES (?, ?, ?, ?, ?)')
-    .bind(id, nextSeq?.next ?? 1, 'user', JSON.stringify({ text: message }), Date.now())
-    .run()
+  const stub = e.AGENT_SESSION_DO.get(e.AGENT_SESSION_DO.idFromName(id))
+  const doRes = await stub.fetch(new Request('https://do/resume', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ sessionId: id, message }),
+  }))
 
-  await mgr.resume(id, message)
+  if (!doRes.ok) {
+    const detail = await doRes.text().catch(() => '')
+    return json({ error: detail || `DO returned ${doRes.status}` }, doRes.status)
+  }
 
   return json({ ok: true, id, status: 'running', message })
 }

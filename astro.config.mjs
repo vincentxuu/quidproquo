@@ -1,5 +1,6 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -103,9 +104,14 @@ export default defineConfig({
     },
   ],
   markdown: {
-    smartypants: false,
-    remarkPlugins: [remarkReadingTime],
-    rehypePlugins: [rehypeExternalLinks, rehypeLazyImages],
+    processor: unified({
+      smartypants: false,
+      remarkPlugins: [remarkReadingTime],
+      rehypePlugins: [rehypeExternalLinks, rehypeLazyImages],
+    }),
+  },
+  experimental: {
+    incrementalBuild: true,
   },
   i18n: {
     defaultLocale: 'zh-TW',

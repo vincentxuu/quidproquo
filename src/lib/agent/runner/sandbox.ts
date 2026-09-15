@@ -9,61 +9,29 @@ import type {
 } from './types'
 import type { SessionRecord } from '../session-manager'
 
-const TRUSTED_HOSTS = [
-  'github.com',
-  '*.github.com',
-  'registry.npmjs.org',
-  'registry.yarnpkg.com',
-  '*.cloudflare.com',
-  '*.googleapis.com',
-]
-
-function buildNetworkPolicy(mode: NetworkMode, config?: EnvironmentConfig) {
-  switch (mode) {
-    case 'none':
-      return { allowedHosts: [] as string[], deniedHosts: ['*'] }
-    case 'trusted':
-      return { allowedHosts: TRUSTED_HOSTS, deniedHosts: [] as string[] }
-    case 'full':
-      return { allowedHosts: ['*'], deniedHosts: [] as string[] }
-    case 'custom':
-      return {
-        allowedHosts: config?.allowedHosts ?? [],
-        deniedHosts: config?.deniedHosts ?? [],
-      }
-  }
-}
-
 export class SandboxProvider implements SandboxRunnerProvider {
   id = 'sandbox'
   label = 'Cloudflare Sandbox'
 
-  private sandbox: unknown
   private handles = new Map<string, SandboxHandle>()
 
-  constructor(private sandboxBinding: unknown) {
-    this.sandbox = sandboxBinding
-  }
+  constructor(private sandboxNamespace: unknown) {}
 
   async isAvailable(): Promise<boolean> {
-    return this.sandbox != null
+    return this.sandboxNamespace != null
   }
 
   async provision(session: SessionRecord, env?: EnvironmentConfig, branch?: string): Promise<RunnerHandle> {
     const networkMode: NetworkMode = env?.networkMode ?? 'trusted'
-    const network = buildNetworkPolicy(networkMode, env)
-
-    const sb = this.sandbox as {
-      create: (opts: Record<string, unknown>) => Promise<{ id: string; exec: (argv: string[]) => Promise<{ exitCode: number; stdout: string; stderr: string }> }>
+    const ns = this.sandboxNamespace as {
+      idFromName: (name: string) => unknown
+      get: (id: unknown) => SandboxStub
     }
 
-    const container = await sb.create({
-      sleepAfter: 600_000,
-      network,
-      env: env?.envVars ?? {},
-    })
+    const id = ns.idFromName(session.id)
+    const stub = ns.get(id)
 
-    const handle = new SandboxHandle(session.id, container, networkMode)
+    const handle = new SandboxHandle(session.id, stub, networkMode)
     this.handles.set(session.id, handle)
 
     if (session.repo) {
@@ -82,7 +50,6 @@ export class SandboxProvider implements SandboxRunnerProvider {
     if (result.exitCode !== 0) {
       throw new Error(`Clone failed: ${result.stderr}`)
     }
-    await handle.exec(['sh', '-c', 'cd /workspace'])
   }
 
   async runSetupScript(handle: RunnerHandle, script: string): Promise<ExecResult> {
@@ -93,15 +60,19 @@ export class SandboxProvider implements SandboxRunnerProvider {
   async destroy(handle: RunnerHandle): Promise<void> {
     const sh = this.handles.get(handle.sessionId)
     if (sh) {
-      await sh.destroyContainer()
       this.handles.delete(handle.sessionId)
     }
   }
 
-  async status(handle: RunnerHandle): Promise<RunnerStatus> {
-    const sh = this.handles.get(handle.sessionId)
-    return sh?.containerStatus ?? 'destroyed'
+  async status(_handle: RunnerHandle): Promise<RunnerStatus> {
+    return 'running'
   }
+}
+
+interface SandboxStub {
+  exec(argv: string[]): Promise<{ exitCode: number; stdout: string; stderr: string }>
+  readFile(path: string): Promise<string>
+  writeFile(path: string, contents: string): Promise<void>
 }
 
 class SandboxHandle implements RunnerHandle {
@@ -109,40 +80,27 @@ class SandboxHandle implements RunnerHandle {
   containerId?: string
   networkMode: NetworkMode
   sessionId: string
-  containerStatus: RunnerStatus = 'running'
-
-  private container: {
-    id: string
-    exec: (argv: string[]) => Promise<{ exitCode: number; stdout: string; stderr: string }>
-    destroy?: () => Promise<void>
-  }
 
   constructor(
     sessionId: string,
-    container: { id: string; exec: (argv: string[]) => Promise<{ exitCode: number; stdout: string; stderr: string }> },
+    private stub: SandboxStub,
     networkMode: NetworkMode,
   ) {
     this.sessionId = sessionId
-    this.container = container
-    this.containerId = container.id
     this.networkMode = networkMode
   }
 
   async exec(command: string[]): Promise<ExecResult> {
-    const result = await this.container.exec(command)
+    const result = await this.stub.exec(command)
     return { stdout: result.stdout, stderr: result.stderr, exitCode: result.exitCode }
   }
 
   async readFile(path: string): Promise<string> {
-    const result = await this.exec(['cat', path])
-    if (result.exitCode !== 0) throw new Error(`readFile failed: ${result.stderr}`)
-    return result.stdout
+    return this.stub.readFile(path)
   }
 
   async writeFile(path: string, content: string): Promise<void> {
-    const escaped = content.replace(/'/g, "'\\''")
-    const result = await this.exec(['sh', '-c', `printf '%s' '${escaped}' > ${path}`])
-    if (result.exitCode !== 0) throw new Error(`writeFile failed: ${result.stderr}`)
+    await this.stub.writeFile(path, content)
   }
 
   async glob(pattern: string): Promise<string[]> {
@@ -162,13 +120,5 @@ class SandboxHandle implements RunnerHandle {
 
   async stop(): Promise<void> {
     await this.exec(['sh', '-c', 'cd /workspace && git add -A && git diff --cached --quiet || git commit -m "auto-save" && git push 2>/dev/null || true'])
-    this.containerStatus = 'stopped'
-  }
-
-  async destroyContainer(): Promise<void> {
-    if (this.container.destroy) {
-      await this.container.destroy()
-    }
-    this.containerStatus = 'destroyed'
   }
 }

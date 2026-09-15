@@ -131,7 +131,7 @@ function formatName(row: EvidenceRunRow): string {
 ---
 
 <AdminV2Layout title="來源證據" section="sessions">
-    <>
+    <Fragment>
       <AdminPanel title="來源證據執行記錄" eyebrow="含有收集到的來源證據之執行記錄">
         <form class="mb-3 flex flex-wrap items-center gap-2" method="GET" action="/admin/sessions/evidence">
           <label for="q" class="text-sm text-muted-foreground">搜尋執行記錄</label>
@@ -185,21 +185,21 @@ function formatName(row: EvidenceRunRow): string {
                   <td>
                     <div class="flex flex-col items-start gap-1">
                       {run.pending_conflict_count > 0 ? (
-                        <>
+                        <Fragment>
                           <a href={`/admin/sessions/${run.flow_run_id}/evidence#conflicts`} class="inline-flex h-9 items-center rounded-md border border-destructive px-3 text-sm font-medium text-destructive hover:bg-destructive/10">
                             處理 {run.pending_conflict_count} 個衝突
                           </a>
                           <span class="text-xs leading-snug text-muted-foreground">進入右側衝突面板，可採用、排除或批次標記不處理。</span>
-                        </>
+                        </Fragment>
                       ) : (
-                        <>
+                        <Fragment>
                           <a href={`/admin/sessions/${run.flow_run_id}/evidence`} class="inline-flex h-9 items-center rounded-md border border-input bg-card px-3 text-sm font-medium hover:bg-accent">
                             {run.conflict_count > 0 ? '查看處理紀錄' : '檢視'}
                           </a>
                           <span class="text-xs leading-snug text-muted-foreground">
                             {run.conflict_count > 0 ? '此執行沒有待處理衝突。' : '此執行目前沒有衝突。'}
                           </span>
-                        </>
+                        </Fragment>
                       )}
                     </div>
                   </td>
@@ -218,6 +218,5 @@ function formatName(row: EvidenceRunRow): string {
           )}
         </AdminPanel>
       )}
-    </>
-  )}
+    </Fragment>
 </AdminV2Layout>

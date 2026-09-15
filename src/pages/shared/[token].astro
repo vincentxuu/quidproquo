@@ -51,8 +51,8 @@ const title = session.name || session.id.slice(0, 8);
         const payload = JSON.parse(row.payload_json || '{}');
         return (
           <div class={`event-card event-${row.type.replace('/', '-')}`}>
-            {row.type === 'user' && (<><div class="event-role">User</div><div class="event-content">{payload.content || ''}</div></>)}
-            {row.type === 'assistant' && (<><div class="event-role">Assistant</div><div class="event-content">{payload.content || ''}</div></>)}
+            {row.type === 'user' && (<Fragment><div class="event-role">User</div><div class="event-content">{payload.content || ''}</div></Fragment>)}
+            {row.type === 'assistant' && (<Fragment><div class="event-role">Assistant</div><div class="event-content">{payload.content || ''}</div></Fragment>)}
             {row.type === 'tool_use' && (<details class="event-tool"><summary class="event-role">🔧 {payload.name || 'tool'}</summary><pre class="event-pre">{JSON.stringify(payload.input || {}).slice(0, 500)}</pre></details>)}
             {row.type === 'result' && (<details class="event-tool"><summary class="event-role">📋 Result</summary><pre class="event-pre">{(typeof payload.output === 'string' ? payload.output : JSON.stringify(payload.output || '')).slice(0, 2000)}</pre></details>)}
             {!['user', 'assistant', 'tool_use', 'result'].includes(row.type) && (<div class="event-log">{row.type}: {JSON.stringify(payload).slice(0, 200)}</div>)}

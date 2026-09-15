@@ -54,6 +54,7 @@ type Env = {
   CEREBRAS_API_KEY?: string
   OLLAMA_API_KEY?: string
   OLLAMA_CLOUD_API_KEY?: string
+  ANTHROPIC_API_KEY?: string
   OLLAMA_API_BASE?: string
   OLLAMA_HOST?: string
   OLLAMA_URL?: string
@@ -131,69 +132,7 @@ export function createModel(
     apiKeys?: ProviderApiKeys
   }
 ): ChatModel {
-  const e = env as unknown as Env
-  const route = options?.route ?? resolveRoute(options?.config, options?.stage)
-  const apiKeys = options?.apiKeys ?? {}
-
-  if (route.provider === 'openai') {
-    const apiKey = apiKeys.openai || e.OPENAI_API_KEY
-    const fields: OpenAIConstructorFields = { apiKey, maxTokens }
-    return adapt(new ChatOpenAI(route.model, asOpenAIFields(fields)) as unknown as InvokableModel)
-  }
-
-  if (route.provider === 'google' || route.provider === 'gemini') {
-    const apiKey = apiKeys.google || apiKeys.gemini || apiKeys.GOOGLE_API_KEY || apiKeys.GEMINI_API_KEY || e.GOOGLE_API_KEY || e.GEMINI_API_KEY
-    return adapt(new ChatGoogleGenerativeAI(route.model, { apiKey, maxOutputTokens: maxTokens }))
-  }
-
-  if (route.provider === 'groq') {
-    const apiKey = apiKeys.groq || e.GROQ_API_KEY
-    return adapt(new ChatGroq(route.model, {
-      apiKey,
-      maxTokens,
-      // Provider fallback is handled explicitly below. SDK retries make a
-      // quota-exhausted primary block the fallback path for over a minute.
-      maxRetries: 0,
-    } as unknown as import('@langchain/groq').ChatGroqInput))
-  }
-
-  if (route.provider === 'cloudflare') {
-    if (!e.AI) throw new Error('Cloudflare Workers AI binding (AI) is missing')
-    return createCloudflareAiModel(e.AI, route.model, maxTokens)
-  }
-
-  if (route.provider === 'openrouter') {
-    const apiKey = apiKeys.openrouter || apiKeys.OPENROUTER_API_KEY || e.OPENROUTER_API_KEY
-    return createOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://openrouter.ai/api/v1')
-  }
-
-  if (route.provider === 'opencode') {
-    const apiKey = apiKeys.opencode || apiKeys.OPENCODE_API_KEY || e.OPENCODE_API_KEY
-    return createOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://opencode.ai/zen/v1')
-  }
-
-  if (route.provider === 'nvidia') {
-    const apiKey = apiKeys.nvidia || apiKeys.NVIDIA_API_KEY || e.NVIDIA_API_KEY
-    return createOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://integrate.api.nvidia.com/v1')
-  }
-
-  if (route.provider === 'cerebras') {
-    const apiKey = apiKeys.cerebras || apiKeys.CEREBRAS_API_KEY || e.CEREBRAS_API_KEY
-    return createOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://api.cerebras.ai/v1')
-  }
-
-  if (route.provider === 'ollama_cloud') {
-    const apiKey = apiKeys.ollama_cloud || apiKeys.OLLAMA_API_KEY || apiKeys.OLLAMA_CLOUD_API_KEY || e.OLLAMA_API_KEY || e.OLLAMA_CLOUD_API_KEY
-    return createOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://ollama.com/v1')
-  }
-
-  if (route.provider === 'ollama') {
-    const baseURL = apiKeys.OLLAMA_API_BASE || apiKeys.OLLAMA_HOST || apiKeys.OLLAMA_URL
-      || e.OLLAMA_API_BASE || e.OLLAMA_HOST || e.OLLAMA_URL || 'http://localhost:11434/v1'
-    return createOpenAiCompatibleModel(route.model, apiKeys.ollama || apiKeys.OLLAMA_API_KEY || e.OLLAMA_API_KEY || 'ollama', maxTokens, normalizeOpenAiBaseUrl(baseURL))
-  }
-
-  throw new Error(`Unsupported provider: ${route.provider}`)
+  return adapt(createRawModel(maxTokens, options))
 }
 
 // [skip-harness] Returns the raw LangChain model without the adapt() wrapper.
@@ -260,6 +199,16 @@ export function createRawModel(
     const baseURL = apiKeys.OLLAMA_API_BASE || apiKeys.OLLAMA_HOST || apiKeys.OLLAMA_URL
       || e.OLLAMA_API_BASE || e.OLLAMA_HOST || e.OLLAMA_URL || 'http://localhost:11434/v1'
     return createRawOpenAiCompatibleModel(route.model, apiKeys.ollama || apiKeys.OLLAMA_API_KEY || e.OLLAMA_API_KEY || 'ollama', maxTokens, normalizeOpenAiBaseUrl(baseURL))
+  }
+
+  if (route.provider === 'cloudflare') {
+    if (!e.AI) throw new Error('Cloudflare Workers AI binding (AI) is missing')
+    return createRawCloudflareAiModel(e.AI, route.model, maxTokens)
+  }
+
+  if (route.provider === 'anthropic') {
+    const apiKey = apiKeys.anthropic || apiKeys.ANTHROPIC_API_KEY || e.ANTHROPIC_API_KEY
+    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://api.anthropic.com/v1')
   }
 
   throw new Error(`Unsupported provider: ${route.provider}`)
@@ -385,24 +334,6 @@ function createRawOpenAiCompatibleModel(model: string, apiKey: string | undefine
   if (!apiKey) throw new Error(`API key is missing for OpenAI-compatible provider at ${baseURL}`)
   const fields: OpenAIConstructorFields = { apiKey, maxTokens, configuration: { baseURL } }
   return new ChatOpenAI(model, asOpenAIFields(fields)) as unknown as InvokableModel
-}
-
-function createOpenAiCompatibleModel(model: string, apiKey: string | undefined, maxTokens: number, baseURL: string): ChatModel {
-  if (!apiKey) throw new Error(`API key is missing for OpenAI-compatible provider at ${baseURL}`)
-  const fields: OpenAIConstructorFields = { apiKey, maxTokens, configuration: { baseURL } }
-  return adapt(new ChatOpenAI(model, asOpenAIFields(fields)) as unknown as InvokableModel)
-}
-
-function createCloudflareAiModel(ai: NonNullable<Env['AI']>, model: string, maxTokens: number): ChatModel {
-  return {
-    async invoke(messages: BaseMessageLike[]): Promise<ChatModelResponse> {
-      const result = await ai.run(model, {
-        messages: toCloudflareMessages(messages),
-        max_tokens: maxTokens,
-      })
-      return new AIMessage(extractCloudflareText(result)) as unknown as ChatModelResponse
-    },
-  }
 }
 
 function toCloudflareMessages(messages: BaseMessageLike[]) {

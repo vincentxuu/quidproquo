@@ -51,8 +51,10 @@ import { checkKernelHealth } from '../src/lib/agent/observability/alerts.ts';
 import { handleQueueBatch } from '../src/server/queue.ts';
 import { runConsoleRollupDaily } from '../src/lib/console/cost/rollup.ts';
 import { checkCostThresholds } from '../src/lib/console/cost/threshold.ts';
+import { detectToolDrift } from '../src/lib/mcp-proxy/drift-detector.ts';
 export { AgentFlowWorkflow } from '../src/server/agent-flow-workflow.ts';
 export { AgentSessionDO } from '../src/server/agents/session-do.ts';
+export { AgentSandbox } from '../src/server/agents/agent-sandbox.ts';
 
 export default {
   // 保留 Astro 的所有 handlers
@@ -65,6 +67,10 @@ export default {
   // 加入 Cron scheduled handler
   async scheduled(event, env, ctx) {
     const secret = env.CRAWL_SECRET
+
+    if (event.cron === '*/15 * * * *') {
+      ctx.waitUntil(detectToolDrift(env.DB, {}).catch(() => {}))
+    }
 
     if (event.cron === '0 3 * * *') {
       ctx.waitUntil(checkKernelHealth(env))

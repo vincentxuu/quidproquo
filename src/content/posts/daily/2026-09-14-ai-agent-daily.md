@@ -189,4 +189,3 @@ Altman、Musk、Hassabis 同聲附議 Amodei 提出的獨立監督呼籲,同一�
 - [Meta acquires Swedish AI startup Stilla AI](https://www.neweconomies.co/p/september-tech-2026)
 - [Cognizant expands Google Cloud deal, rolls out Gemini Enterprise](https://www.marketscale.com/industries/education-technology/cognizants-gemini-rollout-is-turning-google-workspace-into-a-place-where-work-runs/)
 - [Claude Code v2.1.269 Release Notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.269)
-</content>

@@ -29,7 +29,7 @@ const visibleCategories = SERIES_CATEGORIES.filter(category => (counts.get(categ
   {seriesList.length === 0 ? (
     <p class="empty">{isEn ? 'No published series yet.' : '目前還沒有已發布的系列文章。'}</p>
   ) : (
-    <>
+    <Fragment>
       <div class="category-shelf" role="group" aria-label={isEn ? 'Filter series by category' : '依分類篩選系列'}>
         <button type="button" class="category-tab active" data-series-filter="all" aria-pressed="true">
           <span>{isEn ? 'All' : '全部'}</span>
@@ -72,7 +72,7 @@ const visibleCategories = SERIES_CATEGORIES.filter(category => (counts.get(categ
           );
         })}
       </div>
-    </>
+    </Fragment>
   )}
 </section>
 

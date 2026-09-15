@@ -1,0 +1,167 @@
+---
+// src/pages/projects/nobodyclimb.astro
+export const prerender = true;
+import PostLayout from '../../layouts/PostLayout.astro';
+import '../../styles/project-page.css';
+---
+
+<PostLayout
+  title="NobodyClimb"
+  lang="zh-TW"
+  description="攀岩社群平台 × AI 教練——根據問題類型自動選擇回答策略，還能做個人化路線推薦。"
+  switchHref="/en/projects/nobodyclimb"
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <div class="content project-page">
+
+    <a href="/about" class="project-back-top">← 關於我</a>
+
+    <!-- ── Hero ── -->
+    <section class="project-hero">
+      <div class="project-hero-badge">Side Project</div>
+      <h1 class="project-hero-title">NobodyClimb</h1>
+      <p class="project-hero-tagline">
+        攀岩社群平台 × AI 教練<br />
+        <span class="project-hero-sub">讓每個攀岩人的故事留下來。核心亮點是 AI 攀岩教練——根據問題類型自動選擇回答策略，還能做個人化路線推薦。</span>
+      </p>
+      <div class="project-hero-links">
+        <a href="https://nobodyclimb.cc/" class="hero-link hero-link--primary" target="_blank" rel="noopener noreferrer">
+          網站
+        </a>
+        <a href="https://github.com/vincentxuu/nobodyclimb" class="hero-link" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          GitHub
+        </a>
+        <a href="/posts/product/2026-03-12-nobodyclimb-product" class="hero-link">文章 →</a>
+      </div>
+    </section>
+
+    <!-- ── Highlights ── -->
+    <section class="project-highlights">
+
+      <!-- Highlight 1 -->
+      <div class="highlight">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="AI 教練 Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">01</span>
+          <h2 class="highlight-title">AI 攀岩教練</h2>
+          <p class="highlight-desc">
+            根據問題類型自動選擇不同的 LangGraph 路徑——簡單查詢走搜尋、複雜問題走多步推理。根據問題難度調整思考深度，有成本控制機制避免不必要的 token 消耗。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">LangGraph</span>
+            <span class="htag">RAG</span>
+            <span class="htag">Adaptive Strategy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 2 -->
+      <div class="highlight highlight--reverse">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="路線推薦 Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">02</span>
+          <h2 class="highlight-title">個人化路線推薦</h2>
+          <p class="highlight-desc">
+            根據你的攀岩程度做個人化路線推薦，不是一視同仁的通用建議。AI 教練會考慮你目前的等級、偏好的攀岩類型和過往紀錄，推薦最適合你進步的路線。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">Personalization</span>
+            <span class="htag">Route Matching</span>
+            <span class="htag">Progress Tracking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 3 -->
+      <div class="highlight">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="多語 + 等級">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span>截圖待補</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">03</span>
+          <h2 class="highlight-title">三語支援 + 等級解鎖</h2>
+          <p class="highlight-desc">
+            支援繁體中文、英文、日文三語，讓不同語言的攀岩者都能使用。等級解鎖系統讓你越練越多功能可以用——不是付費解鎖，是真的靠攀岩進步來開啟新功能。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">zh-TW</span>
+            <span class="htag">English</span>
+            <span class="htag">日本語</span>
+            <span class="htag">Gamification</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 4 -->
+      <div class="highlight highlight--reverse">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="App Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">04</span>
+          <h2 class="highlight-title">Web + Mobile 完整產品</h2>
+          <p class="highlight-desc">
+            不只是 side project demo，是從網站到手機 App 的完整產品。Web 版用 Cloudflare Workers 部署，Mobile 用 React Native 開發，共用同一套後端 API 和 AI 引擎。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">React Native</span>
+            <span class="htag">Cloudflare Workers</span>
+            <span class="htag">Full Stack</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Tech Stack ── -->
+    <section class="project-stack">
+      <h2 class="project-section-title">技術</h2>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <span class="stack-label">Frontend</span>
+          <span class="stack-value">React Native / Web</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">AI</span>
+          <span class="stack-value">LangGraph / RAG</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Languages</span>
+          <span class="stack-value">zh-TW / en / ja</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Infra</span>
+          <span class="stack-value">Cloudflare Workers</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Back ── -->
+    <div class="project-back">
+      <a href="/about" class="project-back-link">← 回到關於我</a>
+    </div>
+
+  </div>
+</PostLayout>

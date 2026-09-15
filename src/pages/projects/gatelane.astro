@@ -1,0 +1,185 @@
+---
+// src/pages/projects/gatelane.astro
+export const prerender = true;
+import PostLayout from '../../layouts/PostLayout.astro';
+import '../../styles/project-page.css';
+---
+
+<PostLayout
+  title="gatelane"
+  lang="zh-TW"
+  description="AI 代理上線前的安全與評測閘門——在同一個引擎上跑紅隊攻擊測試與回測晉升閘門。"
+  switchHref="/en/projects/gatelane"
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <div class="content project-page">
+
+    <a href="/about" class="project-back-top">← 關於我</a>
+
+    <!-- ── Hero ── -->
+    <section class="project-hero">
+      <div class="project-hero-badge">Safety Gate</div>
+      <h1 class="project-hero-title">gatelane</h1>
+      <p class="project-hero-tagline">
+        AI 代理上線前的安全與評測閘門<br />
+        <span class="project-hero-sub">在同一個引擎上跑紅隊攻擊測試與回測判定閘門，用線上真實查詢重跑比較，自動給出 pass/fail 結論。</span>
+      </p>
+      <div class="project-hero-links">
+        <a href="https://github.com/lanefoundry/gatelane" class="hero-link hero-link--primary" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          GitHub
+        </a>
+        <a href="https://github.com/lanefoundry/gatelane#documentation" class="hero-link" target="_blank" rel="noopener noreferrer">文件 →</a>
+      </div>
+    </section>
+
+    <!-- ── Highlights ── -->
+    <section class="project-highlights">
+
+      <!-- Highlight 1 -->
+      <div class="highlight">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="CLI Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">01</span>
+          <h2 class="highlight-title">一鍵跑完全套測試</h2>
+          <p class="highlight-desc">
+            一個指令跑完 test、Red Team、Blue Team 跟 pipeline assertions，不用手動切工具。有 Langfuse-compatible 的 tracing SDK 收集 traces，可以做 response diff 跟 regression 偵測。完整 CLI 跟 Dashboard。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">CLI</span>
+            <span class="htag">Dashboard</span>
+            <span class="htag">Langfuse Tracing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 2 -->
+      <div class="highlight highlight--reverse">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="Red Team Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">02</span>
+          <h2 class="highlight-title">Red Team：50+ 攻擊向量</h2>
+          <p class="highlight-desc">
+            自動化紅隊測試，涵蓋 prompt injection、jailbreak、資訊洩漏等攻擊模式。超過 50 種攻擊向量，每一種都有對應的偵測邏輯跟嚴重度分級。不用自己寫攻擊腳本，跑一次就知道 agent 的安全底線在哪裡。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">Prompt Injection</span>
+            <span class="htag">Jailbreak</span>
+            <span class="htag">Data Leakage</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 3 -->
+      <div class="highlight">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="Blue Team Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">03</span>
+          <h2 class="highlight-title">Blue Team：誤擋 + 洩漏偵測</h2>
+          <p class="highlight-desc">
+            不只測攻擊，也測防禦有沒有誤殺正常查詢、有沒有不小心洩漏敏感資訊。很多安全方案只管擋，結果把正常使用者也擋掉了——Blue Team 專門抓這種誤判，確保安全跟可用性之間的平衡。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">False Positive</span>
+            <span class="htag">Info Leakage</span>
+            <span class="htag">Usability</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 4 -->
+      <div class="highlight highlight--reverse">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="回測 Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">04</span>
+          <h2 class="highlight-title">線上查詢重跑回測</h2>
+          <p class="highlight-desc">
+            把線上真實的使用者查詢重跑一次在新版本上，自動比較有沒有退步。不是用合成測資，是用真實流量——確保你改的東西不會讓已經在用的功能壞掉。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">Replay</span>
+            <span class="htag">Response Diff</span>
+            <span class="htag">Regression</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 5 -->
+      <div class="highlight">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="晉升閘門">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>截圖待補</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">05</span>
+          <h2 class="highlight-title">依回測差距自動判定</h2>
+          <p class="highlight-desc">
+            把線上真實查詢重跑在新版本上，跟 baseline 逐條比較。差距 Δ 達到閾值就 pass，沒達到就 fail 並列出具體哪些查詢退步了。是測試閘門，不是部署工具——pass/fail 的結論交給你的 CI/CD 決定下一步。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">Backtest Delta</span>
+            <span class="htag">Pass / Fail Gate</span>
+            <span class="htag">Regression Report</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Tech Stack ── -->
+    <section class="project-stack">
+      <h2 class="project-section-title">技術</h2>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <span class="stack-label">Runtime</span>
+          <span class="stack-value">Python</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Focus</span>
+          <span class="stack-value">Agent Safety + Evaluation</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Features</span>
+          <span class="stack-value">Red Team / Blue Team / Regression</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">License</span>
+          <span class="stack-value">Apache 2.0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Back ── -->
+    <div class="project-back">
+      <a href="/about" class="project-back-link">← 回到關於我</a>
+    </div>
+
+  </div>
+</PostLayout>

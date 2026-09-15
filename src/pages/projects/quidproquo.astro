@@ -1,0 +1,144 @@
+---
+// src/pages/projects/quidproquo.astro
+export const prerender = true;
+import PostLayout from '../../layouts/PostLayout.astro';
+import '../../styles/project-page.css';
+---
+
+<PostLayout
+  title="quidproquo.cc"
+  lang="zh-TW"
+  description="RAG 部落格 + AI 內容引擎——內建語意搜尋與對話問答，加上每日自動化內容管線。"
+  switchHref="/en/projects/quidproquo"
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <div class="content project-page">
+
+    <a href="/about" class="project-back-top">← 關於我</a>
+
+    <!-- ── Hero ── -->
+    <section class="project-hero">
+      <div class="project-hero-badge">Blog + AI Engine</div>
+      <h1 class="project-hero-title">quidproquo.cc</h1>
+      <p class="project-hero-tagline">
+        RAG 部落格 + AI 內容引擎<br />
+        <span class="project-hero-sub">個人技術部落格，但不只是部落格——內建語意搜尋與對話問答，加上每日自動化內容管線，是「把內容庫變成可問答系統」的完整實作。</span>
+      </p>
+      <div class="project-hero-links">
+        <a href="https://quidproquo.cc/" class="hero-link hero-link--primary" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          網站
+        </a>
+        <a href="https://github.com/vincentxuu/quidproquo" class="hero-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
+      </div>
+    </section>
+
+    <!-- ── Highlights ── -->
+    <section class="project-highlights">
+
+      <!-- Highlight 1 -->
+      <div class="highlight">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="RAG Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">01</span>
+          <h2 class="highlight-title">RAG 架構實作</h2>
+          <p class="highlight-desc">
+            完整的 RAG pipeline——文章自動 embedding、向量搜尋、語意相關推薦、對話式問答。使用者可以用自然語言找文章，或直接問問題讓 AI 從內容庫裡組合出答案。不是接第三方 API，是從 embedding 到 retrieval 到 generation 全部自己建的。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">Embedding</span>
+            <span class="htag">Vectorize</span>
+            <span class="htag">RAG Pipeline</span>
+            <span class="htag">Conversational QA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 2 -->
+      <div class="highlight highlight--reverse">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="篩選流程">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">02</span>
+          <h2 class="highlight-title">AI 訊號篩選</h2>
+          <p class="highlight-desc">
+            每天從 arxiv 論文、GitHub trending、產業新聞、模型發布公告、資安事件等多個來源收到上千條訊號。用 LLM 做分級篩選——判斷重要性、去重、分類——不是規則引擎，是 AI 自己判斷什麼值得寫。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">LLM Judge</span>
+            <span class="htag">arxiv</span>
+            <span class="htag">GitHub</span>
+            <span class="htag">Signal Filtering</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight 3 -->
+      <div class="highlight">
+        <div class="highlight-media">
+          <div class="highlight-media-placeholder" data-label="管線 Demo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片待錄</span>
+          </div>
+        </div>
+        <div class="highlight-content">
+          <span class="highlight-number">03</span>
+          <h2 class="highlight-title">AI 內容生成管線</h2>
+          <p class="highlight-desc">
+            篩完之後 AI 自動產出結構化的中英雙語文章——摘要、分類、事實查核、翻譯全部在管線裡完成。不是機翻，是考慮語境的重寫。每天穩定發布，不需要人工介入。
+          </p>
+          <div class="highlight-tags">
+            <span class="htag">Content Generation</span>
+            <span class="htag">Fact Check</span>
+            <span class="htag">zh-TW / en</span>
+            <span class="htag">Auto-publish</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Tech Stack ── -->
+    <section class="project-stack">
+      <h2 class="project-section-title">技術</h2>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <span class="stack-label">Framework</span>
+          <span class="stack-value">Astro 6 / TypeScript</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">AI / RAG</span>
+          <span class="stack-value">Vectorize / Embedding / LLM Judge</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Infra</span>
+          <span class="stack-value">Cloudflare Workers / D1 / KV / AI</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Automation</span>
+          <span class="stack-value">16 routines / Claude Code Routines</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Back ── -->
+    <div class="project-back">
+      <a href="/about" class="project-back-link">← 回到關於我</a>
+    </div>
+
+  </div>
+</PostLayout>

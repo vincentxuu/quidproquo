@@ -5,13 +5,18 @@ import { createKernel } from '../../lib/agent/kernel'
 import { createSessionManager } from '../../lib/agent/session-manager'
 import type { SessionEvent } from '../../lib/agent/events'
 import { fromSessionEvent } from '../../lib/agent/events'
-import { HumanMessage, SystemMessage } from '@langchain/core/messages'
-import { invokeModel } from '../../lib/retrieval/model'
+import { AIMessage, HumanMessage, SystemMessage, ToolMessage } from '@langchain/core/messages'
+import type { BaseMessageLike } from '@langchain/core/messages'
+import { createRawModel, type ProviderApiKeys } from '../../lib/retrieval/model'
 import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
 import { initialState, type RagRuntimeConfig } from '../../lib/retrieval/state'
+import { listDefaultSyscalls } from '../../lib/agent/tools/register-defaults'
 import { SandboxProvider } from '../../lib/agent/runner/sandbox'
 import type { RunnerHandle } from '../../lib/agent/runner/types'
 import { resolveCloneUrl } from '../../lib/github/app'
+import { loadServers, discoverTools } from '../../lib/mcp-proxy/registry'
+import { callTool as mcpCallTool } from '../../lib/mcp-proxy/client'
+import type { McpServerConfig, McpToolDefinition } from '../../lib/mcp-proxy/types'
 
 type StartRunOptions = {
   skill?: string
@@ -160,6 +165,263 @@ async function buildRepoContext(runner: RunnerHandle, repo: string, branch?: str
   ].join('\n'), 18_000)
 }
 
+function loopMessageToLangChain(m: LoopMessage): BaseMessageLike {
+  if (m.role === 'user') return new HumanMessage(m.content)
+  if (m.role === 'tool_result' && m.toolCallId) return new ToolMessage({ content: m.content, tool_call_id: m.toolCallId })
+  if (m.role === 'assistant') {
+    if (m.toolCalls?.length) {
+      return new AIMessage({
+        content: m.content || '',
+        tool_calls: m.toolCalls.map((tc) => ({
+          id: tc.id,
+          name: tc.name,
+          args: (typeof tc.input === 'object' && tc.input !== null ? tc.input : {}) as Record<string, unknown>,
+        })),
+      })
+    }
+    return new AIMessage({ content: m.content })
+  }
+  return new SystemMessage(m.content)
+}
+
+type LangChainToolDef = { type: 'function'; function: { name: string; description: string; parameters: Record<string, unknown> } }
+
+const SANDBOX_TOOL_DEFS: LangChainToolDef[] = [
+  {
+    type: 'function',
+    function: {
+      name: 'Bash',
+      description: 'Execute a shell command in the sandbox and return stdout/stderr/exitCode.',
+      parameters: {
+        type: 'object',
+        required: ['command'],
+        properties: {
+          command: { type: 'string', description: 'The shell command to execute' },
+        },
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'Read',
+      description: 'Read the contents of a file at the given path.',
+      parameters: {
+        type: 'object',
+        required: ['file_path'],
+        properties: {
+          file_path: { type: 'string', description: 'Absolute path to the file' },
+        },
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'Write',
+      description: 'Write content to a file, creating or overwriting it.',
+      parameters: {
+        type: 'object',
+        required: ['file_path', 'content'],
+        properties: {
+          file_path: { type: 'string', description: 'Absolute path to the file' },
+          content: { type: 'string', description: 'Content to write' },
+        },
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'Glob',
+      description: 'List files matching a glob pattern.',
+      parameters: {
+        type: 'object',
+        required: ['pattern'],
+        properties: {
+          pattern: { type: 'string', description: 'Glob pattern (e.g. "src/**/*.ts")' },
+        },
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'Grep',
+      description: 'Search for a pattern in files.',
+      parameters: {
+        type: 'object',
+        required: ['pattern'],
+        properties: {
+          pattern: { type: 'string', description: 'Search pattern (regex)' },
+          path: { type: 'string', description: 'Directory or file to search in', default: '.' },
+        },
+      },
+    },
+  },
+]
+
+type McpToolEntry = { server: McpServerConfig; tool: McpToolDefinition }
+
+interface EnabledComponents {
+  skillCatalog: string
+  snapshotToolDefs: LangChainToolDef[]
+  snapshotToolRoutes: Map<string, { serverUrl: string; toolName: string; serverName: string }>
+}
+
+async function loadEnabledComponents(
+  db: D1Database,
+  subjectId: string,
+): Promise<EnabledComponents | null> {
+  // Query enablement for this session, falling back to workspace default
+  let rows: { component_type: string; component_id: string }[] = []
+  try {
+    const result = await db.prepare(`
+      SELECT component_type, component_id FROM enablement
+      WHERE enabled = 1 AND (
+        (subject_type = 'session' AND subject_id = ?)
+        OR (subject_type = 'workspace' AND subject_id = 'default')
+      )
+      ORDER BY component_type
+    `).bind(subjectId).all<{ component_type: string; component_id: string }>()
+    rows = result.results ?? []
+  } catch { return null }
+
+  if (rows.length === 0) return null
+
+  const skillIds = rows.filter(r => r.component_type === 'skill').map(r => r.component_id)
+  const toolIds = rows.filter(r => r.component_type === 'tool').map(r => r.component_id)
+
+  let skillCatalog = ''
+  if (skillIds.length > 0) {
+    try {
+      const placeholders = skillIds.map(() => '?').join(',')
+      const skillRows = await db.prepare(`
+        SELECT s.slug, sv.description
+        FROM skill s JOIN skill_version sv ON sv.id = s.latest_version_id
+        WHERE s.id IN (${placeholders}) AND sv.status = 'published'
+      `).bind(...skillIds).all<{ slug: string; description: string }>()
+      if (skillRows.results?.length) {
+        skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
+          skillRows.results.map((r) => `- ${r.slug}: ${r.description}`).join('\n')
+      }
+    } catch { /* non-fatal */ }
+  }
+
+  const snapshotToolDefs: LangChainToolDef[] = []
+  const snapshotToolRoutes = new Map<string, { serverUrl: string; toolName: string; serverName: string }>()
+  if (toolIds.length > 0) {
+    try {
+      const placeholders = toolIds.map(() => '?').join(',')
+      const toolRows = await db.prepare(`
+        SELECT ts.qualified_key, ts.tool_name, ts.description, ts.input_schema, ms.url, ms.name AS server_name
+        FROM tool_snapshot ts
+        JOIN mcp_server_v2 ms ON ms.id = ts.server_id
+        WHERE ms.id IN (${placeholders}) AND ts.removed_at IS NULL AND ms.enabled = 1
+      `).bind(...toolIds).all<{
+        qualified_key: string; tool_name: string; description: string;
+        input_schema: string; url: string | null; server_name: string
+      }>()
+      for (const row of toolRows.results ?? []) {
+        snapshotToolDefs.push({
+          type: 'function',
+          function: {
+            name: row.qualified_key,
+            description: row.description,
+            parameters: JSON.parse(row.input_schema || '{"type":"object","properties":{}}') as Record<string, unknown>,
+          },
+        })
+        if (row.url) {
+          snapshotToolRoutes.set(row.qualified_key, { serverUrl: row.url, toolName: row.tool_name, serverName: row.server_name })
+        }
+      }
+    } catch { /* non-fatal */ }
+  }
+
+  return { skillCatalog, snapshotToolDefs, snapshotToolRoutes }
+}
+
+function buildToolDefinitions(
+  hasSandbox: boolean,
+  mcpTools?: Map<string, McpToolEntry>,
+  enabledToolDefs?: LangChainToolDef[],
+): LangChainToolDef[] {
+  const syscallDefs = listDefaultSyscalls().map((syscall) => ({
+    type: 'function' as const,
+    function: {
+      name: syscall.name,
+      description: syscall.description,
+      parameters: syscall.inputSchema as Record<string, unknown>,
+    },
+  }))
+
+  const mcpDefs: LangChainToolDef[] = []
+  if (mcpTools) {
+    for (const [qualifiedName, entry] of mcpTools) {
+      mcpDefs.push({
+        type: 'function',
+        function: {
+          name: qualifiedName,
+          description: entry.tool.description || `MCP tool from ${entry.server.name}`,
+          parameters: (entry.tool.inputSchema as Record<string, unknown>) || { type: 'object', properties: {} },
+        },
+      })
+    }
+  }
+
+  return [
+    ...syscallDefs,
+    ...(hasSandbox ? SANDBOX_TOOL_DEFS : []),
+    ...mcpDefs,
+    ...(enabledToolDefs ?? []),
+  ]
+}
+
+type ToolCallResult = { id: string; name: string; input: unknown }
+
+interface ModelInvokeResult {
+  content: string
+  toolCalls?: ToolCallResult[]
+  stopReason: string
+}
+
+async function invokeModelWithTools(
+  modelConfig: RagRuntimeConfig,
+  apiKeys: ProviderApiKeys,
+  lcMessages: BaseMessageLike[],
+  toolDefs: LangChainToolDef[],
+): Promise<ModelInvokeResult> {
+  const route = {
+    provider: modelConfig.defaultProvider,
+    model: modelConfig.defaultModel,
+    fallback: false,
+  }
+  const rawModel = createRawModel(4096, { route, apiKeys })
+
+  let model = rawModel
+  if (toolDefs.length > 0 && typeof rawModel.bindTools === 'function') {
+    model = rawModel.bindTools(toolDefs) as typeof rawModel
+  }
+
+  const response = await model.invoke(lcMessages as Parameters<typeof model.invoke>[0])
+  const aiMsg = response as unknown as AIMessage
+
+  const content = stringifyModelContent(aiMsg.content)
+  const rawCalls = (aiMsg as unknown as { tool_calls?: Array<{ id?: string; name: string; args: Record<string, unknown> }> }).tool_calls
+  if (rawCalls && rawCalls.length > 0) {
+    return {
+      content,
+      toolCalls: rawCalls.map((tc) => ({
+        id: tc.id || `call_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+        name: tc.name,
+        input: tc.args,
+      })),
+      stopReason: 'tool_use',
+    }
+  }
+  return { content, stopReason: 'stop' }
+}
+
 export class AgentSessionDO extends DurableObject<Env> {
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env)
@@ -215,6 +477,19 @@ export class AgentSessionDO extends DurableObject<Env> {
         await this.ctx.storage.setAlarm(Date.now() + 100)
       }
       return Response.json({ ok: true })
+    }
+    if (url.pathname.endsWith('/resume') && request.method === 'POST') {
+      const body = (await request.json().catch(() => ({}))) as {
+        sessionId?: string
+        message?: string
+      }
+      const sessionId = body.sessionId ?? url.searchParams.get('sessionId')
+      const message = body.message
+      if (!sessionId || !message) {
+        return Response.json({ error: 'sessionId and message required' }, { status: 400 })
+      }
+      await this.resumeRun(sessionId, message)
+      return Response.json({ ok: true, sessionId })
     }
     if (url.pathname.endsWith('/stop') && request.method === 'POST') {
       const sessionId = url.searchParams.get('sessionId')
@@ -330,7 +605,7 @@ export class AgentSessionDO extends DurableObject<Env> {
       sessionId: session.id,
       model: options.model ?? session.model ?? 'default',
       mode: options.mode ?? (session.mode as 'auto' | 'default' | 'plan') ?? 'auto',
-      tools: [],
+      tools: listDefaultSyscalls().map((s) => s.name),
     }
     await this.persistEventToD1(session.id, initEvent)
     this.broadcast(initEvent)
@@ -352,8 +627,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     const kernel = createKernel(this.env)
     const modelConfig = resolveModelConfig(options.model)
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
-    const toBaseMessage = (m: LoopMessage) =>
-      m.role === 'user' ? new HumanMessage(m.content) : new SystemMessage(m.content)
+    const toBaseMessage = loopMessageToLangChain
     let runner: RunnerHandle | undefined
     let repoContext = ''
 
@@ -371,6 +645,45 @@ export class AgentSessionDO extends DurableObject<Env> {
       repoContext = await buildRepoContext(runner, options.repo, options.branch)
     }
 
+    // Dynamic component loading: enablement table → tool_snapshot + skills
+    const enabled = await loadEnabledComponents(this.env.DB, session.id)
+    let snapshotToolRoutes = new Map<string, { serverUrl: string; toolName: string; serverName: string }>()
+
+    // MCP server discovery (live) — supplements enablement-based snapshots
+    let mcpTools = new Map<string, McpToolEntry>()
+    try {
+      const servers = await loadServers(this.env.DB)
+      if (servers.length) {
+        mcpTools = await discoverTools(servers, apiKeys as Record<string, string>)
+      }
+    } catch { /* MCP discovery failure is non-fatal */ }
+
+    const toolDefs = buildToolDefinitions(!!runner, mcpTools, enabled?.snapshotToolDefs)
+    if (enabled) snapshotToolRoutes = enabled.snapshotToolRoutes
+
+    // Skill catalog: enablement-derived first, then direct query fallback
+    let skillCatalog = enabled?.skillCatalog ?? ''
+    if (!skillCatalog) {
+      try {
+        const rows = await this.env.DB.prepare(`
+          SELECT s.slug, sv.description
+          FROM skill s JOIN skill_version sv ON sv.id = s.latest_version_id
+          WHERE sv.status = 'published' ORDER BY s.slug
+        `).all<{ slug: string; description: string }>()
+        if (rows.results?.length) {
+          skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
+            rows.results.map((r) => `- ${r.slug}: ${r.description}`).join('\n')
+        }
+        if (!skillCatalog) {
+          const legacy = await this.env.DB.prepare('SELECT name, description FROM user_skills ORDER BY name').all<{ name: string; description: string }>()
+          if (legacy.results?.length) {
+            skillCatalog = 'Available skills (use the skill.read tool to load one by name):\n' +
+              legacy.results.map((r) => `- ${r.name}: ${r.description}`).join('\n')
+          }
+        }
+      } catch { /* non-fatal */ }
+    }
+
     try {
       await runLoop(
         [userMsg],
@@ -381,19 +694,49 @@ export class AgentSessionDO extends DurableObject<Env> {
           runner,
           modelInvoke: async (msgs) => {
             try {
-              const lcMessages = [
+              const lcMessages: BaseMessageLike[] = [
                 ...(skillContext ? [new SystemMessage(`Skill ${options.skill}:\n${skillContext}`)] : []),
                 ...(repoContext ? [new SystemMessage(repoContext)] : []),
+                ...(skillCatalog ? [new SystemMessage(skillCatalog)] : []),
                 ...msgs.map(toBaseMessage),
               ]
-              const res = await invokeModel(modelConfig, 'console', lcMessages, 512, apiKeys)
-              return { content: stringifyModelContent(res.response.content), stopReason: 'stop' }
+              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs)
             } catch (e) {
               const msg = e instanceof Error ? e.message : String(e)
               return { content: `model error: ${msg} (skill: ${options.skill ?? 'none'})`, stopReason: 'stop' }
             }
           },
           syscall: async (name, input) => {
+            // Route enablement-based tool snapshot calls
+            const snapshotRoute = snapshotToolRoutes.get(name)
+            if (snapshotRoute) {
+              const headers: Record<string, string> = {}
+              const cred = (apiKeys as Record<string, string>)[snapshotRoute.serverName]
+              if (cred) headers['Authorization'] = `Bearer ${cred}`
+              const result = await mcpCallTool(
+                { url: snapshotRoute.serverUrl, headers },
+                snapshotRoute.toolName,
+                (input ?? {}) as Record<string, unknown>,
+              )
+              if (result.isError) return `mcp error: ${result.content}`
+              return result.content
+            }
+
+            // Route live-discovered MCP tool calls
+            const mcpEntry = mcpTools.get(name)
+            if (mcpEntry && mcpEntry.server.url) {
+              const headers: Record<string, string> = {}
+              const cred = (apiKeys as Record<string, string>)[mcpEntry.server.name]
+              if (cred) headers['Authorization'] = `Bearer ${cred}`
+              const result = await mcpCallTool(
+                { url: mcpEntry.server.url, headers },
+                mcpEntry.tool.name,
+                (input ?? {}) as Record<string, unknown>,
+              )
+              if (result.isError) return `mcp error: ${result.content}`
+              return result.content
+            }
+
             try {
               const r = await kernel.tools.syscall(
                 { agentId: 'console', runId: session.id } as unknown as never,
@@ -418,6 +761,130 @@ export class AgentSessionDO extends DurableObject<Env> {
 
     const resultEvent: SessionEvent = { type: 'result', content: 'Session complete', totalTokens: 0, totalCostUsd: 0 }
     await this.persistEventToD1(session.id, resultEvent)
+    this.broadcast(resultEvent)
+  }
+
+  private async resumeRun(sessionId: string, message: string): Promise<void> {
+    const mgr = createSessionManager(this.env.DB)
+    const session = await mgr.get(sessionId)
+    if (!session) throw new Error('session not found')
+
+    await mgr.transition(session.id, 'running')
+
+    const historyRows = await this.env.DB.prepare(
+      'SELECT role, content_json, tool_call_id, tool_name FROM agent_messages WHERE session_id = ? ORDER BY seq',
+    )
+      .bind(sessionId)
+      .all<{ role: string; content_json: string; tool_call_id: string | null; tool_name: string | null }>()
+
+    const history: LoopMessage[] = (historyRows.results ?? []).map((row) => ({
+      role: row.role as 'user' | 'assistant' | 'tool_result',
+      content: (() => {
+        try {
+          const parsed = JSON.parse(row.content_json)
+          return typeof parsed === 'string' ? parsed : (parsed.text ?? JSON.stringify(parsed))
+        } catch {
+          return row.content_json
+        }
+      })(),
+      ...(row.tool_call_id ? { toolCallId: row.tool_call_id } : {}),
+      ...(row.tool_name ? { toolName: row.tool_name } : {}),
+    }))
+
+    const userMsg: LoopMessage = { role: 'user', content: message }
+    await this.persistMessage(sessionId, userMsg)
+    history.push(userMsg)
+
+    const userEvent: SessionEvent = { type: 'user', content: message }
+    await this.persistEventToD1(sessionId, userEvent)
+    this.broadcast(userEvent)
+
+    const kernel = createKernel(this.env)
+    const modelConfig = resolveModelConfig(session.model ?? undefined)
+    const apiKeys = await resolveProviderApiKeys(this.env.DB)
+
+    const enabled = await loadEnabledComponents(this.env.DB, sessionId)
+    let snapshotToolRoutes = new Map<string, { serverUrl: string; toolName: string; serverName: string }>()
+
+    let mcpTools = new Map<string, McpToolEntry>()
+    try {
+      const servers = await loadServers(this.env.DB)
+      if (servers.length) {
+        mcpTools = await discoverTools(servers, apiKeys as Record<string, string>)
+      }
+    } catch { /* non-fatal */ }
+
+    const toolDefs = buildToolDefinitions(false, mcpTools, enabled?.snapshotToolDefs)
+    if (enabled) snapshotToolRoutes = enabled.snapshotToolRoutes
+
+    try {
+      await runLoop(
+        history,
+        {
+          sessionId,
+          db: this.env.DB,
+          kv: this.env.SESSION,
+          modelInvoke: async (msgs) => {
+            try {
+              const lcMessages: BaseMessageLike[] = msgs.map(loopMessageToLangChain)
+              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs)
+            } catch (e) {
+              const msg = e instanceof Error ? e.message : String(e)
+              return { content: `model error: ${msg}`, stopReason: 'stop' }
+            }
+          },
+          syscall: async (name, input) => {
+            const snapshotRoute = snapshotToolRoutes.get(name)
+            if (snapshotRoute) {
+              const headers: Record<string, string> = {}
+              const cred = (apiKeys as Record<string, string>)[snapshotRoute.serverName]
+              if (cred) headers['Authorization'] = `Bearer ${cred}`
+              const result = await mcpCallTool(
+                { url: snapshotRoute.serverUrl, headers },
+                snapshotRoute.toolName,
+                (input ?? {}) as Record<string, unknown>,
+              )
+              if (result.isError) return `mcp error: ${result.content}`
+              return result.content
+            }
+
+            const mcpEntry = mcpTools.get(name)
+            if (mcpEntry && mcpEntry.server.url) {
+              const headers: Record<string, string> = {}
+              const cred = (apiKeys as Record<string, string>)[mcpEntry.server.name]
+              if (cred) headers['Authorization'] = `Bearer ${cred}`
+              const result = await mcpCallTool(
+                { url: mcpEntry.server.url, headers },
+                mcpEntry.tool.name,
+                (input ?? {}) as Record<string, unknown>,
+              )
+              if (result.isError) return `mcp error: ${result.content}`
+              return result.content
+            }
+
+            try {
+              return await kernel.tools.syscall(
+                { agentId: 'console', runId: sessionId } as unknown as never,
+                name as never,
+                input as never,
+              )
+            } catch (e) {
+              return `tool:${name} error ${e instanceof Error ? e.message : String(e)}`
+            }
+          },
+          persistMessage: (m) => this.persistMessage(sessionId, m),
+          persistEvent: (type, payload) => this.persistLegacyEvent(sessionId, type, payload),
+          broadcast: (e) => this.broadcast(e as SessionEvent),
+        },
+      )
+    } catch {
+      // runLoop error handled by transition below
+    }
+
+    await mgr.transition(session.id, 'done')
+
+    const resultEvent: SessionEvent = { type: 'result', content: 'Session complete', totalTokens: 0, totalCostUsd: 0 }
+    await this.persistEventToD1(sessionId, resultEvent)
     this.broadcast(resultEvent)
   }
 

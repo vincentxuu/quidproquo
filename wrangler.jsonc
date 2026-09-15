@@ -15,10 +15,24 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
+	"containers": [
+		{
+			"class_name": "AgentSandbox",
+			"image": "./sandbox/Dockerfile",
+			"instance_type": "basic",
+			"max_instances": 3
+		}
+	],
 	"durable_objects": {
-		"bindings": [{ "name": "AGENT_SESSION_DO", "class_name": "AgentSessionDO" }]
+		"bindings": [
+			{ "name": "AGENT_SESSION_DO", "class_name": "AgentSessionDO" },
+			{ "name": "SANDBOX", "class_name": "AgentSandbox" }
+		]
 	},
-	"migrations": [{ "tag": "v1", "new_sqlite_classes": ["AgentSessionDO"] }],
+	"migrations": [
+		{ "tag": "v1", "new_sqlite_classes": ["AgentSessionDO"] },
+		{ "tag": "v2", "new_sqlite_classes": ["AgentSandbox"] }
+	],
 	"triggers": {
 		"crons": [
 			"*/15 * * * *",

@@ -334,13 +334,13 @@ const breadcrumb = [
                       {source && <span>{new Date(source.retrievedAt).toLocaleString('zh-TW')}</span>}
                     </div>
                     {excerpt ? (
-                      <>
+                      <Fragment>
                         <p class="mb-1 text-sm leading-relaxed">{excerpt.text}</p>
                         <div class="mt-2 rounded-lg border border-border bg-background p-2.5">
                           <span class="mb-1 block text-xs font-bold uppercase text-muted-foreground">來源預覽</span>
                           <p class="text-sm text-muted-foreground">{source?.bodyText ?? excerpt.surroundingContext ?? excerpt.text}</p>
                         </div>
-                      </>
+                      </Fragment>
                     ) : (
                       <p class="text-sm text-muted-foreground">找不到摘錄。</p>
                     )}
@@ -374,7 +374,7 @@ const breadcrumb = [
             )}
           </section>
         ) : (
-          <>
+          <Fragment>
             <div class="border-b border-border bg-background px-4 py-3">
               <h3 class="mb-1 text-sm font-bold">
                 <a href={selectedSource.url} target="_blank" rel="noopener noreferrer" class="break-all font-mono text-xs text-primary hover:underline">
@@ -429,7 +429,7 @@ const breadcrumb = [
                 })}
               </div>
             )}
-          </>
+          </Fragment>
         )}
       </main>
 
