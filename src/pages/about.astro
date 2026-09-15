@@ -7,7 +7,7 @@ import PostLayout from '../layouts/PostLayout.astro';
 <PostLayout
   title="關於"
   lang="zh-TW"
-  description="Vincent Xu — 財務官轉工程師，自學程式、共同創辦島島阿學，現在在 AI × 產品的邊界工作。攀岩、衝浪、咖啡。"
+  description="Vincent Xu — AI Agent Engineer，專注 RAG、Context Engineering、LLM 工具封裝與 agent 記憶系統。維護多個 AI agent 開源專案。"
   switchHref="/en/about"
 >
   <Fragment slot="head">
@@ -26,7 +26,7 @@ import PostLayout from '../layouts/PostLayout.astro';
         <div class="about-sidebar-inner">
           <p class="about-sidebar-name">Vincent<br />Xu</p>
           <p class="about-sidebar-title">AI Agent Engineer</p>
-          <p class="about-sidebar-blurb">做 AI 與產品，把想法做成真正能幫助別人的東西。</p>
+          <p class="about-sidebar-blurb">專注 RAG、agent 系統與 LLM 工具整合，在 production 環境解決真實問題。</p>
           <div class="about-sidebar-rule"></div>
           <nav class="about-sidebar-nav">
             <a href="https://github.com/vincentxuu" target="_blank" rel="noopener noreferrer">
@@ -53,9 +53,9 @@ import PostLayout from '../layouts/PostLayout.astro';
         <ul class="about-now-list">
           <li><span class="about-now-text">在 <a href="https://maiagent.ai/" target="_blank" rel="noopener noreferrer">MaiAgent</a> 負責 AI agent 產品核心系統開發——RAG 管線、Context Engineering、LLM 工具封裝、agent 記憶系統</span></li>
           <li><span class="about-now-text">和夥伴一起經營 <a href="https://daodao.so/" target="_blank" rel="noopener noreferrer">島島阿學</a>，把自主學習做成能持續發生的產品</span></li>
-          <li><span class="about-now-text">持續打造 <a href="https://nobodyclimb.cc/" target="_blank" rel="noopener noreferrer">NobodyClimb</a>，記錄攀岩社群與路線故事</span></li>
+          <li><span class="about-now-text">持續打造 <a href="https://nobodyclimb.cc/" target="_blank" rel="noopener noreferrer">NobodyClimb</a>，用 LangGraph 做 AI 攀岩教練，根據問題難度自動切換推理策略</span></li>
           <li><span class="about-now-text">維護多個 AI agent 開源專案，涵蓋安全閘門、MCP server、coding agent、考試平台</span></li>
-          <li><span class="about-now-text">寫這個部落格，整理 AI、產品、學習與實作裡真正想過的事</span></li>
+          <li><span class="about-now-text">經營這個部落格——內建 RAG 語意搜尋，每天用 AI 篩選多源訊號自動產出文章</span></li>
         </ul>
 
         <div class="about-prose">
@@ -146,7 +146,7 @@ import PostLayout from '../layouts/PostLayout.astro';
               <span class="ptag">AI</span>
               <span class="ptag">Safety</span>
               <span class="ptag">Eval</span>
-              <span class="ptag">Promotion</span>
+              <span class="ptag">Regression Testing</span>
             </div>
             <span class="project-detail-hint">詳細介紹 →</span>
           </a>
@@ -229,10 +229,9 @@ import PostLayout from '../layouts/PostLayout.astro';
             </p>
             <div class="project-tags">
               <span class="ptag">Product</span>
-              <span class="ptag">Behavioral Design</span>
               <span class="ptag">Node.js</span>
               <span class="ptag">Next.js</span>
-              <span class="ptag">RAG</span>
+              <span class="ptag">Team Lead</span>
             </div>
             <span class="project-detail-hint">詳細介紹 →</span>
           </a>
@@ -240,6 +239,26 @@ import PostLayout from '../layouts/PostLayout.astro';
 
         <h2 class="about-section-h2">技能 & 工具</h2>
         <div class="about-skills">
+          <div class="skill-row">
+            <span class="skill-cat">AI / ML</span>
+            <div class="skill-tags">
+              <span class="tag-pill">RAG Pipeline</span>
+              <span class="tag-pill">Context Engineering</span>
+              <span class="tag-pill">LangGraph</span>
+              <span class="tag-pill">LangChain</span>
+              <span class="tag-pill">LLM API</span>
+              <span class="tag-pill">LLM Evals</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat">AI Tooling</span>
+            <div class="skill-tags">
+              <span class="tag-pill">Claude Code</span>
+              <span class="tag-pill">Codex</span>
+              <span class="tag-pill">Cursor</span>
+              <span class="tag-pill">GitHub Copilot</span>
+            </div>
+          </div>
           <div class="skill-row">
             <span class="skill-cat">Backend</span>
             <div class="skill-tags">
@@ -249,16 +268,6 @@ import PostLayout from '../layouts/PostLayout.astro';
               <span class="tag-pill">TypeScript</span>
               <span class="tag-pill">FastAPI</span>
               <span class="tag-pill">Celery</span>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-cat">Frontend</span>
-            <div class="skill-tags">
-              <span class="tag-pill">Vue.js</span>
-              <span class="tag-pill">React</span>
-              <span class="tag-pill">Next.js</span>
-              <span class="tag-pill">React Native</span>
-              <span class="tag-pill">TailwindCSS</span>
             </div>
           </div>
           <div class="skill-row">
@@ -272,43 +281,22 @@ import PostLayout from '../layouts/PostLayout.astro';
             </div>
           </div>
           <div class="skill-row">
+            <span class="skill-cat">Frontend</span>
+            <div class="skill-tags">
+              <span class="tag-pill">Vue.js</span>
+              <span class="tag-pill">React</span>
+              <span class="tag-pill">Next.js</span>
+              <span class="tag-pill">React Native</span>
+              <span class="tag-pill">TailwindCSS</span>
+            </div>
+          </div>
+          <div class="skill-row">
             <span class="skill-cat">DevOps</span>
             <div class="skill-tags">
               <span class="tag-pill">Docker</span>
               <span class="tag-pill">AWS</span>
               <span class="tag-pill">GitHub Actions</span>
               <span class="tag-pill">Cloudflare Workers</span>
-              <span class="tag-pill">Nginx</span>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-cat">AI / ML</span>
-            <div class="skill-tags">
-              <span class="tag-pill">RAG Pipeline</span>
-              <span class="tag-pill">Context Engineering</span>
-              <span class="tag-pill">LangGraph</span>
-              <span class="tag-pill">LangChain</span>
-              <span class="tag-pill">LLM API</span>
-              <span class="tag-pill">LLM Evals</span>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-cat">AI 開發工具</span>
-            <div class="skill-tags">
-              <span class="tag-pill">Claude Code</span>
-              <span class="tag-pill">Codex</span>
-              <span class="tag-pill">Cursor</span>
-              <span class="tag-pill">GitHub Copilot</span>
-              <span class="tag-pill">OpenSpec</span>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-cat">Product</span>
-            <div class="skill-tags">
-              <span class="tag-pill">Product Design</span>
-              <span class="tag-pill">UX Research</span>
-              <span class="tag-pill">Figma</span>
-              <span class="tag-pill">Community Building</span>
             </div>
           </div>
         </div>
