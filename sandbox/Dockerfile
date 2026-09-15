@@ -60,8 +60,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY --from=builder /usr/local/lib/python3.13/site-packages /usr/local/lib/python3.13/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
-COPY --from=builder /root/.config/mplfonts /root/.config/mplfonts
-COPY --from=builder /root/.local/share/fonts /root/.local/share/fonts
 
 RUN MPLRC="$(python -c 'import matplotlib; print(matplotlib.matplotlib_fname())')" \
     && sed -i 's/^#font.sans-serif:.*/font.sans-serif: Noto Sans CJK SC, DejaVu Sans, sans-serif/' "$MPLRC" \
