@@ -5,22 +5,25 @@ import { resolveProviderApiKeys as resolveKeys } from '@/lib/retrieval/provider-
 import type { Env } from '@/lib/config/env'
 import { requireAdmin } from '@/lib/auth/admin'
 import { json } from '@/lib/api/response'
+import { setSetting } from '@/lib/db/settings-store'
+import { CATALOG_SYNCED_KEY } from '@/lib/config/settings-keys'
 
 const PRESET_MODELS: Record<string, string[]> = {
-  groq: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'qwen/qwen3.6-27b'],
-  openai: ['gpt-4.1-mini', 'gpt-4.1', 'gpt-4.1-nano'],
-  google: ['gemini-3.6-flash', 'gemini-1.5-pro'],
-  gemini: ['gemini-3.6-flash', 'gemini-1.5-pro'],
-  anthropic: ['claude-3.5-sonnet', 'claude-3.5-haiku', 'claude-3.7-sonnet'],
+  groq: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'qwen/qwen3-32b'],
+  openai: ['gpt-4.1-mini', 'gpt-4.1', 'gpt-4.1-nano', 'o3-mini', 'o4-mini'],
+  google: ['gemini-3.7-flash', 'gemini-2.5-pro', 'gemini-2.5-flash'],
+  gemini: ['gemini-3.7-flash', 'gemini-2.5-pro', 'gemini-2.5-flash'],
+  anthropic: ['claude-sonnet-4-20250514', 'claude-haiku-3-5-20241022', 'claude-opus-4-20250514'],
   cloudflare: [
     '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
     '@cf/deepseek-ai/deepseek-r1-distill-qwen-32b',
-    '@cf/meta/llama-3.1-8b-instruct',
-    '@cf/qwen/qwen1.5-14b-chat-awq',
+    '@cf/meta/llama-4-scout-17b-16e-instruct',
+    '@cf/qwen/qwen2.5-coder-32b-instruct',
   ],
   nvidia: ['meta/llama-4-scout-17b-16e-instruct', 'deepseek-ai/deepseek-r1', 'nvidia/llama-3.3-nemotron-super-49b-v1'],
-  cerebras: ['gpt-oss-120b', 'gemma-4-31b'],
+  cerebras: ['llama-4-scout-17b-16e-instruct', 'qwen-3-32b'],
   openrouter: ['openrouter/auto'],
+  opencode: ['deepseek-v4-0324', 'qwen-3-32b', 'llama-4-maverick'],
   ollama_cloud: ['llama3.3', 'qwen2.5-72b'],
   ollama: ['llama3.3', 'qwen2.5-72b'],
 }
@@ -113,7 +116,61 @@ export const POST: APIRoute = async ({ cookies, params }) => {
   ]
 
   await saveCatalog(db, { models: nextModels })
+  await setSetting(db, CATALOG_SYNCED_KEY, new Date().toISOString())
   return json({ provider, added, existing, total: merged.length })
+}
+
+export async function syncAllProviders(db: D1Database): Promise<{ synced: string[]; failed: string[] }> {
+  const providerApiKeys = await resolveKeys(db)
+  const catalog = await loadCatalog(db)
+  const synced: string[] = []
+  const failed: string[] = []
+
+  for (const provider of Object.keys(PRESET_MODELS)) {
+    if (!isProvider(provider)) continue
+    try {
+      const currentModels = catalog.models.filter((row) => row.provider === provider)
+      const currentMap = new Map(currentModels.map((row) => [row.model, row]))
+
+      let models: string[]
+      try {
+        models = await fetchProviderModels(provider, providerApiKeys)
+      } catch {
+        models = []
+      }
+
+      const merged: ProviderModel[] = []
+      const seen = new Set<string>()
+
+      for (const model of models) {
+        const trimmed = model.trim()
+        if (!trimmed || seen.has(trimmed)) continue
+        seen.add(trimmed)
+        const existing = currentMap.get(trimmed)
+        merged.push(existing ?? { provider: provider as ProviderModel['provider'], model: trimmed, displayName: trimmed, enabled: true })
+      }
+
+      for (const fallbackModel of PRESET_MODELS[provider] ?? []) {
+        const trimmed = fallbackModel.trim()
+        if (!trimmed || seen.has(trimmed)) continue
+        seen.add(trimmed)
+        const existing = currentMap.get(trimmed)
+        merged.push(existing ?? { provider: provider as ProviderModel['provider'], model: trimmed, displayName: trimmed, enabled: true })
+      }
+
+      catalog.models = [
+        ...catalog.models.filter((row) => row.provider !== provider),
+        ...merged.sort((a, b) => a.model.localeCompare(b.model)),
+      ]
+      synced.push(provider)
+    } catch {
+      failed.push(provider)
+    }
+  }
+
+  await saveCatalog(db, catalog)
+  await setSetting(db, CATALOG_SYNCED_KEY, new Date().toISOString())
+  return { synced, failed }
 }
 
 async function fetchProviderModels(provider: string, envFallbacks: Partial<Record<string, string>>): Promise<string[]> {
@@ -149,6 +206,14 @@ async function fetchProviderModels(provider: string, envFallbacks: Partial<Recor
     return fetchOpenAiLikeModels(
       'https://api.cerebras.ai/v1/models',
       envFallbacks.CEREBRAS_API_KEY,
+      provider,
+    )
+  }
+
+  if (provider === 'opencode') {
+    return fetchOpenAiLikeModels(
+      'https://opencode.ai/zen/v1/models',
+      envFallbacks.OPENCODE_API_KEY,
       provider,
     )
   }

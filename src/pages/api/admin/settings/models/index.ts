@@ -19,6 +19,7 @@ import {
 } from '@/lib/retrieval/provider-key-store'
 import { json } from '@/lib/api/response'
 import { deleteSetting, getSetting, setSetting } from '@/lib/db/settings-store'
+import { CATALOG_SYNCED_KEY } from '@/lib/config/settings-keys'
 
 
 export interface ProviderModel {
@@ -79,14 +80,30 @@ const DEFAULT_CATALOG: ProviderCatalog = {
   ],
 }
 
+const CATALOG_STALE_MS = 6 * 60 * 60 * 1000
+
 export const GET: APIRoute = async ({ cookies }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
 
   const db = (env as unknown as Env).DB
-  const catalog = await loadCatalog(db)
+  let catalog = await loadCatalog(db)
   const providerKeys = await loadProviderKeyStatuses(db)
-  return json({ providers: SUPPORTED_PROVIDERS, catalog, providerKeys })
+
+  const syncedRow = await getSetting(db, CATALOG_SYNCED_KEY)
+  const lastSynced = syncedRow?.value ? new Date(syncedRow.value).getTime() : 0
+  const isStale = Date.now() - lastSynced > CATALOG_STALE_MS
+
+  let syncResult: { synced: string[]; failed: string[] } | undefined
+  if (isStale) {
+    try {
+      const { syncAllProviders } = await import('./sync/[provider]')
+      syncResult = await syncAllProviders(db)
+      catalog = await loadCatalog(db)
+    } catch { /* best-effort */ }
+  }
+
+  return json({ providers: SUPPORTED_PROVIDERS, catalog, providerKeys, syncResult })
 }
 
 export const PUT: APIRoute = async ({ cookies, request }) => {

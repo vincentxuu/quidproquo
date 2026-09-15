@@ -20,6 +20,7 @@ export const PROVIDER_SECRET_FIELDS: ProviderSecretField[] = [
   { provider: 'gemini', envKey: 'GOOGLE_API_KEY', label: 'GOOGLE_API_KEY', required: false, sensitive: true },
   { provider: 'anthropic', envKey: 'ANTHROPIC_API_KEY', label: 'ANTHROPIC_API_KEY', required: false, sensitive: true },
   { provider: 'openrouter', envKey: 'OPENROUTER_API_KEY', label: 'OPENROUTER_API_KEY', required: false, sensitive: true },
+  { provider: 'opencode', envKey: 'OPENCODE_API_KEY', label: 'OPENCODE_API_KEY', required: false, sensitive: true },
   { provider: 'nvidia', envKey: 'NVIDIA_API_KEY', label: 'NVIDIA_API_KEY', required: false, sensitive: true },
   { provider: 'cerebras', envKey: 'CEREBRAS_API_KEY', label: 'CEREBRAS_API_KEY', required: false, sensitive: true },
   { provider: 'cloudflare', envKey: 'CLOUDFLARE_API_TOKEN', label: 'CLOUDFLARE_API_TOKEN', required: false, sensitive: true },

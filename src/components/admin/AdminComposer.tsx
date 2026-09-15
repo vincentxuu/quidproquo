@@ -245,15 +245,18 @@ export default function AdminComposer() {
                 size="sm"
                 role="combobox"
                 aria-expanded={modelOpen}
-                className="h-7 gap-1 px-2 text-xs font-medium text-muted-foreground"
+                className="h-7 max-w-[200px] gap-1 px-2 text-xs font-medium text-muted-foreground"
+                title={selectedEntry ? `${selectedEntry.provider}:${selectedEntry.model}` : undefined}
               >
-                {selectedEntry
-                  ? `${selectedEntry.provider} / ${selectedEntry.displayName || selectedEntry.model}`
-                  : "Select model"}
-                <ChevronsUpDown className="size-3 opacity-50" />
+                <span className="truncate">
+                  {selectedEntry
+                    ? `${selectedEntry.provider} / ${selectedEntry.displayName || selectedEntry.model}`
+                    : "Select model"}
+                </span>
+                <ChevronsUpDown className="size-3 shrink-0 opacity-50" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[300px] p-0" align="end">
+            <PopoverContent className="w-[420px] p-0" align="end">
               <Command>
                 <CommandInput placeholder="Search models..." className="h-9" />
                 <CommandList>
@@ -272,6 +275,7 @@ export default function AdminComposer() {
                                 setSelectedModel(val);
                                 setModelOpen(false);
                               }}
+                              title={m.model}
                             >
                               <span className="truncate">
                                 {m.displayName || m.model}

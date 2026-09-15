@@ -1,4 +1,5 @@
 export const CATALOG_KEY = 'provider_model_catalog'
+export const CATALOG_SYNCED_KEY = 'provider_model_catalog_synced_at'
 export const PROVIDER_KEY_PREFIX = 'provider_key:'
 export const AGENT_SKILLS_LIBRARY_KEY = 'agent_skills'
 export const LEGACY_AGENT_SKILLS_LIBRARY_KEY = 'deep_research_agent_skills'
