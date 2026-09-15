@@ -40,6 +40,7 @@ const seriesNavs = getSeriesNavs(post, allPosts).map(nav => ({
   href: getSeriesHref(nav.name, lang),
 }));
 const readingTime = post.data.readingTime ?? 1;
+const isDailyBrief = /(?:^|\/)\d{4}-\d{2}-\d{2}-ai-agent-daily(?:-en)?$/.test(post.id);
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
 const dateStr = post.data.date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
@@ -158,8 +159,9 @@ const breadcrumbLD = {
   </Fragment>
 
   <!-- Hero Section -->
-  <div class="hero">
+  <div class:list={["hero", { "hero-daily": isDailyBrief }]}>
     <div class="hero-content">
+      {isDailyBrief && <p class="hero-kicker">{lang === 'en' ? 'AI Agent Daily Brief' : 'AI Agent 每日簡報'}</p>}
       <h1>{post.data.title}</h1>
       <div class="hero-meta">
         <span class="hero-meta-item">
@@ -179,7 +181,7 @@ const breadcrumbLD = {
     </div>
   </div>
 
-  <article data-category={post.data.category}>
+  <article data-category={post.data.category} data-layout={isDailyBrief ? 'daily-brief' : undefined}>
     <!-- Breadcrumb -->
     <div class="breadcrumb">
       <a href={lang === 'en' ? '/en' : '/'} class="breadcrumb-link">
@@ -211,10 +213,10 @@ const breadcrumbLD = {
 
     <!-- TOC -->
     {headings.length > 0 && (
-      <details class="toc" open={post.data.category !== 'daily'}>
+      <details class="toc" open={isDailyBrief || post.data.category !== 'daily'}>
         <summary class="toc-header">
           <Icons name="list" size={14} />
-          <span>{t('post.toc')}</span>
+          <span>{isDailyBrief ? (lang === 'en' ? 'In this issue' : '本期目錄') : t('post.toc')}</span>
         </summary>
         <ol>
           {headings.filter(h => h.depth === 2).map(h => (
@@ -439,6 +441,7 @@ const breadcrumbLD = {
     background: linear-gradient(135deg, #2d4a2d 0%, #1a2e1a 50%, #2d4a2d 100%);
   }
   .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .hero-kicker { display: none; }
   .hero h1 {
     font-size: 1.8rem;
     font-weight: 900;
@@ -622,6 +625,121 @@ const breadcrumbLD = {
   :global(.glossary-term:focus-visible) {
     background: var(--brand-100);
     color: var(--brand-900);
+  }
+
+  /* ── AI Agent 日報：像 briefing，而不是卡片堆疊 ── */
+  .hero-daily {
+    background: #12251a;
+    padding-block: 2.75rem 3.5rem;
+    text-align: left;
+  }
+  :global(:root:not([data-theme="dark"])) .hero-daily { background: #183524; }
+  .hero-daily .hero-content { max-width: 690px; }
+  .hero-daily .hero-kicker {
+    display: block;
+    margin: 0 0 0.7rem;
+    color: #b8d8c2;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .hero-daily h1 {
+    max-width: 16ch;
+    margin-bottom: 1.15rem;
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+  .hero-daily .hero-meta { justify-content: flex-start; gap: 1rem; color: #d6e6da; }
+
+  article[data-layout="daily-brief"] { max-width: 690px; margin-inline: auto; }
+  article[data-layout="daily-brief"] .breadcrumb { margin-top: 1rem; }
+  article[data-layout="daily-brief"] .tldr {
+    margin: 1.5rem 0;
+    padding: 1.1rem 1.2rem;
+    border: 0;
+    border-left: 4px solid #2f7d4d;
+    border-radius: 0 6px 6px 0;
+    background: #eef6f0;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  :global([data-theme="dark"]) article[data-layout="daily-brief"] .tldr { background: #16271d; }
+  article[data-layout="daily-brief"] .tldr-label {
+    margin-bottom: 0.45rem;
+    color: #27653f;
+    font-size: 0.75rem;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  :global([data-theme="dark"]) article[data-layout="daily-brief"] .tldr-label { color: #9bc8aa; }
+  article[data-layout="daily-brief"] .tags { margin-bottom: 1.5rem; }
+  article[data-layout="daily-brief"] .toc {
+    margin: 0 0 2.75rem;
+    padding: 1.15rem 1.25rem 1.25rem;
+    border-radius: 6px;
+    background: var(--bg-page);
+  }
+  article[data-layout="daily-brief"] .toc-header {
+    margin-bottom: 0.75rem;
+    font-size: 0.82rem;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  article[data-layout="daily-brief"] .toc > ol {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem 1.5rem;
+    padding-left: 1.3rem;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+  article[data-layout="daily-brief"] .toc > ol > li { padding-left: 0.1rem; }
+  article[data-layout="daily-brief"] .toc ol ol { display: none; }
+  article[data-layout="daily-brief"] .toc a {
+    display: inline-block;
+    padding-block: 0.24rem;
+    text-wrap: pretty;
+  }
+  article[data-layout="daily-brief"] .content { font-size: 1rem; line-height: 1.9; }
+  article[data-layout="daily-brief"] .content :global(p) { margin: 0 0 1.4rem; text-wrap: pretty; }
+  article[data-layout="daily-brief"] .content :global(h2) {
+    margin: 4rem 0 1.35rem;
+    padding-top: 1.1rem;
+    border-top: 2px solid var(--text-primary);
+    font-size: clamp(1.45rem, 4vw, 1.8rem);
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    scroll-margin-top: 5rem;
+  }
+  article[data-layout="daily-brief"] .content :global(h2:first-child) { margin-top: 0; }
+  article[data-layout="daily-brief"] .content :global(h3) {
+    margin: 2.25rem 0 0.75rem;
+    font-size: 1.08rem;
+    line-height: 1.4;
+    scroll-margin-top: 5rem;
+  }
+  article[data-layout="daily-brief"] .content :global(h2 + h3) { margin-top: 1rem; }
+  article[data-layout="daily-brief"] .content :global(strong) { font-weight: 750; }
+  article[data-layout="daily-brief"] .content :global(li) { margin-bottom: 0.65rem; line-height: 1.75; }
+  article[data-layout="daily-brief"] .content :global(blockquote) {
+    margin: 1.75rem 0;
+    padding: 0.2rem 0 0.2rem 1.25rem;
+    border-left: 3px solid #2f7d4d;
+  }
+  article[data-layout="daily-brief"] .content :global(table) { font-size: 0.9rem; }
+  article[data-layout="daily-brief"] .content :global(th) { white-space: nowrap; }
+
+  @media (max-width: 640px) {
+    .hero-daily { padding-block: 2.25rem 3rem; }
+    .hero-daily h1 { font-size: 2.15rem; }
+    article[data-layout="daily-brief"] .tldr { margin-top: 1.25rem; padding: 1rem; }
+    article[data-layout="daily-brief"] .toc > ol { grid-template-columns: 1fr; gap: 0.25rem; }
+    article[data-layout="daily-brief"] .content { font-size: 0.98rem; line-height: 1.85; }
+    article[data-layout="daily-brief"] .content :global(h2) { margin-top: 3.25rem; }
   }
 
   /* ════════════════════════════════════════
@@ -830,6 +948,29 @@ const breadcrumbLD = {
     font-weight: 600;
     white-space: nowrap;
     color: var(--text-primary);
+  }
+
+  /* 主日報的 briefing 節奏要蓋過上方供 Arxiv／interview digest 使用的通用 daily 規則。 */
+  article[data-category="daily"][data-layout="daily-brief"] .content {
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+  article[data-category="daily"][data-layout="daily-brief"] .content :global(h2) {
+    margin: 4rem 0 1.35rem;
+    padding-top: 1.1rem;
+    font-size: clamp(1.45rem, 4vw, 1.8rem);
+  }
+  article[data-category="daily"][data-layout="daily-brief"] .content :global(h2:first-child) { margin-top: 0; }
+  article[data-category="daily"][data-layout="daily-brief"] .content :global(h3) {
+    margin: 2.25rem 0 0.75rem;
+    font-size: 1.08rem;
+  }
+  @media (max-width: 640px) {
+    article[data-category="daily"][data-layout="daily-brief"] .content {
+      font-size: 0.98rem;
+      line-height: 1.85;
+    }
+    article[data-category="daily"][data-layout="daily-brief"] .content :global(h2) { margin-top: 3.25rem; }
   }
 </style>
 
