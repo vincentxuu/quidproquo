@@ -137,14 +137,14 @@ import '../../styles/project-page.css';
         </div>
         <div class="highlight-content">
           <span class="highlight-number">05</span>
-          <h2 class="highlight-title">依回測差距自動晉升</h2>
+          <h2 class="highlight-title">依回測差距自動放行</h2>
           <p class="highlight-desc">
-            沒退步才放行上線。不是人工判斷，是機器比較後自動決定。回測分數高於閾值就自動晉升到下一個環境，低於就擋住並告訴你哪些地方退步了。整個 CI/CD 管線可以無人值守。
+            新版本跟 baseline 比，差距 Δ 達到閾值就自動 route 100% 流量到新版；低於就 auto-rollback，不需要人判斷。退步了會告訴你具體哪些查詢變差。
           </p>
           <div class="highlight-tags">
-            <span class="htag">Auto Promotion</span>
-            <span class="htag">CI/CD Gate</span>
-            <span class="htag">Threshold</span>
+            <span class="htag">Backtest Delta</span>
+            <span class="htag">Auto-rollback</span>
+            <span class="htag">Traffic Routing</span>
           </div>
         </div>
       </div>
