@@ -31,7 +31,7 @@ draft: false
 
 ## 整體架構（如果適合）
 
-{{ASCII 圖說明各工具如何組合}}
+{{mermaid flowchart 說明各工具如何組合（見 writing-guide.md §圖解）；畫不出來或太複雜再退回 ASCII}}
 
 ## 整體來說
 
