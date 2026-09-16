@@ -92,7 +92,7 @@ const pageTitle =
     }
   </script>
 </head>
-<body>
+<body class:list={{ "is-article": isArticle }}>
   <div class="progress-bar" id="progress-bar"></div>
   <a href="#main-content" class="skip-nav">Skip to content</a>
   <header>
@@ -263,6 +263,10 @@ const pageTitle =
     color: var(--text-primary);
     background: var(--bg-page);
     transition: background 0.2s, color 0.2s;
+  }
+  /* Article pages widen at desktop to fit a sticky TOC/video sidebar (.post-grid) */
+  @media (min-width: 1000px) {
+    body.is-article { max-width: 1180px; }
   }
 
   /* ── Nav ── */

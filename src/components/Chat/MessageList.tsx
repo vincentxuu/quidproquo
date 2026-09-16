@@ -204,6 +204,14 @@ export function MessageList({ messages }: { messages: Message[] }) {
             animation: none;
           }
         }
+
+        /* Trailing paragraph margin makes short messages (e.g. one word) look
+           like a tall, narrow column instead of a short bubble. Paragraphs use
+           inline styles (see \`styles.paragraph\`), so this needs !important
+           to win over the inline margin-bottom. */
+        .message-content p:last-child {
+          margin-bottom: 0 !important;
+        }
       `}</style>
     </div>
   )

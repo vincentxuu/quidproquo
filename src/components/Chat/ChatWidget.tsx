@@ -48,7 +48,12 @@ const SUGGESTED_QUESTIONS = [
   '有哪些知識管理與內容管線文章？',
 ]
 
-export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
+interface PendingMessage {
+  id: number;
+  text: string;
+}
+
+export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: boolean; pendingMessage?: PendingMessage }) {
   const [messages, setMessages] = useState<Message[]>([{
     id: 'welcome',
     role: 'assistant',
@@ -160,6 +165,10 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
       ))
     }
   }
+
+  useEffect(() => {
+    if (pendingMessage) void sendMessage(pendingMessage.text)
+  }, [pendingMessage?.id])
 
   const containerStyle = embedded
     ? { display: 'flex', flexDirection: 'column' as const, flex: 1, overflow: 'hidden' }

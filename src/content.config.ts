@@ -56,6 +56,13 @@ const posts = defineCollection({
       slug: z.string(),
       reason: z.string(),
     })).optional(),
+    // Optional companion video shown as a sidebar card (e.g. a public university
+    // lecture or talk the post draws on). Most posts won't have one.
+    relatedVideo: z.object({
+      url: z.string(),
+      title: z.string().optional(),
+      source: z.string().optional(),
+    }).optional(),
   }),
 });
 

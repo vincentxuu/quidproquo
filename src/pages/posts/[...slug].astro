@@ -13,6 +13,8 @@ import { getTranslation } from '../../utils/i18n-pairing';
 import { getSeriesHref } from '../../utils/series';
 import { DEFAULT_GLOSSARY_TERMS, normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossary/terms';
 import RelatedPosts from '../../components/RelatedPosts';
+import { InlineAsk } from '../../components/Chat/InlineAsk';
+import { getYouTubeEmbedId } from '../../utils/youtube';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
@@ -44,6 +46,7 @@ const isDailyBrief = /(?:^|\/)\d{4}-\d{2}-\d{2}-ai-agent-daily(?:-en)?$/.test(po
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
 const dateStr = post.data.date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
+const relatedVideoId = post.data.relatedVideo ? getYouTubeEmbedId(post.data.relatedVideo.url) : undefined;
 const glossaryEntries = resolveGlossaryForLang(
   normalizeGlossaryTerms([
     ...(post.data.glossary ?? []),
@@ -159,9 +162,8 @@ const breadcrumbLD = {
   </Fragment>
 
   <!-- Hero Section -->
-  <div class:list={["hero", { "hero-daily": isDailyBrief }]}>
+  <div class="hero">
     <div class="hero-content">
-      {isDailyBrief && <p class="hero-kicker">{lang === 'en' ? 'AI Agent Daily Brief' : 'AI Agent 每日簡報'}</p>}
       <h1>{post.data.title}</h1>
       <div class="hero-meta">
         <span class="hero-meta-item">
@@ -211,26 +213,20 @@ const breadcrumbLD = {
       </div>
     )}
 
-    <!-- TOC -->
-    {headings.length > 0 && (
-      <details class="toc" open={isDailyBrief || post.data.category !== 'daily'}>
-        <summary class="toc-header">
-          <Icons name="list" size={14} />
-          <span>{isDailyBrief ? (lang === 'en' ? 'In this issue' : '本期目錄') : t('post.toc')}</span>
-        </summary>
-        <ol>
-          {headings.filter(h => h.depth === 2).map(h => (
-            <li>
-              <a href={`#${h.slug}`}>{h.text}</a>
-              {headings.filter(sub => {
-                if (sub.depth !== 3) return false;
-                const h2idx = headings.findIndex(x => x.slug === h.slug);
-                const subidx = headings.findIndex(x => x.slug === sub.slug);
-                if (subidx < h2idx) return false;
-                const nextH2 = headings.findIndex((x, i) => x.depth === 2 && i > h2idx);
-                return nextH2 === -1 || subidx < nextH2;
-              }).length > 0 && (
-                <ol>
+    <div class="post-grid">
+      <!-- Sidebar: sticky TOC + optional related video -->
+      <aside class="post-sidebar">
+        <InlineAsk client:idle />
+        {headings.length > 0 && (
+          <details class="toc" open={isDailyBrief || post.data.category !== 'daily'}>
+            <summary class="toc-header">
+              <Icons name="list" size={14} />
+              <span>{isDailyBrief ? (lang === 'en' ? 'In this issue' : '本期目錄') : t('post.toc')}</span>
+            </summary>
+            <ol>
+              {headings.filter(h => h.depth === 2).map(h => (
+                <li>
+                  <a href={`#${h.slug}`}>{h.text}</a>
                   {headings.filter(sub => {
                     if (sub.depth !== 3) return false;
                     const h2idx = headings.findIndex(x => x.slug === h.slug);
@@ -238,17 +234,48 @@ const breadcrumbLD = {
                     if (subidx < h2idx) return false;
                     const nextH2 = headings.findIndex((x, i) => x.depth === 2 && i > h2idx);
                     return nextH2 === -1 || subidx < nextH2;
-                  }).map(sub => (
-                    <li><a href={`#${sub.slug}`}>{sub.text}</a></li>
-                  ))}
-                </ol>
-              )}
-            </li>
-          ))}
-        </ol>
-      </details>
-    )}
+                  }).length > 0 && (
+                    <ol>
+                      {headings.filter(sub => {
+                        if (sub.depth !== 3) return false;
+                        const h2idx = headings.findIndex(x => x.slug === h.slug);
+                        const subidx = headings.findIndex(x => x.slug === sub.slug);
+                        if (subidx < h2idx) return false;
+                        const nextH2 = headings.findIndex((x, i) => x.depth === 2 && i > h2idx);
+                        return nextH2 === -1 || subidx < nextH2;
+                      }).map(sub => (
+                        <li><a href={`#${sub.slug}`}>{sub.text}</a></li>
+                      ))}
+                    </ol>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </details>
+        )}
 
+        {relatedVideoId && (
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${relatedVideoId}`}
+                title={post.data.relatedVideo?.title ?? post.data.title}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+            </div>
+            {(post.data.relatedVideo?.title || post.data.relatedVideo?.source) && (
+              <div class="video-card-meta">
+                {post.data.relatedVideo?.title && <span class="video-card-title">{post.data.relatedVideo.title}</span>}
+                {post.data.relatedVideo?.source && <span class="video-card-source">{post.data.relatedVideo.source}</span>}
+              </div>
+            )}
+          </div>
+        )}
+      </aside>
+
+      <div class="post-main">
     <!-- Series nav -->
     {seriesNavs.map(({ nav, href }) => (
       <div class="series-box">
@@ -382,6 +409,10 @@ const breadcrumbLD = {
         ))}
       </div>
     </section>
+      </div>
+      <!-- /post-main -->
+    </div>
+    <!-- /post-grid -->
   </article>
 </PostLayout>
 
@@ -409,6 +440,19 @@ const breadcrumbLD = {
   /* h2 底線裝飾移除 */
   article .content :global(h2)::after {
     display: none;
+  }
+  /* 段落分隔線（daily-brief 已統一到跟一般文章同樣排版；其他 daily digest 類型有自己的分隔樣式，排除） */
+  article:not([data-category="daily"]) .content :global(h2),
+  article[data-layout="daily-brief"] .content :global(h2) {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  article:not([data-category="daily"]) .content :global(h2:first-child),
+  article[data-layout="daily-brief"] .content :global(h2:first-child) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
   }
   /* 系列導覽連結 */
   .series-prev, .series-next { color: var(--text-primary); }
@@ -441,7 +485,6 @@ const breadcrumbLD = {
     background: linear-gradient(135deg, #2d4a2d 0%, #1a2e1a 50%, #2d4a2d 100%);
   }
   .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
-  .hero-kicker { display: none; }
   .hero h1 {
     font-size: 1.8rem;
     font-weight: 900;
@@ -563,6 +606,46 @@ const breadcrumbLD = {
   .toc a { color: inherit; text-decoration: none; }
   .toc a:hover { color: var(--brand-500); }
 
+  /* ── Two-column grid: TOC/video sidebar beside the main content ── */
+  .post-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "sidebar" "main";
+  }
+  .post-sidebar { grid-area: sidebar; }
+  .post-main { grid-area: main; min-width: 0; }
+  @media (min-width: 1000px) {
+    .post-grid {
+      grid-template-columns: minmax(0, 1fr) 340px;
+      grid-template-areas: "main sidebar";
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .post-sidebar { position: sticky; top: 1.5rem; }
+    /* The sidebar TOC is always expanded at desktop width, regardless of the
+       details element's open state (which still governs the mobile default). */
+    .post-sidebar .toc-header { cursor: default; }
+    .post-sidebar .toc-header::after { display: none; }
+    .post-sidebar .toc > ol { display: block !important; }
+  }
+
+  /* ── Related video card ── */
+  .video-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-subtle);
+    margin-bottom: 1.5rem;
+  }
+  .video-embed { position: relative; aspect-ratio: 16 / 9; }
+  .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-card-meta { padding: 0.65rem 0.85rem; }
+  .video-card-title { display: block; font-size: 0.82rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+  .video-card-source { display: block; font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+  /* ── Inline AI ask ── */
+  .post-sidebar :global(.inline-ask) { margin-bottom: 1.5rem; }
+
   /* ── Series box ── */
   .series-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
   .series-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; }
@@ -627,54 +710,7 @@ const breadcrumbLD = {
     color: var(--brand-900);
   }
 
-  /* ── AI Agent 日報：像 briefing，而不是卡片堆疊 ── */
-  .hero-daily {
-    background: #12251a;
-    padding-block: 2.75rem 3.5rem;
-    text-align: left;
-  }
-  :global(:root:not([data-theme="dark"])) .hero-daily { background: #183524; }
-  .hero-daily .hero-content { max-width: 690px; }
-  .hero-daily .hero-kicker {
-    display: block;
-    margin: 0 0 0.7rem;
-    color: #b8d8c2;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
-  .hero-daily h1 {
-    max-width: 16ch;
-    margin-bottom: 1.15rem;
-    font-size: clamp(2rem, 6vw, 3.25rem);
-    font-weight: 800;
-    line-height: 1.08;
-    letter-spacing: -0.04em;
-    text-wrap: balance;
-  }
-  .hero-daily .hero-meta { justify-content: flex-start; gap: 1rem; color: #d6e6da; }
-
-  article[data-layout="daily-brief"] { max-width: 690px; margin-inline: auto; }
   article[data-layout="daily-brief"] .breadcrumb { margin-top: 1rem; }
-  article[data-layout="daily-brief"] .tldr {
-    margin: 1.5rem 0;
-    padding: 1.1rem 1.2rem;
-    border: 0;
-    border-left: 4px solid #2f7d4d;
-    border-radius: 0 6px 6px 0;
-    background: #eef6f0;
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-  :global([data-theme="dark"]) article[data-layout="daily-brief"] .tldr { background: #16271d; }
-  article[data-layout="daily-brief"] .tldr-label {
-    margin-bottom: 0.45rem;
-    color: #27653f;
-    font-size: 0.75rem;
-    text-transform: none;
-    letter-spacing: 0;
-  }
-  :global([data-theme="dark"]) article[data-layout="daily-brief"] .tldr-label { color: #9bc8aa; }
   article[data-layout="daily-brief"] .tags { margin-bottom: 1.5rem; }
   article[data-layout="daily-brief"] .toc {
     margin: 0 0 2.75rem;
@@ -703,79 +739,44 @@ const breadcrumbLD = {
     padding-block: 0.24rem;
     text-wrap: pretty;
   }
-  article[data-layout="daily-brief"] .content { font-size: 1rem; line-height: 1.9; }
-  article[data-layout="daily-brief"] .content :global(p) { margin: 0 0 1.4rem; text-wrap: pretty; }
-  article[data-layout="daily-brief"] .content :global(h2) {
-    margin: 4rem 0 1.35rem;
-    padding-top: 1.1rem;
-    border-top: 2px solid var(--text-primary);
-    font-size: clamp(1.45rem, 4vw, 1.8rem);
-    line-height: 1.3;
-    letter-spacing: -0.025em;
-    text-wrap: balance;
-    scroll-margin-top: 5rem;
-  }
-  article[data-layout="daily-brief"] .content :global(h2:first-child) { margin-top: 0; }
-  article[data-layout="daily-brief"] .content :global(h3) {
-    margin: 2.25rem 0 0.75rem;
-    font-size: 1.08rem;
-    line-height: 1.4;
-    scroll-margin-top: 5rem;
-  }
-  article[data-layout="daily-brief"] .content :global(h2 + h3) { margin-top: 1rem; }
-  article[data-layout="daily-brief"] .content :global(strong) { font-weight: 750; }
-  article[data-layout="daily-brief"] .content :global(li) { margin-bottom: 0.65rem; line-height: 1.75; }
-  article[data-layout="daily-brief"] .content :global(blockquote) {
-    margin: 1.75rem 0;
-    padding: 0.2rem 0 0.2rem 1.25rem;
-    border-left: 3px solid #2f7d4d;
-  }
-  article[data-layout="daily-brief"] .content :global(table) { font-size: 0.9rem; }
-  article[data-layout="daily-brief"] .content :global(th) { white-space: nowrap; }
-
   @media (max-width: 640px) {
-    .hero-daily { padding-block: 2.25rem 3rem; }
-    .hero-daily h1 { font-size: 2.15rem; }
-    article[data-layout="daily-brief"] .tldr { margin-top: 1.25rem; padding: 1rem; }
     article[data-layout="daily-brief"] .toc > ol { grid-template-columns: 1fr; gap: 0.25rem; }
-    article[data-layout="daily-brief"] .content { font-size: 0.98rem; line-height: 1.85; }
-    article[data-layout="daily-brief"] .content :global(h2) { margin-top: 3.25rem; }
   }
 
   /* ════════════════════════════════════════
      Daily Digest 專用樣式
      ════════════════════════════════════════ */
 
-  /* 全局排版：加大行高與段距 */
-  article[data-category="daily"] .content {
+  /* 全局排版：加大行高與段距（daily-brief 已跟一般文章排版統一，排除在外） */
+  article[data-category="daily"]:not([data-layout="daily-brief"]) .content {
     line-height: 2;
     font-size: 0.95rem;
   }
-  article[data-category="daily"] .content :global(p) {
+  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(p) {
     margin-bottom: 1.35rem;
   }
-  article[data-category="daily"] .content :global(h3) {
+  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(h3) {
     margin-top: 2.2rem;
     margin-bottom: 0.6rem;
     font-size: 1.1rem;
   }
-  article[data-category="daily"] .content :global(ul),
-  article[data-category="daily"] .content :global(ol) {
+  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(ul),
+  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(ol) {
     margin-bottom: 1.35rem;
   }
-  article[data-category="daily"] .content :global(li) {
+  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(li) {
     margin-bottom: 0.5rem;
     line-height: 1.9;
   }
 
   /* 論文區塊分隔 */
-  article[data-category="daily"] .content :global(h2) {
+  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(h2) {
     margin-top: 3.5rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
     font-size: 1.3rem;
   }
-  article[data-category="daily"] .content :global(h2:first-child) {
+  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(h2:first-child) {
     border-top: none;
     margin-top: 0;
     padding-top: 0;
@@ -950,31 +951,45 @@ const breadcrumbLD = {
     color: var(--text-primary);
   }
 
-  /* 主日報的 briefing 節奏要蓋過上方供 Arxiv／interview digest 使用的通用 daily 規則。 */
-  article[data-category="daily"][data-layout="daily-brief"] .content {
-    font-size: 1rem;
-    line-height: 1.9;
-  }
-  article[data-category="daily"][data-layout="daily-brief"] .content :global(h2) {
-    margin: 4rem 0 1.35rem;
-    padding-top: 1.1rem;
-    font-size: clamp(1.45rem, 4vw, 1.8rem);
-  }
-  article[data-category="daily"][data-layout="daily-brief"] .content :global(h2:first-child) { margin-top: 0; }
-  article[data-category="daily"][data-layout="daily-brief"] .content :global(h3) {
-    margin: 2.25rem 0 0.75rem;
-    font-size: 1.08rem;
-  }
-  @media (max-width: 640px) {
-    article[data-category="daily"][data-layout="daily-brief"] .content {
-      font-size: 0.98rem;
-      line-height: 1.85;
-    }
-    article[data-category="daily"][data-layout="daily-brief"] .content :global(h2) { margin-top: 3.25rem; }
-  }
 </style>
 
 <script>
+  // Mermaid: Shiki syntax-highlights ```mermaid fences as plain code by default.
+  // Swap them for real rendered diagrams (skip entirely if the post has none).
+  // Source text is kept on the container so a later dark/light toggle can re-render.
+  const mermaidBlocks = document.querySelectorAll<HTMLPreElement>('.content pre[data-language="mermaid"]');
+  if (mermaidBlocks.length > 0) {
+    void (async () => {
+      const { default: mermaid } = await import('mermaid');
+
+      const renderAll = async () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        mermaid.initialize({ startOnLoad: false, theme: isDark ? 'dark' : 'default', securityLevel: 'strict' });
+        const containers = document.querySelectorAll<HTMLElement>('.mermaid-diagram');
+        for (const [i, container] of Array.from(containers).entries()) {
+          const source = container.dataset.mermaidSource ?? '';
+          try {
+            const { svg } = await mermaid.render(`mermaid-diagram-${i}`, source);
+            container.innerHTML = svg;
+          } catch (err) {
+            console.error('[mermaid] failed to render diagram', err);
+          }
+        }
+      };
+
+      for (const pre of Array.from(mermaidBlocks)) {
+        const container = document.createElement('div');
+        container.className = 'mermaid-diagram';
+        container.dataset.mermaidSource = pre.textContent ?? '';
+        pre.replaceWith(container);
+      }
+      await renderAll();
+
+      const themeObserver = new MutationObserver(() => { void renderAll(); });
+      themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    })();
+  }
+
   // Wrap tables in scrollable container for mobile
   document.querySelectorAll('.content table').forEach(table => {
     const wrapper = document.createElement('div');
@@ -984,7 +999,7 @@ const breadcrumbLD = {
   });
 
   // Attach copy buttons to all pre blocks (macOS-style, positioned in the header bar)
-  document.querySelectorAll('.content pre').forEach(pre => {
+  document.querySelectorAll('.content pre:not([data-language="mermaid"])').forEach(pre => {
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
     btn.setAttribute('aria-label', 'Copy code');
@@ -1357,4 +1372,16 @@ const breadcrumbLD = {
     z-index: 1;
   }
   .copy-btn:hover { color: rgba(255,255,255,0.8); }
+
+  /* Rendered Mermaid diagrams */
+  .mermaid-diagram {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-subtle);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .mermaid-diagram svg { max-width: 100%; height: auto; }
 </style>
