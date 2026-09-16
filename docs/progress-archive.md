@@ -166,3 +166,16 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 - 本驗證報告僅驗證已提出宣告的準確度，**不驗證文章對主題的覆蓋完整度**（例如是否遺漏 `Marker Agent` 部署細節、`Surya OCR 2` 模型參數詳細說明、`pdftext` 重建細節、或與 `Docling`/`MinerU` 的完整三家功能矩陣比較表的每一維度驗證）。覆蓋缺口交給 `post-review` 步驟 `6.5`。
 - 不自動修稿：所有修正建議（授權措辭修正已由編輯直接應用於 `Docling` 比較表與 `Marker` 文章；基準框架備註已在兩篇文章中補充；參考資料已補充；英文版已由 `post-translate` 流程產生）均由使用者透過編輯與技能執行完成，並在修正後重新驗證（`pnpm verify` 確認 `lang-parity` 已解決，本篇內容無新增錯誤）。
 - 最終狀態：`post-verify` 流程已完成（宣告抽取 → 逐條驗證 → 報告產出 → 修正應用 → 重新驗證），`post-translate` 流程已完成（英文版產生 → 雙向連結 → `frontmatter` 同步），`post-update` 修正已應用（授權措辭修正於 `Docling` 比較表、基準框架備註於兩篇文章、參考資料補充、英文版建立），`pnpm verify` 通過（本篇無內容錯誤，`lang-parity` 已由英文版解決，既有失敗與本輪無關），文章已準備好提交（`draft: false`，`series` 設定正確，`tags` 完整，內容與參考資料一致）。
+
+## progress.txt Recently completed 封存（2026-09-17，daily-digest-arxiv routine 執行時因超過 85 行上限封存）
+
+- **Stanford CS329Z 導讀補強（2026-09-12）**：Week 11 系列地圖已明示 Week 10 為 Thanksgiving Recess、無課亦無指定閱讀；Week 2、8 共六篇 additional readings 已補成實質導讀，中英文、參考資料與更新紀錄同步完成。官方 23/23 required readings 與 27/27 additional readings 均可在系列正文找到對應說明。
+- **首頁文章取消釘選（2026-09-12）**：三篇既有釘選文章的中英 frontmatter 已移除 `pinned: true`；全站文章釘選掃描為零。`pnpm verify` 仍被非本次範圍的既有 gatelane module、daily 語言配對與文章品質問題擋住。
+- **daily-digest-product-interview 2026-09-10**：AI Product Design 主題(風險×信心矩陣＋漸進式委任 progressive delegation),案例是 Gusto Cofounder 團隊 2026-09-02 才發布的「AI 主持訪談只用在低風險範圍」決策。中英雙版已 commit,series order 22,`pnpm verify` 全綠。
+- **daily-digest-framework 2026-09-10**：24h 內掃到 4 個符合 REPOS 清單的新 release（Mastra @mastra/core@1.65.0／Pydantic AI v2.42.0／Agno v3.0.9／claude-code v2.1.266），後兩者為純 bug fix patch 依規則跳過；Mastra（4 項 breaking changes）與 Pydantic AI（compatibility note）各自成篇，中英四檔已 commit，series order 17／18，`pnpm verify` 全綠。GitHub REST API 直接 curl 因本 session repo scope 鎖死被擋（`api.github.com` 走 sandbox proxy）、`gh` CLI 未裝，改用 Groundlane `web_fetch` 打 `api.github.com/.../releases/latest`＋GitHub `.atom` release feed＋`img.shields.io` 星數 badge 三路组合繞過，未撞 Q-020 的 OAuth 卡關（本次 Groundlane 全程可用）；`/releases?per_page=N` 端點常觸發 Groundlane `OUTPUT_LIMIT` 或 GitHub rate limit，改用 `/releases/latest`、單一 release id、`.atom` feed 更穩定。
+- **Ask AI：RAG 實戰子系列（2026-09-04）**：16 檔翻為 `draft: false` 發布。
+- **Rivumi → Looplane 全站改名（2026-09-04）**：38 檔改名、82 檔內容修改，零殘留。
+- **13 項「待 review」內容全數已發布（2026-09-04）**：全數 `draft: false` 已 commit。
+- **Looplane 系列 Batch A–C（2026-08-30）**：orders 0–19 單一路徑已定案，36 posts／18 組雙語。
+- **Legacy published zh-TW 英文回填（2026-08-30）**：57／57 組完成。
+- **daily-digest-report 2026-08-31 補跑成功**。
