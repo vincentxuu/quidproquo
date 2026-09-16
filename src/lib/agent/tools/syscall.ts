@@ -64,7 +64,7 @@ export function createSyscallHelper(options: {
     }
     const startedAt = Date.now()
     try {
-      const output = await definition.handler(ctx, input)
+      const output = await raceAgainstAbort(definition.handler(ctx, input), ctx.signal, name)
       const latencyMs = Math.max(0, Date.now() - startedAt)
       const cost = estimateCost(definition.costModel, input, output)
       await options.backends.events.recordWithRunCounters(
@@ -100,6 +100,26 @@ export function createSyscallHelper(options: {
       throw error
     }
   }
+}
+
+/**
+ * The kernel's per-run timeout (scheduler.ts) only fires an AbortSignal; nothing
+ * previously listened for it, so a syscall handler that hangs (e.g. a stuck LLM
+ * or fetch call) kept the whole run — and the SSE response streaming to the
+ * client — open forever. Racing every syscall against the signal here makes the
+ * declared per-agent timeoutSeconds actually enforced for any current or future
+ * syscall, not just the ones an individual handler remembers to check.
+ */
+function raceAgainstAbort<T>(promise: Promise<T>, signal: AbortSignal, syscallName: string): Promise<T> {
+  if (signal.aborted) return Promise.reject(new Error(`Syscall aborted before running (run timeout exceeded): ${syscallName}`))
+  return new Promise<T>((resolve, reject) => {
+    const onAbort = () => reject(new Error(`Syscall aborted (run timeout exceeded): ${syscallName}`))
+    signal.addEventListener('abort', onAbort, { once: true })
+    promise.then(
+      (value) => { signal.removeEventListener('abort', onAbort); resolve(value) },
+      (error) => { signal.removeEventListener('abort', onAbort); reject(error) }
+    )
+  })
 }
 
 async function deny(backends: AgentOsBackends, ctx: SyscallContext, reason: string, payload: Record<string, unknown>): Promise<void> {

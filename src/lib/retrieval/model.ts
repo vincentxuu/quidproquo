@@ -408,6 +408,30 @@ function messagesToCapturePrompt(messages: BaseMessageLike[]): Array<{ role: str
   })
 }
 
+/**
+ * Provider clients here (ChatOpenAI/ChatGroq/ChatGoogleGenerativeAI, and the
+ * raw Cloudflare Workers AI wrapper) are never given a request timeout, so a
+ * provider that stalls the connection instead of erroring leaves this promise
+ * unsettled forever. That hangs the whole RAG pipeline: the SSE stream never
+ * sends `done`/`error`, and nothing gets written to chat_logs/rag_trace_steps
+ * since those only happen on completion. Racing against a hard deadline here
+ * guarantees invokeModel always settles, so the existing fallback-route retry
+ * below and the caller's error handling actually get a chance to run.
+ */
+const MODEL_INVOKE_TIMEOUT_MS = 45_000
+
+function withTimeout<T>(promise: Promise<T>, timeoutMs: number, describe: string): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error(`Model call timed out after ${timeoutMs}ms (${describe})`))
+    }, timeoutMs)
+    promise.then(
+      (value) => { clearTimeout(timer); resolve(value) },
+      (error) => { clearTimeout(timer); reject(error) }
+    )
+  })
+}
+
 export async function invokeModel(
   config: RagRuntimeConfig,
   stage: string,
@@ -424,7 +448,11 @@ export async function invokeModel(
 
   try {
     return await gatelaneCapture(captureInput, async () => {
-      const response = await createModel(maxTokens, { route: primary, apiKeys }).invoke(messages)
+      const response = await withTimeout(
+        createModel(maxTokens, { route: primary, apiKeys }).invoke(messages),
+        MODEL_INVOKE_TIMEOUT_MS,
+        `${primary.provider}/${primary.model}`
+      )
       return { response, route: primary }
     })
   } catch (error) {
@@ -433,7 +461,11 @@ export async function invokeModel(
     return gatelaneCapture(
       { ...captureInput, model: `${fallback.provider}/${fallback.model}`, metadata: { ...captureInput.metadata, isFallback: true } },
       async () => {
-        const response = await createModel(maxTokens, { route: fallback, apiKeys }).invoke(messages)
+        const response = await withTimeout(
+          createModel(maxTokens, { route: fallback, apiKeys }).invoke(messages),
+          MODEL_INVOKE_TIMEOUT_MS,
+          `${fallback.provider}/${fallback.model}`
+        )
         return { response, route: fallback }
       },
     )
