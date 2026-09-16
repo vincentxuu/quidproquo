@@ -171,6 +171,8 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 
 - **Stanford CS329Z 導讀補強（2026-09-12）**：Week 11 系列地圖已明示 Week 10 為 Thanksgiving Recess、無課亦無指定閱讀；Week 2、8 共六篇 additional readings 已補成實質導讀，中英文、參考資料與更新紀錄同步完成。官方 23/23 required readings 與 27/27 additional readings 均可在系列正文找到對應說明。
 - **首頁文章取消釘選（2026-09-12）**：三篇既有釘選文章的中英 frontmatter 已移除 `pinned: true`；全站文章釘選掃描為零。`pnpm verify` 仍被非本次範圍的既有 gatelane module、daily 語言配對與文章品質問題擋住。
+
+## 2026-09-17 封存（daily-digest-framework 例行 E3 步驟，progress.txt 逼近 90 行上限）
 - **daily-digest-product-interview 2026-09-10**：AI Product Design 主題(風險×信心矩陣＋漸進式委任 progressive delegation),案例是 Gusto Cofounder 團隊 2026-09-02 才發布的「AI 主持訪談只用在低風險範圍」決策。中英雙版已 commit,series order 22,`pnpm verify` 全綠。
 - **daily-digest-framework 2026-09-10**：24h 內掃到 4 個符合 REPOS 清單的新 release（Mastra @mastra/core@1.65.0／Pydantic AI v2.42.0／Agno v3.0.9／claude-code v2.1.266），後兩者為純 bug fix patch 依規則跳過；Mastra（4 項 breaking changes）與 Pydantic AI（compatibility note）各自成篇，中英四檔已 commit，series order 17／18，`pnpm verify` 全綠。GitHub REST API 直接 curl 因本 session repo scope 鎖死被擋（`api.github.com` 走 sandbox proxy）、`gh` CLI 未裝，改用 Groundlane `web_fetch` 打 `api.github.com/.../releases/latest`＋GitHub `.atom` release feed＋`img.shields.io` 星數 badge 三路组合繞過，未撞 Q-020 的 OAuth 卡關（本次 Groundlane 全程可用）；`/releases?per_page=N` 端點常觸發 Groundlane `OUTPUT_LIMIT` 或 GitHub rate limit，改用 `/releases/latest`、單一 release id、`.atom` feed 更穩定。
 - **Ask AI：RAG 實戰子系列（2026-09-04）**：16 檔翻為 `draft: false` 發布。
