@@ -21,7 +21,7 @@ glossary:
     context: "Azure 和 Google 的 prebuilt 覆蓋 20+ 種文件類型，是它們跟純解析 API 的主要區隔。"
 ---
 
-> 🌏 English version (coming soon)
+> 🌏 [English version](/en/posts/ai/2026-09-16-commercial-document-parsing-api-comparison-en)
 
 這個系列的前七篇全部在講開源方案：從[三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)的選型框架，到 [MarkItDown](/posts/ai/2026-04-18-markitdown-intro)、[anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown) 的轉換層，[PyMuPDF / pdfplumber](/posts/ai/2026-08-06-pdf-text-extraction-libraries) 的抽取層，[MinerU / Marker / Docling](/posts/ai/2026-08-06-document-parsing-layout-ocr) 的解析層，到 [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents) 讓 agent 動態調度。結論都是同一句：**先選對層，再選工具**。
 
