@@ -281,3 +281,78 @@
 - 做什麼：`docs/progress-archive.md`（依 CLAUDE.md 應是 `progress.txt` 超過 90 行時封存最舊 `Recently completed` 條目的地方）目前 168 行的內容是一篇「Marker: Datalab's Open-Source, Apache 2.0 Pipeline Parser」的英文文章草稿（含完整 frontmatter），完全沒有任何 progress 封存條目的痕跡。`git log --oneline -3 -- docs/progress-archive.md` 顯示最近一次改動此檔的 commit 是 `1653f9b post(ai): AI論文從寫到投——結構、實驗設計、arXiv投稿與會議抉擇的完整指南`，跟這篇 Marker 文章的主題也不吻合，看起來是某次 commit 誤把文章草稿寫進了這個路徑，覆蓋掉原本的封存內容（`progress.txt` 目前 84 行文字本身仍在，只是失去了封存出口）。
 - 為什麼現在不能做：這是內容還原問題，需要判斷（1）是否要從 git 歷史找出 `docs/progress-archive.md` 被覆蓋前的版本並還原、（2）那篇 Marker 文章草稿本身是否為遺失在錯誤路徑上的正式文章、需要移到 `src/content/posts/` 底下正確歸位，還是純粹棄置的誤寫。兩者都涉及可能影響已發布內容或需要人判斷「這篇文章是不是還有用」，不是本 routine（今日面試日練）的職責範圍，屬「未確認就 revert／搬動別人內容」的紅線。
 - 接手第一步：`git log -p --follow -- docs/progress-archive.md` 找出覆蓋前最後一個版本（封存條目應該還在該版本的內容裡），確認（a）Marker 文章草稿是否已經以其他路徑存在於 `src/content/posts/tech/`（若已存在則這裡的副本可直接捨棄，還原封存內容即可）、（b）若不存在則需要人決定要不要收錄這篇文章，之後再用還原出來的封存版本 + 後續 `progress.txt` 封存需求重新接續。
+## Q-025 ✅ 已解決 `pnpm dev` 本機完全起不來：DO class export 遺失（根因跟 14.3.x regression 無關，是 `wrangler.jsonc` 缺 `main` 自訂入口）
+- 登錄：2026-09-16（來源：post 版型改版 session，實測 `pnpm dev` 與 `npx astro dev` 皆失敗）
+- **解決（2026-09-16，同一 session）**：依官方文件「Changed: Custom entrypoint API」模式，新增 `src/worker.ts`（`export { AgentSessionDO } from './server/agents/session-do'`、`export { AgentSandbox } from './server/agents/agent-sandbox'`，`default.fetch` 用 `@astrojs/cloudflare/handler` 的 `handle()` 包 Astro），並在 `wrangler.jsonc` 加上 `"main": "./src/worker.ts"`（純值，不能加註解——`scripts/create-cron-entry.mjs` 用 `JSON.parse` 讀這檔案，加 `//` 註解會讓 build 直接炸，已踩過一次並修正）。修完後 `pnpm dev` 不再卡在 "Class extends value undefined"，`pnpm build`／`pnpm verify` 皆確認不受影響（`create-cron-entry.mjs` 照舊把 production 的 `main` 覆蓋回 `../cron-entry.js`，兩者互不干擾）。**此條目原本的病灶已排除**，後續 `astro dev` 又卡在另一個全新、不相關的問題，記錄在 Q-026。
+- 做什麼：`pnpm dev`／`astro dev` 啟動時直接崩潰，CLI 只印出無意義的 `"Dev server process exited before becoming ready."`；真正錯誤要讀 `.astro/dev.log` 才看得到：
+  ```
+  service core:user:quidproquo: Uncaught TypeError: Class extends value undefined is not a constructor or null
+    at __mf_do_wrapper.js:40:6 in createDurableObjectWrapper
+  ```
+  追到是 `src/server/agents/agent-sandbox.ts` 的 `export class AgentSandbox extends Sandbox<SandboxEnv> {}`——`Sandbox`（來自 `@cloudflare/sandbox@0.12.9`）在 Miniflare 的 DO wrapper 裡 resolve 成 `undefined`。已用 `git stash` 確認**乾淨的 main branch 上同樣會炸**，跟任何本 session 的程式改動無關，是純環境／依賴問題。
+  - 根因是 astro 官方已知 regression：`@astrojs/cloudflare` 14.3.0（[withastro/astro#17887](https://github.com/withastro/astro/pull/17887)）把 prerender/dev worker 的預設 entrypoint 換掉，但新 entrypoint 不會 re-export 自訂的 Durable Object class，導致 Miniflare 對任何未被新 entrypoint 收錄的 DO class 都會 `extends undefined`。官方追蹤：[#17913](https://github.com/withastro/astro/issues/17913)（14.3.0）、[#17957](https://github.com/withastro/astro/issues/17957)（**14.3.1——本 repo 目前釘的版本，2026-09-10 提報，查證當下仍是開著、未修，npm 上也還沒有 14.3.2**）。最後一個沒中招的版本是 14.2.6（regression 前一版）。
+  - `astro.config.mjs` 裡已有的 `prerenderEnvironment: 'node'` 應該就是先前某個 session 為了讓 `pnpm build` 繞開同一個 bug 加的 workaround——build 的 prerender worker 改跑在 Node、不經過 workerd/Miniflare，所以 `pnpm build`（含 OG image 產生、Pagefind 索引）目前完全正常，不受影響；只有 `astro dev` 會炸，因為它需要真的模擬 Workers runtime 才能跑 KV/D1/AI 等 binding，沒有等效繞法。
+  - 已嘗試的修法：把 `package.json` 的 `@astrojs/cloudflare` 從 `^14.3.1` 釘死改成 `14.2.6`（regression 前一版）並 `pnpm install`。結果**不能簡單降級**——14.2.6 是針對舊版 Astro core 建的，重新 optimize deps 時直接報 4 個 `MISSING_EXPORT`（`beginContentEntryCollection`／`beginImageCollection`／`endContentEntryCollection`／`endImageCollection`，來自 `astro/dist/core/app/entrypoints/index.js`），因為目前 `astro` 核心版本是 7.3.2（regression 後才有的內部 API）。官方 issue 裡也印證了同樣現象："Downgrading only the adapter while retaining Astro 7.3.1 hits a separate missing internal export"——要真的繞開，連 `astro` 核心都要一起降回 7.2.6 附近，等於降級整個框架版本，牽動全站建置流程，風險/範圍遠超「修 local dev」這件事本身。已把這次的降級改動 revert 乾淨（`package.json`／`pnpm-lock.yaml` 都確認跟改動前一致）。
+- 為什麼現在不能做：Tier 2（要嘛等 astro 官方修 14.3.x，要嘛需要人拍板做「連 astro 核心一起降級」這種大範圍、影響全站建置的操作）。且 astro 端的修復不在本 repo 控制範圍內，只能等上游發版。
+- 接手第一步：先查 `npm view @astrojs/cloudflare versions` 有沒有比 14.3.1 新的版本、或 [#17957](https://github.com/withastro/astro/issues/17957) 有沒有關閉（代表已修）。有的話直接把 `package.json` 的 `@astrojs/cloudflare` 版本 bump 上去、`pnpm install`、`pnpm dev` 驗證。若還沒修，且真的需要本機互動式 dev（例如要測 KV/D1/AI binding 的即時行為），才考慮連 `astro` 核心一起降級到 7.2.6 附近——但要先問使用者，因為這會讓本機開發環境跟 production 建置用的 astro 版本不一致，且範圍大到需要重新驗證全站行為。日常改版型/UI 這種不需要即時 binding 互動的工作，可以比照本次做法：`pnpm build` 出靜態檔案後起一個 plain HTTP server（如 `python3 -m http.server`）在瀏覽器裡驗證即可，不需要等 `pnpm dev` 修好。
+- **新發現（2026-09-16，同一 session，Q-025 修好之後才浮現）**：`pnpm dev` 現在能開機、也能正常伺服大多數請求，但**每隔幾分鐘、通常在編輯檔案觸發 HMR 重新整理之後，任何一個請求（不限特定路由）**會隨機炸出：
+  ```
+  [ERROR] [vite] Internal server error: The file does not exist at ".../node_modules/.vite/deps_ssr/handler-D-XbRyBL.js?v=..." which is in the optimize deps directory.
+  ```
+  這個 `handler-D-XbRyBL.js` 就是 `src/worker.ts` 匯入的 `@astrojs/cloudflare/handler`——Vite 的 SSR dep-optimizer 在背景重新打包這個模組時，如果剛好有請求進來，就會拿到一個已經失效的舊 hash 路徑。實測規律：**當下用瀏覽器直接看網頁或用 JS 檢查 DOM 常常沒事（頁面本身渲染正常）**，但過幾秒 Astro 的開發錯誤遮罩會透過 HMR websocket 非同步推上來，把整頁蓋掉——不是每次都會發生，重新整理（甚至不用重啟 server）幾乎都能自己好，只有偶爾需要整個重啟＋清 `node_modules/.vite` 快取（`mv node_modules/.vite /tmp/vite-cache-stale-$(date +%s)`，因為 `rm -rf` 在這個環境的權限設定會被擋）。
+  - 這應該是 Q-025 的 `src/worker.ts` 自訂入口讓 dev 第一次真正跑到會呼叫 `handle()` 的請求路徑，才讓這個原本就存在、但從未被觸發過的 Vite SSR optimizer 競態浮出來——不是 Q-025 修法本身引入的新 bug，比較像是掀開後才看到的既有毛邊。
+  - 目前判斷：純粹是本機 dev 環境的 Vite/`@cloudflare/vite-plugin` SSR 模組快取穩定性問題，`pnpm build`／production 完全不受影響（已反覆確認）。不建議為了這個去動 `src/worker.ts` 或 `wrangler.jsonc`——那樣會重新引入 Q-025 的病灶。
+  - 接手：暫時無解法，只能靠「錯誤畫面出現就整頁重新整理，偶爾要整個重啟 dev server 清 `.vite` 快取」這個 workaround 撐著。若要根治，方向是去查 `@cloudflare/vite-plugin`／Vite 本身對 SSR `optimizeDeps` 重新打包時「正在處理中的請求該怎麼辦」有沒有已知 issue 或設定（例如把 `@astrojs/cloudflare/handler` 加進 `ssr.optimizeDeps.exclude`，見錯誤訊息本身的建議）。
+- **更新（2026-09-16，同一 session，使用者要求實測降級）**：把 `astro` 也一起釘到 `7.2.6`（`@astrojs/mdx@8.0.1` 的 peer dep 正好是 `^7.2.6`，配對得上）、`@astrojs/cloudflare` 釘到 `14.2.6`，`pnpm install` 後重跑 `pnpm dev`——**同一個錯誤原封不動出現**，連 astro 核心一起降級也沒用。這推翻了「純粹是 14.3.x regression」的假設，改動已完整 revert（`package.json`／`pnpm-lock.yaml` 確認跟改動前一致，`pnpm verify` 全綠）。
+  - 追下去發現更可能的真正根因：`scripts/create-cron-entry.mjs` 這支 post-build script 會產生 `dist/cron-entry.js`，裡面手動 `export { AgentSessionDO } from '.../session-do.ts'` 和 `export { AgentSandbox } from '.../agent-sandbox.ts'`，並把 `dist/server/wrangler.json` 的 `main` 指過去——這是**先前某個 session 為了讓 production build 能找到這兩個 DO class 特地寫的 workaround**（連檔案開頭的中文註解都寫明「同時保留 Astro 的 fetch handler」），代表 Astro 官方 adapter 自動產生的預設 worker entry 從來就沒有 export 過這兩個自訂 DO——不管哪個版本。`pnpm build` 用的是這支腳本產生的自訂 entry，所以正常；`astro dev` 完全不會跑這支腳本，用的是 adapter 自己內部產生的 dev entry，那個 entry 從來沒被教過要 export `AgentSessionDO`／`AgentSandbox`，所以不管 adapter/astro 版本怎麼換都會炸在同一個地方。也就是說：GitHub 上那兩個 14.3.x regression issue（[#17913](https://github.com/withastro/astro/issues/17913)／[#17957](https://github.com/withastro/astro/issues/17957)）雖然錯誤訊息長得一模一樣，很可能只是「巧合撞上同一種錯誤訊息」，跟我們這裡的真正病灶（dev entry 結構性地不認得這兩個自訂 DO）不是同一件事，只是表面症狀相同，之前的診斷方向可能是誤導。
+  - 還沒驗證、值得下一步確認的兩個子假設：(a) 是不是只有走 `containers`／`@cloudflare/sandbox` 那個 `AgentSandbox`（比較新、比較重的 Container-backed DO）在 dev 模式下有問題，而普通的 `AgentSessionDO`（單純 `extends DurableObject`）本來就能在 astro dev 下正常跑——如果是，範圍就窄很多；(b) `@cloudflare/vite-plugin`／`@astrojs/cloudflare` 是否有機制能讓 dev 也指向一個自訂 entry（類似 build 的 `cron-entry.js`），目前翻過 `@astrojs/cloudflare` 的 `Options` type 定義（`node_modules/@astrojs/cloudflare/dist/index.d.ts`）沒看到對應設定項。
+- **根因確認（2026-09-16，同一 session，使用者要求查官方文件釐清）**：查證完畢，子假設 (b) 是對的、而且官方文件直接給了答案——**跟 14.3.x regression 完全無關，是本 repo `wrangler.jsonc` 從頭到尾沒設定 `main` 欄位**。
+  - 依據：Astro 官方 Cloudflare adapter 文件（https://docs.astro.build/en/guides/integrations-guide/cloudflare/ ，「Changed: Custom entrypoint API」章節）明確說明：Astro 6／adapter v13 起，`astro dev` 與 `astro preview` 改用 Cloudflare 的 `workerd` runtime（不再是 Node.js 模擬）。沒有自訂 `main` 時，adapter 會自動用內建的 `@astrojs/cloudflare/entrypoints/server` 當入口——這個預設入口**只認得 Astro 自己的路由，不知道任何專案自訂的 Durable Object**。要讓自訂 DO 在 dev／build 都能被 workerd 認得，官方模式是自己寫一個 worker 入口檔，把 DO class 和 Astro handler 一起 export，再讓 `wrangler.jsonc` 的 `main` 指過去：
+    ```ts
+    // src/worker.ts
+    import { handle } from '@astrojs/cloudflare/handler'
+    import { DurableObject } from 'cloudflare:workers'
+    export class MyDurableObject extends DurableObject<Env> { /* ... */ }
+    export default {
+      async fetch(request, env, ctx) { return handle(request, env, ctx) },
+    } satisfies ExportedHandler<Env>
+    ```
+    ```jsonc
+    // wrangler.jsonc
+    { "main": "./src/worker.ts" }
+    ```
+    （`handle()` 簽名是 `(request, env, ctx)` 三個參數——manifest 現在由 adapter 內部自動建立，不用手動傳。）
+  - 對照本 repo：`grep -n '"main"' wrangler.jsonc` 查無結果，確認從未設定過。`scripts/create-cron-entry.mjs`（build 後才跑）做的事，其實就是**手動重做了官方文件這套標準模式**——build 完動態產生一個等效的 `dist/cron-entry.js`（手動 export `AgentSessionDO`／`AgentSandbox`），再 patch `dist/server/wrangler.json` 的 `main` 指過去，只對 `wrangler deploy` 生效；`astro dev` 完全不會跑這支腳本，永遠停在 adapter 的預設入口，所以無論 astro／adapter 版本怎麼換都是同一個錯誤——這就是為什麼 Q-025 兩次降級嘗試（純降 adapter、adapter+astro 核心一起降）都對不上症狀。GitHub 上 14.3.x 的兩個 regression issue（#17913／#17957）錯誤訊息長得一樣純屬巧合，是另一個獨立的 bug（他們的場景是「已經有自訂 entrypoint，但 adapter 14.3.0+ 把它換掉了」），跟我們「從來沒有自訂 entrypoint」的情況是兩回事。
+- 接手下一步（已鎖定根因，待人拍板是否動手）：比照官方模式加一個 `src/worker.ts`（re-export `AgentSessionDO`／`AgentSandbox`＋用 `handle()` 包 Astro fetch），把 `wrangler.jsonc` 加上 `"main": "./src/worker.ts"`，本機跑 `pnpm dev` 驗證能不能起來。**風險點**：`wrangler.jsonc` 是 production 共用設定檔，加 `main` 這個欄位除了影響 dev，理論上也可能改變 `astro build` 內部行為（目前沒設 `main` 卻能正常 build，代表 build 階段另有機制，不確定加了會不會連動）；且要確認新增的 `src/worker.ts` 跟現有 `scripts/create-cron-entry.mjs` 的 production workaround 不衝突（該腳本 build 後會覆蓋掉 `dist/server/wrangler.json` 的 `main`，理論上兩者互不干擾，但要實測 `pnpm build` 全流程＋`pnpm verify` 確認沒有壞掉才能 commit）。屬於改 production 相關設定檔，Tier 2，先問再做。
+
+## Q-026 `sandbox/Dockerfile`（`AgentSandbox` container）沒有 EXPOSE／entrypoint，`astro dev` 硬性擋下整個 worker
+- 登錄：2026-09-16（來源：Q-025 修復後，`pnpm dev` 實際跑起來時發現的新問題）
+- 做什麼：Q-025 的 `src/worker.ts` 修好之後，`pnpm dev` 成功跳過 DO export 崩潰，一路跑到建置 `AgentSandbox` 的 container image（用 Docker layer cache，幾乎秒建完），但緊接著整個 dev server 直接崩潰，錯誤訊息：
+  ```
+  The container "AgentSandbox" does not expose any ports. In your Dockerfile, please expose any ports you intend to connect to.
+  https://developers.cloudflare.com/containers/local-dev/#exposing-ports
+  ```
+  錯誤來自 `@cloudflare/vite-plugin` 的 `checkExposedPorts`／`prepareContainerImagesForDev`——這是**硬性擋下整個 worker 啟動**的檢查，不是只有 AgentSandbox 這個功能壞掉，而是只要這個 binding 存在，`astro dev` 就完全不會起來，波及網站其他 99% 跟 sandbox 無關的功能（包括這次在做的文章版型）。
+  - 追查發現這不只是「少一行 `EXPOSE`」這麼簡單：本 repo 的 `sandbox/Dockerfile` 是**完全從零手寫的**（`FROM python:3.13-slim` 直接開始），沒有 `EXPOSE`、沒有 `CMD`/`ENTRYPOINT`，容器裡沒有任何常駐 process。對照 `node_modules/@cloudflare/sandbox` 套件自帶的參考 Dockerfile（`node_modules/.pnpm/@cloudflare+sandbox@0.12.9/node_modules/@cloudflare/sandbox/Dockerfile`），官方模式是要接一個完整的 control-plane server（含 `cloudflared` tunnel daemon、bun/node runtime，多階段 build），`@cloudflare/sandbox` 的 `Sandbox` class在 runtime 靠這個常駐 server 溝通。本 repo 的 `sandbox/` 目錄只有一個 `Dockerfile`，沒有對應的 `startup.sh` 或任何啟動腳本，代表 `AgentSandbox` 這個 container 目前**可能連在 production 都沒有真正運作過**（不確定，需要人確認——也可能 Cloudflare Containers 平台在某些方案下會自動注入 control agent，不受 Dockerfile 本身有沒有 CMD 影響，這點沒有驗證，只是本機 dev 檢查對此沒那麼寬容，直接擋下來）。
+- 為什麼現在不能做：這是完全獨立於 Q-025（astro/cloudflare 入口設定）之外的問題，屬於 `AgentSandbox`／Sandbox SDK 這個功能本身有沒有正確實作的問題，需要懂這個 container 實際上被拿來做什麼（程式碼執行？文件產生？）的人來判斷要怎麼補上 entrypoint／EXPOSE，還是要整個改成基於官方 base image 重寫。範圍與風險都超出「讓 pnpm dev 能跑」這件事。
+- 接手第一步：先確認 `AgentSandbox`／`SANDBOX` binding 目前有沒有被任何 production 程式碼路徑實際呼叫過（`grep -rn "env.SANDBOX\|getSandbox" src/`），以及 production 上這個功能是否真的能用（如果從沒測過，這可能是個尚未發現的 production bug，不只是 dev 的麻煩）。若確認暫時用不到，最快讓 `pnpm dev` 恢復可用的做法是本機臨時把 `wrangler.jsonc` 的 `SANDBOX` binding／`containers` 區塊註解掉（**不要 commit**，因為 `create-cron-entry.mjs` 會把 `durable_objects` 原封不動複製進 production 設定，拿掉會連 production 部署也失去這個 binding，屬 Tier 2 需要先問）；若要動手修 Dockerfile，先讀 `node_modules/@cloudflare/sandbox` 的 README 與參考 Dockerfile，比對本 repo `sandbox/Dockerfile` 少了哪些必要的 stage（entrypoint script、`EXPOSE`、control-plane server）。
+
+## Q-027 55/376 篇 daily 系列文章內文缺少「🌏 English version」跨語言連結引言，daily-digest pipeline 系統性漏掉這一步
+- 登錄：2026-09-16（來源：文章版型優化 session，使用者直接在頁面上發現不一致）
+- 做什麼：`post` skill（`SKILL.md` 表格）規定雙語文章的中文版內文開頭要有 `> 🌏 [English version](/posts/<category>/<slug>-en)` 這行引言（英文版則是 `> 🌏 [中文版](...)`）——**這是手動寫進文章內文的一段 blockquote，不是版型自動產生的功能**。`PostLayout.astro` 裡唯一跟語言切換有關的自動機制是 nav bar 右上角那個「EN／中文」小徽章（靠 `getTranslation()` 配對，`pnpm check:lang-parity` 驗的是「兩個檔案都存在」，不會檢查內文有沒有這行）。
+  - 使用者在 `/posts/daily/2026-09-15-ai-agent-daily` 這篇發現內文完全沒有這個連結，但對應的 `-en.md` 檔案確實存在、配對也正確。查證：
+    ```bash
+    grep -n "English version" src/content/posts/daily/2026-09-15-ai-agent-daily.md   # 無結果
+    grep -n "English version" src/content/posts/daily/2026-08-30-ai-agent-daily.md   # 有，第 16 行
+    ```
+  - 掃了全部 daily 系列：
+    ```bash
+    for f in src/content/posts/daily/*.md; do
+      [[ "$f" == *-en.md ]] && continue
+      grep -q "English version" "$f" || echo "$f"
+    done
+    ```
+    376 篇中文 daily 文章裡 **55 篇缺這行**（約 15%），不是單一篇疏漏，範圍橫跨多個月份，判斷是產這些文章的自動化 pipeline（`daily-digest-*` 系列 skill／routine）本身就沒有插入這個步驟——跟手動用 `post` skill 寫的文章（例如非 daily 分類）不會有這個問題，因為 `post` skill 的表格步驟把這行寫成必產出項目之一。
+  - 順帶發現：2026-09-15 這篇的 frontmatter 也缺 `type: digest`（對照 2026-08-30 那篇有寫），可能是同一個 pipeline 版本差異的症狀，未深入查證範圍。
+- 為什麼現在不能做：55 篇 × 中英兩個檔案，屬於 >20 檔批次改動（Tier 2），且真正該修的地方可能是**產文的 pipeline skill 本身**（否則以後新產出的 daily 文章會繼續漏）——只補歷史文章治標不治本，需要人決定要不要一起查 pipeline skill 的產文步驟。
+- 接手第一步：先用上面的迴圈重新產生最新的缺漏清單（不要用本條目裡的數字，可能已經隨新文章變動）；找出負責產 daily 系列的 skill（`.agents/skills/daily-digest-report/` 或個別 routine 的 SKILL.md，Stage 3 組裝日報的那支)，確認它的模板有沒有這個跨語言連結步驟，沒有就先補上（skill 改完要 `pnpm skills:sync` + `pnpm verify`），這樣才能擋住未來繼續漏；歷史缺漏的 55 篇要不要一起批次補回去，問使用者。

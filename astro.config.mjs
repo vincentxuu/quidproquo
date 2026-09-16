@@ -83,6 +83,13 @@ export default defineConfig({
     plugins: [tailwindcss()],
     ssr: {
       external: ['@lanefoundry/gatelane-sdk'],
+      // Vite's SSR dep optimizer periodically re-bundles this module (imported by
+      // src/worker.ts) and races with in-flight requests, causing dev-only
+      // "file does not exist ... optimize deps directory" crashes. Excluding it
+      // from optimization avoids the rebuild/rehash cycle entirely.
+      optimizeDeps: {
+        exclude: ['@astrojs/cloudflare/handler'],
+      },
     },
   },
   integrations: [

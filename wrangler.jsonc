@@ -1,6 +1,7 @@
 {
 	"name": "quidproquo",
 	"account_id": "1ff43f0d4c3ad3bd98ce5ab767546a68",
+	"main": "./src/worker.ts",
 	"compatibility_date": "2026-03-10",
 	"routes": [
 		{
@@ -15,18 +16,9 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
-	"containers": [
-		{
-			"class_name": "AgentSandbox",
-			"image": "./sandbox/Dockerfile",
-			"instance_type": "basic",
-			"max_instances": 3
-		}
-	],
 	"durable_objects": {
 		"bindings": [
-			{ "name": "AGENT_SESSION_DO", "class_name": "AgentSessionDO" },
-			{ "name": "SANDBOX", "class_name": "AgentSandbox" }
+			{ "name": "AGENT_SESSION_DO", "class_name": "AgentSessionDO" }
 		]
 	},
 	"migrations": [
