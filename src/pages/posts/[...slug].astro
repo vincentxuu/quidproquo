@@ -962,9 +962,60 @@ const breadcrumbLD = {
     void (async () => {
       const { default: mermaid } = await import('mermaid');
 
+      // Mermaid's themeVariables only accept literal hex, not var(...), so these mirror
+      // the --brand/--info/--warning/--text tokens in PostLayout.astro by hand — keep in sync.
+      const lightThemeVariables = {
+        background: '#ffffff',
+        primaryColor: '#e8f5e8',
+        primaryTextColor: '#1a1a1a',
+        primaryBorderColor: '#4a9e6a',
+        secondaryColor: '#eef6ff',
+        secondaryBorderColor: '#3b82f6',
+        secondaryTextColor: '#1a1a1a',
+        tertiaryColor: '#fffbeb',
+        tertiaryBorderColor: '#f59e0b',
+        tertiaryTextColor: '#1a1a1a',
+        lineColor: '#767676',
+        textColor: '#1a1a1a',
+        noteBkgColor: '#fffbeb',
+        noteBorderColor: '#f59e0b',
+        noteTextColor: '#1a1a1a',
+        edgeLabelBackground: '#ffffff',
+        clusterBkg: '#f5f7f5',
+        clusterBorder: '#d1e8d1',
+        fontFamily: "'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif",
+      };
+      const darkThemeVariables = {
+        darkMode: true,
+        background: '#0f1419',
+        primaryColor: '#1c2833',
+        primaryTextColor: '#d1d5db',
+        primaryBorderColor: '#5cb87a',
+        secondaryColor: '#151d26',
+        secondaryBorderColor: '#3b82f6',
+        secondaryTextColor: '#d1d5db',
+        tertiaryColor: '#1a1a0f',
+        tertiaryBorderColor: '#f59e0b',
+        tertiaryTextColor: '#d1d5db',
+        lineColor: '#6b7280',
+        textColor: '#d1d5db',
+        noteBkgColor: '#1a1a0f',
+        noteBorderColor: '#f59e0b',
+        noteTextColor: '#d1d5db',
+        edgeLabelBackground: '#0f1419',
+        clusterBkg: '#151d26',
+        clusterBorder: '#2a3545',
+        fontFamily: "'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif",
+      };
+
       const renderAll = async () => {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        mermaid.initialize({ startOnLoad: false, theme: isDark ? 'dark' : 'default', securityLevel: 'strict' });
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: 'base',
+          themeVariables: isDark ? darkThemeVariables : lightThemeVariables,
+          securityLevel: 'strict',
+        });
         const containers = document.querySelectorAll<HTMLElement>('.mermaid-diagram');
         for (const [i, container] of Array.from(containers).entries()) {
           const source = container.dataset.mermaidSource ?? '';

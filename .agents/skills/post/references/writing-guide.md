@@ -256,6 +256,59 @@ bash .agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh <post.md>
 - 複雜的比較（不是流程）可以用 `flowchart LR` 搭配子圖（`subgraph`）分兩側呈現，比純文字條列更快看出對照關係
 - 畫完在瀏覽器實際看一次渲染結果（不是只看原始碼順不順），確認節點沒有擠壓、文字沒有截斷
 
+### 常見範本
+
+站上圖表清一色用 `flowchart`（`TD` 直向 / `LR` 橫向），對應前面「何時要畫」的四種情境，另加一種本站產品／商業模式類文章常出現的漏斗＋流失分支。複製後改節點文字即可，不用重新想版型。
+
+**1. 決策分支**
+
+    ```mermaid
+    flowchart TD
+        A[輸入] --> B{條件?}
+        B -- 是 --> C[分支一]
+        B -- 否 --> D[分支二]
+    ```
+
+**2. 多步驟因果鏈**
+
+    ```mermaid
+    flowchart LR
+        A[步驟一] --> B[步驟二] --> C[步驟三] --> D[結果]
+    ```
+
+**3. 並排比較（子圖）**
+
+    ```mermaid
+    flowchart LR
+        subgraph 舊流程
+            A1[步驟一] --> A2[步驟二]
+        end
+        subgraph 新流程
+            B1[步驟一] --> B2[步驟二]
+        end
+    ```
+
+**4. 時間軸／演進**
+
+    ```mermaid
+    flowchart LR
+        A["2023：起點"] --> B["2024：轉折"] --> C["2025：現況"]
+    ```
+
+    只有時間序、沒有分支時也可以改用 mermaid 原生的 `timeline` 語法，本站渲染器兩者都支援；但手機寬度下 `flowchart LR` 的可讀性比較穩定，沒有特別理由就用它。
+
+**5. 漏斗＋流失分支**
+
+    ```mermaid
+    flowchart LR
+        A[入口] --> B[合格受眾] --> C[轉換動作] --> D[付費]
+        A -.條件不合.-> X1[流失]
+        B -.沒有啟用.-> X2[流失]
+        C -.很快取消.-> X3[流失]
+    ```
+
+顏色不用自己配：渲染器已經套用站上的品牌色主題（節點跟著淺色／深色模式自動切換），預設不寫 `classDef` 就會是正確的樣子。只有要特別標出「風險／重點」節點才手動 `classDef` 指定顏色——但那組顏色是寫死的 hex，不會跟著深色模式換，等於幫自己在暗色模式挖一個對比度的坑，非必要別用。
+
 ## AI 搜尋友善（GEO）
 
 依 Princeton / Georgia Tech / Allen AI / IIT Delhi 在 KDD 2024 發表的 GEO 論文（arxiv 2311.09735），這幾條會顯著影響 ChatGPT / Claude / Perplexity 引用你文章的機率：
