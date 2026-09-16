@@ -116,3 +116,13 @@ All three tools offer free tiers, so you can run the entire pipeline at zero cos
 | Write | CorTeX | Markdown + LaTeX collaborative writing with one-click templates |
 
 Tools are just tools. What matters is what you read, what you think, and what you write. But good tools minimize friction so you can spend your time where it counts.
+
+---
+
+## References
+
+- [Google Scholar](https://scholar.google.com/) — official academic search homepage
+- [Moonlight (themoonlight.io)](https://www.themoonlight.io/en) — official site for the AI paper reader
+- [Moonlight iOS App](https://apps.apple.com/tw/app/moonlight-ai-pdf-reader/id6738034562)
+- [Moonlight Chrome Extension](https://chromewebstore.google.com/detail/moonlight-ai-colleague-fo/lhipdkibljepmfojllcfflfflhflcbgi)
+- [CorTeX](https://cortex.corca.ai/) — Corca's collaborative academic writing platform

@@ -115,3 +115,13 @@ Google Scholar          Moonlight              CorTeX
 | 寫 | CorTeX | Markdown + LaTeX 協作寫作，模板一鍵套用 |
 
 工具只是工具，重點還是你讀了什麼、想了什麼、寫了什麼。但好的工具能把摩擦力降到最低，讓你把時間花在真正重要的地方。
+
+---
+
+## 參考資料
+
+- [Google Scholar](https://scholar.google.com/)——官方學術搜尋首頁
+- [Moonlight（themoonlight.io）](https://www.themoonlight.io/tw)——AI 論文閱讀器官網
+- [Moonlight iOS App](https://apps.apple.com/tw/app/moonlight-ai-pdf-reader/id6738034562)
+- [Moonlight Chrome 擴充套件](https://chromewebstore.google.com/detail/moonlight-ai-colleague-fo/lhipdkibljepmfojllcfflfflhflcbgi)
+- [CorTeX](https://cortex.corca.ai/)——Corca 團隊的協作學術寫作平台官網
