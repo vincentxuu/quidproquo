@@ -1,12 +1,12 @@
 ---
-title: "產業情報的生意：DIGITIMES 們怎麼讓企業掏錢"
+title: "產業情報怎麼賣給企業：六種產品路線與 AI 暴露"
 date: 2026-09-16
 category: product
 type: deep-dive
 tags: [business-model, content-business, b2b, media, subscription, ai]
 lang: zh-TW
-tldr: "B2B 產業情報是內容販售裡最不性感但最賺的模式。DIGITIMES 靠 26 年供應鏈關係、The Information 靠零外部投資的獨家路線、Gartner 靠品牌決策保險撐起 $6.5B 營收——但 AI 正在動搖最後這一個。"
-description: "拆解六家 B2B 產業情報公司的商業模式：DIGITIMES、The Information、Seeking Alpha、CB Insights、PitchBook、Gartner。從定價策略到 AI 威脅，看誰的護城河最深。"
+tldr: "企業不是為更多文章付費，而是為更快找到訊號、排出優先順序、完成決策。六個案例分別把記者人脈、群眾研究、結構化資料、預測分數與採購工作流變成可續約的情報產品。"
+description: "用 DIGITIMES、The Information、Seeking Alpha、CB Insights、PitchBook 與 Gartner，拆解 B2B 情報如何從內容走到資料與工作流，以及各層面對生成式 AI 的不同風險。"
 draft: false
 series:
   name: "內容販售商業模式拆解"
@@ -15,207 +15,115 @@ series:
 
 > 🌏 [English version](/en/posts/product/2026-09-16-b2b-intelligence-business-en)
 
-不是所有內容生意都一樣值錢。最不性感卻最賺錢的，是賣給企業的那種——不是因為內容品質一定更好，而是因為買單的人花的不是自己的錢。當一位 CIO 用公司預算訂了一年 $80K 的 [Gartner](https://www.gartner.com/) 席位，或者供應鏈副總裁把 [DIGITIMES](https://www.digitimes.com.tw/) 列入部門預算，決策邏輯跟個人掏 $15/月訂電子報完全不同。
+想像公司準備買一座新工廠。主管桌上有幾百篇新聞、供應商簡報、試算表和會議筆記。資料很多，真正困難的卻是：哪一則訊號可信、哪些公司值得先談、各部門要用什麼標準選，以及半年後怎麼解釋當初的決定。
 
-這篇拆解六家 B2B 產業情報公司，看它們怎麼讓企業願意年復一年付錢，以及 AI 正在怎麼動搖這門生意的根基。
+B2B 產業情報賣的就是這段距離。文章只是入口；能收進企業預算的產品，通常還會把資訊整理成名單、資料欄位、評分、分析師問答或採購流程。企業付費，是為了少找錯一家公司、少漏掉一個風險，也少重做一次研究。
 
-```mermaid
-graph LR
-    A[記者跑關係] --> B[拿到獨家情報]
-    B --> C[企業付年費]
-    C --> D[養更多記者]
-    D --> A
-    style A fill:#0d9488,color:#fff
-    style B fill:#0d9488,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style D fill:#0d9488,color:#fff
-```
+這篇是「情報如何成為一門企業生意」的導讀。六個案例沒有共同的定價公式，也不能排成一條由弱到強的排行榜。它們比較像六種工具：有人靠第一手消息，有人把分散研究變成市場，有人把資料直接接進企業每天使用的系統。
 
-## DIGITIMES：假裝成報社的情報商
+## 先看全貌：內容只是情報產品的第一層
 
-[DIGITIMES](https://www.digitimes.com.tw/)（大椽股份有限公司）1998 年由黃欽勇創辦，背後站著張忠謀、施振榮等五十多位科技業大老。它自稱「Decision Intelligence Platform」，但創辦人自己說得更精準：
-
-> 「亞馬遜是假裝成零售商的網路巨擘；電子時報是[假裝成報社的專業資訊服務供應商](https://www.digitimes.com.tw/col/article/?id=15360)。」
-
-DIGITIMES 每個工作日產出約 100 則新聞，2024 年累計 344 份研究報告，涵蓋半導體、面板、手機、電動車供應鏈。它有一條極為清晰的自我限制：不談股市、不做社會新聞，只做供應鏈情報。
-
-**誰在付錢：** 1,300 多家企業會員，遍及全球約 90 個國家。企業訂閱按年計費，黃欽勇的定價哲學是「讓每家企業用營業額的萬分之一到十萬分之一來支付專業資訊費用」。個人使用者在 PTT 上回報的年費約五六千元台幣，但企業合約的金額高得多。
-
-**護城河：** 26 年的台灣供應鏈關係網。DIGITIMES 的記者長年出入竹科、南科、展會與工廠，跟台積電、鴻海、聯發科的供應鏈人脈是用時間換來的。被 WSJ、Bloomberg、Reuters 引用為消息來源，又反過來強化了它的品牌定位。
-
-**AI 威脅：** 中等。AI 可以摘要 DIGITIMES 的報導（事實上 BigGo Finance 已經在對 Podcast 做類似的事），但無法取代記者走進工廠、參加法說會、跟供應鏈主管吃飯時聽到的第一手訊息。
-
-**台灣角度：** DIGITIMES 是台灣唯一具全球影響力的 B2B 情報產品。黃欽勇的洞察值得台灣所有內容創業者記住——小市場無法照抄中美大國的消費媒體規模戰，但可以在自己有資訊優勢的垂直領域（ICT 供應鏈）做到全球最深。
-
-## The Information：零外部投資的獨家路線
-
-[The Information](https://www.theinformation.com/) 由前華爾街日報記者 Jessica Lessin 在 2013 年創辦，至今沒有接受過任何外部投資——初始資金不到 100 萬美元，現在已經獲利且持續成長。
-
-**賣的是什麼：** 矽谷科技圈的獨家新聞。VC 交易條款、大型科技公司的董事會動態、員工爭議——那些其他媒體拿不到的消息。Forbes 曾報導，The Information 在 2016 年就已經搶先報導了總金額超過 $970 億美元的交易新聞。
-
-**定價：** 標準方案 $399/年，Pro 方案 $749/年（含公司組織圖、AI 資料庫、Deep Research 工具），Investor 方案 $10,000/年（含實體簡報會）。$399 的門檻本身就是一道篩選——過濾掉隨意瀏覽的讀者，留下的都是公司會報銷或從情報中提取高價值決策的人。
-
-**規模：** 約 45,000 名付費訂戶，36 萬名活躍讀者（含免費）。2024 年營收年增 30%。約三分之一的讀者來自金融服務業。
-
-**護城河：** 獨家消息來源。The Information 的價值建立在記者與矽谷權力核心的人際關係上——這是 AI 無法複製的。另一個隱性護城河是「不接受外部投資」本身：沒有 VC 的成長壓力，Lessin 可以專注在品質而非規模上。
-
-**AI 威脅：** 低。AI 可以摘要公開資訊，但無法打電話給 VC 合夥人、無法在晚餐時從 CEO 嘴裡聽到還沒公開的消息。AI 搜尋工具可能削弱標準方案的價值感，但反而會把價值推向 Pro 方案的獨家資料層。
+一門情報生意可以停在任何一層，也可以逐步往下走。愈往下，產品愈接近日常工作；導入與更換成本通常也會增加。但這不是保證續約的公式。若資料不準、使用頻率太低，或團隊根本沒有能力採用，再深的整合也救不了產品。
 
 ```mermaid
-graph LR
-    A[高品質報導] --> B[付費訂戶]
-    B --> C[訂閱營收]
-    C --> D[雇更多記者]
-    D --> A
-    E[零外部投資] -.->|不稀釋 不妥協| C
-    style E fill:#6366f1,color:#fff
+flowchart TD
+    A[取得訊號<br/>採訪、申報、公開資料] --> B[整理成內容<br/>新聞、報告、電子報]
+    B --> C[變成結構<br/>公司、交易、關係、指標]
+    C --> D[協助判斷<br/>排序、比較、分析師問答]
+    D --> E[進入工作流<br/>名單、CRM、API、採購紀錄]
+    E --> F[反覆使用與可能續約]
 ```
 
-## Seeking Alpha：群眾分析加機器選股
+這張圖最容易被誤讀的地方，是把最後一格當成必然結果。工作流只能增加使用理由，不能證明客戶一定留下。PitchBook 的公開財務說明就顯示，高頻投資與顧問客群較能持續使用，需求有限的小型企業仍可能離開。
 
-[Seeking Alpha](https://seekingalpha.com/) 創辦於 2004 年，模式跟前兩家截然不同：7,000 多名獨立投稿人每月產出超過一萬篇股票分析文章，涵蓋 1,300 多檔華爾街不怎麼關注的股票。
+## 六個案例，各自把哪一層做成商品
 
-**定價：** Premium $299/年（無限文章、Quant Ratings、篩選器），Alpha Picks $399/年（每月兩檔量化模型精選股），Pro $2,149–2,400/年（完整財報逐字稿、頂級選股器）。250,000 多名 Premium 訂戶，粗估 Premium 營收就超過 $7,500 萬。
+| 案例 | 主要訊號來源 | 付費產品單位 | 最接近的決策工作 | 主要限制或 AI 暴露 |
+|---|---|---|---|---|
+| [DIGITIMES：供應鏈人脈怎麼變成續約](/posts/product/2026-09-16-digitimes-supply-chain-intelligence) | 台灣科技供應鏈採訪與產業關係 | 新聞、研究、資料與顧問服務 | 看懂上下游變化、提早調整供應鏈判斷 | 摘要容易，第一手訊號仍需人取得 |
+| [The Information：少量獨家新聞怎麼撐起高價訂閱](/posts/product/2026-09-16-the-information-exclusive-news) | 科技公司、創投與金融圈消息源 | 獨家報導、企業席次、資料工具 | 在投資、競爭與組織變動前取得時間差 | 轉述會稀釋流量，獨家採訪不能自動生成 |
+| [Seeking Alpha：投稿市場、Quant Ratings、訂閱飛輪](/posts/product/2026-09-16-seeking-alpha-contributor-marketplace) | 外部作者、財務資料與量化訊號 | 文章、投資工具、量化評級 | 找觀點、篩選股票、持續追蹤 | 通用文章最容易被生成；評分仍有方法與利益衝突限制 |
+| [CB Insights：研究內容怎麼變成企業工作流](/posts/product/2026-09-17-cb-insights-research-to-workflow) | 公開市場訊號、交易與公司資料 | 結構化資料、Mosaic、AI 介面、整合 | 找公司、排研究順序、監控市場 | 私人公司資料有缺口；回測是公司自評，不等於投資報酬 |
+| [PitchBook：私人市場資料怎麼變成工作流](/posts/product/2026-09-17-pitchbook-private-market-data) | 公開來源、當事人回報與研究員核對 | 公司、交易、基金、人物關係資料 | 找案、盡調、基金比較、內部資料更新 | 遲報、估計與回修無法消失；低頻使用者未必願意續約 |
+| [Gartner：品牌、分析師與決策保險](/posts/product/2026-09-17-gartner-decision-insurance) | 分析師研究、客戶互動、基準與供應商資料 | 研究訂閱、分析師問答、採購工具 | 縮小供應商名單、跨部門對齊、保留決策依據 | Magic Quadrant 是專家意見，不是產品真理；AI 先壓縮搜尋與摘要 |
 
-**真正的護城河不是文章，是 Quant Ratings：** 一套 AI/ML 驅動的評分系統，從估值、成長性、獲利能力、動能和修正五個維度幫股票打分。肯塔基大學 2024 年的學術研究驗證了這套系統的有效性。Alpha Picks 自 2022 年 7 月以來報酬率 +276%，同期 S&P 500 +81%。
+這張表刻意不放第三方估算價格、未查證營收或「全球唯一」之類的宣稱。六家公司公開程度差很多，硬塞進同一欄，只會把報價、方案、公司聲明與法定財務混成看似精準的比較。
 
-**AI 威脅：雙軌分化。** 文章層威脅極高——通用的股票分析正是 LLM 最擅長生成的內容類型，當 AI 可以免費寫出差不多水準的個股報告，$299/年的群眾分析就很難說服人了。但 Quant Ratings 系統威脅低——專有資料加上訓練好的模型，不容易被外部 AI 複製。Seeking Alpha 的未來取決於它能否把價值重心從文章轉移到量化工具。
+## 兩條起跑線：先有人脈，或先有資料
 
-## CB Insights：AI 驅動的企業情報平台
+[DIGITIMES](/posts/product/2026-09-16-digitimes-supply-chain-intelligence) 與 [The Information](/posts/product/2026-09-16-the-information-exclusive-news) 從記者和消息源起跑。它們的第一個產品是時間差：在重要消息變成共識之前，先讓讀者看見。AI 可以重寫已公開的報導，卻不能憑空建立記者與供應鏈主管、創投合夥人或公司員工之間的信任。
 
-[CB Insights](https://www.cbinsights.com/) 2008 年創辦，2024 年營收約 $1.46 億。它跟前面幾家最大的不同是——AI 不是威脅，AI 就是產品本身。
+[CB Insights](/posts/product/2026-09-17-cb-insights-research-to-workflow) 與 [PitchBook](/posts/product/2026-09-17-pitchbook-private-market-data) 則更接近資料工廠。它們把公司、人物、交易、基金與關係從文字拆成欄位，再持續消歧、補值與回修。免費研究或報告可以展示能力，付費價值則來自反覆查詢、比較與串接。
 
-**賣的是什麼：** 企業級的科技市場情報平台。預測性評分（公司健康分數、退場機率）、市場地圖、新興技術報告。「CB Insights 市場地圖」已經成為一種業界通用格式。
+[Seeking Alpha](/posts/product/2026-09-16-seeking-alpha-contributor-marketplace) 站在兩者中間。它先讓外部作者提供分散觀點，再用編輯規則、資料與量化工具把市場組織起來，不必從一整間內部研究部門起步。這也帶來兩種風險：內容品質難治理，量化分數又可能被誤讀成自動投資答案。
 
-**定價：** $30,000–265,000/年，完全不公開定價，需要 demo 和客製報價。客戶是 Fortune 500 的企業策略部門、VC、管理顧問公司。
+## 真正難搬的，通常不是那篇文章
 
-**護城河：** 專有資料集（專利申請、融資輪次、職缺變化、新聞訊號）經過 ML 模型處理後產出的預測性洞察。加上 Salesforce/CRM 整合和 API 串接，一旦團隊把工作流程建在上面，遷移成本很高。
-
-**AI 威脅：** 混合。資料護城河穩固（專有資料集不容易複製），但分析層面臨壓力——如果 GPT 等級的模型可以爬 Crunchbase 和 PitchBook 的公開資料來產出類似的市場地圖，$50K+ 的年費就需要更強的理由。
-
-## PitchBook：被低估的資料巨頭
-
-[PitchBook](https://pitchbook.com/) 2009 年創辦，2016 年被 [Morningstar](https://www.morningstar.com/) 以 $2.25 億收購。2024 年營收 $6.18 億，10,600 個帳戶，平均每個帳戶年付 $58,300。
-
-**賣的是什麼：** 全球最完整的 VC/PE/M&A 交易資料庫。公司估值、投資人資料、基金績效、LP 承諾——私人市場最難取得的那些數字。2026 年新推出的 ML 驅動功能包括每日私人公司估值更新和退場時間預測模型。
-
-**誰在付錢：** VC 找案源、PE 做盡職調查、投行做交易比較、律所做交易支援。$20,000–70,000+/年的座位費，續約時漲價是常態。
-
-**護城河：** 資料本身。大量的交易紀錄、基金績效和 LP 承諾資料來自與 GP 和 LP 的專有關係，不是爬公開網頁就能取得的。Morningstar 的財務後盾和 Morningstar Direct 的交叉銷售進一步鞏固了它的地位。
-
-**AI 威脅：** 低到中。AI 可以提升分析效率（PitchBook 自己也在做——Navigator 自然語言查詢、MCP 整合 Perplexity），但原始資料層本身就是護城河，而那些資料 AI 拿不到。
-
-## Gartner：品牌決策保險正在失靈
-
-[Gartner](https://www.gartner.com/)（NYSE: IT）是這六家裡最大的——FY2025 營收 $64.97 億，14,000 家企業客戶，遍及約 90 個國家。也是 AI 威脅最明確的一家。
-
-**賣的是什麼：** 分析師研究報告、Magic Quadrant、Hype Cycle，加上高管社群網路和諮詢電話。核心價值不是資訊本身——是「決策保險」。沒有 CIO 會因為照著 Gartner 的建議選了 CRM 然後出事而被開除。
-
-**定價：** 基礎研究席位約 $20,000/年，資深顧問席位 $80,000+/年。年約，預付。Magic Quadrant 是一個雙邊市場：軟體廠商付錢被評估，買方用它來篩選廠商，兩邊都付費。
+六個案例的護城河可以拆成四種。這四種資產需要不同時間與資源累積，沒有簡單的高低排名。
 
 ```mermaid
-graph TD
-    V[軟體廠商] -->|付費被評估| MQ[Magic Quadrant]
-    MQ -->|推薦清單| B[企業買家]
-    B -->|付年費看報告| MQ
-    style MQ fill:#f59e0b,color:#fff
-    style V fill:#0d9488,color:#fff
-    style B fill:#6366f1,color:#fff
+flowchart LR
+    A[關係資產<br/>消息源、採訪信任] --> E[難以快速重建]
+    B[歷史資料<br/>實體、交易、版本] --> E
+    C[判斷系統<br/>方法、評分、分析師] --> E
+    D[工作流資產<br/>名單、欄位、API、紀錄] --> E
+    E --> F{客戶是否高頻使用?}
+    F -- 是 --> G[更換需要重新接線]
+    F -- 否 --> H[護城河仍可能失效]
 ```
 
-**正在瓦解的訊號：** 股價從高點跌了七成。合約價值（CV）成長率連續四季下滑：8% → 5% → 3% → 1%。GTS 續約率從 FY21 的 108.8% 降到 FY25 的 97.5%——現有客戶續約時花的錢比去年少。中小科技廠商留存率降到七十幾的低檔。
+關係資產讓 DIGITIMES 與 The Information 取得還沒公開的訊號。歷史資料讓 PitchBook 與 CB Insights 能回答「這次跟以前有何不同」。判斷系統讓 Seeking Alpha 與 Gartner 把大量候選壓成較短的清單。工作流資產則把輸出送進 CRM、API、試算表、監控清單或採購紀錄。
 
-**核心問題：** 當 CIO 可以問 Claude 或 ChatGPT「我該買哪家 CRM？」然後得到附引用的完整分析，為什麼還要花 $80,000/年買 Gartner 的席位？管理層的回應是大手筆回購（FY25 花了 $20 億買回自家股票，超過自由現金流）和推出 AskGartner AI 工具——但這些是防守動作，不是成長引擎。
+一家公司可以同時擁有四種，也可能只有其中一種。判斷護城河時，應該問客戶取消後要重建什麼：消息來源、歷史口徑、評估方法，還是每天會用到的系統連接？
 
-## 六家公司一張表
+## AI 不是同一場海嘯，而是逐層壓價
 
-| | DIGITIMES | The Information | Seeking Alpha | CB Insights | PitchBook | Gartner |
-|---|---|---|---|---|---|---|
-| **創辦** | 1998 | 2013 | 2004 | 2008 | 2009 | 1979 |
-| **營收** | 未揭露 | 未揭露（獲利中） | 未揭露（估 $80-120M） | ~$146M | $618M | $6,497M |
-| **定價** | ~$1,900–6,000+ NTD/年 | $399–999/年 | $299–2,400/年 | $30K–265K/年 | $20K–70K+/年 | $20K–80K+/年 |
-| **買家** | 供應鏈/企策 | 科技高管/VC | 散戶投資人 | 企策/VC/顧問 | VC/PE/投行 | CIO/C-suite |
-| **內容來源** | 記者（第一手） | 記者（第一手） | 群眾投稿 + Quant | 分析師 + AI/ML | 資料 + ML | 分析師 |
-| **AI 威脅** | 中 | 低 | 高（文章）/低（量化） | 中 | 低–中 | **高** |
-| **護城河** | 供應鏈關係 | 獨家消息來源 | 規模 + 量化系統 | 專有資料 + ML | 私有市場資料 | 品牌 + 雙邊市場 |
-| **所有權** | 私人（黃欽勇） | 私人（Lessin） | 私人 | 私人 | Morningstar | 上市（NYSE: IT） |
-
-## 五個跨公司的規律
-
-### 護城河光譜：從最脆弱到最堅固
-
-1. **通用分析**（Seeking Alpha 的群眾文章）——LLM 可以輕易生成相當水準的個股分析
-2. **聚合情報**（CB Insights 的市場地圖）——資料可守住，但分析層可被 AI 取代
-3. **獨家報導**（The Information 的 scoop）——需要人際關係和信任，AI 目前做不到
-4. **供應鏈關係**（DIGITIMES）——需要實體接觸、26 年的信任累積
-5. **品牌決策保險**（Gartner 的 Magic Quadrant）——制度慣性強大，但正在瓦解
-
-規律很清楚：**AI 威脅的是分析層，不是資料取得層，也不是關係層。** 越靠近「任何人都能用公開資料做出來的分析」，被替代的風險越高。
+把六家公司標成低、中、高風險看似俐落，實際上會遮掉產品內部的差異。生成式 AI 先壓縮公開文字的搜尋、摘要與初稿，再碰到資料權利、來源追溯、人工責任與企業整合。
 
 ```mermaid
-graph LR
-    subgraph 容易被 AI 取代
-        A1[通用股票分析]
-        A2[市場地圖的分析層]
-    end
-    subgraph 難被 AI 取代
-        B1[獨家報導]
-        B2[供應鏈人脈]
-        B3[品牌決策保險]
-    end
-    style A1 fill:#ef4444,color:#fff
-    style A2 fill:#f59e0b,color:#fff
-    style B1 fill:#22c55e,color:#fff
-    style B2 fill:#22c55e,color:#fff
-    style B3 fill:#eab308,color:#fff
+flowchart TD
+    A[公開文字與通用摘要] -->|最容易被生成| B[價格與流量壓力]
+    C[結構化歷史資料] -->|可被 AI 放大<br/>也可能被其他資料取代| D[競爭回到 coverage 與 provenance]
+    E[獨家消息與人際信任] -->|模型無法自行取得| F[仍需人建立來源]
+    G[企業工作流與責任] -->|AI 可加速<br/>不能自動承擔決策| H[仍需治理與人工覆核]
 ```
 
-### 定價揭示了客戶是誰
+因此，同一家公司會同時受益與受傷。Seeking Alpha 的通用文章面臨大量替代品，但量化工具仍可能有用。CB Insights 與 PitchBook 能用聊天介面降低查詢門檻，底層資料錯誤也會被更快放大。Gartner 推出 AI 入口，可以改善研究取用，卻還得證明分析師、基準與採購流程值得高價。這些是產品層的壓力，不足以單獨解釋股價或營收變化。
 
-```mermaid
-graph TD
-    subgraph 個人能負擔
-        P1["< $500/年"]
-        P1 --- SA[Seeking Alpha $299]
-        P1 --- TI[The Information $399]
-    end
-    subgraph 企業預算行項目
-        P2["$20K–80K/年"]
-        P2 --- GT[Gartner $20K–80K]
-        P2 --- PB[PitchBook $20K–70K]
-    end
-    subgraph 企業平台級
-        P3["$50K–265K/年"]
-        P3 --- CB[CB Insights]
-    end
-    style P1 fill:#22c55e,color:#fff
-    style P2 fill:#f59e0b,color:#fff
-    style P3 fill:#ef4444,color:#fff
-```
+AI 暴露可以用四個問題檢查：
 
-年費不到 $500 的產品（The Information、Seeking Alpha），客戶是個人或個人能報銷的級別。$20K 以上的（Gartner、PitchBook、CB Insights），客戶是企業的一個預算行項目。定價越高，買方越需要「決策保險」——也就越難被 AI 顛覆，因為問題不只是「資訊值多少錢」，而是「錯了誰負責」。
+1. 答案只需要公開文字，還是需要尚未公開的消息？
+2. 資料能否追到來源、更新日期與估計方法？
+3. 產品是否進入團隊每天使用的流程，還是偶爾讀一次？
+4. 出錯時有人覆核並承擔決策，還是只剩一段流暢文字？
 
-### 所有權決定了策略空間
+## 台灣可以學的不是「再做一家 Gartner」
 
-DIGITIMES 和 The Information 都是創辦人自己掌控。黃欽勇可以選擇不追求規模，專注在供應鏈深度；Lessin 可以拒絕外部投資，讓品質優先於成長。Gartner 是上市公司，必須每季交出成長數字——這就是為什麼它在 CV 成長趨緩時花了超過自由現金流的錢去回購股票，而不是重新投資在內容品質上。
+台灣市場不大，卻有很多全球供應鏈、法規、製造流程與地方關係留下的資訊落差。[台灣能不能再長出一家 DIGITIMES](/posts/product/2026-09-17-taiwan-vertical-intelligence-opportunity) 這篇把問題往前推。機會未必是一個包山包海的平台，更可能藏在某個昂貴、反覆發生、現有資料又很破碎的決策裡。
 
-### AI 顛覆的不對稱性
+今晚可以先做一個小測試。找出目標客戶最近三次重要決策，列出他們依序查了哪些資料、問了哪些人、最後把結果貼進哪套系統。若你的內容只能補第一步，它還是媒體；若能讓後面的比較、交接與追蹤也少重做，才開始接近企業情報產品。
 
-六家公司面對 AI 的處境截然不同。Gartner 的股價暴跌七成，Seeking Alpha 的文章層面臨存亡危機，但 The Information 和 PitchBook 幾乎不受影響。差別在哪？**AI 擅長的是「處理已有的資訊」，不擅長的是「取得還沒有的資訊」。** 獨家消息需要人；專有資料需要關係；品牌信任需要時間——這三樣是 AI 目前的盲區。
+## 系列閱讀順序
 
-### 台灣的啟示
+0. [供應鏈人脈怎麼變成續約：DIGITIMES 的情報生產線](/posts/product/2026-09-16-digitimes-supply-chain-intelligence)
+1. [少量獨家新聞怎麼撐起高價訂閱：The Information 的採訪飛輪](/posts/product/2026-09-16-the-information-exclusive-news)
+2. [Seeking Alpha 怎麼賣群眾研究：投稿市場、Quant Ratings、訂閱飛輪](/posts/product/2026-09-16-seeking-alpha-contributor-marketplace)
+3. [研究內容怎麼變成企業工作流：CB Insights 的資料產品化](/posts/product/2026-09-17-cb-insights-research-to-workflow)
+4. [私人市場資料怎麼變成工作流：PitchBook 的人工驗證與切換成本](/posts/product/2026-09-17-pitchbook-private-market-data)
+5. [企業為什麼買 Gartner：品牌、分析師與決策保險](/posts/product/2026-09-17-gartner-decision-insurance)
+6. [台灣能不能再長出一家 DIGITIMES：垂直情報的選題方法](/posts/product/2026-09-17-taiwan-vertical-intelligence-opportunity)
 
-DIGITIMES 的故事對台灣內容創業者有一個直接的啟示：不要照搬中美大國的消費媒體打法。台灣市場小，但在 ICT 供應鏈上有全球獨一無二的資訊優勢。黃欽勇選擇把這個優勢包裝成 B2B 情報產品，而不是拿來做免費新聞靠廣告養，這個選擇讓 DIGITIMES 在二十六年後仍然是全球供應鏈圈必讀的情報來源。
+## 更新紀錄
+
+- 2026-09-17：依七篇案例重寫導讀，移除未可靠的精確定價、估算營收、唯一性與 AI 因果宣稱；新增比較表、護城河／AI 圖與完整系列連結。
 
 ## 參考資料
 
-- [DIGITIMES 官網](https://www.digitimes.com.tw/)
-- [黃欽勇〈從《電子時報》到大椽 DIGITIMES 的策略轉進〉](https://www.digitimes.com.tw/col/article/?id=15360)
-- [The Information 官網](https://www.theinformation.com/)
-- [Seeking Alpha 官網](https://seekingalpha.com/)
-- [CB Insights 官網](https://www.cbinsights.com/)
-- [PitchBook 官網](https://pitchbook.com/)
-- [Gartner 官網](https://www.gartner.com/)
-- [Morningstar PitchBook 財務揭露（Q1 2026）](https://www.morningstar.com/company-reports)
-- [Gartner 10-K（FY2025）](https://www.gartner.com/en/about/annual-report)
-- 系列總覽：[誰在賣內容：四種模式與一個威脅](/posts/product/2026-09-16-content-selling-four-models)
+- 母系列總覽：[誰在賣內容：四種模式與一個威脅](/posts/product/2026-09-16-content-selling-four-models)
+- [DIGITIMES 個案](/posts/product/2026-09-16-digitimes-supply-chain-intelligence)
+- [The Information 個案](/posts/product/2026-09-16-the-information-exclusive-news)
+- [Seeking Alpha 個案](/posts/product/2026-09-16-seeking-alpha-contributor-marketplace)
+- [CB Insights 個案](/posts/product/2026-09-17-cb-insights-research-to-workflow)
+- [PitchBook 個案](/posts/product/2026-09-17-pitchbook-private-market-data)
+- [Gartner 個案](/posts/product/2026-09-17-gartner-decision-insurance)
+- [台灣垂直情報機會](/posts/product/2026-09-17-taiwan-vertical-intelligence-opportunity)

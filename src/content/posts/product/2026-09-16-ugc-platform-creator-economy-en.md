@@ -1,12 +1,12 @@
 ---
-title: "The Platform Bet: Substack, Vocus, and the Creator Economy's Revenue-Share War"
+title: "The Platform Bet: Who Controls the Creator-Reader Relationship?"
 date: 2026-09-16
 category: product
 type: deep-dive
 tags: [business-model, content-business, creator-economy, substack, platform, saas]
 lang: en
-tldr: "The core bet in creator content platforms is revenue share vs. SaaS: Substack takes 10% of your revenue, Ghost charges a flat fee and takes nothing, Beehiiv subsidizes with an ad network. Choosing a platform is choosing a business model — and most creators choose wrong."
-description: "Dissecting six creator content platforms: Substack, Vocus, Ghost, Medium, Patreon, and Beehiiv. From revenue share structures to AI absence, how platforms compete for creators."
+tldr: "Choosing a creator platform is not about finding the longest feature list. It assigns responsibility for bringing readers, collecting payments, holding data, and operating the system; pricing is only one of four gates."
+description: "A four-gate comparison of Substack, Vocus, Ghost, Medium, Patreon, and Beehiiv, followed by seven platform, migration, and Taiwan-specific case studies."
 draft: false
 series:
   name: "Content Selling Business Models"
@@ -15,239 +15,117 @@ series:
 
 > 🌏 [中文版](/posts/product/2026-09-16-ugc-platform-creator-economy)
 
-The creator economy has a question most people don't think through at the start: the platform you choose determines your business model.
+Think of creator platforms as three places to run a business.
 
-Write on [Substack](https://substack.com/) and you give up 10% of every subscription dollar. Write the same thing on [Ghost](https://ghost.org/) and you keep 100% — but you pay a fixed monthly fee. At 100 subscribers the difference is trivial. At 10,000, you're looking at tens of thousands of dollars a year.
+A night market already has foot traffic, so a vendor can open quickly, but the market controls the location, checkout, and rules. A department-store counter adds membership, promotion, and customer service while tying the vendor more deeply into the store's systems. An independent shop controls its address, customer book, and register—and must bring in customers, maintain the property, and handle failures.
 
-This is not a detail. It's a structural choice. And once you've accumulated readers, branding, and workflows, migration costs are brutal.
+Substack, Medium, Vocus, and Patreon resemble markets or department stores. Self-hosted Ghost is closer to an independent shop. Beehiiv and Ghost(Pro) resemble independent storefronts with more utilities managed for you. This analogy maps responsibilities; it is not a quality ranking. The answer can change as one creator's business changes.
 
----
+## Pass four gates before comparing features
 
-## Revenue Share vs. SaaS: Two Platform Philosophies
-
-Creator content platforms charge in fundamentally two ways:
-
-**Revenue share**: the platform takes a percentage of every subscription payment. Substack takes 10%. [Patreon](https://www.patreon.com/) takes 10% (unified flat rate for new creators since August 2025). [Vocus](https://vocus.cc/), Taiwan's largest text creator platform, takes 20% plus 2.25% payment processing. The platform's incentives align with yours — it earns more when you earn more. But the flip side: the better you do, the more you pay.
-
-**SaaS fee**: the platform charges a fixed monthly fee regardless of how much you earn. Ghost Pro costs $9 to $199 per month. [Beehiiv](https://www.beehiiv.com/) starts at $39 per month on its Scale plan. Your subscription revenue stays 100% yours. The platform's risk: if creators don't grow, flat fees don't generate much revenue.
-
-**Hybrid model**: [Medium](https://medium.com/) chose a third path. Readers pay $5/month into a shared content pool. The platform distributes membership fees to writers based on engagement metrics. Creators control neither pricing nor the revenue-sharing formula.
+Platform comparisons often collapse into “revenue share versus monthly fee.” The decision has at least four gates:
 
 ```mermaid
-graph TD
-    R[Reader pays $10/mo] --> |Revenue share| P1[Platform takes 10%]
-    P1 --> C1[Creator gets $9]
-    R --> |SaaS model| P2[Platform charges flat fee]
-    P2 --> C2[Creator gets $10]
-    R --> |Hybrid model| P3[Goes into content pool]
-    P3 --> C3[Platform decides your cut]
-    style C1 fill:#f59e0b,color:#fff
-    style C2 fill:#10b981,color:#fff
-    style C3 fill:#ef4444,color:#fff
+flowchart LR
+    A[Content business] --> B{Payments}
+    B --> C{Discovery}
+    C --> D{Control}
+    D --> E{Operations}
+    E --> F[Choose responsibilities you can carry now]
+    B -.ask.-> B1[Can currency, checkout, refunds, and accounting work?]
+    C -.ask.-> C1[Must the platform bring readers?]
+    D -.ask.-> D1[Can email, content, billing, and URLs move?]
+    E -.ask.-> E1[Who handles delivery, domains, upgrades, and incidents?]
 ```
 
-### Where the breakeven falls
+- **Payments:** Enabling paid subscriptions does not prove that a service fits your entity, buyers, or accounting workflow. Legal and tax treatment still requires current, situation-specific advice.
+- **Discovery:** Recommendations, search, social feeds, and ad networks offer traffic opportunities, not guaranteed revenue. Platform attribution is not every publisher's incremental gain.
+- **Control:** Viewing members, exporting a CSV, holding email consent, and moving recurring billing are four different capabilities.
+- **Operations:** More control usually brings more responsibility for deliverability, domains, themes, integrations, and failures.
 
-Compare Substack (10% revenue share) with Ghost Pro Starter ($25/month). The breakeven is $250 in monthly revenue. Below that, Substack is cheaper. Above that, every additional dollar goes straight to you on Ghost.
+## Six platforms exchange different responsibilities
+
+This table includes only differences supported by public documentation and useful for choosing. A documented export is not proof of complete portability.
+
+| Platform | Payments and monetization | Discovery | Confirmed portable pieces | Platform-bound or rebuilt pieces | Operations |
+|---|---|---|---|---|---|
+| [Medium](/en/posts/product/2026-09-17-medium-vocus-platform-distribution-en) | Pooled member payouts; writers do not set each reader's price | Recommendations, topics, Digests, Boost | Account content archive; older email lists available to writers | New email subscribers' addresses are not shared; followers and distribution do not move | Platform |
+| [Vocus](/en/posts/product/2026-09-17-medium-vocus-platform-distribution-en) | TWD payments, invoices, payouts, and member operations | Taiwan-focused site, app, and email distribution | Official documentation confirms order-detail CSV export | No public official evidence found for complete post, member-email, or recurring-payment migration | Platform |
+| [Substack](/en/posts/product/2026-09-17-substack-ten-percent-discovery-en) | 10% platform fee on paid-subscription revenue, plus payment processing | Recommendations, Notes, and its network | Posts, subscriber list, and related statistics | Recommendation traffic stays; billing portability depends on Stripe and the migration path | Platform |
+| [Patreon](/en/posts/product/2026-09-17-patreon-membership-value-ladder-en) | Membership tiers, commerce, and community; new-creator pricing follows official effective-date rules | Free membership, Explore, and recommendations | Relationship Manager and some email data | Recurring authorization, comments, chats, and recommendation graph do not move as a CSV | Platform |
+| [Ghost](/en/posts/product/2026-09-17-ghost-ownership-not-just-hosting-en) | Connects the publisher's Stripe; 0% Ghost transaction fee, but Stripe, hosting, or self-hosting still cost money | Recommendations and Webmention; Ghost 6 adds ActivityPub | Site content, member data, and the publisher's Stripe relationship sit closer to publisher control | Traffic, deliverability reputation, and self-hosting work do not solve themselves | Managed or self-hosted |
+| [Beehiiv](/en/posts/product/2026-09-17-beehiiv-newsletter-operating-system-en) | Tiered SaaS combining paid subscriptions, advertising, and Boosts | Recommendations, Referral, and Ad Network | Official export paths cover posts and subscriber data | Recommendation relationships, ad workflows, automation, analytics, and payment tokens are not fully portable by implication | SaaS platform |
+
+There is deliberately no “best” column. Vocus's local operations, Substack's network, Patreon's membership ladder, Beehiiv's growth workflows, and Ghost's control solve different problems.
+
+## Ownership is six asset layers, not a switch
+
+An Export button proves only that a platform handed over certain files. A creator actually operates six asset layers:
 
 ```mermaid
-graph LR
-    subgraph Below $250/mo
-        A1[You earn $200/mo] --> B1[Substack takes $20]
-        A1 --> C1[Ghost charges $25]
-        B1 --> D1[Substack is cheaper]
-    end
-    subgraph Above $250/mo
-        A2[You earn $50,000/mo] --> B2[Substack takes $5,000]
-        A2 --> C2[Ghost charges $199]
-        C2 --> D2[Save $58,000/year]
-    end
+flowchart TB
+    A[Posts and media] --> B[Email and consent state]
+    B --> C[Membership and entitlement state]
+    C --> D[Recurring billing relationship]
+    D --> E[Domain, URLs, and search history]
+    E --> F[Recommendations, comments, and social graph]
+    G[Export file] -.usually covers part.-> A
+    G -.may cover part.-> B
+    G -.does not equal.-> D
+    G -.does not automatically carry.-> F
 ```
 
-A creator with 5,000 paid subscribers at $10/month earns $50,000/month. On Substack, $5,000 goes to the platform each month. On Ghost, the fee caps at $199. That's roughly $58,000 a year in the difference.
+A Medium follower is not an exportable email address. A Vocus order-detail export does not prove complete member-email or recurring-payment portability. Even when Substack, Patreon, or Beehiiv exports content or contacts, that does not imply that recommendations, interactions, and payment authorization move intact. Use the [six-layer migration checklist](/en/posts/product/2026-09-17-creator-platform-migration-assets-en) to test each layer.
 
-At 100 subscribers, this math doesn't matter. By year three, it's the single biggest line item in your operating costs.
+## AI changes workflows and distribution, not the winner by default
 
----
+The earlier version described these services as largely absent from AI. That is no longer defensible. Beehiiv has added AI, MCP, and Agent capabilities to its operating product. Medium's AI-content policy also affects whether writing receives general distribution or monetization. Every platform faces some combination of cheaper content supply, quality governance, and AI search absorbing external clicks.
 
-## Six Platforms, Six Business Models
+None of that proves that the platform with more AI features grows faster, or that revenue or valuation changed because of AI. Ask narrower questions: Does AI assist drafting, segmentation, analysis, or automation? Can a human review its output? Which data and workflows become harder to move?
 
-### Substack: Discovery in Exchange for Revenue Share
-
-Substack launched in 2017 on a simple pitch: let writers make a living from writing. By 2026, the platform hosts over 50 million subscriptions with creator GMV exceeding $450 million. Valuation sits at roughly $1.1 billion.
-
-Substack's real asset isn't technology — email sending systems aren't complex — it's **discovery**. Built-in recommendation algorithms, Notes (a social feature resembling X/Twitter), and leaderboards help new writers get found. For someone starting from zero with no existing audience, that value is hard to measure in percentage points.
-
-The cost is twofold. First, 10% becomes expensive at scale. Second, the subscriber relationship lives on Substack's infrastructure. You can export your email list, but readers' payment relationships, reading habits, and engagement history stay on the platform. Migrating means asking every paying reader to re-enter their credit card.
-
-In late 2023, tech policy journalist Casey Newton moved his publication [Platformer](https://www.platformer.news/) from Substack to Ghost, citing Substack's permissive stance on hate speech. The move itself was small. Its ripple effects revealed a structural tension: you only discover how dependent you are on a platform when its values conflict with your brand.
+## Choose responsibilities by scenario, not brands by leaderboard
 
 ```mermaid
-graph LR
-    A[Platformer on Substack] -->|Values conflict| B{Migrate?}
-    B -->|Yes| C[Move to Ghost]
-    C --> D[Subscribers re-enter credit cards]
-    D --> E[Result: no significant subscriber loss]
-    B -->|No| F[Stay locked to platform policies]
-    style E fill:#10b981,color:#fff
-    style F fill:#ef4444,color:#fff
+flowchart TD
+    A{What is missing most?}
+    A -->|Taiwan payments and local readers| B[Vocus: verify transactions and export boundaries]
+    A -->|English writing and network discovery| C[Substack: measure incremental platform value]
+    A -->|Tiers, community, and multimedia benefits| D[Patreon: retain an independent contact channel]
+    A -->|Ads, recommendations, referrals, automation| E[Beehiiv: inventory workflow lock-in]
+    A -->|Brand, URL, data, and payment control| F[Ghost: accept cost and operational responsibility]
+    A -->|Existing platform distribution only| G[Medium: do not equate followers with email]
+    B --> H[Test purchase, refund, cancellation, and exports]
+    C --> H
+    D --> H
+    E --> H
+    F --> H
+    G --> H
 ```
 
-### Vocus: Taiwan's Creator Home Turf
+For a Taiwan-based content business, the [Taiwan creator-platform guide](/en/posts/product/2026-09-17-taiwan-creator-platform-choice-en) turns these gates into a checklist. Do not move the whole audience first. Use test accounts to run a subscription, refund, cancellation, content export, and contact export, then inspect whether the resulting fields can enter the next system.
 
-[Vocus](https://vocus.cc/) is Taiwan's largest text creator platform, positioned as a Traditional Chinese Substack — though with a different economic model. Its take rate is higher (roughly 22% after payment processing), but it offers what few alternatives can in Taiwan: concentrated local traffic and integrated local payment options including convenience store payments and domestic credit cards.
+## Seven case studies, organized by question
 
-Vocus recently expanded into digital product sales, giving creators a revenue stream beyond subscriptions. In Taiwan, its competitor is not Substack or Ghost (language and payment barriers are too high) but [PressPlay Academy](https://www.pressplay.cc/) — a course subscription platform that acquired YOTTA in October 2025, further consolidating Taiwan's online learning market.
+1. [Medium and Vocus: what platform distribution costs](/en/posts/product/2026-09-17-medium-vocus-platform-distribution-en)
+2. [Substack: whether the 10% is worth it](/en/posts/product/2026-09-17-substack-ten-percent-discovery-en)
+3. [Patreon: free entry, paid tiers, and migration costs](/en/posts/product/2026-09-17-patreon-membership-value-ladder-en)
+4. [Ghost: domains, members, Stripe, and the right to exit](/en/posts/product/2026-09-17-ghost-ownership-not-just-hosting-en)
+5. [Beehiiv: recommendations, ads, and growth workflows](/en/posts/product/2026-09-17-beehiiv-newsletter-operating-system-en)
+6. [What actually moves: a six-layer migration checklist](/en/posts/product/2026-09-17-creator-platform-migration-assets-en)
+7. [How Taiwan creators can choose platform, SaaS, or self-hosting](/en/posts/product/2026-09-17-taiwan-creator-platform-choice-en)
 
-Taiwanese creators face a different decision tree: Vocus for ongoing writing, PressPlay for structured educational content.
+This remains the third post in the [Content Selling Business Models](/en/posts/product/2026-09-16-content-selling-four-models-en) series. The update turns the original comparison into the entry point for the seven-part “Who Controls the Creator-Reader Relationship” extension. For individual paid-newsletter case studies, see [One-Person Media Company](/en/posts/career/2026-08-26-one-person-media-company-overview-en).
 
-### Ghost: Open Source, Zero Cut, Full Control
+## Update log
 
-Ghost is an open-source newsletter and membership platform. Zero percent transaction fee — your subscription revenue is entirely yours. The platform earns through Ghost Pro ($9–$199/month managed hosting), though you can self-host for free.
-
-Ghost has processed over $100 million in creator revenue to date. Its economic model is strongest in the mid-to-high income range: once your monthly revenue exceeds roughly $500, the fixed fee becomes negligible compared to a 10% cut.
-
-Ghost's weakness is discovery. No built-in recommendation system, no social features — your readers have to find you through external channels. This makes it unsuitable for beginners starting from scratch, but ideal for mature creators with a loyal audience who want to maximize every dollar. After Casey Newton's migration, Platformer's subscriber count showed no significant decline, suggesting that when reader loyalty is high enough, platform switching costs are smaller than assumed.
-
-### Medium: Zero-Sum in the Content Pool
-
-Medium operates differently from the others. Readers pay $5/month to access a shared content pool, not a specific writer. The platform distributes membership fees based on engagement metrics like reading time.
-
-The problem is transparency. Writers don't know exactly how much an article is worth, nor whether the payout formula will change — and Medium has adjusted it multiple times, triggering waves of departures each time. This has turned Medium into a discovery platform rather than a monetization platform: you write there to be found and to funnel readers elsewhere, not to earn directly.
-
-Medium still commands massive SEO traffic value. But as a primary monetization platform, it's losing mindshare among serious creators.
-
-### Patreon: From "Support Me" to Commerce Platform
-
-[Patreon](https://www.patreon.com/) started as a platform for YouTubers and podcasters to receive fan support. Over $2 billion flows through the platform annually.
-
-In August 2025, Patreon unified the fee for new creators at a flat 10% (legacy accounts keep their existing rates). It's simultaneously phasing out per-creation billing in favor of monthly subscriptions, and expanding into physical and digital product sales. The direction is clear: Patreon wants to evolve from a patronage platform into a full creator commerce platform.
-
-Patreon's moat is multi-format support — text, video, audio, and images on a single page. But its weakness mirrors Substack's: the payment relationship lives on Patreon's infrastructure.
-
-### Beehiiv: SaaS Plus an Ad Network
-
-Beehiiv is the fastest-growing Substack challenger, reaching $30 million in ARR by 2026. Its strategy is straightforward: no revenue share on subscriptions, fixed SaaS monthly fee instead. On the Scale plan and above, 100% of your paid subscription revenue is yours.
-
-Beehiiv's real differentiator is its built-in ad network. Creators can insert Beehiiv-matched ads into their newsletters, adding an entirely separate revenue stream. This gives it a structural advantage over both Substack and Ghost in the "free newsletter + ad revenue" model.
-
-[Kit](https://kit.com/) (formerly ConvertKit) follows a similar SaaS approach, though a controversial 120% price hike in September 2025 drove significant user backlash. Its advantage is a free tier supporting up to 10,000 subscribers, making it attractive for early-stage creators.
-
----
-
-## Side-by-Side Comparison
-
-| Platform | Fee Model | Creator Take | Scale | Discovery | Ownership | AI Features |
-|---|---|---|---|---|---|---|
-| [Substack](https://substack.com/) | 10% rev share | ~90% | 50M subscriptions | Strong (recs + Notes) | Medium (email export) | None |
-| [Vocus](https://vocus.cc/) | ~22% rev share | ~78% | Largest in Taiwan | Medium (on-site traffic) | Medium | None |
-| [Ghost](https://ghost.org/) | SaaS $9–199/mo | 100% | $100M+ creator rev | Weak (no recs) | Strong (self-host) | None |
-| [Medium](https://medium.com/) | Pooled payout | Opaque | Massive SEO traffic | Strong (algorithm) | Weak (platform control) | Limited |
-| [Patreon](https://www.patreon.com/) | 10% rev share | ~90% | $2B+/yr payouts | Weak | Medium | None |
-| [Beehiiv](https://www.beehiiv.com/) | SaaS $0–99/mo | 100% | $30M ARR | Medium (ad network) | Strong | Limited |
-
----
-
-### Discovery vs. Ownership: Pick One
-
-```mermaid
-quadrantChart
-    title Discovery vs. Ownership
-    x-axis Low Ownership --> High Ownership
-    y-axis Low Discovery --> High Discovery
-    Substack: [0.4, 0.85]
-    Medium: [0.2, 0.8]
-    Vocus: [0.4, 0.5]
-    Beehiiv: [0.75, 0.5]
-    Patreon: [0.4, 0.3]
-    Ghost: [0.9, 0.2]
-```
-
-The top-right quadrant — high discovery plus high ownership — is ideal, but no platform occupies it today. Substack and Medium use algorithms to help you get found; the price is that your reader relationships and data stay on their infrastructure. Ghost gives you full control, but your readers have to find you on their own.
-
----
-
-## Three Structural Observations
-
-### Power Laws Are Everywhere
-
-[Gumroad](https://gumroad.com/)'s data is the starkest: the median creator earns $72 per month, while the top 1% captures 99.5% of total revenue. This isn't a Gumroad problem — it's a universal truth across every creator platform.
-
-```mermaid
-graph LR
-    subgraph 99% of creators
-        A[Median income $72/mo] --> B[10% fee = $7]
-        B --> C[Doesn't matter]
-    end
-    subgraph Top 1% of creators
-        D[Capture 99.5% of total revenue] --> E[10% fee = thousands/mo]
-        E --> F[Painful — and they can leave]
-    end
-    style C fill:#94a3b8,color:#fff
-    style F fill:#ef4444,color:#fff
-```
-
-This means most creators will never hit the point where "10% is too expensive," because their income never makes the fee rate feel material. The people who actually care about fee structures are the 1% who've already succeeded — and they're also the ones with the leverage to move.
-
-### AI Absence Is the Biggest Unfilled Gap
-
-Across all six platforms, none has made a meaningful investment in AI-assisted creation. No AI drafting. No AI-powered A/B testing for subject lines. No AI analysis showing which paragraphs lose readers.
-
-This is counterintuitive: creators' scarcest resource is time and output capacity — exactly what AI can help with. The first platform to nail AI writing assistance at the platform level will have a structural advantage.
-
-### Taiwan's Ecosystem Is Uniquely Constrained
-
-Taiwanese creators' platform choices are limited by language and payment infrastructure. Substack and Ghost theoretically work, but discovery for Traditional Chinese content is near zero, and local payment methods (convenience store payments, domestic cards) aren't always supported.
-
-This gives Vocus and PressPlay a natural moat in Taiwan — not because their products are superior, but because alternatives have poor local adaptation. This also means the moat could collapse overnight if Substack or Beehiiv ever invest seriously in Asian localization.
-
----
-
-## A Decision Framework for Creators
-
-Different stages need different things:
-
-```mermaid
-graph TD
-    Q1{Do you have readers?} -->|No| S[Substack — free + discovery]
-    Q1 -->|Yes, <1K paid| Q2{Primary language?}
-    Q1 -->|Yes, >1K paid| Q3{What do you need?}
-    Q2 -->|Chinese, Taiwan market| V[Vocus]
-    Q2 -->|English or global| Q3
-    Q3 -->|Maximize revenue| G[Ghost — 0% cut]
-    Q3 -->|Ads + subscriptions| B[Beehiiv — built-in ad network]
-    Q3 -->|Video + audio + text| P[Patreon — multi-format]
-    style S fill:#6366f1,color:#fff
-    style V fill:#0d9488,color:#fff
-    style G fill:#10b981,color:#fff
-    style B fill:#f59e0b,color:#fff
-    style P fill:#ec4899,color:#fff
-```
-
-| Your Stage | Recommendation | Reasoning |
-|---|---|---|
-| Starting out, no audience | Substack | Free, strongest discovery. 10% doesn't hurt when revenue is low |
-| Growing, 1K–10K subscribers | Evaluate Ghost or Beehiiv | Revenue becomes meaningful, fee gap widens |
-| Mature, 10K+ subscribers | Ghost (full control) or Beehiiv (ad upside) | Save tens of thousands per year |
-| Taiwan market, Chinese content | Vocus | Only practical option for local payments and traffic |
-| Course and educational content | PressPlay Academy | Taiwan's concentrated online learning audience |
-| Multi-format (video + audio + text) | Patreon | Only platform with native multi-format subscription support |
-
-One principle above all: **export and back up your subscriber email list from day one.** No matter which platform you use, the email list is the only asset you truly own. Platforms change rules, raise prices, and shut down. Your reader list doesn't.
-
----
-
-This is the third post in the "[Content Selling Business Models](/posts/product/2026-09-16-content-selling-four-models)" series. The first post covers the business logic of [B2B industry intelligence](/posts/product/2026-09-16-b2b-intelligence-business). The fourth post examines financial information platforms that give content away free and monetize through tools, ads, or transactions. For the individual paid newsletter model, see the existing "[One-Person Media Company](/posts/career/2026-08-26-one-person-media-company-overview)" series.
+- 2026-09-17: Rebuilt the comparison around current official documentation, corrected the Ghost, Beehiiv, Medium, and Vocus capability and export boundaries, and linked all seven extended case studies.
 
 ## References
 
-- [Substack](https://substack.com/) — Creator newsletter platform, 10% revenue share
-- [Ghost](https://ghost.org/) — Open-source newsletter and membership platform, 0% transaction fee
-- [Vocus](https://vocus.cc/) — Taiwan's largest text creator platform (in Chinese)
-- [Medium](https://medium.com/) — Content pool membership platform
-- [Patreon](https://www.patreon.com/) — Creator membership and commerce platform
-- [Beehiiv](https://www.beehiiv.com/) — SaaS newsletter platform, $30M ARR
-- [Kit (formerly ConvertKit)](https://kit.com/) — Email marketing turned creator platform
-- [PressPlay Academy](https://www.pressplay.cc/) — Taiwan subscription learning platform, acquired YOTTA October 2025 (in Chinese)
-- [Platformer](https://www.platformer.news/) — Casey Newton's tech policy newsletter, a notable Substack-to-Ghost migration case study
-- [One-Person Media Company](/posts/career/2026-08-26-one-person-media-company-overview) — In-site series: ten newsletter business case studies and four monetization paths (in Chinese)
+- [Medium: Email notifications](https://help.medium.com/hc/en-us/articles/360059837393-Email-notifications) — boundaries for new subscribers and older email lists
+- [Vocus: managing members and orders](https://vocus.cc/help_center/TnC9HOz4dEujYDlmdPTg) — order-data export (Chinese)
+- [Substack: exporting posts](https://support.substack.com/hc/en-us/articles/360037466012-How-do-I-export-my-posts) and [exporting an email list](https://support.substack.com/hc/en-us/articles/6314498343700-How-do-I-export-my-email-list-on-Substack)
+- [Patreon: Relationship Manager](https://support.patreon.com/hc/en-us/articles/360045516212-How-to-use-your-Relationship-manager) — filtering and exporting member data
+- [Ghost: transaction fees](https://ghost.org/help/are-there-really-no-transaction-fees/) — 0% Ghost transaction fee and Stripe charges
+- [Ghost 6.0](https://ghost.org/changelog/6/) — ActivityPub and social-web features
+- [Beehiiv: exporting posts and subscriber data](https://www.beehiiv.com/support/article/12258595483543-exporting-post-content-or-subscriber-data-from-beehiiv)

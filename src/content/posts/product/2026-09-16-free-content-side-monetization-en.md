@@ -1,243 +1,121 @@
 ---
-title: "Free Content, Side Monetization: How Financial Info Platforms Actually Make Money"
+title: "How Free Content Acquires Customers for Another Business: Eight Paths and One Scorecard"
 date: 2026-09-16
 category: product
 type: deep-dive
-tags: [business-model, content-business, fintech, media, advertising, freemium]
+tags: [business-model, content-business, acquisition, fintech, advertising, freemium]
 lang: en
-tldr: "Content is free; money comes from elsewhere — ads, tool subscriptions, trading commissions, AI upsells. Financial info platforms are the perfect case study: the same investors use Bloomberg at $25K/year and Yahoo Finance for free. The difference isn't content quality — it's the monetization flank."
-description: "Dissecting the free-content-with-side-monetization model through financial info platforms: cnYES, CMoney, BigGo Finance, Fugle, and Yahoo Finance. Content is the funnel, not the product."
+tldr: "Free content is not a free business. It is an acquisition investment. Eight cases spanning ads, tools, subscriptions, brokerage partnerships, affiliate marketing, and AI search ask what paid job the audience eventually completes."
+description: "How does free content lead to ads, tool subscriptions, brokerage partnerships, and affiliate revenue? Eight cases map the path, unit economics, and AI-search risk."
 draft: false
 series:
-  name: "Content Selling Business Models"
-  order: 4
+  name: "How Free Content Acquires Customers for Another Business"
+  order: 0
 ---
 
 > 🌏 [中文版](/posts/product/2026-09-16-free-content-side-monetization)
 
-A [Bloomberg Terminal](https://www.bloomberg.com/professional/products/bloomberg-terminal/) costs over $25,000 a year. [cnYES](https://www.cnyes.com/) (鉅亨網), Taiwan's largest financial news portal, is completely free. Both serve the same fundamental need: helping people make investment decisions. The thousand-fold price gap exists not because content quality differs by a thousand-fold, but because they are playing entirely different games. Bloomberg sells the content itself — proprietary data, real-time feeds, and analytics bundled into a terminal experience. cnYES gives content away and makes money from everything around it.
+Imagine a night-market vendor offering a free cup of soup. The sample is not costless: ingredients, labor, and the stall all cost money. The vendor gives it away because some visitors will buy a full bowl or add side dishes. If everyone takes the sample and leaves, a long line is still not a good business.
 
-This is the fourth model of content selling: you don't sell the content at all.
+Free content works the same way. Articles, news, podcast summaries, and calculators all cost money to produce, distribute, and maintain. Their business value does not come from impressive pageviews alone. It comes when the right reader reaches another job that creates gross profit: viewing an ad, buying a tool, subscribing, completing a service through a brokerage partner, or purchasing from a merchant.
 
-```mermaid
-graph LR
-    A[Free Content] --> B[User Traffic]
-    B --> C[Ad Revenue]
-    B --> D[Tool Subscriptions]
-    B --> E[Trading Commissions]
-    B --> F[AI Premium]
-    style A fill:#6366f1,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style E fill:#f59e0b,color:#fff
-    style F fill:#f59e0b,color:#fff
-```
+This article began as model four in the parent “Content Selling Business Models” series. It now opens an eight-part subseries. The first four cases examine Taiwanese financial products; the next four add affiliate marketing, free tools, CAC and LTV, and AI search. Every article asks the same question: **what asset or action remains after the free visit, and is it worth its cost?**
 
-## Why Financial Content Can Be Free
-
-Not all content can be given away for free. Content that works in this model typically shares one trait: **it is commoditized**.
-
-Financial news is the textbook example of commoditized content. When TSMC reports earnings, cnYES reports it, [Yahoo Finance](https://finance.yahoo.com/) reports it, and Reuters reports it. The numbers are identical; only speed and presentation differ. Readers will not pay twice for the same set of figures.
-
-By contrast, [DIGITIMES](https://www.digitimes.com.tw/) can charge enterprises tens of thousands of NTD per year because its supply chain scoops are unavailable elsewhere. [The Information](https://www.theinformation.com/) can charge $399/year because its Silicon Valley insider stories are sourced through relationships no AI can replicate. These are scarce content — worth charging for directly.
-
-Free-content platforms acknowledge a different reality: **when content itself trends toward zero price, you wrap value around the content** — tools, community, trading access, AI-enhanced features. Content is the entrance, not the merchandise.
+## Separate traffic from the business outcome
 
 ```mermaid
-graph TD
-    subgraph Scarce Content
-        A[Supply chain scoops<br/>DIGITIMES] --- B[$$$<br/>Charge directly]
-        C[Silicon Valley insider<br/>The Information] --- D[$$$<br/>Charge directly]
-    end
-    subgraph Commodity Content
-        E[Earnings numbers<br/>Same everywhere] --- F[$0<br/>Cannot charge]
-        F --- G[Charge for the wrapper]
-    end
-    style A fill:#0d9488,color:#fff
-    style C fill:#0d9488,color:#fff
-    style E fill:#94a3b8,color:#fff
-    style B fill:#f59e0b,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style F fill:#ef4444,color:#fff
-    style G fill:#6366f1,color:#fff
+flowchart LR
+    A[Content, tools, and labor cost] --> B[Free entrance]
+    B --> C[Qualified audience]
+    C --> D[Signup, activation, or commercial action]
+    D --> E[New paying customer]
+    E --> F[Gross profit and retention]
+    B -.Pageviews only.-> X[Easy to misread]
+    C -.Wrong intent.-> L1[Leak]
+    D -.No activation.-> L2[Leak]
+    E -.Early churn.-> L3[Leak]
 ```
 
-## Five Platforms, Five Side Flanks
+A free entrance proves only that people can enter. It does not prove that they are qualified, activate, or pay. A free page and a paid product living on the same site therefore demonstrate a possible path, not causation. Attribution, event tracking, and cohorts are still needed.
 
-The five platforms below all provide free financial content. Each found a different monetization flank.
+## Eight articles, each testing one part of the path
 
-| Platform | Free Content | Ads | Tool Subscriptions | Transaction Fees | AI Premium | Community |
-|---|---|---|---|---|---|---|
-| [cnYES](https://www.cnyes.com/) | Real-time news | Primary | — | — | — | — |
-| [Yahoo Finance](https://finance.yahoo.com/) | Real-time news | Primary | Plus plan | — | — | — |
-| [CMoney](https://www.cmoney.tw/) | Basic tools | Secondary | Multi-tier | — | AI 股神 | Primary |
-| [BigGo Finance](https://finance.biggo.com.tw/) | AI podcast summaries | Yes (free tier) | Pro plan | — | AI chat | — |
-| [Fugle](https://www.fugle.tw/) | Research data | — | API subscriptions | Brokerage commissions | Fugle.AI | — |
+| Order | Free entrance | Possible paid job | What public evidence supports | What it does not prove |
+|---:|---|---|---|---|
+| 1 | cnYES news and market information | Ads, events, sponsored content, and other enterprise partnerships | Official materials list several advertising products | That cnYES is a pure-ad business or any revenue mix |
+| 2 | CMoney content, basic tools, and community | Apps, courses, creator products, and enterprise systems | The product design places methods, tools, and community in one loop | Which step actually improves conversion or retention |
+| 3 | BigGo Finance public summaries and financial entry points | Pro model, notification, and experience benefits | Free and paid layers coexist | How many summary readers subscribe or an exact current price |
+| 4 | Fugle research and product entry points | Market-data APIs, brokerage partnerships, and B2B information services | API plans, brokerage partners, and distinct products exist | That Fugle receives a commission on every trade |
+| 5 | Reviews, comparisons, and buying guides | Merchants pay affiliate commission for attributable outcomes | The commission model and disclosure obligations can be inspected | That every click is attributed or rates stay fixed |
+| 6 | A free tool that performs a real job | Paid tiers, leads, or an adjacent product | Tools can create a reason to return | That tools inevitably rank or earn backlinks |
+| 7 | Every free entrance | CAC, gross-margin LTV, and payback evaluate the result | Costs and new paying customers can be measured by cohort | That leads equal customers or 3:1 is universal |
+| 8 | Content read by search and answer engines | First-party relationships, tools, original signals, and direct brand demand | Crawling and attributable referrals are different events | That crawl-to-refer is CTR or a sitewide traffic-loss figure |
 
-The same pool of Taiwanese retail investors. Five different ways to extract revenue from them.
+The first four rows are product cases, not a weakest-to-strongest ranking. The final four form an operator's scorecard: how revenue is attributed, whether a tool provides real utility, whether unit economics work, and what remains when the search entrance changes.
+
+## The payer can change even when every entrance is free
+
+[The cnYES case](/en/posts/product/2026-09-17-anue-attention-ad-market-en) is a useful warning against reducing a free publication to “pure advertising.” The company's official offerings include digital ads, video, events, sponsored features, and content production. It is more accurate to describe several enterprise marketing products sharing an audience than a single banner-ad business. The official material confirms that the products exist; it does not disclose their revenue mix.
+
+[CMoney](/en/posts/product/2026-09-17-cmoney-content-tool-community-en) places content, tools, and community in one product environment. Its [official product recruiting page](https://www.cmoney.tw/careers/product) explicitly describes a loop of methods, tools, and community. That is product design, not a published conversion experiment. A smooth interface does not prove that community turns readers into subscribers.
+
+[BigGo Finance](/en/posts/product/2026-09-17-biggo-finance-ai-content-funnel-en) offers public podcast AI summaries alongside a Pro plan. “Content may acquire subscribers” is therefore a reasonable hypothesis, but public evidence does not reveal signup, payment, or retention rates for summary readers. This series omits precise prices supported only by a single official snapshot and does not turn an undisclosed transcription, translation, and review process into a fully automated content factory.
+
+[Fugle](/en/posts/product/2026-09-17-fugle-information-to-trading-en) shows a branching path. Individuals can buy [market-data API plans](https://developer.fugle.tw/docs/pricing/); partner brokerages continue to hold the accounts and assets; businesses can adopt data licensing, SDKs, or technical services. Those paths cannot be collapsed into “Fugle makes money from trading commissions.” Public evidence does not establish a per-trade commission paid to Fugle.
+
+## A flank is not a feature list; it is a payer buying an outcome
 
 ```mermaid
-graph LR
-    subgraph cnYES
-        A1[News] --> A2[Ads]
-    end
-    subgraph CMoney
-        B1[Tools] --> B2[Community + Subs]
-    end
-    subgraph BigGo Finance
-        C1[AI Summaries] --> C2[Pro Subs]
-    end
-    subgraph Fugle
-        D1[Research] --> D2[Brokerage + API]
-    end
-    style A2 fill:#f59e0b,color:#fff
-    style B2 fill:#f59e0b,color:#fff
-    style C2 fill:#f59e0b,color:#fff
-    style D2 fill:#f59e0b,color:#fff
+flowchart TD
+    A[Free entrance attracts qualified demand] --> P{Who pays for the next job?}
+    P -->|Advertiser or brand| B[Reach, content production, event]
+    P -->|User| C[Tool, subscription, course]
+    P -->|Merchant| D[Affiliate sale or qualified lead]
+    P -->|Enterprise or partner| E[Data, API, SDK, service]
+    B --> Q[Measure revenue and gross profit]
+    C --> Q
+    D --> Q
+    E --> Q
+    Q --> R{Are payback and retention sound?}
+    R -- Yes --> S[Keep investing in the free entrance]
+    R -- No --> T[Change the audience, product, or stop]
 ```
 
-## cnYES: The Ceiling of Pure Ad Revenue
+This diagram is more useful than a list of ads, subscriptions, transactions, and AI because it starts with the payer and the job. AI may appear in production, discovery, or a paid tool, but “uses AI” is neither a business model nor evidence that AI caused revenue growth.
 
-cnYES is one of Taiwan's highest-traffic financial news sites. A 24/7 editorial team, supplemented by wire services (Reuters, AP), produces real-time financial news covering Taiwan and US stocks, forex, futures, and funds. Its apps are well-rated on both the App Store and Google Play.
+## Four operating questions bring the story back to the ledger
 
-Its business model is the most classic version of internet media: free content generates traffic, traffic generates ad revenue. No paywall, no tool subscriptions, no trading functionality.
+First, `rel="sponsored"` is a search-engine signal, not a disclosure written for a person. [Google's spam policies](https://developers.google.com/search/docs/essentials/spam-policies) also identify affiliate pages without original value as thin affiliation. The [FTC disclosure guide](https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers) says material relationships should be disclosed clearly near the endorsement. FTC guidance is US guidance, not a legal conclusion for Taiwan.
 
-The cracks in this model are showing. In 2026, [NOWnews laid off over 40% of its staff](https://www.ftnn.com.tw/news/554607) (in Chinese), from around 140 people to just over 80 — a direct consequence of generative AI eroding traffic and ad revenue. ETtoday, under Eastern Media International, continues to lose money with its parent's investment book value turning negative at -NT$1.079 billion. Supporting a newsroom on ad revenue alone looks increasingly like cycling into a headwind.
+Second, a [free tool](/en/posts/product/2026-09-17-free-tools-seo-compounding-en) must perform the job it claims to perform. A tool can give users a reason to recalculate, save, or monitor something. Google does not promise that tools automatically rank or attract links, and large collections of low-value programmatic pages can instead become scaled content abuse.
 
-cnYES has not reached that breaking point yet, but the structural pressure is the same: Google AI Overviews have pushed zero-click searches from 56% to 69%, and publisher traffic has dropped by a third on average.
+Third, the denominator of [content CAC](/en/posts/product/2026-09-17-content-acquisition-cac-ltv-en) is new paying customers, not leads. The numerator should include content, distribution, tooling, and labor. Gross-margin LTV and payback then test the cash economics. [HubSpot's CAC guide](https://www.hubspot.com/startups/sales-and-marketing/calculating-cac-for-startups) also reminds teams to include tools, salaries, and founder time. A familiar ratio is context, not a substitute for the company's own cohorts.
 
-```mermaid
-graph TD
-    A[AI Hits Ad Traffic] --> B[NOWnews<br/>140 → 80 staff]
-    A --> C[ETtoday<br/>Book value -NT$1.08B]
-    A --> D[cnYES<br/>Same structural pressure]
-    style A fill:#ef4444,color:#fff
-    style B fill:#fca5a5,color:#000
-    style C fill:#fca5a5,color:#000
-    style D fill:#fed7aa,color:#000
-```
+Fourth, [AI search](/en/posts/product/2026-09-17-ai-takes-clicks-free-content-assets-en) further separates “the content was read” from “the reader visited.” [Cloudflare's crawl-to-refer ratio](https://blog.cloudflare.com/ai-search-crawl-refer-ratio-on-radar/) compares HTML crawls with identifiable referral visits and notes that native apps may omit the `Referer`. The metric is not CTR and cannot directly establish any publisher's sitewide traffic loss. Assets worth building include consensual first-party relationships, actionable tools, original signals, and direct brand demand.
 
-## CMoney: The Community-Plus-Tools Flywheel
+## Reading order
 
-[CMoney](https://www.cmoney.tw/) took a fundamentally different path. Its free content is just the entry point — the "股市爆料同學會" (Stock Market Insider Club) community creates stickiness that content alone cannot. The real revenue comes from tool subscriptions built around the community: charting tools (籌碼K線), portfolio analyzers (理財寶), and other multi-tier paid products designed for investors at different levels.
+1. [How free financial news makes money: cnYES and the three-sided attention market](/en/posts/product/2026-09-17-anue-attention-ad-market-en)
+2. [How free content sells tools: CMoney's methods, apps, and investor community](/en/posts/product/2026-09-17-cmoney-content-tool-community-en)
+3. [How AI summaries feed a subscription: BigGo Finance, free tools, and Pro](/en/posts/product/2026-09-17-biggo-finance-ai-content-funnel-en)
+4. [How free information reaches a trade: Fugle's research, API, and brokerage funnels](/en/posts/product/2026-09-17-fugle-information-to-trading-en)
+5. [Affiliate marketing unit economics: a business or just a one-time commission?](/en/posts/product/2026-09-17-affiliate-marketing-unit-economics-en)
+6. [How free tools compound search value: real utility, return loops, and maintenance](/en/posts/product/2026-09-17-free-tools-seo-compounding-en)
+7. [Does content acquisition pay? CAC, gross-margin LTV, payback, and attribution](/en/posts/product/2026-09-17-content-acquisition-cac-ltv-en)
+8. [What is left of free content when AI takes the click?](/en/posts/product/2026-09-17-ai-takes-clicks-free-content-assets-en)
 
-In 2026, CMoney launched [AI 股神](https://apps.apple.com/tw/app/ai%E8%82%A1%E7%A5%9E/id6753969485) (AI Stock Oracle), an app where you ask "Should I buy TSMC now?" in natural language and get a full report covering fundamentals, technicals, institutional positioning, and valuation. AI here is not used to produce free content for lead generation — it becomes a premium tool feature that users pay for.
+## Update log
 
-CMoney's moat is the community. A retail investor who already follows a dozen analysts, has saved hundreds of notes, and participates in daily discussions on the platform faces enormous switching costs. By contrast, switching between news sites is frictionless — closing cnYES and opening Yahoo Finance changes almost nothing about the experience.
-
-## BigGo Finance: AI Content as Funnel
-
-[BigGo Finance](https://finance.biggo.com.tw/) is a new product line from [BigGo](https://biggo.com.tw/), a comparison shopping engine founded in 2016 that raised a $5 million Series A in 2019. The platform offers real-time stock quotes, earnings call transcripts, market calendars, and AI chat.
-
-Its most interesting feature is [Podcast AI Summaries](https://finance.biggo.com.tw/podcast). It takes top English-language financial podcasts — Lenny's Podcast, the All-In Podcast, Goldman Sachs' The Markets — and uses AI to automatically produce structured Chinese-language notes. Not transcripts, but deep summaries with headings, tables, quotes, and unresolved questions. The quality is genuinely impressive.
-
-The key insight: these summaries are completely free. They are not the product — they are the funnel. BigGo Finance's monetization sits in the [Pro plan](https://finance.biggo.com.tw/pricing) ($20/month), which provides a deep-thinking AI model, 150 daily proactive alerts, 30-minute early access to earnings call news, and an ad-free experience. The podcast summaries exist to attract readers to the platform with high-quality free content, then convert through the overall platform experience.
-
-This is the most direct application of AI in the free-content model: automating content production drives the marginal cost toward zero, making the economics of "free as funnel" even more favorable.
-
-```mermaid
-graph LR
-    A[English Podcast] --> B[ASR]
-    B --> C[LLM Summary + Translate]
-    C --> D[Free Chinese Notes]
-    D --> E[Platform Traffic]
-    E --> F[Pro $20/mo]
-    style A fill:#94a3b8,color:#fff
-    style D fill:#6366f1,color:#fff
-    style F fill:#f59e0b,color:#fff
-```
-
-## Fugle: The Full Loop from Content to Transactions
-
-[Fugle](https://www.fugle.tw/) has gone furthest among the five. It started as a stock research platform offering free company data and market research, then extended step by step toward the transaction layer — partnering with Yushan, Taishin, and Fubon Securities to become one of Taiwan's first API-connected brokerages.
-
-Free content and research tools are the entry point. [Developer API](https://developer.fugle.tw/) subscriptions provide one revenue layer. Brokerage commissions provide another. In 2026, [Fugle.AI](https://www.fugle.ai/) extended this further by connecting Taiwan stock data to ChatGPT and Claude via MCP, letting users query stocks, manage watchlists, and set price alerts directly within AI conversations.
-
-Fugle's model most resembles what Robinhood did in the US: attract young investors with free tools and low (or zero) commissions, then earn from trading flow and value-added services. Content is not even the primary acquisition channel here — the product experience itself is.
-
-## Where AI Is Entering
-
-Looking across all five platforms, AI enters at different points:
-
-| Platform | What AI Does | AI's Role |
-|---|---|---|
-| cnYES | No visible AI deployment | — |
-| Yahoo Finance | Basic AI summaries | Auxiliary feature |
-| CMoney | AI 股神 one-click reports | Paid tool differentiator |
-| BigGo Finance | Podcast AI summaries + AI chat | Free funnel + paid premium |
-| Fugle | MCP integration with ChatGPT/Claude | Developer ecosystem |
-
-A pattern emerges: **AI is not replacing the free content layer — it is entering as a differentiator for the paid layer above it.** CMoney's AI Stock Oracle is a paid app, not a free article. BigGo Finance's AI chat offers deep-thinking mode only in the Pro plan. Fugle's AI integration targets developers and power users.
-
-Free content stays free. AI makes "the layer above free" more compelling.
-
-```mermaid
-graph TD
-    subgraph Free Layer
-        A[News / Quotes / Summaries]
-    end
-    subgraph AI Premium Layer
-        B[CMoney AI Stock Oracle<br/>Paid app]
-        C[BigGo Pro<br/>Deep-thinking mode]
-        D[Fugle.AI<br/>Developer MCP]
-    end
-    A -.->|AI does not replace| A
-    A ==>|AI stacks on top| B
-    A ==>|AI stacks on top| C
-    A ==>|AI stacks on top| D
-    style A fill:#94a3b8,color:#fff
-    style B fill:#f59e0b,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style D fill:#f59e0b,color:#fff
-```
-
-## The Risks of This Model
-
-Free content with side monetization is not risk-free. Three structural pressures are building:
-
-**Ad revenue is shrinking.** Google AI Overviews have cut publisher search traffic by a third on average. Platforms that depend primarily on advertising (the cnYES model) will face the greatest pressure. NOWnews and ETtoday are early warnings.
-
-**Content differentiation is getting harder.** When every platform can use AI to produce earnings analysis and news summaries in seconds, the quality gap between free content providers will narrow further. Differentiation will shift entirely to dimensions outside content.
-
-**Tool lock-in is the strongest moat.** Comparing the five platforms by defensibility: cnYES has almost zero switching costs — users can leave anytime. CMoney has community and tool lock-in. Fugle has trading accounts and API integrations. Content itself is barely a moat. **The shell around the content is.**
-
-```mermaid
-graph LR
-    A[cnYES<br/>Switching cost ≈ 0] --> B[BigGo Finance<br/>Light lock-in]
-    B --> C[CMoney<br/>Community + Tools]
-    C --> D[Fugle<br/>Accounts + API]
-    style A fill:#fca5a5,color:#000
-    style B fill:#fed7aa,color:#000
-    style C fill:#86efac,color:#000
-    style D fill:#0d9488,color:#fff
-```
-
-## Lessons for Builders
-
-If you are entering the "free content + side monetization" space, the five platforms' experiences point to several principles:
-
-**Don't try to charge for commodity content — charge for the wrapper.** cnYES proved financial news can be free. CMoney proved the tools and community surrounding news can be paid. Your content strategy should ask "what content brings the most people who need my tools?" rather than "what content is most valuable?"
-
-**There are five flanking options: ads, tools, community, transactions, AI premium.** Pure advertising is shrinking. Pure community is hard to bootstrap. The most robust combination is "tools plus one or two additional flanks." Fugle's "content → tools → transactions" closed loop is the most complete template today.
-
-**In Taiwan's small market, vertical depth beats horizontal breadth.** CMoney does not cover international news or forex trading — it only builds tools for Taiwan retail stock investors, and builds them well. BigGo Finance, by contrast, is extending horizontally from comparison shopping into finance, and brand association is still being established.
-
-**AI is the new wrapper.** BigGo Finance uses AI to turn free podcasts into platform stickiness. CMoney uses AI to turn stock analysis into a paid tool. The next opportunity: what content was previously too labor-intensive to give away for free, but can now be produced at zero marginal cost with AI — and used as a new funnel?
-
-Bloomberg Terminal charges $25,000 a year. cnYES is free. Same need, a thousand-fold price gap. The difference is not the content itself — it is what you choose to do with the content.
+- 2026-09-17: Rebuilt the former parent-series order 4 article as a subseries guide; removed unreliable exact pricing, revenue-mix, trading-commission, and AI-traffic causality claims; added links to all eight articles, a comparison table, decision diagrams, and unit-economics boundaries.
 
 ## References
 
-- [Bloomberg Terminal](https://www.bloomberg.com/professional/products/bloomberg-terminal/) — B2B financial data terminal
-- [cnYES (鉅亨網)](https://www.cnyes.com/) — Taiwan's largest financial news portal
-- [CMoney](https://www.cmoney.tw/) — Taiwan retail investor tools platform
-- [CMoney AI 股神 (AI Stock Oracle)](https://apps.apple.com/tw/app/ai%E8%82%A1%E7%A5%9E/id6753969485) — AI stock analysis app
-- [BigGo Finance](https://finance.biggo.com.tw/) — AI-powered financial info platform
-- [BigGo Finance pricing](https://finance.biggo.com.tw/pricing)
-- [BigGo Finance Podcast AI Summaries](https://finance.biggo.com.tw/podcast)
-- [Fugle](https://www.fugle.tw/) — Taiwan fintech platform
-- [Fugle Developer API](https://developer.fugle.tw/) — Taiwan stock real-time quotes and trading API
-- [Fugle.AI](https://www.fugle.ai/) — AI investment assistant with MCP integration
-- [Yahoo Finance](https://finance.yahoo.com/) — Global financial info platform
-- [NOWnews layoff report](https://www.ftnn.com.tw/news/554607) — FTNN News (in Chinese)
-- Series overview: [Who Sells Content: Four Models and One Threat](/posts/product/2026-09-16-content-selling-four-models)
+- Parent series: [Who Sells Content: Four Models and One Threat](/en/posts/product/2026-09-16-content-selling-four-models-en)
+- [cnYES case and official-source boundaries](/en/posts/product/2026-09-17-anue-attention-ad-market-en)
+- [CMoney product design](https://www.cmoney.tw/careers/product)
+- [BigGo Finance Podcast AI summaries](https://finance.biggo.com.tw/podcast)
+- [Fugle Developer API plans](https://developer.fugle.tw/docs/pricing/)
+- [Google Search spam policies](https://developers.google.com/search/docs/essentials/spam-policies)
+- [FTC: Disclosures 101 for Social Media Influencers](https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers)
+- [HubSpot: How to calculate CAC](https://www.hubspot.com/startups/sales-and-marketing/calculating-cac-for-startups)
+- [Cloudflare: AI search crawl-to-refer ratio](https://blog.cloudflare.com/ai-search-crawl-refer-ratio-on-radar/)

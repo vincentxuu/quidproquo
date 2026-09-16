@@ -1,243 +1,121 @@
 ---
-title: "免費內容、側翼變現：鉅亨網、CMoney、BigGo Finance 們怎麼活"
+title: "免費內容怎麼替別的生意獲客：八種路徑與一套算帳方法"
 date: 2026-09-16
 category: product
 type: deep-dive
-tags: [business-model, content-business, fintech, media, advertising, freemium]
+tags: [business-model, content-business, acquisition, fintech, advertising, freemium]
 lang: zh-TW
-tldr: "內容不收錢，錢從別的地方來——廣告、工具訂閱、交易佣金、AI 增值服務。財經資訊平台是這個模式的最佳範本：同一群投資人，Bloomberg 收 $25K/年，鉅亨網免費，差的不是內容品質，是變現側翼。"
-description: "拆解免費內容加側翼變現的商業模式，以財經資訊平台為案例：鉅亨網、CMoney、BigGo Finance、富果 Fugle、Yahoo Finance。內容是引流工具，不是產品本身。"
+tldr: "免費內容不是免費生意，而是一筆獲客投資；這個系列用廣告、工具、訂閱、券商合作、聯盟行銷與 AI 搜尋等八個案例，追問讀者最後完成了什麼付費工作。"
+description: "免費內容如何連到廣告、工具訂閱、券商合作與聯盟收入？用八篇案例拆解轉換路徑、單位經濟與 AI 搜尋風險。"
 draft: false
 series:
-  name: "內容販售商業模式拆解"
-  order: 4
+  name: "免費內容如何替別的生意獲客"
+  order: 0
 ---
 
 > 🌏 [English version](/en/posts/product/2026-09-16-free-content-side-monetization-en)
 
-[Bloomberg Terminal](https://www.bloomberg.com/professional/products/bloomberg-terminal/) 一年要價超過 25,000 美元。[鉅亨網](https://www.cnyes.com/)完全免費。兩者服務的是同一個根本需求：幫人做出投資決策。價差達一千倍，不是因為內容品質差一千倍，而是因為它們玩的是完全不同的遊戲。Bloomberg 賣的是內容本身——獨家資料、即時行情、分析工具綁在一起的終端機體驗。鉅亨網把內容送出去，從內容周圍的一切賺錢。
+想像夜市老闆免費送一小杯湯。那杯湯不是憑空變出來的：食材、攤位和人力都要錢。老闆願意送，是因為有些人喝完會買整碗，也可能順手買滷味；若大家只拿試喝就離開，排隊再長也不是好生意。
 
-這是內容販售的第四種模式：你根本不賣內容。
+免費內容也是如此。文章、新聞、Podcast 摘要與計算器都要製作、分發和維護。它們能不能成立，不取決於 pageview 看起來多漂亮，而是適合的讀者有沒有走到下一個能產生毛利的工作：看廣告、買工具、訂閱、透過合作券商完成服務，或向商家購買。
 
-```mermaid
-graph LR
-    A[免費內容] --> B[使用者流量]
-    B --> C[廣告收入]
-    B --> D[工具訂閱]
-    B --> E[交易佣金]
-    B --> F[AI 增值服務]
-    style A fill:#6366f1,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style E fill:#f59e0b,color:#fff
-    style F fill:#f59e0b,color:#fff
-```
+這篇原本是母系列「內容販售商業模式拆解」的第四種模式。現在把它展開成八篇子系列：前四篇看台灣財經產品，後四篇補上聯盟行銷、免費工具、CAC／LTV 與 AI 搜尋。核心問題始終相同：**免費入口留下了什麼，而且那個東西值不值得成本？**
 
-## 為什麼財經內容可以免費
-
-並非所有內容都適合免費。能免費的內容通常有一個共通特徵：**它是商品化的**。
-
-財經新聞是典型的商品化內容。台積電公布財報，鉅亨網報、Yahoo Finance 報、路透社也報。每家的數字一樣，差異只在速度和呈現方式。讀者不會為了同一組數字付兩次錢。
-
-相較之下，[DIGITIMES](https://www.digitimes.com.tw/) 能收年費數萬元，因為它的供應鏈獨家消息在別處看不到。[The Information](https://www.theinformation.com/) 能收 399 美元/年，因為它的矽谷內幕是記者用人脈換來的。這些是稀缺內容，值得直接收費。
-
-免費內容平台做的是另一件事：**承認內容本身的價格趨近於零，轉而把價值包裝在內容的外殼裡**——工具、社群、交易通道、AI 增值功能。內容是入口，不是商品。
+## 先把「流量」和「生意」分開
 
 ```mermaid
-graph TD
-    subgraph 稀缺內容
-        A[供應鏈獨家<br/>DIGITIMES] --- B[$$$<br/>直接收費]
-        C[矽谷內幕<br/>The Information] --- D[$$$<br/>直接收費]
-    end
-    subgraph 商品化內容
-        E[財報數字<br/>每家都一樣] --- F[$0<br/>不能收費]
-        F --- G[改收外殼的錢]
-    end
-    style A fill:#0d9488,color:#fff
-    style C fill:#0d9488,color:#fff
-    style E fill:#94a3b8,color:#fff
-    style B fill:#f59e0b,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style F fill:#ef4444,color:#fff
-    style G fill:#6366f1,color:#fff
+flowchart LR
+    A[內容、工具與人時成本] --> B[免費入口]
+    B --> C[合格受眾]
+    C --> D[註冊、啟用或商業動作]
+    D --> E[新增付費客戶]
+    E --> F[毛利與留存]
+    B -.只看 pageview.-> X[容易誤判]
+    C -.意圖不合.-> L1[流失]
+    D -.沒有啟用.-> L2[流失]
+    E -.很快取消.-> L3[流失]
 ```
 
-## 五個平台、五種側翼
+免費內容只保證有人可以進門，不保證來的人合適，也不保證會啟用或付費。因此「同一網站上同時有免費頁與付費產品」只能證明路徑存在，不能證明前者造成後者轉換。要證明因果，仍需來源歸因、事件追蹤與 cohort。
 
-以下五個平台都提供免費的財經內容，但各自找到了不同的變現側翼。
+## 八篇文章，各自檢查一段路徑
 
-| 平台 | 免費內容 | 廣告 | 工具訂閱 | 交易佣金 | AI 增值 | 社群 |
-|---|---|---|---|---|---|---|
-| [鉅亨網](https://www.cnyes.com/) | 即時新聞 | 主力 | — | — | — | — |
-| [Yahoo Finance](https://finance.yahoo.com/) | 即時新聞 | 主力 | Plus 方案 | — | — | — |
-| [CMoney](https://www.cmoney.tw/) | 基礎工具 | 次要 | 多層訂閱 | — | AI 股神 | 主力 |
-| [BigGo Finance](https://finance.biggo.com.tw/) | AI Podcast 摘要 | 有（免費版） | Pro 方案 | — | AI 對話 | — |
-| [富果 Fugle](https://www.fugle.tw/) | 研究資料 | — | API 訂閱 | 券商佣金 | Fugle.AI | — |
+| Order | 免費入口 | 可能承接的付費工作 | 可以從公開資料確認 | 不能直接推論 |
+|---:|---|---|---|---|
+| 1 | 鉅亨網新聞與市場資訊 | 廣告、活動、贊助內容與其他企業合作 | 官方廣告服務確實涵蓋多種商品 | 它是純廣告媒體、各收入占比 |
+| 2 | CMoney 內容、基礎工具與社群 | App、課程、創作者商品與企業系統 | 官方產品設計把方法、工具、社群放在同一循環 | 哪一步真的提高轉換或留存 |
+| 3 | BigGo Finance 公開摘要與財經入口 | Pro 的模型、通知與體驗權益 | 免費層與付費層並存 | 摘要帶來多少訂閱、精確現行價格 |
+| 4 | Fugle 研究與產品入口 | 行情 API、券商合作與 B2B 資訊服務 | API 方案、合作券商與不同產品邊界存在 | Fugle 從每筆交易抽佣 |
+| 5 | 評測、比較與選型內容 | 商家依可歸因成果支付聯盟佣金 | 佣金公式與揭露義務可檢查 | 點擊都能被歸因、固定佣金永遠不變 |
+| 6 | 真正完成工作的免費工具 | 付費版、名單或相鄰產品 | 工具可提供反覆使用理由 | 工具必然排名或得到 backlinks |
+| 7 | 所有免費入口 | 以 CAC、毛利 LTV 與回收期檢查 | 成本與新增付費客戶可按 cohort 計算 | leads 等於 customers、3:1 普遍適用 |
+| 8 | 會被搜尋與答案引擎讀取的內容 | 第一方關係、工具、原始訊號與品牌直達 | 抓取和可辨識導流是不同事件 | crawl-to-refer 等於 CTR 或全站流量跌幅 |
 
-同一群台灣散戶投資人，五個平台用五種不同的方式從他們身上賺錢。
+前四列是產品案例，不是由弱到強的排行榜。後四列則是一組經營檢查表：收入怎麼歸因、工具是否真的有用、單位經濟是否成立，以及搜尋入口改變後還剩下什麼。
+
+## 同樣免費，付錢的人可能完全不同
+
+[鉅亨網的案例](/posts/product/2026-09-17-anue-attention-ad-market)最適合提醒我們不要把「免費媒體」寫成「純廣告」。鉅亨官方列出的服務除了數位廣告，也包括影音、活動、贊助專題與內容製作；因此更準確的描述是多種企業行銷商品共享同一批讀者注意力，而不是單一 banner 生意。官方資料可以證明商品存在，不能證明各項收入占比。
+
+[CMoney](/posts/product/2026-09-17-cmoney-content-tool-community)把內容、工具與社群放在同一產品環境。[官方產品職缺頁](https://www.cmoney.tw/careers/product)甚至直接用「方法、工具、社群」描述循環。不過這是產品設計，不是公開的轉換實驗；不能因為介面接得順，就聲稱社群一定把讀者變成訂戶。
+
+[BigGo Finance](/posts/product/2026-09-17-biggo-finance-ai-content-funnel)同時提供公開 Podcast AI 摘要與 Pro 方案。這使「內容可能替訂閱獲客」成為合理假說，但公開資料沒有摘要讀者的註冊率、付費率或留存。本系列因此不放只有單一官方快照支持的精確價格，也不把未知的轉寫、翻譯與校對流程寫成全自動內容工廠。
+
+[Fugle](/posts/product/2026-09-17-fugle-information-to-trading)則展示一條分岔路徑：個人可購買[行情 API 方案](https://developer.fugle.tw/docs/pricing/)，券商帳戶與資產仍由合作券商承接，企業還可採用資料授權、SDK 或技術服務。這些路徑不能合併成「Fugle 靠交易佣金」；公開資料不足以支持每筆交易抽佣的說法。
+
+## 側翼不是清單，而是誰替哪個結果付錢
 
 ```mermaid
-graph LR
-    subgraph 鉅亨網
-        A1[新聞] --> A2[廣告]
-    end
-    subgraph CMoney
-        B1[工具] --> B2[社群 + 訂閱]
-    end
-    subgraph BigGo Finance
-        C1[AI 摘要] --> C2[Pro 訂閱]
-    end
-    subgraph 富果 Fugle
-        D1[研究] --> D2[券商佣金 + API]
-    end
-    style A2 fill:#f59e0b,color:#fff
-    style B2 fill:#f59e0b,color:#fff
-    style C2 fill:#f59e0b,color:#fff
-    style D2 fill:#f59e0b,color:#fff
+flowchart TD
+    A[免費入口吸引合格需求] --> P{誰願意為下一步付錢?}
+    P -->|廣告主或品牌| B[曝光、內容製作、活動]
+    P -->|使用者| C[工具、訂閱、課程]
+    P -->|商家| D[聯盟成交或合格名單]
+    P -->|企業或合作夥伴| E[資料、API、SDK、服務]
+    B --> Q[核對收入與毛利]
+    C --> Q
+    D --> Q
+    E --> Q
+    Q --> R{回收期與留存合理?}
+    R -- 是 --> S[繼續投入免費入口]
+    R -- 否 --> T[改受眾、產品或停止]
 ```
 
-## 鉅亨網：純廣告模式的天花板
+這張圖比「廣告、訂閱、交易、AI」的功能清單更有用，因為它先問付款者與購買工作。AI 可能出現在內容生產、搜尋入口或付費工具裡，但「用了 AI」本身不是商業模式，也不是收入成長的因果證據。
 
-鉅亨網是台灣流量最大的財經新聞網站之一。24 小時由編輯團隊搭配國際通訊社（路透、美聯社）產出即時財經新聞，涵蓋台股、美股、外匯、期貨與基金。App 在 App Store 和 Google Play 上評價穩定。
+## 四個經營問題，把漂亮故事拉回帳本
 
-它的商業模式是網路媒體最經典的版本：免費內容換流量，流量換廣告收入。沒有付費牆、沒有工具訂閱、沒有交易功能。
+第一，聯盟行銷的 `rel="sponsored"` 是搜尋標記，不是給人看的利益揭露。[Google 的垃圾內容政策](https://developers.google.com/search/docs/essentials/spam-policies)也把沒有原創價值的 thin affiliation 列為問題；[FTC 的揭露指引](https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers)則要求將重要關係清楚放在推薦附近。FTC 是美國指引，不是台灣法律結論。
 
-這個模式的問題正在浮現。2026 年，遊戲橘子旗下的 [NOWnews 大幅裁員](https://www.ftnn.com.tw/news/554607)，從 140 人砍到 80 多人，直接原因是生成式 AI 衝擊流量與廣告收入。東森新媒體 ETtoday 連年虧損，母公司帳面投資價值轉為負 10.79 億元。純靠廣告養活一個新聞編輯室，在 AI 時代越來越像在逆風騎車。
+第二，[免費工具](/posts/product/2026-09-17-free-tools-seo-compounding)必須真的完成宣稱的工作。工具可以讓人有重算、保存或監控的理由，卻沒有 Google 官方規則保證它必然排名或得到連結；大量低價值程序化頁面反而可能落入 scaled content abuse。
 
-鉅亨網還沒到這個地步，但結構性壓力是一樣的：Google AI Overviews 讓 zero-click 搜尋從 56% 上升到 69%，出版商流量平均下降了三分之一。
+第三，[內容 CAC](/posts/product/2026-09-17-content-acquisition-cac-ltv)的分母是新增付費客戶，不是 leads。分子要放進內容、分發、工具與人時，之後再拿毛利 LTV 與回收期檢查現金流。[HubSpot 對 CAC 的說明](https://www.hubspot.com/startups/sales-and-marketing/calculating-cac-for-startups)也提醒團隊納入工具、薪資與創辦人時間；常見比率只能當情境參考，不能代替自己的 cohort。
 
-```mermaid
-graph TD
-    A[AI 衝擊廣告流量] --> B[NOWnews<br/>140 → 80 人]
-    A --> C[ETtoday<br/>帳面 -10.79 億]
-    A --> D[鉅亨網<br/>結構壓力相同]
-    style A fill:#ef4444,color:#fff
-    style B fill:#fca5a5,color:#000
-    style C fill:#fca5a5,color:#000
-    style D fill:#fed7aa,color:#000
-```
+第四，[AI 搜尋](/posts/product/2026-09-17-ai-takes-clicks-free-content-assets)會讓「內容被讀取」與「讀者進站」進一步分離。[Cloudflare 的 crawl-to-refer ratio](https://blog.cloudflare.com/ai-search-crawl-refer-ratio-on-radar/)比較 HTML 抓取與可辨識 referral，並提醒原生 App 可能不帶 `Referer`。所以它不是 CTR，也不能直接推出每家網站的流量跌幅。真正該累積的是經同意取得的第一方關係、可操作工具、原始訊號和品牌直達。
 
-## CMoney：社群加工具的複合飛輪
+## 系列閱讀順序
 
-CMoney 走了完全不同的路。它的免費內容只是起點——「股市爆料同學會」社群讓散戶互相討論、分享看法，創造了內容之外的黏性。真正的收入來自圍繞社群的工具訂閱：籌碼 K 線、理財寶等多層付費產品，針對不同程度的投資人設計不同功能。
+1. [免費財經新聞怎麼賺錢：鉅亨網的讀者、廣告主與內容三方市場](/posts/product/2026-09-17-anue-attention-ad-market)
+2. [免費內容怎麼賣工具：CMoney 的方法、App 與投資社群](/posts/product/2026-09-17-cmoney-content-tool-community)
+3. [AI 摘要怎麼替訂閱獲客：BigGo Finance 的內容、工具與 Pro](/posts/product/2026-09-17-biggo-finance-ai-content-funnel)
+4. [免費資訊怎麼走到交易：Fugle 的研究、API 與券商合作漏斗](/posts/product/2026-09-17-fugle-information-to-trading)
+5. [聯盟行銷的單位經濟：何時是生意，何時只是一次佣金](/posts/product/2026-09-17-affiliate-marketing-unit-economics)
+6. [免費工具怎麼累積搜尋價值：真功能、回訪迴圈與維護成本](/posts/product/2026-09-17-free-tools-seo-compounding)
+7. [內容獲客划不划算：CAC、毛利 LTV、回收期與歸因](/posts/product/2026-09-17-content-acquisition-cac-ltv)
+8. [AI 拿走點擊後，免費內容還剩什麼？](/posts/product/2026-09-17-ai-takes-clicks-free-content-assets)
 
-2026 年 CMoney 推出了 [AI 股神](https://apps.apple.com/tw/app/ai%E8%82%A1%E7%A5%9E/id6753969485) app，用自然語言問「台積電現在可以買嗎？」就能一鍵生成涵蓋基本面、技術面、籌碼面和估值分析的完整報告。AI 在這裡不是用來產免費內容引流，而是成為付費工具的新賣點。
+## 更新紀錄
 
-CMoney 的護城河在於社群。一個散戶如果已經在「股市爆料同學會」裡追蹤了十幾個老師、存了幾百篇筆記，轉換成本非常高。相比之下，新聞內容幾乎沒有轉換成本——關掉鉅亨網開 Yahoo Finance，體驗差異微乎其微。
-
-## BigGo Finance：AI 內容作為漏斗
-
-[BigGo Finance](https://finance.biggo.com.tw/) 是比價引擎 [BigGo](https://biggo.com.tw/)（2016 年成立，2019 年 A 輪 500 萬美元）跨入財經的新產品線。它同時提供即時報價、法說會紀錄、市場行事曆和 AI 對話。
-
-其中最有意思的功能是 [Podcast AI 摘要](https://finance.biggo.com.tw/podcast)。它把英語頂級財經節目——Lenny's Podcast、All-In Podcast、高盛 The Markets——用 AI 自動轉成結構化的中文筆記。不是逐字稿，而是帶有標題、表格、引述和未解問題的深度摘要。品質令人印象深刻。
-
-關鍵是：這些摘要完全免費。它們不是產品，是漏斗。BigGo Finance 的付費點在 [Pro 方案](https://finance.biggo.com.tw/pricing)（20 美元/月），提供深度思考 AI 模型、每日 150 次主動通知、法說會提前 30 分鐘搶先看和無廣告體驗。Podcast 摘要的角色是用高品質免費內容吸引讀者進入平台，再靠整體體驗轉化付費。
-
-這是 AI 在免費內容模式裡最直接的應用：自動產出內容的邊際成本趨近於零，讓「免費引流」這件事的經濟學變得更好。
-
-```mermaid
-graph LR
-    A[英語 Podcast] --> B[語音辨識]
-    B --> C[LLM 摘要 + 翻譯]
-    C --> D[免費中文筆記]
-    D --> E[平台流量]
-    E --> F[Pro $20/月]
-    style A fill:#94a3b8,color:#fff
-    style D fill:#6366f1,color:#fff
-    style F fill:#f59e0b,color:#fff
-```
-
-## 富果 Fugle：從內容到交易的完整迴路
-
-[富果 Fugle](https://www.fugle.tw/) 是這五個平台裡走得最遠的。它從股票研究平台起步，提供免費的個股資料和市場研究，然後一步步往交易端延伸——與玉山、台新、富邦證券合作，成為台灣第一批用 API 串接下單的券商之一。
-
-免費內容和研究工具是入口，[開發者 API](https://developer.fugle.tw/) 訂閱帶來一層收入，券商交易佣金帶來另一層。2026 年推出的 [Fugle.AI](https://www.fugle.ai/) 進一步把台股資料接上 ChatGPT 和 Claude，讓使用者在 AI 對話裡直接查詢個股、管理追蹤清單和設定到價通知。
-
-富果的模式最像 Robinhood 在美國做的事：用免費工具和零（或低）佣金吸引年輕投資人，從交易流水和增值服務賺錢。內容在這裡甚至不是主要的引流工具——產品體驗本身才是。
-
-## AI 正在改變哪一層
-
-回顧五個平台，AI 進入的位置不同：
-
-| 平台 | AI 做什麼 | AI 的角色 |
-|---|---|---|
-| 鉅亨網 | 尚未明顯導入 | — |
-| Yahoo Finance | 基礎 AI 摘要 | 輔助功能 |
-| CMoney | AI 股神一鍵報告 | 付費工具賣點 |
-| BigGo Finance | Podcast AI 摘要 + AI 對話 | 免費引流 + 付費工具 |
-| Fugle | MCP 串接 ChatGPT/Claude | 開發者生態 |
-
-一個規律浮現：**AI 沒有取代免費內容層，而是作為付費增值層的差異化工具**。CMoney 的 AI 股神是付費 app，不是免費文章。BigGo Finance 的 AI 對話功能在 Pro 方案裡提供深度思考模式。富果的 AI 整合面向的是開發者和進階使用者。
-
-免費內容依然免費。AI 讓「免費之上的那一層」變得更有吸引力。
-
-```mermaid
-graph TD
-    subgraph 免費層
-        A[新聞 / 行情 / 摘要]
-    end
-    subgraph AI 增值層
-        B[CMoney AI 股神<br/>付費 app]
-        C[BigGo Pro<br/>深度思考模式]
-        D[Fugle.AI<br/>開發者 MCP]
-    end
-    A -.->|AI 沒取代| A
-    A ==>|AI 加在上面| B
-    A ==>|AI 加在上面| C
-    A ==>|AI 加在上面| D
-    style A fill:#94a3b8,color:#fff
-    style B fill:#f59e0b,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style D fill:#f59e0b,color:#fff
-```
-
-## 這個模式的風險
-
-免費內容加側翼變現不是無風險的。三個結構性壓力正在升高：
-
-**廣告收入在萎縮。** Google AI Overviews 讓出版商的搜尋流量平均下降三分之一。純靠廣告的平台（鉅亨網模式）將承受最大壓力。NOWnews 和 ETtoday 的困境是預警。
-
-**內容的差異化越來越難。** 當每個平台都能用 AI 在幾秒內產出財報分析和新聞摘要，「免費內容」的品質差異會進一步縮小。差異化將完全轉移到內容以外的維度。
-
-**工具鎖定是最強的護城河。** 比較五個平台的護城河強度：鉅亨網幾乎沒有轉換成本，讀者隨時可以換；CMoney 有社群和工具鎖定；富果有交易帳戶和 API 整合。內容本身幾乎不構成護城河，**包裹內容的殼才是**。
-
-```mermaid
-graph LR
-    A[鉅亨網<br/>轉換成本 ≈ 0] --> B[BigGo Finance<br/>輕度鎖定]
-    B --> C[CMoney<br/>社群 + 工具]
-    C --> D[富果 Fugle<br/>帳戶 + API]
-    style A fill:#fca5a5,color:#000
-    style B fill:#fed7aa,color:#000
-    style C fill:#86efac,color:#000
-    style D fill:#0d9488,color:#fff
-```
-
-## 給創業者的啟示
-
-如果你想進入「免費內容 + 側翼變現」的市場，五個平台的經驗指向幾個原則：
-
-**不要試圖對商品化內容收費——對外殼收費。** 鉅亨網證明了財經新聞可以免費；CMoney 證明了圍繞新聞的工具和社群可以收費。你的內容策略應該是「什麼內容能帶來最多需要我的工具的人」，而不是「什麼內容最值錢」。
-
-**側翼選項有五種：廣告、工具、社群、交易、AI 增值。** 純廣告正在萎縮，純社群很難起步。最穩健的組合是「工具 + 一到兩個附加側翼」。富果的「內容→工具→交易」迴路是目前最完整的範本。
-
-**在台灣的小市場裡，垂直深度勝過水平廣度。** CMoney 不做國際新聞、不做外匯交易——它只做台股散戶需要的工具做到極致。BigGo Finance 反過來，試圖從比價引擎橫向延伸到財經，品牌聯想還在建立中。
-
-**AI 是新的外殼。** BigGo Finance 用 AI 把免費 Podcast 變成平台黏性。CMoney 用 AI 把個股分析變成付費工具。下一波機會在於：還有什麼過去因為人力成本太高、無法免費提供的內容，現在可以用 AI 零邊際成本產出，作為新的引流入口？
-
-Bloomberg Terminal 一年收 25,000 美元。鉅亨網免費。同一個需求，一千倍的價差。差的不是內容本身——是你選擇用內容做什麼。
+- 2026-09-17：將母系列 order 4 的單篇拆解重寫為子系列導讀；移除未可靠的精確定價、收入占比、交易佣金與 AI 流量因果，新增八篇內鏈、比較表、決策圖與單位經濟邊界。
 
 ## 參考資料
 
-- [Bloomberg Terminal](https://www.bloomberg.com/professional/products/bloomberg-terminal/) — B2B 金融資料終端
-- [鉅亨網](https://www.cnyes.com/) — 台灣財經新聞入口
-- [CMoney](https://www.cmoney.tw/) — 台灣散戶投資工具平台
-- [CMoney AI 股神](https://apps.apple.com/tw/app/ai%E8%82%A1%E7%A5%9E/id6753969485) — AI 個股分析 app
-- [BigGo Finance](https://finance.biggo.com.tw/) — AI 財經資訊平台
-- [BigGo Finance 付費方案](https://finance.biggo.com.tw/pricing)
+- 母系列總覽：[誰在賣內容：四種模式與一個威脅](/posts/product/2026-09-16-content-selling-four-models)
+- [鉅亨網個案與官方來源邊界](/posts/product/2026-09-17-anue-attention-ad-market)
+- [CMoney 產品設計](https://www.cmoney.tw/careers/product)
 - [BigGo Finance Podcast AI 摘要](https://finance.biggo.com.tw/podcast)
-- [富果 Fugle](https://www.fugle.tw/) — 台灣金融科技平台
-- [Fugle Developer API](https://developer.fugle.tw/) — 台股即時報價與交易 API
-- [Fugle.AI](https://www.fugle.ai/) — AI 投資助理 MCP 整合
-- [Yahoo Finance](https://finance.yahoo.com/) — 全球財經資訊平台
-- [NOWnews 大幅裁員報導](https://www.ftnn.com.tw/news/554607) — FTNN 新聞網
-- 系列總覽：[誰在賣內容：四種模式與一個威脅](/posts/product/2026-09-16-content-selling-four-models)
+- [Fugle Developer API 方案](https://developer.fugle.tw/docs/pricing/)
+- [Google Search spam policies](https://developers.google.com/search/docs/essentials/spam-policies)
+- [FTC：Disclosures 101 for Social Media Influencers](https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers)
+- [HubSpot：How to calculate CAC](https://www.hubspot.com/startups/sales-and-marketing/calculating-cac-for-startups)
+- [Cloudflare：AI search crawl-to-refer ratio](https://blog.cloudflare.com/ai-search-crawl-refer-ratio-on-radar/)
