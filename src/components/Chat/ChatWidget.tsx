@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
-import { MessageList, type Message } from './MessageList'
-import { MessageInput } from './MessageInput'
+import type { Message } from './types'
+import { ChatThread } from './ChatThread'
 import { QuotaIndicator } from './QuotaIndicator'
+import { Suggestions, Suggestion } from '@/components/ai-elements/suggestion'
 
 const DAILY_LIMIT = 5
 const SUGGESTIONS_PER_PAGE = 3
@@ -201,90 +202,36 @@ export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: bo
         </div>
       )}
       {messages.length === 1 && !loading && (
-        <div style={styles.suggestionPanel}>
-          <div style={styles.suggestionHeader}>
-            <span style={styles.suggestionTitle}>可以這樣問</span>
-            <button
-              type="button"
-              onClick={() => setSuggestionPage(page => page + 1)}
-              style={styles.refreshButton}
-              aria-label="換一組預設問題"
-            >
-              換題目
-            </button>
-          </div>
-          <div style={styles.suggestions}>
+        <div className="flex items-center gap-2 border-b px-4 py-2.5" style={{ borderColor: 'var(--border)', background: 'var(--bg-card)' }}>
+          <span className="shrink-0 text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>可以這樣問</span>
+          <Suggestions className="flex-1">
             {visibleSuggestions.map((question) => (
-              <button
-                className="chat-suggestion-button"
+              <Suggestion
                 key={question}
-                type="button"
-                onClick={() => void sendMessage(question)}
-                style={styles.suggestionButton}
-              >
-                {question}
-              </button>
+                suggestion={question}
+                onClick={(q) => void sendMessage(q)}
+                className="whitespace-nowrap text-xs"
+              />
             ))}
-          </div>
+          </Suggestions>
+          <button
+            type="button"
+            onClick={() => setSuggestionPage(page => page + 1)}
+            className="shrink-0 rounded-lg border px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
+            style={{ borderColor: 'var(--border)', color: 'var(--brand-700)' }}
+            aria-label="換一組預設問題"
+          >
+            換題目
+          </button>
         </div>
       )}
-      <MessageList messages={messages} />
       {remaining !== null && (
         <div style={{ padding: '0.5rem 1rem 0' }}>
           <QuotaIndicator remaining={remaining} limit={DAILY_LIMIT} />
         </div>
       )}
-      <MessageInput onSend={sendMessage} disabled={loading} />
+      <ChatThread messages={messages} loading={loading} onSend={sendMessage} />
     </div>
   )
 }
 
-const styles = {
-  suggestionPanel: {
-    padding: '0.65rem 1rem',
-    borderBottom: '1px solid var(--border)',
-    background: 'var(--bg-card)',
-  },
-  suggestionHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: '0.75rem',
-    marginBottom: '0.45rem',
-  },
-  suggestionTitle: {
-    color: 'var(--text-secondary)',
-    fontSize: '0.78rem',
-    fontWeight: 700,
-    lineHeight: 1.2,
-  },
-  refreshButton: {
-    padding: '0.28rem 0.5rem',
-    borderRadius: 8,
-    border: '1px solid var(--border)',
-    background: 'var(--bg-page)',
-    color: 'var(--brand-700)',
-    cursor: 'pointer',
-    font: 'inherit',
-    fontSize: '0.76rem',
-    fontWeight: 700,
-    lineHeight: 1.2,
-  },
-  suggestions: {
-    display: 'flex',
-    flexWrap: 'wrap' as const,
-    gap: '0.45rem',
-  },
-  suggestionButton: {
-    padding: '0.38rem 0.55rem',
-    borderRadius: 8,
-    border: '1px solid var(--border)',
-    background: 'var(--brand-50)',
-    color: 'var(--brand-700)',
-    cursor: 'pointer',
-    font: 'inherit',
-    fontSize: '0.8rem',
-    lineHeight: 1.35,
-    textAlign: 'left' as const,
-  },
-}

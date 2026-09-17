@@ -10,7 +10,7 @@ description: "Comparing specialized document parsers (Cohere Parse, LlamaParse, 
 draft: false
 series:
   name: "Document Parsing in Practice"
-  order: 8
+  order: 11
 glossary:
   - term: "ParseBench"
     definition: "A document parsing benchmark published by LlamaIndex, covering ~2,000 human-verified enterprise pages across five dimensions: tables, charts, content faithfulness, semantic formatting, and visual grounding."

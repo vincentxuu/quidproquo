@@ -10,7 +10,7 @@ description: "比較專用文件 Parser（Cohere Parse、LlamaParse、Reducto）
 draft: false
 series:
   name: "文件解析實戰"
-  order: 8
+  order: 11
 glossary:
   - term: "ParseBench"
     definition: "LlamaIndex 發佈的文件解析基準，約 2,000 頁人工校驗的企業文件，涵蓋表格、圖表、內容忠實度、語意格式化、視覺定位五個維度。"
