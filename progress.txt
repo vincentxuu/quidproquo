@@ -19,7 +19,7 @@ In progress
 - **Qwen3 embeddings（代碼已 commit，CI/CD 自動部署）**：provider/adaptive splitting/cache namespace 已到位，待 production 向量重建與 20 題 live eval 確認品質。
 - Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：索引排隊中，待索引完成與 golden eval。
 - Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.
-- **Admin 後台 shadcn 化（2026-09-18，進行中）**：permissions 死連結修完（`/admin/policies`→`/admin/settings/permissions`）、側欄補 GitHub；Notifications／Behavior 由 placeholder 改為 shadcn React islands（讀寫既有 routines PUT API 真實欄位，傳送端／執行端尚未接線，見 Q-028）；Settings 首頁改 dashboard card 樣式。待 `pnpm verify`＋瀏覽器實測。
+- **Admin 後台 shadcn 化（2026-09-18，已 commit ff324ac9，verify 全綠）**：permissions 死連結修完、側欄補 GitHub；Notifications／Behavior 改為 shadcn islands（讀寫既有 routines PUT 真實欄位，傳送端／執行端未接線見 Q-028）；Settings 首頁 dashboard card 樣式。待瀏覽器實測。
 Next steps
 2. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
