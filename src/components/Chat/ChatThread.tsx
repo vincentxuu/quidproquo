@@ -26,9 +26,11 @@ export function ChatThread({ messages, loading, onSend }: ChatThreadProps) {
         id: msg.id,
         role: msg.role,
         content: msg.content || ' ',
-        status: msg.streaming
-          ? { type: 'running' as const }
-          : { type: 'complete' as const, reason: 'stop' as const },
+        ...(msg.role === 'assistant' && {
+          status: msg.streaming
+            ? { type: 'running' as const }
+            : { type: 'complete' as const, reason: 'stop' as const },
+        }),
       })),
     [messages],
   )
@@ -53,7 +55,9 @@ export function ChatThread({ messages, loading, onSend }: ChatThreadProps) {
     convertMessage: (message, idx) => ({
       ...message,
       id: message.id || `msg-${idx}`,
-      status: message.status || { type: 'complete', reason: 'stop' },
+      ...(message.role === 'assistant' && {
+        status: message.status || { type: 'complete', reason: 'stop' },
+      }),
       metadata: { custom: {} },
     }),
   })
