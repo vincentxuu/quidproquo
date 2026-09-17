@@ -1,3 +1,4 @@
+import '@/styles/chat.css'
 import {
   AssistantRuntimeProvider,
   ThreadPrimitive,

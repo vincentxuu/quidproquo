@@ -1,6 +1,7 @@
 ---
 import { verifySession } from '../lib/auth/session'
 import { ChatWidget } from '../components/Chat/ChatWidget'
+import '../styles/chat.css'
 const session = Astro.cookies.get('session')?.value
 const isAdmin = session ? await verifySession(session) : false
 ---

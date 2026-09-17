@@ -1,0 +1,27 @@
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+@theme inline {
+  --color-background: var(--bg-card, #ffffff);
+  --color-foreground: var(--text-primary, #1a1a1a);
+  --color-primary: var(--brand-700, #2d4a2d);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--bg-subtle, #f5f7f5);
+  --color-secondary-foreground: var(--text-primary, #1a1a1a);
+  --color-accent: var(--brand-100, #e8f5e8);
+  --color-accent-foreground: var(--text-primary, #1a1a1a);
+  --color-muted: var(--bg-subtle, #f5f7f5);
+  --color-muted-foreground: var(--text-muted, #767676);
+  --color-destructive: #b42318;
+  --color-border: var(--border, #d1e8d1);
+  --color-input: var(--border, #d1e8d1);
+  --color-ring: var(--brand-500, #4a9e6a);
+  --color-popover: var(--bg-card, #ffffff);
+  --color-popover-foreground: var(--text-primary, #1a1a1a);
+  --color-card: var(--bg-card, #ffffff);
+  --color-card-foreground: var(--text-primary, #1a1a1a);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.75rem;
+}
