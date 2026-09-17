@@ -2,9 +2,10 @@
 title: "定價追蹤｜OpenAI 10/14 讓 GPT-5.5 從 ChatGPT／Codex 退場，API 不受影響"
 date: 2026-09-17
 category: daily
+lang: zh-TW
 type: digest
 tags: [ai-agent, pricing, daily, openai]
-description: "OpenAI 宣布 GPT-5.5 將於 2026-10-14 從 ChatGPT、ChatGPT Work 與 Codex 全面下架，直接呼叫 OpenAI API 的 gpt-5.5 不受影響；Codex 用戶被導向的替代模型 GPT-5.6 Sol 反而更便宜"
+description: "OpenAI 宣布 GPT-5.5 將於 2026-10-14 從 ChatGPT、ChatGPT Work 與 Codex 全面下架，直接呼叫 OpenAI API 的 gpt-5.5 不受影響；Codex 使用者被導向的替代模型 GPT-5.6 Sol 反而更便宜"
 tldr: "OpenAI 於 2026-09-14 公告：GPT-5.5 將於 2026-10-14 從 ChatGPT、ChatGPT Work、Codex 全部方案下架，但直接呼叫 OpenAI API 的 `gpt-5.5` 不受影響——這是產品層淘汰，不是 API 淘汰。官方定價表上 gpt-5.5 短內容 input/output 是 $5.00/$30.00（每百萬 tokens），Codex 官方導向的替代模型 GPT-5.6 Sol 是 $4.00/$20.00，換過去同時省錢（input ↓20%、output ↓33%）。從公告到下架只有一個月緩衝，比 OpenAI 自家文件寫的「GA 模型至少 6 個月通知期」短很多。"
 series:
   name: "AI Pricing Watch"

@@ -52,11 +52,11 @@ Sequoia 與 Kleiner Perkins 這次共同領投 Series D,而 Series C 的既有�
 
 ## Watchlist 狀態
 
-Profound 尚未在 watchlist 中。現有 section 均以 coding agent、customer-facing agent 平台或垂直產業 agent 為主,沒有直接對應「AI 搜尋能見度 / GEO-AEO」這個子領域的既有分類。建議未來評估新增行銷/GEO 相關 section 時,將 Profound 列為代表案例;若暫不新增分類,可暫列入 D8（電商/行銷 agentic 平台）作為鄰近追蹤點,理由：兩者都服務品牌端的 AI 驅動能見度與轉換優化,但技術棧與購買決策鏈不完全相同。
+Profound 尚未在 watchlist 中。現有 section 均以 coding agent、customer-facing agent 平台或垂直產業 agent 為主,沒有直接對應「AI 搜尋能見度 / GEO-AEO」這個子領域的既有分類。建議未來評估新增行銷/GEO 相關 section 時,將 Profound 列為代表案例;若暫不新增分類,可暫列入 D8（電商/行銷 agentic 平台）作為鄰近追蹤點,理由：兩者都服務品牌端的 AI 驅動能見度與轉換優化,但 tech stack 與購買決策鏈不完全相同。
 
 ## 今日收穫
 
-Profound 的兩輪融資間隔只有七個月,說明 GEO/AEO 不是一次性的媒體熱點,而是投資人觀察到「AI 搜尋正在真的取代部分傳統搜尋流量」後的持續加碼——當 Sequoia、Kleiner Perkins 這類早期就押注過 Google 時代 SEO/SEM 工具鏈的基金,願意在七個月內連續兩輪加碼同一家 AI 搜尋能見度公司,這代表的認知轉變不是「AI 搜尋會不會重要」,而是「AI 搜尋已經重要到需要獨立的行銷技術棧」。
+Profound 的兩輪融資間隔只有七個月,說明 GEO/AEO 不是一次性的媒體熱點,而是投資人觀察到「AI 搜尋正在真的取代部分傳統搜尋流量」後的持續加碼——當 Sequoia、Kleiner Perkins 這類早期就押注過 Google 時代 SEO/SEM 工具鏈的基金,願意在七個月內連續兩輪加碼同一家 AI 搜尋能見度公司,這代表的認知轉變不是「AI 搜尋會不會重要」,而是「AI 搜尋已經重要到需要獨立的行銷 tech stack」。
 
 ## 參考資料
 

@@ -11,6 +11,7 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- **CI 修復（2026-09-17，待遠端驗證）**：Deploy run 35224971270 卡在 quality／tw；已修 4 篇 9/17 日報缺 lang 與 A 級用語，全量 `pnpm verify` 全綠。未改檢查／workflow；使用者已同意 commit/push，後續確認新 Deploy run 結果。
 - **AIP-C01 備考指南補強（2026-09-12）**：中英已補四步準備法、教材比較、實作與應考提醒，另補四份標準版後的獨立考生紀錄，區分 beta 與標準版並標註背景差異；targeted references／tw／diff check 通過，quality 僅既有 `career` tag 提示。全站 verify 既有 blocker 見 Q-024；未 commit／deploy，詳 `.work/aip-c01-update/`。
 - **AI 模型家族 order 19 Thinking Machines Lab／Inkling（2026-09-05）**：中英雙版已 commit；另修掉擋 verify 的真問題（tw A 級 30 處、quality 6 ERROR、references 3 ERROR、parity 4 draft 標記，詳 Q-021），全在別人 session 草稿上，只修未代 commit。
 - **Looplane 系列 Batch D（2026-08-30，內容完成）**：orders 17–18 兩組雙語文章、rivumi 舊檔清除已 commit/push（2026-09-04）。Playwright 型別衝突已自行消解。

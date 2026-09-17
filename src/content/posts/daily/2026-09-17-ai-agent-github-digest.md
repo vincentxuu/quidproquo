@@ -23,7 +23,7 @@ series:
 
 - **是什麼**：Cloudflare 開源的一份 coding-agent skill，把 agent 變成分六階段跑的資安稽核員——偵察、覆蓋率導向的漏洞獵人、候選驗證、結構化輸出、二次獨立驗證、目標中立報告。
 - **為什麼值得看**：這是 Cloudflare 自家「漏洞探索載具」的單一 repo 起點，官方部落格已公開撰文說明這套架構後來怎麼長成跨機群的多階段系統。核心設計是「發現者與驗證者永遠不是同一個 agent」——找到問題的 agent 不能自己認定問題成立，必須交給另一個從頭嘗試推翻它的 agent，等於把「同儕審查」制度化寫進 agent workflow。上線當天就衝上 1,249 顆新星，是今天漲幅最快的 AI 相關 repo。
-- **技術棧**：Node.js + 零依賴 JSON schema 驗證器（validate-findings.cjs／validate-coverage-ledger.cjs）+ Skills CLI 安裝機制
+- **tech stack**：Node.js + 零依賴 JSON schema 驗證器（validate-findings.cjs／validate-coverage-ledger.cjs）+ Skills CLI 安裝機制
 - **上手難度**：低——`npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit` 裝完就能對著任何 codebase 說「security audit this codebase」。
 
 ---
@@ -33,8 +33,8 @@ series:
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0
 
 - **是什麼**：Vercel 官方開源的 agent 開發框架，主打「打開的框架來建 agent」，隨附沙盒執行環境與 workflow 編排。
-- **為什麼值得看**：Vercel 過去靠 AI SDK 卡位「呼叫 LLM」這一層，eve 是往上再蓋一層——直接對標 LangGraph、Mastra 這類 agent 框架，而不只是模型呼叫工具箱。專案標籤裡明寫 harness、sandbox、workflows，顯示它想吃下「agent 怎麼被安全地跑起來」，而不只是「怎麼被寫出來」。open issues 840 相對於 forks 556 高出不少，看得出還在快速迭代、社群回饋量大但穩定性尚待觀察。
-- **技術棧**：TypeScript + 自家 sandbox 執行環境 + workflow 引擎
+- **為什麼值得看**：Vercel 過去靠 AI SDK 卡位「呼叫 LLM」這一層，eve 是往上再蓋一層——直接與 LangGraph、Mastra 這類 agent 框架競爭，而不只是模型呼叫工具箱。專案標籤裡明寫 harness、sandbox、workflows，顯示它想吃下「agent 怎麼被安全地跑起來」，而不只是「怎麼被寫出來」。open issues 840 相對於 forks 556 高出不少，看得出還在快速迭代、社群回饋量大但穩定性尚待觀察。
+- **tech stack**：TypeScript + 自家 sandbox 執行環境 + workflow 引擎
 - **上手難度**：中——官方文件（eve.dev）走 Vercel 慣用的一鍵部署風格，但要接自訂 sandbox 或跨 provider 模型仍需額外設定。
 
 ---
@@ -45,7 +45,7 @@ series:
 
 - **是什麼**：字節跳動旗下火山引擎開源的「agent 用的檔案系統」——把知識、記憶、技能全部攤在一個 `viking://` 虛擬路徑下，agent 可以像操作檔案一樣 ls／read／write／search。
 - **為什麼值得看**：它解決的是同一個記憶系統要同時服務「文件庫」「使用者記憶」「技能」三種不同生命週期資料的問題——多數 RAG/記憶框架把三者分開管，OpenViking 用「三層載入」（L0 摘要／L1 概覽／L2 全文）統一它們，讓 agent 先看摘要再決定要不要展開讀全文，藉此壓低不必要的 token 消耗。官方公佈的 LoCoMo 長對話記憶基準顯示三種 agent 整合後準確率都衝到 80–83%（對照原生記憶只有 24–57%），輸入 token 同時降低 34–91%。
-- **技術棧**：Python + 向量檢索 + Volcengine／OpenAI／Ollama 可插拔的 VLM/embedding 後端 + Docker 一鍵起服務
+- **tech stack**：Python + 向量檢索 + Volcengine／OpenAI／Ollama 可插拔的 VLM/embedding 後端 + Docker 一鍵起服務
 - **上手難度**：中——`pip install openviking` 加一個 embedding／VLM 服務就能跑本機版，但要接上 Claude／Codex 等既有 agent 需要額外裝 hooks 或 MCP。
 
 ---
@@ -56,7 +56,7 @@ series:
 
 - **是什麼**：Anthropic 官方開源的 11 個角色化 plugin（業務、行銷、法務、財務、資料、客服等），把 Claude Cowork／Claude Code 變成特定職能的專才，每個 plugin 內建 skills、connectors、slash commands。
 - **為什麼值得看**：跟一般「agent 框架」不同，這批東西完全是檔案——markdown 加 JSON，沒有程式碼、沒有 build 流程，代表客製一個角色 agent 的門檻被壓到只剩「編輯設定檔」。這也間接證實 Anthropic 內部真的是這樣分工用 Claude 的：sales、legal、finance、data 各自有一套獨立的 connector 清單和 workflow，而不是同一套 prompt 硬套所有職能。
-- **技術棧**：純 Markdown + JSON manifest + MCP connector 設定（`.mcp.json`）
+- **tech stack**：純 Markdown + JSON manifest + MCP connector 設定（`.mcp.json`）
 - **上手難度**：低——`claude plugin marketplace add anthropics/knowledge-work-plugins` 之後裝單一 plugin 就能用，客製化只需要改 markdown。
 
 ---
@@ -67,7 +67,7 @@ series:
 
 - **是什麼**：一支 CLI，幫 coding agent 一次裝好「讀懂整個網路」的能力——Twitter、Reddit、YouTube、GitHub、B站、小紅書都能讀能搜，主打零 API 費用。
 - **為什麼值得看**：它不做任何底層抓取邏輯，只做「選型 + 安裝 + 體檢」——每個平台背後其實是 yt-dlp、gh CLI、Jina Reader 這類既有工具的組合，Agent Reach 的價值是排好「首選失效就換備選」的優先序，並用 `agent-reach doctor` 一鍵告訴你哪個管道還通。這種「能力層」（而非另一個工具）的定位，反映出 agent 生態目前更缺的不是新工具，而是幫你選好、裝好、修好既有工具的中介層。7 個月衝上 8 萬顆星，是今天最誇張的漲幅，但這類單人維護、依賴多個第三方登入態（Cookie）的工具，長期穩定性和帳號風險都值得先掂量。
-- **技術棧**：Python CLI + 多後端路由（每平台首選＋備選）+ yt-dlp／gh CLI／Jina Reader／OpenCLI 等既有工具編排
+- **tech stack**：Python CLI + 多後端路由（每平台首選＋備選）+ yt-dlp／gh CLI／Jina Reader／OpenCLI 等既有工具編排
 - **上手難度**：低——複製一句安裝指令貼給 agent，agent 自己跑完剩下步驟；要解鎖需要登入態的平台（Twitter、Reddit 等）才需要額外設定。
 
 ## Notable Releases
