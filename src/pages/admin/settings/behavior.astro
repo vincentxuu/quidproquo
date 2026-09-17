@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import BehaviorManager from '@/components/admin/BehaviorManager.tsx';
 import { ensureConsoleUmbrella } from '../_guard';
 import '@/styles/globals.css';
 
@@ -12,7 +13,6 @@ const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
 ---
 
 <AdminV2Layout title="Behavior" section="settings" breadcrumb={breadcrumb}>
-  <div class="admin-panel">
-    <p class="admin-section-desc">全域行為預設——Auto-fix PR、Auto-create PR、Branch prefix。Phase 5 實作。</p>
-  </div>
+  <p class="mb-4 text-sm text-muted-foreground">每個 routine 的全域行為預設（auto-fix／auto-create PR）。Branch prefix 待後端確認後再加。</p>
+  <BehaviorManager client:load />
 </AdminV2Layout>

@@ -357,3 +357,12 @@
   - 順帶發現：2026-09-15 這篇的 frontmatter 也缺 `type: digest`（對照 2026-08-30 那篇有寫），可能是同一個 pipeline 版本差異的症狀，未深入查證範圍。
 - 為什麼現在不能做：55 篇 × 中英兩個檔案，屬於 >20 檔批次改動（Tier 2），且真正該修的地方可能是**產文的 pipeline skill 本身**（否則以後新產出的 daily 文章會繼續漏）——只補歷史文章治標不治本，需要人決定要不要一起查 pipeline skill 的產文步驟。
 - 接手第一步：先用上面的迴圈重新產生最新的缺漏清單（不要用本條目裡的數字，可能已經隨新文章變動）；找出負責產 daily 系列的 skill（`.agents/skills/daily-digest-report/` 或個別 routine 的 SKILL.md，Stage 3 組裝日報的那支)，確認它的模板有沒有這個跨語言連結步驟，沒有就先補上（skill 改完要 `pnpm skills:sync` + `pnpm verify`），這樣才能擋住未來繼續漏；歷史缺漏的 55 篇要不要一起批次補回去，問使用者。
+
+## Q-028 通知傳送端與 Behavior 執行端尚未接線（UI 已上線，值有存但無作用）
+- 登錄：2026-09-18（來源：admin 後台 shadcn 化 session，後台盤點後的使用者需求）
+- 做什麼：
+  1. 通知傳送端：`src/lib/notification/router.ts` 的 `createNotificationRouter` 全 repo 零呼叫；`registerChannel` 零註冊；`onRoutineSessionComplete`（`src/lib/notification/routine-hook.ts:21`）零呼叫——routine 跑完不會發任何通知，即使 DB 裡 `notification_enabled=1`。要決定：全域 webhook／topic 存哪（env secret 還是 D1 settings-store）、worker 啟動時在哪註冊 channels、session 完成鏈路在哪呼叫 hook。
+  2. Behavior 執行端：`behavior_auto_fix_pr`／`behavior_auto_create_pr` 只有 `src/pages/api/admin/routines/[id].ts:36-37` 在寫，全 repo 零讀取——開關存了也不會改變任何行為。要決定：runner 在哪消費、預設值、權限邊界；另有頁面自述的 branch prefix 欄位目前連 DB 欄位都沒有。
+  3. 已上線的 UI（`NotificationsManager.tsx`／`BehaviorManager.tsx`）讀寫的是既有 PUT API 的真實欄位，頁面上有「尚未接線」狀態說明——接線完成後記得拿掉 banner。
+- 為什麼現在不能做：Tier 2（牽涉 secret 存放位置、runtime 外部副作用發送通知、runner 行為改變）。secret 放 D1 vs env、預設開或關，都需要人拍板。
+- 接手第一步：讀 `src/lib/notification/router.ts`、`registry.ts`、`routine-hook.ts`、`src/lib/agent/routine-trigger.ts`，確認 session 完成事件從哪發出（找 session-manager 的完成回呼），再問使用者 secret 存放與預設政策。

@@ -113,7 +113,7 @@ function formatTs(ms: number | null): string {
   )}
   {!loadError && (
     <AdminPanel title={t('policies.library')} eyebrow={t('policies.libraryEyebrow')}>
-      <form class="mb-3 flex flex-wrap items-center gap-2" method="GET" action={consoleHref('/admin/policies', lang)}>
+      <form class="mb-3 flex flex-wrap items-center gap-2" method="GET" action={consoleHref('/admin/settings/permissions', lang)}>
         {lang === 'en' && <input type="hidden" name="lang" value="en" />}
         <label for="q" class="text-sm text-muted-foreground">{t('policies.searchLabel')}</label>
         <input
@@ -125,7 +125,7 @@ function formatTs(ms: number | null): string {
           placeholder={t('policies.searchPlaceholder')}
         />
         <button type="submit" class="rounded-lg border border-border bg-card px-3 py-1.5 text-xs font-semibold hover:bg-muted">{t('common.search')}</button>
-        {q && <a href={consoleHref('/admin/policies', lang)} class="rounded-lg border border-border bg-card px-3 py-1.5 text-xs no-underline hover:bg-muted">{t('common.clear')}</a>}
+        {q && <a href={consoleHref('/admin/settings/permissions', lang)} class="rounded-lg border border-border bg-card px-3 py-1.5 text-xs no-underline hover:bg-muted">{t('common.clear')}</a>}
       </form>
     </AdminPanel>
   )}

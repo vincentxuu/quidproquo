@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import NotificationsManager from '@/components/admin/NotificationsManager.tsx';
 import { ensureConsoleUmbrella } from '../_guard';
 import '@/styles/globals.css';
 
@@ -12,7 +13,6 @@ const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
 ---
 
 <AdminV2Layout title="Notifications" section="settings" breadcrumb={breadcrumb}>
-  <div class="admin-panel">
-    <p class="admin-section-desc">通知通道設定——Discord、Email、Slack、Telegram。Phase 5 實作。</p>
-  </div>
+  <p class="mb-4 text-sm text-muted-foreground">每個 routine 的通知開關與 channel 設定。Branch prefix 等全域預設待後端確認後再加。</p>
+  <NotificationsManager client:load />
 </AdminV2Layout>

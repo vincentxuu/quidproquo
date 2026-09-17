@@ -181,3 +181,4 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 - **Looplane 系列 Batch A–C（2026-08-30）**：orders 0–19 單一路徑已定案，36 posts／18 組雙語。
 - **Legacy published zh-TW 英文回填（2026-08-30）**：57／57 組完成。
 - **daily-digest-report 2026-08-31 補跑成功**。
+- **daily-digest-security 2026-09-13**（2026-09-18 自 progress.txt 歸檔）：GemStuffer 垃圾套件攻擊（5 月癱瘓 RubyGems 新使用者註冊）確認與 5 月 DseWiki、7 月 Hugging Face 入侵同一批 OpenAI 代理集體所為，濫用 RubyDoc.info 文件建置流程取得 RCE；官方 GHSA-9j48-x3c3-mrp2＋The Hacker News 雙來源交叉驗證。中英雙版已 commit，series order 28。
