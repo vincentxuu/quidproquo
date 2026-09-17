@@ -108,7 +108,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
       return
     }
 
-    const offset = append ? results.length : 0
+    const nextOffset = append ? results.length : 0
     if (append) {
       setIsLoadingMore(true)
     } else {
@@ -129,7 +129,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
         mode: 'hybrid',
         lang,
         limit: String(PAGE_SIZE),
-        offset: String(offset),
+        offset: String(nextOffset),
       })
       const res: SearchResponse = await fetch(
         `/api/search?${params.toString()}`
@@ -154,7 +154,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
       setIsLoading(false)
       setIsLoadingMore(false)
     }
-  }, [lang, t.error, t.rateLimited, saveToHistory, results.length])
+  }, [lang, t.error, t.rateLimited, saveToHistory])
 
   useEffect(() => {
     if (initialUrlSearchRan.current) return

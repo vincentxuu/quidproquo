@@ -103,7 +103,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
 
     const fetchLimit = Math.min(500, limit + offset)
     const [sourceRuns, keywordTotal] = await Promise.all([
-      runSearchSources({ query, lang, mode: resolvedMode, fetchLimit, settings }),
+      runSearchSources({ query, lang, mode: resolvedMode, fetchLimit, settings, offset }),
       countKeywordPosts(db, query, lang).catch(() => 0),
     ])
     const visibleRuns = sourceRuns.filter(run => run.config.visible && !run.config.shadow)
@@ -240,6 +240,7 @@ async function runSearchSources(args: {
   mode: SearchMode
   fetchLimit: number
   settings: SearchPageSettings
+  offset: number
 }): Promise<SourceRun[]> {
   const orderedSources = args.settings.sources
     .map(id => ({ id, config: args.settings.sourceConfig[id] }))
@@ -266,6 +267,7 @@ async function runSearchSource(
     mode: SearchMode
     fetchLimit: number
     settings: SearchPageSettings
+    offset: number
   }
 ): Promise<SourceRun> {
   try {
@@ -296,12 +298,13 @@ async function runRawSearchSource(
     mode: SearchMode
     fetchLimit: number
     settings: SearchPageSettings
+    offset: number
   }
 ): Promise<{ results: SearchResult[]; metrics: SearchMetrics[] }> {
   const db = (env as unknown as Env).DB
   if (id === 'd1Keyword') {
     return {
-      results: await searchKeywordPosts(db, args.query, args.lang, args.fetchLimit, 0),
+      results: await searchKeywordPosts(db, args.query, args.lang, args.fetchLimit, args.offset),
       metrics: [],
     }
   }
