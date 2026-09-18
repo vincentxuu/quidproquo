@@ -40,6 +40,17 @@ sed -E 's/session_[A-Za-z0-9]{20,}/session_<id>/g; s/cse_[A-Za-z0-9]{20,}/cse_<i
 - 頁面會記住上次選擇（repo／模型），下一輪開頭要重設或註明。
 - iframe 內容（WYSIWYG 編輯器、slide 預覽）要切 frame 才看得到 DOM；srcdoc iframe 的 `designMode`／`contentEditable` 用 evaluate 讀。
 
+## 實戰補充（BigGo Finance 全站拆解，2026-09-18）
+
+- **headless 被擋就換 headed**：同一站 headless 回 `Access denied`、headed 一次過。先花 30 秒兩種都試，不要直接宣稱「無真瀏覽器」——沒查就寫是走捷徑。
+- **手刻 fetch 403 先懷疑路徑，不是標頭**：照抄 Bearer 仍 403，最後發現真端點在另一命名空間（`/sparrowhawk/*` 而非裸 `/sessions`）。確認順序：路徑 → 方法 → 標頭，一次只變一個變因。
+- **走真 UI，不要手刻請求**：站方 JS 自帶的標頭（`Site`、`X-Doorkeeper-Token`、doorkeeper 建會話）很難抄齊；點真的按鈕讓它的 JS 自己帶，HAR 全錄（`record_har_mode="full"`）。
+- **串流回應體 HAR 才有**：`response.text()` 在頁面已消費 stream 後回空字串；要 SSE 全文必須開 HAR full 模式，事後離線 parse。
+- **登入態用 persistent profile**：`launch_persistent_context`＋固定目錄，一次登入多輪共用；帳密放 600 權限暫存檔、跑完即刪；密碼進過對話記錄就提醒更換。
+- **Enter 可能送錯框**：頁面有多個 textbox 時（頂部搜尋 vs 對話輸入），`first` 會選錯；用 placeholder 定位，送出後檢查 traffic 有沒有真的 `/message`。
+- **開面板即建會話的服務**：每次開面板都是一個新 session id，清場時用 list 逐一 DELETE，不要只刪記得的那個；使用者原有的會話（title 對不上測試命名）不動。
+- **使用者自己的 DevTools 截圖也是證據**：cookie/localStorage 的形狀（JWT 首段、HttpOnly 旗標）可直接判讀憑證分工，值不落筆只寫形狀。
+
 ## 對方環境內的唯讀盤點（L7，只在允許時）
 
 一次送一段唯讀指令，讓對方 agent 執行並回傳：`uname -a; cat /etc/os-release; nproc; free -h; df -h /; ps -o pid,cmd -p 1`、`which <tool> && <tool> --version`、`env | sed 's/=.*/=<masked>/'`、`cat ~/.claude/settings*.json`、`git config -l`。
