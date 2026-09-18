@@ -31,42 +31,12 @@ export function ChatFloating() {
           backdropFilter: 'blur(8px)',
           transition: 'all 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
         }}>
-          <div style={{
-            padding: '0.9rem 1.1rem',
-            borderBottom: '1px solid var(--border)',
-            fontWeight: 700,
-            fontSize: '0.875rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            background: 'var(--bg-card)',
-          }}>
-            <span className="flex items-center gap-2">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--brand-500)]">
-                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z" fill="var(--brand-900)" stroke="none"/>
-                <path d="M12 8v8" stroke="var(--brand-500)"/>
-                <path d="M8 12h8" stroke="var(--brand-500)"/>
-              </svg>
-              <span className="tracking-wide">Ask AI</span>
-            </span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-              <button
-                onClick={() => setExpanded(v => !v)}
-                aria-label={expanded ? '縮小視窗' : '展開視窗'}
-                className="chat-header-btn"
-              >
-                {expanded ? '⊖' : '⊕'}
-              </button>
-              <button
-                onClick={() => setOpen(false)}
-                aria-label="關閉"
-                className="chat-header-btn"
-              >✕</button>
-            </div>
-          </div>
-          <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-            <ChatWidget embedded />
-          </div>
+          <ChatWidget
+            embedded
+            onClose={() => setOpen(false)}
+            onExpandToggle={() => setExpanded(v => !v)}
+            isExpanded={expanded}
+          />
         </div>
       )}
       <button
@@ -104,23 +74,6 @@ export function ChatFloating() {
         @keyframes chat-pop-in {
           from { opacity: 0; transform: translateY(12px) scale(0.97); }
           to   { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .chat-header-btn {
-          background: none;
-          border: none;
-          cursor: pointer;
-          color: var(--text-secondary);
-          padding: 0.25rem 0.4rem;
-          line-height: 1;
-          font-size: 1.1rem;
-          border-radius: 4px;
-          transition: background 0.12s, color 0.12s;
-        }
-
-        .chat-header-btn:hover {
-          background: var(--bg-hover, rgba(128, 128, 128, 0.15));
-          color: var(--text-primary);
         }
 
         .chat-float-close {

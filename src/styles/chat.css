@@ -1,6 +1,11 @@
 @import "tailwindcss/theme";
 @import "tailwindcss/utilities";
 
+/* 站內主題用 `[data-theme="dark"]` 切換（見 chat.astro / PostLayout），
+   但 shadcn／ai-elements 的 `dark:` variant 預設只認 `.dark` class，
+   不宣告這行則深色下所有 `dark:` 規則靜默失效。 */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* Streamdown（回答區 Markdown 渲染）把連結畫成 <button data-streamdown="link">，
    其 class（appearance-none、wrap-anywhere 等）只存在於 node_modules 的打包檔，
    Tailwind 預設掃不到 src/ 以外的檔案就不會產生對應 CSS。

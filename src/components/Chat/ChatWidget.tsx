@@ -2,10 +2,11 @@ import { useState, useRef, useEffect } from 'react'
 import type { Message, Step } from './types'
 import { ChatThread } from './ChatThread'
 import { QuotaIndicator } from './QuotaIndicator'
-import { Suggestions, Suggestion } from '@/components/ai-elements/suggestion'
+import { ChatHeader, ChatHeaderToolbar } from './ChatHeader'
+import { Suggestion } from '@/components/ai-elements/suggestion'
 
 const DAILY_LIMIT = 5
-const SUGGESTIONS_PER_PAGE = 3
+const SUGGESTIONS_PER_PAGE = 4
 const SUGGESTED_QUESTIONS = [
   '你寫過哪些 AI agent 相關文章？',
   '幫我找 RAG 成本優化的文章',
@@ -54,15 +55,30 @@ interface PendingMessage {
   text: string;
 }
 
-export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: boolean; pendingMessage?: PendingMessage }) {
-  const [messages, setMessages] = useState<Message[]>([{
-    id: 'welcome',
-    role: 'assistant',
-    content: '你好！我可以回答關於這個部落格的問題。',
-  }])
+const WELCOME_MESSAGE: Message = {
+  id: 'welcome',
+  role: 'assistant',
+  content: '你好！我可以回答關於這個部落格的問題。',
+}
+
+export function ChatWidget({
+  embedded = false,
+  pendingMessage,
+  onClose,
+  onExpandToggle,
+  isExpanded,
+}: {
+  embedded?: boolean
+  pendingMessage?: PendingMessage
+  onClose?: () => void
+  onExpandToggle?: () => void
+  isExpanded?: boolean
+}) {
+  const [messages, setMessages] = useState<Message[]>([WELCOME_MESSAGE])
   const [loading, setLoading] = useState(false)
   const [remaining, setRemaining] = useState<number | null>(null)
   const [suggestionPage, setSuggestionPage] = useState(0)
+  const abortRef = useRef<AbortController | null>(null)
   const threadId = useRef(
     typeof localStorage !== 'undefined'
       ? (localStorage.getItem('chat_thread_id') ?? crypto.randomUUID())
@@ -74,6 +90,23 @@ export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: bo
       localStorage.setItem('chat_thread_id', threadId.current)
     }
   }, [])
+
+  const handleNewChat = () => {
+    abortRef.current?.abort()
+    abortRef.current = null
+    const nextId = crypto.randomUUID()
+    threadId.current = nextId
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('chat_thread_id', nextId)
+    }
+    setMessages([WELCOME_MESSAGE])
+    setRemaining(null)
+    setSuggestionPage(0)
+  }
+
+  const handleStop = () => {
+    abortRef.current?.abort()
+  }
 
   const sendMessage = async (text: string) => {
     const userMsg: Message = { id: crypto.randomUUID(), role: 'user', content: text }
@@ -89,11 +122,16 @@ export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: bo
     setMessages(prev => [...prev, userMsg, assistantMsg])
     setLoading(true)
 
+    abortRef.current?.abort()
+    const controller = new AbortController()
+    abortRef.current = controller
+
     try {
       const resp = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text, thread_id: threadId.current }),
+        signal: controller.signal,
       })
 
       if (!resp.ok) {
@@ -212,7 +250,18 @@ export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: bo
         }
       }
       if (buffer.trim()) processBlock(buffer)
+    } catch (err) {
+      if (err instanceof DOMException && err.name === 'AbortError') {
+        setMessages(prev => prev.map(m =>
+          m.id === assistantId ? { ...m, content: m.content || '已停止生成', streaming: false } : m
+        ))
+      } else {
+        setMessages(prev => prev.map(m =>
+          m.id === assistantId ? { ...m, content: m.content || '發生錯誤，請稍後再試', streaming: false } : m
+        ))
+      }
     } finally {
+      if (abortRef.current === controller) abortRef.current = null
       setLoading(false)
       setMessages(prev => prev.map(m =>
         m.id === assistantId ? { ...m, streaming: false } : m
@@ -246,36 +295,52 @@ export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: bo
 
   return (
     <div style={containerStyle}>
-      {!embedded && (
-        <div style={{ padding: '0.95rem 1rem', borderBottom: '1px solid var(--border)', background: 'var(--bg-card)' }}>
-          <div style={{ fontWeight: 800, fontSize: '1rem', color: 'var(--brand-900)' }}>Ask AI</div>
-          <div style={{ marginTop: '0.2rem', fontSize: '0.84rem', lineHeight: 1.45, color: 'var(--text-secondary)' }}>
-            搜尋這個部落格的文章脈絡、技術筆記與延伸閱讀。
-          </div>
-        </div>
-      )}
+      <ChatHeader
+        status={loading ? 'streaming' : 'idle'}
+        subtitle="搜尋這個部落格的文章脈絡、技術筆記與延伸閱讀。"
+        onExpandToggle={onExpandToggle}
+        isExpanded={isExpanded}
+        onClose={onClose}
+        extraActions={
+          <ChatHeaderToolbar
+            messages={messages}
+            loading={loading}
+            streaming={loading}
+            onNewChat={handleNewChat}
+            onStop={handleStop}
+          />
+        }
+      />
       {messages.length === 1 && !loading && (
-        <div className="flex items-center gap-2 border-b px-4 py-2.5" style={{ borderColor: 'var(--border)', background: 'var(--bg-card)' }}>
-          <span className="shrink-0 text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>可以這樣問</span>
-          <Suggestions className="flex-1">
+        <div className="border-b px-4 py-3" style={{ borderColor: 'var(--border)', background: 'var(--bg-card)' }}>
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>可以這樣問</span>
+            <button
+              type="button"
+              onClick={() => setSuggestionPage(page => page + 1)}
+              className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
+              style={{ color: 'var(--brand-700)' }}
+              aria-label="換一組預設問題"
+            >
+              <RefreshCwIcon className="size-3.5" />
+              換題目
+            </button>
+          </div>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {visibleSuggestions.map((question) => (
               <Suggestion
                 key={question}
                 suggestion={question}
                 onClick={(q) => void sendMessage(q)}
-                className="whitespace-nowrap text-xs"
+                className="h-auto justify-start whitespace-normal text-left text-xs leading-relaxed"
+                style={{
+                  background: 'var(--bg-subtle)',
+                  color: 'var(--text-primary)',
+                  borderColor: 'var(--border)',
+                }}
               />
             ))}
-          </Suggestions>
-          <button
-            type="button"
-            onClick={() => setSuggestionPage(page => page + 1)}
-            className="shrink-0 rounded-lg border px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
-            style={{ borderColor: 'var(--border)', color: 'var(--brand-700)' }}
-            aria-label="換一組預設問題"
-          >
-            換題目
-          </button>
+          </div>
         </div>
       )}
       {remaining !== null && (
@@ -285,6 +350,17 @@ export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: bo
       )}
       <ChatThread messages={messages} loading={loading} onSend={sendMessage} />
     </div>
+  )
+}
+
+function RefreshCwIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+      <path d="M21 3v5h-5" />
+      <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+      <path d="M8 16H3v5" />
+    </svg>
   )
 }
 
