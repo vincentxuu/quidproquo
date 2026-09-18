@@ -208,6 +208,9 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
               send('tool_result', { tool: 'related_posts', label: '相關文章', results: posts.map(p => ({ title: p.title, url: p.slug, type: 'post' })) })
               send('related', posts)
             },
+            onReasoning: (info) => {
+              send('reasoning', info)
+            },
             onSearchResults: (results) => {
               // 搜尋結果 → tool_call + tool_result
               const resultsData = results.map(r => ({ title: r.title, url: r.source_url, type: r.type }))

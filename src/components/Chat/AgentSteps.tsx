@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface AgentStep {
+export interface AgentStep {
   agent: string
   status: 'started' | 'completed'
   chunks_found?: number

@@ -18,6 +18,10 @@ export interface Message {
   role: 'user' | 'assistant'
   content: string
   steps?: Step[]
+  reasoning?: {
+    stage: string
+    text: string
+  }[]
   sources?: (
     | string
     | {

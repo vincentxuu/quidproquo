@@ -48,7 +48,7 @@ export async function plannerNode(
   const maxTokens = options?.maxTokens ?? 512
   const prompt = buildPlannerPrompt(state, options?.skillInstructions)
 
-  const { response, route } = await invokeModel(
+  const { response, route, reasoning } = await invokeModel(
     state.config,
     'planner',
     [
@@ -58,7 +58,7 @@ export async function plannerNode(
     options?.apiKeys
   )
 
-  return buildPlannerUpdate(state, { response, route })
+  return buildPlannerUpdate(state, { response, route, reasoning })
 }
 
 export const plannerAgent = defineAgent<GraphState, Partial<GraphState>>({
@@ -93,8 +93,7 @@ function buildPlannerPrompt(state: GraphState, skillInstructions?: string): stri
   return `${INTENT_PROMPT}${skillInstructions ? `\n\nAgent skill instructions:\n${skillInstructions}` : ''}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`
 }
 
-function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Partial<GraphState> {
-  const { response, route } = result
+function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Partial<GraphState> {  const { response, route } = result
   let plan: Plan = {
     intent: 'factual',
     complexity: 'medium',
@@ -124,6 +123,10 @@ function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Part
   return {
     plan,
     language,
-    model_usage: [...state.model_usage, { stage: 'planner', ...route }],
+    model_usage: [...state.model_usage, {
+      stage: 'planner',
+      ...route,
+      ...(result.reasoning ? { reasoning: result.reasoning } : {}),
+    }],
   }
 }

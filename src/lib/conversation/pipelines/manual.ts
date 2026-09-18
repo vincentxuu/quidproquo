@@ -39,7 +39,11 @@ export async function runManualPipeline(
   const runStep = async (stage: string, fn: (state: GraphState) => Promise<Partial<GraphState>>) => {
     const started = Date.now()
     const previousTokens = state.token_usage
+    const previousUsageCount = state.model_usage.length
     const update = await fn(state)
+    for (const entry of (update.model_usage ?? []).slice(previousUsageCount)) {
+      if (entry.reasoning) callbacks.onReasoning?.({ stage: entry.stage, text: entry.reasoning })
+    }
     state = {
       ...state,
       ...update,

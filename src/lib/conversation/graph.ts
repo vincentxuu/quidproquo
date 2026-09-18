@@ -188,6 +188,13 @@ export async function runPipeline(
       if (posts.length > 0) callbacks.onRelated(posts)
     }
 
+    // reasoning 模型在 model_usage 留下思考文字就往前送（planner/writer/critic）。
+    // update.model_usage 是完整陣列，用長度差找出本輪新增的 entries。
+    const prevUsageCount = finalState.model_usage.length
+    for (const entry of (update.model_usage ?? []).slice(prevUsageCount)) {
+      if (entry.reasoning) callbacks.onReasoning?.({ stage: entry.stage, text: entry.reasoning })
+    }
+
     finalState = {
       ...finalState,
       ...update,

@@ -113,7 +113,7 @@ export interface GraphState {
   langfuse_trace_id: string
   token_usage: { input: number; output: number }
   trace_steps: TraceStep[]
-  model_usage: { stage: string; provider: string; model: string; fallback: boolean }[]
+  model_usage: { stage: string; provider: string; model: string; fallback: boolean; reasoning?: string }[]
   native_trace?: NativeTrace
 }
 
@@ -133,6 +133,7 @@ export interface PipelineCallbacks {
   onToken: (text: string) => void
   onRelated: (posts: { title: string; slug: string; description: string }[]) => void
   onSearchResults?: (results: SearchResult[]) => void
+  onReasoning?: (info: { stage: string; text: string }) => void
 }
 
 export function initialState(): GraphState {

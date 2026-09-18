@@ -38,7 +38,7 @@ export async function writerNode(
     skillInstructions: options?.skillInstructions,
   })
 
-  const { response, route } = await invokeModel(
+  const { response, route, reasoning } = await invokeModel(
     state.config,
     'writer',
     [
@@ -49,7 +49,7 @@ export async function writerNode(
     options?.apiKeys
   )
 
-  return buildWriterUpdate(state, { response, route })
+  return buildWriterUpdate(state, { response, route, reasoning })
 }
 
 export const writerAgent = defineAgent<GraphState, Partial<GraphState>>({
@@ -151,7 +151,11 @@ function buildWriterUpdate(state: GraphState, result: WriterModelResult): Partia
       input: (response.usage_metadata?.input_tokens ?? 0) + state.token_usage.input,
       output: (response.usage_metadata?.output_tokens ?? 0) + state.token_usage.output,
     },
-    model_usage: [...state.model_usage, { stage: 'writer', ...route }],
+    model_usage: [...state.model_usage, {
+      stage: 'writer',
+      ...route,
+      ...(result.reasoning ? { reasoning: result.reasoning } : {}),
+    }],
   }
 }
 

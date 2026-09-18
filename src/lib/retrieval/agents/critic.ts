@@ -170,6 +170,10 @@ function buildCriticUpdate(state: GraphState, result: CriticModelResult): Partia
       input: (response.usage_metadata?.input_tokens ?? 0) + state.token_usage.input,
       output: (response.usage_metadata?.output_tokens ?? 0) + state.token_usage.output,
     },
-    model_usage: [...state.model_usage, { stage: 'critic', ...route }],
+    model_usage: [...state.model_usage, {
+      stage: 'critic',
+      ...route,
+      ...(result.reasoning ? { reasoning: result.reasoning } : {}),
+    }],
   }
 }

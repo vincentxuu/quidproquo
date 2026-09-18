@@ -392,6 +392,45 @@ export function resolveModelRoute(config: RagRuntimeConfig, stage: string): Mode
   return resolveRoute(config, stage)
 }
 
+/**
+ * Reasoning 模型（Groq gpt-oss、DeepSeek R1 等）會把思考過程放在正式回答
+ * 之外：Groq 經 ChatGroq 放在 `additional_kwargs.reasoning_content`，
+ * OpenRouter/Anthropic 相容通道則可能以 type 為 reasoning/thinking 的
+ * content block 回傳。這裡只做寬鬆萃取，拿不到就回空字串，呼叫方自行略過。
+ *
+ * 顯示用而非稽核用：截斷到 MAX_REASONING_CHARS，避免單一 stage 的長思考
+ * 灌爆 SSE 與前端 state。
+ */
+export const MAX_REASONING_CHARS = 3000
+
+export function extractReasoningText(response: ChatModelResponse): string {
+  const record = response as unknown as Record<string, unknown>
+  const candidates: unknown[] = [
+    (record.additional_kwargs as Record<string, unknown> | undefined)?.reasoning_content,
+    (record.additional_kwargs as Record<string, unknown> | undefined)?.reasoning,
+  ]
+
+  const content = response.content
+  if (Array.isArray(content)) {
+    for (const part of content) {
+      if (!part || typeof part !== 'object') continue
+      const block = part as Record<string, unknown>
+      const kind = typeof block.type === 'string' ? block.type.toLowerCase() : ''
+      if (kind === 'reasoning' || kind === 'thinking' || kind === 'thought' || kind === 'reasoning_content') {
+        candidates.push(block.text ?? block.reasoning_content ?? block.content)
+      }
+    }
+  }
+
+  for (const candidate of candidates) {
+    if (typeof candidate === 'string' && candidate.trim().length > 0) {
+      const text = candidate.trim()
+      return text.length > MAX_REASONING_CHARS ? `${text.slice(0, MAX_REASONING_CHARS)}…` : text
+    }
+  }
+  return ''
+}
+
 export function resolveFallbackRoute(config: RagRuntimeConfig): ModelRoute | null {
   if (!config.fallbackProvider || !config.fallbackModel) return null
   return { provider: config.fallbackProvider, model: config.fallbackModel, fallback: true }
@@ -453,7 +492,7 @@ export async function invokeModel(
         MODEL_INVOKE_TIMEOUT_MS,
         `${primary.provider}/${primary.model}`
       )
-      return { response, route: primary }
+      return { response, route: primary, reasoning: extractReasoningText(response) }
     })
   } catch (error) {
     const fallback = resolveFallbackRoute(config)
@@ -466,7 +505,7 @@ export async function invokeModel(
           MODEL_INVOKE_TIMEOUT_MS,
           `${fallback.provider}/${fallback.model}`
         )
-        return { response, route: fallback }
+        return { response, route: fallback, reasoning: extractReasoningText(response) }
       },
     )
   }

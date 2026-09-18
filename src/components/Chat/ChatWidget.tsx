@@ -180,6 +180,14 @@ export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: bo
             setMessages(prev => prev.map(m =>
               m.id === assistantId ? { ...m, related: data } : m
             ))
+          } else if (eventType === 'reasoning') {
+            const d = data as { stage: string; text: string }
+            if (!d.text) return
+            setMessages(prev => prev.map(m => {
+              if (m.id !== assistantId) return m
+              const existing = (m.reasoning ?? []).filter(r => r.stage !== d.stage)
+              return { ...m, reasoning: [...existing, { stage: d.stage, text: d.text }] }
+            }))
           } else if (eventType === 'done') {
             setMessages(prev => prev.map(m =>
               m.id === assistantId ? { ...m, streaming: false, confidence: data.confidence } : m
