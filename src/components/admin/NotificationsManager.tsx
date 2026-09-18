@@ -119,14 +119,14 @@ export default function NotificationsManager() {
 
   return (
     <div className="space-y-4">
-      <Card className="border-amber-500/40">
+      <Card className="border-emerald-500/40">
         <CardHeader>
           <CardTitle className="flex flex-wrap items-center gap-2">
             傳送端狀態
-            <Badge variant="outline">runtime 尚未接線</Badge>
+            <Badge>已接線（無 secret 時不發送）</Badge>
           </CardTitle>
           <CardDescription>
-            下方的開關與 channel 設定會確實寫入資料庫（重新整理後仍在），但目前沒有任何 worker 在執行完成時讀取這些值並實際發送通知。傳送端接線方式待確認（webhook secret 要放 env 還是 D1），已登錄升級佇列 Q-028。
+            Routine session 在執行完成時會檢查這裡的設定：只有開關開啟、且該次結果為失敗或需人工處理時才會發送。發送通道由 env secret 決定（`NOTIFICATION_DISCORD_WEBHOOK_URL`／`NOTIFICATION_NTFY_TOPIC`，用 `wrangler secret put` 設定）；沒設定就不發送，不會報錯。下方 channel ID 請填 `global-discord` 或 `global-ntfy`（其餘 ID 需先在 `notification_channels` 表建檔，目前尚無管理 API，見 Q-028）。
           </CardDescription>
         </CardHeader>
       </Card>
@@ -184,7 +184,7 @@ export default function NotificationsManager() {
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground">
-                Channel ID 對應 notification_channels 表的 id；支援的類型：discord、ntfy、slack、email、telegram。
+                Channel ID 目前有效值：`global-discord`、`global-ntfy`（需先設定對應 env secret）。支援的通道類型：discord、ntfy、slack、email、telegram（後三者需寫 code 註冊，見 Q-028）。
               </p>
             </CardContent>
           </Card>

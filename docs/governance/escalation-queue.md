@@ -366,3 +366,4 @@
   3. 已上線的 UI（`NotificationsManager.tsx`／`BehaviorManager.tsx`）讀寫的是既有 PUT API 的真實欄位，頁面上有「尚未接線」狀態說明——接線完成後記得拿掉 banner。
 - 為什麼現在不能做：Tier 2（牽涉 secret 存放位置、runtime 外部副作用發送通知、runner 行為改變）。secret 放 D1 vs env、預設開或關，都需要人拍板。
 - 接手第一步：讀 `src/lib/notification/router.ts`、`registry.ts`、`routine-hook.ts`、`src/lib/agent/routine-trigger.ts`，確認 session 完成事件從哪發出（找 session-manager 的完成回呼），再問使用者 secret 存放與預設政策。
+- 更新 2026-09-18（使用者已拍板）：secret 走 **A（env）**，behavior **預設關**。傳送端已接線：`bootstrap.ts`（`ensureGlobalChannels`，讀 `NOTIFICATION_DISCORD_WEBHOOK_URL`／`NOTIFICATION_NTFY_TOPIC`，未設定=不發送）＋`routine-hook.ts`（`dispatchRoutineNotification`，best-effort 不拋錯）＋`session-do.ts` 兩處 `transition(done)` 後呼叫；`Env` 加兩個 optional 欄位，未動 `wrangler.jsonc`。啟用方式（使用者自行操作）：`wrangler secret put NOTIFICATION_DISCORD_WEBHOOK_URL`／`NOTIFICATION_NTFY_TOPIC`。剩餘缺口：slack／email／telegram 通道無註冊、per-routine channel ID 無管理 API、behavior 開關仍無執行端消費（auto-PR 引擎本身不存在，屬新功能需另立設計）。

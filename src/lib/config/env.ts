@@ -116,6 +116,9 @@ export interface Env {
   GITHUB_APP_ID?: string
   GITHUB_APP_SLUG?: string
   GITHUB_APP_PRIVATE_KEY?: string
+  // routine notifications (option A: secrets live in env; unset = no global channels = no-op)
+  NOTIFICATION_DISCORD_WEBHOOK_URL?: string
+  NOTIFICATION_NTFY_TOPIC?: string
 }
 
 export function getEnv(): Env {

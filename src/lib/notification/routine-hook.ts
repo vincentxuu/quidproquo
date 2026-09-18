@@ -1,5 +1,8 @@
 import type { RoutineSummary } from './types'
 import { notifyAll } from './registry'
+import { ensureGlobalChannels } from './bootstrap'
+import { createSessionManager } from '../agent/session-manager'
+import type { Env } from '../config/env'
 
 interface RoutineRecord {
   id: string
@@ -58,5 +61,51 @@ function parseChannelIds(raw: string | null): string[] {
     return Array.isArray(parsed) ? parsed.filter((x: unknown) => typeof x === 'string') : []
   } catch {
     return []
+  }
+}
+
+/**
+ * Best-effort routine completion notifier for the session DO.
+ * Never throws: notification must not break session completion.
+ * No-ops when the session has no routine, the routine disabled
+ * notifications, or no channels are configured (env unset).
+ */
+export async function dispatchRoutineNotification(
+  db: D1Database,
+  env: Env,
+  sessionId: string,
+): Promise<void> {
+  try {
+    const mgr = createSessionManager(db)
+    const session = await mgr.get(sessionId)
+    if (!session?.routine_id) return
+
+    const routine = await db
+      .prepare('SELECT id, name, notification_enabled, notification_channels FROM routines WHERE id = ?')
+      .bind(session.routine_id)
+      .first<{ id: string; name: string; notification_enabled: number; notification_channels: string | null }>()
+    if (!routine?.notification_enabled) return
+
+    ensureGlobalChannels(env)
+
+    await onRoutineSessionComplete(
+      {
+        id: routine.id,
+        name: routine.name,
+        notification_enabled: routine.notification_enabled,
+        notification_channels: routine.notification_channels,
+      },
+      {
+        id: session.id,
+        summary_category: session.summary_category,
+        summary_detail: session.summary_detail,
+        needs_action: session.needs_action ? 1 : 0,
+        total_tokens: session.total_tokens,
+        created_at: session.created_at,
+        finished_at: session.finished_at,
+      },
+    )
+  } catch (err) {
+    console.error('[notification] dispatch failed:', err instanceof Error ? err.message : err)
   }
 }

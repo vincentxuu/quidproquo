@@ -17,6 +17,7 @@ import { resolveCloneUrl } from '../../lib/github/app'
 import { loadServers, discoverTools } from '../../lib/mcp-proxy/registry'
 import { callTool as mcpCallTool } from '../../lib/mcp-proxy/client'
 import type { McpServerConfig, McpToolDefinition } from '../../lib/mcp-proxy/types'
+import { dispatchRoutineNotification } from '../../lib/notification/routine-hook'
 
 type StartRunOptions = {
   skill?: string
@@ -758,6 +759,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     }
 
     await mgr.transition(session.id, 'done')
+    await dispatchRoutineNotification(this.env.DB, this.env, session.id)
 
     const resultEvent: SessionEvent = { type: 'result', content: 'Session complete', totalTokens: 0, totalCostUsd: 0 }
     await this.persistEventToD1(session.id, resultEvent)
@@ -882,6 +884,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     }
 
     await mgr.transition(session.id, 'done')
+    await dispatchRoutineNotification(this.env.DB, this.env, session.id)
 
     const resultEvent: SessionEvent = { type: 'result', content: 'Session complete', totalTokens: 0, totalCostUsd: 0 }
     await this.persistEventToD1(sessionId, resultEvent)
