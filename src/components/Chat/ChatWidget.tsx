@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import type { Message } from './types'
+import type { Message, Step } from './types'
 import { ChatThread } from './ChatThread'
 import { QuotaIndicator } from './QuotaIndicator'
 import { Suggestions, Suggestion } from '@/components/ai-elements/suggestion'
@@ -123,9 +123,54 @@ export function ChatWidget({ embedded = false, pendingMessage }: { embedded?: bo
             setMessages(prev => prev.map(m =>
               m.id === assistantId ? { ...m, content: m.content + (data.text ?? '') } : m
             ))
-          } else if (eventType === 'agent_step') {
+          } else if (eventType === 'step_start') {
+            const d = data as { label: string; description?: string; status: string }
+            const status = d.status === 'pending' ? 'pending' : d.status === 'active' ? 'active' : 'complete'
             setMessages(prev => prev.map(m =>
-              m.id === assistantId ? { ...m, steps: [...(m.steps ?? []), data] } : m
+              m.id === assistantId ? { ...m, steps: [...(m.steps ?? []), { label: d.label, description: d.description, status }] as Step[] } : m
+            ))
+          } else if (eventType === 'step_complete') {
+            const d = data as { label: string; description?: string; status: string; duration_ms?: number }
+            setMessages(prev => prev.map(m => {
+              const steps = (m.steps ?? []).map(s => s.label === d.label ? { ...s, status: 'complete' as const, description: d.description ?? s.description } : s)
+              return m.id === assistantId ? { ...m, steps } : m
+            }))
+          } else if (eventType === 'tool_call') {
+            const d = data as { tool: string; label: string; args?: unknown }
+            setMessages(prev => prev.map(m =>
+              m.id === assistantId ? { ...m, steps: [...(m.steps ?? []), { label: d.label, description: `呼叫工具 ${d.tool}`, status: 'active' as const, tool: d.tool }] as Step[] } : m
+            ))
+          } else if (eventType === 'tool_result') {
+            const d = data as { tool: string; label: string; count?: number; results?: { title: string; url: string; type?: string }[] }
+            setMessages(prev => prev.map(m => {
+              const steps = (m.steps ?? []).map(s => s.tool === d.tool && s.status === 'active' ? { ...s, status: 'complete' as const, results: d.results } : s)
+              return m.id === assistantId ? { ...m, steps } : m
+            }))
+          } else if (eventType === 'agent_step') {
+            const d = data as { agent: string; status: string; extra?: Record<string, unknown> }
+            const labelMap: Record<string, string> = {
+              Planner: '分析問題',
+              Research: '檢索站內文章',
+              Writer: '整理答案',
+              Validation: '驗證答案',
+              Critic: '評估品質',
+              Fallback: '備援回答',
+              Related: '推薦相關文章',
+            }
+            const descMap: Record<string, string> = {
+              Planner: '理解問題並決定搜尋方向',
+              Research: '搜尋站內文章與混合檢索',
+              Writer: '根據來源整理最終回答',
+              Validation: '檢查引用與事實一致',
+              Critic: '評估信心與相關性',
+              Fallback: '使用備援策略產生回答',
+              Related: '列出相關文章推薦',
+            }
+            const label = labelMap[d.agent] ?? d.agent
+            const description = descMap[d.agent]
+            const status = d.status === 'completed' ? 'complete' as const : 'active' as const
+            setMessages(prev => prev.map(m =>
+              m.id === assistantId ? { ...m, steps: [...(m.steps ?? []), { label, description, status, tool: d.agent }] as Step[] } : m
             ))
           } else if (eventType === 'sources') {
             setMessages(prev => prev.map(m =>

@@ -177,6 +177,13 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
       }
 
       try {
+        // 新增：步驟開始（分析問題）
+        send('step_start', { label: '分析問題', description: '理解使用者意圖並規劃檢索策略', status: 'pending' })
+
+        let currentStep = 'Planner'
+        let stepStartedAt = Date.now()
+        send('tool_call', { tool: 'planner', label: '規劃檢索策略', args: { message } })
+
         const state = await runPipeline(
           { message, traceId, threadId: thread_id, conversationSummary: checkpointSummary, config: ragConfig },
           {
@@ -186,13 +193,35 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
                 at: new Date().toISOString(),
                 extra,
               })
+              // 將 agent 步驟轉換為 step 事件
+              if (currentStep && currentStep !== agent) {
+                const duration = Date.now() - stepStartedAt
+                send('step_complete', { label: getStepLabel(currentStep), description: getStepDescription(currentStep), status: 'complete', duration_ms: duration })
+                stepStartedAt = Date.now()
+              }
+              currentStep = agent
+              send('step_start', { label: getStepLabel(agent), description: getStepDescription(agent), status: 'active' })
               send('agent_step', { agent, status: 'completed', ...extra })
             },
             onToken: (text) => send('token', { text }),
-              onRelated: (posts) => send('related', posts),
+            onRelated: (posts) => {
+              send('tool_result', { tool: 'related_posts', label: '相關文章', results: posts.map(p => ({ title: p.title, url: p.slug, type: 'post' })) })
+              send('related', posts)
+            },
+            onSearchResults: (results) => {
+              // 搜尋結果 → tool_call + tool_result
+              const resultsData = results.map(r => ({ title: r.title, url: r.source_url, type: r.type }))
+              send('tool_result', { tool: 'search_posts', label: '檢索結果', count: results.length, results: resultsData })
+            },
           },
           { providerApiKeys }
         )
+
+        // 結束最後一個進行中步驟
+        if (currentStep) {
+          const duration = Date.now() - stepStartedAt
+          send('step_complete', { label: getStepLabel(currentStep), description: getStepDescription(currentStep), status: 'complete', duration_ms: duration })
+        }
 
         if (ragConfig.shadowModeEnabled) {
           const shadowState = await runPipeline(
@@ -419,6 +448,33 @@ async function persistTraceSteps(
       native_trace_summary: nativeTraceSummary,
     })
   ).run()
+}
+
+function getStepLabel(agent: string): string {
+  const m: Record<string, string> = {
+    Planner: '規劃檢索策略',
+    Research: '檢索站內文章',
+    Normalize: '整理檢索結果',
+    Writer: '整理答案',
+    Validation: '驗證答案',
+    Critic: '評估品質',
+    Fallback: '備援回答',
+    Related: '推薦相關文章',
+  }
+  return m[agent] ?? agent
+}
+function getStepDescription(agent: string): string {
+  const m: Record<string, string> = {
+    Planner: '理解問題並決定搜尋方向',
+    Research: '搜尋站內文章與混合檢索',
+    Normalize: '清理與標準化搜尋結果',
+    Writer: '根據來源整理最終回答',
+    Validation: '檢查引用與事實一致',
+    Critic: '評估信心與相關性',
+    Fallback: '使用備援策略產生回答',
+    Related: '列出相關文章推薦',
+  }
+  return m[agent] ?? agent
 }
 
 function normalizeStepName(stage: string): string {

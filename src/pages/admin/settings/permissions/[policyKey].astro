@@ -20,7 +20,7 @@ const t = createConsoleTranslator(lang);
 const result = await fetchPolicyDetail(Astro.request, policyKey);
 
 const breadcrumb = [
-  { label: t('policies.title'), href: consoleHref('/admin/policies', lang) },
+  { label: t('policies.title'), href: consoleHref('/admin/settings/permissions', lang) },
   { label: result.detail?.label ?? policyKey },
 ];
 ---
@@ -129,7 +129,7 @@ const breadcrumb = [
     try {
       const response = await fetch(`/api/admin/settings/permissions/${encodeURIComponent(key)}`, { method: 'DELETE' });
       if (!response.ok) throw new Error(await response.text());
-      window.location.href = lang === 'en' ? '/admin/policies?lang=en' : '/admin/policies';
+      window.location.href = lang === 'en' ? '/admin/settings/permissions?lang=en' : '/admin/settings/permissions';
     } catch (error) {
       window.alert(`${messages.archiveFailed}: ${error instanceof Error ? error.message : String(error)}`);
       archiveButton.removeAttribute('disabled');

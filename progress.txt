@@ -19,6 +19,15 @@ In progress
 - **Qwen3 embeddings（代碼已 commit，CI/CD 自動部署）**：provider/adaptive splitting/cache namespace 已到位，待 production 向量重建與 20 題 live eval 確認品質。
 - Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：索引排隊中，待索引完成與 golden eval。
 - Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.
+- **Admin 後台 shadcn 化（2026-09-18，已 push）**：ff324ac9（UI＋死連結）＋c0ebe9ee（傳送端接線＋6/6 tests）皆在 `admin-settings-shadcn` 已 push；Q-028 決策 A＋behavior 預設關已記錄。待：瀏覽器實測、合併、啟用 secret（`wrangler secret put`，使用者操作）。
+- **Ask AI agentic pipeline（2026-09-18）**：PRD 已落成（`docs/product/ask-ai/agentic-pipeline PRD.md` §3–§8）。已完成：
+  - `/api/chat` 發出 `step_start / tool_call / tool_result / step_complete` SSE 事件（`src/pages/api/chat.ts`）。
+  - `src/lib/retrieval/state.ts` `PipelineCallbacks` 新增可選 `onSearchResults`。
+  - `src/lib/conversation/graph.ts`（langgraph 引擎）與 `src/lib/conversation/pipelines/manual.ts` 在 Research 節點後呼叫 `onSearchResults`。
+  - 前端 `src/components/Chat/types.ts` 將 `Message.steps` 改為新 `Step` 介面（含 `label/description/status/tool/results`）。
+  - `src/components/Chat/ChatWidget.tsx` 解析上述 SSE 事件並寫入 `message.steps`。
+  - `src/components/Chat/ChatMessageRow.tsx` 使用 `ChainOfThought` + `ChainOfThoughtStep` + `ChainOfThoughtSearchResults` 呈現思考過程與搜尋結果 badge（預設折疊）。
+  - TypeScript 錯誤已修復（`ChatWidget` / `ChatMessageRow`）。
 Next steps
 2. Make `type` required in `src/content.config.ts` — escalation queue item, ask first.
 3. Verify accessibility and performance with Lighthouse / axe, then update TODO evidence.
@@ -76,10 +85,3 @@ Notes
 - **Q-020（2026-09-06）**：同日 framework/funding/pricing/signals/report/arxiv/github 七支 routine 皆踩到「Groundlane connected+enabledInChat:true 但需認證、非互動 session 無法 OAuth」，均未產出，見 escalation-queue Q-020 尾端（github digest 額外確認 gh CLI 未裝、GitHub MCP scope 鎖死本 repo）。
 - **daily-digest-arxiv 2026-09-06 重跑**：Groundlane 已恢復可用（`ListConnectors`/`ToolSearch` 皆正常），但當天無新公告批次——arXiv `list/{cs.AI,cs.CL,cs.MA}/new` 仍顯示 Friday 2026-09-04 批次，ID 範圍與 2026-09-05 已完整篩選的批次完全重疊，依 skill Step 4a.4 冪等結束，不重選已見論文。未產文章，`.research/daily-arxiv-screening/2026-09-06.json` 已寫入 `status: no-publication` 說明。
 - **Q-022（2026-09-06，原登錄 Q-021，因撞號改號）**：daily-digest-security 執行初期 Groundlane／Tavily 也回到「需要授權」狀態，同一 session 容器重啟後恢復，已正常產出 `2026-09-06-security-postgres-mcp-restricted-mode-bypass{,-en}.md`（series order 已於 09-08 修正為 24，見下）。
-- **daily-digest-arxiv 2026-09-08**：arXiv 批次終於前進到 Monday 2026-09-07（連續卡在 Friday 09-04 四天後首次更新）。發布三篇（τ^τ-bench／Bilevel Coordinated Reflection／Where Reliability Lives，series order 107）。過程中發現「AI Security Alert」系列 09-06 兩篇撞號 order 23（`pnpm verify` 擋 commit 的真問題，非本次任務製造），已改為 24／25（連動 09-07 那篇 nvidia-nemoclaw）；同時修掉 3 個 2026-08-20 舊檔的內部連結 typo（`product-interview-daily` 少打 `builder`）。均為修真問題，非弱化檢查。
-- **daily-digest-arxiv 2026-09-10**：arXiv 批次前進到 Wednesday 2026-09-09。cs.AI `/new` 頁面持續超過 Groundlane 抓取位元組上限（OUTPUT_LIMIT，各種 format/maxBytes 組合皆同），改靠 Q1-Q3 搜尋＋HF Daily Papers 補足 Layer A 覆蓋，已記錄 toolDegradation。發布三篇治理層漏洞主題（Audit Without Verification／Beyond Agent Harnesses／Copying explains collective behavior，series order 109）。Semantic Scholar 全程 429/404（論文太新，尚未索引），citationVelocity 誠實標 not-checked 而非造假。
-- **稽核方法的教訓**：計數一律用字界比對，跑稽核前先確認路徑存在。詳見 archive。
-- Stanford CS109 有 24 個 `draft: true` 檔案（Lecture 07–18 中英文），不在待 review 清單內。
-- **Q-023（2026-09-10 起）**：daily-digest-benchmark 連續 14 天（09-03～09-16）抓不到 swebench.com／arena.ai／morphllm.com 排行榜原始資料——Groundlane 本身正常，是三站 JS 渲染表格＋Groundlane 瀏覽器渲染已停用的結構性問題，非單次故障；GitHub API 結構化路徑已證實不可行（09-11）。09-15 修正 09-14 誤打的 org 大小寫（正確為 `SWE-bench/swe-bench.github.io`），確認 repo 有原始資料檔但 `leaderboards.json`（4MB）仍超過 Groundlane 隱性輸出上限，較小的 `info_for_leaderboard.json` 可抓但截斷且需要新聚合邏輯（Tier 2，待人拍板）。09-16 進一步確認該截斷與 `maxBytes`／`maxOutputChars` 參數無關，是 Groundlane `web_fetch` 另一層固定輸出上限；morphllm.com 在 429／404 兩種失敗型態間反覆。每日仍判定「無 Benchmark 異動」、未產文章，snapshot 持續更新，狀態未變，待人拍板見 escalation-queue。
-- **環境教訓（2026-09-10）**：全新 remote session 若尚未跑過 `pnpm install`（`node_modules` 不存在），`pnpm verify`／pre-commit 裡的 `npx astro check` 會 fallback 去下載獨立版 astro，偵測不到本地 `@astrojs/check` 時跳出互動式安裝提示（Yes/No），非互動 session 沒有 TTY 回應會直接卡死（本次卡了 40+ 分鐘，一度誤判為 Cloudflare `platformProxy` 網路 hang，繞了 `NODE_USE_ENV_PROXY=1` 才定位到真因）。**修法：session 一開始先跑 `pnpm install` 再碰 verify/commit**，可以省掉整輪排查。
-- **Q-024 根因更新（2026-09-13）**：`pnpm install` 直接卡死於 `@lanefoundry/gatelane-sdk`（`github:lanefoundry/gatelane#path:packages/gatelane-sdk`）——該套件在 GitHub 的來源 repo `lanefoundry/gatelane` 不在本 session 的 repo scope（本 session 僅開 `vincentxuu/quidproquo`）內，`codeload.github.com` 直接回 403「GitHub access to this repository is not enabled for this session」，導致整個 pnpm install 中止、`node_modules` 完全沒有 symlink 出來，`.husky`／`simple-git-hooks` 的 `prepare` 也因此沒跑，本機目前實際上**沒有**啟用中的 pre-commit hook。不是套件本身壞掉，是 session repo scope 結構性擋住。本次繞法：另開 scratch 目錄用 `npm install gray-matter` 直接打 registry.npmjs.org（在 no-proxy 白名單內，不受此限），複製進 `node_modules/` 只夠跑 `check-post-references.mjs` 做 targeted 驗證，`lint`／`astro check`／`skills:sync` 仍需完整 install 才能跑，未驗證。接手：需要有 `lanefoundry/gatelane` 存取權的 session／環境才能完整 `pnpm install`，或把 gatelane-sdk 改回不需要私有 repo 存取的發布方式（Tier 2，改依賴來源）。

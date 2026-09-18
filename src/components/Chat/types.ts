@@ -1,14 +1,23 @@
+export interface Step {
+  id?: string
+  label: string
+  description?: string
+  status: 'pending' | 'active' | 'complete'
+  tool?: string
+  results?: {
+    title: string
+    url: string
+    slug?: string
+    type?: string
+  }[]
+  content?: string
+}
+
 export interface Message {
   id: string
   role: 'user' | 'assistant'
   content: string
-  steps?: {
-    agent: string
-    status: 'started' | 'completed'
-    chunks_found?: number
-    sources_found?: number
-    evidence_chunks?: number
-  }[]
+  steps?: Step[]
   sources?: (
     | string
     | {

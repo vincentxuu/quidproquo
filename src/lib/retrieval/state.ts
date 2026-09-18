@@ -132,6 +132,7 @@ export interface PipelineCallbacks {
   onStep: (agent: string, extra?: Record<string, unknown>) => void
   onToken: (text: string) => void
   onRelated: (posts: { title: string; slug: string; description: string }[]) => void
+  onSearchResults?: (results: SearchResult[]) => void
 }
 
 export function initialState(): GraphState {

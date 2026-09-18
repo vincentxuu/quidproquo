@@ -10,7 +10,7 @@ import {
 import { Message, MessageContent, MessageResponse } from '@/components/ai-elements/message'
 import { Sources, SourcesTrigger, SourcesContent, Source } from '@/components/ai-elements/sources'
 import { Shimmer } from '@/components/ai-elements/shimmer'
-import { BookOpen, Brain, FileSearch, Pen, ShieldCheck, TriangleAlert } from 'lucide-react'
+import { Brain, FileSearch } from 'lucide-react'
 import type { Message as ChatMessage } from './types'
 
 type LinkLike =
@@ -30,11 +30,43 @@ interface NormalizedLink {
   description?: string
 }
 
+interface StepDisplay {
+  label: string
+  description?: string
+  status: 'pending' | 'active' | 'complete'
+  tool?: string
+  results?: { title: string; url: string; slug?: string; type?: string }[]
+}
+
 export function ChatMessageRow({ message: msg }: { message: ChatMessage }) {
   const normalizedContent = useMemo(
     () => (msg.content ? normalizeMarkdownInput(msg.content) : ''),
     [msg.content],
   )
+
+  // 轉換 steps 為前端可用格式
+  const displaySteps = useMemo<StepDisplay[]>(() => {
+    if (!msg.steps || msg.steps.length === 0) return []
+    return msg.steps.map((s) => {
+      // 轉換狀態：from legacy 'started'/'completed' to 'active'/'complete'
+      const statusMap: Record<string, StepDisplay['status']> = {
+        started: 'active',
+        completed: 'complete',
+        active: 'active',
+        complete: 'complete',
+        pending: 'pending',
+      }
+      const status = statusMap[s.status] || 'active'
+      
+      return {
+        label: s.label || '處理中',
+        description: s.description,
+        status,
+        tool: (s as any).tool,
+        results: (s as any).results,
+      }
+    })
+  }, [msg.steps])
 
   return (
     <Message from={msg.role} className="max-w-full">
@@ -42,8 +74,34 @@ export function ChatMessageRow({ message: msg }: { message: ChatMessage }) {
         {typeof msg.confidence === 'number' && msg.role === 'assistant' && (
           <span className="text-xs text-muted-foreground">{formatConfidence(msg.confidence)}</span>
         )}
-        {msg.steps && msg.steps.length > 0 && (
-          <ChatChainOfThought steps={msg.steps} streaming={msg.streaming} />
+        {displaySteps.length > 0 && (
+          <ChainOfThought defaultOpen={displaySteps.some(s => s.status === 'active')} className="mb-1">
+            <ChainOfThoughtHeader>思考過程</ChainOfThoughtHeader>
+            <ChainOfThoughtContent>
+              {displaySteps.map((s, i) => {
+                const searchResults = s.results && s.results.length > 0 ? (
+                  <ChainOfThoughtSearchResults>
+                    {s.results.map(r => (
+                      <a key={r.url} href={r.url} target="_blank" rel="noreferrer" className="inline-flex">
+                        <ChainOfThoughtSearchResult>{r.title}</ChainOfThoughtSearchResult>
+                      </a>
+                    ))}
+                  </ChainOfThoughtSearchResults>
+                ) : null
+                return (
+                  <ChainOfThoughtStep
+                    key={`${s.label}:${i}`}
+                    icon={s.tool === 'search_posts' ? FileSearch : Brain}
+                    label={s.label}
+                    description={s.description}
+                    status={s.status}
+                  >
+                    {searchResults}
+                  </ChainOfThoughtStep>
+                )
+              })}
+            </ChainOfThoughtContent>
+          </ChainOfThought>
         )}
         {normalizedContent && <MessageResponse>{normalizedContent}</MessageResponse>}
         {msg.streaming && (
@@ -59,64 +117,6 @@ export function ChatMessageRow({ message: msg }: { message: ChatMessage }) {
         )}
       </MessageContent>
     </Message>
-  )
-}
-
-interface AgentStep {
-  agent: string
-  status: 'started' | 'completed'
-  chunks_found?: number
-  sources_found?: number
-  evidence_chunks?: number
-}
-
-const stepMeta: Record<string, { label: string; icon: typeof Brain }> = {
-  Planner: { label: '分析問題', icon: Brain },
-  Research: { label: '搜尋文章', icon: FileSearch },
-  Writer: { label: '生成回應', icon: Pen },
-  Validation: { label: '格式驗證', icon: ShieldCheck },
-  Critic: { label: '品質檢查', icon: BookOpen },
-  Fallback: { label: '降級輸出', icon: TriangleAlert },
-}
-
-function ChatChainOfThought({ steps, streaming }: { steps: AgentStep[]; streaming?: boolean }) {
-  const hasActiveStep = steps.some((s) => s.status === 'started')
-  return (
-    <ChainOfThought defaultOpen={hasActiveStep || Boolean(streaming)} className="mb-1">
-      <ChainOfThoughtHeader>思考過程</ChainOfThoughtHeader>
-      <ChainOfThoughtContent>
-        {steps.map((s, i) => {
-          const meta = stepMeta[s.agent] ?? { label: s.agent, icon: Brain }
-          const isLast = i === steps.length - 1
-          const status = s.status === 'completed' ? 'complete' : isLast && streaming ? 'active' : 'pending'
-          const description =
-            s.sources_found !== undefined
-              ? `找到 ${s.sources_found} 篇相關文章`
-              : s.chunks_found !== undefined
-                ? `${s.chunks_found} 個相關段落`
-                : undefined
-
-          return (
-            <ChainOfThoughtStep
-              key={`${s.agent}:${i}`}
-              icon={meta.icon}
-              label={meta.label}
-              description={description}
-              status={status}
-            >
-              {s.sources_found !== undefined && s.sources_found > 0 && (
-                <ChainOfThoughtSearchResults>
-                  <ChainOfThoughtSearchResult>{s.sources_found} 篇</ChainOfThoughtSearchResult>
-                  {s.evidence_chunks !== undefined && (
-                    <ChainOfThoughtSearchResult>{s.evidence_chunks} 段引用</ChainOfThoughtSearchResult>
-                  )}
-                </ChainOfThoughtSearchResults>
-              )}
-            </ChainOfThoughtStep>
-          )
-        })}
-      </ChainOfThoughtContent>
-    </ChainOfThought>
   )
 }
 

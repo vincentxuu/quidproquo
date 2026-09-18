@@ -15,8 +15,8 @@ const areas = [
   { href: '/admin/settings/extensions', label: 'Extensions', desc: 'Skills / MCP / Plugins', icon: '🧩' },
   { href: '/admin/settings/permissions', label: 'Permissions', desc: '權限政策', icon: '🔒' },
   { href: '/admin/settings/access', label: 'Access', desc: '使用者、角色、稽核', icon: '👥' },
-  { href: '/admin/settings/notifications', label: 'Notifications', desc: '通知通道設定', icon: '🔔' },
-  { href: '/admin/settings/behavior', label: 'Behavior', desc: '全域行為預設', icon: '⚙️' },
+  { href: '/admin/settings/notifications', label: 'Notifications', desc: '各 routine 通知開關與 channel', icon: '🔔' },
+  { href: '/admin/settings/behavior', label: 'Behavior', desc: '各 routine 行為預設（auto-fix／auto-create）', icon: '⚙️' },
 ];
 ---
 
@@ -25,13 +25,11 @@ const areas = [
     {areas.map(a => (
       <a
         href={a.href}
-        class="flex items-start gap-3 rounded-lg border border-border bg-card p-5 no-underline text-foreground transition-all hover:border-primary hover:shadow-md"
+        class="flex flex-col gap-1.5 rounded-xl border border-border bg-card p-6 no-underline text-card-foreground shadow-sm transition-all hover:border-primary hover:shadow-md"
       >
-        <span class="shrink-0 text-2xl leading-none">{a.icon}</span>
-        <div>
-          <strong class="block mb-1">{a.label}</strong>
-          <p class="m-0 text-sm text-muted-foreground">{a.desc}</p>
-        </div>
+        <span class="shrink-0 text-2xl leading-none" aria-hidden="true">{a.icon}</span>
+        <strong class="block text-base font-semibold leading-none">{a.label}</strong>
+        <p class="m-0 text-sm text-muted-foreground">{a.desc}</p>
       </a>
     ))}
   </div>
