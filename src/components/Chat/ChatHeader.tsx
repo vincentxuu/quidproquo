@@ -129,7 +129,7 @@ function HeaderActions({ onExpandToggle, isExpanded, onClose, embedded }: Header
                 type="button"
                 variant="ghost"
                 size="icon-sm"
-                className="size-7 text-muted-foreground hover:text-foreground"
+                className="size-7 chat-icon-btn"
                 onClick={onExpandToggle}
                 aria-label={isExpanded ? '縮小' : '展開'}
               >
@@ -148,7 +148,7 @@ function HeaderActions({ onExpandToggle, isExpanded, onClose, embedded }: Header
                 type="button"
                 variant="ghost"
                 size="icon-sm"
-                className="size-7 text-muted-foreground hover:text-foreground"
+                className="size-7 chat-icon-btn"
                 onClick={onClose}
                 aria-label="關閉"
               >
@@ -222,7 +222,7 @@ export function ChatHeaderToolbar({
                 type="button"
                 variant="ghost"
                 size="icon-sm"
-                className="size-7 text-red-600 hover:bg-red-50 hover:text-red-700"
+                className="size-7 chat-icon-btn chat-icon-btn-danger"
                 onClick={onStop}
                 aria-label="停止生成"
               >
@@ -241,7 +241,7 @@ export function ChatHeaderToolbar({
             type="button"
             variant="ghost"
             size="icon-sm"
-            className="size-7 text-muted-foreground hover:text-foreground"
+            className="size-7 chat-icon-btn"
             aria-label="更多選項"
           >
             <MoreHorizontalIcon className="size-4" />

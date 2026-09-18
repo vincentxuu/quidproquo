@@ -319,7 +319,7 @@ export function ChatWidget({
               type="button"
               onClick={() => setSuggestionPage(page => page + 1)}
               className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
-              style={{ color: 'var(--brand-700)' }}
+              style={{ color: 'var(--text-secondary)' }}
               aria-label="換一組預設問題"
             >
               <RefreshCwIcon className="size-3.5" />
@@ -332,10 +332,10 @@ export function ChatWidget({
                 key={question}
                 suggestion={question}
                 onClick={(q) => void sendMessage(q)}
-                className="h-auto justify-start whitespace-normal text-left text-xs leading-relaxed"
+                className="chat-suggestion h-auto justify-start whitespace-normal text-left text-xs leading-relaxed"
                 style={{
-                  background: 'var(--bg-subtle)',
-                  color: 'var(--text-primary)',
+                  background: 'var(--brand-100)',
+                  color: 'var(--brand-700)',
                   borderColor: 'var(--border)',
                 }}
               />

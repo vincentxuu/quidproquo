@@ -32,6 +32,36 @@ button[data-streamdown="link"]:hover {
   color: var(--brand-700, #2d4a2d);
 }
 
+/* Chat header icon 按鈕：透明底＋次要文字色，hover 才給底色。
+   不依賴 Button ghost variant 的主題映射，避免某層 token 漂移就冒出實心淺底。 */
+.chat-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+}
+.chat-icon-btn:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+.chat-icon-btn-danger:hover {
+  background: color-mix(in srgb, #ef4444 14%, transparent);
+  color: #ef4444;
+}
+
+/* 建議題目卡：hover 時邊框轉品牌綠，給出可點 affordance */
+.chat-suggestion:hover {
+  border-color: var(--brand-500);
+  background: var(--brand-50);
+}
+
+/* 送出鍵：跟站內圓形 launcher 同語言（深綠圓＋白圖示），hover 用亮度避免 inline 背景蓋掉偽類 */
+.chat-send-btn {
+  border-radius: 999px;
+}
+.chat-send-btn:hover {
+  filter: brightness(1.15);
+}
+
 @theme inline {
   --color-background: var(--bg-card, #ffffff);
   --color-foreground: var(--text-primary, #1a1a1a);

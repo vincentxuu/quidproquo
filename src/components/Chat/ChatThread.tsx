@@ -91,6 +91,8 @@ export function ChatThread({ messages, loading, onSend }: ChatThreadProps) {
             <PromptInputSubmit
               disabled={loading}
               status={loading ? 'streaming' : 'ready'}
+              className="chat-send-btn rounded-full"
+              style={{ background: 'var(--brand-900)', color: 'var(--bg-page)' }}
             />
           </PromptInput>
         </div>
