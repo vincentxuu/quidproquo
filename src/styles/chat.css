@@ -1,6 +1,32 @@
 @import "tailwindcss/theme";
 @import "tailwindcss/utilities";
 
+/* Streamdown（回答區 Markdown 渲染）把連結畫成 <button data-streamdown="link">，
+   其 class（appearance-none、wrap-anywhere 等）只存在於 node_modules 的打包檔，
+   Tailwind 預設掃不到 src/ 以外的檔案就不會產生對應 CSS。
+   這裡顯式註冊掃描來源，否則回答裡的表格、程式碼、連結會靜默缺樣式。 */
+@source "../../node_modules/streamdown/dist";
+
+/* 保底：即使上面掃描失效，連結也不准掉回瀏覽器原生按鈕外觀（灰底框）。 */
+button[data-streamdown="link"] {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--brand-500, #4a9e6a);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+button[data-streamdown="link"]:hover {
+  color: var(--brand-700, #2d4a2d);
+}
+
 @theme inline {
   --color-background: var(--bg-card, #ffffff);
   --color-foreground: var(--text-primary, #1a1a1a);
