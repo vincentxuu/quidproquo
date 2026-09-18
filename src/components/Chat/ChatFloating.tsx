@@ -20,18 +20,19 @@ export function ChatFloating() {
               }
           ),
           zIndex: 1000,
-          borderRadius: expanded ? '12px' : '8px',
-          boxShadow: 'var(--shadow-floating)',
+          borderRadius: 14,
+          boxShadow: '0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--border)',
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
           background: 'var(--bg-card)',
           border: '1px solid var(--border)',
-          animation: 'chat-pop-in 0.18s ease',
-          transition: 'all 0.2s ease',
+          animation: 'chat-pop-in 0.2s cubic-bezier(0.22, 1, 0.36, 1)',
+          backdropFilter: 'blur(8px)',
+          transition: 'all 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
         }}>
           <div style={{
-            padding: '0.85rem 1rem',
+            padding: '0.9rem 1.1rem',
             borderBottom: '1px solid var(--border)',
             fontWeight: 700,
             fontSize: '0.875rem',
@@ -40,7 +41,14 @@ export function ChatFloating() {
             justifyContent: 'space-between',
             background: 'var(--bg-card)',
           }}>
-            <span>Ask AI</span>
+            <span className="flex items-center gap-2">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--brand-500)]">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z" fill="var(--brand-900)" stroke="none"/>
+                <path d="M12 8v8" stroke="var(--brand-500)"/>
+                <path d="M8 12h8" stroke="var(--brand-500)"/>
+              </svg>
+              <span className="tracking-wide">Ask AI</span>
+            </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
               <button
                 onClick={() => setExpanded(v => !v)}
@@ -61,7 +69,6 @@ export function ChatFloating() {
           </div>
         </div>
       )}
-
       <button
         onClick={() => setOpen(v => !v)}
         aria-label={open ? '關閉 AI 對話' : '開啟 AI 對話'}
