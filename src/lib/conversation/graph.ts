@@ -171,6 +171,9 @@ export async function runPipeline(
         sources_found: countUniquePostResults(update.search_results ?? []),
         evidence_chunks: (update.search_results ?? []).length,
       })
+      if (update.search_results && update.search_results.length > 0) {
+        callbacks.onSearchResults?.(update.search_results)
+      }
     } else if (nodeName === 'writer') {
       callbacks.onStep('Writer')
       if (update.final_response) callbacks.onToken(update.final_response)

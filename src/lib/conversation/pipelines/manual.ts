@@ -69,6 +69,9 @@ export async function runManualPipeline(
       sources_found: countUniquePostResults(research.search_results ?? state.search_results),
       evidence_chunks: research.search_results?.length ?? state.search_results.length,
     })
+    if (research.search_results && research.search_results.length > 0) {
+      callbacks.onSearchResults?.(research.search_results)
+    }
     await runStep('normalize_results', normalizeResultsNode)
     await runStep('writer', (state) => writerNode(state, { apiKeys: options?.providerApiKeys }))
     callbacks.onStep('Writer')
