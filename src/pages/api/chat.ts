@@ -339,7 +339,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         if (intentAlignmentScore !== null) {
           enqueueTraceOp(scoreTrace(traceId, 'intent_alignment', intentAlignmentScore))
         }
-        if (!bypassSemanticCache) {
+        if (!bypassSemanticCache && state.final_response?.trim()) {
           await storeSemanticCache(message, state.final_response ?? '', state.critique?.confidence ?? 0).catch(() => {})
         }
         await maybeSaveCheckpoint(state, ragConfig.checkpointThresholdRatio).catch(() => {})

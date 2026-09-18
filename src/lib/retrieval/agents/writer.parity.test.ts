@@ -163,8 +163,26 @@ describe('writer agent parity', () => {
     expect(userPrompt).toContain('Title: Course 12')
   })
 
-  it('keeps evidence-backed recommendation reasons for ordinary recommendations', async () => {
-    const state = makeState({
+  it('joins array content blocks instead of dropping them into an empty draft', async () => {
+    const state = makeState({})
+    vi.mocked(invokeModel).mockResolvedValueOnce({
+      response: {
+        content: [
+          { type: 'text', text: '第一段回答' },
+          { type: 'text', text: '[來源](https://example.com/agent-os)' },
+        ],
+        usage_metadata: { input_tokens: 20, output_tokens: 10 },
+      },
+      route,
+    } as unknown as MockInvokeResult)
+
+    const result = await writerNode(state)
+
+    expect(result.final_response).toContain('第一段回答')
+    expect(result.final_response).toContain('[來源](https://example.com/agent-os)')
+  })
+
+  it('keeps evidence-backed recommendation reasons for ordinary recommendations', async () => {    const state = makeState({
       messages: [new HumanMessage('推薦幾篇適合開始學 RAG 的文章')] as RagMessage[],
       plan: {
         intent: 'recommendation',

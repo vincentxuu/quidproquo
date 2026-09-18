@@ -141,10 +141,7 @@ ${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInst
 
 function buildWriterUpdate(state: GraphState, result: WriterModelResult): Partial<GraphState> {
   const { response, route } = result
-  const draft = normalizeAnswerLanguage(
-    typeof response.content === 'string' ? response.content : '',
-    state.language
-  )
+  const draft = normalizeAnswerLanguage(responseContentToText(response.content), state.language)
 
   return {
     draft,
@@ -156,4 +153,30 @@ function buildWriterUpdate(state: GraphState, result: WriterModelResult): Partia
     },
     model_usage: [...state.model_usage, { stage: 'writer', ...route }],
   }
+}
+
+/**
+ * Reasoning models (e.g. Groq's gpt-oss) may return content as an array of
+ * blocks or an empty string with reasoning in a separate field. The old
+ * `typeof === 'string' ? : ''` coercion silently dropped array content into
+ * an empty draft, which then sailed through validation. Join text blocks so
+ * recoverable content is kept; a genuinely empty model reply stays empty and
+ * is caught by the empty-draft validation check (retry → fallback).
+ */
+function responseContentToText(content: unknown): string {
+  if (typeof content === 'string') return content
+  if (Array.isArray(content)) {
+    return content
+      .map((part) => {
+        if (typeof part === 'string') return part
+        if (part && typeof part === 'object' && 'text' in part) {
+          const text = (part as { text?: unknown }).text
+          return typeof text === 'string' ? text : ''
+        }
+        return ''
+      })
+      .filter(Boolean)
+      .join('\n')
+  }
+  return ''
 }

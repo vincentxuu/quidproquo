@@ -110,6 +110,7 @@ export function validateMermaidBlocks(markdown: string): string[] {
 
 export function validateDraft(state: Pick<GraphState, 'draft' | 'search_results'>): ValidationResult {
   const errors = [
+    ...validateDraftNotEmpty(state.draft),
     ...validateMarkdownStructure(state.draft),
     ...validateSourceUrls(state.draft, state),
     ...validateMermaidBlocks(state.draft),
@@ -119,6 +120,13 @@ export function validateDraft(state: Pick<GraphState, 'draft' | 'search_results'
     passed: errors.length === 0,
     errors,
   }
+}
+
+function validateDraftNotEmpty(draft: string): string[] {
+  if (!draft.trim()) {
+    return ['Draft is empty; the writer produced no content.']
+  }
+  return []
 }
 
 export async function validationNode(state: GraphState): Promise<Partial<GraphState>> {

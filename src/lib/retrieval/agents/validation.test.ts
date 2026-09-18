@@ -53,4 +53,12 @@ describe('validation helpers', () => {
       'Mermaid block must start with a valid diagram type, got: A --> B',
     ])
   })
+
+  it('fails an empty draft so the pipeline retries instead of answering blank', () => {
+    for (const draft of ['', '   ', '\n\t ']) {
+      const result = validateDraft({ draft, search_results: searchResults })
+      expect(result.passed).toBe(false)
+      expect(result.errors).toContain('Draft is empty; the writer produced no content.')
+    }
+  })
 })

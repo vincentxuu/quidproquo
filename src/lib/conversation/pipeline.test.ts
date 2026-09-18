@@ -39,7 +39,7 @@ describe('conversation pipeline output', () => {
     }
   )
 
-  it('does not emit an empty final response', async () => {
+  it('replaces an empty final response with a retry-safe fallback message', async () => {
     const state = initialState()
     const onToken = vi.fn()
     vi.mocked(resolveRagEngine).mockReturnValue({
@@ -53,6 +53,30 @@ describe('conversation pipeline output', () => {
       onRelated: vi.fn(),
     })
 
-    expect(onToken).not.toHaveBeenCalled()
+    expect(onToken).toHaveBeenCalledTimes(1)
+    expect(onToken).toHaveBeenCalledWith('抱歉，這次沒能產生回答，請再試一次或換個問法。')
+  })
+
+  it('answers off-topic early exits with a scope message instead of silence', async () => {
+    const state = {
+      ...initialState(),
+      plan: { ...initialState().plan, intent: 'off-topic' as const },
+    }
+    const onToken = vi.fn()
+    vi.mocked(resolveRagEngine).mockReturnValue({
+      name: 'langgraph',
+      query: vi.fn(async () => ({ ...state, final_response: '' })),
+    })
+
+    await runPipeline({ message: '今天天氣如何', traceId: 'trace-3', config: state.config }, {
+      onToken,
+      onStep: vi.fn(),
+      onRelated: vi.fn(),
+    })
+
+    expect(onToken).toHaveBeenCalledTimes(1)
+    expect(onToken).toHaveBeenCalledWith(
+      '這個問題跟這個部落格的內容不太相關，我只能回答跟站內文章有關的問題。換個問法試試？'
+    )
   })
 })
