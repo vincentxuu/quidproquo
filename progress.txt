@@ -19,7 +19,7 @@ In progress
 - **Qwen3 embeddings（代碼已 commit，CI/CD 自動部署）**：provider/adaptive splitting/cache namespace 已到位，待 production 向量重建與 20 題 live eval 確認品質。
 - Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：索引排隊中，待索引完成與 golden eval。
 - Align actual implementation status with `docs/TODO.md`; finish low-risk P1 items: RSS author metadata and font preload.
-- **Admin 後台 shadcn 化（2026-09-18，待 commit）**：主改動已 commit ff324ac9；Q-028 已拍板（secret 走 env、behavior 預設關），傳送端接線完成（bootstrap＋dispatch＋DO 呼叫點＋6/6 tests，我方 8 檔隔離驗證全綠）。未 commit：同工作樹有另一 session 的 Chat 重構半成品，整樹 verify 紅；待對方收斂後只 commit 我方檔案。
+- **Admin 後台 shadcn 化（2026-09-18，已 push）**：ff324ac9（UI＋死連結）＋c0ebe9ee（傳送端接線＋6/6 tests）皆在 `admin-settings-shadcn` 已 push；Q-028 決策 A＋behavior 預設關已記錄。待：瀏覽器實測、合併、啟用 secret（`wrangler secret put`，使用者操作）。
 - **Ask AI agentic pipeline（2026-09-18）**：PRD 已落成（`docs/product/ask-ai/agentic-pipeline PRD.md` §3–§8）。已完成：
   - `/api/chat` 發出 `step_start / tool_call / tool_result / step_complete` SSE 事件（`src/pages/api/chat.ts`）。
   - `src/lib/retrieval/state.ts` `PipelineCallbacks` 新增可選 `onSearchResults`。
