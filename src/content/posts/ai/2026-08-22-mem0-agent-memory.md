@@ -4,6 +4,9 @@ date: 2026-08-22
 category: ai
 type: deep-dive
 tags: [mem0, memory, ai-agent, personalization, vector-database]
+series:
+  name: "AI Agent 記憶工程"
+  order: 6
 lang: zh-TW
 tldr: "Mem0 是介於 agent 與儲存層之間的記憶服務：從對話抽出值得保留的事實，以 user、agent、run 分區，再於下一次生成前搜尋；優勢是 API 簡單，風險則是抽取錯誤、過期記憶與權限邊界。"
 description: "從記憶抽取、分區、搜尋與刪除，到開源版和代管平台差異，完整說明 Mem0 的架構、用法、限制與適用情境。"

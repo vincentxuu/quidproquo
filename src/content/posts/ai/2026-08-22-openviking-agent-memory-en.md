@@ -4,6 +4,9 @@ date: 2026-08-22
 category: ai
 type: deep-dive
 tags: [agent-memory, openviking, virtual-filesystem, context-engineering, mcp, open-source]
+series:
+  name: "AI Agent 記憶工程"
+  order: 7
 lang: en
 tldr: "Volcano Engine's open-source OpenViking stores agent memory, knowledge, and skills as a viking:// virtual filesystem — browsable with ls, tree, and find. Three-tier loading (L0/L1/L2) averages just 550 tokens per retrieval, boosting LoCoMo memory accuracy from 24–57% to 80–83%."
 description: "OpenViking replaces black-box vector stores with a virtual filesystem for agent memory, featuring three-tier on-demand loading and support for Claude Code, Cursor, and other coding agents."

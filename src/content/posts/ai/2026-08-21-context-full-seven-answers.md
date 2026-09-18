@@ -4,6 +4,9 @@ date: 2026-08-21
 type: deep-dive
 category: ai
 tags: [context-engineering, ai-agent, harness-engineering, claude-code, agent-cli, llm]
+series:
+  name: "AI Agent 記憶工程"
+  order: 2
 lang: zh-TW
 tldr: "Chroma 的對照實驗證明：就算塞得下，塞滿也會變差。於是各家 coding agent 發展出七種對策——壓縮、換手、剪枝、少載入、隔離、進模型、換單位。Amp 直接移除 /compact，Atlassian 說摘要該是最後手段，Cursor 的 A/B 測出 46.9% token 降幅。三場分歧的根源不是誰對，是各自在衡量不同的東西。"
 description: "比較 Anthropic、Amp、Cursor、Factory、Atlassian、Cognition、Manus、AWS 對「agent context 滿了」的七種處理策略，含各家公開數字、三場真實技術分歧，以及這個領域缺少的對照實驗。"

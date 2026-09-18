@@ -4,6 +4,9 @@ date: 2026-08-21
 type: deep-dive
 category: ai
 tags: [context-engineering, ai-agent, harness-engineering, claude-code, agent-cli, llm]
+series:
+  name: "AI Agent 記憶工程"
+  order: 2
 lang: en
 tldr: "Chroma's controlled study shows that even when it fits, a full context degrades performance. Coding agent vendors have landed on seven different responses: compact, hand off, prune, defer loading, isolate, train it into the model, or change the unit of work. Amp removed /compact outright, Atlassian argues summarization should be a last resort, and Cursor's A/B test measured a 46.9% token reduction. The three real disagreements come down to what each team is measuring."
 description: "A comparison of how Anthropic, Amp, Cursor, Factory, Atlassian, Cognition, Manus, and AWS handle a full agent context window, including each vendor's published numbers, three genuine technical disagreements, and the controlled experiment nobody has run."

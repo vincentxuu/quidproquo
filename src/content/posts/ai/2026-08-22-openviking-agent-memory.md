@@ -4,6 +4,9 @@ date: 2026-08-22
 category: ai
 type: deep-dive
 tags: [agent-memory, openviking, virtual-filesystem, context-engineering, mcp, open-source]
+series:
+  name: "AI Agent 記憶工程"
+  order: 7
 lang: zh-TW
 tldr: "火山引擎開源 OpenViking 把 agent 的記憶、知識、技能存成 viking:// 虛擬檔案系統，用 ls、tree、find 就能翻。三層載入（L0/L1/L2）讓平均檢索只用 550 tokens，LoCoMo 記憶準確率從 24–57% 提升到 80–83%。"
 description: "OpenViking 用虛擬檔案系統取代向量資料庫黑盒，三層摘要按需載入，支援 Claude Code、Cursor 等主流 coding agent。"

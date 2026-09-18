@@ -4,6 +4,9 @@ date: 2026-08-22
 category: ai
 type: deep-dive
 tags: [mem0, memory, ai-agent, personalization, vector-database]
+series:
+  name: "AI Agent 記憶工程"
+  order: 6
 lang: en
 tldr: "Mem0 sits between an agent and storage: it extracts durable facts from interactions, scopes them by user, agent, or run, and searches them before a later generation. Its appeal is a small API; its risks are extraction errors, stale memories, and authorization boundaries."
 description: "A practical guide to Mem0's extraction, scoping, retrieval, deletion, open-source and hosted variants, limitations, and fit."
