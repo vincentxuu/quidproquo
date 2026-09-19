@@ -1,7 +1,6 @@
 import { type CSSProperties, type ReactNode, useMemo } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { SparkleIcon } from 'lucide-react'
 import { ActivityLine } from './Activity'
 import { useChatLocale } from './locale'
 import type { Message as ChatMessage } from './types'
@@ -36,7 +35,7 @@ export function ChatMessageRow({ message: msg }: { message: ChatMessage }) {
         ...(isAssistant ? styles.assistantMessage : styles.userMessage),
       }}
     >
-      {isAssistant && <AssistantMark />}
+      {isAssistant && <Avatar role="assistant" />}
       <div style={isAssistant ? styles.assistantPanel : styles.userBubble}>
         {isAssistant && (
           <ActivityLine steps={msg.steps} streaming={msg.streaming === true} hasContent={Boolean(msg.content)} />
@@ -47,6 +46,7 @@ export function ChatMessageRow({ message: msg }: { message: ChatMessage }) {
           {msg.related && msg.related.length > 0 && <LinkSection label={t('chat.related')} links={msg.related} />}
         </div>
       </div>
+      {!isAssistant && <Avatar role="user" />}
       <style>{`
         .message-content p:last-child {
           margin-bottom: 0 !important;
@@ -56,14 +56,13 @@ export function ChatMessageRow({ message: msg }: { message: ChatMessage }) {
   )
 }
 
-/** 比照 claude.ai 的小色塊記號：不是卡通臉，只是一個品牌色 sparkle。 */
-function AssistantMark() {
-  const { t } = useChatLocale()
-  return (
-    <span className="chat-mark" aria-label={t('chat.mark')} role="img">
-      <SparkleIcon size={13} aria-hidden="true" />
-    </span>
-  )
+function Avatar({ role }: { role: 'user' | 'assistant' }) {
+  const src = role === 'user'
+    ? 'https://api.dicebear.com/9.x/thumbs/svg?seed=quidproquo-reader&backgroundColor=d1e8d1&shapeColor=2d4a2d'
+    : 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=quidproquo-ask-ai&backgroundColor=e8f5e8&textureChance=0'
+  const alt = role === 'user' ? 'You' : 'Ask AI'
+
+  return <img src={src} alt={alt} style={styles.avatar} loading="lazy" referrerPolicy="no-referrer" />
 }
 
 interface LinkFallbacks {
@@ -143,6 +142,14 @@ function LinkSection({ label, links }: { label: string; links: LinkLike[] }) {
 }
 
 const styles: Record<string, CSSProperties> = {
+  avatar: {
+    width: '2rem',
+    height: '2rem',
+    flex: '0 0 2rem',
+    borderRadius: '50%',
+    border: '1px solid var(--border)',
+    background: 'var(--bg-card)',
+  },
   message: {
     maxWidth: '100%',
     minWidth: 0,

@@ -222,19 +222,6 @@ button[data-streamdown="link"]:hover {
   color: #b42318;
 }
 
-/* 助理記號：一個品牌色 sparkle 小方塊，不是卡通臉 */
-.chat-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  flex: 0 0 1.6rem;
-  margin-top: 0.4rem;
-  border-radius: 6px;
-  background: var(--brand-500, #4a9e6a);
-  color: #fff;
-}
 
 /* ===== 原本的 loading：軌道 spinner + 思考中 + 三點（從 ChatMessageRow 搬過來）===== */
 .chat-thinking {
