@@ -61,3 +61,7 @@ pnpm-debug.log*
 
 # generated admin session UI smoke screenshots
 .work/admin-session-thread-screenshots/
+
+# Playwright 產物（visual regression）
+test-results/
+playwright-report/

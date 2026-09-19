@@ -17,6 +17,26 @@ export const GET: APIRoute = async ({ request }) => {
 
   const { DB, VECTORIZE_INDEX, AI } = env as unknown as Env
 
+  // 延伸閱讀是加分項：D1／Vectorize／AI 任一掛掉只該少一塊，不該讓文章頁 500
+  //（dev 下還會被 vite 錯誤遮罩蓋住整頁）。前端對非 2xx 已靜默略過。
+  try {
+    return await findRelated(DB, VECTORIZE_INDEX, AI, slug, limit)
+  } catch (error) {
+    console.error('[related-posts] lookup failed', slug, error)
+    return Response.json({ slug, results: [] }, {
+      status: 503,
+      headers: { 'Cache-Control': 'no-store' },
+    })
+  }
+}
+
+async function findRelated(
+  DB: Env['DB'],
+  VECTORIZE_INDEX: Env['VECTORIZE_INDEX'],
+  AI: Env['AI'],
+  slug: string,
+  limit: number,
+): Promise<Response> {
   const post = await DB.prepare(
     `SELECT p.id, p.slug, p.title, p.category, p.lang, p.created_at,
             pc.content, pc.chunk_index
