@@ -477,6 +477,32 @@ function dedupeBySlug(results: PostSearchRow[], limit: number): PostSearchRow[] 
   return deduped
 }
 
+const MIN_VECTOR_BUDGET_MS = 250
+
+// Callers with a hard per-source budget (the search page) pass `deadlineAt`
+// so a slow embedding/Vectorize round-trip only costs the vector stage, not
+// the BM25 and metadata hits already in hand.
+async function runVectorStageWithinDeadline(
+  run: () => Promise<PostSearchRow[]>,
+  deadlineAt?: number
+): Promise<{ results: PostSearchRow[]; timedOut: boolean }> {
+  const budgetMs = deadlineAt == null ? null : deadlineAt - Date.now()
+  if (budgetMs != null && budgetMs < MIN_VECTOR_BUDGET_MS) return { results: [], timedOut: true }
+
+  const vector = run()
+    .then(results => ({ results, timedOut: false }))
+    .catch(() => ({ results: [] as PostSearchRow[], timedOut: false }))
+  if (budgetMs == null) return vector
+
+  let handle: ReturnType<typeof setTimeout> | undefined
+  const timeout = new Promise<{ results: PostSearchRow[]; timedOut: boolean }>(resolve => {
+    handle = setTimeout(() => resolve({ results: [], timedOut: true }), budgetMs)
+  })
+  return Promise.race([vector, timeout]).finally(() => {
+    if (handle) clearTimeout(handle)
+  })
+}
+
 export async function searchBlogPosts(args: {
   query: string
   category?: string
@@ -485,8 +511,10 @@ export async function searchBlogPosts(args: {
   shortCircuit?: boolean
   metadataOnly?: boolean
   vectorOnly?: boolean
+  /** Epoch ms; the vector stage is skipped or cut short so the call returns before this. */
+  deadlineAt?: number
 }): Promise<SearchResult[]> {
-  const { query, category, lang, limit = 8, shortCircuit = true, metadataOnly = false, vectorOnly = false } = args
+  const { query, category, lang, limit = 8, shortCircuit = true, metadataOnly = false, vectorOnly = false, deadlineAt } = args
   const started = Date.now()
   const metadataSearchLimit = metadataOnly
     ? Math.ceil(Math.min(limit * 10, 200) / 3)
@@ -557,7 +585,11 @@ export async function searchBlogPosts(args: {
   }
 
   const vectorStarted = Date.now()
-  const vectorResults = await searchVectorPosts(query, limit, category, lang).catch(() => [] as PostSearchRow[])
+  const vectorStage = await runVectorStageWithinDeadline(
+    () => searchVectorPosts(query, limit, category, lang),
+    deadlineAt
+  )
+  const vectorResults = vectorStage.results
   const vectorMs = Date.now() - vectorStarted
 
   const results = dedupeBySlug(reciprocalRankFuse([metadataResults, vectorResults, bm25Results], limit * 3), limit)
@@ -573,6 +605,7 @@ export async function searchBlogPosts(args: {
     skipped_vector: false,
     short_circuit_threshold: BM25_SHORT_CIRCUIT_THRESHOLD,
     estimated_latency_saved_ms: 0,
+    vector_timed_out: vectorStage.timedOut,
   })
 }
 

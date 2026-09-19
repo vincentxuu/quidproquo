@@ -9,6 +9,9 @@ import { getSearchMetrics, weightedReciprocalRankFuse } from '../../lib/retrieva
 import type { SearchMetrics } from '../../lib/retrieval/tools/hybrid-search'
 import { checkAndIncrementRateLimit } from '../../lib/auth/rate-limit'
 import { dedupeSearchResultsByUrl, formatSearchExcerpt } from '../../lib/retrieval/search-result-format'
+import { countKeywordPosts, searchKeywordPosts } from '../../lib/retrieval/tools/keyword-posts'
+import { assessSearchDegradation, needsKeywordFallback } from '../../lib/retrieval/search-degradation'
+import type { DegradationSourceRun } from '../../lib/retrieval/search-degradation'
 import type { SearchResult } from '../../lib/retrieval/state'
 import type { Env } from '@/lib/config/env'
 import { json } from '@/lib/api/response'
@@ -43,9 +46,17 @@ interface SourceRun {
   metrics: SearchMetrics[]
   error?: string
   timeout?: boolean
+  /** Answered inside budget but dropped its vector stage. */
+  partial?: boolean
+  /** Re-run of the keyword source after every user-facing source came back empty. */
+  fallback?: boolean
 }
 
 const SOURCE_IDS = ['d1Keyword', 'vectorizeSemantic', 'cloudflareAiSearch'] as const
+/** Budget for the rescue keyword run; FTS is ~100ms warm, this only guards a cold D1. */
+const KEYWORD_FALLBACK_TIMEOUT_MS = 3000
+/** Headroom between the vector-stage deadline and the source's outer timeout. */
+const VECTOR_DEADLINE_MARGIN_MS = 150
 const SEARCH_PAGE_SETTINGS_KEYS = [
   'search_page_enabled',
   'search_page_default_mode',
@@ -101,10 +112,12 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       )
     }
 
+    // Sources always fetch from 0; paging happens once on the fused list below.
+    // (Passing `offset` down as well used to skip 2×offset rows on "load more".)
     const fetchLimit = Math.min(500, limit + offset)
     const [sourceRuns, keywordTotal] = await Promise.all([
-      runSearchSources({ query, lang, mode: resolvedMode, fetchLimit, settings, offset }),
-      countKeywordPosts(db, query, lang).catch(() => 0),
+      runSearchSources({ query, lang, mode: resolvedMode, fetchLimit, settings, offset: 0 }),
+      countKeywordPosts(db, { query, lang }).catch(() => 0),
     ])
     const visibleRuns = sourceRuns.filter(run => run.config.visible && !run.config.shadow)
     const fused = weightedReciprocalRankFuse(
@@ -115,6 +128,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       .sort((a, b) => b.relevance_score - a.relevance_score)
     const total = Math.max(merged.length, keywordTotal)
     const paged = merged.slice(offset, offset + limit)
+    const degradation = assessSearchDegradation(sourceRuns.map(toDegradationRun))
 
     return json({
       mode: resolvedMode,
@@ -125,13 +139,15 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       offset,
       limit,
       hasMore: offset + limit < total && offset + limit < 500,
+      degraded: degradation.degraded,
+      degradedSources: degradation.sources,
       metrics: summarizeRetrievalMetrics(sourceRuns),
     })
   }
 
   const [keywordResults, total] = await Promise.all([
-    searchKeywordPosts(db, query, lang, limit, offset),
-    countKeywordPosts(db, query, lang),
+    searchKeywordPosts(db, { query, lang, limit, offset }),
+    countKeywordPosts(db, { query, lang }),
   ])
 
   return json({
@@ -142,8 +158,23 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
     offset,
     limit,
     hasMore: offset + limit < total,
+    degraded: false,
+    degradedSources: [],
     results: keywordResults.map(formatApiResult(query)),
   })
+}
+
+function toDegradationRun(run: SourceRun): DegradationSourceRun {
+  return {
+    id: run.id,
+    enabled: run.config.enabled,
+    visible: run.config.visible,
+    shadow: run.config.shadow,
+    resultCount: run.results.length,
+    timeout: run.timeout,
+    error: run.error,
+    partial: run.partial,
+  }
 }
 
 function parseSearchLang(raw: string | null): SearchLang {
@@ -177,7 +208,7 @@ async function loadSearchPageSettings(): Promise<SearchPageSettings> {
         visible: true,
         shadow: false,
         weight: 1.1,
-        timeoutMs: 500,
+        timeoutMs: 800,
       }),
       vectorizeSemantic: parseSourceConfig(rows, 'search_page_source_vectorize', {
         enabled: true,
@@ -247,15 +278,20 @@ async function runSearchSources(args: {
     .filter(source => source.config.enabled)
 
   const runs = await Promise.all(orderedSources.map(source => runSearchSource(source.id, source.config, args)))
-  if (runs.some(run => run.config.visible && !run.config.shadow && run.results.length > 0)) return runs
+  if (!needsKeywordFallback(runs.map(toDegradationRun))) return runs
 
-  const keywordConfig = args.settings.sourceConfig.d1Keyword
-  if (!runs.some(run => run.id === 'd1Keyword')) {
-    const fallbackConfig = { ...keywordConfig, enabled: true, visible: true, shadow: false }
-    return [...runs, await runSearchSource('d1Keyword', fallbackConfig, args)]
+  // Every user-facing source came back empty and the keyword source itself
+  // timed out, errored, or never ran: retry it with a generous budget rather
+  // than returning nothing for a query that has hundreds of matches.
+  const fallbackConfig: RetrievalSourceConfig = {
+    ...args.settings.sourceConfig.d1Keyword,
+    enabled: true,
+    visible: true,
+    shadow: false,
+    timeoutMs: KEYWORD_FALLBACK_TIMEOUT_MS,
   }
-
-  return runs
+  const fallbackRun = { ...(await runSearchSource('d1Keyword', fallbackConfig, args)), fallback: true }
+  return [...runs.filter(run => run.id !== 'd1Keyword'), fallbackRun]
 }
 
 async function runSearchSource(
@@ -271,12 +307,13 @@ async function runSearchSource(
   }
 ): Promise<SourceRun> {
   try {
-    const output = await withSourceTimeout(runRawSearchSource(id, args), config.timeoutMs)
+    const output = await withSourceTimeout(runRawSearchSource(id, config, args), config.timeoutMs)
     return {
       id,
       config,
       results: output.results,
       metrics: output.metrics,
+      partial: output.metrics.some(metric => metric.vector_timed_out) || undefined,
     }
   } catch (error) {
     return {
@@ -292,6 +329,7 @@ async function runSearchSource(
 
 async function runRawSearchSource(
   id: RetrievalSourceId,
+  config: RetrievalSourceConfig,
   args: {
     query: string
     lang: SearchLang
@@ -304,17 +342,28 @@ async function runRawSearchSource(
   const db = (env as unknown as Env).DB
   if (id === 'd1Keyword') {
     return {
-      results: await searchKeywordPosts(db, args.query, args.lang, args.fetchLimit, args.offset),
+      results: await searchKeywordPosts(db, {
+        query: args.query,
+        lang: args.lang,
+        limit: args.fetchLimit,
+        offset: args.offset,
+      }),
       metrics: [],
     }
   }
   if (id === 'vectorizeSemantic') {
+    // Hand the post search a deadline just inside our outer timeout so a slow
+    // embedding call degrades to BM25+metadata instead of losing the whole source.
+    const deadlineAt = config.timeoutMs > 0
+      ? Date.now() + Math.max(0, config.timeoutMs - VECTOR_DEADLINE_MARGIN_MS)
+      : undefined
     const [posts, docs] = await Promise.all([
       searchBlogPosts({
         query: args.query,
         lang: args.lang,
         limit: args.fetchLimit,
         shortCircuit: args.mode === 'hybrid',
+        deadlineAt,
       }),
       args.mode === 'rag'
         ? searchDocs({ query: args.query, limit: 5, shortCircuit: false })
@@ -353,129 +402,6 @@ function withSourceTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T
   return Promise.race([promise, timeout]).finally(() => {
     if (timeoutHandle) clearTimeout(timeoutHandle)
   })
-}
-
-async function countKeywordPosts(db: D1Database, query: string, lang: SearchLang): Promise<number> {
-  const likes = buildKeywordLikes(query)
-  const where = buildKeywordWhere(likes)
-  const row = await db.prepare(
-    `SELECT count(*) as total FROM posts
-     WHERE lang = ? AND ${where.sql}`
-  ).bind(lang, ...where.params).first<{ total: number }>()
-  return row?.total ?? 0
-}
-
-async function searchKeywordPosts(
-  db: D1Database,
-  query: string,
-  lang: SearchLang,
-  limit: number,
-  offset: number
-): Promise<SearchResult[]> {
-  const likes = buildKeywordLikes(query)
-  const where = buildKeywordWhere(likes)
-  const rank = buildKeywordRank(likes)
-  const rows = await db.prepare(
-    `SELECT slug, title, category, description, tldr, content, substr(created_at, 1, 10) AS date,
-       (${rank.sql}) AS keyword_score
-     FROM posts
-     WHERE lang = ? AND ${where.sql}
-     ORDER BY keyword_score ASC, created_at DESC
-     LIMIT ? OFFSET ?`
-  ).bind(...rank.params, lang, ...where.params, limit, offset).all<{
-    slug: string
-    title: string
-    category: string
-    description: string | null
-    tldr: string | null
-    content: string
-    date: string
-    keyword_score: number
-  }>()
-
-  return rows.results.map(row => ({
-    claim: row.title,
-    evidence_excerpt: row.tldr ?? row.description ?? row.content.slice(0, 300),
-    source_url: `https://quidproquo.cc/posts/${row.slug}`,
-    chunk_id: `keyword:${row.slug}`,
-    date: row.date,
-    relevance_score: keywordScore(row.keyword_score),
-    images: [],
-    links: [],
-    type: 'post',
-    slug: row.slug,
-    title: row.title,
-  }))
-}
-
-function buildKeywordLikes(query: string): string[] {
-  const exact = query.trim()
-  if (exact.length < 2) return []
-  return [exact, ...buildKeywordTerms(exact)].map(term => `%${term}%`)
-}
-
-function buildKeywordWhere(likes: string[]): { sql: string; params: string[] } {
-  if (likes.length === 0) return { sql: '0', params: [] }
-
-  const fields = ['title', 'description', 'tldr', 'content']
-  const exactClauses = fields.map(field => `${field} LIKE ?`).join(' OR ')
-  const exactParams = fields.map(() => likes[0])
-  const termLikes = likes.slice(1)
-  if (termLikes.length === 0) {
-    return { sql: `(${exactClauses})`, params: exactParams }
-  }
-
-  const text = keywordTextExpression()
-  return {
-    sql: `((${exactClauses}) OR (${termLikes.map(() => `${text} LIKE ?`).join(' AND ')}))`,
-    params: [...exactParams, ...termLikes],
-  }
-}
-
-function buildKeywordRank(likes: string[]): { sql: string; params: string[] } {
-  const exact = likes[0]
-  if (!exact) return { sql: '4', params: [] }
-
-  return {
-    sql: `CASE
-         WHEN title LIKE ? THEN 0
-         WHEN tldr LIKE ? THEN 1
-         WHEN description LIKE ? THEN 2
-         WHEN content LIKE ? THEN 3
-         ELSE 4
-       END`,
-    params: [exact, exact, exact, exact],
-  }
-}
-
-function buildKeywordTerms(query: string): string[] {
-  const rawTokens = query.match(/[\p{L}\p{N}][\p{L}\p{N}-]*/gu) ?? []
-  const terms = new Set<string>()
-
-  for (const token of rawTokens) {
-    const parts = token.match(/[\p{Script=Han}]+|[^\p{Script=Han}]+/gu) ?? [token]
-    for (const part of parts) {
-      const trimmed = part.trim()
-      if (trimmed.length < 2) continue
-      if (/^[\p{Script=Han}]+$/u.test(trimmed) && trimmed.length >= 4) {
-        for (let i = 0; i < trimmed.length - 1; i += 2) {
-          terms.add(trimmed.slice(i, i + 2))
-        }
-      } else if (trimmed !== query) {
-        terms.add(trimmed)
-      }
-    }
-  }
-
-  return [...terms].slice(0, 6)
-}
-
-function keywordTextExpression(): string {
-  return "(title || ' ' || COALESCE(description, '') || ' ' || COALESCE(tldr, '') || ' ' || content)"
-}
-
-function keywordScore(rank: number): number {
-  return Math.max(0.4, Math.min(1, 1 - rank * 0.12))
 }
 
 function formatApiResult(query: string) {
@@ -525,6 +451,8 @@ function summarizeRetrievalMetrics(sourceRuns: SourceRun[]) {
       result_count: run.results.length,
       error: run.error,
       timeout: run.timeout,
+      partial: run.partial,
+      fallback: run.fallback,
     })),
     details: metrics,
   }

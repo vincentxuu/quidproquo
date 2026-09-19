@@ -18,6 +18,8 @@ export interface SearchMetrics {
   estimated_latency_saved_ms: number | null
   error?: string
   timeout?: boolean
+  /** Vector stage was dropped to honour the caller's deadline; BM25/metadata results still returned. */
+  vector_timed_out?: boolean
 }
 
 export type SearchResultsWithMetrics<T> = T[] & { metrics?: SearchMetrics }

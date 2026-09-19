@@ -52,7 +52,7 @@ const DEFAULT_SETTINGS: Record<string, string> = {
   search_page_source_d1_keyword_visible: '1',
   search_page_source_d1_keyword_shadow: '0',
   search_page_source_d1_keyword_weight: '1.1',
-  search_page_source_d1_keyword_timeout_ms: '500',
+  search_page_source_d1_keyword_timeout_ms: '800',
   search_page_source_vectorize_enabled: '1',
   search_page_source_vectorize_visible: '1',
   search_page_source_vectorize_shadow: '0',

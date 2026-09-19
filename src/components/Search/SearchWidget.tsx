@@ -18,6 +18,9 @@ interface SearchResponse {
   offset?: number
   limit?: number
   hasMore?: boolean
+  /** Set when a user-facing retrieval source timed out, errored, or dropped a stage. */
+  degraded?: boolean
+  degradedSources?: { id: string; reason: string }[]
   error?: string
   message?: string
 }
@@ -41,6 +44,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
   const [results, setResults] = useState<SearchResult[]>([])
   const [total, setTotal] = useState<number | null>(null)
   const [hasMore, setHasMore] = useState(false)
+  const [degraded, setDegraded] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [searchAttempted, setSearchAttempted] = useState(false)
   const [searchHistory, setSearchHistory] = useState<string[]>([])
@@ -65,6 +69,13 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
     resultsTitle: lang === 'en' ? 'Results' : '搜尋結果',
     loadMore: lang === 'en' ? 'Load more' : '載入更多',
     loadingMore: lang === 'en' ? 'Loading...' : '載入中...',
+    degradedEmpty: lang === 'en'
+      ? 'Search sources timed out before returning results. This is not a "no results" answer.'
+      : '搜尋來源逾時，還沒拿到結果——這不代表沒有相符的文章。',
+    degradedPartial: lang === 'en'
+      ? 'Some search sources timed out; results may be incomplete.'
+      : '部分檢索來源逾時，結果可能不完整。',
+    retry: lang === 'en' ? 'Retry' : '重試',
   }
 
   useEffect(() => {
@@ -116,6 +127,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
       setResults([])
       setTotal(null)
       setHasMore(false)
+      setDegraded(false)
     }
     setError(null)
     setSearchAttempted(true)
@@ -146,6 +158,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
       }
       setTotal(res.total ?? (res.results?.length ?? 0))
       setHasMore(Boolean(res.hasMore))
+      setDegraded(prev => (append ? prev : false) || Boolean(res.degraded))
       if (!append) saveToHistory(searchQuery)
     } catch (err) {
       console.error('Search error:', err)
@@ -322,6 +335,15 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
         </div>
       )}
 
+      {showResults && results.length > 0 && degraded && (
+        <div className="search-degraded search-degraded--partial" role="status">
+          <span>{t.degradedPartial}</span>
+          <button type="button" className="retry-btn" onClick={() => runSearch(currentQueryRef.current)}>
+            {t.retry}
+          </button>
+        </div>
+      )}
+
       {showResults && results.length > 0 && (
         <div className="search-results">
           <section className="results-section">
@@ -363,7 +385,16 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
       )}
 
       {!isLoading && searchAttempted && results.length === 0 && !error && (
-        <div className="search-empty">{t.noResults}</div>
+        degraded ? (
+          <div className="search-degraded" role="status">
+            <span>{t.degradedEmpty}</span>
+            <button type="button" className="retry-btn" onClick={() => runSearch(currentQueryRef.current)}>
+              {t.retry}
+            </button>
+          </div>
+        ) : (
+          <div className="search-empty">{t.noResults}</div>
+        )
       )}
 
       {showResults && results.length > 0 && (
