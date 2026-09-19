@@ -1,12 +1,4 @@
-import { useCallback } from 'react'
 import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import {
   Tooltip,
   TooltipContent,
@@ -16,13 +8,7 @@ import {
 import { cn } from '@/lib/utils'
 import type { Message } from './types'
 import { useChatLocale } from './locale'
-import {
-  CopyIcon,
-  DownloadIcon,
-  MoreHorizontalIcon,
-  PlusIcon,
-  Trash2Icon,
-} from 'lucide-react'
+import { PlusIcon } from 'lucide-react'
 
 interface ChatHeaderProps {
   title?: string
@@ -173,47 +159,18 @@ function HeaderActions({ onExpandToggle, isExpanded, onClose, embedded }: Header
 interface ChatHeaderToolbarProps {
   messages: Message[]
   onNewChat: () => void
-  onCopyConversation?: () => void
-  onDownloadConversation?: () => void
   className?: string
 }
 
 export function ChatHeaderToolbar({
   messages,
   onNewChat,
-  onCopyConversation,
-  onDownloadConversation,
   className,
 }: ChatHeaderToolbarProps) {
   const hasMessages = messages.length > 1
   const { t } = useChatLocale()
-  const you = t('chat.transcript.you')
 
-  const handleCopy = useCallback(() => {
-    const text = messages
-      .map(m => `${m.role === 'user' ? you : 'AI'}: ${m.content}`)
-      .join('\n\n')
-    navigator.clipboard.writeText(text).catch(() => {})
-    onCopyConversation?.()
-  }, [messages, onCopyConversation, you])
-
-  const handleDownload = useCallback(() => {
-    const text = messages
-      .map(m => `## ${m.role === 'user' ? you : 'AI'}\n\n${m.content}`)
-      .join('\n\n') + '\n'
-    const blob = new Blob([text], { type: 'text/markdown' })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = `chat-${new Date().toISOString().slice(0, 10)}.md`
-    document.body.appendChild(link)
-    link.click()
-    link.remove()
-    URL.revokeObjectURL(url)
-    onDownloadConversation?.()
-  }, [messages, onDownloadConversation, you])
-
-  // 空對話沒有東西可新開、複製或清除，整組隱藏（比照 DocSearch）
+  // 空對話沒有東西可新開，整組隱藏（比照 DocSearch）
   if (!hasMessages) return null
 
   return (
@@ -235,39 +192,6 @@ export function ChatHeaderToolbar({
           <TooltipContent side="bottom">{t('chat.action.new')}</TooltipContent>
         </Tooltip>
       </TooltipProvider>
-
-      {/* 次要與破壞性動作收進 ⋯ */}
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon-sm"
-            className="size-7 chat-icon-btn"
-            aria-label={t('chat.action.more')}
-          >
-            <MoreHorizontalIcon className="size-4" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-48">
-          <DropdownMenuItem onClick={handleCopy}>
-            <CopyIcon className="mr-2 size-4" />
-            {t('chat.action.copy')}
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={handleDownload}>
-            <DownloadIcon className="mr-2 size-4" />
-            {t('chat.action.download')}
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem
-            onClick={onNewChat}
-            className="text-destructive focus:bg-destructive/10 focus:text-destructive"
-          >
-            <Trash2Icon className="mr-2 size-4" />
-            {t('chat.action.clear')}
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
     </div>
   )
 }
