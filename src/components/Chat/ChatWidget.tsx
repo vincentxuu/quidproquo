@@ -140,9 +140,11 @@ export function ChatWidget({
       })
 
       if (!resp.ok) {
-        const err = await resp.json() as { message?: string }
+        const err = await resp.json().catch(() => ({})) as { error?: string; message?: string }
         setMessages(prev => prev.map(m =>
-          m.id === assistantId ? { ...m, content: err.message ?? t('chat.error.generic'), streaming: false } : m
+          m.id === assistantId
+            ? { ...m, content: err.message ?? t('chat.error.generic'), streaming: false, error: err.error !== 'rate_limit' }
+            : m
         ))
         return
       }
@@ -189,7 +191,7 @@ export function ChatWidget({
             const errorStep: StepEvent = { id: 'error', kind: 'check', label: t('chat.error.short'), status: 'error', reasoning: data.message }
             setMessages(prev => prev.map(m =>
               m.id === assistantId
-                ? { ...m, content: data.message ?? t('chat.error.short'), streaming: false, steps: applyStepEvent(m.steps, errorStep) }
+                ? { ...m, content: data.message ?? t('chat.error.short'), streaming: false, error: true, steps: applyStepEvent(m.steps, errorStep) }
                 : m
             ))
           }
@@ -214,7 +216,7 @@ export function ChatWidget({
         ))
       } else {
         setMessages(prev => prev.map(m =>
-          m.id === assistantId ? { ...m, content: m.content || t('chat.error.generic'), streaming: false } : m
+          m.id === assistantId ? { ...m, content: m.content || t('chat.error.generic'), streaming: false, error: true } : m
         ))
       }
     } finally {
@@ -224,6 +226,16 @@ export function ChatWidget({
         m.id === assistantId ? { ...m, streaming: false } : m
       ))
     }
+  }
+
+  // 重試：拿掉失敗的那組問答，用同一句重送（伺服器照常計次）
+  const handleRetry = (assistantId: string) => {
+    if (loading) return
+    const index = messages.findIndex(m => m.id === assistantId)
+    const question = index > 0 ? messages[index - 1] : undefined
+    if (!question || question.role !== 'user') return
+    setMessages(prev => prev.filter(m => m.id !== assistantId && m.id !== question.id))
+    void sendMessage(question.content)
   }
 
   useEffect(() => {
@@ -250,6 +262,40 @@ export function ChatWidget({
     return suggestionPool[questionIndex]
   })
 
+  // 建議問題貼在輸入框正上方、直列（窄面板慣例），開始對話就收起
+  const suggestions = messages.length === 1 && !loading ? (
+    <div className="px-4 pt-2 pb-3" style={{ background: 'var(--bg-subtle)' }}>
+      <div className="mb-1.5 flex items-center justify-between gap-2">
+        <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>{t('chat.suggestions.title')}</span>
+        <button
+          type="button"
+          onClick={() => setSuggestionPage(page => page + 1)}
+          className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg border-none bg-transparent px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
+          style={{ color: 'var(--text-secondary)' }}
+          aria-label={t('chat.suggestions.refreshAria')}
+        >
+          <RefreshCwIcon className="size-3.5" />
+          {t('chat.suggestions.refresh')}
+        </button>
+      </div>
+      <div className="flex flex-col gap-1.5">
+        {visibleSuggestions.map((question) => (
+          <Suggestion
+            key={question}
+            suggestion={question}
+            onClick={(q) => void sendMessage(q)}
+            className="chat-suggestion h-auto justify-start whitespace-normal text-left text-xs leading-relaxed"
+            style={{
+              background: 'var(--brand-100)',
+              color: 'var(--brand-700)',
+              borderColor: 'var(--border)',
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  ) : null
+
   return (
     <ChatLocaleProvider lang={lang}>
     <div style={containerStyle}>
@@ -262,51 +308,28 @@ export function ChatWidget({
         extraActions={
           <ChatHeaderToolbar
             messages={messages}
-            loading={loading}
-            streaming={loading}
             onNewChat={handleNewChat}
-            onStop={handleStop}
           />
         }
       />
-      {messages.length === 1 && !loading && (
-        <div className="border-b px-4 py-3" style={{ borderColor: 'var(--border)', background: 'var(--bg-card)' }}>
-          <div className="mb-2 flex items-center justify-between gap-2">
-            <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>{t('chat.suggestions.title')}</span>
-            <button
-              type="button"
-              onClick={() => setSuggestionPage(page => page + 1)}
-              className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg border-none bg-transparent px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
-              style={{ color: 'var(--text-secondary)' }}
-              aria-label={t('chat.suggestions.refreshAria')}
-            >
-              <RefreshCwIcon className="size-3.5" />
-              {t('chat.suggestions.refresh')}
-            </button>
-          </div>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {visibleSuggestions.map((question) => (
-              <Suggestion
-                key={question}
-                suggestion={question}
-                onClick={(q) => void sendMessage(q)}
-                className="chat-suggestion h-auto justify-start whitespace-normal text-left text-xs leading-relaxed"
-                style={{
-                  background: 'var(--brand-100)',
-                  color: 'var(--brand-700)',
-                  borderColor: 'var(--border)',
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-      {remaining !== null && (
-        <div style={{ padding: '0.5rem 1rem 0' }}>
-          <QuotaIndicator remaining={remaining} limit={DAILY_LIMIT} />
-        </div>
-      )}
-      <ChatThread messages={messages} loading={loading} onSend={sendMessage} />
+      <ChatThread
+        messages={messages}
+        loading={loading}
+        onSend={sendMessage}
+        onStop={handleStop}
+        onRetry={handleRetry}
+        beforeComposer={suggestions}
+        footerNote={
+          <>
+            <span>{t('chat.disclaimer')}</span>
+            {remaining !== null && (
+              <div className="ml-auto w-40 shrink-0">
+                <QuotaIndicator remaining={remaining} limit={DAILY_LIMIT} />
+              </div>
+            )}
+          </>
+        }
+      />
     </div>
     </ChatLocaleProvider>
   )

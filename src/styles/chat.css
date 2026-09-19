@@ -48,6 +48,40 @@ button[data-streamdown="link"]:hover {
   color: #ef4444;
 }
 
+/* 回答下方動作列（複製／重試）：串流結束才出現；公開頁沒 preflight，button 自己 reset */
+.chat-message-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.6rem;
+}
+.chat-message-action {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 1.75rem;
+  min-width: 1.75rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0 0.45rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.chat-message-action:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+.chat-message-action:focus-visible {
+  outline: 2px solid var(--brand-500);
+  outline-offset: 1px;
+}
+
 /* 建議題目卡：扁平 tag，不帶 Button outline 的 shadow-xs；hover 邊框轉品牌綠 */
 .chat-suggestion {
   box-shadow: none;

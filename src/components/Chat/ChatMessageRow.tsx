@@ -1,6 +1,7 @@
-import { type CSSProperties, type ReactNode, useMemo } from 'react'
+import { type CSSProperties, type ReactNode, useEffect, useMemo, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { CheckIcon, CopyIcon, RotateCcwIcon } from 'lucide-react'
 import { ActivityLine } from './Activity'
 import { useChatLocale } from './locale'
 import type { Message as ChatMessage } from './types'
@@ -22,9 +23,10 @@ interface NormalizedLink {
   description?: string
 }
 
-export function ChatMessageRow({ message: msg }: { message: ChatMessage }) {
+export function ChatMessageRow({ message: msg, onRetry }: { message: ChatMessage; onRetry?: () => void }) {
   const isAssistant = msg.role === 'assistant'
-  const { t } = useChatLocale()
+  // 歡迎語（id 'welcome'）與串流中的回答不給動作列
+  const showActions = isAssistant && !msg.streaming && msg.id !== 'welcome' && (Boolean(msg.content) || Boolean(onRetry))
 
   return (
     <div
@@ -42,9 +44,10 @@ export function ChatMessageRow({ message: msg }: { message: ChatMessage }) {
         )}
         <div className="message-content" style={styles.content}>
           {msg.content ? <MarkdownContent content={msg.content} role={msg.role} /> : null}
-          {msg.sources && msg.sources.length > 0 && <LinkSection label={t('chat.sources')} links={msg.sources} />}
-          {msg.related && msg.related.length > 0 && <LinkSection label={t('chat.related')} links={msg.related} />}
+          {msg.sources && msg.sources.length > 0 && <LinkSection countKey="chat.sources.count" links={msg.sources} />}
+          {msg.related && msg.related.length > 0 && <LinkSection countKey="chat.related.count" links={msg.related} />}
         </div>
+        {showActions && <MessageActions content={msg.error ? '' : msg.content} onRetry={onRetry} />}
       </div>
       {!isAssistant && <Avatar role="user" />}
       <style>{`
@@ -56,10 +59,48 @@ export function ChatMessageRow({ message: msg }: { message: ChatMessage }) {
   )
 }
 
+function MessageActions({ content, onRetry }: { content: string; onRetry?: () => void }) {
+  const { t } = useChatLocale()
+  const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    if (!copied) return
+    const timer = setTimeout(() => setCopied(false), 1500)
+    return () => clearTimeout(timer)
+  }, [copied])
+
+  const copy = () => {
+    navigator.clipboard.writeText(content).then(() => setCopied(true)).catch(() => {})
+  }
+
+  return (
+    <div className="chat-message-actions">
+      {onRetry && (
+        <button type="button" className="chat-message-action" onClick={onRetry}>
+          <RotateCcwIcon className="size-3.5" aria-hidden="true" />
+          {t('chat.action.retry')}
+        </button>
+      )}
+      {content && (
+        <button
+          type="button"
+          className="chat-message-action"
+          onClick={copy}
+          aria-label={copied ? t('chat.action.copied') : t('chat.action.copyAnswer')}
+          title={t('chat.action.copyAnswer')}
+        >
+          {copied ? <CheckIcon className="size-3.5" aria-hidden="true" /> : <CopyIcon className="size-3.5" aria-hidden="true" />}
+          {copied && <span>{t('chat.action.copied')}</span>}
+        </button>
+      )}
+      <span className="sr-only" role="status">{copied ? t('chat.action.copied') : ''}</span>
+    </div>
+  )
+}
+
 function Avatar({ role }: { role: 'user' | 'assistant' }) {
-  const src = role === 'user'
-    ? 'https://api.dicebear.com/9.x/thumbs/svg?seed=quidproquo-reader&backgroundColor=d1e8d1&shapeColor=2d4a2d'
-    : 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=quidproquo-ask-ai&backgroundColor=e8f5e8&textureChance=0'
+  // DiceBear 產生後存成本地檔（public/chat/），不再每次打第三方
+  const src = role === 'user' ? '/chat/avatar-reader.svg' : '/chat/avatar-ask-ai.svg'
   const alt = role === 'user' ? 'You' : 'Ask AI'
 
   return <img src={src} alt={alt} style={styles.avatar} loading="lazy" referrerPolicy="no-referrer" />
@@ -119,13 +160,15 @@ function MarkdownContent({ content, role }: { content: string; role: 'user' | 'a
   )
 }
 
-function LinkSection({ label, links }: { label: string; links: LinkLike[] }) {
+function LinkSection({ countKey, links }: { countKey: 'chat.sources.count' | 'chat.related.count'; links: LinkLike[] }) {
+  const { t } = useChatLocale()
   const normalizedLinks = normalizeLinks(links)
   if (normalizedLinks.length === 0) return null
 
+  // 預設收合成一行「參考了 N 篇文章」，點開才列卡片
   return (
-    <div className="sources-container" style={styles.linkSection}>
-      <div style={styles.sectionLabel}>{label}</div>
+    <details className="sources-container" style={styles.linkSection}>
+      <summary style={styles.sectionLabel}>{t(countKey, { n: normalizedLinks.length })}</summary>
       <div style={styles.linkList}>
         {normalizedLinks.map((link, index) => (
           <a key={`${link.url}:${link.title}`} href={link.url} target="_blank" rel="noopener noreferrer" style={styles.linkCard}>
@@ -137,7 +180,7 @@ function LinkSection({ label, links }: { label: string; links: LinkLike[] }) {
           </a>
         ))}
       </div>
-    </div>
+    </details>
   )
 }
 
@@ -291,13 +334,14 @@ const styles: Record<string, CSSProperties> = {
     borderTop: '1px solid var(--border)',
   },
   sectionLabel: {
-    marginBottom: '0.55rem',
+    cursor: 'pointer',
     color: 'var(--text-secondary)',
     fontSize: '0.78rem',
     lineHeight: 1.2,
     fontWeight: 700,
   },
   linkList: {
+    marginTop: '0.55rem',
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
     gap: '0.5rem',

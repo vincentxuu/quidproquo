@@ -44,4 +44,6 @@ export interface Message {
   sources?: LinkLike[]
   related?: LinkLike[]
   streaming?: boolean
+  /** 失敗的回答（可重試）；額度用完不算，重試也沒用。 */
+  error?: boolean
 }

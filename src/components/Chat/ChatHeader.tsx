@@ -21,7 +21,6 @@ import {
   DownloadIcon,
   MoreHorizontalIcon,
   PlusIcon,
-  SquareIcon,
   Trash2Icon,
 } from 'lucide-react'
 
@@ -75,9 +74,9 @@ export function ChatHeader({
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
-            <h2 className="truncate text-sm font-semibold text-primary">{resolvedTitle}</h2>
+            <h2 style={{ margin: 0 }} className="truncate text-sm leading-5 font-semibold text-primary">{resolvedTitle}</h2>
             {showStatus && (
-              <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium tabular-nums"
+              <span role="status" className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium tabular-nums"
                 style={{
                   borderColor: 'var(--brand-200)',
                   color: 'var(--brand-700)',
@@ -92,7 +91,7 @@ export function ChatHeader({
             )}
           </div>
           {resolvedSubtitle && (
-            <p className="truncate text-[11px] text-muted-foreground">{resolvedSubtitle}</p>
+            <p style={{ margin: 0 }} className="truncate text-[11px] leading-4 text-muted-foreground">{resolvedSubtitle}</p>
           )}
         </div>
       </div>
@@ -173,10 +172,7 @@ function HeaderActions({ onExpandToggle, isExpanded, onClose, embedded }: Header
 
 interface ChatHeaderToolbarProps {
   messages: Message[]
-  loading: boolean
-  streaming: boolean
   onNewChat: () => void
-  onStop?: () => void
   onCopyConversation?: () => void
   onDownloadConversation?: () => void
   className?: string
@@ -184,9 +180,7 @@ interface ChatHeaderToolbarProps {
 
 export function ChatHeaderToolbar({
   messages,
-  streaming,
   onNewChat,
-  onStop,
   onCopyConversation,
   onDownloadConversation,
   className,
@@ -219,30 +213,30 @@ export function ChatHeaderToolbar({
     onDownloadConversation?.()
   }, [messages, onDownloadConversation, you])
 
+  // 空對話沒有東西可新開、複製或清除，整組隱藏（比照 DocSearch）
+  if (!hasMessages) return null
+
   return (
     <div className={cn('flex items-center gap-1', className)}>
-      {/* Stop generation (only while streaming) */}
-      {streaming && onStop && (
-        <TooltipProvider delayDuration={150}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon-sm"
-                className="size-7 chat-icon-btn chat-icon-btn-danger"
-                onClick={onStop}
-                aria-label={t('chat.action.stop')}
-              >
-                <SquareIcon className="size-3.5 fill-current" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent side="bottom">{t('chat.action.stop')}</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      )}
+      <TooltipProvider delayDuration={200}>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon-sm"
+              className="size-7 chat-icon-btn"
+              onClick={onNewChat}
+              aria-label={t('chat.action.new')}
+            >
+              <PlusIcon className="size-4" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">{t('chat.action.new')}</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
 
-      {/* Dropdown for management actions */}
+      {/* 次要與破壞性動作收進 ⋯ */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
@@ -256,16 +250,11 @@ export function ChatHeaderToolbar({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
-          <DropdownMenuItem onClick={onNewChat}>
-            <PlusIcon className="mr-2 size-4" />
-            {t('chat.action.new')}
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={handleCopy} disabled={!hasMessages}>
+          <DropdownMenuItem onClick={handleCopy}>
             <CopyIcon className="mr-2 size-4" />
             {t('chat.action.copy')}
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={handleDownload} disabled={!hasMessages}>
+          <DropdownMenuItem onClick={handleDownload}>
             <DownloadIcon className="mr-2 size-4" />
             {t('chat.action.download')}
           </DropdownMenuItem>
@@ -273,7 +262,6 @@ export function ChatHeaderToolbar({
           <DropdownMenuItem
             onClick={onNewChat}
             className="text-destructive focus:bg-destructive/10 focus:text-destructive"
-            disabled={!hasMessages}
           >
             <Trash2Icon className="mr-2 size-4" />
             {t('chat.action.clear')}

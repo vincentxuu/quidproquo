@@ -1,4 +1,4 @@
-import { test, expect, type Page, type Route } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 
 // 基線：tests/visual/baselines/ 下同名 png。更新基線前必須人眼看過 diff，
 // 不准為了變綠而放寬（maxDiffPixels 只吃跨平台抗鋸齒噪音）。
@@ -7,8 +7,6 @@ const POST_URL = '/posts/ai/2026-08-30-ask-ai-pipeline-overview';
 async function gotoWithTheme(page: Page, url: string, theme: 'light' | 'dark') {
   // 兩頁都在 head 同步讀 localStorage 決定 data-theme，必須在載入前寫入。
   await page.addInitScript((t: string) => localStorage.setItem('theme', t), theme);
-  // 頭像走外部 dicebear，擋掉＋遮罩，避免網路抖動造成假紅燈。
-  await page.route('**api.dicebear.com**', (r: Route) => r.abort());
   // 不用 networkidle：dev 模式文章頁載入後會再 reload 一次，CI 上曾因此卡滿 30s
   //（trace 裡所有請求 7s 內都完成，仍等不到 idle）。畫面就緒交給下面的
   // toBeVisible 與 toHaveScreenshot 自帶的穩定等待。

@@ -975,7 +975,8 @@ export const PromptInputTextarea = ({
       }
 
       if (e.key === "Enter") {
-        if (isComposing || e.nativeEvent.isComposing) {
+        // Safari 選字確認的 Enter 會在 compositionend 之後觸發，只剩 keyCode 229 可辨識
+        if (isComposing || e.nativeEvent.isComposing || e.keyCode === 229) {
           return;
         }
         if (e.shiftKey) {
