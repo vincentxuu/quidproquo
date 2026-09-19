@@ -4,10 +4,11 @@ import { RAG_ENGINE_REGISTRY, resolveRagEngine } from './registry'
 import { initialState } from '../../retrieval/state'
 
 describe('RAG engine registry', () => {
-  it('exposes manual and langgraph engines', () => {
+  it('exposes manual, langgraph and agent engines', () => {
     expect(new Set(Object.keys(RAG_ENGINE_REGISTRY).sort())).toEqual(
-      new Set(['langgraph', 'manual'])
+      new Set(['agent', 'langgraph', 'manual'])
     )
+    expect(resolveRagEngine('agent').name).toBe('agent')
     expect(resolveRagEngine('manual').name).toBe('manual')
     expect(resolveRagEngine('langgraph').name).toBe('langgraph')
   })

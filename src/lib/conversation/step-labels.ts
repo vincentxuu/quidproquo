@@ -19,6 +19,9 @@ export type StepAgent =
   | 'Critic'
   | 'Fallback'
   | 'Related'
+  | 'ReadPost'
+  | 'Agent'
+  | 'Tool'
 
 export type StepLang = 'zh-TW' | 'en'
 
@@ -39,6 +42,9 @@ const STEP_META: Record<StepAgent, StepMeta> = {
   Critic: { kind: 'thinking', label: '評估品質', labelEn: 'Review quality', description: '評估信心與相關性' },
   Fallback: { kind: 'check', label: '備援回答', labelEn: 'Fallback answer', description: '使用備援策略產生回答' },
   Related: { kind: 'tool', label: '推薦相關文章', labelEn: 'Suggest related posts', description: '列出相關文章推薦' },
+  ReadPost: { kind: 'tool', label: '讀取文章全文', labelEn: 'Read full post', description: '讀取單篇文章全文' },
+  Agent: { kind: 'thinking', label: '決定下一步', labelEn: 'Decide next step', description: 'agent 決定要搜尋、讀全文或作答' },
+  Tool: { kind: 'tool', label: '呼叫工具', labelEn: 'Call tool', description: '其他工具呼叫' },
 }
 
 /** 等待中的動詞（頭像旁那個字）：依「最後完成的階段」推下一步在做什麼。值是 i18n/chat.ts 的 key 尾碼。 */
@@ -53,6 +59,9 @@ export const PHASE_KEY: Record<'initial' | StepAgent, PhaseKey> = {
   Critic: 'composing',
   Fallback: 'fallingBack',
   Related: 'composing',
+  ReadPost: 'composing',
+  Agent: 'searching',
+  Tool: 'composing',
 }
 
 /** reasoning 事件的 stage（小寫）→ agent 名。 */

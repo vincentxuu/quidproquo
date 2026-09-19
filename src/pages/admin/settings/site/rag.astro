@@ -93,7 +93,7 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
 
   const defaultCaseCount = Number((evalCasesInput && evalCasesInput.value) || '8');
   const settingMeta = [
-    { key: 'rag_pipeline_engine', label: 'Pipeline engine', type: 'select', section: 'Routing', options: ['langgraph', 'manual', 'llamaindex'] },
+    { key: 'rag_pipeline_engine', label: 'Pipeline engine', type: 'select', section: 'Routing', options: ['langgraph', 'manual', 'agent'] },
     { key: 'rag_default_provider', label: 'Default provider', type: 'select', section: 'Routing', options: ['groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'cerebras', 'openrouter', 'ollama_cloud', 'ollama'] },
     { key: 'rag_default_model', label: 'Default model', type: 'text', section: 'Routing' },
     { key: 'rag_fallback_provider', label: 'Fallback provider', type: 'select', section: 'Routing', options: ['', 'groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'cerebras', 'openrouter', 'ollama_cloud', 'ollama'] },

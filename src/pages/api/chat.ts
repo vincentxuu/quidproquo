@@ -117,7 +117,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   const ragConfig = await loadRagSettings()
   const providerApiKeys = await resolveProviderApiKeys((env as unknown as Env).DB)
   const requestedEngine = body.pipelineEngine
-  if (requestedEngine && ['langgraph', 'manual'].includes(requestedEngine)) {
+  if (requestedEngine && ['langgraph', 'manual', 'agent'].includes(requestedEngine)) {
     ragConfig.pipelineEngine = requestedEngine
   }
   const checkpointSummary = await loadLatestCheckpoint(thread_id)
@@ -128,9 +128,11 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   }
   const traceStepEvents: StepEvent[] = []
 
+  // agent 引擎的答案風格不同，快取分開放，避免 A/B 時互相污染
+  const cacheNamespace = ragConfig.pipelineEngine === 'agent' ? 'agent' : undefined
   const cached = bypassSemanticCache
     ? null
-    : await lookupSemanticCache(message, ragConfig.semanticCacheThreshold).catch(() => null)
+    : await lookupSemanticCache(message, ragConfig.semanticCacheThreshold, cacheNamespace).catch(() => null)
   if (cached) {
     return new Response(new ReadableStream({
       start(controller) {
@@ -220,8 +222,13 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
               } else if (agent === 'Research') {
                 payload.input = { ...(keywords ? { keywords } : {}), ...(typeof extra?.query === 'string' ? { query: extra.query } : {}) }
                 payload.output = { count: typeof extra?.sources_found === 'number' ? extra.sources_found : 0, ...(results ? { results } : {}) }
+              } else if (agent === 'ReadPost') {
+                payload.input = { slug: extra?.slug }
+                payload.output = { count: extra?.found === false ? 0 : 1, ...(results ? { results } : {}) }
               } else if (agent === 'Validation') {
                 payload.output = { passed: extra?.passed !== false }
+              } else if (agent === 'Fallback') {
+                payload.output = { reason: extra?.reason }
               }
               if (typeof extra?.error === 'string') {
                 payload.status = 'error'
@@ -380,7 +387,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
           enqueueTraceOp(scoreTrace(traceId, 'intent_alignment', intentAlignmentScore))
         }
         if (!bypassSemanticCache && state.final_response?.trim()) {
-          await storeSemanticCache(message, state.final_response ?? '', state.critique?.confidence ?? 0).catch(() => {})
+          await storeSemanticCache(message, state.final_response ?? '', state.critique?.confidence ?? 0, cacheNamespace).catch(() => {})
         }
         await maybeSaveCheckpoint(state, ragConfig.checkpointThresholdRatio).catch(() => {})
         await persistTraceSteps(traceId, thread_id, state, traceScope, stepSpanMapping).catch(() => {})
