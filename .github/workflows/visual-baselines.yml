@@ -1,0 +1,79 @@
+# 手動重產 Linux 視覺基線並 commit 回來。
+#
+# 為什麼要有這個 job：`-linux` 基線只能由 ubuntu runner 產。mac 本機即使用官方
+# Playwright Docker image 也不行——arm64 與 amd64 的算圖結果本來就不同
+# （microsoft/playwright#13873，維護者明講是預期行為），差幾百像素就超過
+# maxDiffPixels 300。沒有這個 job 的話流程是：讓 quality.yml 的 visual job 紅一次
+# → `gh run download <run-id> -n visual-diff` → 人眼看 diff → 手動覆蓋 → commit。
+#
+# 用法：Actions → Update visual baselines (linux) → Run workflow → 選分支。
+# 跑完會在該分支推一筆 `test(visual-test): 更新 linux 視覺基線`。
+#
+# 注意：這個 job 會「無條件接受」目前畫面為新基線，等於放棄這一輪的把關。
+# 跑之前請先看過 quality.yml 那輪的 diff，確認畫面變動是你要的；跑完也要看 commit
+# 裡的圖。不要為了讓 CI 變綠而跑它。
+name: Update visual baselines (linux)
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: '為什麼要重產（會寫進 commit message，例如：Ask AI header 改版）'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: visual-baselines-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Regenerate -linux snapshots
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.33.3
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: npx playwright install --with-deps chromium
+
+      # --update-snapshots 一律以實際畫面覆寫基線，所以這一步不會紅。
+      - name: Regenerate baselines
+        run: pnpm test:visual:update
+
+      - name: Commit if baselines changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # 只收 linux 基線：darwin 基線由本機 `pnpm test:visual:update` 產，不該被 CI 動到。
+          git add -- 'tests/visual/**/*-chromium-linux.png'
+          if git diff --cached --quiet; then
+            echo "基線沒有變動，不 commit。"
+            exit 0
+          fi
+          git diff --cached --name-only
+          git commit -m "test(visual-test): 更新 linux 視覺基線
+
+          原因：${{ inputs.reason }}
+          由 Update visual baselines workflow 產生（run ${{ github.run_id }}）。"
+          git push origin HEAD:${{ github.ref_name }}
+
+      # 人眼把關用：不管有沒有 commit，都把這輪的圖帶走。
+      - name: Upload regenerated snapshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-baselines-linux
+          path: tests/visual/**/*-snapshots/
+          if-no-files-found: warn
