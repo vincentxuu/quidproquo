@@ -46,3 +46,28 @@ jobs:
           name: promptfoo-rag-results
           path: .work/rag-evals/fixture/promptfoo-report.json
           if-no-files-found: warn
+
+  visual:
+    name: Visual regression (non-blocking)
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.33.3
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: npx playwright install --with-deps chromium
+      - name: Run Playwright visual tests (owns its webServer)
+        run: pnpm test:visual
+      - name: Upload visual diffs
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-diff
+          path: test-results/
+          if-no-files-found: warn

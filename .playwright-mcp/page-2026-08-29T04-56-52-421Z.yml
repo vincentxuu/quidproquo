@@ -1,0 +1,108 @@
+- generic [ref=f117e2]:
+  - complementary [ref=f117e3]:
+    - link "Admin dashboard" [ref=f117e5] [cursor=pointer]:
+      - /url: /admin
+      - generic [ref=f117e6]: qp
+      - generic [ref=f117e7]:
+        - strong [ref=f117e8]: quidproquo
+        - generic [ref=f117e9]: Operations
+    - navigation "Admin navigation" [ref=f117e10]:
+      - generic [ref=f117e11]:
+        - generic [ref=f117e12]: Monitor
+        - link "總覽" [ref=f117e13] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=f117e18]:
+        - generic [ref=f117e19]: Content
+        - link "內容" [ref=f117e20] [cursor=pointer]:
+          - /url: /admin/content
+        - link "流程" [ref=f117e25] [cursor=pointer]:
+          - /url: /admin/content-pipelines
+        - link "任務" [ref=f117e29] [cursor=pointer]:
+          - /url: /admin/jobs
+        - link "統計" [ref=f117e33] [cursor=pointer]:
+          - /url: /admin/stats
+      - generic [ref=f117e37]:
+        - generic [ref=f117e38]: AI
+        - link "Agent Console" [ref=f117e39] [cursor=pointer]:
+          - /url: /admin/console
+        - link "模型供應商" [ref=f117e44] [cursor=pointer]:
+          - /url: /admin/console/providers
+        - link "RAG" [ref=f117e49] [cursor=pointer]:
+          - /url: /admin/rag
+        - link "RAG 追蹤" [ref=f117e54] [cursor=pointer]:
+          - /url: /admin/traces
+        - link "CCR Console" [ref=f117e58] [cursor=pointer]:
+          - /url: /admin/agents/console
+        - link "Routines" [ref=f117e62] [cursor=pointer]:
+          - /url: /admin/routines
+        - link "Deep Research" [ref=f117e66] [cursor=pointer]:
+          - /url: /admin/deep-research
+        - link "Agent Skills" [ref=f117e71] [cursor=pointer]:
+          - /url: /admin/agent-skills
+        - link "Skills / MCP / Plugins" [ref=f117e76] [cursor=pointer]:
+          - /url: /admin/agent-ecosystem
+      - generic [ref=f117e81]:
+        - generic [ref=f117e82]: System
+        - link "維運" [ref=f117e83] [cursor=pointer]:
+          - /url: /admin/ops
+        - link "設定" [ref=f117e89] [cursor=pointer]:
+          - /url: /admin/settings
+    - generic [ref=f117e94]:
+      - link "回到網站" [ref=f117e95] [cursor=pointer]:
+        - /url: /
+      - button "登出" [ref=f117e101] [cursor=pointer]
+  - main [ref=f117e106]:
+    - generic [ref=f117e107]:
+      - generic [ref=f117e108]:
+        - paragraph [ref=f117e109]: Admin Console
+        - heading "Dashboard" [level=2] [ref=f117e110]
+      - generic "Admin shortcuts" [ref=f117e111]:
+        - link "任務" [ref=f117e112] [cursor=pointer]:
+          - /url: /admin/jobs
+        - link "設定" [ref=f117e115] [cursor=pointer]:
+          - /url: /admin/settings
+    - generic [ref=f117e119]:
+      - generic [ref=f117e120]:
+        - generic [ref=f117e121]:
+          - paragraph [ref=f117e122]: Operations Snapshot
+          - heading "內容、RAG 與任務狀態總覽" [level=1] [ref=f117e123]
+          - paragraph [ref=f117e124]: 快速確認索引健康度、內容缺漏與近期 pipeline 執行結果。
+        - generic [ref=f117e125]:
+          - link "Content Ops" [ref=f117e126] [cursor=pointer]:
+            - /url: /admin/content
+          - link "RAG Console" [ref=f117e130] [cursor=pointer]:
+            - /url: /admin/rag
+      - generic [ref=f117e134]:
+        - generic [ref=f117e135]:
+          - heading "System Status" [level=3] [ref=f117e142]
+          - generic [ref=f117e143]: Loading...
+        - generic [ref=f117e144]:
+          - heading "RAG Health" [level=3] [ref=f117e150]
+          - generic [ref=f117e151]: Loading...
+        - generic [ref=f117e152]:
+          - heading "Index Health" [level=3] [ref=f117e157]
+          - generic [ref=f117e158]: Loading...
+        - generic [ref=f117e159]:
+          - heading "Content Health" [level=3] [ref=f117e165]
+          - generic [ref=f117e166]: Loading...
+        - generic [ref=f117e167]:
+          - generic [ref=f117e168]:
+            - generic [ref=f117e169]:
+              - heading "Recent Jobs" [level=3] [ref=f117e170]
+              - paragraph [ref=f117e171]: 最近 5 筆 pipeline 執行紀錄。
+            - link "開啟任務列表" [ref=f117e172] [cursor=pointer]:
+              - /url: /admin/jobs
+          - generic [ref=f117e176]: Loading...
+        - generic [ref=f117e177]:
+          - generic [ref=f117e179]:
+            - heading "Quick Actions" [level=3] [ref=f117e180]
+            - paragraph [ref=f117e181]: 常用工作入口。
+          - generic [ref=f117e182]:
+            - link "Run Jobs" [ref=f117e183] [cursor=pointer]:
+              - /url: /admin/ops
+            - link "RAG Settings" [ref=f117e186] [cursor=pointer]:
+              - /url: /admin/rag
+            - link "Content Ops" [ref=f117e190] [cursor=pointer]:
+              - /url: /admin/content
+            - link "View Stats" [ref=f117e194] [cursor=pointer]:
+              - /url: /admin/stats

@@ -1,0 +1,68 @@
+- generic [active] [ref=f135e1]:
+  - main [ref=f135e3]:
+    - generic [ref=f135e4]:
+      - group [ref=f135e5]:
+        - generic "選單" [ref=f135e6] [cursor=pointer]
+      - generic [ref=f135e10]:
+        - paragraph [ref=f135e11]: Settings
+        - heading "Settings" [level=2] [ref=f135e12]
+    - generic [ref=f135e14]:
+      - link "🖥️ Environments Runner 後端、網路、環境變數" [ref=f135e15] [cursor=pointer]:
+        - /url: /admin/settings/environments
+        - generic [ref=f135e16]: 🖥️
+        - generic [ref=f135e17]:
+          - strong [ref=f135e18]: Environments
+          - paragraph [ref=f135e19]: Runner 後端、網路、環境變數
+      - link "GH GitHub Repo 連線、GitHub App 同步" [ref=f135e20] [cursor=pointer]:
+        - /url: /admin/settings/github
+        - generic [ref=f135e21]: GH
+        - generic [ref=f135e22]:
+          - strong [ref=f135e23]: GitHub
+          - paragraph [ref=f135e24]: Repo 連線、GitHub App 同步
+      - link "📦 Site 內容、RAG、統計、任務、維運" [ref=f135e25] [cursor=pointer]:
+        - /url: /admin/settings/site
+        - generic [ref=f135e26]: 📦
+        - generic [ref=f135e27]:
+          - strong [ref=f135e28]: Site
+          - paragraph [ref=f135e29]: 內容、RAG、統計、任務、維運
+      - link "🤖 Models 模型供應商、金鑰、費用" [ref=f135e30] [cursor=pointer]:
+        - /url: /admin/settings/models
+        - generic [ref=f135e31]: 🤖
+        - generic [ref=f135e32]:
+          - strong [ref=f135e33]: Models
+          - paragraph [ref=f135e34]: 模型供應商、金鑰、費用
+      - link "🧩 Extensions Skills / MCP / Plugins" [ref=f135e35] [cursor=pointer]:
+        - /url: /admin/settings/extensions
+        - generic [ref=f135e36]: 🧩
+        - generic [ref=f135e37]:
+          - strong [ref=f135e38]: Extensions
+          - paragraph [ref=f135e39]: Skills / MCP / Plugins
+      - link "🔒 Permissions 權限政策" [ref=f135e40] [cursor=pointer]:
+        - /url: /admin/settings/permissions
+        - generic [ref=f135e41]: 🔒
+        - generic [ref=f135e42]:
+          - strong [ref=f135e43]: Permissions
+          - paragraph [ref=f135e44]: 權限政策
+      - link "👥 Access 使用者、角色、稽核" [ref=f135e45] [cursor=pointer]:
+        - /url: /admin/settings/access
+        - generic [ref=f135e46]: 👥
+        - generic [ref=f135e47]:
+          - strong [ref=f135e48]: Access
+          - paragraph [ref=f135e49]: 使用者、角色、稽核
+      - link "🔔 Notifications 通知通道設定" [ref=f135e50] [cursor=pointer]:
+        - /url: /admin/settings/notifications
+        - generic [ref=f135e51]: 🔔
+        - generic [ref=f135e52]:
+          - strong [ref=f135e53]: Notifications
+          - paragraph [ref=f135e54]: 通知通道設定
+      - link "⚙️ Behavior 全域行為預設" [ref=f135e55] [cursor=pointer]:
+        - /url: /admin/settings/behavior
+        - generic [ref=f135e56]: ⚙️
+        - generic [ref=f135e57]:
+          - strong [ref=f135e58]: Behavior
+          - paragraph [ref=f135e59]: 全域行為預設
+  - generic [ref=f135e62]:
+    - button [ref=f135e63]
+    - button [ref=f135e69]
+    - button [ref=f135e73]
+    - button [ref=f135e78]

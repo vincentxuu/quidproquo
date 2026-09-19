@@ -48,7 +48,10 @@ button[data-streamdown="link"]:hover {
   color: #ef4444;
 }
 
-/* 建議題目卡：hover 時邊框轉品牌綠，給出可點 affordance */
+/* 建議題目卡：扁平 tag，不帶 Button outline 的 shadow-xs；hover 邊框轉品牌綠 */
+.chat-suggestion {
+  box-shadow: none;
+}
 .chat-suggestion:hover {
   border-color: var(--brand-500);
   background: var(--brand-50);

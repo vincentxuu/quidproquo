@@ -1,0 +1,277 @@
+- generic [ref=f144e2]:
+  - generic [ref=f144e3]:
+    - link "Skip to content" [ref=f144e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f144e9]:
+      - heading "Navigation Menu" [level=2] [ref=f144e10]
+      - generic [ref=f144e11]:
+        - link "Homepage" [ref=f144e13] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f144e16]:
+          - navigation "Global" [ref=f144e17]:
+            - list [ref=f144e18]:
+              - listitem [ref=f144e19]:
+                - button "Platform" [ref=f144e21] [cursor=pointer]
+              - listitem [ref=f144e24]:
+                - button "Solutions" [ref=f144e26] [cursor=pointer]
+              - listitem [ref=f144e29]:
+                - button "Resources" [ref=f144e31] [cursor=pointer]
+              - listitem [ref=f144e34]:
+                - button "Open Source" [ref=f144e36] [cursor=pointer]
+              - listitem [ref=f144e39]:
+                - button "Enterprise" [ref=f144e41] [cursor=pointer]
+              - listitem [ref=f144e44]:
+                - link "Pricing" [ref=f144e45] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+          - generic [ref=f144e46]:
+            - button "Search or jump to, type / to search" [ref=f144e48] [cursor=pointer]
+            - link "Sign in" [ref=f144e55] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fvincentxuu%2Fquidproquo%2Factions
+            - link "Sign up" [ref=f144e58] [cursor=pointer]:
+              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Factions%2Findex&source=header-repo&source_repo=vincentxuu%2Fquidproquo
+            - button "Appearance settings" [ref=f144e61] [cursor=pointer]
+  - main [ref=f144e68]:
+    - generic [ref=f144e69]:
+      - generic [ref=f144e70]:
+        - generic [ref=f144e72]:
+          - link "vincentxuu" [ref=f144e76] [cursor=pointer]:
+            - /url: /vincentxuu
+          - generic [ref=f144e77]: /
+          - strong [ref=f144e78]:
+            - link "quidproquo" [ref=f144e79] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo
+          - generic [ref=f144e80]: Public
+        - generic [ref=f144e81]:
+          - list:
+            - listitem [ref=f144e82]:
+              - link "You must be signed in to change notification settings" [ref=f144e83] [cursor=pointer]:
+                - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                - text: Notifications
+            - listitem [ref=f144e86]:
+              - link "Fork 0" [ref=f144e87] [cursor=pointer]:
+                - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                - text: Fork
+                - generic "0" [ref=f144e90]
+            - listitem [ref=f144e91]:
+              - link "You must be signed in to star a repository" [ref=f144e93] [cursor=pointer]:
+                - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                - text: Star
+                - generic "0 users starred this repository" [ref=f144e96]: "0"
+      - navigation "Repository" [ref=f144e97]:
+        - list [ref=f144e98]:
+          - listitem [ref=f144e99]:
+            - link "Code" [ref=f144e100] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo
+          - listitem [ref=f144e104]:
+            - link "Issues 3" [ref=f144e105] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/issues
+              - generic [ref=f144e109]: Issues
+              - generic "3" [ref=f144e992]
+          - listitem [ref=f144e111]:
+            - link "Pull requests 2" [ref=f144e112] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/pulls
+              - generic [ref=f144e115]: Pull requests
+              - generic "2" [ref=f144e993]
+          - listitem [ref=f144e117]:
+            - link "Actions" [ref=f144e118] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions
+          - listitem [ref=f144e122]:
+            - link "Projects" [ref=f144e123] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/projects
+          - listitem [ref=f144e127]:
+            - link "Security and quality" [ref=f144e128] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/security
+          - listitem [ref=f144e132]:
+            - link "Insights" [ref=f144e133] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/pulse
+    - generic [ref=f144e996]:
+      - generic [ref=f144e999]:
+        - link "Deploy" [ref=f144e1002] [cursor=pointer]:
+          - /url: /vincentxuu/quidproquo/actions/workflows/deploy.yml
+        - generic [ref=f144e1006]:
+          - generic [ref=f144e1007]:
+            - img "failed:" [ref=f144e1011]
+            - 'heading "fix: 修 21 個 TypeScript 錯誤讓 CI astro check 通過 #824" [level=1] [ref=f144e1013]'
+          - link "Sign in to view logs" [ref=f144e1017] [cursor=pointer]:
+            - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fvincentxuu%2Fquidproquo%2Factions%2Fruns%2F33235681416
+      - generic [ref=f144e1018]:
+        - navigation "Workflow run" [ref=f144e1024]:
+          - list [ref=f144e1025]:
+            - listitem [ref=f144e1026]:
+              - link "Summary" [ref=f144e1027] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo/actions/runs/33235681416
+            - generic [ref=f144e1030]:
+              - heading "All jobs" [level=4] [ref=f144e1031]
+              - button "Filter by job status" [ref=f144e1032] [cursor=pointer]
+            - listitem [ref=f144e1035]
+            - listitem [ref=f144e1036]:
+              - list [ref=f144e1037]:
+                - listitem [ref=f144e1038]:
+                  - link "deploy" [ref=f144e1039] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/actions/runs/33235681416/job/99056134952
+            - listitem [ref=f144e1042]
+            - listitem [ref=f144e1043]:
+              - heading "Run details" [level=3] [ref=f144e1045]
+              - list "Run details" [ref=f144e1046]:
+                - listitem [ref=f144e1047]:
+                  - link "Usage" [ref=f144e1048] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/actions/runs/33235681416/usage
+                - listitem [ref=f144e1051]:
+                  - link "Workflow file" [ref=f144e1052] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/actions/runs/33235681416/workflow
+        - generic [ref=f144e1056]:
+          - region "Workflow run summary" [ref=f144e1057]:
+            - generic [ref=f144e1058]:
+              - generic [ref=f144e1059]:
+                - generic [ref=f144e1060]: Triggered via push August 29, 2026 05:146 minutes ago
+                - generic [ref=f144e1061]:
+                  - link [ref=f144e1062] [cursor=pointer]:
+                    - /url: /vincentxuu
+                    - img "@vincentxuu" [ref=f144e1063]
+                    - text: vincentxuu
+                  - generic [ref=f144e1064]:
+                    - generic [ref=f144e1065]: pushed
+                    - link "7e39056" [ref=f144e1066] [cursor=pointer]:
+                      - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e
+                  - link "main" [ref=f144e1069] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+              - generic [ref=f144e1070]:
+                - generic [ref=f144e1071]: Status
+                - text: Failure
+              - generic [ref=f144e1072]:
+                - generic [ref=f144e1073]: Total duration
+                - link "5m 33s" [ref=f144e1074] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/actions/runs/33235681416/usage
+              - generic [ref=f144e1075]:
+                - generic [ref=f144e1076]: Artifacts
+                - text: –
+          - region "Workflow run graph" [ref=f144e1077]:
+            - generic [ref=f144e1079]:
+              - generic [ref=f144e1081]:
+                - heading [level=2] [ref=f144e1082]:
+                  - link "deploy.yml" [ref=f144e1083] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/actions/runs/33235681416/workflow
+                - generic [ref=f144e1084]: "on: push"
+              - generic [ref=f144e1086]:
+                - 'link "failed: deploy 5m 29s" [ref=f144e1091] [cursor=pointer]':
+                  - /url: /vincentxuu/quidproquo/actions/runs/33235681416/job/99056134952
+                  - generic [ref=f144e1093]:
+                    - img "failed:" [ref=f144e1095]
+                    - generic [ref=f144e1097]: deploy
+                    - generic [ref=f144e1099]: 5m 29s
+                - generic [ref=f144e1100]:
+                  - paragraph [ref=f144e1101]: Oh hello! Nice to see you.
+                  - paragraph [ref=f144e1102]:
+                    - text: Made with ❤️ by
+                    - link [ref=f144e1103] [cursor=pointer]:
+                      - /url: https://actions.github.io/humans.txt
+                      - text: humans.txt
+              - generic [ref=f144e1104]:
+                - button "Fit to window" [disabled] [ref=f144e1105]
+                - generic [ref=f144e1106]:
+                  - button "Zoom out" [disabled] [ref=f144e1108]
+                  - button "Zoom in" [disabled] [ref=f144e1110]
+          - region "Annotations" [ref=f144e1111]:
+            - generic [ref=f144e1112]:
+              - generic [ref=f144e1114]:
+                - heading "Annotations" [level=2] [ref=f144e1115]
+                - generic [ref=f144e1116]: 2 errors and 10 warnings
+              - table [ref=f144e1117]:
+                - rowgroup [ref=f144e1118]:
+                  - row [ref=f144e1119]:
+                    - cell "deploy 🚨 Action failed" [ref=f144e1120]:
+                      - generic [ref=f144e1125]:
+                        - link [ref=f144e1126] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33235681416/job/99056134952#step:10:34
+                          - strong [ref=f144e1127]: deploy
+                        - generic [ref=f144e1128]: 🚨 Action failed
+                  - row [ref=f144e1131]:
+                    - cell "deploy The process '/opt/hostedtoolcache/node/22.23.2/x64/bin/npx' failed with exit code 1" [ref=f144e1132]:
+                      - generic [ref=f144e1137]:
+                        - link [ref=f144e1138] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33235681416/job/99056134952#step:10:33
+                          - strong [ref=f144e1139]: deploy
+                        - generic [ref=f144e1140]: The process '/opt/hostedtoolcache/node/22.23.2/x64/bin/npx' failed with exit code 1
+                  - row [ref=f144e1143]:
+                    - cell [ref=f144e1144]:
+                      - generic [ref=f144e1149]:
+                        - link [ref=f144e1150] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33235681416/job/99056134952#step:23:2
+                          - strong [ref=f144e1151]: deploy
+                        - generic [ref=f144e1152]:
+                          - generic [ref=f144e1154]:
+                            - text: "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, cloudflare/wrangler-action@v3, pnpm/action-setup@v4. For more information see:"
+                            - link "https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/" [ref=f144e1155] [cursor=pointer]:
+                              - /url: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+                          - button "Show more" [ref=f144e1156] [cursor=pointer]
+                  - row [ref=f144e1157]:
+                    - cell "deploy The process '/usr/bin/git' failed with exit code 128" [ref=f144e1158]:
+                      - generic [ref=f144e1163]:
+                        - link [ref=f144e1164] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33235681416/job/99056134952#step:22:11
+                          - strong [ref=f144e1165]: deploy
+                        - generic [ref=f144e1166]: The process '/usr/bin/git' failed with exit code 128
+                  - row [ref=f144e1169]:
+                    - 'cell "eslint(no-unused-vars): src/lib/agent/routine-trigger.ts#L110 Variable ''monStr'' is declared but never used. Unused variables should start with a ''_''." [ref=f144e1170]':
+                      - generic [ref=f144e1175]:
+                        - link [ref=f144e1176] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e#annotation_73252965374
+                          - strong [ref=f144e1177]: "eslint(no-unused-vars):"
+                          - text: src/lib/agent/routine-trigger.ts#L110
+                        - generic [ref=f144e1178]: Variable 'monStr' is declared but never used. Unused variables should start with a '_'.
+                  - row [ref=f144e1181]:
+                    - 'cell "eslint(no-unused-vars): src/lib/agent/plan-mode.ts#L4 Identifier ''rejectWaitingApproval'' is imported but never used." [ref=f144e1182]':
+                      - generic [ref=f144e1187]:
+                        - link [ref=f144e1188] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e#annotation_73252965395
+                          - strong [ref=f144e1189]: "eslint(no-unused-vars):"
+                          - text: src/lib/agent/plan-mode.ts#L4
+                        - generic [ref=f144e1190]: Identifier 'rejectWaitingApproval' is imported but never used.
+                  - row [ref=f144e1193]:
+                    - 'cell "eslint(no-unused-vars): src/lib/agent/plan-mode.ts#L4 Identifier ''resolveWaitingApproval'' is imported but never used." [ref=f144e1194]':
+                      - generic [ref=f144e1199]:
+                        - link [ref=f144e1200] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e#annotation_73252965404
+                          - strong [ref=f144e1201]: "eslint(no-unused-vars):"
+                          - text: src/lib/agent/plan-mode.ts#L4
+                        - generic [ref=f144e1202]: Identifier 'resolveWaitingApproval' is imported but never used.
+                  - row [ref=f144e1205]:
+                    - 'cell "eslint(no-unused-vars): src/lib/agent/plan-mode.ts#L2 Identifier ''isToolBlockedInPlanMode'' is imported but never used." [ref=f144e1206]':
+                      - generic [ref=f144e1211]:
+                        - link [ref=f144e1212] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e#annotation_73252965417
+                          - strong [ref=f144e1213]: "eslint(no-unused-vars):"
+                          - text: src/lib/agent/plan-mode.ts#L2
+                        - generic [ref=f144e1214]: Identifier 'isToolBlockedInPlanMode' is imported but never used.
+                  - row [ref=f144e1217]:
+                    - 'cell "eslint(no-unused-vars): src/lib/agent/control-protocol.ts#L1 Type ''SessionEvent'' is imported but never used." [ref=f144e1218]':
+                      - generic [ref=f144e1223]:
+                        - link [ref=f144e1224] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e#annotation_73252965428
+                          - strong [ref=f144e1225]: "eslint(no-unused-vars):"
+                          - text: src/lib/agent/control-protocol.ts#L1
+                        - generic [ref=f144e1226]: Type 'SessionEvent' is imported but never used.
+                  - row [ref=f144e1229]:
+                    - 'cell "eslint(no-unused-vars): src/pages/api/admin/sessions/runner/ws.ts#L6 Identifier ''MacRunnerHandle'' is imported but never used." [ref=f144e1230]':
+                      - generic [ref=f144e1235]:
+                        - link [ref=f144e1236] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e#annotation_73252965438
+                          - strong [ref=f144e1237]: "eslint(no-unused-vars):"
+                          - text: src/pages/api/admin/sessions/runner/ws.ts#L6
+                        - generic [ref=f144e1238]: Identifier 'MacRunnerHandle' is imported but never used.
+                  - row [ref=f144e1241]:
+                    - 'cell "eslint(no-unused-vars): src/pages/api/admin/sessions/[id]/resume.ts#L33 Variable ''now'' is declared but never used. Unused variables should start with a ''_''." [ref=f144e1242]':
+                      - generic [ref=f144e1247]:
+                        - link [ref=f144e1248] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e#annotation_73252965448
+                          - strong [ref=f144e1249]: "eslint(no-unused-vars):"
+                          - text: src/pages/api/admin/sessions/[id]/resume.ts#L33
+                        - generic [ref=f144e1250]: Variable 'now' is declared but never used. Unused variables should start with a '_'.
+                  - row [ref=f144e1253]:
+                    - 'cell "eslint(no-unused-vars): src/pages/api/admin/sessions/[id]/mcp-call.ts#L7 Identifier ''notFound'' is imported but never used." [ref=f144e1254]':
+                      - generic [ref=f144e1259]:
+                        - link [ref=f144e1260] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e#annotation_73252965455
+                          - strong [ref=f144e1261]: "eslint(no-unused-vars):"
+                          - text: src/pages/api/admin/sessions/[id]/mcp-call.ts#L7
+                        - generic [ref=f144e1262]: Identifier 'notFound' is imported but never used.

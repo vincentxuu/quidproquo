@@ -1,0 +1,88 @@
+- generic [active] [ref=f32e1]:
+  - generic [ref=f32e2]:
+    - complementary [ref=f32e3]:
+      - link "Admin dashboard" [ref=f32e5] [cursor=pointer]:
+        - /url: /admin
+        - generic [ref=f32e6]: qp
+        - generic [ref=f32e7]:
+          - strong [ref=f32e8]: quidproquo
+          - generic [ref=f32e9]: Settings
+      - navigation "Admin navigation" [ref=f32e10]:
+        - link "Home" [ref=f32e11] [cursor=pointer]:
+          - /url: /admin
+        - link "Sessions" [ref=f32e16] [cursor=pointer]:
+          - /url: /admin/sessions
+        - link "Routines" [ref=f32e20] [cursor=pointer]:
+          - /url: /admin/routines
+        - link "Flows" [ref=f32e24] [cursor=pointer]:
+          - /url: /admin/flows
+        - link "Settings" [ref=f32e28] [cursor=pointer]:
+          - /url: /admin/settings
+      - generic [ref=f32e33]:
+        - link "回到網站" [ref=f32e34] [cursor=pointer]:
+          - /url: /
+        - button "登出" [ref=f32e40] [cursor=pointer]
+    - main [ref=f32e45]:
+      - generic [ref=f32e46]:
+        - generic [ref=f32e47]:
+          - paragraph [ref=f32e48]: Settings
+          - heading "Settings" [level=2] [ref=f32e49]
+        - generic "Admin shortcuts" [ref=f32e50]:
+          - link "Sessions" [ref=f32e51] [cursor=pointer]:
+            - /url: /admin/sessions
+          - link "Settings" [ref=f32e54] [cursor=pointer]:
+            - /url: /admin/settings
+      - generic [ref=f32e59]:
+        - link "🖥️ Environments Runner 後端、網路、環境變數" [ref=f32e60] [cursor=pointer]:
+          - /url: /admin/settings/environments
+          - generic [ref=f32e61]: 🖥️
+          - generic [ref=f32e62]:
+            - strong [ref=f32e63]: Environments
+            - paragraph [ref=f32e64]: Runner 後端、網路、環境變數
+        - link "📦 Site 內容、RAG、統計、任務、維運" [ref=f32e65] [cursor=pointer]:
+          - /url: /admin/settings/site
+          - generic [ref=f32e66]: 📦
+          - generic [ref=f32e67]:
+            - strong [ref=f32e68]: Site
+            - paragraph [ref=f32e69]: 內容、RAG、統計、任務、維運
+        - link "🤖 Models 模型供應商、金鑰、費用" [ref=f32e70] [cursor=pointer]:
+          - /url: /admin/settings/models
+          - generic [ref=f32e71]: 🤖
+          - generic [ref=f32e72]:
+            - strong [ref=f32e73]: Models
+            - paragraph [ref=f32e74]: 模型供應商、金鑰、費用
+        - link "🧩 Extensions Skills / MCP / Plugins" [ref=f32e75] [cursor=pointer]:
+          - /url: /admin/settings/extensions
+          - generic [ref=f32e76]: 🧩
+          - generic [ref=f32e77]:
+            - strong [ref=f32e78]: Extensions
+            - paragraph [ref=f32e79]: Skills / MCP / Plugins
+        - link "🔒 Permissions 權限政策" [ref=f32e80] [cursor=pointer]:
+          - /url: /admin/settings/permissions
+          - generic [ref=f32e81]: 🔒
+          - generic [ref=f32e82]:
+            - strong [ref=f32e83]: Permissions
+            - paragraph [ref=f32e84]: 權限政策
+        - link "👥 Access 使用者、角色、稽核" [ref=f32e85] [cursor=pointer]:
+          - /url: /admin/settings/access
+          - generic [ref=f32e86]: 👥
+          - generic [ref=f32e87]:
+            - strong [ref=f32e88]: Access
+            - paragraph [ref=f32e89]: 使用者、角色、稽核
+        - link "🔔 Notifications 通知通道設定" [ref=f32e90] [cursor=pointer]:
+          - /url: /admin/settings/notifications
+          - generic [ref=f32e91]: 🔔
+          - generic [ref=f32e92]:
+            - strong [ref=f32e93]: Notifications
+            - paragraph [ref=f32e94]: 通知通道設定
+        - link "⚙️ Behavior 全域行為預設" [ref=f32e95] [cursor=pointer]:
+          - /url: /admin/settings/behavior
+          - generic [ref=f32e96]: ⚙️
+          - generic [ref=f32e97]:
+            - strong [ref=f32e98]: Behavior
+            - paragraph [ref=f32e99]: 全域行為預設
+  - generic [ref=f32e102]:
+    - button [ref=f32e103]
+    - button [ref=f32e109]
+    - button [ref=f32e113]
+    - button [ref=f32e121]

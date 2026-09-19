@@ -115,7 +115,7 @@ base：`https://api.biggo.com/api/v1/finance/sparrowhawk`，每筆皆帶 `?regio
 | `b(id)` | `DELETE /scheduled-tasks/{id}` | 刪除 | 200（回 `{"result":true,"data":{"cancelled":true}}`） |
 | `P(params)` | `GET /scheduled-tasks/search` | 搜尋 task | 未觸發，沒拿到 |
 
-R6 實測序列（`biggo-R6-final.har`，13 筆相關）【實測】：
+R6 實測序列（`biggo-R6-final.har`，15 筆全表見 §7；首個 `total:1` 回包與 `R6-task.json` 逐字相同，實測互驗）：
 
 | # | 方法＋路徑 | 狀態 | 回包要點 |
 |---|---|---|---|
@@ -224,7 +224,87 @@ R6 實測序列（`biggo-R6-final.har`，13 筆相關）【實測】：
 | 建完即生效無需確認 | 兩段式確認（§2），第一句 `total:0` | 防誤建，確認是建 task 的必要條件【實測】 |
 | 排程名使用者自填 | `description`＋`schedule_label` 由 Agent 生成（中英混雜原文） | 命名也是生成物【推測】 |
 
-## 7. 沒拿到的＋殘留
+## 7. R6 HAR 全序列＋耗時表（15 筆實測）
+
+`biggo-R6-final.har`：會話 `116be989-…`（建成 06:48:30）→ task `d5e23d1a-…`（建成 06:49:12）→ 全刪。`time`＝客戶端實測耗時（含 SSE 流），`upstream`＝`x-envoy-upstream-service-time` 後端耗時。
+
+| # | started（UTC） | 方法＋路徑 | time | upstream | 體 | 要點【實測】 |
+|---|---|---|---|---|---|---|
+| 1 | 06:48:26.611 | `GET token-budget` | 70ms | 34ms | 331 B | `used_percent:40`（本輪起點） |
+| 2 | 06:48:30.257 | `POST sessions` | 158ms | 129ms | 128 B | REQ `{}`；回 `id`＋`name:null`（見 §7.1） |
+| 3 | 06:48:30.416 | `POST message`（第一句） | **4226ms** | 52ms | 17053 B | SSE：`tool_calls list_my_channels`＋澄清回覆（見 §7.1） |
+| 4 | 06:48:34.649 | `GET sessions/{id}/history` | 178ms | 59ms | 788 B | 2 msgs；title 已命名「台積電跌破2400通知」 |
+| 5 | 06:49:10.938 | `POST message`（第二句確認） | **3379ms** | 63ms | 11965 B | SSE 首事件 `tool_calls schedule_task`→ task 落袋 |
+| 6 | 06:49:14.322 | `GET history` | 88ms | 72ms | 1278 B | 4 msgs |
+| 7 | 06:49:56.303 | `GET scheduled-tasks` | 125ms | 98ms | 858 B | `total:1` 建成確認（全文即 §3 task） |
+| 8 | 06:51:13.039 | `GET history` | 121ms | 57ms | 1278 B | 復查（與 `R6-task.json` poll 點同時段，見下） |
+| 9 | 06:52:54.142 | `GET scheduled-tasks` | 84ms | 68ms | 858 B | 刪前 `total:1` |
+| 10 | 06:52:54.228 | `POST scheduled-tasks/{id}/toggle` | 167ms | 133ms | 777 B | `active→paused`＋`"action":"paused"` |
+| 11 | 06:52:54.395 | `DELETE scheduled-tasks/{id}` | 93ms | 69ms | 41 B | `{"cancelled":true}` |
+| 12 | 06:52:54.489 | `GET sessions` | 86ms | 68ms | 884 B | `total:2`（測試＋原有各一） |
+| 13 | 06:52:54.575 | `DELETE sessions/{id}` | 69ms | 40ms | 27 B | `{"data":null}` |
+| 14 | 06:52:54.644 | `GET sessions` | 96ms | 71ms | 463 B | `total:1` 僅剩原有 |
+| 15 | 06:52:54.741 | `GET scheduled-tasks` | 138ms | 94ms | 122 B | 全 0 歸零 |
+
+耗時結論【實測數字】：
+
+| 量 | 值 | 算法 |
+|---|---|---|
+| 確認→task 建成 | **~1.7s** | 第二句發出 06:49:10.938 → task `created_at` 06:49:12.642 |
+| 第一句→澄清回覆 | ~4.2s | message#1 SSE 全程 4226ms（後端只花 52ms，其餘為 LLM 生成＋工具等待，推測） |
+| 第二句→建成宣告 | ~3.4s | message#2 SSE 3379ms（內含 `schedule_task` 執行，見 §7.1） |
+| toggle／刪 task／刪 session | 167／93／69ms | 純 CRUD 百 ms 級；toggle upstream 133ms 為 15 筆寫操作之最（實測） |
+
+`R6-task.json` poll 點：`poll_times` 7 點 `1789714273.2→1789714363.4`，換算約 04:11:13→04:12:43 UTC——**早於 R6 建 task（06:49）約 2.5h，對不上本輪時間線**（換算實測，對應關係未解，標推測：疑為此前輪次的 task 轮询残留，或採集時鐘差；`poll_interval` 30s／0.1s 交替、`tooltips` 全空字串亦同檔）。`cleanup` 欄確認善後：`[task 200,200]、[session "台積電跌破2400通知" 200]、remaining_sessions 1（原有）、remaining_tasks 0`（實測，與 #11–15 互驗）。
+
+### 7.1 REQ/RESP 全文（短全貼，id 遮罩）【實測】
+
+建會話（#2）：REQ `{"message"…}`？不——**REQ 體為 `{}`**（HAR 原文）， مسیر空殼先建：
+
+```json
+// REQ: POST .../sparrowhawk/sessions?region=tw   Body: {}
+// RESP 200 (128 B):
+{"result":true,"data":{"id":"116be989-…","name":null,"created_at":"2026-09-18T06:48:30.407791+00:00"}}
+```
+
+→ `name:null` 建成時無標題；history 回來時 title 已是問句命名（命名事件在 SSE 內，見 §5.5）。
+
+第一句（#3）：REQ 全文——
+
+```json
+{"message":"如果台積電(2330)收盤價跌破2400元，請通知我","session_id":"116be989-…","page_metadata":{"url":"https://finance.biggo.com.tw/"},"model":"flash","thinking":false}
+```
+
+SSE 首兩事件：`tool_calls [{"name":"list_my_channels"}]` → `tool_result {"name":"list_my_channels"}`（只調一支工具，實測）。
+history（#4）assistant 原文（與 §2 截圖**不同版**，HAR 照抄）：“先跟你確認一下…目前我只能在**固定時間**幫你查價回報…1. **定時檢查**…2. **純提醒**…台積電 2330 目前股價離 2400 元有段距離…2400 這個數字你在哪看到的？”
+
+版本差異解釋【實測＋推測】：§2 截圖三點版（定期檢查／BigGo Web／自選 GOOG…）出自 **R5 會話 `d1c96fe8…`**（`biggo-R5-l5.har` history 實測同文，title「台積電股價跌破2400通知」）；R5 第一句調了**兩支**工具——`finance_favorite_groups`＋`list_my_channels`（HAR 實測）——所以知道自選清單；R6 只調 `list_my_channels`，故改問 2400 合理性。**同一問句、不同工具調用、不同澄清話術**（實測兩輪；選路邏輯推測）。
+
+第二句（#5）：REQ `{"message":"好，就用你的建議：每個交易日收盤後檢查一次，通知發到 BigGo Web","session_id":"116be989-…","page_metadata":…,"model":"flash","thinking":false}`；SSE 首事件 `tool_calls [{"name":"schedule_task"}]`（實測）——**cron 由 Agent 經此工具生成**（§6 推測的機制證據），1.7s 後 task 落袋（`created_at` 06:49:12.642）。
+
+toggle（#10）RESP 與建成版差兩處（HAR 照抄）：`"status":"paused"`＋新增 `"action":"paused"`＋`"updated_at":"2026-09-18T06:52:54.318455+00:00"`；其餘欄（cron／message／target／session:null）逐字相同（實測）。
+
+sessions list（#12）RESP 全文（884 B，id 遮罩）：`{"result":true,"data":{"current_session_id":"116be989-…","limit":20,"offset":0,"has_more":false,"total":2,"items":[{測試會話："id","title":"台積電跌破2400通知","name":同 title,"message_count":4,"created_at":"2026-09-18T06:48:30.407791+00:00","updated_at":"2026-09-18T06:49:14.296037+00:00","is_current":true,"match":{"type":"preview","snippet":"好，就用你的建議：…","message_id":"1307d65e-…"},"unread":false,"channels":["biggo"]},{原有："title":"推薦其他podcast","message_count":2,"is_current":false,"channels":[]}]}}`——list 分頁 `limit:20`（task 側是 50，實測差異）；`channels:["biggo"]` 呼應 task `target.channel_type`（推測關聯）。
+
+## 8. task vs session 生命週期對照（誰建誰、誰刪誰、id 關聯）【實測為主】
+
+| 題 | session（`116be989-…`） | task（`d5e23d1a-…`） |
+|---|---|---|
+| 誰建 | 使用者 `POST sessions` 建空殼（REQ `{}`，`name:null`） | Agent 經 `schedule_task` 工具建（第二句確認後 1.7s） |
+| 誰命名 | 問句自動命名（`session_title` 事件；title「台積電跌破2400通知」） | Agent 生成 `description`＋`schedule_label`（§6） |
+| id 關聯 | task 內 **`"session":null`**——task 不存 session id（全文實測） | session 側亦無 task 欄位（list／history 全文實測）→ **兩者零連結**，靠使用者＋時間隱式對應（推測） |
+| 誰刪誰 | `DELETE sessions/{id}`→`{"data":null}`；刪後 list `current_session_id:""` | `DELETE scheduled-tasks/{id}`→`{"cancelled":true}`；list 全 0 |
+| 刪除順序 | 後刪（06:52:54.575，task 刪後 0.18s） | 先刪（06:52:54.395）——順序是測試腳本選的，無級聯證據（推測；task 刪後 session 照常可讀，#12 實測） |
+| 殘留指針 | 刪後 `current_session_id:""`（空字串，非 null，實測） | 刪後無指針（list 直接空，實測） |
+
+設計觀察（§6 續，R6 證據 pin 下來）【實測＋推測】：
+
+- **cron 由 Agent 生成**：`schedule_task` 工具调用→`cron_expr:"0 15 * * 1-5"` 落袋（機制實測；cron 文本組裝邏輯推測）。
+- **效期預設 1 年**：`created_at 06:49:12.642`→`expires_at 2027-09-18T06:49:12` 秒級對齊（實測數字；是否可改未測，預設值說為推測）。
+- **通知通道寫死 biggo**：`target:{"channel_type":"biggo","user_identity_id":null,"label":"BigGo Web"}`（實測）；第一句先調 `list_my_channels` 查可用通道再降級（R5／R6 皆首調此工具，實測）——通道缺失不擋建立（§6 原結論，機制現有證據）。
+- **message 即 prompt**：雙分支模板（跌破通知／未跌破回報，`XX` 填空）觸發時餵回 Agent（§3 實測文本；執行語義推測）。
+
+## 9. 沒拿到的＋殘留
 
 ### 7.1 沒拿到的
 

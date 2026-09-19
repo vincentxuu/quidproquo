@@ -1,0 +1,174 @@
+- generic [ref=f156e2]:
+  - generic [ref=f156e3]:
+    - link "Skip to content" [ref=f156e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f156e9]:
+      - heading "Navigation Menu" [level=2] [ref=f156e10]
+      - generic [ref=f156e11]:
+        - link "Homepage" [ref=f156e13] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f156e16]:
+          - navigation "Global" [ref=f156e17]:
+            - list [ref=f156e18]:
+              - listitem [ref=f156e19]:
+                - button "Platform" [ref=f156e21] [cursor=pointer]
+              - listitem [ref=f156e24]:
+                - button "Solutions" [ref=f156e26] [cursor=pointer]
+              - listitem [ref=f156e29]:
+                - button "Resources" [ref=f156e31] [cursor=pointer]
+              - listitem [ref=f156e34]:
+                - button "Open Source" [ref=f156e36] [cursor=pointer]
+              - listitem [ref=f156e39]:
+                - button "Enterprise" [ref=f156e41] [cursor=pointer]
+              - listitem [ref=f156e44]:
+                - link "Pricing" [ref=f156e45] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+          - generic [ref=f156e46]:
+            - button "Search or jump to, type / to search" [ref=f156e48] [cursor=pointer]
+            - link "Sign in" [ref=f156e55] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fvincentxuu%2Fquidproquo%2Factions%2Fruns%2F33236072701
+            - link "Sign up" [ref=f156e58] [cursor=pointer]:
+              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Factions%2Fworkflow_runs%2Fshow&source=header-repo&source_repo=vincentxuu%2Fquidproquo
+            - button "Appearance settings" [ref=f156e61] [cursor=pointer]
+  - main [ref=f156e68]:
+    - generic [ref=f156e69]:
+      - generic [ref=f156e70]:
+        - generic [ref=f156e71]:
+          - generic [ref=f156e73]:
+            - link "vincentxuu" [ref=f156e77] [cursor=pointer]:
+              - /url: /vincentxuu
+            - generic [ref=f156e78]: /
+            - strong [ref=f156e79]:
+              - link "quidproquo" [ref=f156e80] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo
+            - generic [ref=f156e81]: Public
+          - generic [ref=f156e82]:
+            - list:
+              - listitem [ref=f156e83]:
+                - link "You must be signed in to change notification settings" [ref=f156e84] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                  - text: Notifications
+              - listitem [ref=f156e87]:
+                - link "Fork 0" [ref=f156e88] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                  - text: Fork
+                  - generic "0" [ref=f156e91]
+              - listitem [ref=f156e92]:
+                - link "You must be signed in to star a repository" [ref=f156e94] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                  - text: Star
+                  - generic "0 users starred this repository" [ref=f156e97]: "0"
+        - navigation "Repository" [ref=f156e98]:
+          - list [ref=f156e99]:
+            - listitem [ref=f156e100]:
+              - link "Code" [ref=f156e101] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo
+            - listitem [ref=f156e105]:
+              - link "Issues 3" [ref=f156e106] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo/issues
+                - generic [ref=f156e110]: Issues
+                - generic "3" [ref=f156e111]
+            - listitem [ref=f156e112]:
+              - link "Pull requests 2" [ref=f156e113] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo/pulls
+                - generic [ref=f156e116]: Pull requests
+                - generic "2" [ref=f156e117]
+            - listitem [ref=f156e118]:
+              - link "Actions" [ref=f156e119] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo/actions
+            - listitem [ref=f156e123]:
+              - link "Projects" [ref=f156e124] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo/projects
+            - listitem [ref=f156e128]:
+              - link "Security and quality" [ref=f156e129] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo/security
+            - listitem [ref=f156e133]:
+              - link "Insights" [ref=f156e134] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo/pulse
+      - generic [ref=f156e142]:
+        - generic [ref=f156e145]:
+          - link "Deploy" [ref=f156e148] [cursor=pointer]:
+            - /url: /vincentxuu/quidproquo/actions/workflows/deploy.yml
+          - generic [ref=f156e152]:
+            - generic [ref=f156e153]:
+              - img "currently running:" [ref=f156e158]
+              - 'heading "fix: 修 lint warnings + verify 加雙重防護（astro check + deny-warnings） #825" [level=1] [ref=f156e162]'
+            - link "Sign in to view logs" [ref=f156e166] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fvincentxuu%2Fquidproquo%2Factions%2Fruns%2F33236072701
+        - generic [ref=f156e167]:
+          - navigation "Workflow run" [ref=f156e173]:
+            - list [ref=f156e174]:
+              - listitem [ref=f156e175]:
+                - link "Summary" [ref=f156e176] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/actions/runs/33236072701
+              - generic [ref=f156e179]:
+                - heading "All jobs" [level=4] [ref=f156e180]
+                - button "Filter by job status" [ref=f156e181] [cursor=pointer]
+              - listitem [ref=f156e184]
+              - listitem [ref=f156e185]:
+                - list [ref=f156e186]:
+                  - listitem [ref=f156e187]:
+                    - generic "Loading" [ref=f156e188]
+              - listitem [ref=f156e197]
+              - listitem [ref=f156e198]:
+                - heading "Run details" [level=3] [ref=f156e200]
+                - list "Run details" [ref=f156e201]:
+                  - listitem [ref=f156e202]:
+                    - link "Usage" [ref=f156e203] [cursor=pointer]:
+                      - /url: /vincentxuu/quidproquo/actions/runs/33236072701/usage
+                  - listitem [ref=f156e206]:
+                    - link "Workflow file" [ref=f156e207] [cursor=pointer]:
+                      - /url: /vincentxuu/quidproquo/actions/runs/33236072701/workflow
+          - generic [ref=f156e211]:
+            - region "Workflow run summary" [ref=f156e212]:
+              - generic [ref=f156e213]:
+                - generic [ref=f156e214]:
+                  - generic [ref=f156e215]: Triggered via push August 29, 2026 05:234 minutes ago
+                  - generic [ref=f156e216]:
+                    - link [ref=f156e217] [cursor=pointer]:
+                      - /url: /vincentxuu
+                      - img "@vincentxuu" [ref=f156e218]
+                      - text: vincentxuu
+                    - generic [ref=f156e219]:
+                      - generic [ref=f156e220]: pushed
+                      - link "ed2eea9" [ref=f156e221] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/ed2eea91af3f2bb7adbfcac9cdbc0012cc2051ea
+                    - link "main" [ref=f156e224] [cursor=pointer]:
+                      - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f156e225]:
+                  - generic [ref=f156e226]: Status
+                  - text: In progress
+                - generic [ref=f156e227]:
+                  - generic [ref=f156e228]: Total duration
+                  - link "–" [ref=f156e229] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/actions/runs/33236072701/usage
+                - generic [ref=f156e230]:
+                  - generic [ref=f156e231]: Artifacts
+                  - text: –
+            - region "Workflow run graph" [ref=f156e232]:
+              - generic [ref=f156e234]:
+                - generic [ref=f156e236]:
+                  - heading [level=2] [ref=f156e237]:
+                    - link "deploy.yml" [ref=f156e238] [cursor=pointer]:
+                      - /url: /vincentxuu/quidproquo/actions/runs/33236072701/workflow
+                  - generic [ref=f156e239]: "on: push"
+                - generic [ref=f156e241]:
+                  - 'link "currently running: deploy 4m 31s" [ref=f156e246] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33236072701/job/99057172173
+                    - generic [ref=f156e248]:
+                      - img "currently running:" [ref=f156e251]
+                      - generic [ref=f156e255]: deploy
+                      - generic "Aug 29, 2026, 1:23 PM GMT+8" [ref=f156e258]: 4m 31s
+                  - generic [ref=f156e259]:
+                    - paragraph [ref=f156e260]: Oh hello! Nice to see you.
+                    - paragraph [ref=f156e261]:
+                      - text: Made with ❤️ by
+                      - link [ref=f156e262] [cursor=pointer]:
+                        - /url: https://actions.github.io/humans.txt
+                        - text: humans.txt
+                - generic [ref=f156e263]:
+                  - button "Fit to window" [disabled] [ref=f156e264]
+                  - generic [ref=f156e265]:
+                    - button "Zoom out" [disabled] [ref=f156e267]
+                    - button "Zoom in" [disabled] [ref=f156e269]
+            - region "Annotations"

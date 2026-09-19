@@ -1,0 +1,842 @@
+[
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_chat_messages\",\"messages\":[{\"id\":\"fd4bacae-2105-4688-86a1-bb0a203f83c7\",\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"text\":\"Explain in detail the difference between Orange cloud and Gray cloud in Cloudflare DNS, including all proxy tradeoffs and edge cases\"}]}]}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"name\":\"<user>\",\"agent\":\"cloudflare-agent\",\"type\":\"cf_agent_identity\"}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"mcp\":{\"prompts\":[{\"name\":\"workers-prompt-full\",\"description\":\"Detailed prompt for generating Cloudflare Workers code (and other developer platform products) from https://developers.cloudflare.com/workers/prompt.txt\",\"serverId\":\"cloudflare-docs\"}],\"resources\":[],\"servers\":{\"cloudflare-docs\":{\"auth_url\":null,\"capabilities\":{\"prompts\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"error\":null,\"instructions\":null,\"name\":\"cloudflare-docs\",\"server_url\":\"https://docs.mcp.cloudflare.com/mcp\",\"state\":\"ready\"}},\"tools\":[{\"name\":\"search_cloudflare_documentation\",\"description\":\"Search the Cloudflare documentation.\\n\\n\\t\\tThis tool should be used to answer any question about Cloudflare products or features, including:\\n\\t\\t- Workers, Pages, R2, Images, Stream, D1, Durable Objects, KV, Workflows, Hyperdrive, Queues\\n\\t\\t- AI Search, Workers AI, Vectorize, AI Gateway, Browser Run\\n\\t\\t- Zero Trust, Access, Tunnel, Gateway, Browser Isolation, WARP, DDOS, Magic Transit, Magic WAN\\n\\t\\t- CDN, Cache, DNS, Zaraz, Argo, Rulesets, Terraform, Account and Billing\\n\\n\\t\\tResults are returned as semantically similar chunks to the query.\\n\\t\\t\",\"inputSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"string\"}},\"required\":[\"query\"]},\"outputSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"results\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"similarity\":{\"type\":\"number\",\"description\":\"Similarity score from AI Search\"},\"id\":{\"type\":\"string\",\"description\":\"Source file ID\"},\"url\":{\"type\":\"string\",\"description\":\"Developer documentation URL\"},\"title\":{\"type\":\"string\",\"description\":\"Documentation page title\"},\"text\":{\"type\":\"string\",\"description\":\"Matching documentation chunk text\"}},\"required\":[\"similarity\",\"id\",\"url\",\"title\",\"text\"],\"additionalProperties\":false}}},\"required\":[\"results\"],\"additionalProperties\":false},\"annotations\":{\"title\":\"Search Cloudflare docs\",\"readOnlyHint\":true},\"serverId\":\"cloudflare-docs\"},{\"name\":\"migrate_pages_to_workers_guide\",\"description\":\"ALWAYS read this guide before migrating Pages projects to Workers.\",\"inputSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{}},\"annotations\":{\"title\":\"Get Pages migration guide\",\"readOnlyHint\":true},\"serverId\":\"cloudflare-docs\"}]},\"type\":\"cf_agent_mcp_servers\"}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":0,\"event\":{\"kind\":\"started\",\"runId\":\"capability-profile-<org>-82857\",\"agentType\":\"EntitlementAgent\",\"inputPreview\":\"{\\\"mode\\\":\\\"profile\\\",\\\"tier\\\":\\\"free\\\",\\\"entitlements\\\":[],\\\"omittedAllocations\\\":0,\\\"permissions\\\":[],\\\"permissionsKnown\\\":false}\",\"order\":0},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":1,\"event\":{\"kind\":\"finished\",\"runId\":\"capability-profile-<org>-82857\",\"summary\":\"Profile: free tier, 0 available / 0 unavailable\"},\"replay\":true}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"rpc\",\"id\":\"32319091-2ff7-4fb4-b1ed-74f7dbadf4fd\",\"method\":\"createConversation\",\"args\":[\"How do I create an API token?\",\"<org>\",\"<org>\",\"<email>'s Account\",true,false,true]}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"done\":true,\"id\":\"32319091-2ff7-4fb4-b1ed-74f7dbadf4fd\",\"result\":{\"id\":\"1ab5a7c3-7334-4378-a9ee-50ad8ca4a0f7\",\"title\":\"How do I create an API token?\",\"accountId\":\"<org>\",\"accountName\":\"<email>'s Account\",\"created_at\":\"2026-09-18 07:04:12\",\"updated_at\":\"2026-09-18 07:04:12\"},\"success\":true,\"type\":\"rpc\"}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"set_page_context\",\"url\":\"/<org>/home\",\"title\":\"Account home | <email>'s Account | Cloudflare\",\"heading\":\"Pick up where you left off.\"}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"cf_agent_use_chat_request\",\"id\":\"40f2df72\",\"init\":{\"method\":\"POST\",\"body\":\"{\\\"messages\\\":[{\\\"id\\\":\\\"99314abd-be66-4e3c-8a71-9ed0e34e3c3e\\\",\\\"role\\\":\\\"user\\\",\\\"parts\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"How do I create an API token?\\\"}]}]}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_session\",\"phase\":\"idle\",\"tokenEstimate\":14,\"tokenThreshold\":null}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"mcp\":{\"prompts\":[{\"name\":\"workers-prompt-full\",\"description\":\"Detailed prompt for generating Cloudflare Workers code (and other developer platform products) from https://developers.cloudflare.com/workers/prompt.txt\",\"serverId\":\"cloudflare-docs\"}],\"resources\":[],\"servers\":{\"cloudflare-docs\":{\"auth_url\":null,\"capabilities\":{\"prompts\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"error\":null,\"instructions\":null,\"name\":\"cloudflare-docs\",\"server_url\":\"https://docs.mcp.cloudflare.com/mcp\",\"state\":\"ready\"}},\"tools\":[{\"name\":\"search_cloudflare_documentation\",\"description\":\"Search the Cloudflare documentation.\\n\\n\\t\\tThis tool should be used to answer any question about Cloudflare products or features, including:\\n\\t\\t- Workers, Pages, R2, Images, Stream, D1, Durable Objects, KV, Workflows, Hyperdrive, Queues\\n\\t\\t- AI Search, Workers AI, Vectorize, AI Gateway, Browser Run\\n\\t\\t- Zero Trust, Access, Tunnel, Gateway, Browser Isolation, WARP, DDOS, Magic Transit, Magic WAN\\n\\t\\t- CDN, Cache, DNS, Zaraz, Argo, Rulesets, Terraform, Account and Billing\\n\\n\\t\\tResults are returned as semantically similar chunks to the query.\\n\\t\\t\",\"inputSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"string\"}},\"required\":[\"query\"]},\"outputSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"results\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"similarity\":{\"type\":\"number\",\"description\":\"Similarity score from AI Search\"},\"id\":{\"type\":\"string\",\"description\":\"Source file ID\"},\"url\":{\"type\":\"string\",\"description\":\"Developer documentation URL\"},\"title\":{\"type\":\"string\",\"description\":\"Documentation page title\"},\"text\":{\"type\":\"string\",\"description\":\"Matching documentation chunk text\"}},\"required\":[\"similarity\",\"id\",\"url\",\"title\",\"text\"],\"additionalProperties\":false}}},\"required\":[\"results\"],\"additionalProperties\":false},\"annotations\":{\"title\":\"Search Cloudflare docs\",\"readOnlyHint\":true},\"serverId\":\"cloudflare-docs\"},{\"name\":\"migrate_pages_to_workers_guide\",\"description\":\"ALWAYS read this guide before migrating Pages projects to Workers.\",\"inputSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{}},\"annotations\":{\"title\":\"Get Pages migration guide\",\"readOnlyHint\":true},\"serverId\":\"cloudflare-docs\"},{\"name\":\"search\",\"description\":\"Search the Cloudflare OpenAPI spec. All $refs are pre-resolved inline.\\n\\nProducts: cloudforce-one, access, magic, workers, dlp, email-security, realtime, devices, ai-gateway, email, intel, gateway, stream, settings, brand-protection, data-security, ai-search, browser-rendering, dex, logpush, api_gateway, builds, images, addressing, security-center, load_balancers, rulesets, vectorize, firewall, logs... (168 total)\\n\\nTypes:\\n\\ninterface OperationInfo {\\n  summary?: string;\\n  description?: string;\\n  tags?: string[];\\n  parameters?: Array<{ name: string; in: string; required?: boolean; schema?: unknown; description?: string }>;\\n  requestBody?: { required?: boolean; content?: Record<string, { schema?: unknown }> };\\n  responses?: Record<string, { description?: string; content?: Record<string, { schema?: unknown }> }>;\\n}\\n\\ninterface PathItem {\\n  get?: OperationInfo;\\n  post?: OperationInfo;\\n  put?: OperationInfo;\\n  patch?: OperationInfo;\\n  delete?: OperationInfo;\\n}\\n\\ndeclare const spec: {\\n  paths: Record<string, PathItem>;\\n};\\n\\n\\nExamples:\\n\\n// Find endpoints by product\\nasync () => {\\n  const results = [];\\n  for (const [path, methods] of Object.entries(spec.paths)) {\\n    for (const [method, op] of Object.entries(methods)) {\\n      if (op.tags?.some(t => t.toLowerCase() === 'workers')) {\\n        results.push({ method: method.toUpperCase(), path, summary: op.summary });\\n      }\\n    }\\n  }\\n  return results;\\n}\\n\\n// Get endpoint with requestBody schema (refs are resolved)\\nasync () => {\\n  const op = spec.paths['/accounts/{account_id}/d1/database']?.post;\\n  return { summary: op?.summary, requestBody: op?.requestBody };\\n}\\n\\n// Get endpoint parameters\\nasync () => {\\n  const op = spec.paths['/accounts/{account_id}/workers/scripts']?.get;\\n  return op?.parameters;\\n}\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"string\",\"description\":\"JavaScript async arrow function to search the OpenAPI spec\"}},\"required\":[\"code\"],\"$schema\":\"https://json-schema.org/draft/2020-12/schema\"},\"serverId\":\"wgfDOMo8\"},{\"name\":\"execute\",\"description\":\"Execute JavaScript code that can read, create, update, or delete resources through the Cloudflare API. First use the 'search' tool to find the right endpoints, then write code using the cloudflare.request() function.\\n\\nAvailable in your code:\\n\\ninterface CloudflareRequestOptions {\\n  method: \\\"GET\\\" | \\\"POST\\\" | \\\"PUT\\\" | \\\"PATCH\\\" | \\\"DELETE\\\";\\n  path: string;\\n  query?: Record<string, string | number | boolean | undefined>;\\n  body?: unknown;\\n  contentType?: string;  // Custom Content-Type"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"start\\\",\\\"messageId\\\":\\\"5b8c9d1f-e785-410a-9881-3f2c4b7c14ee\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"start-step\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-start\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\"The\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" user\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" is asking how\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" to create an\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" API token\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\". This\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" is a Cloud\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\"flare account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" question. Let\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" me search\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" the\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" dashboard pages\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" and documentation for\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\",\\\"delta\\\":\\\" this.\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"reasoning-end\\\",\\\"id\\\":\\\"RTVU1KkQiW6Lb1Y5\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-start\\\",\\\"toolCallId\\\":\\\"call_c4b9c09d57854d0fad3283ad\\\",\\\"toolName\\\":\\\"searchDashboardPages\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_c4b9c09d57854d0fad3283ad\\\",\\\"inputTextDelta\\\":\\\"{\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_c4b9c09d57854d0fad3283ad\\\",\\\"inputTextDelta\\\":\\\"\\\\\\\"query\\\\\\\": \\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_c4b9c09d57854d0fad3283ad\\\",\\\"inputTextDelta\\\":\\\"\\\\\\\"create API token\\\\\\\"\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_c4b9c09d57854d0fad3283ad\\\",\\\"inputTextDelta\\\":\\\"}\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-start\\\",\\\"toolCallId\\\":\\\"call_305d012f2b624333b93f84ff\\\",\\\"toolName\\\":\\\"tool_cloudflaredocs_search_cloudflare_documentation\\\",\\\"title\\\":\\\"Search Cloudflare docs\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_305d012f2b624333b93f84ff\\\",\\\"inputTextDelta\\\":\\\"{\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_305d012f2b624333b93f84ff\\\",\\\"inputTextDelta\\\":\\\"\\\\\\\"query\\\\\\\": \\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_305d012f2b624333b93f84ff\\\",\\\"inputTextDelta\\\":\\\"\\\\\\\"how\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_305d012f2b624333b93f84ff\\\",\\\"inputTextDelta\\\":\\\" to create API\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_305d012f2b624333b93f84ff\\\",\\\"inputTextDelta\\\":\\\" token\\\\\\\"\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_305d012f2b624333b93f84ff\\\",\\\"inputTextDelta\\\":\\\"}\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-available\\\",\\\"toolCallId\\\":\\\"call_c4b9c09d57854d0fad3283ad\\\",\\\"toolName\\\":\\\"searchDashboardPages\\\",\\\"input\\\":{\\\"query\\\":\\\"create API token\\\"}}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-input-available\\\",\\\"toolCallId\\\":\\\"call_305d012f2b624333b93f84ff\\\",\\\"toolName\\\":\\\"tool_cloudflaredocs_search_cloudflare_documentation\\\",\\\"input\\\":{\\\"query\\\":\\\"how to create API token\\\"},\\\"title\\\":\\\"Search Cloudflare docs\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-output-available\\\",\\\"toolCallId\\\":\\\"call_c4b9c09d57854d0fad3283ad\\\",\\\"output\\\":[{\\\"url\\\":\\\"https://dash.cloudflare.com/<org>/api-tokens/create\\\",\\\"target\\\":\\\"_self\\\",\\\"breadcrumb\\\":\\\"Manage account > Account API tokens\\\",\\\"title\\\":\\\"Account API tokens\\\"},{\\\"url\\\":\\\"https://dash.cloudflare.com/<org>/settings/api-tokens/create\\\",\\\"target\\\":\\\"_self\\\"},{\\\"url\\\":\\\"https://dash.cloudflare.com/<org>/r2/api-tokens/create\\\",\\\"target\\\":\\\"_self\\\",\\\"breadcrumb\\\":\\\"Build > Storage & databases > R2 Object Storage\\\",\\\"title\\\":\\\"R2 Object Storage\\\"},{\\\"url\\\":\\\"https://dash.cloudflare.com/<org>/api-tokens\\\",\\\"target\\\":\\\"_self\\\",\\\"breadcrumb\\\":\\\"Manage account > Account API tokens\\\",\\\"title\\\":\\\"Account API tokens\\\"},{\\\"url\\\":\\\"https://dash.cloudflare.com/<org>/api-tokens/tokens/:tokenId\\\",\\\"target\\\":\\\"_self\\\",\\\"breadcrumb\\\":\\\"Manage account > Account API tokens\\\",\\\"title\\\":\\\"Account API tokens\\\",\\\"unresolvedParams\\\":[\\\"tokenId\\\"]}]}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"tool-output-available\\\",\\\"toolCallId\\\":\\\"call_305d012f2b624333b93f84ff\\\",\\\"output\\\":{\\\"_meta\\\":{\\\"io.modelcontextprotocol/serverInfo\\\":{\\\"name\\\":\\\"docs-ai-search\\\",\\\"version\\\":\\\"0.4.13\\\"}},\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"<result>\\\\n<url>https://developers.cloudflare.com/queues/configuration/pull-consumers/</url>\\\\n<title>Pull Consumers</title>\\\\n<text>\\\\n## 2\\\\\\\\. Consumer authentication\\\\n\\\\nHTTP Pull consumers require an [API token](/fundamentals/api/get-started/create-token/) with the `com.cloudflare.api.account.queues_read` and `com.cloudflare.api.account.queues_write` permissions.\\\\n\\\\nBoth read _and_ write are required as a pull-based consumer needs to write to the queue state to acknowledge the messages it receives. Consuming messages mutates the queue.\\\\n\\\\nAPI tokens are presented as Bearer tokens in the `Authorization` header of a HTTP request in the format `Authorization: Bearer $YOUR_TOKEN_HERE`. The following example shows how to pass an API token using the `curl` HTTP client:\\\\n\\\\n```bash\\\\ncurl \\\\\\\"https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/queues/${QUEUE_ID}/messages/pull\\\\\\\" \\\\\\\\\\\\n--header \\\\\\\"Authorization: Bearer ${QUEUES_TOKEN}\\\\\\\" \\\\\\\\\\\\n--header \\\\\\\"Content-Type: application/json\\\\\\\" \\\\\\\\\\\\n--data '{ \\\\\\\"visibility_timeout_ms\\\\\\\": 10000, \\\\\\\"batch_size\\\\\\\": 2 }'\\\\n```\\\\n\\\\nYou may authenticate and run multiple concurrent pull-based consumers against a single queue.\\\\n\\\\n### Create API tokens\\\\n\\\\nTo create an API token:\\\\n\\\\n1. Log in to the [Cloudflare dashboard \u2197](https://dash.cloudflare.com).\\\\n2. Go to **My Profile** \\\\\\\\> [API Tokens \u2197](https://dash.cloudflare.com/profile/api-tokens).\\\\n3. Select **Create Token**.\\\\n4. Scroll to the bottom of the page and select **Create Custom Token**.\\\\n5. Give the token a name. For example, `queue-pull-token`.\\\\n6. Under the **Permissions** section, choose **Account** and then **Queues**. Ensure you have selected **Edit** (read+write).\\\\n7. (Optional) Select **All accounts** (default) or a specific account to scope the token to.\\\\n8. Select **Continue to summary** and then **Create token**.\\\\n\\\\nYou will need to note the token down: it will only be displayed once.\\\\n\\\\n## 3\\\\\\\\. Pull messages\\\\n\\\\nTo pull a message, make a HTTP POST request to the [Queues REST API](/api/resources/queues/subresources/messages/methods/pull/) with a JSON-encoded body that optionally specifies a `visibility_timeout` and a `batch_size`, or an empty JSON object (`{}`):\\\\n\\\\n\\\\n</text>\\\\n</result>\\\\n<result>\\\\n<url>https://developers.cloudflare.com/videos/create-api-tokens/</url>\\\\n<title>Create Api Tokens</title>\\\\n<text>\\\\n---\\\\ndescription: In this video, learn the difference between account and user API tokens how to create one.\\\\ntitle: Create an API token\\\\nimage: https://developers.cloudflare.com/og-docs.png\\\\n---\\\\n\\\\n[Skip to content](#main-content)\\\\n\\\\nIn this video, learn the difference between account and user API tokens how to create one.\\\\n\\\\nTranscript\\\\n\\\\nAn API token allows secure, fine grained access to specific resources\\\\n\\\\nwithout exposing your full account credentials.\\\\n\\\\nThey have a limited lifespan and expire automatically.\\\\n\\\\nThis reduces risk if they are compromised.\\\\n\\\\nFor example, if you want to grant someone access to specific apps or data.\\\\n\\\\nYou can create an API token for them.\\\\n\\\\nThere are two types of tokens user token and account token.\\\\n\\\\nUser tokens are directly tied to an individual and their account.\\\\n\\\\nWhile account tokens are typically tied to services which can help prevent an\\\\n\\\\ninterruption in service.\\\\n\\\\nIf an employee leaves their organization.\\\\n\\\\nIn this video, we'll walk through how to create an API token in the Cloudflare\\\\n\\\\ndashboard. Before you begin, make sure you know your account and zone IDs.\\\\n\\\\nSo let's do that. First, the account ID identifies your Cloudflare\\\\n\\\\naccount, while the zone ID identifies a specific domain you've added to Cloudflare.\\\\n\\\\nFrom the accounts page, locate your account at the end of the account\\\\n\\\\nrow, open the menu and select Copy Account ID.\\\\n\\\\nIf you only have one account, it looks a little bit different.\\\\n\\\\nLogin and go to the account home page next to your account name,\\\\n\\\\nselect the menu button from the drop down.\\\\n\\\\nChoose Copy Account ID to find your zone ID, log in and go to the accounts page.\\\\n\\\\nSelect your account, then go to the overview page for your domain.\\\\n\\\\nScroll to the API section near the bottom.\\\\n\\\\nHere you'll see the zone ID and an option to click to copy.\\\\n\\\\nThis section also lists your account ID for convenience.\\\\n\\\\nNow we can create an API token to create a token.\\\\n\\\\nStart from the Cloudflare dashboard.\\\\n\\\\nFor a user token, go to profile API tokens.\\\\n\\\\n\\\\n</text>\\\\n</result>\\\\n<result>\\\\n<url>https://developers.cloudflare.com/fundamentals/api/how-to/create-via-api/</url>\\\\n<title>Create Via Api</title>\\\\n<t"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"data-status\\\",\\\"transient\\\":true,\\\"data\\\":{\\\"state\\\":\\\"finalizing\\\"}}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"finish-step\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"start-step\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-start\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"**\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"You\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" can create an\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" API token from\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" the Cloud\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"flare dashboard in\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" a\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" few steps\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\".** There\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" are two types\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\":\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" **user\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" tokens\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"** (t\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"ied to your\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" individual\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\") and **account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" tokens** (tied to\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" the account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" itself\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\", ideal\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" for services\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\").\\\\n\\\\n###\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" Create an\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" API token\\\\n\\\\n1\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\". Go\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" to the [\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"Account API\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" tokens](https://dash\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\".cloudflare.com/e\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"8\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"441\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"b\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"fc59\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"7\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"44\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"c58\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"c5\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"b207\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"9\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"e5e9\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"a19\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"cb\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"/api-t\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"okens) page\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" (or **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"My Profile\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" >\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" API Tokens\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"** for a\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" user token).\\\\n2. Select\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" **Create Token\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"**.\\\\n3. Either\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" pick\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" a pre\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"built\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" template or\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" scroll down and\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" select **Create\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" Custom Token\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" > Get started\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"**.\\\\n4\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\". Enter a\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" token\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" name.\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"5\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\". Under\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" **Permissions**,\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" choose\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" the resource\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" scope\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" and\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" the specific\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" permissions you need\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" (e.g.,\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" **Account > Workers\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" R2 Storage >\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" Edit**).\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" Leave\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" the resource\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" set to **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"Entire Account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"** for account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"-wide access\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\",\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" or scope it\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" to specific\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" resources.\\\\n6\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\". *(\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"Optional)* Restr\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"ict the token\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" with **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"client\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" IP address filtering\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"** or a\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" **TTL/\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"expiration** to reduce\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" risk if compromised\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\".\\\\n7\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\". Select\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" **Continue to summary** (\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"or **Review token\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"**), then **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"Create Token**.\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"8. **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"Copy the token secret immediately\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"** \u2014 it's\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" only shown\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" once. Store\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" it securely.\\\\n\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"###\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" Tips\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"- The\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" token secret\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" is shown\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"only once**. Don\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"'t store it in plaintext\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" where\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" others can access\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" it\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\".\\\\n-\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" Anyone\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" with the token can perform\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" any\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" authorized action\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" against\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" the resources it has\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" access to.\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"- You\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" can verify a\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" token with\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\":\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" `curl \\\\\\\"\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"https://api.cloudflare.com/client\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"/v4/user/tokens/\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"verify\\\\\\\" --header \\\\\\\"Authorization\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\": Bearer <API\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"_TOKEN>\\\\\\\"\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"`\\\\n\\\\nWould\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" you like me\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" to help\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" you create a token\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" for\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" a specific product\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" (e.g., R\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"2, Workers\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\", DNS\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\"), or do\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" you need guidance\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" on which\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" permissions to\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\",\\\"delta\\\":\\\" choose?\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"text-end\\\",\\\"id\\\":\\\"a4e5LTRKmIibVadJ\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"finish-step\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"{\\\"type\\\":\\\"finish\\\",\\\"finishReason\\\":\\\"stop\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"40f2df72\",\"body\":\"\",\"done\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_session\",\"phase\":\"idle\",\"tokenEstimate\":9175,\"tokenThreshold\":null}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_chat_messages\",\"messages\":[{\"id\":\"99314abd-be66-4e3c-8a71-9ed0e34e3c3e\",\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"text\":\"How do I create an API token?\"}]}]}"
+ }
+]

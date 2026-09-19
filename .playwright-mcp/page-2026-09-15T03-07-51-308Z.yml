@@ -1,0 +1,93 @@
+- generic [ref=f3e2]:
+  - complementary [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - link "Admin dashboard" [ref=f3e5] [cursor=pointer]:
+        - /url: /admin
+        - generic [ref=f3e6]: qp
+        - strong [ref=f3e8]: quidproquo
+      - generic [ref=f3e9]:
+        - button "Chat mode" [ref=f3e10] [cursor=pointer]
+        - button "Admin mode" [ref=f3e13] [cursor=pointer]
+    - link "+ New" [ref=f3e18] [cursor=pointer]:
+      - /url: /admin
+      - generic [ref=f3e19]: +
+      - generic [ref=f3e20]: New
+    - navigation "Chat navigation" [ref=f3e21]:
+      - link "Artifacts" [ref=f3e22] [cursor=pointer]:
+        - /url: /admin/sessions/artifacts
+      - link "Routines" [ref=f3e26] [cursor=pointer]:
+        - /url: /admin/routines
+      - group [ref=f3e30]:
+        - generic "More" [ref=f3e31] [cursor=pointer]
+    - generic [ref=f3e35]:
+      - generic [ref=f3e36]: Routines
+      - generic [ref=f3e38]: 載入中…
+    - generic [ref=f3e40]:
+      - generic [ref=f3e41]: Recents
+      - generic [ref=f3e43]: 載入中…
+    - generic [ref=f3e45]:
+      - link "回到網站" [ref=f3e46] [cursor=pointer]:
+        - /url: /
+      - button "登出" [ref=f3e52] [cursor=pointer]
+  - main [ref=f3e57]:
+    - generic [ref=f3e58]:
+      - generic [ref=f3e59]:
+        - paragraph [ref=f3e60]: Settings
+        - heading "Deep Research" [level=2] [ref=f3e61]
+      - generic "Admin shortcuts" [ref=f3e62]:
+        - link "Sessions" [ref=f3e63] [cursor=pointer]:
+          - /url: /admin/sessions
+        - link "Settings" [ref=f3e66] [cursor=pointer]:
+          - /url: /admin/settings
+    - generic [ref=f3e70]:
+      - paragraph [ref=f3e71]: 將研究主題拆成子題，執行蒐證與寫作流程，回傳可追溯研究草稿。
+      - generic [ref=f3e72]:
+        - generic [ref=f3e74]:
+          - heading "深度研究任務" [level=2] [ref=f3e75]
+          - paragraph [ref=f3e76]: 可在此指定 Provider 與模型，並控制子問題與輸出長度。
+        - generic [ref=f3e77]:
+          - generic [ref=f3e78]:
+            - generic [ref=f3e79]: 研究主題（中/英皆可）
+            - textbox "研究主題（中/英皆可）" [ref=f3e80]:
+              - /placeholder: 例如：AI 代理工具與資料蒐證流程的新趨勢？
+          - generic [ref=f3e81]:
+            - generic [ref=f3e82]:
+              - generic [ref=f3e83]: Provider
+              - combobox "Provider" [ref=f3e84]
+            - generic [ref=f3e85]:
+              - generic [ref=f3e86]: 模型
+              - combobox "模型" [ref=f3e87]
+            - generic [ref=f3e88]:
+              - generic [ref=f3e89]: 研究模式
+              - combobox "研究模式 切換模式會同步對應預設參數（除「自訂」外）。" [ref=f3e90]:
+                - option "平衡（預設）" [selected]
+                - option "輕量（快速）"
+                - option "深入（高品質）"
+                - option "自訂"
+              - paragraph [ref=f3e91]: 切換模式會同步對應預設參數（除「自訂」外）。
+            - generic [ref=f3e92]:
+              - generic [ref=f3e93]: 最多子問題數
+              - spinbutton "最多子問題數" [ref=f3e94]: "3"
+            - generic [ref=f3e95]:
+              - generic [ref=f3e96]: 每次回覆 token 上限
+              - spinbutton "每次回覆 token 上限 這是總預算（256~4096），系統會自動分配給規劃/研究/寫作/評估階段。" [ref=f3e97]: "2048"
+              - paragraph [ref=f3e98]: 這是總預算（256~4096），系統會自動分配給規劃/研究/寫作/評估階段。
+            - generic [ref=f3e99]:
+              - generic [ref=f3e100]: 進階：自訂各階段 token
+              - generic [ref=f3e101]:
+                - generic [ref=f3e102]: 啟用自訂配置
+                - checkbox "進階：自訂各階段 token 啟用自訂配置 啟用後可覆寫每階段上限（仍會被各階段的上下限保護）。" [ref=f3e103]
+              - paragraph [ref=f3e104]: 啟用後可覆寫每階段上限（仍會被各階段的上下限保護）。
+            - generic [ref=f3e105]:
+              - generic [ref=f3e106]: 進階：研究行為控制
+              - generic [ref=f3e107]:
+                - generic [ref=f3e108]: 啟用進階設定
+                - checkbox "進階：研究行為控制 啟用進階設定 不勾選時沿用系統預設模型參數；勾選後可對研究流程逐項覆寫。" [ref=f3e109]
+              - paragraph [ref=f3e110]: 不勾選時沿用系統預設模型參數；勾選後可對研究流程逐項覆寫。
+            - generic [ref=f3e111]:
+              - generic [ref=f3e112]: 每個子問題搜尋變體數
+              - spinbutton "每個子問題搜尋變體數" [ref=f3e113]: "3"
+            - paragraph [ref=f3e114]:
+              - generic [ref=f3e115]: 模型目錄來源
+              - generic [ref=f3e116]: 尚未載入目錄。
+          - button "產生研究報告" [ref=f3e118] [cursor=pointer]

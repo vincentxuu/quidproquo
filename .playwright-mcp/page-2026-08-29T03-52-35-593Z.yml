@@ -1,0 +1,105 @@
+- generic [active] [ref=f56e1]:
+  - generic [ref=f56e2]:
+    - complementary [ref=f56e3]:
+      - link "Admin dashboard" [ref=f56e5] [cursor=pointer]:
+        - /url: /admin
+        - generic [ref=f56e6]: qp
+        - generic [ref=f56e7]:
+          - strong [ref=f56e8]: quidproquo
+          - generic [ref=f56e9]: Settings
+      - navigation "Admin navigation" [ref=f56e10]:
+        - link "Home" [ref=f56e11] [cursor=pointer]:
+          - /url: /admin
+        - link "Sessions" [ref=f56e16] [cursor=pointer]:
+          - /url: /admin/sessions
+        - link "Routines" [ref=f56e20] [cursor=pointer]:
+          - /url: /admin/routines
+        - link "Flows" [ref=f56e24] [cursor=pointer]:
+          - /url: /admin/flows
+        - group [ref=f56e28]:
+          - generic "Settings" [ref=f56e29] [cursor=pointer]
+          - generic [ref=f56e37]:
+            - link "Site" [ref=f56e38] [cursor=pointer]:
+              - /url: /admin/settings/site
+            - link "Models" [ref=f56e39] [cursor=pointer]:
+              - /url: /admin/settings/models
+            - link "Extensions" [ref=f56e40] [cursor=pointer]:
+              - /url: /admin/settings/extensions
+            - link "Permissions" [ref=f56e41] [cursor=pointer]:
+              - /url: /admin/settings/permissions
+            - link "Access" [ref=f56e42] [cursor=pointer]:
+              - /url: /admin/settings/access
+            - link "Environments" [ref=f56e43] [cursor=pointer]:
+              - /url: /admin/settings/environments
+            - link "Notifications" [ref=f56e44] [cursor=pointer]:
+              - /url: /admin/settings/notifications
+            - link "Behavior" [ref=f56e45] [cursor=pointer]:
+              - /url: /admin/settings/behavior
+      - generic [ref=f56e46]:
+        - link "回到網站" [ref=f56e47] [cursor=pointer]:
+          - /url: /
+        - button "登出" [ref=f56e53] [cursor=pointer]
+    - main [ref=f56e58]:
+      - generic [ref=f56e59]:
+        - generic [ref=f56e60]:
+          - paragraph [ref=f56e61]: Settings
+          - heading "Settings" [level=2] [ref=f56e62]
+        - generic "Admin shortcuts" [ref=f56e63]:
+          - link "Sessions" [ref=f56e64] [cursor=pointer]:
+            - /url: /admin/sessions
+          - link "Settings" [ref=f56e67] [cursor=pointer]:
+            - /url: /admin/settings
+      - generic [ref=f56e72]:
+        - link "🖥️ Environments Runner 後端、網路、環境變數" [ref=f56e73] [cursor=pointer]:
+          - /url: /admin/settings/environments
+          - generic [ref=f56e74]: 🖥️
+          - generic [ref=f56e75]:
+            - strong [ref=f56e76]: Environments
+            - paragraph [ref=f56e77]: Runner 後端、網路、環境變數
+        - link "📦 Site 內容、RAG、統計、任務、維運" [ref=f56e78] [cursor=pointer]:
+          - /url: /admin/settings/site
+          - generic [ref=f56e79]: 📦
+          - generic [ref=f56e80]:
+            - strong [ref=f56e81]: Site
+            - paragraph [ref=f56e82]: 內容、RAG、統計、任務、維運
+        - link "🤖 Models 模型供應商、金鑰、費用" [ref=f56e83] [cursor=pointer]:
+          - /url: /admin/settings/models
+          - generic [ref=f56e84]: 🤖
+          - generic [ref=f56e85]:
+            - strong [ref=f56e86]: Models
+            - paragraph [ref=f56e87]: 模型供應商、金鑰、費用
+        - link "🧩 Extensions Skills / MCP / Plugins" [ref=f56e88] [cursor=pointer]:
+          - /url: /admin/settings/extensions
+          - generic [ref=f56e89]: 🧩
+          - generic [ref=f56e90]:
+            - strong [ref=f56e91]: Extensions
+            - paragraph [ref=f56e92]: Skills / MCP / Plugins
+        - link "🔒 Permissions 權限政策" [ref=f56e93] [cursor=pointer]:
+          - /url: /admin/settings/permissions
+          - generic [ref=f56e94]: 🔒
+          - generic [ref=f56e95]:
+            - strong [ref=f56e96]: Permissions
+            - paragraph [ref=f56e97]: 權限政策
+        - link "👥 Access 使用者、角色、稽核" [ref=f56e98] [cursor=pointer]:
+          - /url: /admin/settings/access
+          - generic [ref=f56e99]: 👥
+          - generic [ref=f56e100]:
+            - strong [ref=f56e101]: Access
+            - paragraph [ref=f56e102]: 使用者、角色、稽核
+        - link "🔔 Notifications 通知通道設定" [ref=f56e103] [cursor=pointer]:
+          - /url: /admin/settings/notifications
+          - generic [ref=f56e104]: 🔔
+          - generic [ref=f56e105]:
+            - strong [ref=f56e106]: Notifications
+            - paragraph [ref=f56e107]: 通知通道設定
+        - link "⚙️ Behavior 全域行為預設" [ref=f56e108] [cursor=pointer]:
+          - /url: /admin/settings/behavior
+          - generic [ref=f56e109]: ⚙️
+          - generic [ref=f56e110]:
+            - strong [ref=f56e111]: Behavior
+            - paragraph [ref=f56e112]: 全域行為預設
+  - generic [ref=f56e115]:
+    - button [ref=f56e116]
+    - button [ref=f56e122]
+    - button [ref=f56e126]
+    - button [ref=f56e134]

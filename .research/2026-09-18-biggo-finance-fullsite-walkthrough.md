@@ -140,7 +140,7 @@ T+0s   頂部進 /podcast → 篩選（收藏／追蹤頻道／全部頻道）�
 
 ### 3.1 傳輸方式（HAR 實測）
 
-- 頁面資料 API：**全部普通 HTTPS JSON，無 WebSocket、無 SSE**（53 筆回應 mime 計數：`application/json` 39 筆＋圖片代理，非 JSON 僅圖片；HAR 實測）。
+- 頁面資料 API：**全部普通 HTTPS JSON，無 WebSocket、無 SSE**（53 筆回應 mime 計數＋全量 HAR 掃描：`ws://`／`wss://`／`Upgrade: websocket`／`101` 皆零命中；34 個 JS chunk 無 `new WebSocket(`/`EventSource(`，HAR 實測＋靜態交叉確認）。
 - Agent 對話 SSE：頁面載入時**未觸發**（需發送訊息才會打 `POST .../message`，本輪未發送以維持唯讀）；傳輸形狀以 bundle 靜態為準（見 R1 留檔 `biggo-R2-agent-sse-chunk.js`）：fetch＋`body.getReader()` 自解析 `\n\n`／`data:` JSON，`done:true` 結束。
 
 ### 3.2 API 時序（HAR 實測，base `https://api.biggo.com/api/v1/finance`，每筆皆帶 `?region=tw`）

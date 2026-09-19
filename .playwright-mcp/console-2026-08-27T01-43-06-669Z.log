@@ -1,0 +1,19 @@
+[     397ms] [INFO] [O11Y] [DatadogRUM] Initialized {service: claude-ai, env: production, version: cea2a7f475} @ https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-datadog-Rzy8FX6o.js:0
+[    2491ms] [INFO] Clear-Site-Data header on 'https://claude.ai/api/auth/logout': Cleared data types: "storage". @ https://claude.ai/logout?involuntary=1&returnTo=%2Flogin%3Ffrom%3Dlogout%26returnTo%3D%252Fcode%252Froutines%253F:0
+[    2631ms] [INFO] [O11Y] [DatadogRUM] Initialized {service: claude-ai, env: production, version: cea2a7f475} @ https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-datadog-Rzy8FX6o.js:0
+[    3096ms] [LOG] recaptchacompat disabled @ https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-datadog-Rzy8FX6o.js:0
+[    4723ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.closed call. @ https://accounts.google.com/gsi/client:137
+[    4723ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.closed call. @ https://accounts.google.com/gsi/client:137
+[   23757ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.closed call. @ https://accounts.google.com/gsi/client:137
+[   23757ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.closed call. @ https://accounts.google.com/gsi/client:137
+[   24258ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.closed call. @ https://accounts.google.com/gsi/client:137
+[   24258ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.closed call. @ https://accounts.google.com/gsi/client:137
+[   25761ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.closed call. @ https://accounts.google.com/gsi/client:137
+[   25761ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.closed call. @ https://accounts.google.com/gsi/client:137
+[   99898ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/b2234da4-a234-43f7-b14e-487cbc5a34fb:0
+[  100088ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/ae47a5f4-6d4e-48a4-b29a-e2c16bbe5c25:0
+[  101913ms] [INFO] [O11Y] [DatadogRUM] Initialized {service: claude-ai, env: production, version: cea2a7f475} @ https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-datadog-Rzy8FX6o.js:0
+[  106009ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/0f2c1fda-ae04-4885-8730-910f1a1a19ac:0
+[  106357ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/e23a6663-6d50-4963-b286-5d72b432dacd:0
+[  107218ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/6034cd96-22b1-4e2b-a594-d04d97e643d7:0
+[  107918ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/9845566c-3c64-42ed-bde9-df9b9d5ac83a:0

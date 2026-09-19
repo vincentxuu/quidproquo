@@ -1,0 +1,118 @@
+- generic [ref=f17e1]:
+  - generic [ref=f17e7]:
+    - complementary "Sidebar" [ref=f17e9]:
+      - separator "Resize sidebar" [ref=f17e10]
+      - generic [ref=f17e13]:
+        - link "Claude Code" [ref=f17e16] [cursor=pointer]:
+          - /url: /new
+        - radiogroup "Mode" [ref=f17e21]:
+          - radio "Chat and Cowork" [ref=f17e22] [cursor=pointer]:
+            - generic [ref=f17e23]: 
+          - radio [ref=f17e24]
+          - radio "Code" [checked] [ref=f17e25] [cursor=pointer]:
+            - generic [ref=f17e26]: 
+          - radio [checked] [ref=f17e27]
+      - generic [ref=f17e28]:
+        - generic [ref=f17e29]:
+          - generic [ref=f17e31]:
+            - link "New" [ref=f17e32] [cursor=pointer]:
+              - /url: /code
+              - generic [ref=f17e33]: 
+              - generic [ref=f17e37]: ⇧⌘O
+            - link "Artifacts" [ref=f17e38] [cursor=pointer]:
+              - /url: /code/artifacts
+              - generic [ref=f17e39]: 
+            - link "Customize" [ref=f17e43] [cursor=pointer]:
+              - /url: /customize
+              - generic [ref=f17e44]: 
+            - button "Routines" [expanded] [ref=f17e48] [cursor=pointer]:
+              - generic [ref=f17e49]: 
+            - menu "Routines" [active] [ref=f17e98]:
+              - generic [ref=f17e99]:
+                - menuitem "Routines" [ref=f17e100] [cursor=pointer]
+                - menuitem "Dispatch Beta" [ref=f17e106] [cursor=pointer]:
+                  - generic [ref=f17e107]: 
+                  - generic [ref=f17e109]:
+                    - text: Dispatch
+                    - generic [ref=f17e110]: Beta
+                - separator [ref=f17e112]
+                - menuitem "Edit sidebar" [ref=f17e113] [cursor=pointer]:
+                  - generic [ref=f17e114]: 
+          - paragraph [ref=f17e59]: Sessions you start will show up here
+        - generic [ref=f17e122]:
+          - generic [ref=f17e130]:
+            - generic [ref=f17e131]: Try Claude Tag
+            - button "Set up" [ref=f17e134] [cursor=pointer]
+          - button "Dismiss" [ref=f17e136] [cursor=pointer]:
+            - generic [ref=f17e139]: 
+        - generic [ref=f17e64]:
+          - button "vincent vincent Max" [ref=f17e66] [cursor=pointer]:
+            - img "vincent" [ref=f17e68]: V
+            - generic [ref=f17e69]:
+              - generic [ref=f17e70]: vincent
+              - generic [ref=f17e71]: ·
+              - generic [ref=f17e72]: Max
+            - generic [ref=f17e73]: 
+          - generic [ref=f17e74]:
+            - button "Send feedback" [disabled]:
+              - generic: 
+            - button "Search" [ref=f17e76] [cursor=pointer]:
+              - generic [ref=f17e79]: 
+            - button "Collapse sidebar" [ref=f17e81] [cursor=pointer]:
+              - generic [ref=f17e84]: 
+    - main [ref=f17e86]:
+      - generic [ref=f17e146]:
+        - generic [ref=f17e147]:
+          - generic [ref=f17e148]:
+            - heading [level=1] [ref=f17e149]
+            - paragraph [ref=f17e153]: Create templated routines that can be kicked off on schedule, by API, or webhook.
+          - button [ref=f17e154] [cursor=pointer]:
+            - generic [ref=f17e157]:
+              - generic [ref=f17e158]: 
+              - text: New routine
+        - generic [ref=f17e159]:
+          - textbox "What do you want automated?" [ref=f17e160]
+          - generic [ref=f17e161]:
+            - generic [ref=f17e162]:
+              - button "Summarize my open PRs every weekday morning" [ref=f17e163] [cursor=pointer]
+              - button "Triage new issues and flag duplicates each morning" [ref=f17e164] [cursor=pointer]
+              - button "Draft release notes whenever a PR merges" [ref=f17e165] [cursor=pointer]
+            - button "Draft routine" [disabled]
+        - generic [ref=f17e166]:
+          - generic [ref=f17e167]: 
+          - text: No routines yet.
+        - generic [ref=f17e168]:
+          - heading "Or start from a template" [level=2] [ref=f17e169]
+          - generic [ref=f17e170]:
+            - button "Briefing" [ref=f17e171] [cursor=pointer]:
+              - paragraph [ref=f17e177]: Summary of your calendar, emails, and messages.
+              - generic [ref=f17e178]: Runs weekdays at 8:30 PM GMT+8
+              - paragraph [ref=f17e183]: Works with Google Calendar · Gmail · Slack
+            - button "Email triage" [ref=f17e184] [cursor=pointer]:
+              - paragraph [ref=f17e190]: Categorize and prioritize your inbox, with draft responses for urgent items.
+              - generic [ref=f17e191]: Runs weekdays at 11:00 PM GMT+8
+              - paragraph [ref=f17e196]: Works with Gmail
+            - button "System health check" [ref=f17e197] [cursor=pointer]:
+              - paragraph [ref=f17e203]: Monitor infrastructure and services for errors, outages, and performance issues.
+              - generic [ref=f17e204]: Runs daily at 8:00 PM GMT+8
+              - paragraph [ref=f17e209]: Works with PagerDuty · Datadog · Sentry
+            - button "Issue triage" [ref=f17e210] [cursor=pointer]:
+              - paragraph [ref=f17e216]: Review and categorize incoming issues, bugs, and feature requests.
+              - generic [ref=f17e217]: Runs weekdays at 11:30 PM GMT+8
+              - paragraph [ref=f17e222]: Works with Linear
+            - button "PR review digest" [ref=f17e223] [cursor=pointer]:
+              - paragraph [ref=f17e229]: Overview of open PRs, review status, and what needs attention.
+              - generic [ref=f17e230]: Runs Tuesday to Saturday at 2:00 AM GMT+8
+            - button "Dependency update check" [ref=f17e235] [cursor=pointer]:
+              - paragraph [ref=f17e242]: Scan for outdated packages, security patches, and breaking changes.
+              - generic [ref=f17e243]: Runs every Tuesday at 2:30 AM GMT+8
+            - button "Release notes drafter" [ref=f17e248] [cursor=pointer]:
+              - paragraph [ref=f17e255]: Draft user-facing release notes each time a PR merges to the main branch.
+              - generic [ref=f17e256]: Triggered by pull request closed
+            - button "Flaky test tracker" [ref=f17e261] [cursor=pointer]:
+              - paragraph [ref=f17e267]: Find tests that pass and fail intermittently across recent CI runs.
+              - generic [ref=f17e268]: Runs every Tuesday at 12:00 AM GMT+8
+  - generic:
+    - generic:
+      - generic:
+        - region "Notifications"

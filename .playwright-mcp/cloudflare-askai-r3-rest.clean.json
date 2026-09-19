@@ -1,0 +1,38 @@
+[
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/rollout/status?accountTag=<org>",
+  "body": "{\"result\":{\"writePermissionsEnabled\":true,\"writeRestrictedByAdmin\":false}}"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/token/status",
+  "body": "{\"status\":\"ok\",\"result\":{\"isAuthenticated\":true,\"tokenId\":\"<tokenId>\",\"writeEnabled\":false,\"optedOut\":false,\"accountDisabled\":false}}"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/conversations",
+  "body": "{\"status\":\"ok\",\"result\":[{\"id\":\"184631d4-18c7-43b1-a4d3-8c5498d88b50\",\"title\":\"Where do I find my account ID and zone ID?\",\"accountId\":\"<org>\",\"accountName\":\"<email>'s Account\",\"created_at\":\"2026-09-18 06:42:26\",\"updated_at\":\"2026-09-18 06:42:26\"}]}"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/accounts/<org>/lee/ws",
+  "body": "{\"status\":\"ok\",\"result\":{\"wsUrl\":\"wss://ax.cloudflare.dev/agents/cloudflare-agent/<user>\",\"agentHost\":\"ax.cloudflare.dev\",\"token\":\"<jwe-truncated>\",\"userTag\":\"<user>\",\"accountId\":\"<acctNum>\"}}"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/token/status",
+  "body": "{\"status\":\"ok\",\"result\":{\"isAuthenticated\":true,\"tokenId\":\"<tokenId>\",\"writeEnabled\":false,\"optedOut\":false,\"accountDisabled\":false}}"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/conversations",
+  "body": "{\"status\":\"ok\",\"result\":[{\"id\":\"5da3d2d1-73d3-490a-ba67-f97b7edbd263\",\"title\":\"Where do I find my account ID and zone ID?\",\"accountId\":\"<org>\",\"accountName\":\"<email>'s Account\",\"created_at\":\"2026-09-18 06:44:29\",\"updated_at\":\"2026-09-18 06:44:29\"},{\"id\":\"184631d4-18c7-43b1-a4d3-8c5498d88b50\",\"title\":\"Where do I find my account ID and zone ID?\",\"accountId\":\"<org>\",\"accountName\":\"<email>'s Account\",\"created_at\":\"2026-09-18 06:42:26\",\"updated_at\":\"2026-09-18 06:42:26\"}]}"
+ }
+]

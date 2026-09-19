@@ -1,0 +1,21 @@
+- main [ref=f8e3]:
+  - generic [ref=f8e4]:
+    - group [ref=f8e6]:
+      - generic "選單" [ref=f8e7] [cursor=pointer]
+    - generic [ref=f8e11]:
+      - heading "What's up next?" [level=1] [ref=f8e14]
+      - generic [ref=f8e16]:
+        - generic [ref=f8e18]:
+          - textbox "Describe a task or ask a question" [ref=f8e19]
+          - button [disabled]
+        - generic [ref=f8e20]:
+          - generic [ref=f8e21]:
+            - combobox [ref=f8e22] [cursor=pointer]
+            - combobox [aria-hidden] [ref=f8e23]
+            - generic [ref=f8e24] [cursor=pointer]:
+              - checkbox "Fast" [ref=f8e25]
+              - text: Fast
+          - generic [ref=f8e26]:
+            - combobox [ref=f8e27] [cursor=pointer]: Select model
+            - combobox [ref=f8e28] [cursor=pointer]
+            - combobox [aria-hidden] [ref=f8e29]

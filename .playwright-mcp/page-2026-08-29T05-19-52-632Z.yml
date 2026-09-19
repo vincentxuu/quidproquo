@@ -1,0 +1,772 @@
+- generic [ref=f144e2]:
+  - generic [ref=f144e3]:
+    - link "Skip to content" [ref=f144e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f144e9]:
+      - heading "Navigation Menu" [level=2] [ref=f144e10]
+      - generic [ref=f144e11]:
+        - link "Homepage" [ref=f144e13] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f144e16]:
+          - navigation "Global" [ref=f144e17]:
+            - list [ref=f144e18]:
+              - listitem [ref=f144e19]:
+                - button "Platform" [ref=f144e21] [cursor=pointer]
+              - listitem [ref=f144e24]:
+                - button "Solutions" [ref=f144e26] [cursor=pointer]
+              - listitem [ref=f144e29]:
+                - button "Resources" [ref=f144e31] [cursor=pointer]
+              - listitem [ref=f144e34]:
+                - button "Open Source" [ref=f144e36] [cursor=pointer]
+              - listitem [ref=f144e39]:
+                - button "Enterprise" [ref=f144e41] [cursor=pointer]
+              - listitem [ref=f144e44]:
+                - link "Pricing" [ref=f144e45] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+          - generic [ref=f144e46]:
+            - button "Search or jump to, type / to search" [ref=f144e48] [cursor=pointer]
+            - link "Sign in" [ref=f144e55] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fvincentxuu%2Fquidproquo%2Factions
+            - link "Sign up" [ref=f144e58] [cursor=pointer]:
+              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Factions%2Findex&source=header-repo&source_repo=vincentxuu%2Fquidproquo
+            - button "Appearance settings" [ref=f144e61] [cursor=pointer]
+  - main [ref=f144e68]:
+    - generic [ref=f144e69]:
+      - generic [ref=f144e70]:
+        - generic [ref=f144e72]:
+          - link "vincentxuu" [ref=f144e76] [cursor=pointer]:
+            - /url: /vincentxuu
+          - generic [ref=f144e77]: /
+          - strong [ref=f144e78]:
+            - link "quidproquo" [ref=f144e79] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo
+          - generic [ref=f144e80]: Public
+        - generic [ref=f144e81]:
+          - list:
+            - listitem [ref=f144e82]:
+              - link "You must be signed in to change notification settings" [ref=f144e83] [cursor=pointer]:
+                - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                - text: Notifications
+            - listitem [ref=f144e86]:
+              - link "Fork 0" [ref=f144e87] [cursor=pointer]:
+                - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                - text: Fork
+                - generic "0" [ref=f144e90]
+            - listitem [ref=f144e91]:
+              - link "You must be signed in to star a repository" [ref=f144e93] [cursor=pointer]:
+                - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                - text: Star
+                - generic "0 users starred this repository" [ref=f144e96]: "0"
+      - navigation "Repository" [ref=f144e97]:
+        - list [ref=f144e98]:
+          - listitem [ref=f144e99]:
+            - link "Code" [ref=f144e100] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo
+          - listitem [ref=f144e104]:
+            - link "Issues 3" [ref=f144e105] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/issues
+              - generic [ref=f144e109]: Issues
+              - generic "3" [ref=f144e110]
+          - listitem [ref=f144e111]:
+            - link "Pull requests 2" [ref=f144e112] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/pulls
+              - generic [ref=f144e115]: Pull requests
+              - generic "2" [ref=f144e116]
+          - listitem [ref=f144e117]:
+            - link "Actions" [ref=f144e118] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions
+          - listitem [ref=f144e122]:
+            - link "Projects" [ref=f144e123] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/projects
+          - listitem [ref=f144e127]:
+            - link "Security and quality" [ref=f144e128] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/security
+          - listitem [ref=f144e132]:
+            - link "Insights" [ref=f144e133] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/pulse
+    - generic [ref=f144e138]:
+      - 'heading "Actions: vincentxuu/quidproquo" [level=1] [ref=f144e139]'
+      - generic [ref=f144e142]:
+        - generic [ref=f144e143]:
+          - heading "Actions" [level=2] [ref=f144e145]
+          - navigation "Actions Workflows" [ref=f144e149]:
+            - list [ref=f144e151]:
+              - listitem [ref=f144e152]:
+                - link "All workflows" [ref=f144e153] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/actions
+              - listitem [ref=f144e155]
+              - listitem [ref=f144e156]:
+                - list "Workflows" [ref=f144e160]:
+                  - listitem [ref=f144e161]:
+                    - link "Deploy" [ref=f144e162] [cursor=pointer]:
+                      - /url: /vincentxuu/quidproquo/actions/workflows/deploy.yml
+                  - listitem [ref=f144e164]:
+                    - link "Preview" [ref=f144e165] [cursor=pointer]:
+                      - /url: /vincentxuu/quidproquo/actions/workflows/preview.yml
+              - listitem [ref=f144e167]
+              - listitem [ref=f144e168]:
+                - generic [ref=f144e171]:
+                  - heading "Management" [level=3] [ref=f144e173]
+                  - list "Management" [ref=f144e174]:
+                    - listitem [ref=f144e175]:
+                      - link "Caches" [ref=f144e176] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/actions/caches
+        - generic [ref=f144e180]:
+          - generic [ref=f144e181]:
+            - generic [ref=f144e182]:
+              - heading "All workflows" [level=2] [ref=f144e184]
+              - search [ref=f144e190]:
+                - combobox "Filter workflow runs" [ref=f144e191]
+            - generic [ref=f144e192]: Showing runs from all workflows
+          - generic [ref=f144e193]:
+            - generic [ref=f144e194]:
+              - strong [ref=f144e197]: 1,064 workflow runs
+              - generic [ref=f144e198]:
+                - button "Workflow" [ref=f144e202] [cursor=pointer]
+                - button "Event" [ref=f144e208] [cursor=pointer]
+                - button "Status" [ref=f144e214] [cursor=pointer]
+                - button "Branch" [ref=f144e220] [cursor=pointer]
+                - button "Actor" [ref=f144e226] [cursor=pointer]
+            - generic [ref=f144e229]:
+              - generic [ref=f144e231]:
+                - generic [ref=f144e232]:
+                  - 'link "failed: Run 824 of Deploy. fix: 修 21 個 TypeScript 錯誤讓 CI astro check 通過" [ref=f144e233] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33235681416
+                    - img "failed:" [ref=f144e235]
+                    - generic [ref=f144e237]: "fix: 修 21 個 TypeScript 錯誤讓 CI astro check 通過"
+                  - generic [ref=f144e238]:
+                    - text: "Deploy #824:"
+                    - generic [ref=f144e239]:
+                      - text: Commit
+                      - link "7e39056" [ref=f144e240] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/7e3905678bd65c12d233c53debfd05dbfabe5f1e
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e241] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e243] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e245]:
+                  - generic [ref=f144e246]:
+                    - generic "Aug 29, 2026, 1:14 PM GMT+8" [ref=f144e251]: 5 minutes ago
+                    - generic [ref=f144e252]:
+                      - img "Run duration" [ref=f144e253]
+                      - text: 5m 33s
+                  - group [ref=f144e256]:
+                    - img "Show options" [ref=f144e258] [cursor=pointer]
+              - generic [ref=f144e261]:
+                - generic [ref=f144e262]:
+                  - 'link "failed: Run 823 of Deploy. ci: deploy workflow 加 D1 migration apply 步驟（deploy 前自動跑 remote migrat…" [ref=f144e263] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33234743323
+                    - img "failed:" [ref=f144e265]
+                    - generic [ref=f144e267]: "ci: deploy workflow 加 D1 migration apply 步驟（deploy 前自動跑 remote migrat…"
+                  - generic [ref=f144e268]:
+                    - text: "Deploy #823:"
+                    - generic [ref=f144e269]:
+                      - text: Commit
+                      - link "572ae5f" [ref=f144e270] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/572ae5f9171878870f767895f9296b4b17650ceb
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e271] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e273] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e275]:
+                  - generic [ref=f144e276]:
+                    - generic "Aug 29, 2026, 12:49 PM GMT+8" [ref=f144e281]: 30 minutes ago
+                    - generic [ref=f144e282]:
+                      - img "Run duration" [ref=f144e283]
+                      - text: 1m 57s
+                  - group [ref=f144e286]:
+                    - img "Show options" [ref=f144e288] [cursor=pointer]
+              - generic [ref=f144e291]:
+                - generic [ref=f144e292]:
+                  - 'link "failed: Run 822 of Deploy. chore: deploy script 加 D1 migration apply（每次 deploy 自動跑 remote migrat…" [ref=f144e293] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33234603718
+                    - img "failed:" [ref=f144e295]
+                    - generic [ref=f144e297]: "chore: deploy script 加 D1 migration apply（每次 deploy 自動跑 remote migrat…"
+                  - generic [ref=f144e298]:
+                    - text: "Deploy #822:"
+                    - generic [ref=f144e299]:
+                      - text: Commit
+                      - link "e913e7c" [ref=f144e300] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/e913e7cb93f988025f958d9f51433e493505a015
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e301] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e303] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e305]:
+                  - generic [ref=f144e306]:
+                    - generic "Aug 29, 2026, 12:46 PM GMT+8" [ref=f144e311]: 33 minutes ago
+                    - generic [ref=f144e312]:
+                      - img "Run duration" [ref=f144e313]
+                      - text: 2m 1s
+                  - group [ref=f144e316]:
+                    - img "Show options" [ref=f144e318] [cursor=pointer]
+              - generic [ref=f144e321]:
+                - generic [ref=f144e322]:
+                  - 'link "failed: Run 821 of Deploy. feat(admin): sidebar 加 Routines 內嵌列表（對齊 Claude Code web sidebar）" [ref=f144e323] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33233791635
+                    - img "failed:" [ref=f144e325]
+                    - generic [ref=f144e327]: "feat(admin): sidebar 加 Routines 內嵌列表（對齊 Claude Code web sidebar）"
+                  - generic [ref=f144e328]:
+                    - text: "Deploy #821:"
+                    - generic [ref=f144e329]:
+                      - text: Commit
+                      - link "771ac8d" [ref=f144e330] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/771ac8d24ef215fda3896e22effe9edf0566560f
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e331] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e333] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e335]:
+                  - generic [ref=f144e336]:
+                    - generic "Aug 29, 2026, 12:25 PM GMT+8" [ref=f144e341]: 54 minutes ago
+                    - generic [ref=f144e342]:
+                      - img "Run duration" [ref=f144e343]
+                      - text: 1m 48s
+                  - group [ref=f144e346]:
+                    - img "Show options" [ref=f144e348] [cursor=pointer]
+              - generic [ref=f144e351]:
+                - generic [ref=f144e352]:
+                  - 'link "failed: Run 820 of Deploy. fix(admin): chat mode sidebar 對齊 Claude Code web（Artifacts + Routines…" [ref=f144e353] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33233628721
+                    - img "failed:" [ref=f144e355]
+                    - generic [ref=f144e357]: "fix(admin): chat mode sidebar 對齊 Claude Code web（Artifacts + Routines…"
+                  - generic [ref=f144e358]:
+                    - text: "Deploy #820:"
+                    - generic [ref=f144e359]:
+                      - text: Commit
+                      - link "f874c61" [ref=f144e360] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/f874c61a8e91df49002d8f7d7b68429f145addb7
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e361] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e363] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e365]:
+                  - generic [ref=f144e366]:
+                    - generic "Aug 29, 2026, 12:21 PM GMT+8" [ref=f144e371]: 1 hour ago
+                    - generic [ref=f144e372]:
+                      - img "Run duration" [ref=f144e373]
+                      - text: 1m 42s
+                  - group [ref=f144e376]:
+                    - img "Show options" [ref=f144e378] [cursor=pointer]
+              - generic [ref=f144e381]:
+                - generic [ref=f144e382]:
+                  - 'link "failed: Run 819 of Deploy. feat(admin): dual-mode sidebar toggle（💬 Chat / ⚙ Admin）" [ref=f144e383] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33233479251
+                    - img "failed:" [ref=f144e385]
+                    - generic [ref=f144e387]: "feat(admin): dual-mode sidebar toggle（💬 Chat / ⚙ Admin）"
+                  - generic [ref=f144e388]:
+                    - text: "Deploy #819:"
+                    - generic [ref=f144e389]:
+                      - text: Commit
+                      - link "6447df0" [ref=f144e390] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/6447df0ab547b2117c49b0b8377a7870a6f88a70
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e391] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e393] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e395]:
+                  - generic [ref=f144e396]:
+                    - generic "Aug 29, 2026, 12:17 PM GMT+8" [ref=f144e401]: Today at 12:17 PM
+                    - generic [ref=f144e402]:
+                      - img "Run duration" [ref=f144e403]
+                      - text: 1m 53s
+                  - group [ref=f144e406]:
+                    - img "Show options" [ref=f144e408] [cursor=pointer]
+              - generic [ref=f144e411]:
+                - generic [ref=f144e412]:
+                  - 'link "failed: Run 818 of Deploy. feat(admin): sidebar 加展開式子選單（Settings 8 個子頁可直接點選）" [ref=f144e413] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33232502387
+                    - img "failed:" [ref=f144e415]
+                    - generic [ref=f144e417]: "feat(admin): sidebar 加展開式子選單（Settings 8 個子頁可直接點選）"
+                  - generic [ref=f144e418]:
+                    - text: "Deploy #818:"
+                    - generic [ref=f144e419]:
+                      - text: Commit
+                      - link "60a9bb7" [ref=f144e420] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/60a9bb7558a8c28563a31a8d6d1eba90ab57e711
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e421] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e423] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e425]:
+                  - generic [ref=f144e426]:
+                    - generic "Aug 29, 2026, 11:53 AM GMT+8" [ref=f144e431]: Today at 11:53 AM
+                    - generic [ref=f144e432]:
+                      - img "Run duration" [ref=f144e433]
+                      - text: 1m 46s
+                  - group [ref=f144e436]:
+                    - img "Show options" [ref=f144e438] [cursor=pointer]
+              - generic [ref=f144e441]:
+                - generic [ref=f144e442]:
+                  - 'link "failed: Run 817 of Deploy. fix(admin): Settings hub 卡片描述文字色修正（--admin-muted → --admin-text-muted）" [ref=f144e443] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33232379391
+                    - img "failed:" [ref=f144e445]
+                    - generic [ref=f144e447]: "fix(admin): Settings hub 卡片描述文字色修正（--admin-muted → --admin-text-muted）"
+                  - generic [ref=f144e448]:
+                    - text: "Deploy #817:"
+                    - generic [ref=f144e449]:
+                      - text: Commit
+                      - link "da4b49f" [ref=f144e450] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/da4b49fd939343485bbd1611b6290e96f1d69b23
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e451] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e453] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e455]:
+                  - generic [ref=f144e456]:
+                    - generic "Aug 29, 2026, 11:50 AM GMT+8" [ref=f144e461]: Today at 11:50 AM
+                    - generic [ref=f144e462]:
+                      - img "Run duration" [ref=f144e463]
+                      - text: 1m 45s
+                  - group [ref=f144e466]:
+                    - img "Show options" [ref=f144e468] [cursor=pointer]
+              - generic [ref=f144e471]:
+                - generic [ref=f144e472]:
+                  - 'link "failed: Run 816 of Deploy. fix(admin): nav icon ''repeat'' → ''refresh-cw''（repeat 不在 koboyo icon set）" [ref=f144e473] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33232189665
+                    - img "failed:" [ref=f144e475]
+                    - generic [ref=f144e477]: "fix(admin): nav icon 'repeat' → 'refresh-cw'（repeat 不在 koboyo icon set）"
+                  - generic [ref=f144e478]:
+                    - text: "Deploy #816:"
+                    - generic [ref=f144e479]:
+                      - text: Commit
+                      - link "702d9fd" [ref=f144e480] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/702d9fd435a33fe6b4f91abce6022ed18e3c5080
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e481] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e483] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e485]:
+                  - generic [ref=f144e486]:
+                    - generic "Aug 29, 2026, 11:45 AM GMT+8" [ref=f144e491]: Today at 11:45 AM
+                    - generic [ref=f144e492]:
+                      - img "Run duration" [ref=f144e493]
+                      - text: 1m 48s
+                  - group [ref=f144e496]:
+                    - img "Show options" [ref=f144e498] [cursor=pointer]
+              - generic [ref=f144e501]:
+                - generic [ref=f144e502]:
+                  - 'link "failed: Run 815 of Deploy. fix: 重編 MCP marketplace migration 號碼避免與 Phase 5 撞號（0031→0032）" [ref=f144e503] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33229585911
+                    - img "failed:" [ref=f144e505]
+                    - generic [ref=f144e507]: "fix: 重編 MCP marketplace migration 號碼避免與 Phase 5 撞號（0031→0032）"
+                  - generic [ref=f144e508]:
+                    - text: "Deploy #815:"
+                    - generic [ref=f144e509]:
+                      - text: Commit
+                      - link "ba33659" [ref=f144e510] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/ba33659feabeea1da04a794275d4075b9e560b58
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e511] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e513] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e515]:
+                  - generic [ref=f144e516]:
+                    - generic "Aug 29, 2026, 10:41 AM GMT+8" [ref=f144e521]: Today at 10:41 AM
+                    - generic [ref=f144e522]:
+                      - img "Run duration" [ref=f144e523]
+                      - text: 1m 25s
+                  - group [ref=f144e526]:
+                    - img "Show options" [ref=f144e528] [cursor=pointer]
+              - generic [ref=f144e531]:
+                - generic [ref=f144e532]:
+                  - 'link "failed: Run 814 of Deploy. chore: progress.txt 更新 Phase 1–6 全部代碼完成" [ref=f144e533] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33229435232
+                    - img "failed:" [ref=f144e535]
+                    - generic [ref=f144e537]: "chore: progress.txt 更新 Phase 1–6 全部代碼完成"
+                  - generic [ref=f144e538]:
+                    - text: "Deploy #814:"
+                    - generic [ref=f144e539]:
+                      - text: Commit
+                      - link "3daa887" [ref=f144e540] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/3daa88724542252c6f79098855be696a245632ff
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e541] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e543] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e545]:
+                  - generic [ref=f144e546]:
+                    - generic "Aug 29, 2026, 10:37 AM GMT+8" [ref=f144e551]: Today at 10:37 AM
+                    - generic [ref=f144e552]:
+                      - img "Run duration" [ref=f144e553]
+                      - text: 1m 29s
+                  - group [ref=f144e556]:
+                    - img "Show options" [ref=f144e558] [cursor=pointer]
+              - generic [ref=f144e561]:
+                - generic [ref=f144e562]:
+                  - 'link "failed: Run 813 of Deploy. feat(admin): Phase 2 post-turn-summary + deep-research import 修正" [ref=f144e563] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33227798108
+                    - img "failed:" [ref=f144e565]
+                    - generic [ref=f144e567]: "feat(admin): Phase 2 post-turn-summary + deep-research import 修正"
+                  - generic [ref=f144e568]:
+                    - text: "Deploy #813:"
+                    - generic [ref=f144e569]:
+                      - text: Commit
+                      - link "a3a30cc" [ref=f144e570] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/a3a30cc39667839c6dae6e07c0e39de97444a1d0
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e571] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e573] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e575]:
+                  - generic [ref=f144e576]:
+                    - generic "Aug 29, 2026, 9:59 AM GMT+8" [ref=f144e581]: Today at 9:59 AM
+                    - generic [ref=f144e582]:
+                      - img "Run duration" [ref=f144e583]
+                      - text: 1m 45s
+                  - group [ref=f144e586]:
+                    - img "Show options" [ref=f144e588] [cursor=pointer]
+              - generic [ref=f144e591]:
+                - generic [ref=f144e592]:
+                  - 'link "completed successfully: Run 812 of Deploy. skill(daily-digest-region): 週報選區改用覆蓋缺口優先，補齊美國/歐洲信號盲區" [ref=f144e593] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33226915849
+                    - img "completed successfully:" [ref=f144e595]
+                    - generic [ref=f144e597]: "skill(daily-digest-region): 週報選區改用覆蓋缺口優先，補齊美國/歐洲信號盲區"
+                  - generic [ref=f144e598]:
+                    - text: "Deploy #812:"
+                    - generic [ref=f144e599]:
+                      - text: Commit
+                      - link "0b8dcdd" [ref=f144e600] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/0b8dcdd2c5205bbfeca0f74873a90beae7cd33cf
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e601] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e603] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e605]:
+                  - generic [ref=f144e606]:
+                    - generic "Aug 29, 2026, 9:37 AM GMT+8" [ref=f144e611]: Today at 9:37 AM
+                    - generic [ref=f144e612]:
+                      - img "Run duration" [ref=f144e613]
+                      - text: 5m 45s
+                  - group [ref=f144e616]:
+                    - img "Show options" [ref=f144e618] [cursor=pointer]
+              - generic [ref=f144e621]:
+                - generic [ref=f144e622]:
+                  - 'link "completed successfully: Run 811 of Deploy. post(daily): AI 日報 2026-08-29" [ref=f144e623] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33225845713
+                    - img "completed successfully:" [ref=f144e625]
+                    - generic [ref=f144e627]: "post(daily): AI 日報 2026-08-29"
+                  - generic [ref=f144e628]:
+                    - text: "Deploy #811:"
+                    - generic [ref=f144e629]:
+                      - text: Commit
+                      - link "5e615a0" [ref=f144e630] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/5e615a0a4e9a4eafbbf4b802f2f1b3534d15a945
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e631] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e633] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e635]:
+                  - generic [ref=f144e636]:
+                    - generic "Aug 29, 2026, 9:14 AM GMT+8" [ref=f144e641]: Today at 9:14 AM
+                    - generic [ref=f144e642]:
+                      - img "Run duration" [ref=f144e643]
+                      - text: 6m 14s
+                  - group [ref=f144e646]:
+                    - img "Show options" [ref=f144e648] [cursor=pointer]
+              - generic [ref=f144e651]:
+                - generic [ref=f144e652]:
+                  - 'link "completed successfully: Run 810 of Deploy. chore(daily): signals 2026-08-29" [ref=f144e653] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33224166363
+                    - img "completed successfully:" [ref=f144e655]
+                    - generic [ref=f144e657]: "chore(daily): signals 2026-08-29"
+                  - generic [ref=f144e658]:
+                    - text: "Deploy #810:"
+                    - generic [ref=f144e659]:
+                      - text: Commit
+                      - link "36f5cbb" [ref=f144e660] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/36f5cbb004180f00b3e803a66b407c0dafb078d1
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e661] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e663] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e665]:
+                  - generic [ref=f144e666]:
+                    - generic "Aug 29, 2026, 8:39 AM GMT+8" [ref=f144e671]: Today at 8:39 AM
+                    - generic [ref=f144e672]:
+                      - img "Run duration" [ref=f144e673]
+                      - text: 5m 44s
+                  - group [ref=f144e676]:
+                    - img "Show options" [ref=f144e678] [cursor=pointer]
+              - generic [ref=f144e681]:
+                - generic [ref=f144e682]:
+                  - 'link "completed successfully: Run 240 of Preview. post(ai): Add screenshot-to-code agent architecture deep-dive" [ref=f144e683] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223831125
+                    - img "completed successfully:" [ref=f144e685]
+                    - generic [ref=f144e687]: "post(ai): Add screenshot-to-code agent architecture deep-dive"
+                  - generic [ref=f144e688]:
+                    - text: "Preview #240:"
+                    - generic [ref=f144e689]:
+                      - text: Pull request
+                      - link "#161" [ref=f144e690] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/pull/161
+                      - text: opened by
+                      - link "vincentxuu" [ref=f144e691] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "claude/screenshot-to-code-research-zkfltk" [ref=f144e693] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/claude/screenshot-to-code-research-zkfltk
+                - generic [ref=f144e695]:
+                  - generic [ref=f144e696]:
+                    - generic "Aug 29, 2026, 8:32 AM GMT+8" [ref=f144e701]: Today at 8:32 AM
+                    - generic [ref=f144e702]:
+                      - img "Run duration" [ref=f144e703]
+                      - text: 7m 41s
+                  - group [ref=f144e706]:
+                    - img "Show options" [ref=f144e708] [cursor=pointer]
+              - generic [ref=f144e711]:
+                - generic [ref=f144e712]:
+                  - 'link "completed successfully: Run 809 of Deploy." [ref=f144e713] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223774514
+                    - img "completed successfully:" [ref=f144e715]
+                    - generic [ref=f144e717]: Deploy
+                  - generic [ref=f144e718]: "Deploy #809: Scheduled"
+                - link "main" [ref=f144e720] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e722]:
+                  - generic [ref=f144e723]:
+                    - generic "Aug 29, 2026, 8:31 AM GMT+8" [ref=f144e728]: Today at 8:31 AM
+                    - generic [ref=f144e729]:
+                      - img "Run duration" [ref=f144e730]
+                      - text: 4m 33s
+                  - group [ref=f144e733]:
+                    - img "Show options" [ref=f144e735] [cursor=pointer]
+              - generic [ref=f144e738]:
+                - generic [ref=f144e739]:
+                  - 'link "completed successfully: Run 808 of Deploy. post(daily): funding alert 2026-08-29" [ref=f144e740] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223693432
+                    - img "completed successfully:" [ref=f144e742]
+                    - generic [ref=f144e744]: "post(daily): funding alert 2026-08-29"
+                  - generic [ref=f144e745]:
+                    - text: "Deploy #808:"
+                    - generic [ref=f144e746]:
+                      - text: Commit
+                      - link "a6cef31" [ref=f144e747] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/a6cef31c9d1f3f22f3674846178c6d5a9d593ce3
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e748] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e750] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e752]:
+                  - generic [ref=f144e753]:
+                    - generic "Aug 29, 2026, 8:29 AM GMT+8" [ref=f144e758]: Today at 8:29 AM
+                    - generic [ref=f144e759]:
+                      - img "Run duration" [ref=f144e760]
+                      - text: 6m 1s
+                  - group [ref=f144e763]:
+                    - img "Show options" [ref=f144e765] [cursor=pointer]
+              - generic [ref=f144e768]:
+                - generic [ref=f144e769]:
+                  - 'link "completed successfully: Run 807 of Deploy. post(daily): model card 2026-08-29 — Tencent Hy4 preview" [ref=f144e770] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223596022
+                    - img "completed successfully:" [ref=f144e772]
+                    - generic [ref=f144e774]: "post(daily): model card 2026-08-29 — Tencent Hy4 preview"
+                  - generic [ref=f144e775]:
+                    - text: "Deploy #807:"
+                    - generic [ref=f144e776]:
+                      - text: Commit
+                      - link "06d696d" [ref=f144e777] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/06d696d8aebbc4c88c86335b9c5a58104065776c
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e778] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e780] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e782]:
+                  - generic [ref=f144e783]:
+                    - generic "Aug 29, 2026, 8:27 AM GMT+8" [ref=f144e788]: Today at 8:27 AM
+                    - generic [ref=f144e789]:
+                      - img "Run duration" [ref=f144e790]
+                      - text: 5m 50s
+                  - group [ref=f144e793]:
+                    - img "Show options" [ref=f144e795] [cursor=pointer]
+              - generic [ref=f144e798]:
+                - generic [ref=f144e799]:
+                  - 'link "completed successfully: Run 806 of Deploy. post(daily): tool recommendation 2026-08-29" [ref=f144e800] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223583309
+                    - img "completed successfully:" [ref=f144e802]
+                    - generic [ref=f144e804]: "post(daily): tool recommendation 2026-08-29"
+                  - generic [ref=f144e805]:
+                    - text: "Deploy #806:"
+                    - generic [ref=f144e806]:
+                      - text: Commit
+                      - link "565b6b8" [ref=f144e807] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/565b6b86cfbef0e9c5adf2d4a1a44310fc79ef85
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e808] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e810] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e812]:
+                  - generic [ref=f144e813]:
+                    - generic "Aug 29, 2026, 8:27 AM GMT+8" [ref=f144e818]: Today at 8:27 AM
+                    - generic [ref=f144e819]:
+                      - img "Run duration" [ref=f144e820]
+                      - text: 11m 3s
+                  - group [ref=f144e823]:
+                    - img "Show options" [ref=f144e825] [cursor=pointer]
+              - generic [ref=f144e828]:
+                - generic [ref=f144e829]:
+                  - 'link "completed successfully: Run 805 of Deploy. post(daily): security alert llms.txt supply-chain gap" [ref=f144e830] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223573469
+                    - img "completed successfully:" [ref=f144e832]
+                    - generic [ref=f144e834]: "post(daily): security alert llms.txt supply-chain gap"
+                  - generic [ref=f144e835]:
+                    - text: "Deploy #805:"
+                    - generic [ref=f144e836]:
+                      - text: Commit
+                      - link "0c35c0c" [ref=f144e837] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/0c35c0c7305a395770f15e63578c6ad890d1f086
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e838] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e840] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e842]:
+                  - generic [ref=f144e843]:
+                    - generic "Aug 29, 2026, 8:27 AM GMT+8" [ref=f144e848]: Today at 8:27 AM
+                    - generic [ref=f144e849]:
+                      - img "Run duration" [ref=f144e850]
+                      - text: 6m 10s
+                  - group [ref=f144e853]:
+                    - img "Show options" [ref=f144e855] [cursor=pointer]
+              - generic [ref=f144e858]:
+                - generic [ref=f144e859]:
+                  - 'link "completed successfully: Run 804 of Deploy. post(daily): github digest 2026-08-29" [ref=f144e860] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223556664
+                    - img "completed successfully:" [ref=f144e862]
+                    - generic [ref=f144e864]: "post(daily): github digest 2026-08-29"
+                  - generic [ref=f144e865]:
+                    - text: "Deploy #804:"
+                    - generic [ref=f144e866]:
+                      - text: Commit
+                      - link "e441827" [ref=f144e867] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/e4418279b9484dd1d0cff7d45625a5b52d752d69
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e868] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e870] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e872]:
+                  - generic [ref=f144e873]:
+                    - generic "Aug 29, 2026, 8:26 AM GMT+8" [ref=f144e878]: Today at 8:26 AM
+                    - generic [ref=f144e879]:
+                      - img "Run duration" [ref=f144e880]
+                      - text: 5m 43s
+                  - group [ref=f144e883]:
+                    - img "Show options" [ref=f144e885] [cursor=pointer]
+              - generic [ref=f144e888]:
+                - generic [ref=f144e889]:
+                  - 'link "completed successfully: Run 803 of Deploy. post(daily): product builder interview daily 2026-08-29" [ref=f144e890] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223537836
+                    - img "completed successfully:" [ref=f144e892]
+                    - generic [ref=f144e894]: "post(daily): product builder interview daily 2026-08-29"
+                  - generic [ref=f144e895]:
+                    - text: "Deploy #803:"
+                    - generic [ref=f144e896]:
+                      - text: Commit
+                      - link "d4bfcb9" [ref=f144e897] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/d4bfcb96696fe47dfde0363fcee484eda7817500
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e898] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e900] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e902]:
+                  - generic [ref=f144e903]:
+                    - generic "Aug 29, 2026, 8:26 AM GMT+8" [ref=f144e908]: Today at 8:26 AM
+                    - generic [ref=f144e909]:
+                      - img "Run duration" [ref=f144e910]
+                      - text: 5m 55s
+                  - group [ref=f144e913]:
+                    - img "Show options" [ref=f144e915] [cursor=pointer]
+              - generic [ref=f144e918]:
+                - generic [ref=f144e919]:
+                  - 'link "completed successfully: Run 802 of Deploy. post(daily): framework update 2026-08-29" [ref=f144e920] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223529292
+                    - img "completed successfully:" [ref=f144e922]
+                    - generic [ref=f144e924]: "post(daily): framework update 2026-08-29"
+                  - generic [ref=f144e925]:
+                    - text: "Deploy #802:"
+                    - generic [ref=f144e926]:
+                      - text: Commit
+                      - link "8ad51f4" [ref=f144e927] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/8ad51f48214a84488a4b74f778b270d18b077460
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e928] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e930] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e932]:
+                  - generic [ref=f144e933]:
+                    - generic "Aug 29, 2026, 8:26 AM GMT+8" [ref=f144e938]: Today at 8:26 AM
+                    - generic [ref=f144e939]:
+                      - img "Run duration" [ref=f144e940]
+                      - text: 4m 48s
+                  - group [ref=f144e943]:
+                    - img "Show options" [ref=f144e945] [cursor=pointer]
+              - generic [ref=f144e948]:
+                - generic [ref=f144e949]:
+                  - 'link "completed successfully: Run 801 of Deploy. post(daily): AI engineer interview daily 2026-08-29" [ref=f144e950] [cursor=pointer]':
+                    - /url: /vincentxuu/quidproquo/actions/runs/33223515202
+                    - img "completed successfully:" [ref=f144e952]
+                    - generic [ref=f144e954]: "post(daily): AI engineer interview daily 2026-08-29"
+                  - generic [ref=f144e955]:
+                    - text: "Deploy #801:"
+                    - generic [ref=f144e956]:
+                      - text: Commit
+                      - link "1821bc9" [ref=f144e957] [cursor=pointer]:
+                        - /url: /vincentxuu/quidproquo/commit/1821bc969859e81cb3ba1f53ae5278855f836ba8
+                      - text: pushed by
+                      - link "vincentxuu" [ref=f144e958] [cursor=pointer]:
+                        - /url: /vincentxuu
+                - link "main" [ref=f144e960] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+                - generic [ref=f144e962]:
+                  - generic [ref=f144e963]:
+                    - generic "Aug 29, 2026, 8:26 AM GMT+8" [ref=f144e968]: Today at 8:26 AM
+                    - generic [ref=f144e969]:
+                      - img "Run duration" [ref=f144e970]
+                      - text: 5m 51s
+                  - group [ref=f144e973]:
+                    - img "Show options" [ref=f144e975] [cursor=pointer]
+          - navigation "Pagination" [ref=f144e979]:
+            - generic "Previous page" [ref=f144e980]: Previous
+            - emphasis [ref=f144e981] [cursor=pointer]: "1"
+            - link "Page 2" [ref=f144e982] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions?page=2
+              - text: "2"
+            - link "Page 3" [ref=f144e983] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions?page=3
+              - text: "3"
+            - link "Page 4" [ref=f144e984] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions?page=4
+              - text: "4"
+            - link "Page 5" [ref=f144e985] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions?page=5
+              - text: "5"
+            - generic [ref=f144e986]: …
+            - link "Page 42" [ref=f144e987] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions?page=42
+              - text: "42"
+            - link "Page 43" [ref=f144e988] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions?page=43
+              - text: "43"
+            - link "Next page" [ref=f144e989] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions?page=2
+              - text: Next

@@ -1,0 +1,17 @@
+- generic [active] [ref=f1e1]:
+  - main [ref=f1e4]:
+    - img "島島阿學" [ref=f1e5]
+    - heading "我有一個島 它叫 什麼 島？" [level=1] [ref=f1e36]:
+      - generic [ref=f1e37]: 我有一個島
+      - generic [ref=f1e38]:
+        - text: 它叫
+        - img "什麼" [ref=f1e39]
+        - text: 島？
+    - paragraph [ref=f1e41]: 2 分鐘揭曉你是哪種學習類型，
+    - paragraph [ref=f1e42]:
+      - text: 找到你適合的
+      - strong [ref=f1e43]: 學習策略與夥伴
+      - text: ！
+    - link "開始測驗" [ref=f1e44] [cursor=pointer]:
+      - /url: /quiz/questions/q1
+  - alert [ref=f1e45]

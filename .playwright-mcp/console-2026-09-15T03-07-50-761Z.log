@@ -1,0 +1,3 @@
+[    1631ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ https://quidproquo.cc/api/admin/settings/extensions/skills:0
+[   39218ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ https://quidproquo.cc/api/deep-research:0
+[  117534ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ https://quidproquo.cc/api/deep-research:0

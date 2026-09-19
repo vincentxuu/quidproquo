@@ -1,0 +1,19 @@
+- generic [active] [ref=f14e1]:
+  - main [ref=f14e3]:
+    - generic [ref=f14e4]:
+      - group [ref=f14e5]:
+        - generic "選單" [ref=f14e6] [cursor=pointer]
+      - generic [ref=f14e10]:
+        - paragraph [ref=f14e11]: Sessions
+        - heading "Sessions" [level=2] [ref=f14e12]
+    - generic [ref=f14e13]:
+      - generic [ref=f14e14]:
+        - button "最近" [ref=f14e15] [cursor=pointer]
+        - button "釘選" [ref=f14e16] [cursor=pointer]
+        - button "已封存" [ref=f14e17] [cursor=pointer]
+      - paragraph [ref=f14e19]: 載入中…
+  - generic [ref=f14e22]:
+    - button [ref=f14e23]
+    - button [ref=f14e29]
+    - button [ref=f14e33]
+    - button [ref=f14e41]

@@ -1,0 +1,72 @@
+- generic [active] [ref=f96e1]:
+  - generic [ref=f96e2]:
+    - complementary [ref=f96e3]:
+      - generic [ref=f96e4]:
+        - link "Admin dashboard" [ref=f96e5] [cursor=pointer]:
+          - /url: /admin
+          - generic [ref=f96e6]: qp
+          - strong [ref=f96e8]: quidproquo
+        - generic [ref=f96e9]:
+          - button "Chat mode" [ref=f96e10] [cursor=pointer]
+          - button "Admin mode" [ref=f96e13] [cursor=pointer]
+      - link "+ New" [ref=f96e18] [cursor=pointer]:
+        - /url: /admin
+        - generic [ref=f96e19]: +
+        - generic [ref=f96e20]: New
+      - navigation "Chat navigation" [ref=f96e21]:
+        - link "Sessions" [ref=f96e22] [cursor=pointer]:
+          - /url: /admin/sessions
+        - link "Routines" [ref=f96e26] [cursor=pointer]:
+          - /url: /admin/routines
+      - navigation "Admin navigation" [ref=f96e30]:
+        - link "Flows" [ref=f96e31] [cursor=pointer]:
+          - /url: /admin/flows
+        - group [ref=f96e35]:
+          - generic "Settings" [ref=f96e36] [cursor=pointer]
+      - generic [ref=f96e44]:
+        - generic [ref=f96e45]: Recents
+        - generic [ref=f96e47]: 載入中…
+      - generic [ref=f96e49]:
+        - link "回到網站" [ref=f96e50] [cursor=pointer]:
+          - /url: /
+        - button "登出" [ref=f96e56] [cursor=pointer]
+    - main [ref=f96e61]:
+      - generic [ref=f96e63]:
+        - heading "What's up next?" [level=1] [ref=f96e66]
+        - generic [ref=f96e67]:
+          - generic [ref=f96e69]:
+            - generic [ref=f96e70]:
+              - generic [ref=f96e71]: ◇
+              - combobox [ref=f96e72] [cursor=pointer]:
+                - option "Mac" [selected]
+                - option "Sandbox"
+            - generic [ref=f96e73]:
+              - generic [ref=f96e74]: +
+              - combobox [ref=f96e75] [cursor=pointer]:
+                - option "Select repo…" [selected]
+          - generic [ref=f96e76]:
+            - textbox "Describe a task or ask a question" [ref=f96e77]
+            - button "送出" [ref=f96e78] [cursor=pointer]:
+              - generic [ref=f96e79]: ↑
+          - generic [ref=f96e80]:
+            - generic [ref=f96e81]:
+              - combobox [ref=f96e82] [cursor=pointer]:
+                - option "Auto" [selected]
+                - option "Accept edits"
+                - option "Plan"
+              - generic "Fast mode" [ref=f96e83] [cursor=pointer]:
+                - checkbox "Fast" [ref=f96e84]
+                - generic [ref=f96e85]: Fast
+            - generic [ref=f96e86]:
+              - combobox [ref=f96e87] [cursor=pointer]:
+                - option "預設模型" [selected]
+              - combobox [ref=f96e88] [cursor=pointer]:
+                - option "High" [selected]
+                - option "Auto"
+                - option "Low"
+                - option "Medium"
+  - generic [ref=f96e92]:
+    - button [ref=f96e93]
+    - button [ref=f96e99]
+    - button [ref=f96e103]
+    - button [ref=f96e111]

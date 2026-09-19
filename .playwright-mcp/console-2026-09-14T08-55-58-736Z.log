@@ -1,0 +1,36 @@
+[    6094ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:4321/node_modules/.vite/deps/chunk-LRTP7PQX.js?v=3cdde8a2:20102
+[    6315ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[    6365ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[    6405ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  890819ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  890876ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[  890930ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  896290ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  896361ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[  896403ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  916405ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  916465ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[  916547ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  923783ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  923834ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[  923881ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  930689ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  930735ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[  930787ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  939852ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[  940059ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[  940265ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[ 1274379ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[ 1274501ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[ 1274574ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[ 1289864ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:4321/node_modules/.vite/deps/chunk-LRTP7PQX.js?v=3cdde8a2:20102
+[ 1290206ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[ 1290275ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[ 1290330ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[ 1296638ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:4321/node_modules/.vite/deps/chunk-LRTP7PQX.js?v=3cdde8a2:20102
+[ 1297431ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[ 1297431ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/api/admin/routines:0
+[ 1297498ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp/watch:0
+[ 1297573ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/api/admin/sessions/sess_1789374122609_uibp:0
+[ 1420535ms] [ERROR] WebSocket connection to 'ws://localhost:4321/?token=IQVCPJskuaVz' failed:  @ http://localhost:4321/@vite/client:1478
+[ 1420564ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:4321/@vite/client:1598

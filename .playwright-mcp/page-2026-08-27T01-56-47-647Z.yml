@@ -1,0 +1,132 @@
+- generic [active] [ref=f20e1]:
+  - generic [ref=f20e7]:
+    - complementary "Sidebar" [ref=f20e9]:
+      - separator "Resize sidebar" [ref=f20e10]
+      - generic [ref=f20e13]:
+        - link "Claude Code" [ref=f20e16] [cursor=pointer]:
+          - /url: /new
+        - radiogroup "Mode" [ref=f20e21]:
+          - radio "Chat and Cowork" [ref=f20e22] [cursor=pointer]:
+            - generic [ref=f20e23]: 
+          - radio [ref=f20e24]
+          - radio "Code" [checked] [ref=f20e25] [cursor=pointer]:
+            - generic [ref=f20e26]: 
+          - radio [checked] [ref=f20e27]
+      - generic [ref=f20e28]:
+        - generic [ref=f20e29]:
+          - generic [ref=f20e31]:
+            - link "New" [ref=f20e32] [cursor=pointer]:
+              - /url: /code
+              - generic [ref=f20e33]: 
+              - generic [ref=f20e37]: ⇧⌘O
+            - link "Artifacts" [ref=f20e38] [cursor=pointer]:
+              - /url: /code/artifacts
+              - generic [ref=f20e39]: 
+            - link "Customize" [ref=f20e43] [cursor=pointer]:
+              - /url: /customize
+              - generic [ref=f20e44]: 
+            - button "Routines" [ref=f20e48] [cursor=pointer]:
+              - generic [ref=f20e49]: 
+          - paragraph [ref=f20e59]: Sessions you start will show up here
+        - generic [ref=f20e97]:
+          - generic [ref=f20e105]:
+            - generic [ref=f20e106]: Try Claude Tag
+            - button "Set up" [ref=f20e109] [cursor=pointer]
+          - button "Dismiss" [ref=f20e111] [cursor=pointer]:
+            - generic [ref=f20e114]: 
+        - generic [ref=f20e64]:
+          - button "vincent vincent Max" [ref=f20e66] [cursor=pointer]:
+            - img "vincent" [ref=f20e68]: V
+            - generic [ref=f20e69]:
+              - generic [ref=f20e70]: vincent
+              - generic [ref=f20e71]: ·
+              - generic [ref=f20e72]: Max
+            - generic [ref=f20e73]: 
+          - generic [ref=f20e74]:
+            - button "Send feedback" [disabled]:
+              - generic: 
+            - button "Search" [ref=f20e76] [cursor=pointer]:
+              - generic [ref=f20e79]: 
+            - button "Collapse sidebar" [ref=f20e81] [cursor=pointer]:
+              - generic [ref=f20e84]: 
+    - main [ref=f20e86]:
+      - generic [ref=f20e120]:
+        - generic [ref=f20e123]:
+          - button [ref=f20e124] [cursor=pointer]
+          - generic [ref=f20e128]: /
+          - generic [ref=f20e129]: New routine
+        - generic [ref=f20e132]:
+          - generic [ref=f20e133] [cursor=pointer]:
+            - generic [ref=f20e134]: Name *
+            - textbox "Name *" [ref=f20e136]:
+              - /placeholder: e.g., Daily code review
+              - text: walkthrough-test (safe to delete)
+          - generic [ref=f20e137]:
+            - generic [ref=f20e138]: Instructions
+            - generic [ref=f20e139]:
+              - textbox "Instructions" [ref=f20e140]:
+                - /placeholder: Describe what Claude should do in each session
+                - text: Read-only test. List the top-level directories of the repo and count the files by extension. Do not modify any file, do not push, do not open a PR. Reply with a short summary.
+              - generic [ref=f20e141]:
+                - group "Press and hold to record" [ref=f20e142]:
+                  - button "Press and hold to record" [ref=f20e145] [cursor=pointer]:
+                    - generic [ref=f20e148]: 
+                  - generic [ref=f20e151]:
+                    - button "Dictation settings":
+                      - generic: 
+                - combobox "Model" [ref=f20e152] [cursor=pointer]:
+                  - generic [ref=f20e153]: 
+                  - generic [ref=f20e154]: Sonnet 5
+                - textbox [ref=f20e155]
+              - generic [ref=f20e156]:
+                - generic [ref=f20e294]:
+                  - generic [ref=f20e295]: 
+                  - generic [ref=f20e296]: Playma-Co-Ltd/maiagent-api-examples
+                  - button "Remove Playma-Co-Ltd/maiagent-api-examples" [ref=f20e297] [cursor=pointer]:
+                    - generic [ref=f20e298]: 
+                - combobox "Select a repository" [ref=f20e157] [cursor=pointer]:
+                  - generic [ref=f20e158]: 
+                - textbox [ref=f20e160]
+                - combobox "Cloud environment" [ref=f20e161] [cursor=pointer]:
+                  - generic [ref=f20e162]: 
+                  - generic [ref=f20e163]: Default
+                - textbox [ref=f20e164]
+          - generic [ref=f20e165]:
+            - generic [ref=f20e166]: Select a trigger
+            - generic [ref=f20e167]:
+              - button "Schedule Run on a recurring cron schedule or once at a future time" [ref=f20e364] [cursor=pointer]:
+                - generic [ref=f20e365]: 
+                - generic [ref=f20e366]:
+                  - generic [ref=f20e367]: Schedule
+                  - generic [ref=f20e368]: Run on a recurring cron schedule or once at a future time
+              - button "GitHub event Run when a GitHub webhook event fires" [ref=f20e369] [cursor=pointer]:
+                - generic [ref=f20e370]: 
+                - generic [ref=f20e371]:
+                  - generic [ref=f20e372]: GitHub event
+                  - generic [ref=f20e373]: Run when a GitHub webhook event fires
+              - button "API Trigger from your own code by sending a POST request" [ref=f20e374] [cursor=pointer]:
+                - generic [ref=f20e375]: 
+                - generic [ref=f20e376]:
+                  - generic [ref=f20e377]: API
+                  - generic [ref=f20e378]: Trigger from your own code by sending a POST request
+          - generic [ref=f20e184]:
+            - tablist "Routine settings" [ref=f20e185]:
+              - tab "Connectors" [selected] [ref=f20e218] [cursor=pointer]
+              - tab "Behavior" [ref=f20e188] [cursor=pointer]
+              - tab "Notifications" [ref=f20e189] [cursor=pointer]
+            - tabpanel "Connectors" [ref=f20e219]:
+              - generic [ref=f20e191]:
+                - generic [ref=f20e192]:
+                  - generic [ref=f20e193]: Connectors
+                  - generic [ref=f20e194]: Integrations available to Claude during each run.
+                - generic [ref=f20e195]:
+                  - combobox "Add connector" [ref=f20e202] [cursor=pointer]:
+                    - generic [ref=f20e203]: 
+                  - textbox [ref=f20e205]
+          - generic [ref=f20e213]:
+            - button "Cancel" [ref=f20e214] [cursor=pointer]
+            - button "Create" [disabled]
+  - generic:
+    - generic:
+      - generic:
+        - region "Notifications"

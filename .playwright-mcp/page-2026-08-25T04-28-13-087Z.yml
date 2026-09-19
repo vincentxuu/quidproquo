@@ -1,0 +1,426 @@
+- generic [active] [ref=f2e1]:
+  - navigation [ref=f2e2]:
+    - link [ref=f2e4] [cursor=pointer]:
+      - /url: /
+      - img "回到首頁" [ref=f2e5]
+    - list [ref=f2e6]:
+      - listitem [ref=f2e7]:
+        - button "立即加入" [ref=f2e8] [cursor=pointer]
+  - main [ref=f2e9]:
+    - generic:
+      - generic:
+        - button "回到頂端"
+        - link "點擊進入心理測驗":
+          - /url: /quiz
+          - img "點擊進入心理測驗"
+    - generic [ref=f2e10]:
+      - img "裝飾逗號" [ref=f2e11]
+      - generic [ref=f2e14]:
+        - img "裝飾橘花" [ref=f2e15]
+        - img "裝飾箭頭" [ref=f2e16]
+        - img "島島阿學 Logo" [ref=f2e17]
+        - heading "讓學習成為充滿 自我掌握、互助支持 和看得見進步的美好日常" [level=2] [ref=f2e18]:
+          - generic [ref=f2e19]: 讓學習成為充滿
+          - generic [ref=f2e20]:
+            - generic [ref=f2e21]: 自我掌握、互助支持
+            - generic [ref=f2e22]: 和看得見進步的美好日常
+        - button "立即加入" [ref=f2e23] [cursor=pointer]
+    - generic [ref=f2e250]:
+      - generic [ref=f2e251]:
+        - img "學習小島" [ref=f2e252]
+        - heading "每個人都有自己的學習小島， 透過交流與分享，連結成群島" [level=2] [ref=f2e253]: 每個人都有自己的學習小島，透過交流與分享，連結成群島
+        - paragraph [ref=f2e254]: Where personal growth meets collective wisdom!
+      - generic [ref=f2e255]:
+        - generic [ref=f2e258]:
+          - img "Mia" [ref=f2e260]
+          - generic [ref=f2e261]:
+            - generic [ref=f2e262]: Mia
+            - generic [ref=f2e263]:
+              - generic [ref=f2e264]:
+                - generic [ref=f2e265]: 專業領域
+                - generic [ref=f2e266]: 內容創作
+              - generic [ref=f2e267]:
+                - generic [ref=f2e268]: 想探索
+                - generic [ref=f2e269]: 影片剪輯與後製
+            - paragraph [ref=f2e271]: 每個故事都值得被好好說出來，讓世界看見不同的聲音
+        - generic [ref=f2e275]:
+          - img "Ryan" [ref=f2e277]
+          - generic [ref=f2e278]:
+            - generic [ref=f2e279]: Ryan
+            - generic [ref=f2e280]:
+              - generic [ref=f2e281]:
+                - generic [ref=f2e282]: 專業領域
+                - generic [ref=f2e283]: 軟體工程師
+              - generic [ref=f2e284]:
+                - generic [ref=f2e285]: 想探索
+                - generic [ref=f2e286]: 跨領域學習、身心探索
+            - paragraph [ref=f2e288]: 下班後的我只想切換頻道，學習如果能夠像玩遊戲一樣就太好了
+        - generic [ref=f2e292]:
+          - img "Zoe" [ref=f2e294]
+          - generic [ref=f2e295]:
+            - generic [ref=f2e296]: Zoe
+            - generic [ref=f2e297]:
+              - generic [ref=f2e298]:
+                - generic [ref=f2e299]: 專業領域
+                - generic [ref=f2e300]: 設計接案者
+              - generic [ref=f2e301]:
+                - generic [ref=f2e302]: 想探索
+                - generic [ref=f2e303]: 烹飪、日記書寫
+            - paragraph [ref=f2e305]: 想在生活的忙碌縫隙中，留下一點時間給自己，慢慢重拾創造的感覺。
+    - generic [ref=f2e309]:
+      - heading "從好奇開始 小步實踐生活裡的學習靈感" [level=2] [ref=f2e310]
+      - paragraph [ref=f2e311]: 7-30 天輕量學習計畫
+      - paragraph [ref=f2e312]: 不需要完美，只要開始探索就有收穫
+    - generic [ref=f2e319]:
+      - heading "快速啟動你的學習旅程" [level=2] [ref=f2e320]
+      - paragraph [ref=f2e321]: 給馬上想要行動的你一個最沒有負擔的開始
+      - generic [ref=f2e322]:
+        - generic [ref=f2e323]:
+          - generic [ref=f2e324]: 總共持續
+          - generic [ref=f2e325]:
+            - generic [ref=f2e326]: "14"
+            - generic [ref=f2e327]: 天
+        - generic [ref=f2e328]:
+          - generic [ref=f2e329]: 每週頻率
+          - generic [ref=f2e330]:
+            - generic [ref=f2e331]: 3-5
+            - generic [ref=f2e332]: 天
+        - generic [ref=f2e333]:
+          - generic [ref=f2e334]: 每次執行
+          - generic [ref=f2e335]:
+            - generic [ref=f2e336]: "30"
+            - generic [ref=f2e337]: 分鐘
+      - generic [ref=f2e338]:
+        - img "吉祥物" [ref=f2e340]
+        - img "執行時機" [ref=f2e342]
+      - paragraph [ref=f2e344]: 隨時修改沒有壓力，節奏由你決定
+    - generic [ref=f2e346]:
+      - generic [ref=f2e347]:
+        - heading "打卡留下每一步足跡" [level=2] [ref=f2e348]
+        - paragraph [ref=f2e349]: 不再只是憑感覺
+        - paragraph [ref=f2e350]: 在每一次實踐中看見自己的成長
+      - img "卡片動畫" [ref=f2e353]
+    - generic [ref=f2e356]:
+      - heading "加入社群一起討論" [level=2] [ref=f2e357]
+      - paragraph [ref=f2e358]: 分享學習想法和心得在互動討論中找到志同道合夥伴實踐路上，你不孤單
+      - img "社群討論" [ref=f2e360]
+      - paragraph [ref=f2e361]: 0人已加入
+      - button "加入等候清單" [ref=f2e362] [cursor=pointer]
+      - paragraph [ref=f2e363]: 我們會在功能推出的第一時間聯繫你
+    - generic [ref=f2e364]:
+      - generic [ref=f2e366]:
+        - article [ref=f2e367]:
+          - figure [ref=f2e368]:
+            - generic [ref=f2e370]: Tania
+          - generic [ref=f2e371]:
+            - paragraph [ref=f2e372]: 過去總是三分鐘熱度，這次用島島實踐「日更插畫」，居然連續打卡了 14 天，第一次覺得自己也能堅持下去....
+            - generic [ref=f2e373]: 插畫工作者
+        - article [ref=f2e374]:
+          - figure [ref=f2e375]:
+            - generic [ref=f2e377]: Leo
+          - generic [ref=f2e378]:
+            - paragraph [ref=f2e379]: 一直想練英文口說，也買了課程，卻不知道從哪開始...在島島阿學給自己規定每天要學多少進度，慢慢地累積出學習成果了（雖然還是常常偷懶哈哈哈）
+            - generic [ref=f2e380]: 外語學習者
+        - article [ref=f2e381]:
+          - figure [ref=f2e382]:
+            - generic [ref=f2e384]: Yuki
+          - generic [ref=f2e385]:
+            - paragraph [ref=f2e386]: 寫程式寫到懷疑人生🙃 但看到島島上的其他人也在努力，讓我覺得不孤單。這個平台很有陪伴感～～
+            - generic [ref=f2e387]: 前端工程師
+        - article [ref=f2e388]:
+          - figure [ref=f2e389]:
+            - generic [ref=f2e391]: Sean
+          - generic [ref=f2e392]:
+            - paragraph [ref=f2e393]: 用島島記錄我轉職的每一步，從技能列表、每日進度到心得紀錄，全部留存下來。想到將來可以跟大家分享自己的過程就很興奮!!!
+            - generic [ref=f2e394]: UI 設計師
+        - article [ref=f2e395]:
+          - figure [ref=f2e396]:
+            - generic [ref=f2e398]: Irene
+          - generic [ref=f2e399]:
+            - paragraph [ref=f2e400]: 島島讓我可以一邊讀書一邊整理想法，搭配圖像上傳，像是在做學習日誌一樣❤️
+            - generic [ref=f2e401]: 自媒體
+        - article [ref=f2e402]:
+          - figure [ref=f2e403]:
+            - generic [ref=f2e405]: Max
+          - generic [ref=f2e406]:
+            - paragraph [ref=f2e407]: 我是學習拖延症末期患者，但島島的「打卡提醒」真的有用，再加上能看到進度變化，像玩遊戲一樣想解鎖每一步。
+            - generic [ref=f2e408]: 大學生
+        - article [ref=f2e409]:
+          - figure [ref=f2e410]:
+            - generic [ref=f2e412]: Chloe
+          - generic [ref=f2e413]:
+            - paragraph [ref=f2e414]: 努力就是要讓別人看到對吧~~這裡可以PO文分享學習心得超棒的
+            - generic [ref=f2e415]: 社會新鮮人
+        - article [ref=f2e416]:
+          - figure [ref=f2e417]:
+            - generic [ref=f2e419]: Kenji
+          - generic [ref=f2e420]:
+            - paragraph [ref=f2e421]: 我是走感覺派+嚴重三分鐘熱度，計畫什麼的從來堅持不久，但島島讓我第一次覺得計畫也可以是有彈性的、可以有選擇的
+            - generic [ref=f2e422]: 自媒體
+        - article [ref=f2e423]:
+          - figure [ref=f2e424]:
+            - generic [ref=f2e426]: Mei
+          - generic [ref=f2e427]:
+            - paragraph [ref=f2e428]: 自學一陣子插畫，一直畫畫停停。這次挑戰 21 天上傳圖文日誌，也從島島阿學的學習資源挖到了很多寶藏，飛速前進中！！🚀
+            - generic [ref=f2e429]: 插畫學習者
+        - article [ref=f2e430]:
+          - figure [ref=f2e431]:
+            - generic [ref=f2e433]: Tania
+          - generic [ref=f2e434]:
+            - paragraph [ref=f2e435]: 過去總是三分鐘熱度，這次用島島實踐「日更插畫」，居然連續打卡了 14 天，第一次覺得自己也能堅持下去....
+            - generic [ref=f2e436]: 插畫工作者
+        - article [ref=f2e437]:
+          - figure [ref=f2e438]:
+            - generic [ref=f2e440]: Leo
+          - generic [ref=f2e441]:
+            - paragraph [ref=f2e442]: 一直想練英文口說，也買了課程，卻不知道從哪開始...在島島阿學給自己規定每天要學多少進度，慢慢地累積出學習成果了（雖然還是常常偷懶哈哈哈）
+            - generic [ref=f2e443]: 外語學習者
+        - article [ref=f2e444]:
+          - figure [ref=f2e445]:
+            - generic [ref=f2e447]: Yuki
+          - generic [ref=f2e448]:
+            - paragraph [ref=f2e449]: 寫程式寫到懷疑人生🙃 但看到島島上的其他人也在努力，讓我覺得不孤單。這個平台很有陪伴感～～
+            - generic [ref=f2e450]: 前端工程師
+        - article [ref=f2e451]:
+          - figure [ref=f2e452]:
+            - generic [ref=f2e454]: Sean
+          - generic [ref=f2e455]:
+            - paragraph [ref=f2e456]: 用島島記錄我轉職的每一步，從技能列表、每日進度到心得紀錄，全部留存下來。想到將來可以跟大家分享自己的過程就很興奮!!!
+            - generic [ref=f2e457]: UI 設計師
+        - article [ref=f2e458]:
+          - figure [ref=f2e459]:
+            - generic [ref=f2e461]: Irene
+          - generic [ref=f2e462]:
+            - paragraph [ref=f2e463]: 島島讓我可以一邊讀書一邊整理想法，搭配圖像上傳，像是在做學習日誌一樣❤️
+            - generic [ref=f2e464]: 自媒體
+        - article [ref=f2e465]:
+          - figure [ref=f2e466]:
+            - generic [ref=f2e468]: Max
+          - generic [ref=f2e469]:
+            - paragraph [ref=f2e470]: 我是學習拖延症末期患者，但島島的「打卡提醒」真的有用，再加上能看到進度變化，像玩遊戲一樣想解鎖每一步。
+            - generic [ref=f2e471]: 大學生
+        - article [ref=f2e472]:
+          - figure [ref=f2e473]:
+            - generic [ref=f2e475]: Chloe
+          - generic [ref=f2e476]:
+            - paragraph [ref=f2e477]: 努力就是要讓別人看到對吧~~這裡可以PO文分享學習心得超棒的
+            - generic [ref=f2e478]: 社會新鮮人
+        - article [ref=f2e479]:
+          - figure [ref=f2e480]:
+            - generic [ref=f2e482]: Kenji
+          - generic [ref=f2e483]:
+            - paragraph [ref=f2e484]: 我是走感覺派+嚴重三分鐘熱度，計畫什麼的從來堅持不久，但島島讓我第一次覺得計畫也可以是有彈性的、可以有選擇的
+            - generic [ref=f2e485]: 自媒體
+        - article [ref=f2e486]:
+          - figure [ref=f2e487]:
+            - generic [ref=f2e489]: Mei
+          - generic [ref=f2e490]:
+            - paragraph [ref=f2e491]: 自學一陣子插畫，一直畫畫停停。這次挑戰 21 天上傳圖文日誌，也從島島阿學的學習資源挖到了很多寶藏，飛速前進中！！🚀
+            - generic [ref=f2e492]: 插畫學習者
+      - generic [ref=f2e494]:
+        - article [ref=f2e495]:
+          - figure [ref=f2e496]:
+            - generic [ref=f2e498]: Mei
+          - generic [ref=f2e499]:
+            - paragraph [ref=f2e500]: 自學一陣子插畫，一直畫畫停停。這次挑戰 21 天上傳圖文日誌，也從島島阿學的學習資源挖到了很多寶藏，飛速前進中！！🚀
+            - generic [ref=f2e501]: 插畫學習者
+        - article [ref=f2e502]:
+          - figure [ref=f2e503]:
+            - generic [ref=f2e505]: Kenji
+          - generic [ref=f2e506]:
+            - paragraph [ref=f2e507]: 我是走感覺派+嚴重三分鐘熱度，計畫什麼的從來堅持不久，但島島讓我第一次覺得計畫也可以是有彈性的、可以有選擇的
+            - generic [ref=f2e508]: 自媒體
+        - article [ref=f2e509]:
+          - figure [ref=f2e510]:
+            - generic [ref=f2e512]: Chloe
+          - generic [ref=f2e513]:
+            - paragraph [ref=f2e514]: 努力就是要讓別人看到對吧~~這裡可以PO文分享學習心得超棒的
+            - generic [ref=f2e515]: 社會新鮮人
+        - article [ref=f2e516]:
+          - figure [ref=f2e517]:
+            - generic [ref=f2e519]: Max
+          - generic [ref=f2e520]:
+            - paragraph [ref=f2e521]: 我是學習拖延症末期患者，但島島的「打卡提醒」真的有用，再加上能看到進度變化，像玩遊戲一樣想解鎖每一步。
+            - generic [ref=f2e522]: 大學生
+        - article [ref=f2e523]:
+          - figure [ref=f2e524]:
+            - generic [ref=f2e526]: Irene
+          - generic [ref=f2e527]:
+            - paragraph [ref=f2e528]: 島島讓我可以一邊讀書一邊整理想法，搭配圖像上傳，像是在做學習日誌一樣❤️
+            - generic [ref=f2e529]: 自媒體
+        - article [ref=f2e530]:
+          - figure [ref=f2e531]:
+            - generic [ref=f2e533]: Sean
+          - generic [ref=f2e534]:
+            - paragraph [ref=f2e535]: 用島島記錄我轉職的每一步，從技能列表、每日進度到心得紀錄，全部留存下來。想到將來可以跟大家分享自己的過程就很興奮!!!
+            - generic [ref=f2e536]: UI 設計師
+        - article [ref=f2e537]:
+          - figure [ref=f2e538]:
+            - generic [ref=f2e540]: Yuki
+          - generic [ref=f2e541]:
+            - paragraph [ref=f2e542]: 寫程式寫到懷疑人生🙃 但看到島島上的其他人也在努力，讓我覺得不孤單。這個平台很有陪伴感～～
+            - generic [ref=f2e543]: 前端工程師
+        - article [ref=f2e544]:
+          - figure [ref=f2e545]:
+            - generic [ref=f2e547]: Leo
+          - generic [ref=f2e548]:
+            - paragraph [ref=f2e549]: 一直想練英文口說，也買了課程，卻不知道從哪開始...在島島阿學給自己規定每天要學多少進度，慢慢地累積出學習成果了（雖然還是常常偷懶哈哈哈）
+            - generic [ref=f2e550]: 外語學習者
+        - article [ref=f2e551]:
+          - figure [ref=f2e552]:
+            - generic [ref=f2e554]: Tania
+          - generic [ref=f2e555]:
+            - paragraph [ref=f2e556]: 過去總是三分鐘熱度，這次用島島實踐「日更插畫」，居然連續打卡了 14 天，第一次覺得自己也能堅持下去....
+            - generic [ref=f2e557]: 插畫工作者
+        - article [ref=f2e558]:
+          - figure [ref=f2e559]:
+            - generic [ref=f2e561]: Mei
+          - generic [ref=f2e562]:
+            - paragraph [ref=f2e563]: 自學一陣子插畫，一直畫畫停停。這次挑戰 21 天上傳圖文日誌，也從島島阿學的學習資源挖到了很多寶藏，飛速前進中！！🚀
+            - generic [ref=f2e564]: 插畫學習者
+        - article [ref=f2e565]:
+          - figure [ref=f2e566]:
+            - generic [ref=f2e568]: Kenji
+          - generic [ref=f2e569]:
+            - paragraph [ref=f2e570]: 我是走感覺派+嚴重三分鐘熱度，計畫什麼的從來堅持不久，但島島讓我第一次覺得計畫也可以是有彈性的、可以有選擇的
+            - generic [ref=f2e571]: 自媒體
+        - article [ref=f2e572]:
+          - figure [ref=f2e573]:
+            - generic [ref=f2e575]: Chloe
+          - generic [ref=f2e576]:
+            - paragraph [ref=f2e577]: 努力就是要讓別人看到對吧~~這裡可以PO文分享學習心得超棒的
+            - generic [ref=f2e578]: 社會新鮮人
+        - article [ref=f2e579]:
+          - figure [ref=f2e580]:
+            - generic [ref=f2e582]: Max
+          - generic [ref=f2e583]:
+            - paragraph [ref=f2e584]: 我是學習拖延症末期患者，但島島的「打卡提醒」真的有用，再加上能看到進度變化，像玩遊戲一樣想解鎖每一步。
+            - generic [ref=f2e585]: 大學生
+        - article [ref=f2e586]:
+          - figure [ref=f2e587]:
+            - generic [ref=f2e589]: Irene
+          - generic [ref=f2e590]:
+            - paragraph [ref=f2e591]: 島島讓我可以一邊讀書一邊整理想法，搭配圖像上傳，像是在做學習日誌一樣❤️
+            - generic [ref=f2e592]: 自媒體
+        - article [ref=f2e593]:
+          - figure [ref=f2e594]:
+            - generic [ref=f2e596]: Sean
+          - generic [ref=f2e597]:
+            - paragraph [ref=f2e598]: 用島島記錄我轉職的每一步，從技能列表、每日進度到心得紀錄，全部留存下來。想到將來可以跟大家分享自己的過程就很興奮!!!
+            - generic [ref=f2e599]: UI 設計師
+        - article [ref=f2e600]:
+          - figure [ref=f2e601]:
+            - generic [ref=f2e603]: Yuki
+          - generic [ref=f2e604]:
+            - paragraph [ref=f2e605]: 寫程式寫到懷疑人生🙃 但看到島島上的其他人也在努力，讓我覺得不孤單。這個平台很有陪伴感～～
+            - generic [ref=f2e606]: 前端工程師
+        - article [ref=f2e607]:
+          - figure [ref=f2e608]:
+            - generic [ref=f2e610]: Leo
+          - generic [ref=f2e611]:
+            - paragraph [ref=f2e612]: 一直想練英文口說，也買了課程，卻不知道從哪開始...在島島阿學給自己規定每天要學多少進度，慢慢地累積出學習成果了（雖然還是常常偷懶哈哈哈）
+            - generic [ref=f2e613]: 外語學習者
+        - article [ref=f2e614]:
+          - figure [ref=f2e615]:
+            - generic [ref=f2e617]: Tania
+          - generic [ref=f2e618]:
+            - paragraph [ref=f2e619]: 過去總是三分鐘熱度，這次用島島實踐「日更插畫」，居然連續打卡了 14 天，第一次覺得自己也能堅持下去....
+            - generic [ref=f2e620]: 插畫工作者
+    - generic [ref=f2e621]:
+      - generic [ref=f2e622]: ✦
+      - generic [ref=f2e624]:
+        - generic [ref=f2e625]:
+          - generic [ref=f2e659]:
+            - heading "目標探索" [level=3] [ref=f2e660]
+            - paragraph [ref=f2e661]: 在實踐中 釐清動機與目標
+          - generic [ref=f2e663]:
+            - heading "紀錄成長" [level=3] [ref=f2e664]
+            - paragraph [ref=f2e665]: 所有足跡 一目瞭然
+          - generic [ref=f2e667]:
+            - heading "資源推薦" [level=3] [ref=f2e668]
+            - paragraph [ref=f2e669]: 龐大資源庫 支援你的學習
+          - generic [ref=f2e670]:
+            - generic [ref=f2e671]: 即將推出
+            - generic [ref=f2e672]:
+              - heading "同儕推進" [level=3] [ref=f2e673]
+              - paragraph [ref=f2e674]: 找到志趣相同的夥伴 共同成長
+        - generic [ref=f2e675]:
+          - heading "加入島島阿學" [level=2] [ref=f2e676]
+          - paragraph [ref=f2e677]: 成為 Beta 使用者與我們一起打造更好的學習體驗
+          - button "立即免費註冊" [ref=f2e678] [cursor=pointer]
+          - paragraph [ref=f2e679]: Beta 期間完全免費 · 無需信用卡
+    - img "更多功能持續進化為你帶來美好的學習生活" [ref=f2e682]
+    - generic [ref=f2e683]:
+      - generic [ref=f2e685]:
+        - generic [ref=f2e686]:
+          - heading "了解你的學習偏好， 獲得個人化的學習建議 和推薦路徑" [level=2] [ref=f2e687]: 了解你的學習偏好，獲得個人化的學習建議和推薦路徑
+          - generic [ref=f2e688]:
+            - img "時鐘圖示" [ref=f2e689]
+            - text: 2-3分鐘
+        - link [ref=f2e691] [cursor=pointer]:
+          - /url: /quiz
+          - img "點擊進入心理測驗" [ref=f2e692]
+      - img "吉祥物裝飾" [ref=f2e695]
+      - img "物品裝飾" [ref=f2e698]
+    - generic [ref=f2e709]:
+      - generic [ref=f2e710]: 100%
+      - progressbar [ref=f2e711]
+  - contentinfo [ref=f2e713]:
+    - generic [ref=f2e714]:
+      - generic [ref=f2e715]:
+        - generic [ref=f2e716]:
+          - img "島島阿學 Logo" [ref=f2e717]
+          - paragraph [ref=f2e718]: Where personal growth meets collective wisdom!
+        - generic [ref=f2e720]:
+          - generic [ref=f2e721]:
+            - link "中文" [ref=f2e722] [cursor=pointer]:
+              - /url: /zh-TW/explore
+            - generic [ref=f2e723]: "|"
+          - link "English" [ref=f2e725] [cursor=pointer]:
+            - /url: /en/explore
+      - generic [ref=f2e726]:
+        - generic [ref=f2e727]:
+          - paragraph [ref=f2e728]: 關於我們
+          - generic [ref=f2e729]:
+            - link "關於島島" [ref=f2e731] [cursor=pointer]:
+              - /url: /about
+            - link "願景" [ref=f2e733] [cursor=pointer]:
+              - /url: /about#vision
+            - link "使命" [ref=f2e735] [cursor=pointer]:
+              - /url: /about#mission
+            - link "許願池" [ref=f2e737] [cursor=pointer]:
+              - /url: https://app.daodao.so/roadmap
+        - generic [ref=f2e738]:
+          - paragraph [ref=f2e739]: 資源
+          - generic [ref=f2e740]:
+            - link "學習資源" [ref=f2e742] [cursor=pointer]:
+              - /url: https://app.daodao.so/resource
+            - link "學習馬拉松" [ref=f2e744] [cursor=pointer]:
+              - /url: /learning-marathons/2025S1
+            - link "隱私政策" [ref=f2e746] [cursor=pointer]:
+              - /url: /terms/privacy-policy
+            - link "服務條款" [ref=f2e748] [cursor=pointer]:
+              - /url: /terms/service
+            - link "智慧財產權" [ref=f2e750] [cursor=pointer]:
+              - /url: /terms/ipr
+        - generic [ref=f2e751]:
+          - paragraph [ref=f2e752]: 訂閱電子報
+          - generic [ref=f2e753]:
+            - textbox "輸入您的名稱" [ref=f2e754]
+            - textbox "輸入您的Email" [ref=f2e755]
+            - button "訂閱" [disabled]
+      - generic [ref=f2e756]:
+        - generic [ref=f2e757]:
+          - link [ref=f2e758] [cursor=pointer]:
+            - /url: https://www.instagram.com/daodao_learn/
+            - img "Instagram" [ref=f2e759]
+          - link [ref=f2e760] [cursor=pointer]:
+            - /url: https://www.facebook.com/daodaoedu
+            - img "Facebook" [ref=f2e761]
+          - link [ref=f2e762] [cursor=pointer]:
+            - /url: https://discord.gg/FdFCxUwg83
+            - img "Discord" [ref=f2e763]
+        - link "contact@daodao.so" [ref=f2e764] [cursor=pointer]:
+          - /url: mailto:contact@daodao.so
+      - paragraph [ref=f2e765]: 島島阿學 © 2022 - 2026
+  - alert [ref=f2e766]

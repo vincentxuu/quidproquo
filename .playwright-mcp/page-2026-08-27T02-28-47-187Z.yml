@@ -1,0 +1,62 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e7]:
+    - complementary "Sidebar" [ref=e9]:
+      - separator "Resize sidebar" [ref=e10]
+      - generic [ref=e13]:
+        - link "Claude Code" [ref=e16] [cursor=pointer]:
+          - /url: /new
+        - radiogroup "Mode" [ref=e21]:
+          - radio "Chat and Cowork" [ref=e22] [cursor=pointer]:
+            - generic [ref=e23]: 
+          - radio [ref=e24]
+          - radio "Code" [checked] [ref=e25] [cursor=pointer]:
+            - generic [ref=e26]: 
+          - radio [checked] [ref=e27]
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e31]:
+            - link "New" [ref=e32] [cursor=pointer]:
+              - /url: /code
+              - generic [ref=e33]: 
+              - generic [ref=e37]: ⇧⌘O
+            - link "Artifacts" [ref=e38] [cursor=pointer]:
+              - /url: /code/artifacts
+              - generic [ref=e39]: 
+            - link "Customize" [ref=e43] [cursor=pointer]:
+              - /url: /customize
+              - generic [ref=e44]: 
+            - button "More navigation items" [ref=e48] [cursor=pointer]:
+              - generic [ref=e49]: 
+              - generic [ref=e51]: More
+          - generic [ref=e57]:
+            - generic [ref=e60]:
+              - button "Recents" [expanded] [ref=e61] [cursor=pointer]:
+                - generic [ref=e63]: 
+              - button "Filter" [ref=e65] [cursor=pointer]:
+                - generic [ref=e68]: 
+            - generic [ref=e70]:
+              - paragraph [ref=e71]: No sessions match the current filters
+              - button "Show all sessions" [ref=e72] [cursor=pointer]
+        - generic [ref=e74]:
+          - button "vincent vincent Max" [ref=e76] [cursor=pointer]:
+            - img "vincent" [ref=e78]: V
+            - generic [ref=e79]:
+              - generic [ref=e80]: vincent
+              - generic [ref=e81]: ·
+              - generic [ref=e82]: Max
+            - generic [ref=e83]: 
+          - generic [ref=e84]:
+            - generic [ref=e85]:
+              - button "Send feedback" [disabled]:
+                - generic: 
+            - button "Search" [ref=e86] [cursor=pointer]:
+              - generic [ref=e89]: 
+            - button "Collapse sidebar" [ref=e91] [cursor=pointer]:
+              - generic [ref=e94]: 
+    - main [ref=e96]:
+      - status [ref=e103]:
+        - generic [ref=e104]: Loading
+  - generic:
+    - generic:
+      - generic:
+        - region "Notifications"

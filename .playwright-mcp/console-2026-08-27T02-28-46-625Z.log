@@ -1,0 +1,7 @@
+[     263ms] [INFO] [O11Y] [DatadogRUM] Initialized {service: claude-ai, env: production, version: cea2a7f475} @ https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/vendor-datadog-Rzy8FX6o.js:0
+[     796ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://claude.ai/v1/code/sessions/watch?exclude_tags=-:0
+[    2873ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/6034cd96-22b1-4e2b-a594-d04d97e643d7:0
+[    3251ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/e23a6663-6d50-4963-b286-5d72b432dacd:0
+[    3389ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/0f2c1fda-ae04-4885-8730-910f1a1a19ac:0
+[    3617ms] [ERROR] Failed to load resource: the server responded with a status of 405 () @ https://claude.ai/v1/toolbox/shttp/mcp/9845566c-3c64-42ed-bde9-df9b9d5ac83a:0
+[  105691ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://claude.ai/v1/code/sessions/session_01K4W4nLHN1GNy5zQC78C6ou/events?limit=500&sort_order=asc:0

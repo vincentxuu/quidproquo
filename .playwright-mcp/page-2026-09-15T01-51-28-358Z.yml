@@ -1,0 +1,111 @@
+- generic [active] [ref=f22e1]:
+  - link "Skip to content" [ref=f22e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f22e3]:
+    - navigation [ref=f22e4]:
+      - link "quidproquo" [ref=f22e5] [cursor=pointer]:
+        - /url: /
+      - link "日報" [ref=f22e6] [cursor=pointer]:
+        - /url: /daily
+      - link "關於" [ref=f22e7] [cursor=pointer]:
+        - /url: /about
+      - link "分類" [ref=f22e8] [cursor=pointer]:
+        - /url: /categories
+      - link "系列" [ref=f22e9] [cursor=pointer]:
+        - /url: /series
+      - link "標籤" [ref=f22e10] [cursor=pointer]:
+        - /url: /tags
+      - link "面試準備" [ref=f22e11] [cursor=pointer]:
+        - /url: /interview
+      - generic [ref=f22e12]:
+        - link "搜尋" [ref=f22e13] [cursor=pointer]:
+          - /url: /search
+        - button "切換深色模式" [ref=f22e16] [cursor=pointer]
+        - link "EN" [ref=f22e20] [cursor=pointer]:
+          - /url: /en/projects/groundlane
+  - main [ref=f22e21]:
+    - generic [ref=f22e22]:
+      - generic [ref=f22e23]:
+        - generic [ref=f22e24]: MCP Server
+        - heading "groundlane" [level=1] [ref=f22e25]
+        - paragraph [ref=f22e26]: AI 代理的可信 Web 存取層一個中立的 MCP server，讓 agent 只需要呼叫一份統一介面，背後自動在 14 個搜尋服務之間選擇與切換。
+        - generic [ref=f22e27]:
+          - link "GitHub" [ref=f22e28] [cursor=pointer]:
+            - /url: https://github.com/lanefoundry/groundlane
+          - link "文件 →" [ref=f22e31] [cursor=pointer]:
+            - /url: https://github.com/lanefoundry/groundlane#documentation
+      - generic [ref=f22e32]:
+        - generic [ref=f22e33]:
+          - generic [ref=f22e34]: 影片待錄
+          - generic [ref=f22e39]:
+            - generic [ref=f22e40]: "01"
+            - heading "一個介面，14 個 Provider" [level=2] [ref=f22e41]
+            - paragraph [ref=f22e42]: 每家搜尋服務的 API 都不一樣——Tavily、Exa、Firecrawl、Brave、Bing……groundlane 讓 agent 只需要呼叫一份統一介面，背後自動挑選最適合的 provider。不用管各家的參數格式、認證方式、回傳結構。
+            - generic [ref=f22e43]:
+              - generic [ref=f22e44]: Tavily
+              - generic [ref=f22e45]: Exa
+              - generic [ref=f22e46]: Firecrawl
+              - generic [ref=f22e47]: Brave
+              - generic [ref=f22e48]: +10 more
+        - generic [ref=f22e49]:
+          - generic [ref=f22e50]: 影片待錄
+          - generic [ref=f22e55]:
+            - generic [ref=f22e56]: "02"
+            - heading "智慧降級，不中斷" [level=2] [ref=f22e57]
+            - paragraph [ref=f22e58]: 某個 provider 掛了？超時？額度用完？groundlane 自動切換到下一個可用的 provider，agent 完全不需要處理錯誤。降級過程有完整 trace，你可以事後看到每一步選了誰、為什麼。
+            - generic [ref=f22e59]:
+              - generic [ref=f22e60]: Auto-failover
+              - generic [ref=f22e61]: Rate Limiting
+              - generic [ref=f22e62]: Trace
+        - generic [ref=f22e63]:
+          - generic [ref=f22e64]: 影片待錄
+          - generic [ref=f22e69]:
+            - generic [ref=f22e70]: "03"
+            - heading "不只搜尋——抓取、解析、研究" [level=2] [ref=f22e71]
+            - paragraph [ref=f22e72]: 搜尋只是起點。groundlane 還能抓取完整網頁、做問答式研究（deep research）、解析 PDF / DOCX / XLSX 文件、找新聞圖片、長時間爬站。一個 server 涵蓋 agent 上網的所有需求。
+            - generic [ref=f22e73]:
+              - generic [ref=f22e74]: Scrape
+              - generic [ref=f22e75]: PDF Parse
+              - generic [ref=f22e76]: Deep Research
+              - generic [ref=f22e77]: Image Search
+        - generic [ref=f22e78]:
+          - generic [ref=f22e79]: 截圖待補
+          - generic [ref=f22e84]:
+            - generic [ref=f22e85]: "04"
+            - heading "MCP 原生，即插即用" [level=2] [ref=f22e86]
+            - paragraph [ref=f22e87]: groundlane 就是一個標準的 MCP server。Claude Code、Cursor、任何支援 MCP 的工具都可以直接接上。有輕量跟完整兩種模式——輕量模式不需要額外安裝，部分服務連 API key 都不用。
+            - code [ref=f22e89]: "\"groundlane\": { \"command\": \"npx\", \"args\": [\"-y\", \"groundlane\"] }"
+        - generic [ref=f22e90]:
+          - generic [ref=f22e91]: 截圖待補
+          - generic [ref=f22e96]:
+            - generic [ref=f22e97]: "05"
+            - heading "安全邊界，全程可追蹤" [level=2] [ref=f22e98]
+            - paragraph [ref=f22e99]: Agent 不能存取不該碰的東西。所有 web 存取都有安全限制——URL 過濾、domain 白名單、request rate limiting。每一次存取的資料來源、執行路徑、選擇的 provider 都有完整 trace，可以事後審計。
+            - generic [ref=f22e100]:
+              - generic [ref=f22e101]: URL Filter
+              - generic [ref=f22e102]: Domain Allowlist
+              - generic [ref=f22e103]: Audit Trail
+      - generic [ref=f22e104]:
+        - heading "技術" [level=2] [ref=f22e105]
+        - generic [ref=f22e106]:
+          - generic [ref=f22e107]:
+            - generic [ref=f22e108]: Runtime
+            - generic [ref=f22e109]: Node.js / Cloudflare Workers
+          - generic [ref=f22e110]:
+            - generic [ref=f22e111]: Protocol
+            - generic [ref=f22e112]: MCP (Model Context Protocol)
+          - generic [ref=f22e113]:
+            - generic [ref=f22e114]: Providers
+            - generic [ref=f22e115]: 14 個搜尋 / 擷取服務
+          - generic [ref=f22e116]:
+            - generic [ref=f22e117]: License
+            - generic [ref=f22e118]: MIT
+      - link "← 回到關於我" [ref=f22e120] [cursor=pointer]:
+        - /url: /about
+  - contentinfo [ref=f22e121]:
+    - generic [ref=f22e122]: quidproquo.cc
+    - link "RSS" [ref=f22e123] [cursor=pointer]:
+      - /url: /rss.xml
+  - button "開啟 AI 對話" [ref=f22e129] [cursor=pointer]: AI
+  - button "Scroll to top":
+    - generic: 0%

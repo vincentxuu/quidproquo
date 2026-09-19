@@ -1,0 +1,122 @@
+- generic [ref=f134e2]:
+  - complementary [ref=f134e3]:
+    - link "Admin dashboard" [ref=f134e5] [cursor=pointer]:
+      - /url: /admin
+      - generic [ref=f134e6]: qp
+      - generic [ref=f134e7]:
+        - strong [ref=f134e8]: quidproquo
+        - generic [ref=f134e9]: Operations
+    - navigation "Admin navigation" [ref=f134e10]:
+      - generic [ref=f134e11]:
+        - generic [ref=f134e12]: Monitor
+        - link "總覽" [ref=f134e13] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=f134e18]:
+        - generic [ref=f134e19]: Content
+        - link "內容" [ref=f134e20] [cursor=pointer]:
+          - /url: /admin/content
+        - link "流程" [ref=f134e25] [cursor=pointer]:
+          - /url: /admin/content-pipelines
+        - link "任務" [ref=f134e29] [cursor=pointer]:
+          - /url: /admin/jobs
+        - link "統計" [ref=f134e33] [cursor=pointer]:
+          - /url: /admin/stats
+      - generic [ref=f134e37]:
+        - generic [ref=f134e38]: AI
+        - link "Agent Console" [ref=f134e39] [cursor=pointer]:
+          - /url: /admin/console
+        - link "模型供應商" [ref=f134e44] [cursor=pointer]:
+          - /url: /admin/console/providers
+        - link "RAG" [ref=f134e49] [cursor=pointer]:
+          - /url: /admin/rag
+        - link "RAG 追蹤" [ref=f134e54] [cursor=pointer]:
+          - /url: /admin/traces
+        - link "CCR Console" [ref=f134e58] [cursor=pointer]:
+          - /url: /admin/agents/console
+        - link "Routines" [ref=f134e62] [cursor=pointer]:
+          - /url: /admin/routines
+        - link "Deep Research" [ref=f134e66] [cursor=pointer]:
+          - /url: /admin/deep-research
+        - link "Agent Skills" [ref=f134e71] [cursor=pointer]:
+          - /url: /admin/agent-skills
+        - link "Skills / MCP / Plugins" [ref=f134e76] [cursor=pointer]:
+          - /url: /admin/agent-ecosystem
+      - generic [ref=f134e81]:
+        - generic [ref=f134e82]: System
+        - link "維運" [ref=f134e83] [cursor=pointer]:
+          - /url: /admin/ops
+        - link "設定" [ref=f134e89] [cursor=pointer]:
+          - /url: /admin/settings
+    - generic [ref=f134e94]:
+      - link "回到網站" [ref=f134e95] [cursor=pointer]:
+        - /url: /
+      - button "登出" [ref=f134e101] [cursor=pointer]
+  - main [ref=f134e106]:
+    - generic [ref=f134e107]:
+      - generic [ref=f134e108]:
+        - paragraph [ref=f134e109]: Admin Console
+        - heading "系統設定" [level=2] [ref=f134e110]
+      - generic "Admin shortcuts" [ref=f134e111]:
+        - link "任務" [ref=f134e112] [cursor=pointer]:
+          - /url: /admin/jobs
+        - link "設定" [ref=f134e115] [cursor=pointer]:
+          - /url: /admin/settings
+    - generic [ref=f134e119]:
+      - paragraph [ref=f134e120]: 系統設定：secret 狀態、rate limit、cache 與流程執行限制。
+      - generic [ref=f134e121]:
+        - generic [ref=f134e122]:
+          - heading "Secret 狀態" [level=2] [ref=f134e123]
+          - generic [ref=f134e124]: 載入中...
+        - generic [ref=f134e125]:
+          - heading "Rate Limit" [level=2] [ref=f134e126]
+          - generic [ref=f134e127]:
+            - generic [ref=f134e128]:
+              - generic [ref=f134e129]: 每分鐘請求數
+              - generic [ref=f134e130]:
+                - spinbutton "每分鐘請求數" [ref=f134e131]
+                - generic [ref=f134e132]: 依 IP 限制
+            - generic [ref=f134e133]:
+              - generic [ref=f134e134]: 每小時請求數
+              - generic [ref=f134e135]:
+                - spinbutton "每小時請求數" [ref=f134e136]
+                - generic [ref=f134e137]: 依 IP 限制
+        - generic [ref=f134e138]:
+          - heading "RAG 設定" [level=2] [ref=f134e139]
+          - generic [ref=f134e140]:
+            - generic [ref=f134e141]:
+              - generic [ref=f134e142]: Cache TTL（秒）
+              - generic [ref=f134e143]:
+                - spinbutton "Cache TTL（秒）" [ref=f134e144]
+                - generic [ref=f134e145]: RAG 回應快取時間
+            - generic [ref=f134e146]:
+              - generic [ref=f134e147]: 最多 context chunks
+              - generic [ref=f134e148]:
+                - spinbutton "最多 context chunks" [ref=f134e149]
+                - generic [ref=f134e150]: 每次查詢取回的 chunks 數
+        - generic [ref=f134e151]:
+          - heading "流程設定" [level=2] [ref=f134e152]
+          - generic [ref=f134e153]:
+            - generic [ref=f134e154]:
+              - generic [ref=f134e155]: 最多重試次數
+              - generic [ref=f134e156]:
+                - spinbutton "最多重試次數" [ref=f134e157]
+                - generic [ref=f134e158]: 失敗時的重試次數
+            - generic [ref=f134e159]:
+              - generic [ref=f134e160]: 最長執行時間（ms）
+              - generic [ref=f134e161]:
+                - spinbutton "最長執行時間（ms）" [ref=f134e162]
+                - generic [ref=f134e163]: 任務 timeout，單位毫秒
+        - generic [ref=f134e164]:
+          - heading "Deep Research 儲存" [level=2] [ref=f134e165]
+          - generic [ref=f134e167]:
+            - generic [ref=f134e168]: 儲存策略
+            - generic [ref=f134e169]:
+              - combobox "儲存策略" [ref=f134e170]:
+                - option "Auto（DEEP_RESEARCH_KV → SESSION → D1）" [selected]
+                - option "只用 D1"
+                - option "只用 DEEP_RESEARCH_KV"
+                - option "只用 SESSION KV"
+              - generic [ref=f134e171]: binding 仍需在 Cloudflare / wrangler 設定。
+      - generic [ref=f134e172]:
+        - button "儲存設定" [ref=f134e173] [cursor=pointer]
+        - button "重設為預設值" [ref=f134e174] [cursor=pointer]

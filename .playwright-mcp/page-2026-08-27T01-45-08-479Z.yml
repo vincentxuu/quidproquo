@@ -1,0 +1,52 @@
+- generic [active] [ref=f17e1]:
+  - generic [ref=f17e7]:
+    - complementary "Sidebar" [ref=f17e9]:
+      - separator "Resize sidebar" [ref=f17e10]
+      - generic [ref=f17e13]:
+        - link "Claude Code" [ref=f17e16] [cursor=pointer]:
+          - /url: /new
+        - radiogroup "Mode" [ref=f17e21]:
+          - radio "Chat and Cowork" [ref=f17e22] [cursor=pointer]:
+            - generic [ref=f17e23]: 
+          - radio [ref=f17e24]
+          - radio "Code" [checked] [ref=f17e25] [cursor=pointer]:
+            - generic [ref=f17e26]: 
+          - radio [checked] [ref=f17e27]
+      - generic [ref=f17e28]:
+        - generic [ref=f17e29]:
+          - generic [ref=f17e31]:
+            - link "New" [ref=f17e32] [cursor=pointer]:
+              - /url: /code
+              - generic [ref=f17e33]: 
+              - generic [ref=f17e37]: ⇧⌘O
+            - link "Artifacts" [ref=f17e38] [cursor=pointer]:
+              - /url: /code/artifacts
+              - generic [ref=f17e39]: 
+            - link "Customize" [ref=f17e43] [cursor=pointer]:
+              - /url: /customize
+              - generic [ref=f17e44]: 
+            - button "Routines" [ref=f17e48] [cursor=pointer]:
+              - generic [ref=f17e49]: 
+          - paragraph [ref=f17e59]: Sessions you start will show up here
+        - generic [ref=f17e64]:
+          - button "vincent vincent Max" [ref=f17e66] [cursor=pointer]:
+            - img "vincent" [ref=f17e68]: V
+            - generic [ref=f17e69]:
+              - generic [ref=f17e70]: vincent
+              - generic [ref=f17e71]: ·
+              - generic [ref=f17e72]: Max
+            - generic [ref=f17e73]: 
+          - generic [ref=f17e74]:
+            - generic [ref=f17e75]:
+              - button "Send feedback" [disabled]:
+                - generic: 
+            - button "Search" [ref=f17e76] [cursor=pointer]:
+              - generic [ref=f17e79]: 
+            - button "Collapse sidebar" [ref=f17e81] [cursor=pointer]:
+              - generic [ref=f17e84]: 
+    - main [ref=f17e86]:
+      - status [ref=f17e93]
+  - generic:
+    - generic:
+      - generic:
+        - region "Notifications"

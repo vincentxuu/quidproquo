@@ -3,6 +3,7 @@
 import { getLangFromUrl, useTranslations, type Lang } from '../i18n/utils';
 import Icons from '../components/Icons.astro';
 import { ChatFloating } from '../components/Chat/ChatFloating';
+import '../styles/tokens.css';
 import '../styles/chat.css';
 
 interface Props {
@@ -147,84 +148,7 @@ const pageTitle =
     font-display: swap;
   }
 
-  /* ── Dark Navy Design Tokens (inspired by DJ MYG) ── */
-  :root {
-    --brand-900: #1a2e1a;
-    --brand-700: #2d4a2d;
-    --brand-500: #4a9e6a;
-    --brand-300: #a7c4a0;
-    --brand-100: #e8f5e8;
-    --brand-50:  #f0f7f0;
-    --border:    #d1e8d1;
-    --text-primary:    #1a1a1a;
-    --text-secondary:  #4a7c59;
-    --text-muted:      #767676;
-    --bg-page:   #ffffff;
-    --bg-subtle: #f5f7f5;
-    --bg-card:   #ffffff;
-    --bg-code:   #1e1e2e;
-    --heading-accent: #e8657a;
-    --info-bg:    #eef6ff;
-    --info-border: #3b82f6;
-    --info-icon:   #3b82f6;
-    --success-bg:    #eefbf3;
-    --success-border: #22c55e;
-    --success-icon:   #22c55e;
-    --warning-bg:    #fffbeb;
-    --warning-border: #f59e0b;
-    --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.08);
-    --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.15);
-    --code-dot-red: #ff5f57;
-    --code-dot-yellow: #febc2e;
-    --code-dot-green: #28c840;
-
-    /* Category badge colors */
-    --cat-tech:      #1a1a1a;
-    --cat-ai:        #6d28d9;
-    --cat-product:   #0369a1;
-    --cat-education: #b45309;
-    --cat-life:      #15803d;
-    --cat-marketing: #be185d;
-    --cat-travel:    #c2410c;
-    --cat-climbing:  #57534e;
-    --cat-surf:      #0891b2;
-    --cat-film:      #292524;
-    --cat-coffee:    #92400e;
-    --cat-investing: #047857;
-    --cat-learning:  #0d9488;
-    --cat-design:    #a21caf;
-    --cat-policy:    #475569;
-    --cat-anime:     #e11d48;
-    --cat-career:    #0c4a6e;
-  }
-
-  [data-theme="dark"] {
-    --brand-900: #e8e8e8;
-    --brand-700: #c0c0c0;
-    --brand-500: #5cb87a;
-    --brand-300: #2d4a2d;
-    --brand-100: #1c2833;
-    --brand-50:  #151d26;
-    --border:    #2a3545;
-    --text-primary:    #d1d5db;
-    --text-secondary:  #5cb87a;
-    --text-muted:      #6b7280;
-    --bg-page:   #0f1419;
-    --bg-subtle: #151d26;
-    --bg-card:   #1a2332;
-    --bg-code:   #0d1117;
-    --heading-accent: #f472b6;
-    --info-bg:    #151d26;
-    --info-border: #3b82f6;
-    --info-icon:   #60a5fa;
-    --success-bg:    #151d26;
-    --success-border: #22c55e;
-    --success-icon:   #4ade80;
-    --warning-bg:    #1a1a0f;
-    --warning-border: #f59e0b;
-    --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.25);
-    --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.4);
-  }
+  /* ── 全站 token 見 src/styles/tokens.css（單一來源，不在此拷貝） ── */
 
   /* Skip navigation */
   .skip-nav {

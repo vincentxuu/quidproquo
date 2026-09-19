@@ -1,0 +1,126 @@
+- generic [ref=f17e1]:
+  - generic [ref=f17e7]:
+    - complementary "Sidebar" [ref=f17e9]:
+      - separator "Resize sidebar" [ref=f17e10]
+      - generic [ref=f17e13]:
+        - link "Claude Code" [ref=f17e16] [cursor=pointer]:
+          - /url: /new
+        - radiogroup "Mode" [ref=f17e21]:
+          - radio "Chat and Cowork" [ref=f17e22] [cursor=pointer]:
+            - generic [ref=f17e23]: 
+          - radio [ref=f17e24]
+          - radio "Code" [checked] [ref=f17e25] [cursor=pointer]:
+            - generic [ref=f17e26]: 
+          - radio [checked] [ref=f17e27]
+      - generic [ref=f17e28]:
+        - generic [ref=f17e29]:
+          - generic [ref=f17e31]:
+            - link "New" [ref=f17e32] [cursor=pointer]:
+              - /url: /code
+              - generic [ref=f17e33]: 
+              - generic [ref=f17e37]: ⇧⌘O
+            - link "Artifacts" [ref=f17e38] [cursor=pointer]:
+              - /url: /code/artifacts
+              - generic [ref=f17e39]: 
+            - link "Customize" [ref=f17e43] [cursor=pointer]:
+              - /url: /customize
+              - generic [ref=f17e44]: 
+            - button "Routines" [ref=f17e48] [cursor=pointer]:
+              - generic [ref=f17e49]: 
+          - paragraph [ref=f17e59]: Sessions you start will show up here
+        - generic [ref=f17e122]:
+          - generic [ref=f17e130]:
+            - generic [ref=f17e131]: Try Claude Tag
+            - button "Set up" [ref=f17e134] [cursor=pointer]
+          - button "Dismiss" [ref=f17e136] [cursor=pointer]:
+            - generic [ref=f17e139]: 
+        - generic [ref=f17e64]:
+          - button "vincent vincent Max" [ref=f17e66] [cursor=pointer]:
+            - img "vincent" [ref=f17e68]: V
+            - generic [ref=f17e69]:
+              - generic [ref=f17e70]: vincent
+              - generic [ref=f17e71]: ·
+              - generic [ref=f17e72]: Max
+            - generic [ref=f17e73]: 
+          - generic [ref=f17e74]:
+            - button "Send feedback" [disabled]:
+              - generic: 
+            - button "Search" [ref=f17e76] [cursor=pointer]:
+              - generic [ref=f17e79]: 
+            - button "Collapse sidebar" [ref=f17e81] [cursor=pointer]:
+              - generic [ref=f17e84]: 
+    - main [ref=f17e86]:
+      - generic [ref=f17e277]:
+        - generic [ref=f17e280]:
+          - button [ref=f17e281] [cursor=pointer]
+          - generic [ref=f17e285]: /
+          - generic [ref=f17e286]: New routine
+        - generic [ref=f17e289]:
+          - generic [ref=f17e290] [cursor=pointer]:
+            - generic [ref=f17e291]: Name *
+            - textbox "Name *" [ref=f17e293]:
+              - /placeholder: e.g., Daily code review
+          - generic [ref=f17e294]:
+            - generic [ref=f17e295]: Instructions
+            - generic [ref=f17e296]:
+              - textbox "Instructions" [ref=f17e297]:
+                - /placeholder: Describe what Claude should do in each session
+              - generic [ref=f17e298]:
+                - group "Press and hold to record" [ref=f17e299]:
+                  - button "Press and hold to record" [ref=f17e302] [cursor=pointer]:
+                    - generic [ref=f17e305]: 
+                  - generic [ref=f17e308]:
+                    - button "Dictation settings":
+                      - generic: 
+                - combobox "Model" [ref=f17e309] [cursor=pointer]:
+                  - generic [ref=f17e310]: 
+                  - generic [ref=f17e311]: Opus 5
+                - textbox [ref=f17e312]
+              - generic [ref=f17e313]:
+                - combobox "Select a repository" [ref=f17e314] [cursor=pointer]:
+                  - generic [ref=f17e315]: 
+                - textbox [ref=f17e317]
+                - combobox "Cloud environment" [ref=f17e318] [cursor=pointer]:
+                  - generic [ref=f17e319]: 
+                  - generic [ref=f17e320]: Default
+                - textbox [ref=f17e321]
+          - generic [ref=f17e322]:
+            - generic [ref=f17e323]: Select a trigger
+            - generic [ref=f17e324]:
+              - button "Schedule Run on a recurring cron schedule or once at a future time" [ref=f17e325] [cursor=pointer]:
+                - generic [ref=f17e326]: 
+                - generic [ref=f17e327]:
+                  - generic [ref=f17e328]: Schedule
+                  - generic [ref=f17e329]: Run on a recurring cron schedule or once at a future time
+              - button "GitHub event Run when a GitHub webhook event fires Select a repository first" [disabled] [ref=f17e330]:
+                - generic [ref=f17e331]: 
+                - generic [ref=f17e332]:
+                  - generic [ref=f17e333]: GitHub event
+                  - generic [ref=f17e334]: Run when a GitHub webhook event fires
+                - generic [ref=f17e335]: Select a repository first
+              - button "API Trigger from your own code by sending a POST request" [ref=f17e336] [cursor=pointer]:
+                - generic [ref=f17e337]: 
+                - generic [ref=f17e338]:
+                  - generic [ref=f17e339]: API
+                  - generic [ref=f17e340]: Trigger from your own code by sending a POST request
+          - generic [ref=f17e341]:
+            - tablist "Routine settings" [ref=f17e342]:
+              - tab "Connectors 12" [ref=f17e343] [cursor=pointer]:
+                - text: Connectors
+                - generic [ref=f17e344]: "12"
+              - tab "Behavior" [active] [selected] [ref=f17e345] [cursor=pointer]
+              - tab "Notifications" [ref=f17e346] [cursor=pointer]
+            - tabpanel "Behavior" [ref=f17e443]:
+              - generic [ref=f17e445]:
+                - generic [ref=f17e446]:
+                  - generic [ref=f17e447]: Auto-fix pull requests
+                  - generic [ref=f17e448]: Watch CI and review comments on PRs this routine opens, and let Claude push fixes.
+                - switch "Auto-fix pull requests" [ref=f17e449] [cursor=pointer]
+                - checkbox [ref=f17e451]
+          - generic [ref=f17e438]:
+            - button "Cancel" [ref=f17e439] [cursor=pointer]
+            - button "Create" [disabled]
+  - generic:
+    - generic:
+      - generic:
+        - region "Notifications"

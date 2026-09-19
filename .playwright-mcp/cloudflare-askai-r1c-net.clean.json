@@ -1,0 +1,37 @@
+[
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/rollout/status?accountTag=<org>"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/assets/cf-AIChatSidebarWrapper.Cm32XCi4.js"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/token/status"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/accounts/<org>/lee/ws"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/conversations"
+ },
+ {
+  "m": "GET",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/token/status"
+ },
+ {
+  "m": "POST",
+  "s": 200,
+  "u": "https://dash.cloudflare.com/api/v4/lee/token"
+ }
+]

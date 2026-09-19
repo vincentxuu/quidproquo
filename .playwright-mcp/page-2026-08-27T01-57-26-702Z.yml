@@ -1,0 +1,150 @@
+- generic [active] [ref=f20e1]:
+  - generic [ref=f20e7]:
+    - complementary "Sidebar" [ref=f20e9]:
+      - separator "Resize sidebar" [ref=f20e10]
+      - generic [ref=f20e13]:
+        - link "Claude Code" [ref=f20e16] [cursor=pointer]:
+          - /url: /new
+        - radiogroup "Mode" [ref=f20e21]:
+          - radio "Chat and Cowork" [ref=f20e22] [cursor=pointer]:
+            - generic [ref=f20e23]: 
+          - radio [ref=f20e24]
+          - radio "Code" [checked] [ref=f20e25] [cursor=pointer]:
+            - generic [ref=f20e26]: 
+          - radio [checked] [ref=f20e27]
+      - generic [ref=f20e28]:
+        - generic [ref=f20e29]:
+          - generic [ref=f20e31]:
+            - link "New" [ref=f20e32] [cursor=pointer]:
+              - /url: /code
+              - generic [ref=f20e33]: 
+              - generic [ref=f20e37]: ⇧⌘O
+            - link "Artifacts" [ref=f20e38] [cursor=pointer]:
+              - /url: /code/artifacts
+              - generic [ref=f20e39]: 
+            - link "Routines" [ref=f20e413] [cursor=pointer]:
+              - /url: /code/routines
+            - link "Customize" [ref=f20e43] [cursor=pointer]:
+              - /url: /customize
+              - generic [ref=f20e44]: 
+            - button "More navigation items" [ref=f20e420] [cursor=pointer]:
+              - generic [ref=f20e49]: 
+              - generic [ref=f20e51]: More
+          - generic [ref=f20e56]:
+            - button "Routines" [ref=f20e424] [cursor=pointer]:
+              - generic [ref=f20e426]: 
+            - paragraph [ref=f20e59]: Sessions you start will show up here
+        - generic [ref=f20e97]:
+          - generic [ref=f20e105]:
+            - generic [ref=f20e106]: Try Claude Tag
+            - button "Set up" [ref=f20e109] [cursor=pointer]
+          - button "Dismiss" [ref=f20e111] [cursor=pointer]:
+            - generic [ref=f20e114]: 
+        - generic [ref=f20e64]:
+          - button "vincent vincent Max" [ref=f20e66] [cursor=pointer]:
+            - img "vincent" [ref=f20e68]: V
+            - generic [ref=f20e69]:
+              - generic [ref=f20e70]: vincent
+              - generic [ref=f20e71]: ·
+              - generic [ref=f20e72]: Max
+            - generic [ref=f20e73]: 
+          - generic [ref=f20e74]:
+            - button "Send feedback" [disabled]:
+              - generic: 
+            - button "Search" [ref=f20e76] [cursor=pointer]:
+              - generic [ref=f20e79]: 
+            - button "Collapse sidebar" [ref=f20e81] [cursor=pointer]:
+              - generic [ref=f20e84]: 
+    - main [ref=f20e86]:
+      - generic [ref=f20e431]:
+        - generic [ref=f20e432]:
+          - generic [ref=f20e434]:
+            - button [ref=f20e435] [cursor=pointer]
+            - generic [ref=f20e439]: /
+            - generic [ref=f20e440]: walkthrough-test (safe to delete)
+          - generic [ref=f20e441]:
+            - button "Edit" [ref=f20e442] [cursor=pointer]:
+              - generic [ref=f20e445]: 
+            - button "Delete" [ref=f20e447] [cursor=pointer]:
+              - generic [ref=f20e450]: 
+            - button [ref=f20e452] [cursor=pointer]:
+              - generic [ref=f20e455]:
+                - generic [ref=f20e456]: 
+                - text: Run now
+        - generic [ref=f20e458]:
+          - list "Routine status" [ref=f20e459]:
+            - listitem [ref=f20e460]:
+              - generic [ref=f20e461]: Active
+            - listitem [ref=f20e463]: Next run Aug 31 at 9:00 AM
+            - listitem [ref=f20e464]: No runs yet
+          - generic [ref=f20e465]:
+            - generic [ref=f20e467]:
+              - heading "Runs" [level=2] [ref=f20e468]
+              - generic [ref=f20e471]:
+                - generic [ref=f20e472]: 
+                - generic [ref=f20e473]:
+                  - paragraph [ref=f20e474]: No runs yet
+                  - paragraph [ref=f20e475]: Run it once to check the instructions and connectors work before the first scheduled run.
+                - button [ref=f20e477] [cursor=pointer]:
+                  - generic [ref=f20e480]:
+                    - generic [ref=f20e481]: 
+                    - text: Run now
+            - generic [ref=f20e482]:
+              - generic [ref=f20e483]:
+                - heading "Configuration" [level=2] [ref=f20e484]
+                - generic [ref=f20e485]:
+                  - generic [ref=f20e486]:
+                    - generic [ref=f20e487]: Enabled
+                    - generic [ref=f20e488]: "On"
+                    - generic [ref=f20e490]:
+                      - switch "Enabled" [checked] [ref=f20e491] [cursor=pointer]
+                      - checkbox [checked] [ref=f20e493]
+                  - generic [ref=f20e494]:
+                    - generic [ref=f20e495]: Triggers
+                    - generic [ref=f20e498]:
+                      - generic [ref=f20e499]: 
+                      - generic [ref=f20e500]: Runs every Monday at 9:00 AM GMT+8
+                  - generic [ref=f20e501]:
+                    - generic [ref=f20e502]: Runs with
+                    - generic [ref=f20e504]:
+                      - generic [ref=f20e505]:
+                        - generic [ref=f20e506]: 
+                        - generic [ref=f20e507]: Playma-Co-Ltd/maiagent-api-examples
+                      - generic [ref=f20e508]: Slack
+                      - generic [ref=f20e512]:
+                        - paragraph [ref=f20e516]: M
+                        - generic [ref=f20e517]: Mermaid Chart
+                      - generic [ref=f20e518]: Asana
+                      - generic [ref=f20e522]: tldraw
+                      - generic [ref=f20e526]: Google Calendar
+                      - generic [ref=f20e531]: PostHog
+                      - generic [ref=f20e535]: Cloudflare Developer Platform
+                      - generic [ref=f20e539]: Sentry
+                      - generic [ref=f20e543]:
+                        - paragraph [ref=f20e547]: C
+                        - generic [ref=f20e548]: Claude_Code_Remote
+                      - generic [ref=f20e549]: Notion
+                      - generic [ref=f20e554]: Gmail
+                      - generic [ref=f20e559]: HyperFrames by HeyGen
+                      - generic [ref=f20e563]: Google Drive
+                      - generic [ref=f20e568]:
+                        - generic [ref=f20e569]: 
+                        - generic [ref=f20e570]: Default · Sonnet 5
+                  - generic [ref=f20e571]:
+                    - paragraph [ref=f20e573]:
+                      - text: Push notifications on · Created by vincent ·
+                      - time [ref=f20e574]: Aug 27
+                    - button "Edit routine" [ref=f20e576] [cursor=pointer]:
+                      - generic [ref=f20e579]: Edit
+              - generic [ref=f20e580]:
+                - generic [ref=f20e581]:
+                  - heading "Instructions" [level=2] [ref=f20e582]
+                  - button "Edit instructions" [ref=f20e583] [cursor=pointer]:
+                    - generic [ref=f20e586]:
+                      - generic [ref=f20e587]: 
+                      - text: Edit
+                - generic [ref=f20e588]: Read-only test. List the top-level directories of the repo and count the files by extension. Do not modify any file, do not push, do not open a PR. Reply with a short summary.
+  - generic:
+    - generic:
+      - generic:
+        - region "Notifications"

@@ -1,0 +1,107 @@
+- generic [active] [ref=f17e1]:
+  - generic [ref=f17e7]:
+    - complementary "Sidebar" [ref=f17e9]:
+      - separator "Resize sidebar" [ref=f17e10]
+      - generic [ref=f17e13]:
+        - link "Claude Code" [ref=f17e16] [cursor=pointer]:
+          - /url: /new
+        - radiogroup "Mode" [ref=f17e21]:
+          - radio "Chat and Cowork" [ref=f17e22] [cursor=pointer]:
+            - generic [ref=f17e23]: 
+          - radio [ref=f17e24]
+          - radio "Code" [checked] [ref=f17e25] [cursor=pointer]:
+            - generic [ref=f17e26]: 
+          - radio [checked] [ref=f17e27]
+      - generic [ref=f17e28]:
+        - generic [ref=f17e29]:
+          - generic [ref=f17e31]:
+            - link "New" [ref=f17e32] [cursor=pointer]:
+              - /url: /code
+              - generic [ref=f17e33]: 
+              - generic [ref=f17e37]: ⇧⌘O
+            - link "Artifacts" [ref=f17e38] [cursor=pointer]:
+              - /url: /code/artifacts
+              - generic [ref=f17e39]: 
+            - link "Customize" [ref=f17e43] [cursor=pointer]:
+              - /url: /customize
+              - generic [ref=f17e44]: 
+            - button "Routines" [ref=f17e48] [cursor=pointer]:
+              - generic [ref=f17e49]: 
+          - paragraph [ref=f17e59]: Sessions you start will show up here
+        - generic [ref=f17e122]:
+          - generic [ref=f17e130]:
+            - generic [ref=f17e131]: Try Claude Tag
+            - button "Set up" [ref=f17e134] [cursor=pointer]
+          - button "Dismiss" [ref=f17e136] [cursor=pointer]:
+            - generic [ref=f17e139]: 
+        - generic [ref=f17e64]:
+          - button "vincent vincent Max" [ref=f17e66] [cursor=pointer]:
+            - img "vincent" [ref=f17e68]: V
+            - generic [ref=f17e69]:
+              - generic [ref=f17e70]: vincent
+              - generic [ref=f17e71]: ·
+              - generic [ref=f17e72]: Max
+            - generic [ref=f17e73]: 
+          - generic [ref=f17e74]:
+            - button "Send feedback" [disabled]:
+              - generic: 
+            - button "Search" [ref=f17e76] [cursor=pointer]:
+              - generic [ref=f17e79]: 
+            - button "Collapse sidebar" [ref=f17e81] [cursor=pointer]:
+              - generic [ref=f17e84]: 
+    - main [ref=f17e86]:
+      - generic [ref=f17e521]:
+        - generic [ref=f17e522]:
+          - generic [ref=f17e523]:
+            - heading [level=1] [ref=f17e524]
+            - paragraph [ref=f17e528]: Create templated routines that can be kicked off on schedule, by API, or webhook.
+          - button [ref=f17e529] [cursor=pointer]:
+            - generic [ref=f17e532]:
+              - generic [ref=f17e533]: 
+              - text: New routine
+        - generic [ref=f17e534]:
+          - textbox "What do you want automated?" [ref=f17e535]
+          - generic [ref=f17e536]:
+            - generic [ref=f17e537]:
+              - button "Summarize my open PRs every weekday morning" [ref=f17e538] [cursor=pointer]
+              - button "Triage new issues and flag duplicates each morning" [ref=f17e539] [cursor=pointer]
+              - button "Draft release notes whenever a PR merges" [ref=f17e540] [cursor=pointer]
+            - button "Draft routine" [disabled]
+        - generic [ref=f17e541]:
+          - generic [ref=f17e542]: 
+          - text: No routines yet.
+        - generic [ref=f17e543]:
+          - heading "Or start from a template" [level=2] [ref=f17e544]
+          - generic [ref=f17e545]:
+            - button "Briefing" [ref=f17e546] [cursor=pointer]:
+              - paragraph [ref=f17e552]: Summary of your calendar, emails, and messages.
+              - generic [ref=f17e553]: Runs weekdays at 8:30 PM GMT+8
+              - paragraph [ref=f17e558]: Works with Google Calendar · Gmail · Slack
+            - button "Email triage" [ref=f17e559] [cursor=pointer]:
+              - paragraph [ref=f17e565]: Categorize and prioritize your inbox, with draft responses for urgent items.
+              - generic [ref=f17e566]: Runs weekdays at 11:00 PM GMT+8
+              - paragraph [ref=f17e571]: Works with Gmail
+            - button "System health check" [ref=f17e572] [cursor=pointer]:
+              - paragraph [ref=f17e578]: Monitor infrastructure and services for errors, outages, and performance issues.
+              - generic [ref=f17e579]: Runs daily at 8:00 PM GMT+8
+              - paragraph [ref=f17e584]: Works with PagerDuty · Datadog · Sentry
+            - button "Issue triage" [ref=f17e585] [cursor=pointer]:
+              - paragraph [ref=f17e591]: Review and categorize incoming issues, bugs, and feature requests.
+              - generic [ref=f17e592]: Runs weekdays at 11:30 PM GMT+8
+              - paragraph [ref=f17e597]: Works with Linear
+            - button "PR review digest" [ref=f17e598] [cursor=pointer]:
+              - paragraph [ref=f17e604]: Overview of open PRs, review status, and what needs attention.
+              - generic [ref=f17e605]: Runs Tuesday to Saturday at 2:00 AM GMT+8
+            - button "Dependency update check" [ref=f17e610] [cursor=pointer]:
+              - paragraph [ref=f17e617]: Scan for outdated packages, security patches, and breaking changes.
+              - generic [ref=f17e618]: Runs every Tuesday at 2:30 AM GMT+8
+            - button "Release notes drafter" [ref=f17e623] [cursor=pointer]:
+              - paragraph [ref=f17e630]: Draft user-facing release notes each time a PR merges to the main branch.
+              - generic [ref=f17e631]: Triggered by pull request closed
+            - button "Flaky test tracker" [ref=f17e636] [cursor=pointer]:
+              - paragraph [ref=f17e642]: Find tests that pass and fail intermittently across recent CI runs.
+              - generic [ref=f17e643]: Runs every Tuesday at 12:00 AM GMT+8
+  - generic:
+    - generic:
+      - generic:
+        - region "Notifications"

@@ -1,0 +1,46 @@
+{
+  "id": "157ef6d3-4ae8-4af4-b6d2-75506037cef4",
+  "name": "eval",
+  "input": "什麼是 RAG",
+  "metadata": {
+    "target": "https://quidproquo.cc/api/chat",
+    "evalId": "f2e04c16-99a1-4f99-b008-338dd7ed3ef5"
+  },
+  "startTime": "2026-09-12T01:55:43.594Z",
+  "spans": [
+    {
+      "id": "2f2fa11e-8ca6-4fbc-b3f1-3cc9cad89eb8",
+      "traceId": "157ef6d3-4ae8-4af4-b6d2-75506037cef4",
+      "parentSpanId": null,
+      "name": "target-call",
+      "startTime": "2026-09-12T01:55:43.595Z",
+      "generations": [
+        {
+          "id": "b5e46bf7-141b-4bc6-8407-65355f86fd27",
+          "spanId": "2f2fa11e-8ca6-4fbc-b3f1-3cc9cad89eb8",
+          "name": "response",
+          "model": "target",
+          "input": "什麼是 RAG",
+          "output": "{\"error\":\"rate_limit\",\"message\":\"Daily limit reached. Resets at 2026-09-13T00:00:00.000Z\"}",
+          "startTime": "2026-09-12T01:55:43.595Z",
+          "endTime": "2026-09-12T01:55:43.595Z"
+        }
+      ],
+      "endTime": "2026-09-12T01:55:43.595Z",
+      "output": "{\"error\":\"rate_limit\",\"message\":\"Daily limit reached. Resets at 2026-09-13T00:00:00.000Z\"}",
+      "metadata": {
+        "httpStatus": 429,
+        "latencyMs": 248
+      }
+    }
+  ],
+  "tags": [
+    "baseline-v2"
+  ],
+  "scores": {
+    "judge": 0.8154376362507072,
+    "passed": 0
+  },
+  "endTime": "2026-09-12T01:55:43.595Z",
+  "output": "{\"error\":\"rate_limit\",\"message\":\"Daily limit reached. Resets at 2026-09-13T00:00:00.000Z\"}"
+}

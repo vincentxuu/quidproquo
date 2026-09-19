@@ -1,0 +1,16 @@
+- generic [active] [ref=f3e1]:
+  - complementary [ref=f3e3]:
+    - link "Admin dashboard" [ref=f3e5] [cursor=pointer]:
+      - /url: /admin
+      - generic [ref=f3e6]: qp
+      - generic [ref=f3e7]:
+        - strong [ref=f3e8]: quidproquo
+        - generic [ref=f3e9]: Home
+    - navigation "Admin navigation" [ref=f3e10]:
+      - link "Home" [ref=f3e11] [cursor=pointer]:
+        - /url: /admin
+  - generic [ref=f3e17]:
+    - button [ref=f3e18]
+    - button [ref=f3e24]
+    - button [ref=f3e28]
+    - button [ref=f3e36]

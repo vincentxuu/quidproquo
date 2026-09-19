@@ -1,0 +1,49 @@
+- generic [active] [ref=f3e1]:
+  - main [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - group [ref=f3e6]:
+        - generic "選單" [ref=f3e7] [cursor=pointer]
+      - generic [ref=f3e11]:
+        - heading "What's up next?" [level=1] [ref=f3e14]
+        - generic [ref=f3e15]:
+          - generic [ref=f3e17]:
+            - generic [ref=f3e18]:
+              - generic [ref=f3e19]: ◇
+              - combobox [ref=f3e20] [cursor=pointer]:
+                - option "Sandbox" [selected]
+            - generic [ref=f3e21]:
+              - generic [ref=f3e22]: +
+              - combobox [ref=f3e23] [cursor=pointer]:
+                - option "Select repo…"
+                - option "vincentxuu/quidproquo" [selected]
+                - option "Custom repo…"
+            - textbox "branch" [ref=f3e24]
+          - generic [ref=f3e25]:
+            - textbox "Describe a task or ask a question" [ref=f3e26]
+            - button "送出" [ref=f3e27] [cursor=pointer]:
+              - generic [ref=f3e28]: ↑
+          - generic [ref=f3e29]:
+            - generic [ref=f3e30]:
+              - combobox [ref=f3e31] [cursor=pointer]:
+                - option "Auto" [selected]
+                - option "Accept edits"
+                - option "Plan"
+              - generic "Fast mode" [ref=f3e32] [cursor=pointer]:
+                - checkbox "Fast" [ref=f3e33]
+                - generic [ref=f3e34]: Fast
+            - generic [ref=f3e35]:
+              - combobox [ref=f3e36] [cursor=pointer]:
+                - option "Provider" [selected]
+              - combobox [ref=f3e37] [cursor=pointer]:
+                - option "Model" [selected]
+              - combobox [ref=f3e38] [cursor=pointer]:
+                - option "High" [selected]
+                - option "Auto"
+                - option "Low"
+                - option "Medium"
+          - generic [ref=f3e39]: 0 tokens · $0.0000
+  - generic [ref=f3e42]:
+    - button [ref=f3e43]
+    - button [ref=f3e49]
+    - button [ref=f3e53]
+    - button [ref=f3e58]

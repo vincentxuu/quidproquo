@@ -1,0 +1,49 @@
+- generic [ref=f5e2]:
+  - complementary [ref=f5e3]:
+    - link "Admin dashboard" [ref=f5e5] [cursor=pointer]:
+      - /url: /admin
+      - generic [ref=f5e6]: qp
+      - generic [ref=f5e7]:
+        - strong [ref=f5e8]: quidproquo
+        - generic [ref=f5e9]: Home
+    - navigation "Admin navigation" [ref=f5e10]:
+      - link "Home" [ref=f5e11] [cursor=pointer]:
+        - /url: /admin
+      - link "Sessions" [ref=f5e16] [cursor=pointer]:
+        - /url: /admin/sessions
+      - link "Routines" [ref=f5e20] [cursor=pointer]:
+        - /url: /admin/routines
+      - link "Flows" [ref=f5e24] [cursor=pointer]:
+        - /url: /admin/flows
+      - link "Settings" [ref=f5e28] [cursor=pointer]:
+        - /url: /admin/settings
+    - generic [ref=f5e33]:
+      - link "回到網站" [ref=f5e34] [cursor=pointer]:
+        - /url: /
+      - button "登出" [ref=f5e40] [cursor=pointer]
+  - main [ref=f5e45]:
+    - generic [ref=f5e46]:
+      - generic [ref=f5e47]:
+        - paragraph [ref=f5e48]: Home
+        - heading "Home" [level=2] [ref=f5e49]
+      - generic "Admin shortcuts" [ref=f5e50]:
+        - link "Sessions" [ref=f5e51] [cursor=pointer]:
+          - /url: /admin/sessions
+        - link "Settings" [ref=f5e54] [cursor=pointer]:
+          - /url: /admin/settings
+    - generic [ref=f5e58]:
+      - paragraph [ref=f5e60]: ✓ 一切正常
+      - generic [ref=f5e62]:
+        - textbox "輸入指令，讓 agent 執行…" [ref=f5e63]
+        - generic [ref=f5e64]:
+          - combobox [ref=f5e65]:
+            - option "Auto" [selected]
+            - option "Accept edits"
+            - option "Plan"
+          - combobox [ref=f5e66]:
+            - option "預設模型" [selected]
+          - button "執行" [ref=f5e67] [cursor=pointer]
+      - generic [ref=f5e68]:
+        - heading "最近 Sessions" [level=3] [ref=f5e69]
+        - paragraph [ref=f5e71]: 載入中…
+      - generic [ref=f5e72]: 用量統計載入中…

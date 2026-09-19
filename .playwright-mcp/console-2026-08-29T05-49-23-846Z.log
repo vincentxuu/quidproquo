@@ -1,0 +1,3 @@
+[103908631ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://api.github.com/_private/browser/stats:0
+[104847767ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://collector.github.com/github/collect:0
+[156920236ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://api.github.com/_private/browser/stats:0

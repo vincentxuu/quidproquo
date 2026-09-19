@@ -1,0 +1,46 @@
+{
+  "id": "7fd21b01-a7dc-4271-86d9-d43e29c3b67c",
+  "name": "eval",
+  "input": "Claude Code 怎麼用",
+  "metadata": {
+    "target": "https://quidproquo.cc/api/chat",
+    "evalId": "f2e04c16-99a1-4f99-b008-338dd7ed3ef5"
+  },
+  "startTime": "2026-09-12T01:55:43.601Z",
+  "spans": [
+    {
+      "id": "9593e531-1593-4973-a2b3-65d6b4b1cec5",
+      "traceId": "7fd21b01-a7dc-4271-86d9-d43e29c3b67c",
+      "parentSpanId": null,
+      "name": "target-call",
+      "startTime": "2026-09-12T01:55:43.601Z",
+      "generations": [
+        {
+          "id": "2047b6ac-78bd-4a49-97bc-054d00f0c5bc",
+          "spanId": "9593e531-1593-4973-a2b3-65d6b4b1cec5",
+          "name": "response",
+          "model": "target",
+          "input": "Claude Code 怎麼用",
+          "output": "{\"error\":\"rate_limit\",\"message\":\"Daily limit reached. Resets at 2026-09-13T00:00:00.000Z\"}",
+          "startTime": "2026-09-12T01:55:43.601Z",
+          "endTime": "2026-09-12T01:55:43.601Z"
+        }
+      ],
+      "endTime": "2026-09-12T01:55:43.601Z",
+      "output": "{\"error\":\"rate_limit\",\"message\":\"Daily limit reached. Resets at 2026-09-13T00:00:00.000Z\"}",
+      "metadata": {
+        "httpStatus": 429,
+        "latencyMs": 248
+      }
+    }
+  ],
+  "tags": [
+    "baseline-v2"
+  ],
+  "scores": {
+    "judge": 0.6210541668222633,
+    "passed": 0
+  },
+  "endTime": "2026-09-12T01:55:43.601Z",
+  "output": "{\"error\":\"rate_limit\",\"message\":\"Daily limit reached. Resets at 2026-09-13T00:00:00.000Z\"}"
+}

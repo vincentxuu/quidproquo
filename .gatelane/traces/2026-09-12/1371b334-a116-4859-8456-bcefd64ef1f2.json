@@ -1,0 +1,46 @@
+{
+  "id": "1371b334-a116-4859-8456-bcefd64ef1f2",
+  "name": "eval",
+  "input": "Groundlane 是什麼",
+  "metadata": {
+    "target": "https://quidproquo.cc/api/chat",
+    "evalId": "b7945b3f-d48e-43db-a9ef-ade467e167c4"
+  },
+  "startTime": "2026-09-12T01:55:32.568Z",
+  "spans": [
+    {
+      "id": "9f4ed124-7ab6-4969-a70c-fe5fb41a248b",
+      "traceId": "1371b334-a116-4859-8456-bcefd64ef1f2",
+      "parentSpanId": null,
+      "name": "target-call",
+      "startTime": "2026-09-12T01:55:32.568Z",
+      "generations": [
+        {
+          "id": "ebd30623-2a6c-4144-a8dd-2152733611e6",
+          "spanId": "9f4ed124-7ab6-4969-a70c-fe5fb41a248b",
+          "name": "response",
+          "model": "target",
+          "input": "Groundlane 是什麼",
+          "output": "event: error\ndata: {\"type\":\"internal\",\"message\":\"404 {\\\"error\\\":{\\\"message\\\":\\\"The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"code\\\":\\\"model_not_found\\\"}}\"}\n\n",
+          "startTime": "2026-09-12T01:55:32.568Z",
+          "endTime": "2026-09-12T01:55:32.568Z"
+        }
+      ],
+      "endTime": "2026-09-12T01:55:32.568Z",
+      "output": "event: error\ndata: {\"type\":\"internal\",\"message\":\"404 {\\\"error\\\":{\\\"message\\\":\\\"The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"code\\\":\\\"model_not_found\\\"}}\"}\n\n",
+      "metadata": {
+        "httpStatus": 200,
+        "latencyMs": 1646
+      }
+    }
+  ],
+  "tags": [
+    "baseline-v1"
+  ],
+  "scores": {
+    "judge": 0.8445341292011687,
+    "passed": 1
+  },
+  "endTime": "2026-09-12T01:55:32.568Z",
+  "output": "event: error\ndata: {\"type\":\"internal\",\"message\":\"404 {\\\"error\\\":{\\\"message\\\":\\\"The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"code\\\":\\\"model_not_found\\\"}}\"}\n\n"
+}

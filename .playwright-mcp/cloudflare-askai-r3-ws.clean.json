@@ -1,0 +1,1882 @@
+[
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_chat_messages\",\"messages\":[{\"id\":\"6e168195-f998-443b-8cca-e7db1a9a7969\",\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"text\":\"Where do I find my account ID and zone ID?\"}]}]}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"name\":\"<user>\",\"agent\":\"cloudflare-agent\",\"type\":\"cf_agent_identity\"}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"mcp\":{\"prompts\":[{\"name\":\"workers-prompt-full\",\"description\":\"Detailed prompt for generating Cloudflare Workers code (and other developer platform products) from https://developers.cloudflare.com/workers/prompt.txt\",\"serverId\":\"cloudflare-docs\"}],\"resources\":[],\"servers\":{\"cloudflare-docs\":{\"auth_url\":null,\"capabilities\":{\"prompts\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"error\":null,\"instructions\":null,\"name\":\"cloudflare-docs\",\"server_url\":\"https://docs.mcp.cloudflare.com/mcp\",\"state\":\"ready\"},\"vnW7pg66\":{\"auth_url\":null,\"capabilities\":{\"tools\":{}},\"error\":null,\"instructions\":null,\"name\":\"cloudflare-mcp-<org>\",\"server_url\":\"rpc:cloudflare-mcp-<org>\",\"state\":\"ready\"}},\"tools\":[{\"name\":\"search_cloudflare_documentation\",\"description\":\"Search the Cloudflare documentation.\\n\\n\\t\\tThis tool should be used to answer any question about Cloudflare products or features, including:\\n\\t\\t- Workers, Pages, R2, Images, Stream, D1, Durable Objects, KV, Workflows, Hyperdrive, Queues\\n\\t\\t- AI Search, Workers AI, Vectorize, AI Gateway, Browser Run\\n\\t\\t- Zero Trust, Access, Tunnel, Gateway, Browser Isolation, WARP, DDOS, Magic Transit, Magic WAN\\n\\t\\t- CDN, Cache, DNS, Zaraz, Argo, Rulesets, Terraform, Account and Billing\\n\\n\\t\\tResults are returned as semantically similar chunks to the query.\\n\\t\\t\",\"inputSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"string\"}},\"required\":[\"query\"]},\"outputSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"results\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"similarity\":{\"type\":\"number\",\"description\":\"Similarity score from AI Search\"},\"id\":{\"type\":\"string\",\"description\":\"Source file ID\"},\"url\":{\"type\":\"string\",\"description\":\"Developer documentation URL\"},\"title\":{\"type\":\"string\",\"description\":\"Documentation page title\"},\"text\":{\"type\":\"string\",\"description\":\"Matching documentation chunk text\"}},\"required\":[\"similarity\",\"id\",\"url\",\"title\",\"text\"],\"additionalProperties\":false}}},\"required\":[\"results\"],\"additionalProperties\":false},\"annotations\":{\"title\":\"Search Cloudflare docs\",\"readOnlyHint\":true},\"serverId\":\"cloudflare-docs\"},{\"name\":\"migrate_pages_to_workers_guide\",\"description\":\"ALWAYS read this guide before migrating Pages projects to Workers.\",\"inputSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{}},\"annotations\":{\"title\":\"Get Pages migration guide\",\"readOnlyHint\":true},\"serverId\":\"cloudflare-docs\"},{\"name\":\"search\",\"description\":\"Search the Cloudflare OpenAPI spec. All $refs are pre-resolved inline.\\n\\nProducts: cloudforce-one, access, magic, workers, dlp, email-security, realtime, devices, ai-gateway, email, intel, gateway, stream, settings, brand-protection, data-security, ai-search, browser-rendering, dex, logpush, api_gateway, builds, images, addressing, security-center, load_balancers, rulesets, vectorize, firewall, logs... (168 total)\\n\\nTypes:\\n\\ninterface OperationInfo {\\n  summary?: string;\\n  description?: string;\\n  tags?: string[];\\n  parameters?: Array<{ name: string; in: string; required?: boolean; schema?: unknown; description?: string }>;\\n  requestBody?: { required?: boolean; content?: Record<string, { schema?: unknown }> };\\n  responses?: Record<string, { description?: string; content?: Record<string, { schema?: unknown }> }>;\\n}\\n\\ninterface PathItem {\\n  get?: OperationInfo;\\n  post?: OperationInfo;\\n  put?: OperationInfo;\\n  patch?: OperationInfo;\\n  delete?: OperationInfo;\\n}\\n\\ndeclare const spec: {\\n  paths: Record<string, PathItem>;\\n};\\n\\n\\nExamples:\\n\\n// Find endpoints by product\\nasync () => {\\n  const results = [];\\n  for (const [path, methods] of Object.entries(spec.paths)) {\\n    for (const [method, op] of Object.entries(methods)) {\\n      if (op.tags?.some(t => t.toLowerCase() === 'workers')) {\\n        results.push({ method: method.toUpperCase(), path, summary: op.summary });\\n      }\\n    }\\n  }\\n  return results;\\n}\\n\\n// Get endpoint with requestBody schema (refs are resolved)\\nasync () => {\\n  const op = spec.paths['/accounts/{account_id}/d1/database']?.post;\\n  return { summary: op?.summary, requestBody: op?.requestBody };\\n}\\n\\n// Get endpoint parameters\\nasync () => {\\n  const op = spec.paths['/accounts/{account_id}/workers/scripts']?.get;\\n  return op?.parameters;\\n}\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"string\",\"description\":\"JavaScript async arrow function to search the OpenAPI spec\"}},\"required\":[\"code\"],\"$schema\":\"https://json-schema.org/draft/2020-12/schema\"},\"serverId\":\"vnW7pg66\"},{\"name\":\"execute\",\"description\":\"Execute JavaScript code that can read, create, update, or delete resources through the Cloudflare API. First use the 'search' tool to find the right endpoints, then write code using the cloudflare.request() function.\\n\\nAvailable in your code:\\n\\ninterface CloudflareRequestOptions {\\n  method: \\\"GET\\\" | \\\"POST\\\" | \\\"PUT\\\" | \\\"PATCH\\\" | \\\"DELETE\\\";\\n  path: string;\\n  query?: Record<string, string | number | boolean | undefined>;\\n  body?: unknown;\\n  contentType?: string;  // Custom Content-Type header (defaults to application/json if body is present)\\n  rawBody?: boolean;     // If true, sends body as-is without JSON.stringify\\n}\\n\\ninterface CloudflareResponse<T = unknown> {\\n  success: boolean;\\n  status: number;\\n  result: T;\\n  errors: Array<{ code: number; message: string }>;\\n  messages: Array<{ code: number; message: string }>;\\n  result_info?: {\\n    page: number;\\n    per_page: number;\\n    total_pages: number;\\n    count: number;\\n    total_count: number;\\n  };\\n}\\n\\ndeclare const cloudflare: {\\n  request<T = unknown>(options: CloudflareRequestOptions): Promise<CloudflareResponse<T>>;\\n};\\n\\ndeclare const accountId: string;\\n\\n// accountId is pre-set to \\\"<org>\\\" (<email>'s Account) — use it directly in API paths.\\n\\n\\nYour code must be an async arrow function that returns the result.\\n\\nExample: Worker with bindings (requires multipart/form-data):\\nasync () => {\\n  const code = `addEventListener('fetch', e => e.respondWith(MY_KV.get('key').then(v => new Response(v || 'none'))));`;\\n  const metadata = { body_part: \\\"script\\\", bindings: [{ type: \\\"kv_namespace\\\", name: \\\"MY_KV\\\", namespace_id: \\\"your-kv-id\\\" }] };\\n  const b = `--F${Date.now()}`;\\n  const body = [`--${b}`, 'Content-Disposition: form-data; name=\\\"metadata\\\"', 'Content-Type: application/json', '', JSON.stringify(metadata), `--${b}`, 'Content-Disposition: form-data; name=\\\"script\\\"', 'Content-Type: application/javascript', '', code, `--${b}--`].join(\\\"\\\\r\\\\n\\\");\\n  return cloudflare.request({ method: \\\"PUT\\\", path: `/accounts/${accountId}/workers/scripts/my-worker`, body, contentType: `multipart/form-data; boundary=${b}`, rawBody: true });\\n}\\n\\nUNAUTHORIZED OPERATIONS — do not attempt these, the token does not have permission. Tell the user to use the dashboard instead:\\n- Account deletion (DELETE /accounts)\\n- Account settings changes (PUT/PATCH /accounts)\\n- Membership or billing modifications\\n- API token creation or deletion\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"string\",\"description\":\"JavaScript async arrow function to execute\"},\"summary\":{\"type\":\"string\",\"description\":\"Short user-friendly description with no specific names or IDs. Example: \\\"Create Worker\\\", \\\"Update DNS record\\\", \\\"Delete R2 bucket\\\"\"},\"description\":{\"type\":\"string\",\"description\":\"Detailed description of changes with resource identifiers wrapped in backticks. Avoid implementation jargon. Examples: \\\"Create a `hello-world` Worker with a basic Hello World script\\\", \\\"Change A record for `test.example.com` to `1.2.3.4`\\\"\"},\"changes\":{\"type\":\"array\",\"description\":\"Field-level changes for the write operation. Each entry: key (field name), before (current value, omit for creates), after (new value, omit for deletes). Values must be strings. Example: [{\\\"key\\\":\\\"content\\\",\\\"before\\\":\\\"1.2.3.4\\\",\\\"after\\\":\\\"5.6.7.8\\\"},{\\\"key\\\":\\\"proxied\\\",\\\"after\\\":\\\"true\\\"}]\",\"items\":{\"type\":\"object\",\"properties\":{\"key\":{\"type\":\"string\"},\"before\":{\"type\":\"string\"},\"after\":{\"type\":\"string\"}},\"required\":[\"key\"]}}},\"required\":[\"code\",\"summary\",\"description\"],\"$schema\":\"https://json-schema.org/draft/2020-12/schema\"},\"serverId\":\"vnW7pg66\"}]},\"type\":\"cf_agent_mcp_servers\"}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":0,\"event\":{\"kind\":\"started\",\"runId\":\"capability-profile-<org>-82857\",\"agentType\":\"EntitlementAgent\",\"inputPreview\":\"{\\\"mode\\\":\\\"profile\\\",\\\"tier\\\":\\\"free\\\",\\\"entitlements\\\":[],\\\"omittedAllocations\\\":0,\\\"permissions\\\":[],\\\"permissionsKnown\\\":false}\",\"order\":0},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":1,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"start\\\",\\\"messageId\\\":\\\"a6cc1c88-545f-494c-89cb-cc22dc87d2de\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":2,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"start-step\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":3,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-start\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":4,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"The\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":5,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" mode\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":6,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":7,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" \\\\\\\"\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":8,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"profile\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":9,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"\\\\\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":10,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" I\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":11,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" need\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":12,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" to\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":13,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" call\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":14,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" report\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":15,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"_profile\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":16,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" with\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":17,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" the\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":18,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" tier\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":19,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" \\\\\\\"\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":20,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"free\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":21,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"\\\\\\\",\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":22,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" available\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":23,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" capabilities\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":24,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\",\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":25,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" and\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":26,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" unavailable\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":27,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" capabilities\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":28,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\\n\\\\n\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":29,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"The\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":30,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" entitle\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":31,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"ments\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":32,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" list\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":33,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":34,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" empty\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":35,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":36,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" So\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":37,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" there\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":38,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" are\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":39,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" NO\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":40,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" keys\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":41,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" present\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":42,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":43,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" Every\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":44,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" key\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":45,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":46,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" absent\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":47,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":48,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" Per\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":49,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" the\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":50,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" instructions\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":51,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\":\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":52,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" absent\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":53,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" keys\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":54,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" mean\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":55,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" NO\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":56,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" INFORMATION\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":57,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" —\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":58,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" never\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":59,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" turn\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":60,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" an\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":61,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" absent\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":62,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" key\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":63,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" into\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":64,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" a\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":65,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" denial\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":66,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":67,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" Every\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":68,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" `\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":69,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"un\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":70,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"available\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":71,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"`\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":72,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" entry\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":73,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" needs\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":74,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" a\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":75,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" key\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":76,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" that\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":77,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":78,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" PRES\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":79,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"ENT\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":80,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" and\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":81,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" false\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":82,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" or\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":83,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" zero\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":84,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":85,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" Since\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":86,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" the\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":87,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" list\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":88,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":89,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" empty\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":90,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\",\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":91,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" there\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":92,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" are\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":93,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" no\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":94,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" present\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":95,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" keys\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":96,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\",\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":97,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" so\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":98,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" `\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":99,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"un\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":100,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"available\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":101,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"`\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":102,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" must\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":103,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" be\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":104,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" empty\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":105,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\\n\\\\n\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":106,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"Similarly\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":107,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\",\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":108,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" `\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":109,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"available\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":110,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"`\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":111,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" entries\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":112,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" need\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":113,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" to\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":114,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" be\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":115,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" based\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":116,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" on\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":117,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" present\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":118,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" keys\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":119,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" that\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":120,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" are\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":121,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" true\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":122,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" or\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":123,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" above\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":124,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" zero\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":125,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":126,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" There\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":127,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" are\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":128,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" none\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":129,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" present\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":130,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":131,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" So\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":132,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" `\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":133,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"available\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":134,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"`\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":135,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" should\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":136,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" be\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":137,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" empty\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":138,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" too\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":139,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\\n\\\\n\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":140,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"So\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":141,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" the\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":142,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" profile\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":143,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":144,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\":\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":145,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" tier\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":146,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" \\\\\\\"\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":147,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"free\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":148,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"\\\\\\\",\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":149,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" available\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":150,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\":\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":151,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" [],\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":152,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" unavailable\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":153,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\":\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":154,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" [\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":155,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"].\\\\n\\\\n\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":156,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"Call\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":157,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" report\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":158,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"_profile\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":159,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" exactly\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":160,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" once\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":161,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":162,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-end\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":163,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"tool-input-start\\\",\\\"toolCallId\\\":\\\"call_5ab2ebfa9ad1485199e4b5f9\\\",\\\"toolName\\\":\\\"report_profile\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":164,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_5ab2ebfa9ad1485199e4b5f9\\\",\\\"inputTextDelta\\\":\\\"{\\\\\\\"tier\\\\\\\": \\\\\\\"free\\\\\\\", \\\\\\\"available\\\\\\\": [], \\\\\\\"unavailable\\\\\\\": []}\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":165,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"tool-input-available\\\",\\\"toolCallId\\\":\\\"call_5ab2ebfa9ad1485199e4b5f9\\\",\\\"toolName\\\":\\\"report_profile\\\",\\\"input\\\":{\\\"tier\\\":\\\"free\\\",\\\"available\\\":[],\\\"unavailable\\\":[]}}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":166,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"tool-output-available\\\",\\\"toolCallId\\\":\\\"call_5ab2ebfa9ad1485199e4b5f9\\\",\\\"output\\\":{\\\"recorded\\\":true}}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":167,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"finish-step\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":168,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"start-step\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":169,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-start\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":170,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\"The\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":171,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" profile\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":172,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" was\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":173,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" recorded\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":174,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":175,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" The\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":176,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" entitle\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":177,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\"ments\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":178,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" list\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":179,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" is\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":180,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" empty\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":181,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\",\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":182,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" so\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":183,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" there\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":184,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\"'s\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":185,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" nothing\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":186,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" to\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":187,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" report\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":188,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" for\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":189,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" available\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":190,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" or\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":191,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" unavailable\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":192,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" capabilities\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":193,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":194,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" Report\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":195,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" the\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":196,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" outcome\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":197,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\" conc\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":198,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\"is\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":199,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\"ely\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":200,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":201,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-end\\\",\\\"id\\\":\\\"RlPeRR8O4UzjfVFO\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":202,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-start\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":203,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\"Profile\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":204,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" recorded\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":205,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":206,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" The\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":207,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" entitlement\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":208,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" list\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":209,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" was\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":210,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" empty\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":211,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\",\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":212,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" so\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":213,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" there\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":214,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" were\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":215,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" no\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":216,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" ver\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":217,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\"ifiable\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":218,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" capabilities\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":219,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" to\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":220,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" report\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":221,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" —\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":222,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" no\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":223,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" `\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":224,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\"available\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":225,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\"`\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":226,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" or\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":227,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" `\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":228,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\"un\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":229,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\"available\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":230,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\"`\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":231,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" entries\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":232,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" could\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":233,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" be\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":234,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" substant\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":235,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\"iated\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":236,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\",\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":237,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" since\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":238,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" no\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":239,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" keys\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":240,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" were\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":241,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" present\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":242,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" in\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":243,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" the\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":244,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\" list\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":245,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\",\\\"delta\\\":\\\".\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":246,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"text-end\\\",\\\"id\\\":\\\"2lZ6YNFaNsq9pKyw\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":247,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"finish-step\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":248,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"finish\\\",\\\"finishReason\\\":\\\"stop\\\"}\"},\"replay\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":249,\"event\":{\"kind\":\"finished\",\"runId\":\"capability-profile-<org>-82857\",\"summary\":\"Profile: free tier, 0 available / 0 unavailable\"},\"replay\":true}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"rpc\",\"id\":\"85066505-f5a3-45c4-a077-b30525d70027\",\"method\":\"createConversation\",\"args\":[\"Where do I find my account ID and zone ID?\",\"<org>\",\"<org>\",\"<email>'s Account\",true,false,true]}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"done\":true,\"id\":\"85066505-f5a3-45c4-a077-b30525d70027\",\"result\":{\"id\":\"5da3d2d1-73d3-490a-ba67-f97b7edbd263\",\"title\":\"Where do I find my account ID and zone ID?\",\"accountId\":\"<org>\",\"accountName\":\"<email>'s Account\",\"created_at\":\"2026-09-18 06:44:29\",\"updated_at\":\"2026-09-18 06:44:29\"},\"success\":true,\"type\":\"rpc\"}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"set_page_context\",\"url\":\"/<org>/home\",\"title\":\"Cloudflare Dashboard | Manage Your Account\",\"heading\":\"Time to build something great.\"}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"cf_agent_use_chat_request\",\"id\":\"34bd8043\",\"init\":{\"method\":\"POST\",\"body\":\"{\\\"messages\\\":[{\\\"id\\\":\\\"809d8d90-1797-4029-9919-5224c2ff4996\\\",\\\"role\\\":\\\"user\\\",\\\"parts\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"Where do I find my account ID and zone ID?\\\"}]}]}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_session\",\"phase\":\"idle\",\"tokenEstimate\":17,\"tokenThreshold\":null}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"start\\\",\\\"messageId\\\":\\\"c279156f-11c4-4095-a5f5-2bd048c5a110\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"start-step\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-start\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\"The\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" user\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" is\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" asking\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" where\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" to\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" find\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" their\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" ID\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" and\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" zone\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" ID\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\".\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" This\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" is\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" a\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" common\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" question\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\".\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" Let\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" me\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" search\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" the\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" documentation\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" and\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" also\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" provide\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" dashboard\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" navigation\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\".\\\\n\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\"Let\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" me\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" search\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" the\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" docs\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" for\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" this\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" and\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" also\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" search\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" dashboard\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" pages\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" for\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" the\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" relevant\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" pages\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\".\\\\n\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\"Actually\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\",\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" the\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" user\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" is\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" on\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" the\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" home\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" page\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\".\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" I\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" can\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" answer\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" directly\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" with\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" dashboard\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" navigation\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\".\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" Let\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" me\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" search\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" the\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" dashboard\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" pages\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" to\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" get\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" correct\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" URLs\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\".\\\\n\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\"Let\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" me\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" search\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" docs\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" too\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" for\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\" grounding\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\",\\\"delta\\\":\\\".\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-end\\\",\\\"id\\\":\\\"ecW0d8NQIQe5MMD1\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"tool-input-start\\\",\\\"toolCallId\\\":\\\"call_b324fcb4ec4543fb86e38258\\\",\\\"toolName\\\":\\\"tool_cloudflaredocs_search_cloudflare_documentation\\\",\\\"title\\\":\\\"Search Cloudflare docs\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_b324fcb4ec4543fb86e38258\\\",\\\"inputTextDelta\\\":\\\"{\\\\\\\"query\\\\\\\": \\\\\\\"find account ID and zone ID in dashboard\\\\\\\"}\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"tool-input-start\\\",\\\"toolCallId\\\":\\\"call_e29ac7258f3147738287b183\\\",\\\"toolName\\\":\\\"searchDashboardPages\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"tool-input-delta\\\",\\\"toolCallId\\\":\\\"call_e29ac7258f3147738287b183\\\",\\\"inputTextDelta\\\":\\\"{\\\\\\\"query\\\\\\\": \\\\\\\"account ID zone ID\\\\\\\"}\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"tool-input-available\\\",\\\"toolCallId\\\":\\\"call_b324fcb4ec4543fb86e38258\\\",\\\"toolName\\\":\\\"tool_cloudflaredocs_search_cloudflare_documentation\\\",\\\"input\\\":{\\\"query\\\":\\\"find account ID and zone ID in dashboard\\\"},\\\"title\\\":\\\"Search Cloudflare docs\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"tool-input-available\\\",\\\"toolCallId\\\":\\\"call_e29ac7258f3147738287b183\\\",\\\"toolName\\\":\\\"searchDashboardPages\\\",\\\"input\\\":{\\\"query\\\":\\\"account ID zone ID\\\"}}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"tool-output-available\\\",\\\"toolCallId\\\":\\\"call_e29ac7258f3147738287b183\\\",\\\"output\\\":[]}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"tool-output-available\\\",\\\"toolCallId\\\":\\\"call_b324fcb4ec4543fb86e38258\\\",\\\"output\\\":{\\\"_meta\\\":{\\\"io.modelcontextprotocol/serverInfo\\\":{\\\"name\\\":\\\"docs-ai-search\\\",\\\"version\\\":\\\"0.4.13\\\"}},\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"<result>\\\\n<url>https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/</url>\\\\n<title>Find Account And Zone Ids</title>\\\\n<text>\\\\n---\\\\ndescription: Locate your Cloudflare account ID and zone ID in the dashboard for use with the API.\\\\ntitle: Find account and zone IDs\\\\nimage: https://developers.cloudflare.com/og-docs.png\\\\n---\\\\n\\\\n[Skip to content](#main-content)\\\\n\\\\n> Documentation Index  \\\\n> Fetch the complete documentation index at: https://developers.cloudflare.com/fundamentals/llms.txt  \\\\n> Use this file to discover all available pages before exploring further.\\\\n\\\\n# Find account and zone IDs\\\\n\\\\nLast updated Aug 3, 2026|Copy as Markdown|[View as Markdown](index.md)|[Agent setup](/agent-setup/)\\\\n\\\\n\\\\n# Find account and zone IDs\\\\n\\\\nLast updated Aug 3, 2026|Copy as Markdown|[View as Markdown](index.md)|[Agent setup](/agent-setup/)\\\\n\\\\nOnce you [set up a new account](/fundamentals/account/) and [add your domain](/fundamentals/manage-domains/add-site/) to Cloudflare, you may need access to your zone and account IDs for API operations.\\\\n\\\\n## Copy your account ID\\\\n\\\\n1. Open the Cloudflare dashboard.  \\\\n[Go to **Account home** ↗](https://dash.cloudflare.com/?to=/:account/home)\\\\n2. Select **Search** (or press `CMD/CTRL + K` from any page).\\\\n3. Enter `Copy account ID` and select the result to copy.  \\\\n![Search results showing the Copy account ID command](/_astro/quick-search-account-id.n1JgrcIV_1hD9vK.webp)\\\\n\\\\n## Copy your zone ID\\\\n\\\\n1. In the Cloudflare dashboard, select the domain you want the zone ID for.  \\\\n[Go to **Domains** ↗](https://dash.cloudflare.com/?to=/:account/domains/overview)\\\\n2. On the domain **Overview** page, locate the **API** section towards the bottom of the page.  \\\\n![Domain Overview page with the API section highlighted](/_astro/dash-overview-api-highlighted.uHQaRqfT_A0K0E.webp)\\\\n3. Select the copy button next to **Zone ID**. You can also copy **Account ID** from this section.\\\\n\\\\n## Find account ID in Workers & Pages\\\\n\\\\nYou can also find your account ID from the **Workers & Pages** section of your account.\\\\n\\\\n1. In the Cloudflare dashboard, go to **Workers & Pages**.  \\\\n[Go to **Workers & Pages** ↗](https://dash.cloudflare.com/?to=/:account/workers-and-pages)\\\\n2. Locate the **Account Details** section.\\\\n3. Select the copy button next to **Account ID**.  \\\\n![Workers & Pages Overview page with the Account ID section highlighted](/_astro/workers-account-id.BndMHhMr_xGL5F.webp)\\\\n\\\\nWas this helpful?\\\\n\\\\nYesNo\\\\n\\\\n## On this page\\\\n\\\\n[![](/_astro/logo.DMYpXs3t.svg)Docs](/)\\\\n\\\\n\\\\n## On this page\\\\n\\\\n[![](/_astro/logo.DMYpXs3t.svg)Docs](/)\\\\n\\\\n```json\\\\n{\\\\\\\"@context\\\\\\\":\\\\\\\"https://schema.org\\\\\\\",\\\\\\\"@type\\\\\\\":\\\\\\\"TechArticle\\\\\\\",\\\\\\\"@id\\\\\\\":\\\\\\\"https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/#page\\\\\\\",\\\\\\\"headline\\\\\\\":\\\\\\\"Find account and zone IDs · Cloudflare Fundamentals docs\\\\\\\",\\\\\\\"description\\\\\\\":\\\\\\\"Locate your Cloudflare account ID and zone ID in the dashboard for use with the API.\\\\\\\",\\\\\\\"url\\\\\\\":\\\\\\\"https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/\\\\\\\",\\\\\\\"inLanguage\\\\\\\":\\\\\\\"en\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"https://developers.cloudflare.com/og-docs.png\\\\\\\",\\\\\\\"dateModified\\\\\\\":\\\\\\\"2026-08-03\\\\\\\",\\\\\\\"publisher\\\\\\\":{\\\\\\\"@type\\\\\\\":\\\\\\\"Organization\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"Cloudflare\\\\\\\",\\\\\\\"url\\\\\\\":\\\\\\\"https://www.cloudflare.com/\\\\\\\"},\\\\\\\"isPartOf\\\\\\\":{\\\\\\\"@type\\\\\\\":\\\\\\\"WebSite\\\\\\\",\\\\\\\"@id\\\\\\\":\\\\\\\"https://developers.cloudflare.com/#website\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"Cloudflare Docs\\\\\\\",\\\\\\\"url\\\\\\\":\\\\\\\"https://developers.cloudflare.com/\\\\\\\"}}\\\\n```\\\\n</text>\\\\n</result>\\\\n<result>\\\\n<url>https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/</url>\\\\n<title>Programmable Flow Protection</title>\\\\n<text>\\\\n---\\\\ntitle: Programmable Flow Protection\\\\ndescription: Configure Programmable Flow Protection programs and rules using the Cloudflare API.\\\\nimage: https://developers.cloudflare.com/core-services-preview.png\\\\n---\\\\n\\\\n> Documentation Index  \\\\n> Fetch the complete documentation index at: https://developers.cloudflare.com/ddos-protection/llms.txt  \\\\n> Use this file to discover all available pages before exploring further. \\\\n\\\\n[Skip to content](#%5Ftop) \\\\n\\\\n# Programmable Flow Protection\\\\n\\\\nUse the [Cloudflare API](/api/) to configure Programmable Flow Protection.\\\\n\\\\nFor examples of API calls, refer to [Common API calls](/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/examples/).\\\\n\\\\n## Endpoints\\\\n\\\\nTo obtain the complete endpoint, append the Programmable Flow Protection API endpoints listed below to the Cloudflare API base URL:\\\\n\\\\n```\\\\nhttps://api.cloudflare.com/client/v4\\\\n```\\\\n\\\\nThe `{account_id}` argument is the [account ID](/fundamentals/account/find-account-and-zone-ids/) (a hexadecimal string). You can find this value in the Cloudflare dashboard.\\\\n\\\\nThe tables in the following sections summarize the available operations.\\\\n\\\\n### Program operations\\\\n\\\\n\\\\n</text>\\\\n</result>\\\\n<result>\\\\n<url>https://developers.cloudflare.com/dns/zone-setups/zone-transfers/cloudflare-as-secondary/setup/</url>\\\\n<title>Setup</title>\\\\n<text>\\\\n### At Cloudflare\\\\n\\\\nMake sure your account team has enabled your zone for Secondary DNS.\\\\n\\\\nGet the following values from your Cloudflare account:\\\\n\\\\n* [Account ID](/fundamentals/account/find-account-and-zone-ids/)\\\\n* [Zone ID](/fundamentals/account/find-account-and-zone-ids/)\\\\n* [Nameserver names](/dns/zone-setups/full-setup/setup/#31-get-nameserver-names), which should have **secondary** in the name.\\\\n\\\\n---\\\\n\\\\n## 1\\\\\\\\. Create TSIG (optional)\\\\n\\\\nA Transaction Signature (TSIG) authenticates communication between a primary and secondary DNS server.\\\\n\\\\nNote\\\\n\\\\nThe TSIG names configured at your primary and secondary DNS providers have to be exactly the same. Any differences in TSIG names will cause zone transfers to fail.\\\\n\\\\nWhile optional, this step is highly recommended.\\\\n\\\\n* [ Dashboard ](#tab-panel-8279)\\\\n* [ API ](#tab-panel-8280)\\\\n\\\\nTo create a TSIG using the dashboard:\\\\n\\\\n1. In the Cloudflare dashboard, go to the account **Settings** page.  \\\\n[ Go to **Configurations** ](https://dash.cloudflare.com/?to=/:account/configurations)\\\\n2. Go to **DNS Settings**.\\\\n3. Under **DNS Zone Transfers**, for **TSIG**, select **Create**.\\\\n4. Enter the following information:\\\\n\\\\n  * **TSIG name**: The name of the TSIG object using domain name syntax (more details in [RFC 8945 section 4.2 ↗](https://datatracker.ietf.org/doc/html/rfc8945#section-4.2)).\\\\n  * **Secret (optional)**: Get a shared secret to add to your third-party nameservers. If left blank, this field generates a random secret.\\\\n  * **Algorithm**: Choose a TSIG signing algorithm.\\\\n5. Select **Create**.\\\\n\\\\nTo create a TSIG using the API, send a [POST](/api/resources/dns/subresources/zone%5Ftransfers/subresources/tsigs/methods/create/) request.\\\\n\\\\n## 2\\\\\\\\. Create Peer Server\\\\n\\\\n* [ Dashboard ](#tab-panel-8277)\\\\n* [ API ](#tab-panel-8278)\\\\n\\\\nTo create a peer server using the dashboard:\\\\n\\\\n\\\\n</text>\\\\n</result>\\\\n<result>\\\\n<url>https://developers.cloudflare.com/r2/api/tokens/</url>\\\\n<title>Tokens</title>\\\\n<text>\\\\nAfter your token has been successfully created, review your **Secret Access Key** and **Access Key ID** values. These may often be referred to as Client Secret and Client ID, respectively.\\\\n\\\\nCaution\\\\n\\\\nYou will not be able to access your **Secret Access Key** again after this step. Copy and record both values to avoid losing them.\\\\n\\\\nYou will also need to configure the `endpoint` in your S3 client to `https://<ACCOUNT_ID>.r2.cloudflarestorage.com`.\\\\n\\\\nFind your [account ID in the Cloudflare dashboard](/fundamentals/account/find-account-and-zone-ids/).\\\\n\\\\nBuckets created with jurisdictions must be accessed via jurisdiction-specific endpoints:\\\\n\\\\n* European Union (EU): `https://<ACCOUNT_ID>.eu.r2.cloudflarestorage.com`\\\\n* FedRAMP: `https://<ACCOUNT_ID>.fedramp.r2.cloudflarestorage.com`\\\\n* United States (US): `https://<ACCOUNT_ID>.us.r2.cloudflarestorage.com`\\\\n\\\\nCaution\\\\n\\\\nJurisdictional buckets can only be accessed via the corresponding jurisdictional endpoint. Most S3 clients will not let you configure multiple `endpoints`, so you'll generally have to initialize one client per jurisdiction.\\\\n\\\\n## Permissions\\\\n\\\\n\\\\n</text>\\\\n</result>\\\\n<result>\\\\n<url>https://developers.cloudflare.com/rules/cloud-connector/create-api/</url>\\\\n<title>Create Api</title>\\\\n<text>\\\\n# Configure a Cloud Connector rule via API\\\\n\\\\nLast updated Aug 18, 2026|Copy as Markdown|[View as Markdown](index.md)|[Agent setup](/agent-setup/)\\\\n\\\\nYou can configure Cloud Connector rules using the [Cloudflare API](/fundamentals/api/).\\\\n\\\\n## Required permissions\\\\n\\\\nThe [API token](/fundamentals/api/get-started/create-token/) used in API requests to manage Cloud Connector rules must have at least the following permission:\\\\n\\\\n* _Zone_ \\\\\\\\> _Cloud Connector_ \\\\\\\\> _Write_\\\\n\\\\nNote\\\\n\\\\nA token with this permission is only valid for the Cloud Connector endpoints described in this page. You cannot use it to interact with the `http_cloud_connector` phase via [Rulesets API](/ruleset-engine/rulesets-api/).\\\\n\\\\n## Endpoints\\\\n\\\\nTo obtain the complete endpoint, append the Cloud Connector endpoints listed below to the Cloudflare API base URL:\\\\n\\\\n```txt\\\\nhttps://api.cloudflare.com/client/v4\\\\n```\\\\n\\\\nThe `{zone_id}` argument is the [zone ID](/fundamentals/account/find-account-and-zone-ids/) (a hexadecimal string). You can find this value in the Cloudflare dashboard.\\\\n\\\\nThe following table summarizes the available operations.\\\\n\\\\n| Operation                                  | Verb + Endpoint                              |\\\\n| ------------------------------------------ | -------------------------------------------- |\\\\n| List Cloud Connector rules                 | GET /zones/{zone\\\\\\\\_id}/cloud\\\\\\\\_connector/rules |\\\\n| Create/update/delete Cloud Connector rules | PUT /zones/{zone\\\\\\\\_id}/cloud\\\\\\\\_connector/rules |\\\\n\\\\n## Example API calls\\\\n\\\\n### List of Cloud Connector rules\\\\n\\\\nThe following example returns a list of existing Cloud Connector rules:\\\\n\\\\nRequired API token permissions\\\\n\\\\n\\\\n</text>\\\\n</result>\\\\n<result>\\\\n<url>https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/pi/</url>\\\\n<title>Pi</title>\\\\n<text>\\\\n# Pi\\\\n\\\\nLast updated Sep 10, 2026|Copy as Markdown|[View as Markdown](index.md)|[Agent setup](/agent-setup/)\\\\n\\\\n[Pi ↗](https://pi.dev) is a coding agent you run in your terminal. It has built-in support for AI Gateway, so instead of setting a base URL you select the `cloudflare-ai-gateway` provider and point Pi at your gateway. Pi builds the gateway endpoint from your account ID and gateway slug and routes requests through it.\\\\n\\\\n## Prerequisites\\\\n\\\\nBefore you start, you need:\\\\n\\\\n* An [authenticated gateway](/ai-gateway/configuration/authentication/) and its [gateway token](/ai-gateway/configuration/authentication/#setting-up-authenticated-gateway-using-the-dashboard). The gateway token must have `Run` permissions.\\\\n* Your Cloudflare account ID. To find it, refer to [Find your account and zone IDs](/fundamentals/account/find-account-and-zone-ids/).\\\\n* Pi installed and updated to the latest version.\\\\n\\\\nNote\\\\n\\\\nThe token you give Pi is your gateway token, not a model provider key. To pay for model usage, enable [Unified Billing](/ai-gateway/features/unified-billing/) or store provider keys in AI Gateway with [BYOK (Store Keys)](/ai-gateway/configuration/bring-your-own-keys/). Either way, AI Gateway handles the provider authentication for you.\\\\n\\\\n1. Set your gateway token, account ID, and gateway slug as environment variables. The following commands set them for the current session. To persist them, add them to your shell profile (for example, `~/.zshrc` or `~/.bashrc`).  \\\\nReplace `<CLOUDFLARE_API_KEY>` and `<CLOUDFLARE_ACCOUNT_ID>` with your values. You can leave `CLOUDFLARE_GATEWAY_ID` as `default` to route through your account's default gateway, or change it to another gateway slug.  \\\\n```bash  \\\\n# Run `wrangler auth token` to get an auth token.  \\\\nexport CLOUDFLARE_API_KEY=\\\\\\\"<CLOUDFLARE_API_KEY>\\\\\\\"  \\\\n# Run `wrangler whoami` to get your account ID.  \\\\nexport CLOUDFLARE_ACCOUNT_ID=\\\\\\\"<CLOUDFLARE_ACCOUNT_ID>\\\\\\\"  \\\\n# Use `default` to route through your account's default gateway.\\\\n</text>\\\\n</result>\\\\n<result>\\\\n<url>https://developers.cloudflare.com/ai-gateway/get-started/</url>\\\\n<title>Get Started</title>\\\\n<text>\\\\n---\\\\ndescription: Set up AI Gateway and send your first request to observe and control AI API traffic.\\\\ntitle: Getting started\\\\nimage: https://developers.cloudflare.com/og-docs.png\\\\n---\\\\n\\\\n[Skip to content](#main-content)\\\\n\\\\n> Documentation Index  \\\\n> Fetch the complete documentation index at: https://developers.cloudflare.com/ai-gateway/llms.txt  \\\\n> Use this file to discover all available pages before exploring further.\\\\n\\\\n# Getting started\\\\n\\\\nLast updated Aug 7, 2026|Copy as Markdown|[View as Markdown](index.md)|[Agent setup](/agent-setup/)\\\\n\\\\nIn this guide, you will learn how to set up and use your first AI Gateway.\\\\n\\\\n## Get your account ID and authentication token\\\\n\\\\nBefore making requests, you need two things:\\\\n\\\\n1. Your **Account ID** — find it in the [Cloudflare dashboard](/fundamentals/account/find-account-and-zone-ids/).\\\\n2. A **Cloudflare API token** — [create an API token](/fundamentals/api/get-started/create-token/) with `AI Gateway - Read`, `AI Gateway - Edit`, and `Workers AI - Read` permissions.\\\\n\\\\n## Send your first request\\\\n\\\\nRun the following command to make your first request through AI Gateway. This example calls a Workers AI model, which requires the `@cf/` model prefix and the `cf-aig-gateway-id` header.\\\\n\\\\n```bash\\\\n# Run `wrangler auth token` to get an auth token to replace $CLOUDFLARE_API_TOKEN,\\\\n# and `wrangler whoami` to replace $CLOUDFLARE_ACCOUNT_ID.\\\\n</text>\\\\n</result>\\\\n<result>\\\\n<url>https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-code/</url>\\\\n<title>Claude Code</title>\\\\n<text>\\\\n## Prerequisites\\\\n\\\\nBefore you start, you need:\\\\n\\\\n* An [authenticated gateway](/ai-gateway/configuration/authentication/) and its [gateway token](/ai-gateway/configuration/authentication/#setting-up-authenticated-gateway-using-the-dashboard). The gateway token must have `Run` permissions.\\\\n* Your Cloudflare account ID. To find it, refer to [Find your account and zone IDs](/fundamentals/account/find-account-and-zone-ids/).\\\\n* Credentials for the provider you route to:  \\\\n  * **Anthropic**: Either [Unified Billing](/ai-gateway/features/unified-billing/) credits loaded on your Cloudflare account (Cloudflare bills you), or your own Anthropic API key (Anthropic bills you). You can provide your own key either by storing it in AI Gateway as a [provider key (BYOK)](/ai-gateway/configuration/bring-your-own-keys/) or by passing it directly in `ANTHROPIC_API_KEY`.\\\\n  * **Amazon Bedrock** or **Google Vertex AI**: your provider credentials stored in AI Gateway as a [provider key (BYOK)](/ai-gateway/configuration/bring-your-own-keys/).\\\\n* [Claude Code ↗](https://docs.anthropic.com/en/docs/claude-code/setup) installed and updated to the latest version.\\\\n\\\\nNote\\\\n\\\\n\\\\n</text>\\\\n</result>\\\"}],\\\"structuredContent\\\":{\\\"results\\\":[{\\\"similarity\\\":0.9985104203224182,\\\"id\\\":\\\"6fab41ff182250c24d3b232c7204e6a054f44d2e8fc0208242739c5991753f9d\\\",\\\"url\\\":\\\"https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/\\\",\\\"title\\\":\\\"Find Account And Zone Ids\\\",\\\"text\\\":\\\"---\\\\ndescription: Locate your Cloudflare account ID and zone ID in the dashboard for use with the API.\\\\ntitle: Find account and zone IDs\\\\nimage: https://developers.cloudflare.com/og-docs.png\\\\n---\\\\n\\\\n[Skip to content](#main-content)\\\\n\\\\n> Documentation Index  \\\\n> Fetch the complete documentation index at: https://developers.cloudflare.com/fundamentals/llms.txt  \\\\n> Use this file to discover all available pages before exploring further.\\\\n\\\\n# Find account and zone IDs\\\\n\\\\nLast updated Aug 3, 2026|Copy as Markdown|[View as Markdown](index.md)|[Agent setup](/agent-setup/)\\\\n\\\\n\\\\n# Find account and zone IDs\\\\n\\\\nLast updated Aug 3, 2026|Copy as Markdown|[View as Markdown](index.md)|[Agent setup](/agent-setup/)\\\\n\\\\nOnce you [set up a new account](/fundamentals/account/) and [add your domain](/fundamentals/manage-domains/add-site/) to Cloudflare, you may need access to your zone and account IDs for API operations.\\\\n\\\\n## Copy your account ID\\\\n\\\\n1. Open the Cloudflare dashboard.  \\\\n[Go to **Account home** ↗](https://dash.cloudflare.com/?to=/:account/home)\\\\n2. Select **Search** (or press `CMD/CTRL + K` from any page).\\\\n3. Enter `Copy account ID` and select the result to copy.  \\\\n![Search results showing the Copy account ID command](/_astro/quick-search-account-id.n1JgrcIV_1hD9vK.webp)\\\\n\\\\n## Copy your zone ID\\\\n\\\\n1. In the Cloudflare dashboard, select the domain you want the zone ID for.  \\\\n[Go to **Domains** ↗](https://dash.cloudflare.com/?to=/:account/domains/overview)\\\\n2. On the domain **Overview** page, locate the **API** section towards the bottom of the page.  \\\\n![Domain Overview page with the API section highlighted](/_astro/dash-overview-api-highlighted.uHQaRqfT_A0K0E.webp)\\\\n3. Select the copy button next to **Zone ID**. You can also copy **Account ID** from this section.\\\\n\\\\n## Find account ID in Workers & Pages\\\\n\\\\nYou can also find your account ID from the **Workers & Pages** section of your account.\\\\n\\\\n1. In the Cloudflare dashboard, go to **Workers & Pages**.  \\\\n[Go to **Workers & Pages** ↗](https://dash.cloudflare.com/?to=/:account/workers-and-pages)\\\\n2. Locate the **Account Details** section.\\\\n3. Select the copy button next to **Account ID**.  \\\\n![Workers & Pages Overview page with the Account ID section highlighted](/_astro/workers-account-id.BndMHhMr_xGL5F.webp)\\\\n\\\\nWas this helpful?\\\\n\\\\nYesNo\\\\n\\\\n## On this page\\\\n\\\\n[![](/_astro/logo.DMYpXs3t.svg)Docs](/)\\\\n\\\\n\\\\n## On this page\\\\n\\\\n[![](/_astro/logo.DMYpXs3t.svg)Docs](/)\\\\n\\\\n```json\\\\n{\\\\\\\"@context\\\\\\\":\\\\\\\"https://schema.org\\\\\\\",\\\\\\\"@type\\\\\\\":\\\\\\\"TechArticle\\\\\\\",\\\\\\\"@id\\\\\\\":\\\\\\\"https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/#page\\\\\\\",\\\\\\\"headline\\\\\\\":\\\\\\\"Find account and zone IDs · Cloudflare Fundamentals docs\\\\\\\",\\\\\\\"description\\\\\\\":\\\\\\\"Locate your Cloudflare account ID and zone ID in the dashboard for use with the API.\\\\\\\",\\\\\\\"url\\\\\\\":\\\\\\\"https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/\\\\\\\",\\\\\\\"inLanguage\\\\\\\":\\\\\\\"en\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"https://developers.cloudflare.com/og-docs.png\\\\\\\",\\\\\\\"dateModified\\\\\\\":\\\\\\\"2026-08-03\\\\\\\",\\\\\\\"publisher\\\\\\\":{\\\\\\\"@type\\\\\\\":\\\\\\\"Organization\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"Cloudflare\\\\\\\",\\\\\\\"url\\\\\\\":\\\\\\\"https://www.cloudflare.com/\\\\\\\"},\\\\\\\"isPartOf\\\\\\\":{\\\\\\\"@type\\\\\\\":\\\\\\\"WebSite\\\\\\\",\\\\\\\"@id\\\\\\\":\\\\\\\"https://developers.cloudflare.com/#website\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"Cloudflare Docs\\\\\\\",\\\\\\\"url\\\\\\\":\\\\\\\"https://developers.cloudflare.com/\\\\\\\"}}\\\\n```\\\"},{\\\"similarity\\\":0.9976003766059875,\\\"id\\\":\\\"0226d06142313b799f5c566a161df06d52311b98e89b1c97d51f13293ec33bf9\\\",\\\"url\\\":\\\"https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/\\\",\\\"title\\\":\\\"Programmable Flow Protection\\\",\\\"text\\\":\\\"---\\\\ntitle: Programmable Flow Protection\\\\ndescription: Configure Programmable Flow Protection programs and rules usin"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"data-status\\\",\\\"transient\\\":true,\\\"data\\\":{\\\"state\\\":\\\"finalizing\\\"}}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"finish-step\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"start-step\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-start\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\"The\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\" dashboard\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\" search\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\" returned no results,\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\" but the docs\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\" give\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\" clear\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\" instructions. Let me provide\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\" the answer\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\",\\\"delta\\\":\\\".\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"reasoning-end\\\",\\\"id\\\":\\\"Ayhpvhm51bMSe7oX\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-start\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"**\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"Your\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" account ID\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" and\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" zone ID are both\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" available\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" in the dashboard\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\".** For\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" your\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" current\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" account, your\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" account ID is `\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"e8\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"441\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"bfc\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"59\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"744\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"c\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"58\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"c\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"5b\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"207\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"9e\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"5e\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"9a\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"19cb\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"`.\\\\n\\\\n###\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" Account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" ID\\\\n\\\\n- **Qu\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"ickest way:**\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" From\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" any\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" dashboard\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" page, press `\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"CMD/\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"CTRL\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" +\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" K` to open\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" search\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\", type `\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"Copy account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" ID`, and select\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" the result\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" to copy\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" it.\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"- **From Workers\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" &\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" Pages:** Go\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" to [\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"Workers & Pages](\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"https://dash\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\".cloudflare\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\".com/?\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"to=\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"/:account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"/workers-and\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"-pages\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\") →\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" look for the **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"Account Details\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"** section →\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" copy the\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"Account ID**.\\\\n\\\\n###\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" Zone\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" ID\\\\n\\\\n1\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\". Go to [\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"Domains](https://dash.cloudflare\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\".com/?to=/:account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"/domains/\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"overview) and select\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" the domain\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" you want.\\\\n\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"2. On\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" the domain\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"Overview** page, scroll to\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" the **\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"API** section near\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" the bottom.\\\\n3. Copy\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" the **Zone\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" ID** (\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\"the\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" Account\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" ID is also available here\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\").\\\\n\\\\nWould\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" you like me\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" to look\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" up the zone\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" ID for a\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" specific domain on\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-delta\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\",\\\"delta\\\":\\\" your account?\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"text-end\\\",\\\"id\\\":\\\"IA5BraM1DcuFxD2u\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"finish-step\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"{\\\"type\\\":\\\"finish\\\",\\\"finishReason\\\":\\\"stop\\\"}\",\"done\":false}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_use_chat_response\",\"id\":\"34bd8043\",\"body\":\"\",\"done\":true}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_session\",\"phase\":\"idle\",\"tokenEstimate\":8070,\"tokenThreshold\":null}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_chat_messages\",\"messages\":[{\"id\":\"809d8d90-1797-4029-9919-5224c2ff4996\",\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"text\":\"Where do I find my account ID and zone ID?\"}]}]}"
+ }
+]

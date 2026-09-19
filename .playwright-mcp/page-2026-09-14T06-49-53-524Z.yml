@@ -1,0 +1,46 @@
+- generic [active] [ref=f149e1]:
+  - main [ref=f149e3]:
+    - generic [ref=f149e4]:
+      - group [ref=f149e6]:
+        - generic "選單" [ref=f149e7] [cursor=pointer]
+      - generic [ref=f149e11]:
+        - heading "What's up next?" [level=1] [ref=f149e14]
+        - generic [ref=f149e15]:
+          - generic [ref=f149e17]:
+            - generic [ref=f149e18]:
+              - generic [ref=f149e19]: ◇
+              - combobox [ref=f149e20] [cursor=pointer]:
+                - option "Sandbox" [selected]
+                - option "Mac"
+            - generic [ref=f149e21]:
+              - generic [ref=f149e22]: +
+              - combobox [ref=f149e23] [cursor=pointer]:
+                - option "Select repo…" [selected]
+          - generic [ref=f149e24]:
+            - textbox "Describe a task or ask a question" [ref=f149e25]
+            - button "送出" [ref=f149e26] [cursor=pointer]:
+              - generic [ref=f149e27]: ↑
+          - generic [ref=f149e28]:
+            - generic [ref=f149e29]:
+              - combobox [ref=f149e30] [cursor=pointer]:
+                - option "Auto" [selected]
+                - option "Accept edits"
+                - option "Plan"
+              - generic "Fast mode" [ref=f149e31] [cursor=pointer]:
+                - checkbox "Fast" [ref=f149e32]
+                - generic [ref=f149e33]: Fast
+            - generic [ref=f149e34]:
+              - combobox [ref=f149e35] [cursor=pointer]:
+                - option "Provider" [selected]
+              - combobox [ref=f149e36] [cursor=pointer]:
+                - option "Model" [selected]
+              - combobox [ref=f149e37] [cursor=pointer]:
+                - option "High" [selected]
+                - option "Auto"
+                - option "Low"
+                - option "Medium"
+  - generic [ref=f149e41]:
+    - button [ref=f149e42]
+    - button [ref=f149e48]
+    - button [ref=f149e52]
+    - button [ref=f149e60]

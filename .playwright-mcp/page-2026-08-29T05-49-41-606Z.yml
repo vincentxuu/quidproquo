@@ -1,0 +1,226 @@
+- generic [ref=f164e2]:
+  - generic [ref=f164e3]:
+    - link "Skip to content" [ref=f164e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f164e9]:
+      - heading "Navigation Menu" [level=2] [ref=f164e10]
+      - generic [ref=f164e11]:
+        - link "Homepage" [ref=f164e13] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f164e16]:
+          - navigation "Global" [ref=f164e17]:
+            - list [ref=f164e18]:
+              - listitem [ref=f164e19]:
+                - button "Platform" [ref=f164e21] [cursor=pointer]
+              - listitem [ref=f164e24]:
+                - button "Solutions" [ref=f164e26] [cursor=pointer]
+              - listitem [ref=f164e29]:
+                - button "Resources" [ref=f164e31] [cursor=pointer]
+              - listitem [ref=f164e34]:
+                - button "Open Source" [ref=f164e36] [cursor=pointer]
+              - listitem [ref=f164e39]:
+                - button "Enterprise" [ref=f164e41] [cursor=pointer]
+              - listitem [ref=f164e44]:
+                - link "Pricing" [ref=f164e45] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+          - generic [ref=f164e46]:
+            - button "Search or jump to, type / to search" [ref=f164e48] [cursor=pointer]
+            - link "Sign in" [ref=f164e55] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fvincentxuu%2Fquidproquo%2Factions
+            - link "Sign up" [ref=f164e58] [cursor=pointer]:
+              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Factions%2Findex&source=header-repo&source_repo=vincentxuu%2Fquidproquo
+            - button "Appearance settings" [ref=f164e61] [cursor=pointer]
+  - main [ref=f164e68]:
+    - generic [ref=f164e69]:
+      - generic [ref=f164e70]:
+        - generic [ref=f164e72]:
+          - link "vincentxuu" [ref=f164e76] [cursor=pointer]:
+            - /url: /vincentxuu
+          - generic [ref=f164e77]: /
+          - strong [ref=f164e78]:
+            - link "quidproquo" [ref=f164e79] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo
+          - generic [ref=f164e80]: Public
+        - generic [ref=f164e81]:
+          - list:
+            - listitem [ref=f164e82]:
+              - link "You must be signed in to change notification settings" [ref=f164e83] [cursor=pointer]:
+                - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                - text: Notifications
+            - listitem [ref=f164e86]:
+              - link "Fork 0" [ref=f164e87] [cursor=pointer]:
+                - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                - text: Fork
+                - generic "0" [ref=f164e90]
+            - listitem [ref=f164e91]:
+              - link "You must be signed in to star a repository" [ref=f164e93] [cursor=pointer]:
+                - /url: /login?return_to=%2Fvincentxuu%2Fquidproquo
+                - text: Star
+                - generic "0 users starred this repository" [ref=f164e96]: "0"
+      - navigation "Repository" [ref=f164e97]:
+        - list [ref=f164e98]:
+          - listitem [ref=f164e99]:
+            - link "Code" [ref=f164e100] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo
+          - listitem [ref=f164e104]:
+            - link "Issues 3" [ref=f164e105] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/issues
+              - generic [ref=f164e109]: Issues
+              - generic "3" [ref=f164e992]
+          - listitem [ref=f164e111]:
+            - link "Pull requests 2" [ref=f164e112] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/pulls
+              - generic [ref=f164e115]: Pull requests
+              - generic "2" [ref=f164e993]
+          - listitem [ref=f164e117]:
+            - link "Actions" [ref=f164e118] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/actions
+          - listitem [ref=f164e122]:
+            - link "Projects" [ref=f164e123] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/projects
+          - listitem [ref=f164e127]:
+            - link "Security and quality" [ref=f164e128] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/security
+          - listitem [ref=f164e132]:
+            - link "Insights" [ref=f164e133] [cursor=pointer]:
+              - /url: /vincentxuu/quidproquo/pulse
+    - generic [ref=f164e996]:
+      - generic [ref=f164e999]:
+        - link "Deploy" [ref=f164e1002] [cursor=pointer]:
+          - /url: /vincentxuu/quidproquo/actions/workflows/deploy.yml
+        - generic [ref=f164e1006]:
+          - generic [ref=f164e1007]:
+            - img "failed:" [ref=f164e1011]
+            - 'heading "fix(ci): astro check 加 --minimumSeverity error + D1 migration continu… #826" [level=1] [ref=f164e1013]'
+          - link "Sign in to view logs" [ref=f164e1017] [cursor=pointer]:
+            - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fvincentxuu%2Fquidproquo%2Factions%2Fruns%2F33236381303
+      - generic [ref=f164e1018]:
+        - navigation "Workflow run" [ref=f164e1024]:
+          - list [ref=f164e1025]:
+            - listitem [ref=f164e1026]:
+              - link "Summary" [ref=f164e1027] [cursor=pointer]:
+                - /url: /vincentxuu/quidproquo/actions/runs/33236381303
+            - generic [ref=f164e1030]:
+              - heading "All jobs" [level=4] [ref=f164e1031]
+              - button "Filter by job status" [ref=f164e1032] [cursor=pointer]
+            - listitem [ref=f164e1035]
+            - listitem [ref=f164e1036]:
+              - list [ref=f164e1037]:
+                - listitem [ref=f164e1038]:
+                  - generic "Loading" [ref=f164e1039]
+            - listitem [ref=f164e1048]
+            - listitem [ref=f164e1049]:
+              - heading "Run details" [level=3] [ref=f164e1051]
+              - list "Run details" [ref=f164e1052]:
+                - listitem [ref=f164e1053]:
+                  - link "Usage" [ref=f164e1054] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/actions/runs/33236381303/usage
+                - listitem [ref=f164e1057]:
+                  - link "Workflow file" [ref=f164e1058] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/actions/runs/33236381303/workflow
+        - generic [ref=f164e1062]:
+          - region "Workflow run summary" [ref=f164e1063]:
+            - generic [ref=f164e1064]:
+              - generic [ref=f164e1065]:
+                - generic [ref=f164e1066]: Triggered via push August 29, 2026 05:3117 minutes ago
+                - generic [ref=f164e1067]:
+                  - link [ref=f164e1068] [cursor=pointer]:
+                    - /url: /vincentxuu
+                    - img "@vincentxuu" [ref=f164e1069]
+                    - text: vincentxuu
+                  - generic [ref=f164e1070]:
+                    - generic [ref=f164e1071]: pushed
+                    - link "286099c" [ref=f164e1072] [cursor=pointer]:
+                      - /url: /vincentxuu/quidproquo/commit/286099cbbfa4b6441952fb9e38b3e51e412183a4
+                  - link "main" [ref=f164e1075] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/tree/refs/heads/main
+              - generic [ref=f164e1076]:
+                - generic [ref=f164e1077]: Status
+                - text: Failure
+              - generic [ref=f164e1078]:
+                - generic [ref=f164e1079]: Total duration
+                - link "5m 41s" [ref=f164e1080] [cursor=pointer]:
+                  - /url: /vincentxuu/quidproquo/actions/runs/33236381303/usage
+              - generic [ref=f164e1081]:
+                - generic [ref=f164e1082]: Artifacts
+                - text: –
+          - region "Workflow run graph" [ref=f164e1083]:
+            - generic [ref=f164e1085]:
+              - generic [ref=f164e1087]:
+                - heading [level=2] [ref=f164e1088]:
+                  - link "deploy.yml" [ref=f164e1089] [cursor=pointer]:
+                    - /url: /vincentxuu/quidproquo/actions/runs/33236381303/workflow
+                - generic [ref=f164e1090]: "on: push"
+              - generic [ref=f164e1092]:
+                - 'link "failed: deploy 5m 35s" [ref=f164e1097] [cursor=pointer]':
+                  - /url: /vincentxuu/quidproquo/actions/runs/33236381303/job/99057982344
+                  - generic [ref=f164e1099]:
+                    - img "failed:" [ref=f164e1101]
+                    - generic [ref=f164e1103]: deploy
+                    - generic [ref=f164e1105]: 5m 35s
+                - generic [ref=f164e1106]:
+                  - paragraph [ref=f164e1107]: Oh hello! Nice to see you.
+                  - paragraph [ref=f164e1108]:
+                    - text: Made with ❤️ by
+                    - link [ref=f164e1109] [cursor=pointer]:
+                      - /url: https://actions.github.io/humans.txt
+                      - text: humans.txt
+              - generic [ref=f164e1110]:
+                - button "Fit to window" [disabled] [ref=f164e1111]
+                - generic [ref=f164e1112]:
+                  - button "Zoom out" [disabled] [ref=f164e1114]
+                  - button "Zoom in" [disabled] [ref=f164e1116]
+          - region "Annotations" [ref=f164e1117]:
+            - generic [ref=f164e1118]:
+              - generic [ref=f164e1120]:
+                - heading "Annotations" [level=2] [ref=f164e1121]
+                - generic [ref=f164e1122]: 4 errors and 2 warnings
+              - table [ref=f164e1123]:
+                - rowgroup [ref=f164e1124]:
+                  - row [ref=f164e1125]:
+                    - cell "deploy 🚨 Action failed" [ref=f164e1126]:
+                      - generic [ref=f164e1131]:
+                        - link [ref=f164e1132] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33236381303/job/99057982344#step:11:67
+                          - strong [ref=f164e1133]: deploy
+                        - generic [ref=f164e1134]: 🚨 Action failed
+                  - row [ref=f164e1137]:
+                    - cell "deploy The process '/opt/hostedtoolcache/node/22.23.2/x64/bin/npx' failed with exit code 1" [ref=f164e1138]:
+                      - generic [ref=f164e1143]:
+                        - link [ref=f164e1144] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33236381303/job/99057982344#step:11:66
+                          - strong [ref=f164e1145]: deploy
+                        - generic [ref=f164e1146]: The process '/opt/hostedtoolcache/node/22.23.2/x64/bin/npx' failed with exit code 1
+                  - row [ref=f164e1149]:
+                    - cell "deploy 🚨 Action failed" [ref=f164e1150]:
+                      - generic [ref=f164e1155]:
+                        - link [ref=f164e1156] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33236381303/job/99057982344#step:10:34
+                          - strong [ref=f164e1157]: deploy
+                        - generic [ref=f164e1158]: 🚨 Action failed
+                  - row [ref=f164e1161]:
+                    - cell "deploy The process '/opt/hostedtoolcache/node/22.23.2/x64/bin/npx' failed with exit code 1" [ref=f164e1162]:
+                      - generic [ref=f164e1167]:
+                        - link [ref=f164e1168] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33236381303/job/99057982344#step:10:33
+                          - strong [ref=f164e1169]: deploy
+                        - generic [ref=f164e1170]: The process '/opt/hostedtoolcache/node/22.23.2/x64/bin/npx' failed with exit code 1
+                  - row [ref=f164e1173]:
+                    - cell [ref=f164e1174]:
+                      - generic [ref=f164e1179]:
+                        - link [ref=f164e1180] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33236381303/job/99057982344#step:23:2
+                          - strong [ref=f164e1181]: deploy
+                        - generic [ref=f164e1182]:
+                          - generic [ref=f164e1184]:
+                            - text: "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, cloudflare/wrangler-action@v3, pnpm/action-setup@v4. For more information see:"
+                            - link "https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/" [ref=f164e1185] [cursor=pointer]:
+                              - /url: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+                          - button "Show more" [ref=f164e1186] [cursor=pointer]
+                  - row [ref=f164e1187]:
+                    - cell "deploy The process '/usr/bin/git' failed with exit code 128" [ref=f164e1188]:
+                      - generic [ref=f164e1193]:
+                        - link [ref=f164e1194] [cursor=pointer]:
+                          - /url: /vincentxuu/quidproquo/actions/runs/33236381303/job/99057982344#step:22:11
+                          - strong [ref=f164e1195]: deploy
+                        - generic [ref=f164e1196]: The process '/usr/bin/git' failed with exit code 128

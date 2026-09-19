@@ -1,0 +1,402 @@
+[
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_chat_messages\",\"messages\":[]}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"name\":\"<user>\",\"agent\":\"cloudflare-agent\",\"type\":\"cf_agent_identity\"}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"mcp\":{\"prompts\":[{\"name\":\"workers-prompt-full\",\"description\":\"Detailed prompt for generating Cloudflare Workers code (and other developer platform products) from https://developers.cloudflare.com/workers/prompt.txt\",\"serverId\":\"cloudflare-docs\"}],\"resources\":[],\"servers\":{\"cloudflare-docs\":{\"auth_url\":null,\"capabilities\":{\"prompts\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"error\":null,\"instructions\":null,\"name\":\"cloudflare-docs\",\"server_url\":\"https://docs.mcp.cloudflare.com/mcp\",\"sta"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"rpc\",\"id\":\"d8598019-2896-4e4a-8f23-10072e8e20f0\",\"method\":\"createConversation\",\"args\":[\"Where do I find my account ID and zone ID?\",\"<org>\",\"<org>\",\"<email>'s Account\",true,false,true]}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"error\":\"Agent has not been configured — call configure() first\",\"id\":\"d8598019-2896-4e4a-8f23-10072e8e20f0\",\"success\":false,\"type\":\"rpc\"}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"rpc\",\"id\":\"9e8c7528-8307-41c7-8834-5b30bd0808b6\",\"method\":\"configure\",\"args\":[{\"userId\":\"<user>\",\"userEmail\":\"\",\"modelId\":\"\",\"accountId\":\"<org>\",\"accountName\":\"<email>'s Account\",\"sessions\":{}}]}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"done\":true,\"id\":\"9e8c7528-8307-41c7-8834-5b30bd0808b6\",\"success\":true,\"type\":\"rpc\"}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"rpc\",\"id\":\"e286b206-b0a6-461f-98c8-fcf183d13415\",\"method\":\"createConversation\",\"args\":[\"Where do I find my account ID and zone ID?\",\"<org>\",\"<org>\",\"<email>'s Account\",true,false,true]}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"done\":true,\"id\":\"e286b206-b0a6-461f-98c8-fcf183d13415\",\"result\":{\"id\":\"184631d4-18c7-43b1-a4d3-8c5498d88b50\",\"title\":\"Where do I find my account ID and zone ID?\",\"accountId\":\"<org>\",\"accountName\":\"<email>'s Account\",\"created_at\":\"2026-09-18 06:42:26\",\"updated_at\":\"2026-09-18 06:42:26\"},\"success\":true,\"type\":\"rpc\"}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"set_page_context\",\"url\":\"/<org>/home\",\"title\":\"Cloudflare Dashboard | Manage Your Account\",\"heading\":\"Shipping today?\"}"
+ },
+ {
+  "dir": "sent",
+  "payload": "{\"type\":\"cf_agent_use_chat_request\",\"id\":\"3eab89f6\",\"init\":{\"method\":\"POST\",\"body\":\"{\\\"messages\\\":[{\\\"id\\\":\\\"6e168195-f998-443b-8cca-e7db1a9a7969\\\",\\\"role\\\":\\\"user\\\",\\\"parts\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"Where do I find my account ID and zone ID?\\\"}]}]}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":0,\"event\":{\"kind\":\"started\",\"runId\":\"capability-profile-<org>-82857\",\"agentType\":\"EntitlementAgent\",\"inputPreview\":\"{\\\"mode\\\":\\\"profile\\\",\\\"tier\\\":\\\"free\\\",\\\"entitlements\\\":[],\\\"omittedAllocations\\\":0,\\\"permissions\\\":[],\\\"permissionsKnown\\\":false}\",\"order\":0}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"cf_agent_session\",\"phase\":\"idle\",\"tokenEstimate\":17,\"tokenThreshold\":null}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":1,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"start\\\",\\\"messageId\\\":\\\"a6cc1c88-545f-494c-89cb-cc22dc87d2de\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":2,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"start-step\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":3,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-start\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":4,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"The\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":5,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" mode\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":6,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":7,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" \\\\\\\"\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":8,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"profile\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":9,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"\\\\\\\".\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":10,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" I\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":11,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" need\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":12,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" to\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":13,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" call\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":14,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" report\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":15,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"_profile\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":16,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" with\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":17,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" the\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":18,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" tier\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":19,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" \\\\\\\"\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":20,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"free\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":21,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"\\\\\\\",\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":22,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" available\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":23,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" capabilities\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":24,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\",\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":25,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" and\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":26,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" unavailable\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":27,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" capabilities\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":28,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\\n\\\\n\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":29,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"The\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":30,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" entitle\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":31,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"ments\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":32,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" list\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":33,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":34,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" empty\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":35,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":36,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" So\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":37,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" there\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":38,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" are\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":39,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" NO\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":40,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" keys\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":41,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" present\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":42,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":43,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" Every\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":44,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" key\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":45,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":46,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" absent\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":47,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":48,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" Per\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":49,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" the\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":50,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" instructions\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":51,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\":\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":52,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" absent\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":53,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" keys\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":54,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" mean\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":55,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" NO\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":56,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" INFORMATION\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":57,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" —\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":58,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" never\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":59,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" turn\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":60,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" an\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":61,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" absent\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":62,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" key\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":63,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" into\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":64,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" a\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":65,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" denial\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":66,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":67,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" Every\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":68,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" `\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":69,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"un\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":70,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"available\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":71,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"`\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":72,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" entry\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":73,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" needs\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":74,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" a\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":75,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" key\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":76,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" that\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"mcp\":{\"prompts\":[{\"name\":\"workers-prompt-full\",\"description\":\"Detailed prompt for generating Cloudflare Workers code (and other developer platform products) from https://developers.cloudflare.com/workers/prompt.txt\",\"serverId\":\"cloudflare-docs\"}],\"resources\":[],\"servers\":{\"cloudflare-docs\":{\"auth_url\":null,\"capabilities\":{\"prompts\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"error\":null,\"instructions\":null,\"name\":\"cloudflare-docs\",\"server_url\":\"https://docs.mcp.cloudflare.com/mcp\",\"sta"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":77,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" is\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":78,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" PRES\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":79,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\"ENT\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":80,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" and\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":81,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" false\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":82,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" or\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":83,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" zero\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":84,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\".\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":85,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" Since\\\"}\"}}"
+ },
+ {
+  "dir": "recv",
+  "payload": "{\"type\":\"agent-tool-event\",\"parentToolCallId\":\"capability-profile-<org>-82857\",\"sequence\":86,\"event\":{\"kind\":\"chunk\",\"runId\":\"capability-profile-<org>-82857\",\"body\":\"{\\\"type\\\":\\\"reasoning-delta\\\",\\\"id\\\":\\\"rvLEbAhNZ4A3ponc\\\",\\\"delta\\\":\\\" the\\\"}\"}}"
+ }
+]

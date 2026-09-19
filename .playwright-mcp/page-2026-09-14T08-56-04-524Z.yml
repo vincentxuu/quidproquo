@@ -1,0 +1,55 @@
+- generic [ref=f11e2]:
+  - complementary [ref=f11e3]:
+    - generic [ref=f11e4]:
+      - link "Admin dashboard" [ref=f11e5] [cursor=pointer]:
+        - /url: /admin
+        - generic [ref=f11e6]: qp
+        - strong [ref=f11e8]: quidproquo
+      - generic [ref=f11e9]:
+        - button "Chat mode" [ref=f11e10] [cursor=pointer]
+        - button "Admin mode" [ref=f11e13] [cursor=pointer]
+    - link "+ New" [ref=f11e18] [cursor=pointer]:
+      - /url: /admin
+      - generic [ref=f11e19]: +
+      - generic [ref=f11e20]: New
+    - navigation "Chat navigation" [ref=f11e21]:
+      - link "Artifacts" [ref=f11e22] [cursor=pointer]:
+        - /url: /admin/sessions/artifacts
+      - link "Routines" [ref=f11e26] [cursor=pointer]:
+        - /url: /admin/routines
+      - group [ref=f11e30]:
+        - generic "More" [ref=f11e31] [cursor=pointer]
+    - generic [ref=f11e35]:
+      - generic [ref=f11e36]: Routines
+      - generic [ref=f11e38]: 載入中…
+    - generic [ref=f11e40]:
+      - generic [ref=f11e41]: Recents
+      - generic [ref=f11e43]: 載入中…
+    - generic [ref=f11e45]:
+      - link "回到網站" [ref=f11e46] [cursor=pointer]:
+        - /url: /
+      - button "登出" [ref=f11e52] [cursor=pointer]
+  - main [ref=f11e57]:
+    - generic [ref=f11e58]:
+      - generic [ref=f11e59]:
+        - paragraph [ref=f11e60]: Sessions
+        - navigation "Breadcrumb" [ref=f11e61]:
+          - link "Sessions" [ref=f11e63] [cursor=pointer]:
+            - /url: /admin/sessions
+          - generic [ref=f11e64]:
+            - generic [aria-hidden] [ref=f11e65]: /
+            - generic [ref=f11e66]: sess_178
+      - generic "Admin shortcuts" [ref=f11e67]:
+        - link "Sessions" [ref=f11e68] [cursor=pointer]:
+          - /url: /admin/sessions
+        - link "Settings" [ref=f11e71] [cursor=pointer]:
+          - /url: /admin/settings
+    - generic [ref=f11e77]:
+      - generic [ref=f11e78]:
+        - generic [ref=f11e79]:
+          - heading "載入中..." [level=2] [ref=f11e80]
+          - generic [ref=f11e81]: unknown
+        - generic [ref=f11e82]:
+          - button "Diff" [ref=f11e83] [cursor=pointer]
+          - button [ref=f11e84] [cursor=pointer]
+      - paragraph [ref=f11e87]: 連線中...

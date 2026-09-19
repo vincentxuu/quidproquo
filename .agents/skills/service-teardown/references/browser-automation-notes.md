@@ -20,6 +20,7 @@
 ## 抓網路與事件
 
 - 先確認傳輸方式：network 清單裡找 `text/event-stream`、`wss://`；SSE 握手時的 400／405 常是正常探測，記下但別當錯誤。
+- **傳輸方式要窮舉排除，不要只看命中**：全量 HAR 掃 `ws://`／`wss://` 開頭 URL＋`Upgrade: websocket` 請求頭＋`101` 回應，三者皆零才可寫「無 WebSocket」；JS bundle 全 grep `new WebSocket(`／`EventSource(`（注意 Next.js flight 內部的 `ReadableStream` 是框架機制，不算業務 socket）；HAR 與靜態兩路交叉，單一路不下結論（BigGo 2026-09：單 chunk 無命中，全掃 935 筆＋34 chunks 才定案）。
 - 用瀏覽器 `fetch` 重打對方 API 時，**只帶 cookie 常會回空**——把 UI 實際送的 headers 一併帶上（從 network 清單抄），且只打 GET／唯讀端點。
 - HAR：若 MCP 版本支援，整段錄 HAR 再離線 grep；否則靠 `browser_network_requests` 分段錄。
 - 內部代號常藏在 header 與 query（`caller=…`、`anthropic-client-feature`、`product=`），另開一節記。

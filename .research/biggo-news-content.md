@@ -38,7 +38,8 @@ BigGo Finance 的新聞不是轉載通訊社電文，而是一條 **AI 內容產
 
 ## 2. 新聞物件詳解（17 欄逐欄）
 
-樣本：`GET .../news/list?limit=1`（curl 實測），id `a75574c6…`，標題「巴西低所得補助調漲15% 大選前夕強化家計支援」。外層 `{result, data:{total, news, stock_ids, all_stocks_to_query}}`。
+樣本：`.playwright-mcp/biggo-R2-news-list-1.json`（档名像 `limit=1`，內容實為第一頁 **20 則**，以內容為準；`total:10000`，`stock_ids` 51 個、`all_stocks_to_query` 54 個皆有值，見 §2.1）。
+首則 id `a75574c6…`，標題「巴西低所得補助調漲15% 大選前夕強化家計支援」，`content` 1155 字、`summary` 188 字；20 則中 19 `realtime`＋1 `podcast`（`fb668ce5…` 宮川達彥 2 奈米文），**全部有全文、無空殼**（與 recommendations／hot keywords 的殼物件相反，見 §3）。外層 `{result, data:{total, news, stock_ids, all_stocks_to_query}}`。
 
 ### 2.1 外層
 
@@ -47,8 +48,8 @@ BigGo Finance 的新聞不是轉載通訊社電文，而是一條 **AI 內容產
 | `result` | `true` | 成功旗標（全站一致，實測） |
 | `data.total` | `10000` | 整數上限哨兵值，不是真實總數（實測數字；atte. 個股 related/news 回 `total:5825`＋細分，見 §4） |
 | `data.news` | `[ SkeletalNews×1 ]` | 本批新聞陣列 |
-| `data.stock_ids` | （本樣本未列明細） | 本批關聯股票代號清單（欄位存在，實測） |
-| `data.all_stocks_to_query` | （本樣本未列明細） | 前端下一輪行情批量查詢用的代號清單，對應 `POST stock/current/price/list`（推測用途，欄位存在實測） |
+| `data.stock_ids` | `["001440.KS","AMZN","GNRC","1815.TW","2368.TW",…]` 共 51 個（HAR JSON 實測，前 8 照抄） | 本批 20 則關聯股票代號清單（跨市場：`.TW`／`.KS`／美股代號混排，實測） |
+| `data.all_stocks_to_query` | 前 8 與 `stock_ids` 相同，共 54 個（多 3 個，實測） | 前端下一輪行情批量查詢用的代號清單，對應 `POST stock/current/price/list`（用途推測，欄位存在＋有值實測；多出的 3 個來源未追） |
 
 ### 2.2 17 欄逐欄
 
@@ -113,7 +114,28 @@ cursor 翻頁（R3 登入態實測原文）：首輪回
 {"cursor": "eyJzaWQiOiAiMjAyNi0wOS0xOFQwNjoyMTozMy45OTM3NDIrMDA6MDAiLCAibiI6IDEsICJ2IjogInBlcnNvbmFsaXplZF92MSJ9", "variant": "personalized_v1"}
 ```
 
-解開即 `{"sid":"2026-09-18T04:21:33.993742+00:00","n":1,"v":"personalized_v1"}`——時間游標＋序號＋演算法版本號；R3 僅打了一輪，`cursor` 回傳參數名未實測（沒拿到的部分，見 §8）。
+解開即 `{"sid":"2026-09-18T04:21:33.993742+00:00","n":1,"v":"personalized_v1"}`——時間游標＋序號＋演算法版本號；R3 僅打了一輪，`cursor` 回傳參數名未實測（沒拿到的部分，見 §10）。
+
+### 3.2 local/hot 與 list 全文的鍵差異（HAR＋JSON 對讀，實測）
+
+`local/hot/list` 首則鍵（11 鍵）：`[id,title,content,image,community_content,summary,key_entities,highlight,timestamp,stocks,futures]`。
+對比 `news/list` 全文 17 欄（§2.2），local/hot **少 6 鍵**：無 `sort`、`type`、`highlight_content`、`highlight_title`、`is_liked`、`is_favorited`、`is_not_interested`（實為少 7 欄），且 `highlight` 為單數合併鍵（全文版拆成 `highlight_title`＋`highlight_content` 兩欄）。
+判讀：local/hot 是列表專用的瘦身形狀（無排序鍵、無搜尋高亮拆分、無互動三態，推測；鍵存在與否實測）。`community_content` 在 local/hot 為空字串 `""`、全文版為 `null`（實測差異，語義不明）。
+
+### 3.3 列表三件套耗時（R2 HAR，`x-envoy-upstream-service-time` 實測）
+
+HAR 自帶 `time` 全數 <1ms（仅 receive 有值，疑似匯出失真，不可信）；以下以上游服務耗时為準（後端真實處理時間，實測）：
+
+| 端點 | upstream（ms） | 回體大小 | 備註 |
+|---|---|---|---|
+| `news/hot/key-entities?size=8` | 2 | 3211 B | 30＋ 項全回，`size=8` 未截斷（見 §3.1） |
+| `news/home/local/hot/list` | 81 | 8636 B | 最慢的列表端點（推測含行情 join） |
+| `news/home/hot/keywords/list` | 46 | 46129 B | 最大包；唯一帶 `cache-control: public, s-maxage=60`（見 §8） |
+| `podcast/hot/key-entities?size=8` | 3 | 3287 B | 與 news 池同形（見下） |
+| `stock/related/news?stock_id=2330.TW&size=9&page=1` | 81 | 51166 B | 個股頁用；`total:5825` 全文見 §4.2 末 |
+
+key-entities 兩池 REQ 全文（query 照抄）：`?size=8&region=tw` 兩者完全相同，只有路徑 `news/hot/` vs `podcast/hot/` 不同（實測）。
+RESP 全文形狀：`{"result":true,"data":[{"entity","count","en_entity"}…]}`；news 池 30＋ 項（`{"entity":"聯準會","count":25,"en_entity":"Federal Reserve"}` 開頭，全文過長，截前 5 項＋總項數註明），podcast 池 `OpenAI 49` 開頭（同式截斷）。`size=8` 兩池皆未生效——不是分頁參數（推測為遺留參數；行為實測）。
 
 ### 3.1 回應範例（HAR 原文摘錄，id 遮罩）
 
@@ -178,6 +200,46 @@ key-entities 兩池對比（同 `size=8`，實測數字）：
 
 個股側回望：`GET .../stock/related/news?stock_id=2330.TW&size=9&page=1` 回 `{total:5825, news_count:5729, major_count:96, podcast_count:104, ir_release_count:9, news:[…]}`（HAR 實測）——**新聞與 podcast 在同一計數體系下**（`podcast_count` 並列），雙檢視共用本體的計數證據。
 
+### 4.3 內頁 6 支 REQ/RESP 全文＋耗時（R2 HAR，`a75574c6…` 頁，id 遮罩）
+
+REQ 共通頭（6 支 GET 全同，HAR 原文）：`accept: application/json`＋`origin: https://finance.biggo.com.tw`＋`referer: https://finance.biggo.com.tw/`；**無 authorization、無 cookie、無 site**（匿名三無，實測；登入態對照見 `biggo-auth-billing.md` §7）。
+query 兩種 key：`?news_id=<uuid>&region=tw`（related／similar／polls）vs `?id=<uuid>&region=tw`（suggestions，Agent 側命名，見 §4.2）。
+
+短回包四則，全文照抄（皆 200）：
+
+| 端點 | upstream | RESP 全文 |
+|---|---|---|
+| `news/related/symbols` | 11ms | `{"result":true,"data":{"stocks":[],"futures":[]}}`（49 B） |
+| `news/related/products` | 2ms | `{"result":true,"data":{"products":[]}}`（38 B）＋`cache-control: public, s-maxage=300`（唯一 300s 快取，見 §9） |
+| `agent/suggestions` | 10ms | `{"result":true,"data":{"suggestions":[]}}`（41 B） |
+| `news/polls` | 13ms | `{"result":true,"data":{"polls":[]}}`（35 B） |
+
+`similar/list` 全文（974 B，200，upstream 97ms——**內頁 6 支中最慢**，向量召回成本，推測）：
+
+```json
+{"result":true,"data":{"news_ids":["9919bfd1-…","466ba5c1-…","df87a916-…","3f16f2ef-…","ee53d29d-…","3ff82a39-…"],"list":[{"id":"9919bfd1-…","title":"韓法企業家齊聚巴黎，簽署AI、量子、能源合作MOU共3項","timestamp":1788914211},{"id":"466ba5c1-…","title":"亞曼尼創辦人逝世週年，股權出售正式啟動…LVMH、L'Oréal、EssilorLuxottica各有盤算","timestamp":1788515738},{"id":"df87a916-…","title":"魯拉談連任後的巴西債務「不擔憂」 指利率高漲為主因","timestamp":1787901952},{"id":"3f16f2ef-…","title":"NCSoft公開新作《Like or Die》 以宇宙實況主為背景的射擊遊戲搶攻市場","timestamp":1787788541},{"id":"ee53d29d-…","title":"巴西參議員波索納洛擬設憲法債務上限，佔GDP 65%即凍結支出","timestamp":1787770011},{"id":"3ff82a39-…","title":"中國企業拿下巴西23億雷亞爾AI大單 華為攜手科大訊飛打造拉美算力樞紐","timestamp":1787385933}]}}
+```
+
+（`news_ids` 與 `list[].id` 一一對應，順序一致，實測；`list` 項只有三鍵 id／title／timestamp——點進才拿全文，殼物件 pattern，見 §3。）
+
+`view-attest` REQ 全文特徵（HAR 實測，與上 5 支不同形）：
+- headers 只有 7 個：`sec-ch-ua*`＋`Referer`＋`User-Agent`＋`Content-Type: text/plain;charset=utf-8`＋`Accept-Language`——**無 accept、無 origin**，`sendBeacon` 指紋（推測為 `navigator.sendBeacon` 發出；行为實測，API 歸屬推測）。
+- body 空，RESP 200 空體、**無任何 response headers**（HAR 實測）。
+- 判讀：純發射後不管（fire-and-forget）信標；query 只有 `?region=tw`，連 `news_id` 都不帶——當頁 id 若有上報只可能在信標體內，但體為空（實測空體）。要不是靠 referer／server 端 session 歸因，就是本輪該欄位預留未用（推測兩種讀法並存）。
+
+內頁 6 支耗時對照（upstream 實測）：
+
+| 端點 | upstream（ms） | 回體 | 快取頭 |
+|---|---|---|---|
+| similar/list | **97** | 974 B | 無 |
+| polls | 13 | 35 B | 無 |
+| related/symbols | 11 | 49 B | 無 |
+| suggestions | 10 | 41 B | 無 |
+| related/products | 2 | 38 B | `s-maxage=300` |
+| view-attest | （無 upstream 頭） | 0 B | —（無回頭） |
+
+→ 最貴的是相似召回（97ms ≈ 其餘 5 支總和，實測數字）；空回包三則（symbols／products／polls／suggestions 皆空，本頁）各自仍付 2–13ms——內頁 associations 是固定 6 連發、不因有無結果而剪枝（推測；本頁行為實測）。
+
 ## 5. news vs podcast 雙檢視對照（同 id `a7724b8f…`）
 
 | 項目 | `/news/a7724b8f…` | `/podcast/a7724b8f…` |
@@ -198,13 +260,39 @@ key-entities 兩池對比（同 `size=8`，實測數字）：
 | `img.bgo.one` | 原圖倉庫（內文圖＋AI 生成圖源） | `img.bgo.one/news-image/ai_generated/2026-09/a75574c6…_1789710072_default.jpg`（解码自 `image` 尾段，實測）；內頁 Content inline 圖直接引用此域 |
 | `img.youtube.com` | podcast 封面 | `img.youtube.com/vi/…/hqdefault.jpg`（頁面實測） |
 
-簽名代理：`POST https://api.biggo.com/api/v1/image/icd/url`（R2 HAR 內 13 筆，全部 200）。REQ 形狀（HAR 實測原文）：
+簽名代理：`POST https://api.biggo.com/api/v1/image/icd/url`（R2 HAR 內 13 筆，全部 200，upstream 全 0–2ms——纯 CPU 取色＋簽名、無外部依賴，推測）。
+注意信封與全站不同：**`{"success":true,"results":[…]}`**，不是 `{result,data}`（HAR 實測原文）——icd 是圖片服務自有命名（推測）。
+
+REQ 全文（一則短例，3 urls，HAR 實測原文，檔名 hash 保留）：
 
 ```json
-{"urls": ["https://img.biggo.com/…/fit/200/0/sm/0/aHR0cHM6Ly9zMy5iaWdnby5jb20vZmluYW5jZS1tZWRpYS1tYXRlcmlhbC9zeW1ib2wtaWNvbnMvc3ltYm9sLzYyMTQuVFcuc3Zn.webp", "…（批量，多個 urls）"]}
+{"urls":["https://img.biggo.com/cwppcr_HQL2…/fit/200/…1762.TW.svg.webp","https://img.biggo.com/gwCNxds0…/fit/200/…2850.TW.svg.webp","https://img.biggo.com/VnGnsrpq…/fit/200/…2832.TW.svg.webp"]}
 ```
 
-RESP 形狀（HAR 實測）：`{"success":true,"results":[{"url":"…（簽名後新 URL）","colors":[{"hex":"#DFE1E8","percentage":77.1,"rgb":{"r":223,"g":225,"b":232}}, …]}]}`——回簽名 URL **＋整圖主色票**（`hex/percentage/rgb`，首色 77.1% 實測）。用途：股標 svg（`s3.biggo.com/finance-media-material/symbol-icons/symbol/6214.TW.svg`，解码實測）這類小圖走代理拿色票，前端做 placeholder／skeleton 配色（推測；取色行為實測，用途推測）。
+（解其中一段：`…/c3ltYm9scy8xNzYyLlRX…` → `…/symbol-icons/symbol/1762.TW.svg`——股標原圖在 S3，`img.biggo.com/…/fit/200/…` 是代理縮放層，實測解码。）
+REQ 頭特徵：`content-type: text/plain;charset=UTF-8`（發 JSON 卻報 text/plain——規避 CORS preflight 的常見手法，推測；`accept: */*`，HAR 實測）。
+
+RESP 單項全文（`1762.TW` 股標，4090 B 回包中第一項，HAR 實測原文，截前兩色＋結構）：
+
+```json
+{"url":"https://img.biggo.com/cwppcr_HQL2…(與請求 URL 相同)",
+ "colors":[{"hex":"#DFE1E8","percentage":75.4,"rgb":{"r":223,"g":225,"b":232}},{"hex":"#D70F1F","percentage":20.5,"rgb":{"r":215,"g":15,"b":31}},…],
+ "has_transparency":false,"dominant_tone":"light",
+ "edge_analysis":{"dominant_edge_color":"#DFE1E8","transparency_ratio":0,"edge_luminance":0.7536459793470535},
+ "recommendation":{"light_mode":{"target_background":"#FFFFFF","contrast_ratio":1.3,"needs_background":true,"suggested_background":"#808080","suggested_background_rgb":{"r":128,"g":128,"b":128},"gray_level":128,"final_contrast_ratio":3,"reason":"淺色/透明邊緣在淺色背景需要灰底襯托"},"dark_mode":{"target_background":"#121212","contrast_ratio":14.3,"needs_background":false,"suggested_background":null,"final_contrast_ratio":14.3,"reason":"淺色邊緣在深色背景下對比度足夠"}},
+ "cached":true}
+```
+
+逐欄（超出 §6 原記載的新欄，HAR 實測）：
+
+| 欄位 | 值（例） | 判讀 |
+|---|---|---|
+| `url` | 與請求相同 | 回音確認（批量對齊用，推測）；簽名體現在首段 hash（`cwppcr_HQL2…`，推測為簽名，實測有此段） |
+| `colors[]` | `{hex,percentage,rgb}` | 整圖主色票（§6.1 原有，實測） |
+| `has_transparency`／`dominant_tone` | `false`／`"light"` | 去背＋明暗判斷（實測有欄） |
+| `edge_analysis` | `{dominant_edge_color,transparency_ratio,edge_luminance}` | 邊緣色＋透明比＋亮度（實測有欄；`edge_luminance` 浮點 16 位，實測） |
+| `recommendation.light_mode／dark_mode` | `{target_background,contrast_ratio,needs_background,suggested_background,reason}` | **淺色／深色模式各給一套佔位背景建議**（中文 reason 原文，實測）——前端按主題切 skeleton 底色（推測用途） |
+| `cached` | `true` | 該 url 分析結果有快取（實測有欄；13 筆是否全 true 未逐筆核，標推測） |
 
 ### 6.1 一次完整代理往返（HAR 實測原文，截短）
 
@@ -255,12 +343,45 @@ RESP 首項色票全表（HAR 實測原文，`1310.TW` 股標）：
 - 無原音檔／原文連結（推測版權考量，前輪結論）。
 - `total:10000` 哨兵＋recommendations 殼物件（`content:""`）代表列表只給索引、全文另取，弱網下多一輪（推測）。
 
-## 8. 沒拿到的
+## 8. 基礎設施（R2 response headers 實測）
+
+53 筆回頭普查（finance＋image 域通用，HAR 原文）：
+
+| 頭 | 值 | 出現 |
+|---|---|---|
+| `server` | `istio-envoy` | 全部（JSON＋SSE 同源，見 scheduling 檔 R6） |
+| `x-envoy-upstream-service-time` | `0`–`248`（單位 ms，實測為數字字串） | 全部 JSON 回包；view-attest（空體信標）無此頭 |
+| `content-encoding` | `zstd` | 全部 JSON（全站 zstd 壓縮，實測） |
+| `content-type` | `application/json; charset=utf-8`（finance）；`application/json`（icd 無 charset，實測差異） | 全部 |
+| `access-control-allow-origin` | `https://finance.biggo.com.tw` | 全部（精確源，非 `*`，實測） |
+| `access-control-allow-headers` | `Authorization,Content-Type,Site,X-Fgp` | finance 域全部——**點名四個自訂頭**：`Authorization`（Bearer）、`Site`（登入態瀏覽器送，見 auth-billing §7）、`X-Fgp`（僅 recommendations 白名單，見該檔 §2.4）、`Content-Type`（icd 的 text/plain） |
+| `access-control-allow-methods` | `GET, POST, DELETE, PATCH, OPTIONS` | finance 域全部（與排程 CRUD 四動詞對應，見 scheduling §4） |
+| `access-control-allow-credentials` | `true` | finance 域全部（icd 無此頭，實測差異） |
+| `vary` | `Site, Origin, Accept-Encoding` | finance 域（按 `Site` 區分快取——呼應 `?region=tw` 由 host 映射，見 auth-billing §2.4） |
+| `cache-control` | `public, s-maxage=60` 僅 hot keywords；`public, s-maxage=300` 僅 related/products | 僅 2 端點（其餘無快取頭，實測） |
+| `date` | `Fri, 18 Sep 2026 06:01:2x–51 GMT` | 全部（R2 全輪 06:01:28→06:01:51，約 23s 打完 53 筆，實測） |
+
+判讀：API 閘道是 Envoy（istio），CORS 鎖死 finance 站源；邊緣快取只給了兩個讀多寫少端點（hot keywords 60s、related/products 300s）——其餘寧可回源（推測快取策略；頭行為實測）。
+
+## 9. 設計觀察（本輪新增，實測＋推測已標）
+
+| # | 觀察 | 證據等級 |
+|---|---|---|
+| 1 | **uuid 全站通用**：`a75574c6…` 同時是 news 內頁 key、suggestions 的 `?id=`、related／similar／polls 的 `?news_id=`（§4.3 實測）；20 則 list 首則即內頁實測頁（§2 實測）——id 零轉換，全站同一主鍵空間 | 實測 |
+| 2 | **sort 是毫秒鍵**：`sort[0]/1000≈timestamp`（§2.3 實測）；local/hot 瘦身版直接拿掉 `sort`（§3.2 實測）——排序只在全文索引側需要，列表側由服务端排好（推測） | 實測＋推測 |
+| 3 | **空 suggestions 的三種讀法保留**（§4.2 原結論不變，補強）：端點活著（upstream 10ms＋200，§4.3 實測）、param 命名 `?id=` 屬 Agent 側（§4.3 實測）、非空時應為 starter prompts（銜接 R4 `page_metadata` 機制，推測） | 實測＋推測 |
+| 4 | **殼先行、全文後取是全站 pattern**：recommendations `content:""`（§3 實測）、hot keywords 第二則 `summary:null`＋`content:""`（§3.1 實測）、similar 三鍵（§4.3 實測）——列表只給索引級欄位，點進才取全文（推測為弱網優化） | 實測＋推測 |
+| 5 | **`size` 參數是擺設**：`key-entities?size=8` 兩池皆回 30＋ 項（§3.3 實測）——後端忽略或另有預設（推測；前端照傳，實測） | 實測＋推測 |
+| 6 | **圖片是「簽名＋取色」一體服務**：icd 回包把 skeleton 配色（colors／edge／light-dark recommendation／cached）一次給齊（§6 實測）；REQ 用 `text/plain` 發 JSON 規避 preflight（推測，頭實測）；upstream 0–2ms 近乎純本地計算（實測數字） | 實測＋推測 |
+| 7 | **三圖床分工**（§6 原結論＋R3 佐證）：`img.biggo.com` 尺寸代理（`fit/240` 列表、`fit/950` 首圖、`fit/200` 股標、`fit/160` podcast 來源，實測四種）→ 原圖 `img.bgo.one`（`ai_generated/`＋`stockr_library_covers/` 兩桶，實測）→ podcast 封面 `img.youtube.com`（實測）；R3 `podcast/sources` 78KB 回包內 `image_url` 全走 `img.biggo.com/fit/160`（實測） | 實測 |
+
+## 10. 沒拿到的（2026-09-18 補充後更新）
 
 - ASR 引擎與摘要 LLM 型號（未公開；前輪＋本輪皆無）。
 - 內容更新頻率與選題標準（需長期觀察或官方說法；walkthrough 待深入項延續）。
 - `user/recommendations` 第二頁 `cursor` 回傳參數名（R3 只打一輪，實測無）。
-- `agent/suggestions` 非空時的形狀（實測頁為空陣列）。
+- `agent/suggestions` 非空時的形狀（實測頁為空陣列；upstream 10ms 證明端點活著，見 §4.3）。
 - polls 投票的寫入協議（超出授權範圍，未碰）。
 - Pro／Thinking 與「法說會提前 30 分鐘搶先看」（需 Pro 帳號，免費用戶下拉全鎖定）。
 - 工具參數與檢索原文（SSE stream 內只有工具 `name`；history 只有最終文字，R4 實測）。
+- 本輪已補齊（不再是缺口）：列表三件套耗時（§3.3）、內頁 6 支 REQ/RESP 全文（§4.3）、icd 完整欄位（§6）、基礎設施頭（§8）。

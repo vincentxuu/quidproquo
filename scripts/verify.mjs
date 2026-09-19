@@ -143,6 +143,7 @@ const commandResults = await Promise.all([
   runStep('check:references', 'pnpm check:references'),
   runStep('check:post-quality', 'pnpm check:post-quality'),
   runStep('check:tw (台灣用語 A 級)', 'pnpm check:tw'),
+  runStep('check:chat-style', 'pnpm check:chat-style'),
   runStep('check:glossary', 'pnpm check:glossary'),
   runStep('check:series-order', 'pnpm check:series-order'),
   runStep('check:lang-parity', 'pnpm check:lang-parity'),

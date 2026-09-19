@@ -318,7 +318,7 @@ export function ChatWidget({
             <button
               type="button"
               onClick={() => setSuggestionPage(page => page + 1)}
-              className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
+              className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg border-none bg-transparent px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
               style={{ color: 'var(--text-secondary)' }}
               aria-label="換一組預設問題"
             >

@@ -1,0 +1,286 @@
+- generic [ref=f20e1]:
+  - generic [ref=f20e7]:
+    - complementary [ref=f20e590]:
+      - separator [ref=f20e591]
+      - generic [ref=f20e13]:
+        - link [ref=f20e592] [cursor=pointer]:
+          - /url: /new
+          - generic [ref=f20e17]: Claude Code
+        - radiogroup [ref=f20e593]:
+          - radio [ref=f20e594] [cursor=pointer]:
+            - generic [ref=f20e23]: 
+          - radio [ref=f20e24]
+          - radio [checked] [ref=f20e595] [cursor=pointer]:
+            - generic [ref=f20e26]: 
+          - radio [checked] [ref=f20e27]
+      - generic [ref=f20e28]:
+        - generic [ref=f20e29]:
+          - generic [ref=f20e31]:
+            - link [ref=f20e596] [cursor=pointer]:
+              - /url: /code
+              - generic [ref=f20e33]: 
+              - generic [ref=f20e36]: New
+              - generic [ref=f20e37]: ⇧⌘O
+            - link [ref=f20e597] [cursor=pointer]:
+              - /url: /code/artifacts
+              - generic [ref=f20e39]: 
+              - generic [ref=f20e41]: Artifacts
+            - link [ref=f20e598] [cursor=pointer]:
+              - /url: /code/routines
+              - generic [ref=f20e418]: Routines
+            - link [ref=f20e599] [cursor=pointer]:
+              - /url: /customize
+              - generic [ref=f20e44]: 
+              - generic [ref=f20e46]: Customize
+            - button [ref=f20e600] [cursor=pointer]:
+              - generic [ref=f20e49]: 
+              - generic [ref=f20e51]: More
+          - generic [ref=f20e56]:
+            - button [ref=f20e601] [cursor=pointer]:
+              - generic [ref=f20e425]: Routines
+              - generic [ref=f20e426]: 
+            - paragraph [ref=f20e59]: Sessions you start will show up here
+        - generic [ref=f20e97]:
+          - generic [ref=f20e105]:
+            - generic [ref=f20e106]: Try Claude Tag
+            - button [ref=f20e602] [cursor=pointer]: Set up
+          - button [ref=f20e603] [cursor=pointer]:
+            - generic [ref=f20e114]: 
+        - generic [ref=f20e64]:
+          - button [ref=f20e604] [cursor=pointer]:
+            - img [ref=f20e605]: V
+            - generic [ref=f20e69]:
+              - generic [ref=f20e70]: vincent
+              - generic [ref=f20e71]: ·
+              - generic [ref=f20e72]: Max
+            - generic [ref=f20e73]: 
+          - generic [ref=f20e74]:
+            - button [disabled]:
+              - generic: 
+            - button [ref=f20e606] [cursor=pointer]:
+              - generic [ref=f20e79]: 
+            - button [ref=f20e607] [cursor=pointer]:
+              - generic [ref=f20e84]: 
+    - main [ref=f20e86]:
+      - generic [ref=f20e431]:
+        - generic [ref=f20e432]:
+          - generic [ref=f20e434]:
+            - button [ref=f20e608] [cursor=pointer]: Routines
+            - generic [ref=f20e439]: /
+            - generic [ref=f20e440]: walkthrough-test (safe to delete)
+          - generic [ref=f20e441]:
+            - button [ref=f20e609] [cursor=pointer]:
+              - generic [ref=f20e445]: 
+            - button [ref=f20e610] [cursor=pointer]:
+              - generic [ref=f20e450]: 
+            - button [ref=f20e611] [cursor=pointer]:
+              - generic [ref=f20e455]:
+                - generic [ref=f20e456]: 
+                - text: Run now
+        - generic [ref=f20e458]:
+          - list [ref=f20e612]:
+            - listitem [ref=f20e460]:
+              - generic [ref=f20e461]: Active
+            - listitem [ref=f20e463]: Next run Aug 31 at 9:00 AM
+            - listitem [ref=f20e464]: No runs yet
+          - generic [ref=f20e465]:
+            - generic [ref=f20e467]:
+              - heading [level=2] [ref=f20e613]: Runs
+              - generic [ref=f20e471]:
+                - generic [ref=f20e472]: 
+                - generic [ref=f20e473]:
+                  - paragraph [ref=f20e474]: No runs yet
+                  - paragraph [ref=f20e475]: Run it once to check the instructions and connectors work before the first scheduled run.
+                - button [ref=f20e614] [cursor=pointer]:
+                  - generic [ref=f20e480]:
+                    - generic [ref=f20e481]: 
+                    - text: Run now
+            - generic [ref=f20e482]:
+              - generic [ref=f20e483]:
+                - heading [level=2] [ref=f20e615]: Configuration
+                - generic [ref=f20e485]:
+                  - generic [ref=f20e486]:
+                    - generic [ref=f20e487]: Enabled
+                    - generic [ref=f20e488]: "On"
+                    - generic [ref=f20e490]:
+                      - switch [checked] [ref=f20e616] [cursor=pointer]
+                      - checkbox [checked] [ref=f20e493]
+                  - generic [ref=f20e494]:
+                    - generic [ref=f20e495]: Triggers
+                    - generic [ref=f20e498]:
+                      - generic [ref=f20e499]: 
+                      - generic [ref=f20e500]: Runs every Monday at 9:00 AM GMT+8
+                  - generic [ref=f20e501]:
+                    - generic [ref=f20e502]: Runs with
+                    - generic [ref=f20e504]:
+                      - generic [ref=f20e505]:
+                        - generic [ref=f20e506]: 
+                        - generic [ref=f20e507]: Playma-Co-Ltd/maiagent-api-examples
+                      - generic [ref=f20e508]: Slack
+                      - generic [ref=f20e512]:
+                        - paragraph [ref=f20e516]: M
+                        - generic [ref=f20e517]: Mermaid Chart
+                      - generic [ref=f20e518]: Asana
+                      - generic [ref=f20e522]: tldraw
+                      - generic [ref=f20e526]: Google Calendar
+                      - generic [ref=f20e531]: PostHog
+                      - generic [ref=f20e535]: Cloudflare Developer Platform
+                      - generic [ref=f20e539]: Sentry
+                      - generic [ref=f20e543]:
+                        - paragraph [ref=f20e547]: C
+                        - generic [ref=f20e548]: Claude_Code_Remote
+                      - generic [ref=f20e549]: Notion
+                      - generic [ref=f20e554]: Gmail
+                      - generic [ref=f20e559]: HyperFrames by HeyGen
+                      - generic [ref=f20e563]: Google Drive
+                      - generic [ref=f20e568]:
+                        - generic [ref=f20e569]: 
+                        - generic [ref=f20e570]: Default · Sonnet 5
+                  - generic [ref=f20e571]:
+                    - paragraph [ref=f20e573]:
+                      - text: Push notifications on · Created by vincent ·
+                      - time [ref=f20e574]: Aug 27
+                    - button [ref=f20e617] [cursor=pointer]:
+                      - generic [ref=f20e579]: Edit
+              - generic [ref=f20e580]:
+                - generic [ref=f20e581]:
+                  - heading [level=2] [ref=f20e618]: Instructions
+                  - button [ref=f20e619] [cursor=pointer]:
+                    - generic [ref=f20e586]:
+                      - generic [ref=f20e587]: 
+                      - text: Edit
+                - generic [ref=f20e588]: Read-only test. List the top-level directories of the repo and count the files by extension. Do not modify any file, do not push, do not open a PR. Reply with a short summary.
+  - dialog [ref=f20e623]:
+    - generic [ref=f20e624]:
+      - generic [ref=f20e625]:
+        - heading "Edit routine" [level=2] [ref=f20e627]
+        - button "Close" [ref=f20e628] [cursor=pointer]:
+          - generic [ref=f20e631]: 
+      - generic [ref=f20e633]:
+        - generic [ref=f20e634] [cursor=pointer]:
+          - generic [ref=f20e635]: Name *
+          - textbox "Name *" [active] [ref=f20e637]:
+            - /placeholder: e.g., Daily code review
+            - text: walkthrough-test (safe to delete)
+        - generic [ref=f20e638]:
+          - generic [ref=f20e639]: Instructions
+          - generic [ref=f20e640]:
+            - textbox "Instructions" [ref=f20e641]:
+              - /placeholder: Describe what Claude should do in each session
+              - text: Read-only test. List the top-level directories of the repo and count the files by extension. Do not modify any file, do not push, do not open a PR. Reply with a short summary.
+            - generic [ref=f20e642]:
+              - group "Press and hold to record" [ref=f20e643]:
+                - button "Press and hold to record" [ref=f20e646] [cursor=pointer]:
+                  - generic [ref=f20e649]: 
+                - generic [ref=f20e652]:
+                  - button "Dictation settings":
+                    - generic: 
+              - combobox "Model" [ref=f20e653] [cursor=pointer]:
+                - generic [ref=f20e654]: 
+                - generic [ref=f20e655]: Sonnet 5
+              - textbox [ref=f20e656]
+            - generic [ref=f20e657]:
+              - generic [ref=f20e658]:
+                - generic [ref=f20e659]: 
+                - generic [ref=f20e660]: Playma-Co-Ltd/maiagent-api-examples
+                - button "Remove Playma-Co-Ltd/maiagent-api-examples" [ref=f20e661] [cursor=pointer]:
+                  - generic [ref=f20e662]: 
+              - combobox "Select a repository" [ref=f20e663] [cursor=pointer]:
+                - generic [ref=f20e664]: 
+              - textbox [ref=f20e665]
+              - combobox "Cloud environment" [ref=f20e666] [cursor=pointer]:
+                - generic [ref=f20e667]: 
+                - generic [ref=f20e668]: Default
+              - textbox [ref=f20e669]
+        - generic [ref=f20e670]:
+          - generic [ref=f20e671]: Select a trigger
+          - generic [ref=f20e674]:
+            - button "Runs every Monday at 9:00 AM GMT+8" [ref=f20e675] [cursor=pointer]:
+              - generic [ref=f20e676]: 
+            - button "Remove trigger" [ref=f20e680] [cursor=pointer]:
+              - generic [ref=f20e683]: 
+          - button "Add another trigger" [ref=f20e686] [cursor=pointer]:
+            - generic [ref=f20e687]: 
+            - text: Add another trigger
+        - generic [ref=f20e688]:
+          - tablist "Routine settings" [ref=f20e689]:
+            - tab "Connectors 13" [selected] [ref=f20e690] [cursor=pointer]:
+              - text: Connectors
+              - generic [ref=f20e691]: "13"
+            - tab "Behavior" [ref=f20e692] [cursor=pointer]
+            - tab "Notifications" [ref=f20e693] [cursor=pointer]
+          - tabpanel "Connectors 13" [ref=f20e694]:
+            - generic [ref=f20e695]:
+              - generic [ref=f20e696]:
+                - generic [ref=f20e697]: Connectors
+                - generic [ref=f20e698]: Integrations available to Claude during each run.
+              - generic [ref=f20e699]:
+                - generic [ref=f20e700]:
+                  - generic [ref=f20e702]: Slack
+                  - button "Remove Slack" [ref=f20e703] [cursor=pointer]:
+                    - generic [ref=f20e704]: 
+                - generic [ref=f20e705]:
+                  - paragraph [ref=f20e708]: M
+                  - generic [ref=f20e709]: Mermaid Chart
+                  - button "Remove Mermaid Chart" [ref=f20e710] [cursor=pointer]:
+                    - generic [ref=f20e711]: 
+                - generic [ref=f20e712]:
+                  - generic [ref=f20e714]: Asana
+                  - button "Remove Asana" [ref=f20e715] [cursor=pointer]:
+                    - generic [ref=f20e716]: 
+                - generic [ref=f20e717]:
+                  - generic [ref=f20e719]: tldraw
+                  - button "Remove tldraw" [ref=f20e720] [cursor=pointer]:
+                    - generic [ref=f20e721]: 
+                - generic [ref=f20e722]:
+                  - img "Google Calendar icon" [ref=f20e724]
+                  - generic [ref=f20e725]: Google Calendar
+                  - button "Remove Google Calendar" [ref=f20e726] [cursor=pointer]:
+                    - generic [ref=f20e727]: 
+                - generic [ref=f20e728]:
+                  - generic [ref=f20e730]: PostHog
+                  - button "Remove PostHog" [ref=f20e731] [cursor=pointer]:
+                    - generic [ref=f20e732]: 
+                - generic [ref=f20e733]:
+                  - generic [ref=f20e735]: Cloudflare Developer Platform
+                  - button "Remove Cloudflare Developer Platform" [ref=f20e736] [cursor=pointer]:
+                    - generic [ref=f20e737]: 
+                - generic [ref=f20e738]:
+                  - generic [ref=f20e740]: Sentry
+                  - button "Remove Sentry" [ref=f20e741] [cursor=pointer]:
+                    - generic [ref=f20e742]: 
+                - generic [ref=f20e743]:
+                  - paragraph [ref=f20e746]: C
+                  - generic [ref=f20e747]: Claude_Code_Remote
+                  - button "Remove Claude_Code_Remote" [ref=f20e748] [cursor=pointer]:
+                    - generic [ref=f20e749]: 
+                - generic [ref=f20e750]:
+                  - img "Notion icon" [ref=f20e752]
+                  - generic [ref=f20e753]: Notion
+                  - button "Remove Notion" [ref=f20e754] [cursor=pointer]:
+                    - generic [ref=f20e755]: 
+                - generic [ref=f20e756]:
+                  - img "Gmail icon" [ref=f20e758]
+                  - generic [ref=f20e759]: Gmail
+                  - button "Remove Gmail" [ref=f20e760] [cursor=pointer]:
+                    - generic [ref=f20e761]: 
+                - generic [ref=f20e762]:
+                  - generic [ref=f20e764]: HyperFrames by HeyGen
+                  - button "Remove HyperFrames by HeyGen" [ref=f20e765] [cursor=pointer]:
+                    - generic [ref=f20e766]: 
+                - generic [ref=f20e767]:
+                  - img "Google Drive icon" [ref=f20e769]
+                  - generic [ref=f20e770]: Google Drive
+                  - button "Remove Google Drive" [ref=f20e771] [cursor=pointer]:
+                    - generic [ref=f20e772]: 
+                - combobox "Add connector" [ref=f20e773] [cursor=pointer]:
+                  - generic [ref=f20e774]: 
+                - textbox [ref=f20e776]
+              - paragraph [ref=f20e783]: Claude can use all tools from these connectors — including writes — without asking for permission during runs. Remove any you don’t want the agent to access.
+        - generic [ref=f20e784]:
+          - button "Cancel" [ref=f20e785] [cursor=pointer]
+          - button "Save" [disabled]
+  - generic:
+    - generic:
+      - generic:
+        - region "Notifications"

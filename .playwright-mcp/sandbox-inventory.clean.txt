@@ -1,0 +1,742 @@
+### 1
+Linux vm 6.18.44-fc-v21 #1 SMP PREEMPT_DYNAMIC @0 x86_64 x86_64 x86_64 GNU/Linux
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+4
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       573Mi        14Gi       4.9Mi       424Mi        15Gi
+Swap:             0B          0B          0B
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda        252G  7.1G   30G  20% /
+/dev/vda        252G  7.1G   30G  20% /
+/dev/vda        252G  7.1G   30G  20% /
+real-time non-blocking time  (microseconds, -R) unlimited
+core file size              (blocks, -c) 0
+data seg size               (kbytes, -d) unlimited
+scheduling priority                 (-e) 0
+file size                   (blocks, -f) unlimited
+pending signals                     (-i) 64262
+max locked memory           (kbytes, -l) 8192
+max memory size             (kbytes, -m) unlimited
+uid=0(root) gid=0(root) groups=0(root)
+vm
+### 2
+/opt/node22/bin/claude
+2.1.247 (Claude Code)
+v22.22.2
+Python 3.11.15
+git version 2.43.0
+/usr/bin/docker
+### 3
+AI_AGENT=claude…
+ANTHROPIC_BASE_URL=https:…
+ANT_IMAGE_REPOSITORY=sandbo…
+ANT_IMAGE_TAG=74306e…
+AWS_ACCESS_KEY_ID=proxy-…
+AWS_CA_BUNDLE=/root/…
+AWS_SECRET_ACCESS_KEY=proxy-…
+BUN_FEATURE_FLAG_DISABLE_STANDALONE_MADVISE=1…
+BUN_INSTALL=/root/…
+BUN_OPTIONS=--smol…
+CARGO_HTTP_CAINFO=/root/…
+CCR_AGENT_PROXY_ENABLED=1…
+CCR_EGRESS_GATEWAY_ENABLED=1…
+CCR_ENABLE_TRACING=true…
+CCR_SPAWN_TIMESTAMP_MS=178780…
+CCR_TEST_GITPROXY=1…
+CCR_UPSTREAM_PROXY_ENABLED=1…
+CLAUDECODE=1…
+CLAUDE_ADDITIONAL_DIRECTORIES=/mnt/u…
+CLAUDE_AFTER_LAST_COMPACT=true…
+CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=80…
+CLAUDE_AUTO_BACKGROUND_TASKS=true…
+CLAUDE_CODE_ACCOUNT_UUID=6695ce…
+CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1…
+CLAUDE_CODE_CHILD_SESSION=1…
+CLAUDE_CODE_CONTAINER_ID=contai…
+CLAUDE_CODE_DEBUG=true…
+CLAUDE_CODE_DIAGNOSTICS_FILE=/tmp/c…
+CLAUDE_CODE_DISABLE_BUILTIN_ANTMCP=1…
+CLAUDE_CODE_ENTRYPOINT=remote…
+CLAUDE_CODE_ENVIRONMENT_RUNNER_VERSION=releas…
+CLAUDE_CODE_EXECPATH=/opt/c…
+CLAUDE_CODE_GZIP_REQUEST_BODIES=1…
+CLAUDE_CODE_HOLD_UNANSWERED_PARKED_PERMISSION=1…
+CLAUDE_CODE_INCLUDE_PARTIAL_MESSAGES=true…
+CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1…
+CLAUDE_CODE_MESSAGING_SOCKET=/tmp/c…
+CLAUDE_CODE_MESSAGING_TOKEN=be4e9a…
+CLAUDE_CODE_OAUTH_TOKEN_FILE_DESCRIPTOR=4…
+CLAUDE_CODE_ORGANIZATION_UUID=660a82…
+CLAUDE_CODE_POST_FOR_SESSION_INGRESS_V2=true…
+CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST=1…
+CLAUDE_CODE_PROXY_RESOLVES_HOSTS=true…
+CLAUDE_CODE_REMOTE=true…
+CLAUDE_CODE_REMOTE_ENVIRONMENT_TYPE=cloud_…
+CLAUDE_CODE_REMOTE_HERMETIC_MODE=0…
+CLAUDE_CODE_REMOTE_SEND_KEEPALIVES=true…
+CLAUDE_CODE_REMOTE_SESSION_ID=cse_01…
+CLAUDE_CODE_SESSION_ID=940fcf…
+CLAUDE_CODE_SYNC_SESSION_REFS=1…
+CLAUDE_CODE_SYNC_SKILLS=1…
+CLAUDE_CODE_TEE_SDK_STDOUT=true…
+CLAUDE_CODE_USER_EMAIL=vincen…
+CLAUDE_CODE_USE_CCR_V2=true…
+CLAUDE_CODE_VERSION=2.1.42…
+CLAUDE_CODE_WEBSOCKET_AUTH_FILE_DESCRIPTOR=3…
+CLAUDE_CODE_WORKER_EPOCH=2…
+CLAUDE_EFFORT=high…
+CLAUDE_ENABLE_STREAM_WATCHDOG=1…
+CLAUDE_PID=497…
+CLAUDE_SESSION_INGRESS_TOKEN_FILE=/home/…
+CLOUDSDK_AUTH_ACCESS_TOKEN=proxy-…
+CLOUDSDK_CORE_CUSTOM_CA_CERTS_FILE=/root/…
+CLOUDSDK_PROXY_ADDRESS=127.0.…
+CLOUDSDK_PROXY_PORT=33041…
+CLOUDSDK_PROXY_TYPE=http…
+COREPACK_ENABLE_AUTO_PIN=0…
+CURL_CA_BUNDLE=/root/…
+DEBIAN_FRONTEND=nonint…
+DENO_CERT=/root/…
+DENO_TLS_CA_STORE=system…
+DOCKER_HTTPS_PROXY=http:/…
+DOCUMENTS_MCP_SCRATCH_ROOT=/mnt/u…
+ELECTRON_GET_USE_PROXY=1…
+ENVRUNNER_SKIP_ACK=true…
+ENV_MANAGER_ENABLE_DIAG_LOGS=true…
+FSSPEC_GCS={"sess…
+GCM_INTERACTIVE=never…
+GH_TOKEN=proxy-…
+GITHUB_TOKEN=proxy-…
+GIT_ASKPASS=…
+GIT_CONFIG_COUNT=3…
+GIT_CONFIG_KEY_0=creden…
+GIT_CONFIG_KEY_1=url.ht…
+GIT_CONFIG_KEY_2=url.ht…
+GIT_CONFIG_VALUE_0=false…
+GIT_CONFIG_VALUE_1=git@gi…
+GIT_CONFIG_VALUE_2=ssh://…
+GIT_EDITOR=true…
+GIT_SSL_CAINFO=/root/…
+GIT_TERMINAL_PROMPT=0…
+GLOBAL_AGENT_HTTPS_PROXY=http:/…
+GLOBAL_AGENT_NO_PROXY=localh…
+GRPC_DEFAULT_SSL_ROOTS_FILE_PATH=/root/…
+HEX_CACERTS_PATH=/root/…
+HOME=/root…
+HTTPLIB2_CA_CERTS=/root/…
+HTTPS_PROXY=http:/…
+IS_SANDBOX=yes…
+JAVA_HOME=/usr/l…
+JAVA_TOOL_OPTIONS=-Djava…
+MAX_THINKING_TOKENS=31999…
+MCP_CONNECTION_NONBLOCKING=true…
+MCP_TOOL_TIMEOUT=60000…
+NIX_SSL_CERT_FILE=/root/…
+NODE_EXTRA_CA_CERTS=/root/…
+NODE_OPTIONS=--max-…
+NO_PROXY=localh…
+NoDefaultCurrentDirectoryInExePath=1…
+OLDPWD=/…
+PATH=/root/…
+PIP_CERT=/root/…
+PLAYWRIGHT_BROWSERS_PATH=/opt/p…
+PWD=/home/…
+PYTHONUNBUFFERED=1…
+RBENV_ROOT=/opt/r…
+REQUESTS_CA_BUNDLE=/root/…
+RUSTUP_HOME=/root/…
+RUST_BACKTRACE=1…
+SHELL=/bin/b…
+SHLVL=1…
+SKIP_PLUGIN_MARKETPLACE=true…
+SSL_CERT_FILE=/root/…
+TERM=linux…
+TRACEPARENT=00-8be…
+USE_BUILTIN_RIPGREP=false…
+USE_SHTTP_MCP=true…
+UV_NATIVE_TLS=true…
+YARN_HTTPS_PROXY=http:/…
+_=/usr/b…
+https_proxy=http:/…
+no_proxy=localh…
+npm_config_https_proxy=http:/…
+npm_config_noproxy=localh…
+### 4
+/root:
+total 124
+drwx------ 15 root root  4096 Aug 27 03:14 .
+drwxr-xr-x 21 root root  4096 Aug 27 03:14 ..
+drwx------  2 root root  4096 Aug 27 03:09 .aws
+-rw-r--r--  1 root root  3403 Mar 31 13:31 .bashrc
+-rw-r--r--  1 root root    55 Aug 27 03:09 .boto
+drwxr-xr-x  3 root root  4096 Mar 31 13:31 .bun
+drwxr-xr-x  7 root root  4096 Aug 27 03:09 .cache
+drwxr-xr-x  3 root root  4096 Mar 31 13:26 .cargo
+drwxr-xr-x  2 root root  4096 Aug 27 03:14 .ccr
+drwxr-xr-x 10 root root  4096 Aug 27 03:10 .claude
+-rw-------  1 root root 38798 Aug 27 03:14 .claude.json
+drwxr-xr-x  5 root root  4096 Mar 31 13:26 .config
+-rw-r--r--  1 root root   271 Aug 27 03:14 .gitconfig
+drwxr-xr-x  4 root root  4096 Mar 31 13:27 .gradle
+drwx------  3 root root  4096 Mar 31 13:23 .launchpadlib
+drwxr-xr-x  5 root root  4096 Mar 31 13:28 .local
+drwxr-xr-x  4 root root  4096 Mar 31 13:31 .npm
+-rw-r--r--  1 root root   187 Mar 31 13:26 .profile
+drwxr-xr-x  6 root root  4096 Mar 31 13:26 .rustup
+drwx------  2 root root  4096 Mar 31 13:23 .ssh
+-rw-r--r--  1 root root   209 Mar 31 13:27 .wget-hsts
+-rw-r--r--  1 root root    26 Mar 31 13:26 .zshrc
+
+/root/.claude:
+total 84
+drwxr-xr-x 10 root root  4096 Aug 27 03:10 .
+drwx------ 15 root root  4096 Aug 27 03:14 ..
+-rw-r--r--  1 root root    24 Aug 27 03:09 .last-cleanup
+drwxr-xr-x  2 root root  4096 Aug 27 03:14 backups
+-rw-------  1 root root   716 Aug 27 03:14 launcher-settings.json
+-rw-r--r--  1 root root    37 Aug 27 03:09 mcp-needs-auth-cache.json
+drwxr-xr-x  2 root root  4096 Aug 27 03:10 plans
+drwxr-xr-x  3 root root  4096 Aug 27 03:09 plugins
+drwx------  3 root root  4096 Aug 27 03:09 projects
+drwxr-xr-x  3 root root  4096 Aug 27 03:09 session-env
+-rwxr-xr-x  1 root root  4766 Aug 27 03:14 session-start-git-identity.sh
+drwx------  2 root root  4096 Aug 27 03:14 sessions
+drwxr-xr-x  2 root root  4096 Aug 27 03:18 shell-snapshots
+drwxr-xr-x  4 root root  4096 Aug 27 03:09 skills
+-rwxr-xr-x  1 root root  6395 Aug 27 03:14 stop-hook-git-check.sh
+-rwxr-xr-x  1 root root 11699 Aug 27 03:14 stop-hook-reply-gate.py
+-rwxr-xr-x  1 root root  3630 Aug 27 03:14 user-prompt-submit-reply-reminder.py
+### 5
+### 6
+--- /root/.claude/plans/plan-accept-test-append-the-soft-starlight.md
+# Plan: Append "accepted" to ACCEPT_EDITS_TEST.md
+
+## Context
+Continuing the accept-edits test sequence. The file `ACCEPT_EDITS_TEST.md` currently
+contains one line: `accept edits test`. This step verifies plan-mode edit acceptance
+by appending a new line, `accepted`, to that file. No commit or push.
+
+## Change
+- File: `/home/user/maiagent-api-examples/ACCEPT_EDITS_TEST.md`
+- Current content:
+  ```
+  accept edits test
+  ```
+- Append a new line `accepted`, resulting in:
+  ```
+  accept edits test
+  accepted
+  ```
+
+## Verification
+- Read the file back and confirm it has exactly two lines: `accept edits test` and `accepted`.
+- Run `git status --short` to confirm the file still shows as untracked/modified only (no commit/push performed).
+--- /root/.claude/backups/.claude.json.backup.1787795895848
+{
+  "oauthAccount": {
+    "accountUuid": "6695cedc-a09d-4813-b8ae-22e0aa46fdfd",
+    "emailAddress": "vincent.xu@maiagent.ai",
+    "organizationUuid": "660a8276-6831-4168-9317-11ff553bb04a"
+  }
+}--- /root/.claude/backups/.claude.json.backup.1787800178901
+{
+  "oauthAccount": {
+    "accountUuid": "6695cedc-a09d-4813-b8ae-22e0aa46fdfd",
+    "emailAddress": "vincent.xu@maiagent.ai",
+    "organizationUuid": "660a8276-6831-4168-9317-11ff553bb04a"
+  },
+  "firstStartTime": "2026-08-27T01:58:15.775Z",
+  "firstStartVersion": "2.1.247",
+  "machineID": "9803042695ed0f41d925279b7597a3c791fa2597ff0523d5631bc52ae634f9e7",
+  "opusProMigrationComplete": true,
+  "sonnet1m45MigrationComplete": true,
+  "seenNotifications": {},
+  "hasResetAutoModeOptInForDefaultOffer": true,
+  "migrationVersion": 13,
+  "userID": "bdb799688b98600731859069760d8caff8e687ad510e475fff4a6ee39063bd46"
+}--- /root/.claude/backups/.claude.json.backup.1787800493840
+{
+  "cachedGrowthBookFeatures": {
+    "tengu_ethereal_nova": true,
+    "tengu_fennel_kite_model": "",
+    "tengu_scalable_quiche": false,
+    "tengu_quiet_tarjan": false,
+    "tengu_turtle_carbon": true,
+    "tengu_mark_chapter": false,
+    "tengu_walrus_canteen": false,
+    "tengu_watchdog_skip_nonstreaming_fallback": false,
+    "tengu_quartz_meadow": false,
+    "tengu_maple_sundial": false,
+    "tengu_tide_elm": "off",
+    "tengu_plank_river_frost": "user_intent",
+    "tengu_willow_census_ttl_hours": 24,
+    "tengu_marble_anvil": true,
+    "tengu_shale_finch": false,
+    "tengu_quiet_reef": false,
+    "tengu_heron_tallow": true,
+    "tengu_vscode_onboarding": false,
+    "tengu_event_sampling_config": {
+      "tengu_plugin_name_collision": {
+        "sample_rate": 0.01
+      },
+      "tengu_session_file_read": {
+        "sample_rate": 0.01
+      },
+      "tengu_skill_file_changed": {
+        "sample_rate": 0
+      }
+    },
+    "tengu_harbor_willow": true,
+    "tengu_warm_wirth": true,
+    "tengu-model-error-overrides": {},
+    "tengu_flint_harbor_share": false,
+    "tengu_mint_lanes": false,
+    "tengu_copper_fox": false,
+    "tengu_bridge_attestation_enforce": true,
+    "tengu_amber_rokovoko": 0.2,
+    "tengu_marble_lark": false,
+    "tengu_tangerine_ladder_boost": true,
+    "tengu_harbor_kite_win": true,
+    "tengu_trace_lantern": false,
+    "tengu_react_vulnerability_warning": false,
+    "tengu_hidden_ripple": true,
+    "tengu_violin_wood": false,
+    "tengu_bridge_repl_v2": true,
+    "tengu_mcp_path_scoped_permissions": true,
+    "tengu_rc_permission_nudge": {
+      "afterPromptCount": 2,
+      "probability": 0.5,
+      "maxImpressions": 3
+    },
+    "tengu_slate_fern": true,
+    "tengu_maple_pier": true,
+    "tengu_session_memory": false,
+    "tengu_cobalt_plinth_bracken": false,
+    "tengu_lantern_spool": false,
+    "tengu_worktree_mode": true,
+    "tengu_mcp_normalize_root_combinators": [
+--- /root/.claude/user-prompt-submit-reply-reminder.py
+#!/usr/bin/env python3
+"""UserPromptSubmit hook that injects the slackbot-v2 Opus reply reminder
+as additionalContext on every turn.
+
+Slackbot v2 is a stateless pipe: plain assistant text never reaches Slack.
+Opus-class models tend to answer with plain text anyway, so a per-turn
+reminder nudges them to call a terminal mcp__slackbot__* tool instead.
+
+Delivering the reminder via a UserPromptSubmit hook (rather than
+concatenating a <system-reminder>-wrapped suffix into the user turn text)
+lets the CLI's normalizeMessagesForAPI / shouldUseMidConvSystem promote it
+to a real {role:"system"} turn on models that accept mid-conversation
+system messages (opus-4-8, mythos, fable, …) and fall back to the
+<system-reminder> wrap on those that don't. The CLI owns that model gate;
+this hook does not re-implement it.
+
+Installed for slackbot v2 sessions: env-manager registers it in
+launcher-settings.json only when CCR_OPUS_REMINDER_HOOK_BODY is set, and
+CCR sets that env var only when the session is Slack-originated and the
+ccr_slackbot_v2_system_turn_reminder GrowthBook boolean is on. Registered
+as a UserPromptSubmit hook so it fires on every user turn (seed included).
+
+The Opus-class gate lives here (is_opus on the transcript's most recent
+main-loop assistant model), same as stop-hook-reply-gate.py: the
+configured model can fall back CLI-side per request, so the effective
+model is only knowable at runtime from the transcript. A non-Opus or
+indeterminate model emits nothing — the hook is a no-op.
+"""
+
+import json
+import os
+import sys
+
+
+def is_opus(model):
+    return "opus" in (model or "").lower()
+
+
+def main():
+    body = os.environ.get("CCR_OPUS_REMINDER_HOOK_BODY", "")
+    if not body:
+        # Not installed for this session (env var is the enable signal).
+        sys.exit(0)
+
+    raw = sys.stdin.read()
+    try:
+        payload = json.loads(raw) if raw.strip() else {}
+    except json.JSONDecodeError:
+        sys.exit(0)
+
+    transcript_path = payload.get("transcript_path") or ""
+    last_model = None
+    try:
+        with open(transcript_path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    entry = json.loads(line)
+--- /root/.claude/shell-snapshots/snapshot-bash-1787800722855-sdm373.sh
+# Snapshot file
+# Unset all aliases to avoid conflicts with functions
+unalias -a 2>/dev/null || true
+# Shopt
+shopt -u autocd
+shopt -u assoc_expand_once
+shopt -u cdable_vars
+shopt -u cdspell
+shopt -u checkhash
+shopt -u checkjobs
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -u compat31
+shopt -u compat32
+shopt -u compat40
+shopt -u compat41
+shopt -u compat42
+shopt -u compat43
+shopt -u compat44
+shopt -s complete_fullquote
+shopt -u direxpand
+shopt -u dirspell
+shopt -u dotglob
+shopt -u execfail
+shopt -u expand_aliases
+shopt -u extdebug
+shopt -u extglob
+shopt -s extquote
+shopt -u failglob
+shopt -s force_fignore
+shopt -s globasciiranges
+shopt -s globskipdots
+shopt -u globstar
+shopt -u gnu_errfmt
+shopt -u histappend
+shopt -u histreedit
+shopt -u histverify
+shopt -s hostcomplete
+shopt -u huponexit
+shopt -u inherit_errexit
+shopt -s interactive_comments
+shopt -u lastpipe
+shopt -u lithist
+shopt -u localvar_inherit
+shopt -u localvar_unset
+shopt -s login_shell
+shopt -u mailwarn
+shopt -u no_empty_cmd_completion
+shopt -u nocaseglob
+shopt -u nocasematch
+shopt -u noexpand_translation
+shopt -u nullglob
+shopt -s patsub_replacement
+shopt -s progcomp
+shopt -u progcomp_alias
+shopt -s promptvars
+shopt -u restricted_shell
+shopt -u shift_verbose
+shopt -s sourcepath
+shopt -u varredir_close
+--- /root/.claude/stop-hook-reply-gate.py
+#!/usr/bin/env python3
+"""Stop hook that forces an Opus-class main-loop agent to communicate to the
+Slack thread before ending a turn.
+
+Slackbot v2 is a stateless pipe: plain assistant text never reaches Slack, so
+a turn that ends without a terminal mcp__slackbot__* tool call is total silence
+to the user. This hook re-prompts (decision=block) until the model calls one of
+those tools, then self-terminates. A per-turn counter caps the re-prompts well
+below the CLI's global 8-block ceiling so a model that simply won't comply
+still gets to stop.
+
+Installed for slackbot v2 sessions: env-manager registers it in
+launcher-settings.json only when CCR_REPLY_STOP_HOOK_REASON is set, and CCR sets
+that env var only when the session is Slack-originated and the GrowthBook kill
+switch is on. Install is deliberately not model-gated — the configured model
+can fall back CLI-side at serving time, so the effective model is only knowable
+here, from the transcript. That makes the is_opus check below the single Opus
+gate; when the serving model is indeterminate (no entries, no assistant entry,
+no model field) the hook allows, since it is a reply nudge and must never trap
+a session. Registered as a `Stop` hook (never SubagentStop), so it scopes
+automatically to the main coordinator loop and never to subagents.
+"""
+
+import json
+import os
+import re
+import sys
+import tempfile
+
+# Terminal tools that satisfy the gate — calling any of them this turn means
+# the user heard from us. Keep in sync with the Go default in
+# ccrshared.defaultReplyStopHookTerminalTools. The mid-turn/silent tools
+# (fetch_*, search*, *_memory, set_thread_label, update_reply — chat.update
+# does not notify the thread and does not discharge the reply obligation)
+# are deliberately excluded.
+TERMINAL_DEFAULT = [
+    "mcp__slackbot__reply",
+    "mcp__slackbot__no_reply_needed",
+    "mcp__slackbot__post_message",
+    "mcp__slackbot__upload_file",
+]
+
+DEFAULT_LOCAL_CAP = 3
+
+
+def allow():
+    # exit 0 with no stdout = allow the stop.
+    sys.exit(0)
+
+
+_SAFE = re.compile(r"[^A-Za-z0-9._<>/-]")
+
+
+def allow_with(path, **kv):
+    # One-line stderr marker so the allow reason is observable in
+    # env_manager_otel_log. Never include user content — only opaque
+    # identifiers (basenames/UUIDs, model ids, tool names), never full
+    # paths or user content. All values sanitized to [A-Za-z0-9._<>/-]
+    # and capped at 128 chars. allow() exits the process.
+    def safe(v):
+--- /root/.claude/mcp-needs-auth-cache.json
+{"Slack":{"timestamp":1787800179863}}--- /root/.claude/sessions/497.json
+{"pid":497,"sessionId":"940fcf09-d7e3-5a22-97ef-856210e6affa","cwd":"/home/user/maiagent-api-examples","startedAt":1787800493426,"procStart":"498","version":"2.1.247","peerProtocol":1,"peerFeatures":["notify_idle","artifact_yield"],"kind":"interactive","entrypoint":"remote","pidDomain":"linux:0d0af05ee8fd4dc29275718f2ce4dff1:pid:[4026531836]","messagingSocketPath":"/tmp/cc-socks/497.sock","name":"maiagent-api-examples-cc","nameSource":"derived","nameSince":1787800493426}--- /root/.claude/sessions/497.addf92338286854f00833b4ddb4e09905e384fef92bf34bb42e2436bbd903108.key
+{"peerToken":"<masked>","procStart":"498","pidDomain":"linux:0d0af05ee8fd4dc29275718f2ce4dff1:pid:[4026531836]"}--- /root/.claude/launcher-settings.json
+{
+    "$schema": "https://json.schemastore.org/claude-code-settings.json",
+    "hooks": {
+        "SessionStart": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/session-start-git-identity.sh"
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/stop-hook-git-check.sh"
+                    }
+                ]
+            }
+        ]
+    },
+    "permissions": {
+        "allow": ["Skill"]
+    }
+}
+--- /root/.claude/stop-hook-git-check.sh
+#!/bin/bash
+
+# Read the JSON input from stdin
+input=$(cat)
+
+# Check if stop hook is already active (recursion prevention)
+stop_hook_active=$(echo "$input" | jq -r '.stop_hook_active')
+if [[ "$stop_hook_active" = "true" ]]; then
+  exit 0
+fi
+
+# Check if we're in a git repository - bail if not
+if ! git rev-parse --git-dir >/dev/null 2>&1; then
+  exit 0
+fi
+
+# Bail if there's no remote to push to. Every error path below asks the user
+# to "push to the remote branch" — meaningless without a remote, and
+# unsatisfiable if signing also requires a source. This case arises when CCR
+# was launched against a local repo with no github remote (sources=[]) and
+# the container's cwd has a leftover .git from a cached resume.
+if [[ -z "$(git remote)" ]]; then
+  exit 0
+fi
+
+# Check for uncommitted changes (both staged and unstaged)
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  echo "There are uncommitted changes in the repository. Please commit and push these changes to the remote branch." >&2
+  exit 2
+fi
+
+# Check for untracked files that might be important
+untracked_files=$(git ls-files --others --exclude-standard)
+if [[ -n "$untracked_files" ]]; then
+  echo "There are untracked files in the repository. Please commit and push these changes to the remote branch." >&2
+  exit 2
+fi
+
+current_branch=$(git branch --show-current)
+if [[ -n "$current_branch" ]]; then
+  if git rev-parse "origin/$current_branch" >/dev/null 2>&1; then
+    upstream="origin/$current_branch"
+  else
+    upstream="origin/HEAD"
+  fi
+
+  # Check for local commits that GitHub will show as "Unverified": either no
+  # signature at all, or a committer email other than noreply@anthropic.com
+  # (the identity CCR's signing key is registered to). Only run when commit
+  # signing is configured.
+  #
+  # Signature presence is tested via the raw gpgsig/gpgsig-sha256 header,
+  # NOT %G?. CCR/BYOC configure SSH signing (gpg.format=ssh, /tmp/code-sign;
+  # byoc.go:754-758) but never set gpg.ssh.allowedSignersFile, so %G?
+  # reports 'N' for correctly SSH-signed commits — see
+  # api-go/ccr/e2e/byoc/scenario_sign_commit_test.go:117 and
+  # antique/cmd/aq/git.go listUnsignedCommits for the same rationale.
+  #
+  # Scope to commits that are on NO remote ref ($upstream..HEAD would sweep
+  # in teammates' already-published commits whenever this branch was cut
+--- /root/.claude/session-start-git-identity.sh
+#!/bin/bash
+# CCR SessionStart hook: re-assert the git committer identity so that
+# commits SSH-signed by CCR verify on GitHub.
+#
+# CCR's signing key is registered to noreply@anthropic.com. If a commit's
+# committer email is anything else, GitHub reports verification.reason =
+# unknown_key and shows the commit as "Unverified" even though the signature
+# itself is valid. The base CCR image's /home/claude/.gitconfig sets
+# commit.gpgsign=true but historically did not pin user.email, and past
+# settings-sync behavior (tengu_strap_foyer) could pull in a user's own
+# SessionStart hook that overwrote the identity. Re-asserting on every
+# session start closes both gaps, including for checkpointed containers that
+# still carry stale global git config.
+#
+# This sets both author and committer; CCR does not currently preserve a
+# distinct human author identity in 1p sessions, and the Stop hook's
+# remediation instructions and the byoc envtype already use these exact
+# values. Exit 0 even on failure so a broken git install can't wedge session
+# startup — the Stop hook will still catch any resulting unverifiable commit.
+
+git config --global user.email noreply@anthropic.com 2>/dev/null
+git config --global user.name Claude 2>/dev/null
+
+# When the session has a user account, install a git commit-msg hook that
+# appends a Co-authored-by trailer carrying the owner's address — the write
+# side of the commit_identity_strict_committer rule in
+# commitsign.MatchesAccountStrict. core.hooksPath replaces the repo-local
+# hooks dir for every hook name, so every other name is a passthrough that
+# chain-calls $GIT_DIR/hooks/<name> to keep repo-local hooks working.
+#
+# When CCR_SESSION_ACCOUNT_EMAIL is unset (org-service-key sessions), the
+# strict rule accepts a bot-only commit with no trailer, so core.hooksPath
+# is left untouched and none of this applies.
+if [[ -n "$CCR_SESSION_ACCOUNT_EMAIL" ]]; then
+  hooks_dir="$HOME/.ccr-git-hooks"
+  mkdir -p "$hooks_dir" 2>/dev/null
+
+  # Passthrough stub for every standard client-side hook name except
+  # commit-msg and prepare-commit-msg, which we own below. Each stub
+  # execs the repo-local hook when present. Hooks live under the COMMON
+  # git dir (the main repo's hooks/), not the per-worktree GIT_DIR, so
+  # the lookup goes via rev-parse so linked worktrees resolve correctly.
+  passthrough_hooks=(
+    applypatch-msg pre-applypatch post-applypatch
+    pre-commit pre-merge-commit post-commit
+    pre-rebase post-checkout post-merge pre-push
+    reference-transaction fsmonitor-watchman
+    pre-auto-gc post-rewrite sendemail-validate post-index-change
+  )
+  for h in "${passthrough_hooks[@]}"; do
+    cat >"$hooks_dir/$h" <<'PASSTHROUGH'
+#!/bin/sh
+common_dir=$(git rev-parse --git-common-dir 2>/dev/null) || common_dir=.git
+local_hook="$common_dir/hooks/$(basename "$0")"
+[ -x "$local_hook" ] && exec "$local_hook" "$@"
+exit 0
+PASSTHROUGH
+    chmod 0755 "$hooks_dir/$h" 2>/dev/null
+  done
+
+--- /root/.claude/.last-cleanup
+2026-08-27T03:09:44.385Z### 7
+CCR_AGENT_PROXY_ENABLED=1…
+no_proxy=localhost,12…
+NODE_EXTRA_CA_CERTS=/root/.ccr/c…
+GH_TOKEN=<masked>…
+CCR_UPSTREAM_PROXY_ENABLED=1…
+GIT_SSL_CAINFO=/root/.ccr/c…
+CLOUDSDK_PROXY_TYPE=http…
+GITHUB_TOKEN=<masked>…
+CLOUDSDK_AUTH_ACCESS_TOKEN=<masked>…
+CLOUDSDK_PROXY_PORT=33041…
+CLOUDSDK_CORE_CUSTOM_CA_CERTS_FILE=/root/.ccr/c…
+NIX_SSL_CERT_FILE=/root/.ccr/c…
+CLAUDE_CODE_PROXY_RESOLVES_HOSTS=true…
+CCR_TEST_GITPROXY=1…
+AWS_SECRET_ACCESS_KEY=<masked>…
+https_proxy=http://127.0…
+GLOBAL_AGENT_NO_PROXY=localhost,12…
+ELECTRON_GET_USE_PROXY=1…
+JAVA_TOOL_OPTIONS=-Djavax.net.…
+NO_PROXY=localhost,12…
+AWS_ACCESS_KEY_ID=proxy-inject…
+HTTPS_PROXY=http://127.0…
+SSL_CERT_FILE=/root/.ccr/c…
+npm_config_noproxy=localhost,12…
+HTTPLIB2_CA_CERTS=/root/.ccr/c…
+YARN_HTTPS_PROXY=http://127.0…
+CLOUDSDK_PROXY_ADDRESS=127.0.0.1…
+GRPC_DEFAULT_SSL_ROOTS_FILE_PATH=/root/.ccr/c…
+npm_config_https_proxy=http://127.0…
+DOCKER_HTTPS_PROXY=http://127.0…
+GLOBAL_AGENT_HTTPS_PROXY=http://127.0…
+127.0.0.1 localhost
+160.79.104.10 api.anthropic.com
+127.0.0.1 runsc
+127.0.0.1 vm
+ccr-agent-proxy.pem
+user.name=Claude
+user.email=noreply@anthropic.com
+user.signingkey=/home/claude/.ssh/commit_signing_key.pub
+gpg.format=ssh
+gpg.ssh.program=/tmp/code-sign
+commit.gpgsign=true
+http.proxyauthmethod=basic
+core.checkstat=minimal
+core.trustctime=false
+### 8
+registry.npmjs.org -> 200
+pypi.org -> 200
+github.com -> 400
+api.anthropic.com -> 404
+example.com -> 000
+google.com -> 000
+raw.githubusercontent.com -> 301
+### 9
+/dev/vda on / type ext4 (rw,relatime,resv_strict,resuid=65534,resgid=65534)
+/process_api --firecracker-init --addr 0.0.0.0:2024 --max-ws-buffer-size 32768 --block-local-connections --listen-vsock-port 2024 
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root       497  4.9  2.0 5597456 339828 ?      Sl   03:14   0:11 claude --output-format=stream-json --verbose --settings /root/.claude/launcher-settings.json --replay-user-messages --input-format=stream-json --debug-to-stderr --effort high --tools preset:default,Task,Bash,Glob,Grep,Read,Edit,MultiEdit,Write,NotebookEdit,WebFetch,TodoWrite,WebSearch,BashOutput,KillBash,Skill,Tmux,Monitor,SendUserFile,REPL,ExitPlanMode,AskUserQuestion,ToolSearch --allowed-tools preset:default,Task,Bash,Glob,Grep,Read,Edit,MultiEdit,Write,NotebookEdit,WebFetch,TodoWrite,WebSearch,BashOutput,KillBash,Skill,Tmux,Monitor,SendUserFile,REPL,ToolSearch,mcp__github__*,mcp__Google_Calendar__get_event,mcp__Google_Calendar__list_calendars,mcp__Google_Calendar__list_events,mcp__Google_Calendar__search_events,mcp__Google_Calendar__suggest_time,mcp__Notion__notion-download-attachment,mcp__Notion__notion-fetch,mcp__Notion__notion-get-async-task,mcp__Notion__notion-get-comments,mcp__Notion__notion-get-teams,mcp__Notion__notion-get-users,mcp__Notion__notion-list-favorite-pages,mcp__Notion__notion-list-private-pages,mcp__Notion__notion-list-recent-pages,mcp__Notion__notion-list-shared-pages,mcp__Notion__notion-query-data-sources,mcp__Notion__notion-query-meeting-notes,mcp__Notion__notion-search,mcp__Notion__notion-search-agents,mcp__Gmail__get_draft,mcp__Gmail__get_message,mcp__Gmail__get_thread,mcp__Gmail__list_drafts,mcp__Gmail__list_labels,mcp__Gmail__search_threads --disallowed-tools mcp__Asana__create_project_confirm,mcp__Asana__create_project_confirm_populate,mcp__Asana__create_task_confirm,mcp__Asana__get_project_internal,mcp__Asana__log_widget_event,mcp__Asana__save_project_changes_confirm,mcp__Asana__save_task_changes_confirm,mcp__Asana__search_objects_internal,mcp__tldraw___exec_callback,mcp__tldraw___get_canvas_state,mcp__tldraw__read_checkpoint,mcp__tldraw__save_checkpoint,mcp__HyperFrames_by_HeyGen__internal_get_project_status,mcp__HyperFrames_by_HeyGen__internal_get_render_status --mcp-config /tmp/mcp-config-cse_019p4DrHeMChjV6a6eKmXLZ4.json --prompt-suggestions true --model claude-sonnet-5 --append-system-prompt-file /tmp/claude-append-system-prompt.txt --add-dir /home/user/maiagent-api-examples --sdk-url https://api.anthropic.com/v1/code/sessions/cse_019p4DrHeMChjV6a6eKmXLZ4 --resume=https://api.anthropic.com/v1/code/sessions/cse_019p4DrHeMChjV6a6eKmXLZ4 --debug
+root       483  0.6  0.2 1956732 43128 ?       Sl   03:14   0:01 /usr/local/bin/environment-manager task-run --stdin --session cse_019p4DrHeMChjV6a6eKmXLZ4 --session-mode resume --upgrade-claude-code=False
+root      1616  2.3  0.0   7204  6156 ?        Ss   03:18   0:00 /bin/bash -c source /root/.claude/shell-snapshots/snapshot-bash-1787800722855-sdm373.sh 2>/dev/null || true && export BUN_OPTIONS="--smol${BUN_OPTIONS:+ $BUN_OPTIONS}" && shopt -u extglob 2>/dev/null || true && { \builtin unalias -- 'unsetenv'; \builtin unset -f -- 'unsetenv'; } >/dev/null 2>&1 || true && eval ' echo "### 1" uname -a; cat /etc/os-release | head -3; nproc; free -h; df -h / /home /tmp 2>/dev/null; ulimit -a | head -8; cat /sys/fs/cgroup/cpu.max /sys/fs/cgroup/memory.max 2>/dev/null; id; hostname  echo "### 2" which claude; claude --version 2>/dev/null; node -v; python3 --version; git --version; which gh docker  echo "### 3" env | sort | sed -E '"'"'s/=(.{0,6}).*/=\1???/'"'"'  echo "### 4" ls -la ~ /root/.claude /home/user/.claude 2>/dev/null; find / -maxdepth 3 -name '"'"'settings*.json'"'"' -path '"'"'*claude*'"'"' 2>/dev/null  echo "### 5" for f in ~/.claude/settings.json /root/.claude/settings.json /etc/claude-code/managed-settings.json /home/user/.claude/settings.json; do [ -f "$f" ] && echo "--- $f" && cat "$f"; done  echo "### 6" ls -la ~/.claude/hooks /root/.claude/hooks /etc/claude-code 2>/dev/null; for f in $(find /root/.claude /etc/claude-code -maxdepth 2 -type f 2>/dev/null | head -20); do echo "--- $f"; head -60 "$f"; done  echo "### 7" env | grep -iE '"'"'proxy|no_proxy|ca_cert|ssl'"'"' | sed -E '"'"'s/=(.{0,12}).*/=\1???/'"'"'; cat /etc/hosts; ls /etc/ssl/certs | grep -i -E '"'"'anthropic|proxy|mitm'"'"' ; git config --global -l  echo "### 8" for h in registry.npmjs.org pypi.org github.com api.anthropic.com example.com google.com raw.githubusercontent.com; do printf "%s -> " $h; curl -sS -m 6 -o /dev/null -w "%{http_code}\n" https://$h/ 2>&1 | tail -1; done  echo "### 9" mount | grep -E '"'"' / | /home| /tmp'"'"' ; cat /proc/1/cmdline | tr '"'"'\0'"'"' '"'"' '"'"'; echo; ps aux --sort=-%mem | head -12  echo "### 10" ls -la /home/user; du -sh /home/user/* 2>/dev/null | head; git -C /home/user/maiagent-api-examples remote -v; git -C /home/user/maiagent-api-examples config -l | grep -iE '"'"'credential|url|user\.'"'"' | sed -E '"'"'s/(token|password)=.*/\1=???/'"'"' ' < /dev/null && pwd -P >| /tmp/claude-41cd-cwd
+root         1  0.6  0.0  17560  5060 ?        SLl  03:14   0:01 /process_api --firecracker-init --addr 0.0.0.0:2024 --max-ws-buffer-size 32768 --block-local-connections --listen-vsock-port 2024
+root      1686  0.0  0.0   7900  4164 ?        R    03:18   0:00 ps aux --sort=-%mem
+root       479  0.0  0.0   2808  1920 ?        S    03:14   0:00 /bin/sh -c if [ -d /opt/claude-code ]; then ln -sf /opt/claude-code/bin/claude /opt/node22/bin/claude; fi; if [ -d /opt/env-runner ]; then ln -sf /opt/env-runner/environment-manager /usr/local/bin/environment-manager; fi; if [ -f /opt/env-runner/vitals-emitter-guest ]; then ln -sf /opt/env-runner/vitals-emitter-guest /usr/local/bin/vitals-emitter-guest; fi ; mkdir -p /home/user ; cd /home/user && /usr/local/bin/environment-manager task-run --stdin --session cse_019p4DrHeMChjV6a6eKmXLZ4 --session-mode resume --upgrade-claude-code=False >>/tmp/environment-manager.out 2>&1
+root      1687  0.0  0.0   2720  1640 ?        S    03:18   0:00 head -12
+root         2  0.0  0.0      0     0 ?        S    03:14   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    03:14   0:00 [pool_workqueue_release]
+root         4  0.0  0.0      0     0 ?        I<   03:14   0:00 [kworker/R-rcu_gp]
+root         5  0.0  0.0      0     0 ?        I<   03:14   0:00 [kworker/R-sync_wq]
+### 10
+total 12
+drwxr-xr-x 3 root root 4096 Aug 27 01:58 .
+drwxr-xr-x 5 root root 4096 Aug 27 01:58 ..
+drwxr-xr-x 6 root root 4096 Aug 27 03:14 maiagent-api-examples
+2.4M	/home/user/maiagent-api-examples
+origin	https://github.com/Playma-Co-Ltd/maiagent-api-examples (fetch)
+origin	https://github.com/Playma-Co-Ltd/maiagent-api-examples (push)
+user.name=Claude
+user.email=noreply@anthropic.com
+user.signingkey=/home/claude/.ssh/commit_signing_key.pub
+remote.origin.url=https://github.com/Playma-Co-Ltd/maiagent-api-examples
+credential.interactive=false
+url.https://github.com/.insteadof=git@github.com:
+url.https://github.com/.insteadof=ssh://git@github.com/

@@ -270,4 +270,375 @@
 - `stock_filter` 可選值：只見 `all`；UI 另有「自選股」選項（需登入，未測）。
 - `news/stock/list` 三 sort（active／rise／fall）之外的 sort 值、`avg_volume=null` 何時有值、`favorite_group_id=null` 登入態形狀，均未測。
 - `futures/k-line` `contract_month:"1"` 語義（榜單側 `front_month=202610`）未對齊；`open_interest=null`／`settlement_price=null` 何時有值未知。
+
+## 8. REQ／RESP 全文（核心端點，HAR 實測）
+
+以下每支皆附實際 query string；RESP 截短處註明原文 bytes 數。`image`／`icon_url` 值為簽名代理 URL，已截為 `https://img.biggo.com/<sig>/…` 形（原文照此形，sig 省略）。
+
+### 8.1 `GET stock/market/main/list`（榜單·股票）
+
+```http
+GET https://api.biggo.com/api/v1/finance/stock/market/main/list?region=tw
+Accept: application/json
+Origin: https://finance.biggo.com.tw
+```
+
+```json
+// RESP 200，原文 4025 bytes；以下取首筆全文＋次筆去 image，其餘 8 筆以 … 表示
+{"result":true,"data":[
+{"stock_id":"2330.TW","name":"台灣積體電路製造","asset_type":"stock","current_price":2460,"daily_change":35,"daily_change_percent":1.44,"is_market_closed":true,"image":"https://img.biggo.com/<sig>/…2330.TW.svg.webp","currency":"TWD","favorite_group_id":null},
+{"stock_id":"2454.TW","name":"聯發科技","asset_type":"stock","current_price":4710,"daily_change":210,"daily_change_percent":4.67,"is_market_closed":true,"image":"…","currency":"TWD","favorite_group_id":null}
+// … 其餘 8 筆見 §3.1.1 全表
+]}
+```
+
+### 8.2 `GET index/market/main/list`（榜單·指數）
+
+```http
+GET https://api.biggo.com/api/v1/finance/index/market/main/list?size=10&region=tw
+Accept: application/json
+Origin: https://finance.biggo.com.tw
+```
+
+```json
+// RESP 200，原文 2484 bytes；以下取首 2 筆逐字，其餘 8 筆見 §3.1.2
+{"result":true,"data":[
+{"symbol_id":"^TWII","name":"台灣加權指數","asset_type":"index","current_price":47180.75,"daily_change":892.75,"daily_change_percent":1.93,"high":47180.75,"low":47180.75,"is_market_closed":true,"currency":"TWD","region":"tw","favorite_group_id":null},
+{"symbol_id":"IX0043.TWO","name":"櫃買加權指數","asset_type":"index","current_price":412.68,"daily_change":14.51,"daily_change_percent":3.64,"high":412.68,"low":412.68,"is_market_closed":true,"currency":"TWD","region":"tw","favorite_group_id":null}
+// … 其餘 8 筆見 §3.1.2 全表
+]}
+```
+
+### 8.3 `GET futures/market/main/list`（榜單·期貨）
+
+```http
+GET https://api.biggo.com/api/v1/finance/futures/market/main/list?region=tw
+Accept: application/json
+Origin: https://finance.biggo.com.tw
+```
+
+```json
+// RESP 200，原文 5116 bytes；以下取首筆全文（icon_url 截短），其餘 9 筆見 §3.1.3
+{"result":true,"data":{"market":null,"size":10,"list":[
+{"symbol":"TAIFEX_TX","asset_type":"futures","product_code":"TX","name":"臺股期貨","name_en":"TAIEX Futures","exchange":"TAIFEX","currency":"TWD","icon_url":"https://img.biggo.com/<sig>/…TAIFEX_TX.jpg.webp","front_month":"202610","current_price":47418,"daily_change":1358,"daily_change_percent":2.95,"daily_volume":44613,"open_interest":null,"date":"20260918","favorite_group_id":null}
+// … 其餘 9 筆見 §3.1.3 全表（含 MTX／TM／QFF／OLF／PUF／RWF／PWF／SFF／RVF）
+]}}
+```
+
+### 8.4 `GET etf/market/main/list`（榜單·ETF）
+
+```http
+GET https://api.biggo.com/api/v1/finance/etf/market/main/list?market=tw&region=tw
+Accept: application/json
+Origin: https://finance.biggo.com.tw
+```
+
+```json
+// RESP 200，原文 2726 bytes；以下取首 2 筆全文，其餘 8 筆見 §3.1.4
+{"result":true,"data":{"market":"tw","size":10,"list":[
+{"stock_id":"0050.TW","name":"元大台灣50","asset_type":"etf","current_price":109.85,"daily_change":1.8,"daily_change_percent":1.67,"image":null,"currency":"TWD","category":"equity_index","asset_class":"Equity","aum":2368854626956,"issuer":"Yuanta","favorite_group_id":null},
+{"stock_id":"00918.TW","name":"大華優利高填息30","asset_type":"etf","current_price":34.15,"daily_change":-0.35,"daily_change_percent":-1.01,"image":null,"currency":"TWD","category":"equity_index","asset_class":"Equity","aum":null,"issuer":"DAH HWA","favorite_group_id":null}
+// … 其餘 8 筆見 §3.1.4 全表
+]}}
+```
+
+### 8.5 `POST stock/current/price/list`（價量批量·股票，REQ／RESP 全文）
+
+```http
+POST https://api.biggo.com/api/v1/finance/stock/current/price/list?region=tw
+Content-Type: application/json
+Accept: application/json
+Origin: https://finance.biggo.com.tw
+```
+
+```json
+// REQ body 全文（原文 131 bytes，照抄）
+{"stock_ids":["0050.TW","00918.TW","00631L.TW","00981A.TW","00919.TW","00403A.TW","00685L.TW","00406A.TW","009816.TW","00632R.TW"]}
+```
+
+```json
+// RESP 200 全文（原文 1669 bytes，未截短；首 2＋末 1 筆，中 7 筆值見 §3.2 表）
+{"result":true,"data":[
+{"stock_id":"0050.TW","asset_type":"stock","current_price":109.85,"ask":109.85,"bid":109.8,"total_volume":79388000,"daily_change":1.8,"daily_change_percent":1.67},
+{"stock_id":"00918.TW","asset_type":"stock","current_price":34.15,"ask":34.15,"bid":34.14,"total_volume":242638000,"daily_change":-0.35,"daily_change_percent":-1.01},
+// … 中 7 筆見 §3.2 全表
+{"stock_id":"00632R.TW","asset_type":"stock","current_price":9.67,"ask":9.68,"bid":9.67,"total_volume":133116000,"daily_change":-0.17,"daily_change_percent":-1.73}]}
+```
+
+### 8.6 `POST futures/current/price/list`（價量批量·期貨，REQ／RESP 全文）
+
+```http
+POST https://api.biggo.com/api/v1/finance/futures/current/price/list?region=tw
+Content-Type: application/json
+Accept: application/json
+Origin: https://finance.biggo.com.tw
+```
+
+```json
+// REQ body 全文（照抄，10 檔）
+{"symbols":[{"symbol":"TAIFEX_TX"},{"symbol":"TAIFEX_MTX"},{"symbol":"TAIFEX_TM"},{"symbol":"TAIFEX_QFF"},{"symbol":"TAIFEX_OLF"},{"symbol":"TAIFEX_PUF"},{"symbol":"TAIFEX_RWF"},{"symbol":"TAIFEX_PWF"},{"symbol":"TAIFEX_SFF"},{"symbol":"TAIFEX_RVF"}]}
+```
+
+```json
+// RESP 200（原文 2316 bytes；首 2＋異常 1 筆，餘見 §3.2）
+{"result":true,"data":[
+{"symbol":"TAIFEX_TX","asset_type":"futures","current_price":47418,"settlement_price":null,"daily_change":1358,"daily_change_percent":2.95,"ask":47425,"bid":47420,"total_volume":44613,"open_interest":null,"contract_month":"202610"},
+{"symbol":"TAIFEX_MTX","asset_type":"futures","current_price":47427,"settlement_price":null,"daily_change":1367,"daily_change_percent":2.97,"ask":47427,"bid":47423,"total_volume":95836,"open_interest":null,"contract_month":"202610"},
+// … 中 7 筆見 §3.2；異常筆：
+{"symbol":"TAIFEX_RWF","asset_type":"futures","current_price":7160,"settlement_price":null,"daily_change":950,"daily_change_percent":15.3,"ask":0,"bid":7160,"total_volume":3906,"open_interest":null,"contract_month":"202610"}]}
+```
+
+### 8.7 `GET stock/k-line`（K 線·股票）
+
+```http
+GET https://api.biggo.com/api/v1/finance/stock/k-line?stock_id=2330.TW&m=1D&region=tw
+Accept: application/json
+Origin: https://finance.biggo.com.tw
+```
+
+```json
+// RESP 200，原文 27344 bytes（271 點）；以下取 meta＋首 3 點，末點見 §2（13:30 O2460 H2460 L2460 C2460 V20247000）
+{"result":true,"data":{"stock_id":"2330.TW","asset_type":"stock","region":"tw","mode":"1D","interval":"1m","in_market_open":false,
+"open_time":{"open":"09:00:00+08:00","close":"13:30:00+08:00"},"timezone":"Asia/Taipei",
+"highest_price":2460,"lowest_price":2435,"previous_close":2425,
+"kline_data":[
+{"date":"2026-09-18T09:00:00+08:00","open":2460,"high":2460,"low":2450,"close":2455,"volume":2559000},
+{"date":"2026-09-18T09:01:00+08:00","open":2455,"high":2455,"low":2445,"close":2445,"volume":262000},
+{"date":"2026-09-18T09:02:00+08:00","open":2450,"high":2450,"low":2445,"close":2450,"volume":152000}
+// … 中間 265 點省略，末點見 §2
+]}}
+```
+
+### 8.8 `GET futures/k-line`（K 線·期貨）
+
+```http
+GET https://api.biggo.com/api/v1/finance/futures/k-line?symbol=TAIFEX_TX&m=1D&region=tw
+Accept: application/json
+Origin: https://finance.biggo.com.tw
+```
+
+```json
+// RESP 200，原文 23571 bytes；以下取 meta＋首 3 點（注意：無 previous_close／open_time 欄）
+{"result":true,"data":{"symbol":"TAIFEX_TX","asset_type":"futures","contract_month":"1","mode":"1D","interval":"5m","timezone":"Asia/Taipei",
+"highest_price":47460,"lowest_price":46571,
+"kline_data":[
+{"date":"2026-09-17T15:00:00+08:00","open":46571,"high":46571,"low":46571,"close":46571,"volume":158},
+{"date":"2026-09-17T15:05:00+08:00","open":46586,"high":46586,"low":46586,"close":46586,"volume":362},
+{"date":"2026-09-17T15:10:00+08:00","open":46646,"high":46646,"low":46646,"close":46646,"volume":352}
+// … 其餘點省略（前一交易日 15:00 起算，含夜盤；與現貨 09:00 起算不同，實測）
+]}}
+```
+
+### 8.9 `GET stock/tabs/availability`（RESP 全文，未截短）
+
+```http
+GET https://api.biggo.com/api/v1/finance/stock/tabs/availability?stock_id=2330.TW&region=tw
+Accept: application/json
+```
+
+```json
+// RESP 200，原文 592 bytes，全文
+{"result":true,"data":{"stock_id":"2330.TW","asset_type":"stock","region":"tw","is_etf":false,"statements":{"revenue":true,"eps":true,"profit":true,"balance_sheet":true,"total_assets":true,"liabilities":true,"equity":true,"cash_flow":true,"cash_flow_single":true,"cash_flow_cumulative":true,"cash_flow_annual":true},"financing":{"institutional_investors":true,"convertible_bond":false,"margin_trading":true,"earnings_calls":true,"major_shareholder":true,"dividend":true,"related_news":true,"social":true,"podcast":true,"broker":true,"major_holders":true,"analyst":true,"etf_holdings":false}}}
+```
+
+### 8.10 `GET stock/calendar/stats`（RESP 全文，未截短）
+
+```http
+GET https://api.biggo.com/api/v1/finance/stock/calendar/stats?start_date=2026-09-14&end_date=2026-09-20&markets[]=tw&stock_filter=all&region=tw
+Accept: application/json
+```
+
+```json
+// RESP 200，原文 511 bytes，全文
+{"result":true,"data":{"list":[{"date":"2026-09-14","earnings":0,"economic":0,"holidays":0,"earnings_calls":27,"dividends":9},{"date":"2026-09-15","earnings":0,"economic":0,"holidays":0,"earnings_calls":44,"dividends":14},{"date":"2026-09-16","earnings":0,"economic":0,"holidays":0,"earnings_calls":46,"dividends":79},{"date":"2026-09-17","earnings":0,"economic":0,"holidays":0,"earnings_calls":19,"dividends":17},{"date":"2026-09-18","earnings":0,"economic":0,"holidays":0,"earnings_calls":10,"dividends":7}]}}
+```
+
+### 8.11 `GET stock/calendar/dividends`（截短：取首 A／B 各 1 筆）
+
+```http
+GET https://api.biggo.com/api/v1/finance/stock/calendar/dividends?start_date=2026-09-18&end_date=2026-09-18&markets[]=tw&size=50&page=1&stock_filter=all&region=tw
+Accept: application/json
+```
+
+```json
+// RESP 200，原文 1947 bytes（total=7）；以下取 A 形首筆＋B 形首筆，全表見 §5.2
+{"result":true,"data":{"list":[
+{"symbol":"00918.TW","company_name":"大華優利高填息30","region":"tw","ex_dividend_date":"2026-09-18","record_date":null,"payment_date":"2026-10-15","announcement_date":null,"dividend_type":"cash","cash_dividend":1.75,"stock_dividend":null,"total_dividend":1.75,"currency":"TWD","currency_symbol":"NT$","image":null},
+{"symbol":"00918.TW","region":"tw","ex_dividend_date":"2026-09-18","payment_date":"2026-10-15","declaration_date":null,"currency":"TWD","dividend":1.75,"dividend_type":"cash","company_name":"大華優利高填息30","image":null}
+// … 其餘 5 筆見 §5.2 全表；"total":7,"page":1,"size":50
+],"total":7,"page":1,"size":50}}
+```
+
+### 8.12 `GET stock/calendar/earnings-calls`（截短：取首筆全文）
+
+```http
+GET https://api.biggo.com/api/v1/finance/stock/calendar/earnings-calls?start_date=2026-09-18&end_date=2026-09-18&markets[]=tw&size=50&page=1&stock_filter=all&region=tw
+Accept: application/json
+```
+
+```json
+// RESP 200，原文 5082 bytes（total=10）；以下取首筆全文
+{"result":true,"data":{"list":[
+{"symbol":"2885.TW","company_name":"元大金融控股","image":"https://img.biggo.com/<sig>/…2885.TW.svg.webp","announcement_date":"2026-09-18","timing":"amc","time":"15:30","fiscal_period_end":null,"eps_actual":null,"eps_estimated":null,"calls_id":null,"currency":"TWD","currency_symbol":"NT$","region":"tw","market_cap":970507716080,"venue":"台北","summary":"公告本公司擬於民國115年9月18日(五)受邀參加第一金證券舉行之線上投資人會議。"}
+// … 其餘 9 筆（含 2362.TW 藍天電腦、2612.TW 中國航運，見 §5.2）
+],"total":10,"page":1,"size":50}}
+```
+
+### 8.13 `GET stock/calendar/earnings`（空回應逐字）
+
+```http
+GET https://api.biggo.com/api/v1/finance/stock/calendar/earnings?start_date=2026-09-18&end_date=2026-09-18&markets[]=tw&size=50&page=1&stock_filter=all&region=tw
+```
+
+```json
+// RESP 200，原文 63 bytes，全文（economic／holidays 同日同形，逐字相同）
+{"result":true,"data":{"list":[],"total":0,"page":1,"size":50}}
+```
+
+### 8.14 `GET stock/earnings-calls/list`（截短：取首筆全文）
+
+```http
+GET https://api.biggo.com/api/v1/finance/stock/earnings-calls/list?market=tw&start_date=2026-09-12&end_date=2026-09-18&stock_filter=all&region=tw
+Accept: application/json
+```
+
+```json
+// RESP 200，原文 23151 bytes（total=61，size=0）；以下取首筆全文，前 20 筆表見 §5.1
+{"result":true,"data":{"list":[
+{"call_id":"TW_6214.TW_2026-09-17","title":"精誠 2026-09-17 法說會","stock_id":"6214.TW","region":"tw","asset_type":"stock","name":"精誠","image":"https://img.biggo.com/<sig>/…6214.TW.svg.webp","date":"2026-09-17","duration":1874,"has_video":true,"has_slides":true,"has_transcript":true}
+// … 其餘 60 筆見 §5.1；"total":61,"page":1,"size":0,"earlier_available_date":"2026-09-11","later_available_date":null
+],"total":61,"page":1,"size":0,"earlier_available_date":"2026-09-11","later_available_date":null}}
+```
+
+### 8.15 `GET news/stock/list` 三榜（各取首筆，全站版無 `stock_id`）
+
+```http
+GET https://api.biggo.com/api/v1/finance/news/stock/list?sort=active&region=tw
+GET https://api.biggo.com/api/v1/finance/news/stock/list?sort=rise&region=tw
+GET https://api.biggo.com/api/v1/finance/news/stock/list?sort=fall&region=tw
+```
+
+```json
+// sort=active RESP 200，原文 2629 bytes；首筆全文（image 截短）
+{"symbol_id":"2303.TW","asset_type":"stock","name":"聯華電子","image":"https://img.biggo.com/<sig>/…2303.TW.svg.webp","current_price":156,"daily_change":8.5,"daily_change_percent":5.76,"daily_volume":300960000,"currency":"NT$","market":"Taiwan","previous_volume":256821287,"avg_volume":null,"previous_close":147.5,"history_date":"2026-09-17","snapshot_date":"2026-09-18 13:30:00.000+08:00","favorite_group_id":null}
+// sort=rise RESP 200，原文 2609 bytes；首筆全文
+{"symbol_id":"3443.TW","asset_type":"stock","name":"創意電子","image":"https://img.biggo.com/<sig>/…3443.TW.svg.webp","current_price":7150,"daily_change":650,"daily_change_percent":10,"daily_volume":2502000,"currency":"NT$","market":"Taiwan","previous_volume":2334082,"avg_volume":null,"previous_close":6500,"history_date":"2026-09-17","snapshot_date":"2026-09-18 13:30:00.000+08:00","favorite_group_id":null}
+// sort=fall RESP 200，原文 2250 bytes；首筆全文
+{"symbol_id":"1709.TW","asset_type":"stock","name":"和益","image":"https://img.biggo.com/<sig>/…1709.TW.svg.webp","current_price":39.2,"daily_change":-3.75,"daily_change_percent":-8.73,"daily_volume":47867000,"currency":"NT$","market":"Taiwan","previous_volume":35011882,"avg_volume":null,"previous_close":42.95,"history_date":"2026-09-17","snapshot_date":"2026-09-18 13:30:00.000+08:00","favorite_group_id":null}
+```
+
+### 8.16 `GET stock/related/news`（REQ＋計數頭；內文大，僅記規模）
+
+```http
+GET https://api.biggo.com/api/v1/finance/stock/related/news?stock_id=2330.TW&size=9&page=1&region=tw
+Accept: application/json
+```
+
+```json
+// RESP 200，原文 51166 bytes（本 HAR 最大）；data 頭＋首篇標題，內文省略
+{"result":true,"data":{"total":5825,"news_count":5729,"major_count":96,"podcast_count":104,"ir_release_count":9,
+"news":[{"id":"98913222-…-993b62a0c235","type":"realtime","title":"2奈米旗艦晶片集體轉向AI原生架構 手機SoC競爭邏輯生變"}]}}
+```
+
+## 9. 基礎設施：response headers 實測（HAR 53 筆一致）
+
+| header | 值（實測） | 說明 |
+|---|---|---|
+| `server` | `istio-envoy`（53 筆一致） | API 前為 Envoy sidecar（Istio mesh），非源站直出（推測） |
+| `content-type` | `application/json; charset=utf-8`（finance API 全數；image 代理為 `application/json`） | 行情皆 JSON；無 protobuf |
+| `content-encoding` | `zstd` | 線上壓縮；HAR 內 body 為解壓後長度 |
+| `x-envoy-upstream-service-time` | `2–217 ms`（詳 §10） | Envoy 觀測的上游服務耗時；唯一可信的 server-side 耗時 |
+| `access-control-allow-origin` | `https://finance.biggo.com.tw` | 鎖死本站 origin；`allow-credentials: true` |
+| `access-control-allow-headers` | `Authorization,Content-Type,Site,X-Fgp` | 預留 `Authorization`／自訂 `Site`／`X-Fgp`，但匿名行情未使用 |
+| `access-control-allow-methods` | `GET, POST, DELETE, PATCH, OPTIONS` | 讀多寫少，寫入側另有 sparrowhawk |
+| `vary` | `Site, Origin, Accept-Encoding` | 按自訂 `Site`＋origin 分快取鍵（推測多站共用 API） |
+| `date` | `Fri, 18 Sep 2026 06:01:32–33 GMT` | 抓包時段 UTC 06:01（台北 14:01，收盤後約半小時） |
+| `cf-ray`／`cf-cache-status` | **53 筆全無** | HAR 內無 Cloudflare 邊緣痕跡；CDN 若有，不在 L7 header 暴露（沒拿到） |
+| `cache-control` | 行情端點**沒拿到** | 行情快取策略不明 |
+
+- Request 側：`origin=https://finance.biggo.com.tw`、`referer=https://finance.biggo.com.tw/`、`sec-fetch-site=cross-site`（API 域 `api.biggo.com` 與站域分離）；匿名**全 53 筆無 `Authorization`**（HAR 實測）；POST 另帶 `content-type: application/json`＋`content-length`（stock 價量 `131` bytes）。
+- 推導（推測）：`api.biggo.com` → Istio Envoy（`server`＋`x-envoy-upstream-service-time` 聯判）→ 上游行情服務；`vary: Site` 暗示同一 API 同時服務多站（`Site` 頭分流，推測）。
+
+## 10. 效能對照表（HAR 實測：body bytes＋兩種耗時）
+
+> HAR `time` 欄僅 `0.25–12.87 ms`（本機重放假象，失真）；可信 server-side 為 `x-envoy-upstream-service-time`（`2–217 ms`）。兩欄並列，單位 ms／bytes。
+
+| 群 | 端點 | body（bytes） | HAR time（ms） | upstream service time（ms） |
+|---|---|---|---|---|
+| 榜單 | `stock/market/main/list` | 4025 | 0.57 | 39 |
+| 榜單 | `index/market/main/list?size=10` | 2484 | 0.51 | 21 |
+| 榜單 | `futures/market/main/list` | 5116 | 0.48 | 89 |
+| 榜單 | `etf/market/main/list?market=tw` | 2726 | 0.59 | 45 |
+| K 線 | `stock/k-line 2330.TW m=1D`（271 點） | 27344 | 0.44／0.72（同 URL 打兩次） | 40／42 |
+| K 線 | `stock/k-line ^TWII m=1D` | 6329 | 0.58 | 39 |
+| K 線 | `stock/k-line 0050.TW m=1D` | 28632 | 0.65 | 195 |
+| K 線 | `futures/k-line TAIFEX_TX m=1D` | 23571 | 0.55 | 65 |
+| 價量 POST | `stock/current/price/list`（10 檔） | 1669 | 10.86 | 4 |
+| 價量 POST | `futures/current/price/list`（10 檔） | 2316 | 12.87 | 35 |
+| 三榜 | `news/stock/list sort=active`（5 筆） | 2629 | 0.53／0.38（打兩次） | 12／12 |
+| 三榜 | `news/stock/list sort=rise`（5 筆） | 2609 | 0.30／0.41 | 32／10 |
+| 三榜 | `news/stock/list sort=fall`（5 筆） | 2250 | 0.25／0.59 | 13／15 |
+| 行事曆 | `calendar/stats`（5 天） | 511 | 0.48 | 195 |
+| 行事曆 | `calendar/earnings-calls`（10 筆） | 5082 | 0.41 | 39 |
+| 行事曆 | `calendar/dividends`（7 筆） | 1947 | 0.39 | 40 |
+| 行事曆 | `calendar/earnings｜economic｜holidays`（空） | 63 ×3 | 0.56／0.40／0.35 | 27／11／11 |
+| 法說會 | `earnings-calls/list`（61 筆） | 23151 | 0.60 | 39 |
+| 個股件套 | `tabs/availability` | 592 | 0.59 | 37 |
+| 個股件套 | `stock/related/news?size=9` | 51166（最大） | 4.49 | 81 |
+
+讀法（實測數字說話）：
+
+- 量級三檔：`related/news`（51 KB，含 9 篇內文）≫ k-line（23–29 KB，數百點）≫ 榜單／三榜／價量 POST（1.6–5.1 KB）。
+- upstream 最慢兩支：`0050.TW k-line` 與 `calendar/stats` 皆 `195 ms`（k-line 點多可理解；stats 週聚合慢因為何，沒拿到）。
+- POST 反直覺：`stock/current/price/list` upstream 僅 `4 ms`（最快之一），但 HAR time `10.86 ms` 全場最慢之一——慢在本地重放寫 body，不在 server（推測為 HAR 假象）。
+
+## 11. 跨端點對照表
+
+### 11.1 價量 POST：stock vs futures
+
+| 項目 | `stock/current/price/list` | `futures/current/price/list` |
+|---|---|---|
+| 方法＋query | `POST ?region=tw` | `POST ?region=tw`（同形） |
+| REQ body 鍵 | `{"stock_ids":[…]}`（字串陣列，10 檔） | `{"symbols":[{"symbol":"…"}]}`（物件陣列，10 檔） |
+| 識別欄 | `stock_id`（`0050.TW` 形） | `symbol`（`TAIFEX_TX` 形） |
+| 獨有回應欄 | 無 | `settlement_price`、`contract_month`（`202610` 全 10 檔一致）；`open_interest`（當時全 null） |
+| 共有回應欄 | `asset_type, current_price, ask, bid, total_volume, daily_change, daily_change_percent` | 同左 7 欄 |
+| 實測極端 | `ask−bid=0.01`（ETF 檔檔 1 tick） | `TAIFEX_RWF ask=0 bid=7160`（一邊掛零，實測原文）；`settlement_price=null` 全空 |
+| body 大小 | REQ `131` bytes／RESP `1669` bytes | RESP `2316` bytes（REQ 未量，物件包裝較肥，推測） |
+
+### 11.2 行事曆家族：query params 差異（日切片 `2026-09-18`）
+
+| 端點 | `start/end_date` | `markets[]` | `size/page` | `stock_filter` | `market` | `region` |
+|---|---|---|---|---|---|---|
+| `calendar/earnings` | 09-18／09-18 | `tw` | 50／1 | `all`（有） | 無 | tw |
+| `calendar/earnings-calls` | 09-18／09-18 | `tw` | 50／1 | `all`（有） | 無 | tw |
+| `calendar/economic` | 09-18／09-18 | `tw` | 50／1 | 無 | 無 | tw |
+| `calendar/holidays` | 09-18／09-18 | `tw` | 50／1 | 無 | 無 | tw |
+| `calendar/dividends` | 09-18／09-18 | `tw` | 50／1 | `all`（有） | 無 | tw |
+| `calendar/stats` | 09-14／09-20（週） | `tw` | 無／無 | `all`（有） | 無 | tw |
+| `earnings-calls/list`（對照組） | 09-12／09-18（週） | 無 | （`size=0` 回 61 筆） | `all` | `market=tw`（單數） | tw |
+
+規律（實測歸納）：`stock_filter` 只出現在跟個股掛鉤的三支（earnings／earnings-calls／dividends＋stats），economic／holidays 無；`markets[]`（陣列）只屬於 calendar 家族，`market=tw`（單數）屬於榜單（etf）與 earnings-calls/list。
+
+### 11.3 三榜 `news/stock/list`：active vs rise vs fall
+
+| 項目 | `sort=active` | `sort=rise` | `sort=fall` |
+|---|---|---|---|
+| 完整 query（全站版） | `?sort=active&region=tw` | `?sort=rise&region=tw` | `?sort=fall&region=tw` |
+| 個股頁版（多 `stock_id`） | `&stock_id=2330.TW`（同端點） | 同左 | 同左 |
+| 首筆 | `2303.TW 聯華電子 156 +5.76% vol=300960000` | `3443.TW 創意電子 7150 +10% vol=2502000` | `1709.TW 和益 39.2 −8.73% vol=47867000` |
+| 排序鍵（推測） | `daily_volume`（3 億掄元） | `daily_change_percent`（+10% 漲停） | `daily_change_percent`（−8.73% 最慘） |
+| 筆數 | 5 筆 | 5 筆 | 5 筆 |
+| 獨有欄（榜單 list 無） | `previous_close／history_date／snapshot_date`（三榜共有） | 同左 | 同左 |
+| 快照一致 | `snapshot_date=2026-09-18 13:30:00.000+08:00` | 同左 | 同左 |
+
+## 12. 設計觀察
+
+1. **`region=tw` 全站統一**：HAR finance API 41 筆 query 100% 帶 `region=tw`；連新聞內文頁的 `related/symbols` 都帶 `region=tw`。region 是路由租戶鍵、不是資料市場鍵——市場用 `market=tw`／`markets[]=tw` 另表（§11.2）。
+2. **POST 批量取價**：即時價只有 POST list 形（stock 用 `stock_ids[]`、futures 用 `symbols[{symbol}]`），無單筆 `GET …/price?stock_id=`（HAR 53 筆無此形）。榜單先給快照（§8.1–8.4），再用 POST 補 `ask/bid/total_volume`（榜單無此三欄，實測）——兩段式：靜態快照＋動態價量。
+3. **short polling 30s**：`/market` 頁 `POST stock/current/price/list` 每 30 秒一輪（全站筆記 R7：100 秒觀測 29.9／30.0／30.1 s）；HAR 內該 POST 僅出現 1 次（抓包窗內未跨輪詢週期，實測）。無 WS／SSE 跡象（53 筆非圖片者 mime 全 `application/json`）。
+4. **免登入讀全通**：53 筆 request headers 全無 `Authorization` 仍全 200（含價量 POST、法說會、行事曆、個股件套）；`allow-headers` 雖列 `Authorization` 但匿名未用。需登入的只有 `/watchlist`（UI「立即登入」）與 sparrowhawk 寫入側（全站筆記 §3.5）。
+5. **id 命名自描述**：`call_id=TW_6214.TW_2026-09-17`＝`{REGION}_{code}_{date}`，即 `/quote/{code}/earnings-call/{call_id}` 尾段（§5.1）；k-line 用 `stock_id`（現貨）vs `symbol`（期貨）兩套鍵，價量 POST 沿用同一分野（§11.1）。
+6. **空值誠實**：收盤後 `open_interest=null`、`settlement_price=null`、`avg_volume=null`、`eps_actual=null` 全鏈路透出 null 而非省略；`is_market_closed=true`＋`in_market_open=false`＋`snapshot_date` 三處互證收盤態（§6）。
+7. **圖文分離**：行情 JSON 內只帶 `image` 簽名 URL，真正取圖走 `POST image/icd/url`（13 筆，REQ 一批多 URL）；新聞內文圖片同理（`img.biggo.com／img.bgo.one／img.youtube.com` 三源，§6）。
 - 個股頁 OHLCV 表的專用端點（若有）未分離——目前行情數字由 k-line 末點＋POST 即時價＋UI 靜態欄位拼出（拼裝關係為推測）。
