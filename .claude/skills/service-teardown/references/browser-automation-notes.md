@@ -25,6 +25,69 @@
 - HAR：若 MCP 版本支援，整段錄 HAR 再離線 grep；否則靠 `browser_network_requests` 分段錄。
 - 內部代號常藏在 header 與 query（`caller=…`、`anthropic-client-feature`、`product=`），另開一節記。
 
+## SSE stream 完整攔截（送 prompt 前掛）
+
+`browser_network_requests` 只記 URL 和 status，不錄 SSE body；`response.text()` 在頁面消費 stream 後回空。
+要拿到完整 SSE 事件流，必須在**送 prompt 之前**用 `browser_evaluate` 掛 fetch interceptor：
+
+```javascript
+// 掛在頁面上——monkey-patch window.fetch
+const originalFetch = window.fetch;
+window.__captured = [];
+window.fetch = async function(...args) {
+  const url = typeof args[0] === 'string' ? args[0] : args[0].url;
+  // 過濾只攔目標端點（completion、chat、message 等）
+  if (!url.includes('completion') && !url.includes('chat_conversations')) {
+    return originalFetch.apply(this, args);
+  }
+  const entry = { url, method: args[1]?.method || 'GET', body: null, chunks: [], done: false };
+  try { entry.body = JSON.parse(args[1]?.body); } catch {}
+  window.__captured.push(entry);
+
+  const response = await originalFetch.apply(this, args);
+  const ct = response.headers.get('content-type') || '';
+  if (ct.includes('text/event-stream') || ct.includes('stream')) {
+    const [s1, s2] = response.body.tee();
+    const reader = s2.getReader();
+    const dec = new TextDecoder();
+    (async () => {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) { entry.done = true; break; }
+        entry.chunks.push({ t: Date.now(), d: dec.decode(value, {stream:true}) });
+      }
+    })();
+    return new Response(s1, { status: response.status, headers: response.headers });
+  }
+  return response;
+};
+```
+
+關鍵技術：`response.body.tee()` 把 ReadableStream 一分為二——一份給頁面消費（不影響 UI），一份自己逐 chunk 讀。
+
+**送完 prompt 後**等 stream 結束，再用 `browser_evaluate` 把 `window.__captured` 整理匯出：
+
+- 精簡版（~5KB）：過濾 `content_block_delta`，只保留結構性事件（message_start / tool_use / tool_result / message_stop）
+- 原始版（~200KB+）：全部 chunks 的 raw text，可離線 parse 成 SSE events
+
+**SSE event types（claude.ai 實測，2026-09-19）**：
+
+| Event | 用途 |
+|---|---|
+| `ping` | 保活 |
+| `conversation_ready` | 對話建立完成 |
+| `message_start` | 回覆開始，帶 model / stop_reason |
+| `content_block_start` | 內容區塊開始（type: thinking / text / tool_use / tool_result） |
+| `content_block_delta` | 逐 token streaming（佔全部事件的 95%） |
+| `content_block_stop` | 內容區塊結束 |
+| `message_delta` | 回覆結束，帶 stop_reason 和 usage |
+| `message_limit` | 用量限制狀態（within_limit / exceeded） |
+| `message_stop` | 完全結束 |
+
+**REST API 也要一起錄**：SSE 只是 POST completion 的回應，其他 API（skill list、download-file、artifact versions、title generation）是普通 REST，用 `browser_network_requests` 過濾 `api/` 即可拿到完整清單。
+
+**WebSocket 抓不到**：fetch interceptor 只攔 HTTP fetch，WS frames 需要 CDP 的 `Network.webSocketFrameSent/Received`，Playwright MCP 不直接支援；需要走 `playwright-second-browser` 用 `page.on('websocket')` + `ws.on('framereceived')` 錄。
+
 ## 遮罩流程（落筆前）
 
 ```
