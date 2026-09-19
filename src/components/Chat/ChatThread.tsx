@@ -76,7 +76,10 @@ export function ChatThread({ messages, loading, onSend }: ChatThreadProps) {
     <AssistantRuntimeProvider runtime={runtime}>
       <ThreadPrimitive.Root className="flex flex-1 flex-col overflow-hidden">
         <Conversation className="flex-1" style={{ background: 'var(--bg-subtle)' }}>
-          <ConversationContent className="gap-4 p-4">
+          {/* scrollClassName 靜態給 overflow-y-auto：use-stick-to-bottom 要到 hydration 後的
+              effect 才補 overflow:auto，在那之前 scrollbar-gutter 不生效，傳統捲軸的瀏覽器
+              會看到內容左右跳 15px（視覺回歸也因此偶發紅燈）。 */}
+          <ConversationContent className="gap-4 p-4" scrollClassName="overflow-y-auto">
             {messages.map((msg) => (
               <ChatMessageRow key={msg.id} message={msg} />
             ))}
