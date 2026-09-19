@@ -10,6 +10,8 @@ import { defineConfig, devices } from '@playwright/test';
 // 人眼看過後放進 snapshots 目錄（不要在 mac 上產 linux 基線）。
 export default defineConfig({
   testDir: './tests/visual',
+  // 冷啟動的 dev server 會在首次載入時重新最佳化依賴並整頁 reload，先暖身再測（見檔內說明）。
+  globalSetup: './tests/visual/global-setup.ts',
   snapshotPathTemplate: '{testDir}/{testFileName}-snapshots/{arg}-{projectName}-{platform}{ext}',
   fullyParallel: true,
   reporter: 'list',
