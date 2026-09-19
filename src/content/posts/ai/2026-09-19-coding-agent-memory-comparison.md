@@ -260,9 +260,9 @@ Hermes 有個 consent-aware learning loop：
 3. `write_approval` 可以預先 staging 寫入，供人審核後才生效
 4. 預設在 chat 中顯示 `💾 Memory updated` 提示
 
-**Honcho 用戶建模**
+**Honcho 使用者建模**
 
-Hermes 支援 Honcho dialectic user modeling——一個 AI-native 的跨 session 用戶建模系統，透過辯證推理（dialectic reasoning）逐步建立對使用者的深入理解。分層載入：L0（~100 tokens）→ L1（~2k）→ L2（完整）。
+Hermes 支援 Honcho dialectic user modeling——一個 AI-native 的跨 session 使用者建模系統，透過辯證推理（dialectic reasoning）逐步建立對使用者的深入理解。分層載入：L0（~100 tokens）→ L1（~2k）→ L2（完整）。
 
 **多 Provider 架構**
 
@@ -270,7 +270,7 @@ Hermes 的記憶系統支援 plug-in 式 external providers：
 
 | Provider | 特色 |
 |---|---|
-| **Honcho** | 跨 session 用戶建模，dialectic reasoning |
+| **Honcho** | 跨 session 使用者建模，dialectic reasoning |
 | **Byterover** | 記憶前壓縮（壓縮前先保存洞察），知識樹 |
 | **Supermemory** | 知識圖譜，時間與多 session 推理，自動遺忘 |
 | **Mem0** | 向量 + 圖搜尋 |
@@ -293,7 +293,7 @@ OpenClaw 的記憶系統建立在檔案（Markdown / YAML）之上，核心特�
 
 **Memory Wiki**
 
-OpenClaw 2.0 引入了 **Memory Wiki**——一個將 durable knowledge 編譯成 provenance-rich wiki vault 的插件：
+OpenClaw 2.0 引入了 **Memory Wiki**——一個將 durable knowledge 編譯成 provenance-rich wiki vault 的外掛：
 
 - 結構化 claims 附帶 evidence
 - 支援 Obsidian-friendly workflows
