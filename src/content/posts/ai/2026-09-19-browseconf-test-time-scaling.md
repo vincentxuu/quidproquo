@@ -3,7 +3,7 @@ title: "測試時擴展：BrowseConf 與自信度引導的推理"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, test-time-scaling, BrowseConf, confidence, ACL2026]
+tags: [deep-research, test-time-scaling, browseconf, confidence, acl2026]
 lang: zh-TW
 tldr: "前面看的是怎麼評估。這篇看另一個維度：在推理過程中怎麼動態分配計算資源。BrowseConf 的核心洞察是——agent 自己說的『自信度』就能預測答案準不準。高自信就用少點資源，低自信就多搜幾輪。"
 description: "深入分析 BrowseConf（Confidence-Guided Test-Time Scaling for Web Agents，ACL Findings 2026）：用 agent 自聲明的自信度動態調整推理資源，高自信任務減少 token 消耗，低自信任務自動擴展。"

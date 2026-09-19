@@ -3,7 +3,7 @@ title: "Deep Research 全景圖：80+ 實作的分類、路線與取捨"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, survey, ai-agent, taxonomy, LLM, roadmap]
+tags: [deep-research, survey, ai-agent, taxonomy, llm, roadmap]
 lang: zh-TW
 tldr: "整個 Deep Research 領域有 80+ 實作，但核心結構只有三階段路線 × 四個組件 × 三種優化方法。這篇用一篇看懂全景：從 Agentic Search 到 Full-stack AI Scientist，從 query planning 到 answer generation，從 workflow prompting 到 end-to-end RL。"
 description: "系統性地梳理 80+ 個 Deep Research 實作的分類框架：三階段能力路線（Agentic Search → Integrated Research → Full-stack AI Scientist）、四個核心組件（規劃、獲取、記憶、生成）、三種優化範式（prompting、SFT、RL），並說明與傳統 RAG 的根本差異。"
@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-2025 年，「Deep Research」從實驗室概念變成產品類型。OpenAI、Google、Perplexity、Anthropic 先後推出正式功能；開源端從 GPT-Researcher 到 Search-R1，半年內湧現 80+ 個實作。但這些系統看起來各自為政——差別到底在哪？
+2025 年，「Deep Research」從實驗室概念變成產類別型。OpenAI、Google、Perplexity、Anthropic 先後推出正式功能；開源端從 GPT-Researcher 到 Search-R1，半年內湧現 80+ 個實作。但這些系統看起來各自為政——差別到底在哪？
 
 最新的一系統性調查論文（arXiv:2506.12594，2025 年 11 月）把整個領域整理成一個清晰的骨架：**三階段能力路線 × 四個核心組件 × 三種優化方法**。掌握這個框架，就能一眼看穿每個實作坐在哪裡、取捨什麼。
 

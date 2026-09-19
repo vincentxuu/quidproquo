@@ -3,7 +3,7 @@ title: "IterResearch 與 AREX：長時程研究的記憶與自我進化"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, long-horizon, agent, memory, self-improvement, IterResearch, AREX, Markovian]
+tags: [deep-research, long-horizon, agent, memory, self-improvement, iterresearch, arex, markovian]
 lang: zh-TW
 tldr: "長時間研究時，agent 面臨「上下文窒息」：資訊堆積、噪音增加、注意力被稀釋。IterResearch 用馬可夫狀態重建解決這個問題，AREX 用內外雙循環實現遞迴自我改進。兩者回答同一個問題：agent 怎麼在數百輪搜尋後依然保持清晰？"
 description: "深入分析 IterResearch（馬可夫狀態重建 + EAPO，2048 輪互動從 3.5% 到 42.5%）與 AREX（內外雙循環遞迴自我改進，4B/122B-A10B MoE）的長時程架構設計。核心問題：agent 如何在數百輪搜尋後不喪失方向？"

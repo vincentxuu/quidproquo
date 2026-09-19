@@ -3,7 +3,7 @@ title: "Data Synthesis: WebShaper & S1-DeepResearch"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, data-synthesis, WebShaper, S1-DeepResearch, formalization, ICLR2026]
+tags: [deep-research, data-synthesis, webshaper, s1-deepresearch, formalization, iclr2026]
 lang: en
 tldr: "Previous articles covered how to train agents. But training requires high-quality data—and deep research training data has been scarce. WebShaper solves this with mathematical formalization: define IS tasks in set theory, then use an agentic Expander to iteratively expand them. S1-DeepResearch goes further: moves training from 'search-centric' to 'real research.'"
 description: "A deep analysis of WebShaper (set theory + Knowledge Projections formalized data synthesis, GAIA 60.1%) and S1-DeepResearch (five-dimension unified trajectory construction, beyond search-centric). Both answer: how to produce high-quality deep research training data?"

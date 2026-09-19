@@ -3,7 +3,7 @@ title: "Tongyi DeepResearch：從零到 Agentic Foundation Model"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, Tongyi, MoE, Agentic CPT, Qwen3, Alibaba, end-to-end training]
+tags: [deep-research, tongyi, moe, agentic-cpt, qwen3, alibaba, end-to-end-training]
 lang: zh-TW
 tldr: "前四篇分別看全景、訓練、長時程、規劃。這篇看一個把所有環節串起來的完整系統：Tongyi DeepResearch。核心創新是『Agentic CPT』——在預訓練和微調之間插入一個 agentic 中間訓練階段，讓模型天生帶有 agent 偏置。MoE 架構 30B 參數只激活 3B，HLE 32.9 超越 OpenAI o3。"
 description: "深入解析 Tongyi DeepResearch 的完整訓練管道：Agentic CPT（中間訓練）+ Agentic SFT（冷啟動）+ Agentic RL（GRPO），MoE 30B-A3B 架構，雙模式推理（ReAct + Heavy）。HLE 32.9、BrowseComp 43.4、FRAMES 90.6，開源系統中首次與 OpenAI DeepResearch 匹敵。"

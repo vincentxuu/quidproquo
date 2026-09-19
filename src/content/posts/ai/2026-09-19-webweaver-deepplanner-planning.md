@@ -3,7 +3,7 @@ title: "WebWeaver 與 DeepPlanner：雙 Agent 架構與規劃優化"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, planning, dual-agent, advantage-shaping, WebWeaver, DeepPlanner, ICLR2026, ACL2026]
+tags: [deep-research, planning, dual-agent, advantage-shaping, webweaver, deepplanner, iclr2026, acl2026]
 lang: zh-TW
 tldr: "前面看的是怎麼訓練 agent 和怎麼維持長時程。這篇看更深一層的問題：怎麼讓 agent 的『規劃』本身變好？WebWeaver 用雙 agent（規劃者+寫作者）從架構上解決，DeepPlanner 用優勢 shaping 從訓練上解決。兩者指向同一件事：規劃是 deep research 的上限。"
 description: "深入比較 WebWeaver（雙 agent 迭代輪廓優化，DeepResearch Bench 50.58、引文準確率 93.37%）與 DeepPlanner（優勢 shaping 強化規劃，67.1 MBE 超越 32K 樣本訓練）。前者從架構入手，後者從訓練入手。"

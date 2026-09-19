@@ -3,7 +3,7 @@ title: "Tongyi DeepResearch: From Base Model to Agentic Foundation"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, Tongyi, MoE, Agentic CPT, Qwen3, Alibaba, end-to-end training]
+tags: [deep-research, tongyi, moe, agentic-cpt, qwen3, alibaba, end-to-end-training]
 lang: en
 tldr: "Previous articles covered the landscape, training from scratch, long-horizon memory, and planning optimization. This one zooms out to see a complete system that threads all these insights together: Tongyi DeepResearch. Its core innovation is Agentic CPT — inserting an agentic mid-training stage between pre-training and fine-tuning, giving the model an inherent agent bias. MoE 30B parameters activating 3B, HLE 32.9 surpassing OpenAI o3."
 description: "A deep analysis of Tongyi DeepResearch's complete training pipeline: Agentic CPT (mid-training) + Agentic SFT (cold-start) + Agentic RL (GRPO). MoE 30B-A3B architecture, dual-mode inference (ReAct + Heavy). HLE 32.9, BrowseComp 43.4, FRAMES 90.6 — the first open-source system to match OpenAI DeepResearch."

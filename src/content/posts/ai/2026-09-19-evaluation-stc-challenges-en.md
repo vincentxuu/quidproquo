@@ -3,7 +3,7 @@ title: "Evaluation Challenges: Why Deep Research Is Hard to Measure"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, evaluation, benchmark, hallucination, STC, citation]
+tags: [deep-research, evaluation, benchmark, hallucination, stc, citation]
 lang: en
 tldr: "A deep research agent produces a report—maybe thousands of words with dozens of citations. How do you score it? Using LLMs as judges is biased, asking humans is too expensive, and benchmarks can't keep up. STC and other recent approaches try to solve this from the 'confidence' angle—but there's no perfect answer yet."
 description: "Deep analysis of the three major evaluation dilemmas for deep research agents: LLM judge bias, human evaluation cost, and benchmark-reality gap. STC methods tackle this from confidence calibration, but the evaluation problem remains unsolved."

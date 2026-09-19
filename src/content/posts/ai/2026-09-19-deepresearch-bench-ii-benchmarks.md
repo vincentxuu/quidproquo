@@ -3,7 +3,7 @@ title: "基準深度解析：DeepResearch Bench II 與評估格局"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, benchmark, DeepResearch-Bench-II, evaluation, RACE, FACT]
+tags: [deep-research, benchmark, deepresearch-bench-ii, evaluation, race, fact]
 lang: zh-TW
 tldr: "DeepResearch Bench II 用 9,430 個專家 rubric 覆蓋 132 個任務，發現最強的 agent 也只滿足不到 50% 的標準。這篇拆解基準架構、评分方法、領先者，並分析整個 deep research 評估格局。"
 description: "深入解析 DeepResearch Bench II：132 個 task、9,430 個 expert-written rubrics、三維評估（InfoRecall/Analysis/Presentation）、LLM judge 與 human 一致性 91.75%。同時梳理整體評估格局。"

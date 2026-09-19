@@ -3,7 +3,7 @@ title: "Commercial Landscape: OpenAI, Perplexity, Gemini, Claude, Grok"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, commercial, OpenAI, Perplexity, Gemini, Claude, Grok, comparison]
+tags: [deep-research, commercial, openai, perplexity, gemini, claude, grok, comparison]
 lang: en
 tldr: "By 2026, the deep research commercial market has differentiated: OpenAI is comprehensive, Perplexity is fast, Gemini integrates ecosystems, Claude reasons deeply, Grok is real-time. This article compares each product's differences—not who is best, but who fits your scenario."
 description: "A comprehensive comparison of 2026's five major commercial deep research products: OpenAI Deep Research, Perplexity, Gemini Deep Research, Claude Research, Grok DeepSearch. Covers source counts, time, pricing, use cases, and API availability."

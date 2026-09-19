@@ -3,7 +3,7 @@ title: "Open-Source Tools Overview: GPT-Researcher, STORM, smolagents..."
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, open-source, GPT-Researcher, STORM, smolagents, comparison]
+tags: [deep-research, open-source, gpt-researcher, storm, smolagents, comparison]
 lang: en
 tldr: "The deep research open-source ecosystem has evolved from 'single frameworks' to 'tool clusters.' This article compares 12+ projects: GPT-Researcher emphasizes multi-agent collaboration, STORM simulates expert conversations, smolagents focuses on state management. Each tool solves different problems."
 description: "Comprehensive comparison of open-source deep research tool ecosystem: GPT-Researcher (multi-agent + Deep Research features), STORM (expert-conversation style outlines), smolagents (state management), Local Deep Research (local deployment), Feynman (local-first). Analyzes design philosophies and use cases."

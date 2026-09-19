@@ -3,7 +3,7 @@ title: "多模態與視覺：WebWatcher 重新定義 deep research"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, multimodal, WebWatcher, vision-language, NeurIPS2025, BrowseComp-VL]
+tags: [deep-research, multimodal, webwatcher, vision-language, neurips2025, browsecomp-vl]
 lang: zh-TW
 tldr: "所有的 deep research agent 都是『文字為主』的——但真實世界不只有文字。WebWatcher（NeurIPS 2025）是第一個將視覺推理整合進 deep research 的系統，用 OCR、圖像搜尋、代碼執行等工具處理圖表、截圖、視訊等多元資訊。"
 description: "深入解析 WebWatcher：多模態 deep research agent，結合視覺-語言推理與多工具互動。提出 BrowseComp-VL 基準，發表於 NeurIPS 2025，被引用 102+ 次。揭示 deep research 從文字到多模態的範式轉移。"

@@ -3,7 +3,7 @@ title: "【Project】How We Build the Deep Research Skill"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, skill, Groundlane, project, architecture]
+tags: [deep-research, skill, groundlane, project, architecture]
 lang: en
 tldr: "This is the project's own deep research skill design, fully disclosed. Core choices: only Groundlane MCP for web tools, strict source-quality grading (A/B/C/D), research hands off to post skill for publishing. Not the most powerful, but the best fit for us."
 description: "A complete breakdown of the project's deep-research skill: Groundlane MCP tool boundaries, 7-step workflow, source-quality A/B/C/D grading, integration with post skill for publishing, and design trade-offs."

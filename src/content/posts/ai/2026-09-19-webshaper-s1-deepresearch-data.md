@@ -3,7 +3,7 @@ title: "數據合成：WebShaper 與 S1-DeepResearch"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, data-synthesis, WebShaper, S1-DeepResearch, formalization, ICLR2026]
+tags: [deep-research, data-synthesis, webshaper, s1-deepresearch, formalization, iclr2026]
 lang: zh-TW
 tldr: "前面看的是怎麼訓練 agent。但訓練需要高品質數據——而 deep research 的訓練數據長期短缺。WebShaper 用數學形式化解決這個問題：把資訊搜尋任務形式化為集合論，再用 agentic Expander 逐步擴展。S1-DeepResearch 則是把訓練從『搜尋為中心』擴展到『真正做研究』。"
 description: "深入分析 WebShaper（集合論 + Knowledge Projections 形式化數據合成，GAIA 60.1%）與 S1-DeepResearch（五維統一軌跡建構，超越搜尋中心）。兩者回答同一個問題：怎麼產出高品質的 deep research 訓練數據？"

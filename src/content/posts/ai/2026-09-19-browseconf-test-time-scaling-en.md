@@ -3,7 +3,7 @@ title: "Test-Time Scaling: BrowseConf and Confidence-Guided Reasoning"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, test-time-scaling, BrowseConf, confidence, ACL2026]
+tags: [deep-research, test-time-scaling, browseconf, confidence, acl2026]
 lang: en
 tldr: "The previous articles covered evaluation. This one covers another dimension: how to dynamically allocate compute during reasoning. BrowseConf's core insight is that an agent's self-declared 'confidence' can predict answer accuracy. High confidence uses fewer resources; low confidence searches more rounds."
 description: "Deep analysis of BrowseConf (Confidence-Guided Test-Time Scaling for Web Agents, ACL Findings 2026): dynamically adjusting reasoning resources based on agent self-declared confidence, with high-confidence tasks consuming fewer tokens and low-confidence tasks auto-expanding."

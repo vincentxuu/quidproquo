@@ -29,11 +29,11 @@ series:
 | **對抗驗證** | tolmachevmaxim | Optimist/Pessimist/Fact-Checker 三 agent |
 | **規模化** | kaynquang | 13 個專門 agent 各司其職 |
 | **學術導向** | Silence-view | STORM-inspired、citation chasing |
-| **平台兼容** | ramit-mitra | skills.sh 兼容、30+ agent 平台 |
+| **平台相容** | ramit-mitra | skills.sh 相容、30+ agent 平台 |
 | **通用適配** | Bhllcoder1 | 15 runtime adapters |
 | **數據驅動** | Socialpranker | 75 report blocks、29 channels、280+ stat sources |
 | **工程師導向** | robertnowell | 6-phase、source quality gates |
-| **人類回圈** | Weizhena | Human-in-the-loop、OpenCode/Codex 兼容 |
+| **人類回圈** | Weizhena | Human-in-the-loop、OpenCode/Codex 相容 |
 
 ### 詳細比較
 

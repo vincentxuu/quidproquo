@@ -3,7 +3,7 @@ title: "評估困境：為什麼 Deep Research 難以被正確評量"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, evaluation, benchmark, hallucination, STC, citation]
+tags: [deep-research, evaluation, benchmark, hallucination, stc, citation]
 lang: zh-TW
 tldr: "Deep research agent 跑出來的報告，該怎麼評分？用 LLM 當評審有偏，問人類太貴，測基準又跟不上。STC 等新方法試圖從「自信度」切入解決這個根本問題——但還沒有完美的答案。"
 description: "深入分析 deep research agent 評估的三大困境：LLM 評審偏誤、人類評估成本、基準與現實脫節。STC 方法從自信度校准切入，但評估問題本身仍待解決。"

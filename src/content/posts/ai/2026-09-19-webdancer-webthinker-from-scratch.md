@@ -3,7 +3,7 @@ title: "WebDancer 與 WebThinker：從零訓練一個 Deep Research Agent"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, web-agent, reinforcement-learning, training, NeurIPS2025, WebDancer, WebThinker]
+tags: [deep-research, web-agent, reinforcement-learning, training, neurips2025, webdancer, webthinker]
 lang: zh-TW
 tldr: "兩篇 NeurIPS 2025 論文回答同一個問題：怎麼從零訓練一個能自主研究網頁的 agent？WebThinker 選擇「給既有用戶模型加上網頁探索能力」，WebDancer 選擇「從資料構造到 RL 訓練完整重來」。兩種哲學，四個階段，一個核心洞察：訓練比 prompt 好。"
 description: "深入比較 WebThinker（augmentation 派：RL-DPO 強化既有 LRM）與 WebDancer（end-to-end 派：四階段從零訓練）的訓練方法論、架構設計與基準表現。兩者皆證明同一件事——從頭訓練比設計 workflow 更有上限。"

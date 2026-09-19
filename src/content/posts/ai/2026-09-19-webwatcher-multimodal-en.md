@@ -3,7 +3,7 @@ title: "Multimodal and Vision: WebWatcher Redefines Deep Research"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, multimodal, WebWatcher, vision-language, NeurIPS2025, BrowseComp-VL]
+tags: [deep-research, multimodal, webwatcher, vision-language, neurips2025, browsecomp-vl]
 lang: en
 tldr: "All deep research agents are 'text-first'—but the real world isn't just text. WebWatcher (NeurIPS 2025) is the first system to integrate visual reasoning into deep research, using OCR, image search, code execution, and other tools to handle charts, screenshots, videos, and other diverse information."
 description: "Deep analysis of WebWatcher: a multimodal deep research agent combining vision-language reasoning with multi-tool interaction. Proposes BrowseComp-VL benchmark, published at NeurIPS 2025, cited 100+ times. Reveals the paradigm shift from text to multimodal in deep research."

@@ -3,7 +3,7 @@ title: "WebWeaver & DeepPlanner: Dual-Agent Architecture and Planning Optimizati
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, planning, dual-agent, advantage-shaping, WebWeaver, DeepPlanner, ICLR2026, ACL2026]
+tags: [deep-research, planning, dual-agent, advantage-shaping, webweaver, deepplanner, iclr2026, acl2026]
 lang: en
 tldr: "Previous articles covered training from scratch and long-horizon memory. This one goes deeper: how to make the agent's 'planning' itself better? WebWeaver tackles it architecturally (dual-agent iterative outline optimization). DeepPlanner tackles it through training (advantage shaping for planning tokens). Both point to the same conclusion: planning is the ceiling of deep research."
 description: "A deep comparison of WebWeaver (dual-agent iterative outline optimization, DeepResearch Bench 50.58, 93.37% citation accuracy) and DeepPlanner (advantage shaping RL for planning, 67.1 MBE with 1/10 the data). One fixes the architecture, the other fixes the training."

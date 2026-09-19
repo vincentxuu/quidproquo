@@ -3,7 +3,7 @@ title: "商用產品格局：OpenAI、Perplexity、Gemini、Claude、Grok"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, commercial, OpenAI, Perplexity, Gemini, Claude, Grok, comparison]
+tags: [deep-research, commercial, openai, perplexity, gemini, claude, grok, comparison]
 lang: zh-TW
 tldr: "2026 年的 deep research 商用市場已經分化：OpenAI 全面、Perplexity 速度快、Gemini 生態整合、Claude 推理深、Grok 實時性強。這篇比較各家產品的差異——不是誰最好，而是誰最適合你的場景。"
 description: "全面比較 2026 年五大商用 deep research 產品：OpenAI Deep Research、Perplexity、Gemini Deep Research、Claude Research、Grok DeepSearch。涵蓋來源數量、耗時、定價、適用場景、API 可用性。"
@@ -74,7 +74,7 @@ series:
 - 設計目標：Google 生態的深度研究層
 - 優勢：與 Google Workspace 整合、API 開放、2026 進步最大
 - 限制：獨立研究能力不如 OpenAI
-- 適合：Google 生態用戶、需要 API 的開發者
+- 適合：Google 生態使用者、需要 API 的開發者
 
 ### Claude：深度推理
 

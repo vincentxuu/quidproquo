@@ -3,7 +3,7 @@ title: "WebDancer & WebThinker: Training a Deep Research Agent from Scratch"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, web-agent, reinforcement-learning, training, NeurIPS2025, WebDancer, WebThinker]
+tags: [deep-research, web-agent, reinforcement-learning, training, neurips2025, webdancer, webthinker]
 lang: en
 tldr: "Two NeurIPS 2025 papers answer the same question: how to train a web research agent from scratch? WebThinker chooses 'bolt on web capability to existing reasoning models,' WebDancer chooses 'rebuild everything from data construction to RL training.' Two philosophies, four stages, one core insight: training beats prompting."
 description: "A deep comparison of WebThinker (augmentation: RL-DPO to enhance existing LRMs) and WebDancer (end-to-end: four-stage pipeline from scratch). Both prove the same thing—training from the ground up yields higher ceilings than hand-crafted workflows."

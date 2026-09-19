@@ -3,7 +3,7 @@ title: "開源工具全景：GPT-Researcher、STORM、smolagents…"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, open-source, GPT-Researcher, STORM, smolagents, comparison]
+tags: [deep-research, open-source, gpt-researcher, storm, smolagents, comparison]
 lang: zh-TW
 tldr: "Deep research 的開源生態已經從『單一框架』演變成『工具叢集』。這篇比較 12+ 個專案：GPT-Researcher 重視多代理協作、STORM 模擬專家對話、smolagents 強調狀態管理。每個工具解決不同問題。"
 description: "全面比較開源 deep research 工具生態：GPT-Researcher（多代理 + Deep Research 功能）、STORM（專家對話式大纲）、smolagents（狀態管理）、Local Deep Research（本地部署）、Feynman（本地優先）等，分析各自設計哲學和適用場景。"

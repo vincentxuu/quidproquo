@@ -3,7 +3,7 @@ title: "IterResearch & AREX: Memory and Self-Evolution for Long-Horizon Research
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, long-horizon, agent, memory, self-improvement, IterResearch, AREX, Markovian]
+tags: [deep-research, long-horizon, agent, memory, self-improvement, iterresearch, arex, markovian]
 lang: en
 tldr: "When a research agent runs 25, 100, or 2000 turns, what happens? Context suffocation: information piles up, noise increases, attention gets diluted. IterResearch solves this with Markovian state reconstruction; AREX achieves recursive self-improvement with an inner/outer loop. Both answer: how does an agent stay coherent across hundreds of search rounds?"
 description: "A deep analysis of IterResearch (Markovian state reconstruction + EAPO, 2048 interactions scaling from 3.5% to 42.5%) and AREX (inner/outer loop recursive self-improvement, 4B/122B-A10B MoE). Core question: how does an agent maintain direction across hundreds of search rounds?"

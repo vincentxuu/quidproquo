@@ -3,7 +3,7 @@ title: "Benchmark Deep Dive: DeepResearch Bench II and the Evaluation Landscape"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, benchmark, DeepResearch-Bench-II, evaluation, RACE, FACT]
+tags: [deep-research, benchmark, deepresearch-bench-ii, evaluation, race, fact]
 lang: en
 tldr: "DeepResearch Bench II uses 9,430 expert rubrics covering 132 tasks, and finds that even the strongest agents satisfy less than 50% of criteria. This article breaks down the benchmark architecture, scoring methodology, leaders, and the overall evaluation landscape."
 description: "Deep analysis of DeepResearch Bench II: 132 tasks, 9,430 expert-written rubrics, three-dimensional evaluation (InfoRecall/Analysis/Presentation), LLM judge vs. human agreement at 91.75%. Also maps the overall evaluation ecosystem."

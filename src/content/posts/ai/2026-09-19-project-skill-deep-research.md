@@ -3,7 +3,7 @@ title: "【專案篇】我們怎麼做 deep-research skill"
 date: 2026-09-19
 category: ai
 type: deep-dive
-tags: [deep-research, skill, Groundlane, project, architecture]
+tags: [deep-research, skill, groundlane, project, architecture]
 lang: zh-TW
 tldr: "這是專案自己的 deep-research skill 設計全公開。核心選擇：只用 Groundlane MCP 做為網頁工具、嚴格的來源品質分級（A/B/C/D）、研究完交 post skill 發文。不是最強的，但是最適合我們的。"
 description: "全面拆解專案內的 deep-research skill：Groundlane MCP 工具邊界、7 步驟 workflow、來源品質 A/B/C/D 分級、與 post skill 的發文串接、以及為什麼這樣設計取捨。"
