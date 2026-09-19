@@ -4,6 +4,7 @@ import { initGatelane } from '../../lib/gatelane'
 import { verifySession } from '../../lib/auth/session'
 import { checkAndIncrementRateLimit } from '../../lib/auth/rate-limit'
 import { runPipeline } from '../../lib/conversation/pipeline'
+import { agentFromStage, getStepKind, getStepLabel } from '../../lib/conversation/step-labels'
 import { createSpan, createTrace, scoreTrace, updateTrace } from '../../lib/langfuse'
 import { loadRagSettings, buildShadowBaselineConfig } from '../../lib/retrieval/settings'
 import { loadLatestCheckpoint, maybeSaveCheckpoint } from '../../lib/conversation/checkpoints'
@@ -177,12 +178,21 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
       }
 
       try {
-        // 新增：步驟開始（分析問題）
-        send('step_start', { label: '分析問題', description: '理解使用者意圖並規劃檢索策略', status: 'pending' })
-
-        let currentStep = 'Planner'
-        let stepStartedAt = Date.now()
-        send('tool_call', { tool: 'planner', label: '規劃檢索策略', args: { message } })
+        // 前端活動列的資料契約：一個 step 一個 id，同 id 多次送 = upsert。
+        // pipeline 的 onStep 是在該 node「完成後」才觸發，所以這裡只送 complete；
+        // 「現在在做什麼」由前端依最後完成的階段推（見 Chat/steps-reducer.ts）。
+        // 重試時同 agent 會再跑一次，id 加序號（Research:1）當成新的一列。
+        const stepCounts = new Map<string, number>()
+        const latestStepId = new Map<string, string>()
+        let lastStepAt = Date.now()
+        const nextStepId = (agent: string) => {
+          const n = stepCounts.get(agent) ?? 0
+          stepCounts.set(agent, n + 1)
+          const id = n === 0 ? agent : `${agent}:${n}`
+          latestStepId.set(agent, id)
+          return id
+        }
+        const sendStep = (payload: Record<string, unknown> & { id: string }) => send('step', payload)
 
         const state = await runPipeline(
           { message, traceId, threadId: thread_id, conversationSummary: checkpointSummary, config: ragConfig },
@@ -193,38 +203,65 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
                 at: new Date().toISOString(),
                 extra,
               })
-              // 將 agent 步驟轉換為 step 事件
-              if (currentStep && currentStep !== agent) {
-                const duration = Date.now() - stepStartedAt
-                send('step_complete', { label: getStepLabel(currentStep), description: getStepDescription(currentStep), status: 'complete', duration_ms: duration })
-                stepStartedAt = Date.now()
+              const now = Date.now()
+              const id = nextStepId(agent)
+              const payload: Record<string, unknown> & { id: string } = {
+                id,
+                kind: getStepKind(agent),
+                label: getStepLabel(agent),
+                status: 'complete',
+                duration_ms: now - lastStepAt,
               }
-              currentStep = agent
-              send('step_start', { label: getStepLabel(agent), description: getStepDescription(agent), status: 'active' })
+              lastStepAt = now
+              const keywords = Array.isArray(extra?.search_keywords) ? (extra.search_keywords as string[]) : undefined
+              const results = Array.isArray(extra?.results) ? extra.results : undefined
+              if (agent === 'Planner') {
+                payload.output = { intent: extra?.intent, ...(keywords ? { keywords } : {}) }
+              } else if (agent === 'Research') {
+                payload.input = { ...(keywords ? { keywords } : {}), ...(typeof extra?.query === 'string' ? { query: extra.query } : {}) }
+                payload.output = { count: typeof extra?.sources_found === 'number' ? extra.sources_found : 0, ...(results ? { results } : {}) }
+              } else if (agent === 'Validation') {
+                payload.output = { passed: extra?.passed !== false }
+              }
+              if (typeof extra?.error === 'string') {
+                payload.status = 'error'
+                payload.reasoning = extra.error
+              }
+              sendStep(payload)
+              // evals/rag 與 scripts/eval-rag-baseline 仍靠 agent_step 統計，保留。
               send('agent_step', { agent, status: 'completed', ...extra })
             },
             onToken: (text) => send('token', { text }),
             onRelated: (posts) => {
-              send('tool_result', { tool: 'related_posts', label: '相關文章', results: posts.map(p => ({ title: p.title, url: p.slug, type: 'post' })) })
+              sendStep({
+                id: nextStepId('Related'),
+                kind: getStepKind('Related'),
+                label: getStepLabel('Related'),
+                status: 'complete',
+                output: { count: posts.length, results: posts.map(p => ({ title: p.title, url: p.slug, type: 'post' })) },
+              })
               send('related', posts)
             },
             onReasoning: (info) => {
-              send('reasoning', info)
+              if (!info.text) return
+              const agent = agentFromStage(info.stage)
+              if (!agent) return
+              // manual 引擎的 reasoning 會早於 onStep 到達；此時該 id 尚未配發，
+              // 先用基本 id，前端 upsert 會在 onStep 到時合併。
+              const id = latestStepId.get(agent) ?? agent
+              sendStep({ id, kind: getStepKind(agent), label: getStepLabel(agent), reasoning: info.text })
             },
             onSearchResults: (results) => {
-              // 搜尋結果 → tool_call + tool_result
-              const resultsData = results.map(r => ({ title: r.title, url: r.source_url, type: r.type }))
-              send('tool_result', { tool: 'search_posts', label: '檢索結果', count: results.length, results: resultsData })
+              const seen = new Set<string>()
+              const resultsData = results
+                .filter(r => { if (seen.has(r.source_url)) return false; seen.add(r.source_url); return true })
+                .map(r => ({ title: r.title ?? r.source_url, url: r.source_url, type: r.type }))
+              const id = latestStepId.get('Research') ?? 'Research'
+              sendStep({ id, kind: 'tool', label: getStepLabel('Research'), status: 'complete', output: { count: resultsData.length, results: resultsData } })
             },
           },
           { providerApiKeys }
         )
-
-        // 結束最後一個進行中步驟
-        if (currentStep) {
-          const duration = Date.now() - stepStartedAt
-          send('step_complete', { label: getStepLabel(currentStep), description: getStepDescription(currentStep), status: 'complete', duration_ms: duration })
-        }
 
         if (ragConfig.shadowModeEnabled) {
           const shadowState = await runPipeline(
@@ -453,32 +490,6 @@ async function persistTraceSteps(
   ).run()
 }
 
-function getStepLabel(agent: string): string {
-  const m: Record<string, string> = {
-    Planner: '規劃檢索策略',
-    Research: '檢索站內文章',
-    Normalize: '整理檢索結果',
-    Writer: '整理答案',
-    Validation: '驗證答案',
-    Critic: '評估品質',
-    Fallback: '備援回答',
-    Related: '推薦相關文章',
-  }
-  return m[agent] ?? agent
-}
-function getStepDescription(agent: string): string {
-  const m: Record<string, string> = {
-    Planner: '理解問題並決定搜尋方向',
-    Research: '搜尋站內文章與混合檢索',
-    Normalize: '清理與標準化搜尋結果',
-    Writer: '根據來源整理最終回答',
-    Validation: '檢查引用與事實一致',
-    Critic: '評估信心與相關性',
-    Fallback: '使用備援策略產生回答',
-    Related: '列出相關文章推薦',
-  }
-  return m[agent] ?? agent
-}
 
 function normalizeStepName(stage: string): string {
   return stage.toLowerCase().replace(/[^a-z0-9]+/g, '_')

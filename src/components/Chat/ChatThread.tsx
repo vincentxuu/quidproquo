@@ -12,6 +12,7 @@ import { Conversation, ConversationContent, ConversationScrollButton } from '@/c
 import { PromptInput, PromptInputTextarea, PromptInputSubmit, type PromptInputMessage } from '@/components/ai-elements/prompt-input'
 import type { Message } from './types'
 import { ChatMessageRow } from './ChatMessageRow'
+import { useChatLocale } from './locale'
 
 interface ChatThreadProps {
   messages: Message[]
@@ -20,6 +21,7 @@ interface ChatThreadProps {
 }
 
 export function ChatThread({ messages, loading, onSend }: ChatThreadProps) {
+  const { t } = useChatLocale()
   const threadMessages: ThreadMessageLike[] = useMemo(
     () =>
       messages.map((msg) => ({
@@ -84,7 +86,7 @@ export function ChatThread({ messages, loading, onSend }: ChatThreadProps) {
         <div className="border-t px-3 py-2" style={{ borderColor: 'var(--border)', background: 'var(--bg-card)' }}>
           <PromptInput onSubmit={handleSubmit}>
             <PromptInputTextarea
-              placeholder="問我任何關於部落格的問題..."
+              placeholder={t('chat.placeholder')}
               disabled={loading}
               className="min-h-10 max-h-32"
             />

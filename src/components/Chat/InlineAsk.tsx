@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { ChatWidget } from './ChatWidget'
+import { chatT } from '@/i18n/chat'
+import { defaultLang, type Lang } from '@/i18n/ui'
 
-export function InlineAsk() {
+export function InlineAsk({ lang = defaultLang }: { lang?: Lang }) {
+  const t = chatT(lang)
   const [value, setValue] = useState('')
   const [open, setOpen] = useState(false)
   const [pendingMessage, setPendingMessage] = useState<{ id: number; text: string } | undefined>()
@@ -18,13 +21,13 @@ export function InlineAsk() {
     return (
       <div className="inline-ask-panel">
         <div className="inline-ask-panel-head">
-          <span>Ask AI</span>
-          <button type="button" onClick={() => setOpen(false)} aria-label="收合">
+          <span>{t('chat.title')}</span>
+          <button type="button" onClick={() => setOpen(false)} aria-label={t('chat.inline.collapse')}>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
           </button>
         </div>
         <div className="inline-ask-panel-body">
-          <ChatWidget embedded pendingMessage={pendingMessage} />
+          <ChatWidget embedded pendingMessage={pendingMessage} lang={lang} />
         </div>
 
         <style>{`
@@ -79,10 +82,10 @@ export function InlineAsk() {
         value={value}
         onChange={e => setValue(e.target.value)}
         onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); submit() } }}
-        placeholder="問任何問題…"
-        aria-label="問 AI 關於這篇文章的問題"
+        placeholder={t('chat.inline.placeholder')}
+        aria-label={t('chat.inline.aria')}
       />
-      <button type="button" onClick={submit} disabled={!value.trim()} aria-label="送出">
+      <button type="button" onClick={submit} disabled={!value.trim()} aria-label={t('chat.inline.send')}>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <line x1="12" y1="19" x2="12" y2="5" />
           <polyline points="5 12 12 5 19 12" />

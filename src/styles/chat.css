@@ -89,3 +89,249 @@ button[data-streamdown="link"]:hover {
   --radius-lg: 0.625rem;
   --radius-xl: 0.75rem;
 }
+
+/* ===== Ask AI 活動列（工具使用顯示）=====
+   比照 claude.ai：一行字 + chevron，展開一層是有邊框清單，再展開是 Request／Response。
+   配色沿用站內步驟色：文字 brand-700、hover 底 brand-50、meta 用 text-muted。
+   公開頁沒載 Tailwind preflight，這裡的 <button> 全部自己 reset。 */
+.chat-activity {
+  margin: 0 0 0.65rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+.chat-activity-line,
+.chat-activity-row-head {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: var(--brand-700, #2d4a2d);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+.chat-activity-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.chat-activity-line:disabled,
+.chat-activity-row-head:disabled {
+  cursor: default;
+}
+.chat-activity-line:hover:not(:disabled) {
+  color: var(--brand-500, #4a9e6a);
+}
+.chat-activity-chevron {
+  flex: 0 0 auto;
+  color: var(--brand-500, #4a9e6a);
+  transition: transform 0.15s ease;
+}
+[aria-expanded="true"] > .chat-activity-chevron,
+[aria-expanded="true"] > .chat-activity-row-side > .chat-activity-chevron {
+  transform: rotate(90deg);
+}
+.chat-activity-keywords {
+  margin-left: 0.3rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.chat-activity-pending-detail {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* 展開一層：有邊框清單，每列可再展開 */
+.chat-activity-list {
+  margin: 0.5rem 0 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+.chat-activity-row + .chat-activity-row {
+  border-top: 1px solid var(--border);
+}
+.chat-activity-row-head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+}
+.chat-activity-row-head:hover:not(:disabled) {
+  background: var(--brand-50, #e8f5e8);
+}
+.chat-activity-row-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.chat-activity-row-side {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 0 0 auto;
+}
+.chat-activity-row-meta {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* 展開二層：Request／Response 原始 JSON，或 reasoning 全文 */
+.chat-activity-detail {
+  padding: 0.15rem 0.75rem 0.75rem;
+  background: color-mix(in srgb, var(--brand-50, #e8f5e8) 45%, var(--bg-card));
+}
+.chat-activity-detail-label {
+  margin: 0.55rem 0 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.chat-activity-pre {
+  margin: 0;
+  padding: 0.6rem 0.7rem;
+  max-height: 14rem;
+  overflow: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font: 0.76rem/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.chat-activity-reasoning {
+  margin: 0.4rem 0 0;
+  white-space: pre-wrap;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.chat-activity-error {
+  color: #b42318;
+}
+
+/* 助理記號：一個品牌色 sparkle 小方塊，不是卡通臉 */
+.chat-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: 0 0 1.6rem;
+  margin-top: 0.4rem;
+  border-radius: 6px;
+  background: var(--brand-500, #4a9e6a);
+  color: #fff;
+}
+
+/* ===== 原本的 loading：軌道 spinner + 思考中 + 三點（從 ChatMessageRow 搬過來）===== */
+.chat-thinking {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--brand-50) 74%, var(--bg-card));
+  color: var(--text-secondary);
+  overflow: hidden;
+}
+.chat-thinking::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: chat-thinking-shine 1.45s ease-in-out infinite;
+  transform: translateX(-120%);
+}
+.chat-thinking-orbit {
+  position: relative;
+  z-index: 1;
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 1rem;
+  border: 2px solid color-mix(in srgb, var(--brand-500) 28%, transparent);
+  border-top-color: var(--brand-500);
+  border-radius: 50%;
+  animation: chat-thinking-orbit 1s linear infinite;
+}
+.chat-thinking-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 0.18rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--brand-500) 16%, transparent);
+  animation: chat-thinking-pulse 1.2s ease-in-out infinite;
+}
+.chat-thinking-orbit-dot {
+  position: absolute;
+  top: -0.16rem;
+  left: 50%;
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 50%;
+  background: var(--brand-500);
+  box-shadow: 0 0 0 0.18rem color-mix(in srgb, var(--brand-500) 14%, transparent);
+  transform: translateX(-50%);
+}
+.chat-thinking-label {
+  position: relative;
+  z-index: 1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--brand-700, #2d4a2d);
+}
+.chat-thinking-dots {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.24rem;
+}
+.chat-thinking-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--brand-500);
+  animation: chat-thinking-bounce 0.9s ease-in-out infinite;
+}
+.chat-thinking-dot:nth-child(2) { animation-delay: 0.13s; }
+.chat-thinking-dot:nth-child(3) { animation-delay: 0.26s; }
+@keyframes chat-thinking-bounce {
+  0%, 80%, 100% { transform: translateY(0) scale(0.78); opacity: 0.45; }
+  40% { transform: translateY(-0.26rem) scale(1); opacity: 1; }
+}
+@keyframes chat-thinking-orbit { to { transform: rotate(360deg); } }
+@keyframes chat-thinking-pulse {
+  0%, 100% { transform: scale(0.75); opacity: 0.45; }
+  50% { transform: scale(1.2); opacity: 0.9; }
+}
+@keyframes chat-thinking-shine {
+  0% { transform: translateX(-120%); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateX(240%); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-thinking::before,
+  .chat-thinking-orbit,
+  .chat-thinking-orbit::after,
+  .chat-thinking-dot {
+    animation: none;
+  }
+  .chat-activity-chevron { transition: none; }
+}
