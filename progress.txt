@@ -3,6 +3,7 @@
 Last updated: 2026-09-19
 
 - **BigGo Finance 全站拆解（2026-09-18，已 commit）**：service-teardown 走完 L1–L6（L7 不適用），產出逐輪 walkthrough＋5 機制檔（Agent對話／排程額度／行情／新聞內容／登入計費，共1301行）＋12 份 HAR/截圖原始擷取（`.playwright-mcp/biggo-*`）。關鍵發現：真端點在 `/sparrowhawk` 命名空間、SSE 5事件＋工具鏈 read_skill→es_query、排程兩段式確認＋cron生成、30s輪詢、Cookie四件套。測試會話8＋task1全刪；skill 補「實戰補充」8條並 sync＋verify全綠。剩 Pro 帳號項與 Podcast 選題觀察。注意：對話記錄含使用者明文密碼，已提醒更換。
+- **daily-digest-arxiv 2026-09-19**：三層候選池共 98 篇（Layer A cs.AI/cs.CL/cs.MA 09-18 官方批次＋arXiv API 補充查詢、Layer B HF Daily Papers＋Semantic Scholar、Layer C 14 天回溯無晉升）；今日主題「Agent 鷹架設計決定成敗」，選出 3 篇獨立同日論文：An Empirical Study of Harness Design for Coding Agents（2609.20804，176 組配對消融）、SoL-Pi（2609.20519，NVIDIA/MIT，公開程式碼，省 44.7–49.0% token）、How Do Agent Harnesses Create Value?（2609.20474，安慰劑對照，規劃效果 +7.17pp）。中英雙版已建立，series order 118。`check:references`（新檔 0 warning）與 `check:lang-parity`（1982 組全過）已跑通，沿用 Q-024 繞法（scratch npm 裝 gray-matter 複製進 node_modules，未動 package.json/lockfile）；`pnpm install` 仍卡在既有的 `@lanefoundry/gatelane-sdk` codeload 403（Q-024 根因，非本次改動），`lint`／`astro check`／`skills:sync` 未驗證。Semantic Scholar 對 2 篇候選一度 429 限流，已於篩選紀錄標註 toolDegradation。
 
 協定（完整版見 docs/governance/operating-charter.md）：working memory 上限 90 行；狀態改變時更新，完成項目移到 archive。
 需要人類拍板或無法完成的事項，登錄到 docs/governance/escalation-queue.md。
