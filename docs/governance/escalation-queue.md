@@ -369,3 +369,12 @@
 - 為什麼現在不能做：Tier 2（牽涉 secret 存放位置、runtime 外部副作用發送通知、runner 行為改變）。secret 放 D1 vs env、預設開或關，都需要人拍板。
 - 接手第一步：讀 `src/lib/notification/router.ts`、`registry.ts`、`routine-hook.ts`、`src/lib/agent/routine-trigger.ts`，確認 session 完成事件從哪發出（找 session-manager 的完成回呼），再問使用者 secret 存放與預設政策。
 - 更新 2026-09-18（使用者已拍板）：secret 走 **A（env）**，behavior **預設關**。傳送端已接線：`bootstrap.ts`（`ensureGlobalChannels`，讀 `NOTIFICATION_DISCORD_WEBHOOK_URL`／`NOTIFICATION_NTFY_TOPIC`，未設定=不發送）＋`routine-hook.ts`（`dispatchRoutineNotification`，best-effort 不拋錯）＋`session-do.ts` 兩處 `transition(done)` 後呼叫；`Env` 加兩個 optional 欄位，未動 `wrangler.jsonc`。啟用方式（使用者自行操作）：`wrangler secret put NOTIFICATION_DISCORD_WEBHOOK_URL`／`NOTIFICATION_NTFY_TOPIC`。剩餘缺口：slack／email／telegram 通道無註冊、per-routine channel ID 無管理 API、behavior 開關仍無執行端消費（auto-PR 引擎本身不存在，屬新功能需另立設計）。
+
+## Q-029 daily-digest routine 撞帳號 5 小時用量上限會靜默失敗——session 顯示 success、repo 側零痕跡，日報在缺 Stage 1 素材下照常組稿
+- 登錄：2026-09-19（來源：使用者問「9/19 日報為什麼缺」的排查 session）
+- 做什麼：9/19 缺 arxiv／github digest。用 `RemoteTrigger get_run_log` 看兩支 routine 的 session（`cse_01VLC2VrocecuSuc9Xm18cX8`、`cse_01MGXA2a2nLwHEToxDH9SPES`）：沙箱 02:03／02:07 啟動，固定約 10 分鐘後首次呼叫模型（02:13／02:17），直接被 `rate_limit: rejected (five_hour) resets_at=02:20` 拒絕，`result: success is_error=true turns=1`，0 輪結束。第三支 model-card 02:11 啟動、02:21 首次呼叫剛好過 reset，之後全部正常。5 小時窗（21:20–02:20 台北）與使用者週五晚間兩筆大量寫作 commit 重疊；9/12（同為週六）arxiv／github 同樣缺、同樣無紀錄，判斷同一模式。
+  - 症狀特徵：routines 頁面與 `list_runs` 都顯示 `success`，只有 `get_run_log` 能看到 `rate_limit` 事件；不會 commit、不會寫 progress.txt、不會登錄本檔，所以從 repo 端完全查不出「排程有跑但被拒」跟「排程沒觸發」的差別。Stage 3 日報 skill 對缺 Stage 1 素材沒有硬性阻擋，會照常組稿並在 progress.txt 寫「當日無 arxiv／github digest」。
+  - 查證阻礙：`RemoteTrigger list` 分頁壞掉（`next_cursor` 回同一頁），8/26 前建立的 daily-digest 排程列不到，trigger_id 是從 claude.ai/code/routines 頁面 DOM 撈的；已把 15 個 trigger_id 寫進 `docs/daily-digest-routines.json` 供日後直接 `list_runs`／`get_run_log`。
+- 已做（2026-09-19，使用者拍板）：(1) `RemoteTrigger run` 手動補跑 arxiv／github（c28ffe3e、943fff66），日報中英雙版重組納入（784652c0）；(2) 15 個排程全部 +30 分鐘（arxiv 02:33 起、signals 03:33、report／weekly 04:33、region 05:03 台北），`docs/daily-digest-routines.json` 同步更新並附 trigger_id；(3) 順手修 85a97fb1 帶進 main 的 4 個 A 級用語（343f2ed1），解除全站 verify 紅燈。
+- 為什麼還沒完全解決：+30 分鐘只是避開「觀察到的」窗尾巴；5 小時窗是相對於使用者開始用的時間，週五晚上用量大一點就可能再撞。根本解法要嘛 routine 用獨立帳號／額度，要嘛 skill 層加「啟動先寫心跳、被拒時寫 progress 或本檔」讓失敗可見——兩者都是 Tier 2。
+- 接手第一步：下次再缺，先 `RemoteTrigger list_runs` + `get_run_log`（trigger_id 在 `docs/daily-digest-routines.json`）確認是不是 `rate_limit`；是的話 `RemoteTrigger run` 補跑，再跑 `daily-digest-report` 重組（skill 冪等檢查會擋已存在的日報，需明示跳過）。若連續兩週再撞，向使用者提「routine 獨立額度」或「Stage 1 整體改 03:30 後」。

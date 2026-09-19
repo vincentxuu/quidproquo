@@ -14,106 +14,120 @@
     "A": {
       "name": "daily-digest-arxiv",
       "stage": 1,
-      "cron_utc": "3 18 * * *",
-      "cron_tw": "2:03 daily",
+      "cron_utc": "33 18 * * *",
+      "cron_tw": "2:33 daily",
       "type": "arxiv",
-      "description": "Arxiv cs.AI/cs.CL/cs.MA digest"
+      "description": "Arxiv cs.AI/cs.CL/cs.MA digest",
+      "trigger_id": "trig_01S4euViSzrH53cTLwH1XLqv"
     },
     "B": {
       "name": "daily-digest-github",
       "stage": 1,
-      "cron_utc": "7 18 * * *",
-      "cron_tw": "2:07 daily",
+      "cron_utc": "37 18 * * *",
+      "cron_tw": "2:37 daily",
       "type": "github",
-      "description": "GitHub Trending AI/Agent digest"
+      "description": "GitHub Trending AI/Agent digest",
+      "trigger_id": "trig_01BxR3ekU4Q5xiUPLyBdMbXo"
     },
     "C": {
       "name": "daily-digest-model-card",
       "stage": 1,
-      "cron_utc": "11 18 * * *",
-      "cron_tw": "2:11 daily",
+      "cron_utc": "41 18 * * *",
+      "cron_tw": "2:41 daily",
       "type": "model-card",
-      "description": "New model detection + model card"
+      "description": "New model detection + model card",
+      "trigger_id": "trig_01QW8Vn7RFZBcRJdNDkjRKVs"
     },
     "D": {
       "name": "daily-digest-security",
       "stage": 1,
-      "cron_utc": "15 18 * * *",
-      "cron_tw": "2:15 daily",
+      "cron_utc": "45 18 * * *",
+      "cron_tw": "2:45 daily",
       "type": "security",
-      "description": "AI security alerts"
+      "description": "AI security alerts",
+      "trigger_id": "trig_01ADpoSEDfdx4mQzXCEEbKcu"
     },
     "E": {
       "name": "daily-digest-benchmark",
       "stage": 1,
-      "cron_utc": "19 18 * * *",
-      "cron_tw": "2:19 daily",
+      "cron_utc": "49 18 * * *",
+      "cron_tw": "2:49 daily",
       "type": "benchmark",
-      "description": "Benchmark leaderboard shifts"
+      "description": "Benchmark leaderboard shifts",
+      "trigger_id": "trig_017inJf2LFk68KqHhjtXHoYN"
     },
     "F": {
       "name": "daily-digest-framework",
       "stage": 1,
-      "cron_utc": "23 18 * * *",
-      "cron_tw": "2:23 daily",
+      "cron_utc": "53 18 * * *",
+      "cron_tw": "2:53 daily",
       "type": "framework",
-      "description": "Framework release detection"
+      "description": "Framework release detection",
+      "trigger_id": "trig_013dtfhobwKbDYeUpAqdTam3"
     },
     "G": {
       "name": "daily-digest-tool",
       "stage": 1,
-      "cron_utc": "27 18 * * *",
-      "cron_tw": "2:27 daily",
+      "cron_utc": "57 18 * * *",
+      "cron_tw": "2:57 daily",
       "type": "tool",
-      "description": "Tool/MCP server recommendations"
+      "description": "Tool/MCP server recommendations",
+      "trigger_id": "trig_012J4EUxBWxsjvektjHo5too"
     },
     "H": {
       "name": "daily-digest-funding",
       "stage": 1,
-      "cron_utc": "31 18 * * *",
-      "cron_tw": "2:31 daily",
+      "cron_utc": "1 19 * * *",
+      "cron_tw": "3:01 daily",
       "type": "funding",
-      "description": "Series A+ funding alerts"
+      "description": "Series A+ funding alerts",
+      "trigger_id": "trig_01VjpoCUnj8LLDued7jSZd2N"
     },
     "I": {
       "name": "daily-digest-pricing",
       "stage": 1,
-      "cron_utc": "35 18 * * *",
-      "cron_tw": "2:35 daily",
+      "cron_utc": "5 19 * * *",
+      "cron_tw": "3:05 daily",
       "type": "pricing",
-      "description": "API pricing/sunset tracking"
+      "description": "API pricing/sunset tracking",
+      "trigger_id": "trig_019e73Xwb2rsm11UUSvD1e62"
     },
     "J": {
       "name": "daily-digest-signals",
       "stage": 2,
-      "cron_utc": "3 19 * * *",
-      "cron_tw": "3:03 daily",
+      "cron_utc": "33 19 * * *",
+      "cron_tw": "3:33 daily",
       "type": "signals",
-      "description": "News scan → intermediate signals JSON"
+      "description": "News scan → intermediate signals JSON",
+      "trigger_id": "trig_018vbFAcdKDp86RHNeV3uxWS"
     },
     "K": {
       "name": "daily-digest-report",
       "stage": 3,
-      "cron_utc": "3 20 * * *",
-      "cron_tw": "4:03 daily",
+      "cron_utc": "33 20 * * *",
+      "cron_tw": "4:33 daily",
       "type": "daily",
-      "description": "Assemble daily report from signals + stage 1 outputs"
+      "description": "Assemble daily report from signals + stage 1 outputs",
+      "trigger_id": "trig_01Bkr57Noy7AdcKmNWgdajt7"
     },
     "L": {
       "name": "daily-digest-weekly",
       "stage": 4,
-      "cron_utc": "3 20 * * 4",
-      "cron_tw": "4:03 every Friday",
+      "cron_utc": "33 20 * * 4",
+      "cron_tw": "4:33 every Friday",
       "type": "weekly",
-      "description": "Weekly review + watchlist update suggestions"
+      "description": "Weekly review + watchlist update suggestions",
+      "trigger_id": "trig_01K4T9NN4DLs8M2tLvBQa7Sq"
     },
     "M": {
       "name": "daily-digest-region",
       "stage": 4,
-      "cron_utc": "33 20 * * 4",
-      "cron_tw": "4:33 every Friday",
+      "cron_utc": "3 21 * * 4",
+      "cron_tw": "5:03 every Friday",
       "type": "region",
-      "description": "Regional focus (China/Taiwan/Japan-Korea/Europe)"
+      "description": "Regional focus (China/Taiwan/Japan-Korea/Europe)",
+      "trigger_id": "trig_01Q7HGKWAHHbFnQq8ciUbfGF"
     }
-  }
+  },
+  "schedule_note": "2026-09-19 全部排程 +30 分鐘：原 Stage 1 前兩支（arxiv 18:03Z、github 18:07Z）連兩個週六撞到帳號 5 小時用量窗（reset 18:20Z），沙箱啟動到首次呼叫模型固定約 10 分鐘，實際呼叫落在 reset 前而被拒（rate_limit: rejected (five_hour)），0 輪結束、repo 側無痕跡。trigger_id 供 RemoteTrigger list_runs／get_run_log 查 log 用（list API 分頁壞掉查不到這批）。詳見 docs/governance/escalation-queue.md Q-029。"
 }
