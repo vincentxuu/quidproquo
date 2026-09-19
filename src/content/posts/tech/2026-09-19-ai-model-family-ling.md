@@ -42,8 +42,10 @@ glossary:
 | 2026-04 | Ling-2.6-flash | 104B/7.4B，OpenRouter 匿名版「Elephant Alpha」連續多日 Trending 榜首 |
 | 2026-05 | Ring-2.6-1T | 萬億級深度思考模型，適合複雜推理與長程自主執行 |
 | 2026-07-23 | Ling-3.0-flash | 124B/5.1B，原生混合線性架構，KDA + MLA 5:1，對照 1T 旗艦效能 |
-| 2026-08 | Ling-3.0-tiny | 7.9B/1.3B，纯本地部署，無雲端依賴 |
-| 2026-09-09 | Ling-3.0-flash-Fin | 124B/5.1B，金融增強，MIT 開源，聯合中金開發 FinFIRST 評測基準 |
+| 2026-08 | Ling-3.0-tiny | 7.9B/1.3B，純本地部署，無雲端依賴 |
+| 2026-08 | Ling-3.0-flash-VL | 124B/5.5B，視覺語言模型，AA Intelligence Index 42，支援圖像與影片輸入 |
+| 2026-08 | Ling-3.0-flash-Fin | 124B/5.1B，金融增強，MIT 開源，聯合中金開發 FinFIRST 評測基準 |
+| 2026-09-09 | 外灘大會 | Ling-3.0-flash-Fin 正式宣布開源，全面量產 BF16/FP8/FP4/INT4 |
 
 一年半、十二個里程碑。百靈的演化有一條清晰的主線：**先以萬億參數證明技術上限，再用架構創新壓縮到高效小模型，最後以垂直領域版本（Fin）開拓場景深度**——規模不是目的，「智效比」才是。
 
@@ -79,17 +81,64 @@ glossary:
 
 ## 家族矩陣與選型
 
-| 面向 | Ling-3.0-tiny | Ling-3.0-flash | Ling-2.6-1T | Ring-2.6-1T | Ling-3.0-flash-Fin |
-|---|---|---|---|---|---|
-| 總參數 | 7.9B | 124B | 1T | 1T | 124B |
-| 激活參數 | 1.3B | 5.1B | 未公開 | 未公開 | 5.1B |
-| 定位 | 純本地離線 | 生產級 Agent 執行 | 萬億旗艦快思考 | 深度推理 | 金融增強 Agent |
-| Context | 256K | 256K → 1M | 256K | 1M | 256K → 1M |
-| 開源 | 是 | 是 | 是 | 是 | 是（MIT） |
-| 適用場景 | 個人知識管理、離線 | 高預 Agent、coding | 即時推理、agentic | 數學證明、複雜推理 | 投研、財報、估值 |
-| 效能 | 資源敏感部署 | 對照 1T 旗艦 | AIME 2026 開源領先 | IMO/CMO 雙金 | 七個金融基準領先 |
+### Ling 3.0 核心模型
 
-選型邏輯很乾脆：**要本地離線、小型任務——tiny；要高速 Agent 執行、coding、一般推理——flash；要即時萬億旗艦——2.6-1T；要深度推理與數學證明——Ring 2.6-1T；要金融領域專業——flash-Fin**。
+| 面向 | Ling-3.0-tiny | Ling-3.0-flash | Ling-3.0-flash-VL | Ling-3.0-flash-Fin |
+|---|---|---|---|---|
+| 總參數 | 7.9B | 124B | 124B | 124B |
+| 激活參數 | 1.3B | 5.1B | **5.5B** | 5.1B |
+| 定位 | 純本地離線 | 生產級 Agent 執行 | 視覺語言 | 金融增強 Agent |
+| 輸入 | 文字 | 文字 | **圖像 + 影片 + 文字** | 文字 |
+| Context | 256K | 256K → 1M | 256K | 256K → 1M |
+| 開源 | 是 | 是 | 是（MIT） | 是（MIT） |
+| 適用場景 | 個人知識管理、離線 | 高預 Agent、coding | 視覺理解、多模態推理 | 投研、財報、估值 |
+| AA Intelligence Index | N/A | 38 | **42** | 41 |
+
+### Ling 3.0-flash 衍生版本（Hugging Face）
+
+| 版本 | 說明 | 權重大小 |
+|---|---|---|
+| `Ling-3.0-flash` | BF16 基座 | 127.5B 參數（含 3.1B MTP head） |
+| `Ling-3.0-flash-fp8` | 序列化 block-FP8 量化 | 約 66B |
+| `Ling-3.0-flash-fp4` | MXFP4 壓縮量化 | 約 33B |
+| `Ling-3.0-flash-int4` | 對稱 W4 壓縮（僅路由專家） | 約 16B |
+| `Ling-3.0-flash-dspark` | 投机解碼 draft 模型（加速用） | 1B |
+| `Ling-3.0-flash-base-midtrain` | 預訓練中期檢查點 | 127B |
+
+同樣的量化與衍生版本也提供給 `Ling-3.0-flash-Fin`（含 `-fp4` 版本）與 `Ling-3.0-tiny`（含 `-fp8` 版本）。
+
+### 完整 Ling 3.0 矩陣（含量化和衍生版）
+
+| 品項 | 授權 | 取得方式 |
+|---|---|---|
+| Ling-3.0-flash（BF16） | MIT | Hugging Face `inclusionAI/Ling-3.0-flash` |
+| Ling-3.0-flash-fp8 | MIT | 同上，權重頁量化列表 |
+| Ling-3.0-flash-fp4 | MIT | 同上 |
+| Ling-3.0-flash-int4 | MIT | 同上 |
+| Ling-3.0-flash-dspark | MIT | Hugging Face `inclusionAI/Ling-3.0-flash-dspark` |
+| Ling-3.0-flash-VL | MIT | Hugging Face `inclusionAI/Ling-3.0-flash-VL` |
+| Ling-3.0-flash-Fin | MIT | Hugging Face `inclusionAI/Ling-3.0-flash-Fin` |
+| Ling-3.0-flash-Fin-fp4 | MIT | 同上 |
+| Ling-3.0-tiny | MIT | Hugging Face `inclusionAI/Ling-3.0-tiny` |
+| Ling-3.0-tiny-fp8 | MIT | 同上 |
+| API（OpenRouter） | 限免 / 付費 | `inclusionai/ling-3.0-flash:free`、`:fin:free`、`:vl:free`、`/tiny` |
+
+### 架構細節
+
+所有 Ling 3.0-flash 系列共享同一基礎架構：
+
+- **42 層 Transformer**：35 層 KDA（Kimi Delta Attention）+ 7 層 Gated MLA（比例 5:1）
+- **512 個路由專家 + 1 個共享專家**，每 token 啟用 **8 個專家**（MoE 1/64 稀疏比）
+- **Hidden size 2560**，Expert intermediate size 768
+- **詞彙表 157,184**
+- **3.1B MTP（多 token 預測）head**，使完整檢查點達 127.5B 參數
+- **上下文訓練階段**：8K → 32K → 256K
+- **SGLang HiCache + Mooncake 分層快取**，長輸入 TTFT 減少 60–80%
+- 支援 vLLM 0.25.0+（含 Bailing V3 原生支援）
+
+### 選型邏輯
+
+**要本地離線、小型任務——tiny。要高速 Agent 執行、coding、一般推理——flash。要視覺理解、多模態推理——flash-VL。要金融領域專業——flash-Fin。要推測解碼加速——搭配 dspark draft 模型。**
 
 ## 開源策略與生態
 
@@ -113,19 +162,21 @@ glossary:
 
 ## 對 Agent 開發者的意義
 
+如果你在做**視覺/多模態 Agent**（圖像分析、影片理解、視覺推理）：Ling-3.0-flash-VL 是開源生態中最高效的視覺語言模型——124B/5.5B 架構、AA Intelligence Index 42、256K context，支援單次請求最多 40 張圖像與影片輸入。
+
 如果你在做**高頻 Agent 工作流**（coding agent、搜尋 agent、工具呼叫密集的場景）：Ling-3.0-flash 是目前開源中最具「智效比」的選擇之一——5.1B 激活參數達到 1T 旗艦的效能，TTFT 減少 60–80%，單一節點即可部署。搭配 Ling-3.0-tiny 還能做「大帶小」的架構：flash 負責規劃，tiny 負責本地執行。
 
 如果你在做**金融相關 Agent**（投研、財報分析、估值建模）：Ling-3.0-flash-Fin 是目前開源生態中最完整的金融增強模型，MIT 授權加上 FinFIRST 基準開源，讓你能自架、測試、驗證整套流程。
 
 如果你在做**深度推理任務**（數學證明、代碼正確性驗證）：Ring-2.6-1T 是比 Ling 更合適的選擇——它專為「慢思考」設計，IMO/CMO 金牌的推理嚴謹度不是 Ling 系列能比擬的。
 
-不適合：追求榜首效能（封閉模型全面領先）、需要語音/影片輸出（Ling 系列純文字，Ming 系列才處理多模態）、需要 100% 生產級可靠性（官方明確聲明閃電-Fin「不構成投資建議」）。
+不適合：追求榜首效能（封閉模型全面領先）、需要語音/全模態輸出（Ling 系列處理文字與視覺，Ming 系列才是全模態旗艦）、需要 100% 生產級可靠性（官方明確聲明 flash-Fin「不構成投資建議」）。
 
 ## 整體來說
 
 百靈家族的核心賭注是「**智效比勝於絕對規模**」——不是在比誰的參數更大，而是在比同樣的計算資源下誰的智能更高。從 Ling 1.0 的工程驗證，到 3.0 的原生混合線性架構，這條路徑越走越清晰：1/64 的 MoE 專家激活比、KDA 的精確長序列記憶、「規劃-執行分離」的三線並行。
 
-Flash-Fin 的意義不只是一個金融模型，而是「百靈打法」的第一次垂直落地——把通用高效架構 + 領域微調 + 開源評測基準打包成一個完整方案。後續觀察重點是：這套打法是否會複製到法律、醫療、工程等其他垂直領域？
+Flash-Fin 的意義不只是一個金融模型，而是「百靈打法」的第一次垂直落地——把通用高效架構 + 領域微調 + 開源評測基準打包成一個完整方案。Flash-VL 則是同一打法在多模態領域的落地：把原生混合線性架構 + 視覺編碼器 + 高效推理打包成開源方案。後續觀察重點是：這套打法是否會複製到法律、醫療、工程等其他垂直領域，以及 Ling-3.0 系列是否會推出語音/影片生成的完整全模態版本填補 Ming 與 flash-VL 之間的空白。
 
 ## 參考資料
 
@@ -134,8 +185,13 @@ Flash-Fin 的意義不只是一個金融模型，而是「百靈打法」的第�
 - [Ant Group 官方：Open-Sources Ling-3.0-flash-Fin for Real-World Financial Workflows（2026-09-09）](https://www.antgroup.com/en/news-media/press-releases/1788944400000)
 - [Ant Ling 官方文件：模型家族](https://developer.ant-ling.com/zh-CN/docs/models)
 - [Ant Ling 官方文件：Ling-3.0-flash 發佈](https://developer.ant-ling.com/zh-CN/blogs/ling-3.0-flash-release)
-- [Hugging Face：inclusionAI/Ling-3.0-flash-Fin](https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin)
+- [Hugging Face：inclusionAI/Ling-3.0-flash](https://huggingface.co/inclusionAI/Ling-3.0-flash)
+- [Hugging Face：inclusionAI/Ling-3.0-flash-VL](https://huggingface.co/inclusionAI/Ling-3.0-flash-VL)
+- [Hugging Face：Ling 3.0 Collection（含全部量化版）](https://huggingface.co/collections/inclusionAI/ling-30)
+- [Hugging Face：Ling 3.0 Fin Collection](https://huggingface.co/collections/inclusionAI/ling-30-fin)
+- [OpenRouter：inclusionai 模型列表](https://openrouter.ai/inclusionai)
 - [LLM Timeline：Ant Group（27 models, 2025-2026）](https://llmtimeline.org/ant-group)
 - [frangelbarrera/Ling-3-flash-evaluation：獨立評測](https://github.com/frangelbarrera/Ling-3-flash-evaluation)
+- [vLLM Recipes：Ling-3.0-flash（含架構細節）](https://recipes.vllm.ai/inclusionAI/Ling-3.0-flash)
 - [雷峰網：連續發布兩款萬億參數模型，螞蟻 AI 來勢洶洶](https://www.leiphone.com/category/ai/L6tQCmiyhpWnqvRk.html)
 - [Ant Group 官方：Ant Group Unveils Ling-3.0-Flash（BusinessWire，2026-07-27）](https://www.businesswire.com/news/home/20260726584441/en/)

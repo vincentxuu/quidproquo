@@ -43,7 +43,9 @@ How to interpret the benchmark numbers cited in this article, please see the [AI
 | 2026-05 | Ring-2.6-1T | Trillion-parameter deep thinking model for complex reasoning and long-horizon autonomous execution |
 | 2026-07-23 | Ling-3.0-flash | 124B/5.1B; native hybrid linear architecture; KDA + MLA 5:1; matches 1T flagship performance |
 | 2026-08 | Ling-3.0-tiny | 7.9B/1.3B; fully local deployment; zero cloud dependency |
-| 2026-09-09 | Ling-3.0-flash-Fin | 124B/5.1B; finance-enhanced; MIT open-source; co-developed with CICC; FinFIRST benchmark |
+| 2026-08 | Ling-3.0-flash-VL | 124B/5.5B; vision-language model; AA Intelligence Index 42; supports image and video input |
+| 2026-08 | Ling-3.0-flash-Fin | 124B/5.1B; finance-enhanced; MIT open-source; co-developed with CICC; FinFIRST benchmark |
+| 2026-09-09 | Bund Conference | Ling-3.0-flash-Fin officially announced open-source; full quantization lineup (BF16/FP8/FP4/INT4) released |
 
 Eighteen months, twelve milestones. Ling's evolution follows a clear thesis: **first prove technical ceiling with trillion parameters, then compress into highly efficient smaller models via architectural innovation, and finally carve out vertical depth (Fin) for domain-specific scenarios.** Scale is not the goal — intelligence-per-computation is.
 
@@ -79,16 +81,47 @@ This trajectory matters because Ling is not "scaling up" — it is **compressing
 
 ## Family Matrix and Selection Guide
 
-| Dimension | Ling-3.0-tiny | Ling-3.0-flash | Ling-2.6-1T | Ring-2.6-1T | Ling-3.0-flash-Fin |
-|---|---|---|---|---|---|
-| Total Parameters | 7.9B | 124B | 1T | 1T | 124B |
-| Active Parameters | 1.3B | 5.1B | N/A | N/A | 5.1B |
-| Positioning | Local offline | Production agent execution | Trillion flagship fast-thinking | Deep reasoning | Finance-enhanced agent |
-| Context | 256K | 256K → 1M | 256K | 1M | 256K → 1M |
-| Open Source | Yes | Yes | Yes | Yes | Yes (MIT) |
-| Best For | Personal KM, offline | High-frequency Agent, coding | Instant reasoning, agentic | Math proofs, complex reasoning | Investment research, financial reports |
+### Ling 3.0 Core Models
 
-Selection logic is straightforward: **local offline, small tasks → tiny; fast Agent execution, coding, general reasoning → flash; instant trillion flagship → 2.6-1T; deep reasoning and math → Ring 2.6-1T; financial domain → flash-Fin**.
+| Dimension | Ling-3.0-tiny | Ling-3.0-flash | Ling-3.0-flash-VL | Ling-3.0-flash-Fin |
+|---|---|---|---|---|
+| Total Parameters | 7.9B | 124B | 124B | 124B |
+| Active Parameters | 1.3B | 5.1B | **5.5B** | 5.1B |
+| Positioning | Local offline | Production agent execution | Vision-language | Finance-enhanced agent |
+| Input | Text | Text | **Image + Video + Text** | Text |
+| Context | 256K | 256K → 1M | 256K | 256K → 1M |
+| Open Source | Yes | Yes | Yes (MIT) | Yes (MIT) |
+| AA Intelligence Index | N/A | 38 | **42** | 41 |
+
+### Ling 3.0-flash Derivative Versions (Hugging Face)
+
+| Version | Description | Size |
+|---|---|---|
+| `Ling-3.0-flash` | BF16 base checkpoint | 127.5B (incl. 3.1B MTP head) |
+| `Ling-3.0-flash-fp8` | Serialized block-FP8 quantization | ~66B |
+| `Ling-3.0-flash-fp4` | MXFP4 compressed quantization | ~33B |
+| `Ling-3.0-flash-int4` | Symmetric W4 (routed experts only) | ~16B |
+| `Ling-3.0-flash-dspark` | Speculative decoding draft model | 1B |
+| `Ling-3.0-flash-base-midtrain` | Pre-training mid-train checkpoint | 127B |
+
+Same quantization and derivative versions are available for `Ling-3.0-flash-Fin` (including `-fp4`) and `Ling-3.0-tiny` (including `-fp8`).
+
+### Architecture Details
+
+All Ling 3.0-flash series share the same base architecture:
+
+- **42 Transformer layers**: 35 KDA (Kimi Delta Attention) + 7 Gated MLA (5:1 ratio)
+- **512 routed experts + 1 shared expert**, **8 experts activated per token** (MoE 1/64 sparsity)
+- **Hidden size 2560**, Expert intermediate size 768
+- **Vocabulary 157,184**
+- **3.1B MTP (multi-token prediction) head**, bringing the full checkpoint to 127.5B parameters
+- **Context training schedule**: 8K → 32K → 256K
+- **SGLang HiCache + Mooncake hierarchical caching**, TTFT reduced 60–80% for long inputs
+- **vLLM 0.25.0+** support with native Bailing V3 compatibility
+
+### Selection Logic
+
+**Local offline, small tasks → tiny. Fast Agent execution, coding, general reasoning → flash. Vision understanding, multimodal reasoning → flash-VL. Financial domain → flash-Fin. Speculative decoding acceleration → pair with dspark draft model.**
 
 ## Open Source Strategy and Ecosystem
 
@@ -118,13 +151,13 @@ If you are building **finance-related agents** (investment research, earnings an
 
 If you are doing **deep reasoning tasks** (mathematical proofs, code correctness verification): Ring-2.6-1T is a better fit than Ling — it's purpose-built for "slow thinking" with IMO/CMO gold-level reasoning rigor that the Ling series cannot match.
 
-Not recommended for: peak performance (closed models lead comprehensively), speech/video output (Ling is text-only; Ming handles multimodal), or production-grade reliability requiring 100% certainty (official documentation explicitly states flash-Fin's outputs "do not constitute investment advice" and require professional review).
+Not recommended for: peak performance (closed models lead comprehensively), full-modality speech/audio output (Ling handles text and vision; Ming is the full-modality flagship), or production-grade reliability requiring 100% certainty (official documentation explicitly states flash-Fin's outputs "do not constitute investment advice" and require professional review).
 
 ## Overall Assessment
 
 Ling's core bet is that **intelligence-per-computation beats absolute scale** — not who has the biggest parameters, but who delivers the highest intelligence for the same compute. From Ling 1.0's engineering validation to 3.0's native hybrid linear architecture, this path has become increasingly clear: 1/64 MoE expert activation, KDA's precise long-sequence memory, and "planning-execution separation" across three parallel lines.
 
-The significance of flash-Fin extends beyond a single finance model — it's the first vertical landing of the "Ling approach": take efficient general-purpose architecture + domain fine-tuning + open evaluation benchmarks, and package them as a complete solution. The key thing to watch: will this playbook be replicated in legal, medical, engineering, and other vertical domains?
+Flash-Fin's significance extends beyond a single finance model — it's the first vertical landing of the "Ling approach": take efficient general-purpose architecture + domain fine-tuning + open evaluation benchmarks, and package them as a complete solution. Flash-VL is the same playbook's landing in the multimodal domain: native hybrid linear architecture + vision encoder + efficient inference, packaged as open-source. The key things to watch: will this playbook be replicated in legal, medical, engineering, and other vertical domains, and will the Ling-3.0 series eventually fill the gap between flash-VL and Ming with a full-modality speech/video generation model?
 
 ## References
 
@@ -136,5 +169,6 @@ The significance of flash-Fin extends beyond a single finance model — it's the
 - [Hugging Face: inclusionAI/Ling-3.0-flash-Fin](https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin)
 - [LLM Timeline: Ant Group (27 models, 2025-2026)](https://llmtimeline.org/ant-group)
 - [frangelbarrera/Ling-3-flash-evaluation: Independent Evaluation](https://github.com/frangelbarrera/Ling-3-flash-evaluation)
-- [Leiphone: 连续發布兩款萬億參數模型，螞蟻AI來勢洶洶](https://www.leiphone.com/category/ai/L6tQCmiyhpWnqvRk.html)
+- [vLLM Recipes: Ling-3.0-flash (architecture details)](https://recipes.vllm.ai/inclusionAI/Ling-3.0-flash)
+- [Leiphone: Consecutive Trillion-Parameter Models, Ant Group AI Surges](https://www.leiphone.com/category/ai/L6tQCmiyhpWnqvRk.html)
 - [Ant Group Official: Ant Group Unveils Ling-3.0-Flash (BusinessWire, 2026-07-27)](https://www.businesswire.com/news/home/20260726584441/en/)
