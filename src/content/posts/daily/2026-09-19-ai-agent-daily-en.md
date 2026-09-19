@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: en
 description: "MCP went from protocol to default feature in a year — Safari, Amazon Ads, and GitLab all added MCP servers on the same day, but the same cost-lowering logic that makes integration cheap also made JADEPUFFER's fully autonomous ransomware chain cheap; California's AI kill-switch order is an attempt to put that cost back"
-tldr: "California Governor Newsom signs an executive order pushing frontier models toward an emergency kill switch and independent safety oversight; Azure AI Foundry discloses a CVSS 10.0 vulnerability, and the JADEPUFFER campaign confirms an AI agent can run a full ransomware attack chain on its own through an old Langflow bug; Apple Safari 27, Amazon Ads, and GitLab 19.4 each ship MCP servers into a browser, an ad platform, and a DevOps tool the same day; Chinese AI agent startup Manus is reportedly in talks to raise $500M at a $4B valuation; manufacturing AI data platform CADDi closes a $114M Series D at double its prior valuation; Taiwan's Ministry of Digital Affairs holds an AI-agent-driven next-gen network forum the same day"
+tldr: "California Governor Newsom signs an executive order pushing frontier models toward an emergency kill switch and independent safety oversight; Azure AI Foundry discloses a CVSS 10.0 vulnerability, and the JADEPUFFER campaign confirms an AI agent can run a full ransomware attack chain on its own through an old Langflow bug; Apple Safari 27, Amazon Ads, and GitLab 19.4 each ship MCP servers into a browser, an ad platform, and a DevOps tool the same day; Alibaba, Cloudflare, and Microsoft open-source production-tested agent guardrails as CLIs and skills the same week, while three arXiv papers show with controlled experiments that harness components have conditional value and a read-only verifier blocks 61% of false passes for under a cent; Chinese AI agent startup Manus is reportedly in talks to raise $500M at a $4B valuation; manufacturing AI data platform CADDi closes a $114M Series D at double its prior valuation; Taiwan's Ministry of Digital Affairs holds an AI-agent-driven next-gen network forum the same day"
 draft: false
 series:
   name: "AI Daily"
@@ -28,7 +28,9 @@ The problem is the same logic holds for attackers. The JADEPUFFER campaign shows
 
 Today's regulatory move is a direct response to exactly this: California Governor Newsom's executive order calls for independent oversight recommendations within two months and pushes frontier models toward an emergency "kill switch" — which is, at its core, an attempt to manually add back a "stop" friction after transaction costs have already been driven to near zero. This isn't a coincidence of same-day news; it's two faces of one structural trend — infrastructure keeps pushing the cost of "connecting" toward zero, so regulation has to find a way to push the cost of "shutting it down" toward zero too, and both sides are racing to set the friction coefficient where they want it.
 
-For teams building on the MCP ecosystem, this means evaluating a new MCP server can no longer stop at "does it integrate fast" — how trustworthy the source is, whether its version pins float, and whether authorization can be revoked instantly if something goes wrong now matter just as much as integration speed, especially as enterprises start wiring agents into finance and supply-chain workflows where the stakes are higher.
+Where that friction should live, today's papers and open-source releases give the same answer: in the harness wrapped around the model — and it's cheap to put there. The three papers in [today's Arxiv Digest](/en/posts/daily/2026-09-19-ai-agent-arxiv-digest-en) show with controlled experiments that a coding agent's performance is decided by harness components — planning, context management, action space — and that a read-only verifier blocks about six in ten false passes for under a cent. In [today's GitHub Digest](/en/posts/daily/2026-09-19-ai-agent-github-digest-en), none of what Alibaba, Cloudflare, and Microsoft open-sourced is a new framework; they packaged guardrails like "hand the steps that can't tolerate errors to deterministic code" and "the agent that finds a bug can't be the one that verifies it" into a CLI or a skill. Regulators are working out how to put friction back; engineering teams are already demonstrating where it goes and what it costs.
+
+For teams building on the MCP ecosystem, this means evaluating a new MCP server can no longer stop at "does it integrate fast" — how trustworthy the source is, whether its version pins float, and whether authorization can be revoked instantly if something goes wrong now matter just as much as integration speed, especially as enterprises start wiring agents into finance and supply-chain workflows where the stakes are higher — and those checks belong in the harness as deterministic steps, not left to the agent's own judgment.
 
 ## Today's Developments
 
@@ -74,7 +76,13 @@ For teams building on the MCP ecosystem, this means evaluating a new MCP server 
 
 **TrustDex**: A local-first, zero-dependency CLI that gates MCP servers, Agent Skills, and plugins with an ALLOW/ASK/BLOCK verdict before they're ever exposed to an agent — see [today's tool pick](/en/posts/daily/2026-09-19-tool-trustdex-en).
 
+**Three big-tech guardrail releases**: Alibaba's open-code-review (an AI code review CLI used internally for two years; deterministic filtering plus an agent, at roughly 1/9 the token cost of a general-purpose agent), Cloudflare's security-audit-skill (its own six-phase vulnerability-hunting workflow packaged as a skill, with finder and verifier kept separate), and microsoft/skills (175 Azure SDK domain skills, one-command install). What they share: production-tested guardrails dropped into the agent you already use, not a framework swap — see [today's GitHub Digest](/en/posts/daily/2026-09-19-ai-agent-github-digest-en).
+
 ### Technical Progress
+
+**Today's Arxiv Digest — harness design decides the outcome**: Three independent papers point at the same capability gap — a coding agent's performance is decided by the harness around the model, and every component's value is conditional. A 176-pair ablation shows context management matters more as the budget tightens and planning is an accuracy crutch for weak models but only a cost saver for strong ones; NVIDIA/MIT's SoL-Pi treats the harness itself as the research object and auto-optimizes it, cutting token traffic 44.7–49.0%; a sham-controlled experiment shows planning guidance lifts τ²-bench success by a significant 7.17 percentage points. All three are preprints with claims scoped to "what this component is worth under these conditions" — methods and limits in the [full Arxiv Digest](/en/posts/daily/2026-09-19-ai-agent-arxiv-digest-en).
+
+**Pydantic AI v2.45.0 / v2.46.0**: Two feature releases in two days — `TypeSafeModel`, a `Choices` helper, and union output types, with no breaking changes; the pace has visibly picked up after v2.44.0 fixed four security issues the day before. ([source](https://github.com/pydantic/pydantic-ai/releases/tag/v2.46.0))
 
 **GitLab 19.4**: Brought MCP server tools and the Duo CLI's `/goal` command into public beta, letting developers delegate an open-ended goal instead of supervising individual tasks one by one, plus new cost-control features. ([source](https://www.archynewsy.com/gitlab-19-4-launches-new-mcp-server-tools-in-public-beta-for-ai-agent-automation/))
 
@@ -145,9 +153,13 @@ North America, Europe (Health Force's funding round), Latin America (Cognition's
 | CADDi valuation growth (Mar 2025 → Sep 2026) | $470M → $1.2B (2.55x) | [Today's funding brief](/en/posts/daily/2026-09-19-funding-caddi-en) |
 | xAI x_search old vs. new pricing (example scenario, monthly) | $300 → $5,100 (+1,600%) | [Today's pricing tracker](/en/posts/daily/2026-09-19-pricing-xai-x-search-billing-change-en) |
 | Android Bench 2.0 pass rate | GPT-6 Astra 28% vs. Gemini 3.8 Flash 8% | [AndroidCentral](https://androidcentral.com/apps-software/android-os/android-bench-2-0) |
+| False passes blocked by a read-only verifier | 61% (under one cent) | [Today's Arxiv Digest](/en/posts/daily/2026-09-19-ai-agent-arxiv-digest-en) |
+| open-code-review token cost vs. general-purpose agent | ~1/9 | [Today's GitHub Digest](/en/posts/daily/2026-09-19-ai-agent-github-digest-en) |
 
 ## Today's Digests
 
+- 📄 [AI Agent Arxiv Digest — 2026-09-19](/en/posts/daily/2026-09-19-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-19](/en/posts/daily/2026-09-19-ai-agent-github-digest-en)
 - 📄 [AI Engineer Interview Prep — 2026-09-19: Paper Reading](/en/posts/daily/2026-09-19-ai-interview-daily-en)
 - 📄 [Product Builder Interview Prep — 2026-09-19: Technical PM](/en/posts/daily/2026-09-19-product-builder-interview-daily-en)
 - 📄 [Funding Brief｜CADDi Series D $114M](/en/posts/daily/2026-09-19-funding-caddi-en)
@@ -196,6 +208,13 @@ I used to assume agent funding was concentrating around "smarter models," but to
 - [Signoff launches Enterprise Agentic AI platform](https://m.thewire.in/article/ptiprnews/signoff-launches-enterprise-agentic-ai-intelligence-platform)
 - [Certinia expands Veda suite](https://martech.org/the-latest-ai-powered-martech-news-and-releases/)
 - [Hermes Agent — NousResearch GitHub](https://github.com/nousresearch/hermes-agent)
+- [alibaba/open-code-review](https://github.com/alibaba/open-code-review)
+- [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill)
+- [microsoft/skills](https://github.com/microsoft/skills)
+- [Pydantic AI v2.46.0 Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.46.0)
+- [An Empirical Study of Harness Design for Coding Agents — arXiv 2609.20804](https://arxiv.org/abs/2609.20804)
+- [SoL-Pi: Recursively Scaling Auto-Research Loops for Efficient Agent Harness — arXiv 2609.20519](https://arxiv.org/abs/2609.20519)
+- [How Do Agent Harnesses Create Value? — arXiv 2609.20474](https://arxiv.org/abs/2609.20474)
 - [WPVibe WordPress MCP server](https://wordpress.org/plugins/vibe-ai/)
 - [Alibaba Cloud ships Qwen Work for Teachers](https://www.alibabacloud.com/blog/qwen-work-for-teachers_603576)
 - [Taiwan's Ministry of Digital Affairs AI Agent forum — The Hub News](https://www.thehubnews.net/archives/666657)

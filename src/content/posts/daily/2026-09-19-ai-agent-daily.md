@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "MCP 一年內從協定變成標配——Safari、Amazon Ads、GitLab 同一天都在加 MCP server，但同一套壓低整合成本的邏輯，也讓 JADEPUFFER 這類全自動勒索軟體攻擊鏈的成本降到最低，加州州長的 AI kill switch 行政命令想做的正是把成本挂回去"
-tldr: "加州州長 Newsom 簽署行政命令，推動前沿模型建立緊急關閉機制與獨立安全監督；Azure AI Foundry 被揭露 CVSS 10.0 滿分漏洞，JADEPUFFER 攻擊行動證實 AI agent 已能透過 Langflow 舊漏洞獨立跑完整條勒索軟體攻擊鏈；Apple Safari 27、Amazon Ads、GitLab 19.4 同日各自把 MCP server 帶進瀏覽器、廣告投放與 DevOps 平台；中國 AI agent 新創 Manus 傳出洽談 $500M 募資，估值上看 $4B；製造業 AI 資料平台 CADDi 完成 $114M Series D 估值翻倍；台灣數發部同日舉辦 AI Agent 驅動次世代智慧網路論壇"
+tldr: "加州州長 Newsom 簽署行政命令，推動前沿模型建立緊急關閉機制與獨立安全監督；Azure AI Foundry 被揭露 CVSS 10.0 滿分漏洞，JADEPUFFER 攻擊行動證實 AI agent 已能透過 Langflow 舊漏洞獨立跑完整條勒索軟體攻擊鏈；Apple Safari 27、Amazon Ads、GitLab 19.4 同日各自把 MCP server 帶進瀏覽器、廣告投放與 DevOps 平台；阿里巴巴、Cloudflare、微軟同週把內部驗證過的 agent 護欄以 CLI／skill 形式開源，三篇 arXiv 論文則用對照實驗證明鷹架元件的價值是條件式的、唯讀驗證器用不到一美分擋下 61% 誤判過關；中國 AI agent 新創 Manus 傳出洽談 $500M 募資，估值上看 $4B；製造業 AI 資料平台 CADDi 完成 $114M Series D 估值翻倍；台灣數發部同日舉辦 AI Agent 驅動次世代智慧網路論壇"
 draft: false
 series:
   name: "AI 日報"
@@ -28,7 +28,9 @@ series:
 
 監管的動作正好在回應這件事：加州州長 Newsom 的行政命令要求兩個月內提出獨立監督建議，並推動前沿模型具備緊急「一鍵關閉」機制——這本質上是想在交易成本被壓到最低之後，人為加回一道「停下來」的摩擦。這不是巧合的同一天新聞，而是同一個結構性趨勢的兩面：基礎設施把「連上」的成本壓到最低，監管就得想辦法把「叫停」的成本也壓到最低，兩邊都在搶著把摩擦係數調到自己想要的位置。
 
-對正在導入 MCP 生態系的台灣團隊，這意味著評估一個新 MCP server 時，「整合快不快」不該是唯一指標——來源可不可信、版本會不會浮動、有沒有辦法在出事時一鍵撤銷授權，現在跟串接速度一樣重要，尤其在企業已經開始把 Agent 接進金融、供應鏈這類高風險場景的階段。
+摩擦加在哪一層，今天的論文和開源專案給了同一個答案：加在模型外面那層鷹架，而且加得非常便宜。[今日 Arxiv Digest](/posts/daily/2026-09-19-ai-agent-arxiv-digest) 三篇論文用對照實驗證明，決定 coding agent 表現的是規劃、context 管理、動作空間這些鷹架元件，而一個唯讀的驗證器用不到一美分的成本就能擋下六成的誤判過關；[今日 GitHub Digest](/posts/daily/2026-09-19-ai-agent-github-digest) 裡阿里巴巴、Cloudflare、微軟開源的都不是新框架，而是把「容不下出錯的步驟交給確定性程式」「發現漏洞的 agent 不能兼任驗證者」這類護欄包成 CLI 或 skill。監管在想怎麼把摩擦挂回去，工程端已經在示範摩擦可以挂在哪、要花多少錢。
+
+對正在導入 MCP 生態系的台灣團隊，這意味著評估一個新 MCP server 時，「整合快不快」不該是唯一指標——來源可不可信、版本會不會浮動、有沒有辦法在出事時一鍵撤銷授權，現在跟串接速度一樣重要，尤其在企業已經開始把 Agent 接進金融、供應鏈這類高風險場景的階段；而這些檢查該做成鷹架裡的確定性步驟，不該交給 agent 自己判斷。
 
 ## 今日動態
 
@@ -74,7 +76,13 @@ series:
 
 **TrustDex**：本地優先、零依賴 CLI，在 MCP server、Agent Skill、plugin 被曝光給 Agent 之前先判斷來源是否可信，輸出 ALLOW／ASK／BLOCK，詳見[今日工具推薦](/posts/daily/2026-09-19-tool-trustdex)。
 
+**大廠開源護欄三連發**：阿里巴巴 open-code-review（內部用兩年的 AI code review CLI，確定性篩選＋agent 混合架構，token 消耗約為通用 agent 的 1/9）、Cloudflare security-audit-skill（自家六階段漏洞搜尋流程包成 skill，發現者與驗證者分離）、microsoft/skills（175 個 Azure SDK 領域 skill 一鍵安裝），共同點是把生產環境驗證過的護欄塞進你現有的 agent，而不是要你換框架，詳見[今日 GitHub Digest](/posts/daily/2026-09-19-ai-agent-github-digest)。
+
 ### 技術進展
+
+**今日 Arxiv Digest — 鷹架設計決定成敗**：三篇獨立論文指向同一個能力缺口——coding agent 的表現由包住模型的鷹架決定，而且每個元件的價值都是條件式的：176 組配對消融顯示 context 管理在預算越緊時越關鍵、規劃對弱模型是準確度拐杖對強模型只是省錢；NVIDIA／MIT 的 SoL-Pi 把鷹架本身當研究對象做自動優化，省下 44.7–49.0% token；安慰劑對照證明規劃指引讓 τ²-bench 成功率顯著提升 7.17 個百分點。三篇都是預印本、主張範圍收斂在「這個元件在這個條件下值多少」，方法與限制見 [Arxiv Digest 全文](/posts/daily/2026-09-19-ai-agent-arxiv-digest)。
+
+**Pydantic AI v2.45.0／v2.46.0**：兩天內連發兩個功能版，新增 `TypeSafeModel` 與 `Choices` helper、支援輸出型別 union，無 breaking change；前一天才修四個安全漏洞的 v2.44.0 之後節奏明顯加速。（[來源](https://github.com/pydantic/pydantic-ai/releases/tag/v2.46.0)）
 
 **GitLab 19.4**：MCP server 工具與 Duo CLI 的 `/goal` 指令進入公開 beta，讓開發者可委派開放式目標而非逐一監督個別任務，並加入成本控管功能。（[來源](https://www.archynewsy.com/gitlab-19-4-launches-new-mcp-server-tools-in-public-beta-for-ai-agent-automation/)）
 
@@ -145,9 +153,13 @@ series:
 | CADDi 估值成長（2025/3 → 2026/9） | $470M → $1.2B（2.55x） | [今日融資速報](/posts/daily/2026-09-19-funding-caddi) |
 | xAI x_search 新舊計價差距（範例情境月費） | $300 → $5,100（↑1,600%） | [今日定價追蹤](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change) |
 | Android Bench 2.0 通過率 | GPT-6 Astra 28% vs Gemini 3.8 Flash 8% | [AndroidCentral](https://androidcentral.com/apps-software/android-os/android-bench-2-0) |
+| 唯讀驗證器擋下的誤判過關比例 | 61%（成本不到一美分） | [今日 Arxiv Digest](/posts/daily/2026-09-19-ai-agent-arxiv-digest) |
+| open-code-review 相對通用 agent 的 token 消耗 | 約 1/9 | [今日 GitHub Digest](/posts/daily/2026-09-19-ai-agent-github-digest) |
 
 ## 今日 Digest 一覽
 
+- 📄 [AI Agent Arxiv Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-arxiv-digest)
+- 📄 [AI Agent GitHub Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-github-digest)
 - 📄 [AI Engineer 面試日練 — 2026-09-19：Paper Reading](/posts/daily/2026-09-19-ai-interview-daily)
 - 📄 [Product Builder 面試日練 — 2026-09-19：Technical PM](/posts/daily/2026-09-19-product-builder-interview-daily)
 - 📄 [融資速報｜CADDi Series D $114M](/posts/daily/2026-09-19-funding-caddi)
@@ -196,6 +208,13 @@ series:
 - [Signoff launches Enterprise Agentic AI platform](https://m.thewire.in/article/ptiprnews/signoff-launches-enterprise-agentic-ai-intelligence-platform)
 - [Certinia expands Veda suite](https://martech.org/the-latest-ai-powered-martech-news-and-releases/)
 - [Hermes Agent — NousResearch GitHub](https://github.com/nousresearch/hermes-agent)
+- [alibaba/open-code-review](https://github.com/alibaba/open-code-review)
+- [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill)
+- [microsoft/skills](https://github.com/microsoft/skills)
+- [Pydantic AI v2.46.0 Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.46.0)
+- [An Empirical Study of Harness Design for Coding Agents — arXiv 2609.20804](https://arxiv.org/abs/2609.20804)
+- [SoL-Pi: Recursively Scaling Auto-Research Loops for Efficient Agent Harness — arXiv 2609.20519](https://arxiv.org/abs/2609.20519)
+- [How Do Agent Harnesses Create Value? — arXiv 2609.20474](https://arxiv.org/abs/2609.20474)
 - [WPVibe WordPress MCP server](https://wordpress.org/plugins/vibe-ai/)
 - [Alibaba Cloud ships Qwen Work for Teachers](https://www.alibabacloud.com/blog/qwen-work-for-teachers_603576)
 - [數發部串聯國際趨勢：AI Agent 驅動次世代智慧網路論壇 — The Hub News](https://www.thehubnews.net/archives/666657)
