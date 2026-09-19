@@ -9,7 +9,10 @@ async function gotoWithTheme(page: Page, url: string, theme: 'light' | 'dark') {
   await page.addInitScript((t: string) => localStorage.setItem('theme', t), theme);
   // 頭像走外部 dicebear，擋掉＋遮罩，避免網路抖動造成假紅燈。
   await page.route('**api.dicebear.com**', (r: Route) => r.abort());
-  await page.goto(url, { waitUntil: 'networkidle' });
+  // 不用 networkidle：dev 模式文章頁載入後會再 reload 一次，CI 上曾因此卡滿 30s
+  //（trace 裡所有請求 7s 內都完成，仍等不到 idle）。畫面就緒交給下面的
+  // toBeVisible 與 toHaveScreenshot 自帶的穩定等待。
+  await page.goto(url, { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
 }
 
