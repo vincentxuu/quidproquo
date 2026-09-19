@@ -50,11 +50,23 @@ UI 不變：`/api/chat` 入口、SSE 事件、InlineAsk / ChatFloating / chat �
 - C（q02 比較型）：兩篇皆在引用、trace 可見自主補搜或 read_post、先分述後比較
 - 回歸：現有 q21 retrieval contract（8 項）與 offline fixture 仍須通過
 
-## 7. 下一步
+## 7. 實作狀態（2026-09-19）
 
-- [ ] 實作 `/api/chat` SSE 新增事件：`step_start`、`tool_call`、`tool_result`、`step_complete`
-- [ ] 前端用 `ChainOfThought` + `ChainOfThoughtStep` + `ChainOfThoughtSearchResults` 呈現上述事件
-- [ ] 先跑 shadow 對照（現有 pipeline vs agent）再決定切換比例
+已實作為第三個 RAG 引擎 `agent`，經 `rag_pipeline_engine` 設定切換（預設仍是 `langgraph`，production 切換是 Tier 2，由人操作）。
+
+- 程式：`src/lib/conversation/engines/agent/`——`loop.ts`（純迴圈，模型與工具注入）、`prompt.ts`（skill 化的 system prompt）、`query.ts`（Planner 把關 → 迴圈 → 引用檢查 → Critic 打分 → 延伸閱讀）、`index.ts`（註冊，index／evalCase 沿用 langgraph）。
+- 工具：`search_posts`（`searchBlogPosts`，每次 6 筆、依語言）、`get_post_detail`（全文截 6000 字，讀過的文章會補進 `search_results` 讓引用檢查認得）。用 OpenAI 風格 JSON schema 綁進 `createRawModel().bindTools`。
+- 控制邊界：`AGENT_LIMITS` = 8 次工具、7 輪、60 秒；到頂就送「不准再叫工具、現在作答」的收尾指令；單次模型呼叫 45 秒 timeout；工具失敗回錯誤給模型不中斷。
+- 引用檢查：`validateSourceUrls` 不過 → 一次修復輪（列出合法 URL）→ 仍不過就把壞連結降級成純文字（`stripDisallowedLinks`）。
+- Critic 只打分數不重試（q21 事故的 51 秒就是重試迴圈造成的）。
+- 備援：模型不支援 tool calling、迴圈丟例外、收尾仍無文字 → `runAgentQueryWithFallback` 送 `Fallback` 步驟後改跑 langgraph，不回空答案。
+- 語意快取：agent 引擎用獨立 namespace（id 前綴 `…:retrieval-v3-agent:`），不跟固定 pipeline 互相污染。
+- UI：每次工具呼叫是一個 `step` 事件（`Research`／`Research:1`／`ReadPost`），前端活動列會寫「檢索了 N 篇文章、讀了 M 篇全文」；見 `tool-activity-display PRD.md`。
+- 測試：`loop.test.ts`（6，邊界）＋ `query.test.ts`（5，mock 模型與工具：正常流、引用修復、離題早退、備援）。
+
+未做：
+- [ ] 工具行穿插正文（claude.ai 的 R3）：agent 仍是最後一次吐整段答案，中間輪的文字不串流。要做需讓 `runPipeline` 放行中間 `onToken` 並讓前端依事件順序渲染 parts。
+- [ ] shadow 對照（現有 pipeline vs agent）與 golden dataset q01–q21 live eval，再決定 production 切換。此環境 dev server 起不來，沒有 live 跑過。
 
 ## 8. 最佳實踐（Chain of Thought UI 回饋）
 

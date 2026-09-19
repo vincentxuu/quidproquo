@@ -216,7 +216,7 @@ const breadcrumbLD = {
     <div class="post-grid">
       <!-- Sidebar: sticky TOC + optional related video -->
       <aside class="post-sidebar">
-        <InlineAsk client:idle />
+        <InlineAsk client:idle lang={lang} />
         {headings.length > 0 && (
           <details class="toc" open={isDailyBrief || post.data.category !== 'daily'}>
             <summary class="toc-header">

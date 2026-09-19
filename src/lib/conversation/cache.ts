@@ -39,16 +39,24 @@ export const SEMANTIC_CACHE_TTL_HOURS = 24
 export const SEMANTIC_CACHE_ID_PREFIX = `${EMBEDDING_VERSION}:${SEMANTIC_CACHE_GENERATION}`
 export const SEMANTIC_CACHE_ID_PATTERN = `${SEMANTIC_CACHE_ID_PREFIX}:%`
 
-export async function buildSemanticCacheId(query: string): Promise<string> {
+/**
+ * namespace 讓不同引擎（例如 agent）的快取分開放：generation 段加尾碼，
+ * 預設 pattern `…:retrieval-v3:%` 不會匹配到 `…:retrieval-v3-agent:…`。
+ */
+export function semanticCachePrefix(namespace?: string): string {
+  return namespace ? `${SEMANTIC_CACHE_ID_PREFIX}-${namespace}` : SEMANTIC_CACHE_ID_PREFIX
+}
+
+export async function buildSemanticCacheId(query: string, namespace?: string): Promise<string> {
   const id = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(query))
   const hash = Array.from(new Uint8Array(id))
     .map(byte => byte.toString(16).padStart(2, '0'))
     .join('')
     .slice(0, 32)
-  return `${SEMANTIC_CACHE_ID_PREFIX}:${hash}`
+  return `${semanticCachePrefix(namespace)}:${hash}`
 }
 
-export async function lookupSemanticCache(query: string, threshold: number): Promise<SemanticCacheHit | null> {
+export async function lookupSemanticCache(query: string, threshold: number, namespace?: string): Promise<SemanticCacheHit | null> {
   const { DB } = env as unknown as CacheEnv
   const queryVector = await embedQuery(query)
   const rows = await DB.prepare(
@@ -57,7 +65,7 @@ export async function lookupSemanticCache(query: string, threshold: number): Pro
      WHERE id LIKE ? AND created_at >= datetime('now', ?)
      ORDER BY updated_at DESC
      LIMIT 25`
-  ).bind(SEMANTIC_CACHE_ID_PATTERN, `-${SEMANTIC_CACHE_TTL_HOURS} hours`).all<{
+  ).bind(`${semanticCachePrefix(namespace)}:%`, `-${SEMANTIC_CACHE_TTL_HOURS} hours`).all<{
     id: string
     response: string
     confidence: number
@@ -96,10 +104,10 @@ export async function lookupSemanticCache(query: string, threshold: number): Pro
   return best
 }
 
-export async function storeSemanticCache(query: string, response: string, confidence: number): Promise<void> {
+export async function storeSemanticCache(query: string, response: string, confidence: number, namespace?: string): Promise<void> {
   const { DB } = env as unknown as CacheEnv
   const queryVector = await embedQuery(query)
-  const cacheId = await buildSemanticCacheId(query)
+  const cacheId = await buildSemanticCacheId(query, namespace)
   await DB.prepare(
     `INSERT INTO semantic_cache (id, query, response, query_vector, confidence, hit_count, created_at, updated_at)
      VALUES (?, ?, ?, ?, ?, 0, datetime('now'), datetime('now'))

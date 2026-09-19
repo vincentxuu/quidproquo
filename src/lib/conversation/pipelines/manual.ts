@@ -64,7 +64,7 @@ export async function runManualPipeline(
   }
 
   await runStep('planner', (state) => plannerNode(state, { apiKeys: options?.providerApiKeys }))
-  callbacks.onStep('Planner')
+  callbacks.onStep('Planner', { intent: state.plan.intent, search_keywords: state.plan.search_keywords })
   if (state.plan.needs_clarification || state.plan.intent === 'off-topic') return state
 
   for (let i = 0; i < 3; i += 1) {
@@ -72,6 +72,7 @@ export async function runManualPipeline(
     callbacks.onStep('Research', {
       sources_found: countUniquePostResults(research.search_results ?? state.search_results),
       evidence_chunks: research.search_results?.length ?? state.search_results.length,
+      search_keywords: state.plan.search_keywords,
     })
     if (research.search_results && research.search_results.length > 0) {
       callbacks.onSearchResults?.(research.search_results)
@@ -81,7 +82,7 @@ export async function runManualPipeline(
     callbacks.onStep('Writer')
     callbacks.onToken(state.final_response)
     await runStep('deterministic_validation', validationNode)
-    callbacks.onStep('Validation')
+    callbacks.onStep('Validation', { passed: state.validation.passed })
     if (!state.validation.passed && shouldRetry(state)) continue
     if (!state.config.criticEnabled) break
     await runStep('critic', (state) => criticNode(state, { apiKeys: options?.providerApiKeys }))

@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
 import type { Message } from './types'
+import { useChatLocale } from './locale'
 import {
   CopyIcon,
   DownloadIcon,
@@ -42,8 +43,8 @@ interface ChatHeaderProps {
 }
 
 export function ChatHeader({
-  title = 'Ask AI',
-  subtitle = '部落格文章搜尋與問答助手',
+  title,
+  subtitle,
   status,
   actions,
   onExpandToggle,
@@ -53,7 +54,10 @@ export function ChatHeader({
   className,
   extraActions,
 }: ChatHeaderProps) {
+  const { t } = useChatLocale()
   const showStatus = status === 'streaming'
+  const resolvedTitle = title ?? t('chat.title')
+  const resolvedSubtitle = subtitle ?? t('chat.header.subtitle')
 
   return (
     <div
@@ -71,7 +75,7 @@ export function ChatHeader({
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
-            <h2 className="truncate text-sm font-semibold text-primary">{title}</h2>
+            <h2 className="truncate text-sm font-semibold text-primary">{resolvedTitle}</h2>
             {showStatus && (
               <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium tabular-nums"
                 style={{
@@ -83,12 +87,12 @@ export function ChatHeader({
                   <span className="absolute inline-flex size-full animate-ping rounded-full opacity-75" style={{ background: 'var(--brand-500)' }} />
                   <span className="relative inline-flex size-1.5 rounded-full" style={{ background: 'var(--brand-500)' }} />
                 </span>
-                回覆中…
+                {t('chat.status.replying')}
               </span>
             )}
           </div>
-          {subtitle && (
-            <p className="truncate text-[11px] text-muted-foreground">{subtitle}</p>
+          {resolvedSubtitle && (
+            <p className="truncate text-[11px] text-muted-foreground">{resolvedSubtitle}</p>
           )}
         </div>
       </div>
@@ -119,6 +123,8 @@ interface HeaderActionsProps {
 }
 
 function HeaderActions({ onExpandToggle, isExpanded, onClose, embedded }: HeaderActionsProps) {
+  const { t } = useChatLocale()
+  const expandLabel = isExpanded ? t('chat.action.collapse') : t('chat.action.expand')
   return (
     <>
       {!embedded && onExpandToggle && (
@@ -131,12 +137,12 @@ function HeaderActions({ onExpandToggle, isExpanded, onClose, embedded }: Header
                 size="icon-sm"
                 className="size-7 chat-icon-btn"
                 onClick={onExpandToggle}
-                aria-label={isExpanded ? '縮小' : '展開'}
+                aria-label={expandLabel}
               >
                 {isExpanded ? <MinimizeIcon className="size-4" /> : <MaximizeIcon className="size-4" />}
               </Button>
             </TooltipTrigger>
-            <TooltipContent side="bottom">{isExpanded ? '縮小' : '展開'}</TooltipContent>
+            <TooltipContent side="bottom">{expandLabel}</TooltipContent>
           </Tooltip>
         </TooltipProvider>
       )}
@@ -150,12 +156,12 @@ function HeaderActions({ onExpandToggle, isExpanded, onClose, embedded }: Header
                 size="icon-sm"
                 className="size-7 chat-icon-btn"
                 onClick={onClose}
-                aria-label="關閉"
+                aria-label={t('chat.action.close')}
               >
                 <CloseIcon className="size-4" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent side="bottom">關閉</TooltipContent>
+            <TooltipContent side="bottom">{t('chat.action.close')}</TooltipContent>
           </Tooltip>
         </TooltipProvider>
       )}
@@ -186,18 +192,20 @@ export function ChatHeaderToolbar({
   className,
 }: ChatHeaderToolbarProps) {
   const hasMessages = messages.length > 1
+  const { t } = useChatLocale()
+  const you = t('chat.transcript.you')
 
   const handleCopy = useCallback(() => {
     const text = messages
-      .map(m => `${m.role === 'user' ? '你' : 'AI'}：${m.content}`)
+      .map(m => `${m.role === 'user' ? you : 'AI'}: ${m.content}`)
       .join('\n\n')
     navigator.clipboard.writeText(text).catch(() => {})
     onCopyConversation?.()
-  }, [messages, onCopyConversation])
+  }, [messages, onCopyConversation, you])
 
   const handleDownload = useCallback(() => {
     const text = messages
-      .map(m => `## ${m.role === 'user' ? '你' : 'AI'}\n\n${m.content}`)
+      .map(m => `## ${m.role === 'user' ? you : 'AI'}\n\n${m.content}`)
       .join('\n\n') + '\n'
     const blob = new Blob([text], { type: 'text/markdown' })
     const url = URL.createObjectURL(blob)
@@ -209,7 +217,7 @@ export function ChatHeaderToolbar({
     link.remove()
     URL.revokeObjectURL(url)
     onDownloadConversation?.()
-  }, [messages, onDownloadConversation])
+  }, [messages, onDownloadConversation, you])
 
   return (
     <div className={cn('flex items-center gap-1', className)}>
@@ -224,12 +232,12 @@ export function ChatHeaderToolbar({
                 size="icon-sm"
                 className="size-7 chat-icon-btn chat-icon-btn-danger"
                 onClick={onStop}
-                aria-label="停止生成"
+                aria-label={t('chat.action.stop')}
               >
                 <SquareIcon className="size-3.5 fill-current" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent side="bottom">停止生成</TooltipContent>
+            <TooltipContent side="bottom">{t('chat.action.stop')}</TooltipContent>
           </Tooltip>
         </TooltipProvider>
       )}
@@ -242,7 +250,7 @@ export function ChatHeaderToolbar({
             variant="ghost"
             size="icon-sm"
             className="size-7 chat-icon-btn"
-            aria-label="更多選項"
+            aria-label={t('chat.action.more')}
           >
             <MoreHorizontalIcon className="size-4" />
           </Button>
@@ -250,16 +258,16 @@ export function ChatHeaderToolbar({
         <DropdownMenuContent align="end" className="w-48">
           <DropdownMenuItem onClick={onNewChat}>
             <PlusIcon className="mr-2 size-4" />
-            新對話
+            {t('chat.action.new')}
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={handleCopy} disabled={!hasMessages}>
             <CopyIcon className="mr-2 size-4" />
-            複製全文
+            {t('chat.action.copy')}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleDownload} disabled={!hasMessages}>
             <DownloadIcon className="mr-2 size-4" />
-            下載 Markdown
+            {t('chat.action.download')}
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem
@@ -268,7 +276,7 @@ export function ChatHeaderToolbar({
             disabled={!hasMessages}
           >
             <Trash2Icon className="mr-2 size-4" />
-            清除對話
+            {t('chat.action.clear')}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

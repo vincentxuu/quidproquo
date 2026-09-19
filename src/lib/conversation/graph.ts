@@ -165,11 +165,15 @@ export async function runPipeline(
     }
 
     if (nodeName === 'planner') {
-      callbacks.onStep('Planner')
+      callbacks.onStep('Planner', {
+        intent: update.plan?.intent,
+        search_keywords: update.plan?.search_keywords,
+      })
     } else if (nodeName === 'research') {
       callbacks.onStep('Research', {
         sources_found: countUniquePostResults(update.search_results ?? []),
         evidence_chunks: (update.search_results ?? []).length,
+        search_keywords: finalState.plan?.search_keywords,
       })
       if (update.search_results && update.search_results.length > 0) {
         callbacks.onSearchResults?.(update.search_results)
@@ -178,7 +182,7 @@ export async function runPipeline(
       callbacks.onStep('Writer')
       if (update.final_response) callbacks.onToken(update.final_response)
     } else if (nodeName === 'deterministic_validation') {
-      callbacks.onStep('Validation')
+      callbacks.onStep('Validation', { passed: update.validation?.passed })
     } else if (nodeName === 'critic') {
       callbacks.onStep('Critic')
     } else if (nodeName === 'fallback') {

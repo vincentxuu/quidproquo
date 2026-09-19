@@ -1,9 +1,13 @@
-import { useState, useRef, useEffect } from 'react'
-import type { Message, Step } from './types'
+import { useState, useRef, useEffect, useMemo } from 'react'
+import type { Message, StepEvent } from './types'
+import { applyStepEvent } from './steps-reducer'
 import { ChatThread } from './ChatThread'
 import { QuotaIndicator } from './QuotaIndicator'
 import { ChatHeader, ChatHeaderToolbar } from './ChatHeader'
 import { Suggestion } from '@/components/ai-elements/suggestion'
+import { chatT, SUGGESTED_QUESTIONS_EN } from '@/i18n/chat'
+import { defaultLang, type Lang } from '@/i18n/ui'
+import { ChatLocaleProvider } from './locale'
 
 const DAILY_LIMIT = 5
 const SUGGESTIONS_PER_PAGE = 4
@@ -55,11 +59,7 @@ interface PendingMessage {
   text: string;
 }
 
-const WELCOME_MESSAGE: Message = {
-  id: 'welcome',
-  role: 'assistant',
-  content: '你好！我可以回答關於這個部落格的問題。',
-}
+const WELCOME_ID = 'welcome'
 
 export function ChatWidget({
   embedded = false,
@@ -67,14 +67,19 @@ export function ChatWidget({
   onClose,
   onExpandToggle,
   isExpanded,
+  lang = defaultLang,
 }: {
   embedded?: boolean
   pendingMessage?: PendingMessage
   onClose?: () => void
   onExpandToggle?: () => void
   isExpanded?: boolean
+  lang?: Lang
 }) {
-  const [messages, setMessages] = useState<Message[]>([WELCOME_MESSAGE])
+  const t = useMemo(() => chatT(lang), [lang])
+  const welcome = useMemo<Message>(() => ({ id: WELCOME_ID, role: 'assistant', content: t('chat.welcome') }), [t])
+  const suggestionPool = lang === 'en' ? SUGGESTED_QUESTIONS_EN : SUGGESTED_QUESTIONS
+  const [messages, setMessages] = useState<Message[]>(() => [welcome])
   const [loading, setLoading] = useState(false)
   const [remaining, setRemaining] = useState<number | null>(null)
   const [suggestionPage, setSuggestionPage] = useState(0)
@@ -99,7 +104,7 @@ export function ChatWidget({
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('chat_thread_id', nextId)
     }
-    setMessages([WELCOME_MESSAGE])
+    setMessages([welcome])
     setRemaining(null)
     setSuggestionPage(0)
   }
@@ -137,7 +142,7 @@ export function ChatWidget({
       if (!resp.ok) {
         const err = await resp.json() as { message?: string }
         setMessages(prev => prev.map(m =>
-          m.id === assistantId ? { ...m, content: err.message ?? '發生錯誤，請稍後再試', streaming: false } : m
+          m.id === assistantId ? { ...m, content: err.message ?? t('chat.error.generic'), streaming: false } : m
         ))
         return
       }
@@ -161,54 +166,11 @@ export function ChatWidget({
             setMessages(prev => prev.map(m =>
               m.id === assistantId ? { ...m, content: m.content + (data.text ?? '') } : m
             ))
-          } else if (eventType === 'step_start') {
-            const d = data as { label: string; description?: string; status: string }
-            const status = d.status === 'pending' ? 'pending' : d.status === 'active' ? 'active' : 'complete'
+          } else if (eventType === 'step') {
+            const ev = data as StepEvent
+            if (!ev || typeof ev.id !== 'string') return
             setMessages(prev => prev.map(m =>
-              m.id === assistantId ? { ...m, steps: [...(m.steps ?? []), { label: d.label, description: d.description, status }] as Step[] } : m
-            ))
-          } else if (eventType === 'step_complete') {
-            const d = data as { label: string; description?: string; status: string; duration_ms?: number }
-            setMessages(prev => prev.map(m => {
-              const steps = (m.steps ?? []).map(s => s.label === d.label ? { ...s, status: 'complete' as const, description: d.description ?? s.description } : s)
-              return m.id === assistantId ? { ...m, steps } : m
-            }))
-          } else if (eventType === 'tool_call') {
-            const d = data as { tool: string; label: string; args?: unknown }
-            setMessages(prev => prev.map(m =>
-              m.id === assistantId ? { ...m, steps: [...(m.steps ?? []), { label: d.label, description: `呼叫工具 ${d.tool}`, status: 'active' as const, tool: d.tool }] as Step[] } : m
-            ))
-          } else if (eventType === 'tool_result') {
-            const d = data as { tool: string; label: string; count?: number; results?: { title: string; url: string; type?: string }[] }
-            setMessages(prev => prev.map(m => {
-              const steps = (m.steps ?? []).map(s => s.tool === d.tool && s.status === 'active' ? { ...s, status: 'complete' as const, results: d.results } : s)
-              return m.id === assistantId ? { ...m, steps } : m
-            }))
-          } else if (eventType === 'agent_step') {
-            const d = data as { agent: string; status: string; extra?: Record<string, unknown> }
-            const labelMap: Record<string, string> = {
-              Planner: '分析問題',
-              Research: '檢索站內文章',
-              Writer: '整理答案',
-              Validation: '驗證答案',
-              Critic: '評估品質',
-              Fallback: '備援回答',
-              Related: '推薦相關文章',
-            }
-            const descMap: Record<string, string> = {
-              Planner: '理解問題並決定搜尋方向',
-              Research: '搜尋站內文章與混合檢索',
-              Writer: '根據來源整理最終回答',
-              Validation: '檢查引用與事實一致',
-              Critic: '評估信心與相關性',
-              Fallback: '使用備援策略產生回答',
-              Related: '列出相關文章推薦',
-            }
-            const label = labelMap[d.agent] ?? d.agent
-            const description = descMap[d.agent]
-            const status = d.status === 'completed' ? 'complete' as const : 'active' as const
-            setMessages(prev => prev.map(m =>
-              m.id === assistantId ? { ...m, steps: [...(m.steps ?? []), { label, description, status, tool: d.agent }] as Step[] } : m
+              m.id === assistantId ? { ...m, steps: applyStepEvent(m.steps, ev) } : m
             ))
           } else if (eventType === 'sources') {
             setMessages(prev => prev.map(m =>
@@ -218,22 +180,17 @@ export function ChatWidget({
             setMessages(prev => prev.map(m =>
               m.id === assistantId ? { ...m, related: data } : m
             ))
-          } else if (eventType === 'reasoning') {
-            const d = data as { stage: string; text: string }
-            if (!d.text) return
-            setMessages(prev => prev.map(m => {
-              if (m.id !== assistantId) return m
-              const existing = (m.reasoning ?? []).filter(r => r.stage !== d.stage)
-              return { ...m, reasoning: [...existing, { stage: d.stage, text: d.text }] }
-            }))
           } else if (eventType === 'done') {
             setMessages(prev => prev.map(m =>
-              m.id === assistantId ? { ...m, streaming: false, confidence: data.confidence } : m
+              m.id === assistantId ? { ...m, streaming: false } : m
             ))
             if (typeof data.remaining === 'number') setRemaining(data.remaining)
           } else if (eventType === 'error') {
+            const errorStep: StepEvent = { id: 'error', kind: 'check', label: t('chat.error.short'), status: 'error', reasoning: data.message }
             setMessages(prev => prev.map(m =>
-              m.id === assistantId ? { ...m, content: data.message ?? '發生錯誤', streaming: false } : m
+              m.id === assistantId
+                ? { ...m, content: data.message ?? t('chat.error.short'), streaming: false, steps: applyStepEvent(m.steps, errorStep) }
+                : m
             ))
           }
         } catch { /* skip malformed */ }
@@ -253,11 +210,11 @@ export function ChatWidget({
     } catch (err) {
       if (err instanceof DOMException && err.name === 'AbortError') {
         setMessages(prev => prev.map(m =>
-          m.id === assistantId ? { ...m, content: m.content || '已停止生成', streaming: false } : m
+          m.id === assistantId ? { ...m, content: m.content || t('chat.stopped'), streaming: false } : m
         ))
       } else {
         setMessages(prev => prev.map(m =>
-          m.id === assistantId ? { ...m, content: m.content || '發生錯誤，請稍後再試', streaming: false } : m
+          m.id === assistantId ? { ...m, content: m.content || t('chat.error.generic'), streaming: false } : m
         ))
       }
     } finally {
@@ -289,15 +246,16 @@ export function ChatWidget({
         boxShadow: 'var(--shadow-floating)',
       }
   const visibleSuggestions = Array.from({ length: SUGGESTIONS_PER_PAGE }, (_, index) => {
-    const questionIndex = (suggestionPage * SUGGESTIONS_PER_PAGE + index) % SUGGESTED_QUESTIONS.length
-    return SUGGESTED_QUESTIONS[questionIndex]
+    const questionIndex = (suggestionPage * SUGGESTIONS_PER_PAGE + index) % suggestionPool.length
+    return suggestionPool[questionIndex]
   })
 
   return (
+    <ChatLocaleProvider lang={lang}>
     <div style={containerStyle}>
       <ChatHeader
         status={loading ? 'streaming' : 'idle'}
-        subtitle="搜尋這個部落格的文章脈絡、技術筆記與延伸閱讀。"
+        subtitle={t('chat.widget.subtitle')}
         onExpandToggle={onExpandToggle}
         isExpanded={isExpanded}
         onClose={onClose}
@@ -314,16 +272,16 @@ export function ChatWidget({
       {messages.length === 1 && !loading && (
         <div className="border-b px-4 py-3" style={{ borderColor: 'var(--border)', background: 'var(--bg-card)' }}>
           <div className="mb-2 flex items-center justify-between gap-2">
-            <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>可以這樣問</span>
+            <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>{t('chat.suggestions.title')}</span>
             <button
               type="button"
               onClick={() => setSuggestionPage(page => page + 1)}
               className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg border-none bg-transparent px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
               style={{ color: 'var(--text-secondary)' }}
-              aria-label="換一組預設問題"
+              aria-label={t('chat.suggestions.refreshAria')}
             >
               <RefreshCwIcon className="size-3.5" />
-              換題目
+              {t('chat.suggestions.refresh')}
             </button>
           </div>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -350,6 +308,7 @@ export function ChatWidget({
       )}
       <ChatThread messages={messages} loading={loading} onSend={sendMessage} />
     </div>
+    </ChatLocaleProvider>
   )
 }
 

@@ -42,7 +42,7 @@ export interface SearchResult {
 }
 
 export interface RagRuntimeConfig {
-  pipelineEngine: 'langgraph' | 'manual'
+  pipelineEngine: 'langgraph' | 'manual' | 'agent'
   defaultProvider: RagProvider
   defaultModel: string
   stageOverrides: Record<string, { provider?: RagProvider; model?: string }>

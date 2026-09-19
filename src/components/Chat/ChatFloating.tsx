@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { ChatWidget } from './ChatWidget'
+import { chatT } from '@/i18n/chat'
+import { defaultLang, type Lang } from '@/i18n/ui'
 
-export function ChatFloating() {
+export function ChatFloating({ lang = defaultLang }: { lang?: Lang }) {
+  const t = chatT(lang)
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState(false)
 
@@ -36,12 +39,13 @@ export function ChatFloating() {
             onClose={() => setOpen(false)}
             onExpandToggle={() => setExpanded(v => !v)}
             isExpanded={expanded}
+            lang={lang}
           />
         </div>
       )}
       <button
         onClick={() => setOpen(v => !v)}
-        aria-label={open ? '關閉 AI 對話' : '開啟 AI 對話'}
+        aria-label={open ? t('chat.float.close') : t('chat.float.open')}
         className={open ? 'chat-float-button is-open' : 'chat-float-button'}
         style={{
           position: 'fixed',

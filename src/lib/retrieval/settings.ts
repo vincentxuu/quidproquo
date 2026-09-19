@@ -114,7 +114,7 @@ export async function loadRagSettings(): Promise<RagRuntimeConfig> {
   return {
     pipelineEngine: parseChoice(
       byKey.get(SETTINGS_KEYS.pipelineEngine),
-      ['langgraph', 'manual'] as const,
+      ['langgraph', 'manual', 'agent'] as const,
       DEFAULTS.pipelineEngine,
     ),
     defaultProvider: parseChoice(
