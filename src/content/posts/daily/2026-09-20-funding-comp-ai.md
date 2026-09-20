@@ -5,7 +5,7 @@ category: daily
 type: digest
 tags: [ai-agent, funding, daily, comp-ai, agent-security]
 lang: zh-TW
-description: "開源合規新創 Comp AI 完成 $34M Series A，由 Roo Capital 和 Grand Ventures 共同領投，要從自動化稽核擴張到即時資安監控，直接對標 Vanta 和 Drata"
+description: "開源合規新創 Comp AI 完成 $34M Series A，由 Roo Capital 和 Grand Ventures 共同領投，要從自動化稽核擴張到即時資安監控，直接對照 Vanta 和 Drata"
 tldr: "Comp AI 完成 $34M Series A，由 Roo Capital 和 Grand Ventures 共同領投，累計融資 $36.6M。這輪錢代表的信號是：合規稽核從「一年做一次的快照」正在被重新定義成「Agent 全年無休持續驗證」的訂閱服務，而 Comp AI 賭的是能靠開源和 agentic 架構，在 Vanta（估值 $4.15B）這樣的既有玩家旁邊搶出一塊市場。"
 series:
   name: "AI Agent Funding"
@@ -50,11 +50,11 @@ Roo Capital 和 Grand Ventures 共同領投，邏輯建立在「合規正在從�
 
 - 累計融資 $36.6M，距離 2025 年 8 月的 pre-seed（$2.6M）僅約一年，中間 Series A 就放大了超過 13 倍金額
 - 公司自報客戶數超過 1,000 家、ARR 一年成長 15 倍——對比 Vanta 在 2025 年募資時的估值 $4.15B，顯示這個合規賽道即使有既有龍頭，仍有新玩家能用差異化架構快速起量
-- 平台核心開源、直接在 GitHub 上把自己定位成 Vanta／Drata 的替代方案，這種公開對標的姿態在合規軟體賽道並不常見
+- 平台核心開源、直接在 GitHub 上把自己定位成 Vanta／Drata 的替代方案，這種公開對照的姿態在合規軟體賽道並不常見
 
 ## Watchlist 狀態
 
-Comp AI 尚未在 watchlist 中。建議加入 section B7（Agent 安全／治理／資安技術），與 Zenity 並列追蹤，追蹤重點：開源 agentic 合規平台，從稽核自動化擴張到即時資安監控，直接對標 Vanta／Drata。
+Comp AI 尚未在 watchlist 中。建議加入 section B7（Agent 安全／治理／資安技術），與 Zenity 並列追蹤，追蹤重點：開源 agentic 合規平台，從稽核自動化擴張到即時資安監控，直接對照 Vanta／Drata。
 
 ## 今日收穫
 

@@ -9,7 +9,7 @@ description: "Microsoft Agent Framework 1.19.0 一口氣帶了四個 BREAKING �
 tldr: "Microsoft Agent Framework python-1.19.0 三個重點：(1) 四個 BREAKING 變更集中在 HTTP cookie 持久化、MCP skill 封裝格式、MCP session 作用域、Redis history key 作用域；(2) 新增泛用向量儲存 provider 協定，一次補齊 MongoDB（alpha）、Azure DocumentDB（alpha）、Azure Cosmos DB NoSQL 三個連接器；(3) 內建 orchestration workflow 現在有穩定名稱並註冊 checkpoint type，讓內建的 sequential／concurrent／handoff／group chat 流程可以被還原重啟。"
 series:
   name: "AI Framework Changelog"
-  order: 23
+  order: 24
 ---
 
 > 🌏 [English version](/en/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0-en)

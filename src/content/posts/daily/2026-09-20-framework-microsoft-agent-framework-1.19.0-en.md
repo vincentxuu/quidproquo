@@ -9,7 +9,7 @@ description: "Microsoft Agent Framework 1.19.0 ships four BREAKING changes in on
 tldr: "Three things worth knowing about Microsoft Agent Framework python-1.19.0: (1) four BREAKING changes land together, covering HTTP cookie persistence, MCP skill archive format, MCP session scoping, and Redis history key scoping; (2) a new generic vector store provider protocol ships with three new connectors at once — MongoDB (alpha), Azure DocumentDB (alpha), and Azure Cosmos DB NoSQL; (3) built-in orchestration workflows now have stable names and registered checkpoint types, so the built-in sequential/concurrent/handoff/group-chat patterns can be restored after a restart, not just custom workflows."
 series:
   name: "AI Framework Changelog"
-  order: 23
+  order: 24
 ---
 
 > 🌏 [中文版](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0)
