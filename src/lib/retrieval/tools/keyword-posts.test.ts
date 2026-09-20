@@ -31,6 +31,12 @@ describe('buildKeywordQueryPlan', () => {
     expect(buildKeywordQueryPlan('微調')).toEqual({ match: null, likeTerms: ['微調'] })
   })
 
+  it('keeps mixed Han/digit short words whole for LIKE instead of splitting them into single characters', () => {
+    expect(buildKeywordQueryPlan('正2')).toEqual({ match: null, likeTerms: ['正2'] })
+    expect(buildKeywordQueryPlan('微調2')).toEqual({ match: '"微調2"', likeTerms: [] })
+    expect(buildKeywordQueryPlan('AI 微調')).toEqual({ match: '"AI 微調"', likeTerms: [] })
+  })
+
   it('matches Han phrases of three or more characters directly', () => {
     expect(buildKeywordQueryPlan('模型家族')).toEqual({ match: '"模型家族"', likeTerms: [] })
   })

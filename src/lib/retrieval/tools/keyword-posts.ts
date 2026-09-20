@@ -78,12 +78,12 @@ export function buildKeywordQueryPlan(query: string): KeywordQueryPlan {
   // LIKE only serves queries made purely of sub-trigram tokens ("AI", "微調");
   // once any term can go through MATCH, short leftovers would just add
   // thousands of rank -1 metadata hits ("AI" alone matches ~2.9k posts).
+  // LIKE terms come from the whitespace-split words, not the Han/non-Han
+  // tokens: "正2" splits into "正" + "2" (both single characters, nothing to
+  // search) but is a real two-character query that used to hit via LIKE.
   const likeTerms = ftsTerms.length > 0
     ? []
-    : tokens.filter(token => {
-      const length = codePointLength(token)
-      return length >= MIN_LIKE_LENGTH && length < MIN_TRIGRAM_LENGTH
-    })
+    : Array.from(new Set(exact.split(' ').filter(word => codePointLength(word) >= MIN_LIKE_LENGTH)))
 
   return {
     match: ftsTerms.length > 0 ? ftsTerms.map(quoteFtsTerm).join(' OR ') : null,
