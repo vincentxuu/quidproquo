@@ -11,7 +11,7 @@ import { createRawModel, extractReasoningText, resolveModelRoute, type ChatModel
 import { plannerNode } from '../../../retrieval/agents/planner'
 import { criticNode } from '../../../retrieval/agents/critic'
 import { relatedPostsNode } from '../../../retrieval/agents/related-posts'
-import { validateDraft, validateSourceUrls } from '../../../retrieval/agents/validation'
+import { normalizeCitationUrl, validateDraft, validateSourceUrls } from '../../../retrieval/agents/validation'
 import { searchBlogPosts } from '../../../retrieval/tools/search-posts'
 import { getPostDetailMarkdown } from '../../../tool-registry/definitions/get-post-detail'
 import { countUniquePostResults, dedupePostResultsByDocument, formatSearchExcerpt } from '../../../retrieval/search-result-format'
@@ -96,8 +96,9 @@ function postUrl(slug: string): string {
 
 /** 把不在工具結果內的引用降級成純文字，讓答案不會帶著幻覺連結出去。 */
 export function stripDisallowedLinks(markdown: string, allowedUrls: Set<string>): string {
+  const allowed = new Set([...allowedUrls].map(normalizeCitationUrl))
   return markdown.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (match, label: string, url: string) =>
-    allowedUrls.has(url) ? match : label,
+    allowed.has(normalizeCitationUrl(url)) ? match : label,
   )
 }
 

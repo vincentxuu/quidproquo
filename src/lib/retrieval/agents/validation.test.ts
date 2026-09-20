@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { extractMarkdownUrls, validateDraft, validateMarkdownStructure, validateMermaidBlocks, validateSourceUrls } from './validation'
+import { extractMarkdownUrls, normalizeCitationUrl, validateDraft, validateMarkdownStructure, validateMermaidBlocks, validateSourceUrls } from './validation'
 import type { SearchResult } from '../state'
 
 const searchResults: SearchResult[] = [
@@ -34,6 +34,32 @@ describe('validation helpers', () => {
     expect(validateSourceUrls('[bad](https://other.com)', { search_results: searchResults })).toContain(
       'Unknown citation URL(s): https://other.com'
     )
+  })
+
+  it('accepts citations that differ from source_url only by trailing slash, www, scheme or fragment', () => {
+    const draft = [
+      '[a](https://example.com/post/)',
+      '[b](http://example.com/post)',
+      '[c](https://www.example.com/post#section)',
+      '[d](https://example.com/post?utm=x)',
+    ].join('\n')
+    expect(validateSourceUrls(draft, { search_results: searchResults })).toEqual([])
+  })
+
+  it('accepts URLs that appear inside the evidence excerpt or result links', () => {
+    const results: SearchResult[] = [{
+      ...searchResults[0],
+      evidence_excerpt: 'See [docs](https://developers.cloudflare.com/workers-ai/) and https://example.org/ref.',
+      links: [{ text: 'pricing', url: 'https://developers.cloudflare.com/workers-ai/platform/pricing/' }],
+    }]
+    const draft = '[a](https://developers.cloudflare.com/workers-ai) [b](https://example.org/ref) [c](https://developers.cloudflare.com/workers-ai/platform/pricing)'
+    expect(validateSourceUrls(draft, { search_results: results })).toEqual([])
+    expect(validateSourceUrls('[x](https://developers.cloudflare.com/other)', { search_results: results })).toHaveLength(1)
+  })
+
+  it('maps site-relative citations onto the blog origin before comparing', () => {
+    expect(normalizeCitationUrl('/posts/ai/foo/')).toBe('https://quidproquo.cc/posts/ai/foo')
+    expect(normalizeCitationUrl('https://www.quidproquo.cc/posts/ai/foo/#x')).toBe('https://quidproquo.cc/posts/ai/foo')
   })
 
   it('accepts valid mermaid blocks and rejects invalid ones', () => {

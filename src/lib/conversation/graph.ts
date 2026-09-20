@@ -35,6 +35,51 @@ function dispatchNode(agentId: MigratedAgentId, legacyFn: GraphNode, kernelFn: G
   }
 }
 
+function firstLine(error: unknown): string {
+  return (error instanceof Error ? error.message : String(error)).split('\n')[0].slice(0, 200)
+}
+
+/**
+ * 重寫那一輪的 writer 掛掉（Groq 429 TPM 最常見）時，手上已經有一版通過 validation 的
+ * 草稿，保留它往下走比整個 pipeline 炸掉、讀者看到「發生錯誤」好。第一輪就掛照樣拋錯。
+ */
+export function withWriterFallback(node: GraphNode): GraphNode {
+  return async (state) => {
+    try {
+      return await node(state)
+    } catch (error) {
+      if (state.iteration === 0 || !state.draft.trim()) throw error
+      console.warn('[rag] writer retry unavailable, keeping previous draft:', firstLine(error))
+      return { iteration: state.iteration + 1, final_response: state.draft }
+    }
+  }
+}
+
+/**
+ * Critic 只負責打分數；模型端掛掉（Groq 429 TPM、逾時）不該讓已通過 validation 的
+ * 草稿整個消失。失敗時給一組剛好過門檻的分數直接往 related 走，並在 gaps 留下原因。
+ */
+export function withCriticFallback(node: GraphNode): GraphNode {
+  return async (state) => {
+    try {
+      return await node(state)
+    } catch (error) {
+      const reason = firstLine(error)
+      console.warn('[rag] critic unavailable, accepting validated draft:', reason)
+      return {
+        critique: {
+          confidence: 0.6,
+          answer_relevance: 0.75,
+          intent_alignment: 0.75,
+          drift_detected: false,
+          ungrounded_claims: [],
+          gaps: [`critic unavailable: ${reason}`],
+        },
+      }
+    }
+  }
+}
+
 export function buildGraph(options?: { providerApiKeys?: ProviderApiKeys }) {
   const graph = new StateGraph<GraphState>({
     channels: {
@@ -74,19 +119,27 @@ export function buildGraph(options?: { providerApiKeys?: ProviderApiKeys }) {
       (state: GraphState) => runAgentNode('research', state, { providerApiKeys: options?.providerApiKeys }),
     ))
     .addNode('normalize_results', normalizeResultsNode)
-    .addNode('writer', dispatchNode(
+    .addNode('writer', withWriterFallback(dispatchNode(
       'writer',
       (state: GraphState) => writerNode(state, { apiKeys: options?.providerApiKeys }),
       (state: GraphState) => runAgentNode('writer', state, { providerApiKeys: options?.providerApiKeys }),
-    ))
+    )))
     .addNode('deterministic_validation', validationNode)
-    .addNode('critic', dispatchNode(
+    .addNode('critic', withCriticFallback(dispatchNode(
       'critic',
       (state: GraphState) => criticNode(state, { apiKeys: options?.providerApiKeys }),
       (state: GraphState) => runAgentNode('critic', state, { providerApiKeys: options?.providerApiKeys }),
-    ))
+    )))
     .addNode('fallback', fallbackNode)
-    .addNode('related', relatedPostsNode)
+    .addNode('related', async (state: GraphState) => {
+      // 延伸閱讀是加分項，最後一步掛掉（本機 AI binding 不可用、Vectorize 逾時）不能把答案一起帶走
+      try {
+        return await relatedPostsNode(state)
+      } catch (error) {
+        console.warn('[rag] related posts unavailable:', firstLine(error))
+        return { related_posts: [] }
+      }
+    })
 
   graph.setEntryPoint('planner')
 

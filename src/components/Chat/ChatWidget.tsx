@@ -152,6 +152,10 @@ export function ChatWidget({
       const reader = resp.body!.getReader()
       const decoder = new TextDecoder()
       let buffer = ''
+      // 伺服器正常收尾一定會送 done 或 error；兩者都沒有就是連線中途斷掉
+      //（prod 遇過 Worker exceededMemory 被砍，串流乾淨關閉但一個字都沒有）。
+      let terminated = false
+      let gotText = false
 
       const processBlock = (block: string) => {
         const lines = block.split('\n')
@@ -165,6 +169,7 @@ export function ChatWidget({
         try {
           const data = JSON.parse(dataStr)
           if (eventType === 'token') {
+            if (data.text) gotText = true
             setMessages(prev => prev.map(m =>
               m.id === assistantId ? { ...m, content: m.content + (data.text ?? '') } : m
             ))
@@ -183,15 +188,20 @@ export function ChatWidget({
               m.id === assistantId ? { ...m, related: data } : m
             ))
           } else if (eventType === 'done') {
+            terminated = true
             setMessages(prev => prev.map(m =>
               m.id === assistantId ? { ...m, streaming: false } : m
             ))
             if (typeof data.remaining === 'number') setRemaining(data.remaining)
           } else if (eventType === 'error') {
-            const errorStep: StepEvent = { id: 'error', kind: 'check', label: t('chat.error.short'), status: 'error', reasoning: data.message }
+            terminated = true
+            // 伺服器的 message 可能夾整段 stack trace，氣泡只給第一行，全文放進展開的步驟
+            const detail = typeof data.message === 'string' ? data.message : ''
+            const headline = detail.split('\n')[0].trim().slice(0, 200) || t('chat.error.short')
+            const errorStep: StepEvent = { id: 'error', kind: 'check', label: t('chat.error.short'), status: 'error', reasoning: detail || undefined }
             setMessages(prev => prev.map(m =>
               m.id === assistantId
-                ? { ...m, content: data.message ?? t('chat.error.short'), streaming: false, error: true, steps: applyStepEvent(m.steps, errorStep) }
+                ? { ...m, content: headline, streaming: false, error: true, steps: applyStepEvent(m.steps, errorStep) }
                 : m
             ))
           }
@@ -209,6 +219,14 @@ export function ChatWidget({
         }
       }
       if (buffer.trim()) processBlock(buffer)
+      if (!terminated && !gotText) {
+        const errorStep: StepEvent = { id: 'error', kind: 'check', label: t('chat.error.short'), status: 'error', reasoning: t('chat.error.disconnected') }
+        setMessages(prev => prev.map(m =>
+          m.id === assistantId
+            ? { ...m, content: t('chat.error.disconnected'), streaming: false, error: true, steps: applyStepEvent(m.steps, errorStep) }
+            : m
+        ))
+      }
     } catch (err) {
       if (err instanceof DOMException && err.name === 'AbortError') {
         setMessages(prev => prev.map(m =>

@@ -1,9 +1,15 @@
 import type { Critique, GraphState, ValidationResult } from '../state'
 import { countUniquePostResults } from '../search-result-format'
 import { isBroadArticleCatalogQuery } from '../query-strategy'
-import { extractMarkdownUrls } from './validation'
+import { extractMarkdownUrls, normalizeCitationUrl } from './validation'
 
-export const MAX_DRAFT_ATTEMPTS = 3
+/**
+ * 草稿最多寫幾輪。原本 3，但 iteration > 0 會關掉 BM25 short-circuit 改跑完整 hybrid
+ * 檢索（vector + docs + abstract + HyDE + multi-query 同時發），第三輪在 prod 把
+ * Worker 128 MB 記憶體吃爆（wrangler tail: exceededMemory），串流無聲斷掉。
+ * 兩輪已經涵蓋「重寫一次」；第二輪還不過就走 fallback 給讀者看得到的答案。
+ */
+export const MAX_DRAFT_ATTEMPTS = 2
 export const MIN_DETERMINISTIC_CATALOG_SOURCES = 4
 
 export function hasCriticFailure(critique: Critique): boolean {
@@ -46,8 +52,8 @@ export function shouldAcceptReviewedCatalogDraft(
   if (!isBroadArticleCatalogQuery(query)) return false
   if (countUniquePostResults(state.search_results) < MIN_DETERMINISTIC_CATALOG_SOURCES) return false
 
-  const allowedUrls = new Set(state.search_results.map(result => result.source_url))
-  const draftUrls = extractMarkdownUrls(state.draft).citationUrls
+  const allowedUrls = new Set(state.search_results.map(result => normalizeCitationUrl(result.source_url)))
+  const draftUrls = extractMarkdownUrls(state.draft).citationUrls.map(normalizeCitationUrl)
   if (draftUrls.some(url => !allowedUrls.has(url))) return false
   const citedUrls = new Set(draftUrls)
   return citedUrls.size >= MIN_DETERMINISTIC_CATALOG_SOURCES

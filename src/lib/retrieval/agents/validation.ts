@@ -55,25 +55,52 @@ export function extractMarkdownUrls(markdown: string): { citationUrls: string[];
   return { citationUrls, imageUrls }
 }
 
+const BLOG_ORIGIN = 'https://quidproquo.cc'
+
+/**
+ * 比對引用 URL 用的正規化：模型常把 source_url 抄成「多一個結尾斜線」、
+ * 「www.」或站內相對路徑，這些都是同一篇文章，不該讓 validation 失敗後整輪重跑。
+ * （prod 的 rag_trace_steps 裡 validation 失敗全是結尾斜線這一種。）
+ */
+export function normalizeCitationUrl(url: string): string {
+  const abs = url.startsWith('/') ? `${BLOG_ORIGIN}${url}` : url
+  return abs
+    .trim()
+    .replace(/^http:\/\//, 'https://')
+    .replace(/^https:\/\/www\./, 'https://')
+    .replace(/[#?].*$/, '')
+    .replace(/\/+$/, '')
+}
+
+const BARE_URL_RE = /https?:\/\/[^\s<>()[\]"'`]+/g
+
+function extractUrlsFromText(text: string): string[] {
+  return (text.match(BARE_URL_RE) ?? []).map(url => url.replace(/[.,;:!?]+$/, ''))
+}
+
 export function validateSourceUrls(markdown: string, state: Pick<GraphState, 'search_results'>): string[] {
   const errors: string[] = []
-  const BLOG_ORIGIN = 'https://quidproquo.cc'
-  const normalize = (url: string) =>
-    url.startsWith('/') ? `${BLOG_ORIGIN}${url}` : url
-
-  const allowedSourceUrls = new Set(state.search_results.map(result => result.source_url))
-  const allowedImageUrls = new Set(state.search_results.flatMap(result => result.images))
+  // 准引用的除了 source_url，還有證據段落裡本來就寫著的連結（文章自己引的官方文件等）：
+  // 那些是有出處的，模型照抄不算幻覺；只擋證據裡完全沒出現過的 URL。
+  const allowedSourceUrls = new Set(
+    state.search_results.flatMap(result => [
+      result.source_url,
+      ...(result.links ?? []).map(link => link.url),
+      ...extractUrlsFromText(result.evidence_excerpt ?? ''),
+    ]).map(normalizeCitationUrl)
+  )
+  const allowedImageUrls = new Set(state.search_results.flatMap(result => result.images).map(normalizeCitationUrl))
   const { citationUrls, imageUrls } = extractMarkdownUrls(markdown)
 
   const invalidCitationUrls = citationUrls.filter(url => {
-    const abs = normalize(url)
-    return !allowedSourceUrls.has(abs) && !allowedSourceUrls.has(url) && !allowedImageUrls.has(abs) && !allowedImageUrls.has(url)
+    const key = normalizeCitationUrl(url)
+    return !allowedSourceUrls.has(key) && !allowedImageUrls.has(key)
   })
   if (invalidCitationUrls.length > 0) {
     errors.push(`Unknown citation URL(s): ${Array.from(new Set(invalidCitationUrls)).join(', ')}`)
   }
 
-  const invalidImageUrls = imageUrls.filter(url => !allowedImageUrls.has(normalize(url)) && !allowedImageUrls.has(url))
+  const invalidImageUrls = imageUrls.filter(url => !allowedImageUrls.has(normalizeCitationUrl(url)))
   if (invalidImageUrls.length > 0) {
     errors.push(`Unknown image URL(s): ${Array.from(new Set(invalidImageUrls)).join(', ')}`)
   }
