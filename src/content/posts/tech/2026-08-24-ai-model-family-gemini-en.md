@@ -197,3 +197,9 @@ But Gemini has hard limits: 64K output cap, SWE-bench lag, agent stability behin
 - [ARC-AGI-2 Benchmark](https://arcprize.org)
 - [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources) — this site
 - [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) — this site
+
+---
+
+## Update Log
+
+- 2026-09-19: Added Gemini 3.8 Flash (2026-09-02) — timeline, selection table, agentic coding performance section, sub-family table (3.8 Flash Cyber, Omni 1.1 Flash), three-generation same-price and effort levels; benchmark numbers verified against Model Card evaluation table, with blog chart reading differences noted in-text.

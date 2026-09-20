@@ -53,6 +53,8 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
   const initialUrlSearchRan = useRef(false)
   const currentQueryRef = useRef('')
+  const resultsRef = useRef<SearchResult[]>([])
+  resultsRef.current = results
 
   const PAGE_SIZE = 20
 
@@ -119,7 +121,7 @@ export function SearchWidget({ lang = 'zh-TW' }: Props) {
       return
     }
 
-    const nextOffset = append ? results.length : 0
+    const nextOffset = append ? resultsRef.current.length : 0
     if (append) {
       setIsLoadingMore(true)
     } else {

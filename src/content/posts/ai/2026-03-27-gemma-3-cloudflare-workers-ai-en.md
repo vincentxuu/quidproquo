@@ -197,6 +197,8 @@ An identical interface does not mean identical output. Re-run your prompt evalua
 
 - 2026-08-18: `gemma-3-12b-it` was marked deprecated on 2026-05-30; all examples updated to `gemma-4-26b-a4b-it`, with a new migration section and a GLM-4.7-Flash comparison. Two factual corrections: Gemma 3's context window on Workers AI was 80,000 tokens (previously stated as 8192), and Gemma 3 did have published pricing at $0.35 / $0.56 per M tokens (previously stated as unpublished).
 
+- 2026-09-19: Added "Gemma 4 family positioning" section: Workers AI only hosts the core Gemma 4 26B MoE (31B available via AI Studio / Gemini API); Gemma 4 license changed to Apache 2.0 (previous generations used Gemma Terms of Use); added SEA-LION and embeddinggemma positioning with internal links. All examples and pricing (256K, $0.10 / $0.30, Vision / Function calling / Reasoning) verified against official model pages; no changes.
+
 ## References
 
 - [Cloudflare Workers AI documentation](https://developers.cloudflare.com/workers-ai/)

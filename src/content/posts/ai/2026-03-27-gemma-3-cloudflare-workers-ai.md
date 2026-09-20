@@ -191,7 +191,22 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 
 介面相同不代表輸出相同。換模型之後 prompt 要重跑一次評估——尤其是靠 few-shot 或特定措辭撐住的 JSON 格式指令，換模型是最容易破的地方。
 
+## Gemma 4 家族定位：Workers AI 上只有 26B 這一個
+
+Gemma 4 是一個家族，不是單一模型。官方切法是兩群：E2B / E4B 走行動端與 IoT（極致的 compute / memory efficiency），12B / 26B / 31B 走「個人電腦上的前沿智慧」（unprecedented intelligence-per-parameter）。但在 Cloudflare Workers AI 上，核心 Gemma 4 只上了 `@cf/google/gemma-4-26b-a4b-it` 這一個——要 31B 得走 Google AI Studio / Gemini API（本站 LiveKit 語音 agent 那篇就是用 `google/gemma-4-31b-it` 經 LiveKit Inference 呼叫，不在 Workers AI 上）。
+
+授權是 Gemma 4 真正的新聞：Google 把 Gemma 4 改成 **Apache 2.0**（另有一份禁止用途政策），而 Gemma 1 / 2 / 3 / 3n 用的是自家的 Gemma Terms of Use（Hugging Face 上要登入按同意才能下載，例如 `google/gemma-3n-E2B-it` 就標 `license:gemma` 且 gated）。實務意義是：自架、微調、商用散佈不再需要經過 click-through 授權——這也是「開源權重線」第一次名副其實。
+
+Workers AI 上的 Gemma 旁系有兩個，都已經收在本站的 [Workers AI 模型目錄](/posts/ai/2026-08-18-workers-ai-model-guide)，這裡只給定位：
+
+- `embeddinggemma-300m`：從 Gemma 3 衍生的 300M embedding 小模型，100+ 語言——RAG 的向量端如果也想留在 Google 血統，可以看它
+- `@cf/aisingapore/gemma-sea-lion-v4-27b-it`：AI Singapore 以 Gemma 為基座、針對東南亞語言預訓練與指令微調的變體（注意 model ID 前綴是 `@cf/aisingapore`，不是 `@cf/google`），128K context，$0.351 / $0.555 per M tokens——做東南亞市場值得評估，但繁中主力還是 Gemma 4 本體
+
+行動端那條線（E2B / E4B，以及前代 3n 的 PLE 記憶體技術）是另一個戰場，見本站[行動端小模型盤點](/posts/ai/2026-03-31-mobile-small-models)。一句話總結：留在 Workers AI 生態系做繁中 RAG，Gemma 4 26B 就是現在的答案；要更大（31B）、更小（E2B/E4B）、或特定語言（SEA-LION），才需要離開這個 ID。
+
 ## 更新紀錄
+
+- 2026-09-19：新增「Gemma 4 家族定位」章節：Workers AI 只上了核心 Gemma 4 的 26B MoE（31B 走 AI Studio / Gemini API）；Gemma 4 授權改為 Apache 2.0（前代是 Gemma Terms of Use）；補 SEA-LION 與 embeddinggemma 的定位與站內連結。全文範例與價格（256K、$0.10 / $0.30、Vision / Function calling / Reasoning）已對官方模型頁核對，無變動。
 
 - 2026-08-18：`gemma-3-12b-it` 已於 2026-05-30 標為 deprecated，全文範例改為 `gemma-4-26b-a4b-it`，新增遷移章節與 GLM-4.7-Flash 對比。同時修正兩處事實：Gemma 3 在 Workers AI 的 context window 是 80,000 tokens（原寫 8192），以及 Gemma 3 有公開定價 $0.35 / $0.56 per M tokens（原寫沒有公開定價）。
 
@@ -205,4 +220,7 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 - [Workers AI：gemma-3-12b-it 模型頁（已標記 Deprecated）](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
 - [Workers AI：glm-4.7-flash 模型頁](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/)
 - [Google Gemma 官方文件](https://ai.google.dev/gemma/docs)
+- [Introducing Gemma 4（2026-04，官方部落格）](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)
+- [Gemma 4 授權：Apache 2.0](https://ai.google.dev/gemma/docs/gemma_4_license)
+- [Google DeepMind Gemma 頁面（家族總覽：E2B/E4B、12B/26B/31B）](https://deepmind.google/models/gemma/)
 - [NobodyClimb RAG Pipeline 架構](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture) — Gemma 在 20 節點 pipeline 中的完整應用
