@@ -43,17 +43,35 @@ sed -i '' "s/^Last updated:.*/Last updated: $(TZ=Asia/Taipei date +%Y-%m-%d)/" p
 
 同時在 `Recently completed` 區段補一行描述本次產出（一句話即可）。若 progress.txt 超過 85 行，先把最舊的 `Recently completed` 條目移到 `docs/progress-archive.md`。
 
-### E4：targeted verify
+### E4：環境準備 + targeted verify
+
+雲端沙箱一開始沒有 `node_modules`，下面的檢查腳本要 `gray-matter`。**只允許這一種安裝方式**：
+
+```bash
+pnpm install --frozen-lockfile
+```
+
+- routine 的 `sources` 已含 `lanefoundry/gatelane`（2026-09-21 起），`@lanefoundry/gatelane-sdk` 裝得起來。若 install 失敗，把錯誤前 5 行寫進 progress.txt 本次條目，**照樣往下跑能跑的檢查**（`check:tw` 不需要任何依賴，一定要跑），不要嘗試修環境。
+- 裝完後 `simple-git-hooks` 會把 pre-commit（= `pnpm verify`）裝進 `.git/hooks/`。這是預期行為，commit 會因此多跑 2–3 分鐘 `astro check`，等它跑完。
+
+**硬規則（Tier 3，違反等於這次 routine 失敗）**：
+- 不准動 `.git/hooks/` 底下任何檔案（`rm`、改內容、`chmod` 都不行）。
+- 不准為了讓 install 過而改 `package.json`／`pnpm-lock.yaml`（包括「暫時拿掉再還原」）。
+- 不准 `SKIP_SIMPLE_GIT_HOOKS=1`、`--no-verify`、`core.hooksPath` 之類繞 hook。
+- pre-commit 紅燈時：紅在**自己這次新增／修改的檔案** → 修到綠；紅在**既有檔案** → 修它（A 級用語替換、series order 撞號這類 5 分鐘內能修的）並一起 commit；修不動的 → 把紅燈輸出寫進 `docs/governance/escalation-queue.md` 新條目，**不 commit、直接結束**，讓人隔天處理。四個選項裡沒有「繞過」。
+- 為什麼這麼嚴：2026-09-20／21 四支 routine（日報、arxiv、funding、tool）都是寫完文章後卡在 `rm .git/hooks/pre-commit` 的權限提示，session 永遠等不到人按，文章全部遺失。繞 hook 比紅燈本身代價更高。
 
 ```bash
 # 只跑會擋 CI 的檢查，確認新檔不引入紅燈
 pnpm check:references
 pnpm check:lang-parity
+pnpm check:tw            # A 級用語（用戶→使用者、技術棧→tech stack、對標、賦能、品類…）擋 commit，每次必跑
+pnpm check:series-order  # series order 撞號擋 commit
 # progress.txt 格式
 grep -q "^Last updated: [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}" progress.txt || echo "FAIL: progress.txt missing Last updated line"
 ```
 
-三項都必須 0 error 才繼續。有 error 就修，不准 `--no-verify` 繞過。
+五項都必須 0 error／0 blocking 才繼續。有 error 就修，不准 `--no-verify` 繞過。`check:tw` 的 `[WARN]` 是 B 級看語境，`[ERROR]` 才擋。
 
 ### E5：commit + push
 
