@@ -366,7 +366,7 @@ export function ChatWidget({
 
   // chip 整段對話都留著（不只空狀態），讀者隨時看得到 AI 以哪篇為脈絡、也隨時能拿掉
   const pageChip = activePage ? (
-    <div className="flex items-center gap-1.5 px-4 pt-2 text-xs" style={{ background: 'var(--bg-card)', color: 'var(--text-secondary)' }}>
+    <div className="flex items-center gap-1.5 px-4 pt-2 pb-1 text-xs" style={{ background: 'var(--bg-card)', color: 'var(--text-secondary)' }}>
       <span className="shrink-0 font-bold">{t('chat.page.chip')}</span>
       <span className="min-w-0 truncate" title={activePage.title}>{activePage.title}</span>
       <button

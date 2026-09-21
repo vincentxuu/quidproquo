@@ -1,6 +1,6 @@
 # 讀文章時的 Ask AI（page context）PRD
 
-- 狀態：實作中（2026-09-21）——第 1、2 步已完成（flag 預設關閉）；**端到端尚未驗證**，卡在本機 D1 有 5 個 migration 未套用。待拍板三項均採建議方案
+- 狀態：實作中（2026-09-21）——第 1–3 步已完成（flag 預設關閉）；本機已驗證到 LLM 之前的每一段，**含 LLM 的完整回答尚未驗證**（本機沒有 provider 金鑰）。待拍板三項均採建議方案
 - 來源：`docs/product/reviews/agent-ux-2026-09-19-ask-ai.md` 發現 1（P1）
 - 方法：`agent-ux-design` 五步驟
 
@@ -116,6 +116,19 @@
 - **來源清單**：目前文章排第一並標「目前文章」（`ChatLocaleProvider` 多帶一個 `pageSlug`，`LinkSection` 以網址結尾比對）。
 - 字串全進 `src/i18n/chat.ts`，zh-TW／en 都有。
 - flag 關閉、非文章頁、或讀者按掉 chip 時，以上全部不出現，畫面與原本相同。
+
+### 本機驗證紀錄（2026-09-21）
+
+經使用者同意套用本機 5 個 migration 後 `pnpm sync`，並在本機 D1 開 `rag_flag_page_context`。
+
+- **已驗證**
+  - `GET /api/chat/config` 回 `{"pageContext":true}`，flag 由 D1 讀到前端這條路是通的。
+  - `resolvePageContext` 的查詢對真實資料：帶點的 slug `daily/2026-08-30-framework-pydantic-ai-2.36.0` 查得到；路由 id 形式 `…-2360` 查不到（0 筆）。印證 slug 必須用檔案路徑推。
+  - `fetchPageChunks` 的查詢對真實資料可執行（`sentence_window` 欄位、join 都對）。
+  - 瀏覽器實測（Playwright）：文章頁開浮窗出現 chip 與三題文章題＋一題全站題；按 × 後 chip 消失、四題回到全站題。
+- **真實資料抓到的問題，已修**：文章開頭 4 段裡，第 0 段是「🌏 English version」語言切換橫幅、第 2 段是只有 9 個字的標題，「這篇的重點」拿到的證據有一半沒內容。改為濾掉短於 60 字與語言橫幅的段落（`isSubstantiveChunk`），並把文章的 `tldr`／`description` 組成第一筆證據（chunk id `<slug>::overview`）。
+- **未驗證：含 LLM 的完整回答。** `/api/chat` 在 planner 就失敗：`Groq API key not found`。本機 `.dev.vars` 只有 `ADMIN_PASSWORD` 與兩個開關，D1 也沒有 provider 金鑰。答案品質要等第 4 步評測（需要金鑰）或在正式區以 admin 身分試。
+- **本機 D1 不完整**：`pnpm sync` 跑了 3 小時 10 分，最後一批失敗（錯誤訊息被我的輸出過濾吃掉，沒留下）。4043 篇文章都在，但字母序尾端 319 篇（`tech/2026-08-30…` 之後）沒有 chunk。要完整資料得重跑。
 
 ### 順帶發現的既有問題（未修）
 

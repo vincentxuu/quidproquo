@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest'
 import type { SearchResult } from '../state'
-import { pinPageResults, refersToPage, selectPageChunks } from './page-chunks'
+import { isSubstantiveChunk, pinPageResults, refersToPage, selectPageChunks } from './page-chunks'
 
-function chunk(index: number, content: string) {
-  return { chunk_id: `c${index}`, chunk_index: index, content }
+// 補到超過實質內容門檻，模擬真實段落長度
+const PAD = '。這一段補上足夠的說明文字，讓它的長度像真實文章裡的一個段落，而不是只剩一行標題或一個語言切換的橫幅連結'
+
+function chunk(index: number, content: string, pad = true) {
+  return { chunk_id: `c${index}`, chunk_index: index, content: pad ? content + PAD : content }
 }
 
 function result(chunkId: string, slug: string, score: number): SearchResult {
@@ -61,6 +64,30 @@ describe('selectPageChunks', () => {
 
   it('returns everything when the post is short', () => {
     expect(selectPageChunks(rows.slice(0, 2), '這篇的重點', 4)).toHaveLength(2)
+  })
+})
+
+describe('substantive chunk filter', () => {
+  it('drops language banners and bare headings seen in real posts', () => {
+    expect(isSubstantiveChunk('> 🌏 [English version](/en/posts/ai/2026-09-03-table-serialization-rag-en) of this post is available for readers who prefer English')).toBe(false)
+    expect(isSubstantiveChunk('## 五種主要格式')).toBe(false)
+    expect(isSubstantiveChunk('RAG pipeline 處理表格時，格式選錯會讓 embedding 偏掉。' + PAD)).toBe(true)
+  })
+
+  it('skips them when picking the opening chunks', () => {
+    const rows = [
+      chunk(0, '> 🌏 [English version](/en/posts/ai/x-en)', false),
+      chunk(1, '問題：格式選錯，embedding 就偏了'),
+      chunk(2, '## 五種主要格式', false),
+      chunk(3, 'Markdown Table 的優缺點'),
+      chunk(4, 'JSON 序列化的優缺點'),
+    ]
+    expect(selectPageChunks(rows, '這篇的重點是什麼？', 2).map(row => row.chunk_index)).toEqual([1, 3])
+  })
+
+  it('falls back to whatever exists when nothing is substantive', () => {
+    const rows = [chunk(0, '## 標題一', false), chunk(1, '## 標題二', false)]
+    expect(selectPageChunks(rows, '這篇的重點', 4)).toHaveLength(2)
   })
 })
 
