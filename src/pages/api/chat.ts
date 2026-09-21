@@ -203,7 +203,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         const sendStep = (payload: Record<string, unknown> & { id: string }) => send('step', payload)
 
         const state = await runPipeline(
-          { message, traceId, threadId: thread_id, conversationSummary: checkpointSummary, config: ragConfig },
+          { message, traceId, threadId: thread_id, conversationSummary: checkpointSummary, pageContext: pageContext ?? undefined, config: ragConfig },
           {
             onStep: (agent, extra) => {
               traceStepEvents.push({

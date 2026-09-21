@@ -19,6 +19,7 @@ export async function runManualPipeline(
     traceId: string
     threadId?: string
     conversationSummary?: string
+    pageContext?: GraphState['page_context']
     config?: RagRuntimeConfig
   },
   callbacks: PipelineCallbacks,
@@ -31,6 +32,7 @@ export async function runManualPipeline(
     ...initialState(),
     thread_id: input.threadId ?? crypto.randomUUID(),
     conversation_summary: input.conversationSummary,
+    page_context: input.pageContext,
     config: input.config ?? initialState().config,
     messages: [new HumanMessage(input.message)] as RagMessage[],
     langfuse_trace_id: input.traceId,

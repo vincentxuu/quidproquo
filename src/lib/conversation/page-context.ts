@@ -1,8 +1,6 @@
-export interface PageContext {
-  slug: string
-  title: string
-  lang: string
-}
+import type { PageContextRef } from '../retrieval/state'
+
+export type PageContext = PageContextRef
 
 const MAX_SLUG_LENGTH = 200
 // D1 的 slug 是檔案路徑去掉 .md，版號文章會帶點（…-pydantic-ai-2.36.0）

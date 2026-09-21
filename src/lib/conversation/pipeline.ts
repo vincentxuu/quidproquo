@@ -9,6 +9,7 @@ export async function runPipeline(
     traceId: string
     threadId?: string
     conversationSummary?: string
+    pageContext?: GraphState['page_context']
     config?: RagRuntimeConfig
   },
   callbacks: PipelineCallbacks
@@ -27,6 +28,7 @@ export async function runPipeline(
       traceId: input.traceId,
       threadId: input.threadId,
       conversationSummary: input.conversationSummary,
+      pageContext: input.pageContext,
       config: effectiveConfig,
       providerApiKeys: options?.providerApiKeys,
     },

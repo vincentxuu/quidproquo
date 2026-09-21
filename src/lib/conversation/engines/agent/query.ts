@@ -111,6 +111,7 @@ export async function runAgentQuery(input: RagLifecycleInput, callbacks: Pipelin
     ...initialState(),
     thread_id: input.threadId ?? crypto.randomUUID(),
     conversation_summary: input.conversationSummary,
+    page_context: input.pageContext,
     config,
     messages: [new HumanMessage(input.message)] as RagMessage[],
     langfuse_trace_id: input.traceId,

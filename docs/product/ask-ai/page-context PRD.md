@@ -1,6 +1,6 @@
 # 讀文章時的 Ask AI（page context）PRD
 
-- 狀態：實作中（2026-09-21）——第 1 步「管道」已完成，flag 預設關閉；待拍板三項均採建議方案
+- 狀態：實作中（2026-09-21）——第 1、2 步已完成（flag 預設關閉）；**端到端尚未驗證**，卡在本機 D1 有 5 個 migration 未套用。待拍板三項均採建議方案
 - 來源：`docs/product/reviews/agent-ux-2026-09-19-ask-ai.md` 發現 1（P1）
 - 方法：`agent-ux-design` 五步驟
 
@@ -77,7 +77,7 @@
 ## 6. 實作切分
 
 1. **管道**（flag 關閉狀態可合併）——**已完成 2026-09-21**：`PostLayout.astro` → `ChatFloating` → `ChatWidget` 傳 `slug`（標題與 glossary 首詞只有 chip／建議問題用得到，留到第 3 步再傳）；`ChatBody` 加 `page_context`；伺服器驗證 slug；flag 讀取。
-2. **檢索偏置＋cache 分流＋trace 欄位**，含單元測試。
+2. **檢索偏置＋cache 分流＋trace 欄位**，含單元測試——**已完成 2026-09-21**（單元測試層級；端到端未驗證）。
 3. **前端 chip 與文章建議問題**，i18n，視覺回歸基線更新。
 4. **評測切片**：補題、跑 A／B／C 三組，結果寫回本文件。
 5. **正式區開 flag**（Tier 2，拿評測結果來問）。
@@ -94,7 +94,23 @@
 - **slug 陷阱**：`post.id` 經 slugify 會吃掉版號的點（`…-pydantic-ai-2.36.0` → `…-2360`），D1 的 slug 是檔案路徑、保留點。本功能改用 `post.filePath` 推出 D1 slug，已在 dev server 確認頁面輸出帶點。
 - 驗證：相關測試 55 pass、`pnpm lint`、`astro check` 0 錯誤；`/api/chat/config` 在 dev 回 200。**未驗證**：flag 開啟後的端到端流程——本機 D1 是空的，第 2 步開工前要先 `pnpm sync`。
 
+### 第 2 步實作紀錄（2026-09-21）
+
+- `GraphState.page_context`、`Plan.refers_to_page`；`pageContext` 依 `conversationSummary` 的既有路徑穿過 `pipeline.ts` → engine contract → langgraph（`graph.ts` channel）／manual／agent 三個 engine。
+- **planner**：有文章脈絡時 prompt 多一段，告知讀者正在看哪篇、這類問題不算 off-topic 或需澄清，並要求回 `refers_to_page`。模型漏填或 JSON 壞掉時用字面規則保底（`refersToPage`：這篇／本文／文中／this post…）。沒有脈絡時 prompt 與原本逐字相同（parity 測試照過）。
+- **偏置的位置在 `normalizeResultsNode`，不是 research**。原因有二：弱檢索判斷要把該篇段落算進去（問眼前這篇不該觸發外部搜尋）；research 有 legacy／syscall 兩套 runtime，放那裡得新增一支 syscall 並改 Agent OS 的權限表。
+- `src/lib/retrieval/tools/page-chunks.ts`：`fetchPageChunks` 從 D1 取該篇段落（最多 4 段，分數 0.85）。問題沒有可比對的詞（「這篇的重點」）就取開頭幾段；有具體的詞就取重疊最多的段落並固定保留第一段。中文用 bigram 比對，不依賴 Vectorize。
+- `pinPageResults`：排序／rerank／MMR 之後把該篇段落提到最前面。writer 只取前 8 筆，不置頂的話保證候選可能被擠掉。全站檢索的結果全部保留、相對順序不動。
+- **只有 `refers_to_page` 為 true 才偏置**。在文章頁問「有哪些 RAG 文章」不取段落、不置頂、writer prompt 也不加註——對應評測 B 組「零影響」的要求。
+- writer：`refers_to_page` 時多一段，說明「這篇」指哪一篇、先答這篇再補其他文章。
+- **agent engine 只帶 state、loop 的 prompt 還沒用到**，該 engine 下 page context 目前無效果。預設 engine 是 langgraph，不影響主線；要支援再另做。
+- shadow baseline 刻意不帶 page context（baseline 的定義就是功能全關）。
+- 驗證：新增 16 個測試（`page-chunks.test.ts` 8、`agents/page-context.test.ts` 8），retrieval＋conversation＋api 共 210 pass；`pnpm lint`、`astro check` 0 錯誤。
+- **未驗證：端到端。** `pnpm sync` 失敗於 `no such table: posts_fts`——本機 D1 有 5 個 migration 未套用（`0010b_drop_legacy_settings`、`0033`–`0036`）。D1 migration 屬 Tier 2，待使用者確認後再套。
+
 ### 順帶發現的既有問題（未修）
+
+來源連結同樣受 slug 問題影響：`search-posts.ts` 的 `source_url` 用 D1 slug 組 `https://quidproquo.cc/posts/<slug>`，版號帶點的文章實際路由沒有點，連結應該會 404（未實測）。
 
 `RelatedPosts`（`[...slug].astro` 的 `slug={post.id}`）與 glossary explain（`data-post-slug={post.id}`）傳的是 slugify 後的 id，版號帶點的文章在這兩支 API 查不到 D1 資料——延伸閱讀應該是空的、名詞解釋拿不到文章脈絡。影響範圍是檔名含點的文章（多為 daily framework 版本速報）。修法是一樣改傳 `d1Slug`，但會改變這兩支 API 的實際行為，另案處理。
 

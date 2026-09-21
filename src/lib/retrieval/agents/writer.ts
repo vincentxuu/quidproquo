@@ -129,6 +129,7 @@ ${state.plan.intent === 'recommendation' ? `- includes every distinct provided p
 - is valid Markdown with balanced code fences
 - keeps Mermaid diagrams inside \`\`\`mermaid fenced blocks when used
 
+${state.page_context && state.plan.refers_to_page ? `\nThe reader is currently viewing the post titled ${JSON.stringify(state.page_context.title)} (https://quidproquo.cc/posts/${state.page_context.slug}). "這篇", "本文", "this post" refer to it: answer about that post first, using its sources, and bring in other posts only where they add to the answer.\n` : ''}
 Avoid step-by-step self-instructions or meta commentary about your process.
 ${needsDisclaimer ? 'Because prior checks found low confidence or formatting issues, include a brief limitation note near the start.' : ''}
 ${hasReliableEvidence ? '' : 'Retrieval did not produce reliable evidence. Give a concise knowledge-base limitation response instead of a factual answer.'}

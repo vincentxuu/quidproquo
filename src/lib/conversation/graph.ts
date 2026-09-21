@@ -87,6 +87,7 @@ export function buildGraph(options?: { providerApiKeys?: ProviderApiKeys }) {
       thread_id: { default: () => crypto.randomUUID() },
       language: { default: () => 'zh-TW' },
       conversation_summary: { default: () => undefined },
+      page_context: { default: () => undefined },
       config: { default: () => initialState().config },
       plan: { default: () => ({ intent: 'factual' as const, complexity: 'medium' as const, needs_clarification: false, subtasks: [], specialists: [] }) },
       needs_web_search: { default: () => false },
@@ -177,6 +178,7 @@ export async function runPipeline(
     traceId: string
     threadId?: string
     conversationSummary?: string
+    pageContext?: GraphState['page_context']
     config?: RagRuntimeConfig
   },
   callbacks: PipelineCallbacks,
@@ -188,6 +190,7 @@ export async function runPipeline(
     ...initialState(),
     thread_id: input.threadId ?? crypto.randomUUID(),
     conversation_summary: input.conversationSummary,
+    page_context: input.pageContext,
     config: input.config ?? initialState().config,
     messages: [new HumanMessage(input.message)] as RagMessage[],
     langfuse_trace_id: input.traceId,

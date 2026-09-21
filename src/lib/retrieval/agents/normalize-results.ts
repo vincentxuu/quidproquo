@@ -2,6 +2,7 @@ import { env } from 'cloudflare:workers'
 import type { Env } from '../../config/env'
 import type { GraphState, SearchResult } from '../state'
 import { comparableRankingScore, isWeakRetrieval } from '../tools/hybrid-search'
+import { fetchPageChunks, pinPageResults } from '../tools/page-chunks'
 
 const RERANKER_MODEL = '@cf/baai/bge-reranker-base'
 const RERANKER_TOP_N = 20
@@ -152,8 +153,18 @@ export async function normalizeResultsNode(state: GraphState): Promise<Partial<G
     ? lastContent
     : ''
 
-  const needsWebSearch = isWeakRetrieval(state.search_results)
-  let ordered = orderByRelevance(state.search_results)
+  // 問題在講讀者眼前這篇時，把該篇的段落併進候選。是偏置不是過濾：全站檢索的結果都留著，
+  // 「這篇跟 LangGraph 差在哪」仍取得到別篇。放在這個 node 而不是 research，
+  // 是因為弱檢索判斷要把這些段落算進去（問眼前這篇不該觸發外部搜尋）。
+  const pageSlug = state.plan.refers_to_page ? state.page_context?.slug : undefined
+  const pageChunks = pageSlug
+    ? await fetchPageChunks({ slug: pageSlug, query }).catch(() => [] as SearchResult[])
+    : []
+  const known = new Set(state.search_results.map(result => result.chunk_id))
+  const candidates = [...state.search_results, ...pageChunks.filter(chunk => !known.has(chunk.chunk_id))]
+
+  const needsWebSearch = isWeakRetrieval(candidates)
+  let ordered = orderByRelevance(candidates)
 
   if (isRecencySensitiveQuery(query)) {
     const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Taipei' })
@@ -166,6 +177,7 @@ export async function normalizeResultsNode(state: GraphState): Promise<Partial<G
       .catch(() => rerankByQuery(ordered, query, state.config.rerankerMinKeep))
     ordered = applyMmrOrdering(ordered, state.config.mmrLambda)
   }
+  if (pageSlug) ordered = pinPageResults(ordered, pageSlug)
 
   return {
     search_results: ordered,

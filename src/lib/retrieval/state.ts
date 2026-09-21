@@ -41,6 +41,12 @@ export interface SearchResult {
   title?: string
 }
 
+export interface PageContextRef {
+  slug: string
+  title: string
+  lang: string
+}
+
 export interface RagRuntimeConfig {
   pipelineEngine: 'langgraph' | 'manual' | 'agent'
   defaultProvider: RagProvider
@@ -77,6 +83,8 @@ export interface Plan {
   subtasks: string[]
   search_keywords?: string[]
   specialists: string[]
+  // 問題是否在講讀者眼前這篇文章；只有帶 page_context 時才會是 true
+  refers_to_page?: boolean
 }
 
 export interface Critique {
@@ -98,6 +106,8 @@ export interface GraphState {
   thread_id: string
   language: string
   conversation_summary: string | undefined
+  // 讀者正在看的文章（已由伺服器向 D1 驗證）；全站問題或 flag 關閉時沒有
+  page_context?: PageContextRef
   config: RagRuntimeConfig
   plan: Plan
   needs_web_search: boolean

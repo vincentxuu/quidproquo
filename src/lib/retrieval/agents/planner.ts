@@ -2,6 +2,7 @@ import type { GraphState, Plan } from '../state'
 import { HumanMessage } from '@langchain/core/messages'
 import { invokeModel, type ProviderApiKeys } from '../model'
 import { defineAgent } from '../../agent/access'
+import { refersToPage } from '../tools/page-chunks'
 
 const INTENT_PROMPT = `You are a query planner for a personal blog RAG system.
 Analyze the user's query and respond with JSON only, no markdown.
@@ -90,10 +91,23 @@ export const plannerAgent = defineAgent<GraphState, Partial<GraphState>>({
 function buildPlannerPrompt(state: GraphState, skillInstructions?: string): string {
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage?.content === 'string' ? lastMessage.content : ''
-  return `${INTENT_PROMPT}${skillInstructions ? `\n\nAgent skill instructions:\n${skillInstructions}` : ''}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`
+  return `${INTENT_PROMPT}${buildPageContextNote(state)}${skillInstructions ? `\n\nAgent skill instructions:\n${skillInstructions}` : ''}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`
 }
 
-function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Partial<GraphState> {  const { response, route } = result
+// 沒有文章脈絡時回空字串，planner prompt 與原本逐字相同。
+function buildPageContextNote(state: GraphState): string {
+  if (!state.page_context) return ''
+  return `\n\nThe reader is currently viewing the blog post titled ${JSON.stringify(state.page_context.title)}.
+Phrases like "這篇", "本文", "文中", "this post" or "this article" refer to that post: such a query is on-topic and not ambiguous, so do not mark it "off-topic" or "needs_clarification". Include the post's key terms in "search_keywords".
+Add "refers_to_page": true to the JSON when the query is about that post, false when it is a site-wide question.`
+}
+
+function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Partial<GraphState> {
+  const { response, route } = result
+  const lastMessage = state.messages[state.messages.length - 1]
+  const query = typeof lastMessage?.content === 'string' ? lastMessage.content : ''
+  // 模型漏填或 JSON 壞掉時，用字面規則保底；沒有文章脈絡就一律 false
+  const refersByWording = Boolean(state.page_context) && refersToPage(query)
   let plan: Plan = {
     intent: 'factual',
     complexity: 'medium',
@@ -101,6 +115,7 @@ function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Part
     subtasks: [],
     search_keywords: [],
     specialists: [],
+    refers_to_page: refersByWording,
   }
   let language = 'zh-TW'
 
@@ -115,6 +130,7 @@ function buildPlannerUpdate(state: GraphState, result: PlannerModelResult): Part
       subtasks: parsed.subtasks ?? [],
       search_keywords: parsed.search_keywords ?? [],
       specialists: parsed.specialists ?? [],
+      refers_to_page: Boolean(state.page_context) && (refersByWording || parsed.refers_to_page === true),
     }
   } catch {
     // fallback to defaults

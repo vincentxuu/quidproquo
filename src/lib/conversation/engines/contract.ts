@@ -21,6 +21,7 @@ export interface RagLifecycleInput {
   traceId: string
   threadId?: string
   conversationSummary?: string
+  pageContext?: GraphState['page_context']
   config: GraphState['config']
   providerApiKeys?: ProviderApiKeys
   indexProfile?: {
