@@ -5,11 +5,32 @@
   "repo": "https://github.com/vincentxuu/quidproquo",
   "model": "claude-sonnet-5",
   "mcp_connections": [
-    {"connector_uuid": "205c8b8e-f1d9-4d51-9e75-fd3e8eb11366", "name": "Exa", "url": "https://mcp.exa.ai/mcp"},
-    {"connector_uuid": "735922c7-dc1a-48ee-81d5-271e2aa82f86", "name": "Tavily", "url": "https://mcp.tavily.com/mcp"},
-    {"connector_uuid": "a4f311aa-60c6-4985-bf6f-111ded0924e1", "name": "firecrawl", "url": "https://mcp.firecrawl.dev/fc-d7860898bbbd4fdabcd18fa6b5b2d46c/v2/mcp"},
-    {"connector_uuid": "5dc7ee32-e1af-4b7a-9de1-0a12b25f6c3a", "name": "linkup", "url": "https://mcp.linkup.so/mcp"}
+    {
+      "connector_uuid": "205c8b8e-f1d9-4d51-9e75-fd3e8eb11366",
+      "name": "Exa",
+      "url": "https://mcp.exa.ai/mcp"
+    },
+    {
+      "connector_uuid": "735922c7-dc1a-48ee-81d5-271e2aa82f86",
+      "name": "Tavily",
+      "url": "https://mcp.tavily.com/mcp"
+    },
+    {
+      "connector_uuid": "a4f311aa-60c6-4985-bf6f-111ded0924e1",
+      "name": "firecrawl",
+      "url": "https://mcp.firecrawl.dev/fc-d7860898bbbd4fdabcd18fa6b5b2d46c/v2/mcp"
+    },
+    {
+      "connector_uuid": "5dc7ee32-e1af-4b7a-9de1-0a12b25f6c3a",
+      "name": "linkup",
+      "url": "https://mcp.linkup.so/mcp"
+    }
   ],
+  "sources": [
+    "https://github.com/vincentxuu/quidproquo",
+    "https://github.com/lanefoundry/gatelane"
+  ],
+  "sources_note": "2026-09-21 起每支 routine 的 session_context.sources 都掛兩個 repo：quidproquo 是工作目錄，gatelane 只為了讓 pnpm install --frozen-lockfile 能解析 @lanefoundry/gatelane-sdk（GitHub 依賴，沙箱只授權 sources 列出的 repo）。沙箱 cwd 變成 /home/user，兩個 repo 並列，prompt 第一行 git pull 前 agent 需自行 cd quidproquo。Claude GitHub App 已裝在 lanefoundry org（All repositories）。新增 routine 時記得帶上兩個 source。ai-interview／product-interview 兩支 trigger_id 未登錄（list API 分頁壞掉），尚未套用。",
   "routines": {
     "A": {
       "name": "daily-digest-arxiv",
