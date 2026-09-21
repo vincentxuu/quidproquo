@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { ChatWidget } from './ChatWidget'
+import { ChatWidget, type ChatPage } from './ChatWidget'
 import { chatT } from '@/i18n/chat'
 import { defaultLang, type Lang } from '@/i18n/ui'
 
-export function InlineAsk({ lang = defaultLang, pageSlug }: { lang?: Lang; pageSlug?: string }) {
+export function InlineAsk({ lang = defaultLang, page }: { lang?: Lang; page?: ChatPage }) {
   const t = chatT(lang)
   const [value, setValue] = useState('')
   const [open, setOpen] = useState(false)
@@ -27,7 +27,7 @@ export function InlineAsk({ lang = defaultLang, pageSlug }: { lang?: Lang; pageS
           </button>
         </div>
         <div className="inline-ask-panel-body">
-          <ChatWidget embedded pendingMessage={pendingMessage} lang={lang} pageSlug={pageSlug} />
+          <ChatWidget embedded pendingMessage={pendingMessage} lang={lang} page={page} />
         </div>
 
         <style>{`

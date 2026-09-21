@@ -6,11 +6,11 @@ import { QuotaIndicator } from './QuotaIndicator'
 import { ChatHeader, ChatHeaderToolbar } from './ChatHeader'
 import { Suggestion } from '@/components/ai-elements/suggestion'
 import { chatT, SUGGESTED_QUESTIONS_EN } from '@/i18n/chat'
+import { buildVisibleSuggestions } from './suggestions'
 import { defaultLang, type Lang } from '@/i18n/ui'
 import { ChatLocaleProvider } from './locale'
 
 const DAILY_LIMIT = 5
-const SUGGESTIONS_PER_PAGE = 4
 const SUGGESTED_QUESTIONS = [
   '你寫過哪些 AI agent 相關文章？',
   '幫我找 RAG 成本優化的文章',
@@ -54,6 +54,14 @@ const SUGGESTED_QUESTIONS = [
   '有哪些知識管理與內容管線文章？',
 ]
 
+/** 讀者正在看的文章，build 時由文章頁帶入。slug 是 D1 slug（檔案路徑），不是路由 id。 */
+export interface ChatPage {
+  slug: string
+  title: string
+  /** 這篇 frontmatter 的第一個 glossary 詞，用來產生「解釋〈詞〉」建議問題 */
+  term?: string
+}
+
 interface PendingMessage {
   id: number;
   text: string;
@@ -94,7 +102,7 @@ export function ChatWidget({
   onExpandToggle,
   isExpanded,
   lang = defaultLang,
-  pageSlug,
+  page,
 }: {
   embedded?: boolean
   pendingMessage?: PendingMessage
@@ -102,7 +110,7 @@ export function ChatWidget({
   onExpandToggle?: () => void
   isExpanded?: boolean
   lang?: Lang
-  pageSlug?: string
+  page?: ChatPage
 }) {
   const t = useMemo(() => chatT(lang), [lang])
   const welcome = useMemo<Message>(() => ({ id: WELCOME_ID, role: 'assistant', content: t('chat.welcome') }), [t])
@@ -112,7 +120,10 @@ export function ChatWidget({
   const [remaining, setRemaining] = useState<number | null>(null)
   const [suggestionPage, setSuggestionPage] = useState(0)
   const abortRef = useRef<AbortController | null>(null)
-  const pageContextEnabled = usePageContextFlag(Boolean(pageSlug))
+  const pageContextEnabled = usePageContextFlag(Boolean(page))
+  // 讀者按掉 chip 後這個對話就回到全站模式；開新對話時 chip 重新出現
+  const [pageDismissed, setPageDismissed] = useState(false)
+  const activePage = page && pageContextEnabled && !pageDismissed ? page : undefined
   const threadId = useRef(
     typeof localStorage !== 'undefined'
       ? (localStorage.getItem('chat_thread_id') ?? crypto.randomUUID())
@@ -136,6 +147,7 @@ export function ChatWidget({
     setMessages([welcome])
     setRemaining(null)
     setSuggestionPage(0)
+    setPageDismissed(false)
   }
 
   const handleStop = () => {
@@ -167,7 +179,7 @@ export function ChatWidget({
         body: JSON.stringify({
           message: text,
           thread_id: threadId.current,
-          ...(pageSlug && pageContextEnabled ? { page_context: { slug: pageSlug } } : {}),
+          ...(activePage ? { page_context: { slug: activePage.slug } } : {}),
         }),
         signal: controller.signal,
       })
@@ -308,10 +320,15 @@ export function ChatWidget({
         background: 'var(--bg-card)',
         boxShadow: 'var(--shadow-floating)',
       }
-  const visibleSuggestions = Array.from({ length: SUGGESTIONS_PER_PAGE }, (_, index) => {
-    const questionIndex = (suggestionPage * SUGGESTIONS_PER_PAGE + index) % suggestionPool.length
-    return suggestionPool[questionIndex]
-  })
+  // 在文章頁：前三題問眼前這篇（套模板，不呼叫 LLM），最後一題留給全站；「換題目」只換全站那題
+  const pageQuestions = activePage
+    ? [
+        t('chat.page.q.summary'),
+        activePage.term ? t('chat.page.q.term', { term: activePage.term }) : t('chat.page.q.audience'),
+        t('chat.page.q.related'),
+      ]
+    : []
+  const visibleSuggestions = buildVisibleSuggestions(pageQuestions, suggestionPool, suggestionPage)
 
   // 建議問題貼在輸入框正上方、直列（窄面板慣例），開始對話就收起
   const suggestions = messages.length === 1 && !loading ? (
@@ -347,8 +364,26 @@ export function ChatWidget({
     </div>
   ) : null
 
+  // chip 整段對話都留著（不只空狀態），讀者隨時看得到 AI 以哪篇為脈絡、也隨時能拿掉
+  const pageChip = activePage ? (
+    <div className="flex items-center gap-1.5 px-4 pt-2 text-xs" style={{ background: 'var(--bg-card)', color: 'var(--text-secondary)' }}>
+      <span className="shrink-0 font-bold">{t('chat.page.chip')}</span>
+      <span className="min-w-0 truncate" title={activePage.title}>{activePage.title}</span>
+      <button
+        type="button"
+        onClick={() => setPageDismissed(true)}
+        className="ml-auto inline-flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-full border-none bg-transparent leading-none transition-colors hover:bg-accent"
+        style={{ color: 'var(--text-secondary)' }}
+        aria-label={t('chat.page.remove')}
+        title={t('chat.page.remove')}
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  ) : null
+
   return (
-    <ChatLocaleProvider lang={lang}>
+    <ChatLocaleProvider lang={lang} pageSlug={activePage?.slug}>
     <div style={containerStyle}>
       <ChatHeader
         status={loading ? 'streaming' : 'idle'}
@@ -369,7 +404,7 @@ export function ChatWidget({
         onSend={sendMessage}
         onStop={handleStop}
         onRetry={handleRetry}
-        beforeComposer={suggestions}
+        beforeComposer={<>{suggestions}{pageChip}</>}
         footerNote={
           <>
             <span>{t('chat.disclaimer')}</span>

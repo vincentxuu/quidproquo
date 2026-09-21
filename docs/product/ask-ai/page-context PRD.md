@@ -78,7 +78,7 @@
 
 1. **管道**（flag 關閉狀態可合併）——**已完成 2026-09-21**：`PostLayout.astro` → `ChatFloating` → `ChatWidget` 傳 `slug`（標題與 glossary 首詞只有 chip／建議問題用得到，留到第 3 步再傳）；`ChatBody` 加 `page_context`；伺服器驗證 slug；flag 讀取。
 2. **檢索偏置＋cache 分流＋trace 欄位**，含單元測試——**已完成 2026-09-21**（單元測試層級；端到端未驗證）。
-3. **前端 chip 與文章建議問題**，i18n，視覺回歸基線更新。
+3. **前端 chip 與文章建議問題**，i18n，視覺回歸基線更新——**程式已完成 2026-09-21**；視覺回歸基線未更新（flag 關閉時畫面不變，基線不受影響）。
 4. **評測切片**：補題、跑 A／B／C 三組，結果寫回本文件。
 5. **正式區開 flag**（Tier 2，拿評測結果來問）。
 
@@ -107,6 +107,15 @@
 - shadow baseline 刻意不帶 page context（baseline 的定義就是功能全關）。
 - 驗證：新增 16 個測試（`page-chunks.test.ts` 8、`agents/page-context.test.ts` 8），retrieval＋conversation＋api 共 210 pass；`pnpm lint`、`astro check` 0 錯誤。
 - **未驗證：端到端。** `pnpm sync` 失敗於 `no such table: posts_fts`——本機 D1 有 5 個 migration 未套用（`0010b_drop_legacy_settings`、`0033`–`0036`）。D1 migration 屬 Tier 2，待使用者確認後再套。
+
+### 第 3 步實作紀錄（2026-09-21）
+
+- 文章頁 build 時帶入 `page = { slug, title, term }`（`term` 是 frontmatter `glossary` 第一個詞）；`PostLayout` → `ChatFloating`／`InlineAsk` → `ChatWidget`。
+- **chip**：輸入框正上方一列「目前文章 〈標題〉 ×」，整段對話都在（不只空狀態）。按 × 後該對話回到全站模式、不再送 `page_context`；開新對話時重新出現。用文字標籤而非 📖 emoji，與 widget 其他部分一致。
+- **建議問題**：`src/components/Chat/suggestions.ts` 的 `buildVisibleSuggestions`。文章頁前三題是「這篇的重點是什麼？」「解釋這篇提到的『〈詞〉』」（沒有 glossary 就換「這篇適合誰讀？」）「讀完這篇可以接著讀什麼？」，第四題是全站題；「換題目」只輪替全站那格。三題都含「這篇／this post」，即使 planner 漏填 `refers_to_page` 也會被字面規則接住。
+- **來源清單**：目前文章排第一並標「目前文章」（`ChatLocaleProvider` 多帶一個 `pageSlug`，`LinkSection` 以網址結尾比對）。
+- 字串全進 `src/i18n/chat.ts`，zh-TW／en 都有。
+- flag 關閉、非文章頁、或讀者按掉 chip 時，以上全部不出現，畫面與原本相同。
 
 ### 順帶發現的既有問題（未修）
 

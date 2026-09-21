@@ -154,6 +154,7 @@ const breadcrumbLD = {
   articleUpdated={post.data.updated}
   articleTags={post.data.tags}
   articleSlug={d1Slug}
+  articleTerm={post.data.glossary?.[0]?.term}
   switchHref={switchHref}
   hasTranslation={hasTranslation}
   hreflangEn={enHref}
@@ -220,7 +221,7 @@ const breadcrumbLD = {
     <div class="post-grid">
       <!-- Sidebar: sticky TOC + optional related video -->
       <aside class="post-sidebar">
-        <InlineAsk client:idle lang={lang} pageSlug={d1Slug} />
+        <InlineAsk client:idle lang={lang} page={{ slug: d1Slug, title: post.data.title, term: post.data.glossary?.[0]?.term }} />
         {headings.length > 0 && (
           <details class="toc" open={isDailyBrief || post.data.category !== 'daily'}>
             <summary class="toc-header">

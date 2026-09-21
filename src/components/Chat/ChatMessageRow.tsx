@@ -161,8 +161,11 @@ function MarkdownContent({ content, role }: { content: string; role: 'user' | 'a
 }
 
 function LinkSection({ countKey, links }: { countKey: 'chat.sources.count' | 'chat.related.count'; links: LinkLike[] }) {
-  const { t } = useChatLocale()
-  const normalizedLinks = normalizeLinks(links)
+  const { t, pageSlug } = useChatLocale()
+  const isCurrent = (link: NormalizedLink) => Boolean(pageSlug) && link.url.replace(/\/+$/, '').endsWith(`/posts/${pageSlug}`)
+  const allLinks = normalizeLinks(links)
+  // 目前文章排第一，讀者一眼確認 AI 真的讀了眼前這篇
+  const normalizedLinks = [...allLinks.filter(isCurrent), ...allLinks.filter(link => !isCurrent(link))]
   if (normalizedLinks.length === 0) return null
 
   // 預設收合成一行「參考了 N 篇文章」，點開才列卡片
@@ -175,6 +178,7 @@ function LinkSection({ countKey, links }: { countKey: 'chat.sources.count' | 'ch
             <span style={styles.linkIndex}>{String(index + 1).padStart(2, '0')}</span>
             <span style={styles.linkBody}>
               <span style={styles.linkTitle}>{link.title}</span>
+              {isCurrent(link) && <small style={styles.linkCurrent}>{t('chat.sources.current')}</small>}
               {link.description && <small style={styles.linkDescription}>{link.description}</small>}
             </span>
           </a>
@@ -376,6 +380,13 @@ const styles: Record<string, CSSProperties> = {
     color: 'var(--brand-900)',
     fontWeight: 700,
     lineHeight: 1.45,
+  },
+  linkCurrent: {
+    display: 'inline-block',
+    marginTop: '0.2rem',
+    color: 'var(--brand-700)',
+    fontSize: '0.7rem',
+    fontWeight: 700,
   },
   linkDescription: {
     display: 'block',

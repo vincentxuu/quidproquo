@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { ChatWidget } from './ChatWidget'
+import { ChatWidget, type ChatPage } from './ChatWidget'
 import { chatT } from '@/i18n/chat'
 import { defaultLang, type Lang } from '@/i18n/ui'
 
-export function ChatFloating({ lang = defaultLang, pageSlug }: { lang?: Lang; pageSlug?: string }) {
+export function ChatFloating({ lang = defaultLang, page }: { lang?: Lang; page?: ChatPage }) {
   const t = chatT(lang)
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState(false)
@@ -40,7 +40,7 @@ export function ChatFloating({ lang = defaultLang, pageSlug }: { lang?: Lang; pa
             onExpandToggle={() => setExpanded(v => !v)}
             isExpanded={expanded}
             lang={lang}
-            pageSlug={pageSlug}
+            page={page}
           />
         </div>
       )}
