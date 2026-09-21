@@ -3,7 +3,7 @@ import { ChatWidget } from './ChatWidget'
 import { chatT } from '@/i18n/chat'
 import { defaultLang, type Lang } from '@/i18n/ui'
 
-export function InlineAsk({ lang = defaultLang }: { lang?: Lang }) {
+export function InlineAsk({ lang = defaultLang, pageSlug }: { lang?: Lang; pageSlug?: string }) {
   const t = chatT(lang)
   const [value, setValue] = useState('')
   const [open, setOpen] = useState(false)
@@ -27,7 +27,7 @@ export function InlineAsk({ lang = defaultLang }: { lang?: Lang }) {
           </button>
         </div>
         <div className="inline-ask-panel-body">
-          <ChatWidget embedded pendingMessage={pendingMessage} lang={lang} />
+          <ChatWidget embedded pendingMessage={pendingMessage} lang={lang} pageSlug={pageSlug} />
         </div>
 
         <style>{`

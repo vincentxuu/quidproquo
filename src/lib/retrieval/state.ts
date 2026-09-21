@@ -67,6 +67,7 @@ export interface RagRuntimeConfig {
   searchToolProviders: string[]
   searchToolMaxResults: number
   searchToolTimeoutMs: number
+  pageContextEnabled: boolean
 }
 
 export interface Plan {
@@ -168,6 +169,7 @@ export function initialState(): GraphState {
   searchToolProviders: [...SUPPORTED_SEARCH_TOOL_PROVIDERS],
   searchToolMaxResults: 4,
   searchToolTimeoutMs: 8000,
+  pageContextEnabled: false,
   },
     plan: { intent: 'factual', complexity: 'medium', needs_clarification: false, subtasks: [], search_keywords: [], specialists: [] },
     needs_web_search: false,

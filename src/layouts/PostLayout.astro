@@ -14,6 +14,7 @@ interface Props {
   articleDate?: Date;
   articleUpdated?: Date;
   articleTags?: string[];
+  articleSlug?: string;
   switchHref?: string;
   hasTranslation?: boolean;
   hreflangEn?: string;
@@ -27,6 +28,7 @@ const {
   articleDate,
   articleUpdated,
   articleTags,
+  articleSlug,
   switchHref: switchHrefProp,
   hasTranslation,
   hreflangEn,
@@ -129,7 +131,7 @@ const pageTitle =
     </a>
   </footer>
 
-  <ChatFloating client:only="react" lang={lang} />
+  <ChatFloating client:only="react" lang={lang} pageSlug={articleSlug} />
 
   <!-- Floating scroll-to-top -->
   <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">

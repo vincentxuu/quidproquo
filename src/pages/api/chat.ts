@@ -9,6 +9,7 @@ import { createSpan, createTrace, scoreTrace, updateTrace } from '../../lib/lang
 import { loadRagSettings, buildShadowBaselineConfig } from '../../lib/retrieval/settings'
 import { loadLatestCheckpoint, maybeSaveCheckpoint } from '../../lib/conversation/checkpoints'
 import { lookupSemanticCache, storeSemanticCache } from '../../lib/conversation/cache'
+import { pageCacheNamespace, resolvePageContext } from '../../lib/conversation/page-context'
 import type { GraphState, RagRuntimeConfig } from '../../lib/retrieval/state'
 import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
 import type { Env } from '@/lib/config/env'
@@ -27,6 +28,7 @@ type PipelineEngineOverride = RagRuntimeConfig['pipelineEngine']
 type ChatBody = {
   message: string
   thread_id?: string
+  page_context?: { slug?: string }
   pipelineEngine?: PipelineEngineOverride
   traceScope?: TraceScope
   cacheMode?: ChatCacheMode
@@ -128,8 +130,11 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   }
   const traceStepEvents: StepEvent[] = []
 
-  // agent 引擎的答案風格不同，快取分開放，避免 A/B 時互相污染
-  const cacheNamespace = ragConfig.pipelineEngine === 'agent' ? 'agent' : undefined
+  // 讀者正在看的文章；flag 關閉或 slug 查不到時為 null，整個請求照全站問題處理
+  const pageContext = await resolvePageContext((env as unknown as Env).DB, body.page_context, ragConfig.pageContextEnabled)
+    .catch(() => null)
+  // agent 引擎的答案風格不同，快取分開放，避免 A/B 時互相污染；帶文章脈絡時再依文章分開
+  const cacheNamespace = await pageCacheNamespace(ragConfig.pipelineEngine === 'agent' ? 'agent' : undefined, pageContext)
   const cached = bypassSemanticCache
     ? null
     : await lookupSemanticCache(message, ragConfig.semanticCacheThreshold, cacheNamespace).catch(() => null)
@@ -168,6 +173,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
       cache_mode: cacheMode,
       pipeline_engine: ragConfig.pipelineEngine,
       thread_id,
+      page_context_slug: pageContext?.slug ?? null,
       started_at: new Date(startedAt).toISOString(),
       request_user: isAdmin ? 'owner' : ip,
     },

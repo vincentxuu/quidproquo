@@ -29,6 +29,7 @@ const baseConfig: RagRuntimeConfig = {
   searchToolProviders: [...SUPPORTED_SEARCH_TOOL_PROVIDERS],
   searchToolMaxResults: 4,
   searchToolTimeoutMs: 8000,
+  pageContextEnabled: false,
 }
 
 describe('rag settings helpers', () => {

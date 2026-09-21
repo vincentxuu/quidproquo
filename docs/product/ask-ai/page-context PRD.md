@@ -1,6 +1,6 @@
 # 讀文章時的 Ask AI（page context）PRD
 
-- 狀態：草稿（2026-09-21），待拍板後實作
+- 狀態：實作中（2026-09-21）——第 1 步「管道」已完成，flag 預設關閉；待拍板三項均採建議方案
 - 來源：`docs/product/reviews/agent-ux-2026-09-19-ask-ai.md` 發現 1（P1）
 - 方法：`agent-ux-design` 五步驟
 
@@ -76,7 +76,7 @@
 
 ## 6. 實作切分
 
-1. **管道**（flag 關閉狀態可合併）：`PostLayout.astro` → `ChatFloating` → `ChatWidget` 傳 `slug`／標題／glossary 首詞；`ChatBody` 加 `page_context`；伺服器驗證 slug；flag 讀取。
+1. **管道**（flag 關閉狀態可合併）——**已完成 2026-09-21**：`PostLayout.astro` → `ChatFloating` → `ChatWidget` 傳 `slug`（標題與 glossary 首詞只有 chip／建議問題用得到，留到第 3 步再傳）；`ChatBody` 加 `page_context`；伺服器驗證 slug；flag 讀取。
 2. **檢索偏置＋cache 分流＋trace 欄位**，含單元測試。
 3. **前端 chip 與文章建議問題**，i18n，視覺回歸基線更新。
 4. **評測切片**：補題、跑 A／B／C 三組，結果寫回本文件。
@@ -84,10 +84,24 @@
 
 預估影響檔案少於 20 個，不需新 dependency。
 
+### 第 1 步實作紀錄（2026-09-21）
+
+- flag：`RagRuntimeConfig.pageContextEnabled`／D1 鍵 `rag_flag_page_context`，預設 `false`。
+- `src/lib/conversation/page-context.ts`：`resolvePageContext` 驗證 slug、由 D1 取標題（前端文字不進 prompt）；flag 關閉時不碰資料庫。`pageCacheNamespace` 把 slug 雜湊進 semantic cache namespace（原訂第 2 步的 cache 分流，因為只有幾行就提前做了）。
+- `/api/chat` 收 `page_context.slug`，trace metadata 記 `page_context_slug`。**pipeline 還沒用到它**，檢索偏置是第 2 步。
+- `GET /api/chat/config` 回 `{ pageContext }`，`Cache-Control: max-age=60`；widget 第一次展開時問一次、存 `sessionStorage`。flag 關閉時前端不送 `page_context`。
+- 浮窗與文末 InlineAsk 都帶 `pageSlug`。
+- **slug 陷阱**：`post.id` 經 slugify 會吃掉版號的點（`…-pydantic-ai-2.36.0` → `…-2360`），D1 的 slug 是檔案路徑、保留點。本功能改用 `post.filePath` 推出 D1 slug，已在 dev server 確認頁面輸出帶點。
+- 驗證：相關測試 55 pass、`pnpm lint`、`astro check` 0 錯誤；`/api/chat/config` 在 dev 回 200。**未驗證**：flag 開啟後的端到端流程——本機 D1 是空的，第 2 步開工前要先 `pnpm sync`。
+
+### 順帶發現的既有問題（未修）
+
+`RelatedPosts`（`[...slug].astro` 的 `slug={post.id}`）與 glossary explain（`data-post-slug={post.id}`）傳的是 slugify 後的 id，版號帶點的文章在這兩支 API 查不到 D1 資料——延伸閱讀應該是空的、名詞解釋拿不到文章脈絡。影響範圍是檔名含點的文章（多為 daily framework 版本速報）。修法是一樣改傳 `d1Slug`，但會改變這兩支 API 的實際行為，另案處理。
+
 ## 7. 待拍板
 
 1. **前端如何得知 flag**：文章頁是 `prerender = true`（`src/pages/posts/[...slug].astro:3`），渲染時讀不到 D1，所以 slug／標題／glossary 首詞可在 build 時寫進 prop，但 flag 狀態必須在執行期取得。目前 widget 只呼叫 `/api/chat`，沒有現成的設定端點。兩個做法：
-   - (a) 新增輕量 `GET /api/chat/config` 回 `{ pageContext: boolean }`，浮窗第一次展開時才打、結果存 `sessionStorage`。單一事實來源，正式區切 flag 立即生效。**建議。**
+   - (a) **已採用**——新增輕量 `GET /api/chat/config` 回 `{ pageContext: boolean }`，浮窗第一次展開時才打、結果存 `sessionStorage`。單一事實來源，正式區切 flag 立即生效。**建議。**
    - (b) UI 用 build-time 的 `PUBLIC_` 環境變數、伺服器用 D1 flag。少一支端點，但兩個開關會漂移，切 UI 還得重新 deploy。
 2. **建議問題按鈕是否扣額度**：建議照扣（與手打同等），但 chip 讓第一題命中率提高，實際上是省額度。
 3. **InlineAsk（文末）是否一併帶 `page_context`**：建議一併帶，成本極低；與浮窗整併屬 P2，不在本次範圍。

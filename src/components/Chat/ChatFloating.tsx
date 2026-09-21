@@ -3,7 +3,7 @@ import { ChatWidget } from './ChatWidget'
 import { chatT } from '@/i18n/chat'
 import { defaultLang, type Lang } from '@/i18n/ui'
 
-export function ChatFloating({ lang = defaultLang }: { lang?: Lang }) {
+export function ChatFloating({ lang = defaultLang, pageSlug }: { lang?: Lang; pageSlug?: string }) {
   const t = chatT(lang)
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState(false)
@@ -40,6 +40,7 @@ export function ChatFloating({ lang = defaultLang }: { lang?: Lang }) {
             onExpandToggle={() => setExpanded(v => !v)}
             isExpanded={expanded}
             lang={lang}
+            pageSlug={pageSlug}
           />
         </div>
       )}

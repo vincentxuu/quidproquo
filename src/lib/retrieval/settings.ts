@@ -34,6 +34,7 @@ const DEFAULTS: RagRuntimeConfig = {
   searchToolProviders: [...SUPPORTED_SEARCH_TOOL_PROVIDERS],
   searchToolMaxResults: 4,
   searchToolTimeoutMs: 8000,
+  pageContextEnabled: false,
 }
 
 const SETTINGS_KEYS = {
@@ -62,6 +63,7 @@ const SETTINGS_KEYS = {
   searchToolProviders: 'rag_search_tool_providers',
   searchToolMaxResults: 'rag_search_tool_max_results',
   searchToolTimeoutMs: 'rag_search_tool_timeout_ms',
+  pageContextEnabled: 'rag_flag_page_context',
 } as const
 
 function parseBoolean(value: string | undefined, fallback: boolean): boolean {
@@ -151,6 +153,7 @@ export async function loadRagSettings(): Promise<RagRuntimeConfig> {
     ),
     searchToolMaxResults: parseNumber(byKey.get(SETTINGS_KEYS.searchToolMaxResults), 4),
     searchToolTimeoutMs: parseNumber(byKey.get(SETTINGS_KEYS.searchToolTimeoutMs), 8000),
+    pageContextEnabled: parseBoolean(byKey.get(SETTINGS_KEYS.pageContextEnabled), DEFAULTS.pageContextEnabled),
   }
 }
 

@@ -60,6 +60,32 @@ interface PendingMessage {
 }
 
 const WELCOME_ID = 'welcome'
+const PAGE_CONTEXT_FLAG_KEY = 'chat_page_context_enabled'
+
+// 文章頁是靜態頁，flag 只能在執行期問伺服器；同一個分頁問一次就好。
+function usePageContextFlag(wanted: boolean): boolean {
+  const [enabled, setEnabled] = useState(false)
+  useEffect(() => {
+    if (!wanted) return
+    const stored = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem(PAGE_CONTEXT_FLAG_KEY) : null
+    if (stored !== null) {
+      setEnabled(stored === '1')
+      return
+    }
+    let cancelled = false
+    fetch('/api/chat/config')
+      .then(resp => (resp.ok ? resp.json() : { pageContext: false }) as Promise<{ pageContext?: boolean }>)
+      .then(config => {
+        if (cancelled) return
+        const on = config.pageContext === true
+        setEnabled(on)
+        try { sessionStorage.setItem(PAGE_CONTEXT_FLAG_KEY, on ? '1' : '0') } catch { /* private mode */ }
+      })
+      .catch(() => { /* 問不到就當沒開，行為與現在相同 */ })
+    return () => { cancelled = true }
+  }, [wanted])
+  return enabled
+}
 
 export function ChatWidget({
   embedded = false,
@@ -68,6 +94,7 @@ export function ChatWidget({
   onExpandToggle,
   isExpanded,
   lang = defaultLang,
+  pageSlug,
 }: {
   embedded?: boolean
   pendingMessage?: PendingMessage
@@ -75,6 +102,7 @@ export function ChatWidget({
   onExpandToggle?: () => void
   isExpanded?: boolean
   lang?: Lang
+  pageSlug?: string
 }) {
   const t = useMemo(() => chatT(lang), [lang])
   const welcome = useMemo<Message>(() => ({ id: WELCOME_ID, role: 'assistant', content: t('chat.welcome') }), [t])
@@ -84,6 +112,7 @@ export function ChatWidget({
   const [remaining, setRemaining] = useState<number | null>(null)
   const [suggestionPage, setSuggestionPage] = useState(0)
   const abortRef = useRef<AbortController | null>(null)
+  const pageContextEnabled = usePageContextFlag(Boolean(pageSlug))
   const threadId = useRef(
     typeof localStorage !== 'undefined'
       ? (localStorage.getItem('chat_thread_id') ?? crypto.randomUUID())
@@ -135,7 +164,11 @@ export function ChatWidget({
       const resp = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, thread_id: threadId.current }),
+        body: JSON.stringify({
+          message: text,
+          thread_id: threadId.current,
+          ...(pageSlug && pageContextEnabled ? { page_context: { slug: pageSlug } } : {}),
+        }),
         signal: controller.signal,
       })
 

@@ -56,6 +56,9 @@ const glossaryEntries = resolveGlossaryForLang(
 );
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://quidproquo.cc';
+// D1／Vectorize 的 slug 是檔案路徑去掉 .md；post.id 經過 slugify 會吃掉版號裡的點
+//（…-pydantic-ai-2.36.0 → …-2360），兩者不能混用。
+const d1Slug = post.filePath?.replace(/^.*src\/content\/posts\//, '').replace(/\.md$/, '') ?? post.id;
 const ogImage = `${siteUrl}/og/${post.id}.png`;
 const postUrl = `${siteUrl}/posts/${post.id}/`;
 
@@ -150,6 +153,7 @@ const breadcrumbLD = {
   articleDate={post.data.date}
   articleUpdated={post.data.updated}
   articleTags={post.data.tags}
+  articleSlug={d1Slug}
   switchHref={switchHref}
   hasTranslation={hasTranslation}
   hreflangEn={enHref}
@@ -216,7 +220,7 @@ const breadcrumbLD = {
     <div class="post-grid">
       <!-- Sidebar: sticky TOC + optional related video -->
       <aside class="post-sidebar">
-        <InlineAsk client:idle lang={lang} />
+        <InlineAsk client:idle lang={lang} pageSlug={d1Slug} />
         {headings.length > 0 && (
           <details class="toc" open={isDailyBrief || post.data.category !== 'daily'}>
             <summary class="toc-header">
