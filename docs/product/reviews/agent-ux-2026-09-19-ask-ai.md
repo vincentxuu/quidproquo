@@ -104,8 +104,28 @@
 
 理由：P0 全是前端、可逆、不動資料與 API，立即改善每次使用；P1 命中未被服務的主要意圖（看懂這篇），價值最高但要 flag 和評測；P2 依賴 P1 的頁面脈絡管道。
 
+## 進度核對（2026-09-21，對照程式碼）
+
+P0 已由 `d46ce901`、`0cd3dd59` 落地，逐項核對如下：
+
+| 發現 | 項目 | 狀態 | 證據 |
+|---|---|---|---|
+| 3 | 複製答案 | 已做 | `ChatMessageRow.tsx` `MessageActions` |
+| 3 | 錯誤後重試 | 已做，**但重試仍扣額度** | `ChatWidget.tsx` `handleRetry` 註解「伺服器照常計次」 |
+| 3 | 對正常答案「重新回答」 | 未做 | `onRetry` 只在 `msg.error` 時傳入（`ChatThread.tsx`） |
+| 3 | 來源收合 | 已做 | `LinkSection` 改 `<details>` |
+| 4 | 停止鈕進輸入框、串流中可打字 | 已做 | `ChatThread.tsx` `PromptInputSubmit onStop`，textarea 不再 `disabled` |
+| 5 | header margin、新對話獨立按鈕、移除 ⋯ | 已做 | `ChatHeader.tsx` `margin: 0`、`onNewChat` |
+| 6 | 建議問題移到輸入框上方、免責灰字 | 已做 | `beforeComposer={suggestions}`、`chat.disclaimer` |
+| 7 | 頭像改本地靜態檔 | 已做 | `/chat/avatar-*.svg`，repo 內已無 dicebear |
+| 8 | 刪 `FloatButton.tsx` | 已做 | 檔案已不存在 |
+| 9 | IME `keyCode 229`、`enterKeyHint`、16px、log aria-label | 已做 | `prompt-input.tsx:979`、`ChatThread.tsx` |
+| 9 | `role="status"` 回報「回覆中／完成」 | 未做 | 目前只有複製成功的 status |
+
+P0 剩餘三個小缺口：重試扣額度、正常答案無「重新回答」、串流狀態無 `role="status"`。
+
 ## 後續行動
-- [ ] P0 快修直接實作（前端，限 `src/components/Chat/`、`chat.css`、`prompt-input.tsx`）
-- [ ] 用 `agent-ux-design` 規劃 P1「讀文章時的 Ask AI」（含 flag 與評測設計）
+- [x] P0 快修直接實作（前端，限 `src/components/Chat/`、`chat.css`、`prompt-input.tsx`）——剩餘缺口見上表
+- [x] 用 `agent-ux-design` 規劃 P1「讀文章時的 Ask AI」（含 flag 與評測設計）→ `docs/product/ask-ai/page-context PRD.md`（草稿，有 3 項待拍板）
 - [ ] 拍板：捲動策略、👍👎 儲存方式、是否刪 FloatButton
 - [ ] 轉 OpenSpec change 或登錄 `docs/governance/escalation-queue.md`（需人拍板項）
