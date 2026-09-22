@@ -334,11 +334,11 @@ export function ChatWidget({
   const suggestions = messages.length === 1 && !loading ? (
     <div className="px-4 pt-2 pb-3" style={{ background: 'var(--bg-subtle)' }}>
       <div className="mb-1.5 flex items-center justify-between gap-2">
-        <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>{t('chat.suggestions.title')}</span>
+        <span className="text-sm font-bold" style={{ color: 'var(--text-secondary)' }}>{t('chat.suggestions.title')}</span>
         <button
           type="button"
           onClick={() => setSuggestionPage(page => page + 1)}
-          className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg border-none bg-transparent px-2 py-1 text-xs font-bold transition-colors hover:bg-accent"
+          className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg border-none bg-transparent px-2 py-1 text-sm font-bold transition-colors hover:bg-accent"
           style={{ color: 'var(--text-secondary)' }}
           aria-label={t('chat.suggestions.refreshAria')}
         >
@@ -352,12 +352,7 @@ export function ChatWidget({
             key={question}
             suggestion={question}
             onClick={(q) => void sendMessage(q)}
-            className="chat-suggestion h-auto justify-start whitespace-normal text-left text-xs leading-relaxed"
-            style={{
-              background: 'var(--brand-100)',
-              color: 'var(--brand-700)',
-              borderColor: 'var(--border)',
-            }}
+            className="chat-suggestion h-auto justify-start whitespace-normal text-left text-sm leading-relaxed"
           />
         ))}
       </div>
@@ -366,7 +361,7 @@ export function ChatWidget({
 
   // chip 整段對話都留著（不只空狀態），讀者隨時看得到 AI 以哪篇為脈絡、也隨時能拿掉
   const pageChip = activePage ? (
-    <div className="flex items-center gap-1.5 px-4 pt-2 pb-1 text-xs" style={{ background: 'var(--bg-card)', color: 'var(--text-secondary)' }}>
+    <div className="flex items-center gap-1.5 px-4 pt-2 pb-1 text-sm" style={{ background: 'var(--bg-card)', color: 'var(--text-secondary)' }}>
       <span className="shrink-0 font-bold">{t('chat.page.chip')}</span>
       <span className="min-w-0 truncate" title={activePage.title}>{activePage.title}</span>
       <button

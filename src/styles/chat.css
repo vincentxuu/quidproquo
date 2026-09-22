@@ -82,7 +82,7 @@ textarea[data-slot="input-group-control"]::placeholder {
   background: transparent;
   color: var(--text-muted);
   font: inherit;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   cursor: pointer;
 }
 .chat-message-action:hover {
@@ -94,13 +94,37 @@ textarea[data-slot="input-group-control"]::placeholder {
   outline-offset: 1px;
 }
 
-/* 建議題目卡：扁平 tag，不帶 Button outline 的 shadow-xs；hover 邊框轉品牌綠 */
+/* 建議題目卡：扁平 tag，帶綠色調；深色另給一組保留綠意的值。
+   配色從 ChatWidget inline style 搬到這裡，深色才能覆寫。 */
 .chat-suggestion {
   box-shadow: none;
+  background: var(--brand-100);
+  color: var(--brand-700);
+  border-color: var(--border);
 }
 .chat-suggestion:hover {
   border-color: var(--brand-500);
   background: var(--brand-50);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .chat-suggestion {
+    background: color-mix(in srgb, var(--brand-500) 12%, var(--bg-card));
+    color: var(--text-primary);
+    border-color: color-mix(in srgb, var(--brand-500) 22%, var(--border));
+  }
+  :root:not([data-theme="light"]) .chat-suggestion:hover {
+    background: color-mix(in srgb, var(--brand-500) 20%, var(--bg-card));
+    border-color: var(--brand-500);
+  }
+}
+:root[data-theme="dark"] .chat-suggestion {
+  background: color-mix(in srgb, var(--brand-500) 12%, var(--bg-card));
+  color: var(--text-primary);
+  border-color: color-mix(in srgb, var(--brand-500) 22%, var(--border));
+}
+:root[data-theme="dark"] .chat-suggestion:hover {
+  background: color-mix(in srgb, var(--brand-500) 20%, var(--bg-card));
+  border-color: var(--brand-500);
 }
 
 /* 送出鍵：跟站內圓形 launcher 同語言（深綠圓＋白圖示），hover 用亮度避免 inline 背景蓋掉偽類 */
@@ -142,7 +166,7 @@ textarea[data-slot="input-group-control"]::placeholder {
    公開頁沒載 Tailwind preflight，這裡的 <button> 全部自己 reset。 */
 .chat-activity {
   margin: 0 0 0.65rem;
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 .chat-activity-line,
@@ -237,7 +261,7 @@ textarea[data-slot="input-group-control"]::placeholder {
 }
 .chat-activity-detail-label {
   margin: 0.55rem 0 0.25rem;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -324,7 +348,7 @@ textarea[data-slot="input-group-control"]::placeholder {
 .chat-thinking-label {
   position: relative;
   z-index: 1;
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   font-weight: 700;
   line-height: 1;
   color: var(--brand-700, #2d4a2d);

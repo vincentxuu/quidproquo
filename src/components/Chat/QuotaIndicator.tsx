@@ -4,7 +4,7 @@ export function QuotaIndicator({ remaining, limit }: { remaining: number; limit:
   const { t } = useChatLocale()
   const pct = (remaining / limit) * 100
   return (
-    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
         <span>{t('chat.quota', { remaining, limit })}</span>
         <div style={{ flex: 1, background: 'var(--border)', borderRadius: 4, height: 6 }}>

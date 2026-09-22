@@ -124,7 +124,7 @@ export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeC
             />
           </PromptInput>
           {footerNote && (
-            <div className="mt-1.5 flex items-center gap-3 px-1 text-[11px] leading-4" style={{ color: 'var(--text-muted)' }}>
+            <div className="mt-1.5 flex items-center gap-3 px-1 text-xs leading-4" style={{ color: 'var(--text-muted)' }}>
               {footerNote}
             </div>
           )}

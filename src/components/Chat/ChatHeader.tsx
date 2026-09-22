@@ -77,7 +77,7 @@ export function ChatHeader({
             )}
           </div>
           {resolvedSubtitle && (
-            <p style={{ margin: 0 }} className="truncate text-[11px] leading-4 text-muted-foreground">{resolvedSubtitle}</p>
+            <p style={{ margin: 0 }} className="truncate text-xs leading-4 text-muted-foreground">{resolvedSubtitle}</p>
           )}
         </div>
       </div>

@@ -232,7 +232,7 @@ const styles: Record<string, CSSProperties> = {
   content: {
     minWidth: 0,
     color: 'inherit',
-    fontSize: '0.95rem',
+    fontSize: '1rem',
     lineHeight: 1.7,
     overflowWrap: 'anywhere' as const,
     wordBreak: 'break-word' as const,
