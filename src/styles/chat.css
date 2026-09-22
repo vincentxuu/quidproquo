@@ -32,6 +32,18 @@ button[data-streamdown="link"]:hover {
   color: var(--brand-700, #2d4a2d);
 }
 
+/* 輸入框：公開頁沒載 Tailwind preflight，<textarea> 會留著瀏覽器 UA 的
+   `color: fieldtext`（黑字），深色下打字看不見。這裡明確接回站內 token。 */
+textarea[data-slot="input-group-control"] {
+  color: var(--text-primary);
+  caret-color: var(--brand-500);
+  font-family: inherit;
+}
+textarea[data-slot="input-group-control"]::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
 /* Chat header icon 按鈕：透明底＋次要文字色，hover 才給底色。
    不依賴 Button ghost variant 的主題映射，避免某層 token 漂移就冒出實心淺底。 */
 .chat-icon-btn {
@@ -44,8 +56,8 @@ button[data-streamdown="link"]:hover {
   color: var(--text-primary);
 }
 .chat-icon-btn-danger:hover {
-  background: color-mix(in srgb, #ef4444 14%, transparent);
-  color: #ef4444;
+  background: color-mix(in srgb, var(--danger, #ef4444) 14%, transparent);
+  color: var(--danger, #ef4444);
 }
 
 /* 回答下方動作列（複製／重試）：串流結束才出現；公開頁沒 preflight，button 自己 reset */
@@ -103,14 +115,14 @@ button[data-streamdown="link"]:hover {
   --color-background: var(--bg-card, #ffffff);
   --color-foreground: var(--text-primary, #1a1a1a);
   --color-primary: var(--brand-700, #2d4a2d);
-  --color-primary-foreground: #ffffff;
+  --color-primary-foreground: var(--bg-page, #ffffff);
   --color-secondary: var(--bg-subtle, #f5f7f5);
   --color-secondary-foreground: var(--text-primary, #1a1a1a);
   --color-accent: var(--brand-100, #e8f5e8);
   --color-accent-foreground: var(--text-primary, #1a1a1a);
   --color-muted: var(--bg-subtle, #f5f7f5);
   --color-muted-foreground: var(--text-muted, #767676);
-  --color-destructive: #b42318;
+  --color-destructive: var(--danger, #b42318);
   --color-border: var(--border, #d1e8d1);
   --color-input: var(--border, #d1e8d1);
   --color-ring: var(--brand-500, #4a9e6a);
@@ -253,7 +265,7 @@ button[data-streamdown="link"]:hover {
   font-weight: 400;
 }
 .chat-activity-error {
-  color: #b42318;
+  color: var(--danger, #b42318);
 }
 
 
@@ -275,7 +287,7 @@ button[data-streamdown="link"]:hover {
   position: absolute;
   inset: 0;
   width: 45%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  background: linear-gradient(90deg, transparent, var(--shine, rgba(255, 255, 255, 0.55)), transparent);
   animation: chat-thinking-shine 1.45s ease-in-out infinite;
   transform: translateX(-120%);
 }

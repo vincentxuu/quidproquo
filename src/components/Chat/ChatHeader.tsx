@@ -64,7 +64,7 @@ export function ChatHeader({
             {showStatus && (
               <span role="status" className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium tabular-nums"
                 style={{
-                  borderColor: 'var(--brand-200)',
+                  borderColor: 'var(--brand-300)',
                   color: 'var(--brand-700)',
                   background: 'var(--brand-50)',
                 }}>

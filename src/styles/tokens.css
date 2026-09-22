@@ -35,6 +35,8 @@
   --success-icon:   #22c55e;
   --warning-bg:    #fffbeb;
   --warning-border: #f59e0b;
+  --danger:     #b42318;
+  --shine:      rgba(255, 255, 255, 0.55);
   --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.08);
   --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.15);
   --code-dot-red: #ff5f57;
@@ -85,6 +87,8 @@
   --success-icon:   #4ade80;
   --warning-bg:    #1a1a0f;
   --warning-border: #f59e0b;
+  --danger:     #f87171;
+  --shine:      rgba(255, 255, 255, 0.08);
   --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.25);
   --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
