@@ -13,7 +13,7 @@ import { getTranslation } from '../../utils/i18n-pairing';
 import { getSeriesHref } from '../../utils/series';
 import { DEFAULT_GLOSSARY_TERMS, normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossary/terms';
 import RelatedPosts from '../../components/RelatedPosts';
-import { InlineAsk } from '../../components/Chat/InlineAsk';
+
 import { getYouTubeEmbedId } from '../../utils/youtube';
 
 export async function getStaticPaths() {
@@ -221,7 +221,6 @@ const breadcrumbLD = {
     <div class="post-grid">
       <!-- Sidebar: sticky TOC + optional related video -->
       <aside class="post-sidebar">
-        <InlineAsk client:idle lang={lang} page={{ slug: d1Slug, title: post.data.title, term: post.data.glossary?.[0]?.term }} />
         {headings.length > 0 && (
           <details class="toc" open={isDailyBrief || post.data.category !== 'daily'}>
             <summary class="toc-header">
@@ -649,8 +648,6 @@ const breadcrumbLD = {
   .video-card-source { display: block; font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; }
 
   /* ── Inline AI ask ── */
-  .post-sidebar :global(.inline-ask) { margin-bottom: 1.5rem; }
-
   /* ── Series box ── */
   .series-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
   .series-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; }

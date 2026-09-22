@@ -2,6 +2,7 @@
 // src/layouts/PostLayout.astro
 import { getLangFromUrl, useTranslations, type Lang } from '../i18n/utils';
 import Icons from '../components/Icons.astro';
+import { ChatSidebar } from '../components/Chat/ChatSidebar';
 import { ChatFloating } from '../components/Chat/ChatFloating';
 import '../styles/tokens.css';
 import '../styles/chat.css';
@@ -133,7 +134,10 @@ const pageTitle =
     </a>
   </footer>
 
-  <ChatFloating client:only="react" lang={lang} page={articleSlug ? { slug: articleSlug, title, term: articleTerm } : undefined} />
+  {articleSlug
+    ? <ChatSidebar client:only="react" lang={lang} page={{ slug: articleSlug, title, term: articleTerm }} />
+    : <ChatFloating client:only="react" lang={lang} />
+  }
 
   <!-- Floating scroll-to-top -->
   <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">

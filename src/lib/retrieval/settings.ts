@@ -34,7 +34,7 @@ const DEFAULTS: RagRuntimeConfig = {
   searchToolProviders: [...SUPPORTED_SEARCH_TOOL_PROVIDERS],
   searchToolMaxResults: 4,
   searchToolTimeoutMs: 8000,
-  pageContextEnabled: false,
+  pageContextEnabled: true,
 }
 
 const SETTINGS_KEYS = {
