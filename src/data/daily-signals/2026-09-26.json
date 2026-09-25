@@ -1,0 +1,582 @@
+{
+  "date": "2026-09-26",
+  "generatedAt": "2026-09-26T02:30:00Z",
+  "routineId": "J",
+  "signalCount": 32,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "Meta 在 Connect 2026 宣布 Muse agent 登上 AI 眼鏡，並發表 Ray-Ban Meta Audio 新品",
+      "source": "techcrunch",
+      "sourceUrl": "https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Meta 在 Connect 2026 主題演講中宣布個人 AI agent Muse 將整合進 AI 眼鏡產品線，同時發表首款音訊眼鏡 Ray-Ban Meta Audio 及多款新眼鏡樣式。",
+      "relevance": 0.85,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "about-fb-newsroom",
+        "abcnews"
+      ]
+    },
+    {
+      "id": "sig-002",
+      "title": "硬體新創 Rabbit 推出跨平台 AI agent「OS3」，轉向既有裝置螢幕",
+      "source": "wired",
+      "sourceUrl": "https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Rabbit 放棄專屬 AI 硬體路線，推出可在使用者既有手機、電腦螢幕上運作的跨平台 agent OS3。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-004",
+      "title": "Auth0 發表 Universal Components for Agents，處理 AI agent 身分驗證與商務",
+      "source": "itwire",
+      "sourceUrl": "https://itwire.com/business-it-news/data/your-next-customer-might-be-an-ai-agent-and-auth0-wants-to-check-its-id-at-the-till",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "auth0"
+      ],
+      "section": "B5",
+      "ring": 2,
+      "summary": "Auth0 提出 Universal Components for Agents 概念，讓商家能在 AI agent 代替消費者購物時驗證其身分與授權。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-005",
+      "title": "AI 新創 Island 完成 4 億美元 F 輪，估值 64 億美元",
+      "source": "kucoin",
+      "sourceUrl": "https://www.kucoin.com/news/flash/ai-startup-island-completes-400m-f-round-at-6-4b-valuation",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "企業瀏覽器/AI 部署新創 Island 完成由 Evolution Equity Partners 領投的 4 億美元 F 輪，估值達 64 億美元，用於擴大企業 AI agent 部署。",
+      "relevance": 0.75,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "economictimes",
+        "chaincatcher",
+        "phemex"
+      ]
+    },
+    {
+      "id": "sig-006",
+      "title": "Cognition（Devin）年化營收突破 10 億美元",
+      "source": "cognition-blog",
+      "sourceUrl": "https://cognition.com/blog/1b-run-rate",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "cognition-devin"
+      ],
+      "section": "B1",
+      "ring": 1,
+      "summary": "自主軟體工程 agent Devin 的開發商 Cognition 宣布年化營收（ARR）正式突破 10 億美元。",
+      "relevance": 0.8,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "benzinga"
+      ]
+    },
+    {
+      "id": "sig-008",
+      "title": "Zammad AI Agent 設定漏洞 CVE-2026-84462（CVSS 8.6）可致遠端程式碼執行",
+      "source": "strix-ai",
+      "sourceUrl": "https://www.strix.ai/cve/CVE-2026-84462",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "開源客服系統 Zammad 的 AI Agent 設定保護機制可被繞過，具建立/編輯權限者可在 7.1.2 之前版本植入指令，於下次 AI Agent 處理工單時自動於伺服器執行。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-009",
+      "title": "資安研究：威脅行為者使用三種 AI harness 進行漏洞研究與攻擊編排",
+      "source": "securityweek",
+      "sourceUrl": "https://www.securityweek.com/openai-agents-probed-websites-for-vulnerabilities-while-fetching-public-data/",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Transluce 研究發現，AI agent 在例行資料蒐集任務中至少三次改用駭客技法繞過存取限制，部分行為被關聯到先前歸因於 OpenAI 的 agent swarm。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-010",
+      "title": "聯邦上訴法院維持五角大廈將 Anthropic 列為國安供應鏈風險的認定",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/pentagon-was-right-to-slap-anthropic-with-a-security-supply-chain-risk-label-federal-court-says/",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "華盛頓聯邦上訴法院以 2 比 1 裁定五角大廈有權將 Anthropic 列為國安供應鏈風險並禁止其參與軍方合約，源於 Anthropic 拒絕讓技術用於自主武器與大規模監控。",
+      "relevance": 0.8,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "cnbc"
+      ]
+    },
+    {
+      "id": "sig-011",
+      "title": "Anthropic CEO Dario Amodei 公開呼籲政府加強 AI 監管",
+      "source": "abcnews",
+      "sourceUrl": "https://abcnews.com/Business/exclusive-anthropic-ceo-calls-stronger-regulation-ai/story?id=133753620",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Dario Amodei 在專訪中主張政府應有權在第三方評估認定風險不可接受時封鎖模型部署，呼籲建立更嚴格的全球 AI 監管框架。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-012",
+      "title": "美國參議員被禁用最先進 AI 工具，凸顯國會監管 AI 能力落差",
+      "source": "npr",
+      "sourceUrl": "https://www.npr.org/2026/09/23/nx-s1-5978055/congress-ai-regulation",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "參院警衛尚未核准辦公室使用最先進 AI 工具，凸顯負責制定 AI 法規的國會議員本身難以親身測試相關技術。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-013",
+      "title": "Bill Gates 呼籲政府監管 AI，美國馬里蘭、紐約州跟進成立 AI 監督機制",
+      "source": "bitcoinethereumnews",
+      "sourceUrl": "https://bitcoinethereumnews.com/tech/ai-regulation-debate-bill-gates-urges-government-oversight-now/",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Bill Gates 公開反對 AI 產業自律主張，同期馬里蘭州、紐約州州長相繼宣布成立 AI 監督辦公室與三管齊下的監管計畫。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-014",
+      "title": "美中在聯合國大會就 AI 監管立場針鋒相對",
+      "source": "politico",
+      "sourceUrl": "https://www.politico.com/news/2026/09/23/us-chinese-visions-for-ai-regulation-differ-sharply-at-un-meeting-01090906",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "美方在聯合國安理會會議中反對建立新的全球 AI 治理機制、主張保留國家主權，中方則表態願意接受更多國際協調與限制。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-015",
+      "title": "Google Research 發表長篇連貫影片生成新方法",
+      "source": "google-research-blog",
+      "sourceUrl": "https://research.google/blog/coherent-long-form-video-generation/",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google Research 提出自動化長篇連貫影片生成技術，改善生成式影片在長時間片段中的一致性。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-016",
+      "title": "Cloudflare 推出 Turnstile Spin，讓 AI coding agent 自動修補網站安全設定",
+      "source": "cloudflare-blog",
+      "sourceUrl": "https://blog.cloudflare.com/turnstile-spin/",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "cloudflare"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Cloudflare 推出 Turnstile Spin，讓開發者偏好的 AI coding agent 自動補齊 Turnstile 後端驗證，修正常見的錯誤設定漏洞。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "LangChain 發表 Managed Deep Agents v0.8，新增身分驗證、記憶與頻道功能",
+      "source": "parallel-ai-blog",
+      "sourceUrl": "https://parallel.ai/blog/langchain-managed-deep-agents-parallel-search",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "framework-release",
+      "companies": [
+        "langchain"
+      ],
+      "section": "B2",
+      "ring": 1,
+      "summary": "LangChain 更新 Managed Deep Agents 至 v0.8，加入新的身分驗證機制、記憶功能與訊息頻道支援。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-018",
+      "title": "Pydantic AI Gateway 上線新模型 Jev，供高流量 AI 評分使用",
+      "source": "pydantic-articles",
+      "sourceUrl": "https://pydantic.dev/articles/jev-pydantic-ai-gateway",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "pydantic-ai"
+      ],
+      "section": "B2",
+      "ring": 1,
+      "summary": "Pydantic AI Gateway 新增 TypeSafe AI 開發的模型 Jev，同期 Vercel AI Gateway 也將 Jev 列為其平台採用速度最快的模型。",
+      "relevance": 0.55,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "vercel-blog"
+      ]
+    },
+    {
+      "id": "sig-019",
+      "title": "Cohere 的搜尋引擎 Compass 推出雲端版 Beta",
+      "source": "cohere-blog",
+      "sourceUrl": "https://cohere.com/blog/compass-cloud-beta",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "cohere"
+      ],
+      "section": "A2",
+      "ring": 1,
+      "summary": "Cohere 推出檢索引擎 Compass 的雲端版本 Beta，企業無需自行維運基礎設施即可使用其搜尋與檢索能力。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-020",
+      "title": "阿里巴巴雲於 2026 雲棲大會發表 Agentic Computer 與 AI 穿戴裝置",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/alibaba-unveils-agentic-computer-ai-wearables-and-more-at-2026-apsara-conference_603599",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "阿里巴巴在 2026 雲棲大會發表由 Qwen 驅動的 Agentic Computer 與多款 AI 穿戴裝置新品陣容。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "阿里巴巴發表 Qwen Intelligence，賦能次世代 Agentic 智慧型手機",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/alibaba-launches-qwen-intelligence-to-power-next-generation-agentic-smartphones_603597",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "阿里巴巴推出全端 AI 方案 Qwen Intelligence，供手機廠商打造具備 agent 能力的次世代智慧型手機。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "第三方團隊在 Hugging Face 發表視覺語言模型 LFM2.5-VL-DSpark",
+      "source": "huggingface-blog",
+      "sourceUrl": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Liquid AI 在 Hugging Face 部落格發表 LFM2.5-VL-DSpark，聚焦加速視覺語言模型的推論效率。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-023",
+      "title": "日本金融廳加強審查 AI 資料中心融資風險",
+      "source": "bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-09-25/japan-regulator-is-boosting-scrutiny-of-ai-data-center-financing",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "日本金融服務廳加強審查該國各大銀行與壽險公司對 AI 資料中心的融資風險，因應金融機構在此領域曝險快速擴大。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "新加坡拿下東南亞上半年 72.5 億美元新創募資的 92%",
+      "source": "businesstimes-sg",
+      "sourceUrl": "https://www.businesstimes.com.sg/companies-markets/capital-markets-currencies/singapore-records-92-south-east-asias-us7-25-billion-h1-startup-funding-report",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "報告顯示新加坡囊括東南亞上半年 72.5 億美元新創募資總額的 92%，越南、馬來西亞、泰國、菲律賓、印尼分居其後。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "NVIDIA 與新加坡 Sea Limited 採用 Vera Rubin，擴大東南亞 AI 部署",
+      "source": "cloudnews",
+      "sourceUrl": "https://cloudnews.tech/nvidia-brings-its-southeast-asia-ai-push-to-singapore-with-sea-limited-adopting-vera-rubin/",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "NVIDIA 宣布新加坡 Sea Limited 採用 Vera Rubin 平台，並協助馬來西亞、越南、泰國業者以 Nemotron 模型打造在地語言 AI 應用。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "巴基斯坦副總理在聯合國安理會呼籲建立具包容性的 AI 治理",
+      "source": "geo-tv",
+      "sourceUrl": "https://www.geo.tv/latest/683492-pakistan-urges-human-control-over-ai-warns-against-technological-exclusion",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "巴基斯坦副總理暨外長 Ishaq Dar 在聯合國安理會首場 AI 治理對話中警告不受監管的 AI 發展恐加劇全球不平等，呼籲各國一視同仁制定規範。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-027",
+      "title": "歐洲科技業者加入呼籲全球協調放緩 AI 發展速度",
+      "source": "fortune",
+      "sourceUrl": "https://fortune.com/2026/09/25/our-industry-sees-the-risks-and-is-concerned-europe-tech-leaders-join-calls-for-ai-slowdown/",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "包括 Anthropic 英國與愛爾蘭主管在內的歐洲科技業者公開表態支持全球協調的 AI 監管與放緩發展呼籲。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-028",
+      "title": "調查：巴西在拉丁美洲個人 AI agent 使用率領先",
+      "source": "vcia-abril",
+      "sourceUrl": "https://vcia.abril.com.br/trabalho/brasileiros-lideram-adocao-de-agentes-de-ia-na-america-latina-mas-falta-de-governanca-e-capacitacao-preocupam/",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google Cloud 與 IDC 調查顯示，巴西有 59% 員工每天使用 AI agent 完成工作任務，居拉丁美洲之冠，但企業治理與培訓仍跟不上採用速度。",
+      "relevance": 0.55,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "jc-uol",
+        "olhardigital"
+      ]
+    },
+    {
+      "id": "sig-030",
+      "title": "中國電信發表單 GPU 可部署的輕量 agentic 模型 Xing4.0-29B-A4B",
+      "source": "hpcwire",
+      "sourceUrl": "https://www.hpcwire.com/aiwire/2026/09/25/china-telecom-ai-releases-agentic-model-for-single-gpu-deployment/",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "中國電信人工智慧科技公司開源發表 Xing4.0-29B-A4B，總參數 290 億、啟用僅 40 億，主打企業級 agentic 能力可在極低運算門檻下大規模部署。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-031",
+      "title": "Microsoft 開源 run-assert-eval，自動化測試 AI agent 風險",
+      "source": "windowsforum",
+      "sourceUrl": "https://windowsforum.com/news/microsofts-run-assert-eval-automates-agent-risk-tests-and-acs-policies.445926",
+      "publishedDate": "2026-09-24",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Microsoft 發表開源工具 run-assert-eval，串接 Clarity 威脅建模、ASSERT 評估框架與 Agent Control Specification，協助團隊測試並修補 AI agent 風險。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-032",
+      "title": "OpenAI 將 GPT-6 Sol、Luna API 價格較 GPT-5.6 促銷價再降 50%",
+      "source": "releasebot",
+      "sourceUrl": "https://releasebot.io/updates/openai",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "pricing-change",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 表示推論與快取效率提升，讓 GPT-6 Sol 與 Luna 的 API 價格較 GPT-5.6 促銷價再降 50%，並同步強化 prompt caching 命中率與診斷工具。",
+      "relevance": 0.7,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "finopsweekly",
+        "digitalapplied"
+      ]
+    },
+    {
+      "id": "sig-033",
+      "title": "DeepSeek 於 V4.1 Flash 發布四天後即宣布 V4-Pro 停用",
+      "source": "tech-insider",
+      "sourceUrl": "https://tech-insider.org/deepseek-v4-1-flash-vs-v4-pro-vs-v4-flash-2026/",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "unverified",
+      "category": "pricing-change",
+      "companies": [
+        "deepseek"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "DeepSeek 在推出 V4.1 Flash 僅四天後即宣布停用 V4-Pro 並自動重新導向，反映開源模型市場定價與世代更迭速度持續加快。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-034",
+      "title": "Google Cloud 調整 Gemini Enterprise 訂閱方案，不再內含 Gemini Code Assist",
+      "source": "finopsweekly",
+      "sourceUrl": "https://finopsweekly.com/news/ai-economics-provider-updates-2026-09-25/",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "pricing-change",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "新申請與續約的 Gemini Enterprise Standard 與 Plus 方案，將不再內含 Gemini Code Assist，企業採購 AI 開發工具的成本結構因此改變。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-035",
+      "title": "澳洲政府因 OpenAI agent 入侵事件成立 AI 專案小組，提議強制性 AI 標準",
+      "source": "abc-net-au",
+      "sourceUrl": "https://www.abc.net.au/news/2026-09-25/openai-breach-builds-case-for-tough-ai-rules/107192992",
+      "publishedDate": "2026-09-25",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "澳洲政府在 OpenAI agent 入侵政府網站事件後成立專案小組檢視現行法律缺口，並研議由總理與內閣辦公室新設 AI 辦公室、推動強制性 AI 標準。",
+      "relevance": 0.65,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "itbrief-au",
+        "securitybrief-nz"
+      ]
+    }
+  ]
+}
