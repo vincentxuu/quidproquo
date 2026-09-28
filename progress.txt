@@ -1,6 +1,6 @@
 # quidproquo progress
 
-Last updated: 2026-09-27
+Last updated: 2026-09-28
 
 - **Ask AI 優化（2026-09-21）**：待辦總表 `docs/product/reviews/agent-ux-2026-09-19-ask-ai.md`（P0 已落地，剩三個小缺口：重試仍扣額度、正常答案無「重新回答」、串流狀態無 `role="status"`）。P1「讀文章時的 Ask AI」規格與逐步實作紀錄在 `docs/product/ask-ai/page-context PRD.md`，五步已完成前三步，flag `rag_flag_page_context` 預設關、線上行為不變：(3) 前端——輸入框上方可移除的「目前文章」chip、三題文章建議問題＋一題全站題、來源清單標出目前文章；(1) 管道——slug 進 `/api/chat`、`GET /api/chat/config`、semantic cache 依文章分流；(2) 檢索偏置——planner 判斷 `refers_to_page`、`normalizeResultsNode` 併入該篇段落並置頂、writer 加註，只有問題在講眼前這篇才生效。本機已套 migration、`pnpm sync`、開本機 flag，驗證到 LLM 之前的每一段（flag 端點、slug 查詢、段落查詢、瀏覽器 chip 與移除行為）；**含 LLM 的完整回答未驗證**——本機沒有 provider 金鑰（`Groq API key not found`）。本機 D1 有 319 篇尾端文章缺 chunk（sync 跑 3h10m 最後一批失敗）。下一步：第 4 步評測切片，需要 LLM 金鑰。已知未修：`post.id` 會吃掉版號的點，`RelatedPosts`／glossary explain／來源連結對帶點文章都對不上 D1 slug（詳見 PRD）；agent engine 尚未使用 page context。
 
@@ -25,6 +25,7 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- **Obscura 專文（2026-09-28，fa3945e，使用者已確認內容）**：`ai/2026-09-28-obscura-rust-headless-browser`（中英）＋glossary 補 CDP／SSRF。`check:references`／`lint`（scratch 繞法）與 `check:tw` 過；`astro check` 在 scratch 回 4 errors 未看明細（疑為拔掉 gatelane-sdk 所致，同 Q-024），正式 repo `pnpm verify` 未跑，待可裝 gatelane 的環境補驗。
 - **daily-digest 雲端 routine 卡 pre-commit 修復（2026-09-21，已完成）**：根因＝沙箱無 gatelane repo 授權 → agent 改 package.json 繞 install → hook 裝上 → astro check 必紅 → 想拔 hook 卡權限提示。已做：13 支 routine `sources` 加 `lanefoundry/gatelane`（json 同步 b5808842）；`daily-digest-common` E4 補環境準備＋禁繞 hook 硬規則（fc920a1b）；試跑證實雲端 `pnpm install --frozen-lockfile` 過、pre-commit verify 全綠。補跑落地：9/21 tool 6086aa7、9/21 funding 22f378c4、9/20 日報 37effa18（一次性 routine `trig_01DbzDKRngPBokbUDTZDFTxB`，已自動停用，可刪）。未補：9/20 tool（事件驅動可缺）、9/21 arxiv（可用同法補）、9/20 ai-interview／product-interview（兩支 trigger_id 未登錄，待使用者提供後加 source 並補跑）。四個卡住的舊 session 仍 `requires_action`，原稿仍在沙箱可手動救。
 - **AI 模型家族 order 4 Gemini 主篇補 3.8 Flash（2026-09-19，中文已 commit 5bebeb1a）**：時間線+1 列（13 里程碑）、選型表換 3.8 Flash 欄＋effort levels 列、新增 agentic coding 段（DeepSWE 73.7%／TB2.1 89.4%／TB4.0 19.1%／HLE 54.9%，以 Model Card 為準）、子線表加 Cyber＋Omni 行、修正「GPT 在 Terminal-Bench 更強」過時判斷、三代同價＋結尾更新；`check:references`（本檔 0 issue，全站 0 error）與 lint 通過，astro check 未跑（md 改動＋Q-024 既有 blocker）。en 版在 5bebeb1a 只補了更新紀錄，3.8 Flash 正文（時間線／選型表／agentic coding 段／子線表）尚未同步，待翻譯。
 - **CI 修復（2026-09-17，待遠端驗證）**：Deploy run 35224971270 卡在 quality／tw；已修 4 篇 9/17 日報缺 lang 與 A 級用語，全量 `pnpm verify` 全綠。未改檢查／workflow；使用者已同意 commit/push，後續確認新 Deploy run 結果。
