@@ -86,3 +86,26 @@
 | ombharatiya/AI-Engineer-Interview-Questions（clone，公司頁與 README） | ✅ 一手全文（比對用） |
 | Reddit r/Anthropic、r/leetcode、sundeepteki、resumax、tryexponent、interviewcoder、jobsbyculture、codemia | 🟡 搜尋摘要層級 |
 | GitHub star／fork 數 | 🔴 未取得（API 無回應） |
+
+## 附錄：同類 repo 盤點（2026-09-28）
+
+母群定義：GitHub 上以「AI／LLM／ML 工程師面試」為主題的題庫或指南 repo。來源為 Groundlane web_search（限 github.com，共 6 組 query）與 GitHub topic 頁；star 數用 web_fetch 讀 `#repo-stars-counter-star`，最後 commit 用 shallow clone 讀 `git log -1`。
+
+| Repo | ★ | 最後 commit | 語言 | 切分方式 | 來源標注 |
+|---|---|---|---|---|---|
+| alexeygrigorev/ai-engineering-field-guide | 5.7k | 2026-09-23 | en | 資料驅動：6,964 份 JD、51 間公司流程、take-home 作業（100+ repo） | ✅ 公司頁連回 JD；題目「consolidated from 100+ sources」 |
+| amitshekhariitbhu/ai-engineering-interview-questions | 3.2k | 2026-09-19 | en | 依主題（本 repo 的姊妹 repo，同屬 Outcome School） | ❌ 答案導向 outcomeschool.com [推論：依 README 互相連結] |
+| pallavi-shekhar/…-company-wise（本篇） | 1.5k | 2026-09-19 | en | 依公司 × 主題 | ❌ |
+| ombharatiya/AI-Engineer-Interview-Questions | 149 | 2026-08-25 | en | 依主題＋依公司（33 間）＋依職位＋ 19 題 from-scratch 實作 | ✅ 每頁 Sources＋Last reviewed |
+| llmgenai/LLMInterviewQuestions | 1.9k | 2025-02-12 | en | 15 類、100+ 題，只有題目，答案導向付費網站 | ❌ |
+| KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub | 1.1k | 2026-02-09 | en | 100+ LLM 題附答案 | ❌ |
+| KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub | 645 | 2025-12-21 | en | 100+ RAG 題附答案 | ❌ |
+| wdndev/llm_interview_note | 15.2k | 2024-08-15 | 簡中 | 大模型演算法／應用工程師知識＋面試題 | ❌ |
+| km1994/LLMs_interview_notes | 2.6k | 2024-12-26 | 簡中 | 大模型面試題累積 | ❌（作者個人經驗） |
+| alirezadir/AIMLInterviews（原 Machine-Learning-Interviews） | 9.8k | 2026-09-23 | en | FAANG MLE 面試指南，已加入 LLM／Agentic AI、ML system design | 作者個人 offer 經驗 |
+| khangich/machine-learning-interview | 12.8k | 2023-08-31 | en | 傳統 ML 面試（FAANG、Snap、LinkedIn） | 作者個人經驗 |
+| chiphuyen/ml-interviews-book | 4.8k | 2025-03-21 | en | 書（huyenchip.com），傳統 ML 面試 | 書籍 |
+
+偏誤標注：
+- 搜尋以英文與簡中為主，日韓等其他語系未涵蓋；star 數只反映熱度，不代表題目品質或真實性。
+- 只讀了 alexeygrigorev 的 README 與 ombharatiya 的公司頁全文，其他 repo 的描述為 [摘要層級]。
