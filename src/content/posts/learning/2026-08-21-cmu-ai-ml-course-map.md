@@ -114,7 +114,7 @@ CMU 在 Fall 2018 推出 BSAI。現行 curriculum 先要求完整的數學、統
 
 - **16-385 Computer Vision Spring 2026**：它是 BSAI 的 NLP／視覺二選一核心之一。公開 slides、readings、notebooks 與七份作業規格足以深入視覺，但部分實作鏈仍依賴課程帳號，所以保守列 A2。
 - **11-785 Introduction to Deep Learning**：Spring 2026 有 29 講公開 YouTube、slides、notes 與 bootcamp／recitation notebooks，足以排成 A3 的講授與實作路線；但 HW1–4 幾乎都移往 Piazza／Autolab。A3 在這裡不代表正式作業鏈也完整，更不包含 GPU。[Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html) 正逐講放出影片，本站的 [11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)已涵蓋全部講次。
-- **11-768 AI Agents**：Fall 2026 新開的研究所課，由 Graham Neubig 與 Daniel Fried 授課，三份作業依序做 agent harness、評測與訓練。先修要求訓練過語言模型，適合排在 11-785 或 NLP 課之後。投影片與錄影隨進度公開，後兩份作業還沒釋出，學期中先列 A2；本站的 [11-768 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)跟著當期進度寫。
+- **11-768 AI Agents**：Fall 2026 新開的研究所課，由 Graham Neubig 與 Daniel Fried 授課，三份作業依序做 agent harness、評測與訓練。先修要求訓練過語言模型，適合排在 11-785 或 NLP 課之後。投影片與錄影隨進度公開，後兩份作業還沒釋出，學期中先列 A2；本站尚未開始寫 11-768 導讀，暫以[官方課站](https://www.cmu-agents.com/)為準。
 - **10-414/714 Deep Learning Systems**：從自動微分一路做到 CPU／CUDA、CNN、RNN 與 transformers，公開 implementation notebooks 足以實作一個叫 Needle 的框架。它目前最像一個官方組裝包：Fall 2026 課表、2022 影片與標成 2025 的作業放在同一站，而且 HW0–3 的 GitHub 連結現已回傳 404。仍可用 A3 講義、影片和 notebooks 自學，但不能宣稱當期作業包完整。
 
 **10-708 Probabilistic Graphical Models Spring 2026** 也確實有當期課站，約 25 組 slides 與 readings 能匿名讀；但錄影只供修課者，四份 HW 又只在 Piazza，缺少公開練習閉環，因此列 A2。想完整自學時，2019／2021 歷史站反而更自包含，但不該冒充 2026 教材。

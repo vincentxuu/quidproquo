@@ -66,7 +66,7 @@ CMU 是最不能只看舊課號的一間。新的 [07-280 AI & ML I](https://www
 
 同校的 [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html)則是另一種情況：Spring 2026（已結課）與 [Fall 2025](https://deeplearning.cs.cmu.edu/F25/index.html)都逐講提供官方 YouTube，投影片也公開，[Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)正逐講放出投影片與 YouTube 影片；作業卻混用 Autolab、Kaggle 與 Piazza。影片已確認能看，能否完整自學仍要逐份檢查 starter assets。
 
-CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)，由 Graham Neubig 與 Daniel Fried 授課。它是研究所課，先修要求訓練過語言模型；投影片與前幾講錄影已隨進度公開，三份作業依序做 harness、評測與訓練。本站的 [11-768 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)跟著當期進度寫，後半學期的講次與作業要等官方上架才補。
+CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)，由 Graham Neubig 與 Daniel Fried 授課。它是研究所課，先修要求訓練過語言模型；投影片與前幾講錄影已隨進度公開，三份作業依序做 harness、評測與訓練。本站尚未開始寫 11-768 導讀，後半學期的講次與作業要等官方上架才補。
 
 進行中或尚未開課的學期，只有 schedule 不算「最新公開課」。本站會等材料真的出現再升級，不用年份的新換掉內容完整的舊。
 
@@ -102,7 +102,6 @@ CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)�
 - [CMU 10-301／601 總覽](/posts/learning/2026-08-22-cmu-10301-overview)，用九份作業走完整門機器學習
 - [CMU 07-280 完整課程導讀](/posts/ai/2026-08-22-cmu-07280-course-overview)：24 講逐講深拆（對應 Fall 2026 完整課站），另有[全課總結與選課路線](/posts/ai/2026-08-22-cmu-07280-completion-roadmap)
 - [CMU 11-785 深度學習導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)：28 講全覆蓋，並標出作業鏈不完整的缺口（S26 已結課，F26 逐講上片中）
-- [CMU 11-768 AI Agents 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)：Fall 2026 新開的 agent 研究所課，從 harness、評測寫到訓練，跟著當期進度更新
 - [MIT 6.S191 導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)：九講與三個 labs 全公開的實際跑法（2026 版 3/30–5/25 已結課）
 - Stanford AI 課程逐講系列：[CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles)、[CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning)、[CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[CS224W](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)、[CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai)、[CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)、[CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)、[CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，以及 [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)（另有[從 tokenization 開始的主題深拆](/posts/ai/2026-08-22-cs336-overview-tokenization)）；各課的版本與先修關係見 [Stanford 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)
 - [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)：兩學分、沒有作業的 Transformer 與 LLM 課，2025 版全部公開，2026 版新增 LLM 系統、強化學習與 Diffusion LLM
@@ -148,7 +147,6 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 - [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
 - [Stanford CS336 主題深拆系列](/posts/ai/2026-08-22-cs336-overview-tokenization)
 - [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
-- [CMU 11-768 AI Agents 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)
 - [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)
 
 ### 官方課程網站與外部資源
