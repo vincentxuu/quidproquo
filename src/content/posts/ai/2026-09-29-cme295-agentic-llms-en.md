@@ -257,6 +257,8 @@ A few things that are easy to misread from the syllabus alone:
 
 Read the 2025 "Tools summary" slide again and the problems these new topics target are already written there: "finite context length: not scalable," "more tools = decrease performance," "many tools to define, lots of work." The 2025 answers were a router for tool selection and MCP for standardization; the closing advice ("start simple," "observability helps with debuggability") and the coding use case on the last slide also foreshadow the 2026 harness and coding-agent topics. That mapping is my own reading of the two sources; how the 2026 lecture actually connects them can only be confirmed once its slides are released. Post 12 in this series will cover 2026 Lecture 6 once the video is up.
 
+A preview of these four new topics, written before the 2026 lecture, is in [order 12](/posts/ai/2026-09-29-cme295-ai-agents-en) of this series and will be updated once the video is up.
+
 ## Self-check
 
 These questions are adapted from Part III, "Agentic LLMs," of the [2025 final exam](https://cme295.stanford.edu/exams/fall25-cme295-final.pdf); answers are in the [solutions PDF](https://cme295.stanford.edu/exams/fall25-cme295-final-solutions.pdf):

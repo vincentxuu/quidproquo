@@ -236,7 +236,7 @@ The 2026 slides have not been released yet, so this compares only the topic list
 - **Lecture 9 is renamed "Trending topics"** (December 4, 2026), with subtopics narrowed to Recap, Multimodality, and Closing thoughts. The 2025 ViT and VLM material will likely grow into a full multimodality section, but that can only be confirmed once the slides are out.
 - **Knock-on effect**: 2025's Lecture 8, "LLM evaluation," moves up to Lecture 7 in 2026 to make room for diffusion.
 
-Once the 2026 diffusion lecture is published, this series will add a separate post (order 13) with the full derivation of continuous and discrete diffusion.
+The full derivation of continuous and discrete diffusion is in [order 13](/posts/ai/2026-09-29-cme295-diffusion-llms-en) of this series, currently a preview written before the 2026 lecture, to be updated once it is published.
 
 ## Self-check
 

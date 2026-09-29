@@ -133,7 +133,7 @@ m 和 v 都跟參數一樣大，所以光是優化器狀態，就是參數量的
 
 ## 省記憶體與加速：一張地圖
 
-這一講接下來用大約一半的投影片講訓練最佳化。這些主題在 2026 版被抽出去，自成一講「LLM systems」（本系列 order 10 會寫），站上也已經有 CS336 的深入篇，所以這裡只給地圖，每一格說清楚它在解什麼：
+這一講接下來用大約一半的投影片講訓練最佳化。這些主題在 2026 版被抽出去，自成一講「LLM systems」（本系列 [order 10](/posts/ai/2026-09-29-cme295-llm-systems)），站上也已經有 CS336 的深入篇，所以這裡只給地圖，每一格說清楚它在解什麼：
 
 | 手法 | 在解什麼 | 投影片的重點 | 深入閱讀 |
 |---|---|---|---|
@@ -257,7 +257,7 @@ LoRA 省了梯度和優化器狀態，但凍結的 W₀ 還是得整份放在記
 2026 版的投影片除了第 1 講以外都還沒釋出，以下只根據 [2026 課表](https://cme295.stanford.edu/syllabus/)的主題清單比對：
 
 - **訓練一講擴大成完整的後訓練流水線**：2026 第 3 講「LLM training」（10 月 9 日）列出 pretraining、SFT、LoRA，接著把 2025 年放在第 5、6 講的偏好微調（RLHF、DPO）和 reasoning 也收進來，再新增 on-policy distillation 與「distillation to smaller models」兩項。
-- **系統最佳化獨立成一講**：2026 第 5 講「LLM systems」（10 月 30 日）列出 distributed training、inference optimizations、KV caching、speculative decoding、efficient kernels、Flash Attention、hardware trade-offs。本講的資料平行、ZeRO、FlashAttention 大概會移到那裡，本系列 order 10 會寫。
+- **系統最佳化獨立成一講**：2026 第 5 講「LLM systems」（10 月 30 日）列出 distributed training、inference optimizations、KV caching、speculative decoding、efficient kernels、Flash Attention、hardware trade-offs。本講的資料平行、ZeRO、FlashAttention 大概會移到那裡，見本系列 [order 10](/posts/ai/2026-09-29-cme295-llm-systems)。
 - **量化沒有出現在 2026 課表上**：兩講的主題清單都沒有列出 quantization、mixed precision 或 QLoRA。它們可能被收進「hardware trade-offs」或 LoRA 段落裡，要等投影片釋出才能確認。
 
 ## 自我檢測

@@ -169,7 +169,7 @@ J(θ) = E[ q ~ P(Q), o ~ π_old(O|q) ]
 
 - GRPO puts the KL term directly in the loss; PPO usually folds a KL penalty into each token's reward
 - PPO's A_t comes from a value model; GRPO's Â comes from within-group comparison, and every token of an answer shares the same value
-- The full derivation from policy gradient to GRPO is left for this series' guide to the 2026 Lecture 4, "RL with LLMs"
+- The full derivation from policy gradient to GRPO is left for this series' guide to the 2026 Lecture 4, "[RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en)"
 
 </details>
 

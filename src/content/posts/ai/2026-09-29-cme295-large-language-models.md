@@ -211,7 +211,7 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 
 - **這一講被併進 2026 版第 2 講「Large Language Models」**。那一講的清單是 Transformer model families、LLM definition and architecture、Mixture of experts、MHA/MQA/GQA、RoPE、context length、temperature、sampling strategies。也就是說，2025 的第 2 講和第 3 講前半合成一講。
 - **prompting、in-context learning、chain of thought、self-consistency 從課表消失**。2026 版沒有任何一講的主題清單列出它們。
-- **推論加速搬到新的一整講**。2026 版第 5 講「LLM systems」列了 inference optimizations、KV caching、speculative decoding、Flash Attention 等，2025 版這講最後一段的內容應該會在那裡展開。
+- **推論加速搬到新的一整講**。2026 版第 5 講「LLM systems」列了 inference optimizations、KV caching、speculative decoding、Flash Attention 等，2025 版這講最後一段的內容應該會在那裡展開，課前預寫版見本系列 [order 10](/posts/ai/2026-09-29-cme295-llm-systems)。
 - guided decoding 在 2026 課表上沒有出現，但課表只列大主題，無法判斷它是被刪掉還是併在 sampling 底下講。
 
 ## 自我檢測

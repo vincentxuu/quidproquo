@@ -257,6 +257,8 @@ Google 2025 年發表的 [Agent2Agent（A2A）](https://developers.googleblog.co
 
 對照 2025 版投影片的「Tools summary」，可以看到新主題要解的問題當時已經寫在上面：「context 長度有限，不能擴展」「工具越多表現越差」「每個工具都要寫定義，工作量大」。2025 版給的解法是 router 挑工具和 MCP 標準化；結語的「先從簡單的做起」「可觀察性有助於除錯」、以及最後一頁的 coding 用例，也看得到 2026 版 harness 與 coding agent 主題的影子。這是我根據兩份材料做的對照，2026 版課堂實際怎麼接這些問題，要等投影片釋出才能確認。本系列第 12 篇會在影片上架後專門寫 2026 版第 6 講。
 
+這四個新主題的課前預寫版在本系列 [order 12](/posts/ai/2026-09-29-cme295-ai-agents)，2026 版影片上架後會對照更新。
+
 ## 自我檢測
 
 以下題目改寫自 [2025 期末考](https://cme295.stanford.edu/exams/fall25-cme295-final.pdf)第 III 大題「Agentic LLMs」，答案在[解答 PDF](https://cme295.stanford.edu/exams/fall25-cme295-final-solutions.pdf)：

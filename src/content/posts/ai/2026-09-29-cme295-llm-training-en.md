@@ -133,7 +133,7 @@ The problem is that a single GPU has only tens of GB of memory. The slides use t
 
 ## Saving memory and time: a map
 
-The lecture then spends roughly half its slides on training optimizations. In the 2026 edition these topics were pulled out into their own lecture, "LLM systems" (order 10 in this series will cover it), and the site already has in-depth CS336 posts on them, so here you get only the map, with each cell stating what problem it solves:
+The lecture then spends roughly half its slides on training optimizations. In the 2026 edition these topics were pulled out into their own lecture, "LLM systems" (covered in [order 10](/posts/ai/2026-09-29-cme295-llm-systems-en) of this series), and the site already has in-depth CS336 posts on them, so here you get only the map, with each cell stating what problem it solves:
 
 | Technique | Problem it solves | What the slides emphasize | Go deeper |
 |---|---|---|---|
@@ -257,7 +257,7 @@ If you're finetuning yourself, the lecture has three practical takeaways:
 Apart from Lecture 1, the 2026 slides haven't been released yet, so the following compares only the topic lists on the [2026 syllabus](https://cme295.stanford.edu/syllabus/):
 
 - **The training lecture grows into a full post-training pipeline**: 2026 Lecture 3, "LLM training" (October 9), lists pretraining, SFT, and LoRA, then pulls in preference tuning (RLHF, DPO) and reasoning, which 2025 covered in Lectures 5 and 6, and adds on-policy distillation and "distillation to smaller models."
-- **Systems optimization becomes its own lecture**: 2026 Lecture 5, "LLM systems" (October 30), lists distributed training, inference optimizations, KV caching, speculative decoding, efficient kernels, Flash Attention, and hardware trade-offs. This lecture's data parallelism, ZeRO, and FlashAttention will likely move there; order 10 of this series will cover it.
+- **Systems optimization becomes its own lecture**: 2026 Lecture 5, "LLM systems" (October 30), lists distributed training, inference optimizations, KV caching, speculative decoding, efficient kernels, Flash Attention, and hardware trade-offs. This lecture's data parallelism, ZeRO, and FlashAttention will likely move there; see [order 10](/posts/ai/2026-09-29-cme295-llm-systems-en) of this series.
 - **Quantization doesn't appear on the 2026 syllabus**: neither lecture's topic list names quantization, mixed precision, or QLoRA. They may be folded into "hardware trade-offs" or the LoRA section; that can only be confirmed once the slides are out.
 
 ## Self-check

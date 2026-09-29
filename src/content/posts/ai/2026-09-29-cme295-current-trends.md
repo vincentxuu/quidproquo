@@ -236,7 +236,7 @@ diffusion LLM 目前離日常使用還有距離：投影片上的 Gemini Diffusi
 - **第 9 講改名「Trending topics」**（2026 年 12 月 4 日）：子題縮成 Recap、Multimodality、Closing thoughts。2025 版的 ViT 與 VLM 很可能擴充成完整的多模態段落，但實際內容要等投影片出來才能確認。
 - **連帶的影響**：2025 版第 8 講「LLM evaluation」在 2026 版前移到第 7 講，讓出位置給 diffusion。
 
-本系列會在 2026 版 diffusion 那一講上架後，另寫一篇（系列 order 13）補上連續／離散 diffusion 的完整推導。
+連續／離散 diffusion 的完整推導在本系列 [order 13](/posts/ai/2026-09-29-cme295-diffusion-llms)，目前是 2026 版那一講開課前的預寫版，上架後會再對照更新。
 
 ## 自我檢測
 

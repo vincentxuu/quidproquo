@@ -211,7 +211,7 @@ So far only the 2026 Lecture 1 slides are out. The lecture that absorbs this one
 
 - **This lecture is folded into 2026 Lecture 2, "Large Language Models."** Its topic list is Transformer model families, LLM definition and architecture, Mixture of experts, MHA/MQA/GQA, RoPE and variants, context length, temperature, and sampling strategies. In effect, 2025 Lecture 2 and the first half of 2025 Lecture 3 become one lecture.
 - **Prompting, in-context learning, chain of thought, and self-consistency disappear from the syllabus.** No 2026 lecture lists them.
-- **Inference speedups move into a whole new lecture.** 2026 Lecture 5, "LLM systems," lists inference optimizations, KV caching, speculative decoding, and Flash Attention, so the last part of this 2025 lecture will likely be expanded there.
+- **Inference speedups move into a whole new lecture.** 2026 Lecture 5, "LLM systems," lists inference optimizations, KV caching, speculative decoding, and Flash Attention, so the last part of this 2025 lecture will likely be expanded there; see the preview in [order 10](/posts/ai/2026-09-29-cme295-llm-systems-en) of this series.
 - Guided decoding does not appear in the 2026 syllabus either. The syllabus only lists broad topics, so it is impossible to tell whether it was cut or folded under sampling.
 
 ## Self-check

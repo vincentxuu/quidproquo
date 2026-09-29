@@ -121,7 +121,7 @@ flowchart LR
 ## 這個系列怎麼讀
 
 - **order 1 到 9**：照 2025 版九講逐篇寫。每篇結尾有兩段固定內容：「2026 版改了什麼」，以及從 2025 考卷挑出的「自我檢測」題（只寫題意，附原 PDF 連結）。
-- **order 10 到 13**：2026 版新增的 LLM 系統、LLM 的強化學習、AI Agents、Diffusion LLM，等影片上架後再各寫一篇。依新課表，最早的是 10 月 16 日的強化學習那講。
+- **order 10 到 13**：2026 版新增的四講先寫成「課前預寫版」，根據 2026 課表、2025 投影片與原始論文整理，影片上架後再對照更新：[LLM 系統](/posts/ai/2026-09-29-cme295-llm-systems)（10 月 30 日）、[LLM 的強化學習](/posts/ai/2026-09-29-cme295-rl-with-llms)（10 月 16 日）、[AI Agents](/posts/ai/2026-09-29-cme295-ai-agents)（11 月 6 日）、[Diffusion LLM](/posts/ai/2026-09-29-cme295-diffusion-llms)（11 月 20 日）。
 - **先修**：線性代數和機器學習基礎。缺機器學習基礎的話，可以先讀 [Stanford CS 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)裡排在前面的課。
 
 今晚能做的一件事：打開 [2025 版播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)的第 1 講，配著[投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf)看前 30 分鐘的 tokenization 段落，再來讀本系列第 1 篇。

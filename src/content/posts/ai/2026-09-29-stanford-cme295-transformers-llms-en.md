@@ -121,7 +121,7 @@ So this series won't rewrite what CS224N and CS336 already cover. Where somethin
 ## How to read this series
 
 - **Orders 1 to 9**: one post per lecture, following the 2025 edition's nine lectures. Each post ends with two fixed sections: "What changed in 2026," and a "Self-check" drawn from the 2025 exams (question summaries only, with links to the original PDFs).
-- **Orders 10 to 13**: the lectures added in the 2026 edition — LLM systems, RL for LLMs, AI Agents, and Diffusion LLMs — each get a post once their videos are up. Per the new syllabus, the earliest is the RL lecture on October 16.
+- **Orders 10 to 13**: the four lectures added in the 2026 edition are written ahead of class as preview posts, based on the 2026 syllabus, the 2025 slides, and the original papers, and will be updated once the videos are up: [LLM systems](/posts/ai/2026-09-29-cme295-llm-systems-en) (October 30), [RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en) (October 16), [AI Agents](/posts/ai/2026-09-29-cme295-ai-agents-en) (November 6), and [Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en) (November 20).
 - **Prerequisites**: linear algebra and machine learning basics. If you're missing the ML basics, start with the earlier courses in the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en).
 
 One thing you can do tonight: open Lecture 1 in the [2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy), follow along with the [slides](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf) through the first 30 minutes on tokenization, and then read the first post in this series.

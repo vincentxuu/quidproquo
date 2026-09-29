@@ -169,7 +169,7 @@ J(θ) = E[ q ~ P(Q), o ~ π_old(O|q) ]
 
 - GRPO 把 KL 直接放進 loss；PPO 通常把 KL 懲罰算進每個 token 的獎勵
 - PPO 的 A_t 由 value model 估計；GRPO 的 Â 來自組內比較，同一個答案的每個 token 共用同一個值
-- policy gradient 從頭推到 GRPO 的完整數學，留給本系列 2026 版第 4 講「RL with LLMs」的導讀
+- policy gradient 從頭推到 GRPO 的完整數學，留給本系列 2026 版第 4 講「[RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms)」的導讀
 
 </details>
 
