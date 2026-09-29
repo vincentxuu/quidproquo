@@ -111,7 +111,7 @@ export const DAILY_CHANNELS = [
     group: 'prep',
     label: 'AI Engineer 面試',
     labelEn: 'AI Engineer Interview',
-    seriesNames: ['AI Engineer 面試日練', 'AI Engineer Interview Daily Drill'],
+    seriesNames: ['AI Engineer 面試日練', 'AI Engineer Interview Daily'],
     tags: ['ai-engineer-interview'],
   },
   {
@@ -119,7 +119,7 @@ export const DAILY_CHANNELS = [
     group: 'prep',
     label: 'Product Builder 面試',
     labelEn: 'Product Builder Interview',
-    seriesNames: ['Product Builder 面試日練', 'Product Builder Interview Daily Drill'],
+    seriesNames: ['Product Builder 面試日練', 'Product Builder Interview Daily'],
     tags: ['product-builder-interview'],
   },
 ] as const satisfies readonly DailyChannel[];

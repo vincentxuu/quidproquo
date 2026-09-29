@@ -620,7 +620,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'ai-engineer-interview-daily',
     names: {
       'zh-TW': 'AI Engineer 面試日練',
-      en: 'AI Engineer Interview Daily Drill',
+      en: 'AI Engineer Interview Daily',
     },
     descriptions: {
       'zh-TW':
@@ -632,7 +632,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'product-builder-interview-daily',
     names: {
       'zh-TW': 'Product Builder 面試日練',
-      en: 'Product Builder Interview Daily Drill',
+      en: 'Product Builder Interview Daily',
     },
     descriptions: {
       'zh-TW':
@@ -802,6 +802,71 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'A playbook for putting AI into every stage of the software development lifecycle: how agents fit into requirements, design, development, testing, and operations.',
     },
   },
+  // 以下七個原本走 slugifySeriesName fallback：中英混合的名稱會被截成 `ai`、`ai-agent`
+  // 這種泛用 slug，跟其他系列搶同一條路由。舊路由在 astro.config 留 301。
+  {
+    slug: 'ai-search-content-business',
+    category: 'product-career',
+    names: { 'zh-TW': 'AI 搜尋正在重寫內容生意', en: 'AI Search Is Rewriting the Content Business' },
+    descriptions: {
+      'zh-TW': '從 Google、Pew 與 Cloudflare 的資料拆解 AI 摘要如何重畫內容、引用、點擊與轉換路徑，以及封鎖、授權、訴訟與自有資產各自能保護內容生意的哪一段。',
+      en: 'How AI summaries redraw the path from content to citation, click, and conversion, drawing on data from Google, Pew, and Cloudflare, and which part of the content business blocking, licensing, lawsuits, and owned assets each protect.',
+    },
+  },
+  {
+    slug: 'ai-agent-memory',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI Agent 記憶工程', en: 'AI Agent Memory Engineering' },
+    descriptions: {
+      'zh-TW': '為什麼記憶是 agent 工程的核心難題：從 context 滿了怎麼辦到開源記憶框架選型，十篇各自解決一個記憶問題。',
+      en: 'Why memory is the core hard problem of agent engineering: ten posts, each tackling one memory problem, from a full context window to choosing an open-source memory framework.',
+    },
+  },
+  {
+    slug: 'ai-agent-weekly-review',
+    category: 'updates',
+    names: { 'zh-TW': 'AI Agent 週回顧', en: 'AI Agent Weekly Review' },
+    descriptions: {
+      'zh-TW': '每週整理 AI Agent 領域的重要發布、論文與工具變化。',
+      en: 'A weekly roundup of notable releases, papers, and tooling changes in the AI agent space.',
+    },
+  },
+  {
+    slug: 'deep-research',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'Deep Research 前沿', en: 'Deep Research Frontier' },
+    descriptions: {
+      'zh-TW': '梳理 80+ 個 Deep Research 實作：三階段能力路線、規劃／獲取／記憶／生成四個核心組件、prompting／SFT／RL 三種優化範式，以及評估與開源工具全景。',
+      en: 'A survey of 80+ Deep Research systems: the three-stage capability roadmap, four core components (planning, acquisition, memory, generation), three optimization paradigms (prompting, SFT, RL), evaluation, and the open-source tool landscape.',
+    },
+  },
+  {
+    slug: 'multi-agent',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'Multi-Agent 系統實戰', en: 'Multi-Agent Systems in Practice' },
+    descriptions: {
+      'zh-TW': '比較 Claude Code、Codex、Antigravity、Cursor、Windsurf、Devin、LangGraph、CrewAI 的 subagent 模型、編排模式與通訊機制，附能力矩陣與設計哲學光譜。',
+      en: 'Comparing the subagent models, orchestration patterns, and communication mechanisms of Claude Code, Codex, Antigravity, Cursor, Windsurf, Devin, LangGraph, and CrewAI, with a capability matrix and a spectrum of design philosophies.',
+    },
+  },
+  {
+    slug: 'stanford-cme295',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CME295 導讀', en: 'Reading Stanford CME295' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CME295: Transformers & Large Language Models：從 Transformer 架構一路走到 LLM 評估與 AI agent，並對照 CS224N、CS336 的分工。',
+      en: 'A lecture-by-lecture reading of Stanford CME295: Transformers & Large Language Models, from the Transformer architecture to LLM evaluation and AI agents, and how it divides the ground with CS224N and CS336.',
+    },
+  },
+  {
+    slug: 'cmu-11-768-ai-agents',
+    category: 'courses-agent-frontier',
+    names: { 'zh-TW': 'CMU 11-768 AI Agents 導讀', en: 'Reading CMU 11-768 AI Agents' },
+    descriptions: {
+      'zh-TW': '逐講讀 CMU 11-768 AI Agents（Fall 2026）：從 agent 迴圈、工具使用到 RL 訓練、credit assignment 與 reward hacking，依官方課序整理。',
+      en: 'A lecture-by-lecture reading of CMU 11-768 AI Agents (Fall 2026), from the agent loop and tool use to RL training, credit assignment, and reward hacking, following the official course order.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
@@ -855,6 +920,35 @@ function seriesBasePath(lang: Lang): string {
   return lang === 'en' ? '/en/series' : '/series';
 }
 
+/**
+ * 找出會讓兩個不同系列搶同一條 /series/<slug> 路由的名稱。只有沒登錄的系列會撞：
+ * slugifySeriesName 會丟掉非 ASCII 字元，`AI 搜尋…` 與 `AI 模型家族` 的 fallback 都是 `ai`。
+ * 中英混合的名稱一律要求登錄；純中文名稱的 fallback 就是名稱本身，不會截斷。
+ */
+export function findSeriesSlugConflicts(names: Iterable<string>): string[] {
+  const errors: string[] = [];
+  const registeredSlugs = new Set(SERIES_DEFINITIONS.map(definition => definition.slug));
+  const fallbackOwner = new Map<string, string>();
+
+  for (const name of new Set(names)) {
+    if (DEFINITION_BY_NAME.has(name)) continue;
+    const slug = slugifySeriesName(name);
+    if (slug !== name.toLowerCase() && [...name].some(ch => ch.charCodeAt(0) > 0x7f)) {
+      errors.push(`Series "${name}" mixes ASCII and non-ASCII text; register it in SERIES_DEFINITIONS (fallback slug would be "${slug}")`);
+    }
+    if (registeredSlugs.has(slug)) {
+      errors.push(`Unregistered series "${name}" falls back to slug "${slug}", which a registered series already owns`);
+    }
+    const owner = fallbackOwner.get(slug);
+    if (owner !== undefined && owner !== name) {
+      errors.push(`Unregistered series "${name}" and "${owner}" both fall back to slug "${slug}"`);
+    }
+    fallbackOwner.set(slug, name);
+  }
+
+  return errors;
+}
+
 export function getSeriesMeta(name: string) {
   const definition = DEFINITION_BY_NAME.get(name);
   return {
@@ -880,26 +974,40 @@ export function getSeriesHref(name: string, lang: Lang): string {
 }
 
 export function getSeriesSummaries(posts: Post[], lang: Lang, now = new Date()): SeriesSummary[] {
-  const grouped = new Map<string, SeriesPost[]>();
+  // 依 slug 分組而不是依名稱：en 文章的 frontmatter 有時寫中文系列名稱（或反過來），
+  // 依名稱分組會把同一個系列拆成兩份、產生兩條相同的路由，其中一半的文章從系列頁消失。
+  const grouped = new Map<string, { names: Set<string>; posts: SeriesPost[] }>();
+  const seenNames: string[] = [];
 
   for (const post of posts) {
     if (!isPublishedPost(post, now) || post.data.lang !== lang) continue;
     for (const membership of getPostSeries(post)) {
-      const seriesPosts = grouped.get(membership.name) ?? [];
-      seriesPosts.push(post);
-      grouped.set(membership.name, seriesPosts);
+      seenNames.push(membership.name);
+      const slug = getSeriesMeta(membership.name).slug;
+      const group = grouped.get(slug) ?? { names: new Set<string>(), posts: [] };
+      group.names.add(membership.name);
+      group.posts.push(post);
+      grouped.set(slug, group);
     }
   }
 
+  const conflicts = findSeriesSlugConflicts(seenNames);
+  if (conflicts.length > 0) {
+    throw new Error(`Series slug conflicts:\n${conflicts.join('\n')}`);
+  }
+
   return Array.from(grouped.entries())
-    .map(([name, seriesPosts]) => {
+    .map(([slug, group]) => {
       const orderIn = (post: SeriesPost) =>
-        getPostSeries(post).find(m => m.name === name)?.order ?? 0;
-      const orderedPosts = [...seriesPosts].sort((a, b) => {
+        getPostSeries(post).find(m => getSeriesMeta(m.name).slug === slug)?.order ?? 0;
+      const orderedPosts = [...group.posts].sort((a, b) => {
         const orderDiff = orderIn(a) - orderIn(b);
         if (orderDiff !== 0) return orderDiff;
         return a.data.date.getTime() - b.data.date.getTime();
       });
+      const [firstName] = group.names;
+      const definition = DEFINITION_BY_NAME.get(firstName);
+      const name = definition?.names[lang] ?? firstName;
       const meta = getSeriesMeta(name);
       const latestDate = orderedPosts.reduce(
         (latest, post) => post.data.date.getTime() > latest.getTime() ? post.data.date : latest,
@@ -907,9 +1015,9 @@ export function getSeriesSummaries(posts: Post[], lang: Lang, now = new Date()):
       );
       return {
         name,
-        slug: meta.slug,
+        slug,
         description: meta.descriptions[lang],
-        category: meta.category ?? inferSeriesCategory(meta.slug, orderedPosts),
+        category: meta.category ?? inferSeriesCategory(slug, orderedPosts),
         posts: orderedPosts,
         count: orderedPosts.length,
         latestDate,

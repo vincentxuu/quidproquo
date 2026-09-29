@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Post } from './content';
 import {
+  findSeriesSlugConflicts,
   getSeriesHref,
   getSeriesMeta,
   getSeriesMetaBySlug,
@@ -115,6 +116,48 @@ describe('Stanford course series registry', () => {
     expect(getSeriesHref(name, 'zh-TW')).toBe(`/series/${name}`);
     expect(encodeURI(getSeriesHref(name, 'zh-TW')))
       .toBe(`/series/${encodeURIComponent(name)}`);
+  });
+
+  it('merges posts that name the same series in either language into one summary', () => {
+    const summaries = getSeriesSummaries([
+      post('tech/model-family-claude-en', 'en', { name: 'AI Model Families', order: 1 }),
+      post('tech/model-family-deepseek-en', 'en', { name: 'AI 模型家族', order: 2 }),
+    ], 'en', new Date('2026-08-22'));
+
+    expect(summaries).toHaveLength(1);
+    expect(summaries[0]).toMatchObject({ slug: 'ai', name: 'AI Model Families', count: 2 });
+  });
+
+  it('keeps previously colliding series on their own registered slugs', () => {
+    expect(getSeriesMeta('AI 模型家族').slug).toBe('ai');
+    expect(getSeriesMeta('AI 搜尋正在重寫內容生意').slug).toBe('ai-search-content-business');
+    expect(getSeriesMeta('AI Agent 記憶工程').slug).toBe('ai-agent-memory');
+    expect(getSeriesMeta('AI Agent 週回顧').slug).toBe('ai-agent-weekly-review');
+    expect(getSeriesMeta('AI Agent Weekly Review').slug).toBe('ai-agent-weekly-review');
+  });
+
+  it('rejects unregistered series whose fallback slug collides or drops non-ASCII text', () => {
+    expect(findSeriesSlugConflicts(['純中文新系列'])).toEqual([]);
+    expect(findSeriesSlugConflicts(['brand new series'])).toEqual([]);
+    expect(findSeriesSlugConflicts(['AI 新系列'])).toEqual([
+      'Series "AI 新系列" mixes ASCII and non-ASCII text; register it in SERIES_DEFINITIONS (fallback slug would be "ai")',
+      'Unregistered series "AI 新系列" falls back to slug "ai", which a registered series already owns',
+    ]);
+    expect(findSeriesSlugConflicts(['Foo Bar', 'foo-bar'])).toEqual([
+      'Unregistered series "foo-bar" and "Foo Bar" both fall back to slug "foo-bar"',
+    ]);
+    expect(() => getSeriesSummaries([
+      post('learning/mixed', 'zh-TW', { name: 'AI 新系列', order: 1 }),
+    ], 'zh-TW', new Date('2026-08-22'))).toThrow('Series slug conflicts');
+  });
+
+  it('links series navigation across posts that spell the series name differently', () => {
+    const first = post('tech/model-family-claude-en', 'en', { name: 'AI Model Families', order: 1 });
+    const second = post('tech/model-family-deepseek-en', 'en', { name: 'AI 模型家族', order: 2 });
+    const [nav] = getSeriesNavs(second, [first, second]);
+
+    expect(nav.total).toBe(2);
+    expect(nav.prev?.slug).toBe(first.id);
   });
 
   it('keeps the umbrella series limited to representative memberships', () => {
