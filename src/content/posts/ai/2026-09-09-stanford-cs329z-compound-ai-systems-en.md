@@ -12,7 +12,7 @@ additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 20
 tldr: "The Week 1 anchor reading for CS329Z is Zaharia et al.'s Compound AI Systems: the best results increasingly come from multi-component systems, and even the biggest model is just one part. The post leaves three design questions and three hard challenges — which happen to be exactly what HW1 asks you to answer by building."
-description: "A guided reading of the Stanford CS329Z Week 1 anchor paper: the definition of compound AI systems, three reasons the field is moving to systems, three open design questions, three hard challenges, four emerging directions, and how each maps to HW1's from-scratch RAG and DSPy rewrite."
+description: "A guided reading of the Stanford CS329Z Week 1 anchor paper: the definition of compound AI systems, three reasons the field is moving to systems, three open design questions, three hard challenges, four emerging directions, and how each maps to HW1's framework-free build of a company's internal AI assistant."
 draft: false
 ---
 
@@ -42,7 +42,7 @@ Fourth, **budgets differ per application**. Every model ships fixed quality at a
 
 The post offers no answers, only three questions — each one is an HW1 exam question in disguise:
 
-1. **Where does the control logic live?** In traditional code (Python calling an LLM) or with the model driving (an LLM agent calling tools)? That is exactly the Part A from-scratch versus Part B framework contrast in HW1.
+1. **Where does the control logic live?** In traditional code (Python calling an LLM) or with the model driving (an LLM agent calling tools)? HW1 bans agent frameworks outright and hands you a single chat-completion call, so every line of control logic is yours; Week 3's DSPy lecture then shows how a framework abstracts the same job away.
 2. **Where do the FLOPS go?** In a RAG pipeline, should extra compute go to the retriever, the LLM, or more LLM calls? The post gives it concrete shape: answering within 100 milliseconds, 20 for retrieval and 80 for the LLM, or the reverse? There is no general answer — only measurement.
 3. **How do you optimize end to end?** Neural nets have differentiable backprop; systems contain non-differentiable parts like search engines and interpreters. How do you tune the whole thing against one metric?
 
@@ -66,11 +66,11 @@ Third, **optimization methods are still being born**. Single models have PyTorch
 
 ## One thing to do tonight
 
-A shrunken HW1 Part A: pick one QA task you answer poorly, hand-build a two-stage RAG with litellm (one retriever plus one LLM call), measure the baseline, then swap only the retriever and measure again, then swap only the prompt and measure again. Note which move gained more. That is the smallest possible experiment for design question two.
+A shrunken version of HW1's opening stage: pick one QA task you answer poorly (an export of your own mailbox is even better, since HW1's corpus is a corporate email archive), hand-build a two-stage RAG without a framework (one retriever plus one chat-completion call; I like wrapping it in litellm so models are easy to swap, but the vendor SDK works too), measure the baseline, then swap only the retriever and measure again, then swap only the prompt and measure again. Note which move gained more. That is the smallest possible experiment for design question two.
 
 ## Where it sits in the course
 
-This post is the map; the eleven weeks are the walk. Weeks 2–3 (RAG, tool use) are the Part A parts lectures, the second half of Week 3 (DSPy) is Part B, and Weeks 4–8 (optimization, evaluation with the 4-tuple) are the HW2 parts lectures. Use the three design questions as bookmarks: at each week's end, ask which one the week answered.
+This post is the map; the eleven weeks are the walk. Weeks 2–4 (RAG, tool use, ReAct, memory) are the HW1 parts lectures, growing an email retrieval pipeline into a full harness with tools, a terminal, memory, and a human in the loop; the second half of Week 3 (DSPy) is the contrast lecture on what frameworks abstract away; and Weeks 4–8 (optimization, evaluation with the 4-tuple) are the HW2 parts lectures. Use the three design questions as bookmarks: at each week's end, ask which one the week answered.
 
 ## Further reading: the week's other two papers
 
@@ -85,9 +85,13 @@ The Week 1 syllabus lists two additional readings beyond the anchor. They are li
 - Wed 9/23 Foundations & Landscape: anchor reading Zaharia et al., Compound AI Systems (covered above); further reading Ng's four design patterns and Si et al. on execution-grounded research (see Further reading above).
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
+## Update log
+
+- 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
+
 ## References
 
-- On this site: [Stanford CS329Z guide: hand-build the agent with litellm first, then let DSPy take it away](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z: Engineering AI Agents, official site with schedule and deadlines](https://cs329z.stanford.edu/)
 - Source: [Zaharia et al., The Shift from Models to Compound AI Systems, BAIR Blog (2024)](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)
 - Frameworks: [DSPy](https://dspy.ai/), [LangChain](https://www.langchain.com/), [LlamaIndex](https://www.llamaindex.ai/)

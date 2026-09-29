@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks)
 
-Week 7 is midterm checkpoint week. Monday (Nov 2) covers data selection and quality, Wednesday (Nov 4) covers evaluation fundamentals and benchmark design. That same week holds the midpoint demo on Wednesday and the midway report due Friday. Data and scores sharing one week is no coincidence: the demo argues with numbers, the report accounts for where the data came from.
+Week 7 is midterm checkpoint week. Monday (Nov 2) covers data selection and quality, Wednesday (Nov 4) covers evaluation fundamentals and benchmark design. That same week the recorded midpoint demo video is due Wednesday at 11:59 p.m. (no in-class presentation) and the midway report is due Friday. Data and scores sharing one week is no coincidence: the demo video argues with numbers, the report accounts for where the data came from.
 
 A framework first, for newcomers. The course defines an agent evaluation as a 4-tuple: the request states the task, the environment is the world the agent can act in, the stopping criteria say when it is done, and the scorer decides the grade. Drop any one of the four and the number means nothing.
 
@@ -50,12 +50,16 @@ The finding worth remembering is criteria drift: you need criteria to grade outp
 
 ## Where it sits in the course
 
-After Week 7 comes judgment: Wednesday's demo argues with scores, Friday's report accounts for data and method. [Week 6](/en/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en) covered the data flywheel; Week 7 supplies the other half — scores that don't fool you. Write the 4-tuple now and half of HW2's task definition is done.
+After Week 7 comes judgment: Wednesday's demo video argues with scores, Friday's report accounts for data and method. [Week 6](/en/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en) covered the data flywheel; Week 7 supplies the other half — scores that don't fool you. Write the 4-tuple now and half of HW2's task definition is done.
 
 ## This week's course materials
 
 - Monday Nov 2, Data Selection & Quality: anchors SWE-smith and Who Validates the Validators? (covered above). Further reading: [Zhou et al., LIMA](https://arxiv.org/abs/2305.11206) fine-tunes on only 1,000 carefully curated prompts and responses with the standard supervised loss, no reinforcement learning. In a controlled human study, 43% of its responses match or beat GPT-4. The moral: pretraining supplies the knowledge, alignment wants a few excellent demonstrations.
 - Wednesday Nov 4, Evaluation Fundamentals & Benchmark Design: anchor Zhu et al.'s best practices (covered above). Further reading: [Press on building good LM benchmarks](https://ofir.io/How-to-Build-Good-Language-Modeling-Benchmarks/) asks for natural, automatically evaluable, and challenging tasks, and warns against letting one LM be both solver and judge. His closing defines a task as a request–environment–stopping-criteria–scorer 4-tuple — the source of this week's frame. Further reading: [Polo et al., tinyBenchmarks](https://arxiv.org/abs/2402.14992) shows MMLU's 14,000 examples need not all run. A 100-example curated subset reproduces the ranking reliably. Evaluation buys representativeness, not volume.
+
+## Update log
+
+- 2026-09-29: the midpoint demo became a recorded video (due Wed Nov 4 at 11:59 p.m., no in-class presentation); rewrote the opening and course-position passages to match
 
 ## References
 

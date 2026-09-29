@@ -11,14 +11,14 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 25
-tldr: "Week 6 週三讀 Shankar 的資料飛輪：評估、監控、持續改進三站共用同一批生產資料；同一週 HW1 截止、HW2 發布，11 月初還有期中展示與期中報告。"
+tldr: "Week 6 週三讀 Shankar 的資料飛輪：評估、監控、持續改進三站共用同一批生產資料；同一週 HW1 截止、HW2 發布，11 月初還要交期中 demo 錄影與期中報告。"
 description: "帶讀 Stanford CS329Z Week 6 主讀物 Shankar 的 Data Flywheels：軌跡、示範與回饋的收集，優化與評估兩種用途，以及給 HW1 繳交週的最小軌跡紀錄動作。"
 draft: false
 ---
 
 > 🌏 [English version](/en/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en)
 
-Week 6 是繳交週。週一（10/26）是主題待定的客座演講，同一天 [HW2](https://cs329z.stanford.edu/) 發布。週三（10/28，Data for Agentic Systems）的主讀物是 [Shreya Shankar](https://www.sh-reya.com/) 的 [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/)（2024）。週五（10/30）HW1 截止。緊接著是課上期中展示（11/4）。期中報告在 11/6 到期。
+Week 6 是繳交週。週一（10/26）是主題待定的客座演講，同一天 [HW2](https://cs329z.stanford.edu/) 發布。週三（10/28，Data for Agentic Systems）的主讀物是 [Shreya Shankar](https://www.sh-reya.com/) 的 [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/)（2024）。週五（10/30）HW1 截止。緊接著 11/4 晚上 11:59 前要交期中 demo 錄影，期中報告在 11/6 到期。
 
 資料飛輪只有一句話：上線後的每一次輸出，都是下一次變強的教材。智慧體每回答一題，就留下一條軌跡：使用者問了什麼、系統走了哪幾步、最後答對還是答錯。把軌跡收好、打上分數，挑好的放回提示當示範，修好的壞例子也放回去。轉完一圈，示範變好、分數變高，下一圈又產出更好的資料。
 
@@ -78,21 +78,25 @@ Shankar 把這一圈拆成三站：評估、監控、持續改進。評估決定
 
 飛輪轉不轉，最終看人願不願意標。作者的觀察第一條就是：人必須定期留在迴圈裡，因為人對輸出的偏好會變。模型先標、人只改的流程省力，但法務想先審提示、惡意查詢可能污染示範庫，這些都是真實世界的摩擦。部落格註腳裡，Han 就點了這兩個風險。
 
-對修課的你來說，這句話有切身意義：你自己就是最便宜的標註員。你用 HW1 智慧體查的每一題、修的每一個答案，都是飛輪的第一批燃料。
+對修課的你來說，這句話有切身意義：你自己就是最便宜的標註員。你拿 HW1 的 email 助理查的每一題、修的每一個答案，都是飛輪的第一批燃料。
 
 ## 怎麼做：繳交週先讓軌跡留下來
 
-**怎麼做**：給你的 HW1 智慧體加上最小軌跡紀錄：每題存下查詢、檢索到的論文、最終答案，再加你親手打的一個好壞標記。每週留半小時回顧：修好壞例子收進示範庫，常錯的類型寫成下一版指標。HW1 截止前跑完一輪，期中報告規定的失敗案例附錄就有現成素材。
+**怎麼做**：給你的 HW1 智慧體加上最小軌跡紀錄：每題存下查詢、檢索到的信件、最終答案，再加你親手打的一個好壞標記。每週留半小時回顧：修好壞例子收進示範庫，常錯的類型寫成下一版指標。HW1 截止前跑完一輪，期中報告的 Environment & Data 與進度摘要兩節就有現成素材：評估資料怎麼來、目前卡在哪些失敗。
 
 ## 它在課程裡的位置
 
-本週是分水嶺。HW1（10/30 截止）收尾手刻與框架的對照，HW2（10/26 發布）把戰場換到評估。下週（Week 7）繼續加碼。週一讀 [SWE-smith](https://arxiv.org/abs/2504.21798)（NeurIPS 2025）談如何為軟體工程智慧體量產任務資料，外加 Who Validates the Validators 談驗證器對齊。週三整堂談評估設計。11/4 是課上期中展示。11/6 期中報告到期，原型得先跑起來。
+本週是分水嶺。HW1（10/30 截止）交出不靠框架、從零寫成的完整 harness，HW2（10/26 發布）把戰場換到評估。下週（Week 7）繼續加碼。週一讀 [SWE-smith](https://arxiv.org/abs/2504.21798)（NeurIPS 2025）談如何為軟體工程智慧體量產任務資料，外加 Who Validates the Validators 談驗證器對齊。週三整堂談評估設計。期中 demo 是錄影繳交，不在課堂上發表，11/4 截止；11/6 期中報告到期。原型得先跑起來，才錄得出東西。
 
 ## 本週 Course Material 對照
 
 - 週一 10/26 Guest Lecture：客座場，無指定讀物。
 - 週三 10/28 What Data Do Agents Need?：主讀物 Shankar 資料飛輪（本文已導讀）；延伸閱讀 [Tan 等人資料標註與合成綜述](https://aclanthology.org/2024.emnlp-main.54/)（EMNLP 2024）。該綜述把模型當標註員的工作分成三塊：標註怎麼生成、合成標註怎麼驗收、拿合成標註訓練要注意什麼。另附資料型別的分類與既有學習策略的回顧。本文合成資料一節對應的正是這三分法。
 - 課表原文：[CS329Z 官網 Week 6](https://cs329z.stanford.edu/)
+
+## 更新紀錄
+
+- 2026-09-29：HW1 改版（不再分手刻／框架兩部分、語料換成企業 email）、期中 demo 改為錄影繳交（11/4 晚上 11:59 截止），同步改寫時程、軌跡紀錄與課程位置段落
 
 ## 參考資料
 

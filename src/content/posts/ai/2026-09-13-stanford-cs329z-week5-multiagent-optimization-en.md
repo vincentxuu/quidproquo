@@ -12,7 +12,7 @@ additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 24
 tldr: "Week 5 turns multi-agent collaboration into programmable conversation with AutoGen on Monday, then lays out the three optimization axes — prompts, weights, inference compute — with GEPA and the test-time compute paper on Wednesday. HW1 is due 10/30, the last full week before the deadline, so this installment helps you decide which axis deserves your effort."
-description: "A guided reading of Stanford CS329Z Week 5: AutoGen's conversable agents and conversation programming, GEPA's reflective prompt evolution and difficulty-aware test-time compute, converging on a three-way choice for the HW1 finish."
+description: "A guided reading of Stanford CS329Z Week 5: AutoGen's conversable agents and conversation programming, GEPA's reflective prompt evolution and difficulty-aware test-time compute, converging on a three-way choice for finishing HW1."
 draft: false
 ---
 
@@ -34,7 +34,7 @@ Control comes in two flavors, code and natural language mixed. Natural-language 
 
 The most memorable of the three applications is [ALFWorld](https://arxiv.org/abs/2010.03768): when a two-agent setup stalled in repetitive error loops, adding one grounding agent that supplied commonsense knowledge lifted success rates by 15% on average. The value of a team is not headcount — it is someone covering the job everybody ignores.
 
-**What to do**: do not split yet. Run your HW1 agent over twenty questions and sort failures into two piles: one wrong step, everything after it wrong. Only when the same division boundary keeps reappearing (say code-writing and code-checking contaminating each other) do you cut along it into a second agent. Splits need failure evidence, not a pretty org chart.
+**What to do**: do not split yet. Run your HW1 email assistant over twenty questions and sort failures into two piles: one wrong step, everything after it wrong. Only when the same division boundary keeps reappearing (say code-writing and code-checking contaminating each other) do you cut along it into a second agent. Splits need failure evidence, not a pretty org chart.
 
 ## Coordination cost: the real bill for the meeting
 
@@ -44,7 +44,7 @@ The second is error amplification: in a pipeline nobody checks, every extra stop
 
 The third is the process itself: who picks the next speaker. AutoGen's built-in GroupChatManager selects the next speaker dynamically with a role-play style prompt, then broadcasts the message to everyone, fitting collaboration with no fixed order. The price is debuggability: you must first reconstruct why it was someone's turn. Human involvement is cost design too: UserProxyAgent's human_input_mode ranges from asking every round to letting people skip. The paper's discussion section openly calls the automation-versus-human-control balance an open problem.
 
-**What to do**: give your agent meeting three rules: a TERMINATE condition, a maximum round count, and one role that only checks and never acts (borrow the Safeguard). Run ten hard questions and log how often the checker intercepts and how often it false-alarms. That interception log is ready-made material for Part B's coordination-cost reflection.
+**What to do**: HW1 bans frameworks, so write AutoGen's rules into your own loop: a TERMINATE condition, a maximum round count, and one role that only checks and never acts (borrow the Safeguard). When the checker is unsure, have it stop and ask a person — exactly the human in the loop HW1 requires. Run ten hard questions and log how often the checker intercepts, how often it false-alarms, and how often it hands off to a human. That interception log is ready-made material for the report's coordination-cost section.
 
 ## The three axes: prompts, weights, inference compute
 
@@ -58,13 +58,13 @@ Pushing further, they pit saved compute against simply scaling the model: a smal
 
 The weight axis has no anchor this week; LoRA, distillation, and RLHF directions appear as schedule bullets only. That absence is itself a signal: on HW1's timescale, weights are usually off the table.
 
-**What to do**: grade twenty validation questions first: solved first try, solved after retries, never solved however tuned. Spend prompt edits (GEPA-style: read the trajectory, change one line, rerun) on the first group. Spend inference compute (more samples plus verifier reranking) on the second. Stop on the third — that is a retrieval or weights problem, not a prompt fire to burn.
+**What to do**: grade twenty validation questions first: solved first try, solved after retries, never solved however tuned. Spend prompt edits (GEPA-style: read the trajectory, change one line, rerun) on the first group. Spend inference compute (more samples plus verifier reranking) on the second. Stop on the third — that is a retrieval or weights problem, not a prompt fire to burn. One line per group becomes the optimization log in your HW1 report.
 
 ## Closing HW1: three things before submission
 
-First, freeze Part A. Once [Week 4](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en) fixed the [ReAct](https://arxiv.org/abs/2210.03629) loop's shape, stop touching it — a frozen runnable version is your control group. Second, finish a shrunken Part B: rewrite exactly one stage, following [Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en). Third, write the three reflection lines: what the framework decided for you, which decision you dispute, and when you would switch back.
+First, freeze the skeleton. Once [Week 4](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en) fixed the [ReAct](https://arxiv.org/abs/2210.03629) loop's shape and the memory tiers, stop touching them — a frozen runnable version is your control group. Second, complete the harness: HW1 wants more than a pipeline that searches email — it wants tools, a terminal, memory, and a human in the loop. Fill whichever piece is missing first, and after each one rerun the same email question set against the frozen version. Third, write three lines of error analysis: which kinds of questions fail most, whether failures land in retrieval or reasoning, and where the human checkpoint caught a mistake.
 
-**What to do**: budget the last ten days — two to freeze Part A, five for the Part B comparison, three for reflection and cleanup. Move one axis per day: prompts today, compute tomorrow, splitting agents only the day after. Failures from mixed tuning cannot be written up.
+**What to do**: budget the last ten days — two to freeze the skeleton, five to complete the harness piece by piece with comparisons, three for error analysis and cleanup. Move one axis per day: prompts today, compute tomorrow, splitting agents only the day after. Failures from mixed tuning cannot be written up.
 
 ## Where it sits in the course
 
@@ -75,6 +75,10 @@ One week remains after Week 5: a guest lecture plus Data for Agentic Systems in 
 - Monday 10/19 Multi-Agent Systems: AutoGen anchors (covered above). [Cemri et al. collected 1600+ multi-agent traces](https://arxiv.org/abs/2503.13657) into MAST-Data. Failure modes sort into design flaws, inter-agent misalignment, and missing verification — a roll call for meeting failures. The echo of Monday's theme: coordination fails structurally, not randomly. [Neubig](https://openhands.dev/blog/dont-sleep-on-single-agent-systems) argues from [OpenHands](https://github.com/OpenHands/OpenHands) experience for the single agent: multi-agent pain is rigid structure, leaky context handoffs, and costly maintenance. One strong model with a general toolbox and a long prompt covers most divisions of labor. [Liu et al.'s DyLAN](https://arxiv.org/abs/2310.02170) picks the team first, then networks dynamically: on select [MMLU](https://arxiv.org/abs/2009.03300) subsets the right team lifts accuracy by up to 25%. Who plays is itself an optimizable variable.
 - Wednesday 10/21 Optimization: Snell et al. and GEPA anchor (covered above). [Soylu et al. alternate weight fine-tuning with prompt optimization](https://aclanthology.org/2024.emnlp-main.597/), letting one model teach itself. On multi-hop QA and math reasoning, doing both beats either alone. [Opsahl-Ong et al.'s MIPRO](https://arxiv.org/abs/2406.11695) jointly optimizes instructions and demonstrations across stages, using mini-batch surrogate evaluation to solve cross-module credit assignment. The best case gains 13 points, and the optimizer ships in [DSPy](https://dspy.ai). Its successor MIPROv2 is the strongest baseline GEPA beats.
 - Schedule: [CS329Z site, Week 5](https://cs329z.stanford.edu/)
+
+## Update log
+
+- 2026-09-29: HW1 was restructured (no more Part A / Part B split, the corpus is now a corporate email archive, the goal is a framework-free full harness); rewrote the ten-day "Closing HW1" plan and the HW1 hooks in each "What to do" note
 
 ## References
 

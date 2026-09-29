@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z: Hand-Build the Agent with litellm First, Then Let DSPy Take It Away"
+title: "Stanford CS329Z: No Frameworks, Just One Chat-Completion Call — Grow an Agent Harness from Scratch"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -11,8 +11,8 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 16
-tldr: "CS329Z is a new three-unit agent engineering course debuting at Stanford in Autumn 2026. Its first homework asks you to build RAG, tool calling and a ReAct loop from scratch with litellm, then rewrite the same components in DSPy and hand in the comparison. The course site lives in a public GitHub repo, and the commit log shows the assignment count dropping from three to two in mid-August — the one that got cut was 'Data for Agents'."
-description: "A full walkthrough of Stanford CS329Z: Engineering AI Agents — the instructors, the prerequisites, how 22 sessions and 49 readings are grouped, what the two assignments actually ask for, the syllabus changes recorded in the course site's git history, and how CS329Z, CS329A and CS224V divide the agent territory in 2026-27."
+tldr: "CS329Z is a new three-unit agent engineering course debuting at Stanford in Autumn 2026. Its first homework bans every agent framework: one chat-completion call plus code you write yourself, grown on a real corporate email archive from a RAG pipeline into an agent harness with tools, a terminal, memory and a human in the loop. DSPy is still in the lectures, but no longer in the homework. The course site lives in a public GitHub repo, and its commit log records every syllabus revision: three assignments cut to two, peer review grown into a fifth of the grade, and the project topic changed from fixed to open."
+description: "A full walkthrough of Stanford CS329Z: Engineering AI Agents — instructors and TAs, prerequisites and compute credits, 22 sessions and 50 readings, the first two lecture decks now public, what the two assignments and the project actually require, the syllabus changes recorded in the course site's git history, and how CS329Z, CS329A and CS224V divide the agent territory in 2026-27."
 draft: false
 ---
 
@@ -22,21 +22,23 @@ draft: false
 
 The frame the course site opens with is "compound AI systems": systems assembled from LLMs, retrievers, tools and optimizers that interact with each other. The site calls this a fundamental shift in how AI applications get built. The three threads that run through the quarter are named in the very first session description — decomposition, data, evaluation.
 
-This piece cross-checks three primary sources: the course site, the public GitHub repo behind it, and ExploreCourses. It covers how the course actually runs, what the assignments look like, what got rewritten in the syllabus a month before the quarter starts, and how it differs from the other two Stanford courses with "agent" in the title. It does **not** break down the lectures one by one — the course doesn't start until late September, and not a single slide deck has been posted.
+This piece cross-checks four primary sources: the course site, the public GitHub repo behind it, ExploreCourses, and the first two lecture decks now posted. It covers how the course actually runs, what the assignments look like, what got rewritten in the syllabus around the start of the quarter, and how it differs from the other two Stanford courses with "agent" in the title. It does **not** break down the lectures one by one — the course only started on September 23, and the week-by-week material is handled by [the series' weekly guides](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en).
 
 ## The hard facts
 
 Three instructors, all listed in the Instructors block on the course site. [Diyi Yang](https://cs.stanford.edu/~diyiy/) is an assistant professor in Stanford CS working on socially aware NLP and human-AI interaction; she won a Sloan Research Fellowship in 2024. [Michael Ryan](https://michryan.com/) is a PhD student co-advised by Diyi Yang and Percy Liang, a Knight-Hennessy Scholar, and a core contributor to [DSPy](https://dspy.ai/). [John Yang](https://john-b-yang.github.io/) is a second-year PhD student advised by Ludwig Schmidt and Diyi Yang, and first author on SWE-agent and [SWE-smith](https://arxiv.org/abs/2504.21798).
 
-One detail only surfaces when you put the two official pages side by side: **the registrar lists only two instructors**. The [CS329Z entry on ExploreCourses](https://explorecourses.stanford.edu/search?q=CS329Z&view=catalog) shows Ryan, M. (PI) and Yang, D. (PI), with no John Yang — even though every commit in the course website repo is his.
+The [CS329Z entry on ExploreCourses](https://explorecourses.stanford.edu/search?q=CS329Z&view=catalog) originally listed only Ryan and Diyi Yang as PIs; all three are on it now. A week before the quarter, the course site also added four TAs: Owen Queen, Anusheh Chaudry, Shreyas Sharma and Houjun Liu.
 
-The rest of what's on record: three units, Letter or Credit/No Credit. Taught in person in the autumn quarter, Mondays and Wednesdays afternoons in Packard 101. Class number, quarter dates and the final exam slot are in the appendix.
+The rest of what's on record: three units, Letter or Credit/No Credit. Taught in person in the autumn quarter, Mondays and Wednesdays in the afternoon; in the first week of the quarter the room moved from Packard 101 to Skilling Auditorium. Class number, quarter dates and the final exam slot are in the appendix.
 
-Prerequisites live in the Logistics section of the course site: one of [CS224N](https://web.stanford.edu/class/cs224n/), [CS224U](https://web.stanford.edu/class/cs224u/), [CS224V](https://web.stanford.edu/class/cs224v/), [CS336](https://stanford-cs336.github.io/), or equivalent NLP background. **The ExploreCourses entry has no prerequisites field at all** — read only the registrar and you'd think the course has no gate on it.
+Prerequisites live in the Logistics section of the course site: one of [CS224N](https://web.stanford.edu/class/cs224n/), [CS224U](https://web.stanford.edu/class/cs224u/), [CS224V](https://web.stanford.edu/class/cs224v/), [CS336](https://stanford-cs336.github.io/), or equivalent NLP background. The first lecture's slides put it more bluntly: train/dev/test, pretraining, fine-tuning, alignment and prompting are assumed knowledge — "We will not cover these in this course!" **The ExploreCourses entry has no prerequisites field at all** — read only the registrar and you'd think the course has no gate on it.
 
-On auditing, the course site says nothing, and there is no matching SCPD or Stanford Online page. I could not find a definite answer on this one.
+The same slide lists compute credits: each student gets $200 from the Laude Institute plus $250 from Thinking Machines. That is a real subsidy against the API bills for the assignments and the project.
 
-## The course's claim: build it by hand, then let the framework take it away
+The course filled up in its first week. The site posted a waitlist form and an audit request form, both of which only open with a Stanford email, and auditing is limited to Stanford students. The same notice goes on to say "All course materials on this site are publicly available" — outsiders can't get into the room, but whatever the site posts is theirs to take.
+
+## The course's claim: build it by hand, then see what the framework abstracts
 
 The line worth remembering sits in the second paragraph of the welcome message on the site:
 
@@ -46,7 +48,9 @@ The ordering is deliberate, and it isn't just a slogan — it's written into the
 
 This arrangement fixes a very concrete problem: people who learn the framework first usually can't say what the framework did for them. You can call `dspy.ReAct`, but you can't say which step of the ReAct loop is model output, which step is your code parsing that output, or who retries when it fails. Once you've written it by hand, the abstraction becomes something you can evaluate rather than something you have to trust.
 
-**Self-learners can copy this directly**: don't start learning agents at `pip install`. Take a thin-wrapper SDK like [litellm](https://github.com/BerriAI/litellm), write retrieval, tool calling and loop control yourself, get it running, then rewrite it with a framework. The first homework is designed in exactly that order — more on it below.
+The homework pushes this claim further than the schedule does. The first assignment originally came in two halves: build by hand, then rewrite in DSPy. After the early-September revision, the second half is gone entirely. The whole assignment now bans agent frameworks and gives you a single chat-completion call. Frameworks show up in lecture; in the homework you may not use a single line of one.
+
+**Self-learners can copy this directly**: don't start learning agents at `pip install`. Take the official SDK or a thin wrapper like [litellm](https://github.com/BerriAI/litellm), and write retrieval, tool calling, loop control and memory yourself. Once it runs, hold a framework up against it and see which decisions it would have made for you.
 
 ## DSPy is where the course lands, but its author has left Stanford
 
@@ -58,7 +62,7 @@ Where DSPy itself stands: [MIT licensed, actively released](https://github.com/s
 
 The problem it solves is captured by the tagline on its site — "Program, don't prompt." Declare the task as a typed signature, let a module pick the execution strategy (`Predict`, `ChainOfThought`, `ReAct`), then hand an optimizer a metric and let it compile the prompts to convergence.
 
-Worth noting: the course does not treat DSPy as the destination. The last phrase in the session five description is "choosing the right level of abstraction," and the same session also covers LangChain, LangGraph and LlamaIndex. The homework doesn't ask you to "switch to DSPy" either — it asks you to rewrite in DSPy and then say what it abstracted away.
+Worth noting: the course does not treat DSPy as the destination. The last phrase in the session five description is "choosing the right level of abstraction," and the same session also covers LangChain, LangGraph and LlamaIndex. DSPy also makes an early appearance in session two: when the slides cover structured input and output, they use a DSPy signature as the example and open it up to show the system prompt it finally assembles. Its role in this course is "the thing you take apart," not a tool you hand homework in with.
 
 ## Three courses with "agent" in the name — which one do you take
 
@@ -66,7 +70,7 @@ This is the question most people actually have. Stanford currently runs three co
 
 | Course | Official framing (per official description) | Official prerequisites | Format | 2026-27 status |
 |---|---|---|---|---|
-| [CS329Z: Engineering AI Agents](https://cs329z.stanford.edu/) | Engineering compound AI systems: decompose the problem, choose components, collect data, build evaluation | One of CS224N / CS224U / CS224V / CS336 (stated only on the course site) | Two assignments + quarter project + paper video | Offered in autumn, Mon/Wed 1:30–2:50 |
+| [CS329Z: Engineering AI Agents](https://cs329z.stanford.edu/) | Engineering compound AI systems: decompose the problem, choose components, collect data, build evaluation | One of CS224N / CS224U / CS224V / CS336 (stated only on the course site) | Two assignments + quarter project + paper video + peer review | Offered in autumn, Mon/Wed 1:30–2:50 |
 | [CS329A: Self-Improving AI Agents](https://cs329a.stanford.edu/) | Research seminar: models that keep improving by interacting with themselves and their environment | CS224N or CS229S; fluent Python; experience calling LLM APIs | Paper reading + original research project + guest lectures | ExploreCourses shows **Last offered: Autumn 2025** |
 | [CS224V: Agentic AI](https://web.stanford.edu/class/cs224v/) | Project course: minimize hallucination with RAG and formal task descriptions to build usable domain agents | One of LINGUIST 180/280, CS124, CS224N, CS224S, CS224U | Two assignments + quarter project | Offered in autumn, Mon/Wed 3:00–4:20 |
 
@@ -82,17 +86,25 @@ The split in one sentence: **CS329A asks how the model gets stronger, CS224V ask
 
 ## What the assignments look like
 
-Two of them, 10% each, and each one is tied to a ten-minute in-class quiz.
+Two of them, 15% combined, and each one is tied to an oral quiz. The site says ten minutes, closed book; the first lecture's slides say a fifteen-minute check-in that can ask about any part of your submission. Going by the slides is the safer bet.
 
-**HW1: Build an Agentic System** (weeks 3 to 6). You get a set of research papers and build an agent that can answer scientific questions. It splits explicitly in half: Part A builds from scratch with litellm — RAG, tool calling, and an agent loop with a reasoning pattern such as [ReAct](https://arxiv.org/abs/2210.03629); Part B rewrites the key components in DSPy and reflects on what the framework abstracted away. **This is the pivot of the whole course**, because its central claim rests entirely on this assignment.
+**HW1: Build an Agentic Harness** (weeks 3 to 6). Build a company's internal AI assistant, and **no agent frameworks allowed**: "just a chat-completion call and code you write yourself." The corpus is a real corporate email archive. You start with LLM pipelines that retrieve and reason over it, then grow them into a full agent harness: tools, a terminal, memory, and a human in the loop. **This is the pivot of the whole course**, because its central claim rests entirely on this assignment.
+
+This assignment was rewritten in early September. The late-August version used research papers as the corpus, asked for answers to scientific questions, and split in half: Part A hand-built RAG, tool calling and a [ReAct](https://arxiv.org/abs/2210.03629)-style loop with litellm; Part B rewrote it in DSPy and reflected on what the framework abstracted away. The new version drops Part B and spends the freed-up effort on memory, a terminal and human review. Those three are exactly the distance between a "harness" and a prompt that happens to call tools.
 
 **HW2: Evaluate an Agent** (weeks 6 to 9). You get a finished agent and design a full evaluation around it: programmatic scorers, at least one LLM-as-judge, benchmark tasks built on the course's four-part framework (request, environment, stopping criteria, scorer), plus error analysis.
 
-Two more things sit alongside the assignments. Every student records a ten-minute paper video, and the rubric is specific: paper selection and explanation, your own critique or insight, and "added value." The examples the course gives for added value include reproducing a result, running a small experiment, comparing against another method, or building a demo. Then you watch three other students' videos and write peer feedback, with an explicit instruction to go "beyond 'good job'" — one strength, one weakness or question, one actionable suggestion.
+Two more things sit alongside the assignments, worth 30% together. The first is a ten-minute paper video on an agent paper not covered in class. The second is peer review, at 20% — more than both assignments combined. There are four rounds over the quarter: paper videos, midpoint demos, HW2 evaluation designs, and final demos, with two submissions to review each round. Per the slides, your reviews are "graded on usefulness and on whether authors adopt it."
 
-The quarter project is worth half the grade, and the topic is fixed: **Making Life at Stanford Better with Agents**. The four examples given are a syllabus reader that extracts deadlines into a calendar, a course scheduling optimizer, a paper exploration and summarization agent, and a campus event aggregator with recommendations. For a self-learner outside Stanford, this half isn't reproducible — but swap the topic for "make my workday better" and the assignment structure transfers intact.
+The quarter project is worth 40%. The topic used to be fixed as Making Life at Stanford Better with Agents; in mid-September it became open. The only constraint is that it has to connect to one of the course's core themes: building agents (retrieval, tool use, memory, multi-agent, optimization), the data agents need, or evaluation and safety. The official example list keeps the syllabus reader, course scheduler, paper explorer and campus event recommender, and adds two more: a coding agent for a specific codebase, and a rigorous evaluation of an existing agent that surfaces its failure modes.
 
-## The course site's git history: what changed a month before the quarter
+The rule most worth stealing from the project spec is the one on evaluation: building a tool and showing it works once won't earn a high grade. You have to pin down the task scope, data sources, what counts as success and how you'll measure it up front, then compare against a baseline and do error analysis. The final report is 8 pages in ICLR format, and the Results section alone is worth 10 of its 25 points.
+
+The rest of the rules read like a small conference submission too. Teams of one to three, with three recommended, and each team gets a mentor from the teaching staff. Both the midpoint and the final require a GitHub repo whose README lets a classmate who has never seen your code get it running. A TA will follow the README to run a simple example, and that's worth 5 points. Every stage's report needs an AI-use disclosure modeled on the ICLR 2026 LLM policy; if you didn't use AI you still have to say so, and leaving it out costs points.
+
+For a self-learner outside Stanford, the project loses the mentor and the peer review, but the evaluation bar and the README standard transfer intact.
+
+## The course site's git history: what changed around the start of the quarter
 
 `cs329z.stanford.edu` is a GitHub Pages site, with the source in the [public repo `cs329z/cs329z.github.io`](https://github.com/cs329z/cs329z.github.io). It generates static pages with Flask and Flask-FlatPages, and all the content lives in `data/*.json` and `pages/*.md`. Which means every syllabus revision leaves a diff behind.
 
@@ -100,61 +112,77 @@ The most informative one is the August 16 commit, whose message says it in a sin
 
 > **HW2: Data for Agents** (Weeks 6–8). Given a staff-provided agent, collect and curate data to optimize its performance — data selection, quality filtering, finding maximally informative examples, synthetic data generation, and building optimization data (SFT or preference pairs). Deliverable: a curated dataset, a data card, and an analysis.
 
-The course never explains why. Only two things can be confirmed: the two data sessions are still on the schedule (sessions 11 and 12, Data for Agentic Systems), now with no assignment hanging off them; and the paper video and peer review were added in the same commit, filling exactly the 10% that was cut.
+The course never explains why. Only two things can be confirmed: the two data sessions are still on the schedule (sessions 11 and 12, Data for Agentic Systems), now with no assignment hanging off them; and the paper video and peer review were added in the same commit.
 
-Over the next thirty hours, the grading table was revised four more times. The direction is consistent: the project's weight climbs throughout, ending up at a full half of the grade, while assignments and quizzes give ground. The two sessions originally called oral exams were renamed HW-based quizzes in this same round, with their weight dropping accordingly. The percentage changes step by step are in the appendix.
+Over the next thirty hours, the grading table was revised four more times, with the project's weight climbing all the way to half. The two sessions originally called oral exams were renamed HW-based quizzes in this same round.
 
-One inconsistency is still live on the site. The project page's milestones put the midpoint report and midpoint demo in week six and the final submission in week ten, but the deadlines table puts the two midpoint items in week seven and pushes the final submission into finals week. Trust the deadlines table — it's the one that got concrete dates filled in later.
+But that wasn't final. Three more rounds of changes landed around the start of the quarter, and each one touched the course's skeleton:
 
-For what it's worth, the [ExploreCourses description still says `three fully applied homework assignments` today](https://explorecourses.stanford.edu/search?q=CS329Z&view=catalog), which contradicts the `two` on the course site. Two official pages at the same school disagreeing is normal; the course site wins.
+- **September 9: HW1 rewritten wholesale.** The commit message is `Update HW1 description to match the restructured assignment`. Research papers became corporate email, the DSPy half was dropped, and frameworks were banned throughout.
+- **September 20: the project rules moved over wholesale from an internal doc.** The topic became open, and ICLR format, AI-use disclosure, a GitHub README and reproducibility points were added. The midpoint demo also changed from a live in-class presentation to a recorded submission.
+- **September 22, the day before the first lecture: the grading table flipped again.** Peer review jumped from 3% to 20%, the project dropped from 50% back to 40%, homework fell to 15%, and the 5% for participation was deleted outright.
+
+All three rounds point the same way: points move away from "what you handed in" toward "can you evaluate, and can others reproduce you." Peer review means grading other people's evaluation designs, the project has to ship a reproducible repo, and Results is the heaviest section of the final report. Evaluation, the course's third thread, ended up as the shape of the grading table itself. The percentage changes step by step are in the appendix.
+
+The August version had one more inconsistency: the project page put the midpoint in week six while the deadlines table said week seven. After the September rewrite, both now say week seven.
+
+The [ExploreCourses description still says `three fully applied homework assignments` today](https://explorecourses.stanford.edu/search?q=CS329Z&view=catalog), which contradicts the `two` on the course site. Two official pages at the same school disagreeing is normal; the course site wins.
 
 ## What a self-learner can actually get
 
-The conclusion first: **all you can get right now is the syllabus and the reading list, and the reading list is unexpectedly complete.**
+The conclusion first: **you get the syllabus, the reading list, and slides posted lecture by lecture; you don't get recordings or assignment code.**
 
-**Available: the entire reading list, every entry a clickable link.** Assigned plus supplementary comes to 49 papers, most pointing at arXiv and the rest at public pages — the [BAIR compound AI systems post](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/), the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18), [Anthropic's Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) and others. Not one item is locked behind Canvas.
+**Available: slides, no login needed.** Each session's description on the schedule gets a Google Drive link, and as of September 29 the first two are up. [Lecture 1, Intro to Agentic Systems](https://drive.google.com/file/d/1Wlf723d9-LBuTp56QYppaZwozOAetTsC/view), runs 71 pages, from the etymology and history of "agent" through the three types of memory, closing with reliability, safety compliance, adversarial pop-ups and multi-agent collusion as the challenges the course will face. [Lecture 2, LLMs for Builders](https://drive.google.com/file/d/1kekt_p0n-_Q4Y2dKYEkH87NEx6mr8nRE/view), runs 176 pages and is a crash course in model internals for agent developers: decoding, attention (including linear and hybrid architectures), pretraining through post-training, inference and test-time scaling, structured output, landing on context engineering. That session's schedule description was rewritten the day it was taught; it used to say litellm, model selection and cost/latency, and now matches the slides actually delivered.
 
-**Available: the full grading table, assignment descriptions and project requirements.** You know what HW1 asks for, what HW2 has to deliver, how long the report should be (one to two pages of body text, with structured content such as agent failure mode examples in an appendix), and how many points each item carries.
+**Available: the entire reading list, every entry a clickable link.** Assigned plus supplementary comes to 50 papers, most pointing at arXiv and the rest at public pages — the [BAIR compound AI systems post](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/), the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18), [Anthropic's Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) and others. Not one item is locked behind Canvas.
+
+**Available: the full grading table, assignment descriptions and project requirements.** You know what HW1 asks for, what HW2 has to deliver, how many pages the proposal and each report need, how many points each section of the final report carries, and how much each item weighs in the grade.
 
 **Available: the course website's source and revision history.** The syllabus changes in the previous section were read straight out of it.
 
-**Not available: slides.** The "Course Material" column in the schedule currently holds only reading links, no decks. The site says "Lecture materials will be linked here as they are released," and the repo README lists "Add lecture-material links as released" on its to-do list.
+**Not available (for now): recordings.** Lectures are recorded, but the site says the recordings go on Canvas, behind an enrolled-student login. The first lecture's slides, meanwhile, say "Lecture slides and videos will be posted online." The two statements don't line up yet; whether public recordings appear remains to be seen.
 
-**Not available: recordings.** The course site mentions no recording arrangement at all.
+**Not available: assignment starter code, the email corpus, and graders.** The site gives no repo link, and doesn't say which corporate email archive HW1 uses.
 
-**Not available: assignment starter code and graders.** The site gives no repo link.
-
-**Not available: the two guest lectures.** Two slots on the schedule read "📺 Guest Lecture (TBA)," and the speakers still haven't been announced. The TA roster is empty too — the `cas` array in `data/staff.json` has nothing in it.
+**Not available: the two guest lectures.** The October 26 and November 16 slots still read "📺 Guest Lecture (TBA)," and the speakers haven't been announced.
 
 One more thing, unrelated to materials but worth reading: this course's integrity policy spends a full paragraph on how to use AI tools, in a tone quite unlike most academic bans.
 
 > This is a course about building with AI, so we expect you to use it. Treat generative AI tools as collaborators you think alongside — asking them to explain a concept, debug your code, or critique a design is fair game and encouraged. What isn't: soliciting finished answers or copying solutions.
 
-The counterweight is those two in-class quizzes: ten minutes, individual, closed book, asking you to explain your own design decisions and trade-offs. Letting AI write it is fine, as long as you can say on the spot why it's written that way.
+The counterweight is those two oral quizzes: individual, closed book, asking you to explain your own design decisions and trade-offs. Letting AI write it is fine, as long as you can say on the spot why it's written that way.
+
+The first lecture's slides make the reasoning more concrete. They cite [a 2026 randomized controlled trial from Anthropic](https://www.anthropic.com/research/AI-assistance-coding-skills): 52 engineers learning a new Python library, where the AI-assisted group scored 17% lower on the post-test, with the widest gap in debugging. The next slide is titled "Use AI to learn how to learn." The course wants you to use AI, but what it measures is what you yourself learned.
 
 ## How to start
 
-One thing you can do tonight: run both halves of HW1 yourself.
+One thing you can do tonight: start under HW1's rules — no framework installed, just one chat-completion call.
 
-Grab five to ten papers from a field you know as your corpus, and write a minimal question-answering agent with litellm — chunk, embed, retrieve, one `search_papers` tool, a ReAct loop capped at three iterations. Once it runs, **don't optimize it**. Open a new file, rewrite the same task with `dspy.ReAct`, then write down item by item: who handles retry logic now, who parses the output, who rewrote the prompts.
+The course hasn't said which email archive it uses. For self-study, the easiest option is exporting the last three months of your own inbox; if you want public data, the [Enron email dataset](https://www.cs.cmu.edu/~enron/) is the real corporate mail most research in this area uses. Write the smallest possible pipeline first: split the messages, retrieve, and have the model answer questions like "who promised what last month." Once that runs, add one thing at a time in the order the assignment describes: a `search_email` tool, a loop capped at three iterations, a memory that records the user's preferences, and an "ask me before sending" approval gate.
 
-That comparison list is what session five of the course teaches, and you'll have your own answers before you ever read it.
+Every time you add a piece, rerun the same ten questions and note which got better and which got worse. By the time session five covers DSPy and the other frameworks, you'll already have a list of "what I wrote myself at each layer," and can check item by item which of those decisions a framework would have made for you.
 
 ## Appendix: numbers and how they were checked
 
-- **On-record details**: class number 27855, Session 2026-2027 Autumn 1, quarter running 2026-09-22 to 2026-12-04, Mondays and Wednesdays 1:30–2:50 p.m., Packard 101, final exam slot 2026-12-09 3:30–6:30 p.m. (from ExploreCourses and the Logistics section of the course site).
-- **Deadlines**: HW1 out 10/5, due 10/30; project proposal due 10/9; HW2 out 10/26, due 11/20; midpoint demo in class 11/4, midpoint report due 11/6; paper video due 11/13; peer review due 11/30; final submission and system demo during finals week 12/7–12/11, time TBD. All at 11:59 p.m. Pacific.
-- **Schedule size**: `data/schedule.json` holds 22 sessions; subtract two TBA guest slots, two Thanksgiving cancellations and one Demo Day, and 17 sessions carry actual content. 23 assigned readings and 26 supplementary, 49 in total; 31 distinct arXiv links after deduplication. Figures from the version fetched on 2026-08-21.
-- **How the grading table evolved** (all from commit diffs in the public repo, timestamps in the commit author's timezone): 8/16 22:29 `Two homeworks, add paper video, rebalance grading to 100%`, project 39%→35%, assignments from three at 10% each to two at 15% each; 8/17 09:38 `Grading updates`, restructured into a nested list; 8/17 15:11 `Update grading breakdown`, project 35%→50%, the two assignments 15%→10% each, oral exam renamed HW-based quiz and 10%→7.5% each; 8/17 22:29 `Adjust project grading weights`, midpoint demo 5%→7%, final system demo 20%→18%; after 8/18, only formatting and logistics changes.
+- **On-record details**: class number 27855, Session 2026-2027 Autumn 1, quarter running 2026-09-22 to 2026-12-04, Mondays and Wednesdays 1:30–2:50 p.m., Skilling Auditorium (originally scheduled for Packard 101 before the quarter), final exam slot 2026-12-09 3:30–6:30 p.m. (from ExploreCourses and the Logistics section of the course site).
+- **Deadlines**: HW1 out 10/5, due 10/30; project proposal due 10/9; HW2 out 10/26, due 11/20; midpoint demo video due 11/4, midpoint report due 11/6; paper video due 11/13; paper video peer reviews (two videos) due 11/30; final report and system demo during finals week 12/7–12/11, time TBD. All at 11:59 p.m. Pacific.
+- **Schedule size**: `data/schedule.json` holds 22 sessions; subtract two TBA guest slots, two Thanksgiving cancellations and one Demo Day, and 17 sessions carry actual content. 23 assigned readings and 27 supplementary, 50 in total; 32 distinct arXiv links after deduplication. Figures from the version fetched on 2026-09-29. Compared with the 8/21 version, the assigned reading for the evaluation session was swapped on 8/23 for Zhu et al.'s [Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825), with the original Ofir Press blog post demoted to supplementary.
+- **How the grading table evolved** (all from commit diffs in the public repo, timestamps in the commit author's timezone): 8/16 22:29 `Two homeworks, add paper video, rebalance grading to 100%`, project 39%→35%, assignments from three at 10% each to two at 15% each; 8/17 09:38 `Grading updates`, restructured into a nested list; 8/17 15:11 `Update grading breakdown`, project 35%→50%, the two assignments 15%→10% each, oral exam renamed HW-based quiz and 10%→7.5% each; 8/17 22:29 `Adjust project grading weights`, midpoint demo 5%→7%, final system demo 20%→18%; 9/22 20:24 `Update grading`, now project 40% (proposal 5, midpoint report 5, midpoint demo 5, final submission 15, final system demo 10), homework 15% (7.5 each), HW-based quizzes 15% (7.5 each), paper video 10%, peer review 20% (four rounds at 5% each, two reviews per round at 2.5% each), with the 5% participation item deleted. The breakdown of the 25-point final submission (report 20 + reproducibility 5) comes from the 9/20 project page rewrite.
 - **The unit count changed too**: the 8/18 `Some updates` commit changed `Units: 3–4` to `Units: 3` on the logistics page, and added the class number, meeting times and room at the same time. ExploreCourses also says 3 units.
 - **How to query ExploreCourses**: `https://explorecourses.stanford.edu/search?q=<course>&view=catalog` defaults to the current academic year (2026-2027). CS329Z returns 0 results on both the 2025-2026 and 2024-2025 tabs, which is why it reads as a new course; CS329A shows `Last offered: Autumn 2025` on the current year and only reveals its schedule under 2025-2026. The site needs a `jsenabled=1` cookie to return content — fetch it directly and you get a page saying "Loading…".
 - **DSPy numbers**: roughly 37,400 GitHub stars (read 2026-08-21); the docs homepage claims 444+ contributors, 6.6M+ monthly downloads, latest version 3.3.0, MIT licensed. These are the project's own self-reported figures.
-- **Could not confirm**: whether the course can be audited (the site doesn't say, and there's no SCPD or Stanford Online page); the TA roster; the two guest speakers; whether assignment starter code will be public; whether the Stanford Bulletin has a CS329Z entry yet (its course catalog is a dynamically loaded frontend app, which I could not verify first-hand).
+- **Where the slides and the site disagree**: the first lecture's slides describe the HW-based quiz as a "15-min oral check-in on any part of your submission," while the site says 10 minutes, closed book; the slides say recordings will be "posted online," while the site says they go on Canvas. The slides are published as public Google Drive links, downloaded 2026-09-29: 71 pages for lecture one, 176 for lecture two.
+- **ExploreCourses instructors**: read on 8/21, it listed only Ryan, M. and Yang, D.; read on 9/29, it lists Ryan, M., Yang, D. and Yang, J. as PIs, and the room already shows Skilling.
+- **Could not confirm**: the two guest speakers; whether assignment starter code and HW1's email corpus will be public; whether recordings will end up public; whether the Stanford Bulletin has a CS329Z entry yet (its course catalog is a dynamically loaded frontend app, which I could not verify first-hand).
+
+## Update log
+
+- 2026-09-29: Updated for the course site's September revisions and the first two lecture decks — HW1 is now a framework-free Agentic Harness (the Part B DSPy rewrite is gone), the project topic is open with ICLR format and reproducibility added, the grading table now gives peer review 20%; added the TAs, room change, compute credits, audit and recording notes, and the slide contents; rewrote the title and tldr to match
 
 ## References
 
 - [Stanford CS329Z: Engineering AI Agents course site](https://cs329z.stanford.edu/) — primary source for instructors, schedule, both assignments, grading table, project topic, prerequisites and the integrity policy
-- [cs329z/cs329z.github.io (course website source and commit history)](https://github.com/cs329z/cs329z.github.io) — syllabus changes, the deleted HW2 text, grading table evolution, README to-do list
+- [cs329z/cs329z.github.io (course website source and commit history)](https://github.com/cs329z/cs329z.github.io) — syllabus changes, the deleted HW2 text, the HW1 rewrite, the project rules rewrite, grading table evolution
 - [ExploreCourses: CS329Z](https://explorecourses.stanford.edu/search?q=CS329Z&view=catalog) — the registrar's version of the description (still says three assignments), units, class number, meeting times, final exam slot, instructor list
 - [ExploreCourses: CS329A](https://explorecourses.stanford.edu/search?q=CS329A&view=catalog) — shows `Last offered: Autumn 2025`, confirming no 2026-27 offering
 - [ExploreCourses: CS224V](https://explorecourses.stanford.edu/search?q=CS224V&view=catalog) — autumn 2026-27 offering, 3-4 units, official prerequisites, and the rename from Conversational Virtual Assistants to Agentic AI
@@ -171,11 +199,16 @@ That comparison list is what session five of the course teaches, and you'll have
 - [DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines](https://arxiv.org/abs/2310.03714) — assigned reading for session five
 - [MIPROv2: Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs](https://arxiv.org/abs/2406.11695) — supplementary reading for session nine, Michael Ryan co-first author
 - [GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning](https://arxiv.org/abs/2507.19457) — assigned reading for session nine
-- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — assigned reading for session six, and the reasoning pattern cited in HW1 Part A
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — assigned reading for session six, and the reasoning pattern cited in the August version of HW1
 - [SWE-smith: Scaling Data for Software Engineering Agents](https://arxiv.org/abs/2504.21798) — assigned reading for session twelve, first-authored by instructor John Yang
 - [The Shift from Models to Compound AI Systems (BAIR Blog)](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) — assigned reading for session one, and the source of the course's framing
 - [Model Context Protocol specification](https://modelcontextprotocol.io/specification/2025-06-18) — assigned reading for session four
 - [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) — assigned reading for session two
-- [litellm](https://github.com/BerriAI/litellm) — the SDK required for HW1 Part A
+- [litellm](https://github.com/BerriAI/litellm) — the SDK specified in the August version of HW1, and one of the hand-built starting points this piece suggests
+- [CS329Z Lecture 1 slides: Intro to Agentic Systems](https://drive.google.com/file/d/1Wlf723d9-LBuTp56QYppaZwozOAetTsC/view) — prerequisites, compute credits, grading, how peer review is scored, audit and recording notes
+- [CS329Z Lecture 2 slides: LLMs for Builders](https://drive.google.com/file/d/1kekt_p0n-_Q4Y2dKYEkH87NEx6mr8nRE/view) — the model-internals crash course and the DSPy signature example
+- [Anthropic: How AI assistance impacts the formation of coding skills](https://www.anthropic.com/research/AI-assistance-coding-skills) — the RCT cited in the first lecture's slides
+- [Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825) — the evaluation session's assigned reading as of 8/23
+- [Enron Email Dataset (CMU)](https://www.cs.cmu.edu/~enron/) — the public corporate email corpus this piece suggests for self-studying HW1 (not specified by the course)
 - On this site: [Stanford CS329A walkthrough](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
 - On this site: [A Reading Guide to Stanford's CS Courses: Ordered by Prerequisites](/posts/learning/2026-08-20-stanford-cs-course-map-en)
