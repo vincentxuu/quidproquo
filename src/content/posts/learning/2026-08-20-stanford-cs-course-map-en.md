@@ -118,8 +118,9 @@ This branch has the most complete prerequisite chain of the five — you can fol
 
 | Number | Title | Official prerequisites |
 |---|---|---|
-| CS124 | From Languages to Information | CS106B, Python, CS109, CS107-level |
+| [CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en) | From Languages to Information | CS106B, Python, CS109, CS107-level |
 | [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) | Natural Language Processing with Deep Learning | calculus and linear algebra; CS124, CS221, or CS229 |
+| [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) | Transformers & Large Language Models | machine learning basics and linear algebra |
 | [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) | Natural Language Understanding | CS224N or CS224S |
 | [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai-en) | Agentic AI | one of LINGUIST 180/280, CS124, CS224N, CS224S, CS224U |
 | CS329X | Human Centered NLP | — |
@@ -129,6 +130,8 @@ This branch has the most complete prerequisite chain of the five — you can fol
 **CS224N's site does something unusual**: it keeps every edition back to 2000. Open the 2019 version, see how the course taught the Transformer when it was new, and set it against today's — same course, same people, and the difference in framing is right there.
 
 **CS224V is now called Agentic AI** — a 2026 name. It works directly on RAG and formal task descriptions, hybrid reasoning across databases and knowledge bases, AI-driven knowledge curation for scientific research, improving the accuracy and interpretability of decision-making agents through formal methods, and efficiency for long-horizon agents. If you want to build agents and would rather have a real course, this one is underrated.
+
+**CME295 is not a CS course number, yet it is the biggest time-saver on this track.** Offered by ICME, it is two units with no assignments, graded only on a midterm and a final; nine lectures run from the Transformer through LLM training, reasoning, and agents. The 2025 edition's videos, slides, and exam solutions are all public, and Autumn 2026 is in session with three new lectures on LLM systems, reinforcement learning, and diffusion LLMs. It works as a map before CS224N or as catch-up after it; this site has a [lecture-by-lecture guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en).
 
 **CS329X: Human Centered NLP** covers human-centered design, human-in-the-loop algorithms, fairness, and accessibility. Easy to write off as a soft elective, but it handles exactly the class of problems that blows up first when a model becomes a product.
 
@@ -264,6 +267,8 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 
 ## Changelog
 
+- 2026-09-29: Added CME295 (Autumn 2026 in session, 2025 edition fully public) to the NLP / LLM / agent branch with a link to this site's guide; linked the CS124 guide in the prerequisites table.
+
 - 2026-08-26: Backfilled internal links — the per-course overview deep dives for the five core courses (CS103, CS107, CS109, CS111, CS161) plus CS221, CS124, CS229, CS228, CS224N, CS224U, CS224V, CS224W, CS329A, CS329Z, and CS336 are now live; the body text and the prerequisite table now link to them. Also re-checked ExploreCourses (2026-08-26): CS221M was removed from the appendix's "concrete 2026-27 offering details" list — its 2026-27 entry no longer lists any term, with Spring 2026 as its last; the other seven dormant courses and twelve listed courses were re-verified unchanged.
 
 - 2026-08-22: Standardized the A0–A3 access language and corrected the CS221 core-course count, the editorial LLM/agent route, the CS224U placeholder, and the CS111/CS110 relationship.
@@ -319,6 +324,7 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 - [CS 329H: Machine Learning from Human Preferences](https://explorecourses.stanford.edu/search?q=CS+329H&view=catalog) — description and 2026-27 autumn offering
 - [CS 329T](https://explorecourses.stanford.edu/search?q=CS+329T&view=catalog) — prerequisite CS229-level ML plus deep learning
 - [CS 329X: Human Centered NLP](https://explorecourses.stanford.edu/search?q=CS+329X&view=catalog) — description and 2026-27 autumn offering
+- [CME 295: Transformers & Large Language Models](https://cme295.stanford.edu/syllabus/) — 2026 and 2025 schedules, slides, and recording links
 - [CS 329Z: Engineering AI Agents](https://explorecourses.stanford.edu/search?q=Engineering+AI+Agents&view=catalog) — compound AI systems and DSPy in the course description
 - [CS 333](https://explorecourses.stanford.edu/search?q=CS+333&view=catalog) — project-based course on human-AI interaction
 - [CS221M: Mechanistic Interpretability](https://explorecourses.stanford.edu/search?q=CS+221M&view=catalog) — probing, steering, causal abstraction, sparse autoencoders

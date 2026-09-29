@@ -118,8 +118,9 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 | 課號 | 課名 | 官方先修 |
 |---|---|---|
-| CS124 | From Languages to Information | CS106B、Python、CS109、CS107 等級 |
+| [CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information) | From Languages to Information | CS106B、Python、CS109、CS107 等級 |
 | [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) | Natural Language Processing with Deep Learning | 微積分與線性代數；CS124、CS221 或 CS229 |
+| [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) | Transformers & Large Language Models | 機器學習基礎與線性代數 |
 | [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding) | Natural Language Understanding | CS224N 或 CS224S |
 | [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai) | Agentic AI | LINGUIST 180/280、CS124、CS224N、CS224S、CS224U 擇一 |
 | CS329X | Human Centered NLP | — |
@@ -129,6 +130,8 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 **CS224N 的網站有個少見的價值**：它把 2000 年以來每一屆的課程網站都留著。你可以打開 2019 年那版，看看 Transformer 剛出現時這門課怎麼教它，再對照現在的版本——同一門課、同一群人，教法差多少一目了然。
 
 **CS224V 現在叫 Agentic AI**，這是 2026 年才有的名字。內容直接處理 RAG 與形式化任務描述、跨資料庫與知識庫的混合推理、AI 驅動的科學知識探索、用形式方法提升決策 agent 的準確度與可解釋性、以及長時程 agent 的效率。想做 agent 又想要有正課可上的人，這門的優先序被低估了。
+
+**CME295 掛在 ICME 底下，卻是這條線上最省時間的一門。** 它兩學分、沒有作業，成績只看期中與期末；九堂課從 Transformer 講到 LLM 訓練、推理與 agent。2025 版的影片、投影片與考卷解答全部公開，Autumn 2026 正在上課，新增 LLM 系統、強化學習與 Diffusion LLM 三講。它適合放在 CS224N 之前當地圖，或之後當補課；本站有[逐講導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)。
 
 **CS329X: Human Centered NLP** 談人本設計、human-in-the-loop、公平性與可及性。它容易被當成軟性選修跳過，但它處理的正是把模型變成產品時最先炸開的那一類問題。
 
@@ -264,6 +267,8 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 
 ## 更新紀錄
 
+- 2026-09-29：NLP／LLM／Agent 分支補上 CME295（Autumn 2026 開課中，2025 版全公開）與站內導讀連結；先修表補上 CS124 導讀連結。
+
 - 2026-08-26：回補站內連結——核心五門（CS103、CS107、CS109、CS111、CS161）與 CS221、CS124、CS229、CS228、CS224N、CS224U、CS224V、CS224W、CS329A、CS329Z、CS336 的單課總覽導讀已陸續上線，正文與先修表補上對應站內連結。另重查 ExploreCourses（2026-08-26）：附錄「2026-27 有明確開課資訊」清單移除 CS221M——其 2026-27 條目已無任何開課學期，最後一筆為 2026 春；停開表其餘七門與清單其餘十二門複核無變動。
 
 - 2026-08-22：統一 A0–A3 公開度說明，修正 CS221 核心課計數、LLM／agent 建議路線、CS224U 佔位狀態與 CS111／CS110 關係。
@@ -319,6 +324,7 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 - [CS 329H: Machine Learning from Human Preferences](https://explorecourses.stanford.edu/search?q=CS+329H&view=catalog) — 課程描述與 2026-27 秋季開課
 - [CS 329T](https://explorecourses.stanford.edu/search?q=CS+329T&view=catalog) — 先修 CS229 等級 ML 加深度學習
 - [CS 329X: Human Centered NLP](https://explorecourses.stanford.edu/search?q=CS+329X&view=catalog) — 課程描述與 2026-27 秋季開課
+- [CME 295: Transformers & Large Language Models](https://cme295.stanford.edu/syllabus/) — 2026 與 2025 版課表、投影片與錄影入口
 - [CS 329Z: Engineering AI Agents](https://explorecourses.stanford.edu/search?q=Engineering+AI+Agents&view=catalog) — 複合式 AI 系統與 DSPy 的課程描述
 - [CS 333](https://explorecourses.stanford.edu/search?q=CS+333&view=catalog) — 人機互動場景的專案導向課程
 - [CS221M: Mechanistic Interpretability](https://explorecourses.stanford.edu/search?q=CS+221M&view=catalog) — 探測、steering、因果抽象與稀疏自編碼器

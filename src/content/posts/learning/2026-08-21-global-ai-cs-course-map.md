@@ -42,7 +42,7 @@ draft: false
 
 目前最乾淨的例子之一是 [MIT 6.S191: Introduction to Deep Learning](https://introtodeeplearning.com/)。2026 年版（3/30–5/25，已結課）公開九講影片、投影片與三個 software labs；[2025 封存版](https://introtodeeplearning.com/2025/index.html)則保留十講影片與三個 labs。它很適合自學，但要記得它是密集 bootcamp，不是完整一學期的深度學習課。
 
-[Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)也接近完整公開：投影片、教材章節、discussion materials、六個 Pacman projects 與逐講影片都能從課站取得（2026-08-27 已封存，頁面提示當期請看 [su26](https://inst.eecs.berkeley.edu/~cs188/su26/)）。正式課程的 Ed、成績與教學人員支援仍限修課生，但校外讀者至少能走完主要學習路徑。本站的 [CS188 Spring 2026 總覽](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)已盤點 P0–P5 六個 projects 與建議修課順序。
+[Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)也接近完整公開：投影片、教材章節、discussion materials、六個 Pacman projects 與逐講影片都能從課站取得；這個學期已結束，課站仍完整保留。當期的 [Fall 2026](https://inst.eecs.berkeley.edu/~cs188/fa26/) 已開課，`~cs188/` 也改為直接導向 fa26，投影片與錄影隨進度逐講放出。正式課程的 Ed、成績與教學人員支援仍限修課生，但校外讀者至少能走完主要學習路徑。本站的 [CS188 Spring 2026 總覽](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)已盤點 P0–P5 六個 projects 與建議修課順序。
 
 Stanford 的情況不是只有零散影片。[Stanford CS 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)已按官方先修關係整理從 CS106A 到 CS336 的階梯；其中 [CS336 Spring 2026](https://cs336.stanford.edu/)（3/30–6/3 已結課）公開講義與五份 GitHub 作業、[YouTube 完整播放清單](https://www.youtube.com/watch?v=JuoVZkPBiKk&list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)，Spring 2025 也有 Stanford Online 官方錄影。它的限制不在網址，而在算力：教材公開不代表完成每份作業都免費。
 
@@ -54,7 +54,7 @@ Stanford 的情況不是只有零散影片。[Stanford CS 課程地圖](/posts/l
 
 [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)公開二十五講投影片、五份作業與 GitHub 起始碼，當期錄影卻放在 bCourses。官方另連到較舊的公開影片，因此可行的做法是：主文分析 2026 教材，把歷史影片放在獨立替代資源區，清楚標出年份。[CS285 導讀系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)就是照這個原則寫的。
 
-[MIT 6.7960 Fall 2025](https://deeplearning6-7960.github.io/)公開完整 schedule、投影片、readings 與 PyTorch Colab，但題目在 Gradescope、解答在 Canvas。本系列會把它列為 A2：可以深入讀教材設計，不能承諾完整重現修課體驗。
+[MIT 6.7960](https://deeplearning6-7960.github.io/)的課站已切到 Fall 2026，投影片隨進度公開，Fall 2025 則移到「Previous years」。兩個學期的缺口相同：作業透過 Gradescope 發放，錄影放在 MIT Canvas。本系列把它列為 A2：可以深入讀教材設計，不能承諾完整重現修課體驗。本站的 [6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)因此改用錄影完整的 Fall 2024 OCW 版，並標明年份。
 
 **怎麼做**：選 A2 課程時，先寫下你要的成果。如果目標是理解一個主題，投影片與 readings 可能已經夠；如果目標是做完整作業，缺少題目、資料集或評分器就是停止訊號。
 
@@ -64,7 +64,9 @@ CMU 是最不能只看舊課號的一間。新的 [07-280 AI & ML I](https://www
 
 截至 2026 年 8 月 27 日，07-280 Fall 2026 已是完整課站：24 講 schedule（8/25–12/3）、逐講投影片與 notes、週五 recitation、12 份作業（HW0–HW11，含 Building AlexNet／GPT-2／AlphaZero）與每週 pre-reading checkpoint 皆已上線。先前「多數材料尚未發布」的狀態已結束；本站的 [CMU 07-280 完整課程導讀](/posts/ai/2026-08-22-cmu-07280-course-overview)（24 講逐講＋3 篇階段複習＋[結業路線](/posts/ai/2026-08-22-cmu-07280-completion-roadmap)）即按此當期版完成。
 
-同校的 [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html)則是另一種情況：Spring 2026（已結課）與 [Fall 2025](https://deeplearning.cs.cmu.edu/F25/index.html)都逐講提供官方 YouTube，投影片也公開，[Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)亦已上線；作業卻混用 Autolab、Kaggle 與 Piazza。影片已確認能看，能否完整自學仍要逐份檢查 starter assets。
+同校的 [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html)則是另一種情況：Spring 2026（已結課）與 [Fall 2025](https://deeplearning.cs.cmu.edu/F25/index.html)都逐講提供官方 YouTube，投影片也公開，[Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)正逐講放出投影片與 YouTube 影片；作業卻混用 Autolab、Kaggle 與 Piazza。影片已確認能看，能否完整自學仍要逐份檢查 starter assets。
+
+CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)，由 Graham Neubig 與 Daniel Fried 授課。它是研究所課，先修要求訓練過語言模型；投影片與前幾講錄影已隨進度公開，三份作業依序做 harness、評測與訓練。本站的 [11-768 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)跟著當期進度寫，後半學期的講次與作業要等官方上架才補。
 
 進行中或尚未開課的學期，只有 schedule 不算「最新公開課」。本站會等材料真的出現再升級，不用年份的新換掉內容完整的舊。
 
@@ -72,11 +74,11 @@ CMU 是最不能只看舊課號的一間。新的 [07-280 AI & ML I](https://www
 
 | 學校 | 課程地圖的主問題 | 目前最適合的公開入口 |
 |---|---|---|
-| [Stanford](/posts/learning/2026-08-20-stanford-cs-course-map) | 先修關係如何從系統與數學地基一路接到研究級 AI？ | CS221、CS336；CS103／CS107／CS109／CS111／CS161 已完成逐講導讀 |
-| [CMU](/posts/learning/2026-08-21-cmu-ai-ml-course-map) | 07-280／07-380 新制如何接到 ML、DL、NLP 與 systems？ | 07-280 Fall 2026（24 講已上線）、10-301/601、11-785（S26 已結課，F26 已上線） |
-| [MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map) | 現行課號、當期課站與歷史 OCW 如何對齊？ | 6.S191（2026 已結課）；6.7960 做 A2 教材導讀 |
-| [Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map) | CS188／CS189 之後如何分流到 NLP、RL 與視覺？ | CS188（sp26 已封存，現為 su26）；CS288、CS285 做教材型導讀 |
-| [Harvard](/posts/learning/2026-08-22-harvard-ai-ml-course-map) | 通識 CS50 系列如何銜接 CS181／CS182？ | CS50 AI 錄影版本與 CS181／CS182 作業開放狀況 |
+| [Stanford](/posts/learning/2026-08-20-stanford-cs-course-map) | 先修關係如何從系統與數學地基一路接到研究級 AI？ | CS221、CS229、CS224N、CS336、CME295；地基五門與 AI 分支課已有逐講導讀 |
+| [CMU](/posts/learning/2026-08-21-cmu-ai-ml-course-map) | 07-280／07-380 新制如何接到 ML、DL、NLP 與 systems？ | 07-280 Fall 2026（24 講課站）、10-301/601、11-785（F26 逐講上片中）、11-768（Fall 2026 新開） |
+| [MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map) | 現行課號、當期課站與歷史 OCW 如何對齊？ | 6.S191（2026 已結課）；6.7960（課站已切 Fall 2026）做 A2 教材導讀 |
+| [Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map) | CS188／CS189 之後如何分流到 NLP、RL 與視覺？ | CS188（sp26 完整保留，當期為 fa26）；CS288、CS285 做教材型導讀 |
+| [Harvard](/posts/learning/2026-08-22-harvard-ai-ml-course-map) | 通識 CS50 系列如何銜接 CS181／CS182？ | CS50 AI 錄影版本；CS181 以作業為節拍自學；CS182 尚無當期公開教材 |
 
 > Harvard 已於 2026-08-22 補上為第五所學校的地圖，見上表。
 
@@ -94,24 +96,27 @@ CMU 是最不能只看舊課號的一間。新的 [07-280 AI & ML I](https://www
 
 五篇學校地圖已完成：[Stanford](/posts/learning/2026-08-20-stanford-cs-course-map)、[CMU](/posts/learning/2026-08-21-cmu-ai-ml-course-map)、[MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map)、[Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)與 [Harvard](/posts/learning/2026-08-22-harvard-ai-ml-course-map)。單課深讀也已大幅展開：
 
-- [Berkeley CS188 Spring 2026 總覽](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)，含搜尋、MDP、Bayes Nets 到機器學習的完整導讀（sp26 已封存，現為 su26）
+- [Berkeley CS188 Spring 2026 總覽](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)，含搜尋、MDP、Bayes Nets 到機器學習的完整導讀（sp26 已結課，當期為 fa26）
 - [Berkeley CS285 Spring 2026 總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)，含模仿學習、policy gradient 到 offline RL 的分段導讀
 - [Berkeley CS288 總覽](/posts/learning/2026-08-22-berkeley-cs288-overview)，從 foundations、transformers 到 agents
 - [CMU 10-301／601 總覽](/posts/learning/2026-08-22-cmu-10301-overview)，用九份作業走完整門機器學習
 - [CMU 07-280 完整課程導讀](/posts/ai/2026-08-22-cmu-07280-course-overview)：24 講逐講深拆（對應 Fall 2026 完整課站），另有[全課總結與選課路線](/posts/ai/2026-08-22-cmu-07280-completion-roadmap)
-- [CMU 11-785 深度學習導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)：28 講全覆蓋，並標出作業鏈不完整的缺口（S26 已結課，F26 已上線）
+- [CMU 11-785 深度學習導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)：28 講全覆蓋，並標出作業鏈不完整的缺口（S26 已結課，F26 逐講上片中）
+- [CMU 11-768 AI Agents 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)：Fall 2026 新開的 agent 研究所課，從 harness、評測寫到訓練，跟著當期進度更新
 - [MIT 6.S191 導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)：九講與三個 labs 全公開的實際跑法（2026 版 3/30–5/25 已結課）
-- Stanford CS336 與 CS221 也各有系列：[CS336 從 tokenization 開始的主題深拆](/posts/ai/2026-08-22-cs336-overview-tokenization)（對應 Spring 2026 已結課）、CS221 的 20 講逐講導讀
+- Stanford AI 課程逐講系列：[CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles)、[CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning)、[CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[CS224W](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)、[CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai)、[CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)、[CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)、[CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，以及 [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)（另有[從 tokenization 開始的主題深拆](/posts/ai/2026-08-22-cs336-overview-tokenization)）；各課的版本與先修關係見 [Stanford 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)
+- [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)：兩學分、沒有作業的 Transformer 與 LLM 課，2025 版全部公開，2026 版新增 LLM 系統、強化學習與 Diffusion LLM
 - Stanford 地基課逐講系列：[CS103 數學基礎 28 講](/posts/learning/2026-08-21-stanford-cs103-math-foundations)、[CS107 系統 30 講](/posts/learning/2026-08-21-stanford-cs107-computer-systems)、[CS109 機率 22 講](/posts/learning/2026-08-21-stanford-cs109-probability)、[CS111 作業系統 28 講](/posts/learning/2026-08-21-stanford-cs111-operating-systems)、[CS161 演算法 18 講](/posts/learning/2026-08-21-stanford-cs161-algorithms)皆已完成中英對照
 - [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：HW1–7、code/data 與歷屆考題皆公開的 A3 自學版，對照 Fall 2026（eecs189.org/fa26）27 講行事曆
 - [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)：首開 26 講 A2→A3 過渡版，對照 [07-280](/posts/ai/2026-08-22-cmu-07280-course-overview)
 
-還沒寫的是 Harvard CS181／CS182 的單課深讀。MIT 6.7960 與 Harvard CS50 AI 的單課深讀已在本站 `ai`/`tech` 分類上線（見參考資料）。
+Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與 [CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)都已上線；還沒寫的只剩 CS182，它 Fall 2026 雖列在 SEAS 課表上，但目前找不到公開課站，要等教材出現再寫。
 
 如果你現在只想選一門開始，做一個很小的測試：打開 MIT 6.S191 的第一個 lab，或 Berkeley CS188 的第一個 project，給自己九十分鐘。九十分鐘後還能說清楚環境缺什麼、下一步要做什麼，這門課才真的進入你的自學清單。收藏一個播放清單不算開始。
 
 ## 更新紀錄
 
+- 2026-09-29：Fall 2026 狀態稽核：Berkeley CS188 當期改為 fa26（`~cs188/` 已導向 fa26）、MIT 6.7960 課站已切 Fall 2026、CMU 11-785 F26 逐講上片中；新增 CMU 11-768 AI Agents 段落與導讀連結；「已寫到哪裡」補上 Stanford CS229／CS224N／CS224W／CS224V／CS124／CS230／CS329Z／CME295 與 Harvard CS181 系列；「還沒寫」清單修正為只剩 Harvard CS182。
 - 2026-08-27（3）：新增 [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)（首開 26 講 A2→A3 過渡版，Lec01 已公開，對照 07-280），「還沒寫」清單移除 07-380。
 - 2026-08-27（2）：新增 [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)（HW1–7 A3，對照 Fall 2026 eecs189.org/fa26 27 講行事曆），「還沒寫」清單移除 CS189 與 MIT 6.7960／Harvard CS50 AI（後兩者已在 `ai`/`tech` 上線）；原 2026-08-27 條目保留。
 - 2026-08-27：複核 Spring 2026 學期已結束：MIT 6.S191（3/30–5/25）、Stanford CS336（3/30–6/3）、Berkeley CS188 sp26（已封存，現為 su26）、CMU 11-785 S26（F26 已上線）皆改為「已結課」表述；CMU 07-280 Fall 2026 從「多數材料尚未發布」更新為 24 講／12 份作業／每週 checkpoint 皆已上線，並對應本站 07-280 逐講導讀；表格補上 Harvard 第五列並補齊 Stanford CS103／CS107／CS109／CS111／CS161 逐講完成狀態；07-380 改為「Fall 2026 首開」待稽核。
@@ -142,16 +147,21 @@ CMU 是最不能只看舊課號的一間。新的 [07-280 AI & ML I](https://www
 - [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)
 - [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
 - [Stanford CS336 主題深拆系列](/posts/ai/2026-08-22-cs336-overview-tokenization)
+- [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [CMU 11-768 AI Agents 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)
+- [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)
 
 ### 官方課程網站與外部資源
 
 - [Stanford CS336 Spring 2026](https://cs336.stanford.edu/)（[YouTube 完整播放清單](https://www.youtube.com/watch?v=JuoVZkPBiKk&list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)）
 - [CMU 07-280 AI & ML I Fall 2026](https://www.cs.cmu.edu/~07280/)
 - [CMU 07-380 AI & ML II Fall 2026](https://www.cs.cmu.edu/~07380/)
+- [CMU 11-768 AI Agents Fall 2026](https://www.cmu-agents.com/)
+- [Stanford CME295 Transformers & LLMs](https://cme295.stanford.edu/syllabus/)
 - [CMU 11-785 Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html)（[Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html) 已上線）／[Fall 2025](https://deeplearning.cs.cmu.edu/F25/index.html)
 - [MIT 6.S191 Introduction to Deep Learning](https://introtodeeplearning.com/)（[2025 archive](https://introtodeeplearning.com/2025/index.html)）
-- [MIT 6.7960 Deep Learning Fall 2025](https://deeplearning6-7960.github.io/)
-- [Berkeley CS188 Spring 2026（已封存）](https://inst.eecs.berkeley.edu/~cs188/sp26/)／[Summer 2026 當期](https://inst.eecs.berkeley.edu/~cs188/su26/)
+- [MIT 6.7960 Deep Learning Fall 2026](https://deeplearning6-7960.github.io/)（Fall 2025 列於 Previous years）
+- [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)／[Fall 2026 當期](https://inst.eecs.berkeley.edu/~cs188/fa26/)
 - [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)
 - [Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/)
 - [CSDIY](https://csdiy.wiki/)
