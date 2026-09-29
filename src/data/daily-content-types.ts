@@ -15,7 +15,8 @@ export const DAILY_CHANNELS = [
     group: 'briefings',
     label: '綜合日報',
     labelEn: 'Daily report',
-    seriesNames: ['AI 日報', 'AI Agent Daily'],
+    // 'AI Daily' 是 en 日報文章實際寫的名稱；'AI Agent Daily' 是 src/lib/digest/report.ts 產生日報時寫的名稱
+    seriesNames: ['AI 日報', 'AI Daily', 'AI Agent Daily'],
     tags: [],
   },
   {
