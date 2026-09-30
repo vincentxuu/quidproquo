@@ -58,7 +58,7 @@ Current flagship pricing (input/output, USD per 1M tokens, standard short-contex
 | Model | Input | Output | Note |
 |---|---|---|---|
 | GPT-6 Luna | $0.10 | $0.50 | Cheapest member of the GPT-6 family post-cut |
-| Claude Haiku 4.5 | $0.80 | $4.00 | Cheapest high-capability model |
+| Claude Haiku 4.5 | $1.00 | $5.00 | Cheapest high-capability model |
 | **GPT-6 Sol (new)** | **$2.00** | **$10.00** | Now well below most same-tier competitors |
 | Claude Sonnet 5 | $4.00 | $10.00 | Ties GPT-6 Sol on output, double on input |
 | GPT-6 Astra | $10.00 | $50.00 | Flagship tier, unchanged |

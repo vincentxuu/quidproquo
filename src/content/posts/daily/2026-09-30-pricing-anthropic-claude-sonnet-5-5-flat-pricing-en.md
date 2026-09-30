@@ -58,7 +58,7 @@ Current flagship pricing (input/output, USD per 1M tokens, standard short-contex
 | Model | Input | Output | Note |
 |---|---|---|---|
 | GPT-6 Luna | $0.10 | $0.50 | Cheapest high-capability model (see our 09-28 pricing post) |
-| Claude Haiku 4.5 | $0.80 | $4.00 | Anthropic's cheapest general-purpose model |
+| Claude Haiku 4.5 | $1.00 | $5.00 | Anthropic's cheapest general-purpose model |
 | GPT-6 Sol | $2.00 | $10.00 | Matched Sonnet-tier pricing since its 09-22 launch |
 | **Claude Sonnet 5.5 (new)** | **$2.00** | **$10.00** | Rate-for-rate tie with GPT-6 Sol — the fight is now over token efficiency, not price |
 | Claude Opus 5.5 | $4.00 | $20.00 | Launched 09-22, 20% below Opus 5 (see [our 09-25 model card](/en/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)) |

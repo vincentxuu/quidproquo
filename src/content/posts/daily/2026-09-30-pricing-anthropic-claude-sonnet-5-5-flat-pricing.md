@@ -58,7 +58,7 @@ Anthropic 在 2026-09-29 發表 Claude Sonnet 5.5，官方頁面標題寫著「c
 | 模型 | Input | Output | 備註 |
 |---|---|---|---|
 | GPT-6 Luna | $0.10 | $0.50 | 最便宜的高能力模型（見 09-28 定價追蹤） |
-| Claude Haiku 4.5 | $0.80 | $4.00 | Anthropic 目前最便宜的一般用模型 |
+| Claude Haiku 4.5 | $1.00 | $5.00 | Anthropic 目前最便宜的一般用模型 |
 | GPT-6 Sol | $2.00 | $10.00 | 09-22 上線後與 Sonnet 系列同價 |
 | **Claude Sonnet 5.5（新）** | **$2.00** | **$10.00** | 與 GPT-6 Sol 單價完全打平，比拚的是「同價格誰更省 token」 |
 | Claude Opus 5.5 | $4.00 | $20.00 | 09-22 上線，比前代 Opus 5 降 20%（見 [09-25 模型卡](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5)） |
