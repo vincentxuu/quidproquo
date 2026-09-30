@@ -141,6 +141,8 @@ This branch has the most complete prerequisite chain of the five — you can fol
 
 **CS231N: Deep Learning for Computer Vision** is the deep learning side. Its notes site is where a lot of people first genuinely understood backpropagation, and the spring 2026 assignments reach diffusion models, CLIP, and DINO by the third one — still named for computer vision, but that stopped being all of it a while ago. Note the title is no longer "Convolutional Neural Networks for Visual Recognition," which many course maps still use.
 
+For self-study, CS231N is the most complete course in the vision branch. The Spring 2026 slides and the handouts and Colab starter code for all three assignments, A1–A3, are public, so this site rates it A3 (self-study-ready). The 2026 recordings stay inside Canvas, so outside readers watch the Spring 2025 recordings Stanford Online posted on YouTube instead; the lecture titles barely changed between the two years. This site's [CS231N guide series](/posts/ai/2026-09-30-cs231n-course-overview-en) pairs the 2026 materials with the 2025 videos and lays them out as a 10-week plan following the official schedule.
+
 On ordering, having CS229 or CS230 before CS231N makes it much smoother; CS231A can run alongside or after.
 
 ### C. Reinforcement learning and robotics
@@ -267,6 +269,8 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 
 ## Changelog
 
+- 2026-09-30: Added CS231N's self-study status to the vision branch (Spring 2026 slides and assignments A1–A3 public, recordings from the Spring 2025 YouTube playlist, rated A3) with a link to this site's guide; added the guide to the related links in References.
+
 - 2026-09-29: Added CME295 (Autumn 2026 in session, 2025 edition fully public) to the NLP / LLM / agent branch with a link to this site's guide; linked the CS124 guide in the prerequisites table.
 
 - 2026-08-26: Backfilled internal links — the per-course overview deep dives for the five core courses (CS103, CS107, CS109, CS111, CS161) plus CS221, CS124, CS229, CS228, CS224N, CS224U, CS224V, CS224W, CS329A, CS329Z, and CS336 are now live; the body text and the prerequisite table now link to them. Also re-checked ExploreCourses (2026-08-26): CS221M was removed from the appendix's "concrete 2026-27 offering details" list — its 2026-27 entry no longer lists any term, with Spring 2026 as its last; the other seven dormant courses and twelve listed courses were re-verified unchanged.
@@ -334,4 +338,4 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 - [CS25: Transformers United V6](https://web.stanford.edu/class/cs25/) — spring 2026 speakers and topics
 - [CS146S: The Modern Software Developer](https://themodernsoftware.dev/) — units, prerequisites, and course description
 - Stanford Online: [CS107](https://online.stanford.edu/courses/cs107-computer-organization-and-systems), [CS161](https://online.stanford.edu/courses/cs161-design-and-analysis-algorithms), [CS336](https://online.stanford.edu/courses/cs336-language-modeling-scratch) — tuition and schedule for the remote-credit versions
-- Related on this site: [Which AI courses to take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide), [CS146S syllabus diff](/posts/ai/2026-08-16-cs146s-course-map-en), [the CS230 series, part one](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en)
+- Related on this site: [Which AI courses to take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide), [CS146S syllabus diff](/posts/ai/2026-08-16-cs146s-course-map-en), [the CS230 series, part one](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en), [the CS231N guide overview](/posts/ai/2026-09-30-cs231n-course-overview-en)

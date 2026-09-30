@@ -8,8 +8,8 @@ series:
   name: "Global AI/CS Course Map"
   order: 0
 type: guide
-tldr: "This map audits AI and CS courses at Stanford, CMU, MIT, and UC Berkeley in 2025–2026 using four access labels: A0 for a visible catalog entry, A1 for a public syllabus, A2 for partial materials, and A3 for a self-study-ready package. A course site or YouTube playlist can exist without giving outsiders access to the current videos, assignments, or starter code."
-description: "A 2025–2026 guide to AI and CS course access at Stanford, CMU, MIT, and UC Berkeley, distinguishing complete self-study courses from public syllabi, partial materials, historical videos, and gated LMS resources."
+tldr: "This map audits AI and CS courses at Stanford, CMU, MIT, UC Berkeley, Harvard, and National Taiwan University (NTU) in 2025–2026 using four access labels: A0 for a visible catalog entry, A1 for a public syllabus, A2 for partial materials, and A3 for a self-study-ready package. A course site or YouTube playlist can exist without giving outsiders access to the current videos, assignments, or starter code."
+description: "A 2025–2026 guide to AI and CS course access at Stanford, CMU, MIT, UC Berkeley, Harvard, and National Taiwan University (NTU), distinguishing complete self-study courses from public syllabi, partial materials, historical videos, and gated LMS resources."
 draft: false
 ---
 
@@ -17,7 +17,7 @@ draft: false
 
 Search for Stanford CS229, Berkeley CS188, or MIT deep learning and you will quickly find course sites, YouTube videos, and community notes. The hard question comes next: **do those resources belong to the same semester? Do they still open without a university account? Does the assignment link include starter code and required assets, or only a prompt?**
 
-This map starts with Stanford, Carnegie Mellon University (CMU), MIT, and UC Berkeley, covering **2025–2026**. A complete 2026 edition takes priority. If the new semester has only a schedule or keeps video inside an LMS while an official 2025 edition is materially more complete, the 2025 edition can be the main version. Every course guide names its semester; it will not quietly combine 2025 video with 2026 assignments.
+This map covers Stanford, Carnegie Mellon University (CMU), MIT, UC Berkeley, Harvard, and National Taiwan University (NTU), spanning **2025–2026**. A complete 2026 edition takes priority. If the new semester has only a schedule or keeps video inside an LMS while an official 2025 edition is materially more complete, the 2025 edition can be the main version. Every course guide names its semester; it will not quietly combine 2025 video with 2026 assignments.
 
 This is not a university ranking. It answers two narrower questions: how each school organizes AI and CS, and how much of that structure an outsider can actually use.
 
@@ -70,7 +70,7 @@ CMU also launched [11-768 AI Agents](https://www.cmu-agents.com/) in Fall 2026, 
 
 A future or in-progress semester does not become the “latest public course” merely because its schedule exists. This series waits for the material to appear instead of replacing complete content with a newer year.
 
-## How to read the four schools
+## How to read the six schools
 
 | School | The map's central question | Best current public entry points |
 |---|---|---|
@@ -79,8 +79,10 @@ A future or in-progress semester does not become the “latest public course” 
 | [MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map-en) | How do current numbers, semester sites, and historical OCW editions line up? | 6.S191 (2026 completed); 6.7960 (site now on Fall 2026) as an A2 material guide |
 | [Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) | How do CS188 and CS189 branch into NLP, RL, and vision? | CS188 (sp26 fully preserved, current term fa26); material-focused guides to CS288 and CS285 |
 | [Harvard](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en) | How does the CS50 series connect to CS181 / CS182? | CS50 AI recorded editions; CS181 self-paced by its assignments; CS182 has no public current-term materials yet |
+| [NTU](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) | How do the program tiers run alongside Hung-yi Lee's EE-department track? | Hung-yi Lee's ML 2026 Spring (A3, taught in Mandarin); how access differs across Hsuan-Tien Lin's and Yun-Nung Chen's courses |
+| [Other Taiwanese schools](/posts/learning/2026-09-30-taiwan-ai-course-map-en) | Beyond NTU, which courses stream publicly through TAICA and can be self-studied? | NTHU Hung-Yu Kao NLP (A3), NCCU Yen-Lung Tsai Generative AI (A3); NCKU, Taipei Tech, and NYCU mostly A2 or below |
 
-> Harvard was added as the fifth school map on 2026-08-22; see table above.
+> Harvard's map was added on 2026-08-22, and the NTU and other Taiwanese schools maps on 2026-09-30; see the table above. The Taiwanese courses are taught in Mandarin, so for Chinese-speaking readers it saves more than translation: they can check the original terminology directly against the lecturer's own explanations.
 
 A school map and a single-course guide make different promises. Even when every learning asset is locked in an LMS, current catalogs, program requirements, and schedules may still support a course map. That article can explain how to choose courses; it cannot promise that a reader can complete them without enrolling.
 
@@ -94,7 +96,7 @@ The series therefore uses two evidence tracks: official sources establish curren
 
 ## Where this series stands
 
-Five school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-course-map-en), [CMU](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en), [MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map-en), [Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en), and [Harvard](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en). Single-course guides have expanded significantly:
+Six school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-course-map-en), [CMU](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en), [MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map-en), [Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en), and [Harvard](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en), and [NTU](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en), plus a map of [other Taiwanese schools](/posts/learning/2026-09-30-taiwan-ai-course-map-en). Single-course guides have expanded significantly:
 
 - [Berkeley CS188 Spring 2026 overview](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en), with guides covering search, MDPs, Bayes nets, and machine learning (sp26 completed, current term fa26)
 - [Berkeley CS285 Spring 2026 overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en), with guides from imitation learning and policy gradients through offline RL
@@ -105,6 +107,11 @@ Five school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-cou
 - [CMU 11-768 AI Agents guide](/posts/ai/2026-09-29-cmu-11768-course-overview-en): the graduate agents course new in Fall 2026, covering harnesses, evaluation, and training, updated as the semester progresses
 - [MIT 6.S191 guide](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en): how to actually run the nine lectures and three labs that are fully public (2026 edition Mar 30–May 25 completed)
 - Stanford AI lecture series: [CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en), [CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en), [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [CS224W](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs-en), [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai-en), [CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en), [CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en), [CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) (the Spring 2023 historical edition, 16 posts), and [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) (plus [topic deep dives starting from tokenization](/posts/ai/2026-08-22-cs336-overview-tokenization-en)); see the [Stanford course map](/posts/learning/2026-08-20-stanford-cs-course-map-en) for each course's edition and prerequisites
+- [Stanford CS231N guide](/posts/ai/2026-09-30-cs231n-course-overview-en): deep learning for computer vision, with Spring 2026 slides and assignments A1–A3, and recordings from Spring 2025
+- [MIT 6.S184 guide](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en): flow matching and diffusion models from IAP 2026, with notes, recordings, and three labs all public
+- [CMU 11-868 LLM Systems guide](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en): seven assignments running from CUDA kernels and distributed training to serving and RLHF; no recordings, and a GPU is required
+- [NTU Hung-yi Lee Machine Learning 2026 Spring guide](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en): taught in Mandarin, from dissecting OpenClaw and context engineering to the KV cache and harness engineering
+- Taiwanese courses in Mandarin: [NTU Yun-Nung Chen ADL 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en), [NTU Hsuan-Tien Lin ML Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) (content from the MOOCs recorded around 2013, practice from the Fall 2024 homework), [NTHU Hung-Yu Kao NLP](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en), and [NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
 - [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en): a two-unit Transformer and LLM course with no assignments; the 2025 edition is fully public, and the 2026 edition adds LLM systems, reinforcement learning, and diffusion LLMs
 - Stanford foundations lecture series, all with bilingual guides: [CS103 28 lectures](/posts/learning/2026-08-21-stanford-cs103-math-foundations-en), [CS107 30 lectures](/posts/learning/2026-08-21-stanford-cs107-computer-systems-en), [CS109 22 lectures](/posts/learning/2026-08-21-stanford-cs109-probability-en), [CS111 28 lectures](/posts/learning/2026-08-21-stanford-cs111-operating-systems-en), [CS161 18 lectures](/posts/learning/2026-08-21-stanford-cs161-algorithms-en)
 - [Berkeley CS189 guide](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en): the overview starts from Spring 2025, while the lecture guides and HW1–5 follow the Spring 2026 course site now back online, compared against the Fall 2026 (eecs189.org/fa26) calendar
@@ -116,6 +123,8 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 
 ## Update log
 
+- 2026-09-30 (3): Added the [other Taiwanese schools map](/posts/learning/2026-09-30-taiwan-ai-course-map-en); "Where this series stands" now includes four Mandarin course series: NTU ADL, Hsuan-Tien Lin, NTHU NLP, and NCCU Generative AI.
+- 2026-09-30 (2): Added the [NTU AI/ML course map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) as the sixth school; "Where this series stands" now includes four new series: Stanford CS231N, MIT 6.S184, CMU 11-868, and NTU Hung-yi Lee's ML 2026.
 - 2026-09-30: Series expansions reflected here: Berkeley CS189 gained Spring 2026 lecture guides and HW1–5, CMU 07-380 gained lectures 1–10 and HW1–3, Harvard CS181 now covers HW0–HW6, and Stanford CS224U gained 16 posts on the Spring 2023 edition; list descriptions updated to match.
 - 2026-09-29: Fall 2026 status audit: Berkeley CS188's current term is now fa26 (`~cs188/` redirects to fa26), the MIT 6.7960 site has switched to Fall 2026, and CMU 11-785 F26 videos are rolling out lecture by lecture; added a CMU 11-768 AI Agents paragraph and guide link; "Where this series stands" now includes the Stanford CS229 / CS224N / CS224W / CS224V / CS124 / CS230 / CS329Z / CME295 series and the Harvard CS181 series; the "still unwritten" list is corrected to Harvard CS182 only.
 - 2026-08-27 (3): Added [CMU 07-380 Fall 2026 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en) (first offering, 26 lectures A2→A3 transition, Lec01 public, compared with 07-280); removed 07-380 from "still unwritten" list.
@@ -133,6 +142,8 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 - [MIT AI/ML course map](/posts/learning/2026-08-21-mit-ai-ml-course-map-en)
 - [Berkeley AI/ML course map](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
 - [Harvard AI/ML course guide](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
+- [NTU AI/ML course map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en)
+- [Other Taiwanese schools AI course map](/posts/learning/2026-09-30-taiwan-ai-course-map-en)
 - [CMU's AI core redesign: from 15-281 + 10-315 to 07-280 + 07-380](/posts/learning/2026-08-22-cmu-ai-core-redesign-en)
 - [The Pacman AI project lineage](/posts/learning/2026-08-22-pacman-ai-project-lineage-en)
 - [Berkeley CS188 Spring 2026 overview](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en)
@@ -152,6 +163,14 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 - [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
 - [CMU 11-768 AI Agents guide](/posts/ai/2026-09-29-cmu-11768-course-overview-en)
 - [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en)
+- [Stanford CS231N guide](/posts/ai/2026-09-30-cs231n-course-overview-en)
+- [MIT 6.S184 guide](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
+- [CMU 11-868 LLM Systems guide](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
+- [NTU Hung-yi Lee Machine Learning 2026 Spring guide](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+- [NTU Yun-Nung Chen Applied Deep Learning 2025 Fall guide](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
+- [NTU Hsuan-Tien Lin ML Foundations & Techniques guide](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+- [NTHU Hung-Yu Kao NLP guide](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+- [NCCU Yen-Lung Tsai Generative AI guide](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
 
 ### Official course sites and external resources
 

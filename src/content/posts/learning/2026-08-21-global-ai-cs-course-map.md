@@ -8,8 +8,8 @@ series:
   name: "世界名校 AI／CS 課程地圖"
   order: 0
 type: guide
-tldr: "這份地圖盤點 Stanford、CMU、MIT、UC Berkeley 在 2025–2026 年的 AI／CS 課程，將公開程度拆成 A0 課表可見、A1 課綱可見、A2 教材部分開放、A3 足以自學。課程官網存在、YouTube 播放清單存在，都不代表校外讀者真的拿得到當期影片、作業與起始碼。"
-description: "以 2025–2026 官方課程網站、課表與教材入口為依據，整理 Stanford、CMU、MIT、UC Berkeley 的 AI／CS 課程地圖，說明哪些能完整自學、哪些只有講義或歷史影片，以及如何判讀 LMS、YouTube 與 CSDIY 資源。"
+tldr: "這份地圖盤點 Stanford、CMU、MIT、UC Berkeley、Harvard 與台大在 2025–2026 年的 AI／CS 課程，將公開程度拆成 A0 課表可見、A1 課綱可見、A2 教材部分開放、A3 足以自學。課程官網存在、YouTube 播放清單存在，都不代表校外讀者真的拿得到當期影片、作業與起始碼。"
+description: "以 2025–2026 官方課程網站、課表與教材入口為依據，整理 Stanford、CMU、MIT、UC Berkeley、Harvard 與台大的 AI／CS 課程地圖，說明哪些能完整自學、哪些只有講義或歷史影片，以及如何判讀 LMS、YouTube 與 CSDIY 資源。"
 draft: false
 ---
 
@@ -17,7 +17,7 @@ draft: false
 
 搜尋「Stanford CS229」、「Berkeley CS188」或「MIT deep learning」，很快就能找到課程網站、YouTube 影片和別人整理的筆記。真正麻煩的問題在下一步：**這些東西是不是同一個學期？現在不用學校帳號還打得開嗎？作業只有題目，還是連起始碼與必要檔案都有？**
 
-這份地圖先盤點 Stanford、Carnegie Mellon University（CMU）、MIT 與 UC Berkeley，時間範圍是 **2025–2026**。2026 年版本完整就優先；如果新學期只有課表、錄影鎖在校內系統，而 2025 年官方版本更完整，2025 也會正式列入。每篇單課導讀都會標明採用學期，不把 2025 影片與 2026 作業包裝成同一套課。
+這份地圖盤點 Stanford、Carnegie Mellon University（CMU）、MIT、UC Berkeley、Harvard 與國立臺灣大學（台大），時間範圍是 **2025–2026**。2026 年版本完整就優先；如果新學期只有課表、錄影鎖在校內系統，而 2025 年官方版本更完整，2025 也會正式列入。每篇單課導讀都會標明採用學期，不把 2025 影片與 2026 作業包裝成同一套課。
 
 這不是大學排名，也不是「哪間學校最好」。它只回答兩件事：這間學校如何安排 AI／CS 課程，以及校外讀者現在到底拿得到多少。
 
@@ -70,7 +70,7 @@ CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)�
 
 進行中或尚未開課的學期，只有 schedule 不算「最新公開課」。本站會等材料真的出現再升級，不用年份的新換掉內容完整的舊。
 
-## 四間學校應該怎麼讀
+## 六間學校應該怎麼讀
 
 | 學校 | 課程地圖的主問題 | 目前最適合的公開入口 |
 |---|---|---|
@@ -79,8 +79,10 @@ CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)�
 | [MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map) | 現行課號、當期課站與歷史 OCW 如何對齊？ | 6.S191（2026 已結課）；6.7960（課站已切 Fall 2026）做 A2 教材導讀 |
 | [Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map) | CS188／CS189 之後如何分流到 NLP、RL 與視覺？ | CS188（sp26 完整保留，當期為 fa26）；CS288、CS285 做教材型導讀 |
 | [Harvard](/posts/learning/2026-08-22-harvard-ai-ml-course-map) | 通識 CS50 系列如何銜接 CS181／CS182？ | CS50 AI 錄影版本；CS181 以作業為節拍自學；CS182 尚無當期公開教材 |
+| [台大](/posts/learning/2026-09-30-ntu-ai-ml-course-map) | 學程分層與李宏毅的電機系路線如何並行？ | 李宏毅 ML 2026 Spring（A3，中文授課）；林軒田、陳縕儂課程的公開程度差異 |
+| [台灣其他學校](/posts/learning/2026-09-30-taiwan-ai-course-map) | 台大以外，哪些課透過 TAICA 公開直播、能校外自學？ | 清大高宏宇 NLP（A3）、政大蔡炎龍生成式 AI（A3）；成大、北科、陽明交大多為 A2 以下 |
 
-> Harvard 已於 2026-08-22 補上為第五所學校的地圖，見上表。
+> Harvard 於 2026-08-22、台大與台灣其他學校於 2026-09-30 補上地圖，見上表。台灣的課以中文授課，對中文讀者而言省下的不只是翻譯，而是可以直接對照原始術語與講者的解釋。
 
 學校地圖與單課導讀是兩種文章。即使一間學校的教材全鎖在 LMS，仍可以靠現行 catalog、program requirements 與 schedule 重建課程路線；只是文章只能承諾「看懂怎麼選課」，不能承諾「不用入學也能修完」。
 
@@ -94,7 +96,7 @@ CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)�
 
 ## 這個系列已經寫到哪裡
 
-五篇學校地圖已完成：[Stanford](/posts/learning/2026-08-20-stanford-cs-course-map)、[CMU](/posts/learning/2026-08-21-cmu-ai-ml-course-map)、[MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map)、[Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)與 [Harvard](/posts/learning/2026-08-22-harvard-ai-ml-course-map)。單課深讀也已大幅展開：
+六篇學校地圖已完成：[Stanford](/posts/learning/2026-08-20-stanford-cs-course-map)、[CMU](/posts/learning/2026-08-21-cmu-ai-ml-course-map)、[MIT](/posts/learning/2026-08-21-mit-ai-ml-course-map)、[Berkeley](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)、[Harvard](/posts/learning/2026-08-22-harvard-ai-ml-course-map)與[台大](/posts/learning/2026-09-30-ntu-ai-ml-course-map)，另有一篇[台灣其他學校](/posts/learning/2026-09-30-taiwan-ai-course-map)。單課深讀也已大幅展開：
 
 - [Berkeley CS188 Spring 2026 總覽](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)，含搜尋、MDP、Bayes Nets 到機器學習的完整導讀（sp26 已結課，當期為 fa26）
 - [Berkeley CS285 Spring 2026 總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)，含模仿學習、policy gradient 到 offline RL 的分段導讀
@@ -105,6 +107,11 @@ CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)�
 - [CMU 11-768 AI Agents 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)：Fall 2026 新開的 agent 研究所課，從 harness、評測寫到訓練，跟著當期進度更新
 - [MIT 6.S191 導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)：九講與三個 labs 全公開的實際跑法（2026 版 3/30–5/25 已結課）
 - Stanford AI 課程逐講系列：[CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles)、[CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning)、[CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[CS224W](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)、[CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai)、[CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)、[CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)、[CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)、[CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)（Spring 2023 歷史版 16 篇），以及 [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)（另有[從 tokenization 開始的主題深拆](/posts/ai/2026-08-22-cs336-overview-tokenization)）；各課的版本與先修關係見 [Stanford 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)
+- [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)：電腦視覺深度學習，Spring 2026 投影片與 A1–A3 作業，錄影對照 Spring 2025
+- [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)：IAP 2026 的 flow matching 與擴散模型，講義、錄影與三個 lab 全公開
+- [CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)：從 CUDA kernel、分散式訓練到 serving 與 RLHF 的七份作業，沒有錄影、需要 GPU
+- [台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)：中文授課，從解剖 OpenClaw、context engineering 到 KV cache 與 harness engineering
+- 台灣中文課：[台大陳縕儂 ADL 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview)、[台大林軒田 機器學習基石與技法](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)（內容跟 2013 年錄製的 MOOC，練習用 Fall 2024 作業）、[清大高宏宇 自然語言處理](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)、[政大蔡炎龍 生成式 AI](/posts/ai/2026-09-30-nccu-genai-course-overview)
 - [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)：兩學分、沒有作業的 Transformer 與 LLM 課，2025 版全部公開，2026 版新增 LLM 系統、強化學習與 Diffusion LLM
 - Stanford 地基課逐講系列：[CS103 數學基礎 28 講](/posts/learning/2026-08-21-stanford-cs103-math-foundations)、[CS107 系統 30 講](/posts/learning/2026-08-21-stanford-cs107-computer-systems)、[CS109 機率 22 講](/posts/learning/2026-08-21-stanford-cs109-probability)、[CS111 作業系統 28 講](/posts/learning/2026-08-21-stanford-cs111-operating-systems)、[CS161 演算法 18 講](/posts/learning/2026-08-21-stanford-cs161-algorithms)皆已完成中英對照
 - [Berkeley CS189 導讀](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：總覽以 Spring 2025 為起點，逐講與 HW1–5 則依重新上線的 Spring 2026 課站寫成，另對照 Fall 2026（eecs189.org/fa26）行事曆
@@ -116,6 +123,8 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 
 ## 更新紀錄
 
+- 2026-09-30（3）：新增[台灣其他學校 AI 公開課地圖](/posts/learning/2026-09-30-taiwan-ai-course-map)；「已寫到哪裡」補上台大 ADL、林軒田、清大 NLP、政大生成式 AI 四個中文課系列。
+- 2026-09-30（2）：新增[台大 AI／ML 課程地圖](/posts/learning/2026-09-30-ntu-ai-ml-course-map)為第六所學校；「已寫到哪裡」補上 Stanford CS231N、MIT 6.S184、CMU 11-868 與台大李宏毅 ML 2026 四個新系列。
 - 2026-09-30：系列擴寫回填：Berkeley CS189 補上 Spring 2026 逐講與 HW1–5、CMU 07-380 補上第 1–10 講與 HW1–3、Harvard CS181 補齊 HW0–HW6、Stanford CS224U 補上 Spring 2023 版 16 篇，清單描述同步更新。
 - 2026-09-29：Fall 2026 狀態稽核：Berkeley CS188 當期改為 fa26（`~cs188/` 已導向 fa26）、MIT 6.7960 課站已切 Fall 2026、CMU 11-785 F26 逐講上片中；新增 CMU 11-768 AI Agents 段落與導讀連結；「已寫到哪裡」補上 Stanford CS229／CS224N／CS224W／CS224V／CS124／CS230／CS329Z／CME295 與 Harvard CS181 系列；「還沒寫」清單修正為只剩 Harvard CS182。
 - 2026-08-27（3）：新增 [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)（首開 26 講 A2→A3 過渡版，Lec01 已公開，對照 07-280），「還沒寫」清單移除 07-380。
@@ -133,6 +142,8 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 - [MIT AI／ML 課程導讀](/posts/learning/2026-08-21-mit-ai-ml-course-map)
 - [Berkeley AI／ML 課程導讀](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)
 - [Harvard AI／ML 課程導讀](/posts/learning/2026-08-22-harvard-ai-ml-course-map)
+- [台大 AI／ML 課程地圖](/posts/learning/2026-09-30-ntu-ai-ml-course-map)
+- [台灣其他學校 AI 公開課地圖](/posts/learning/2026-09-30-taiwan-ai-course-map)
 - [CMU AI 核心改制：15-281＋10-315 到 07-280＋07-380](/posts/learning/2026-08-22-cmu-ai-core-redesign)
 - [Pacman AI project 血統](/posts/learning/2026-08-22-pacman-ai-project-lineage)
 - [Berkeley CS188 Spring 2026 總覽](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)
@@ -152,6 +163,14 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 - [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
 - [CMU 11-768 AI Agents 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)
 - [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)
+- [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)
+- [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
+- [CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
+- [台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
+- [台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
+- [台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+- [清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+- [政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)
 
 ### 官方課程網站與外部資源
 

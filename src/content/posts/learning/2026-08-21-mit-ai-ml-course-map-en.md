@@ -85,6 +85,7 @@ The ratings below use the editorial scale defined in the [Global AI and CS Cours
 | **6.4110, Spring 2026** | **A2** | Info, calendar, slides, several CAT-SOOP assignments, and code stubs | Panopto video in Canvas; no complete public solutions |
 | **6.7960, Fall 2025** | **A2** | Schedule, slides, readings, and some PyTorch Colabs | Video and solutions in Canvas; assignments released through Gradescope |
 | **6.7960, Fall 2024 OCW** | **A3** | 24 lectures and notes, five assignments, code files, final project | Not the 2025 edition; no class feedback |
+| **6.S184 Flow Matching & Diffusion, IAP 2026** | **A3** | 84-page lecture notes, five slide decks, six recordings, three labs with official solutions | Lab submission runs through Gradescope inside Canvas; Lecture 5 on discrete diffusion has no lab |
 | **6.S058 Computer Vision, Spring 2026** | **A3** | Slides, open textbook, four problem sets, Colabs, project requirements | Recordings and class notes in Canvas |
 | **6.4210, Fall 2025** | **A2** | Textbook-like notes, readings, complete schedule | Canvas video; Gradescope and Deepnote access for assignments |
 | **6.5940, Fall 2026** | **A0** | Catalog and upcoming-course announcement | The class had not started at verification time; a plan is not released material |
@@ -106,10 +107,13 @@ Build the Python, linear algebra, and probability prerequisites, then use the pu
 ```text
 6.3900 public notes
   ├─ 6.S191 Spring 2026: a nine-week introduction to modern deep learning
-  └─ 6.7960 Fall 2024 OCW: a semester of advanced deep learning
+  ├─ 6.7960 Fall 2024 OCW: a semester of advanced deep learning
+  └─ 6.S184 IAP 2026: a focused course on flow matching and diffusion models
 ```
 
 [6.S191 Spring 2026](https://introtodeeplearning.com/) quickly connects convolutional networks, Transformers, generative models, and AI for science. It met weekly from March 30 through May 25; it was not a one-week IAP bootcamp, nor is it the predecessor or equivalent of 6.7960. For a theory-oriented route with 24 lectures and longer assignments, use the 6.7960 OCW edition.
+
+To go deep on generative models, add [6.S184](https://diffusion.csail.mit.edu/2026/index.html). It is a short course from MIT's January IAP with only five lectures, yet its 84-page lecture notes carry you from ODEs and SDEs through flow matching, score matching, and guidance to a working latent diffusion model. The notes, slides, recordings, three labs, and official solutions are all public, which makes it one of the cleanest A3 courses of the year. The prerequisites are linear algebra, multivariable calculus, probability, and some PyTorch; rusty probability is where most learners stall. This site's [6.S184 guide series](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) maps each lecture to its notes sections and labs.
 
 ### 2. AI beyond neural networks
 
@@ -152,6 +156,8 @@ The most valuable thing to borrow from MIT is not a list of famous subjects. It 
 
 ## Changelog
 
+- 2026-09-30: Added 6.S184 Flow Matching & Diffusion (IAP 2026; notes, slides, recordings, and three labs with solutions all public, A3) to the access table and the modern AI engineering route, with a link to this site's guide.
+
 - 2026-08-26: Backfilled an internal link — the [6.7960 deep dive](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en) is now live; linked it from the two-edition comparison passage.
 
 - 2026-08-22: Corrected 6.S191 2026 to a nine-week spring course rather than a one-week IAP bootcamp.
@@ -168,6 +174,7 @@ The most valuable thing to borrow from MIT is not a list of famous subjects. It 
 - [MIT 6.4110 — Representation, Inference, and Reasoning in AI, Spring 2026](https://airr.mit.edu/spring26)
 - [MIT 6.7960 — Deep Learning, Fall 2025](https://deeplearning6-7960.github.io/)
 - [MIT OpenCourseWare — 6.7960 Deep Learning, Fall 2024](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)
+- [MIT 6.S184 — Generative AI with Stochastic Differential Equations, IAP 2026](https://diffusion.csail.mit.edu/2026/index.html)
 - [MIT 6.S058 — Introduction to Computer Vision, Spring 2026](https://introtocv.github.io/)
 - [MIT 6.4210 — Robotic Manipulation, Fall 2025](https://manipulation.mit.edu/Fall2025/index.html)
 - [MIT Han Lab — 6.5940 TinyML and Efficient Deep Learning Computing, Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940)

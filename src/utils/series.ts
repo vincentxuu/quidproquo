@@ -686,6 +686,78 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'ntu-ml-2026-spring',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '台大李宏毅 機器學習 2026 Spring 導讀', en: 'Reading NTU Hung-yi Lee Machine Learning 2026 Spring' },
+    descriptions: {
+      'zh-TW': '依官方 8 講投影片與錄影、10 份作業與 Colab，讀台大李宏毅機器學習 2026 Spring：從解剖 OpenClaw、Context Engineering，到 Flash Attention、KV Cache、位置編碼、Harness Engineering、自我修正與 AI 自我成長。',
+      en: 'Reading NTU Hung-yi Lee\'s Machine Learning 2026 Spring through its 8 lecture decks and recordings plus 10 homework Colabs: an OpenClaw teardown, context engineering, Flash Attention, KV cache, positional embedding, harness engineering, self-correction, and self-improving AI.',
+    },
+  },
+  {
+    slug: 'mit-6s184',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'MIT 6.S184 導讀', en: 'Reading MIT 6.S184' },
+    descriptions: {
+      'zh-TW': '依 IAP 2026 官方講義、投影片、錄影與三個 lab（含官方解答），逐講讀 MIT 6.S184：從 ODE／SDE、flow matching、score matching、classifier-free guidance、DiT 與 latent space，一路到離散擴散。',
+      en: 'A lecture-by-lecture reading of MIT 6.S184 (IAP 2026) from the official lecture notes, slides, recordings, and three labs with solutions: ODEs/SDEs, flow matching, score matching, classifier-free guidance, DiT and latent spaces, and discrete diffusion.',
+    },
+  },
+  {
+    slug: 'stanford-cs231n',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CS231N 導讀', en: 'Reading Stanford CS231N' },
+    descriptions: {
+      'zh-TW': 'Stanford CS231N 電腦視覺深度學習導讀：依 Spring 2026 投影片與 A1–A3 作業，錄影部分對照 Spring 2025 YouTube 公開版。從影像分類、反向傳播、CNN、Transformer，一路走到偵測分割、自監督、生成模型、視覺語言與 3D。',
+      en: 'A guided reading of Stanford CS231N (Deep Learning for Computer Vision), based on the Spring 2026 slides and assignments A1–A3, with the public Spring 2025 YouTube lectures for video. It runs from image classification, backprop, CNNs and Transformers through detection and segmentation, self-supervised learning, generative models, vision-language and 3D.',
+    },
+  },
+  {
+    slug: 'cmu-11-868-llm-systems',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'CMU 11-868 LLM Systems 導讀', en: 'Reading CMU 11-868 LLM Systems' },
+    descriptions: {
+      'zh-TW': '依 Spring 2026 的 28 份公開講義與 7 份 MiniTorch 作業，逐講讀 CMU 11-868 LLM Systems：從 CUDA kernel、自製框架、分散式訓練到 serving 與 RLHF，並標明沒有錄影、需要 GPU 的自學邊界。',
+      en: 'A lecture-by-lecture reading of CMU 11-868 LLM Systems (Spring 2026) through its 28 public slide decks and seven MiniTorch assignments, from CUDA kernels and a homemade framework to distributed training, serving, and RLHF, with the no-video, GPU-required limits for self-learners noted throughout.',
+    },
+  },
+  {
+    slug: 'ntu-adl-2025-fall',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '台大陳縕儂 深度學習之應用 2025 Fall 導讀', en: 'Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall' },
+    descriptions: {
+      'zh-TW': '依官方 17 份講義、77 支錄影、助教課與 HW1 規格，讀台大陳縕儂深度學習之應用（ADL）Fall 2025：從神經網路、RNN、Transformer、BERT，到預訓練、RLHF、LoRA、RAG、生成解碼、安全對齊、Language Agents 與 Reasoning。',
+      en: 'Reading NTU Yun-Nung (Vivian) Chen\'s Applied Deep Learning (ADL) Fall 2025 through its 17 lecture decks, 77-video playlist, TA recitations and the HW1 spec: neural nets, RNNs, Transformers, BERT, pretraining, RLHF, LoRA, RAG, decoding, safety and alignment, language agents, and reasoning.',
+    },
+  },
+  {
+    slug: 'ntu-htlin-ml',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '台大林軒田 機器學習基石與技法 導讀', en: 'Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques' },
+    descriptions: {
+      'zh-TW': '依林軒田「機器學習基石」與「機器學習技法」兩門 MOOC（32 講、130 支 YouTube 影片、全套 handout 投影片）逐主題導讀，從 PLA、VC 維度、線性模型、正則化與驗證，一路讀到 SVM、kernel、aggregation、樹模型與神經網路，並用公開的 Fall 2024 HW0–HW7 與期末專題當練習；Fall 2026 的課另外對照。',
+      en: 'A topic-by-topic guide to Hsuan-Tien Lin\'s Machine Learning Foundations and Techniques MOOCs (32 lectures, 130 YouTube videos, all handout slides). It runs from PLA, VC dimension, linear models, regularization, and validation to SVMs, kernels, aggregation, tree models, and neural networks. The public Fall 2024 HW0–HW7 and final project serve as exercises, and the in-progress Fall 2026 offering is cross-referenced.',
+    },
+  },
+  {
+    slug: 'nthu-nlp',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '清大高宏宇 自然語言處理 導讀', en: 'Reading NTHU Hung-Yu Kao Natural Language Processing' },
+    descriptions: {
+      'zh-TW': '依 IKMLab 官方 GitHub 的 Fall 2025 完整教材（講課投影片、W1–W16 共 36 支公開錄影、HW1–HW4 題目與 notebook、PyTorch／Hugging Face／LLM API／RAG 助教課），讀清大高宏宇的 TAICA 中文 NLP 課：從傳統文字處理、詞向量、seq2seq、Transformer、BERT 家族、解碼與評估，一路讀到 RLHF、PEFT、RAG 與 Reasoning，最後整理 Fall 2026 的改版。',
+      en: 'Reading NTHU Prof. Hung-Yu Kao\'s Mandarin TAICA NLP course through its complete Fall 2025 materials on the official IKMLab GitHub: lecture slides, 36 public W1–W16 recordings, HW1–HW4 specs and notebooks, and TA tutorials on PyTorch, Hugging Face, LLM APIs and RAG. The series moves from classic text processing, word embeddings, seq2seq, Transformers and the BERT family through decoding and evaluation to RLHF, PEFT, RAG and reasoning, and ends with what changes in Fall 2026.',
+    },
+  },
+  {
+    slug: 'nccu-generative-ai',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '政大蔡炎龍 生成式AI 導讀', en: 'Reading NCCU Yen-Lung Tsai Generative AI' },
+    descriptions: {
+      'zh-TW': '依 Spring 2025（1132）的 14 支錄影、14 份投影片、12 份作業說明與 Colab notebook，逐講讀政大蔡炎龍的 TAICA 課程「生成式 AI：文字與圖像生成的原理與實務」：從神經網路、GAN、LLM 與 Transformer，到對話機器人、RAG、AI Agents，再到 VAE、Stable Diffusion、ControlNet／Fooocus。適合初學者。',
+      en: 'A lecture-by-lecture reading of NCCU Yen-Lung Tsai\'s TAICA course "Generative AI: Text and Image Synthesis Principles and Practice", based on the Spring 2025 (1132) term: 14 recordings, 14 slide decks, 12 homework specs, and Colab notebooks. It runs from neural nets, GANs, LLMs and Transformers through chatbots, RAG and AI agents to VAEs, Stable Diffusion, and ControlNet/Fooocus, and is written for beginners.',
+    },
+  },
+  {
     slug: 'claude-code-deep-dives',
     category: 'engineering-coding-agent',
     names: { 'zh-TW': 'Claude Code 深入介紹', en: 'Claude Code Deep Dives' },

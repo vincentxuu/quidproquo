@@ -141,6 +141,8 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 **CS231N: Deep Learning for Computer Vision** 才是深度學習那一側。它的講義網站是很多人第一次真正看懂反向傳播的地方，2026 年春季的作業已經更新到第三份包含擴散模型與 CLIP、DINO——這門課的名字雖然還叫電腦視覺，內容早就不只電腦視覺了。順帶一提，它的課名已經不是很多整理裡寫的「Convolutional Neural Networks for Visual Recognition」，那是舊名字。
 
+自學條件上，CS231N 是視覺分支裡最完整的一門。Spring 2026 的投影片、A1–A3 三份作業的題目頁與 Colab 起始碼都公開，本站評為 A3（足以自學）；2026 的錄影只放在 Canvas，校外讀者改看 Stanford Online 在 YouTube 上的 Spring 2025 錄影，兩個年份的講次標題幾乎一致。本站的 [CS231N 導讀系列](/posts/ai/2026-09-30-cs231n-course-overview)就是用 2026 教材配 2025 影片，照官方課表排成 10 週。
+
 順序上，先有 CS229 或 CS230 的模型基礎再進 CS231N 會順很多，CS231A 則可以並行或之後補。
 
 ### C. 強化學習與機器人
@@ -267,6 +269,8 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 
 ## 更新紀錄
 
+- 2026-09-30：視覺分支補上 CS231N 的自學條件（Spring 2026 投影片與 A1–A3 作業公開、錄影對照 Spring 2025 YouTube，評為 A3）與站內導讀連結；參考資料的站內延伸同步補上。
+
 - 2026-09-29：NLP／LLM／Agent 分支補上 CME295（Autumn 2026 開課中，2025 版全公開）與站內導讀連結；先修表補上 CS124 導讀連結。
 
 - 2026-08-26：回補站內連結——核心五門（CS103、CS107、CS109、CS111、CS161）與 CS221、CS124、CS229、CS228、CS224N、CS224U、CS224V、CS224W、CS329A、CS329Z、CS336 的單課總覽導讀已陸續上線，正文與先修表補上對應站內連結。另重查 ExploreCourses（2026-08-26）：附錄「2026-27 有明確開課資訊」清單移除 CS221M——其 2026-27 條目已無任何開課學期，最後一筆為 2026 春；停開表其餘七門與清單其餘十二門複核無變動。
@@ -334,4 +338,4 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 - [CS25: Transformers United V6](https://web.stanford.edu/class/cs25/) — 2026 年春季講者與主題
 - [CS146S: The Modern Software Developer](https://themodernsoftware.dev/) — 學分數、先修條件與課程描述
 - [Stanford Online: CS107](https://online.stanford.edu/courses/cs107-computer-organization-and-systems)、[CS161](https://online.stanford.edu/courses/cs161-design-and-analysis-algorithms)、[CS336](https://online.stanford.edu/courses/cs336-language-modeling-scratch) — 遠距學分版本的學費與開課時程
-- 站內延伸：[2026 年該上哪些 AI 課程](/posts/ai/2026-07-10-ai-courses-2026-guide)、[CS146S 兩版大綱對照](/posts/ai/2026-08-16-cs146s-course-map)、[CS230 導讀系列第一篇](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)
+- 站內延伸：[2026 年該上哪些 AI 課程](/posts/ai/2026-07-10-ai-courses-2026-guide)、[CS146S 兩版大綱對照](/posts/ai/2026-08-16-cs146s-course-map)、[CS230 導讀系列第一篇](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)、[CS231N 導讀總覽](/posts/ai/2026-09-30-cs231n-course-overview)

@@ -85,6 +85,7 @@ AI 數學：18.06／18.C06 線性代數 + 6.3700／6.3800／18.05 機率與推�
 | **6.4110, Spring 2026** | **A2** | info、calendar、slides、多份 CAT-SOOP 作業與 code stubs | Panopto 錄影在 Canvas，沒有完整公開解答 |
 | **6.7960, Fall 2025** | **A2** | schedule、投影片、閱讀、部分 PyTorch Colab | 錄影與解答在 Canvas，作業透過 Gradescope |
 | **6.7960, Fall 2024 OCW** | **A3** | 24 講影片／講義、五份作業、程式檔、final project | 不是 2025 班次，沒有課堂回饋 |
+| **6.S184 Flow Matching & Diffusion, IAP 2026** | **A3** | 84 頁講義、5 份 slides、6 支錄影、3 個 lab 與官方解答 | lab 繳交走 Canvas 裡的 Gradescope；第 5 講離散擴散沒有 lab |
 | **6.S058 Computer Vision, Spring 2026** | **A3** | 投影片、公開教科書、四份 problem set、Colab、project requirements | 錄影與課堂 notes 在 Canvas |
 | **6.4210, Fall 2025** | **A2** | 教科書式講義、reading 與完整 schedule | 錄影在 Canvas；作業需 Gradescope／Deepnote 權限 |
 | **6.5940, Fall 2026** | **A0** | catalog 與開課預告 | 文章查證時尚未開始，不能把預告當已發布教材 |
@@ -106,10 +107,13 @@ AI 數學：18.06／18.C06 線性代數 + 6.3700／6.3800／18.05 機率與推�
 ```text
 6.3900 公開 notes
   ├─ 6.S191 Spring 2026：九週現代深度學習入口
-  └─ 6.7960 Fall 2024 OCW：一學期進階深度學習
+  ├─ 6.7960 Fall 2024 OCW：一學期進階深度學習
+  └─ 6.S184 IAP 2026：flow matching 與擴散模型專題
 ```
 
 [6.S191 Spring 2026](https://introtodeeplearning.com/)適合快速看見卷積網路、Transformer、生成模型與 AI for science 如何串起來；它從 3 月 30 日到 5 月 25 日每週上課，不是 IAP 一週 bootcamp，也不是 6.7960 的前身或等價替代。要練理論、讀二十四講並完成較長作業，走 6.7960 OCW。
+
+想把生成模型這一塊讀深，接 [6.S184](https://diffusion.csail.mit.edu/2026/index.html)。它是 1 月 IAP 期間的短課，只有 5 講，卻用一份 84 頁的講義把 ODE／SDE、flow matching、score matching 與 guidance 一路接到 latent diffusion model；講義、slides、錄影、3 個 lab 與官方解答全部公開，是當期最乾淨的 A3 之一。先修是線代、多變數微積分、機率與一點 PyTorch，機率生疏會卡得最明顯。本站的 [6.S184 導讀系列](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)逐講對照講義章節與 lab。
 
 ### 2. AI 不只神經網路
 
@@ -152,6 +156,8 @@ MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：
 
 ## 更新紀錄
 
+- 2026-09-30：公開程度表與「現代 AI 工程入門」路線補上 6.S184 Flow Matching & Diffusion（IAP 2026，講義、slides、錄影與 3 個 lab 含解答全公開，A3）與站內導讀連結。
+
 - 2026-08-26：回補站內連結——[6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)上線，雙版本比較段落加上連結。
 
 - 2026-08-22：修正 6.S191 2026 為 Spring 九週課程，不再誤標成 IAP 一週 bootcamp。
@@ -168,6 +174,7 @@ MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：
 - [MIT 6.4110 — Representation, Inference, and Reasoning in AI, Spring 2026](https://airr.mit.edu/spring26)
 - [MIT 6.7960 — Deep Learning, Fall 2025](https://deeplearning6-7960.github.io/)
 - [MIT OpenCourseWare — 6.7960 Deep Learning, Fall 2024](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)
+- [MIT 6.S184 — Generative AI with Stochastic Differential Equations, IAP 2026](https://diffusion.csail.mit.edu/2026/index.html)
 - [MIT 6.S058 — Introduction to Computer Vision, Spring 2026](https://introtocv.github.io/)
 - [MIT 6.4210 — Robotic Manipulation, Fall 2025](https://manipulation.mit.edu/Fall2025/index.html)
 - [MIT Han Lab — 6.5940 TinyML and Efficient Deep Learning Computing, Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940)
