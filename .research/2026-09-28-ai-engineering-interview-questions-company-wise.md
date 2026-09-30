@@ -100,7 +100,7 @@
 | llmgenai/LLMInterviewQuestions | 1.9k | 2025-02-12 | en | 15 類、100+ 題，只有題目，答案導向付費網站 | ❌ |
 | KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub | 1.1k | 2026-02-09 | en | 100+ LLM 題附答案 | ❌ |
 | KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub | 645 | 2025-12-21 | en | 100+ RAG 題附答案 | ❌ |
-| wdndev/llm_interview_note | 15.2k | 2024-08-15 | 簡中 | 大模型演算法／應用工程師知識＋面試題 | ❌ |
+| wdndev/llm_interview_note | 15.2k | 2026-06-14（commit date；author date 2024-08-15，近期多為社群修字） | 簡中 | 大模型演算法／應用工程師知識＋面試題 | ❌ |
 | km1994/LLMs_interview_notes | 2.6k | 2024-12-26 | 簡中 | 大模型面試題累積 | ❌（作者個人經驗） |
 | alirezadir/AIMLInterviews（原 Machine-Learning-Interviews） | 9.8k | 2026-09-23 | en | FAANG MLE 面試指南，已加入 LLM／Agentic AI、ML system design | 作者個人 offer 經驗 |
 | khangich/machine-learning-interview | 12.8k | 2023-08-31 | en | 傳統 ML 面試（FAANG、Snap、LinkedIn） | 作者個人經驗 |
@@ -109,3 +109,37 @@
 偏誤標注：
 - 搜尋以英文與簡中為主，日韓等其他語系未涵蓋；star 數只反映熱度，不代表題目品質或真實性。
 - 只讀了 alexeygrigorev 的 README 與 ombharatiya 的公司頁全文，其他 repo 的描述為 [摘要層級]。
+
+## 附錄二：全面盤點（2026-09-30）
+
+四個研究代理的原始筆記（含檔案路徑、URL、讀取程度）：`.research/raw/2026-09-30-ai-interview-resources/`
+- `core-repos.md`：alexeygrigorev、ombharatiya、amitshekhar 全文閱讀
+- `other-repos.md`：其餘 8 個 repo 全文閱讀
+- `non-github-resources.md`：付費平台、書、社群、官方說明、中文資源
+- `company-loops.md`：Anthropic／OpenAI／Cursor／Meta／Google DeepMind 面試流程交叉比對
+
+### 主筆親自核對的一手來源（2026-09-30）
+| 來源 | 讀取 | 核對內容 |
+|---|---|---|
+| anthropic.com/candidate-ai-guidance | ✅ curl 全文 | 現場面試「all you–no AI」、take-home 預設不用 Claude、Last updated Jul 10, 2025 |
+| anthropic.com/engineering/AI-resistant-technical-evaluations | ✅ curl 全文 | 1,000+ 候選人、4h→2h、Opus 4／4.5 追上候選人、明確允許 AI |
+| metacareers.com/hiring-process | ✅ Groundlane | 「expected to use this AI assistant」、CoderPad 內建四家模型、禁外部 AI |
+| deepmind.google/careers | ✅ Groundlane | 四階段流程，無 AI 政策 |
+| BI Cursor work trial（2026-08-11） | ✅ Groundlane | 兩天到場 work trial、frozen codebase |
+| canva.dev AI interviews（2025-06-11） | ✅ Groundlane | 後端／ML／前端候選人 expect 使用 AI |
+| hellointerview.com/mock-sunset | ✅ | 真人模擬面試 2026-05-31 結束 |
+| tryexponent.com Aced 改名（2026-08-17） | ✅ | 新 FDE 課程、Anthropic／OpenAI 指南 |
+| ByteByteGo GenAI SD 書 | ✅ | 作者 Ali Aminian、Hao Sheng；10 題；無 agent／eval 章 |
+| Chip Huyen Glassdoor 分析（2019） | ✅ | 五種偏差 |
+| PTT Soft_Job 2025-02 心得 | ✅ | Appier LLM RS 三面內容 |
+| openai.com/interview-guide | 🟡 本次被 403 擋 | 引文採兩個代理當天分別讀到的同一段原文 |
+
+### 關鍵結論
+1. 官方 AI 政策分歧：Meta 要求使用內建 AI；Anthropic 預設禁用（performance take-home 例外）；OpenAI 依 round 而異；DeepMind 無公開政策；Google 試辦僅見於 BI 報導。
+2. 12 個 repo 只有 alexeygrigorev、ombharatiya 替題目附可點來源；ombharatiya 對 2026 題型涵蓋最完整但 6 週內大批建立；alirezadir 最穩定但未涵蓋 AI 可用面試。
+3. 衝突不選邊：Anthropic AI 協作輪（Aced 說有 vs interviewing.io 說禁止）、Cursor work trial 是否付費、OpenAI coding round 是否可用 AI。
+4. pallavi 與 amitshekhar 題目幾乎不重疊，但 pallavi 108 個答案 URL 有 100 個也出現在 amit；pallavi 的流程描述與 ombharatiya 高度相近。
+
+### 產出
+- 新文章：`src/content/posts/ai/2026-09-30-ai-engineer-interview-resources{,-en}.md`（系列第 11 篇）
+- 系列回填：overview 中英版加連結、修正 ML Interviews Book 描述
