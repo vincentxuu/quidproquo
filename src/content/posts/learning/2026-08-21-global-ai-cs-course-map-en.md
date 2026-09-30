@@ -66,7 +66,7 @@ As of August 27, 2026, 07-280 Fall 2026 is a full course site: a 24-lecture sche
 
 [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html) illustrates a different boundary. Spring 2026 (now completed) and [Fall 2025](https://deeplearning.cs.cmu.edu/F25/index.html) both link official YouTube recordings lecture by lecture, slides are public, and [Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html) is releasing slides and YouTube videos lecture by lecture. Assignments, however, span Autolab, Kaggle, and Piazza. Video access is confirmed; complete self-study still depends on auditing each starter asset.
 
-CMU also launched [11-768 AI Agents](https://www.cmu-agents.com/) in Fall 2026, taught by Graham Neubig and Daniel Fried. It is a graduate course whose prerequisite is having trained a language model; slides and the first lecture recordings are being published as the semester goes, and its three assignments build a harness, then evaluation, then training. The site has not written an 11-768 guide yet; later lectures and assignments will be added once the official materials go up.
+CMU also launched [11-768 AI Agents](https://www.cmu-agents.com/) in Fall 2026, taught by Graham Neubig and Daniel Fried. It is a graduate course whose prerequisite is having trained a language model; slides and the first lecture recordings are being published as the semester goes, and its three assignments build a harness, then evaluation, then training. The site's [11-768 guide](/posts/ai/2026-09-29-cmu-11768-course-overview-en) follows the current semester; later lectures and assignments will be added once the official materials go up.
 
 A future or in-progress semester does not become the “latest public course” merely because its schedule exists. This series waits for the material to appear instead of replacing complete content with a newer year.
 
@@ -102,6 +102,7 @@ Five school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-cou
 - [CMU 10-301/601 overview](/posts/learning/2026-08-22-cmu-10301-overview-en), walking the whole course through nine assignments
 - [Complete CMU 07-280 course guide](/posts/ai/2026-08-22-cmu-07280-course-overview-en): all 24 lectures for Fall 2026, plus a [wrap-up with a route to the next course](/posts/ai/2026-08-22-cmu-07280-completion-roadmap-en)
 - [Complete CMU 11-785 deep learning guide](/posts/ai/2026-08-22-cmu-11785-course-overview-en): all 28 lectures, with the incomplete assignment chain flagged (S26 completed, F26 videos rolling out)
+- [CMU 11-768 AI Agents guide](/posts/ai/2026-09-29-cmu-11768-course-overview-en): the graduate agents course new in Fall 2026, covering harnesses, evaluation, and training, updated as the semester progresses
 - [MIT 6.S191 guide](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en): how to actually run the nine lectures and three labs that are fully public (2026 edition Mar 30–May 25 completed)
 - Stanford AI lecture series: [CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en), [CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en), [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [CS224W](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs-en), [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai-en), [CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en), [CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en), [CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) (the Spring 2023 historical edition, 16 posts), and [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) (plus [topic deep dives starting from tokenization](/posts/ai/2026-08-22-cs336-overview-tokenization-en)); see the [Stanford course map](/posts/learning/2026-08-20-stanford-cs-course-map-en) for each course's edition and prerequisites
 - [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en): a two-unit Transformer and LLM course with no assignments; the 2025 edition is fully public, and the 2026 edition adds LLM systems, reinforcement learning, and diffusion LLMs
@@ -149,6 +150,7 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 - [Stanford CS224U guide](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - [Stanford CS336 topic deep-dive series](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
 - [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [CMU 11-768 AI Agents guide](/posts/ai/2026-09-29-cmu-11768-course-overview-en)
 - [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en)
 
 ### Official course sites and external resources
