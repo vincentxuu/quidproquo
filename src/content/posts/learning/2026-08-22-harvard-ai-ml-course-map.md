@@ -69,7 +69,7 @@ A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-glo
 
 這門課的公開度和 CS50 AI 正好相反。[Spring 2026 homework repo](https://github.com/harvard-ml-courses/cs181-s26-homeworks)公開當期 HW0–HW6，課程站也連到 notes 與 sections；但 syllabus 明寫 **all learning will be in-person**。Gradescope 負責繳交與成績，Ed 負責討論，解答回饋也屬於正式課程流程。
 
-因此 CS1810 可以判 A3，但 A3 的理由是「當期講義、section、作業與 textbook 能形成自學閉環」，不是有公開錄影。校外讀者應以 homework 為節拍：先做 HW0，缺線代或機率就回補，再逐份作業讀對應章節。不要找一套舊 YouTube playlist，然後宣稱它就是 Spring 2026。
+因此 CS1810 可以判 A3，但 A3 的理由是「當期講義、section、作業與 textbook 能形成自學閉環」，不是有公開錄影。校外讀者應以 homework 為節拍：先做 HW0，缺線代或機率就回補，再逐份作業讀對應章節。不要找一套舊 YouTube playlist，然後宣稱它就是 Spring 2026。本站的 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)就是照這個節拍寫的：從 HW0 到 HW6 逐份拆解 Spring 2026 作業，另有期中與期末兩篇複習檢查點。
 
 ## CS1820：最新班次還沒完成，歷史 notes 只能當替代品
 
@@ -77,7 +77,7 @@ A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-glo
 
 目前能看到 catalog 和預覽站，不足以判斷整學期影片、作業、starter 與解答是否公開，所以只能列 **A0**（[Locator 2026 Fall](https://locator.tlt.harvard.edu/course/colgsas-110661/2026/fall/14315) 明載 `This Canvas course site has not been published yet`；[Locator 2025 Spring](https://locator.tlt.harvard.edu/course/colgsas-110661) 僅課號條目，無公開 syllabus/hw repo）。Ariel Procaccia 的 [Fall 2022 archive](https://procaccia.info/courses/CS182-F22/)保留 **22 lectures + pset0–4 + section1–12 + midterm/final** 等 60+ PDF（可補 CS50 AI 沒展開的 classical AI），[Fall 2018 syllabus](https://www.haifeng-xu.com/files/cs182_syllabus_fall18.pdf)（Ariel Procaccia / Goran Radanovic / Haifeng Xu）與 `Harvard-CS182-F18/psets`（P0–P5）亦為同系譜；**它們是歷史 A2，不是 Fall 2026 的替身**。2023/2024 當期同樣無公開 pset repo（僅 `Embedded EthiCS` 快照與 `Berkeley CS182` 同號課程易混淆，勿混用）。
 
-> **系列免責邊界**：本站若寫 CS182 逐週導讀，2026/2025 當期將標 **A0 不可承諾**，僅以 **Fall 2022（或 Fall 2018）歷史版 A2** 為主並標年份；Fall 2026 發布後再發當期對照篇。CS181 則以 **2026 hw0–6 七週主線 A3** 為準（`all learning will be in-person`，無當期錄影，`Google Sheet schedule` 已刪，僅以 hw 編號為節拍），缺的 `practical` 用 2025 版備援。
+> **系列免責邊界**：本站若寫 CS182 逐週導讀，2026/2025 當期將標 **A0 不可承諾**，僅以 **Fall 2022（或 Fall 2018）歷史版 A2** 為主並標年份；Fall 2026 發布後再發當期對照篇。[CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)以 **2026 hw0–6 七份作業 A3** 為主線（`all learning will be in-person`，無當期錄影，`Google Sheet schedule` 已刪，以 hw 編號為節拍），外加期中、期末兩篇檢查點。
 
 這也代表「只選最新」有時反而不能開始。想今天學，使用標明年份的歷史 notes；想介紹 Harvard 現行設計，等 Fall 2026 實際材料發布後再重判。兩件事不能合成一句「CS182 公開」。
 
@@ -99,6 +99,7 @@ Harvard 最清楚的教訓不是哪門課最好，而是**公開頁面很漂亮�
 
 ## 更新紀錄
 
+- 2026-09-30：CS1810 段落與系列免責邊界加上本站 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的連結（Spring 2026 HW0–HW6 與期中／期末檢查點），參考資料同步列入。
 - 2026-08-27：補上六輪稽核後的免責邊界 — CS182 2026/2025/2024/2023 當期皆 A0（Locator Canvas 未發布、無公開 hw repo，僅 F22 22講+F18 P0–5 為歷史 A2）；CS181 2026/2025/2024/2023 對照表（成績從雙期中到 midterm+final、hw3–5 重組、practical 存廢）與 Google Sheet 已刪註記，逐週導讀以 hw 編號為節拍。
 - 2026-08-26：回補站內連結——[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)上線，版本比較段落加上連結。
 - 2026-08-22：統一 A0／A1 邊界，將只有 catalog 的 Fall 2026 課程重評為 A0，並把未來追蹤與現行自學路線分開。
@@ -112,6 +113,7 @@ Harvard 最清楚的教訓不是哪門課最好，而是**公開頁面很漂亮�
 - [CS1810 Spring 2026 course website](https://harvard-ml-courses.github.io/cs181-web/)
 - [CS1810 Spring 2026 syllabus](https://github.com/harvard-ml-courses/cs181-web/blob/main/syllabus.html)
 - [CS1810 Spring 2026 homework repository](https://github.com/harvard-ml-courses/cs181-s26-homeworks)
+- [Harvard CS181 逐週導讀總覽](/posts/tech/2026-08-27-harvard-cs181-overview)
 - [Harvard CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/)
 - [Harvard CS course tags](https://csadvising.seas.harvard.edu/concentration/courses/tags/)
 - [Harvard SEAS computer science course listing](https://seas.harvard.edu/computer-science/courses)

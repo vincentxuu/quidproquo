@@ -103,18 +103,19 @@ CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)�
 - [CMU 07-280 完整課程導讀](/posts/ai/2026-08-22-cmu-07280-course-overview)：24 講逐講深拆（對應 Fall 2026 完整課站），另有[全課總結與選課路線](/posts/ai/2026-08-22-cmu-07280-completion-roadmap)
 - [CMU 11-785 深度學習導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)：28 講全覆蓋，並標出作業鏈不完整的缺口（S26 已結課，F26 逐講上片中）
 - [MIT 6.S191 導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)：九講與三個 labs 全公開的實際跑法（2026 版 3/30–5/25 已結課）
-- Stanford AI 課程逐講系列：[CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles)、[CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning)、[CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[CS224W](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)、[CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai)、[CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)、[CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)、[CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，以及 [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)（另有[從 tokenization 開始的主題深拆](/posts/ai/2026-08-22-cs336-overview-tokenization)）；各課的版本與先修關係見 [Stanford 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)
+- Stanford AI 課程逐講系列：[CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles)、[CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning)、[CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[CS224W](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)、[CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai)、[CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)、[CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)、[CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)、[CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)（Spring 2023 歷史版 16 篇），以及 [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)（另有[從 tokenization 開始的主題深拆](/posts/ai/2026-08-22-cs336-overview-tokenization)）；各課的版本與先修關係見 [Stanford 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)
 - [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)：兩學分、沒有作業的 Transformer 與 LLM 課，2025 版全部公開，2026 版新增 LLM 系統、強化學習與 Diffusion LLM
 - Stanford 地基課逐講系列：[CS103 數學基礎 28 講](/posts/learning/2026-08-21-stanford-cs103-math-foundations)、[CS107 系統 30 講](/posts/learning/2026-08-21-stanford-cs107-computer-systems)、[CS109 機率 22 講](/posts/learning/2026-08-21-stanford-cs109-probability)、[CS111 作業系統 28 講](/posts/learning/2026-08-21-stanford-cs111-operating-systems)、[CS161 演算法 18 講](/posts/learning/2026-08-21-stanford-cs161-algorithms)皆已完成中英對照
-- [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：HW1–7、code/data 與歷屆考題皆公開的 A3 自學版，對照 Fall 2026（eecs189.org/fa26）27 講行事曆
-- [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)：首開 26 講 A2→A3 過渡版，對照 [07-280](/posts/ai/2026-08-22-cmu-07280-course-overview)
+- [Berkeley CS189 導讀](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：總覽以 Spring 2025 為起點，逐講與 HW1–5 則依重新上線的 Spring 2026 課站寫成，另對照 Fall 2026（eecs189.org/fa26）行事曆
+- [CMU 07-380 導讀](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)：Fall 2026 首開，已公開的第 1–10 講與 HW1–3 已逐篇寫完，後半學期隨課站進度補上；對照 [07-280](/posts/ai/2026-08-22-cmu-07280-course-overview)
 
-Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與 [CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)都已上線；還沒寫的只剩 CS182，它 Fall 2026 雖列在 SEAS 課表上，但目前找不到公開課站，要等教材出現再寫。
+Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與 [CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)（HW0–HW6 全部作業）都已上線；還沒寫的只剩 CS182，它 Fall 2026 雖列在 SEAS 課表上，但目前找不到公開課站，要等教材出現再寫。
 
 如果你現在只想選一門開始，做一個很小的測試：打開 MIT 6.S191 的第一個 lab，或 Berkeley CS188 的第一個 project，給自己九十分鐘。九十分鐘後還能說清楚環境缺什麼、下一步要做什麼，這門課才真的進入你的自學清單。收藏一個播放清單不算開始。
 
 ## 更新紀錄
 
+- 2026-09-30：系列擴寫回填：Berkeley CS189 補上 Spring 2026 逐講與 HW1–5、CMU 07-380 補上第 1–10 講與 HW1–3、Harvard CS181 補齊 HW0–HW6、Stanford CS224U 補上 Spring 2023 版 16 篇，清單描述同步更新。
 - 2026-09-29：Fall 2026 狀態稽核：Berkeley CS188 當期改為 fa26（`~cs188/` 已導向 fa26）、MIT 6.7960 課站已切 Fall 2026、CMU 11-785 F26 逐講上片中；新增 CMU 11-768 AI Agents 段落與導讀連結；「已寫到哪裡」補上 Stanford CS229／CS224N／CS224W／CS224V／CS124／CS230／CS329Z／CME295 與 Harvard CS181 系列；「還沒寫」清單修正為只剩 Harvard CS182。
 - 2026-08-27（3）：新增 [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)（首開 26 講 A2→A3 過渡版，Lec01 已公開，對照 07-280），「還沒寫」清單移除 07-380。
 - 2026-08-27（2）：新增 [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)（HW1–7 A3，對照 Fall 2026 eecs189.org/fa26 27 講行事曆），「還沒寫」清單移除 CS189 與 MIT 6.7960／Harvard CS50 AI（後兩者已在 `ai`/`tech` 上線）；原 2026-08-27 條目保留。
@@ -143,8 +144,9 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 - [MIT 6.S191 導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)
 - [MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
 - [Harvard CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)（[逐週 W00–W06 與綜合篇](/posts/tech/2026-08-27-harvard-cs50ai-w00-search)）
-- [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)
-- [CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+- [Berkeley CS189 導讀](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)
+- [CMU 07-380 導讀](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+- [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - [Stanford CS336 主題深拆系列](/posts/ai/2026-08-22-cs336-overview-tokenization)
 - [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
 - [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)

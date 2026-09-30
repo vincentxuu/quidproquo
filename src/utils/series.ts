@@ -679,10 +679,10 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'berkeley-cs189-spring-2025',
     category: 'courses-ai-ml',
-    names: { 'zh-TW': 'Berkeley CS189 Spring 2025', en: 'Berkeley CS189 Spring 2025' },
+    names: { 'zh-TW': 'Berkeley CS189 導讀', en: 'Reading Berkeley CS189' },
     descriptions: {
-      'zh-TW': '讀 Berkeley CS189 Spring 2025（Introduction to Machine Learning）的公開教材，補齊 CS188 之後更完整的 ML 數學基礎。',
-      en: 'Reading the public materials of Berkeley CS189 Spring 2025 (Introduction to Machine Learning), filling in the fuller mathematical foundations of ML after CS188.',
+      'zh-TW': '逐講、逐份作業讀 Berkeley CS189（Introduction to Machine Learning）的公開教材，每篇標明採用學期，補齊 CS188 之後更完整的 ML 數學基礎。',
+      en: 'A lecture-by-lecture, homework-by-homework reading of the public materials of Berkeley CS189 (Introduction to Machine Learning), with the term stated in every post, filling in the fuller mathematical foundations of ML after CS188.',
     },
   },
   {
