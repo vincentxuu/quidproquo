@@ -1,12 +1,12 @@
 ---
 title: "Cloudflare Workers AI Model Picking Guide: By Use Case, Price, and Context"
 date: 2026-08-18
-updated: 2026-08-19
+updated: 2026-10-01
 type: guide
 category: ai
 tags: [cloudflare-workers-ai, llm, pricing, embedding, cloudflare-workers]
 lang: en
-tldr: "The Workers AI catalog currently holds 84 models. For general chat pick glm-4.7-flash ($0.06 / $0.40 per M, 131K context), for vision pick gemma-4-26b-a4b-it ($0.10 / $0.30, 256K), for cheap high-volume steps pick granite-4.0-h-micro ($0.017 / $0.112), and for embeddings pick qwen3-embedding-0.6b or bge-m3 (both $0.012 per M). This post is updated on a schedule."
+tldr: "The Workers AI catalog currently holds 86 models. For general chat pick glm-4.7-flash ($0.06 / $0.40 per M, 131K context), for vision pick gemma-4-26b-a4b-it ($0.10 / $0.30, 256K), for cheap high-volume steps pick granite-4.0-h-micro ($0.017 / $0.112), and for embeddings pick qwen3-embedding-0.6b or bge-m3 (both $0.012 per M). The newly listed glm-5.3-flash undercuts the previous agentic-coding pick at roughly 1/10 the price with 4x the context. This post is updated on a schedule."
 description: "A Workers AI selection table built from Cloudflare's official model catalog and pricing page: tiered text-generation comparison, embeddings and reranking, image and speech models, Neurons billing, and migration advice after the 2026-05-30 deprecation wave. Continuously updated."
 draft: false
 series:
@@ -20,7 +20,7 @@ The Workers AI catalog turns over fast. The last big sweep was on 2026-05-30, wh
 
 This is a reference table built from the official [model catalog](https://developers.cloudflare.com/workers-ai/models/) and [pricing page](https://developers.cloudflare.com/workers-ai/platform/pricing/), and it gets updated on a schedule.
 
-**Snapshot date**: 2026-08-18. The catalog page reads Last updated 2026-08-12 and lists **84 models**; the pricing page reads Last updated 2026-08-18.
+**Snapshot date**: 2026-10-01. The catalog page reads Last updated 2026-08-12 and lists **86 models**; the pricing page reads Last updated 2026-07-29 — older than the catalog page itself, so the models added since mid-August (`deepseek-v4-flash-0731`, `deepseek-v4-pro-0813`, `glm-5.3`, `glm-5.3-flash`) aren't in the pricing table's summary yet. Their prices and context windows below come straight from each model's own page.
 
 Every context window and price below comes from the individual official model page, not from the upstream model's own spec. The same open model is often served with a shortened context window on Workers AI — `gemma-3-12b-it` ships with 128K upstream but is served at 80,000 tokens on Workers AI.
 
@@ -32,7 +32,7 @@ Every context window and price below comes from the individual official model pa
 | Image understanding | [`@cf/google/gemma-4-26b-a4b-it`](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) | $0.10 / $0.30 |
 | Classification, routing, extraction (cheapest) | [`@cf/ibm-granite/granite-4.0-h-micro`](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | $0.017 / $0.112 |
 | Reasoning-heavy work | [`@cf/openai/gpt-oss-120b`](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/) | $0.35 / $0.75 |
-| Agentic / coding (paid plan required) | [`@cf/moonshotai/kimi-k2.7-code`](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/) | $0.95 / $4.00 |
+| Agentic / coding (paid plan required) | [`@cf/zai-org/glm-5.3-flash`](https://developers.cloudflare.com/workers-ai/models/glm-5.3-flash/) | $0.15 / $0.50 |
 | Embeddings | [`@cf/qwen/qwen3-embedding-0.6b`](https://developers.cloudflare.com/workers-ai/models/qwen3-embedding-0.6b/) or [`@cf/baai/bge-m3`](https://developers.cloudflare.com/workers-ai/models/bge-m3/) | $0.012 (input only) |
 | Reranking | [`@cf/baai/bge-reranker-base`](https://developers.cloudflare.com/workers-ai/models/bge-reranker-base/) | $0.003 |
 | Image generation | [`@cf/black-forest-labs/flux-2-klein-4b`](https://developers.cloudflare.com/workers-ai/models/flux-2-klein-4b/) | $0.000059 / input 512×512 tile |
@@ -103,8 +103,8 @@ What each of these actually is:
 | [gpt-oss-120b](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/) | 128,000 | $0.35 / $0.75 | Positioned for production, high-reasoning use |
 | [gpt-oss-20b](https://developers.cloudflare.com/workers-ai/models/gpt-oss-20b/) | 128,000 | $0.20 / $0.30 | Lower-latency variant |
 | [nemotron-3-120b-a12b](https://developers.cloudflare.com/workers-ai/models/nemotron-3-120b-a12b/) | 256,000 | $0.50 / $1.50 | NVIDIA, aimed at multi-agent systems |
-| [deepseek-r1-distill-qwen-32b](https://developers.cloudflare.com/workers-ai/models/deepseek-r1-distill-qwen-32b/) | — | $0.497 / $4.881 | Older distilled reasoning model, expensive output |
-| [qwq-32b](https://developers.cloudflare.com/workers-ai/models/qwq-32b/) | — | $0.66 / $1.00 | Same generation |
+| [deepseek-r1-distill-qwen-32b](https://developers.cloudflare.com/workers-ai/models/deepseek-r1-distill-qwen-32b/) | 80,000 | $0.497 / $4.881 | Older distilled reasoning model, expensive output |
+| [qwq-32b](https://developers.cloudflare.com/workers-ai/models/qwq-32b/) | 24,000 | $0.66 / $1.00 | Same generation |
 
 - **[gpt-oss-120b / gpt-oss-20b](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/)** (OpenAI) — OpenAI's rare open-weight release, positioned for "powerful reasoning, agentic tasks, and versatile developer use cases." The 120b targets production high-reasoning work; the 20b targets low latency and specialized cases.
 - **[nemotron-3-120b-a12b](https://developers.cloudflare.com/workers-ai/models/nemotron-3-120b-a12b/)** (NVIDIA) — NVIDIA's own Nemotron 3 Super, a hybrid MoE (120B total / 12B active) whose stated focus is accuracy in multi-agent applications and agentic AI systems.
@@ -117,40 +117,44 @@ What each of these actually is:
 
 ### Tier 3: frontier (**paid billing required**)
 
-Straight from the pricing page:
+The pricing page's own note text is stale:
 
-> Some models require a paid billing method. This applies to `@cf/moonshotai/kimi-k2.6`, `@cf/moonshotai/kimi-k2.7-code`, `@cf/zai-org/glm-5.2`, `@cf/deepseek-ai/deepseek-v4-flash-0731`, and `@cf/deepseek-ai/deepseek-v4-pro-0813`.
+> Some models require a paid billing method. This applies to `@cf/moonshotai/kimi-k2.6`, `@cf/moonshotai/kimi-k2.7-code`, and `@cf/zai-org/glm-5.2`.
 
-Calls to these five fail on Workers Free. You need Workers Paid or prepaid [AI Gateway credits](https://developers.cloudflare.com/ai-gateway/features/unified-billing/).
+That list is missing four models — `deepseek-v4-flash-0731`, `deepseek-v4-pro-0813`, `glm-5.3`, and `glm-5.3-flash` each carry their own "Paid access required" banner on their model page. Going by each model page rather than the stale note, there are actually **7** models that need Workers Paid or prepaid [AI Gateway credits](https://developers.cloudflare.com/ai-gateway/features/unified-billing/).
 
 | Model | Context | in / cached in / out per M |
 |---|---|---|
-| [kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/) | 262,100 | $0.95 / $0.19 / $4.00 |
-| [kimi-k2.6](https://developers.cloudflare.com/workers-ai/models/kimi-k2.6/) | 262,100 | $0.95 / $0.16 / $4.00 |
-| [deepseek-v4-flash-0731](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/) | **1,048,576** | $0.44 / $0.014 / $1.32 |
-| [deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-pro-0813/) | — | $1.32 / $0.044 / $3.96 |
+| [glm-5.3-flash](https://developers.cloudflare.com/workers-ai/models/glm-5.3-flash/) | **1,310,720** | $0.15 / $0.03 / $0.50 |
+| [kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/) | 262,144 | $0.95 / $0.19 / $4.00 |
+| [kimi-k2.6](https://developers.cloudflare.com/workers-ai/models/kimi-k2.6/) | 262,144 | $0.95 / $0.16 / $4.00 |
+| [glm-5.3](https://developers.cloudflare.com/workers-ai/models/glm-5.3/) | 1,048,576 | $1.40 / $0.26 / $4.40 |
+| [deepseek-v4-flash-0731](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/) | 1,048,576 | $0.44 / $0.014 / $1.32 |
+| [deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-pro-0813/) | 1,048,576 | $1.32 / $0.044 / $3.96 |
 | [glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/) | 262,144 | $1.40 / $0.26 / $4.40 |
 
 What this tier is:
 
-- **[kimi-k2.6 / kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/)** (Moonshot AI) — **1T-parameter** open frontier models with a 262K window, multi-turn tool calling, vision inputs, and structured outputs, explicitly aimed at agentic workloads. `k2.7-code` is the coding-specialized sibling and the first pinned model on the catalog page.
-- **[deepseek-v4-flash-0731 / deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/)** (DeepSeek) — the V4 generation splits into Flash (fast) and Pro (high-end). Note that `deepseek-v4-pro-0813`'s description field in the official catalog is still a placeholder string ("deepseek-ai/deepseek-v4-pro-0813") with no real explanation.
-- **[glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/)** (Zhipu AI / Z.ai) — described in one line as "Z.ai's flagship agentic coding model." It sits an order of magnitude above its `glm-4.7-flash` sibling in both positioning and price (23× the input cost).
+- **[glm-5.3-flash](https://developers.cloudflare.com/workers-ai/models/glm-5.3-flash/)** (Zhipu AI / Z.ai) — the first natively multimodal model in the GLM-5 line, a 320B-total / 18B-active MoE. Cloudflare's own description: "outperforms GLM-5.2 across benchmarks and real-world workloads at one-tenth the price, while approaching Claude Opus 4.8 on coding and agentic benchmarks." The input price really does come out to roughly 1/9 of GLM-5.2's, context jumps from 262K to 1.31M, and this is the best value in the tier right now — which is why this post's "Agentic / coding" pick moved to it.
+- **[glm-5.3](https://developers.cloudflare.com/workers-ai/models/glm-5.3/)** (Zhipu AI / Z.ai) — the direct successor to GLM-5.2 at an unchanged price ($1.40 / $4.40 / $0.26 cached), but context goes from 262,144 to 1,048,576 — a 4x jump. There's no reason to still pick `glm-5.2` at the same price unless you're mid-migration on existing code or evals.
+- **[kimi-k2.6 / kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/)** (Moonshot AI) — **1T-parameter** open frontier models with a 262,144-token window, multi-turn tool calling, vision inputs, and structured outputs, explicitly aimed at agentic workloads. `k2.7-code` is the coding-specialized sibling and still the first pinned model on the catalog page — Cloudflare's own editorial pick — but it's no longer the cheapest option in this tier.
+- **[deepseek-v4-flash-0731 / deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/)** (DeepSeek) — the V4 generation splits into Flash (fast) and Pro (high-end); both now carry a 1,048,576-token context window. Note that `deepseek-v4-pro-0813`'s description field on the main catalog page is still a placeholder string ("deepseek-ai/deepseek-v4-pro-0813") with no real explanation — the full description and pricing only live on its own model page.
+- **[glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/)** (Zhipu AI / Z.ai) — described in one line as "Z.ai's flagship agentic coding model." With `glm-5.3` offering the same price and a bigger window, and `glm-5.3-flash` offering a lower price plus vision, GLM-5.2 is now mostly a transitional option.
 
-This tier is the only one with **cached-input pricing**, and the discount ratios differ wildly: DeepSeek V4 Flash charges $0.014 for cached input against $0.44 normal — a **1/31** ratio — while Kimi K2.6's $0.16 against $0.95 is only 1/6. For multi-turn conversations or repeatedly sending the same long prompt, that ratio drives your bill. To actually hit the cache, send the `x-session-affinity` header so requests route back to the same model instance (see the official [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) docs).
+This tier is the only one with **cached-input pricing**, and the discount ratios now split into three groups: DeepSeek V4 discounts the most — Flash's $0.014 cached against $0.44 normal is **1/31**, Pro's $0.044 against $1.32 is about 1/30; the Kimi line (K2.6, K2.7-code) sits in the middle at roughly 1/5–1/6; the GLM line (5.2, 5.3, 5.3-flash) discounts the least, landing around 1/5. For multi-turn conversations or repeatedly sending the same long prompt, that ratio drives your bill. To actually hit the cache, send the `x-session-affinity` header so requests route back to the same model instance (see the official [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) docs).
 
-`deepseek-v4-flash-0731`'s 1,048,576 tokens is the only million-token context in the catalog, and at $0.44 / $1.32 it costs less than half of Kimi. If you want to drop a whole document in and ask questions about it, that is today's answer.
+`glm-5.3-flash`'s 1,310,720 tokens is now the largest context window in the catalog, and `glm-5.3` plus both DeepSeek V4 models are all in the million-token range too — dropping a whole document in and asking questions about it is no longer a one-model answer.
 
 ## Embeddings and reranking
 
 | Model | Context | Price per M input | Notes |
 |---|---|---|---|
 | [qwen3-embedding-0.6b](https://developers.cloudflare.com/workers-ai/models/qwen3-embedding-0.6b/) | 8,192 | $0.012 | Multilingual, takes an `instruction` parameter |
-| [bge-m3](https://developers.cloudflare.com/workers-ai/models/bge-m3/) | — | $0.012 | Multilingual, multi-granularity |
+| [bge-m3](https://developers.cloudflare.com/workers-ai/models/bge-m3/) | 60,000 | $0.012 | Multilingual, multi-granularity |
 | [embeddinggemma-300m](https://developers.cloudflare.com/workers-ai/models/embeddinggemma-300m/) | — | Not listed on pricing page | 100+ languages |
 | [plamo-embedding-1b](https://developers.cloudflare.com/workers-ai/models/plamo-embedding-1b/) | — | $0.019 | Japanese-specific |
 | [bge-large-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-large-en-v1.5/) | — | $0.204 | English, 1024 dims, Batch support |
-| [bge-base-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-base-en-v1.5/) | — | $0.067 | English, 768 dims |
+| [bge-base-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-base-en-v1.5/) | 153,600 | $0.067 | English, 768 dims |
 | [bge-small-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-small-en-v1.5/) | — | $0.020 | English, 384 dims |
 
 Where these embedding models come from:
@@ -200,6 +204,7 @@ For offline transcription use Whisper turbo at $0.0005/min — 10× cheaper than
 
 **Everything else worth knowing about:**
 
+- **[qwen3.8-27b](https://developers.cloudflare.com/workers-ai/models/qwen3.8-27b/)** (Alibaba Qwen) — newly listed this month: 27B, with vision, function calling, and Batch, plus an adjustable reasoning depth (low / medium / xhigh). It doesn't require Workers Paid, but its $3.20/M output price is over 10x `gemma-4-26b-a4b-it`'s $0.30/M — there's no reason to switch off Gemma 4 for vision work. It's really just an extra non-paid option when you specifically want adjustable reasoning depth.
 - **[moondream3.1-9B-A2B](https://developers.cloudflare.com/workers-ai/models/moondream3.1-9B-A2B/)** ($0.30 / $1.00) — a small 9B MoE / 2B active vision-language model built for object detection, pointing, OCR, and structured output. For pulling data out of screenshots or document images it is far cheaper than asking a general large model to look at the picture.
 - **[llama-guard-3-8b](https://developers.cloudflare.com/workers-ai/models/llama-guard-3-8b/)** (Meta) — not a chat model but a content safety classifier: feed it a prompt or a response and it judges whether the content is safe and which category was violated. This is the one to use for input/output guardrails.
 - **[gemma-sea-lion-v4-27b-it](https://developers.cloudflare.com/workers-ai/models/gemma-sea-lion-v4-27b-it/)** (AI Singapore) — a Gemma variant pretrained and instruction-tuned for Southeast Asian languages. SEA-LION stands for Southeast Asian Languages In One Network, and it is worth evaluating for products targeting that region.
@@ -255,7 +260,7 @@ In practice this order gets you there faster than reading the tables:
 1. **Check the hard requirements first** — vision, function calling, very long context. These eliminate most of the candidates immediately.
 2. **Estimate your input : output ratio.** RAG is input-heavy (favor cheap-input models like GLM); long-form writing is output-heavy (favor cheap-output models like Gemma 4).
 3. **Look for pipeline steps you can downgrade.** Push classification, routing, and query rewriting to `granite-4.0-h-micro` and save the main model for final generation.
-4. **Confirm your plan.** Kimi, GLM-5.2, and DeepSeek V4 require Workers Paid or prepaid AI Gateway credits.
+4. **Confirm your plan.** Kimi, GLM-5.2 and up, and DeepSeek V4 require Workers Paid or prepaid AI Gateway credits.
 5. **Tune prompts last.** Always re-run your evaluation after a model swap, especially for JSON formatting instructions that lean on specific phrasing.
 
 ## How this post is maintained
@@ -269,6 +274,7 @@ This is an article with an expiry date, so the update rules live here:
 
 ## Changelog
 
+- 2026-10-01: Monthly routine check. Catalog gained `glm-5.3`, `glm-5.3-flash`, and `qwen3.8-27b` — total 84 → 86; the paid-plan-only list grew from 5 to 7 models (added glm-5.3, glm-5.3-flash). `glm-5.3-flash` launched at roughly 1/9 GLM-5.2's input price, 4x the context, plus vision — the "Agentic / coding" pick moved from `kimi-k2.7-code` to it. `glm-5.3` matches `glm-5.2`'s price with 4x the context, so there's no longer a reason to pick `glm-5.2`. Also fixed three pre-existing errors found during this pass's number reconciliation: `kimi-k2.7-code`/`kimi-k2.6` context was recorded as 262,100, but the official model pages say 262,144; `deepseek-v4-pro-0813`, `deepseek-r1-distill-qwen-32b`, `qwq-32b`, `bge-m3`, and `bge-base-en-v1.5` previously showed "—" for context window, but their model pages do disclose it (1,048,576 / 80,000 / 24,000 / 60,000 / 153,600 respectively). The pricing page's own Last updated (2026-07-29) now lags behind the model catalog page (2026-08-12), so prices for the newest models come from their individual model pages instead.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 - 2026-08-18: First published, checked against the 2026-08-12 catalog (84 models) and the 2026-08-18 pricing page.
 
