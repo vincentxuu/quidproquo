@@ -758,6 +758,60 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'stanford-cs224r',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CS224R 導讀', en: 'Reading Stanford CS224R' },
+    descriptions: {
+      'zh-TW': '依 Spring 2026 的 17 份投影片、三份作業與 default project，讀 Stanford CS224R 從模仿學習、策略梯度、offline RL，到 RLHF、LLM 推理與機器人 VLA 的深度強化學習路線；Spring 2025 公開錄影當補充。',
+      en: 'A reading of Stanford CS224R Spring 2026 through its 17 slide decks, three homeworks, and default project. It covers deep RL from imitation learning, policy gradients, and offline RL to RLHF, LLM reasoning, and robot VLAs, with the public Spring 2025 videos as a labeled supplement.',
+    },
+  },
+  {
+    slug: 'mit-6-5940',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'MIT 6.5940 導讀', en: 'Reading MIT 6.5940' },
+    descriptions: {
+      'zh-TW': '以最近一屆完整的 Fall 2024 為主幹，逐講讀 MIT 6.5940 TinyML 與高效深度學習：pruning、quantization、NAS、蒸餾、MCU 部署、LLM 推論與後訓練、長上下文、diffusion、分散式與裝置端訓練，並對照進行中的 Fall 2026。',
+      en: 'A lecture-by-lecture reading of MIT 6.5940 TinyML and Efficient Deep Learning Computing, based on the latest complete edition (Fall 2024): pruning, quantization, NAS, distillation, microcontroller deployment, LLM inference and post-training, long context, diffusion, and distributed and on-device training, cross-referenced with the in-progress Fall 2026 offering.',
+    },
+  },
+  {
+    slug: 'cmu-10-423-generative-ai',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'CMU 10-423 導讀', en: 'Reading CMU 10-423' },
+    descriptions: {
+      'zh-TW': '以 Spring 2026 的 26 講投影片、HW1–HW4 起始碼與練習考卷為主線，讀 CMU 10-423/623/723 生成式 AI 從語言模型到擴散模型、多模態與規模化的路線。',
+      en: 'Reading CMU 10-423/623/723 Generative AI through the Spring 2026 edition: 26 lecture decks, HW1–HW4 starter code, and the practice exam, from language models to diffusion, multimodal models and scaling.',
+    },
+  },
+  {
+    slug: 'stanford-cs149',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CS149 導讀', en: 'Reading Stanford CS149' },
+    descriptions: {
+      'zh-TW': '依 Stanford CS149 Fall 2025 官方投影片、5 個程式作業與 4 份書面作業，逐講導讀平行計算：多核與 SIMD、工作分配與 locality、GPU/CUDA、DNN 與 AI 加速器（Trainium2）、資料中心 AI、AI 驅動最佳化，到 cache coherence、lock-free 與 transactional memory；錄影以 2023 公開版補充。',
+      en: 'A lecture-by-lecture reading of Stanford CS149 Parallel Computing (Fall 2025) using its official slides, five programming assignments, and four written assignments: multi-core and SIMD, work distribution and locality, GPUs and CUDA, DNNs and AI accelerators (Trainium2), datacenter AI, AI-driven optimization, then cache coherence, lock-free programming, and transactional memory, with the public 2023 videos as a labeled supplement.',
+    },
+  },
+  {
+    slug: 'stanford-cs234',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CS234 導讀', en: 'Reading Stanford CS234' },
+    descriptions: {
+      'zh-TW': '依 Winter 2026 的 14 講投影片、三份作業與起始碼，對照 Spring 2024 公開錄影，讀 Stanford CS234 的強化學習路線：MDP 規劃、無模型評估與控制、策略梯度與 PPO、模仿學習與 RLHF／DPO、bandit 探索理論、MCTS 與價值對齊。',
+      en: 'Reading Stanford CS234 Reinforcement Learning through the Winter 2026 slides for 14 lectures and three assignments with starter code, alongside the public Spring 2024 videos: MDP planning, model-free evaluation and control, policy gradients and PPO, imitation learning and RLHF/DPO, exploration theory with bandits, MCTS, and value alignment.',
+    },
+  },
+  {
+    slug: 'harvard-cs2881r',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Harvard CS2881R 導讀', en: 'Reading Harvard CS2881R' },
+    descriptions: {
+      'zh-TW': '逐講讀 Harvard CS 2881R AI Safety（Boaz Barak，Fall 2025）：從 emergent misalignment 的 HW0 出發，經過安全訓練、jailbreak 與 prompt injection、model spec 與內容政策、scheming 與可解釋性，到遞迴自我改進、能力量測、經濟與心理健康衝擊，以及學生的重現與期末研究。依據公開錄影、閱讀清單、投影片與作業規格。',
+      en: 'A lecture-by-lecture reading of Harvard CS 2881R AI Safety (Boaz Barak, Fall 2025). It starts from the emergent-misalignment HW0, then covers safety training, jailbreaks and prompt injection, model specs and content policies, scheming and interpretability, recursive self-improvement, capability measurement, and the economic and mental-health impacts, ending with the students\' reproduction and final research projects. It is based on the public recordings, reading lists, slides and assignment specs.',
+    },
+  },
+  {
     slug: 'claude-code-deep-dives',
     category: 'engineering-coding-agent',
     names: { 'zh-TW': 'Claude Code 深入介紹', en: 'Claude Code Deep Dives' },

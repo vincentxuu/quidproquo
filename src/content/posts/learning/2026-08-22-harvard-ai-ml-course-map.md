@@ -50,6 +50,7 @@ CS50／CS32 → CS51／CS61
 | **CS182, Fall 2022 archive** | **A2** | 多份 lecture／section notes、exam 等歷史材料 | 非現行版本，沒有完整公開影音與一致的 starter／grader 鏈 |
 | **CS1840 RL, Fall 2026** | **A0** | catalog 與主題描述 | 當期課尚未完成，不能預先判 A3 |
 | **CS2831 Advanced Computer Vision, Fall 2026** | **A0** | catalog、教師與主題描述 | 當期教材尚未形成可稽核的公開課 |
+| **CS 2881R AI Safety, Fall 2025** | **A3**（研討課標準） | 12 講閱讀清單、11 講 YouTube 錄影、可自己跑的 HW0 GitHub repo、期中與期末規格和評分表、學生專題論文與海報 | 沒有傳統習題；投影片只公開約一半講次；L5 沒有講課錄影、L8 只有開場 |
 
 A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的編輯分級：A0 是 catalog、開課資訊或主題描述，A1 要有可取得的 syllabus，A2 有部分實質教材，A3 才表示材料足以排成連貫自學路線。這不是 Harvard 的教學評等，也不代表有學分、教師回饋或免費算力。
 
@@ -95,10 +96,13 @@ A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-glo
 
 想補 planning／games／multiagent systems，現在就從 CS182 Fall 2022 archive 的第一組 problem-solving notes 開始，等 Fall 2026 完課再換料。CS1840 與 CS2831 目前只是未來追蹤項，不是現行自學路線；在 syllabus 與作業公開前，不要預約它們尚不存在的完整教材。
 
+想往 AI 安全走，現在就能用的是 Boaz Barak 在 Fall 2025 首開的研究所研討課 **CS 2881R AI Safety**。它已完整結束，12 講的閱讀清單全公開，YouTube 有 11 講錄影，HW0 是能自己跑的 GitHub repo，期中與期末的規格也放出來，以研討課標準可列 A3。先修是 CS 181 程度，所以排在 CS1810 之後。課站掛在 Boaz 的 GitHub Pages，根目錄現在是 Fall 2026，Fall 2025 搬到 `/fall2025/`；Fall 2026 正在上，只能當預覽。它沒有傳統習題，自學節拍要靠閱讀清單與期中、期末專題規格自己排。本站的 [CS 2881R 導讀系列](/posts/ai/2026-09-30-cs2881r-course-overview)以 Fall 2025 為主線。
+
 Harvard 最清楚的教訓不是哪門課最好，而是**公開頁面很漂亮，仍要查看底層資產年份**。CS50 AI 告訴你影片和作業可能跨版；CS1810 告訴你沒有影片仍可形成 A3；CS1820 則提醒最新課表不等於已存在的公開課。把這三種狀態分開，才有一條今天能走、未來也容易更新的路線。
 
 ## 更新紀錄
 
+- 2026-10-01：入口表與「補廣義 AI 或專題分支」路線補上 CS 2881R AI Safety（Fall 2025 完整結束，閱讀清單、11 講錄影、HW0 repo 與專題規格公開，以研討課標準列 A3）與站內導讀連結；參考資料補上 Fall 2025 課站。
 - 2026-09-30：CS1810 段落與系列免責邊界加上本站 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的連結（Spring 2026 HW0–HW6 與期中／期末檢查點），參考資料同步列入。
 - 2026-08-27：補上六輪稽核後的免責邊界 — CS182 2026/2025/2024/2023 當期皆 A0（Locator Canvas 未發布、無公開 hw repo，僅 F22 22講+F18 P0–5 為歷史 A2）；CS181 2026/2025/2024/2023 對照表（成績從雙期中到 midterm+final、hw3–5 重組、practical 存廢）與 Google Sheet 已刪註記，逐週導讀以 hw 編號為節拍。
 - 2026-08-26：回補站內連結——[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)上線，版本比較段落加上連結。
@@ -122,3 +126,5 @@ Harvard 最清楚的教訓不是哪門課最好，而是**公開頁面很漂亮�
 - [CS182 Fall 2022 archive](https://procaccia.info/courses/CS182-F22/)
 - [CS182 Fall 2018 syllabus (A. Procaccia / H. Xu)](https://www.haifeng-xu.com/files/cs182_syllabus_fall18.pdf)
 - [Harvard-CS182-F18 psets P0–P5](https://github.com/Harvard-CS182-F18/cs182-f18-psets)
+- [CS 2881R AI Safety — Fall 2025 archive](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS 2881R 導讀總覽](/posts/ai/2026-09-30-cs2881r-course-overview)

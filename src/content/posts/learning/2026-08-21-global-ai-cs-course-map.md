@@ -111,6 +111,12 @@ CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)�
 - [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)：IAP 2026 的 flow matching 與擴散模型，講義、錄影與三個 lab 全公開
 - [CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)：從 CUDA kernel、分散式訓練到 serving 與 RLHF 的七份作業，沒有錄影、需要 GPU
 - [台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)：中文授課，從解剖 OpenClaw、context engineering 到 KV cache 與 harness engineering
+- [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)：深度強化學習，Spring 2026，從模仿學習到 RLHF、LLM 推理與機器人 VLA
+- [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)：強化學習理論，Winter 2026 投影片與作業，錄影對照 Spring 2024
+- [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)：平行計算，Fall 2025，含 GPU／CUDA 與 AI 加速器作業，錄影對照 2023
+- [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)：高效深度學習，以最近一屆完整的 Fall 2024 為底本（Fall 2025 未開課），對照進行中的 Fall 2026
+- [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)：生成式 AI，Spring 2026，以 HW1–HW4 為主線
+- [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)：AI 安全，Fall 2025，錄影、閱讀清單與作業公開
 - 台灣中文課：[台大陳縕儂 ADL 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview)、[台大林軒田 機器學習基石與技法](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)（內容跟 2013 年錄製的 MOOC，練習用 Fall 2024 作業）、[清大高宏宇 自然語言處理](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)、[政大蔡炎龍 生成式 AI](/posts/ai/2026-09-30-nccu-genai-course-overview)
 - [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)：兩學分、沒有作業的 Transformer 與 LLM 課，2025 版全部公開，2026 版新增 LLM 系統、強化學習與 Diffusion LLM
 - Stanford 地基課逐講系列：[CS103 數學基礎 28 講](/posts/learning/2026-08-21-stanford-cs103-math-foundations)、[CS107 系統 30 講](/posts/learning/2026-08-21-stanford-cs107-computer-systems)、[CS109 機率 22 講](/posts/learning/2026-08-21-stanford-cs109-probability)、[CS111 作業系統 28 講](/posts/learning/2026-08-21-stanford-cs111-operating-systems)、[CS161 演算法 18 講](/posts/learning/2026-08-21-stanford-cs161-algorithms)皆已完成中英對照
@@ -123,6 +129,7 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 
 ## 更新紀錄
 
+- 2026-10-01：「已寫到哪裡」補上 Stanford CS224R、CS234、CS149，MIT 6.5940，CMU 10-423 與 Harvard CS2881R 六個新系列。
 - 2026-09-30（3）：新增[台灣其他學校 AI 公開課地圖](/posts/learning/2026-09-30-taiwan-ai-course-map)；「已寫到哪裡」補上台大 ADL、林軒田、清大 NLP、政大生成式 AI 四個中文課系列。
 - 2026-09-30（2）：新增[台大 AI／ML 課程地圖](/posts/learning/2026-09-30-ntu-ai-ml-course-map)為第六所學校；「已寫到哪裡」補上 Stanford CS231N、MIT 6.S184、CMU 11-868 與台大李宏毅 ML 2026 四個新系列。
 - 2026-09-30：系列擴寫回填：Berkeley CS189 補上 Spring 2026 逐講與 HW1–5、CMU 07-380 補上第 1–10 講與 HW1–3、Harvard CS181 補齊 HW0–HW6、Stanford CS224U 補上 Spring 2023 版 16 篇，清單描述同步更新。
@@ -171,6 +178,12 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 - [台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
 - [清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 - [政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)
+- [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)
+- [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)
+- [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)
+- [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)
+- [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+- [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)
 
 ### 官方課程網站與外部資源
 

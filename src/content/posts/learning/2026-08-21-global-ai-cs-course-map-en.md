@@ -111,6 +111,12 @@ Six school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-cour
 - [MIT 6.S184 guide](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en): flow matching and diffusion models from IAP 2026, with notes, recordings, and three labs all public
 - [CMU 11-868 LLM Systems guide](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en): seven assignments running from CUDA kernels and distributed training to serving and RLHF; no recordings, and a GPU is required
 - [NTU Hung-yi Lee Machine Learning 2026 Spring guide](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en): taught in Mandarin, from dissecting OpenClaw and context engineering to the KV cache and harness engineering
+- [Stanford CS224R guide](/posts/ai/2026-09-30-cs224r-course-overview-en): deep RL, Spring 2026, from imitation learning to RLHF, LLM reasoning, and robot VLAs
+- [Stanford CS234 guide](/posts/ai/2026-09-30-cs234-course-overview-en): RL theory, Winter 2026 slides and assignments, with Spring 2024 videos
+- [Stanford CS149 guide](/posts/ai/2026-09-30-cs149-course-overview-en): parallel computing, Fall 2025, including GPU/CUDA and AI-accelerator assignments, with 2023 videos
+- [MIT 6.5940 guide](/posts/ai/2026-09-30-mit-65940-course-overview-en): efficient deep learning, based on the latest complete edition, Fall 2024 (no Fall 2025 offering), compared with the in-progress Fall 2026
+- [CMU 10-423 guide](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en): generative AI, Spring 2026, built around HW1–HW4
+- [Harvard CS2881R guide](/posts/ai/2026-09-30-cs2881r-course-overview-en): AI safety, Fall 2025, with public recordings, readings, and assignments
 - Taiwanese courses in Mandarin: [NTU Yun-Nung Chen ADL 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en), [NTU Hsuan-Tien Lin ML Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) (content from the MOOCs recorded around 2013, practice from the Fall 2024 homework), [NTHU Hung-Yu Kao NLP](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en), and [NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
 - [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en): a two-unit Transformer and LLM course with no assignments; the 2025 edition is fully public, and the 2026 edition adds LLM systems, reinforcement learning, and diffusion LLMs
 - Stanford foundations lecture series, all with bilingual guides: [CS103 28 lectures](/posts/learning/2026-08-21-stanford-cs103-math-foundations-en), [CS107 30 lectures](/posts/learning/2026-08-21-stanford-cs107-computer-systems-en), [CS109 22 lectures](/posts/learning/2026-08-21-stanford-cs109-probability-en), [CS111 28 lectures](/posts/learning/2026-08-21-stanford-cs111-operating-systems-en), [CS161 18 lectures](/posts/learning/2026-08-21-stanford-cs161-algorithms-en)
@@ -123,6 +129,7 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 
 ## Update log
 
+- 2026-10-01: "Where this series stands" now includes six new series: Stanford CS224R, CS234, CS149, MIT 6.5940, CMU 10-423, and Harvard CS2881R.
 - 2026-09-30 (3): Added the [other Taiwanese schools map](/posts/learning/2026-09-30-taiwan-ai-course-map-en); "Where this series stands" now includes four Mandarin course series: NTU ADL, Hsuan-Tien Lin, NTHU NLP, and NCCU Generative AI.
 - 2026-09-30 (2): Added the [NTU AI/ML course map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) as the sixth school; "Where this series stands" now includes four new series: Stanford CS231N, MIT 6.S184, CMU 11-868, and NTU Hung-yi Lee's ML 2026.
 - 2026-09-30: Series expansions reflected here: Berkeley CS189 gained Spring 2026 lecture guides and HW1–5, CMU 07-380 gained lectures 1–10 and HW1–3, Harvard CS181 now covers HW0–HW6, and Stanford CS224U gained 16 posts on the Spring 2023 edition; list descriptions updated to match.
@@ -171,6 +178,12 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 - [NTU Hsuan-Tien Lin ML Foundations & Techniques guide](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
 - [NTHU Hung-Yu Kao NLP guide](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 - [NCCU Yen-Lung Tsai Generative AI guide](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+- [Stanford CS224R guide](/posts/ai/2026-09-30-cs224r-course-overview-en)
+- [Stanford CS234 guide](/posts/ai/2026-09-30-cs234-course-overview-en)
+- [Stanford CS149 guide](/posts/ai/2026-09-30-cs149-course-overview-en)
+- [MIT 6.5940 guide](/posts/ai/2026-09-30-mit-65940-course-overview-en)
+- [CMU 10-423 guide](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+- [Harvard CS2881R guide](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 
 ### Official course sites and external resources
 

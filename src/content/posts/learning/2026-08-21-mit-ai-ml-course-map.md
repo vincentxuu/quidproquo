@@ -88,8 +88,8 @@ AI 數學：18.06／18.C06 線性代數 + 6.3700／6.3800／18.05 機率與推�
 | **6.S184 Flow Matching & Diffusion, IAP 2026** | **A3** | 84 頁講義、5 份 slides、6 支錄影、3 個 lab 與官方解答 | lab 繳交走 Canvas 裡的 Gradescope；第 5 講離散擴散沒有 lab |
 | **6.S058 Computer Vision, Spring 2026** | **A3** | 投影片、公開教科書、四份 problem set、Colab、project requirements | 錄影與課堂 notes 在 Canvas |
 | **6.4210, Fall 2025** | **A2** | 教科書式講義、reading 與完整 schedule | 錄影在 Canvas；作業需 Gradescope／Deepnote 權限 |
-| **6.5940, Fall 2026** | **A0** | catalog 與開課預告 | 文章查證時尚未開始，不能把預告當已發布教材 |
-| **6.5940, Fall 2024 archive** | **A3** | lectures、影片、公開 labs | 無正式解答與課堂回饋 |
+| **6.5940, Fall 2026** | **A2** | 課頁、隨課上傳的投影片與錄影；截至 2026-09-30 有 L1–L6 與 Lab 0–1 | 學期進行中，後半講次與 labs 尚未發布；不受理先修豁免與 cross-registration |
+| **6.5940, Fall 2024 archive** | **A3** | 23 講投影片、23 支錄影、Lab 0–5 | 無官方解答；lab 繳交與 Piazza 限修課生，校外沒有評分回饋 |
 | **6.7900, Fall 2025** | **A1** | syllabus、calendar、主題與閱讀 | notes、作業與 project 在 Piazza |
 | **6.7920, Fall 2025** | **A1** | schedule、閱讀與零星投影片 | 主要 slides、作業與解答在 Canvas |
 | **6.8610, Spring 2026** | **A1** | 新課綱與 schedule | slides、Panopto 錄影、作業與 code 在 Canvas |
@@ -127,7 +127,7 @@ Spring 2026 的 Computer Vision 實際以 special subject **6.S058** 開課，�
 
 想往 embodied AI 走，可在 6.3900、線代與機率後接 6.4110，再讀 6.4210 Robotic Manipulation 的公開教材。只是它的 Gradescope／Deepnote 作業與 Canvas 錄影不開放，校外版應把重點放在 lecture notes、Drake 範例與自行設計的小專案。
 
-效率系統則看 6.5940。它在 2025–2026 學年沒有開，Fall 2026 才恢復；截至查證日，新班次仍只是即將開始。要現在動手，應直接使用 Fall 2024 的 pruning、quantization、NAS、distributed training 與 TinyML 公開 labs。
+效率系統則看 Song Han 的 6.5940。Fall 2025 因他休假停開，Fall 2026 恢復並正在上課，截至 2026-09-30 只放出 L1–L6 與 Lab 0–1。要現在完整走一輪，應以 Fall 2024 為主幹：23 講投影片、23 支錄影與 Lab 0–5 全部公開，從 pruning、quantization、NAS、distillation 一路做到 LLM 部署與分散式訓練，課頁承諾的成果是把 Llama2-7B 部署到自己的筆電。先修是 6.191 與 6.390。本站的 [6.5940 導讀系列](/posts/ai/2026-09-30-mit-65940-course-overview)以 Fall 2024 為主線，每篇另附 Fall 2026 對照。
 
 ## CSDIY 可以確認什麼，不能確認什麼
 
@@ -156,6 +156,8 @@ MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：
 
 ## 更新紀錄
 
+- 2026-10-01：公開程度表的 6.5940 Fall 2026 由 A0 改為 A2（學期進行中，已放出 L1–L6 與 Lab 0–1），Fall 2024 列補上 23 講投影片、23 支錄影與 Lab 0–5 的具體範圍；「視覺、機器人與效率系統」路線改寫 6.5940 段落並加上站內導讀連結；參考資料補上 Fall 2026 課頁。
+
 - 2026-09-30：公開程度表與「現代 AI 工程入門」路線補上 6.S184 Flow Matching & Diffusion（IAP 2026，講義、slides、錄影與 3 個 lab 含解答全公開，A3）與站內導讀連結。
 
 - 2026-08-26：回補站內連結——[6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)上線，雙版本比較段落加上連結。
@@ -178,6 +180,7 @@ MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：
 - [MIT 6.S058 — Introduction to Computer Vision, Spring 2026](https://introtocv.github.io/)
 - [MIT 6.4210 — Robotic Manipulation, Fall 2025](https://manipulation.mit.edu/Fall2025/index.html)
 - [MIT Han Lab — 6.5940 TinyML and Efficient Deep Learning Computing, Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940)
+- [MIT Han Lab — 6.5940 TinyML and Efficient AI Computing, Fall 2026](https://hanlab.mit.edu/courses/2026-fall-65940)
 - [MIT 6.7900 — Machine Learning, Fall 2025](https://gradml.mit.edu/)
 - [MIT 6.7920 — Reinforcement Learning: Foundations and Methods, Fall 2025](https://web.mit.edu/6.7920/www/)
 - [MIT 6.8610 — Quantitative Methods for Natural Language Processing, Spring 2026](https://mit-6861.github.io/)
