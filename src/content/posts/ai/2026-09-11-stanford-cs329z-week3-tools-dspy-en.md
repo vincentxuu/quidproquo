@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 3: Plug Tools In, Swap Frameworks Up — HW1 Begins"
+title: "Reading Stanford CS329Z Week 3: Plug Tools In, Take Frameworks Apart — HW1 Begins"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -11,14 +11,14 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 22
-tldr: "Week 3 standardizes tool interfaces with the MCP specification on Monday and trades hand-written pipelines for compilable, optimizable programs with the DSPy paper on Wednesday. HW1 drops the same Monday, opening the from-scratch versus framework rematch between Part A and Part B."
-description: "A guided reading of the Stanford CS329Z Week 3 anchors: the MCP spec's host-client-server shape and safety rules, DSPy's compilable-pipeline design, and how they map to HW1 Parts A and B."
+tldr: "Week 3 standardizes tool interfaces with the MCP specification on Monday and trades hand-written pipelines for compilable, optimizable programs with the DSPy paper on Wednesday. HW1 drops the same Monday and bans agent frameworks: you build a company's internal assistant from scratch, so this week DSPy is for understanding what frameworks abstract, not for handing in."
+description: "A guided reading of the Stanford CS329Z Week 3 anchors: the MCP spec's host-client-server shape and safety rules, DSPy's compilable-pipeline design, and how each lines up with a framework-free HW1."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy)
 
-Week 3 is the pivot. Monday (Oct 5, Tool Use & Function Calling) assigns the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18): tools get a standard plug, no more rewriting integrations per vendor. Wednesday (Oct 7, Frameworks & Agent Design) assigns Khattab et al.'s [DSPy](https://arxiv.org/abs/2310.03714) (ICLR 2024): prompt templates graduate from handcraft into compilable, optimizable programs. That same Monday, [HW1 drops](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), opening the Part A from-scratch versus Part B framework rematch — with the project proposal due Friday (Oct 9).
+Week 3 is the pivot. Monday (Oct 5, Tool Use & Function Calling) assigns the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18): tools get a standard plug, no more rewriting integrations per vendor. Wednesday (Oct 7, Frameworks & Agent Design) assigns Khattab et al.'s [DSPy](https://arxiv.org/abs/2310.03714) (ICLR 2024): prompt templates graduate from handcraft into compilable, optimizable programs. That same Monday, [HW1 drops](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), Build an Agentic Harness: no agent frameworks, just a chat-completion call, and you build a company's internal AI assistant from scratch — with the project proposal due Friday (Oct 9). Hand-building in the homework while reading a framework paper in lecture is where this week's tension lives.
 
 ## MCP: the standard plug for tools
 
@@ -26,7 +26,7 @@ The spec's inspiration is LSP (Language Server Protocol): back when every editor
 
 Servers offer three capabilities, each with a controller: Prompts are user-invoked templates, Resources are application-mounted context, and [Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are model-invoked functions. [Week 2](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s ACI gets its standard shape here: tool definitions stop being per-vendor dialects. Clients symmetrically offer three back to servers: [Sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling) is server-initiated agentic behavior, with model preferences advisory and the client making the final pick; [Roots](https://modelcontextprotocol.io/specification/2025-06-18/client/roots) are filesystem boundaries, restricted to file:// URIs in this version; [Elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation) is structured user input, new in this version, limited to flat primitive schemas and never for sensitive information.
 
-The security chapter deserves its own read. Tools are arbitrary code execution, and the spec says so up front: tool annotations count as untrusted unless from a trusted server; invocations keep a human in the loop with veto power, sensitive operations need prior user confirmation, and tool inputs should be shown before the call leaves. Sampling requests and responses must be reviewable; roots need user consent before exposure. The protocol governs format; consent flows are the implementor's homework — a line that comes back when HW1 reaches sandboxes.
+The security chapter deserves its own read. Tools are arbitrary code execution, and the spec says so up front: tool annotations count as untrusted unless from a trusted server; invocations keep a human in the loop with veto power, sensitive operations need prior user confirmation, and tool inputs should be shown before the call leaves. Sampling requests and responses must be reviewable; roots need user consent before exposure. The protocol governs format; consent flows are the implementor's homework — a line that comes back when HW1 gives the assistant a terminal and a human in the loop.
 
 ## DSPy: the end of prompt templates
 
@@ -36,21 +36,25 @@ In practice you write a signature plus a target metric, and the compiler tunes i
 
 ## How the two readings relate: the abstraction-level question
 
-Wednesday's lecture title names it: what frameworks abstract versus what you built from scratch. LangChain, LangGraph, and LlamaIndex each pick a different abstraction altitude; DSPy picks "you don't even hand-write prompts." Week 2's brake pedal still applies: frameworks save startup time and charge debugging visibility. HW1 Part B asks precisely for this reflection: same agent, scratch versus DSPy builds — what did the framework hide, and what did it decide for you?
+Wednesday's lecture title names it: what frameworks abstract versus what you built from scratch. LangChain, LangGraph, and LlamaIndex each pick a different abstraction altitude; DSPy picks "you don't even hand-write prompts." Week 2's brake pedal still applies: frameworks save startup time and charge debugging visibility. Because HW1 bans frameworks, you hand-build every part first; Wednesday's lecture then asks the reverse question: same agent, scratch versus DSPy builds — what did the framework hide, and what did it decide for you?
 
-## What to do: finish a shrunken Part B this week
+## What to do: swap one stage of your hand-built pipeline into DSPy
 
-**What to do**: take your Week 2 hand-built RAG, lift exactly one stage (say query generation) into a DSPy signature, compile against twenty questions with accuracy as the metric, and compare against the hand-built score plus your time spent. The score gap matters less than three written lines: what decision the framework made for you, which decision you disagree with, and when you would switch back. Those three lines draft the Part B reflection — and the methods paragraph of Friday's proposal.
+**What to do**: this is an optional exercise, not homework — HW1 itself bans frameworks, so don't submit the DSPy version. Take your Week 2 hand-built RAG (or the email retrieval pipeline you're starting for HW1), lift exactly one stage (say query generation) into a DSPy signature, compile against twenty questions with accuracy as the metric, and compare against the hand-built score plus your time spent. The score gap matters less than three written lines: what decision the framework made for you, which decision you disagree with, and when you would switch back. Those three lines help you read Wednesday's lecture — and can seed the methods paragraph of Friday's proposal.
 
 ## Where it sits in the course
 
-Week 3 releases HW1 (due Oct 30); once Week 4's ReAct fixes the loop's shape, Part A can close. MCP only grows from here: Week 5's multi-agent collaboration and Week 9's coding agents (SWE-agent, Claude Code architectures) are all division of labor over standard interfaces. Remember the spec's positioning line: MCP governs format, consent and trust are the implementor's homework.
+Week 3 releases HW1 (due Oct 30): start with the email retrieval pipeline, then add tools, a terminal, memory, and a human in the loop until it becomes a full harness; Week 4's ReAct and memory are the middle pieces. MCP only grows from here: Week 5's multi-agent collaboration and Week 9's coding agents (SWE-agent, Claude Code architectures) are all division of labor over standard interfaces. Remember the spec's positioning line: MCP governs format, consent and trust are the implementor's homework.
 
 ## This week's course material
 
 - Mon 10/5 Tool Use & Function Calling: anchor reading MCP specification (covered above); no additional readings this week.
 - Wed 10/7 Frameworks & Orchestration: anchor reading the DSPy paper (covered above); no additional readings this week.
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
+
+## Update log
+
+- 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
 
 ## References
 

@@ -57,11 +57,11 @@ CS61C 是完整 CS 學位的重要基礎，但不是本文多數 AI 課的直接
 | 你想先建立什麼 | 入口 | 最適合的公開版本 |
 |---|---|---|
 | 搜尋、規劃、推理、不確定性與 agent 的全貌 | CS188 | Spring 2026 |
-| 數學型 ML 與後續深度學習基礎 | CS189 | Spring 2025 |
+| 數學型 ML 與後續深度學習基礎 | CS189 | Spring 2026／Spring 2025 |
 
 CS188 Spring 2026 是這次盤點中最完整的當期課之一：slides、線上教材、影片、討論解答，以及 P0 到 P5 六個 projects 都能匿名取得，projects 還附 local autograder。Gradescope homework、Ed 與人工回饋仍然受限，但不妨礙把它排成一門完整的 A3 自學課。
 
-CS189 的情況比較能說明「最新」為什麼不能只看年份。Fall 2025 與 Spring 2026 確實都有開課，但輪替課站的舊網址目前已回傳 404。仍穩定公開的 Spring 2025 版本則有完整 lecture notes、影片、HW1–7、code、data 與歷屆考題，因此本文把它列為**最新完整且目前可用的自學版**（詳見[CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)，對照 Fall 2026 `eecs189.org/fa26` 27 講行事曆）。搜尋結果曾經看得到，不等於今天仍然看得到。
+CS189 的情況比較能說明「最新」為什麼不能只看年份。Fall 2025 與 Spring 2026 都有開課，輪替課站的網址也曾回傳 404；如今 [Spring 2026](https://eecs189.org/sp26/) 課站已重新上線，公開講義、25 支講課影片、附解答的 discussion 與 HW1–5 題目，和 Spring 2025 一樣可以判 A3。Spring 2025 版本另保留 25 講 lecture notes、HW1–7、code、data 與歷屆考題，正式錄影則放在 bCourses、要登入。兩個版本各是一條路：Spring 2026 內容較新，Spring 2025 保留 SVM、決策樹、boosting 等經典主題。本站的 [CS189 導讀](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)以 Spring 2026 逐講、逐份作業寫成，另對照 Fall 2026 `eecs189.org/fa26` 的行事曆。搜尋結果曾經看不到，也不代表今天仍然打不開。
 
 ## 先解開配對課號，才不會修錯課
 
@@ -89,7 +89,8 @@ CS288 也不該直接排在 CS188 後面。Spring 2026 的課程準備說明要�
 | **CS61B, Fall 2025** | **A3** | slides、影片、討論、考題、HW 與 project specs | 當期完整 autograder |
 | **CS70, Fall 2025** | **A3** | notes、slides、討論／作業解答、歷屆考題 | Ed、Gradescope |
 | **CS188, Spring 2026** | **A3** | slides、教材、影片、討論、P0–P5、local autograder | Gradescope HW、Ed、人工回饋 |
-| **CS189, Spring 2025** | **A3** | notes、影片、HW1–7、code/data、歷屆考題 | 非最新班次；無課堂評分 |
+| **CS189, Spring 2026** | **A3** | 講義、25 支講課影片、discussion 與解答、HW1–5 | Gradescope、隱藏測試與 HW1–4 解答受限 |
+| **CS189, Spring 2025** | **A3** | notes、HW1–7、code/data、歷屆考題 | 正式錄影在 bCourses 要登入；無課堂評分 |
 | **CS C182/282A, Fall 2025** | **A2** | syllabus、schedule、多份 assignment PDF／code | 當期影片限校內；部分 lecture resources 不完整 |
 | **CS180/280A, Fall 2025** | **A3** | slides、readings、討論與解答、五個 programming projects | 刻意不錄影；無 project solutions／評分 |
 | **EECS183/283A, Fall 2025** | **A2** | 完整主題表與多數 slides | assignments、starter code、解答、影片 |
@@ -165,6 +166,7 @@ Berkeley 最值得借用的不是一份官方 AI checklist，而是兩個入口�
 
 ## 更新紀錄
 
+- 2026-09-30：CS189 Spring 2026 課站已重新上線，改判 A3 並補進盤點表；Spring 2025 的正式錄影需 bCourses 登入，移除「影片公開」的說法；連到擴寫後的 CS189 導讀系列。
 - 2026-08-22：依 CS C280 官方背景要求，把 CS C182 補回進階視覺自學路線。
 
 ## 參考資料
@@ -177,6 +179,7 @@ Berkeley 最值得借用的不是一份官方 AI checklist，而是兩個入口�
 - [CS61B — Fall 2025](https://fa25.datastructur.es/)
 - [CS70 — Fall 2025](https://fa25.eecs70.org/)
 - [CS188 — Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS189 — Spring 2026](https://eecs189.org/sp26/)
 - [CS189 — Spring 2025](https://people.eecs.berkeley.edu/~jrs/189s25/)
 - [CS C182/282A — Fall 2025](https://berkeley-cs182.github.io/fa25/)
 - [CS180/280A — Fall 2025](https://cal-cs180.github.io/fa25/)

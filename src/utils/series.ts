@@ -620,7 +620,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'ai-engineer-interview-daily',
     names: {
       'zh-TW': 'AI Engineer 面試日練',
-      en: 'AI Engineer Interview Daily Drill',
+      en: 'AI Engineer Interview Daily',
     },
     descriptions: {
       'zh-TW':
@@ -632,7 +632,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'product-builder-interview-daily',
     names: {
       'zh-TW': 'Product Builder 面試日練',
-      en: 'Product Builder Interview Daily Drill',
+      en: 'Product Builder Interview Daily',
     },
     descriptions: {
       'zh-TW':
@@ -679,10 +679,136 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'berkeley-cs189-spring-2025',
     category: 'courses-ai-ml',
-    names: { 'zh-TW': 'Berkeley CS189 Spring 2025', en: 'Berkeley CS189 Spring 2025' },
+    names: { 'zh-TW': 'Berkeley CS189 導讀', en: 'Reading Berkeley CS189' },
     descriptions: {
-      'zh-TW': '讀 Berkeley CS189 Spring 2025（Introduction to Machine Learning）的公開教材，補齊 CS188 之後更完整的 ML 數學基礎。',
-      en: 'Reading the public materials of Berkeley CS189 Spring 2025 (Introduction to Machine Learning), filling in the fuller mathematical foundations of ML after CS188.',
+      'zh-TW': '逐講、逐份作業讀 Berkeley CS189（Introduction to Machine Learning）的公開教材，每篇標明採用學期，補齊 CS188 之後更完整的 ML 數學基礎。',
+      en: 'A lecture-by-lecture, homework-by-homework reading of the public materials of Berkeley CS189 (Introduction to Machine Learning), with the term stated in every post, filling in the fuller mathematical foundations of ML after CS188.',
+    },
+  },
+  {
+    slug: 'ntu-ml-2026-spring',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '台大李宏毅 機器學習 2026 Spring 導讀', en: 'Reading NTU Hung-yi Lee Machine Learning 2026 Spring' },
+    descriptions: {
+      'zh-TW': '依官方 8 講投影片與錄影、10 份作業與 Colab，讀台大李宏毅機器學習 2026 Spring：從解剖 OpenClaw、Context Engineering，到 Flash Attention、KV Cache、位置編碼、Harness Engineering、自我修正與 AI 自我成長。',
+      en: 'Reading NTU Hung-yi Lee\'s Machine Learning 2026 Spring through its 8 lecture decks and recordings plus 10 homework Colabs: an OpenClaw teardown, context engineering, Flash Attention, KV cache, positional embedding, harness engineering, self-correction, and self-improving AI.',
+    },
+  },
+  {
+    slug: 'mit-6s184',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'MIT 6.S184 導讀', en: 'Reading MIT 6.S184' },
+    descriptions: {
+      'zh-TW': '依 IAP 2026 官方講義、投影片、錄影與三個 lab（含官方解答），逐講讀 MIT 6.S184：從 ODE／SDE、flow matching、score matching、classifier-free guidance、DiT 與 latent space，一路到離散擴散。',
+      en: 'A lecture-by-lecture reading of MIT 6.S184 (IAP 2026) from the official lecture notes, slides, recordings, and three labs with solutions: ODEs/SDEs, flow matching, score matching, classifier-free guidance, DiT and latent spaces, and discrete diffusion.',
+    },
+  },
+  {
+    slug: 'stanford-cs231n',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CS231N 導讀', en: 'Reading Stanford CS231N' },
+    descriptions: {
+      'zh-TW': 'Stanford CS231N 電腦視覺深度學習導讀：依 Spring 2026 投影片與 A1–A3 作業，錄影部分對照 Spring 2025 YouTube 公開版。從影像分類、反向傳播、CNN、Transformer，一路走到偵測分割、自監督、生成模型、視覺語言與 3D。',
+      en: 'A guided reading of Stanford CS231N (Deep Learning for Computer Vision), based on the Spring 2026 slides and assignments A1–A3, with the public Spring 2025 YouTube lectures for video. It runs from image classification, backprop, CNNs and Transformers through detection and segmentation, self-supervised learning, generative models, vision-language and 3D.',
+    },
+  },
+  {
+    slug: 'cmu-11-868-llm-systems',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'CMU 11-868 LLM Systems 導讀', en: 'Reading CMU 11-868 LLM Systems' },
+    descriptions: {
+      'zh-TW': '依 Spring 2026 的 28 份公開講義與 7 份 MiniTorch 作業，逐講讀 CMU 11-868 LLM Systems：從 CUDA kernel、自製框架、分散式訓練到 serving 與 RLHF，並標明沒有錄影、需要 GPU 的自學邊界。',
+      en: 'A lecture-by-lecture reading of CMU 11-868 LLM Systems (Spring 2026) through its 28 public slide decks and seven MiniTorch assignments, from CUDA kernels and a homemade framework to distributed training, serving, and RLHF, with the no-video, GPU-required limits for self-learners noted throughout.',
+    },
+  },
+  {
+    slug: 'ntu-adl-2025-fall',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '台大陳縕儂 深度學習之應用 2025 Fall 導讀', en: 'Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall' },
+    descriptions: {
+      'zh-TW': '依官方 17 份講義、77 支錄影、助教課與 HW1 規格，讀台大陳縕儂深度學習之應用（ADL）Fall 2025：從神經網路、RNN、Transformer、BERT，到預訓練、RLHF、LoRA、RAG、生成解碼、安全對齊、Language Agents 與 Reasoning。',
+      en: 'Reading NTU Yun-Nung (Vivian) Chen\'s Applied Deep Learning (ADL) Fall 2025 through its 17 lecture decks, 77-video playlist, TA recitations and the HW1 spec: neural nets, RNNs, Transformers, BERT, pretraining, RLHF, LoRA, RAG, decoding, safety and alignment, language agents, and reasoning.',
+    },
+  },
+  {
+    slug: 'ntu-htlin-ml',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '台大林軒田 機器學習基石與技法 導讀', en: 'Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques' },
+    descriptions: {
+      'zh-TW': '依林軒田「機器學習基石」與「機器學習技法」兩門 MOOC（32 講、130 支 YouTube 影片、全套 handout 投影片）逐主題導讀，從 PLA、VC 維度、線性模型、正則化與驗證，一路讀到 SVM、kernel、aggregation、樹模型與神經網路，並用公開的 Fall 2024 HW0–HW7 與期末專題當練習；Fall 2026 的課另外對照。',
+      en: 'A topic-by-topic guide to Hsuan-Tien Lin\'s Machine Learning Foundations and Techniques MOOCs (32 lectures, 130 YouTube videos, all handout slides). It runs from PLA, VC dimension, linear models, regularization, and validation to SVMs, kernels, aggregation, tree models, and neural networks. The public Fall 2024 HW0–HW7 and final project serve as exercises, and the in-progress Fall 2026 offering is cross-referenced.',
+    },
+  },
+  {
+    slug: 'nthu-nlp',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '清大高宏宇 自然語言處理 導讀', en: 'Reading NTHU Hung-Yu Kao Natural Language Processing' },
+    descriptions: {
+      'zh-TW': '依 IKMLab 官方 GitHub 的 Fall 2025 完整教材（講課投影片、W1–W16 共 36 支公開錄影、HW1–HW4 題目與 notebook、PyTorch／Hugging Face／LLM API／RAG 助教課），讀清大高宏宇的 TAICA 中文 NLP 課：從傳統文字處理、詞向量、seq2seq、Transformer、BERT 家族、解碼與評估，一路讀到 RLHF、PEFT、RAG 與 Reasoning，最後整理 Fall 2026 的改版。',
+      en: 'Reading NTHU Prof. Hung-Yu Kao\'s Mandarin TAICA NLP course through its complete Fall 2025 materials on the official IKMLab GitHub: lecture slides, 36 public W1–W16 recordings, HW1–HW4 specs and notebooks, and TA tutorials on PyTorch, Hugging Face, LLM APIs and RAG. The series moves from classic text processing, word embeddings, seq2seq, Transformers and the BERT family through decoding and evaluation to RLHF, PEFT, RAG and reasoning, and ends with what changes in Fall 2026.',
+    },
+  },
+  {
+    slug: 'nccu-generative-ai',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': '政大蔡炎龍 生成式AI 導讀', en: 'Reading NCCU Yen-Lung Tsai Generative AI' },
+    descriptions: {
+      'zh-TW': '依 Spring 2025（1132）的 14 支錄影、14 份投影片、12 份作業說明與 Colab notebook，逐講讀政大蔡炎龍的 TAICA 課程「生成式 AI：文字與圖像生成的原理與實務」：從神經網路、GAN、LLM 與 Transformer，到對話機器人、RAG、AI Agents，再到 VAE、Stable Diffusion、ControlNet／Fooocus。適合初學者。',
+      en: 'A lecture-by-lecture reading of NCCU Yen-Lung Tsai\'s TAICA course "Generative AI: Text and Image Synthesis Principles and Practice", based on the Spring 2025 (1132) term: 14 recordings, 14 slide decks, 12 homework specs, and Colab notebooks. It runs from neural nets, GANs, LLMs and Transformers through chatbots, RAG and AI agents to VAEs, Stable Diffusion, and ControlNet/Fooocus, and is written for beginners.',
+    },
+  },
+  {
+    slug: 'stanford-cs224r',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CS224R 導讀', en: 'Reading Stanford CS224R' },
+    descriptions: {
+      'zh-TW': '依 Spring 2026 的 17 份投影片、三份作業與 default project，讀 Stanford CS224R 從模仿學習、策略梯度、offline RL，到 RLHF、LLM 推理與機器人 VLA 的深度強化學習路線；Spring 2025 公開錄影當補充。',
+      en: 'A reading of Stanford CS224R Spring 2026 through its 17 slide decks, three homeworks, and default project. It covers deep RL from imitation learning, policy gradients, and offline RL to RLHF, LLM reasoning, and robot VLAs, with the public Spring 2025 videos as a labeled supplement.',
+    },
+  },
+  {
+    slug: 'mit-6-5940',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'MIT 6.5940 導讀', en: 'Reading MIT 6.5940' },
+    descriptions: {
+      'zh-TW': '以最近一屆完整的 Fall 2024 為主幹，逐講讀 MIT 6.5940 TinyML 與高效深度學習：pruning、quantization、NAS、蒸餾、MCU 部署、LLM 推論與後訓練、長上下文、diffusion、分散式與裝置端訓練，並對照進行中的 Fall 2026。',
+      en: 'A lecture-by-lecture reading of MIT 6.5940 TinyML and Efficient Deep Learning Computing, based on the latest complete edition (Fall 2024): pruning, quantization, NAS, distillation, microcontroller deployment, LLM inference and post-training, long context, diffusion, and distributed and on-device training, cross-referenced with the in-progress Fall 2026 offering.',
+    },
+  },
+  {
+    slug: 'cmu-10-423-generative-ai',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'CMU 10-423 導讀', en: 'Reading CMU 10-423' },
+    descriptions: {
+      'zh-TW': '以 Spring 2026 的 26 講投影片、HW1–HW4 起始碼與練習考卷為主線，讀 CMU 10-423/623/723 生成式 AI 從語言模型到擴散模型、多模態與規模化的路線。',
+      en: 'Reading CMU 10-423/623/723 Generative AI through the Spring 2026 edition: 26 lecture decks, HW1–HW4 starter code, and the practice exam, from language models to diffusion, multimodal models and scaling.',
+    },
+  },
+  {
+    slug: 'stanford-cs149',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CS149 導讀', en: 'Reading Stanford CS149' },
+    descriptions: {
+      'zh-TW': '依 Stanford CS149 Fall 2025 官方投影片、5 個程式作業與 4 份書面作業，逐講導讀平行計算：多核與 SIMD、工作分配與 locality、GPU/CUDA、DNN 與 AI 加速器（Trainium2）、資料中心 AI、AI 驅動最佳化，到 cache coherence、lock-free 與 transactional memory；錄影以 2023 公開版補充。',
+      en: 'A lecture-by-lecture reading of Stanford CS149 Parallel Computing (Fall 2025) using its official slides, five programming assignments, and four written assignments: multi-core and SIMD, work distribution and locality, GPUs and CUDA, DNNs and AI accelerators (Trainium2), datacenter AI, AI-driven optimization, then cache coherence, lock-free programming, and transactional memory, with the public 2023 videos as a labeled supplement.',
+    },
+  },
+  {
+    slug: 'stanford-cs234',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CS234 導讀', en: 'Reading Stanford CS234' },
+    descriptions: {
+      'zh-TW': '依 Winter 2026 的 14 講投影片、三份作業與起始碼，對照 Spring 2024 公開錄影，讀 Stanford CS234 的強化學習路線：MDP 規劃、無模型評估與控制、策略梯度與 PPO、模仿學習與 RLHF／DPO、bandit 探索理論、MCTS 與價值對齊。',
+      en: 'Reading Stanford CS234 Reinforcement Learning through the Winter 2026 slides for 14 lectures and three assignments with starter code, alongside the public Spring 2024 videos: MDP planning, model-free evaluation and control, policy gradients and PPO, imitation learning and RLHF/DPO, exploration theory with bandits, MCTS, and value alignment.',
+    },
+  },
+  {
+    slug: 'harvard-cs2881r',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Harvard CS2881R 導讀', en: 'Reading Harvard CS2881R' },
+    descriptions: {
+      'zh-TW': '逐講讀 Harvard CS 2881R AI Safety（Boaz Barak，Fall 2025）：從 emergent misalignment 的 HW0 出發，經過安全訓練、jailbreak 與 prompt injection、model spec 與內容政策、scheming 與可解釋性，到遞迴自我改進、能力量測、經濟與心理健康衝擊，以及學生的重現與期末研究。依據公開錄影、閱讀清單、投影片與作業規格。',
+      en: 'A lecture-by-lecture reading of Harvard CS 2881R AI Safety (Boaz Barak, Fall 2025). It starts from the emergent-misalignment HW0, then covers safety training, jailbreaks and prompt injection, model specs and content policies, scheming and interpretability, recursive self-improvement, capability measurement, and the economic and mental-health impacts, ending with the students\' reproduction and final research projects. It is based on the public recordings, reading lists, slides and assignment specs.',
     },
   },
   {
@@ -802,6 +928,71 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'A playbook for putting AI into every stage of the software development lifecycle: how agents fit into requirements, design, development, testing, and operations.',
     },
   },
+  // 以下七個原本走 slugifySeriesName fallback：中英混合的名稱會被截成 `ai`、`ai-agent`
+  // 這種泛用 slug，跟其他系列搶同一條路由。舊路由在 astro.config 留 301。
+  {
+    slug: 'ai-search-content-business',
+    category: 'product-career',
+    names: { 'zh-TW': 'AI 搜尋正在重寫內容生意', en: 'AI Search Is Rewriting the Content Business' },
+    descriptions: {
+      'zh-TW': '從 Google、Pew 與 Cloudflare 的資料拆解 AI 摘要如何重畫內容、引用、點擊與轉換路徑，以及封鎖、授權、訴訟與自有資產各自能保護內容生意的哪一段。',
+      en: 'How AI summaries redraw the path from content to citation, click, and conversion, drawing on data from Google, Pew, and Cloudflare, and which part of the content business blocking, licensing, lawsuits, and owned assets each protect.',
+    },
+  },
+  {
+    slug: 'ai-agent-memory',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI Agent 記憶工程', en: 'AI Agent Memory Engineering' },
+    descriptions: {
+      'zh-TW': '為什麼記憶是 agent 工程的核心難題：從 context 滿了怎麼辦到開源記憶框架選型，十篇各自解決一個記憶問題。',
+      en: 'Why memory is the core hard problem of agent engineering: ten posts, each tackling one memory problem, from a full context window to choosing an open-source memory framework.',
+    },
+  },
+  {
+    slug: 'ai-agent-weekly-review',
+    category: 'updates',
+    names: { 'zh-TW': 'AI Agent 週回顧', en: 'AI Agent Weekly Review' },
+    descriptions: {
+      'zh-TW': '每週整理 AI Agent 領域的重要發布、論文與工具變化。',
+      en: 'A weekly roundup of notable releases, papers, and tooling changes in the AI agent space.',
+    },
+  },
+  {
+    slug: 'deep-research',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'Deep Research 前沿', en: 'Deep Research Frontier' },
+    descriptions: {
+      'zh-TW': '梳理 80+ 個 Deep Research 實作：三階段能力路線、規劃／獲取／記憶／生成四個核心組件、prompting／SFT／RL 三種優化範式，以及評估與開源工具全景。',
+      en: 'A survey of 80+ Deep Research systems: the three-stage capability roadmap, four core components (planning, acquisition, memory, generation), three optimization paradigms (prompting, SFT, RL), evaluation, and the open-source tool landscape.',
+    },
+  },
+  {
+    slug: 'multi-agent',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'Multi-Agent 系統實戰', en: 'Multi-Agent Systems in Practice' },
+    descriptions: {
+      'zh-TW': '比較 Claude Code、Codex、Antigravity、Cursor、Windsurf、Devin、LangGraph、CrewAI 的 subagent 模型、編排模式與通訊機制，附能力矩陣與設計哲學光譜。',
+      en: 'Comparing the subagent models, orchestration patterns, and communication mechanisms of Claude Code, Codex, Antigravity, Cursor, Windsurf, Devin, LangGraph, and CrewAI, with a capability matrix and a spectrum of design philosophies.',
+    },
+  },
+  {
+    slug: 'stanford-cme295',
+    category: 'courses-ai-ml',
+    names: { 'zh-TW': 'Stanford CME295 導讀', en: 'Reading Stanford CME295' },
+    descriptions: {
+      'zh-TW': '逐講讀 Stanford CME295: Transformers & Large Language Models：從 Transformer 架構一路走到 LLM 評估與 AI agent，並對照 CS224N、CS336 的分工。',
+      en: 'A lecture-by-lecture reading of Stanford CME295: Transformers & Large Language Models, from the Transformer architecture to LLM evaluation and AI agents, and how it divides the ground with CS224N and CS336.',
+    },
+  },
+  {
+    slug: 'cmu-11-768-ai-agents',
+    category: 'courses-agent-frontier',
+    names: { 'zh-TW': 'CMU 11-768 AI Agents 導讀', en: 'Reading CMU 11-768 AI Agents' },
+    descriptions: {
+      'zh-TW': '逐講讀 CMU 11-768 AI Agents（Fall 2026）：從 agent 迴圈、工具使用到 RL 訓練、credit assignment 與 reward hacking，依官方課序整理。',
+      en: 'A lecture-by-lecture reading of CMU 11-768 AI Agents (Fall 2026), from the agent loop and tool use to RL training, credit assignment, and reward hacking, following the official course order.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
@@ -855,6 +1046,35 @@ function seriesBasePath(lang: Lang): string {
   return lang === 'en' ? '/en/series' : '/series';
 }
 
+/**
+ * 找出會讓兩個不同系列搶同一條 /series/<slug> 路由的名稱。只有沒登錄的系列會撞：
+ * slugifySeriesName 會丟掉非 ASCII 字元，`AI 搜尋…` 與 `AI 模型家族` 的 fallback 都是 `ai`。
+ * 中英混合的名稱一律要求登錄；純中文名稱的 fallback 就是名稱本身，不會截斷。
+ */
+export function findSeriesSlugConflicts(names: Iterable<string>): string[] {
+  const errors: string[] = [];
+  const registeredSlugs = new Set(SERIES_DEFINITIONS.map(definition => definition.slug));
+  const fallbackOwner = new Map<string, string>();
+
+  for (const name of new Set(names)) {
+    if (DEFINITION_BY_NAME.has(name)) continue;
+    const slug = slugifySeriesName(name);
+    if (slug !== name.toLowerCase() && [...name].some(ch => ch.charCodeAt(0) > 0x7f)) {
+      errors.push(`Series "${name}" mixes ASCII and non-ASCII text; register it in SERIES_DEFINITIONS (fallback slug would be "${slug}")`);
+    }
+    if (registeredSlugs.has(slug)) {
+      errors.push(`Unregistered series "${name}" falls back to slug "${slug}", which a registered series already owns`);
+    }
+    const owner = fallbackOwner.get(slug);
+    if (owner !== undefined && owner !== name) {
+      errors.push(`Unregistered series "${name}" and "${owner}" both fall back to slug "${slug}"`);
+    }
+    fallbackOwner.set(slug, name);
+  }
+
+  return errors;
+}
+
 export function getSeriesMeta(name: string) {
   const definition = DEFINITION_BY_NAME.get(name);
   return {
@@ -880,26 +1100,40 @@ export function getSeriesHref(name: string, lang: Lang): string {
 }
 
 export function getSeriesSummaries(posts: Post[], lang: Lang, now = new Date()): SeriesSummary[] {
-  const grouped = new Map<string, SeriesPost[]>();
+  // 依 slug 分組而不是依名稱：en 文章的 frontmatter 有時寫中文系列名稱（或反過來），
+  // 依名稱分組會把同一個系列拆成兩份、產生兩條相同的路由，其中一半的文章從系列頁消失。
+  const grouped = new Map<string, { names: Set<string>; posts: SeriesPost[] }>();
+  const seenNames: string[] = [];
 
   for (const post of posts) {
     if (!isPublishedPost(post, now) || post.data.lang !== lang) continue;
     for (const membership of getPostSeries(post)) {
-      const seriesPosts = grouped.get(membership.name) ?? [];
-      seriesPosts.push(post);
-      grouped.set(membership.name, seriesPosts);
+      seenNames.push(membership.name);
+      const slug = getSeriesMeta(membership.name).slug;
+      const group = grouped.get(slug) ?? { names: new Set<string>(), posts: [] };
+      group.names.add(membership.name);
+      group.posts.push(post);
+      grouped.set(slug, group);
     }
   }
 
+  const conflicts = findSeriesSlugConflicts(seenNames);
+  if (conflicts.length > 0) {
+    throw new Error(`Series slug conflicts:\n${conflicts.join('\n')}`);
+  }
+
   return Array.from(grouped.entries())
-    .map(([name, seriesPosts]) => {
+    .map(([slug, group]) => {
       const orderIn = (post: SeriesPost) =>
-        getPostSeries(post).find(m => m.name === name)?.order ?? 0;
-      const orderedPosts = [...seriesPosts].sort((a, b) => {
+        getPostSeries(post).find(m => getSeriesMeta(m.name).slug === slug)?.order ?? 0;
+      const orderedPosts = [...group.posts].sort((a, b) => {
         const orderDiff = orderIn(a) - orderIn(b);
         if (orderDiff !== 0) return orderDiff;
         return a.data.date.getTime() - b.data.date.getTime();
       });
+      const [firstName] = group.names;
+      const definition = DEFINITION_BY_NAME.get(firstName);
+      const name = definition?.names[lang] ?? firstName;
       const meta = getSeriesMeta(name);
       const latestDate = orderedPosts.reduce(
         (latest, post) => post.data.date.getTime() > latest.getTime() ? post.data.date : latest,
@@ -907,9 +1141,9 @@ export function getSeriesSummaries(posts: Post[], lang: Lang, now = new Date()):
       );
       return {
         name,
-        slug: meta.slug,
+        slug,
         description: meta.descriptions[lang],
-        category: meta.category ?? inferSeriesCategory(meta.slug, orderedPosts),
+        category: meta.category ?? inferSeriesCategory(slug, orderedPosts),
         posts: orderedPosts,
         count: orderedPosts.length,
         latestDate,

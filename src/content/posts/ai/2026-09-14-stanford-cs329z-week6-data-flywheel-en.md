@@ -11,14 +11,14 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 25
-tldr: "Week 6 assigns Shankar's data flywheel on Wednesday — evaluation, monitoring, and continual improvement feeding on the same production data — while HW1 comes due, HW2 drops, and the midpoint demo and report loom in early November."
+tldr: "Week 6 assigns Shankar's data flywheel on Wednesday — evaluation, monitoring, and continual improvement feeding on the same production data — while HW1 comes due, HW2 drops, and the midpoint demo video and midway report loom in early November."
 description: "A guided reading of the Stanford CS329Z Week 6 anchor, Shankar's Data Flywheels: traces, demonstrations, and feedback, data for optimization versus evaluation, plus a minimal trace-logging move for HW1 submission week."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel)
 
-Week 6 is submission week. Monday (Oct 26) holds a guest lecture, topic still TBA, and [HW2](https://cs329z.stanford.edu/) drops the same day. Wednesday (Oct 28, Data for Agentic Systems) assigns [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) (2024). HW1 is due Friday (Oct 30). Then comes the in-class midpoint demo (Nov 4). The midway report follows on Nov 6.
+Week 6 is submission week. Monday (Oct 26) holds a guest lecture, topic still TBA, and [HW2](https://cs329z.stanford.edu/) drops the same day. Wednesday (Oct 28, Data for Agentic Systems) assigns [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) (2024). HW1 is due Friday (Oct 30). Then the recorded midpoint demo video is due Nov 4 at 11:59 p.m., and the midway report follows on Nov 6.
 
 The data flywheel is one sentence: every production output is training material for the next round. Each answer an agent gives leaves a trace — what the user asked, which steps the system took, where it went wrong. Save the traces, score them, put the good ones back into the prompt as demonstrations, and put the fixed bad ones back too. One full turn means better demonstrations and higher scores, and the next turn produces even better data.
 
@@ -78,15 +78,19 @@ To fill the gap, read this week's additional reading, [Tan et al.'s survey](http
 
 Whether the flywheel spins ultimately depends on humans willing to label. The author's first observation says it plainly: people must stay in the loop regularly, because human preferences over outputs shift over time. Model-first, human-edits-second saves effort, but legal teams wanting prompt sign-off and adversarial queries poisoning the demonstration pool are real-world friction. In the post's footnotes, Han names both risks.
 
-For students this lands close to home: you are your own cheapest labeler. Every question you run through your HW1 agent and every answer you fix is the flywheel's first batch of fuel.
+For students this lands close to home: you are your own cheapest labeler. Every question you run through your HW1 email assistant and every answer you fix is the flywheel's first batch of fuel.
 
 ## What to do: make traces exist before the deadline
 
-**What to do**: give your HW1 agent minimal trace logging — store the query, the retrieved papers, and the final answer for each question, plus one good-or-bad tag graded by your own hand. Reserve half an hour each week for review: file fixed bad cases into a demonstration pool, and turn recurring failure types into next-version metrics. Finish one full round before HW1 is due, and the failure-mode appendix the midway report requires will practically write itself.
+**What to do**: give your HW1 agent minimal trace logging — store the query, the retrieved emails, and the final answer for each question, plus one good-or-bad tag graded by your own hand. Reserve half an hour each week for review: file fixed bad cases into a demonstration pool, and turn recurring failure types into next-version metrics. Finish one full round before HW1 is due, and the midway report's Environment & Data and Summary of Progress sections will practically write themselves: where your evaluation data comes from, and which failures you are still stuck on.
 
 ## Where it sits in the course
 
-This week is the watershed. HW1 (due Oct 30) closes the from-scratch versus framework contest; HW2 (released Oct 26) moves the battle to evaluation. Next week (Week 7) doubles down: Monday reads [SWE-smith](https://arxiv.org/abs/2504.21798) (NeurIPS 2025) on mass-producing task data for software-engineering agents, plus Who Validates the Validators on validator alignment, and Wednesday is all evaluation design. The midpoint demo takes the stage on Nov 4. The midway report lands on Nov 6 — have a running prototype by then.
+This week is the watershed. HW1 (due Oct 30) wraps up a full harness written from scratch with no frameworks; HW2 (released Oct 26) moves the battle to evaluation. Next week (Week 7) doubles down: Monday reads [SWE-smith](https://arxiv.org/abs/2504.21798) (NeurIPS 2025) on mass-producing task data for software-engineering agents, plus Who Validates the Validators on validator alignment, and Wednesday is all evaluation design. The midpoint demo is now a recorded video rather than an in-class presentation, due Nov 4 at 11:59 p.m.; the midway report lands on Nov 6 — you need a running prototype before there is anything to record.
+
+## Update log
+
+- 2026-09-29: HW1 was restructured (no more from-scratch / framework split, the corpus is now a corporate email archive) and the midpoint demo became a recorded video due Nov 4 at 11:59 p.m.; rewrote the timeline, trace-logging, and course-position passages to match
 
 ## References
 

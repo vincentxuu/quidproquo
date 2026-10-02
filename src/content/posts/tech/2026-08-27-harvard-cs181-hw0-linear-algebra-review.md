@@ -78,7 +78,7 @@ HW0 不計難度、只計完整度（`Homework zero (4%)`，[2026 syllabus](http
 
 ## 與後續週的銜接
 
-HW0 通過後，[HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)（冰芯溫度）、HW2 Classification、HW3 Neural Networks and Kernels、HW4 Transformers、HW5 Clustering/PCA、HW6 Sequential Models 才會是「新知」而非「補洞」。2025 的 `practical`（Kaggle 型）可視為 HW0-6 後的綜合實作，2026 未提供則可用 2025 版自練。
+HW0 通過後，[HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)（冰芯溫度）、[HW2 Classification](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance)、[HW3 Kernels & Neural Networks](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling)、[HW4 Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)、[HW5 Clustering/PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)、[HW6 Sequential Models](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman) 才會是「新知」而非「補洞」。2025 的 `practical`（Kaggle 型）可視為 HW0-6 後的綜合實作，2026 未提供則可用 2025 版自練。
 
 ## 參考資料
 

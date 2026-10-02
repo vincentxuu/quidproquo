@@ -72,6 +72,13 @@ export default defineConfig({
     // 'RAG 系統實戰' 併入 'RAG 技法大全'
     '/series/rag-systems': '/series/rag-techniques',
     '/en/series/rag-systems': '/en/series/rag-techniques',
+    // fallback slug 撞名修正後登錄的系列：泛用的 `ai-agent` 與中英分家的 en slug 導向登錄 slug
+    '/series/ai-agent': '/series/ai-agent-memory',
+    '/en/series/ai-agent': '/en/series/ai-agent-memory',
+    '/en/series/ai-search-is-rewriting-the-content-business': '/en/series/ai-search-content-business',
+    '/en/series/multi-agent-systems-in-practice': '/en/series/multi-agent',
+    '/en/series/reading-stanford-cme295': '/en/series/stanford-cme295',
+    '/en/series/reading-cmu-11-768-ai-agents': '/en/series/cmu-11-768-ai-agents',
   },
   adapter: cloudflare({
     platformProxy: { enabled: true },

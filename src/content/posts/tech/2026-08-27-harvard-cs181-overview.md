@@ -15,12 +15,12 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-08-27-harvard-cs181-overview-en)
 
-> ⚠️ **版本**：2026 以 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks) 為主；2025/2024/2023 以 `cs181-web-2025/2024/2023` 與 `cs181-s25/s24/s23-homeworks` 對照。Google Sheet schedule 四年皆已刪/空殼，本系列以 `hw 編號` 為週節拍。
+> ⚠️ **版本**：2026 以 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks) 為主；2025/2024/2023 以 `cs181-web-2025/2024/2023` 與 `cs181-s25/s24/s23-homeworks` 對照。2026 課站嵌入的 [Google Sheet 課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 可匿名匯出（2026-09-29 確認），本系列以 `hw 編號` 為週節拍、課表講題為篇內順序。
 
 ## TL;DR
 
 - **可自學嗎**：[CS181 2026](https://harvard-ml-courses.github.io/cs181-web/) 是 **A3**（`hw0-6` 七份 + notes + sections + [textbook](https://github.com/harvard-ml-courses/cs181-textbook) 形成閉環，`all learning will be in-person` 無當期錄影，Gradescope/Ed 需選課），與 [Harvard AI／ML 課程地圖](/posts/learning/2026-08-22-harvard-ai-ml-course-map) 判一致。
-- **怎麼跟**：先做 [HW0 準備度檢查](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)（`due 2026-02-02`，`4%` 門檻），卡哪題就先補哪塊，再逐份 `hw1→hw6` 跟；缺的 `practical` 用 2025 版備援。
+- **怎麼跟**：先做 [HW0 準備度檢查](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)（`due 2026-02-02`，`4%` 門檻），卡哪題就先補哪塊，再逐份 `hw1→hw6` 跟；系列共 16 篇（order 0–15），含期中、期末兩篇檢核，完整清單見下方「系列文章一覽」。
 - **四年差異**：2025 多 `practical 6%`、2024 雙期中無期末、2023 單授 `Weiwei Pan` 且僅 `hw0-5 + practical1`。
 
 ## 四屆對照（一張表看懂沿革）
@@ -38,30 +38,56 @@ draft: false
 
 ## 作業鏈怎麼走（2026 主版）
 
-以 `s26 homeworks` 為準（已直讀 `hw0/hw1/hw6` 30-80 行，`hw2-5` 標題與 Intro 片段）：
+以 `s26 homeworks` 各份 `.tex` 的 `\duedate` 與題目標題為準（2026-09-29 逐份核對）：
 
 - **HW0 Modeling Linear Trends**（`due 2026-02-02`）— 線代/微分/機率/code 四合一
-- **HW1 Regression** — NN/kernel/linear regression，`earth_temperature_sampled_train/test.csv`（800k 年冰芯）
-- **HW2 Classification and Bias-Variance** — 分類與不確定性量化
-- **HW3 Neural Networks and Kernels** — kernel ridge → weighted sum，Section 4
-- **HW4 Representation Learning, Transformers, Non-parametric methods** — `Attention(Q,K,V)=softmax(QK^T/√dk)V`，`/√dk` 方差為 1
-- **HW5 Clustering, PCA, SSL** — cluster centers vs PCA images
-- **HW6 Sequential Models and Decision Making** — Kalman、Gridworld `policy/value iteration`、Swingy Monkey Q-learning、autoregressive `KV cache / speculative decoding`（`due 2026-05-01`）
+- **HW1 Regression**（`due 2026-02-13`）— kNN & Kernels / Geometric Least Squares / Basis Regression / Probabilistic View & Regularization 四題，`earth_temperature_sampled_train/test.csv`（800k 年冰芯）
+- **HW2 Classification and Bias-Variance**（`due 2026-02-27`）— Bias-Variance & Uncertainty / MLE in classification / Classifying Loan Applicants / GD & Regularization
+- **HW3**（`due 2026-03-23`）— Kernels & Feature Maps / Neural Networks / Neural Scaling Laws
+- **HW4**（`due 2026-04-03`）— Understanding the Transformer / Autoencoders / Decision Trees, Random Forests & Mixture of Experts
+- **HW5**（`due 2026-04-19`，課表原訂 Apr 17）— Contrastive Learning / GANs / K-Means & HAC / PCA
+- **HW6 Sequential Models and Decision Making**（`due 2026-05-01`）— HMM / Policy & Value Iteration / Reinforcement Learning / Autoregressive Models / Embedded Ethics
+- **考試**：課表列 Midterm `Mar 10`（in-class）、Final Exam `May 9 2pm`
 
 2025 的 `hw3 Bayesian` / `hw4 SVM` / `hw5 EM` 可作對照，缺的 `practical`（Kaggle 型）見 `cs181-s25-homeworks/practical` 與 `cs181-s19-practicals` 範例。
 
 ## 教材與節拍
 
 - **Textbook**：[cs181-textbook](https://github.com/harvard-ml-courses/cs181-textbook)（senior thesis 起，`370 stars`，13 章 `Classification/Clustering/DimensionalityReduction/.../SupportVectorMachines`，`Textbook.pdf 3.59 MB`）
-- **Section**：`syllabus` 明載 `flipped classroom, section cycle restarts each Tuesday, solutions will be posted`，但 `cs181-section` repo 僅 `s17-19` 三屆，2025/2026 未進版控；`schedule` 頁僅剩 `S0 Math review`，Google Sheet 四年皆 `檔案已遭刪除` — **本系列以 `hw 編號` 為週節拍，不綁日曆週**。
+- **Section**：`syllabus` 明載 `flipped classroom, section cycle restarts each Tuesday, solutions will be posted`。舊的 `cs181-section` repo 只有 `s17-19`，但 2026 課站 `static/sec00`–`sec10` 放了 S0–S10 講義與解答 PDF，各篇導讀直接引用。
+- **課表與投影片**：2026 課站嵌入的 Google Sheet 課表可匿名匯出 CSV（Week 0–14 講題、section、作業發布與截止）；講題儲存格內附 2026 講課投影片的 Google Drive 連結，CSV 看不到、匯出 xlsx 才讀得到。**本系列以 `hw 編號` 為週節拍，不綁日曆週**。
 - **提交**：每份對應 **兩個 Gradescope**（`writeup PDF 需 assign pages` + `LaTeX/code` 備核），見 [homework page](https://harvard-ml-courses.github.io/cs181-web/homework)。
 
-## 本系列怎麼讀
+## 系列文章一覽
 
-1. 先讀本篇總覽，決定是否要跟 2026 主版
-2. 做 [HW0](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)，依卡點補前置
-3. 逐週 `HW1→HW6`，每篇對應一份 `hw*_release.tex/pdf/ipynb + data`，內文標 `2026/2025` 差異與 `additionalSeries` 連回地圖
-4. 需要綜合實作者，用 2025 `practical` 備援；CS182 見 [CS182 歷史版免責](/posts/learning/2026-08-22-harvard-ai-ml-course-map)（2026/2025 當期 A0，僅 F22 22講可寫）
+| order | 文章 | 對應 |
+|---|---|---|
+| 0 | 本篇總覽 | 四屆對照、存取分級 |
+| 1 | [HW0：線代、微積分與機率準備度檢查](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review) | hw0 |
+| 2 | [HW1：迴歸](/posts/tech/2026-08-27-harvard-cs181-hw1-regression) | hw1 |
+| 3 | [HW2：分類與偏差—變異](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance) | hw2 |
+| 4 | [HW3：核方法、神經網路與 Scaling Law](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling) | hw3 |
+| 5 | [期中檢核：用官方 checklist 盤點 HW0–HW3](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint) | midterm |
+| 6 | [HW4（上）：Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer) | hw4 P1 |
+| 7 | [HW4（中）：Autoencoder 與 VAE](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae) | hw4 P2 |
+| 8 | [HW4（下）：決策樹、隨機森林與 MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe) | hw4 P3 |
+| 9 | [HW5（上）：K-means、HAC 與 PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca) | hw5 P3–4 |
+| 10 | [HW5（下）：SimCLR 對比學習與 GAN](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans) | hw5 P1–2 |
+| 11 | [HW6（一）：自迴歸解碼、KV Cache 與 Speculative Decoding](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding) | hw6 P4 |
+| 12 | [HW6（二）：HMM 與 Kalman Filter](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman) | hw6 P1 |
+| 13 | [HW6（三）：MDP 的 Policy / Value Iteration](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning) | hw6 P2 |
+| 14 | [HW6（四）：Q-learning 與 Embedded EthiCS](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics) | hw6 P3、P5 |
+| 15 | [期末檢核與系列收尾](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint) | final |
+
+建議讀法：先讀本篇決定要不要跟 2026 主版 → 做 HW0 依卡點補前置 → 依 order 逐篇跟，每篇對應一份 `hw*_release.tex/pdf/ipynb + data` 與當週 section。HW4–HW6 依課表講題順序拆成多篇。CS182 見 [CS182 歷史版免責](/posts/learning/2026-08-22-harvard-ai-ml-course-map)（2026/2025 當期 A0，僅 F22 22講可寫）。
+
+### 目前的限制與未釋出部分
+
+- **無當期錄影**（syllabus：all learning in-person）；課表 W13 Embedded EthiCS 寫 see recording，但沒有公開連結（A0）。
+- **無作業解答**，Gradescope／Ed 需選課；section 有解答 PDF。
+- 2024 scribe notes 是舊年份講義；midterm/final review 與 midterm practice 標頭為 2025。
+- 課站 `homework` 頁未更新（只列 HW0），2026 作業清單以 s26 repo 與課表為準。
+- CS1810 是春季課，Fall 2026 不開；Spring 2027 教材上架後再補對照。
 
 ## 參考資料
 
@@ -78,3 +104,7 @@ draft: false
 - [Harvard AI／ML 課程地圖](https://quidproquo.cc/posts/learning/2026-08-22-harvard-ai-ml-course-map)
 - [世界名校 AI／CS 課程地圖](https://quidproquo.cc/posts/learning/2026-08-21-global-ai-cs-course-map)
 - [MML Book](https://mml-book.github.io/)
+
+## 更新紀錄
+
+- **2026-09-29**：系列擴充到 order 0–15，新增「系列文章一覽」與限制清單；依 2026 課表與各份 `.tex` 補上 HW1–HW6 截止日、題目與考試日期；更正「Google Sheet 課表已刪」與「2026 section 未公開」的舊說法。

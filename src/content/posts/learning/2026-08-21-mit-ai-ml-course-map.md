@@ -85,10 +85,11 @@ AI 數學：18.06／18.C06 線性代數 + 6.3700／6.3800／18.05 機率與推�
 | **6.4110, Spring 2026** | **A2** | info、calendar、slides、多份 CAT-SOOP 作業與 code stubs | Panopto 錄影在 Canvas，沒有完整公開解答 |
 | **6.7960, Fall 2025** | **A2** | schedule、投影片、閱讀、部分 PyTorch Colab | 錄影與解答在 Canvas，作業透過 Gradescope |
 | **6.7960, Fall 2024 OCW** | **A3** | 24 講影片／講義、五份作業、程式檔、final project | 不是 2025 班次，沒有課堂回饋 |
+| **6.S184 Flow Matching & Diffusion, IAP 2026** | **A3** | 84 頁講義、5 份 slides、6 支錄影、3 個 lab 與官方解答 | lab 繳交走 Canvas 裡的 Gradescope；第 5 講離散擴散沒有 lab |
 | **6.S058 Computer Vision, Spring 2026** | **A3** | 投影片、公開教科書、四份 problem set、Colab、project requirements | 錄影與課堂 notes 在 Canvas |
 | **6.4210, Fall 2025** | **A2** | 教科書式講義、reading 與完整 schedule | 錄影在 Canvas；作業需 Gradescope／Deepnote 權限 |
-| **6.5940, Fall 2026** | **A0** | catalog 與開課預告 | 文章查證時尚未開始，不能把預告當已發布教材 |
-| **6.5940, Fall 2024 archive** | **A3** | lectures、影片、公開 labs | 無正式解答與課堂回饋 |
+| **6.5940, Fall 2026** | **A2** | 課頁、隨課上傳的投影片與錄影；截至 2026-09-30 有 L1–L6 與 Lab 0–1 | 學期進行中，後半講次與 labs 尚未發布；不受理先修豁免與 cross-registration |
+| **6.5940, Fall 2024 archive** | **A3** | 23 講投影片、23 支錄影、Lab 0–5 | 無官方解答；lab 繳交與 Piazza 限修課生，校外沒有評分回饋 |
 | **6.7900, Fall 2025** | **A1** | syllabus、calendar、主題與閱讀 | notes、作業與 project 在 Piazza |
 | **6.7920, Fall 2025** | **A1** | schedule、閱讀與零星投影片 | 主要 slides、作業與解答在 Canvas |
 | **6.8610, Spring 2026** | **A1** | 新課綱與 schedule | slides、Panopto 錄影、作業與 code 在 Canvas |
@@ -106,10 +107,13 @@ AI 數學：18.06／18.C06 線性代數 + 6.3700／6.3800／18.05 機率與推�
 ```text
 6.3900 公開 notes
   ├─ 6.S191 Spring 2026：九週現代深度學習入口
-  └─ 6.7960 Fall 2024 OCW：一學期進階深度學習
+  ├─ 6.7960 Fall 2024 OCW：一學期進階深度學習
+  └─ 6.S184 IAP 2026：flow matching 與擴散模型專題
 ```
 
 [6.S191 Spring 2026](https://introtodeeplearning.com/)適合快速看見卷積網路、Transformer、生成模型與 AI for science 如何串起來；它從 3 月 30 日到 5 月 25 日每週上課，不是 IAP 一週 bootcamp，也不是 6.7960 的前身或等價替代。要練理論、讀二十四講並完成較長作業，走 6.7960 OCW。
+
+想把生成模型這一塊讀深，接 [6.S184](https://diffusion.csail.mit.edu/2026/index.html)。它是 1 月 IAP 期間的短課，只有 5 講，卻用一份 84 頁的講義把 ODE／SDE、flow matching、score matching 與 guidance 一路接到 latent diffusion model；講義、slides、錄影、3 個 lab 與官方解答全部公開，是當期最乾淨的 A3 之一。先修是線代、多變數微積分、機率與一點 PyTorch，機率生疏會卡得最明顯。本站的 [6.S184 導讀系列](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)逐講對照講義章節與 lab。
 
 ### 2. AI 不只神經網路
 
@@ -123,7 +127,7 @@ Spring 2026 的 Computer Vision 實際以 special subject **6.S058** 開課，�
 
 想往 embodied AI 走，可在 6.3900、線代與機率後接 6.4110，再讀 6.4210 Robotic Manipulation 的公開教材。只是它的 Gradescope／Deepnote 作業與 Canvas 錄影不開放，校外版應把重點放在 lecture notes、Drake 範例與自行設計的小專案。
 
-效率系統則看 6.5940。它在 2025–2026 學年沒有開，Fall 2026 才恢復；截至查證日，新班次仍只是即將開始。要現在動手，應直接使用 Fall 2024 的 pruning、quantization、NAS、distributed training 與 TinyML 公開 labs。
+效率系統則看 Song Han 的 6.5940。Fall 2025 因他休假停開，Fall 2026 恢復並正在上課，截至 2026-09-30 只放出 L1–L6 與 Lab 0–1。要現在完整走一輪，應以 Fall 2024 為主幹：23 講投影片、23 支錄影與 Lab 0–5 全部公開，從 pruning、quantization、NAS、distillation 一路做到 LLM 部署與分散式訓練，課頁承諾的成果是把 Llama2-7B 部署到自己的筆電。先修是 6.191 與 6.390。本站的 [6.5940 導讀系列](/posts/ai/2026-09-30-mit-65940-course-overview)以 Fall 2024 為主線，每篇另附 Fall 2026 對照。
 
 ## CSDIY 可以確認什麼，不能確認什麼
 
@@ -152,6 +156,10 @@ MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：
 
 ## 更新紀錄
 
+- 2026-10-01：公開程度表的 6.5940 Fall 2026 由 A0 改為 A2（學期進行中，已放出 L1–L6 與 Lab 0–1），Fall 2024 列補上 23 講投影片、23 支錄影與 Lab 0–5 的具體範圍；「視覺、機器人與效率系統」路線改寫 6.5940 段落並加上站內導讀連結；參考資料補上 Fall 2026 課頁。
+
+- 2026-09-30：公開程度表與「現代 AI 工程入門」路線補上 6.S184 Flow Matching & Diffusion（IAP 2026，講義、slides、錄影與 3 個 lab 含解答全公開，A3）與站內導讀連結。
+
 - 2026-08-26：回補站內連結——[6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)上線，雙版本比較段落加上連結。
 
 - 2026-08-22：修正 6.S191 2026 為 Spring 九週課程，不再誤標成 IAP 一週 bootcamp。
@@ -168,9 +176,11 @@ MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：
 - [MIT 6.4110 — Representation, Inference, and Reasoning in AI, Spring 2026](https://airr.mit.edu/spring26)
 - [MIT 6.7960 — Deep Learning, Fall 2025](https://deeplearning6-7960.github.io/)
 - [MIT OpenCourseWare — 6.7960 Deep Learning, Fall 2024](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)
+- [MIT 6.S184 — Generative AI with Stochastic Differential Equations, IAP 2026](https://diffusion.csail.mit.edu/2026/index.html)
 - [MIT 6.S058 — Introduction to Computer Vision, Spring 2026](https://introtocv.github.io/)
 - [MIT 6.4210 — Robotic Manipulation, Fall 2025](https://manipulation.mit.edu/Fall2025/index.html)
 - [MIT Han Lab — 6.5940 TinyML and Efficient Deep Learning Computing, Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940)
+- [MIT Han Lab — 6.5940 TinyML and Efficient AI Computing, Fall 2026](https://hanlab.mit.edu/courses/2026-fall-65940)
 - [MIT 6.7900 — Machine Learning, Fall 2025](https://gradml.mit.edu/)
 - [MIT 6.7920 — Reinforcement Learning: Foundations and Methods, Fall 2025](https://web.mit.edu/6.7920/www/)
 - [MIT 6.8610 — Quantitative Methods for Natural Language Processing, Spring 2026](https://mit-6861.github.io/)

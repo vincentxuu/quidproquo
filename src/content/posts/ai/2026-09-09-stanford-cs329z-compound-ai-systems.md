@@ -12,7 +12,7 @@ additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 20
 tldr: "CS329Z 第一週主讀物是 Zaharia 等人的 Compound AI Systems：SOTA 越來越靠多元件系統拿下，單一模型再大也只是零件；文章留下三個設計問題與三大挑戰，剛好就是 HW1 要你動手回答的題目。"
-description: "帶讀 Stanford CS329Z Week 1 主讀物：複合式 AI 系統的定義、走向系統的三個理由、三個設計問題、三大挑戰與四個新興方向，以及它如何對應 HW1 的手刻 RAG 與 DSPy 重寫。"
+description: "帶讀 Stanford CS329Z Week 1 主讀物：複合式 AI 系統的定義、走向系統的三個理由、三個設計問題、三大挑戰與四個新興方向，以及它如何對應 HW1 不用框架、從零刻出企業內部助理的作業。"
 draft: false
 ---
 
@@ -42,7 +42,7 @@ draft: false
 
 文章沒有給答案，給了三個問題，個個都是 HW1 的考題：
 
-1. **控制邏輯寫在哪？** 用傳統程式（Python 調 LLM）還是讓模型自己開車（LLM agent 調工具）？這正是 HW1 Part A 手刻和 Part B 框架的對照。
+1. **控制邏輯寫在哪？** 用傳統程式（Python 調 LLM）還是讓模型自己開車（LLM agent 調工具）？HW1 明文禁用 agent 框架，只給一個 chat-completion 呼叫，控制邏輯全由你自己寫；Week 3 的 DSPy 再示範框架怎麼把同一件事抽象掉。
 2. **資源投在哪？** RAG 管線裡，多花的 FLOPS 該給檢索器還是給 LLM？還是多調幾次 LLM？原文給了具體形狀：如果問答要在 100 毫秒內回來，20 毫秒給檢索、80 毫秒給 LLM，還是反過來？沒有通用答案，只能量。
 3. **怎麼端到端優化？** 神經網路靠可微分反向傳播調參。系統裡有搜尋引擎、直譯器這種不可微分的零件，怎麼對著一個指標把它整條調到最好？
 
@@ -66,11 +66,11 @@ draft: false
 
 ## 怎麼做：今晚就能動手的最小實驗
 
-**怎麼做**：照 HW1 Part A 的縮小版，挑一個你答得不好的問答任務，用 litellm 手刻兩段式 RAG（檢索器加一次 LLM 呼叫）。先量 baseline，再只換檢索器量一次、只換 prompt 量一次，記下哪邊漲分多。這就是第三節第二題的最小實驗。
+**怎麼做**：照 HW1 開頭那段的縮小版，挑一個你答得不好的問答任務（手邊有自己的信箱匯出檔更好，HW1 的語料就是企業 email 封存），不靠框架手刻兩段式 RAG（檢索器加一次 chat-completion 呼叫；我習慣用 litellm 包一層好換模型，直接用官方 SDK 也行）。先量 baseline，再只換檢索器量一次、只換 prompt 量一次，記下哪邊漲分多。這就是第三節第二題的最小實驗。
 
 ## 它在課程裡的位置
 
-這篇是地圖，後面十一週是走法。RAG 與 tool use 是 Part A 的零件課，DSPy 是 Part B，optimization 與 evaluation 是 HW2 的零件課。讀的時候把「三個設計問題」當書籤：每週結束回來問一次，這週回答了哪一題。
+這篇是地圖，後面十一週是走法。RAG、tool use、ReAct 與 memory 是 HW1 的零件課，一路從 email 檢索管線長成帶工具、terminal、記憶與人類把關的完整 harness；DSPy 是拿來對照「框架替你抽掉了什麼」的那堂，optimization 與 evaluation 是 HW2 的零件課。讀的時候把「三個設計問題」當書籤：每週結束回來問一次，這週回答了哪一題。
 
 ## 延伸閱讀：同一週的另外兩篇
 
@@ -85,9 +85,13 @@ draft: false
 - 週三 9/23 Foundations & Landscape：主讀物 Zaharia 等人 Compound AI Systems（本文已導讀）；延伸閱讀 Ng 四設計模式、Si 等人 execution-grounded（見上節延伸閱讀）。
 - 課表原文：[CS329Z 官網 Week 1](https://cs329z.stanford.edu/)
 
+## 更新紀錄
+
+- 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
+
 ## 參考資料
 
-- 站內：[Stanford CS329Z 導讀：先用 litellm 手刻一遍 agent，再讓 DSPy 把它收走](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
+- 站內：[Stanford CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z: Engineering AI Agents 官網（含課表與作業時程）](https://cs329z.stanford.edu/)
 - 原文：[Zaharia et al., The Shift from Models to Compound AI Systems, BAIR Blog (2024)](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)
 - 框架：[DSPy 官網](https://dspy.ai/)、[LangChain](https://www.langchain.com/)、[LlamaIndex](https://www.llamaindex.ai/)

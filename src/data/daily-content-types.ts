@@ -15,7 +15,8 @@ export const DAILY_CHANNELS = [
     group: 'briefings',
     label: '綜合日報',
     labelEn: 'Daily report',
-    seriesNames: ['AI 日報', 'AI Agent Daily'],
+    // 'AI Daily' 是 en 日報文章實際寫的名稱；'AI Agent Daily' 是 src/lib/digest/report.ts 產生日報時寫的名稱
+    seriesNames: ['AI 日報', 'AI Daily', 'AI Agent Daily'],
     tags: [],
   },
   {
@@ -111,7 +112,7 @@ export const DAILY_CHANNELS = [
     group: 'prep',
     label: 'AI Engineer 面試',
     labelEn: 'AI Engineer Interview',
-    seriesNames: ['AI Engineer 面試日練', 'AI Engineer Interview Daily Drill'],
+    seriesNames: ['AI Engineer 面試日練', 'AI Engineer Interview Daily'],
     tags: ['ai-engineer-interview'],
   },
   {
@@ -119,7 +120,7 @@ export const DAILY_CHANNELS = [
     group: 'prep',
     label: 'Product Builder 面試',
     labelEn: 'Product Builder Interview',
-    seriesNames: ['Product Builder 面試日練', 'Product Builder Interview Daily Drill'],
+    seriesNames: ['Product Builder 面試日練', 'Product Builder Interview Daily'],
     tags: ['product-builder-interview'],
   },
 ] as const satisfies readonly DailyChannel[];

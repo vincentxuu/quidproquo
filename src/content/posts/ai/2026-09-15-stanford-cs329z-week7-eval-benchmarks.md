@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en)
 
-Week 7 是期中驗收週。週一（11/2）談資料選擇與品質，週三（11/4）談評分基礎與 benchmark 設計。同一週週三是 midpoint demo，週五要交 midway report。分數和資料同一週登場不是巧合：demo 要拿分數說話，報告要交代資料從哪來。
+Week 7 是期中驗收週。週一（11/2）談資料選擇與品質，週三（11/4）談評分基礎與 benchmark 設計。同一週週三晚上 11:59 要交 midpoint demo 的錄影（不在課堂上發表），週五要交 midway report。分數和資料同一週登場不是巧合：demo 影片要拿分數說話，報告要交代資料從哪來。
 
 先給新手一個框架。課程把一次 agent 評估拆成 4-tuple。request 是你交辦的事，environment 是 agent 能動的世界。stopping criteria 管何時收工，scorer 負責判分。四個少一個，分數就站不住。
 
@@ -50,13 +50,17 @@ Zhu 等人的論文開門見山：很多 agentic benchmark 的題目設定或獎
 
 ## 它在課程裡的位置
 
-Week 7 之後就是驗收：週三 demo 拿分數說話，週五報告交代資料與方法。[Week 6](/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel) 談資料飛輪，Week 7 補上另一半：分數怎麼寫才不會騙自己。把 4-tuple 寫好，HW2 的題目定義就完成一半。
+Week 7 之後就是驗收：週三交的 demo 錄影拿分數說話，週五報告交代資料與方法。[Week 6](/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel) 談資料飛輪，Week 7 補上另一半：分數怎麼寫才不會騙自己。把 4-tuple 寫好，HW2 的題目定義就完成一半。
 
 ## 本週 Course Material 對照
 
 - 週一 11/2 Data Selection & Quality：主讀物 SWE-smith、Who Validates the Validators?（本文已導讀）。延伸閱讀 [Zhou 等人 LIMA](https://arxiv.org/abs/2305.11206)：只用 1,000 條精心篩選的問答做 supervised fine-tune，不做 RLHF；人類評測裡 43% 的回覆不輸 GPT-4。論點是知識都在預訓練學完，對齊重質不重量。
 - 週三 11/4 Evaluation Fundamentals & Benchmark Design：主讀物 Zhu 等人最佳實踐（本文已導讀）。延伸閱讀 [Press 談怎麼做好的 LM benchmark](https://ofir.io/How-to-Build-Good-Language-Modeling-Benchmarks/)：好 benchmark 要 natural、automatically evaluable、challenging；他還警告別讓同一個 LM 又當選手又當裁判。文末把單一任務寫成 request–environment–stopping criteria–scorer 的 4-tuple，正是本週框架的出處。延伸閱讀 [Polo 等人 tinyBenchmarks](https://arxiv.org/abs/2402.14992)：MMLU 的 1.4 萬題不必全跑。100 題精選子集就能可靠重現原排名。評測貴在具代表性，不在題海。
 - 課表原文：[CS329Z 官網 Week 7](https://cs329z.stanford.edu/)
+
+## 更新紀錄
+
+- 2026-09-29：期中 demo 改為錄影繳交（週三 11/4 晚上 11:59 截止，不在課堂發表），同步改寫開頭與課程位置段落
 
 ## 參考資料
 

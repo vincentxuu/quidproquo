@@ -12,14 +12,14 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 21
-tldr: "Week 2 runs as a one-two punch: Monday's Anthropic taxonomy teaches you when not to build an agent, Wednesday's RAG paper hands you the first complete compound-system recipe. Five workflow patterns are the selection toolkit, RAG is parametric-plus-nonparametric memory, and together they are the blueprint for HW1 Part A."
-description: "A guided reading of the Stanford CS329Z Week 2 anchors: Anthropic's Building Effective Agents with its workflow/agent split and five patterns, plus Lewis et al.'s RAG recipe — and how they assemble into HW1 Part A."
+tldr: "Week 2 runs as a one-two punch: Monday's Anthropic taxonomy teaches you when not to build an agent, Wednesday's RAG paper hands you the first complete compound-system recipe. Five workflow patterns are the selection toolkit, RAG is parametric-plus-nonparametric memory, and together they are the blueprint for HW1's email retrieval pipeline."
+description: "A guided reading of the Stanford CS329Z Week 2 anchors: Anthropic's Building Effective Agents with its workflow/agent split and five patterns, plus Lewis et al.'s RAG recipe — and how they assemble into the first pipeline of HW1's internal company assistant."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)
 
-Week 2 is deliberately sequenced. Monday (Sep 28, LLMs for Builders) assigns Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (2024): learn when something should *not* become an agent before you start building, so you don't over-engineer on day one. Wednesday (Sep 30, RAG) assigns Lewis et al.'s [Retrieval-Augmented Generation](https://arxiv.org/abs/2005.11401) (NeurIPS 2020): the complete recipe for a first compound system, with an in-class hands-on building a RAG pipeline from scratch. Together they are the blueprint for [HW1 Part A](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en).
+Week 2 is deliberately sequenced. Monday (Sep 28, LLMs for Builders) assigns Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (2024): learn when something should *not* become an agent before you start building, so you don't over-engineer on day one. Wednesday (Sep 30, RAG) assigns Lewis et al.'s [Retrieval-Augmented Generation](https://arxiv.org/abs/2005.11401) (NeurIPS 2020): the complete recipe for a first compound system, with an in-class hands-on building a RAG pipeline from scratch. Together they are the blueprint for the first stage of [HW1](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), an email retrieval pipeline.
 
 ## First, the split: workflows are not agents
 
@@ -83,7 +83,7 @@ The paper measures passage ranking, not downstream RAG factuality or answer qual
 
 ## Where it sits in the course
 
-Week 2 opens HW1 Part A: Wednesday's hands-on RAG is the assignment's foundation. Week 3's tool use (with [MCP](https://modelcontextprotocol.io/) entering there) connects tools, Week 4's ReAct fixes the loop's shape — the three Part A puzzle pieces. Reading the Anthropic piece, keep its brake pedal in mind: prove the simple version insufficient before adding each pattern.
+Week 2 is HW1's prep week: the assignment drops next Monday, but Wednesday's hands-on RAG is its foundation. HW1 bans agent frameworks — just a chat-completion call plus code you write — and starts with pipelines that retrieve and reason over a corporate email archive. Week 3's tool use (with [MCP](https://modelcontextprotocol.io/) entering there) connects tools, Week 4's ReAct and memory fix the shape of the loop and what it remembers, and the pipeline grows step by step into a full agent harness. Reading the Anthropic piece, keep its brake pedal in mind: prove the simple version insufficient before adding each pattern.
 
 ## This week's course material
 
@@ -93,6 +93,7 @@ Week 2 opens HW1 Part A: Wednesday's hands-on RAG is the assignment's foundation
 
 ## Update log
 
+- 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
 - 2026-09-12: Added substantive guided readings of Effective Context Engineering and ColBERT.
 
 ## References

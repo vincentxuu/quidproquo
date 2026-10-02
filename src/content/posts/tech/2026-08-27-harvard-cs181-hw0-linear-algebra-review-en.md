@@ -69,7 +69,7 @@ Role-playing `Steve the TF live demo`, fit a `line of best fit` via OLS (not a p
 
 ## Where it leads
 
-After HW0, [HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review-en) (ice-core), HW2 Classification, HW3 Neural Networks and Kernels, HW4 Transformers, HW5 Clustering/PCA, and HW6 Sequential Models are new material rather than remediation. The 2025 `practical` (Kaggle-style) is the capstone if you want more after HW6; 2026 has no practical, so use the 2025 version.
+After HW0, [HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en) (ice-core), [HW2 Classification](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en), [HW3 Kernels & Neural Networks](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling-en), [HW4 Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en), [HW5 Clustering/PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en), and [HW6 Sequential Models](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en) are new material rather than remediation. The 2025 `practical` (Kaggle-style) is the capstone if you want more after HW6; 2026 has no practical, so use the 2025 version.
 
 ## References
 

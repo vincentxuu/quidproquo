@@ -1,5 +1,6 @@
 // src/utils/relatedPosts.ts
 import { isPublishedPost, type Post } from './content';
+import { getSeriesMeta } from './series';
 import { getPostSeries } from './seriesNav';
 
 /**
@@ -22,8 +23,8 @@ export function getRelatedPostScore(post: Post, candidate: Post): number {
   const tagScore = getJaccardScore(tags, candidateTags);
   const categoryScore = post.data.category === candidate.data.category ? 1 : 0;
   const recencyScore = getRecencyScore(post.data.date, candidate.data.date);
-  const candidateSeries = new Set(getPostSeries(candidate).map(m => m.name));
-  const seriesScore = getPostSeries(post).some(m => candidateSeries.has(m.name)) ? 1 : 0;
+  const candidateSeries = new Set(getPostSeries(candidate).map(m => getSeriesMeta(m.name).slug));
+  const seriesScore = getPostSeries(post).some(m => candidateSeries.has(getSeriesMeta(m.name).slug)) ? 1 : 0;
 
   return tagScore * 0.4 + categoryScore * 0.3 + recencyScore * 0.2 + seriesScore * 0.1;
 }

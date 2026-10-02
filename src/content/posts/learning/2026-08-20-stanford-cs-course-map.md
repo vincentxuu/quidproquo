@@ -118,8 +118,9 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 | 課號 | 課名 | 官方先修 |
 |---|---|---|
-| CS124 | From Languages to Information | CS106B、Python、CS109、CS107 等級 |
+| [CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information) | From Languages to Information | CS106B、Python、CS109、CS107 等級 |
 | [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) | Natural Language Processing with Deep Learning | 微積分與線性代數；CS124、CS221 或 CS229 |
+| [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) | Transformers & Large Language Models | 機器學習基礎與線性代數 |
 | [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding) | Natural Language Understanding | CS224N 或 CS224S |
 | [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai) | Agentic AI | LINGUIST 180/280、CS124、CS224N、CS224S、CS224U 擇一 |
 | CS329X | Human Centered NLP | — |
@@ -130,6 +131,8 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 **CS224V 現在叫 Agentic AI**，這是 2026 年才有的名字。內容直接處理 RAG 與形式化任務描述、跨資料庫與知識庫的混合推理、AI 驅動的科學知識探索、用形式方法提升決策 agent 的準確度與可解釋性、以及長時程 agent 的效率。想做 agent 又想要有正課可上的人，這門的優先序被低估了。
 
+**CME295 掛在 ICME 底下，卻是這條線上最省時間的一門。** 它兩學分、沒有作業，成績只看期中與期末；九堂課從 Transformer 講到 LLM 訓練、推理與 agent。2025 版的影片、投影片與考卷解答全部公開，Autumn 2026 正在上課，新增 LLM 系統、強化學習與 Diffusion LLM 三講。它適合放在 CS224N 之前當地圖，或之後當補課；本站有[逐講導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)。
+
 **CS329X: Human Centered NLP** 談人本設計、human-in-the-loop、公平性與可及性。它容易被當成軟性選修跳過，但它處理的正是把模型變成產品時最先炸開的那一類問題。
 
 ### B. 視覺
@@ -138,13 +141,19 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 **CS231N: Deep Learning for Computer Vision** 才是深度學習那一側。它的講義網站是很多人第一次真正看懂反向傳播的地方，2026 年春季的作業已經更新到第三份包含擴散模型與 CLIP、DINO——這門課的名字雖然還叫電腦視覺，內容早就不只電腦視覺了。順帶一提，它的課名已經不是很多整理裡寫的「Convolutional Neural Networks for Visual Recognition」，那是舊名字。
 
+自學條件上，CS231N 是視覺分支裡最完整的一門。Spring 2026 的投影片、A1–A3 三份作業的題目頁與 Colab 起始碼都公開，本站評為 A3（足以自學）；2026 的錄影只放在 Canvas，校外讀者改看 Stanford Online 在 YouTube 上的 Spring 2025 錄影，兩個年份的講次標題幾乎一致。本站的 [CS231N 導讀系列](/posts/ai/2026-09-30-cs231n-course-overview)就是用 2026 教材配 2025 影片，照官方課表排成 10 週。
+
 順序上，先有 CS229 或 CS230 的模型基礎再進 CS231N 會順很多，CS231A 則可以並行或之後補。
 
 ### C. 強化學習與機器人
 
-`CS221 → CS238 → CS234 → CS223A → CS333`。
+`CS221 → CS238 → CS234 → CS224R → CS223A → CS333`。
 
-**CS234: Reinforcement Learning** 的先修寫得很直接：Python 熟練、CS229 或同等、線性代數、基本機率。**CS223A** 是機器人的基礎課，由 Oussama Khatib 授課。**CS333** 是專案導向的研究所課，把機器人、機器學習與控制理論拉到人機互動的場景，官方只寫「建議修過 AI 入門課」。
+[**CS234: Reinforcement Learning**](/posts/ai/2026-09-30-cs234-course-overview) 的先修寫得很直接：Python 熟練、CS229 或同等、線性代數、基本機率。Emma Brunskill 從有模型的 MDP 規劃講到策略梯度、RLHF／DPO、bandit 探索與 MCTS，比同校的深度 RL 課花更多時間在收斂與樣本複雜度的分析上。Winter 2026 的 14 講投影片、三份作業的題目與起始碼、專題規格都能匿名下載，本站評為 A3；官網沒有 2026 錄影，公開影片是 Spring 2024 版，其中兩講 Offline RL 在 2026 投影片裡沒有對應。
+
+[**CS224R: Deep Reinforcement Learning**](/posts/ai/2026-09-30-cs224r-course-overview) 是 Chelsea Finn 的深度 RL 課，從模仿學習講到 LLM 的 RL 與機器人基礎模型。它的第一講直接把理論推給 CS234，先修也假設你已經熟悉 RL 基礎，所以放在 CS234 之後最順。Spring 2026 的 17 份投影片、三份作業與 default project 的起始碼都公開，本站評為 A3；2026 錄影只在 Canvas，公開錄影是 Spring 2025 版，HW2、HW3 規定在 Modal 上跑。首頁寫明下一輪改在 Fall 2027 開，Spring 2026 是目前最新的完整版本。
+
+**CS223A** 是機器人的基礎課，由 Oussama Khatib 授課。**CS333** 是專案導向的研究所課，把機器人、機器學習與控制理論拉到人機互動的場景，官方只寫「建議修過 AI 入門課」。
 
 ### D. 圖與網路
 
@@ -158,7 +167,7 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 **CS144: Introduction to Computer Networking** 的作業設計是它出名的原因。七個檢查點，你會從「用不可靠的東西做出可靠傳輸」開始，一路實作 TCP、往下做網路介面、做一台 IP 路由器，最後一關叫「做一個網際網路」。
 
-**CS149: Parallel Computing** 涵蓋多核 CPU、GPU 與 CUDA、DNN 在 GPU 上的排程、硬體特化。五份程式作業從四核心效能分析做到「寫出世界最快的 CUDA kernel」，其中一份跑在 Trainium2 加速器上。
+[**CS149: Parallel Computing**](/posts/ai/2026-09-30-cs149-course-overview) 涵蓋多核 CPU、GPU 與 CUDA、DNN 在 GPU 上的排程、硬體特化。五份程式作業從四核心效能分析做到「寫出世界最快的 CUDA kernel」，其中一份跑在 Trainium2 加速器上。Fall 2025 由 Kayvon Fatahalian 與 Kunle Olukotun 合教，18 份投影片、5 份程式作業的 starter code 與 4 份書面作業 PDF 都能匿名取得，本站評為 A3；缺口在執行環境：PA4 要自費租 AWS Trainium2 且課程 AMI 是私有的，PA5 的 H100 排隊系統與排行榜要 SUNet ID。
 
 ## 第六階：研究級的那一層
 
@@ -241,7 +250,7 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 
 **如果你的目標是 LLM 與 agent**：地基五門 → CS124／CS221／CS229 → CS224N → CS224U 或 CS224V → CS329X／CS329Z → CS336。這是本文依能力缺口排出的**建議自學順序**，不是每一個箭頭都代表官方 prerequisite；例如 CS224N → CS224U 是明列先修，但 CS336 接受多種 ML 背景，並不要求先修 CS329Z。中間課程可以依背景跳過，但 CS336 對 Python、PyTorch、系統、數學與機率的要求仍要老實面對。
 
-**如果你走視覺或機器人**：視覺是地基五門 → CS229 → CS230 → CS231A → CS231N；機器人是地基五門 → CS221 → CS238 → CS234 → CS223A → CS333。
+**如果你走視覺或機器人**：視覺是地基五門 → CS229 → CS230 → CS231A → CS231N；機器人是地基五門 → CS221 → CS238 → CS234 → CS224R → CS223A → CS333。
 
 五條路線的共同前提只有一個：**選一條，做完它的作業。** 把二十幾門課的講義都下載下來，是這份地圖最容易導致的失敗方式。
 
@@ -263,6 +272,12 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 有三項未能完全確認，都不是查得不夠，是結構性拿不到：Stanford 課程封存區沒有公開的索引頁，因此無法列出「總共有幾門課保留了歷屆網站」；CS312 的課程名稱在 ExploreCourses 的搜尋結果中沒有完整渲染出標題列，但以「Deep Learning Alchemy」為關鍵字搜尋會命中該條目；CS238 的獨立條目同樣沒有渲染成功，其存在與 AA228 的合開關係是從 CS239 的先修欄位「AA 228/CS 238 or CS 221」反推的。後兩項不影響階梯的排序結論。
 
 ## 更新紀錄
+
+- 2026-10-01：強化學習與機器人分支補上 CS234（Winter 2026，A3）與 CS224R（Spring 2026，A3）的自學條件與站內導讀連結，建議順序把 CS224R 排在 CS234 之後；系統與效能分支補上 CS149（Fall 2025，A3）的公開範圍與執行環境缺口；參考資料同步補上 CS224R 官網與三個導讀系列。
+
+- 2026-09-30：視覺分支補上 CS231N 的自學條件（Spring 2026 投影片與 A1–A3 作業公開、錄影對照 Spring 2025 YouTube，評為 A3）與站內導讀連結；參考資料的站內延伸同步補上。
+
+- 2026-09-29：NLP／LLM／Agent 分支補上 CME295（Autumn 2026 開課中，2025 版全公開）與站內導讀連結；先修表補上 CS124 導讀連結。
 
 - 2026-08-26：回補站內連結——核心五門（CS103、CS107、CS109、CS111、CS161）與 CS221、CS124、CS229、CS228、CS224N、CS224U、CS224V、CS224W、CS329A、CS329Z、CS336 的單課總覽導讀已陸續上線，正文與先修表補上對應站內連結。另重查 ExploreCourses（2026-08-26）：附錄「2026-27 有明確開課資訊」清單移除 CS221M——其 2026-27 條目已無任何開課學期，最後一筆為 2026 春；停開表其餘七門與清單其餘十二門複核無變動。
 
@@ -307,6 +322,7 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 - [CS224W: Machine Learning with Graphs](https://web.stanford.edu/class/cs224w/) — 歷屆封存網站列表
 - [CS 224W 官方條目](https://explorecourses.stanford.edu/search?q=CS+224W&view=catalog) — 先修 CS109 加任一入門 ML
 - [CS234: Reinforcement Learning (Winter 2026)](https://web.stanford.edu/class/cs234/) — 課程排程與作業
+- [CS224R: Deep Reinforcement Learning (Spring 2026)](https://cs224r.stanford.edu/) — 先修、評分、投影片與作業，以及下一輪改在 Fall 2027 開課的說明
 - [CS 234 官方條目](https://explorecourses.stanford.edu/search?q=CS+234&view=catalog) — 先修與課程範圍
 - [CS236: Deep Generative Models](https://deepgenerativemodels.github.io/) — 先修條件與自編講義說明
 - [CS246: Mining Massive Data Sets](https://web.stanford.edu/class/cs246/) — 歷屆網站與 Colab 作業
@@ -319,6 +335,7 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 - [CS 329H: Machine Learning from Human Preferences](https://explorecourses.stanford.edu/search?q=CS+329H&view=catalog) — 課程描述與 2026-27 秋季開課
 - [CS 329T](https://explorecourses.stanford.edu/search?q=CS+329T&view=catalog) — 先修 CS229 等級 ML 加深度學習
 - [CS 329X: Human Centered NLP](https://explorecourses.stanford.edu/search?q=CS+329X&view=catalog) — 課程描述與 2026-27 秋季開課
+- [CME 295: Transformers & Large Language Models](https://cme295.stanford.edu/syllabus/) — 2026 與 2025 版課表、投影片與錄影入口
 - [CS 329Z: Engineering AI Agents](https://explorecourses.stanford.edu/search?q=Engineering+AI+Agents&view=catalog) — 複合式 AI 系統與 DSPy 的課程描述
 - [CS 333](https://explorecourses.stanford.edu/search?q=CS+333&view=catalog) — 人機互動場景的專案導向課程
 - [CS221M: Mechanistic Interpretability](https://explorecourses.stanford.edu/search?q=CS+221M&view=catalog) — 探測、steering、因果抽象與稀疏自編碼器
@@ -328,4 +345,4 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 - [CS25: Transformers United V6](https://web.stanford.edu/class/cs25/) — 2026 年春季講者與主題
 - [CS146S: The Modern Software Developer](https://themodernsoftware.dev/) — 學分數、先修條件與課程描述
 - [Stanford Online: CS107](https://online.stanford.edu/courses/cs107-computer-organization-and-systems)、[CS161](https://online.stanford.edu/courses/cs161-design-and-analysis-algorithms)、[CS336](https://online.stanford.edu/courses/cs336-language-modeling-scratch) — 遠距學分版本的學費與開課時程
-- 站內延伸：[2026 年該上哪些 AI 課程](/posts/ai/2026-07-10-ai-courses-2026-guide)、[CS146S 兩版大綱對照](/posts/ai/2026-08-16-cs146s-course-map)、[CS230 導讀系列第一篇](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)
+- 站內延伸：[2026 年該上哪些 AI 課程](/posts/ai/2026-07-10-ai-courses-2026-guide)、[CS146S 兩版大綱對照](/posts/ai/2026-08-16-cs146s-course-map)、[CS230 導讀系列第一篇](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)、[CS231N 導讀總覽](/posts/ai/2026-09-30-cs231n-course-overview)、[CS234 導讀總覽](/posts/ai/2026-09-30-cs234-course-overview)、[CS224R 導讀總覽](/posts/ai/2026-09-30-cs224r-course-overview)、[CS149 導讀總覽](/posts/ai/2026-09-30-cs149-course-overview)

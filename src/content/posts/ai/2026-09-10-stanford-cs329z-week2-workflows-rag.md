@@ -12,14 +12,14 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 21
-tldr: "Week 2 兩堂課一前一後：週一用 Anthropic 的 taxonomy 學會什麼時候不該用 agent，週三用 RAG 論文做出第一個複合系統。五個 workflow pattern 是選型工具，RAG 是參數記憶加非參數記憶的配方，兩篇合起來就是 HW1 Part A 的施工圖。"
-description: "帶讀 Stanford CS329Z Week 2 兩篇主讀物：Anthropic Building Effective Agents 的 workflow/agent 分類與五個 pattern，Lewis 等人 RAG 論文的檢索加生成配方，以及它們如何拼成 HW1 Part A。"
+tldr: "Week 2 兩堂課一前一後：週一用 Anthropic 的 taxonomy 學會什麼時候不該用 agent，週三用 RAG 論文做出第一個複合系統。五個 workflow pattern 是選型工具，RAG 是參數記憶加非參數記憶的配方，兩篇合起來就是 HW1 email 檢索管線的施工圖。"
+description: "帶讀 Stanford CS329Z Week 2 兩篇主讀物：Anthropic Building Effective Agents 的 workflow/agent 分類與五個 pattern，Lewis 等人 RAG 論文的檢索加生成配方，以及它們如何拼成 HW1 企業內部助理的第一段管線。"
 draft: false
 ---
 
 > 🌏 [English version](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)
 
-Week 2 的兩堂課是刻意排成先後手的。週一主讀物是 Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)：先想清楚什麼值得做成 agent，免得一開工就過度工程。週三主讀物是 Lewis 等人的 [RAG 論文](https://arxiv.org/abs/2005.11401)：第一個複合系統的完整配方，當天 hands-on 從零刻一條管線。兩篇合起來，[HW1 Part A](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents) 的施工圖就齊了。
+Week 2 的兩堂課是刻意排成先後手的。週一主讀物是 Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)：先想清楚什麼值得做成 agent，免得一開工就過度工程。週三主讀物是 Lewis 等人的 [RAG 論文](https://arxiv.org/abs/2005.11401)：第一個複合系統的完整配方，當天 hands-on 從零刻一條管線。兩篇合起來，[HW1](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents) 第一段 email 檢索管線的施工圖就齊了。
 
 ## 先分清：workflow 不是 agent
 
@@ -85,7 +85,7 @@ Anthropic 的 [Effective Context Engineering for AI Agents](https://www.anthropi
 
 ## 它在課程裡的位置
 
-Week 2 是 HW1 Part A 的開工週：週三 hands-on 的 RAG 就是作業的底座。Week 3 的 tool use（[MCP](https://modelcontextprotocol.io/) 在那週進場）把工具接進來，Week 4 的 ReAct 把迴圈的形狀定下來，Part A 的三塊拼圖就齊了。讀 Anthropic 那篇時記住它的煞車皮：每加一個 pattern，先證明簡單版不夠。
+Week 2 是 HW1 的備料週：作業下週一才發，但週三 hands-on 的 RAG 就是它的底座——HW1 要你不靠任何 agent 框架，只用 chat-completion 呼叫加自己的程式碼，先做出能在企業 email 封存裡檢索、推理的管線。Week 3 的 tool use（[MCP](https://modelcontextprotocol.io/) 在那週進場）把工具接進來，Week 4 的 ReAct 與 memory 把迴圈和記憶的形狀定下來，管線就一步步長成完整的 agent harness。讀 Anthropic 那篇時記住它的煞車皮：每加一個 pattern，先證明簡單版不夠。
 
 ## 本週 Course Material 對照
 
@@ -95,6 +95,7 @@ Week 2 是 HW1 Part A 的開工週：週三 hands-on 的 RAG 就是作業的底�
 
 ## 更新紀錄
 
+- 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
 - 2026-09-12：補上 Effective Context Engineering 與 ColBERT 兩篇延伸閱讀的實質導讀。
 
 ## 參考資料

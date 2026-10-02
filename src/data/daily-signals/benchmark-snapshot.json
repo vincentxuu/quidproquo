@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-28",
+  "date": "2026-10-02",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -8,9 +8,9 @@
     { "rank": 5, "model": "Atlassian Rovo Dev", "org": "Atlassian", "score": 76.80 }
   ],
   "lmsys_agent_top3": [
-    { "rank": 1, "model": "Claude Opus 5 (High)", "score": 12.99, "ci": "±1.71%" },
-    { "rank": 2, "model": "Claude Opus 5 (Max)", "score": 12.73, "ci": "±1.96%" },
-    { "rank": 3, "model": "Claude Fable 5 (High)", "score": 11.70, "ci": "±1.62%" }
+    { "rank": 1, "model": "Claude Fable 5.1 (Max)", "score": 14.55, "ci": "±1.92%" },
+    { "rank": 2, "model": "Claude Opus 5.5 (High)", "score": 13.78, "ci": "±2.24%" },
+    { "rank": 3, "model": "GPT-6 Astra (Max)", "score": 12.18, "ci": "±2.29%" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
@@ -25,5 +25,5 @@
     { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-09-28：連續第 26 天（09-03～09-28，中間 09-24 未執行本 routine）同一結構性阻塞，仍抓不到官方榜單原始資料（見 escalation-queue Q-023）。P1/P2 四站失敗型態與 09-27 同一組型態內輪替、無新根因：swebench.com（首頁）仍 `OUTPUT_LIMIT`（`maxBytes` 設工具上限 20,000,000 仍同樣失敗），swebench_verified_top5 沿用前值；lmarena.ai/?leaderboard 仍是 `js_empty_document`（轉址到 arena.ai 後 200 但內容僅「Get started」，與 09-27 相同），lmsys_agent_top3 沿用前值；morphllm.com/leaderboard **本次出現新失敗型態**——不是 09-27 的 429 + Vercel Security Checkpoint，而是直接 404（Page Not Found，非首頁本身，首頁仍可正常載入），與 09-15 的一次性 404 相同型態再現，morphllm_top3 沿用前值 null；artificialanalysis.ai/models/capabilities/agentic 仍是 404（`document contained no extractable text`），aa_agentic_index_top3 沿用前值。CursorBench、GitHub 結構化資料源本次未重複驗證（根因已於 09-15～09-21 查明確，重複測試無新結果），沿用前值。web_search 補充查詢（Step 3b Q1/Q2，timeRange: week）命中內容仍是同一模式的第三方聚合站（swfte.com、openlm.ai、llm-stats.com、iternal.ai、app.stationx.net、benchlm.ai、kilo.ai）對同一 benchmark 名稱互相矛盾——llm-stats.com 稱 GPT-6 Astra GPQA Diamond 領先 96.0%、benchlm.ai 稱 SWE-bench Verified 收錄 79 個模型分數僅供展示不進主排名，kilo.ai 仍以已停用的 Claude Sonnet 4.5 為例，量級與命名對象皆不可比，完全未提及官方追蹤 scaffold 排名（live-SWE-agent／Sonar Foundation Agent／TRAE）。綜合以上，P1/P2 官方來源今日均無可驗證資料，依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章。Q-023 仍待人拍板資料來源策略，狀態未變；連續 26 天同一結構性阻塞，重申建議下次接手者優先聚焦「接手第一步 (1)」（確認 Groundlane 部署方能否對 JS-heavy 排行榜頁面開放渲染或白名單）。"
+  "notes": "2026-10-02：swebench.com（首頁）仍 `OUTPUT_LIMIT`、arena.ai/?leaderboard 仍 `js_empty_document`、morphllm.com/leaderboard 仍 429 + Vercel Security Checkpoint、artificialanalysis.ai/models/capabilities/agentic 仍 404——四個直接渲染擷取的失敗型態與過去 29 天完全相同（見 escalation-queue Q-023），swebench_verified_top5／morphllm_top3／aa_agentic_index_top3 三項沿用前值，根因未解。但本次找到繞過方法解決了 `lmsys_agent_top3` 這一項：Arena 官方在 2026-04-02 的部落格公告（https://arena.ai/blog/arena-leaderboard-dataset）已把全部排行榜歷史資料發布成 Hugging Face 結構化資料集 `lmarena-ai/leaderboard-dataset`，透過 `datasets-server.huggingface.co` 的 `/rows`／`/splits`／`/size` REST API 可直接取得乾淨 JSON，完全不需要渲染 arena.ai 網頁本身。用這個方法確認 `agent` 子集 `latest` split（2026-09-30 官方發布）：Claude Fable 5.1 (Max) 14.55% 第一、Claude Opus 5.5 (High) 13.78% 第二、GPT-6 Astra (Max) 12.18% 第三——與本檔前值（Claude Opus 5 (High) 12.99%／Opus 5 (Max) 12.73%／Fable 5 (High) 11.70%，自 09-03 起沿用超過一個月的舊快照）相比前三名整組換血。回溯 `full` split 歷史資料確認 Fable 5.1 (Max) 最晚在 09-24 就已是第一名、Opus 5.5 (High) 於發布五天後的 09-27 進入前三，排名順序本身從 09-24 到 09-30 已連續七天穩定，符合 Step 4「第一名易主＋前三名新模型進入」門檻，已寫成文章（`2026-10-02-benchmark-arena-agent.md` 及 en 版，series order 2）。`swebench.com`／`morphllm.com` 的 GitHub／官方資料出口本次嘗試過 `raw.githubusercontent.com` 的 `data/leaderboards.json`（4MB，超過 web_fetch／document_parse 的 500K 字元輸出上限，`OUTPUT_LIMIT`）與 `api.github.com` contents API（同樣因檔案 >1MB 無法 inline base64），尚未找到可用的結構化替代來源，仍需渲染擷取，根因未解。建議：(1) 把 HF `datasets-server` 方法正式寫入 skill 的 Step 3a 作為 arena.ai 的備用抓取法（Tier 2，待人確認）；(2) swebench.com／morphllm.com 仍可沿用現有「無法驗證→不產出」的保守判斷，下次接手者可嘗試用 GitHub code search API 或分段抓取 `leaderboards.json` 來繞過 4MB 檔案的輸出上限。"
 }

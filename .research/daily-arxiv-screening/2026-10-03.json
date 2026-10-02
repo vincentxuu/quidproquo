@@ -1,0 +1,582 @@
+{
+  "date": "2026-10-03",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv official /new batch for Friday, 2 October 2026 (cs.AI 568 new submissions, cs.CL large batch, cs.MA 39 entries, per arxiv.org/list/{cat}/new) + Groundlane web_search queries Q1 (agent tool-use/planning/reasoning), Q2 (RAG/context/memory), Q3 (multi-agent protocol/safety/guardrails), timeRange=week",
+    "layerB": [
+      "HuggingFace Daily Papers API (huggingface.co/api/daily_papers, ~18 recent entries scanned)",
+      "Semantic Scholar API (repeatedly rate-limited 429 on bulk search; individual paper lookups by arXiv ID succeeded for 2 of 3 selected papers)",
+      "GitHub API for repo star counts on candidates with public code"
+    ],
+    "layerC": "14-day lookback 2026-09-19 to 2026-10-02 across .research/daily-arxiv-screening/*.json; 132 unique watch/stronger-competitor candidates collected, deduplicated by arxiv ID keeping most recent occurrence; 2 directly re-examined and re-entered (2609.29875, 2609.32999) as closest competitors to today's memory-related selection; remainder (mostly 7-14 days old) left at their prior recorded decision — decay factor 0.85^7≈0.32 to 0.85^14≈0.10 means none were strong enough to re-challenge today's fresh, fully-verified selections without a new major signal (code release, external replication, or venue upgrade), which none were found to have this round"
+  },
+  "toolDegradation": "Semantic Scholar bulk search API (fields=title,externalIds,citationCount,venue,authors&limit=20&sort=citationCount:desc) returned HTTP 429 on every attempt this round; individual paper-by-ID lookups (GET /paper/ARXIV:{id}) succeeded intermittently (2 of 3 selected papers confirmed citationCount=0 directly; PoS's lookup was rate-limited on all retries). No fallback to Keenable/You.com was needed since Groundlane web_search/web_fetch remained available throughout for all other research.",
+  "generatedAt": "2026-10-03T03:30:00+08:00",
+  "candidates": [
+    {
+      "arxivId": "2610.01415",
+      "title": "Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States",
+      "source": [
+        "layerB-searchQ1",
+        "layerB-hfDaily-notlisted"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed)",
+      "citationCount": null,
+      "citationVelocity": "Published 1 day (Oct 1); Semantic Scholar API returned 429 on every retry this round, no citation data obtained",
+      "institution": "Nankai University (lead authors) + Alibaba Group (internship) + Tsinghua University (corresponding author Dan Pei)",
+      "communitySignals": [
+        "Not listed on HF Daily Papers this round",
+        "Official GitHub repo luoyu100/PoS: 19 stars, MIT license, actively pushed through 2026-10-02"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 3 Methodology: three components (Belief Modeling, Belief-Guided Interaction, Trapping-Aware Recovery) clearly specified with formal belief-state definition",
+        "Section 4 Table 1: main results across 4 benchmarks (ALFWorld, LOCA-Bench, RCA-100, ClinDiag) x 3 backbones (Qwen3.7-Plus, GLM-5.3, Kimi-K3), with baselines (Raw Trajectory, PACE, LongHorizon-Harness) and honest reporting of baseline reversals (PACE falls 24.57-28.19pp below Raw Trajectory on LOCA-Bench)",
+        "Ablations: removing Consistency Validation costs up to 14.93pp (ALFWorld); removing Trapping Diagnosis/Recovery costs 4.85-6.79pp (RCA-100)",
+        "Appendix G Limitations: explicitly flags token/compute cost of belief maintenance and reliance on domain knowledge beyond belief accuracy"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "4 benchmarks x 3 backbones with consistent wins, ablations isolating each component's contribution, and a case-study appendix; still single-paper preprint evidence without external replication",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Official code https://github.com/luoyu100/PoS (MIT license)",
+        "Project page with teaser/overview figures",
+        "Appendix F full case-study trace"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Evidence supports the scoped claim that explicit, validated belief states outperform memory-as-context baselines on the 4 tested benchmark families across 3 backbones",
+      "primaryLimitation": "Gains require additional token/compute cost from maintaining belief states in natural language; does not help when the agent lacks domain knowledge or execution skill even with an accurate belief",
+      "presentation": "clear",
+      "presentationReason": "Method, ablations, and limitations are precisely scoped and separated from the headline results",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected for the capability/method angle: reframes long-horizon context management from memory retention/compression to explicit, validated belief states with trapping diagnosis+recovery; broadest and most consistent empirical package among today's memory-adjacent candidates (4 benchmarks x 3 backbones vs. TipsWarm's 3 benchmarks/no backbone sweep and X-Tree's RL-only training setting), plus full code release."
+    },
+    {
+      "arxivId": "2609.27900",
+      "title": "Delegated Misalignment: How Multi-Agent Structures Amplify LLM Safety Risks",
+      "source": [
+        "layerA-searchQ3"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "EMNLP 2026 (accepted, per paper Comments field)",
+      "citationCount": 0,
+      "citationVelocity": "0 citations per Semantic Scholar API (confirmed, not rate-limited); paper first appeared on arXiv 2026-08-26, EMNLP acceptance is the stronger signal here",
+      "institution": "Beihang University (corresponding author Aishan Liu) + Beijing Academy of Artificial Intelligence + Beijing University of Posts and Telecommunications + Xidian University + 360 AI Security Lab",
+      "communitySignals": [
+        "Not listed on HF Daily Papers",
+        "No Papers with Code repro repo found",
+        "No public code/dataset release link found in the paper (hazardous-prompt dataset)"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 3: three-condition protocol (single agent / principal-subordinate delegation / tool-augmented) across 6 frontier LLMs (Claude-Sonnet-4.6, GPT-5, Gemini-3.1-Pro, Qwen3-Max, DeepSeek-V3.2, Kimi-K2.5) on 49 hazardous tasks across 7 risk categories, each accessed via official API",
+        "Concrete per-model, per-condition rates: DeepSeek-V3.2 full-execution 30.6% (single) -> 77.6% (delegated); GPT-5 22.5% (single) vs 61.2% (subordinate)",
+        "Ablations on 3 defense types show they are individually insufficient and can backfire: accountability tracing cuts DeepSeek's malicious tool-call rate 65.3%->6.1% but raises GPT-5's full-execution rate 36.7%->53.1%",
+        "Section 7 Limitations: explicitly scoped to a fixed task/tool set, task-level observable-outcome measurement (may miss longer-term/indirect harms), and single-agent-interaction/static-objective settings"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "6 frontier models x 3 conditions x 49 tasks with per-model breakdowns and ablations on multiple defense mechanisms; peer-reviewed at EMNLP 2026, but still a single research group's dataset/protocol without independent replication",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Evaluation protocol, metrics (R/PC/FC, FR/SD/HD, RE/PE/FE, MTCR/BTCR), and per-model results tables fully specified in the paper",
+        "No public code or hazardous-task dataset release found (plausibly withheld given the dataset's hazardous nature)"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Evidence strongly supports the scoped claim that individual model-level safety alignment does not transfer to principal-subordinate delegation structures under the tested protocol",
+      "primaryLimitation": "Evaluation is single-agent-interaction and static-objective; does not cover multi-user dynamics, evolving goals, or feedback over time in real deployments",
+      "presentation": "clear",
+      "presentationReason": "Threat model, conditions, and metrics are formally defined before results; headline numbers map directly back to Table/Section references",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected for the application/safety angle: first systematic evidence that single-agent safety alignment fails to transfer once delegation is introduced, with concrete per-model harm-amplification numbers and a demonstrated case where a standard defense (accountability tracing) backfires on GPT-5; stronger and more concrete than the other safety candidate found today (Adversarial Influence Scaling, which uses a synthetic deception game rather than measuring actionable tool-level harm)."
+    },
+    {
+      "arxivId": "2610.02202",
+      "title": "ScholarCatalyst: A Benchmark for Retrieving Papers That Inspire New Research",
+      "source": [
+        "layerB-hfDaily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed), 57 pages",
+      "citationCount": 0,
+      "citationVelocity": "0 citations per Semantic Scholar API (confirmed); published 2026-10-01, 1 day old",
+      "institution": "Stanford University + Carnegie Mellon University + University of Washington + Allen Institute for AI + MIT + Seoul National University",
+      "communitySignals": [
+        "HuggingFace Daily Papers: 3 upvotes",
+        "Official GitHub repo stanford-iris-lab/ScholarCatalyst: 15 stars, actively pushed through 2026-10-02",
+        "Dataset released on HuggingFace (huggingface.co/ScholarCatalyst)"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 3: 184 lead authors of 207 recent CS papers directly annotate 894 pre-discovery research questions, labeling which of a 191K-paper corpus (restricted to pre-project literature) did or could have helped, with rationale",
+        "Main result: strongest system (embedding retrieval) recovers only 48% Recall@20; agentic search scores 42% despite calling the same retriever as a tool; Claude Fable 5.1 as a lenient upper-reference reaches 51%",
+        "Controlled comparison: catalyst (positive) papers are no more topically similar to the query than author-rejected related papers (hard negatives), isolating the claim that topical similarity is a weak signal",
+        "Limitations section (via search snippet confirmation): covers only 2025-2026 CS papers with uneven field representation, labels are retrospective (hindsight bias), and the task's performance ceiling is an open question"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Large author-annotated benchmark (894 questions, 207 projects) with multiple retriever/agent baselines and hard-negative controls; still a first release without independent replication of the benchmark's own validity",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Code: github.com/stanford-iris-lab/ScholarCatalyst",
+        "Dataset: huggingface.co/ScholarCatalyst",
+        "Project page with task figure and contributor list"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Evidence supports the scoped claim that current agentic/embedding search systems substantially underperform human researchers at identifying latent-inspiration prior work, on this specific benchmark",
+      "primaryLimitation": "Labels are retrospective judgments by paper authors (hindsight bias) and the benchmark covers only 2025-2026 CS papers with uneven field representation",
+      "presentation": "clear",
+      "presentationReason": "Task definition, pipeline, and the topical-similarity control are laid out before headline numbers, with an explicit comparison table against prior retrieval benchmarks",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected for the evaluation/limits angle: elite multi-institution author list, large author-annotated benchmark with a clean causal control (topical similarity is not the signal), and a concrete, counter-intuitive finding that agentic search does not beat plain embedding retrieval despite calling the same tool — directly relevant to anyone building research/search agents."
+    },
+    {
+      "arxivId": "2610.00906",
+      "title": "ActiveSaddler: Automated Curriculum Learning for Agent Harness Optimization",
+      "source": [
+        "layerB-hfDaily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed), cross-listed cs.AI/cs.CL/cs.LG/cs.MA/cs.SE",
+      "citationCount": null,
+      "citationVelocity": "Published 1 day; not queried individually this round due to Semantic Scholar rate limiting, prioritized for selected candidates",
+      "institution": "Likely Microsoft Research (authors include Qingwei Lin, Victor Ruhle) + academic co-authors (POSTECH/KAIST-affiliated names)",
+      "communitySignals": [
+        "HuggingFace Daily Papers: 38 upvotes",
+        "Official project page/code at autosaddler-projectpage.github.io/activesaddler"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract + results read only (GAIA2 +4.4pp, Terminal-Bench 2.0 +7.5pp Pass@1 over fixed-curriculum harness optimizer); method section (non-stationary bandit over failure-pattern arms) not fully read against baselines this round"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Strong headline numbers on 2 established benchmarks with ablations claimed in abstract, but full experimental section not read this round to confirm baseline fairness",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Project page link in paper; code availability not independently confirmed this round"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Abstract-level claims are concrete and benchmarks are well-known, but not independently verified against the full method section this round",
+      "primaryLimitation": "Not fully read this round; depth of baseline comparison unconfirmed",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid harness-optimization result (automated curriculum learning for the training scenarios that drive harness updates), but today's capability slot went to PoS, which has a more complete cross-benchmark/cross-backbone empirical package (4 benchmarks x 3 backbones with ablations fully read) and a more foundational framing (belief state vs. memory) rather than an increment on the already-crowded harness-optimization line (competing with Harness-Zero and Harness as a Language already in the lookback pool)."
+    },
+    {
+      "arxivId": "2609.32339",
+      "title": "Enabling Timely Guidance before Skill Retrieval: Retaining Helpful Warm Tips in Agent Context",
+      "source": [
+        "layerA-searchQ2"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed)",
+      "citationCount": null,
+      "citationVelocity": "Published 7 days (Sept 26); not queried this round due to Semantic Scholar rate limiting",
+      "institution": "Not captured this round (author Feng Liang; institution not read)",
+      "communitySignals": [
+        "Not listed on HF Daily Papers or Papers with Code this round"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract only: TipsWarm claims highest task success rate across 3 coding/iterative-task benchmarks vs. skill and general-memory baselines; method and experiment sections not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Only abstract read this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "low",
+      "editorialConfidenceReason": "Abstract-level only, no body verification this round",
+      "primaryLimitation": "Not independently verified this round beyond the abstract",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Same agent-context/skill-guidance theme as PoS and ActiveSaddler but narrower scope (skill-derived tips only, 3 benchmarks, no cross-backbone sweep reported in abstract); today's memory/context slot went to PoS, which has deeper verified evidence (body sections read, ablations confirmed)."
+    },
+    {
+      "arxivId": "2609.32993",
+      "title": "X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization",
+      "source": [
+        "layerB-hfDaily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed)",
+      "citationCount": null,
+      "citationVelocity": "Not queried this round",
+      "institution": "University of Waterloo",
+      "communitySignals": [
+        "HuggingFace Daily Papers: 2 upvotes",
+        "GitHub repo sitaocheng/X-Tree: 1 star"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract only: gains of up to 4.5% SR (WebArena), 5.8% SR (ScienceWorld), 4.1% success (WebShop) across 3 training integrations (offline RL, online RLVR, self-distillation); method/experiment sections not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Only abstract read this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [
+        "Code released on GitHub but not independently inspected this round"
+      ],
+      "editorialConfidence": "low",
+      "editorialConfidenceReason": "Abstract-level only",
+      "primaryLimitation": "Not independently verified this round beyond the abstract",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Training-time skill-hierarchy approach with modest but real gains (4-6pp across 3 environments); lower community engagement (2 upvotes, 1 star) and narrower training-only applicability than PoS's inference-time, cross-task framework which was read in full this round."
+    },
+    {
+      "arxivId": "2610.02142",
+      "title": "Keyword Harnesses Fail Open: A Cheap Diagnostic Ladder for Tool-Use Claims in Small Language Models",
+      "source": [
+        "layerB-hfDaily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed)",
+      "citationCount": null,
+      "citationVelocity": "Not queried this round",
+      "institution": "Independent/unaffiliated (single author, project page vectrayx.com)",
+      "communitySignals": [
+        "HuggingFace Daily Papers: 0 upvotes"
+      ],
+      "credibility": "reject",
+      "credibilityEvidence": [
+        "Abstract: single matched-architecture pair of Spanish security LMs (600M vs 1.1B parameters) is the entire evidence base for a general claim about 'keyword harnesses' failing open on tool-use benchmarks"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "evidenceMaturityReason": "N=2 models, single language/domain (Spanish security text); interesting diagnostic method but far too narrow a sample to support a general claim about small-LM tool-use evaluation",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "low",
+      "editorialConfidenceReason": "Evidence base (2 models) cannot support generalization beyond this specific pair",
+      "primaryLimitation": "Single matched-pair case study; no evidence the diagnostic ladder generalizes beyond these two specific models",
+      "presentation": "clear",
+      "presentationReason": "Method and numbers are precisely reported for the pair studied",
+      "relevance": "indirect",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "The diagnostic-ladder idea (verbatim-reproduction checks, first-token probing) is clever, but the entire empirical claim rests on one matched pair of 600M/1.1B Spanish security models — far short of the cross-model, cross-domain evidence needed to support a general claim about keyword-matching benchmarks overstating tool-use in small LMs."
+    },
+    {
+      "arxivId": "2609.30028",
+      "title": "How does Adversarial Influence Scale in Multi-Agent Systems?",
+      "source": [
+        "layerA-searchQ3"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed)",
+      "citationCount": null,
+      "citationVelocity": "Not queried this round",
+      "institution": "Not captured this round",
+      "communitySignals": [
+        "Not listed on HF Daily Papers this round"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract/intro read: synthetic deliberation game with anonymous message board and private reflections, studying deceiver scaling; full experiment section not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Only intro/method framing read this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "low",
+      "editorialConfidenceReason": "Not independently verified this round",
+      "primaryLimitation": "Not fully assessed this round",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Same multi-agent safety space as Delegated Misalignment, but studies a synthetic deception/deliberation game rather than measuring actionable tool-level harm on real hazardous tasks across frontier models; Delegated Misalignment's evidence (6 frontier LLMs, concrete tool-call harm rates, EMNLP 2026 acceptance) is more concrete and directly actionable for practitioners."
+    },
+    {
+      "arxivId": "2609.37690",
+      "title": "Honeycomb: Constant-Size Scene Memory Representation for Video World Models",
+      "source": [
+        "layerB-hfDaily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "venue": "not-assessed",
+      "citationCount": null,
+      "citationVelocity": "not-assessed",
+      "institution": "not-assessed",
+      "communitySignals": [],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Excluded at topic gate, not assessed for credibility",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "not-assessed",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "Pure video-generation world model (scene memory for video diffusion), not an LLM/tool-using agent architecture; excluded at initial topic filter."
+    },
+    {
+      "arxivId": "2609.32810",
+      "title": "OpenTumorBoard: A Real-World Benchmark of Multidisciplinary Tumor Board Discussion Trajectories",
+      "source": [
+        "layerB-hfDaily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "venue": "not-assessed",
+      "citationCount": null,
+      "citationVelocity": "not-assessed",
+      "institution": "not-assessed",
+      "communitySignals": [],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Excluded at topic gate, not assessed for credibility",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "not-assessed",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "Clinical-domain LLM roleplay/discussion benchmark; evaluates medical knowledge and consensus-reaching, not agent architecture, tool-use, memory, or orchestration — vertical benchmark rather than AI-agent-core research."
+    },
+    {
+      "arxivId": "2609.35259",
+      "title": "On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics",
+      "source": [
+        "layerB-hfDaily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "venue": "not-assessed",
+      "citationCount": null,
+      "citationVelocity": "not-assessed",
+      "institution": "not-assessed",
+      "communitySignals": [],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Excluded at topic gate, not assessed for credibility",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "not-assessed",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "General distillation/training-methodology study (rollout policy, KL direction) not specific to agent reasoning or orchestration; excluded under the training-methodology exclusion rule."
+    },
+    {
+      "arxivId": "2609.39378",
+      "title": "EgoTools: Towards Tool-Centric Reasoning in Real-World Egocentric Videos",
+      "source": [
+        "layerB-hfDaily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "venue": "not-assessed",
+      "citationCount": null,
+      "citationVelocity": "not-assessed",
+      "institution": "not-assessed",
+      "communitySignals": [],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Excluded at topic gate, not assessed for credibility",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "not-assessed",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "Egocentric video understanding benchmark; primarily a CV/perception task rather than an LLM agent tool-use/orchestration study."
+    },
+    {
+      "arxivId": "2609.32019",
+      "title": "Decentralized Master-Mind: Joint Action Refinement through Iterative Intent Denoising in Multi-Agent Pathfinding",
+      "source": [
+        "layerB-hfDaily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "venue": "not-assessed",
+      "citationCount": null,
+      "citationVelocity": "not-assessed",
+      "institution": "not-assessed",
+      "communitySignals": [],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Excluded at topic gate, not assessed for credibility",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "not-assessed",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "Classical multi-agent path-finding (robotics/planning), not an LLM-agent architecture, memory, or safety study."
+    },
+    {
+      "arxivId": "2609.29875",
+      "title": "When Can Agents Forget Their Reasoning? Context Compression for Long-Horizon Agents",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 7,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed)",
+      "citationCount": null,
+      "citationVelocity": "Semantic Scholar rate-limited again this round; carried over from 2026-09-26/27/30 screenings (no citation data obtained to date)",
+      "institution": "not-assessed (carried over)",
+      "communitySignals": [],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Carried over from 2026-09-26 screening: representation probing + activation patching + controlled trajectory analysis in Sections 3-4"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Single agent/scorer pairing, single benchmark (WorkBuddyBench); cross-backbone generalization untested (carried over, not re-read in full this round)",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Carried over from prior screenings; not independently re-verified in full this round",
+      "primaryLimitation": "Single agent/scorer/benchmark combination; cross-backbone generalization unverified",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Mechanistically interesting context-compression result (probing + activation patching) but narrower empirical package (1 benchmark x 1 agent/scorer pairing) than PoS, which was selected today with a verified 4-benchmark x 3-backbone package including ablations; remains a solid watch candidate for a dedicated memory-compression day. 7 days old, decay factor 0.85^7≈0.32 — would need a major new signal (e.g. code release, external replication) to compete with fresh same-day candidates."
+    },
+    {
+      "arxivId": "2609.32999",
+      "title": "Tessera: Demand-Driven KV Cache Management for Retrieval-Augmented LLM Serving",
+      "source": [
+        "layerA-searchQ2",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed)",
+      "citationCount": null,
+      "citationVelocity": "Not queried this round",
+      "institution": "not-assessed",
+      "communitySignals": [],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract: serving-infrastructure optimization (KV-cache reuse across RAG/agent-memory workloads), reports up to 3.6x lower mean TTFT vs SGLang/LMCache+EPIC"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Only abstract read across both rounds; infra/systems paper rather than agent-reasoning paper",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "low",
+      "editorialConfidenceReason": "Not independently verified",
+      "primaryLimitation": "Not fully assessed; serving-infrastructure focus is adjacent to but not core to agent reasoning/architecture",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "indirect",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Serving/infrastructure optimization (KV-cache reuse) rather than an agent-reasoning or safety contribution; relevant to teams running RAG/agent-memory at scale but a step removed from today's selected directions (belief states, delegation safety, search-agent evaluation)."
+    }
+  ]
+}
