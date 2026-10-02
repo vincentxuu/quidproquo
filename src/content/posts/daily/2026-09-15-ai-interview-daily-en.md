@@ -80,7 +80,11 @@ Use this table to check whether your answer covered the key points:
 
 - [LLM Interview Questions and Answers for Freshers & Experienced (2026) — goodspace.ai](https://goodspace.ai/interview-questions/llm) — A thorough collection of follow-ups on positional-encoding extrapolation, KV cache, and long-context handling, good for filling in detail beyond today's practice question.
 - [AI Fundamentals: Attention Mechanisms in Transformers (Part 1) — Towards AI](https://pub.towardsai.net/ai-fundamentals-attention-mechanisms-in-transformers-part-1-a91cce62fbab) — Explains Q/K/V intuitively; "every token is asking how relevant everyone else is to it" is a useful phrase to rehearse out loud.
-- [ai-engineering-interview-questions — amitshekhariitbhu (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — A question-bank-style collection of AI engineering interview Q&A covering positional encoding, Q/K/V, and related extensions of today's topic.
+- [ai-engineering-interview-questions — amitshekhariitbhu (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — A question-bank-style collection of AI engineering interview Q&A covering positional encoding, Q/K/V, and related extensions of today's topic. (Note: questions cite no sources, and answers mostly link to articles from the maintainer's own education company; see [Choosing AI Engineer Interview Resources](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en) for a comparison.)
+
+## Update Log
+
+- 2026-10-02: Added a sourcing note to the amitshekhariitbhu/ai-engineering-interview-questions link
 
 ## References
 

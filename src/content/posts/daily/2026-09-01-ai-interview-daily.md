@@ -81,11 +81,15 @@ Fine-tuning 適合需要穩定「品牌語氣」或行為模式、且這個模�
 
 - [Deep Learning 200 Interview Questions & Answers — Part 2](https://atalupadhyay.wordpress.com/2026/08/25/deep-learning-200-interview-questions-answers-part-2-questions-101-200/) — 補齊 attention 機制與 Vision Transformer 的計算細節，適合搭配今天的 self-attention 概念一起複習
 - [LLM System Design Interview #51 — The Tokenizer Swap Trap](https://aiinterviewprep.substack.com/p/llm-system-design-interview-51-the) — 深入拆解 tokenizer 換掉之後 fertility（每個字的 token 數）在不同語言上的失衡問題，補齊今天 tokenization 那段沒展開的細節
-- [ai-engineering-interview-questions（GitHub）](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — 收錄 catastrophic forgetting、chunking 策略、embedding 選型等一系列 AI engineering 面試題，適合延伸練習
+- [ai-engineering-interview-questions（GitHub）](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — 收錄 catastrophic forgetting、chunking 策略、embedding 選型等一系列 AI engineering 面試題，適合延伸練習（注意：題目沒有附出處，答案多連到維護者所屬教育機構的文章，比較見[AI Engineer 面試資源怎麼挑](/posts/ai/2026-09-30-ai-engineer-interview-resources)）
+
+## 更新紀錄
+
+- 2026-10-02：在 amitshekhariitbhu/ai-engineering-interview-questions 連結補上來源提醒
 
 ## 參考資料
 
 - [Scale AI Interview Question: Design an Embedding and Classification API](https://medium.com/@emilyhustlenyc/scale-ai-interview-question-design-an-embedding-and-classification-api-5af182d937d4) — 今日練習題的完整來源，含 API 設計、dynamic batching 數字與 registry 設計細節
 - [LLM System Design Interview #51 — The Tokenizer Swap Trap](https://aiinterviewprep.substack.com/p/llm-system-design-interview-51-the) — 核心概念速記中 tokenization vocab size 取捨段落的依據
 - [Deep Learning 200 Interview Questions & Answers — Part 2](https://atalupadhyay.wordpress.com/2026/08/25/deep-learning-200-interview-questions-answers-part-2-questions-101-200/) — 核心概念速記中 self-attention 與 KV cache 段落的依據
-- [ai-engineering-interview-questions（GitHub）](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — 核心概念速記中 fine-tuning 與 catastrophic forgetting 段落的依據
+- [ai-engineering-interview-questions（GitHub）](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — 核心概念速記中 fine-tuning 與 catastrophic forgetting 段落的依據（注意：題目沒有附出處，答案多連到維護者所屬教育機構的文章，比較見[AI Engineer 面試資源怎麼挑](/posts/ai/2026-09-30-ai-engineer-interview-resources)）
