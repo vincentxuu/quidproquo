@@ -1,0 +1,269 @@
+{
+  "date": "2026-09-28",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv cs.AI/cs.CL/cs.MA '/new' listings and RSS feeds all show 'Showing new listings for Friday, 25 September 2026' with zero Sat/Sun/Mon items (rss.arxiv.org/rss/cs.AI|cs.CL|cs.MA confirmed empty for 2026-09-26/27/28) -- arXiv does not announce on weekends and the Monday batch had not posted yet at fetch time (~02:40 Asia/Taipei / ~18:40 UTC Sun). Since 2026-09-26 and 2026-09-27 already screened this same Friday batch (partial coverage, 79 arxiv IDs assessed per their candidateSources notes), this round used export.arxiv.org/api/query (cat:cs.AI AND abs:agent, sortBy=submittedDate) to paginate deeper into the same 2026-09-24/25 batch and surfaced ~52 arxiv IDs (2609.28915-2609.30266) not present in the prior two days' assessed-ID set. Supplemented with Groundlane web_search Q1-Q3 against this batch.",
+    "layerB": [
+      "HuggingFace Daily Papers API for 2026-09-24/25/26/27 (2026-09-26/27 returned empty -- weekend, no curated batch); none of the 3 selected arxiv IDs appear in HF Daily Papers",
+      "Semantic Scholar API (heavily 429 rate-limited this round; obtained data for 2609.30266 only after retries, 2609.30217/2609.30028 queries exhausted without success)",
+      "web_search for GitHub/Papers with Code repos of the 3 selected papers -- none found beyond automated arxiv-digest-bot reposts; independent coverage found on mindpattern.ai blog (2026-09-25) for 2609.30266+2609.30217"
+    ],
+    "layerC": "Lookback from 2026-09-14 to 2026-09-27 (14-day window) over .research/daily-arxiv-screening/*.json: reviewed the accumulated watch/stronger-competitor pool (~400+ raw rows across the window); none of the newly-surfaced Layer A candidates for today overlap with previously-assessed IDs from 2026-09-25/26/27 (cross-checked against the 79 IDs already assessed those 3 days). No lookback candidate from before 2026-09-25 was judged stronger than today's 3 fresh selections."
+  },
+  "toolDegradation": [
+    "Semantic Scholar API: repeated 429 rate limits throughout this run; obtained full metadata for 2609.30266 only, used arXiv-native metadata (publicationDate, no Comments/venue field = preprint) plus reasoned inference for 2609.30217 and 2609.30028",
+    "arXiv official REST export API (export.arxiv.org/api/query) returned HTTP 406 under default fetch; resolved by retrying with render:always (browser rendering), which returned normal 200 Atom XML",
+    "arXiv HTML full-text pages (arxiv.org/html/{id}v1) truncate at the abstract under default extraction for some papers (e.g. 2609.30266); resolved by using bounded `selector` (e.g. #S3, #S4) to pull specific sections instead of the full page"
+  ],
+  "generatedAt": "2026-09-28T02:50:00+08:00",
+  "candidatesNote": "Layer A title-only topic-gate screening (not deep-read) on the ~49 remaining newly-surfaced IDs from today's arXiv API pagination sweep, in addition to the 6 candidates detailed above: PASS (kept for future-day Layer C reconsideration if not already covered): 2609.30249 (RAPID, robot agentic programming -- narrower robotics scope than selected), 2609.30233 (Coding Agents for TAMP -- narrower robotics/planning scope), 2609.30186 (Jev-Mobile GUI agent), 2609.30137 (Screen Before You Serve, CX agent simulation at scale), 2609.30123 (HEXIS skill-to-FSM compilation), 2609.30055 (Era by Eon enterprise-agent benchmark -- same benchmark family previously rejected stronger-competitor on 2026-09-14), 2609.30012 (Low-Cost Assays for cross-vendor model-behavior measurement), 2609.30001 (AgentX industrial recommender-system autonomy -- narrow vertical), 2609.29901 (Working with Agentic Teammates -- qualitative/organizational study, less quantifiable), 2609.29773 (Breaking the Environment Wall, agent-environment co-evolution), 2609.29744 (Between the Commits, wholly-AI-authored-codebase reliability study), 2609.29465 (SWE-Prometheus engineering-governance benchmark), 2609.29309 (DocuTeam multi-agent document discussion), 2609.29166 (HarnessPAI physical-AI harness), 2609.29154 (skill self-evolution via deviation guidance), 2609.28940 (Calibrated decision models for autonomous pentest harnesses, JEV/Laya -- adjacent to but distinct from 2026-09-27's selected 'Just Ask Jev' paper). REJECT off-topic (not agent-specific or outside AI-Agent scope): 2609.30219 (industrial model-commissioning verification), 2609.30214 (underwater robotics world model), 2609.29964 (VLM robot manipulation), 2609.29933 (VLM long-document QA pipelines, not agent-specific), 2609.29837 (game companion embodied agent, narrow), 2609.29428 (speech terminology recovery, off-topic), 2609.29044 (3GPP telecom channel estimation), 2609.28991 (video-understanding hallucination eval, not agent-specific), 2609.28921 (protein modification benchmark, off-topic), 2609.30059 (GPU kernel optimization, hardware-adjacent per Step 5a exclusion). All other IDs surfaced in this round's pagination were already present in the 79-ID set assessed by the 2026-09-25/26/27 screening records (hard-deduped by prior-day decision, not re-scored here).",
+  "candidates": [
+    {
+      "arxivId": "2609.30266",
+      "title": "LLM Agents Can Easily Tamper With Their Own Traces",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days",
+      "institution": "ELLIS Institute Tuebingen + Max Planck Institute for Intelligent Systems + Snyk",
+      "communitySignals": [
+        "mindpattern.ai blog coverage 2026-09-25",
+        "project page perfect-crime.ai with interactive figures",
+        "not on HF Daily Papers (weekend announcement)"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 3.1 Figure 2: ASR across 10 model-harness pairs x 4 direct-request scenarios, 10 trials each",
+        "Section 3.1 Figure 3: full-access vs auto-mode permission ablation",
+        "Section 3.2 Figure 6: skill-injection exploitability experiment without user knowledge",
+        "Section 3.3 Figure 7: reward-optimization misalignment-propensity experiment, 2 tasks x 10 trials",
+        "Section 3.4 Figure 8: multi-agent peer-cascade experiment (Peer Logs / Peer Workspaces)",
+        "Section 4 proposes and specifies an independent-interception-server mitigation architecture"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Covers capability, exploitability, misalignment propensity, peer cascade and aftereffects with quantified ASR per scenario and qualitative trace case studies; does not cover provider-side telemetry or whether tool calls are faithfully executed",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "project page perfect-crime.ai publishes interactive charts and per-experiment quantitative results; no code or raw dataset repository found"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Multi-scenario, multi-model quantified ASR plus qualitative case studies support the scoped claim that current mainstream harnesses cannot prevent agents from tampering with their own traces",
+      "primaryLimitation": "Study scoped to client-side logging pipeline only, excluding provider-side records and independent telemetry; proposed mitigation only guarantees post-API trace integrity, not faithful tool execution",
+      "presentation": "clear",
+      "presentationReason": "Method, threat model, experimental setup and limitations are laid out precisely with explicit figures and per-scenario ASR tables",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected: breaks the foundational assumption of post-hoc agent audit/compliance/forensics; first systematic 10-harness test with reward-optimization and peer-cascade propensity results going beyond prior single-scenario red-teaming work"
+    },
+    {
+      "arxivId": "2609.30217",
+      "title": "Instrumental Monitor Evasion Emerges Under Ordinary Task Pressure",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "Semantic Scholar rate-limited (429) throughout this run; published 2026-09-24, 4 days old, plausibly ~0 citations consistent with sibling paper 2609.30266",
+      "institution": "ELLIS Institute Tuebingen + Max Planck Institute for Intelligent Systems + Snyk + Exponential Security Labs",
+      "communitySignals": [
+        "mindpattern.ai blog coverage 2026-09-25 alongside 2609.30266",
+        "project page instrumental-evasion.com with interactive results browser and partial traces",
+        "not on HF Daily Papers (weekend announcement)"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 3: EvasionBench construction, 50 task-policy pairs (40 from 5 existing benchmarks + 10 original), solvability validated on 2 unmonitored models",
+        "Section 4.1 Figure 1: main ASR results across 10 agents, best-of-3 protocol",
+        "Section 4.2 Figure 3: reasoning-effort scaling ablation across 5 effort levels",
+        "Section 4.4: GPT-6 Astra overrefusal isolation via forged denial-message prompt injection",
+        "Section 5.1-5.3: monitor calibration (precision/recall/F1), denial-reason disclosure ablation, myopic-monitor ablation"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Main results plus 4 distinct ablations (reasoning effort, denial-reason disclosure, myopic monitoring, monitor calibration) each with concrete percentages; monitor models restricted to 8B-120B range",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "project page instrumental-evasion.com publishes an interactive results browser and a subset of run traces; full benchmark/code repository not found"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Large-scale quantitative experiment across 10 agents plus multiple ablations support the scoped claim that ordinary task-completion pressure alone induces monitor evasion",
+      "primaryLimitation": "Monitor models restricted to 8B-120B weak-supervises-strong setting; GPT-6 Astra's 0% evasion later shown to be mostly overrefusal rather than genuine alignment, so low evasion numbers require further decomposition",
+      "presentation": "clear",
+      "presentationReason": "Threat model, benchmark construction, and each ablation's setup/results are explicitly separated and quantified",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected: companion finding to 2609.30266 on the real-time interception layer, distinct empirical contribution (EvasionBench, reasoning-effort scaling, myopic-monitor ablation) forming a natural cluster with today's other picks on agent oversight failure"
+    },
+    {
+      "arxivId": "2609.30028",
+      "title": "How does Adversarial Influence Scale in Multi-Agent Systems?",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days",
+      "institution": "Princeton University",
+      "communitySignals": [
+        "not found on HF Daily Papers or Papers with Code",
+        "only automated arxiv-digest bots reposting the title found on GitHub"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 3.1: 4 models x 12 group compositions (2-21 agents, 4 deceiver proportions) on HLE questions, item-clustered logistic regression, R^2 0.82-0.97 across models",
+        "Section 3.1 Eq1/Eq2: proportion vs count model comparison via likelihood-ratio test (chi^2(1)=62.1, p<0.001)",
+        "Section 3.2: coordinated vs non-coordinated deceiver ablation with paired permutation tests",
+        "Section 3.3: cross-model honest/deceiver pairing ablation",
+        "Section 3.4: hand-coded behavioral/persuasion-tactic analysis with Holm-adjusted significance tests"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Proportion-vs-count, coordination effect, model-choice effect and behavioral analysis each quantified with regression coefficients and confidence intervals; limited to 2 deliberation protocols and up to 21 agents",
+      "reproducibility": "not-provided",
+      "reproducibilityEvidence": [
+        "no code, data, or interactive demo link found; no independent public repository found"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Consistent linear trend across 4 models and 12 group compositions backed by rigorous statistical testing supports the scoped claim that proportion (not count) determines honest-agent defection",
+      "primaryLimitation": "Only 2 deliberation protocols and groups up to 21 agents tested; comparison with human conformity research is cross-study, not a direct within-experiment comparison; verification-style interventions not tested",
+      "presentation": "clear",
+      "presentationReason": "Methodology, scoring, and statistical models are explicitly specified with equations and defined comparison baselines",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected: distinct angle (multi-agent group deliberation robustness) complementing the two single-agent oversight papers; first to isolate deceiver proportion vs count and quantitatively benchmark against human conformity literature"
+    },
+    {
+      "arxivId": "2609.29095",
+      "title": "Where Does Exactly-Once Live? Model, Harness, and Tool-Contract Effects on Duplicate Side Effects in LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "published 2026-09-24, not queried this round (budget prioritized to selected papers)",
+      "institution": "not confirmed this round (abstract only)",
+      "communitySignals": [
+        "not checked in depth this round"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Abstract reports LIMBO sandbox, 25,930 episodes across 9 models x 3 harnesses x 2 contract variants x 15 recovery conditions with concrete duplicate-rate percentages; abstract-level read only, full-text credibility scan not completed this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-only read this round; large episode count and concrete percentages suggest substantial evidence but full-text sections not verified",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Deferred pending full-text read",
+      "primaryLimitation": "not fully assessed this round",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Strong practical-engineering candidate (idempotency/tool-contract reliability) but today's 3 slots went to the more editorially cohesive oversight-evasion cluster (30266/30217/30028); good candidate for a future digest once full-text credibility check is done"
+    },
+    {
+      "arxivId": "2609.28915",
+      "title": "On the Effectiveness of Kernel-Level Evidence for Agent Security",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "published 2026-09-24, not queried this round",
+      "institution": "not confirmed this round (abstract only)",
+      "communitySignals": [
+        "not checked in depth this round"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract reports ACE corpus of 4,047 sessions, 17 threat models, 14/25 OWASP LLM/agentic threat categories, 4 detector families; abstract-level read only"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-only read this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Deferred pending full-text read",
+      "primaryLimitation": "not fully assessed this round",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Relevant to the same agent-security theme as selected papers but narrower infra/telemetry-layer focus with less immediate today-relevance than the oversight-evasion cluster; kept as watch pending full-text credibility read"
+    },
+    {
+      "arxivId": "2609.29808",
+      "title": "Hard Stop: Kernel-Level Preemption and Containment for Rogue Agentic Execution",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "published 2026-09-24, not queried",
+      "institution": "not confirmed this round (abstract only)",
+      "communitySignals": [
+        "references the real, independently-corroborated Hugging Face July 2026 agent-breach incident (confirmed via web search: HF's own blog, Wikipedia, CSA research notes)"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Verified the underlying 'Incident-2026-Alpha' is a real, publicly disclosed Hugging Face security incident (not fabricated), but the abstract's framing relies heavily on invented terminology ('Defensive LLM Guardrail Paradox', 'Dual-Sided Epistemic Andon Imperative') and narrative forensic storytelling; systems claims (4.8us median / <0.154ms WCET preemption bus) not verified against full-text implementation/benchmark section this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level read only; narrative framing raises credibility caution flagged for closer full-text review before any future selection",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Deferred pending full-text verification of the systems/benchmark claims",
+      "primaryLimitation": "Heavy narrative/branded-terminology framing around a real incident; systems performance claims not yet cross-checked against implementation details",
+      "presentation": "mixed",
+      "presentationReason": "Core incident is real and well-documented externally, but the paper's own framing (invented named theses, cinematic incident narration) makes it harder to separate verified systems contribution from narrative flourish",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Weaker than selected papers: relies on narrative framing and invented branded terminology rather than the controlled, quantified experiments in 30266/30217/30028; underlying incident is real but this paper's own systems claims need full-text verification before it could pass the credibility gate"
+    }
+  ]
+}

@@ -57,11 +57,11 @@ Choose the entrance by the capability you want first:
 | Goal | Entrance | Best public edition |
 |---|---|---|
 | Search, planning, reasoning, uncertainty, and the broad agent picture | CS188 | Spring 2026 |
-| Mathematical ML and the foundation for advanced deep learning | CS189 | Spring 2025 |
+| Mathematical ML and the foundation for advanced deep learning | CS189 | Spring 2026 / Spring 2025 |
 
 CS188 Spring 2026 is one of the most complete current courses in this audit. Slides, online notes, videos, discussion solutions, and all six projects from P0 through P5 open anonymously, and the projects include a local autograder. Gradescope homework, Ed, and human feedback remain restricted, but the public sequence is coherent enough for an A3 rating.
 
-CS189 demonstrates why “latest” cannot mean “largest year number.” Berkeley did offer it in Fall 2025 and Spring 2026, but the old rotating-site URLs currently return 404. The stable Spring 2025 site still provides complete lecture notes, video, HW1–7, code, data, and past exams. This guide therefore treats Spring 2025 as the **latest complete edition that remains usable for self-study**. A result that once appeared in search is not proof that it still opens today.
+CS189 demonstrates why “latest” cannot mean “largest year number.” Berkeley offered it in Fall 2025 and Spring 2026, and the rotating-site URLs once returned 404; the [Spring 2026](https://eecs189.org/sp26/) site is now back online with lecture notes, 25 lecture videos, discussions with solutions, and HW1–5, which earns it an A3 just like Spring 2025. The Spring 2025 site keeps 25 lecture notes, HW1–7, code, data, and past exams, while its official recordings sit behind a bCourses login. The two editions are two routes: Spring 2026 is newer, Spring 2025 keeps classic topics such as SVMs, decision trees, and boosting. This site's [CS189 guide](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en) follows Spring 2026 lecture by lecture and homework by homework, compared against the Fall 2026 `eecs189.org/fa26` calendar. A page that once failed to load is not proof that it still fails today.
 
 ## Decode the paired numbers before choosing a course
 
@@ -89,7 +89,8 @@ The table uses the editorial scale from the [Global AI and CS Course Map](/posts
 | **CS61B, Fall 2025** | **A3** | Slides, video, discussions, exams, homework, project specs | Complete current autograder |
 | **CS70, Fall 2025** | **A3** | Notes, slides, discussion/homework solutions, past exams | Ed, Gradescope |
 | **CS188, Spring 2026** | **A3** | Slides, notes, video, discussions, P0–P5, local autograder | Gradescope homework, Ed, human feedback |
-| **CS189, Spring 2025** | **A3** | Notes, video, HW1–7, code/data, past exams | Not the newest class; no course grading |
+| **CS189, Spring 2026** | **A3** | Lecture notes, 25 lecture videos, discussions with solutions, HW1–5 | Gradescope, hidden tests, and HW1–4 solutions restricted |
+| **CS189, Spring 2025** | **A3** | Notes, HW1–7, code/data, past exams | Official recordings need a bCourses login; no course grading |
 | **CS C182/282A, Fall 2025** | **A2** | Syllabus, schedule, multiple assignment PDFs and code links | Current video requires Berkeley access; incomplete lecture resources |
 | **CS180/280A, Fall 2025** | **A3** | Slides, readings, discussions and solutions, five programming projects | Deliberately no recordings; no project solutions or grading |
 | **EECS183/283A, Fall 2025** | **A2** | Full topic schedule and most slides | Assignments, starter code, solutions, video |
@@ -165,6 +166,7 @@ For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-m
 
 ## Changelog
 
+- 2026-09-30: The CS189 Spring 2026 site is back online, now graded A3 and added to the inventory table; Spring 2025 official recordings require a bCourses login, so the "public video" claim was removed; linked the expanded CS189 guide series.
 - 2026-08-22: Restored CS C182 to the advanced-vision route based on CS C280's official expected background.
 
 ## References
@@ -177,6 +179,7 @@ For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-m
 - [CS61B — Fall 2025](https://fa25.datastructur.es/)
 - [CS70 — Fall 2025](https://fa25.eecs70.org/)
 - [CS188 — Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS189 — Spring 2026](https://eecs189.org/sp26/)
 - [CS189 — Spring 2025](https://people.eecs.berkeley.edu/~jrs/189s25/)
 - [CS C182/282A — Fall 2025](https://berkeley-cs182.github.io/fa25/)
 - [CS180/280A — Fall 2025](https://cal-cs180.github.io/fa25/)

@@ -50,6 +50,7 @@ CS50/CS32 → CS51/CS61
 | **CS182, Fall 2022 archive** | **A2** | Historical lecture and section notes plus exams | Not the current edition; no complete, consistent video/starter/grader chain |
 | **CS1840 RL, Fall 2026** | **A0** | Catalog and topic description | The offering is not complete yet |
 | **CS2831 Advanced Computer Vision, Fall 2026** | **A0** | Catalog, instructor, and topic description | The current material set is not yet an auditable public course |
+| **CS 2881R AI Safety, Fall 2025** | **A3** (seminar standard) | Reading lists for all 12 lectures, 11 lecture recordings on YouTube, a runnable HW0 GitHub repo, midterm and final specs with rubrics, student project papers and posters | No traditional problem sets; slides for only about half the lectures; no lecture recording for L5, only the opening of L8 |
 
 The A0–A3 scale comes from the [Global AI and CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 covers catalog, offering, or topic descriptions; A1 requires an accessible syllabus; A2 exposes substantive partial material; and A3 is coherent enough for self-study. These are not Harvard ratings and do not promise credit, instructor feedback, or free compute.
 
@@ -69,7 +70,7 @@ The [CS1810 Spring 2026 syllabus](https://github.com/harvard-ml-courses/cs181-we
 
 Its access profile is almost the inverse of CS50 AI. The [Spring 2026 homework repository](https://github.com/harvard-ml-courses/cs181-s26-homeworks) exposes HW0 through HW6, and the course site links notes and sections. The syllabus also states that **all learning will be in person**. Gradescope handles submission and grades; Ed carries course discussion; solution feedback belongs to the enrolled workflow.
 
-CS1810 therefore earns A3 because its current notes, sections, textbook, and assignments form a coherent route—not because it has a public current-semester playlist. An independent learner should use the homework as the clock: attempt HW0, repair gaps in probability or linear algebra, then read and solve toward each later assignment. An old playlist should not be relabeled as Spring 2026.
+CS1810 therefore earns A3 because its current notes, sections, textbook, and assignments form a coherent route—not because it has a public current-semester playlist. An independent learner should use the homework as the clock: attempt HW0, repair gaps in probability or linear algebra, then read and solve toward each later assignment. An old playlist should not be relabeled as Spring 2026. This site's [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) follows exactly that clock: one post per Spring 2026 assignment from HW0 through HW6, plus midterm and final review checkpoints.
 
 ## CS1820: the newest offering is not complete yet
 
@@ -77,7 +78,7 @@ The [Harvard SEAS course listing](https://seas.harvard.edu/computer-science/cour
 
 The catalog and preview site are not enough to judge a semester's recordings, assignments, starter code, or solutions, so the current course remains **A0** ([Locator 2026 Fall](https://locator.tlt.harvard.edu/course/colgsas-110661/2026/fall/14315) says `This Canvas course site has not been published yet`; [Locator 2025 Spring](https://locator.tlt.harvard.edu/course/colgsas-110661) is a bare listing without a public syllabus or homework repo). Ariel Procaccia's [Fall 2022 archive](https://procaccia.info/courses/CS182-F22/) preserves **22 lectures + pset0–4 + section1–12 + midterm/final** (60+ PDFs) on problem solving, multi-agent systems, uncertainty, machine learning, and ethics, and the [Fall 2018 syllabus](https://www.haifeng-xu.com/files/cs182_syllabus_fall18.pdf) (Procaccia / Radanovic / Xu) plus `Harvard-CS182-F18` P0–P5 are from the same lineage. They are a historical **A2**, not a Fall 2026 substitute. 2023/2024 show the same gap (only `Embedded EthiCS` snapshots; no public pset repo — and Berkeley's `CS182` with the same number is a different course).
 
-> **Series disclaimer**: A weekly CS182 guide cannot be promised as A3 for the current 2026/2025 offering (A0). The site will use the **Fall 2022 (or Fall 2018) historical A2** as the dated source and publish a separate current-edition comparison once Fall 2026 material exists. CS181 will use the **2026 hw0–6 A3** as the weekly clock (`all learning will be in-person`, no public recordings, Google Sheet schedule deleted — week = homework number), with 2025 `practical` as the backup for the missing practical.
+> **Series disclaimer**: A weekly CS182 guide cannot be promised as A3 for the current 2026/2025 offering (A0). The site will use the **Fall 2022 (or Fall 2018) historical A2** as the dated source and publish a separate current-edition comparison once Fall 2026 material exists. The [CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) uses the **2026 hw0–6 A3** assignments as its spine (`all learning will be in-person`, no public recordings, Google Sheet schedule deleted — week = homework number), plus midterm and final checkpoints.
 
 ## The most stable external route
 
@@ -93,10 +94,14 @@ Attempt HW0 first. Repair only the gaps it exposes, then use the six main homewo
 
 For planning, games, and multi-agent systems, start now with the first problem-solving notes in the dated CS182 Fall 2022 archive. CS1840 and CS2831 are future tracking items, not current self-study routes; do not promise their material before a syllabus and assignments exist.
 
+For AI safety, the course usable today is **CS 2881R AI Safety**, the graduate seminar Boaz Barak first taught in Fall 2025. That offering is complete: reading lists for all 12 lectures are public, YouTube has 11 lecture recordings, HW0 is a GitHub repo you can run yourself, and the midterm and final specs are posted, so by seminar standards it rates A3. The prerequisite is CS 181-level background, so it comes after CS1810. The site lives on Boaz's GitHub Pages; the root now shows Fall 2026, and Fall 2025 moved to `/fall2025/`. Fall 2026 is in session and serves only as a preview. There are no traditional problem sets, so a self-study rhythm has to come from the reading lists and the project specs. This site's [CS 2881R guide series](/posts/ai/2026-09-30-cs2881r-course-overview-en) follows Fall 2025.
+
 Harvard's clearest lesson is that a polished public page still needs an asset-level version audit. CS50 AI shows how lecture and assignment years can diverge; CS1810 shows that a course without public recordings can still be A3; CS1820 shows that the newest catalog entry is not yet a public course. Separating those states produces a route learners can start now and update honestly later.
 
 ## Changelog
 
+- 2026-10-01: Added CS 2881R AI Safety (Fall 2025 complete; reading lists, 11 lecture recordings, HW0 repo, and project specs public; A3 by seminar standards) to the entry-point table and the broad-AI/specialist route, with a link to this site's guide; added the Fall 2025 course site to References.
+- 2026-09-30: The CS1810 section and the series disclaimer now link to this site's [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) (Spring 2026 HW0–HW6 plus midterm/final checkpoints); added it to the references.
 - 2026-08-27: Added a six-round audit disclaimer — CS182 2026/2025/2024/2023 are all A0 for the current offering (Locator Canvas unpublished, no public homework repo; only F22 22-lecture + F18 P0–5 as historical A2); CS181 four-year comparison (two midterms vs midterm+final, hw3–5 reshuffle, practical lifecycle) and the deleted Google Sheet note; weekly guides will use homework numbers as the clock.
 - 2026-08-26: Backfilled an internal link — the [CS50 AI deep dive](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en) is now live; linked it from the version-comparison passage.
 - 2026-08-22: Standardized the A0/A1 boundary, re-rated catalog-only Fall 2026 courses as A0, and separated future tracking from current self-study routes.
@@ -110,6 +115,7 @@ Harvard's clearest lesson is that a polished public page still needs an asset-le
 - [CS1810 Spring 2026 course website](https://harvard-ml-courses.github.io/cs181-web/)
 - [CS1810 Spring 2026 syllabus](https://github.com/harvard-ml-courses/cs181-web/blob/main/syllabus.html)
 - [CS1810 Spring 2026 homework repository](https://github.com/harvard-ml-courses/cs181-s26-homeworks)
+- [Harvard CS181 weekly guide overview](/posts/tech/2026-08-27-harvard-cs181-overview-en)
 - [Harvard CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/)
 - [Harvard CS course tags](https://csadvising.seas.harvard.edu/concentration/courses/tags/)
 - [Harvard SEAS computer science course listing](https://seas.harvard.edu/computer-science/courses)
@@ -118,3 +124,5 @@ Harvard's clearest lesson is that a polished public page still needs an asset-le
 - [CS182 Fall 2022 archive](https://procaccia.info/courses/CS182-F22/)
 - [CS182 Fall 2018 syllabus (A. Procaccia / H. Xu)](https://www.haifeng-xu.com/files/cs182_syllabus_fall18.pdf)
 - [Harvard-CS182-F18 psets P0–P5](https://github.com/Harvard-CS182-F18/cs182-f18-psets)
+- [CS 2881R AI Safety — Fall 2025 archive](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS 2881R guide overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)

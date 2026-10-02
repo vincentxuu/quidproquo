@@ -8,8 +8,8 @@ series:
   name: "世界名校 AI／CS 課程地圖"
   order: 92
 type: guide
-tldr: "CMU 現行 BSAI 已改成 07-280 → 07-380，再從 NLP／視覺核心與四個 AI clusters 延伸；但 07-380 要到 Fall 2026 才首開。07-280 Spring 2026 的殘留教材與 10-301/601 已能完整自學，15-281 則是仍有價值的退休舊路線。"
-description: "以 CMU 官方 BSAI 要求、2026 課號改制、實際開課與匿名存取測試，整理 07-280、07-380、15-281、10-301、10-414、11-785 與 16-385 的自學路線。"
+tldr: "CMU 現行 BSAI 已改成 07-280 → 07-380，再從 NLP／視覺核心與四個 AI clusters 延伸；07-380 已在 Fall 2026 首開，同學期還新開了研究所級的 11-768 AI Agents。07-280 Spring 2026 的殘留教材與 10-301/601 已能完整自學，15-281 則是仍有價值的退休舊路線。"
+description: "以 CMU 官方 BSAI 要求、2026 課號改制、實際開課與匿名存取測試，整理 07-280、07-380、15-281、10-301、10-414、11-785、11-768 與 16-385 的自學路線。"
 draft: false
 ---
 
@@ -73,30 +73,33 @@ CMU 在 Fall 2018 推出 BSAI。現行 curriculum 先要求完整的數學、統
 | 課程與版本 | 等級 | 匿名讀者拿得到什麼 | 主要缺口 |
 |---|---:|---|---|
 | **07-280, Spring 2026** | **A3** | lecture PDFs／notes、recitation 與解答、書面 HW、部分 programming notebooks | 首頁已切到 Fall 2026，缺穩定學期索引；無完整公開影片／autograder |
-| **07-280, Fall 2026** | **A2** | 完整課綱、24 講主題、部分公開 notes | 8/25 才開課；當期 slides、作業與錄影尚未發布完整 |
-| **07-380, Fall 2026** | **A2→A3** | syllabus、26 講行事曆、Lec01、Prop Logic、Checkpoint、Quiz×6、HW1-7 日期 | 首開；HW starter 多未釋出、Canvas/Gradescope/Piazza 限校內 |
+| **07-280, Fall 2026** | **A2→A3** | 完整課綱、24 講與 12 份作業的行事曆；前 11 講教材與 HW1–5 題目已隨進度公開 | 學期進行中，後半教材未釋出；部分講次沿用 Spring 2025 10-301／10-315 投影片 |
+| **07-380, Fall 2026** | **A2→A3** | syllabus、26 講行事曆、前 9～10 講投影片、Quiz×6、HW1-7 日期 | 首開；HW starter 多未釋出、Canvas/Gradescope/Piazza 限校內 |
 | **15-281, Spring 2026** | **A3** | slides、course notes、recitation、P0–P5、書面作業、考試練習與解答 | 部分 Panopto、Canvas、Gradescope 功能需校內身分 |
 | **10-301/601, Spring 2026** | **A3** | 27 講 slides／inked slides、readings、recitation 與解答、9 份 HW 與 starter、考試練習與解答 | Panopto、Piazza、Gradescope 與正式作業解答受限 |
 | **16-385, Spring 2026** | **A2** | 26 講 slides／readings、notebooks、7 份 programming assignment 規格 | 帳號、提交、評分與部分 starter access 受限 |
 | **11-785, Spring 2026** | **A3** | 29 講公開 YouTube／slides、notes、bootcamp／recitation notebooks | HW1–4 幾乎都依賴 Piazza／Autolab；無匿名 CMU compute |
+| **10-423/623/723 Generative AI, Spring 2026** | **A3** | 26 講投影片、HW1–HW4 題目與起始碼、附解答的練習考卷、專案說明 | 錄影在 Panopto；HW0 題目檔、HW3/HW4 recitation 投影片、小考與 Gradescope 評分不公開 |
+| **11-768, Fall 2026** | **A2** | 23 講行事曆、前 11 講投影片、前 9 講錄影、Assignment 1 | 首開、學期進行中；Assignment 2、3 尚未釋出；先修要求訓練過語言模型 |
 | **10-414/714, current site** | **A3*** | 26 講 slides／notebooks、2022 官方影片與 implementation notebooks | `*` 是跨版組合；2025 HW0–3 repo 現為 404，`mugrade` 只供校內學生 |
+| **11-868 LLM Systems, Spring 2026** | **A3** | 28 份講義 PDF、7 份 MiniTorch 作業說明與起始碼 repo | 沒有錄影；需自備 GPU（修課生用 PSC 叢集）；quiz 不公開 |
 | **10-708, Spring 2026** | **A2** | 約 25 組 slides 與 readings | 錄影限修課者；四份 HW 只在 Piazza |
 
-07-280 必須拆成兩個版本看。網站首頁現在已切到 Fall 2026，當期課程要四天後才開始，lecture material 欄與多數作業尚未上線，所以只能算 A2 預覽；不過 Spring 2026 的[第一講](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf)、[第一份 recitation](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf)與[第一份作業](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf)等官方直連仍可匿名取得，後續講義、解答與部分 notebooks 足以排成 A3 路線。問題是官方沒有保留穩定的 Spring 2026 學期首頁，這些直連未來可能失效。
+07-280 必須拆成兩個版本看。網站首頁已切到 Fall 2026，當期教材隨進度逐講放出，前 11 講與 HW1–5 已經上線，學期結束前先列 A2→A3；本站的 [07-280 完整課程導讀](/posts/ai/2026-08-22-cmu-07280-course-overview)就按這個當期課站寫。Spring 2026 的[第一講](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf)、[第一份 recitation](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf)與[第一份作業](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf)等官方直連仍可匿名取得，後續講義、解答與部分 notebooks 足以排成 A3 路線。問題是官方沒有保留穩定的 Spring 2026 學期首頁，這些直連未來可能失效。
 
-07-380 Fall 2026 已是完整課站（[詳見總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)）：26 講 `Lec01 Introduction` 到 `Lec26 AI Ethics`、Lec01 pptx/pdf (inked)、Prop Logic.pdf、6 次 Quiz、7 份 HW 日期與 Final Project 皆已公開；HW starter 多數仍為 TBD、Gradescope/Canvas/Piazza 限校內，故判 A2→A3 過渡。待 HW1-2 釋出即可同 07-280 判 A3。
+07-380 Fall 2026 已是完整課站（[詳見總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)）：26 講 `Lec01 Introduction` 到 `Lec26 AI Ethics`、6 次 Quiz、7 份 HW 日期與 Final Project 皆已公開，投影片已隨進度放到第 9～10 講；8/27 查核時 HW starter 多數仍為 TBD，Gradescope/Canvas/Piazza 也限校內，故判 A2→A3 過渡。待 HW1-2 釋出即可同 07-280 判 A3。
 
 ## 校外真正走得下去的三條路
 
 ### 1. 廣義 AI：07-280 跟新主幹，15-281 當備用
 
-如果你想補搜尋、規劃、不確定性與 agent 基礎，優先用 **07-280 Spring 2026**。它既是新 BSAI 的正式入口，殘留教材也已涵蓋 lecture notes、recitation、書面 HW 與部分 programming notebooks。缺點不是內容太少，而是學期索引已被 Fall 2026 覆寫，必須從現行頁面與官方直連拼回已完成版本。
+如果你想補搜尋、規劃、不確定性與 agent 基礎，優先用 **07-280**。它是新 BSAI 的正式入口：Spring 2026 已完成的教材涵蓋 lecture notes、recitation、書面 HW 與部分 programming notebooks，但學期索引已被 Fall 2026 覆寫，只能靠官方直連拼回；Fall 2026 則正在逐講放出，想跟當期進度就讀本站的 [07-280 逐講導讀](/posts/ai/2026-08-22-cmu-07280-course-overview)。
 
 **15-281 Spring 2026** 可當備用的舊式廣義 AI 路線：公開站保留講義、recitation、P0–P5、書面題與考試練習，教材鏈也是 A3。但不要把它當成 CMU 未來的正式順序；它是過渡班留下的完整歷史版本。若 07-280 的直連日後失效，或你想做傳統 AI projects，才優先回來使用它。
 
 ### 2. 機器學習：10-301/601 是仍在運作的穩定入口
 
-如果目標是 ML、深度學習或後續研究課，選 **10-301/601 Spring 2026** 比等待新課更實際。它有完整 slides、readings、recitation、九份 homework starter、practice exams 與解答；即使影片平台與正式提交受限，仍能組成 A3 路線。
+如果目標是 ML、深度學習或後續研究課，選 **10-301/601 Spring 2026** 比等待新課更實際。它有完整 slides、readings、recitation、九份 homework starter、practice exams 與解答；即使影片平台與正式提交受限，仍能組成 A3 路線。本站的 [10-301／601 導讀](/posts/learning/2026-08-22-cmu-10301-overview)用九份作業串起整門課。
 
 這門課與 07-280 是平行入口，不是上下集：
 
@@ -112,8 +115,11 @@ CMU 在 Fall 2018 推出 BSAI。現行 curriculum 先要求完整的數學、統
 基礎完成後再挑一條，不要三門一起收藏：
 
 - **16-385 Computer Vision Spring 2026**：它是 BSAI 的 NLP／視覺二選一核心之一。公開 slides、readings、notebooks 與七份作業規格足以深入視覺，但部分實作鏈仍依賴課程帳號，所以保守列 A2。
-- **11-785 Introduction to Deep Learning**：Spring 2026 有 29 講公開 YouTube、slides、notes 與 bootcamp／recitation notebooks，足以排成 A3 的講授與實作路線；但 HW1–4 幾乎都移往 Piazza／Autolab。A3 在這裡不代表正式作業鏈也完整，更不包含 GPU。
+- **11-785 Introduction to Deep Learning**：Spring 2026 有 29 講公開 YouTube、slides、notes 與 bootcamp／recitation notebooks，足以排成 A3 的講授與實作路線；但 HW1–4 幾乎都移往 Piazza／Autolab。A3 在這裡不代表正式作業鏈也完整，更不包含 GPU。[Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html) 正逐講放出影片，本站的 [11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)已涵蓋全部講次。
+- **10-423/623/723 Generative AI**：Matt Gormley 與 Aran Nayebi 合授，Spring 2026 用 26 講走完文字模型、影像生成、模型調適、多模態、規模化與進階主題。先修是 10-301/601 等 ML 導論或 11-485/685/785 深度學習導論擇一，所以正好接在上面兩條入口之後。投影片、HW1–HW4 題目與起始碼、附解答的練習考卷都公開，列 A3；錄影鎖在 Panopto。它的作業政策也值得借鏡：每份作業分兩次交，第一次只准人工作答，第二次才准用 AI。本站的 [10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)依 Spring 2026 講次逐篇寫。
+- **11-768 AI Agents**：Fall 2026 新開的研究所課，由 Graham Neubig 與 Daniel Fried 授課，三份作業依序做 agent harness、評測與訓練。先修要求訓練過語言模型，適合排在 11-785 或 NLP 課之後。投影片與錄影隨進度公開，後兩份作業還沒釋出，學期中先列 A2；本站的 [11-768 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)跟著當期進度寫。
 - **10-414/714 Deep Learning Systems**：從自動微分一路做到 CPU／CUDA、CNN、RNN 與 transformers，公開 implementation notebooks 足以實作一個叫 Needle 的框架。它目前最像一個官方組裝包：Fall 2026 課表、2022 影片與標成 2025 的作業放在同一站，而且 HW0–3 的 GitHub 連結現已回傳 404。仍可用 A3 講義、影片和 notebooks 自學，但不能宣稱當期作業包完整。
+- **11-868 LLM Systems**：Lei Li 開的研究所課，接在 10-414/714 之後正好。10-414/714 教你自己寫一個深度學習框架，11-868 則在 MiniTorch 上加真正的 CUDA kernel，七份作業一路做到分散式訓練、SGLang 服務與 RLHF。Spring 2026 的 28 份講義與 7 份作業的說明、起始碼全部公開，列 A3；但官方沒有任何錄影，只能讀講義，而且作業得在 GPU 上跑，修課生用的 PSC 叢集帳號校外拿不到，得先算好硬體預算。本站的 [11-868 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)依硬體條件分層排了自學路線。
 
 **10-708 Probabilistic Graphical Models Spring 2026** 也確實有當期課站，約 25 組 slides 與 readings 能匿名讀；但錄影只供修課者，四份 HW 又只在 Piazza，缺少公開練習閉環，因此列 A2。想完整自學時，2019／2021 歷史站反而更自包含，但不該冒充 2026 教材。
 
@@ -144,6 +150,9 @@ CMU 目前最值得學的，恰好不是一張固定清單，而是這次改制�
 
 ## 更新紀錄
 
+- 2026-10-01：公開教材盤點與深入分支補上 10-423/623/723 Generative AI（Spring 2026：26 講投影片、HW1–HW4 與附解答練習考卷公開，錄影在 Panopto，A3）與站內導讀連結；參考資料補上課站。
+- 2026-09-30：公開教材盤點與系統分支補上 11-868 LLM Systems（Spring 2026：28 份講義、7 份 MiniTorch 作業全公開，沒有錄影、需要 GPU，A3）與站內導讀連結。
+- 2026-09-29：Fall 2026 開學後重查：07-280 Fall 2026 改為 A2→A3（前 11 講與 HW1–5 已公開）、07-380 投影片進度更新、11-785 F26 逐講上片中；新增 11-768 AI Agents（表格與分支路線）；補上本站 07-280、10-301、11-785、11-768 導讀連結。
 - 2026-08-22：補上 07-280 Spring 2026 官方教材直連，讓 A3 判定可由匿名讀者重現。
 
 ## 參考資料
@@ -161,7 +170,10 @@ CMU 目前最值得學的，恰好不是一張固定清單，而是這次改制�
 - [10-414/714 Deep Learning Systems](https://dlsyscourse.org/)
 - [10-414/714 Lectures](https://dlsyscourse.org/lectures/)
 - [10-414/714 Assignments](https://dlsyscourse.org/assignments/)
-- [11-785 Introduction to Deep Learning — Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html)
+- [11-868 LLM Systems Spring 2026](https://llmsystem.github.io/llmsystem2026spring/) ／ [作業站](https://llmsystem.github.io/llmsystemhomework)
+- [11-785 Introduction to Deep Learning — Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html)／[Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)
+- [11-768 AI Agents — Fall 2026](https://www.cmu-agents.com/)
+- [10-423/623/723 Generative AI — Spring 2026](https://www.cs.cmu.edu/~mgormley/courses/10423/) ／ [講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)
 - [16-385 Computer Vision — Spring 2026](https://16385.courses.cs.cmu.edu/spring2026/)
 - [10-708 Probabilistic Graphical Models — Spring 2026](https://andrejristeski.github.io/10708S26/index.html)
 - [CSDIY — CMU 10-414/714](https://csdiy.wiki/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/CMU10-414/)

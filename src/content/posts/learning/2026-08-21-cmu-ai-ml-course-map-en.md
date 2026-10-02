@@ -8,8 +8,8 @@ series:
   name: "Global AI/CS Course Map"
   order: 92
 type: guide
-tldr: "CMU's current BSAI now runs through 07-280 and 07-380 before branching into an NLP/vision core and four AI clusters, but 07-380 does not debut until Fall 2026. The residual Spring 2026 materials for 07-280 and the complete 10-301/601 site already support self-study; retired 15-281 remains a useful legacy route."
-description: "A guide to CMU's AI/ML curriculum based on the official BSAI requirements, the 2026 course redesign, actual offerings, and anonymous access tests for 07-280, 07-380, 15-281, 10-301, 10-414, 11-785, and 16-385."
+tldr: "CMU's current BSAI now runs through 07-280 and 07-380 before branching into an NLP/vision core and four AI clusters. 07-380 debuted in Fall 2026, and the same semester launched a graduate-level 11-768 AI Agents course. The residual Spring 2026 materials for 07-280 and the complete 10-301/601 site already support self-study; retired 15-281 remains a useful legacy route."
+description: "A guide to CMU's AI/ML curriculum based on the official BSAI requirements, the 2026 course redesign, actual offerings, and anonymous access tests for 07-280, 07-380, 15-281, 10-301, 10-414, 11-785, 11-768, and 16-385."
 draft: false
 ---
 
@@ -73,30 +73,33 @@ The table uses the editorial scale from the [Global AI and CS Course Map](/posts
 | Course and edition | Rating | What opens anonymously | Main gap |
 |---|---:|---|---|
 | **07-280, Spring 2026** | **A3** | Lecture PDFs/notes, recitations and solutions, written homework, and some programming notebooks | The home page now points to Fall 2026; no stable semester index, complete public video, or autograder |
-| **07-280, Fall 2026** | **A2** | Full course specification, a 24-lecture topic list, and some public notes | Starts August 25; current slides, assignments, and video are not yet complete |
-| **07-380, Fall 2026** | **A0** | An eleven-line specification covering description, topics, prerequisites, and assessment | First offering; no syllabus, schedule, or delivered materials yet |
+| **07-280, Fall 2026** | **A2→A3** | Full course specification and a calendar of 24 lectures and 12 assignments; materials for the first 11 lectures and HW1–5 prompts released so far | Semester in progress, later material not yet released; some lectures reuse Spring 2025 10-301/10-315 slides |
+| **07-380, Fall 2026** | **A2→A3** | Syllabus, 26-lecture calendar, slides for the first 9–10 lectures, 6 quizzes, HW1–7 dates | First offering; most HW starters unreleased; Canvas/Gradescope/Piazza are enrollment-only |
 | **15-281, Spring 2026** | **A3** | Slides, course notes, recitations, P0–P5, written homework, and practice exams with solutions | Some Panopto, Canvas, and Gradescope functions require CMU identity |
 | **10-301/601, Spring 2026** | **A3** | 27 lectures of slides/inked slides, readings, recitations and solutions, nine homework sets with starter assets, and exam practice with solutions | Panopto, Piazza, Gradescope, and official homework solutions are restricted |
 | **16-385, Spring 2026** | **A2** | 26 lectures of slides/readings, notebooks, and seven programming-assignment specifications | Accounts, submission, grading, and some starter access are restricted |
 | **11-785, Spring 2026** | **A3** | 29 public YouTube lectures/slides, notes, and bootcamp/recitation notebooks | HW1–4 mostly depend on Piazza/Autolab; no anonymous CMU compute |
+| **10-423/623/723 Generative AI, Spring 2026** | **A3** | 26 lecture decks, HW1–HW4 handouts and starter code, practice exams with solutions, project spec | Recordings in Panopto; HW0 handout, HW3/HW4 recitation slides, quizzes, and Gradescope grading not public |
+| **11-768, Fall 2026** | **A2** | 23-lecture calendar, slides for the first 11 lectures, recordings of the first 9, Assignment 1 | First offering, semester in progress; Assignments 2 and 3 not yet released; prerequisite is having trained a language model |
 | **10-414/714, current site** | **A3*** | 26 lectures of slides/notebooks, official 2022 video, and implementation notebooks | `*` mixes editions; the 2025 HW0–3 repositories currently return 404, and `mugrade` is enrollment-only |
+| **11-868 LLM Systems, Spring 2026** | **A3** | 28 lecture-slide PDFs, seven MiniTorch assignment handouts and starter-code repositories | No recordings; you need your own GPU (enrolled students use the PSC cluster); quizzes are not public |
 | **10-708, Spring 2026** | **A2** | Roughly 25 sets of slides and readings | Recordings are enrollment-only; four homework sets are available only through Piazza |
 
-07-280 must be split by edition. Its home page now points to Fall 2026, which starts four days after this audit; the lecture-material column and most assignments are not yet populated, so the current offering is only an A2 preview. Spring 2026's [first lecture](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf), [first recitation](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf), and [first homework](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf) remain anonymously accessible, with later notes, solutions, and selected notebooks forming an A3 route. The preservation risk remains: CMU did not retain a stable Spring 2026 semester index.
+07-280 must be split by edition. Its home page now points to Fall 2026, whose materials are released lecture by lecture; the first 11 lectures and HW1–5 are already online, so it is rated A2→A3 until the semester ends. The site's [complete 07-280 course guide](/posts/ai/2026-08-22-cmu-07280-course-overview-en) follows this current site. Spring 2026's [first lecture](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf), [first recitation](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf), and [first homework](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf) remain anonymously accessible, with later notes, solutions, and selected notebooks forming an A3 route. The preservation risk remains: CMU did not retain a stable Spring 2026 semester index.
 
-07-380 is clearer. Its page usefully previews ML theory, game theory, probabilistic graphical models, planning, distributed deep learning, generative AI, RLHF, vision transformers, diffusion, and VAEs. But the first class has not happened, and the page has no syllabus or schedule. A detailed topic paragraph is not a completed public course.
+07-380 Fall 2026 is now a full course site ([see the overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)): 26 lectures from `Lec01 Introduction` to `Lec26 AI Ethics`, 6 quizzes, dates for 7 homework sets, and a final project are all public, and slides have been posted through lectures 9–10. At the August 27 audit most HW starters were still TBD and Gradescope/Canvas/Piazza are enrollment-only, so it is rated an A2→A3 transition. Once HW1–2 are released it can be rated A3 like 07-280.
 
 ## Three routes that an outside learner can actually follow
 
 ### 1. Broad AI: follow 07-280, keep 15-281 as a fallback
 
-If you want search, planning, uncertainty, and agent foundations, start with **07-280 Spring 2026**. It is the formal entrance to the new BSAI, and its residual material covers lecture notes, recitations, written homework, and some programming notebooks. The problem is not a lack of content but the overwritten semester index: the completed edition has to be reconstructed from the current site and official direct links.
+If you want search, planning, uncertainty, and agent foundations, start with **07-280**. It is the formal entrance to the new BSAI. The completed Spring 2026 material covers lecture notes, recitations, written homework, and some programming notebooks, but its semester index has been overwritten by Fall 2026, so it can only be reassembled from official direct links. Fall 2026 is being released lecture by lecture; to keep pace with the current semester, read the site's [lecture-by-lecture 07-280 guide](/posts/ai/2026-08-22-cmu-07280-course-overview-en).
 
 **15-281 Spring 2026** remains a fallback classical-AI route. Its public site retains notes, recitations, P0–P5, written problems, and exam practice, making it A3 as well. Do not mistake it for CMU's future sequence. It is a complete historical edition left by a transition section. Prefer it if the 07-280 links later disappear or if you specifically want its classical AI projects.
 
 ### 2. Machine learning: 10-301/601 is the stable specialist entrance
 
-If the goal is ML, deep learning, or later research courses, **10-301/601 Spring 2026** is more practical than waiting for 07-380. It publishes slides, readings, recitations, nine homework starter packages, practice exams, and solutions. Even though the video platform and formal submission systems are restricted, the public material forms an A3 route.
+If the goal is ML, deep learning, or later research courses, **10-301/601 Spring 2026** is more practical than waiting for 07-380. It publishes slides, readings, recitations, nine homework starter packages, practice exams, and solutions. Even though the video platform and formal submission systems are restricted, the public material forms an A3 route. The site's [10-301/601 guide](/posts/learning/2026-08-22-cmu-10301-overview-en) threads the whole course through its nine assignments.
 
 10-301 and 07-280 are parallel entrances, not two halves of one sequence:
 
@@ -112,8 +115,11 @@ An outside learner can choose by objective rather than imitate the degree and co
 Choose one branch after the foundation instead of bookmarking all three:
 
 - **16-385 Computer Vision Spring 2026** is one of the BSAI's two NLP/vision core choices. Its slides, readings, notebooks, and seven assignment specifications support serious study, but accounts, grading, and parts of the starter workflow remain restricted, so this guide conservatively rates it A2.
-- **11-785 Introduction to Deep Learning Spring 2026** publishes 29 YouTube lectures, slides, notes, and bootcamp/recitation notebooks. That is coherent enough for an A3 lecture-and-practice route, but HW1–4 mostly live in Piazza and Autolab. Here, A3 does not mean that the official graded assignment chain or GPU access is public.
+- **11-785 Introduction to Deep Learning Spring 2026** publishes 29 YouTube lectures, slides, notes, and bootcamp/recitation notebooks. That is coherent enough for an A3 lecture-and-practice route, but HW1–4 mostly live in Piazza and Autolab. Here, A3 does not mean that the official graded assignment chain or GPU access is public. [Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html) is releasing videos lecture by lecture, and the site's [11-785 guide](/posts/ai/2026-08-22-cmu-11785-course-overview-en) already covers every lecture.
+- **10-423/623/723 Generative AI** is co-taught by Matt Gormley and Aran Nayebi; Spring 2026 covers text models, image generation, model adaptation, multimodality, scaling, and advanced topics in 26 lectures. The prerequisite is one intro ML course such as 10-301/601 or one intro deep learning course from 11-485/685/785, so it sits right after the two entry routes above. Slides, HW1–HW4 handouts and starter code, and practice exams with solutions are public, so it is rated A3; the recordings are locked in Panopto. Its homework policy is worth borrowing: each assignment is submitted twice, the first time human-only and the second time with AI allowed. The site's [10-423 guide](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) follows the Spring 2026 lectures.
+- **11-768 AI Agents** is a graduate course new in Fall 2026, taught by Graham Neubig and Daniel Fried; its three assignments build an agent harness, then evaluation, then training. The prerequisite is having trained a language model, so it is not an introduction to agents but a stop after 11-785 or NLP. Slides and recordings are published as the semester goes and the last two assignments are not out yet, so it is rated A2 mid-semester; the site's [11-768 guide](/posts/ai/2026-09-29-cmu-11768-course-overview-en) follows the current semester.
 - **10-414/714 Deep Learning Systems** moves from automatic differentiation through CPU/CUDA execution, CNNs, RNNs, and transformers while building a framework called Needle. The current official site is an assembled bundle: a Fall 2026 schedule, 2022 video, and assignments labeled 2025. Its lecture and implementation notebooks remain sufficient for A3 study, but the linked HW0–3 GitHub repositories now return 404. It is not accurate to call the current assignment package complete.
+- **11-868 LLM Systems** is Lei Li's graduate course and a natural next step after 10-414/714. Where 10-414/714 has you write your own deep learning framework, 11-868 adds real CUDA kernels to MiniTorch, and its seven assignments run all the way to distributed training, SGLang serving, and RLHF. The Spring 2026 edition publishes 28 slide decks plus handouts and starter code for all seven assignments, so it is rated A3. There are no official recordings, though, so you learn from the slides alone, and the assignments need a GPU; the PSC cluster accounts enrolled students use are not available to outsiders, so budget for hardware first. This site's [11-868 guide](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en) lays out self-study routes by hardware tier.
 
 **10-708 Probabilistic Graphical Models Spring 2026** also has a current site with roughly 25 sets of slides and readings. Recordings are restricted to enrolled students, and all four homework sets live in Piazza, so the course lacks a public practice loop and receives A2. The historical 2019 and 2021 sites are more self-contained, but they should not be presented as 2026 material.
 
@@ -144,6 +150,9 @@ For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-m
 
 ## Changelog
 
+- 2026-10-01: Added 10-423/623/723 Generative AI (Spring 2026: 26 lecture decks, HW1–HW4, and practice exams with solutions public, recordings in Panopto, A3) to the materials inventory and the deep-dive branch, with a link to this site's guide; added the course site to References.
+- 2026-09-30: Added 11-868 LLM Systems (Spring 2026: 28 slide decks and seven MiniTorch assignments all public, no recordings, GPU required, A3) to the public-material inventory and the systems branch, with a link to this site's guide.
+- 2026-09-29: Rechecked after Fall 2026 began: 07-280 Fall 2026 moved to A2→A3 (first 11 lectures and HW1–5 public), 07-380 updated to a full course site with current slide progress, 11-785 F26 videos rolling out lecture by lecture; added 11-768 AI Agents (table and branch route); added links to this site's 07-280, 10-301, 11-785, and 11-768 guides.
 - 2026-08-22: Added direct official Spring 2026 assets so an anonymous reader can reproduce the 07-280 A3 rating.
 
 ## References
@@ -161,7 +170,10 @@ For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-m
 - [10-414/714 Deep Learning Systems](https://dlsyscourse.org/)
 - [10-414/714 Lectures](https://dlsyscourse.org/lectures/)
 - [10-414/714 Assignments](https://dlsyscourse.org/assignments/)
-- [11-785 Introduction to Deep Learning — Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html)
+- [11-868 LLM Systems Spring 2026](https://llmsystem.github.io/llmsystem2026spring/) / [assignment site](https://llmsystem.github.io/llmsystemhomework)
+- [11-785 Introduction to Deep Learning — Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html) / [Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)
+- [11-768 AI Agents — Fall 2026](https://www.cmu-agents.com/)
+- [10-423/623/723 Generative AI — Spring 2026](https://www.cs.cmu.edu/~mgormley/courses/10423/) / [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)
 - [16-385 Computer Vision — Spring 2026](https://16385.courses.cs.cmu.edu/spring2026/)
 - [10-708 Probabilistic Graphical Models — Spring 2026](https://andrejristeski.github.io/10708S26/index.html)
 - [CSDIY — CMU 10-414/714](https://csdiy.wiki/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/CMU10-414/)

@@ -11,8 +11,8 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 23
-tldr: "Week 4 pins the agent loop down as an interleaved think-act-observe sequence with the ReAct paper on Monday, then turns memory into OS-style tiered storage with the MemGPT paper on Wednesday. HW1 Part A closes the same week, so the loop shape and the memory design are the two things to finalize before grading."
-description: "A guided reading of the Stanford CS329Z Week 4 anchors: how Yao et al.'s ReAct interleaves reasoning with acting, how Packer et al.'s MemGPT manages memory past context limits, and how both map to the HW1 Part A finish."
+tldr: "Week 4 pins the agent loop down as an interleaved think-act-observe sequence with the ReAct paper on Monday, then turns memory into OS-style tiered storage with the MemGPT paper on Wednesday. The same week, HW1 is growing from an email-retrieval pipeline into a full harness where memory is an explicit requirement, so the loop shape and the memory design are the two things to settle now."
+description: "A guided reading of the Stanford CS329Z Week 4 anchors: how Yao et al.'s ReAct interleaves reasoning with acting, how Packer et al.'s MemGPT manages memory past context limits, and how both map to the HW1 agent harness."
 draft: false
 ---
 
@@ -20,9 +20,9 @@ draft: false
 
 Picture hiring a research assistant with two failure modes: one sits at the desk answering from memory and going wrong where you cannot debug it, the other clicks links endlessly without ever saying what it is looking for. You cannot steer either of them. That dilemma is what Week 4's two anchor papers set out to fix.
 
-Monday (Oct 12, Agent Patterns) assigns Yao et al.'s [ReAct](https://arxiv.org/abs/2210.03629) (ICLR 2023): let the model interleave "thinking" (Thought) with "doing" (Action), checking the environment's reply (Observation) after every step. Wednesday (Oct 14, Memory & Multi-Agent) assigns Packer et al.'s [MemGPT](https://arxiv.org/abs/2310.08560) (ICLR 2024): borrow hierarchical memory from operating systems and page information between a finite window and external storage through function calls. The same week closes [HW1](https://cs329z.stanford.edu/) Part A, where the loop's shape and the memory layout are the two decisions to lock in before submission.
+Monday (Oct 12, Agent Patterns) assigns Yao et al.'s [ReAct](https://arxiv.org/abs/2210.03629) (ICLR 2023): let the model interleave "thinking" (Thought) with "doing" (Action), checking the environment's reply (Observation) after every step. Wednesday (Oct 14, Memory & Multi-Agent) assigns Packer et al.'s [MemGPT](https://arxiv.org/abs/2310.08560) (ICLR 2024): borrow hierarchical memory from operating systems and page information between a finite window and external storage through function calls. The same week lands mid-way through [HW1](https://cs329z.stanford.edu/), where the loop's shape and the memory layout are the two decisions to lock in before the harness grows further.
 
-For orientation: [Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en) released HW1 with a from-scratch agent in Part A, Week 4 hands you two papers as construction blueprints, and the [course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) frames the whole course as engineering — this is the week the drawings get unrolled.
+For orientation: [Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en) released HW1 — build a company's internal AI assistant with no agent frameworks, just a chat-completion call and your own code, starting from pipelines that retrieve and reason over a real corporate email archive and growing into a harness with tools, a terminal, memory, and a human in the loop. Week 4 hands you two papers as construction blueprints, and the [course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) frames the whole course as engineering — this is the week the drawings get unrolled.
 
 ## ReAct: the think-act-observe loop
 
@@ -32,7 +32,7 @@ Why bother? The two prior roads each carry a terminal illness. Pure reasoning ([
 
 The setups are deliberately asymmetric. Question answering runs on a deliberately spartan [Wikipedia](https://www.wikipedia.org/) API with exactly three moves: search an article, look up a string within the page, finish with an answer. Keeping retrieval weak forces the model to retrieve through explicit verbal reasoning instead of leaning on a strong retriever. Decision-making tasks (the [ALFWorld](https://alfworld.github.io/) text game, [WebShop](https://webshop-pnlp.github.io/) shopping navigation) flip the pattern: thoughts appear sparsely, and the model itself decides when to think versus when to act.
 
-**What to do**: freeze your HW1 Part A loop into this shape tonight — three moves per iteration: one Thought line (why this action), one Action (one tool call), one Observation (what the tool returned). Add two guardrails: a step cap (7 steps for HotpotQA, 5 for FEVER, falling back to CoT-SC past the cap) plus a finish move that must carry an answer. Before submitting, sort every failed trajectory into three bins — reasoning error, empty retrieval, or repetition loop. The paper's appendix hands you that taxonomy for free.
+**What to do**: freeze your HW1 loop into this shape tonight — three moves per iteration: one Thought line (why this action), one Action (one tool call), one Observation (what the tool returned). Add two guardrails: a step cap (7 steps for HotpotQA, 5 for FEVER, falling back to CoT-SC past the cap) plus a finish move that must carry an answer. Before submitting, sort every failed trajectory into three bins — reasoning error, empty retrieval, or repetition loop. The paper's appendix hands you that taxonomy for free.
 
 ## The controlled experiment: where did the hallucinations go
 
@@ -40,9 +40,9 @@ ReAct's most readable table is not a leaderboard but Table 2, a hand-labeled err
 
 Scores split by domain. On the [FEVER](https://fever.ai/) fact-checking task, ReAct beats CoT 60.9 to 56.3. On [HotpotQA](https://hotpotqa.github.io/) multi-hop QA, ReAct trails slightly at 27.4 to 29.4. The hybrids win overall. On HotpotQA, answer with ReAct first and fall back to CoT-SC on failure, reaching 35.1. On FEVER the reverse order wins: lead with CoT-SC and fall back to ReAct when consensus runs thin, reaching 64.6. Internal knowledge owns structure, external retrieval owns facts — a division of labor that multi-agent week will revisit.
 
-Decision-making scores are cleaner: with only one or two in-context examples, ReAct beats imitation-learning baselines by 34 percentage points on ALFWorld. On WebShop it clears the previous best method by 10 percentage points. The finetuning result throws small models a lifeline: finetuned on just 3,000 correct trajectories, an 8B ReAct model overtakes every 62B prompting result. Teaching a model "how to look things up" generalizes better than teaching it "the answers" — a line worth quoting in the Part B reflection.
+Decision-making scores are cleaner: with only one or two in-context examples, ReAct beats imitation-learning baselines by 34 percentage points on ALFWorld. On WebShop it clears the previous best method by 10 percentage points. The finetuning result throws small models a lifeline: finetuned on just 3,000 correct trajectories, an 8B ReAct model overtakes every 62B prompting result. Teaching a model "how to look things up" generalizes better than teaching it "the answers" — translated to an email assistant, teach it how to search the inbox rather than stuffing the whole archive into the prompt.
 
-**What to do**: give your agent a CoT fallback — when ReAct exhausts its step budget without an answer, back off to one pure-CoT attempt; when CoT's sampled consensus runs too thin, switch to ReAct with external lookup. Count how many questions each path rescues. That count becomes the "error analysis" section of the Part A report almost verbatim.
+**What to do**: give your agent a CoT fallback — when ReAct exhausts its step budget without an answer, back off to one pure-CoT attempt; when CoT's sampled consensus runs too thin, switch to ReAct with external lookup. Count how many questions each path rescues. That count becomes the "error analysis" section of the HW1 report almost verbatim.
 
 ## MemGPT: when memory runs short, borrow from the OS
 
@@ -52,13 +52,13 @@ The architecture has two tiers. Main context holds three prompt sections: read-o
 
 Each experiment targets one pain point. In multi-session dialogue, baseline GPT-4 — shown only a lossy summary of the prior five sessions — manages only 32.1% accuracy on deep memory retrieval. The same underlying model wired through MemGPT, which pages through the full history, reaches 92.5%. In document QA, fixed-window baselines must truncate as documents grow and accuracy slides with it, while MemGPT pages through archival storage nearly unaffected. The prettiest result is nested key-value retrieval, where each value may be the next lookup's key across several hops: the GPT-4 baseline hits zero accuracy by three nesting levels, and only MemGPT keeps completing the chain.
 
-**What to do**: split your agent's memory into two ledgers — working context holds only what would break the next move if lost (user goals, confirmed constraints), everything else lives in external storage behind retrieval. Then write one eviction rule: past how many queued messages you summarize, and that summaries keep facts, not small talk. Graders reward design trade-offs; that rule plus its rationale goes straight into the report.
+**What to do**: HW1 requires memory in the harness anyway, so split your agent's memory into two ledgers — working context holds only what would break the next move if lost (user goals, confirmed constraints), everything else lives in external storage behind retrieval. Then write one eviction rule: past how many queued messages you summarize, and that summaries keep facts, not small talk. Graders reward design trade-offs; that rule plus its rationale goes straight into the report.
 
 ## Where it sits in the course
 
-Week 4 bridges both directions. Looking back, it gives [Week 2](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s workflow-versus-agent distinction a runnable shape: an agent is a ReAct loop plus tiered memory. Looking ahead, Wednesday's second half on multi-agent collaboration (roles, communication, emergent behavior) previews Week 5 — and the ReAct paper's closing note, that humans can steer an agent live by editing its Thoughts, is exactly where human-in-the-loop collaboration begins.
+Week 4 bridges both directions. Looking back, it gives [Week 2](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s workflow-versus-agent distinction a runnable shape: an agent is a ReAct loop plus tiered memory. Looking ahead, Wednesday's second half on multi-agent collaboration (roles, communication, emergent behavior) previews Week 5 — and the ReAct paper's closing note, that humans can steer an agent live by editing its Thoughts, is exactly where human-in-the-loop collaboration begins, and it is the hook HW1 asks you to leave open for a human.
 
-On the calendar, HW1 (due Oct 30) Part A should close this week: loop shape fixed, memory design fixed, leaving runs and error analysis. The Part B framework rewrite ([Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en)'s DSPy) can wait until next week. Recall the Week 1 thesis — systems beat models. This week's two papers are that sentence as working drawings.
+On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loop shape fixed, memory design fixed, which leaves the next two weeks for wiring in the terminal, adding the human-in-the-loop step, running evaluations, and writing error analysis. The assignment bans frameworks throughout, so [Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en)'s DSPy stays in lecture, where you can see how it abstracts the parts you are writing by hand. Recall the Week 1 thesis — systems beat models. This week's two papers are that sentence as working drawings.
 
 ## This week's course-material map
 
@@ -68,6 +68,10 @@ On the calendar, HW1 (due Oct 30) Part A should close this week: loop shape fixe
   - [Mem0](https://arxiv.org/abs/2504.19413) takes the production route: dynamically extracting, consolidating, and retrieving salient facts mid-conversation, with a graph-structured variant for entity relations. On a long-dialogue benchmark's LLM-judged metric it improves 26% over OpenAI.
   - [Park et al.'s Generative Agents](https://arxiv.org/abs/2304.03442) shows the other end of memory: 25 agents inhabit a small town, storing complete experience logs in natural language. Agents periodically distill experience into higher-level reflections and retrieve them to plan. From a single seed — one agent wanting to throw a Valentine's Day party — invitations, date proposals, and coordinated attendance emerge on their own. Ablations confirm observation, planning, and reflection are each indispensable.
 - Full schedule: [CS329Z site, Week 4](https://cs329z.stanford.edu/)
+
+## Update log
+
+- 2026-09-29: HW1 was restructured (no more Part A / Part B split, the corpus is now a corporate email archive, memory and human-in-the-loop are explicit requirements); rewrote the opening, the ReAct/MemGPT "What to do" notes, and the course-position section to match
 
 ## References
 

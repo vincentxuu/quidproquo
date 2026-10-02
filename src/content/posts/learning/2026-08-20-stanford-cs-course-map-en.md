@@ -118,8 +118,9 @@ This branch has the most complete prerequisite chain of the five — you can fol
 
 | Number | Title | Official prerequisites |
 |---|---|---|
-| CS124 | From Languages to Information | CS106B, Python, CS109, CS107-level |
+| [CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en) | From Languages to Information | CS106B, Python, CS109, CS107-level |
 | [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) | Natural Language Processing with Deep Learning | calculus and linear algebra; CS124, CS221, or CS229 |
+| [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) | Transformers & Large Language Models | machine learning basics and linear algebra |
 | [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) | Natural Language Understanding | CS224N or CS224S |
 | [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai-en) | Agentic AI | one of LINGUIST 180/280, CS124, CS224N, CS224S, CS224U |
 | CS329X | Human Centered NLP | — |
@@ -130,6 +131,8 @@ This branch has the most complete prerequisite chain of the five — you can fol
 
 **CS224V is now called Agentic AI** — a 2026 name. It works directly on RAG and formal task descriptions, hybrid reasoning across databases and knowledge bases, AI-driven knowledge curation for scientific research, improving the accuracy and interpretability of decision-making agents through formal methods, and efficiency for long-horizon agents. If you want to build agents and would rather have a real course, this one is underrated.
 
+**CME295 is not a CS course number, yet it is the biggest time-saver on this track.** Offered by ICME, it is two units with no assignments, graded only on a midterm and a final; nine lectures run from the Transformer through LLM training, reasoning, and agents. The 2025 edition's videos, slides, and exam solutions are all public, and Autumn 2026 is in session with three new lectures on LLM systems, reinforcement learning, and diffusion LLMs. It works as a map before CS224N or as catch-up after it; this site has a [lecture-by-lecture guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en).
+
 **CS329X: Human Centered NLP** covers human-centered design, human-in-the-loop algorithms, fairness, and accessibility. Easy to write off as a soft elective, but it handles exactly the class of problems that blows up first when a model becomes a product.
 
 ### B. Vision
@@ -138,13 +141,19 @@ This branch has the most complete prerequisite chain of the five — you can fol
 
 **CS231N: Deep Learning for Computer Vision** is the deep learning side. Its notes site is where a lot of people first genuinely understood backpropagation, and the spring 2026 assignments reach diffusion models, CLIP, and DINO by the third one — still named for computer vision, but that stopped being all of it a while ago. Note the title is no longer "Convolutional Neural Networks for Visual Recognition," which many course maps still use.
 
+For self-study, CS231N is the most complete course in the vision branch. The Spring 2026 slides and the handouts and Colab starter code for all three assignments, A1–A3, are public, so this site rates it A3 (self-study-ready). The 2026 recordings stay inside Canvas, so outside readers watch the Spring 2025 recordings Stanford Online posted on YouTube instead; the lecture titles barely changed between the two years. This site's [CS231N guide series](/posts/ai/2026-09-30-cs231n-course-overview-en) pairs the 2026 materials with the 2025 videos and lays them out as a 10-week plan following the official schedule.
+
 On ordering, having CS229 or CS230 before CS231N makes it much smoother; CS231A can run alongside or after.
 
 ### C. Reinforcement learning and robotics
 
-`CS221 → CS238 → CS234 → CS223A → CS333`.
+`CS221 → CS238 → CS234 → CS224R → CS223A → CS333`.
 
-**CS234: Reinforcement Learning** states its prerequisites plainly: proficiency in Python, CS229 or equivalent, linear algebra, basic probability. **CS223A** is the robotics foundation course, taught by Oussama Khatib. **CS333** is a project-based graduate course pulling robotics, machine learning, and control theory into human-AI interaction; officially it only recommends an introductory AI course.
+[**CS234: Reinforcement Learning**](/posts/ai/2026-09-30-cs234-course-overview-en) states its prerequisites plainly: proficiency in Python, CS229 or equivalent, linear algebra, basic probability. Emma Brunskill runs from model-based MDP planning through policy gradients, RLHF/DPO, bandit exploration, and MCTS, spending more time than Stanford's deep RL course on convergence and sample-complexity analysis. The Winter 2026 slides for 14 lectures, the handouts and starter code for all three assignments, and the project spec can all be downloaded anonymously, so this site rates it A3. The site has no 2026 recordings; the public videos are the Spring 2024 edition, and its two Offline RL lectures have no counterpart in the 2026 slides.
+
+[**CS224R: Deep Reinforcement Learning**](/posts/ai/2026-09-30-cs224r-course-overview-en) is Chelsea Finn's deep RL course, running from imitation learning to RL for LLMs and robot foundation models. Its first lecture sends theory to CS234, and its prerequisites assume you already know RL basics, so it fits best after CS234. The Spring 2026 slides (17 decks), all three assignments, and the default project starter code are public, so this site rates it A3; the 2026 recordings stay in Canvas, the public recordings are the Spring 2025 edition, and HW2 and HW3 are required to run on Modal. The course page says the next offering moves to Fall 2027, so Spring 2026 is the latest complete edition.
+
+ **CS223A** is the robotics foundation course, taught by Oussama Khatib. **CS333** is a project-based graduate course pulling robotics, machine learning, and control theory into human-AI interaction; officially it only recommends an introductory AI course.
 
 ### D. Graphs and networks
 
@@ -158,7 +167,7 @@ This branch doesn't grow out of AI, it grows out of CS107 — but anyone doing A
 
 **CS144: Introduction to Computer Networking** is famous for its assignment design. Seven checkpoints take you from "build reliability out of unreliability" through implementing TCP, down the stack to the network interface, then an IP router, and finally a checkpoint called "making an Internet."
 
-**CS149: Parallel Computing** covers multi-core CPUs, GPUs and CUDA, scheduling DNNs on GPUs, and hardware specialization. Its five programming assignments run from analyzing quad-core performance to "make the world's fastest CUDA kernels," with one targeting the Trainium2 accelerator.
+[**CS149: Parallel Computing**](/posts/ai/2026-09-30-cs149-course-overview-en) covers multi-core CPUs, GPUs and CUDA, scheduling DNNs on GPUs, and hardware specialization. Its five programming assignments run from analyzing quad-core performance to "make the world's fastest CUDA kernels," with one targeting the Trainium2 accelerator. Fall 2025 was co-taught by Kayvon Fatahalian and Kunle Olukotun; the 18 slide decks, starter code for the 5 programming assignments, and the 4 written-assignment PDFs are all available anonymously, so this site rates it A3. The gaps are in the execution environment: PA4 needs self-paid AWS Trainium2 time and the course AMI is private, and PA5's H100 queue and leaderboard require a SUNet ID.
 
 ## Rung six: research level
 
@@ -241,7 +250,7 @@ Swap `academicYear` and pull each year in turn, then look for a `<term>` element
 
 **If the goal is LLMs and agents**: the five base courses → CS124/CS221/CS229 → CS224N → CS224U or CS224V → CS329X/CS329Z → CS336. This is an **editorial self-study order based on capability gaps**, not a claim that every arrow is an official prerequisite. CS224N to CS224U is explicit; CS336 accepts several forms of ML preparation and does not require CS329Z. Courses in the middle can be skipped when your background covers them, but CS336's Python, PyTorch, systems, mathematics, and probability expectations remain real.
 
-**If you're going for vision or robotics**: vision is the five base courses → CS229 → CS230 → CS231A → CS231N; robotics is the five base courses → CS221 → CS238 → CS234 → CS223A → CS333.
+**If you're going for vision or robotics**: vision is the five base courses → CS229 → CS230 → CS231A → CS231N; robotics is the five base courses → CS221 → CS238 → CS234 → CS224R → CS223A → CS333.
 
 All five routes share one condition: **pick one and do its assignments.** Downloading the notes for two dozen courses is the failure mode this map most easily produces.
 
@@ -263,6 +272,12 @@ Course information comes from official course sites and Stanford ExploreCourses 
 Three items could not be fully confirmed, and none for lack of searching. Stanford's course archive has no public index page, so there's no way to say how many courses keep past editions online. CS312's title did not render as a heading in ExploreCourses search results, though searching the exact phrase "Deep Learning Alchemy" returns that entry. CS238's own entry likewise failed to render; its existence and the AA228 cross-listing are inferred from CS239's prerequisite field, "AA 228/CS 238 or CS 221." The latter two don't affect the ordering conclusions.
 
 ## Changelog
+
+- 2026-10-01: Added self-study status and guide links for CS234 (Winter 2026, A3) and CS224R (Spring 2026, A3) to the reinforcement learning and robotics branch, with CS224R placed after CS234 in the suggested order; added CS149's (Fall 2025, A3) public materials and execution-environment gaps to the systems branch; added the CS224R course site and the three guide series to References.
+
+- 2026-09-30: Added CS231N's self-study status to the vision branch (Spring 2026 slides and assignments A1–A3 public, recordings from the Spring 2025 YouTube playlist, rated A3) with a link to this site's guide; added the guide to the related links in References.
+
+- 2026-09-29: Added CME295 (Autumn 2026 in session, 2025 edition fully public) to the NLP / LLM / agent branch with a link to this site's guide; linked the CS124 guide in the prerequisites table.
 
 - 2026-08-26: Backfilled internal links — the per-course overview deep dives for the five core courses (CS103, CS107, CS109, CS111, CS161) plus CS221, CS124, CS229, CS228, CS224N, CS224U, CS224V, CS224W, CS329A, CS329Z, and CS336 are now live; the body text and the prerequisite table now link to them. Also re-checked ExploreCourses (2026-08-26): CS221M was removed from the appendix's "concrete 2026-27 offering details" list — its 2026-27 entry no longer lists any term, with Spring 2026 as its last; the other seven dormant courses and twelve listed courses were re-verified unchanged.
 
@@ -307,6 +322,7 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 - [CS224W: Machine Learning with Graphs](https://web.stanford.edu/class/cs224w/) — archived past offerings
 - [CS 224W official entry](https://explorecourses.stanford.edu/search?q=CS+224W&view=catalog) — prerequisite CS109 plus any introductory ML
 - [CS234: Reinforcement Learning (Winter 2026)](https://web.stanford.edu/class/cs234/) — schedule and assignments
+- [CS224R: Deep Reinforcement Learning (Spring 2026)](https://cs224r.stanford.edu/) — prerequisites, grading, slides and assignments, and the note that the next offering moves to Fall 2027
 - [CS 234 official entry](https://explorecourses.stanford.edu/search?q=CS+234&view=catalog) — prerequisites and scope
 - [CS236: Deep Generative Models](https://deepgenerativemodels.github.io/) — prerequisites and self-contained notes
 - [CS246: Mining Massive Data Sets](https://web.stanford.edu/class/cs246/) — past sites and Colab assignments
@@ -319,6 +335,7 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 - [CS 329H: Machine Learning from Human Preferences](https://explorecourses.stanford.edu/search?q=CS+329H&view=catalog) — description and 2026-27 autumn offering
 - [CS 329T](https://explorecourses.stanford.edu/search?q=CS+329T&view=catalog) — prerequisite CS229-level ML plus deep learning
 - [CS 329X: Human Centered NLP](https://explorecourses.stanford.edu/search?q=CS+329X&view=catalog) — description and 2026-27 autumn offering
+- [CME 295: Transformers & Large Language Models](https://cme295.stanford.edu/syllabus/) — 2026 and 2025 schedules, slides, and recording links
 - [CS 329Z: Engineering AI Agents](https://explorecourses.stanford.edu/search?q=Engineering+AI+Agents&view=catalog) — compound AI systems and DSPy in the course description
 - [CS 333](https://explorecourses.stanford.edu/search?q=CS+333&view=catalog) — project-based course on human-AI interaction
 - [CS221M: Mechanistic Interpretability](https://explorecourses.stanford.edu/search?q=CS+221M&view=catalog) — probing, steering, causal abstraction, sparse autoencoders
@@ -328,4 +345,4 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 - [CS25: Transformers United V6](https://web.stanford.edu/class/cs25/) — spring 2026 speakers and topics
 - [CS146S: The Modern Software Developer](https://themodernsoftware.dev/) — units, prerequisites, and course description
 - Stanford Online: [CS107](https://online.stanford.edu/courses/cs107-computer-organization-and-systems), [CS161](https://online.stanford.edu/courses/cs161-design-and-analysis-algorithms), [CS336](https://online.stanford.edu/courses/cs336-language-modeling-scratch) — tuition and schedule for the remote-credit versions
-- Related on this site: [Which AI courses to take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide), [CS146S syllabus diff](/posts/ai/2026-08-16-cs146s-course-map-en), [the CS230 series, part one](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en)
+- Related on this site: [Which AI courses to take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide), [CS146S syllabus diff](/posts/ai/2026-08-16-cs146s-course-map-en), [the CS230 series, part one](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en), [the CS231N guide overview](/posts/ai/2026-09-30-cs231n-course-overview-en), [the CS234 guide overview](/posts/ai/2026-09-30-cs234-course-overview-en), [the CS224R guide overview](/posts/ai/2026-09-30-cs224r-course-overview-en), [the CS149 guide overview](/posts/ai/2026-09-30-cs149-course-overview-en)

@@ -12,7 +12,7 @@ additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 24
 tldr: "Week 5 週一用 AutoGen 把多智慧體協作寫成可程式的對話，週三用 GEPA 與 test-time compute 論文攤開優化三軸：改 prompt、改權重、加推理算力。HW1 在 10/30 截止，這是交卷前最後一個完整週，這篇幫你決定力氣花在哪一軸。"
-description: "帶讀 Stanford CS329Z Week 5 兩堂課：AutoGen 的 conversable agent 與 conversation programming，GEPA 的反思式 prompt 演化與 test-time compute 的按難度分配，以及它們如何收斂成 HW1 收尾的三選一。"
+description: "帶讀 Stanford CS329Z Week 5 兩堂課：AutoGen 的 conversable agent 與 conversation programming，GEPA 的反思式 prompt 演化與 test-time compute 的按難度分配，以及它們如何收斂成 HW1 收尾時的三選一。"
 draft: false
 ---
 
@@ -34,7 +34,7 @@ AutoGen 的核心抽象有兩個，[開源實作](https://github.com/microsoft/a
 
 三個應用裡最好記的是 [ALFWorld](https://arxiv.org/abs/2010.03768) 那個：雙 agent 卡在重複錯誤迴圈時，多掛一個專門補常識的 grounding agent，成功率平均漲 15%。分工的價值不在人多，在有人專門負責大家都忽略的那件事。
 
-**怎麼做**：先別拆。拿 HW1 的 agent 跑 20 題，把失敗分成兩堆：單一步驟錯、後面跟著全錯。只有當同一條分工邊界反覆出現（例如寫 code 和驗 code 老是互相污染），才把那條邊切成第二個 agent。切分要有失敗證據，不要為組織圖好看而切。
+**怎麼做**：先別拆。拿 HW1 的 email 助理跑 20 題，把失敗分成兩堆：單一步驟錯、後面跟著全錯。只有當同一條分工邊界反覆出現（例如寫 code 和驗 code 老是互相污染），才把那條邊切成第二個 agent。切分要有失敗證據，不要為組織圖好看而切。
 
 ## 協調成本：開會真正的帳單
 
@@ -44,7 +44,7 @@ AutoGen 的核心抽象有兩個，[開源實作](https://github.com/microsoft/a
 
 第三張是流程本身：誰決定下一個發言者。AutoGen 內建 GroupChatManager，用角色扮演式 prompt 動態選下一個講者，再廣播給全員，適合沒有固定順序的協作。代價是除錯時得先還原當時為什麼輪到他。人類介入也是成本設計：UserProxyAgent 的 human_input_mode 可以調成每輪都問，也可以讓人跳過。自動化與人類控制的平衡，論文討論章節明說是開放問題。
 
-**怎麼做**：給你的 agent 會議立三條規矩：TERMINATE 終止條件、最大輪數、一個只檢查不做事的角色（抄 Safeguard）。拿 10 題難題跑一次，記下檢查者攔下幾次、誤攔幾次。這張攔截紀錄就是 Part B 反思題裡協調成本的現成素材。
+**怎麼做**：HW1 不准用框架，AutoGen 的規矩要自己寫進迴圈：TERMINATE 終止條件、最大輪數、一個只檢查不做事的角色（抄 Safeguard）。檢查者判定沒把握時就停下來問人，這正好是 HW1 要求的 human in the loop。拿 10 題難題跑一次，記下檢查者攔下幾次、誤攔幾次、轉給人幾次。這張攔截紀錄就是報告裡協調成本的現成素材。
 
 ## 優化三軸：prompt、權重、推理算力
 
@@ -58,13 +58,13 @@ Snell 那篇守推理算力軸。它把 test-time compute 拆成兩招：對 pro
 
 權重軸這週沒有主讀物，LoRA、蒸餾、RLHF 方向只在課表列點。這本身就是訊號：HW1 的時間尺度下，權重軸通常不在選項裡。
 
-**怎麼做**：把驗證集 20 題先分級：一次答對、試幾次會對、怎麼調都不對。第一級拿去改 prompt（GEPA 式：看軌跡、改一句、再跑）。第二級加推理算力（多採樣加 verifier 重排）。第三級停手，那是檢索或權重的問題，別再燒 prompt。三級各寫一行，就是 Part B 的優化紀錄。
+**怎麼做**：把驗證集 20 題先分級：一次答對、試幾次會對、怎麼調都不對。第一級拿去改 prompt（GEPA 式：看軌跡、改一句、再跑）。第二級加推理算力（多採樣加 verifier 重排）。第三級停手，那是檢索或權重的問題，別再燒 prompt。三級各寫一行，就是 HW1 報告的優化紀錄。
 
 ## HW1 收尾：交卷前只做三件事
 
-第一，鎖 Part A。[Week 4](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory) 把 [ReAct](https://arxiv.org/abs/2210.03629) 迴圈形狀定下來之後就別再改，凍結一個能跑的版本當對照組。第二，Part B 縮小版跑完：只重寫其中一段，做法見 [Week 3](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy)。第三，反思三行寫好：框架替你做了什麼決定、哪個決定你不同意、什麼情況下你會換回去。
+第一，鎖骨架。[Week 4](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory) 把 [ReAct](https://arxiv.org/abs/2210.03629) 迴圈形狀和記憶分層定下來之後就別再改，凍結一個能跑的版本當對照組。第二，把 harness 補齊：HW1 要的不只是會查信的 pipeline，還有工具、terminal、記憶和人類介入。缺哪塊先補哪塊，每補一塊就拿同一組 email 題對凍結版跑一次。第三，錯誤分析三行寫好：哪類題目最常失敗、失敗落在檢索還是推理、人類介入在哪裡攔下了錯。
 
-**怎麼做**：排最後十天：兩天鎖 Part A，五天跑 Part B 對照，三天寫反思與收尾。每天只動一軸：今天改 prompt，明天加算力，後天才考慮拆 agent。混著調的失敗是沒法寫進反思題的。
+**怎麼做**：排最後十天：兩天鎖骨架，五天補齊 harness 並逐塊對照，三天寫錯誤分析與收尾。每天只動一軸：今天改 prompt，明天加算力，後天才考慮拆 agent。混著調的失敗是沒法寫進報告的。
 
 ## 它在課程裡的位置
 
@@ -75,6 +75,10 @@ Week 5 之後只剩一週：Week 6 是嘉賓演講加 Data for Agentic Systems�
 - 週一 10/19 Multi-Agent Systems：主讀物 AutoGen（本文已導讀）。[Cemri 等人收了 1600 多條多智慧體軌跡](https://arxiv.org/abs/2503.13657)，做成 MAST-Data。失敗模式按設計問題、智慧體對不齊、缺驗證分堆，給開會出事點名。呼應週一主題：協調失敗有結構，不是運氣。[Neubig](https://openhands.dev/blog/dont-sleep-on-single-agent-systems)拿 [OpenHands](https://github.com/OpenHands/OpenHands) 經驗幫單體說話：多體的痛在結構僵硬、交接漏上下文、維護貴。一個強模型配通用工具箱加長 prompt，多數分工都吃得下。[Liu 等人的 DyLAN](https://arxiv.org/abs/2310.02170)先選隊再動態組網：在特定 [MMLU](https://arxiv.org/abs/2009.03300) 子集上，選對隊伍最多拉高 25% 準確率。誰上場本身就是可優化的變數。
 - 週三 10/21 Optimization：主讀物 Snell 等人 test-time compute、GEPA（本文已導讀）。[Soylu 等人把微調權重和優化 prompt 交替做](https://aclanthology.org/2024.emnlp-main.597/)，讓同一個模型自己教自己。在多跳問答和數學推理上，一起做贏過只做一邊。[Opsahl-Ong 等人的 MIPRO](https://arxiv.org/abs/2406.11695)把多階段程式每段的指令和示範一起優化，用小批量代理評估解跨模組歸因。最強的一組拉高 13 個百分點，優化器已收進 [DSPy](https://dspy.ai)。它的後續版本 MIPROv2，正是 GEPA 論文鎖定的最強基線。
 - 課表原文：[CS329Z 官網 Week 5](https://cs329z.stanford.edu/)
+
+## 更新紀錄
+
+- 2026-09-29：HW1 改版（不再分 Part A／Part B、語料換成企業 email、改成不用框架的完整 harness），改寫「HW1 收尾」的十天計畫與各節「怎麼做」裡的作業對應
 
 ## 參考資料
 

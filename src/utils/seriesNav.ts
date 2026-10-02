@@ -1,5 +1,6 @@
 // src/utils/seriesNav.ts
 import { isPublishedPost, type Post } from './content';
+import { getSeriesMeta } from './series';
 
 export interface SeriesMembership {
   name: string;
@@ -30,10 +31,13 @@ export function getPostSeries(post: Post): SeriesMembership[] {
 
 function navFor(post: Post, allPosts: Post[], membership: SeriesMembership): SeriesNav {
   const { name, order } = membership;
+  // 依 slug 比對：同一個系列在 frontmatter 可能寫成中文或英文名稱。
+  const slug = getSeriesMeta(name).slug;
+  const inSeries = (m: SeriesMembership) => getSeriesMeta(m.name).slug === slug;
   const seriesPosts = allPosts
     .filter(p => isPublishedPost(p) && p.data.lang === post.data.lang
-      && getPostSeries(p).some(m => m.name === name))
-    .map(p => ({ post: p, order: getPostSeries(p).find(m => m.name === name)!.order }))
+      && getPostSeries(p).some(inSeries))
+    .map(p => ({ post: p, order: getPostSeries(p).find(inSeries)!.order }))
     .sort((a, b) => a.order - b.order);
   const prevPost = seriesPosts.find(p => p.order === order - 1)?.post;
   const nextPost = seriesPosts.find(p => p.order === order + 1)?.post;

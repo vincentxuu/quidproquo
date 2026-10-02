@@ -70,14 +70,28 @@ interface PendingMessage {
 const WELCOME_ID = 'welcome'
 const PAGE_CONTEXT_FLAG_KEY = 'chat_page_context_enabled'
 
-// 文章頁是靜態頁，flag 只能在執行期問伺服器；同一個分頁問一次就好。
-function usePageContextFlag(wanted: boolean): boolean {
-  const [enabled, setEnabled] = useState(false)
-  useEffect(() => {
-    if (!wanted) return
+function readStoredPageContextFlag(): boolean | null {
+  try {
     const stored = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem(PAGE_CONTEXT_FLAG_KEY) : null
+    return stored === null ? null : stored === '1'
+  } catch {
+    return null
+  }
+}
+
+// 文章頁是靜態頁，flag 只能在執行期問伺服器；同一個分頁問一次就好。
+// 回傳 null 代表還沒問到：側欄快捷鍵會在 widget 掛載的同一輪送出訊息，
+// 那時若把「未知」當成 false，第一則訊息就不帶 page_context（「這篇」變成全站問題）。
+function usePageContextFlag(wanted: boolean): boolean | null {
+  const [enabled, setEnabled] = useState<boolean | null>(() => (wanted ? readStoredPageContextFlag() : false))
+  useEffect(() => {
+    if (!wanted) {
+      setEnabled(false)
+      return
+    }
+    const stored = readStoredPageContextFlag()
     if (stored !== null) {
-      setEnabled(stored === '1')
+      setEnabled(stored)
       return
     }
     let cancelled = false
@@ -89,7 +103,8 @@ function usePageContextFlag(wanted: boolean): boolean {
         setEnabled(on)
         try { sessionStorage.setItem(PAGE_CONTEXT_FLAG_KEY, on ? '1' : '0') } catch { /* private mode */ }
       })
-      .catch(() => { /* 問不到就當沒開，行為與現在相同 */ })
+      // 問不到就當沒開，行為與現在相同
+      .catch(() => { if (!cancelled) setEnabled(false) })
     return () => { cancelled = true }
   }, [wanted])
   return enabled
@@ -123,6 +138,7 @@ export function ChatWidget({
   const pageContextEnabled = usePageContextFlag(Boolean(page))
   // 讀者按掉 chip 後這個對話就回到全站模式；開新對話時 chip 重新出現
   const [pageDismissed, setPageDismissed] = useState(false)
+  const pageContextResolved = pageContextEnabled !== null
   const activePage = page && pageContextEnabled && !pageDismissed ? page : undefined
   const threadId = useRef(
     typeof localStorage !== 'undefined'
@@ -301,9 +317,13 @@ export function ChatWidget({
     void sendMessage(question.content)
   }
 
+  // 等 page context flag 有答案再送，否則快捷鍵的第一則訊息會漏掉 page_context
+  const sentPendingId = useRef<number | null>(null)
   useEffect(() => {
-    if (pendingMessage) void sendMessage(pendingMessage.text)
-  }, [pendingMessage?.id])
+    if (!pendingMessage || !pageContextResolved || sentPendingId.current === pendingMessage.id) return
+    sentPendingId.current = pendingMessage.id
+    void sendMessage(pendingMessage.text)
+  }, [pendingMessage?.id, pageContextResolved])
 
   const containerStyle = embedded
     ? { display: 'flex', flexDirection: 'column' as const, flex: 1, overflow: 'hidden' }
