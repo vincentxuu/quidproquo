@@ -29,8 +29,8 @@ Japan has no official supermarket rating, but by positioning and price range the
 
 | Tier | Representative chains | Best for |
 |---|---|---|
-| Premium | Kinokuniya, Seijo Ishii, Meidi-ya, Kitano Ace, Ikari (Kansai) | Gifts, imported food, house-brand jams and deli items |
-| Mid-range | Life, AEON, Ito-Yokado, Seiyu | Everyday groceries, deli and bento, private-brand snacks |
+| Premium | Kinokuniya, Seijo Ishii, Meidi-ya, Kitano Ace, Santoku (Tokyo), Ikari (Kansai) | Gifts, imported food, house-brand jams and deli items |
+| Mid-range | Life, Maruetsu, AEON, Ito-Yokado, Seiyu, Co-op | Everyday groceries, deli and bento, private-brand snacks |
 | Discount | OK, Gyomu Super, Lopia, Trial | Bulk frozen food, meat, room-temperature drinks |
 
 This tiering is based on each chain's published positioning and business model, not on item-by-item price comparisons. Every store has cheaper and pricier items; the sections below go tier by tier.
@@ -49,6 +49,8 @@ What premium supermarkets share is that they **import and make things themselves
 
 **[Ikari Supermarket](https://www.ikarisuper.com/info/company)** represents the Kansai region. It opened its first store in Amagasaki, Hyogo, in 1961, and its branches cluster around Ashiya, Nishinomiya, and Kobe. On a trip to Osaka or Kobe, it's the premium supermarket you'll hear about most.
 
+**[Santoku](https://santoku.co.jp/company)** is a Tokyo local chain, established in 1949 and headquartered in Okubo, Shinjuku. It calls itself a "high-quality food store" (ハイクオリティフードストア). Stores center on Shinjuku: 29 in Tokyo, 4 in Kanagawa, and 1 in Chiba, mostly in the inner Yamanote area and nearby residential districts, with its own factory supplying bread, sweets, and deli items. If you're staying in Shinjuku or Waseda it is a walkable premium option; it has fewer station-building outlets on tourist routes.
+
 **What to do**: if your gift list includes wine, cheese, jam, or retort curry, put this tier on your itinerary; fresh produce here usually isn't good value.
 
 ## Mid-range supermarkets: the everyday workhorses
@@ -56,6 +58,10 @@ What premium supermarkets share is that they **import and make things themselves
 This is where Japanese people shop for groceries every day. Prices are moderate, the range is full, and the selection of deli items and bento is the widest. Every chain has its own private brand (PB), which is the most useful thing to compare.
 
 **[Life](https://www.lifecorp.jp/company/info/about.html)** operates in the two big metro areas, Kinki and the Greater Tokyo Area, with 322 stores as of the end of August 2026, so it's easy to find in central Osaka and Tokyo. It also runs [BIO-RAL](https://www.lifecorp.jp/company/ir/company/business), an organic and natural food sub-brand launched in 2016; look for the BIO-RAL section if you want organic snacks.
+
+**[Maruetsu](https://www.maruetsu.co.jp/company/outline/)** is one of the largest food supermarket chains in the Tokyo area. Founded in 1945 in Urawa, Saitama, it had 308 stores at the end of August 2026 across Tokyo, Kanagawa, Saitama, and Chiba. In 2015 it formed [United Super Markets Holdings](https://www.usmh.co.jp/about) with Kasumi and Maxvalu Kanto, and it belongs to the AEON group. It runs three formats: standard "Maruetsu", the urban small-format "Maruetsu Petit", and the higher-quality "Rincos". The Orange Court store in Shinjuku sits inside a shopping complex and is an example of the first; check in-store notices for hours and range.
+
+**[Co-op](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html)** (seikyo, Co-op Mirai) supermarkets are run by a consumer cooperative, with stores in Tokyo, Saitama, and Chiba. The Co-op Toyama store in Shinjuku is open until 11 p.m. and accepts credit cards, PayPay, Suica, and PASMO. The cooperative's official membership rule is that anyone who [lives or works in Tokyo, Saitama, or Chiba](https://shop-mirai.coopnet.or.jp/contacts/) can join; I found no official statement on whether visitors can check out without joining, so follow the in-store signage.
 
 **AEON** is a nationwide retail group with many supermarkets and shopping malls. Its private brand is [TOPVALU](https://www.topvalu.net/items/category/100000000), which includes a budget line called "Best Price".
 
@@ -109,7 +115,12 @@ flowchart TD
 
 - **Regions differ a lot**: the chains here are mostly Tokyo- and Osaka-based. Hokkaido, Kyushu, and Tohoku each have strong local chains worth looking up when you're there.
 - **The item matters more than the store**: premium supermarkets carry cheap private-brand items too, and imported alcohol at a discount store isn't always the cheapest. The tier only tells you which way a store leans overall.
+- **The three newest additions aren't price-compared**: Santoku, Maruetsu, and Co-op are placed by their own positioning and store format, not item-by-item prices; I put Co-op Toyama in mid-range based on its format as an ordinary supermarket.
 - **The industry is consolidating**: Seiyu and Ito-Yokado both changed owners in 2025, so store names, store counts, and private brands may keep changing. The information in this post was checked in October 2026.
+
+## Update log
+
+- 2026-10-03: added Santoku (premium) and Maruetsu and Co-op (mid-range), three supermarkets around Shinjuku, Tokyo
 
 ## References
 
@@ -120,8 +131,13 @@ flowchart TD
 - [History of Meidi-ya | Meidi-ya](https://www.meidi-ya.co.jp/company/story.html) (in Japanese)
 - [Store list | Ace Co., Ltd. (Kitano Ace)](https://www.ace-group.co.jp/store) (in Japanese)
 - [Company overview | Ikari Supermarket](https://www.ikarisuper.com/info/company) (in Japanese)
+- [Company profile | Santoku Co., Ltd.](https://santoku.co.jp/company) (in Japanese)
 - [Company overview | Life Corporation](https://www.lifecorp.jp/company/info/about.html) (in Japanese)
 - [Business overview | Life Corporation IR](https://www.lifecorp.jp/company/ir/company/business) (in Japanese)
+- [Company overview | Maruetsu](https://www.maruetsu.co.jp/company/outline/) (in Japanese)
+- [About U.S.M.H | United Super Markets Holdings](https://www.usmh.co.jp/about) (in Japanese)
+- [Co-op Toyama store information | Co-op Mirai](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html) (in Japanese)
+- [Joining at the store | Co-op Mirai](https://shop-mirai.coopnet.or.jp/contacts/) (in Japanese)
 - [TOPVALU food | AEON](https://www.topvalu.net/items/category/100000000) (in Japanese)
 - [Seven & i completes sale of Ito-Yokado and others | Nikkei](https://www.nikkei.com/article/DGXZQOUC012XO0R00C25A9000000) (in Japanese)
 - [Trial completes ¥380 billion acquisition of Seiyu | Nikkei](https://www.nikkei.com/article/DGXZQOUC019910R00C25A7000000) (in Japanese)
