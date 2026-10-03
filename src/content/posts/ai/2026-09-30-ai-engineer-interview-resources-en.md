@@ -25,7 +25,7 @@ glossary:
 
 The repo [pallavi-shekhar/ai-engineering-interview-questions-company-wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) was created on September 19, 2026, and had 1.5k stars nine days later. It lists about 600 "real interview questions" across 35 companies, and not one of them cites a source. It is not an outlier: of the 12 popular AI interview repos reviewed here, only 2 link sources for their questions or interview loops.
 
-This is part 11 of the [AI Engineer Interview Prep](/en/posts/ai/2026-08-20-ai-engineer-interview-overview-en) series. The first 10 parts covered what to prepare. This one covers what to prepare with. The short answer: **read the target company's own interview guidance first, then use curated material that cites its sources, and only then grind through unsourced question banks.**
+This is part 11 of the [AI Engineer Interview Prep](/en/posts/ai/2026-08-20-ai-engineer-interview-overview-en) series. The first 10 parts covered what to prepare. This one covers what to prepare with, and parts 12–17 return to how to answer, organized by topic: [RAG](/en/posts/ai/2026-10-03-ai-interview-rag-variants-en), [agents and MCP](/en/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en), [prompt, context and harness](/en/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en), [LLM engineering](/en/posts/ai/2026-10-03-ai-interview-llm-engineering-en), [ML and Transformer basics](/en/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en), and [system design, coding and behavioral interviews](/en/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en). The short answer: **read the target company's own interview guidance first, then use curated material that cites its sources, and only then grind through unsourced question banks.**
 
 Data dates: GitHub star counts as of 2026-09-28; everything else checked 2026-09-30.
 
@@ -132,7 +132,7 @@ Whenever you open a new interview repo, spend five minutes on these:
 |---|---|---|
 | A few days | Read the target company's official interview page and confirm its AI policy | ombharatiya's "AI Engineer 75" plus the target company page |
 | 2–4 weeks | Both of the above | The field guide's interview-process and take-home chapters, alirezadir's coding problems, one mock interview per week |
-| 1–2 months or more | All of the above | Complete one take-home end to end as a portfolio piece, read *AI Engineering*, and revisit this series' [system design](/en/posts/ai/2026-08-20-ai-engineer-interview-ml-system-design-en), [LLM application](/en/posts/ai/2026-08-20-ai-engineer-interview-llm-application-en), and [coding](/en/posts/ai/2026-08-20-ai-engineer-interview-coding-en) parts for weak spots |
+| 1–2 months or more | All of the above | Complete one take-home end to end as a portfolio piece, read *AI Engineering*, and revisit this series' [system design](/en/posts/ai/2026-08-20-ai-engineer-interview-ml-system-design-en), [LLM application](/en/posts/ai/2026-08-20-ai-engineer-interview-llm-application-en), and [coding](/en/posts/ai/2026-08-20-ai-engineer-interview-coding-en) parts for weak spots, and use the common-question tables at the end of parts 12–17 as a practice list |
 
 If your target company lets you use AI (Meta, Canva, Cursor's work trial), practice with AI tools turned on. What you're practicing is breaking down requirements, checking AI output, and explaining why you accept or reject its suggestions. If your target defaults to no AI, like Anthropic, practice with it turned off.
 
@@ -141,6 +141,10 @@ If your target company lets you use AI (Meta, Canva, Cursor's work trial), pract
 - Most Reddit, Glassdoor, and Blind threads block automated fetching, so claims from them were read only at the search-snippet level.
 - Where company accounts conflict, we didn't pick a side. For example, on whether Anthropic has an AI-collaboration round, the guide from Aced (formerly Exponent) says yes and interviewing.io says AI is strictly prohibited. Accounts also differ on whether Cursor's work trial is paid.
 - Only English and Simplified Chinese resources were surveyed; Japanese, Korean, and other languages weren't.
+
+## Update Log
+
+- 2026-10-03: Added links to parts 12–17 (common questions and how to answer them)
 
 ## References
 

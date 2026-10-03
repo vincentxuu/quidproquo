@@ -25,7 +25,7 @@ glossary:
 
 [pallavi-shekhar/ai-engineering-interview-questions-company-wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) 這個 repo 在 2026 年 9 月 19 日建立，9 天後就有 1.5k 顆星。它整理了 35 間公司、約 600 題「真實面試題」，但全檔沒有任何一題附出處。這不是個案：這次盤點的 12 個熱門 AI 面試 repo，只有 2 個替題目或面試流程附上可點的來源。
 
-這篇是 [AI Engineer 面試準備](/posts/ai/2026-08-20-ai-engineer-interview-overview)系列的第 11 篇。前 10 篇講的是「要準備什麼」，這篇處理「要拿什麼來準備」。結論先講：**先讀目標公司自己寫的面試說明，再用有附來源的整理，最後才拿無來源的題庫刷量。**
+這篇是 [AI Engineer 面試準備](/posts/ai/2026-08-20-ai-engineer-interview-overview)系列的第 11 篇。前 10 篇講的是「要準備什麼」，這篇處理「要拿什麼來準備」；第 12–17 篇接著回到「怎麼答」，依主題整理機制與答法，包含 [RAG](/posts/ai/2026-10-03-ai-interview-rag-variants)、[Agent 與 MCP](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching)、[Prompt／Context／Harness](/posts/ai/2026-10-03-ai-interview-prompt-context-harness)、[LLM 工程](/posts/ai/2026-10-03-ai-interview-llm-engineering)、[ML 與 Transformer](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics)、[系統設計、Coding 與行為面試](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral)。結論先講：**先讀目標公司自己寫的面試說明，再用有附來源的整理，最後才拿無來源的題庫刷量。**
 
 以下資料的查詢日期：GitHub star 數為 2026-09-28，其餘為 2026-09-30。
 
@@ -132,7 +132,7 @@ flowchart TD
 |---|---|---|
 | 幾天 | 讀目標公司官方面試頁，確認 AI 政策 | ombharatiya 的「AI Engineer 75」＋目標公司頁 |
 | 2–4 週 | 上面兩項 | field guide 的面試流程與 take-home 章節、alirezadir 的程式題，每週一次模擬面試 |
-| 1–2 個月以上 | 上面全部 | 挑一個 take-home 作業完整做完當作品集，讀 *AI Engineering*，針對弱項回頭看本系列的[系統設計](/posts/ai/2026-08-20-ai-engineer-interview-ml-system-design)、[LLM 應用](/posts/ai/2026-08-20-ai-engineer-interview-llm-application)、[Coding](/posts/ai/2026-08-20-ai-engineer-interview-coding) |
+| 1–2 個月以上 | 上面全部 | 挑一個 take-home 作業完整做完當作品集，讀 *AI Engineering*，針對弱項回頭看本系列的[系統設計](/posts/ai/2026-08-20-ai-engineer-interview-ml-system-design)、[LLM 應用](/posts/ai/2026-08-20-ai-engineer-interview-llm-application)、[Coding](/posts/ai/2026-08-20-ai-engineer-interview-coding)，並用第 12–17 篇文末整理的常見題目當練習清單 |
 
 如果目標公司會讓你用 AI（Meta、Canva、Cursor 的 work trial），練習時就要打開 AI 工具。練的是拆需求、檢查 AI 產出、講出你為什麼接受或拒絕它的建議。如果目標是 Anthropic 這類預設禁用的公司，練習時就把 AI 關掉。
 
@@ -141,6 +141,10 @@ flowchart TD
 - Reddit、Glassdoor、Blind 的原文串多數擋自動抓取，這些來源的說法只讀到搜尋摘要。
 - 各公司說法有衝突的地方沒有選邊。例如 Anthropic 是否有 AI 協作輪：Aced（原 Exponent）的指南說有，interviewing.io 說嚴格禁止。Cursor 的 work trial 有沒有付費，說法也不一。
 - 只涵蓋英文與簡中資源，日韓等其他語系沒有盤點。
+
+## 更新紀錄
+
+- 2026-10-03：加入系列第 12–17 篇（逐題整理常見題與答法）的連結
 
 ## 參考資料
 
