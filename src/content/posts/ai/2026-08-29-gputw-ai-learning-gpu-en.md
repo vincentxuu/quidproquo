@@ -1,10 +1,13 @@
 ---
 title: "Should You Rent a GPU to Learn Model Training? GPUtw.ai, LoRA, Jupyter, and the First Experiment"
-date: 2026-08-29
+date: 2026-09-07
 category: ai
 type: guide
 tags: [gpu, model-training, fine-tuning, lora, llm, self-study, gputw-ai]
 lang: en
+series:
+  name: "從零訓練一個 LLM"
+  order: 12
 tldr: "GPUtw.ai makes sense as a short-rental GPU learning tool: start with Jupyter, Ollama, or ComfyUI, then try LoRA/QLoRA on a small model. It is not a large foundation-model training platform, and the first run should verify deployment, billing, and data retention with a small budget."
 description: "A practical guide for people who want to learn AI models without owning an NVIDIA GPU: where GPUtw.ai fits, what experiments to run, and what not to treat as production or procurement evidence."
 draft: false
