@@ -111,8 +111,14 @@ The biggest trap in interview preparation is "practicing a little of everything.
 
 The next post covers the first technical dimension — ML Fundamentals. Not teaching ML from scratch, but organizing a practical framework for "how interviews ask these questions and what a good answer looks like."
 
+For choosing question banks, books, and mock interview platforms, see part 11, [Choosing AI Engineer Interview Resources](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en). It compares the sourcing and freshness of 12 GitHub question banks and collects what companies officially say about using AI in interviews.
+
+## Update Log
+
+- 2026-09-30: Added a link to part 11 (interview resource comparison); corrected the ML Interviews Book reference description
+
 ## References
 
-- [Chip Huyen — ML Interviews Book](https://huyenchip.com/ml-interviews-book/) — AI Engineer interview preparation guide covering six assessment dimensions including ML fundamentals, deep learning, and system design
+- [Chip Huyen — ML Interviews Book](https://huyenchip.com/ml-interviews-book/) — Chip Huyen's free ML interview book covering the interview process, math, statistics, and classic ML questions, with little LLM content
 - [Designing Machine Learning Systems](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/) — Chip Huyen's ML system design book, corresponding to the system design dimension in AI Engineer interviews
 - [Stanford CS 329S: Machine Learning Systems Design](https://stanford-cs329s.github.io/) — AI system design course covering core concepts tested in the system design interview round

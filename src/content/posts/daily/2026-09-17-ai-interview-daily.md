@@ -82,9 +82,13 @@ series:
 - [LLM evaluation: methods, metrics, RAG & agent evals guide — Arize](https://arize.com/resources/llm-evaluation/) — 離線/guardrail/線上評估三分類的完整框架來源,附各類評估的具體使用情境。
 - [GuardReasoner: Towards Reasoning-based LLM Safeguards — Lacuna](https://lacuna.tiptreesystems.com/work/guardreasoner-towards-reasoning-based-llm-safeguards/wrk_00175bfd806bd6dc0d330c1c2804ec64) — 用推理式(reasoning-based)方法做 guardrail,取代傳統黑箱分類器,適合想深挖 guardrail 技術細節的讀者。
 
+## 更新紀錄
+
+- 2026-10-02：在 amitshekhariitbhu/ai-engineering-interview-questions 連結補上來源提醒
+
 ## 參考資料
 
 - [LLM System Design Interview #72 - The Proxy Reward Trap — aiinterviewprep (Hao Hoang)](https://aiinterviewprep.substack.com/p/llm-system-design-interview-72-the) — 今日練習題與 RLHF reward overoptimization 核心概念的主要來源。
 - [LLM evaluation: methods, metrics, RAG & agent evals guide — Arize](https://arize.com/resources/llm-evaluation/) — 核心概念「LLM 評估三分類」段落的來源。
 - [How to Test AI Agent Output Guardrails Before Shipping to Production](https://startupfortune.com/how-to-test-ai-agent-output-guardrails-before-shipping-to-production/) — 核心概念「Guardrail 分層防禦」段落的來源。
-- [ai-engineering-interview-questions — amitshekhariitbhu (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — 涵蓋 RAG、agent 架構、RLHF、guardrails 等主題的 AI Engineering 面試題庫，「agentic vs 簡單 RAG」決策框架段落的補充來源。
+- [ai-engineering-interview-questions — amitshekhariitbhu (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — 涵蓋 RAG、agent 架構、RLHF、guardrails 等主題的 AI Engineering 面試題庫，「agentic vs 簡單 RAG」決策框架段落的補充來源（注意：題目沒有附出處，答案多連到維護者所屬教育機構的文章，比較見[AI Engineer 面試資源怎麼挑](/posts/ai/2026-09-30-ai-engineer-interview-resources)）。

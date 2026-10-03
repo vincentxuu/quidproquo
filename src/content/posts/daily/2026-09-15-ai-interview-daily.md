@@ -80,7 +80,11 @@ Full fine-tuning 更新全部參數,效果通常最好但成本最高、資料�
 
 - [LLM Interview Questions and Answers for Freshers & Experienced (2026) — goodspace.ai](https://goodspace.ai/interview-questions/llm) — 位置編碼外推、KV cache、長 context 相關的追問整理得很完整,適合補強今天練習題沒展開的細節。
 - [AI Fundamentals: Attention Mechanisms in Transformers (Part 1) — Towards AI](https://pub.towardsai.net/ai-fundamentals-attention-mechanisms-in-transformers-part-1-a91cce62fbab) — 把 Q/K/V 的直覺講得很白話,「每個 token 都在問其他人跟我有多相關」這個比喻適合拿來練口頭表述。
-- [ai-engineering-interview-questions — amitshekhariitbhu (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — 題庫形式整理的 AI Engineering 面試問答,涵蓋位置編碼、Q/K/V 等今天主題的延伸題目。
+- [ai-engineering-interview-questions — amitshekhariitbhu (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — 題庫形式整理的 AI Engineering 面試問答,涵蓋位置編碼、Q/K/V 等今天主題的延伸題目（注意：題目沒有附出處，答案多連到維護者所屬教育機構的文章，比較見[AI Engineer 面試資源怎麼挑](/posts/ai/2026-09-30-ai-engineer-interview-resources)）。
+
+## 更新紀錄
+
+- 2026-10-02：在 amitshekhariitbhu/ai-engineering-interview-questions 連結補上來源提醒
 
 ## 參考資料
 

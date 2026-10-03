@@ -81,11 +81,15 @@ Use this table to verify your answer covers the key points:
 
 - [Deep Learning 200 Interview Questions & Answers — Part 2](https://atalupadhyay.wordpress.com/2026/08/25/deep-learning-200-interview-questions-answers-part-2-questions-101-200/) — Fills in the computational details of attention and Vision Transformers, a good companion to today's self-attention section
 - [LLM System Design Interview #51 — The Tokenizer Swap Trap](https://aiinterviewprep.substack.com/p/llm-system-design-interview-51-the) — Digs into how fertility (tokens per word) breaks down unevenly across languages after a tokenizer swap, filling in the detail today's tokenization section only touched
-- [ai-engineering-interview-questions (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — A collection of AI engineering interview questions covering catastrophic forgetting, chunking strategies, and embedding model selection, good for further practice
+- [ai-engineering-interview-questions (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — A collection of AI engineering interview questions covering catastrophic forgetting, chunking strategies, and embedding model selection, good for further practice (Note: questions cite no sources, and answers mostly link to articles from the maintainer's own education company; see [Choosing AI Engineer Interview Resources](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en) for a comparison.)
+
+## Update Log
+
+- 2026-10-02: Added a sourcing note to the amitshekhariitbhu/ai-engineering-interview-questions link
 
 ## References
 
 - [Scale AI Interview Question: Design an Embedding and Classification API](https://medium.com/@emilyhustlenyc/scale-ai-interview-question-design-an-embedding-and-classification-api-5af182d937d4) — Full source for today's practice problem, including API design, dynamic batching numbers, and registry design details
 - [LLM System Design Interview #51 — The Tokenizer Swap Trap](https://aiinterviewprep.substack.com/p/llm-system-design-interview-51-the) — Basis for the tokenization vocab-size trade-off section in Core Concepts
 - [Deep Learning 200 Interview Questions & Answers — Part 2](https://atalupadhyay.wordpress.com/2026/08/25/deep-learning-200-interview-questions-answers-part-2-questions-101-200/) — Basis for the self-attention and KV cache section in Core Concepts
-- [ai-engineering-interview-questions (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — Basis for the fine-tuning and catastrophic forgetting section in Core Concepts
+- [ai-engineering-interview-questions (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — Basis for the fine-tuning and catastrophic forgetting section in Core Concepts (Note: questions cite no sources, and answers mostly link to articles from the maintainer's own education company; see [Choosing AI Engineer Interview Resources](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en) for a comparison.)

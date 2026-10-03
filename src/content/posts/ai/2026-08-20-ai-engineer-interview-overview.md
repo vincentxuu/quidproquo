@@ -111,8 +111,14 @@ AI-native 公司也特別看重你對 safety 和 alignment 的想法，即使你
 
 下一篇進入第一個技術維度——ML Fundamentals。不是從零教機器學習，而是整理「面試會怎麼問、怎麼答才算好」的實戰框架。
 
+要挑題庫、書和模擬面試平台，先看系列第 11 篇[AI Engineer 面試資源怎麼挑](/posts/ai/2026-09-30-ai-engineer-interview-resources)，裡面比較了 12 個 GitHub 題庫的來源與更新狀況，也整理了各公司對面試使用 AI 的官方說法。
+
+## 更新紀錄
+
+- 2026-09-30：加入系列第 11 篇（面試資源比較）的連結；修正 ML Interviews Book 的參考資料描述
+
 ## 參考資料
 
-- [Chip Huyen — ML Interviews Book](https://huyenchip.com/ml-interviews-book/) — AI Engineer 面試準備指南，涵蓋 ML 基礎、深度學習、系統設計等六大考核維度
+- [Chip Huyen — ML Interviews Book](https://huyenchip.com/ml-interviews-book/) — Chip Huyen 的免費 ML 面試書，涵蓋面試流程、數學、統計與傳統 ML 題目，LLM 內容很少
 - [Designing Machine Learning Systems](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/) — Chip Huyen 的 ML 系統設計書，對應 AI Engineer 面試中的系統設計環節
 - [Stanford CS 329S: Machine Learning Systems Design](https://stanford-cs329s.github.io/) — AI 系統設計課程，涵蓋面試流程中 system design round 的核心概念

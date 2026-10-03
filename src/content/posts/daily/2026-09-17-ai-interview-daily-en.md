@@ -82,9 +82,13 @@ Use this table to check whether your answer covered the key points:
 - [LLM evaluation: methods, metrics, RAG & agent evals guide — Arize](https://arize.com/resources/llm-evaluation/) — The source for the offline/guardrails/online evaluation framework, with concrete use cases for each category.
 - [GuardReasoner: Towards Reasoning-based LLM Safeguards — Lacuna](https://lacuna.tiptreesystems.com/work/guardreasoner-towards-reasoning-based-llm-safeguards/wrk_00175bfd806bd6dc0d330c1c2804ec64) — A reasoning-based approach to guardrails that replaces traditional black-box classifiers; good for readers who want to go deeper on guardrail technical details.
 
+## Update Log
+
+- 2026-10-02: Added a sourcing note to the amitshekhariitbhu/ai-engineering-interview-questions link
+
 ## References
 
 - [LLM System Design Interview #72 - The Proxy Reward Trap — aiinterviewprep (Hao Hoang)](https://aiinterviewprep.substack.com/p/llm-system-design-interview-72-the) — Primary source for today's practice question and the RLHF reward overoptimization concept.
 - [LLM evaluation: methods, metrics, RAG & agent evals guide — Arize](https://arize.com/resources/llm-evaluation/) — Source for the "three categories of LLM evaluation" concept section.
 - [How to Test AI Agent Output Guardrails Before Shipping to Production](https://startupfortune.com/how-to-test-ai-agent-output-guardrails-before-shipping-to-production/) — Source for the "guardrails as defense-in-depth" concept section.
-- [ai-engineering-interview-questions — amitshekhariitbhu (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — An AI Engineering interview question bank covering RAG, agent architecture, RLHF, and guardrails; supplementary source for the "agentic vs. simple RAG" decision-framework section.
+- [ai-engineering-interview-questions — amitshekhariitbhu (GitHub)](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — An AI Engineering interview question bank covering RAG, agent architecture, RLHF, and guardrails; supplementary source for the "agentic vs. simple RAG" decision-framework section. (Note: questions cite no sources, and answers mostly link to articles from the maintainer's own education company; see [Choosing AI Engineer Interview Resources](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en) for a comparison.)
