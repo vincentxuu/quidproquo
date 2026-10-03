@@ -61,7 +61,7 @@ glossary:
 
 **[マルエツ](https://www.maruetsu.co.jp/company/outline/)**（Maruetsu）是首都圈最大級的食品超市，1945 年在埼玉浦和創業，2026 年 8 月底共 308 家，東京、神奈川、埼玉、千葉都有。它在 2015 年與カスミ、マックスバリュ關東合組[ユナイテッド・スーパーマーケット・ホールディングス](https://www.usmh.co.jp/about)，屬於イオン集團。品牌分三種：一般的「マルエツ」、都市型小店「マルエツ プチ」，以及走高品質路線的「リンコス」。新宿的「オレンジコート」店開在購物中心裡，是前者的例子，營業時間與品項以店內公告為準。
 
-**[コープ](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html)**（生協，コープみらい）是消費生活協同組合經營的超市，東京、埼玉、千葉都有店。新宿區戶山的「コープ戸山店」營業到晚上 11 點，接受信用卡、PayPay 與 Suica、PASMO。日本的生協法禁止組合員以外的人利用生協事業（員外利用），[官方立場是利用生協要先加入成為組合員](https://jccu.coop/about/question/)，只有酒類、香菸等少數項目例外（[ユーコープ說明](https://www.ucoop.or.jp/profile/coop/dictionary/)）。加入資格是在東京、埼玉、千葉[居住或工作的人](https://shop-mirai.coopnet.or.jp/contacts/)，出資金一口 500 日圓，退出時退還。實務上，[未加入的人也能像一般超市一樣結帳](https://coop-takuhai.com/anyone-can-use-the-co-op-deli-shop/)，收銀台頂多問有沒有點數卡；不過這是店家的運作現況，不是官方保證，各店做法可能不同，以店頭標示為準。沒加入就拿不到組合員的點數與優惠，退稅服務我沒查到官方說明，要退稅請先問店員。
+**[コープ](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html)**（生協，コープみらい）是消費生活協同組合經營的超市，東京、埼玉、千葉都有店。新宿區戶山的「コープ戸山店」營業到晚上 11 點，接受信用卡、PayPay 與 Suica、PASMO。日本的[生協法第 12 條](https://laws.e-gov.go.jp/law/323AC0000000200)禁止組合員以外的人利用生協事業（員外利用），條文列的例外沒有一般店面，[官方立場是利用生協要先加入成為組合員](https://jccu.coop/about/question/)，只有酒類、香菸等少數項目例外（[ユーコープ說明](https://www.ucoop.or.jp/profile/coop/dictionary/)）。加入資格是在東京、埼玉、千葉[居住或工作的人](https://shop-mirai.coopnet.or.jp/contacts/)，出資金一口 500 日圓，退出時退還。實務上，[未加入的人也能像一般超市一樣結帳](https://coop-takuhai.com/anyone-can-use-the-co-op-deli-shop/)，收銀台頂多問有沒有點數卡；不過這是店家的運作現況，不是官方保證，各店做法可能不同，以店頭標示為準。沒加入就拿不到組合員的點數與優惠，退稅服務我沒查到官方說明，要退稅請先問店員。
 
 **イオン**（AEON）是全國性大型零售集團，旗下超市、購物中心數量多，自有品牌是 [トップバリュ](https://www.topvalu.net/items/category/100000000)（TOPVALU）。PB 裡還細分出主打低價的「ベストプライス」系列。
 
@@ -140,8 +140,9 @@ flowchart TD
 - [コープ戸山店 施設情報｜コープみらい](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html)
 - [お店での加入お申し込み｜コープみらい](https://shop-mirai.coopnet.or.jp/contacts/)
 - [よくあるご質問｜日本生活協同組合連合会](https://jccu.coop/about/question/)
+- [消費生活協同組合法｜e-Gov 法令検索](https://laws.e-gov.go.jp/law/323AC0000000200)
 - [なるほどコープ辞典｜生活協同組合ユーコープ](https://www.ucoop.or.jp/profile/coop/dictionary/)
-- [「コープみらい」のお店は組合員以外でもお買い物できるのか？｜コープde宅配](https://coop-takuhai.com/anyone-can-use-the-co-op-deli-shop/)（第三方整理，非官方）
+- [「コープみらい」のお店は組合員以外でもお買い物できるのか？｜コープde宅配](https://coop-takuhai.com/anyone-can-use-the-co-op-deli-shop/)（民間整理，非官方，頁面含宅配推廣連結）
 - [TOPVALU 食品｜イオン](https://www.topvalu.net/items/category/100000000)
 - [セブン＆アイ、イトーヨーカ堂など売却手続き完了｜日本経済新聞](https://www.nikkei.com/article/DGXZQOUC012XO0R00C25A9000000)
 - [トライアル、西友の3800億円買収完了｜日本経済新聞](https://www.nikkei.com/article/DGXZQOUC019910R00C25A7000000)
