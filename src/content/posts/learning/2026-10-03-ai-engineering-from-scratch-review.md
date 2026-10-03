@@ -1,140 +1,160 @@
 ---
-title: "AI Engineering from Scratch 全量審閱：523 堂課逐堂讀完，能跑不等於對"
+title: "AI Engineering from Scratch 導讀：從線性代數手刻到多 agent 的免費課程"
 date: 2026-10-03
 category: learning
 type: deep-dive
 tags: [ai-course, open-course, self-study, open-source, llm]
 lang: zh-TW
-tldr: "GitHub 6.2 萬星的免費課程 AI Engineering from Scratch，523 堂逐堂讀完、645 支程式實跑、94 條錯誤指控對抗式覆核：程式 96.7% 能跑完，但 Phase 10 的 SFT／RLHF／DPO 用隨機雜訊更新權重；覆核的 94 條沒有一條被推翻，23% 需要降級。"
-description: "全量審閱 rohitg00/ai-engineering-from-scratch：逐堂閱讀 523 堂講義與程式、實際執行 645 支 Python 程式，並對最嚴重的 94 條錯誤做對抗式覆核，整理哪些 phase 可用、哪些要避開，以及審查方法本身的限制。"
+tldr: "AI Engineering from Scratch 是 GitHub 上約 6.3 萬星、MIT 授權的免費課程：20 個 phase、523 堂，從線性代數、傳統 ML、深度學習，一路排到 LLM、agent 與 AI 安全，每堂先手刻再用框架對照。前段的數學與深度學習核心可以照著學，Phase 10 的 SFT／RLHF／DPO 先別信，其餘 phase 當主題地圖用。"
+description: "介紹 rohitg00/ai-engineering-from-scratch 這套開源 AI 工程課：每堂課的結構、20 個 phase 各教什麼、適合誰與要花多久、一堂課（Phase 1 自動微分）從頭走到尾，以及學之前要知道的限制與搭配資源。"
 draft: false
 glossary:
-  - term: "標籤洩漏"
-    aliases: ["label leakage", "data leakage"]
-    definition: "訓練時模型看得到它應該預測的答案，數字很好看但沒有真的學會。"
-    context: "本文用來描述 capstone 第 38 課預訓練缺少 causal mask、每個位置都看得到下一個 token 的問題。"
+  - term: "自動微分"
+    aliases: ["autodiff", "automatic differentiation", "autograd"]
+    definition: "程式記錄每一步運算，再用鏈鎖律從輸出往回算出所有參數的梯度。PyTorch、TensorFlow、JAX 訓練網路時用的就是這個機制。"
+    context: "本文用 Phase 1 第 5 課當範例：課程用約百行 Python 手刻一個迷你版，再拿去訓練 XOR。"
+  - term: "梯度檢查"
+    aliases: ["gradient checking"]
+    definition: "把自動微分算出的梯度，跟用數值方法（前後各差一小步再相除）估出的梯度比對，確認 backward 沒寫錯。"
+    context: "本文範例課的 Build It 第 6 步。"
   - term: "對抗式覆核"
     aliases: ["adversarial verification"]
     definition: "覆核者先假設原本的指控是錯的，主動找反證；推翻不了才判定成立。"
-    context: "本文用它檢查 AI 審閱者列出的錯誤，估計誤報率。"
+    context: "本文用它說明審閱這套課時，最嚴重的錯誤指控是怎麼被複查的。"
 ---
 
 > 🌏 [English version](/posts/learning/2026-10-03-ai-engineering-from-scratch-review-en)
 
-[AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch) 是 GitHub 上一套免費、MIT 授權的 AI 工程課程：20 個 phase、523 堂課，從線性代數一路講到多 agent 系統，2026 年 10 月初有 6.2 萬顆星。它主打「每個演算法先用原始數學手刻，再交給框架」，還能用 `npx skills add` 裝進 Claude Code 或 Codex，讓 coding agent 當家教。
+[AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch) 是 GitHub 上一套免費、MIT 授權的開源 AI 工程課程。作者 Rohit Ghumare 是 DevRel 出身，[個人網站](https://rohitghumare.com/)列有 Docker Captain、CNCF Ambassador、Google Developer Expert 等頭銜。整套課有 20 個 phase、523 堂，從線性代數排到多 agent 系統與 AI 安全，repo 約有 6.3 萬顆星（2026-10-03 查詢）。
 
-我把 523 堂的講義與主程式全部讀過一遍，645 支 Python 程式全部實際執行，再挑出最嚴重的 94 條錯誤做對抗式覆核。結論很直接：**當名詞地圖和練習題素材可以用，當教材照著學不行。** 最大的風險藏在「程式能跑完」這件事裡。
+它的做法是「先手刻、再用框架」：每個演算法先用 NumPy 或標準函式庫寫出小版本，再用 PyTorch 之類的框架做同一件事。讀完不只會呼叫 API，也看得懂框架底下在做什麼。
 
-## 這套課在做什麼
+結論先講：**前段的數學與深度學習核心可以照著學，Phase 10 的訓練課先別信，其餘 phase 當主題地圖用。** 下面先介紹這套課的結構與內容，再挑一堂課從頭走到尾，最後交代學之前要知道的限制。
 
-每堂課是一個資料夾，裡面有講義 `docs/en.md`、程式 `code/`、產出物 `outputs/`，多數還有 `quiz.json`。講義依固定六段走：Motto、Problem、Concept、Build It、Use It、Ship It。核心承諾是 Build It／Use It 的對照：先用 NumPy 或標準函式庫寫出小版本，再用 PyTorch 跑同一件事，讓框架不再是黑盒子；Ship It 則交出一份可重用的 prompt、skill 或 MCP server。
+## 給誰、先備知識、要花多久
 
-規模大概是這樣：講義合計約 92 萬英文字，程式約 17 萬行。宣稱用四種語言，實際檔案數是 Python 515、TypeScript 39、Julia 20、Rust 10，後兩者只出現在前十個 phase 的少數課。
+[README](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/README.md) 的先備條件只有兩條：會寫程式（任何語言，Python 比較有幫助），以及想弄懂 AI 實際怎麼運作，而不只是呼叫 API。
 
-作者 Rohit Ghumare 是 DevRel 出身，個人網站列出 [Docker Captain、CNCF Ambassador、Google Developer Expert](https://rohitghumare.com/) 等頭銜。repo 的第一個 commit 是 2026-03-18，幾乎所有內容都由作者本人提交。
+起點依背景而定。下表是 README 的「Where to start」，時數是作者自己的估計：
 
-## 我怎麼審
-
-```mermaid
-flowchart LR
-  A["523 堂<br/>逐堂讀講義＋主程式"] --> B["15 份審閱報告<br/>附檔案:行號"]
-  C["645 支 .py<br/>全部實際執行"] --> D["exit code 統計"]
-  B --> E["挑出最嚴重 94 條"]
-  E --> F["對抗式覆核<br/>回原始碼・重算・實跑・找一手來源"]
-  F --> G["72 成立／22 降級／0 推翻"]
-```
-
-審閱由多個 AI agent 分組完成，每組負責 1 到 3 個 phase，依同一份評估表打分：技術正確性、Build It 是不是真的從零、講義和程式是否一致、有沒有 AI 量產痕跡。之後每個 phase 挑出「若為真、對學習者傷害最大」的錯誤，交給另一批 agent 覆核，要求先假設原指控是錯的再去找反證。
-
-## 判決一：能跑不等於對
-
-645 支程式有 624 支正常結束，比例 96.7%。剩下的多半是 CPU 訓練超過 15 分鐘、缺少沒列在 `requirements.txt` 的套件，或下載資料集被擋。單看這個數字，會以為這是一套很可靠的課。
-
-問題在於「跑完」之後算出來的東西。最嚴重的例子在 Phase 10。[SFT 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/10-llms-from-scratch/06-instruction-tuning-sft/code/main.py#L157-L160)、[RLHF 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/10-llms-from-scratch/07-rlhf/code/main.py#L261-L266)、[DPO 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/10-llms-from-scratch/08-dpo/code/main.py#L195-L201)都是算出 loss 或梯度之後丟掉，再對權重做這件事：
-
-```python
-block.ffn.W1 -= lr * np.random.randn(*block.ffn.W1.shape) * 0.01
-```
-
-講義把它寫成梯度更新。學生照著學，會以為對權重加雜訊就是在訓練。
-
-同樣的模式在其他 phase 也出現過，覆核時實際跑過確認：
-
-- [OCR 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/04-computer-vision/19-ocr-document-understanding/code/main.py#L52-L59)把每個英數字元都畫成同一個黑色方塊，模型無從辨字，三個測試字串全部預測成 `'xc6'`。
-- [音訊浮水印課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/06-speech-and-audio/16-anti-spoofing-audio-watermarking/code/main.py#L57-L74)只在 16 個取樣點加 ±0.0005，偵測卻讀原始訊號的正負號。加不加浮水印，偵測結果完全一樣。
-- capstone [第 38 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/19-capstone-projects/38-classifier-finetuning/code/main.py#L69-L81)的預訓練沒有 causal mask，每個位置都看得到下一個 token。byte-level loss 降到 0.076，正是「直接抄答案」才會有的數字。
-
-這類錯誤不會讓程式崩潰，也不會被 exit code 抓到。
-
-## 判決二：前段扎實，後段變薄
-
-把 15 份報告的逐堂評分放在一起看，品質大致隨 phase 往後下降：
-
-| 區段 | 狀態 | 可以直接用的課 |
+| 背景 | 起點 | README 估時 |
 |---|---|---|
-| Phase 1 數學 | 最扎實，多數真的從零手刻 | [autodiff](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/01-math-foundations/05-chain-rule-and-autodiff)、[統計](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/01-math-foundations/15-statistics-for-ml)、[線性方程組](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/01-math-foundations/17-linear-systems) |
-| Phase 2–9 | 前段手刻、後段 stub 化 | 卷積、VAE、n-gram LM、DQN 等核心演算法課 |
-| Phase 10–12 | 訓練類大多是假的 | 只建議當概念導覽 |
-| Phase 13 新版 23 堂 | 依 MCP 2026-07-28 規格重寫，每堂 11–51 個測試 | [Streamable HTTP](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/13-tools-and-protocols/09-mcp-transports)、[取消與流量控制](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/13-tools-and-protocols/29-mcp-reliability-cancellation-and-flow-control) |
-| Phase 14 | 54 堂沒有一堂呼叫真的 LLM，多用腳本冒充 | [runtime feedback](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/14-agent-engineering/37-runtime-feedback-loops)、[verification gates](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/14-agent-engineering/38-verification-gates) |
-| Phase 15–18 | 前沿新聞導讀＋機率模擬器，事實錯誤多 | 只當主題清單 |
-| Phase 19 capstone | 幾乎不 import 前面 phase 的程式 | 第 75、87 課是少數真的整合 |
+| 沒寫過程式也沒碰過 AI | Phase 0 環境設定 | 約 306 小時 |
+| 會 Python、沒學過 ML | Phase 1 數學基礎 | 約 270 小時 |
+| 懂 ML、剛學深度學習 | Phase 3 深度學習核心 | 約 200 小時 |
+| 懂深度學習、想學 LLM 與 agent | Phase 10 從零做 LLM | 約 100 小時 |
+| 資深工程師、只想學 agent | Phase 14 Agent 工程 | 約 60 小時 |
 
-品質高低和「有沒有被重寫過」很有關係。Phase 13 新版課程有測試、有對照官方規格，明顯優於同一個 phase 裡沒改寫的舊課。[MCP 2026-07-28](https://blog.modelcontextprotocol.io/posts/2026-07-28) 是真實存在的正式規格，新版課程描述的 `server/discover`、Multi Round-Trip Requests 都對得上。
+README 開頭寫整套約 342 小時，與上表各起點的估時對不太起來，當量級參考就好。如果只想學一個主題，README 也列了專攻路線：MCP 約 23 小時，Agent Skills 約 9.5 小時。
 
-## 判決三：數字和事實要自己查
+## 一堂課長什麼樣
 
-覆核過、確認成立的例子：
+每堂課是一個資料夾：講義 `docs/en.md`、程式 `code/`、產出物 `outputs/`，多數還有 `quiz.json`。講義依[課程範本](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/LESSON_TEMPLATE.md)走固定的幾段：
 
-- [KV cache 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/07-transformers-deep-dive/12-kv-cache-flash-attention/docs/en.md?plain=1#L41)算 7B 模型時漏乘 32 個 head，每 token 寫 16 KB，實際是 512 KB。
-- [集成學習課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/02-ml-fundamentals/11-ensemble-methods/docs/en.md?plain=1#L33)說 21 個 60% 準確的分類器多數決約 74%，用講義自己的公式算是 82.6%。
-- [損失函數課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/03-deep-learning-core/05-loss-functions/docs/en.md?plain=1#L19)整課建立在「用 MSE 做分類，模型只會全部預測 0.5」的前提上；同一課的程式用 MSE 訓練到 99% 準確率。
-- [音樂生成課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/06-speech-and-audio/09-music-generation/docs/en.md?plain=1#L24)把 MusicGen 標成 MIT 並推薦商用。[Hugging Face 模型卡](https://huggingface.co/facebook/musicgen-large)寫明程式碼是 MIT，權重是 CC-BY-NC 4.0。
-- [浮水印課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/18-ethics-safety-alignment/23-watermarking-synthid-stable-signature-c2pa/docs/en.md?plain=1#L23-L25)把 SynthID-Text 說成 Kirchenbauer green/red-list 的產品化。[Nature 2024 原論文](https://www.nature.com/articles/s41586-024-08025-4)用的是 Tournament sampling。
-- [AI 治理課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/15-autonomous-systems/22-cais-caisi-societal-risk/docs/en.md?plain=1#L3)還寫「加州 SB-53 if signed」。[州長辦公室](https://www.gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry)在 2025-09-29 就簽署了。
+1. **Motto**：一句話點出這堂課的核心。
+2. **The Problem**：不會這個會卡在哪裡。
+3. **The Concept**：用圖與直覺建立概念，先不寫程式。
+4. **Build It**：分步驟從零實作。
+5. **Use It**：換成框架或函式庫做同一件事，跟自己手刻的版本對照。
+6. **Ship It**：交出一份可重用的產出物，可能是 prompt、skill、agent 或 MCP server。
 
-安全相關的宣稱更不能照抄。[第 49 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/19-capstone-projects/49-lm-eval-harness/code/main.py#L209-L223)把 `__builtins__` 換掉就宣稱模型輸出碰不到檔案系統，覆核時用 `().__class__.__base__.__subclasses__()` 一路找到 `os` 模組，成功列出根目錄。
+之後還有練習題、關鍵術語表與延伸閱讀。
 
-## 宣稱與實際的落差
+## 內容地圖：20 個 phase 各教什麼
 
-| 宣稱 | 實際 |
-|---|---|
-| 作者在 [dev.to](https://dev.to/rohitg00/build-it-then-use-it-how-i-wrote-435-ai-engineering-lessons-from-scratch-5d2d) 說花了 18 個月寫成 | 發文日 2026-05-24，距 repo 第一個 commit 約兩個月；單日最多 247 個 commit |
-| 第一堂 transformer 課會用 `nn.MultiheadAttention` 比對手刻輸出到數值精度 | [Use It 段落](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/07-transformers-deep-dive/02-self-attention-from-scratch/docs/en.md?plain=1#L280-L300)只用隨機輸入印 shape，`code/` 裡沒有 torch |
-| 每堂都有 quiz | 373／523 堂有，Phase 06、08、15 全缺 |
-| 每堂交一份 Ship It 產出物 | Phase 19 有 57／85 堂沒有 `outputs/` |
+以下依 repo 的 [phases 目錄](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases)與 README 的課程列表整理，括號是堂數。
 
-社群反應也不一致。[Hacker News 討論串](https://news.ycombinator.com/item?id=48219853)拿到 58 分後被 flag，主要批評是內容由 AI 生成、冗長重複；轉介紹的部落格與影片則多半稱讚「像一整個學位」，我沒看到有人逐課查證。
+| Phase | 主題 | 主要教什麼 |
+|---|---|---|
+| 0 | Setup & Tooling（12） | 開發環境、Git、GPU 與雲端、API 金鑰、Jupyter、Docker、終端機、除錯與 profiling |
+| 1 | Math Foundations（22） | 線性代數、微積分、鏈鎖律與自動微分、機率與 Bayes、最佳化、資訊理論、SVD、傅立葉、圖論 |
+| 2 | ML Fundamentals（18） | 線性與邏輯回歸、決策樹、SVM、kNN、特徵工程、模型評估、集成學習、時間序列、異常偵測 |
+| 3 | Deep Learning Core（13） | 感知器、反向傳播、activation 與 loss、optimizer、正則化、自建迷你框架、PyTorch、JAX |
+| 4 | Computer Vision（28） | 卷積與 CNN、偵測與分割、GAN 與 diffusion、ViT、CLIP、OCR、3D（NeRF、Gaussian Splatting）、world model |
+| 5 | NLP（29） | 文字處理、word embedding、seq2seq 與 attention、翻譯與摘要、檢索、結構化輸出、RAG chunking、評估 |
+| 6 | Speech & Audio（17） | 頻譜與 mel 特徵、ASR 與 Whisper、說話者辨識、TTS、音樂生成、即時語音、neural codec、浮水印 |
+| 7 | Transformers Deep Dive（16） | self-attention、multi-head、位置編碼、BERT 與 GPT、MoE、KV cache 與 FlashAttention、scaling laws |
+| 8 | Generative AI（15） | VAE、GAN、DDPM、latent diffusion、ControlNet 與 LoRA、影片／音訊／3D 生成、flow matching |
+| 9 | Reinforcement Learning（12） | MDP、動態規劃、Q-learning、DQN、policy gradient、actor-critic、PPO、reward modeling |
+| 10 | LLMs from Scratch（24） | tokenizer、資料 pipeline、預訓練 mini-GPT、SFT、RLHF、DPO、量化、推論最佳化、DeepSeek-V3 導讀 |
+| 11 | LLM Engineering（17） | prompt 與 few-shot、structured outputs、embeddings、context engineering、RAG、LoRA 微調、guardrails、LangGraph |
+| 12 | Multimodal AI（25） | CLIP、BLIP-2、LLaVA、Qwen-VL、Chameleon、any-to-any 模型、VLA、ColPali、computer use |
+| 13 | Tools & Protocols（31） | function calling、tool schema、MCP（server、client、transport、授權、安全）、A2A、Agent Skills |
+| 14 | Agent Engineering（54） | agent loop、Reflexion、記憶、各家 agent 框架與 SDK、benchmark、可觀測性、agent workbench、產品判斷 |
+| 15 | Autonomous Systems（22） | 長時程 agent、AlphaEvolve、自我改進、權限模式、durable execution、kill switch、安全框架 |
+| 16 | Multi-Agent & Swarms（25） | 通訊協定、supervisor 與階層架構、辯論、handoff、blackboard、共識、MARL、失敗模式 |
+| 17 | Infrastructure & Production（28） | vLLM 與 SGLang、GPU autoscaling、量化、快取與路由、gateway、canary、SRE、FinOps |
+| 18 | Ethics, Safety & Alignment（30） | reward hacking、sycophancy、alignment faking、red teaming、jailbreak、公平、差分隱私、浮水印、各國法規 |
+| 19 | Capstone Projects（85） | 17 個端到端專案，加 9 條 deep-build 軌（從 tokenizer 到 GPT、分散式訓練、RAG、eval、安全閘） |
 
-## 怎麼用它
+Phase 19 的專案與軌道分法出自 [README 的 Phase 19 說明](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/README.md)。想看某個 phase 的完整課表，進該資料夾的 README 即可。
 
-- **想要 AI 工程的名詞地圖**：看每個 phase 的目錄與 Concept 段落就好，數字一律不要引用。
-- **想練手刻演算法**：用 Phase 1 和 Phase 2–9 前段的課當練習題，自己寫完再對答案，對不上時別先懷疑自己。
-- **想學 LLM 訓練**：Phase 10 的 SFT、RLHF、DPO 直接跳過，改看 [Karpathy 的 Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html)。
-- **想學 agent 框架**：[Hugging Face Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction) 或 [Microsoft ai-agents-for-beginners](https://github.com/microsoft/ai-agents-for-beginners) 會真的呼叫 LLM。
-- **想學 MCP**：Phase 13 第 06–18、22–31 課是新版，可以用，搭配[官方規格](https://modelcontextprotocol.io/specification/2026-07-28)一起讀；第 01–05、19–21 課是舊模板，跳過。
+## 一堂課走讀：Phase 1 第 5 課「Chain Rule & Automatic Differentiation」
 
-## 這次審查的限制
+這堂課在 [`phases/01-math-foundations/05-chain-rule-and-autodiff`](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/01-math-foundations/05-chain-rule-and-autodiff)。講義標示 Type 是 Build、語言是 Python、先修是上一課的導數與梯度、預估約 90 分鐘。學習目標有四個：
 
-- **審閱者和覆核者都是 AI agent。** 94 條覆核結果是 72 條成立、22 條需要降級、0 條被推翻。需要降級的共同型態是：審閱者漏讀同一課已經寫明的 toy 或 simulated 標註，或附帶的小項說錯，或高估嚴重度。
-- **覆核挑的是傷害最大、能直接驗證的指控。** 次要的年份、作者、benchmark 數字沒有覆核，誤報率不能外推。
-- **執行測試只看 exit code。** 兩支用 gloo 多程序通訊的程式在容器內失敗，我歸為環境問題，沒有證實。
-- **跨組評分尺度不一。** 分數只適合看相對高低。
-- **比較對象只看了公開介紹。** Karpathy、Hugging Face、Microsoft 的課程沒有用同樣方法逐課審。
+- 手刻一個會記錄運算、用 reverse-mode 算梯度的迷你 autograd 引擎。
+- 用拓樸排序走過計算圖，完成 forward 與 backward。
+- 只靠自己的引擎訓練一個多層感知器解 XOR。
+- 用數值微分檢查自動微分有沒有算對。
 
-整體來看，這套課的設計理念是對的，覆蓋範圍也是同類免費資源裡最廣的。代價是每一堂都需要讀者自己把關，而最容易出錯的地方，剛好是看起來最可信的那兩處：能跑完的程式，和寫得很精確的數字。
+**Motto** 只有一句：「The chain rule is the engine behind every neural network that learns.」
+
+**The Problem** 先講為什麼需要它。神經網路是幾百個函數層層合成，訓練時要算 loss 對每個權重的梯度。手算不可能，數值微分又太慢。鏈鎖律給數學，自動微分給演算法，講義說它能讓你在約一次 forward 的時間內，算出任意函數合成的精確梯度。
+
+**The Concept** 用 mermaid 圖畫出 `relu(x1*x2 + 1)` 的計算圖：數值往前流，梯度往後流。接著比較 forward mode 與 reverse mode：輸入少、輸出多用前者，神經網路有百萬個權重卻只有一個 loss，所以 backprop 用後者。講義還補了 dual number 的 forward mode，以及 PyTorch 的 `autograd` 在底層做了什麼。
+
+**Build It** 分七步：
+
+1. 寫 `Value` 類別，存數值、梯度、backward 函式與子節點。
+2. 加上 `+`、`*`、`relu`，每個運算各帶一個知道怎麼算局部梯度的 closure。梯度用 `+=` 累加，因為同一個值可能被用在多個運算。
+3. 寫 `backward()`：先拓樸排序，再把種子梯度設為 1.0，倒著走一遍。
+4. 補上減、冪、除、`exp`、`log`、`tanh`。其中減與除是用既有運算組出來的，梯度自動正確。
+5. 用 `Neuron`、`Layer`、`MLP` 搭出網路，在 XOR 上訓練（2-4-1 結構、學習率 0.05、100 步）。
+6. 做梯度檢查，拿 `(f(x+h) - f(x-h)) / 2h` 對照自動微分的結果。
+7. 手算 `relu(x1*x2 + 1)`，確認 `dy/dx1 = 3`、`dy/dx2 = 2`。
+
+我在沒裝 PyTorch 的環境直接跑了 `code/autodiff.py`。XOR 的 loss 從第 0 步的 4.1491 降到第 99 步的 0.1783，四筆輸入的預測是 -0.853、+0.771、+0.801、-0.753，目標依序為 -1、+1、+1、-1，符號全對。五個梯度檢查的差距落在 1e-9 到 1e-10。
+
+**Use It** 用 PyTorch 重做同一個算式：`x1`、`x2` 設 `requires_grad=True`，呼叫 `backward()`，講義註明梯度同樣是 3.0 與 2.0。這段我沒跑，因為環境沒有 PyTorch，`code/autodiff.py` 也設計成沒裝時自動跳過這一步。
+
+**Ship It** 交出兩樣東西：能自己擴充的 `code/autodiff.py`，以及 [`outputs/skill-autodiff.md`](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/01-math-foundations/05-chain-rule-and-autodiff/outputs/skill-autodiff.md)。後者是一份 agent skill，列出除錯梯度的清單，例如忘了在每次 backward 前把梯度清零、in-place 運算弄斷計算圖、`.item()` 或 `.detach()` 把張量從圖上拿掉。講義最後說這個 `Value` 類別是 Phase 3 訓練迴圈的基礎。
+
+最後還有四題練習（例如用 dual number 實作 forward mode，驗證結果和 reverse mode 一致），以及 5 題測驗。
+
+## 學之前要知道的限制
+
+我讓 AI agent 逐堂讀過講義、實際跑過程式，再對最嚴重的錯誤指控做對抗式覆核。審閱者與覆核者都是 AI，覆核只涵蓋最嚴重、能直接驗證的指控，次要的年份、作者與 benchmark 數字沒有逐一覆核，誤報率也不能外推。所以下面的結論只拿來比相對可用度，不是絕對分數。
+
+- **Phase 10 的 SFT、RLHF、DPO 不是真的訓練。** [SFT 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/10-llms-from-scratch/06-instruction-tuning-sft/code/main.py#L157-L160)的權重更新是 `block.ffn.W1 -= lr * np.random.randn(*block.ffn.W1.shape) * 0.01`，也就是加隨機雜訊；[RLHF 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/10-llms-from-scratch/07-rlhf/code/main.py#L261-L266)與 [DPO 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/10-llms-from-scratch/08-dpo/code/main.py#L195-L201)是同一個模式，只是雜訊再乘上獎勵或偏好方向的係數。程式能跑完，講義卻把它寫成梯度更新，照著學的人會以為對權重加雜訊就是訓練。
+- **前段扎實，後段變薄。** Phase 1 最紮實，[autodiff](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/01-math-foundations/05-chain-rule-and-autodiff)、[統計](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/01-math-foundations/15-statistics-for-ml)、[線性方程組](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/01-math-foundations/17-linear-systems)都可以直接用。Phase 2–9 是前段手刻、後段多用 stub。Phase 10–12 的訓練類課多半不是真的，只適合當概念導覽。Phase 14 的 54 堂沒有一堂呼叫真的 LLM。Phase 15–18 比較像主題清單，Phase 19 的 capstone 多半沒有 import 前面 phase 的程式。
+- **數字與事實要自己查。** [KV cache 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/07-transformers-deep-dive/12-kv-cache-flash-attention/docs/en.md?plain=1#L41)算 7B 模型時漏乘 32 個 head，每 token 寫 16 KB，實際是 512 KB。[音樂生成課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/06-speech-and-audio/09-music-generation/docs/en.md?plain=1#L24)把 MusicGen 標成 MIT，但 [Hugging Face 模型卡](https://huggingface.co/facebook/musicgen-large)寫明程式碼是 MIT、權重是 CC-BY-NC 4.0。[AI 治理課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/15-autonomous-systems/22-cais-caisi-societal-risk/docs/en.md?plain=1#L3)還寫「加州 SB-53 if signed」，[州長辦公室](https://www.gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry)在 2025-09-29 就簽署了。安全相關的宣稱更不能照抄：[第 49 課](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/phases/19-capstone-projects/49-lm-eval-harness/code/main.py#L209-L223)把 `__builtins__` 換掉，就宣稱模型輸出碰不到檔案系統，覆核時卻能用 `().__class__.__base__.__subclasses__()` 一路找到 `os` 模組並列出根目錄。
+- **Phase 13 的新版課程可以用。** 第 06–18、22–31 課依 [MCP 2026-07-28 規格](https://blog.modelcontextprotocol.io/posts/2026-07-28)重寫並附測試，例如 [Streamable HTTP](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/13-tools-and-protocols/09-mcp-transports) 與[取消與流量控制](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/13-tools-and-protocols/29-mcp-reliability-cancellation-and-flow-control)；第 01–05、19–21 課還是舊模板，先跳過。
+
+## 怎麼用、搭配什麼
+
+- **想補數學與深度學習基礎**：照上面的起點表從 Phase 1 或 Phase 3 開始。每課先自己寫完 Build It，再對講義的答案；對不上時，先查一遍再懷疑自己。
+- **想有個家教帶著走**：在已裝 Node.js 與 coding agent 的環境執行 `npx skills add rohitg00/ai-engineering-from-scratch`，Claude Code 裡輸入 `/start-learning`，Codex 則從 `/skills` 選 `start-learning`，做法見 [README](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/README.md)。
+- **想學 LLM 訓練**：Phase 10 的 SFT、RLHF、DPO 先跳過，改看 [Karpathy 的 Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html)。
+- **想學 agent 框架**：搭配 [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction) 或 [Microsoft ai-agents-for-beginners](https://github.com/microsoft/ai-agents-for-beginners)，這兩套會真的呼叫 LLM。
+- **想學 MCP**：讀 Phase 13 新版那幾課，並開著[官方規格](https://modelcontextprotocol.io/specification/2026-07-28)對照。
+- **想對照大學課程的作業與考試回饋**：參考本站的[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)與 [Berkeley CS189 版本地圖](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)。
+
+## 更新紀錄
+
+- 2026-10-03：改寫成課程介紹文。新增課程結構、各 phase 內容地圖、適合對象與時數、Phase 1 第 5 課走讀與搭配資源；審查發現縮成「學之前要知道的限制」，移除審查流程圖、宣稱與實際的落差表與長錯誤清單；星數更新為 6.3 萬。
 
 ## 參考資料
 
-- [rohitg00/ai-engineering-from-scratch（本文審閱版本 3be078b）](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b)
+- [rohitg00/ai-engineering-from-scratch（本文對照版本 3be078b）](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b)
+- [AI Engineering from Scratch README（版本 3be078b）](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/README.md)
+- [AI Engineering from Scratch 課程範本 LESSON_TEMPLATE.md](https://github.com/rohitg00/ai-engineering-from-scratch/blob/3be078b/LESSON_TEMPLATE.md)
+- [Phase 1 第 5 課：Chain Rule & Automatic Differentiation](https://github.com/rohitg00/ai-engineering-from-scratch/tree/3be078b/phases/01-math-foundations/05-chain-rule-and-autodiff)
 - [AI Engineering from Scratch 官網](https://aiengineeringfromscratch.com/)
-- [Rohit Ghumare：Build It, Then Use It: How I wrote 435 AI engineering lessons from scratch（dev.to）](https://dev.to/rohitg00/build-it-then-use-it-how-i-wrote-435-ai-engineering-lessons-from-scratch-5d2d)
 - [Rohit Ghumare 個人網站](https://rohitghumare.com/)
-- [Hacker News：AI Engineering from Scratch](https://news.ycombinator.com/item?id=48219853)
 - [Model Context Protocol：The 2026-07-28 Specification](https://blog.modelcontextprotocol.io/posts/2026-07-28)
 - [MCP 2026-07-28 規格](https://modelcontextprotocol.io/specification/2026-07-28)
 - [facebook/musicgen-large 模型卡（Hugging Face）](https://huggingface.co/facebook/musicgen-large)
-- [Dathathri et al., Scalable watermarking for identifying large language model outputs（Nature 2024）](https://www.nature.com/articles/s41586-024-08025-4)
 - [Governor Newsom signs SB 53（California Governor's Office, 2025-09-29）](https://www.gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry)
 - [Andrej Karpathy：Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html)
 - [Hugging Face AI Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)
