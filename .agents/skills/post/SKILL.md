@@ -70,6 +70,12 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 **內文連結閘門**：文末清單不能取代內文連結。commit 前逐段掃一遍，每個第一次出現的專名——課號、課程官網、工具、論文、同系列的站上文章——都要是 inline 超連結。對照表、清單裡的專名也一樣。反例與規則見 `references/anti-shortcuts.md` 的「連結以後再補」條目。
 
+**引用外部 repo 的行號或題目**：行號連結（`blob/main/...#L41`）會隨 repo 更新位移，而且不同工具抓到的內容行號可能差幾行（本站踩過：閱讀器版本與原始檔差 4–5 行）。所以：
+
+1. 蒐集前由單一人用單一方式把原始檔抓成唯讀快照（`scripts/check-github-line-links.mjs` 的快照目錄），多個 agent 只讀快照，不各自下載、不共用可寫的快取。
+2. 蒐集時就記逐字原題與行號，不要只記連結。
+3. commit 前跑 `node .agents/skills/post/scripts/check-github-line-links.mjs <中文檔> <英文檔>`，逐列對照被引用的那一行是不是同一題。「連結字串出現在蒐集檔」不算核對。
+
 ### 5. 補齊 glossary
 
 - 先查 `src/lib/glossary/terms.ts` 是否已有定義
