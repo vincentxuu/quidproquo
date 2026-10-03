@@ -61,7 +61,7 @@ This is where Japanese people shop for groceries every day. Prices are moderate,
 
 **[Maruetsu](https://www.maruetsu.co.jp/company/outline/)** is one of the largest food supermarket chains in the Tokyo area. Founded in 1945 in Urawa, Saitama, it had 308 stores at the end of August 2026 across Tokyo, Kanagawa, Saitama, and Chiba. In 2015 it formed [United Super Markets Holdings](https://www.usmh.co.jp/about) with Kasumi and Maxvalu Kanto, and it belongs to the AEON group. It runs three formats: standard "Maruetsu", the urban small-format "Maruetsu Petit", and the higher-quality "Rincos". The Orange Court store in Shinjuku sits inside a shopping complex and is an example of the first; check in-store notices for hours and range.
 
-**[Co-op](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html)** (seikyo, Co-op Mirai) supermarkets are run by a consumer cooperative, with stores in Tokyo, Saitama, and Chiba. The Co-op Toyama store in Shinjuku is open until 11 p.m. and accepts credit cards, PayPay, Suica, and PASMO. The cooperative's official membership rule is that anyone who [lives or works in Tokyo, Saitama, or Chiba](https://shop-mirai.coopnet.or.jp/contacts/) can join; I found no official statement on whether visitors can check out without joining, so follow the in-store signage.
+**[Co-op](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html)** (seikyo, Co-op Mirai) supermarkets are run by a consumer cooperative, with stores in Tokyo, Saitama, and Chiba. The Co-op Toyama store in Shinjuku is open until 11 p.m. and accepts credit cards, PayPay, Suica, and PASMO. Japan's consumer co-operative law bars non-members from using a co-op's business, and the [official position is that using a co-op means joining as a member](https://jccu.coop/about/question/), with a few exceptions such as alcohol and tobacco ([explained by U-Coop](https://www.ucoop.or.jp/profile/coop/dictionary/)). Anyone who [lives or works in Tokyo, Saitama, or Chiba](https://shop-mirai.coopnet.or.jp/contacts/) can join with a refundable ¥500 share. In practice, [non-members can check out like at any ordinary supermarket](https://coop-takuhai.com/anyone-can-use-the-co-op-deli-shop/), with the cashier at most asking about a point card. That reflects how stores operate today, not an official guarantee, and practice may differ by store, so follow the in-store signage. Without membership you don't get the member points and offers, and I found no official statement on tax-free shopping, so ask staff first if you need it.
 
 **AEON** is a nationwide retail group with many supermarkets and shopping malls. Its private brand is [TOPVALU](https://www.topvalu.net/items/category/100000000), which includes a budget line called "Best Price".
 
@@ -120,6 +120,7 @@ flowchart TD
 
 ## Update log
 
+- 2026-10-03: corrected the Co-op eligibility wording: officially membership-based, but non-members can usually check out in practice
 - 2026-10-03: added Santoku (premium) and Maruetsu and Co-op (mid-range), three supermarkets around Shinjuku, Tokyo
 
 ## References
@@ -138,6 +139,9 @@ flowchart TD
 - [About U.S.M.H | United Super Markets Holdings](https://www.usmh.co.jp/about) (in Japanese)
 - [Co-op Toyama store information | Co-op Mirai](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html) (in Japanese)
 - [Joining at the store | Co-op Mirai](https://shop-mirai.coopnet.or.jp/contacts/) (in Japanese)
+- [FAQ | Japanese Consumers' Co-operative Union](https://jccu.coop/about/question/) (in Japanese)
+- [Co-op dictionary | U-Coop](https://www.ucoop.or.jp/profile/coop/dictionary/) (in Japanese)
+- [Can non-members shop at Co-op Mirai stores? | Coop de Takuhai](https://coop-takuhai.com/anyone-can-use-the-co-op-deli-shop/) (in Japanese; third-party, not official)
 - [TOPVALU food | AEON](https://www.topvalu.net/items/category/100000000) (in Japanese)
 - [Seven & i completes sale of Ito-Yokado and others | Nikkei](https://www.nikkei.com/article/DGXZQOUC012XO0R00C25A9000000) (in Japanese)
 - [Trial completes ¥380 billion acquisition of Seiyu | Nikkei](https://www.nikkei.com/article/DGXZQOUC019910R00C25A7000000) (in Japanese)
