@@ -77,7 +77,7 @@ Regardless of company type, AI Engineer interviews cover six dimensions. The dif
 | Paper Reading | Low | High | Low | None |
 | Behavioral | High | Medium | Medium | High |
 
-This series has ten posts, each focusing on one interview dimension:
+The first ten posts in this series each focus on one interview dimension. Part 11 covers resources, and parts 12–17 walk through common questions and how to answer them (listed at the end):
 
 1. **Overview** (this post) — interview process, company types, preparation strategy
 2. **ML Fundamentals** — bias-variance, regularization, optimization, evaluation metrics
@@ -113,8 +113,18 @@ The next post covers the first technical dimension — ML Fundamentals. Not teac
 
 For choosing question banks, books, and mock interview platforms, see part 11, [Choosing AI Engineer Interview Resources](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en). It compares the sourcing and freshness of 12 GitHub question banks and collects what companies officially say about using AI in interviews.
 
+To go straight to the common questions, read parts 12–17. They re-slice the first ten dimensions by topic; each explains the mechanism and how to answer, and ends with the questions that repeat across seven public question banks:
+
+- Part 12: [RAG Interview Prep: From the Three-Stage Pipeline to Agentic RAG, and How to Tell Nine Variants Apart](/en/posts/ai/2026-10-03-ai-interview-rag-variants-en)
+- Part 13: [AI Agent Interview Prep: From Tool Calling and Memory to MCP and Prompt Caching](/en/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
+- Part 14: [Prompt, Context, Harness: The Three Layers, Their Boundaries, and Evaluation Gates](/en/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
+- Part 15: [LLM Engineering Interview Prep: Fine-Tuning, Alignment, Inference Optimization, Evaluation, and Safety](/en/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
+- Part 16: [ML Basics and Transformer Internals: From Bias-Variance and AdamW to Attention, RoPE and MoE](/en/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
+- Part 17: [ML/LLM System Design and Coding Interviews: Four Architectures, Three Python Problems, and a STAR Skeleton](/en/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
+
 ## Update Log
 
+- 2026-10-03: Added links to parts 12–17 and rewrote the description of the series length
 - 2026-09-30: Added a link to part 11 (interview resource comparison); corrected the ML Interviews Book reference description
 
 ## References

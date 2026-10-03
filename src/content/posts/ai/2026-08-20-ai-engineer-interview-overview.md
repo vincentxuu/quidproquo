@@ -77,7 +77,7 @@ AI-native 公司也特別看重你對 safety 和 alignment 的想法，即使你
 | Paper Reading | 低 | 高 | 低 | 無 |
 | 行為面試 | 高 | 中 | 中 | 高 |
 
-本系列共十篇，每篇聚焦一個面試維度：
+本系列前十篇各聚焦一個面試維度，第 11 篇談資源，第 12–17 篇逐題整理常見題與答法（列在文末）：
 
 1. **全景圖**（本篇）——面試流程、公司類型、準備策略
 2. **ML Fundamentals**——bias-variance、regularization、optimization、evaluation metrics
@@ -113,8 +113,18 @@ AI-native 公司也特別看重你對 safety 和 alignment 的想法，即使你
 
 要挑題庫、書和模擬面試平台，先看系列第 11 篇[AI Engineer 面試資源怎麼挑](/posts/ai/2026-09-30-ai-engineer-interview-resources)，裡面比較了 12 個 GitHub 題庫的來源與更新狀況，也整理了各公司對面試使用 AI 的官方說法。
 
+想直接對照常見題目，看第 12–17 篇。它們把前十篇的維度重新按主題切開，每篇講機制與答法，文末附 7 個公開題庫裡跨題庫重複出現的題目：
+
+- 第 12 篇：[RAG 面試整理：從三階段流程到 Agentic RAG，九種變體怎麼分、怎麼答](/posts/ai/2026-10-03-ai-interview-rag-variants)
+- 第 13 篇：[AI Agent 面試準備：從工具呼叫、記憶到 MCP 與 Prompt Caching](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching)
+- 第 14 篇：[Prompt、Context、Harness 三層工程：定義、分界與評估閘門](/posts/ai/2026-10-03-ai-interview-prompt-context-harness)
+- 第 15 篇：[LLM 工程面試準備：微調、對齊、推論優化、評估與安全](/posts/ai/2026-10-03-ai-interview-llm-engineering)
+- 第 16 篇：[ML 基礎與 Transformer 底層概念：從偏差變異、AdamW 到 attention、RoPE 與 MoE](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics)
+- 第 17 篇：[ML／LLM 系統設計與 Coding 面試：四題架構、三題 Python 與 STAR 骨架](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral)
+
 ## 更新紀錄
 
+- 2026-10-03：加入系列第 12–17 篇的連結，並改寫系列篇數說明
 - 2026-09-30：加入系列第 11 篇（面試資源比較）的連結；修正 ML Interviews Book 的參考資料描述
 
 ## 參考資料
