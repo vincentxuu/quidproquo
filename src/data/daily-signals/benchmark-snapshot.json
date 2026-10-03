@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-02",
+  "date": "2026-10-04",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -7,10 +7,12 @@
     { "rank": 4, "model": "live-SWE-agent", "org": "UIUC", "score": 77.40 },
     { "rank": 5, "model": "Atlassian Rovo Dev", "org": "Atlassian", "score": 76.80 }
   ],
-  "lmsys_agent_top3": [
-    { "rank": 1, "model": "Claude Fable 5.1 (Max)", "score": 14.55, "ci": "±1.92%" },
-    { "rank": 2, "model": "Claude Opus 5.5 (High)", "score": 13.78, "ci": "±2.24%" },
-    { "rank": 3, "model": "GPT-6 Astra (Max)", "score": 12.18, "ci": "±2.29%" }
+  "lmsys_agent_top5": [
+    { "rank": 1, "model": "Claude Fable 5.1 (Max)", "score": 14.31, "ci": "[12.42%, 16.21%]" },
+    { "rank": 2, "model": "Claude Opus 5.5 (High)", "score": 13.82, "ci": "[11.65%, 15.99%]" },
+    { "rank": 3, "model": "Claude Sonnet 5.5 (Max)", "score": 12.52, "ci": "[9.43%, 15.61%]" },
+    { "rank": 4, "model": "GPT-6 Astra (Max)", "score": 12.27, "ci": "[10.04%, 14.50%]" },
+    { "rank": 5, "model": "GPT-6.1 Sol (Max)", "score": 11.23, "ci": null }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
@@ -25,5 +27,5 @@
     { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-02：swebench.com（首頁）仍 `OUTPUT_LIMIT`、arena.ai/?leaderboard 仍 `js_empty_document`、morphllm.com/leaderboard 仍 429 + Vercel Security Checkpoint、artificialanalysis.ai/models/capabilities/agentic 仍 404——四個直接渲染擷取的失敗型態與過去 29 天完全相同（見 escalation-queue Q-023），swebench_verified_top5／morphllm_top3／aa_agentic_index_top3 三項沿用前值，根因未解。但本次找到繞過方法解決了 `lmsys_agent_top3` 這一項：Arena 官方在 2026-04-02 的部落格公告（https://arena.ai/blog/arena-leaderboard-dataset）已把全部排行榜歷史資料發布成 Hugging Face 結構化資料集 `lmarena-ai/leaderboard-dataset`，透過 `datasets-server.huggingface.co` 的 `/rows`／`/splits`／`/size` REST API 可直接取得乾淨 JSON，完全不需要渲染 arena.ai 網頁本身。用這個方法確認 `agent` 子集 `latest` split（2026-09-30 官方發布）：Claude Fable 5.1 (Max) 14.55% 第一、Claude Opus 5.5 (High) 13.78% 第二、GPT-6 Astra (Max) 12.18% 第三——與本檔前值（Claude Opus 5 (High) 12.99%／Opus 5 (Max) 12.73%／Fable 5 (High) 11.70%，自 09-03 起沿用超過一個月的舊快照）相比前三名整組換血。回溯 `full` split 歷史資料確認 Fable 5.1 (Max) 最晚在 09-24 就已是第一名、Opus 5.5 (High) 於發布五天後的 09-27 進入前三，排名順序本身從 09-24 到 09-30 已連續七天穩定，符合 Step 4「第一名易主＋前三名新模型進入」門檻，已寫成文章（`2026-10-02-benchmark-arena-agent.md` 及 en 版，series order 2）。`swebench.com`／`morphllm.com` 的 GitHub／官方資料出口本次嘗試過 `raw.githubusercontent.com` 的 `data/leaderboards.json`（4MB，超過 web_fetch／document_parse 的 500K 字元輸出上限，`OUTPUT_LIMIT`）與 `api.github.com` contents API（同樣因檔案 >1MB 無法 inline base64），尚未找到可用的結構化替代來源，仍需渲染擷取，根因未解。建議：(1) 把 HF `datasets-server` 方法正式寫入 skill 的 Step 3a 作為 arena.ai 的備用抓取法（Tier 2，待人確認）；(2) swebench.com／morphllm.com 仍可沿用現有「無法驗證→不產出」的保守判斷，下次接手者可嘗試用 GitHub code search API 或分段抓取 `leaderboards.json` 來繞過 4MB 檔案的輸出上限。"
+  "notes": "2026-10-04：swebench.com（首頁）仍 `OUTPUT_LIMIT`、morphllm.com/leaderboard 仍 429 + Vercel Security Checkpoint、artificialanalysis.ai/models/capabilities/agentic 仍 404（`js_empty_document`）——三個直接渲染擷取的失敗型態與過去 31 天完全相同（見 escalation-queue Q-023），swebench_verified_top5／morphllm_top3／aa_agentic_index_top3 三項沿用前值，根因未解。`lmsys_agent_top5`（原 `lmsys_agent_top3`，這次擴到 5 筆方便對照）延續 10-02 找到的 HF `datasets-server` 繞法（`lmarena-ai/leaderboard-dataset` 官方資料集，不需渲染 arena.ai 網頁）：`agent` 子集 `latest` split 這次已推進到 2026-10-02 官方發布（距上次確認的 09-30 只隔 2 天），top3 整組換血——09-29 才上線的 Claude Sonnet 5.5 (Max) 以 12.52% 直接空降第三，把 09-30 時還排第三的 GPT-6 Astra (Max) 擠到第四（GPT-6 Astra 自己分數其實微升 12.18%→12.27%，純粹被超車）；Fable 5.1 (Max) 蟬聯第一但分數微降（14.55%→14.31%）、Opus 5.5 (High) 持平蟬聯第二（13.78%→13.82%）。另外用 `/search` 端點回溯 `full` split 確認 `Claude Sonnet 5.5 (Max)` 在整個資料集歷史中只出現這一筆（2026-10-02 發布），即上線後首次被收錄就直接空降前三，無法比對更早的趨勢穩定性；四個名次（Fable 5.1／Opus 5.5／Sonnet 5.5／GPT-6 Astra）的 95% CI 彼此重疊（分別為 [12.42%,16.21%]／[11.65%,15.99%]／[9.43%,15.61%]／[10.04%,14.50%]），符合 skill Step 4「前三名新模型進入」門檻但需在文章內註明統計上無法明確分出高下。另外用 `web_search` 找到 Arena 官方帳號在 X 上同步公告此次空降（https://x.com/arena/status/2106105400487821764，稱 Sonnet 5.5 較前代 Sonnet 5 跳了 8.1 個百分點），以及第三方 remio.ai 報導的獨立 Code Arena WebDev 子榜（2026-10-01 快照）顯示 Sonnet 5.5（xHigh）同樣擠進前三，兩個不同榜單方向一致，提高可信度。已寫成文章（`2026-10-04-benchmark-arena-agent-sonnet-5-5.md` 及 en 版，series order 3）。`swebench.com`／`morphllm.com`／`artificialanalysis.ai` 本次未重新嘗試新繞法（根因已於 09-15～10-02 查明確，重複測試無新結果），仍待人拍板 escalation-queue Q-023 的「接手第一步 (1)」或找到各自的結構化資料出口。"
 }
