@@ -1,0 +1,684 @@
+0	phases/01-math-foundations/02-vectors-matrices-operations/code/matrices.py	
+0	phases/01-math-foundations/01-linear-algebra-intuition/code/vectors.py	
+0	phases/01-math-foundations/04-calculus-for-ml/code/derivatives.py	Function        Numerical   Analytical        Error
+1	phases/00-setup-and-tooling/09-data-management/code/data_utils.py	
+0	phases/01-math-foundations/06-probability-and-distributions/code/probability.py	
+0	phases/01-math-foundations/09-information-theory/code/information_theory.py	
+0	phases/00-setup-and-tooling/04-apis-and-keys/code/first_api_call.py	
+1	phases/00-setup-and-tooling/05-jupyter-notebooks/code/notebook_tips.py	ModuleNotFoundError: No module named 'matplotlib'
+0	phases/01-math-foundations/03-matrix-transformations/code/transformations.py	
+0	phases/01-math-foundations/08-optimization/code/optimizers.py	
+0	phases/01-math-foundations/14-norms-and-distances/code/distances.py	
+0	phases/01-math-foundations/13-numerical-stability/code/numerical.py	  bfloat16: 3.140625  (error: 0.000968)
+0	phases/01-math-foundations/18-convex-optimization/code/convex.py	  Error: 2.75e-14
+0	phases/01-math-foundations/16-sampling-methods/code/sampling.py	    N= 100000: estimate=1.998875, error=0.001125
+0	phases/01-math-foundations/17-linear-systems/code/linear_systems.py	Reconstruction error: 0.00e+00
+0	phases/01-math-foundations/19-complex-numbers/code/complex_numbers.py	  IDFT reconstruction error: 7.44e-15
+0	phases/01-math-foundations/20-fourier-transform/code/fourier.py	  Max reconstruction error: 4.44e-16
+0	phases/01-math-foundations/21-graph-theory/code/graph_theory.py	
+0	phases/02-ml-fundamentals/01-what-is-machine-learning/code/ml_intro.py	
+0	phases/01-math-foundations/07-bayes-theorem/code/bayes.py	
+0	phases/02-ml-fundamentals/02-linear-regression/code/linear_regression.py	
+0	phases/01-math-foundations/15-statistics-for-ml/code/statistics.py	
+0	phases/01-math-foundations/11-singular-value-decomposition/code/svd.py	    Denoised relative error: 0.1618
+0	phases/02-ml-fundamentals/03-logistic-regression/code/logistic_regression.py	
+0	phases/02-ml-fundamentals/08-feature-engineering/code/features.py	
+0	phases/02-ml-fundamentals/07-unsupervised-learning/code/clustering.py	
+0	phases/02-ml-fundamentals/05-support-vector-machines/code/svm.py	  4. The C parameter trades off margin width vs classification errors.
+0	phases/02-ml-fundamentals/09-model-evaluation/code/evaluation.py	
+0	phases/02-ml-fundamentals/06-knn-and-distances/code/knn.py	         x    True y    Pred y     Error
+0	phases/02-ml-fundamentals/10-bias-variance/code/bias_variance.py	  Total error at optimal: 32.4452
+0	phases/02-ml-fundamentals/14-naive-bayes/code/naive_bayes.py	
+0	phases/02-ml-fundamentals/15-time-series/code/time_series.py	  Step       True  Predicted      Error
+0	phases/01-math-foundations/22-stochastic-processes/code/stochastic.py	   100000 steps: max error = 0.0022
+0	phases/02-ml-fundamentals/17-imbalanced-data/code/imbalanced.py	
+0	phases/02-ml-fundamentals/16-anomaly-detection/code/anomaly_detection.py	
+0	phases/03-deep-learning-core/01-the-perceptron/code/perceptron.py	  Epoch 8000, error: 0.0003
+0	phases/03-deep-learning-core/02-multi-layer-networks/code/main.py	
+0	phases/02-ml-fundamentals/13-ml-pipelines/code/pipeline.py	
+1	phases/01-math-foundations/10-dimensionality-reduction/code/dim_reduction.py	ModuleNotFoundError: No module named 'sklearn'
+0	phases/03-deep-learning-core/05-loss-functions/code/main.py	
+0	phases/03-deep-learning-core/04-activation-functions/code/main.py	
+0	phases/02-ml-fundamentals/04-decision-trees/code/trees.py	
+0	phases/01-math-foundations/12-tensor-operations/code/tensors.py	
+0	phases/03-deep-learning-core/07-regularization/code/main.py	
+0	phases/03-deep-learning-core/06-optimizers/code/main.py	
+1	phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py	ModuleNotFoundError: No module named 'jax'
+0	phases/04-computer-vision/01-image-fundamentals/code/main.py	
+0	phases/04-computer-vision/02-convolutions-from-scratch/code/main.py	
+0	phases/04-computer-vision/24-sam3-open-vocab-segmentation/code/main.py	
+1	phases/04-computer-vision/27-multi-object-tracking/code/main.py	ModuleNotFoundError: No module named 'scipy'
+0	phases/05-nlp-foundations-to-advanced/01-text-processing/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/02-bag-of-words-tfidf/code/main.py	
+0	phases/03-deep-learning-core/09-learning-rate-schedules/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/04-glove-fasttext-subword/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/05-sentiment-analysis/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/06-named-entity-recognition/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/07-pos-tagging-parsing/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/08-cnns-rnns-for-text/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/09-sequence-to-sequence/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/10-attention-mechanism/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/11-machine-translation/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/12-text-summarization/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/13-question-answering/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/14-information-retrieval-search/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/15-topic-modeling/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/16-text-generation-pre-transformer/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/17-chatbots-rule-to-neural/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/18-multilingual-nlp/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/19-subword-tokenization/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/20-structured-outputs-constrained-decoding/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/21-nli-textual-entailment/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/22-embedding-models-deep-dive/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/23-chunking-strategies-rag/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/24-coreference-resolution/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/25-entity-linking/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/26-relation-extraction-kg/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/27-llm-evaluation-frameworks/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/28-long-context-evaluation/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/29-dialogue-state-tracking/code/main.py	
+0	phases/06-speech-and-audio/01-audio-fundamentals/code/main.py	  round-trip max abs error (16-bit quantization): 0.00004
+0	phases/02-ml-fundamentals/18-feature-selection/code/feature_selection.py	
+0	phases/06-speech-and-audio/02-spectrograms-mel-features/code/main.py	
+0	phases/06-speech-and-audio/04-speech-recognition-asr/code/main.py	
+0	phases/06-speech-and-audio/05-whisper-architecture-finetuning/code/main.py	
+0	phases/06-speech-and-audio/06-speaker-recognition-verification/code/main.py	=== Equal Error Rate ===
+0	phases/06-speech-and-audio/07-text-to-speech/code/main.py	
+0	phases/06-speech-and-audio/08-voice-cloning-conversion/code/main.py	
+0	phases/06-speech-and-audio/09-music-generation/code/main.py	
+0	phases/03-deep-learning-core/08-weight-initialization/code/main.py	
+0	phases/06-speech-and-audio/11-real-time-audio-processing/code/main.py	
+0	phases/06-speech-and-audio/12-voice-assistant-pipeline/code/main.py	
+0	phases/06-speech-and-audio/13-neural-audio-codecs/code/main.py	=== Step 2: RVQ reconstruction error vs codebook count ===
+0	phases/06-speech-and-audio/14-voice-activity-detection-turn-taking/code/main.py	
+0	phases/06-speech-and-audio/15-streaming-speech-to-speech-moshi-hibiki/code/main.py	
+0	phases/06-speech-and-audio/03-audio-classification/code/main.py	
+0	phases/06-speech-and-audio/17-audio-evaluation-metrics/code/main.py	
+0	phases/07-transformers-deep-dive/01-why-transformers/code/main.py	
+0	phases/07-transformers-deep-dive/02-self-attention-from-scratch/code/self_attention.py	
+0	phases/07-transformers-deep-dive/03-multi-head-attention/code/main.py	
+0	phases/07-transformers-deep-dive/04-positional-encoding/code/main.py	
+0	phases/07-transformers-deep-dive/05-full-transformer/code/main.py	
+0	phases/07-transformers-deep-dive/06-bert-masked-language-modeling/code/main.py	
+0	phases/07-transformers-deep-dive/07-gpt-causal-language-modeling/code/main.py	
+0	phases/07-transformers-deep-dive/08-t5-bart-encoder-decoder/code/main.py	
+0	phases/07-transformers-deep-dive/09-vision-transformers/code/main.py	
+0	phases/07-transformers-deep-dive/10-audio-transformers-whisper/code/main.py	
+0	phases/07-transformers-deep-dive/11-mixture-of-experts/code/main.py	
+0	phases/07-transformers-deep-dive/12-kv-cache-flash-attention/code/main.py	
+0	phases/07-transformers-deep-dive/13-scaling-laws/code/main.py	
+0	phases/07-transformers-deep-dive/15-attention-variants/code/main.py	
+0	phases/07-transformers-deep-dive/16-speculative-decoding/code/main.py	
+0	phases/08-generative-ai/01-generative-models-taxonomy-history/code/main.py	
+0	phases/06-speech-and-audio/10-audio-language-models/code/main.py	
+0	phases/08-generative-ai/02-autoencoders-vae/code/main.py	
+0	phases/08-generative-ai/04-conditional-gans-pix2pix/code/main.py	
+0	phases/08-generative-ai/03-gans-generator-discriminator/code/main.py	
+0	phases/08-generative-ai/05-stylegan/code/main.py	
+0	phases/05-nlp-foundations-to-advanced/03-word-embeddings-word2vec/code/main.py	
+0	phases/08-generative-ai/08-controlnet-lora-conditioning/code/main.py	
+0	phases/08-generative-ai/06-diffusion-ddpm-from-scratch/code/main.py	
+0	phases/08-generative-ai/09-inpainting-outpainting-editing/code/main.py	
+0	phases/08-generative-ai/11-audio-generation/code/main.py	
+0	phases/08-generative-ai/12-3d-generation/code/main.py	
+0	phases/08-generative-ai/10-video-generation/code/main.py	
+0	phases/08-generative-ai/14-evaluation-fid-clip-score/code/main.py	
+0	phases/08-generative-ai/19-visual-autoregressive-var/code/main.py	
+0	phases/09-reinforcement-learning/01-mdps-states-actions-rewards/code/main.py	
+0	phases/09-reinforcement-learning/02-dynamic-programming/code/main.py	
+0	phases/08-generative-ai/07-latent-diffusion-stable-diffusion/code/main.py	
+0	phases/08-generative-ai/13-flow-matching-rectified-flows/code/main.py	
+0	phases/09-reinforcement-learning/04-q-learning-sarsa/code/main.py	
+0	phases/03-deep-learning-core/03-backpropagation/code/main.py	
+0	phases/09-reinforcement-learning/06-policy-gradients-reinforce/code/main.py	
+0	phases/09-reinforcement-learning/07-actor-critic-a2c-a3c/code/main.py	
+0	phases/09-reinforcement-learning/09-reward-modeling-rlhf/code/main.py	
+0	phases/09-reinforcement-learning/08-ppo/code/main.py	
+0	phases/09-reinforcement-learning/10-multi-agent-rl/code/main.py	
+0	phases/09-reinforcement-learning/12-rl-for-games/code/main.py	
+0	phases/10-llms-from-scratch/01-tokenizers/code/bpe.py	
+0	phases/10-llms-from-scratch/01-tokenizers/code/main.py	
+0	phases/10-llms-from-scratch/02-building-a-tokenizer/code/main.py	
+0	phases/09-reinforcement-learning/11-sim-to-real-transfer/code/main.py	
+0	phases/10-llms-from-scratch/03-data-pipelines/code/main.py	
+0	phases/09-reinforcement-learning/03-monte-carlo-methods/code/main.py	
+0	phases/06-speech-and-audio/16-anti-spoofing-audio-watermarking/code/main.py	
+0	phases/02-ml-fundamentals/11-ensemble-methods/code/ensembles.py	
+0	phases/10-llms-from-scratch/05-scaling-distributed/code/main.py	  8 GPUs: output_shape=(4, 8192), max_error=0.00e+00
+0	phases/10-llms-from-scratch/09-constitutional-ai-self-improvement/code/main.py	
+0	phases/10-llms-from-scratch/10-evaluation/code/main.py	
+0	phases/10-llms-from-scratch/11-quantization/code/main.py	  End-to-End Output Error (matmul with test input):
+0	phases/10-llms-from-scratch/12-inference-optimization/code/main.py	
+0	phases/10-llms-from-scratch/13-building-complete-llm-pipeline/code/main.py	
+0	phases/10-llms-from-scratch/14-open-models-architecture-walkthroughs/code/main.py	
+0	phases/10-llms-from-scratch/15-speculative-decoding-eagle3/code/main.py	
+0	phases/10-llms-from-scratch/16-differential-attention-v2/code/main.py	
+0	phases/03-deep-learning-core/10-mini-framework/code/main.py	
+0	phases/10-llms-from-scratch/17-native-sparse-attention/code/main.py	
+0	phases/10-llms-from-scratch/18-multi-token-prediction/code/main.py	
+0	phases/10-llms-from-scratch/19-dualpipe-parallelism/code/main.py	
+0	phases/10-llms-from-scratch/21-jamba-hybrid-ssm-transformer/code/main.py	
+0	phases/10-llms-from-scratch/20-deepseek-v3-walkthrough/code/main.py	
+0	phases/10-llms-from-scratch/22-async-hogwild-inference/code/main.py	
+0	phases/10-llms-from-scratch/34-gradient-checkpointing/code/main.py	
+0	phases/11-llm-engineering/01-prompt-engineering/code/prompt_engineering.py	
+1	phases/11-llm-engineering/02-few-shot-cot/code/advanced_prompting.py	ModuleNotFoundError: No module named 'openai'
+0	phases/11-llm-engineering/03-structured-outputs/code/main.py	
+0	phases/11-llm-engineering/04-embeddings/code/embeddings.py	
+0	phases/11-llm-engineering/05-context-engineering/code/main.py	      0.000  Error logging uses structured JSON format with correlation IDs....
+0	phases/11-llm-engineering/06-rag/code/main.py	
+0	phases/11-llm-engineering/07-advanced-rag/code/main.py	
+0	phases/11-llm-engineering/09-function-calling/code/function_calling.py	    -> {"error": true, "message": "Forbidden operation: import is not allowed", "code": "SECURITY_VIOLATION
+0	phases/11-llm-engineering/09-function-calling/code/tests/test_main.py	
+0	phases/11-llm-engineering/10-evaluation/code/eval_framework.py	
+0	phases/11-llm-engineering/11-caching-cost/code/caching_cost.py	
+0	phases/11-llm-engineering/12-guardrails/code/guardrails.py	
+0	phases/10-llms-from-scratch/25-speculative-decoding/code/main.py	
+0	phases/11-llm-engineering/14-model-context-protocol/code/main.py	
+0	phases/11-llm-engineering/14-model-context-protocol/code/tests/test_main.py	
+0	phases/11-llm-engineering/15-prompt-caching/code/main.py	
+1	phases/11-llm-engineering/16-langgraph-state-machines/code/main.py	ModuleNotFoundError: No module named 'langchain_anthropic'
+0	phases/11-llm-engineering/17-agent-framework-tradeoffs/code/main.py	
+0	phases/12-multimodal-ai/01-vision-transformer-patch-tokens/code/main.py	
+0	phases/12-multimodal-ai/02-clip-contrastive-pretraining/code/main.py	
+0	phases/12-multimodal-ai/03-blip2-qformer-bridge/code/main.py	
+0	phases/12-multimodal-ai/04-flamingo-gated-cross-attention/code/main.py	
+0	phases/12-multimodal-ai/05-llava-visual-instruction-tuning/code/main.py	
+0	phases/12-multimodal-ai/06-any-resolution-patch-n-pack/code/main.py	
+0	phases/12-multimodal-ai/07-open-weight-vlm-recipes/code/main.py	
+0	phases/12-multimodal-ai/08-llava-onevision-single-multi-video/code/main.py	
+0	phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/code/main.py	
+0	phases/12-multimodal-ai/10-internvl3-native-multimodal/code/main.py	
+0	phases/12-multimodal-ai/11-chameleon-early-fusion-tokens/code/main.py	
+0	phases/12-multimodal-ai/12-emu3-next-token-for-generation/code/main.py	
+0	phases/12-multimodal-ai/13-transfusion-autoregressive-diffusion/code/main.py	
+0	phases/12-multimodal-ai/14-show-o-discrete-diffusion-unified/code/main.py	
+0	phases/12-multimodal-ai/15-janus-pro-decoupled-encoders/code/main.py	
+0	phases/12-multimodal-ai/16-mio-any-to-any-streaming/code/main.py	
+0	phases/12-multimodal-ai/17-video-language-temporal-grounding/code/main.py	
+0	phases/12-multimodal-ai/18-long-video-million-token/code/main.py	
+0	phases/12-multimodal-ai/19-audio-language-whisper-to-af3/code/main.py	
+0	phases/12-multimodal-ai/20-omni-models-thinker-talker/code/main.py	
+0	phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/code/main.py	  max abs error: 0.0069  (bin width = 2/255 ~ 0.0078)
+0	phases/12-multimodal-ai/22-document-diagram-understanding/code/main.py	
+0	phases/12-multimodal-ai/23-colpali-vision-native-rag/code/main.py	
+0	phases/12-multimodal-ai/24-multimodal-rag-cross-modal/code/main.py	
+0	phases/12-multimodal-ai/25-multimodal-agents-computer-use/code/main.py	
+0	phases/11-llm-engineering/13-production-app/code/production_app.py	  Errors: 0
+0	phases/13-tools-and-protocols/02-function-calling-deep-dive/code/main.py	
+0	phases/13-tools-and-protocols/01-the-tool-interface/code/main.py	
+0	phases/13-tools-and-protocols/04-structured-output/code/main.py	summary: strict-mode eliminates parse_error and violation branches
+0	phases/13-tools-and-protocols/05-tool-schema-design/code/main.py	
+0	phases/13-tools-and-protocols/06-mcp-fundamentals/code/main.py	  "error": {
+0	phases/13-tools-and-protocols/06-mcp-fundamentals/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/07-building-an-mcp-server/code/main.py	
+0	phases/13-tools-and-protocols/07-building-an-mcp-server/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/08-building-an-mcp-client/code/main.py	
+0	phases/13-tools-and-protocols/08-building-an-mcp-client/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/09-mcp-transports/code/main.py	
+0	phases/13-tools-and-protocols/03-parallel-and-streaming-tool-calls/code/main.py	
+0	phases/13-tools-and-protocols/10-mcp-resources-and-prompts/code/main.py	
+0	phases/13-tools-and-protocols/10-mcp-resources-and-prompts/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/11-mcp-sampling/code/main.py	  "isError": false,
+0	phases/13-tools-and-protocols/11-mcp-sampling/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/code/main.py	  "isError": false,
+0	phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/09-mcp-transports/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/13-mcp-async-tasks/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/13-mcp-async-tasks/code/main.py	      "isError": false,
+0	phases/13-tools-and-protocols/14-mcp-apps/code/main.py	
+0	phases/13-tools-and-protocols/14-mcp-apps/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/code/main.py	  "isError": false,
+0	phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/code/main.py	
+0	phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/17-mcp-gateways-and-registries/code/main.py	200 tools/call {"jsonrpc": "2.0", "id": 3, "result": {"content": [{"type": "text", "text": "notes.search completed"}], "isError": false, "resultType": "complete", "_meta": {"io.modelcontextprotocol/se
+0	phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/17-mcp-gateways-and-registries/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/18-mcp-auth-production/code/main.py	  other server response: {'status': 401, 'WWW-Authenticate': 'Bearer error="invalid_token", error_description="audience mismatch", resource_metadata="https://tasks.example.com/.well-known/oauth-protec
+0	phases/13-tools-and-protocols/19-a2a-protocol/code/main.py	
+0	phases/13-tools-and-protocols/18-mcp-auth-production/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/20-opentelemetry-genai/code/main.py	
+0	phases/13-tools-and-protocols/21-llm-routing-layer/code/main.py	  error   : all providers failed
+0	phases/13-tools-and-protocols/22-skills-and-agent-sdks/code/main.py	
+0	phases/13-tools-and-protocols/23-capstone-tool-ecosystem/code/main.py	  generate_report -> {'error': 'insufficient_scope', 'scope': 'research:write'}
+0	phases/13-tools-and-protocols/22-skills-and-agent-sdks/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/code/main.py	
+0	phases/13-tools-and-protocols/23-capstone-tool-ecosystem/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/25-skill-invocation-and-routing/code/main.py	
+0	phases/13-tools-and-protocols/24-skill-discovery-and-progressive-disclosure/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/code/main.py	
+0	phases/13-tools-and-protocols/25-skill-invocation-and-routing/code/tests/test_main.py	
+1	phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/code/sandbox/probe.py	    "error": "FileNotFoundError",
+0	phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/code/main.py	
+0	phases/13-tools-and-protocols/28-mcp-tool-contracts-and-content/code/main.py	
+0	phases/13-tools-and-protocols/28-mcp-tool-contracts-and-content/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/29-mcp-reliability-cancellation-and-flow-control/code/main.py	
+0	phases/13-tools-and-protocols/30-mcp-registry-supply-chain-and-drift/code/main.py	
+0	phases/13-tools-and-protocols/29-mcp-reliability-cancellation-and-flow-control/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/30-mcp-registry-supply-chain-and-drift/code/tests/test_main.py	
+0	phases/13-tools-and-protocols/31-mcp-conformance-versioning-and-operations/code/main.py	    "proxy collapsed a protocol error into HTTP 500",
+0	phases/14-agent-engineering/01-the-agent-loop/code/main.py	
+0	phases/13-tools-and-protocols/31-mcp-conformance-versioning-and-operations/code/tests/test_main.py	
+0	phases/14-agent-engineering/02-rewoo-plan-and-execute/code/main.py	
+0	phases/14-agent-engineering/03-reflexion-verbal-rl/code/main.py	
+0	phases/14-agent-engineering/04-tree-of-thoughts-lats/code/main.py	
+0	phases/14-agent-engineering/05-self-refine-and-critic/code/main.py	
+0	phases/14-agent-engineering/07-memory-virtual-context-memgpt/code/main.py	
+0	phases/14-agent-engineering/06-tool-use-and-function-calling/code/main.py	observation shape: every validation failure is a structured error
+0	phases/14-agent-engineering/08-memory-blocks-sleep-time-compute/code/main.py	
+0	phases/14-agent-engineering/09-hybrid-memory-mem0/code/main.py	
+0	phases/14-agent-engineering/10-skill-libraries-voyager/code/main.py	  error in craft_iron_pickaxe v1: RuntimeError: need 2 stick, have 0
+0	phases/14-agent-engineering/12-anthropic-workflow-patterns/code/main.py	
+0	phases/14-agent-engineering/11-planning-htn-and-evolutionary/code/main.py	
+0	phases/14-agent-engineering/14-autogen-actor-model/code/main.py	  DLQ m002 (RuntimeError: simulated handler failure) __user__ -> reviewer topic=crash_me
+0	phases/14-agent-engineering/13-langgraph-stateful-graphs/code/main.py	
+0	phases/14-agent-engineering/16-openai-agents-sdk/code/main.py	    agent.support  hop=1 instructions='handle bugs and errors'
+0	phases/14-agent-engineering/15-crewai-role-based-crews/code/main.py	
+0	phases/14-agent-engineering/17-claude-agent-sdk/code/main.py	
+0	phases/14-agent-engineering/18-agno-and-mastra-runtimes/code/main.py	
+0	phases/14-agent-engineering/19-benchmarks-swebench-gaia/code/main.py	
+0	phases/14-agent-engineering/20-benchmarks-webarena-osworld/code/main.py	
+0	phases/14-agent-engineering/21-computer-use-agents/code/main.py	
+0	phases/14-agent-engineering/22-voice-agents-pipecat-livekit/code/main.py	
+0	phases/14-agent-engineering/23-otel-genai-conventions/code/main.py	
+0	phases/14-agent-engineering/24-agent-observability-platforms/code/main.py	aggregate: 1 errors across 3 sessions
+0	phases/14-agent-engineering/25-multi-agent-debate/code/main.py	
+0	phases/14-agent-engineering/26-failure-modes-agentic/code/main.py	  cascading_errors: 1
+0	phases/14-agent-engineering/27-prompt-injection-defense/code/main.py	
+0	phases/14-agent-engineering/28-orchestration-patterns/code/main.py	
+0	phases/14-agent-engineering/29-production-runtimes/code/main.py	
+0	phases/14-agent-engineering/30-eval-driven-agent-development/code/main.py	
+0	phases/14-agent-engineering/32-minimal-agent-workbench/code/main.py	
+0	phases/14-agent-engineering/33-instructions-as-executable-constraints/code/main.py	
+0	phases/14-agent-engineering/31-agent-workbench-why-models-fail/code/main.py	
+0	phases/14-agent-engineering/34-repo-memory-and-state/code/main.py	
+0	phases/14-agent-engineering/35-initialization-scripts/code/main.py	
+0	phases/14-agent-engineering/36-scope-contracts/code/main.py	
+0	phases/14-agent-engineering/38-verification-gates/code/main.py	
+0	phases/14-agent-engineering/37-runtime-feedback-loops/code/main.py	  error: [Errno 2] No such file or directory: 'does-not-exist'
+0	phases/14-agent-engineering/40-multi-session-handoff/code/main.py	
+0	phases/14-agent-engineering/39-reviewer-agent/code/main.py	
+0	phases/14-agent-engineering/42-agent-workbench-capstone/code/main.py	
+0	phases/14-agent-engineering/41-workbench-for-real-repos/code/main.py	
+0	phases/14-agent-engineering/43-frame-the-task-before-code/code/main.py	- Duplicate errors use status 409 (`tests/test_accounts.py:44`)
+0	phases/14-agent-engineering/44-plan-from-evidence/code/main.py	
+0	phases/14-agent-engineering/44-plan-from-evidence/code/tests/test_main.py	
+0	phases/14-agent-engineering/43-frame-the-task-before-code/code/tests/test_main.py	
+0	phases/14-agent-engineering/45-delegate-with-isolation/code/main.py	
+0	phases/09-reinforcement-learning/05-dqn/code/main.py	
+0	phases/14-agent-engineering/46-turn-feedback-into-system/code/main.py	
+0	phases/14-agent-engineering/45-delegate-with-isolation/code/tests/test_main.py	
+0	phases/14-agent-engineering/46-turn-feedback-into-system/code/tests/test_main.py	
+0	phases/14-agent-engineering/47-outcomes-before-output/code/main.py	
+0	phases/14-agent-engineering/47-outcomes-before-output/code/tests/test_main.py	
+0	phases/14-agent-engineering/49-map-assumptions-and-risk/code/main.py	
+0	phases/14-agent-engineering/48-discover-the-real-workflow/code/main.py	
+0	phases/14-agent-engineering/50-choose-the-smallest-testable-slice/code/main.py	
+0	phases/14-agent-engineering/48-discover-the-real-workflow/code/tests/test_main.py	
+0	phases/14-agent-engineering/49-map-assumptions-and-risk/code/tests/test_main.py	
+0	phases/14-agent-engineering/51-write-specifications-that-preserve-judgment/code/main.py	
+0	phases/14-agent-engineering/52-design-success-metrics/code/main.py	
+0	phases/14-agent-engineering/52-design-success-metrics/code/tests/test_main.py	
+0	phases/14-agent-engineering/50-choose-the-smallest-testable-slice/code/tests/test_main.py	
+0	phases/14-agent-engineering/53-prototype-pilot-or-production/code/main.py	
+0	phases/14-agent-engineering/51-write-specifications-that-preserve-judgment/code/tests/test_main.py	
+0	phases/14-agent-engineering/54-build-the-feedback-ratchet/code/main.py	
+0	phases/14-agent-engineering/53-prototype-pilot-or-production/code/tests/test_main.py	
+0	phases/15-autonomous-systems/01-long-horizon-agents/code/main.py	
+0	phases/15-autonomous-systems/02-star-family-reasoning/code/main.py	
+0	phases/14-agent-engineering/54-build-the-feedback-ratchet/code/tests/test_main.py	
+0	phases/15-autonomous-systems/04-darwin-godel-machine/code/main.py	
+0	phases/15-autonomous-systems/03-alphaevolve-evolutionary-coding/code/main.py	
+0	phases/15-autonomous-systems/05-ai-scientist-v2/code/main.py	
+0	phases/15-autonomous-systems/06-automated-alignment-research/code/main.py	
+0	phases/15-autonomous-systems/08-bounded-self-improvement/code/main.py	
+0	phases/15-autonomous-systems/07-recursive-self-improvement/code/main.py	
+0	phases/15-autonomous-systems/09-coding-agent-landscape/code/main.py	
+0	phases/15-autonomous-systems/11-browser-agents/code/main.py	
+0	phases/15-autonomous-systems/10-claude-code-permission-modes/code/main.py	
+0	phases/15-autonomous-systems/12-durable-execution/code/main.py	
+0	phases/15-autonomous-systems/13-cost-governors/code/main.py	
+0	phases/15-autonomous-systems/14-kill-switches-canaries/code/main.py	
+0	phases/15-autonomous-systems/15-propose-then-commit/code/main.py	
+0	phases/15-autonomous-systems/16-checkpoints-rollback/code/main.py	
+0	phases/15-autonomous-systems/18-llama-guard/code/main.py	
+0	phases/15-autonomous-systems/19-anthropic-rsp/code/main.py	
+0	phases/15-autonomous-systems/20-openai-preparedness-deepmind-fsf/code/main.py	
+0	phases/15-autonomous-systems/17-constitutional-ai/code/main.py	
+0	phases/16-multi-agent-and-swarms/02-fipa-acl-heritage/code/main.py	
+0	phases/15-autonomous-systems/22-cais-caisi-societal-risk/code/main.py	
+0	phases/16-multi-agent-and-swarms/04-primitive-model/code/main.py	
+0	phases/16-multi-agent-and-swarms/06-hierarchical-architecture/code/main.py	The error appears at TOP synthesis -- one level removed from where a human could catch it.
+0	phases/16-multi-agent-and-swarms/05-supervisor-orchestrator-pattern/code/main.py	
+0	phases/16-multi-agent-and-swarms/07-society-of-mind-debate/code/main.py	  - 1 round of exchange cuts the error most.
+0	phases/16-multi-agent-and-swarms/08-role-specialization/code/main.py	
+0	phases/16-multi-agent-and-swarms/10-group-chat-speaker-selection/code/main.py	
+0	phases/16-multi-agent-and-swarms/11-handoffs-and-routines/code/main.py	
+0	phases/16-multi-agent-and-swarms/12-a2a-protocol/code/main.py	
+0	phases/16-multi-agent-and-swarms/13-shared-memory-blackboard/code/main.py	
+0	phases/16-multi-agent-and-swarms/14-consensus-and-bft/code/main.py	SCENARIO: monoculture (correlated errors)
+0	phases/16-multi-agent-and-swarms/15-voting-debate-topology/code/main.py	
+0	phases/15-autonomous-systems/21-metr-external-evaluation/code/main.py	
+0	phases/16-multi-agent-and-swarms/16-negotiation-bargaining/code/main.py	
+0	phases/16-multi-agent-and-swarms/17-generative-agents-simulation/code/main.py	
+0	phases/16-multi-agent-and-swarms/18-theory-of-mind-coordination/code/main.py	
+0	phases/16-multi-agent-and-swarms/19-swarm-optimization-pso-aco/code/main.py	
+0	phases/16-multi-agent-and-swarms/21-agent-economies/code/main.py	
+0	phases/16-multi-agent-and-swarms/20-marl-maddpg-qmix-mappo/code/main.py	
+0	phases/16-multi-agent-and-swarms/23-failure-modes-mast-groupthink/code/main.py	  Slow-failure proxies (agreement rate, retry rate) catch drift before loud errors.
+0	phases/16-multi-agent-and-swarms/24-evaluation-coordination-benchmarks/code/main.py	
+0	phases/16-multi-agent-and-swarms/09-parallel-swarm-networks/code/main.py	
+0	phases/17-infrastructure-and-production/01-managed-llm-platforms/code/main.py	
+0	phases/17-infrastructure-and-production/02-inference-platform-economics/code/main.py	
+0	phases/16-multi-agent-and-swarms/25-case-studies-2026-sota/code/main.py	
+0	phases/17-infrastructure-and-production/03-gpu-autoscaling-kubernetes/code/main.py	
+0	phases/17-infrastructure-and-production/04-vllm-serving-internals/code/main.py	
+0	phases/16-multi-agent-and-swarms/22-production-scaling-queues-checkpoints/code/main.py	
+0	phases/17-infrastructure-and-production/07-tensorrt-llm-blackwell/code/main.py	
+0	phases/17-infrastructure-and-production/06-sglang-radixattention/code/main.py	
+0	phases/17-infrastructure-and-production/05-eagle3-speculative-decoding/code/main.py	
+0	phases/17-infrastructure-and-production/09-production-quantization/code/main.py	
+0	phases/17-infrastructure-and-production/11-multi-region-kv-locality/code/main.py	
+0	phases/17-infrastructure-and-production/10-cold-start-mitigation/code/main.py	
+0	phases/17-infrastructure-and-production/12-edge-inference/code/main.py	
+0	phases/17-infrastructure-and-production/14-prompt-semantic-caching/code/main.py	
+0	phases/17-infrastructure-and-production/15-batch-apis/code/main.py	
+0	phases/17-infrastructure-and-production/16-model-routing/code/main.py	
+0	phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/code/main.py	
+0	phases/17-infrastructure-and-production/08-inference-metrics-goodput/code/main.py	
+0	phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/code/main.py	
+0	phases/17-infrastructure-and-production/19-ai-gateways/code/main.py	Notes: a single-provider target at 3% error rate → 97% success.
+0	phases/17-infrastructure-and-production/20-shadow-canary-progressive/code/main.py	Regression: latency=1.0, cost=1.15, error=1.0, len=1.0, thumbs=1.45
+0	phases/17-infrastructure-and-production/22-load-testing-llm-apis/code/main.py	
+0	phases/17-infrastructure-and-production/23-sre-for-ai/code/main.py	  - correlation with error onset: 0.93
+0	phases/17-infrastructure-and-production/24-chaos-engineering-llm/code/main.py	Expected baseline error rate: 0.050%
+0	phases/17-infrastructure-and-production/25-security-secrets-audit/code/main.py	
+0	phases/17-infrastructure-and-production/26-compliance-frameworks/code/main.py	
+0	phases/17-infrastructure-and-production/27-finops-llms/code/main.py	
+0	phases/17-infrastructure-and-production/21-ab-testing-llm-features/code/main.py	
+0	phases/17-infrastructure-and-production/28-self-hosted-serving-selection/code/main.py	
+0	phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/code/main.py	
+124	phases/02-ml-fundamentals/12-hyperparameter-tuning/code/tuning.py	
+0	phases/17-infrastructure-and-production/13-llm-observability/code/main.py	5% success + 100% errors + high-cost keeps signal, cuts 90% of bill.
+0	phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/code/main.py	
+0	phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/code/main.py	
+0	phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/code/main.py	
+0	phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/code/main.py	
+0	phases/18-ethics-safety-alignment/09-alignment-faking/code/main.py	
+0	phases/18-ethics-safety-alignment/10-ai-control-subversion/code/main.py	
+0	phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/code/main.py	
+0	phases/18-ethics-safety-alignment/12-red-teaming-pair-automated-attacks/code/main.py	
+0	phases/18-ethics-safety-alignment/13-many-shot-jailbreaking/code/main.py	
+0	phases/18-ethics-safety-alignment/14-ascii-art-visual-jailbreaks/code/main.py	
+0	phases/18-ethics-safety-alignment/15-indirect-prompt-injection/code/main.py	
+0	phases/18-ethics-safety-alignment/16-red-team-tooling-garak-llamaguard-pyrit/code/main.py	
+0	phases/18-ethics-safety-alignment/17-wmdp-dual-use-evaluation/code/main.py	
+0	phases/18-ethics-safety-alignment/18-frontier-safety-frameworks-rsp-pf-fsf/code/main.py	
+0	phases/18-ethics-safety-alignment/19-model-welfare-research/code/main.py	
+0	phases/18-ethics-safety-alignment/20-bias-representational-harm/code/main.py	
+0	phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/code/main.py	
+0	phases/18-ethics-safety-alignment/22-differential-privacy-for-llms/code/main.py	
+0	phases/18-ethics-safety-alignment/21-fairness-criteria-group-individual-counterfactual/code/main.py	
+0	phases/18-ethics-safety-alignment/24-regulatory-frameworks-eu-us-uk-korea/code/main.py	
+0	phases/18-ethics-safety-alignment/25-echoleak-cves-for-ai/code/main.py	
+0	phases/18-ethics-safety-alignment/26-model-system-dataset-cards/code/main.py	- Labels programmatically derived; no annotation error
+0	phases/18-ethics-safety-alignment/27-data-provenance-training-governance/code/main.py	
+0	phases/18-ethics-safety-alignment/28-alignment-research-ecosystem/code/main.py	
+0	phases/18-ethics-safety-alignment/29-moderation-systems-openai-perspective-llamaguard/code/main.py	
+0	phases/18-ethics-safety-alignment/30-dual-use-risk-cyber-bio-chem-nuclear/code/main.py	
+0	phases/19-capstone-projects/01-terminal-native-coding-agent/code/main.py	  {"event": "tool", "tool": "read_file", "ok": false, "error": "[Errno 2] No such file or directory: '/tmp/claude-0/-home-user-quidproquo/b2580a08-0fd8-5fd9-915f-c646a86d31f6/scratchpad/aies-run/phase
+0	phases/19-capstone-projects/02-rag-over-codebase/code/main.py	
+0	phases/19-capstone-projects/03-realtime-voice-assistant/code/main.py	
+0	phases/19-capstone-projects/04-multimodal-document-qa/code/main.py	Q: handwritten experimental figures with error bars
+0	phases/19-capstone-projects/05-autonomous-research-agent/code/main.py	
+0	phases/19-capstone-projects/06-devops-troubleshooting-agent/code/main.py	     citations: ['error_rate{deployment=checkout-api}', 'namespace=prod,app=checkout-api']
+0	phases/19-capstone-projects/07-end-to-end-fine-tuning-pipeline/code/main.py	
+0	phases/19-capstone-projects/08-production-rag-chatbot/code/main.py	
+0	phases/19-capstone-projects/09-code-migration-agent/code/main.py	
+0	phases/19-capstone-projects/10-multi-agent-software-team/code/main.py	
+0	phases/19-capstone-projects/11-llm-observability-dashboard/code/main.py	
+0	phases/10-llms-from-scratch/06-instruction-tuning-sft/code/main.py	
+0	phases/19-capstone-projects/12-video-understanding-pipeline/code/main.py	
+0	phases/19-capstone-projects/13-mcp-server-with-registry/code/main.py	{'resultType': 'complete', 'content': [{'type': 'text', 'text': '{"id": "PROJ-99", "title": "new bug", "created": true}'}], 'structuredContent': {'id': 'PROJ-99', 'title': 'new bug', 'created': True},
+0	phases/19-capstone-projects/13-mcp-server-with-registry/code/tests/test_main.py	
+0	phases/19-capstone-projects/15-constitutional-safety-harness/code/main.py	
+0	phases/19-capstone-projects/14-speculative-decoding-server/code/main.py	
+0	phases/19-capstone-projects/16-github-issue-to-pr-agent/code/main.py	
+0	phases/19-capstone-projects/17-personal-ai-tutor/code/main.py	
+0	phases/19-capstone-projects/20-agent-harness-loop-contract/code/main.py	
+0	phases/18-ethics-safety-alignment/11-scalable-oversight-weak-to-strong/code/main.py	
+0	phases/19-capstone-projects/20-agent-harness-loop-contract/code/tests/test_loop.py	
+0	phases/19-capstone-projects/21-tool-registry-schema-validation/code/main.py	      "errors": [
+0	phases/19-capstone-projects/22-jsonrpc-stdio-transport/code/main.py	        "message": "parse error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+0	phases/19-capstone-projects/21-tool-registry-schema-validation/code/tests/test_registry.py	
+0	phases/19-capstone-projects/22-jsonrpc-stdio-transport/code/tests/test_transport.py	
+0	phases/19-capstone-projects/24-plan-execute-control-flow/code/main.py	
+0	phases/19-capstone-projects/23-function-call-dispatcher/code/tests/test_dispatcher.py	
+0	phases/19-capstone-projects/24-plan-execute-control-flow/code/tests/test_agent.py	
+0	phases/19-capstone-projects/25-verification-gates-observation-budget/code/main.py	
+0	phases/19-capstone-projects/25-verification-gates-observation-budget/code/tests/test_main.py	
+0	phases/19-capstone-projects/23-function-call-dispatcher/code/main.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/main.py	          "detail": "file 'errors.py' matches expected",
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_001_fizzbuzz_offbyone/buggy/fizzbuzz.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_001_fizzbuzz_offbyone/expected/fizzbuzz.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_002_factorial_missing_return/buggy/factorial.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_002_factorial_missing_return/expected/factorial.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_003_error_message_typo/buggy/errors.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_003_error_message_typo/expected/errors.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_004_empty_reverse/buggy/reverse.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_004_empty_reverse/expected/reverse.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_005_linked_list_traversal/buggy/linked_list.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tasks/task_005_linked_list_traversal/expected/linked_list.py	
+0	phases/19-capstone-projects/27-eval-harness-fixture-tasks/code/tests/test_main.py	          "detail": "file 'errors.py' matches expected",
+0	phases/19-capstone-projects/28-observability-otel-traces/code/main.py	
+0	phases/19-capstone-projects/28-observability-otel-traces/code/tests/test_main.py	
+0	phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/fixture_repo/src/fizz.py	
+0	phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/fixture_repo/tests/__init__.py	
+1	phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/fixture_repo/tests/test_fizz.py	AssertionError: Lists differ: [1, 2, 'fizz', 4] != [1, 2, 'fizz', 4, 5]
+0	phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/main.py	
+0	phases/18-ethics-safety-alignment/23-watermarking-synthid-stable-signature-c2pa/code/main.py	
+0	phases/19-capstone-projects/30-bpe-tokenizer-from-scratch/code/main.py	
+0	phases/19-capstone-projects/29-end-to-end-coding-task-demo/code/tests/test_main.py	
+0	phases/19-capstone-projects/30-bpe-tokenizer-from-scratch/code/tests/test_bpe.py	
+0	phases/19-capstone-projects/42-large-corpus-downloader/code/tests/__init__.py	
+0	phases/19-capstone-projects/42-large-corpus-downloader/code/main.py	
+0	phases/19-capstone-projects/42-large-corpus-downloader/code/tests/test_downloader.py	
+0	phases/19-capstone-projects/43-hdf5-tokenized-corpus/code/tests/__init__.py	
+0	phases/19-capstone-projects/43-hdf5-tokenized-corpus/code/main.py	
+0	phases/19-capstone-projects/44-cosine-lr-warmup/code/tests/__init__.py	
+0	phases/19-capstone-projects/45-gradient-clipping-amp/code/tests/__init__.py	
+0	phases/19-capstone-projects/26-sandbox-runner-denylist/code/main.py	
+0	phases/19-capstone-projects/49-lm-eval-harness/code/main.py	
+0	phases/19-capstone-projects/50-hypothesis-generator/code/main.py	
+0	phases/19-capstone-projects/43-hdf5-tokenized-corpus/code/tests/test_hdf5_corpus.py	
+0	phases/19-capstone-projects/49-lm-eval-harness/code/test_main.py	
+0	phases/19-capstone-projects/51-literature-retrieval/code/main.py	
+0	phases/19-capstone-projects/50-hypothesis-generator/code/tests/test_generator.py	
+0	phases/19-capstone-projects/51-literature-retrieval/code/tests/test_retrieval.py	
+3	phases/19-capstone-projects/52-experiment-runner/code/experiments/crashing_experiment.py	
+2	phases/19-capstone-projects/52-experiment-runner/code/experiments/sparsity_experiment.py	{"error": "missing config path"}
+0	phases/19-capstone-projects/53-result-evaluator/code/main.py	
+0	phases/19-capstone-projects/26-sandbox-runner-denylist/code/tests/test_main.py	
+0	phases/19-capstone-projects/54-paper-writer/code/main.py	
+0	phases/19-capstone-projects/53-result-evaluator/code/tests/test_evaluator.py	
+0	phases/19-capstone-projects/55-critic-loop/code/main.py	
+0	phases/19-capstone-projects/54-paper-writer/code/tests/test_paper_writer.py	
+0	phases/19-capstone-projects/55-critic-loop/code/tests/test_critic_loop.py	
+0	phases/19-capstone-projects/56-iteration-scheduler/code/main.py	
+0	phases/19-capstone-projects/52-experiment-runner/code/main.py	
+0	phases/19-capstone-projects/57-end-to-end-research-demo/code/main.py	
+0	phases/19-capstone-projects/56-iteration-scheduler/code/tests/test_scheduler.py	
+0	phases/19-capstone-projects/64-chunking-strategies-advanced/code/main.py	
+0	phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/code/main.py	
+0	phases/19-capstone-projects/64-chunking-strategies-advanced/code/tests/test_chunkers.py	
+0	phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/code/tests/test_hybrid.py	
+0	phases/19-capstone-projects/57-end-to-end-research-demo/code/tests/test_e2e.py	
+0	phases/19-capstone-projects/68-rag-eval-precision-recall/code/main.py	
+0	phases/19-capstone-projects/67-query-rewriting-hyde/code/main.py	
+0	phases/19-capstone-projects/67-query-rewriting-hyde/code/tests/test_rewriters.py	
+0	phases/19-capstone-projects/68-rag-eval-precision-recall/code/tests/test_eval.py	
+0	phases/19-capstone-projects/70-task-spec-format/code/main.py	bad fixture: validated=0 errors=10
+0	phases/19-capstone-projects/52-experiment-runner/code/tests/test_runner.py	
+0	phases/19-capstone-projects/70-task-spec-format/code/tests/test_spec.py	
+0	phases/19-capstone-projects/71-classical-metrics/code/main.py	
+0	phases/19-capstone-projects/71-classical-metrics/code/tests/test_metrics.py	
+0	phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/code/main.py	
+0	phases/19-capstone-projects/73-perplexity-calibration/code/main.py	
+0	phases/19-capstone-projects/74-leaderboard-aggregation/code/main.py	
+0	phases/19-capstone-projects/73-perplexity-calibration/code/tests/test_calibration.py	
+0	phases/19-capstone-projects/72-code-exec-metric/code/tests/test_exec.py	
+0	phases/19-capstone-projects/72-code-exec-metric/code/main.py	  [OK] denylist_subprocess      exit=error          score=0.00 detail=exec error: denied module: subprocess
+0	phases/19-capstone-projects/82-jailbreak-taxonomy/code/fixtures.py	
+0	phases/19-capstone-projects/74-leaderboard-aggregation/code/tests/test_leaderboard.py	
+0	phases/19-capstone-projects/82-jailbreak-taxonomy/code/main.py	
+0	phases/19-capstone-projects/83-prompt-injection-detector/code/benign.py	
+0	phases/19-capstone-projects/75-end-to-end-eval-runner/code/main.py	
+0	phases/19-capstone-projects/83-prompt-injection-detector/code/rules.py	
+0	phases/19-capstone-projects/82-jailbreak-taxonomy/code/tests.py	
+0	phases/19-capstone-projects/83-prompt-injection-detector/code/main.py	
+0	phases/19-capstone-projects/83-prompt-injection-detector/code/tests.py	
+0	phases/19-capstone-projects/84-refusal-evaluation/code/mock_llm.py	
+0	phases/19-capstone-projects/84-refusal-evaluation/code/prompts.py	
+0	phases/19-capstone-projects/85-content-classifier-integration/code/classifiers.py	
+0	phases/19-capstone-projects/84-refusal-evaluation/code/main.py	
+0	phases/19-capstone-projects/85-content-classifier-integration/code/main.py	
+0	phases/19-capstone-projects/84-refusal-evaluation/code/tests.py	
+0	phases/19-capstone-projects/85-content-classifier-integration/code/tests.py	
+0	phases/19-capstone-projects/86-constitutional-rules-engine/code/tests.py	
+0	phases/19-capstone-projects/86-constitutional-rules-engine/code/main.py	
+0	phases/19-capstone-projects/86-constitutional-rules-engine/code/yaml_subset.py	
+0	phases/19-capstone-projects/87-end-to-end-safety-gate/code/main.py	
+0	phases/19-capstone-projects/87-end-to-end-safety-gate/code/mock_llm_stream.py	
+0	phases/19-capstone-projects/75-end-to-end-eval-runner/code/tests/test_runner.py	
+0	phases/19-capstone-projects/87-end-to-end-safety-gate/code/safety_gate.py	
+0	phases/19-capstone-projects/87-end-to-end-safety-gate/code/tests.py	
+124	phases/10-llms-from-scratch/04-pre-training-mini-gpt/code/main.py	
+124	phases/10-llms-from-scratch/07-rlhf/code/main.py	
+124	phases/10-llms-from-scratch/08-dpo/code/main.py	
+0	phases/19-capstone-projects/69-end-to-end-rag-system/code/tests/test_pipeline.py	
+0	phases/00-setup-and-tooling/01-dev-environment/code/verify.py	
+0	phases/00-setup-and-tooling/03-gpu-setup-and-cloud/code/gpu_check.py	
+0	phases/01-math-foundations/05-chain-rule-and-autodiff/code/autodiff.py	
+0	phases/04-computer-vision/03-cnns-lenet-to-resnet/code/main.py	
+1	phases/04-computer-vision/05-transfer-learning/code/main.py	ModuleNotFoundError: No module named 'torchvision'
+0	phases/04-computer-vision/06-object-detection-yolo/code/main.py	[encode/decode] round-trip error
+1	phases/04-computer-vision/08-instance-segmentation-mask-rcnn/code/main.py	ModuleNotFoundError: No module named 'torchvision'
+0	phases/00-setup-and-tooling/12-debugging-and-profiling/code/debug_tools.py	
+0	phases/03-deep-learning-core/13-debugging-neural-networks/code/debug_neural_nets.py	
+0	phases/04-computer-vision/11-stable-diffusion/code/main.py	
+1	phases/04-computer-vision/12-video-understanding/code/main.py	ModuleNotFoundError: No module named 'torchvision'
+0	phases/04-computer-vision/13-3d-vision-nerf/code/main.py	
+0	phases/04-computer-vision/14-vision-transformers/code/main.py	
+1	phases/04-computer-vision/15-real-time-edge/code/main.py	ModuleNotFoundError: No module named 'torchvision'
+1	phases/04-computer-vision/16-vision-pipeline-capstone/code/main.py	ModuleNotFoundError: No module named 'pydantic'
+0	phases/04-computer-vision/17-self-supervised-vision/code/main.py	
+0	phases/04-computer-vision/18-open-vocab-clip/code/main.py	
+124	phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py	
+124	phases/04-computer-vision/04-image-classification/code/main.py	
+124	phases/04-computer-vision/07-semantic-segmentation-unet/code/main.py	
+124	phases/04-computer-vision/09-image-generation-gans/code/main.py	
+124	phases/04-computer-vision/10-image-generation-diffusion/code/main.py	
+0	phases/04-computer-vision/20-image-retrieval-metric/code/main.py	
+0	phases/04-computer-vision/26-monocular-depth/code/main.py	
+0	phases/04-computer-vision/28-world-models-video-diffusion/code/main.py	
+0	phases/04-computer-vision/25-vision-language-models/code/main.py	
+124	phases/04-computer-vision/19-ocr-document-understanding/code/main.py	
+0	phases/19-capstone-projects/31-tokenized-dataset-sliding-window/code/main.py	
+124	phases/04-computer-vision/21-keypoint-pose/code/main.py	
+0	phases/19-capstone-projects/31-tokenized-dataset-sliding-window/code/tests/test_dataset.py	
+124	phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py	
+0	phases/19-capstone-projects/32-token-positional-embeddings/code/main.py	learned bounded by max_context_length: must error past max
+0	phases/19-capstone-projects/32-token-positional-embeddings/code/tests/test_embeddings.py	
+124	phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py	
+0	phases/19-capstone-projects/34-transformer-block/code/tests/test_block.py	
+0	phases/19-capstone-projects/34-transformer-block/code/main.py	
+0	phases/19-capstone-projects/35-gpt-model-assembly/code/tests/test_model.py	
+0	phases/19-capstone-projects/33-multihead-self-attention/code/tests/test_attention.py	
+0	phases/19-capstone-projects/35-gpt-model-assembly/code/main.py	
+0	phases/19-capstone-projects/37-loading-pretrained-weights/code/main.py	
+0	phases/19-capstone-projects/37-loading-pretrained-weights/code/tests/test_load.py	
+124	phases/07-transformers-deep-dive/14-build-a-transformer-capstone/code/main.py	
+0	phases/19-capstone-projects/36-training-loop-eval/code/tests/test_training.py	
+124	phases/11-llm-engineering/08-fine-tuning-lora/code/lora.py	
+0	phases/19-capstone-projects/38-classifier-finetuning/code/tests/test_main.py	
+0	phases/19-capstone-projects/39-instruction-tuning-sft/code/tests/test_main.py	
+124	phases/19-capstone-projects/33-multihead-self-attention/code/main.py	
+124	phases/19-capstone-projects/36-training-loop-eval/code/main.py	
+124	phases/19-capstone-projects/38-classifier-finetuning/code/main.py	
+0	phases/19-capstone-projects/41-eval-pipeline/code/tests/test_main.py	
+0	phases/19-capstone-projects/44-cosine-lr-warmup/code/main.py	
+0	phases/19-capstone-projects/44-cosine-lr-warmup/code/tests/test_schedule.py	
+124	phases/19-capstone-projects/39-instruction-tuning-sft/code/main.py	
+0	phases/19-capstone-projects/45-gradient-clipping-amp/code/main.py	
+0	phases/19-capstone-projects/45-gradient-clipping-amp/code/tests/test_amp.py	
+124	phases/19-capstone-projects/40-dpo-from-scratch/code/main.py	
+124	phases/19-capstone-projects/40-dpo-from-scratch/code/tests/test_main.py	
+0	phases/19-capstone-projects/46-gradient-accumulation/code/test_main.py	
+0	phases/19-capstone-projects/47-checkpoint-save-resume/code/main.py	
+0	phases/19-capstone-projects/47-checkpoint-save-resume/code/test_main.py	
+0	phases/19-capstone-projects/58-vision-encoder-patches/code/main.py	
+0	phases/19-capstone-projects/58-vision-encoder-patches/code/test_main.py	
+0	phases/19-capstone-projects/48-distributed-fsdp-ddp/code/main.py	
+0	phases/19-capstone-projects/59-vit-transformer/code/test_main.py	
+124	phases/19-capstone-projects/41-eval-pipeline/code/main.py	
+0	phases/19-capstone-projects/48-distributed-fsdp-ddp/code/test_main.py	
+0	phases/19-capstone-projects/61-cross-attention-fusion/code/main.py	
+0	phases/19-capstone-projects/61-cross-attention-fusion/code/test_main.py	
+0	phases/19-capstone-projects/59-vit-transformer/code/main.py	
+0	phases/19-capstone-projects/60-projection-layer-modality-align/code/test_main.py	
+0	phases/19-capstone-projects/63-multimodal-eval/code/test_main.py	
+0	phases/19-capstone-projects/62-vision-language-pretraining/code/test_main.py	
+0	phases/19-capstone-projects/46-gradient-accumulation/code/main.py	
+124	phases/19-capstone-projects/60-projection-layer-modality-align/code/main.py	
+124	phases/19-capstone-projects/62-vision-language-pretraining/code/main.py	
+0	phases/19-capstone-projects/66-reranker-cross-encoder/code/main.py	
+124	phases/19-capstone-projects/63-multimodal-eval/code/main.py	
+1	phases/19-capstone-projects/76-collective-ops-from-scratch/code/main.py	FileNotFoundError: [Errno 2] No such file or directory
+0	phases/19-capstone-projects/80-checkpoint-sharded-resume/code/main.py	
+0	phases/19-capstone-projects/78-zero-parameter-sharding/code/main.py	
+0	phases/19-capstone-projects/77-data-parallel-ddp/code/main.py	
+0	phases/19-capstone-projects/79-pipeline-parallel/code/main.py	
+124	phases/19-capstone-projects/66-reranker-cross-encoder/code/tests/test_reranker.py	
+1	phases/19-capstone-projects/81-end-to-end-distributed-train/code/main.py	ConnectionResetError: [Errno 104] Connection reset by peer
+0	phases/19-capstone-projects/69-end-to-end-rag-system/code/main.py	
+0	phases/00-setup-and-tooling/05-jupyter-notebooks/code/notebook_tips.py	
+1	phases/03-deep-learning-core/12-intro-to-jax/code/jax_intro.py	ModuleNotFoundError: No module named 'jax'
+1	phases/01-math-foundations/10-dimensionality-reduction/code/dim_reduction.py	urllib.error.URLError: <urlopen error Tunnel connection failed: 403 Forbidden>
+1	phases/04-computer-vision/05-transfer-learning/code/main.py	urllib.error.URLError: <urlopen error Tunnel connection failed: 403 Forbidden>
+0	phases/04-computer-vision/04-image-classification/code/main.py	
+0	phases/04-computer-vision/08-instance-segmentation-mask-rcnn/code/main.py	[pretrained] skipped: <urlopen error Tunnel connection failed: 403 Forbidden>
+0	phases/04-computer-vision/07-semantic-segmentation-unet/code/main.py	
+0	phases/04-computer-vision/09-image-generation-gans/code/main.py	
+0	phases/04-computer-vision/12-video-understanding/code/main.py	
+0	phases/04-computer-vision/10-image-generation-diffusion/code/main.py	
+0	phases/04-computer-vision/16-vision-pipeline-capstone/code/main.py	
+124	phases/02-ml-fundamentals/12-hyperparameter-tuning/code/tuning.py	
+124	phases/03-deep-learning-core/11-intro-to-pytorch/code/pytorch_intro.py	
+0	phases/04-computer-vision/15-real-time-edge/code/main.py	
+0	phases/04-computer-vision/21-keypoint-pose/code/main.py	mean L2 error (subpixel):  12.502 px
+0	phases/04-computer-vision/27-multi-object-tracking/code/main.py	
+124	phases/04-computer-vision/19-ocr-document-understanding/code/main.py	
+0	phases/04-computer-vision/22-3d-gaussian-splatting/code/main.py	
+124	phases/04-computer-vision/23-diffusion-transformers-rectified-flow/code/main.py	
+0	phases/10-llms-from-scratch/04-pre-training-mini-gpt/code/main.py	
+1	phases/11-llm-engineering/02-few-shot-cot/code/advanced_prompting.py	ModuleNotFoundError: No module named 'openai'
+0	phases/10-llms-from-scratch/07-rlhf/code/main.py	
+1	phases/11-llm-engineering/16-langgraph-state-machines/code/main.py	ModuleNotFoundError: No module named 'langchain_anthropic'
+0	phases/19-capstone-projects/33-multihead-self-attention/code/main.py	
+124	phases/07-transformers-deep-dive/14-build-a-transformer-capstone/code/main.py	
+0	phases/10-llms-from-scratch/08-dpo/code/main.py	
+0	phases/19-capstone-projects/36-training-loop-eval/code/main.py	
+124	phases/11-llm-engineering/08-fine-tuning-lora/code/lora.py	    Max absolute error: 0.004462
+0	phases/19-capstone-projects/40-dpo-from-scratch/code/tests/test_main.py	
+124	phases/19-capstone-projects/38-classifier-finetuning/code/main.py	
+124	phases/19-capstone-projects/39-instruction-tuning-sft/code/main.py	
+124	phases/19-capstone-projects/40-dpo-from-scratch/code/main.py	
+0	phases/19-capstone-projects/63-multimodal-eval/code/main.py	
+0	phases/19-capstone-projects/62-vision-language-pretraining/code/main.py	
+0	phases/19-capstone-projects/60-projection-layer-modality-align/code/main.py	
+1	phases/19-capstone-projects/76-collective-ops-from-scratch/code/main.py	FileNotFoundError: [Errno 2] No such file or directory
+1	phases/19-capstone-projects/81-end-to-end-distributed-train/code/main.py	ConnectionResetError: [Errno 104] Connection reset by peer
+0	phases/19-capstone-projects/41-eval-pipeline/code/main.py	
+0	phases/19-capstone-projects/66-reranker-cross-encoder/code/tests/test_reranker.py	
