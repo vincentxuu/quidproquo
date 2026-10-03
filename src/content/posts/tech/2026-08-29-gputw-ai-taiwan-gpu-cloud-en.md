@@ -102,6 +102,11 @@ GPUtw.ai's strongest positioning is as a Taiwan-local short-rental GPU workbench
 
 So the right wording is precise: it is a Taiwan GPU cloud worth small-budget personal trials, and it is reasonable for labs to evaluate. It is not yet something I would describe as verified for formal procurement or production inference. The next practical step is small: open an RTX 3090 with a limited budget, test deployment, Jupyter/SSH, Vault, billing stop behavior, and invoice flow. After that run, you will know whether it fits your real workflow.
 
+## Further Reading
+
+- [What Is GPUtw AI Skill: A Skill Pack and MCP Server for AI Coding Assistants to Manage Taiwan GPU Cloud](/posts/tech/2026-09-16-gputw-ai-skill-mcp-server-en) — GPUtw.ai's official Agent Skill and MCP server that lets Claude Code, Codex, Cursor, and other AI assistants manage GPUs via natural language.
+- [Should You Rent a GPU to Learn Model Training](/posts/ai/2026-08-29-gputw-ai-learning-gpu-en) — A beginner's guide to learning model inference, training, and fine-tuning on GPUtw.ai.
+
 ## References
 
 - [GPUtw.ai](https://gputw.ai/en)

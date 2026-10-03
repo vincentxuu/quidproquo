@@ -102,6 +102,11 @@ GPUtw.ai 最合理的定位，是台灣個人與研究者的短租 GPU 工作台
 
 所以介紹它時，分寸要抓準：可以說它是值得個人小額試用的台灣 GPU cloud，也可以說它適合研究室評估；但不能寫成已驗證可正式採購，更不能寫成 production 推論平台。最好的下一步很簡單：用一筆小額預算開 RTX 3090，測部署、Jupyter/SSH、Vault、停止計費與發票流程。跑過那一輪，才知道它是不是適合你的實際工作流。
 
+## 延伸閱讀
+
+- [GPUtw AI Skill 是什麼：讓 AI 編碼助理直接管 GPU 的技能包與 MCP 伺服器](/posts/tech/2026-09-16-gputw-ai-skill-mcp-server) — GPUtw.ai 官方推出的 Agent Skill 與 MCP 伺服器，讓 Claude Code、Codex、Cursor 等 AI 助理用自然語言管理 GPU。
+- [個人學模型訓練要租 GPU 嗎](/posts/ai/2026-08-29-gputw-ai-learning-gpu) — 用 GPUtw.ai 學模型推論、訓練和微調的入門指南。
+
 ## 參考資料
 
 - [GPUtw.ai](https://gputw.ai/en)

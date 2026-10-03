@@ -1,10 +1,13 @@
 ---
 title: "個人學模型訓練要租 GPU 嗎：GPUtw.ai、LoRA、Jupyter 與第一輪實驗"
-date: 2026-08-29
+date: 2026-09-07
 category: ai
 type: guide
 tags: [gpu, model-training, fine-tuning, lora, llm, self-study, gputw-ai]
 lang: zh-TW
+series:
+  name: "從零訓練一個 LLM"
+  order: 12
 tldr: "GPUtw.ai 適合個人把短租 GPU 當成學習工具：先跑 Jupyter、Ollama、ComfyUI，再用 LoRA/QLoRA 做小模型微調。它不是大型基礎模型訓練平台，第一次使用應該小額測部署、計費與資料保存。"
 description: "給想學 AI 模型但沒有 NVIDIA 顯卡的人：GPUtw.ai 這類台灣短租 GPU 平台可以怎麼用、適合做哪些模型實驗、哪些地方不能當成正式採購或 production 證據。"
 draft: false
