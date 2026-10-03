@@ -61,7 +61,7 @@ This is where Japanese people shop for groceries every day. Prices are moderate,
 
 **[Maruetsu](https://www.maruetsu.co.jp/company/outline/)** is one of the largest food supermarket chains in the Tokyo area. Founded in 1945 in Urawa, Saitama, it had 308 stores at the end of August 2026 across Tokyo, Kanagawa, Saitama, and Chiba. In 2015 it formed [United Super Markets Holdings](https://www.usmh.co.jp/about) with Kasumi and Maxvalu Kanto, and it belongs to the AEON group. It runs three formats: standard "Maruetsu", the urban small-format "Maruetsu Petit", and the higher-quality "Rincos". The Orange Court store in Shinjuku sits inside a shopping complex and is an example of the first; check in-store notices for hours and range.
 
-**[Co-op](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html)** (seikyo, Co-op Mirai) supermarkets are run by a consumer cooperative, with stores in Tokyo, Saitama, and Chiba. The Co-op Toyama store in Shinjuku is open until 11 p.m. and accepts credit cards, PayPay, Suica, and PASMO. The cooperative's official membership rule is that anyone who [lives or works in Tokyo, Saitama, or Chiba](https://shop-mirai.coopnet.or.jp/contacts/) can join; I found no official statement on whether visitors can check out without joining, so follow the in-store signage.
+**[Co-op](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html)** (seikyo, Co-op Mirai) supermarkets are run by a consumer cooperative, with stores in Tokyo, Saitama, and Chiba. The Co-op Toyama store in Shinjuku is open until 11 p.m. and accepts credit cards, PayPay, Suica, and PASMO. Note that it is not a shop for everyone: under [Article 12 of the Consumer Cooperatives Act](https://laws.e-gov.go.jp/law/323AC0000000200), a co-op may in principle not let non-members use its business, and the rules require stores to post that notice. Membership is open to anyone who [lives or works in Tokyo, Saitama, or Chiba](https://shop-mirai.coopnet.or.jp/contacts/) and requires a ¥500 share, so short-stay visitors basically can't use it. Some people online report being let through as non-members, but that is individual store practice, not an official rule, so don't build it into your itinerary.
 
 **AEON** is a nationwide retail group with many supermarkets and shopping malls. Its private brand is [TOPVALU](https://www.topvalu.net/items/category/100000000), which includes a budget line called "Best Price".
 
@@ -115,12 +115,12 @@ flowchart TD
 
 - **Regions differ a lot**: the chains here are mostly Tokyo- and Osaka-based. Hokkaido, Kyushu, and Tohoku each have strong local chains worth looking up when you're there.
 - **The item matters more than the store**: premium supermarkets carry cheap private-brand items too, and imported alcohol at a discount store isn't always the cheapest. The tier only tells you which way a store leans overall.
-- **The three newest additions aren't price-compared**: Santoku, Maruetsu, and Co-op are placed by their own positioning and store format, not item-by-item prices; I put Co-op Toyama in mid-range based on its format as an ordinary supermarket.
+- **The three newest additions aren't price-compared**: Santoku, Maruetsu, and Co-op are placed by their own positioning and store format, not item-by-item prices; I put Co-op Toyama in mid-range based on its format as an ordinary supermarket, and since visitors generally can't use it, it is mainly relevant for long stays.
 - **The industry is consolidating**: Seiyu and Ito-Yokado both changed owners in 2025, so store names, store counts, and private brands may keep changing. The information in this post was checked in October 2026.
 
 ## Update log
 
-- 2026-10-03: added Santoku (premium) and Maruetsu and Co-op (mid-range), three supermarkets around Shinjuku, Tokyo
+- 2026-10-03: added Santoku (premium) and Maruetsu and Co-op (mid-range), three supermarkets around Shinjuku, Tokyo; noted that Co-op is members-only in principle under the Consumer Cooperatives Act
 
 ## References
 
@@ -138,6 +138,7 @@ flowchart TD
 - [About U.S.M.H | United Super Markets Holdings](https://www.usmh.co.jp/about) (in Japanese)
 - [Co-op Toyama store information | Co-op Mirai](https://map.coopdeli.coop/mirai/tokyo/shop/toyama.html) (in Japanese)
 - [Joining at the store | Co-op Mirai](https://shop-mirai.coopnet.or.jp/contacts/) (in Japanese)
+- [Consumer Cooperatives Act | e-Gov Laws](https://laws.e-gov.go.jp/law/323AC0000000200) (in Japanese)
 - [TOPVALU food | AEON](https://www.topvalu.net/items/category/100000000) (in Japanese)
 - [Seven & i completes sale of Ito-Yokado and others | Nikkei](https://www.nikkei.com/article/DGXZQOUC012XO0R00C25A9000000) (in Japanese)
 - [Trial completes ¥380 billion acquisition of Seiyu | Nikkei](https://www.nikkei.com/article/DGXZQOUC019910R00C25A7000000) (in Japanese)
