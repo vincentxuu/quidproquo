@@ -1,0 +1,766 @@
+{
+  "date": "2026-10-05",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv official /new batch for Friday, 2 October 2026 (cs.AI 149 new submissions, cs.CL 111 new submissions, cs.MA 6 new submissions; 268 total raw entries). Fetched via Groundlane web_fetch with selector/pagination workaround for the ~100k-char output cap. Agent-relevance triage (titles+subjects for cs.AI/cs.CL, full abstracts for cs.MA) retained ~104 candidates (60 cs.AI + 38 cs.CL + 6 cs.MA), excluding ~85 cs.AI and ~73 cs.CL entries as out-of-scope (pure CV/robotics-perception, pure training-methodology/quantization, domain ML benchmarks without agent framing, pure RL theory, non-agent-specific security/NLP classification).",
+    "layerB": [
+      "HuggingFace Daily Papers API (huggingface.co/api/daily_papers via Groundlane web_extract to bypass output cap) — most recent 3 distinct dates (2026-09-29/09-30/10-01), 11 agent-relevant entries after filtering out video-gen/world-model/robotics false positives",
+      "Semantic Scholar bulk search (query='AI agent tool use memory safety') — FAILED, persistent HTTP 429 on Groundlane backend across 3 attempts; no bulk-discovery candidates added from this source this round (per-paper Semantic Scholar lookups in Step 4-bg succeeded independently for most shortlisted candidates)",
+      "Groundlane web_search 'site:paperswithcode.com OR site:huggingface.co/papers trending AI agent' — surfaced HF trending rail (ranked, not date-bound); excluded resulting IDs older than 1 month (2412.20138 TradingAgents, 2407.16741 OpenDevin, 2504.19413 Mem0, 2608.23283 Apodex, 2609.08183 NeoHorse) as not meeting this routine's freshness/today-importance bar — no specific news hook beyond evergreen trending-page presence; 2609.24972 already hard-deduped (selected 2026-09-23); 2609.33439 Raven already tracked via Layer C"
+    ],
+    "layerC": "14-day lookback 2026-09-22 to 2026-10-04 across .research/daily-arxiv-screening/*.json (missing 2026-09-21, 2026-09-24 — no record found for those dates). Collected all watch-status and rejected/stronger-competitor candidates: 128 raw entries, 111 unique after arxiv-ID dedup. Applied decay=0.85^daysSinceFirstSeen; most competitive sub-pool was d=1 (yesterday's watch list, decay 0.85), which heavily overlapped with today's fresh Layer A batch (same Fri 2 Oct announcement window). No specific evidence-insufficient candidate from this pool surfaced a new code-release/replication/venue-upgrade signal strong enough to beat today's fresh, fully-verified selections after decay; the 2-14 day sub-pool (effective decay <=0.72) was not individually re-opened this round given volume (111 unique candidates), consistent with prior rounds' practice — no new signal was observed in Layer A/B searches that would trigger their re-consideration per the Layer C signal-gated rule."
+  },
+  "generatedAt": "2026-10-05T12:00:00+08:00",
+  "toolDegradation": [
+    "Groundlane web_fetch hit an undocumented ~100k-char output cap on huggingface.co/api/daily_papers and arxiv.org/list/{cat}/new (cs.AI 149 entries, cs.CL 111 entries) — worked around via web_extract (pattern engine) and arXiv skip/show pagination rather than falling back to another tool tier.",
+    "Semantic Scholar bulk /paper/search endpoint returned persistent HTTP 429 via Groundlane across both Layer B research agents (3+ attempts each); per-paper /paper/{id} lookups in Step 4-bg succeeded for most shortlisted candidates but failed (429) for roughly half after 1 retry each — recorded per-candidate below as 'not available (429)', not guessed."
+  ],
+  "candidates": [
+    {
+      "arxivId": "2610.01306",
+      "title": "DAYJOB: A Benchmark for Long-Horizon Professional Work",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 AABA4ET Workshop (per arXiv comments field; workshop, not main track)",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar)",
+      "institution": "Not stated in paper; GitHub org 'surge-ai' and a self-cited blog post suggest a possible Surge AI link, unconfirmed",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "arxiv.org/html/2610.01306v1 §3.5: task construction by named domain professionals, three-layer review",
+        "Table 2: median 47.5/57.5 binary rubric criteria per task",
+        "§4.3: grading done by an agentic LLM judge (OpenCode + Claude Opus 4.8), never validated against human expert agreement",
+        "Table 3/§5.1: main results table confirmed matching abstract exactly"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Core low-pass-rate finding is robust across grading thresholds (§5.2, relaxed τ=0.90 gives 62.4%/58.3%), but the grading judge's own validity against human experts is never measured, and the 'human-equivalent hours' figure (Table 2 footnotes) is a task-creator self-estimate, not a measured human baseline",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "50/50 healthcare tasks public on HuggingFace (MIT)",
+        "50/80 finance tasks public, 30 withheld on request",
+        "harness code on GitHub (Apache 2.0, surge-ai/dayjob)"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Directional claim (long professional tasks remain very hard for agents) is well supported; precise percentages depend on an unvalidated LLM judge, so exact numbers should be read with appropriate caution",
+      "primaryLimitation": "The agentic grading judge was never validated against human expert graders; no dedicated Limitations section exists in the paper",
+      "presentation": "clear",
+      "presentationReason": "Method, rubric construction, and results are clearly laid out across sections; the absence of judge-validation and human-baseline discussion is a content gap, not a clarity gap",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected as the clearest, most concrete demonstration of a real capability gap on professional long-horizon work; forms the 'evaluation reveals a limit' anchor of today's evaluation-reliability cluster alongside 2610.00651 and 2610.02206"
+    },
+    {
+      "arxivId": "2610.00651",
+      "title": "Agent Evaluation Reliability: More Tasks Won't (Always) Fix a Leaderboard",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 5 days (Semantic Scholar)",
+      "institution": "Not stated in paper",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "§3.2-3.3 Eqs. 2-9: fully specified Bayesian variance-decomposition model grounded in generalizability theory",
+        "§5.1: Eρ²_MA(b) in [0.935,0.994] (scaffold-fixed) vs Eρ²_M(b) in [0.148,0.841] (model-ranking) matches abstract exactly, from the 9-benchmark HAL battery",
+        "Table 4/Appendix A.2: confirms the '22 benchmarks' figure = 9 HAL + 13 of 29 Harbor-Index benchmarks filtered by item-count >=3",
+        "Appendix 'Scope conditions on the headline ceiling': authors self-flag that a clustered frontier-model pool mechanically depresses model variance regardless of benchmark quality"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Core statistical claims are fully traceable to equations, tables, and a public reproducibility package; authors explicitly scope the claims' limits rather than overreaching",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Code+data at github.com/hardy-education/scaffold_eval",
+        "Dedicated Reproducibility Statement, §6",
+        "Full estimation details in Appendix C"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Method and numbers are independently traceable and reproducible; authors disclose the main factor (22 vs 9+13 benchmark conflation) that could mislead a casual reading",
+      "primaryLimitation": "Headline '22 benchmarks' figure conflates a 9-benchmark primary analysis with a secondary, filtered 13-benchmark corroboration; low model-ranking reliability may partly reflect how similar current frontier models are to each other rather than a pure benchmark-design flaw",
+      "presentation": "clear",
+      "presentationReason": "Equations, benchmark composition, and scope limits are explicitly and clearly stated by the authors themselves",
+      "relevance": "indirect",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected as the meta/methodological anchor of today's cluster — provides the reading framework needed to properly weigh the benchmark-number claims in 2610.01306 and 2610.02206"
+    },
+    {
+      "arxivId": "2610.02206",
+      "title": "KaliBench: A Fine-Grained Benchmark for Cybersecurity Tool Use on Kali Linux",
+      "source": [
+        "layerA",
+        "layerB",
+        "layerC"
+      ],
+      "sourceCount": 3,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 Evaluations and Datasets Track (confirmed directly from arXiv Comments metadata field)",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar)",
+      "institution": "Not stated in paper; GitHub org 'RISys-Lab'",
+      "communitySignals": [
+        "HuggingFace Daily Papers: 8 upvotes, 2 comments (2026-10-01)"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Appendix A: human-in-the-loop verification is author-only, no external annotators or IAA figure",
+        "Table 1: best open-weight model (GLM-5.2, 753B) at 41.3% Exact Correct unrestricted, confirming the <42% ceiling",
+        "Appendix G.2/§4.1: RedSage-K (8B SFT+GRPO) at 79.2% Avg Total Score vs DeepSeek-V3.2 (685B MoE) at 80.2% -- the actual basis of the 'parity' claim",
+        "Table 1: Hinted-mode Exact Correct shows RedSage-K at 69.4% vs DeepSeek-V3.2 at 84.5% -- a 15pp gap not surfaced by the aggregate parity framing",
+        "arxiv.org/abs/2610.02206 Comments field: 'Accepted at NeurIPS 2026 Evaluations and Datasets Track' confirmed directly from arXiv metadata"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Large-scale (8,504 pairs, 1,642 tools, 24 open-weight configs + proprietary comparisons, 3 query modes) and peer-reviewed at a dedicated NeurIPS track; the 'parity' claim is real but mode-dependent, not uniform",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Dataset+pipeline code on GitHub (RISys-Lab/KaliBench, CC BY-NC 4.0)",
+        "Model checkpoints on HuggingFace",
+        "Croissant metadata filed with OpenReview"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Peer-reviewed venue, large scale, and numbers trace cleanly to body tables even after accounting for the mode-dependent nuance in the parity claim",
+      "primaryLimitation": "The '8B matches 685B' claim holds only on the aggregate average score; a 15-percentage-point gap remains on exact-command accuracy in Hinted mode, and human verification was author-only rather than independently annotated",
+      "presentation": "clear",
+      "presentationReason": "Dataset construction, training setup, and results tables are explicit and well-organized across the main text and appendices",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected as the methods/fix counterpart to today's cluster -- shows a concrete, reproducible training recipe (RLVR) that closes most of a capability gap, balancing the gloomier findings of 2610.01306 and 2610.00651"
+    },
+    {
+      "arxivId": "2610.01833",
+      "title": "Continuous Process-Level Evaluation for Evolving Enterprise AI Agent Skills",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 CLEA Workshop",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar)",
+      "institution": "Not stated; describes an internal IBM system (Value Aware Resiliency / Business Value Determination skill) per full-text read",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "§7: 92.6% (Wilson 95% CI 87.7-95.6%) hidden-deviation figure survives 3 independent robustness cuts (excluding external-error runs, excluding unrecovered-error runs, removing a contested allowlist check)",
+        "Appendix A: authors self-flag MD/TXT as paired (not controlled) artifacts, a zero-clean-run cell (Productivity x Codex x Sonnet-4.6), and judge self-preference risk (the LLM judge is also one of the 3 evaluated models)",
+        "No code/data/environment released anywhere -- fully proprietary IBM internal tooling (VAR/BVD), 3 authors (2 IBM + 1 intern), no external replication"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Statistically careful (Wilson CIs, bootstrap sensitivity checks) but the whole evidence base is one proprietary enterprise system, one skill family, evaluated by its own 3 builders with no external benchmark or replication",
+      "reproducibility": "not-provided",
+      "reproducibilityEvidence": [
+        "No code, data, or environment released; VAR/BVD is named internal IBM tooling with zero public artifacts"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "The core 'outcome checks hide most deviations' finding is well-supported within this one system, but the 'evolving enterprise AI agent skills' framing in the title overreaches what a single skill-family/single-system study can support",
+      "primaryLimitation": "Entirely closed, proprietary, single-system evaluation with no external replication or public artifacts; the LLM judge is also one of the three evaluated models, creating an unresolved self-preference risk",
+      "presentation": "clear",
+      "presentationReason": "Methodology and limitations are unusually candidly and specifically stated in Appendix A",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Passed credibility gate but weaker than the 3 selected papers on generalizability and reproducibility: this is a single proprietary enterprise system evaluated by its own 3 builders with zero public artifacts, versus KaliBench's peer-reviewed, fully open, 24-model-scale evidence and DAYJOB's cross-domain, partially-public benchmark; re-enters Layer C pool for reconsideration if external replication or a public release appears"
+    },
+    {
+      "arxivId": "2610.00906",
+      "title": "ActiveSaddler: Automated Curriculum Learning for Agent Harness Optimization",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar)",
+      "institution": "Not stated on abstract page (several co-author names associated with Microsoft Research, unconfirmed from source)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: named benchmarks (GAIA2, Terminal-Bench 2.0), specific +4.4pp/+7.5pp deltas vs a fixed-curriculum baseline, ablations called out -- strong abstract-level evidence structure, full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate (method/experiment/limitation sections) not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Strong abstract-level evidence (named benchmarks + specific deltas + ablations) but today's evaluation-reliability cluster (DAYJOB/Agent Evaluation Reliability/KaliBench) was judged to have higher today-importance and already went through full credibility gate; re-open for full-text read if it resurfaces"
+    },
+    {
+      "arxivId": "2610.00366",
+      "title": "What Should an Agent Remember? Disentangling Retention from Retrieval",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: unusually precise statistics (95% CI, exact failure counts, confound decomposition 53.2 of 68.7 points) -- full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Exceptionally quantified abstract (memory/retention cluster) but today's evaluation-reliability cluster was judged more editorially important and already cleared full credibility gate; single-author paper, worth a full read if memory becomes tomorrow's cluster"
+    },
+    {
+      "arxivId": "2610.02070",
+      "title": "Causal Memory Policy: Making Memory Utility Identifiable by Intervening on Retrieval",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: causal theory + proofs, named benchmarks (LongMemEval, LoCoMo), self-discloses own method's 0.78 AUC per-query utility doesn't generalize -- full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Self-disclosed limitation is a positive credibility signal and the causal framing is novel, but memory cluster lost out to the stronger, more today-relevant evaluation-reliability cluster; worth a full read later"
+    },
+    {
+      "arxivId": "2610.02036",
+      "title": "Global Coherence: A Local-to-Global Semantic Foundation for Multi-Agent Collaboration",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar)",
+      "institution": "Not stated (single author, Xin Heng)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: impossibility theorem + 3 quantified testbeds (40/40 vs 12-17/40 chance; TeamBench 5/5->0/5; tau2-bench 0.07->1.00) -- unusually quantified for a single-author theory paper, full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; whether the impossibility theorem's assumptions match real deployment conditions needs full-text verification",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Interesting theory+quantified-testbed combination (multi-agent coordination cluster) but lost out to the evaluation-reliability cluster on today-importance; single-author paper worth a full read if multi-agent coordination becomes tomorrow's cluster"
+    },
+    {
+      "arxivId": "2610.02122",
+      "title": "Argo-Bench: Evaluating Data Agents on Enterprise-Scale Workflows",
+      "source": [
+        "layerA",
+        "layerB",
+        "layerC"
+      ],
+      "sourceCount": 3,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar)",
+      "institution": "Not stated; GitHub org 'TextQLLabs' suggests a possible TextQL link, unconfirmed",
+      "communitySignals": [
+        "HuggingFace Daily Papers: 22 upvotes, 2 comments (2026-10-01)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: 210-task benchmark, 81M-order/235-table/7.5B-row simulated environment, 14-model comparison, best model passes >=95 on only 34.8% of tasks -- paper explicitly flags text-to-SQL answer-key unreliability as its own motivating limitation, full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Strong 3-source signal (sourceCount=3) and self-aware limitation framing, but is a data-agent benchmark overlapping thematically with the already-selected DAYJOB/KaliBench evaluation cluster without a distinct enough angle to add a 4th paper this round"
+    },
+    {
+      "arxivId": "2610.00648",
+      "title": "Incident-Arena: Getting Agents to the Last Nine of Reliability",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: realistic K8s/injected-fault SRE setup, functional (not just static) verifiers, frontier models <64.3% across 20 tasks -- N=20 tasks is a small sample, full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Small sample (N=20 tasks across 3 substrates) limits statistical confidence, not independently verified this round",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Realistic production-grade SRE setup but small sample size (N=20) is a more serious evidentiary gap than the 3 selected papers' sample sizes; thematically overlaps with the selected evaluation cluster without a distinct enough angle"
+    },
+    {
+      "arxivId": "2610.01256",
+      "title": "DeFA: Dependency-Guided Failure Attribution for LLM Agents",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: 'highest accuracy' claims are relative to unnamed baselines not quantified in the abstract; downstream skill-evolution gain (6-15pp via Trace2Skill) stated qualitatively for multimodal extension, full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Abstract-level superlative claims ('highest accuracy') are not quantified against named baselines in the abstract itself, needs full-text verification",
+      "presentation": "mixed",
+      "presentationReason": "Abstract makes comparative claims without giving the comparison baseline's actual numbers",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Failure-attribution angle is useful but abstract-level evidence is weaker than the selected papers (unquantified superlative claims); thematically close to DAYJOB's capability-gap finding without adding a distinct angle this round"
+    },
+    {
+      "arxivId": "2610.00372",
+      "title": "When Harnesses Lose the Signal: Causal Evaluation of Recovery in LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: careful causal framing (rescue vs harm), but validated only on ALFWorld with Qwen3-14B, +3.00pp effect -- narrow scope, full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Validated on a single environment (ALFWorld) and single model (Qwen3-14B) with a modest +3pp effect; generalization unverified",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Novel causal framing but abstract-level evidence is narrow (1 environment, 1 model, modest effect size) relative to the selected papers' multi-config, multi-benchmark evidence; would need a code release or cross-environment replication to re-enter consideration"
+    },
+    {
+      "arxivId": "2610.02150",
+      "title": "From Knowledge Access to Source Learning: Developing Source-Specific Competence",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated; 13 authors incl. Wenke Lee, B. Aditya Prakash, Haohan Wang",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: 5 benchmarks x 3 LLM backends, best in 13/15 settings, +22.6pt vs Hybrid RAG baseline -- implicitly concedes 2/15 losses, full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; which 2/15 settings it loses on is unclear without full-text read",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Decent quantification (named baseline + point gain) but memory/RAG cluster lost out to the stronger evaluation-reliability cluster on today-importance"
+    },
+    {
+      "arxivId": "2609.36435",
+      "title": "MemFold: Learning Compact Soft Memory for Long-Context Personalization via On-Policy Optimization",
+      "source": [
+        "layerB",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 6,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (cs.CL only)",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "HuggingFace Daily Papers: 7 upvotes, 2 comments (2026-09-29)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: named benchmarks (PersonaMem-32K/128K, PrefEval, LongMemEval), ablation attributing gain to reward term vs teacher signal, but no specific percentage numbers in abstract, full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "No concrete percentage numbers given at abstract level; oldest candidate in this round's shortlist (6 days), decay reducing its competitiveness",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Weaker abstract-level evidence (no concrete numbers) than selected papers, and already 6 days old with decay reducing competitiveness; memory cluster lost out to evaluation-reliability cluster this round"
+    },
+    {
+      "arxivId": "2610.02200",
+      "title": "VISTA: A Visual Harness for Reasoning in an Interactive World",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (tech report; earlier precursor was a non-peer-reviewed blog post)",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated (co-author Kaiming He, typically MIT-affiliated, but no affiliation field given on source pages)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: claims a 'perfect 100.00' Relative Human Action Efficiency score on ARC-AGI-3 -- a self-reported, eyebrow-raising superlative on a benchmark the authors may have tuned against; full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round; a claimed perfect score specifically warrants independent-replication scrutiny before trusting at face value",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Claimed 'perfect 100.00' score is self-reported with no independent replication found; began as a non-peer-reviewed blog post",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "A self-reported 'perfect score' claim needs a full-text credibility read and ideally independent replication before it could be selected; not pursued further this round given the strength of the already-selected evaluation cluster"
+    },
+    {
+      "arxivId": "2610.01506",
+      "title": "MCRI: A Four-Dimensional Framework for Analyzing and Evaluating Agent Skills",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: large scale (63,812 public skills, 58,275 skill-conditioned runs), but validation leans on correlation with community popularity, a proxy rather than ground-truth task success; full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Abstract-level validation relies on correlation with popularity signals, a proxy metric rather than ground-truth task success -- needs full-text scrutiny",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Large scale but a proxy-metric validation concern makes this weaker at the abstract level than the selected papers' ground-truth-task evidence"
+    },
+    {
+      "arxivId": "2610.01045",
+      "title": "Empty Commitments: When Agents Promise What Their Runtime Cannot Deliver",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: conceptual/taxonomy paper (4 pages), measurement protocol described but no concrete pass-rate numbers given in the abstract; full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Framework-first paper, thin abstract-level empirical evidence",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "No concrete pass-rate numbers given at abstract level; a short (4-page) framework-first contribution",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Thin empirical evidence at abstract level (conceptual taxonomy, no concrete numbers) relative to the selected papers' quantified, multi-config results"
+    },
+    {
+      "arxivId": "2610.02005",
+      "title": "Counting Moves, Weighing Voices: Bayesian Dialectical Argumentation for Calibrated Multi-LLM Councils under Persistent Adversaries",
+      "source": [
+        "layerA",
+        "layerC"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: claims best calibration among zero-cost council aggregation methods, but no specific numbers or benchmark names given in the abstract; full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Comparative claims without abstract-level quantification",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "No concrete numbers or named benchmarks given at abstract level, weaker evidence signal than other multi-agent candidates this round",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Abstract gives only comparative claims with no concrete numbers or named benchmarks, weaker than both the selected cluster and the other multi-agent candidate (2610.02036) reviewed this round"
+    },
+    {
+      "arxivId": "2610.02142",
+      "title": "Keyword Harnesses Fail Open: A Cheap Diagnostic Ladder for Tool-Use Claims in Small Language Models",
+      "source": [
+        "layerA",
+        "layerB"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (cs.CL)",
+      "citationCount": null,
+      "citationVelocity": "not available (429)",
+      "institution": "Not stated (focus on Spanish security language models)",
+      "communitySignals": [
+        "HuggingFace Daily Papers: 5 upvotes, 2 comments (2026-10-01)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only: very high quantitative density (exact params, GPU-hours, p=0.004, embedding-drift check), but single-author, N=2-models generalization caveat explicitly flagged by the author; full text not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "N=2-models case study (single author's own flagged caveat); generalization beyond this matched pair is unverified",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Rigorous internal methodology but a narrow N=2-models case study; tool-use diagnostics angle overlaps with KaliBench's selected tool-use cluster without matching its scale"
+    }
+  ]
+}
