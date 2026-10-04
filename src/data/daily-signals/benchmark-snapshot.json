@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-04",
+  "date": "2026-10-05",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-04：swebench.com（首頁）仍 `OUTPUT_LIMIT`、morphllm.com/leaderboard 仍 429 + Vercel Security Checkpoint、artificialanalysis.ai/models/capabilities/agentic 仍 404（`js_empty_document`）——三個直接渲染擷取的失敗型態與過去 31 天完全相同（見 escalation-queue Q-023），swebench_verified_top5／morphllm_top3／aa_agentic_index_top3 三項沿用前值，根因未解。`lmsys_agent_top5`（原 `lmsys_agent_top3`，這次擴到 5 筆方便對照）延續 10-02 找到的 HF `datasets-server` 繞法（`lmarena-ai/leaderboard-dataset` 官方資料集，不需渲染 arena.ai 網頁）：`agent` 子集 `latest` split 這次已推進到 2026-10-02 官方發布（距上次確認的 09-30 只隔 2 天），top3 整組換血——09-29 才上線的 Claude Sonnet 5.5 (Max) 以 12.52% 直接空降第三，把 09-30 時還排第三的 GPT-6 Astra (Max) 擠到第四（GPT-6 Astra 自己分數其實微升 12.18%→12.27%，純粹被超車）；Fable 5.1 (Max) 蟬聯第一但分數微降（14.55%→14.31%）、Opus 5.5 (High) 持平蟬聯第二（13.78%→13.82%）。另外用 `/search` 端點回溯 `full` split 確認 `Claude Sonnet 5.5 (Max)` 在整個資料集歷史中只出現這一筆（2026-10-02 發布），即上線後首次被收錄就直接空降前三，無法比對更早的趨勢穩定性；四個名次（Fable 5.1／Opus 5.5／Sonnet 5.5／GPT-6 Astra）的 95% CI 彼此重疊（分別為 [12.42%,16.21%]／[11.65%,15.99%]／[9.43%,15.61%]／[10.04%,14.50%]），符合 skill Step 4「前三名新模型進入」門檻但需在文章內註明統計上無法明確分出高下。另外用 `web_search` 找到 Arena 官方帳號在 X 上同步公告此次空降（https://x.com/arena/status/2106105400487821764，稱 Sonnet 5.5 較前代 Sonnet 5 跳了 8.1 個百分點），以及第三方 remio.ai 報導的獨立 Code Arena WebDev 子榜（2026-10-01 快照）顯示 Sonnet 5.5（xHigh）同樣擠進前三，兩個不同榜單方向一致，提高可信度。已寫成文章（`2026-10-04-benchmark-arena-agent-sonnet-5-5.md` 及 en 版，series order 3）。`swebench.com`／`morphllm.com`／`artificialanalysis.ai` 本次未重新嘗試新繞法（根因已於 09-15～10-02 查明確，重複測試無新結果），仍待人拍板 escalation-queue Q-023 的「接手第一步 (1)」或找到各自的結構化資料出口。"
+  "notes": "2026-10-05：swebench.com（首頁）仍 `OUTPUT_LIMIT`、morphllm.com/leaderboard 仍 429 + Vercel Security Checkpoint——與過去 32 天完全相同的失敗型態（見 escalation-queue Q-023），swebench_verified_top5／morphllm_top3 沿用前值，根因未解（本次未重複驗證 artificialanalysis.ai，根因已查明確）。`lmsys_agent_top5` 用 HF `datasets-server` 重新確認：`agent` 子集 `latest` split 仍是 2026-10-02 官方發布（與 10-04 查到的完全相同，官方尚未出新一批），前五名排名與分數原封不動（Fable 5.1 (Max) 14.31%／Opus 5.5 (High) 13.82%／Sonnet 5.5 (Max) 12.52%／GPT-6 Astra (Max) 12.27%／GPT-6.1 Sol (Max) 11.23%），無新異動可報。`web_search` 補充查詢（Step 3b Q1/Q2）命中內容仍是同一模式的第三方聚合站（swfte.com、benchlm.ai、llm-stats.com、felloai.com、metatext.io、vellum.ai、openlm.ai）對同一 benchmark 名稱互相矛盾（如 vellum.ai 同時列出兩套不同世代的 SWE-Bench 排名、metatext.io 的 LMArena Elo 榜單裡新舊代模型混雜排序），完全未提及官方追蹤 scaffold 排名。依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章，僅更新本檔與 escalation-queue Q-023（連續第 33 天）。"
 }
