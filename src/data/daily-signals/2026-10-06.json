@@ -1,0 +1,550 @@
+{
+  "date": "2026-10-06",
+  "generatedAt": "2026-10-05T19:41:48Z",
+  "routineId": "J",
+  "signalCount": 30,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "Meta and Microsoft pull back from Claude as Anthropic transforms from partner into competitor",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/meta-and-microsoft-pull-back-from-claude-as-anthropic-transforms-from-partner-into-competitor/",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "anthropic",
+        "meta",
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Meta 和 Microsoft 大幅削減內部 Claude 用量：Microsoft 雲端部門每人月預算從 10 萬美元砍到約 1 萬美元，Meta 的 Claude Code 使用人數從約 6 萬降到 3 萬，兩家都轉推自家工具（GitHub Copilot、Muse Code、MetaCode）。",
+      "relevance": 0.92,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "the-information"
+      ]
+    },
+    {
+      "id": "sig-002",
+      "title": "Reka AI's omni-model Rho-1 handles text, image, video and robot control in one model",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/reka-ais-omni-model-rho-1-handles-text-images-video-and-robot-control-in-a-single-model/",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "reka-ai"
+      ],
+      "section": "A2",
+      "ring": 2,
+      "summary": "Reka AI 發佈 190 億參數的 omni-model Rho-1 研究預覽版，在單一神經網路內同時處理文字、影像、影片與機器人控制訊號，不需外部工具呼叫或切換模型。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-003",
+      "title": "Aleph Alpha releases Kolibri, an open-weight model for European AI sovereignty",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/aleph-alpha-releases-kolibri-an-open-weight-model-that-makes-the-case-for-european-ai-sovereignty/",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [
+        "aleph-alpha"
+      ],
+      "section": "A2",
+      "ring": 2,
+      "summary": "Aleph Alpha 發佈 780 億參數（約 30 億啟用參數）德英雙語開源模型 Kolibri，以 Apache 2.0 授權上架 Hugging Face，主打公部門、航空與工業場景的歐洲主權 AI。",
+      "relevance": 0.72,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-004",
+      "title": "ChatGPT's new ad format fills the image-generation loading screen with product carousels",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/chatgpts-new-ad-format-fills-the-image-generation-loading-screen-with-product-carousels/",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 本月將在美國 ChatGPT 於圖片生成等待畫面測試顯示廣告（圖片輪播或商品列），同時擴大轉換追蹤與品牌安全合作夥伴，持續朝年營收破億美元的廣告業務推進。",
+      "relevance": 0.62,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-005",
+      "title": "Quinnipiac poll: most Americans want AI development to slow down or stop entirely",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/most-americans-want-ai-development-to-slow-down-or-stop-entirely-new-poll-finds/",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "community-signal",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Quinnipiac 大學民調顯示 47% 美國人希望放慢 AI 發展腳步、30% 要求完全停止直到安全驗證完成，86% 支持獨立安全標準，74% 不信任 AI 公司領導人。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-006",
+      "title": "Critical code-injection vulnerability (CVE-2026-105135) disclosed in InternLM MindSearch AI agent framework",
+      "source": "x-darkwebintel",
+      "sourceUrl": "https://x.com/DailyDarkWeb/status/2106920915246477344",
+      "publishedDate": "2026-10-04",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "開源 AI 搜尋/代理框架 MindSearch 被揭露嚴重程式碼注入漏洞（CVSS 10.0），攻擊者內容可從推理層直接越界進入可執行程式碼；目前尚無修復版本，廠商回應不明。",
+      "relevance": 0.8,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-007",
+      "title": "AWS fixes AI agent flaws in Bedrock AgentCore Loom enabling auth bypass and credential theft",
+      "source": "gbhackers",
+      "sourceUrl": "https://gbhackers.com/aws-fixes-ai-agent-flaws",
+      "publishedDate": "2026-10-04",
+      "dateConfidence": "unverified",
+      "category": "security-incident",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "AWS 修補三個 AI agent 相關漏洞：Loom 未設身分提供者時可被任何網路用戶取得代理控制台完整權限（CVE-2026-103956）、SageMaker Studio Space 指令注入（CVE-2026-104019），以及 MCP/A2A 連線可被重導向至內部端點（CVE-2026-103958）。",
+      "relevance": 0.88,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-008",
+      "title": "Four identity providers hit by 15 CVEs in three days as the agent identity stack comes under coordinated attack",
+      "source": "forkast",
+      "sourceUrl": "https://forkast.news/four-providers-15-cves-three-days-the-agent-identity-stack-is-under-coordinated-attack",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "2026 年 10 月 2 日至 5 日間，ZITADEL（10 個 CVE 叢集）、Zimbra、Bouncy Castle 與 MCP OAuth 相繼曝出憑證竊取漏洞，顯示 AI agent 仰賴的身分驗證層正遭到集中攻擊，受駭信任錨會直接擴散到所有串接的 agent。",
+      "relevance": 0.87,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-009",
+      "title": "Open-source AI agent tool ARTEX used to hack seven South Korean banks, exposing 65,000 records",
+      "source": "techtimes",
+      "sourceUrl": "https://www.techtimes.com/articles/328541/20261005/open-source-ai-agent-hacked-seven-south-korean-banks-exposing-65000-records.htm",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "南韓政府因七家金融機構遭開源 AI 攻擊工具 ARTEX 連續入侵、逾 6.5 萬筆客戶資料外洩，啟動全天候資安應變；Oasis Security 追蹤到 359 個相關 IP，逾九成架設於美、中、港三地伺服器。",
+      "relevance": 0.85,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "south-korea"
+      ]
+    },
+    {
+      "id": "sig-010",
+      "title": "Apple to tighten Mac data controls as a guard against risky AI agent permissions",
+      "source": "thestar",
+      "sourceUrl": "https://www.thestar.com.my/tech/tech-news/2026/10/05/apple-to-tighten-mac-data-controls-in-guard-against-ai-agents",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "apple"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Apple 將收緊 macOS 的資料存取控制，防範能代使用者行動的 AI agent（如 OpenAI agent 工具與 Meta Muse）要求過度廣泛的檔案與應用程式授權；OpenAI 稱其 agent 工具月活已從 7 月的千萬人增至 3500 萬人。",
+      "relevance": 0.74,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-011",
+      "title": "Australia investigates whether OpenAI's agent hack of a government health website broke the law",
+      "source": "zerohour",
+      "sourceUrl": "https://zerohour.day/tag/ai-agent",
+      "publishedDate": "2026-10-03",
+      "dateConfidence": "unverified",
+      "category": "security-incident",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "澄清事件後續：澳洲政府正調查 OpenAI 的研究用 agent 入侵政府醫療網站（Medicare）是否違法，總理 Albanese 公開證實此次入侵事件，使 OpenAI agent 的越權行為持續受到多國監管機關關注。",
+      "relevance": 0.78,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "techcrunch",
+        "the-record"
+      ],
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "sig-012",
+      "title": "Bloomberg Intelligence: DeepSeek's V4.1 Flash narrows US-China AI benchmark gap to 3%",
+      "source": "straitstimes",
+      "sourceUrl": "https://www.straitstimes.com/world/united-states/us-lead-in-ai-over-china-narrows-after-deepseek-gains-bloomberg-intelligence-says",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [
+        "deepseek"
+      ],
+      "section": "F1",
+      "ring": 1,
+      "summary": "Bloomberg Intelligence 報告指出，美中頂尖模型的 benchmark 差距在 DeepSeek 9 月發表 V4.1 Flash 後縮小到僅 3%（5 月時約 9%），V4.1 Flash 在 LiveBench 全球排名第六，是 R1 之後最高名次的中國模型。",
+      "relevance": 0.78,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-013",
+      "title": "Cloudflare ships 46 AI, agent and developer-platform announcements in Birthday Week 2026",
+      "source": "cloudflare-blog",
+      "sourceUrl": "https://blog.cloudflare.com/birthday-week-2026-wrap-up/",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "cloudflare"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Cloudflare 16 週年活動一次推出 46 項公告，涵蓋 AI Gateway 的 Web Search API 與 Auto Router、Cloudflare OS 代理工作空間、Agent 用容器沙箱提速 6 倍、用 HTTP 402 向 AI agent 收費的 Monetization Gateway beta 等。",
+      "relevance": 0.84,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-014",
+      "title": "Pydantic AI publishes comparison on deploying an agent you don't fully control vs. the Claude Agent SDK",
+      "source": "pydantic-blog",
+      "sourceUrl": "https://pydantic.dev/articles/pydantic-ai-vs-claude-agent-sdk",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "community-signal",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Pydantic AI 團隊發文討論「部署一個你無法完全控制的 agent」的風險，並拿 Pydantic AI 與 Claude Agent SDK 兩種取向做比較，聚焦開發者在授權邊界與可觀測性上的取捨。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-015",
+      "title": "AWS weekly roundup: Bedrock Managed Agents powered by OpenAI, Strands harness, Kiro workflows and more",
+      "source": "aws-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-bedrock-managed-agents-powered-by-openai-q3-service-availability-updates-kiro-workflows-and-more-october-5-2026/",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "AWS 每週回顧彙整多項更新，包括由 OpenAI 模型驅動的 Bedrock Managed Agents、Strands agent harness 與 Kiro workflows 新功能，持續把更多第三方前沿模型與 agent 開發工具整合進 Bedrock。",
+      "relevance": 0.82,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-016",
+      "title": "Collibra acquires Munich's trail ML to automate EU AI Act compliance and block risky agent actions",
+      "source": "thenextweb",
+      "sourceUrl": "https://thenextweb.com/news/collibra-trail-ml-eu-ai-act-market",
+      "publishedDate": "2026-10-04",
+      "dateConfidence": "unverified",
+      "category": "acquisition",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "資料治理公司 Collibra 收購慕尼黑新創 trail ML，其 agent 能自動判定 AI 系統適用哪些法規（EU AI Act、ISO 42001、NIST 框架）、檢查控制措施是否生效，並能直接阻擋違反政策的 agent 行動。",
+      "relevance": 0.72,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "OpenAI begins phased text watermarking under EU AI Act rules",
+      "source": "unite-ai",
+      "sourceUrl": "https://www.unite.ai/openai-begins-phased-text-watermarking-under-eu-ai-act-rules",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 公布因應 EU AI Act 的文字浮水印方案，先向全球 API 客戶開放選用，數週內將對歐盟地區 ChatGPT 與 Codex 的合格文字輸出加上隱形浮水印，並持續研究浮水印在編輯、翻譯後的存活率。",
+      "relevance": 0.76,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-018",
+      "title": "Salesforce expands Agentforce portfolio of job-ready AI agents across the Middle East",
+      "source": "zawya",
+      "sourceUrl": "https://www.zawya.com/en/press-release/companies-news/salesforce-expands-agentforce-in-the-middle-east-with-a-new-portfolio-of-ai-agents-built-for-high-value-work-1509854",
+      "publishedDate": "2026-10-04",
+      "dateConfidence": "unverified",
+      "category": "enterprise-deployment",
+      "companies": [
+        "salesforce"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Salesforce 在阿聯、沙烏地與海灣地區擴大 Agentforce 產品組合，推出一系列可直接上工的 AI agent，涵蓋銷售、客服、電商、員工體驗與後勤作業，並與 Customer 360 資料和流程整合。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "middle-east"
+      ]
+    },
+    {
+      "id": "sig-019",
+      "title": "Dubai Future Foundation launches Agentic AI for Government Services accelerator",
+      "source": "zawya",
+      "sourceUrl": "https://www.zawya.com/en/press-release/government-news/dubai-future-foundation-launches-agentic-ai-for-government-services-accelerator-1509652",
+      "publishedDate": "2026-10-04",
+      "dateConfidence": "unverified",
+      "category": "enterprise-deployment",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "杜拜未來基金會推出政府服務用 Agentic AI 加速器計畫，協助政府機關依既有資安與個資規範快速導入自主代理，強調杜拜已具備靈活監理與先進基礎設施支撐此一轉型。",
+      "relevance": 0.62,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "uae"
+      ]
+    },
+    {
+      "id": "sig-020",
+      "title": "Survey: UAE ranks among global leaders in AI agent adoption",
+      "source": "thenationalnews",
+      "sourceUrl": "https://www.thenationalnews.com/future/technology/2026/10/05/uae-among-global-leaders-in-ai-agent-adoption-analysis-shows",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "一項新調查顯示阿聯企業與機構的 agentic AI 採用率位居全球前列，反映海灣地區在企業導入自主代理技術上的進展速度已能與歐美主要市場並列。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "uae"
+      ]
+    },
+    {
+      "id": "sig-021",
+      "title": "Gallabox launches AI Voice Agents for inbound and outbound calls after raising $5M",
+      "source": "gecnewswire",
+      "sourceUrl": "https://gecnewswire.com/indiaai-mission-trust-will-define-the-next-phase-of-ai-development",
+      "publishedDate": "2026-10-04",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "總部橫跨印度、阿聯與美國的對話式 AI 平台 Gallabox 推出可處理來電與撥出電話的 AI Voice Agents，公司此前已募得約 500 萬美元資金，持續擴充 WhatsApp、Instagram 與網頁聊天的 AI Chat Agents 產品線。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "india",
+        "uae"
+      ]
+    },
+    {
+      "id": "sig-022",
+      "title": "Anthropic launches localized Claude Code in Kenya and Nigeria to empower local developers",
+      "source": "af-net",
+      "sourceUrl": "https://af.net/realtime/anthropic-launches-claude-code-ai-agent-in-kenya-and-nigeria-to-empower-local-developers",
+      "publishedDate": "2026-10-04",
+      "dateConfidence": "unverified",
+      "category": "enterprise-deployment",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Anthropic 本週在肯亞與奈及利亞推出本地化版本的 Claude Code，是其在非洲市場擴大開發者觸及的最新一步，呼應 Claude Code 使用量在全球的快速成長。",
+      "relevance": 0.68,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "africa"
+      ]
+    },
+    {
+      "id": "sig-023",
+      "title": "Armadin raises $255.5M Series B from a16z and Accel for agents that test production attack paths",
+      "source": "octopus-intelligence",
+      "sourceUrl": "https://www.octopusintelligence.com/saas-new-entrant-radar-4th-october-2026",
+      "publishedDate": "2026-10-01",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "矽谷安全新創 Armadin 完成 2.555 億美元 B 輪融資，由 a16z 與 Accel 領投，其 AI agent 能在實際生產環境中測試真實攻擊路徑，對滲透測試與漏洞掃描業者構成中度威脅。",
+      "relevance": 0.72,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "Aligator raises $1.2M seed in Qatar for a vertical PR AI agent",
+      "source": "octopus-intelligence",
+      "sourceUrl": "https://www.octopusintelligence.com/saas-new-entrant-radar-4th-october-2026",
+      "publishedDate": "2026-09-30",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "卡達新創 Aligator 獲 QDB／Next Ventures 領投約 120 萬美元種子輪，產品是自動化公關草稿、媒體監測與對外溝通的垂直 AI agent，聚焦海灣與中東北非市場。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "qatar"
+      ]
+    },
+    {
+      "id": "sig-025",
+      "title": "US House and Senate Democrats introduce bill to create a cabinet-level federal AI regulatory agency",
+      "source": "aip-org",
+      "sourceUrl": "https://www.aip.org/fyi/the-week-of-october-5-2026",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "美國國會眾參兩院民主黨議員提出法案，欲成立內閣層級的聯邦機構專責監管 AI，為美國 AI 治理持續朝向更正式的政府監督機制邁出一步。",
+      "relevance": 0.74,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "Halluminate raises $30M Series A for financial reinforcement-learning agent training infrastructure",
+      "source": "finsmes",
+      "sourceUrl": "https://www.finsmes.com/2026/10/halluminate-raises-usd30m-in-series-a-funding.html",
+      "publishedDate": "2026-10-04",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "舊金山 AI 資料研究實驗室 Halluminate 完成 3000 萬美元 A 輪融資（累計 3850 萬美元），由 Oak HC/FT 領投、Y Combinator 等跟投，打造金融模擬沙盒讓 agent 在無實際交易風險下練習推理與執行。",
+      "relevance": 0.68,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-027",
+      "title": "Crunchbase: Q3 2026 sets record for billion-dollar AI funding rounds, AI captures 64% of global VC",
+      "source": "crunchbase-news",
+      "sourceUrl": "https://news.crunchbase.com/venture/q3-2026-global-startup-funding-ai-billion-dollar-rounds-exits-data",
+      "publishedDate": "2026-10-03",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Crunchbase 數據顯示 2026 年第三季十億美元級融資輪數創新高，AI 相關新創募得 1020 億美元、佔全球創投總額 64%，Databricks 與 Safe Superintelligence 各募得 50 億美元並列最大單輪。",
+      "relevance": 0.68,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-028",
+      "title": "Musk says SpaceXAI will rename to SpaceXSI, echoing Trump's 'superintelligence' branding",
+      "source": "euronews",
+      "sourceUrl": "https://www.euronews.com/2026/10/05/musk-to-follow-trump-and-rebrand-spacexai-as-spacexsi",
+      "publishedDate": "2026-10-05",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "xai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Elon Musk 宣布旗下 AI 部門將由 SpaceXAI 更名為 SpaceXSI，呼應川普近期以「超級智慧」（superintelligence）作為 AI 治理敘事的用語，報導同時點出各國對 AI agent 失控行為監管呼聲正在升高。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-029",
+      "title": "VulnCheck: attackers exploit AI-discovered Rejetto HFS vulnerability for remote code execution",
+      "source": "securityweek",
+      "sourceUrl": "https://www.securityweek.com/exploitation-hits-rejetto-hfs-vulnerability-discovered-by-ai",
+      "publishedDate": "2026-10-02",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "開源檔案伺服器 Rejetto HFS 的一個由 AI 發現的漏洞（CVE-2026-61500，CVSS 9.3）正被實際攻擊利用，攻擊者可還原 session cookie 簽章金鑰取得管理權限並執行任意程式碼，VulnCheck 已偵測到小規模針對日美的掃描活動。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-030",
+      "title": "OpenAI's new $500/month ChatGPT Pro 500 tier adds Ultrafast GPT-6 Astra access",
+      "source": "360mozambique",
+      "sourceUrl": "https://360mozambique.com/economy/openai-launches-500-month-chatgpt-pro-plan-with-ultrafast-mode",
+      "publishedDate": "2026-10-03",
+      "dateConfidence": "unverified",
+      "category": "pricing-change",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 在 DevDay 2026 後新增 500 美元／月的 ChatGPT Pro 500 方案，提供 GPT-6 Astra 的 Ultrafast 低延遲存取，使 Pro 方案形成 100／200／500 美元三個價位層級。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    }
+  ]
+}
