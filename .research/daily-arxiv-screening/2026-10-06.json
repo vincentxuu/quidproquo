@@ -1,0 +1,1710 @@
+{
+  "date": "2026-10-06",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv official /new batch for Monday, 5 October 2026 (cs.AI 124 new submissions, cs.CL 63 new submissions, cs.MA 3 new submissions; 190 total new-submission entries). Fetched via Groundlane web_fetch/web_extract with CSS-selector pagination (list-title elements capped at ~100 matches per call) plus arXiv export API id_list batching for the remaining cs.AI entries (101-124) to work around the cap. Agent-relevance triage over titles (all 190) plus abstracts (29 shortlisted via arXiv API batch fetch) retained 29 topic-gate-pass candidates after excluding pure CV/robotics/speech/protein/physics/legal/time-series entries with no agent framing.",
+    "layerB": [
+      "HuggingFace Daily Papers API (huggingface.co/api/daily_papers, date=2026-10-05) — returned papers submitted 2026-09-29/09-30, mostly non-agent (protein folding, video generation); no new agent-relevant IDs beyond what Layer A already surfaced. Direct huggingface.co/papers/{id} checks confirmed community-page presence for 2610.03195 (Source Preference, published 2026-10-02, 1 Space citing) but not for 2610.02664 (GHOST) or 2610.03055 (HackTrace), both returning 404.",
+      "Groundlane web_search 'site:paperswithcode.com OR site:huggingface.co/papers trending AI agent' — surfaced only evergreen/trending-rail results (TradingAgents, OpenDevin, Apodex, etc.) already hard-deduped or stale from prior rounds; no new today-dated candidates.",
+      "Semantic Scholar bulk search (query='AI agent safety reward hacking monitor') — FAILED, persistent HTTP 429 on Groundlane backend; per-paper /paper/{id} lookups succeeded for 2610.02664 and 2610.03055 (both citationCount:0) after 2 retries with backoff, but failed (429) for 2610.03195 after 3 attempts."
+    ],
+    "layerC": "14-day lookback 2026-09-22 to 2026-10-05 across .research/daily-arxiv-screening/*.json. Freshest (d=1) sub-pool from 2026-10-05.json's own watch list (16 candidates: 12 stronger-competitor re-entries, 4 evidence-insufficient with no new signal found) carried forward with daysSinceFirstSeen incremented. Consistent with 2026-10-05's own stated practice, the deeper 2-14 day backlog (~95 additional unique candidates across 2026-09-22 to 2026-10-04) was not individually re-opened this round given volume; no new code-release/replication/venue-upgrade signal was observed in today's Layer A/B searches that would specifically trigger re-consideration of any evidence-insufficient item in that deeper backlog."
+  },
+  "generatedAt": "2026-10-06T12:00:00+08:00",
+  "toolDegradation": [
+    "Groundlane web_extract's selector-based 'many' field matching returned a hard cap of 100 matches per call on the cs.AI /new listing page (124 new-submission titles expected, only 100 returned) — worked around by fetching the remaining 24 titles/abstracts via the arXiv export API id_list endpoint in a separate batched call rather than falling back to another tool tier.",
+    "mcp__groundlane__web_extract's pattern engine rejected arxiv.org/html/{id} pages with 'Pattern input exceeds the configured limit' / 'Upstream response exceeds the byte limit' at maxBytes from 300000 down to 1500000 — abandoned pattern-engine extraction for the Source Preference paper's Limitations/reproducibility section in favor of relying on the already-fetched first ~60000 chars (through Section 6) via mcp__groundlane__web_fetch (format=text), which was sufficient for a credibility judgment but left the paper's own reproducibility statement (if any, beyond Section 6) unread.",
+    "Three raw mcp__groundlane__web_fetch calls for full-text HTML (GHOST, HackTrace, Source Preference) each exceeded the harness's own tool-result token limit and were auto-saved to local files; read via a Bash+python3/jq subprocess (per the harness's own error-message instructions) rather than re-fetched with a smaller maxOutputChars, preserving the full ~60000-character window for each paper.",
+    "Semantic Scholar /paper/search bulk endpoint returned persistent HTTP 429 via Groundlane for the Layer B agent-safety query; per-paper /paper/{id} lookups succeeded for 2 of 3 selected papers after retries with exponential backoff (8s, then 20s), but 2610.03195's citation count remained unavailable (429) after 3 attempts and is recorded as 'not available (429)', not guessed."
+  ],
+  "candidates": [
+    {
+      "arxivId": "2610.02664",
+      "title": "A GHOST in Long-Horizon Agents: Governance Hazard from Overlooked Safety Constraints across Turns",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar, confirmed)",
+      "institution": "Not stated in paper; corresponding author email domain ustc.edu.cn suggests possible USTC link, unconfirmed in text",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "SCARBench: 412 matched instances across 103 scenarios, 6 tool-use domains, evaluated on 7 models (5 API-served + 2 local)",
+        "Table 1: GPT-5.5 strict GHOST rate 11.5%, Unsafe Completion 12.4%; all 7 models show GHOST (6.8%-27.8%)",
+        "Figure 3: difference-in-differences metric negative for all 7 models (worst -36.7pp on Qwen3.5-4B), ruling out pure capability-gap confound",
+        "Appendix A: formal proof (Proposition 1, Almost-Sure Entry) that non-summable residual hazard lower bounds imply almost-sure hazard entry",
+        "Table 2/3: STAR-Guard ablations (restoration-only, audit-only, full) and baseline comparisons against oracle DVR, LIGHT Three-Memory, DeCRIM, VerIFY-Summarize, Prompt Reminder"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "GHOST is observed consistently across 7 models and 2 deployment types with a matched-condition design; the 'zero GHOST under STAR-Guard' claim is explicitly scoped by the authors to their own evaluation setting",
+      "reproducibility": "not-provided",
+      "reproducibilityEvidence": [
+        "No code or data repository link found in main text or appendix; only a mention that 'detailed baseline configurations and failure analyses are provided in the supplementary material'"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "The claimed scope (benign long conversations dilute cross-turn safety constraints) is fully supported by the matched-condition experiments and formal hazard theorem",
+      "primaryLimitation": "No publicly reproducible code; 'zero GHOST' result is scoped to the authors' own SCARBench evaluation setting and has not been externally replicated",
+      "presentation": "clear",
+      "presentationReason": "Method, matched-condition design, theorem, and limitations (implicit via self-caveat on 'under our evaluation setting') are clearly laid out",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected as the safety-governance anchor of today's cluster: a new, formally-grounded failure mode (cross-turn safety constraint loss under purely benign interaction) with a matching two-layer defense, distinct from both the training-integrity angle (HackTrace) and the decision-bias angle (Source Preference)."
+    },
+    {
+      "arxivId": "2610.03055",
+      "title": "HackTrace: Behavior-Supervised Detection of Reward Hacking During Code Generation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 4 days (Semantic Scholar, confirmed)",
+      "institution": "Not stated in paper",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Releases 173,561 annotated multi-turn coding trajectories from Qwen3-8B with behavior-vs-outcome labels",
+        "Table 1/2: within-problem AUC 0.997 for HackTrace-combined at 8ms overhead; outcome-trained monitors reach only 0.133-0.650 AUC on failed shortcut attempts vs 0.962-0.998 for behavior-supervised",
+        "Table 3: GRPO penalty experiments across lambda in {0.5,1,2,10} and extended 260-360 step training, with paired bootstrap confidence intervals (2000 resamples)",
+        "Section 4.4: honest disclosure that a TF-IDF penalty is evaded within 240 steps (AUC falls 0.96->0.14, cheating returns to 46%)",
+        "Section 5 Limitations: explicit, specific (single base model for RL study, single-annotator human audit of 305 trajectories, no adaptive-attack test)"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Large released dataset, extended-training verification (260-360 steps) of the training signal's durability, and the authors proactively report a failure case (weak penalty, TF-IDF) rather than only positive results",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Reproducibility statement commits to releasing all 173,561 trajectories, labels, human-audit sample, and code for data generation/labeling/monitoring/GRPO training on GitHub, but the current link (github.com/XXXX/HackTrace) is an anonymized placeholder, likely indicating the paper is under double-blind review; externally unverifiable at this time"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "The core claim (behavior supervision beats outcome supervision for reward-hacking detection, and holds up as a training-loop penalty) is backed by thorough ablations and an honest account of where it still fails",
+      "primaryLimitation": "Code repository link is an anonymized placeholder, unverifiable externally; RL training study uses a single base model (Qwen3-8B); adaptive attacks targeting the monitor itself are untested",
+      "presentation": "clear",
+      "presentationReason": "Method, evaluation protocol, and limitations are explicitly and specifically stated, including an honest failure case",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected as the training-integrity anchor of today's cluster: directly targets the standard industry practice of RLVR/GRPO-training coding agents, with a concrete, long-horizon-verified fix for a widely used but under-scrutinized reward signal."
+    },
+    {
+      "arxivId": "2610.03195",
+      "title": "Source Preference in the Wild: How LLM Agents Favor Items by Source, and How to Reduce It",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not available (429, Semantic Scholar persistent rate limit this round)",
+      "institution": "Seoul National University, Graduate School of Data Science (explicitly stated in paper)",
+      "communitySignals": [
+        "HuggingFace Daily Papers: listed, published 2026-10-02, 1 Space citing",
+        "Not found on Papers with Code within this round's research scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 4: observational preference across 12 agent models x 3 domains, position-matched, requirement-matched items",
+        "Section 5.1-5.2: hide/reveal and source-swap manipulation experiments, position-balanced (4 evaluations per pair), statistically significant (p<0.01/p<0.001) across models and domains",
+        "Section 6: DPO training intervention with 3 fake source pairs at 3 correlation strengths (Balanced/Aligned/Reversed 50%/80%/20%), causally reproducing shortcut-learning mechanism",
+        "Table 3: source-swap T+ - T- positive and significant in at least one domain for all 12 models"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Three-stage causal design (observe -> manipulate -> train) with each stage corroborating the last; the training-intervention stage directly demonstrates the proposed shortcut-learning mechanism rather than only correlating with it",
+      "reproducibility": "not-provided",
+      "reproducibilityEvidence": [
+        "No public code or data repository link found in the sections read (through Section 6); the paper may have a reproducibility statement in a later section not reached within this round's fetch window"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "The claimed scope (source identity causally biases agent selection beyond item quality, and is trainable via correlation shortcuts) is fully supported by the three-stage causal evidence",
+      "primaryLimitation": "No public code or data link found in the sections read; single-institution study, external replication across other markets/languages still pending",
+      "presentation": "clear",
+      "presentationReason": "Experimental design, conditions, and statistical tests are clearly specified throughout the sections read",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "Selected as the product/commerce-decision anchor of today's cluster: the only paper of the three with a directly reproduced causal training mechanism for an agent decision-bias, distinct from the safety-governance (GHOST) and training-integrity (HackTrace) angles."
+    },
+    {
+      "arxivId": "2610.02853",
+      "title": "Bounded Reachability & Jailbreak Detection via Contraction-Constrained State Space Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (AIMS Workshop @ COLM 2026)",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "indirect",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Formal robustness certification for SSM-based safety-classifier heads is solid but is about input classification, not agentic execution behavior; weaker fit to today's agent-governance cluster than GHOST's cross-turn execution-safety finding."
+    },
+    {
+      "arxivId": "2610.02920",
+      "title": "HASTE: Evolving Agent Harnesses Against Emerging Attacks Using Sparse Evidence",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid multi-agent harness-evolution-vs-attack framework, but the abstract gives no concrete ASR-reduction numbers (only 'consistently reduces attack success rates'), weaker quantification than GHOST/HackTrace; overlaps with today's safety cluster without adding a distinct angle."
+    },
+    {
+      "arxivId": "2610.02925",
+      "title": "Positive-Unlabeled Learning for Agent Safety False Alarm Auditing",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Technically solid (macro AUPRC 0.6444, +5.27-16.98pp over 8 PU baselines) but narrower story (reducing false-alarm review burden) than the three selected papers' headline findings; redundant angle within the same safety-monitoring sub-cluster already covered by HackTrace."
+    },
+    {
+      "arxivId": "2610.03020",
+      "title": "DyadMem: A Long-Term Memory Benchmark of How Agents Work with Users",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Large, well-annotated long-term relational-memory benchmark (3,065 episodes, 61,210 QA instances, 20 models) revealing a sharp Gold-Memory vs Full-Pipeline gap; strong candidate but the memory-benchmark genre overlaps with the last two days' evaluation-reliability theme, and today's safety/decision-bias cluster was judged to have higher today-importance."
+    },
+    {
+      "arxivId": "2610.02687",
+      "title": "Decoupling Memory from Context: Structured Memory for Token-Efficient Test-Time Continual Learning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (NeurIPS workshop: TTCL)",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid efficiency contribution (81-85% fewer memory-construction tokens) but a workshop-scale paper with a less dramatic headline finding than DyadMem within the memory sub-cluster; memory cluster overall lost to today's selected cluster."
+    },
+    {
+      "arxivId": "2610.02897",
+      "title": "Interpreting at Write Time: A Policy Ablation for Multi-Goal Agent Memory",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (PALM workshop @ NeurIPS 2026)",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Interesting conceptual result on multi-goal memory summarization policies, but a small-scale workshop paper without large benchmark numbers; weaker evidence than DyadMem within the memory sub-cluster."
+    },
+    {
+      "arxivId": "2610.02616",
+      "title": "VERSE: Verified Self-Evolving Optimizer for Agent Harnesses",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid harness self-evolution optimizer with concrete numbers (42.3% vs 39.2% on held-out SWE-rebench tasks) and a public GitHub repo, but sits in the same 'harness optimization' genre as Layer C's ActiveSaddler; did not make today's top-3 given the safety/bias cluster's higher today-importance."
+    },
+    {
+      "arxivId": "2610.02858",
+      "title": "Harness-Aware Distillation for Small Language Model Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid incremental distillation technique for small-model agents that respects the harness, but no single striking headline number; loses to VERSE within the harness sub-cluster on novelty specificity."
+    },
+    {
+      "arxivId": "2610.03315",
+      "title": "Lightweight, Rubric-Guided Trajectory Evaluation for Production AI Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Already deployed in an enterprise agentic platform with concrete cost/time numbers (20-35pp failure-localization improvement, ~6x cheaper, 8x faster), a genuinely strong practical candidate; narrowly not selected because it is an evaluation-tooling improvement rather than a newly discovered governance risk, which this round prioritized; worth reconsidering if evaluation tooling becomes tomorrow's cluster."
+    },
+    {
+      "arxivId": "2610.02588",
+      "title": "Open-Endedness Bench: Measuring Epistemic Process from Agent Records",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Striking finding (only 16-29% of agent-claimed research improvements are real) with a novel epistemic-event-graph methodology; genuinely competitive, but overlaps thematically with this week's already-published evaluation-reliability cluster (DAYJOB/Agent Evaluation Reliability/KaliBench on 2026-10-05); today's safety/bias cluster offers a fresher angle not covered this week."
+    },
+    {
+      "arxivId": "2610.03458",
+      "title": "A Near-Zero Monitor Readout Is Not Evidence of Behavioral Control",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (poster, NeurIPS 2026 Workshop FLLMPT)",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Important cautionary complement to HackTrace's own topic, but narrower evidence (single code-gen environment, one prefix-training setup, workshop poster scale) than HackTrace's 173,561-trajectory released dataset and cross-setting GRPO validation; HackTrace was judged the stronger representative of this specific angle for today's 3-paper cap."
+    },
+    {
+      "arxivId": "2610.03509",
+      "title": "Efficient Reasoning Training Does Not Always Harm CoT Faithfulness and Monitorability",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (under review)",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Careful, nuanced empirical study (faithfulness falls, monitorability more robust, across 3 length-pressure methods) but the conclusion is a measured, mixed finding rather than a sharp actionable headline; the safety angle is already well represented by GHOST+HackTrace in today's selection."
+    },
+    {
+      "arxivId": "2610.02827",
+      "title": "MLCommons Jailbreak Benchmark v1.0",
+      "source": [
+        "layerA",
+        "layerB"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (MLCommons industry consortium release)",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "MLCommons (multi-organization author list)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "indirect",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Major industry-consortium methodology release with strong institutional weight (MLCommons, same body behind MLPerf) and concrete numbers (Resilience Gap 7.57%), but relevance to AI *Agent* specifically is indirect: it evaluates single-turn text jailbreak robustness of general LLM systems, not agentic tool-use/execution behavior; today's selections are more directly about agent behavior inside an execution loop."
+    },
+    {
+      "arxivId": "2610.03634",
+      "title": "Credit Where It Matters: Dependency-Aware Policy Optimization for Terminal Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Directly continues the dependency-aware credit-assignment theme already flagged in the Layer C pool (2610.01256 DeFA), but the abstract gives no concrete quantitative deltas ('extensive experiments... demonstrate' without numbers); weaker abstract-level evidence than the selected cluster; re-enters the watch pool alongside DeFA for a possible future credit-assignment-themed day."
+    },
+    {
+      "arxivId": "2610.02847",
+      "title": "Turnover-Orthogonal Credit Assignment for Open-Team Multi-Agent Reinforcement Learning",
+      "source": [
+        "layerC/cs.MA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "indirect",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid formal value-decomposition contribution for open-team MARL with controlled diagnostic experiments, but the setting (agents joining/leaving episodes in classic MARL benchmarks) is further from the production LLM-agent-harness context most readers care about; indirect relevance."
+    },
+    {
+      "arxivId": "2610.02425",
+      "title": "Finding the Move Is Not Winning the Game: XiangqiBench for Closed-Loop Evaluation of LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Excellent, concrete methodology paper (three named gaps with precise percentages, 8,568 trajectories, 12 frontier LLMs) — a genuinely top-tier candidate. Narrowly not selected because it is another 'evaluation reveals an illusion of competence' paper in the same genre as this week's already-published cluster (DAYJOB/Agent Evaluation Reliability/Open-Endedness Bench all compete for this lane); this round deliberately diversified into the safety/bias angle instead. Strong carry-forward candidate."
+    },
+    {
+      "arxivId": "2610.03190",
+      "title": "Not Until the Evidence Says So: Teaching LLM Investigators When to Close a Case",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Very strong candidate: a concrete real-world-incident dataset (731 cases across aviation/rail/maritime/chemical-safety/vehicle-defect reports) with dramatic before/after numbers (97%->35% overstatement after fine-tuning, RL raising balanced accuracy to 83.3%). Narrowly not selected because its core finding (models overstate conclusions from insufficient evidence) conceptually overlaps with this week's evaluation-reliability theme, whereas GHOST/HackTrace/Source-Preference together cover three angles (safety-governance, training-integrity, commercial-bias) not yet covered this week. Strong, highly reconsiderable watch candidate."
+    },
+    {
+      "arxivId": "2610.02472",
+      "title": "APDMem: Agent-Controlled Progressive Disclosure for Query-Adaptive Long-Term Memory",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "EMNLP 2026 Industry Track (accepted, per arXiv Comments field)",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's research scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid, industry-deployed (EMNLP Industry Track) hierarchical memory architecture with a concrete efficiency number (8% of conversation accessed on LongMemEval), but an incremental architecture paper without a surprising finding; memory sub-cluster lost to today's selected cluster."
+    },
+    {
+      "arxivId": "2610.02769",
+      "title": "When History Fails to Become Experience: Action Calibration in Language Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Interesting mechanistic finding (agents don't reliably connect past actions to outcomes; simple outcome-labeling closes much of the gap) but a modest-scale study without large benchmark numbers quantified in the abstract; weaker evidence signal than the memory sub-cluster leaders (DyadMem, APDMem)."
+    },
+    {
+      "arxivId": "2610.02460",
+      "title": "CUEing User Simulators: Calibrated User Embeddings for Multi-Turn Benchmarking",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "indirect",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Thoughtful methodological contribution (outcome-calibrated user simulators) relevant to agent-benchmarking infrastructure, but a meta/tooling contribution without a standalone today-important finding; narrower practical urgency than the selected cluster."
+    },
+    {
+      "arxivId": "2610.03574",
+      "title": "HyperBrowseComp: A Multilingual and Multimodal Stress Test for Web-Browsing Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid new challenging multilingual web-browsing benchmark (423 questions, 13 languages, human baseline), but the abstract gives no model accuracy/failure numbers, making today-importance and evidence strength harder to judge without a full-text read; weaker abstract-level evidence than the selected papers."
+    },
+    {
+      "arxivId": "2610.03564",
+      "title": "Knowledge or Calculator? Decomposing the Skill Premium in Verifiable Financial Agent Workflows",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Rigorous, well-quantified financial-agent skill-premium decomposition (+16.2 points from curated skills, cross-harness replication) but a vertical (financial-agent) application paper rather than a general agent-governance finding; narrower audience than today's selected cluster."
+    },
+    {
+      "arxivId": "2610.03548",
+      "title": "Recursive Harness Self-Improvement for Frontier Reasoning Data Synthesis",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Interesting harness/task co-evolution framework with concrete numbers (100%->54.8% solver accuracy over 14 rounds, downstream SFT gains), but a training-data-synthesis-pipeline paper rather than a deployed-agent governance finding; harness sub-cluster lost to today's selected cluster."
+    },
+    {
+      "arxivId": "2610.03356",
+      "title": "ReFract: Benchmarking Perspective Awareness in Language Model Agents with Text World Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid new 'perspective awareness' benchmark (150 expert-validated entries, 69% ceiling, >50% perspective-violation rate) directly relevant to agent safety in role-based high-stakes settings; genuinely competitive, narrowly not selected because GHOST already covers the 'benign failure the agent doesn't realize it's committing' angle with a larger benchmark (412 vs 150 instances) and formal theory."
+    },
+    {
+      "arxivId": "2610.03631",
+      "title": "NeutronGym: Physics-Graded Neutron Instrument Design for LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Rigorously designed physics-grounded agent environment with a dramatic RL improvement (11%->77%) and an honest disclosure that frontier models still solve 98-99% vs the trained small model's 77%; but a narrow scientific-instrument-design vertical with limited relevance to general AI Agent builders."
+    },
+    {
+      "arxivId": "2610.03174",
+      "title": "FinNextAssist: Towards Professional Financial Deep Research Assistant",
+      "source": [
+        "layerA",
+        "layerC/cs.MA-adjacent"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not assessed (abstract-level review only this round)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract-level review only this round; full text not read"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract this round",
+      "primaryLimitation": "Not assessed beyond abstract; credibility gate not yet applied",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract this round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid vertical deep-research-agent system for finance with ablations across three benchmarks, but a system/application paper without a generalizable governance or methodology finding; weaker today-importance for general readers than the selected cluster."
+    },
+    {
+      "arxivId": "2610.01833",
+      "title": "Continuous Process-Level Evaluation for Evolving Enterprise AI Agent Skills",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 CLEA Workshop",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 5 days (Semantic Scholar, as of 2026-10-05)",
+      "institution": "Not stated; describes an internal IBM system (Value Aware Resiliency / Business Value Determination skill) per prior full-text read",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Carried forward from 2026-10-05 full-text assessment: 92.6% hidden-deviation figure survives 3 robustness cuts, but entirely proprietary single-system evidence with judge self-preference risk"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Carried forward: statistically careful but single proprietary enterprise system, evaluated by its own 3 builders, no external benchmark",
+      "reproducibility": "not-provided",
+      "reproducibilityEvidence": [
+        "No code, data, or environment released; VAR/BVD is proprietary IBM internal tooling"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Carried forward from prior round's full-text assessment",
+      "primaryLimitation": "Entirely closed, proprietary, single-system evaluation with no external replication; LLM judge is also one of the three evaluated models",
+      "presentation": "clear",
+      "presentationReason": "Carried forward from prior round",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor auto-re-entry rule; still loses to today's cluster on generalizability (single proprietary system vs today's cross-model, causally-tested findings)."
+    },
+    {
+      "arxivId": "2610.00906",
+      "title": "ActiveSaddler: Automated Curriculum Learning for Agent Harness Optimization",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 3,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; strong abstract-level evidence (named benchmarks GAIA2/Terminal-Bench 2.0, +4.4pp/+7.5pp deltas) but still not read beyond abstract; today's safety/bias cluster judged higher today-importance."
+    },
+    {
+      "arxivId": "2610.00366",
+      "title": "What Should an Agent Remember? Disentangling Retention from Retrieval",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; exceptionally quantified abstract (memory/retention cluster) but today's safety/bias cluster judged more editorially important this round."
+    },
+    {
+      "arxivId": "2610.02070",
+      "title": "Causal Memory Policy: Making Memory Utility Identifiable by Intervening on Retrieval",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; novel causal framing with a self-disclosed generalization limitation (positive credibility signal), but memory cluster again lost out to today's safety/bias cluster."
+    },
+    {
+      "arxivId": "2610.02036",
+      "title": "Global Coherence: When Every Agent Is Right and the Team Is Wrong",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; interesting theory+quantified-testbed combination for multi-agent coordination, but single-author paper and multi-agent coordination cluster again lost to today's selected cluster on today-importance."
+    },
+    {
+      "arxivId": "2610.02122",
+      "title": "Argo-Bench: Evaluating Data Agents on Enterprise-Scale Workflows",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; strong 3-source signal and self-aware limitation framing, but overlaps thematically with this week's already-published evaluation cluster without a distinct enough angle."
+    },
+    {
+      "arxivId": "2610.00648",
+      "title": "Incident-Arena: Getting Agents to the Last Nine of Reliability",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; realistic production-grade SRE setup but small sample (N=20 tasks) remains a more serious evidentiary gap than today's selected papers; thematically closer to the evaluation cluster than today's safety/bias cluster."
+    },
+    {
+      "arxivId": "2610.01256",
+      "title": "DeFA: Dependency-Guided Failure Attribution for LLM Agents",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; thematically connects to today's new DepGPO (2610.03634) and TOCA (2610.02847) dependency/credit-assignment candidates, forming a growing watch sub-cluster for a possible future 'credit assignment' themed day; abstract-level superlative claims still unquantified against named baselines."
+    },
+    {
+      "arxivId": "2610.02150",
+      "title": "From Knowledge Access to Source Learning: Developing Source-Specific Competence",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; decent quantification (+22.6pt vs Hybrid RAG baseline, best in 13/15 settings) but memory/RAG cluster again lost to today's selected cluster."
+    },
+    {
+      "arxivId": "2609.36435",
+      "title": "MemFold: Learning Compact Soft Memory for Long-Context Personalization via On-Policy Optimization",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 7,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; now 7 days old with decay further reducing competitiveness (0.85^7≈0.32); no concrete percentage numbers at abstract level, weaker than today's cluster."
+    },
+    {
+      "arxivId": "2610.01506",
+      "title": "MCRI: A Four-Dimensional Framework for Analyzing and Evaluating Agent Skills",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; large scale (63,812 public skills) but validation leans on a popularity-correlation proxy rather than ground-truth task success, a persisting credibility concern; lost to today's cluster."
+    },
+    {
+      "arxivId": "2610.02142",
+      "title": "Keyword Harnesses Fail Open: A Cheap Diagnostic Ladder for Tool-Use Claims in Small Language Models",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round (carried forward from 2026-10-05)",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Not read beyond abstract in this or prior rounds; carried forward as watch per Layer C stronger-competitor rule"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract in any round so far",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Re-entered per stronger-competitor rule; rigorous internal methodology but a narrow N=2-models case study (author's own flagged caveat); tool-use diagnostics angle did not beat today's cluster."
+    },
+    {
+      "arxivId": "2610.00372",
+      "title": "When Harnesses Lose the Signal: Causal Evaluation of Recovery in LLM Agents",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "No full-text read in this or prior rounds"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "No new signal (code release, external replication, or venue upgrade) found this round via today's Layer A/B searches; per selection-standard's evidence-insufficient re-entry rule, remains excluded until such a signal appears."
+    },
+    {
+      "arxivId": "2610.01045",
+      "title": "Empty Commitments: When Agents Promise What Their Runtime Cannot Deliver",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "No full-text read in this or prior rounds"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "No new signal (code release, external replication, or venue upgrade) found this round via today's Layer A/B searches; per selection-standard's evidence-insufficient re-entry rule, remains excluded until such a signal appears."
+    },
+    {
+      "arxivId": "2610.02005",
+      "title": "Counting Moves, Weighing Voices: Bayesian Dialectical Argumentation for Calibrated Multi-LLM Councils under Persistent Adversaries",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "No full-text read in this or prior rounds"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "No new signal (code release, external replication, or venue upgrade) found this round via today's Layer A/B searches; per selection-standard's evidence-insufficient re-entry rule, remains excluded until such a signal appears."
+    },
+    {
+      "arxivId": "2610.02200",
+      "title": "VISTA: A Visual Harness for Reasoning in an Interactive World",
+      "source": [
+        "layerC"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not re-assessed this round",
+      "institution": "Not stated",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code (carried forward)"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "No full-text read in this or prior rounds"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not read beyond abstract",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not read beyond abstract",
+      "primaryLimitation": "Not assessed beyond abstract",
+      "presentation": "not-assessed",
+      "presentationReason": "Not read beyond abstract",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "No new signal (code release, external replication, or venue upgrade) found this round via today's Layer A/B searches; per selection-standard's evidence-insufficient re-entry rule, remains excluded until such a signal appears."
+    }
+  ]
+}
