@@ -86,6 +86,30 @@ A future or in-progress semester does not become the “latest public course” 
 
 A school map and a single-course guide make different promises. Even when every learning asset is locked in an LMS, current catalogs, program requirements, and schedules may still support a course map. That article can explain how to choose courses; it cannot promise that a reader can complete them without enrolling.
 
+## AI security courses
+
+AI security here means protecting the AI system itself: adversarial examples, data poisoning and backdoors, prompt injection, jailbreaks, hijacked agents, and stealing training data or the model itself. AI safety and alignment are out of scope; [Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) belongs to that second group.
+
+After scanning the Stanford, CMU, and Berkeley course catalogs in October 2026, this is what the top schools offer:
+
+| Course | School and instructor | Latest term | Level | Notes |
+|---|---|---|---:|---|
+| [CS 253 Securing AI Systems](https://explorecourses.stanford.edu/search?q=CS253) | Stanford, Boneh and Mitchell | Spring 2027 | A0 | The old Web Security course number, renamed and relaunched; only the schedule listing exists so far |
+| [15-783 Trustworthy AI](https://www.cs.cmu.edu/~aditirag/teaching/15-783F25.html) | CMU, Raghunathan | Fall 2025 | A2 | One module each on jailbreaks, prompt injection, and privacy attacks; lecture notes posted for every class |
+| ML for Cybersecurity (17-739/18-739C) | CMU, [Lujo Bauer](https://users.ece.cmu.edu/~lbauer) | Fall 2026 | A1 | Mainly ML applied to security, with some coverage of adversarial examples |
+| [CS 261 Computer Security](https://people.eecs.berkeley.edu/~daw/teaching/cs261-s26/) | Berkeley, Wagner | Spring 2026 | A2 | A general graduate security course; 4 sessions cover LLM attacks and defenses |
+| [6.S976 Cryptography and Machine Learning](https://mlcrypto.mit.edu/course/) | MIT | Spring 2026 | A2 | Theory-oriented |
+
+Harvard's current course list has nothing in this area. The AI security courses you can self-study end to end (A3) all sit outside these six schools:
+
+- [National Chung Cheng University, Van-Linh Nguyen's AI Security](https://sites.google.com/view/nvlinh/teaching-awards/ai-security) (Spring 2026, taught in English): slides, notebooks, and assignments are in a public folder. It is the only fully self-studiable course of its kind in Taiwan.
+- [University of Cagliari, Battista Biggio's Machine Learning Security](https://unica-mlsec.github.io/mlsec/) (2025/26): lecture materials and notebooks on GitHub.
+- [Fudan University, Xingjun Ma's Trustworthy AI](https://trust-ml.github.io/): 14 weeks of slides plus a full Chinese textbook, no recordings.
+
+All three focus on adversarial examples, poisoning, and privacy attacks, and barely touch LLMs or agents. The closest way to fill that gap today is lectures 13–14 and HW10 of Hung-yi Lee's [Introduction to Generative AI 2024](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) (in Mandarin), followed by the lecture notes for the first module of CMU 15-783.
+
+**What to do**: start by running an adversarial-example attack yourself with the Cagliari notebooks, then move on to prompt injection against LLMs. Stanford CS 253 starts in March 2027; check back then to see whether it releases materials.
+
 ## Where CSDIY fits
 
 [CSDIY](https://csdiy.wiki/) is useful for answering which edition a community has actually tried to study. It often preserves historical recordings, assignment experience, and supplementary resources that a university schedule will never mention.
@@ -129,6 +153,7 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 
 ## Update log
 
+- 2026-10-05: Added an "AI security courses" section covering current AI security courses and access levels at Stanford, CMU, Berkeley, and MIT, plus the three fully self-studiable courses in Taiwan and abroad.
 - 2026-10-01: "Where this series stands" now includes six new series: Stanford CS224R, CS234, CS149, MIT 6.5940, CMU 10-423, and Harvard CS2881R.
 - 2026-09-30 (3): Added the [other Taiwanese schools map](/posts/learning/2026-09-30-taiwan-ai-course-map-en); "Where this series stands" now includes four Mandarin course series: NTU ADL, Hsuan-Tien Lin, NTHU NLP, and NCCU Generative AI.
 - 2026-09-30 (2): Added the [NTU AI/ML course map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) as the sixth school; "Where this series stands" now includes four new series: Stanford CS231N, MIT 6.S184, CMU 11-868, and NTU Hung-yi Lee's ML 2026.
@@ -199,3 +224,12 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 - [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)
 - [Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/)
 - [CSDIY](https://csdiy.wiki/)
+- [Stanford CS 253 Securing AI Systems (ExploreCourses)](https://explorecourses.stanford.edu/search?q=CS253)
+- [CMU 15-783 Trustworthy AI Fall 2025](https://www.cs.cmu.edu/~aditirag/teaching/15-783F25.html)
+- [CMU 17-739/18-739C ML for Cybersecurity (Lujo Bauer's teaching page)](https://users.ece.cmu.edu/~lbauer)
+- [Berkeley CS 261 Spring 2026](https://people.eecs.berkeley.edu/~daw/teaching/cs261-s26/)
+- [MIT 6.S976 Cryptography and Machine Learning](https://mlcrypto.mit.edu/course/)
+- [National Chung Cheng University AI Security (Van-Linh Nguyen)](https://sites.google.com/view/nvlinh/teaching-awards/ai-security)
+- [Cagliari Machine Learning Security](https://unica-mlsec.github.io/mlsec/)
+- [Fudan Trustworthy AI (Xingjun Ma)](https://trust-ml.github.io/)
+- [Hung-yi Lee, Introduction to Generative AI 2024](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php)

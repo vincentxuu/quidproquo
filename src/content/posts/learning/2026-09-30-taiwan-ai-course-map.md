@@ -130,7 +130,21 @@ Fall 2025（1141）沒有整理成播放清單。頻道 [Iveai – I've AI](http
 | 智慧製造執行系統（Spring 2026） | 成大 陳裕民 | 中文 | TAICA 清單指向的頻道直播區有整學期錄影，但內容是製造系統，不是 AI 核心課 | A2 |
 | 資料探勘與應用（Fall 2026） | 清大 陳宜欣 | 英文 | [課程頁](https://www.cs.nthu.edu.tw/~yishin/courses/ISA5810/ISA5810-2026.html)公開；[頻道](https://www.youtube.com/@NTHU_ISA5810_DataMining)的 2025 講課清單只有 4 支，另有兩份 Lab 清單 | A2 |
 | 生成式AI應用系統與工程（Spring 2026） | 成大 莊坤達 | 中文 | 課綱公開；第一週直播已設為私人，其餘週次在 NTU COOL | A1 |
-| 大型語言模型與資訊安全系統（Spring 2026） | 台科大 林俊叡 | 英文 | 課綱公開；上課走 NTU COOL | A1 |
+| 大型語言模型與資訊安全系統（Spring 2026） | 台科大 林俊叡 | 英文 | [課綱](https://drive.google.com/file/d/1ZhWBgqTG31TdBkQklyYyckYNAqtAIiD7/view)公開；上課走 NTU COOL。主軸是用 LLM 做資安分析，16 週裡只有一週講怎麼保護 AI 本身 | A1 |
+
+## AI 資安課
+
+TAICA 的[人工智慧資訊安全技術學程](https://taicatw.net/artificial_intelligence_for_cybersecurity_technology_program/)在課程地圖上排了兩門進階課：「人工智慧安全與隱私保護」，以及「人工智慧於資通訊安全的應用」。到 115 上為止，實際開過的只有後者，也就是上表林俊叡那門。它教的是拿 LLM 去做資安工作，不是防禦對 AI 的攻擊。
+
+如果你要找的是保護 AI 系統本身的課，例如對抗樣本、資料投毒、模型竊取、LLM 被 prompt injection，就得往 TAICA 以外找：
+
+| 課程 | 學校與教師 | 最近學期 | 分級 | 校外拿得到什麼 |
+|---|---|---|---:|---|
+| [人工智慧安全 AI Security](https://sites.google.com/view/nvlinh/teaching-awards/ai-security) | 中正 阮文齡 | 114-2 | **A3** | 英文授課；投影片、notebook 與兩份作業放在公開資料夾 |
+| [AI應用之攻擊與防禦](https://class-qry.acad.ncku.edu.tw/syllabus/online_display.php?syear=0115&sem=1&co_no=NQ51100&class_code=) | 成大資安碩士學程 莊宜勲 | 115-1 | A1 | 週次課綱；115-1 起加入兩週 LLM 安全 |
+| [可信任人工智慧](https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=114&Sem=1&CrsNo=535105&lang=zh-tw) | 陽明交大 游家牧 | 115-1 | A1 | 週次課綱，涵蓋對抗樣本、後門、模型竊取與隱私攻擊 |
+
+中正這門只在 114-2 開過一次，教材連結隨時可能失效，想學就趁早下載。台大這邊範圍最廣的是陳尚澤的[機器學習安全特論（SPML）](https://www.csie.ntu.edu.tw/~stchen/teaching/spml25/)，但講義與錄影都在 NTU COOL 裡，校外只到 A1，115-1 也沒開。跟國外名校的 AI 資安課比較，見[總覽的 AI 資安一節](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
 ## 校外最穩的三條路線
 
@@ -147,6 +161,10 @@ Fall 2025（1141）沒有整理成播放清單。頻道 [Iveai – I've AI](http
 朱威達適合用中文走一輪 AIMA，胡敏君補機器人與強化學習，韓秉軒則補「使用者怎麼跟 AI 互動」這一塊。三門都只有錄影和部分教材，要自己找練習題。
 
 台大以外的公開課有個共同點：TAICA 要讓幾千名跨校學生同時上課，老師就把直播放上 YouTube，公開是順帶的結果。錄影因此很齊，作業和評分卻留在 NTU COOL。想追新課，最省力的方法是每學期初打開 TAICA 的最新課程清單，看「遠距上課位置」那一欄。
+
+## 更新紀錄
+
+- 2026-10-05：修正林俊叡《大型語言模型與資訊安全系統》的定位（主軸是用 LLM 做資安，不是保護 AI）；新增「AI 資安課」一節，整理 TAICA 資安學程的開課現況，以及中正、成大、陽明交大、台大的 AI 資安課。
 
 ## 參考資料
 
@@ -194,3 +212,9 @@ Fall 2025（1141）沒有整理成播放清單。頻道 [Iveai – I've AI](http
 - [東海 人工智慧倫理 1132 播放清單](https://www.youtube.com/playlist?list=PL2wUUgdSGIefCX_sNm7Mv5LcJIcr9Ruva)
 - [清大 ISA5810 Data Mining 2026 課程頁](https://www.cs.nthu.edu.tw/~yishin/courses/ISA5810/ISA5810-2026.html)
 - [清大 ISA5810 YouTube 頻道](https://www.youtube.com/@NTHU_ISA5810_DataMining)
+- [台科大 大型語言模型與資訊安全系統 TAICA 課綱](https://drive.google.com/file/d/1ZhWBgqTG31TdBkQklyYyckYNAqtAIiD7/view)
+- [TAICA 人工智慧資訊安全技術學程](https://taicatw.net/artificial_intelligence_for_cybersecurity_technology_program/)
+- [中正 人工智慧安全（阮文齡）課程頁](https://sites.google.com/view/nvlinh/teaching-awards/ai-security)
+- [成大 AI應用之攻擊與防禦 115-1 課綱](https://class-qry.acad.ncku.edu.tw/syllabus/online_display.php?syear=0115&sem=1&co_no=NQ51100&class_code=)
+- [陽明交大 可信任人工智慧 114-1 課綱](https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=114&Sem=1&CrsNo=535105&lang=zh-tw)
+- [台大 機器學習安全特論（陳尚澤）](https://www.csie.ntu.edu.tw/~stchen/teaching/spml25/)

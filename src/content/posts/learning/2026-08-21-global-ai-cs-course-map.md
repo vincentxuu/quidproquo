@@ -86,6 +86,30 @@ CMU 在 Fall 2026 還新開了 [11-768 AI Agents](https://www.cmu-agents.com/)�
 
 學校地圖與單課導讀是兩種文章。即使一間學校的教材全鎖在 LMS，仍可以靠現行 catalog、program requirements 與 schedule 重建課程路線；只是文章只能承諾「看懂怎麼選課」，不能承諾「不用入學也能修完」。
 
+## AI 資安課
+
+這裡的 AI 資安指保護 AI 系統本身：對抗樣本、資料投毒與後門、prompt injection、jailbreak、agent 被劫持，以及從模型裡偷出訓練資料或模型本身。AI safety 與 alignment 不算在內，像 [Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview) 就屬於後者。
+
+2026 年 10 月掃過 Stanford、CMU、Berkeley 的課目錄之後，名校的情況是這樣：
+
+| 課程 | 學校與教師 | 最近學期 | 分級 | 說明 |
+|---|---|---|---:|---|
+| [CS 253 Securing AI Systems](https://explorecourses.stanford.edu/search?q=CS253) | Stanford，Boneh、Mitchell | 2027 Spring | A0 | 沿用原 Web Security 課號改名重開，目前只有課表 |
+| [15-783 Trustworthy AI](https://www.cs.cmu.edu/~aditirag/teaching/15-783F25.html) | CMU，Raghunathan | Fall 2025 | A2 | jailbreak、prompt injection、隱私攻擊各有一個模組，逐講講義公開 |
+| ML for Cybersecurity（17-739／18-739C） | CMU，[Lujo Bauer](https://users.ece.cmu.edu/~lbauer) | Fall 2026 | A1 | 主軸是用 ML 做資安，兼談對抗樣本 |
+| [CS 261 Computer Security](https://people.eecs.berkeley.edu/~daw/teaching/cs261-s26/) | Berkeley，Wagner | Spring 2026 | A2 | 一般資安研究所課，其中 4 堂講 LLM 攻防 |
+| [6.S976 Cryptography and Machine Learning](https://mlcrypto.mit.edu/course/) | MIT | Spring 2026 | A2 | 偏理論 |
+
+Harvard 的現行課表裡沒有這類課。能從頭自學到尾（A3）的 AI 資安課，目前都不在這六間學校：
+
+- [中正大學阮文齡《人工智慧安全》](https://sites.google.com/view/nvlinh/teaching-awards/ai-security)（114-2，英文授課）：投影片、notebook 與作業都放在公開資料夾，是台灣唯一能完整自學的一門。
+- [Cagliari 大學 Battista Biggio《Machine Learning Security》](https://unica-mlsec.github.io/mlsec/)（2025/26）：講義與 notebook 放在 GitHub。
+- [復旦大學馬興軍《Trustworthy AI》](https://trust-ml.github.io/)：14 週投影片加上中文教材全文，沒有錄影。
+
+這三門都以對抗樣本、投毒、隱私攻擊為主，幾乎不碰 LLM 與 agent。要補這一塊，目前最接近的組合是李宏毅[生成式 AI 導論 2024](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php)第 13–14 講與 HW10，再讀 CMU 15-783 第一個模組的講義。
+
+**怎麼做**：先用 Cagliari 的 notebook 親手做一次對抗樣本攻擊，再進 LLM 的 prompt injection。Stanford CS 253 在 2027 年 3 月開課，到時再回來看它會不會放出教材。
+
 ## CSDIY 應該放在哪裡
 
 [CSDIY](https://csdiy.wiki/)很適合回答「社群實際跟過哪個版本」。例如它會保存歷史影片、作業經驗與補充資源，這些資訊常比學校課表更接近自學現場。
@@ -129,6 +153,7 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 
 ## 更新紀錄
 
+- 2026-10-05：新增「AI 資安課」一節：Stanford、CMU、Berkeley、MIT 的現行 AI 資安課與分級，以及台灣與海外能完整自學的三門課。
 - 2026-10-01：「已寫到哪裡」補上 Stanford CS224R、CS234、CS149，MIT 6.5940，CMU 10-423 與 Harvard CS2881R 六個新系列。
 - 2026-09-30（3）：新增[台灣其他學校 AI 公開課地圖](/posts/learning/2026-09-30-taiwan-ai-course-map)；「已寫到哪裡」補上台大 ADL、林軒田、清大 NLP、政大生成式 AI 四個中文課系列。
 - 2026-09-30（2）：新增[台大 AI／ML 課程地圖](/posts/learning/2026-09-30-ntu-ai-ml-course-map)為第六所學校；「已寫到哪裡」補上 Stanford CS231N、MIT 6.S184、CMU 11-868 與台大李宏毅 ML 2026 四個新系列。
@@ -199,3 +224,12 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 - [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)
 - [Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/)
 - [CSDIY](https://csdiy.wiki/)
+- [Stanford CS 253 Securing AI Systems（ExploreCourses）](https://explorecourses.stanford.edu/search?q=CS253)
+- [CMU 15-783 Trustworthy AI Fall 2025](https://www.cs.cmu.edu/~aditirag/teaching/15-783F25.html)
+- [CMU 17-739／18-739C ML for Cybersecurity（Lujo Bauer 教學頁）](https://users.ece.cmu.edu/~lbauer)
+- [Berkeley CS 261 Spring 2026](https://people.eecs.berkeley.edu/~daw/teaching/cs261-s26/)
+- [MIT 6.S976 Cryptography and Machine Learning](https://mlcrypto.mit.edu/course/)
+- [中正大學 人工智慧安全（阮文齡）](https://sites.google.com/view/nvlinh/teaching-awards/ai-security)
+- [Cagliari Machine Learning Security](https://unica-mlsec.github.io/mlsec/)
+- [復旦 Trustworthy AI（馬興軍）](https://trust-ml.github.io/)
+- [李宏毅 生成式AI導論 2024](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php)

@@ -132,7 +132,21 @@ NYCU has run TAICA flagship courses every semester since Spring AY113. The AI co
 | Intelligent Manufacturing Execution Systems (Spring 2026) | NCKU, Yuh-Min Chen | Mandarin | The channel linked from the TAICA list has a full term of stream recordings, but the subject is manufacturing systems, not core AI | A2 |
 | Data Mining (Fall 2026) | NTHU, Yi-Shin Chen | English | The [course page](https://www.cs.nthu.edu.tw/~yishin/courses/ISA5810/ISA5810-2026.html) is public; the [channel](https://www.youtube.com/@NTHU_ISA5810_DataMining)'s 2025 lecture playlist has only 4 videos, plus two lab playlists | A2 |
 | Generative AI Application Systems and Engineering (Spring 2026) | NCKU, Kun-Ta Chuang | Mandarin | Syllabus public; the week-1 stream is now private and other weeks ran on NTU COOL | A1 |
-| Large Language Models and Information Security Systems (Spring 2026) | NTUST, Jyun-Ruei Lin | English | Syllabus public; classes run on NTU COOL | A1 |
+| Large Language Models and Information Security Systems (Spring 2026) | NTUST, Jyun-Ruei Lin | English | [Syllabus](https://drive.google.com/file/d/1ZhWBgqTG31TdBkQklyYyckYNAqtAIiD7/view) public; classes run on NTU COOL. The focus is using LLMs for security analysis; only one of 16 weeks covers protecting AI itself | A1 |
+
+## AI security courses
+
+TAICA's [AI for Cybersecurity Technology program](https://taicatw.net/artificial_intelligence_for_cybersecurity_technology_program/) lists two advanced courses on its course map: "AI Security and Privacy Protection" and "AI Applications in Cybersecurity." Through Fall 2026 (academic year 115, first semester), only the second has actually been offered, and that is Lin's course in the table above. It teaches you to use LLMs for security work, not to defend against attacks on AI.
+
+If you want a course on protecting AI systems themselves, such as adversarial examples, data poisoning, model stealing, or prompt injection against LLMs, you have to look outside TAICA:
+
+| Course | School and instructor | Latest term | Level | What outsiders can get |
+|---|---|---|---:|---|
+| [AI Security](https://sites.google.com/view/nvlinh/teaching-awards/ai-security) | National Chung Cheng University, Van-Linh Nguyen | Spring 2026 | **A3** | Taught in English; slides, notebooks, and two assignments in a public folder |
+| [Attack and Defense on AI Applications](https://class-qry.acad.ncku.edu.tw/syllabus/online_display.php?syear=0115&sem=1&co_no=NQ51100&class_code=) | NCKU cybersecurity master's program, I-Hsun Chuang | Fall 2026 | A1 | Weekly syllabus; two weeks of LLM security added from Fall 2026 |
+| [Trustworthy AI](https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=114&Sem=1&CrsNo=535105&lang=zh-tw) | NYCU, Chia-Mu Yu | Fall 2026 | A1 | Weekly syllabus covering adversarial examples, backdoors, model stealing, and privacy attacks |
+
+The Chung Cheng course has run only once, in Spring 2026, and its material links could disappear at any time, so download what you need early. At NTU, the broadest course is Shang-Tse Chen's [Security and Privacy of Machine Learning](https://www.csie.ntu.edu.tw/~stchen/teaching/spml25/), but its slides and recordings are inside NTU COOL, so outsiders only get A1, and it isn't offered in Fall 2026. For a comparison with AI security courses at top schools abroad, see [the AI security section of the overview](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 ## Three reliable routes for outside learners
 
@@ -149,6 +163,10 @@ Follow the weekly schedule on the Chang Gung satellite page: one recording and o
 Chu's course gives you an AIMA-style tour in Mandarin, Hu's covers robotics and reinforcement learning, and Han's covers how users actually interact with AI. All three offer recordings and partial materials only, so you will need your own exercises.
 
 The public courses outside NTU share one trait. TAICA needs thousands of students across schools to attend at once, so instructors stream to YouTube, and openness is a side effect. That is why recordings are complete while assignments and grading stay on NTU COOL. To keep up with new courses, open TAICA's latest course list at the start of each semester and read the "Online Class Link" column.
+
+## Update log
+
+- 2026-10-05: Corrected the description of Lin's Large Language Models and Information Security Systems (its focus is using LLMs for security, not protecting AI). Added an "AI security courses" section covering the status of TAICA's cybersecurity program and AI security courses at Chung Cheng, NCKU, NYCU, and NTU.
 
 ## References
 
@@ -196,3 +214,9 @@ The public courses outside NTU share one trait. TAICA needs thousands of student
 - [Tunghai AI Ethics 1132 playlist](https://www.youtube.com/playlist?list=PL2wUUgdSGIefCX_sNm7Mv5LcJIcr9Ruva) (in Mandarin)
 - [NTHU ISA5810 Data Mining 2026 course page](https://www.cs.nthu.edu.tw/~yishin/courses/ISA5810/ISA5810-2026.html)
 - [NTHU ISA5810 YouTube channel](https://www.youtube.com/@NTHU_ISA5810_DataMining)
+- [NTUST Large Language Models and Information Security Systems TAICA syllabus](https://drive.google.com/file/d/1ZhWBgqTG31TdBkQklyYyckYNAqtAIiD7/view)
+- [TAICA AI for Cybersecurity Technology program](https://taicatw.net/artificial_intelligence_for_cybersecurity_technology_program/)
+- [National Chung Cheng University AI Security (Van-Linh Nguyen) course page](https://sites.google.com/view/nvlinh/teaching-awards/ai-security)
+- [NCKU Attack and Defense on AI Applications, Fall 2026 syllabus](https://class-qry.acad.ncku.edu.tw/syllabus/online_display.php?syear=0115&sem=1&co_no=NQ51100&class_code=)
+- [NYCU Trustworthy AI, Fall 2025 syllabus](https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=114&Sem=1&CrsNo=535105&lang=zh-tw)
+- [NTU Security and Privacy of Machine Learning (Shang-Tse Chen)](https://www.csie.ntu.edu.tw/~stchen/teaching/spml25/)
