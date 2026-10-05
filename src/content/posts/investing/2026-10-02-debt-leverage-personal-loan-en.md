@@ -6,7 +6,7 @@ type: deep-dive
 tags: [leverage, asset-allocation, personal-loan, stock-pledge, margin, index-investing]
 lang: en
 tldr: "With assets growing 8% a year and debt compounding at 3%, LTV falls from 50% to 19% over 20 years. What it really earns is a ~5% spread; the risk is the path: at 50% LTV and 16% volatility, the odds of hitting a 130% maintenance call within 20 years are about 24%. By September 2026 Taiwan broker stock-pledge rates had risen to 3.5–3.9%, so an employee earning NT$80k a month can use a 3.08% personal loan, re-borrowing every 3 years to 'original × 1.03^years', to replicate the same debt path without margin-call risk."
-description: "Breaks down the 'assets outgrow debt, inflation repays it' argument — the math, hidden assumptions, and Minsky's classification — compares Taiwan personal loans, broker stock pledges, and bank stock pledges as of September 2026, and explains top-up loans, refinancing (debt takeover), and revolving credit lines."
+description: "Breaks down the 'assets outgrow debt, inflation repays it' argument — the math, hidden assumptions, and Minsky's classification — compares Taiwan personal loans, broker stock pledges, and bank stock pledges as of September 2026, uses Kelly, P10, and max-drawdown simulations to size leverage, and explains top-up loans, refinancing (debt takeover), and revolving credit lines."
 draft: false
 glossary:
   - term: "LTV"
@@ -78,15 +78,7 @@ Real markets have fat tails, so the true odds are higher. At 50% LTV a 35% drawd
 
 The original says paying interest "breaks the compounding." But paying interest only costs you the 3% spread. A margin call that forces you to sell at the bottom breaks the compounding on the entire principal, with no second chance.
 
-The [Kelly criterion](https://en.wikipedia.org/wiki/Kelly_criterion) makes this sharper. Assuming 8% returns, 3% borrowing, and 16% volatility, long-run geometric growth is:
-
-| Leverage | Geometric growth |
-|---|---|
-| 1x (no debt) | 6.72% |
-| 1.5x | 7.62% |
-| 2x (50% LTV) | 7.88% |
-
-Going from 1.5x to 2x adds just 0.26 percentage points of growth while tail risk rises sharply.
+How much leverage makes sense is worked out with the Kelly criterion and simulations in the "How much leverage" section below.
 
 ### Assumption 2: the debt side is a fixed 3%
 
@@ -94,6 +86,7 @@ Borrowing in Taiwan dollars and yen is effectively shorting both currencies — 
 
 - **The yen is a safe haven and usually strengthens in a crash.** From July to August 5, 2024, USD/JPY fell from 161.95 to 144.18 ([BOCOM Hong Kong monthly, in Chinese](https://www.hk.bankcomm.com/hk/uploadhk/infos/202409/03/5049404/20240903143314_Monthly202408.pdf)). Yen borrowers saw their debt swell by more than 10% in weeks while stocks fell.
 - **The Taiwan dollar can spike too.** On May 2, 2025, the TWD rose 3.07% in a single day ([Central Bank of the ROC press release, in Chinese](https://www.cbc.gov.tw/tw/cp-302-181423-cc30d-1.html)), and more than 6% over two trading days ([Bloomberg via Yahoo Finance, in Chinese](https://hk.finance.yahoo.com/news/%E5%8F%B0%E5%B9%A3%E7%9B%A4%E5%88%9D%E5%B9%B3%E7%9B%A4%E6%8B%89%E9%8B%B8-%E5%8B%A2%E5%B0%87%E4%BB%A5%E4%BA%94%E5%B9%B4%E4%BE%86%E6%9C%80%E5%A4%A7%E5%B9%B4%E6%BC%B2%E5%B9%85%E7%B5%90%E6%9D%9F%E6%88%B2%E5%8A%87%E5%8C%96%E7%9A%842025%E5%B9%B4-015101218.html)). USD assets lost value overnight in TWD terms.
+- **USD cash isn't a risk-free defense either.** The US dollar usually strengthens against the TWD in global sell-offs, which gives Taiwanese investors a hedge — but in that same TWD spike, US dollar cash lost more than 6% in two days.
 
 Rates won't stay at 3% either. Most Taiwanese personal and stock-pledge loans float, and Japan has left zero rates behind.
 
@@ -114,6 +107,61 @@ By definition, "borrow against your assets to pay the interest" is Ponzi finance
 As for "no debt, no money": modern money is indeed created mainly by bank lending, as the [Bank of England's 2014 Quarterly Bulletin](https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy) explains. But that describes the system as a whole; it doesn't imply every individual should borrow as much as possible.
 
 "Inflation pays the debt" is only half true. Under the [Fisher equation](https://en.wikipedia.org/wiki/Fisher_equation), nominal rates already include expected inflation, so inflation only repays the *unexpected* part. With a floating rate, rising inflation brings rate hikes — in 2022, inflation billed borrowers instead.
+
+## How much leverage: Kelly, P10, and maximum drawdown
+
+Everything so far has been about expected values. Picking a leverage multiple also takes three other numbers: long-run geometric growth, the bad-luck outcome (P10), and the deepest drawdown along the way.
+
+I ran a 20-year monthly simulation: 8% annual return, 3% borrowing cost, leverage reset daily to a fixed multiple (like a leveraged ETF), no margin calls, normally distributed returns. Real markets have fat tails, so reality is worse.
+
+**Market volatility 16% a year:**
+
+| Leverage | Geometric growth | 20-year wealth multiple (median) | 20-year wealth multiple (P10) | Max drawdown (median) |
+|---|---|---|---|---|
+| 1x | 6.7% | 3.8x | 1.5x | −36% |
+| 1.5x | 7.6% | 4.6x | 1.2x | −52% |
+| 2x | 7.9% | 4.8x | 0.8x | −66% |
+| 3x | 6.5% | 3.6x | 0.2x | −85% |
+| 4x | 2.5% | 1.6x | 0.04x | −94% |
+
+**Market volatility 20% a year:**
+
+| Leverage | Geometric growth | 20-year wealth multiple (median) | 20-year wealth multiple (P10) | Max drawdown (median) |
+|---|---|---|---|---|
+| 1x | 6.0% | 3.3x | 1.1x | −47% |
+| 1.5x | 6.0% | 3.3x | 0.6x | −66% |
+| 2x | 5.0% | 2.7x | 0.3x | −79% |
+| 3x | 0% | 1.0x | 0.03x | −94% |
+
+Three things stand out.
+
+**Past the Kelly multiple, more borrowing earns less.** The [Kelly criterion](https://en.wikipedia.org/wiki/Kelly_criterion) puts optimal leverage at roughly excess return ÷ volatility squared — about 1.95x at 16% volatility. Beyond that point, geometric growth falls. At 20% volatility, 3x leverage has zero long-run growth: all of the risk, none of the average reward. A personal loan plus a 2x ETF plus a stock pledge easily stacks past 3x.
+
+**The Kelly multiple is extremely sensitive to its inputs.** Raise volatility from 16% to 20% and optimal leverage drops from 1.95x to 1.25x. Nobody knows future volatility and returns in advance, which is why practitioners tend to use half-Kelly — about 0.6x to 1x under these assumptions. The rational range for leverage is narrower than most people think.
+
+**A good median doesn't mean you'll get it.** At 2x the median outcome is 4.8x, yet there's a 10% chance of losing money over 20 years, and the median max drawdown is −66% — roughly even odds of watching two-thirds of your balance disappear at some point. Real returns also have to absorb the cost of panicking and selling at the bottom, which no simulation captures.
+
+### The problem is leverage, not liability
+
+Borrowing itself isn't the risk; the risk is how much the borrowed money multiplies your market exposure. That's why debt with no maintenance ratio — personal loans, interest-only mortgages — suits long-term holding better than positions marked to market like stock pledges or options: however far prices fall, nobody can force you to sell at the bottom.
+
+But **no maintenance ratio doesn't mean no risk** — the risk just moves:
+
+- **Cash flow:** monthly payments keep coming, and an income gap means dipping into savings or selling stock.
+- **Rollover:** "never repay" depends on being able to refinance every time. Banks look at your income, your [DBR22](https://law.fsc.gov.tw/LawContentSearch.aspx?id=FE052046) headroom, and the cross-industry credit query, and they tighten in downturns.
+
+Inflation also erodes debt more slowly than people imagine: at 2% inflation, NT$800k of debt still has a real value of about NT$650k after 10 years. What really sustains "never repay" is the ongoing ability to borrow; inflation is only a small part of it.
+
+### The conditions for borrowing like this
+
+A strategy that works beautifully for some people doesn't fit everyone. Before you start, check yourself against these four:
+
+1. **High, stable income:** monthly payments and every refinancing approval depend on it.
+2. **A job that doesn't move with the market:** if you work in tech and your stocks are concentrated in Taiwan, a crash and a layoff can arrive together.
+3. **A real cash buffer:** at least six months of living costs plus loan payments, so you never have to sell in a crash.
+4. **Proven drawdown tolerance:** recall your largest paper loss — did you carry on normally and not sell? If you've never been through one, stay at 1.5x or below at first.
+
+If any one of the four doesn't hold, lower the leverage instead of telling yourself "it always comes back in the long run."
 
 ## Bringing it to Taiwan: three debt tools as of September 2026
 
@@ -189,7 +237,9 @@ The open question is how to deploy the NT$800k in cash:
 
 The table includes the daily-reset decay a 2x ETF suffers in a sharp fall. Going all-in on the 2x ETF earns only NT$220k more than option two in a rally, but leaves about a tenth of net worth after a crash.
 
-Option two's 2.1x sits inside the roughly 2x that [Lifecycle Investing](/en/posts/investing/2026-06-19-2x-etf-system-three-books-en) suggests for young investors. New money is better placed in US or global indexes, since A's individual stocks and 2x ETF are already all in Taiwan.
+Option two's 2.1x sits inside the roughly 2x that [Lifecycle Investing](/en/posts/investing/2026-06-19-2x-etf-system-three-books-en) suggests for young investors. That's higher than the half-Kelly figure above because the lifecycle approach counts future salary as part of total wealth: A has only NT$1M in financial assets, but decades of future income far exceed that, so on a total-wealth basis the real leverage is well under 2x. The argument only holds if the four conditions in "The conditions for borrowing like this" are met — above all, stable income.
+
+New money is better placed in US or global indexes, since A's individual stocks and 2x ETF are already all in Taiwan.
 
 ## Replicating the original debt path with a personal loan
 
