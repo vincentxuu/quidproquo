@@ -1,0 +1,10 @@
+---
+export const prerender = true;
+import PostLayout from '../layouts/PostLayout.astro';
+import { EnglishSpeaking } from '../components/EnglishSpeaking/EnglishSpeaking.tsx';
+---
+
+<PostLayout title="英文口說" lang="zh-TW" description="把想說卻卡住的意思，練成說得出口的英文。情境文章、句子朗讀與回想練習。" switchHref="/en">
+  <EnglishSpeaking client:load />
+  <noscript>請啟用 JavaScript，閱讀英文口說情境與使用回想練習。</noscript>
+</PostLayout>
