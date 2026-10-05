@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-05",
+  "date": "2026-10-06",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-05：swebench.com（首頁）仍 `OUTPUT_LIMIT`、morphllm.com/leaderboard 仍 429 + Vercel Security Checkpoint——與過去 32 天完全相同的失敗型態（見 escalation-queue Q-023），swebench_verified_top5／morphllm_top3 沿用前值，根因未解（本次未重複驗證 artificialanalysis.ai，根因已查明確）。`lmsys_agent_top5` 用 HF `datasets-server` 重新確認：`agent` 子集 `latest` split 仍是 2026-10-02 官方發布（與 10-04 查到的完全相同，官方尚未出新一批），前五名排名與分數原封不動（Fable 5.1 (Max) 14.31%／Opus 5.5 (High) 13.82%／Sonnet 5.5 (Max) 12.52%／GPT-6 Astra (Max) 12.27%／GPT-6.1 Sol (Max) 11.23%），無新異動可報。`web_search` 補充查詢（Step 3b Q1/Q2）命中內容仍是同一模式的第三方聚合站（swfte.com、benchlm.ai、llm-stats.com、felloai.com、metatext.io、vellum.ai、openlm.ai）對同一 benchmark 名稱互相矛盾（如 vellum.ai 同時列出兩套不同世代的 SWE-Bench 排名、metatext.io 的 LMArena Elo 榜單裡新舊代模型混雜排序），完全未提及官方追蹤 scaffold 排名。依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章，僅更新本檔與 escalation-queue Q-023（連續第 33 天）。"
+  "notes": "2026-10-06：swebench.com（首頁）仍 `OUTPUT_LIMIT`、morphllm.com/leaderboard 仍 429 + Vercel Security Checkpoint——與過去 33 天完全相同的失敗型態（見 escalation-queue Q-023），swebench_verified_top5／morphllm_top3 沿用前值，根因未解（本次未重複驗證 artificialanalysis.ai／cursorbench，根因已查明確）。`lmsys_agent_top5` 用 HF `datasets-server` 重新確認：`agent` 子集 `latest` split 仍是 2026-10-02 官方發布（與 10-05 查到的完全相同，官方尚未出新一批），前五名排名與分數原封不動（Fable 5.1 (Max) 14.31%／Opus 5.5 (High) 13.82%／Sonnet 5.5 (Max) 12.52%／GPT-6 Astra (Max) 12.27%／GPT-6.1 Sol (Max) 11.23%），無新異動可報。`web_search` 補充查詢（Step 3b Q1/Q2，timeRange: week）命中內容仍是同一模式的第三方聚合站（llm-stats.com、benchlm.ai、metatext.io、app.stationx.net、modelany.app、openlm.ai、toloka.ai）對同一 benchmark 名稱互相矛盾（如 benchlm.ai 稱 SWE-bench Pro 由 Claude Opus 5.5 領先 89.9%、llm-stats.com 的 FrontierCode 1.1 複合指數量級完全不可比），完全未提及官方追蹤 scaffold 排名（live-SWE-agent／Sonar Foundation Agent／TRAE）。依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章，僅更新本檔與 escalation-queue Q-023（連續第 34 天）。"
 }
