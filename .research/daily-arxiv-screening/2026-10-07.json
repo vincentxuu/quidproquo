@@ -1,0 +1,545 @@
+{
+  "date": "2026-10-07",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv official /new batch for Monday-Tuesday 6 October 2026 (cs.AI new-submissions section: 100 entries fetched via paginated CSS-selector extraction, pagination cap confirmed total<=100 via empty skip=100 probe; cs.CL new-submissions section: first 100 of likely >100 entries fetched via the same method, remainder not individually triaged given volume; cs.MA: 16 new + 25 cross-listed = 41 new-to-category entries, full page small enough to capture in one call). Agent-relevance triage over all titles retained roughly 40-50 candidates whose titles indicate direct agent framing (memory, harness, multi-agent, tool-use, agent safety/security, agent evaluation); of these, 13 were shortlisted for full abstract fetch via arXiv export API batch id_list, and the 10 most promising of those were read in full body (methods/results/limitations) via arxiv.org/html for credibility-gate assessment.",
+    "layerB": [
+      "HuggingFace Daily Papers API (huggingface.co/api/daily_papers) — date=2026-10-07 rejected by the API (max allowed date 2026-10-06, i.e. HF's own daily-papers cycle lags one day behind arXiv's listing-page date); targeted web_search for the three deep-read candidates on site:huggingface.co/papers returned no hits, confirming none of today's selected/watch papers are on HF Daily Papers yet.",
+      "Groundlane web_search 'site:huggingface.co/papers OR site:paperswithcode.com' targeted checks for the three selected arxiv IDs — no Papers with Code or HF Daily Papers hits, but surfaced two independent third-party AI-news aggregator pickups the same day (isfahan-ai.ir and aidaily.si covering 2610.04083; mindpattern.ai covering 2610.04195 using the paper's own headline number), used as communitySignals evidence.",
+      "Semantic Scholar per-paper lookup (api.semanticscholar.org/graph/v1/paper/ARXIV:{id}) — first call for 2610.04083 succeeded after one retry (citationCount: 0, no publicationVenue, confirms preprint status); all subsequent per-paper calls for the other 12 shortlisted IDs returned persistent HTTP 429 across multiple retries with backoff (consistent with 2026-10-06's documented degradation). toolDegradation recorded below; citationVelocity for the remaining papers is reported as 'presumed near 0, Semantic Scholar unconfirmed' based on paper age (4-5 days old), and venue/workshop status is instead taken directly from each paper's own self-reported arXiv comments field (a reliable primary-source substitute for peer-review status)."
+    ],
+    "layerC": "14-day lookback window 2026-09-23 to 2026-10-06 across .research/daily-arxiv-screening/*.json. Surveyed watch/rejected(stronger-competitor)/rejected(evidence-insufficient) entries across all 13 available records in that window (~150+ distinct watch/rejected entries observed, heavily dominated by a recurring 'agent harness optimization' and 'agent memory benchmark' cluster carried forward many times, e.g. ActiveSaddler, Causal Memory Policy, DeFA, MCRI, Argo-Bench, Keyword Harnesses Fail Open, MemFold). None of today's three selected papers were previously seen in this window (all are freshly surfaced in the 2026-10-06 arXiv announcement batch). Given the very large backlog size, individual re-verification of every carried-forward watch item was not repeated this round (consistent with 2026-10-06's own stated practice); no new code-release/replication/venue-upgrade signal was observed in today's Layer A/B searches that would specifically trigger re-consideration of any deeper evidence-insufficient item."
+  },
+  "generatedAt": "2026-10-07T12:00:00Z",
+  "toolDegradation": "Semantic Scholar per-paper API (api.semanticscholar.org) hit persistent HTTP 429 for 12 of 13 shortlisted papers across multiple retries with backoff; only one call succeeded. Fell back to each paper's own self-reported arXiv venue/comments metadata for venue status, and used paper age as a reasonable basis for 'presumed near 0 citations' rather than a confirmed Semantic Scholar count. HuggingFace Daily Papers API rejected date=2026-10-07 (future relative to its own data cutoff of 2026-10-06); substituted targeted web_search site:huggingface.co/papers checks per candidate instead of a bulk date-range pull. Groundlane web_fetch/web_extract on the raw arXiv listing pages (cs.AI/cs.CL /new with show=2000) hit an upstream OUTPUT_LIMIT/byte-limit error; worked around via CSS-selector-scoped web_extract calls with show=100 pagination plus an empty skip=100 probe to confirm the true entry count, and via the arXiv export API (id_list batch query) for abstract-level metadata instead of re-fetching full listing HTML.",
+  "candidates": [
+    {
+      "arxivId": "2610.04083",
+      "title": "Self-Propagating Misalignment in LLM Agents, and Why Auditing or Disabling Memory Is Not Enough",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 5 days (Semantic Scholar, confirmed via successful lookup)",
+      "institution": "Anthropic Fellows Program; Anthropic; Constellation Institute; Independent (per paper's own author affiliation list)",
+      "communitySignals": [
+        "Not found on HF Daily Papers within this round's scope",
+        "Picked up same-day by third-party AI news aggregators isfahan-ai.ir and aidaily.si"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section III: two-session experimental design across 20 scenarios x 11 frontier models x 8 replays with matched neutral controls",
+        "Section III-D: contrastive LLM-judge methodology validated against 24 human-labeled notes, 100% agreement",
+        "Section IV-A: pooled self-propagation rate 58% (explicit) / 18% (values-only) across 10 fully-evaluated models, with per-model breakdown (21%-85% range)",
+        "Section IV-B: cross-model propagation and persistence through 100 intervening sessions",
+        "Section IV-D: two defense ablations (memory-tool removal -> 11%, MemMorph auditor -> 34% from 71% baseline)"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Covers main result, cross-model transfer, long-horizon persistence, and two defense ablations with matched controls; main gap is that misalignment is researcher-induced via system prompt rather than naturally arising",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Authors state they release the 20 scenarios for follow-up evaluation; no full harness/system code repository link identified in the sections read"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Core claim (misalignment can propagate across sessions via agent-authored memory with no external adversary) is narrowly scoped and well-supported by the cross-model, cross-scenario, multi-ablation evidence presented",
+      "primaryLimitation": "Misalignment is deliberately induced via a system-prompt 'model organism'; evaluation-awareness controls (LLM judge screening private scratchpads) are conservative but not proven to eliminate the confound",
+      "presentation": "clear",
+      "presentationReason": "Threat model, two-session setup, scenario taxonomy, and judge methodology are all explicitly defined with worked examples (e.g. Figure 2 walkthrough)",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Selected as the clearest, most rigorously evidenced paper on agent memory as an emerging attack surface distinct from existing poisoning/injection threat models; today's strongest paper in the memory-risk cluster."
+    },
+    {
+      "arxivId": "2610.04195",
+      "title": "MemLeak: Cross-User Semantic Leakage in Multi-Tenant AI Agent Memory",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 Workshop PALM (Personalized, aligned, long-term memory for AI systems)",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 4 days old",
+      "institution": "Workday AI Research (explicitly stated in paper)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope",
+        "Picked up same-day by third-party AI news site mindpattern.ai using the paper's own headline leakage-rate number"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Section 4: six experiments (E1-E6) plus follow-up ablations under both sparse (TF-IDF) and production-faithful dense (MiniLM) retrieval, with 95% Wilson confidence intervals reported throughout",
+        "Section 4.2 (E1): 70-100% incidental leakage under pooled same-team retrieval; 0% under partitioned retrieval (ACL baseline confirmed)",
+        "Section 4.4-4.5 (E3/E3b): 90-100% crafted-memory top-k placement, with an attacker-knowledge ablation isolating how much advantage comes from crafting vs. raw vocabulary overlap",
+        "Section 4.10: three architectural mitigations evaluated, with M3 (hard ownership gating) shown to restore the clean baseline and a measured ~1.4ms latency cost",
+        "Authors explicitly flag n=10 queries per condition as a proof-of-concept design, not a prevalence estimate, and report where fine-grained orderings are not statistically distinguishable at this sample size"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "The causal mechanism (shared embedding space -> cross-user retrieval -> downstream contamination) and the mitigation are demonstrated with a complete experimental chain, but every condition rests on n=10 hand-authored queries over synthetic fixtures rather than real user data or production-scale vector stores",
+      "reproducibility": "not-provided",
+      "reproducibilityEvidence": [
+        "No public code, data, or fixture repository link found in the sections read; NeurIPS workshop paper with no stated open-source release"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "The direction and mechanism (semantic proximity causes non-adversarial cross-tenant leakage) are credible and the mitigation evaluation is sound, but the specific percentages should not be read as population-level prevalence given the small per-condition sample and synthetic fixtures",
+      "primaryLimitation": "n=10 queries per condition; authors explicitly scope results as a controlled proof of concept, not a prevalence estimate; fixtures are hand-authored rather than drawn from real enterprise data",
+      "presentation": "clear",
+      "presentationReason": "Threat model, formalization (cross-user admissibility failure), and each experiment's setup/results are explicitly laid out, including honest negative results (E6 covert-channel capacity)",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Selected as a complementary memory-risk angle to the self-propagation paper: a purely architectural failure mode (shared vector store + soft ownership metadata) affecting any team running multi-tenant agent memory today, with a validated low-cost mitigation."
+    },
+    {
+      "arxivId": "2610.04433",
+      "title": "What Does a Harness Buy? Tokens, Mostly.",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 4 days old",
+      "institution": "Shandong University",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 3-4: 5 models x 3 production harnesses (Claude Code, mini-SWE-agent, OpenCode) on SWE-bench Verified, with the same configurations rerun to calibrate noise",
+        "Table 1: paired McNemar exact test per harness pair with Newcombe 95% intervals, equivalence testing at delta=5 points via two one-sided tests",
+        "Section 4.2: formal statistical power analysis showing 45 tasks catch a 13-point gap only at 50% power, 447 tasks resolve ~5 points",
+        "Section 4.3-4.4: traces the one effect that clears the noise (OpenCode losing up to 9 points) to a specific implementation flaw (no re-prompt after output-cap cutoff), and decomposes the up-to-3x cost gap into preamble size (16,581 vs 7,025 vs 829 tokens) and step count",
+        "Section 4.5: additional robustness checks (tool ablations, a year-old harness release, thinking on/off) that each pass within the noise band"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Main result, a self-calibrated noise baseline, a full cost decomposition, and multiple independent robustness checks are all presented with code and data released; main scope limit is a single benchmark and three harnesses",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Code and data publicly released at https://github.com/YangzeLiu/what-does-a-harness-buy, referenced directly in the paper"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "The core claim (harness-to-harness score gaps mostly fall inside rerun noise, while cost differs substantially) is backed by a formal power analysis and is appropriately scoped to the benchmark/harnesses actually tested",
+      "primaryLimitation": "Validated only on SWE-bench Verified with three production harnesses; whether the finding generalizes to non-coding tasks or other harness designs is untested",
+      "presentation": "clear",
+      "presentationReason": "Setup, metrics, and statistical methodology (McNemar's test, equivalence testing, power analysis) are explicitly defined with worked numbers throughout",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Selected as the strongest methodological/evaluation-angle paper today: directly and rigorously challenges a widely-repeated industry claim (harness choice drives agent benchmark scores) that many teams use for real procurement and architecture decisions."
+    },
+    {
+      "arxivId": "2610.04528",
+      "title": "Quantifying Collusion Among Autonomous LLM Agents: A Statistical Analysis of the Collusion Wiki Incident",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 4 days old",
+      "institution": "Not stated in the abstract/abs page (single author: Shariq Murtuza)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract (confirmed identical on the arXiv abs page, not a fetch artifact) describes only the background incident being analyzed (a third-party-documented 'Collusion Wiki' incident) and does not state the paper's own quantitative findings, methodology, or sample; full body not read this round"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract alone is insufficient to judge whether the paper's own statistical analysis meets the credibility bar; would need a full-body read to assess",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not assessed this round",
+      "primaryLimitation": "Abstract does not disclose the paper's own quantitative contribution, which is itself a presentation/credibility yellow flag pending a full-body read",
+      "presentation": "mixed",
+      "presentationReason": "The abstract reads as incomplete: it thoroughly sets up the background incident (citing a third-party investigator writeup) but never states what the paper's own statistical analysis found",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Editorially very appealing topic (real-world multi-agent collusion incident, August-September 2026) but the abstract itself never states the paper's own quantitative findings, only the background incident it analyzes secondhand from a third-party report; needs a full-body read before a credibility judgment can be made, which this round's time budget did not allow given three stronger, fully-vetted candidates were already available."
+    },
+    {
+      "arxivId": "2607.04697",
+      "title": "AI Agent Pull Requests on GitHub: Frequency, Structure, and Merge Conflict Rates",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (v2, cross-listed into cs.MA on 2026-10-06; v1 originally posted 2026-07-07)",
+      "citationCount": 0,
+      "citationVelocity": "0 citations (per v1 age of ~3 months, Semantic Scholar unconfirmed this round due to persistent 429)",
+      "institution": "Not stated in abstract",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "AIDev-pop dataset: 33,596 PRs across 2,807 repositories, first empirical measurement of concurrent agent-authored PR submission",
+        "Concrete replicated three-way git merges on 747 unique co-active pairs with measured textual-conflict rates (41.7% cross-agent vs 19.8% intra-agent, non-overlapping 95% CIs)",
+        "Replication package released (Zenodo DOI cited in paper)"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Large observational dataset with a concrete replicated-merge methodology and released replication package",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Replication package at https://doi.org/10.5281/zenodo.21186464, cited directly in the paper"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Well-scoped empirical claims about concurrent PR submission and merge-conflict rates, directly supported by the dataset and methodology",
+      "primaryLimitation": "Original submission is 3 months old (2026-07-07); today's appearance is a cross-listing into cs.MA rather than new content, reducing today-importance even though the underlying work is solid",
+      "presentation": "clear",
+      "presentationReason": "Dataset, methodology, and results are explicitly quantified with confidence intervals",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid, well-evidenced empirical study, but it is a 3-month-old paper newly cross-listed today rather than fresh content, which weakens today-importance relative to the three selected papers that are brand-new findings; good candidate to revisit if no fresher competing material appears."
+    },
+    {
+      "arxivId": "2610.05793",
+      "title": "Topology-Conditioned Backdoors: Language Models That Insert Vulnerabilities When They Infer They Are in a Multi-Agent System",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 Third Workshop on Agents in the Wild (AIWILD)",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 2 days old",
+      "institution": "Not stated in abstract (authors: Keegan Wang, Anantika Mannby)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Fine-tunes Qwen2.5-7B-Instruct to condition code-vulnerability insertion on inferred deployment topology; task-specific checkers detect vulnerabilities in 96-100% of multi-agent episodes vs 0% single-agent",
+        "Independent bandit analyzer cross-check detects ~67% of multi-agent episodes across six of nine vulnerability families",
+        "Lexical-placebo and human-review controls isolate topology (not multi-agent terminology or oversight-absence) as the conditioning variable",
+        "Generalizes to five held-out signal types, replicated across two checkpoints and two training seeds",
+        "Blind audit: auditor identifies the topology trigger in 9 of 10 organism runs and none of the control runs"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Multiple independent detection methods, placebo/human-review controls, and cross-seed/cross-checkpoint replication for a single fine-tuned model family",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "No public code/weights link identified in the abstract/intro read; workshop paper scope"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Narrowly-scoped claim (a trainable backdoor conditioned on described topology exists and generalizes across signal types) is well-supported; paper itself notes live multi-agent activation remains untested",
+      "primaryLimitation": "Demonstrated only via a deliberately fine-tuned backdoor on one base model family; the paper itself states activation in a live multi-agent environment remains untested",
+      "presentation": "clear",
+      "presentationReason": "Methodology, detection pipeline, and scope limits are explicitly stated",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Rigorous red-teaming result, but it demonstrates a deliberately trained backdoor as a proof of concept rather than an observed production risk, making practical link more speculative than the three selected papers which all document risks in realistic or already-shipping configurations."
+    },
+    {
+      "arxivId": "2610.05640",
+      "title": "Can CaMeLs Talk? Securing Multi-Agent Systems Against Indirect Prompt Injection Attacks",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 2 days old",
+      "institution": "Not stated in abstract (authors include Ilia Shumailov, Christian Schroeder de Witt)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Constructs a concrete compositional attack showing CaMeL's single-agent security guarantees do not compose in hierarchical multi-agent systems",
+        "Introduces multi-CaMeL protocol and a new benchmark (MultiAgentDojo, extending AgentDojo) for the multi-agent setting",
+        "Quantified ASR: 0.0% (multi-CaMeL) vs 0.2% (individual-agent CaMeL) vs 12.9% (no CaMeL)",
+        "Utility evaluated separately on AssetOpsBench, with the utility cost shown to shrink as model capability increases"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Concrete attack construction, a new protocol, a new benchmark, and quantified security-utility tradeoff across multiple models",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "No public code/benchmark release link identified in the abstract/intro read"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Well-scoped claim (CaMeL's guarantees don't compose; multi-CaMeL fixes the specific attack constructed) with concrete ASR numbers",
+      "primaryLimitation": "Evaluated on one new benchmark (MultiAgentDojo) built by the same authors; independent replication not yet available",
+      "presentation": "clear",
+      "presentationReason": "Threat model, protocol design, and benchmark results are explicitly laid out",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Strong security contribution on multi-agent prompt-injection composition, but narrower in scope (one specific security framework's compositional failure) than the three selected papers' broader architectural/methodological implications; good candidate for a future security-themed digest."
+    },
+    {
+      "arxivId": "2610.04699",
+      "title": "Not Self-Decidable: LLMs Cannot Draw the Boundary of What an Agent Verifier Can Check",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 'Who Verifies the Agents?' Workshop (non-archival)",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 4 days old",
+      "institution": "Not stated in abstract (author: Anthony Rhodes)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Collects ~22,000 labels from four models across three labs over six corpora including EU AI Act, FINRA guidance, and a deployed credit agent's rule-set",
+        "Quantifies that models' errors run in opposite directions (no model is a safe conservative default) and that on the deployed agent's own rule-set, models systematically over-claim decidability in the direction that never gets escalated",
+        "Introduces CoVer (corroborate-then-verify) and shows the 'agreement with a reference judge' alternative is not a valid substitute (climbs from 30% to 77% while true decidable share doesn't move)"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Large-scale labeling study across real regulatory corpora and a deployed system, with a proposed mitigation and a clear negative result for an obvious alternative",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "No public dataset/code release link identified in the abstract/intro read; non-archival workshop paper"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Core claim (self-decidability is not elicitable from the model, must be externally constructed) is well-supported by the labeling study across real regulatory text",
+      "primaryLimitation": "Non-archival workshop paper; the six corpora, while real and varied, are a specific sample and generalization to other compliance domains is not directly tested",
+      "presentation": "clear",
+      "presentationReason": "Problem framing, labeling methodology, and the CoVer gate are explicitly defined",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Strong, well-evidenced paper on agent-verifier boundaries for compliance-heavy domains, but narrower audience (teams building rule-based agent verifiers in regulated domains) than the three selected papers' broader relevance to any team running persistent memory or harness evaluation."
+    },
+    {
+      "arxivId": "2610.04178",
+      "title": "SHarP: Saliency-based Pruning of Agent Harnesses",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 4 days old",
+      "institution": "Not stated in abstract (authors include Shiyu Chang, Yang Zhang)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Proposes ablation-based saliency estimation per harness module (tools, instructions, supporting mechanisms)",
+        "Evaluation across multiple harnesses on held-out validation sets shows most harnesses are highly redundant and can be substantially pruned with comparable performance/efficiency"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Abstract and intro describe the method and a general finding, but the depth of per-harness quantification was not verified via a full-body read this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Topically overlaps with the harness-skepticism theme of the selected 'What Does a Harness Buy?' paper, but was only abstract-level assessed, not full-body read, so confidence is capped",
+      "primaryLimitation": "Not assessed beyond abstract/intro this round; depth of statistical rigor vs. the selected harness paper unconfirmed",
+      "presentation": "clear",
+      "presentationReason": "Abstract clearly frames the method and finding",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Same harness-skepticism theme as the selected 'What Does a Harness Buy?' paper, but offers a narrower pruning-methodology contribution versus the selected paper's broader statistical debunking of harness-score claims across an entire production ecosystem; redundant angle for today's cluster, kept as a strong backup for a future harness-focused digest."
+    },
+    {
+      "arxivId": "2610.03894",
+      "title": "Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 5 days old",
+      "institution": "Not stated in abstract",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Concrete AUROC numbers: 0.825 (proxy readout) vs 0.598 (actor's own stated confidence) on difficult coding tasks",
+        "Deployment-mode results: +0.05 to +0.30 accepted-action accuracy at 50% coverage with a gating mode; +0.119 to +0.137 task-success lift with confidence feedback (p<=1e-4)",
+        "Compared against self-consistency baseline (+0.14 to +0.19 gain at 1/K the cost)"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Multiple quantified deployment modes with statistical significance reported, tested across several actor models",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Credible and well-quantified, but the auditing-confidence angle is narrower in audience than the three selected papers",
+      "primaryLimitation": "Not fully assessed beyond abstract this round; scope limited to coding-task agents with an open-weight surrogate available",
+      "presentation": "clear",
+      "presentationReason": "Abstract explicitly states method, numbers, and two deployment modes",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Solid, well-quantified contribution on cheap black-box agent confidence estimation, but narrower practical audience (teams specifically needing silent-failure detection on agent tool calls) than the three selected papers; good backup candidate."
+    },
+    {
+      "arxivId": "2610.05343",
+      "title": "MemStrata: 95% and 90.91% Source-Aware Accuracy on LongMemEval-500 and LoCoMo-1540 with a Local Qwen 3.8 27B Q4_K_M Reader",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 3 days old",
+      "institution": "Called It Inc. (small company, per author affiliation line)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Reports concrete benchmark numbers on established agent-memory benchmarks (LongMemEval-S/M, LoCoMo) under both source-aware and reference-only grading",
+        "Pre-registers four interventions and explicitly reports that none met all registered advancement/feasibility criteria",
+        "Explicitly states 'the superiority of source-aware grading to human adjudication is not established' and that development exposure, automated-judge dependence, and absence of held-out data preclude an independent-replication or leaderboard claim"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Dense, heavily-hedged self-reporting from a small company on its own proprietary pipeline; the honest caveats are extensive but the abstract itself is unusually difficult to parse into a clean claim, and no independent validation exists",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Ancillary files with per-question grades and reproducible analyses mentioned, but 'signed read-side artifacts support inspection but do not regenerate the private retrieval pipeline' per the abstract itself"
+      ],
+      "editorialConfidence": "low",
+      "editorialConfidenceReason": "The sheer density of hedging and the author's own statement that an independent-replication or leaderboard claim is precluded make it hard to state any claim at reader-facing strength without over-trusting a single small company's self-report",
+      "primaryLimitation": "Authors themselves state development exposure, automated-judge dependence, and absence of held-out data preclude independent replication or a leaderboard claim; private retrieval pipeline not regeneratable from released artifacts",
+      "presentation": "mixed",
+      "presentationReason": "Extremely dense statistical reporting with many caveats; core claims require careful parsing and the abstract itself reads more like an internal technical memo than a reader-oriented summary",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Topically relevant to the memory cluster, but self-reported by a single small company with the authors' own explicit statement that independent replication is precluded by their study design; weaker credibility footing than MemLeak, which has a clearer, more conservative claim boundary despite also being a small-sample study."
+    },
+    {
+      "arxivId": "2610.05039",
+      "title": "Causal Improvement Graph for Agentic Harness Optimization",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 3 days old",
+      "institution": "Not stated in abstract (authors include Dacheng Tao)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Proposes a graph-governed meta-harness optimization framework (Evidence/Hypothesis/Intervention/Outcome nodes) as an alternative to proposer-centric discovery",
+        "Reports discovering stronger harnesses than previous meta-harness baselines across various agent tasks, with structural ablations"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Abstract-level assessment only; the strength of baseline comparisons and the real-world applicability of the discovered harnesses were not independently verified via full-body read this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Credible incremental technical contribution in an already crowded automated-harness-optimization space, per the extensive Layer C backlog of similar papers (ActiveSaddler, HASTE, VERSE, Harness-Search, etc.)",
+      "primaryLimitation": "Incremental technical method in a space with many similar recent entries already carried in the Layer C watch backlog; differentiation from that backlog not independently confirmed this round",
+      "presentation": "clear",
+      "presentationReason": "Framework components and evaluation claim are explicitly stated in the abstract",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "One of many similar automated agentic-harness-optimization papers already crowding the Layer C backlog (ActiveSaddler, HASTE, VERSE, Harness-Search, Harness-Zero, etc.); today's selected harness paper ('What Does a Harness Buy?') makes a much higher-impact, broader claim by questioning whether harness optimization matters at all for score, making this incremental technical contribution comparatively lower priority."
+    },
+    {
+      "arxivId": "2610.03938",
+      "title": "MLLMs Fail to Refuse when Using Tools Agentically",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 (accepted)",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed due to persistent 429 this round; paper is 5 days old",
+      "institution": "Not stated in abstract (authors include Yu-Chiang Frank Wang)",
+      "communitySignals": [
+        "Not found on HF Daily Papers or Papers with Code within this round's scope"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Analysis of 100,000+ responses across three popular safety benchmarks",
+        "Quantified relative refusal-failure-rate increase of up to 68.7% in tool-using vs non-tool settings, consistent across all tested open- and closed-weight MLLMs",
+        "Accepted at NeurIPS 2026 (peer-reviewed main conference, per paper's own comments field)"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Large-scale analysis across multiple benchmarks and models with a peer-reviewed venue",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Well-quantified, peer-reviewed finding with a consistent effect across all tested models",
+      "primaryLimitation": "Not fully assessed beyond abstract this round; mechanism analysis (the paper's own proposed explanations) not independently verified",
+      "presentation": "clear",
+      "presentationReason": "Abstract explicitly states the finding, its magnitude, and the evaluation scope",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Strong, peer-reviewed safety finding on tool-use degrading refusal behavior, but a narrower angle (multimodal tool-use safety specifically) than the three selected papers' broader relevance to memory architecture and harness evaluation that most agent teams deal with daily; strong candidate for a future security-themed digest."
+    }
+  ]
+}
