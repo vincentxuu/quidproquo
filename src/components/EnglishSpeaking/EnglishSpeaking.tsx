@@ -10,7 +10,7 @@ const families = [
 ] as const;
 function Evidence({ id }: { id: typeof speakingCards[number]['id'] }) {
   const evidence = speakingEvidence[id];
-  return <aside className="es-evidence" aria-label="用法與參考資料">{evidence.usageNote && <p>{evidence.usageNote}</p>}<details><summary>用法依據與參考資料 · {evidence.expression === 'direct' ? '主句有來源原文' : '依來源用法改寫'}</summary><p>{evidence.support}</p><ul>{evidence.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a></li>)}</ul><p>來源支持的範圍如上；未做母語者測試或使用頻率比較。</p></details></aside>;
+  return <aside className="es-evidence" aria-label="用法與參考資料">{evidence.usageNote && <p>{evidence.usageNote}</p>}{evidence.alternatives && <ul className="es-alternatives" aria-label="也可以怎麼說">{evidence.alternatives.map(item => <li key={item.en}><span lang="en">{item.en}</span>：{item.when}</li>)}</ul>}{evidence.article && <p><a href={evidence.article}>讀這句的完整文章 →</a></p>}<details><summary>用法依據與參考資料 · {evidence.expression === 'direct' ? '主句有來源原文' : '依來源用法改寫'}</summary><p>{evidence.support}</p><ul>{evidence.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a></li>)}</ul><p>來源支持的範圍如上；未做母語者測試或使用頻率比較。</p></details></aside>;
 }
 type View = 'home' | 'topic' | 'practice';
 export function EnglishSpeaking() {

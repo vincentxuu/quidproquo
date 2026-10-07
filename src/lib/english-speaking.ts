@@ -32,6 +32,8 @@ export type SpeakingEvidence = {
   expression: 'direct' | 'adapted';
   support: string;
   usageNote?: string;
+  alternatives?: { en: string; when: string }[];
+  article?: string;
   sources: { title: string; url: string }[];
 };
 const cambridgeGrammar = (slug: string, title: string) => ({ title: `Cambridge：${title}`, url: `https://dictionary.cambridge.org/us/grammar/british-grammar/${slug}` });

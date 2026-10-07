@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseProgress, scheduleReview, selectSession } from './english-speaking';
+import { parseProgress, scheduleReview, selectSession, speakingCards, speakingEvidence } from './english-speaking';
 describe('speaking practice', () => {
   it('schedules retry, tomorrow, and growing fluent intervals', () => {
     const now = 1000;
@@ -32,5 +32,9 @@ describe('speaking practice', () => {
     expect(selected).not.toContain('map');
     expect(selectSession(progress, 600_000, 'due')).toHaveLength(19);
     expect(selectSession(progress, 0, 'all')).toHaveLength(19);
+  });
+  it('keeps evidence aligned with cards and article links on-site', () => {
+    expect(Object.keys(speakingEvidence).sort()).toEqual(speakingCards.map(card => card.id).sort());
+    for (const evidence of Object.values(speakingEvidence)) if (evidence.article) expect(evidence.article).toMatch(/^\/posts\/[a-z0-9-]+(\/[a-z0-9-]+)*\/?$/);
   });
 });
