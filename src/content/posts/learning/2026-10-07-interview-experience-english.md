@@ -14,7 +14,7 @@ draft: true
 
 英文口說練習區的「面試」情境原本只有兩句。這篇補上十句，範圍是面試裡最常被問到的四段內容。
 
-先說清楚一件事：句子裡的「五年」「AI 客服」「三秒降到一秒」都是為了示範句型放的範例，不是我的履歷。練習時要把這些換成自己真實的年資、公司和數字，面試才用得上。
+先說清楚一件事：句子裡的「五年」「三秒降到一秒」這些數字都是為了示範句型放的範例，不是我的履歷。練習時要把這些換成自己真實的年資、公司和數字，面試才用得上。
 
 ## 我當時想說什麼
 
@@ -34,7 +34,7 @@ draft: true
 | 想說的意思 | 這個情境可用的說法 |
 | --- | --- |
 | 我有五年後端開發的經驗。 | I have five years of experience in backend development. |
-| 我目前在一家做 AI 客服的公司工作。 | I currently work for a company that builds AI customer service tools. |
+| 我目前在一家做 AI agent 平台的公司工作。 | I currently work for a company that builds an AI agent platform. |
 
 **experience**：Oxford 列出三種後面的接法，各有例句（[experience](https://www.oxfordlearnersdictionaries.com/us/definition/english/experience_1)）：
 
@@ -95,8 +95,8 @@ draft: true
 | --- | --- | --- |
 | I have five years of experience in backend development. | 講領域 | 主要說法 |
 | I have five years of experience as a backend engineer. | 講職稱 | 是，重點從領域換成角色 |
-| I currently work for a company that builds AI customer service tools. | 講現職 | 主要說法 |
-| I currently work at a company that builds AI customer service tools. | 同樣情境 | 是；Oxford 說 at 用來講某人在哪裡工作，例句 *He's been at the bank longer than anyone else*（[at](https://www.oxfordlearnersdictionaries.com/us/definition/english/at)） |
+| I currently work for a company that builds an AI agent platform. | 講現職 | 主要說法 |
+| I currently work at a company that builds an AI agent platform. | 同樣情境 | 是；Oxford 說 at 用來講某人在哪裡工作，例句 *He's been at the bank longer than anyone else*（[at](https://www.oxfordlearnersdictionaries.com/us/definition/english/at)） |
 | I was responsible for designing and building this feature. | 強調這是我的職責 | 主要說法 |
 | I designed and built this feature. | 直接說我做了 | 是，比較短 |
 | We reduced the response time from three seconds to under one second. | 有前後兩個數字 | 主要說法 |
@@ -146,7 +146,7 @@ draft: true
 | 中文情境 | 參考說法 | 提醒 |
 | --- | --- | --- |
 | 自我介紹：我有五年後端開發的經驗。 | I have five years of experience in backend development. | experience in + 領域 |
-| 自我介紹：我目前在一家做 AI 客服的公司工作。 | I currently work for a company that builds AI customer service tools. | work for + 公司 |
+| 自我介紹：我目前在一家做 AI agent 平台的公司工作。 | I currently work for a company that builds an AI agent platform. | work for + 公司 |
 | 講專案：我負責設計並實作了這個功能。 | I was responsible for designing and building this feature. | responsible for + V-ing |
 | 講成果：我們把回應時間從三秒降到一秒以內。 | We reduced the response time from three seconds to under one second. | from A to B |
 | 講難處：最難的部分是在不停機的情況下搬移資料。 | The hardest part was migrating the data without downtime. | was + V-ing |

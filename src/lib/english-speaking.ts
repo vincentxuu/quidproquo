@@ -1,7 +1,7 @@
 export const speakingScenarios = [
   { id: 'travel', title: '旅遊', subtitle: '地點與移動' },
   { id: 'surf', title: '衝浪', subtitle: '看浪況、問下水位置' },
-  { id: 'climbing', title: '攀岩', subtitle: '聊路線、請人確保' },
+  { id: 'climbing', title: '攀岩', subtitle: '問岩場、租裝備、找繩伴' },
   { id: 'work', title: '工作', subtitle: '軟體與 AI 開發協作' },
   { id: 'daily', title: '日常聊天', subtitle: '近況、求職與約見面' },
   { id: 'interview', title: '面試', subtitle: '介紹工程經驗' },
@@ -54,7 +54,7 @@ export const speakingCards = [
   { id: 'work-duration', scenario: 'work', family: 'work', context: '主管問這個任務要做多久。', zh: '這個大概需要兩到三天。', en: 'This will probably take two to three days.', swap: '換成一週左右：This will probably take about a week.' },
   { id: 'work-estimate', scenario: 'work', family: 'work', context: '需求還不清楚，你不想太早給時間。', zh: '我需要先確認需求，再給你時間估計。', en: 'I need to confirm the requirements before I give you an estimate.', swap: '先給粗估：I can give you a rough estimate now.' },
   { id: 'interview-years', scenario: 'interview', family: 'interview', context: '面試開場自我介紹；年數是範例，請換成自己的。', zh: '我有五年後端開發的經驗。', en: 'I have five years of experience in backend development.', swap: '換成職稱：I have five years of experience as a backend engineer.' },
-  { id: 'interview-current', scenario: 'interview', family: 'interview', context: '你介紹目前的工作；公司類型是範例，請換成自己的。', zh: '我目前在一家做 AI 客服的公司工作。', en: 'I currently work for a company that builds AI customer service tools.', swap: '換成公司做的東西：I currently work for a company that builds payment systems.' },
+  { id: 'interview-current', scenario: 'interview', family: 'interview', context: '你介紹目前的工作。', zh: '我目前在一家做 AI agent 平台的公司工作。', en: 'I currently work for a company that builds an AI agent platform.', swap: '換成公司做的東西：I currently work for a company that builds payment systems.' },
   { id: 'interview-owned', scenario: 'interview', family: 'interview', context: '面試官請你講一個專案，你說明自己負責的部分。', zh: '我負責設計並實作了這個功能。', en: 'I was responsible for designing and building this feature.', swap: '只講設計：I was responsible for designing this API.' },
   { id: 'interview-result', scenario: 'interview', family: 'interview', context: '你說明專案的成果；數字是範例，請換成自己的。', zh: '我們把回應時間從三秒降到一秒以內。', en: 'We reduced the response time from three seconds to under one second.', swap: '只講降幅：We reduced the error rate by 20%.' },
   { id: 'interview-hardest', scenario: 'interview', family: 'interview', context: '面試官問這個專案最難的地方。', zh: '最難的部分是在不停機的情況下搬移資料。', en: 'The hardest part was migrating the data without downtime.', swap: '換成找原因：The hardest part was finding the cause.' },
@@ -63,6 +63,33 @@ export const speakingCards = [
   { id: 'interview-since', scenario: 'interview', family: 'interview', context: '你說明那次經驗之後改變的做法。', zh: '從那次之後，我會先寫測試再改程式。', en: 'Since then, I’ve always written tests before I change the code.', swap: '換成確認需求：Since then, I’ve always confirmed the requirements first.' },
   { id: 'interview-ask-team', scenario: 'interview', family: 'interview', context: '面試最後，面試官問你有沒有問題。', zh: '團隊平常是怎麼分工的？', en: 'How does the team divide up the work?', swap: '問得更廣：Can you tell me about the team I’ll be working with?' },
   { id: 'interview-ask-goals', scenario: 'interview', family: 'interview', context: '你想知道到職初期會被期待做到什麼。', zh: '這個職位前三個月最重要的目標是什麼？', en: 'What are the most important goals for this role in the first three months?', swap: '換成第一年：What are the most important goals for this role in the first year?' },
+  { id: 'climb-titanium', scenario: 'climbing', family: 'climbing', context: '你在海邊的岩場，上去前想問當地人這條路線的岩栓材質。', zh: '這條路線的岩栓是鈦的嗎？', en: 'Are the bolts on this route titanium?', swap: '換成問有沒有重打過：Has this route been rebolted?' },
+  { id: 'climb-sun', scenario: 'climbing', family: 'climbing', context: '你在選岩壁，想避開下午的太陽。', zh: '這面牆下午會曬到太陽嗎？', en: 'Does this wall get the sun in the afternoon?', swap: '換成早上：Does this wall get the sun in the morning?' },
+  { id: 'climb-dry', scenario: 'climbing', family: 'climbing', context: '昨天下過雨，你想知道岩壁多久會乾。', zh: '下雨之後這裡要多久才會乾？', en: 'How long does it take to dry after rain?', swap: '問現在乾了沒：Is the rock dry yet?' },
+  { id: 'climb-open', scenario: 'climbing', family: 'climbing', context: '你聽說這個岩場關閉過，想先確認。', zh: '這個岩場現在開放嗎？', en: 'Is the crag open right now?', swap: '換成週末：Is the crag open on weekends?' },
+  { id: 'climb-register', scenario: 'climbing', family: 'climbing', context: '有些岩場要先登記才能爬，你想確認。', zh: '爬之前需要先登記嗎？', en: 'Do I need to register before climbing?', swap: '問在哪裡登記：Where do I register?' },
+  { id: 'climb-fee', scenario: 'climbing', family: 'climbing', context: '你知道這個岩場要收費，但不知道在哪裡付。', zh: '入場費在哪裡付？', en: 'Where do I pay the access fee?', swap: '問多少錢：How much is the access fee?' },
+  { id: 'climb-rent', scenario: 'climbing', family: 'climbing', context: '你在岩場旁的攀岩店想租裝備。', zh: '我想租一條繩子和十二支快扣。', en: 'I’d like to rent a rope and twelve quickdraws.', swap: '換成安全帽：I’d like to rent a helmet.' },
+  { id: 'climb-rope-length', scenario: 'climbing', family: 'climbing', context: '你只帶了一條六十米的繩子，想確認夠不夠。', zh: '六十米的繩子夠長嗎？', en: 'Is a 60-meter rope long enough?', swap: '換成七十米：Is a 70-meter rope long enough?' },
+  { id: 'climb-guidebook', scenario: 'climbing', family: 'climbing', context: '你想在當地買路線指南。', zh: '哪裡買得到最新的指南書？', en: 'Where can I buy the latest guidebook?', swap: '問有沒有賣：Do you sell the latest guidebook?' },
+  { id: 'climb-partner', scenario: 'climbing', family: 'climbing', context: '你一個人到岩場或岩館，想找人一起爬。', zh: '我在找繩伴。', en: 'I’m looking for a climbing partner.', swap: '加上時間：I’m looking for a climbing partner for tomorrow.' },
+  { id: 'climb-recommend', scenario: 'climbing', family: 'climbing', context: '你想請當地攀岩者推薦路線。', zh: '可以推薦一條 6a 左右的多段路線嗎？', en: 'Can you recommend a multi-pitch route around 6a?', swap: '換成單段：Can you recommend a single-pitch route around 6a?' },
+  { id: 'climb-gym-first', scenario: 'climbing', family: 'climbing', context: '你第一次到國外的岩館，在櫃檯。', zh: '我第一次來，需要填表嗎？', en: 'It’s my first time here. Do I need to fill out a form?', swap: '問費用：It’s my first time here. How much is it?' },
+  { id: 'climb-slack', scenario: 'climbing', family: 'climbing', context: '你正在爬，需要確保者多給一點繩。', zh: '給繩！', en: 'Slack!', swap: '加上名字避免混淆：Anne, slack!' },
+  { id: 'climb-up-rope', scenario: 'climbing', family: 'climbing', context: '你正在爬，繩子太鬆，想請確保者收繩。', zh: '收繩！', en: 'Up rope!', swap: '加上名字避免混淆：Anne, up rope!' },
+  { id: 'climb-take', scenario: 'climbing', family: 'climbing', context: '你在岩館爬到頂，想請確保者撐住你並放你下來。', zh: '撐住我，放我下來！', en: 'Take!', swap: '加上名字避免混淆：Anne, take!' },
+  { id: 'interview-optimize', scenario: 'interview', family: 'interview', context: '面試官請你用一句話說明現在的工作。', zh: '我負責優化公司的 AI agent 產品。', en: 'I work on improving our company’s AI agent product.', swap: '換成可靠性：I work on improving the reliability of our AI agent product.' },
+  { id: 'interview-areas', scenario: 'interview', family: 'interview', context: '面試官追問你做的範圍。', zh: '我做的範圍包含 agent 的 runtime、工具、評估、記憶和成本控制。', en: 'My work covers the agent runtime, tools, evaluation, memory, and cost control.', swap: '只講兩項：My work covers evaluation and cost control.' },
+  { id: 'interview-changed', scenario: 'interview', family: 'interview', context: '面試官請你講一次需求變動很大的經驗。', zh: '這個功能四個月內方向改了五次。', en: 'The direction of this feature changed five times in four months.', swap: '換成需求：The requirements changed three times in two months.' },
+  { id: 'interview-prod-data', scenario: 'interview', family: 'interview', context: '你說明當時怎麼讓團隊接受比較務實的上限。', zh: '我查了正式環境的資料，才說服團隊把上限定在 10 MB。', en: 'I checked the production data, and that convinced the team to set the limit at 10 MB.', swap: '換成逾時：That convinced the team to set the timeout at 180 seconds.' },
+  { id: 'interview-slow-file', scenario: 'interview', family: 'interview', context: '你用一個實測結果說明原本的做法行不通。', zh: '一個 27 MB 的檔案跑了 29 分鐘，只有前 20 頁進到模型。', en: 'A 27 MB file took 29 minutes, and only the first 20 pages reached the model.', swap: '只講時間：A 27 MB file took 29 minutes.' },
+  { id: 'interview-forgot', scenario: 'interview', family: 'interview', context: '你說明記憶功能要解決的問題。', zh: '使用者換一個對話，agent 就什麼都不記得。', en: 'When users started a new conversation, the agent forgot everything.', swap: '換成現在的狀況：Now the agent remembers users across conversations.' },
+  { id: 'interview-silent', scenario: 'interview', family: 'interview', context: '面試官問這個專案最難找的問題。', zh: '這個 bug 沒有任何錯誤訊息，也沒有 log。', en: 'There were no errors and no logs.', swap: '補上怎麼找到的：I only found it by checking the production data.' },
+  { id: 'interview-recoverable', scenario: 'interview', family: 'interview', context: '面試官問你設計 agent 工具時的原則。', zh: '可以恢復的錯誤要回給 agent，不要直接丟進錯誤追蹤。', en: 'Recoverable errors should go back to the agent instead of going straight to error tracking.', swap: '講原因：The agent can shorten the prompt and try again.' },
+  { id: 'interview-prompt', scenario: 'interview', family: 'interview', context: '你說明為什麼不能只靠 prompt 控制行為。', zh: '用 prompt 要求模型做的事，不等於保證。', en: 'Telling the model to do something in a prompt is not a guarantee.', swap: '講做法：If it has to happen, I enforce it in code.' },
+  { id: 'interview-flag', scenario: 'interview', family: 'interview', context: '面試官問你最大的失誤。', zh: '我改了旗標的語意，卻沒有同步前端。', en: 'I changed the meaning of a flag but didn’t update the frontend.', swap: '講教訓：Now I check every place that writes the flag, not only the places that read it.' },
+  { id: 'interview-found-late', scenario: 'interview', family: 'interview', context: '你說明那次失誤多久後才被發現。', zh: '我們在合併兩個月後才發現。', en: 'We only found out two months after the merge.', swap: '換成上線後：We only found out a week after the release.' },
+  { id: 'interview-honest', scenario: 'interview', family: 'interview', context: '面試官問到你還沒做好的部分。', zh: '老實說，這部分我們還沒有系統性的評估。', en: 'To be honest, we don’t have a systematic evaluation for this yet.', swap: '補上計畫：It’s the first thing on our roadmap.' },
 ] as const;
 export type SpeakingEvidence = {
   expression: 'direct' | 'adapted';
@@ -95,6 +122,10 @@ const oald = (slug: string, title: string) => ({ title: `Oxford Learner’s：${
 const oaldCould = oald('could', 'could（請求與提議）');
 const standupSource = { title: 'Atlassian：站立會議的三個問題', url: 'https://www.atlassian.com/agile/scrum/standups' };
 const museSource = { title: 'The Muse：可以問面試官的問題（商業求職網站）', url: 'https://www.themuse.com/advice/51-interview-questions-you-should-be-asking' };
+const reiCommands = { title: 'REI：攀岩口令', url: 'https://www.rei.com/learn/expert-advice/communication-climbing.html' };
+const mpRailay = { title: 'Mountain Project：Railay／Tonsai（岩栓警告）', url: 'https://www.mountainproject.com/area/105894664/laem-phra-nang-railay-tonsai' };
+const mpGozen = { title: 'Mountain Project：Gozen-iwa（登記與費用）', url: 'https://www.mountainproject.com/area/120393050/gozen-iwa' };
+const commandNote = 'REI 提醒：離開地面前要先和繩伴約好口令；聽不清楚時加上對方名字。各地、各岩館用法可能不同，這張卡只練說法，不能取代你和繩伴的確認。';
 const adapted = (sources: SpeakingEvidence['sources'], support: string, usageNote?: string): SpeakingEvidence => ({ expression: 'adapted', sources, support, usageNote });
 export const speakingEvidence: Record<typeof speakingCards[number]['id'], SpeakingEvidence> = {
   map: adapted([haveSource, hereSource], '來源支持 have 表示持有、here 表示說話者所在地；地圖與筆的例句依此改寫。'),
@@ -143,7 +174,7 @@ export const speakingEvidence: Record<typeof speakingCards[number]['id'], Speaki
   'work-duration': adapted([oald('take_1', 'take（時間）'), oald('probably', 'probably')], '字典說 take 用來講做某事需要的時間，例句 That should only take you ten minutes；probably 例句 It’ll probably be OK。整句是改寫。', 'take 後面一定要有時間。'),
   'work-estimate': { ...adapted([oald('estimate_2', 'estimate（名詞）'), oald('before_2', 'before（連接詞）'), oald('requirement', 'requirement')], '字典有 I can give you a rough estimate of…、Do it before you forget、meet your requirements；整句是組合改寫。', 'before 後面接完整句子；requirements 通常用複數。'), alternatives: [{ en: 'I can give you a rough estimate now.', when: '還沒確認需求，但願意先給粗估，意思不同' }] },
   'interview-years': { ...adapted([oald('experience_1', 'experience')], '字典有 experience in the field of artificial intelligence、I have over ten years’ experience as a teacher、years of experience；整句是改寫。', '領域用 in，職稱用 as。年數是範例，請換成自己的。'), alternatives: [{ en: 'I have five years of experience as a backend engineer.', when: '同一情境，重點從領域換成職稱' }] },
-  'interview-current': { ...adapted([oald('work_1', 'work'), oald('currently', 'currently'), oald('build_1', 'build'), oald('at', 'at')], '字典有 She works for an engineering company、We build computer systems for large companies；整句是改寫。', '公司類型是範例，請換成自己的。'), alternatives: [{ en: 'I currently work at a company that builds AI customer service tools.', when: '同一情境；字典說 at 用來講某人在哪裡工作' }] },
+  'interview-current': { ...adapted([oald('work_1', 'work'), oald('currently', 'currently'), oald('build_1', 'build'), oald('at', 'at')], '字典有 She works for an engineering company、We build computer systems for large companies；整句是改寫。'), alternatives: [{ en: 'I currently work at a company that builds an AI agent platform.', when: '同一情境；字典說 at 用來講某人在哪裡工作' }] },
   'interview-owned': { ...adapted([oald('responsible', 'responsible'), oald('design_2', 'design'), oald('implement_1', 'implement')], '字典有 Mike is responsible for designing the entire project、He designed and built his own house；整句是改寫。', 'responsible for 後面接 V-ing。字典的 implement 只有政策、決策的例句，所以主句用 build。'), alternatives: [{ en: 'I designed and built this feature.', when: '同一情境，直接說自己做了，比較短' }] },
   'interview-result': { ...adapted([oald('reduce', 'reduce'), oald('under_1', 'under')], '字典有 The number of employees was reduced from 40 to 25、Costs have been reduced by 20%；under 表示少於。整句是改寫。', '數字是範例，請換成自己的真實數字。'), alternatives: [{ en: 'We reduced the response time by two seconds.', when: '只講降了多少，沒有前後的數字' }] },
   'interview-hardest': adapted([oald('part_1', 'part'), oald('migrate', 'migrate'), oald('downtime', 'downtime')], '字典有 The worst part was having to wait three hours in the rain、the hard part；migrate 有電腦領域的意思，downtime 是電腦沒有運作的時間。整句是改寫。', '字典的 migrate 受詞是程式或硬體，用在資料上是套用。'),
@@ -152,6 +183,33 @@ export const speakingEvidence: Record<typeof speakingCards[number]['id'], Speaki
   'interview-since': adapted([oald('since_1', 'since'), oald('before_2', 'before（連接詞）')], '字典說 since 搭配現在完成式，例句 That was years ago. I’ve changed jobs since then；整句是改寫。', 'since then 表示從那時到現在，這裡用現在完成式 I’ve always written。'),
   'interview-ask-team': { ...adapted([oald('divide_1', 'divide'), museSource], '字典有 We divided the work between us、Profits were divided up among the staff；The Muse 建議面試時問團隊相關問題。整句是改寫。'), alternatives: [{ en: 'Can you tell me about the team I’ll be working with?', when: '問得比較廣，不只分工；The Muse 原句' }] },
   'interview-ask-goals': { ...adapted([museSource, oald('role', 'role'), oald('goal', 'goal')], 'The Muse 有 What are the most important things you’d like to see someone accomplish in the first 30, 60, and 90 days on the job?；這句是比較短的改寫。字典支持 role 與 goal 的字義。'), alternatives: [{ en: 'What are the most important things you’d like to see someone accomplish in the first 30, 60, and 90 days on the job?', when: '同一情境，問得更細；The Muse 原句' }] },
+  'climb-titanium': adapted([mpRailay, climbSource, oald('titanium', 'titanium')], 'Mountain Project 警告海岸附近的不鏽鋼岩栓不可信，並說多數熱門路線已重打（rebolted）；REI 定義 sport climbing 使用預先設置的 bolts。完整問句是改寫。', '這句只是練習怎麼問。對方的回答和書上的標示都可能過時，上去前要自己確認。'),
+  'climb-sun': adapted([oald('sun_1', 'sun')], '字典有 This room gets the sun in the mornings；把 room 換成 wall、早上換成下午是改寫。', 'get the sun 是「曬得到太陽」。'),
+  'climb-dry': adapted([oald('take_1', 'take（時間）'), oald('dry_3', 'dry（動詞）')], '字典有 It takes about half an hour to get to the airport、hung it out to dry；整句是組合改寫。', 'dry 在這裡是動詞「變乾」。'),
+  'climb-open': adapted([oald('open_1', 'open'), climbSource], '字典有 Is the museum open on Sundays?；REI 定義 crag 為小岩壁或攀岩區。整句是改寫。', 'crag 是攀岩者對岩場的說法。'),
+  'climb-register': adapted([mpGozen, oald('register_1', 'register')], 'Mountain Project 的岩場說明寫 Please register your name and starting time in the notebook；字典有 You can also register online。問句是改寫。', '各岩場規定不同，這句只是練習怎麼問。'),
+  'climb-fee': { ...adapted([mpGozen, oald('fee', 'fee'), oald('pay_1', 'pay')], 'Mountain Project 的岩場說明寫 paid the access fees；字典有 There is no entrance fee to the gallery。問句是改寫。'), alternatives: [{ en: 'Where do I pay the entrance fee?', when: '同一情境；岩館或園區常說 entrance fee' }] },
+  'climb-rent': { ...adapted([oald('rent_2', 'rent（動詞）'), climbSource, cambridgeGrammar('would-like', 'would like')], '字典有 to rent a house、We’re looking for a house to rent；REI 定義 quickdraw。整句是改寫。', '字典說英式英語短期租用常說 hire。'), alternatives: [{ en: 'I’d like to hire a rope and twelve quickdraws.', when: '同一情境，英式說法；字典例句 We can hire bikes for a day' }] },
+  'climb-rope-length': adapted([oald('enough_3', 'enough（副詞）')], '字典有 This house isn’t big enough for us、long enough；繩長問句是改寫。', 'enough 放在形容詞後面：long enough。'),
+  'climb-guidebook': adapted([oald('latest_1', 'latest'), oald('guidebook', 'guidebook'), oald('buy_1', 'buy')], '字典有 his latest book；guidebook 是旅遊或活動指南。整句是改寫。', 'latest 是「最新的」，不是「最晚的」。'),
+  'climb-partner': adapted([oald('look_1', 'look for'), oald('partner_1', 'partner'), reiCommands], '字典有 Are you still looking for a job?、a dance/tennis partner；REI 文章用 climbing partner 稱呼繩伴。整句是改寫。', '找到繩伴不代表對方的確保能力已確認，開始前仍要互相檢查。'),
+  'climb-recommend': adapted([oald('recommend', 'recommend'), climbSource, oald('around_2', 'around（大約）')], '字典有 Can you recommend a good hotel?、He arrived around five o’clock；REI 定義 multi-pitch 為超過一個繩長的路線。整句是改寫。', 'around 放在難度前面表示「大約」。'),
+  'climb-gym-first': adapted([oald('first_1', 'first'), oald('form_1', 'form')], '字典有 for the first time、to fill out a form（北美說法）；整句是改寫。', '字典標 fill in a form 是英式說法。'),
+  'climb-slack': { expression: 'direct', sources: [reiCommands], support: 'REI 原文：Climber: Slack! The climber needs extra rope…', usageNote: commandNote },
+  'climb-up-rope': { expression: 'direct', sources: [reiCommands], support: 'REI 原文：Climber: Up rope! The climber no longer needs the slack in the rope. Asks belayer to take it in.', usageNote: commandNote },
+  'climb-take': { expression: 'direct', sources: [reiCommands], support: 'REI 原文：Take! Used in climbing gyms by the climber at the top of a route, it asks the belayer to take the climber’s weight on the rope and lower him down. REI 也寫傳統攀登不用 Take。', usageNote: commandNote },
+  'interview-optimize': adapted([oald('improve', 'improve'), oald('work_1', 'work')], '字典定義 improve 為讓某物比以前更好；整句是改寫。', '產品本來就存在，所以用 improve，不用 build。'),
+  'interview-areas': adapted([oald('cover_1', 'cover')], '字典有 cover something：to include something，例句 The survey covers all aspects of the business；整句是改寫。', 'runtime、evaluation 等是技術用語，字典只支持 cover 的句型。'),
+  'interview-changed': adapted([oald('direction', 'direction'), oald('time_1', 'time（次數）')], '字典有 a radical change of direction、He failed his driving test three times；整句是改寫。', '次數用 times，期間用 in。'),
+  'interview-prod-data': adapted([oald('convince', 'convince'), oald('limit_1', 'limit')], '字典有 I’ve been trying to convince him to see a doctor、The EU has set strict limits on levels of pollution；整句是改寫。', 'convince 後面先接人，再接 to + 動詞。set the limit at + 數字 的 at 沒有查到例句。'),
+  'interview-slow-file': adapted([oald('take_1', 'take（時間）'), oald('only_2', 'only'), oald('reach_1', 'reach')], '字典有 It took her three hours to repair her bike、Only five people turned up；reached the model 是把 reach 的「到達」套用到技術情境。', '數字來自自己的實測，換情境時要換成自己的。'),
+  'interview-forgot': adapted([oald('forget', 'forget'), oald('conversation', 'conversation')], '字典有 forget 的過去式 forgot 與 a phone conversation；整句是改寫。', '描述過去的問題用過去式 started、forgot。'),
+  'interview-silent': adapted([oald('error', 'error'), thereSource], '字典有 There are too many errors in your work；log 的軟體用法字典沒有收。整句是改寫。', '過去的事用 There were。'),
+  'interview-recoverable': adapted([oald('instead', 'instead'), oald('error', 'error')], '字典有 instead 的用法與 error 的字義；recoverable、error tracking 是技術用語，字典沒有查。整句是改寫。', 'instead of 後面接 V-ing。'),
+  'interview-prompt': adapted([oald('tell', 'tell'), oald('guarantee_1', 'guarantee')], '字典說 tell 可用來給指示，例句 The doctor told me to stay in bed；guarantee 是承諾某事會發生。整句是改寫。', 'tell 後面先接對象，再接 to + 動詞。'),
+  'interview-flag': adapted([oald('meaning', 'meaning'), oald('update_1', 'update')], '字典有 What’s the meaning of this word?、It’s about time we updated our software；flag 的軟體用法字典沒有收。整句是改寫。', 'but 後面的 didn’t 也是過去式。'),
+  'interview-found-late': adapted([oald('find_1', 'find out'), oald('only_2', 'only')], '字典列出 find out (about something)；merge 的軟體用法字典只有「合併」的一般義。整句是改寫。', 'only 放在動詞前，表示「直到那時才」是自己的套用。'),
+  'interview-honest': adapted([oald('honest', 'honest'), oald('yet_1', 'yet'), oald('systematic', 'systematic'), oald('evaluation', 'evaluation')], '字典有 To be honest, it was one of the worst books I’ve ever read、I haven’t received a letter from him yet、a systematic approach；整句是組合改寫。', 'yet 放在否定句的句尾。'),
 };
 export type Rating = 0 | 1 | 2;
 export type CardProgress = { due: number; reviewed: number; rating: Rating; streak: number };

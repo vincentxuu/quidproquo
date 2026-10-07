@@ -14,7 +14,7 @@ draft: true
 
 The "interview" scenario in my English speaking practice area only had two sentences. This post adds ten, covering the four things interviews ask about most.
 
-One thing first: "five years", "AI customer service", and "three seconds to one second" are examples that show the pattern. They are not my résumé. When you practice, replace them with your real years, company, and numbers, or the sentences will not help in an actual interview.
+One thing first: "five years" and "three seconds to one second" are examples that show the pattern. They are not my résumé. When you practice, replace them with your real years, company, and numbers, or the sentences will not help in an actual interview.
 
 ## What I was trying to say
 
@@ -34,7 +34,7 @@ Every sentence below is adapted from a dictionary pattern. None of them is a dic
 | What I want to say | What works in this situation |
 | --- | --- |
 | 我有五年後端開發的經驗。 | I have five years of experience in backend development. |
-| 我目前在一家做 AI 客服的公司工作。 | I currently work for a company that builds AI customer service tools. |
+| 我目前在一家做 AI agent 平台的公司工作。 | I currently work for a company that builds an AI agent platform. |
 
 **experience**: Oxford lists three patterns, each with an example ([experience](https://www.oxfordlearnersdictionaries.com/us/definition/english/experience_1)):
 
@@ -95,8 +95,8 @@ This group has support at the situation level. The job site The Muse collects qu
 | --- | --- | --- |
 | I have five years of experience in backend development. | Naming a field | Main version |
 | I have five years of experience as a backend engineer. | Naming a job title | Yes, the focus moves from field to role |
-| I currently work for a company that builds AI customer service tools. | Describing your current job | Main version |
-| I currently work at a company that builds AI customer service tools. | Same situation | Yes. Oxford says at is used to say where somebody works, as in *He's been at the bank longer than anyone else* ([at](https://www.oxfordlearnersdictionaries.com/us/definition/english/at)) |
+| I currently work for a company that builds an AI agent platform. | Describing your current job | Main version |
+| I currently work at a company that builds an AI agent platform. | Same situation | Yes. Oxford says at is used to say where somebody works, as in *He's been at the bank longer than anyone else* ([at](https://www.oxfordlearnersdictionaries.com/us/definition/english/at)) |
 | I was responsible for designing and building this feature. | Stressing that it was your responsibility | Main version |
 | I designed and built this feature. | Saying directly that you did it | Yes, and shorter |
 | We reduced the response time from three seconds to under one second. | You have a before and an after number | Main version |
@@ -146,7 +146,7 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | Situation in Chinese | Reference | Reminder |
 | --- | --- | --- |
 | 自我介紹：我有五年後端開發的經驗。 | I have five years of experience in backend development. | experience in + field |
-| 自我介紹：我目前在一家做 AI 客服的公司工作。 | I currently work for a company that builds AI customer service tools. | work for + company |
+| 自我介紹：我目前在一家做 AI agent 平台的公司工作。 | I currently work for a company that builds an AI agent platform. | work for + company |
 | 講專案：我負責設計並實作了這個功能。 | I was responsible for designing and building this feature. | responsible for + -ing |
 | 講成果：我們把回應時間從三秒降到一秒以內。 | We reduced the response time from three seconds to under one second. | from A to B |
 | 講難處：最難的部分是在不停機的情況下搬移資料。 | The hardest part was migrating the data without downtime. | was + -ing |
