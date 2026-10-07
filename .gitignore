@@ -65,3 +65,6 @@ pnpm-debug.log*
 # Playwright 產物（visual regression）
 test-results/
 playwright-report/
+
+# 英文口說：逐句修正表保留使用者原句，不進版控
+.work/english-speaking/*/corrections.md
