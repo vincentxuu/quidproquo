@@ -1,0 +1,741 @@
+{
+  "date": "2026-10-08",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv official /new batch for Wednesday 7 October 2026 (cs.AI, cs.CL, cs.MA new-submissions + cross-listed sections fetched via arXiv listing pages; replacement-submission entries excluded). 436 unique new/cross-listed arxiv IDs identified across the three categories; after filtering to the 2610.* prefix (434 ids) and fetching full title+abstract metadata in 13 batched arXiv export-API queries, a title+abstract keyword triage (agent/agentic/multi-agent in title, or tool-use/RAG/memory/harness/jailbreak/guardrail/autonomous combined with llm/language-model in text) retained 111 agent-relevant candidates. Of these, ~19 were shortlisted for closer abstract-level review given a strong recurring theme (agent memory governance, agent evaluation trust, agent safety-gate composition); the 3 most promising were read in full body (methods/results/limitations) via arxiv.org/html for the credibility-gate assessment.",
+    "layerB": [
+      "HuggingFace Daily Papers API (huggingface.co/api/daily_papers) for 2026-10-06 and 2026-10-07 — cross-checked against the 434 Layer-A candidate IDs. 4 matches found; of these only 2610.07753 ('From Evidence to Action: How Tool-Using Agents Fail') and 2610.08463 ('UNREAL: Unifying Retrieval and Long-Context with a Single Model') are on-topic (the other 2 matches are general LLM training/distillation papers, off-topic). Both used as community-signal evidence in their respective watch entries; neither was selected given stronger-competitor coverage of their angles by the selected trio.",
+      "Groundlane web_search 'site:huggingface.co/papers OR site:paperswithcode.com' targeted check for the three selected arxiv IDs (2610.07309, 2610.07274, 2610.07359) — no hits for any of the three, confirming no HF Daily Papers or Papers with Code pickup yet (consistent with all three being 2 days old).",
+      "Semantic Scholar per-paper lookup (api.semanticscholar.org/graph/v1/paper/ARXIV:{id}) — succeeded for 2610.07274 (citationCount 0, no venue) and 2610.07359 (citationCount 0, no venue, author name confirmed as Cheng-Lin Yang). Calls for 2610.07309 returned persistent HTTP 429 across multiple retries; citationCount for that paper is reported as 'presumed 0, Semantic Scholar unconfirmed' based on paper age (2 days). toolDegradation recorded."
+    ],
+    "layerC": "14-day lookback window 2026-09-24 to 2026-10-07 across .research/daily-arxiv-screening/*.json, excluding IDs already in seen-arxiv-ids.txt. Found 131 distinct watch/rejected(stronger-competitor)/rejected(evidence-insufficient) entries in that window, heavily dominated by a recurring 'agent harness optimization' and 'agent memory benchmark' cluster (e.g. ActiveSaddler, Causal Memory Policy, DeFA, MCRI, Argo-Bench) carried forward across many days. Given decay(d)=0.85^d strongly favors same-day candidates and today's Layer A batch surfaced an unusually strong, cohesive fresh theme (agent memory admissibility / evaluation trust / safety-gate composition, all submitted 2026-10-05/06), individual re-verification of the full 131-item backlog was not repeated this round — consistent with prior days' stated practice when Layer A/B are already strong. No new code-release, replication, or venue-upgrade signal was observed in today's Layer A/B searches that would specifically trigger pulling forward any Layer C item over today's selections."
+  },
+  "generatedAt": "2026-10-08T00:00:00Z",
+  "candidates": [
+    {
+      "arxivId": "2610.07309",
+      "title": "The Right Memory in the Wrong Context: Verifying Retrieval Admissibility in Long-Term Agent Memory",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 Workshop \"Who Verifies the Agents? Toward Reliable Agent Development\"",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 2 days (Semantic Scholar confirmed)",
+      "institution": "University of Arkansas at Little Rock",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code",
+        "Code publicly released on GitHub (ziwang11112/right-memory-wrong-context)"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 3: formalized three-status (admissible/inadmissible/unresolved) verification framework",
+        "Section 4: post-hoc reanalysis of 3,767 queries across RHELM+MemOps public benchmarks with matched-recall route comparison",
+        "16 controlled exposure scenarios with reader-specific 95% CIs",
+        "Limitations section explicitly scopes what is and isn't established"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Core metrics, baselines, and bounded-case diagnostics are covered across two independent public benchmarks, but authors explicitly limit claims to two sources and 7 RHELM groups, not safety certification or model ranking",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Public code at github.com/ziwang11112/right-memory-wrong-context"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Numbers are concrete and limitations disclosed honestly, but only 1 of 16 exposure-scenario CIs excludes zero, so the core safety claim rests on a small effect",
+      "primaryLimitation": "Narrow evaluation scope (2 public sources, 7 RHELM groups); namespaces assumed trustworthy rather than independently verified; does not cover graph-structured memory selectors",
+      "presentation": "clear",
+      "presentationReason": "Method, formal framework, experimental scope, and limitations are clearly delineated with explicit boundary statements",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Strongest and most rigorous of today's memory-governance cluster: larger, cross-benchmark evaluation with formal three-status framework, NeurIPS workshop acceptance, and the most honest/explicit limitations statement among the candidates in this cluster."
+    },
+    {
+      "arxivId": "2610.07274",
+      "title": "A Trust Layer for Agent Evaluation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed; code withheld until acceptance)",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 2 days (Semantic Scholar confirmed)",
+      "institution": "Centific Research",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Section 3: 4-dimension (D1-D4) system architecture",
+        "Section 4: tested on 5 agent configurations across ALE's 3 difficulty tiers and 11 domains",
+        "Section 4.6: per-dimension ablation",
+        "Limitations section states sample size (13-20 passes/config) and single-benchmark scope explicitly"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Validated on only one benchmark (Agents' Last Exam); authors state the result establishes 'most passes fail a check', not a ranking of agents",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Method and ALE benchmark are public; code explicitly withheld until paper acceptance"
+      ],
+      "editorialConfidence": "medium-high",
+      "editorialConfidenceReason": "Concrete, specific numbers (22.6% pass rate, 95% CI) with explicit acknowledgment of single-benchmark scope and small per-configuration sample",
+      "primaryLimitation": "Validated on only one benchmark (ALE); core finding is about trustworthiness of passes in aggregate, not a ranking of which agent is stronger",
+      "presentation": "clear",
+      "presentationReason": "Four verification dimensions, their evidentiary basis, and scope boundaries are explicitly and clearly stated",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Directly challenges the industry-wide assumption that a benchmark 'pass' equals trustworthy evidence of capability, with a concrete and alarming number (22.6%) from a real benchmark; complements the memory and safety-gate selections by covering the evaluation-infrastructure angle."
+    },
+    {
+      "arxivId": "2610.07359",
+      "title": "Evaluate the Stack, Not the Layer: Do Deterministic and LLM Gates for Agent Actions Fail Independently?",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not peer-reviewed)",
+      "citationCount": 0,
+      "citationVelocity": "presumed near 0, Semantic Scholar unconfirmed (persistent HTTP 429 on lookup)",
+      "institution": "Not listed; presumed independent researcher (sole author, personal GitHub username)",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code",
+        "Data/scripts/provenance fully public on GitHub (chenglin1112/evaluate-the-stack)"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Phi-correlation and CI-based quantification of n_mult (effective layer count) across 1,119 labelled actions from 3 corpora",
+        "Honest report of a methodological incident (unrequested model version served in 50/112 batches, overturning a pre-declared analysis rule and reversing 5 conclusions, both versions reported)",
+        "Ethical Considerations and Limitations sections explicit about scope (no adaptive adversary)"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Tested on one stack configuration across three corpora without an adaptive adversary; author explicitly flags this scope limit",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Data, scripts, and provenance fully released on GitHub"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Statistically rigorous (significance tested per pair) and transparent about an incident affecting results, but no adaptive-adversary testing narrows the claim's real-world security scope",
+      "primaryLimitation": "No adaptive adversary tested; one corpus's judge layer was accidentally served an unrequested model version for part of the study",
+      "presentation": "clear",
+      "presentationReason": "Despite dense statistical notation, the core claim, evidence, and scope boundaries (including the self-reported incident) are stated plainly",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Directly and quantitatively tests the 'more layers = more safety' assumption underlying agent guardrail architecture with a novel, falsifiable 'effective layer count' metric and full public artifacts; completes the trio's coverage of a third distinct agent-infrastructure component (safety gates, alongside memory and evaluation)."
+    },
+    {
+      "arxivId": "2610.07707",
+      "title": "AgentMemGate: Addressing Speculation Contamination in Conversational Assistant Memory",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 PALM Workshop",
+      "citationCount": null,
+      "citationVelocity": "not queried (not shortlisted for deep-dive)",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract reports concrete numbers (87.5% to 0% contamination elimination, 65% to 95% task accuracy) and a 147-conversation held-out set; not read in full body"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level only; full method/results/limitations not read this round",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Authors state datasets, prompts, and evaluation code are released"
+      ],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not deep-read this round",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Same memory-governance theme as selected 2610.07309, but narrower scope (single write-time gate mechanism on one assistant's profile store vs. 07309's cross-benchmark admissibility framework spanning retrieval, exposure, and disclosure); kept as watch-equivalent in case 07309's angle is exhausted in a future round."
+    },
+    {
+      "arxivId": "2610.07100",
+      "title": "When to Remember, When to Abstain: Category-Conditioned Retention for Reliable Agent Memory",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 Social Agent Workshop (4-page extended abstract)",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract reports a deployed cold-start pipeline test on 100 synthetic personas with 4,715 candidate assertions; effect size is self-described as 'modest but consistent'"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "evidenceMaturityReason": "4-page workshop extended abstract; smallest and most modest effect size (~36% relative reduction) of the memory-governance cluster",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not deep-read this round",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Thinnest evidence (4-page extended abstract, synthetic personas only) and smallest effect size among today's memory-governance candidates; 07309 covers the same general problem space with a much larger, cross-benchmark evaluation."
+    },
+    {
+      "arxivId": "2610.07753",
+      "title": "From Evidence to Action: How Tool-Using Agents Fail",
+      "source": [
+        "layerA",
+        "layerB"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (project page: safeact.github.io)",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "HF Daily Papers (2026-10-07 listing)"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract describes a new benchmark (SafeActBench, 656 cases, six domains, five protocols) and ten model-harness configurations; not read in full body"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not deep-read this round",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Project page at safeact.github.io"
+      ],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not deep-read this round",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Has real community signal (HF Daily Papers pick) and solid apparent scale (656-case new benchmark), but its angle (tool-use failure taxonomy) substantially overlaps the evaluation-trust angle already covered by selected 2610.07274 and the safety-gate angle covered by 2610.07359; including it would have made the trio redundant rather than covering distinct angles. Worth revisiting in Layer C lookback if the selected trio's angles are exhausted."
+    },
+    {
+      "arxivId": "2610.08364",
+      "title": "Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code",
+        "Open-source tool built on Inspect Scout"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract describes an open-source transcript-analysis tool demonstrated on a ~13M-token AI R&D evaluation; primarily a tooling contribution rather than a research finding"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "evidenceMaturityReason": "Single demonstration case study on one evaluation run; not a controlled multi-case study",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Open source package"
+      ],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not deep-read this round",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "A useful engineering tool but reads more as a tool-recommendation candidate than a research-finding digest entry; single case-study demonstration is thinner evidence than the selected trio's multi-corpus/multi-benchmark evaluations. Better suited to the daily-digest-tool routine."
+    },
+    {
+      "arxivId": "2610.07657",
+      "title": "Where Rules End and Judges Begin: Measuring the Judgment Boundary in Multi-Agent Systems Security",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract describes a 5-principle defense framework (DEFER1) with a 28-check cascade; not read in full body"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not deep-read this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not deep-read this round",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Same safety-gate-composition theme as selected 2610.07359, but proposes a new defense cascade rather than testing the standard composition assumption empirically; 07359's falsifiable 'effective layer count' metric is the more novel and directly relevant contribution for today's theme."
+    },
+    {
+      "arxivId": "2610.08082",
+      "title": "POLAR: Ontology-Guided Risk Prevention for Tool-Calling LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level triage only",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Another pre-emptive tool-call guardrail proposal; overlaps with today's safety-gate theme but proposes a new mechanism rather than testing the composition assumption; 07359 is the stronger, more novel fit for today's angle."
+    },
+    {
+      "arxivId": "2610.06966",
+      "title": "APEX: Active Protection at Execution Boundaries for LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level triage only",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "A new indirect-prompt-injection defense mechanism; overlaps the safety-gate theme but 07359's empirical composition-testing contribution is more novel and relevant for today's selection."
+    },
+    {
+      "arxivId": "2610.07000",
+      "title": "Trust-Gated Capability Control: Breaking the Trust-Vulnerability Paradox in Multi-Agent LLM Systems",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level triage only",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "A conceptual trust-stack proposal for multi-agent systems; adjacent to today's theme but less directly a test of an existing assumption than the selected trio."
+    },
+    {
+      "arxivId": "2610.08668",
+      "title": "Semantic Behavioral Watermarking: Paraphrase-Robust and Forgery-Resistant Provenance for LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level triage only",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "indirect",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "Provenance/watermarking rather than reliability verification of memory, evaluation, or safety gates; off-topic relative to today's theme despite being agent-adjacent."
+    },
+    {
+      "arxivId": "2610.08101",
+      "title": "Beyond Corrected Memory: Execution Consistency in Multi-Agent Systems",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level triage only",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Conceptually adjacent to the memory-governance theme (correct records != sufficient for task duties) but abstract alone doesn't establish evidence strength relative to 07309; worth a closer read in a future round if the theme recurs."
+    },
+    {
+      "arxivId": "2610.08586",
+      "title": "MINDSET: Energy-based Schema Evolution for Long Conversational Agent Memory",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level triage only",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Memory-schema-evolution angle differs from retention/admissibility focus of selected 07309; not deep-read this round given time budget, kept for Layer C reconsideration."
+    },
+    {
+      "arxivId": "2610.08048",
+      "title": "DAEDALUS: Bootstrapping Agent Memory from Self-Generated Tasks",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level triage only",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "About building procedural memory from self-play rather than verifying whether existing memory is admissible/trustworthy; different angle from today's selected theme, kept for future consideration."
+    },
+    {
+      "arxivId": "2610.08300",
+      "title": "Memory Depth and Reconstructed Context Width: A Controlled Evaluation of Hierarchical Retrieval",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level triage only",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "A hyperparameter/architecture study (depth vs. context width) rather than a trust/admissibility verification; different angle from today's theme, kept for future consideration."
+    },
+    {
+      "arxivId": "2610.07376",
+      "title": "MemCo: Memory-Centric Collaboration for Generalizing LLM Agents to Unseen Environments",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level triage only",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "About shared-memory generalization across environments, a capability angle rather than a trust/verification angle; different from today's selected theme, kept for future consideration."
+    },
+    {
+      "arxivId": "2610.07459",
+      "title": "Auditable Claims about AI Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "Not on HF Daily Papers",
+        "Not on Papers with Code"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "Abstract states the core contribution as a one-sentence position/argument tied to EU AI Act Article 12, not an empirical study"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Position paper; no experiments to assess",
+      "reproducibility": "not-provided",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Pure position paper (per selection standard, position papers can serve as trend background but are not main daily selections unless the event itself is highly impactful); thematically relevant as background context for the trust-verification theme but does not provide empirical evidence of its own."
+    },
+    {
+      "arxivId": "2610.08463",
+      "title": "UNREAL: Unifying Retrieval and Long-Context with a Single Model",
+      "source": [
+        "layerA",
+        "layerB"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "not assessed",
+      "citationCount": null,
+      "citationVelocity": "not queried",
+      "institution": "not assessed",
+      "communitySignals": [
+        "HF Daily Papers (2026-10-07 listing)"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract reports strong, specific recall gains (e.g. HotpotQA 49.1% to 73.2%) across multiple benchmarks; not read in full body"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Not deep-read this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "Not deep-read this round",
+      "primaryLimitation": "not-assessed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "indirect",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Strong apparent results and real community signal (HF Daily Papers pick), but reads as an IR/long-context architecture paper rather than a direct agent-infrastructure trust/verification finding; doesn't fit today's cohesive theme as well as the selected trio. Worth a closer look as a RAG/retrieval-architecture candidate on a future day."
+    }
+  ]
+}
