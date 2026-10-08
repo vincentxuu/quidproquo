@@ -1,0 +1,540 @@
+{
+  "date": "2026-10-09",
+  "generatedAt": "2026-10-08T19:41:29Z",
+  "routineId": "J",
+  "signalCount": 30,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "Google Cloud launches universal Gemini agent for the workplace",
+      "source": "reuters",
+      "sourceUrl": "https://www.reuters.com/business/google-cloud-introduces-gemini-agent-work-ai-race-heats-up-2026-10-08",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google Cloud 發佈「Gemini agent」，一個可跨 Gmail、Drive、Docs、Calendar 運作的通用型工作 agent，可建立具備獨立信箱與權限的「coworker agent」，金融與法務版本已進入預覽，政府、醫療、零售版本即將推出。",
+      "relevance": 0.95,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "bloomberg",
+        "cbsnews",
+        "thenextweb"
+      ]
+    },
+    {
+      "id": "sig-002",
+      "title": "AI-powered hacking tool ARTEX plus Claude Code enabled attacker to breach multiple South Korean banks; suspect identified",
+      "source": "reuters",
+      "sourceUrl": "https://www.reuters.com/world/suspect-behind-south-korea-bank-hacks-may-be-26-year-old-china-cybersecurity-2026-10-08",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "F3",
+      "ring": 1,
+      "summary": "CrowdStrike 報告指出，一名疑似中國廣東省的 26 歲攻擊者使用開源 AI agent 滲透測試工具 ARTEX（結合 DeepSeek、GLM、Grok 模型）與 Claude Code，入侵多家南韓銀行，新韓銀行逾 2.5 萬筆客戶資料外洩，南韓金融監管機關已召開緊急會議。",
+      "relevance": 0.92,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "the-decoder",
+        "firstpost"
+      ]
+    },
+    {
+      "id": "sig-003",
+      "title": "Manus parent Butterfly Effect raises over $500M after Meta acquisition blocked by Beijing",
+      "source": "nikkei",
+      "sourceUrl": "https://asia.nikkei.com/business/technology/artificial-intelligence/chinese-ai-startup-manus-drums-up-over-500m-in-fresh-funding",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "manus"
+      ],
+      "section": "F1",
+      "ring": 1,
+      "summary": "Manus 母公司 Butterfly Effect 完成超過 5 億美元新一輪融資，由私募股權 Boyu Capital 與 IDG Capital 領投，騰訊、HSG、真格基金跟投，這是北京下令封殺 Meta 20 億美元收購案後的首輪募資，估值傳聞達 40 億美元。",
+      "relevance": 0.9,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "reuters",
+        "cnbc",
+        "techstartups"
+      ]
+    },
+    {
+      "id": "sig-004",
+      "title": "Zenity: a single prompt could hijack every AI agent in an AWS Bedrock AgentCore account",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/a-single-prompt-was-enough-to-hijack-every-ai-agent-in-an-aws-account-zenity-researchers-found/",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "unverified",
+      "category": "security-incident",
+      "companies": [
+        "amazon",
+        "zenity"
+      ],
+      "section": "B7",
+      "ring": 1,
+      "summary": "Zenity Labs 研究團隊發現，一個公開可存取的 Bedrock AgentCore agent 就能透過內部暫時憑證介面，接管同一 AWS 帳戶與區域內所有 AgentCore agent。AWS 已修補此漏洞並大幅收緊 agent 預設權限。",
+      "relevance": 0.88,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-005",
+      "title": "Meta and Sierra announce Personal Agent Protocol, an open standard for personal AI agents to transact with businesses",
+      "source": "ameztrix",
+      "sourceUrl": "https://ameztrix.com/ai/meta-ai-agent-standard",
+      "publishedDate": "2026-10-06",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Meta 與 Sierra 共同宣布「Personal Agent Protocol」，規範個人 AI agent 如何登入企業、取得哪些權限、企業允許它做什麼，首批合作夥伴包括 Genesys、Instinct、Rocket、Shopify、Stripe、Walmart，v0.1 規格預計本月稍晚發佈。",
+      "relevance": 0.82,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-006",
+      "title": "Anthropic launches Claude Dashboards and Motion: live data dashboards and animated explainer videos from text",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/claude-can-now-generate-animated-explainer-videos-and-live-data-dashboards-from-text-prompts/",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "unverified",
+      "category": "vendor-update",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Anthropic 推出兩個 Claude beta 功能：Dashboards 可連接 BigQuery、Databricks、Snowflake、Salesforce 等資料源，用文字生成自動更新的即時儀表板；Motion 可從文字生成可編輯、可匯出 MP4 的動畫說明影片。官方稱已用這些工具產出逾 4,500 萬份文件。",
+      "relevance": 0.8,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-007",
+      "title": "White House announces AI Responsibility Accord and Super Intelligence Task Force",
+      "source": "crowell-moring",
+      "sourceUrl": "https://www.crowell.com/en/insights/client-alerts/white-house-announces-ai-responsibility-accord-executive-orders-and-super-intelligence-task-force",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "白宮宣布 AI Responsibility Accord 與多項行政命令，傾向企業「自我規範」的寬鬆監管路線，並成立「Super Intelligence Force」，要求 120 天內提交 AI 風險與機會報告，回應近期 agent 相關資安事件引發的疑慮。",
+      "relevance": 0.72,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-008",
+      "title": "Rein Security raises $25M Series A to secure enterprise AI agents at runtime",
+      "source": "techstartups",
+      "sourceUrl": "https://techstartups.com/2026/10/08/startup-funding-news-today-october-8-2026-manus-universal-quantum-mecka-verso-more",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "B7",
+      "ring": 2,
+      "summary": "Rein Security 完成由 Glilot Capital 與 Sienna Venture Capital 共同領投的 2,500 萬美元 A 輪融資，累計募資達 3,500 萬美元，主力開發在 agent 執行動作時提供即時安全防護的 runtime 平台。",
+      "relevance": 0.62,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-009",
+      "title": "Robot-data startup Mecka AI raises $60M Series B led by Sequoia to train humanoid robots",
+      "source": "techcrunch",
+      "sourceUrl": "https://techcrunch.com/2026/10/07/robot-data-startup-mecka-ai-nabs-60m-from-sequoia",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Mecka AI 完成由 Sequoia 領投、NVIDIA 與微軟創投基金 M12 參與的 6,000 萬美元 B 輪融資，收集人類動作資料訓練人形機器人，延續 Scale AI 等資料標註公司把業務從 LLM 擴展到機器人領域的趨勢。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-010",
+      "title": "Scale AI and Elorian release \"Humanity's Sixth Sense\" visual-reasoning benchmark",
+      "source": "superpowerdaily",
+      "sourceUrl": "https://superpowerdaily.com/posts/scale-ai-releases-visual-reasoning-benchmark-best-model-scores-53-6-versus-humans-93-1",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [
+        "scale-ai"
+      ],
+      "section": "E",
+      "ring": 2,
+      "summary": "Scale AI 與 Elorian 發佈新 benchmark「Humanity's Sixth Sense」，測試模型對影像／影片中隱含的空間、社會、時間與抽象意涵的推論能力。最佳模型 GPT-6-astra 僅得 53.6%，遠低於人類的 93.1%，顯示複雜視覺能力不等於直覺判斷力。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-011",
+      "title": "NVIDIA shows how digital twins and AI agents validate AI factory infrastructure changes",
+      "source": "nvidia-dev-blog",
+      "sourceUrl": "https://developer.nvidia.com/blog/validate-ai-factory-changes-with-digital-twins-and-ai-agents/",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "NVIDIA 說明如何用數位雙生（digital twin）搭配 AI agent，在真正動手改動 AI factory（GPU/CPU/交換器/DPU 等基礎設施）前先驗證排程與拓樸變更是否安全，降低大型 GPU 叢集變更造成的營運風險。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-012",
+      "title": "Socure acquires agentic AI startup Fravity AI for $156M to automate identity-verification case reviews",
+      "source": "mssp-alert",
+      "sourceUrl": "https://www.msspalert.com/news/socure-acquires-fravity-ai-for-156-million-to-enhance-identity-verification",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "unverified",
+      "category": "acquisition",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "身份驗證公司 Socure 以 1.56 億美元收購 agentic AI 新創 Fravity AI，整合進自家 RiskOS 平台（更名 RiskOS_Agents），自動化文件調閱、制裁名單篩查與案件摘要撰寫，目標解決銀行業耗時的人工案件審查問題。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-013",
+      "title": "SAP showcases the \"Autonomous Enterprise\" at SAP Connect, powered by SAP Business AI Platform",
+      "source": "sap-news",
+      "sourceUrl": "https://news.sap.com/2026/10/sap-connect-keynote-autonomous-enterprise-in-action/",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "sap"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "SAP CEO Christian Klein 在 SAP Connect 展示由 SAP Business AI Platform 驅動的「自主企業」情境，呈現企業流程被 agent 自動執行的實際運作示範。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-014",
+      "title": "Australia outlines plan to make AI companies prove their safety systems work",
+      "source": "abc-news",
+      "sourceUrl": "https://www.abc.net.au/news/2026-10-08/federal-politics-ai-regulation-andrew-charlton-speech/107241674",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "澳洲科技部長 Andrew Charlton 發表演說，提出要求 AI 公司證明其安全系統有效運作的監管方向；工會與學者呼籲在澳洲建資料中心的科技大廠應透過徵費方式支持本地 AI 產業。",
+      "relevance": 0.58,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "agenticrail"
+      ]
+    },
+    {
+      "id": "sig-015",
+      "title": "Alibaba Cloud unveils full edge-for-AI product lineup at Apsara 2026",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/alibaba-cloud-esa-at-apsara-2026-the-full-edge-for-ai-lineup---seven-shipped-capabilities-and-four-stage-directions-under-three-pillars_603610",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "阿里雲在 Apsara 2026 發佈邊緣運算安全加速（ESA）完整「AI 邊緣」產品線：11 項能力（7 項已上線、4 項為大會新發表），分為 AI 加速、AI 安全與 agent runtime 三大支柱。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-016",
+      "title": "Microsoft's Dynamic Workflows let Azure Functions Hosted Skills run durable, AI-led multi-step work",
+      "source": "microsoft-devblogs",
+      "sourceUrl": "https://devblogs.microsoft.com/azure-sdk/dynamic-workflows-azure-functions-hosted-skills/",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "",
+      "ring": 2,
+      "summary": "Azure Functions 的 Hosted Skills 新增 Dynamic Workflows：模型只需一次性寫出執行計畫（DAG），後續交給 Durable Functions 執行，微軟內部基準測試顯示 token 用量減少 56-93%、端到端延遲降低 77-95%，且輸出品質不變。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "Atlassian MCP Server reaches general availability, extending agent access across Atlassian products",
+      "source": "atlassian-blog",
+      "sourceUrl": "https://www.atlassian.com/blog/company-news/team26-europe-atlassian-mcp",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "unverified",
+      "category": "tool-launch",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Atlassian MCP Server 正式上線，開發者可用 Forge 建立自訂 MCP 工具，或透過 Marketplace app 擴充 MCP 能力，並可把自訂 Rovo agent 以 MCP 形式開放給外部 AI 工具存取。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-018",
+      "title": "Asia's AI governance choices come into focus as Meta's Muse expands across the region",
+      "source": "asia-times",
+      "sourceUrl": "https://asiatimes.com/2026/10/choices-that-will-define-asias-ai-future-are-coming-into-focus",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [
+        "meta"
+      ],
+      "section": "F3",
+      "ring": 3,
+      "summary": "新加坡推出全球首個 Agentic AI 政府治理框架並主導 ASEAN AI 治理指引；日本《AI 促進法》走原則與自願合作路線；南韓則以促進與信任為核心立法。Meta 的個人 agent Muse 即將在新加坡、日本、南韓、澳洲上線。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-019",
+      "title": "Anthropic's new usage policy can suspend accounts for sustained abuse of Claude",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/being-mean-to-claude-can-now-get-your-account-suspended-under-anthropics-new-tos/",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "Anthropic 更新使用政策，禁止對 Claude 持續性的濫用行為，並加嚴對宣傳操弄、無人機武器化、監控用途的限制，延續把 Claude 視為可能值得保護的實體的立場。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-020",
+      "title": "Alibaba Chairman Joe Tsai: open source is Europe's AI opportunity",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/joe-tsai-open-source-is-europes-ai-opportunity_603620",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "阿里巴巴集團董事長蔡崇信表示，建立在開源模型上的歐洲企業，有能力把自有資料轉化為競爭優勢，暗示歐洲在開源 AI 浪潮中仍有後發機會。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "Anthropic's mass book buying in Japan stirs publisher backlash",
+      "source": "nikkei",
+      "sourceUrl": "https://asia.nikkei.com/business/technology/artificial-intelligence/anthropic-s-mass-book-buying-in-japan-stirs-publisher-backlash",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "unverified",
+      "category": "region-news",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "F3",
+      "ring": 2,
+      "summary": "Anthropic 在日本大量採購書籍作為訓練資料的做法，引發當地出版業者反彈，成為日本對 AI 訓練資料合法性爭議的最新案例。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "DB-GPT AI agent platform patches two critical RCE CVEs at the agent data-access layer",
+      "source": "forkast",
+      "sourceUrl": "https://forkast.news/db-gpt-ai-agent-platform-two-critical-rce-cves-at-the-agent-data-access-layer",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "unverified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "開源 AI agent 平台 DB-GPT 的 0.8.0 版本被發現兩個未經驗證、可遠端執行程式碼的重大漏洞（CVSS 9.1 與 9.8），分別是目錄遍歷與 sandbox 機制失效，凸顯 agent 資料存取層的安全風險。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-023",
+      "title": "Ethereum researchers warn AI-assisted math could break wallet signature security within months",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/ai-math-breakthroughs-have-ethereum-researchers-debating-how-fast-wallet-security-could-collapse/",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "以太坊研究者 Justin Drake 與共同創辦人 Vitalik Buterin 警告，AI 輔助數學研究進展最壞情況下可能在數月內破解加密錢包使用的簽章系統，建議資金移至從未簽過交易的位址以降低風險。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "Omnigent and Gentle-AI: new open-source AI coding-agent harnesses trend on GitHub",
+      "source": "github",
+      "sourceUrl": "https://github.com/topics/coding-agents",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [],
+      "section": "B2",
+      "ring": 3,
+      "summary": "GitHub coding-agents 主題榜上，Omnigent（可編排 Claude Code、Codex、Cursor 等多種 agent harness 的開源 meta-harness，1 萬顆星）與 Gentle-AI（可為多種 coding agent 設定記憶、技能、MCP 伺服器的工具，7,600 顆星）同步更新，顯示 agent harness 層的開源競爭持續升溫。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "Paul Graham: Amazon's AI shopping-agent restrictions could open the door for a startup rival",
+      "source": "devdiscourse",
+      "sourceUrl": "https://www.devdiscourse.com/article/business/3989263-paul-graham-says-amazons-ai-agent-restrictions-could-open-door-for-startup-rival",
+      "publishedDate": "2026-10-08",
+      "dateConfidence": "verified",
+      "category": "community-signal",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 3,
+      "summary": "Y Combinator 共同創辦人 Paul Graham 表示，Amazon 對 AI 購物 agent 的限制可能為新創公司打開挑戰 Amazon 電商主導地位的機會窗口。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "Microsoft explains Agent Experience (AX): why a compiling, working agent output may still be the wrong one",
+      "source": "microsoft-devblogs",
+      "sourceUrl": "https://devblogs.microsoft.com/blog/what-is-agent-experience-ax/",
+      "publishedDate": "2026-10-06",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "",
+      "ring": 3,
+      "summary": "微軟撰文提出「Agent Experience（AX）」概念：agent 回報完成、程式碼也能編譯，不代表它真的選對了你的技術或正確使用它，文章討論如何衡量 AX，以及為什麼最直覺的修法未必正確。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-027",
+      "title": "Windows ML adds experimental llama.cpp support for local GGUF model inference",
+      "source": "microsoft-devblogs",
+      "sourceUrl": "https://devblogs.microsoft.com/foundry-on-windows/build-on-winml-oct-7-26/",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "",
+      "ring": 3,
+      "summary": "微軟為 Windows ML（統一的本機高效能 AI 推論框架）加入實驗性 llama.cpp 支援，開發者可透過新的工作型 API 在 Windows 上直接跑 GGUF 格式模型。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-028",
+      "title": "Philippines-based Agentiq raises $4M seed led by defy.vc for fan-investment AI fintech agent",
+      "source": "aifod",
+      "sourceUrl": "https://af.net/realtime/ai-agents-gain-momentum-in-kenya-and-nigeria-boosting-business-automation",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [],
+      "section": "F6",
+      "ring": 3,
+      "summary": "總部位於菲律賓的 Agentiq 完成由 defy.vc 領投的 400 萬美元種子輪，打造讓球迷能透過 AI 驅動金融工具投資運動員的 agent 產品；同一報導也指出肯亞與奈及利亞的 AI agent 商用自動化動能正在增加。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-029",
+      "title": "Cisco AI Readiness Index: only 39% of African organizations equipped to secure and govern AI agents",
+      "source": "cio-africa",
+      "sourceUrl": "https://cioafrica.co/what-2026-is-teaching-us-about-ai-and-quantum",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "unverified",
+      "category": "community-signal",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Cisco／Omdia 2026 AI Readiness Index 調查顯示，東非地區僅 39% 的組織具備安全管理與治理 AI agent 的能力，但高階主管預期 24 個月內 55% 的員工將與 AI agent 協作，身份治理成為董事會層級的焦慮來源。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-030",
+      "title": "NVIDIA details how it taught robots to assemble GB300 tester trays",
+      "source": "nvidia-dev-blog",
+      "sourceUrl": "https://developer.nvidia.com/blog/the-machines-that-make-the-machines/",
+      "publishedDate": "2026-10-07",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 3,
+      "summary": "NVIDIA 撰文說明如何訓練機器人組裝 GB300 測試托盤，並總結這個過程對機器人學習、機械智能與傳統工程設計的啟發，是 AI 廠商把能力延伸到實體自動化生產線的案例。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    }
+  ]
+}
