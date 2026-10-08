@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCA-GENM (Generative AI Multimodal Associate): The Multimodal One, With Two Required Courses Only Sold as $500 Workshops"
+title: "NVIDIA NCA-GENM (Generative AI Multimodal Associate): The Multimodal One, Now With One Free Set of Materials and One Course"
 date: 2026-08-18
 type: guide
 category: ai
@@ -8,8 +8,8 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 12
-tldr: "NCA-GENM matches NCA-GENL on price, length, and level but not on emphasis: Experimentation rises to 25% (the heaviest), Core ML drops from 30% to 20%, and two new areas appear — Multimodal Data 15% and Performance Optimization 10%. The content covers U-Net, CLIP, diffusion models, multimodal loss functions, attention maps, and NVIDIA's Riva / NeMo / Triton / ACE SDKs. Watch the cost structure: two of the five recommended courses exist only as $500 workshops with no self-paced option, so a self-study path cannot cover the official set. Official specs: $125, 1 hour, 50–60 items, two-year validity, English only."
-description: "A preparation guide for NVIDIA NCA-GENM (Generative AI Multimodal Associate), covering the seven weighted areas including multimodal data, experimentation, performance optimization, and U-Net/CLIP/diffusion models, how it differs from NCA-GENL, the workshop-only course problem, and a three-week schedule with its derivation."
+tldr: "NCA-GENM matches NCA-GENL on price, length, and level but not on emphasis: Experimentation rises to 25% (the heaviest), Core ML drops from 30% to 20%, and two new areas appear — Multimodal Data 15% and Performance Optimization 10%. The content covers U-Net, CLIP, diffusion models, multimodal loss functions, attention maps, and NVIDIA's Riva / NeMo / Triton / ACE SDKs. The official recommended training was replaced in autumn 2026: it is now one free open-source set of deep learning materials on GitHub plus one multimodal agent course, assigned differently per area, with the heaviest area, Experimentation, getting only the free materials. Official specs: $125, 1 hour, 50–60 items, two-year validity, English only."
+description: "A preparation guide for NVIDIA NCA-GENM (Generative AI Multimodal Associate), covering the seven weighted areas including multimodal data, experimentation, performance optimization, and U-Net/CLIP/diffusion models, how it differs from NCA-GENL, what the official recommended training now is, and a three-week schedule with its derivation."
 draft: false
 ---
 
@@ -50,23 +50,30 @@ Put differently: **if you have already prepared for NCA-GENL, about a quarter of
 | Prerequisites | "A basic understanding of generative AI" |
 | Registration | **Open** — it links straight to Certiverse checkout, unlike the two professional exams marked Coming soon |
 
-## The Cost Trap: Two Required Courses Are Workshop-Only
+## The Official Recommended Training: One Free Set of Materials and One Course
 
-This is where NCA-GENM differs most from its siblings. Of the five recommended courses, **two have no self-paced option**:
+The [official certification page](https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/) lists "Recommended Training" under each weighted area. As of 2026-10-08 the assignment differs by area:
 
-| Recommended course | Self-paced | Workshop |
+| Weighted area | Open-source deep learning materials (free) | Multimodal agent course |
 |---|---|---|
-| [Getting Started With Deep Learning](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-FX-01+V1) / Fundamentals of Deep Learning | 8h **$90** | 8h $500 |
-| [Introduction to Transformer-Based NLP](https://courses.nvidia.com/courses/course-v1:DLI+S-FX-08+V1/) / Building Transformer-Based NLP Applications | 6h **$30** | 8h $500 |
-| [**Building Conversational AI Applications**](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-06+V2) | **none** | 8h **$500** |
-| [Generative AI With Diffusion Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-FX-14+V1) | 8h **$90** | 8h $500 |
-| [**Building AI Agents with Multimodal Models**](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1) | **none** | 8h **$500** |
+| Core Machine Learning and AI Knowledge (20%) | Yes | Yes |
+| Data Analysis (10%) | Yes | Yes |
+| **Experimentation (25%)** | Yes | No |
+| Multimodal Data (15%) | No | Yes |
+| Performance Optimization (10%) | Yes | No |
+| Software Development (15%) | Yes | Yes |
+| Trustworthy AI (5%) | No | No (suggested readings only) |
 
-**Self-study can buy three of them for $210; the remaining two cost $1,000 as workshops.**
+The two items are:
 
-Against [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide-en), where all five have self-paced versions totalling $390, this exam's self-study route structurally cannot cover NVIDIA's own recommendation.
+- **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**: the materials for NVIDIA's introductory deep learning course, hosted on GitHub and **free**. It is the only item listed for Experimentation, the heaviest area at 25%.
+- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**: the DLI course on multimodal agents. The certification page no longer shows a price and I could not confirm today's figure; in August it existed only as a $500 workshop. It is the only item listed for Multimodal Data (15%).
 
-**Practical advice**: **do not spend $1,000 on those two.** Their subject matter — conversational AI applications and multimodal agents — can be practiced from documentation and open-source projects, and notably the blueprint has no standalone "agent" area at all. The one genuinely worth buying is **Generative AI With Diffusion Models ($90)**, which lands directly on the U-Net and CLIP objectives inside Software Development's 15%.
+Each area also carries a "Suggested Reading" list of free articles and courses, such as the Hugging Face LLM Course and Diffusion Models Course.
+
+**This differs from August.** When this post was first published, NVIDIA listed five courses, two of them available only as $500 workshops, and the post treated "self-study cannot cover the official set" as this exam's main cost problem. The five have since shrunk to two items, and the conversational AI and diffusion courses are off the list.
+
+**Practical advice**: work through the open-source materials on GitHub first; that single item covers five of the seven areas. Multimodal Data (15%) is the only area paired solely with the paid course. If you do not want to buy it, use the multimodal survey and contrastive learning articles in the suggested readings and build a small image-text alignment model yourself.
 
 ## Area by Area
 
@@ -80,7 +87,7 @@ Against [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide-en), where al
 
 **What it tests**: **controlling training stability in multimodal settings**; **multimodal loss functions**; ML fundamentals (feature engineering, model comparison, cross validation); **nonsequential neural networks and residual connections**; statistical analysis for evaluating multimodal pipelines; **multimodal-specific transfer learning**; emerging trends; energy-efficient and trustworthy multimodal models; prompt engineering; deep learning frameworks (TensorFlow, PyTorch).
 
-**How to prepare**: **multimodal loss functions and training stability are the core**, and the largest departure from NCA-GENL. Residual connections and nonsequential architectures are foundational material covered by the $90 deep learning course.
+**How to prepare**: **multimodal loss functions and training stability are the core**, and the largest departure from NCA-GENL. Residual connections and nonsequential architectures are foundational material covered by the free open-source deep learning materials.
 
 ### Multimodal Data (15%, new)
 
@@ -94,7 +101,7 @@ Against [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide-en), where al
 
 Concrete objectives include **building a U-Net to generate images from pure noise** and as a type of autoencoder, **generating images from English text prompts using CLIP**, and **using CLIP to train a text-to-image diffusion model**.
 
-**How to prepare**: the most concrete and most buildable area, and exactly what the $90 Diffusion Models course targets. **Know what each of the four NVIDIA SDKs does**: speech, model building, inference serving, and avatars.
+**How to prepare**: the most concrete and most buildable area, and the diffusion course is no longer on the official list, so use the Hugging Face Diffusion Models Course (units 1–2) from the suggested readings. **Know what each of the four NVIDIA SDKs does**: speech, model building, inference serving, and avatars.
 
 ### Data Analysis and Visualization (10%) and Performance Optimization (10%)
 
@@ -114,13 +121,13 @@ Four "describe"-level objectives: ethical principles, the balance between data p
 
 | Week | Content |
 |---|---|
-| 1 | Software Development (15%): U-Net, CLIP, diffusion — take the $90 course and actually run it |
+| 1 | Software Development (15%): U-Net, CLIP, diffusion — work through the Hugging Face diffusion course hands-on |
 | 2 | Multimodal Data (15%) + the multimodal half of Core ML (loss functions, training stability) |
 | 3 | Experimentation (25%) + Data Analysis (10%) + Performance Optimization (10%) + Trustworthy AI (5%) |
 
 **Case B: you work in computer vision and have not touched LLMs**
 
-Replace week 1 with the Transformer introduction (NVIDIA's $30 course) and prompt engineering; the rest is unchanged.
+Replace week 1 with a Transformer introduction (the suggested readings list chapter 1 of the Hugging Face LLM Course) and prompt engineering; the rest is unchanged.
 
 **Timed practice matters here too**: 50–60 items in an hour, roughly a minute each, and **no score diagnostic afterwards**.
 
@@ -137,7 +144,11 @@ The same as NVIDIA's other three: two years, renewable only by retaking, **no co
 | The seven weights | 25 / 20 / 15 / 15 / 10 / 10 / 5 | Quarterly |
 | Item count | The page carries both 50 and 50–60 | Every six months |
 | The two workshop-only courses | Building Conversational AI Applications, Building AI Agents with Multimodal Models | Quarterly |
-| Costs | $125 exam; $30–$90 self-paced; $500 workshops | Quarterly |
+| Costs and training | $125 exam; recommended training is one free open-source set of materials plus one DLI course, with no course prices on the certification page | Quarterly |
+
+## Changelog
+
+- 2026-10-08: The recommended training on the official certification page was replaced. One of the original post's main points was that two of the five recommended courses existed only as $500 workshops, so self-study could not cover the set. NVIDIA now recommends one free open-source set of materials plus one course, and the page shows no prices. The title, tldr, cost section, and the schedule's references to the old courses are rewritten.
 
 ## References
 

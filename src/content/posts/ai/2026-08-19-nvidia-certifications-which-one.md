@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA 四張怎麼選：兩張還不能報名，訓練全要付費，官方文件還在打架"
+title: "NVIDIA 四張怎麼選：兩張還不能報名，入門兩張的建議教材剛換過，官方文件還在打架"
 date: 2026-08-19
 type: guide
 category: ai
@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 23
-tldr: "NVIDIA 生成式 AI 線有四張：NCA-GENL、NCA-GENM（各 $125，associate）、NCP-GENL、NCP-AAI（各 $200，professional）。選之前先看三件別家沒有的事：一、兩張 professional 的 Register 按鈕都標著「Coming soon」，近期計畫直接只剩兩張 associate；二、NVIDIA 是本系列唯一官方備考課全部付費的廠商，真實成本是考試費加課程費，NCA-GENL 自學五門 $390、NCA-GENM 有兩門只有 $500 講師版、NCP-GENL 官方清單列價合計 $1,620；三、官方文件自相矛盾——NCP-AAI 的權重網頁加總 98%、PDF 加總 92%，NCP-GENL 網頁表格有兩格描述錯置（其中一格是 OpenUSD 的文字）。另外綁定程度差很多：NCP-AAI 只有 7% 綁 NVIDIA 產品，NCP-GENL 有 31% 在考 GPU 與模型壓縮。"
+tldr: "NVIDIA 生成式 AI 線有四張：NCA-GENL、NCA-GENM（各 $125，associate）、NCP-GENL、NCP-AAI（各 $200，professional）。選之前先看三件別家沒有的事：一、兩張 professional 的 Register 按鈕都標著「Coming soon」，近期計畫直接只剩兩張 associate；二、官方建議教材的成本兩級差很多：兩張 associate 在 2026 年秋天換成一份免費的開源教材加一門課，兩張 professional 仍是五門付費課，NCP-GENL 官方清單列價合計 $1,620；三、官方文件自相矛盾——NCP-AAI 的權重網頁加總 98%、PDF 加總 92%，NCP-GENL 網頁表格有兩格描述錯置（其中一格是 OpenUSD 的文字）。另外綁定程度差很多：NCP-AAI 只有 7% 綁 NVIDIA 產品，NCP-GENL 有 31% 在考 GPU 與模型壓縮。"
 description: "NVIDIA 四張生成式 AI 證照（NCA-GENL、NCA-GENM、NCP-GENL、NCP-AAI）的選擇指南：從報名狀態、含課程的真實總成本、官方文件矛盾與廠商綁定程度四個決策輸入切入，附四種讀者情境的建議與續期成本試算。"
 draft: false
 ---
@@ -40,14 +40,14 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 
 ## 決策輸入二：訓練全部要付費，所以真實成本不是考試費
 
-其他廠商的官方備考材料幾乎都免費 —— AWS Skill Builder 的 Exam Prep Plan、微軟的 Microsoft Learn 路徑、Google Skills、Anthropic Academy 都是。**NVIDIA 四張全部不是。** 官方在每張認證頁的 Certification Learning Path 區塊直接把課程標價列出來，$30 到 $500 不等。
+其他廠商的官方備考材料幾乎都免費 —— AWS Skill Builder 的 Exam Prep Plan、微軟的 Microsoft Learn 路徑、Google Skills、Anthropic Academy 都是。**NVIDIA 的兩張 professional 不是**：認證頁的 Certification Learning Path 區塊直接把課程標價列出來，$30 到 $500 不等。兩張 associate 原本也是，但官方在 2026 年秋天把建議教材換成一份放在 [GitHub 上的免費開源深度學習教材](https://github.com/NVDLI/fundamentals-of-deep-learning)加一門 DLI 課，頁面不再列價格。
 
 所以比較成本時，要比的是「考試費 + 官方建議課程」這一整包：
 
 | | 考試費 | 官方建議課程 | 自學版買得到的部分 | 只能走講師課的部分 |
 |---|---|---|---|---|
-| **NCA-GENL** | $125 | 五門 | **五門全有自學版，合計 $390** | 無 |
-| **NCA-GENM** | $125 | 五門 | 三門，合計 **$210** | **兩門，合計 $1,000** |
+| **NCA-GENL** | $125 | 免費開源教材一份 + 一門課 | 開源教材免費；那門課的現價未列 | 頁面未列 |
+| **NCA-GENM** | $125 | 免費開源教材一份 + 一門課 | 開源教材免費 | 那門課 8 月時只有 $500 講師版，現價未列 |
 | **NCP-GENL** | $200 | 五門 | 官方標「Self-Paced」的三門合計 **$620**（含一門標自學卻要 $500 的） | 兩門，合計 $1,000 |
 | **NCP-AAI** | $200 | 五門 | **四門，合計 $300** | 一門，$500 |
 
@@ -57,7 +57,7 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 
 **二、單門投報率最高的是 NCP-AAI 頁面上的 Evaluating RAG and Semantic Search Systems。** 官方標價 **$30、3 小時**，直接對應 Evaluation and Tuning 那 **13%** —— 這是四張裡「每一塊錢買到的考綱覆蓋」最划算的一門。另外兩門 $30 的課同樣值得注意：NCA-GENL 與 NCA-GENM 共用的 [Introduction to Transformer-Based NLP](https://courses.nvidia.com/courses/course-v1:DLI+S-FX-08+V1/)（6 小時），以及 NCP-GENL 的 [Optimizing CUDA ML Codes With NVIDIA Nsight's Profiling Tools](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-AC-03+V2)（4 小時）。**四張的官方清單裡，$30 這個價位一共只有這三門，它們是整條產品線的甜蜜點。**
 
-**三、NCA-GENM 的自學路線先天蓋不滿。** 五門建議課裡有兩門（Building Conversational AI Applications、Building AI Agents with Multimodal Models）**只有 $500 的講師版，沒有自學選項**。想完整照官方路徑走，是 $125 + $210 + $1,000 = $1,335；但這兩門對應的內容（對話式 AI 應用、多模態 agent）可以用官方文件與開源專案自己補，**不建議為它們花 $1,000**。
+**三、兩張 associate 的建議教材換過了。** 8 月時 NCA-GENL 列五門付費課（自學版合計 $390），NCA-GENM 的五門裡有兩門只有 $500 講師版。現在兩張都改成一份免費的開源深度學習教材加一門課：NCA-GENL 配 LLM 應用開發課，NCA-GENM 配多模態 agent 課。免費教材一項就對應兩張大部分的權重區塊，所以這兩張的官方路徑現在可以不花課程費走完大半。細節見 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) 與 [NCA-GENM](/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide) 兩篇。
 
 **四、NCP-GENL 是列價最貴的一張。** 官方清單五門合計 **$1,620**（$90 + $500 + $500 + $500 + $30），其中還有一個怪處：Deploying RAG Pipelines for Production at Scale 被標成「Self-Paced」卻要 $500，而 NCP-AAI 頁面上名稱相近的 **Introduction to** Deploying RAG Pipelines… 只要 $90 —— 兩者課程代碼不同（`C-FX-18` 與 `S-FX-19`），是不同的課，**買之前一定要核對代碼**。
 
@@ -104,7 +104,7 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 先確認一件事：**NCA-GENL 名字寫 LLM，但沒有任何一塊叫「LLM」或「RAG」**。權重是 Core Machine Learning and AI Knowledge 30%、Software Development 24%、Experimentation 22%、Data Analysis and Visualization 14%、Trustworthy AI 10%，spaCy、NumPy、Keras、交叉驗證都在考。**抱著「我會接 LLM API，這張應該很快」的心態去考會失血**，這是本系列名實落差最大的一張。
 
 **情況二：你做影像、音訊或跨模態。**
-考 **NCA-GENM**，同樣 $125、一小時、現在可報名。它跟 NCA-GENL 是**平行的兄弟而不是階梯**：Experimentation 升到 25%（最重）、Core ML 降到 20%，並多出 Multimodal Data 15% 與 Performance Optimization 10% 兩塊全新的，考 U-Net、CLIP、擴散模型與多模態損失函數。準備時直接跳過那兩門 $500 講師課。
+考 **NCA-GENM**，同樣 $125、一小時、現在可報名。它跟 NCA-GENL 是**平行的兄弟而不是階梯**：Experimentation 升到 25%（最重）、Core ML 降到 20%，並多出 Multimodal Data 15% 與 Performance Optimization 10% 兩塊全新的，考 U-Net、CLIP、擴散模型與多模態損失函數。準備時先跑官方那份免費的開源教材。
 
 **情況三：你在做 agent 系統，沒有時間壓力。**
 把 **NCP-AAI** 當成盤點工具而不是近期目標：十個領域當檢核表逐條問「我在生產環境做過嗎」，缺的補上；平台那 7%（NeMo Guardrails、NIM、NeMo Agent Toolkit、TensorRT-LLM、Triton）是唯一無法從通用 agent 經驗轉移過來的部分，值得先補。**課先別買** —— 考綱可能隨開放而調整，太早買可能學到被改掉的內容。
@@ -151,7 +151,7 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 | 時長／題數 | 1 小時／50–60 | 1 小時／50–60 | 120 分鐘／60–70 | 120 分鐘／60–70 |
 | **能否報名** | **可以** | **可以** | **Coming soon** | **Coming soon** |
 | 最重的塊 | Core ML 30% | Experimentation 25% | Model Optimization 17% + GPU 14% | 架構 15% + 開發 15% |
-| 自學課程成本 | $390（五門全有） | $210（只有三門） | $620（三門，含一門標自學卻 $500） | **$300（四門）** |
+| 自學課程成本 | 開源教材免費；另一門課現價未列 | 開源教材免費；另一門課現價未列 | $620（三門，含一門標自學卻 $500） | **$300（四門）** |
 | NVIDIA 綁定 | 低 | 中（四個 SDK） | **高（31% 硬體層）** | **最低（7%）** |
 | 官方文件問題 | 題數兩個數字 | 題數兩個數字 | 網頁兩格描述錯置 | 權重網頁 98%／PDF 92% |
 | 適合誰 | 職缺點名 NVIDIA GenAI／LLM | 做影像、音訊、跨模態 | 訓練與推論最佳化工程師 | 做 production agent 系統 |
@@ -163,8 +163,12 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 | 兩張 professional 的報名狀態 | 仍是 Coming soon | **每月** |
 | NCP-AAI 權重矛盾 | 網頁 98%、PDF 92%，兩項數字不同 | 開放報名時 |
 | NCP-GENL 網頁兩格錯置描述 | 仍是錯的（Model Optimization 寫部署、Fine-Tuning 寫 OpenUSD） | 每季 |
-| DLI 課程與價格 | $30 / $90 / $500 三檔 | 每季 |
+| DLI 課程與價格 | professional 兩張：$30 / $90 / $500 三檔；associate 兩張：頁面不列價格 | 每季 |
 | 考試費與效期 | $125 / $200、兩年、只能重考 | 每半年 |
+
+## 更新紀錄
+
+- 2026-10-08：兩張 associate（NCA-GENL、NCA-GENM）的官方建議教材已換成一份免費的開源教材加一門課，認證頁不再列價格。原文「NVIDIA 是唯一官方備考課全部付費的廠商」只對兩張 professional 仍成立；標題、tldr、成本表與第三點已改寫。兩張 professional 的課程與價格經複查未變。
 
 ## 參考資料
 

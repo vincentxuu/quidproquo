@@ -68,7 +68,7 @@ draft: false
 
 - [AWS 三張怎麼選](/posts/ai/2026-08-19-aws-certifications-which-one) —— 含 MLA-C01 英文版 2026/9/28 停考造成的時間分支
 - [微軟四張怎麼選](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one) —— code-first 與低程式碼兩條線的分界
-- [NVIDIA 四張怎麼選](/posts/ai/2026-08-19-nvidia-certifications-which-one) —— 兩張 professional 尚未開放報名，且官方課全部付費
+- [NVIDIA 四張怎麼選](/posts/ai/2026-08-19-nvidia-certifications-which-one) —— 兩張 professional 尚未開放報名且官方課要付費；兩張 associate 的建議教材已改成一份免費開源教材加一門課
 - [Claude 四張怎麼選](/posts/ai/2026-08-19-claude-certifications-which-one) —— 個人無法報名，只開放 Claude Partner Network 組織
 
 跨證照重複的技術考點另抽成五篇深潛：[多 agent 架構](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)、[RAG 與檢索評估](/posts/ai/2026-08-18-rag-evaluation-exam-domains)、[AI 治理框架](/posts/ai/2026-08-18-ai-governance-frameworks-exam-domains)、[prompt 與 context engineering](/posts/ai/2026-08-18-prompt-context-engineering-exam-domains)、[成本與延遲最佳化](/posts/ai/2026-08-18-genai-cost-latency-exam-domains)。

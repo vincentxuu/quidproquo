@@ -68,7 +68,7 @@ If you want foundations rather than a credential, the site also has [which AI co
 
 - [Which of the three AWS certifications](/posts/ai/2026-08-19-aws-certifications-which-one-en) — including the time branch created by MLA-C01 English retiring 2026-09-28
 - [Which of the four Microsoft certifications](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one-en) — where the code-first and low-code lines diverge
-- [Which of the four NVIDIA certifications](/posts/ai/2026-08-19-nvidia-certifications-which-one-en) — two professionals are not registrable yet, and all official training is paid
+- [Which of the four NVIDIA certifications](/posts/ai/2026-08-19-nvidia-certifications-which-one-en) — two professionals are not registrable yet and their official training is paid; the two associates now recommend one free open-source set of materials plus one course
 - [Which of the four Claude certifications](/posts/ai/2026-08-19-claude-certifications-which-one-en) — individuals cannot register; Claude Partner Network organizations only
 
 Technical topics tested across several exams are pulled into five deep dives: [multi-agent architecture](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en), [RAG and retrieval evaluation](/posts/ai/2026-08-18-rag-evaluation-exam-domains-en), [AI governance frameworks](/posts/ai/2026-08-18-ai-governance-frameworks-exam-domains-en), [prompt and context engineering](/posts/ai/2026-08-18-prompt-context-engineering-exam-domains-en), and [cost and latency optimization](/posts/ai/2026-08-18-genai-cost-latency-exam-domains-en).

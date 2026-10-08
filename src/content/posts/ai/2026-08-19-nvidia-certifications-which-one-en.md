@@ -1,5 +1,5 @@
 ---
-title: "Choosing Among NVIDIA's Four: Two Can't Be Registered For, Training Is All Paid, and the Docs Contradict Themselves"
+title: "Choosing Among NVIDIA's Four: Two Can't Be Registered For, the Associate Training Just Changed, and the Docs Contradict Themselves"
 date: 2026-08-19
 type: guide
 category: ai
@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 23
-tldr: "NVIDIA's generative AI line has four exams: NCA-GENL and NCA-GENM ($125 each, associate), NCP-GENL and NCP-AAI ($200 each, professional). Three decision inputs no other vendor forces on you. One: both professional exams still show 'Coming soon' next to Register, so any near-term plan is down to the two associates. Two: NVIDIA is the only vendor in this series whose official prep courses are all paid — real cost is exam fee plus courses, and the self-paced totals are $390 (NCA-GENL), $210 for only three of five courses (NCA-GENM), and $1,620 list price across NCP-GENL's five. Three: the official documents disagree with themselves — NCP-AAI's weights total 98% on the web page and 92% in the PDF, and two cells of NCP-GENL's web table carry misplaced text, one of it about OpenUSD. Lock-in also varies sharply: NCP-AAI is 7% NVIDIA-specific, NCP-GENL is 31% GPU and model-compression work."
+tldr: "NVIDIA's generative AI line has four exams: NCA-GENL and NCA-GENM ($125 each, associate), NCP-GENL and NCP-AAI ($200 each, professional). Three decision inputs no other vendor forces on you. One: both professional exams still show 'Coming soon' next to Register, so any near-term plan is down to the two associates. Two: the cost of the official recommended training differs sharply by level. In autumn 2026 the two associate exams switched to one free open-source set of materials plus one course, while the two professional exams still list five paid courses, $1,620 at list price for NCP-GENL. Three: the official documents disagree with themselves — NCP-AAI's weights total 98% on the web page and 92% in the PDF, and two cells of NCP-GENL's web table carry misplaced text, one of it about OpenUSD. Lock-in also varies sharply: NCP-AAI is 7% NVIDIA-specific, NCP-GENL is 31% GPU and model-compression work."
 description: "A guide to choosing among NVIDIA's four generative AI certifications (NCA-GENL, NCA-GENM, NCP-GENL, NCP-AAI), built around four decision inputs — registration status, true cost including paid training, contradictions between official documents, and degree of vendor lock-in — with per-reader recommendations and recertification math."
 draft: false
 ---
@@ -40,14 +40,14 @@ Conversely, if you have no deadline and simply want to audit your own gaps again
 
 ## Decision Input Two: All Training Is Paid, So the Real Cost Isn't the Exam Fee
 
-Almost every other vendor's official prep material is free — AWS Skill Builder's Exam Prep Plans, Microsoft Learn paths, Google Skills, Anthropic Academy. **None of NVIDIA's four are.** Each certification page lists its recommended courses with prices attached, in the Certification Learning Path block, from $30 to $500.
+Almost every other vendor's official prep material is free — AWS Skill Builder's Exam Prep Plans, Microsoft Learn paths, Google Skills, Anthropic Academy. **NVIDIA's two professional exams are not**: their certification pages list recommended courses with prices attached in the Certification Learning Path block, from $30 to $500. The two associate exams used to do the same, but in autumn 2026 NVIDIA replaced their recommended training with [free open-source deep learning materials on GitHub](https://github.com/NVDLI/fundamentals-of-deep-learning) plus one DLI course, and those pages no longer show prices.
 
 So the comparison that matters is "exam fee plus recommended courses" as one bundle:
 
 | | Exam fee | Recommended courses | Available self-paced | Instructor-led only |
 |---|---|---|---|---|
-| **NCA-GENL** | $125 | five | **all five, $390 total** | none |
-| **NCA-GENM** | $125 | five | three, **$210** | **two, $1,000 total** |
+| **NCA-GENL** | $125 | one free open-source set plus one course | open-source materials are free; the course's current price is not listed | not listed |
+| **NCA-GENM** | $125 | one free open-source set plus one course | open-source materials are free | the course was a $500 workshop in August; current price not listed |
 | **NCP-GENL** | $200 | five | the three labelled "Self-Paced", **$620** (one of them priced at $500) | two, $1,000 total |
 | **NCP-AAI** | $200 | five | **four, $300 total** | one, $500 |
 
@@ -57,7 +57,7 @@ A few conclusions you can act on:
 
 **Two: the best single course per dollar in the whole line is Evaluating RAG and Semantic Search Systems, on the NCP-AAI page.** Officially **$30 for 3 hours**, mapping directly onto Evaluation and Tuning at **13%** — the most blueprint coverage per dollar of anything across the four. The other two $30 courses are worth noting too: [Introduction to Transformer-Based NLP](https://courses.nvidia.com/courses/course-v1:DLI+S-FX-08+V1/) (6 hours), shared by NCA-GENL and NCA-GENM, and NCP-GENL's [Optimizing CUDA ML Codes With NVIDIA Nsight's Profiling Tools](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-AC-03+V2) (4 hours). **Across all four official lists there are exactly three courses at the $30 tier — they are the sweet spot of the whole product line.**
 
-**Three: NCA-GENM's self-study route cannot cover the blueprint.** Two of its five recommended courses (Building Conversational AI Applications, Building AI Agents with Multimodal Models) **exist only as $500 instructor-led workshops, with no self-paced option**. Following the official path in full costs $125 + $210 + $1,000 = $1,335 — but what those two cover (conversational AI applications, multimodal agents) can be picked up from official docs and open-source projects, so **spending $1,000 on them is not worth it**.
+**Three: the recommended training for the two associate exams was replaced.** In August NCA-GENL listed five paid courses ($390 for the self-paced set), and two of NCA-GENM's five existed only as $500 workshops. Both now list one free open-source set of deep learning materials plus one course: the LLM application development course for NCA-GENL and the multimodal agent course for NCA-GENM. The free materials alone map to most weighted areas of both exams, so most of the official path can now be followed without paying for courses. Details are in the [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide-en) and [NCA-GENM](/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide-en) guides.
 
 **Four: NCP-GENL carries the highest list price.** Its five recommended courses total **$1,620** ($90 + $500 + $500 + $500 + $30), and one oddity sits inside that: Deploying RAG Pipelines for Production at Scale is labelled "Self-Paced" yet priced at $500, while the similarly named **Introduction to** Deploying RAG Pipelines… on the NCP-AAI page is $90. The course codes differ (`C-FX-18` versus `S-FX-19`) — they are different courses, so **check the code before buying**.
 
@@ -104,7 +104,7 @@ Take **NCA-GENL**. Not because it is the best of the four, but because **it and 
 Know one thing going in: **NCA-GENL says LLM on the tin, but no domain is called "LLM" or "RAG".** The weights are Core Machine Learning and AI Knowledge 30%, Software Development 24%, Experimentation 22%, Data Analysis and Visualization 14%, Trustworthy AI 10% — spaCy, NumPy, Keras, and cross validation are all in scope. **Walking in thinking "I use LLM APIs, this should be quick" is how people lose points**; it is the largest name-versus-content gap in this series.
 
 **Situation two: you work with images, audio, or across modalities.**
-Take **NCA-GENM** — also $125, also one hour, also registerable now. It is a **sibling of NCA-GENL, not a step above it**: Experimentation rises to 25% (the heaviest domain), Core ML drops to 20%, and two entirely new domains appear, Multimodal Data 15% and Performance Optimization 10%, testing U-Net, CLIP, diffusion models, and multimodal loss functions. Skip the two $500 workshops.
+Take **NCA-GENM** — also $125, also one hour, also registerable now. It is a **sibling of NCA-GENL, not a step above it**: Experimentation rises to 25% (the heaviest domain), Core ML drops to 20%, and two entirely new domains appear, Multimodal Data 15% and Performance Optimization 10%, testing U-Net, CLIP, diffusion models, and multimodal loss functions. Start with the free open-source materials NVIDIA now recommends.
 
 **Situation three: you build agent systems and have no deadline.**
 Treat **NCP-AAI** as an audit tool rather than a near-term target: walk its ten domains as a checklist, asking "have I done this in production?" for each. The platform 7% (NeMo Guardrails, NIM, NeMo Agent Toolkit, TensorRT-LLM, Triton) is the only part that cannot transfer in from generic agent experience, so fill that first. **Hold off on buying courses** — the blueprint may shift when registration opens, and material bought too early may cover content that gets cut.
@@ -151,7 +151,7 @@ So the long-run cost of each credential is "first attempt plus a full-price reta
 | Duration / items | 1 hour / 50–60 | 1 hour / 50–60 | 120 min / 60–70 | 120 min / 60–70 |
 | **Registerable?** | **Yes** | **Yes** | **Coming soon** | **Coming soon** |
 | Heaviest domain | Core ML 30% | Experimentation 25% | Model Optimization 17% + GPU 14% | Architecture 15% + Development 15% |
-| Self-paced course cost | $390 (all five) | $210 (only three) | $620 (three, one "self-paced" at $500) | **$300 (four)** |
+| Self-paced course cost | open-source materials free; other course price not listed | open-source materials free; other course price not listed | $620 (three, one "self-paced" at $500) | **$300 (four)** |
 | NVIDIA lock-in | Low | Medium (four SDKs) | **High (31% hardware layer)** | **Lowest (7%)** |
 | Official-doc problem | two item counts | two item counts | two misplaced cells | weights: web 98% / PDF 92% |
 | Who it fits | postings naming NVIDIA GenAI/LLM | image, audio, cross-modal work | training and inference optimization | production agent systems |
@@ -163,8 +163,12 @@ So the long-run cost of each credential is "first attempt plus a full-price reta
 | Registration status of both professionals | still Coming soon | **monthly** |
 | NCP-AAI weight contradiction | web 98%, PDF 92%; two rows differ | when registration opens |
 | NCP-GENL's two misplaced web cells | still wrong (Model Optimization describes deployment, Fine-Tuning describes OpenUSD) | quarterly |
-| DLI courses and prices | three tiers: $30 / $90 / $500 | quarterly |
+| DLI courses and prices | professional exams: three tiers, $30 / $90 / $500; associate exams: no prices on the page | quarterly |
 | Exam fees and validity | $125 / $200, two years, retake only | every six months |
+
+## Changelog
+
+- 2026-10-08: The recommended training for the two associate exams (NCA-GENL, NCA-GENM) is now one free open-source set of materials plus one course, and the certification pages no longer show prices. The original claim that NVIDIA is the only vendor whose official prep courses are all paid now holds only for the two professional exams. The title, tldr, cost table, and the third point are rewritten. The courses and prices for the two professional exams were rechecked and are unchanged.
 
 ## References
 

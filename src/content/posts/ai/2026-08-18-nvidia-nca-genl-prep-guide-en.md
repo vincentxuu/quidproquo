@@ -8,8 +8,8 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 9
-tldr: "NCA-GENL is usually what a job posting means by 'NVIDIA Generative AI / LLM certification.' But the official blueprint diverges sharply from the name — Core Machine Learning and AI Knowledge 30%, Software Development 24%, Experimentation 22%, Data Analysis 14%, Trustworthy AI 10% — with LLM and RAG content scattered at bullet level rather than forming a domain, alongside spaCy, NumPy, Keras, and cross validation. The other thing to know first: NVIDIA's official preparation courses all cost money ($30–$500), making it the only vendor in this series without a free official learning path. Official specs: $125, 1 hour, 50–60 items, two-year validity, English only, pass/fail with no score reported."
-description: "A preparation guide for NVIDIA NCA-GENL (Generative AI LLMs Associate), built on the official exam blueprint's five weighted areas, covering the gap between the name and the objectives, how to choose among the paid DLI courses, a three-week schedule with its derivation, and the two-year retake-only recertification rule."
+tldr: "NCA-GENL is usually what a job posting means by 'NVIDIA Generative AI / LLM certification.' But the official blueprint diverges sharply from the name — Core Machine Learning and AI Knowledge 30%, Software Development 24%, Experimentation 22%, Data Analysis 14%, Trustworthy AI 10% — with LLM and RAG content scattered at bullet level rather than forming a domain, alongside spaCy, NumPy, Keras, and cross validation. The other thing to know first: the official recommended training was replaced in autumn 2026, and each area now lists just two items, free open-source deep learning course materials on GitHub and one LLM application development course. Official specs: $125, 1 hour, 50–60 items, two-year validity, English only, pass/fail with no score reported."
+description: "A preparation guide for NVIDIA NCA-GENL (Generative AI LLMs Associate), built on the official exam blueprint's five weighted areas, covering the gap between the name and the objectives, what the official recommended training now is, a three-week schedule with its derivation, and the two-year retake-only recertification rule."
 draft: false
 ---
 
@@ -41,23 +41,30 @@ Sitting beside them in the same area: **familiarity with machine learning fundam
 
 Which means: **walking in thinking "I use the Claude API, this should be quick" will cost you across the 36% made of Data Analysis (14%) and Experimentation (22%).** This is the widest name-to-content gap in the series.
 
-## Divergence Two: The Official Preparation Material Is All Paid
+## The Official Recommended Training: Two Items Now, One of Them Free
 
-Every other vendor here has free official training — AWS Skill Builder's Exam Prep Plans, Microsoft Learn paths, Google Skills, Anthropic Academy. **NVIDIA does not.**
+The [official certification page](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/) lists "Recommended Training" under each weighted area. As of 2026-10-08:
 
-NVIDIA lists recommended courses in the blueprint table with a price on each:
+| Weighted area | Official recommended training |
+|---|---|
+| Core Machine Learning and AI Knowledge (30%) | Open-source deep learning materials plus the LLM application development course |
+| Software Development (24%) | Same |
+| Experimentation (22%) | Same |
+| Data Analysis (14%) | Same |
+| Trustworthy AI (10%) | The LLM application development course only |
 
-| Recommended course | Self-paced | Workshop |
-|---|---|---|
-| Getting Started With Deep Learning / Fundamentals of Deep Learning | 8h **$90** | 8h **$500** |
-| Accelerating End-to-End Data Science Workflows / Fundamentals of Accelerated Data Science | 8h **$90** | 8h **$500** |
-| Introduction to Transformer-Based NLP / Building Transformer-Based NLP Applications | 6h **$30** | 8h **$500** |
-| Building LLM Applications with Prompt Engineering | 8h **$90** | 8h **$500** |
-| Rapid Application Development With LLMs | 8h **$90** | 8h **$500** |
+The two items are:
 
-All five self-paced courses come to **$390** — three times the exam fee. NVIDIA does list five free supplementary items (blogs and on-demand videos, including "What Is Retrieval-Augmented Generation, aka RAG?" and the Trustworthy AI page).
+- **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**: the materials for NVIDIA's introductory deep learning course, hosted on GitHub and **free**.
+- **[Rapid Application Development With Large Language Models (LLMs)](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-09+V1)**: the DLI course on LLM application development. The certification page no longer shows a price and the course page loads its price dynamically, so I could not confirm today's figure. In August the self-paced version was $90 and the workshop $500.
 
-**Practical advice**: don't buy them all. Buy against the weights — if you already build LLM applications, what you lack is usually the 30% of Core ML and the 14% of Data Analysis, which maps to the first two courses ($180); the $30 Transformer course has the best ratio of all. Fill the rest from the free material and product documentation.
+Each area also carries a "Suggested Reading" list of free articles and papers, such as the Prompt Engineering Guide and "Attention Is All You Need".
+
+**This differs from August.** When this post was first published, NVIDIA listed five paid courses (deep learning, accelerated data science, Transformer NLP, prompt engineering, LLM application development) at $390 for the self-paced set, which is why it said NVIDIA was the only vendor in this series without free official material. That no longer holds: the four heaviest areas all have free material.
+
+**Practical advice**: work through the open-source materials on GitHub first. They cover Core ML and experiment design, where most candidates are weakest. Whether to buy the LLM application development course depends on whether you already build LLM applications; if you do, the suggested readings and your own experience usually suffice.
+
+**One gap to watch**: the new list has no accelerated data science course, but the Data Analysis area (14%) is still in the blueprint. Practice it yourself with pandas, NumPy, and visualization tools.
 
 ## Official Specs at a Glance
 
@@ -65,7 +72,7 @@ All five self-paced courses come to **$390** — three times the exam fee. NVIDI
 |---|---|
 | Fee | **$125** |
 | Length | **1 hour** |
-| Items | The page says both "includes 50 questions" and "50-60 multiple-choice" — **both numbers appear on the same page** |
+| Items | **50–60 multiple-choice** (in August the same page also said "includes 50 questions"; that sentence is gone) |
 | Passing score | **Not published.** The FAQ states "NVIDIA certification exams are pass/fail. You won't receive a score." |
 | Validity | **2 years**, renewable **only by retaking the exam** |
 | Language | English only |
@@ -118,7 +125,7 @@ All five self-paced courses come to **$390** — three times the exam fee. NVIDI
 
 **Case B: you do classical ML and lack LLM work**
 
-Replace week 1 with RAG, embeddings, prompt engineering, and vector databases; NVIDIA's $30 Transformer introduction is the best value here.
+Replace week 1 with RAG, embeddings, prompt engineering, and vector databases; The recommended training no longer includes a Transformer introduction, so cover that from the suggested readings NVIDIA lists (for example "Attention Is All You Need").
 
 **Timed practice matters more on this exam than most**: a minute per item, and **no score diagnostic afterwards**, so the pace has to be trained beforehand.
 
@@ -141,8 +148,12 @@ Budget accordingly: $125 for the exam, plus DLI courses as needed, plus $125 eve
 | The five weights | 30 / 24 / 22 / 14 / 10 | Quarterly |
 | Fee and length | $125, 1 hour | Every six months |
 | Item count | The page publishes two different numbers (50 and 50–60) | Every six months |
-| DLI course prices | $30–$90 self-paced, $500 workshop | Quarterly |
+| Official recommended training | One free open-source set of materials plus one DLI course; no prices on the certification page | Quarterly |
 | Languages | English only (the FAQ says "some exams" are in Simplified Chinese without naming them) | Every six months |
+
+## Changelog
+
+- 2026-10-08: The recommended training on the official certification page was replaced. The original listed five paid courses ($390 for the self-paced versions) and called NVIDIA the only vendor in this series without free official material. Each area now lists one free open-source set of materials plus one DLI course, and the page shows no prices. The "Divergence Two" section is rewritten, and the tldr, schedule, and recheck table are updated to match. The item-count row used to record two figures on the same page; NVIDIA has removed one of them.
 
 ## References
 

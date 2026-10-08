@@ -107,7 +107,7 @@ Both are professional-level agentic AI exams, so they belong side by side:
 | Heaviest areas | Architecture 15% + Development 15% | Development 30–35% |
 | Platform lock-in | **Only 7%** is explicitly NVIDIA product content | The whole exam revolves around Microsoft Foundry |
 | Prerequisites | 1–2 years AI/ML with production agentic work | **Must hold the AI-103 certification** |
-| Official training | Five DLI courses, **all paid** | Learning paths not live; course opens 9/30 |
+| Official training | Five DLI courses, **all paid** | Learning paths not live |
 
 **NCP-AAI's platform lock-in is surprisingly low** — one area out of ten (7%) explicitly tests NVIDIA products; the other nine are general agentic engineering. That makes it closer to vendor-neutral than most vendor certifications, and it means **preparing for it transfers better to your actual work**.
 

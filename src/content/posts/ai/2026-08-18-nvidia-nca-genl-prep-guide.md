@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 9
-tldr: "NCA-GENL 是職缺點名「NVIDIA Generative AI / LLM 相關認證」時最常指的那張。但官方 blueprint 的權重跟名字落差很大——Core Machine Learning and AI Knowledge 30%、Software Development 24%、Experimentation 22%、Data Analysis 14%、Trustworthy AI 10%，LLM 與 RAG 的內容散在條目層而不是自成一塊，spaCy、NumPy、Keras、cross validation 都在考。另一個要先知道的：NVIDIA 官方備考課程全部要付費（$30 到 $500），是本系列唯一沒有免費官方學習路徑的廠商。官方規格：$125、1 小時、50–60 題、效期兩年、僅英文、pass/fail 不給分數。"
-description: "NVIDIA NCA-GENL（Generative AI LLMs Associate）備考指南，依官方 exam blueprint 的五塊權重逐項拆解，說明名稱與考綱的落差、DLI 課程的付費結構與取捨、三週時程換算依據，以及兩年效期只能重考的續期規則。"
+tldr: "NCA-GENL 是職缺點名「NVIDIA Generative AI / LLM 相關認證」時最常指的那張。但官方 blueprint 的權重跟名字落差很大——Core Machine Learning and AI Knowledge 30%、Software Development 24%、Experimentation 22%、Data Analysis 14%、Trustworthy AI 10%，LLM 與 RAG 的內容散在條目層而不是自成一塊，spaCy、NumPy、Keras、cross validation 都在考。另一個要先知道的：官方的建議教材在 2026 年秋天整個換過，現在每一塊只推兩項，一份放在 GitHub 上的免費開源深度學習教材，加一門 LLM 應用開發課。官方規格：$125、1 小時、50–60 題、效期兩年、僅英文、pass/fail 不給分數。"
+description: "NVIDIA NCA-GENL（Generative AI LLMs Associate）備考指南，依官方 exam blueprint 的五塊權重逐項拆解，說明名稱與考綱的落差、官方建議教材的現況、三週時程換算依據，以及兩年效期只能重考的續期規則。"
 draft: false
 ---
 
@@ -41,23 +41,30 @@ draft: false
 
 也就是說：**抱著「我會用 Claude API，這張應該很快」的心態去考，會在傳統 ML 與資料分析那 36%（Data Analysis 14% + Experimentation 22%）上失血。** 這是本系列裡名稱與內容落差最大的一張。
 
-## 第二個落差：官方備考材料全部要付費
+## 官方建議教材：現在只有兩項，其中一項免費
 
-其他廠商的官方學習路徑幾乎都免費 —— AWS Skill Builder 的 Exam Prep Plan、微軟的 Microsoft Learn 路徑、Google Skills、Anthropic Academy 都是。**NVIDIA 不是。**
+[官方認證頁](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/)在每一塊權重底下都列了「Recommended Training」。2026-10-08 查到的內容是：
 
-官方在 blueprint 表格裡直接列出建議課程與價格，每一門都標價：
+| 權重區塊 | 官方建議教材 |
+|---|---|
+| Core Machine Learning and AI Knowledge（30%） | 開源深度學習教材 + LLM 應用開發課 |
+| Software Development（24%） | 同上 |
+| Experimentation（22%） | 同上 |
+| Data Analysis（14%） | 同上 |
+| Trustworthy AI（10%） | 只有 LLM 應用開發課 |
 
-| 官方建議課程 | 自學版 | 講師課 |
-|---|---|---|
-| Getting Started With Deep Learning ／ Fundamentals of Deep Learning | 8 小時 **$90** | 8 小時 **$500** |
-| Accelerating End-to-End Data Science Workflows ／ Fundamentals of Accelerated Data Science | 8 小時 **$90** | 8 小時 **$500** |
-| Introduction to Transformer-Based NLP ／ Building Transformer-Based NLP Applications | 6 小時 **$30** | 8 小時 **$500** |
-| Building LLM Applications with Prompt Engineering | 8 小時 **$90** | 8 小時 **$500** |
-| Rapid Application Development With LLMs | 8 小時 **$90** | 8 小時 **$500** |
+兩項分別是：
 
-自學版全買是 **$390**，是考試費的三倍。官方另外列了五項免費的補充材料（NVIDIA 部落格與隨選影片，含「What Is Retrieval-Augmented Generation, aka RAG?」與 Trustworthy AI 頁面）。
+- **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**：NVIDIA 深度學習入門課的教材，放在 GitHub 上，**免費**。
+- **[Rapid Application Development With Large Language Models (LLMs)](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-09+V1)**：DLI 的 LLM 應用開發課。認證頁不再標價，課程頁的價格是動態載入的，我沒有確認到今天的金額；8 月時這門課的自學版是 $90、講師課是 $500。
 
-**實務建議**：不要全買。照權重挑 —— 如果你已經在做 LLM 應用，缺的通常是 Core ML 那 30% 與 Data Analysis 那 14%，對應的是前兩門（$180）；Transformer 那門 $30 CP 值最高。剩下的用免費材料與官方文件補。
+每一塊另外附一份「Suggested Reading」，是免費的文章與論文，例如 Prompt Engineering Guide 與《Attention Is All You Need》。
+
+**這和 8 月不一樣。** 本文初版時官方列的是五門付費課（深度學習入門、加速資料科學、Transformer NLP、prompt engineering、LLM 應用開發），自學版全買 $390，所以當時寫「NVIDIA 是本系列唯一沒有免費官方教材的廠商」。那個說法現在不成立：最重的四塊都有一份免費教材可用。
+
+**實務建議**：先把 GitHub 上那份開源教材跑完，它對應的是多數考生最弱的 Core ML 與實驗設計。LLM 應用開發課要不要買，看你是不是已經在做 LLM 應用；已經在做的人，延伸閱讀加自己的實作經驗通常夠。
+
+**一個要留意的缺口**：新的建議清單不再有加速資料科學的課，但 Data Analysis 那 14% 還在考綱裡。這塊要自己用 pandas、NumPy 與視覺化工具練。
 
 ## 官方規格速覽
 
@@ -65,7 +72,7 @@ draft: false
 |---|---|
 | 費用 | **$125** |
 | 時間 | **1 小時** |
-| 題數 | 官方頁面同時寫「includes 50 questions」與「50-60 multiple-choice」——**兩個數字並存於同一頁** |
+| 題數 | **50–60 題選擇題**（8 月時同一頁另有一句「includes 50 questions」，現在已拿掉） |
 | 及格 | **不公布**。官方 FAQ 寫「NVIDIA certification exams are pass/fail. You won't receive a score.」 |
 | 效期 | **2 年**，且**只能靠重考續期** |
 | 語言 | 僅英文 |
@@ -118,7 +125,7 @@ draft: false
 
 **情境 B：你做傳統 ML，缺 LLM**
 
-把第 1 週換成 RAG、嵌入、prompt engineering 與向量資料庫；官方那門 $30 的 Transformer 入門課在這裡最划算。
+把第 1 週換成 RAG、嵌入、prompt engineering 與向量資料庫；官方建議教材現在不含 Transformer 的入門課，這部分用官方列的延伸閱讀（如《Attention Is All You Need》）補。
 
 **限時練習是這張特別需要的**：平均每題一分鐘，而且**考完不會給你分數診斷**，所以節奏要在考前練出來。
 
@@ -141,8 +148,12 @@ draft: false
 | 五塊權重 | 30 / 24 / 22 / 14 / 10 | 每季 |
 | 費用與時長 | $125、1 小時 | 每半年 |
 | 題數 | 官方頁面自己寫了兩個數字（50 與 50–60） | 每半年 |
-| DLI 課程價格 | 自學 $30–$90、講師課 $500 | 每季 |
+| 官方建議教材 | 免費開源教材一份 + DLI 課一門；認證頁不列價格 | 每季 |
 | 語言 | 僅英文（官方 FAQ 說「some exams」有簡中，未指名哪幾張） | 每半年 |
+
+## 更新紀錄
+
+- 2026-10-08：官方認證頁的建議教材整個換過。原文列了五門付費課（自學版合計 $390），並說 NVIDIA 是本系列唯一沒有免費官方教材的廠商；現在每一塊只推一份免費的開源教材加一門 DLI 課，頁面不再列價格。「第二個落差」一節整節改寫，tldr、時程與複查表同步更新。題數一列原本記錄同頁並存兩個數字，其中一句官方已拿掉。
 
 ## 參考資料
 

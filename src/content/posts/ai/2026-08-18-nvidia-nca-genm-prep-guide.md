@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCA-GENM（Generative AI Multimodal Associate）備考路徑：多模態那張，但兩門必備課程只有 $500 講師版"
+title: "NVIDIA NCA-GENM（Generative AI Multimodal Associate）備考路徑：多模態那張，官方建議教材換成一份免費教材加一門課"
 date: 2026-08-18
 type: guide
 category: ai
@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 12
-tldr: "NCA-GENM 與 NCA-GENL 同價同時長同級別，但重心完全不同：Experimentation 升到 25%（最重），Core ML 從 30% 降到 20%，並多出 Multimodal Data 15% 與 Performance Optimization 10% 兩塊。內容上考 U-Net、CLIP、擴散模型、多模態損失函數、attention map，以及 Riva／NeMo／Triton／ACE 這幾個 NVIDIA SDK。要注意成本結構：官方建議的五門課裡有兩門只有 $500 的講師版、沒有自學選項——純自學路線先天蓋不滿。官方規格：$125、1 小時、50–60 題、效期兩年、僅英文。"
-description: "NVIDIA NCA-GENM（Generative AI Multimodal Associate）備考指南，依官方七塊權重逐項拆解多模態資料、實驗、效能最佳化與 U-Net／CLIP／擴散模型，說明與 NCA-GENL 的差異、五門建議課程中兩門僅有講師版的成本問題，以及三週時程換算依據。"
+tldr: "NCA-GENM 與 NCA-GENL 同價同時長同級別，但重心完全不同：Experimentation 升到 25%（最重），Core ML 從 30% 降到 20%，並多出 Multimodal Data 15% 與 Performance Optimization 10% 兩塊。內容上考 U-Net、CLIP、擴散模型、多模態損失函數、attention map，以及 Riva／NeMo／Triton／ACE 這幾個 NVIDIA SDK。官方的建議教材在 2026 年秋天整個換過：現在只推一份放在 GitHub 上的免費開源深度學習教材，加一門多模態 agent 的課，而且各塊配的不一樣，最重的 Experimentation 只配免費教材。官方規格：$125、1 小時、50–60 題、效期兩年、僅英文。"
+description: "NVIDIA NCA-GENM（Generative AI Multimodal Associate）備考指南，依官方七塊權重逐項拆解多模態資料、實驗、效能最佳化與 U-Net／CLIP／擴散模型，說明與 NCA-GENL 的差異、官方建議教材的現況，以及三週時程換算依據。"
 draft: false
 ---
 
@@ -50,23 +50,30 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 | 先修 | 「A basic understanding of generative AI」 |
 | 報名 | **已開放**（直接連 Certiverse 結帳，與兩張 professional 的 Coming soon 不同） |
 
-## 成本結構的雷：兩門必備課只有講師版
+## 官方建議教材：一份免費教材加一門課
 
-這是這張跟其他 NVIDIA 證照最不一樣的地方。官方建議的五門課裡，**有兩門沒有自學選項**：
+[官方認證頁](https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/)在每一塊權重底下列了「Recommended Training」。2026-10-08 查到的內容，各塊配的不一樣：
 
-| 官方建議課程 | 自學版 | 講師版 |
+| 權重區塊 | 開源深度學習教材（免費） | 多模態 agent 課 |
 |---|---|---|
-| [Getting Started With Deep Learning](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-FX-01+V1) ／ Fundamentals of Deep Learning | 8 小時 **$90** | 8 小時 $500 |
-| [Introduction to Transformer-Based NLP](https://courses.nvidia.com/courses/course-v1:DLI+S-FX-08+V1/) ／ Building Transformer-Based NLP Applications | 6 小時 **$30** | 8 小時 $500 |
-| [**Building Conversational AI Applications**](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-06+V2) | **無** | 8 小時 **$500** |
-| [Generative AI With Diffusion Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-FX-14+V1) | 8 小時 **$90** | 8 小時 $500 |
-| [**Building AI Agents with Multimodal Models**](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1) | **無** | 8 小時 **$500** |
+| Core Machine Learning and AI Knowledge（20%） | 有 | 有 |
+| Data Analysis（10%） | 有 | 有 |
+| **Experimentation（25%）** | 有 | 無 |
+| Multimodal Data（15%） | 無 | 有 |
+| Performance Optimization（10%） | 有 | 無 |
+| Software Development（15%） | 有 | 有 |
+| Trustworthy AI（5%） | 無 | 無（只有延伸閱讀） |
 
-**自學能買到的只有三門，合計 $210；剩下兩門要走講師課，合計 $1,000。**
+兩項分別是：
 
-對照 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide)（五門都有自學版、全買 $390），這張的自學路線先天蓋不滿官方建議。
+- **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**：NVIDIA 深度學習入門課的教材，放在 GitHub 上，**免費**。最重的 Experimentation 那 25% 只配這一項。
+- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**：DLI 的多模態 agent 課。認證頁不再標價，我沒有確認到今天的金額；8 月時這門課只有講師版、$500。Multimodal Data 那 15% 只配這一項。
 
-**實務建議**：**別為了那兩門花 $1,000。** 它們對應的內容（對話式 AI 應用、多模態 agent）可以用官方文件與開源專案自己練 —— 特別是 Building AI Agents with Multimodal Models 那門，主題在多模態 agent，而這張的 blueprint 裡並沒有「agent」這個獨立領域。真正必買的是 **Generative AI With Diffusion Models（$90）**，它直接對應 Software Development 那 15% 裡的 U-Net 與 CLIP 條目。
+每一塊另外附「Suggested Reading」，是免費的文章與課程，例如 Hugging Face 的 LLM Course 與 Diffusion Models Course。
+
+**這和 8 月不一樣。** 本文初版時官方列了五門課，其中兩門只有 $500 的講師版，所以當時把「自學路線先天蓋不滿」當成這張最大的成本問題。現在五門縮成兩項，對話式 AI 與擴散模型的課都不在清單上了。
+
+**實務建議**：先跑完 GitHub 上那份開源教材，它一項就對應了七塊裡的五塊。Multimodal Data 那 15% 是唯一只配付費課的一塊；不想買課的話，用官方延伸閱讀列的多模態綜述與對比學習文章，加上自己實作一個圖文對齊的小模型來補。
 
 ## 逐塊準備
 
@@ -80,7 +87,7 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 
 **官方考什麼**：**控制多模態情境下的訓練穩定性**；**多模態損失函數**；ML 基礎（特徵工程、模型比較、交叉驗證）；**非序列神經網路與殘差連結**；設計評估多模態管線的統計分析；**多模態專屬的遷移學習**；新興趨勢；能源效率與可信賴的多模態模型；prompt engineering；深度學習框架（TensorFlow、PyTorch）。
 
-**怎麼準備**：**多模態損失函數與訓練穩定性是這塊的核心**，也是跟 NCA-GENL 差最多的地方。殘差連結與非序列網路屬於基礎架構知識，官方那門 $90 的 Deep Learning 入門課涵蓋得到。
+**怎麼準備**：**多模態損失函數與訓練穩定性是這塊的核心**，也是跟 NCA-GENL 差最多的地方。殘差連結與非序列網路屬於基礎架構知識，官方那份免費的開源深度學習教材涵蓋得到。
 
 ### Multimodal Data（15%，新增）
 
@@ -94,7 +101,7 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 
 具體條目包含：**用 U-Net 從純雜訊生成影像**、把 U-Net 當成一種 autoencoder；**用 CLIP 從英文 prompt 生成影像**、**用 CLIP 訓練文字轉影像的擴散模型**。
 
-**怎麼準備**：這是全張最具體、最能動手的一塊，也是 $90 那門 Diffusion Models 課的正中紅心。**四個 NVIDIA SDK（Riva、NeMo、Triton、ACE）要知道各自負責什麼**：語音、模型建構、推論服務、虛擬人。
+**怎麼準備**：這是全張最具體、最能動手的一塊，擴散模型的課已不在官方建議清單裡，改用官方延伸閱讀列的 Hugging Face Diffusion Models Course（第 1–2 單元）。**四個 NVIDIA SDK（Riva、NeMo、Triton、ACE）要知道各自負責什麼**：語音、模型建構、推論服務、虛擬人。
 
 ### Data Analysis and Visualization（10%）與 Performance Optimization（10%）
 
@@ -114,13 +121,13 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 
 | 週次 | 內容 |
 |---|---|
-| 第 1 週 | Software Development（15%）：U-Net、CLIP、擴散模型 —— 直接上 $90 那門課並動手跑 |
+| 第 1 週 | Software Development（15%）：U-Net、CLIP、擴散模型 —— 用 Hugging Face 的擴散模型課程動手跑 |
 | 第 2 週 | Multimodal Data（15%）+ Core ML 的多模態部分（損失函數、訓練穩定性） |
 | 第 3 週 | Experimentation（25%）+ Data Analysis（10%）+ Performance Optimization（10%）+ Trustworthy AI（5%） |
 
 **情境 B：做過電腦視覺，沒碰過 LLM**
 
-把第 1 週換成 Transformer 入門（官方 $30 那門）與 prompt engineering，其餘相同。
+把第 1 週換成 Transformer 入門（官方延伸閱讀列了 Hugging Face LLM Course 第一章）與 prompt engineering，其餘相同。
 
 **限時練習同樣重要**：一小時 50–60 題，平均每題約一分鐘，而且**不會給你分數診斷**。
 
@@ -137,7 +144,11 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 | 七塊權重 | 25 / 20 / 15 / 15 / 10 / 10 / 5 | 每季 |
 | 題數 | 官方頁面並存 50 與 50–60 兩個數字 | 每半年 |
 | 兩門課只有講師版 | Building Conversational AI Applications、Building AI Agents with Multimodal Models | 每季 |
-| 費用 | 考試 $125；自學課 $30–$90；講師課 $500 | 每季 |
+| 費用與教材 | 考試 $125；建議教材為免費開源教材一份 + DLI 課一門，認證頁不列課程價格 | 每季 |
+
+## 更新紀錄
+
+- 2026-10-08：官方認證頁的建議教材整個換過。原文的主軸之一是「五門建議課裡有兩門只有 $500 講師版，自學路線蓋不滿」；現在官方只推一份免費的開源教材加一門課，頁面不再列價格。標題、tldr、「成本結構」一節與時程裡提到舊課程的地方都已改寫。
 
 ## 參考資料
 
