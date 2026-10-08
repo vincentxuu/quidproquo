@@ -42,9 +42,9 @@ beta 與正式版的規格不同，分開列：
 | 項目 | beta（現在能報名的） | 正式版（依 exam guide） |
 |---|---|---|
 | 考試代碼 | ME1-C02 | MLA-C02 |
-| 時間 | 170 分鐘 | 官方尚未公布 |
+| 時間 | 170 分鐘 | 官方尚未公布（MLA-C01 是 130 分鐘） |
 | 題數 | 85 題 | **65 題**（50 題計分 + 15 題不計分） |
-| 費用 | **$75 USD**（beta 價） | 官方尚未公布；MLA-C01 是 $150 |
+| 費用 | **$75 USD**（beta 價） | **$150 USD**（[官方價目表](https://aws.amazon.com/certification/policies/before-testing/)的 Associate 級定價） |
 | 及格 | 不適用正式版的及格線 | **720**（量尺 100–1,000） |
 | 語言 | 僅英文 | 英文，另加日文、韓文、簡體中文 |
 | 題型 | 單選、複選 | 單選、複選 |
@@ -141,7 +141,7 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 
 官方的備考入口是 [AWS Skill Builder 的 MLA-C02 考試準備頁](https://skillbuilder.aws/category/exam-prep/machine-learning-engineer-associate-MLA-C02)。
 
-**失敗成本**：依 AWS 的[重考政策](https://aws.amazon.com/certification/policies/after-testing/)，沒過要等 14 個日曆天，每次重新付費。beta 考試另有規定，報名前先讀 AWS 認證政策頁的 beta 說明。
+**失敗成本**：依 AWS 的[重考政策](https://aws.amazon.com/certification/policies/after-testing/)，沒過要等 14 個日曆天，每次重新付費。**beta 的規則不同**：依 AWS 的[考前政策](https://aws.amazon.com/certification/policies/before-testing/)，beta 版只能考一次，沒過要等正式版上線才能再考。所以 beta 省下的 $75 是用「只有一次機會」換的，還沒準備好的人等正式版比較划算。
 
 ## 這張的已知陷阱
 
@@ -160,7 +160,8 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 | 項目 | 現況（2026-10-08 查證） | 什麼時候要重查 |
 |---|---|---|
 | 考試狀態 | 英文 beta，代碼 ME1-C02 | 每月，直到正式上線 |
-| 正式版的價格與時間 | 官方尚未公布 | 正式上線時 |
+| 正式版的價格 | $150（Associate 級定價） | 每半年 |
+| 正式版的考試時間 | 官方尚未公布 | 正式上線時 |
 | 四章權重 | 28 / 24 / 24 / 24 | 每次改版 |
 | 技能條目數 | 107 條，其中 45 條新增 | 每次改版 |
 | 其他語言 | 日、韓、簡中待正式上線；無繁中 | 正式上線時 |
@@ -171,6 +172,7 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 - [MLA-C02 官方 exam guide](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/machine-learning-engineer-associate-02.html)
 - [MLA-C01 與 MLA-C02 對照頁（新增、刪除與重新分類）](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/mla-02-comparison.html)
 - [AWS Skill Builder：MLA-C02 考試準備](https://skillbuilder.aws/category/exam-prep/machine-learning-engineer-associate-MLA-C02)
+- [AWS Certification：考前政策（價目表與 beta 考試規則）](https://aws.amazon.com/certification/policies/before-testing/)
 - [AWS Certification：考後政策（重考）](https://aws.amazon.com/certification/policies/after-testing/)
 
 **站內相關**

@@ -42,9 +42,9 @@ The beta and the standard version differ, so they are listed separately:
 | Item | Beta (open for registration now) | Standard version (per the exam guide) |
 |---|---|---|
 | Exam code | ME1-C02 | MLA-C02 |
-| Duration | 170 minutes | Not yet published |
+| Duration | 170 minutes | Not yet published (MLA-C01 was 130 minutes) |
 | Questions | 85 | **65** (50 scored + 15 unscored) |
-| Price | **$75 USD** (beta pricing) | Not yet published; MLA-C01 was $150 |
+| Price | **$75 USD** (beta pricing) | **$150 USD** (the Associate price in the [official price table](https://aws.amazon.com/certification/policies/before-testing/)) |
 | Passing score | The standard passing rule does not apply | **720** (scale of 100–1,000) |
 | Languages | English only | English, plus Japanese, Korean, and Simplified Chinese |
 | Question types | Multiple choice, multiple response | Multiple choice, multiple response |
@@ -141,7 +141,7 @@ If you have only done classic ML, shift time toward the agent and foundation mod
 
 The official preparation entry point is the [MLA-C02 exam prep page on AWS Skill Builder](https://skillbuilder.aws/category/exam-prep/machine-learning-engineer-associate-MLA-C02).
 
-**Failure cost**: under AWS's [retake policy](https://aws.amazon.com/certification/policies/after-testing/), you wait 14 calendar days after failing and pay again for each attempt. Beta exams have their own rules; read the beta section of the AWS Certification policies page before registering.
+**Failure cost**: under AWS's [retake policy](https://aws.amazon.com/certification/policies/after-testing/), you wait 14 calendar days after failing and pay again for each attempt. **The beta has different rules**: under AWS's [before-testing policies](https://aws.amazon.com/certification/policies/before-testing/), a beta can be taken only once, and a candidate who fails must wait for the standard version to become generally available. The $75 saved on the beta is paid for with a single attempt, so if you are not ready, the standard version is the better deal.
 
 ## Known Traps
 
@@ -160,7 +160,8 @@ The certification is valid for three years. You can recertify by retaking the la
 | Item | Status (verified 2026-10-08) | When to recheck |
 |---|---|---|
 | Exam status | English beta, code ME1-C02 | Monthly, until general availability |
-| Standard price and duration | Not yet published | At general availability |
+| Standard price | $150 (Associate pricing) | Every six months |
+| Standard duration | Not yet published | At general availability |
 | Domain weights | 28 / 24 / 24 / 24 | On each revision |
 | Skill count | 107, of which 45 are new | On each revision |
 | Other languages | Japanese, Korean, Simplified Chinese at general availability; no Traditional Chinese | At general availability |
@@ -171,6 +172,7 @@ The certification is valid for three years. You can recertify by retaking the la
 - [MLA-C02 official exam guide](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/machine-learning-engineer-associate-02.html)
 - [Comparison of MLA-C01 and MLA-C02 (additions, deletions, recategorizations)](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/mla-02-comparison.html)
 - [AWS Skill Builder: MLA-C02 exam prep](https://skillbuilder.aws/category/exam-prep/machine-learning-engineer-associate-MLA-C02)
+- [AWS Certification: before-testing policies (price table and beta exam rules)](https://aws.amazon.com/certification/policies/before-testing/)
 - [AWS Certification: after-testing policies (retakes)](https://aws.amazon.com/certification/policies/after-testing/)
 
 **Related on this site**
