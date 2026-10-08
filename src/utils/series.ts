@@ -966,6 +966,43 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'How AI summaries redraw the path from content to citation, click, and conversion, drawing on data from Google, Pew, and Cloudflare, and which part of the content business blocking, licensing, lawsuits, and owned assets each protect.',
     },
   },
+  // 內容販售系列群：一個入口系列加三個子系列。登錄前中英文各走自己的 fallback slug，語言切換接不起來。
+  {
+    slug: 'content-selling-business-models',
+    category: 'other',
+    names: { 'zh-TW': '內容販售商業模式拆解', en: 'Content Selling Business Models' },
+    descriptions: {
+      'zh-TW': '內容販售系列群的入口：先問誰付錢、付錢是為了完成什麼工作，再比較 B2B 情報、個人媒體、創作者平台與免費內容四種模式，並導向各子系列。',
+      en: 'The entry point to the content-selling series: it asks who pays and what job the payment gets done, compares B2B intelligence, independent media, creator platforms, and free content, and routes to each sub-series.',
+    },
+  },
+  {
+    slug: 'enterprise-intelligence-business',
+    category: 'other',
+    names: { 'zh-TW': '情報如何成為一門企業生意', en: 'How Intelligence Becomes an Enterprise Business' },
+    descriptions: {
+      'zh-TW': '拆解 DIGITIMES、The Information、Seeking Alpha、CB Insights、PitchBook 與 Gartner 如何把資訊取得、驗證與研究做成企業願意續約的產品，最後檢查台灣還能不能長出垂直情報公司。',
+      en: 'How DIGITIMES, The Information, Seeking Alpha, CB Insights, PitchBook, and Gartner turn access, verification, and research into products enterprises renew, ending with whether Taiwan can still build a vertical intelligence company.',
+    },
+  },
+  {
+    slug: 'creator-reader-relationship',
+    category: 'other',
+    names: { 'zh-TW': '誰掌握創作者與讀者的關係', en: 'Who Controls the Creator-Reader Relationship' },
+    descriptions: {
+      'zh-TW': '比較 Medium、Vocus、Substack、Patreon、Ghost 與 Beehiiv 各自拿走與留給創作者的東西：流量、會員資料、付款關係與搬家成本，並整理台灣創作者的平台選擇。',
+      en: 'What Medium, Vocus, Substack, Patreon, Ghost, and Beehiiv each take from and leave to creators—reach, member data, payment relationships, and migration cost—plus a platform-choice guide for creators in Taiwan.',
+    },
+  },
+  {
+    slug: 'free-content-acquisition',
+    category: 'other',
+    names: { 'zh-TW': '免費內容如何替別的生意獲客', en: 'How Free Content Acquires Customers for Another Business' },
+    descriptions: {
+      'zh-TW': '免費內容怎麼連到廣告、工具訂閱、券商合作與聯盟收入：用鉅亨網、CMoney、BigGo Finance、Fugle 等案例拆解轉換路徑、單位經濟與 AI 搜尋帶來的風險。',
+      en: 'How free content leads to ads, tool subscriptions, brokerage partnerships, and affiliate revenue, using cases such as cnYES, CMoney, BigGo Finance, and Fugle to map conversion paths, unit economics, and AI-search risk.',
+    },
+  },
   {
     slug: 'ai-agent-memory',
     category: 'ai-agents',

@@ -9,7 +9,7 @@ tldr: "In 2023, computer vision moved from seeing images to understanding, gener
 description: "A review of the award-winning and influential papers from CVPR and ICCV 2023, three major technical trends—foundation segmentation models, controllable generation, and new 3D representations—and which work still shaped the field in 2026."
 draft: false
 series:
-  name: "AI Conference Guide"
+  name: "Reading AI Top Conferences"
   order: 16
 glossary:
   - term: "SAM"

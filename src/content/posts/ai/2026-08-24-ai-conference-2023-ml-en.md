@@ -9,7 +9,7 @@ tldr: "In 2023, LLMs took over the machine-learning conference agenda. NeurIPS r
 description: "A guide to the award-winning and influential papers from NeurIPS, ICML, ICLR, AAAI, and IJCAI 2023. It covers DPO, challenges to emergent abilities, QLoRA, Tree of Thoughts, LLaVA, DreamFusion, LLM watermarking, Mamba, and the work that still shaped research in 2026."
 draft: false
 series:
-  name: "AI Conference Guide"
+  name: "Reading AI Top Conferences"
   order: 14
 glossary:
   - term: "DPO (Direct Preference Optimization)"

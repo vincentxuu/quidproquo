@@ -9,7 +9,7 @@ tldr: "2023 was the first full academic year after ChatGPT, and LLMs rewrote the
 description: "A review of Best Papers, Outstanding Papers, and influential work from ACL, EMNLP, and EACL 2023. Topics include the mechanisms behind in-context learning, prompt injection security, the LLM evaluation crisis, the surge in hallucination research, FActScore, and how ChatGPT transformed the NLP research agenda in a single year."
 draft: false
 series:
-  name: "AI Conference Guide"
+  name: "Reading AI Top Conferences"
   order: 15
 glossary:
   - term: "in-context learning"

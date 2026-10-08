@@ -8,7 +8,7 @@ lang: en
 description: "Practicing a feature-prioritization question — 'rank stories, events, profiles, messaging, and analytics under limited engineering bandwidth' — with CIRCLES paired with RICE scoring, plus the real story of why Intercom invented RICE in 2018."
 tldr: "The easiest way to fail a Product Sense question isn't running out of ideas — it's being unable to explain, with specifics, why you'd build this feature before that one when resources are tight. Today's practice question is real: 'A social app is gaining traction with teens but has limited engineering bandwidth. As the PM, prioritize these potential features: stories, events, profiles, messaging, analytics.' The answer still runs on CIRCLES — clarify the context and constraints, identify the users, surface their real needs, list the options — but this time the Cut-to-Ladder step gets replaced with RICE scoring: Reach (how many users this touches), Impact (how much it changes their experience), Confidence (how sure you are about those estimates), and Effort (engineering cost), multiplied and divided into one number that turns 'this feels more important' into something a reviewer can challenge and reproduce. The case study is Intercom itself — RICE is the framework PM Sean McBride published on Intercom's own blog in January 2018, built specifically because the team's roadmap debates kept getting won by whoever argued loudest, not by whichever idea actually mattered most."
 series:
-  name: "Product Builder Interview Drill"
+  name: "Product Builder Interview Daily"
   order: 47
 ---
 

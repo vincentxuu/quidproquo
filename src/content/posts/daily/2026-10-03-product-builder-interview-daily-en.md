@@ -8,7 +8,7 @@ lang: en
 description: "Practicing a Technical PM question — planning the deprecation of a public API after a breaking auth change — using Stripe's date-based API versioning. The case: Stripe has never forced an account to upgrade since 2011, translating every request through version-change modules instead."
 tldr: "Technical PM interviews don't test whether you can draw an architecture diagram — they test whether you can break a breaking API change into concrete decisions: customer segmentation, a compatibility layer, a phased deprecation timeline, and a sunset date you're actually willing to enforce. Today's framework is the five-layer API design model (Use Case → Contract → Compatibility → Operability → Developer Experience), paired with an ADR format (Context → Decision → Consequences → Revisit trigger) for writing decisions down. The practice question is: how would you plan a deprecation for a public API with a breaking auth change? The approach: clarify whether the change is security-driven or a refactor, segment customers by call volume, evaluate whether a compatibility layer can absorb part of the breaking change, then roll out in four phases (warning → outreach → soft deadline → shutdown), tracking migrated-traffic share as the leading indicator. The case study is Stripe: since 2011, every account has been pinned to a date-named API version on its first request, and every breaking change since then has been absorbed by internal version-change modules rather than forced onto developers — a pattern Stripe made explicit in September 2024 with monthly non-breaking releases and two breaking major releases a year."
 series:
-  name: "Product Builder Interview Drill"
+  name: "Product Builder Interview Daily"
   order: 45
 ---
 

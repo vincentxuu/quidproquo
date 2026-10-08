@@ -59,7 +59,8 @@ cp src/content/posts/<category>/YYYY-MM-DD-<zh-slug>.md \
 | `tldr` / `description` | 重寫成英文，**不是 Google Translate 翻譯腔** |
 | `tags` | 維持原 tag（tag 是 ID，不翻） |
 | `date` | 沿用原文發文日（讀者預期是同一篇的英譯） |
-| `category` / `type` / `series` | 不動 |
+| `category` / `type` | 不動 |
+| `series` / `additionalSeries` | `order` 不動。`name` 照抄中文原名，或改用 `src/utils/series.ts` 的 `SERIES_DEFINITIONS` 裡該系列登錄的英文名；**不要自己翻一個新的英文名**，對不上登錄表的名稱會被當成另一個系列，英文系列頁多出一張卡、上下篇也斷掉 |
 
 ### 4. 翻譯內容
 

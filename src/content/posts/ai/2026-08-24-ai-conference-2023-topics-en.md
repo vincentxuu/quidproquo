@@ -9,7 +9,7 @@ tldr: "2023 was the first year in which LLMs comprehensively rewrote the AI rese
 description: "A review of award-winning papers and topic distributions across nine major AI conferences in 2023. It analyzes how LLMs reshaped submission patterns: the explosion of alignment and DPO, hallucination, RAG, agents, and tool use; the emergence of multimodal LLMs and 3D Gaussian Splatting; the decline of task-specific NLP and pure NeRF research; and, looking back from 2026, which directions delivered the highest returns."
 draft: false
 series:
-  name: "AI Conference Guide"
+  name: "Reading AI Top Conferences"
   order: 17
 glossary:
   - term: "DPO (Direct Preference Optimization)"

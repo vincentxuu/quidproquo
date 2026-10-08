@@ -8,7 +8,7 @@ lang: en
 description: "Practicing an OpenAI Growth PM question — designing an experiment to help new users complete ChatGPT onboarding — using Duolingo's user-state transition model. The case study: Duolingo changed its streak rule from requiring a daily goal to requiring just one lesson, and both retention and DAU went up."
 tldr: "Growth & Experimentation interviews don't test whether you can run an A/B test — they test whether you can find the lever with the biggest impact on the north star metric before spending experiment budget. Today's question is a real OpenAI Growth PM prompt: 'If you were to design an experiment or feature to help onboard new ChatGPT users, what would you do?' The framework: split users into five states — new, current, reactivated, resurrected, and inactive — estimate how much each transition between states moves daily active users (DAU), and concentrate experiments on whichever transition moves DAU the most. The case is Duolingo's 2018 discovery that improving Current User Retention Rate had roughly five times the DAU impact of the next-best lever. One resulting experiment changed the streak rule from 'hit your daily goal to keep your streak' to 'finish one lesson to keep your streak' — Day 14 retention rose 3.3% relative, overall DAU rose 1%, and the share of learners still on a streak after 20 days rose 10.5%. Over four years, that metric rose 21% and DAU grew 4.5x."
 series:
-  name: "Product Builder Interview Drill"
+  name: "Product Builder Interview Daily"
   order: 44
 ---
 

@@ -79,6 +79,17 @@ export default defineConfig({
     '/en/series/multi-agent-systems-in-practice': '/en/series/multi-agent',
     '/en/series/reading-stanford-cme295': '/en/series/stanford-cme295',
     '/en/series/reading-cmu-11-768-ai-agents': '/en/series/cmu-11-768-ai-agents',
+    // 英文版文章曾寫成登錄表以外的系列名稱，各自長出一個系列頁
+    '/en/series/ai-conference-guide': '/en/series/ai-top-conferences',
+    '/en/series/product-builder-interview-drill': '/en/series/product-builder-interview-daily',
+    // 內容販售系列群登錄前的 fallback slug
+    '/series/內容販售商業模式拆解': '/series/content-selling-business-models',
+    '/series/情報如何成為一門企業生意': '/series/enterprise-intelligence-business',
+    '/series/誰掌握創作者與讀者的關係': '/series/creator-reader-relationship',
+    '/series/免費內容如何替別的生意獲客': '/series/free-content-acquisition',
+    '/en/series/how-intelligence-becomes-an-enterprise-business': '/en/series/enterprise-intelligence-business',
+    '/en/series/who-controls-the-creator-reader-relationship': '/en/series/creator-reader-relationship',
+    '/en/series/how-free-content-acquires-customers-for-another-business': '/en/series/free-content-acquisition',
   },
   adapter: cloudflare({
     platformProxy: { enabled: true },

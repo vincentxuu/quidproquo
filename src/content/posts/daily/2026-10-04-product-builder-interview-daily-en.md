@@ -8,7 +8,7 @@ lang: en
 description: "Practicing a Behavioral question — 'tell me about a time you disagreed with your manager' — through Amazon's real 'disagree and commit' example, plus this week's recap of all seven Product Builder interview drills."
 tldr: "Behavioral interviews don't test whether you have conflict stories — they test whether you're willing to tell one with real stakes, state your position and evidence clearly, and then genuinely execute once a decision is made instead of quietly resisting. Today's framework is STAR (with 60% of the airtime shifted onto Action and Result, not Situation/Task) paired with Amazon's 'disagree and commit' decision principle. The practice question is: tell me about a time you disagreed with your manager and how you handled it. The approach: pick a real disagreement where both sides had a point, state your position and the evidence behind it, show the turning point where you decided to commit, describe what you actually did to execute, and close with a quantified result plus what you learned. The case study is Jeff Bezos demonstrating disagree and commit himself in his 2016 shareholder letter: he had doubts about an Amazon Studios original's commercial terms, but after stating his full opinion he wrote back immediately, 'I disagree and commit and hope it becomes the most watched thing we've ever made,' letting the team run with their own judgment. The post closes with a recap table of this week's six topics from Product Sense through Technical PM, and a preview of next week."
 series:
-  name: "Product Builder Interview Drill"
+  name: "Product Builder Interview Daily"
   order: 46
 ---
 

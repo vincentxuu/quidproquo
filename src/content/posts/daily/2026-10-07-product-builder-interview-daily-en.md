@@ -8,7 +8,7 @@ lang: en
 description: "Practice a real Google Product Strategy interview question — as the Bing PM, Google dominates search, how do you grow Bing's share — using Porter's Five Forces paired with TAM-SAM-SOM. The case: Avis turned its 1960s underdog position ('We're No. 2. We try harder.') into two decades of share growth."
 tldr: "The easiest way to lose points in a Strategy & Execution interview isn't failing to analyze the market structure — it's finishing the five-forces analysis and then proposing a plan that attacks the market leader head-on anyway. Today's drill is a real Google Product Strategy interview question: 'As the Bing PM, Google has overwhelming search market share — how do you grow Bing's share?' The framework starts with Porter's Five Forces to find which structural constraints actually matter in search — barrier to entry (data plus distribution) and threat of substitutes (AI chat assistants bypassing search entirely) — then uses TAM-SAM-SOM to turn 'grow market share' into 'which users, on which channel, does Bing already hold a structural edge on.' The case is Avis: as the 1960s number-two player in car rental, Avis didn't compete on fleet size or locations — it ran 'We're No. 2. We try harder,' turning a structural disadvantage straight into proof of service motivation, a positioning that carried two decades of share growth. That's the live version of what the question is testing: as a market challenger, asymmetric positioning beats a head-on fight."
 series:
-  name: "Product Builder Interview Drill"
+  name: "Product Builder Interview Daily"
   order: 49
 ---
 

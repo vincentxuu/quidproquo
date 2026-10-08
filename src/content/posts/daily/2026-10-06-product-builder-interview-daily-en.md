@@ -8,7 +8,7 @@ lang: en
 description: "Practice a real Meta PM analytical-thinking question — define a north star metric for Instagram Reels and explain the trade-off against Stories — using a three-condition NSM checklist paired with guardrail metrics. The case: Meta actually shifted more than half its Instagram ad inventory to Reels in 2025."
 tldr: "The easiest way to lose points in a Metrics & Analytics interview isn't failing to name a north star metric — it's stopping right after you name it, without saying where the cost lands if the whole company chases that number. Today's drill is a real Meta PM analytical-thinking question: 'Define a north star metric for Instagram Reels, and explain the trade-off if you prioritize Reels over Stories.' The framework is a three-condition NSM checklist — reflects core value, is a leading indicator, is actionable by the team — used to screen candidate metrics, then paired with a guardrail-metric technique that names the number that breaks first when you over-optimize. The case is Meta itself: according to Sensor Tower data, Reels' share of all Instagram ad impressions jumped from 35% in 2024 to over half in 2025, and Reels' share of U.S. time spent on Instagram rose from 37% to 46%, with daily active users up 2% largely driven by Reels — a live version of the exact trade-off the question is testing: what happens to the rest of the attention pool when you bet everything on one format."
 series:
-  name: "Product Builder Interview Drill"
+  name: "Product Builder Interview Daily"
   order: 48
 ---
 
