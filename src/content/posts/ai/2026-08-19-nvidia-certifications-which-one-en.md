@@ -46,8 +46,8 @@ So the comparison that matters is "exam fee plus recommended courses" as one bun
 
 | | Exam fee | Recommended courses | Available self-paced | Instructor-led only |
 |---|---|---|---|---|
-| **NCA-GENL** | $125 | one free open-source set plus one course | open-source materials are free; the course's current price is not listed | not listed |
-| **NCA-GENM** | $125 | one free open-source set plus one course | open-source materials are free | the course was a $500 workshop in August; current price not listed |
+| **NCA-GENL** | $125 | one free open-source set plus one course | open-source materials are free; the LLM application development course is **$90** self-paced | none |
+| **NCA-GENM** | $125 | one free open-source set plus one course | open-source materials are free | the multimodal agent course is instructor-led only with no public price ($500 in August) |
 | **NCP-GENL** | $200 | five | the three labelled "Self-Paced", **$620** (one of them priced at $500) | two, $1,000 total |
 | **NCP-AAI** | $200 | five | **four, $300 total** | one, $500 |
 
@@ -151,7 +151,7 @@ So the long-run cost of each credential is "first attempt plus a full-price reta
 | Duration / items | 1 hour / 50–60 | 1 hour / 50–60 | 120 min / 60–70 | 120 min / 60–70 |
 | **Registerable?** | **Yes** | **Yes** | **Coming soon** | **Coming soon** |
 | Heaviest domain | Core ML 30% | Experimentation 25% | Model Optimization 17% + GPU 14% | Architecture 15% + Development 15% |
-| Self-paced course cost | open-source materials free; other course price not listed | open-source materials free; other course price not listed | $620 (three, one "self-paced" at $500) | **$300 (four)** |
+| Self-paced course cost | open-source materials free; other course $90 | open-source materials free; other course has no self-paced version | $620 (three, one "self-paced" at $500) | **$300 (four)** |
 | NVIDIA lock-in | Low | Medium (four SDKs) | **High (31% hardware layer)** | **Lowest (7%)** |
 | Official-doc problem | two item counts | two item counts | two misplaced cells | weights: web 98% / PDF 92% |
 | Who it fits | postings naming NVIDIA GenAI/LLM | image, audio, cross-modal work | training and inference optimization | production agent systems |

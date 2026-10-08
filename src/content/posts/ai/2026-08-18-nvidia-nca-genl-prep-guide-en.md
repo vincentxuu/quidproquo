@@ -56,13 +56,13 @@ The [official certification page](https://www.nvidia.com/en-us/learn/certificati
 The two items are:
 
 - **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**: the materials for NVIDIA's introductory deep learning course, hosted on GitHub and **free**.
-- **[Rapid Application Development With Large Language Models (LLMs)](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-09+V1)**: the DLI course on LLM application development. The certification page no longer shows a price and the course page loads its price dynamically, so I could not confirm today's figure. In August the self-paced version was $90 and the workshop $500.
+- **[Rapid Application Development With Large Language Models (LLMs)](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-FX-26+V1)**: the DLI course on LLM application development; the self-paced version is 8 hours and **$90** (confirmed on NVIDIA's course page, 2026-10-08). **The certification page's links have a trap**: the course name under each weighted area points to [V1 of the instructor-led version](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-09+V1), whose own page says it was deprecated in October 2024 and whose enrollment closed long ago. Only the "Learn More" button on the course card near the top leads to the current self-paced version. Use the link above if you buy it.
 
 Each area also carries a "Suggested Reading" list of free articles and papers, such as the Prompt Engineering Guide and "Attention Is All You Need".
 
 **This differs from August.** When this post was first published, NVIDIA listed five paid courses (deep learning, accelerated data science, Transformer NLP, prompt engineering, LLM application development) at $390 for the self-paced set, which is why it said NVIDIA was the only vendor in this series without free official material. That no longer holds: the four heaviest areas all have free material.
 
-**Practical advice**: work through the open-source materials on GitHub first. They cover Core ML and experiment design, where most candidates are weakest. Whether to buy the LLM application development course depends on whether you already build LLM applications; if you do, the suggested readings and your own experience usually suffice.
+**Practical advice**: work through the open-source materials on GitHub first. They cover Core ML and experiment design, where most candidates are weakest. Whether to buy the LLM application development course ($90) depends on whether you already build LLM applications; if you do, the suggested readings and your own experience usually suffice.
 
 **One gap to watch**: the new list has no accelerated data science course, but the Data Analysis area (14%) is still in the blueprint. Practice it yourself with pandas, NumPy, and visualization tools.
 
@@ -148,7 +148,7 @@ Budget accordingly: $125 for the exam, plus DLI courses as needed, plus $125 eve
 | The five weights | 30 / 24 / 22 / 14 / 10 | Quarterly |
 | Fee and length | $125, 1 hour | Every six months |
 | Item count | The page publishes two different numbers (50 and 50–60) | Every six months |
-| Official recommended training | One free open-source set of materials plus one DLI course; no prices on the certification page | Quarterly |
+| Official recommended training | One free open-source set of materials plus one $90 self-paced DLI course; no prices on the certification page, and the in-area links point to a deprecated version | Quarterly |
 | Languages | English only (the FAQ says "some exams" are in Simplified Chinese without naming them) | Every six months |
 
 ## Changelog

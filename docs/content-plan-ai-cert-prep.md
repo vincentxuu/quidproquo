@@ -123,7 +123,7 @@
 
 **舊文複查找到、還沒處理的**：
 
-- **NVIDIA NCA-GENL、NCA-GENM**（已處理，2026-10-08）：主 session 親自確認官方頁面後改寫。兩張的建議教材都換成 GitHub 上的免費開源深度學習教材加一門 DLI 課（GENL 配 LLM 應用開發課、GENM 配多模態 agent 課），認證頁不再列課程價格。兩篇的教材／成本一節整節改寫，NCA-GENM 的標題也改了（原標題的「兩門必備課只有 $500 講師版」已不成立）；「NVIDIA 怎麼選」的標題、成本表與第三點同步改寫。**那兩門 DLI 課今天的價格沒查到**（課程頁動態載入），文中標明未確認。
+- **NVIDIA NCA-GENL、NCA-GENM**（已處理，2026-10-08）：主 session 親自確認官方頁面後改寫。兩張的建議教材都換成 GitHub 上的免費開源深度學習教材加一門 DLI 課（GENL 配 LLM 應用開發課、GENM 配多模態 agent 課），認證頁不再列課程價格。兩篇的教材／成本一節整節改寫，NCA-GENM 的標題也改了（原標題的「兩門必備課只有 $500 講師版」已不成立）；「NVIDIA 怎麼選」的標題、成本表與第三點同步改寫。兩門 DLI 課的價格後來從 NVIDIA 的課程價格端點（`learn.learn.nvidia.com/api/dli/price/?course_id=…`）查到：LLM 應用開發課自學版（`S-FX-26`）$90；多模態 agent 課（`C-FX-17`）只有講師版、無公開定價。另發現 NCA-GENL 認證頁各區塊的課名連結指向已於 2024-10 停用的講師版 V1（`C-FX-09+V1`），只有頁面上方課程卡片連到現行自學版，文中已提醒。
 - **Claude CCAR-F**：取消改期的時限，exam guide 寫 24 小時、Pearson VUE 頁面寫 48 小時，兩個官方來源不一致。
 - **Claude 另外三篇**：認證頁不再放 exam guide，改集中在 partner-certifications 頁，三篇的參考連結文字要改。
 - **AWS AIF-C01**：義大利文與德文版「2026-10-15 之後退場」一週後要改成過去式。
@@ -134,7 +134,7 @@
 - AWS：官方目錄 API 列 13 張，AI 相關四張（AIF、MLA、AIP、AI Business Strategist beta，代號 AIB-C01）。沒有其他新的。
 - Google：15 張，AI 相關三張，和 §0.7 相同。
 - Anthropic 4 張、NVIDIA 12 張，都和先前相同。
-- **今天才第一次查的五家**，都有本系列沒評估過的 AI 認證：Databricks 四張（含新的 Context Engineer Associate）、Snowflake 三張、IBM 六張、Oracle 七張、Salesforce 一張。完整清單在查核回報裡，尚未決定選入或排除。
+- **今天才第一次查的五家**，都有本系列沒評估過的 AI 認證：Databricks 四張（含新的 Context Engineer Associate）、Snowflake 三張、IBM 六張、Oracle 七張、Salesforce 一張。完整清單在查核回報裡，尚未決定選入或排除。**使用者 2026-10-08 指示：微軟其餘 11 張加 AB-410，以及這五家共 21 張，先緩緩，不要主動動工。**
 
 ### 下一步（新 session 從這裡接）
 

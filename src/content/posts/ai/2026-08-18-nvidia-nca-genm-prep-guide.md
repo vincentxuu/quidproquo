@@ -67,7 +67,7 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 兩項分別是：
 
 - **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**：NVIDIA 深度學習入門課的教材，放在 GitHub 上，**免費**。最重的 Experimentation 那 25% 只配這一項。
-- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**：DLI 的多模態 agent 課。認證頁不再標價，我沒有確認到今天的金額；8 月時這門課只有講師版、$500。Multimodal Data 那 15% 只配這一項。
+- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**：DLI 的多模態 agent 課，8 小時，**只有講師版**。2026-10-08 查 NVIDIA 的課程頁與價格資料，這門課沒有公開定價（講師課依場次報價），也查不到對應的自學版；8 月時認證頁標的是 $500。Multimodal Data 那 15% 只配這一項。
 
 每一塊另外附「Suggested Reading」，是免費的文章與課程，例如 Hugging Face 的 LLM Course 與 Diffusion Models Course。
 
@@ -144,7 +144,7 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 | 七塊權重 | 25 / 20 / 15 / 15 / 10 / 10 / 5 | 每季 |
 | 題數 | 官方頁面並存 50 與 50–60 兩個數字 | 每半年 |
 | 兩門課只有講師版 | Building Conversational AI Applications、Building AI Agents with Multimodal Models | 每季 |
-| 費用與教材 | 考試 $125；建議教材為免費開源教材一份 + DLI 課一門，認證頁不列課程價格 | 每季 |
+| 費用與教材 | 考試 $125；建議教材為免費開源教材一份 + 一門只有講師版的 DLI 課（無公開定價） | 每季 |
 
 ## 更新紀錄
 

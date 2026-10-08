@@ -56,13 +56,13 @@ draft: false
 兩項分別是：
 
 - **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**：NVIDIA 深度學習入門課的教材，放在 GitHub 上，**免費**。
-- **[Rapid Application Development With Large Language Models (LLMs)](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-09+V1)**：DLI 的 LLM 應用開發課。認證頁不再標價，課程頁的價格是動態載入的，我沒有確認到今天的金額；8 月時這門課的自學版是 $90、講師課是 $500。
+- **[Rapid Application Development With Large Language Models (LLMs)](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-FX-26+V1)**：DLI 的 LLM 應用開發課，自學版 8 小時、**$90**（2026-10-08 從 NVIDIA 課程頁確認）。**認證頁的連結有一個坑**：各權重區塊底下的課名連到的是[講師版的 V1](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-09+V1)，課程頁自己寫著該版本已在 2024 年 10 月停用、報名早已截止；頁面上方課程卡片的「Learn More」才連到現行的自學版。要買請走上面這個連結。
 
 每一塊另外附一份「Suggested Reading」，是免費的文章與論文，例如 Prompt Engineering Guide 與《Attention Is All You Need》。
 
 **這和 8 月不一樣。** 本文初版時官方列的是五門付費課（深度學習入門、加速資料科學、Transformer NLP、prompt engineering、LLM 應用開發），自學版全買 $390，所以當時寫「NVIDIA 是本系列唯一沒有免費官方教材的廠商」。那個說法現在不成立：最重的四塊都有一份免費教材可用。
 
-**實務建議**：先把 GitHub 上那份開源教材跑完，它對應的是多數考生最弱的 Core ML 與實驗設計。LLM 應用開發課要不要買，看你是不是已經在做 LLM 應用；已經在做的人，延伸閱讀加自己的實作經驗通常夠。
+**實務建議**：先把 GitHub 上那份開源教材跑完，它對應的是多數考生最弱的 Core ML 與實驗設計。LLM 應用開發課（$90）要不要買，看你是不是已經在做 LLM 應用；已經在做的人，延伸閱讀加自己的實作經驗通常夠。
 
 **一個要留意的缺口**：新的建議清單不再有加速資料科學的課，但 Data Analysis 那 14% 還在考綱裡。這塊要自己用 pandas、NumPy 與視覺化工具練。
 
@@ -139,7 +139,7 @@ draft: false
 
 官方 FAQ 更直接：「NVIDIA certifications are valid for two years, after which you must retake the exam to be recertified.」**沒有繼續教育路徑、沒有續期折扣、沒有像微軟那樣的免費線上評量。** 兩年後就是再付一次 $125。
 
-把這條算進總成本：$125 考試 +（依需要）DLI 課程 + 每兩年 $125 續期。
+把這條算進總成本：$125 考試 +（依需要）$90 的 DLI 課 + 每兩年 $125 續期。
 
 ## 會過期的東西（下次複查看這裡）
 
@@ -148,7 +148,7 @@ draft: false
 | 五塊權重 | 30 / 24 / 22 / 14 / 10 | 每季 |
 | 費用與時長 | $125、1 小時 | 每半年 |
 | 題數 | 官方頁面自己寫了兩個數字（50 與 50–60） | 每半年 |
-| 官方建議教材 | 免費開源教材一份 + DLI 課一門；認證頁不列價格 | 每季 |
+| 官方建議教材 | 免費開源教材一份 + DLI 自學課一門 $90；認證頁不列價格，且區塊內連結指向已停用的舊版 | 每季 |
 | 語言 | 僅英文（官方 FAQ 說「some exams」有簡中，未指名哪幾張） | 每半年 |
 
 ## 更新紀錄

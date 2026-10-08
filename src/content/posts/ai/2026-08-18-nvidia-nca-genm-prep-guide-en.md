@@ -67,7 +67,7 @@ The [official certification page](https://www.nvidia.com/en-us/learn/certificati
 The two items are:
 
 - **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**: the materials for NVIDIA's introductory deep learning course, hosted on GitHub and **free**. It is the only item listed for Experimentation, the heaviest area at 25%.
-- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**: the DLI course on multimodal agents. The certification page no longer shows a price and I could not confirm today's figure; in August it existed only as a $500 workshop. It is the only item listed for Multimodal Data (15%).
+- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**: the DLI course on multimodal agents, 8 hours and **instructor-led only**. Checked 2026-10-08 against NVIDIA's course page and price data: it has no public price (workshops are quoted per session) and no self-paced counterpart could be found. In August the certification page listed it at $500. It is the only item listed for Multimodal Data (15%).
 
 Each area also carries a "Suggested Reading" list of free articles and courses, such as the Hugging Face LLM Course and Diffusion Models Course.
 
@@ -144,7 +144,7 @@ The same as NVIDIA's other three: two years, renewable only by retaking, **no co
 | The seven weights | 25 / 20 / 15 / 15 / 10 / 10 / 5 | Quarterly |
 | Item count | The page carries both 50 and 50–60 | Every six months |
 | The two workshop-only courses | Building Conversational AI Applications, Building AI Agents with Multimodal Models | Quarterly |
-| Costs and training | $125 exam; recommended training is one free open-source set of materials plus one DLI course, with no course prices on the certification page | Quarterly |
+| Costs and training | $125 exam; recommended training is one free open-source set of materials plus one instructor-led-only DLI course with no public price | Quarterly |
 
 ## Changelog
 
