@@ -95,7 +95,7 @@ The verbs in the second area are implement, create, build, and deploy. That is u
 
 **Failure is cheap**: under Microsoft's [retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy), you wait 24 hours after a first failure, 14 days between later attempts, and can sit the same exam at most 5 times in 12 months. Every attempt is paid, but at $50 in Taiwan this ties with GitHub's GH-300 for the lowest failure cost in the series.
 
-**Practice assessment**: the official practice assessment has moved to AI Skills Navigator and requires sign-in. The study guide's useful links table has a row reading "Take a free Practice Assessment", but it is plain text with no link, and the retired AI-900 guide carries the same row. The pointer to the actual assessment does not say whether it is free; signing in is the only way to confirm.
+**Practice assessment**: the official practice assessment has moved to AI Skills Navigator and requires sign-in. The study guide's useful links table has a row reading "Take a free Practice Assessment", but it is plain text with no link, and the retired AI-900 guide carries the same row. The pointer to the actual assessment does not say whether it is free, and nothing is visible without signing in. Microsoft's [practice assessment policy page](https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications) says practice assessments are "available at no cost", but that page describes the ones hosted on Microsoft Learn and has not been restated for AI Skills Navigator.
 
 ## Known Traps
 
@@ -122,7 +122,7 @@ The usual next step is [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide
 | Weights | 40–45 / 55–60 | On each revision |
 | Price | $99 US, $50 Taiwan | Every six months |
 | Certification page summary | Still the AI-900 five-area description | When Microsoft fixes it |
-| Practice assessment | On AI Skills Navigator, sign-in required; whether it is free is unconfirmed | Every six months |
+| Practice assessment | On AI Skills Navigator, sign-in required; the policy page calls practice assessments free, not restated for the new platform | Every six months |
 
 ## References
 

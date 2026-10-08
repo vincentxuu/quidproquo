@@ -135,7 +135,7 @@ If you only know one half, reallocate. Classic ML people can compress weeks 2–
 
 **Failure cost is moderate**: under Microsoft's [retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy), you wait 24 hours after a first failure, 14 days between later attempts, and can sit the same exam at most 5 times in 12 months, paying each time.
 
-**Practice assessment**: the certification page says the practice assessment is on AI Skills Navigator and requires sign-in. The page does not say whether it is free.
+**Practice assessment**: the certification page says the practice assessment is on AI Skills Navigator and requires sign-in. The page does not say whether it is free. Microsoft's [practice assessment policy page](https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications) says practice assessments are "available at no cost", but it describes the ones hosted on Microsoft Learn and has not been restated for the new platform.
 
 ## Known Traps
 

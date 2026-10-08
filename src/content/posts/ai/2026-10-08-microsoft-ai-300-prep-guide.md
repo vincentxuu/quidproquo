@@ -135,7 +135,7 @@ draft: false
 
 **失敗成本中等**：依微軟的[重考政策](https://learn.microsoft.com/en-us/credentials/support/retake-policy)，第一次沒過等 24 小時，之後每次間隔 14 天，同一張考試 12 個月內最多 5 次，每次重新付費。
 
-**練習測驗**：認證頁說 practice assessment 在 AI Skills Navigator 上，要登入才能啟動。頁面沒有說明是否免費。
+**練習測驗**：認證頁說 practice assessment 在 AI Skills Navigator 上，要登入才能啟動。頁面沒有說明是否免費；微軟的[練習測驗政策頁](https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications)寫練習測驗「available at no cost」，但描述的是 Microsoft Learn 上的版本，搬到新平台後沒有另外重申。
 
 ## 這張的已知陷阱
 

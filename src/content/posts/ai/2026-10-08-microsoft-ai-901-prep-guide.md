@@ -95,7 +95,7 @@ Azure AI Fundamentals 這張認證還在，但考試換了。**AI-900 已於 202
 
 **失敗成本低**：依微軟的[重考政策](https://learn.microsoft.com/en-us/credentials/support/retake-policy)，第一次沒過等 24 小時，之後每次間隔 14 天，同一張考試 12 個月內最多 5 次。每次都要重新付費，但在台灣是 $50，與 GitHub 的 GH-300 並列本系列失敗成本最低。
 
-**練習測驗**：官方的 practice assessment 已搬到 AI Skills Navigator，要登入才能啟動。study guide 的實用連結表有一列寫「Take a free Practice Assessment」，但那是純文字、沒有連結，退場的 AI-900 指南也有同一列；實際入口的說明沒有提到是否免費，登入後才能確認。
+**練習測驗**：官方的 practice assessment 已搬到 AI Skills Navigator，要登入才能啟動。study guide 的實用連結表有一列寫「Take a free Practice Assessment」，但那是純文字、沒有連結，退場的 AI-900 指南也有同一列；實際入口的說明沒有提到是否免費，而且要登入才看得到內容。微軟的[練習測驗政策頁](https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications)寫練習測驗「available at no cost」，但那頁描述的是放在 Microsoft Learn 上的版本，搬到 AI Skills Navigator 之後沒有另外重申。
 
 ## 這張的已知陷阱
 
@@ -122,7 +122,7 @@ Associate、expert、specialty 級每年要做一次續期評量，入門級不�
 | 兩塊權重 | 40–45 / 55–60 | 每次改版 |
 | 費用 | 美國 $99、台灣 $50 | 每半年 |
 | 認證頁簡介 | 仍是 AI-900 的五塊描述 | 微軟修好時 |
-| 練習測驗 | 在 AI Skills Navigator，需登入；是否免費未確認 | 每半年 |
+| 練習測驗 | 在 AI Skills Navigator，需登入；官方政策頁稱練習測驗免費，新平台未另外重申 | 每半年 |
 
 ## 參考資料
 

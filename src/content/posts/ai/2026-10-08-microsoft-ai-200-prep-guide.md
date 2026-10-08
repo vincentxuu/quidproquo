@@ -129,7 +129,7 @@ PostgreSQL 那組有六條，是三者裡最細的，而且是整份考綱唯一
 
 ## 這張的已知陷阱
 
-1. **沒有練習測驗。** 認證頁寫「The Practice Assessment for this exam is not currently available」，並說通常在考試結束 beta、正式上線後八週內提供。微軟在 [2026 年 5 月的介紹文](https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-azure-ai-cloud-developer-associate-certification/4494116)寫這張當時是 beta、預計 7 月正式上線；認證頁目前沒有標 beta，但也沒有任何官方頁面明說已正式上線，練習測驗也還沒出現。如果仍在 beta，重考規則會不同：beta 期間只能考一次。
+1. **沒有練習測驗。** 認證頁寫「The Practice Assessment for this exam is not currently available」，並說通常在考試結束 beta、正式上線後八週內提供。微軟在 [2026 年 5 月的介紹文](https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-azure-ai-cloud-developer-associate-certification/4494116)寫這張當時是 beta、預計 7 月正式上線；現在應該已經正式上線，依據有兩個：微軟對 beta 中的考試會在頁面標題加「(beta)」並附 beta 計分說明（例如 AB-650 的頁面），AI-200 的頁面兩者都沒有；[Microsoft Q&A 上 2026 年 7 月中的一則問答](https://learn.microsoft.com/en-us/answers/questions/5947859/missing-verified-credential-for-ai-200-cert)裡，考生與回覆者都提到這張已在 beta 之後正式上線。微軟沒有另外發正式上線的公告，練習測驗也還沒出現。
 2. **study guide 還留著 AZ-204 的內容。** 「Get trained」的連結指向 AZ-204 的考試頁；「Find documentation」列了 Container Instances、Blob Storage、Microsoft Entra ID、API Management、Event Hubs、Queue Storage，這些在技能條目裡一個都沒有，Redis 的連結也還是舊名 Azure Cache for Redis。**以技能條目為準，文件連結區不是考綱。**
 3. **AZ-204 的教材只能用一部分。** 從上面殘留的連結可以看出舊考試的範圍；新考綱沒有列的服務就不用讀，新加的三種向量搜尋舊教材不會有。
 4. **不要把它當成 AI-103 的替代。** 職缺寫「Azure AI」時多半指的是 AI-103 那種能力。這張證明的是後端與平台能力，履歷上要搭配說明。
