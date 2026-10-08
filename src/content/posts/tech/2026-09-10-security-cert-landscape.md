@@ -5,7 +5,7 @@ category: tech
 type: guide
 tags: [cybersecurity, certification, ai-security, career, cissp, comptia, aws]
 lang: zh-TW
-tldr: "2025–2026 年 18 個月內有 6+ 張 AI 安全證照密集上市，傳統三強 Security+（$404）、AWS Security Specialty（$300）、CISSP（$749）仍是基礎。非資安專職的 AI 平台開發者，建議三階段：Security+ → AWS Security → SecAI+ 或 CAISP → CISSP，總預算 $1,800–$2,650。"
+tldr: "2025–2026 年 18 個月內有 10+ 張 AI 安全證照密集上市，傳統三強 Security+（$439）、AWS Security Specialty（$300）、CISSP（$749）仍是基礎。非資安專職的 AI 平台開發者，建議三階段：Security+ → AWS Security → SecAI+ 或 CAISP → CISSP，總預算 $1,850–$2,700。"
 description: "給非資安專職軟體開發者的資安證照選考指南：涵蓋 16 張主流證照的費用、門檻與台灣市場認可度比較，以及針對 AI/SaaS 平台開發者的三階段路線圖。"
 draft: false
 series:
@@ -27,7 +27,7 @@ series:
 
 打底用，建立共同語言。
 
-- **CompTIA Security+**（$404–$439）：國際通用的入門證照，90 題 / 90 分鐘，無經驗門檻。台灣金融業徵才清單常見。依 [SecuSpark 2026 統計](https://www.secuspark.com/blog/security-plus-pass-rate-statistics)，自學首次通過率約 50–65%，搭配培訓可達 85–93%。
+- **CompTIA Security+**（$439，2026/6 調價）：國際通用的入門證照，90 題 / 90 分鐘，無經驗門檻。台灣金融業徵才清單常見。依 [SecuSpark 2026 統計](https://www.secuspark.com/blog/security-plus-pass-rate-statistics)，自學首次通過率約 50–65%，搭配培訓可達 85–93%。
 - **ISC2 CC**（$199）：ISC2 品牌的入門款，門檻更低，但作為跳板通往 CISSP/CCSP 有策略價值。
 
 ### 2. 雲端資安
@@ -35,7 +35,7 @@ series:
 你的程式碼跑在哪朵雲，就考哪朵雲的安全證照。
 
 - **AWS Security Specialty**（$300）：65 題 / 170 分鐘，涵蓋 IAM 策略、KMS、VPC 安全、GuardDuty、Bedrock 安全配置。依 [Pruvos 社群數據](https://www.pruvos.com/certifications/cloud-computing/aws-scs-c03)，首次通過率約 45–55%，有 AWS 經驗者可達 65–70%。持有任何 AWS 認證可享 50% 折扣（$150）。
-- **Azure AZ-500**（$165）：微軟生態最便宜的雲端資安證照，1 年效期、每年免費線上續期。政府與金融業偏好 Azure 的場景適用。
+- **Microsoft SC-500**（$165）：取代已在 2026/8/31 退役的 AZ-500，考試範圍加入 AI 工作負載的安全控制，仍是微軟生態最便宜的雲端資安證照。政府與金融業偏好 Azure 的場景適用。
 - **GCP Professional Cloud Security Engineer**（$200）：用 Vertex AI 才需要優先考慮。
 
 ### 3. 管理治理
@@ -61,7 +61,7 @@ series:
 
 ### 6. AI 安全（2025–2026 新興）
 
-**這是爆發中的戰場。** 18 個月內 6+ 張全新證照上市，市場尚未收斂出業界標準。
+**這是爆發中的戰場。** 18 個月內 10+ 張全新證照上市，市場尚未收斂出業界標準。
 
 | 證照 | 費用 | 上線日 | 考試格式 | 定位 |
 |---|---|---|---|---|
@@ -70,9 +70,16 @@ series:
 | **GIAC GAIPS** | ~$999 考 / ~$9K 含課 | 2026/07 | CyberLive 實作 | 防禦側 GenAI/LLM 平台安全 |
 | **ISACA AAISM** | $459–$599 | 2025/08 | 90 題 / 150 分鐘 | 治理管理層（需 CISM 或 CISSP） |
 | **GIAC GASAE** | ~$979 考 | 2026/04 | CyberLive | 紅藍紫隊 AI 自動化 |
-| **ISC2 CCAI** | TBA | pilot 2025 Q4 | TBA | 安全工程（未正式） |
+| **EC-Council COASP** | 官方課程 $1,699 起 | 2026/02 | 70 題 / 6 小時（含實作題） | 攻擊側：AI 紅隊，恆逸有實體班 |
+| **OffSec OSAI+** | $1,749（含課程） | 2026/03 | 24h 實作 | 攻擊側：進階 AI 紅隊 |
+| **HTB COAE** | 訂閱制 | 2026/04 | 7 天實作 + 報告 | 攻擊側：偏對抗性機器學習 |
+| **GIAC GOAA** | 見官方 | 已上線 | 56 題 / 2 小時 CyberLive | 把 AI 當攻擊工具（不是攻擊 AI） |
+| **ISACA AAIR** | $459–$599 | 2026/04 | 見官方 | AI 風險（需 CRISC 等指定證照） |
+| **ISC2（名稱未定）** | TBA | 預計 2026 年底 pilot | TBA | 開發中，2027 年前不會正式上線 |
 
 依 [Practical DevSecOps 市場分析](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)，2025/10 至 2026/3 之間，要求 AI 技能的資安職缺比例從 14.2% 翻倍到 28.5%。
+
+攻擊側四張（COASP、OSAI+、HTB COAE、GOAA）的細節與選法見[第二篇](/posts/tech/2026-09-10-ai-security-cert-showdown)。
 
 ## 總覽比較表
 
@@ -81,9 +88,9 @@ series:
 | 證照 | 費用 | 難度 | 經驗門檻 | 效期 | 台灣認可 | AI/SaaS 相關 |
 |---|---|---|---|---|---|---|
 | ISC2 CC | $199 | ⭐ | 無 | 3 年 | 中 | 低 |
-| Security+ | $404 | ⭐⭐ | 無 | 3 年 | 高 | 中 |
+| Security+ | $439 | ⭐⭐ | 無 | 3 年 | 高 | 中 |
 | SecAI+ | $359 | ⭐⭐ | 建議 2 年資安 | 3 年 | 中（新） | 高 |
-| AZ-500 | $165 | ⭐⭐ | 無 | 1 年 | 中高 | 中 |
+| SC-500（取代 AZ-500） | $165 | ⭐⭐ | 無 | 見官方 | 中高 | 中 |
 | AWS Security | $300 | ⭐⭐⭐ | 建議 5 年 IT | 3 年 | 高 | 最高 |
 | CAISP | $999 | ⭐⭐⭐ | 無 | 終身 | 低（新） | 最高 |
 | CSSLP | $599 | ⭐⭐⭐ | 4 年 | 3 年 | 中 | 高 |
@@ -113,7 +120,7 @@ series:
 
 ```
 Phase 1（打基礎 + 雲端深化）
-├── CompTIA Security+ ($404)
+├── CompTIA Security+ ($439)
 │   無門檻、台灣認可度高、可折抵 CISSP 1 年經驗
 │   準備：2–3 個月自學
 │
@@ -130,7 +137,7 @@ Phase 2（AI 安全專門化）
 │   實作最強、6h 實戰考、OWASP LLM Top 10 完整覆蓋
 │   多位考生 review 一致 9/10（見後續篇章詳評）
 │
-└── 觀望：ISC2 CCAI（pilot 中）、GIAC GAIPS（$999/$9K）
+└── 觀望：ISC2 AI 安全證照（開發中）、GIAC GAIPS（$999/$9K）
 
 Phase 3（長期王牌）
 └── CISSP ($749)
@@ -143,13 +150,13 @@ Phase 3（長期王牌）
 
 | 階段 | 證照 | 考試費 | 備考材料（估） | 小計 |
 |---|---|---|---|---|
-| Phase 1 | Security+ | $404 | ~$30 | ~$434 |
+| Phase 1 | Security+ | $439 | ~$30 | ~$469 |
 | Phase 1 | AWS Security | $150–$300 | ~$30 | ~$180–$330 |
 | Phase 2 | SecAI+ | $359 | ~$30 | ~$389 |
 | Phase 3 | CISSP | $749 | ~$50 | ~$799 |
-| **合計** | | | | **~$1,802–$1,952** |
+| **合計** | | | | **~$1,837–$1,987** |
 
-走 CAISP 路線的話，Phase 2 改為 ~$1,099（已含教材和 lab），總計 ~$2,512–$2,662。
+走 CAISP 路線的話，Phase 2 改為 ~$1,099（已含教材和 lab），總計 ~$2,547–$2,697。
 
 ## 備考資源速覽
 
@@ -208,6 +215,10 @@ Phase 3（長期王牌）
 - **第三篇**：Security+ → AWS Security → CISSP 的 ROI 拆解——準備時間、通過率、維護成本實證
 - **第四篇**：台灣資安證照生態——法規細節、在地培訓機構、備考資源與考場資訊
 
+## 更新紀錄
+
+- 2026-10-08：AI 安全分類補上 COASP、OSAI+、HTB COAE、GOAA、AAIR；AZ-500 已退役，改為 SC-500；更正 ISC2 的進度（原文「CCAI pilot 2025 Q4」有誤）；Security+ 考試費改用 2026/6 調價後的 $439，費用估算隨之重算。
+
 ## 參考資料
 
 - [CompTIA Security+ 官方認證頁](https://www.comptia.org/certifications/security)
@@ -227,3 +238,10 @@ Phase 3（長期王牌）
 - [ICSDA — 上市櫃資通安全管控指引問答](https://icsda.org.tw/)
 - [SSDLC by 飛飛 — 台灣法規遵循指南](https://ssdlc.feifei.tw/taiwan-legal-compliance-guide-pdpa-cybersecurity-act-ssdlc)
 - [Practical DevSecOps — AI Security Certification 比較](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)
+- [EC-Council COASP](https://iclass.eccouncil.org/our-courses/certified-offensive-ai-security-professional)
+- [OffSec AI-300（OSAI+）](https://www.offsec.com/courses/ai-300/)
+- [Hack The Box COAE](https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert)
+- [GIAC GOAA](https://www.giac.org/certifications/offensive-ai-analyst-goaa)
+- [ISACA AAIR](https://www.isaca.org/credentialing/aair)
+- [Microsoft SC-500（Cloud and AI Security Engineer Associate）](https://learn.microsoft.com/en-us/credentials/certifications/cloud-and-ai-security-engineer-associate/)
+- [Microsoft — AZ-500 退役公告](https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/)

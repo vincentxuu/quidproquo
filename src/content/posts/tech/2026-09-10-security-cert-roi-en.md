@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [cybersecurity, certification, cissp, comptia, aws, career, roi]
 lang: en
-tldr: "Security+ ($404) takes 2–3 months, 50–65% self-study pass rate, +$10K–$20K salary premium. AWS Security Specialty ($300) takes 2–3 months, 45–55% pass rate, highest ROI at 40–67x. CISSP ($749) takes 3–6 months, 50–60% pass rate, +$25K–$35K premium but requires 5 years of experience. Five-year total cost of ownership: Security+ $554, AWS Security $300 (no annual fee), CISSP $1,374."
+tldr: "Security+ ($439) takes 2–3 months, 50–65% self-study pass rate, +$10K–$20K salary premium. AWS Security Specialty ($300) takes 2–3 months, 45–55% pass rate, highest ROI at 40–67x. CISSP ($749) takes 3–6 months, 50–60% pass rate, +$25K–$35K premium but requires 5 years of experience. Five-year cost to earn and maintain (including estimated study materials): Security+ about $619, AWS Security $200–$350 (no annual fee), CISSP about $1,524."
 description: "A data-driven comparison of Security+, AWS Security Specialty, and CISSP — study time, pass rates, exam fees, five-year maintenance costs, and salary premiums — to help you calculate the return on every dollar."
 draft: false
 series:
@@ -25,7 +25,7 @@ Parts 1 and 2 of this series already mapped the [full certification landscape](/
 |---|---|---|---|
 | **Issuer** | CompTIA | AWS | ISC2 |
 | **Focus** | General security fundamentals | AWS cloud security | Security management across 8 domains |
-| **Exam code** | SY0-701 | SCS-C03 | — |
+| **Exam code** | SY0-701 (V8 expected November 17, 2026) | SCS-C03 | — |
 | **Questions / time** | 90 / 90 min | 65 / 170 min | 100–150 (CAT) / 3 hours |
 | **Passing score** | 750/900 | 750/1000 | 700/1000 |
 | **Experience req.** | None (2 years IT recommended) | None (5 years IT + 2 years AWS recommended) | **5 years** across 2 domains (degree waives 1 year) |
@@ -36,11 +36,15 @@ Parts 1 and 2 of this series already mapped the [full certification landscape](/
 
 | Certification | Exam fee (USD) | Notes |
 |---|---|---|
-| Security+ | $404–$439 (price increase from June 2026) | Student and partner discounts often available |
+| Security+ | $439 (raised June 1, 2026; previously $404) | Student and partner discounts often available |
 | AWS Security | $300 | **50% off ($150)** if you hold any active AWS certification |
 | CISSP | $749 | Global flat rate, Pearson VUE |
 
 **Sources**: [CompTIA official](https://www.comptia.org/certifications/security), [AWS certification](https://aws.amazon.com/certification/certified-security-specialty/), [ISC2 official](https://www.isc2.org/certifications/cissp)
+
+**Security+ is changing versions**: CompTIA expects to launch [V8](https://www.comptia.org/en-us/certifications/security/v8/) on November 17, 2026, and the English exam for the current [V7 (SY0-701)](https://www.comptia.org/en-us/certifications/security/v7/) does not retire until June 11, 2027, so the two overlap for about seven months. If you are starting now, study from SY0-701 material and sit the exam before it retires; there is no need to wait for the new version. The post-increase price of $439 is per [CertCrush](https://www.certcrush.app/blog/comptia-exam-voucher-discounts-2026).
+
+**CISSP annual fee and experience waiver**: ISC2's annual maintenance fee (AMF) is [$135](https://www.isc2.org/policies-procedures/member-policies). Security+ is still on ISC2's [one-year experience waiver list](https://www.isc2.org/certifications/cissp/cissp-experience-requirements), so the stacking strategy described below still works.
 
 ### Study materials (estimated)
 
@@ -58,15 +62,15 @@ This is what people overlook — certifications don't end at the exam.
 |---|---|---|---|---|
 | Security+ | 3 years | 50 CEU + annual fee | $50/year | **$150** (per 3-year cycle) |
 | AWS Security | 3 years | Re-exam or earn a higher cert | **None** | **$0** (or $150–$300 to re-exam) |
-| CISSP | 3 years | 120 CPE + annual fee | $125/year | **$625** |
+| CISSP | 3 years | 120 CPE + annual fee | $135/year | **$675** |
 
 **Five-year acquisition + maintenance total**:
 
 | Certification | Exam fee | Materials (est.) | 5-year maintenance | **5-year total** |
 |---|---|---|---|---|
-| Security+ | $404 | ~$30 | $150 | **~$584** |
+| Security+ | $439 | ~$30 | $150 | **~$619** |
 | AWS Security | $150–$300 | ~$50 | $0 | **~$200–$350** |
-| CISSP | $749 | ~$100 | $625 | **~$1,474** |
+| CISSP | $749 | ~$100 | $675 | **~$1,524** |
 
 AWS Security Specialty has the lowest five-year holding cost, especially if you already hold another AWS certification for the 50% discount. CISSP is the most expensive, but it buys a fundamentally different level of market positioning.
 
@@ -136,7 +140,7 @@ Per [CyberSecJobs 2026 analysis](https://cybersecjobs.com/best-cybersecurity-cer
 
 | Certification | Avg. holder salary (USD) | Premium vs. uncertified | ROI multiple |
 |---|---|---|---|
-| Security+ | $71,697 (entry-level) | +$10K–$20K | **25–37x** (based on $404 exam fee) |
+| Security+ | $71,697 (entry-level) | +$10K–$20K | **23–46x** (based on $439 exam fee) |
 | AWS Security | Varies by role | +$12K–$20K (on top of existing cloud skills) | **40–67x** (based on $300) |
 | CISSP | $164,000 (median) | +$25K–$35K | **33–47x** (based on $749) |
 
@@ -155,7 +159,7 @@ Per [CloudInsight 2026 salary survey](https://cloudinsight.cc/zh/blog/security-e
 
 Holding advanced certifications like CISSP or OSCP adds **10–20%** to salary. Financial sector pays highest; foreign companies pay 20–50% above local firms.
 
-Taiwan's absolute premium is less dramatic than the US ($25K–$35K is roughly NT$800K–1.12M — close to a full junior annual salary in Taiwan), but certifications remain a hard signal for promotions and job switches. CISSP in particular — with only ~500 holders in Taiwan, its scarcity creates a strong trust signal for enterprise clients.
+Taiwan's absolute premium is less dramatic than the US ($25K–$35K is roughly NT$800K–1.12M — close to a full junior annual salary in Taiwan), but certifications remain a hard signal for promotions and job switches. CISSP in particular — with few holders in Taiwan, its scarcity creates a strong trust signal for enterprise clients.
 
 ## ROI rankings
 
@@ -167,15 +171,19 @@ Combining exam cost, study time, maintenance cost, salary premium, and market re
 | 🥈 | **Security+** | Lowest entry barrier, fastest to earn (2–3 months), counts toward CISSP experience, recognized by Taiwan financial sector |
 | 🥉 | **CISSP** | Highest absolute salary premium (+$25K–$35K), highest Taiwan recognition, but highest barrier and maintenance cost |
 
-**Optimal stacking strategy**: Security+ (build foundation, bank 1 year CISSP credit) → AWS Security (align with work, lowest cost) → CISSP (long-term credential). All three over five years costs approximately **$2,258–$2,408**, getting you full coverage from entry to senior level.
+**Optimal stacking strategy**: Security+ (build foundation, bank 1 year CISSP credit) → AWS Security (align with work, lowest cost) → CISSP (long-term credential). All three over five years costs approximately **$2,343–$2,493**, getting you full coverage from entry to senior level.
 
 ## The bottom line
 
 If you're taking one: go with **AWS Security Specialty**. Lowest holding cost, best work alignment, highest ROI multiple. If you already hold another AWS cert, the exam costs just $150.
 
-If you're taking two: start with **Security+** for the foundation ($404, 2–3 months), then take **AWS Security**. Beyond its own value, Security+ banks a year of CISSP experience credit for later.
+If you're taking two: start with **Security+** for the foundation ($439, 2–3 months), then take **AWS Security**. Beyond its own value, Security+ banks a year of CISSP experience credit for later.
 
-If you're taking three: add **CISSP** when the time is right. No rush — CISSP requires 5 years of experience, and you can pass the exam first as an Associate of ISC2, then upgrade when your hours are in. The $125/year maintenance fee is an ongoing commitment, so confirm your career path actually calls for it before investing.
+If you're taking three: add **CISSP** when the time is right. No rush — CISSP requires 5 years of experience, and you can pass the exam first as an Associate of ISC2, then upgrade when your hours are in. The $135/year maintenance fee is an ongoing commitment, so confirm your career path actually calls for it before investing.
+
+## Update log
+
+- 2026-10-08: Corrected the CISSP annual fee from $125 to $135 and switched the Security+ exam fee to the post-increase $439, then recalculated five-year totals and ROI multiples. Added the Security+ V8 launch and SY0-701 retirement dates. The cost figures in the tldr did not match the tables in the body and are now aligned. Removed the unsourced "about 500 CISSP holders in Taiwan." Fixed the Uuu CISSP link.
 
 ## References
 
@@ -193,5 +201,10 @@ If you're taking three: add **CISSP** when the time is right. No rush — CISSP 
 - [CompTIA CE Program (Renewal Rules)](https://www.comptia.org/en-us/certifications/continuing-education/)
 - [AWS Skill Builder Free Learning Path](https://skillbuilder.aws/)
 - [Professor Messer YouTube](https://www.youtube.com/@professormesser)
-- [Uuu (恆逸教育訓練中心) — CISSP Course](https://www.uuu.com.tw/Course/Show/3332/COASP) (in Mandarin)
+- [Uuu (恆逸教育訓練中心) — CISSP Course](https://www.uuu.com.tw/Course/Show/47/CISSP) (in Mandarin)
 - [AI Network (全智網科技) — CISSP Course](https://ainetwork-training.com/courses/cissp) (in Mandarin)
+- [CompTIA Security+ V7 (SY0-701, with retirement dates)](https://www.comptia.org/en-us/certifications/security/v7/)
+- [CompTIA Security+ V8 (expected November 17, 2026)](https://www.comptia.org/en-us/certifications/security/v8/)
+- [CertCrush — CompTIA voucher prices after the June 2026 increase](https://www.certcrush.app/blog/comptia-exam-voucher-discounts-2026)
+- [ISC2 Member Policies (annual maintenance fee)](https://www.isc2.org/policies-procedures/member-policies)
+- [ISC2 — CISSP experience requirements and waiver list](https://www.isc2.org/certifications/cissp/cissp-experience-requirements)

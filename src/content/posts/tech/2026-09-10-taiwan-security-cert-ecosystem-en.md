@@ -5,7 +5,7 @@ category: tech
 type: guide
 tags: [cybersecurity, certification, taiwan, career, cissp, comptia, training]
 lang: en
-tldr: "Taiwan's Cybersecurity Act 2.0 passed and FSC's three-tier system is in place, but neither mandates specific certifications — real demand comes from the job market. Taiwan has 7+ training providers: Uuu has the widest catalog (only one offering both SecAI+ and COASP classroom courses), WUSON is the CISSP legend (monthly cohorts sold out through mid-2027), and DEVCORE exclusively brings OffSec factory instructors. Test centers in Taipei and Kaohsiung; most certs also support online proctoring from home."
+tldr: "Taiwan's Cybersecurity Act 2.0 passed and FSC's three-tier system is in place, but neither mandates specific certifications — real demand comes from the job market. Taiwan has 7+ training providers: Uuu has the widest catalog (classroom courses for all three of SecAI+, COASP, and OSAI+), WUSON is the CISSP legend (monthly cohorts sold out through mid-2027), and DEVCORE was the first to bring OffSec factory instructors. Test centers in Taipei and Kaohsiung; most certs also support online proctoring from home."
 description: "A complete guide to Taiwan's security certification ecosystem: the real impact of Cybersecurity Act 2.0 and FSC guidelines, 7 training providers compared, exam venues, iPAS local certification, study resources, and free starting paths."
 draft: false
 series:
@@ -68,12 +68,27 @@ If your AI Agent platform serves financial clients, these requirements become yo
 
 | Provider | Authorized by | Key certifications | Differentiator | Price range |
 |---|---|---|---|---|
-| [Uuu (恆逸)](https://www.uuu.com.tw/Course/Show/47/CISSP) | EC-Council / CompTIA / ISC2 | CISSP, CCSP, CSSLP, SSCP, [Security+](https://www.uuu.com.tw/Course/Show/1607/CompTIA-Security-), [SecAI+](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-), CySA+, CEH, CPENT, CCT, [COASP AI Security](https://www.uuu.com.tw/Course/Show/3332/COASP), CCSE | **Widest catalog** — only Taiwan provider offering both SecAI+ and COASP AI security classroom courses; all three major cert bodies authorized | NT$42,000–65,000 |
+| [Uuu (恆逸)](https://www.uuu.com.tw/Course/Show/47/CISSP) | EC-Council / CompTIA / ISC2 | CISSP, CCSP, CSSLP, SSCP, [Security+](https://www.uuu.com.tw/Course/Show/1607/CompTIA-Security-), [SecAI+](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-), CySA+, CEH, CPENT, CCT, [COASP AI Security](https://www.uuu.com.tw/Course/Show/3332/COASP), [OSAI+](https://www.uuu.com.tw/Course/Show/3408/OSAI), CCSE | **Widest catalog** — classroom courses for all three of SecAI+, COASP, and OSAI+; all three major cert bodies authorized | NT$42,000–65,000; COASP NT$68,000, OSAI+ NT$149,000 |
 | [AI Network (全智網)](https://ainetwork-training.com/) | ISC2 / Cisco / CompTIA / Palo Alto | CISSP, CCSP, CEH, SecAI+, CCNA | Taipei classroom, small class sizes; CISSP includes 2-day review boot camp (NT$20,000 value); running SecAI+ webinars as of 2026/09 | NT$32,200+ (CISSP weekend special) |
 | [WUSON (吳文智)](https://wentzwu.com/courses) | — | **CISSP only** | Taiwan's only CISSP advanced triple-crown holder (ISSAP + ISSEP + ISSMP); monthly cohorts sold out through mid-2027; volunteer coaching team for exam prep; known for "WISE Security Essentials" teaching methodology | Contact for pricing |
 | [iSpan (資展國際)](https://www.ispan.com.tw/CISSP) | — | CISSP prep course | 37-hour classroom course, weekends; for experienced professionals who want a short sprint | Contact for pricing |
 | [DEVCORE](https://netmag.tw/2024/07/19/devcore-bring-global-security-training-agency-offsec-introduces-factory-instructor-physical-course-to-alive-taiwan-security-talent) | OffSec partnership | OSCP, OSWA, OSDA, OSEE | First to bring OffSec factory instructors to Taiwan for in-person training; offense-focused | NT$109,000 (OSCP, per [HackMD compilation](https://hackmd.io/@hiiii/ryOzgaf0a)) |
 | Gjun (巨匠電腦) | CompTIA | Security+, iPAS, foundational security | Nationwide chain, beginner-friendly, budget pricing | NT$10,000–30,000 (est.) |
+
+### Where to take AI security certification courses
+
+Compiled October 2026. Classroom courses in Taiwan cluster around SecAI+, and only Uuu offers the offensive-side ones. For the rest I found only the vendors' own online courses.
+
+| Certification | Classroom in Taiwan | Vendor online / self-study |
+|---|---|---|
+| SecAI+ | [Uuu](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-), [AI Network](https://ainetwork-training.com/courses/secai/) (3 days, NT$30,000), [NSIT](https://www.nsit.com.tw/course_detail/46) (5 days, NT$38,000), [iSpan](https://www.ispan.com.tw/comptia-secai-plus/) | Several CY0-001 prep courses on Udemy |
+| COASP | [Uuu](https://www.uuu.com.tw/Course/Show/3332/COASP) (40 hours, NT$68,000, includes one exam attempt) | [EC-Council](https://iclass.eccouncil.org/our-courses/certified-offensive-ai-security-professional) on-demand from $1,699, live online from $2,499 |
+| OSAI+ | [Uuu](https://www.uuu.com.tw/Course/Show/3408/OSAI) (40 hours, NT$149,000) | [OffSec](https://www.offsec.com/courses/ai-300/) $1,749 (90 days self-paced + 1 attempt) |
+| HTB COAE | None found | [HTB Academy](https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert) AI Red Teamer path, by subscription |
+| CAISP | None found | [Practical DevSecOps](https://www.practical-devsecops.com/certified-ai-security-professional/) $999–$1,099, includes 60-day labs and the exam |
+| GAIPS | None found | [SANS SEC545](https://www.sans.org/cyber-security-courses/genai-llm-application-security), 5 days live or self-paced |
+| AAISM | None found | [ISACA](https://www.isaca.org/credentialing/aaism) official Online Review Course |
+| TAISE | None found | [CSA](https://cloudsecurityalliance.org/education/taise) $795, training and exam bundled |
 
 ### Financial sector mandatory training
 
@@ -88,8 +103,8 @@ If your AI Agent platform serves financial clients, these requirements become yo
 |---|---|---|
 | Pass CISSP first try | **WUSON** or **Uuu** | WUSON is Taiwan's consensus top CISSP instructor; book early (sold out months ahead). Uuu has ISC2 official materials + review boot camp |
 | Security+ entry | **Uuu** or **AI Network** | Both CompTIA authorized; AI Network offers small class sizes |
-| AI security cert (SecAI+ / COASP) | **Uuu** | Only Taiwan provider with both AI security cert classroom courses |
-| OSCP offensive track | **DEVCORE** | OffSec factory instructors, Taiwan exclusive |
+| AI security cert (SecAI+ / COASP / OSAI+) | **Uuu** | Classroom courses for all three AI security certs |
+| OSCP offensive track | **DEVCORE** | First to bring OffSec factory instructors to Taiwan for in-person training |
 | Budget-conscious / pure beginner | **Gjun** or self-study | iPAS + Security+ self-study is the cheapest path |
 | Financial sector training hours | **Taiwan Academy of Banking and Finance** | Legally recognized, includes AI security topics |
 
@@ -213,6 +228,10 @@ This is the final post in the "Security Certification Playbook" series. The comp
 - [Part 3: ROI Breakdown](/en/posts/tech/2026-09-10-security-cert-roi-en) — Security+ → AWS Security → CISSP investment returns
 - **Part 4 (this post)**: Taiwan's ecosystem — regulations, training, exam venues, local resources
 
+## Update log
+
+- 2026-10-08: Uuu added an OffSec OSAI+ classroom course (NT$149,000), taking its AI security classroom courses from two to three. Added the COASP course price. DEVCORE's OffSec courses changed from "exclusive" to "first to bring." Added the table "Where to take AI security certification courses."
+
 ## References
 
 - [SSDLC by 飛飛 — Taiwan Legal Compliance Guide](https://ssdlc.feifei.tw/taiwan-legal-compliance-guide-pdpa-cybersecurity-act-ssdlc) (in Mandarin)
@@ -239,3 +258,8 @@ This is the final post in the "Security Certification Playbook" series. The comp
 - [Professor Messer YouTube](https://www.youtube.com/@professormesser)
 - [AWS Skill Builder](https://skillbuilder.aws/)
 - [Digital Cloud Training — AWS Security Specialty Free Resources](https://digitalcloud.training/aws-security-specialty-resources-udemy)
+- [Uuu — OSAI+ course AI-300](https://www.uuu.com.tw/Course/Show/3408/OSAI) (in Mandarin)
+- [AI Network — CompTIA SecAI+ course](https://ainetwork-training.com/courses/secai/) (in Mandarin)
+- [NSIT — CompTIA SecAI+ course](https://www.nsit.com.tw/course_detail/46) (in Mandarin)
+- [iSpan — CompTIA SecAI+ class](https://www.ispan.com.tw/comptia-secai-plus/) (in Mandarin)
+- [SANS SEC545: GenAI and LLM Application Security](https://www.sans.org/cyber-security-courses/genai-llm-application-security)

@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [cybersecurity, certification, ai-security, owasp, llm, prompt-injection]
 lang: en
-tldr: "Four AI security certs, four different bets: SecAI+ ($359) is CompTIA's mid-level expansion play, CAISP ($999 all-in) has the strongest hands-on labs and fullest OWASP LLM Top 10 coverage, GAIPS ($999/$9K) is the SANS gold-standard defender cert with CyberLive exams, and AAISM ($459+) is governance-layer but requires CISM or CISSP first. Under $400 → SecAI+. Want to actually hack and fix → CAISP. Company paying → GAIPS."
+tldr: "Four AI security certs, four different bets: SecAI+ ($359) is CompTIA's mid-level expansion play, CAISP ($999 all-in) has the strongest hands-on labs and fullest OWASP LLM Top 10 coverage, GAIPS ($999/$9K) is the SANS gold-standard defender cert with CyberLive exams, and AAISM ($459+) is governance-layer but requires CISM or CISSP first. Under $400 → SecAI+. Want to actually hack and fix → CAISP. Company paying → GAIPS. For the offensive side (AI red teaming), OSAI+, HTB COAE, and COASP launched in 2026 and form their own group; see the section near the end."
 description: "A head-to-head comparison of four emerging AI security certifications — exam domains, formats, OWASP LLM Top 10 coverage, and real exam-taker reviews — to help AI platform developers pick the right one."
 draft: false
 series:
@@ -18,6 +18,8 @@ series:
 ISACA launched AAISM in August 2025. CompTIA shipped SecAI+ in February 2026. GIAC opened GASAE in April, then GAIPS in July. In 18 months, four major certification bodies each placed their bet on AI security. Per [Practical DevSecOps market analysis](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison), the share of cybersecurity job postings requiring AI skills doubled from 14.2% to 28.5% between October 2025 and March 2026. Demand is real — but which cert actually teaches you something?
 
 This post uses the OWASP LLM Top 10 v2.0 as the measuring stick, then takes apart each certification's exam domains, format, and real-world reviews to help you pick.
+
+All four lean defensive or governance-focused. A separate batch of offensive (AI red teaming) certifications arrived in the first half of 2026: EC-Council COASP, OffSec OSAI+, HTB COAE, and GIAC GOAA. They are covered in [their own section below](#new-in-2026-four-offensive-side-certifications).
 
 ## The benchmark: OWASP LLM Top 10 v2.0 (2025)
 
@@ -116,7 +118,7 @@ People who want to actually do the work — not just know what prompt injection 
 
 ### Positioning
 
-SANS/GIAC's defensive AI security certification, open for general purchase from July 28, 2026. Mapped to SANS SEC545 "GenAI and LLM Application Security" (5-day course). Per [CertCrush analysis](https://www.certcrush.app/blog/giac-gaips-ai-platform-security-explained-worth-it-2026), GIAC plans to deliver four AI security certifications by end of 2026 (GAIPS defensive, GASAE automation, GOAA offensive, fourth TBA).
+SANS/GIAC's defensive AI security certification, open for general purchase from July 28, 2026. Mapped to SANS SEC545 "GenAI and LLM Application Security" (5-day course). Per [CertCrush analysis](https://www.certcrush.app/blog/giac-gaips-ai-platform-security-explained-worth-it-2026), GIAC plans to deliver four AI security certifications by end of 2026 (GAIPS defensive, GASAE automation, GOAA offensive, fourth TBA). GOAA is already available; details are in the offensive section below.
 
 ### Exam format
 
@@ -229,6 +231,7 @@ Existing CISM/CISSP holders whose scope is expanding from traditional security m
 | Experienced DevSecOps / AppSec | CAISP | Extends into AI, lab format matches your workflow |
 | Security manager / CISO | AAISM | You need governance frameworks, not code |
 | AI Agent platform builder | **GAIPS** or CAISP | GAIPS explicitly covers agentic systems; CAISP's RAG labs are directly relevant |
+| Pentester / red teamer | OSAI+, HTB COAE, or COASP | Offensive certifications, covered in their own section below |
 
 ### By goal
 
@@ -238,19 +241,68 @@ Existing CISM/CISSP holders whose scope is expanding from traditional security m
 | Actual defensive skills | CAISP (6h practical, lab memory) |
 | Top-tier brand credential | GAIPS (SANS/GIAC) |
 | AI governance framework | AAISM (ISACA) |
+| AI red teaming | OSAI+, HTB COAE, COASP (offensive side) |
 
-## Still on the watchlist
+## New in 2026: four offensive-side certifications
 
-- **EC-Council COASP (Certified Offensive AI Security Professional)**: EC-Council's AI security certification, offense-oriented. [Uuu (恆逸) in Taiwan offers classroom training](https://www.uuu.com.tw/Course/Show/3332/COASP) — one of the only in-person AI security cert courses available in Taiwan.
-- **ISC2 CCAI**: In pilot (2025 Q4), pricing and exam format TBA. ISC2 brand plus security engineering focus has potential, but as of September 2026 you still can't register.
-- **OffSec OSAI (AI Red Teamer)**: Coming soon. OffSec's offensive-first style could become a direct competitor to CAISP on the attack side.
-- **GIAC GASAE**: Available since April 2026, focused on red/blue/purple team AI automation — complementary to GAIPS.
+The four main certifications above are about how to defend and how to govern. Between February and April 2026, EC-Council, OffSec, and Hack The Box each shipped an AI red teaming certification. Add GIAC's GOAA and the offensive side gained four options at once.
+
+| | EC-Council COASP | OffSec OSAI+ | HTB COAE | GIAC GOAA |
+|---|---|---|---|---|
+| **Full name** | Certified Offensive AI Security Professional | OffSec AI Red Teamer (course AI-300) | Certified Offensive AI Expert | Offensive AI Analyst (course SEC535) |
+| **Launched** | Feb 2026 (with the Enterprise AI Credential Suite) | March 31, 2026 | April 2026 | Available |
+| **Exam format** | 70 questions (multiple choice + performance-based) / 6 hours, live-proctored | 24-hour proctored practical against an AI-enabled enterprise environment | 7-day practical assessment + commercial-grade report | 56 questions / 2 hours, CyberLive |
+| **Passing score** | 70–80% | Not listed on the official page | Not listed on the official page | 67% |
+| **Cost** | Official on-demand course from $1,699 | $1,749 (90-day course + 1 attempt) or $2,749/year (2 attempts) | Requires completing the AI Red Teamer path; HTB suggests the Silver Annual subscription (includes a voucher good for 2 attempts) | See GIAC |
+| **Validity** | See EC-Council | OSAI never expires; OSAI+ lasts 3 years | See HTB | See GIAC |
+| **Target** | The AI system itself | The AI system itself | The AI system itself | **Traditional targets, attacked with AI** |
+
+### EC-Council COASP
+
+One of four AI certifications EC-Council announced on February 10, 2026 (the other three are AIE for AI literacy, CAIPM for program management, and CRAGE for governance and ethics). Exam code 312-52. The course has ten modules: offensive methodology, AI reconnaissance and attack surface mapping, vulnerability scanning and fuzzing, prompt injection and LLM application attacks, adversarial machine learning and model privacy attacks, data and training pipeline attacks, agentic AI and model-to-model attacks, AI infrastructure and supply chain attacks, testing, evaluation and hardening, and AI incident response and forensics. EC-Council states the curriculum aligns with the OWASP LLM Top 10, NIST AI RMF, and ISO 42001.
+
+The practical point for readers in Taiwan: [Uuu (恆逸) runs a classroom course](https://www.uuu.com.tw/Course/Show/3332/COASP), 40 hours for NT$68,000, bundled with 180 days of official labs and one exam attempt (Uuu lists the exam's standalone price as USD 650). Of the four offensive certifications, COASP and OSAI+ have classroom courses in Taiwan, and COASP costs less than half as much.
+
+### OffSec OSAI+
+
+The AI red teaming certification from the makers of OSCP. The AI-300 course has about 65 hours of content across 11 modules, covering attacks on LLMs, RAG pipelines, embeddings, multi-agent systems, and AI infrastructure. The exam follows OffSec's usual style: 24 hours, proctored, no multiple choice. Passing earns both OSAI, which never expires, and OSAI+, which lasts 3 years. OffSec positions it as an advanced course that expects solid security fundamentals and basic familiarity with LLMs. Uuu also runs an [OSAI+ classroom course](https://www.uuu.com.tw/Course/Show/3408/OSAI): 40 hours for NT$149,000.
+
+### HTB COAE
+
+Hack The Box built its AI Red Teamer path with Google and aligned it to Google's SAIF framework; COAE is the certification at the end of that path. You must finish all 12 modules before sitting the exam, with no shortcut. The content leans further into machine learning than the other three: beyond prompt injection and LLM output attacks, it covers evasion attacks, gradient-based adversarial examples, privacy attacks and differential privacy, and the security of MCP. The exam runs 7 days, and compromising the targets is not enough to pass: you also submit a client-ready report.
+
+### GIAC GOAA
+
+The name says "Offensive AI," but it points the opposite way from the other three: it teaches **using AI as an attack tool**, such as deepfake audio and video phishing, AI-aided vulnerability discovery and exploit generation, writing malware with AI, and bypassing defensive controls. It is for people doing traditional red teaming and social engineering who want AI in their toolkit. If your goal is to test your own LLM application, this is the wrong certification.
+
+### Choosing on the offensive side
+
+| Your situation | Choose |
+|---|---|
+| Want classroom training in Taiwan, employer paying | COASP (NT$68,000) or OSAI+ (NT$149,000), both at Uuu |
+| Already have OSCP-level pentesting skills | OSAI+ |
+| Want to learn the math behind adversarial ML along the way | HTB COAE |
+| Red teaming and social engineering, want AI to speed it up | GOAA |
+
+For developers building AI Agent platforms, an offensive certification is not the first one to take. Build defensive skills with CAISP or GAIPS first, then pick one of these when you want to understand how attackers think.
+
+## Other new arrivals and one still in development
+
+- **Microsoft SC-500**: Cloud and AI Security Engineer Associate. It replaces AZ-500, which retired on August 31, 2026. The exam costs $165 and runs 120 minutes. This is a cloud security certification that added AI workloads, not a pure AI security certification: the AI-related objectives are Azure configuration tasks such as AI protection in Defender for Cloud, agent guardrails in Foundry, and Purview DSPM.
+- **ISACA AAIR (Advanced in AI Risk)**: Launched April 15, 2026. $459 for members, $599 for non-members, and it requires one of 25 prerequisite certifications such as CRISC, CISA, CISM, or CISSP. With AAIA (audit) and AAISM (security management) from 2025, ISACA's three AI credentials are now complete, one each for risk, audit, and security management roles.
+- **CSA TAISE (Trusted AI Safety Expert)**: From the Cloud Security Alliance with Northeastern University. $795 covers training and 2 exam attempts; 60 multiple-choice questions, 80% to pass, no prerequisites. A foundation in AI safety and governance.
+- **GIAC GASAE**: Available since April 2026. 82 questions / 3 hours, 70% to pass, focused on AI automation for red, blue, and purple teams. Complementary to GAIPS.
+- **ISC2's AI security certification**: It has no official name yet. ISC2 announced the start of development and a call for volunteers on July 15, 2026, held its first Job Task Analysis workshops in three cities in August, anticipates a pilot exam in late 2026, and does not expect the certification to be operational until 2027. For now, ISC2's approach is to fold AI security concepts into the exam outlines of its nine existing certifications.
 
 ## The bottom line
 
 The AI security certification market is extremely young — 18 months ago, none of these existed. Per [StationX analysis](https://app.stationx.net/articles/best-ai-security-certifications), "by 2027, the landscape will look different again." The strategy right now isn't finding the "forever-right answer" — it's finding the tool that builds your capability today.
 
 If you can only pick one: for AI Agent platform developers, CAISP's lab training is the most directly useful for your daily work. But remember — a certification proves you studied, not that you can apply it. Real security capability comes from practicing on real systems.
+
+## Update log
+
+- 2026-10-08: Added the section "New in 2026: four offensive-side certifications" (COASP, OSAI+, HTB COAE, GOAA) and entries for SC-500, AAIR, and TAISE. Corrected ISC2's status (the original said "CCAI in pilot," which was wrong; development was only announced in July 2026). OSAI changed from "coming soon" to available.
 
 ## References
 
@@ -274,3 +326,20 @@ If you can only pick one: for AI Agent platform developers, CAISP's lab training
 - [OWASP Top 10 for LLM Applications 2025](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 - [Practical DevSecOps — AI Security Certification Market Analysis](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)
 - [StationX — Best AI Security Certifications 2026](https://app.stationx.net/articles/best-ai-security-certifications)
+- [EC-Council — Certified Offensive AI Security Professional (COASP)](https://iclass.eccouncil.org/our-courses/certified-offensive-ai-security-professional)
+- [EC-Council — Enterprise AI Credential Suite press release (Feb 2026)](https://www.cybersecuritydive.com/press-release/20260211-ec-council-expands-ai-certification-portfolio-to-strengthen-us-ai-workfor-1/)
+- [Uuu (恆逸教育訓練中心) — COASP course](https://www.uuu.com.tw/Course/Show/3332/COASP) (in Mandarin)
+- [Uuu (恆逸教育訓練中心) — OSAI+ course AI-300](https://www.uuu.com.tw/Course/Show/3408/OSAI) (in Mandarin)
+- [OffSec — AI-300: Advanced AI Red Teaming (OSAI+)](https://www.offsec.com/courses/ai-300/)
+- [OffSec — OSAI+ AI-300 FAQ](https://help.offsec.com/hc/en-us/articles/46593095198740-OSAI-Advanced-AI-Red-Teaming-AI-300-FAQ)
+- [Hack The Box — HTB Certified Offensive AI Expert (COAE)](https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert)
+- [Hack The Box — HTB COAE launch announcement](https://academy.hackthebox.com/news/the-new-htb-certified-offensive-ai-expert-htb-coae-is-officially-here)
+- [GIAC GOAA](https://www.giac.org/certifications/offensive-ai-analyst-goaa)
+- [GIAC GASAE](https://www.giac.org/certifications/ai-security-automation-engineer-gasae)
+- [Microsoft Certified: Cloud and AI Security Engineer Associate (SC-500)](https://learn.microsoft.com/en-us/credentials/certifications/cloud-and-ai-security-engineer-associate/)
+- [ISACA AAIR](https://www.isaca.org/credentialing/aair)
+- [ISACA — AAIR launch press release (April 15, 2026)](https://www.isaca.org/about-us/newsroom/press-releases/2026/isaca-launches-advanced-in-ai-risk-aair-certification-to-equip-it-risk-professionals)
+- [CSA TAISE](https://cloudsecurityalliance.org/education/taise)
+- [ISC2 — AI Security Certification development progress](https://www.isc2.org/new-ai-certification)
+- [ISC2 — Development announcement (July 15, 2026)](https://www.isc2.org/insights/2026/07/ai-security-certification-development)
+- [ISC2 — Updated AI exam guidance (September 2026)](https://www.isc2.org/Insights/2026/09/updated-ISC2-ai-guidance-published)

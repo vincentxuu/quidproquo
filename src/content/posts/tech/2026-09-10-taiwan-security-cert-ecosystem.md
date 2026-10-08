@@ -5,7 +5,7 @@ category: tech
 type: guide
 tags: [cybersecurity, certification, taiwan, career, cissp, comptia, training]
 lang: zh-TW
-tldr: "台灣資安法 2.0 已三讀、金管會三級制度到位，但都不強制指定證照——真正的需求來自徵才市場。台灣有 7+ 家培訓機構可選：恆逸課程最齊全（唯一同開 SecAI+ 和 COASP）、WUSON 吳文智是 CISSP 圈的傳奇（月月額滿）、DEVCORE 獨家引進 OffSec 原廠講師。考場在台北信義區和高雄，多數證照也支援在家線上監考。"
+tldr: "台灣資安法 2.0 已三讀、金管會三級制度到位，但都不強制指定證照——真正的需求來自徵才市場。台灣有 7+ 家培訓機構可選：恆逸課程最齊全（SecAI+、COASP、OSAI+ 三種 AI 安全實體班都有）、WUSON 吳文智是 CISSP 圈的傳奇（月月額滿）、DEVCORE 是首家引進 OffSec 原廠講師的機構。考場在台北信義區和高雄，多數證照也支援在家線上監考。"
 description: "台灣資安證照生態的完整指南：資安法 2.0 與金管會管控指引的實際影響、7 家培訓機構比較、考場位置、iPAS 在地證照、備考資源與免費起步路徑。"
 draft: false
 series:
@@ -68,12 +68,27 @@ series:
 
 | 機構 | 授權 | 主要證照課程 | 特色 | 參考價格帶 |
 |---|---|---|---|---|
-| [恆逸教育訓練中心](https://www.uuu.com.tw/Course/Show/47/CISSP) | EC-Council / CompTIA / ISC2 | CISSP、CCSP、CSSLP、SSCP、[Security+](https://www.uuu.com.tw/Course/Show/1607/CompTIA-Security-)、[SecAI+](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-)、CySA+、CEH、CPENT、CCT、[COASP AI 資安專家](https://www.uuu.com.tw/Course/Show/3332/COASP)、CCSE | **課程最齊全**——台灣唯一同時開 SecAI+ 和 COASP AI 安全實體班；三大認證機構授權都有 | NT$42,000–$65,000（依證照） |
+| [恆逸教育訓練中心](https://www.uuu.com.tw/Course/Show/47/CISSP) | EC-Council / CompTIA / ISC2 | CISSP、CCSP、CSSLP、SSCP、[Security+](https://www.uuu.com.tw/Course/Show/1607/CompTIA-Security-)、[SecAI+](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-)、CySA+、CEH、CPENT、CCT、[COASP AI 資安專家](https://www.uuu.com.tw/Course/Show/3332/COASP)、[OSAI+](https://www.uuu.com.tw/Course/Show/3408/OSAI)、CCSE | **課程最齊全**——SecAI+、COASP、OSAI+ 三種 AI 安全實體班都有；三大認證機構授權都有 | NT$42,000–$65,000（依證照）；COASP NT$68,000、OSAI+ NT$149,000 |
 | [全智網科技 AI Network](https://ainetwork-training.com/) | ISC2 / Cisco / CompTIA / Palo Alto | CISSP、CCSP、CEH、SecAI+、CCNA | 台北實體小班制，CISSP 附 2 天總複習班（市值 NT$20,000）；2026/09 正在推 SecAI+ webinar | NT$32,200+（CISSP 假日班特價） |
 | [WUSON 吳文智老師](https://wentzwu.com/courses) | — | **CISSP 專精** | 台灣唯一 CISSP 進階認證大滿貫（ISSAP + ISSEP + ISSMP）；每月開班，2026 全年到 2027 中已排滿且長期額滿；有 WUSON 志工教練團做考前社群輔導；以「WISE 資安基礎架構」教學法著稱 | 請洽官網 |
 | [iSpan 資展國際](https://www.ispan.com.tw/CISSP) | — | CISSP 輔導班 | 37 小時實體課，週末班；適合有底子想短期衝刺的人 | 請洽官網 |
 | [DEVCORE](https://netmag.tw/2024/07/19/devcore-bring-global-security-training-agency-offsec-introduces-factory-instructor-physical-course-to-alive-taiwan-security-talent) | OffSec 合作 | OSCP、OSWA、OSDA、OSEE | 台灣首家引進 OffSec 原廠講師實體課程；偏攻擊面，適合想走滲透測試的人 | NT$109,000（OSCP，依 [HackMD 整理](https://hackmd.io/@hiiii/ryOzgaf0a)） |
 | 巨匠電腦 | CompTIA | Security+、iPAS、基礎資安 | 全台連鎖、入門導向、價格較親民 | NT$10,000–$30,000（估） |
+
+### AI 安全證照去哪上課
+
+2026/10 整理。台灣實體班集中在 SecAI+，攻擊側只有恆逸有開；其餘證照目前只查到原廠線上課程。
+
+| 證照 | 台灣實體班 | 原廠線上 / 自學 |
+|---|---|---|
+| SecAI+ | [恆逸](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-)、[全智網](https://ainetwork-training.com/courses/secai/)（3 天，NT$30,000）、[網安智慧](https://www.nsit.com.tw/course_detail/46)（5 天，NT$38,000）、[資展國際 iSpan](https://www.ispan.com.tw/comptia-secai-plus/) | Udemy 上有多門 CY0-001 備考課 |
+| COASP | [恆逸](https://www.uuu.com.tw/Course/Show/3332/COASP)（40 小時，NT$68,000，含一次考試） | [EC-Council](https://iclass.eccouncil.org/our-courses/certified-offensive-ai-security-professional) on-demand $1,699 起、線上直播 $2,499 起 |
+| OSAI+ | [恆逸](https://www.uuu.com.tw/Course/Show/3408/OSAI)（40 小時，NT$149,000） | [OffSec](https://www.offsec.com/courses/ai-300/) $1,749（90 天自學 + 1 次考試） |
+| HTB COAE | 沒查到 | [HTB Academy](https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert) AI Red Teamer 路徑，訂閱制 |
+| CAISP | 沒查到 | [Practical DevSecOps](https://www.practical-devsecops.com/certified-ai-security-professional/) $999–$1,099，含 60 天 lab 與考試 |
+| GAIPS | 沒查到 | [SANS SEC545](https://www.sans.org/cyber-security-courses/genai-llm-application-security)，5 天直播或自學 |
+| AAISM | 沒查到 | [ISACA](https://www.isaca.org/credentialing/aaism) 官方 Online Review Course |
+| TAISE | 沒查到 | [CSA](https://cloudsecurityalliance.org/education/taise) $795，課程與考試綁售 |
 
 ### 金融業法定培訓
 
@@ -88,8 +103,8 @@ series:
 |---|---|---|
 | CISSP 一次考過 | **WUSON 吳文智** 或 **恆逸** | WUSON 是台灣 CISSP 圈公認最強講師，但要提早搶位；恆逸有 ISC2 原廠教材 + 總複習班 |
 | Security+ 入門 | **恆逸** 或 **全智網** | 兩家都有 CompTIA 授權，全智網小班制 |
-| AI 安全證照（SecAI+ / COASP） | **恆逸** | 台灣唯一同時開兩種 AI 安全認證實體班 |
-| OSCP 攻擊面 | **DEVCORE** | OffSec 原廠講師，台灣獨家 |
+| AI 安全證照（SecAI+ / COASP / OSAI+） | **恆逸** | 三種 AI 安全認證實體班都有開 |
+| OSCP 攻擊面 | **DEVCORE** | 台灣首家引進 OffSec 原廠講師實體課 |
 | 預算有限、純入門 | **巨匠** 或自學 | iPAS + Security+ 的自學路線最省錢 |
 | 金融業法定時數 | **台灣金融研訓院** | 法定認可，含 AI 資安專題 |
 
@@ -223,6 +238,10 @@ series:
 - [第三篇：ROI 拆解](/posts/tech/2026-09-10-security-cert-roi)——Security+ → AWS Security → CISSP 的投資報酬
 - **第四篇（本篇）**：台灣生態——法規、培訓、考場、在地資源
 
+## 更新紀錄
+
+- 2026-10-08：恆逸新增 OffSec OSAI+ 實體班（NT$149,000），AI 安全實體班由兩種變三種；補上 COASP 課程價格；DEVCORE 的 OffSec 課程由「獨家」改為「首家引進」；新增「AI 安全證照去哪上課」對照表。
+
 ## 參考資料
 
 - [SSDLC by 飛飛 — 台灣法規遵循指南](https://ssdlc.feifei.tw/taiwan-legal-compliance-guide-pdpa-cybersecurity-act-ssdlc)
@@ -249,3 +268,8 @@ series:
 - [Professor Messer YouTube](https://www.youtube.com/@professormesser)
 - [AWS Skill Builder](https://skillbuilder.aws/)
 - [Digital Cloud Training — AWS Security Specialty 免費資源](https://digitalcloud.training/aws-security-specialty-resources-udemy)
+- [恆逸 — OSAI+ 認證課程 AI-300](https://www.uuu.com.tw/Course/Show/3408/OSAI)
+- [全智網 — CompTIA SecAI+ 課程](https://ainetwork-training.com/courses/secai/)
+- [網安智慧 — CompTIA SecAI+ 課程](https://www.nsit.com.tw/course_detail/46)
+- [資展國際 iSpan — CompTIA SecAI+ 認證班](https://www.ispan.com.tw/comptia-secai-plus/)
+- [SANS SEC545: GenAI and LLM Application Security](https://www.sans.org/cyber-security-courses/genai-llm-application-security)

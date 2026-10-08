@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [cybersecurity, certification, cissp, comptia, aws, career, roi]
 lang: zh-TW
-tldr: "Security+（$404）2–3 個月自學、首次通過率 50–65%、薪資溢價 +$10K–$20K；AWS Security Specialty（$300）2–3 個月、通過率 45–55%、ROI 最高（40–67x）；CISSP（$749）3–6 個月、通過率 50–60%、薪資溢價 +$25K–$35K 但需 5 年經驗。五年維護總成本：Security+ $554、AWS Security $300（無年費）、CISSP $1,374。"
+tldr: "Security+（$439）2–3 個月自學、首次通過率 50–65%、薪資溢價 +$10K–$20K；AWS Security Specialty（$300）2–3 個月、通過率 45–55%、ROI 最高（40–67x）；CISSP（$749）3–6 個月、通過率 50–60%、薪資溢價 +$25K–$35K 但需 5 年經驗。五年取得加維護總成本（含教材估算）：Security+ 約 $619、AWS Security $200–$350（無年費）、CISSP 約 $1,524。"
 description: "用真實數據比較 Security+、AWS Security Specialty、CISSP 三張經典資安證照的準備時間、通過率、考試費、五年維護成本與薪資溢價，幫你算清楚每一塊錢的回報。"
 draft: false
 series:
@@ -25,7 +25,7 @@ series:
 |---|---|---|---|
 | **發照方** | CompTIA | AWS | ISC2 |
 | **定位** | 通用資安基礎 | AWS 雲端安全專家 | 資安管理全域 |
-| **考試代碼** | SY0-701 | SCS-C03 | — |
+| **考試代碼** | SY0-701（V8 預計 2026/11/17 上線） | SCS-C03 | — |
 | **題數 / 時間** | 90 題 / 90 分鐘 | 65 題 / 170 分鐘 | 100–150 題（CAT）/ 3 小時 |
 | **及格線** | 750/900 | 750/1000 | 700/1000 |
 | **經驗門檻** | 無（建議 2 年 IT） | 無（建議 5 年 IT + 2 年 AWS） | **5 年**跨 2 域（學位折 1 年） |
@@ -36,11 +36,15 @@ series:
 
 | 證照 | 考試費 (USD) | 備註 |
 |---|---|---|
-| Security+ | $404–$439（2026/06 起調價） | CompTIA 學生方案或授權夥伴常有折扣 |
+| Security+ | $439（2026/6/1 調價，之前是 $404） | CompTIA 學生方案或授權夥伴常有折扣 |
 | AWS Security | $300 | 持有任何 AWS 認證可享 **50% off = $150** |
 | CISSP | $749 | 全球統一價，Pearson VUE 報名 |
 
 **來源**：[CompTIA 官方](https://www.comptia.org/certifications/security)、[AWS 認證頁](https://aws.amazon.com/certification/certified-security-specialty/)、[ISC2 官方](https://www.isc2.org/certifications/cissp)
+
+**Security+ 正在換版**：CompTIA 預計 2026/11/17 推出 [V8](https://www.comptia.org/en-us/certifications/security/v8/)，現行 [V7（SY0-701）](https://www.comptia.org/en-us/certifications/security/v7/)英文版考到 2027/6/11 才退役，兩版重疊約七個月。現在開始準備的人照 SY0-701 的教材讀、在退役前考完即可，不必等新版。Security+ 調價後的 $439 依 [CertCrush 整理](https://www.certcrush.app/blog/comptia-exam-voucher-discounts-2026)。
+
+**CISSP 年費與經驗折抵**：ISC2 的年費（AMF）是 [$135](https://www.isc2.org/policies-procedures/member-policies)。Security+ 仍在 ISC2 的[一年經驗折抵清單](https://www.isc2.org/certifications/cissp/cissp-experience-requirements)上，後面「三張可以疊」的策略照樣成立。
 
 ### 備考材料（估）
 
@@ -58,15 +62,15 @@ series:
 |---|---|---|---|---|
 | Security+ | 3 年 | 50 CEU + 年費 | $50/年 | **$150**（三年一期） |
 | AWS Security | 3 年 | 重考或取得更高認證 | **無** | **$0**（或 $150–$300 重考） |
-| CISSP | 3 年 | 120 CPE + 年費 | $125/年 | **$625** |
+| CISSP | 3 年 | 120 CPE + 年費 | $135/年 | **$675** |
 
 **五年取得 + 維護總成本**：
 
 | 證照 | 考試費 | 教材（估） | 五年維護 | **五年總計** |
 |---|---|---|---|---|
-| Security+ | $404 | ~$30 | $150 | **~$584** |
+| Security+ | $439 | ~$30 | $150 | **~$619** |
 | AWS Security | $150–$300 | ~$50 | $0 | **~$200–$350** |
-| CISSP | $749 | ~$100 | $625 | **~$1,474** |
+| CISSP | $749 | ~$100 | $675 | **~$1,524** |
 
 AWS Security Specialty 的五年持有成本最低，特別是你已經有其他 AWS 認證可享半價的情況下。CISSP 最貴，但換到的是完全不同等級的市場地位。
 
@@ -136,7 +140,7 @@ CISSP 的難不在單一題目，在於它的 CAT（電腦適性測驗）格式�
 
 | 證照 | 持證者平均薪資 (USD) | 相對未持證的溢價 | ROI 倍數 |
 |---|---|---|---|
-| Security+ | $71,697（入門級） | +$10K–$20K | **25–37x**（以 $404 考試費計） |
+| Security+ | $71,697（入門級） | +$10K–$20K | **23–46x**（以 $439 考試費計） |
 | AWS Security | 變化大（依角色） | +$12K–$20K（疊在既有雲端技能上） | **40–67x**（以 $300 計） |
 | CISSP | $164,000（中位數） | +$25K–$35K | **33–47x**（以 $749 計） |
 
@@ -155,7 +159,7 @@ CISSP 的難不在單一題目，在於它的 CAT（電腦適性測驗）格式�
 
 持有 CISSP / OSCP 等高階證照，薪資可多 **10–20%**。金融業薪資最高，外商比本土高 20–50%。
 
-台灣的薪資溢價幅度沒有美國那麼誇張（$25K–$35K 約等於 NT$80 萬–NT$112 萬，在台灣幾乎是一整個 junior 的年薪），但在升遷和跳槽的談判上，證照仍然是硬指標。特別是 CISSP——台灣僅約 500 人持有，稀缺性讓它在面對企業客戶時有很強的信任信號。
+台灣的薪資溢價幅度沒有美國那麼誇張（$25K–$35K 約等於 NT$80 萬–NT$112 萬，在台灣幾乎是一整個 junior 的年薪），但在升遷和跳槽的談判上，證照仍然是硬指標。特別是 CISSP——在台灣持證者不多，稀缺性讓它在面對企業客戶時有很強的信任信號。
 
 ## ROI 排名
 
@@ -167,15 +171,19 @@ CISSP 的難不在單一題目，在於它的 CAT（電腦適性測驗）格式�
 | 🥈 | **Security+** | 最低進入門檻、最快取得（2–3 個月）、可折抵 CISSP 經驗、台灣金融業認可 |
 | 🥉 | **CISSP** | 最高絕對薪資溢價（+$25K–$35K）、台灣最高認可度、但門檻和維護成本最高 |
 
-**最佳組合策略**：Security+（打基礎、折 CISSP 1 年經驗）→ AWS Security（對齊工作、最低成本）→ CISSP（長期王牌）。三張全拿的五年總成本約 **$2,258–$2,408**，換到的是從入門到頂級的完整資安背書。
+**最佳組合策略**：Security+（打基礎、折 CISSP 1 年經驗）→ AWS Security（對齊工作、最低成本）→ CISSP（長期王牌）。三張全拿的五年總成本約 **$2,343–$2,493**，換到的是從入門到頂級的完整資安背書。
 
 ## 整體來說
 
 如果你只考一張：考 **AWS Security Specialty**。它的持有成本最低、跟你的工作最對齊、ROI 倍數最高。如果你已經有其他 AWS 認證，考試費只要 $150。
 
-如果你考兩張：先考 **Security+** 打基礎（$404、2–3 個月），再考 **AWS Security**。Security+ 除了本身有用之外，還為未來考 CISSP 折了一年經驗。
+如果你考兩張：先考 **Security+** 打基礎（$439、2–3 個月），再考 **AWS Security**。Security+ 除了本身有用之外，還為未來考 CISSP 折了一年經驗。
 
-如果你考三張：上面兩張加上 **CISSP**。但不急——CISSP 需要 5 年經驗，可以先考試成為 Associate of ISC2，等經驗到了再升級。五年維護費 $125/年 是一筆持續支出，確認你的職涯方向確實需要這張牌再投入。
+如果你考三張：上面兩張加上 **CISSP**。但不急——CISSP 需要 5 年經驗，可以先考試成為 Associate of ISC2，等經驗到了再升級。年費 $135 是一筆持續支出，確認你的職涯方向確實需要這張牌再投入。
+
+## 更新紀錄
+
+- 2026-10-08：CISSP 年費由 $125 更正為 $135，Security+ 考試費改用調價後的 $439，五年總成本與 ROI 倍數隨之重算；補上 Security+ V8 上線與 SY0-701 退役時程；tldr 的成本數字原本與內文表格不一致，已對齊；移除無來源的「台灣約 500 人持有 CISSP」；修正恆逸 CISSP 連結。
 
 ## 參考資料
 
@@ -193,5 +201,10 @@ CISSP 的難不在單一題目，在於它的 CAT（電腦適性測驗）格式�
 - [CompTIA CE Program（續期規則）](https://www.comptia.org/en-us/certifications/continuing-education/)
 - [AWS Skill Builder 免費學習路徑](https://skillbuilder.aws/)
 - [Professor Messer YouTube](https://www.youtube.com/@professormesser)
-- [恆逸教育訓練中心 — CISSP 認證課程](https://www.uuu.com.tw/Course/Show/3332/COASP)
+- [恆逸教育訓練中心 — CISSP 認證課程](https://www.uuu.com.tw/Course/Show/47/CISSP)
 - [全智網科技 — CISSP 認證課程](https://ainetwork-training.com/courses/cissp)
+- [CompTIA Security+ V7（SY0-701，含退役日期）](https://www.comptia.org/en-us/certifications/security/v7/)
+- [CompTIA Security+ V8（預計 2026/11/17 上線）](https://www.comptia.org/en-us/certifications/security/v8/)
+- [CertCrush — CompTIA 2026/6 調價後的考券價格](https://www.certcrush.app/blog/comptia-exam-voucher-discounts-2026)
+- [ISC2 Member Policies（年費 AMF）](https://www.isc2.org/policies-procedures/member-policies)
+- [ISC2 — CISSP 經驗要求與折抵清單](https://www.isc2.org/certifications/cissp/cissp-experience-requirements)

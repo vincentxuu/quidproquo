@@ -5,7 +5,7 @@ category: tech
 type: guide
 tags: [cybersecurity, certification, ai-security, career, cissp, comptia, aws]
 lang: en
-tldr: "6+ new AI security certifications launched in just 18 months (2025–2026), while the classic trio — Security+ ($404), AWS Security Specialty ($300), CISSP ($749) — remains foundational. For AI platform developers who aren't security specialists, a three-phase path works best: Security+ → AWS Security → SecAI+ or CAISP → CISSP, totaling $1,800–$2,650."
+tldr: "10+ new AI security certifications launched in just 18 months (2025–2026), while the classic trio — Security+ ($439), AWS Security Specialty ($300), CISSP ($749) — remains foundational. For AI platform developers who aren't security specialists, a three-phase path works best: Security+ → AWS Security → SecAI+ or CAISP → CISSP, totaling $1,850–$2,700."
 description: "A certification selection guide for software developers who aren't security specialists: covers 16 mainstream certifications by cost, prerequisites, and market recognition, plus a three-phase roadmap tailored for AI/SaaS platform developers."
 draft: false
 series:
@@ -27,7 +27,7 @@ Security certifications aren't a single ladder. They're six parallel tracks. You
 
 Build baseline literacy and a shared vocabulary.
 
-- **CompTIA Security+** ($404–$439): The globally recognized entry point — 90 questions in 90 minutes, no experience required. Per [SecuSpark 2026 data](https://www.secuspark.com/blog/security-plus-pass-rate-statistics), self-study first-attempt pass rates sit around 50–65%, climbing to 85–93% with structured training.
+- **CompTIA Security+** ($439 after the June 2026 increase): The globally recognized entry point — 90 questions in 90 minutes, no experience required. Per [SecuSpark 2026 data](https://www.secuspark.com/blog/security-plus-pass-rate-statistics), self-study first-attempt pass rates sit around 50–65%, climbing to 85–93% with structured training.
 - **ISC2 CC** ($199): ISC2's entry-level credential. Lower barrier, and strategically useful as a stepping stone toward CISSP or CCSP.
 
 ### 2. Cloud security
@@ -35,7 +35,7 @@ Build baseline literacy and a shared vocabulary.
 Match your cert to the cloud your code runs on.
 
 - **AWS Security Specialty** ($300): 65 questions in 170 minutes, covering IAM policies, KMS, VPC security, GuardDuty, and Bedrock security configurations. Per [Pruvos community data](https://www.pruvos.com/certifications/cloud-computing/aws-scs-c03), first-attempt pass rates are roughly 45–55%, rising to 65–70% for candidates with hands-on AWS experience. Holders of any active AWS certification get a 50% discount ($150).
-- **Azure AZ-500** ($165): The cheapest cloud security cert, with a 1-year validity and free annual online renewal. Relevant where government or financial clients run Azure.
+- **Microsoft SC-500** ($165): Replaces AZ-500, which retired on August 31, 2026, and adds security controls for AI workloads to the exam scope. Still the cheapest cloud security cert. Relevant where government or financial clients run Azure.
 - **GCP Professional Cloud Security Engineer** ($200): Prioritize this only if you work with Vertex AI.
 
 ### 3. Management and governance
@@ -61,7 +61,7 @@ Making the code you write secure by design.
 
 ### 6. AI security (2025–2026 emerging)
 
-**This is an active battlefield.** Over 6 brand-new certifications launched within 18 months, and no industry standard has emerged yet.
+**This is an active battlefield.** Over 10 brand-new certifications launched within 18 months, and no industry standard has emerged yet.
 
 | Certification | Cost | Launched | Exam format | Focus |
 |---|---|---|---|---|
@@ -70,9 +70,16 @@ Making the code you write secure by design.
 | **GIAC GAIPS** | ~$999 exam / ~$9K with course | 2026/07 | CyberLive hands-on | Defensive GenAI/LLM platform security |
 | **ISACA AAISM** | $459–$599 | 2025/08 | 90 questions / 150 min | Governance layer (requires CISM or CISSP) |
 | **GIAC GASAE** | ~$979 exam | 2026/04 | CyberLive | Red/blue/purple team AI automation |
-| **ISC2 CCAI** | TBA | pilot 2025 Q4 | TBA | Security engineering (not yet released) |
+| **EC-Council COASP** | Official course from $1,699 | 2026/02 | 70 questions / 6 hours (incl. performance-based) | Offensive: AI red teaming; classroom course at Uuu in Taiwan |
+| **OffSec OSAI+** | $1,749 (incl. course) | 2026/03 | 24h practical | Offensive: advanced AI red teaming |
+| **HTB COAE** | Subscription | 2026/04 | 7-day practical + report | Offensive: leans into adversarial ML |
+| **GIAC GOAA** | See GIAC | Available | 56 questions / 2 hours CyberLive | Using AI as an attack tool (not attacking AI) |
+| **ISACA AAIR** | $459–$599 | 2026/04 | See ISACA | AI risk (requires CRISC or another listed cert) |
+| **ISC2 (unnamed)** | TBA | Pilot expected late 2026 | TBA | In development, not operational before 2027 |
 
 Per [Practical DevSecOps market analysis](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison), the share of cybersecurity job postings requiring AI skills doubled from 14.2% to 28.5% between October 2025 and March 2026.
+
+Details on the four offensive certifications (COASP, OSAI+, HTB COAE, GOAA) and how to choose among them are in [Part 2](/en/posts/tech/2026-09-10-ai-security-cert-showdown-en).
 
 ## Comparison table
 
@@ -81,9 +88,9 @@ All costs are USD exam fees; training and materials are extra.
 | Certification | Cost | Difficulty | Experience req. | Validity | AI/SaaS relevance |
 |---|---|---|---|---|---|
 | ISC2 CC | $199 | ⭐ | None | 3 years | Low |
-| Security+ | $404 | ⭐⭐ | None | 3 years | Medium |
+| Security+ | $439 | ⭐⭐ | None | 3 years | Medium |
 | SecAI+ | $359 | ⭐⭐ | 2 years cybersec recommended | 3 years | High |
-| AZ-500 | $165 | ⭐⭐ | None | 1 year | Medium |
+| SC-500 (replaces AZ-500) | $165 | ⭐⭐ | None | See Microsoft | Medium |
 | AWS Security | $300 | ⭐⭐⭐ | 5 years IT recommended | 3 years | Highest |
 | CAISP | $999 | ⭐⭐⭐ | None | Lifetime | Highest |
 | CSSLP | $599 | ⭐⭐⭐ | 4 years | 3 years | High |
@@ -113,7 +120,7 @@ If you're a software developer who doesn't specialize in security, especially bu
 
 ```
 Phase 1 (Foundation + Cloud)
-├── CompTIA Security+ ($404)
+├── CompTIA Security+ ($439)
 │   No prerequisites, high market recognition, counts toward
 │   1 year of CISSP experience credit
 │   Prep: 2–3 months self-study
@@ -132,7 +139,7 @@ Phase 2 (AI Security Specialization)
 │   Full OWASP LLM Top 10 coverage
 │   Consistently rated 9/10 by exam takers (details in Part 2)
 │
-└── Watch: ISC2 CCAI (in pilot), GIAC GAIPS ($999/$9K)
+└── Watch: ISC2 AI security cert (in development), GIAC GAIPS ($999/$9K)
 
 Phase 3 (Long-term credential)
 └── CISSP ($749)
@@ -145,13 +152,13 @@ Phase 3 (Long-term credential)
 
 | Phase | Certification | Exam fee | Study materials (est.) | Subtotal |
 |---|---|---|---|---|
-| Phase 1 | Security+ | $404 | ~$30 | ~$434 |
+| Phase 1 | Security+ | $439 | ~$30 | ~$469 |
 | Phase 1 | AWS Security | $150–$300 | ~$30 | ~$180–$330 |
 | Phase 2 | SecAI+ | $359 | ~$30 | ~$389 |
 | Phase 3 | CISSP | $749 | ~$50 | ~$799 |
-| **Total** | | | | **~$1,802–$1,952** |
+| **Total** | | | | **~$1,837–$1,987** |
 
-Taking the CAISP route instead, Phase 2 becomes ~$1,099 (materials and lab included), for a total of ~$2,512–$2,662.
+Taking the CAISP route instead, Phase 2 becomes ~$1,099 (materials and lab included), for a total of ~$2,547–$2,697.
 
 ## Study resources at a glance
 
@@ -210,6 +217,10 @@ This is Part 1 of the "Security Certification Playbook" series. Coming next:
 - **Part 3**: Security+ → AWS Security → CISSP ROI breakdown — study time, pass rates, and maintenance costs with real numbers
 - **Part 4**: Taiwan's security certification ecosystem — regulatory details, local training providers, study resources, and exam logistics
 
+## Update log
+
+- 2026-10-08: Added COASP, OSAI+, HTB COAE, GOAA, and AAIR to the AI security category. AZ-500 has retired and is replaced by SC-500. Corrected ISC2's status (the original "CCAI pilot 2025 Q4" was wrong). Security+ exam fee switched to the post-increase $439 and the cost estimate recalculated.
+
 ## References
 
 - [CompTIA Security+ Official Certification Page](https://www.comptia.org/certifications/security)
@@ -229,3 +240,10 @@ This is Part 1 of the "Security Certification Playbook" series. Coming next:
 - [ICSDA — Listed Company Cybersecurity Guidelines FAQ](https://icsda.org.tw/) (in Mandarin)
 - [SSDLC by 飛飛 — Taiwan Legal Compliance Guide](https://ssdlc.feifei.tw/taiwan-legal-compliance-guide-pdpa-cybersecurity-act-ssdlc) (in Mandarin)
 - [Practical DevSecOps — AI Security Certification Comparison](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)
+- [EC-Council COASP](https://iclass.eccouncil.org/our-courses/certified-offensive-ai-security-professional)
+- [OffSec AI-300 (OSAI+)](https://www.offsec.com/courses/ai-300/)
+- [Hack The Box COAE](https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert)
+- [GIAC GOAA](https://www.giac.org/certifications/offensive-ai-analyst-goaa)
+- [ISACA AAIR](https://www.isaca.org/credentialing/aair)
+- [Microsoft SC-500 (Cloud and AI Security Engineer Associate)](https://learn.microsoft.com/en-us/credentials/certifications/cloud-and-ai-security-engineer-associate/)
+- [Microsoft — AZ-500 retirement notice](https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/)

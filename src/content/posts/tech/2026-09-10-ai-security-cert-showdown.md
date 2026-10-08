@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [cybersecurity, certification, ai-security, owasp, llm, prompt-injection]
 lang: zh-TW
-tldr: "四張 AI 安全證照各有定位：SecAI+（$359）是 CompTIA 品牌的中階擴充、CAISP（$999 全包）實作最強且 OWASP LLM Top 10 覆蓋最完整、GAIPS（$999/$9K）是 SANS 金字招牌的防禦側 CyberLive 考試、AAISM（$459+）偏治理但需先持有 CISM 或 CISSP。預算 $400 以下選 SecAI+，想動手做選 CAISP，公司出錢選 GAIPS。"
+tldr: "四張 AI 安全證照各有定位：SecAI+（$359）是 CompTIA 品牌的中階擴充、CAISP（$999 全包）實作最強且 OWASP LLM Top 10 覆蓋最完整、GAIPS（$999/$9K）是 SANS 金字招牌的防禦側 CyberLive 考試、AAISM（$459+）偏治理但需先持有 CISM 或 CISSP。預算 $400 以下選 SecAI+，想動手做選 CAISP，公司出錢選 GAIPS。想走攻擊側（AI 紅隊），2026 年新上線的 OSAI+、HTB COAE、COASP 另成一組，見文末補充。"
 description: "深入比較 2025–2026 年四張新興 AI 安全證照的考域、考試格式、OWASP LLM Top 10 覆蓋度與真實考生口碑，幫 AI 平台開發者選出最適合的一張。"
 draft: false
 series:
@@ -18,6 +18,8 @@ series:
 2025 年 8 月 ISACA 推出 AAISM，2026 年 2 月 CompTIA 上線 SecAI+，4 月 GIAC 開賣 GASAE，7 月再加 GAIPS——18 個月內四大認證機構各自押寶 AI 安全。依 [Practical DevSecOps 的市場分析](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)，2025/10 至 2026/3 之間，要求 AI 技能的資安職缺比例從 14.2% 翻倍到 28.5%。需求在那裡，但哪張證照真的教你東西？
 
 這篇拿 OWASP LLM Top 10 v2.0 當標尺，拆解四張 AI 安全證照的考域、考試格式和真實口碑，幫你選出最適合的一張。
+
+這四張都偏防禦與治理。2026 年上半年另外冒出一批攻擊側（AI 紅隊）證照——EC-Council COASP、OffSec OSAI+、HTB COAE、GIAC GOAA——放在[後面獨立一節](#2026-年新上線攻擊側的四張)整理。
 
 ## 評比基準：OWASP LLM Top 10 v2.0（2025）
 
@@ -116,7 +118,7 @@ Prompt Injection、Data Poisoning、Supply Chain、Improper Output Handling 都�
 
 ### 定位
 
-SANS/GIAC 在 2026/7/28 開放一般購買的防禦側 AI 安全證照，對應 SANS SEC545「GenAI and LLM Application Security」五天課程。依 [CertCrush 分析](https://www.certcrush.app/blog/giac-gaips-ai-platform-security-explained-worth-it-2026)，GIAC 計畫在 2026 年底前推出共 4 張 AI 安全證照（GAIPS 防禦、GASAE 自動化、GOAA 攻擊、第四張待公布）。
+SANS/GIAC 在 2026/7/28 開放一般購買的防禦側 AI 安全證照，對應 SANS SEC545「GenAI and LLM Application Security」五天課程。依 [CertCrush 分析](https://www.certcrush.app/blog/giac-gaips-ai-platform-security-explained-worth-it-2026)，GIAC 計畫在 2026 年底前推出共 4 張 AI 安全證照（GAIPS 防禦、GASAE 自動化、GOAA 攻擊、第四張待公布）。其中 GOAA 已經上線，細節見後面攻擊側一節。
 
 ### 考試格式
 
@@ -229,6 +231,7 @@ ISACA 在 2025/8 推出的 AI 安全**管理**認證——注意是「管理」�
 | DevSecOps / AppSec 有經驗 | CAISP | 擴展到 AI 領域，lab 格式跟你的工作模式一致 |
 | 資安管理者 / CISO | AAISM | 你需要的是治理框架，不是寫程式 |
 | 做 AI Agent 平台 | **GAIPS** 或 CAISP | GAIPS 明確涵蓋 agentic systems；CAISP 的 RAG lab 也直接相關 |
+| 滲透測試 / 紅隊 | OSAI+、HTB COAE 或 COASP | 攻擊側證照，見後面獨立一節 |
 
 ### 依目標
 
@@ -238,19 +241,68 @@ ISACA 在 2025/8 推出的 AI 安全**管理**認證——注意是「管理」�
 | 真的會動手防禦 | CAISP（6h 實戰，有 lab 記憶） |
 | 頂級品牌背書 | GAIPS（SANS/GIAC） |
 | AI 治理框架 | AAISM（ISACA） |
+| 做 AI 紅隊 | OSAI+、HTB COAE、COASP（攻擊側） |
 
-## 還在觀望的選項
+## 2026 年新上線：攻擊側的四張
 
-- **EC-Council COASP（Certified Offensive AI Security Professional）**：EC-Council 的 AI 資安專家認證，偏攻擊側。台灣[恆逸教育訓練中心有開實體班](https://www.uuu.com.tw/Course/Show/3332/COASP)，是目前台灣唯一有 AI 安全認證實體課程的管道之一。
-- **ISC2 CCAI**：pilot 中（2025 Q4），定價和考試格式未定。ISC2 品牌加上安全工程定位很有潛力，但 2026/09 仍無法報名。
-- **OffSec OSAI（AI Red Teamer）**：即將推出。OffSec 的攻擊導向風格可能會成為 CAISP 在攻擊面的直接競爭者。
-- **GIAC GASAE**：2026/4 已開賣，偏紅藍紫隊 AI 自動化，與 GAIPS 互補。
+前面四張主角談的是「怎麼守」和「怎麼管」。2026 年 2 月到 4 月之間，EC-Council、OffSec、Hack The Box 接連推出以 AI 紅隊為主題的證照，加上 GIAC 的 GOAA，攻擊側一口氣多了四個選項。
+
+| | EC-Council COASP | OffSec OSAI+ | HTB COAE | GIAC GOAA |
+|---|---|---|---|---|
+| **全名** | Certified Offensive AI Security Professional | OffSec AI Red Teamer（課程 AI-300） | Certified Offensive AI Expert | Offensive AI Analyst（課程 SEC535） |
+| **上線** | 2026/2（隨 Enterprise AI Credential Suite 發表） | 2026/3/31 | 2026/4 | 已上線 |
+| **考試格式** | 70 題（選擇題 + 實作題）/ 6 小時，線上監考 | 24 小時監考實作，攻破一個含 AI 的企業環境 | 7 天實作評估 + 商業等級報告 | 56 題 / 2 小時，CyberLive |
+| **及格線** | 70–80% | 官方頁未列 | 官方頁未列 | 67% |
+| **費用** | 官方 on-demand 課程 $1,699 起 | $1,749（90 天課程 + 1 次考試）或 $2,749/年（2 次考試） | 需先修完 AI Red Teamer 路徑，官方建議買 Silver Annual 訂閱（含考券，可考 2 次） | 見 GIAC 官方 |
+| **效期** | 見 EC-Council 官方 | OSAI 不過期；OSAI+ 3 年 | 見 HTB 官方 | 見 GIAC 官方 |
+| **打的對象** | AI 系統本身 | AI 系統本身 | AI 系統本身 | **用 AI 打傳統目標** |
+
+### EC-Council COASP
+
+EC-Council 在 2026/2/10 發表的四張 AI 證照之一（另外三張是 AIE 入門素養、CAIPM 專案管理、CRAGE 治理與倫理），考試代碼 312-52。課程十個模組：攻擊方法論、AI 偵察與攻擊面盤點、漏洞掃描與 fuzzing、prompt injection 與 LLM 應用攻擊、對抗性機器學習與模型隱私攻擊、資料與訓練管線攻擊、agentic AI 與模型對模型攻擊、AI 基礎設施與供應鏈攻擊、測試評估與強化、AI 事故應變與鑑識。官方說明課綱對齊 OWASP LLM Top 10、NIST AI RMF 與 ISO 42001。
+
+對台灣讀者最實際的一點：[恆逸教育訓練中心有開實體班](https://www.uuu.com.tw/Course/Show/3332/COASP)，40 小時、NT$68,000，附 180 天原廠 lab 和一次考試（恆逸標示考試原價 USD 650）。四張攻擊側證照裡，在台灣有實體班的是 COASP 和 OSAI+，COASP 的價格不到一半。
+
+### OffSec OSAI+
+
+OSCP 那家出的 AI 紅隊證照。AI-300 課程約 65 小時內容、11 個模組，涵蓋攻擊 LLM、RAG pipeline、embedding、多代理系統和 AI 基礎設施。考試是 OffSec 一貫的風格：24 小時監考，沒有選擇題。通過後同時拿到不過期的 OSAI 和 3 年效期的 OSAI+。官方定位為進階課程，要求扎實的資安基礎和對 LLM 的基本認識。恆逸也開了 [OSAI+ 實體班](https://www.uuu.com.tw/Course/Show/3408/OSAI)，40 小時、NT$149,000。
+
+### HTB COAE
+
+Hack The Box 的 AI Red Teamer 路徑是和 Google 合作開發的，對齊 Google SAIF 框架，COAE 是這條路徑的結業認證。必須先修完全部 12 個模組才能考，沒有捷徑。內容比其他三張更偏機器學習本身：除了 prompt injection 和 LLM 輸出攻擊，還有規避攻擊、梯度式對抗樣本、隱私攻擊與差分隱私，以及 MCP 的安全問題。考試為期 7 天，只打下目標不算通過，還要交一份可以直接給客戶的報告。
+
+### GIAC GOAA
+
+名字有「Offensive AI」，但方向和另外三張相反：它教的是**把 AI 當攻擊工具**，例如 deepfake 語音與影像釣魚、AI 輔助的漏洞挖掘與 exploit 產生、用 AI 寫惡意程式、繞過防禦機制。對象是做傳統紅隊與社交工程、想把 AI 納入工具箱的人。如果你的目標是測試自家的 LLM 應用，這張不對題。
+
+### 攻擊側怎麼選
+
+| 你的情況 | 選這張 |
+|---|---|
+| 想在台灣上實體課、公司付費 | COASP（NT$68,000）或 OSAI+（NT$149,000），都在恆逸 |
+| 已有 OSCP 等級的滲透測試底子 | OSAI+ |
+| 想把對抗性機器學習的數學一起補起來 | HTB COAE |
+| 做紅隊與社交工程，想用 AI 加速 | GOAA |
+
+對做 AI Agent 平台的開發者，攻擊側證照不是第一張該考的。先用 CAISP 或 GAIPS 建立防禦能力，之後想理解攻擊者怎麼想，再挑一張。
+
+## 其他新增與還在開發的
+
+- **Microsoft SC-500**：Cloud and AI Security Engineer Associate。取代已在 2026/8/31 退役的 AZ-500，考試費 $165、120 分鐘。它是雲端資安證照加上 AI 工作負載，不是純 AI 安全證照——AI 相關的考點是 Defender for Cloud 的 AI 防護、Foundry 的 agent guardrails、Purview DSPM 這類 Azure 上的設定。
+- **ISACA AAIR（Advanced in AI Risk）**：2026/4/15 上線，會員 $459、非會員 $599，需先持有 CRISC、CISA、CISM、CISSP 等 25 張指定證照之一。加上 2025 年的 AAIA（稽核）和 AAISM（資安管理），ISACA 的 AI 三件組到齊，分別對應風險、稽核、資安管理三種角色。
+- **CSA TAISE（Trusted AI Safety Expert）**：Cloud Security Alliance 與 Northeastern University 合作，$795 含課程與 2 次考試，60 題選擇題、80% 及格，無先決條件。偏 AI 安全治理的基礎認知。
+- **GIAC GASAE**：2026/4 已開賣，82 題 / 3 小時、70% 及格，偏紅藍紫隊的 AI 自動化，與 GAIPS 互補。
+- **ISC2 的 AI 安全證照**：還沒有正式名稱。ISC2 在 2026/7/15 宣布開始開發並徵求志工，8 月在三地開完第一輪 Job Task Analysis 工作坊，預計 2026 年底辦 pilot exam，正式上線不會早於 2027 年。現階段 ISC2 的做法是把 AI 安全概念併入既有九張證照的考綱。
 
 ## 整體來說
 
 AI 安全證照市場極度年輕——18 個月前這些證照一張都不存在。依 [StationX 的分析](https://app.stationx.net/articles/best-ai-security-certifications)，「到 2027 年格局會再次不同」。現在選證照的策略不是找「永遠正確的答案」，而是找「現在就能幫你建立能力的工具」。
 
 如果只能選一張：做 AI Agent 平台的開發者，CAISP 的 lab 訓練對你的日常工作最直接有用。但記得，證照證明你學過，不證明你會用——真正的安全能力還是要在實際系統上練。
+
+## 更新紀錄
+
+- 2026-10-08：新增「2026 年新上線：攻擊側的四張」一節（COASP、OSAI+、HTB COAE、GOAA），補上 SC-500、AAIR、TAISE；更正 ISC2 的進度（原文寫「CCAI pilot 中」有誤，實際是 2026/7 才宣布開始開發）；OSAI 由「即將推出」改為已上線。
 
 ## 參考資料
 
@@ -274,3 +326,20 @@ AI 安全證照市場極度年輕——18 個月前這些證照一張都不存�
 - [OWASP Top 10 for LLM Applications 2025](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 - [Practical DevSecOps — AI Security Certification 市場分析](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)
 - [StationX — Best AI Security Certifications 2026](https://app.stationx.net/articles/best-ai-security-certifications)
+- [EC-Council — Certified Offensive AI Security Professional（COASP）](https://iclass.eccouncil.org/our-courses/certified-offensive-ai-security-professional)
+- [EC-Council — Enterprise AI Credential Suite 發表新聞稿（2026/2）](https://www.cybersecuritydive.com/press-release/20260211-ec-council-expands-ai-certification-portfolio-to-strengthen-us-ai-workfor-1/)
+- [恆逸教育訓練中心 — COASP AI 資安專家認證課程](https://www.uuu.com.tw/Course/Show/3332/COASP)
+- [恆逸教育訓練中心 — OSAI+ 認證課程 AI-300](https://www.uuu.com.tw/Course/Show/3408/OSAI)
+- [OffSec — AI-300: Advanced AI Red Teaming（OSAI+）](https://www.offsec.com/courses/ai-300/)
+- [OffSec — OSAI+ AI-300 FAQ](https://help.offsec.com/hc/en-us/articles/46593095198740-OSAI-Advanced-AI-Red-Teaming-AI-300-FAQ)
+- [Hack The Box — HTB Certified Offensive AI Expert（COAE）](https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert)
+- [Hack The Box — HTB COAE 上線公告](https://academy.hackthebox.com/news/the-new-htb-certified-offensive-ai-expert-htb-coae-is-officially-here)
+- [GIAC GOAA 官方](https://www.giac.org/certifications/offensive-ai-analyst-goaa)
+- [GIAC GASAE 官方](https://www.giac.org/certifications/ai-security-automation-engineer-gasae)
+- [Microsoft Certified: Cloud and AI Security Engineer Associate（SC-500）](https://learn.microsoft.com/en-us/credentials/certifications/cloud-and-ai-security-engineer-associate/)
+- [ISACA AAIR 認證頁](https://www.isaca.org/credentialing/aair)
+- [ISACA — AAIR 上線新聞稿（2026/4/15）](https://www.isaca.org/about-us/newsroom/press-releases/2026/isaca-launches-advanced-in-ai-risk-aair-certification-to-equip-it-risk-professionals)
+- [CSA TAISE](https://cloudsecurityalliance.org/education/taise)
+- [ISC2 — AI Security Certification 開發進度](https://www.isc2.org/new-ai-certification)
+- [ISC2 — 開始開發 AI 安全證照公告（2026/7/15）](https://www.isc2.org/insights/2026/07/ai-security-certification-development)
+- [ISC2 — AI 考試指引更新（2026/9）](https://www.isc2.org/Insights/2026/09/updated-ISC2-ai-guidance-published)
