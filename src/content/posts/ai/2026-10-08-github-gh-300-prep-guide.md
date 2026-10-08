@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 28
-tldr: "GH-300 是 GitHub Copilot 的官方認證，2026 年 8 月 7 日改版後的考綱有六塊，最重的「使用 Copilot 功能」佔 25–30%，裡面包含 Copilot CLI、agent mode、MCP、sub-agent 委派，以及組織層級的政策、稽核記錄與 REST API。官方規格：美國 $99、台灣 $50、100 分鐘、及格 700、效期 2 年，五種語言不含中文，有官方練習測驗。官方的權重清單多列了一行，照六個實際章節準備。"
+tldr: "GH-300 是 GitHub Copilot 的官方認證，2026 年 8 月 7 日改版後的考綱有六塊，最重的「使用 Copilot 功能」佔 25–30%，裡面包含 Copilot CLI、agent mode、MCP、sub-agent 委派，以及組織層級的政策、稽核記錄與 REST API。官方規格：美國 $99、台灣 $50、100 分鐘、60 題計分題、及格 700、效期 2 年，五種語言不含中文，有官方練習測驗。官方的權重清單多列了一行，照六個實際章節準備。"
 description: "GitHub Copilot 認證（GH-300）備考指南，依官方 study guide 的六塊技能權重拆解，說明每塊考什麼、兩條官方學習路徑怎麼配、三週時程的換算依據、官方頁面的重複列項，以及 GitHub 認證兩年效期與續期制度的現況。"
 draft: false
 ---
@@ -19,7 +19,7 @@ draft: false
 
 每天在用 GitHub Copilot 的人，很容易覺得這張認證是白拿的。打開 2026 年 8 月改版後的考綱會發現範圍比「在編輯器裡按 Tab」大得多：Copilot CLI 有獨立的一組條目，agent mode 與 MCP 是明列的考點，還有一組在考組織管理員怎麼設政策、看稽核記錄。
 
-GitHub 的認證現在掛在 Microsoft Learn 底下，報名、成績與續期都走微軟的系統。各家證照的規格對照見站內的[2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)。
+GitHub 的認證現在掛在 Microsoft Learn 底下，報名與成績走微軟的系統，續期也正在轉過去。各家證照的規格對照見站內的[2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)。
 
 ## 這張適合誰
 
@@ -31,7 +31,7 @@ GitHub 的認證現在掛在 Microsoft Learn 底下，報名、成績與續期�
 
 **適合**：團隊已經導入 Copilot 的開發者，以及負責評估、採購或管理 Copilot 的技術主管。對後者來說，資料流向、內容排除、公開程式碼比對這幾塊正是內部最常被問的問題。
 
-**不適合**：不用 GitHub Copilot 的人。這張完全綁定單一產品，學到的 prompt 觀念可以帶走，但功能、方案與設定的題目換一個工具就沒用了。想考「在開發流程裡營運與治理 agent」的人，該看的是進階的 [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide)。
+**不適合**：不用 GitHub Copilot 的人。這張完全綁定單一產品，學到的 prompt 觀念可以帶走，但功能、方案與設定的題目換一個工具就沒用了。想考「在開發流程裡營運與治理 agent」的人，該看的是 [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide)。
 
 ## 官方規格速覽
 
@@ -41,8 +41,8 @@ GitHub 的認證現在掛在 Microsoft Learn 底下，報名、成績與續期�
 | 認證名稱 | GitHub Copilot |
 | 費用 | 美國 **$99 USD**、台灣 **$50 USD**（依考場所在國家定價，認證頁的國家選單可切換） |
 | 時間 | **100 分鐘** |
-| 題數 | 官方不公布 |
-| 及格 | **700** |
+| 題數 | **60 題計分選擇題**，另有約 10–15 題不計分的試題（GitHub 認證 FAQ 對旗下考試的通用說明；Microsoft Learn 的認證頁沒有列） |
+| 及格 | **700**（[微軟技術類考試的通用及格線](https://learn.microsoft.com/en-us/credentials/certifications/exam-scoring-reports)，量尺 1–1,000；GitHub 自己的頁面沒有另外列） |
 | 效期 | **2 年** |
 | 語言 | 英文、西班牙文、巴西葡萄牙文、韓文、日文，**沒有中文** |
 | 監考 | Pearson VUE |
@@ -61,7 +61,7 @@ GitHub 的認證現在掛在 Microsoft Learn 底下，報名、成績與續期�
 | Improve developer productivity with GitHub Copilot | 10–15% |
 | Configure privacy, content exclusions, and safeguards | 10–15% |
 
-**官方的清單其實列了七行。** study guide 的「Skills at a glance」與認證頁的「Assessed on this exam」在第二行之後都多了一行「GitHub Copilot features (25–30%)」，但內文沒有對應的章節。六個實際章節的權重範圍加起來是 80–120%，包得住 100%；把多出的那行算進去會變成 105–150%，不可能成立。所以那一行是重複列出，以六個章節為準。
+**官方的清單其實列了七行。** study guide 的「Skills at a glance」與認證頁的「Assessed on this exam」在第二行之後都多了一行「GitHub Copilot features」（study guide 那邊還標了 25–30%，認證頁不列權重），但內文沒有對應的章節。六個實際章節的權重範圍加起來是 80–110%，包得住 100%；把多出的那行算進去會變成 105–140%，不可能成立。GitHub 自己的[認證頁](https://learn.github.com/certification/COPILOT)列的也是六個領域。所以那一行是重複列出，以六個章節為準。
 
 ## 逐塊準備
 
@@ -69,7 +69,7 @@ GitHub 的認證現在掛在 Microsoft Learn 底下，報名、成績與續期�
 
 **官方考什麼**：生成式 AI 工具的風險與限制；倫理與負責任的使用；辨識可能的傷害與緩解方式；**說明為什麼要驗證 AI 的輸出**；怎麼負責任地操作 Copilot。
 
-**怎麼準備**：觀念題。重點是「驗證」：Copilot 給的程式碼可能有安全漏洞、可能過時、可能和公開程式碼雷同，題目會問在什麼情境該做哪一種檢查。
+**怎麼準備**：觀念題。重點是「驗證」：Copilot 給的程式碼可能有安全漏洞、可能過時、可能和公開程式碼雷同，準備時把「什麼情境該做哪一種檢查」整理成對照。
 
 ### Use GitHub Copilot features（25–30%，最重）
 
@@ -82,7 +82,7 @@ GitHub 的認證現在掛在 Microsoft Learn 底下，報名、成績與續期�
 | 功能與能力 | **Agent Mode、Copilot Edits、MCP**；**管理 agent session、把任務委派給 sub-agent 以節省 context**；程式碼審查；Spaces、Spark、PR 摘要；**用 instructions 檔自訂審查標準**；Copilot Chat 的限制、選項與指令；**重複使用 prompt file** |
 | 組織層級的設定與政策 | 組織政策管理；啟用 Copilot Code Review 政策、管理各 IDE 與 github.com 的功能開放；**稽核記錄事件**；**用 REST API 管理訂閱** |
 
-CLI 那組有五條，數量和 IDE 那組差不多。只在編輯器裡用 Copilot 的人，這裡會直接掉分。
+CLI 那組有五條，是這一塊四組裡最多的（IDE 三條、功能四條、組織設定三條）。只在編輯器裡用 Copilot 的人，這組要另外補。
 
 **怎麼準備**：每個點名的功能都實際用過一次。最低限度的清單：裝 Copilot CLI 並用它產生一支腳本；在 agent mode 接一個 MCP server；寫一份 instructions 檔與一份 prompt file；如果你有組織管理權限，進設定頁看一次政策與稽核記錄，沒有的話讀官方的管理文件。
 
@@ -120,11 +120,11 @@ CLI 那組有五條，數量和 IDE 那組差不多。只在編輯器裡用 Copi
 | 第 2 週 | Part 2 學習路徑 + **功能實作清單** | 功能那塊 25–30%，條目點名的功能要實際用過 |
 | 第 3 週 | 官方練習測驗 + 補弱 | 認證頁直接提供 practice assessment |
 
-**失敗成本低**：認證頁連到微軟的[重考政策](https://learn.microsoft.com/en-us/credentials/support/retake-policy)，第一次沒過等 24 小時，之後每次間隔 14 天，12 個月內最多 5 次，每次重新付費。
+**失敗成本低**：認證頁連到微軟的[重考政策](https://learn.microsoft.com/en-us/credentials/support/retake-policy)，第一次沒過等 24 小時，之後每次間隔 14 天，12 個月內最多 5 次，每次重新付費。GitHub 的認證 FAQ 寫的規則相同。
 
 ## 這張的已知陷阱
 
-1. **考綱會跟著產品改。** 現行版本是 2026 年 8 月 7 日生效，study guide 的變更紀錄標了三處小改（IDE 用法、功能與能力、防護與除錯）。判斷教材新舊的方法：看它有沒有涵蓋條目點名的 Copilot CLI、sub-agent 委派、Spaces、Spark，沒有就是舊的。
+1. **考綱會跟著產品改。** 現行版本是 2026 年 8 月 7 日生效，study guide 的變更紀錄標了三處小改（IDE 用法、功能與能力、防護與除錯）。變更紀錄沒有說明改了什麼。我自己的判斷法是看教材有沒有涵蓋現行條目點名的 sub-agent 委派、Spaces、Spark 與 Copilot CLI，沒有的話多半跟不上現行考綱。
 2. **講師課頁面是舊的。** GH-300T00-A 的課程頁最後更新是 2025 年 6 月，適用對象還寫著「Policy Makers and Regulators」。它比現行考綱早了一年多，別拿它判斷考試範圍。
 3. **官方清單多列一行。** 見上面權重表的說明。
 4. **study guide 的續期說明是微軟的通用文字。** 「Useful links」表格寫「Microsoft associate, expert, and specialty certifications expire annually」，那是套用的範本；GitHub 認證的效期是兩年，以認證頁為準。
@@ -135,9 +135,9 @@ CLI 那組有五條，數量和 IDE 那組差不多。只在編輯器裡用 Copi
 
 > GitHub certifications are valid for 2 years. GitHub is transitioning to Microsoft's recertification process, which will provide a new way for candidates to maintain their certifications without retaking the full certification exam.
 
-也就是說，GitHub 認證以後會改走微軟那種「不用重考整張」的續期方式，但新流程還沒上線。過渡期間官方給了兩項保障：在新流程上線前到期的認證**自動延長 6 個月**；已經過期的可以寫信到 learn@github.com 索取一張考試券，抵第一次續期的費用。
+也就是說，GitHub 認證以後會改走微軟那種「不用重考整張」的續期方式，但新流程還沒上線。過渡期間官方給了兩項保障：在新流程上線前到期的認證**延長 6 個月**（GitHub 的 FAQ 說快到期的人要聯絡 GitHub 認證團隊辦理）；已經過期的可以寫信到 learn@github.com 索取一張考試券，抵第一次續期的費用。
 
-實際上該怎麼做：兩年內不用處理。快到期時先回認證頁看新流程是否上線，再決定要不要重考。
+實際上該怎麼做：兩年內不用處理。快到期時先回認證頁看新流程是否上線；還沒上線就寫信給 GitHub 認證團隊辦延長，不要等它自己生效。
 
 ## 會過期的東西（下次複查看這裡）
 

@@ -84,7 +84,7 @@ The first two total **40–50%** and the last three total **40–55%**. Two plat
 |---|---|
 | Training orchestration | **Experiment tracking with MLflow**; AutoML; notebook experimentation; automated hyperparameter tuning; running training scripts; **distributed training for large and deep learning models**; training pipelines; comparing model performance across jobs |
 | Registration and versioning | **Package a feature retrieval specification with the model artifact**; register an MLflow model; evaluate a model against responsible AI principles; manage the model lifecycle, including archiving |
-| Deployment | Deploy as real-time or batch endpoints; test and troubleshoot endpoints; **progressive rollout and safe rollback** |
+| Deployment | Deploy as real-time or batch endpoints with managed inference options; test and troubleshoot endpoints; **progressive rollout and safe rollback** |
 | Monitoring | **Detect and analyze data drift**; monitor production performance metrics; trigger retraining or alerts when thresholds are exceeded |
 
 **How to prepare**: take the first official learning path, [Operationalize machine learning models (MLOps)](https://learn.microsoft.com/en-us/training/paths/build-first-machine-operations-workflow/) (7 modules, listed at about 5.7 hours). The most effective exercise is to take one model through the whole loop: track training with MLflow, register it, deploy it to a managed online endpoint, split traffic across two deployments and roll back, then set up a data drift monitor. Skip any of the four stages and a whole group of questions becomes unanswerable.
@@ -99,14 +99,14 @@ The first two total **40–50%** and the last three total **40–55%**. Two plat
 
 The third group stands out: this exam treats prompts as engineering artifacts that need version control and variant comparison. For how other certifications test the same topic, see [How exams test prompt and context engineering](/posts/ai/2026-08-18-prompt-context-engineering-exam-domains-en).
 
-**How to prepare**: this area shares the second official learning path with the two that follow: [Operationalize generative AI applications (GenAIOps)](https://learn.microsoft.com/en-us/training/paths/operationalize-gen-ai-apps/) (6 modules, about 6.1 hours). Turn the deployment options into your own comparison table: how serverless API, managed compute, and provisioned throughput are each billed and what traffic each suits.
+**How to prepare**: the second official learning path, [Operationalize generative AI applications (GenAIOps)](https://learn.microsoft.com/en-us/training/paths/operationalize-gen-ai-apps/) (6 modules, about 6.1 hours), covers only part of this area. Its six modules are planning, prompt management, evaluation experiments, automated evaluation, monitoring, and tracing. Prompt versioning is taught there, but Foundry identity and network configuration, foundation model deployment options, and provisioned throughput have to come from the Microsoft Foundry documentation. Turn the deployment options into your own comparison table: how serverless API, managed compute, and provisioned throughput are each billed and what traffic each suits.
 
 ### Implement generative AI quality assurance and observability (10–15%)
 
 **What it tests**:
 
 - **Evaluation**: build test datasets and data mappings; implement AI quality metrics, naming **groundedness, relevance, coherence, and fluency**; configure risk and safety evaluations for harmful content; build automated evaluation workflows with built-in and custom metrics.
-- **Observability**: continuous monitoring in Foundry; latency, throughput, and response times; **cost tracking for token consumption and resource usage**; logging, tracing, and debugging.
+- **Observability**: continuous monitoring in Foundry; latency, throughput, and response times; **tracking and optimizing cost for token consumption and resource usage**; logging, tracing, and debugging.
 
 **How to prepare**: for each of the four quality metrics, be able to say what it measures and what a low score points to. Exercise: run the built-in evaluation on a RAG application, then write one custom metric.
 
@@ -115,9 +115,9 @@ The third group stands out: this exam treats prompts as engineering artifacts th
 **What it tests**:
 
 - **RAG optimization**: tune similarity thresholds, chunk sizes, and retrieval strategies; select and fine-tune embedding models for a domain; hybrid search combining semantic and keyword retrieval; evaluate and improve with relevance metrics and **A/B testing frameworks**.
-- **Fine-tuning**: design and implement advanced fine-tuning methods; **create and manage synthetic data for fine-tuning**; monitor fine-tuned model performance; manage a fine-tuned model from development through production.
+- **Fine-tuning**: design and implement advanced fine-tuning methods; **create and manage synthetic data for fine-tuning**; monitor and optimize fine-tuned model performance; manage a fine-tuned model from development through production.
 
-**How to prepare**: the RAG half overlaps heavily with [Where RAG and retrieval evaluation overlap across exams](/posts/ai/2026-08-18-rag-evaluation-exam-domains-en), and the cost and latency trade-offs are in [Where cost, latency, and availability overlap across exams](/posts/ai/2026-08-18-genai-cost-latency-exam-domains-en). For fine-tuning, run the full process at least once, including the data preparation step.
+**How to prepare**: the RAG half overlaps heavily with [Where RAG and retrieval evaluation overlap across exams](/posts/ai/2026-08-18-rag-evaluation-exam-domains-en), and the cost and latency trade-offs are in [Where cost, latency, and availability overlap across exams](/posts/ai/2026-08-18-genai-cost-latency-exam-domains-en). For fine-tuning, run the full process at least once, including the data preparation step. The official learning path has almost no modules on RAG optimization or hands-on fine-tuning, so this area depends on the documentation and your own practice.
 
 ## A Six-Week Schedule and How It Was Derived
 
@@ -128,7 +128,7 @@ The third group stands out: this exam treats prompts as engineering artifacts th
 | 1 | Read the study guide, MLOps infrastructure (15–20%) | Bicep and GitHub Actions underpin both halves |
 | 2–3 | **ML model lifecycle (25–30%)** | Heaviest area; walk all four stages once |
 | 4 | GenAIOps infrastructure (20–25%) | Deployment options and prompt versioning |
-| 5 | Evaluation, observability, and optimization (20–30% combined) | Both areas use the same learning path |
+| 5 | Evaluation, observability, and optimization (20–30% combined) | The learning path covers the first; the second needs the documentation |
 | 6 | Practice assessment and gap-filling | See below |
 
 If you only know one half, reallocate. Classic ML people can compress weeks 2–3 into one and give Foundry an extra week; generative AI people do the reverse.
@@ -139,16 +139,16 @@ If you only know one half, reallocate. Classic ML people can compress weeks 2–
 
 ## Known Traps
 
-1. **DP-100 material covers only half.** The old certification was called Data Scientist and the new one MLOps Engineer. The three Foundry areas (40–55%) are not in older material.
-2. **The study guide's documentation links are wrong.** "Find documentation" lists Microsoft 365 Copilot documentation and Microsoft 365 documentation, and the community links point to the Microsoft 365 Copilot community. None of that relates to Azure Machine Learning or Foundry; it is the wrong template. **Go straight to the Azure Machine Learning and Microsoft Foundry documentation.**
+1. **DP-100 material covers a little over half.** The old certification was called Data Scientist and the new one MLOps Engineer. Older material touches only a small part of the three Foundry areas (40–55%): the scope listed on the [DP-100 certification page](https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/) has a single related area, "Optimize language models for AI applications".
+2. **The study guide's documentation links are wrong.** "Find documentation" has four links: the Copilot section of a compliance page, a generative AI technology guidance page, Microsoft 365 Copilot documentation, and Microsoft 365 documentation. The community links point to the Microsoft 365 Copilot community. None of the four leads to Azure Machine Learning or Foundry documentation, which looks like the wrong template. **Go straight to the Azure Machine Learning and Microsoft Foundry documentation.**
 3. **"AIOps" means something different here.** Microsoft uses AI operations (AIOps) for MLOps plus GenAIOps. In the industry, AIOps usually means using AI for IT operations, which is a different subject and will pollute your search results.
 4. **The exam is English only.** Course material is localized, the exam is not. Under Microsoft's rules, you can request an extra 30 minutes when an exam is not offered in your preferred language.
 
 ## After the Exam: One-Year Validity and Free Renewal
 
-Associate certifications are valid for one year. Per the [official renewal page](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification), renewal is a free, online, unproctored, open-book assessment that opens only in the six months before expiry; once the certification lapses you must pass the full exam again. The complete rules are covered in the [renewal section of the AI-103 guide](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en).
+Associate certifications are valid for one year. Per the [official renewal page](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification), renewal is a free, online, unproctored, open-book assessment that opens only in the six months before expiry. Per the [renewal FAQ](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification-faq), once the certification lapses you must pass the full exam again. The complete rules are covered in the [renewal section of the AI-103 guide](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en).
 
-If you already hold DP-100: per the retirement announcement, both the DP-100 certification and its renewal assessment are retired. When the old certification expires there is no renewal path, and keeping an active credential means passing AI-300.
+If you already hold DP-100: the warning on the [DP-100 certification page](https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/) states that both the certification and its renewal assessment are retired. When the old certification expires there is no renewal path, and keeping an active credential means passing AI-300.
 
 ## Things That Will Go Stale
 

@@ -23,13 +23,13 @@ For prices, validity, and gates across vendors, see [What AI certifications engi
 
 ## Who This Is For
 
-The audience profile in the study guide is two sentences:
+The audience profile in the study guide is short:
 
 > you're at the beginning of your career in AI solution development… You also need knowledge of Python coding syntax and programming techniques, and you should be familiar with Azure resources.
 
-**A good fit**: people who are starting to write AI applications, whose employer runs on Azure, and who want an inexpensive exam to confirm a basic grip on Foundry. It also works as a warm-up for [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en): the two exams share the same four themes (generative AI and agents, text and speech, vision, information extraction) at different depths.
+**A good fit**: people who are starting to write AI applications, whose employer runs on Azure, and who want an inexpensive exam to confirm a basic grip on Foundry. It also works as a warm-up for [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en): AI-901's four implementation themes (generative AI and agents, text and speech, vision, information extraction) line up with the last four of AI-103's five areas at a shallower depth, and AI-103 adds a planning and management area (25–30%) that AI-901 does not have.
 
-**Not a fit**: people who do not write code. The old AI-900 was a pure concepts exam that sales and product people could pass. AI-901 lists "Create a lightweight chat client application by using the Foundry SDK" as an objective. If you want an entry-level AI credential without coding, Microsoft has the business-track AB-730 and AB-731, which are outside this article.
+**Not a fit**: people who do not write code. The old AI-900 was a pure concepts exam that sales and product people could take. AI-901 lists "Create a lightweight chat client application by using the Foundry SDK" as an objective. If you want an entry-level AI credential without coding, Microsoft has the business-track AB-730 and AB-731, which are outside this article.
 
 ## Official Specs
 
@@ -64,9 +64,9 @@ The verbs in the second area are implement, create, build, and deploy. That is u
 
 - **The six responsible AI principles**: fairness, reliability and safety, privacy and security, inclusiveness, transparency, accountability. One objective each.
 - **Model components and configuration**: how generative models work, picking a model by capability, picking deployment options and configuration parameters.
-- **Identifying AI workloads**: scenarios for generative and agentic AI, text analysis, speech, computer vision, and information extraction, plus common text analysis techniques (keyword extraction, entity detection, sentiment analysis, summarization).
+- **Identifying AI workloads**: scenarios for generative and agentic AI, text analysis, speech, computer vision, and information extraction, plus common text analysis techniques (keyword extraction, entity detection, sentiment analysis, summarization); features of speech recognition and speech synthesis; features of computer vision and image-generation models; and techniques for extracting information from text, images, audio, and video.
 
-**How to prepare**: this area is conceptual. The first official learning path, [AI concepts for developers and technology professionals](https://learn.microsoft.com/en-us/training/paths/ai-concepts/) (7 modules, listed at about 3.9 hours), covers it. For the six principles, come up with one counterexample of your own for each, because the questions ask which principle a scenario violates rather than asking for definitions.
+**How to prepare**: this area is conceptual. The first official learning path, [AI concepts for developers and technology professionals](https://learn.microsoft.com/en-us/training/paths/ai-concepts/) (7 modules, listed at about 3.9 hours), covers it. For the six principles, come up with one counterexample of your own for each. The objectives are worded as "describe considerations for" each principle in an AI solution, and an example serves that better than a memorized definition.
 
 ### Implement AI solutions by using Microsoft Foundry (55–60%)
 
@@ -79,7 +79,7 @@ The verbs in the second area are implement, create, build, and deploy. That is u
 | Vision and image generation | Interpret visual input in prompts with a multimodal model; create new visual output with generative models; build a lightweight app with vision capabilities |
 | Information extraction | Extract information from documents and forms, images, and audio and video with Azure Content Understanding in Foundry Tools; build a lightweight app with information extraction |
 
-"Lightweight application" recurs throughout. The exam does not ask you to design an architecture. It asks whether you have wired the SDK up and run it.
+"Lightweight application" recurs throughout. The wording of the objectives points away from architecture design and toward having wired the SDK up and run it.
 
 **How to prepare**: take the second official learning path, [Get started with AI applications and agents on Azure](https://learn.microsoft.com/en-us/training/paths/get-started-ai-apps-agents/) (7 modules, about 5.6 hours), and finish every exercise by hand. The most effective check is to build one minimal program per row of the table above: a chat client, a speech response, an image interpretation, a document extraction. If all four run, you have this area.
 
@@ -93,9 +93,9 @@ The verbs in the second area are implement, create, build, and deploy. That is u
 | 2 | Second learning path plus the four minimal programs | Implementation is 55–60% and the objectives ask for working apps |
 | 3 | Practice assessment and gap-filling | See the note on the practice assessment below |
 
-**Failure is cheap**: under Microsoft's [retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy), you wait 24 hours after a first failure, 14 days between later attempts, and can sit the same exam at most 5 times in 12 months. Every attempt is paid, but at $50 in Taiwan this has the lowest failure cost in the series.
+**Failure is cheap**: under Microsoft's [retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy), you wait 24 hours after a first failure, 14 days between later attempts, and can sit the same exam at most 5 times in 12 months. Every attempt is paid, but at $50 in Taiwan this ties with GitHub's GH-300 for the lowest failure cost in the series.
 
-**Practice assessment**: the official practice assessment has moved to AI Skills Navigator and requires sign-in. The study guide labels the link "Take a free Practice Assessment", so for this exam it is confirmed free.
+**Practice assessment**: the official practice assessment has moved to AI Skills Navigator and requires sign-in. The study guide's useful links table has a row reading "Take a free Practice Assessment", but it is plain text with no link, and the retired AI-900 guide carries the same row. The pointer to the actual assessment does not say whether it is free; signing in is the only way to confirm.
 
 ## Known Traps
 
@@ -112,7 +112,7 @@ Microsoft's [expiration policy](https://learn.microsoft.com/en-us/credentials/su
 
 Associate, expert, and specialty certifications need a renewal assessment every year. Fundamentals certifications do not. The credential will not lapse when the objectives change, but its weight on a resume fades on its own: an interviewer two years from now reads a 2026 AI-901 as "studied this back then".
 
-The usual next step is [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en). The four themes carry over, and the four minimal programs from AI-901 can grow into the agent that AI-103's second skill area asks for.
+The usual next step is [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en). The four implementation themes carry over, and the four minimal programs from AI-901 can grow into the agent that AI-103's second skill area asks for.
 
 ## Things That Will Go Stale
 
@@ -122,7 +122,7 @@ The usual next step is [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide
 | Weights | 40–45 / 55–60 | On each revision |
 | Price | $99 US, $50 Taiwan | Every six months |
 | Certification page summary | Still the AI-900 five-area description | When Microsoft fixes it |
-| Practice assessment location | AI Skills Navigator, sign-in required | Every six months |
+| Practice assessment | On AI Skills Navigator, sign-in required; whether it is free is unconfirmed | Every six months |
 
 ## References
 

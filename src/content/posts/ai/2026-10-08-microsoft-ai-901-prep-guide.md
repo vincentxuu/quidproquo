@@ -23,11 +23,11 @@ Azure AI Fundamentals 這張認證還在，但考試換了。**AI-900 已於 202
 
 ## 這張適合誰
 
-官方 study guide 的 audience profile 只有兩句：
+官方 study guide 的 audience profile 很短：
 
 > you're at the beginning of your career in AI solution development… You also need knowledge of Python coding syntax and programming techniques, and you should be familiar with Azure resources.
 
-**適合**：剛開始寫 AI 應用、公司用 Azure、想用一張便宜的考試確認自己對 Foundry 有基本掌握的人。它也是 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide) 的暖身：兩張的四個主題（生成式與 agent、文字與語音、視覺、資訊擷取）完全對得上，只是深度不同。
+**適合**：剛開始寫 AI 應用、公司用 Azure、想用一張便宜的考試確認自己對 Foundry 有基本掌握的人。它也是 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide) 的暖身：AI-901 的四個實作主題（生成式與 agent、文字與語音、視覺、資訊擷取）對得上 AI-103 五塊裡的後四塊，只是深度不同；AI-103 另有一塊規劃與管理（25–30%）是 AI-901 沒有的。
 
 **不適合**：完全不寫程式的人。舊的 AI-900 是純觀念考試，業務、PM 都能考；AI-901 的條目裡有「Create a lightweight chat client application by using the Foundry SDK」。不寫程式又想要一張 AI 入門認證的人，微軟另有商務線的 AB-730 與 AB-731，那兩張不在本文範圍。
 
@@ -64,9 +64,9 @@ Azure AI Fundamentals 這張認證還在，但考試換了。**AI-900 已於 202
 
 - **負責任 AI 的六項原則**：公平、可靠與安全、隱私與資安、包容、透明、問責，每項一條。
 - **模型的組成與設定**：生成式模型怎麼運作、依能力挑對模型、挑對部署選項與設定參數。
-- **辨識 AI 工作負載**：生成式與 agentic AI、文字分析、語音、電腦視覺、資訊擷取各自的情境；文字分析的常見技術（關鍵字擷取、實體偵測、情緒分析、摘要）。
+- **辨識 AI 工作負載**：生成式與 agentic AI、文字分析、語音、電腦視覺、資訊擷取各自的情境；文字分析的常見技術（關鍵字擷取、實體偵測、情緒分析、摘要）；語音辨識與語音合成的功能；電腦視覺與影像生成模型的功能；從文字、圖片、音訊、影片擷取資訊的技術。
 
-**怎麼準備**：這塊是觀念題，走第一條官方學習路徑 [AI concepts for developers and technology professionals](https://learn.microsoft.com/en-us/training/paths/ai-concepts/)（7 個模組，官方標示約 3.9 小時）即可。六項原則建議各配一個自己想得出來的反例，因為考的是「這個情境違反哪一項」，不是背定義。
+**怎麼準備**：這塊是觀念題，走第一條官方學習路徑 [AI concepts for developers and technology professionals](https://learn.microsoft.com/en-us/training/paths/ai-concepts/)（7 個模組，官方標示約 3.9 小時）即可。六項原則建議各配一個自己想得出來的反例：條目的寫法是「描述某項原則在 AI 方案裡的考量」，能舉例比能背定義有用。
 
 ### Implement AI solutions by using Microsoft Foundry（55–60%）
 
@@ -76,10 +76,10 @@ Azure AI Fundamentals 這張認證還在，但考試換了。**AI-900 已於 202
 |---|---|
 | 生成式 AI 應用與 agent | 寫有效的 system 與 user prompt；在 Foundry 入口網站部署模型並互動；**用 Foundry SDK 做輕量 chat client**；**在入口網站建立並測試單一 agent**；為 agent 做輕量用戶端 |
 | 文字與語音 | 做含文字分析的輕量應用；用已部署的多模態模型回應語音提示；用 Azure Speech in Foundry Tools 做輕量應用 |
-| 視覺與影像生成 | 用多模態模型解讀提示裡的視覺輸入；用生成式模型產生新影像；做含視覺能力的輕量應用 |
+| 視覺與影像生成 | 用多模態模型解讀提示裡的視覺輸入；用生成式模型產生新的視覺輸出；做含視覺能力的輕量應用 |
 | 資訊擷取 | 用 Azure Content Understanding in Foundry Tools 從文件與表單、圖片、音訊與影片擷取資訊；做含資訊擷取能力的輕量應用 |
 
-條目反覆出現「lightweight application」。它不要你設計架構，要你真的把 SDK 接起來跑過一次。
+條目反覆出現「lightweight application」。從條目的寫法看，重點不在設計架構，而在真的把 SDK 接起來跑過一次。
 
 **怎麼準備**：走第二條官方學習路徑 [Get started with AI applications and agents on Azure](https://learn.microsoft.com/en-us/training/paths/get-started-ai-apps-agents/)（7 個模組，約 5.6 小時），而且每個模組的練習都要動手做完。最有效的檢查方式是照上表四列各做一個最小程式：一個 chat client、一個語音回應、一個影像解讀、一個文件擷取。四個都跑得起來，這塊就夠了。
 
@@ -93,9 +93,9 @@ Azure AI Fundamentals 這張認證還在，但考試換了。**AI-900 已於 202
 | 第 2 週 | 第二條學習路徑 + 四個最小程式 | 實作佔 55–60%，條目要求做出輕量應用 |
 | 第 3 週 | 練習測驗 + 補弱 | 見下方關於練習測驗的說明 |
 
-**失敗成本低**：依微軟的[重考政策](https://learn.microsoft.com/en-us/credentials/support/retake-policy)，第一次沒過等 24 小時，之後每次間隔 14 天，同一張考試 12 個月內最多 5 次。每次都要重新付費，但在台灣是 $50，是本系列失敗成本最低的一張。
+**失敗成本低**：依微軟的[重考政策](https://learn.microsoft.com/en-us/credentials/support/retake-policy)，第一次沒過等 24 小時，之後每次間隔 14 天，同一張考試 12 個月內最多 5 次。每次都要重新付費，但在台灣是 $50，與 GitHub 的 GH-300 並列本系列失敗成本最低。
 
-**練習測驗**：官方的 practice assessment 已搬到 AI Skills Navigator，要登入才能啟動。study guide 的連結文字寫「Take a free Practice Assessment」，所以這張可以確定是免費的。
+**練習測驗**：官方的 practice assessment 已搬到 AI Skills Navigator，要登入才能啟動。study guide 的實用連結表有一列寫「Take a free Practice Assessment」，但那是純文字、沒有連結，退場的 AI-900 指南也有同一列；實際入口的說明沒有提到是否免費，登入後才能確認。
 
 ## 這張的已知陷阱
 
@@ -112,7 +112,7 @@ Azure AI Fundamentals 這張認證還在，但考試換了。**AI-900 已於 202
 
 Associate、expert、specialty 級每年要做一次續期評量，入門級不用。這也表示它不會隨考綱更新而失效，但履歷上的價值會隨時間自然遞減：兩年後的面試官看到 2026 年考的 AI-901，看到的是「當時學過」。
 
-下一步通常是 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)。四個主題連續，AI-901 練過的四個最小程式可以直接長成 AI-103 第二塊要的 agent。
+下一步通常是 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)。四個實作主題接得上，AI-901 練過的四個最小程式可以直接長成 AI-103 第二塊要的 agent。
 
 ## 會過期的東西（下次複查看這裡）
 
@@ -122,7 +122,7 @@ Associate、expert、specialty 級每年要做一次續期評量，入門級不�
 | 兩塊權重 | 40–45 / 55–60 | 每次改版 |
 | 費用 | 美國 $99、台灣 $50 | 每半年 |
 | 認證頁簡介 | 仍是 AI-900 的五塊描述 | 微軟修好時 |
-| 練習測驗位置 | AI Skills Navigator，需登入 | 每半年 |
+| 練習測驗 | 在 AI Skills Navigator，需登入；是否免費未確認 | 每半年 |
 
 ## 參考資料
 

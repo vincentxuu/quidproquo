@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 29
-tldr: "GH-600 是 GitHub 的 agent 進階認證，考在軟體開發流程裡營運、監督與治理 AI agent。六塊權重 15–20 / 20–25 / 10–15 / 15–20 / 15–20 / 10–15，最重的是工具與環境（MCP、權限、CI 觸發、錯誤處理）。條目的動詞幾乎都是 configure、implement、detect。官方規格：美國 $165、台灣 $83、120 分鐘、及格 700、效期 2 年、僅英文，沒有官方練習測驗，官方自學教材合計不到 6 小時。"
+tldr: "GH-600 是 GitHub 的 agent 認證（官方標示 Intermediate），考在軟體開發流程裡營運、監督與治理 AI agent。六塊權重 15–20 / 20–25 / 10–15 / 15–20 / 15–20 / 10–15，最重的是工具與環境（MCP、權限、CI 觸發、錯誤處理）。條目最常見的動詞是 configure（65 條裡 15 條），其次是 identify 與 implement。官方規格：美國 $165、台灣 $83、120 分鐘、及格 700、效期 2 年、僅英文，沒有官方練習測驗，官方自學教材合計不到 6 小時。"
 description: "GitHub Certified: Agentic AI Developer（GH-600）備考指南，依官方 study guide 的六塊技能權重拆解，說明每塊考什麼、兩條官方學習路徑各對應哪幾塊、五週時程的換算依據、教材偏薄時怎麼補，以及它與 GH-300 的分工。"
 draft: false
 ---
@@ -31,7 +31,7 @@ draft: false
 - 設定自訂 agent
 - 安全地協調多 agent 執行
 
-並要求有 SDLC、GitHub 工作流與控制、程式碼品質與審查的經驗，以及用過 coding agent，包含「GitHub Copilot, MCP servers and agent customization such as custom instructions, custom agents, tools, and Copilot setup steps」。
+並要求有 SDLC、GitHub 工作流與控制、程式碼品質、資安與審查的經驗，以及用過 coding agent，包含「GitHub Copilot, MCP servers and agent customization such as custom instructions, custom agents, tools, and Copilot setup steps」。
 
 **適合**：平台工程師、DevOps 工程師、技術主管，以及任何負責決定「agent 在我們的儲存庫裡可以做到哪一步」的人。
 
@@ -45,13 +45,13 @@ draft: false
 | 認證名稱 | GitHub Certified: Agentic AI Developer |
 | 費用 | 美國 **$165 USD**、台灣 **$83 USD**（依考場所在國家定價） |
 | 時間 | **120 分鐘** |
-| 題數 | 官方不公布 |
+| 題數 | Microsoft Learn 的認證頁沒有列；GitHub 認證 FAQ 對旗下考試的通用說明是 60 題計分選擇題，另約 10–15 題不計分 |
 | 題型 | 認證頁寫「You may have interactive components to complete as part of this exam」 |
-| 及格 | **700** |
+| 及格 | **700**（[微軟技術類考試的通用及格線](https://learn.microsoft.com/en-us/credentials/certifications/exam-scoring-reports)，量尺 1–1,000；認證頁沒有另外列） |
 | 效期 | **2 年** |
 | 語言 | **僅英文** |
 | 監考 | Pearson VUE |
-| 先修 | 無（GH-300 不是必要條件） |
+| 先修 | 官方未列先修條件 |
 
 價格比 GH-300 的 $99 高一級，和微軟 associate 級考試同價。
 
@@ -75,10 +75,10 @@ draft: false
 **官方考什麼**：
 
 - **把 agent 整合進 SDLC**：辨識哪些步驟交給 agent；辨識並緩解 agent 的常見反模式；定義 agent 的輸入、輸出與成功條件。
-- **劃清規劃、推理與行動的界線**：**把規劃設定成與執行分開**；讓 agent 輸出結構化的計畫；驗證計畫；**在檢查並核可之前不讓 agent 行動**。
-- **可觀測性與控制**：規劃 agent 的自主程度與 guardrail；讓 agent 在標準開發工具裡產出可檢查的產出物；**設定人工介入但不拖慢交付**。
+- **劃清規劃、推理與行動的界線**：**把規劃設定成與執行分開**；讓 agent 輸出結構化的計畫；驗證計畫；**在檢查並核可之前不讓 agent 行動**（官方這條的原文不通順，寫的是「Prevent agent action until the agent checked and approved」，這裡照前後文解讀成計畫經過檢查與核可）。
+- **可觀測性與控制**：規劃並實作 agent 的自主程度與 guardrail；讓 agent 在標準開發工具裡產出可檢查的產出物；**設定人工介入但不拖慢交付**。
 
-**怎麼準備**：核心是「先計畫、核可後才執行」這個模式。練習：設定一個 agent 先把計畫寫成 issue 留言或檔案，人看過才讓它動手。對應的 GitHub 文件是[為自訂 agent 做準備](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents)。
+**怎麼準備**：核心是「先計畫、核可後才執行」這個模式。練習：設定一個 agent 先把計畫寫成 issue 留言或檔案，人看過才讓它動手。study guide 為這塊列的文件是[為自訂 agent 做準備](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents)，但那頁只講組織層級自訂 agent 要放在哪個儲存庫，不涵蓋計畫與核可流程。
 
 ### Implement tool use and environment interaction（20–25%，最重）
 
@@ -93,7 +93,7 @@ draft: false
 
 MCP 那組四條裡有兩條是管控（registry 與 allow list）。這張考的是組織怎麼限制 agent 能接哪些 server。
 
-**怎麼準備**：實際設定一次。最小練習：為一個儲存庫設定一個自訂 agent，接一個 MCP server、限制它的工具權限、讓它在 CI 裡被觸發並自己開 pull request。對應文件是[自訂 agent](https://docs.github.com/copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-agents)。
+**怎麼準備**：實際設定一次。最小練習：為一個儲存庫設定一個自訂 agent，接一個 MCP server、限制它的工具權限、讓它在 CI 裡被觸發並自己開 pull request。study guide 為這塊列的文件是 [Copilot SDK 的自訂 agent 與 sub-agent 編排](https://docs.github.com/copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-agents)，它涵蓋用程式碼設定 agent 的工具範圍與掛上 MCP server；儲存庫層級的設定、CI 觸發、開 pull request、MCP registry 與 allow list 要另外找 GitHub Copilot 的文件。
 
 ### Manage memory, state, and execution（10–15%）
 
@@ -103,17 +103,17 @@ MCP 那組四條裡有兩條是管控（registry 與 allow list）。這張考�
 - **狀態與漂移**：把任務進度與決策記成可長久保存的產出物；**續做時不重複步驟、不偏離先前的決定**；偵測並修正長時間執行中的漂移。
 - **跨工具的連續性**：共享 agent 狀態；防止互相衝突的 context；防止過期的 context。
 
-**怎麼準備**：讀 GitHub 的 [Copilot memory 文件](https://docs.github.com/copilot/concepts/agents/copilot-memory)。練習：讓一個 agent 做到一半中斷，換一個 session 接手，看它靠什麼知道做到哪裡。
+**怎麼準備**：讀 GitHub 的 [Copilot memory 文件](https://docs.github.com/copilot/concepts/agents/copilot-memory)。練習：讓一個 agent 做到一半中斷，換一個 session 接手，看它靠什麼知道做到哪裡。要留意 Copilot Memory 存的是儲存庫層級的事實與個人偏好，沒用到的 28 天後自動刪除；它不存任務進度，接續工作靠的是 pull request、issue、檔案這類產出物。
 
 ### Perform evaluation, error analysis, and tuning（15–20%）
 
 **官方考什麼**：
 
 - **成功條件與評估訊號**：訂出預期結果與營運限制；辨識質化與量化的評估訊號；讓評估條件對齊開發意圖；**用自動化掃描工具產生評估訊號**。
-- **失敗分析**：用記錄、計畫、追蹤、輸出與 workflow 產出物辨識失敗；**把根因分類成推理錯誤、工具誤用、context 或環境問題**。
+- **失敗分析**：用記錄、計畫、追蹤、輸出與 workflow 產出物辨識失敗；**分類根因，官方舉的例子是推理錯誤、工具誤用、context 或環境問題**。
 - **調校**：修改指示、工作流或限制；調整記憶用法；調整工具用法與工具存取。
 
-**怎麼準備**：根因三分類是這塊的骨架。練習：蒐集三次 agent 失敗的案例，各歸到一類，再寫出對應的修法（改指示、改工具權限、補 context）。
+**怎麼準備**：官方舉的三類根因可以當這塊的骨架。練習：蒐集三次 agent 失敗的案例，各歸到一類，再寫出對應的修法（改指示、改工具權限、補 context）。
 
 ### Orchestrate multi-agent coordination（15–20%）
 
@@ -122,7 +122,7 @@ MCP 那組四條裡有兩條是管控（registry 與 allow list）。這張考�
 - **營運多 agent 工作流**：套用編排模式；**為平行執行設定 agent 隔離**；**偵測並解決 agent 衝突，包含重疊的程式碼變更、重複的工作與互相矛盾的輸出**。
 - **可觀測性**：讓多 agent 工作流產出可供審查與稽核的產出物；記錄 agent 之間的關鍵決策、交接與結果；事後分析。
 - **失敗與降級**：辨識失敗、部分完成或卡住的執行；回應降級的行為或協調；**多 agent 的復原模式，包含回復與人在迴圈中**。
-- **agent 的生命週期**：把 agent 加進既有工作流；**在不中斷進行中工作流的情況下更新、重新設定或替換 agent**；汰除 agent 並保留可稽核性。
+- **agent 的生命週期**：把 agent 加進既有工作流；**在不中斷進行中工作流的情況下更新、重新設定或替換 agent**；汰除 agent 並保留可稽核性與工作流的連續性。
 
 第四組是其他證照少見的：它考 agent 的上線、換版與退役，把 agent 當成要維運的服務。
 
@@ -158,12 +158,14 @@ Microsoft Learn 課程目錄標示的時間合計約 5.8 小時，官方講師�
 | 第 4 週 | 多 agent 協調（15–20%）+ guardrail（10–15%） | 做一次平行 agent 與衝突處理 |
 | 第 5 週 | 逐條對 study guide 自評 | 沒有官方練習測驗 |
 
+**教材的一個缺口**：第二塊的重試、回復與升級處理路徑，兩條學習路徑的單元標題裡都沒有直接對應的單元，要從文件與實作補。
+
 **失敗成本偏高**：認證頁連到微軟的[重考政策](https://learn.microsoft.com/en-us/credentials/support/retake-policy)，第一次沒過等 24 小時，之後每次間隔 14 天，12 個月內最多 5 次。每次 $165（台灣 $83），又沒有練習測驗可以先測準備程度，建議把時程抓寬。
 
 ## 這張的已知陷阱
 
 1. **沒有官方練習測驗。** GH-300 的認證頁有「Practice for the exam」區塊，GH-600 的認證頁沒有。只有考試沙盒可以先看操作介面。
-2. **study guide 只列了一半的教材。** 「Get trained」只列 Part 1 的三個模組；Part 2 要從講師課頁面才找得到。只照 study guide 走會漏掉多 agent、記憶、評估與治理四塊的教材。
+2. **study guide 只列了一半的教材。** 「Get trained」只列 Part 1 的三個模組；Part 2 要從講師課頁面進去。只照 study guide 走會漏掉多 agent、記憶、評估與治理四塊的教材。
 3. **study guide 有一條文件連結是壞的。** 第六塊的連結把兩個網址黏成一個，點了到不了。正確的是兩個獨立頁面，就是上面第六塊列的那兩條。另外第二塊與第五塊連到同一個頁面。
 4. **study guide 不在 Microsoft Learn 的側邊目錄裡。** 從其他考試的 study guide 頁面的目錄找不到 GH-600，要從認證頁的連結進去。
 5. **續期說明是微軟的通用文字。** study guide 的「Useful links」寫認證每年到期，那是範本；GitHub 認證的效期是兩年，以認證頁為準。
@@ -171,7 +173,7 @@ Microsoft Learn 課程目錄標示的時間合計約 5.8 小時，官方講師�
 
 ## 考完之後：兩年效期，續期制度還在轉換
 
-與 GH-300 相同。認證頁說 GitHub 認證效期兩年，正在轉換到微軟的續期流程，以後可以不用重考整張就維持認證。新流程上線前到期的認證自動延長 6 個月。細節見 [GH-300 那篇的續期段落](/posts/ai/2026-10-08-github-gh-300-prep-guide)。
+與 GH-300 相同。認證頁說 GitHub 認證效期兩年，正在轉換到微軟的續期流程，以後可以不用重考整張就維持認證。新流程上線前到期的認證延長 6 個月。細節見 [GH-300 那篇的續期段落](/posts/ai/2026-10-08-github-gh-300-prep-guide)。
 
 ## 會過期的東西（下次複查看這裡）
 

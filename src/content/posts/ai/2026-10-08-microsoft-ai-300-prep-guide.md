@@ -84,7 +84,7 @@ draft: false
 |---|---|
 | 訓練編排 | **用 MLflow 設定實驗追蹤**；AutoML；notebook 實驗；自動化超參數調整；執行訓練腳本；**大型與深度學習模型的分散式訓練**；訓練 pipeline；跨 job 比較模型表現 |
 | 註冊與版本 | **把特徵擷取規格與模型成品一起封裝**；註冊 MLflow 模型；依負責任 AI 原則評估模型；管理模型生命週期含封存 |
-| 部署 | 部署成即時或批次端點；測試與除錯端點；**漸進式推出與安全回復** |
+| 部署 | 部署成即時或批次端點（含受管推論選項）；測試與除錯端點；**漸進式推出與安全回復** |
 | 監控 | **偵測與分析資料漂移**；監控上線模型的效能指標；超過門檻時觸發重新訓練或告警 |
 
 **怎麼準備**：走第一條官方學習路徑 [Operationalize machine learning models (MLOps)](https://learn.microsoft.com/en-us/training/paths/build-first-machine-operations-workflow/)（7 個模組，官方標示約 5.7 小時）。最有效的練習是把一個模型完整走一輪：MLflow 追蹤訓練、註冊、部署成 managed online endpoint、用兩個 deployment 做流量切分再回復、最後設一個資料漂移監控。四段缺任何一段，這塊都會有整組題目答不出來。
@@ -99,14 +99,14 @@ draft: false
 
 第三組值得注意：這張把 prompt 當成需要版本控制、需要比較變體的工程產物來考。同一個主題在其他證照怎麼考，見站內的[prompt 與 context engineering 的考法](/posts/ai/2026-08-18-prompt-context-engineering-exam-domains)。
 
-**怎麼準備**：這塊和後兩塊共用第二條官方學習路徑 [Operationalize generative AI applications (GenAIOps)](https://learn.microsoft.com/en-us/training/paths/operationalize-gen-ai-apps/)（6 個模組，約 6.1 小時）。部署選項要整理成自己的對照表：serverless API、managed compute、provisioned throughput 各自的計費方式與適用流量。
+**怎麼準備**：第二條官方學習路徑 [Operationalize generative AI applications (GenAIOps)](https://learn.microsoft.com/en-us/training/paths/operationalize-gen-ai-apps/)（6 個模組，約 6.1 小時）只蓋到這塊的一部分。它的六個模組是規劃、prompt 管理、評估實驗、自動化評估、監控、追蹤除錯，所以 prompt 版本管理有教，但 Foundry 的身分與網路設定、基礎模型的部署選項、provisioned throughput 都要另外從 Microsoft Foundry 官方文件補。部署選項要整理成自己的對照表：serverless API、managed compute、provisioned throughput 各自的計費方式與適用流量。
 
 ### Implement generative AI quality assurance and observability（10–15%）
 
 **官方考什麼**：
 
 - **評估**：建立測試資料集與資料對應；實作 AI 品質指標，官方點名 **groundedness、relevance、coherence、fluency** 四項；設定風險與安全評估以偵測有害內容；用內建與自訂指標建立自動化評估流程。
-- **可觀測性**：Foundry 的持續監控；延遲、吞吐量、回應時間；**token 消耗與資源用量的成本追蹤**；記錄、追蹤與除錯。
+- **可觀測性**：Foundry 的持續監控；延遲、吞吐量、回應時間；**token 消耗與資源用量的成本追蹤與最佳化**；記錄、追蹤與除錯。
 
 **怎麼準備**：四個品質指標要能各說出「量的是什麼、分數低代表什麼問題」。練習：拿一個 RAG 應用跑一次內建評估，再寫一個自訂指標。
 
@@ -115,9 +115,9 @@ draft: false
 **官方考什麼**：
 
 - **RAG 最佳化**：調整相似度門檻、chunk 大小與檢索策略；為特定領域挑選並微調 embedding 模型；結合語意與關鍵字的混合搜尋；用相關性指標與 **A/B 測試框架**評估並改善。
-- **微調**：設計與實作進階微調方法；**建立與管理微調用的合成資料**；監控微調模型的表現；把微調模型從開發管到正式部署。
+- **微調**：設計與實作進階微調方法；**建立與管理微調用的合成資料**；監控並最佳化微調模型的表現；把微調模型從開發管到正式部署。
 
-**怎麼準備**：RAG 那半段與站內的[RAG 與檢索評估的考點交集](/posts/ai/2026-08-18-rag-evaluation-exam-domains)重疊度高；成本與延遲的取捨見[成本、延遲與可用性的考點交集](/posts/ai/2026-08-18-genai-cost-latency-exam-domains)。微調那半段至少要跑過一次完整流程，包含準備資料這一步。
+**怎麼準備**：RAG 那半段與站內的[RAG 與檢索評估的考點交集](/posts/ai/2026-08-18-rag-evaluation-exam-domains)重疊度高；成本與延遲的取捨見[成本、延遲與可用性的考點交集](/posts/ai/2026-08-18-genai-cost-latency-exam-domains)。微調那半段至少要跑過一次完整流程，包含準備資料這一步。這塊的 RAG 最佳化與微調實作，官方學習路徑幾乎沒有對應的模組，要靠官方文件與自己動手。
 
 ## 六週時程與換算依據
 
@@ -128,7 +128,7 @@ draft: false
 | 第 1 週 | 通讀 study guide + MLOps 基礎架構（15–20%） | Bicep 與 GitHub Actions 是後面兩邊共用的基礎 |
 | 第 2–3 週 | **ML 模型生命週期（25–30%）** | 最重，四個階段要完整走一輪 |
 | 第 4 週 | GenAIOps 基礎架構（20–25%） | 部署選項與 prompt 版本管理 |
-| 第 5 週 | 評估與可觀測性 + 最佳化（合計 20–30%） | 兩塊共用同一條學習路徑 |
+| 第 5 週 | 評估與可觀測性 + 最佳化（合計 20–30%） | 前者學習路徑有教，後者要靠官方文件補 |
 | 第 6 週 | 練習測驗 + 補弱 | 見下方 |
 
 只熟其中一半的人，時間要重新分配：做傳統 ML 的把第 2–3 週壓成一週、多給 Foundry 一週；做生成式 AI 的反過來。
@@ -139,16 +139,16 @@ draft: false
 
 ## 這張的已知陷阱
 
-1. **DP-100 的教材只對得上一半。** 舊認證叫 Data Scientist，新認證叫 MLOps Engineer；Foundry 那三塊（40–55%）是舊教材不會有的。
-2. **study guide 的文件連結區放錯了。** 「Find documentation」列的是 Microsoft 365 Copilot 文件、Microsoft 365 文件；社群連結也指向 Microsoft 365 Copilot 社群。這些與 Azure Machine Learning、Foundry 都無關，是套錯範本。**文件請直接找 Azure Machine Learning 與 Microsoft Foundry 的官方文件。**
+1. **DP-100 的教材只對得上一半多一點。** 舊認證叫 Data Scientist，新認證叫 MLOps Engineer。Foundry 那三塊（40–55%）舊教材只碰到一小部分：[DP-100 認證頁](https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/)列的考試範圍裡只有一塊「Optimize language models for AI applications」與它相關。
+2. **study guide 的文件連結區放錯了。** 「Find documentation」有四個連結：一頁合規文件的 Copilot 段落、生成式 AI 的技術指引、Microsoft 365 Copilot 文件、Microsoft 365 文件；社群連結也指向 Microsoft 365 Copilot 社群。四個連結沒有一個指向 Azure Machine Learning 或 Foundry 的文件，看起來是套錯範本。**文件請直接找 Azure Machine Learning 與 Microsoft Foundry 的官方文件。**
 3. **「AIOps」在這裡的意思不同。** 官方把 MLOps 加 GenAIOps 合稱 AI operations（AIOps）。業界講 AIOps 通常指「用 AI 做 IT 維運」，是另一件事，搜尋教材時會混在一起。
 4. **考試只有英文。** 課程教材有繁體中文，但考試沒有。依微軟的規定，考試沒有你偏好的語言時可以申請多 30 分鐘。
 
 ## 考完之後：一年效期與免費續期
 
-Associate 級的效期是一年。依[官方續期說明](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification)，續期是免費、線上、非監考、開書的評量，只在到期前六個月的窗口內開放，過期就得重考正式考試。完整規則在 [AI-103 那篇的續期段落](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)寫過。
+Associate 級的效期是一年。依[官方續期說明](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification)，續期是免費、線上、非監考、開書的評量，只在到期前六個月的窗口內開放；依[續期 FAQ](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification-faq)，過期就得重考正式考試。完整規則在 [AI-103 那篇的續期段落](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)寫過。
 
-已經持有 DP-100 的人要注意：依退場公告，DP-100 的認證與續期評量都已退場，舊認證到期後沒有續期這條路，要維持就得考 AI-300。
+已經持有 DP-100 的人要注意：[DP-100 認證頁](https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/)的警示寫明這張認證與它的續期評量都已退場，舊認證到期後沒有續期這條路，要維持就得考 AI-300。
 
 ## 會過期的東西（下次複查看這裡）
 

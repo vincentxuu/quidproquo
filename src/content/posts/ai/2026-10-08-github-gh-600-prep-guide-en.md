@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 29
-tldr: "GH-600 is GitHub's advanced agent certification, covering how to operate, supervise, and govern AI agents inside a software development workflow. The six areas weigh 15–20 / 20–25 / 10–15 / 15–20 / 15–20 / 10–15, the heaviest being tools and environment (MCP, permissions, CI invocation, error handling). Nearly every objective starts with configure, implement, or detect. Official specs: $165 in the US, $83 in Taiwan, 120 minutes, pass at 700, valid 2 years, English only, no official practice assessment, and under 6 hours of official self-paced material."
+tldr: "GH-600 is GitHub's agent certification (listed as Intermediate), covering how to operate, supervise, and govern AI agents inside a software development workflow. The six areas weigh 15–20 / 20–25 / 10–15 / 15–20 / 15–20 / 10–15, the heaviest being tools and environment (MCP, permissions, CI invocation, error handling). The most common verb in the objectives is configure (15 of 65), followed by identify and implement. Official specs: $165 in the US, $83 in Taiwan, 120 minutes, pass at 700, valid 2 years, English only, no official practice assessment, and under 6 hours of official self-paced material."
 description: "A preparation guide for GitHub Certified: Agentic AI Developer (GH-600), built on the official study guide's six weighted skill areas: what each tests, which areas the two official learning paths cover, a five-week schedule with its derivation, how to compensate for thin material, and how it divides the work with GH-300."
 draft: false
 ---
@@ -31,7 +31,7 @@ The audience profile in the study guide lists five responsibilities:
 - Configuring custom agents
 - Coordinating multi-agent execution safely
 
-It asks for experience with the SDLC, GitHub workflows and controls, and code quality and review practices, plus hands-on use of coding agents including "GitHub Copilot, MCP servers and agent customization such as custom instructions, custom agents, tools, and Copilot setup steps".
+It asks for experience with the SDLC, GitHub workflows and controls, and code quality, security, and review practices, plus hands-on use of coding agents including "GitHub Copilot, MCP servers and agent customization such as custom instructions, custom agents, tools, and Copilot setup steps".
 
 **A good fit**: platform engineers, DevOps engineers, technical leads, and anyone who decides how far an agent is allowed to go in the team's repositories.
 
@@ -45,13 +45,13 @@ It asks for experience with the SDLC, GitHub workflows and controls, and code qu
 | Certification | GitHub Certified: Agentic AI Developer |
 | Price | **$165 USD** in the US, **$83 USD** in Taiwan (priced by the country where the exam is proctored) |
 | Duration | **120 minutes** |
-| Questions | Not published |
+| Questions | Not listed on the Microsoft Learn certification page; GitHub's certification FAQ gives a general figure for its exams of 60 scored multiple-choice questions plus roughly 10–15 unscored items |
 | Format | The certification page says "You may have interactive components to complete as part of this exam" |
-| Passing score | **700** |
+| Passing score | **700** (the [general passing score for Microsoft technical exams](https://learn.microsoft.com/en-us/credentials/certifications/exam-scoring-reports) on a 1–1,000 scale; the certification page states no separate figure) |
 | Validity | **2 years** |
 | Languages | **English only** |
 | Proctoring | Pearson VUE |
-| Prerequisites | None (GH-300 is not required) |
+| Prerequisites | None listed |
 
 The price is one tier above GH-300's $99 and matches Microsoft's associate exams.
 
@@ -75,10 +75,10 @@ The six are evenly spread, and even the heaviest is only 20–25%.
 **What it tests**:
 
 - **Integrating agents into the SDLC**: identify which steps agents perform; identify and mitigate common agent anti-patterns; define inputs, outputs, and success criteria.
-- **Boundaries between planning, reasoning, and action**: **configure planning to be distinct from execution**; have the agent output a structured plan; validate plans; **prevent action until the plan is checked and approved**.
-- **Observability and control**: plan the degree of autonomy and its guardrails; have agents produce inspectable artifacts within standard development tooling; **configure human intervention without slowing delivery**.
+- **Boundaries between planning, reasoning, and action**: **configure planning to be distinct from execution**; have the agent output a structured plan; validate plans; **prevent action until it is checked and approved** (the official wording is garbled, "Prevent agent action until the agent checked and approved", and is read here from context as the plan being checked and approved).
+- **Observability and control**: plan and implement the degree of autonomy and its guardrails; have agents produce inspectable artifacts within standard development tooling; **configure human intervention without slowing delivery**.
 
-**How to prepare**: the core is the plan-then-approve pattern. Exercise: configure an agent to write its plan as an issue comment or a file, and only let it act after a person has read it. The matching GitHub documentation is [preparing for custom agents](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents).
+**How to prepare**: the core is the plan-then-approve pattern. Exercise: configure an agent to write its plan as an issue comment or a file, and only let it act after a person has read it. The page the study guide lists for this area is [preparing for custom agents](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents), but it only explains which repository holds an organization's custom agents and does not cover planning or approval.
 
 ### Implement tool use and environment interaction (20–25%, the heaviest)
 
@@ -93,7 +93,7 @@ The six are evenly spread, and even the heaviest is only 20–25%.
 
 Two of the four MCP objectives are controls (registries and allow lists). The exam is about how an organization limits which servers an agent can reach.
 
-**How to prepare**: configure it for real. A minimal exercise: set up a custom agent for one repository, attach an MCP server, restrict its tool permissions, and have it triggered from CI to open a pull request by itself. The matching documentation is [custom agents](https://docs.github.com/copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-agents).
+**How to prepare**: configure it for real. A minimal exercise: set up a custom agent for one repository, attach an MCP server, restrict its tool permissions, and have it triggered from CI to open a pull request by itself. The page the study guide lists for this area is [custom agents and sub-agent orchestration in the Copilot SDK](https://docs.github.com/copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-agents), which covers scoping an agent's tools and attaching MCP servers in code. Repository-level configuration, CI invocation, opening pull requests, MCP registries, and allow lists need other GitHub Copilot documentation.
 
 ### Manage memory, state, and execution (10–15%)
 
@@ -103,17 +103,17 @@ Two of the four MCP objectives are controls (registries and allow lists). The ex
 - **State and drift**: capture task progress and decisions as durable artifacts; **resume work without repeating steps or diverging from earlier decisions**; detect and correct drift during long runs.
 - **Continuity across tools**: share agent state; prevent conflicting context; prevent stale context.
 
-**How to prepare**: read GitHub's [Copilot memory documentation](https://docs.github.com/copilot/concepts/agents/copilot-memory). Exercise: interrupt an agent mid-task, pick the work up in a new session, and see what it relies on to know where it stopped.
+**How to prepare**: read GitHub's [Copilot memory documentation](https://docs.github.com/copilot/concepts/agents/copilot-memory). Exercise: interrupt an agent mid-task, pick the work up in a new session, and see what it relies on to know where it stopped. Note that Copilot Memory stores repository-level facts and personal preferences, and deletes unused ones after 28 days. It does not hold task progress; resuming work depends on artifacts such as pull requests, issues, and files.
 
 ### Perform evaluation, error analysis, and tuning (15–20%)
 
 **What it tests**:
 
 - **Success criteria and evaluation signals**: specify expected outcomes and operational constraints; identify qualitative and quantitative signals; align criteria with development intent; **generate evaluation signals with automated scanning tools**.
-- **Failure analysis**: identify failures from logs, plans, traces, outputs, and workflow artifacts; **classify root causes as reasoning errors, tool misuse, or context and environment issues**.
+- **Failure analysis**: identify failures from logs, plans, traces, outputs, and workflow artifacts; **classify root causes, with reasoning errors, tool misuse, and context or environment issues given as examples**.
 - **Tuning**: revise instructions, workflows, or constraints; refine memory usage; refine tool usage and tool access.
 
-**How to prepare**: the three root-cause categories are the frame for this area. Exercise: collect three agent failures, assign each to a category, and write the matching fix (change instructions, change tool permissions, supply context).
+**How to prepare**: the three root-cause categories the guide names make a workable frame for this area. Exercise: collect three agent failures, assign each to a category, and write the matching fix (change instructions, change tool permissions, supply context).
 
 ### Orchestrate multi-agent coordination (15–20%)
 
@@ -122,7 +122,7 @@ Two of the four MCP objectives are controls (registries and allow lists). The ex
 - **Operating multi-agent workflows**: apply an orchestration pattern; **configure agent isolation for parallel execution**; **detect and resolve agent conflicts, including overlapping code changes, duplicated effort, and contradictory outputs**.
 - **Observability**: have multi-agent workflows produce artifacts suitable for review and audit; document key decisions, handoffs, and outcomes across agents; post-hoc analysis.
 - **Failure and degradation**: identify failed, partial, or stalled executions; respond to degraded behavior or coordination; **multi-agent recovery patterns, including rollback and human-in-the-loop**.
-- **Agent lifecycle**: add agents to existing workflows; **update, reconfigure, or replace agents without disrupting active workflows**; retire agents while preserving auditability.
+- **Agent lifecycle**: add agents to existing workflows; **update, reconfigure, or replace agents without disrupting active workflows**; retire agents while preserving auditability and workflow continuity.
 
 The fourth group is rare in other certifications. It tests rollout, replacement, and retirement, treating an agent as a service to be operated.
 
@@ -157,6 +157,8 @@ The durations in the Microsoft Learn catalog add up to about 5.8 hours, and the 
 | 3 | Part 2 plus memory and evaluation (25–35% combined) | The two thinnest areas; fill in with documentation and practice |
 | 4 | Multi-agent coordination (15–20%) and guardrails (10–15%) | Run parallel agents and resolve a conflict once |
 | 5 | Self-assess against the study guide line by line | There is no official practice assessment |
+
+**One gap in the material**: no unit title in either learning path maps directly to the retries, rollbacks, and escalation paths in area 2, so those come from documentation and practice.
 
 **Failure cost is on the high side**: the certification page links to Microsoft's [retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy): 24 hours after a first failure, 14 days between later attempts, at most 5 attempts in 12 months. Each attempt costs $165 ($83 in Taiwan) and there is no practice assessment to gauge readiness first, so leave slack in the schedule.
 

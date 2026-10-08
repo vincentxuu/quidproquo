@@ -27,11 +27,11 @@ The audience profile in the study guide:
 
 > you're responsible for contributing to all phases of implementing AI solutions on Azure, with an emphasis on back-end services and components.
 
-It then lists seven things to be proficient in: Azure SDKs, data management services, monitoring and troubleshooting, messaging and eventing, **vector databases**, **Python**, and containerized applications.
+It then lists seven things to be proficient in: Azure SDKs and third-party SDKs used in Azure, data management services, monitoring and troubleshooting, messaging and eventing, **vector databases**, **Python**, and containerized applications.
 
 **A good fit**: backend engineers on Azure whose team is putting RAG or agents into production. Your job is to keep it stable, keep retrieval fast, and make failures visible, not to tune prompts. If you were planning to take AZ-204, this is the exam to look at now.
 
-**Not a fit**: people who want to show they can build applications with models. That is [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en). The two barely overlap: AI-103's objectives have no AKS, Service Bus, or KQL, and AI-200's have no Foundry, agents, or model evaluation.
+**Not a fit**: people who want to show they can build applications with models. That is [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en). The two barely overlap at the service level: AI-103's objectives have no AKS, Service Bus, or KQL, and AI-200's have no Foundry, agents, or model evaluation. RAG and vector search appear in both, approached from Foundry in AI-103 and from the database in AI-200.
 
 ## Official Specs
 
@@ -68,7 +68,7 @@ The four are close to equal, so none of them can be skipped.
 **What it tests**:
 
 - **Images and hosting**: build, store, version, and manage images in Azure Container Registry; build and run with ACR Tasks; deploy containers to App Service, including supplying environment variables and secrets.
-- **Orchestration**: deploy to Azure Container Apps (environment configuration and revision management); event-driven scaling with **KEDA**; deploy to **AKS** with manifest files; troubleshoot by inspecting logs, events, and end-to-end connectivity.
+- **Orchestration**: deploy to Azure Container Apps (environment configuration and revision management); event-driven scaling with **KEDA** in Container Apps; deploy to **AKS** with manifest files; monitor and troubleshoot solutions on AKS and Container Apps by inspecting logs, events, and end-to-end connectivity.
 
 **How to prepare**: three official learning paths, one per topic: [Implement container application hosting on Azure](https://learn.microsoft.com/en-us/training/paths/implement-container-app-hosting-azure/), [Deploy and manage apps on Azure Container Apps](https://learn.microsoft.com/en-us/training/paths/deploy-manage-apps-azure-container-apps/), and [Deploy and monitor applications on Azure Kubernetes Service](https://learn.microsoft.com/en-us/training/paths/deploy-monitor-apps-azure-kubernetes-service/). A minimal exercise: deploy the same API service to App Service, Container Apps, and AKS, then add a KEDA rule on Container Apps that scales on queue length.
 
@@ -84,7 +84,7 @@ This is the only area that touches AI directly, and it does so through vector se
 
 PostgreSQL has six objectives, the most detailed of the three, and it is the only place in the whole outline where the term "RAG" appears.
 
-**How to prepare**: three learning paths: [Cosmos DB for NoSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-cosmos-db/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-database-postgresql/), and [Azure Managed Redis](https://learn.microsoft.com/en-us/training/paths/enhance-ai-solutions-azure-managed-redis/). The most effective exercise is to **load the same set of embeddings into all three services and run a similarity search on each**, then answer three questions: how the index is built, how the query changes with a metadata filter, and what the unit of cost is (RUs, compute tier, memory). The exam asks you to choose and tune among them, and experience with only one will not answer a comparison question.
+**How to prepare**: three learning paths: [Cosmos DB for NoSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-cosmos-db/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-database-postgresql/), and [Azure Managed Redis](https://learn.microsoft.com/en-us/training/paths/enhance-ai-solutions-azure-managed-redis/). The most effective exercise is to **load the same set of embeddings into all three services and run a similarity search on each**, then answer three questions: how the index is built, how the query changes with a metadata filter, and what the unit of cost is (RUs, compute tier, memory). The outline lists the three services as separate groups of objectives. Having worked with all three is the safer preparation for questions that span them; that is my inference, and Microsoft does not say the exam has comparison questions.
 
 How to evaluate retrieval quality is not tested here. For that, see [Where RAG and retrieval evaluation overlap across exams](/posts/ai/2026-08-18-rag-evaluation-exam-domains-en).
 
@@ -92,7 +92,7 @@ How to evaluate retrieval quality is not tested here. For that, see [Where RAG a
 
 **What it tests**:
 
-- **Messaging and events**: queue and process backend operations with Azure Service Bus, including dead-letter queues, topics, and subscriptions; event-driven workflows with Azure Event Grid, including filters, custom events, and retries.
+- **Messaging and events**: queue and process backend operations with Azure Service Bus, including dead-letter queues, messages, topics, and subscriptions; event-driven workflows with Azure Event Grid, including filters, custom events, and retries.
 - **Azure Functions**: build serverless APIs with triggers and bindings; configure and deploy function apps.
 
 **How to prepare**: one learning path, [Integrate backend services for AI solutions](https://learn.microsoft.com/en-us/training/paths/integrate-backend-services-ai-solutions/) (4 modules). Build one complete asynchronous flow: an HTTP-triggered Function puts work on Service Bus, a second Function consumes it, three failures send the message to the dead-letter queue, and completion raises an Event Grid event. Slow AI jobs such as document ingestion and embedding generation are queued this way in practice.
@@ -106,7 +106,7 @@ How to evaluate retrieval quality is not tested here. For that, see [Where RAG a
 - Trace distributed systems with **OpenTelemetry SDKs**
 - Write **KQL** queries to analyze logs and metrics
 
-Four objectives carry 20–25% of the exam, the highest question density per objective in the outline.
+Like the previous area, this one lists only four objectives for 20–25% of the exam, the fewest of any area. Microsoft says the bullets are illustrative and related topics may be covered, so do not prepare from the literal four alone.
 
 **How to prepare**: two learning paths: [Manage application secrets and configuration for AI solutions](https://learn.microsoft.com/en-us/training/paths/manage-app-secrets-configuration/) and [Observe and troubleshoot apps on Azure](https://learn.microsoft.com/en-us/training/paths/observe-troubleshoot-apps/). Write KQL yourself: instrument the asynchronous flow from the previous area with OpenTelemetry, then use KQL to find the slowest step and the failed requests.
 
@@ -129,14 +129,14 @@ If you already operate containerized services on Azure, the container and monito
 
 ## Known Traps
 
-1. **There is no practice assessment.** The certification page says "The Practice Assessment for this exam is not currently available" and adds that one usually arrives within eight weeks of an exam leaving beta. Microsoft's announcement planned a May beta and a July go-live; the certification page carries no beta label today, but the practice assessment has not appeared.
+1. **There is no practice assessment.** The certification page says "The Practice Assessment for this exam is not currently available" and adds that one usually arrives within eight weeks of an exam leaving beta. Microsoft's [introduction post from May 2026](https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-azure-ai-cloud-developer-associate-certification/4494116) describes the exam as in beta at the time, with general availability expected in July. The certification page carries no beta label today, but no official page states that it has gone live, and the practice assessment has not appeared. If it is still in beta, the retake rule differs: a beta exam can be taken only once during the beta period.
 2. **The study guide still contains AZ-204 material.** "Get trained" links to the AZ-204 exam page. "Find documentation" lists Container Instances, Blob Storage, Microsoft Entra ID, API Management, Event Hubs, and Queue Storage, none of which appear in the objectives, and the Redis link still uses the old name Azure Cache for Redis. **The objectives are the outline; the documentation links are not.**
 3. **AZ-204 material is only partly usable.** The leftover links show what the old exam covered. Services missing from the new objectives can be skipped, and the three vector searches will not be in older material.
 4. **Do not treat it as a substitute for AI-103.** When a job posting says "Azure AI", it usually means AI-103's skills. This certification shows backend and platform ability, and a resume should say so.
 
 ## After the Exam: One-Year Validity and Free Renewal
 
-Associate certifications are valid for one year. Per the [official renewal page](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification), renewal is a free, online, unproctored, open-book assessment that opens only in the six months before expiry; once the certification lapses you must pass the full exam again. The complete rules are covered in the [renewal section of the AI-103 guide](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en) and are not repeated here.
+Associate certifications are valid for one year. Per the [official renewal page](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification), renewal is a free, online, unproctored, open-book assessment that opens only in the six months before expiry. Per the [renewal FAQ](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification-faq), once the certification lapses you must pass the full exam again. The complete rules are covered in the [renewal section of the AI-103 guide](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en) and are not repeated here.
 
 AI-200 and AI-103 are separate certifications, each with its own one-year clock and its own renewal. If you hold both, you take two renewal assessments a year.
 

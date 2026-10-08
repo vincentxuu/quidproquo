@@ -27,11 +27,11 @@ draft: false
 
 > you're responsible for contributing to all phases of implementing AI solutions on Azure, with an emphasis on back-end services and components.
 
-接著列了七項要熟的東西：Azure SDK、資料管理服務、監控與除錯、訊息與事件、**向量資料庫**、**Python**、容器化應用。
+接著列了七項要熟的東西：Azure SDK 與在 Azure 上用的第三方 SDK、資料管理服務、監控與除錯、訊息與事件、**向量資料庫**、**Python**、容器化應用。
 
 **適合**：在 Azure 上寫後端、團隊正在把 RAG 或 agent 推上線的工程師。你負責的是讓它跑得穩、查得快、出事看得到，而不是調 prompt。原本打算考 AZ-204 的人，這張就是你現在該看的。
 
-**不適合**：想證明自己會用模型做應用的人，那是 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide) 的範圍。兩張幾乎不重疊：AI-103 的考綱裡沒有 AKS、Service Bus、KQL；AI-200 的考綱裡沒有 Foundry、agent、模型評估。
+**不適合**：想證明自己會用模型做應用的人，那是 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide) 的範圍。兩張在服務層面幾乎不重疊：AI-103 的考綱裡沒有 AKS、Service Bus、KQL；AI-200 的考綱裡沒有 Foundry、agent、模型評估。RAG 與向量搜尋兩邊都有，但 AI-103 從 Foundry 做，AI-200 從資料庫做。
 
 ## 官方規格速覽
 
@@ -68,7 +68,7 @@ draft: false
 **官方考什麼**：
 
 - **映像檔與託管**：用 Azure Container Registry 建置、儲存、版本管理映像檔；用 ACR Tasks 建置與執行；把容器部署到 App Service，包含用 App Service 提供環境變數與密鑰。
-- **容器編排**：部署到 Azure Container Apps（環境設定與 revision 管理）；用 **KEDA** 做事件驅動的自動擴展；用 manifest 檔部署到 **AKS**；檢查記錄、事件與端到端連線來除錯。
+- **容器編排**：部署到 Azure Container Apps（環境設定與 revision 管理）；在 Container Apps 裡用 **KEDA** 做事件驅動的自動擴展；用 manifest 檔部署到 **AKS**；檢查記錄、事件與端到端連線，監控並除錯 AKS 與 Container Apps 上的方案。
 
 **怎麼準備**：三條官方學習路徑各對一個主題：[Implement container application hosting on Azure](https://learn.microsoft.com/en-us/training/paths/implement-container-app-hosting-azure/)、[Deploy and manage apps on Azure Container Apps](https://learn.microsoft.com/en-us/training/paths/deploy-manage-apps-azure-container-apps/)、[Deploy and monitor applications on Azure Kubernetes Service](https://learn.microsoft.com/en-us/training/paths/deploy-monitor-apps-azure-kubernetes-service/)。動手的最小練習：同一個 API 服務分別部署到 App Service、Container Apps、AKS 三處，然後在 Container Apps 上設一條 KEDA 規則讓它依佇列長度擴展。
 
@@ -84,7 +84,7 @@ draft: false
 
 PostgreSQL 那組有六條，是三者裡最細的，而且是整份考綱唯一出現「RAG」這個詞的地方。
 
-**怎麼準備**：三條學習路徑：[Cosmos DB for NoSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-cosmos-db/)、[Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-database-postgresql/)、[Azure Managed Redis](https://learn.microsoft.com/en-us/training/paths/enhance-ai-solutions-azure-managed-redis/)。最有效的練習是**把同一批 embedding 分別放進三個服務，各跑一次相似度搜尋**，然後回答三個問題：索引怎麼建、帶 metadata 篩選時查詢怎麼寫、成本單位是什麼（RU、運算規格、記憶體）。考的是三者之間的選擇與調校，只做過一種答不出比較題。
+**怎麼準備**：三條學習路徑：[Cosmos DB for NoSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-cosmos-db/)、[Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-database-postgresql/)、[Azure Managed Redis](https://learn.microsoft.com/en-us/training/paths/enhance-ai-solutions-azure-managed-redis/)。最有效的練習是**把同一批 embedding 分別放進三個服務，各跑一次相似度搜尋**，然後回答三個問題：索引怎麼建、帶 metadata 篩選時查詢怎麼寫、成本單位是什麼（RU、運算規格、記憶體）。考綱把三種服務各列一組條目。三種都做過，才有把握應付跨服務的題目；這是我的推測，官方沒有說會出比較題。
 
 檢索品質本身怎麼評估，這張不考。那部分見站內的[RAG 與檢索評估的考點交集](/posts/ai/2026-08-18-rag-evaluation-exam-domains)。
 
@@ -92,7 +92,7 @@ PostgreSQL 那組有六條，是三者裡最細的，而且是整份考綱唯一
 
 **官方考什麼**：
 
-- **訊息與事件**：用 Azure Service Bus 排入並處理後端作業，含 dead-letter queue、topic 與 subscription；用 Azure Event Grid 做事件驅動流程，含篩選、自訂事件與重試。
+- **訊息與事件**：用 Azure Service Bus 排入並處理後端作業，含 dead-letter queue、訊息、topic 與 subscription；用 Azure Event Grid 做事件驅動流程，含篩選、自訂事件與重試。
 - **Azure Functions**：做 serverless API，含 trigger 與 binding；設定與部署 function app。
 
 **怎麼準備**：一條學習路徑 [Integrate backend services for AI solutions](https://learn.microsoft.com/en-us/training/paths/integrate-backend-services-ai-solutions/)（4 個模組）。練習建議做一條完整的非同步流程：HTTP 觸發的 Function 把工作丟進 Service Bus，另一個 Function 消費，失敗三次進 dead-letter queue，完成後發 Event Grid 事件。文件擷取、embedding 產生這類耗時的 AI 作業，實務上就是這樣排的。
@@ -106,7 +106,7 @@ PostgreSQL 那組有六條，是三者裡最細的，而且是整份考綱唯一
 - 用 **OpenTelemetry SDK** 追蹤分散式系統
 - 寫 **KQL** 查詢分析記錄與指標
 
-四條撐起 20–25%，每一條的題目密度是全卷最高的。
+這一塊和前一塊一樣只列四條、佔 20–25%，是條目最少的兩塊。官方說條目只是舉例，相關主題也可能出題，所以別只準備這四條的字面。
 
 **怎麼準備**：兩條學習路徑：[Manage application secrets and configuration for AI solutions](https://learn.microsoft.com/en-us/training/paths/manage-app-secrets-configuration/) 與 [Observe and troubleshoot apps on Azure](https://learn.microsoft.com/en-us/training/paths/observe-troubleshoot-apps/)。KQL 一定要自己寫過：把前一塊做的非同步流程接上 OpenTelemetry，然後用 KQL 查出「哪一步最慢」「哪些請求失敗」。
 
@@ -129,14 +129,14 @@ PostgreSQL 那組有六條，是三者裡最細的，而且是整份考綱唯一
 
 ## 這張的已知陷阱
 
-1. **沒有練習測驗。** 認證頁寫「The Practice Assessment for this exam is not currently available」，並說通常在考試結束 beta、正式上線後八週內提供。微軟公告原訂這張 5 月開 beta、7 月正式上線；認證頁目前沒有標 beta，但練習測驗還沒出現。
+1. **沒有練習測驗。** 認證頁寫「The Practice Assessment for this exam is not currently available」，並說通常在考試結束 beta、正式上線後八週內提供。微軟在 [2026 年 5 月的介紹文](https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-azure-ai-cloud-developer-associate-certification/4494116)寫這張當時是 beta、預計 7 月正式上線；認證頁目前沒有標 beta，但也沒有任何官方頁面明說已正式上線，練習測驗也還沒出現。如果仍在 beta，重考規則會不同：beta 期間只能考一次。
 2. **study guide 還留著 AZ-204 的內容。** 「Get trained」的連結指向 AZ-204 的考試頁；「Find documentation」列了 Container Instances、Blob Storage、Microsoft Entra ID、API Management、Event Hubs、Queue Storage，這些在技能條目裡一個都沒有，Redis 的連結也還是舊名 Azure Cache for Redis。**以技能條目為準，文件連結區不是考綱。**
 3. **AZ-204 的教材只能用一部分。** 從上面殘留的連結可以看出舊考試的範圍；新考綱沒有列的服務就不用讀，新加的三種向量搜尋舊教材不會有。
 4. **不要把它當成 AI-103 的替代。** 職缺寫「Azure AI」時多半指的是 AI-103 那種能力。這張證明的是後端與平台能力，履歷上要搭配說明。
 
 ## 考完之後：一年效期與免費續期
 
-Associate 級的效期是一年。依[官方續期說明](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification)，續期是免費、線上、非監考、開書的評量，只在到期前六個月的窗口內開放，過期就得重考正式考試。完整規則在 [AI-103 那篇的續期段落](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)寫過，這裡不重複。
+Associate 級的效期是一年。依[官方續期說明](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification)，續期是免費、線上、非監考、開書的評量，只在到期前六個月的窗口內開放；依[續期 FAQ](https://learn.microsoft.com/en-us/credentials/certifications/renew-your-microsoft-certification-faq)，過期就得重考正式考試。完整規則在 [AI-103 那篇的續期段落](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)寫過，這裡不重複。
 
 要留意的是它與 AI-103 是兩張獨立的認證，各自有一年效期、各自要續。兩張都拿的人，每年要做兩次續期評量。
 

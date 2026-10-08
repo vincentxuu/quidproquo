@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 30
-tldr: "MLA-C02 自 2026 年 9 月 29 日起取代 MLA-C01。四章權重 28 / 24 / 24 / 24，章節名稱都加上了 AI 或 FM：官方對照表列出 45 條新增技能，內容是向量資料庫、embedding、RAG、基礎模型的選擇與微調、agent 的部署與監控，另刪掉 7 條。目前是英文 beta（考試代碼 ME1-C02、170 分鐘、85 題、$75）；正式版依考試指南是 65 題、及格 720、效期 3 年，日文、韓文、簡中要等正式上線，沒有繁體中文。"
+tldr: "MLA-C02 自 2026 年 9 月 29 日起取代英文版的 MLA-C01。四章權重 28 / 24 / 24 / 24，章節名稱都加上了 AI 或 FM：官方對照表列出 45 條新增技能，內容是向量資料庫、embedding、RAG、基礎模型的選擇與微調、agent 的部署與監控，另刪掉 7 條。目前是英文 beta（考試代碼 ME1-C02、170 分鐘、85 題、$75）；正式版依考試指南是 65 題、及格 720、效期 3 年，日文、韓文、簡中要等正式上線，沒有繁體中文。"
 description: "AWS Certified Machine Learning Engineer – Associate（MLA-C02）備考指南，依官方 exam guide 的四章權重拆解，整理 MLA-C01 到 C02 的新增與刪除內容、beta 與正式版的規格差異、八週時程的換算依據，以及舊教材還能用多少。"
 draft: false
 ---
@@ -17,7 +17,7 @@ draft: false
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄，作者沒有報考這張考試。所有「考什麼」都指回 [AWS 官方 exam guide](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/machine-learning-engineer-associate-02.html)，不含考古題。查證日期：2026-10-08。
 
-AWS 的 ML Engineer Associate 換版了。依官方的[新舊對照頁](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/mla-02-comparison.html)，MLA-C01 用到 2026 年 9 月 28 日，MLA-C02 從 9 月 29 日開始。四章的權重幾乎沒動，但每一章的名稱都多了「AI」或「FM」兩個字，這次改版的方向就在那兩個字裡：它不再只是 SageMaker 上的傳統 ML 考試。
+AWS 的 ML Engineer Associate 換版了。依官方的[新舊對照頁](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/mla-02-comparison.html)，英文版的 MLA-C01 用到 2026 年 9 月 28 日，MLA-C02 從 9 月 29 日開始。四章的權重幾乎沒動，但每一章的名稱都多了「AI」或「FM」兩個字，這次改版的方向就在那兩個字裡：它不再只是 SageMaker 上的傳統 ML 考試。
 
 這張與另外兩張 AWS AI 證照的取捨，見站內的 [AWS 三張 AI 證照怎麼選](/posts/ai/2026-08-19-aws-certifications-which-one)。
 
@@ -45,12 +45,12 @@ beta 與正式版的規格不同，分開列：
 | 時間 | 170 分鐘 | 官方尚未公布（MLA-C01 是 130 分鐘） |
 | 題數 | 85 題 | **65 題**（50 題計分 + 15 題不計分） |
 | 費用 | **$75 USD**（beta 價） | **$150 USD**（[官方價目表](https://aws.amazon.com/certification/policies/before-testing/)的 Associate 級定價） |
-| 及格 | 不適用正式版的及格線 | **720**（量尺 100–1,000） |
+| 及格 | 官方未公布 beta 的及格分數 | **720**（量尺 100–1,000） |
 | 語言 | 僅英文 | 英文，另加日文、韓文、簡體中文 |
 | 題型 | 單選、複選 | 單選、複選 |
 | 效期 | 3 年 | 3 年 |
 
-beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)，正式版欄取自 exam guide。**沒有繁體中文**，本系列的 AWS 證照裡只有 AIF-C01 有。
+beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/)。正式版欄的題數、及格分數與題型取自 exam guide，語言與效期取自認證頁。**沒有繁體中文**，本系列的 AWS 證照裡只有 AIF-C01 有。
 
 計分方式是補償計分，exam guide 寫「you do not need to achieve a passing score in each section」，單章不設門檻，只看總分。複選題要全對才得分，答錯不倒扣。
 
@@ -78,15 +78,15 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 
 新增最多的是第三章（部署與編排）。
 
-**刪掉的 7 條**：把資料載入訓練資源的設定（EFS、FSx）；用自訂資料集微調預訓練模型的舊寫法；縮小模型（剪枝、壓縮）；用 SageMaker Neo 做邊緣裝置最佳化；自帶容器（BYOC）；用 EventBridge 監控基礎架構；容量問題的除錯。
+**刪掉的 7 條**：把資料載入訓練資源的設定（EFS、FSx）；用自訂資料集微調預訓練模型（Bedrock、SageMaker JumpStart）；縮小模型（剪枝、壓縮）；用 SageMaker Neo 做邊緣裝置最佳化；自帶容器（BYOC）；用 EventBridge 監控基礎架構；容量問題的除錯。
 
-**判斷舊教材還能用多少**：C01 的教材大約蓋得住六成的條目（107 條裡有 62 條不是新增的），但缺的那四成集中在生成式 AI，而且舊教材會教已刪除的 SageMaker Neo 與 BYOC。
+**判斷舊教材還能用多少**：107 條裡有 62 條不在官方的新增清單上，所以 C01 的教材最多蓋得住約六成。實際會更少，因為這 62 條裡有些也改寫過、加進了生成式 AI 的內容（例如監控那條現在寫的是 CloudWatch 的生成式 AI 可觀測性）。缺的部分集中在生成式 AI，而且舊教材會教已刪除的 SageMaker Neo 與 BYOC。
 
 ## 逐章準備
 
 ### 第一章：Data Preparation for ML and AI（28%，最重）
 
-**官方考什麼**，三個 task：
+**官方考什麼**，三個 task，以下列的是各 task 的重點條目，不是全部：
 
 - **蒐集與儲存資料**：從 S3、RDS、DynamoDB、OpenSearch 等來源擷取；依成本、效能與合規選儲存；串流擷取（Kinesis、Flink、Kafka）；資料格式（Parquet、JSON、CSV、ORC）；**設定可擴展的向量資料庫**（OpenSearch Service、RDS 搭配 pgvector、S3）；擷取文字、圖片、音訊等多種資料；寫入 SageMaker Feature Store。
 - **轉換與特徵工程**：Glue、DataBrew、EMR 上的 Spark、Data Wrangler；特徵工程（標準化、分箱、對數轉換）；**設定並使用 embedding 模型**；**為 RAG 準備文件**（chunking 策略、metadata 擷取）；遮蔽與匿名化；**為基礎模型的微調、持續預訓練與蒸餾準備資料**。
@@ -99,10 +99,10 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 **官方考什麼**：
 
 - **選模型與做法**：**依任務需求從 Amazon Bedrock 挑基礎模型**；辨識微調策略；**在自建、受管服務、預訓練模型與基礎模型之間取捨**；**選 RAG 架構模式**；模型效能、訓練時間、延遲與成本的取捨；用 AWS AI 服務（Textract、Rekognition、Comprehend、Transcribe）解決特定問題。
-- **訓練與客製**：SageMaker AI 內建演算法與 script mode；超參數最佳化（automatic model tuning）；縮短訓練時間（early stopping、分散式訓練）；**防止過擬合、欠擬合與災難性遺忘**；**客製技巧（依任務的 prompt engineering、微調）**；最佳化檢索元件與 embedding 模型。
+- **訓練與客製**：SageMaker AI 內建演算法與 script mode；超參數最佳化（automatic model tuning）；縮短訓練時間（early stopping、分散式訓練）；防止過擬合、欠擬合與災難性遺忘；**客製技巧（依任務的 prompt engineering、微調）**；**最佳化檢索元件與 embedding 模型**。
 - **評估**：可重現的實驗（SageMaker AI 上的 MLflow、Bedrock evaluations、Bedrock Prompt Management）；基準與漂移偵測；shadow variant；解釋模型輸出；**人工評估框架**；**NLP 評估指標（BLEU、ROUGE、BERTScore、語意相似度）**；**LLM-as-a-judge**；**RAG 系統監控，含檢索準確度評估**。
 
-**怎麼準備**：評估那組是新增內容最密的地方。四個 NLP 指標要能各說出「量的是什麼、什麼情況下會失準」。RAG 的評估方法在站內的 [RAG 與檢索評估的考點交集](/posts/ai/2026-08-18-rag-evaluation-exam-domains)整理過。
+**怎麼準備**：這章新增最多的是選模型那組（8 條裡 5 條是新的），評估那組則加了四條生成式 AI 的評估技能。四個 NLP 指標要能各說出「量的是什麼、什麼情況下會失準」。RAG 的評估方法在站內的 [RAG 與檢索評估的考點交集](/posts/ai/2026-08-18-rag-evaluation-exam-domains)整理過。
 
 ### 第三章：Deployment and Orchestration of ML and AI Workflows（24%）
 
@@ -119,7 +119,7 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 **官方考什麼**：
 
 - **監控**：CloudWatch 的生成式 AI 可觀測性、Bedrock Model Evaluation、漂移偵測；資料分布變化；A/B 測試；**agent 的效能與協調監控**（協調失敗偵測、串流被截斷、工具失敗）。
-- **成本與效能**：推論執行個體家族的選擇；CloudWatch、**Bedrock AgentCore Observability**、X-Ray；儀表板；購買選項；**基礎模型推論的成本**；**agent 的資源消耗**；**AI 特有的成本型態**（token 用量、embedding 運算成本、向量資料庫儲存）。
+- **成本與效能**：推論執行個體家族的選擇；CloudWatch、Bedrock AgentCore Observability、X-Ray；儀表板；購買選項；**基礎模型推論的成本**；**agent 的資源消耗**；**AI 特有的成本型態**（token 用量、embedding 運算成本、向量資料庫儲存）。
 - **資安**：CI/CD 的程式碼與映像檔弱點掃描；最小權限；IAM 政策與角色；CloudTrail 與 Config；VPC 隔離；**存取基礎模型的憑證類型**（Bedrock API key、IAM 憑證）；**Bedrock Guardrails**。
 
 **怎麼準備**：成本那組與站內的[成本、延遲與可用性的考點交集](/posts/ai/2026-08-18-genai-cost-latency-exam-domains)重疊。練習：把第三章做的 agent 接上 CloudWatch 與 AgentCore Observability，找出一次完整呼叫的 token 用量與最慢的步驟。
@@ -132,7 +132,7 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 |---|---|---|
 | 第 1 週 | 通讀 exam guide 與新舊對照頁，標出自己不熟的新增條目 | 45 條新增是舊經驗補不到的 |
 | 第 2–3 週 | 第一章（28%） | 最重，傳統資料工程與 RAG 前處理各一半 |
-| 第 4–5 週 | 第二章（24%） | 評估那組新增最密 |
+| 第 4–5 週 | 第二章（24%） | 選模型與評估兩組都有大量新增 |
 | 第 6 週 | 第三章（24%） | 做一個 agent 並用 pipeline 部署 |
 | 第 7 週 | 第四章（24%） | 監控、成本、資安接在同一個專案上 |
 | 第 8 週 | 官方練習題與補弱 | 認證頁列了官方的練習題組、前測與練習考試 |
@@ -145,15 +145,15 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 
 ## 這張的已知陷阱
 
-1. **beta 與正式版的規格不一樣。** beta 是 85 題、170 分鐘，exam guide 寫的正式版是 65 題。認證頁說明 beta 多出來的題目是統計評估用的，不計分，時間也因此加長。考綱兩者相同，以 exam guide 為準。
+1. **beta 與正式版的規格不一樣。** beta 是 85 題、170 分鐘，exam guide 寫的正式版是 65 題。多出來的題目算不算分，官方兩頁說法不同：認證頁寫 beta 多的題目是統計評估用、不影響分數；AWS 的通用考前政策則寫 beta 的總題數與計分題數都比正式版多。考綱兩者相同，以 exam guide 為準。
 2. **兩個代碼是同一張。** MLA-C02 是新版認證的名稱，ME1-C02 是目前 beta 的考試代碼，認證頁兩個並列。
-3. **beta 的成績不是當場出。** 認證頁寫 beta 成績通常在考完後 5 個工作天內提供；exam guide 另註明正式版的及格判定方式不適用 beta 版。
+3. **beta 的及格分數沒有公布。** exam guide 在「考試結果為及格或不及格」那句加了註腳，說明不適用 beta 版；720 是正式版的及格線。成績則和正式版一樣，考完 5 個工作天內提供。
 4. **非英文考生現在沒有新版可考。** 日文、韓文、簡體中文的 MLA-C01 會留到 C02 正式上線為止，C02 的這三種語言也要到正式上線才有。
-5. **舊教材會教已刪除的內容。** SageMaker Neo、BYOC、模型壓縮已從考綱移除，而向量資料庫、Bedrock、agent 是舊教材沒有的。
+5. **舊教材會教已刪除的內容。** SageMaker Neo、BYOC、模型壓縮這三條已從考綱移除，但容器本身還在考（3.2.3 建置與維護容器）；向量資料庫、Bedrock、agent 則是舊教材沒有的。
 
 ## 考完之後：三年效期
 
-效期三年。續期可以重考最新版的 MLA，或考過 AIP-C01；而考過最新版 MLA 也能把 AIF-C01 一起續掉。完整的續期關係圖在 [AWS 三張 AI 證照怎麼選](/posts/ai/2026-08-19-aws-certifications-which-one)。
+效期三年。依 AWS 的[續期頁](https://aws.amazon.com/certification/recertification/)，續期有三條路：重考最新版的 MLA、考過 AIP-C01（兩者各延長三年），或在 AWS Skill Builder 上維持認證（需付費訂閱，延長一年）。考過最新版 MLA 也能把 AIF-C01 一起續掉。完整的續期關係圖在 [AWS 三張 AI 證照怎麼選](/posts/ai/2026-08-19-aws-certifications-which-one)。
 
 ## 會過期的東西（下次複查看這裡）
 
@@ -174,6 +174,7 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 - [AWS Skill Builder：MLA-C02 考試準備](https://skillbuilder.aws/category/exam-prep/machine-learning-engineer-associate-MLA-C02)
 - [AWS Certification：考前政策（價目表與 beta 考試規則）](https://aws.amazon.com/certification/policies/before-testing/)
 - [AWS Certification：考後政策（重考）](https://aws.amazon.com/certification/policies/after-testing/)
+- [AWS Certification：續期選項](https://aws.amazon.com/certification/recertification/)
 
 **站內相關**
 

@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 28
-tldr: "GH-300 is the official GitHub Copilot certification. After the August 7, 2026 revision the outline has six areas, the heaviest being 'Use GitHub Copilot features' at 25–30%, which covers the Copilot CLI, agent mode, MCP, sub-agent delegation, and organization-level policy, audit logs, and the REST API. Official specs: $99 in the US, $50 in Taiwan, 100 minutes, pass at 700, valid 2 years, five languages with no Chinese, and an official practice assessment. The official weight list has one extra line; prepare from the six real sections."
+tldr: "GH-300 is the official GitHub Copilot certification. After the August 7, 2026 revision the outline has six areas, the heaviest being 'Use GitHub Copilot features' at 25–30%, which covers the Copilot CLI, agent mode, MCP, sub-agent delegation, and organization-level policy, audit logs, and the REST API. Official specs: $99 in the US, $50 in Taiwan, 100 minutes, 60 scored questions, pass at 700, valid 2 years, five languages with no Chinese, and an official practice assessment. The official weight list has one extra line; prepare from the six real sections."
 description: "A preparation guide for the GitHub Copilot certification (GH-300), built on the official study guide's six weighted skill areas: what each tests, how the two official learning paths map to them, a three-week schedule with its derivation, the duplicated line on the official pages, and the current state of GitHub's two-year validity and renewal process."
 draft: false
 ---
@@ -19,7 +19,7 @@ draft: false
 
 If you use GitHub Copilot every day, it is easy to assume this certification is free points. The outline as revised in August 2026 is much wider than pressing Tab in an editor: the Copilot CLI has its own group of objectives, agent mode and MCP are named, and one group tests how an organization admin sets policy and reads audit logs.
 
-GitHub certifications now live on Microsoft Learn, and registration, scores, and renewal run through Microsoft's systems. For specs across vendors, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en).
+GitHub certifications now live on Microsoft Learn, and registration and scores run through Microsoft's systems, with renewal in the process of moving over. For specs across vendors, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en).
 
 ## Who This Is For
 
@@ -31,7 +31,7 @@ It also asks for familiarity with GitHub fundamentals and experience in at least
 
 **A good fit**: developers on teams that have adopted Copilot, and technical leads who evaluate, buy, or administer it. For the second group, the areas on data flow, content exclusions, and public code matching are the questions they get asked internally.
 
-**Not a fit**: people who do not use GitHub Copilot. The exam is tied to one product. The prompting concepts transfer, but questions on features, plans, and settings are worthless on another tool. If you want an exam on operating and governing agents in a development workflow, look at the more advanced [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide-en).
+**Not a fit**: people who do not use GitHub Copilot. The exam is tied to one product. The prompting concepts transfer, but questions on features, plans, and settings are worthless on another tool. If you want an exam on operating and governing agents in a development workflow, look at [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide-en).
 
 ## Official Specs
 
@@ -41,8 +41,8 @@ It also asks for familiarity with GitHub fundamentals and experience in at least
 | Certification | GitHub Copilot |
 | Price | **$99 USD** in the US, **$50 USD** in Taiwan (priced by the country where the exam is proctored; the certification page has a country selector) |
 | Duration | **100 minutes** |
-| Questions | Not published |
-| Passing score | **700** |
+| Questions | **60 scored multiple-choice questions** plus roughly 10–15 unscored pretest items (the general statement in GitHub's certification FAQ; the Microsoft Learn certification page lists nothing) |
+| Passing score | **700** (the [general passing score for Microsoft technical exams](https://learn.microsoft.com/en-us/credentials/certifications/exam-scoring-reports) on a 1–1,000 scale; GitHub's own pages state no separate figure) |
 | Validity | **2 years** |
 | Languages | English, Spanish, Portuguese (Brazil), Korean, Japanese; **no Chinese** |
 | Proctoring | Pearson VUE |
@@ -61,7 +61,7 @@ The overview article on this site previously said the official page listed no am
 | Improve developer productivity with GitHub Copilot | 10–15% |
 | Configure privacy, content exclusions, and safeguards | 10–15% |
 
-**The official list actually has seven lines.** Both "Skills at a glance" in the study guide and "Assessed on this exam" on the certification page add a line after the second one, "GitHub Copilot features (25–30%)", with no matching section in the body. The six real sections sum to a range of 80–120%, which contains 100%. Counting the extra line gives 105–150%, which cannot work. The line is a duplicate, and the six sections are what to prepare from.
+**The official list actually has seven lines.** Both "Skills at a glance" in the study guide and "Assessed on this exam" on the certification page add a line after the second one, "GitHub Copilot features" (the study guide gives it 25–30%; the certification page shows no weights), with no matching section in the body. The six real sections sum to a range of 80–110%, which contains 100%. Counting the extra line gives 105–140%, which cannot work. GitHub's own [certification page](https://learn.github.com/certification/COPILOT) also lists six domains. The line is a duplicate, and the six sections are what to prepare from.
 
 ## Preparing Area by Area
 
@@ -69,7 +69,7 @@ The overview article on this site previously said the official page listed no am
 
 **What it tests**: risks and limitations of generative AI tools; ethical and responsible use; potential harms and mitigations; **why AI output needs validation**; how to operate Copilot responsibly.
 
-**How to prepare**: conceptual. The center of it is validation: Copilot's code can contain vulnerabilities, be out of date, or match public code, and questions ask which check fits which situation.
+**How to prepare**: conceptual. The center of it is validation: Copilot's code can contain vulnerabilities, be out of date, or match public code. Build yourself a table of which check fits which situation.
 
 ### Use GitHub Copilot features (25–30%, the heaviest)
 
@@ -82,7 +82,7 @@ The overview article on this site previously said the official page listed no am
 | Features and capabilities | **Agent Mode, Copilot Edits, MCP**; **managing agent sessions and delegating tasks to sub-agents to save context**; code review; Spaces, Spark, pull request summaries; **customizable review standards through instructions files**; limits, options, and commands of Copilot Chat; **prompt file reuse** |
 | Organization-wide settings and policies | Organization policy management; enabling Copilot Code Review policies and managing feature availability across IDEs and github.com; **audit log events**; **managing subscriptions with the REST API** |
 
-The CLI group has five objectives, about as many as the IDE group. People who only use Copilot inside an editor lose points here.
+The CLI group has five objectives, the most of the four groups in this area (three for the IDE, four for features, three for organization settings). People who only use Copilot inside an editor need to prepare this group separately.
 
 **How to prepare**: use every named feature once. A minimum list: install the Copilot CLI and generate a script with it; connect an MCP server in agent mode; write one instructions file and one prompt file; and if you have organization admin rights, open the settings and look at the policies and audit log once. Without those rights, read the official admin documentation.
 
@@ -120,11 +120,11 @@ The CLI group has five objectives, about as many as the IDE group. People who on
 | 2 | Part 2 plus the **hands-on feature list** | Features are 25–30% and the named ones need real use |
 | 3 | Official practice assessment and gap-filling | The certification page offers a practice assessment directly |
 
-**Failure is cheap**: the certification page links to Microsoft's [retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy): 24 hours after a first failure, 14 days between later attempts, at most 5 attempts in 12 months, paying each time.
+**Failure is cheap**: the certification page links to Microsoft's [retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy): 24 hours after a first failure, 14 days between later attempts, at most 5 attempts in 12 months, paying each time. GitHub's certification FAQ states the same rules.
 
 ## Known Traps
 
-1. **The outline follows the product.** The current version took effect August 7, 2026, and the study guide's change log marks three minor changes (IDE use, features and capabilities, safeguards and troubleshooting). To judge whether study material is current, check whether it covers the named Copilot CLI, sub-agent delegation, Spaces, and Spark. If it does not, it is old.
+1. **The outline follows the product.** The current version took effect August 7, 2026, and the study guide's change log marks three minor changes (IDE use, features and capabilities, safeguards and troubleshooting). The change log does not say what changed. My own test for study material is whether it covers the sub-agent delegation, Spaces, Spark, and Copilot CLI named in the current objectives; if it does not, it probably trails the current outline.
 2. **The instructor-led course page is old.** The GH-300T00-A page was last updated in June 2025, and its audience profile still lists "Policy Makers and Regulators". It predates the current outline by more than a year and should not be used to judge scope.
 3. **The official list has an extra line.** See the note under the weights table.
 4. **The renewal text in the study guide is Microsoft boilerplate.** The "Useful links" table says "Microsoft associate, expert, and specialty certifications expire annually". That is template text. GitHub certifications are valid for two years, as the certification page says.
@@ -135,9 +135,9 @@ From the certification page:
 
 > GitHub certifications are valid for 2 years. GitHub is transitioning to Microsoft's recertification process, which will provide a new way for candidates to maintain their certifications without retaking the full certification exam.
 
-GitHub certifications will move to Microsoft's style of renewal without a full retake, but the new process is not live yet. Two protections apply in the meantime: certifications that expire before the new process is available are **extended by 6 months**, and if yours has already expired you can write to learn@github.com for one exam voucher covering the first renewal attempt.
+GitHub certifications will move to Microsoft's style of renewal without a full retake, but the new process is not live yet. Two protections apply in the meantime: certifications that expire before the new process is available are **extended by 6 months** (GitHub's FAQ says to contact the GitHub Certification team as expiry approaches), and if yours has already expired you can write to learn@github.com for one exam voucher covering the first renewal attempt.
 
-In practice there is nothing to do for two years. Near expiry, check the certification page to see whether the new process has launched before deciding whether to retake.
+In practice there is nothing to do for two years. Near expiry, check the certification page to see whether the new process has launched. If it has not, write to the GitHub Certification team for the extension instead of waiting for it to apply itself.
 
 ## Things That Will Go Stale
 
