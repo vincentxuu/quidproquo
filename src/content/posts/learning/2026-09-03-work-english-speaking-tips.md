@@ -24,7 +24,7 @@ draft: false
 
 **今晚就能做的事**：找一段 2–3 分鐘的 [TED-Ed](https://ed.ted.com/) 影片或 Podcast 片段，用手機錄音 app 錄下自己跟讀的版本。播放對照原音，注意哪些字的重音和連音跟原本不同，明天用同一段再跟讀一次。
 
-[VoiceTube](https://tw.blog.voicetube.com/archives/86106/tech-english-speaking-method) 推薦的「回音學習法」是跟讀的變體：聽完一句後先暫停，讓腦中回放聲音，再開口模仿。他們認為這比同步跟讀更能訓練聽覺記憶，但目前只有 VoiceTube 一個來源提出這個主張，還需要更多獨立驗證。
+[VoiceTube](https://tw.blog.voicetube.com/archives/86106/tech-english-speaking-method) 推薦的「回音學習法」是跟讀的變體：聽完一句後先暫停，讓腦中回放聲音，再開口模仿。他們認為這比同步跟讀更能訓練聽覺記憶。這個方法的出處是台大外文系史嘉琳教授的[回音法](https://homepage.ntu.edu.tw/~karchung/pubs/CET6970.pdf)，她的依據是教學經驗，文章沒有引用實驗（2026-10-08 更正：原本寫成只有 VoiceTube 提出，[跟讀法那篇](/posts/learning/2026-10-08-shadowing-evidence)有說明）。
 
 ### 情境式對話練習
 

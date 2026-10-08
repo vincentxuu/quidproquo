@@ -250,7 +250,7 @@
 - **社群推薦的大多是工具、頻道與平台，不是文章。** 「有名的口說練習文章」如果指大家會轉貼的單篇文章，這一輪沒有找到被兩份以上清單引用的。最接近的是 up 的口說章（單一指南的一章，但該指南有 6.7 萬星）。
 - **跟讀是重複最多的做法，但最多星的指南對它最保留。** up 明寫跟讀負責模仿、生成要靠複述與追問，和第一輪讀到的系統性回顧結論一致。
 - **台灣的脈絡裡，史嘉琳被獨立提到兩次**（PTT 一篇高推文、一篇個人經驗文），而且都是讀者自己提的，不是我搜尋她才出現。
-- **Reddit 語言學習板的 FAQ 與指南都完全沒提跟讀。** 中文世界的清單與文章幾乎都把跟讀放在第一位，這份英文社群最大的 FAQ 講的卻是對話時間、片語與發音。跟讀在華語與日語學習圈特別流行，可能不是普遍的共識；這是我的推論。
+- **Reddit 語言學習板的 FAQ 與指南都完全沒提跟讀。** 中文世界的清單與文章幾乎都把跟讀放在第一位，這份英文社群最大的 FAQ 講的卻是對話時間、片語與發音。**這裡我原本推論「跟讀可能不是普遍的共識」，撐不起來**：幾份入門指引沒收，不等於英語圈不用，Arguelles 就是美國人，板上也有討論跟讀的貼文。比較直接的依據是 Whitworth & Rose 2025 自己寫的「shadowing is currently popular in Asia」，以及它納入的研究地點（亞洲 20 篇，日本 10、台灣 6）。
 - **二十年前 PTT 精華區的做法，和現在的清單幾乎一樣**：聽有稿的短音檔、模仿、錄音比較、自言自語、找人對話。變的是工具，不是方法。
 - **r/EnglishLearning 的 wiki 沒有口說資源**，但它列的字典和本清單第二部分一致，可以當成字典選擇的旁證；它列的 OZDIC 搭配字典之前試過讀不到。
 
@@ -269,10 +269,10 @@
 | [Paul Nation: What do you need to know to learn a foreign language?](https://www.wgtn.ac.nz/lals/resources/paul-nations-resources/paul-nations-publications/publications/documents/foreign-language_1125.pdf)（免費電子書） | 應用語言學者寫給學習者的書 | 四股平衡（four strands）：有意義的輸入、有意義的輸出、刻意學習語言、流暢度練習，四者時間大致相等。口說相關的活動：角色扮演、準備過的短講、背句子或對話、4/3/2。角色扮演的做法：演完檢討、立刻再演一次，之後在**間隔越來越長**的場次再練一兩次；情境列成清單逐一練。只讀到目錄、摘要與角色扮演一節 |
 | [Paul Nation: Keeping it practical and keeping it simple](https://www.wgtn.ac.nz/__data/assets/pdf_file/0008/1882088/2018-keeping_it_practical_and_keeping_it_simple.pdf)（2018） | 學者的回顧文章 | 作者自己說明：四股「各佔四分之一」**沒有研究證據支持**，是常識判斷。引用四股時要連這個限制一起寫 |
 | 4/3/2 流暢度練習（Maurice 1983；Nation 1989） | 研究與教學法 | 讀到的是一篇[西班牙文研究](https://dialnet.unirioja.es/descarga/articulo/6065023.pdf)的轉述：同一個主題對三個不同的人各講 4、3、2 分鐘。有效的三個原因是重複、時間壓力、換聽眾。Nation 1989 的原文沒有讀到 |
-| [史嘉琳：回音法（Echo Method）](https://homepage.ntu.edu.tw/%7Ekarchung/pubs/CET6970.pdf)（台大外文系；另有 [TEDxNTUST 演講](https://www.ted.com/talks/jan_2018_47dcaf8d-b6df-4a6b-9922-4712d6bebf59)） | 台灣學者發表的方法 | 八個步驟：選一到三分鐘有文字稿的音檔、聽熟、讀懂、一次只播四到五個字就暫停、**先聽腦中的回音再開口**、重複到很順、每天十分鐘。和跟讀的差別是聽完先停一下，不立刻跟著唸。演講版濃縮成 Listen、Echo、Repeat，之後再進到緊跟著唸、同時唸 |
+| [史嘉琳：回音法（Echo Method）](https://homepage.ntu.edu.tw/%7Ekarchung/pubs/CET6970.pdf)（台大外文系；另有 [TEDxNTUST 演講](https://www.ted.com/talks/jan_2018_47dcaf8d-b6df-4a6b-9922-4712d6bebf59)） | 台灣學者發表的方法 | 八個步驟：選一到三分鐘有文字稿的音檔、聽熟、讀懂、一次只播四到五個字就暫停、**先聽腦中的回音再開口**、重複到很順、每天十分鐘。她的文章對照的是傳統的「跟著念」，全文沒有出現 shadowing；「和跟讀的差別是先停一下」是我的對照，不是她的話。演講版濃縮成 Listen、Echo、Repeat，之後再進到緊跟著唸、同時唸 |
 | [Whitworth & Rose (2025): 跟讀法用於發音教學的系統性回顧](https://www.tandfonline.com/doi/full/10.1080/29984475.2025.2546827) | 系統性回顧，納入 44 篇研究 | 跟讀能改善可理解度、流暢度與韻律；對個別音的效果沒有定論。限制：多數研究只用受控的口說作業，改善未必能轉移到自然對話。跟讀原本是口譯訓練，多數研究其實是在練聽力 |
-| [Foote & McDonough (2017): 用行動裝置跟讀](https://www.ingentaconnect.com/content/jbp/jslp/2017/00000003/00000001/art00003?crawler=true&mimetype=application%2Fpdf) | 實驗研究，16 人、八週 | 每週至少四次、每次至少十分鐘。即席口說的可理解度與流暢度進步，口音沒有改善 |
-| [Alexander Arguelles: Shadowing Step by Step](https://www.youtube.com/watch?v=130bOvRpt24) 與 [Roadmap for Language Study](https://www.alexanderarguelles.com/question-answer/roadmap-for-language-study/) | 提出這套跟讀法的人自己的說明 | 每次約三十分鐘、每天加一課、同一份教材分階段循環；強調複習最重要。他的做法是配課本從頭學一個語言，和網路上流傳的「跟著影片唸」差很多 |
+| [Foote & McDonough (2017): 用行動裝置跟讀](https://www.ingentaconnect.com/content/jbp/jslp/2017/00000003/00000001/art00003?crawler=true&mimetype=application%2Fpdf) | 實驗研究，招募 22 人、16 人完成，八週，沒有對照組，受試者自願報名並領酬勞 | 每週至少四次、每次至少十分鐘。看圖說故事（只取開頭 20 秒評分，不是對話）的可理解度與流暢度進步，口音沒有改善。作者自己寫結果要保守解讀 |
+| [Alexander Arguelles: Shadowing Step by Step](https://www.youtube.com/watch?v=130bOvRpt24) 與 [Roadmap for Language Study](https://www.alexanderarguelles.com/question-answer/roadmap-for-language-study/) | 提出這套跟讀法的人自己的說明 | 影片的時間我記的是每次約三十分鐘，但他[舊網站的存檔](https://web.archive.org/web/20160106172408/http://www.foreignlanguageexpertise.com/foreign_language_study.html)寫的是「15 minute sessions are probably ideal」，可從 5 或 10 分鐘開始、最多到 30 分鐘，引用時以網站為準；每天加一課、同一份教材分階段循環；強調複習最重要。他的做法是配課本從頭學一個語言，和網路上流傳的「跟著影片唸」差很多 |
 
 #### 個人與商業作者
 
@@ -293,9 +293,9 @@
 這是我讀完後的推論，不是來源的原話：
 
 - 練習區目前的做法是看中文、試著說、再揭示參考說法，屬於 Nation 說的「背句子或對話」加上有間隔的重複。它涵蓋四股裡的「刻意學習」，沒有涵蓋流暢度練習與有意義的輸出。
-- 多個來源都建議錄音回聽，練習區沒有這個功能。
+- 多個來源都建議錄音回聽。（2026-10-08 已補：錄音對照、對話扮演、面試題目問答、流暢度三輪、自由說話與錄音下載、挑一個地方再說一次、跟讀與回音。程式補不了的是真人聽眾與真實對話。）
 - British Council 建議出門前準備關鍵句的小抄，Nation 建議把會遇到的情境列成清單逐一角色扮演；這和「依行程準備情境卡」的方向一致。
-- 跟讀的研究證據集中在聽力與韻律，轉移到自然對話的證據不足；文章提到跟讀時不能寫成對口說一定有效。
+- 跟讀的研究：Whitworth & Rose 2025 的回顧主題是發音，納入 44 篇、實際分析 34 篇；結論是可理解度、清晰度、口音程度與流暢度有進步，韻律較保留，個別音沒有定論。31 篇有測發音的研究裡 20 篇只用受控作業，只有 1 篇做延後測驗，只有 1 篇和別的方法比較。文章提到跟讀時不能寫成「最有效」或對口說一定有效。完整查證紀錄：`.research/2026-10-08-shadowing-evidence.md`。
 - up 的做法（保存無稿錄音當基線、讓真人複述聽到什麼、每輪只修一到三個問題）比練習區現有的自評更接近「有沒有把意思傳到」。練習區的自評目前只問說得順不順。
 
 ## 讀過後排除
