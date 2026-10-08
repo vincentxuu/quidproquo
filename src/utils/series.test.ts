@@ -220,22 +220,39 @@ describe('Stanford course series registry', () => {
     const summaries = getSeriesSummaries([course, fallback], 'zh-TW', new Date('2026-08-21'));
 
     expect(SERIES_CATEGORIES.map(category => category.id)).toEqual([
+      'courses',
+      'exams-interviews',
       'ai-agents',
-      'courses-ai-ml',
-      'courses-nlp',
-      'courses-foundations',
-      'courses-agent-frontier',
-      'engineering-coding-agent',
-      'engineering-cloud',
-      'engineering-data',
-      'engineering-model-choice',
-      'learning-research',
-      'product-career',
-      'industry-projects',
+      'engineering',
       'updates',
+      'other',
     ]);
-    expect(summaries.find(item => item.slug === 'statistics-ml-ai')?.category).toBe('courses-ai-ml');
-    expect(summaries.find(item => item.name === '新的學習系列')?.category).toBe('learning-research');
+    expect(summaries.find(item => item.slug === 'statistics-ml-ai')?.category).toBe('exams-interviews');
+    expect(summaries.find(item => item.name === '新的學習系列')?.category).toBe('other');
+  });
+
+  it('keeps interview drills with exams even though they publish daily', () => {
+    const registered = post('daily/drill', 'zh-TW', { name: 'AI Engineer 面試日練', order: 1 });
+    const unregistered = post('daily/drill-en', 'zh-TW', { name: 'Product Builder Interview Drill', order: 1 });
+    const digest = post('daily/arxiv', 'zh-TW', { name: 'AI Agent Arxiv Digest', order: 1 });
+    const summaries = getSeriesSummaries([registered, unregistered, digest], 'zh-TW', new Date('2026-08-21'));
+
+    expect(summaries.find(item => item.slug === 'ai-engineer-interview-daily')?.category).toBe('exams-interviews');
+    expect(summaries.find(item => item.name === 'Product Builder Interview Drill')?.category).toBe('exams-interviews');
+    expect(summaries.find(item => item.name === 'AI Agent Arxiv Digest')?.category).toBe('updates');
+  });
+
+  it('tags course series with a school and leaves other series untagged', () => {
+    const names = ['Stanford CS230 導讀', 'MIT 6.S191 導讀', '台大李宏毅 機器學習 2026 Spring 導讀', '世界名校 AI／CS 課程地圖', 'AI 證照備考'];
+    const summaries = getSeriesSummaries(
+      names.map((name, index) => post(`ai/school-${index}`, 'zh-TW', { name, order: 1 })),
+      'zh-TW',
+      new Date('2026-08-21'),
+    );
+
+    expect(names.map(name => summaries.find(item => item.name === name)?.school)).toEqual([
+      'stanford', 'mit', 'taiwan', 'cross-school', undefined,
+    ]);
   });
 
   it('navigates primary and additional series independently with canonical post slugs', () => {
