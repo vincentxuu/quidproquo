@@ -27,7 +27,7 @@ The certification page describes the candidate as a "professional developer or a
 
 The same page states plainly what you do in the role: integrate agents with Foundry, with MCP servers, with custom connectors, with APIs, with Microsoft Fabric, and automate tasks using **computer use**.
 
-**A fit** for developers, consultants, and ISV partners building enterprise agents in Copilot Studio. One practical advantage: **it is offered in Traditional Chinese, the only localized exam of Microsoft's three agent credentials** — AI-500 and AB-100 are English-only.
+**A fit** for developers, consultants, and ISV partners building enterprise agents in Copilot Studio. One practical advantage: **it is offered in Traditional Chinese**. Of Microsoft's three agent credentials, AB-100 now is too, and only AI-500 remains English-only.
 
 **Not a fit** if you want to prove code-first ability. That track is [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en) and AI-500 above it, which test Python, Agent Framework, LangGraph, and CI/CD — barely overlapping with this exam.
 
@@ -105,7 +105,7 @@ At 5–7 hours a week over five weeks:
 | 3–4 | **Integrate and extend (40–45%)**: [multi-agent solutions](https://learn.microsoft.com/en-us/training/paths/design-build-multi-agent-solutions-copilot-studio/) (2h 54m) and [enterprise system integration](https://learn.microsoft.com/en-us/training/paths/integrate-agents-enterprise-systems-copilot-studio/) (3h 18m) | The heaviest area, split into "multi-agent" and "external integration" |
 | 5 | Test and manage (20–25%) + full review | ALM concepts close it out |
 
-**The instructor-led course is not out yet**: [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00) (three days) carries the notice "**This course will be available on 9/18/2026**" — but the three learning paths above are self-serve today, so there is nothing to wait for.
+**The instructor-led course is not out yet**: [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00) (three days) carries the notice "**This course will be available on 10/9/2026**" (in August it said September 18; the date has slipped) — but the three learning paths above are self-serve today, so there is nothing to wait for.
 
 **Failure cost**: Microsoft's [retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy) is 24 hours after a first failure, then 14 days between subsequent attempts, with at most five attempts per 12 months, paying each time.
 
@@ -114,12 +114,12 @@ At 5–7 hours a week over five weeks:
 | Certification | Position | Heaviest area | Languages |
 |---|---|---|---|
 | **AB-620** (this article) | Low-code builder, Copilot Studio | Integration 40–45% | 13, incl. Traditional Chinese |
-| **AI-500** (beta) | Code-first engineer: Python, Agent Framework, LangGraph | Development 30–35% | English only |
-| **AB-100** | Architect: ROI and cross-product governance | Deploy and govern 40–45% | English only |
+| **AI-500** | Code-first engineer: Python, Agent Framework, LangGraph | Development 30–35% | English only |
+| **AB-100** | Architect: ROI and cross-product governance | Deploy and govern 40–45% | 13, incl. Traditional Chinese |
 
 **Exactly one official ladder exists**: AI-103 → AI-500, where the latter's Certification prerequisites section requires the former. **AB-620 has no prerequisite** and can be taken directly.
 
-AB-620 does appear in AB-100's list of "current possible associate certs that can be used for this expert certification," which suggests an intended Copilot-Studio-side path of AB-620 → AB-100 — but official text stops short of making it a requirement, so don't treat it as one.
+AB-620 does appear in AB-100's list of "current possible associate certs that can be used for this expert certification," and Microsoft now states outright that earning AB-100 requires one of the associate certifications on that list. AB-620 → AB-100 on the Copilot Studio side is therefore one of the officially recognized paths (AI-103, AI-300, and others qualify too); see the [AB-100 guide](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en).
 
 ## One-Year Validity and Renewal
 
@@ -139,6 +139,7 @@ One small oddity worth knowing: **AB-620's dedicated renewal page does not exist
 
 ## Changelog
 
+- 2026-10-08 (recheck): the instructor-led course date moved from 9/18 to 10/9; AB-100 is now offered in 13 languages including Traditional Chinese and requires an associate certification, and the comparisons here are updated; the AI-500 beta label has been removed.
 - 2026-10-08: Added the Taiwan test-center price ($83 USD) to the fee row. It previously listed only the US price of $165; Microsoft prices by the country where the exam is proctored, and the certification page has a country selector. Nothing else changed.
 
 ## References

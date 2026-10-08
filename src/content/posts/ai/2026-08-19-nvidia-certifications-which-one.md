@@ -109,7 +109,7 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 **情況三：你在做 agent 系統，沒有時間壓力。**
 把 **NCP-AAI** 當成盤點工具而不是近期目標：十個領域當檢核表逐條問「我在生產環境做過嗎」，缺的補上；平台那 7%（NeMo Guardrails、NIM、NeMo Agent Toolkit、TensorRT-LLM、Triton）是唯一無法從通用 agent 經驗轉移過來的部分，值得先補。**課先別買** —— 考綱可能隨開放而調整，太早買可能學到被改掉的內容。
 
-如果你需要的是「現在就能考到的 agentic 專業級證照」，NVIDIA 這條線暫時給不了，可以看[微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)（beta 階段，但必須先持有 AI-103）。
+如果你需要的是「現在就能考到的 agentic 專業級證照」，NVIDIA 這條線暫時給不了，可以看[微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)（必須先持有 AI-103）。
 
 **情況四：你的工作是把模型壓小、在 GPU 上跑快。**
 **NCP-GENL** 是四張裡唯一對應這件事的，也同樣還不能報名。它的定位不是「NCA-GENL 的進階版」—— 那是最常見的誤解。NCA-GENL 橫跨傳統 ML 與 LLM 應用，NCP-GENL 往下鑽模型與硬體，兩者的重心不同。等開放期間，$30 的 Nsight profiling 課是最便宜的起手式。

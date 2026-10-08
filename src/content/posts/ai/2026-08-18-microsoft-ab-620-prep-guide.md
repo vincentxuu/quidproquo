@@ -27,7 +27,7 @@ draft: false
 
 同一頁也直接列出「你會做的事」：把 agent 接上 Foundry、MCP server、自訂 connector、API、Microsoft Fabric，以及用 **computer use** 自動化任務。
 
-**適合**：在 Copilot Studio 上做企業 agent 的開發者、顧問、ISV 夥伴。**特別適合台灣讀者的一點**：這張有繁體中文，而且是微軟三張 agent 證照裡唯一在地化的 —— AI-500 與 AB-100 都只有英文。
+**適合**：在 Copilot Studio 上做企業 agent 的開發者、顧問、ISV 夥伴。**特別適合台灣讀者的一點**：這張有繁體中文。微軟三張 agent 證照裡，AB-100 現在也有繁中，只有 AI-500 仍是僅英文。
 
 **不適合**：想證明 code-first 能力的人。那條線是 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide) 與其上的 AI-500，考的是 Python、Agent Framework、LangGraph、CI/CD，跟這張幾乎不重疊。
 
@@ -105,7 +105,7 @@ Topics 那半段：把 agent flow 加進 topic、設定回應格式、在 topic 
 | 第 3–4 週 | **Integrate and extend（40–45%）**：[多 agent 方案](https://learn.microsoft.com/en-us/training/paths/design-build-multi-agent-solutions-copilot-studio/)（2 小時 54 分）＋[企業系統整合](https://learn.microsoft.com/en-us/training/paths/integrate-agents-enterprise-systems-copilot-studio/)（3 小時 18 分） | 最重的一塊，兩週分別做「多 agent」與「外部整合」 |
 | 第 5 週 | Test and manage（20–25%）+ 全面複習 | ALM 概念收尾 |
 
-**講師課要等**：對應的講師課 [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00)（三天）頁面寫著「**This course will be available on 9/18/2026**」——但上面那三條學習路徑現在就能自學，不用等課。
+**講師課要等**：對應的講師課 [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00)（三天）頁面寫著「**This course will be available on 10/9/2026**」（8 月時標的是 9 月 18 日，已延後）——但上面那三條學習路徑現在就能自學，不用等課。
 
 **失敗成本**：微軟的[重考政策](https://learn.microsoft.com/en-us/credentials/support/retake-policy)是第一次沒過等 24 小時、之後每次 14 天、12 個月內最多 5 次，每次都要付費。
 
@@ -114,12 +114,12 @@ Topics 那半段：把 agent flow 加進 topic、設定回應格式、在 topic 
 | 證照 | 定位 | 最重的一塊 | 語言 |
 |---|---|---|---|
 | **AB-620**（本文） | 低程式碼建造者，Copilot Studio | 整合與擴充 40–45% | 13 種，含繁中 |
-| **AI-500**（beta） | code-first 工程師，Python / Agent Framework / LangGraph | 開發 30–35% | 僅英文 |
-| **AB-100** | 架構師，ROI 與跨產品治理 | 部署與治理 40–45% | 僅英文 |
+| **AI-500** | code-first 工程師，Python / Agent Framework / LangGraph | 開發 30–35% | 僅英文 |
+| **AB-100** | 架構師，ROI 與跨產品治理 | 部署與治理 40–45% | 13 種含繁中 |
 
 **只有一條官方明訂的階梯**：AI-103 → AI-500（後者的 Certification prerequisites 寫死必須先取得前者）。**AB-620 沒有先修條件**，可以直接考。
 
-不過 AB-620 出現在 AB-100 的「可用於此 expert 認證的 associate 證照」清單裡，暗示了 Copilot Studio 這側的路徑是 AB-620 → AB-100 —— 但官方文字**沒有把它寫成必要條件**，所以不要當成規定。
+不過 AB-620 出現在 AB-100 的「可用於此 expert 認證的 associate 證照」清單裡，而官方現在明寫：要拿 AB-100，必須另外持有清單中任一張 associate 認證。所以 Copilot Studio 這側的 AB-620 → AB-100 是官方認可的路徑之一（AI-103、AI-300 等也符合），細節見 [AB-100 那篇](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)。
 
 ## 一年效期與續期
 
@@ -139,6 +139,7 @@ Topics 那半段：把 agent flow 加進 topic、設定回應格式、在 topic 
 
 ## 更新紀錄
 
+- 2026-10-08（複查）：講師課開課日由 9/18 延到 10/9；AB-100 現在有 13 種語言含繁中，且要求另外持有一張 associate 認證，相關對照已更新；AI-500 的 beta 標示已拿掉。
 - 2026-10-08：費用欄補上台灣考場的價格（$83 USD）。原本只寫美國價 $165；微軟依考場所在國家定價，認證頁的國家選單可切換。其餘內容未變動。
 
 ## 參考資料

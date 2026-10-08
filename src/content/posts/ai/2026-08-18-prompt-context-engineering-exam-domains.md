@@ -34,7 +34,7 @@ draft: false
 | [Claude CCAO-F](/posts/ai/2026-08-18-claude-certified-associate-prep-guide) | Prompting and Task Execution | **14%** |
 | 同上 | Output Evaluation and Validation（含「迭代 prompt 以改善品質」） | 21% |
 | [Claude CCDV-F](/posts/ai/2026-08-18-claude-certified-developer-prep-guide) | Prompt and Context Engineering | **11.0%** |
-| [微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)（beta） | Develop 裡的「進階 prompt 工程」與「記憶、context 管理與知識整合」 | 該塊共 **30–35%** |
+| [微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide) | Develop 裡的「進階 prompt 工程」與「記憶、context 管理與知識整合」 | 該塊共 **30–35%** |
 | 同上 | Evaluate 裡的 context window 失效模式診斷與 prompt 評估 | 該塊共 20–25% |
 | [NVIDIA NCP-GENL](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide) | Prompt Engineering（唯一以此命名的獨立領域） | **13%** |
 | [NVIDIA NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) | 無獨立領域，「用 prompt engineering 原則寫 prompt」在 Core ML 條目層 | 該塊共 30% |

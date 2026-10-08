@@ -33,7 +33,7 @@ draft: false
 | 同上 | Stakeholder Communication & Lifecycle Management | **14%** | 合計 **28% 不考技術** |
 | [Claude CCAO-F](/posts/ai/2026-08-18-claude-certified-associate-prep-guide) | Governance, Risk, and Responsible Use | **15%** | 使用者視角：什麼場景不該用 |
 | [微軟 AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide) | Deploy（含負責任 AI、安全、治理、風險與合規） | **40–45%** | 條目最接近高風險 AI 的法定義務 |
-| [微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)（beta） | Secure, govern, and deploy | 20–25% | 名字有 govern，內容幾乎全是操作控制 |
+| [微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide) | Secure, govern, and deploy | 20–25% | 名字有 govern，內容幾乎全是操作控制 |
 | [NVIDIA NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide) | Safety, Ethics, and Compliance | 5% | 條目最像 NIST 的可信賴特徵 |
 | 同上 | Human-AI Interaction and Oversight | 5% | 透明機制與人類介入 |
 | [AWS AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide) | 負責任 AI 準則 | 14% | 六個面向是全系列最完整的一組 |

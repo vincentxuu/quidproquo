@@ -61,7 +61,7 @@ CCDV-F 是最容易被假設「應該會考 RAG」的一張 —— 它是 Anthro
 
 **這個結論只能推到 blueprint 為止**：官方沒有列出檢索目標，不代表題目裡不會出現 RAG 這個詞當情境背景。但**你不能靠準備 RAG 去拿這張的分數**，因為權重表上沒有它的位置。
 
-**同理，PMLE 也不是。** [官方 exam guide](https://cloud.google.com/learn/certification/guides/machine-learning-engineer) 六章的 considerations 裡，唯一相關的一條是第 2 章的「**用 LLM-as-a-judge 評估 GenAI 方案**」。沒有 chunking、沒有向量庫、沒有檢索目標。它有 Agent Platform Feature Store，但那是 ML 特徵的儲存與服務，跟向量檢索是兩件事 —— 這組名詞是備考時最容易混掉的一對。
+**同理，PMLE 也不是。** [官方 exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf) 六章的 considerations 裡，唯一相關的一條是第 2 章的「**用 LLM-as-a-judge 評估 GenAI 方案**」。沒有 chunking、沒有向量庫、沒有檢索目標。它有 Agent Platform Feature Store，但那是 ML 特徵的儲存與服務，跟向量檢索是兩件事 —— 這組名詞是備考時最容易混掉的一對。
 
 **所以這篇的四張是**：AIF-C01、AIP-C01、NCP-AAI、AI-500。PMLE 以一條目標的身分出現在第五節，NCA-GENL 當旁證。
 
@@ -319,7 +319,7 @@ AIP-C01 還有一條別家沒有的**存取機制**：function calling、**用 M
 - [NCA-GENL 官方認證頁（規格與 blueprint）](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/)
 - [NVIDIA DLI — Evaluating RAG and Semantic Search Systems](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-FX-32+V1)
 - [微軟 AI-500 官方 study guide（含「多 agent RAG 架構」那條）](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-500)
-- [Google Professional ML Engineer 官方考試指南（用來確認它只有一條 LLM-as-a-judge）](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
+- [Google Professional ML Engineer 官方考試指南（用來確認它只有一條 LLM-as-a-judge）](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)
 - [Claude Certified Developer – Foundations 官方認證頁（含 exam guide 下載，用來確認它不考檢索）](https://anthropic-partners.skilljar.com/claude-certified-developer-foundations-certification)
 - [AWS Skill Builder — AIF-C01 Exam Prep](https://skillbuilder.aws/category/exam-prep/ai-practitioner-AIF-C01)
 - [AWS Skill Builder — AIP-C01 Exam Prep](https://skillbuilder.aws/category/exam-prep/generative-ai-developer-professional-AIP-C01)

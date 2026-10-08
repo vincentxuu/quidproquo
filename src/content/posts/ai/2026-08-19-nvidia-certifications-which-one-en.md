@@ -109,7 +109,7 @@ Take **NCA-GENM** — also $125, also one hour, also registerable now. It is a *
 **Situation three: you build agent systems and have no deadline.**
 Treat **NCP-AAI** as an audit tool rather than a near-term target: walk its ten domains as a checklist, asking "have I done this in production?" for each. The platform 7% (NeMo Guardrails, NIM, NeMo Agent Toolkit, TensorRT-LLM, Triton) is the only part that cannot transfer in from generic agent experience, so fill that first. **Hold off on buying courses** — the blueprint may shift when registration opens, and material bought too early may cover content that gets cut.
 
-If what you need is an agentic professional credential you can actually sit today, this line cannot supply one; look at [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) instead (still in beta, and it requires holding AI-103 first).
+If what you need is an agentic professional credential you can actually sit today, this line cannot supply one; look at [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) instead (it requires holding AI-103 first).
 
 **Situation four: your job is making models smaller and faster on GPUs.**
 **NCP-GENL** is the only one of the four aimed at that — and it, too, is not yet registerable. It is not "advanced NCA-GENL", which is the most common misreading. NCA-GENL straddles classical ML and LLM applications; NCP-GENL drills down into the model and the hardware. While waiting, the $30 Nsight profiling course is the cheapest way to start.

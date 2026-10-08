@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 22
-tldr: "Across Microsoft's four AI/agent certifications, only AI-103 → AI-500 is an official ladder; everything else is positioning. Three forks decide it: whether you write Python (AI-103/AI-500 vs AB-620), whether you build or judge (AB-100 vs the rest), and whether you can actually start today — AI-500's four official learning paths currently 404, AB-620 has no practice test, AB-100 has a free one. For readers who prefer Chinese there is a fourth fork: AI-103 and AB-620 offer Traditional Chinese, AI-500 and AB-100 are English only. All four cost $165, expire after one year, and renew free but only inside a six-month window."
+tldr: "Across Microsoft's four AI/agent certifications there are two hard prerequisites: AI-500 requires AI-103, and AB-100 requires any one associate on its list. The rest is positioning. Three forks decide it: whether you write Python (AI-103/AI-500 vs AB-620), whether you build or judge (AB-100 vs the rest), and whether you can actually start today — AI-500's four official learning paths currently 404, AB-620 has no practice test, AB-100 has a free one. For readers who prefer Chinese there is a fourth fork: AI-103, AB-620, and AB-100 offer Traditional Chinese, and only AI-500 is English only. All four cost $165 in the US ($83 in Taiwan), expire after one year, and renew free but only inside a six-month window."
 description: "A selection guide for Microsoft's AI-103, AI-500, AB-620, and AB-100 certifications: one reconciled table of official weightings, prerequisites, languages, material readiness, and renewal rules, plus the code-first vs low-code fork, the architect track, and recommended routes for four reader profiles."
 draft: false
 ---
@@ -25,35 +25,41 @@ For the cross-vendor spec table (prices, validity, thresholds), see [Which AI ce
 
 **These four are not all of Microsoft's AI certifications.** The Azure AI development track has three more that fall outside the four forks below, each with its own preparation path: the entry-level [AI-901](/posts/ai/2026-10-08-microsoft-ai-901-prep-guide-en) (over half is Foundry implementation, $50 in Taiwan, never expires), [AI-200](/posts/ai/2026-10-08-microsoft-ai-200-prep-guide-en) on backend services and vector databases (successor to AZ-204), and [AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide-en) on MLOps and GenAIOps (successor to DP-100). The GitHub certifications hosted on Microsoft Learn are [GH-300](/posts/ai/2026-10-08-github-gh-300-prep-guide-en) and [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide-en).
 
-## The only hard rule
+## The two hard rules
 
-Exactly one ladder is written into the official pages:
+Two of the four have an official prerequisite.
 
-> To become a Microsoft Certified: Multi-Agent AI Solutions Expert (beta), you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification.
+**AI-500 requires AI-103.** The [AI-500 certification page](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/) says:
 
-[The AI-500 certification page](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/) also carries a `Prerequisites: 1 certification` field, and PREREQUISITE OPTION 1 is AI-103. **AI-103 is the only door into AI-500 — there is no alternative path.**
+> To become a Microsoft Certified: Multi-Agent AI Solutions Expert, you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification.
 
-The other three relationships are not rules:
+AI-103 is the only way in to AI-500, with no alternative path.
 
-- **AB-620 has no prerequisite at all.** You can sit it directly.
-- **AB-100 has no mandatory prerequisite either.** [The official exam page](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/) lists 15 "current possible associate certs that can be used for this expert certification" (including AI-103 and AB-620), but the wording never says *must*, and the page has no `Prerequisites` field like AI-500's. Those 15 are **usable alongside**, not **required first**.
-- AB-620 → AB-100 as "the low-code ladder" is a reasonable inference from that list, **not an official rule**. Don't schedule around it as if it were.
+**AB-100 requires an associate certification.** The [AB-100 certification page](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/) says:
+
+> In addition to passing the AB-100 required exam, you must also earn at least one of the prerequisite Associate-level certifications listed below.
+
+The list includes AB-620, AI-103, and AI-300, along with several Dynamics 365 and Power Platform associates. AB-100 therefore has more than one entrance: AB-620 → AB-100 on the low-code side and AI-103 → AB-100 on the code-first side both work.
+
+**AB-620 and AI-103 have no prerequisites** and can be taken directly.
+
+The August version of this post said there was only one official ladder. At that time the AB-100 page described its list only as certifications that "can be used", without saying one was required. Microsoft has since replaced that wording with the explicit requirement above. Details are in the [AB-100 guide](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en).
 
 ## The four-exam table (reconciled from all four prep guides)
 
 | | **AI-103** | **AI-500** | **AB-620** | **AB-100** |
 |---|---|---|---|---|
-| Certification | Azure AI Apps and Agents Developer Associate | Multi-Agent AI Solutions Expert (beta) | AI Agent Builder Associate | Agentic AI Business Solutions Architect |
+| Certification | Azure AI Apps and Agents Developer Associate | Multi-Agent AI Solutions Expert | AI Agent Builder Associate | Agentic AI Business Solutions Architect |
 | Level | associate | expert | associate | expert |
 | Role | code-first developer | code-first multi-agent engineer | low-code builder | architect |
 | Territory | Microsoft Foundry, Python | Agent Framework / LangGraph, MCP servers, Azure Functions | Copilot Studio, Power Platform | cross-product selection across Dynamics 365 / Copilot Studio / Foundry |
-| Status | GA | **beta** | GA | GA |
+| Status | GA | No beta label on the pages (no GA announcement found) | GA | GA |
 | Price | $165 | $165 | $165 | $165 |
 | Time | 120 minutes | not published | 120 minutes | not published |
 | Pass | 700 | 700 | 700 | 700 |
 | Validity | 1 year | 1 year | 1 year | 1 year |
-| Languages | 10, **incl. Traditional Chinese** | **English only** | 13, **incl. Traditional Chinese** | **English only** |
-| Prerequisite | none | **must hold AI-103** | none | none (15 listed as usable) |
+| Languages | 10, **incl. Traditional Chinese** | **English only** | 13, **incl. Traditional Chinese** | 13, **incl. Traditional Chinese** |
+| Prerequisite | none | **must hold AI-103** | none | **must hold any one associate on its list** |
 | Practice test | moved to AI Skills Navigator; **whether it is free is not stated** | not yet available | not yet available | **yes, and free** |
 
 Skill weightings, from each exam's official study guide (bold = heaviest block):
@@ -88,18 +94,19 @@ The official instructor-led course [AB-100T00](https://learn.microsoft.com/en-us
 
 ## Fork 3: language
 
-This rarely matters for other vendors, but the gap on Microsoft's track is large:
+This rarely decides anything for other vendors, but Microsoft's line is uneven:
 
 | Traditional Chinese available | English only |
 |---|---|
 | **AI-103** (10 languages) | **AI-500** |
-| **AB-620** (13 languages) | **AB-100** |
+| **AB-620** (13 languages) | |
+| **AB-100** (13 languages) | |
 
-I checked the language field on all four exam pages on 2026-08-19: AI-103 and AB-620 both list Chinese (Traditional); AI-500 and AB-100 list English only.
+Rechecked on 2026-10-08 against the language field of all four exam pages: AI-103, AB-620, and AB-100 list Chinese (Traditional), and only AI-500 lists English alone. When this post was first published in August, AB-100 was English only; the other languages were added later.
 
-**Which produces an awkward fact**: both localized exams are at associate level, and both expert-level exams are English only. Getting to expert means reading exam questions in English — **and for AI-500 it is not just the questions: the only preparation material available today is English official documentation** (see the next section).
+**Where that leaves you**: on the code-first track, reaching expert (AI-500) means reading exam questions in English, and the preparation material is English-only official documentation as well (see the next section). The architect track (AB-100) can be taken in Traditional Chinese throughout.
 
-**Practical advice**: if English reading speed is your bottleneck, take AB-620 or AI-103 first (a localized exam separates "I couldn't parse the question" from "I don't know the technology"), then decide whether to go for expert.
+**Practical advice**: if English reading speed is your bottleneck, earn your first certification with AB-620 or AI-103 (a localized exam separates "I can't parse the question" from "I don't know the technology"), then decide which expert exam to aim for. Keep in mind that Microsoft says localized versions usually follow the English update by about eight weeks.
 
 ## Fork 4: which one you can actually start today
 
@@ -128,11 +135,11 @@ All estimates assume 5–8 hours per week; the derivations live in each exam's o
 
 **1. You build AI apps on Azure** → **AI-103** (six weeks, $165). It is the only one of the four combining Traditional Chinese, complete materials, and direct relevance to daily work. Watch out for the [Foundry renaming](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en): the objectives were rewritten wholesale, and prompt flow, Azure AI Studio, Azure OpenAI Service, and Azure AI Agent Service appear nowhere in them — material built around those names describes the pre-Foundry world.
 
-**2. You already build multi-agent systems and want the expert title** → **AI-103 → AI-500** ($330 total). Spend six weeks on AI-103 first (it is a hard prerequisite anyway); its "Develop AI agents on Azure" path overlaps most with AI-500's second block. For AI-500 itself: four to six weeks to close gaps if you have production experience, otherwise wait for 9/30.
+**2. You already build multi-agent systems and want the expert title** → **AI-103 → AI-500** ($330 total). Spend six weeks on AI-103 first (it is a hard prerequisite anyway); its "Develop AI agents on Azure" path overlaps most with AI-500's second block. For AI-500 itself: four to six weeks to close gaps if you have production experience, otherwise wait for the official learning paths.
 
 **3. You build enterprise agents in Copilot Studio, as a developer, consultant, or ISV partner** → **AB-620** (five weeks, $165). No prerequisite, localized, materials ready — the lowest barrier of the four. It barely overlaps AI-103, so **don't treat AB-620 as an easy stepping stone toward AI-103**; they are not the same track.
 
-**4. You decide whether to adopt, how ROI is calculated, and who governs it** → **AB-100** (four to six weeks with enterprise architecture experience). English only, but with a free practice test. **If you have development experience but no architecture experience, don't go straight at this one**: the outline is almost entirely design/recommend/propose, and joining one cross-functional AI adoption project will do more than studying.
+**4. You decide whether to adopt, how ROI is calculated, and who governs it** → **AB-100** (four to six weeks with enterprise architecture experience). Offered in Traditional Chinese and with a free practice test, but it also requires an associate certification (AB-620, AI-103, AI-300, or another on the list), so it is two exams in practice. **If you have development experience but no architecture experience, don't go straight at this one**: the outline is almost entirely design/recommend/propose, and joining one cross-functional AI adoption project will do more than studying.
 
 **If you want both sides**: finish the side you actually work in (AI-103 or AB-620) first. The other side's value is résumé breadth rather than capability — the implementation skills don't transfer, and preparing for both at once slows both down.
 
@@ -157,9 +164,9 @@ A verification detail: **AB-620's dedicated renewal page still returned 404 when
 
 ## Where the sources disagree (recorded as found)
 
-**1. Earlier posts in this series disagree about "the only one with Traditional Chinese."** [The AI-103 post](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en) says AI-103 is the only exam in this series besides AWS AIF-C01 offering Traditional Chinese; [the AB-620 post](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en) says AB-620 is the only localized one among Microsoft's three agent certifications. Checked page by page on 2026-08-19: **both AI-103 and AB-620 offer Traditional Chinese**; AI-500 and AB-100 do not. The AB-620 sentence holds within its own scope (AB-620/AI-500/AB-100); the AI-103 sentence is scoped too broadly. **Use the table in this post.**
+**1. Earlier posts in this series disagree about "the only one with Traditional Chinese."** [The AI-103 post](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en) says AI-103 is the only exam in this series besides AWS AIF-C01 offering Traditional Chinese; [the AB-620 post](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en) says AB-620 is the only localized one among Microsoft's three agent certifications. Checked page by page on 2026-08-19: **both AI-103 and AB-620 offer Traditional Chinese**; at the time AI-500 and AB-100 did not (AB-100 has since added it, as the language section above notes). The AB-620 sentence holds within its own scope (AB-620/AI-500/AB-100); the AI-103 sentence is scoped too broadly. **Use the table in this post.**
 
-**2. The "Microsoft's three agent certifications" framing drops AI-103.** Both the AB-620 and AB-100 posts use "three agent certifications" to mean AB-620/AI-500/AB-100 — yet AI-103's heaviest block is "Implement generative AI and agentic solutions" (30–35%), and it is the sole entrance to AI-500. **When choosing, look at all four together**, which is why this post uses a four-column table.
+**2. The "Microsoft's three agent certifications" framing drops AI-103.** Both the AB-620 and AB-100 posts use "three agent certifications" to mean AB-620/AI-500/AB-100 — yet AI-103's heaviest block is "Implement generative AI and agentic solutions" (30–35%), and it is the sole entrance to AI-500 and one of the accepted prerequisites for AB-100. **When choosing, look at all four together**, which is why this post uses a four-column table.
 
 **3. Microsoft's own pages contradict each other in two known places.** AI-103's study guide has fully adopted Microsoft Foundry naming in its objectives, but the **"Find documentation" link block on the same page still points at Azure AI services, Azure AI Vision, and Azure OpenAI**. AB-100's [exam page intro paragraph](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/) is boilerplate from a compliance exam ("implement information protection; implement data loss prevention and retention…"), contradicting the "Assessed on this exam" section further down the same page. **In both cases the study guide wins.**
 
@@ -169,14 +176,15 @@ A verification detail: **AB-620's dedicated renewal page still returned 404 when
 
 | Item | State (verified 2026-08-19) | Recheck |
 |---|---|---|
-| AI-500 beta status | still beta; a Microsoft blog says GA expected 2026/10 (forward-looking, not stated on the certification page) | monthly |
+| AI-500 beta status | no beta label on the pages (rechecked 2026-10-08); no official GA announcement found | monthly |
 | AI-500 learning paths | four listed on the exam page, all public URLs 404; certification page says not yet available | monthly |
 | Course AI-500T00 | marked available 9/30/2026 | late September |
 | Course AB-620T00-A | marked available 9/18/2026 | mid-September |
 | AB-620 practice test | not yet available | monthly |
 | Is AI-103's practice test free | moved to AI Skills Navigator, not stated | sign in to confirm |
 | The four weightings | see table above | quarterly / on revision |
-| Languages | AI-103 10, AB-620 13 (both incl. Traditional Chinese); AI-500 and AB-100 English only | every six months |
+| Languages | AI-103 10, AB-620 and AB-100 13 each (all incl. Traditional Chinese); AI-500 English only | every six months |
+| AB-100 prerequisite list | 15 on the exam page, 13 on the certification page | quarterly |
 | AB-620 / AI-500 renewal pages | not yet live | quarterly |
 | AB-100 exam page intro | still the information-protection/DLP boilerplate | quarterly |
 
@@ -213,4 +221,5 @@ A verification detail: **AB-620's dedicated renewal page still returned 404 when
 
 ## Changelog
 
+- 2026-10-08 (recheck): updated to match the official pages today. AB-100 now states that one of the listed associate certifications is required and is offered in 13 languages including Traditional Chinese, so the conclusions "only one official ladder" and "both expert exams are English only" no longer hold; the hard-rule and language sections and the advice for the fourth profile are rewritten. The AI-500 pages no longer carry a beta label. The AB-620 instructor-led course moved to 10/9.
 - 2026-10-08: The opening used to say Microsoft "laid out four AI certifications in 2026", which was inaccurate. Microsoft's official catalog has more than four certifications with AI or agent in the name; this post compares the four on the agent track. The opening is rewritten, links to the AI-901, AI-200, AI-300, and two GitHub preparation paths are added, and the Taiwan price ($83) is noted. The four forks and the recommended routes are unchanged.

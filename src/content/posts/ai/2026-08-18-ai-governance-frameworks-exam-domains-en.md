@@ -33,7 +33,7 @@ So this post is not "memorize three frameworks to pass an exam." **It is the inv
 | (same) | Stakeholder Communication & Lifecycle Management | **14%** | **28% combined, none of it technical** |
 | [Claude CCAO-F](/posts/ai/2026-08-18-claude-certified-associate-prep-guide-en) | Governance, Risk, and Responsible Use | **15%** | User's view: when not to use it at all |
 | [Microsoft AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en) | Deploy (incl. responsible AI, security, governance, risk, compliance) | **40–45%** | Objectives closest to statutory high-risk duties |
-| [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) (beta) | Secure, govern, and deploy | 20–25% | Says "govern"; is almost entirely operational control |
+| [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) | Secure, govern, and deploy | 20–25% | Says "govern"; is almost entirely operational control |
 | [NVIDIA NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide-en) | Safety, Ethics, and Compliance | 5% | Objectives read like NIST's trustworthiness list |
 | (same) | Human-AI Interaction and Oversight | 5% | Transparency mechanisms and human intervention |
 | [AWS AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en) | Guidelines for Responsible AI | 14% | Six dimensions — the fullest such list in the series |

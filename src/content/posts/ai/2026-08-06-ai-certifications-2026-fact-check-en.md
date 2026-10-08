@@ -53,10 +53,10 @@ Confirm which cloud your company actually runs first, then pick the certificatio
 | AWS, want a fast start | AIF-C01 ($100) → MLA-C01 ($150) |
 | AWS, building GenAI applications | Straight to AIP-C01 ($300); expects 2 years AWS + 1 year GenAI |
 | Google Cloud | PMLE ($200), and **only use material published after mid-2026** |
-| Azure / Microsoft ecosystem | AI-103 (associate); add AI-500 (expert, beta) for agent work |
+| Azure / Microsoft ecosystem | AI-103 (associate); add AI-500 (expert) for agent work |
 | Data platform + LLM | Databricks GenAI Engineer Associate ($200) |
 | GPU / model layer | NVIDIA NCA-GENL ($125) |
-| Proving agent-system skills | NVIDIA NCP-AAI ($200, professional) or Microsoft AI-500 (expert, beta) |
+| Proving agent-system skills | NVIDIA NCP-AAI ($200, professional) or Microsoft AI-500 (expert) |
 | Snowflake / Oracle / Salesforce shops | See "Other Ecosystems" — each vendor now has its own GenAI or agent exam |
 | Daily Copilot user | GitHub GH-300, the lowest-barrier proctored exam of the group |
 | AI governance, audit, security compliance | IAPP AIGP or ISACA AAISM / AAIA — see "Governance, Audit, Security" |
@@ -117,7 +117,7 @@ PMLE's preparation path is in [the Google PMLE prep guide](/posts/ai/2026-08-18-
 
 ### Every Product Name in the Exam Guide Was Renamed
 
-This is the one thing to know before registering for PMLE. Most articles describe it as covering "Vertex AI" — but **that term has all but vanished from the current exam guide**. Comparing the full [official exam guide](https://cloud.google.com/learn/certification/guides/machine-learning-engineer):
+This is the one thing to know before registering for PMLE. Most articles describe it as covering "Vertex AI" — but **that term has all but vanished from the current exam guide**. Comparing the full [official exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf):
 
 | Old name (still used in most material) | Current exam guide term |
 |---|---|
@@ -167,11 +167,13 @@ Microsoft's agent track is more complete than anyone else's. Beyond the already-
 
 **AI-500 has a hard prerequisite that most roundups omit.** The "Certification prerequisites" section of the [official page](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/) states:
 
-> To become a Microsoft Certified: Multi-Agent AI Solutions Expert (beta), you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification.
+> To become a Microsoft Certified: Multi-Agent AI Solutions Expert, you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification.
 
-You must hold **AI-103 first**; the page's field reads `Prerequisites: 1 certification`. Going straight to AI-500 is not possible, so the real cost is $165 (AI-103) plus $165 (AI-500). It is also **still in beta and English-only**, and the page still says "Learning paths or modules are not yet available for this certification."
+You must hold **AI-103 first**; the page's field reads `Prerequisites: 1 certification`. Going straight to AI-500 is not possible, so the real cost is $165 (AI-103) plus $165 (AI-500). Microsoft removed the beta label from the official pages at the end of September 2026. The exam is **English-only**, and the page still says "Learning paths or modules are not yet available for this certification."
 
-**AI-500 deserves separate attention.** Among the three major clouds, only Microsoft offers an expert-level certification dedicated to multi-agent system architecture, so it differentiates you a tier above the associate-level AI-103. The tradeoff is slow score reporting during beta and questions that may shift before general release. It is not the only advanced agent credential on the market, though — NVIDIA's NCP-AAI and Oracle's Agentic AI track aim at the same thing; the difference is whose platform you get locked to.
+**AI-500 deserves separate attention.** Among the three major clouds, only Microsoft offers an expert-level certification dedicated to multi-agent system architecture, so it differentiates you a tier above the associate-level AI-103. It is not the only advanced agent credential on the market, though. NVIDIA's NCP-AAI, Oracle's Agentic AI track, and Google's new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) (GA registration opens November 2, 2026) aim at the same thing; the difference is whose platform you get locked to.
+
+**AB-100 has a prerequisite too.** Microsoft now states that besides passing AB-100 you must hold one of the associate certifications on its list (AB-620, AI-103, and AI-300 are among them). Details are in the [AB-100 preparation path](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en).
 
 Microsoft also has one advantage nobody else offers: renewal runs through a **free online renewal assessment**, rather than retaking the full exam as AWS and Google require. The [GitHub Copilot certification (GH-300)](https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/), which sits under the Microsoft umbrella, does not have that advantage yet: 100 minutes, **2-year validity**, proctored by Pearson VUE, covering responsible Copilot use, prompt crafting, agent mode and MCP, content exclusions, and audit logs. GitHub says its certifications are moving to Microsoft's recertification process, which is not live yet. Price depends on the country where the exam is proctored; the country selector on the certification page shows **$99** for the United States and **$50** for Taiwan. Preparation paths: [GH-300](/posts/ai/2026-10-08-github-gh-300-prep-guide-en) and [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide-en).
 
@@ -325,6 +327,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 ## Changelog
 
+- 2026-10-08 (recheck): the AI-500 pages no longer carry a beta label and the wording is updated; added that AB-100 now requires an associate certification; added Google Professional Agentic Architect; the old URL for the Google PMLE exam guide is dead and now points to the official PDF.
 - 2026-10-08: Corrected two errors in the GH-300 paragraph. It said the official page "publishes no figure"; the price loads dynamically by country and is $99 in the US and $50 in Taiwan. It said Microsoft's free renewal assessment "extends to" GH-300; GitHub certifications are valid for 2 years and the renewal process is still in transition. Also added links to five new posts in the series (AI-901, AI-200, AI-300, GH-300, GH-600).
 - 2026-08-19: Added links to the 24-post AI Certification Prep series. Fifty files linked to this article; it linked back to one. The "which one" table now leads into the series and the four per-vendor choosers, and each vendor section ends with its preparation paths. No content or conclusions changed.
 - 2026-08-18: Substantially expanded coverage. NVIDIA goes from a single exam to the full twelve-exam catalog (including Agentic AI NCP-AAI and multimodal NCA-GENM), correcting the earlier claim that only Microsoft offers an expert-level agent credential; added "Other Ecosystems" (Snowflake GES-C02, Oracle's new Agentic AI track, IBM watsonx C1000-185, Salesforce Agentforce Specialist AI-201) and GitHub Copilot GH-300; added "Governance, Audit, Security" (IAPP AIGP, ISACA AAISM / AAIA, CertNexus CAIP); added iPAS beginner-level specs plus the intermediate certificate split, subject-score carry-over, and exemption rules, along with TQC and TQC+; added AI-500's hard prerequisite (AI-103 must be earned first, quoted from the official Certification prerequisites section) along with its beta and English-only status; added the MLA-C01 update notice (English retires 2026-09-28, C02 registration opens September 1 with no published guide) and the exam-language details (AIF-C01 is the only one offered in Traditional Chinese); corrected the AWS renewal section — the article said renewal meant retaking with no continuing-education option, whereas the official recertification page lists both renew and maintain paths (maintain limited to SAA, Developer, CloudOps, SAP, DOP), cross-certification renewal across the AI trio, and a 50% voucher on every renewal; added a "commonly mis-listed" section covering Google Cloud GenAI Engineer (does not exist), OpenAI (free, globally available course certificates that are explicitly not certifications, with the formal credential still in employer pilots), and CNCF Kubernetes AI Conformance (awarded to platforms, not people), kept as three distinct errors rather than one shared reason. Per the "professional AI/ML certifications only" scope, free course-completion certificates from OpenAI Academy and Claude Academy are not listed as credentials; a single note with official sources remains in the mis-listed section. A significant error in the Claude section was corrected: the article claimed Anthropic published no prices or validity, when in fact each exam guide PDF states the fee ($99 / $125 / $125 / $175), item count, 12-month validity, and domain weights; retake rules were added, and the "what a vendor doesn't publish isn't known" takeaway was rewritten as "not finding it is not the same as it not existing." Retired exams were dropped from the article so that everything listed is currently registrable. Three existing facts were re-verified: the Google certification index (2 foundational, 3 associate, 9 professional) confirms Generative AI Leader and PMLE are still the only AI credentials, so that conclusion stands; the `generative-ai-engineer` evidence was corrected — that URL is a soft 404 (404 page body, HTTP status 200), so the original "returns HTTP 404" was inaccurate; and two Google renewal changes were added, namely the 50% renewal code issued at first certification and the continuing-education path currently limited to CDL, ACE, PCA, and PDE, leaving PMLE exam-only.
@@ -340,7 +343,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 
 **Google Cloud**
 
-- [Professional ML Engineer official exam guide](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
+- [Professional ML Engineer official exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)
 - [Professional ML Engineer certification page](https://cloud.google.com/learn/certification/machine-learning-engineer)
 - [Generative AI Leader certification page](https://cloud.google.com/learn/certification/generative-ai-leader)
 - [Google Cloud certification index (includes Get Certified program)](https://cloud.google.com/learn/certification)
@@ -352,7 +355,7 @@ Relatedly, the common claim that "PMLE is the most-mentioned AI certification in
 **Microsoft**
 
 - [Azure AI Apps and Agents Developer Associate (AI-103)](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/)
-- [Multi-Agent AI Solutions Expert (AI-500, beta)](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)
+- [Multi-Agent AI Solutions Expert (AI-500)](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)
 - [Agentic AI Business Solutions Architect (AB-100)](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/)
 
 **NVIDIA / Databricks / Anthropic**

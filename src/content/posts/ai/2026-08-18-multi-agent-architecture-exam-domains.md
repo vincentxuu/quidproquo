@@ -25,7 +25,7 @@ draft: false
 
 | 證照 | 多 agent 相關 domain | 權重 | 這張的角度 |
 |---|---|---|---|
-| [微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)（beta） | Architect multi-agent solutions | 15–20% | code-first，Agent Framework / LangGraph |
+| [微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide) | Architect multi-agent solutions | 15–20% | code-first，Agent Framework / LangGraph |
 | 同上 | Develop multi-agent solutions in Azure | **30–35%** | 編排模式與 MCP server 實作全在這塊 |
 | [NVIDIA NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide) | Agent Architecture and Design | 15% | 十個領域裡只有 7% 綁 NVIDIA 產品 |
 | 同上 | Cognition, Planning, and Memory | 10% | 推理框架與有狀態編排 |
@@ -33,7 +33,7 @@ draft: false
 | [微軟 AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide) | Design AI-powered business solutions | 25–30% | 架構師視角，選型邊界與 ROI |
 | [Claude CCAR-F](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide) | Agentic Architecture & Orchestration | **27%**（單一 domain 最高） | 綁 Claude Agent SDK，考到 API 層細節 |
 
-**先修掉一個常見誤解**：Google PMLE 的考綱從頭到尾都是「Agent Platform」，很容易被當成多 agent 考試。**它不是。** 那些字是 Vertex AI 在 2026 年改名為 Gemini Enterprise Agent Platform 造成的產品名替換——Agent Platform Feature Store、Agent Platform Pipelines、Agent Platform Inference，指的是原本的 Feature Store、Pipelines 與 Prediction。PMLE 的骨架仍是傳統 ML 工程（特徵工程、分散式訓練、training-serving skew），[官方考試指南](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)裡沒有一條在考 agent 之間怎麼協調。想用 PMLE 證明多 agent 能力，方向是錯的。
+**先修掉一個常見誤解**：Google PMLE 的考綱從頭到尾都是「Agent Platform」，很容易被當成多 agent 考試。**它不是。** 那些字是 Vertex AI 在 2026 年改名為 Gemini Enterprise Agent Platform 造成的產品名替換——Agent Platform Feature Store、Agent Platform Pipelines、Agent Platform Inference，指的是原本的 Feature Store、Pipelines 與 Prediction。PMLE 的骨架仍是傳統 ML 工程（特徵工程、分散式訓練、training-serving skew），[官方考試指南](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)裡沒有一條在考 agent 之間怎麼協調。想用 PMLE 證明多 agent 能力，方向是錯的。
 
 **另一個門檻要先講**：Claude 四張只開放 Claude Partner Network 的組織報名，個人報不了名。下面引用 CCAR-F 是因為**它的 Domain 1 是這五份材料裡把編排講得最具體的一份**（具體到 `stop_reason` 與 `allowedTools`），對理解其他四張有幫助，不是建議你去考。
 
@@ -221,7 +221,7 @@ AI-500 的 guardrail 框架是這五份裡最結構化的：「**多重介入的
 - [AB-100 官方 study guide（三塊權重與 change log）](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100)
 - [NCP-AAI 官方認證頁（十個領域與權重表）](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/)
 - [Claude Certified Architect – Foundations 官方認證頁（含 exam guide 下載）](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification)
-- [Google Professional ML Engineer 官方考試指南（用來確認它不考多 agent 協調）](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
+- [Google Professional ML Engineer 官方考試指南（用來確認它不考多 agent 協調）](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)
 - [Model Context Protocol 官方文件](https://modelcontextprotocol.io/)
 - [Agent2Agent（A2A）協定官方文件](https://a2a-protocol.org/latest/)
 - [用 Agent Framework 建多 agent 工作流自動化方案（微軟架構文）](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation)

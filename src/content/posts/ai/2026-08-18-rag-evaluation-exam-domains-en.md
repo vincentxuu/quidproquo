@@ -61,7 +61,7 @@ Its only contact point with this topic is **Prompt and Context Engineering at 11
 
 **This conclusion extends only as far as the blueprint**: the absence of retrieval objectives doesn't mean the word RAG never appears as scenario background in a question. But **you can't earn points on this exam by preparing RAG**, because the weight table gives it no place.
 
-**By the same standard, neither is PMLE.** Across the six chapters of considerations in the [official exam guide](https://cloud.google.com/learn/certification/guides/machine-learning-engineer), the single relevant line is chapter 2's "**evaluate GenAI solutions using LLM-as-a-judge**". No chunking, no vector store, no retrieval objective. It does have Agent Platform Feature Store, but that stores and serves ML features — a different thing from vector retrieval, and the pair most often confused during prep.
+**By the same standard, neither is PMLE.** Across the six chapters of considerations in the [official exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf), the single relevant line is chapter 2's "**evaluate GenAI solutions using LLM-as-a-judge**". No chunking, no vector store, no retrieval objective. It does have Agent Platform Feature Store, but that stores and serves ML features — a different thing from vector retrieval, and the pair most often confused during prep.
 
 **So the four exams here are**: AIF-C01, AIP-C01, NCP-AAI, and AI-500. PMLE appears in section 5 on the strength of one objective; NCA-GENL serves as corroboration.
 
@@ -319,7 +319,7 @@ For RAG methodology on this site, [the complete RAG patterns guide](/posts/ai/20
 - [NCA-GENL official certification page (spec and blueprint)](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/)
 - [NVIDIA DLI — Evaluating RAG and Semantic Search Systems](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-FX-32+V1)
 - [Microsoft AI-500 official study guide (source of the "multi-agent RAG architecture" objective)](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-500)
-- [Google Professional ML Engineer exam guide (used to confirm it has only one LLM-as-a-judge objective)](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
+- [Google Professional ML Engineer exam guide (used to confirm it has only one LLM-as-a-judge objective)](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)
 - [Claude Certified Developer – Foundations certification page (exam guide download; used to confirm it tests no retrieval)](https://anthropic-partners.skilljar.com/claude-certified-developer-foundations-certification)
 - [AWS Skill Builder — AIF-C01 Exam Prep](https://skillbuilder.aws/category/exam-prep/ai-practitioner-AIF-C01)
 - [AWS Skill Builder — AIP-C01 Exam Prep](https://skillbuilder.aws/category/exam-prep/generative-ai-developer-professional-AIP-C01)

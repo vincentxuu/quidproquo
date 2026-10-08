@@ -31,7 +31,7 @@ There is one key difference from the [multi-agent architecture post](/posts/ai/2
 | [AWS AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en) | Operational Efficiency and Optimization | 12% | Application layer: token cost, caching, latency, observability |
 | (same) | FM Integration (1.2 resilience) | part of 31% | Availability: cross-region inference, circuit breakers, graceful degradation |
 | (same) | Implementation and Integration (2.2, 2.4) | part of 26% | Provisioned throughput, model cascading, model routing |
-| [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) (beta) | Evaluate, optimize, and monitor | 20–25% | Platform availability and SLAs, token caps, chargeback |
+| [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) | Evaluate, optimize, and monitor | 20–25% | Platform availability and SLAs, token caps, chargeback |
 | [Microsoft AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en) | Plan and manage an Azure AI solution | 25–30% | Quotas, scaling, rate limits, cost management |
 | [Google PMLE](/posts/ai/2026-08-18-google-pmle-prep-guide-en) | Ch. 3 Scaling prototypes | ~21% | Selection and training: CPU/GPU/TPU, data vs model parallelism |
 | (same) | Ch. 4 Serving and scaling | ~20% | Serving: scaling the serving backend by throughput |
@@ -267,7 +267,7 @@ Availability is where the six diverge most, because it is simultaneously an arch
 
 ## References
 
-- [Google Professional ML Engineer official exam guide (six chapters, weights, full considerations)](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
+- [Google Professional ML Engineer official exam guide (six chapters, weights, full considerations)](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)
 - [Google Professional ML Engineer certification page](https://cloud.google.com/learn/certification/machine-learning-engineer)
 - [AWS AIF-C01 official exam guide (five chapters, weights, full task statements)](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html)
 - [AIF-C01 exam guide revision history (v1.0 → v1.1, including the token pricing objective)](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/aif-01-revisions.html)

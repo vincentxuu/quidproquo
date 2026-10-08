@@ -8,14 +8,14 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 13
-tldr: "AB-100 是微軟 agent 線的架構師版，三塊權重 25-30 / 25-30 / 40-45，重心在部署與治理。它的 outline 幾乎全是 design、recommend、propose 這類動詞——考的是情境判斷而不是實作。三個要先知道的：官方考試頁的簡介段落是錯的（寫成資訊保護與 DLP 的樣板文，我逐字驗過），準備要以 study guide 為準；它有免費練習測驗，是微軟三張 agent 證照裡唯一有的；官方列了 15 張可用的 associate 證照但沒有一張是必要條件。官方規格：$165、僅英文、及格 700、效期一年。"
+tldr: "AB-100 是微軟 agent 線的架構師版，三塊權重 25-30 / 25-30 / 40-45，重心在部署與治理。它的 outline 幾乎全是 design、recommend、propose 這類動詞——考的是情境判斷而不是實作。三個要先知道的：官方考試頁的簡介段落是錯的（寫成資訊保護與 DLP 的樣板文，我逐字驗過），準備要以 study guide 為準；它有免費練習測驗，是微軟三張 agent 證照裡唯一有的；而且它有先修：除了考過 AB-100，還必須持有官方清單裡的任一張 associate 認證（AI-103、AB-620、AI-300 都在清單上）。官方規格：美國 $165、13 種語言含繁體中文、及格 700、效期一年。"
 description: "微軟 AB-100（Agentic AI Business Solutions Architect）備考指南，依官方 study guide 的三塊權重拆解規劃、設計與部署治理，說明官方頁面簡介錯置的問題、免費練習測驗、15 張 associate 證照清單的實際效力，以及與 AI-500、AB-620 的分工。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en)
 >
-> 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100)，不含考古題。查證日期：2026-08-18，對照的是「Skills measured as of **July 22, 2026**」那一版。
+> 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100)，不含考古題。查證日期：2026-08-18，對照的是「Skills measured as of **July 22, 2026**」那一版。2026-10-08 複查：study guide 已換成「Skills measured as of **October 14, 2026**」，變更紀錄標三條小改、其餘不變，三塊權重相同；先修與語言有實質變動，已更新在下文。
 
 AB-100 是微軟三張 agent 認證裡的架構師版 —— [AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide) 建東西、[AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide) 寫程式、**AB-100 決定要不要做、怎麼算 ROI、怎麼治理**。
 
@@ -42,24 +42,26 @@ AB-100 是微軟三張 agent 認證裡的架構師版 —— [AB-620](/posts/ai/
 | 時間 | **官方未公布** |
 | 題數 | **官方未公布** |
 | 及格 | **700** |
-| 語言 | **僅英文** |
+| 語言 | **13 種，含繁體中文** |
 | 效期 | 1 年（免費線上續期評量，**專屬續期頁已上線**） |
-| 先修 | **無強制先修**（詳見下） |
+| 先修 | **必須另外持有一張指定的 associate 認證**（詳見下） |
 | 練習測驗 | **有，而且免費** |
 
 **免費練習測驗是它比另外兩張強的地方** —— AI-500 與 AB-620 目前都還沒有。這張的 study guide 也是三張裡唯一有「Skills measured as of」日期與 change log 的。
 
-## 那 15 張 associate 證照是什麼意思
+## 先修：必須另外持有一張 associate 認證
 
-官方考試頁列出一份清單，開頭寫：
+官方的[考試頁](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/)與[認證頁](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/)現在都寫：
 
-> Here is a list of the current possible associate certs that can be used for this expert certification:
+> In addition to passing the AB-100 required exam, you must also earn at least one of the prerequisite Associate-level certifications listed below.
 
-清單含 MB-280、PL-200、MB-330、PL-400、MB-230、MB-310、MB-500、MB-800、MB-820、AI-300、**AI-103**、**AB-620**、AB-210、AB-410、AB-250 —— 十五張，橫跨 Dynamics 365、Power Platform 與 AI 線。
+也就是說，考過 AB-100 還不夠，必須同時持有清單裡的任一張 associate 認證，才拿得到這張 expert。
 
-**但官方文字沒有說「必須」持有其中之一。** 對照 [AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide) —— 那張有明確的 `Prerequisites: 1 certification` 欄位與獨立的 Certification prerequisites 段落 —— AB-100 兩者皆無。
+清單橫跨 Dynamics 365、Power Platform 與 AI 線。考試頁列了 15 張：MB-280、PL-200、MB-330、PL-400、MB-230、MB-310、MB-500、MB-800、MB-820、AI-300、**AI-103**、**AB-620**、AB-210、AB-410、AB-250。認證頁的清單少了 MB-280 與 PL-200，只有 13 張；兩頁不一致，報名前以認證頁為準比較保險。
 
-**所以正確的理解是**：這 15 張是「可以搭配」而不是「必須先有」。要百分之百確認，得問 Microsoft Credentials 支援；本文照官方文字報告，不替它補上沒寫的規定。
+對本系列的讀者來說，最順的三張入口是 [AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide)（低程式碼）、[AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)（code-first）與 [AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide)（MLOps）。實際成本因此是兩張考試的費用與時間。
+
+**這一節在 2026-10-08 改寫過。** 本文 8 月初版依當時的官方文字（「current possible associate certs that can be used for this expert certification」）判斷這份清單是可以搭配、不是必須；官方之後把文字改成上面那句明確的要求。
 
 ## 三塊權重
 
@@ -123,11 +125,11 @@ AB-100 是微軟三張 agent 認證裡的架構師版 —— [AB-620](/posts/ai/
 |---|---|---|---|
 | 角色 | 低程式碼建造者 | code-first 工程師 | **架構師** |
 | 最重的塊 | 整合 40–45% | 開發 30–35% | **部署與治理 40–45%** |
-| 先修 | 無 | **必須有 AI-103** | 無（列了 15 張可搭配） |
-| 語言 | 13 種含繁中 | 僅英文 | 僅英文 |
+| 先修 | 無 | **必須有 AI-103** | **必須有清單中任一張 associate** |
+| 語言 | 13 種含繁中 | 僅英文 | 13 種含繁中 |
 | 練習測驗 | 尚未提供 | 尚未提供 | **有，免費** |
 
-**唯一的官方階梯仍是 AI-103 → AI-500。** AB-620 與 AB-100 各自獨立，只是 AB-620 出現在 AB-100 的可搭配清單裡。
+**官方階梯現在有兩條。** AI-103 → AI-500 是指定單一先修；AB-100 則要求清單中任一張 associate，AB-620、AI-103、AI-300 都符合。所以低程式碼這一側的 AB-620 → AB-100 現在是官方認可的路徑之一。
 
 ## 一個跨頁面的命名不一致
 
@@ -141,13 +143,14 @@ AB-100 是微軟三張 agent 認證裡的架構師版 —— [AB-620](/posts/ai/
 |---|---|---|
 | 頁面簡介錯置 | 仍寫著資訊保護／DLP 的樣板文 | 每季（修好就更新本文） |
 | 三塊權重 | 25-30 / 25-30 / 40-45 | 每季 |
-| 技能目標版本 | Skills measured as of 2026-07-22，有 change log | 每季 |
+| 技能目標版本 | Skills measured as of 2026-10-14，有 change log（三條小改） | 每季 |
+| 先修清單 | 考試頁列 15 張、認證頁列 13 張（少 MB-280 與 PL-200） | 每季 |
 | 題數與時長 | **官方未公布** | 每半年 |
-| 命名 | 此頁用 Azure AI Foundry，AI-103 用 Microsoft Foundry | 微軟統一時 |
+| 命名 | 考試頁仍用 Azure AI Foundry；認證頁與 study guide 已改用 Microsoft Foundry | 微軟統一時 |
 
 ## 更新紀錄
 
-- 2026-10-08：費用欄補上台灣考場的價格（$83 USD）。原本只寫美國價 $165；微軟依考場所在國家定價，認證頁的國家選單可切換。其餘內容未變動。
+- 2026-10-08：依官方頁面現況更新三件事。一、先修：原文依當時的官方文字判斷「15 張 associate 是可以搭配、不是必須」；官方現在明寫必須另外持有其中一張，整節改寫。二、語言：原為僅英文，現為 13 種含繁體中文。三、技能目標版本由 2026-07-22 換成 2026-10-14（三條小改，權重不變）。另補台灣考場價。
 
 ## 參考資料
 

@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 7
-tldr: "AI-500 是主流雲端業者裡少見的多 agent 系統專家級認證，四塊權重 15-20 / 30-35 / 20-25 / 20-25，官方點名 Agent Framework、LangGraph、Hugging Face Transformers、MCP server 架在 Azure Functions / Logic Apps / API Management、A2A、Key Vault、AI Red Teaming Agent。但它現在有三個限制要先知道：仍是 beta（成績要等重新計分）、必須先取得 AI-103 才能考、而且官方學習路徑尚未上線——考試頁列的四條路徑網址目前全部 404，講師課要等 2026/9/30。"
-description: "微軟 AI-500（Multi-Agent AI Solutions Expert，beta）備考指南，依官方 study guide 的四塊權重逐條拆解多 agent 架構、開發、評估監控與資安治理部署，說明 AI-103 先修條件、beta 的成績與重考規則，以及官方教材尚未上線時的替代準備路徑。"
+tldr: "AI-500 是主流雲端業者裡少見的多 agent 系統專家級認證，四塊權重 15-20 / 30-35 / 20-25 / 20-25，官方點名 Agent Framework、LangGraph、Hugging Face Transformers、MCP server 架在 Azure Functions / Logic Apps / API Management、A2A、Key Vault、AI Red Teaming Agent。有兩個限制要先知道：必須先取得 AI-103 才能考、而且官方學習路徑尚未上線——考試頁列的四條路徑網址目前全部 404。官方頁面已在 2026 年 9 月底拿掉 beta 標示。"
+description: "微軟 AI-500（Multi-Agent AI Solutions Expert）備考指南，依官方 study guide 的四塊權重逐條拆解多 agent 架構、開發、評估監控與資安治理部署，說明 AI-103 先修條件、beta 期間的規則與目前狀態，以及官方教材尚未上線時的替代準備路徑。"
 draft: false
 ---
 
@@ -27,13 +27,13 @@ AI-500 是三大雲端業者裡**唯一專攻多 agent 系統的專家級認證*
 
 **一、必須先有 AI-103。** [官方認證頁](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)的 Certification prerequisites 寫：
 
-> To become a Microsoft Certified: Multi-Agent AI Solutions Expert (beta), you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification.
+> To become a Microsoft Certified: Multi-Agent AI Solutions Expert, you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification.
 
 頁面欄位另標 `Prerequisites: 1 certification`。所以實際路徑是 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)（$165）→ AI-500（$165），總成本 $330，時間上要先花六週左右拿下 AI-103。
 
-**二、還在 beta，成績要等。** 認證與考試頁都掛著「Beta exams are not scored immediately because we're gathering data on the quality of the questions and the exam」。實務影響是：考完不會當場知道結果，要等考試正式上線後重新計分。
+**二、beta 標示已經拿掉，但官方沒有發文宣布正式上線。** 本文 8 月初版時，認證與考試頁都掛著 beta 的說明（成績不會當場出、要等正式上線後重新計分）。2026-10-08 複查：兩頁的標題已不再有「(beta)」，那段說明也不在了，頁面更新日期是 9 月 29 日。我沒有找到微軟明說「已正式上線」的公告，所以這裡只能說頁面狀態變了；報名前以考試頁當下顯示的內容為準。
 
-**三、官方教材尚未上線。** 這點最容易誤判。考試頁的「Two ways to prepare」區塊在原始碼裡列了四條學習路徑的識別碼，但**四條的公開網址目前全部回 404**（我逐一測過）；認證頁自己也寫著「Learning paths or modules are not yet available for this certification」。講師課 [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00) 頁面則寫「**This course will be available on 9/30/2026**」。
+**三、官方教材尚未上線。** 這點最容易誤判。考試頁的「Two ways to prepare」區塊在原始碼裡列了四條學習路徑的識別碼，但**四條的公開網址目前全部回 404**（我逐一測過）；認證頁自己也寫著「Learning paths or modules are not yet available for this certification」。講師課 [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00)（四天）的頁面原本標示 9 月 30 日開放，現在那則預告已經拿掉。
 
 換句話說：**考綱有了，官方教材還沒有。** 這決定了你的準備方式，下面「沒有教材怎麼準備」那節會處理。
 
@@ -41,8 +41,8 @@ AI-500 是三大雲端業者裡**唯一專攻多 agent 系統的專家級認證*
 
 | 項目 | 內容 |
 |---|---|
-| 考試代碼 | AI-500（Designing and Implementing Multi-Agent AI Solutions，beta） |
-| 認證名稱 | Multi-Agent AI Solutions Expert（beta） |
+| 考試代碼 | AI-500（Designing and Implementing Multi-Agent AI Solutions） |
+| 認證名稱 | Multi-Agent AI Solutions Expert |
 | 費用 | 美國 **$165 USD**、台灣 **$83 USD**（依國家或地區定價） |
 | 時間 | **官方未公布**；通用政策是 expert 級無 lab 100 分鐘、含 lab 120 分鐘 |
 | 題數 | **官方未公布**；通用說明「typically contain between 40-60 questions」 |
@@ -107,7 +107,7 @@ AI-500 是三大雲端業者裡**唯一專攻多 agent 系統的專家級認證*
 
 ## 沒有官方教材，怎麼準備
 
-這是這張考試現在最實際的問題。四條學習路徑還沒上線、講師課要等 9/30、練習測驗沒有 —— 可用的官方材料只剩三樣：
+這是這張考試現在最實際的問題。四條學習路徑還沒上線、練習測驗沒有 —— 可用的官方材料只剩三樣：
 
 1. **study guide 本身**（22 條子目標，就是上面那四節）—— 把每條當成檢核表，逐條問自己「我做過嗎」
 2. **Microsoft Foundry 官方文件** —— study guide 的 Study resources 直接指向 [Foundry 文件](https://learn.microsoft.com/en-us/azure/foundry/)與[用 Agent Framework 建多 agent 工作流自動化方案](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation)這篇架構文
@@ -121,6 +121,8 @@ AI-500 是三大雲端業者裡**唯一專攻多 agent 系統的專家級認證*
 
 ## beta 的規則
 
+以下是 beta 期間適用的規則，保留給當時考過 beta 的讀者對照。官方頁面拿掉 beta 標示之後，新報名的人適用一般的重考政策。
+
 - **beta 期間只能考一次**，沒過要等考試正式上線才能重考
 - 成績要等：官方寫重新計分在考試上線後開始，最終結果約再 10 天
 - **通過 beta 就算數**，不需要在正式版重考
@@ -131,23 +133,24 @@ AI-500 是三大雲端業者裡**唯一專攻多 agent 系統的專家級認證*
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|
-| beta 狀態 | 仍是 beta，GA 預計 2026/10 | 每月 |
+| beta 狀態 | 頁面已無 beta 標示（2026-10-08 複查）；未見官方正式上線公告 | 每月 |
 | 四塊權重 | 15-20 / 30-35 / 20-25 / 20-25 | GA 之後 |
 | 學習路徑 | 考試頁列了四條，**公開網址全部 404** | 每月 |
-| 講師課 AI-500T00 | 標示 2026/9/30 開課 | 9 月底 |
+| 講師課 AI-500T00 | 開課預告已拿掉，頁面標示四天 | 每季 |
 | 練習測驗 | 尚未提供 | GA 後 8 週內 |
 | 語言 | 僅英文 | GA 之後 |
 
 ## 更新紀錄
 
+- 2026-10-08（複查）：官方認證頁與考試頁已拿掉 beta 標示與 beta 計分說明，講師課的開課預告也拿掉了；四條學習路徑仍然 404，練習測驗仍未提供。相關段落、規格表與 tldr 已更新。未找到微軟宣布正式上線的公告，文中照實說明。
 - 2026-10-08：費用欄補上台灣考場的價格（$83 USD）。原本只寫美國價 $165；微軟依考場所在國家定價，認證頁的國家選單可切換。其餘內容未變動。
 
 ## 參考資料
 
-- [Multi-Agent AI Solutions Expert（beta）認證頁](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)
+- [Multi-Agent AI Solutions Expert 認證頁](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)
 - [Exam AI-500 頁面](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-500/)
 - [AI-500 官方 study guide（四塊權重與 22 條目標）](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-500)
-- [課程 AI-500T00（標示 2026/9/30 開課）](https://learn.microsoft.com/en-us/training/courses/ai-500t00)
+- [課程 AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00)
 - [Microsoft Foundry 官方文件](https://learn.microsoft.com/en-us/azure/foundry/)
 - [用 Agent Framework 建多 agent 工作流自動化方案](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation)
 - [微軟 beta 考試說明](https://learn.microsoft.com/en-us/credentials/support/about-beta-exams)

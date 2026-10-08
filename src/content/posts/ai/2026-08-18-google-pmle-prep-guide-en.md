@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-google-pmle-prep-guide)
 >
-> This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official exam guide](https://cloud.google.com/learn/certification/guides/machine-learning-engineer), and every "how to prepare" points to an official learning path or Google Cloud documentation. No leaked questions. Verified 2026-08-18.
+> This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf), and every "how to prepare" points to an official learning path or Google Cloud documentation. No leaked questions. Verified 2026-08-18.
 
 Among Google's AI certifications, only one is open for registration today and proves anything to an engineer: Professional Machine Learning Engineer (PMLE). The new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) covers building, orchestrating, and governing agents; its beta registration is closed and general availability registration opens November 2, 2026. Another, Generative AI Leader, is described by Google itself as being "for anyone in any job role, with or without hands-on technical experience" — too low a bar to differentiate anyone who writes code.
 
@@ -183,11 +183,12 @@ Given how often Google renames things, expect another vocabulary shift in two ye
 
 ## Changelog
 
+- 2026-10-08: The old URL for the official exam guide is dead (404). All links now point to the official PDF that the certification page's "View exam guide" leads to; the six domain weights are unchanged.
 - 2026-10-08: The opening used to say Google "has exactly two AI certifications". Google has since added Professional Agentic Architect (GA registration opens 2026-11-02); the sentence is rewritten with a link. PMLE's exam guide and preparation advice are unchanged.
 
 ## References
 
-- [Professional ML Engineer official exam guide (all six sections and considerations)](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
+- [Professional ML Engineer official exam guide (all six sections and considerations)](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)
 - [Professional ML Engineer certification page (fee, format, recommended experience)](https://cloud.google.com/learn/certification/machine-learning-engineer)
 - [Official sample questions](https://docs.google.com/forms/d/e/1FAIpQLSeYmkCANE81qSBqLW0g2X7RoskBX9yGYQu-m1TtsjMvHabGqg/viewform)
 - [Machine Learning Engineer learning path (Google Skills)](https://www.cloudskillsboost.google/paths/17)

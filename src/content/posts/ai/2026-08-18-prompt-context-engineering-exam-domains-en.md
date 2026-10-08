@@ -34,7 +34,7 @@ What matters more is **what sits inside that 11–20%**. Read the official objec
 | [Claude CCAO-F](/posts/ai/2026-08-18-claude-certified-associate-prep-guide-en) | Prompting and Task Execution | **14%** |
 | (same) | Output Evaluation and Validation (includes "iterate on prompts to improve quality") | 21% |
 | [Claude CCDV-F](/posts/ai/2026-08-18-claude-certified-developer-prep-guide-en) | Prompt and Context Engineering | **11.0%** |
-| [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) (beta) | "Advanced prompt engineering" and "memory, context management, knowledge integration" inside Develop | that block is **30–35%** |
+| [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) | "Advanced prompt engineering" and "memory, context management, knowledge integration" inside Develop | that block is **30–35%** |
 | (same) | Context-window failure diagnosis and prompt evaluation inside Evaluate | that block is 20–25% |
 | [NVIDIA NCP-GENL](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide-en) | Prompt Engineering (the only domain anywhere named that) | **13%** |
 | [NVIDIA NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide-en) | No dedicated domain; "write prompts using prompt engineering principles" sits at item level under Core ML | that block is 30% |

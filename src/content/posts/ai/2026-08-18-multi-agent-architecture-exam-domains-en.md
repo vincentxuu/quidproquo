@@ -25,7 +25,7 @@ Reading the shared core first is the time-efficient move, because it accounts fo
 
 | Certification | Multi-agent domain | Weight | Angle |
 |---|---|---|---|
-| [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) (beta) | Architect multi-agent solutions | 15–20% | Code-first, Agent Framework / LangGraph |
+| [Microsoft AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) | Architect multi-agent solutions | 15–20% | Code-first, Agent Framework / LangGraph |
 | (same) | Develop multi-agent solutions in Azure | **30–35%** | Orchestration patterns and MCP server work live here |
 | [NVIDIA NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide-en) | Agent Architecture and Design | 15% | Only 7% of the whole exam is NVIDIA-specific |
 | (same) | Cognition, Planning, and Memory | 10% | Reasoning frameworks and stateful orchestration |
@@ -33,7 +33,7 @@ Reading the shared core first is the time-efficient move, because it accounts fo
 | [Microsoft AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en) | Design AI-powered business solutions | 25–30% | Architect's view: selection boundaries and ROI |
 | [Claude CCAR-F](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en) | Agentic Architecture & Orchestration | **27%** (highest single domain) | Bound to the Claude Agent SDK, down to API-level detail |
 
-**One misconception to clear first**: Google PMLE's objectives say "Agent Platform" from top to bottom, which makes it look like a multi-agent exam. **It isn't.** Those words come from Vertex AI being renamed Gemini Enterprise Agent Platform in 2026 — Agent Platform Feature Store, Agent Platform Pipelines, and Agent Platform Inference are the former Feature Store, Pipelines, and Prediction. PMLE's skeleton is still classical ML engineering (feature engineering, distributed training, training-serving skew), and the [official exam guide](https://cloud.google.com/learn/certification/guides/machine-learning-engineer) has no objective about coordinating agents with each other. Using PMLE to demonstrate multi-agent skill is aiming at the wrong target.
+**One misconception to clear first**: Google PMLE's objectives say "Agent Platform" from top to bottom, which makes it look like a multi-agent exam. **It isn't.** Those words come from Vertex AI being renamed Gemini Enterprise Agent Platform in 2026 — Agent Platform Feature Store, Agent Platform Pipelines, and Agent Platform Inference are the former Feature Store, Pipelines, and Prediction. PMLE's skeleton is still classical ML engineering (feature engineering, distributed training, training-serving skew), and the [official exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf) has no objective about coordinating agents with each other. Using PMLE to demonstrate multi-agent skill is aiming at the wrong target.
 
 **One access gate up front**: the four Claude certifications are open only to organizations in the Claude Partner Network — individuals cannot register. CCAR-F appears below because **its Domain 1 is the most concrete treatment of orchestration in these five sources** (concrete down to `stop_reason` and `allowedTools`), which helps in understanding the other four. It is not a recommendation to go sit it.
 
@@ -221,7 +221,7 @@ After this post was published, the series added a preparation path for [GitHub A
 - [AB-100 official study guide (three weighted areas and change log)](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100)
 - [NCP-AAI official certification page (ten domains and the weight table)](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/)
 - [Claude Certified Architect – Foundations certification page (exam guide download)](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification)
-- [Google Professional ML Engineer exam guide (used to confirm it does not test agent coordination)](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
+- [Google Professional ML Engineer exam guide (used to confirm it does not test agent coordination)](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)
 - [Model Context Protocol documentation](https://modelcontextprotocol.io/)
 - [Agent2Agent (A2A) protocol documentation](https://a2a-protocol.org/latest/)
 - [Multi-agent workflow automation with Agent Framework (Microsoft architecture note)](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation)

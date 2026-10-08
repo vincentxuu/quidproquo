@@ -31,7 +31,7 @@ draft: false
 | [AWS AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide) | Operational Efficiency and Optimization | 12% | 應用層：token 成本、快取、延遲、可觀測性 |
 | 同上 | FM Integration（1.2 韌性設計） | 31% 的一部分 | 可用性：跨區推論、circuit breaker、優雅降級 |
 | 同上 | Implementation and Integration（2.2 部署、2.4 韌性） | 26% 的一部分 | provisioned throughput、model cascading、模型路由 |
-| [微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)（beta） | Evaluate, optimize, and monitor | 20–25% | 平台可用性與 SLA、token 上限、chargeback |
+| [微軟 AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide) | Evaluate, optimize, and monitor | 20–25% | 平台可用性與 SLA、token 上限、chargeback |
 | [微軟 AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide) | Plan and manage an Azure AI solution | 25–30% | 配額、擴展、速率限制與成本管理 |
 | [Google PMLE](/posts/ai/2026-08-18-google-pmle-prep-guide) | 第 3 章 Scaling prototypes | ~21% | 選型與訓練：CPU/GPU/TPU、資料平行 vs 模型平行 |
 | 同上 | 第 4 章 Serving and scaling | ~20% | 服務層：依吞吐量擴展服務後端 |
@@ -267,7 +267,7 @@ AIP-C01 的 4.1 列的是同一組再加兩個機制：**語意快取、結果�
 
 ## 參考資料
 
-- [Google Professional ML Engineer 官方考試指南（六章權重與 considerations 全文）](https://cloud.google.com/learn/certification/guides/machine-learning-engineer)
+- [Google Professional ML Engineer 官方考試指南（六章權重與 considerations 全文）](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)
 - [Google Professional ML Engineer 認證頁](https://cloud.google.com/learn/certification/machine-learning-engineer)
 - [AWS AIF-C01 官方 exam guide（五章權重與技能點全文）](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html)
 - [AIF-C01 exam guide 改版紀錄（v1.0 → v1.1，含 token 計價那條）](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/aif-01-revisions.html)
