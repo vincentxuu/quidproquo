@@ -87,7 +87,7 @@
 | 證照 | 狀態 | 理由 |
 |---|---|---|
 | AIF-C01、AIP-C01 | 已寫 | |
-| MLA（Machine Learning Engineer Associate） | **待寫，已可動工** | MLA-C02 beta 已開放報名（考試代碼欄寫 ME1-C02，170 分鐘、85 題、beta 價 $75）；MLA-C01 英文版已於 2026-09-28 停考 |
+| MLA（Machine Learning Engineer Associate） | **已寫（2026-10-08，order 30，`2026-10-08-aws-mla-c02-prep-guide`）** | MLA-C02 beta 已開放報名（考試代碼欄寫 ME1-C02，170 分鐘、85 題、beta 價 $75）；MLA-C01 英文版已於 2026-09-28 停考 |
 | **AI Business Strategist（beta，新）** | 建議排除 | 官方歸在 Business 類，寫明不需技術經驗；170 分鐘、85 題、beta 價 $50（正式 $100）。比照 Google Generative AI Leader 的排除理由 |
 
 **Google**（[官方目錄](https://cloud.google.com/learn/certification)）
@@ -103,6 +103,8 @@
 **Anthropic**（[Partner Academy](https://anthropic-partners.skilljar.com/)）：四張，全部已寫。下方 §1 排除清單裡「Claude 四張」那一列是過期的，四篇早已發佈。
 
 **其他生態系**：總表文列了 Snowflake GES-C02、IBM watsonx C1000-185，本文件既沒選入也沒排除，仍待決定。
+
+**同日後續補做（2026-10-08）**：四篇既有微軟文章（AI-103、AB-620、AI-500、AB-100）的費用欄補上台灣價 $83，四張都用認證頁的國家選單確認過；B1（多 agent）加「第六張 GH-600」補充節，B4（prompt）加 GH-300、AI-300、AI-901 補充節，兩篇都採補充節而不改寫原有的「五張」「十張」框架；AWS MLA-C02 備考路徑發佈。MLA-C02 的重點：107 條技能裡 45 條新增、7 條刪除，beta（ME1-C02）85 題 170 分鐘 $75，正式版依 exam guide 為 65 題、及格 720，正式版價格與時間官方尚未公布。
 
 **標題慣例（2026-10-08 改）**：12 篇原本標題只寫考試代號（微軟七篇、NVIDIA 四篇、Google PMLE），用認證全名在系列頁上找不到。已統一改成「廠商 代號（認證名稱）備考路徑：…」，slug 與 date 未動。之後新文章照這個格式。
 

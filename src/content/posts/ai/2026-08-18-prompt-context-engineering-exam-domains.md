@@ -211,6 +211,18 @@ draft: false
 
 **但它的偏誤也最明顯**：整份繞著 Bedrock 的產品名轉。想要不綁產品的版本，讀 CCAR-F 的 Domain 4 與 Domain 5——那兩塊的概念（結構化輸出、lost-in-the-middle、事實區塊、provenance）換平台仍然成立，只有 API 名稱要換。
 
+## 補充：後來加入系列的三張怎麼考這個主題（2026-10-08）
+
+本文發佈後，系列補了三張有 prompt 相關條目的證照。上面的「十張」與六件事沒有改寫，這一節說明它們各自落在哪裡。
+
+| 證照 | prompt 與 context 的條目 | 對應上面哪一件 |
+|---|---|---|
+| [GitHub Copilot（GH-300）](/posts/ai/2026-10-08-github-gh-300-prep-guide) | 獨立一塊 Apply prompt engineering and context crafting，**10–15%**：prompt 結構、**context 是怎麼決定的**、zero-shot 與 few-shot、對話紀錄的使用。另在功能那塊考 **instructions 檔**與**重複使用 prompt file** | 三（動態 context）、五（生命週期） |
+| [微軟 AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide) | 在 GenAIOps 基礎架構（20–25%）底下有一組三條：設計與開發 prompt、**建立 prompt 變體並比較表現**、**用 Git 儲存庫做 prompt 版本控制** | 五（生命週期）、六（證明變好） |
+| [微軟 AI-901](/posts/ai/2026-10-08-microsoft-ai-901-prep-guide) | 只有一條：寫有效的 system 與 user prompt | 入門級，不對應六件事的任何一件 |
+
+兩個值得注意的地方。**GH-300 是這個主題在單一產品裡的版本**：依[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300)，它問的「context 怎麼決定」是放在 Copilot 這個產品裡問的，同一份考綱的資料與架構那塊另有「輸入處理與 prompt 組裝」，問的不是你自己的應用怎麼組 context。**AI-300 把第五與第六件事放在同一組**：依[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-300)，版本控制與變體比較是相鄰的兩條，等於要求改 prompt 的同時留下可比較的紀錄。AI-901 的那一條出自[它的 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901)。
+
 ## 會過期的東西（下次複查看這裡）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
@@ -223,6 +235,10 @@ draft: false
 | NCP-GENL 考綱完整度 | 官方 PDF 的 Prompt Engineering 跳過 2.3 編號，未公布內容 | 開放報名時 |
 | AWS 的 prompt 產品名 | Bedrock Prompt Management、Bedrock Prompt Flows | 每季 |
 | AB-100 / AB-620 權重 | 25-30 / 25-30 / 40-45；30-35 / 40-45 / 20-25 | 每季 |
+
+## 更新紀錄
+
+- 2026-10-08：新增「補充：後來加入系列的三張怎麼考這個主題」一節，說明 GH-300、AI-300、AI-901 的 prompt 相關條目。原有十張的內容與結論未變動。
 
 ## 參考資料
 

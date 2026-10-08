@@ -211,6 +211,18 @@ Shortest paths for the non-transferable parts: for AWS, the [AIF-C01](https://do
 
 **Its bias is equally clear**: the whole thing orbits Bedrock product names. For the product-independent version, read CCAR-F's Domains 4 and 5 — structured output, lost-in-the-middle, facts blocks, and provenance all survive a platform change; only the API names have to be swapped.
 
+## Addendum: how three later additions to the series test this topic (2026-10-08)
+
+After this post was published, the series added three certifications with prompt-related objectives. The "ten exams" and six shared topics above are left as written; this section places the new ones.
+
+| Certification | Prompt and context objectives | Which topic above |
+|---|---|---|
+| [GitHub Copilot (GH-300)](/posts/ai/2026-10-08-github-gh-300-prep-guide-en) | Its own area, Apply prompt engineering and context crafting, at **10–15%**: prompt structure, **how context is determined**, zero-shot and few-shot, chat history usage. The features area also tests **instructions files** and **prompt file reuse** | 3 (dynamic context), 5 (lifecycle) |
+| [Microsoft AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide-en) | A group of three under GenAIOps infrastructure (20–25%): design and develop prompts, **create prompt variants and compare performance**, **version prompts in Git repositories** | 5 (lifecycle), 6 (proving a change helped) |
+| [Microsoft AI-901](/posts/ai/2026-10-08-microsoft-ai-901-prep-guide-en) | One objective: create effective system and user prompts | Entry level; maps to none of the six |
+
+Two things are worth noting. **GH-300 is this topic inside a single product**: per the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300), "how context is determined" is asked about Copilot as a product, and the same outline separately lists "input processing and prompt building" under data and architecture. It is not asking how your own application assembles context. **AI-300 puts topics 5 and 6 in one group**: per the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-300), version control and variant comparison are adjacent objectives, which amounts to requiring a comparable record whenever a prompt changes. The single AI-901 objective comes from [its study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901).
+
 ## What will go stale (check here next time)
 
 | Item | Status (verified 2026-08-18) | Recheck when |
@@ -223,6 +235,10 @@ Shortest paths for the non-transferable parts: for AWS, the [AIF-C01](https://do
 | NCP-GENL blueprint completeness | The official PDF skips objective 2.3 under Prompt Engineering with no published content | When registration opens |
 | AWS prompt product names | Bedrock Prompt Management, Bedrock Prompt Flows | Quarterly |
 | AB-100 / AB-620 weights | 25-30 / 25-30 / 40-45; 30-35 / 40-45 / 20-25 | Quarterly |
+
+## Changelog
+
+- 2026-10-08: Added "Addendum: how three later additions to the series test this topic", covering the prompt-related objectives of GH-300, AI-300, and AI-901. The content and conclusions for the original ten exams are unchanged.
 
 ## References
 

@@ -38,7 +38,7 @@ The same page states plainly what you do in the role: integrate agents with Foun
 | Exam code | AB-620 |
 | Certification | AI Agent Builder Associate |
 | Status | **Generally available** (no beta label on the page) |
-| Fee | **$165 USD** (priced by country or region) |
+| Fee | **$165 USD** in the US, **$83 USD** in Taiwan (priced by country or region) |
 | Length | **120 minutes** |
 | Question count | Not published |
 | Question types | Not disclosed in advance; the page says "You may have interactive components to complete as part of this exam" |
@@ -136,6 +136,10 @@ One small oddity worth knowing: **AB-620's dedicated renewal page does not exist
 | Practice assessment | **Not yet available** | Monthly |
 | Dedicated renewal page | Not live yet (404) | Quarterly |
 | Languages | 13, including Traditional Chinese | Every six months |
+
+## Changelog
+
+- 2026-10-08: Added the Taiwan test-center price ($83 USD) to the fee row. It previously listed only the US price of $165; Microsoft prices by the country where the exam is proctored, and the certification page has a country selector. Nothing else changed.
 
 ## References
 

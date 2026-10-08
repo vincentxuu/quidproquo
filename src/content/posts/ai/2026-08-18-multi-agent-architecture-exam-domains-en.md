@@ -180,6 +180,24 @@ Shortest paths for the non-transferable parts: for the Microsoft line, the [Foun
 
 **Know its bias, though**: the whole document orbits Microsoft Foundry, and the vocabulary is Microsoft's. For a neutral version, read [NCP-AAI's ten domain descriptions](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/) — only 7% is tied to NVIDIA products, and the wording of the other nine domains works as a general-purpose glossary.
 
+## Addendum: a sixth exam, GitHub GH-600 (2026-10-08)
+
+After this post was published, the series added a preparation path for [GitHub Agentic AI Developer (GH-600)](/posts/ai/2026-10-08-github-gh-600-prep-guide-en). One of its six areas is named Orchestrate multi-agent coordination (15–20%), so it belongs in this comparison. The "five exams" and "four vendors" framing above is left as written; this section places GH-600 against the seven shared topics.
+
+| Shared topic | Matching objectives in the GH-600 [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-600) |
+|---|---|
+| 1. Orchestration topologies | "Apply an orchestration pattern to coordinate multiple agents", with no topology names |
+| 2. A2A and MCP | Four MCP objectives: add as a tool, GitHub remote MCP server, **MCP registries, MCP allow lists**; A2A does not appear anywhere |
+| 3. Identity and permission boundaries | Tool permissions; scoping an agent to a repository or branch; least privilege |
+| 4. Memory | Choosing short-term, long-term, or external memory; expiration, pruning, and reset rules; preventing conflicting and stale context |
+| 5. Observability | Inspectable artifacts, traceability and accountability, post-hoc analysis of multi-agent behavior; the term agent replay is not used |
+| 6. Human-in-the-loop | Plan first and act only after approval; human intervention without slowing delivery |
+| 7. Guardrails | Autonomy levels by risk; explicit authorization for irreversible changes; no blue-green or canary deployment objectives |
+
+**Unique to GH-600**: in the other five exams, agents cooperate inside a conversation or a workflow. In GH-600 they edit files in the same code repository in parallel. That gives it three things the others lack: **conflicts between agents** (overlapping code changes, duplicated effort, contradictory outputs), **the agent lifecycle** (updating or replacing an agent without disrupting active workflows, retiring one while preserving auditability), and **classifying failure root causes as reasoning errors, tool misuse, or context and environment issues**.
+
+**A seventh is on the way**: section 3.3 of the exam guide for Google's new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) covers orchestration with MCP and A2A and multi-agent handoffs. Its beta registration is closed and general availability registration opens November 2, 2026; it will be added to this comparison after that. This does not change what is said above about PMLE, which still does not test multi-agent coordination.
+
 ## What will go stale (check here next time)
 
 | Item | Status (verified 2026-08-18) | Recheck when |
@@ -191,6 +209,10 @@ Shortest paths for the non-transferable parts: for the Microsoft line, the [Foun
 | AB-620 / AB-100 weights | 30-35 / 40-45 / 20-25; 25-30 / 25-30 / 40-45 | Quarterly |
 | CCAR-F weights | 27 / 18 / 20 / 20 / 15 (Exam Guide v1.0, effective July 2026) | Quarterly |
 | How A2A and MCP are tested | Three Microsoft exams name A2A; NCP-AAI names no protocol | Quarterly |
+
+## Changelog
+
+- 2026-10-08: Added "Addendum: a sixth exam, GitHub GH-600", mapping its outline to the seven shared topics, and noted that Google Professional Agentic Architect will be added after general availability. The content and conclusions for the original five exams are unchanged.
 
 ## References
 

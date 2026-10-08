@@ -39,7 +39,7 @@ draft: false
 |---|---|
 | 考試代碼 | AI-103（Developing AI Apps and Agents on Azure） |
 | 認證名稱 | Azure AI Apps and Agents Developer Associate |
-| 費用 | **$165 USD**（依考試所在國家或地區定價） |
+| 費用 | 美國 **$165 USD**、台灣 **$83 USD**（依考試所在國家或地區定價） |
 | 時間 | 120 分鐘 |
 | 題數 | **官方不公布單一考試的題數**，通用說明是「typically contain between 40-60 questions」 |
 | 題型 | **官方不事先揭露**；認證頁只寫「You may have interactive components to complete as part of this exam」 |
@@ -149,9 +149,13 @@ Agent 那半段更具體：定義 agent 角色、目標、對話追蹤方式與*
 |---|---|---|
 | 技能目標版本 | Skills measured as of 2026-04-16，尚無 change log | 每季 |
 | 五塊權重 | 25-30 / 30-35 / 10-15 / 10-15 / 10-15 | 每次改版 |
-| 費用 | $165 USD（美國） | 每半年 |
+| 費用 | 美國 $165、台灣 $83 | 每半年 |
 | 練習測驗是否免費 | **官方未說明**（已搬到 AI Skills Navigator） | 登入即可確認 |
 | Foundry 命名 | 目標區已全面改用；同頁文件連結區仍是舊名 | 微軟修好時 |
+
+## 更新紀錄
+
+- 2026-10-08：費用欄補上台灣考場的價格（$83 USD）。原本只寫美國價 $165；微軟依考場所在國家定價，認證頁的國家選單可切換。其餘內容未變動。
 
 ## 參考資料
 

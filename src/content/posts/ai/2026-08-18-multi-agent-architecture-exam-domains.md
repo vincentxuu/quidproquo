@@ -180,6 +180,24 @@ AI-500 的 guardrail 框架是這五份裡最結構化的：「**多重介入的
 
 **但要知道它的偏誤**：整份繞著 Microsoft Foundry，名詞是微軟的。想要中立版本，讀 [NCP-AAI 的十個領域描述](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/)——那份只有 7% 綁 NVIDIA 產品，其餘九個領域的措辭可以直接當通用詞彙表用。
 
+## 補充：第六張，GitHub GH-600（2026-10-08）
+
+本文發佈後，系列補了 [GitHub Agentic AI Developer（GH-600）](/posts/ai/2026-10-08-github-gh-600-prep-guide)的備考路徑。它的六塊考綱有一塊直接叫 Orchestrate multi-agent coordination（15–20%），所以也屬於這篇的範圍。上面的「五張」與「四家」沒有改寫，這一節單獨說明它落在七件事的哪裡。
+
+| 七件事 | GH-600 [官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-600) 的對應條目 |
+|---|---|
+| 一、編排拓樸 | 「套用編排模式協調多個 agent」，不列拓樸名稱 |
+| 二、A2A 與 MCP | MCP 有四條：加為工具、GitHub 遠端 MCP server、**MCP registry、MCP allow list**；整份沒有出現 A2A |
+| 三、身分與權限邊界 | 工具權限；把 agent 的範圍限定在特定儲存庫或分支；最小權限 |
+| 四、記憶 | 短期、長期、外部記憶的選擇；過期、修剪與重置規則；防止互相衝突與過期的 context |
+| 五、可觀測性 | 可檢查的產出物、可追溯與問責、多 agent 的事後分析；沒有 agent replay 這個詞 |
+| 六、人在迴圈 | 先計畫、核可後才行動；人工介入但不拖慢交付 |
+| 七、guardrail | 依風險分自主程度；不可逆的變更要明確授權；沒有藍綠或金絲雀部署的條目 |
+
+**GH-600 獨有**：其他五張的 agent 是在對話或工作流裡協作，GH-600 的 agent 是在同一個程式碼儲存庫裡平行改檔案。所以它考別張沒有的三件事：**agent 之間的衝突**（重疊的程式碼變更、重複的工作、互相矛盾的輸出）、**agent 的生命週期**（在不中斷進行中工作流的情況下更新或替換、汰除時保留可稽核性），以及**把失敗根因分成推理錯誤、工具誤用、context 或環境問題三類**。
+
+**還有第七張在路上**：Google 新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 官方考試指南第 3.3 節考 MCP 與 A2A 編排、多 agent 交接。它的 beta 報名已關閉，正式版 2026 年 11 月 2 日開放報名，開放後再併入對照。這不影響上面對 PMLE 的說明，PMLE 仍然不考多 agent 協調。
+
 ## 會過期的東西（下次複查看這裡）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
@@ -191,6 +209,10 @@ AI-500 的 guardrail 框架是這五份裡最結構化的：「**多重介入的
 | AB-620 / AB-100 權重 | 30-35 / 40-45 / 20-25；25-30 / 25-30 / 40-45 | 每季 |
 | CCAR-F 權重 | 27 / 18 / 20 / 20 / 15（Exam Guide v1.0, Effective July 2026） | 每季 |
 | A2A 與 MCP 的考法 | 三張微軟證照點名 A2A；NCP-AAI 不指名協定 | 每季 |
+
+## 更新紀錄
+
+- 2026-10-08：新增「補充：第六張，GitHub GH-600」一節，把 GH-600 的考綱對到七件事，並註記 Google Professional Agentic Architect 將於正式版開放後併入。原有五張的內容與結論未變動。
 
 ## 參考資料
 

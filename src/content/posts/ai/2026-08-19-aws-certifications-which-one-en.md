@@ -17,7 +17,7 @@ draft: false
 >
 > This is a selection guide built from official material, not an exam-day account — I have not sat these exams. Every "what it tests" points back to the official exam guides and every spec points back to the official certification pages. No leaked questions. Last checked 2026-09-12.
 
-The series already covers the preparation paths for [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en) and [AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en). This post handles the trade-off between them and Machine Learning Engineer – Associate, now updated to MLA-C02.
+The series already covers the preparation paths for [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en) and [AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en). This post handles the trade-off between them and Machine Learning Engineer – Associate, now updated to MLA-C02 (preparation path: [MLA-C02](/posts/ai/2026-10-08-aws-mla-c02-prep-guide-en)).
 
 **The conclusion first**: these three are not a beginner/intermediate/advanced ladder. Their official job scopes barely overlap, so the cost of choosing wrong is not "I picked something too easy" — it is **holding a certificate that attests to work you don't do**. The current variable is MLA-C02's beta: English beta registration is open, while general availability and other-language dates are still unannounced.
 
@@ -127,6 +127,7 @@ Two global rules worth repeating: **none of the three offers a "take a course in
 
 ## Update history
 
+- 2026-10-08: Added a link to the MLA-C02 preparation path, now published.
 - 2026-10-08: "Google's ecosystem has exactly one relevant exam" now reads "one technical AI exam open for registration today", with Google's new Professional Agentic Architect noted. The conclusions about the three AWS exams are unchanged.
 - 2026-09-12: Updated MLA specifications, exam scope, code relationship, renewal table, and decision paths after English MLA-C02 beta registration opened.
 

@@ -17,7 +17,7 @@ draft: false
 >
 > 本文是從官方資料建出來的選擇指南，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回官方 exam guide，所有規格都指回官方認證頁，不含考古題。最近查證：2026-09-12。
 
-系列前面已經各出過 [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide) 與 [AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide) 的備考路徑，這篇處理它們之間的取捨，以及已更新為 MLA-C02 的 ML Engineer – Associate。
+系列前面已經各出過 [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide) 與 [AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide) 的備考路徑，這篇處理它們之間的取捨，以及已更新為 MLA-C02 的 ML Engineer – Associate（備考路徑見 [MLA-C02](/posts/ai/2026-10-08-aws-mla-c02-prep-guide)）。
 
 **先說結論**：這三張不是初級／中級／高級的階梯。它們的官方職能範圍幾乎不重疊，選錯的代價不是「考太簡單」，是**考了一張不證明你會做的事**。現在的變數是 MLA-C02 正在 beta：英文 beta 已開放報名，正式版與其他語言的日期仍未公布。
 
@@ -129,6 +129,7 @@ MLA-C02 仍是需要實作的 associate 考試。它要求至少一年使用 Sag
 
 ## 更新紀錄
 
+- 2026-10-08：補上 MLA-C02 備考路徑的連結，該篇已發佈。
 - 2026-10-08：「Google 生態只有 PMLE 一張」改為「現在能報名的技術類 AI 證照只有 PMLE 一張」，並補上 Google 新開的 Professional Agentic Architect。AWS 三張的結論未變動。
 - 2026-09-12：MLA-C02 英文 beta 已開放報名後，更新 MLA 規格、考綱範圍、代碼關係、續期表與選擇路徑。
 

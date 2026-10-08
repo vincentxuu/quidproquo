@@ -39,7 +39,7 @@ The audience profile in the official study guide is specific:
 |---|---|
 | Exam code | AI-103 (Developing AI Apps and Agents on Azure) |
 | Certification | Azure AI Apps and Agents Developer Associate |
-| Fee | **$165 USD** (Microsoft prices by country or region) |
+| Fee | **$165 USD** in the US, **$83 USD** in Taiwan (Microsoft prices by country or region) |
 | Length | 120 minutes |
 | Question count | **Not published per exam**; the generic note says exams "typically contain between 40-60 questions" |
 | Question types | **Not disclosed in advance**; the certification page says only "You may have interactive components to complete as part of this exam" |
@@ -149,9 +149,13 @@ This is Microsoft's biggest structural difference from the other vendors, and th
 |---|---|---|
 | Objectives version | Skills measured as of 2026-04-16, no change log yet | Quarterly |
 | The five weights | 25-30 / 30-35 / 10-15 / 10-15 / 10-15 | On every revision |
-| Fee | $165 USD (United States) | Every six months |
+| Fee | $165 US, $83 Taiwan | Every six months |
 | Whether the practice assessment is free | **Not published** (moved to AI Skills Navigator) | Sign in to confirm |
 | Foundry naming | Objectives fully migrated; the doc-links block on the same page is not | When Microsoft fixes it |
+
+## Changelog
+
+- 2026-10-08: Added the Taiwan test-center price ($83 USD) to the fee row. It previously listed only the US price of $165; Microsoft prices by the country where the exam is proctored, and the certification page has a country selector. Nothing else changed.
 
 ## References
 

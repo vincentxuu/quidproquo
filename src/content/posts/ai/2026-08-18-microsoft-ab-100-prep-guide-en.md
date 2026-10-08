@@ -38,7 +38,7 @@ The Schedule exam block of the [official exam page](https://learn.microsoft.com/
 | Exam code | AB-100 |
 | Certification | Agentic AI Business Solutions Architect (expert) |
 | Status | **Generally available** (no beta label) |
-| Fee | **$165 USD** |
+| Fee | **$165 USD** in the US, **$83 USD** in Taiwan (priced by country or region) |
 | Length | **Not published** |
 | Question count | **Not published** |
 | Passing score | **700** |
@@ -144,6 +144,10 @@ Same company, same product line, two pages updated in the same month, two vocabu
 | Objectives version | Skills measured as of 2026-07-22, with a change log | Quarterly |
 | Length and item count | **Not published** | Every six months |
 | Naming | This page says Azure AI Foundry; AI-103 says Microsoft Foundry | When Microsoft aligns them |
+
+## Changelog
+
+- 2026-10-08: Added the Taiwan test-center price ($83 USD) to the fee row. It previously listed only the US price of $165; Microsoft prices by the country where the exam is proctored, and the certification page has a country selector. Nothing else changed.
 
 ## References
 

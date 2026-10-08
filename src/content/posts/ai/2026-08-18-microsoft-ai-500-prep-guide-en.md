@@ -43,7 +43,7 @@ In other words: **the objectives exist, the training does not.** That shapes the
 |---|---|
 | Exam code | AI-500 (Designing and Implementing Multi-Agent AI Solutions, beta) |
 | Certification | Multi-Agent AI Solutions Expert (beta) |
-| Fee | **$165 USD** (priced by country or region) |
+| Fee | **$165 USD** in the US, **$83 USD** in Taiwan (priced by country or region) |
 | Length | **Not published**; the general policy is 100 minutes for expert exams without labs, 120 with |
 | Question count | **Not published**; the generic note says "typically contain between 40-60 questions" |
 | Passing score | **700** |
@@ -137,6 +137,10 @@ This is the practical problem today. The four learning paths are unpublished, th
 | Course AI-500T00 | Marked available 2026-09-30 | Late September |
 | Practice assessment | Not yet available | Within 8 weeks of GA |
 | Languages | English only | After GA |
+
+## Changelog
+
+- 2026-10-08: Added the Taiwan test-center price ($83 USD) to the fee row. It previously listed only the US price of $165; Microsoft prices by the country where the exam is proctored, and the certification page has a country selector. Nothing else changed.
 
 ## References
 
