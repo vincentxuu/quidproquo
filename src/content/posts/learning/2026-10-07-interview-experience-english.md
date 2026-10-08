@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "把軟體工程師英文面試會講的四段內容整理成十句：自我介紹、講一個專案、講一次失敗或意見不同、反問面試官。每句都附 Oxford 學習字典的句型依據。其中五句是我自己的真實內容，已去掉公司與產品名，練習時要換成自己的經歷。"
 tldr: "專長領域用 I have experience in／as；現職用 I currently work for a company that…；負責的事用 I was responsible for + V-ing；成果用 reduced … from A to B；難處用 The hardest part was + V-ing；檢討用 I underestimated how…；改變用 Since then, I've always…。反問可以問團隊怎麼分工、前三個月的目標。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/en/posts/learning/2026-10-07-interview-experience-english-en)

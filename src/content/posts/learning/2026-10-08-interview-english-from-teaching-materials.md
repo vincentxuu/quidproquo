@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "讀了十一個來源的面試內容之後，整理出面試官會問的五十三題和教材示範的說法，再對照自己原本的二十四張練習卡。這篇補上十三句：開場、說明職責、為什麼換工作、STAR 的背景、任務與結果、請對方重複題目、四個反問、面試後跟進。其中八句是來源原句（一句從原文的 company/team 取 team）。"
 tldr: "開場說 I'm really excited to be speaking with you today；職責用 I'm responsible for…；換工作用 I'd like to apply my skills to a new challenge；STAR 的背景用 In my current job, …，任務用 My job was to find a way of…，結果用 Because of this, …；沒聽清楚就說 Sorry, can you repeat the question?；反問可以問挑戰、典型的一天、下一步流程。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/en/posts/learning/2026-10-08-interview-english-from-teaching-materials-en)

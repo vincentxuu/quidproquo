@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "讀了 BBC Office English 二十一集、British Council 四堂口說課和 PagerDuty 的事故應變文件之後，發現教材教的和我原本練的幾乎不重疊。這篇補上十九句：請人幫忙與婉拒、確認理解、委婉不同意、承認錯誤與預告壞消息、催進度與期限、事故通話。其中十五句是教材原句。"
 tldr: "卡住了說 Have you got a second to help me out?；請人再看一次說 I think I need another pair of eyes on this；確認理解說 Can I just check that I've understood that right?；沒跟上說 I'm not sure I follow you；不同意先說 I see what you mean, but…；出包說 That's on me；預告壞消息說 I need to give you a heads up；催進度說 Have you had a chance to look at…?"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/en/posts/learning/2026-10-08-work-english-from-teaching-materials-en)

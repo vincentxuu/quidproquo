@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "A text conversation with a friend about job hunting, interviews, big companies, and startups, turned into six recurring fixes: Have you for experience, prepositions after apply and interview, other vs. others, because vs. because of, missing be verbs and subjects, and third-person -s with articles. Each fix comes with Cambridge references and recall practice."
 tldr: "My friend understood me, but the same six things kept going wrong: use Have you + past participle for 'so far' questions; apply to a company, apply for a job; interview + a person means you are the interviewer; other takes a plural noun while others stands alone; because takes a clause and because of takes a noun; adjectives need be, and sentences need a subject."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-07-job-hunt-chat-english)

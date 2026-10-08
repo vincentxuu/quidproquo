@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "把一段和朋友用英文聊求職、面試、大公司與新創的訊息對話，整理成六個反覆出現的修正：Have you 問經驗、apply 與 interview 的介系詞、other 與 others、because 與 because of、漏掉的 be 動詞和主詞、第三人稱與冠詞。每一項都附 Cambridge 的依據與回想練習。"
 tldr: "對方聽得懂，但同樣的六個地方一直重複：問「到目前為止有沒有」用 Have you + 過去分詞；apply to 公司、apply for 職缺；interview 後面直接接人是你在面試別人；other 後面接複數名詞、others 單獨用；because 接句子、because of 接名詞；形容詞前面要有 be，句子要有主詞。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/en/posts/learning/2026-10-07-job-hunt-chat-english-en)

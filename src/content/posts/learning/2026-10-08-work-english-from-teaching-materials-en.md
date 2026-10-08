@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "After reading twenty-one episodes of BBC Office English, four British Council speaking lessons, and PagerDuty's incident response documentation, I found that what the materials teach barely overlaps with what I had been practicing. This post adds nineteen sentences: asking for help and saying no, checking understanding, disagreeing politely, admitting mistakes and warning about bad news, chasing progress and deadlines, and incident calls. Fifteen of them are quoted from the sources."
 tldr: "When you are stuck: Have you got a second to help me out? To ask for a second look: I think I need another pair of eyes on this. To check understanding: Can I just check that I've understood that right? When you are lost: I'm not sure I follow you. Before disagreeing: I see what you mean, but… When you got it wrong: That's on me. Before bad news: I need to give you a heads up. To chase progress: Have you had a chance to look at…?"
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-08-work-english-from-teaching-materials)

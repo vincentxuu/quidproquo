@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "Ten English sentences for four things a software engineer does every day: reporting progress, saying where you are stuck, asking a colleague to take a look, and disagreeing or giving a time estimate. Each one comes with a sentence pattern from Oxford Learner's Dictionaries and substitution practice."
 tldr: "Report finished work with the past simple plus a time; say I'm still waiting for when you are waiting; use by for a deadline; say I'm stuck on for a blocker; ask with Could you take a look at… when you have a moment; soften disagreement with I'm not sure about… and then suggest with Could we…; estimate with This will probably take…."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-07-work-standup-english)

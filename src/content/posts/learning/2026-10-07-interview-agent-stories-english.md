@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "把自己準備 AI agent 工程師面試的中文素材，挑出十二句最常要講的話，逐句找英文句型的字典依據：一句話定位、需求改了五次的專案、沒有錯誤訊息的 bug、兩條設計原則、一次失誤，以及誠實承認還沒做好的部分。"
 tldr: "定位用 I work on improving…、My work covers…；需求變動用 changed five times in four months；用資料說服用 that convinced the team to…；實測結果用 took 29 minutes；失誤用 I changed … but didn't update …、We only found out … after …；承認缺口用 To be honest, we don't have … yet。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/en/posts/learning/2026-10-07-interview-agent-stories-english-en)

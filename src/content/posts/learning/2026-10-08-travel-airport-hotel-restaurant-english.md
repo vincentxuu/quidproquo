@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "先讀七份公開的英語教材，整理出旅遊情境教哪些功能，再對照自己原本的練習卡，發現只練了問路。這篇補上機場報到與轉機、飯店入住與求助、點餐與付帳、問方向與車資，共十六句，其中九句是教材原句或只換了一個詞。"
 tldr: "報到時說 I have one bag to check in；轉機問 Do I have to pick up my bag in …?；入住說 I have a reservation；房間有問題說 I'm afraid there's a problem with…；點餐說 I'll have the…，賣完了就 Okay, I'll have the … then；問成分用 Does it have any … in it?；付帳說 Shall we split the bill?；問路可以說 Could you tell me which way … is?"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/en/posts/learning/2026-10-08-travel-airport-hotel-restaurant-english-en)

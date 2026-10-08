@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "Twelve sentences picked from my own Chinese prep notes for AI agent engineering interviews, each matched to a dictionary sentence pattern: a one-line positioning statement, a project whose direction changed five times, a bug with no error messages, two design principles, one mistake, and an honest answer about what is not done yet."
 tldr: "Positioning: I work on improving…, My work covers…. Changing requirements: changed five times in four months. Persuading with data: that convinced the team to…. A measured result: took 29 minutes. A mistake: I changed … but didn't update …, We only found out … after …. An honest gap: To be honest, we don't have … yet."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-07-interview-agent-stories-english)

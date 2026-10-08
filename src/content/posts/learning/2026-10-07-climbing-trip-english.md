@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "為了東南亞和日韓的攀岩行程，把在岩場、攀岩店和岩館會說的話整理成十五句英文：問岩栓與日照、問開放與登記、租繩子和快扣、找繩伴、請人推薦路線，以及 Slack、Up rope、Take 三個口令。每句附字典或攀岩來源的依據。"
 tldr: "問日照用 Does this wall get the sun…；問多久會乾用 How long does it take to dry…；問規定用 Do I need to register…；租裝備用 I'd like to rent…；夠不夠長用 long enough；找繩伴用 I'm looking for a climbing partner；請人推薦用 Can you recommend…。給繩是 Slack!，收繩是 Up rope!，岩館到頂請確保者撐住並放下來是 Take!。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/en/posts/learning/2026-10-07-climbing-trip-english-en)

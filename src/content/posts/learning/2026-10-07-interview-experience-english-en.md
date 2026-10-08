@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "Ten sentences for the four things a software engineer says in an English interview: introducing yourself, describing a project, describing a failure or a disagreement, and asking the interviewer questions. Each one comes with a sentence pattern from Oxford Learner's Dictionaries. Five of them carry my own real content with company and product names removed, so replace them with your own experience."
 tldr: "Expertise: I have experience in / as. Current job: I currently work for a company that…. Ownership: I was responsible for + -ing. Results: reduced … from A to B. Difficulty: The hardest part was + -ing. Reflection: I underestimated how…. Change: Since then, I've always…. For your own questions, ask how the team divides up the work and what the goals are for the first three months."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-07-interview-experience-english)

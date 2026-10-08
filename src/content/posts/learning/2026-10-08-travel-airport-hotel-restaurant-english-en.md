@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "I read seven public English teaching sources first, listed what they teach for travel, and compared that with my own practice cards, which only covered asking directions. This post adds sixteen sentences for airport check-in and transfers, hotel check-in and problems, ordering and paying, and asking the way and the fare. Nine of them are quoted from the materials or change a single word."
 tldr: "At check-in: I have one bag to check in. Before a transfer: Do I have to pick up my bag in …? At the hotel: I have a reservation. For a room problem: I'm afraid there's a problem with…. To order: I'll have the…, and if it is sold out, Okay, I'll have the … then. For ingredients: Does it have any … in it? For the bill: Shall we split the bill? For directions: Could you tell me which way … is?"
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-08-travel-airport-hotel-restaurant-english)

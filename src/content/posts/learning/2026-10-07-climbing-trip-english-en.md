@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "Fifteen English sentences for climbing trips to Southeast Asia, Korea, and Japan: asking about bolts and sun, checking access and registration, renting a rope and quickdraws, finding a partner, asking for route recommendations, and the commands Slack, Up rope, and Take. Each one comes with support from a dictionary or a climbing source."
 tldr: "Ask about sun with Does this wall get the sun…; drying time with How long does it take to dry…; rules with Do I need to register…; rentals with I'd like to rent…; length with long enough; partners with I'm looking for a climbing partner; routes with Can you recommend…. More rope is Slack!, less rope is Up rope!, and in a gym, asking the belayer to hold you and lower you from the top is Take!."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-07-climbing-trip-english)

@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "After reading interview content from eleven sources, I listed fifty-three questions interviewers ask and the phrasing the materials demonstrate, then compared them with my own twenty-four practice cards. This post adds thirteen sentences: the opening, describing responsibilities, why I am changing jobs, the Situation, Task, and Result of STAR, asking for the question to be repeated, four questions for the interviewer, and following up afterwards. Eight of them are quoted from the sources."
 tldr: "To open: I'm really excited to be speaking with you today. For responsibilities: I'm responsible for… For changing jobs: I'd like to apply my skills to a new challenge. In STAR, the Situation starts with In my current job, …, the Task with My job was to find a way of…, and the Result with Because of this, … If you missed the question: Sorry, can you repeat the question? For your own questions, ask about challenges, a typical day, and the next step in the process."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-08-interview-english-from-teaching-materials)
