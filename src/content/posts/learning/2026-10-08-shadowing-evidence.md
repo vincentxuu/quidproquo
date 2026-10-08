@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "整理跟讀法（shadowing）的來源、2025 年的系統性回顧與 2017 年的八週實驗怎麼說、中文文章常見說法與研究的落差，以及跟讀、回音法、聽了再重複的差別，最後是練口說時跟讀該放在哪個位置。"
 tldr: "2025 年一篇納入 44 篇研究的回顧認為跟讀能改善發音的可理解度與流暢度，但多數研究只測朗讀這類受控作業，也幾乎沒有研究拿它和其他練法比較。跟讀適合練節奏、語調與把句子說順；自己組句子、回應別人，要靠複述、角色扮演和對話。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/en/posts/learning/2026-10-08-shadowing-evidence-en)
