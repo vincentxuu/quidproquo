@@ -9,7 +9,7 @@
 這三條都是 2026-10-08 被使用者指出的錯誤換來的：
 
 1. **沒讀正文不能列入。** 第一版把一百多個只確認「網址有回應、標題正確」的來源列成可參考，讀過之後有二十多個是首頁新聞、行銷頁或已停辦的服務。新增來源時，先讀到實際內容再寫進來，並寫明讀了哪一頁、讀到多少。
-2. **不能只試直接請求就說讀不到。** 第一版把二十多個來源標成「擋」，其實只試過 curl；換 Exa 幾乎全部讀得到，還有幾個是網址猜錯。標「讀不到」前，依序試直接請求、Exa `web_fetch_exa`、Tavily `tavily_extract`、Firecrawl，並寫出試過哪些。網址 404 先搜尋正確網址。
+2. **不能只試直接請求就說讀不到。** 第一版把二十多個來源標成「擋」，其實只試過 curl；換 Exa 幾乎全部讀得到，還有幾個是網址猜錯。標「讀不到」前，依序試直接請求、Exa `web_fetch_exa`、Tavily `tavily_extract`（一次一個網址）、Firecrawl、網頁存檔的快照，並寫出試過哪些。網址 404 先搜尋正確網址。回傳 200 不代表讀到了，要看內容是不是登入頁或空殼。
 3. **來源要多元且有指標性代表。** 每個情境的類別要分散（語言教材、官方定義、組織規範、政府或大學指引、社群資源），地區要分散，並說得出為什麼有代表性。只因為搜尋到而選的，標成便利取樣。
 
 ## 怎麼用
@@ -28,7 +28,8 @@
 | Groundlane | 這個 session 沒有掛載；直接 HTTP 回 401 |
 | 直接請求（curl 加瀏覽器 UA） | BBC、VOA、Oxford Learner's、Longman、多數工程文件與政府網站可讀；British Council、Cambridge、Merriam-Webster、Collins、REI、theCrag、多數衝浪網站被擋 |
 | Exa `web_fetch_exa` | 被擋的幾乎都讀得到；可批次、可設字數上限。搜尋 `web_search_exa` 也會回傳大段正文 |
-| Tavily `tavily_extract` | 可用，但同批多個網址只回傳了一個 |
+| Tavily `tavily_extract` | 可用，但同批多個網址只回傳了一個，要一次送一個 |
+| 網頁存檔（web.archive.org） | 直接組快照網址可讀；Reddit 的 wiki 靠它讀到。查詢快照清單的介面當時在限流 |
 | Firecrawl | 可用，帳號額度偏低 |
 | Jina `read_url` | 全部回 HTTP 402 |
 
@@ -82,8 +83,8 @@
 
 | 類別 | 來源 | 讀了什麼 | 實際內容與可用的說法 |
 | --- | --- | --- | --- |
-| 職場英文教材 | [BBC Office English](https://www.bbc.com/learningenglish/english/features/office-english) | Meetings 一集的大部分逐字稿，與全系列的集數列表 | 插話先道歉：*I'm sorry. Can I just ask…?*、*I'm sorry, but I think we need to talk about…*；徵求發言：*Could I add a thought?*、*Could I say something?*；委婉不同意：*I like that idea, but my thinking is a bit different*；拉回主題：*I think we're getting a bit off topic*、*please can we stick to the agenda*。主持人說明這是英國的禮貌習慣，各地不同。全系列約四十集，另有請人幫忙、確認理解、提建議、談錯誤、給指示、處理衝突、催進度等主題，還沒讀 |
-| 職場英文教材 | [British Council LearnEnglish: Speaking](https://learnenglish.britishcouncil.org/skills/speaking) | 見第一部分 | B1 的「同意與不同意」「請人幫忙」、B2 的「質疑別人的想法」「處理問題」場景都在辦公室，各課用語還沒讀 |
+| 職場英文教材 | [BBC Office English](https://www.bbc.com/learningenglish/english/features/office-english) | 全系列 37 集裡 21 集的完整逐字稿（subagent 讀；其中 11 集的引文由主 session 重抓原頁逐句比對），13 集沒讀 | 請人幫忙（Help）：*Have you got a second to help me out?*、*I think I need another pair of eyes on this*、*Sorry to bother you, but would you mind helping me for a moment?*。婉拒（Saying no）：*I'm snowed under at the moment*、*how firm is our deadline on this?*。確認理解（Misunderstandings、Clear communication）：*Can I just check that I've understood that right?*、*I'm not sure I follow you*、*can you walk me through how you usually do this?*、*are we on the same page?*。不同意（Conflict）：*Hmm, I'm not sure about that, I think...*。認錯（Mistakes、Apologies）：*I've accidentally …, but I have a plan to fix the problem*、*that's on me*、*I need to give you a heads up*。催進度（Chasing people）：*have you had a chance to...*。開會（Meetings）：*Could I add a thought?*、*I think we're getting a bit off topic*。主持人多次說明委婉說法是英國職場習慣。**沒有任何一集教站立會議報進度** |
+| 職場英文教材 | [British Council LearnEnglish: Speaking](https://learnenglish.britishcouncil.org/skills/speaking) | B1 的 Asking a favour、Agreeing and disagreeing，B2 的 Challenging someone's ideas、Dealing with a problem：四課逐字稿與片語清單全文（Exa） | 每課是一段辦公室對話加八到九句片語。請人幫忙：*Have you got a minute?*、*Is there any chance you could…?*、*I would if I could, but I can't*。不同意：*I'm not so sure*、*I see what you mean, but…*、*I'm not convinced by that idea*。質疑：*How exactly do you see this working?*、*I take your point, but…*、*Have you considered the fact that…?*。出問題：*I've got a bit of a problem*、*I've made a mistake*。B1 其他三課與 B2 其他三課還沒讀 |
 | 方法論的定義來源 | [The Scrum Guide](https://scrumguides.org/scrum-guide.html) | Daily Scrum 一節 | 定義：十五分鐘、檢視朝 Sprint Goal 的進度、產出隔天的計畫；形式由開發者自己決定。**沒有規定三個問題，也沒有任何口語句子**，只能支持這個會議的目的 |
 | 工程組織的公開規範 | [Google Engineering Practices: 寫 review 留言](https://google.github.io/eng-practices/review/reviewer/comments.html) | 整頁 | 留言對事不對人，附好壞對照；解釋理由；看到好的也要說。標籤用法：*Nit:*（小問題）、*Optional* 或 *Consider:*（建議）、*FYI:*（不要求這次改） |
 | 工程組織的公開規範 | [Google Engineering Practices: 回應 review](https://google.github.io/eng-practices/review/developer/handling-comments.html) | 整頁 | 不同意時的示範句：*I went with X because of [these pros/cons]… My understanding is that using Y would be worse because of [these reasons]. Are you suggesting that Y better serves the original tradeoffs…?* |
@@ -91,32 +92,36 @@
 | 工程組織的公開規範 | [Chromium: Respectful Code Reviews](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/cr_respect.md) | 大部分內容 | 不要說 *This is wrong*，要說明對的做法與理由。可用的句子：*Maybe I'm missing something, but…*、*I'm curious, why did you decide to do it that way?*、*This is a good start, but it could use some work*。說明 *LGTM* 是 looks good to me；外出時標 *OOO* |
 | 工程組織的公開規範 | [37signals Guide to Internal Communication](https://basecamp.com/guides/how-we-communicate) | 原則列表的前半 | 非同步溝通的原則，例如 *Meetings are the last resort*、*If you want an answer, you have to ask a question*。是原則，不是可以照說的句子 |
 | 社群慣例 | [Conventional Comments](https://conventionalcomments.org/) | 整頁 | 留言格式 `<label> [decorations]: <subject>`。標籤：praise、nitpick、suggestion、issue、todo、question、thought、chore、note。例句：*suggestion: Let's avoid using this specific function…*、*question (non-blocking): At this point, does it matter which thread has won?* |
-| 事故處理 | [PagerDuty Incident Response: During an Incident](https://response.pagerduty.com/during/during_an_incident/) | 大部分內容 | 事故通話中各角色（Incident Commander、Deputy、Scribe、主題專家）做什麼、怎麼宣布與交接；術語 IC、SME、rolling restart、roll back。有少數示範句，例如記錄角色的格式 |
+| 事故處理 | [PagerDuty Incident Response](https://response.pagerduty.com/)：During an Incident、[Incident Commander 訓練](https://response.pagerduty.com/training/incident_commander/)、Call Etiquette、SME、Scribe、Deputy | 六頁整頁（subagent 讀；Incident Commander 頁的引文主 session 核對過） | 有示範對話。被指派的人回覆：*Understood, I'll get back with an update in 20 minutes*。指揮官：*Are there any strong objections to this plan?*（文件解釋為什麼不問 Does everyone agree?）、*Bob, please investigate… I'll come back to you for an answer in 3 minutes*。規則：不確定就說不知道、不要猜；不要說 *Can someone…*，要指名 |
 | 事故處理 | [Google SRE Book 第 15 章](https://sre.google/sre-book/postmortem-culture/) | 開頭與「Postmortem 的理念」一節；範例報告（附錄 D）沒讀 | 事後檢討的定義與觸發條件；術語 postmortem、root cause、rollback、on-call |
 | 事故處理 | [Atlassian: Incident Postmortem](https://www.atlassian.com/incident-management/postmortem) | 開頭的重點摘要 | 定義 blameless 的事後檢討；與 post-incident review 同義 |
 | 站立會議說明 | [Atlassian: Stand-ups](https://www.atlassian.com/agile/scrum/standups) | 定義與三個問題的段落 | *What did I work on yesterday? What am I working on today? What issues are blocking me?* 已用於卡片 |
 | 技術文字的語氣 | [Google developer documentation style guide: Voice and tone](https://developers.google.com/style/tone) | 開頭段落 | 語氣要 conversational、friendly、respectful，避免行話與文化特定的說法，考慮英文程度不一的讀者。是寫文件的準則 |
 | 技術術語 | [Mozilla Bug Writing Guidelines](https://bugzilla.mozilla.org/page.cgi?id=bug-writing.html)、[GitHub Docs](https://docs.github.com/en)、[MDN](https://developer.mozilla.org/en-US/) | 相關段落 | 只支持術語存在：*steps to reproduce*、*If you can't reproduce the problem*、*locally*、timeout。已用於卡片 |
 
-偏誤：工程規範全是美國公司或開源專案寫的書面語，適合支持 review 留言與書面溝通，不能直接當成站立會議的口頭說法；口頭的部分目前只有 BBC Office English。還沒取樣的類別是可追溯的真實工程對話（大型開源專案的公開 PR 討論）。第一批工作卡片（2026-10-07）只用了最後兩列，是逐句缺什麼補什麼的便利取樣。
+偏誤：工程規範全是美國公司或開源專案寫的書面語，適合支持 review 留言與書面溝通，不能直接當成站立會議的口頭說法。口說教材只有 BBC 與 British Council，都是英國機構，沒有美式的職場口說教材。還沒取樣的類別是可追溯的真實工程對話（大型開源專案的公開 PR 討論）；站立會議報進度的說法這次讀的來源都沒有。第一批工作卡片（2026-10-07）只用了最後兩列，是逐句缺什麼補什麼的便利取樣。
 
 ## 四、面試
 
 | 類別 | 來源 | 讀了什麼 | 實際內容與可用的說法 |
 | --- | --- | --- | --- |
-| 語言教材 | [BBC Job Applications](https://www.bbc.com/learningenglish/english/features/job-applications) | Preparing for an interview 一集的大部分逐字稿，與集數列表 | 這一集是準備建議：查面試官、練習說出例子但不要背稿，請 BBC World Service 的招募人員受訪。**沒有示範回答的英文句子**。系列另有「怎麼在面試介紹自己」「怎麼在面試脫穎而出」兩集，還沒讀，那兩集才可能有說法 |
-| 語言教材 | [British Council: How to prepare for a job interview in English](https://learnenglish.britishcouncil.org/level/improve-your-english-level/how-prepare-job-interview-english) | 問答式片段 | 有 *Have you had a job interview in English?*。已用於卡片 |
-| 政府的就業與任用指引 | 英國 [National Careers Service: STAR method](https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method) | 整頁 | STAR 的定義與三個完整示範回答，逐段標 Situation／Task／Action／Result。例：*In my previous digital marketing job, the company wanted to…*、*My job was to find a way of…*、*I organised a meeting with… and I led…*、*Over a period of 3 months, there was a 25% increase in…*。提醒要 conversational、準備好被追問 |
+| 語言教材 | [BBC Job Applications](https://www.bbc.com/learningenglish/english/features/job-applications) 與 BBC Office English 的 Describing your job、Selling yourself | Interviews part 1、part 2、After the interview、Preparing for an interview 與上述兩集的整頁逐字稿 | 請 BBC World Service 的招募人員受訪。句子：*sorry, can you repeat the question*、*from my research I know this about the company and therefore I think I would be a good fit*、*Can I just ask, following up, what the outcome of the interview is*。說明職責：正式用 *I'm responsible for*、非正式用 *I mostly work on*；*I have a background in …, which in practice means …*；*I'd like to apply my skills to a new challenge*。講成就：*I put a lot of work into…*、*through my actions we saw a ten percent increase in productivity* |
+| 語言教材 | [British Council: How to prepare for a job interview in English](https://learnenglish.britishcouncil.org/level/improve-your-english-level/how-prepare-job-interview-english) | 整頁（Exa） | 六個常見題目、一個示範回答（*In my last role I organised our office relocation… Because of this, the relocation was completed on time and on budget*）、四個可以反問的問題（*What do you think the challenges will be for this role?*、*What's the next step in the recruitment process after this interview?*）。談失敗只給建議：說學到什麼、怎麼避免再犯 |
+| 語言教材 | British Council [You're Hired](https://learnenglish.britishcouncil.org/sites/podcasts/files/LearnEnglish-You-re-hired-Episode-05.pdf) 系列 | 第 4、5、9、10 集的 PDF 全文（第 5 集主 session 讀過）；第 1、3、6、8 集只有搜尋摘錄；第 2、7 集沒讀 | 一個求職故事的影集，每集有逐字稿與練習。第 5 集是面試本身：*it's very nice to meet you both*、*I've come as far as I can in my current position… would love to take on some more responsibility*、*the thing I'm most proud of professionally*、*So, I sat down with them and we talked about…*、*I was wondering whether you are planning to…*。情境是業務主管，不是工程 |
+| 語言教材 | 澳洲 [ABC Education: Business English Ep4 Interviews](https://www.abc.net.au/education/learn-english/business-english-ep4-interviews/101876886) | 整頁逐字稿 | 面試的語調與時態。*I'm really excited to be speaking with you today. Thank you so much for the opportunity*、*Since I graduated, I've been working for the local city council* |
+| 政府的就業與任用指引 | 英國 National Careers Service 的 [STAR method](https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method)與[常見題目頁](https://nationalcareers.service.gov.uk/careers-advice/top-10-interview-questions) | 兩頁整頁 | STAR 的定義與三個逐段標示的完整示範回答：*in my previous digital marketing job, the company wanted to…*、*my job was to find a way of…*、*I organised a meeting with… and I led…*、*over a period of 3 months, there was an 25% increase in…*（原文就是 an 25%）。常見題目頁有題目與示範，例如弱點：*I struggle with time management on projects. To make sure I stick to the time frame I'm creating a timetable…*；反問：*what does a typical day involve?* |
 | 政府的就業與任用指引 | 英國公務員 [Success Profiles: Civil Service behaviours](https://www.gov.uk/government/publications/success-profiles/success-profiles-civil-service-behaviours) | 搜尋回傳的摘錄 | 英國政府的行為面試評分架構，明文建議用 STAR 回答；說明會被要求舉出展現某種行為的實例 |
 | 大學就業中心 | [MIT CAPD: STAR method](https://capd.mit.edu/resources/the-star-method-for-behavioral-interviews/) | 主要段落 | 行為題原文：*Tell me about a time when you worked as part of a team…*、*What is a project that you are most proud of?*、*Tell me about a time you failed.*。建議各段比例（情境 20%、任務 10%、行動 60%），用 *I* 而不是 *we* 說明自己的角色，封閉式問題也要舉例 |
 | 雇主的官方說明 | [Microsoft Careers: Interview tips](https://careers.microsoft.com/v2/global/en/hiring-tips/interview-tips.html) | 主要段落 | 建議準備具體例子，說明 *the situation, what you did, the outcome, and what you learned*；會問怎麼運用回饋、與人合作、調整做法；看重 growth mindset |
-| 軟體面試的社群資源 | [Tech Interview Handbook: 行為面試](https://www.techinterviewhandbook.org/behavioral-interview/)與[常見題目](https://www.techinterviewhandbook.org/behavioral-interview-questions/) | 兩頁的主要內容 | 軟體工程師的行為題原文三十多題：*Tell me about a time when you had a conflict with a co-worker.*、*What was the most difficult bug that you fixed in the past 6 months?*、*What is the most challenging aspect of your current project?*、*Why do you want to leave your current/last company?*、*Tell me about a time you had a disagreement with your manager.*。另有一個用 STAR 回答衝突題的完整示範 |
+| 軟體面試的社群資源 | Tech Interview Handbook 的[行為面試](https://www.techinterviewhandbook.org/behavioral-interview/)、[常見題目](https://www.techinterviewhandbook.org/behavioral-interview-questions/)、[反問的問題](https://www.techinterviewhandbook.org/final-questions/)、[自我介紹](https://www.techinterviewhandbook.org/self-introduction/) | 四頁整頁 | 行為題原文三十多題；一個用 STAR 回答衝突題的完整示範。反問：*What would be the most important problem you would want me to solve if I joined your team?*、*What are the engineering challenges that the company/team is facing?*、*What does a typical day look like in this role?*。自介示範：*I'm interested in the Front End Engineer role at Meta because…*。這是這次讀到唯一帶工程內容示範的來源 |
+| 管理類刊物 | HBR〈38 Smart Questions to Ask in a Job Interview〉的[轉載頁](https://www.physicianleaders.org/articles/38-smart-questions-to-ask-in-a-job-interview) | 轉載頁整頁；hbr.org 原文在付費牆後，四種工具都只拿到摘要 | 反問的問題清單：*Can you tell me about the team I'll be working with?*、*What's the most important thing I should accomplish in the first 90 days?*、*What are the biggest challenges that I might face in this position?*、*What are the next steps in the hiring process?*。確切用字無法對回 hbr.org |
+| 雇主的官方說明 | [Amazon: Interviewing at Amazon](https://www.amazon.jobs/content/en/how-we-hire/interviewing-at-amazon)、Leadership Principles、Interview loop；Google 的 Interview prep | subagent 讀：正文藏在頁面內嵌的資料裡，Exa 只回標題，要用 curl 取回後抽出來。主 session 沒有自行核對 | 說明行為面試怎麼進行；兩家都寫可以請面試官釐清題目，但沒有給句子 |
 | 商業求職網站 | [Indeed: STAR Interview Response Technique](https://www.indeed.com/career-advice/interviewing/how-to-use-the-star-interview-response-technique) | 四個部分的說明；示範回答沒讀到 | STAR 各段該講多少；同樣建議用 *I* 不用 *we*。直連擋，Exa 可讀 |
 | 商業求職網站 | [The Muse: 51 Interview Questions You Should Be Asking](https://www.themuse.com/advice/51-interview-questions-you-should-be-asking) | 職位、成功衡量、團隊三組問題 | 反問面試官的問題原文。已用於卡片 |
 
-讀了只有入口或拿不到正文：[Amazon: How We Hire](https://www.amazon.jobs/content/en/how-we-hire/interviewing-at-amazon)（是各職務準備指南的目錄，SDE 的子頁還沒讀）；Google 的招募流程頁（Exa 只讀到平等聲明）；[HBR: 38 Smart Questions](https://hbr.org/2022/05/38-smart-questions-to-ask-in-a-job-interview)（只讀到摘要，內文要登入）；British Council 的 You're Hired 系列（只讀到 Business English 總覽）；[ABC Business English 第 4 集：面試](https://www.abc.net.au/education/learn-english)（只在入口頁看到標題）。
+這一節 2026-10-08 補讀過一輪（由 subagent 讀、主 session 逐句核對引文），原本列為「只有入口」的 BBC、British Council You're Hired、ABC、Amazon、HBR 都已讀到正文，見上表。
 
-偏誤：政府、大學、雇主的指引教的是回答結構與題目，示範回答只有 National Careers Service 與 Tech Interview Handbook 有；專門教英文說法的教材，這一輪還沒有讀到有內容的。前兩批面試卡片只用了 The Muse 一個情境來源，屬於便利取樣。
+偏誤與缺口：語言教材全是英國與澳洲機構，沒有美式口說教材；示範回答的情境是行銷、業務、行政，帶工程內容的只有 Tech Interview Handbook。**六個來源都列了「講一次失敗」的題目，沒有一個示範怎麼回答。** 為什麼想來、強項、弱點也是題目多、示範少。前兩批面試卡片只用了 The Muse 一個情境來源，屬於便利取樣。
 
 ## 五、旅遊的實務來源
 
@@ -191,7 +196,12 @@
 
 **之前寫錯的地方：** 這一節第一版把 r/languagelearning 的 wiki 列為「讀不到」，其實是我把兩個網址一起送給 Tavily、只回來一個，就沒有再單獨送。單獨送就讀到了。PTT 精華區也是直接請求就能讀，第一版只用了板內搜尋。
 
-仍然讀不到：r/languagelearning wiki 的 guide 與 resources 兩個子頁（Tavily 單獨送也回傳空白；直接請求 403；Exa 回 SOURCE_NOT_AVAILABLE；網頁存檔的查詢介面回 429）。這兩頁才是它的學習指南與資源表本體，FAQ 多次引用它們。
+| r/languagelearning wiki 的[資源表](https://www.reddit.com/r/languagelearning/wiki/resources) | 約 37 萬字，絕大部分是各語言的資源 | 網頁存檔 2026-01-30 的快照；讀了「理論與實務」「語言交換」「English (ESL)」三節全文與全頁大綱 | **推薦書單的第一本就是 Paul Nation 的《What do you need to know to learn a foreign language?》**，說明是免費、短、著重使用內容。其他書：Krashen、Pimsleur、Fluent Forever、Babel No More（書介提到 Alexander Arguelles）等。部落格與頻道：Steve Kaufmann、Luca Lampariello、Olly Richards。語言交換列了 italki、HelloTalk、HiNative、Lang-8、My Language Exchange、The Mixxer 等 14 個。English (ESL) 一節列 British Council、English Club、Voice of America、News in Levels 等，沒有口說專用的資源 |
+| r/languagelearning wiki 的[學習指南頁](https://www.reddit.com/r/languagelearning/wiki/guide)與它指向的 [How To Learn a Foreign Language](https://mondecast.com/language-guide/introduction/)（版主 sajforbes 寫的指南） | 指南共五章公開在網站上 | wiki 頁讀存檔 2024-10-08 的快照全文（它只是導覽，內容在外部網站）；指南的 Activities 與 Resources 兩章讀了口說相關各節，其餘三章只看大綱 | 六項核心活動：跟課程學、背單字卡、學關鍵片語、大量輸入、對話練習、精讀。**學關鍵片語的做法是卡片先顯示母語、自己說出外語、確認說對才按過關**，並建議用整句、挑旅行這類實際需要的句子。對話練習被形容為最好的練習之一，但經驗豐富的學習者通常只花 0–10% 的時間在上面，因為找語伴不容易。要旅行的人建議用聽了跟著說的課程。指南全文沒有出現 shadowing。發音工具推薦 Forvo、YouGlish、Wiktionary；語言交換推薦 Tandem、HelloTalk。片語手冊「只讀不會記住，要搭配單字卡」 |
+
+**為什麼之前讀不到：** Reddit 會把沒有登入的請求導到登入頁。舊版介面（old.reddit.com）回傳的其實是登入頁，所以看起來「有回應但沒有內容」；新版介面直接請求回 403 或一個空殼；JSON 端點也一樣被擋。Tavily 偶爾讀得到（首頁與 FAQ 成功，另外兩頁回空白），Exa 直接拒絕。最後是用網頁存檔讀到的：`https://web.archive.org/web/2025/https://old.reddit.com/r/<板名>/wiki/<頁名>`，存檔保存的是舊版介面的完整內容。存檔的查詢介面當時在限流，但直接組出快照網址可以讀。另外，wiki 的「指南頁」本身只是導覽，真正的指南放在版主的個人網站，後來又搬到另一個網域，要跟著連結走兩次。
+
+**讀取 Reddit 的順序：** 先試 Tavily（單一網址）；不行就用網頁存檔的 old.reddit 快照，並記下快照日期。
 
 樣本的偏誤：GitHub 的清單偏工程師；星數高的三份都是中文寫的；Hacker News 的口說提問分數都很低，代表性有限；PTT 精華區的口說文章都是 2004–2006 年的，反映的是那時候的做法與資源。
 
@@ -202,9 +212,9 @@
 | 跟讀、跟述、跟著影片複述 | 7 | up、Programmer's Guide、兩則 Ask HN、PTT「朋友的英文突飛猛進」、PTT 精華區；up 特別提醒跟讀只是模仿，不等於能生成。**Reddit 的 FAQ 完全沒提** |
 | 自言自語、用英文思考、自問自答 | 5 | PTT 兩篇、PTT 精華區、Stack Exchange、Ask HN |
 | 錄音後和原音比較 | 4 | up、Stack Exchange、Ask HN（對鏡子）、PTT 精華區 |
-| 找真人對話並請對方糾正 | 7 | up、兩則 Ask HN、epalatov、awesome-english、Reddit FAQ、PTT 精華區（以語言交換、家教、外籍老師的形式） |
+| 找真人對話並請對方糾正 | 8 | up、兩則 Ask HN、epalatov、awesome-english、Reddit FAQ、Reddit 指南、PTT 精華區（以語言交換、家教、外籍老師的形式） |
 | 朗讀 | 3 | 兩則 Ask HN、PTT 精華區（留言有人提醒只朗讀沒有用，要配合情境） |
-| 學整句的片語、填充語 | 2 | Reddit FAQ、第一輪的 British Council India |
+| 學整句的片語、用卡片主動回想 | 3 | Reddit FAQ、Reddit 指南、第一輪的 British Council India |
 | 有間隔的重複 | 2 | Reddit FAQ、第一輪的 Paul Nation |
 | 先測現況、設定可檢查的任務 | 2 | up、Programmer's Guide |
 
@@ -216,14 +226,17 @@
 | --- | --- | --- |
 | BBC Learning English（含 The English We Speak） | 機構教材 | 3（Programmer's Guide、interaminense、Yordanov） |
 | Rachel's English | 發音教學頻道 | 2（Programmer's Guide、knowledgefxg） |
-| italki | 家教平台 | 3（epalatov、awesome-english、Reddit FAQ） |
-| Tandem | 語言交換 | 2（interaminense、awesome-english） |
+| italki | 家教平台 | 4（epalatov、awesome-english、Reddit FAQ、Reddit 資源表） |
+| Tandem | 語言交換 | 3（interaminense、awesome-english、Reddit 指南） |
+| HelloTalk | 語言交換 | 2（Reddit 資源表、Reddit 指南） |
+| YouGlish | 影片例句 | 1 份清單（Reddit 指南），本清單第二部分也用過 |
+| Paul Nation 的免費電子書 | 學習方法 | 1 份清單（Reddit 資源表，列在書單第一本） |
 | TED | 演講 | 2（awesome-english、Ask HN 2015） |
 | EnglishClub | 教學網站 | 2（epalatov、Yordanov） |
 | engVid | 教學頻道 | 2（knowledgefxg、Yordanov） |
 | English Central | 影片跟讀 | 2（interaminense、awesome-english） |
 | FluentU | 教學部落格 | 2（interaminense、Yordanov） |
-| Forvo | 發音字典 | 2（interaminense、Stack Exchange） |
+| Forvo | 發音字典 | 3（interaminense、Stack Exchange、Reddit 指南） |
 | speaking24 | 找人對話 | 2（interaminense、Yordanov） |
 | English Speaking Success | 教學頻道 | 2（knowledgefxg、awesome-english） |
 | 史嘉琳的回音法 | 台灣學者的方法 | 1 份清單（PTT），另在一篇個人經驗文出現 |
@@ -232,11 +245,12 @@
 
 ### 兩輪對照出來的事
 
-- **我第一輪點名的三個名字，在推薦清單裡幾乎沒出現。** Paul Nation 與 Alexander Arguelles 一次都沒有；Fluent in 3 Months 只在一份 55 星的清單出現一次。他們在教學研究或多語學習圈有名，不等於英語學習者實際在用。
+- **我第一輪點名的三個名字，在英語學習的資源表裡幾乎沒出現，但在語言學習板有。** GitHub 的英語資源表與 PTT 都沒有提 Paul Nation 與 Alexander Arguelles；Fluent in 3 Months 只在一份 55 星的清單出現一次。可是 Reddit 語言學習板的資源表把 Nation 那本書列在書單第一本，FAQ 也用兩節討論 Benny Lewis。**這一條我寫過一個錯的版本**：在讀到 Reddit 資源表之前，我寫成「Nation 一次都沒有出現」，那是因為當時還沒讀到最該讀的那一頁。
+- **練習區現在的做法，和 Reddit 指南的「學關鍵片語」幾乎一樣。** 指南建議卡片先顯示母語、自己說出外語、確認說對才過關，用整句、挑實際需要的情境。這是目前對練習區設計最直接的一份旁證。指南也提醒這種卡比認字卡難很多，句子要盡量簡單。
 - **社群推薦的大多是工具、頻道與平台，不是文章。** 「有名的口說練習文章」如果指大家會轉貼的單篇文章，這一輪沒有找到被兩份以上清單引用的。最接近的是 up 的口說章（單一指南的一章，但該指南有 6.7 萬星）。
 - **跟讀是重複最多的做法，但最多星的指南對它最保留。** up 明寫跟讀負責模仿、生成要靠複述與追問，和第一輪讀到的系統性回顧結論一致。
 - **台灣的脈絡裡，史嘉琳被獨立提到兩次**（PTT 一篇高推文、一篇個人經驗文），而且都是讀者自己提的，不是我搜尋她才出現。
-- **Reddit 語言學習板的 FAQ 完全沒提跟讀。** 中文世界的清單與文章幾乎都把跟讀放在第一位，這份英文社群最大的 FAQ 講的卻是對話時間、片語與發音。跟讀在華語與日語學習圈特別流行，可能不是普遍的共識；這是我的推論。
+- **Reddit 語言學習板的 FAQ 與指南都完全沒提跟讀。** 中文世界的清單與文章幾乎都把跟讀放在第一位，這份英文社群最大的 FAQ 講的卻是對話時間、片語與發音。跟讀在華語與日語學習圈特別流行，可能不是普遍的共識；這是我的推論。
 - **二十年前 PTT 精華區的做法，和現在的清單幾乎一樣**：聽有稿的短音檔、模仿、錄音比較、自言自語、找人對話。變的是工具，不是方法。
 - **r/EnglishLearning 的 wiki 沒有口說資源**，但它列的字典和本清單第二部分一致，可以當成字典選擇的旁證；它列的 OZDIC 搭配字典之前試過讀不到。
 
@@ -316,4 +330,9 @@
 | --- | --- | --- | --- |
 | 旅遊 | 2026-10-08 | Premier Skills English（餐廳、飯店、交通）、BBC Real Easy English 機場篇、VOA 四課、TeachingEnglish 與 LearnEnglish Teens 的說明頁、onestopenglish、Oxford Online English 五課、Espresso English | 教材教十一項功能，當時的 9 張旅遊卡只涵蓋「問路」一項；機場報到、飯店入住、點餐、付帳、轉機行李都沒有卡片。跨來源重複的說法：I'll have the …、I have a reservation、Shall we split the bill?、Do I have to pick up my bag in …?、There's a problem with … |
 
+| 軟體工作 | 2026-10-08 | BBC Office English 21 集、British Council 口說四課、PagerDuty 六頁；code review 四個來源沿用先前的紀錄 | 教材教的是請人幫忙、婉拒、確認理解、委婉不同意、認錯、催進度；**站立會議報進度沒有任何來源教**，而當時 12 張工作卡有 5 張落在這裡。舊卡只有 work-walkthrough 和教材幾乎同句。跨 BBC 與 British Council 重複的說法：先承認再轉折（*I see what you mean, but…*）、用不確定代替不同意（*I'm not so sure*）、先問有沒有空（*Have you got a minute?*）。完整報告：`.work/english-speaking/work-teaching-materials/research.md` |
+| 面試 | 2026-10-08 | 十一個來源：BBC 兩個系列、British Council 文章與 You're Hired、ABC、National Careers Service、MIT、Tech Interview Handbook、Amazon、Google、HBR 轉載頁 | 整理出 53 題面試題。涵蓋來源最多的功能是反問面試官（8 個）與為什麼想來（7 個）。當時 24 張面試卡完全沒涵蓋：寒暄、離職原因、想來的原因、強項、弱點、STAR 的任務、請對方重複題目、問下一步、道謝、跟進。跨來源重複：反問挑戰、典型的一天、下一步流程；proud of；good fit；背景句用 In my … job／role 開頭。完整報告：`.work/english-speaking/interview-teaching-materials/research.md` |
+
 做完新的情境對照後，在這張表加一列，並把新讀的來源補進對應的表。
+
+**用 subagent 做對照時：** 它的報告只當線索。做成卡片的每一句引文，主 session 都要重抓原頁、用完整字串比對過，才能標成原句；沒核對的要在 evidence 寫明。2026-10-08 這兩批共核對 50 多句，全部吻合。

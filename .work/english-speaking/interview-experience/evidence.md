@@ -44,3 +44,17 @@ The Muse 是商業求職網站，不是語言教材；用來支持「面試時�
 ## 範圍聲明
 
 只核對到字義與句型層級；情境層只有反問面試官兩句有求職網站示範。沒有母語者測試、沒有語料頻率查詢。句子內的經歷與數字皆為假設值。
+
+## 2026-10-08 更新：範例值換成真實內容
+
+使用者同意後，五張含範例值的卡換成去識別化的真實內容，並改用新 id（舊卡的熟悉度不沿用）：
+
+| 舊 id | 新 id | 新英文 | 內容出處 |
+| --- | --- | --- | --- |
+| interview-years | interview-experience-in | I have experience in RAG pipelines, context engineering, and agent memory systems. | 使用者履歷筆記的自述；真實年資未知，所以不講年數 |
+| interview-owned | interview-owned-memory | I was responsible for designing and building the agent's memory feature. | 記憶功能是使用者從頭做的；整個產品是既有的，不能用 build |
+| interview-result | interview-limit-cut | We reduced the attachment limit from 100 MB to 10 MB. | 使用者面試筆記：附件上限由 100 MB 收到 10 MB |
+| interview-hardest | interview-hardest-silent | The hardest part was finding a bug that produced no errors and no logs. | 使用者面試筆記：一個零錯誤、零 log 的 bug |
+| interview-since | interview-since-flag | Since then, I've always checked every place that writes a flag before I change its meaning. | 使用者面試筆記的教訓：改語意要檢查所有寫入端 |
+
+句型依據不變（OALD experience、responsible、design、reduce、part、since）。migrate、downtime、under 三個詞條不再使用。文章兩個語言版本同步更新。

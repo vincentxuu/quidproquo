@@ -108,14 +108,14 @@ Read the Chinese, say it yourself, then check the reference.
 
 1. 我負責優化公司 AI agent 產品的可靠性。
    - *I work on improving the reliability of our AI agent product.*
-2. 需求兩個月內改了三次。
-   - *The requirements changed three times in two months.*
+2. 設計前後改了五次。
+   - *The design changed five times.*
 3. 那讓團隊同意把逾時定在 180 秒。
    - *That convinced the team to set the timeout at 180 seconds.*
 4. 現在 agent 跨對話都記得使用者。
    - *Now the agent remembers users across conversations.*
-5. 我們在上線一週後才發現。
-   - *We only found out a week after the release.*
+5. 我是查了正式環境的資料才發現的。
+   - *We only found out when I checked the production data.*
 6. 這是我們路線圖上的第一件事。
    - *It's the first thing on our roadmap.*
 
