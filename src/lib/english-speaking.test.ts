@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { canRecord, canReplay, dialoguesFor, groupCheatSheet, parseProgress, resolveDialogue, scheduleReview, selectSession, speakingCards, speakingDialogues, speakingEvidence, speakingScenarios } from './english-speaking';
+import { canRecord, canReplay, dialoguesFor, fixOptions, fluencyOriginalMinutes, fluencyRounds, fluencyTopicsFor, formatClock, formatDuration, freeTalkFor, freeTalkPrompts, pickTopic, recordingFileName, secondsLeft, shadowRates, groupCheatSheet, interviewQuestionGroups, interviewQuestions, parseProgress, questionsFor, resolveDialogue, scheduleReview, selectSession, shuffleQuestions, speakingCards, speakingDialogues, speakingEvidence, speakingScenarios } from './english-speaking';
 describe('speaking practice', () => {
   it('schedules retry, tomorrow, and growing fluent intervals', () => {
     const now = 1000;
@@ -101,5 +101,128 @@ describe('speaking practice', () => {
   });
   it('keeps company and product names out of the interview role-play', () => {
     for (const dialogue of dialoguesFor(true, 'interview')) for (const turn of dialogue.turns) expect(turn.en).not.toMatch(/MaiAgent|Claude|OpenAI|Google|Anthropic|GPT/i);
+  });
+  it('keeps interview questions unique, sourced, grouped, and within the planned size', () => {
+    expect(interviewQuestions.length).toBeGreaterThanOrEqual(20);
+    expect(interviewQuestions.length).toBeLessThanOrEqual(24);
+    expect(new Set(interviewQuestions.map(question => question.id)).size).toBe(interviewQuestions.length);
+    expect(new Set(interviewQuestions.map(question => question.en)).size).toBe(interviewQuestions.length);
+    const groups: string[] = interviewQuestionGroups.map(group => group.id);
+    for (const group of groups) expect(interviewQuestions.some(question => question.group === group), group).toBe(true);
+    for (const question of interviewQuestions) {
+      expect(question.id).toMatch(/^iq-[a-z-]+$/);
+      expect(groups).toContain(question.group);
+      expect(question.en.trim()).toBe(question.en);
+      expect(question.en).not.toBe('');
+      expect(question.en).not.toContain("'");
+      expect(question.zh).not.toBe('');
+      expect(question.source.title).not.toBe('');
+      expect(question.source.url).toMatch(/^https:\/\/[a-z0-9.-]+\//);
+      expect(`${question.en} ${question.zh}`).not.toMatch(/MaiAgent|Claude|OpenAI|Google|Anthropic|GPT/i);
+      if (question.en.startsWith('Tell me about a time')) expect(question.structure).toBe('star');
+    }
+  });
+  it('points interview questions only at existing interview cards, at most four each and without repeats', () => {
+    const cards = new Map<string, typeof speakingCards[number]>(speakingCards.map(card => [card.id, card]));
+    for (const question of interviewQuestions) {
+      expect(question.answerCards.length).toBeLessThanOrEqual(4);
+      expect(new Set(question.answerCards).size).toBe(question.answerCards.length);
+      for (const id of question.answerCards) expect(cards.get(id)?.scenario, `${question.id}: ${id}`).toBe('interview');
+    }
+    expect(interviewQuestions.some(question => question.answerCards.length === 0)).toBe(true);
+  });
+  it('offers interview questions only for the interview scenario and only when the tool is on', () => {
+    expect(questionsFor(true, 'interview')).toBe(interviewQuestions);
+    expect(questionsFor(true, 'work')).toEqual([]);
+    expect(questionsFor(false, 'interview')).toEqual([]);
+  });
+  it('shuffles a round so every question appears exactly once, without changing the input', () => {
+    const ids = interviewQuestions.map(question => question.id);
+    const before = [...ids];
+    for (const random of [Math.random, () => 0, () => 0.999999]) {
+      const order = shuffleQuestions(ids, random);
+      expect(order).toHaveLength(ids.length);
+      expect([...order].sort()).toEqual([...ids].sort());
+    }
+    expect(ids).toEqual(before);
+    expect(shuffleQuestions(ids, () => 0)).not.toEqual(ids);
+    expect(shuffleQuestions([])).toEqual([]);
+  });
+  it('keeps free-talk prompts unique, open, six to eight per scenario, and free of company or product names', () => {
+    expect(new Set(freeTalkPrompts.map(prompt => prompt.id)).size).toBe(freeTalkPrompts.length);
+    expect(new Set(freeTalkPrompts.map(prompt => prompt.en)).size).toBe(freeTalkPrompts.length);
+    for (const scenario of speakingScenarios) {
+      const prompts = freeTalkFor(true, scenario.id);
+      expect(prompts.length, scenario.id).toBeGreaterThanOrEqual(6);
+      expect(prompts.length, scenario.id).toBeLessThanOrEqual(8);
+      for (const prompt of prompts) expect(prompt.id.startsWith(`ft-${scenario.id}-`), prompt.id).toBe(true);
+      expect(freeTalkFor(false, scenario.id)).toEqual([]);
+    }
+    const questions = new Set(interviewQuestions.map(question => question.en));
+    for (const prompt of freeTalkPrompts) {
+      expect(prompt.id).toMatch(/^ft-[a-z-]+$/);
+      expect(prompt.en.trim()).toBe(prompt.en);
+      expect(prompt.en).toMatch(/[.?]$/);
+      expect(prompt.en).not.toContain("'");
+      expect(prompt.zh).not.toBe('');
+      expect(prompt).not.toHaveProperty('source');
+      expect(questions.has(prompt.en)).toBe(false);
+      expect(`${prompt.en} ${prompt.zh}`).not.toMatch(/MaiAgent|Claude|OpenAI|Google|Anthropic|GPT|Copilot|Cursor|Gemini|Amazon|Meta|Microsoft/i);
+    }
+  });
+  it('shortens every fluency round, keeps three rounds, and stays below the original minutes', () => {
+    expect(fluencyRounds).toHaveLength(3);
+    expect(fluencyOriginalMinutes).toEqual([4, 3, 2]);
+    fluencyRounds.forEach((seconds, round) => {
+      expect(seconds).toBeLessThan(fluencyOriginalMinutes[round] * 60);
+      if (round) expect(seconds).toBeLessThan(fluencyRounds[round - 1]);
+    });
+  });
+  it('takes fluency topics from interview questions for interviews and from free-talk prompts elsewhere', () => {
+    expect(fluencyTopicsFor(true, 'interview')).toBe(interviewQuestions);
+    for (const scenario of speakingScenarios) {
+      expect(fluencyTopicsFor(false, scenario.id)).toEqual([]);
+      if (scenario.id !== 'interview') expect(fluencyTopicsFor(true, scenario.id)).toEqual(freeTalkFor(true, scenario.id));
+      for (const topic of fluencyTopicsFor(true, scenario.id)) expect(topic.id && topic.en && topic.zh).toBeTruthy();
+    }
+  });
+  it('picks a random topic from the list and avoids the one just practised', () => {
+    const ids = ['a', 'b', 'c'];
+    expect(pickTopic(ids, () => 0)).toBe('a');
+    expect(pickTopic(ids, () => 0.999999)).toBe('c');
+    expect(pickTopic(ids, () => 1)).toBe('c');
+    expect(pickTopic(ids, () => 0, 'a')).toBe('b');
+    for (let run = 0; run < 20; run += 1) expect(pickTopic(ids, Math.random, 'b')).not.toBe('b');
+    expect(pickTopic(['a'], () => 0.5, 'a')).toBe('a');
+    expect(pickTopic([])).toBeUndefined();
+    expect(ids).toEqual(['a', 'b', 'c']);
+  });
+  it('counts a round down to zero without going negative, and formats the time', () => {
+    expect(secondsLeft(120_000, 0)).toBe(120);
+    expect(secondsLeft(120_000, 1)).toBe(120);
+    expect(secondsLeft(120_000, 119_001)).toBe(1);
+    expect(secondsLeft(120_000, 120_000)).toBe(0);
+    expect(secondsLeft(120_000, 500_000)).toBe(0);
+    expect(formatClock(120)).toBe('2:00');
+    expect(formatClock(90)).toBe('1:30');
+    expect(formatClock(9)).toBe('0:09');
+    expect(formatClock(-3)).toBe('0:00');
+    expect(fluencyRounds.map(formatDuration)).toEqual(['2 分鐘', '1 分 30 秒', '1 分鐘']);
+    expect(formatDuration(45)).toBe('45 秒');
+  });
+  it('names a downloaded recording by local date and prompt id, with an extension matching the recording', () => {
+    const date = new Date(2026, 9, 8, 23, 30);
+    expect(recordingFileName('ft-travel-dream-trip', date, 'audio/webm;codecs=opus')).toBe('speaking-2026-10-08-ft-travel-dream-trip.webm');
+    expect(recordingFileName('ft-work-blocked', new Date(2027, 0, 5), 'audio/mp4')).toBe('speaking-2027-01-05-ft-work-blocked.m4a');
+    expect(recordingFileName('ft-daily-lately', date, 'audio/ogg')).toMatch(/\.ogg$/);
+    expect(recordingFileName('ft-daily-lately', date)).toMatch(/\.webm$/);
+    expect(recordingFileName('../a b', date)).toBe('speaking-2026-10-08-ab.webm');
+    expect(recordingFileName('', date)).toBe('speaking-2026-10-08-recording.webm');
+  });
+  it('offers three speech rates up to normal speed and fix options with unique ids', () => {
+    expect(shadowRates).toEqual([0.7, 0.85, 1]);
+    expect(new Set(fixOptions.map(option => option.id)).size).toBe(fixOptions.length);
+    expect(fixOptions.length).toBeGreaterThanOrEqual(3);
+    for (const option of fixOptions) expect(option.label && option.tip).toBeTruthy();
   });
 });

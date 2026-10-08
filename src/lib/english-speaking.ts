@@ -446,3 +446,146 @@ export function resolveDialogue(enabled: boolean, scenario: SpeakingScenario, id
   const available = dialoguesFor(enabled, scenario);
   return available.find(dialogue => dialogue.id === id) ?? available[0];
 }
+type InterviewCardId = Extract<typeof speakingCards[number], { scenario: 'interview' }>['id'];
+export const interviewQuestionGroups = [
+  { id: 'intro', title: '自我介紹與現職' },
+  { id: 'motivation', title: '動機' },
+  { id: 'strengths', title: '強項與弱點' },
+  { id: 'project', title: '專案與成就' },
+  { id: 'difficulty', title: '困難與 bug' },
+  { id: 'failure', title: '失敗與失誤' },
+  { id: 'teamwork', title: '衝突與合作' },
+  { id: 'closing', title: '結尾' },
+] as const;
+export type InterviewQuestion = {
+  id: string;
+  group: typeof interviewQuestionGroups[number]['id'];
+  /** The interviewer's question, copied word for word from the source page (only straight apostrophes are changed to ’). */
+  en: string;
+  zh: string;
+  source: { title: string; url: string };
+  /** Existing interview cards the learner can draw on. Never a model answer; empty when no card really fits. */
+  answerCards: readonly InterviewCardId[];
+  structure?: 'star';
+};
+const tihQuestions = { title: 'Tech Interview Handbook：Behavioral interview questions', url: 'https://www.techinterviewhandbook.org/behavioral-interview-questions/' };
+const mitStar = { title: 'MIT CAPD：Using the STAR method for your next behavioral interview', url: 'https://capd.mit.edu/resources/the-star-method-for-behavioral-interviews/' };
+const amazonLoop = { title: 'Amazon：Interview loop（題目在頁面的收合區塊裡）', url: 'https://amazon.jobs/content/en/how-we-hire/interview-loop' };
+export const interviewQuestions: readonly InterviewQuestion[] = [
+  { id: 'iq-about-yourself', group: 'intro', en: 'Tell me about yourself.', zh: '面試官請你介紹自己。', source: tihQuestions, answerCards: ['interview-optimize', 'interview-areas', 'interview-experience-in', 'interview-current'] },
+  { id: 'iq-experience', group: 'intro', en: 'Can you tell me a bit about your experience?', zh: '面試官請你談談自己的經歷。', source: abcInterviews, answerCards: ['interview-experience-in', 'interview-areas', 'interview-responsible-for'] },
+  { id: 'iq-current-project', group: 'intro', en: 'What project are you currently working on?', zh: '面試官問你現在在做什麼專案。', source: tihQuestions, answerCards: ['interview-optimize', 'interview-responsible-for', 'interview-areas'] },
+  { id: 'iq-why-this-job', group: 'motivation', en: 'Why do you want this job?', zh: '面試官問你為什麼想要這份工作。', source: bcInterviewArticle, answerCards: ['interview-new-challenge'] },
+  { id: 'iq-why-company', group: 'motivation', en: 'Why do you want to work for X company?', zh: '面試官問你為什麼想來這家公司。題目裡的 X company 是來源的佔位字。', source: tihQuestions, answerCards: [] },
+  { id: 'iq-why-leave', group: 'motivation', en: 'Why did you leave your last job?', zh: '面試官問你為什麼離開上一份工作。', source: bcInterviewArticle, answerCards: ['interview-new-challenge'] },
+  { id: 'iq-bring-to-role', group: 'strengths', en: 'What can you bring to this role?', zh: '面試官問你能為這個職位帶來什麼。', source: bcInterviewArticle, answerCards: ['interview-experience-in', 'interview-responsible-for'] },
+  { id: 'iq-strengths-weaknesses', group: 'strengths', en: 'What are your strengths and weaknesses?', zh: '面試官問你的強項和弱點。', source: bcInterviewArticle, answerCards: [] },
+  { id: 'iq-proud-project', group: 'project', en: 'What is a project that you are most proud of?', zh: '面試官請你講一個最自豪的專案。', source: mitStar, answerCards: ['interview-most-proud', 'interview-star-situation', 'interview-forgot', 'interview-owned-memory'], structure: 'star' },
+  { id: 'iq-recent-project', group: 'project', en: 'Explain a project that you worked on recently.', zh: '面試官請你說明最近做的一個專案。', source: tihQuestions, answerCards: ['interview-star-task', 'interview-slow-file', 'interview-prod-data', 'interview-limit-cut'] },
+  { id: 'iq-data-decision', group: 'project', en: 'How have you used data to develop a strategy or make a decision?', zh: '面試官問你怎麼用資料訂策略或做決定。', source: amazonLoop, answerCards: ['interview-prod-data', 'interview-slow-file', 'interview-disagree', 'interview-star-result'] },
+  { id: 'iq-challenging-aspect', group: 'difficulty', en: 'What is the most challenging aspect of your current project?', zh: '面試官問你目前的專案最有挑戰的部分是什麼。', source: tihQuestions, answerCards: ['interview-changed', 'interview-hardest-silent', 'interview-honest'] },
+  { id: 'iq-difficult-bug', group: 'difficulty', en: 'What was the most difficult bug that you fixed in the past 6 months?', zh: '面試官問你過去半年修過最難的 bug。', source: tihQuestions, answerCards: ['interview-hardest-silent', 'interview-silent', 'interview-debug-data'] },
+  { id: 'iq-problem-at-work', group: 'difficulty', en: 'Give me an example of when you faced a problem at work. How did you handle it?', zh: '面試官請你舉一個工作上遇到問題的例子，並說明你怎麼處理。', source: ncsStar, answerCards: ['interview-star-task', 'interview-slow-file', 'interview-prod-data', 'interview-star-result'], structure: 'star' },
+  { id: 'iq-failed', group: 'failure', en: 'Tell me about a time you failed.', zh: '面試官請你講一次失敗的經驗。', source: mitStar, answerCards: ['interview-flag', 'interview-found-late', 'interview-underestimate', 'interview-since-flag'], structure: 'star' },
+  { id: 'iq-risk-mistake', group: 'failure', en: 'Describe a time when you took a risk, made a mistake, or failed. What happened, and what did you learn from it?', zh: '面試官請你講一次冒險、犯錯或失敗的經驗：發生了什麼事，你學到什麼。', source: amazonLoop, answerCards: ['interview-flag', 'interview-found-late', 'interview-since-flag'], structure: 'star' },
+  { id: 'iq-done-differently', group: 'failure', en: 'Tell me a situation where you would have done something differently from what you actually did.', zh: '面試官請你講一件現在回頭看、會換個做法的事。', source: tihQuestions, answerCards: ['interview-underestimate', 'interview-flag', 'interview-since-flag'], structure: 'star' },
+  { id: 'iq-conflict-coworker', group: 'teamwork', en: 'Tell me about a time when you had a conflict with a co-worker.', zh: '面試官請你講一次和同事意見衝突的經驗。', source: tihQuestions, answerCards: ['interview-disagree', 'interview-prod-data', 'interview-star-result'], structure: 'star' },
+  { id: 'iq-conflict-influence', group: 'teamwork', en: 'Tell me about a time in which you had a conflict and needed to influence somebody else.', zh: '面試官請你講一次有衝突、而且需要說服別人的經驗。', source: tihQuestions, answerCards: ['interview-disagree', 'interview-prod-data', 'interview-slow-file'], structure: 'star' },
+  { id: 'iq-difference-of-opinion', group: 'teamwork', en: 'Give me an example of a time when you had a difference of opinion with a team member. How did you handle that?', zh: '面試官請你舉一次和團隊成員看法不同的例子，並說明你怎麼處理。', source: tihQuestions, answerCards: ['interview-disagree', 'interview-prod-data', 'interview-limit-cut'], structure: 'star' },
+  { id: 'iq-team-project', group: 'teamwork', en: 'Tell me about a time when you worked as part of a team to successfully execute a project.', zh: '面試官請你講一次和團隊一起把專案做成的經驗。', source: mitStar, answerCards: ['interview-star-situation', 'interview-owned-memory'], structure: 'star' },
+  { id: 'iq-unresponsive', group: 'teamwork', en: 'Tell me about a time you needed information from someone who wasn’t responsive. What did you do?', zh: '面試官請你講一次需要某個人提供資訊、對方卻遲遲不回應的經驗，以及你怎麼做。', source: tihQuestions, answerCards: [], structure: 'star' },
+  { id: 'iq-questions-for-us', group: 'closing', en: 'Do you have any questions for us?', zh: '面試官問你有沒有問題要問他們。', source: youreHired5, answerCards: ['interview-ask-problem', 'interview-ask-challenges', 'interview-ask-team', 'interview-ask-goals'] },
+  { id: 'iq-salary', group: 'closing', en: 'What are your salary expectations?', zh: '面試官問你期望的薪資。', source: tihQuestions, answerCards: [] },
+];
+/** Interview questions offered for one scenario: only the interview scenario has them, and none when the tool is switched off. */
+export function questionsFor(enabled: boolean, scenario: SpeakingScenario) { return enabled && scenario === 'interview' ? interviewQuestions : []; }
+/** One round of question practice: every id exactly once, in random order. */
+export function shuffleQuestions(ids: readonly string[], random: () => number = Math.random) {
+  const order = [...ids];
+  for (let last = order.length - 1; last > 0; last -= 1) { const pick = Math.floor(random() * (last + 1)); [order[last], order[pick]] = [order[pick], order[last]]; }
+  return order;
+}
+export type FreeTalkPrompt = { id: string; scenario: SpeakingScenario; zh: string; en: string };
+/** Open prompts for speaking without a reference sentence. Written for this practice area: they are not quotations and carry no source. */
+export const freeTalkPrompts: readonly FreeTalkPrompt[] = [
+  { id: 'ft-travel-dream-trip', scenario: 'travel', zh: '講一趟你想去的旅行：想去哪裡、想在那裡做什麼。', en: 'Tell me about a trip you’d like to take. Where would you go, and what would you do there?' },
+  { id: 'ft-travel-get-ready', scenario: 'travel', zh: '說明你出發前怎麼準備：帶什麼、出門前確認什麼。', en: 'How do you get ready for a trip? Walk me through what you pack and what you check before you leave.' },
+  { id: 'ft-travel-missed-connection', scenario: 'travel', zh: '班機延誤，可能趕不上轉機。說說你會怎麼處理、會去問誰。', en: 'Your flight is delayed and you might miss your connection. What would you do, and who would you ask for help?' },
+  { id: 'ft-travel-room-problem', scenario: 'travel', zh: '剛到飯店，發現房間有問題。向櫃檯說明狀況，以及你希望他們怎麼處理。', en: 'You’ve just arrived at your hotel and something is wrong with the room. Explain the problem and what you’d like the staff to do.' },
+  { id: 'ft-travel-where-to-eat', scenario: 'travel', zh: '到了一個沒去過的地方，你怎麼決定去哪裡吃、吃什麼？', en: 'How do you decide where to eat and what to order when you’re in a new place?' },
+  { id: 'ft-travel-give-directions', scenario: 'travel', zh: '有旅客問路。說明從最近的車站怎麼走到你常去的一個地方。', en: 'A visitor asks you for directions. Explain how to get from the nearest station to a place you often go.' },
+  { id: 'ft-surf-conditions', scenario: 'surf', zh: '描述你喜歡在什麼樣的浪和天氣下水，以及為什麼。', en: 'Describe the kind of waves and conditions you like to surf in, and explain why.' },
+  { id: 'ft-surf-new-spot', scenario: 'surf', zh: '第一次到一個浪點。下水前你會問當地人哪些事？', en: 'You’re at a surf spot for the first time. What would you ask a local before you paddle out?' },
+  { id: 'ft-surf-before-water', scenario: 'surf', zh: '下水前你會先看哪些事？什麼情況下你會決定今天不下水？', en: 'What do you check before you get in the water, and when would you decide not to go out?' },
+  { id: 'ft-surf-lineup-rules', scenario: 'surf', zh: '向沒衝過浪的人說明在等浪區要注意的規矩。', en: 'How would you explain the rules of the lineup to someone who has never surfed?' },
+  { id: 'ft-surf-board', scenario: 'surf', zh: '描述你現在用的板子，或下一塊想試的板子，並說明原因。', en: 'Describe the board you ride, or the board you’d like to try next, and say why.' },
+  { id: 'ft-surf-after-session', scenario: 'surf', zh: '剛上岸，朋友問今天的浪怎麼樣。講講浪況和你這一趟的狀況。', en: 'You’ve just come out of the water and a friend asks how it was. Describe the waves and how your session went.' },
+  { id: 'ft-climbing-what-you-enjoy', scenario: 'climbing', zh: '你最喜歡哪一種攀岩？喜歡它的什麼？', en: 'What kind of climbing do you enjoy most, and what do you like about it?' },
+  { id: 'ft-climbing-new-partner', scenario: 'climbing', zh: '第一次和新繩伴一起爬。開始前你想先講好哪些事？', en: 'You’re climbing with a new partner for the first time. What would you want to agree on before you start?' },
+  { id: 'ft-climbing-hard-part', scenario: 'climbing', zh: '描述一條你正在練的路線或抱石題：哪一段難、你試過什麼方法。', en: 'Describe a route or a boulder problem you’re working on. Which part is hard, and what have you tried?' },
+  { id: 'ft-climbing-gear', scenario: 'climbing', zh: '說明爬一天要帶哪些裝備，每一樣是做什麼用的。', en: 'Explain what gear you’d bring for a day of climbing, and what each piece is for.' },
+  { id: 'ft-climbing-safety-checks', scenario: 'climbing', zh: '向初學者說明起攀前要做的安全檢查。', en: 'How would you explain the safety checks before a climb to a beginner?' },
+  { id: 'ft-climbing-new-place', scenario: 'climbing', zh: '到一個不熟的岩場或岩館。你會問工作人員或當地岩友哪些事？', en: 'You’re visiting a crag or a gym you don’t know. What would you ask the staff or the local climbers?' },
+  { id: 'ft-work-this-week', scenario: 'work', zh: '向不同團隊的人說明你這週在做什麼。', en: 'Explain what you’re working on this week to someone who isn’t on your team.' },
+  { id: 'ft-work-blocked', scenario: 'work', zh: '你的工作卡住了。說明你試過什麼，以及需要同事幫什麼。', en: 'You’re blocked on a task. Explain what you’ve tried so far and what you need from a teammate.' },
+  { id: 'ft-work-trade-off', scenario: 'work', zh: '描述一個需要取捨的技術決定：有哪些選項、你會怎麼選。', en: 'Describe a technical decision that involves a trade-off. What are the options, and how would you choose?' },
+  { id: 'ft-work-track-down-bug', scenario: 'work', zh: '一開始重現不出來的 bug，你通常怎麼一步一步找？', en: 'Walk me through how you track down a bug that you can’t reproduce at first.' },
+  { id: 'ft-work-code-review', scenario: 'work', zh: '你看別人的程式碼時會注意什麼？有不同意見時怎麼提出來？', en: 'What do you look for when you review someone else’s code, and how do you raise something you disagree with?' },
+  { id: 'ft-work-running-late', scenario: 'work', zh: '一項工作會比你估的時間久。你會怎麼跟團隊說？', en: 'A task is going to take longer than you estimated. How would you tell your team?' },
+  { id: 'ft-work-ai-tools', scenario: 'work', zh: 'AI 工具在你寫程式的流程裡扮演什麼角色？哪些交給它、哪些自己檢查？', en: 'How do AI tools fit into the way you write software? What do you leave to them, and what do you check yourself?' },
+  { id: 'ft-daily-weekend', scenario: 'daily', zh: '上個週末做了什麼，或下個週末打算做什麼？', en: 'What did you do last weekend, or what are you planning for the next one?' },
+  { id: 'ft-daily-lately', scenario: 'daily', zh: '最近在忙什麼？講一件這陣子佔掉你不少時間的事。', en: 'What have you been up to lately? Talk about something that’s taking up your time these days.' },
+  { id: 'ft-daily-for-fun', scenario: 'daily', zh: '講一件你平常會做的休閒活動，以及當初怎麼開始的。', en: 'Talk about something you do for fun. How did you get into it?' },
+  { id: 'ft-daily-neighborhood', scenario: 'daily', zh: '描述你住的那一帶：喜歡什麼、希望哪裡不一樣。', en: 'Describe the area where you live. What do you like about it, and what would you change?' },
+  { id: 'ft-daily-meet-up', scenario: 'daily', zh: '你想約朋友下週見面。提一個時間和地點，並說說想一起做什麼。', en: 'You want to meet a friend next week. Suggest a time and a place, and say what you’d like to do.' },
+  { id: 'ft-daily-recommend', scenario: 'daily', zh: '推薦一部電影、一本書或一家吃飯的地方，並說明為什麼值得。', en: 'Recommend a film, a book, or a place to eat, and say why you think someone would like it.' },
+  { id: 'ft-interview-typical-day', scenario: 'interview', zh: '說明你目前或最近一份工作裡，平常的一天怎麼過。', en: 'Walk me through a typical working day in your current or most recent role.' },
+  { id: 'ft-interview-learn-new-tech', scenario: 'interview', zh: '遇到沒用過的技術，你通常怎麼開始學？', en: 'How do you go about learning a technology you haven’t used before?' },
+  { id: 'ft-interview-good-team', scenario: 'interview', zh: '你心目中好的工程團隊是什麼樣子？', en: 'What does a good engineering team look like to you?' },
+  { id: 'ft-interview-explain-concept', scenario: 'interview', zh: '挑一個你很熟的技術概念，講給不是工程師的人聽。', en: 'Pick a technical concept you know well and explain it to someone who isn’t an engineer.' },
+  { id: 'ft-interview-next-role', scenario: 'interview', zh: '你希望下一份工作有什麼？什麼情況會讓你拒絕一個工作機會？', en: 'What are you looking for in your next role, and what would make you turn an offer down?' },
+  { id: 'ft-interview-feedback', scenario: 'interview', zh: '你希望別人怎麼給你回饋？你又怎麼給別人回饋？', en: 'How do you like to receive feedback, and how do you give it to others?' },
+];
+/** Free-talk prompts for one scenario; none when the tool is switched off. */
+export function freeTalkFor(enabled: boolean, scenario: SpeakingScenario) { return enabled ? freeTalkPrompts.filter(prompt => prompt.scenario === scenario) : []; }
+/** Seconds per round of the fluency drill. Shorter than the 4/3/2 minutes it is modelled on, so it fits a daily session. */
+export const fluencyRounds = [120, 90, 60] as const;
+/** Minutes per round in the 4/3/2 activity as Paul Nation describes it, shown next to the shortened rounds. */
+export const fluencyOriginalMinutes = [4, 3, 2] as const;
+export type FluencyTopic = { id: string; zh: string; en: string };
+/** Topics for the fluency drill: interview questions in the interview scenario, the free-talk prompts everywhere else. It only reads the data, so it does not depend on the other tools' switches. */
+export function fluencyTopicsFor(enabled: boolean, scenario: SpeakingScenario): readonly FluencyTopic[] {
+  if (!enabled) return [];
+  return scenario === 'interview' ? interviewQuestions : freeTalkPrompts.filter(prompt => prompt.scenario === scenario);
+}
+/** A random topic id, never the one just practised when there is another to offer. */
+export function pickTopic(ids: readonly string[], random: () => number = Math.random, exclude?: string) {
+  const pool = ids.length > 1 ? ids.filter(id => id !== exclude) : ids;
+  return pool[Math.min(pool.length - 1, Math.floor(random() * pool.length))];
+}
+/** Whole seconds left until `endsAt`, rounded up so the display reaches 0 only when the time is really over. */
+export function secondsLeft(endsAt: number, now: number) { return Math.max(0, Math.ceil((endsAt - now) / 1000)); }
+/** 90 → "1:30", for the visible countdown. */
+export function formatClock(seconds: number) { const whole = Math.max(0, Math.round(seconds)); return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, '0')}`; }
+/** 90 → "1 分 30 秒", 120 → "2 分鐘", 45 → "45 秒". */
+export function formatDuration(seconds: number) {
+  const minutes = Math.floor(seconds / 60), rest = seconds % 60;
+  return !minutes ? `${rest} 秒` : rest ? `${minutes} 分 ${rest} 秒` : `${minutes} 分鐘`;
+}
+/** File name for a recording the learner chooses to download: local date, prompt id, and an extension matching what the browser recorded. */
+export function recordingFileName(promptId: string, date: Date, mimeType = '') {
+  const extension = /mp4|aac|m4a/.test(mimeType) ? 'm4a' : /ogg/.test(mimeType) ? 'ogg' : /wav/.test(mimeType) ? 'wav' : 'webm';
+  const pad = (value: number) => String(value).padStart(2, '0');
+  const safeId = promptId.replace(/[^a-z0-9-]/gi, '') || 'recording';
+  return `speaking-${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}-${safeId}.${extension}`;
+}
+/** Speech rates offered for shadowing and echo practice (SpeechSynthesisUtterance.rate). */
+export const shadowRates = [0.7, 0.85, 1] as const;
+/** What a learner can choose to fix before saying a sentence once more. Nothing here is stored or scored. */
+export const fixOptions = [
+  { id: 'missing', label: '漏了字或詞尾', tip: '對照參考說法，找出漏掉的那個字或詞尾（例如 -s、-ed），再說一次時把它說出來。' },
+  { id: 'order', label: '字的順序不對', tip: '先看一次參考說法的順序，再移開視線說一次。' },
+  { id: 'sound', label: '有個字不會唸', tip: '按「播放英文」聽那個字，單獨唸兩次，再放回整句說一次。' },
+  { id: 'pause', label: '中間停太久', tip: '找出卡住的位置，從它前面幾個字開始接著說，順了再說完整句。' },
+  { id: 'meaning', label: '意思沒講完整', tip: '想一下少講了哪一部分，再說一次時把它補上。' },
+] as const;
