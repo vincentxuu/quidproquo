@@ -1,5 +1,5 @@
 export const speakingScenarios = [
-  { id: 'travel', title: '旅遊', subtitle: '地點與移動' },
+  { id: 'travel', title: '旅遊', subtitle: '問路、機場、住宿與用餐' },
   { id: 'surf', title: '衝浪', subtitle: '看浪況、問下水位置' },
   { id: 'climbing', title: '攀岩', subtitle: '問岩場、租裝備、找繩伴' },
   { id: 'work', title: '工作', subtitle: '軟體與 AI 開發協作' },
@@ -90,6 +90,22 @@ export const speakingCards = [
   { id: 'interview-flag', scenario: 'interview', family: 'interview', context: '面試官問你最大的失誤。', zh: '我改了旗標的語意，卻沒有同步前端。', en: 'I changed the meaning of a flag but didn’t update the frontend.', swap: '講教訓：Now I check every place that writes the flag, not only the places that read it.' },
   { id: 'interview-found-late', scenario: 'interview', family: 'interview', context: '你說明那次失誤多久後才被發現。', zh: '我們在合併兩個月後才發現。', en: 'We only found out two months after the merge.', swap: '換成上線後：We only found out a week after the release.' },
   { id: 'interview-honest', scenario: 'interview', family: 'interview', context: '面試官問到你還沒做好的部分。', zh: '老實說，這部分我們還沒有系統性的評估。', en: 'To be honest, we don’t have a systematic evaluation for this yet.', swap: '補上計畫：It’s the first thing on our roadmap.' },
+  { id: 'travel-checkin-bag', scenario: 'travel', family: 'airport', context: '機場報到櫃檯，地勤問你有沒有行李要託運。', zh: '我有一件行李要託運。', en: 'I have one bag to check in.', swap: '沒有託運行李：I don’t have any bags to check in.' },
+  { id: 'travel-seat', scenario: 'travel', family: 'airport', context: '地勤問你要靠窗還是靠走道的座位。', zh: '請給我靠走道的座位。', en: 'An aisle seat, please.', swap: '換成靠窗：A window seat, please.' },
+  { id: 'travel-transfer-bag', scenario: 'travel', family: 'airport', context: '你要在曼谷轉機，想確認行李會不會直掛到目的地。', zh: '我需要在曼谷領行李嗎？', en: 'Do I have to pick up my bag in Bangkok?', swap: '換成首爾：Do I have to pick up my bag in Seoul?' },
+  { id: 'travel-on-time', scenario: 'travel', family: 'airport', context: '你在櫃檯想確認班機有沒有延誤。', zh: '這班飛機準時嗎？', en: 'Is the flight on time?', swap: '問登機門：Which gate does it leave from?' },
+  { id: 'travel-reservation', scenario: 'travel', family: 'hotel', context: '你到飯店櫃檯辦理入住。', zh: '我有訂房，訂了三個晚上。', en: 'I have a reservation for three nights.', swap: '報上名字：I have a reservation. The name’s Vincent.' },
+  { id: 'travel-room-problem', scenario: 'travel', family: 'hotel', context: '房間的冷氣壞了，你打電話到櫃檯。', zh: '不好意思，我房間的冷氣有問題。', en: 'I’m afraid there’s a problem with the air conditioning in my room.', swap: '換成蓮蓬頭：I’m afraid there’s a problem with the shower in my room.' },
+  { id: 'travel-bite', scenario: 'travel', family: 'hotel', context: '你很晚才到飯店，想問櫃檯哪裡還能吃東西。', zh: '附近有地方可以吃點東西嗎？', en: 'Is there anywhere I could get a bite to eat?', swap: '換成買水：Is there anywhere I could buy some water?' },
+  { id: 'travel-shuttle', scenario: 'travel', family: 'hotel', context: '你隔天一早要去機場，想問飯店有沒有接駁車。', zh: '你們有到機場的接駁車嗎？', en: 'Do you offer a shuttle service to the airport?', swap: '換成洗衣：Do you offer a laundry service?' },
+  { id: 'travel-order', scenario: 'travel', family: 'restaurant', context: '服務生來點餐，你決定好了。', zh: '我要雞肉。', en: 'I’ll have the chicken.', swap: '換成牛肉：I’ll have the beef.' },
+  { id: 'travel-sold-out', scenario: 'travel', family: 'restaurant', context: '店員說雞肉賣完了，你改點別的。', zh: '好，那我改點牛肉。', en: 'Okay, I’ll have the beef then.', swap: '換成魚：Okay, I’ll have the fish then.' },
+  { id: 'travel-comes-with', scenario: 'travel', family: 'restaurant', context: '你想知道這道主餐有附什麼配菜。', zh: '這個有附什麼？', en: 'What does it come with?', swap: '問有沒有附飯：Does it come with rice?' },
+  { id: 'travel-dairy', scenario: 'travel', family: 'restaurant', context: '你有飲食限制，想確認一道菜的成分。', zh: '這道菜裡面有奶製品嗎？', en: 'Does it have any dairy products in it?', swap: '換成花生：Does it have any peanuts in it?' },
+  { id: 'travel-split', scenario: 'travel', family: 'restaurant', context: '和朋友吃完飯，帳單來了。', zh: '我們平分帳單好嗎？', en: 'Shall we split the bill?', swap: '說這次我請：I’ll get this.' },
+  { id: 'travel-service', scenario: 'travel', family: 'restaurant', context: '你看著帳單，不確定要不要另外給小費。', zh: '服務費有包含在裡面嗎？', en: 'Is service included?', swap: '問早餐：Is breakfast included?' },
+  { id: 'travel-which-way', scenario: 'travel', family: 'transport', context: '你在街上向路人問方向。', zh: '請問車站往哪個方向？', en: 'Could you tell me which way the station is?', swap: '換成碼頭：Could you tell me which way the pier is?' },
+  { id: 'travel-exact-fare', scenario: 'travel', family: 'transport', context: '你上公車要付現金，手上只有大鈔。', zh: '車資需要剛好的零錢嗎？', en: 'Do I need the exact fare?', swap: '問能不能刷卡：Can I pay by card?' },
 ] as const;
 export type SpeakingEvidence = {
   expression: 'direct' | 'adapted';
@@ -127,6 +143,18 @@ const mpRailay = { title: 'Mountain Project：Railay／Tonsai（岩栓警告）'
 const mpGozen = { title: 'Mountain Project：Gozen-iwa（登記與費用）', url: 'https://www.mountainproject.com/area/120393050/gozen-iwa' };
 const commandNote = 'REI 提醒：離開地面前要先和繩伴約好口令；聽不清楚時加上對方名字。各地、各岩館用法可能不同，這張卡只練說法，不能取代你和繩伴的確認。';
 const adapted = (sources: SpeakingEvidence['sources'], support: string, usageNote?: string): SpeakingEvidence => ({ expression: 'adapted', sources, support, usageNote });
+const premierRestaurants = { title: 'British Council × Premier League：Travel & Tourism: Restaurants', url: 'https://premierleague.britishcouncil.org/english/podcasts/travel-and-tourism/travel-tourism-restaurants' };
+const premierHotels = { title: 'British Council × Premier League：Travel & Tourism: Hotels', url: 'https://premierleague.britishcouncil.org/english/podcasts/travel-and-tourism/travel-tourism-hotels' };
+const premierTransport = { title: 'British Council × Premier League：Travel & Tourism: Transport', url: 'https://premierleague.britishcouncil.org/english/podcasts/travel-and-tourism/travel-tourism-transport' };
+const voaLesson23 = { title: 'VOA Let’s Learn English 第 23 課：What Do You Want?', url: 'https://learningenglish.voanews.com/a/lets-learn-english-lesson-23-what-do-you-want/3413753.html' };
+const stateDialogs = { title: '美國國務院：Dialogs for Everyday Use', url: 'https://americanenglish.state.gov/resources/dialogs-everyday-use' };
+const ooeCheckin = { title: 'Oxford Online English（語言學校）：Checking In At The Airport', url: 'https://www.oxfordonlineenglish.com/checking-in-airport' };
+const ooeHotel = { title: 'Oxford Online English（語言學校）：Hotel English', url: 'https://www.oxfordonlineenglish.com/hotel-english' };
+const ooeOrdering = { title: 'Oxford Online English（語言學校）：Ordering in a Restaurant', url: 'https://www.oxfordonlineenglish.com/ordering-in-a-restaurant-listening-lesson-b1-b2' };
+const ooeBill = { title: 'Oxford Online English（語言學校）：Paying a Restaurant Bill', url: 'https://www.oxfordonlineenglish.com/paying-a-restaurant-bill-listening-lesson-a2' };
+const espressoAirport = { title: 'Espresso English（個人教師網站）：Airport English', url: 'https://www.espressoenglish.net/travel-english-conversations-in-the-airport/' };
+const onestopCheckin = { title: 'onestopenglish（Macmillan）：報到流程教案', url: 'https://www.onestopenglish.com/download?ac=20999' };
+const direct = (sources: SpeakingEvidence['sources'], support: string, usageNote?: string): SpeakingEvidence => ({ expression: 'direct', sources, support, usageNote });
 export const speakingEvidence: Record<typeof speakingCards[number]['id'], SpeakingEvidence> = {
   map: adapted([haveSource, hereSource], '來源支持 have 表示持有、here 表示說話者所在地；地圖與筆的例句依此改寫。'),
   'ticket-present': adapted([hereSource, haveSource], '來源示範 Here’s + 物品，以及找到物品時的 Here it is；票與護照是改寫例句。', '這裡是在出示票，可以說 Here’s my ticket / Here is my ticket。剛找到票時可說 Here it is!；交給對方時可說 Here you are。My ticket is here 強調位置，I have my ticket here 強調自己持有票。'),
@@ -210,6 +238,22 @@ export const speakingEvidence: Record<typeof speakingCards[number]['id'], Speaki
   'interview-flag': adapted([oald('meaning', 'meaning'), oald('update_1', 'update')], '字典有 What’s the meaning of this word?、It’s about time we updated our software；flag 的軟體用法字典沒有收。整句是改寫。', 'but 後面的 didn’t 也是過去式。'),
   'interview-found-late': adapted([oald('find_1', 'find out'), oald('only_2', 'only')], '字典列出 find out (about something)；merge 的軟體用法字典只有「合併」的一般義。整句是改寫。', 'only 放在動詞前，表示「直到那時才」是自己的套用。'),
   'interview-honest': adapted([oald('honest', 'honest'), oald('yet_1', 'yet'), oald('systematic', 'systematic'), oald('evaluation', 'evaluation')], '字典有 To be honest, it was one of the worst books I’ve ever read、I haven’t received a letter from him yet、a systematic approach；整句是組合改寫。', 'yet 放在否定句的句尾。'),
+  'travel-checkin-bag': adapted([ooeCheckin, onestopCheckin, espressoAirport], '三份教材都教報到時的行李問答：How many bags will you be checking in?（Oxford Online English）、Are you checking in any bags?（onestopenglish）、How many bags can I check?（Espresso English）。這張卡是旅客的回答，依這些問句改寫。', 'check in 可以接行李；美式也說 check a bag。'),
+  'travel-seat': adapted([onestopCheckin], '教材列出地勤會問的 Would you like a window seat or an aisle seat?；這張卡是旅客的回答，自行組成。', '直接說座位加 please 就可以。'),
+  'travel-transfer-bag': { ...adapted([ooeCheckin, espressoAirport], 'Oxford Online English 的對話有 do I have to pick up my bag in Dubai?；Espresso English 有 Will my luggage go straight through, or do I need to pick it up in [Chicago]?。這張卡只換了城市。', '對方可能回答 It’s checked through（直掛到目的地）。'), alternatives: [{ en: 'Will my luggage go straight through?', when: '同一情境，換個問法；Espresso English 的說法' }] },
+  'travel-on-time': direct([espressoAirport], 'Espresso English 原句：Is the flight on time?，並說明對方會回答 Yes 或 There’s a 20-minute delay。只有這一份來源，而且是個人教師網站。'),
+  'travel-reservation': { ...adapted([premierHotels, ooeHotel], 'British Council 的角色扮演有 We have a reservation for five nights；Oxford Online English 有 I have a reservation; the name’s Sarah Banks。這張卡把主詞與天數換掉。'), alternatives: [{ en: 'I have a reservation. The name’s Vincent.', when: '同一情境，直接報名字；依 Oxford Online English 的說法' }] },
+  'travel-room-problem': { ...adapted([premierHotels, ooeHotel], 'British Council 的角色扮演有 I’m afraid there is a problem with my TV；Oxford Online English 教 There’s an issue with the sink in the bathroom。這張卡把東西換成冷氣。', 'I’m afraid 讓抱怨比較委婉。'), alternatives: [{ en: 'There’s an issue with the air conditioning in my room.', when: '同一情境；Oxford Online English 的說法' }] },
+  'travel-bite': direct([premierHotels], 'British Council 的角色扮演原句：Is there anywhere we could get a bite to eat?。這張卡只把 we 換成 I。', 'a bite to eat 是口語，指簡單吃點東西。'),
+  'travel-shuttle': adapted([ooeHotel], 'Oxford Online English 的對話有 I need to go to the airport on Wednesday morning. Do you offer a shuttle service?；這張卡加上 to the airport。只有這一份來源，是語言學校。', 'shuttle 是往返兩地的接駁車。'),
+  'travel-order': { ...direct([espressoAirport, voaLesson23, stateDialogs], '三份教材都用 I’ll have 點餐：Espresso English 原句 I’ll have the chicken；VOA 第 23 課 I’ll have the shrimp；美國國務院的對話 I’ll have tomato soup, roast beef…。'), alternatives: [{ en: 'I’m going to have the chicken.', when: '同一情境；British Council 的角色扮演用 I’m going to have the…' }] },
+  'travel-sold-out': direct([voaLesson23], 'VOA 第 23 課原句：Oh, you’re out of shrimp. Okay, I’ll have the beef then.。店員的說法是 We’re out of chicken。', '聽到 We’re out of… 就是賣完了。'),
+  'travel-comes-with': direct([ooeOrdering], 'Oxford Online English 的對話原句：what does it come with?，服務生回答 You get chips and a salad。只有這一份來源，是語言學校。'),
+  'travel-dairy': direct([premierRestaurants, ooeOrdering], 'British Council 的角色扮演原句：Does it have any dairy products in it?。Oxford Online English 的對話則是服務生問 are there any dietary requirements I need to know about?'),
+  'travel-split': { ...direct([premierRestaurants, ooeBill], 'British Council 的角色扮演原句：Shall we split the bill?；Oxford Online English 的對話是 shall we split it?。兩份教材都出現。', 'British Council 同一段對話裡，對方回答 I’ll get this. My treat.'), alternatives: [{ en: 'Shall we split it?', when: '同一情境，帳單已經在眼前' }] },
+  'travel-service': direct([ooeBill], 'Oxford Online English 的對話原句：is service included?。只有這一份來源，是語言學校。', '英國常把服務費直接算進帳單；美國的做法不同，這句不一定適用。這是自己的補充，教材沒有寫。'),
+  'travel-which-way': adapted([stateDialogs], '美國國務院的對話有 Could you tell me which way Dobson’s bookstore is?；這張卡把地點換成車站。那份教材寫於 1972 年；讀的是轉載版。', '子句裡的語序是 the station is，不是 is the station。'),
+  'travel-exact-fare': adapted([premierTransport], 'British Council 的角色扮演有 they only accept the exact fare if you pay in cash，並說明 bus fare、change 這些字；問句是自行組成。', 'fare 是車資；exact fare 是不找零的剛好金額。'),
 };
 export type Rating = 0 | 1 | 2;
 export type CardProgress = { due: number; reviewed: number; rating: Rating; streak: number };

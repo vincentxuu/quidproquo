@@ -186,19 +186,26 @@
 | PTT Eng-Class [朋友的英文突飛猛進](https://www.ptt.cc/bbs/Eng-Class/M.1550213297.A.288.html)（2019） | 25 推 | 全文 | 轉述朋友的做法：大量聽讀加跟述，平日六小時、連續兩年。是二手轉述 |
 | [r/EnglishLearning wiki](https://www.reddit.com/r/EnglishLearning/wiki/index) | 板上 49.8 萬成員 | 整頁（只有 Tavily 讀得到） | **沒有口說練習資源**，只列字典、寫作格式手冊、語料庫。字典那段和本清單第二部分幾乎相同，另外多了 OZDIC 搭配字典與 Google Books Ngram |
 
-讀不到：r/languagelearning 的 wiki（直接請求 403、舊版網域回傳的頁面沒有內容、Exa 回 SOURCE_NOT_AVAILABLE、Tavily 同批沒有回傳）。這是語言學習社群裡最常被引用的資源表，缺了它是這一輪最大的缺口。
+| [r/languagelearning wiki](https://www.reddit.com/r/languagelearning/wiki/index) 的[FAQ](https://www.reddit.com/r/languagelearning/wiki/faq) | 板上 25.2 萬成員；FAQ 約 8 萬字 | 首頁整頁；FAQ 的大綱全部，以及學得快、三個月流利、Benny Lewis、AI、每天學多久、記不住、不敢語言交換、進步變慢等十多節的內容（約全文三成） | **整份 FAQ 沒有出現 shadowing，也沒有 Pimsleur、Assimil、HelloTalk、Tandem。** 口說方面的主張：決定進度的主要是花在語言上的有品質時間；盡量多練對話；學自然的片語與填充語；發音值得早點練；想快速能對話就砍掉進階文法與罕用字，專注聽說。對 Benny Lewis 的評價持平：核心就是早開口、多開口，適合目標是對話與旅行的人，代價是其他能力較弱。找語伴推薦 iTalki 與 r/Language_exchange。忘記是正常的，要靠間隔越來越長的重複，而且不要等全記熟才往下學。提到的長篇指南有 Iversen 在 A Language Learner's Forum 的指南，沒讀 |
+| PTT Eng-Class [精華區](https://www.ptt.cc/man/Eng-Class/index.html)「英語學習能力培養 › 口說」 | 版主收錄 15 篇，2004–2006 年 | 分類目錄四層；口說區讀了 6 篇、學習經驗分享區 1 篇 | 做法：找一分鐘有稿的音檔反覆聽、模仿後錄音、和原音比較（一位網友轉述語音學老師的練習）；每天朗讀並錄音；寫英文日記、自言自語或一人分飾多角；朗讀要配合情境自問自答，不然只是照本宣科；上台講二到五分鐘，只能帶沒有完整句子的大綱；跟著 CNN 光碟一句一句暫停跟著唸。資源：Raymond Murphy 的文法書、English Vocabulary in Use、空中英語教室、看 DVD 切換中英字幕 |
 
-樣本的偏誤：GitHub 的清單偏工程師；星數高的三份都是中文寫的；Hacker News 的口說提問分數都很低，代表性有限；PTT 的搜尋只看了「口說」關鍵字與 20 推以上兩種條件。
+**之前寫錯的地方：** 這一節第一版把 r/languagelearning 的 wiki 列為「讀不到」，其實是我把兩個網址一起送給 Tavily、只回來一個，就沒有再單獨送。單獨送就讀到了。PTT 精華區也是直接請求就能讀，第一版只用了板內搜尋。
+
+仍然讀不到：r/languagelearning wiki 的 guide 與 resources 兩個子頁（Tavily 單獨送也回傳空白；直接請求 403；Exa 回 SOURCE_NOT_AVAILABLE；網頁存檔的查詢介面回 429）。這兩頁才是它的學習指南與資源表本體，FAQ 多次引用它們。
+
+樣本的偏誤：GitHub 的清單偏工程師；星數高的三份都是中文寫的；Hacker News 的口說提問分數都很低，代表性有限；PTT 精華區的口說文章都是 2004–2006 年的，反映的是那時候的做法與資源。
 
 ### 被重複推薦的做法
 
 | 做法 | 在幾份清單出現 | 出處 |
 | --- | --- | --- |
-| 跟讀、跟述、跟著影片複述 | 6 | up、Programmer's Guide、兩則 Ask HN、PTT「朋友的英文突飛猛進」；up 特別提醒跟讀只是模仿，不等於能生成 |
-| 自言自語、用英文思考、沒有對象時對自己講 | 4 | PTT 兩篇、Stack Exchange、Ask HN |
-| 錄音回聽 | 3 | up、Stack Exchange、Ask HN（對鏡子） |
-| 找真人對話並請對方糾正 | 5 | up、兩則 Ask HN、epalatov、awesome-english（以語言交換與家教平台的形式） |
-| 朗讀 | 2 | 兩則 Ask HN |
+| 跟讀、跟述、跟著影片複述 | 7 | up、Programmer's Guide、兩則 Ask HN、PTT「朋友的英文突飛猛進」、PTT 精華區；up 特別提醒跟讀只是模仿，不等於能生成。**Reddit 的 FAQ 完全沒提** |
+| 自言自語、用英文思考、自問自答 | 5 | PTT 兩篇、PTT 精華區、Stack Exchange、Ask HN |
+| 錄音後和原音比較 | 4 | up、Stack Exchange、Ask HN（對鏡子）、PTT 精華區 |
+| 找真人對話並請對方糾正 | 7 | up、兩則 Ask HN、epalatov、awesome-english、Reddit FAQ、PTT 精華區（以語言交換、家教、外籍老師的形式） |
+| 朗讀 | 3 | 兩則 Ask HN、PTT 精華區（留言有人提醒只朗讀沒有用，要配合情境） |
+| 學整句的片語、填充語 | 2 | Reddit FAQ、第一輪的 British Council India |
+| 有間隔的重複 | 2 | Reddit FAQ、第一輪的 Paul Nation |
 | 先測現況、設定可檢查的任務 | 2 | up、Programmer's Guide |
 
 ### 被重複推薦的資源
@@ -209,7 +216,7 @@
 | --- | --- | --- |
 | BBC Learning English（含 The English We Speak） | 機構教材 | 3（Programmer's Guide、interaminense、Yordanov） |
 | Rachel's English | 發音教學頻道 | 2（Programmer's Guide、knowledgefxg） |
-| italki | 家教平台 | 2（epalatov、awesome-english） |
+| italki | 家教平台 | 3（epalatov、awesome-english、Reddit FAQ） |
 | Tandem | 語言交換 | 2（interaminense、awesome-english） |
 | TED | 演講 | 2（awesome-english、Ask HN 2015） |
 | EnglishClub | 教學網站 | 2（epalatov、Yordanov） |
@@ -229,6 +236,8 @@
 - **社群推薦的大多是工具、頻道與平台，不是文章。** 「有名的口說練習文章」如果指大家會轉貼的單篇文章，這一輪沒有找到被兩份以上清單引用的。最接近的是 up 的口說章（單一指南的一章，但該指南有 6.7 萬星）。
 - **跟讀是重複最多的做法，但最多星的指南對它最保留。** up 明寫跟讀負責模仿、生成要靠複述與追問，和第一輪讀到的系統性回顧結論一致。
 - **台灣的脈絡裡，史嘉琳被獨立提到兩次**（PTT 一篇高推文、一篇個人經驗文），而且都是讀者自己提的，不是我搜尋她才出現。
+- **Reddit 語言學習板的 FAQ 完全沒提跟讀。** 中文世界的清單與文章幾乎都把跟讀放在第一位，這份英文社群最大的 FAQ 講的卻是對話時間、片語與發音。跟讀在華語與日語學習圈特別流行，可能不是普遍的共識；這是我的推論。
+- **二十年前 PTT 精華區的做法，和現在的清單幾乎一樣**：聽有稿的短音檔、模仿、錄音比較、自言自語、找人對話。變的是工具，不是方法。
 - **r/EnglishLearning 的 wiki 沒有口說資源**，但它列的字典和本清單第二部分一致，可以當成字典選擇的旁證；它列的 OZDIC 搭配字典之前試過讀不到。
 
 ### 我點名去找的（第一輪）
