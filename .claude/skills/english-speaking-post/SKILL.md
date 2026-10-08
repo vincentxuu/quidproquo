@@ -23,6 +23,8 @@ description: 把使用者「想說卻不知道英文怎麼說」的真實情境�
 
 ## 2. 先選來源再推薦說法
 
+擬句子之前，先讀 [references/teaching-materials.md](references/teaching-materials.md)：從清單挑 3–5 個該情境的教材，對照教材教哪些功能與說法、現有卡片缺哪些，跨來源重複的說法優先做成卡片。教材沒有涵蓋的句子才用字典做法補。做完對照後把新讀到的來源與結果回寫進那份清單。
+
 讀 [references/source-selection.md](references/source-selection.md)，按要驗證的主張選來源。字典證明字義／句型，不自動證明某職場、浪點或攀岩場景最常這樣說。找具體頁面與段落，閱讀正文；搜尋摘要、網站名氣或多個轉載都不等於核對。
 
 研究優先 Groundlane `web_search` → `web_fetch`／`web_extract`。宣告不可用前搜尋完整 callable inventory；未掛載或一次 bounded request 整體失敗時，選其他合適 MCP，無合適 MCP 才用平台 web。Claude／Codex 使用同一條規則。Fallback 只查公開頁面，揭露工具與原因；不把它算成 Groundlane 驗證。禁止 stealth_fetch、WebFetch、web-fetch、fetch_page、playwright 抓取研究網頁。分派子 agent 時傳遞同一規則。
