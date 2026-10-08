@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-10-07-interview-agent-stories-english)
 
-My [previous post on interview speaking](/en/posts/learning/2026-10-07-interview-experience-english-en) covered general patterns, with example numbers. This one uses my own interview prep material. I already had the stories and follow-up answers in Chinese, so I picked the twelve sentences I say most often and get stuck on in English.
+My [previous post on interview speaking](/posts/learning/2026-10-07-interview-experience-english-en) covered general patterns, with example numbers. This one uses my own interview prep material. I already had the stories and follow-up answers in Chinese, so I picked the twelve sentences I say most often and get stuck on in English.
 
 Company and product names are removed here. Only the work and the measured numbers remain.
 

@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-10-08-shadowing-evidence)
 
-In September I wrote [a post on practicing spoken English for work](/en/posts/learning/2026-09-03-work-english-speaking-tips-en) and put shadowing first among the methods. My sources were two articles from English-learning platforms. Over the past two days I went back to the research while building my own speaking practice area, and found that I had claimed more than the evidence supports. This post adds what the research says, what shadowing is good for, and what it does not train.
+In September I wrote [a post on practicing spoken English for work](/posts/learning/2026-09-03-work-english-speaking-tips-en) and put shadowing first among the methods. My sources were two articles from English-learning platforms. Over the past two days I went back to the research while building my own speaking practice area, and found that I had claimed more than the evidence supports. This post adds what the research says, what shadowing is good for, and what it does not train.
 
 ## What shadowing is and where it comes from
 
@@ -165,4 +165,4 @@ Two things code cannot supply. The other side of the dialogue is a written scrip
 - [r/languagelearning wiki FAQ](https://www.reddit.com/r/languagelearning/wiki/faq), [guide page](https://www.reddit.com/r/languagelearning/wiki/guide), and [How To Learn a Foreign Language](https://mondecast.com/language-guide/introduction/): no mention of shadowing in the full text; the guide's view of conversation practice.
 - [PREP: What is shadowing?](https://prepedu.com/zh-hant/blog/shadowing-technique), [TutorABC: How to train speaking fluency](https://www.tutorabc.com/blog/zh-tw/post/68436), [VoiceTube: Learning the shadowing method](https://tw.blog.voicetube.com/archives/46230/), [104 Learning: Introducing shadowing](https://nabi.104.com.tw/posts/nabi_post_1d53ffcb-07ac-4356-8fa4-3860a430fae4) (all in Mandarin; titles are my translations): examples of popular claims.
 - [NTE: Four requirements for effective shadowing](https://ntetaiwan.com/blog/article-20231124/) (in Mandarin; title is my translation): a Chinese-language article that describes shadowing as mainly listening practice.
-- [How to Practice Workplace English Speaking](/en/posts/learning/2026-09-03-work-english-speaking-tips-en): my September post.
+- [How to Practice Workplace English Speaking](/posts/learning/2026-09-03-work-english-speaking-tips-en): my September post.

@@ -10,7 +10,7 @@ tldr: "定位用 I work on improving…、My work covers…；需求變動用 ch
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-10-07-interview-agent-stories-english-en)
+> 🌏 [English version](/posts/learning/2026-10-07-interview-agent-stories-english-en)
 
 [上一篇面試口說](/posts/learning/2026-10-07-interview-experience-english)整理的是通用句型，裡面的數字是範例。這篇換成我自己準備面試的素材：先有中文版的故事和追問答案，再挑出十二句我最常要講、但用英文會卡住的話。
 

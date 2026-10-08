@@ -12,7 +12,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-10-08-work-english-from-teaching-materials)
 
-The ten sentences in [my previous work English post](/en/posts/learning/2026-10-07-work-standup-english-en) started from the Chinese, and I then checked a dictionary for the pattern. The topic was reporting progress in a stand-up. This time I changed the method: I read workplace English teaching materials first to see what they teach, then compared.
+The ten sentences in [my previous work English post](/posts/learning/2026-10-07-work-standup-english-en) started from the Chinese, and I then checked a dictionary for the pattern. The topic was reporting progress in a stand-up. This time I changed the method: I read workplace English teaching materials first to see what they teach, then compared.
 
 The result surprised me a little. The materials teach almost none of what I had been practicing.
 

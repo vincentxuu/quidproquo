@@ -24,7 +24,7 @@ Shadowing is the most frequently recommended speaking practice across all source
 
 **Do this tonight**: Find a 2–3 minute [TED-Ed](https://ed.ted.com/) video or podcast segment. Record yourself shadowing it on your phone. Play it back against the original — note which words you stressed or connected differently. Repeat with the same clip tomorrow.
 
-[VoiceTube](https://tw.blog.voicetube.com/archives/86106/tech-english-speaking-method) (in Chinese) recommends a variation called the "Echo Method": listen to a sentence, pause, let it replay in your mind, then speak. They argue this trains auditory memory better than real-time shadowing. The method comes from the [Echo Method](https://homepage.ntu.edu.tw/~karchung/pubs/CET6970.pdf) of Professor Karen Chung at National Taiwan University. Her basis is teaching experience, and her article cites no experiment. (Corrected 2026-10-08: this post originally said only VoiceTube had made the claim. See [the shadowing post](/en/posts/learning/2026-10-08-shadowing-evidence-en).)
+[VoiceTube](https://tw.blog.voicetube.com/archives/86106/tech-english-speaking-method) (in Chinese) recommends a variation called the "Echo Method": listen to a sentence, pause, let it replay in your mind, then speak. They argue this trains auditory memory better than real-time shadowing. The method comes from the [Echo Method](https://homepage.ntu.edu.tw/~karchung/pubs/CET6970.pdf) of Professor Karen Chung at National Taiwan University. Her basis is teaching experience, and her article cites no experiment. (Corrected 2026-10-08: this post originally said only VoiceTube had made the claim. See [the shadowing post](/posts/learning/2026-10-08-shadowing-evidence-en).)
 
 ### Scenario-Based Conversation Practice
 

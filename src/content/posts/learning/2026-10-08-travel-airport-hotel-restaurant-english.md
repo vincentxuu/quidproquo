@@ -10,7 +10,7 @@ tldr: "報到時說 I have one bag to check in；轉機問 Do I have to pick up 
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-10-08-travel-airport-hotel-restaurant-english-en)
+> 🌏 [English version](/posts/learning/2026-10-08-travel-airport-hotel-restaurant-english-en)
 
 我的口說練習區裡，旅遊情境原本有九句，全部是「這附近有什麼」和「怎麼到那裡」。之前幾批句子的做法是先想中文、再找字典確認句型。這次反過來：先讀英語教材，看它們在旅遊情境教什麼，再回頭看自己缺什麼。
 

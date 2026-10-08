@@ -10,7 +10,7 @@ tldr: "卡住了說 Have you got a second to help me out?；請人再看一次�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-10-08-work-english-from-teaching-materials-en)
+> 🌏 [English version](/posts/learning/2026-10-08-work-english-from-teaching-materials-en)
 
 [上一篇工作英文](/posts/learning/2026-10-07-work-standup-english)的十句是我先想中文、再找字典確認句型做出來的，主題是站立會議報進度。這次換了做法：先讀職場英文教材，看它們教什麼，再回頭對照。
 

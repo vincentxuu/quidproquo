@@ -10,7 +10,7 @@ tldr: "問日照用 Does this wall get the sun…；問多久會乾用 How long 
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-10-07-climbing-trip-english-en)
+> 🌏 [English version](/posts/learning/2026-10-07-climbing-trip-english-en)
 
 英文口說練習區的「攀岩」情境原本只有兩句。接下來有兩趟攀岩行程，一趟去東南亞的石灰岩海岸，一趟去首爾和東京周邊，兩趟都是帶繩子和快扣、以運動攀登和多段為主。這篇照行程裡真的會遇到的場面，補上十五句。
 
