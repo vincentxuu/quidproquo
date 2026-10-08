@@ -1,5 +1,5 @@
 ---
-title: "微軟 AB-620 備考路徑：Copilot Studio 這條低程式碼的 agent 線"
+title: "微軟 AB-620（AI Agent Builder）備考路徑：Copilot Studio 這條低程式碼的 agent 線"
 date: 2026-08-18
 type: guide
 category: ai

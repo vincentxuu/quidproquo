@@ -44,6 +44,68 @@
 
 **廠商完成度**：Anthropic 4/4 ✅、微軟 4/4 ✅、NVIDIA 4/4 ✅、AWS 2/3（MLA-C01 待 C02）、Google 1/1（不寫 Gen AI Leader）。
 
+### 0.6 補寫（2026-10-08）：微軟的分母原本沒有依據
+
+上面「微軟 4/4 ✅」的 4 沒有母群清單支撐。2026-10-08 從 Microsoft Learn 官方 catalog API（`learn.microsoft.com/api/catalog/?type=certifications,exams`，152 張認證）用名稱關鍵字篩出 **20 張**帶 AI／agent／Copilot／機器學習的認證，系列原本只寫其中 4 張，其餘 16 張既不在選入表也不在排除清單。
+
+**本次補寫五張**（date 2026-10-08，order 25–29，各 zh/en）：
+
+| order | 證照 | 檔名前綴 | 這篇的差異化重點 |
+|---|---|---|---|
+| 25 | 微軟 AI-901 | `2026-10-08-microsoft-ai-901-prep-guide` | 入門級但 55–60% 考 Foundry 實作；接替 AI-900；不過期 |
+| 26 | 微軟 AI-200 | `2026-10-08-microsoft-ai-200-prep-guide` | 接替 AZ-204；考綱沒有模型／prompt／agent，AI 相關的只有三種向量搜尋 |
+| 27 | 微軟 AI-300 | `2026-10-08-microsoft-ai-300-prep-guide` | 接替 DP-100；MLOps 與 GenAIOps 各半；study guide 文件連結套錯成 M365 Copilot |
+| 28 | GitHub GH-300 | `2026-10-08-github-gh-300-prep-guide` | 官方權重清單多列一行；CLI、agent mode、組織政策都在考 |
+| 29 | GitHub GH-600 | `2026-10-08-github-gh-600-prep-guide` | 考 agent 的營運與治理；無練習測驗；官方教材不到 6 小時 |
+
+**其餘 11 張尚未評估**（要寫或要排除都還沒決定，不要當成已排除）：AB-730、AB-731、AB-900、AB-650（beta）、AB-210、AB-250、DP-100（已退場）、DP-800、DP-420、SC-500、AI-102（已退場，AI-103 篇有交代）。
+
+**這次學到、之後盤點要沿用的做法**：
+
+- **母群用認證 catalog，不用 study guide 側邊目錄。** 側邊目錄有 67 份 study guide 但漏了 GH-600；catalog 才完整。
+- **價格有官方來源**：`learn.microsoft.com/en-us/credentials/exam-pricing.json`，依考試類型與國家列價。認證頁的價格是用它動態載入的，直接抓 HTML 看不到。台灣價與美國價不同（associate 級 $83 vs $165、入門級與 GH-300 為 $50 vs $99），既有文章只寫了美國價。
+- **Microsoft Learn 頁面加 `?accept=text/markdown` 可直接取得 markdown**，學習路徑的網址從 catalog 的 `learningPaths` 用講師課頁面的 `learn_item` uid 反查，不要照命名規律拼。
+- **「怎麼選」與總表文跟著改了**：微軟那篇的開頭原寫「鋪成四張」已改寫並加更新紀錄；總表文的 GH-300 一段原寫「沒有列出金額」與「續期評量也涵蓋 GH-300」兩處錯誤已修正。
+
+### 0.7 其餘四家的母群盤點（2026-10-08）
+
+微軟盤完後，同一天對 NVIDIA、AWS、Google、Anthropic 的官方認證目錄各做一次線上盤點。**「選入／排除」欄標「建議」的是 Claude 的建議，還沒經過使用者拍板。**
+
+**NVIDIA**（[官方目錄](https://www.nvidia.com/en-us/learn/certification/)，12 張，與 2026-08-18 相同）
+
+| 證照 | 狀態 | 理由 |
+|---|---|---|
+| NCA-GENL、NCP-GENL、NCP-AAI、NCA-GENM | 已寫 | 生成式 AI 與 agent 線 |
+| NCA-AIIO、NCP-AII、NCP-AIN、NCP-ARI、NCP-AIO | 建議排除 | 機房、網路與維運，受眾是 infra 團隊，$125–$500 |
+| NCP-ADS、NCA-ADS | 建議排除 | 加速資料科學（RAPIDS），不是 AI 應用開發 |
+| NCP-OUSD | 建議排除 | OpenUSD 開發，3D 與模擬領域 |
+
+所以「NVIDIA 4/4」的分母是「生成式 AI 與 agent 線的四張」，不是整個目錄。
+
+**AWS**（[官方目錄](https://aws.amazon.com/certification/exams/)）
+
+| 證照 | 狀態 | 理由 |
+|---|---|---|
+| AIF-C01、AIP-C01 | 已寫 | |
+| MLA（Machine Learning Engineer Associate） | **待寫，已可動工** | MLA-C02 beta 已開放報名（考試代碼欄寫 ME1-C02，170 分鐘、85 題、beta 價 $75）；MLA-C01 英文版已於 2026-09-28 停考 |
+| **AI Business Strategist（beta，新）** | 建議排除 | 官方歸在 Business 類，寫明不需技術經驗；170 分鐘、85 題、beta 價 $50（正式 $100）。比照 Google Generative AI Leader 的排除理由 |
+
+**Google**（[官方目錄](https://cloud.google.com/learn/certification)）
+
+| 證照 | 狀態 | 理由 |
+|---|---|---|
+| Professional Machine Learning Engineer | 已寫 | |
+| **Professional Agentic Architect（新）** | **建議選入，GA 後寫** | beta 報名已關閉，**GA 報名 2026-11-02 開放**。官方頁面列的 beta 規格：3 小時、約 80 題選擇題、零售價 $200、效期 1 年、僅英文、無先修，建議 3 年以上雲端經驗含 1 年以上 agentic 方案。考低程式碼建 agent、coding agent、自訂 agent、評估與部署、安全與治理 |
+| Generative AI Leader | 已排除 | 官方定位無需技術經驗 |
+
+**Professional Agentic Architect 對既有文章的影響（2026-10-08 查證後更正）**：B1（多 agent 架構）開場只說「PMLE 不是多 agent 考點」，沒有說 Google 沒有 agent 認證，**該段仍正確、不用改**。真正過期的是 PMLE 備考路徑開頭的「Google 的 AI 認證只有兩張」與 AWS 怎麼選的「Google 生態只有 PMLE 一張」，兩處中英版已改寫並加更新紀錄。官方 exam guide（`services.google.com/fh/files/misc/professional_agentic_architect_exam_guide_english.pdf`）五章權重約 13 / 17 / 33 / 22 / 15，第 3.3 節考 MCP 與 A2A 編排、多 agent 交接（平行、循序、圖狀），所以寫這張時可以把它加進 B1 當第六張對照對象；考試分選擇題與實作 lab 兩段。
+
+**Anthropic**（[Partner Academy](https://anthropic-partners.skilljar.com/)）：四張，全部已寫。下方 §1 排除清單裡「Claude 四張」那一列是過期的，四篇早已發佈。
+
+**其他生態系**：總表文列了 Snowflake GES-C02、IBM watsonx C1000-185，本文件既沒選入也沒排除，仍待決定。
+
+**標題慣例（2026-10-08 改）**：12 篇原本標題只寫考試代號（微軟七篇、NVIDIA 四篇、Google PMLE），用認證全名在系列頁上找不到。已統一改成「廠商 代號（認證名稱）備考路徑：…」，slug 與 date 未動。之後新文章照這個格式。
+
 ### 下一步（新 session 從這裡接）
 
 1. **B 軌五篇技術文**（規劃見第 2 節）。**B1 已出**（order 16，`2026-08-18-multi-agent-architecture-exam-domains` zh/en）。剩 B2–B5，寫法照 B1：材料全部取自 A 軌已查證的官方 exam guide，不重跑一輪抓取；每個小節結尾回指「對應哪張考試哪個 domain」。

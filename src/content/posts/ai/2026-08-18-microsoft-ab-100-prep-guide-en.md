@@ -1,5 +1,5 @@
 ---
-title: "Microsoft AB-100: The Architect Exam — Don't Prepare From the Blurb on Its Own Page"
+title: "Microsoft AB-100 (Agentic AI Business Solutions Architect): The Architect Exam — Don't Prepare From the Blurb on Its Own Page"
 date: 2026-08-18
 type: guide
 category: ai

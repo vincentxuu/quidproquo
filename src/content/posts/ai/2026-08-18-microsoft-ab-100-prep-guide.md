@@ -1,5 +1,5 @@
 ---
-title: "微軟 AB-100 備考路徑：架構師那張，別照官方頁面那段簡介準備"
+title: "微軟 AB-100（Agentic AI Business Solutions Architect）備考路徑：架構師那張，別照官方頁面那段簡介準備"
 date: 2026-08-18
 type: guide
 category: ai

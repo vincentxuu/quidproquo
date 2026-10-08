@@ -17,11 +17,13 @@ draft: false
 >
 > This is a selection guide built from official sources, not an exam report — the author has not sat these exams. Every "what's tested" points back to the official study guides, every spec points back to Microsoft's own pages, and there are no leaked questions. Verified 2026-08-19.
 
-Microsoft laid out four AI certifications in 2026: [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en), [AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en), [AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en), and [AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en). All four cost the same ($165), expire on the same schedule (one year), and share a passing score of 700 — so price and policy will not decide this for you.
+This post compares the four certifications on Microsoft's agent track: [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en), [AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en), [AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en), and [AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en). All four cost the same ($165 in the US, $83 at Taiwan test centers), expire on the same schedule (one year), and share a passing score of 700 — so price and policy will not decide this for you.
 
 **Four things will**: whether you write Python, whether you build things or decide whether they should be built, whether you can read exam questions in English, and whether the exam has usable materials today. This post consolidates the comparison tables scattered across the four prep guides into one, and deals with the places where they disagree.
 
 For the cross-vendor spec table (prices, validity, thresholds), see [Which AI certifications actually exist in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en); this post does not repeat it.
+
+**These four are not all of Microsoft's AI certifications.** The Azure AI development track has three more that fall outside the four forks below, each with its own preparation path: the entry-level [AI-901](/posts/ai/2026-10-08-microsoft-ai-901-prep-guide-en) (over half is Foundry implementation, $50 in Taiwan, never expires), [AI-200](/posts/ai/2026-10-08-microsoft-ai-200-prep-guide-en) on backend services and vector databases (successor to AZ-204), and [AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide-en) on MLOps and GenAIOps (successor to DP-100). The GitHub certifications hosted on Microsoft Learn are [GH-300](/posts/ai/2026-10-08-github-gh-300-prep-guide-en) and [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide-en).
 
 ## The only hard rule
 
@@ -208,3 +210,7 @@ A verification detail: **AB-620's dedicated renewal page still returned 404 when
 - [Microsoft AB-620 prep guide](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en)
 - [Microsoft AB-100 prep guide](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en)
 - [Where the multi-agent exam domains intersect](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en)
+
+## Changelog
+
+- 2026-10-08: The opening used to say Microsoft "laid out four AI certifications in 2026", which was inaccurate. Microsoft's official catalog has more than four certifications with AI or agent in the name; this post compares the four on the agent track. The opening is rewritten, links to the AI-901, AI-200, AI-300, and two GitHub preparation paths are added, and the Taiwan price ($83) is noted. The four forks and the recommended routes are unchanged.

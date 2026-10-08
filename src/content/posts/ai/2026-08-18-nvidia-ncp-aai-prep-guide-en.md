@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCP-AAI: Registration Isn't Open, and the Official Weights Contradict Each Other"
+title: "NVIDIA NCP-AAI (Agentic AI Professional): Registration Isn't Open, and the Official Weights Contradict Each Other"
 date: 2026-08-18
 type: guide
 category: ai

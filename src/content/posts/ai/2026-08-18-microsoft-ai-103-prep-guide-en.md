@@ -1,5 +1,5 @@
 ---
-title: "Microsoft AI-103: After the Foundry Rename, Every Older Azure AI Study Guide Is Void"
+title: "Microsoft AI-103 (Azure AI Apps and Agents Developer): After the Foundry Rename, Every Older Azure AI Study Guide Is Void"
 date: 2026-08-18
 type: guide
 category: ai

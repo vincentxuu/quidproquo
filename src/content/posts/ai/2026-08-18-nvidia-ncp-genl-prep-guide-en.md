@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCP-GENL: 31% Is GPU and Model Optimization, and Two Cells of the Official Table Are Broken"
+title: "NVIDIA NCP-GENL (Generative AI LLMs Professional): 31% Is GPU and Model Optimization, and Two Cells of the Official Table Are Broken"
 date: 2026-08-18
 type: guide
 category: ai

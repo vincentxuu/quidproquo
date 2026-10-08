@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCP-GENL 備考路徑：三成考的是 GPU 與模型最佳化，而官方表格有兩格是壞的"
+title: "NVIDIA NCP-GENL（Generative AI LLMs Professional）備考路徑：三成考的是 GPU 與模型最佳化，而官方表格有兩格是壞的"
 date: 2026-08-18
 type: guide
 category: ai

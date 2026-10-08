@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCA-GENM 備考路徑：多模態那張，但兩門必備課程只有 $500 講師版"
+title: "NVIDIA NCA-GENM（Generative AI Multimodal Associate）備考路徑：多模態那張，但兩門必備課程只有 $500 講師版"
 date: 2026-08-18
 type: guide
 category: ai

@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCA-GENM: The Multimodal One, With Two Required Courses Only Sold as $500 Workshops"
+title: "NVIDIA NCA-GENM (Generative AI Multimodal Associate): The Multimodal One, With Two Required Courses Only Sold as $500 Workshops"
 date: 2026-08-18
 type: guide
 category: ai

@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCA-GENL: The Name Says LLM, Half the Blueprint Is Classical ML"
+title: "NVIDIA NCA-GENL (Generative AI LLMs Associate): The Name Says LLM, Half the Blueprint Is Classical ML"
 date: 2026-08-18
 type: guide
 category: ai

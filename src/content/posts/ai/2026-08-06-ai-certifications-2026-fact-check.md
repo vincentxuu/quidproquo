@@ -173,9 +173,9 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 **AI-500 值得單獨留意。** 三大雲端業者裡只有微軟開了專攻多 agent 系統架構的專家級認證，想往 Agent 方向走，鑑別度比 associate 級的 AI-103 高一階。代價是 beta 階段成績出得慢、考題會隨正式版調整。要注意它不是市面上唯一的 agent 進階證照 —— NVIDIA 的 NCP-AAI 與 Oracle 的 Agentic AI track 都在同一個方向上，差別在綁的是誰的平台。
 
-微軟這邊還有一個別家沒有的好處：續期有**免費線上 renewal assessment**，不用像 AWS、Google 那樣重考正式考試。這個好處也涵蓋掛在微軟認證傘下的 [GitHub Copilot 認證（GH-300）](https://learn.github.com/certification/COPILOT)：100 分鐘、效期 24 個月、Pearson VUE 監考，考的是 Copilot 的責任使用、prompt 設計、agent mode 與 MCP、內容排除與稽核。官方頁面只寫「價格依考試所在國家或地區而定」，**沒有列出金額**，網路上流傳的 $99 是第三方數字，報名頁才算數。
+微軟這邊還有一個別家沒有的好處：續期有**免費線上 renewal assessment**，不用像 AWS、Google 那樣重考正式考試。掛在微軟認證傘下的 [GitHub Copilot 認證（GH-300）](https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/)則還沒有這個好處：100 分鐘、效期 2 年、Pearson VUE 監考，考的是 Copilot 的責任使用、prompt 設計、agent mode 與 MCP、內容排除與稽核。官方說 GitHub 認證正在轉換到微軟的續期流程，新流程尚未上線。價格依考場所在國家而定，認證頁的國家選單選美國顯示 **$99**、選台灣顯示 **$50**。備考路徑見 [GH-300](/posts/ai/2026-10-08-github-gh-300-prep-guide) 與進階的 [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide)。
 
-四張的備考路徑見 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)、[AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)、[AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide)、[AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)，取捨見 [微軟四張怎麼選](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one)。
+四張的備考路徑見 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)、[AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)、[AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide)、[AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)，取捨見 [微軟四張怎麼選](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one)。Azure AI 開發線另外三張的備考路徑：入門級的 [AI-901](/posts/ai/2026-10-08-microsoft-ai-901-prep-guide)、考後端與向量資料庫的 [AI-200](/posts/ai/2026-10-08-microsoft-ai-200-prep-guide)、考 MLOps 與 GenAIOps 的 [AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide)。
 
 ## NVIDIA：目錄有十二張，不是只有 NCA-GENL
 
@@ -327,6 +327,7 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 
 ## 更新紀錄
 
+- 2026-10-08：修正 GH-300 一段的兩處錯誤。原文寫官方頁面「沒有列出金額」，實際上價格是依國家動態載入，美國 $99、台灣 $50；原文寫微軟的免費續期評量「也涵蓋」GH-300，實際上 GitHub 認證效期 2 年，續期流程仍在轉換、尚未上線。另補上系列新增五篇（AI-901、AI-200、AI-300、GH-300、GH-600）的連結。
 - 2026-08-19：補上到「AI 證照備考」系列 24 篇的導流連結——原本 50 個檔案連到本文，本文只連回 1 篇。「該考哪張」表之後新增系列入口與四篇「怎麼選」，各家段落末尾各補該廠備考路徑。內容與結論未變動。
 - 2026-08-18：大幅擴充收錄範圍。NVIDIA 從單張補成官方目錄十二張（含 Agentic AI NCP-AAI 與多模態 NCA-GENM），並修正原文「只有微軟有 agent 專家級認證」的說法；新增「其他生態系」一節（Snowflake GES-C02、Oracle 新開的 Agentic AI track、IBM watsonx C1000-185、Salesforce Agentforce Specialist AI-201）與 GitHub Copilot GH-300；新增「治理、稽核、資安」一節（IAPP AIGP、ISACA AAISM / AAIA、CertNexus CAIP）；iPAS 補上初級規格、中級的分流證書與單科保留／舊證抵免規則，以及 TQC / TQC+ 兩張本地證照；另補上 AI-500 必須先取得 AI-103 的硬性先修條件（官方 Certification prerequisites 逐字）、其 beta 與英文限定狀態；補上 MLA-C01 的改版公告（英文版最後考試日 2026/9/28、C02 於 9/1 開放報名但考綱未公布）與各張的考試語言（AIF-C01 是唯一有繁中的）；修正 AWS 續期段落：原文寫「只能重考、不接受繼續教育學分」，官方 recertification 頁實際上有 renew／maintain 兩條路（maintain 僅開放給 SAA、Developer、CloudOps、SAP、DOP），且 AI 三張可用高階考試互相續期、續期一律可用五折券。並新增「常被誤列的三個」一節：Google Cloud GenAI Engineer（不存在）、OpenAI（課程證書免費全球開放但不是認證，正式認證仍在雇主 pilot）、CNCF Kubernetes AI Conformance（發給平台不是個人）—— 三者錯的地方不同，不併成同一個理由。依「只收 AI / ML 專業認證」的判準，OpenAI Academy 與 Claude Academy 的免費課程完成證書不列為證照，只在誤列一節保留一句提醒與官方出處。另修正 Claude 段落的重大錯誤：原文寫「官方未公開價格與效期」，實際上四張的 exam guide PDF 都公開了費用（$99 / $125 / $125 / $175）、題數、12 個月效期與 domain 權重，一併補上重考規則；「廠商不公開的資訊不要當已知」那條提醒改寫為「找不到不等於不存在」。同時把已退場證照從文章移除，現在列出的每一張都還能報名。另外重驗了三條原有事實：Google 認證總覽頁（Foundational 2 張、Associate 3 張、Professional 9 張）確認 AI 只有 Generative AI Leader 與 PMLE 兩張，原結論成立；修正 `generative-ai-engineer` 那條證據——該網址是軟性 404（頁面寫 404，HTTP 狀態碼回 200），原文寫「回 HTTP 404」不準確；補上 Google 續期規則的兩個變動：初次認證附續期五折碼，繼續教育續期目前只開放 CDL / ACE / PCA / PDE，PMLE 仍只能重考。
 

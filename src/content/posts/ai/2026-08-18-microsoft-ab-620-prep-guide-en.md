@@ -1,5 +1,5 @@
 ---
-title: "Microsoft AB-620: The Low-Code Agent Track on Copilot Studio"
+title: "Microsoft AB-620 (AI Agent Builder): The Low-Code Agent Track on Copilot Studio"
 date: 2026-08-18
 type: guide
 category: ai

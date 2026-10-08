@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCP-AAI 備考路徑：還不能報名，而且官方兩份文件的權重互相矛盾"
+title: "NVIDIA NCP-AAI（Agentic AI Professional）備考路徑：還不能報名，而且官方兩份文件的權重互相矛盾"
 date: 2026-08-18
 type: guide
 category: ai

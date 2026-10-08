@@ -1,5 +1,5 @@
 ---
-title: "微軟 AI-500 備考路徑：考綱已經公布，官方教材還沒上線"
+title: "微軟 AI-500（Multi-Agent AI Solutions Expert）備考路徑：考綱已經公布，官方教材還沒上線"
 date: 2026-08-18
 type: guide
 category: ai

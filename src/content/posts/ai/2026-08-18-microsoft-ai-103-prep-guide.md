@@ -1,5 +1,5 @@
 ---
-title: "微軟 AI-103 備考路徑：Foundry 換代之後，舊 Azure AI 教材全部作廢"
+title: "微軟 AI-103（Azure AI Apps and Agents Developer）備考路徑：Foundry 換代之後，舊 Azure AI 教材全部作廢"
 date: 2026-08-18
 type: guide
 category: ai

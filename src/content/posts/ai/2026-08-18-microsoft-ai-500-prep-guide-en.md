@@ -1,5 +1,5 @@
 ---
-title: "Microsoft AI-500: The Objectives Are Published, the Training Isn't"
+title: "Microsoft AI-500 (Multi-Agent AI Solutions Expert): The Objectives Are Published, the Training Isn't"
 date: 2026-08-18
 type: guide
 category: ai

@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCA-GENL 備考路徑：名字寫 LLM，考綱有一半是傳統 ML"
+title: "NVIDIA NCA-GENL（Generative AI LLMs Associate）備考路徑：名字寫 LLM，考綱有一半是傳統 ML"
 date: 2026-08-18
 type: guide
 category: ai

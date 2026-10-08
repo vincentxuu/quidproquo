@@ -17,11 +17,13 @@ draft: false
 >
 > 本文是從官方資料建出來的選擇指南，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回各張的官方 study guide，所有規格都指回微軟官方頁面，不含考古題。查證日期：2026-08-19。
 
-微軟在 2026 年一口氣把 AI 認證線鋪成四張：[AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)、[AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)、[AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide)、[AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)。四張同價（$165）、同效期（一年）、同及格線（700），所以價格與制度幫不了你做決定。
+本文比較微軟 agent 這條線的四張認證：[AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)、[AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)、[AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide)、[AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)。四張同價（美國 $165，台灣考場 $83）、同效期（一年）、同及格線（700），所以價格與制度幫不了你做決定。
 
 **能幫你做決定的只有四件事**：要不要寫 Python、你是建東西還是決定要不要做、你讀不讀得下英文、以及這張今天有沒有教材可用。這篇把四篇備考路徑裡散落的比較表彙整成一份，並處理它們之間的不一致。
 
 各家證照的價格、效期與門檻對照見站內的[2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)，本文不重複。
+
+**這四張不是微軟 AI 認證的全部。** Azure AI 開發線另有三張，不在本文的四個分岔裡，各有獨立的備考路徑：入門級的 [AI-901](/posts/ai/2026-10-08-microsoft-ai-901-prep-guide)（過半考 Foundry 實作，台灣 $50，不過期）、考後端與向量資料庫的 [AI-200](/posts/ai/2026-10-08-microsoft-ai-200-prep-guide)（接替 AZ-204）、考 MLOps 與 GenAIOps 的 [AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide)（接替 DP-100）。掛在 Microsoft Learn 底下的 GitHub 認證則有 [GH-300](/posts/ai/2026-10-08-github-gh-300-prep-guide) 與 [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide)。
 
 ## 先看唯一的硬規則
 
@@ -208,3 +210,7 @@ AI-103 的練習測驗狀態要特別講清楚：它**已經搬離 Microsoft Lea
 - [微軟 AB-620 備考路徑](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide)
 - [微軟 AB-100 備考路徑](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)
 - [多 agent 架構的考點交集：五張證照重複考什麼](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)
+
+## 更新紀錄
+
+- 2026-10-08：開頭原寫「微軟在 2026 年一口氣把 AI 認證線鋪成四張」，這個說法不準確。微軟官方目錄裡名稱帶 AI 或 agent 的認證不只四張，本文比較的是其中 agent 線的四張。已改寫開頭，補上 AI-901、AI-200、AI-300 與 GitHub 兩張的備考路徑連結，並補上台灣考場的價格（$83）。四個分岔與建議路線未變動。
