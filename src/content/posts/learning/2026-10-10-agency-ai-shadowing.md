@@ -5,7 +5,7 @@ category: learning
 tags: [podcast, self-learning, skill-development]
 lang: zh-TW
 description: "從 Max Schoening 的 Lenny’s Podcast 訪談理解 agency，搭配英文字幕摘錄、中文對照、原音時間連結與工作情境練習句。"
-tldr: "Agency 是相信自己能改變事情，並開始行動。讀完導讀，再用一段英文原字幕搭配原音練跟讀，把觀念換成自己工作中說得出口的句子。"
+tldr: "Agency 是相信自己能改變事情，並開始行動。讀完導讀，再用三段原音與同步英文字幕練跟讀，把觀念換成自己工作中說得出口的句子。"
 draft: false
 glossary:
   - term: "agency"
@@ -20,7 +20,7 @@ glossary:
 
 他的答案是 agency。這個字在這裡可以理解成「主動改變事情的能力」。知道怎麼做是一部分，相信自己能做、願意開始、看到結果再調整，也在其中。
 
-這篇先整理訪談中的三個重點，再附英文字幕短摘錄與中文對照。你可以先讀懂意思，再回到原音跟讀，最後練習用英文說出自己想改變的工作流程。
+這篇先整理訪談中的三個重點，再附三段 30–60 秒的原音跟讀與英中理解提示。你可以先讀懂意思，再回到原音跟讀，最後練習用英文說出自己想改變的工作流程。
 
 ```youtube
 url: https://www.youtube.com/watch?v=mCO-D3pkviM
@@ -82,27 +82,68 @@ captions: en
 
 ## 原音與英文字幕一起跟讀
 
-### 11:19–11:28，Max：為什麼 agency 重要
+這裡選了三段連續的原音，每段 30–60 秒。**練習範圍是播放器中的整段原音與同步英文字幕，不只是頁面上的短引句。** 三段都用 YouTube 官方播放器，預設英文字幕與區段重播；字幕沒出現時，按 CC 並選英文。完整練習文字由原站字幕提供。
+
+時間範圍與下面的理解提示已對照這集英文自動字幕的前後文，尚未逐句回聽核對。自動字幕會把相鄰句子的時間交疊，起訖秒數可能與實際停頓略有差距；練習時以耳朵聽到的完整句為準。
+
+### 第一段：11:11–11:51（40 秒），從技能談到 agency
 
 ```youtube
 url: https://www.youtube.com/watch?v=mCO-D3pkviM
-title: Agency 跟讀原音：Max 說明主動行動（11:19–11:28）
-start: 679
-end: 688
+title: Agency 跟讀 1：技能與主動行動（11:11–11:51）
+start: 671
+end: 711
 captions: en
 loop: true
 ```
 
-**英文原字幕短段落：**
+**中文理解提示：**AI 可以把技能送到手邊，但是否相信周圍的事情能改變、是否真的採取行動，仍取決於人。Max 接著比較主動改變事情的人，和一直等待職務定義的人。
+
+**English comprehension key:** Access to skills does not automatically lead to action. Follow how Max moves from available skills to initiative, then contrasts changing things with waiting for a role definition.（以上是本文改寫的理解提示。）
+
+**原字幕短引句：**
 
 > the thing that matters is agency and I don't think agency is very evenly distributed in the world
 
-**中文意思：**真正重要的是主動改變事情的能力；而我不認為每個人都有同樣程度的這種能力。
+意思是真正重要的是主動改變事情的能力，而且每個人具備的程度不同。這句只是定位段落的短摘錄；跟讀時要練完整 40 秒，包括前後的解釋與對比。
 
-這段已對照英文自動字幕與前後文，尚未逐句回聽核對。播放器提供原音與同步英文字幕；如果字幕沒出現，按 CC 並選英文。先聽懂兩個相連的意思，再稍微落後原音一起說，練三次。太快就調成 0.75 倍速。
+先不開字幕聽一次，說出「技能」與「行動」的差別。再看英文 CC，分句暫停模仿；熟悉後，完整跟讀三輪。需要時用 0.75 倍速。重播沒有回到段首，可用[11:11 原音連結](https://www.youtube.com/watch?v=mCO-D3pkviM&t=671s)重新定位。
 
-播放器設定為重播；若沒有回到這段，使用[11:19 原音連結](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s)重新定位。要連續練整段解釋，使用原站字幕；下面的自擬句是延伸口說練習。
+### 第二段：08:54–09:42（48 秒），寫程式是為了理解設計媒介
 
+```youtube
+url: https://www.youtube.com/watch?v=mCO-D3pkviM
+title: Agency 跟讀 2：程式、原型與 agent loop（08:54–09:42）
+start: 534
+end: 582
+captions: en
+loop: true
+```
+
+**中文理解提示：**Max 不把設計師的程式能否直接上 production 當作重點。他在意的是，用程式思考能不能幫人理解產品真正運作的方式；接著用調整 UI 與理解 agent loop 的差別說明取捨。
+
+**English comprehension key:** Follow the distinction between shipping production code and understanding the medium. The comparison then shifts to changing interface details versus understanding how an agent loop works.（本文改寫。）
+
+這段更適合練工作中的取捨。先聽完 48 秒，用中文說出他更看重哪一種理解。第二輪在英文字幕中找出否定、理由和比較的轉折，再分句模仿；第三輪連續跟讀，讓重音跟著立場走。最後關掉影片，用自己的英文解釋：你做原型是為了驗證什麼？需要重新定位時用[08:54 原音連結](https://www.youtube.com/watch?v=mCO-D3pkviM&t=534s)。
+
+### 第三段：18:16–18:56（40 秒），用生活比喻解釋可塑的軟體
+
+```youtube
+url: https://www.youtube.com/watch?v=mCO-D3pkviM
+title: Agency 跟讀 3：可塑的軟體與生活空間（18:16–18:56）
+start: 1096
+end: 1136
+captions: en
+loop: true
+```
+
+**中文理解提示：**Max 先用使用者與製造軟體的公司，說明軟體應該替誰服務。接著把不能調整軟體的處境，比成客廳與廚房都只能照別人的安排使用。
+
+**English comprehension key:** Hear the definition first, then the living-room and kitchen analogy. Explain how the example makes the abstract idea easier to understand.（本文改寫。）
+
+這段練的是「定義 → 比喻」。先聽完整 40 秒，只抓這兩層意思；看英文 CC 後，把定義與例子分開模仿，再接起來跟讀。最後不用原話，自己挑一個生活比喻說明可調整的工具為什麼有價值。需要重新定位時用[18:16 原音連結](https://www.youtube.com/watch?v=mCO-D3pkviM&t=1096s)。
+
+三段可以分三天練，先完成 agency 的論點，再練工作取捨，最後練抽象概念與比喻。能跟上聲音之後，還要確認自己能說出意思；卡住就把完整段落暫時拆成一句一句練，再回到整段。
 
 ## 換成自己的工作：英文表達練習
 
@@ -120,7 +161,7 @@ loop: true
 
 ## 怎麼挑適合練習的段落
 
-先以一段約 15–30 秒的內容試練。這是方便開始的長度建議，不是研究證明的最佳秒數；如果很吃力，就縮成一句。
+先以一段約 30–60 秒、意思連貫的內容試練。這是方便開始的長度建議，不是研究證明的最佳秒數；如果很吃力，就縮成一句。
 
 挑選時看四件事：
 
@@ -129,15 +170,13 @@ loop: true
 - **表達用得上**：能把其中一個句型換成自己的工作或生活情境。
 - **原音清楚**：先選一人說話、少打斷、沒有廣告音樂蓋過聲音的段落。
 
-這集可以先從 [11:19](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s) 聽到 11:45，了解 agency 的意思，再依原音停頓縮小練習範圍。如果一邊聽一邊說會失去意思，就先聽完一句、暫停、模仿；能說順之後再跟著原音。秒數是找段落的入口，不要為了湊長度把句子切斷。
-
-想練工作表達，可以從 [08:24](https://www.youtube.com/watch?v=mCO-D3pkviM&t=504s) 的章節找一小段談原型或設計的內容；想練概念解釋，可以去 [17:42](https://www.youtube.com/watch?v=mCO-D3pkviM&t=1062s) 的章節挑。章節起點不是練習長度，聽過後只選一個完整想法。
+本篇已選好上面三段 40、48、40 秒的連續內容。先完成第一段，再依需求選工作取捨或概念比喻；太吃力時先拆成單句模仿，熟悉後回到完整段落。
 
 練完後，先不看稿說出這段的意思。再把其中一個句型改成自己的句子。如果只能追著聲音、完全不知道在說什麼，就把材料縮短或換簡單一點。
 
 ## 怎麼練這一段
 
-先從 [11:19](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s) 開始聽，暫時不看中文。第二次看英中對照，確認意思；第三次聽完一句就暫停，模仿它。能說順了，再播放原音，稍微落後說話者跟著說。
+先選上面一段，暫時不看字幕聽完整 30–60 秒。第二次看英文 CC，配合理解提示確認意思；第三次分句暫停模仿。能說順了，再播放整段原音，稍微落後說話者跟著說。
 
 如果一邊聽一邊說太吃力，就留在分句模仿。可以參考本站的[跟讀與回音練習導讀](/posts/learning/2026-10-08-shadowing-evidence)，選適合自己的練法。
 
@@ -147,7 +186,7 @@ loop: true
 
 ## 更新紀錄
 
-- 2026-10-10：跟讀改為連貫的原字幕短段落，加入同段原音播放器、同步英文字幕、播放範圍與重播。
+- 2026-10-10：跟讀擴充為三段連續原音（40、48、40 秒），加入同步英文 CC、起訖與重播、英中理解提示，以及從分句模仿到整段跟讀的練習；頁面只保留一則短引句。
 
 ## 參考資料
 

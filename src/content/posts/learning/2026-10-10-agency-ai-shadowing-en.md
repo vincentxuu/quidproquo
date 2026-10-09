@@ -4,8 +4,8 @@ date: 2026-10-10
 category: learning
 tags: [podcast, self-learning, skill-development]
 lang: en
-description: "Explore agency through Max Schoening’s Lenny’s Podcast interview, with short English caption excerpts, Chinese translations, timestamp links, and original workplace practice sentences."
-tldr: "Agency means believing you can change things and taking action. Read the guide, practice a short caption passage with the original audio, and describe a change you could make at work."
+description: "Explore agency through Max Schoening’s Lenny’s Podcast interview, with three continuous audio clips, synchronized English captions, bilingual comprehension notes, and original workplace practice sentences."
+tldr: "Agency means believing you can change things and taking action. Read the guide, practice three continuous clips with original audio and English captions, and describe a change you could make at work."
 draft: false
 glossary:
   - term: "agency"
@@ -18,7 +18,7 @@ glossary:
 
 You have tools that can turn an idea into a prototype, but you are still waiting for someone to tell you whether it belongs to your job. [Max Schoening’s conversation on Lenny’s Podcast](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more) raises a useful question: as skills become easier to access, what makes someone actually start?
 
-His answer is agency: the capacity to take action and influence a situation. This guide explores that idea, then offers short English excerpts with Chinese translations. Listen to the original audio, practice the phrases, and use the idea to describe something you could change at work.
+His answer is agency: the capacity to take action and influence a situation. This guide explores that idea, then offers three 30–60-second clips with bilingual comprehension notes. Listen to the original audio, practice each complete clip, and use the idea to describe something you could change at work.
 
 ```youtube
 url: https://www.youtube.com/watch?v=mCO-D3pkviM
@@ -80,26 +80,68 @@ This map follows the [video’s official chapters](https://www.youtube.com/watch
 
 ## Shadowing with original audio and English captions
 
-### 11:19–11:28, Max: why agency matters
+These three continuous clips each last 30–60 seconds. **Practice the entire clip with its original audio and synchronized English captions, not just the short quote printed below.** Each uses the official YouTube player with English captions and segment repeat requested. Press CC and select English if captions are hidden. The source’s captions provide the complete practice text.
+
+The ranges and comprehension notes were checked against the episode’s English automatic captions and surrounding context, without sentence-by-sentence audio listening. Rolling caption segments overlap, so the boundaries may differ slightly from spoken pauses. Follow complete spoken sentences when practicing.
+
+### Clip 1: 11:11–11:51 (40 seconds), from skills to agency
 
 ```youtube
 url: https://www.youtube.com/watch?v=mCO-D3pkviM
-title: Agency shadowing audio: Max on taking action (11:19–11:28)
-start: 679
-end: 688
+title: Agency shadowing 1: skills and initiative (11:11–11:51)
+start: 671
+end: 711
 captions: en
 loop: true
 ```
 
-**Short passage from the original English captions:**
+**English comprehension key:** Access to skills does not automatically lead to action. Follow how Max moves from available skills to initiative, then contrasts changing things with waiting for a role definition.
+
+**中文理解提示：**AI 可以把技能送到手邊，但是否相信事情能改變、是否真的行動，仍取決於人。留意他如何對比主動改變事情和等待職務定義的人。These comprehension notes are paraphrases written for this article.
+
+**Short quotation from the original captions:**
 
 > the thing that matters is agency and I don't think agency is very evenly distributed in the world
 
-**Chinese meaning:** 真正重要的是主動改變事情的能力；而我不認為每個人都有同樣程度的這種能力。
+The point is that initiative matters and varies between people. This quotation locates the argument; the exercise covers all 40 seconds, including the explanation and contrast around it.
 
-This passage has been checked against automatic captions and surrounding text, but not by listening to the audio. The player provides the original audio and synchronized English captions. Press CC and select English if captions are hidden. First understand the two connected ideas, then speak slightly behind the audio for three repetitions. Use 0.75× playback speed if necessary.
+Listen once without captions and explain the difference between skills and action. Then turn on English CC, pause and imitate one sentence at a time, and finally shadow the whole clip three times. Try 0.75× speed if needed. If repeat does not return to the beginning, reopen the [11:11 audio link](https://www.youtube.com/watch?v=mCO-D3pkviM&t=671s).
 
-Repeat playback is requested. If it does not return to this passage, reopen the [11:19 audio link](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s). Use the source’s captions for a longer passage; the original sentences below are additional speaking exercises.
+### Clip 2: 08:54–09:42 (48 seconds), coding to understand the design medium
+
+```youtube
+url: https://www.youtube.com/watch?v=mCO-D3pkviM
+title: Agency shadowing 2: code, prototypes, and agent loops (08:54–09:42)
+start: 534
+end: 582
+captions: en
+loop: true
+```
+
+**English comprehension key:** Follow the distinction between shipping production code and understanding the medium. The comparison then shifts to changing interface details versus understanding how an agent loop works.
+
+**中文理解提示：**重點不是設計師寫的程式能否直接上 production，而是用程式思考，能否理解產品真正運作的方式。接著留意調整 UI 與理解 agent loop 的取捨。These are paraphrases, not quotations.
+
+Practice explaining a workplace tradeoff. Listen to all 48 seconds and identify which kind of understanding Max values more. On the second pass, use English CC to find the negation, reason, and comparison, then imitate individual sentences. On the third, shadow continuously and let the emphasis follow his position. Close the video and explain in your own English what you want a prototype to test. Reopen the [08:54 audio link](https://www.youtube.com/watch?v=mCO-D3pkviM&t=534s) if needed.
+
+### Clip 3: 18:16–18:56 (40 seconds), explaining malleable software through an analogy
+
+```youtube
+url: https://www.youtube.com/watch?v=mCO-D3pkviM
+title: Agency shadowing 3: malleable software and living spaces (18:16–18:56)
+start: 1096
+end: 1136
+captions: en
+loop: true
+```
+
+**English comprehension key:** Hear the definition first, then the living-room and kitchen analogy. Explain how the example makes the abstract idea easier to understand.
+
+**中文理解提示：**先聽軟體應該替使用者還是公司服務，再聽客廳與廚房不能自由調整的比喻，理解他如何把抽象概念變得具體。These are paraphrases.
+
+Practice the progression from definition to analogy. Listen to the full 40 seconds for these two parts. With English CC, imitate the definition and example separately, then join them for continuous shadowing. Finally, choose your own everyday analogy to explain why adaptable tools matter. Reopen the [18:16 audio link](https://www.youtube.com/watch?v=mCO-D3pkviM&t=1096s) if needed.
+
+You can spread the clips across three days: begin with the agency argument, continue with workplace tradeoffs, and finish with an abstract concept and analogy. Check comprehension after you can follow the sound. If necessary, practice individual sentences before returning to the full clip.
 
 ## Put it into your own work
 
@@ -117,7 +159,7 @@ Choose a real problem. Replace *a small prototype* with something concrete, such
 
 ## Choosing a passage to practice
 
-Start by trying roughly 15–30 seconds. This is a practical starting suggestion, not a research-established optimum. If it feels overwhelming, reduce it to one sentence.
+Start by trying a coherent 30–60-second passage. This is a practical starting suggestion, not a research-established optimum. If it feels overwhelming, reduce it to one sentence.
 
 Look for four things:
 
@@ -126,15 +168,13 @@ Look for four things:
 - **Useful language:** you can adapt at least one expression to your own work or life.
 - **Clear audio:** begin with one speaker, few interruptions, and no music obscuring the voice.
 
-For this episode, first listen from [11:19](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s) to 11:45 for context, then narrow the passage at natural pauses. If simultaneous listening and speaking makes you lose the meaning, listen to one sentence, pause, and imitate it before attempting continuous shadowing. Treat timestamps as navigation points rather than reasons to cut a sentence short.
-
-For workplace language, explore a short passage in the chapter at [08:24](https://www.youtube.com/watch?v=mCO-D3pkviM&t=504s). For explaining a concept, explore the chapter at [17:42](https://www.youtube.com/watch?v=mCO-D3pkviM&t=1062s). A chapter start is not a prescribed practice duration: listen first and select one complete idea.
+This article already selects three continuous clips lasting 40, 48, and 40 seconds. Begin with the first, then choose the workplace tradeoff or concept-and-analogy clip. If necessary, imitate individual sentences before returning to the complete passage.
 
 Finally, check whether you can explain the meaning without the text and adapt an expression into your own sentence. If you can only chase the sounds, shorten the passage or choose something easier.
 
 ## Practice with the audio
 
-Start at [11:19](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s) and listen without reading the Chinese translation. Listen again with the English and Chinese text. Then pause after a phrase and imitate it. Once comfortable, try speaking slightly behind the original audio.
+Choose one clip above and listen to its full 30–60 seconds without captions. Listen again with English CC and the comprehension notes. Then pause and imitate individual sentences. Once comfortable, play the complete clip and speak slightly behind the original audio.
 
 If listening and speaking simultaneously feels overwhelming, stay with phrase-by-phrase imitation. See the site’s [guide to shadowing and echo practice](/posts/learning/2026-10-08-shadowing-evidence-en) for more context.
 
@@ -144,7 +184,7 @@ The useful question to carry into your day is concrete: with the tools already a
 
 ## Update history
 
-- 2026-10-10: Replaced isolated excerpts with a coherent caption passage and matching audio, synchronized English captions, playback range, and repeat controls.
+- 2026-10-10: Expanded practice to three continuous clips (40, 48, and 40 seconds), with synchronized English CC, start/end and repeat controls, bilingual comprehension notes, and progression from sentence imitation to full-clip shadowing. Retained one short source quotation.
 
 ## References
 

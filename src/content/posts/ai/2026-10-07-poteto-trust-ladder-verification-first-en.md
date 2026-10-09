@@ -31,18 +31,16 @@ captions: en
 title: Matt Pocock × Lauren Tan livestream (2026-10-02)
 ```
 
-The stream’s automatically generated English captions have been retrieved, and the short practice excerpts below have been checked against them. The main article has not been checked claim by claim against the original conversation; it primarily draws on two public write-ups: [a plain-language summary by Agile 3 Uncles (in Chinese)](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/) and [PJFP's timestamped chapter summary](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/). They agree on the main line; where I could not match an original quote, I say so.
-
 ## The number first: 2,500 is self-reported
 
 The PR count differs by source:
 
 - The stream title says "1,000's of PRs".
 - Her September 21 [X post](https://x.com/poteto/status/2102050467505430555) says 2,500.
-- Cursor's [Compile London schedule](https://cursor.com/compile/london) lists the same talk as "I Shipped 2,000 PRs Last Month".
-- An [analysis of the video's auto-captions](https://redreamality.com/blog/lauren-tan-poteto-trust-before-parallel/) says the spoken figure is about 2,000.
+- Cursor's [Compile London schedule](https://cursor.com/compile/london) lists the September 16 event’s talk as "I Shipped 2,000 PRs Last Month".
+- An [analysis of the Compile talk's auto-captions](https://redreamality.com/blog/lauren-tan-poteto-trust-before-parallel/) says the spoken figure is about 2,000.
 
-All are her own numbers for a month she chose, with no outside audit and no data on how many merged PRs were later reverted. In PJFP's summary she says a good share are small "gardening" fixes. So the figure tells you how finely she slices work, not how much value shipped.
+All are her own numbers for a month she chose, with no outside audit and no data on how many merged PRs were later reverted. At about 45:54 in the conversation, she says a good share are small "gardening" fixes. So the figure tells you how finely she slices work, not how much value shipped.
 
 ## Who it is for, and prerequisites
 
@@ -50,13 +48,13 @@ It fits people who use coding agents daily and find themselves the bottleneck. Y
 
 ## Content map
 
-**1. The trust ladder.** She uses a kitchen metaphor: one person watching one agent is a home cook; adding agents without a system is a family crowding into the kitchen, which only makes things worse; then comes the head chef who designs how the kitchen runs; finally the owner who moves between branches. She dislikes "software factory" because the engineer's name is still on what goes out.
+**1. The trust ladder.** Connecting her kitchen metaphors across different parts of the conversation gives this reading: one person watching one agent is a home cook; adding agents without a system is a family crowding into the kitchen, which only makes things worse; then comes the head chef who designs how the kitchen runs; finally the owner who moves between branches. She dislikes the associations of "software factory" that downplay quality and craft, and separately reminds us that the engineer’s reputation remains attached to the work.
 
-**2. A verification skill is the first rung.** At Cursor she started as the "meat proxy" between the agent and Chrome DevTools: reading flame graphs and heap snapshots herself, then relaying them. Her first skill let the agent launch the app, use it, and capture traces. Her definition of a loop follows: it is a loop only if the agent can check its own work.
+**2. A verification skill is the first rung.** At Cursor she started as the "meat proxy" between the agent and Chrome DevTools: reading flame graphs and heap snapshots herself, then relaying them. Her first skill after joining Cursor let the agent launch the app, use it, and capture traces. Her definition of a loop follows: it is a loop only if the agent can check its own work.
 
 **3. Deterministic work as code, judgment for the agent.** The verification skill contains a CLI wrapping Playwright and the Chrome DevTools Protocol. She says herself it is not impressive; the point is that every agent shares one toolset instead of rewriting a verification script each time, and behaves consistently. Migrations follow the same rule: prefer codemods over an agent reasoning about each file.
 
-**4. Environment over nagging.** Each time an agent errs, she first asks how to make the mistake impossible to write; the answer is usually a lint rule, a type, or a directory convention. Her internal Dune framework puts each feature in its own directory with an auto-registering registry, leaving one path. Dune has no public page, so treat it as a design idea only.
+**4. Environment over nagging.** Each time an agent errs, she first asks how to make the mistake impossible to write; the answer is usually a lint rule, a type, or a directory convention. She describes Dune as a non-open-source internal framework: each feature has its own directory, a registry and codebase scanning discover features, and restrictive lint rules narrow the available patterns. The transferable part is the design idea.
 
 **5. Outer and inner loops.** The inner loop is the agent writing code from your intent; the outer loop is the new information constantly arriving in Slack, Linear and X. Her personal agent subscribes to those sources and hands work to a cloud coordinator that splits tasks among sub-agents. Giving related bugs to one coordinator makes it easier to spot the shared root cause.
 
@@ -64,13 +62,14 @@ It fits people who use coding agents daily and find themselves the bottleneck. Y
 
 ## One concrete example: which layer should a correction live in?
 
-In a separate September 21 talk (as summarized by the caption analysis above), she ranks corrections into five layers, strongest first:
+The official pstack guide’s [`/correct` section](https://github.com/cursor/plugins/blob/main/pstack/docs/guide/09-make-it-yours.md#fix-the-environment-with-correct) gives four places to fix recurring mistakes, preferring the strongest enforceable option:
 
-1. Codebase and architecture: make the bad pattern impossible to write.
-2. Static analysis: lint, compilers, CI.
-3. Rules, Bugbot, skills: advice an agent may not read.
-4. Style guides and human review: cannot keep up at volume.
-5. Verification skills: prove behavior works, not that performance or code quality is good.
+1. Architecture or data structures that make the mistake impossible.
+2. Types, lint or CI checks that block it and explain the fix.
+3. Tests that catch it.
+4. Documentation or agent rules when the earlier options do not work; skipping text alone does not fail a check.
+
+This is the current public tool’s correction strategy, rather than a ranking recited in this interview. `/correct` also requires proving a new check fails on a real historical mistake, so adding a plausible rule is not enough.
 
 ```mermaid
 flowchart TD
@@ -78,10 +77,10 @@ flowchart TD
     B -->|Yes| C[Change architecture and types]
     B -->|No| D{Can it be a lint rule or CI check?}
     D -->|Yes| E[Add a lint rule]
-    D -->|No| F[Write it into a skill or rule<br/>and accept it may be skipped]
+    D -->|No| F[Find a test that catches it<br/>then consider docs or rules]
 ```
 
-Her habit is to write a lint rule first to stop the bleeding, then let agents clean up the old debt. The official guide's starter example is similarly plain, a goal plus a way to check it:
+For recurring errors, look for a fix in code or checks before falling back to written reminders. The official guide's starter example is similarly plain, a goal plus a way to check it:
 
 ```text
 /poteto-mode the export writes duplicate rows when a retry lands mid-run. repro first, then fix and verify.
@@ -91,11 +90,11 @@ Source: the [pstack guide](https://github.com/cursor/plugins/blob/main/pstack/do
 
 ## Limits
 
-- **Scope**: Asked about irreversible changes (medicine, law, finance), she says, per PJFP's summary, that she has no full answer; the test is whether you can verify to a level you trust. Where you can, one-way doors become two-way doors; where you cannot, auto-merge does not apply.
+- **Scope**: Matt asks about irreversible changes and domains such as medicine, law and finance. She says programmatically hard-to-verify domains make it harder to reach this level of autonomy, and acknowledges she has no complete answer. Her metaphor of verification turning one-way doors into two-way doors does not mean verification can undo data loss. This article recommends retaining human merge judgment when verification is insufficient or consequences cannot be reversed.
 - **Cost**: Full autopilot spawns several verifiers per PR, and she admits it burns tokens.
-- **Heavy prerequisites**: Her codebases were deliberately narrowed to one way of doing things; an early Grok Bot had eight files of 10,000+ lines each and was split under pressure. Most existing projects do not start there.
-- **Verification is not quality**: It proves behavior, not good code or good performance.
-- **Sourcing**: The main article still primarily draws on secondhand accounts. The English practice excerpts have been checked against automatic captions, but not the audio. Control Glass and Dune are internal tools. For her exact words, go back to the [original stream](https://www.youtube.com/watch?v=MN9dGgmLyso).
+- **Heavy prerequisites**: Her codebases were deliberately narrowed to one way of doing things; an early Grok Bot had eight files of 10,000+ lines each and was split under pressure. Applying this to an existing project still requires building corresponding tools and constraints.
+- **Verification must cover the goal**: Passing existing functional checks does not cover every quality or performance target. She also uses verification tools for performance improvement; those goals need appropriate traces, profiling or benchmarks.
+- **Sourcing**: The main claims have been checked against automatic English captions; the practice excerpt has not been checked by listening to the audio. Dune is the internal framework she describes, and the PR numbers and workflow are her own account. For her exact words, go back to the [original stream](https://www.youtube.com/watch?v=MN9dGgmLyso).
 
 ## How to use it: three things for tonight
 
@@ -107,7 +106,7 @@ For why harnesses matter, pair this with the site's [Phil Schmid guide](/posts/a
 
 ## Shadowing: practice with audio and captions together
 
-Start with this sentence: when asking how she builds trust in agents, Matt highlights her focus on verification. This roughly seven-second passage lets you practice one complete idea before moving to longer material.
+Practice three continuous passages of 31–51 seconds: verification, shared tools, and sampling. The short sentence below is a locator for the topic; the three longer players are the shadowing material. Follow the complete English captions in each original player.
 
 ### Original audio: 15:54–16:01, Matt
 
@@ -130,12 +129,49 @@ loop: true
 
 The repeated word preserves the speaker’s conversational phrasing. This excerpt has been checked against automatic English captions and surrounding text, but not by listening to the audio. Use the original audio as your reference.
 
+### Three continuous topic clips
+
+**1. Verification gives agents hands and eyes — 16:43–17:14 (31 seconds).** Lauren explains running the app, interacting with it, taking traces and snapshots, and how her first Cursor skill helped build trust. Listen for the connection between inspecting results and trusting an agent. After listening, explain what the agent can now do without a human proxy.
+
+```youtube
+url: https://www.youtube.com/watch?v=MN9dGgmLyso
+title: Verification: hands and eyes (16:43–17:14)
+start: 1003
+end: 1034
+captions: en
+loop: true
+```
+
+**2. Stop rebuilding verification tools — 22:47–23:38 (51 seconds).** Lauren describes agents recreating scripts differently on each run, then sharing one CLI through the skill. Listen for the problem, its cost, and the reusable solution. Summarize why this saves time as well as context.
+
+```youtube
+url: https://www.youtube.com/watch?v=MN9dGgmLyso
+title: A shared verification CLI (22:47–23:38)
+start: 1367
+end: 1418
+captions: en
+loop: true
+```
+
+**3. Sample the work and adjust the process — 49:34–50:20 (46 seconds).** Lauren moves from tasting food to sampling PRs and scrutinizing patterns in agent-written code. Listen for why scale changes the review approach. Explain what sampling still requires a person to inspect.
+
+```youtube
+url: https://www.youtube.com/watch?v=MN9dGgmLyso
+title: Sampling agent-written work (49:34–50:20)
+start: 2974
+end: 3020
+captions: en
+loop: true
+```
+
+The players’ synchronized captions provide the full passages. The single short quotation above helps you locate the discussion; it is not the complete practice text. These ranges were selected from automatic captions, without an audio-listening check.
+
 ### Practice
 
-1. Press play and listen while following the player’s English captions. If they are hidden, press CC and select English.
-2. Compare the English text above with the Chinese meaning. Just listen on the first pass.
-3. On the second pass, speak slightly behind the audio. If necessary, use the player settings to choose 0.75× speed.
-4. Repeat three times, then try without the text. Repeat playback is requested; if it does not return to this passage, reopen the [15:54 audio link](https://www.youtube.com/watch?v=MN9dGgmLyso&t=954s).
+1. Start with clip 1. Listen to all 31 seconds with the player’s English captions; use CC to select English if needed. Explain the main idea before repeating it.
+2. On the second pass, shadow the whole clip slightly behind the speaker. Use 0.75× speed if needed and pause at natural thought boundaries.
+3. Repeat once with captions and once without them. Retell the point in your own English; matching the idea matters more than copying hesitations.
+4. Move to clip 2, then clip 3, following the same progression. Compare their roles: inspecting results, reusing tools, and reviewing patterns. Each player requests looping; if it does not return to the range, reopen the video at its start timestamp.
 
 For a longer passage, open the [original video](https://www.youtube.com/watch?v=MN9dGgmLyso&t=954s) with English captions or “Show transcript,” then continue through Matt’s question and Lauren’s answer. This article quotes a short passage; the original player provides the full captions.
 
@@ -150,6 +186,10 @@ Finish with: **What can the agent check without my help?** Name one task that ca
 
 ## Update history
 
+- 2026-10-10: Added three continuous 31–51-second topic clips with synchronized English captions, comprehension prompts and a listening-to-shadowing progression; kept the short quote as a locator.
+
+- 2026-10-10: Checked the main claims against original interview captions; clarified Dune, verification coverage and irreversible changes; corrected the Compile event date and replaced the correction ranking with the official pstack `/correct` guide.
+
 - 2026-10-10: Replaced isolated phrases with a coherent caption excerpt, corresponding audio player, English captions, playback range, and practice steps.
 - 2026-10-10: Retrieved automatic English captions and added short excerpts, Chinese comparisons, and original speaking exercises. Caption text checked; audio verification pending.
 
@@ -159,8 +199,9 @@ Finish with: **What can the agent check without my help?** Name one task that ca
 - [Lauren Tan's X post: how i shipped 2,500 PRs last month](https://x.com/poteto/status/2102050467505430555)
 - [pstack (cursor/plugins, MIT)](https://github.com/cursor/plugins/tree/main/pstack)
 - [pstack guide](https://github.com/cursor/plugins/blob/main/pstack/docs/guide/README.md)
+- [pstack guide: Make it yours (`/correct` enforcement levels)](https://github.com/cursor/plugins/blob/main/pstack/docs/guide/09-make-it-yours.md)
 - [Cursor Compile London schedule](https://cursor.com/compile/london)
 - [Agile 3 Uncles: the secret of 2,500 PRs a month (in Chinese, secondhand)](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/)
 - [PJFP: Poteto on pstack (chapter summary, secondhand)](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/)
-- [Redreamality: Trust First, Then Parallel (caption analysis of the Sept 21 talk)](https://redreamality.com/blog/lauren-tan-poteto-trust-before-parallel/)
+- [Redreamality: Trust First, Then Parallel (Compile talk caption analysis, secondhand)](https://redreamality.com/blog/lauren-tan-poteto-trust-before-parallel/)
 - [Matt Pocock's skills repo](https://github.com/mattpocock/skills)
