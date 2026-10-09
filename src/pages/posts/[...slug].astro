@@ -1437,11 +1437,15 @@ const breadcrumbLD = {
     text-align: center;
   }
   .mermaid-diagram svg { max-width: 100%; height: auto; }
-  /* YouTube embeds (```youtube fence → remarkYoutubeEmbed) */
-  article .content :global(.video-embed) {
+</style>
+
+<style is:global>
+  /* YouTube embeds: youtube fence rendered by remarkYoutubeEmbed.
+     Kept in an is:global block because the :global() form was emitted literally by the compiler. */
+  article .content .video-embed {
     margin: 1.5rem 0;
   }
-  article .content :global(.video-embed__frame) {
+  article .content .video-embed__frame {
     position: relative;
     aspect-ratio: 16 / 9;
     border: 1px solid var(--border);
@@ -1449,14 +1453,14 @@ const breadcrumbLD = {
     overflow: hidden;
     background: var(--bg-subtle);
   }
-  article .content :global(.video-embed__frame iframe) {
+  article .content .video-embed__frame iframe {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     border: 0;
   }
-  article .content :global(.video-embed figcaption) {
+  article .content .video-embed figcaption {
     margin-top: 0.5rem;
     font-size: 0.875rem;
     color: var(--text-muted, inherit);
