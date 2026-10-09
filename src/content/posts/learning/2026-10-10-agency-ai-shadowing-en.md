@@ -6,7 +6,7 @@ tags: [podcast, self-learning, skill-development]
 lang: en
 description: "Explore agency through Max Schoening’s Lenny’s Podcast interview, with short English caption excerpts, Chinese translations, timestamp links, and original workplace practice sentences."
 tldr: "Agency means believing you can change things and taking action. Read the guide, practice three short excerpts with the original audio, and describe a change you could make at work."
-draft: true
+draft: false
 glossary:
   - term: "agency"
     definition: "Here, a person’s capacity to influence a situation and take initiative."
@@ -80,11 +80,11 @@ This map follows the [video’s official chapters](https://www.youtube.com/watch
 
 ## English excerpts with Chinese translations
 
-These are short excerpts from YouTube’s English captions, not the full transcript. Captions can contain recognition errors. Each link starts at the beginning of a caption segment; the quoted phrase may occur later within it. Check the audio before imitating its rhythm. For the full conversation, use the [original video’s transcript feature](https://www.youtube.com/watch?v=mCO-D3pkviM) or the [episode’s Transcript tab](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more). The episode page may require signing in or subscribing.
+These short excerpts have been checked against YouTube’s automatically generated English captions and surrounding text, but have not been verified by listening to the audio. Captions can contain recognition errors. Each link starts at the beginning of a caption segment; the quoted phrase may occur later within it. Check the audio before imitating its rhythm. For the full conversation, use the [original video’s transcript feature](https://www.youtube.com/watch?v=mCO-D3pkviM) or the [episode’s Transcript tab](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more). The episode page may require signing in or subscribing.
 
 ### 1. Naming what matters
 
-Max, [11:14 caption segment](https://www.youtube.com/watch?v=mCO-D3pkviM&t=674s):
+Max, [11:19 caption segment](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s):
 
 > the thing that matters is agency
 
@@ -108,7 +108,7 @@ Suggested phrase grouping: *the world around them / is malleable*. Listen to the
 
 ### 3. Developing the capacity
 
-Max, [11:39 caption segment](https://www.youtube.com/watch?v=mCO-D3pkviM&t=699s):
+Max, [11:45 caption segment](https://www.youtube.com/watch?v=mCO-D3pkviM&t=705s):
 
 > cultivate agency
 
@@ -141,7 +141,7 @@ Look for four things:
 - **Useful language:** you can adapt at least one expression to your own work or life.
 - **Clear audio:** begin with one speaker, few interruptions, and no music obscuring the voice.
 
-For this episode, first listen from [11:14](https://www.youtube.com/watch?v=mCO-D3pkviM&t=674s) to 11:39 for context, then narrow the passage at natural pauses. If simultaneous listening and speaking makes you lose the meaning, listen to one sentence, pause, and imitate it before attempting continuous shadowing. Treat timestamps as navigation points rather than reasons to cut a sentence short.
+For this episode, first listen from [11:19](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s) to 11:45 for context, then narrow the passage at natural pauses. If simultaneous listening and speaking makes you lose the meaning, listen to one sentence, pause, and imitate it before attempting continuous shadowing. Treat timestamps as navigation points rather than reasons to cut a sentence short.
 
 For workplace language, explore a short passage in the chapter at [08:24](https://www.youtube.com/watch?v=mCO-D3pkviM&t=504s). For explaining a concept, explore the chapter at [17:42](https://www.youtube.com/watch?v=mCO-D3pkviM&t=1062s). A chapter start is not a prescribed practice duration: listen first and select one complete idea.
 
@@ -149,7 +149,7 @@ Finally, check whether you can explain the meaning without the text and adapt an
 
 ## Practice with the audio
 
-Start at [11:14](https://www.youtube.com/watch?v=mCO-D3pkviM&t=674s) and listen without reading the Chinese translation. Listen again with the English and Chinese text. Then pause after a phrase and imitate it. Once comfortable, try speaking slightly behind the original audio.
+Start at [11:19](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s) and listen without reading the Chinese translation. Listen again with the English and Chinese text. Then pause after a phrase and imitate it. Once comfortable, try speaking slightly behind the original audio.
 
 If listening and speaking simultaneously feels overwhelming, stay with phrase-by-phrase imitation. See the site’s [guide to shadowing and echo practice](/posts/learning/2026-10-08-shadowing-evidence-en) for more context.
 

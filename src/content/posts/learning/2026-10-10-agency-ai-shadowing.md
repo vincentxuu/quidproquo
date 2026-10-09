@@ -6,7 +6,7 @@ tags: [podcast, self-learning, skill-development]
 lang: zh-TW
 description: "從 Max Schoening 的 Lenny’s Podcast 訪談理解 agency，搭配英文字幕摘錄、中文對照、原音時間連結與工作情境練習句。"
 tldr: "Agency 是相信自己能改變事情，並開始行動。讀完導讀，再用三段英文原話練跟讀，把觀念換成自己工作中說得出口的句子。"
-draft: true
+draft: false
 glossary:
   - term: "agency"
     definition: "本文指一個人相信自己能影響事情，並主動採取行動的能力。"
@@ -82,11 +82,11 @@ captions: en
 
 ## 英文原話與中文對照
 
-以下是 YouTube 英文字幕的短摘錄，不是整集逐字稿。字幕可能有辨識誤差；時間連結指向該字幕片段的起點，句子可能在片段中途才出現。先開啟原音確認，再模仿說話者的節奏。完整內容請到[原始影片](https://www.youtube.com/watch?v=mCO-D3pkviM)的逐字稿功能，或[節目頁的 Transcript](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more)閱讀；節目頁可能需要登入或訂閱。
+以下短摘錄已對照 YouTube 英文自動字幕與前後文，尚未逐句回聽核對。字幕可能有辨識誤差；時間連結指向該字幕片段的起點，句子可能在片段中途才出現。先開啟原音確認，再模仿說話者的節奏。完整內容請到[原始影片](https://www.youtube.com/watch?v=mCO-D3pkviM)的逐字稿功能，或[節目頁的 Transcript](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more)閱讀；節目頁可能需要登入或訂閱。
 
 ### 1. 說出真正重要的事
 
-Max，[11:14 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=674s)：
+Max，[11:19 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s)：
 
 > the thing that matters is agency
 
@@ -110,7 +110,7 @@ Max，[11:31 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=691s)�
 
 ### 3. 把能力培養起來
 
-Max，[11:39 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=699s)：
+Max，[11:45 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=705s)：
 
 > cultivate agency
 
@@ -143,7 +143,7 @@ Max，[11:39 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=699s)�
 - **表達用得上**：能把其中一個句型換成自己的工作或生活情境。
 - **原音清楚**：先選一人說話、少打斷、沒有廣告音樂蓋過聲音的段落。
 
-這集可以先從 [11:14](https://www.youtube.com/watch?v=mCO-D3pkviM&t=674s) 聽到 11:39，了解 agency 的意思，再依原音停頓縮小練習範圍。如果一邊聽一邊說會失去意思，就先聽完一句、暫停、模仿；能說順之後再跟著原音。秒數是找段落的入口，不要為了湊長度把句子切斷。
+這集可以先從 [11:19](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s) 聽到 11:45，了解 agency 的意思，再依原音停頓縮小練習範圍。如果一邊聽一邊說會失去意思，就先聽完一句、暫停、模仿；能說順之後再跟著原音。秒數是找段落的入口，不要為了湊長度把句子切斷。
 
 想練工作表達，可以從 [08:24](https://www.youtube.com/watch?v=mCO-D3pkviM&t=504s) 的章節找一小段談原型或設計的內容；想練概念解釋，可以去 [17:42](https://www.youtube.com/watch?v=mCO-D3pkviM&t=1062s) 的章節挑。章節起點不是練習長度，聽過後只選一個完整想法。
 
@@ -151,7 +151,7 @@ Max，[11:39 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=699s)�
 
 ## 怎麼練這一段
 
-先從 [11:14](https://www.youtube.com/watch?v=mCO-D3pkviM&t=674s) 開始聽，暫時不看中文。第二次看英中對照，確認意思；第三次聽完一句就暫停，模仿它。能說順了，再播放原音，稍微落後說話者跟著說。
+先從 [11:19](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s) 開始聽，暫時不看中文。第二次看英中對照，確認意思；第三次聽完一句就暫停，模仿它。能說順了，再播放原音，稍微落後說話者跟著說。
 
 如果一邊聽一邊說太吃力，就留在分句模仿。可以參考本站的[跟讀與回音練習導讀](/posts/learning/2026-10-08-shadowing-evidence)，選適合自己的練法。
 
