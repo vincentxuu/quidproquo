@@ -27,7 +27,7 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
-- **多來源導讀與跟讀（2026-10-10）**：Poteto／Agency 中英各補三段 30–60 秒連續原音、同步英文字幕、重播與中文重點；短引文只作定位。Poteto 已按原始字幕修正文主張並移除研究歷程開頭。規則與 post skill 加入練習量及部署驗收，skills-sync 完成；原音逐句回聽未完成。獨立工作樹 pnpm verify 全綠；其他文章已盤點 12 個候選，原音仍待核實。
+- **多來源導讀與跟讀（2026-10-10）**：Poteto／Agency 四篇明分原站字幕跟讀、短引文與理解摘要；並未提供頁內完整逐字稿。保留三段30–60秒原音及官方字幕入口。post／post-update skill、ADR與寫作規則加入交付分類及逐段檢查模板；原音回聽仍未完成，頁內逐字稿需求仍有缺口，不能稱完整交付。
 - **Agency／部署追蹤（2026-10-10）**：字幕 API 1.2.4 已取得有效字幕，未保存全文；Agency 已公開。9c24ffc0 build／verify 成功，Cloudflare deployments API 504 導致 CD 失敗，已重跑；本次內容修訂準備 commit／push，production 成功與公開頁面待確認。
 - **口說文章：求職聊天六個修正（2026-10-07，草稿待確認）**：`learning/2026-10-07-job-hunt-chat-english`（雙語，`draft: true`）＋16 張 `job-*` 卡接進 `/english` 日常情境（共 35 卡；卡片尚未填 `article`，發佈後補）。來源 Cambridge／Merriam-Webster／British Council 共 23 頁，Groundlane 401／Jina 402，改用 Firecrawl，不算 Groundlane 驗證；每頁讀取範圍記在 `.work/english-speaking/job-hunt-chat/evidence.md`。skill 補「整段對話」流程與去識別化規則，`corrections.md`（含原句）已 gitignore。瀏覽器走完日常 18 卡揭示／自評、390px 無橫向捲動。待辦：母語者確認、Groundlane 連線、發佈決定、on/in the team 與薪資制度說法待查。5 測試通過、verify 全綠；未 commit、未 deploy。
 - **英文口說文章 skill（2026-10-06）**：建立 `.agents/skills/english-speaking-post/`（4 檔＋生成鏡像），每次口說需求查證後留雙語文章與回想卡，明訂來源選擇、語用差異、改寫範圍、待查句排除。Groundlane live 讀 Cambridge here-and-there；獨立票券試跑產出雙語草稿＋3 卡（fixture 範圍成立，位置／have 比較待查），補強情境與表達分開標證據後再試跑通過。產物 `.work/english-speaking-skill-eval/outputs/`；skill validator、skills-sync、最後 pnpm verify 全綠。19 主卡及延伸句已逐題核對並加入來源／改寫範圍；票券改出示情境與新 ID，衝浪／攀岩語境修正。紀錄 `.work/english-speaking/poc-audit/`；4 測試通過、pnpm verify 全綠、瀏覽器確認票券與展開來源。使用者已授權本次 commit／push；未 deploy。

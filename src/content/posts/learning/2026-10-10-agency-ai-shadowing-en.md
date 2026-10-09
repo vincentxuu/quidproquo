@@ -4,8 +4,8 @@ date: 2026-10-10
 category: learning
 tags: [podcast, self-learning, skill-development]
 lang: en
-description: "Explore agency through Max Schoening’s Lenny’s Podcast interview, with three continuous audio clips, synchronized English captions, bilingual comprehension notes, and original workplace practice sentences."
-tldr: "Agency means believing you can change things and taking action. Read the guide, practice three continuous clips with original audio and English captions, and describe a change you could make at work."
+description: "Explore agency through Max Schoening’s Lenny’s Podcast interview, with three clips for shadowing using source-player captions, short excerpts, paraphrased comprehension notes, and workplace practice sentences."
+tldr: "Agency means believing you can change things and taking action. Read the guide, practice three continuous clips with original audio and source-player English captions, and describe a change you could make at work."
 draft: false
 glossary:
   - term: "agency"
@@ -18,7 +18,7 @@ glossary:
 
 You have tools that can turn an idea into a prototype, but you are still waiting for someone to tell you whether it belongs to your job. [Max Schoening’s conversation on Lenny’s Podcast](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more) raises a useful question: as skills become easier to access, what makes someone actually start?
 
-His answer is agency: the capacity to take action and influence a situation. This guide explores that idea, then offers three 30–60-second clips with bilingual comprehension notes. Listen to the original audio, practice each complete clip, and use the idea to describe something you could change at work.
+His answer is agency: the capacity to take action and influence a situation. This guide explores that idea, then offers three 30–60-second clips for shadowing with source-player captions and paraphrased bilingual comprehension notes. Listen to the original audio, practice each complete clip, and use the idea to describe something you could change at work.
 
 ```youtube
 url: https://www.youtube.com/watch?v=mCO-D3pkviM
@@ -78,9 +78,11 @@ This map follows the [video’s official chapters](https://www.youtube.com/watch
 | [1:00:09](https://www.youtube.com/watch?v=mCO-D3pkviM&t=3609s) | 產品成功的關鍵 | What contributes to a successful product |
 | [1:19:20](https://www.youtube.com/watch?v=mCO-D3pkviM&t=4760s) | 快問快答與結尾 | Closing questions and reflections |
 
-## Shadowing with original audio and English captions
+## Shadowing with captions on the source player
 
-These three continuous clips each last 30–60 seconds. **Practice the entire clip with its original audio and synchronized English captions, not just the short quote printed below.** Each uses the official YouTube player with English captions and segment repeat requested. Press CC and select English if captions are hidden. The source’s captions provide the complete practice text.
+These three continuous clips each last 30–60 seconds. This is **shadowing with captions on the source player**, not an in-page bilingual transcript. This page provides one short locator quotation and paraphrased English/Chinese comprehension notes; it does not print the full passages or sentence-by-sentence translations. Each uses the official YouTube player with English captions and segment repeat requested.
+
+Press CC and select English. To read each complete passage as a list of sentences, open its timed YouTube link, expand the video description and choose “Show transcript,” then follow the marked start/end range. That transcript is on YouTube, outside this page; the embed may not expose the panel.
 
 The ranges and comprehension notes were checked against the episode’s English automatic captions and surrounding context, without sentence-by-sentence audio listening. Rolling caption segments overlap, so the boundaries may differ slightly from spoken pauses. Follow complete spoken sentences when practicing.
 
@@ -183,6 +185,8 @@ Record one sentence, listen for where you hesitate, and practice that part again
 The useful question to carry into your day is concrete: with the tools already available to you, what could you begin improving?
 
 ## Update history
+
+- 2026-10-10: Labeled the exercises as shadowing with source-player captions; distinguished short quotes and paraphrased notes from complete bilingual transcripts, and added timed source/transcript instructions.
 
 - 2026-10-10: Expanded practice to three continuous clips (40, 48, and 40 seconds), with synchronized English CC, start/end and repeat controls, bilingual comprehension notes, and progression from sentence imitation to full-clip shadowing. Retained one short source quotation.
 

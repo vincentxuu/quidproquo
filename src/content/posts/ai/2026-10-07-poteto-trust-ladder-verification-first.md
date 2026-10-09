@@ -6,7 +6,7 @@ category: ai
 tags: [harness-engineering, coding-agent, ai-agent, agent-skills, cursor]
 lang: zh-TW
 tldr: "Cursor 工程師 Lauren Tan（poteto）自述月合併約 2,000–2,500 個 PR，數字未經外部稽核。她的做法是三件事：先做驗證 skill、把重複的錯誤變成 lint 與型別限制、合併後抽樣檢查。方法可以搬，前提是你的領域能被程式驗證。"
-description: "導讀 Matt Pocock 與 Lauren Tan（poteto）10 月 2 日的直播對談：信任階梯、驗證 skill、用環境取代叮嚀、事後抽樣，以及哪些數字只是自述。"
+description: "導讀 Matt Pocock 與 Lauren Tan（poteto）10 月 2 日的直播對談：信任階梯、驗證 skill、用環境取代叮嚀、事後抽樣，以及哪些數字只是自述；附三段原站字幕跟讀。"
 draft: false
 glossary:
   - term: "meat proxy"
@@ -105,9 +105,11 @@ flowchart TD
 
 想了解 harness 為什麼是這幾年的重點，可以搭配站內的 [Phil Schmid 導讀](/posts/ai/2026-03-28-phil-schmid-agent-harness)與 [meta-harness 分層整理](/posts/ai/2026-08-26-meta-harness-layers)。
 
-## 英文跟讀：原音和字幕一起練
+## 原站字幕跟讀
 
-練三段 31–51 秒的連續內容：驗證、共用工具、抽樣檢查。下面的短句用來定位主題，真正的跟讀素材是後面的三個長段落播放器；完整英文字幕跟著原播放器同步顯示。
+練三段 31–51 秒的連續內容：驗證、共用工具、抽樣檢查。這裡是**原站字幕跟讀**。本頁提供一則定位用的原字幕短摘錄，以及改寫的理解提示；沒有刊登三段完整英文逐字稿，也沒有逐句中文翻譯。
+
+每段先按播放器 CC，選英文字幕。想一行一行看整段文字，請開啟該段的 YouTube 時間連結，展開影片說明並選「顯示文字記錄／Show transcript」，再依標示的起訖時間練習。文字記錄在 YouTube 原站，內嵌播放器不一定提供這個面板。
 
 ### 原音：15:54–16:01，Matt
 
@@ -120,7 +122,7 @@ captions: en
 loop: true
 ```
 
-### 英文原字幕
+### 定位用的原字幕短摘錄
 
 > So the thing I I loved about watching that talk is the amount of focus you put in verification
 
@@ -143,6 +145,8 @@ captions: en
 loop: true
 ```
 
+[開啟 16:43 原站影片，使用英文 CC 或「顯示文字記錄」](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1003s)。
+
 **2. 別每次重造驗證工具：22:47–23:38（51 秒）。** Lauren 描述 agent 每次各自重寫腳本的浪費，以及把 CLI 放進 skill、讓大家共用的解法。聽的重點是問題、代價與可重用的解法。聽完用自己的英文解釋：為什麼省的不只是 context，還有時間？
 
 ```youtube
@@ -154,6 +158,8 @@ captions: en
 loop: true
 ```
 
+[開啟 22:47 原站影片，使用英文 CC 或「顯示文字記錄」](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1367s)。
+
 **3. 抽樣成果，檢查流程：49:34–50:20（46 秒）。** Lauren 從試吃每一道菜，轉到抽樣 PR、仔細看 agent 寫出的程式與重複模式。聽的重點是工作量變大後，review 如何改變。聽完說明：抽樣仍需要人檢查哪些東西？
 
 ```youtube
@@ -164,6 +170,8 @@ end: 3020
 captions: en
 loop: true
 ```
+
+[開啟 49:34 原站影片，使用英文 CC 或「顯示文字記錄」](https://www.youtube.com/watch?v=MN9dGgmLyso&t=2974s)。
 
 完整段落以播放器的同步英文字幕為準。上面的單句短摘錄只是定位，不是整份跟讀文字；這三段範圍依自動字幕選取，尚未回聽原音核對。
 
@@ -186,6 +194,8 @@ loop: true
 最後試著回答：**What can the agent check without my help?** 列一項能自動檢查的工作，再列一項仍需要你判斷的工作。
 
 ## 更新紀錄
+
+- 2026-10-10：明確標示「原站字幕跟讀」，區分短摘錄、改寫的理解提示與完整雙語逐字稿，補上原站時間連結及文字記錄操作方式。
 
 - 2026-10-10：加入三段 31–51 秒連續主題播放器、同步英文字幕、理解重點與跟讀順序；短摘錄保留作定位。
 

@@ -6,7 +6,7 @@ category: ai
 tags: [harness-engineering, coding-agent, ai-agent, agent-skills, cursor]
 lang: en
 tldr: "Cursor engineer Lauren Tan (poteto) says she merges roughly 2,000–2,500 PRs a month, a self-reported figure no one has audited. Her method is three moves: build a verification skill first, turn repeated mistakes into lint and type constraints, and sample-review after merge. The method transfers if your domain can be verified by code."
-description: "A guided read of the Oct 2 livestream between Matt Pocock and Lauren Tan (poteto): the trust ladder, verification skills, environment over nagging, post-merge sampling, and which numbers are only self-reported."
+description: "A guided read of the Oct 2 livestream between Matt Pocock and Lauren Tan (poteto): the trust ladder, verification skills, environment over nagging, post-merge sampling, and which numbers are only self-reported, with three clips for shadowing using source-player captions."
 draft: false
 glossary:
   - term: "meat proxy"
@@ -104,9 +104,11 @@ Source: the [pstack guide](https://github.com/cursor/plugins/blob/main/pstack/do
 
 For why harnesses matter, pair this with the site's [Phil Schmid guide](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) and the [meta-harness layering post](/posts/ai/2026-08-26-meta-harness-layers-en).
 
-## Shadowing: practice with audio and captions together
+## Shadowing with captions on the source player
 
-Practice three continuous passages of 31–51 seconds: verification, shared tools, and sampling. The short sentence below is a locator for the topic; the three longer players are the shadowing material. Follow the complete English captions in each original player.
+Practice three continuous passages of 31–51 seconds: verification, shared tools, and sampling. This is **shadowing with captions on the source player**, not an in-page bilingual transcript. This page provides one short locator quotation and paraphrased comprehension notes; it does not print the full English passages or sentence-by-sentence Chinese translations.
+
+For each clip, press CC and select English. To read the passage as a list of sentences, open its timed link on YouTube, expand the video description and choose “Show transcript,” then follow only the marked start/end range. The transcript appears on YouTube, outside this page; the embed may not expose that panel.
 
 ### Original audio: 15:54–16:01, Matt
 
@@ -119,7 +121,7 @@ captions: en
 loop: true
 ```
 
-### Original English captions
+### Short locator quotation from the original captions
 
 > So the thing I I loved about watching that talk is the amount of focus you put in verification
 
@@ -142,6 +144,8 @@ captions: en
 loop: true
 ```
 
+[Open 16:43 on YouTube to use CC or Show transcript](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1003s).
+
 **2. Stop rebuilding verification tools — 22:47–23:38 (51 seconds).** Lauren describes agents recreating scripts differently on each run, then sharing one CLI through the skill. Listen for the problem, its cost, and the reusable solution. Summarize why this saves time as well as context.
 
 ```youtube
@@ -153,6 +157,8 @@ captions: en
 loop: true
 ```
 
+[Open 22:47 on YouTube to use CC or Show transcript](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1367s).
+
 **3. Sample the work and adjust the process — 49:34–50:20 (46 seconds).** Lauren moves from tasting food to sampling PRs and scrutinizing patterns in agent-written code. Listen for why scale changes the review approach. Explain what sampling still requires a person to inspect.
 
 ```youtube
@@ -163,6 +169,8 @@ end: 3020
 captions: en
 loop: true
 ```
+
+[Open 49:34 on YouTube to use CC or Show transcript](https://www.youtube.com/watch?v=MN9dGgmLyso&t=2974s).
 
 The players’ synchronized captions provide the full passages. The single short quotation above helps you locate the discussion; it is not the complete practice text. These ranges were selected from automatic captions, without an audio-listening check.
 
@@ -185,6 +193,8 @@ These sentences were written for this site for substitution practice; they are n
 Finish with: **What can the agent check without my help?** Name one task that can be checked automatically and one that still needs your judgment.
 
 ## Update history
+
+- 2026-10-10: Labeled the exercises as shadowing with source-player captions; distinguished short quotes and paraphrased notes from complete bilingual transcripts, and added timed source/transcript instructions.
 
 - 2026-10-10: Added three continuous 31–51-second topic clips with synchronized English captions, comprehension prompts and a listening-to-shadowing progression; kept the short quote as a locator.
 

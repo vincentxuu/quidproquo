@@ -63,6 +63,7 @@ description: 'Update an existing Markdown post under a category directory in src
 6. **參考資料連動**：
    - 動到內容引用的工具 / 文件 → 同步檢查 `## 參考資料` 是否要新增或更新連結
    - 修壞掉的連結 → 一併補上
+   - 更新跟讀內容時，依 `../post/templates/shadowing-delivery-checklist.md` 核對「頁內逐字稿對照」或「原站字幕跟讀」。同步檢查中英文的標題、description、tldr、開頭和練習區；短引文、中文摘要、英文版文章及外部字幕入口均不能冒充頁內完整逐字稿。使用者要求頁內全文而僅有原站字幕時，記錄缺口，不能稱需求已完整交付。
 
 7. **系列同步**（該文屬於 series 時）：掃同系列其他文章有沒有對本篇主題的過期承諾——「接下來會寫 X」「第一批優先順序是…」、對照表裡提到 X 卻沒連結。有的話一併回填成現況清單＋連結，中英版都改，各加 `## 更新紀錄`。實例：`2026-08-21-global-ai-cs-course-map` 寫了「系列會先完成 CMU、MIT、Berkeley 三篇學校地圖」，但這些地圖與 CS188／CS285／CS288／10-301 導讀上線後總覽一直沒回補連結。發新文章時的預防流程見 `../post/SKILL.md` 步驟 8。
 
