@@ -8,12 +8,18 @@ import type { Root } from 'mdast';
  *   url: https://www.youtube.com/watch?v=MN9dGgmLyso
  *   title: Matt Pocock × Lauren Tan 直播對談
  *   start: 91
+ *   end: 110
+ *   loop: true
  *   captions: en
  *   ```
  *
  * `url` and `title` are required (title feeds the iframe's accessible name and the
  * fallback link); `start` is optional, in seconds. `captions` optionally requests
- * visible captions in the specified language. A malformed block throws so the
+ * visible captions in the specified language. `end` must be later than `start`
+ * (default 0); `loop` accepts true or false and requests single-video looping.
+ * Bounded loops use the IFrame API controller initialized by PostLayout;
+ * whole-video loops use native player parameters.
+ * A malformed block throws so the
  * build fails instead of silently shipping a broken embed.
  */
 
@@ -23,6 +29,8 @@ export interface YoutubeEmbedSpec {
   id: string;
   title: string;
   start?: number;
+  end?: number;
+  loop?: boolean;
   captions?: string;
 }
 
@@ -47,7 +55,7 @@ export function extractVideoId(raw: string): string | null {
 export function parseYoutubeBlock(body: string): YoutubeEmbedSpec {
   const fields: Record<string, string> = {};
   for (const line of body.split('\n')) {
-    const match = line.match(/^\s*(url|title|start|captions)\s*:\s*(.*?)\s*$/);
+    const match = line.match(/^\s*(url|title|start|end|loop|captions)\s*:\s*(.*?)\s*$/);
     if (match) fields[match[1]] = match[2];
   }
 
@@ -62,19 +70,40 @@ export function parseYoutubeBlock(body: string): YoutubeEmbedSpec {
       throw new Error(`youtube embed: "start" must be a non-negative integer of seconds (got "${fields.start}")`);
     }
   }
+  let end: number | undefined;
+  if (fields.end !== undefined) {
+    end = Number(fields.end);
+    if (!Number.isInteger(end) || end <= (start ?? 0)) {
+      throw new Error(`youtube embed: "end" must be a positive integer of seconds greater than start (got "${fields.end}")`);
+    }
+  }
+  let loop: boolean | undefined;
+  if (fields.loop !== undefined) {
+    if (fields.loop !== 'true' && fields.loop !== 'false') {
+      throw new Error(`youtube embed: "loop" must be true or false (got "${fields.loop}")`);
+    }
+    loop = fields.loop === 'true';
+  }
   const captions = fields.captions;
   if (captions !== undefined && !/^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/.test(captions)) {
     throw new Error(`youtube embed: "captions" must be a language code (got "${captions}")`);
   }
-  return { id, title: fields.title, start, ...(captions ? { captions } : {}) };
+  return { id, title: fields.title, start, ...(end !== undefined ? { end } : {}), ...(loop !== undefined ? { loop } : {}), ...(captions ? { captions } : {}) };
 }
 
 const escapeHtml = (value: string) =>
   value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-export function renderYoutubeEmbed({ id, title, start, captions }: YoutubeEmbedSpec): string {
+export function renderYoutubeEmbed({ id, title, start, end, loop, captions }: YoutubeEmbedSpec): string {
   const params = new URLSearchParams();
   if (start) params.set('start', String(start));
+  if (end !== undefined) params.set('end', String(end));
+  const segmentLoop = loop && end !== undefined;
+  if (segmentLoop) params.set('enablejsapi', '1');
+  if (loop && !segmentLoop) {
+    params.set('loop', '1');
+    params.set('playlist', id);
+  }
   if (captions) {
     params.set('cc_lang_pref', captions);
     params.set('cc_load_policy', '1');
@@ -83,10 +112,12 @@ export function renderYoutubeEmbed({ id, title, start, captions }: YoutubeEmbedS
   const embedSrc = `https://www.youtube-nocookie.com/embed/${id}${query ? `?${query}` : ''}`;
   const watchHref = `https://www.youtube.com/watch?v=${id}${start ? `&t=${start}s` : ''}`;
   const safeTitle = escapeHtml(title);
+  const loopAttributes = segmentLoop ? ` data-youtube-loop-start="${start ?? 0}" data-youtube-loop-end="${end}"` : '';
+  const permissions = `${segmentLoop ? 'autoplay; ' : ''}accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen`;
   return [
     '<figure class="video-embed">',
     '<div class="video-embed__frame">',
-    `<iframe src="${escapeHtml(embedSrc)}" title="${safeTitle}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`,
+    `<iframe src="${escapeHtml(embedSrc)}" title="${safeTitle}" loading="lazy"${loopAttributes} referrerpolicy="strict-origin-when-cross-origin" allow="${permissions}" allowfullscreen></iframe>`,
     '</div>',
     `<figcaption><a href="${escapeHtml(watchHref)}" target="_blank" rel="noopener noreferrer">YouTube：${safeTitle}</a></figcaption>`,
     '</figure>',

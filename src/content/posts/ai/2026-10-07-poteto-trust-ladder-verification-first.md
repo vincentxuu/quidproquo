@@ -106,28 +106,52 @@ flowchart TD
 
 想了解 harness 為什麼是這幾年的重點，可以搭配站內的 [Phil Schmid 導讀](/posts/ai/2026-03-28-phil-schmid-agent-harness)與 [meta-harness 分層整理](/posts/ai/2026-08-26-meta-harness-layers)。
 
-## 英文跟讀：把「信任」說得具體
+## 英文跟讀：原音和字幕一起練
 
-先練能用在自己工作裡的表達：agent 能驗證什麼、何時還需要你介入。以下短語已對照 YouTube 英文自動字幕；尚未逐句回聽核對，說話者依對談上下文辨識。自動字幕可能有辨識錯誤，練習時以原音為準。完整連續聽讀請到[原始影片](https://www.youtube.com/watch?v=MN9dGgmLyso)，開啟英文字幕或「顯示文字記錄」。
+先練這一句：Matt 在詢問她如何建立對 agent 的信任時，指出她非常重視驗證。這段約 7 秒，適合先把一個完整意思說順，再延長練習。
 
-| 原音位置／說話者 | 英文字幕短摘錄 | 中文意思 | 可套用的表達 |
-|---|---|---|---|
-| [15:54，Matt](https://www.youtube.com/watch?v=MN9dGgmLyso&t=954s) | verify its own work | 驗證自己做的工作 | verify + 工作或結果 |
-| [18:01，Lauren](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1081s) | takes you out of the equation | 讓你不必再介入這個環節 | take someone out of the equation |
-| [18:46，Lauren](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1126s) | probably the most important skill | 可能是最重要的技能 | probably + 判斷，保留不確定程度 |
+### 原音：15:54–16:01，Matt
 
-點時間連結，先聽前後約十秒理解意思，再挑表中的短語跟讀三次；最後關掉字幕再說一次。第二段指的是減少人在驗證迴圈中的介入，不代表任何工作都能免審查。
+```youtube
+url: https://www.youtube.com/watch?v=MN9dGgmLyso
+title: Poteto 跟讀原音：Matt 談驗證（15:54–16:01）
+start: 954
+end: 961
+captions: en
+loop: true
+```
 
-接著把表達換成你的情境。以下是本站自擬練習句，不是講者原話：
+### 英文原字幕
 
-- **The agent should verify its own work before I review it.** 我審查之前，agent 應該先驗證自己的工作。
-- **Automated checks take me out of the equation for routine tasks.** 自動檢查讓我不必介入例行工作。
-- **Verification is probably the most important part of this workflow.** 驗證可能是這套流程最重要的部分。
+> So the thing I I loved about watching that talk is the amount of focus you put in verification
 
-練完試著回答：**What can the agent verify without my help?** 列一項能自動檢查的工作，再列一項仍需要你判斷的工作。
+### 中文意思
+
+所以，我看那場演講時很喜歡的一點，就是你把很多心力放在驗證上。
+
+字幕中的重複字保留講者口語，不先改成書面句子。這段已對照英文自動字幕與前後文；尚未逐句回聽核對，練習以播放器原音為準。
+
+### 跟讀方式
+
+1. 按播放，先聽一句，同時看播放器的英文字幕。沒有字幕就按 CC，再選英文。
+2. 對照上面的原字幕與中文，確認這句的意思。第一輪先只聽。
+3. 第二輪稍微落後原音一起說。太快就用播放器設定把速度調到 0.75 倍。
+4. 再練三次，最後不看文字說一次。播放器設定為重播；若沒有回到這段，使用[15:54 原音連結](https://www.youtube.com/watch?v=MN9dGgmLyso&t=954s)重新定位。
+
+要練更長的連續內容，開啟[原始影片](https://www.youtube.com/watch?v=MN9dGgmLyso&t=954s)的英文字幕或「顯示文字記錄」，接著聽 Matt 的提問與 Lauren 的回答。本文引用一個短段落，完整字幕由原播放器提供。
+
+### 延伸：換成自己的工作
+
+以下是本站自擬練習句，用來換詞練口說，不是原音字幕：
+
+- **The agent should check its work before I review it.** 我審查之前，agent 應該先檢查自己的工作。
+- **Automated checks let me spend less time on routine reviews.** 自動檢查讓我少花一些時間審查例行工作。
+
+最後試著回答：**What can the agent check without my help?** 列一項能自動檢查的工作，再列一項仍需要你判斷的工作。
 
 ## 更新紀錄
 
+- 2026-10-10：跟讀區改為完整意思的原字幕短段落，加入對應原音播放器、英文同步字幕、播放範圍與練習步驟。
 - 2026-10-10：取得英文自動字幕，補上字幕短摘錄、中文對照與自擬口說練習；短摘錄已核對字幕，原音回聽待核對。
 
 ## 參考資料

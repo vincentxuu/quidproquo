@@ -5,7 +5,7 @@ category: learning
 tags: [podcast, self-learning, skill-development]
 lang: en
 description: "Explore agency through Max Schoening’s Lenny’s Podcast interview, with short English caption excerpts, Chinese translations, timestamp links, and original workplace practice sentences."
-tldr: "Agency means believing you can change things and taking action. Read the guide, practice three short excerpts with the original audio, and describe a change you could make at work."
+tldr: "Agency means believing you can change things and taking action. Read the guide, practice a short caption passage with the original audio, and describe a change you could make at work."
 draft: false
 glossary:
   - term: "agency"
@@ -78,43 +78,28 @@ This map follows the [video’s official chapters](https://www.youtube.com/watch
 | [1:00:09](https://www.youtube.com/watch?v=mCO-D3pkviM&t=3609s) | 產品成功的關鍵 | What contributes to a successful product |
 | [1:19:20](https://www.youtube.com/watch?v=mCO-D3pkviM&t=4760s) | 快問快答與結尾 | Closing questions and reflections |
 
-## English excerpts with Chinese translations
+## Shadowing with original audio and English captions
 
-These short excerpts have been checked against YouTube’s automatically generated English captions and surrounding text, but have not been verified by listening to the audio. Captions can contain recognition errors. Each link starts at the beginning of a caption segment; the quoted phrase may occur later within it. Check the audio before imitating its rhythm. For the full conversation, use the [original video’s transcript feature](https://www.youtube.com/watch?v=mCO-D3pkviM) or the [episode’s Transcript tab](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more). The episode page may require signing in or subscribing.
+### 11:19–11:28, Max: why agency matters
 
-### 1. Naming what matters
+```youtube
+url: https://www.youtube.com/watch?v=mCO-D3pkviM
+title: Agency shadowing audio: Max on taking action (11:19–11:28)
+start: 679
+end: 688
+captions: en
+loop: true
+```
 
-Max, [11:19 caption segment](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s):
+**Short passage from the original English captions:**
 
-> the thing that matters is agency
+> the thing that matters is agency and I don't think agency is very evenly distributed in the world
 
-真正重要的是主動改變事情的能力。
+**Chinese meaning:** 真正重要的是主動改變事情的能力；而我不認為每個人都有同樣程度的這種能力。
 
-**The thing that matters** names the central issue. It can help bring a discussion about tools or features back to the outcome you care about.
+This passage has been checked against automatic captions and surrounding text, but not by listening to the audio. The player provides the original audio and synchronized English captions. Press CC and select English if captions are hidden. First understand the two connected ideas, then speak slightly behind the audio for three repetitions. Use 0.75× playback speed if necessary.
 
-Suggested phrase grouping: *the thing that matters / is agency*. The slash is an editorial practice suggestion. Follow the audio for actual pauses and stress.
-
-### 2. Seeing the possibility of change
-
-Max, [11:31 caption segment](https://www.youtube.com/watch?v=mCO-D3pkviM&t=691s):
-
-> the world around them is malleable
-
-他們周遭的世界是可以改變的。
-
-This is part of a longer sentence. **Around them** refers to their surroundings; **malleable** means capable of being reshaped. Here, think of existing processes, tools, and working arrangements.
-
-Suggested phrase grouping: *the world around them / is malleable*. Listen to the adjective before attempting to imitate it.
-
-### 3. Developing the capacity
-
-Max, [11:45 caption segment](https://www.youtube.com/watch?v=mCO-D3pkviM&t=705s):
-
-> cultivate agency
-
-培養主動改變事情的能力。
-
-**Cultivate** suggests developing something over time. Listen to the surrounding segment, then imitate just these two words. Keep the spoken phrasing rather than rewriting the whole passage into formal prose.
+Repeat playback is requested. If it does not return to this passage, reopen the [11:19 audio link](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s). Use the source’s captions for a longer passage; the original sentences below are additional speaking exercises.
 
 ## Put it into your own work
 
@@ -156,6 +141,10 @@ If listening and speaking simultaneously feels overwhelming, stay with phrase-by
 Record one sentence, listen for where you hesitate, and practice that part again. Finally, close the video and answer in your own English: what would you like to change this week, and what could your first step be?
 
 The useful question to carry into your day is concrete: with the tools already available to you, what could you begin improving?
+
+## Update history
+
+- 2026-10-10: Replaced isolated excerpts with a coherent caption passage and matching audio, synchronized English captions, playback range, and repeat controls.
 
 ## References
 

@@ -5,7 +5,7 @@ category: learning
 tags: [podcast, self-learning, skill-development]
 lang: zh-TW
 description: "從 Max Schoening 的 Lenny’s Podcast 訪談理解 agency，搭配英文字幕摘錄、中文對照、原音時間連結與工作情境練習句。"
-tldr: "Agency 是相信自己能改變事情，並開始行動。讀完導讀，再用三段英文原話練跟讀，把觀念換成自己工作中說得出口的句子。"
+tldr: "Agency 是相信自己能改變事情，並開始行動。讀完導讀，再用一段英文原字幕搭配原音練跟讀，把觀念換成自己工作中說得出口的句子。"
 draft: false
 glossary:
   - term: "agency"
@@ -80,43 +80,29 @@ captions: en
 | [1:00:09](https://www.youtube.com/watch?v=mCO-D3pkviM&t=3609s) | 產品成功的關鍵 | What contributes to a successful product |
 | [1:19:20](https://www.youtube.com/watch?v=mCO-D3pkviM&t=4760s) | 快問快答與結尾 | Closing questions and reflections |
 
-## 英文原話與中文對照
+## 原音與英文字幕一起跟讀
 
-以下短摘錄已對照 YouTube 英文自動字幕與前後文，尚未逐句回聽核對。字幕可能有辨識誤差；時間連結指向該字幕片段的起點，句子可能在片段中途才出現。先開啟原音確認，再模仿說話者的節奏。完整內容請到[原始影片](https://www.youtube.com/watch?v=mCO-D3pkviM)的逐字稿功能，或[節目頁的 Transcript](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more)閱讀；節目頁可能需要登入或訂閱。
+### 11:19–11:28，Max：為什麼 agency 重要
 
-### 1. 說出真正重要的事
+```youtube
+url: https://www.youtube.com/watch?v=mCO-D3pkviM
+title: Agency 跟讀原音：Max 說明主動行動（11:19–11:28）
+start: 679
+end: 688
+captions: en
+loop: true
+```
 
-Max，[11:19 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s)：
+**英文原字幕短段落：**
 
-> the thing that matters is agency
+> the thing that matters is agency and I don't think agency is very evenly distributed in the world
 
-真正重要的是主動改變事情的能力。
+**中文意思：**真正重要的是主動改變事情的能力；而我不認為每個人都有同樣程度的這種能力。
 
-**the thing that matters** 是「真正重要的事」。你可以用它把討論收回核心：大家正在比工具或功能，但你想說清楚最後該看什麼。
+這段已對照英文自動字幕與前後文，尚未逐句回聽核對。播放器提供原音與同步英文字幕；如果字幕沒出現，按 CC 並選英文。先聽懂兩個相連的意思，再稍微落後原音一起說，練三次。太快就調成 0.75 倍速。
 
-練習分組：*the thing that matters / is agency*。斜線是本文建議的意群切分；實際停頓和重音以原音為準。
+播放器設定為重播；若沒有回到這段，使用[11:19 原音連結](https://www.youtube.com/watch?v=mCO-D3pkviM&t=679s)重新定位。要連續練整段解釋，使用原站字幕；下面的自擬句是延伸口說練習。
 
-### 2. 看見事情可以改變
-
-Max，[11:31 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=691s)：
-
-> the world around them is malleable
-
-他們周遭的世界是可以改變的。
-
-這是原句中的一部分。**around them** 指他們周遭；**malleable** 指可塑的。放進這段談話，可以想到既有的流程、工具和角色安排。
-
-練習分組：*the world around them / is malleable*。先聽形容詞在原音裡怎麼發音，再跟著說。
-
-### 3. 把能力培養起來
-
-Max，[11:45 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=705s)：
-
-> cultivate agency
-
-培養主動改變事情的能力。
-
-**cultivate** 有持續培養的意思。這句很短，適合先聽整個片段，再只模仿這兩個字；不要把整段口語都改成書面英文才練。
 
 ## 換成自己的工作：英文表達練習
 
@@ -158,6 +144,10 @@ Max，[11:45 字幕片段](https://www.youtube.com/watch?v=mCO-D3pkviM&t=705s)�
 最後錄下自己說的一句，回聽哪個地方卡住，再只練那一小段。練完原話，關掉影片，用自己的英文說：這週你想改變什麼？第一步可以做什麼？
 
 這篇訪談最值得帶走的，是把注意力放回一個能開始的動作。工具已經在手邊，今天可以先讓哪件事變得更好一點？
+
+## 更新紀錄
+
+- 2026-10-10：跟讀改為連貫的原字幕短段落，加入同段原音播放器、同步英文字幕、播放範圍與重播。
 
 ## 參考資料
 

@@ -105,28 +105,52 @@ Source: the [pstack guide](https://github.com/cursor/plugins/blob/main/pstack/do
 
 For why harnesses matter, pair this with the site's [Phil Schmid guide](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) and the [meta-harness layering post](/posts/ai/2026-08-26-meta-harness-layers-en).
 
-## Shadowing: make trust concrete
+## Shadowing: practice with audio and captions together
 
-Practice expressions you can use at work: what the agent can verify, and where you still need to step in. These short excerpts were checked against YouTube's automatically generated English captions, but have not been checked by listening to the audio. Speaker attribution follows the conversation context. Automatic captions may contain errors; use the audio as your reference. For continuous listening and reading, open the [original video](https://www.youtube.com/watch?v=MN9dGgmLyso) and enable English captions or “Show transcript.”
+Start with this sentence: when asking how she builds trust in agents, Matt highlights her focus on verification. This roughly seven-second passage lets you practice one complete idea before moving to longer material.
 
-| Audio position / speaker | Short caption excerpt | Chinese meaning | Reusable expression |
-|---|---|---|---|
-| [15:54, Matt](https://www.youtube.com/watch?v=MN9dGgmLyso&t=954s) | verify its own work | 驗證自己做的工作 | verify + work or results |
-| [18:01, Lauren](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1081s) | takes you out of the equation | 讓你不必再介入這個環節 | take someone out of the equation |
-| [18:46, Lauren](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1126s) | probably the most important skill | 可能是最重要的技能 | probably + a judgment, preserving uncertainty |
+### Original audio: 15:54–16:01, Matt
 
-Open a timestamp and listen to roughly ten seconds on either side for context. Repeat the short phrase three times, then try it without captions. The second excerpt concerns reducing human involvement in the verification loop; it does not establish that every task can skip review.
+```youtube
+url: https://www.youtube.com/watch?v=MN9dGgmLyso
+title: Poteto shadowing audio: Matt on verification (15:54–16:01)
+start: 954
+end: 961
+captions: en
+loop: true
+```
 
-Now adapt the expressions to your situation. These are practice sentences written for this site, not quotes from the speakers:
+### Original English captions
 
-- **The agent should verify its own work before I review it.** 我審查之前，agent 應該先驗證自己的工作。
-- **Automated checks take me out of the equation for routine tasks.** 自動檢查讓我不必介入例行工作。
-- **Verification is probably the most important part of this workflow.** 驗證可能是這套流程最重要的部分。
+> So the thing I I loved about watching that talk is the amount of focus you put in verification
 
-Finish by answering: **What can the agent verify without my help?** Name one task that can be checked automatically and one that still needs your judgment.
+### Chinese meaning
+
+所以，我看那場演講時很喜歡的一點，就是你把很多心力放在驗證上。
+
+The repeated word preserves the speaker’s conversational phrasing. This excerpt has been checked against automatic English captions and surrounding text, but not by listening to the audio. Use the original audio as your reference.
+
+### Practice
+
+1. Press play and listen while following the player’s English captions. If they are hidden, press CC and select English.
+2. Compare the English text above with the Chinese meaning. Just listen on the first pass.
+3. On the second pass, speak slightly behind the audio. If necessary, use the player settings to choose 0.75× speed.
+4. Repeat three times, then try without the text. Repeat playback is requested; if it does not return to this passage, reopen the [15:54 audio link](https://www.youtube.com/watch?v=MN9dGgmLyso&t=954s).
+
+For a longer passage, open the [original video](https://www.youtube.com/watch?v=MN9dGgmLyso&t=954s) with English captions or “Show transcript,” then continue through Matt’s question and Lauren’s answer. This article quotes a short passage; the original player provides the full captions.
+
+### Extend it to your own work
+
+These sentences were written for this site for substitution practice; they are not the audio’s captions:
+
+- **The agent should check its work before I review it.** 我審查之前，agent 應該先檢查自己的工作。
+- **Automated checks let me spend less time on routine reviews.** 自動檢查讓我少花一些時間審查例行工作。
+
+Finish with: **What can the agent check without my help?** Name one task that can be checked automatically and one that still needs your judgment.
 
 ## Update history
 
+- 2026-10-10: Replaced isolated phrases with a coherent caption excerpt, corresponding audio player, English captions, playback range, and practice steps.
 - 2026-10-10: Retrieved automatic English captions and added short excerpts, Chinese comparisons, and original speaking exercises. Caption text checked; audio verification pending.
 
 ## References

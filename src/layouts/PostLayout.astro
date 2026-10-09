@@ -1456,6 +1456,12 @@ const pageTitle =
 </style>
 
 <script>
+  import { initYoutubeClipLoops, disposeYoutubeClipLoops } from '../lib/youtubeClipLoop';
+  void initYoutubeClipLoops();
+  document.addEventListener('astro:page-load', () => { void initYoutubeClipLoops(); });
+  document.addEventListener('astro:before-swap', disposeYoutubeClipLoops);
+  window.addEventListener('pagehide', disposeYoutubeClipLoops);
+
   // Dark mode toggle
   const btn = document.getElementById('theme-toggle');
   btn?.addEventListener('click', () => {

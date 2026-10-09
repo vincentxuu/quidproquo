@@ -33,6 +33,26 @@ describe('parseYoutubeBlock', () => {
     expect(() => parseYoutubeBlock('url: https://youtu.be/MN9dGgmLyso\ntitle: x\nstart: 1:31')).toThrow(/start/);
   });
 
+  it('parses an end with default start and exact loop booleans', () => {
+    const base = 'url: https://youtu.be/MN9dGgmLyso\ntitle: x';
+    expect(parseYoutubeBlock(`${base}\nend: 10\nloop: true`)).toMatchObject({ end: 10, loop: true });
+    expect(parseYoutubeBlock(`${base}\nloop: false`).loop).toBe(false);
+    expect(parseYoutubeBlock(base)).not.toHaveProperty('end');
+    expect(parseYoutubeBlock(base)).not.toHaveProperty('loop');
+  });
+
+  it.each(['', '0', '-1', '1.5', 'NaN', '1:31'])('rejects invalid end %j', (end) => {
+    expect(() => parseYoutubeBlock(`url: https://youtu.be/MN9dGgmLyso\ntitle: x\nend: ${end}`)).toThrow(/end/);
+  });
+
+  it.each(['90', '91'])('rejects end %s at or before start', (end) => {
+    expect(() => parseYoutubeBlock(`url: https://youtu.be/MN9dGgmLyso\ntitle: x\nstart: 91\nend: ${end}`)).toThrow(/end/);
+  });
+
+  it.each(['', 'True', 'FALSE', '1', 'yes', 'true&autoplay=1'])('rejects malformed loop %j', (loop) => {
+    expect(() => parseYoutubeBlock(`url: https://youtu.be/MN9dGgmLyso\ntitle: x\nloop: ${loop}`)).toThrow(/loop/);
+  });
+
   it('accepts caption language codes and rejects malformed values', () => {
     const base = 'url: https://youtu.be/MN9dGgmLyso\ntitle: x';
     expect(parseYoutubeBlock(`${base}\ncaptions: en`).captions).toBe('en');
@@ -53,21 +73,39 @@ describe('renderYoutubeEmbed', () => {
   });
 
   it('requests visible English captions while retaining the start position', () => {
-    const spec = parseYoutubeBlock('url: https://youtu.be/MN9dGgmLyso\ntitle: x\nstart: 632\ncaptions: en');
+    const spec = parseYoutubeBlock('url: https://youtu.be/MN9dGgmLyso\ntitle: x\nstart: 632\nend: 650\ncaptions: en\nloop: true');
     const html = renderYoutubeEmbed(spec);
     const src = html.match(/<iframe src="([^"]+)"/)?.[1].replace(/&amp;/g, '&');
     const url = new URL(src!);
     expect(url.searchParams.get('start')).toBe('632');
+    expect(url.searchParams.get('end')).toBe('650');
+    expect(url.searchParams.get('loop')).toBeNull();
+    expect(url.searchParams.get('playlist')).toBeNull();
+    expect(url.searchParams.get('enablejsapi')).toBe('1');
+    expect(html).toContain('data-youtube-loop-start="632"');
+    expect(html).toContain('data-youtube-loop-end="650"');
     expect(url.searchParams.get('cc_lang_pref')).toBe('en');
     expect(url.searchParams.get('cc_load_policy')).toBe('1');
     expect(url.searchParams.get('autoplay')).toBeNull();
     expect(html).toContain('href="https://www.youtube.com/watch?v=MN9dGgmLyso&amp;t=632s"');
   });
 
+  it('uses native looping only for a whole video', () => {
+    const html = renderYoutubeEmbed({ id: 'MN9dGgmLyso', title: 'x', loop: true });
+    expect(html).toContain('loop=1');
+    expect(html).toContain('playlist=MN9dGgmLyso');
+    expect(html).not.toContain('data-youtube-loop-start');
+  });
+
   it('keeps caption settings absent unless requested', () => {
     const html = renderYoutubeEmbed({ id: 'MN9dGgmLyso', title: 'x' });
     expect(html).toContain('src="https://www.youtube-nocookie.com/embed/MN9dGgmLyso"');
     expect(html).not.toContain('cc_load_policy');
+    expect(html).not.toContain('end=');
+    expect(html).not.toContain('loop=');
+    expect(html).not.toContain('playlist=');
+    expect(html).not.toContain('autoplay');
+    expect(renderYoutubeEmbed({ id: 'MN9dGgmLyso', title: 'x', start: 0, loop: false })).toBe(html);
   });
 });
 
