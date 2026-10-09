@@ -27,10 +27,11 @@ Lauren Tan ([poteto](https://x.com/poteto) online) was on Meta's React team and 
 
 ```youtube
 url: https://www.youtube.com/watch?v=MN9dGgmLyso
+captions: en
 title: Matt Pocock × Lauren Tan livestream (2026-10-02)
 ```
 
-This is a guided read, not a transcript. I could not get a transcript of the stream. The details of the conversation come from two public write-ups: [a plain-language summary by Agile 3 Uncles (in Chinese)](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/) and [PJFP's timestamped chapter summary](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/). They agree on the main line; where I could not match an original quote, I say so.
+This is a guided read, not a transcript. The initial version had no transcript. Automatic English captions have now been retrieved for the practice section below; the main article has not been checked claim by claim against the audio. The details of the conversation come from two public write-ups: [a plain-language summary by Agile 3 Uncles (in Chinese)](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/) and [PJFP's timestamped chapter summary](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/). They agree on the main line; where I could not match an original quote, I say so.
 
 ## The number first: 2,500 is self-reported
 
@@ -103,6 +104,30 @@ Source: the [pstack guide](https://github.com/cursor/plugins/blob/main/pstack/do
 3. Go through your past chat logs, pick the three things you keep correcting, and write each into a skill or rule. She also advises building your own set rather than copying hers wholesale; Matt's [skills repo](https://github.com/mattpocock/skills) is a reasonable template.
 
 For why harnesses matter, pair this with the site's [Phil Schmid guide](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) and the [meta-harness layering post](/posts/ai/2026-08-26-meta-harness-layers-en).
+
+## Shadowing: make trust concrete
+
+Practice expressions you can use at work: what the agent can verify, and where you still need to step in. These short excerpts were checked against YouTube's automatically generated English captions, but have not been checked by listening to the audio. Speaker attribution follows the conversation context. Automatic captions may contain errors; use the audio as your reference. For continuous listening and reading, open the [original video](https://www.youtube.com/watch?v=MN9dGgmLyso) and enable English captions or “Show transcript.”
+
+| Audio position / speaker | Short caption excerpt | Chinese meaning | Reusable expression |
+|---|---|---|---|
+| [15:54, Matt](https://www.youtube.com/watch?v=MN9dGgmLyso&t=954s) | verify its own work | 驗證自己做的工作 | verify + work or results |
+| [18:01, Lauren](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1081s) | takes you out of the equation | 讓你不必再介入這個環節 | take someone out of the equation |
+| [18:46, Lauren](https://www.youtube.com/watch?v=MN9dGgmLyso&t=1126s) | probably the most important skill | 可能是最重要的技能 | probably + a judgment, preserving uncertainty |
+
+Open a timestamp and listen to roughly ten seconds on either side for context. Repeat the short phrase three times, then try it without captions. The second excerpt concerns reducing human involvement in the verification loop; it does not establish that every task can skip review.
+
+Now adapt the expressions to your situation. These are practice sentences written for this site, not quotes from the speakers:
+
+- **The agent should verify its own work before I review it.** 我審查之前，agent 應該先驗證自己的工作。
+- **Automated checks take me out of the equation for routine tasks.** 自動檢查讓我不必介入例行工作。
+- **Verification is probably the most important part of this workflow.** 驗證可能是這套流程最重要的部分。
+
+Finish by answering: **What can the agent verify without my help?** Name one task that can be checked automatically and one that still needs your judgment.
+
+## Update history
+
+- 2026-10-10: Retrieved automatic English captions and added short excerpts, Chinese comparisons, and original speaking exercises. Caption text checked; audio verification pending.
 
 ## References
 

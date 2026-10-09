@@ -8,10 +8,12 @@ import type { Root } from 'mdast';
  *   url: https://www.youtube.com/watch?v=MN9dGgmLyso
  *   title: Matt Pocock × Lauren Tan 直播對談
  *   start: 91
+ *   captions: en
  *   ```
  *
  * `url` and `title` are required (title feeds the iframe's accessible name and the
- * fallback link); `start` is optional, in seconds. A malformed block throws so the
+ * fallback link); `start` is optional, in seconds. `captions` optionally requests
+ * visible captions in the specified language. A malformed block throws so the
  * build fails instead of silently shipping a broken embed.
  */
 
@@ -21,6 +23,7 @@ export interface YoutubeEmbedSpec {
   id: string;
   title: string;
   start?: number;
+  captions?: string;
 }
 
 export function extractVideoId(raw: string): string | null {
@@ -44,7 +47,7 @@ export function extractVideoId(raw: string): string | null {
 export function parseYoutubeBlock(body: string): YoutubeEmbedSpec {
   const fields: Record<string, string> = {};
   for (const line of body.split('\n')) {
-    const match = line.match(/^\s*(url|title|start)\s*:\s*(.+?)\s*$/);
+    const match = line.match(/^\s*(url|title|start|captions)\s*:\s*(.*?)\s*$/);
     if (match) fields[match[1]] = match[2];
   }
 
@@ -59,20 +62,31 @@ export function parseYoutubeBlock(body: string): YoutubeEmbedSpec {
       throw new Error(`youtube embed: "start" must be a non-negative integer of seconds (got "${fields.start}")`);
     }
   }
-  return { id, title: fields.title, start };
+  const captions = fields.captions;
+  if (captions !== undefined && !/^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/.test(captions)) {
+    throw new Error(`youtube embed: "captions" must be a language code (got "${captions}")`);
+  }
+  return { id, title: fields.title, start, ...(captions ? { captions } : {}) };
 }
 
 const escapeHtml = (value: string) =>
   value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-export function renderYoutubeEmbed({ id, title, start }: YoutubeEmbedSpec): string {
-  const embedSrc = `https://www.youtube-nocookie.com/embed/${id}${start ? `?start=${start}` : ''}`;
+export function renderYoutubeEmbed({ id, title, start, captions }: YoutubeEmbedSpec): string {
+  const params = new URLSearchParams();
+  if (start) params.set('start', String(start));
+  if (captions) {
+    params.set('cc_lang_pref', captions);
+    params.set('cc_load_policy', '1');
+  }
+  const query = params.toString();
+  const embedSrc = `https://www.youtube-nocookie.com/embed/${id}${query ? `?${query}` : ''}`;
   const watchHref = `https://www.youtube.com/watch?v=${id}${start ? `&t=${start}s` : ''}`;
   const safeTitle = escapeHtml(title);
   return [
     '<figure class="video-embed">',
     '<div class="video-embed__frame">',
-    `<iframe src="${embedSrc}" title="${safeTitle}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`,
+    `<iframe src="${escapeHtml(embedSrc)}" title="${safeTitle}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`,
     '</div>',
     `<figcaption><a href="${escapeHtml(watchHref)}" target="_blank" rel="noopener noreferrer">YouTube：${safeTitle}</a></figcaption>`,
     '</figure>',

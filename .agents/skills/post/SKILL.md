@@ -25,7 +25,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 ### 0. 寫前閘門（動筆前必過，先於一切）
 
-先寫一句：**讀者點進來想問什麼、看完能做什麼決定。** 寫不出來就先問使用者，不要開寫。再列大綱，大綱每節都要能回答這一句；只服務「我做過什麼工作」的節，砍掉或降成附錄。
+先寫一句：**讀者點進來想問什麼、看完能做什麼決定。** 這一句由 agent 根據來源、本站既有文章與讀者的實際用途決定；使用者只給連結也要自行選題，不要求使用者先出題。優先選有可靠證據、具體範例、能補足既有內容的角度，不因來源剛發布就直接改寫。再列大綱，大綱每節都要能回答這一句；只服務「我做過什麼工作」的節，砍掉或降成附錄。
 
 文章照讀者問題排，不照工作量排。研究時讀了多少、查了多少，是過程，不是文章的形狀。
 
@@ -44,8 +44,16 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 1. **判斷分類**：根據內容本質選 category。
 2. **選擇模板**：依觸發方式照表對應，不混用。
-3. **前置 metadata gate**：補齊 category、type、title direction、slug、tags（先查既有 tag 避免分裂）、references required、glossary needed。缺關鍵資訊就問一個精準問題，**不要編造**。frontmatter 細節見 `references/frontmatter-schema.md`。
-4. **抽資訊**：從對話／筆記抽出主體段落。資訊不夠就問。
+3. **前置 metadata gate**：補齊 category、type、title direction、slug、tags（先查既有 tag 避免分裂）、references required、glossary needed。分類、標題方向、slug 與 tags 由 agent 自行判斷。只有無法查證的個人事實或必要範圍條件才問一個精準問題，**不要編造**。frontmatter 細節見 `references/frontmatter-schema.md`。
+4. **抽資訊**：從對話／筆記抽出主體段落。先研究可查證的資訊；無法查證的個人經驗才問。
+
+### 1a. 多來源導讀與英文練習
+
+遵守 `docs/content-source-writing-rules.md`（repo 根目錄）：先定讀者問題，再區分原始內容、官方核實與二手整理；明示全文／部分／轉述的讀取範圍。
+
+有英文原音的導讀**預設附英文練習區**，不需逐篇詢問：原音嵌入或時間連結、可取得的官方逐字稿入口、核對後的短摘錄、中文對照與可套用的表達。YouTube fence 使用 `captions: en`，必要時加 `start`。挑段以意思完整、與本文問題相關、表達可用、聲音清楚為準，可從 15–30 秒開始再依自然停頓調整。自擬練習句明示為改寫。
+
+未核實原音文字時，練習區標待補，不能從中文反譯冒充英文原話；未確認全文轉載授權時，連回官方全文，不重新散布整集逐字稿或完整翻譯。只有文字的來源提供閱讀／表達練習，不標為原音 shadowing。
 
 ### 2. 體裁閘門（1500 字以上必過）
 
