@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 export { isPublishedAt, isPublishedPostData } from './publishing';
-import { isPublishedAt, isPublishedPostData } from './publishing';
+import { isPublishedPostData } from './publishing';
 
 export type Post = CollectionEntry<'posts'>;
 
