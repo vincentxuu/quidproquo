@@ -32,7 +32,7 @@ captions: en
 title: Matt Pocock × Lauren Tan 直播對談（2026-10-02）
 ```
 
-這篇是導讀，不是逐字稿。初版未取得直播逐字稿；本次已取得英文自動字幕供文末跟讀使用，正文尚未逐項對照原音。對談的細節主要依據兩份公開整理：[敏捷三叔公的白話整理](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/)，以及 [PJFP 附時間碼的章節摘要](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/)。兩份的主線一致；沒有對照到原話的地方，下文都寫明是轉述。
+已取得這場直播的英文自動字幕，文末跟讀短摘錄已與字幕核對。正文尚未逐項對照原始對談，主要依據兩份公開整理：[敏捷三叔公的白話整理](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/)，以及 [PJFP 附時間碼的章節摘要](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/)。兩份的主線一致；沒有對照到原話的地方，下文都寫明是轉述。
 
 ## 先講數字：2,500 只是她的自述
 
@@ -96,7 +96,7 @@ flowchart TD
 - **成本**：full autopilot 每個 PR 開多個 verifier，她承認很耗 token。
 - **前提很重**：她的專案被刻意收斂成「只有一種做法」，Grok Bot 早期甚至有八個各一萬行以上的檔案，是被逼著拆開才建立這套約束。多數既有專案沒有這個起點。
 - **驗證不等於品質**：驗證 skill 證明行為對，不證明程式好或效能夠。
-- **來源**：本文對對談的描述屬二手轉述，Control Glass 與 Dune 都是內部工具；要引用她的原話，請回頭看[原始直播](https://www.youtube.com/watch?v=MN9dGgmLyso)。
+- **來源**：正文對對談的整理仍主要依據二手來源；文末英文短摘錄已核對自動字幕，尚未回聽原音。Control Glass 與 Dune 都是內部工具；要引用她的原話，請回頭看[原始直播](https://www.youtube.com/watch?v=MN9dGgmLyso)。
 
 ## 怎麼用：今晚能做的三件事
 

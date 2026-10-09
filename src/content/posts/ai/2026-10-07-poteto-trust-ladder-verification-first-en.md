@@ -31,7 +31,7 @@ captions: en
 title: Matt Pocock × Lauren Tan livestream (2026-10-02)
 ```
 
-This is a guided read, not a transcript. The initial version had no transcript. Automatic English captions have now been retrieved for the practice section below; the main article has not been checked claim by claim against the audio. The details of the conversation come from two public write-ups: [a plain-language summary by Agile 3 Uncles (in Chinese)](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/) and [PJFP's timestamped chapter summary](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/). They agree on the main line; where I could not match an original quote, I say so.
+The stream’s automatically generated English captions have been retrieved, and the short practice excerpts below have been checked against them. The main article has not been checked claim by claim against the original conversation; it primarily draws on two public write-ups: [a plain-language summary by Agile 3 Uncles (in Chinese)](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/) and [PJFP's timestamped chapter summary](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/). They agree on the main line; where I could not match an original quote, I say so.
 
 ## The number first: 2,500 is self-reported
 
@@ -95,7 +95,7 @@ Source: the [pstack guide](https://github.com/cursor/plugins/blob/main/pstack/do
 - **Cost**: Full autopilot spawns several verifiers per PR, and she admits it burns tokens.
 - **Heavy prerequisites**: Her codebases were deliberately narrowed to one way of doing things; an early Grok Bot had eight files of 10,000+ lines each and was split under pressure. Most existing projects do not start there.
 - **Verification is not quality**: It proves behavior, not good code or good performance.
-- **Sourcing**: My description of the conversation is secondhand, and Control Glass and Dune are internal tools. For her exact words, go back to the [original stream](https://www.youtube.com/watch?v=MN9dGgmLyso).
+- **Sourcing**: The main article still primarily draws on secondhand accounts. The English practice excerpts have been checked against automatic captions, but not the audio. Control Glass and Dune are internal tools. For her exact words, go back to the [original stream](https://www.youtube.com/watch?v=MN9dGgmLyso).
 
 ## How to use it: three things for tonight
 
