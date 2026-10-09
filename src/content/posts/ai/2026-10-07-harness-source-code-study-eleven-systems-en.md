@@ -65,9 +65,11 @@ flowchart LR
   end
 ```
 
-For each cell the paper names the minimal and maximal implementation. The minimal one is almost always Mini-SWE-Agent: one while loop, one bash tool, one LiteLLM call. The maximal ones have different owners: OpenHands' event-sourced loop, Claude Code's 43 typed tools, Codex's policy rules plus OS sandbox.
+For each cell the paper names the minimal and maximal implementation. The minimal one is almost always Mini-SWE-Agent: one while loop, one bash tool, one LiteLLM call. The maximal ones have different owners: OpenHands' event-sourced loop, Claude Code's 43 typed tools (per its March 2026 source snapshot), Codex's policy rules, LLM approval reviewer and three-platform OS sandbox.
 
-Section 13 distills 13 cross-cutting observations and 29 recurring design patterns. The first observation is worth remembering up front: how elaborate the loop is does not predict benchmark performance. Mini-SWE-Agent's linear loop reports results in the same range as OpenHands' event-sourced engine (these numbers come from each system's own documentation, and the paper itself says the last decimal is not the point).
+The paper as a whole distills 13 cross-cutting observations, and Section 13.1 catalogs 29 recurring design patterns. The first observation is worth remembering up front: how elaborate the loop is does not predict benchmark performance. Mini-SWE-Agent's linear loop reports results in the same range as OpenHands' event-sourced engine. The paper dropped the SWE-Bench comparison table from its April edition because the figures are self-reported and come from different model generations, so treat them as directional only.
+
+In Section 6.1 the paper also handles the newer term "loop engineering": Steinberger's June 2026 line, stop prompting your coding agent and design loops that prompt your agents. The paper reads the two as complementary. Harness engineering builds the inner action-observation cycle; loop engineering composes it from the outside into outer loops that prompt, verify and re-run the agent. Its examples of the outer loop are OpenHands' `/goal` (an LLM judge evaluates each finished run and either re-prompts or stops) and Hermes' verify-on-stop guard.
 
 ## A concrete finding: two collective absences
 
@@ -109,7 +111,7 @@ The paper lists its own limits in Section 15. The main ones:
 - **The framework-absence finding is conservative.** The authors checked dependency manifests and import greps in three languages; they did not trace internal forks, dynamically loaded plugins or transpiled distributions.
 - The mapping between Anthropic's guidance and the observed designs is, in the paper's words, suggestive but does not establish causation.
 
-Two more reading notes. First, "nobody uses it" describes these 11 systems at one point in time; it does not mean frameworks or vector retrieval have no value elsewhere, and the paper itself says production coding agents run on a different complexity budget from generic LLM apps. Second, this guide is based on my reading of the paper's abstract, definitions, system comparison, Section 13 observations and Sections 15 and 16. I did not read all 83 pages, so go to the paper for per-system detail.
+Two more reading notes. First, "nobody uses it" describes these 11 systems at one point in time; it does not mean frameworks or vector retrieval have no value elsewhere, and the paper itself says production coding agents run on a different complexity budget from generic LLM apps. Second, this guide is based on Sections 1 through 17 of the paper's [HTML version](https://arxiv.org/html/2609.00006v1); I did not check the appendix comparison tables row by row, so go to the paper for per-system detail.
 
 ## How to use it: 18 recommendations and a 90-line scaffold
 
