@@ -18,7 +18,7 @@ glossary:
     context: "對談裡用來示範「一個精準的詞就能壓縮大量意圖」。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-07-poteto-trust-ladder-verification-first-en)
+> 🌏 [English version](/posts/ai/2026-10-07-poteto-trust-ladder-verification-first-en)
 
 如果你已經用 coding agent 寫 code，卻還是得一個對話一個對話盯著，這篇想回答的是：Lauren Tan 的做法裡，哪些你明天就能試，哪些其實靠她自己的條件才成立。
 
