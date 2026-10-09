@@ -26,6 +26,11 @@ glossary:
 
 Lauren Tan（網名 [poteto](https://x.com/poteto)）曾在 Meta 的 React 團隊，現在做 Cursor 的 agents window 與 Grok Bot，兩者都隸屬 SpaceXAI。2026 年 10 月 2 日，Matt Pocock 為她開了一場 [65 分鐘的直播對談](https://www.youtube.com/watch?v=MN9dGgmLyso)，談她怎麼讓 agent 大量產出又維持品質。她的整套 skill 以 MIT 授權公開在 [pstack](https://github.com/cursor/plugins/tree/main/pstack)，入口是 `/poteto-mode`。
 
+```youtube
+url: https://www.youtube.com/watch?v=MN9dGgmLyso
+title: Matt Pocock × Lauren Tan 直播對談（2026-10-02）
+```
+
 這篇是導讀，不是逐字稿。我沒能取得直播的逐字稿，對談的細節主要依據兩份公開整理：[敏捷三叔公的白話整理](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/)，以及 [PJFP 附時間碼的章節摘要](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/)。兩份的主線一致；沒有對照到原話的地方，下文都寫明是轉述。
 
 ## 先講數字：2,500 只是她的自述

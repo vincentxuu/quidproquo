@@ -43,6 +43,26 @@
 - 方法論一段帶過；要保留證據就連到附錄或另一篇，不在正文展開
 - 檢法：只看標題與 tldr，讀者能說出這篇在講什麼對象嗎？只能說出「作者查了多少」就是失敗
 
+## 影片嵌入（YouTube）
+
+來源是 YouTube 影片（直播、演講、課程）時，在「這是什麼」或第一次提到影片的段落旁嵌入，用固定的 `youtube` fence：
+
+````markdown
+```youtube
+url: https://www.youtube.com/watch?v=MN9dGgmLyso
+title: Matt Pocock × Lauren Tan 直播對談（2026-10-02）
+start: 91
+```
+````
+
+- `url`（必填）：watch、youtu.be、live、embed、shorts 都可以，會抽出 11 碼 ID。
+- `title`（必填）：給 iframe 的無障礙名稱和下方 fallback 連結；寫「誰 × 誰／什麼場合（日期）」。
+- `start`（選填）：起始秒數，只用整數秒，不要寫 `1:31`。
+- 格式錯誤時 build 會直接失敗，不會悄悄漏掉。
+- 每篇每支影片嵌一次，放在第一次提到的位置；中英兩版各嵌一次，`title` 各自翻譯。
+- 嵌入不取代 `## 參考資料`：影片連結仍要列在文末，內文第一次提到也要有 inline 連結。
+- 實作在 `src/plugins/remarkYoutubeEmbed.ts`，輸出 `youtube-nocookie.com`、`loading="lazy"`。
+
 ## tags 原則
 
 - 全小寫 kebab-case：`claude-code` ✅、`Claude Code` ❌

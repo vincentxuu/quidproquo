@@ -25,6 +25,11 @@ If you already use a coding agent but still have to watch every conversation, th
 
 Lauren Tan ([poteto](https://x.com/poteto) online) was on Meta's React team and now works on Cursor's agents window and Grok Bot, both under SpaceXAI. On October 2, 2026, Matt Pocock hosted a [65-minute livestream conversation](https://www.youtube.com/watch?v=MN9dGgmLyso) with her about producing a lot of work with agents without losing quality. Her skills are public under the MIT license as [pstack](https://github.com/cursor/plugins/tree/main/pstack), entered through `/poteto-mode`.
 
+```youtube
+url: https://www.youtube.com/watch?v=MN9dGgmLyso
+title: Matt Pocock × Lauren Tan livestream (2026-10-02)
+```
+
 This is a guided read, not a transcript. I could not get a transcript of the stream. The details of the conversation come from two public write-ups: [a plain-language summary by Agile 3 Uncles (in Chinese)](https://agile3uncles.com/2026/10/04/2500-prs-a-month-her-ai-isnt-smarter-its-workspace-is/) and [PJFP's timestamped chapter summary](https://pjfp.com/poteto-pstack-meat-proxy-coding-agents-spacex/). They agree on the main line; where I could not match an original quote, I say so.
 
 ## The number first: 2,500 is self-reported
