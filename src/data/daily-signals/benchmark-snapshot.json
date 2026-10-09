@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-09",
+  "date": "2026-10-10",
   "swebench_verified_top5": [
     { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
     { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
@@ -8,11 +8,11 @@
     { "rank": 5, "model": "Atlassian Rovo Dev", "org": "Atlassian", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Fable 5.1 (Max)", "score": 14.31, "ci": "[12.42%, 16.21%]" },
-    { "rank": 2, "model": "Claude Opus 5.5 (High)", "score": 13.82, "ci": "[11.65%, 15.99%]" },
-    { "rank": 3, "model": "Claude Sonnet 5.5 (Max)", "score": 12.52, "ci": "[9.43%, 15.61%]" },
-    { "rank": 4, "model": "GPT-6 Astra (Max)", "score": 12.27, "ci": "[10.04%, 14.50%]" },
-    { "rank": 5, "model": "GPT-6.1 Sol (Max)", "score": 11.23, "ci": null }
+    { "rank": 1, "model": "Claude Opus 5.5 (High)", "score": 14.33, "ci": "[12.15%, 16.51%]" },
+    { "rank": 2, "model": "GPT-6 Astra (Max)", "score": 13.09, "ci": "[10.73%, 15.46%]" },
+    { "rank": 3, "model": "Claude Fable 5.1 (Max)", "score": 12.66, "ci": "[10.61%, 14.72%]" },
+    { "rank": 4, "model": "Claude Sonnet 5.5 (Max)", "score": 11.95, "ci": "[8.64%, 15.27%]" },
+    { "rank": 5, "model": "GPT-6.1 Sol (Max)", "score": 11.72, "ci": "[8.68%, 14.77%]" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-09：連續第 36 天 Q-023，三榜前段與昨日（10-08）完全相同，驗證昨日脫離結構性阻塞非僥倖。`swebench.com` 改用 Bash `curl` 直抓 `raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json`（4MB）再次成功，`Verified` 子榜前 5 名分數逐位元與昨日相同（79.20／79.20／78.80／77.40／76.80）；本次 GitHub commits API（`api.github.com`）被環境出站 proxy 以「session 未對該 repo 開 GitHub access」擋下（非 Groundlane 問題，是 CCR session 本身的 repo scope 限制，`raw.githubusercontent.com` 不受影響），故未能重複昨日的 commit 歷史查證，但資料內容本身已與快取逐位元比對一致，足以判斷無異動。Arena 本次改用 HF `datasets-server`（優先於 `web_fetch render:always`，更穩定）：`agent` 子集 `latest` split 仍是 `leaderboard_publish_date: 2026-10-02`，前五名分數與昨日逐位元相同（14.31／13.82／12.52／12.27／11.23），Arena 官方自 10-02 起已連續 7 天未發新一批資料。`artificialanalysis.ai/models/capabilities/agentic` 本次重新驗證仍 404（`document contained no extractable text`），`aa_agentic_index_top3` 沿用前值。`morphllm.com/leaderboard` 本次重新驗證仍 404（確認非暫時性，10-08 的判斷持續成立）。`web_search` 補充查詢（Q1/Q2，timeRange: week）命中內容同樣是第三方聚合站（morphllm.com/best-ai-coding-agents-2026、swfte.com、llm-stats.com、stateof.ai 年度報告、vals.ai SRE Bench、Mercor APEX）彼此對同一 benchmark 名稱給出不可比的量級（如 swfte.com 稱 Claude Opus 4.7 SWE-bench 82.1%、llm-stats.com SWE-bench Verified Agentless 由 Kimi K2 Instruct 領先 51.8%），完全未提及官方追蹤 scaffold 排名（live-SWE-agent／Sonar Foundation Agent／TRAE）或 Arena HF 資料集的任何更新。CursorBench 本次未找到比昨日更新的官方來源，沿用前值。依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章，僅更新本檔與 escalation-queue Q-023。"
+  "notes": "2026-10-10：連續第 37 天 Q-023（swebench.com／morphllm.com／artificialanalysis.ai 三站結構性阻塞仍未解除），但這次 Arena 側出現真正異動，寫成文章（`2026-10-10-benchmark-arena-agent-opus-5-5.md` 及 en 版，series order 4）。`swebench.com`（curl 直抓 GitHub raw `leaderboards.json`）再次成功，`Verified` 子榜前 5 名分數逐位元與昨日相同（79.20／79.20／78.80／77.40／76.80），無異動。Arena 側用 HF `datasets-server`：`agent` 子集 `latest` split 的 `leaderboard_publish_date` 從連續 7 天沒變的 `2026-10-02` 推進到 `2026-10-08`——這是本次執行最主要的發現，10-09 的 escalation 記錄『連續 7 天未發新一批』在發布後一天就被推翻，顯示 Arena 官方發布節奏本身不穩定，下次接手者不能假設『連續 N 天沒變＝短期內不會變』。新一批前五名：Claude Opus 5.5 (High) 14.33%（🥇，前次第二 13.82%）、GPT-6 Astra (Max) 13.09%（🥈，前次第四 12.27%）、Claude Fable 5.1 (Max) 12.66%（🥉，前次第一 14.31%）、Claude Sonnet 5.5 (Max) 11.95%（第四，前次第三 12.52%）、GPT-6.1 Sol (Max) 11.72%（第五，前次第五 11.23%）——第一名易主＋前三名全部對調，符合 skill Step 4 門檻（『第 1 名易主』）。已用 `/rows?...&length=60` 確認該批次只有單一 `category=overall`、52 筆全部同一 `leaderboard_publish_date`，排除分類混雜或快取不一致的可能；三個名次的 95% CI（Opus 5.5 `[12.15%,16.51%]`／Astra `[10.73%,15.46%]`／Fable 5.1 `[10.61%,14.72%]`）仍大面積重疊，文章內已標註方法論限制。`web_search` 找官方/獨立佐證未命中這次 10-08 批次的具體公告（搜到的都是 9 月分既有的模型卡／定價類文章），判斷 Arena 這次未像 10-02/10-04 那樣同步發 X 公告，僅資料集本身更新。`artificialanalysis.ai/models/capabilities/agentic` 本次重新驗證仍 404（`document contained no extractable text`），`aa_agentic_index_top3` 沿用前值；`morphllm.com/leaderboard` 本次重新驗證仍 429 Vercel Security Checkpoint，`morphllm_top3` 沿用 null。CursorBench 本次未重新驗證，沿用前值。三站結構性阻塞狀態不變，仍待人拍板 Q-023 既有建議（a）(b)(c)。"
 }
