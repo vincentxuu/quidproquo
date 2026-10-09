@@ -55,6 +55,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 - **主脊**：按判決／按部件／按時間／按論證——選一個
 - **動作**：每個建議都要能寫出一句今晚就能做的動作
 - **圖解**：有多步驟流程、分支決策、或需要並排比較的內容，規劃畫成 mermaid 圖（`references/writing-guide.md#圖解mermaid`），不要全部塞成文字段落
+- **影片**：來源是 YouTube 影片時，用 `youtube` fence 嵌入（格式見 `references/writing-guide.md#影片嵌入youtube`），中英版各一次
 
 寫的當下遵守：每個主張最多一個數字、引述只在原話比轉述更有力時用、但書不堆疊、不替來源加上它沒有的主張。
 

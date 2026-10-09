@@ -7,6 +7,7 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
+import { remarkYoutubeEmbed } from './src/plugins/remarkYoutubeEmbed.ts';
 
 // Rehype plugin: external links open in new tab
 function rehypeExternalLinks() {
@@ -131,7 +132,7 @@ export default defineConfig({
   markdown: {
     processor: unified({
       smartypants: false,
-      remarkPlugins: [remarkReadingTime],
+      remarkPlugins: [remarkReadingTime, remarkYoutubeEmbed],
       rehypePlugins: [rehypeExternalLinks, rehypeLazyImages],
     }),
   },
