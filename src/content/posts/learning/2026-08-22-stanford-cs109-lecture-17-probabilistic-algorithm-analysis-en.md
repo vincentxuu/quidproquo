@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this lecture. This is 2022 Lecture 20 (Algorithmic Analysis); the transcript covers expectation and the law of total expectation, conditional expectation, indicator variables, expected collisions in hashing, the coupon collector problem and expected-value analysis of recursive code, which fits this lecture. The speaker is that year's head TA, not this article's Summer 2026 lecturer.
+
 ## P1: Read a bootstrap p-value
 
 Among 10,000 null differences, 140 are at least as extreme as observed `2.1` minutes:
@@ -175,6 +177,7 @@ The six concepts are conditional expectation, total expectation, expected runtim
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The topic matches this lecture.
 
 ## References
 

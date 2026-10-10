@@ -40,6 +40,8 @@ title: Discussion Section: Learning Theory | Stanford CS229: Machine Learning (A
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 2018 年秋季由 Anand Avati 帶的 Friday discussion section（不是 Andrew Ng 的主課），字幕內容為 bias-variance、approximation／estimation error、ERM、一致收斂（union bound、Hoeffding）與 VC dimension，主題與本章相符；字幕沒有提到本章的雙降（double descent），該段僅依講義。
+
 ## 從偏差與變異拆開測試誤差
 
 講義先用多項式迴歸建立直覺。一次模型無法表達真實的二次關係，即使資料無限多仍會出錯，這是高偏差；五次模型能穿過少量訓練點，換一批資料卻可能得到完全不同的曲線，這是高變異。偏差指模型族本身的表達缺口，變異則是學習結果對有限樣本隨機性的敏感度。
@@ -92,6 +94,7 @@ $$
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認影片主題與本章相符，補註這是 2018 年 discussion section，且不含雙降。
 
 ## 參考資料
 

@@ -31,7 +31,7 @@ The previous part covered how the BERT family is pretrained. This one is hands-o
 - Tutorial slides [huggingface_tutorial_bert.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/huggingface_tutorial_bert.pdf) (43 pages, cover dated 2024/10/22)
 - The matching notebook [bert-huggingface.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Reference/bert-huggingface.ipynb)
 - The assignment handout [NLP_HW3_Multi_output_learning.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/NLP_HW3_Multi_output_learning.pdf) (24 pages) and starter code [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/main.ipynb)
-- Recordings: the tutorial [NLP (Prof. Hung-Yu Kao) Week 8 Tue. TA session, Fall 2025](https://www.youtube.com/watch?v=VErSpYgZGiw) and the HW3 walkthrough [NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI)
+- Recordings: the tutorial [NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)](https://www.youtube.com/watch?v=VErSpYgZGiw) and the HW3 walkthrough [NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI)
 
 ## Course video sources
 
@@ -39,7 +39,7 @@ Video sources were checked against the official course page and rechecked live o
 
 ```youtube
 url: https://www.youtube.com/watch?v=VErSpYgZGiw
-title: NLP (Prof. Hung-Yu Kao) Week 8 Tue. TA session, Fall 2025
+title: NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)
 ```
 
 ```youtube
@@ -47,7 +47,7 @@ url: https://www.youtube.com/watch?v=Fe1roWMVdUI
 title: NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025
 ```
 
-Original videos: [NLP (Prof. Hung-Yu Kao) Week 8 Tue. TA session, Fall 2025](https://www.youtube.com/watch?v=VErSpYgZGiw)、[NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
+Original videos: [NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)](https://www.youtube.com/watch?v=VErSpYgZGiw)、[NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
 
 Course and recording entries:
 
@@ -61,7 +61,7 @@ The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/b
 
 | Recording | YouTube title and page info | Content |
 |---|---|---|
-| [NLP (Prof. Hung-Yu Kao) Week 8 Tue. TA session, Fall 2025](https://www.youtube.com/watch?v=VErSpYgZGiw) | "Week 8 Tue. [助教課]" (TA session), no [Fall 2025] tag, uploaded 2024-10-21, about 89 minutes, description reads "Hugging Face BERT講解" | The TA session recorded in 2024 |
+| [NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)](https://www.youtube.com/watch?v=VErSpYgZGiw) | "Week 8 Tue. [助教課]" (TA session), no [Fall 2025] tag, uploaded 2024-10-21, about 89 minutes, description reads "Hugging Face BERT講解" | The TA session recorded in 2024 |
 | [W7 Thu. 4qDUML9TeHM](https://www.youtube.com/live/4qDUML9TeHM) | "[Fall 2025] … Week 7 Thu.", about 56 minutes | I grabbed frames at minutes 5, 25, and 50; all three show this tutorial deck (pages 2, 16, 30) |
 | [NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI) | "[Fall 2025] … Week 8 Thu. - Assignment 3", about 15 minutes | HW3 walkthrough |
 
@@ -198,6 +198,7 @@ What I noticed reading [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Langu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Tried to check the video content against transcripts, but neither the TA-session video (VErSpYgZGiw) nor the HW3 walkthrough has captions; only page metadata (title, length, description "Hugging Face BERT講解", upload date 2024-10-21) could be checked, so no content-check marker was added. Also replaced the inaccurate "Fall 2025" in the TA-session video name with "2024 recording".
 
 ## References
 

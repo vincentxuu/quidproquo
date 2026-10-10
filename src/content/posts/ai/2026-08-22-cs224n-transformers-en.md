@@ -37,6 +37,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is 2023 Lecture 8; the transcript covers self-attention, position representations, multi-head attention, residual connections and layer norm, encoder/decoder architectures and the quadratic cost of attention, which fits this article. It is a 2023 lecture, so details need not match the Winter 2026 slides.
+
 ## Why leave recurrence
 
 An RNN computes hidden states in time order, and information between positions travels step by step. Gated RNNs alleviate gradient problems, but positions within a sentence remain difficult to parallelize. Machine translation also requires a decoder to focus on different source regions at different output steps; one fixed source vector is insufficient.
@@ -105,6 +107,7 @@ Winter 2026 recordings are not public. This article covers all six agenda sectio
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2023 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The topic matches this article; noted that it is the 2023 version.
 
 ## References
 

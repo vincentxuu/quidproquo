@@ -21,7 +21,7 @@ The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n
 
 ## Course video sources
 
-This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
+This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover language models and RNN basics (see the content check below for scope) as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
 
 ```youtube
 url: https://www.youtube.com/watch?v=fyc0Jzr74y4
@@ -36,6 +36,8 @@ Course and recording entries:
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is Spring 2024 Lecture 5: the transcript covers neural-network add-ons, language models (including n-grams), RNNs and backpropagation through time (summing gradients over the repeated weight), and ends by promising to continue next time. It does not cover vanishing/exploding gradients, LSTM/GRU or machine translation (those come in later lectures), so the article's sections on those cannot be found in this video.
 
 ## What a language model outputs
 
@@ -112,6 +114,7 @@ Winter 2026 recordings are not public. This article covers all four agenda secti
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the Spring 2024 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video only covers language models and RNN basics, not vanishing/exploding gradients, LSTM/GRU or machine translation; now stated in the sources section.
 
 ## References
 

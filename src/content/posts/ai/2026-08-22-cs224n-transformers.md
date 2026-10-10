@@ -37,6 +37,8 @@ title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attentio
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本文的關係。這支是 2023 年 Lecture 8，字幕內容為 self-attention、position 表示、multi-head、residual 與 layer norm、encoder／decoder 架構與 attention 的二次方成本，主題與本文相符；但它是 2023 年的課，細節與 Winter 2026 投影片不必然一致。
+
 ## 為什麼要離開 recurrence
 
 RNN 的 hidden state 必須依時間順序計算，位置之間的資訊也要逐步傳遞。即使 gated RNN 緩解梯度問題，訓練仍難以把同一句中的位置全面平行化。機器翻譯又要求 decoder 在不同輸出步驟關注來源句的不同部分，單一固定向量不夠用。
@@ -139,6 +141,7 @@ Winter 2026 錄影不公開。本文完整覆蓋投影片的六段 agenda，但�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 2023 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。確認影片主題與本文相符，註明是 2023 年版本。
 
 ## 參考資料
 

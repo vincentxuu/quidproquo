@@ -48,6 +48,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the two videos relate to this lecture. In 2022 Lecture 1 (Counting) most of the first part is course introduction and motivation; the step (multiplication) and sum rules start only in roughly the last quarter, estimated from the relative position in the transcript, not an exact time. 2022 Lecture 2 (Combinatorics) covers permutations, combinations, and distinguishable/indistinguishable objects in buckets (buckets and dividers). Together they fit this lecture on the multiplication rule, permutations, combinations and counting with repetition.
+
 ## Worksheet agenda: decide order and repetition before choosing a formula
 
 The three-component review gives all-up probability 0.95 cubed and at-least-one-down probability one minus that value. It previews a central counting move: count the complement when direct counting is awkward.
@@ -75,6 +77,7 @@ Use the product rule to construct outcomes in stages, permutations when order ma
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The two videos together cover this lecture's topic; noted that the first video is mostly course introduction.
 
 ## References
 

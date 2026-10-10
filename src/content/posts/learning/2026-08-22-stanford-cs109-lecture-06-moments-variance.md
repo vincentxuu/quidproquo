@@ -21,7 +21,7 @@ draft: false
 
 ## 課程影片來源
 
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講部分重疊（見下方內容核對），學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=I2UBspTNAG0
@@ -38,6 +38,8 @@ title: Stanford CS109 Probability for Computer Scientists I Variance Bernoulli B
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本講的關係。這支是 2022 年第 7 講（Variance, Bernoulli, Binomial）：開場回顧期望值的線性性與 LOTUS，接著講 Bernoulli 與 binomial，最後才引入 variance。它與本講（期望值、LOTUS、線性性）主題相鄰且部分重疊，但 variance 與 binomial 的比重大於本講，是相關補充，不是同一講。
 
 ## 從分布到一個可運算的摘要
 
@@ -127,6 +129,7 @@ Challenge 用同一招證明 binomial 期望。把成功總數寫成 n 個 Berno
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片與本講部分重疊（期望值回顧），主體是 Bernoulli／binomial／variance，已在來源段落如實註明。
 
 ## 參考資料
 

@@ -40,6 +40,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 9; the transcript opens by saying the lecture covers K-means and its probabilistic counterpart GMM, discusses assignment, initialization and local optima, and ends by previewing the EM derivation for the next class. The K-means part fits this chapter; GMM/EM belong to later chapters.
+
 ## The algorithm alternates hard assignments and means
 
 k-means initializes centers $\mu_1,\ldots,\mu_k$ and repeatedly performs two updates:
@@ -90,6 +92,7 @@ Create two two-dimensional datasets: three similarly sized circular clusters and
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The video covers K-means (plus the start of GMM) and fits this chapter.
 
 ## References
 

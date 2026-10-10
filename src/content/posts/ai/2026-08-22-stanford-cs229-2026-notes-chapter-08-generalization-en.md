@@ -40,6 +40,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. It is a 2018 Autumn Friday discussion section led by Anand Avati (not Andrew Ng's main lecture); the transcript covers bias-variance, approximation/estimation error, ERM, uniform convergence (union bound, Hoeffding) and VC dimension, which fits this chapter. It never mentions the double descent section, which rests on the notes alone.
+
 ## Decomposing test error into bias and variance
 
 The chapter builds intuition with polynomial regression. A linear model cannot express a genuinely quadratic relationship, so it remains wrong even with unlimited data: high bias. A fifth-degree polynomial can interpolate a small training set, yet change wildly when the dataset changes: high variance. Bias is an expressive limitation of the model family; variance is sensitivity to the randomness of a finite sample.
@@ -92,6 +94,7 @@ Generate several noisy datasets from the same quadratic function. Fit linear, qu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The topic matches this chapter; noted that it is a 2018 discussion section and does not cover double descent.
 
 ## References
 

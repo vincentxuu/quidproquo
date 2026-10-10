@@ -40,7 +40,7 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
-## One timeline: where the course started and where it ended
+## One milestone chart: where the course started and where it ended
 
 Page 2 of Course_summary is an NLP milestone timeline, the same figure used in the first-week [Syllabus](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W0_Syllabus.pdf). On the left, around 2000, sit bag of words, vector space, TF-IDF and parsing trees. Next come Bengio's neural probabilistic language model and Google's word2vec in 2013. From 2018 the figure is labeled "Transformer Era": GPT, BERT, GPT-2, GPT-3, and finally InstructGPT, ChatGPT and LLMs in 2022–2024.
 
@@ -171,6 +171,7 @@ Series navigation: previous, [RAG labs + HW4](/posts/ai/2026-09-30-nthu-nlp-rag-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Tried to check the video content against its transcript, but the W14 recording has no captions (only page metadata such as the title and the roughly 77-minute length was available), so no content-check marker was added. The article already relies on the slides only and makes no claims about the video content, so it is unchanged apart from renaming the "One timeline" heading to "One milestone chart": it refers to the NLP-history milestone figure, not video timestamps.
 
 ## References
 

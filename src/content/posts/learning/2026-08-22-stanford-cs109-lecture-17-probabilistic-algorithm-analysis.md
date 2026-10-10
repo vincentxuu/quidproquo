@@ -41,6 +41,8 @@ title: Stanford CS109 I Algorithmic Analysis I 2022 I Lecture 20
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本講的關係。這支是 2022 年第 20 講（Algorithmic Analysis），字幕內容為期望值與 law of total expectation、conditional expectation、indicator variable、hash 的期望碰撞數、coupon collector 與遞迴程式的期望分析，與本講主題相符；講者是當年的 head TA，不是本文的 Summer 2026 講者。
+
 ## P1：讀懂 bootstrap p-value
 
 Null 下重抽 10,000 次 differences，其中 140 次至少與 observed `2.1` minutes 一樣極端：
@@ -175,6 +177,7 @@ E[K]=25
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。確認影片主題與本講相符。
 
 ## 參考資料
 
