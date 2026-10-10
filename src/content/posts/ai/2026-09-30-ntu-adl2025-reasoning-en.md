@@ -48,6 +48,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Transcript attempt (2026-10-10): the embedded 12.1 (10:21) and 12.2 (12:06) have no obtainable YouTube transcript, so their spoken content was not checked word for word. For these two the article relies only on the title, subtitle, length, upload date and description, which match the YouTube pages.
+
 ## The five videos
 
 The lectures are in Mandarin; each title carries a Chinese subtitle, translated here.
@@ -117,6 +119,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Tried to check 12.1 and 12.2 against transcripts, but neither has one, so the content was not checked; the article already relied only on titles and descriptions and was left unchanged.
 
 ## References
 

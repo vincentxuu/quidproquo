@@ -71,6 +71,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Transcript attempt (2026-10-10): the embedded 10.1 (24:53) and 10.2 (23:46) have no obtainable YouTube transcript, so their spoken content was not checked. The article takes its content from numbered slides and does not attribute any claim to the spoken lecture. Both were uploaded on 2025-11-06 with a description dated 2025/11/03 crediting Stanford and CMU courses for the slides.
+
 ## Bias → Fairness
 
 ### Where bias comes from
@@ -193,6 +195,7 @@ Next: [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en)
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Tried to check 10.1 and 10.2 against transcripts, but neither has one, so the content was not checked; the article was left unchanged.
 
 ## References
 

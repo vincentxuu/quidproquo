@@ -56,6 +56,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The 3.2 transcript was read (15 minutes): the recognize-speech example, the 0.0001 smoothing question, the neural LM cat/dog automatic smoothing, RNN weight sharing (10 words, 10 uses) and RNN as the step before the Transformer all match the article. The article also cites 3.3 and 3.4, which are not embedded; their transcripts were read too: BPTT and slow training, 0.9 multiplied repeatedly going to 0, clipping, France/French and gating, bidirectional RNNs not being usable for next-word prediction without peeking, averaged word vectors being enough for finance-vs-not classification, sequence output as repeated classification, preferring tagging, and HW1 using Transformers all match. The embedded 3.1 has no obtainable YouTube transcript, so its spoken content was not checked word for word (the article makes no specific claims about it; only title, date 2025-09-01 and length 22:04 were confirmed).
+
 ## How do you put a word into a computer?
 
 Slide 4 splits word representations into two camps.
@@ -189,6 +191,7 @@ One thing to try tonight: take the three sentences on slide 10, count the window
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. 3.2 transcript matches the article; 3.1 had no transcript, so its content was not checked.
 
 ## References
 

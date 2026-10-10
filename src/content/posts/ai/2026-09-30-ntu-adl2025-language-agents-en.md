@@ -59,6 +59,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Both transcripts (11.1 and 11.2) were read. 11.1: the supportive and sceptical voices on agents (Bill Gates, Andrew Ng, Sam Altman, and "just an LLM wrapper"), the general definition of perceiving and acting, rational agents maximizing utility, the internal actions and self-reflection of a language agent, the logical / neural / language agent comparison on expressiveness, reasoning and adaptability, and the three key concepts (reasoning, memory, planning). 11.2: reasoning updating short-term memory (the context window), CoT intermediate steps, the robot-cooking-without-salt example, ReAct's reasoning plus acting with human-editable thoughts, reasoning enlarging the action space and making decisions harder, and LLMs relying on reasoning priors from pretraining. All match the corresponding sections. The article's version note is also supported: 11.1 opens by saying "this is the second-to-last class of the semester", consistent with the 2024/12/04 description, so these are Fall 2024 recordings rather than the 2025/11/10 lecture itself. 11.3 to 11.5 are not embedded, and the memory, planning and multi-agent sections were not compared against transcripts.
+
 ## What an agent is, and what language agents add
 
 Slide 2 lays out both camps. Bill Gates, Andrew Ng, and Sam Altman are bullish on agents; the other side says current agents are thin wrappers around LLMs and that autoregressive LLMs can never reason or plan. The slides don't pick a side. They go back to definitions.
@@ -166,6 +168,7 @@ Next: [Reasoning (videos only)](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en)
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed 11.1 and 11.2 match the article, and the version note holds (the video calls itself the second-to-last class, so it is a 2024 recording).
 
 ## References
 

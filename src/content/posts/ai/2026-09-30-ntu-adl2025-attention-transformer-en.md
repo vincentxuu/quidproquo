@@ -55,6 +55,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Both transcripts (4.1 and 4.2) were read. Everything the article attributes to the videos appears in them: the memory/attention analogy, the single-vector RNN bottleneck, the query/key/value definitions, speech recognition and image captioning (including the giraffes misread as a large white bird), the Greg/Brian three-hop reading-comprehension example, and in 4.2 the CNN vs RNN comparison, the France/French example, self-attention, multi-head, masking, where Q/K/V come from in the three attention types, the four positional-encoding criteria with sin/cos, and the training tips and results. Nothing needed correcting. Slide page numbers, formulas and details such as CoQA/QuAC come from the slides, not the videos.
+
 ## Step one: why translation needs attention
 
 ### Starting from human attention
@@ -214,6 +216,7 @@ One thing to try tonight: write a self-attention in under 20 lines of NumPy, wit
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. The transcripts match what the article says about the videos; no correction needed.
 
 ## References
 

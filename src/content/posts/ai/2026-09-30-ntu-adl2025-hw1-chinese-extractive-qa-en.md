@@ -51,6 +51,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Transcript attempt (2026-10-10): the embedded HW1 briefing video (24:50, uploaded 2025-09-09, unlisted, description "BERT for Chinese Question Answering") has no obtainable transcript, so its content was not checked. The article already states that it did not transcribe the video and takes the assignment spec from the spec slides; the title, length, upload date and description match the article.
+
 ## The task: two-stage extractive QA
 
 The slide example pairs one question with four paragraphs:
@@ -193,6 +195,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Tried to check the HW1 briefing video against a transcript, but none is available, so the content was not checked; the article was left unchanged.
 
 ## References
 

@@ -64,6 +64,8 @@ title: ADL 9.2: Decoding Algorithms 如何控制每次輸出哪個 Token 呢?（
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：9.1 與 9.2 兩支都讀了字幕。9.1：NLG 任務、conditional LM、teacher forcing、exposure bias 與「一步錯，步步錯」、scheduled sampling（含 image captioning 實驗）、LLM 因資料量大而不用 scheduled sampling；9.2：greedy 非全域最佳、beam search 與 beam size 取捨（含 What do you do for a living? 的例子）、sampling 的長尾問題與 white rabbit 例子、top-k、nucleus sampling 的動態集合、temperature 不是解碼演算法、不能把整個機率分布當下一步輸入（高興想笑／難過想哭），皆與文章相符，沒有需要更正的影片說法。確認文章「版本提醒」所述：兩支影片上傳於 2025-10-27，說明欄日期為 2023/10/26 並註明投影片取材自李宏毅老師。9.3–9.5 未嵌入，未核對；BLEU、ROUGE、perplexity、LLM-Eval 與 RL for NLG 的段落依據的是講義。
+
 ## 從語言模型到 conditional LM
 
 講義第 3 頁先列出含有生成的任務：機器翻譯、抽象式摘要、對話、看圖說故事、創意寫作。第 4–7 頁把它們統一成同一個問題。
@@ -205,6 +207,7 @@ Beam size 的取捨在第 22 頁有個好例子：對一句「我主要吃生食
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
+- 2026-10-10：依字幕核對影片內容。確認 9.1、9.2 與文章相符；版本提醒（上傳 2025-10-27、說明欄 2023/10/26）屬實。
 
 ## 參考資料
 

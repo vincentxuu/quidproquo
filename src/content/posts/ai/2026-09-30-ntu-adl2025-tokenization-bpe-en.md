@@ -50,6 +50,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Transcript attempt (2026-10-10): the embedded ADL 5.1 (33:38) has no obtainable YouTube transcript, so its spoken content was not checked; the article's own version note already says this video has no captions and that the content follows the slides only. Metadata confirmed: uploaded 2023-10-12 with a description dated 2023/10/12, so it is a recording reused from an earlier term, which matches the article.
+
 ## The problem: out-of-vocabulary words
 
 The table on slide 2 makes the problem concrete. The vocabulary comes from training data. Common words like hat and learn get their own vectors. The next three kinds of word all become UNK and share one uninformative vector:
@@ -162,6 +164,7 @@ One thing to try tonight: open the [OpenAI tokenizer](https://platform.openai.co
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Kept the ADL 5.1 lecture embed; removed the embed of the Hugging Face demo video, which is not a course recording (text link kept).
+- 2026-10-10: Tried to check ADL 5.1 against a transcript, but none is available, so the content was not checked; confirmed it is an older recording dated 2023-10-12, matching the article.
 
 ## References
 

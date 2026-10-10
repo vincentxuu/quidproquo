@@ -65,6 +65,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Transcript attempt (2026-10-10): the embedded 14.1 (21:19) and 14.2 (14:40) have no obtainable YouTube transcript, so their spoken content was not checked. The article already states that it did not transcribe the videos and only cites titles, subtitles, lengths and descriptions. Both videos were uploaded on 2025-12-02 with a description dated 2025/12/01, which matches the article.
+
 ## Why unlabeled data helps (pages 2–11)
 
 Page 2 opens with the premise: **big data is not big annotated data.** With labels you use supervised learning; with an environment that gives rewards, reinforcement learning; with neither, unsupervised learning. The deck then asks why unlabeled, even unrelated, data can help. The answer: **find the latent factors that control the observations.**
@@ -182,6 +184,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Tried to check 14.1 and 14.2 against transcripts, but neither has one, so the content was not checked; the article was left unchanged.
 
 ## References
 

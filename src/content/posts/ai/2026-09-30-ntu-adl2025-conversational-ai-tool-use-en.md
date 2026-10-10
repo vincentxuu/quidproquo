@@ -68,6 +68,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Transcript attempt (2026-10-10): the embedded 13.1 (15:02) and 13.2 (13:15) have no obtainable YouTube transcript, so their spoken content was not checked. The article already states that it did not transcribe the videos, takes its content from the Fall 2024 slides, and only cites titles, subtitles, lengths and descriptions for the videos. Both were uploaded on 2025-11-25 with a description dated 2025/11/24, which matches the article.
+
 ## Two branches of dialogue systems
 
 Page 3 sorts why people want dialogue systems into four sentences. "I want to chat" is social chit-chat, the Turing-test kind of human-likeness. "I have a question" is information lookup. "I need to get this done" is task completion, such as booking a train from Kaohsiung to Taipei or a table at Din Tai Fung for five at 7 PM tonight. "What should I do?" is decision support. Page 4 folds these into two branches: **chit-chat and task-oriented**.
@@ -175,6 +177,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Tried to check 13.1 and 13.2 against transcripts, but neither has one, so the content was not checked; the article was left unchanged.
 
 ## References
 

@@ -45,6 +45,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Both transcripts (1.1 and 1.2) were read. 1.1: the sentiment-classification task that cannot be written as rules, learning as finding a function, training/testing, and the speech, image, advertising and game-playing applications. 1.2: the production-line analogy and end-to-end training, the shallow vs deep speech and image comparison, hidden layers and representations, the neuron and sigmoid, the roughly one-third error drop, big data and GPUs, and the fat vs thin parameter comparison. All match the corresponding sections. One thing the article did not say: both videos carry a YouTube upload date and description of 2024/09/04, so they are Fall 2024 recordings rather than a 2025 re-recording (the description also notes slides at adl.miulab.tw). The article makes no specific claims about the slide-21 timeline as spoken in the video, and 1.3 is not embedded and was not checked.
+
 ## When you can't write the rules, let the machine find the function
 
 Page 5 opens with sentiment classification of product reviews. "I love this product!" is easy to handle with a rule: if the text contains "love" or "like," output positive. "It claims too much." works too: "too much" or "bad" means negative. But what about "It's a little expensive."? The Chinese examples, written in the style of Taiwanese forum comments, push the point further. "First wave of launches in Taiwan!" is an upvote, "The specs are pretty useless…" is a downvote, but what do you do with "I'll consider it once the guy downstairs buys one"?
@@ -129,6 +131,7 @@ Next: [Neural Networks and Backpropagation](/posts/ai/2026-09-30-ntu-adl2025-neu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed that 1.1 and 1.2 match the article, and noted that both are Fall 2024 recordings dated 2024/09/04.
 
 ## References
 

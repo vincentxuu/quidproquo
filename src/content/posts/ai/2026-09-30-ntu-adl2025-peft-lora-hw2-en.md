@@ -52,6 +52,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The 7.5 transcript was read (19 minutes): full fine-tuning being too expensive, the motivation for efficient adaptation, Adapter (h plus delta h, plug and play, storage savings, less overfitting), LoRA's low-rank update and its comparison with Adapter, prompt tuning as parameter-efficient tuning, and the Mao et al. conclusion that no single method is best all match the article. The video also announces that HW2 is LoRA tuning and that there is a two-week break, which does not conflict with the article's "LLM tuning and prompt tuning" description of HW2. The GPT-3 175B experiment, slide page numbers and the LoRA formula in the article come from the slides and the paper; the video does not go through them item by item. The embedded HW2 briefing video (13:05, uploaded 2025-10-06, unlisted) has no obtainable transcript, so only the description line and length were confirmed and its content was not checked, which matches the article's own note that the video has no captions.
+
 ## The problem: full fine-tuning is too expensive
 
 The slides open with the same map as the previous lecture (pp.2–4). To do well on known tasks, you can do prompt tuning/engineering or tune the LM itself. Page 4 adds a note next to the second option: fine-tuning LLMs may be expensive and impractical. Page 5 therefore names the topic Parameter-Efficient LM Tuning, a more practical way to adapt LLMs.
@@ -141,6 +143,7 @@ Next: [RAG and HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en)
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed 7.5 matches the article; the HW2 briefing video has no transcript, so its content was not checked.
 
 ## References
 

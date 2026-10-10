@@ -57,6 +57,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Both transcripts (7.1 and 7.2) were read. 7.1: specialists vs generalists, GPT compared against WMT translation systems, unifying tasks as QA (2018), pretrain + prompting vs pretrain + fine-tuning, emergent ability, and post-training being needed because future tasks are unknown. 7.2: how FLAN and T0 work and their zero-shot results, instructions needing detailed descriptions, the effect of the number of prompts, Super-NaturalInstructions, and the three limits of instruction tuning (paired data is expensive, open-ended tasks have no single answer, and token-level objectives differ from human objectives). All match the article's "From specialists to generalists" and "Step one" sections. 7.3 and 7.4 are not embedded, and the RLHF, DPO and InstructGPT sections were not compared against transcripts.
+
 ## From specialists to generalists
 
 The slides open with a contrast (pp.3–10):
@@ -208,6 +210,7 @@ Next: [PEFT: Adapter, LoRA, Prompt Tuning, and HW2](/posts/ai/2026-09-30-ntu-adl
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed 7.1 and 7.2 match the first two sections; 7.3 and 7.4 were not checked.
 
 ## References
 

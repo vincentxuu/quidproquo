@@ -57,6 +57,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Both transcripts (6.1 and 6.2) were read. 6.1: the definition of pretraining and large-scale data, BookCorpus and the "fair use vs copyright" dispute, and regulation still evolving across countries all match the article's "What pretraining is" section (the video also discusses the court rulings on Anthropic scanning purchased books and paying for pirated ones, which the article does not cover). 6.2: the encoder / decoder / encoder-decoder families, BERT's 15% masking with RoBERTa and SpanBERT, GPT-1 with about 7,000 books and 12 layers, GPT-2 and GPT-3 growth in data and size, the BART vs T5 denoising output difference, the classification fine-tuning difference, and T5 multi-task pretraining resembling today's post-training all match the corresponding sections. The article's remark that BART scores higher in most columns comes from slide 23's table (the article cites the slide); in the spoken explanation the two perform about the same. 6.3 to 6.6 and 6.0 are not embedded and were not checked.
+
 ## What pre-training is
 
 Page 2's analogy: learn general knowledge from textbooks before being tested on a specific subject. Pre-training trains a model on a large, diverse dataset before fine-tuning it for a task. The three key steps are large-scale diverse data, self-supervised learning, and general representations; the payoff is scalability, generalizability, and transferability.
@@ -192,6 +194,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed 6.1 and 6.2 match the article; noted that the BART vs T5 comparison differs slightly between the slide table and the spoken remark, and the article already cites the slide.
 
 ## References
 

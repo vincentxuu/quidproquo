@@ -57,6 +57,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Transcript attempt (2026-10-10): the embedded 5.2 (57:29) and 5.3 (4:09) have no obtainable YouTube transcript, so their spoken content was not checked. The article only cites their titles and lengths and takes everything else from the slides. One extra fact confirmed: both videos carry an upload date and description of 2023/10/12, so they are recordings from the 2023 term, not a 2025 re-recording.
+
 ## The starting point: word vectors ignore polysemy
 
 Page 3 opens with two sentences: "An apple a day, keeps the doctor away" and "Smartphone companies including apple, …". The two apples mean different things, but word vectors like word2vec and GloVe give each word **one** vector. The slide names two problems:
@@ -192,6 +194,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Tried to check 5.2 and 5.3 against transcripts, but neither has one, so the content was not checked; noted that both are older recordings dated 2023/10/12.
 
 ## References
 
