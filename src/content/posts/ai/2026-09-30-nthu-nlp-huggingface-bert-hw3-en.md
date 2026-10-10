@@ -61,9 +61,9 @@ The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/b
 
 | Recording | YouTube title and page info | Content |
 |---|---|---|
-| [NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)](https://www.youtube.com/watch?v=VErSpYgZGiw) | "Week 8 Tue. [助教課]" (TA session), no [Fall 2025] tag, uploaded 2024-10-21, about 89 minutes, description reads "Hugging Face BERT講解" | The TA session recorded in 2024 |
-| [W7 Thu. 4qDUML9TeHM](https://www.youtube.com/live/4qDUML9TeHM) | "[Fall 2025] … Week 7 Thu.", about 56 minutes | I grabbed frames at minutes 5, 25, and 50; all three show this tutorial deck (pages 2, 16, 30) |
-| [NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI) | "[Fall 2025] … Week 8 Thu. - Assignment 3", about 15 minutes | HW3 walkthrough |
+| [NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)](https://www.youtube.com/watch?v=VErSpYgZGiw) | "Week 8 Tue. [助教課]" (TA session), no [Fall 2025] tag, uploaded 2024-10-21, about 89 minutes, description reads "Hugging Face BERT講解" | The TA session recorded in 2024 (no captions; content not checked against a transcript) |
+| [W7 Thu. 4qDUML9TeHM](https://www.youtube.com/live/4qDUML9TeHM) | "[Fall 2025] … Week 7 Thu.", about 56 minutes | I grabbed frames at minutes 5, 25, and 50; all three show this tutorial deck (pages 2, 16, 30); no captions, so content was not checked against a transcript |
+| [NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI) | "[Fall 2025] … Week 8 Thu. - Assignment 3", about 15 minutes | HW3 walkthrough (no captions; content not verified) |
 
 At the end of [W7 Tue.](https://www.youtube.com/live/NtPrXea8qSE), the professor says the TA sessions will be played from pre-recorded video "because the content hasn't changed," with TAs online to answer questions. That matches the 2024 cover date and the 2024 upload date. So for the tutorial, either VErSpYgZGiw or W7 Thu. will do. I did not check minute by minute whether all of W7 Thu. is the same recording.
 
@@ -199,6 +199,7 @@ What I noticed reading [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Langu
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Tried to check the video content against transcripts, but neither the TA-session video (VErSpYgZGiw) nor the HW3 walkthrough has captions; only page metadata (title, length, description "Hugging Face BERT講解", upload date 2024-10-21) could be checked, so no content-check marker was added. Also replaced the inaccurate "Fall 2025" in the TA-session video name with "2024 recording".
+- 2026-10-10: Tried to check the video content against transcripts. The YouTube pages of the TA session VErSpYgZGiw and the HW3 walkthrough Fe1roWMVdUI have no captions, so their content could not be checked and no content-check note was added. The W7 Tue. captions do confirm that the professor said the TA session is not re-recorded but played back with the TA answering online, and in the Week 8 Thu. captions (the GPT-3 lecture) he refers to assignment details being in a separate video recorded by the TA.
 
 ## References
 

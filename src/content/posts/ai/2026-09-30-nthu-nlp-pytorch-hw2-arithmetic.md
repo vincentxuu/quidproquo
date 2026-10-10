@@ -57,6 +57,8 @@ title: 2025 HW2 說明影片
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Week 4 Tue. 助教課的字幕完整讀過。文中對這支影片的描述（Anaconda 與依 CUDA 版本安裝 PyTorch、以多項式例子帶出模型／loss／optimizer、view 與 reshape 的差別、nn.ModuleList 與 Python list 的差異、autograd 的相依計數與三種關閉梯度的方法、訓練迴圈、Dataset／DataLoader 與 collate、「I love AI」的 RNN 資料流與 teacher forcing 對比、結尾用 Hugging Face 載入 BERT）都能在字幕找到；100×100 張量正規化的秒數（0.127／0.000088）與頁碼來自投影片，字幕只說矩陣運算快很多。HW2 說明影片（nFQCFaRs0kE）的 YouTube 頁面沒有字幕，無法核對，文中作業內容只依 PDF 與起始碼。
+
 ## 助教課：交作業前的工具箱
 
 助教課從環境安裝講起（Anaconda、conda 指令、依 CUDA 版本安裝 PyTorch），再用 y = ax² + b 的例子帶出「模型、loss、optimizer」三件事。以下只挑和 HW2 直接相關的部分。
@@ -159,6 +161,7 @@ PDF 建議數據盡量用文字呈現，不要只貼圖，方便批改。繳交�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。W4 Tue. 助教課的說法皆有字幕依據，無需修改；HW2 說明影片沒有字幕，無法核對。
 
 ## 參考資料
 

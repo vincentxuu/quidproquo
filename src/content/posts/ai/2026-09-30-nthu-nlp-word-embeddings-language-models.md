@@ -30,7 +30,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文依據[清大高宏宇《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025 的 [W2_Word embeddings and Language Modeling (RNN).pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf)（62 頁），對應錄影是 [Week 2 Tue.](https://www.youtube.com/live/6Z0A4JMptT8) 與 [Week 2 Thu.](https://www.youtube.com/live/cqp5a39eyJQ)，事實皆於 2026-09-30 對照投影片核對。本篇只依投影片內容整理，沒有逐字對照錄影。存取等級 **A3**（理由見[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)）。
+> **版本說明**：本文依據[清大高宏宇《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025 的 [W2_Word embeddings and Language Modeling (RNN).pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf)（62 頁），對應錄影是 [Week 2 Thu.](https://www.youtube.com/live/cqp5a39eyJQ) 與 [Week 3 Tue.](https://www.youtube.com/live/LFeFc0VtKRI)（Week 2 Tue. 原本掛在這裡，字幕讀過後發現它講的是上一篇的資訊檢索內容，已移過去；Week 3 Tue. 則是從 seq2seq 那篇移來），事實皆於 2026-09-30 對照投影片核對。本篇只依投影片內容整理，沒有逐字對照錄影。存取等級 **A3**（理由見[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)）。
 
 **系列位置**：上一篇 [NLP 簡介與傳統文字處理](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing)｜下一篇 [HW1 Word Analogy](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 
@@ -40,25 +40,27 @@ glossary:
 
 ## 課程影片來源
 
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=6Z0A4JMptT8
-title: Fall 2025 Week 2 Tue. 錄影
-```
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，Week 2 Thu. 涵蓋投影片前段（到 perplexity），Week 3 Tue. 涵蓋後段。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=cqp5a39eyJQ
 title: Fall 2025 Week 2 Thu. 錄影
 ```
 
-原始影片：[Fall 2025 Week 2 Tue. 錄影](https://www.youtube.com/watch?v=6Z0A4JMptT8)、[Fall 2025 Week 2 Thu. 錄影](https://www.youtube.com/watch?v=cqp5a39eyJQ)
+```youtube
+url: https://www.youtube.com/watch?v=LFeFc0VtKRI
+title: Fall 2025 Week 3 Tue. 錄影
+```
+
+原始影片：[Fall 2025 Week 2 Thu. 錄影](https://www.youtube.com/watch?v=cqp5a39eyJQ)、[Fall 2025 Week 3 Tue. 錄影](https://www.youtube.com/watch?v=LFeFc0VtKRI)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 2 Thu. 與 Week 3 Tue. 兩支字幕都完整讀過。Week 2 Thu. 前段是 HW1 說明，之後講 n-gram、語言模型、add-one smoothing 與 perplexity（含用 perplexity 判斷文字是不是 ChatGPT 寫的、J.K. Rowling 化名事件的四字詞分析），到 perplexity 為止；Week 3 Tue. 接著重講 perplexity 與 n-gram 的限制，再講 sparse／dense 向量、PPMI 的 cherry／sugar 例子（3.3）、詞向量的 analogy 與詞義變遷（broadcast、network）、CBOW／skip-gram 與負採樣、softmax、contextual embedding（蘋果公司／蘋果派）、神經網路基礎、RNN（moving average 比喻）與 NER／情感分類，與本文各節吻合。原文的 Week 2 Tue. 講的是資訊檢索（TF-IDF、BM25、LSA），屬於上一篇，已移過去；Week 3 Tue. 從 seq2seq 那篇移來。投影片頁碼與數字來自投影片，正文未改。
 
 ## 統計語言模型：數 n-gram
 
@@ -192,13 +194,14 @@ RNN 就是為序列設計的。投影片的比喻是「Moving average 進階版�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Week 2 Thu.（到 perplexity）與 Week 3 Tue.（詞向量到 RNN）主題與本文吻合；Week 2 Tue. 講的是資訊檢索，已移到上一篇，Week 3 Tue. 從 seq2seq 篇移來。正文未改。
 
 ## 參考資料
 
 - [W2_Word embeddings and Language Modeling (RNN).pdf（Fall 2025）](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf)
 - [W2_Word embeddings and Language Modeling (RNN)_v2.pdf（Fall 2026）](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29_v2.pdf)
 - [2025 README：Fall 2025 週次表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-- [Fall 2025 Week 2 Tue. 錄影](https://www.youtube.com/live/6Z0A4JMptT8)
 - [Fall 2025 Week 2 Thu. 錄影](https://www.youtube.com/live/cqp5a39eyJQ)
+- [Fall 2025 Week 3 Tue. 錄影](https://www.youtube.com/live/LFeFc0VtKRI)
 - [Fall 2026 Week 3 錄影](https://youtube.com/live/g0QE6O17BWE)
 - [Scientific American：How a Computer Program Helped Show J.K. Rowling Write A Cuckoo's Calling](https://www.scientificamerican.com/article/how-a-computer-program-helped-show-jk-rowling-write-a-cuckoos-calling/)

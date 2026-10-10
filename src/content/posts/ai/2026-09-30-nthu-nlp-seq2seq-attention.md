@@ -28,29 +28,31 @@ glossary:
 
 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列第 4 篇。[第 2 篇](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)已經介紹過 RNN 語言模型：一次讀一個字，預測下一個字。[HW1](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy) 則考了詞向量。這一篇要處理一個 RNN 語言模型沒碰過的問題：**輸入和輸出的長度不一樣時，模型要怎麼設計？**
 
-本文依據 [IKMLab 課程 repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing) 的投影片 [W3_Sequence-to-sequence Models and Attention Mechanisms.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Sequence-to-sequence%20Models%20and%20Attention%20Mechanisms.pdf)（33 頁）。在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)上，它掛在 W3 那一列，錄影是 [W3 Tue](https://www.youtube.com/live/LFeFc0VtKRI) 與 [W3 Thu](https://www.youtube.com/live/UZ22K0rmU1g)。課表的 Topics 欄寫著「Introduction to NLP (Language model)」，那是課綱模板，實際內容以投影片為準。本篇只根據投影片撰寫，沒有逐段對照錄影。
+本文依據 [IKMLab 課程 repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing) 的投影片 [W3_Sequence-to-sequence Models and Attention Mechanisms.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Sequence-to-sequence%20Models%20and%20Attention%20Mechanisms.pdf)（33 頁）。在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)上，它掛在 W3 那一列，錄影是 [W3 Thu](https://www.youtube.com/live/UZ22K0rmU1g) 與 [W4 Thu](https://www.youtube.com/live/tr5QyN5TswM)。原本掛在這一列的 W3 Tue 講的是詞向量與語言模型，已移到[第 2 篇](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)；W4 Thu 的前半（LSTM 回顧、RNN 加 attention）才是這份投影片 attention 的部分，所以加進來。課表的 Topics 欄寫著「Introduction to NLP (Language model)」，那是課綱模板，實際內容以投影片為準。本篇只根據投影片撰寫，沒有逐段對照錄影。
 
 ## 課程影片來源
 
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=LFeFc0VtKRI
-title: Fall 2025 W3 Tue 錄影
-```
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，W3 Thu 涵蓋 RNN 收尾、seq2seq 與 LSTM，W4 Thu 涵蓋 attention。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=UZ22K0rmU1g
 title: Fall 2025 W3 Thu 錄影
 ```
 
-原始影片：[Fall 2025 W3 Tue 錄影](https://www.youtube.com/watch?v=LFeFc0VtKRI)、[Fall 2025 W3 Thu 錄影](https://www.youtube.com/watch?v=UZ22K0rmU1g)
+```youtube
+url: https://www.youtube.com/watch?v=tr5QyN5TswM
+title: Fall 2025 W4 Thu 錄影
+```
+
+原始影片：[Fall 2025 W3 Thu 錄影](https://www.youtube.com/watch?v=UZ22K0rmU1g)、[Fall 2025 W4 Thu 錄影](https://www.youtube.com/watch?v=tr5QyN5TswM)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：W3 Thu 與 W4 Thu 兩支字幕都完整讀過。W3 Thu 先收尾 RNN（NER、情感分類、堆疊與雙向），接著講 seq2seq（用 RNN 做翻譯、context vector、teacher forcing）、梯度消失與 LSTM 的閘門，最後說 RNN／LSTM 無法平行化；W4 Thu 先回顧 LSTM，再講 RNN 加 attention（翻譯對齊圖、必須保存所有 hidden state 的代價），接著進入 QKV 與 self-attention。這些與本文的 encoder-decoder、梯度消失、LSTM、attention 各節對得上。原文的 W3 Tue 講的是詞向量與語言模型，已移到第 2 篇；W4 Thu 同時也嵌在 Transformer 那篇。投影片頁碼與細節來自投影片，正文未改。
 
 ## 問題：翻譯的長度對不上
 
@@ -160,13 +162,14 @@ Attention 的核心想法是：**生成每個輸出時，讓模型聚焦在輸�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。W3 Thu 涵蓋 RNN 收尾、seq2seq 與 LSTM，W4 Thu 涵蓋 attention，主題與本文吻合；W3 Tue 講詞向量，已移到第 2 篇，並新增嵌入 W4 Thu。正文未改。
 
 ## 參考資料
 
 - [W3_Sequence-to-sequence Models and Attention Mechanisms.pdf（課程投影片）](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Sequence-to-sequence%20Models%20and%20Attention%20Mechanisms.pdf)
 - [2025 課表 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-- [Fall 2025 W3 Tue 錄影](https://www.youtube.com/live/LFeFc0VtKRI)
 - [Fall 2025 W3 Thu 錄影](https://www.youtube.com/live/UZ22K0rmU1g)
+- [Fall 2025 W4 Thu 錄影](https://www.youtube.com/live/tr5QyN5TswM)
 - [Bahdanau, Cho & Bengio (2014), Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
 - [Jurafsky & Martin, Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/)
 - [Hochreiter & Schmidhuber (1997), Long Short-Term Memory](https://www.bioinf.jku.at/publications/older/2604.pdf)

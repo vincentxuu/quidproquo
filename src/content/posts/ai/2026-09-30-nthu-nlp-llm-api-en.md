@@ -142,6 +142,7 @@ One thing to try tonight: move your most-used prompt out of your code into a YAM
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Tried to check the video content against its transcript, but the YouTube page of the W12 Thursday recording (xGwQYvya_Ag) has no captions, so it could not be checked and no content-check note was added. The post already relies only on the slides and notebook and makes no claims about the video, so it is unchanged.
 
 ## References
 

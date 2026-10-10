@@ -176,6 +176,7 @@ One thing to try tonight: download `cat-facts.txt` and `questions_answers.txt` a
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Tried to check the video content against transcripts. The YouTube pages of W13 Tuesday (anCghHOjzV0) and the HW4 walkthrough (JvThEbeOZbs) have no captions, so they could not be checked and no content-check note was added. The W11 Thursday captions do confirm that the professor said at the start that HW4 is delayed a week because the RAG material and the TA-session videos were not ready, matching the timeline section.
 
 ## References
 

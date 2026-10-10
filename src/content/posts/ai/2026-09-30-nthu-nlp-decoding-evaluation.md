@@ -33,7 +33,7 @@ glossary:
 
 官方材料是投影片 [W5_decoding.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W5_decoding.pdf)（63 頁，標題「Decoding Strategies and Evaluations for Natural Language Generation」），錄影是 [Week 7 Tue.](https://www.youtube.com/live/NtPrXea8qSE)（約 98 分鐘）。
 
-先釐清錄影對照。[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)的 W7 列同時掛了這份投影片和 Hugging Face 助教課，Topics 欄寫的「Python for text tutorial」是課綱模板，對不上實際內容。我讀了 Week 7 Tue. 的字幕，這一支從開場講解碼一路講到 MMLU，教授在結尾說「今天的講 decoding 跟講評估就到這邊為止」。同週的 [Week 7 Thu.](https://www.youtube.com/live/4qDUML9TeHM) 則是播放 Hugging Face 助教課（我在第 5、25、50 分鐘截圖確認畫面是助教投影片），上一篇已經整理過。所以這一講看 W7 Tue. 一支就夠。
+先釐清錄影對照。[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)的 W7 列同時掛了這份投影片和 Hugging Face 助教課，Topics 欄寫的「Python for text tutorial」是課綱模板，對不上實際內容。我讀了 Week 7 Tue. 的字幕，這一支從開場講解碼一路講到 MMLU，教授在結尾說「今天的講 decoding 跟講評估就到這邊為止」。同週的 [Week 7 Thu.](https://www.youtube.com/live/4qDUML9TeHM) 則是播放 Hugging Face 助教課（這支沒有字幕，我只在第 5、25、50 分鐘截圖確認畫面是助教投影片，內容無法用字幕核對；週二的字幕裡教授也預告週四是助教課），上一篇已經整理過。所以這一講看 W7 Tue. 一支就夠。
 
 ## 課程影片來源
 
@@ -56,6 +56,8 @@ title: Week 7 Thu.
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 7 Tue. 的字幕逐段讀過，文中引述的「通常會很僵硬」、投影片沒寫 top-k／top-p 而口頭補充（含預設 0.9／0.8 與 0.6＋0.2 的例子）、beam size 預設 2 與「三條就很了不起」、MMLU 與 ACL 的提醒，以及結尾「decoding 跟評估到這邊為止」都在字幕裡，也確認教授預告週四是助教課；Week 7 Thu. 的 YouTube 頁面沒有字幕，內容無法核對，「是助教課」只依畫面截圖與週二預告判斷。
 
 ## 場景：訓練時有標準答案，測試時沒有
 
@@ -186,6 +188,7 @@ GLUE 表裡的 STS-B 和 RTE、MNLI 值得多看一眼。上一篇 HW3 做的 re
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Week 7 Tue. 的說法皆有字幕依據；Week 7 Thu. 沒有字幕，標明無法核對。
 
 ## 參考資料
 

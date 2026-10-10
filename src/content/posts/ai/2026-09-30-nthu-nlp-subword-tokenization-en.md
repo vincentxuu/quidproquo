@@ -28,31 +28,28 @@ glossary:
 
 > **This guide is based on the public Fall 2025 (114-1) materials of [Prof. Hung-Yu Kao's Natural Language Processing course at NTHU](https://github.com/IKMLab/NTHU_Natural_Language_Processing).** It is part 7 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The previous part is [Transformer and Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers-en).
 
-The official material for this lecture is [W3_subword.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_subword.pdf) (43 slides), with recordings [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc) and [Week 5 Thu.](https://www.youtube.com/live/FB0fgRTEbJE) (in Mandarin). As with the previous lecture, the W3 in the file name is an old week number; the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) places it in W5, the same row where HW2 is released. That row's Topics column is a syllabus template and is not cited here.
+The official material for this lecture is [W3_subword.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_subword.pdf) (43 slides), with the recording [Week 5 Thu.](https://www.youtube.com/live/FB0fgRTEbJE) (in Mandarin). The [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc) recording in the same row, whose captions I read, covers the second half of the Transformer (positional encoding, multi-head, decoder) rather than this lecture, so it is now embedded in the [Transformer post](/posts/ai/2026-09-30-nthu-nlp-transformers-en) instead. As with the previous lecture, the W3 in the file name is an old week number; the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) places it in W5, the same row where HW2 is released. That row's Topics column is a syllabus template and is not cited here.
 
 The slides have three parts: recap, word segmentation, and sub-word tokenization.
 
 ## Course video sources
 
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=Dpswwk6UMCc
-title: Week 5 Tue.
-```
+Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube video is public and embeddable. After reading the captions, only Week 5 Thu. belongs to this lecture (it starts with assignment 2 and only then turns to subword tokenization). No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=FB0fgRTEbJE
 title: Week 5 Thu.
 ```
 
-Original videos: [Week 5 Tue.](https://www.youtube.com/watch?v=Dpswwk6UMCc)、[Week 5 Thu.](https://www.youtube.com/watch?v=FB0fgRTEbJE)
+Original videos: [Week 5 Thu.](https://www.youtube.com/watch?v=FB0fgRTEbJE)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the Week 5 Thu. transcript was read through. It opens with the assignment 2 briefing (arithmetic with RNN/LSTM) and only then moves to subword tokenization: how a hidden state maps onto the vocabulary, OOV and [UNK], the limits of white-space segmentation, segmentation vs. tokenization, the BPE merge example and number of merges, and ULM choosing splits by language-model probability, all consistent with the post. The Week 5 Tue. transcript is about the Transformer (QKV, positional encoding, multi-head, Add & Norm, decoder, teacher forcing), not subword tokenization, so it was removed from this page and is now embedded in the Transformer post. The rest of the post relies on the slides only.
 
 ## Recap: the model outputs a probability over the whole vocabulary
 
@@ -198,13 +195,13 @@ Slides 42–43 wrap up. Sub-word tokenization handles unknown, misspelled and co
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against the transcripts. Week 5 Thu. belongs to this lecture (it starts with assignment 2); Week 5 Tue. is about the Transformer, so it was removed from this page and embedded in the Transformer post instead.
 
 ## References
 
 - [IKMLab/NTHU_Natural_Language_Processing (course GitHub repo)](https://github.com/IKMLab/NTHU_Natural_Language_Processing)
 - [2025 schedule README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 - [W3_subword.pdf (Sub-word Tokenization slides)](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_subword.pdf)
-- [Recording: [Fall 2025] Natural Language Processing - Prof. Hung-Yu Kao - Week 5 Tue. (in Chinese)](https://www.youtube.com/live/Dpswwk6UMCc)
 - [Recording: [Fall 2025] Natural Language Processing - Prof. Hung-Yu Kao - Week 5 Thu. (in Chinese)](https://www.youtube.com/live/FB0fgRTEbJE)
 - [Sennrich, Haddow & Birch (2016). Neural Machine Translation of Rare Words with Subword Units](https://aclanthology.org/P16-1162/)
 - [Kudo (2018). Subword Regularization](https://aclanthology.org/P18-1007/)

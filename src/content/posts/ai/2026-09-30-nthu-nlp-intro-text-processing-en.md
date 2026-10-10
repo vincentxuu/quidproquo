@@ -29,7 +29,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-> **Version note**: this post is based on the Fall 2025 run of [NTHU Hung-Yu Kao's Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing), specifically [W1_NLP_brief.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W1_NLP_brief.pdf) (91 pages). The matching recordings are [Week 1 Tue.](https://www.youtube.com/live/X7XJcm9wfFA) and [Week 1 Thu.](https://www.youtube.com/live/0hTqSpoNp4o) (in Mandarin). Facts were checked against the slides on 2026-09-30. The post follows the slides only; I did not transcribe the recordings. Access rating **A3** (see the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) for why).
+> **Version note**: this post is based on the Fall 2025 run of [NTHU Hung-Yu Kao's Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing), specifically [W1_NLP_brief.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W1_NLP_brief.pdf) (91 pages). The matching recordings are [Week 1 Tue.](https://www.youtube.com/live/X7XJcm9wfFA), [Week 1 Thu.](https://www.youtube.com/live/0hTqSpoNp4o) and [Week 2 Tue.](https://www.youtube.com/live/6Z0A4JMptT8) (in Mandarin); the last one was originally attached to the next post on word embeddings, but reading its captions showed it covers the second half of this deck. Facts were checked against the slides on 2026-09-30. The post follows the slides only; I did not transcribe the recordings. Access rating **A3** (see the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) for why).
 
 **Series position**: previous: [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) | next: [Word embeddings and language models: from n-grams to RNNs](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en) | [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 
@@ -39,7 +39,7 @@ Week 1 is about that gap. It answers one question: **before large language model
 
 ## Course video sources
 
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, the two Week 1 videos cover the first part of this deck and Week 2 Tue. covers the later part. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=X7XJcm9wfFA
@@ -51,13 +51,20 @@ url: https://www.youtube.com/watch?v=0hTqSpoNp4o
 title: Fall 2025 Week 1 Thu. recording
 ```
 
-Original videos: [Fall 2025 Week 1 Tue. recording](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. recording](https://www.youtube.com/watch?v=0hTqSpoNp4o)
+```youtube
+url: https://www.youtube.com/watch?v=6Z0A4JMptT8
+title: Fall 2025 Week 2 Tue. recording
+```
+
+Original videos: [Fall 2025 Week 1 Tue. recording](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. recording](https://www.youtube.com/watch?v=0hTqSpoNp4o)、[Fall 2025 Week 2 Tue. recording](https://www.youtube.com/watch?v=6Z0A4JMptT8)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the Week 2 Tue. transcript was read through; for Week 1 Tue. and Thu. only the openings were read. Week 2 Tue. covers exactly the later part of the deck this post follows: inverted indexes, tokenization, stemming vs. lemmatization (Porter), stop words (including the "To be or not to be" joke), the vector-space model, TF-IDF (including why IDF must be recomputed), cosine vs. dot product, BM25 as a strong baseline, the limits of bag of words and one-hot, WordNet, dense vectors, the LSA/SVD example with ten Linux and genome documents, word2vec training with a single hidden layer, and it closes on the Leonie Monigatti article, all consistent with the post. Week 1 Tue. opens with course logistics and an applications overview; Week 1 Thu. opens by saying this is the NLP brief originally planned for Tuesday and covers word-sense ambiguity. The post relies on the slides only and makes no specific claims about the videos, so the body is unchanged; Week 2 Tue. was moved here from the word-embeddings post.
 
 ## Why language is hard for computers
 
@@ -182,6 +189,7 @@ The 2026 main README links [W1_NLP_brief_v2.pdf](https://github.com/IKMLab/NTHU_
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against the transcripts. Week 2 Tue. covers the later part of this deck (TF-IDF, BM25, LSA, word2vec) and was moved here from the word-embeddings post and embedded; the two Week 1 videos were read only at the opening and match in topic. The body is unchanged.
 
 ## References
 
@@ -190,6 +198,7 @@ The 2026 main README links [W1_NLP_brief_v2.pdf](https://github.com/IKMLab/NTHU_
 - [2025 README: Fall 2025 weekly table](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 - [Fall 2025 Week 1 Tue. recording](https://www.youtube.com/live/X7XJcm9wfFA) (in Mandarin)
 - [Fall 2025 Week 1 Thu. recording](https://www.youtube.com/live/0hTqSpoNp4o) (in Mandarin)
+- [Fall 2025 Week 2 Tue. recording](https://www.youtube.com/live/6Z0A4JMptT8) (in Mandarin)
 - [Bengio et al. 2003, A Neural Probabilistic Language Model](http://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
 - [Porter Stemming Algorithm](http://www.tartarus.org/~martin/PorterStemmer/)
 - [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/projects/glove/)

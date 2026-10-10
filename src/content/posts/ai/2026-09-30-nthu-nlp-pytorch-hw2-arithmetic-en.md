@@ -56,6 +56,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the whole Week 4 Tue. TA-session transcript was read. What the post says about it (Anaconda and installing PyTorch by CUDA version, the polynomial example introducing model/loss/optimizer, view vs reshape, nn.ModuleList vs a Python list, autograd dependency counting and the three ways to disable gradients, the training loop, Dataset/DataLoader and collate, the "I love AI" RNN data flow and teacher forcing vs generative training, and loading BERT with Hugging Face at the end) is all found in the captions; the 100x100 normalization timings (0.127 / 0.000088 s) and page numbers come from the slides, while the captions only say the matrix version is much faster. The HW2 walkthrough (nFQCFaRs0kE) has no captions on its YouTube page, so it could not be checked; the assignment details in the post rely on the PDF and starter code alone.
+
 ## The TA session: a toolbox for the assignment
 
 The session starts with setup (Anaconda, conda commands, installing PyTorch for your CUDA version), then uses y = ax² + b to introduce the model, the loss, and the optimizer. Below are the parts that matter for HW2.
@@ -158,6 +160,7 @@ The handout asks for results as text rather than only images, to make grading ea
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Everything stated about the W4 Tue. TA session is supported, so no change was needed; the HW2 walkthrough has no captions and could not be checked.
 
 ## References
 

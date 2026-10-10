@@ -58,6 +58,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the Week 9 Thu. transcript was read; the professor opens by saying these are the PEFT slides originally scheduled for week nine, and the content is PEFT rather than this post's GPT-2 / T5 tutorial, as the post states. The Week 9 Tue. YouTube page (the tutorial recording this post relies on) has no captions; "it is the tutorial" rests on frame captures only, and the post's description of the tutorial comes from the slides and notebooks, so it could not be checked against a transcript.
+
 ## One task, two architectures
 
 Slide 2 sets the scope: train GPT-2 and T5 with cross-entropy for **Chinese abstractive summarization**, using PyTorch, Hugging Face, and ROUGE. Slide 5 separates two kinds of summarization:
@@ -178,6 +180,7 @@ Both notebooks pin the same versions: `torch==2.3.1` (cu121), `transformers==4.3
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Week 9 Thu. is confirmed as PEFT; Week 9 Tue. has no captions, so it rests on frame captures only and could not be checked against a transcript.
 
 ## References
 

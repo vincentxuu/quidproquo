@@ -33,7 +33,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文依據清大資工高宏宇教授《[自然語言處理](https://github.com/IKMLab/NTHU_Natural_Language_Processing)》Fall 2025（114-1）的 [W9_PEFT.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W9_PEFT.pdf)（61 頁）。[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) 的 W9 列同時掛了這份投影片和 GPT-2／T5 助教課投影片，錄影是 [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E) 與 [Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)；**哪一支錄影講 PEFT、哪一支是助教課，本文沒有看片確認**，自學時請自己快轉對照。W9 列的 Topics 欄寫的是「ELMo, BERT, GPT, and T5」，那是課綱模板，和實際掛的投影片對不起來。事實於 2026-09-30 核對。存取等級 **A3**：投影片與錄影都公開。
+> **版本說明**：本文依據清大資工高宏宇教授《[自然語言處理](https://github.com/IKMLab/NTHU_Natural_Language_Processing)》Fall 2025（114-1）的 [W9_PEFT.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W9_PEFT.pdf)（61 頁）。[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) 的 W9 列同時掛了這份投影片和 GPT-2／T5 助教課投影片，錄影是 [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E) 與 [Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)；Week 9 Thu. 的字幕開頭，教授說這份投影片是「本來排定在第九週上的這個 PEFT」，所以 PEFT 在 Thu.，而且只講到 Adapter 的概念與記憶體估算，教授說 LoRA 下週再講；Week 9 Tue. 沒有字幕，內容無法核對（另一篇的畫面截圖判斷它是 GPT-2／T5 助教課）。W9 列的 Topics 欄寫的是「ELMo, BERT, GPT, and T5」，那是課綱模板，和實際掛的投影片對不起來。事實於 2026-09-30 核對。存取等級 **A3**：投影片與錄影都公開。
 
 **系列位置**：上一篇 [GPT-3、InstructGPT 與 RLHF](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf)｜下一篇 [RAG（上）：幻覺與檢索器](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 
@@ -62,6 +62,8 @@ title: Week 9 Thu.
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 9 Thu. 的字幕讀過。開頭教授說這份投影片是原定第九週的 PEFT，內容講 Hovy 的 ROCLING 演講回顧（三個角度）、OpenAI 算力不足的新聞、全參數微調的記憶體估算（7B、16-bit，約 56GB）與只訓練少量參數時記憶體仍降不到太低、災難式遺忘、Adapter 的概念（用翻譯、轉接頭比喻），結尾說 LoRA 下週再講；文中這些部分與字幕一致，LoRA、Prefix／Prompt Tuning 等後半段只在投影片，這支影片沒講到。Week 9 Tue. 的 YouTube 頁面沒有字幕，內容無法核對。
 
 ## 開場：LLM 時代的 NLP 還能做什麼
 
@@ -239,6 +241,7 @@ LoRA 在投影片比較表上的優勢是**推論時沒有額外開銷**：訓�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Week 9 Thu. 確認是 PEFT 講次（只講到 Adapter 概念與記憶體估算）；Week 9 Tue. 沒有字幕，無法核對。
 
 ## 參考資料
 

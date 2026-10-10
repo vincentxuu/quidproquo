@@ -180,6 +180,7 @@ Series navigation: previous, [course summary and LLM reasoning notes](/posts/ai/
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Tried to check the video content against transcripts, but the YouTube pages of Week 14 Tue. (_hzMv789JQ8) and Week 15 Tue. (03_BDLu3DDU) have no captions, so they could not be checked and no content-check note was added. The post relies on the slides and official pages only and does not describe the video content, so it is unchanged.
 
 ## References
 

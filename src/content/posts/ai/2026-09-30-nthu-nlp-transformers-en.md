@@ -28,26 +28,33 @@ glossary:
 
 > **This guide is based on the public Fall 2025 (114-1) materials of [Prof. Hung-Yu Kao's Natural Language Processing course at NTHU](https://github.com/IKMLab/NTHU_Natural_Language_Processing).** It is part 6 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The previous part is [PyTorch Tutorial and HW2: Arithmetic as Language](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic-en).
 
-The official material for this lecture is [W3_Transformers.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Transformers.pdf) (65 slides), and the recording is [Week 4 Thu.](https://www.youtube.com/live/tr5QyN5TswM) (lectures are in Mandarin; slides are mostly English). The file name says W3, but it sits in the W4 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md), next to that Tuesday's PyTorch tutorial. The week number is left over from an older numbering, so this guide goes by the slides and recording actually attached to the row. The row's Topics column says "Basic machine learning for text"; that is a syllabus template that does not match the slides, and this guide does not cite it.
+The official material for this lecture is [W3_Transformers.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Transformers.pdf) (65 slides), and the recordings are [Week 4 Thu.](https://www.youtube.com/live/tr5QyN5TswM) and [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc) (the latter was originally attached to the sub-word lecture; reading its captions showed it covers the second half of this deck) (lectures are in Mandarin; slides are mostly English). The file name says W3, but it sits in the W4 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md), next to that Tuesday's PyTorch tutorial. The week number is left over from an older numbering, so this guide goes by the slides and recording actually attached to the row. The row's Topics column says "Basic machine learning for text"; that is a syllabus template that does not match the slides, and this guide does not cite it.
 
 The slides have six parts: issues with RNNs, attention as a solution, self-attention, the Transformer encoder-decoder, the Transformer's achievements, and Transformer variants. This guide follows that order in five layers: scenario, intuition, mechanism, back to the model, going deeper.
 
 ## Course video sources
 
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, Week 4 Thu. covers the first half (RNNs and attention up to the start of self-attention) and Week 5 Tue. covers the second half. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=tr5QyN5TswM
 title: Week 4 Thu.
 ```
 
-Original videos: [Week 4 Thu.](https://www.youtube.com/watch?v=tr5QyN5TswM)
+```youtube
+url: https://www.youtube.com/watch?v=Dpswwk6UMCc
+title: Week 5 Tue.
+```
+
+Original videos: [Week 4 Thu.](https://www.youtube.com/watch?v=tr5QyN5TswM)、[Week 5 Tue.](https://www.youtube.com/watch?v=Dpswwk6UMCc)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both the Week 4 Thu. and Week 5 Tue. transcripts were read through. Week 4 Thu. finishes LSTM, then covers RNN plus attention (the translation alignment figure, the cost of storing all hidden states), the QKV search analogy, why we divide by the square root of d, and starts self-attention; Week 5 Tue. continues with the QKV matrix dimensions, sinusoidal positional encoding, multi-head attention, Add & Norm (with layer norm as the default), cross-attention, masked attention, autoregressive decoding and teacher forcing, the base/big results, ViT and the Stanford AI Index training-cost chart, which matches the structure of this post. The post originally had only Week 4 Thu.; Week 5 Tue. was moved here from the sub-word post. Slide numbers and formulas come from the slides, and the captions carry no timestamps, so nothing is tied to video time points.
 
 ## Scenario: John lives in New York, but the RNN forgot John
 
@@ -197,6 +204,7 @@ The last slide shows a training-cost chart from the [Stanford AI Index Report 20
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against the transcripts. Week 4 Thu. covers the first half and Week 5 Tue. the second, matching the post; Week 5 Tue. was moved here from the sub-word post and embedded.
 
 ## References
 
@@ -204,6 +212,7 @@ The last slide shows a training-cost chart from the [Stanford AI Index Report 20
 - [2025 schedule README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 - [W3_Transformers.pdf (Transformer and Self-Attention slides)](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Transformers.pdf)
 - [Recording: [Fall 2025] Natural Language Processing - Prof. Hung-Yu Kao - Week 4 Thu. (in Chinese)](https://www.youtube.com/live/tr5QyN5TswM)
+- [Recording: [Fall 2025] Natural Language Processing - Prof. Hung-Yu Kao - Week 5 Tue. (in Chinese)](https://www.youtube.com/live/Dpswwk6UMCc)
 - [Vaswani et al. (2017). Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 - [He et al. (2016). Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 - [Ba, Kiros & Hinton (2016). Layer Normalization](https://arxiv.org/abs/1607.06450)

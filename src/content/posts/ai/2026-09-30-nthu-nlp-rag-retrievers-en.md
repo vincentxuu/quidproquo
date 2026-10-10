@@ -190,7 +190,7 @@ This part ends with [BEIR](https://arxiv.org/abs/2104.08663), a heterogeneous be
 
 ## How to self-study this lecture
 
-1. Watch the [Week 10 Tue. recording](https://www.youtube.com/watch?v=VHkMHSkJ4I4) alongside slides 1–42 (hallucination through SimCSE).
+1. Slides 1–42 (hallucination through SimCSE) can be read alongside the [Week 10 Tue. recording](https://www.youtube.com/watch?v=VHkMHSkJ4I4), but both W10 recordings have no captions, so where each one stops cannot be confirmed; what the captions do confirm is the [W11 Tuesday recording](https://www.youtube.com/live/chIewpk4-q0), which covers the same retriever material (TF-IDF, BM25, Sentence-BERT, SimCSE, DPR, GTR).
 2. Run scikit-learn's `TfidfVectorizer` on the slides' two sentences and see whether you can reproduce the table (the slides cite [tsmatz's notebook](https://github.com/tsmatz/nlp-tutorials/blob/master/01_sparse_vector.ipynb)).
 3. Load a bi-encoder and a cross-encoder with [sentence-transformers](https://www.sbert.net/), score the slides' running / jogging / Netflix example, and compare speed.
 4. The series post on the [RAG lab and HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en) builds on the embedding and retrieval ideas here.
@@ -208,6 +208,7 @@ One thing to do tonight: take a RAG system you work on and write three queries t
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Tried to check the video content against transcripts. The YouTube pages of Week 10 Tue. and Thu. have no captions, so they could not be checked and no content-check note was added; the "How to study" step no longer assigns slide pages to a recording, and notes that the W11 Tuesday captions confirm it covers the same retriever material.
 
 ## References
 

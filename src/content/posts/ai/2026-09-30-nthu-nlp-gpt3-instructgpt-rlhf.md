@@ -65,6 +65,8 @@ title: Week 8 Thu.
 
 查核日期：2026-10-10。
 
+內容核對：已抽樣依字幕核對（2026-10-10）：兩支影片都讀了字幕的前段，沒有逐字讀完。Week 8 Tue. 前段是 decoding 補充、文字浮水印論文、MTEB，接著講 GPT-1 到 GPT-3 的差異、Sparse Transformer 與 nanochat；Week 8 Thu. 前段先講作業 3，再回到 instruction tuning、GPT-3 的偏見問題與 InstructGPT 的 SFT、reward model、RL 與 KL penalty。主題與講次相符，文章依投影片寫成、沒有對影片內容下具體說法，沒有發現衝突；Llama／Llama-2 等後段字幕未讀。
+
 ## 從 GPT-1 到 GPT-3：架構只改了幾個地方
 
 **GPT-1**（[Radford et al. 2018](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)）就是 Transformer 的 decoder 部分，12 層、1.17 億參數，用語言模型目標訓練。投影片特別對照了原始 Transformer 的圖：沒有 encoder，所以 decoder 裡的 cross-attention 也拿掉了。
@@ -226,6 +228,7 @@ y_c 是被選中的回答，y_r 是被拒絕的回答，m(r) 依標註的好壞�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕抽樣核對影片內容。兩支影片的前段主題與講次相符，文章未對影片內容下具體說法，無需修改；後段（Llama 系列）字幕未讀。
 
 ## 參考資料
 

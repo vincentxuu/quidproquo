@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the whole HW1 walkthrough (about 15 minutes) was read. The TA's account of the Google word-analogy dataset, seven TODOs worth 55% in total, the 45% report, the pre-cleaned Wikipedia split into 11 files, using only 20% of the data, requirements.txt and the .docx report, 5-point deductions for naming and similar violations, and the three-week deadline all agree with the post; the video also uses the same "King + Queen − Man" wording that the post flags in the slides. On plagiarism the video says "zero outright" while the post follows the PDF ("100 points off for both"); these do not conflict, so nothing was changed.
+
 ## What the assignment tests
 
 The handout phrases analogy as "A is to B as C is to D." With word vectors you compute B − A + C, find the nearest word, and check whether it is D.
@@ -143,6 +145,7 @@ So if you study with the 2025 materials, you are doing the same assignment as th
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The walkthrough's assignment structure, scoring, files and deadline all agree with the post; no change was needed.
 
 ## References
 

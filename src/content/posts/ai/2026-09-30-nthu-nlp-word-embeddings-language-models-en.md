@@ -29,7 +29,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-> **Version note**: this post is based on the Fall 2025 run of [NTHU Hung-Yu Kao's Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing), specifically [W2_Word embeddings and Language Modeling (RNN).pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf) (62 pages). The matching recordings are [Week 2 Tue.](https://www.youtube.com/live/6Z0A4JMptT8) and [Week 2 Thu.](https://www.youtube.com/live/cqp5a39eyJQ) (in Mandarin). Facts were checked against the slides on 2026-09-30. The post follows the slides only; I did not transcribe the recordings. Access rating **A3** (see the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) for why).
+> **Version note**: this post is based on the Fall 2025 run of [NTHU Hung-Yu Kao's Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing), specifically [W2_Word embeddings and Language Modeling (RNN).pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf) (62 pages). The matching recordings are [Week 2 Thu.](https://www.youtube.com/live/cqp5a39eyJQ) and [Week 3 Tue.](https://www.youtube.com/live/LFeFc0VtKRI) (in Mandarin). Week 2 Tue. was originally attached here, but reading its captions showed it covers the information-retrieval material of the previous post, so it was moved there; Week 3 Tue. was moved in from the seq2seq post. Facts were checked against the slides on 2026-09-30. The post follows the slides only; I did not transcribe the recordings. Access rating **A3** (see the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) for why).
 
 **Series position**: previous: [Intro to NLP and classical text processing](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing-en) | next: [HW1 Word Analogy](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy-en) | [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 
@@ -39,25 +39,27 @@ The [previous post](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing-en) turn
 
 ## Course video sources
 
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=6Z0A4JMptT8
-title: Fall 2025 Week 2 Tue. recording
-```
+Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, Week 2 Thu. covers the first part of the deck (up to perplexity) and Week 3 Tue. covers the later part. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=cqp5a39eyJQ
 title: Fall 2025 Week 2 Thu. recording
 ```
 
-Original videos: [Fall 2025 Week 2 Tue. recording](https://www.youtube.com/watch?v=6Z0A4JMptT8)、[Fall 2025 Week 2 Thu. recording](https://www.youtube.com/watch?v=cqp5a39eyJQ)
+```youtube
+url: https://www.youtube.com/watch?v=LFeFc0VtKRI
+title: Fall 2025 Week 3 Tue. recording
+```
+
+Original videos: [Fall 2025 Week 2 Thu. recording](https://www.youtube.com/watch?v=cqp5a39eyJQ)、[Fall 2025 Week 3 Tue. recording](https://www.youtube.com/watch?v=LFeFc0VtKRI)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both the Week 2 Thu. and Week 3 Tue. transcripts were read through. Week 2 Thu. opens with the HW1 briefing, then covers n-grams, language models, add-one smoothing and perplexity (including using perplexity to judge whether text was written by ChatGPT and the four-gram analysis in the J.K. Rowling pseudonym case), and stops at perplexity; Week 3 Tue. then revisits perplexity and the limits of n-grams, and covers sparse vs. dense vectors, the PPMI cherry/sugar example (3.3), analogies and semantic change in word vectors (broadcast, network), CBOW/skip-gram and negative sampling, softmax, contextual embeddings (Apple the company vs. the pie), neural-network basics, RNNs (the moving-average analogy) and NER/sentiment classification, all consistent with the post sections. The original Week 2 Tue. covers information retrieval (TF-IDF, BM25, LSA), which belongs to the previous post, so it was moved there; Week 3 Tue. was moved in from the seq2seq post. Slide numbers and figures come from the slides; the body is unchanged.
 
 ## Statistical language models: counting n-grams
 
@@ -191,13 +193,14 @@ The 2026 main README links the [v2 of this deck](https://github.com/IKMLab/NTHU_
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against the transcripts. Week 2 Thu. (up to perplexity) and Week 3 Tue. (word vectors to RNNs) match the post; Week 2 Tue. covers information retrieval and was moved to the previous post, and Week 3 Tue. was moved in from the seq2seq post. The body is unchanged.
 
 ## References
 
 - [W2_Word embeddings and Language Modeling (RNN).pdf (Fall 2025)](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf)
 - [W2_Word embeddings and Language Modeling (RNN)_v2.pdf (Fall 2026)](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29_v2.pdf)
 - [2025 README: Fall 2025 weekly table](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-- [Fall 2025 Week 2 Tue. recording](https://www.youtube.com/live/6Z0A4JMptT8) (in Mandarin)
 - [Fall 2025 Week 2 Thu. recording](https://www.youtube.com/live/cqp5a39eyJQ) (in Mandarin)
+- [Fall 2025 Week 3 Tue. recording](https://www.youtube.com/live/LFeFc0VtKRI) (in Mandarin)
 - [Fall 2026 Week 3 recording](https://youtube.com/live/g0QE6O17BWE) (in Mandarin)
 - [Scientific American: How a Computer Program Helped Show J.K. Rowling Write A Cuckoo's Calling](https://www.scientificamerican.com/article/how-a-computer-program-helped-show-jk-rowling-write-a-cuckoos-calling/)

@@ -33,7 +33,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-> **Version note**: This post is based on [W9_PEFT.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W9_PEFT.pdf) (61 pages) from the Fall 2025 (114-1) edition of Prof. Hung-Yu Kao's [Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing) course at National Tsing Hua University. The W9 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) attaches both this deck and the GPT-2 / T5 TA-session deck, with recordings [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E) and [Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA) (in Mandarin). **I did not watch them to confirm which recording covers PEFT and which is the TA session**, so skim both when you study. The W9 Topics column says "ELMo, BERT, GPT, and T5"; it's a syllabus template that doesn't match the attached slides. Facts checked on 2026-09-30. Access grade **A3**: slides and recordings are public.
+> **Version note**: This post is based on [W9_PEFT.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W9_PEFT.pdf) (61 pages) from the Fall 2025 (114-1) edition of Prof. Hung-Yu Kao's [Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing) course at National Tsing Hua University. The W9 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) attaches both this deck and the GPT-2 / T5 TA-session deck, with recordings [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E) and [Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA) (in Mandarin). In the Week 9 Thu. captions the professor opens by saying this deck is the PEFT material "originally scheduled for week nine," so PEFT is in Thu.; it only reaches the adapter idea and the memory estimate, and the professor says LoRA comes next week. Week 9 Tue. has no captions, so its content could not be checked (frame captures in the GPT-2 / T5 post identify it as that TA session). The W9 Topics column says "ELMo, BERT, GPT, and T5"; it's a syllabus template that doesn't match the attached slides. Facts checked on 2026-09-30. Access grade **A3**: slides and recordings are public.
 
 **Series**: Previous [GPT-3, InstructGPT, and RLHF](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf-en) | Next [RAG (Part 1): Hallucination and Retrievers](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 
@@ -62,6 +62,8 @@ Course and recording entries:
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the Week 9 Thu. transcript was read. The professor opens by saying this deck is the PEFT material originally scheduled for week nine, then covers the Hovy ROCLING talk recap (three angles), the OpenAI compute-shortage news, the full fine-tuning memory estimate (7B, 16-bit, about 56 GB) and why training few parameters still does not shrink memory much, catastrophic forgetting, and the adapter idea (with the translator and plug-adapter analogies), and ends by saying LoRA comes next week. These parts match the post; the later parts on LoRA and prefix/prompt tuning exist only in the slides and are not covered in this video. The Week 9 Tue. YouTube page has no captions, so its content could not be checked.
 
 ## Opening: what's left for NLP in the LLM era
 
@@ -239,6 +241,7 @@ One thing to do tonight: open the training script you're using, compute the rati
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Week 9 Thu. is confirmed as the PEFT session (it only reaches the adapter idea and the memory estimate); Week 9 Tue. has no captions and could not be checked.
 
 ## References
 

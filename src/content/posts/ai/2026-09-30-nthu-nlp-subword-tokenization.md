@@ -28,31 +28,28 @@ glossary:
 
 > **本文依據[清大高宏宇教授「自然語言處理」](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025（114-1）的公開教材。** 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列的第 7 篇，上一篇是 [Transformer 與 Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers)。
 
-這一講的官方材料是 [W3_subword.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_subword.pdf)（43 頁），錄影是 [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc) 和 [Week 5 Thu.](https://www.youtube.com/live/FB0fgRTEbJE)。和上一講一樣，檔名的 W3 是舊版編號；[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)把它掛在 W5，同一列也發下 HW2。那一列的 Topics 欄是課綱模板，本篇不引用。
+這一講的官方材料是 [W3_subword.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_subword.pdf)（43 頁），錄影是 [Week 5 Thu.](https://www.youtube.com/live/FB0fgRTEbJE)。同一列的 [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc) 我讀過字幕，講的是 Transformer 的後半（位置編碼、multi-head、decoder），不是這一講，所以改嵌在 [Transformer 那篇](/posts/ai/2026-09-30-nthu-nlp-transformers)。和上一講一樣，檔名的 W3 是舊版編號；[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)把它掛在 W5，同一列也發下 HW2。那一列的 Topics 欄是課綱模板，本篇不引用。
 
 投影片大綱分三段：Recap、Word Segmentation、Sub-word Tokenization。
 
 ## 課程影片來源
 
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=Dpswwk6UMCc
-title: Week 5 Tue.
-```
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，只有 Week 5 Thu. 屬於這一講（前段先講作業 2，之後才是子詞斷詞）。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=FB0fgRTEbJE
 title: Week 5 Thu.
 ```
 
-原始影片：[Week 5 Tue.](https://www.youtube.com/watch?v=Dpswwk6UMCc)、[Week 5 Thu.](https://www.youtube.com/watch?v=FB0fgRTEbJE)
+原始影片：[Week 5 Thu.](https://www.youtube.com/watch?v=FB0fgRTEbJE)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 5 Thu. 的字幕完整讀過。前段講作業 2（用 RNN／LSTM 做算術）的說明，之後才進入子詞斷詞：hidden state 如何對應到詞彙表、OOV 與 [UNK]、以空白切詞的限制、segmentation 與 tokenization 的差別、BPE 的合併例子與 number of merges、ULM 以語言模型機率選切法，與文章所述一致。Week 5 Tue. 的字幕講的是 Transformer（QKV、位置編碼、multi-head、Add&Norm、decoder、teacher forcing），不是子詞斷詞，所以已移出本頁、改嵌到 Transformer 那篇。文章其餘內容本來就只依投影片。
 
 ## 先回想：模型輸出的是整個詞彙表上的機率
 
@@ -198,13 +195,13 @@ X 是句子，x<sub>i</sub> 是第 i 種切法，n<sub>i</sub> 是它的 token �
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Week 5 Thu. 屬於本講（前段先講作業 2）；Week 5 Tue. 講的是 Transformer，已移出本頁並改嵌到 Transformer 篇。
 
 ## 參考資料
 
 - [IKMLab/NTHU_Natural_Language_Processing（課程 GitHub repo）](https://github.com/IKMLab/NTHU_Natural_Language_Processing)
 - [2025 課表 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 - [W3_subword.pdf（Sub-word Tokenization 投影片）](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_subword.pdf)
-- [錄影：[Fall 2025] 自然語言處理 - 高宏宇 教授 - Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc)
 - [錄影：[Fall 2025] 自然語言處理 - 高宏宇 教授 - Week 5 Thu.](https://www.youtube.com/live/FB0fgRTEbJE)
 - [Sennrich, Haddow & Birch (2016). Neural Machine Translation of Rare Words with Subword Units](https://aclanthology.org/P16-1162/)
 - [Kudo (2018). Subword Regularization](https://aclanthology.org/P18-1007/)

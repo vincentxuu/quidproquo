@@ -62,9 +62,9 @@ title: 自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025�
 
 | 錄影 | YouTube 標題與頁面資訊 | 內容 |
 |---|---|---|
-| [自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）](https://www.youtube.com/watch?v=VErSpYgZGiw) | 「Week 8 Tue. [助教課]」，沒有 [Fall 2025] 標記，上傳日期 2024-10-21，約 89 分鐘，說明寫「Hugging Face BERT講解」 | 2024 年錄的助教課 |
-| [W7 Thu. 4qDUML9TeHM](https://www.youtube.com/live/4qDUML9TeHM) | 「[Fall 2025] … Week 7 Thu.」，約 56 分鐘 | 我在第 5、25、50 分鐘截圖，畫面都是這份助教投影片（第 2、16、30 頁） |
-| [自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）](https://www.youtube.com/watch?v=Fe1roWMVdUI) | 「[Fall 2025] … Week 8 Thu. - Assignment 3」，約 15 分鐘 | HW3 說明 |
+| [自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）](https://www.youtube.com/watch?v=VErSpYgZGiw) | 「Week 8 Tue. [助教課]」，沒有 [Fall 2025] 標記，上傳日期 2024-10-21，約 89 分鐘，說明寫「Hugging Face BERT講解」 | 2024 年錄的助教課（沒有字幕，內容未用字幕核對） |
+| [W7 Thu. 4qDUML9TeHM](https://www.youtube.com/live/4qDUML9TeHM) | 「[Fall 2025] … Week 7 Thu.」，約 56 分鐘 | 我在第 5、25、50 分鐘截圖，畫面都是這份助教投影片（第 2、16、30 頁）；沒有字幕，內容未用字幕核對 |
+| [自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）](https://www.youtube.com/watch?v=Fe1roWMVdUI) | 「[Fall 2025] … Week 8 Thu. - Assignment 3」，約 15 分鐘 | HW3 說明（沒有字幕，內容未驗證） |
 
 教授在 [W7 Tue.](https://www.youtube.com/live/NtPrXea8qSE) 下課前說，助教課「因為內容是沒有變的」，會播放預錄影片，助教同時在線上回答問題。這和投影片封面的 2024 日期、錄影的 2024 上傳日對得起來。所以要看助教課，VErSpYgZGiw 和 W7 Thu. 擇一即可；W7 Thu. 是否整支都在播放同一段錄影，我沒有逐分鐘確認。
 
@@ -200,6 +200,7 @@ notebook 裡那一格寫的是 `num_labels=3`，但 IMDb 是二元分類，`comp
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：嘗試依字幕核對影片內容，但助教課影片（VErSpYgZGiw）與 HW3 說明影片都沒有字幕，只核對到頁面資料（標題、長度、說明「Hugging Face BERT講解」、上傳日 2024-10-21），因此沒有加內容核對標記；順手把助教課影片名稱裡不實的「Fall 2025」改成「2024 年錄影」。
+- 2026-10-10：嘗試依字幕核對影片內容。助教課 VErSpYgZGiw 與 HW3 說明影片 Fe1roWMVdUI 的 YouTube 頁面都沒有字幕，內容無法核對，因此沒有加內容核對標記；W7 Tue. 字幕證實教授確實說助教課不重錄、改播預錄並由助教線上答疑，另在 Week 8 Thu.（講 GPT-3 那支）的字幕中，教授提到作業 3 的細節見助教另錄的影片。
 
 ## 參考資料
 

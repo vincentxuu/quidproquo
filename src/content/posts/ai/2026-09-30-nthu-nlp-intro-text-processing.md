@@ -30,7 +30,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文依據[清大高宏宇《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025 的 [W1_NLP_brief.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W1_NLP_brief.pdf)（91 頁），對應錄影是 [Week 1 Tue.](https://www.youtube.com/live/X7XJcm9wfFA) 與 [Week 1 Thu.](https://www.youtube.com/live/0hTqSpoNp4o)，事實皆於 2026-09-30 對照投影片核對。本篇只依投影片內容整理，沒有逐字對照錄影。存取等級 **A3**（理由見[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)）。
+> **版本說明**：本文依據[清大高宏宇《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025 的 [W1_NLP_brief.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W1_NLP_brief.pdf)（91 頁），對應錄影是 [Week 1 Tue.](https://www.youtube.com/live/X7XJcm9wfFA)、[Week 1 Thu.](https://www.youtube.com/live/0hTqSpoNp4o) 與 [Week 2 Tue.](https://www.youtube.com/live/6Z0A4JMptT8)（最後一支原本掛在下一篇詞向量那邊，字幕讀過後發現它講的是這份投影片的後半），事實皆於 2026-09-30 對照投影片核對。本篇只依投影片內容整理，沒有逐字對照錄影。存取等級 **A3**（理由見[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)）。
 
 **系列位置**：上一篇 [系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)｜下一篇 [詞向量與語言模型：從 n-gram 到 RNN](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 
@@ -40,7 +40,7 @@ glossary:
 
 ## 課程影片來源
 
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，Week 1 兩支涵蓋這份投影片的前段，Week 2 Tue. 涵蓋後段。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=X7XJcm9wfFA
@@ -52,13 +52,20 @@ url: https://www.youtube.com/watch?v=0hTqSpoNp4o
 title: Fall 2025 Week 1 Thu. 錄影
 ```
 
-原始影片：[Fall 2025 Week 1 Tue. 錄影](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. 錄影](https://www.youtube.com/watch?v=0hTqSpoNp4o)
+```youtube
+url: https://www.youtube.com/watch?v=6Z0A4JMptT8
+title: Fall 2025 Week 2 Tue. 錄影
+```
+
+原始影片：[Fall 2025 Week 1 Tue. 錄影](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. 錄影](https://www.youtube.com/watch?v=0hTqSpoNp4o)、[Fall 2025 Week 2 Tue. 錄影](https://www.youtube.com/watch?v=6Z0A4JMptT8)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 2 Tue. 的字幕完整讀過，Week 1 Tue.／Thu. 只讀了開頭。Week 2 Tue. 講的就是本文所依投影片的後段：倒排索引、tokenization、stemming 與 lemmatization（Porter）、停用詞（連「To be or not to be」的笑話）、向量空間模型、TF-IDF（含 IDF 為何要重算）、cosine 與 dot product 的關係、BM25 當強 baseline、bag of words 與 one-hot 的限制、WordNet、稠密向量、LSA／SVD 的十篇 Linux／基因體文件例子、word2vec 的單隱藏層訓練，結尾提到 Leonie Monigatti 的文章，與文章內容吻合。Week 1 Tue. 開頭是課程介紹與應用概覽，Week 1 Thu. 開頭說這是原定週二要講的 NLP 簡介並講詞義歧義。文章本來就只依投影片、沒有對影片內容下具體說法，正文未改；Week 2 Tue. 是從詞向量那篇移來的。
 
 ## 語言對電腦為什麼難
 
@@ -183,6 +190,7 @@ Skip-gram 的訓練流程投影片一步步畫出來：用窗口大小 1 從「T
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Week 2 Tue. 講的是本講投影片的後段（TF-IDF、BM25、LSA、word2vec），從詞向量篇移來並新增嵌入；Week 1 兩支只讀開頭，主題相符。正文未改。
 
 ## 參考資料
 
@@ -191,6 +199,7 @@ Skip-gram 的訓練流程投影片一步步畫出來：用窗口大小 1 從「T
 - [2025 README：Fall 2025 週次表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 - [Fall 2025 Week 1 Tue. 錄影](https://www.youtube.com/live/X7XJcm9wfFA)
 - [Fall 2025 Week 1 Thu. 錄影](https://www.youtube.com/live/0hTqSpoNp4o)
+- [Fall 2025 Week 2 Tue. 錄影](https://www.youtube.com/live/6Z0A4JMptT8)
 - [Bengio et al. 2003, A Neural Probabilistic Language Model](http://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
 - [Porter Stemming Algorithm](http://www.tartarus.org/~martin/PorterStemmer/)
 - [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/projects/glove/)

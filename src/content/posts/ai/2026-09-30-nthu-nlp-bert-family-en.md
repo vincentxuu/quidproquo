@@ -54,6 +54,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the Week 6 Thu. transcript was read in full; the Week 6 Tue. transcript was read only for its first ~12,000 characters plus keyword searches of the rest, so that video is partially checked. Week 6 Tue. covers ELMo (biLM, two layers, weighted concatenation), MLM with 15% and 80/10/10, NSP with [CLS]/[SEP], the fine-tuning recipe, BERT-base/large sizes and 64 TPUs for 4 days, RoBERTa/SpanBERT/domain BERTs, and begins T5; Week 6 Thu. recaps T5, then covers BART, GPT-1 to GPT-3, in-context learning, scaling laws, and MoE. The post is slide-based and makes no specific claims about the videos; nothing conflicts with the transcripts, so no text was changed.
+
 ## Starting point: one "record", two meanings
 
 Slide 6 uses "I record the record": the first record is a verb, the second a noun. Word2Vec and GloVe give both the same vector, because static embeddings **ignore context**. That is the problem this lecture solves, and it picks up the contextualized embeddings that already appeared in the [part 2](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en) slides.
@@ -252,6 +254,7 @@ Slide 58's takeaways close the three roads in three lines: the BERT family pretr
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Topics and lecture numbers of both videos match; the post makes no specific claims about the videos, so no text change was needed.
 
 ## References
 

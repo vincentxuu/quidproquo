@@ -190,7 +190,7 @@ GTR 分兩階段訓練：
 
 ## 自學怎麼用這一講
 
-1. 先看 [Week 10 Tue. 錄影](https://www.youtube.com/watch?v=VHkMHSkJ4I4)，對照投影片第 1–42 頁（幻覺到 SimCSE）。
+1. 投影片第 1–42 頁（幻覺到 SimCSE）可以搭配 [Week 10 Tue. 錄影](https://www.youtube.com/watch?v=VHkMHSkJ4I4) 看，但這兩支 W10 錄影都沒有字幕，講到第幾頁無法確認；字幕能證實的是 [W11 週二錄影](https://www.youtube.com/live/chIewpk4-q0)，它講的正是同一批檢索器內容（TF-IDF、BM25、Sentence-BERT、SimCSE、DPR、GTR）。
 2. 用 scikit-learn 的 `TfidfVectorizer` 對投影片那兩句話跑一次，看能不能重現表上的數字（投影片引用的是 [tsmatz 的 notebook](https://github.com/tsmatz/nlp-tutorials/blob/master/01_sparse_vector.ipynb)）。
 3. 用 [sentence-transformers](https://www.sbert.net/) 載入一個 bi-encoder 和一個 cross-encoder，拿投影片的中文例子（跑步／慢跑／看 Netflix）比分數，再比速度。
 4. 本系列的 [RAG 實作與 HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4) 會用到這裡的 embedding 與檢索概念。
@@ -208,6 +208,7 @@ GTR 分兩階段訓練：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：嘗試依字幕核對影片內容。Week 10 Tue. 與 Thu. 的 YouTube 頁面都沒有字幕，無法核對，因此沒有加內容核對標記；「自學怎麼用這一講」改成不再指定錄影對應頁數，並註明 W11 週二的字幕可證實講的是同一批檢索器內容。
 
 ## 參考資料
 

@@ -65,6 +65,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10), sampled: only the early part of each transcript was read, not word for word. Week 8 Tue. opens with decoding addenda, the text-watermarking paper and MTEB, then GPT-1 to GPT-3 differences, the Sparse Transformer and nanochat; Week 8 Thu. opens with Assignment 3, then returns to instruction tuning, GPT-3 bias problems, and InstructGPT's SFT, reward model, RL and KL penalty. Topics and lecture numbers match; the post is slide-based, makes no specific claims about the videos, and nothing conflicts. The later parts (Llama / Llama-2) were not read.
+
 ## From GPT-1 to GPT-3: only a few architecture changes
 
 **GPT-1** ([Radford et al. 2018](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)) is the decoder half of the Transformer: 12 layers, 117M parameters, trained with a language modeling objective. The slides put it next to the original Transformer diagram. With no encoder, the decoder's cross-attention is gone too.
@@ -226,6 +228,7 @@ One thing to do tonight: ask your usual chat model one factual question and one 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against the transcripts (sampled). The early parts of both videos match in topic and lecture number; the post makes no specific claims about the videos, so no change was needed. The later part (Llama) was not read.
 
 ## References
 

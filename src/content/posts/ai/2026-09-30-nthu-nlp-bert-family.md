@@ -54,6 +54,8 @@ title: Week 6 Thu.
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Week 6 Thu. 字幕讀完，Week 6 Tue. 字幕只讀前段（約 12,000 字）後再以關鍵字搜尋其餘部分，屬部分核對。Week 6 Tue. 講 ELMo（biLM、兩層與加權串接）、MLM 的 15% 與 80/10/10、NSP 與 [CLS]／[SEP]、微調做法、BERT-base／large 規格與 64 TPU 4 天、RoBERTa／SpanBERT／領域 BERT，並開始介紹 T5；Week 6 Thu. 回顧 T5 並接著講 BART、GPT-1 到 GPT-3、in-context learning、scaling laws 與 MoE。文章本身以投影片為主、沒有對影片內容下具體說法，與字幕沒有衝突，不需修改。
+
 ## 起點：同一個 record，兩種意思
 
 第 6 頁的例子是「I record the record」：第一個 record 是動詞（錄），第二個是名詞（紀錄）。Word2Vec 或 GloVe 給兩者同一個向量，因為靜態詞向量**不看上下文**。這一講要解的就是這件事，也接回[第 2 篇](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)投影片裡出現過的 contextualized embedding。
@@ -252,6 +254,7 @@ GPT-4 那一列的參數量要保留看待：[GPT-4 技術報告](https://arxiv.
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片的主題與講次相符，文章未對影片內容下具體說法，無需修改。
 
 ## 參考資料
 
