@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 11) and confirmed it covers a minimax review, TD learning, simultaneous games and Nash equilibrium (including rock-paper-scissors), matching this article's lecture and topic; no mismatch found.
+
 ## The lecture's route
 
 `main()` first reviews two-player zero-sum games, then asks whether a machine can learn an evaluation function from play. TD learning answers that question first. The learned value is then placed back into game policies. The final transition is from turn-based to simultaneous games, and from zero-sum to non-zero-sum games.
@@ -220,6 +222,7 @@ Together, the two files demonstrate a recurrence, a tabular TD update, self-play
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 11 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

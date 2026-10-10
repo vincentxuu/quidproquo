@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 17) and confirmed it covers the definition of a language model and next-token prediction, n-gram counts, scaling, pre-training and post-training, and closing robotics/multimodal extensions, matching this article's lecture and topic; no mismatch found.
+
 ## The lecture map
 
 The PDF's agenda has four stops:
@@ -160,6 +162,7 @@ The reliable takeaway is therefore not that next-token prediction explains intel
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 17 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

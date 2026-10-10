@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 3: Learning II
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 3 支）字幕，確認內容涵蓋線性分類、0-1 loss、logit 與 cross-entropy、多類別分類（結尾附帶 tokenization／vocab 示範），與本文的講次與主題相符，未發現錯配。
+
 ## 從線性迴歸換成線性分類
 
 上一個單元的 prediction task 是 regression：輸入經過模型後輸出一個 real number，hypothesis class 是 linear functions。本講把輸出換成離散選擇：輸入對應一個 class 或 label，答案是 K 個選項中的一個；hypothesis class 則是 thresholded linear functions。接下來沿用線性迴歸的三個問題：哪些 predictor 可以選、如何判斷 predictor 好不好，以及怎樣算出最好的參數。
@@ -130,6 +132,7 @@ bag-of-words 把每個 token 看成 one-hot，再取所有 token vectors 的平�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 3 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

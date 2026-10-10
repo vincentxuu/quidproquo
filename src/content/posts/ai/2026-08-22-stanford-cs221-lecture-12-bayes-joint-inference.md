@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 12: Bayesian Networks I
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 12 支）字幕，確認內容涵蓋 joint distribution、marginalization／conditioning、建立貝氏網路的步驟與 local conditional distribution、rejection sampling，與本文的講次與主題相符，未發現錯配。
+
 ## TL;DR
 
 本講把 joint distribution 從完整表格拆成 Bayesian network factorization，並用 inference、probabilistic program 與 rejection sampling 顯示表示法和計算成本的交換。
@@ -299,6 +301,7 @@ Bayesian network 不同於固定 input → output 的 classifier：medical examp
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 12 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

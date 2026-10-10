@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 6: Search II
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 6 支）字幕，確認內容涵蓋 UCS、A*、heuristic 與 consistency、relaxation 設計 heuristic（如 tile 拼圖），與本文的講次與主題相符，未發現錯配。
+
 ## 先回顧：搜尋在解什麼問題
 
 上一講的起點是：複雜問題需要搜尋，也就是找出一串可執行的行動。搜尋問題要形式化成 state、successors、start state 與 end state；source 的十地點旅行例子正是先取起點、列 successors，再檢查終點。
@@ -127,6 +129,7 @@ UCS 以 increasing past cost 探索，透過 priority queue、frontier update、
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 6 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 4) and confirmed it covers the move to PyTorch, nonlinear features, multilayer MLPs with ReLU, training stability, and SGD versus GD, matching this article's lecture and topic; no mismatch found.
+
 ## The route through the lecture
 
 The executable artifact follows `main()`: it reviews NumPy and a hand-built computation graph, moves to PyTorch, then proceeds through the motivation for nonlinearity, a linear MLP, an MLP with an activation, and deeper networks. It finishes with residual connections, layer normalization, initialization, and optimizers. The order matters: first make explicit how one value is computed from another; then address why increasing depth makes training difficult and how the artifact keeps it stable.
@@ -95,6 +97,7 @@ The fourth method is a stochastic optimizer. A full-data gradient sums contribut
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 4 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

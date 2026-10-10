@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 5) and confirmed it covers modeling problems as search problems, the tram example, dynamic programming (including adding step count to the state to remove cycles), beam search, and a language-model search example, matching this article's lecture and topic; no mismatch found.
+
 ## Motivation: why search still matters
 
 The previous lecture was machine learning: a learning algorithm maps training data `{(input, output)}` to a predictor, and a predictor maps an input to a number or class. Real problems often require more than a one-step reflex. They require reasoning: thinking, problem solving, and planning. This lecture turns to search, one form of reasoning in a deterministic world.
@@ -131,6 +133,7 @@ The main lesson is not that DP always beats recursion. Modeling determines which
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 5 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

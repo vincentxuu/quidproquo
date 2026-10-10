@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 16: Logic II
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 16 支）字幕，確認內容涵蓋一階邏輯的 terms 與 predicates、語意、substitution、量詞（forall／exists）的翻譯例子，與本文的講次與主題相符，未發現錯配。
+
 ## TL;DR
 
 FOL 涵蓋 term、formula、量詞、model、substitution、unification。
@@ -271,6 +273,7 @@ definite-clause modus ponens 是 sound：`KB ⊢ f` 保證 `KB ⊧ f`；但不 c
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 16 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

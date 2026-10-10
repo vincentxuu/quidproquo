@@ -37,6 +37,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 1) and confirmed it covers the definition of AI and resource constraints, AI history (Turing, Hebb, perceptron through foundation models), and tensors with einops, matching this article's lecture and topic; no mismatch found.
+
 ## The lecture agenda
 
 The order defines the agent's problem, examines historical representations and algorithms, then makes shapes and cost inspectable. CS221 asks how to represent a problem before asking how inference or learning should proceed.
@@ -151,6 +153,7 @@ Together, the artifacts suggest listing abilities and goals, marking computation
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 1 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 12) and confirmed it covers joint distributions, marginalization and conditioning, the steps for building a Bayesian network with local conditional distributions, and rejection sampling, matching this article's lecture and topic; no mismatch found.
+
 ## TL;DR: what this lecture actually builds
 
 The source file does not begin with a mysterious Bayesian-network diagram. It begins with a question: how can a program represent a world, answer a probability query, and then generate samples from the same model? The lecture follows three operations:
@@ -315,6 +317,7 @@ Autoregressive language models connect the same factorization to token sequences
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 12 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

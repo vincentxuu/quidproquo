@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 7) and confirmed it covers MDP transition probabilities and rewards, policy evaluation, Q-values, discounting, and value iteration, matching this article's lecture and topic; no mismatch found.
+
 ## 1. Start with search: why an MDP is needed
 
 `main()` begins by recalling last week's search. `TravelSearchProblem(num_locs=10)` has `start_state()`, `successors(state)`, and `is_end(state)`: each successor packages an action, a cost, and a next state. In search, executing an action from a state leads deterministically to one new state, so a solution can be described as an action sequence from start to goal; path cost then compares candidate solutions.
@@ -179,6 +181,7 @@ Do not just memorize “take the max”; audit the contract. Does the state reta
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 7 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

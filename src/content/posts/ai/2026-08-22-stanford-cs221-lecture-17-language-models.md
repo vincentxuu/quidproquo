@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 17: Language Models
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 17 支）字幕，確認內容涵蓋語言模型的定義與 next-token prediction、n-gram 計數、scaling、pre-training 與 post-training、結尾的機器人與多模態延伸，與本文的講次與主題相符，未發現錯配。
+
 ## 本講的地圖
 
 PDF 的 agenda 有四站：
@@ -160,6 +162,7 @@ PDF 把 agents 定義成能產生 tool token 使用 web search 或 command line�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 17 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

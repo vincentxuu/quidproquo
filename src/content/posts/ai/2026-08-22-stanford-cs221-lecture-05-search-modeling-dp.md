@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 5: Search I
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 5 支）字幕，確認內容涵蓋把問題建模成搜尋問題、tram 例子、用動態規劃處理（含把步數放進狀態去環）、beam search 與語言模型搜尋範例，與本文的講次與主題相符，未發現錯配。
+
 ## 動機：為什麼現在還要談 search
 
 上一講是 machine learning：學習演算法從訓練資料 `{(input, output)}` 得到 predictor，predictor 再把輸入映射成數值或類別。但真實問題常常不能只靠一次反射式映射完成，還需要 reasoning：思考、解題與規劃。這一講把焦點轉到 deterministic world 裡的一種 reasoning：search。
@@ -131,6 +133,7 @@ beam width=1 時等同 greedy search；beam width 趨近無限時，會走向 ex
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 5 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

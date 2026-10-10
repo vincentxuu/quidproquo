@@ -37,6 +37,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundati
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 1 支）字幕，確認內容涵蓋 AI 定義與資源限制、AI 歷史（Turing、Hebb、perceptron 到 foundation models）、tensors 與 einops，與本文的講次與主題相符，未發現錯配。
+
 ## 這一講的 agenda
 
 這個順序先定義 agent 的問題，再看歷史上的表示與演算法，最後用 tensor 操作檢查 shape、狀態和成本；CS221 先問如何表示，再問如何 inference 或 learning。
@@ -147,6 +149,7 @@ Reduction 也可命名：`x.sum(dim=-1)` 等同 `reduce(x, "... hidden -> ...", 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 1 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

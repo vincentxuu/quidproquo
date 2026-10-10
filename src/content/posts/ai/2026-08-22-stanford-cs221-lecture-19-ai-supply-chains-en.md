@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 19) and confirmed it covers AI and labor (the call-center study), compute supply chains such as ASML and TSMC, data acquisition and pricing, downstream differences between open and closed models, and GDP and growth economics, matching this article's lecture and topic; no mismatch found.
+
 ## The lecture's problem
 
 The 70-page deck does not open by asking which architecture comes next. It asks three connected questions: how might AI change the economy as a whole, which upstream resources and organizational choices make models possible, and through what mechanisms could model capability become growth? That is the overlap between the schedule’s **AI Supply Chains** label and the slides’ **Economics of AI** label.
@@ -137,6 +139,7 @@ Open gaps include compute cost/capacity decomposition, contract context for the 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 19 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

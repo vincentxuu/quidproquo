@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 9) and confirmed it covers an RL review (SARSA versus Q-learning), function approximation, learning a policy directly, and policy gradient with baselines, matching this article's lecture and topic; no mismatch found.
+
 ## Where the lecture starts
 
 The previous lecture's thread was reinforcement learning. This lecture reviews that setting, then asks how to handle larger state spaces and how to learn the policy directly.
@@ -220,6 +222,7 @@ The costs are just as concrete. Updates wait for an episode to finish, and one t
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 9 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 16) and confirmed it covers first-order terms and predicates, semantics, substitution, and translating sentences with quantifiers (forall/exists), matching this article's lecture and topic; no mismatch found.
+
 ## TL;DR
 
 Propositional logic treats an entire sentence as a truth-valued symbol. That is useful for composing a fixed, finite collection of propositions with connectives, but it has no natural way to express a rule about “all students” or “some person.” Lecture 16’s first-order logic (FOL) separates two layers: terms denote objects in a domain, while formulas denote truth values. Constants, variables, and functions build terms; predicates, connectives, and quantifiers build formulas.
@@ -289,6 +291,7 @@ This is why the lecture is more than a vocabulary list. The source carries the s
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 16 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

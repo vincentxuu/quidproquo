@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 6) and confirmed it covers UCS, A*, heuristics and consistency, and designing heuristics by relaxation (e.g. tile puzzles), matching this article's lecture and topic; no mismatch found.
+
 ## Recap: what search is solving
 
 Last time began with a simple premise: complex problems require search, using thinking and reasoning to find an executable sequence of actions. A search problem must first be formalized as callable pieces: how states are represented, which successors follow from a state, the start state, and whether a state is an end state. The source's travel example constructs this interface with ten locations: obtain the start state, inspect its successors, and test one successor for termination.
@@ -127,6 +129,7 @@ Next time asks what happens when action outcomes are nondeterministic, such as r
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 6 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

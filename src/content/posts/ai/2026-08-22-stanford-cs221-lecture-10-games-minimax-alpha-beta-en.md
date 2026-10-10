@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 10) and confirmed it covers the three-bins game example, going from expectimax to minimax, and alpha-beta pruning, matching this article's lecture and topic; no mismatch found.
+
 ## Reframing the MDP problem as games
 
 The previous starting point is an MDP and reinforcement learning: the agent tries to maximize utility while the environment is random and known. This lecture changes the setting to games. The agent still maximizes its utility, but the opponent's strategy is unknown. That small change determines what a recurrence does at each node. With a random environment we take an expectation; with a player who chooses actions, we must state exactly what kind of opponent policy we assume.
@@ -170,6 +172,7 @@ The final two speedups have different contracts. Alpha-beta is branch-and-bound 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 10 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

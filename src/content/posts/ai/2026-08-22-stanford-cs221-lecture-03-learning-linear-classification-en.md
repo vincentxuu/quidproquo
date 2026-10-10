@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 3) and confirmed it covers linear classification, 0-1 loss, logits and cross-entropy, and multiclass classification (with a short tokenization/vocabulary demo at the end), matching this article's lecture and topic; no mismatch found.
+
 ## From linear regression to linear classification
 
 The previous unit's prediction task was regression: an input maps to a real number, using linear functions as the hypothesis class. This unit changes the output to a discrete choice: one class or label among K choices, using thresholded linear functions. It keeps the same three learning questions: which predictors are possible, how good is one, and how can we compute the best parameters?
@@ -129,6 +131,7 @@ For a bag-of-words representation, represent each token as a one-hot vector and 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 3 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

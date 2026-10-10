@@ -37,6 +37,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 18) and confirmed it covers the Belmont report and research ethics, accidents such as sycophancy, spurious correlation (the X-ray example), reward hacking, copyright and fair use, transparency indicators, and model gating, matching this article's lecture and topic; no mismatch found.
+
 ## The lecture's problem
 
 ### From technical to societal aspects
@@ -209,6 +211,7 @@ This article uses `society.py` and the existing official links as its base, addi
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 18 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

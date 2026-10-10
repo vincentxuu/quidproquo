@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 7 支）字幕，確認內容涵蓋 MDP 的機率轉移與 reward、policy evaluation、Q 值、折扣、value iteration，與本文的講次與主題相符，未發現錯配。
+
 ## 1. 從 search 開始：為什麼需要 MDP
 
 `main()` 先回顧上週的 search。`TravelSearchProblem(num_locs=10)` 有 `start_state()`、`successors(state)` 與 `is_end(state)`：一個 successor 會把 action、cost 和 next state 放在一起。對 search 而言，從 state 執行一個 action 會 deterministic 地抵達一個新 state，所以解可以描述成從起點到終點的一串 actions；路徑成本再用來比較解的好壞。
@@ -179,6 +181,7 @@ memory 方面，`values`、`new_values`、`pi` 與 visited set 都隨可達 stat
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 7 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

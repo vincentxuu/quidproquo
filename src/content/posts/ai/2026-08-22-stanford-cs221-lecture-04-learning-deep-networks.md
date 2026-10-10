@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 4: Learning III
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 4 支）字幕，確認內容涵蓋改用 PyTorch、非線性特徵、多層 MLP 與 ReLU、訓練穩定性與 SGD／GD 的差別，與本文的講次與主題相符，未發現錯配。
+
 ## 這一講的路線
 
 官方可執行檔案的入口是 `main()`：先回顧 NumPy、手寫計算圖與 PyTorch，再依序走過非線性動機、線性 MLP、多層感知器、深網、殘差、layer normalization、初始化和 optimizer。順序是先說清楚值如何沿圖計算，再處理深度帶來的訓練穩定性問題。
@@ -95,6 +97,7 @@ PyTorch 已提供 `nn.Linear`、`nn.CrossEntropyLoss` 和 `torch.optim.SGD`。�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 4 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

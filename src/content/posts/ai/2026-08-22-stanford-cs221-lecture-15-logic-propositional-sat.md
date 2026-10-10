@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 15: Logic I
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 15 支）字幕，確認內容涵蓋命題邏輯的語法與語意、models、entailment／contradiction／contingency、knowledge base、推論規則、satisfiability／SAT，與本文的講次與主題相符，未發現錯配。
+
 ## 這一講的問題：為什麼需要邏輯
 
 這一講從 AI 的基本循環切入：perceive、reason、act、learn。上一講談 Bayesian networks 的機率推理；這一講轉向 logical reasoning，先處理 propositional logic，之後才會到更有表達力的 first-order logic。切換不是因為機率不重要，而是因為 AI 也需要一種能把規則與知識寫得清楚、再據此推導的語言。
@@ -156,6 +158,7 @@ Forward inference 的輸入是 inference rules 的集合 `Rules` 與初始 KB。
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 15 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 15) and confirmed it covers propositional syntax and semantics, models, entailment/contradiction/contingency, knowledge bases, inference rules, and satisfiability/SAT, matching this article's lecture and topic; no mismatch found.
+
 ## Why logic: the lecture's starting problem
 
 The lecture begins with AI's basic loop—perceive, reason, act, and learn. The previous lecture covered probabilistic reasoning with Bayesian networks; this one turns to logical reasoning, first propositional logic and later first-order logic. The change is not a rejection of probability. AI also needs a language in which knowledge and rules can be stated explicitly and conclusions can be derived from them.
@@ -159,6 +161,7 @@ It does not provide Canvas interactions, assignment solutions, hidden tests, or 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 15 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

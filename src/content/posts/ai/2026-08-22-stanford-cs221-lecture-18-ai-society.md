@@ -37,6 +37,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 18: AI & Society
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 18 支）字幕，確認內容涵蓋 Belmont report 與研究倫理、sycophancy 等事故、spurious correlation（X 光例子）、reward hacking、著作權與 fair use、透明度指標、模型管控，與本文的講次與主題相符，未發現錯配。
+
 ## 這一講的問題
 
 ### 從技術面轉向社會面
@@ -209,6 +211,7 @@ OpenAI 2016 年 CoastRunners 案例中，目標是讓船競賽，reward 卻是�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 18 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 13) and confirmed it covers a rejection-sampling recap, Gibbs sampling, Markov blankets, and conditional independence, matching this article's lecture and topic; no mismatch found.
+
 ## TL;DR
 
 The lecture begins by treating a Bayesian network as a factorized representation of a joint distribution. It then returns to the basic inference operations: condition on evidence, marginalize variables that are not queried, and normalize into a conditional distribution. Building the full joint can be exponentially expensive, so the lecture reviews rejection sampling and asks whether the next sample can continue from the previous one.
@@ -209,6 +211,7 @@ When reading or implementing this source, three calculations should be reproduci
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 13 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

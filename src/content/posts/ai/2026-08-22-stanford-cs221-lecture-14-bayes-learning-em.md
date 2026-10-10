@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 14 支）字幕，確認內容涵蓋 d-separation／條件獨立的收尾、用計數與 smoothing 學參數、HMM 結構、含隱藏變數的 EM，與本文的講次與主題相符，未發現錯配。
+
 ## 先把 Bayesian network 放回原位
 
 Lecture 14 一開始不是直接跳進 EM，而是先回顧模型由什麼組成。給定隨機變數 (X=(X_1,ldots,X_n))，先在它們之間畫一張有向無環圖（DAG），再為每個節點指定一個區域條件分布：
@@ -142,6 +144,7 @@ M-step 重新掃過 weighted data。對每個 `(x, weight)`，`counts_g[x["G"]]`
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 14 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

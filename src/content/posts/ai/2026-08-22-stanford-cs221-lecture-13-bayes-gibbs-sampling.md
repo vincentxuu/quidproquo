@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sa
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 13 支）字幕，確認內容涵蓋 rejection sampling 回顧、Gibbs sampling、Markov blanket 與 conditional independence，與本文的講次與主題相符，未發現錯配。
+
 ## TL;DR
 
 本講從 rejection sampling 的浪費走到 Gibbs 的局部更新，再用 Markov blanket 與 conditional independence 解釋何時能省計算、何時會 mixing 困難。
@@ -202,6 +204,7 @@ P(A=a,B=b \mid C=c)=P(A=a \mid C=c)P(B=b \mid C=c).
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 13 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

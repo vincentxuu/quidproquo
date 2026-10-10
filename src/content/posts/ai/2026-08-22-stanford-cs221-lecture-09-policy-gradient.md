@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 9: Policy Gradient
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 9 支）字幕，確認內容涵蓋 RL 複習（SARSA 與 Q-learning）、函數近似、直接學 policy、policy gradient 與 baseline，與本文的講次與主題相符，未發現錯配。
+
 ## 這一講從哪裡出發
 
 RL 裡有兩個角色。environment 是一個 Markov decision process（MDP）；agent 則是 RL algorithm。source 用 `FlakyTramMDP(num_locs=6, failure_prob=0.1)` 作為小型環境：共有六個位置，搭 tram 有失敗機率。agent 從 state 1 開始，依序看到 state、選 action、收到 reward，再看到下一個 state。
@@ -202,6 +204,7 @@ policy gradient 學 `π_θ(a|s)`，用 rollout utility 加權 log probability；
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 9 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 

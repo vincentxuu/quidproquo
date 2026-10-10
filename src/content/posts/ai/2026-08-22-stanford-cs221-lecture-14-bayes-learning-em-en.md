@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 14) and confirmed it covers the end of d-separation/conditional independence, learning parameters by counting and smoothing, HMM structure, and EM with hidden variables, matching this article's lecture and topic; no mismatch found.
+
 ## Put the Bayesian network back in context
 
 The lecture does not begin with EM. It first reviews what is being learned. Given random variables (X=(X_1,\ldots,X_n)), define a directed acyclic graph and a local conditional distribution for every node:
@@ -146,6 +148,7 @@ The same checklist also marks the limits supported by this material. Fully obser
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 14 recording on the official Stanford Online playlist and embedded it.
+- 2026-10-10: Checked the video content against its transcript. Matches the lecture topic; no change to the embedded video.
 
 ## References
 

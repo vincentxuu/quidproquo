@@ -39,6 +39,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 8: Reinforcement Learning
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 8 支）字幕，確認內容涵蓋 agent 的 get action／incorporate feedback 介面、探索策略與估計 MDP、epsilon-greedy、Q-learning／SARSA，與本文的講次與主題相符，未發現錯配。
+
 ## TL;DR
 
 這一講的問題很具體：如果知道 MDP 的轉移機率與 reward，就能用 value iteration 找最佳策略；如果不知道，agent 就必須靠一次次互動取得資料。官方程式依序展示三種做法：先估計 MDP 再做 value iteration 的 model-based 方法、直接從完整 rollout 平均 Q 值的 model-free Monte Carlo，以及一邊走一邊 bootstrapping 的 SARSA 和 Q-learning。
@@ -148,6 +150,7 @@ SARSA 學的是目前 policy 的 `Q_π(s,a)`。最後一段問得更直接：如
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 8 講公開錄影，已嵌入。
+- 2026-10-10：依字幕核對影片內容。影片與講次主題相符，嵌入影片不變。
 
 ## 參考資料
 
