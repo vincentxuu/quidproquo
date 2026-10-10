@@ -90,17 +90,18 @@ The Week 1 syllabus lists two additional readings beyond the anchor. They are li
 
 ## This week's course material
 
+- Official lecture slides (PDF): [Foundations & Landscape — Lecture 01](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)
 - Wed 9/23 Foundations & Landscape: anchor reading Zaharia et al., Compound AI Systems (covered above); further reading Ng's four design patterns and Si et al. on execution-grounded research (see Further reading above).
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
 ## Update log
 
-
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
 
 ## References
 
+- Lecture slides: [Foundations & Landscape — Lecture 01](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)
 - On this site: [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z: Engineering AI Agents, official site with schedule and deadlines](https://cs329z.stanford.edu/)
 - Source: [Zaharia et al., The Shift from Models to Compound AI Systems, BAIR Blog (2024)](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)

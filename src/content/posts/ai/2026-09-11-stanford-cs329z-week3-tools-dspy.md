@@ -56,18 +56,19 @@ Week 3 發 HW1（10/30 截止），先做 email 檢索管線，再一路加上�
 
 ## 本週 Course Material 對照
 
+- 官方課堂投影片（PDF）：[Tool Use & Function Calling — Lecture 04](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf)、[Frameworks & Orchestration — Lecture 05](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf)
 - 週一 10/5 Tool Use & Function Calling：主讀物 MCP 規範（本文已導讀）；本週無 additional readings。
 - 週三 10/7 Frameworks & Orchestration：主讀物 DSPy 論文（本文已導讀）；本週無 additional readings。
 - 課表原文：[CS329Z 官網 Week 3](https://cs329z.stanford.edu/)
 
 ## 更新紀錄
 
-
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：補上本週官方課堂投影片直連。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
 
 ## 參考資料
 
+- 課堂投影片：[Tool Use & Function Calling — Lecture 04](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf)、[Frameworks & Orchestration — Lecture 05](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf)
 - 站內：[Week 2：先分清 workflow 和 agent](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)、[Week 1：別再只調模型了](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)
 - 原文：[MCP Specification 2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18)、[Khattab et al., DSPy, ICLR 2024](https://arxiv.org/abs/2310.03714)

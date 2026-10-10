@@ -1,6 +1,7 @@
 ---
 title: "Stanford CS329Z: No Frameworks, Just One Chat-Completion Call — Grow an Agent Harness from Scratch"
 date: 2026-08-21
+updated: 2026-10-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
@@ -11,8 +12,8 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 16
-tldr: "CS329Z is a new three-unit agent engineering course debuting at Stanford in Autumn 2026. Its first homework bans every agent framework: one chat-completion call plus code you write yourself, grown on a real corporate email archive from a RAG pipeline into an agent harness with tools, a terminal, memory and a human in the loop. DSPy is still in the lectures, but no longer in the homework. The course site lives in a public GitHub repo, and its commit log records every syllabus revision: three assignments cut to two, peer review grown into a fifth of the grade, and the project topic changed from fixed to open."
-description: "A full walkthrough of Stanford CS329Z: Engineering AI Agents — instructors and TAs, prerequisites and compute credits, 22 sessions and 50 readings, the first two lecture decks now public, what the two assignments and the project actually require, the syllabus changes recorded in the course site's git history, and how CS329Z, CS329A and CS224V divide the agent territory in 2026-27."
+tldr: "CS329Z is a new three-unit agent engineering course debuting at Stanford in Autumn 2026. Its first homework bans every agent framework: one chat-completion call plus code you write yourself, grown on a real corporate email archive from a RAG pipeline into an agent harness with tools, a terminal, memory and a human in the loop. The first five lecture PDFs and the HW1 starter, datasets, and public tests are now available. DSPy is still in the lectures, but no longer in the homework. The course site lives in a public GitHub repo, and its commit log records every syllabus revision: three assignments cut to two, peer review grown into a fifth of the grade, and the project topic changed from fixed to open."
+description: "A full walkthrough of Stanford CS329Z: Engineering AI Agents — instructors and TAs, prerequisites and compute credits, 22 sessions and 50 readings, the first five lecture decks now public, what the two assignments and the project actually require, the syllabus changes recorded in the course site's git history, and how CS329Z, CS329A and CS224V divide the agent territory in 2026-27."
 draft: false
 ---
 
@@ -22,7 +23,7 @@ draft: false
 
 The frame the course site opens with is "compound AI systems": systems assembled from LLMs, retrievers, tools and optimizers that interact with each other. The site calls this a fundamental shift in how AI applications get built. The three threads that run through the quarter are named in the very first session description — decomposition, data, evaluation.
 
-This piece cross-checks four primary sources: the course site, the public GitHub repo behind it, ExploreCourses, and the first two lecture decks now posted. It covers how the course actually runs, what the assignments look like, what got rewritten in the syllabus around the start of the quarter, and how it differs from the other two Stanford courses with "agent" in the title. It does **not** break down the lectures one by one — the course only started on September 23, and the week-by-week material is handled by [the series' weekly guides](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en).
+This piece cross-checks four primary sources: the course site, the public GitHub repo behind it, ExploreCourses, and the available lecture decks (now posted through Lecture 5). It covers how the course actually runs, what the assignments look like, what got rewritten in the syllabus around the start of the quarter, and how it differs from the other two Stanford courses with "agent" in the title. It does **not** break down the lectures one by one — the course only started on September 23, and the week-by-week material is handled by [the series' weekly guides](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en).
 
 ## Course video sources
 
@@ -138,9 +139,19 @@ The [ExploreCourses description still says `three fully applied homework assignm
 
 ## What a self-learner can actually get
 
-The conclusion first: **you get the syllabus, the reading list, and slides posted lecture by lecture; you don't get recordings or assignment code.**
+The conclusion first: **you get the syllabus, the reading list, and slides posted lecture by lecture; recordings still require Canvas access.**
 
-**Available: slides, no login needed.** Each session's description on the schedule gets a Google Drive link, and as of September 29 the first two are up. [Lecture 1, Intro to Agentic Systems](https://drive.google.com/file/d/1Wlf723d9-LBuTp56QYppaZwozOAetTsC/view), runs 71 pages, from the etymology and history of "agent" through the three types of memory, closing with reliability, safety compliance, adversarial pop-ups and multi-agent collusion as the challenges the course will face. [Lecture 2, LLMs for Builders](https://drive.google.com/file/d/1kekt_p0n-_Q4Y2dKYEkH87NEx6mr8nRE/view), runs 176 pages and is a crash course in model internals for agent developers: decoding, attention (including linear and hybrid architectures), pretraining through post-training, inference and test-time scaling, structured output, landing on context engineering. That session's schedule description was rewritten the day it was taught; it used to say litellm, model selection and cost/latency, and now matches the slides actually delivered.
+**Available: the first five lecture decks, no login needed.** As of October 10, the official schedule links directly to PDFs hosted by Stanford. The earlier Google Drive links are no longer the current entry points.
+
+| Date | Lecture | Official slides |
+|---|---|---|
+| 9/23 | Lecture 1: Introduction — What Are Agentic Systems? | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf) |
+| 9/28 | Lecture 2: LLMs for Builders | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf) |
+| 9/30 | Lecture 3: Retrieval-Augmented Generation (RAG) | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf) |
+| 10/5 | Lecture 4: Tool Use & Function Calling | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf) |
+| 10/7 | Lecture 5: Frameworks & Orchestration | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf) |
+
+Lecture 2 is about model internals for builders; the workflow taxonomy in its assigned Anthropic reading is a separate reading guide. Lectures 3–5 then move through RAG, tool use, and framework abstractions. The later weekly guides on this site cover the scheduled readings; they should not be treated as summaries of lecture decks that have not yet been released.
 
 **Available: the entire reading list, every entry a clickable link.** Assigned plus supplementary comes to 50 papers, most pointing at arXiv and the rest at public pages — the [BAIR compound AI systems post](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/), the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18), [Anthropic's Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) and others. Not one item is locked behind Canvas.
 
@@ -150,13 +161,13 @@ The conclusion first: **you get the syllabus, the reading list, and slides poste
 
 **Not available (for now): recordings.** Lectures are recorded, but the site says the recordings go on Canvas, behind an enrolled-student login. The first lecture's slides, meanwhile, say "Lecture slides and videos will be posted online." The two statements don't line up yet; whether public recordings appear remains to be seen.
 
-**Not available: assignment starter code, the email corpus, and graders.** The site gives no repo link, and doesn't say which corporate email archive HW1 uses.
+**Available: the HW1 starter, datasets, and public tests.** The course logistics page now links to the [official starter repository](https://github.com/cs329z/assignment1-harness). It includes the assignment handout, a compressed corporate email archive, Cardinal Energy documents, adapter stubs, deterministic and live tests, and simulated-user evaluation. Cardinal Energy is fictional; the handout describes the email archive separately as real corporate mail. The public tests are enough to start self-study, but the starter is not a completed solution.
 
 **Not available: the two guest lectures.** The October 26 and November 16 slots still read "📺 Guest Lecture (TBA)," and the speakers haven't been announced.
 
 One more thing, unrelated to materials but worth reading: this course's integrity policy spends a full paragraph on how to use AI tools, in a tone quite unlike most academic bans.
 
-> This is a course about building with AI, so we expect you to use it. Treat generative AI tools as collaborators you think alongside — asking them to explain a concept, debug your code, or critique a design is fair game and encouraged. What isn't: soliciting finished answers or copying solutions.
+The current [AI-use policy](https://cs329z.stanford.edu/logistics.html) explicitly permits AI-generated code for homework and projects if you can validate and explain it, with understanding checked orally. It prohibits AI from writing project reports, while allowing brainstorming and feedback on writing.
 
 The counterweight is those two oral quizzes: individual, closed book, asking you to explain your own design decisions and trade-offs. Letting AI write it is fine, as long as you can say on the spot why it's written that way.
 
@@ -166,9 +177,21 @@ The first lecture's slides make the reasoning more concrete. They cite [a 2026 r
 
 One thing you can do tonight: start under HW1's rules — no framework installed, just one chat-completion call.
 
-The course hasn't said which email archive it uses. For self-study, the easiest option is exporting the last three months of your own inbox; if you want public data, the [Enron email dataset](https://www.cs.cmu.edu/~enron/) is the real corporate mail most research in this area uses. Write the smallest possible pipeline first: split the messages, retrieve, and have the model answer questions like "who promised what last month." Once that runs, add one thing at a time in the order the assignment describes: a `search_email` tool, a loop capped at three iterations, a memory that records the user's preferences, and an "ask me before sending" approval gate.
+Read the [official HW1 handout](https://github.com/cs329z/assignment1-harness/blob/main/cs329z_assignment1_harness.pdf), then clone the starter. It provides the data, interfaces, and tests, so you can follow the assignment directly.
 
-Every time you add a piece, rerun the same ten questions and note which got better and which got worse. By the time session five covers DSPy and the other frameworks, you'll already have a list of "what I wrote myself at each layer," and can check item by item which of those decisions a framework would have made for you.
+```bash
+git clone https://github.com/cs329z/assignment1-harness.git
+cd assignment1-harness
+cp .env.example .env
+uv run python data/download.py
+uv run pytest
+```
+
+The starter requires Python 3.11 or newer and uv. Deterministic tests make no model calls; initial `NotImplementedError` failures identify the adapters you must implement. For live tests, fill in `OPENROUTER_API_KEY` in `.env`, then run `uv run pytest -m live -s`.
+
+Start with Part 1: email priority, daily digest, a BM25 retriever written from scratch, and multi-hop email QA. Part 2 turns them into tools for the Cardinal Agent, adding a text tool-call protocol, document retrieval, a terminal, context compaction, persistent memory, user approval, and guardrails. The supplied LM wrapper returns a string; parsing tool calls and controlling the loop are your work.
+
+The final evaluation is conversational: simulated users ask questions, respond, and approve or deny actions. Read the tests and design memo together, then implement one adapter at a time. Passing mechanics and explaining the policy choices are separate parts of the assignment.
 
 ## Appendix: numbers and how they were checked
 
@@ -181,12 +204,12 @@ Every time you add a piece, rerun the same ten questions and note which got bett
 - **DSPy numbers**: roughly 37,400 GitHub stars (read 2026-08-21); the docs homepage claims 444+ contributors, 6.6M+ monthly downloads, latest version 3.3.0, MIT licensed. These are the project's own self-reported figures.
 - **Where the slides and the site disagree**: the first lecture's slides describe the HW-based quiz as a "15-min oral check-in on any part of your submission," while the site says 10 minutes, closed book; the slides say recordings will be "posted online," while the site says they go on Canvas. The slides are published as public Google Drive links, downloaded 2026-09-29: 71 pages for lecture one, 176 for lecture two.
 - **ExploreCourses instructors**: read on 8/21, it listed only Ryan, M. and Yang, D.; read on 9/29, it lists Ryan, M., Yang, D. and Yang, J. as PIs, and the room already shows Skilling.
-- **Could not confirm**: the two guest speakers; whether assignment starter code and HW1's email corpus will be public; whether recordings will end up public; whether the Stanford Bulletin has a CS329Z entry yet (its course catalog is a dynamically loaded frontend app, which I could not verify first-hand).
+- **Could not confirm**: the two guest speakers; whether recordings will end up public; whether the Stanford Bulletin has a CS329Z entry yet (its course catalog is a dynamically loaded frontend app, which I could not verify first-hand).
 
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added the first five official PDF decks and the public HW1 starter, handout, datasets, tests, and self-study commands; refreshed AI-use policy and recording access notes.
 - 2026-09-29: Updated for the course site's September revisions and the first two lecture decks — HW1 is now a framework-free Agentic Harness (the Part B DSPy rewrite is gone), the project topic is open with ICLR format and reproducibility added, the grading table now gives peer review 20%; added the TAs, room change, compute credits, audit and recording notes, and the slide contents; rewrote the title and tldr to match
 
 ## References
@@ -215,10 +238,16 @@ Every time you add a piece, rerun the same ten questions and note which got bett
 - [Model Context Protocol specification](https://modelcontextprotocol.io/specification/2025-06-18) — assigned reading for session four
 - [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) — assigned reading for session two
 - [litellm](https://github.com/BerriAI/litellm) — the SDK specified in the August version of HW1, and one of the hand-built starting points this piece suggests
-- [CS329Z Lecture 1 slides: Intro to Agentic Systems](https://drive.google.com/file/d/1Wlf723d9-LBuTp56QYppaZwozOAetTsC/view) — prerequisites, compute credits, grading, how peer review is scored, audit and recording notes
-- [CS329Z Lecture 2 slides: LLMs for Builders](https://drive.google.com/file/d/1kekt_p0n-_Q4Y2dKYEkH87NEx6mr8nRE/view) — the model-internals crash course and the DSPy signature example
+- [CS329Z Lecture 1 slides: Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf) — prerequisites, compute credits, grading, how peer review is scored, audit and recording notes
+- [CS329Z Lecture 2 slides: LLMs for Builders](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf) — the model-internals crash course and the DSPy signature example
 - [Anthropic: How AI assistance impacts the formation of coding skills](https://www.anthropic.com/research/AI-assistance-coding-skills) — the RCT cited in the first lecture's slides
 - [Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825) — the evaluation session's assigned reading as of 8/23
-- [Enron Email Dataset (CMU)](https://www.cs.cmu.edu/~enron/) — the public corporate email corpus this piece suggests for self-studying HW1 (not specified by the course)
 - On this site: [Stanford CS329A walkthrough](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
 - On this site: [A Reading Guide to Stanford's CS Courses: Ordered by Prerequisites](/posts/learning/2026-08-20-stanford-cs-course-map-en)
+
+- [CS329Z Logistics](https://cs329z.stanford.edu/logistics.html) — HW1 starter, AI-use policy, and Canvas recording access
+- [CS329Z HW1: Building an Agentic Harness](https://github.com/cs329z/assignment1-harness) — starter, datasets, tests, and setup
+- [HW1 handout](https://github.com/cs329z/assignment1-harness/blob/main/cs329z_assignment1_harness.pdf) — Part 1/2 and design memo
+- [CS329Z Lecture 3: Retrieval-Augmented Generation (RAG)](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf)
+- [CS329Z Lecture 4: Tool Use & Function Calling](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf)
+- [CS329Z Lecture 5: Frameworks & Orchestration](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf)

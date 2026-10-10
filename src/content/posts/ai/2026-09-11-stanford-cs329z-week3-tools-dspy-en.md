@@ -56,18 +56,19 @@ Week 3 releases HW1 (due Oct 30): start with the email retrieval pipeline, then 
 
 ## This week's course material
 
+- Official lecture slides (PDF): [Tool Use & Function Calling — Lecture 04](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf); [Frameworks & Orchestration — Lecture 05](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf)
 - Mon 10/5 Tool Use & Function Calling: anchor reading MCP specification (covered above); no additional readings this week.
 - Wed 10/7 Frameworks & Orchestration: anchor reading the DSPy paper (covered above); no additional readings this week.
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
 ## Update log
 
-
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
 
 ## References
 
+- Lecture slides: [Tool Use & Function Calling — Lecture 04](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf); [Frameworks & Orchestration — Lecture 05](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf)
 - On this site: [Week 2: workflows versus agents](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Week 1: stop tuning only the model](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [MCP Specification 2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18), [Khattab et al., DSPy, ICLR 2024](https://arxiv.org/abs/2310.03714)

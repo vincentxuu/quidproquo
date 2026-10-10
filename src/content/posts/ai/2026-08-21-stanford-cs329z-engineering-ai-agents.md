@@ -1,6 +1,7 @@
 ---
 title: "Stanford CS329Z 導讀：不准用框架，只給你一個 chat-completion 呼叫，從零長出 agent harness"
 date: 2026-08-21
+updated: 2026-10-10
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
@@ -11,8 +12,8 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 16
-tldr: "CS329Z 是 Stanford 2026 年秋季新開的三學分 agent 工程課。第一份作業禁用任何 agent 框架，只准用一個 chat-completion 呼叫加自己的程式碼，在真實企業 email 封存上從 RAG 管線一路長成帶工具、終端機、記憶與人類審核的 agent harness。DSPy 還在課堂上，但已經不在作業裡。課程網站架在公開的 GitHub repo 上，commit 紀錄留下了每一次課綱改版：作業從三份砍成兩份，互評長成兩成分數，專案主題也從鎖死改成自選。"
-description: "Stanford CS329Z: Engineering AI Agents 完整導讀——授課者與助教、先修與算力補助、22 個上課時段與 50 篇閱讀、已公開的前兩堂投影片、兩份作業與專案的實際要求、課程網站 git 紀錄裡的課綱變動，以及 CS329Z / CS329A / CS224V 三門 agent 課在 2026-27 學年的開課狀態與分工。"
+tldr: "CS329Z 是 Stanford 2026 年秋季新開的三學分 agent 工程課。第一份作業禁用任何 agent 框架，只准用一個 chat-completion 呼叫加自己的程式碼，在真實企業 email 封存上從 RAG 管線一路長成帶工具、終端機、記憶與人類審核的 agent harness。前五堂 PDF 投影片與 HW1 起始碼、資料、公開測試都已放出。DSPy 還在課堂上，但已經不在作業裡。課程網站架在公開的 GitHub repo 上，commit 紀錄留下了每一次課綱改版：作業從三份砍成兩份，互評長成兩成分數，專案主題也從鎖死改成自選。"
+description: "Stanford CS329Z: Engineering AI Agents 完整導讀——授課者與助教、先修與算力補助、22 個上課時段與 50 篇閱讀、已公開的前五堂投影片、兩份作業與專案的實際要求、課程網站 git 紀錄裡的課綱變動，以及 CS329Z / CS329A / CS224V 三門 agent 課在 2026-27 學年的開課狀態與分工。"
 draft: false
 ---
 
@@ -22,7 +23,7 @@ draft: false
 
 課程官網開宗明義給的框架是「compound AI systems」：由 LLM、檢索器、工具、優化器多個元件組成、彼此互動的系統。官網說這代表 AI 應用建構方式的一次根本改變。整學期的三條軸線寫在第一堂的描述裡——拆解（decomposition）、資料（data）、評估（evaluation）。
 
-這篇對過四邊的一手資料：課程官網、它背後那個公開的 GitHub repo、ExploreCourses，以及已經公開的前兩堂投影片。涵蓋這門課實際怎麼運作、作業長什麼樣、課綱在開學前後被改了什麼，以及它跟另外兩門也叫 agent 的 Stanford 課差在哪。**不包含**逐堂內容拆解——課程 9 月 23 日才開始，逐週內容由[系列的週導讀](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)接手。
+這篇對過四邊的一手資料：課程官網、它背後那個公開的 GitHub repo、ExploreCourses，以及已經公開的投影片（目前已放到第五堂）。涵蓋這門課實際怎麼運作、作業長什麼樣、課綱在開學前後被改了什麼，以及它跟另外兩門也叫 agent 的 Stanford 課差在哪。**不包含**逐堂內容拆解——課程 9 月 23 日才開始，逐週內容由[系列的週導讀](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)接手。
 
 ## 課程影片來源
 
@@ -138,9 +139,19 @@ DSPy 本身現在的狀態：[MIT 授權、持續發版](https://github.com/stan
 
 ## 自學者實際拿得到什麼
 
-先講結論：**拿得到課綱、閱讀清單，以及一堂一堂放出來的投影片；拿不到錄影和作業程式碼。**
+先講結論：**拿得到課綱、閱讀清單，以及一堂一堂放出來的投影片；HW1 起始碼與測試也已公開；錄影仍需登入 Canvas。**
 
-**拿得到：投影片，而且不用登入。** 課表每一堂的描述底下會掛一個 Google Drive 連結，到 9 月 29 日為止放了前兩堂。[第一堂 Intro to Agentic Systems](https://drive.google.com/file/d/1Wlf723d9-LBuTp56QYppaZwozOAetTsC/view) 71 頁，從 agent 的詞源與歷史講到記憶的三種類型，最後一段把可靠性、安全合規、彈窗攻擊、多 agent 共謀列成這門課要面對的挑戰。[第二堂 LLMs for Builders](https://drive.google.com/file/d/1kekt_p0n-_Q4Y2dKYEkH87NEx6mr8nRE/view) 176 頁，是給 agent 開發者的模型內部速成：解碼、注意力（含 linear 與混合架構）、預訓練到後訓練、推論與 test-time scaling、結構化輸出，最後落在 context engineering。這堂的課表描述在上完課當天被改寫過，原本寫的是 litellm、模型選型與成本延遲，改成跟實際投影片一致。
+**拿得到：前五堂投影片，而且不用登入。** 截至 10 月 10 日，官方課表已把投影片放到第五堂，入口也從 Google Drive 改成 Stanford 直接提供的 PDF。自學可以照下面的順序讀：
+
+| 日期 | 講次 | 官方投影片 |
+|---|---|---|
+| 9/23 | Lecture 1: Introduction — What Are Agentic Systems? | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf) |
+| 9/28 | Lecture 2: LLMs for Builders | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf) |
+| 9/30 | Lecture 3: Retrieval-Augmented Generation (RAG) | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf) |
+| 10/5 | Lecture 4: Tool Use & Function Calling | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf) |
+| 10/7 | Lecture 5: Frameworks & Orchestration | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf) |
+
+第二堂實際講的是給開發者的模型內部知識；同週指定的 Anthropic workflow 分類是另一份閱讀導讀。第三到第五堂接著走 RAG、工具呼叫與框架抽象。本站後面各週的文章目前是課表指定閱讀導讀，不能當成尚未公開投影片的實際講授摘要。
 
 **拿得到：整份閱讀清單，而且每一條都是可點的連結。** 指定閱讀加補充閱讀共 50 篇，大半指向 arXiv，其餘指向 [BAIR 那篇 compound AI systems 部落格文](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)、[MCP 規格](https://modelcontextprotocol.io/specification/2025-06-18)、[Anthropic 的 Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) 等公開頁面。沒有一條鎖在 Canvas 後面。
 
@@ -150,13 +161,13 @@ DSPy 本身現在的狀態：[MIT 授權、持續發版](https://github.com/stan
 
 **拿不到（至少現在）：錄影。** 課堂有錄，但官網寫的是錄影放在 Canvas，要用選課生身分登入。第一堂投影片則寫「Lecture slides and videos will be posted online」。兩個說法還沒對上，公開錄影會不會出現，要再等等看。
 
-**拿不到：作業的起始碼、email 語料與評分器。** 官網沒有給任何 repo 連結，HW1 用的是哪一份企業 email 封存也沒寫。
+**拿得到：HW1 起始碼、資料與公開測試。** 官網 Logistics 頁已連到[官方 starter repo](https://github.com/cs329z/assignment1-harness)，裡面有作業講義、壓縮的企業郵件封存、Cardinal Energy 文件、待實作的 adapter、確定性與 live 測試，以及模擬使用者評估。Cardinal Energy 是虛構公司；講義把另一份 email archive 說明為真實企業郵件。這已足夠讓自學者照正式介面開工，但 starter 並不是完成的解答。
 
 **拿不到：兩場客座。** 課表上 10 月 26 日與 11 月 16 日兩格仍寫著「📺 Guest Lecture (TBA)」，講者還沒公布。
 
 還有一件跟教材無關但值得看的東西：這門課的誠信條款花了一整段講怎麼用 AI 工具，語氣跟大多數學校的禁令很不一樣。
 
-> This is a course about building with AI, so we expect you to use it. Treat generative AI tools as collaborators you think alongside — asking them to explain a concept, debug your code, or critique a design is fair game and encouraged. What isn't: soliciting finished answers or copying solutions.
+目前的 [AI 使用規則](https://cs329z.stanford.edu/logistics.html)更明確：作業與專案可以使用 AI 生成的程式碼，但學生必須能驗證、解釋，並接受口試；專案報告不能由 AI 代寫，可以用它腦力激盪或取得寫作回饋。
 
 配套是那兩場口頭測驗：個人、閉書，要你解釋自己的設計決策與取捨。用 AI 幫你寫可以，但你得能當場說清楚你為什麼那樣寫。
 
@@ -166,9 +177,21 @@ DSPy 本身現在的狀態：[MIT 授權、持續發版](https://github.com/stan
 
 今晚就能做的一件事，就是照 HW1 的規則開工：不裝框架，只留一個 chat-completion 呼叫。
 
-課程沒公布它用哪一份 email。自學的話，最順手的是匯出你自己信箱最近三個月的信；想要公開資料，[Enron email 資料集](https://www.cs.cmu.edu/~enron/)是這類研究最常用的一份真實企業郵件。先寫最小的一段管線：切信、檢索、讓模型回答「上個月誰答應了什麼」這種問題。跑得動之後，照作業描述的順序一次只加一樣：一個 `search_email` 工具、一個最多跑三輪的迴圈、一本記下使用者偏好的記憶、一個「寄信前先問我」的確認關卡。
+先讀[官方 HW1 講義](https://github.com/cs329z/assignment1-harness/blob/main/cs329z_assignment1_harness.pdf)，再 clone 起始碼。資料、介面與測試都已備妥，不必另外找一份 email 語料猜作業怎麼做。
 
-每加一樣，就拿同一組十個問題重跑一次，記下哪幾題變好、哪幾題變差。等到第五堂講 DSPy 與其他框架時，你手上已經有一份「每一層我自己寫了什麼」的清單，可以一項一項對照框架替你做掉了哪些。
+```bash
+git clone https://github.com/cs329z/assignment1-harness.git
+cd assignment1-harness
+cp .env.example .env
+uv run python data/download.py
+uv run pytest
+```
+
+起始碼需要 Python 3.11 以上與 uv。預設測試不會呼叫模型；一開始出現 `NotImplementedError` 是預期狀態，代表對應的 adapter 還沒實作。要跑 live 測試，再到 `.env` 填入自己的 `OPENROUTER_API_KEY`，執行 `uv run pytest -m live -s`。
+
+Part 1 先做 email 優先級分類、每日摘要、從零寫 BM25，以及多跳 email 問答。Part 2 才把這些管線包成 Cardinal Agent 的工具，加入文字格式的工具呼叫協定、文件檢索、終端機、context 壓縮、跨 session 記憶、使用者審核與護欄。課程提供的 LM 只回傳字串，工具呼叫怎麼解析、迴圈怎麼控制，都由你自己寫。
+
+最後的評估會讓模擬使用者真的跟 agent 多輪對話，回答追問、批准或拒絕動作。先把測試與 design memo 一起看，再一次實作一個 adapter：機制跑得對，以及能解釋設計取捨，是作業分開檢查的兩件事。
 
 ## 附錄：數字與查證方式
 
@@ -181,12 +204,12 @@ DSPy 本身現在的狀態：[MIT 授權、持續發版](https://github.com/stan
 - **DSPy 的數字**：GitHub 星數約 37,400（2026-08-21 讀取），官網首頁自述 444 位以上貢獻者、每月 660 萬次以上下載、最新版 3.3.0，MIT 授權。這些是專案自己公布的數字。
 - **投影片與官網的出入**：第一堂投影片寫 HW-based quiz 是「15-min oral check-in on any part of your submission」，官網寫 10 分鐘、閉書；投影片寫錄影會「posted online」，官網寫放在 Canvas。投影片以 Google Drive 公開連結發布，2026-09-29 下載，第一堂 71 頁、第二堂 176 頁。
 - **ExploreCourses 授課者**：8/21 讀取時只列 Ryan, M. 與 Yang, D.；9/29 讀取時已列 Ryan, M.、Yang, D.、Yang, J. 三位 PI，教室也已顯示 Skilling。
-- **未能確認**：兩場客座的講者；作業起始碼與 HW1 的 email 語料是否會公開；錄影最終是否公開；Stanford Bulletin 是否已收錄 CS329Z 條目（其課程目錄是動態載入的前端應用，未能以一手方式確認）。
+- **未能確認**：兩場客座的講者；錄影最終是否公開；Stanford Bulletin 是否已收錄 CS329Z 條目（其課程目錄是動態載入的前端應用，未能以一手方式確認）。
 
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：更新前五堂官方 PDF 投影片，補上已公開的 HW1 起始碼、講義、資料、測試與自學指令，並核對 AI 使用規則與錄影取得方式。
 - 2026-09-29：依課程網站 9 月的改版與前兩堂投影片更新——HW1 改為禁用框架的 Agentic Harness（Part B 的 DSPy 重寫移除）、專案主題改自選並加入 ICLR 格式與可重現性、評分表改為互評 20%、補上助教、教室、算力補助、旁聽與錄影說明、投影片內容，並同步改寫標題與 tldr
 
 ## 參考資料
@@ -215,10 +238,16 @@ DSPy 本身現在的狀態：[MIT 授權、持續發版](https://github.com/stan
 - [Model Context Protocol 規格](https://modelcontextprotocol.io/specification/2025-06-18) — 第四堂的指定閱讀
 - [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) — 第二堂的指定閱讀
 - [litellm](https://github.com/BerriAI/litellm) — 八月版 HW1 指定的 SDK，本文建議的手刻起點之一
-- [CS329Z Lecture 1 投影片：Intro to Agentic Systems](https://drive.google.com/file/d/1Wlf723d9-LBuTp56QYppaZwozOAetTsC/view) — 先修、算力補助、評分、互評計分方式、旁聽與錄影說明
-- [CS329Z Lecture 2 投影片：LLMs for Builders](https://drive.google.com/file/d/1kekt_p0n-_Q4Y2dKYEkH87NEx6mr8nRE/view) — 模型內部速成與 DSPy signature 範例
+- [CS329Z Lecture 1 投影片：Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf) — 先修、算力補助、評分、互評計分方式、旁聽與錄影說明
+- [CS329Z Lecture 2 投影片：LLMs for Builders](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf) — 模型內部速成與 DSPy signature 範例
 - [Anthropic: How AI assistance impacts the formation of coding skills](https://www.anthropic.com/research/AI-assistance-coding-skills) — 第一堂投影片引用的 RCT
 - [Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825) — 評估那堂 8/23 換上的指定閱讀
-- [Enron Email Dataset（CMU）](https://www.cs.cmu.edu/~enron/) — 本文建議自學 HW1 時使用的公開企業郵件語料（非課程指定）
 - 站內：[Stanford CS329A 導讀](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)
 - 站內：[Stanford CS 課程導讀：按先修關係排一次](/posts/learning/2026-08-20-stanford-cs-course-map)
+
+- [CS329Z Logistics](https://cs329z.stanford.edu/logistics.html) — HW1 起始碼入口、AI 使用規則與 Canvas 錄影方式
+- [CS329Z HW1: Building an Agentic Harness](https://github.com/cs329z/assignment1-harness) — starter, datasets, tests, and setup
+- [HW1 handout](https://github.com/cs329z/assignment1-harness/blob/main/cs329z_assignment1_harness.pdf) — Part 1/2 and design memo
+- [CS329Z Lecture 3: Retrieval-Augmented Generation (RAG)](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf)
+- [CS329Z Lecture 4: Tool Use & Function Calling](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf)
+- [CS329Z Lecture 5: Frameworks & Orchestration](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf)

@@ -95,19 +95,20 @@ Week 2 is HW1's prep week: the assignment drops next Monday, but Wednesday's han
 
 ## This week's course material
 
+- Official lecture slides (PDF): [LLMs for Builders — Lecture 02](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf); [RAG — Lecture 03](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf)
 - Mon 9/28 LLMs for Builders: anchor reading Anthropic, Building Effective Agents, plus [Rajasekaran et al., Effective Context Engineering for AI Agents (Anthropic, 2025)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents); both are covered above.
 - Wed 9/30 RAG: anchor reading Lewis et al., RAG, plus [Khattab et al., ColBERT](https://arxiv.org/abs/2004.12832); both are covered above.
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
 ## Update log
 
-
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
 - 2026-09-12: Added substantive guided readings of Effective Context Engineering and ColBERT.
 
 ## References
 
+- Lecture slides: [LLMs for Builders — Lecture 02](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf); [RAG — Lecture 03](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf)
 - On this site: [Reading Stanford CS329Z Week 1: stop tuning only the model](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Anthropic, Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents), [Anthropic, Effective Context Engineering for AI Agents (2025)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), [Lewis et al., Retrieval-Augmented Generation, NeurIPS 2020](https://arxiv.org/abs/2005.11401), [Khattab & Zaharia, ColBERT, SIGIR 2020](https://arxiv.org/abs/2004.12832)

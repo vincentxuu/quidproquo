@@ -90,17 +90,18 @@ draft: false
 
 ## 本週 Course Material 對照
 
+- 官方課堂投影片（PDF）：[Foundations & Landscape — Lecture 01](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)
 - 週三 9/23 Foundations & Landscape：主讀物 Zaharia 等人 Compound AI Systems（本文已導讀）；延伸閱讀 Ng 四設計模式、Si 等人 execution-grounded（見上節延伸閱讀）。
 - 課表原文：[CS329Z 官網 Week 1](https://cs329z.stanford.edu/)
 
 ## 更新紀錄
 
-
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：補上本週官方課堂投影片直連。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
 
 ## 參考資料
 
+- 課堂投影片：[Foundations & Landscape — Lecture 01](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)
 - 站內：[Stanford CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z: Engineering AI Agents 官網（含課表與作業時程）](https://cs329z.stanford.edu/)
 - 原文：[Zaharia et al., The Shift from Models to Compound AI Systems, BAIR Blog (2024)](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)

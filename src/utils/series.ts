@@ -452,8 +452,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
     descriptions: {
-      'zh-TW': '逐講追蹤 Stanford CS329Z 的 agent engineering 課程；只在當期官方材料公開後撰寫，不用預告大綱代替實際講授。',
-      en: 'A lecture-by-lecture reading of Stanford CS329Z on agent engineering, written only as current official materials appear rather than treating a tentative syllabus as delivered instruction.',
+      'zh-TW': '追蹤 Stanford CS329Z Fall 2026：前五堂官方投影片與 HW1 起始碼、資料及公開測試已釋出；各週指定閱讀另附導讀。',
+      en: 'Following Stanford CS329Z Fall 2026: the first five official slide decks and the HW1 starter, datasets, and public tests are available, alongside weekly reading guides.',
     },
   },
   {

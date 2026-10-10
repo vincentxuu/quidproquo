@@ -1,6 +1,7 @@
 # quidproquo progress
 
 Last updated: 2026-10-10
+- **CS329Z 2026-10-10**：更新中英總導讀與 Week 1–3 官方投影片入口；前五堂 PDF、HW1 starter／資料／測試已公開，系列描述同步更新。Groundlane 已核對官方課表、Logistics、GitHub README 與作業 PDF。
 - **課程系列標題排序 2026-10-10**：SeriesDirectory 中英文以 Intl.Collator 自然排序課程標題，其他分類保留日期順序；課號數值排序與輸入保留檢查通過。
 
 - **daily-digest-funding 2026-10-10**：三組 Groundlane `web_search`（通用融資／Agent 特定／businesswire+prnewswire）＋aifunding.me 交叉比對後，當天榜上的 Manus／Nous Research／Rein Security 皆已被 10-09 的 funding routine 搶先報導過（grep 全站確認重複），改選兩筆尚未寫過、各有 3+ 獨立來源確認的事件：**Arena**（原 LMArena，AI 模型評測平台，$200M Series B，估值 $3.1B，較 10 個月前的 Series A 近乎翻倍，Lightspeed／Khosla 共同領投，TechCrunch＋MLQ News＋Dealroom 三方確認，建議加入 watchlist B6）、**Gallatin AI**（軍事後勤決策支援平台 Navigator，$50M Series A，8VC／Silent Ventures 領投，累計 $70M，Axios＋PRNewswire 官方稿＋Defense Daily 三方確認，建議加入 watchlist section E）。兩篇皆中英雙版已建立並互相連結，series order 80／81（接續 10-09 nous-research 的 79）。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（兩篇新檔 0 warning）皆 0 blocking；已將 10-07 的 arxiv／ai-interview 兩則最舊 Recently completed 條目移至 `docs/progress-archive.md`；待跑剩餘 targeted verify 與 commit／push。

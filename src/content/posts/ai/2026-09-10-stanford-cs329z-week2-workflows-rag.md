@@ -97,19 +97,20 @@ Week 2 是 HW1 的備料週：作業下週一才發，但週三 hands-on 的 RAG
 
 ## 本週 Course Material 對照
 
+- 官方課堂投影片（PDF）：[LLMs for Builders — Lecture 02](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf)、[RAG — Lecture 03](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf)
 - 週一 9/28 LLMs for Builders：主讀物 Anthropic Building Effective Agents、延伸閱讀 [Rajasekaran 等人 Effective Context Engineering for AI Agents（Anthropic, 2025）](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)，本文均已導讀。
 - 週三 9/30 RAG：主讀物 Lewis 等人 RAG、延伸閱讀 [Khattab 等人 ColBERT](https://arxiv.org/abs/2004.12832)，本文均已導讀。
 - 課表原文：[CS329Z 官網 Week 2](https://cs329z.stanford.edu/)
 
 ## 更新紀錄
 
-
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：補上本週官方課堂投影片直連。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
 - 2026-09-12：補上 Effective Context Engineering 與 ColBERT 兩篇延伸閱讀的實質導讀。
 
 ## 參考資料
 
+- 課堂投影片：[LLMs for Builders — Lecture 02](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf)、[RAG — Lecture 03](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf)
 - 站內：[Stanford CS329Z 導讀 Week 1：別再只調模型了](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)、[Stanford CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)
 - 原文：[Anthropic, Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents)、[Anthropic, Effective Context Engineering for AI Agents (2025)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)、[Lewis et al., Retrieval-Augmented Generation, NeurIPS 2020](https://arxiv.org/abs/2005.11401)、[Khattab & Zaharia, ColBERT, SIGIR 2020](https://arxiv.org/abs/2004.12832)
