@@ -617,3 +617,7 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 
 - **CS329Z 2026-10-10（已提交 151b1176）**：更新中英總導讀與 Week 1–3 官方投影片入口；前五堂 PDF、HW1 starter／資料／測試已公開，系列描述同步更新。Groundlane 已核對官方課表、Logistics、GitHub README 與作業 PDF。
 - **課程系列標題排序 2026-10-10（已提交 a70865ff）**：SeriesDirectory 中英文以 Intl.Collator 自然排序課程標題，其他分類保留日期順序；課號數值排序與輸入保留檢查通過。
+
+## 2026-10-11 封存：未提交改動整理 2026-10-10 條目（progress.txt 行數上限）
+
+- **未提交改動整理 2026-10-10**：本機同步遠端24筆提交，消除1,521個既有版本重複修改；50篇文章修正已提交 `da5f09bf`，12篇模型家族雙語草稿已提交 `47bcda8a`（draft:true，完整事實審稿待續）。完整 pnpm verify 與兩筆 hook 全綠；未 push／deploy。原始快照 stash `74074e53`、盤點紀錄 `/tmp/quidproquo-commit-audit/` 保留；44個研究／工作產物項目未追蹤。
