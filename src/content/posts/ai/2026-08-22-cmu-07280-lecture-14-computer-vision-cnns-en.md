@@ -94,6 +94,7 @@ Hand-compute a valid convolution between a `1×4×4` input and a `2×2` kernel, 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Re-verified the live official course pages and public video sources; no public recording for this lecture was found, so the status stands.
 
 ## References
 

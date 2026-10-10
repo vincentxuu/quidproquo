@@ -154,6 +154,7 @@ Next: [Lecture 2 guide: Logical Agents](/en/posts/learning/2026-09-29-cmu-07380-
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Re-verified the live official course pages and public video sources; no public recording for this lecture was found, so the status stands.
 
 ## References
 
