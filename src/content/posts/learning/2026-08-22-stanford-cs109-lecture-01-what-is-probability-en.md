@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 3, "What is Probability?" (Chris Piech, about 75 minutes): it covers sample spaces, events, equally likely outcomes, the dice-sum trap and the probability axioms, matching this lecture's topic; its last part starts on counting (the step rule), which this post makes no claim about. The worksheet sections in this post come from the Summer 2026 official problems, not from the video.
+
 ## Worksheet agenda: from listing outcomes to the axioms
 
 The first problem anchors the statement that an event is a subset of a sample space. Three flips produce eight equally likely sequences. “At least two heads” contains HHH, HHT, HTH, and THH; “first flip is tails” contains THH, THT, TTH, and TTT. Their intersection contains THH, so they are not mutually exclusive. The task combines three moves: enumerate outcomes, translate prose into a set, and use intersection—not verbal intuition—to test exclusivity.
@@ -64,6 +66,7 @@ The official guide orders sample space, event, equally likely outcomes, long-run
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; no claims needed changing.
 
 ## References
 

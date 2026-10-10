@@ -41,6 +41,8 @@ title: Stanford CS109 I Deep Learning I 2022 I Lecture 25
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 25「Deep Learning」字幕（約 80K 字元）：影片把神經網路講成堆疊的 logistic regression，用 sigmoid、MLE 與 chain rule 訓練，與本講主題一致；softmax 在字幕裡只在結尾簡短提到（改用 softmax 與 multinomial 的 loss），字幕沒有出現 backpropagation 這個詞，本文 P2 softmax 與 P5、P6 的逐層 backprop 手算不是影片內容，也沒有 calibration 題。
+
 ## P1：calibration 與 baseline
 
 模型在 60 筆預測約 0.8 的資料中命中 36 筆，observed fraction 是 0.60，因此不 calibrated 且 overconfident。資料整體 70% 為 label 1，always-positive baseline accuracy 是 0.70。Calibration 約束 probability 的語意，不保證 threshold decision 勝過 baseline。
@@ -109,6 +111,7 @@ Guide 依序涵蓋 softmax、stacked logistic units、deep-learning likelihood�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；softmax 只簡短提到、backpropagation 與 worksheet 題目不是影片內容，已在標記中說明。
 
 ## 參考資料
 

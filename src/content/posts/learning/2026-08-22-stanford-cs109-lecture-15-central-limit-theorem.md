@@ -41,6 +41,8 @@ title: Stanford CS109 I Central Limit Theorem I 2022 I Lecture 18
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 18「Central Limit Theorem」字幕（約 49 分鐘）：影片先複習 convolution，再講 IID 的和、sample mean、variance 與 CLT 的樣本數估計，與本講一致；本文 P4 ELO、Truncation Error 等 worksheet 題目不是影片內容。
+
 ## P1：以 Beta belief 複習開場
 
 Subscribe button 給 12 位 visitors 看，九人 click；uniform prior 是 `Beta(1,1)`，所以
@@ -191,6 +193,7 @@ P(19<X<20)
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題一致，無需改動說法。
 
 ## 參考資料
 

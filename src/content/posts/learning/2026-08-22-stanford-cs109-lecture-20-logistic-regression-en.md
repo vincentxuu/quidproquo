@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 24, "Logistic Regression" (about 75K characters): it covers how Naive Bayes relates to logistic regression, the sigmoid, the log-likelihood and gradient ascent, matching this lecture. The transcript has no decision boundary or Gaussian prior/MAP material, so those sections in this post are not video content.
+
 ## P1: Poisson MLE warm-up
 
 The counts `[3,1,4,2,5]` sum to 15:
@@ -151,6 +153,7 @@ Work through its six concepts: classification setup, sigmoid, logistic assumptio
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; the decision-boundary and MAP sections are not video content, as the check note says.
 
 ## References
 

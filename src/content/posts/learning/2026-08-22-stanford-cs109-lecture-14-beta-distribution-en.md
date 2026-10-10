@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 16, "Beta" (about 64K characters): it covers Beta as a prior over a success rate, posterior updates, the mode and Laplace's "one imagined head and one imagined tail" smoothing, matching this lecture. Thompson sampling is only mentioned briefly near the end and is not taught, so P7 (Thompson sampling) and the Multinomial opening in this post are not video content.
+
 ## P1: Open with a Multinomial review
 
 A fair six-sided die is rolled five times, with exactly two 3s, two 5s, and one 6:
@@ -175,6 +177,7 @@ The six concepts are probability as a random variable, continuous-parameter Baye
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; Thompson sampling is only mentioned in passing, as the check note says.
 
 ## References
 

@@ -52,6 +52,8 @@ Course and recording entries:
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 1, "Introduction to Reinforcement Learning" (about 72K characters): it covers where RL stands and its applications (AlphaGo, fusion, COVID, ChatGPT, AlphaTensor), exploration versus exploitation, the AI-tutor addition/subtraction reward example, the Markov assumption, the Mars rover and discounting, matching this post. OpenAI o1 never appears in the transcript (the 2024 video predates it), so the mention of o1 here comes from the 2026 slides, not the video.
+
 ## What RL is
 
 The slides define it in one line: **learning through experience or data to make good decisions under uncertainty.**
@@ -240,6 +242,7 @@ If you want to compute something, take the Mars rover MRP with γ = 0.5 and rewa
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; o1 is not video content, as the check note says.
 
 ## References
 

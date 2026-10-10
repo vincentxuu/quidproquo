@@ -35,7 +35,7 @@ glossary:
 
 **本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片與作業；錄影是 Spring 2024 公開版。** 這是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列第 6 篇，接續[沒模型時怎麼控制：ε-greedy、GLIE、SARSA／Q-learning、函數近似](/posts/ai/2026-09-30-cs234-model-free-control-function-approx)。
 
-用到的官方材料：[第 5 講投影片（post 版）](https://web.stanford.edu/class/cs234/slides/lecture5post.pdf)第 5–21 頁，[A2 題目](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf)第 1 題（8 分書面題），以及 [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)的[影片 04〈Q learning and Function Approximation〉](https://www.youtube.com/watch?v=b_wvosA70f8)。依 YouTube 章節，2024 版的 DQN 在這支的最後 20 分鐘：[58:04「Instabilities and DQN」](https://www.youtube.com/watch?v=b_wvosA70f8&t=3484s)與 1:05:39「DQN implementation」；影片 05〈Policy Search 1〉整支講策略搜尋，沒有 DQN。
+用到的官方材料：[第 5 講投影片（post 版）](https://web.stanford.edu/class/cs234/slides/lecture5post.pdf)第 5–21 頁，[A2 題目](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf)第 1 題（8 分書面題），以及 [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)的[影片 04〈Q learning and Function Approximation〉](https://www.youtube.com/watch?v=b_wvosA70f8)。依字幕，2024 版的 DQN 在這支的最後 20 分鐘左右：[約第 58 分「Instabilities and DQN」](https://www.youtube.com/watch?v=b_wvosA70f8)與約第 66 分「DQN implementation」；影片 05〈Policy Search 1〉主要講策略搜尋，只在開頭的複習題與比較時順帶提到 DQN，沒有講解 DQN。
 
 存取等級是 **A3（足以自學）**：投影片與 A2 題目都公開。缺口是 2026 錄影只在 Canvas、Gradescope autograder 不公開，所以 A2 Q1 你只能自己對照講義檢查答案。
 
@@ -58,6 +58,8 @@ title: 影片 04〈Q learning and Function Approximation〉
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
 Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 4「Q learning and Function Approximation」字幕（約 68K 字元）：確認影片依序講 GLIE／SARSA／Q-learning、函數近似、deadly triad，最後約 20% 是 DQN（experience replay 與 fixed target）；時間點改為依字幕位置估算的「約」值。Lecture 5「Policy Search 1」字幕只在開頭複習題與比較時順帶提到 DQN，沒有講解，已照實改寫。
 
 ## 先回到上一篇的最後一個式子
 
@@ -196,6 +198,7 @@ A2 的第一題是 8 分的書面題，題目附了一份跟投影片寫法略�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。時間點改為「約」；Policy Search 1 並非完全沒提 DQN，已更正。
 
 ## 參考資料
 
@@ -206,6 +209,6 @@ A2 的第一題是 8 分的書面題，題目附了一份跟投影片寫法略�
 - [Assignment 2 題目 PDF（Winter 2026）](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf)
 - [Assignment 2 起始碼](https://web.stanford.edu/class/cs234/assignments/a2/assignment2_starter_code.zip)
 - [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Lecture 4: Q learning and Function Approximation（Spring 2024，YouTube）](https://www.youtube.com/watch?v=b_wvosA70f8&t=3484s) — DQN 從 58:04 起
+- [Lecture 4: Q learning and Function Approximation（Spring 2024，YouTube）](https://www.youtube.com/watch?v=b_wvosA70f8) — DQN 約從第 58 分起
 - [Mnih et al. 2015：Human-level control through deep reinforcement learning（Nature）](https://www.nature.com/articles/nature14236)
 - [Sutton & Barto：Reinforcement Learning: An Introduction, 2nd ed.](http://incompleteideas.net/book/the-book-2nd.html)

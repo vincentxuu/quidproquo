@@ -30,7 +30,7 @@ glossary:
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
-> **Version note**: This post is based on the Winter 2026 slides of [CS234](https://web.stanford.edu/class/cs234/). The public recordings are the [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX); this post corresponds to video 11, "Exploration 1" (per its YouTube chapters: multi-armed bandits, regret, ε-greedy, and UCB1). Every fact was checked on 2026-09-30 against the [Lecture 9 slides](https://web.stanford.edu/class/cs234/slides/lecture9post.pdf) (post-class, 53 pages) and the [Lecture 10 slides](https://web.stanford.edu/class/cs234/slides/lecture10post.pdf) (post-class, 41 pages; this post uses pp. 1–17). Access grade **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides and supplementary reading are public; the 2026 recordings are on Canvas for enrolled students only.
+> **Version note**: This post is based on the Winter 2026 slides of [CS234](https://web.stanford.edu/class/cs234/). The public recordings are the [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX); this post corresponds to video 11, "Exploration 1" (per the transcript: multi-armed bandits, regret, ε-greedy, and UCB1). Every fact was checked on 2026-09-30 against the [Lecture 9 slides](https://web.stanford.edu/class/cs234/slides/lecture9post.pdf) (post-class, 53 pages) and the [Lecture 10 slides](https://web.stanford.edu/class/cs234/slides/lecture10post.pdf) (post-class, 41 pages; this post uses pp. 1–17). Access grade **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides and supplementary reading are public; the 2026 recordings are on Canvas for enrolled students only.
 
 **Series**: previous [A3: reward engineering, RLHF, DPO on Hopper, and best arm identification](/posts/ai/2026-09-30-cs234-a3-rlhf-dpo-bandits-en) | next [Data efficiency II: Thompson sampling, Bayesian bandits, Gittins](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
 
@@ -38,7 +38,7 @@ So far this course has used exactly one exploration method: ε-greedy. It showed
 
 L9 opens by listing four ways to evaluate an algorithm: whether it converges, whether it converges to the optimal policy, how quickly it gets there, and how many mistakes it makes along the way. The course has covered the first two; L9 starts on the last two. The lecture is titled "Data Efficient Reinforcement Learning", and the materials page groups L9 through L12 into one "Data Efficient RL" module, listing Section 7.1 of [Bandit Algorithms](https://tor-lattimore.com/downloads/book/book.pdf) as supplementary reading.
 
-L9 is clear about why bandits come first: they are a simpler place to see these ideas, and the ideas will extend to MDPs.
+In the 2024 video, Brunskill calls the bandit "a very simple setting" and says at the end that these ideas extend to more complicated settings such as function approximation and RL. That is why bandits come first: they are the simplest place to see these ideas, and the ideas will extend to MDPs.
 
 ## Course video sources
 
@@ -57,6 +57,8 @@ Course and recording entries:
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 11, "Exploration 1" (Emma Brunskill, about 75 minutes): it covers the bandit setting, the fracture-treatment example, regret, greedy and ε-greedy, the lower bound, optimism and UCB built on confidence bounds, matching this post. The transcript has no COVID border-testing case and never says "sub-Gaussian"; those parts come from the 2026 slides, not the video.
 
 ## The setting: RL with a single decision
 
@@ -228,6 +230,7 @@ One thing you can do tonight: simulate the broken toes in 30 lines of Python, ru
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; the Brunskill opening remark now rests on what she says in the 2024 transcript, and "YouTube chapters" became "transcript".
 
 ## References
 

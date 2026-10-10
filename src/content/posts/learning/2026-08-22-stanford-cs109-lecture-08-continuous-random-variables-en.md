@@ -46,6 +46,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 9, "Continuous Random Variables" (about 76 minutes): it covers continuous random variables, densities (PDF), the CDF, Uniform and Exponential (including an earthquake example), matching this lecture. The transcript does not mention memorylessness or the curse of dimensionality, so those worksheet sections in this post are not from the video.
+
 ## P1: Reconnect Poisson counts
 
 A primatologist collects 15 usable samples per day on average. For `X~Poi(15)`,
@@ -178,6 +180,7 @@ The guide orders six concepts: PMF to PDF, area and normalization, the CDF, Unif
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; the memorylessness and high-dimension sections are not video content, as the check note says.
 
 ## References
 

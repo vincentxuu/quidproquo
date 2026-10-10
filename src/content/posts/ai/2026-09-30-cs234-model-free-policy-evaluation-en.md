@@ -58,6 +58,8 @@ Course and recording entries:
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 3, "Policy Evaluation" (about 62K characters): it covers Monte Carlo (first-visit) and TD policy evaluation, bias and variance, certainty equivalence, batch methods and the Mars rover/AB examples, matching this post. The quiz and page-level details here come from the 2026 slides and were not compared with the video.
+
 ## Back to dynamic programming: it already borrows its own estimate
 
 L3 opens by recalling DP policy evaluation:
@@ -225,6 +227,7 @@ One thing to do tonight: just the AB example. Before looking at the answer, writ
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; no claims needed changing.
 
 ## References
 

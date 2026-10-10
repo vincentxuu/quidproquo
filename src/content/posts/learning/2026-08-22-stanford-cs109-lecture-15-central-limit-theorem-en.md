@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 18, "Central Limit Theorem" (about 49 minutes): it starts with a convolution review, then covers sums of IID variables, the sample mean, variance and sample-size estimation with the CLT, matching this lecture. Worksheet problems in this post such as the ELO and truncation-error items are not video content.
+
 ## P1: Open with a Beta-belief review
 
 A Subscribe button receives nine clicks from 12 visitors. Starting from `Beta(1,1)`,
@@ -191,6 +193,7 @@ The six concepts are IID variables, convolution, closed-form sums, Normal differ
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; no claims needed changing.
 
 ## References
 

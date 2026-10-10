@@ -34,7 +34,7 @@ glossary:
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片：[Lecture 7](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf) p.25–62 與 [Lecture 8](https://web.stanford.edu/class/cs234/slides/lecture8post.pdf) p.6–17（頁碼是 PDF 頁碼）。2026 錄影只給修課生；公開錄影是 [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX) 的第 7、8 支，本文只當聽講補充，時間點依 YouTube 章節標記。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。所有事實都在 2026-09-30 打開上述 PDF 與影片頁核對。
+> **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片：[Lecture 7](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf) p.25–62 與 [Lecture 8](https://web.stanford.edu/class/cs234/slides/lecture8post.pdf) p.6–17（頁碼是 PDF 頁碼）。2026 錄影只給修課生；公開錄影是 [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX) 的第 7、8 支，本文只當聽講補充，時間點是依字幕位置估算的約略分鐘數。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。所有事實都在 2026-09-30 打開上述 PDF 與影片頁核對。
 
 **系列位置**：上一篇 [A2：REINFORCE、baseline 與 PPO 實作](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo)｜下一篇 [從人類偏好學：Bradley-Terry、RLHF、DPO](/posts/ai/2026-09-30-cs234-rlhf-dpo)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
 
@@ -48,15 +48,15 @@ glossary:
 
 ```youtube
 url: https://www.youtube.com/watch?v=4ngb0IZTg8I
-title: 45:26 起「Introduction to imitation learning」
+title: 約第 45 分起「Introduction to imitation learning」
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=IEbuJtjqtMU
-title: 4:28 起
+title: 約第 4 分起
 ```
 
-原始影片：[45:26 起「Introduction to imitation learning」](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[4:28 起](https://www.youtube.com/watch?v=IEbuJtjqtMU)
+原始影片：[約第 45 分起「Introduction to imitation learning」](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[約第 4 分起](https://www.youtube.com/watch?v=IEbuJtjqtMU)
 
 課程與錄影入口：
 
@@ -65,19 +65,21 @@ title: 4:28 起
 
 Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 7「Policy Search 3」（約 79 分鐘）前段是 GAE 與單調改進，約 55% 之後才開始講模仿學習，依序是 behavior cloning、ALVINN、DAgger，到最後約 15% 才進入 IRL 與 feature matching；Lecture 8「Offline RL 1」（約 74 分鐘）前段是模仿學習回顧與 MaxEnt IRL，約 70% 之後轉到 RLHF。全文的 mm:ss 時間碼都改成依字幕位置估算的「約」值並拿掉 &t= 連結，「YouTube 章節」改為「字幕」；影片與投影片的詳細程度比較沒有做，已拿掉「影片講得比投影片細」的說法。
+
 ## 投影片範圍與 2024 影片對照
 
 2026 的檔案邊界跟主題不一致，這裡依主題切：
 
-| 2026 投影片 | 內容 | Spring 2024 影片（章節時間） |
+| 2026 投影片 | 內容 | Spring 2024 影片（約略時間） |
 |---|---|---|
-| L7 p.26–30 | 從過去決策學、reward shaping、問題設定 | 影片 07 [45:26 起「Introduction to imitation learning」](https://www.youtube.com/watch?v=4ngb0IZTg8I&t=2726s) |
-| L7 p.31–39 | behavioral cloning、ALVINN、compounding errors、DAgger | 影片 07 50:03–1:03:48 |
-| L7 p.40–50 | reward learning、線性特徵 IRL、feature matching、ambiguity | 影片 07 [1:03:48 起](https://www.youtube.com/watch?v=4ngb0IZTg8I&t=3828s) |
-| L7 p.51–62 | MaxEnt IRL、從 IRL 到策略、總結 | 影片 08 [4:28 起](https://www.youtube.com/watch?v=IEbuJtjqtMU&t=268s) 到 52:26 |
-| L8 p.6–17 | 「How Can RL Enable Transformative LLM?」、DAgger 與 feature reward 複習、Imitation Learning Summary | 影片 08 開頭 1:11–4:28 有對應的概覽 |
+| L7 p.26–30 | 從過去決策學、reward shaping、問題設定 | 影片 07 [約第 45 分起「Introduction to imitation learning」](https://www.youtube.com/watch?v=4ngb0IZTg8I) |
+| L7 p.31–39 | behavioral cloning、ALVINN、compounding errors、DAgger | 影片 07 約第 50–64 分 |
+| L7 p.40–50 | reward learning、線性特徵 IRL、feature matching、ambiguity | 影片 07 [約第 64 分起](https://www.youtube.com/watch?v=4ngb0IZTg8I) |
+| L7 p.51–62 | MaxEnt IRL、從 IRL 到策略、總結 | 影片 08 [約第 4 分起](https://www.youtube.com/watch?v=IEbuJtjqtMU) 到約第 52 分 |
+| L8 p.6–17 | 「How Can RL Enable Transformative LLM?」、DAgger 與 feature reward 複習、Imitation Learning Summary | 影片 08 開頭的前幾分鐘有對應的概覽 |
 
-影片 08 在播放清單上的標題是「Offline RL 1」，但 YouTube 章節顯示它的內容是 MaxEnt IRL 與 RLHF 的開頭。2026 投影片裡沒有 offline RL 的專講，本文不替 2026 補寫這部分。
+影片 08 在播放清單上的標題是「Offline RL 1」，但字幕顯示它的內容是 MaxEnt IRL 與 RLHF 的開頭。2026 投影片裡沒有 offline RL 的專講，本文不替 2026 補寫這部分。
 
 ## 為什麼要從示範學
 
@@ -196,7 +198,7 @@ L8 開頭把這段收成一頁「Imitation Learning Summary」：非常強大、
 
 1. 先讀 L7 p.26–39，停在 DAgger 的「Key limitation?」，自己寫下答案再往下。
 2. 讀 p.40–50 時，拿一張紙把 V^π = wᵀμ(π) 那三行推導抄一次；feature matching 的 Hölder 不等式只要一行。
-3. MaxEnt 的部分（p.51–59）配著 2024 影片 08 的「Max entropy IRL math」到「Max entropy IRL algorithm」幾個章節看，影片對梯度推導講得比投影片細。
+3. MaxEnt 的部分（p.51–59）配著 2024 影片 08 前半（約第 25–46 分，依字幕位置估算）講 MaxEnt IRL 推導與梯度的那一段看；影片與投影片的詳細程度本站沒有逐頁比對。
 4. 如果你想動手，CS234 的作業沒有模仿學習題；[CS224R 的 HW1](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger) 有 BC 與 DAgger 實作。
 
 今晚可以做的一件事：把 BC、DAgger、IRL 三個方法各自「需要什麼」列成一張表：要不要轉移模型、要不要專家一直在場、要不要跟環境互動。這張表就是 L7 所有「Check your understanding」的答案骨架。
@@ -210,14 +212,15 @@ L8 開頭把這段收成一頁「Imitation Learning Summary」：非常強大、
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。時間碼改為「約」值、移除 &t= 連結；移除未比對的「影片比投影片詳細」說法。
 
 ## 參考資料
 
 - [CS234 Lecture 7 投影片（post 版，Winter 2026）](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf) — p.25–62：reward shaping、BC、compounding errors、DAgger、線性 IRL、feature matching、MaxEnt IRL
 - [CS234 Lecture 8 投影片（post 版，Winter 2026）](https://web.stanford.edu/class/cs234/slides/lecture8post.pdf) — p.6–17：LLM 的橋接頁與模仿學習總結
 - [CS234 課程首頁（Winter 2026）](https://web.stanford.edu/class/cs234/) — 課表（Week 4「Offline RL, Imitation Learning」）
-- [Stanford CS234 Spring 2024 Lecture 7「Policy Search 3」](https://www.youtube.com/watch?v=4ngb0IZTg8I) — 後半是模仿學習、DAgger、IRL（依 YouTube 章節）
-- [Stanford CS234 Spring 2024 Lecture 8「Offline RL 1」](https://www.youtube.com/watch?v=IEbuJtjqtMU) — 章節顯示內容是 MaxEnt IRL 與 RLHF 開頭
+- [Stanford CS234 Spring 2024 Lecture 7「Policy Search 3」](https://www.youtube.com/watch?v=4ngb0IZTg8I) — 後半是模仿學習、DAgger、IRL（依字幕）
+- [Stanford CS234 Spring 2024 Lecture 8「Offline RL 1」](https://www.youtube.com/watch?v=IEbuJtjqtMU) — 字幕顯示內容是 MaxEnt IRL 與 RLHF 開頭
 - [Ross & Bagnell, Efficient Reductions for Imitation Learning (AISTATS 2010)](http://www.cs.cmu.edu/~sross1/publications/Ross-AIStats10-paper.pdf) — 投影片引用的 compounding error 定理
 - [Ross, Gordon & Bagnell, A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning (2011)](https://arxiv.org/abs/1011.0686) — DAgger
 - [Abbeel & Ng, Apprenticeship Learning via Inverse Reinforcement Learning (ICML 2004)](https://ai.stanford.edu/~ang/papers/icml04-apprentice.pdf) — feature matching

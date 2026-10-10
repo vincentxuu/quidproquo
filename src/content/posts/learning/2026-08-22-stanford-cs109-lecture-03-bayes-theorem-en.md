@@ -23,7 +23,7 @@ Material fidelity is **L3**: the Summer schedule and problem artifacts establish
 
 ## Course video sources
 
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover only part of this lecture's topic (see the content check below) but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
 
 ```youtube
 url: https://www.youtube.com/watch?v=NHRoXvPaZqY
@@ -40,6 +40,8 @@ Official sources:
 - [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 4, "Conditional Probability and Bayes" (about 75 minutes): the video matches the schedule title Bayes Theorem (conditional probability, the law of total probability, Bayes), but its transcript barely discusses independence and never covers inclusion-exclusion, which are the core of this post's worksheet agenda. It therefore only supplies Bayes prerequisites, not the main worksheet content below. The same video is also embedded in Lecture 2.
 
 ## Worksheet agenda: this lecture is actually about independence
 
@@ -66,6 +68,7 @@ Disjoint events cannot occur together. Independent events leave each other’s p
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video only matches the schedule title (Bayes) and not the worksheet's independence/inclusion-exclusion material; the description now says "partial match".
 
 ## References
 

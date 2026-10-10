@@ -41,6 +41,8 @@ title: Stanford CS109 I Conditional Probability and Bayes I 2022 I Lecture 4
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 4「Conditional Probability and Bayes」字幕（Chris Piech 主講，約 75 分鐘）：確認影片講條件機率、chain rule、全機率公式與 Bayes，與本講主題一致。本文 worksheet 各題內容來自 Summer 2026 官方題目，不是影片內容。
+
 ## Worksheet agenda：條件、chain rule、全機率與 Bayes
 
 第一題先用單顆骰子複習集合運算：偶數與大於 3 的交集不是空集合，聯集要避免重複計數，補事件可直接處理「不是 6」。這段複習的目的，是讓條件機率分子 P(E∩F) 有清楚的集合意義。
@@ -66,6 +68,7 @@ title: Stanford CS109 I Conditional Probability and Bayes I 2022 I Lecture 4
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題與本講一致，無需改動說法。
 
 ## 參考資料
 

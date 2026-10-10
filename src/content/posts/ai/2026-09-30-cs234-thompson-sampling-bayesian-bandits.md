@@ -34,7 +34,7 @@ glossary:
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的投影片；公開錄影是 [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)，本篇對應第 12 支「Exploration 2」（依 YouTube 章節，內容是 UCB 的限制、PAC、optimistic initialization、Bayesian bandit 與 Thompson sampling）。所有事實都在 2026-09-30 打開 [Lecture 11 投影片](https://web.stanford.edu/class/cs234/slides/lecture11post.pdf)（post 版，50 頁）核對。這份 PDF 的標題頁寫著「Lecture 13」，下面自己註明「Typo: Lecture 11」。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片公開；2026 錄影只在 Canvas 給修課生。
+> **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的投影片；公開錄影是 [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)，本篇對應第 12 支「Exploration 2」（依字幕，內容是 UCB 的限制、PAC、optimistic initialization、Bayesian bandit 與 Thompson sampling）。所有事實都在 2026-09-30 打開 [Lecture 11 投影片](https://web.stanford.edu/class/cs234/slides/lecture11post.pdf)（post 版，50 頁）核對。這份 PDF 的標題頁寫著「Lecture 13」，下面自己註明「Typo: Lecture 11」。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片公開；2026 錄影只在 Canvas 給修課生。
 
 **系列位置**：上一篇 [資料效率 I：bandit、regret、UCB](/posts/ai/2026-09-30-cs234-bandits-regret-ucb)｜下一篇 [資料效率 III：MDP 裡的 PAC、MBIE-EB、PSRL、策略性探索](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
 
@@ -59,6 +59,8 @@ title: Stanford CS234 Spring 2024 播放清單第 12 支「Exploration 2」
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
 Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 12「Exploration 2」字幕（約 65K 字元）：確認影片依序講 UCB 回顧與 regret、PAC、optimistic initialization、Bayesian bandit（Beta 先驗、骨折例子）、Thompson sampling 與 probability matching，最後才簡短提到 Gittins，主題與本文一致；「YouTube 章節」改為「字幕」。
 
 ## 開場：確定性 reward 的小測
 
@@ -218,6 +220,7 @@ L11 p.47 列出整個 bandit 段落該會的事，可以直接拿來當自我檢
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；「YouTube 章節」改為「字幕」。
 
 ## 參考資料
 

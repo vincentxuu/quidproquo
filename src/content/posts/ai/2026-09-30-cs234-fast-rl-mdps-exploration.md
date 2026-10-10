@@ -41,7 +41,7 @@ glossary:
 
 **系列位置**：上一篇 [資料效率 II：Bayesian bandit、Thompson sampling、Gittins、PAC](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits)｜下一篇 [規劃＋學習：MCTS、UCT、AlphaGo／AlphaZero](/posts/ai/2026-09-30-cs234-mcts-alphazero)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
 
-用到的官方材料：[第 12 講投影片（post 版）〈Fast RL Continued〉](https://web.stanford.edu/class/cs234/slides/lecture12post.pdf)，整份 PDF 54 頁（投影片自己的頁碼標到 52，中間兩頁是 Decision-Pretrained Transformer 的補充圖）。聽講補充是 [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)的[影片 13〈Exploration 3〉](https://www.youtube.com/watch?v=pc7oayCSZmQ)；依 YouTube 章節，這支講 MBIE-EB、PAC 分析、simulation lemma、Bayesian MDP 與 PSRL、concurrent RL 與 seed sampling。
+用到的官方材料：[第 12 講投影片（post 版）〈Fast RL Continued〉](https://web.stanford.edu/class/cs234/slides/lecture12post.pdf)，整份 PDF 54 頁（投影片自己的頁碼標到 52，中間兩頁是 Decision-Pretrained Transformer 的補充圖）。聽講補充是 [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)的[影片 13〈Exploration 3〉](https://www.youtube.com/watch?v=pc7oayCSZmQ)；依字幕，這支講 MBIE-EB、PAC 分析、simulation lemma、Bayesian MDP 與 PSRL、concurrent RL 與 seed sampling。
 
 存取等級是 **A3（足以自學）**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片公開。缺口是 2026 錄影只在 Canvas；投影片在 simulation lemma 那頁引用的 Winter 2023 problem session PDF（`sessions/CS234_Win23_ProblemSession2.pdf` 與解答），2026-09-30 查核時兩個網址都是 404。
 
@@ -62,6 +62,8 @@ title: Stanford CS234 Spring 2024 影片 13〈Exploration 3〉
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
 Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 13「Exploration 3」字幕（約 70 分鐘）：確認影片涵蓋 optimism 與 MBIE-EB、PAC 與 simulation lemma、Bayesian MDP 與 PSRL、concurrent RL 與 seed sampling，後段有 contextual／linear bandit、Montezuma's Revenge 與 Decision-Pretrained Transformer 的簡短提及，與本文主題一致；「YouTube 章節」改為「字幕」。
 
 ## 這一講要解決什麼
 
@@ -249,6 +251,7 @@ DPT 那兩頁的核心只有一句：訓練模型去預測最佳動作 $a^*$，�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；「YouTube 章節」改為「字幕」。
 
 ## 參考資料
 
@@ -256,7 +259,7 @@ DPT 那兩頁的核心只有一句：訓練模型去預測最佳動作 $a^*$，�
 - [CS234 講義頁](https://web.stanford.edu/class/cs234/modules.html) — Data Efficient RL 單元（L9–L12）與附加閱讀 Bandit Algorithms §7.1
 - [CS234 課程首頁（Winter 2026）](https://web.stanford.edu/class/cs234/) — 課表：Week 7–8 是 Exploration
 - [CS234 專題頁](https://web.stanford.edu/class/cs234/project.html) — 專題規格
-- [Stanford CS234 Spring 2024 影片 13〈Exploration 3〉](https://www.youtube.com/watch?v=pc7oayCSZmQ) — 公開錄影，章節涵蓋 MBIE-EB、PSRL
+- [Stanford CS234 Spring 2024 影片 13〈Exploration 3〉](https://www.youtube.com/watch?v=pc7oayCSZmQ) — 公開錄影，字幕涵蓋 MBIE-EB、PSRL
 - [Strehl & Littman, An analysis of model-based Interval Estimation for Markov Decision Processes (JCSS 2008)](https://www.sciencedirect.com/science/article/pii/S0022000008000767) — MBIE-EB
 - [Osband, Russo & Van Roy, (More) Efficient Reinforcement Learning via Posterior Sampling (NeurIPS 2013)](https://arxiv.org/abs/1306.0940) — PSRL
 - [Li et al., A Contextual-Bandit Approach to Personalized News Article Recommendation (WWW 2010)](https://arxiv.org/abs/1003.0146) — linear contextual bandit

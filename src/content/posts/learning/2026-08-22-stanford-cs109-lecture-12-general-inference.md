@@ -41,6 +41,8 @@ title: Stanford CS109 Probability for Computer Scientists I General Inference I 
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 15「General Inference」字幕（約 73K 字元）：影片講 Bayesian network、joint distribution 與 rejection sampling，並只在結尾提到 MCMC 是更進階的演算法，與本講一致；本文 worksheet 題目（WebMD 較大網路、rare evidence 崩潰、1-D Tracking）不是影片內容。
+
 ## P1：再做一次 Bayes update
 
 Spam prior 為 `0.3`。Spam message 含 `free` 的機率是 `0.6`，not-spam 則是 `0.1`：
@@ -159,6 +161,7 @@ f(T=t|X=4)
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；MCMC 在影片只是結尾提及，worksheet 題目非影片內容。
 
 ## 參考資料
 

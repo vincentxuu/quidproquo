@@ -40,7 +40,7 @@ glossary:
 
 **Series**: previous [Data efficiency II: Bayesian bandits, Thompson sampling, Gittins, PAC](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits-en) | next [Planning plus learning: MCTS, UCT, AlphaGo/AlphaZero](/posts/ai/2026-09-30-cs234-mcts-alphazero-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
 
-Official materials used: the [Lecture 12 slides (post-class version), "Fast RL Continued"](https://web.stanford.edu/class/cs234/slides/lecture12post.pdf). The PDF has 54 pages; the slides number themselves up to 52, with two extra pages of Decision-Pretrained Transformer figures. For listening, the matching video is [video 13, "Exploration 3"](https://www.youtube.com/watch?v=pc7oayCSZmQ) in the [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Per its YouTube chapters, it covers MBIE-EB, PAC analysis, the simulation lemma, Bayesian MDPs and PSRL, concurrent RL, and seed sampling.
+Official materials used: the [Lecture 12 slides (post-class version), "Fast RL Continued"](https://web.stanford.edu/class/cs234/slides/lecture12post.pdf). The PDF has 54 pages; the slides number themselves up to 52, with two extra pages of Decision-Pretrained Transformer figures. For listening, the matching video is [video 13, "Exploration 3"](https://www.youtube.com/watch?v=pc7oayCSZmQ) in the [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Per the transcript, it covers MBIE-EB, PAC analysis, the simulation lemma, Bayesian MDPs and PSRL, concurrent RL, and seed sampling.
 
 Access grade **A3 (enough to self-study)**, as defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): the slides are public. The gaps: 2026 recordings are on Canvas only, and the Winter 2023 problem session PDFs the simulation lemma slide cites (`sessions/CS234_Win23_ProblemSession2.pdf` and its solutions) both returned 404 when I checked on 2026-09-30.
 
@@ -61,6 +61,8 @@ Course and recording entries:
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 13, "Exploration 3" (about 70 minutes): the video covers optimism and MBIE-EB, PAC and the simulation lemma, Bayesian MDPs and PSRL, and concurrent RL and seed sampling, with contextual/linear bandits, Montezuma's Revenge and the Decision-Pretrained Transformer briefly near the end, matching this post. "YouTube chapters" became "transcript".
 
 ## What this lecture is for
 
@@ -248,6 +250,7 @@ One thing to try tonight: take `riverswim.py` from Assignment 1, wrap a counter 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; "YouTube chapters" became "transcript".
 
 ## References
 
@@ -255,7 +258,7 @@ One thing to try tonight: take `riverswim.py` from Assignment 1, wrap a counter 
 - [CS234 lecture materials page](https://web.stanford.edu/class/cs234/modules.html) — Data Efficient RL unit (L9–L12) and the additional reading, Bandit Algorithms §7.1
 - [CS234 course home page (Winter 2026)](https://web.stanford.edu/class/cs234/) — schedule: Weeks 7–8 are Exploration
 - [CS234 project page](https://web.stanford.edu/class/cs234/project.html) — project specification
-- [Stanford CS234 Spring 2024 video 13, "Exploration 3"](https://www.youtube.com/watch?v=pc7oayCSZmQ) — public recording; chapters cover MBIE-EB and PSRL
+- [Stanford CS234 Spring 2024 video 13, "Exploration 3"](https://www.youtube.com/watch?v=pc7oayCSZmQ) — public recording; the transcript covers MBIE-EB and PSRL
 - [Strehl & Littman, An analysis of model-based Interval Estimation for Markov Decision Processes (JCSS 2008)](https://www.sciencedirect.com/science/article/pii/S0022000008000767) — MBIE-EB
 - [Osband, Russo & Van Roy, (More) Efficient Reinforcement Learning via Posterior Sampling (NeurIPS 2013)](https://arxiv.org/abs/1306.0940) — PSRL
 - [Dimakopoulou & Van Roy, Coordinated Exploration in Concurrent Reinforcement Learning (ICML 2018)](https://arxiv.org/abs/1802.01282) — seed sampling

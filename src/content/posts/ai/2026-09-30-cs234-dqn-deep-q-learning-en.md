@@ -34,7 +34,7 @@ glossary:
 
 **This post is based on the Winter 2026 slides and assignments of [CS234](https://web.stanford.edu/class/cs234/); the recordings are the public Spring 2024 videos.** It is Part 6 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series and follows [model-free control: ε-greedy, GLIE, SARSA/Q-learning, and function approximation](/posts/ai/2026-09-30-cs234-model-free-control-function-approx-en).
 
-Official materials used: pages 5–21 of the [Lecture 5 slides (post version)](https://web.stanford.edu/class/cs234/slides/lecture5post.pdf), Question 1 of the [A2 handout](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf) (8 written points), and [video 04, "Q learning and Function Approximation"](https://www.youtube.com/watch?v=b_wvosA70f8), from the [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Per its YouTube chapters, the 2024 DQN material is the last 20 minutes of that video: [58:04, "Instabilities and DQN"](https://www.youtube.com/watch?v=b_wvosA70f8&t=3484s) and 1:05:39, "DQN implementation." Video 05, "Policy Search 1," is entirely about policy search and has no DQN.
+Official materials used: pages 5–21 of the [Lecture 5 slides (post version)](https://web.stanford.edu/class/cs234/slides/lecture5post.pdf), Question 1 of the [A2 handout](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf) (8 written points), and [video 04, "Q learning and Function Approximation"](https://www.youtube.com/watch?v=b_wvosA70f8), from the [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Per the transcript, the 2024 DQN material is roughly the last 20 minutes of that video: [about minute 58, "Instabilities and DQN"](https://www.youtube.com/watch?v=b_wvosA70f8) and about minute 66, "DQN implementation." Video 05, "Policy Search 1," is mainly about policy search; DQN only comes up in passing in an opening review question and a comparison, and is not taught there.
 
 Access level is **A3 (enough for self-study)**: the slides and the A2 handout are public. The gaps: the 2026 recordings are on Canvas only, and the Gradescope autograder is not public, so you can only check your A2 Q1 answers against the slides yourself.
 
@@ -57,6 +57,8 @@ Course and recording entries:
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 4, "Q learning and Function Approximation" (about 68K characters): the video goes through GLIE/SARSA/Q-learning, function approximation and the deadly triad, with DQN (experience replay and fixed targets) in roughly the last 20%. Minute marks are now approximate values estimated from the transcript. The Lecture 5 "Policy Search 1" transcript only mentions DQN in passing in an opening review question and a comparison, and does not teach it; the text now says so.
 
 ## Back to the last equation of the previous post
 
@@ -195,6 +197,7 @@ This series does not give answers. The other three questions of A2 (policy gradi
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Minute marks became approximate; Policy Search 1 does mention DQN in passing, which is now corrected.
 
 ## References
 
@@ -205,6 +208,6 @@ This series does not give answers. The other three questions of A2 (policy gradi
 - [Assignment 2 handout (Winter 2026)](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf)
 - [Assignment 2 starter code](https://web.stanford.edu/class/cs234/assignments/a2/assignment2_starter_code.zip)
 - [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Lecture 4: Q learning and Function Approximation (Spring 2024, YouTube)](https://www.youtube.com/watch?v=b_wvosA70f8&t=3484s) — DQN from 58:04
+- [Lecture 4: Q learning and Function Approximation (Spring 2024, YouTube)](https://www.youtube.com/watch?v=b_wvosA70f8) — DQN from about minute 58
 - [Mnih et al. 2015: Human-level control through deep reinforcement learning (Nature)](https://www.nature.com/articles/nature14236)
 - [Sutton & Barto: Reinforcement Learning: An Introduction, 2nd ed.](http://incompleteideas.net/book/the-book-2nd.html)

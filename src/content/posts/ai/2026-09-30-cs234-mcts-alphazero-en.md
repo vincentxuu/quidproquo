@@ -32,7 +32,7 @@ glossary:
 
 **Series**: previous [Data efficiency III: PAC for MDPs, MBIE-EB, PSRL, strategic exploration](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration-en) | next [Value alignment: aligned to whom, aligned to what](/posts/ai/2026-09-30-cs234-value-alignment-ethics-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
 
-Official materials used: the [Lecture 13 slides (post-class)](https://web.stanford.edu/class/cs234/slides/lecture13post.pdf) (13 pages, simulation-based search only) and the [Lecture 14 slides (post-class)](https://web.stanford.edu/class/cs234/slides/lecture14post.pdf) (30 pages, AlphaZero). Both are titled "Monte Carlo Tree Search," and the lecture materials page files them under "Monte Carlo Tree Search and Conquering Go." For listening, the matching video is [video 14, "Multi-Agent Game Playing"](https://www.youtube.com/watch?v=UgANzoWc0nc) in the [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Its YouTube chapters line up with the 2026 slides; see the section on the 2024 video below.
+Official materials used: the [Lecture 13 slides (post-class)](https://web.stanford.edu/class/cs234/slides/lecture13post.pdf) (13 pages, simulation-based search only) and the [Lecture 14 slides (post-class)](https://web.stanford.edu/class/cs234/slides/lecture14post.pdf) (30 pages, AlphaZero). Both are titled "Monte Carlo Tree Search," and the lecture materials page files them under "Monte Carlo Tree Search and Conquering Go." For listening, the matching video is [video 14, "Multi-Agent Game Playing"](https://www.youtube.com/watch?v=UgANzoWc0nc) in the [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Per the transcript, it lines up with the 2026 slides; see the section on the 2024 video below.
 
 Access grade **A3 (enough to self-study)**, as defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): both decks are public. The gap is that 2026 recordings are on Canvas only. The decks' Class Structure slides also show that in 2026 MCTS shared its sessions with guest lectures (Lecture 13 with Shane Gu's world-models talk, Lecture 14 with part 2 of the ethics and society guest lecture), which is why both PDFs are shorter than usual.
 
@@ -58,6 +58,8 @@ Course and recording entries:
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 14, "Multi-Agent Game Playing" (about 73 minutes), goes in order through simulation-based search and expectimax, MCTS, UCT, AlphaGo/AlphaZero and self-play, then the neural networks; Lecture 15 (about 74 minutes) opens with a DPO/RLHF review quiz, then wraps up AlphaZero, and hands over to guest Dan Webber at about 22%. Minute marks are now approximate values estimated from the transcript, &t= links are removed, "YouTube chapters" became "transcript", and the description of video 15 now mentions the opening DPO/RLHF quiz.
 
 ## A different question: plan only for this move
 
@@ -182,7 +184,7 @@ A final refresher quiz ties together the second half of the course:
 
 ## How the 2024 video maps
 
-Video 14 of 2024 is titled "Multi-Agent Game Playing," and its YouTube chapters show it covers exactly 2026's L13–L14: [from 7:47](https://www.youtube.com/watch?v=UgANzoWc0nc&t=467s), simulation-based search and expectimax trees; [19:00](https://www.youtube.com/watch?v=UgANzoWc0nc&t=1140s), MCTS, then UCT at 24:45; [from 35:10](https://www.youtube.com/watch?v=UgANzoWc0nc&t=2110s), AlphaGo, the rules of Go, self-play, and the neural networks. The AlphaZero wrap-up is in [the first 15 minutes of video 15](https://www.youtube.com/watch?v=FOlPpjNbHjE) (5:13, "AlphaZero mechanism review"; 8:55, "AlphaZero technical details").
+Video 14 of 2024 is titled "Multi-Agent Game Playing," and per its transcript it covers 2026's L13–L14: [from about minute 8](https://www.youtube.com/watch?v=UgANzoWc0nc), simulation-based search and expectimax trees; [about minute 19](https://www.youtube.com/watch?v=UgANzoWc0nc), MCTS, then UCT at about minute 25; [from about minute 35](https://www.youtube.com/watch?v=UgANzoWc0nc), AlphaGo, the rules of Go, self-play, and the neural networks. The AlphaZero wrap-up is in [the first dozen or so minutes of video 15](https://www.youtube.com/watch?v=FOlPpjNbHjE) (the video opens with a review quiz on DPO/RLHF, then from about minute 5 an AlphaZero mechanism review and from about minute 9 the technical details).
 
 ## How to self-study this
 
@@ -203,6 +205,7 @@ One thing to try tonight: write MCTS for tic-tac-toe, with UCT for selection and
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Minute marks became approximate, &t= links were removed, and video 15 now notes its opening DPO/RLHF quiz.
 
 ## References
 
@@ -210,5 +213,5 @@ One thing to try tonight: write MCTS for tic-tac-toe, with UCT for selection and
 - [CS234 Lecture 14 slides (Winter 2026, post-class)](https://web.stanford.edu/class/cs234/slides/lecture14post.pdf) — Go case study, PUCT move selection, self-play, the three evaluation questions, quizzes
 - [CS234 lecture materials page](https://web.stanford.edu/class/cs234/modules.html) — "Monte Carlo Tree Search and Conquering Go" unit
 - [CS234 course home page (Winter 2026)](https://web.stanford.edu/class/cs234/) — schedule: Week 8, "RL and MCTS"
-- [Stanford CS234 Spring 2024 video 14, "Multi-Agent Game Playing"](https://www.youtube.com/watch?v=UgANzoWc0nc) — public recording; chapters cover MCTS, UCT, and AlphaGo
+- [Stanford CS234 Spring 2024 video 14, "Multi-Agent Game Playing"](https://www.youtube.com/watch?v=UgANzoWc0nc) — public recording; the transcript covers MCTS, UCT, and AlphaGo
 - [Silver et al., Mastering the game of Go without human knowledge (Nature 2017)](https://www.nature.com/articles/nature24270) — source of every AlphaZero figure in the slides; the 100–0 result in the abstract

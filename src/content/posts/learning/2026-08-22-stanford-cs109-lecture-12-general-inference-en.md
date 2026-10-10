@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 15, "General Inference" (about 73K characters): it covers Bayesian networks, joint distributions and rejection sampling, and only mentions MCMC near the end as a more advanced algorithm, matching this lecture. The worksheet problems in this post (the larger WebMD network, rare-evidence collapse, 1-D Tracking) are not video content.
+
 ## P1: One more Bayes update
 
 The spam prior is `0.3`. A spam message contains `free` with probability `0.6`, versus `0.1` for not-spam:
@@ -159,6 +161,7 @@ The guide's six concepts are joint-table scale, Bayesian-network factorization, 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; MCMC is only mentioned at the end of the video and the worksheet problems are not video content.
 
 ## References
 

@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 10, "Normal Distribution" (about 75 minutes): it covers the Normal (Gaussian), standard deviation, Φ and the CDF, the Normal approximation to the binomial and continuity correction, matching this lecture. The transcript does not contain worksheet problems such as the submarine panel, which are not video content.
+
 ## P1: Review Exponential waiting time
 
 The wait for a server's next request is `T~Exp(0.5)` hours:
@@ -193,6 +195,7 @@ The guide's six concepts are Normal parameters, standardization and `Φ`, symmet
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; no claims needed changing.
 
 ## References
 

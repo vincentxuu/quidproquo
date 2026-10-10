@@ -41,6 +41,8 @@ title: Stanford CS109 Probability for Computer Scientists I Logistic Regression 
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 24「Logistic Regression」字幕（約 75K 字元）：影片講 Naive Bayes 與 logistic regression 的關係、sigmoid、log-likelihood 與 gradient ascent，與本講一致；字幕沒有 decision boundary 與 Gaussian prior／MAP，本文對應段落不是影片內容。
+
 ## P1：Poisson MLE warm-up
 
 五秒 counts `[3,1,4,2,5]` 的總和是 15。忽略與 `λ` 無關的常數後：
@@ -168,6 +170,7 @@ Machine learning 常把負的這個 objective 稱為 binary cross-entropy loss�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；decision boundary 與 MAP 段落非影片內容，已在標記中說明。
 
 ## 參考資料
 

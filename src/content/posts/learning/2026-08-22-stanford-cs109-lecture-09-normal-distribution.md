@@ -41,6 +41,8 @@ title: Stanford CS109 Probability for Computer Scientists I Normal Distribution 
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 10「Normal Distribution」字幕（約 75 分鐘）：影片講 Normal（Gaussian）、standard deviation、Φ 與 CDF、用 Normal 近似 binomial 與 continuity correction，與本講一致；字幕沒有 submarine panel 等 worksheet 題目，那些題目不是影片內容。
+
 ## P1：用 Exponential 複習銜接
 
 Server 下一次 request 的等待時間是 `T~Exp(0.5)` 小時，因此
@@ -193,6 +195,7 @@ P(W<5) = Φ((5-3)/√10) ≈ Φ(0.632) ≈ 0.736
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題一致，無需改動說法。
 
 ## 參考資料
 

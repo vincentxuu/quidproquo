@@ -23,7 +23,7 @@ draft: false
 
 ## 課程影片來源
 
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題只部分對應本講（見下方內容核對），但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=NHRoXvPaZqY
@@ -40,6 +40,8 @@ title: Stanford CS109 I Conditional Probability and Bayes I 2022 I Lecture 4
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 4「Conditional Probability and Bayes」字幕（約 75 分鐘）：影片對應官方 schedule 的題名 Bayes Theorem（條件機率、全機率公式、Bayes），但字幕幾乎沒有講 independence，也沒有 inclusion-exclusion，而本文 worksheet agenda 的核心正是這兩項，因此影片只能補 Bayes 前置概念，不能對應下文 worksheet 的主要內容。同一支影片也嵌在 Lecture 2。
 
 ## Worksheet agenda：這一講其實是 independence
 
@@ -66,6 +68,7 @@ Cloud City 題目把 independence 變成可從資料檢查的假設。先用 his
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片只對應 schedule 題名（Bayes），不涵蓋 worksheet 的 independence／inclusion-exclusion，已在說明中改為「部分對應」。
 
 ## 參考資料
 

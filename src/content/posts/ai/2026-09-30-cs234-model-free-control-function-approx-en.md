@@ -55,6 +55,8 @@ Course and recording entries:
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 4, "Q learning and Function Approximation" (about 68K characters): the video goes in order through Monte Carlo control and GLIE, SARSA, Q-learning, function approximation and the deadly triad, and only then DQN, matching this post (the first part, with DQN left to the next post). The page-by-page slide details were not compared with the video, and the Baird counterexample never appears in the transcript.
+
 ## Carrying policy iteration over to the model-free world
 
 Policy iteration with a model alternates "evaluate → improve greedily." L4 p. 17 points out three things that change without a model:
@@ -203,6 +205,7 @@ One thing to do tonight: just compute the 2.5 and the 5. Write out the SARSA and
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; the Baird counterexample is not video content, as the check note says.
 
 ## References
 

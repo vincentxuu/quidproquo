@@ -46,6 +46,8 @@ title: Stanford CS109 Probability for Computer Scientists I Continuous Random Va
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 9「Continuous Random Variables」字幕（約 76 分鐘）：影片講連續隨機變數、密度（PDF）、CDF、Uniform 與 Exponential（含地震例子），與本講一致；字幕沒有 memorylessness 和高維邊界（curse of dimensionality），本文對應的 worksheet 段落不是影片內容。
+
 ## P1：先從 Poisson counts 接回來
 
 靈長類研究者每天平均收集 15 份可用樣本，令 `X~Poi(15)`。正好十份的機率是
@@ -178,6 +180,7 @@ P(X>s+t | X>s)
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；memorylessness 與高維邊界段落非影片內容，已在標記中說明。
 
 ## 參考資料
 

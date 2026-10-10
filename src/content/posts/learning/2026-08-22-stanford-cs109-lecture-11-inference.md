@@ -53,6 +53,8 @@ title: Stanford CS109 Probability for Computer Scientists I Inference II I 2022 
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了兩支影片字幕：2022 Lecture 12「Inference」（約 75K 字元）講用 Bayes 更新 belief，結尾預告 Stanford Acuity Test；2022 Lecture 13「Inference II」講 belief 更新迴圈、Acuity Test、normalization、離散化與 due-date（baby）例子，與本講一致。字幕沒有 carbon dating 與 mutation clock，本文 P5、P6 不是影片內容。
+
 ## P1：一次 Bayes update
 
 袋子等機率裝著 Fair coin 或 Trick coin；兩者出現 heads 的機率分別為 `0.5` 與 `0.9`。觀察一次 heads 後：
@@ -185,6 +187,7 @@ Posterior 就是 prior 乘上 indicator 再正規化。所有 `d≤-17` 的 mass
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題一致；carbon dating 與 mutation clock 非影片內容，已在標記中說明。
 
 ## 參考資料
 

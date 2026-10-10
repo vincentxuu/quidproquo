@@ -40,7 +40,7 @@ glossary:
 - [第 6 講投影片](https://web.stanford.edu/class/cs234/slides/lecture6post.pdf)第 24–48 頁。這段標明取自 Joshua Achiam 的投影片，Brunskill 做了少量修改。
 - [第 7 講投影片](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf)第 1–24 頁（PPO 回顧、GAE、monotonic improvement theory、PPO 與策略梯度總結）
 - [A2 題目](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf)第 2.4 節（PPO）與第 3 題（策略誘導的分布）
-- 2024 公開錄影的[影片 06〈Policy Search 2〉](https://www.youtube.com/watch?v=8PwvNQ5WS-o)與[影片 07〈Policy Search 3〉](https://www.youtube.com/watch?v=4ngb0IZTg8I)。依 YouTube 章節，影片 06 後半（41:22 起）是單調改進、performance difference lemma 與 PPO clipped objective，影片 07 前 45 分鐘是 GAE 與單調改進的證明。
+- 2024 公開錄影的[影片 06〈Policy Search 2〉](https://www.youtube.com/watch?v=8PwvNQ5WS-o)與[影片 07〈Policy Search 3〉](https://www.youtube.com/watch?v=4ngb0IZTg8I)。依字幕，影片 06 後半（約第 41 分起）是單調改進、performance difference lemma 與 PPO clipped objective，影片 07 前 45 分鐘是 GAE 與單調改進的證明。
 
 存取等級 **A3**。第 7 講後半的模仿學習留給 [order 10](/posts/ai/2026-09-30-cs234-imitation-learning-irl)。
 
@@ -68,6 +68,8 @@ title: Lecture 7: Policy Search 3（Spring 2024，YouTube）
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
 Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 6「Policy Search 2」後段（約 53% 之後）講單調改進、performance difference lemma、KL／trust region 與 PPO clip，GAE 只在結尾被提到；Lecture 7「Policy Search 3」前半（約 55% 之前）講 GAE、單調改進與 PPO，之後才轉到模仿學習。與本文主題一致；「YouTube 章節」改為「字幕」，時間改為「約」值。
 
 ## 場景：一步走太大，表現就崩了
 
@@ -258,6 +260,7 @@ A2 第 2.4 節的 PPO 跟投影片的 clipped 變體是同一個目標，只是�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題一致；「YouTube 章節」改為「字幕」，時間改為「約」值。
 
 ## 參考資料
 

@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 25, "Deep Learning" (about 80K characters): the video presents a neural network as stacked logistic regressions trained with the sigmoid, MLE and the chain rule, matching this lecture's topic. Softmax is only mentioned briefly at the end (switching to softmax and a multinomial loss), and the word backpropagation never appears in the transcript, so the P2 softmax section and the layer-by-layer backprop hand calculations in P5 and P6 are not video content; there is also no calibration problem.
+
 ## P1: Calibration and baselines
 
 Among 60 predictions near 0.8, only 36 are positive, an observed fraction of 0.60. The bucket is uncalibrated and overconfident. Since 70% of the dataset is label 1, the always-positive baseline scores 0.70. Calibration constrains what a probability means, not whether thresholded decisions beat a baseline.
@@ -109,6 +111,7 @@ Finally compare logistic regression and networks by expressive power, parameter 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; softmax is only mentioned briefly, and backpropagation and the worksheet problems are not video content, as the check note says.
 
 ## References
 

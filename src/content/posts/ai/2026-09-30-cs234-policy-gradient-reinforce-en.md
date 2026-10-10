@@ -40,7 +40,7 @@ Official materials used:
 - Pages 22–61 of the [Lecture 5 slides](https://web.stanford.edu/class/cs234/slides/lecture5post.pdf) (policy gradients, score functions, REINFORCE, the start of baselines)
 - Pages 9–23 of the [Lecture 6 slides](https://web.stanford.edu/class/cs234/slides/lecture6post.pdf) (baseline derivation, vanilla PG, actor-critic)
 - The assigned reading, Chapter 13 of [Sutton & Barto, 2nd ed.](http://incompleteideas.net/book/the-book-2nd.html)
-- [Video 05, "Policy Search 1"](https://www.youtube.com/watch?v=L6OVEmV3NcE) and [video 06, "Policy Search 2"](https://www.youtube.com/watch?v=8PwvNQ5WS-o) from the public 2024 recordings. Per their YouTube chapters, video 05 runs from policy gradients and the likelihood ratio to REINFORCE and baselines, and the first half of video 06 continues with the baseline derivation and actor-critic.
+- [Video 05, "Policy Search 1"](https://www.youtube.com/watch?v=L6OVEmV3NcE) and [video 06, "Policy Search 2"](https://www.youtube.com/watch?v=8PwvNQ5WS-o) from the public 2024 recordings. Per their transcripts, video 05 runs from policy gradients and the likelihood ratio to REINFORCE and baselines, and the first half of video 06 continues with the baseline derivation and actor-critic.
 
 Access level is **A3**, with the same gaps as the rest of the series: the 2026 recordings are on Canvas only, and live poll results and Ed discussions are not public.
 
@@ -66,6 +66,8 @@ Course and recording entries:
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 5, "Policy Search 1" (about 61K characters), goes through policy gradients, the likelihood ratio/score function, REINFORCE and baselines, with a ChatGPT/PPO mention near the start; Lecture 6, "Policy Search 2" (about 66K characters), continues with baselines and actor-critic early on and turns to monotonic improvement and PPO later. Both match this post; "YouTube chapters" became "transcript".
 
 ## Why not keep learning values?
 
@@ -232,6 +234,7 @@ Vanilla PG throws away each batch after a single gradient step, and its step siz
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Both videos match the topic; "YouTube chapters" became "transcript".
 
 ## References
 

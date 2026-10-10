@@ -41,6 +41,8 @@ title: Stanford CS109 Probability for Computer Scientists I Beta I 2022 I Lectur
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 16「Beta」字幕（約 64K 字元）：影片講 Beta 作為成功率的 prior、posterior 更新、mode 與 Laplace 的「一正一反」平滑，與本講一致；Thompson sampling 在字幕裡只在結尾被簡短提到，並未講解，本文 P7 的 Thompson sampling 與 Multinomial 開場不是影片內容。
+
 ## P1：用 Multinomial 複習開場
 
 公平六面骰擲五次，恰好兩次 3、兩次 5、一次 6。其他三個 faces 的 counts 為零，因此
@@ -175,6 +177,7 @@ Guide 前三個 concept 是 probability-as-random-variable、continuous-paramete
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；Thompson sampling 影片只一語帶過，已在標記中說明。
 
 ## 參考資料
 

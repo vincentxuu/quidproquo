@@ -30,7 +30,7 @@ glossary:
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的投影片；公開錄影是 [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)，本篇對應第 11 支「Exploration 1」（依 YouTube 章節，內容是 multi-armed bandit、regret、ε-greedy 與 UCB1）。所有事實都在 2026-09-30 打開 [Lecture 9 投影片](https://web.stanford.edu/class/cs234/slides/lecture9post.pdf)（post 版，53 頁）與 [Lecture 10 投影片](https://web.stanford.edu/class/cs234/slides/lecture10post.pdf)（post 版，41 頁，本篇用 p.1–17）核對。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片與補充讀物都公開；2026 錄影只在 Canvas 給修課生。
+> **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的投影片；公開錄影是 [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)，本篇對應第 11 支「Exploration 1」（依字幕，內容是 multi-armed bandit、regret、ε-greedy 與 UCB1）。所有事實都在 2026-09-30 打開 [Lecture 9 投影片](https://web.stanford.edu/class/cs234/slides/lecture9post.pdf)（post 版，53 頁）與 [Lecture 10 投影片](https://web.stanford.edu/class/cs234/slides/lecture10post.pdf)（post 版，41 頁，本篇用 p.1–17）核對。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片與補充讀物都公開；2026 錄影只在 Canvas 給修課生。
 
 **系列位置**：上一篇 [A3：Hopper 上的 reward engineering、RLHF、DPO 與 best arm identification](/posts/ai/2026-09-30-cs234-a3-rlhf-dpo-bandits)｜下一篇 [資料效率 II：Thompson sampling、Bayesian bandit、Gittins](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
 
@@ -38,7 +38,7 @@ glossary:
 
 L9 開頭列出四種評估演算法的方式：會不會收斂、會不會收斂到最佳策略、多快到達最佳策略、過程中犯多少錯。前兩種課程已經談過，L9 開始處理後兩種。這一講的標題是「Data Efficient Reinforcement Learning」，講義頁把 L9 到 L12 歸在同一個「Data Efficient RL」單元，並列出 [Bandit Algorithms](https://tor-lattimore.com/downloads/book/book.pdf) 第 7.1 節當補充讀物。
 
-Brunskill 在 L9 說得很清楚，為什麼先講 bandit：它是看清這些想法最簡單的地方，而這些想法之後會延伸到 MDP。
+2024 影片裡，Brunskill 稱 bandit 是「很簡單的設定」，並在結尾說這些想法可以延伸到函數近似與 RL 等更複雜的情境。先講 bandit 的理由就在這裡：它是看清這些想法最簡單的地方，而這些想法之後會延伸到 MDP。
 
 ## 課程影片來源
 
@@ -57,6 +57,8 @@ title: Stanford CS234 Spring 2024 播放清單第 11 支「Exploration 1」
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
 Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 11「Exploration 1」字幕（Emma Brunskill 主講，約 75 分鐘）：確認影片講 bandit 設定、骨折治療例子、regret、greedy 與 ε-greedy、下界、optimism 與以信賴界做的 UCB，主題與本文一致；字幕沒有 COVID 邊境檢測案例，也沒有 sub-Gaussian 的字眼，這些是本文依 2026 投影片寫的，不是影片內容。
 
 ## 設定：只做一個決定的 RL
 
@@ -228,6 +230,7 @@ L10 p.5–6 放了一個真實案例：[Bastani et al. 在 Nature 發表的 COVI
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；已把 Brunskill 開場那句話改為有字幕依據的說法，「YouTube 章節」改為「字幕」。
 
 ## 參考資料
 

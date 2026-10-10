@@ -41,6 +41,8 @@ title: Stanford CS109 Probability for Computer Scientists I M.L.E. I 2022 I Lect
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 21「M.L.E.」字幕（約 71K 字元）：影片講 likelihood、log-likelihood、argmax 與用微分求 MLE（Bernoulli、Poisson、Gaussian 等），與本講一致；字幕沒有 geometric、Rayleigh、邊界解或 negative binomial，也沒有 gradient ascent，本文對應的 worksheet 段落不是影片內容。
+
 ## P1：用 entropy 接回上一講
 
 均勻分布在四個值上：
@@ -162,6 +164,7 @@ Wrap-up 可要求一題串起：辨認 model 與 `θ`、寫 likelihood／log-lik
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；geometric、Rayleigh、邊界解與 gradient ascent 非影片內容，已在標記中說明。
 
 ## 參考資料
 

@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 4, "Conditional Probability and Bayes" (Chris Piech, about 75 minutes): it covers conditional probability, the chain rule, the law of total probability and Bayes, matching this lecture's topic. The worksheet sections come from the Summer 2026 official problems, not from the video.
+
 ## Worksheet agenda: conditioning, chain rule, total probability, and Bayes
 
 The opening die problem reviews sets so that the numerator P(E∩F) has a concrete meaning. The second problem then compares three dice questions. Unconditionally, five ordered pairs sum to eight. Given that the first die is five, only six outcomes remain and only a second die of three succeeds. Given that at least one die is five, eleven outcomes remain and both (5,3) and (3,5) succeed. Similar English conditions produce different answers because they retain different sample spaces.
@@ -64,6 +66,7 @@ Multiplying along branches is the chain rule. Adding disjoint paths to one label
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; no claims needed changing.
 
 ## References
 

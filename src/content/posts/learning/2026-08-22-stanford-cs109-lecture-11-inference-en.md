@@ -53,6 +53,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: 2022 Lecture 12, "Inference", covers updating beliefs with Bayes and ends by previewing the Stanford Acuity Test; 2022 Lecture 13, "Inference II", covers the belief-update loop, the Acuity Test, normalization, discretization and the due-date (baby) example, matching this lecture. Neither transcript contains carbon dating or the mutation clock, so P5 and P6 in this post are not video content.
+
 ## P1: One Bayes update
 
 A bag is equally likely to contain a Fair or Trick coin, whose head probabilities are `0.5` and `0.9`. After one head,
@@ -185,6 +187,7 @@ The guide's six concepts are belief updating, the belief-table loop, normalizati
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. Both videos match the topic; carbon dating and the mutation clock are not video content, as the check note says.
 
 ## References
 

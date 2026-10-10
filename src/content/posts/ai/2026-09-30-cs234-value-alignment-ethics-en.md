@@ -47,7 +47,7 @@ Access grade **A3 (enough to self-study)**, as defined in the [global AI/CS cour
 - There's no public recording of the 2026 guest lecture (2026 recordings are on Canvas only)
 - Week 10 on the schedule says "Alignment, Impacts," but the L15 and L16 PDFs on the lecture materials page both returned 404 on 2026-09-30, so this post relies only on the two guest decks above
 - Several slides are images or discussion questions with no speaker's answer; I report the questions as asked and don't supply conclusions for the speaker
-- The matching video in the public 2024 playlist is [video 15, "Emma Brunskill & Dan Webber"](https://www.youtube.com/watch?v=FOlPpjNbHjE). Per its YouTube chapters, the first 15 minutes wrap up AlphaZero, and [from 15:24](https://www.youtube.com/watch?v=FOlPpjNbHjE&t=924s) Dan Webber covers value alignment: misalignment, defining AI goals, aligning to preferences (28:28), aligning to interests (36:13), an LLM personalization study (40:57), and social and moral alignment (58:34). That broadly tracks the 2026 slides; the chapters don't show whether sycophancy or agentic AI come up. [Video 16](https://www.youtube.com/watch?v=eenJzay5aLo), despite its "Value Alignment" title, is chaptered as a quiz review, a course recap, and RL case studies, not this post's material
+- The matching video in the public 2024 playlist is [video 15, "Emma Brunskill & Dan Webber"](https://www.youtube.com/watch?v=FOlPpjNbHjE). Per the transcript, the video opens with a DPO/RLHF review quiz and an AlphaZero wrap-up (roughly the first 15 minutes), and [from about minute 15](https://www.youtube.com/watch?v=FOlPpjNbHjE) Dan Webber covers value alignment: misalignment, defining AI goals, aligning to preferences (about minute 28), aligning to interests (about minute 36), an LLM personalization study (about minute 41), and social and moral alignment (about minute 59). That broadly tracks the 2026 slides; the word sycophancy never appears in the transcript, and this post has not checked agentic AI segment by segment. [Video 16](https://www.youtube.com/watch?v=eenJzay5aLo), despite its "Value Alignment" title, is, per its transcript, a quiz review, a course recap, and RL case studies, not this post's material
 
 ## Course video sources
 
@@ -70,6 +70,8 @@ Course and recording entries:
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: Lecture 15 (about 74 minutes, Emma Brunskill and Dan Webber) opens with a DPO/RLHF review quiz and an AlphaZero wrap-up, then from about 22% Dan Webber covers value alignment (paperclips, intentions, preferences, best interests, morals and ethics), broadly the same theme as this post, and the word sycophancy never appears in the transcript; Lecture 16 (about 70 minutes) is the final lecture, a course recap with a quiz discussion and RL applications, not value alignment. mm:ss timestamps became approximate values and the &t= links were removed, "YouTube chapters" became "transcript", and the "chapters don't show sycophancy" remark was corrected.
 
 ## Why an RL course covers this
 
@@ -200,6 +202,7 @@ One thing to try tonight: open a recommender or AI assistant you use often, writ
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Timestamps became approximate and &t= links were removed; the opening of video 15 and the sycophancy remark were corrected.
 
 ## References
 
@@ -209,6 +212,6 @@ One thing to try tonight: open a recommender or AI assistant you use often, writ
 - [CS234 lecture materials page](https://web.stanford.edu/class/cs234/modules.html) — Ethics and Society Guest Lecture unit
 - [CS234 course home page (Winter 2026)](https://web.stanford.edu/class/cs234/) — Week 10 on the schedule: "Alignment, Impacts"
 - [CS234 assignments page](https://web.stanford.edu/class/cs234/assignments.html) — question PDFs for A1 Q2, A2 Q4, and A3 Q5
-- [Stanford CS234 Spring 2024 video 15, "Emma Brunskill & Dan Webber"](https://www.youtube.com/watch?v=FOlPpjNbHjE) and [video 16, "Value Alignment"](https://www.youtube.com/watch?v=eenJzay5aLo) — public recordings; value alignment starts at 15:24 in video 15, and video 16 is chaptered as a course recap
+- [Stanford CS234 Spring 2024 video 15, "Emma Brunskill & Dan Webber"](https://www.youtube.com/watch?v=FOlPpjNbHjE) and [video 16, "Value Alignment"](https://www.youtube.com/watch?v=eenJzay5aLo) — public recordings; value alignment starts at about minute 15 in video 15, and video 16 is, per its transcript, a course recap
 - [Gabriel, Artificial Intelligence, Values and Alignment (2020)](https://arxiv.org/abs/2001.09768) — quoted in the lecture on needing a complete model of human language and interaction
 - [Jobin, Ienca & Vayena, The global landscape of AI ethics guidelines (Nature Machine Intelligence 2019)](https://www.nature.com/articles/s42256-019-0088-2) — the survey of 84 guidelines cited in Part II

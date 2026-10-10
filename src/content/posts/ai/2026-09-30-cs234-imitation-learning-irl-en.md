@@ -34,7 +34,7 @@ glossary:
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
-> **Edition note**: this guide follows the [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 slides: [Lecture 7](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf) pp.25–62 and [Lecture 8](https://web.stanford.edu/class/cs234/slides/lecture8post.pdf) pp.6–17 (PDF page numbers). The 2026 recordings are for enrolled students only. The public recordings are videos 7 and 8 of the [Spring 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX), used here only as a listening supplement, with timestamps taken from the YouTube chapter markers. Access level **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Every fact was checked on 2026-09-30 against those PDFs and video pages.
+> **Edition note**: this guide follows the [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 slides: [Lecture 7](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf) pp.25–62 and [Lecture 8](https://web.stanford.edu/class/cs234/slides/lecture8post.pdf) pp.6–17 (PDF page numbers). The 2026 recordings are for enrolled students only. The public recordings are videos 7 and 8 of the [Spring 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX), used here only as a listening supplement, with approximate minute marks estimated from where the topics fall in the transcript. Access level **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Every fact was checked on 2026-09-30 against those PDFs and video pages.
 
 **Series**: previous [A2: implementing REINFORCE, a baseline, and PPO](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo-en) | next [Learning from human preferences: Bradley-Terry, RLHF, DPO](/posts/ai/2026-09-30-cs234-rlhf-dpo-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
 
@@ -48,15 +48,15 @@ This article uses Winter 2026 materials. The public Spring 2024 recordings below
 
 ```youtube
 url: https://www.youtube.com/watch?v=4ngb0IZTg8I
-title: from 45:26, "Introduction to imitation learning"
+title: from about minute 45, "Introduction to imitation learning"
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=IEbuJtjqtMU
-title: from 4:28
+title: from about minute 4
 ```
 
-Original videos: [from 45:26, "Introduction to imitation learning"](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[from 4:28](https://www.youtube.com/watch?v=IEbuJtjqtMU)
+Original videos: [from about minute 45, "Introduction to imitation learning"](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[from about minute 4](https://www.youtube.com/watch?v=IEbuJtjqtMU)
 
 Course and recording entries:
 
@@ -65,19 +65,21 @@ Course and recording entries:
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 7, "Policy Search 3" (about 79 minutes), spends its first part on GAE and monotonic improvement, only starts imitation learning after roughly 55% (behavior cloning, ALVINN, DAgger) and reaches IRL and feature matching in about the last 15%; Lecture 8, "Offline RL 1" (about 74 minutes), opens with an imitation-learning recap and MaxEnt IRL and turns to RLHF after roughly 70%. Every mm:ss timestamp is now an approximate value estimated from where topics fall in the transcript, the &t= links are removed, and "YouTube chapters" became "transcript"; the claim that the video is more detailed than the slides was removed because that comparison was not made.
+
 ## Slide ranges and the 2024 videos
 
 The 2026 PDF boundaries do not match the topics, so this post cuts by topic:
 
-| 2026 slides | Content | Spring 2024 video (chapter times) |
+| 2026 slides | Content | Spring 2024 video (approximate times) |
 |---|---|---|
-| L7 pp.26–30 | Learning from past decisions, reward shaping, problem setup | Video 07 [from 45:26, "Introduction to imitation learning"](https://www.youtube.com/watch?v=4ngb0IZTg8I&t=2726s) |
-| L7 pp.31–39 | Behavioral cloning, ALVINN, compounding errors, DAgger | Video 07 50:03–1:03:48 |
-| L7 pp.40–50 | Reward learning, linear-feature IRL, feature matching, ambiguity | Video 07 [from 1:03:48](https://www.youtube.com/watch?v=4ngb0IZTg8I&t=3828s) |
-| L7 pp.51–62 | MaxEnt IRL, from IRL to policies, summary | Video 08 [from 4:28](https://www.youtube.com/watch?v=IEbuJtjqtMU&t=268s) to 52:26 |
-| L8 pp.6–17 | "How Can RL Enable Transformative LLM?", DAgger and feature-reward recap, Imitation Learning Summary | Video 08 has a matching overview at 1:11–4:28 |
+| L7 pp.26–30 | Learning from past decisions, reward shaping, problem setup | Video 07 [from about minute 45, "Introduction to imitation learning"](https://www.youtube.com/watch?v=4ngb0IZTg8I) |
+| L7 pp.31–39 | Behavioral cloning, ALVINN, compounding errors, DAgger | Video 07 about minutes 50–64 |
+| L7 pp.40–50 | Reward learning, linear-feature IRL, feature matching, ambiguity | Video 07 [from about minute 64](https://www.youtube.com/watch?v=4ngb0IZTg8I) |
+| L7 pp.51–62 | MaxEnt IRL, from IRL to policies, summary | Video 08 [from about minute 4](https://www.youtube.com/watch?v=IEbuJtjqtMU) to about minute 52 |
+| L8 pp.6–17 | "How Can RL Enable Transformative LLM?", DAgger and feature-reward recap, Imitation Learning Summary | Video 08 has a matching overview in its first few minutes |
 
-Video 08 is titled "Offline RL 1" in the playlist, but its YouTube chapters show MaxEnt IRL and the start of RLHF. The 2026 slides have no dedicated offline RL lecture, and this post does not invent 2026 content for it.
+Video 08 is titled "Offline RL 1" in the playlist, but its transcript shows MaxEnt IRL and the start of RLHF. The 2026 slides have no dedicated offline RL lecture, and this post does not invent 2026 content for it.
 
 ## Why learn from demonstrations
 
@@ -196,7 +198,7 @@ The next post picks up there. Replace "expert demonstrations" with "a human says
 
 1. Read L7 pp.26–39 and stop at DAgger's "Key limitation?" Write your answer down before moving on.
 2. For pp.40–50, copy the three-line derivation of V^π = wᵀμ(π) onto paper. The Hölder step in feature matching is one line.
-3. Pair the MaxEnt section (pp.51–59) with the chapters from "Max entropy IRL math" through "Max entropy IRL algorithm" in 2024 video 08. The video walks through the gradient derivation in more detail than the slides.
+3. Pair the MaxEnt section (pp.51–59) with the part of 2024 video 08 that derives MaxEnt IRL and its gradient (about minutes 25–46, estimated from the transcript). This post has not compared how detailed the video is against the slides page by page.
 4. For hands-on practice: CS234's assignments have no imitation-learning question, but [CS224R HW1](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger-en) has you implement BC and DAgger.
 
 One thing to do tonight: make a table of what BC, DAgger, and IRL each need. Do they need the transition model? An expert on call? Interaction with the environment? That table is the answer key for every "Check your understanding" in L7.
@@ -210,14 +212,15 @@ One thing to do tonight: make a table of what BC, DAgger, and IRL each need. Do 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Timestamps became approximate and &t= links were removed; the unverified "more detailed than the slides" claim was dropped.
 
 ## References
 
 - [CS234 Lecture 7 slides (post version, Winter 2026)](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf) — pp.25–62: reward shaping, BC, compounding errors, DAgger, linear IRL, feature matching, MaxEnt IRL
 - [CS234 Lecture 8 slides (post version, Winter 2026)](https://web.stanford.edu/class/cs234/slides/lecture8post.pdf) — pp.6–17: the LLM bridge slide and the imitation learning summary
 - [CS234 course home page (Winter 2026)](https://web.stanford.edu/class/cs234/) — schedule (Week 4, "Offline RL, Imitation Learning")
-- [Stanford CS234 Spring 2024 Lecture 7, "Policy Search 3"](https://www.youtube.com/watch?v=4ngb0IZTg8I) — second half covers imitation learning, DAgger, and IRL (per YouTube chapters)
-- [Stanford CS234 Spring 2024 Lecture 8, "Offline RL 1"](https://www.youtube.com/watch?v=IEbuJtjqtMU) — chapters show MaxEnt IRL and the start of RLHF
+- [Stanford CS234 Spring 2024 Lecture 7, "Policy Search 3"](https://www.youtube.com/watch?v=4ngb0IZTg8I) — second half covers imitation learning, DAgger, and IRL (per the transcript)
+- [Stanford CS234 Spring 2024 Lecture 8, "Offline RL 1"](https://www.youtube.com/watch?v=IEbuJtjqtMU) — the transcript shows MaxEnt IRL and the start of RLHF
 - [Ross & Bagnell, Efficient Reductions for Imitation Learning (AISTATS 2010)](http://www.cs.cmu.edu/~sross1/publications/Ross-AIStats10-paper.pdf) — the compounding-error theorem cited in the slides
 - [Ross, Gordon & Bagnell, A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning (2011)](https://arxiv.org/abs/1011.0686) — DAgger
 - [Abbeel & Ng, Apprenticeship Learning via Inverse Reinforcement Learning (ICML 2004)](https://ai.stanford.edu/~ang/papers/icml04-apprentice.pdf) — feature matching

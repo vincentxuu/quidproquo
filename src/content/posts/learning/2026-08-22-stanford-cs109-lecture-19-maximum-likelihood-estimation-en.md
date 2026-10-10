@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 21, "M.L.E." (about 71K characters): it covers likelihood, log-likelihood, argmax and finding the MLE by differentiation (Bernoulli, Poisson, Gaussian and others), matching this lecture. The transcript has no geometric, Rayleigh, boundary-solution or negative-binomial material and no gradient ascent, so the matching worksheet sections in this post are not video content.
+
 ## P1: Connect entropy to parameter learning
 
 For a uniform distribution over four values:
@@ -162,6 +164,7 @@ For the wrap-up, request one problem chaining model and `θ` identification, lik
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; geometric, Rayleigh, boundary solutions and gradient ascent are not video content, as the check note says.
 
 ## References
 

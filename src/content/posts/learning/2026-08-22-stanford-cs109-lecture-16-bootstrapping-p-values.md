@@ -41,6 +41,8 @@ title: Stanford CS109 Probability for Computer Scientists I Bootstraping and P-V
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 19「Bootstrapping and P-Values」字幕（約 70K 字元）：影片先講 sample variance／standard error，接著 bootstrap，結尾引入 null hypothesis 與 p-value，與本講一致；字幕沒有 median 與 compiler flag 例子，本文 P4、P5 不是影片內容。
+
 ## P1：用 CLT 複習 checkout totals
 
 一百筆 IID checkout item counts 各有 mean 3、variance 4。總和 `S` 依 CLT：
@@ -175,6 +177,7 @@ Frequentist bootstrap 則把五個 ones、十個 zeros 當 empirical sample，�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；median、compiler flag 題目非影片內容，已在標記中說明。
 
 ## 參考資料
 

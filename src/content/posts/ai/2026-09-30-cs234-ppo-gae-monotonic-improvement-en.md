@@ -40,7 +40,7 @@ Official materials used:
 - Pages 24–48 of the [Lecture 6 slides](https://web.stanford.edu/class/cs234/slides/lecture6post.pdf). This section is marked as taken from Joshua Achiam's slides, with minor modifications by Brunskill.
 - Pages 1–24 of the [Lecture 7 slides](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf) (PPO recap, GAE, monotonic improvement theory, PPO and policy gradient summaries)
 - Section 2.4 (PPO) and Question 3 (distributions induced by a policy) of the [A2 handout](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf)
-- [Video 06, "Policy Search 2"](https://www.youtube.com/watch?v=8PwvNQ5WS-o) and [video 07, "Policy Search 3"](https://www.youtube.com/watch?v=4ngb0IZTg8I) from the public 2024 recordings. Per their YouTube chapters, the second half of video 06 (from 41:22) covers monotonic improvement, the performance difference lemma, and the PPO clipped objective, and the first 45 minutes of video 07 cover GAE and the monotonic improvement proof.
+- [Video 06, "Policy Search 2"](https://www.youtube.com/watch?v=8PwvNQ5WS-o) and [video 07, "Policy Search 3"](https://www.youtube.com/watch?v=4ngb0IZTg8I) from the public 2024 recordings. Per their transcripts, the second half of video 06 (from about minute 41) covers monotonic improvement, the performance difference lemma, and the PPO clipped objective, and the first 45 minutes of video 07 cover GAE and the monotonic improvement proof.
 
 Access level is **A3**. The imitation learning half of Lecture 7 is covered in [Part 10](/posts/ai/2026-09-30-cs234-imitation-learning-irl-en).
 
@@ -68,6 +68,8 @@ Course and recording entries:
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: in Spring 2024 Lecture 6, "Policy Search 2", the later part (after about 53%) covers monotonic improvement, the performance difference lemma, KL/trust regions and the PPO clip, with GAE only mentioned at the very end; the first half of Lecture 7, "Policy Search 3" (before about 55%), covers GAE, monotonic improvement and PPO before turning to imitation learning. Both match this post; "YouTube chapters" became "transcript" and the minute mark is now approximate.
 
 ## The scenario: one step too far and performance collapses
 
@@ -258,6 +260,7 @@ The full assignment walkthrough is in the [A2 post](/posts/ai/2026-09-30-cs234-a
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Both videos match the topic; "YouTube chapters" became "transcript" and the minute mark is approximate.
 
 ## References
 

@@ -51,7 +51,7 @@ glossary:
 - 2026 客座沒有公開錄影（2026 錄影只在 Canvas）
 - 課表 Week 10 標著「Alignment, Impacts」，但講義頁上 L15、L16 的 PDF 在 2026-09-30 查核時都是 404，所以本文只能依據上面兩份客座投影片
 - 投影片有好幾頁是圖片或討論題，沒有講者的答案；本文照實寫出題目，不替講者補結論
-- 2024 公開播放清單裡真正對應的是[影片 15〈Emma Brunskill & Dan Webber〉](https://www.youtube.com/watch?v=FOlPpjNbHjE)：依 YouTube 章節，前 15 分鐘是 AlphaZero 收尾，[15:24 起](https://www.youtube.com/watch?v=FOlPpjNbHjE&t=924s)是 Dan Webber 的 value alignment，章節依序是 misalignment、定義 AI 目標、對齊偏好（28:28）、對齊最佳利益（36:13）、LLM 個人化研究（40:57）、社會與道德對齊（58:34），跟 2026 投影片的主軸大致相同；sycophancy 與 agentic AI 有沒有講到，章節看不出來。標題叫〈Value Alignment〉的[影片 16](https://www.youtube.com/watch?v=eenJzay5aLo)章節實際是小考檢討、課程回顧與 RL 應用案例，不是本篇的內容
+- 2024 公開播放清單裡真正對應的是[影片 15〈Emma Brunskill & Dan Webber〉](https://www.youtube.com/watch?v=FOlPpjNbHjE)：依字幕，開頭先是 DPO／RLHF 小測回顧與 AlphaZero 收尾（約前 15 分鐘），[約第 15 分起](https://www.youtube.com/watch?v=FOlPpjNbHjE)是 Dan Webber 的 value alignment，主題依序是 misalignment、定義 AI 目標、對齊偏好（約第 28 分）、對齊最佳利益（約第 36 分）、LLM 個人化研究（約第 41 分）、社會與道德對齊（約第 59 分），跟 2026 投影片的主軸大致相同；字幕裡沒有出現 sycophancy 這個詞，agentic AI 本站沒有逐段確認。標題叫〈Value Alignment〉的[影片 16](https://www.youtube.com/watch?v=eenJzay5aLo)字幕實際是小考檢討、課程回顧與 RL 應用案例，不是本篇的內容
 
 ## 課程影片來源
 
@@ -74,6 +74,8 @@ title: 影片 16〈Value Alignment〉
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
 Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Lecture 15（約 74 分鐘，Emma Brunskill 與 Dan Webber）一開始是 DPO／RLHF 小測回顧與 AlphaZero 收尾，約 22% 之後 Dan Webber 講 value alignment（paperclip、意圖、偏好、最佳利益、道德與倫理），與本文主題大致相同，字幕裡沒有 sycophancy 這個詞；Lecture 16（約 70 分鐘）是最後一講，內容為課程回顧、小考討論與 RL 應用，不是 value alignment。已把 mm:ss 時間碼改成「約」值並移除 &t= 連結、「YouTube 章節」改為「字幕」，並更正「sycophancy 章節看不出來」的說法。
 
 ## 為什麼 RL 課要談這個
 
@@ -204,6 +206,7 @@ bottom-up 的延伸是 participatory AI，把「向人學習」擴大成：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。時間碼改為「約」值、移除 &t= 連結；更正影片 15 開頭內容與 sycophancy 的說法。
 
 ## 參考資料
 
@@ -213,6 +216,6 @@ bottom-up 的延伸是 participatory AI，把「向人學習」擴大成：
 - [CS234 講義頁](https://web.stanford.edu/class/cs234/modules.html) — Ethics and Society Guest Lecture 單元
 - [CS234 課程首頁（Winter 2026）](https://web.stanford.edu/class/cs234/) — 課表 Week 10「Alignment, Impacts」
 - [CS234 作業頁](https://web.stanford.edu/class/cs234/assignments.html) — A1 Q2、A2 Q4、A3 Q5 的題目 PDF
-- [Stanford CS234 Spring 2024 影片 15〈Emma Brunskill & Dan Webber〉](https://www.youtube.com/watch?v=FOlPpjNbHjE)與[影片 16〈Value Alignment〉](https://www.youtube.com/watch?v=eenJzay5aLo) — 公開錄影；value alignment 在影片 15 的 15:24 起，影片 16 依章節是課程回顧
+- [Stanford CS234 Spring 2024 影片 15〈Emma Brunskill & Dan Webber〉](https://www.youtube.com/watch?v=FOlPpjNbHjE)與[影片 16〈Value Alignment〉](https://www.youtube.com/watch?v=eenJzay5aLo) — 公開錄影；value alignment 在影片 15 約第 15 分起，影片 16 依字幕是課程回顧
 - [Gabriel, Artificial Intelligence, Values and Alignment (2020)](https://arxiv.org/abs/2001.09768) — 客座引用的「掌握意圖需要完整的人類語言與互動模型」
 - [Jobin, Ienca & Vayena, The global landscape of AI ethics guidelines (Nature Machine Intelligence 2019)](https://www.nature.com/articles/s42256-019-0088-2) — 客座 Part II 引用的 84 份準則整理

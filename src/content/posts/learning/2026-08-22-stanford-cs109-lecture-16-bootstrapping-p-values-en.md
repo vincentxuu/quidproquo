@@ -41,6 +41,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 19, "Bootstrapping and P-Values" (about 70K characters): it starts with sample variance and standard error, then bootstrapping, and introduces the null hypothesis and p-values near the end, matching this lecture. The transcript has no median or compiler-flag examples, so P4 and P5 in this post are not video content.
+
 ## P1: Review a CLT for checkout totals
 
 One hundred IID checkout counts each have mean three and variance four. For total `S`,
@@ -175,6 +177,7 @@ The six concepts are population/sample/statistic, unbiased variance, SE, the boo
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; the median and compiler-flag problems are not video content, as the check note says.
 
 ## References
 

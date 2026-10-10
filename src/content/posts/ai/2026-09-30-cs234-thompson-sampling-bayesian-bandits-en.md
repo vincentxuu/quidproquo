@@ -31,7 +31,7 @@ glossary:
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
-> **Version note**: This post is based on the Winter 2026 slides of [CS234](https://web.stanford.edu/class/cs234/). The public recordings are the [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX); this post corresponds to video 12, "Exploration 2" (per its YouTube chapters: limits of UCB, PAC, optimistic initialization, Bayesian bandits, and Thompson sampling). Every fact was checked on 2026-09-30 against the [Lecture 11 slides](https://web.stanford.edu/class/cs234/slides/lecture11post.pdf) (post-class, 50 pages). The PDF's title page says "Lecture 13" and notes below it, "Typo: Lecture 11". Access grade **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides are public; the 2026 recordings are on Canvas for enrolled students only.
+> **Version note**: This post is based on the Winter 2026 slides of [CS234](https://web.stanford.edu/class/cs234/). The public recordings are the [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX); this post corresponds to video 12, "Exploration 2" (per the transcript: limits of UCB, PAC, optimistic initialization, Bayesian bandits, and Thompson sampling). Every fact was checked on 2026-09-30 against the [Lecture 11 slides](https://web.stanford.edu/class/cs234/slides/lecture11post.pdf) (post-class, 50 pages). The PDF's title page says "Lecture 13" and notes below it, "Typo: Lecture 11". Access grade **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides are public; the 2026 recordings are on Canvas for enrolled students only.
 
 **Series**: previous [Data efficiency I: bandits, regret, UCB](/posts/ai/2026-09-30-cs234-bandits-regret-ucb-en) | next [Data efficiency III: PAC, MBIE-EB, PSRL, and strategic exploration in MDPs](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
 
@@ -56,6 +56,8 @@ Course and recording entries:
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
 The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 12, "Exploration 2" (about 65K characters): it goes through the UCB recap and regret, PAC, optimistic initialization, Bayesian bandits (Beta priors, the fracture example), Thompson sampling and probability matching, with Gittins only mentioned briefly at the end, matching this post; "YouTube chapters" became "transcript".
 
 ## Opening: a quiz on deterministic rewards
 
@@ -215,6 +217,7 @@ One thing you can do tonight: write a 20-line Bernoulli Thompson sampler with nu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; "YouTube chapters" became "transcript".
 
 ## References
 

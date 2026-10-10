@@ -53,6 +53,8 @@ title: Spring 2024 Lecture 2: Tabular MDP Planning（YouTube，補充）
 
 Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 2「Tabular MDP Planning」字幕（約 65K 字元）：確認影片講 Markov reward process、policy evaluation、policy iteration 與單調改進、value iteration 與 contraction、finite horizon 與 Mars rover 例子，主題與本文一致；本文逐題的小測與證明細節來自 2026 投影片，未逐項對照影片。
+
 ## 先回答暖身題：γ 大代表什麼
 
 投影片第一個小測驗：「在 MDP 裡，折扣因子 γ 大，代表短期獎勵比長期獎勵影響大得多。」答案是**錯**。γ 大代表更重視延遲的長期獎勵；γ = 0 才只看即時獎勵。
@@ -296,6 +298,7 @@ k = 1
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片主題一致，無需改動說法。
 
 ## 參考資料
 

@@ -41,6 +41,8 @@ title: Stanford CS109 Probability for Computer Scientists I What is Probability?
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 3「What is Probability?」字幕（Chris Piech 主講，約 75 分鐘）：確認影片講樣本空間、事件、等可能結果、兩顆骰子點數和的陷阱與機率公理，主題與本講一致；影片後段另開始介紹計數（step rule），本文未對此下說法。本文 worksheet 各題內容來自 Summer 2026 官方題目，不是影片內容。
+
 ## Worksheet agenda：從列結果到公理
 
 第一題用三次擲硬幣固定「事件是樣本空間的子集合」。八個序列是等可能的原子結果；「至少兩次正面」包含 HHH、HHT、HTH、THH，「第一次反面」包含 THH、THT、TTH、TTT。兩事件交集是 THH，因此不是互斥。這個小題同時要求三個動作：完整列出樣本空間、把自然語言翻成集合、用交集判斷互斥，而不是看兩句話聽起來是否衝突。
@@ -66,6 +68,7 @@ title: Stanford CS109 Probability for Computer Scientists I What is Probability?
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。影片主題與本講一致，無需改動說法。
 
 ## 參考資料
 
