@@ -621,3 +621,7 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 ## 2026-10-11 封存：未提交改動整理 2026-10-10 條目（progress.txt 行數上限）
 
 - **未提交改動整理 2026-10-10**：本機同步遠端24筆提交，消除1,521個既有版本重複修改；50篇文章修正已提交 `da5f09bf`，12篇模型家族雙語草稿已提交 `47bcda8a`（draft:true，完整事實審稿待續）。完整 pnpm verify 與兩筆 hook 全綠；未 push／deploy。原始快照 stash `74074e53`、盤點紀錄 `/tmp/quidproquo-commit-audit/` 保留；44個研究／工作產物項目未追蹤。
+
+## 2026-10-11 封存：daily-digest-funding 2026-10-10 條目（progress.txt 行數上限）
+
+- **daily-digest-funding 2026-10-10**：三組 Groundlane `web_search`（通用融資／Agent 特定／businesswire+prnewswire）＋aifunding.me 交叉比對後，當天榜上的 Manus／Nous Research／Rein Security 皆已被 10-09 的 funding routine 搶先報導過（grep 全站確認重複），改選兩筆尚未寫過、各有 3+ 獨立來源確認的事件：**Arena**（原 LMArena，AI 模型評測平台，$200M Series B，估值 $3.1B，較 10 個月前的 Series A 近乎翻倍，Lightspeed／Khosla 共同領投，TechCrunch＋MLQ News＋Dealroom 三方確認，建議加入 watchlist B6）、**Gallatin AI**（軍事後勤決策支援平台 Navigator，$50M Series A，8VC／Silent Ventures 領投，累計 $70M，Axios＋PRNewswire 官方稿＋Defense Daily 三方確認，建議加入 watchlist section E）。兩篇皆中英雙版已建立並互相連結，series order 80／81（接續 10-09 nous-research 的 79）。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（兩篇新檔 0 warning）皆 0 blocking；已將 10-07 的 arxiv／ai-interview 兩則最舊 Recently completed 條目移至 `docs/progress-archive.md`；待跑剩餘 targeted verify 與 commit／push。
