@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-16-bootstrapping-p-values)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 17 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 16: Bootstrapping** on July 20 with Chris Gregg. It follows the current [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture16-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture16-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture16-LLMPrompts.pdf), and reader chapters on [bootstrapping](https://probabilitycoders.stanford.edu/spr26/bootstrapping) and [samples](https://probabilitycoders.stanford.edu/spr26/samples). Current slides are unavailable and Canvas video is gated, so this remains an L2 artifact guide.
 
 The worksheet, key, and guide are all three pages. The formal agenda is P1–P6 plus challenge, with no orphan page or numbering gap. A sample distribution describes data spread; a sampling distribution describes how a statistic changes when the whole experiment is repeated. Error bars target the latter.
 
 ## Course video sources
 
-This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
 
-Course and recording entries:
+Official sources:
 
-- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+Checked on 2026-10-10.
 
 ## P1: Review a CLT for checkout totals
 
@@ -159,7 +165,7 @@ The six concepts are population/sample/statistic, unbiased variance, SE, the boo
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

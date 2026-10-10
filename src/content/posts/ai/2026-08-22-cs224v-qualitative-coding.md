@@ -14,6 +14,8 @@ description: "CS224V Document Set Analysis：質性編碼、ACLED codebook、abs
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-qualitative-coding-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-data-coding.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第九講討論一種常被低估的文件分析：研究者不是只問一題，而是依 codebook 持續標記大量文件裡的事件、角色、地點與關係。講義以疫情事件與 [ACLED 衝突事件方法](https://acleddata.com/methodology/)為主線，最後的結論很克制：自動質性編碼仍不足以跳過人工品質流程。
@@ -134,7 +136,7 @@ Qualitative coding 的價值來自一致應用 codebook，而不是產出很多 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

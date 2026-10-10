@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-neural-networks-backprop)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: The slides are the [lecture_4.pdf](https://cs231n.stanford.edu/slides/2026/lecture_4.pdf) (139 pages) linked from the [CS231N](https://cs231n.stanford.edu/) Spring 2026 schedule. Its admin slides carry 2026 dates (A1 due 4/16, project proposal due 4/23), but the content slides' footer reads "April 9, 2025". I'm recording that as-is and not inferring how much changed. The recording is the [Spring 2025 Lecture 4](https://www.youtube.com/watch?v=25zD5qJHYsk); 2026 recordings are Canvas-only. I also use the [slides](https://cs231n.stanford.edu/slides/2026/section_2_backprop.pdf) and [Colab](https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/backprop.ipynb) from the April 10, 2026 Backprop Review Session. All facts were checked against official materials on 2026-09-30. Access level **A3** (defined in the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
 **Series**: Previous [L3: Regularization and Optimization](/posts/ai/2026-09-30-cs231n-regularization-optimization-en) | Next [A1 Guide: kNN, Softmax, Two-Layer and Fully Connected Networks](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
@@ -247,7 +249,7 @@ One thing you can do tonight: draw the computational graph for f(x, y, z) = (x +
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

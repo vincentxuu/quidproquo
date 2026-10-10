@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agent-security)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the eighth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 7 of Fall 2026.
 
 Three topics: SAST / SCA, dependency and secret-leak vulnerabilities; prompt injection and agent-specific attack surfaces; agent-assisted triage and remediation. The guest is Semgrep CEO Isaac Evans, present in both syllabi.
@@ -160,7 +162,7 @@ The last one is not a technical question. **The course puts it on the same list 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

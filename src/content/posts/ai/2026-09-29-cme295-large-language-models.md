@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-large-language-models-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 3 講「Large Language Models」（2025 年 10 月 10 日）。主要來源是 [125 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf)，[錄影](https://www.youtube.com/watch?v=Q5baLehv5So)長 1 小時 48 分。本文只根據投影片上的文字與圖寫，課堂口述的補充沒有收進來。
 
 你呼叫任何一家 LLM API，參數欄位裡大概都看過 `temperature`、`top_p`，可能還有要求輸出 JSON 的選項。這些欄位各自在模型的哪一步動手腳，就是這一講的主體。
@@ -251,7 +253,7 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -22,7 +22,9 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms)
 
-> **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main sources are the [L06 Transformer slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-06-transformer-14bd7575a2f6c8bac60522354c11d691.pdf) (Feb 2, 25 pages), the [L07 Pre-trained LLMs slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-07-llms-acf5db9438a8d9a86f86d29d9c563c00.pdf) (Feb 4, 22 pages), and the readings listed in the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus). Page numbers refer to PDF pages. All facts were checked against the official materials on 2026-09-30. Access level **A3**: slides and assignments are all public, but **there are no public recordings**, so this post works from slides and papers only and cannot relay anything the lecturer said aloud.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main sources are the [L06 Transformer slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-06-transformer-14bd7575a2f6c8bac60522354c11d691.pdf) (Feb 2, 25 pages), the [L07 Pre-trained LLMs slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-07-llms-acf5db9438a8d9a86f86d29d9c563c00.pdf) (Feb 4, 22 pages), and the readings listed in the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus). Page numbers refer to PDF pages. All facts were checked against the official materials on 2026-09-30. Access level **A3**: slides and assignments are all public, but **the official syllabus lists no public recording links**, so this post works from slides and papers only and cannot relay anything the lecturer said aloud.
 
 **Series**: previous [HW2: MiniTorch Framework](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework-en) | next [L08–L09: Tokenization, decoding, and speculative decoding](/posts/ai/2026-09-30-cmu11868-tokenization-decoding-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
@@ -32,11 +34,13 @@ The first five posts laid the foundation: how a GPU runs a kernel, how a framewo
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Orientation: three kinds of language models
 
@@ -159,7 +163,7 @@ The following are my own rough estimates from the numbers above, not slide conte
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

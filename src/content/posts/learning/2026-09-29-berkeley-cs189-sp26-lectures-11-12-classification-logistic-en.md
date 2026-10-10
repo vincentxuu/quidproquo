@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis) and covers Lectures 11–12 (Feb 24 and 26). In [Lec 7–10](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en) y was a real number; now y is a class label.
 
 The slides separate the two tasks in one line: regression tries to "draw a line to trace out the data," classification tries to "draw a line to separate the classes of data." That line is the decision boundary.
@@ -226,7 +228,7 @@ On this site:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 20 篇，接續 [L14 Cache coherence](/posts/ai/2026-09-30-cs149-cache-coherence)，範圍是 Lecture 15（2025-11-13）。
 
 用到的官方材料是 [L15 投影片 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/sync_consistency/15_consistency.pdf)（60 頁，另有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)）。Fall 2025 的錄影只放在 Canvas，官方首頁指向 2023 年版的 [Lecture 12 Memory Consistency 錄影](https://www.youtube.com/watch?v=nFXWmo9MFiY)當替代。本文以 2025 投影片為準，影片只列為聽講補充。存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片完整公開，缺的是當期錄影。
@@ -205,7 +207,7 @@ x86 大致是 TSO，軟體需要模型沒保證的順序時，可以用 `_mm_lfe
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

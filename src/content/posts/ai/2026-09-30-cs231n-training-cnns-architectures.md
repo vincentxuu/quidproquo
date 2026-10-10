@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片依據 Spring 2026 的 [lecture_6.pdf](https://cs231n.stanford.edu/slides/2026/lecture_6.pdf)；錄影依據 Spring 2025 的 [YouTube L6](https://www.youtube.com/watch?v=aVJy4O5TOk8)。兩者可能有差異，下面會標出。本文是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列第 7 篇，接在 [L5：用 CNN 做影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)之後。
 
 [上一講](/posts/ai/2026-09-30-cs231n-cnn-image-classification)給了卷積和池化兩塊積木。這一講回答接下來的兩個問題：**積木要怎麼疊？疊好之後要怎麼訓練？**
@@ -241,7 +243,7 @@ y = γ (x − μ) / σ + β
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

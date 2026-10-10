@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-02-neural-networks)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **Series**: previous [L01 Why study generative AI](/posts/ai/2026-09-30-nccu-genai-01-why-generative-ai-en) | next [L03 GANs, once all the rage](/posts/ai/2026-09-30-nccu-genai-03-gan-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
 
 > **Version note**: This post is based on the [recording](https://www.youtube.com/watch?v=s1QqujRMEUk) (3 h 4 min, in Mandarin) of lecture 2 from NCCU semester 1132 (2025-02-25) and the [GenAI02 slides](https://yenlung.me/1132GenAI) (122 slides, in Chinese). The demo notebook is `【Demo01】設計你的神經網路.ipynb` from [AI-Demo](https://github.com/yenlung/AI-Demo). It is cited as the **current repo version** (last commit 2026-03-17), which may differ from what 1132 used. The homework spec and rubric come from the [Chang Gung satellite page](https://yangchihyuan.github.io/courses/GenerativeAI2025). All facts were checked on 2026-09-30.
@@ -260,7 +262,7 @@ The Fall 2026 syllabus describes week 2 as core neural network concepts (percept
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

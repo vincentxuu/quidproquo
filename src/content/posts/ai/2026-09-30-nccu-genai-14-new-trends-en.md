@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-14-new-trends)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 14, the final lecture, of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L13: Reinforcement Learning and Generative AI Applications](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning-en).
 
 I used four official sources: the [lecture 14 recording](https://www.youtube.com/watch?v=AOLoR3p2Z0Q) (2025-05-27, 3 h 9 min), the slide deck [GenAI14 生成式 AI 新趨勢](https://drive.google.com/file/d/14gA0kgjU0E4Fyb7bOcZpg4TZwTN9KnWv/view) (60 slides, in Chinese), the schedule and final project notes on the [Chang Gung satellite section page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Chinese), and weeks 15–16 plus the grading section of the [Fall 2026 (1151) syllabus](https://drive.google.com/file/d/1hhigEPT9SdhJgtIpevACzSJsSNA0mw6T/view) (in Chinese).
@@ -211,7 +213,7 @@ Series navigation: [series overview](/posts/ai/2026-09-30-nccu-genai-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

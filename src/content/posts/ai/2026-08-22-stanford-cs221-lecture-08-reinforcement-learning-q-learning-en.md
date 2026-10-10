@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 8**, taught by Percy Liang on 2025-10-15. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments. The executable spine is the official [reinforcement_learning artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=reinforcement_learning); its code can be checked in the [CS221 Autumn 2025 lecture repository](https://github.com/stanford-cs221/autumn2025-lectures), and the video entry point is Stanford Online's [CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN).
 
 > Material gap: The local copy of the official artifact covers MDPs, tabular model-free methods, SARSA, and Q-learning. It does not provide features or linear approximation in this file, so this article marks that gap rather than importing material from another lecture. Canvas interactions, assignment solutions, and hidden tests are also unavailable.
@@ -139,7 +141,7 @@ If the question changes to features, linear approximation, or huge state spaces,
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

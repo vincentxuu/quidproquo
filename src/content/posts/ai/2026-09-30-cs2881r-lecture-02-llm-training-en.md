@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 offering of [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/).** It is part 3 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 2, "Modern LLM Training" (September 11, 2025). The previous post, [HW0](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en), had you break a small model yourself. This one steps back: what does the real training pipeline look like, and where does safety training go?
 
 It draws on four official sources: the [lecture recording](https://youtu.be/GXggPt_gqiI) (about 2 hours 23 minutes), the [slides](https://hu-my.sharepoint.com/:p:/g/personal/boaz_seas_harvard_edu/Eau65O5QsfJOtuDI2FAXCCMBpC--98FHOpUwefGGuqDp3w?e=A5IKRL) on Harvard SharePoint (48 slides, viewable in PowerPoint Online without signing in), Justin Y. Chen's [LessWrong Week 2 summary](https://www.lesswrong.com/posts/FC3m5zhx6sFBrMpTm/cs-2881r-ai-safety-week-2-modern-llm-training), and the student write-up [Optimizing Prompts with Reinforcement Learning](https://www.lesswrong.com/posts/LTcidRnJJLpaAQsWY/cs2881r-optimizing-prompts-with-reinforcement-learning) with its [GitHub repo](https://github.com/aahani-dot/CS2881_RLExperiment). The materials for this lecture are complete, so it keeps the series-level A3 access rating.
@@ -205,7 +207,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overvie
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

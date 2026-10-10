@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-course-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片、作業、專題規格與評分依據 Spring 2026（2026-04-01 到 2026-06-08）。公開錄影是 Spring 2025 版（YouTube），只當補充，差異下面逐項標出。本文是 Stanford CS224R 導讀系列的第 0 篇，也是入口。
 
 [CS224R: Deep Reinforcement Learning](https://cs224r.stanford.edu/) 是 [Chelsea Finn](https://ai.stanford.edu/~cbfinn/) 在 Stanford 開的深度強化學習課。Spring 2026 每週三、五早上 9:30 在 NVIDIA Auditorium 上課，首頁同時寫了一句：下一輪改在 Fall 2027 開，不開 Spring 2027。所以 2026 年 9 月這個時間點，Spring 2026 就是最新、也是最後一個完整版本。
@@ -179,7 +181,7 @@ L18 前沿與研究方法
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

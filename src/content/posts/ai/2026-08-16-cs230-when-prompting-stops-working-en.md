@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is the first post in the [Reading Stanford CS230](/en/series/cs230) series.
 
 First, which offering this is: **Stanford CS230 Deep Learning, Autumn 2025** — nine videos, roughly 13 hours ([playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)). That run is over. The last lecture was 2025/12/02 and all videos were posted by 12/16. Autumn 2026 is already scheduled to start 2026/09/22 and will be a different playlist. **Every post in this series gives the lecture date.**
@@ -242,7 +244,7 @@ The direction is clear: **LLM and agent material grew from a footnote into core 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

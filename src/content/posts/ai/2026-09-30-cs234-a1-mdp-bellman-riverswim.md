@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的作業與投影片；公開錄影是 [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)。所有事實都在 2026-09-30 打開 [作業頁](https://web.stanford.edu/class/cs234/assignments.html)、[A1 題目 PDF](https://web.stanford.edu/class/cs234/assignments/a1/CS234_A1_Questions.pdf)（7 頁）與 [code.zip](https://web.stanford.edu/class/cs234/assignments/a1/code.zip) 核對。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：題目、LaTeX 範本與起始碼都公開；拿不到的是 Gradescope 自動評分、隱藏測資與官方解答。
 
 **系列位置**：上一篇 [有模型時怎麼規劃：policy evaluation、PI、VI](/posts/ai/2026-09-30-cs234-mdp-planning)｜下一篇 [沒模型時怎麼評估：MC、TD(0)、certainty equivalence](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
@@ -209,7 +211,7 @@ glossary:
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

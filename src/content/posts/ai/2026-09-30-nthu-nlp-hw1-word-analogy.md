@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列第 3 篇，接在[詞向量與語言模型](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)之後。上一篇講詞向量怎麼訓練出來；這一篇把它拿去考試：**詞向量真的學到了「king 之於 queen，如同 man 之於 woman」嗎？自己訓練的會比預訓練的差多少？**
 
 本文依據 [IKMLab 課程 repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing) 裡 Fall 2025 的 [Assignment 1 資料夾](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment1)：題目說明 [NLP_HW1_word_emb.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/NLP_HW1_word_emb.pdf)、起始碼 [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/main.ipynb)、處理好的 `questions-words.csv`，以及助教的[說明影片](https://youtu.be/nCS3GpHwqr8)（影片標題是「Week 2 Thu. - Assignment 1」，在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)掛在 W2 那一列）。這份作業的存取等級是 **A3**：題目、起始碼、資料都公開，缺的是解答與評分腳本，那些在 NTU COOL 上，校外讀者拿不到。
@@ -137,7 +139,7 @@ PDF 第 28 頁列出建議的前處理：去掉非英文詞、去停用詞、lem
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

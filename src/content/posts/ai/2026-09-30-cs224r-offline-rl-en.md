@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-offline-rl)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source term**: Based on the Spring 2026 [07_cs224r_offline_rl_2026 slides](https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf) (scheduled 2026-04-22). The companion video is the [Spring 2025 Lecture 7 recording (supplement)](https://www.youtube.com/watch?v=lRDaXnPIzks). The title matches, but the split differs: the [2025 Lecture 7 slides](https://cs224r.stanford.edu/spring_2025/slides/07_cs224r_offline_rl_2025.pdf) presented "implicit policy constraint" and "conservative methods" ([CQL](https://arxiv.org/abs/2006.04779)) as the two families, and the 2025 schedule listed CQL as a reading. In 2026 the second family became IQL's expectile approach, and the only listed reading is [IQL](https://arxiv.org/abs/2110.06169). Any CQL segment in the video is material the 2026 slides don't cover. This is post 9 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
 Lectures 3 through 6 ([policy gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en) to [Q-learning](/posts/ai/2026-09-30-cs224r-q-learning-en)) all assume the policy can keep collecting fresh data while it learns. Lecture 7 of [CS224R](https://cs224r.stanford.edu/) drops that assumption. You have one fixed dataset and no more interaction. How do you learn?
@@ -213,7 +215,7 @@ Draw the nine-state graph on paper. Suppose the data holds only two trajectories
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

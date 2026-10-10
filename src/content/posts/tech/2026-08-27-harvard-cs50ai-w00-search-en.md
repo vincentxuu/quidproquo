@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs50ai-w00-search)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
 ## Course video sources
@@ -295,7 +297,7 @@ style50 tictactoe.py
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

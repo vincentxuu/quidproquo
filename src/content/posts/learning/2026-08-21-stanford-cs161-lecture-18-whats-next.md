@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-18-whats-next-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161) 第十九篇，對應 **Winter 2026 Lecture 18**，由 Ellen Vitercik 於 2026 年 3 月 11 日主講；學期與講次範圍以 [Winter 2026 官方課程首頁](https://stanford-cs161.github.io/winter2026/)為準。Component 題名是 *What's next?*，slides 封面是 *What we’ve done and what’s to come*。
 
 先說清楚材料邊界：官方 component **只提供 52 頁 slides，沒有 lecture notes**。本文只使用[官方 slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture18.pdf)與[component metadata](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture18.md)，沒有觀看 Canvas 錄影，也沒有拿其他學期 notes 補洞。下列公式、例子與限制都以 slides 為界。
@@ -117,7 +119,7 @@ Slides 提到 Master Method、randomized QuickSort、Bellman–Ford、Floyd–Wa
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

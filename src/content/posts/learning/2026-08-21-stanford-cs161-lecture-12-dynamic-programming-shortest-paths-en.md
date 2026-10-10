@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-12-dynamic-programming-shortest-paths)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 13 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 12**. The official title is **Dynamic Programming: Bellman-Ford and Floyd-Warshall**. Ellen Vitercik taught it on February 18, 2026.
 
 This article follows the [official Lecture 12 page](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall), public notes, and the public slide PDF. It does not use the Canvas-only recording. Lecture 11 compared Dijkstra and Bellman–Ford through relaxation and weight assumptions. This lecture deliberately revisits Bellman–Ford, now emphasizing states, recurrences, and evaluation order before extending the same method to all-pairs shortest paths.
@@ -169,7 +171,7 @@ The slides also mention asymptotically faster APSP research. That material is no
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

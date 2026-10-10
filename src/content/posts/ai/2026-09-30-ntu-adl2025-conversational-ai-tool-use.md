@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)播放清單上的 L13 影片，投影片則用 Fall 2024 版補位。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列第 16 篇。前兩篇 [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents) 與 [Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning) 講模型怎麼想、怎麼規劃；這一篇退回「和人對話」這個老問題：**從模組化的任務型對話系統，到會自己用工具的 LLM，中間發生了什麼？**
 
 用到的官方材料：
@@ -169,7 +171,7 @@ title: 13.2 LaMDA
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

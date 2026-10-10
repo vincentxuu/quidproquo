@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-20-lqr-ddp-lqg)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article reads Chapter 20, printed pages 244–257, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It explains how structured control problems are solved and approximated without reproducing every Riccati or Gaussian-conditioning proof.
 
 ## Course video sources
@@ -96,7 +98,7 @@ Consider \(s_{t+1}=s_t+a_t+w_t\) with cost \(s_t^2+0.1a_t^2\). Explain why the o
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的公開教材。系列入口是 [Berkeley CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 前幾講的線性回歸和 logistic regression 都在寫「要最小化什麼」。從 Lec 13 開始，課程改問「怎麼把它最小化」。答案是梯度下降，也就是往梯度的反方向走一小步，重複到收斂。這兩講處理三個問題：步伐要多大才不會發散？地形很扁或很歪時怎麼辦？資料多到每步都算不起時怎麼辦？
@@ -150,7 +152,7 @@ batch size 怎麼選，講義的取捨表是：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

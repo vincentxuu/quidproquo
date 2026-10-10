@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-model-based-rl-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 15 篇，接續 [Default Project：LLM 的 RL 微調](/posts/ai/2026-09-30-cs224r-default-project-llm-rl)，對應 2026 年 5 月 6 日的第 11 講「Model-Based RL」。
 
 用到的官方材料：
@@ -234,7 +236,7 @@ title: Spring 2025 Lecture 11: Model-Based RL（YouTube，補充）
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

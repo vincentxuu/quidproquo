@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) is a Fall 2026 graduate course taught by Daniel Fried and Graham Neubig on LLM-based agents: tool use, planning, memory, training, safety, and human-agent interaction. Lecture 9 (Sep 22), taught by Fried, is the first of three RL lectures in the training module. This one covers the basic policy-gradient methods; Lecture 11 the following week, by Neubig, covers advanced algorithms and what it takes to make RL stable; Lecture 12, by TA Apurva Gandhi, covers RL systems and practical frameworks. (Lecture 10 in between is a guest lecture on deep research agents by Akari Asai.) Together they set up Assignment 3. The course site describes Assignment 3 only as implementing "the training procedures used to adapt and improve the agent"; Fried added in class that it will have you train models with RL in two environments: the Number Search game used throughout this lecture, and a simple crafting environment somewhat like Minecraft, needing more compute than the earlier assignments. Treat the environment details as provisional until the assignment is released.
 
 This post is based on the [recording](https://www.youtube.com/watch?v=paAcPaaYZGM) and the [slides](https://www.cmu-agents.com/slides/lecture-09-rl-basics.pdf). Fried opens by describing the lecture as a bridge from last week's SFT to policy gradients, which he calls the simplest and also one of the most elegant forms of reinforcement learning. The whole lecture compresses to one sentence: **every method computes log-probabilities of the actions the agent itself took; they differ only in the weight they multiply by.**
@@ -35,11 +37,20 @@ I follow the lecture's order and keep all the math in collapsible sections. If y
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+Verified public recording for CMU 11-768 Fall 2026 lecture 9, published on course instructor Graham Neubig’s channel; its title and description identify this course.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=paAcPaaYZGM
+title: CMU AI Agents 2026: 9. Reinforcement Learning Basics
+```
+
+Original videos: [CMU AI Agents 2026: 9. Reinforcement Learning Basics](https://www.youtube.com/watch?v=paAcPaaYZGM)
+
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## The setup: guess a number between 1 and 16
 
@@ -373,7 +384,7 @@ Further reading on this site (the same algorithms from other angles; not a subst
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

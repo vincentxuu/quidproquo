@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-mit-ai-ml-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 First, a correction to an error that is easy to inherit from old guides: [**MIT has a formal AI degree.**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/) Course 6-4 is the Bachelor of Science in **Artificial Intelligence and Decision Making**, and students have been able to declare it since Fall 2022. It is not merely a few machine-learning electives hidden inside the computer science degree.
 
 That does not mean MIT publishes a seamless online path from a first Python lesson to its latest work on large models. The resources split into three layers that often fail to align:
@@ -170,7 +172,7 @@ The most valuable thing to borrow from MIT is not a list of famous subjects. It 
 ## Changelog
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-01: Moved 6.5940 Fall 2026 from A0 to A2 in the access table (term in progress, L1–L6 and Lab 0–1 released) and spelled out the Fall 2024 scope (23 lecture decks, 23 recordings, Lab 0–5); rewrote the 6.5940 paragraph in the vision, robotics, and efficient systems route with a link to this site's guide; added the Fall 2026 course page to References.
 
 - 2026-09-30: Added 6.S184 Flow Matching & Diffusion (IAP 2026; notes, slides, recordings, and three labs with solutions all public, A3) to the access table and the modern AI engineering route, with a link to this site's guide.

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Sources**: The core material is the [MOOC version](https://www.csie.ntu.edu.tw/~htlin/mooc/) of Machine Learning Techniques: [212_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/212_handout.pdf) (Neural Network), [213_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/213_handout.pdf) (Deep Learning), and videos 46–53 of the [Techniques YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2). Textbook sections follow the [LFD](http://amlbook.com) e-Chapter 7 sections listed on the [Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/). Homework references come from [Fall 2024 HW7](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf). All facts were checked against the originals on 2026-09-30. The lectures are taught in Mandarin; the slides are in English. Access level: the MOOC alone is **A2**; adding the Fall 2024 homework PDFs brings it to **A3 (minus the grading chain)**. There are no official solutions, and Gradescope and NTU COOL are for enrolled students only.
 
 **Series**: Previous: [Decision Trees, Random Forests, and Gradient Boosted Trees](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en) | Next: [RBF Networks, k-Means, and Matrix Factorization](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization-en) | [Series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
@@ -232,7 +234,7 @@ These series on this site overlap with this post, but this post stands on its ow
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

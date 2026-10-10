@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-assembly-control-flow-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 `addq` 的結果仍放得進一個 64-bit register，但兩個 64-bit 數相乘可能需要 128 bits；division 更特別，dividend 橫跨 `%rdx:%rax`，quotient 與 remainder 又分別回到這兩個 registers。Stanford CS107 Lecture 17 先收完這組「一個 operand，卻暗中讀寫多個 registers」的 ALU operations，再問另一個更根本的問題：CPU 怎麼知道下一條 instruction 在哪裡？
 
 答案是 `%rip`。一般情況下，它隨目前 instruction 的 encoded length 前進；遇到 `jmp`，它改成指定 target。這講刻意只走到 unconditional jump，尚未介紹 condition codes 或 conditional jumps。讀者若把後續 flags、`cmp`／`test`、`jcc` 或 function call stack mechanics 提前塞進來，反而會模糊本講用 instruction bytes 建立的基本模型。
@@ -232,7 +234,7 @@ Control flow：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [MIT 6.S191: Introduction to Deep Learning](https://introtodeeplearning.com/) 的 2026 版已經完整公開：九講都有官方影片與投影片，三個 software labs 的 notebook、必要程式與解答也在官方 GitHub。按照本站的公開程度標籤，它是 **A3：足以自學**。
 
 但「全公開」不等於「匿名打開瀏覽器就能一格不漏跑完」。官方路線要求 Google 帳號與 Colab GPU；Lab 1、2 會用 Comet，Lab 3 再加 OpenRouter。MIT 現場生能拿到的專案回饋、學分與 API credit，校外讀者也沒有。
@@ -154,7 +156,7 @@ Labs 的概念延續，但檔案不是完全相同。最明顯的是 Lab 3：202
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：新增九講與三個 labs 的雙語系列，並將所有 lab 連結固定到官方 `2026` branch。
 
 ## 參考資料

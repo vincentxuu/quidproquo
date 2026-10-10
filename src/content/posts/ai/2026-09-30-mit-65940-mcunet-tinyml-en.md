@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on Lecture 10 (2024-10-08) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Lec10-MCUNet.pdf](https://www.dropbox.com/scl/fi/udgt7c6sw5wpvrbh7us2t/Lec10-MCUNet.pdf?rlkey=sryh8aiehv8792uk1ocu00icn&st=8v4oql2g&dl=0) (93 pages) and the [lecture recording](https://youtu.be/uR1KKhIhHEk). Page numbers refer to PDF pages. Facts were checked against the official materials on 2026-09-30. Access level **A3**: slides, video, and the Lab 3 released that week are all public. What you can't get is Canvas submission and grading feedback.
 >
 > **Fall 2026 comparison**: The [F26 schedule](https://hanlab.mit.edu/courses/2026-fall-65940) puts the same lecture on October 15. As of 2026-09-30 its slide and video links are still empty.
@@ -165,7 +167,7 @@ Pages 88–91: train an autoencoder to reconstruct normal data. In deployment, i
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

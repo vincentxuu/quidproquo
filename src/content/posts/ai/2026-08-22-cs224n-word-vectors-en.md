@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-word-vectors)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 2 on January 8, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture02-wordvecs.pdf) covers word2vec, objective-function gradients, optimization basics, count-based representations, and evaluation, after brief course logistics. Its concrete goal is to understand word meaning as a high-dimensional real vector and to read embedding papers.
 
 ## Course video sources
@@ -105,7 +107,7 @@ Winter 2026 recordings are not public. This account uses the Lecture 2 deck and 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

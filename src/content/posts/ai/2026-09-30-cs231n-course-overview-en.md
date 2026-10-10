@@ -19,6 +19,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Source years**: slides and assignments are from Spring 2026; recordings are from Spring 2025 (YouTube). They may differ, and the differences are flagged below. This is post 0 of the Reading Stanford CS231N series and its entry point.
 
 [CS231n: Deep Learning for Computer Vision](https://cs231n.stanford.edu/) is Stanford's computer vision course. When I opened the home page on September 30, 2026, its header read "Stanford - Spring 2026", and it listed five instructors: Fei-Fei Li, Ehsan Adeli, Justin Johnson, Zane Durante, and Tiange Xiang.
@@ -161,7 +163,7 @@ The post order differs from the schedule in three places. Each assignment post c
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

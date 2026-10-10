@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en)
 
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 課站的 10 月 2 日講次。**課站沒有列出這一講的講課錄影或投影片**，只列了一支[學生實驗影片](https://youtu.be/HMcA4Gi6HFE)、一篇 [LessWrong 學生週摘要](https://www.lesswrong.com/posts/uahJ7CrB8oWyRyyvL/cs-2881r-ai-safety-week-5-content-policies)（Audrey Yang、MB Samuel）與閱讀清單。所以本文關於客座演講的內容全部是二手轉述，出處是那篇學生摘要。事實皆於 2026-09-30 打開上述材料核對。整門課的存取分級見系列總覽；單看這一講，只到 **A1**（課綱與閱讀清單可見，講課本身拿不到）。
 
 **系列位置**：上一篇 [L4：Model Spec 該寫原則還是細則](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)｜下一篇 [期中：挑一張 headline figure 重現並延伸](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
@@ -31,11 +33,20 @@ glossary:
 
 ## 課程影片來源
 
-官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+官方 Fall 2025 課表只提供本講的學生實驗影片，沒有列 Ziad Reslan 客座講課錄影。下方可觀看的是學生的 policy compliance 實驗，不能當成客座講課的錄影。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
+title: CS2881R Fall 2025 L5: Student experiment on policy compliance
+```
 
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+原始影片：[CS2881R Fall 2025 L5: Student experiment on policy compliance](https://www.youtube.com/watch?v=HMcA4Gi6HFE)
+
+官方來源：
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+查核日期：2026-10-10。
 
 ## 這一講拿得到什麼
 
@@ -131,7 +142,7 @@ glossary:
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

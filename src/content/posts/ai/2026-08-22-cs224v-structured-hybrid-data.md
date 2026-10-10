@@ -14,6 +14,8 @@ description: "拆解 CS224V Structured and Hybrid Data：NL-to-SQL、schema、�
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-structured-hybrid-data-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-db-hybrid-intro.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第六講把資料來源從自由文字換成資料庫。這時「把相關內容塞進 context」不是主要問題；真正的門檻是把使用者條件翻成精確查詢，並確定查詢真的符合 schema。這堂仍屬 Fall 2025 的 Conversational Virtual Assistants，不是 2026 改名後的新課綱。
@@ -130,7 +132,7 @@ Hybrid source 還有不同更新頻率。Table 每小時刷新、文字介紹每
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-15-minimum-spanning-trees-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161) 的第十六篇，對應 **Stanford CS161, Winter 2026, Lecture 15**。Moses Charikar 在 2026 年 3 月 2 日主講，官方題名是 *Minimum Spanning Trees*。
 
 本文實際閱讀了公開的 [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture15-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/lecture15-slides.pdf) 與[官方 lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture15.md)。官方頁面仍把資源區標成 `coming`，但 notes 與 slides 檔案確實存在。Canvas 錄影需要 Stanford 權限，我沒有觀看，也未使用 prelecture、notebook 或 concept-check bank 補寫正文。
@@ -142,7 +144,7 @@ Lecture 14 說 greedy choice 需要 exchange proof；Lecture 15 把它封裝成 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

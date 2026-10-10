@@ -8,26 +8,30 @@ series:
   name: "Reading CMU 07-280"
   order: 0
 type: deep-dive
-tldr: "07-280 is CMU's new Spring 2026 AI+ML core: 24 lectures and 12 main assignments move from heuristic search and CSPs to AlexNet, GPT-2, and AlphaZero. Its public material supports self-study, but complete recordings, Canvas checkpoints, Gradescope, and staff feedback remain unavailable."
+tldr: "07-280 is CMU's new Spring 2026 AI+ML core: 24 lectures and 12 main assignments move from heuristic search and CSPs to AlexNet, GPT-2, and AlphaZero. Its public material supports self-study, but the official schedule lists no complete recordings, and Canvas checkpoints, Gradescope, and staff feedback remain unavailable."
 description: "An overview of CMU 07-280 Spring 2026: its curriculum redesign, 24-lecture structure, assignments, public access, version hazards, and the plan for a complete reading series."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-course-overview)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 CMU first offered **07-280 Artificial Intelligence and Machine Learning I** in Spring 2026, replacing the old pairing of 15-281 Artificial Intelligence and 10-315 Machine Learning for SCS. Its striking feature is not the course number. The semester begins with heuristic search, adversarial search, and constraint satisfaction, then asks students to build AlexNet, GPT-2, and AlphaZero.
 
 This is not a list that places “classic AI” beside fashionable models. The course's spine is: **learn to define states, objectives, models, and computational costs, then progressively add components that learn from data and interaction.** Search, supervised learning, language modeling, and reinforcement learning are different answers to how a system selects its next move.
 
-This series uses the **first completed Spring 2026 offering** as its canonical edition. The official home page has switched to Fall 2026, moving Spring links into HTML comments. Most `S26` slides, notes, recitations, written homework, and notebooks remain anonymously accessible through direct URLs, although a few old direct links now fail. The surviving material is sufficient to reconstruct the complete course spine, but there is no public lecture-by-lecture video archive. The series will not invent spoken explanations or classroom discussion.
+This series uses the **first completed Spring 2026 offering** as its canonical edition. The official home page has switched to Fall 2026, moving Spring links into HTML comments. Most `S26` slides, notes, recitations, written homework, and notebooks remain anonymously accessible through direct URLs, although a few old direct links now fail. The surviving material is sufficient to reconstruct the complete course spine, but the official schedule lists no public lecture-by-lecture video archive. The series will not invent spoken explanations or classroom discussion.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## What the redesign changed
 
@@ -83,7 +87,7 @@ Using the criteria from the [CMU AI/ML Course Guide](/posts/learning/2026-08-21-
 - Written homework, LaTeX starters, selected notebooks, and programming trees can be downloaded directly.
 - The [Midterm 1 learning objectives](https://www.cs.cmu.edu/~07280/07280_S26_Learning_Objectives_Midterm_1.pdf) provide a detailed capability checklist.
 
-A3 does not recreate the enrolled course. There is no complete public lecture recording or transcript set. Pre-reading checkpoints live in Canvas; online homework and submission use Gradescope. Piazza, office hours, in-class polls, exam grading, and staff feedback are also outside the anonymous route. Some optional readings require CMU Library access.
+A3 does not recreate the enrolled course. The official schedule lists no complete public lecture recording or transcript set. Pre-reading checkpoints live in Canvas; online homework and submission use Gradescope. Piazza, office hours, in-class polls, exam grading, and staff feedback are also outside the anonymous route. Some optional readings require CMU Library access.
 
 Independent learners must build their own feedback loop: solve a worksheet before opening its solution, classify every error afterward, and add repeatable local tests to programming notebooks. Without those actions, downloading every PDF is only collecting material.
 
@@ -116,7 +120,7 @@ The value of 07-280 is precisely that it refuses to reduce modern AI to training
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-05-random-variables-expectation)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 6 in [Reading Stanford CS109](/series/stanford-cs109), covering **Stanford CS109, Summer 2026, Lecture 5** (Jun 29). The canonical schedule title is **Random Variables and Expectation**, taught by Chris Gregg. This guide cross-checks the [official schedule](https://web.stanford.edu/class/cs109/schedule.html), [lecture page](https://web.stanford.edu/class/cs109/lectures/5-Binomial), [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture05-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture05-AnswerKey.pdf), and [LLM guide](https://web.stanford.edu/class/cs109/worksheets/Lecture05-LLMPrompts.pdf). The lecture page and the `/spr26` [reader](https://probabilitycoders.stanford.edu/spr26) are shared, Spring-dated concept references.
 
 Material fidelity is **L3**: the Summer schedule and problem artifacts establish the agenda; shared Spring-dated pages support concepts only. The Canvas recording was not used.
 
 ## Course video sources
 
-This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
 
-Course and recording entries:
+Official sources:
 
-- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+Checked on 2026-10-10.
 
 ## Worksheet agenda: from counting to the binomial PMF
 
@@ -52,7 +58,7 @@ C(n,k) chooses the success locations, p^k makes those successes occur, and (1-p)
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

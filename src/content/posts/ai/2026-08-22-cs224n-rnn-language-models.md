@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-rnn-language-models-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 4 講排在 2026 年 1 月 15 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture04-rnnlm.pdf)的 agenda 有四段：語言模型、RNN、梯度爆炸與消失、機器翻譯。投影片直接把 language modeling 稱為整門課最重要的概念，因為現代生成式 NLP 大多仍建立在預測下一個 token 上。
 
 ## 課程影片來源
@@ -133,7 +135,7 @@ Winter 2026 錄影不公開。本文涵蓋官方投影片列出的四段 agenda�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

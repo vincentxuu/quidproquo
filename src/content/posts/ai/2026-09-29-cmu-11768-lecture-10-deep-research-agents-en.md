@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents)
 
+**Video status: Pending: no corresponding recording has been verified.** [Source details](#course-video-sources)
+
 > **This post is written from the slides; I will add to it once the video is posted.** As of 2026-09-29, [CMU 11-768](https://www.cmu-agents.com/) has released only the [124-page slide deck](https://www.cmu-agents.com/slides/lecture-10-deep-research-agents.pdf) for Lecture 10, with no recording. Every number and example below comes from the slides or the papers they cite. For each paper used to support a point, I opened the full text and checked the relevant passage: where the slides and the paper differ, both are given, and anything found only on the slides is marked as such. What the lecturer said out loud in class is unknown until the video is out, and I do not guess at it here.
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) is Daniel Fried and Graham Neubig's Fall 2026 course on agents. Its Domains module covers coding agents, then computer use agents, and the third domain is deep research. Lecture 10 (Sep 24) is a guest lecture by [Akari Asai](https://akariasai.github.io/), first author of [OpenScholar](https://arxiv.org/abs/2411.14199) (arXiv:2411.14199, Nature 2026) and joint first author of [DR Tulu](https://arxiv.org/abs/2511.19399) (arXiv:2511.19399, ICML 2026), so half of this lecture is her explaining how she built these systems.
@@ -35,11 +37,13 @@ A deep research agent takes a research question that needs many searches and syn
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+This article is based on slides. The official schedule, instructor channel, and exact lecture-title searches were checked, but no matching recording could be verified. Schedule extraction returned only its later half and channel extraction omitted its video inventory. Availability remains unresolved; this does not establish that no video exists.
 
-Course and recording entries:
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## One search versus many
 
@@ -271,7 +275,7 @@ Related posts on this site to read alongside the lecture:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

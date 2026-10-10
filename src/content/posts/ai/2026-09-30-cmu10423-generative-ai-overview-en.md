@@ -19,6 +19,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 > **Edition note**: This series follows the Spring 2026 edition of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/). It is the latest complete term in 2025–2026: the last schedule entry is the April 30 final report deadline, and the footer reads "Last updated April 20, 2026." `10423-f26/` returns 404, so there is no Fall 2026 site. Every fact was checked on 2026-09-30 against the course homepage, the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [Coursework](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html) and [Previous](https://www.cs.cmu.edu/~mgormley/courses/10423/previous.html) pages, and the slide and homework files. Access rating: **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
 **Series position**: this is the overview | Next: [L1: RNN language models and autodiff (with HW0)](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff-en)
@@ -193,7 +195,7 @@ This course overlaps with several series on this site. Every post in this series
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

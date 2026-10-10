@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 5 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The [previous post](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention-en) covered RNNs, LSTMs, and vanishing gradients. This one is hands-on: **show an LSTM a few million arithmetic expressions. Can it learn arithmetic?**
 
 The post draws on two sets of material in the [IKMLab course repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing):
@@ -152,7 +154,7 @@ The handout asks for results as text rather than only images, to make grading ea
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

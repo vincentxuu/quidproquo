@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-cs107-bitwise-operators-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 Bitwise operator 暫時忽略整體數值，把每個位置當成獨立欄位。`&` 保留、`|` 設定、`^` 切換指定 bits；操作前要先確認 C 的型別轉換是否改變寬度，以及 pattern 被當成 signed 或 unsigned 解讀。
 
 本講先收束 conversion 與 truncation，再進入 operators、bit vector 與 bitmask。本文依 [Winter 2026 Lecture 4 官方投影片](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/04/Lecture04.pdf) 展開。
@@ -342,7 +344,7 @@ schedule ^= CS106A;
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

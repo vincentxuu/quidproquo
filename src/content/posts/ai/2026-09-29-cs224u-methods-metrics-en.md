@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-methods-metrics)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 13 of the [Stanford CS224U guide series](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) and covers the first half of the NLP methods unit: the overview, classifier metrics, and generation metrics. The schedule puts this unit on May 17, 22, and 24, 2023. The Experimental protocol listed in the same row was due May 29.
 
 Official sources: slides 1–41 of the [Methods and metrics deck](https://web.stanford.edu/class/cs224u/slides/cs224u-methods-2023-handout.pdf) (94 slides in total), videos 39–41 of the playlist, [`evaluation_metrics.ipynb`](https://github.com/cgpotts/cs224u/blob/main/evaluation_metrics.ipynb) in the repo, and the scheduled reading [Resnik and Lin 2010](https://home.cs.colorado.edu/~jbg/teaching/CMSC_773_2012/reading/evaluation.pdf). Access level: **A3 (historical offering)**.
@@ -210,7 +212,7 @@ Series navigation: previous, [Analysis Methods II: causal abstraction, IIT, and 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

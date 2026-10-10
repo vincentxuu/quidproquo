@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post follows the second half of the 3/13 week of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 4 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. [The previous post](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) covered how one agent manages its own context. This one zooms out: **what happens when many agents share a space, and how they change human work**.
 
 Official materials used: pages 34–61 of [agent_era.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/agent_era.pdf), and two videos (in Mandarin): [AI Agent (2/3): what kinds of interaction AI agents can have](https://youtu.be/mmPmNezjCi0) and [AI Agent (3/3): the impact of AI agents on work, with academic research as the example](https://youtu.be/VqB8zMujdjM). Access level is **A3**. This lecture has no homework or quiz attached.
@@ -120,7 +122,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

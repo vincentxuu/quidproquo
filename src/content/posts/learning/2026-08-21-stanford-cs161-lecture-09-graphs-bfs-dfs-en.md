@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-09-graphs-bfs-dfs)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 10 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 9**. The official title is **Graphs and BFS and DFS**. Ellen Vitercik taught it on February 4, 2026.
 
 I used the [official Lecture 9 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs), the public notes, and the public slides. The notes develop graph representation, DFS, and BFS. The slides also apply DFS to topological sorting and BFS to bipartiteness. Both applications belong to the lecture agenda even though the notes do not develop them. The official Colab link inherits `winter2025-extra`; I do not use it as evidence of newly authored Winter 2026 material. I did not use the Canvas-only recording.
@@ -176,7 +178,7 @@ For a stronger bipartite implementation, return more than a boolean. On an equal
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

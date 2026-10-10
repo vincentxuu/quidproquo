@@ -16,6 +16,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-overview-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/) 是研究所等級的 Advanced Natural Language Processing。它不是只教怎麼呼叫現成 LLM：課程先從 n-gram、詞向量、分類與序列模型建立地基，再進入 Transformer、pre-training、post-training、RAG、inference-time compute、reasoning 與 agents。
 
 這個系列採「教材導讀」，不是逐字課堂重建。官方課站明載[錄影需要 Berkeley 登入](https://cal-cs288.github.io/sp26/course_info/)，匿名讀者拿得到的是 18 組 slides、三份作業、兩個 starter repositories 與 project 規格。文章只解釋這些材料明確支持的內容，不替未公開的口頭授課補台詞。
@@ -64,7 +66,7 @@ A2 的 Transformer 與 A3 的 RAG 都可能產生費用。先用小資料、小�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-information-retrieval-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。主要材料是 [Information retrieval 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-neuralir-2023-handout.pdf)（Christopher Potts 與 Omar Khattab，PDF 共 78 頁，投影片編號 62 張）與 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) 第 15–19 支錄影，事實皆於 2026-09-29 核對。存取等級 **A3**：投影片、錄影與相關作業 notebook 都公開；拿不到的是 Canvas quiz 與教室錄影。
 
 **系列位置**：上一篇 [作業一：多領域情感分析](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment)｜下一篇 [In-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning)｜[系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
@@ -216,7 +218,7 @@ Potts 在 [IR 第 3 支錄影](https://www.youtube.com/watch?v=9YCb-IxtbFQ) 用�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

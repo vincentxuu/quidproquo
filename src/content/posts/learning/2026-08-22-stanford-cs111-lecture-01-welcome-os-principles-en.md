@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-01-welcome-os-principles)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 2 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 1**. Mendel Rosenblum taught the lecture on 2026-03-30; its official title is [Welcome to CS111!](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/1/Lecture1.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Lecture 1 does not begin by asking students to memorize a closed definition of an OS. It follows changes in hardware cost and use to explain why operating systems accumulated layers: shared I/O cards, batch monitors, multiprogramming, and personal computers each answer a concrete bottleneck.
@@ -91,7 +93,7 @@ Choose one period and write “hardware or usage bottleneck → new OS mechanism
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

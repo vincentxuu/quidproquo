@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-09-17-harvard-cs50ai-w03-optimization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
 
 ## 課程影片來源
@@ -298,7 +300,7 @@ style50 generate.py
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

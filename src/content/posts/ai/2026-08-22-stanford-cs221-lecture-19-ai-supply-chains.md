@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-19-ai-supply-chains-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 19**，日期是 2025-12-01。官方課表將這堂課列為 **AI Supply Chains**；可執行講義 repository 則把連結標成 **Economics of AI**。我下載並逐頁讀過完整的 70 頁 Google Slides PDF；封面將 **Rishi Bommasani** 列為 deck author / credited presenter。這個 deck credit 不足以證明誰在課堂現場演講，因此本文不把他寫成現場講者，也不把 Percy Liang 的課程講師身分延伸成 L19 講者。主要書面材料是 [Economics of AI Google Slides（deck snapshot；核對日 2026-08-22，投影片未明示每個估值的市場日期）](https://docs.google.com/presentation/d/1jCn1OV4H1HKzQ0PWzRn2_bfOWKw43eS33wyramBt2z8/edit)，課程版本與課表以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準。
 
 > 材料邊界：課表與 repo 標題不同。本文區分「投影片事實」「投影片引用」「我的解讀」，不用錄影補洞；數字均為 deck 快照，不是 2026 即時統計。
@@ -124,7 +126,7 @@ CS221 前半段讓人習慣用狀態、行動、目標函數、資料與不確�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

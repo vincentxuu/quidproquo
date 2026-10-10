@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 > **Version note**: Based on the Lecture 1 entry on the [CS 2881R Fall 2025 course site](https://boazbk.github.io/mltheoryseminar/fall2025/#lecture-sep-4), checked 2026-09-30. Lecture content is paraphrased mainly from the student-written [LessWrong Week 1 summary](https://www.lesswrong.com/posts/stDjjbfNXbgsyJkrL/cs-2881r-ai-safety-week-1-introduction). The slides are on Harvard SharePoint and could not be read programmatically for this post, so it does not quote them directly.
 
 **Series**: Previous: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) | Next: [HW0: Reproducing Emergent Misalignment with a 1B Model](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en)
@@ -36,11 +38,20 @@ The first lecture of [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall202
 
 ## Course video sources
 
-The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+The corresponding public YouTube recording was verified against the official Fall 2025 lecture schedule.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=-NCiWaRS6So
+title: CS2881R Fall 2025 L1: Introduction
+```
 
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+Original videos: [CS2881R Fall 2025 L1: Introduction](https://www.youtube.com/watch?v=-NCiWaRS6So)
+
+Official sources:
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+Checked on 2026-10-10.
 
 ## Materials for this lecture
 
@@ -167,7 +178,7 @@ One thing to do tonight: write one sentence each for a capability-based and an i
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-generative-models-diffusion)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years:** slides and assignments are from Spring 2026; the recordings are from Spring 2025 (YouTube). The two may differ. This post follows the 2026 slides and uses the recording only as a supplement.
 >
 > This is part 16 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series. The previous post is [L13: Generative Models I, Autoregressive Models, VAEs, and GANs](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en); the next is [L16: Vision and Language](/posts/ai/2026-09-30-cs231n-vision-language-en).
@@ -221,7 +223,7 @@ Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-gl
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

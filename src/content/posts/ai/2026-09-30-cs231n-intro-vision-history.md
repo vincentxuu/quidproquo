@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-intro-vision-history-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片依據 Spring 2026；錄影可參考 [Spring 2025 Lecture 1](https://www.youtube.com/watch?v=2fq9wYslV0A)（YouTube）。兩者可能有差異，本文內容以 2026 投影片為準。本文是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 1 篇；課程定位、評分、存取缺口與 10 週路線，請看[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)。
 
 [CS231N](https://cs231n.stanford.edu/) 2026 年的第一講在 3 月 31 日，由 Fei-Fei Li 與 Ehsan Adeli 主講。[課表](https://cs231n.stanford.edu/schedule.html)上它掛了兩份投影片：[part 1](https://cs231n.stanford.edu/slides/2026/lecture_1_part_1.pdf) 講電腦視覺與深度學習的簡史，[part 2](https://cs231n.stanford.edu/slides/2026/lecture_1_part_2.pdf) 講課程概覽與規則。
@@ -149,7 +151,7 @@ Part 2 的後半是行政。跟自學者有關的幾點：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

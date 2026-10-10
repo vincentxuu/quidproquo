@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post follows §7 (pp.54–66) of the [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) for [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026, [Slides 5](https://diffusion.csail.mit.edu/2026/docs/20260130_Lecture_05.pdf), and the [Lecture 5 recording](https://www.youtube.com/watch?v=d0kmyEJN2hI) (1 h 21 min). Theorem, example, algorithm, and equation numbers follow the notes. Access level A3: the notes, slides, recordings, labs, and official solutions are all public. This lecture, however, has **no matching lab**, and §1.2 of the notes marks §7 as Optional. Checked on 2026-09-30.
 
 **Series position**: Previous: [Lab 3: From DiT and VAE to latent diffusion](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion-en) | This is the last post in the series | [Series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
@@ -379,7 +381,7 @@ The notes' answer is that these principles were never specific to flows or CTMCs
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

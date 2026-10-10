@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs228-graphical-models-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS 228: Probabilistic Graphical Models: Principles and Techniques](https://explorecourses.stanford.edu/search?q=CS+228&view=catalog) 教的是一件在 2026 年很不流行的事：把一個大到不可能寫下來的機率分布，用一張圖壓成可以計算的東西。貝氏網路、馬可夫隨機場、變數消除、信念傳播、取樣、變分推論、參數與結構學習——一個學期十週走完表示、推論、學習三塊。
 
 它在 Stanford 的 AI 課程地圖裡位置很特別：所有人都知道它存在，很少人真的修。障礙不在門檻。它的官方先修沒有指定任何前置課程，而隔壁的 [CS 234](https://explorecourses.stanford.edu/search?q=CS+234&view=catalog) 要求 CS229 或同等程度，低了一整層。真正的障礙是它已經兩年沒有開課，官網也凍結在最後一次開課的樣子。
@@ -172,7 +174,7 @@ CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

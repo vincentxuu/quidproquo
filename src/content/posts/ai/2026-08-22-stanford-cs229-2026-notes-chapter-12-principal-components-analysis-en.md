@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-12-principal-components-analysis)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is a chapter-by-chapter reading of Chapter 12, printed pages 167–172, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings**. Its single line of argument is how to find a linear subspace on which the data approximately lies.
 
 PCA targets linear redundancy among coordinates. Recording the same speed in both miles and kilometers creates nearly duplicate attributes. More generally, if a point cloud lies mostly along a diagonal direction, much of its meaningful variation may fit on one intrinsic axis.
@@ -77,7 +79,7 @@ Use a two-dimensional dataset whose features have very different numeric scales.
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

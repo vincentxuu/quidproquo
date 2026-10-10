@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-06-first-order-logic-2-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 7 篇，對應 **Spring 2026 官方 Lecture 5（2026-04-10）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂講者欄位，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 上一講建立 predicate、function 與 quantifier 等零件，這一講真正開始翻譯。難點不在符號本身，而是一句自然語言常同時藏著範圍、依賴、例外與唯一性。可靠的方法是先保留句子骨架，再逐層替換，不要看完一句話後憑直覺一次寫完整串公式。
@@ -183,7 +185,7 @@ CS103 允許 `∀x ∈ S. P(x)` 與 `∃x ∈ S. P(x)`。前者等同 `∀x. (x 
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依官方 First-Order Logic, Part II 完整投影片重建雙語正文，補齊巢狀量詞、否定、限制量詞與唯一性的推導。
 
 ## 參考資料

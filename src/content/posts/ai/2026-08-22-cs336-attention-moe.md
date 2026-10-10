@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-attention-moe-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 4: Attention alternatives and mixture of experts**，2026 年 4 月 8 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_04.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_04.pdf)。
 
 這一講把兩個常被分開談的主題放在一起：attention alternatives 與 mixture of experts（MoE）。共同問題是能否增加 context 或參數，卻不讓每個 token 支付完整成本。結構化稀疏可以做到，但省下的運算會轉化成新的最佳化與系統問題。
@@ -91,7 +93,7 @@ MoE 不一定從頭訓練。Upcycling 會複製既有 dense feed-forward weights
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

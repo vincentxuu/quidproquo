@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs107-computer-systems)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 [CS107: Computer Organization and Systems](https://web.stanford.edu/class/cs107/) is the last of Stanford's three-course introductory programming sequence, following CS106A and CS106B.
 
 Its job is to dismantle a mental model. High-level languages let you believe a variable is a box; this course replaces that with a variable is a run of bytes at an address. Along the way you rewrite a batch of Unix utilities in C, read x86-64 assembly, and finally implement your own `malloc`.
@@ -195,7 +197,7 @@ And one thing wasn't unavailable so much as not attempted: the assignment and la
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

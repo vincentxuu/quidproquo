@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 6 篇，接續[第 5 講：量化 I](/posts/ai/2026-09-30-mit-65940-quantization-basics)。
 
 **系列導覽**：上一篇 [第 5 講：量化基礎](/posts/ai/2026-09-30-mit-65940-quantization-basics)｜下一篇 [Lab 2：親手實作 K-means 與線性量化](/posts/ai/2026-09-30-mit-65940-lab2-quantization)｜[系列總覽](/posts/ai/2026-09-30-mit-65940-course-overview)
@@ -235,7 +237,7 @@ g_W = ∂L/∂W = ∂L/∂Q(W)
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

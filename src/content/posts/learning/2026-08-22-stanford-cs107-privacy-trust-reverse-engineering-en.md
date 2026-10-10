@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-privacy-trust-reverse-engineering)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The early lectures taught us to track C bytes and pointers. The middle of the course translated functions into x86-64, and the previous lecture made buffer-overflow control flow readable. Before implementing an allocator, Lecture 20 pauses deliberately: once reverse engineering can expose behavior a program did not intend to publish, we need a language for deciding what we should do, not merely what we can do.
 
 This is not ethics attached as decoration. A security researcher can find vulnerabilities because they receive or acquire unusual capabilities. A data custodian can compute statistics because it concentrates other people's information. An allocator can reuse space because a client promises not to touch a freed block. The same questions connect all three: **who can do what, whom do we rely on, and who bears the risk of betrayal?**
@@ -171,7 +173,7 @@ As allocator implementation begins, keep asking the same questions: who owns thi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

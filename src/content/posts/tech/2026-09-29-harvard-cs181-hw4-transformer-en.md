@@ -22,17 +22,22 @@ glossary:
 
 > 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) (`hw4_release.tex/pdf/ipynb`, due 2026-04-03) and the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), all opened on 2026-09-29. The course as a whole is **A3** (homework, notebooks, sections and section solutions are public), but there are no recordings for the current term, no homework solutions, and Gradescope requires enrollment. The [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) says slides live in a Google Drive folder, but the CSV export carries no links. I did not get the 2026 Transformers lecture slides, so this post makes no claims about what was said in lecture.
 
 This is post 6 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous post is the [midterm checkpoint](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en); this one opens HW4, the first assignment after the midterm.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
 
-Course and recording entries:
+Official sources:
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Where HW4 sits in the term
 
@@ -130,7 +135,7 @@ Other courses approach the same topic from different angles:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

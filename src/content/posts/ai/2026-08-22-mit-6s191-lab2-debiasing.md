@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-mit-6s191-lab2-debiasing-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [MIT 6.S191 官方 2026 repo](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab2) 的 Lab 2 是 **Lab 2：從 MNIST 到 DB-VAE 臉部去偏差**。Part 1 用 dense network 與 CNN 辨識 MNIST；Part 2 以 DB-VAE 學習臉部 latent distribution，再調整訓練取樣。本文固定使用 2026 branch，避免 master 後續更新造成內容漂移。
 
 ## 課程影片來源
@@ -50,7 +52,7 @@ draft: false
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

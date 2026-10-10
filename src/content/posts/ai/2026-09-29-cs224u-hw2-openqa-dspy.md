@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版（課程網站最後一次完整公開的校內版）。但這份作業有個特殊狀況：2023 年的投影片與錄影用的是 DSP 函式庫，[GitHub repo](https://github.com/cgpotts/cs224u) 裡現在的 notebook 已改寫成 DSPy 版（版本字串 Fall 2024）。兩版本文都會交代。事實皆於 2026-09-29 打開官方材料核對。存取等級 **A3**：題目、單元測試、索引、bake-off 題目檔與 overview 錄影都公開；拿不到的是 Gradescope 自動評分與 bake-off 排行榜。
 
 **系列位置**：上一篇 [In-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning)｜下一篇 [行為評估](/posts/ai/2026-09-29-cs224u-behavioral-evaluation)｜[系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
@@ -200,7 +202,7 @@ dspy-ai==2.4.13
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

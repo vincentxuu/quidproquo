@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-llm-systems)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Pre-lecture edition**: This post was written on September 29, 2026, before Lecture 5 of the 2026 edition (October 30, 2026) has taken place. It is based on the topic list in the 2026 syllabus, the parts already covered in the 2025 slides, and the original papers. It will be revised against the video and slides once they are posted.
 
 This post covers Lecture 5, "LLM systems," of the 2026 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en). The lecture did not exist in 2025. Its material was spread across the last ~40 slides of the 2025 [Lecture 3 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf) (inference speedups) and ~50 slides in the middle of the [Lecture 4 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf) (training optimizations). Our guides to [Lecture 3](/posts/ai/2026-09-29-cme295-large-language-models-en) and [Lecture 4](/posts/ai/2026-09-29-cme295-llm-training-en) each drew a map of these topics and deferred the details to this post.
@@ -390,7 +392,7 @@ Once the slides and video go up on October 30, this post will be revised against
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

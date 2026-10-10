@@ -28,17 +28,21 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 > **本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 的 2026 春季版。** 這是 [CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)系列的第 13 篇。[上一篇](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)用切層、切矩陣、切專家處理「模型放不下」；本篇換一個角度：**不切模型，只把資料平行裡重複的東西去掉。**
 
-這一講是 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 第 11 週 3/23 的「Memory Optimization in Distributed Training」，reading 只有一篇：[ZeRO（Rajbhandari et al., SC 2020）](https://arxiv.org/abs/1910.02054)。[L18 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-18-zero-20eb6c8d8c1e7092e1b922abf03d8cdd.pdf)有 76 頁，其中第 18 到 63 頁是逐格動畫，一格只多畫一個步驟。本課沒有公開錄影，以下根據投影片與論文摘要，頁碼指 PDF 頁碼。
+這一講是 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 第 11 週 3/23 的「Memory Optimization in Distributed Training」，reading 只有一篇：[ZeRO（Rajbhandari et al., SC 2020）](https://arxiv.org/abs/1910.02054)。[L18 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-18-zero-20eb6c8d8c1e7092e1b922abf03d8cdd.pdf)有 76 頁，其中第 18 到 63 頁是逐格動畫，一格只多畫一個步驟。官方課表未列本課公開錄影連結，以下根據投影片與論文摘要，頁碼指 PDF 頁碼。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 場景：資料平行省了通訊，卻浪費了記憶體
 
@@ -187,7 +191,7 @@ N = 8B、M = 16、K = 4：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §7（pp.54–66）、[Slides 5](https://diffusion.csail.mit.edu/2026/docs/20260130_Lecture_05.pdf)，以及[第 5 講錄影](https://www.youtube.com/watch?v=d0kmyEJN2hI)（1 小時 21 分）。Theorem、Example、Algorithm、eq. 編號都照講義。存取等級 A3：講義、slides、錄影、lab 與官方解答都公開；但這一講**沒有對應的 lab**，講義 §1.2 也把 §7 標成 Optional。2026-09-30 核對。
 
 **系列位置**：上一篇 [Lab 3：DiT、VAE 到 latent diffusion](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion)｜本篇是系列最後一篇｜[系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
@@ -380,7 +382,7 @@ Slides 5 有一頁討論離散擴散與自回歸模型的取捨，每一點都�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

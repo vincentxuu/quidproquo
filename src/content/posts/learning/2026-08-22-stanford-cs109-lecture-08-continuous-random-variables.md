@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-08-continuous-random-variables-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 9 篇，對應 **Summer 2026 Lecture 8: Continuous Random Variables**，日期為 7 月 2 日，講者是 Chris Gregg。本文依 Summer [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture08-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture08-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture08-LLMPrompts.pdf)及跨 offering 共用的 Spring-dated 官方讀本 [continuous](https://probabilitycoders.stanford.edu/spr26/continuous)、[uniform](https://probabilitycoders.stanford.edu/spr26/uniform)與 [exponential](https://probabilitycoders.stanford.edu/spr26/exponential) 章節整理。Canvas 錄影未公開，因此不重建課堂口述。
 
 從離散轉到連續，關鍵不是把加總符號換成積分符號而已。PMF 把機率直接放在一個個值上；PDF 是每單位長度的密度，真正的機率來自區間下的面積：
@@ -26,11 +28,15 @@ F(a) = P(X≤a) = ∫[-∞,a] f(x) dx
 
 ## 課程影片來源
 
-本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。因此附官方錄影入口，不提供公開播放器。
 
-課程與錄影入口：
+官方來源：
 
-- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+查核日期：2026-10-10。
 
 ## P1：先從 Poisson counts 接回來
 
@@ -162,7 +168,7 @@ P(X>s+t | X>s)
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

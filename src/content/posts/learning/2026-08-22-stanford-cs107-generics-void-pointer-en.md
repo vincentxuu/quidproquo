@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-generics-void-pointer)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 Separate `swap` functions for `int`, `double`, and string pointers are safe but repetitive. How can one function know how many bytes to move, or what type an address denotes? Stanford CS107 Lecture 11 gives a characteristically C answer: the function need not know the value's meaning if the caller supplies an address and byte count. `void *` erases the pointee type, `memcpy` copies raw bytes, and the interface contract and caller jointly preserve correctness.
 
 This is not lightweight syntax comparable to Java generics. Once type information is erased, the compiler can check less. A wrong width, cast, or lifetime may compile. The lecture therefore closes the previous heap discussion before introducing generics. Both halves ask the same systems question: when the language does not remember a resource or type for you, how must the program restore that missing information in its contract?
@@ -188,7 +190,7 @@ Write `append` for a growing `int` buffer, receive `realloc` through a temporary
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

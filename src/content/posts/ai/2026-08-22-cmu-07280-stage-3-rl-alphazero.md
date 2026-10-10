@@ -15,17 +15,21 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-stage-3-rl-alphazero-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 前兩階段的資料集通常先給定答案：搜尋有 goal，監督式學習有 label，語言模型有下一個 token。Reinforcement learning 改變資料生成方式。Agent 的 action 會改變後續 state，reward 可能延遲出現，而 policy 又決定自己將看到哪些經驗。
 
-07-280 的第三階段從 MDP 建模，走過 value iteration、Q-learning 與 function approximation，再用 MCTS 與 self-play 收束到 Building AlphaZero。官方公開了 worksheet、部分 solutions 與作業入口，卻沒有完整逐講錄影；HW12 的舊 PDF 直連在本文查核時已回傳 404。因此本篇只對可匿名驗證的官方課程頁與 Recitation 14 下結論，不假裝擁有完整 grader。
+07-280 的第三階段從 MDP 建模，走過 value iteration、Q-learning 與 function approximation，再用 MCTS 與 self-play 收束到 Building AlphaZero。官方公開了 worksheet、部分 solutions 與作業入口，卻官方課表未列完整逐講錄影連結；HW12 的舊 PDF 直連在本文查核時已回傳 404。因此本篇只對可匿名驗證的官方課程頁與 Recitation 14 下結論，不假裝擁有完整 grader。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
 
 ## MDP 先把不確定性寫清楚
 
@@ -84,7 +88,7 @@ network → policy/value priors → MCTS → improved action distribution
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -14,6 +14,8 @@ description: "CS224V Building a Task-Oriented Agent, from dialogue state and the
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-task-oriented-agent)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/3-task-oriented-agent.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 3 addresses a concrete risk: a ride, course, or reservation agent must not invent unavailable options or execute an undeclared action. Genie Worksheets express task capability as an inspectable declarative specification. The LLM interprets language without freely deciding what the system can do.
@@ -116,7 +118,7 @@ There is no public demo recording, and slide excerpts are not a complete languag
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

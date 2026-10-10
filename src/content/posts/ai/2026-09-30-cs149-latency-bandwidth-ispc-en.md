@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 3 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers Lecture 3 (September 30), [Modern Multi-Core Architecture (Part II) + ISPC Programming Abstractions](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore2/). The official slide [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/multicore2/03_multicore2-ispc_WueDBzT.pdf) has 56 pages.
 
 Fall 2025 recordings live only on Stanford's Canvas. The course home page points to the public 2023 recordings instead; this lecture matches [2023 Lecture 3](https://www.youtube.com/watch?v=F4bVSyz_jxo), which has the same title. This post follows the 2025 slides and treats the video as a listening supplement. The course as a whole is A3 (enough for self-study); the gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
@@ -199,7 +201,7 @@ Series navigation: previous [L2: A Modern Multi-Core Processor](/posts/ai/2026-0
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

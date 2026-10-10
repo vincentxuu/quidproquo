@@ -35,17 +35,28 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的第一講（2026-08-25，[錄影](https://www.youtube.com/watch?v=UwfjzyLnvMg)、[投影片](https://www.cmu-agents.com/slides/lecture-01-agents.pdf)）分成兩半。前半由 Daniel Fried 把 agent 拆到最小：一個語言模型，加上一個會執行工具的迴圈。後半由 Graham Neubig 問下一個問題：迴圈寫出來不難，要怎麼讓它真的做得好？他的答案是一張「六種能力 × 兩條路」的地圖，整門課的課表就是照這張地圖排的。
 
 這篇照課堂順序走：開場的成功與失敗案例、agent 的定義、從語言模型走到 agent 的三步、六種能力、訓練與 harness 的取捨、agent 系統的五個組成，最後是這門課的學習目標。課程形式、評分和作業細節放在[系列總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)。
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+已核對 CMU 11-768 Fall 2026 第 1 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=UwfjzyLnvMg
+title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
+```
+
+原始影片：[CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
+
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 開場：agent 已經能做大事，也會闖大禍
 
@@ -286,7 +297,7 @@ Neubig 接著強調：agent 比你在其他機器學習課碰過的東西都複�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

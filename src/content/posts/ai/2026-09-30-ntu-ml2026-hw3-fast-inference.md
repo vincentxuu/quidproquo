@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW3。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 8 篇。前兩篇講了 [Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention) 和 [KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)，這份作業要你真的在 GPU 上量看看，也把課堂上跳過的 Speculative Decoding 補回來。
 
 用到的官方材料：作業說明 [hw3.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw3.pdf)（63 頁，後半是中英兩版題目）、[作業 Colab](https://colab.research.google.com/drive/1vZNo6_PlaP2fvMqr3g5KoQA0rN79m24O?usp=sharing)（40 個 cell），以及課程頁列出的助教說明影片 [ML 2026 Spring HW3 LLM Fast Inference](https://youtu.be/rXfp9Yo5HwU)。課程頁寫 3/20 公告，PDF 寫截止時間是 2026/04/09 23:59:59（UTC+8），不收遲交。助教是馮柏翰、吳岳霖、蘇炳揚。
@@ -159,7 +161,7 @@ PDF 介紹 [vLLM](https://github.com/vllm-project/vllm) 是結合多種技術的
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

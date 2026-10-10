@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-23-crash-recovery-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 24 篇，對應 **Stanford CS111, Spring 2026, Lecture 23**。2026-05-20 由 Mendel Rosenblum 主講，官方題目是 [File System Crash Recovery](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/23/Lecture23.pdf)。公開 PDF 有 23 頁。它與 Lecture 24 的 SHA-256 不同，內容卻近乎完全相同；文字只差 `/lost+found` 的斜線與四處句點，因此不能用 hash 不同推論為獨立素材。本文負責 crash model、`fsck`、ordered writes 與 WAL 入口；Lecture 24 接續 transaction、checkpoint 與 durability。錄影位於 Canvas／Panopto 後方，本文不把未觀看的口述內容當成來源。
 
 這講只問一個尖銳的問題：一個檔案系統操作需要修改 free map、inode、directory entry 等多個 disk blocks，但硬碟不提供任意多 block 的 atomic write；如果機器剛好在中間斷電，重開機後該相信哪個版本？投影片依序比較三條路：事後用 `fsck` 掃描修復、事前約束寫入順序，以及先寫 log 再套用更新。三者都在處理一致性，卻對資料遺失、啟動時間與正常路徑成本做出不同選擇。
@@ -70,7 +72,7 @@ draft: false
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：修正 duplicate artifact 推論，並將本講收斂到 crash model、`fsck`、ordered writes 與 WAL 入口。
 
 ## 參考資料

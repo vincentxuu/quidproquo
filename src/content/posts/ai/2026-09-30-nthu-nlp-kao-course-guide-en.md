@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Hung-Yu Kao teaches [Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing) in NTHU's Department of Computer Science. It is a flagship course in the [TAICA alliance](https://taicatw.net/fall-114/) of Taiwanese universities. Both semesters' syllabi list a class size of 1,200 and a graduate level, and TAICA's course list gives the language of instruction as Chinese (the lectures are in Mandarin; slides are mostly in English with many Chinese examples). It starts from why a computer cannot parse a Chinese joke about winter clothes, then works through TF-IDF, word vectors, RNNs, Transformers, and BERT, and ends with RLHF, PEFT, and RAG.
 
 For outside readers, the unusual part is where the materials live. They are not on a university course site. They are in the lab's [GitHub repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing), where one table links each week's slides, YouTube livestream recording, assignment PDF, and notebook.
@@ -164,7 +166,7 @@ Where topics overlap, this series still covers them in full. These links are for
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

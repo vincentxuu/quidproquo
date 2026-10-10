@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-code-generation-agents)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 21 of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series and follows [L22 + L26: practical risks and the science of alignment](/posts/ai/2026-09-30-cmu10423-risks-alignment-en). It covers Lecture 23, "Code Generation / Autonomous Agents," given by Matt Gormley on April 8, 2026.
 
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture23-code.pdf) (55 pages), and the [inked in-class version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture23-code-ink.pdf) (55 pages). The inked version has the same text plus red pen marks from class. The schedule lists no readings for this lecture, and this post does not add any. The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), but the recordings sit behind a CMU Panopto login, so this post is written entirely from the slides.
@@ -195,7 +197,7 @@ Series navigation: previous [L22 + L26: practical risks and the science of align
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

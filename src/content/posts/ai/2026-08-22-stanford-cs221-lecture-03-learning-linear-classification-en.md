@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-03-learning-linear-classification)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article follows the executable artifact's order: it reviews linear regression, then runs prediction_task, machine_learning_problem, hypothesis_class, zero_one_loss_function, zero_one_loss_optimization, logistic_loss_function, logistic_loss_optimization, multiclass_classification, and representing_text. The order matters because each representation or loss answers a problem exposed by the previous step.
 
 > Public-material gap: the source explicitly links an Autumn 2023 linear-classification module; course, artifact, repository, and playlist links are below. The source gives sentiment classification as a task example, but provides neither hidden sentiment-assignment tests nor solutions, so they are not reconstructed here.
@@ -116,7 +118,7 @@ For a bag-of-words representation, represent each token as a one-hot vector and 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

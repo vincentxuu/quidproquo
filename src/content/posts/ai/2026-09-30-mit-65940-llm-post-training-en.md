@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-llm-post-training)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024.** It is post 18 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series.
 
 **Series**: previous [Fall 2026 supplement: Lab 1 GPU Basics](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics-en) | next [L15 Long-Context LLM](/posts/ai/2026-09-30-mit-65940-long-context-llm-en) | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -199,7 +201,7 @@ The last part needs no training. It's about how you ask:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

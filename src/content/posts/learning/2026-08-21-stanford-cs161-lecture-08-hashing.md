@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-08-hashing-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)第 9 篇，對應 **Stanford CS161, Winter 2026, Lecture 8**。官方課名是 **Hashing**，上課日期為 2026 年 2 月 2 日，講師是 Ellen Vitercik。
 
 本篇依照[官方 Lecture 8 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)、公開 notes 與 slides 整理。投影片的主線走到 universal hashing；notes 還延伸到 balls-and-bins 與 birthday paradox，我會明確標成講義延伸。官方頁另連到沿用 `winter2025-extra` 的 Colab notebook，但本文沒有把它當成 Winter 2026 新製教材。Canvas-only 錄影未作為來源。
@@ -228,7 +230,7 @@ Lecture 9 開始進入 graph algorithms。Adjacency list 中「某 vertex 的 ne
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

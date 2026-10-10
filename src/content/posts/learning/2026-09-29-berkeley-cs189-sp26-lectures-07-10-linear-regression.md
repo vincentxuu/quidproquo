@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）整理，範圍是 Lecture 7 後半到 Lecture 10（2/10–2/19）。[上一篇](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm)停在 Gaussian mixture 的 log-likelihood 沒有封閉解；這一段換到監督式學習，第一個模型就是線性回歸。
 
 線性回歸本身不難，難的是這四講要你同時握住三種看法：
@@ -240,7 +242,7 @@ Lasso 的 MAP 推導與 bias-variance 分解，則出現在 Discussion 5，本�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

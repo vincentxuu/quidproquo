@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-01-introduction-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 1 講**，官方日期 2025-09-23。本篇依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/01-intro.pdf)重建內容；講者依投影片署名為 Jure Leskovec 與課程團隊。
 
 ## 課程影片來源
@@ -119,7 +121,7 @@ Degree 描述局部連接量，clustering coefficient 描述鄰居彼此連接�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

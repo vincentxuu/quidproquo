@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 18 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en) and covers Lecture 15, "Hierarchical RL and IL," on May 20, 2026 (Wednesday of week 8). There is no lecture 14 in 2026: that slot (May 15) was the midterm.
 
 Official materials used:
@@ -211,7 +213,7 @@ Series navigation: previous [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）。為什麼選這個學期，見上一篇[版本地圖](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)。
 
 多數機器學習課第一週就開始推導演算法。CS189 Spring 2026 反過來做。[Lecture 1 投影片](https://drive.google.com/file/d/1dGqaqLlUbR6eW81MOIpW3U2JueI_dspt/view?usp=sharing)有一頁直接寫「Teach ML Backwards」：先教什麼時候該用 ML、怎麼框定問題、怎麼準備資料、怎麼訓練與評估，演算法細節之後再補。前三講就是這個「倒過來教」的開場，走完它，你手上會有做 HW1 需要的工具。
@@ -171,7 +173,7 @@ Lecture 3 最後幾頁在講作業：Part 1 是講課內容的應用（書面題
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

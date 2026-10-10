@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-data-curation)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 14: Data (filtering, deduplication, mixing, synthetic data)**, taught by Percy Liang on May 13, 2026. Its primary source is the official executable lecture, [`lecture_14.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_14.py).
 
 Lecture 13 finds raw sources. This lecture decides what enters the token stream. Filtering, deduplication, and mixing are called preprocessing, but each defines the distribution a model learns.
@@ -75,7 +77,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

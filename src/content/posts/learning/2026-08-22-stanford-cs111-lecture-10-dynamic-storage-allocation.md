@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-10-dynamic-storage-allocation-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 11 篇，對應 **Stanford CS111, Spring 2026, Lecture 10**。2026-04-20 由 Mendel Rosenblum 主講，官方題目是 [Dynamic Storage Management](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/10/Lecture10.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 Dynamic storage management 問的是：如何管理一段 memory 或 storage，讓 applications 與 OS 都能滿足不可預測的需求？現在先談 memory，disk storage 留到後面。介面很小：`allocate(size) -> ptr` 取得指定 bytes，`free(ptr)` 歸還先前配置的 block。困難不在 API，而在 allocator 不知道 block 多久後會被 free，也不知道下一個 request 多大。
@@ -93,7 +95,7 @@ PDF 給出成本量級：在使用 GC 的 systems 中可能花 10–20% CPU time
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

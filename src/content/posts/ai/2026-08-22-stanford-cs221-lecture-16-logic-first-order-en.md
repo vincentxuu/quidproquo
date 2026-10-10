@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-16-logic-first-order)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 16**, taught by Percy Liang on 2025-11-12. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the main artifact is the executable [first_order_logic](https://stanford-cs221.github.io/autumn2025-lectures/?trace=first_order_logic). Rather than turning the slides into a generic introduction to first-order logic, this article follows the call sequence of `first_order_logic.py`: what each stage is trying to solve, what each example represents, and which boundaries the source code deliberately leaves visible.
 
 > Material gap: The official lecture artifact, executable material, and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable. This article does not fill those gaps with material from another offering.
@@ -276,7 +278,7 @@ This is why the lecture is more than a vocabulary list. The source carries the s
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-reasoning-models)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 19 of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series and follows [L19 + L21: long context and state space / hybrid models](/posts/ai/2026-09-30-cmu10423-long-context-ssm-en). It covers Lecture 20, "Reasoning Models," on March 30, 2026, given by Aran Nayebi and Matt Gormley.
 
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html) and the [L20 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture20-reasoning.pdf) (39 pages, no inked version). The full title on the cover slide is "Reasoning Models + Mechanistic Interpretability," which adds the interpretability second half that the schedule leaves out. The schedule lists no readings for this lecture, so this post cites only the slides and the sources they credit. The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), but the recordings sit behind a CMU Panopto login, so this post relies only on the slides.
@@ -193,7 +195,7 @@ Series navigation: previous [L19 + L21: long context and state space / hybrid mo
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

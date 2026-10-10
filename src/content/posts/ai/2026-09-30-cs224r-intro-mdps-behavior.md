@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：依據 Spring 2026 的 [01_cs224r_intro_2026 投影片](https://cs224r.stanford.edu/slides/01_cs224r_intro_2026.pdf)（2026-04-01）。配套影片是 [Spring 2025 L1 錄影（補充）](https://www.youtube.com/watch?v=EvHRQhMX7_w)，標題相同，但投影片已改成 2026 版，細節可能不同。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 1 篇。
 
 [CS224R](https://cs224r.stanford.edu/) 的第一講在課表上叫「Course Intro + Start of MDPs & Imitation」。投影片把當天的學習目標寫成三條：怎麼表示行為、怎麼把問題寫成強化學習問題、模仿學習的基礎。
@@ -211,7 +213,7 @@ reward：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

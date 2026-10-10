@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940), Fall 2024.** It is part 8 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series. Pruning and quantization shrink a network you already have. This lecture takes the other route: design a network that is small and accurate from the start.
 
 **Series**: previous [Lab 2: implementing K-means and linear quantization](/posts/ai/2026-09-30-mit-65940-lab2-quantization-en) | next [Lecture 8: NAS II, hardware-aware and zero-shot NAS](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware-en) | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -203,7 +205,7 @@ One thing to do tonight: write a ResNet bottleneck and a MobileNetV2 inverted bo
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

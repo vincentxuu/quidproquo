@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **本文依據 ADL Fall 2025（114-1，2025/09/01–12/15）。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列的第 18 篇，也是最後一篇。講課篇只放助教課連結，助教課的內容集中在這裡講。
 
 [ADL Fall 2025 課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)的課表每一週分成 Lecture 與 Recitation 兩欄。講課負責原理，助教課負責「怎麼真的跑起來」。[Course Logistics 投影片](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf)第 6 頁把助教課的範圍寫成七項：開發環境與工具（Colab、GPU、PyTorch）、DL 工作流程、Hugging Face 基礎、LLM 架構、LLM 評估、LLM 訓練、LLM 推論。
@@ -248,7 +250,7 @@ title: ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

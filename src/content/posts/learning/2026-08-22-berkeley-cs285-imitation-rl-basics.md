@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [官方課表](https://rail.eecs.berkeley.edu/deeprlcourse/)把前四講排成 Introduction、Behavioral Cloning、Behavioral Cloning Part 2 與 RL Basics。這段主線不是先背演算法，而是先看 supervised learning 控制器在哪裡壞掉，再引入能用 reward 學習的 RL 問題。
 
 ## 課程影片來源
@@ -45,7 +47,7 @@ RL Basics 把問題改寫成 MDP：policy 產生 trajectory，trajectory 累積 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

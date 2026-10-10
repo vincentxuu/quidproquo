@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-10-strongly-connected-components-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)第 11 篇，對應 **Stanford CS161, Winter 2026, Lecture 10**。官方課名是 **Strongly Connected Components**，上課日期為 2026 年 2 月 9 日，講師是 Moses Charikar。
 
 本文依照[官方 Lecture 10 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components)、公開 notes 與 slides 整理。Slides 採「先跑原圖、再反轉」；notes 採等價的「先跑轉置圖、再回原圖」。本篇會把兩種版本並列，但完整 proof 固定採 notes 方向，避免把 pass 混接。Canvas-only 錄影未作為來源；官方頁連到的 `winter2025-extra` notebook 也未被冒充為 Winter 2026 新材料。
@@ -166,7 +168,7 @@ Lecture 9 先建立 DFS forest 與 finish-time intervals；Lecture 10 沒有另�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

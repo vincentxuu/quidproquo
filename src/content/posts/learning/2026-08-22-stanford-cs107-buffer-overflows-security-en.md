@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-buffer-overflows-security)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 Lecture 6 defined a C string as a memory contract: starting from a `char *`, a program must encounter `\0` within valid storage. Lecture 7 first exploits that contract for richer searches, then turns to what happens when it breaks. A buffer overflow is not security magic detached from strings. It begins when code writes input into fixed storage without proving that it fits.
 
 The distinction to retain is simple: **valid content does not imply a safe memory operation.** A password may contain only permitted characters and no forbidden fragment, yet still be too long for its destination. `strspn` and `strstr` answer policy questions; capacity reasoning answers a bounds question. Conflating them lets memory bugs hide inside ordinary business logic.
@@ -213,7 +215,7 @@ Lecture 7 reduces to one sentence: **validating what text says and proving that 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -19,6 +19,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 15, the last part, of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series. The previous part, [L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en), covered the final lecture. This one answers two questions. What research did students produce over the semester? And where did the "reproduce, then extend" course design work, and where does it need fixing?
 
 The first half is for readers who want to run a final project themselves: the spec, the rubric, the topic list, and how the 19 results are spread. The second half is for anyone planning a similar course, or deciding whether this one is worth following: how the TAs and students judged it afterward.
@@ -237,7 +239,7 @@ If you've followed the series this far, the next step is running a final project
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **本文依據 [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25) 的 Fall 2025 版。** 材料是 Lecture 1 的 [86 頁投影片](https://gfxcourses.stanford.edu/cs149/fall25content/media/efficiency/01_efficiency_hyF1AJq.pdf)（也有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)）；Fall 2025 錄影不公開，2023 年的 L1 錄影作為補充。這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列的第 1 篇，課程背景、公開程度與限制見總覽。
 
 2025 年 9 月 23 日的第一講標題是兩個問題：Why Parallelism? Why Efficiency? 這兩個問題決定了整門課的走向。前半講回答第一個：單核處理器為什麼不再自己變快。後半講回答第二個：就算程式平行了，為什麼還要在乎效率。
@@ -200,7 +202,7 @@ a = x*x + y*y + z*z
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [機器學習 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 3/6 那一講。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 1 篇。官方材料是投影片 [解剖小龍蝦 — 以 OpenClaw 為例介紹 AI Agent 的運作原理](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pdf)（60 頁，另有 [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pptx)）與[課堂錄影](https://youtu.be/2rcJdFuNbZQ)。存取分級是 A3：投影片與錄影都公開，這一講沒有附屬作業或測驗。
 
 投影片第 16 頁有一行免責聲明：OpenClaw 是開源專案，隨時都在變動，本課程以概念為主。本篇也一樣，只照課程的講法拆 agent 機制。OpenClaw 的安裝、頻道、閘道器與設定細節，請看站上的 [OpenClaw 文件導讀](/posts/ai/2026-03-28-openclaw-overview)系列。
@@ -170,7 +172,7 @@ HEARTBEAT 是心跳機制：每隔一段固定時間戳 agent 一下，讓它做
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

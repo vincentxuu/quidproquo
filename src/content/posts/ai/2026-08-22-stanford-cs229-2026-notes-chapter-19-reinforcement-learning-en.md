@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article reads Chapter 19, printed pages 227–243, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It organizes the mathematical spine and approximation methods without copying every proof.
 
 ## Course video sources
@@ -80,7 +82,7 @@ Write \(S,A,P,R,\gamma\) for a simplified balancing cart with position and veloc
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -40,7 +40,9 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en)
 
-> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版，材料是 [L02 GPU Programming Basics 1](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-02-gpu-programming-c64a0141b96a1f384db7f6717ed8e039.pdf)（1/14，36 頁）、[L03 GPU Programming Basics 2](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-03-gpu-programming2-b82b6ffdf554494747d00ce7ac606c3b.pdf)（1/21，32 頁）、[L04 GPU Acceleration](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-04-gpu-acceleration-48ffa5768ba62c54138f0a71ca2b68b8.pdf)（1/26，47 頁）、[Recitation 1 投影片](https://docs.google.com/presentation/d/1v5IT8XZeWZ4FIlQzRLmEfcZv-kmfAyBIFyqYJkR5Lk8/edit)，以及範例程式 [`cuda_acceleration_demo`](https://github.com/llmsystem/llmsys_code_examples/tree/main/cuda_acceleration_demo)。頁碼指 PDF 頁碼，事實皆於 2026-09-30 核對。本課沒有公開錄影。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版，材料是 [L02 GPU Programming Basics 1](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-02-gpu-programming-c64a0141b96a1f384db7f6717ed8e039.pdf)（1/14，36 頁）、[L03 GPU Programming Basics 2](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-03-gpu-programming2-b82b6ffdf554494747d00ce7ac606c3b.pdf)（1/21，32 頁）、[L04 GPU Acceleration](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-04-gpu-acceleration-48ffa5768ba62c54138f0a71ca2b68b8.pdf)（1/26，47 頁）、[Recitation 1 投影片](https://docs.google.com/presentation/d/1v5IT8XZeWZ4FIlQzRLmEfcZv-kmfAyBIFyqYJkR5Lk8/edit)，以及範例程式 [`cuda_acceleration_demo`](https://github.com/llmsystem/llmsys_code_examples/tree/main/cuda_acceleration_demo)。頁碼指 PDF 頁碼，事實皆於 2026-09-30 核對。官方課表未列本課公開錄影連結。
 
 **系列位置**：上一篇 [L01 開場：LLM 為什麼需要系統](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems)｜下一篇 [HW1：CUDA Programming](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
@@ -48,11 +50,13 @@ glossary:
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 場景：寫對的 matmul，只用到 2.48% 的算力
 
@@ -232,7 +236,7 @@ Recitation 1 講的是動手前的準備：PSC 的帳號申請、head node 與 G
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

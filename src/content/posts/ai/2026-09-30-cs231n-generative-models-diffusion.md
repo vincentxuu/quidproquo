@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份：** 投影片與作業是 Spring 2026；錄影是 Spring 2025（YouTube）。兩者可能有差異，本文以 2026 投影片為準，錄影只當輔助。
 >
 > 這是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 16 篇。上一篇是 [L13：生成模型（一）自迴歸、VAE 與 GAN](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)，下一篇是 [L16：視覺與語言](/posts/ai/2026-09-30-cs231n-vision-language)。
@@ -221,7 +223,7 @@ $$x_t = a(t)\,x + b(t)\,z,\qquad y_{gt} = c(t)\,x + d(t)\,z,\qquad \mathcal{L} =
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

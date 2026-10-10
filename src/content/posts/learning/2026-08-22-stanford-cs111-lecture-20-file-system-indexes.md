@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 21 篇，對應 **Stanford CS111, Spring 2026, Lecture 20**。2026-05-13 由 Mendel Rosenblum 主講，官方題目是 [File Systems, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf)。官方 Lecture 20 與 [Lecture 21 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf) 逐位元組相同，SHA-256 均為 `42e4021f84ed272db95224024c878a09d6c719430efc386c2614dcc8ef94310d`；Canvas／Panopto 錄影不公開，無法還原兩天實際口述分界。
 
 因此這一篇只承擔 [deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf) 前段的 multilevel inode／index walk 與尾端 disk scheduling。中段的 block cache、write policy、free bitmap、fragments 與 delayed allocation 集中放在 [Lecture 21](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache)。這是對 byte-identical artifact 的編輯分工，不是聲稱公開材料提供了確切的課堂切點。
@@ -62,7 +64,7 @@ inode tree 回答的是「logical block 對應哪個 disk block」，沒有決�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依 byte-identical Lecture 20／21 PDF 落實分工；本篇聚焦 inode index walk 與 disk scheduling，cache、free-space 與 allocation 改由 Lecture 21 承擔。
 
 ## 參考資料

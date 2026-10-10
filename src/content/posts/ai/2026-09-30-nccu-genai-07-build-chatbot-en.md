@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the 1132 semester (Spring 2025) of NCCU Yen-Lung Tsai's *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 7 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L06, LLM Applications and Ethical Challenges](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics-en). Last lecture produced a one-shot Lucky Vicky generator. This one makes it hold a conversation, without necessarily sending your data to the cloud.
 
 Official sources: [video 07](https://www.youtube.com/watch?v=LOo0VKhjoRc) (2025-04-01, about 3 h 3 min, in Mandarin), the 31-page GenAI07 slides (in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)), the notebooks [`【Demo04c】用OpenAI_API打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04c%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb) and [`用_Ollama_打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E7%94%A8_Ollama_%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb) in the [AI-Demo](https://github.com/yenlung/AI-Demo) repo, and the week-7 assignment on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. The notebooks live in a shared repo, so **everything below refers to the current repo version, which may have changed since the semester ended.**
@@ -163,7 +165,7 @@ Previous: [L06 LLM Applications and Ethical Challenges](/posts/ai/2026-09-30-ncc
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

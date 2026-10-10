@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide covers HW4 of [NTU Machine Learning 2026 Spring by Hung-yi Lee](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 10 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous part, [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en), explained how a model knows token order. This assignment has you train a decoder-only Transformer yourself, on images instead of text.
 
 The course page lists HW4 as released on 3/27 and due 04/16/2026 23:59, with TAs 劉建蘴, 馮柏翰 and 陳品睿. Official materials:
@@ -127,7 +129,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

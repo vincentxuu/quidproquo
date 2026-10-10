@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-16-demand-paging)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 17 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 16**. Mendel Rosenblum taught it on 2026-05-04 under [Demand Paging](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/16/Lecture16.pdf). The official Lecture 16/17 PDFs are byte-identical and video is inaccessible, so the spoken boundary cannot be recovered. To avoid duplication, this article owns fault/fetching mechanism; [Lecture 17](/posts/learning/2026-08-22-stanford-cs111-lecture-17-page-replacement) owns replacement policy.
 
 ## Course video sources
@@ -78,7 +80,7 @@ Three questions test the model. Why does `present=0` not necessarily mean an inv
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-02-asymptotics-worst-case-mergesort-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 3 篇，對應 **Stanford CS161, Winter 2026, Lecture 2**。Ellen Vitercik 在 2026 年 1 月 7 日主講，官方題目是 [Asymptotics, Worst-Case Analysis, and MergeSort](https://stanford-cs161.github.io/winter2026/lectures/#lecture-2-asymptotics-worst-case-analysis-and-mergesort)。本文使用公開的課前練習、11 頁講義、82 頁投影片，以及兩頁的 InsertionSort 嚴格證明 handout。Canvas 錄影需要校內權限，沒有作為來源；官方 notebook 與概念題也沒有拿來補正文。
 
 第一講用 Karatsuba 示範「成長率比單次計時更能描述算法」。第二講把這句直覺拆成兩個可檢查的問題：**演算法真的會回傳正確答案嗎？它對所有輸入都有足夠好的效能嗎？** 排序成為共同語言，因為 InsertionSort 的步驟容易追，MergeSort 又能把分治、正確性歸納與遞迴時間接在一起。
@@ -175,7 +177,7 @@ Lecture 2 把 CS161 的證明語法定下來：迭代算法找迴圈不變量，
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

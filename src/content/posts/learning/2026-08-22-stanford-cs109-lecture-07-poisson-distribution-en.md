@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-07-poisson-distribution)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 8 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 7: Poisson** on July 1 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture07-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture07-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture07-LLMPrompts.pdf), and the shared Spring-dated [course reader](https://probabilitycoders.stanford.edu/spr26/poisson) problem by problem. The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
 Although the official title is Poisson, the worksheet first completes another part of the previous lecture's agenda. Expectation locates a distribution's center; variance and standard deviation describe its spread. The worksheet then turns to counts in a fixed interval.
 
 ## Course video sources
 
-This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
 
-Course and recording entries:
+Official sources:
 
-- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+Checked on 2026-10-10.
 
 ## P1: Reconnect expectation
 
@@ -146,7 +152,7 @@ For each problem, record the random variable and unit, independence assumptions,
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

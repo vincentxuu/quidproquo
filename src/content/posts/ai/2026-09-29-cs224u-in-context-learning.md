@@ -34,6 +34,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-in-context-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。主要材料是 [In-context learning 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-incontextlearning-2023-handout.pdf)（Christopher Potts，38 頁）、[XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) 第 20–23 支錄影，以及講次表上 Mina Lee 客座的 [公開投影片](https://drive.google.com/file/d/1RIOAOTOOPyVLezFiIfGnYJSE8ofKuR4L/view)，事實皆於 2026-09-29 核對。存取等級 **A3**；Mina Lee 的客座**沒有公開錄影**（播放清單裡沒有），只能依投影片。
 
 **系列位置**：上一篇 [資訊檢索](/posts/ai/2026-09-29-cs224u-information-retrieval)｜下一篇 [作業二：用 DSPy 做少樣本 OpenQA](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy)｜[系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
@@ -206,7 +208,7 @@ Potts 對這張表的解讀比數字本身更值得記。他說只有在「新�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

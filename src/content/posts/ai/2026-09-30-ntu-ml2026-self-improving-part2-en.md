@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post follows the 5/22 week of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 18 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series, and it covers the last regular lecture. The previous post is [HW8: Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling-en). It picks up from [Can AI Improve Itself? (Part 1)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en) two weeks earlier. Part 1 covered AI-generated answers, rewards, and losses, which is to say how to update **parameters**. This part covers the **harness**, and whether the update rule itself can be updated.
 
 Official materials used: the slide deck [self-evolving-agent.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/self-evolving-agent.pdf) (64 pages) and the lecture video listed on the course page, [AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://youtu.be/cQLKVzbwN7I) ("Is AI about to cross the Rubicon? How far are we from self-improving AI, part 2", in Mandarin). The ppt link in that row of the course page reads `self-evolving-agent.ptx` and returns 404; change it to `.pptx` and it opens. Access level is **A3**: slides and recording are public. This lecture has no homework or quiz attached.
@@ -218,7 +220,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-cmu-07380-lecture-09-generative-models-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) 的第 9 講 **Generative Models** 在 2026 年 9 月 23 日（週三）上課，Schedule 上的副標是「Naive Bayes; Gaussian discriminant analysis」。
 
 到目前為止，07-280 和 07-380 教過的分類器（邏輯迴歸、神經網路）都直接學 `p(y|x)`。這一講換一個方向：先描述「資料是怎麼產生的」，也就是先學 `p(y)` 和 `p(x|y)`，分類時再用 Bayes rule 反推。Schedule 後段的 GMM／EM、VAE、diffusion 也都屬於生成式模型，這一講是它們在本課的起點。
@@ -24,11 +26,13 @@ draft: false
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
 
 ## 官方材料與讀取範圍
 
@@ -186,7 +190,7 @@ Mitchell 的章節證明了一件很漂亮的事：在一種「變異數不隨�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

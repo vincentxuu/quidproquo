@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 [Lectures 13–18](https://inst.eecs.berkeley.edu/~cs188/sp26/) progress from probability and Bayes nets through exact inference and sampling to HMMs and particle filtering. [Project 4: Ghostbusters](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/) makes the sequence concrete: Pacman cannot see ghosts and receives only noisy Manhattan-distance readings, so it must maintain location beliefs and pursue targets.
 
 ## Course video sources
@@ -52,7 +54,7 @@ Series navigation: [Previous: MDPs and reinforcement learning](/posts/learning/2
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

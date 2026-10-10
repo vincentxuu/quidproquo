@@ -20,6 +20,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)播放清單上的 L12 影片。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列第 15 篇。上一篇 [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents) 把 reasoning 當成 agent 的三個關鍵概念之一；這一篇把它單獨拉出來問：**模型怎麼學會「先想再答」？**
 
 先講清楚這篇的限制：**L12 沒有公開投影片。** 課程頁 12/01 那一列只寫「Reasoning」，沒有講義也沒有影片連結；五支影片只出現在 [2025 Fall 播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)。本文沒有逐字聽寫影片，所以下面能寫的只有影片標題、長度與說明欄，加上前一講講義裡跟 reasoning 有關的頁面。
@@ -109,7 +111,7 @@ L12 沒有投影片，但 [Language Agents 講義（251110_LangAgent.pdf）](htt
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

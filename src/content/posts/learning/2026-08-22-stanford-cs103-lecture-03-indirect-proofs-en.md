@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-03-indirect-proofs)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 4 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 2, Spring 2026 (2026-04-03)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not identify a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The previous lecture moved directly from assumptions to conclusions. This lecture asks what to do when that route is awkward: can we prove an equivalent statement instead? A safe change of direction begins by knowing exactly when the original statement is false. The deck therefore develops implication and negation before introducing contraposition and contradiction.
@@ -155,7 +157,7 @@ The complete deck supports the implication and negation rules, contrapositive pr
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt both language versions from the complete official deck, restoring quantified negation, contraposition, biconditionals, and both contradiction examples.
 
 ## References

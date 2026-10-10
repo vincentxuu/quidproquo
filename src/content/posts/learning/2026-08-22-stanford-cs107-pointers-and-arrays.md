@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-pointers-and-arrays-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 「array 就是 pointer」有誤。`arr[i]` 與 `*(arr + i)` 取得同一元素，函式參數也只收到首元素位址；但 array object 擁有元素空間，pointer variable 只存位址。前者不能重新賦值，且原作用域中的 `sizeof` 會算整個陣列；後者則相反。
 
 Lecture 9 用「C strings 七誡」整理陷阱。每讀一行都要回答：這是 array object 還是 pointer value？字元存在哪裡？位址能否改指別處？透過它寫入是否合法？
@@ -263,7 +265,7 @@ Lecture 9 最終不是要消除 array 與 pointer 的差別，而是理解它們
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

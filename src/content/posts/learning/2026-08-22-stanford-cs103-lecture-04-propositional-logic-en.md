@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-04-propositional-logic)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 5 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 3, Spring 2026 (2026-04-06)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page has no per-meeting speaker field, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/Lecture%20Slides.pdf) are public; Canvas/Panopto recordings and transcripts were not used.
 
 The lecture asks how to formalize definitions and reasoning used in proofs. Propositional logic compresses each complete statement into one Boolean value and studies how connectives combine those values. First-order logic, introduced next, opens statements back up to discuss objects and properties. That boundary is both propositional logic's power and its limitation.
@@ -138,7 +140,7 @@ The complete public deck supports propositional variables, all seven symbols and
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt both language versions from the complete official deck, restoring truth tables, translation examples, precedence, and propositional equivalences.
 
 ## References

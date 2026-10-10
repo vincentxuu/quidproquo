@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW10。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 20 篇，也是最後一篇。上一篇是 [HW9：Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching)。
 
 用到的官方材料：作業說明 [hw10.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw10.pdf)（42 頁，第 31 頁起是 12 題的完整選項）、[作業 Colab](https://colab.research.google.com/drive/1QBtp0lQrjQbTKB1sLIxoavqhSU7EhG_g?usp=sharing)（32 個 cell），以及課程頁列出的助教說明影片 [ML 2026 Spring HW10 Spoken Language Model](https://youtu.be/Gx96VH6ePC4)。課程頁寫 5/29 公告，截止時間 2026/06/18 23:59:59（UTC+8），不收遲交。成績在 2026/06/19 前公布，成績複查到 06/21，學期總成績在 06/22 前公布。助教是陳竣瑋、陳思齊、鄭安妤、尹廷安。
@@ -163,7 +165,7 @@ PDF 第 22 頁給了兩個定義：**Realtime** 是輸出延遲短；**Full-Dupl
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

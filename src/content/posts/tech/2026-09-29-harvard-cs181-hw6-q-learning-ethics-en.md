@@ -23,17 +23,22 @@ glossary:
 
 > 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics)
 
+**Video status: The schedule mentions a recording, but no public link has been obtained.** [Source details](#course-video-sources)
+
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6) (`hw6_release.tex/pdf/ipynb`, `p3src/`, due 2026-05-01), the [Section 10 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf), and the 2026 [Lecture 22](https://drive.google.com/file/d/1b2X1RZAH9bFtww-JYwQvUWwEC-poI05C/view) and [Lecture 23](https://drive.google.com/file/d/1TWidw3N7kYmN5Zr6SvJXVDEcK3xYbWRi/view) slides, all opened on 2026-09-29. The slide links come from topic cells in the [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) (visible only in the xlsx export). The course as a whole is **A3**, but the April 23 Embedded EthiCS session appears on the schedule only as "see recording", with no public link, and no 2026 slides or module page could be found. That session is **A0**: this post does not guess at what it covered.
 
 This is part 14 of the [Harvard CS181 weekly guide](/en/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 3)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en), planned in a Gridworld with known transitions. This part drops "known": the agent learns while it plays.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The Spring 2026 schedule does not list public videos for MDP/RL, but April 23 Embedded EthiCS explicitly says “see recording.” In the public schedule HTML retrieved here, that cell contains text without an openable recording link. A recording is referenced, but its public viewing link and permissions remain unconfirmed; this is not evidence that no video exists.
 
-Course and recording entries:
+Official sources:
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Where it sits in the term
 
@@ -138,7 +143,7 @@ These are details noticed while reading the starter code and worth verifying you
 
 You answer in **at most 250 words**: social media platforms like Facebook, TikTok, and X make extensive use of reinforcement learning, and many scholars argue these platforms have contributed to political polarization, where users with a particular political leaning develop more extreme views over time. Assuming a platform's users do become more extreme, use what you've learned about RL to propose a possible explanation of how the platform's chosen reward function may have contributed. The answer should show careful thought about the socio-technical context but need not be comprehensive.
 
-The prompt opens by referring to a class session on "Fairness in Model Selection". No lecture by that name appears on the 2026 schedule; the only ethics session is April 23's "Embedded EthiCS – see recording", and the recording is not public.
+The prompt opens by referring to a class session on "Fairness in Model Selection". No lecture by that name appears on the 2026 schedule; the only ethics session is April 23's "Embedded EthiCS – see recording", but the public schedule HTML checked here does not provide an openable recording link; this does not establish that the recording does not exist or must be private.
 
 **Official material you can build a framework from** (course RL concepts, not an answer to this question):
 
@@ -164,7 +169,7 @@ HW6 is the last homework. The next part, [Final Checkpoint and Series Wrap-up](/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

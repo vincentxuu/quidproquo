@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-a3-rlhf-dpo-bandits)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Winter 2026 assignments and slides of [CS234](https://web.stanford.edu/class/cs234/). The public recordings are the [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Every fact was checked on 2026-09-30 against the [assignments page](https://web.stanford.edu/class/cs234/assignments.html), the [A3 question PDF](https://web.stanford.edu/class/cs234/assignments/a3/hw3_questions.pdf) (8 pages), and the [Google Drive starter code](https://drive.google.com/file/d/18HwwLiMIN9XSdK7QXqQjGyhyb_86Iz_Y/view) linked from that page, which I downloaded, unzipped, and read file by file. Access grade **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the questions, LaTeX template, starter code, and preference data are all public. What you can't get is the Gradescope autograder and official solutions.
 
 **Series**: previous [Learning from human preferences: Bradley-Terry, the RLHF pipeline, DPO](/posts/ai/2026-09-30-cs234-rlhf-dpo-en) | next [Data efficiency I: bandits, regret, UCB](/posts/ai/2026-09-30-cs234-bandits-regret-ucb-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -226,7 +228,7 @@ One thing you can do tonight: download the Drive zip, set up the environment, an
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

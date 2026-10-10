@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-transformers-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 5 講排在 2026 年 1 月 20 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture05-transformers.pdf)的 agenda 先收完前一講的消失梯度與機器翻譯，再走過 recurrence 到 attention、self-attention、完整 Transformer，最後談成果、缺點與變體。這是本季的架構分水嶺：後面預訓練、後訓練、agent 與推理都預設你已經懂這裡。
 
 ## 課程影片來源
@@ -126,7 +128,7 @@ Winter 2026 錄影不公開。本文完整覆蓋投影片的六段 agenda，但�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：依據 Winter 2026 的 [Lecture 1 投影片（post-class 版）](https://web.stanford.edu/class/cs234/slides/lecture1post.pdf)。配套影片是 [Spring 2024 Lecture 1 錄影（補充）](https://www.youtube.com/watch?v=WsvFL-LjA6U)，標題相同，但投影片是 2026 版，例子可能不同。本文是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列的第 1 篇。
 
 [CS234](https://web.stanford.edu/class/cs234/) 第一講的議程分三段：RL 概論、課務、不確定下的序列決策。課務（評分、tutorials、late days）[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)已經整理過，這篇只講另外兩段。
@@ -234,7 +236,7 @@ reward：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

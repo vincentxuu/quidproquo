@@ -14,6 +14,8 @@ description: "逐段拆解 Stanford CS224V Fall 2025 Introduction：幻覺問題
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-introduction-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-introduction.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 這是 Stanford CS224V Fall 2025 的第一堂，不是 2026 年改名後尚未公開的 Agentic AI 新課綱。這堂課先給一個很硬的判斷：LLM 即使接上 RAG，仍可能忽略檢索內容、混入參數記憶，或把沒有根據的句子寫得很順。課程的答案不是「換更大的模型」，而是把助理做成一串可以個別檢查的步驟。
@@ -124,7 +126,7 @@ Human evaluation 仍然需要，但題目必須明確。「哪個回答比較好
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

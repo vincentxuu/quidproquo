@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 offering of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 5 of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series. The text unit ended with [HW1](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en); this post starts the second unit, "Generative models of images," with Lecture 5 on January 28, 2026: "Computer Vision: CNNs / Encoder-only Transformers / Vision Transformers."
 
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture5-cnn-vit.pdf) and the [inked in-class version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture5-cnn-vit-ink.pdf) (70 pages each), and three readings: [sections 9.1–9.3](http://www.deeplearningbook.org/contents/convnets.html) of Goodfellow, Bengio, and Courville's *Deep Learning*, [BERT](https://arxiv.org/pdf/1810.04805.pdf), and [ViT](https://arxiv.org/pdf/2010.11929.pdf). The course is rated **A3** (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Recordings are on Panopto behind a CMU login, so this post works from the slides.
@@ -150,7 +152,7 @@ Series navigation: previous [HW1: adding RoPE and GQA to minGPT](/posts/ai/2026-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

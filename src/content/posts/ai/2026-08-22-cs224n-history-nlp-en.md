@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-history-nlp)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 1, **History of NLP**, on January 6, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff and reconstructs the public agenda from the [course-introduction deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture01-intro.pdf) and [history deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture01-history.pdf). The lecture first defines the quarter's destination, then asks where today's language models came from.
 
 ## Course video sources
@@ -101,7 +103,7 @@ Winter 2026 recordings are available only to enrolled students. This article fol
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

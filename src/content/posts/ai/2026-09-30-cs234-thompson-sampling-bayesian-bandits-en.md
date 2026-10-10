@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Winter 2026 slides of [CS234](https://web.stanford.edu/class/cs234/). The public recordings are the [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX); this post corresponds to video 12, "Exploration 2" (per its YouTube chapters: limits of UCB, PAC, optimistic initialization, Bayesian bandits, and Thompson sampling). Every fact was checked on 2026-09-30 against the [Lecture 11 slides](https://web.stanford.edu/class/cs234/slides/lecture11post.pdf) (post-class, 50 pages). The PDF's title page says "Lecture 13" and notes below it, "Typo: Lecture 11". Access grade **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides are public; the 2026 recordings are on Canvas for enrolled students only.
 
 **Series**: previous [Data efficiency I: bandits, regret, UCB](/posts/ai/2026-09-30-cs234-bandits-regret-ucb-en) | next [Data efficiency III: PAC, MBIE-EB, PSRL, and strategic exploration in MDPs](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -209,7 +211,7 @@ One thing you can do tonight: write a 20-line Bernoulli Thompson sampler with nu
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

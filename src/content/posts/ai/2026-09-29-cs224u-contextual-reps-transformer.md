@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 的 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 3 篇，上一篇是[開場：NLU 的演進與課程地圖](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu)。
 
 CS224U 2023 年 4 月 5 日那堂的主題是 contextual word representations。官方材料是一份 [投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf)（handout 有 95 頁，投影片編號到 81），分十節：Guiding ideas、Transformer、Pos enc、GPT、BERT、RoBERTa、ELECTRA、seq2seq、Distillation、Wrap-up。YouTube 上的 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)把它拆成十支短片。
@@ -205,7 +207,7 @@ $$\alpha_{ij} = \mathrm{softmax}\left(\frac{(x_i W^Q)^\top (x_j W^K + a^K_{ij})}
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

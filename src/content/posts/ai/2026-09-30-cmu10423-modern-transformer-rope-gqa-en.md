@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 offering of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 3 of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series and follows [L2–L3: Transformer LMs and decoding](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding-en). It covers Lecture 4, "Pre-training, fine-tuning / Modern Transformers," taught by Matt Gormley on January 26, 2026.
 
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture4-rope-gqa.pdf) (44 pages) and the [inked in-class version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture4-rope-gqa-ink.pdf) (47 pages), plus the three readings on the schedule: [GQA](https://arxiv.org/pdf/2305.13245.pdf), [Longformer](https://arxiv.org/pdf/2004.05150.pdf), and [RoFormer](https://arxiv.org/pdf/2104.09864.pdf). The course is rated **A3** (see the grading in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The recordings sit behind CMU's Panopto login, so this post relies entirely on the slides; anything said only out loud in class is out of reach.
@@ -203,7 +205,7 @@ Series navigation: previous [L2–L3: Transformer LMs, LLM training, and decodin
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 10 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 9: The Normal Distribution** on July 6 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture09-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture09-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture09-LLMPrompts.pdf), and shared Spring-dated reader chapters on the [Normal](https://probabilitycoders.stanford.edu/spr26/normal) and [binomial approximation](https://probabilitycoders.stanford.edu/spr26/binomial_approx). The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
 The original worksheet has two pages: P1–P3 are on page one, while P4–P7 and the challenge are on page two. No problem number is missing. P5 and the challenge are problem-set items deliberately hidden from the public answer key; this guide distinguishes its derivations from officially printed solutions.
 
 ## Course video sources
 
-This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
 
-Course and recording entries:
+Official sources:
 
-- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+Checked on 2026-10-10.
 
 ## P1: Review Exponential waiting time
 
@@ -177,7 +183,7 @@ The guide's six concepts are Normal parameters, standardization and `Φ`, symmet
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

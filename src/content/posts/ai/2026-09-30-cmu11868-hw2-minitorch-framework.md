@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。作業頁在跨學期共用的 [作業站](https://llmsystem.github.io/llmsystemhomework/assignment_2/)，起始碼在 [llmsys_hw2](https://github.com/llmsystem/llmsys_hw2)，兩者都是 2026-09-30 所見。**這個 repo 已經被 Fall 2026 動過**：2026-09-02 合併了三個 PR，差異見下文「版本差異」一節。存取等級 **A3**：題目、起始碼、本機測試與訓練腳本都公開；拿不到的是 Canvas 繳交、私有測資與 PSC。
 
 **系列位置**：上一篇 [L05 深度學習框架與自動微分](/posts/ai/2026-09-30-cmu11868-dl-frameworks-autodiff)｜下一篇 [L06–L07 Transformer 與預訓練 LLM](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
@@ -38,11 +40,13 @@ glossary:
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 它在課程裡的位置
 
@@ -134,7 +138,7 @@ llmsys_hw2 在春季截止前的最後一筆主線 commit 是 2026-01-29 的 `b9
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

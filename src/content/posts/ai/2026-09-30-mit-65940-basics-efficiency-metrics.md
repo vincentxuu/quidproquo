@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列的第 1 篇，依據 Fall 2024 版。為什麼不用 Fall 2026，[系列入口](/posts/ai/2026-09-30-mit-65940-course-overview)有說明。
 
 本篇涵蓋的官方材料：
@@ -229,7 +231,7 @@ Fall 2026 的 [L1 投影片](https://www.dropbox.com/scl/fi/yi5oq4f9yzg9sikwcxm3
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

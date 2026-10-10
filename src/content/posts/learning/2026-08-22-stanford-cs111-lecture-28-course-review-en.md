@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-28-course-review)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 29 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 28**. Mendel Rosenblum taught it on 2026-06-03, and its official title is [Course Review](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/28/Lecture28.pdf). This article follows the ten-page public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar) page by page. The recording is behind Canvas/Panopto and is not treated as a source read here.
 
 The artifact audit found no duplicate deck: Lecture 28 has a different hash, page count, and title from Lectures 26 and 27. Nor is this final review merely a recitation of chapter names. Pages 2–7 inventory mechanisms along the three threads of concurrency, memory, and storage. Page 8 then extracts four cross-cutting ideas: virtualization, atomicity, locality, and layering. The real takeaway is how the latter four recur across the former three.
@@ -90,7 +92,7 @@ If the compelling part of CS111 was how abstractions reach the kernel, continue 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

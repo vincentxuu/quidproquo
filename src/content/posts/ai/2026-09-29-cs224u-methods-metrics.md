@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-methods-metrics-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列第 13 篇，範圍是 NLP methods 單元的前半：總論、分類指標、生成指標。講次表把這個單元排在 2023 年 5 月 17、22、24 日。同一欄的 Experimental protocol 截止日是 5 月 29 日。
 
 用到的官方材料有：投影片 [Methods and metrics](https://web.stanford.edu/class/cs224u/slides/cs224u-methods-2023-handout.pdf) 第 1–41 頁（全份 94 頁）、播放清單的影片 39–41、repo 裡的 [`evaluation_metrics.ipynb`](https://github.com/cgpotts/cs224u/blob/main/evaluation_metrics.ipynb)，以及講次表的指定閱讀 [Resnik and Lin 2010](https://home.cs.colorado.edu/~jbg/teaching/CMSC_773_2012/reading/evaluation.pdf)。存取等級是 **A3（歷史版）**。
@@ -210,7 +212,7 @@ notebook 版本字串是「CS224u, Stanford, Spring 2023」，作者 Potts。它
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

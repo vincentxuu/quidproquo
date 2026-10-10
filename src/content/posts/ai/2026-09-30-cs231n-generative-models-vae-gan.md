@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份：** 投影片與作業是 Spring 2026；錄影是 Spring 2025（YouTube）。兩者可能有差異，本文以 2026 投影片為準，錄影只當輔助。
 >
 > 這是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 15 篇。上一篇是 [L12：自監督學習](/posts/ai/2026-09-30-cs231n-self-supervised-learning)，下一篇是 [L14：生成模型（二）Diffusion](/posts/ai/2026-09-30-cs231n-generative-models-diffusion)。
@@ -232,7 +234,7 @@ $$D^*_G(x) = \frac{p_{data}(x)}{p_{data}(x) + p_G(x)}$$
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

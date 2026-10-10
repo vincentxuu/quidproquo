@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940) 第 10 講（2024-10-08），主要材料是 [Lec10-MCUNet.pdf](https://www.dropbox.com/scl/fi/udgt7c6sw5wpvrbh7us2t/Lec10-MCUNet.pdf?rlkey=sryh8aiehv8792uk1ocu00icn&st=8v4oql2g&dl=0)（93 頁）與 [課堂錄影](https://youtu.be/uR1KKhIhHEk)。文中頁碼指 PDF 頁。事實於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片、錄影、同期 Lab 3 都公開；拿不到的是 Canvas 繳交與評分回饋。
 >
 > **Fall 2026 對照**：[F26 課表](https://hanlab.mit.edu/courses/2026-fall-65940)把同名講次排在 10 月 15 日，截至 2026-09-30 投影片與錄影仍是空連結。
@@ -165,7 +167,7 @@ Song Han 用一條光譜開場（第 5–8 頁）：**Cloud AI → Mobile AI →
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

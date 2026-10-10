@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Sources**: The core material is the [MOOC version](https://www.csie.ntu.edu.tw/~htlin/mooc/) of Machine Learning Techniques: [209_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/209_handout.pdf) (Decision Tree), [210_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/210_handout.pdf) (Random Forest), [211_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/211_handout.pdf) (Gradient Boosted Decision Tree), and videos 34–45 of the [Techniques YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2). Homework references come from [Fall 2024 HW7](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf). All facts were checked against the originals on 2026-09-30. The lectures are taught in Mandarin; the slides are in English. Access level: the MOOC alone is **A2**; adding the Fall 2024 homework PDFs brings it to **A3 (minus the grading chain)**. There are no official solutions, and Gradescope and NTU COOL are for enrolled students only.
 
 **Series**: Previous: [Blending, Bagging, and AdaBoost](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en) | Next: [Neural Networks and Deep Learning](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en) | [Series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
@@ -269,7 +271,7 @@ How other courses on this site cover the same topics (this post does not skip an
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

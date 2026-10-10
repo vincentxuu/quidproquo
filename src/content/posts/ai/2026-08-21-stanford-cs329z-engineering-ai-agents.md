@@ -19,6 +19,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CS329Z: Engineering AI Agents](https://cs329z.stanford.edu/) 是 Stanford 電腦科學系 2026 年秋季第一次開的三學分課。名字裡的關鍵字是 **Engineering**。它不是把最新的 agent 論文排成十週讀完，而是要學生把一套 agentic 系統從零做出來、量出來，然後在 Demo Day 上把它演一遍。
 
 課程官網開宗明義給的框架是「compound AI systems」：由 LLM、檢索器、工具、優化器多個元件組成、彼此互動的系統。官網說這代表 AI 應用建構方式的一次根本改變。整學期的三條軸線寫在第一堂的描述裡——拆解（decomposition）、資料（data）、評估（evaluation）。
@@ -209,6 +211,8 @@ Part 1 先做 email 優先級分類、每日摘要、從零寫 BM25，以及多�
 ## 更新紀錄
 
 
+
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：更新前五堂官方 PDF 投影片，補上已公開的 HW1 起始碼、講義、資料、測試與自學指令，並核對 AI 使用規則與錄影取得方式。
 - 2026-09-29：依課程網站 9 月的改版與前兩堂投影片更新——HW1 改為禁用框架的 Agentic Harness（Part B 的 DSPy 重寫移除）、專案主題改自選並加入 ICLR 格式與可重現性、評分表改為互評 20%、補上助教、教室、算力補助、旁聽與錄影說明、投影片內容，並同步改寫標題與 tldr
 

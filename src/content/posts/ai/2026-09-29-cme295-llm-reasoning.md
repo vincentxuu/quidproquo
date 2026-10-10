@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-reasoning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 6 講「LLM reasoning」（2025 年 11 月 7 日）。主要來源是 [148 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf)，錄影在[這裡](https://www.youtube.com/watch?v=k5Fh-UgTuCo)。本文只根據投影片寫，投影片沒寫的部分會標出來源論文。
 
 投影片用兩個問題劃出「推理」的邊界。「Stanford 的 Transformer 與 LLM 課程代碼是什麼？」不算推理，記得就答得出來。「這隻熊 2020 年出生，今年幾歲？」才算，因為要先想到「現在是哪一年」，再做一次減法。投影片對推理的暫定定義只有一句：reasoning = ability to solve a problem。
@@ -269,7 +271,7 @@ flowchart LR
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

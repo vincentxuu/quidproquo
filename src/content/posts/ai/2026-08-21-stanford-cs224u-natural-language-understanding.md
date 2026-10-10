@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CS224U: Natural Language Understanding](https://web.stanford.edu/class/cs224u/) 是 Stanford 的專案導向 NLP 課程，跨掛在語言學系與 Symbolic Systems 學程底下，授課者是語言學教授 [Christopher Potts](https://web.stanford.edu/~cgpotts/)。官方先修只有一條：CS224N 或 CS224S 擇一。
 
 這門課在自學圈的名氣，多半不是來自錄影，是來自它的 [GitHub repo](https://github.com/cgpotts/cs224u/)。整學期的講義 notebook、三份作業、模型程式碼、甚至那份講「期末專案怎麼做」的長文件，全部在 repo 裡，Apache 2.0 授權，`git clone` 就有。這在 Stanford 的 AI 課裡是少數——大部分課的作業起始碼鎖在 Canvas 或 Gradescope 後面。
@@ -233,5 +235,5 @@ cd cs224u
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-29：新增「系列目錄」，連到第 2–17 篇與未公開部分的說明。2026-09-29 與 09-30 用同一個 XML 介面重查 ExploreCourses，2026-27 學年的 `<sections>` 已變成空的（原本的 Spring 講座與討論兩節不在了），tldr、硬事實一節與附錄依此改寫。

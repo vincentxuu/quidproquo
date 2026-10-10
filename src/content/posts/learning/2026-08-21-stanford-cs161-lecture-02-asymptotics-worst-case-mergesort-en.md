@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-02-asymptotics-worst-case-mergesort)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is post 3 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 2**. Ellen Vitercik taught it on January 7, 2026, under the official title [Asymptotics, Worst-Case Analysis, and MergeSort](https://stanford-cs161.github.io/winter2026/lectures/#lecture-2-asymptotics-worst-case-analysis-and-mergesort). I used the public pre-lecture exercise, eleven-page notes, 82-slide deck, and the two-page rigorous InsertionSort handout. The Canvas recording requires Stanford access and was not a source. I also did not use the notebook or concept checks to fill the article.
 
 Lecture 1 used Karatsuba to argue that growth tells us more about an algorithm than one timing measurement. Lecture 2 splits that intuition into two checkable questions: **Does the algorithm actually return the right answer? Does it perform well for every input?** Sorting supplies a shared language. InsertionSort is easy to trace, while MergeSort ties together divide and conquer, inductive correctness, and recursive runtime.
@@ -175,7 +177,7 @@ A second extension is to finish the Merge proof yourself. Before each iteration,
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

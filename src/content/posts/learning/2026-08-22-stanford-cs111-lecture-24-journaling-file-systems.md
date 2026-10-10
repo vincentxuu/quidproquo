@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-24-journaling-file-systems-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 25 篇，對應 **Stanford CS111, Spring 2026, Lecture 24**。2026-05-22 由 Mendel Rosenblum 主講，行事曆上的題目是 [File System Crash Recovery, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)。本文只使用[公開講義 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf)；錄影位於 Canvas／Panopto 後方，不算已讀來源。
 
 先說材料的異常：Lecture 23 與 Lecture 24 的 PDF 都有 23 頁，逐頁標題、條列與順序相同。兩個檔案的 SHA-256 不同，但抽出的文字只差 `/lost+found` 的斜線與四處句點。公開資料因此沒有一份獨立的「continued」[投影片](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf)。本文不虛構不存在的內容，而是把第 1–15 頁交給 Lecture 23，從第 16 頁起專注 write-ahead logging、transaction、checkpoint，以及 consistency 與 durability 的分界。
@@ -70,7 +72,7 @@ log entry 可以描述 logical operation，例如「把某區塊設為 inode 的
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

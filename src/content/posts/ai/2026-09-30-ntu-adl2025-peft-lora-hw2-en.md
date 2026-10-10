@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 10 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). The course is ADL Fall 2025 (NTU semester 114-1, 2025/09/01–12/15). The course page puts LLM Adaptation on the same day as Post-Training (9/22). That week's TA recitation is LLM LoRA Training, and the homework column shows HW 2.
 
 **Sources**: the [LLM Adaptation slides](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250922_Adaptation.pdf) (14 pages), video [7.5 Parameter-Efficient Fine-Tuning (Adaptor, LoRA)](https://youtu.be/ii2kMoUyNOs) (19:21), and the HW2 video [ADL 2025 Fall Homework 2](https://youtu.be/_QiIp0WTRzI) (13:05, uploaded 2025-10-06). All checked on 2026-09-30. The slides run only 14 pages and are mostly diagrams, so this post is shorter than the previous one.
@@ -135,7 +137,7 @@ Next: [RAG and HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en)
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-09-linkers-dynamic-linking)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 10 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 9**. Mendel Rosenblum taught the lecture on 2026-04-17; its official title is [Linkers and Dynamic Linking](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/9/Lecture9.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Lecture 9 marks a course transition. The first third on CPU issues—threads, processes, synchronization, and scheduling—is complete. The next third addresses process memory layout, virtual memory, and paging, before the final third turns to storage and file systems. A linker looks like a compiler tool, but it connects source code to the memory image of a running process.
@@ -118,7 +120,7 @@ Static linking resolves at build time, producing a self-contained but potentiall
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 offering of [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/).** It is part 5 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 4, "Model Specifications & Compliance" (September 25, 2025). [L2](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en) covered how safety behavior is trained in, and [L3](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) covered how it gets broken. This lecture goes back to an earlier question: what do we actually want the model to do?
 
 Official sources used here:
@@ -42,11 +44,20 @@ Barak discloses his position up front. He focuses on the [OpenAI Model Spec](htt
 
 ## Course video sources
 
-The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+The corresponding public YouTube recording was verified against the official Fall 2025 lecture schedule.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=LQ0RRQKKluc
+title: CS2881R Fall 2025 L4: Model Specifications & Compliance
+```
 
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+Original videos: [CS2881R Fall 2025 L4: Model Specifications & Compliance](https://www.youtube.com/watch?v=LQ0RRQKKluc)
+
+Official sources:
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+Checked on 2026-10-10.
 
 ## Start with what people actually do with ChatGPT
 
@@ -222,7 +233,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overvie
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

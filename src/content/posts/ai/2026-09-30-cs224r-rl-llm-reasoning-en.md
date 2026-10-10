@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source term**: Based on the Spring 2026 [10_cs224r_rl_for_llms_reasoning_2026 slides](https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf) (scheduled 2026-05-01). The speaker for the [Spring 2025 L10 recording](https://www.youtube.com/watch?v=O2VpNnwB4lM) was Aviral Kumar (per the [2025 archive page](https://cs224r.stanford.edu/spring_2025/)). That's a **different speaker** from 2026, so the video can't stand in for this lecture and serves only as background. This is post 13 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
 > **Scope limits for this post**: The deck is 42 pages, mostly charts and screenshots, with under a thousand words of extractable text. Guest lectures are opinion-driven, and whatever the speaker added on stage isn't on the slides. This post covers only slide titles, bullet points, and numbers printed on figures, and doesn't fill in arguments for the speaker. The schedule also lists no assigned reading for this lecture.
@@ -156,7 +158,7 @@ Plot accuracy against total output tokens, not against N. That's the score-versu
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

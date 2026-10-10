@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）HW5 的官方檔案寫成：[HW5 資料夾](https://drive.google.com/drive/folders/1h4PNbX1thl4IL99JsdG4ymiahxd0uWXj)裡的 `hw5.pdf`（5 頁）、`hw5_student.tex`、`hw5_finetuning_student.ipynb`、`hw5_sample_eval.csv`、`kaggle_test.csv`，以及 `solutions/hw5-sol.pdf`（11 頁）。以上都能匿名下載；整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。拿不到的是 Gradescope 提交、Kaggle 的隱藏答案，以及 notebook 部分的官方解答。
 
 排程頁把 HW5 標成「Optional」，到期日是 5/11（一）晚上 11:59（PT），和期末考同一天。Syllabus 另外寫明所有作業等權重，並自動丟掉分數最低的一份。
@@ -159,7 +161,7 @@ Chat 格式那一格值得細讀：每筆資料是一串 `{"role": ..., "content
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

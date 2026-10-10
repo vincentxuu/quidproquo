@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 第 5–10 講形成課程的演算法核心：[官方 agenda](https://rail.eecs.berkeley.edu/deeprlcourse/)依序是 Policy Gradients、Actor Critic、Value-Based RL、Q-learning in Practice，以及兩講 Advanced Policy Gradients。讀法應沿著「估計什麼、資料從哪來、偏差與變異怎麼交換」前進。
 
 ## 課程影片來源
@@ -43,7 +45,7 @@ L7–8 從 Bellman backup 進入 DQN 與實務穩定技巧。L9–10 回到更�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

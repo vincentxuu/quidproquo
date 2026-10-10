@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CS 224V](https://explorecourses.stanford.edu/search?q=CS+224V&view=catalog) 是 Stanford 電腦科學系秋季開的三到四學分課，2026-2027 學年的課名是 **Agentic AI**。往前翻一個學年，同一個課號叫 *Conversational Virtual Assistants with Deep Learning*。[2025-2026 的 ExploreCourses 條目](https://explorecourses.stanford.edu/search?q=CS+224V&view=catalog&academicYear=20252026)還掛著舊名，而那份描述已經一字沒改地用了三年。
 
 改名容易被讀成「趕上 agent 熱潮」。但把兩份官方描述並排看，換掉的是題目，不是路線。這門課從頭到尾在處理同一個問題：**next-word prediction 的模型答對七成很容易，要接近全對做不到**。它給的處方是把自然語言翻譯成形式語意，用資料庫查詢、知識圖譜、SMT 定理證明器去約束模型，而不是換一套 orchestration 框架。
@@ -132,7 +134,7 @@ Genie Worksheets 是這門課的核心工具，也是課程立場的體現：你
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

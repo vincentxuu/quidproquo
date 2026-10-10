@@ -8,7 +8,7 @@ lang: en
 series:
   name: "Reading CMU 11-868 LLM Systems"
   order: 9
-tldr: "Lecture 10 of 11-868 uses Lei Li's own LightSeq and LightSeq2 as the case study and breaks them into four techniques: fuse every small operation outside matrix multiplication into one kernel, rewrite the LayerNorm and Softmax formulas to cut thread synchronizations, store parameters and gradients in FP16 but compute updates in FP32, and reuse memory based on backward-pass dependencies. The slides report 1.4-3.5x training speedups on WMT14 English-German. There is no recording; this guide works from slide page numbers and the two papers."
+tldr: "Lecture 10 of 11-868 uses Lei Li's own LightSeq and LightSeq2 as the case study and breaks them into four techniques: fuse every small operation outside matrix multiplication into one kernel, rewrite the LayerNorm and Softmax formulas to cut thread synchronizations, store parameters and gradients in FP16 but compute updates in FP32, and reuse memory based on backward-pass dependencies. The slides report 1.4-3.5x training speedups on WMT14 English-German. The official syllabus lists no public recording link; this guide works from slide page numbers and the two papers."
 description: "A guide to Lecture 10 of CMU 11-868 LLM Systems (Spring 2026): why kernel launches are expensive, LightSeq2's kernel fusion, the LayerNorm and Softmax reduction rewrites, mixed-precision updates and memory reuse, and Hierarchical Auto Regressive Search on the inference side. With slide page numbers, paper figures, and a reading plan."
 draft: false
 glossary:
@@ -31,17 +31,21 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq)
 
-> **Version note**: This post is based on the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Every fact was checked on 2026-09-30 against the [course syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), the [L10 slide PDF](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-10-transformer-acc-5ba466406bf7296f86cd244ad0405867.pdf) (66 pages), and the two readings. Access grade **A3**: slides, assignments, and starter code are all public, but **the course has no public recordings**, so everything below comes from the slides and papers, with page numbers.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> **Version note**: This post is based on the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Every fact was checked on 2026-09-30 against the [course syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), the [L10 slide PDF](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-10-transformer-acc-5ba466406bf7296f86cd244ad0405867.pdf) (66 pages), and the two readings. Access grade **A3**: slides, assignments, and starter code are all public, but **the official syllabus lists no public recording links**, so everything below comes from the slides and papers, with page numbers.
 
 **Series**: Previous: [HW3: A Decoder-Only Transformer in MiniTorch](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture-en) | Next: [HW4: Fused CUDA Kernels for Softmax and LayerNorm](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## What this lecture answers
 
@@ -182,7 +186,7 @@ One thing you can do tonight: run the PyTorch profiler on a forward pass of any 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

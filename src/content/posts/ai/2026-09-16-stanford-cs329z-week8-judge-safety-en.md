@@ -19,6 +19,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Week 8 is judges week plus safety week. Monday (11/9) covers LLM-as-a-Judge and eval infrastructure. Wednesday (11/11) covers Agent Safety and Guardrails. The paper video is due Friday, and quarter projects enter final rehearsal.
 
 Open-ended answers have no answer key, and that is the week's starting point. Classic multiple-choice benchmarks measure right versus wrong, like [MMLU](https://arxiv.org/abs/2006.03341). Two answers can both be correct while only one is actually useful, and that gap is invisible to classic benchmarks.
@@ -124,7 +126,7 @@ This is a voluntary, revisable company policy, and the assigned reading is histo
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-12: Added substantive guides to AutoLibra, CDI, prompt injection, and RSP, including the historical-version boundary for RSP.
 
 ## References

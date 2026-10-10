@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agent-customization)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the fifth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 4 of Fall 2026.
 
 Three topics: what belongs in `CLAUDE.md` versus `AGENTS.md`, hooks for lint gates and test runs, and planner / implementer / reviewer subagent patterns. The guest is Boris Cherny — creator of Claude Code, who also spoke in Fall 2025; this time it's a fireside Q&A.
@@ -179,7 +181,7 @@ Doing it in reverse — starting with three hundred lines of instructions — is
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

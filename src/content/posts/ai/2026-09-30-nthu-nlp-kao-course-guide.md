@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 清華大學資工系高宏宇老師的[《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing)，是一門掛在 [TAICA 臺灣大專院校人工智慧學程聯盟](https://taicatw.net/fall-114/)底下的主導課程。兩個學期的 Syllabus 都寫著班級人數 1200 人、開課級別研究所；TAICA 開課清單標的授課語言是中文。它從「電腦為什麼讀不懂『冬天：能穿多少穿多少』」講起，經過 TF-IDF、詞向量、RNN、Transformer、BERT，一路講到 RLHF、PEFT 與 RAG。
 
 對校外讀者來說，這門課最特別的是教材放的位置：不在學校的課程網站，而在實驗室的 [GitHub repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing)。每週的投影片、YouTube 直播錄影連結、作業 PDF 和 notebook 都掛在同一張表上。
@@ -164,7 +166,7 @@ glossary:
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

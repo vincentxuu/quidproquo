@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs111-operating-systems-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS111: Operating Systems Principles](https://web.stanford.edu/class/cs111/) 是 Stanford 大學部核心五門課裡的系統那一格，接在 CS107 後面。它教的東西可以用一句話講完：你寫的程式從來沒有真的獨佔過這台機器，這門課告訴你中間那層是怎麼騙你的。
 
 本站的 [Stanford CS 課程導讀地圖](/posts/learning/2026-08-20-stanford-cs-course-map)已經說過「CS111 的作業表就是一部作業系統」。那是階梯層級的判斷。這篇要回答的是進去之後的事：九份作業各自在做什麼、哪一份跨過去之後回不了頭、為什麼一門作業系統課會花兩堂課講信任，以及那句廣為流傳的「CS111 就是以前的 CS110」到底對到什麼程度。
@@ -184,7 +186,7 @@ g++ -std=c++17 -o tvp thread-v-process.cc -lpthread
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

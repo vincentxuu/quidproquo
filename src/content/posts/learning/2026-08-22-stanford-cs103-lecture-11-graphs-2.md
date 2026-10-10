@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-11-graphs-2-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 12 篇，對應 **Spring 2026 官方 Lecture 10（2026-04-22）**。本講的官方題目是 **Graph Theory, Part Two**，主線依序是 walks、paths 與 reachability、graph complements，以及 pigeonhole principle。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂講者欄位，因此本文不猜實際講者。
 
 前一講把 graph 定義為 `G = (V, E)`：`V` 是節點集合，`E` 的元素是兩個不同節點組成的無序對。本講開始問動態問題：怎樣才算沿著圖移動？兩點何時彼此可達？若把所有不存在的邊翻成存在，連通性會怎樣？最後再把「東西比位置多」提升成可重複使用的證明工具。
@@ -140,7 +142,7 @@ Pigeonhole principle 說：把 `m` 個物件放入 `n` 個箱子，若 `m > n`�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依官方完整投影片逐項重建 walks、reachability、graph complements、pigeonhole principle 與 Ramsey theory 的雙語正文。
 
 ## 參考資料

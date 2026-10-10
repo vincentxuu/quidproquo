@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-diffusion-models)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Spring 2026 offering of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/). The main source is the [Lecture 7 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture7-diffusion.pdf) (Diffusion models Part I, a 47-page PDF). The sampling section comes from the recap at the start of the [Lecture 8 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture8-diffusion-vae.pdf), and the readings follow the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html). All facts were checked against the official materials on 2026-09-30. Access level **A3**: slides, homework and the practice exam are public; lecture recordings are on CMU's Panopto and not viewable off campus.
 
 **Series**: previous [L6: Generative adversarial networks](/posts/ai/2026-09-30-cmu10423-gans-en) | next [L8–L9: Variational inference, VAEs and the diffusion ELBO](/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
@@ -182,7 +184,7 @@ Sampling starts from x_T ~ N(0, I) and counts t down from T to 1. At each step t
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

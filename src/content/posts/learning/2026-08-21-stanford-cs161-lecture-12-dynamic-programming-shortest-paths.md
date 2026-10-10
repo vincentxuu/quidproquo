@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-12-dynamic-programming-shortest-paths-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)第 13 篇，對應 **Stanford CS161, Winter 2026, Lecture 12**。官方課名是 **Dynamic Programming: Bellman-Ford and Floyd-Warshall**，上課日期為 2026 年 2 月 18 日，講師是 Ellen Vitercik。
 
 本文依照[官方 Lecture 12 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall)、公開 notes 與 slides PDF 整理。Canvas-only 錄影未作為來源。Lecture 11 從 relaxation 與權重條件比較 Dijkstra、Bellman–Ford；這一講刻意重訪 Bellman–Ford，但重點換成「狀態、遞迴式、填表順序」，再把同一套方法推到 all-pairs shortest paths。
@@ -169,7 +171,7 @@ Slides 也提到 APSP 存在漸進上更快的研究結果。那不是本講 req
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs146s-agent-ready-codebase-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是 [CS146S 系列](/posts/ai/2026-08-16-cs146s-course-map)的第六篇，對應 Fall 2026 的第五週。
 
 課程主題三條：什麼讓一個 repo 變得 agent-ready（結構、文件、測試、檢查）、就緒度的評分與稽核、以及真實 repo 裡常見的阻礙。客座是 [Factory](https://factory.ai/) 共同創辦人兼 CTO Eno Reyes，講題就是 agent readiness。
@@ -147,7 +149,7 @@ Factory 把幾個知名開源專案的評分[公開出來](https://factory.ai/ag
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

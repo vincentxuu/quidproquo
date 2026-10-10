@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This guide is based on the Spring 2026 edition of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 15 of [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) and closes the multimodal unit. The previous post, [L14–L15: Cross-Attention, DiT, Prompt-to-Prompt, and the Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en), showed where text conditioning enters the model. This one looks at how the homework makes you turn a diffusion model that only knows 10 classes into one that reads text.
 
 Official materials used: [hw4.zip](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw4.zip) from the [Coursework page](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html) (the 30-page "S26 10423 HW4.pdf", starter code, and unit tests), the [read-only Overleaf template](https://www.overleaf.com/read/fvnjnmymbzmt#bd53e3), the [course schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), and the Querying Transformer section of the [Lecture 15 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture15-querying-scaling.pdf). I downloaded and checked all of them on 2026-09-30.
@@ -189,7 +191,7 @@ Series: Previous: [L14–L15: Cross-Attention, DiT, Prompt-to-Prompt, and the Q-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

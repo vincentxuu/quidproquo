@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-function-pointers-continued)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 Lecture 12 separated data width from ordering policy but still left an `int[]`. Lecture 13 completes the abstraction. The algorithm retains only a base address, element count, and width, then gives adjacent element addresses to a client comparator. The library does not know whether an element is an integer, string pointer, or structure; the caller knows how to recover the type and compare it.
 
 This is the skeleton behind generic C library APIs such as `qsort` and `bsearch`. The important part is not merely function-pointer syntax. It is the division between the library view and client view, and the three-way result that forms a stable protocol between them.
@@ -273,7 +275,7 @@ This design eliminates typed copies but converts relationships previously preser
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

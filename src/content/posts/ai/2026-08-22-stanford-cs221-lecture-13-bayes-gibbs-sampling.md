@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-13-bayes-gibbs-sampling-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 13**。課程版本以[官方課程網站](https://stanford-cs221.github.io/autumn2025/)為準；本講的可執行材料是 [gibbs_sampling](https://stanford-cs221.github.io/autumn2025-lectures/?trace=gibbs_sampling)，以下按照 `source/gibbs_sampling.py` 的執行順序整理。程式不是把抽象概念藏在一張圖裡，而是用 `ProbTable`、`Bernoulli`、`sample_dict` 與 `normalize_dict` 把每一步的分布、取樣和計數攤開來。
 
 > 材料缺口：官方可執行講義與課程網站公開；本篇不把 Canvas 內的錄影互動、作業解答或隱藏測資當成已知內容。可執行講義 repository 也只代表公開的 lecture artifact，不代表完整課堂活動。
@@ -189,7 +191,7 @@ P(A=a,B=b \mid C=c)=P(A=a \mid C=c)P(B=b \mid C=c).
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

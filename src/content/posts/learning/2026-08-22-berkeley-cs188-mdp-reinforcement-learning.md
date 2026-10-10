@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 搜尋假設你能列出 successor；強化學習則要在不確定結果與延遲 reward 下學會行動。[Lecture 9–12](https://inst.eecs.berkeley.edu/~cs188/sp26/)先建立 MDP，再進入 RL；[Project 3](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj3/)依序實作 value iteration、Q-learning、epsilon-greedy 與 approximate Q-learning。
 
 ## 課程影片來源
@@ -50,7 +52,7 @@ Tabular Q-learning 每個 state-action pair 各自學值，遇到大型 Pacman s
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

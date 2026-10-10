@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-09-10-mit-67960-optimization-sgd-adam-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 7 講 [Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)（縮放規則與優化）由 Jeremy Bernstein 授課。這講不只是列優化器清單，而是從**梯度下降的動力學**出發，推導為什麼大批次需要大學習率、為什麼 Adam 在某些情況下會失效、以及怎麼用「縮放規則」把小批次實驗的超參數轉移到大規模訓練。這篇文章把講義重點重組成可直接套用的決策框架，並附上可跑的 PyTorch 程式碼。
 
 ## 課程影片來源
@@ -219,7 +221,7 @@ print("Saved plot to optimizer_comparison.png")
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 offering of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 11 of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series. The main material is the instruction fine-tuning and RLHF part of the February 18 [Lecture 11 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture11-ift-rlhf.pdf) (Aran Nayebi and Matt Gormley, with "slides credit: Pat Virtue"), and the RLHF continuation and DPO part of the February 23 [Lecture 12 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture12-dpo-text2img.pdf) (Matt Gormley; there's also an [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture12-dpo-text2img-ink.pdf)). The in-context learning half of L11 is in [part 10](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning-en), and the text-to-image half of L12 is left for part 13.
 
 I checked every fact against the official materials on 2026-09-30. The [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html) lists no readings for these two lectures, so this post cites only the slides and the figure sources they name. The reinforcement learning slides are marked as coming from Henry Chai. Access level **A3**: slides, homework, and the practice exam are public; lecture recordings are on CMU Panopto and not viewable from outside.
@@ -195,7 +197,7 @@ One thing to do tonight: open the Bradley–Terry slide in L12 and verify that e
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 21 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 20**. Mendel Rosenblum taught it on 2026-05-13; the official title is [File Systems, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf). The official Lecture 20 and [Lecture 21 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf) files are byte-identical, both SHA-256 `42e4021f84ed272db95224024c878a09d6c719430efc386c2614dcc8ef94310d`. Inaccessible Canvas/Panopto video prevents recovering the actual spoken boundary.
 
 This article therefore owns [The deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf)'s opening multilevel-inode/index-walk material and its closing disk-scheduling material. Block cache, write policy, free bitmaps, fragments, and delayed allocation are concentrated in [Lecture 21](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache). This is an editorial partition of a byte-identical artifact, not a claim that the public material reveals the exact classroom split.
@@ -65,7 +67,7 @@ The last diagrams compare one pending set: FIFO has long seeks, SPTF minimal see
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

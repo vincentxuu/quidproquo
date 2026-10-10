@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-14-advanced-gnn-topics)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is **Lecture 14 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-11-11. It follows the [course schedule](https://web.stanford.edu/class/cs224w/) and [official slides](https://web.stanford.edu/class/cs224w/slides/14-advanced_gnns.pdf); speaker attribution follows the slides.
 
 ## Course video sources
@@ -109,7 +111,7 @@ Write down the prediction unit, information cutoff time, negative set, and metri
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

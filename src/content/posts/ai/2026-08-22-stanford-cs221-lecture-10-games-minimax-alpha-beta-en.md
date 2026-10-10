@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-10-games-minimax-alpha-beta)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 10**, taught by Percy Liang on 2025-10-22. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [games](https://stanford-cs221.github.io/autumn2025-lectures/?trace=games). Rather than presenting game search as a list of detached terms, this reading follows the execution order of `main()` in `.work/stanford-cs221-notes/source/games.py`, from the game interface to exact pruning and approximate evaluation.
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable.
@@ -157,7 +159,7 @@ The final two speedups have different contracts. Alpha-beta is branch-and-bound 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

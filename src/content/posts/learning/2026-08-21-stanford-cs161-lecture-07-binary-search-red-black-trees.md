@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-07-binary-search-red-black-trees-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)第 8 篇，對應 **Stanford CS161, Winter 2026, Lecture 7**。官方課名是 **Binary Search Trees and Red-Black Trees**，上課日期是 2026 年 1 月 28 日，講師為 Moses Charikar。
 
 這篇依照[官方 Lecture 7 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees)、公開 notes 與 slides 整理。slides 的課堂主線是二元搜尋樹（BST）與紅黑樹；notes 另外完整放入 heap。本篇會把 heap 標成講義補充，不假裝它和投影片有相同篇幅。Canvas-only 錄影沒有作為來源。
@@ -189,7 +191,7 @@ h ≤ 2 log₂(n + 1)
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

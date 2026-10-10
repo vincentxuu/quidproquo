@@ -25,17 +25,28 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 Lecture 5 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (September 8, 2026, taught by Daniel Fried; [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en)) covers planning and task decomposition, ending with a first look at multi-agent systems. Fried frames the topic as a trade-off from the start: the more an agent sticks to one plan, the easier it is for a person to understand and control; the more flexible it is, the better it copes with problems that surface mid-task. The whole lecture looks for positions along that axis.
 
 Slides are on the [course site](https://www.cmu-agents.com/slides/lecture-05-planning.pdf) and the recording is on [YouTube](https://www.youtube.com/watch?v=S8v-dR4s29M&list=PLSN0qpDfUvTM&index=5).
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+Verified public recording for CMU 11-768 Fall 2026 lecture 5, published on course instructor Graham Neubig’s channel; its title and description identify this course.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=S8v-dR4s29M
+title: CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination
+```
+
+Original videos: [CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination](https://www.youtube.com/watch?v=S8v-dR4s29M)
+
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## Opening case: buying the lab a GPU workstation
 
@@ -340,7 +351,7 @@ Four open problems:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

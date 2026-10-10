@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-11-em-algorithms)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is a chapter-by-chapter reading of Chapter 11, printed pages 150–166, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) by Tengyu Ma and Andrew Ng. It is **not a reconstruction of any quarter's recordings**. The chapter's spine is simple: latent variables make direct maximum likelihood difficult; EM alternates posterior inference and parameter updates; VAEs extend that pattern to neural networks and continuous latent variables.
 
 ## Course video sources
@@ -98,7 +100,7 @@ Work through one EM iteration for a one-dimensional, two-component Gaussian mixt
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

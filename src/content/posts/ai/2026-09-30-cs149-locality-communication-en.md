@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-locality-communication)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 offering of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 7 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and follows [Lecture 5, work distribution and scheduling](/posts/ai/2026-09-30-cs149-work-distribution-scheduling-en). It covers Lecture 6, "Program Optimization 2: Locality and Communication" (2025-10-09). The title inside the PDF adds one word: "Locality, Communication, and Contention."
 
 The official source is the [Lecture 6 slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/perfopt2/06_progperf2.pdf) (68 pages, with a [slide-by-slide web version](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)). Fall 2025 recordings aren't public; the homepage points to the 2023 version, here the [2023 Lecture 6 recording](https://www.youtube.com/watch?v=Mhdny2JNhmc). This post follows the 2025 slides and treats the video as a supplement. Access level **A3**.
@@ -219,7 +221,7 @@ Series navigation: previous, [Lecture 5: work distribution and scheduling](/post
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

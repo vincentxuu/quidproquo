@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-function-pointers)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 C has no templates or method dispatch, but an algorithm does not need to be copied once per type. Lecture 12 separates “generic” into two questions: how wide the data is and where its next element begins, and which rule should order two elements. A `void *` plus an element width answers the first question; a function pointer lets the caller inject the second answer.
 
 That decomposition matters more than the syntax. A generic function does not pretend to know every type. It retains only the common mechanism and turns unknown facts into parameters. The cost is that `void *` does not preserve full type information. Length, width, writability, and the comparator contract must be maintained jointly by the interface and caller.
@@ -284,7 +286,7 @@ Lecture 12 is not primarily a clever bubble-sort demonstration. It shows how C b
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

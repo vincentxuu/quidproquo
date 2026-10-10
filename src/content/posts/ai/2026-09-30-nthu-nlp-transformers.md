@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-transformers-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **本文依據[清大高宏宇教授「自然語言處理」](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025（114-1）的公開教材。** 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列的第 6 篇，上一篇是 [PyTorch 助教課與 HW2：把算式當語言](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)。
 
 這一講的官方材料是 [W3_Transformers.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Transformers.pdf)（65 頁），錄影是 [Week 4 Thu.](https://www.youtube.com/live/tr5QyN5TswM)。檔名寫 W3，卻掛在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)的 W4 列，和同週二的 PyTorch 助教課放在一起。這是舊版週次編號沒改，內容以實際掛的投影片與錄影為準。課表那一列的 Topics 欄寫「Basic machine learning for text」，是課綱模板，和這份投影片對不起來，本篇不引用。
@@ -191,7 +193,7 @@ pos 是位置，i 是維度索引。偶數維用 sin、奇數維用 cos，波長
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

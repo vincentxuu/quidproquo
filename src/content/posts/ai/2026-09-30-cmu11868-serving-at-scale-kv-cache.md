@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。材料是 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 上的五份講義 PDF，事實都在 2026-09-30 打開原檔核對，引用處標頁碼。其中兩份有排日期：4/20 與 4/22。另外三份掛在 Syllabus 底部的未排日期區，春季不一定真的上過。存取等級 **A3**：講義全部公開。缺的是錄影，春季與秋季都沒有，客座講者口頭補充的內容讀不到。
 
 **系列位置**：上一篇 [HW6：DeepSpeed ZeRO＋LoRA 訓練，SGLang 推論](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems)｜下一篇 [RLHF 系統與 HW7](/posts/ai/2026-09-30-cmu11868-hw7-rlhf-systems)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
@@ -38,11 +40,13 @@ glossary:
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 五份講義一覽
 
@@ -157,7 +161,7 @@ L30 是 Lei Li 自己的講義，比較像地圖。前半用 [a16z 的 LLM 應�
 
 ## 校外讀者要注意什麼
 
-- **沒有錄影**。客座講義很多頁只有圖或標題（例如 L26 第 18–21 頁引用尚未出版的 PMPP 第五版圖），口頭解釋讀不到，要搭配論文。
+- **官方課表未列公開錄影連結**。客座講義很多頁只有圖或標題（例如 L26 第 18–21 頁引用尚未出版的 PMPP 第五版圖），口頭解釋讀不到，要搭配論文。
 - **三份講義未排日期**。L28、L29、L30 在 Syllabus 底部，春季課表裡沒有對應日期，不確定課堂上是否講過。
 - **沒有對應作業**。HW7 在 4/20 截止，這一組講題之後只剩期末專題。想動手，要自己找題目。
 - **分清研究數字與廠商數字**。論文摘要的數字有實驗設定可查；講義中引用的 Baseten、Alibaba 案例屬於合作廠商的效能報告。
@@ -179,7 +183,7 @@ L30 是 Lei Li 自己的講義，比較像地圖。前半用 [a16z 的 LLM 應�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

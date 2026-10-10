@@ -19,6 +19,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-course-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片與作業依據 Spring 2026；錄影依據 Spring 2025（YouTube）。兩者可能有差異，下面逐項標出。本文是 Stanford CS231N 導讀系列的第 0 篇，也是入口。
 
 [CS231n: Deep Learning for Computer Vision](https://cs231n.stanford.edu/) 是 Stanford 的電腦視覺課。2026 年 9 月 30 日打開課程首頁，標題寫的是「Stanford - Spring 2026」，講者有五位：Fei-Fei Li、Ehsan Adeli、Justin Johnson、Zane Durante、Tiange Xiang。
@@ -161,7 +163,7 @@ Discussion section 有六次：Python/Numpy、Backprop、Final Project 說明、
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-01-why-generative-ai-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **系列位置**：上一篇 [總覽與自學路線](/posts/ai/2026-09-30-nccu-genai-course-overview)｜下一篇 [L02 神經網路的概念](/posts/ai/2026-09-30-nccu-genai-02-neural-networks)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
 
 > **版本說明**：本文依據政大 1132 學期（2025-02-18）第 1 講的[直播錄影](https://www.youtube.com/watch?v=4BRBxy0EMT8)（2 小時 52 分）與 [GenAI01 投影片](https://yenlung.me/1132GenAI)（121 頁）。作業題目與評分標準出自[長庚衛星班頁面](https://yangchihyuan.github.io/courses/GenerativeAI2025)，是長庚版本。事實皆於 2026-09-30 打開官方材料核對。
@@ -218,7 +220,7 @@ interact(draw, n=(1., 10.))
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

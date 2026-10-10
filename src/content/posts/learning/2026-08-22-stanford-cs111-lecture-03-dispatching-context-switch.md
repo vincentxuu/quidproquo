@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-03-dispatching-context-switch-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 4 篇，對應 **Stanford CS111, Spring 2026, Lecture 3**。2026-04-03 由 Mendel Rosenblum 主講，官方題目是 [Threads, Processes, and Dispatching, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/3/Lecture3.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 Lecture 3 接手上一講留下的問題：threads 多於 cores 時，核心如何讓每條執行緒看似持續前進？答案不是單一 scheduler 函式，而是一個由狀態轉移、PCB、context save／restore 與 dispatcher 組成的閉環。
@@ -79,7 +81,7 @@ preemption 仍不是零成本。每次切換要保存與恢復 state，切到不
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

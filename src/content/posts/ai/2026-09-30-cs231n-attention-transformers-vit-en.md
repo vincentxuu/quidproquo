@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post mainly follows the [Lecture 8 slides](https://cs231n.stanford.edu/slides/2026/lecture_8.pdf) linked from the Spring 2026 [CS231N](https://cs231n.stanford.edu/) schedule (124 pages, downloaded and checked on 2026-09-30), plus the [RNNs & Transformers review slides](https://cs231n.stanford.edu/slides/2026/section_5.pdf) from the 5/1 section, whose cover says they were copied from the 2025 version. For video, watch Spring 2025's [Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ); 2026 recordings are on Canvas for enrolled students only. The two years' slides are mostly the same, but the 2026 deck adds a page each on RoPE and QK-Norm, so the video won't cover those two. Access level **A3**.
 
 **Series**: previous [A2 guide: BatchNorm, Dropout, CNNs, PyTorch, and RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn-en) | next [L9: Object Detection, Image Segmentation, and Visualization](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
@@ -189,7 +191,7 @@ These courses cover the same architecture from the language model side. This pos
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-transformer-tricks)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers Lecture 2 of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), "Transformer-based models & tricks" (October 3, 2025). The main source is the [109-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture2.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=yT84Y5zCnaA) (1 hour 47 minutes). This post is written from what is on the slides, and flags anything the slides don't cover.
 
 [Lecture 1](/posts/ai/2026-09-29-cme295-transformer-en) assembled the [original 2017 Transformer](https://arxiv.org/abs/1706.03762). But the LLM you use today has swapped out almost all of its position encoding, normalization, and attention, and kept only the decoder half. Lecture 2 is that refit list: which parts of the same machine got replaced, why, and which model families grew out of keeping different halves.
@@ -254,7 +256,7 @@ These questions are adapted from Part II of the [2025 midterm](https://cme295.st
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

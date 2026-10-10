@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)4/10 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 11 篇。前面兩講鑽進模型內部：[KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache) 與 [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)，上一篇 [HW4](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer) 讓你親手訓練一個 Transformer。從這一講開始是新單元，課表上叫「如何教育模型」：**模型已經訓練好了，人類還能做什麼讓它表現更好？**
 
 用到的官方材料：講義 [harness.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pdf)（63 頁，另有 [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pptx)），影片 [Harness Engineering：有時候語言模型不是不夠聰明，只是沒有人類好好引導](https://youtu.be/R6fZR_9kmIw)。存取等級是 **A3**：投影片與錄影都公開，本講沒有對應的測驗或排行榜。
@@ -156,7 +158,7 @@ gemma-4-E2B-it 的反應是：「沒有提供 parser.py……我自己寫一個�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

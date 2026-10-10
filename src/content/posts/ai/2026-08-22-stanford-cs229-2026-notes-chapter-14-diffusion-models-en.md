@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is a chapter-by-chapter reading of Chapter 14, printed pages 180–190, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings or schedule**. The chapter begins generative modeling by choosing a fixed path from data to Gaussian noise, then learning how to denoise every step in reverse.
 
 ## Course video sources
@@ -97,7 +99,7 @@ Choose one normalized small image and three values of $\bar\alpha_t$. Sample noi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

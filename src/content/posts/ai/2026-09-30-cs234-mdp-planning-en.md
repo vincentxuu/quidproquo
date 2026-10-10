@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-mdp-planning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: based on the Winter 2026 [Lecture 2 slides (post-class version)](https://web.stanford.edu/class/cs234/slides/lecture2post.pdf). The companion video is [Spring 2024 Lecture 2: Tabular MDP Planning (supplement)](https://www.youtube.com/watch?v=gHdsUUGcBC0). The title matches, but the slides are the 2026 version. This is post 2 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series.
 
 The [previous post](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en) stopped at Markov reward processes: how to value a process with no actions. The second lecture of [CS234](https://web.stanford.edu/class/cs234/) adds actions and asks a more practical question: **when you know how the world works, how do you compute the best policy?**
@@ -289,7 +291,7 @@ Then read [Sutton & Barto](http://incompleteideas.net/book/RLbook2018.pdf) secti
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：依據 Spring 2026 的 [HW3 PDF](https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.pdf)、[LaTeX 模板](https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.tex)和 [hw3_starter_code.zip](https://cs224r.stanford.edu/material/hw3/hw3_starter_code.zip)。課表上 HW3 在 2026-04-24 發布，5/8 晚上 9 點（太平洋時間）截止。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 11 篇。**本文不寫解答**，也不透露實驗該得到什麼數字。
 
 [CS224R](https://cs224r.stanford.edu/) 的三份作業佔總成績 40%，HW3 佔其中 15%。它對應的是 [L7 Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl)：投影片在 AWAC 和 IQL 兩頁都寫「你會在 HW3 實作它」。
@@ -163,7 +165,7 @@ actor 的更新跟 AWAC 類似，都是 advantage 加權。PDF 也點出 IQL 的
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據清大資工高宏宇《自然語言處理》Fall 2025（114-1）的 [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf) 第 60–125 頁，以及 [W11 週二](https://www.youtube.com/live/chIewpk4-q0)、[W11 週四](https://www.youtube.com/live/cRSaBtoTDag)兩支錄影的中文字幕軌。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與錄影公開，本單元沒有對應作業（實作放在 [RAG 助教課與 HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)）。
 
 **系列位置**：上一篇 [RAG（上）：幻覺與檢索器](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)｜下一篇 [LLM API 助教課](/posts/ai/2026-09-30-nthu-nlp-llm-api)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
@@ -169,7 +171,7 @@ title: W11 週四錄影（Fall 2025）
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

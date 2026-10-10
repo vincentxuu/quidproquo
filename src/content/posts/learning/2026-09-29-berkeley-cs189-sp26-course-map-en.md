@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [Berkeley CS189/289A Introduction to Machine Learning](https://eecs189.org/sp26/) is Berkeley's intro machine learning course. The catch is that a search turns up more than one CS189. Shewchuk taught Spring 2025. Norouzi and Gonzalez taught Fall 2025 and are teaching Fall 2026. Listgarten and Dimakis taught Spring 2026. The four semesters differ in lecture order, textbook and homework. The [order 1 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en) in this series was written before the Spring 2026 site came back online. This post takes stock of the versions again and decides which semester the lecture and homework guides will follow.
 
 The short answer: **from this post on, every lecture and homework guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis).** It is the only version that currently publishes lecture videos, slides and discussions with solutions, plus homework all the way down to the notebooks.
@@ -141,7 +143,7 @@ The series follows the official Spring 2026 order, with each homework guide plac
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-imitation-learning-irl)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Edition note**: this guide follows the [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 slides: [Lecture 7](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf) pp.25–62 and [Lecture 8](https://web.stanford.edu/class/cs234/slides/lecture8post.pdf) pp.6–17 (PDF page numbers). The 2026 recordings are for enrolled students only. The public recordings are videos 7 and 8 of the [Spring 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX), used here only as a listening supplement, with timestamps taken from the YouTube chapter markers. Access level **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Every fact was checked on 2026-09-30 against those PDFs and video pages.
 
 **Series**: previous [A2: implementing REINFORCE, a baseline, and PPO](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo-en) | next [Learning from human preferences: Bradley-Terry, RLHF, DPO](/posts/ai/2026-09-30-cs234-rlhf-dpo-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -204,7 +206,7 @@ One thing to do tonight: make a table of what BC, DAgger, and IRL each need. Do 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)的第 14 篇。ADL Fall 2025（114-1，2025/09/01–12/15）在 11/10 上這一講，[課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)把這一週標為線上（Virtual）。這是課程頁上最後一個附講義的講次，之後三列（Knowledge／Multimodality、Personalization、Reasoning）只有標題。
 
 **本文依據**：講義 [Language Agents（251110_LangAgent.pdf）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/251110_LangAgent.pdf)（65 頁），以及五支影片：[11.1 Language Agents Introduction 最近熱門的語言模型 Agent 是甚麼？](https://youtu.be/R0YBJve0NoI)（21:11）、[11.2 Reasoning 推論以進行內部反思](https://youtu.be/UO527XuWEzg)（21:40）、[11.3 Memory 長期記憶中有各種重要資訊](https://youtu.be/nAcLNc-H5Sc)（19:28）、[11.4 Planning 達成長期目標進行短期規劃](https://youtu.be/ny7qcF1BzaA)（23:19）、[11.5 Multi-Agent Systems 多人討論後效果更加](https://youtu.be/0b8NdMfZ8Fs)（19:38）。講義於 2026-09-30 打開核對，本文頁碼都指講義 PDF。
@@ -162,7 +164,7 @@ title: ADL 11.2: Reasoning（YouTube）
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 Lecture 3 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Sep 1; [slides](https://www.cmu-agents.com/slides/lecture-03-long-context.pdf), [recording](https://www.youtube.com/watch?v=AiwCCvFW1uE)) is Graham Neubig again. He says he almost titled it "context management for long-context LLMs," since most of the material is general LLM territory. But long context is critical for agents and basic LLM courses often skim it, so he goes into detail and surveys the architectures recent open models use to handle very long contexts.
 
 The problem is easy to state: every tool call from [last lecture](/en/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) grows the history, and the next call sends the whole history to the model again. The lecture asks two questions: can the model **use** input this long (capacity), and can the system **afford** it (efficiency)?
@@ -40,11 +42,20 @@ The problem is easy to state: every tool call from [last lecture](/en/posts/ai/2
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+Verified public recording for CMU 11-768 Fall 2026 lecture 3, published on course instructor Graham Neubig’s channel; its title and description identify this course.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=AiwCCvFW1uE
+title: CMU AI Agents 2026: 3. Long Context Modeling for Agents
+```
+
+Original videos: [CMU AI Agents 2026: 3. Long Context Modeling for Agents](https://www.youtube.com/watch?v=AiwCCvFW1uE)
+
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## Why agent context grows so fast
 
@@ -465,7 +476,7 @@ The schedule lists no required reading for this lecture, only a long reference l
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

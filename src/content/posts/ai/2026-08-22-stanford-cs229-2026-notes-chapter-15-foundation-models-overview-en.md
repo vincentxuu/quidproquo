@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-15-foundation-models-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article reads Chapter 15, printed pages 191–195, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the current public notes, not a reconstruction of any quarter's recordings or lecture schedule. The goal is to explain the derivational spine and practical choices, not reproduce every proof.
 
 ## Course video sources
@@ -77,7 +79,7 @@ For a \(4096\times4096\) weight matrix and LoRA rank \(r=16\), calculate the tra
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

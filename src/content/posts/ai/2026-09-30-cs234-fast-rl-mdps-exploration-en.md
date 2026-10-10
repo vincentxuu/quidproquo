@@ -34,6 +34,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Winter 2026 slides and assignments of [CS234](https://web.stanford.edu/class/cs234/); the recordings are the public Spring 2024 version.** It is part 15 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series.
 
 **Series**: previous [Data efficiency II: Bayesian bandits, Thompson sampling, Gittins, PAC](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits-en) | next [Planning plus learning: MCTS, UCT, AlphaGo/AlphaZero](/posts/ai/2026-09-30-cs234-mcts-alphazero-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -242,7 +244,7 @@ One thing to try tonight: take `riverswim.py` from Assignment 1, wrap a counter 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

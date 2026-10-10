@@ -28,17 +28,28 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) is a Fall 2026 graduate course from Carnegie Mellon's Language Technologies Institute (LTI), taught by Daniel Fried and Graham Neubig. It runs from tools, context, memory, and planning through training, safety, and interaction. Lecture 2 (Aug 27; [slides](https://www.cmu-agents.com/slides/lecture-02-tool-use.pdf), [recording](https://www.youtube.com/watch?v=jXChFB4JSyw)) is Neubig on Tool Use. He opens with a definition: calling tools is the most fundamental thing that separates an agent from a language model.
 
 This lecture is not "how to add a `tools` parameter to your API call." It cuts tool calling open from top to bottom: why models need tools, what a tool call looks like at the token level, how the harness parses and dispatches it, how to guarantee well-formed output, how REST and MCP differ, how to run calls in parallel, and how to evaluate the whole thing. These are exactly the pieces [Assignment 1 (Harness)](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) makes you write by hand. This guide follows the lecture order and flags where each section shows up in A1.
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+Verified public recording for CMU 11-768 Fall 2026 lecture 2, published on course instructor Graham Neubig’s channel; its title and description identify this course.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=jXChFB4JSyw
+title: CMU AI Agents 2026: 2. Tool Use for Language Model Agents
+```
+
+Original videos: [CMU AI Agents 2026: 2. Tool Use for Language Model Agents](https://www.youtube.com/watch?v=jXChFB4JSyw)
+
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## What a tool is, and when it's worth calling
 
@@ -225,7 +236,7 @@ The schedule lists four:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

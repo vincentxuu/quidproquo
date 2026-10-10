@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-09-graphs-bfs-dfs-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)第 10 篇，對應 **Stanford CS161, Winter 2026, Lecture 9**。官方課名是 **Graphs and BFS and DFS**，上課日期為 2026 年 2 月 4 日，講師是 Ellen Vitercik。
 
 本篇依照[官方 Lecture 9 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs)、公開 notes 與 slides 整理。Notes 詳寫 graph representation、DFS 與 BFS；slides 還把 DFS 用到 topological sorting、把 BFS 用到 bipartiteness，兩者都屬本講 agenda，不能因 notes 沒展開就漏掉。官方 Colab 沿用 `winter2025-extra`，本文未用它支撐 Winter 2026 的新主張。Canvas-only 錄影未作為來源。
@@ -176,7 +178,7 @@ Lecture 9 是課程從排序與資料結構轉進 graph algorithms 的入口。�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

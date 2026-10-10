@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source term**: Based on the Spring 2026 [09_cs224r_rlhf_2026 slides](https://cs224r.stanford.edu/slides/09_cs224r_rlhf_2026.pdf) (scheduled 2026-04-29). The companion video is the [Spring 2025 L9 recording (supplementary)](https://www.youtube.com/watch?v=XKLGuwvSKvI). The [2025 archive page](https://cs224r.stanford.edu/spring_2025/) lists the same speaker, Archit Sharma, but the slides are the 2025 version and details may differ. This is post 12 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
 The [CS224R](https://cs224r.stanford.edu/) schedule calls this lecture "RL for LLMs: Preference Optimization," given by guest lecturer Archit Sharma. The deck is titled "The Post-Training Frontier: RLHF, DPO and Modern Preference Optimization," and the cover says "Based on slides from CS224N," Stanford's NLP course.
@@ -221,7 +223,7 @@ Compute them with any small model and plug them into the DPO formula. Before tra
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post follows the [Lecture 9 slides](https://cs231n.stanford.edu/slides/2026/lecture_9.pdf) linked from the Spring 2026 [CS231N](https://cs231n.stanford.edu/) schedule (147 pages, downloaded and checked on 2026-09-30), compared against the [Spring 2025 slides](https://cs231n.stanford.edu/slides/2025/lecture_9.pdf). For video, watch Spring 2025's [Lecture 9](https://www.youtube.com/watch?v=PTypu6GqEd4); 2026 recordings are on Canvas for enrolled students only, and the two years may differ. Access level **A3**.
 
 **Series**: previous [L8: Attention, Transformers, and ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit-en) | next [L10: Video Understanding](/posts/ai/2026-09-30-cs231n-video-understanding-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
@@ -174,7 +176,7 @@ The last part shifts from how to do the tasks to how to understand the model.
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

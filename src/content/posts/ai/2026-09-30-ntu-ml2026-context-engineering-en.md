@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post follows the 3/13 week of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 3 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous post covered [HW1: defending against malicious instructions](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense-en). Part 1, [Dissecting the Lobster](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy-en), showed that OpenClaw stuffs SOUL.md and MEMORY.md into the system prompt and compresses and prunes conversations. This post takes the next question: **when the context doesn't fit, what stays, what goes, and who decides?**
 
 Official materials used: pages 1–33 of the slide deck [agent_era.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/agent_era.pdf) (61 pages in total; the second half belongs to the next post), and the lecture video [AI Agent (1/3): Context Engineering basics](https://youtu.be/urwDLyNa9FU) (in Mandarin). Access level is **A3**: slides (pdf/pptx) and the recording are public. This lecture has no quiz or leaderboard attached.
@@ -137,7 +139,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

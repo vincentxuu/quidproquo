@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-harvard-ai-ml-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Search for a public Harvard AI course and **CS50’s Introduction to Artificial Intelligence with Python** appears first. Seven weeks of video, lecture notes, Python projects, and `check50` make it look like a single, current course. The year printed on the course shell, however, is not necessarily the recording year or the assignment edition.
 
 CSCI S-80 Summer 2026 was a formal Harvard Summer School offering, but that does not mean its underlying assets were recorded in 2026. Lecture 0 still points to Spring 2020 recordings, slides, and transcripts, and the enrolled course's Degrees project downloads a Spring 2020 distribution.
@@ -114,7 +116,7 @@ Harvard's clearest lesson is that a polished public page still needs an asset-le
 ## Changelog
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-01: Added CS 2881R AI Safety (Fall 2025 complete; reading lists, 11 lecture recordings, HW0 repo, and project specs public; A3 by seminar standards) to the entry-point table and the broad-AI/specialist route, with a link to this site's guide; added the Fall 2025 course site to References.
 - 2026-09-30: The CS1810 section and the series disclaimer now link to this site's [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) (Spring 2026 HW0–HW6 plus midterm/final checkpoints); added it to the references.
 - 2026-08-27: Added a six-round audit disclaimer — CS182 2026/2025/2024/2023 are all A0 for the current offering (Locator Canvas unpublished, no public homework repo; only F22 22-lecture + F18 P0–5 as historical A2); CS181 four-year comparison (two midterms vs midterm+final, hw3–5 reshuffle, practical lifecycle) and the deleted Google Sheet note; weekly guides will use homework numbers as the clock.

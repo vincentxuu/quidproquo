@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The final seven items in the [official agenda](https://rail.eecs.berkeley.edu/deeprlcourse/) are Exploration, RL Theory, two Midterm Review lectures, Advanced Exploration, Multi-task RL, and Challenges and Open Problems. This is not miscellaneous cleanup. It asks when earlier algorithms are reliable and whether experience transfers to new tasks.
 
 ## Course video sources
@@ -45,7 +47,7 @@ The [Spring 2026 syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

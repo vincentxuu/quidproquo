@@ -24,6 +24,8 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2026-12-10-mit-67960-approximation-theory)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 03). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Jeremy Bernstein**; optional reading includes *Deep Learning Theory Notes* (sections 2 and 5).
 
 ---
@@ -109,7 +111,7 @@ Sweep the hidden width from 8 to 1024 and you will see the fit go from underfitt
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

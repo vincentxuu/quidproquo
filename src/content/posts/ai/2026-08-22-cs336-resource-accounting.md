@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-resource-accounting-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 2: PyTorch (einops), resource accounting**，2026 年 4 月 1 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_02.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_02.py)。
 
 第一講把 efficiency 放到課程中央；第二講立刻要求你把它算出來。問題不再是籠統的「這個模型很大」。你要問訓練 70B 模型需要多少運算、八張 H100 裝得下多大的 AdamW 模型，以及操作受算力或記憶體頻寬限制。
@@ -95,7 +97,7 @@ Optimizer 的算術成本通常不像矩陣乘法那麼大，卻可能受 memory
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）整理。HW1 在 Lec 3 那週（1/27）隨 Discussion 1 發出，截止是 **2/20（五）11:59 PM**，剛好落在 [Lec 7–10 線性回歸](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression)講完的隔天。
 
 HW1 的名字叫「AGI, Everywhere, All at Once」，但內容很務實。它在檢查兩件事：
@@ -166,7 +168,7 @@ Part 2 整本在講一件真實世界常見的事：**訓練資料和測試資�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

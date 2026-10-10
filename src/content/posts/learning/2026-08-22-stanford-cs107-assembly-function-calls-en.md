@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-function-calls)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 A function call is not merely a jump to another label. The caller must make parameters available, preserve the instruction address at which execution should resume, provide necessary stack space, and ensure that neither side destroys registers whose values remain live. Across 57 incrementally animated slides, Stanford CS107 Lecture 19 reduces those jobs to `call`, `ret`, `%rsp`, and a calling convention.
 
 The contract enables separate compilation. A caller need not understand every callee instruction. If both obey the same ABI, they can exchange data, restore control, and know which registers may change.
@@ -202,7 +204,7 @@ Lecture 19's core is three simultaneous contracts: control reconnects through a 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

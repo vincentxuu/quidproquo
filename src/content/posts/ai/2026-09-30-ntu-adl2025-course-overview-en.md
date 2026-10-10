@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Applied Deep Learning (ADL) is taught by Yun-Nung (Vivian) Chen in the Department of Computer Science and Information Engineering (CSIE) at National Taiwan University. Its permanent URL is [adl.miulab.tw](http://adl.miulab.tw/). Despite the generic name, it is a deep learning course centered on natural language processing. It starts from "what is a neural network," moves through Transformers, BERT, and pretraining, and ends with RAG, alignment, and language agents.
 
 This series reads **ADL Fall 2025 (NTU term 114-1, 2025/09/01–12/15)**, the most recent semester that has finished. This post is the entry point. It covers course structure, what outside readers can get, and a reading order. Technical content is left to the later posts.
@@ -152,7 +154,7 @@ Next: [What Machine Learning and Deep Learning Are](/posts/ai/2026-09-30-ntu-adl
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

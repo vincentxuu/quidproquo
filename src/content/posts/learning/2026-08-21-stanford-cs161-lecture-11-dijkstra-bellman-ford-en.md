@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-11-dijkstra-bellman-ford)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 12 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 11**. The official title is **Dijkstra and Bellman-Ford**. Moses Charikar taught it on February 11, 2026.
 
 I used the [official Lecture 11 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford), the public notes, and the public slides PDF. The deck says Dijkstra occupies most of class and Bellman-Ford is a quick introduction before Lecture 12. The notes add full Bellman-Ford and amortized-analysis arguments. This article preserves that emphasis. I did not use the Canvas-only recording. The component lists `lecture11-slides.pptx`, but that asset is missing, so I do not cite it.
@@ -187,7 +189,7 @@ An implementation can retain predecessors as well as distances. After detecting 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

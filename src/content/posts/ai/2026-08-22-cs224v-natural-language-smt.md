@@ -14,6 +14,8 @@ description: "CS224V Natural Language Constraints with SMT：臨床試驗配對�
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-natural-language-smt-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-semantics.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第十一講是一個形式方法研究案例，不是醫療建議。它問：病人紀錄與臨床試驗 eligibility criteria 都是自然語言時，如何在大量候選中找出「約束可同時成立」的配對？課程不讓 LLM 直接下資格判決，而是把語言轉成 solver 能檢查的表示。
@@ -134,7 +136,7 @@ NL-to-SMT 可能漏否定、混淆 hard 與 soft constraint，或把臨床判斷
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

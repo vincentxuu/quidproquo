@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW2。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 5 篇。前兩篇講了 [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering) 與 [agent 對研究工作的衝擊](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)，這份作業讓你親手做一個縮小版：**讓 agent 替你當一次 AI 工程師**。
 
 用到的官方材料：作業投影片 [hw2.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw2.pdf)（59 頁）、[Colab 起始碼](https://colab.research.google.com/drive/1hAT97f4GmBQFpWKHiRymIDJiXEsPlXS1?usp=sharing)（32 個 cell），以及助教的[作業說明影片](https://youtu.be/3xhwSsuNTM0)。作業 3/13 公告，截止時間是 2026/4/2 23:59（UTC+8）。
@@ -152,7 +154,7 @@ node.metric = 1.0
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

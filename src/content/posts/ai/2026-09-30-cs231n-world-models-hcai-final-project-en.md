@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Which year**: The years in this post are the messiest in the series, so here they are up front.
 >
 > - **2026 L17 "World Modeling" and L18 "Human-Centered AI"**: only entries on the [Spring 2026 schedule](https://cs231n.stanford.edu/schedule.html), with no slide links. On 2026-09-30, both `slides/2026/lecture_17.pdf` and `lecture_18.pdf` returned 404. The 2026 recordings are on Canvas only.
@@ -176,7 +178,7 @@ That completes this series: the public L1–L16 slides of CS231N Spring 2026, al
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

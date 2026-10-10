@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-video-understanding)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: The slides are the Spring 2026 [Lecture 10 slides](https://cs231n.stanford.edu/slides/2026/lecture_10.pdf) from [CS231N](https://cs231n.stanford.edu/) (92 pages, cover date 2026-04-30). The recording is the [Spring 2025 Lecture 10](https://www.youtube.com/watch?v=wElqklprhPE) on YouTube (about 1 hour 8 minutes; the 2025 schedule lists Ruohan Gao as lecturer). The 2026 recordings are on Canvas for enrolled students only, so the two years may differ.
 >
 > This is part 12 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series.
@@ -164,7 +166,7 @@ So far everything classifies short clips. The second half extends in three direc
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

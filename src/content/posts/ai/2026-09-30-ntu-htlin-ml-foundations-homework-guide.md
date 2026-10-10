@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 17 篇。前 16 篇依講次走完 MOOC，這一篇回頭整理[《機器學習基石》](https://www.csie.ntu.edu.tw/~htlin/mooc/)部分的作業。
 
 **作業基準用 Fall 2024。** 理由很簡單：[Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)已結課，HW0–HW7 的題目 PDF 全部公開；[Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 還在第 4 週，只公開了 hw0 和 hw1。本篇最後一節會對照這兩份。
@@ -204,7 +206,7 @@ hw2 以後依課程計畫在 10/07 起陸續公布，截至 2026-09-30 都還沒
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

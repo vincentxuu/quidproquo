@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agent-internals)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the second post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 1 of Fall 2026.
 
 The two listed sessions are "Course intro + build Claude Code in 200 lines" and "How state-of-the-art coding agents are designed: deep dive into the system prompts that define the agent." Three topics: what an LLM actually is, what the agent loop looks like under the hood, and how the core tool set (read, write, edit, bash) carries a task to completion.
@@ -148,7 +150,7 @@ Step 5 is the most valuable one, and the one most people skip.
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 4 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers [Programming Assignment 1: Analyzing Parallel Program Performance on a Quad-Core CPU](https://github.com/stanford-cs149/asst1) (due October 6 in Fall 2025) and [Written Assignment 1](https://gfxcourses.stanford.edu/cs149/fall25content/static/pdfs/written_asst1.pdf).
 
 This post covers what each problem practices, what to watch for, and which direction to think in. **It contains no solutions.** The value of both assignments is in measuring and explaining things yourself.
@@ -166,7 +168,7 @@ Series navigation: previous [L3: Latency vs. Bandwidth and ISPC](/posts/ai/2026-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

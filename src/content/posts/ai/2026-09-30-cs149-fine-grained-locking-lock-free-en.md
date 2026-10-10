@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 21 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series. It follows [L15: Implementing Synchronization and Memory Consistency](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en) and covers Lecture 16, "Fine-Grained Locking and Lock-Free Programming" (November 20, 2025).
 
 The official material is the [L16 slides PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/finegrainedsync/16_finegrainedlock.pdf) (66 slides, also available [slide by slide](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)). The title slide's full name is "Implementing Locks, Fine-Grained Synchronization, and (a short intro to) Lock-Free Programming", so lock implementation lives in this lecture too. Fall 2025 recordings are only on Canvas. The course home page points to the 2023 recordings instead, and the matching video is [2023 Lecture 13: Fine-Grained Synchronization and Lock-Free Programming](https://www.youtube.com/watch?v=GA1ObImqaMo). This post treats it as a listening supplement and follows the 2025 slides. The course as a whole is **A3**; for this lecture the slides are fully public and only the current-term recording is missing.
@@ -181,7 +183,7 @@ Series navigation: previous [L15: Implementing Synchronization and Memory Consis
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

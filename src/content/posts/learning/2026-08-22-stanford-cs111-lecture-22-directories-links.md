@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-22-directories-links-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 23 篇，對應 **Stanford CS111, Spring 2026, Lecture 22**。2026-05-18 由 Mendel Rosenblum 主講，官方題目是 [Directories and Links](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/22/Lecture22.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不公開，未把口述內容當成來源。SHA-256 稽核顯示 Lecture 22 與相鄰 Lectures 21、23 都不同，沒有 duplicate artifact。
 
 ## 課程影片來源
@@ -86,7 +88,7 @@ hard link 增加同一 inode 的 namespace references：改其中一名看到的
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依 Lecture 22 官方 PDF 重寫 inode placement、pathname traversal、working directory、hard links 與 symbolic links，並完成相鄰 artifact SHA 稽核。
 
 ## 參考資料

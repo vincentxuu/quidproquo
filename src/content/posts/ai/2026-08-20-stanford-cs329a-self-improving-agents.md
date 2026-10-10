@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [CS329A: Self Improving AI Agents](https://cs329a.stanford.edu/) 是 Stanford 電腦科學系的三學分研究所 seminar，講的是「模型上線之後怎麼繼續變強」。它不教 LangGraph，不教 CrewAI，整學期沒有一堂在講框架怎麼拼。
 
 它教一個缺口，然後在最後一堂親口說這個缺口目前補到哪、補不到哪。
@@ -228,7 +230,7 @@ POET 這個演算法收錄新環境的條件是：**對現有 agent 來說不太
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-21：修正開課狀態。本文初稿寫「下一次是 2026–2027 Winter，已經掛在 ExploreCourses 上」，但同日重查時，該條目已無 Terms 欄位，只顯示「Last offered: Autumn 2025」——與[課程地圖那篇](/posts/learning/2026-08-20-stanford-cs-course-map)停開表的記載一致。無法判斷是初稿查錯，或是 Stanford 在這期間撤掉了排課，因此改為只陳述查證當日的頁面狀態並標註日期。
 
 ## 參考資料

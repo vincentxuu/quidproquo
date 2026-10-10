@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)講了什麼時候 prompt 撐不住。這一篇往下鑽一層。
 
 本篇對應 **[Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)**（2025/09/30，Kian Katanforoosh 主講，1 小時 40 分。官網 syllabus 上的標題是 "Key AI Concepts Through Case Studies"）。
@@ -292,7 +294,7 @@ Katanforoosh 把這題丟給學生，逼問得很細。有人說「讓網路找�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

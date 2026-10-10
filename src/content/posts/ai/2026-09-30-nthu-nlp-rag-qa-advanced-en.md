@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on slides 60–125 of [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf) from Hung-Yu Kao's Natural Language Processing course at National Tsing Hua University (NTHU), Fall 2025, plus the Chinese caption tracks of the [W11 Tuesday](https://www.youtube.com/live/chIewpk4-q0) and [W11 Thursday](https://www.youtube.com/live/cRSaBtoTDag) recordings. The lectures are in Mandarin. I checked every fact against the official materials on 2026-09-30. Access level **A3**: slides and recordings are public. This unit has no assignment of its own; the hands-on part is in [the RAG labs and HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en).
 
 **Series**: previous [RAG, Part 1: hallucination and retrievers](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en) | next [LLM API lab](/posts/ai/2026-09-30-nthu-nlp-llm-api-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
@@ -168,7 +170,7 @@ One thing to try tonight: take a RAG system or ChatGPT conversation you already 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

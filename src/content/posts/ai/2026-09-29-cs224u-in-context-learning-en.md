@@ -34,6 +34,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-in-context-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Spring 2023 edition of [CS224U](https://web.stanford.edu/class/cs224u/). The main sources are the [In-context learning slides](https://web.stanford.edu/class/cs224u/slides/cs224u-incontextlearning-2023-handout.pdf) (Christopher Potts, 38 pages), videos 20–23 of the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp), and the [public slides](https://drive.google.com/file/d/1RIOAOTOOPyVLezFiIfGnYJSE8ofKuR4L/view) for Mina Lee's guest lecture listed on the schedule; every fact was checked on 2026-09-29. Access grade **A3**. Mina Lee's guest lecture has **no public recording** (it isn't in the playlist), so this post relies on her slides alone.
 
 **Series**: Previous: [Information Retrieval](/posts/ai/2026-09-29-cs224u-information-retrieval-en) | Next: [Homework 2: Few-Shot OpenQA with DSPy](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en) | [Series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
@@ -201,7 +203,7 @@ One thing to do tonight: pick a task you regularly hand to a model, write 10 dev
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

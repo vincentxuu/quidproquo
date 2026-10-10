@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)3/13 那一週的教材後半。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 4 篇。[上一篇](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)講一個 agent 怎麼管自己的 context；這一篇把鏡頭拉遠，看**很多個 agent 放在一起會發生什麼，以及它們怎麼改變人的工作**。
 
 用到的官方材料：講義 [agent_era.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/agent_era.pdf) 第 34–61 頁，以及兩支影片：[AI Agent (2/3)：AI Agent 之間可以有什麼樣的互動](https://youtu.be/mmPmNezjCi0)、[AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學術研究為例](https://youtu.be/VqB8zMujdjM)。存取等級 **A3**，本講沒有對應的作業或測驗。
@@ -120,7 +122,7 @@ title: 影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

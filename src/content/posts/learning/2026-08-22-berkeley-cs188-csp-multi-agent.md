@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [Lecture 5–8](https://inst.eecs.berkeley.edu/~cs188/sp26/)把兩類問題排在一起：CSP 用變數、domain 與 constraints 壓縮組合搜尋；game trees 則加入會回應你的其他 agent。[Project 2](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj2/)讓 Pacman 面對 ghosts，依序實作 reflex agent、minimax、alpha-beta pruning、expectimax 與 evaluation function。
 
 ## 課程影片來源
@@ -56,7 +58,7 @@ Minimax 假設對手會選讓你最差的動作；alpha-beta 不改答案，只�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

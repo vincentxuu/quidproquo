@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > **Version note**: Dates follow the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Assignment content follows the [Assignment 3 page](https://llmsystem.github.io/llmsystemhomework/assignment_3/) and the [llmsys_hw3 repo](https://github.com/llmsystem/llmsys_hw3) **as seen on 2026-09-30**. The assignment site is shared across semesters, and **llmsys_hw3 already contains Fall 2026 changes** (see "Version note" at the end). Access level **A3**: the problems, starter code, and local tests are public; the private tests, Canvas submission, and recordings are not. This post contains no solutions or reference code.
 
 **Series**: previous [L08–L09: Tokenization, decoding, and speculative decoding](/posts/ai/2026-09-30-cmu11868-tokenization-decoding-en) | next [L10: Accelerating Transformers on GPU (LightSeq)](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
@@ -32,11 +34,13 @@ The assignment page opens with two sentences. The first: implement a decoder-onl
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Timeline and dependencies
 
@@ -138,7 +142,7 @@ To match the spring version, the last commit before the Feb 18 deadline is `376b
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

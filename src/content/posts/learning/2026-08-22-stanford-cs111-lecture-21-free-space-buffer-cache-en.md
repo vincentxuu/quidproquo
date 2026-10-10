@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 22 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 21**, taught by Mendel Rosenblum on 2026-05-15 under [File Systems, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf). The official [Lecture 20 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf) and Lecture 21 PDF are byte-identical, both SHA-256 `42e4021f84ed272db95224024c878a09d6c719430efc386c2614dcc8ef94310d`. Inaccessible Canvas/Panopto video prevents recovering the spoken boundary.
 
 This article focuses on cache, free-space bitmaps, fragments, repacking, and delayed allocation. Direct/indirect inode walks and disk scheduling belong to [Lecture 20](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes); duplicate prose is not evidence of a second [deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf).
@@ -83,7 +85,7 @@ The slide says cheap disk makes internal fragmentation less important. That is r
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

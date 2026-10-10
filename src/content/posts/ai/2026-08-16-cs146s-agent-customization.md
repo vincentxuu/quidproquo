@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs146s-agent-customization-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是 [CS146S 系列](/posts/ai/2026-08-16-cs146s-course-map)的第五篇，對應 Fall 2026 的第四週。
 
 課程主題三條：`CLAUDE.md` 與 `AGENTS.md` 各自該放什麼、用 hooks 做 lint gate 與測試閘門、以及 subagent 的 planner / implementer / reviewer 分工。客座是 Boris Cherny——Claude Code 的作者，Fall 2025 也講過一場，這次是 fireside Q&A。
@@ -179,7 +181,7 @@ Anthropic 對這類選擇的總結態度值得抄：「do the simplest thing tha
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

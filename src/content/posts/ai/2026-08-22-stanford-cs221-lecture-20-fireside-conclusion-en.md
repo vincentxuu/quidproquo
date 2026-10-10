@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-20-fireside-conclusion)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 20**, dated 2025-12-03. It is not a lecture that derives a new algorithm from slides. It is a fireside chat led by the course moderator, Ken, with Percy Liang answering student questions, followed by Percy’s closing thanks to the class. The [official course site](https://stanford-cs221.github.io/autumn2025/) and this series’ official schedule establish the offering and lecture order; the primary artifact is the [official Stanford Online video](https://www.youtube.com/watch?v=5u5I5jvWR5k). [video](https://youtu.be/5u5I5jvWR5k?t=43)
 
 ## Course video sources
@@ -147,7 +149,7 @@ This is an editorial synthesis of the recording, not a closing list Percy reads 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

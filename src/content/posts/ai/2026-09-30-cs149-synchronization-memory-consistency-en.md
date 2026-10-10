@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 20 of [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en). It follows [L14 Cache coherence](/posts/ai/2026-09-30-cs149-cache-coherence-en) and covers Lecture 15 (2025-11-13).
 
 The official material is the [L15 slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/sync_consistency/15_consistency.pdf) (60 pages, also available [slide by slide on the web](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)). Fall 2025 recordings are Canvas-only; the course home page points to the 2023 [Lecture 12 Memory Consistency video](https://www.youtube.com/watch?v=nFXWmo9MFiY) instead. This post follows the 2025 slides and lists the video only as a supplement. The access level is **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides are fully public, and only the current recordings are missing.
@@ -203,7 +205,7 @@ Further reading: lock implementations and atomic operations from the operating-s
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

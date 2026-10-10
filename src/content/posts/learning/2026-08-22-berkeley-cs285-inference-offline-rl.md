@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-inference-offline-rl-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [官方課表](https://rail.eecs.berkeley.edu/deeprlcourse/)的 L11–18 依序涵蓋 Variational Inference、VI in RL、Control as Inference、LLM RL、兩講 Model-Based RL 與兩講 Offline RL。看似四個題目，其實都在問：資料、模型與最佳化目標不完整時，agent 能依靠什麼訊號學習？
 
 ## 課程影片來源
@@ -47,7 +49,7 @@ Offline RL 不能再向環境收集資料，核心困難是 out-of-distribution 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

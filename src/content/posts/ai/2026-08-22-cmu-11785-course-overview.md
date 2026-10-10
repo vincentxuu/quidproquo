@@ -16,6 +16,8 @@ series:
 
 > 🌏 [English version](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-785 Introduction to Deep Learning Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html)是一門從神經網路表示能力一路走到 Boltzmann machine 的研究所課程。官方課表有一場 logistics 與 **28 講正式內容**；每講都連到投影片、YouTube 與 MediaServices，另有一大批 Python、NumPy、PyTorch、資料處理與模型實作的 bootcamp／recitation。
 
 它看起來像一門完整公開課，實際上有一道清楚的邊界：講授鏈很完整，正式作業鏈不完整。本文與後續系列鎖定 Spring 2026，不混用 Fall 2025 或 Fall 2026；只在公開證據足夠的範圍還原課程。
@@ -82,7 +84,7 @@ Fall 2025 仍可作歷史備援；Fall 2026 在本文查證時是新學期入口
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

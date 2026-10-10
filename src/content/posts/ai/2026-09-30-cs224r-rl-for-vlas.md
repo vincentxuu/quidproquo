@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-rl-for-vlas-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 20 篇，接續 [L16 Sim-to-Real 機器人學習](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning)，對應 2026 年 5 月 27 日（第 9 週週三）的第 17 講「RL for Robots: RL for VLAs」。投影片封面標題是「RL for Robot Foundation Models」。
 
 用到的官方材料：
@@ -254,7 +256,7 @@ flow matching 在 [HW1](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

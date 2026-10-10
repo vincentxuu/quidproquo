@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 6 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 5**. Mendel Rosenblum taught it on 2026-04-08; the official title is [Locks and Condition Variables](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/5/Lecture5.pdf). This article uses only the public PDF and [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The Canvas/Panopto recording is not treated as a source read here.
 
 The previous lecture's Too Much Milk solutions forced exclusion out of flags and carefully enumerated interleavings, but were too complicated. This lecture asks for two higher-level capabilities: **mutual exclusion**, to express critical sections, and **blocking**, to delay a thread without wasting a CPU. A mutex solves the first problem and a condition variable the second. The PDF repeatedly repairs one producer/consumer `Pipe` to establish why both are necessary.
@@ -215,7 +217,7 @@ Five questions audit any condition-variable program: What is shared state? Which
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

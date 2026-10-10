@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 7 篇，對應 **Stanford CS111, Spring 2026, Lecture 6**。2026-04-10 由 Mendel Rosenblum 主講，官方題目是 [Implementing Locks](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/6/Lecture6.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 Lecture 6 不再把 lock 當成黑盒子。16 頁投影片先用單核心關中斷建立最小版本，再在多核心環境逐版加入 atomic exchange、spin、block 與 wakeup；每一次修改都修掉一個具體 race，也可能製造下一個。
@@ -66,7 +68,7 @@ v5 的組合答案是：本核心先關中斷，再取得跨核心 spinlock；�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

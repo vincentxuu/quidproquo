@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-actor-critic-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 第 4 講投影片 [04_cs224r_actor_critic_2026.pdf](https://cs224r.stanford.edu/slides/04_cs224r_actor_critic_2026.pdf)（37 頁，2026-04-10 上課）。2026 錄影只放在 Canvas；配套影片是 [Spring 2025 L4 錄影](https://www.youtube.com/watch?v=oejFZShW9hU)（補充）。2025 與 2026 版投影片的講次大綱相同，2026 版在開頭的複習多補了幾行 policy gradient 的特性，其餘差在日期。影片內容本文沒有逐段引用。
 
 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 5 篇，直接接在 [L3 Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients) 後面。投影片第 5 頁的學習目標有兩個：
@@ -233,7 +235,7 @@ V 只吃狀態、不吃動作，比 Q 好學。
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

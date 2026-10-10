@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-19-conclusion)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is **Lecture 19 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-12-04. It follows the [course schedule](https://web.stanford.edu/class/cs224w/) and the [official Lecture 19 Conclusion deck](https://web.stanford.edu/class/cs224w/slides/19-conclusion.pdf); speaker attribution follows the slides.
 
 ## Course video sources
@@ -85,7 +87,7 @@ Use a small-dataset performance spectrum to select anchors, use anchor rankings 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

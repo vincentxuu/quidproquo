@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-04-learning-deep-networks)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 4**, taught by Percy Liang on 2025-10-01. The [course site](https://stanford-cs221.github.io/autumn2025/) provides the schedule and assignments; the primary artifact is [deep_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=deep_learning).
 
 > Material gap: Executable PyTorch examples are public; the recording is available separately in the official playlist.
@@ -82,7 +84,7 @@ The fourth method is a stochastic optimizer. A full-data gradient sums contribut
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

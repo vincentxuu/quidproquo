@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-01-why-generative-ai)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **Series**: previous [Overview and self-study route](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | next [L02 Neural network concepts](/posts/ai/2026-09-30-nccu-genai-02-neural-networks-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
 
 > **Version note**: This post is based on the [recording](https://www.youtube.com/watch?v=4BRBxy0EMT8) (2 h 52 min, in Mandarin) of lecture 1 from NCCU semester 1132 (2025-02-18) and the [GenAI01 slides](https://yenlung.me/1132GenAI) (121 slides, in Chinese). The homework spec and rubric come from the [Chang Gung satellite page](https://yangchihyuan.github.io/courses/GenerativeAI2025), so they are the Chang Gung version. All facts were checked against the official materials on 2026-09-30.
@@ -217,7 +219,7 @@ Lecture 1 of semester 1151 streamed on 2026-09-08. The [recording](https://www.y
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

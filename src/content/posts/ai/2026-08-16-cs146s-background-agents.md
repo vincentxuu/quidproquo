@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs146s-background-agents-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是 [CS146S 系列](/posts/ai/2026-08-16-cs146s-course-map)的第九篇，對應 Fall 2026 的第八週。
 
 課程主題三條：非同步、雲端代跑的 agent；管理成群平行執行的 agent；issue-to-PR 流程與觸發器（Slack、Linear、GitHub）。講題是「Background agents: launching tasks asynchronously」，客座還沒公布。
@@ -100,7 +102,7 @@ draft: false
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-exam-hw623-project)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is the last post (part 23) of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series and follows [L24–L26: audio, video generation, and interactive world models](/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en). The four homework guides ([HW1](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en), [HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en), [HW3](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en), [HW4](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en)) covered the programming assignments. This one covers everything else the course uses to check learning.
 
 Official materials used: the [syllabus on the course home page](https://www.cs.cmu.edu/~mgormley/courses/10423/), the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [coursework page](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html), the [practice exam](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam.pdf) (41 pages) and its [solutions](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam_solutions.pdf) (44 pages), the [HW623 handout](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/HW623.pdf) (4 pages), and the [project handout](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/project.pdf) (12 pages). The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Still, the real exam, the quiz and programming-test questions, Gradescope grading, and Piazza announcements covered here are all private. Outsiders get only the practice materials and the rules.
@@ -224,7 +226,7 @@ Series navigation: previous [L24–L26: audio, video generation, and interactive
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

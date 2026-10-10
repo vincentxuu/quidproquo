@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-05-randomized-algorithms-quicksort-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 6 篇，對應 **Stanford CS161, Winter 2026, Lecture 5**。Moses Charikar 在 2026 年 1 月 21 日主講，官方題目是 [Randomized Algorithms and QuickSort](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort)。本文使用課前練習、講義與投影片；Canvas 錄影未使用，notebook 也未列為已讀。
 
 上一講的 Select 用 pivot 做 partition，然後只走答案所在的一側。QuickSort 保留同一個骨架，卻遞迴排序兩側。這個小改動讓 pivot 的品質更敏感：每次近乎切半是 `O(n log n)`，每次切成 `0` 與 `n-1` 則是 `Θ(n²)`。第五講要回答的不是「random pivot 通常不錯」這句直覺，而是：對任意固定輸入，只對演算法自己的亂數取期望時，如何嚴格證出 `O(n log n)`？
@@ -167,7 +169,7 @@ Lecture 4 與 Lecture 5 共用 pivot、partition、recursion，卻展示兩種�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

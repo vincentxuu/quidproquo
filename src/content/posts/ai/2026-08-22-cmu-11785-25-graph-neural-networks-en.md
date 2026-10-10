@@ -16,6 +16,8 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-25-graph-neural-networks)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This article covers CMU 11-785 Spring 2026 **Lecture 25: Graph Neural Networks**. Its primary evidence is the [official slide deck](https://deeplearning.cs.cmu.edu/S26/documents/slides/Lec25%20-%20Graph%20Neural%20Networks.pdf) and [official YouTube recording](https://youtu.be/Q3eRRKpsgpw). It reconstructs only what those materials support and does not invent classroom dialogue or unpublished remarks.
 
 ## Course video sources
@@ -63,7 +65,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

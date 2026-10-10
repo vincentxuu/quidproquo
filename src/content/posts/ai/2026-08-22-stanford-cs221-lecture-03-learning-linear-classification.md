@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-03-learning-linear-classification-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇只沿著官方可執行 artifact 的程式流程讀 Learning II：linear classification。source 的 main() 先回顧線性迴歸，再依序進入 prediction task、machine-learning problem、hypothesis class、zero-one loss、zero-one loss optimization、logistic loss、logistic-loss optimization、multiclass classification，以及 representing text。這個順序不是名詞清單：每一次改變表示法或 loss，都是在回應前一步暴露出的問題。
 
 > 公開材料缺口：source 明確連到 Autumn 2023 的線性分類模組；課程入口、artifact、repository 與 playlist 列在文末。source 只呈現 sentiment classification 的任務例子，沒有提供 sentiment 作業的隱藏測資或解答，因此本文不補寫那些內容。
@@ -117,7 +119,7 @@ bag-of-words 把每個 token 看成 one-hot，再取所有 token vectors 的平�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

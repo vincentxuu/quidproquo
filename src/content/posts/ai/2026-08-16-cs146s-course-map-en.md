@@ -24,6 +24,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Stanford runs a for-credit course called [CS146S: The Modern Software Developer](https://themodernsoftware.dev/). It does not teach you to write code; it teaches you to direct coding agents that write code. It first ran in fall 2025, and the fall 2026 syllabus (classes start 9/22) is already published — **with changes big enough to read as an industry signal**.
 
 This series works through the Fall 2026 syllabus one week per post. This first post covers the course itself, then puts both syllabi side by side.
@@ -147,7 +149,7 @@ One post per week plus this overview, eleven in total:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

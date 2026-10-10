@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-locality-communication-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 7 篇，接續 [L5 工作分配與排程](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)，範圍是 Lecture 6「Program Optimization 2: Locality and Communication」（2025-10-09）。PDF 內的標題多了一個詞：「Locality, Communication, and Contention」。
 
 用到的官方材料是 [L6 投影片 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/perfopt2/06_progperf2.pdf)（68 頁，另有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)）。Fall 2025 錄影不公開，官方首頁指向 2023 年版，對應的是 [2023 Lecture 6 錄影](https://www.youtube.com/watch?v=Mhdny2JNhmc)。本文以 2025 投影片為準，影片只是補充。存取等級 **A3**。
@@ -221,7 +223,7 @@ void fused(int n, float* A, float* B, float* C, float* D, float* E) {
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-08-rag-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 8 篇，接在 [L07 打造自己的對話機器人](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot)之後。L07 的機器人只知道模型訓練時看過的東西；這一講讓它讀你給的資料再回答。
 
 用到的官方材料：[錄影 08](https://www.youtube.com/watch?v=JClJEmZub-A)（2025-04-08，約 3 小時 4 分）、投影片 GenAI08（25 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo06a】RAG01_打造向量資料庫`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo06a%E3%80%91RAG01_%E6%89%93%E9%80%A0%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.ipynb)、[`【Demo06b】RAG02_打造_RAG_系統`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo06b%E3%80%91RAG02_%E6%89%93%E9%80%A0_RAG_%E7%B3%BB%E7%B5%B1.ipynb)、[`【Demo06】用_RAG_打造心靈處方籤機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo06%E3%80%91%E7%94%A8_RAG_%E6%89%93%E9%80%A0%E5%BF%83%E9%9D%88%E8%99%95%E6%96%B9%E7%B1%A4%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第八週作業。存取等級 **A3**。
@@ -164,7 +166,7 @@ title: 【生成式 AI】08.檢索增強生成(RAG)的原理及實作（YouTube 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

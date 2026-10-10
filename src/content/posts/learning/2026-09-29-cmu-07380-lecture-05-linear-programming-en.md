@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 This is Lecture 5 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Continuous Optimization: LP** (9/9). The [previous post on HW2](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en) closed out the planning module. This lecture opens a new module, "Optimization."
 
 In [07-280 Lecture 8](/en/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization-en) we learned gradient descent: a smooth objective, no constraints, follow the slope downhill. LP is the opposite case. The objective is linear, so its gradient is the same everywhere and never reaches zero. What decides the answer is a set of **linear constraints**. Walking downhill just takes you to the edge of the feasible region, and the question becomes: which point on that edge?
@@ -26,11 +28,13 @@ Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.e
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
 
 ## Official materials and what I read
 
@@ -153,7 +157,7 @@ The branch and bound example in [the next lecture](/en/posts/learning/2026-09-29
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

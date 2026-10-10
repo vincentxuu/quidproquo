@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 9 篇，對應 [Fall 2024 課程頁](https://hanlab.mit.edu/courses/2024-fall-65940)上的 **Lecture 8：Neural Architecture Search (Part II)**，2024 年 10 月 1 日上課，講者 Song Han。材料有兩份，都公開：
 
 - 投影片 [Lec08-Neural-Architecture-Search-II.pdf](https://www.dropbox.com/scl/fi/kaia5vvmdwb2bj0xnbihm/Lec08-Neural-Architecture-Search-II.pdf?rlkey=vkp9i12ljbk4jmdfp05j3ctdy&st=hincmob7&dl=0)（105 頁，下文頁碼都指 PDF 頁）
@@ -193,7 +195,7 @@ OFA 的訓練順序是「先大後小」，逐步打開四個可變維度：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

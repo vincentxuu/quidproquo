@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 LLM Systems 導讀：總覽與自學路線——28 份講義、7 份作業全公開，但沒有錄影、要自備 GPU"
+title: "CMU 11-868 LLM Systems 導讀：總覽與自學路線——28 份講義、7 份作業全公開，但官方課表未列公開錄影連結、要自備 GPU"
 date: 2026-09-30
 category: ai
 type: guide
@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本系列依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版（最近一個已結束、材料最齊的學期），Fall 2026 正在上課，只拿來對照差異。所有事實都在 2026-09-30 打開官方頁面、講義 PDF 與 GitHub repo 核對。存取等級 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：講義、作業說明、起始碼、專題規格都公開，足以自學；拿不到的是錄影、GPU 叢集、quiz 與評分。
 
 **系列位置**：本篇是總覽｜下一篇 [L01 開場：LLM 為什麼需要系統](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems)
@@ -36,11 +38,13 @@ FAQ 把它跟 CMU 另一門 LLM 課 11-667 分得很清楚：11-667 講模型、
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -81,7 +85,7 @@ Spring 2026 公開的東西夠完整：[Syllabus](https://llmsystem.github.io/ll
 
 但 A3 不等於沒有缺口。校外讀者會碰到這六件事：
 
-1. **沒有錄影。** Spring 與 Fall 2026 的頁面都沒有錄影連結。這是它跟 [Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch) 最大的差別：你只能讀投影片與論文，投影片上的口頭補充一律拿不到。
+1. **官方課表未列公開錄影連結。** Spring 與 Fall 2026 的頁面都沒有錄影連結。這是它跟 [Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch) 最大的差別：你只能讀投影片與論文，投影片上的口頭補充一律拿不到。
 2. **要 NVIDIA GPU。** [Assignment 1](https://llmsystem.github.io/llmsystemhomework/assignment_1/) 開頭寫「You'll need a GPU」；[Assignment 5](https://llmsystem.github.io/llmsystemhomework/assignment_5/) 要至少兩張 GPU；[Assignment 6](https://llmsystem.github.io/llmsystemhomework/assignment_6/) 建議在 PSC 開兩張 GPU，用 LoRA 讓 Llama-2-7B 在「2 V100 GPUs/ 16GB GPU memory」上訓練得起來。校外讀者沒有 PSC 帳號，要自己租雲端 GPU。
 3. **Quiz 與評分不公開。** Quiz 佔 10%，投影片上的 quiz 連結都指向 CMU Canvas；Ed 論壇與繳交系統也只對修課學生開放。
 4. **哪兩份作業是選修，官方沒寫。** Logistics 只說「five required and two optional」，作業站七頁都沒標示哪份是 optional。本系列不猜。
@@ -219,7 +223,7 @@ HW5（自己寫資料平行與管線平行）要至少兩張 GPU；HW6（DeepSpe
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

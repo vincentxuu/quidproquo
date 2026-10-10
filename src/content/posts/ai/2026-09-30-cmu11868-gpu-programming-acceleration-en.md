@@ -40,7 +40,9 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)
 
-> **Version note**: This article follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Sources: [L02 GPU Programming Basics 1](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-02-gpu-programming-c64a0141b96a1f384db7f6717ed8e039.pdf) (1/14, 36 pages), [L03 GPU Programming Basics 2](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-03-gpu-programming2-b82b6ffdf554494747d00ce7ac606c3b.pdf) (1/21, 32 pages), [L04 GPU Acceleration](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-04-gpu-acceleration-48ffa5768ba62c54138f0a71ca2b68b8.pdf) (1/26, 47 pages), the [Recitation 1 slides](https://docs.google.com/presentation/d/1v5IT8XZeWZ4FIlQzRLmEfcZv-kmfAyBIFyqYJkR5Lk8/edit), and the example code in [`cuda_acceleration_demo`](https://github.com/llmsystem/llmsys_code_examples/tree/main/cuda_acceleration_demo). Page numbers are PDF page numbers. Facts were checked on 2026-09-30. The course has no public videos.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> **Version note**: This article follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Sources: [L02 GPU Programming Basics 1](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-02-gpu-programming-c64a0141b96a1f384db7f6717ed8e039.pdf) (1/14, 36 pages), [L03 GPU Programming Basics 2](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-03-gpu-programming2-b82b6ffdf554494747d00ce7ac606c3b.pdf) (1/21, 32 pages), [L04 GPU Acceleration](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-04-gpu-acceleration-48ffa5768ba62c54138f0a71ca2b68b8.pdf) (1/26, 47 pages), the [Recitation 1 slides](https://docs.google.com/presentation/d/1v5IT8XZeWZ4FIlQzRLmEfcZv-kmfAyBIFyqYJkR5Lk8/edit), and the example code in [`cuda_acceleration_demo`](https://github.com/llmsystem/llmsys_code_examples/tree/main/cuda_acceleration_demo). Page numbers are PDF page numbers. Facts were checked on 2026-09-30. The official syllabus lists no public video links.
 
 **Series**: previous [L01: Why LLMs Need Systems](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems-en) | next [HW1: CUDA Programming](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
@@ -48,11 +50,13 @@ These three lectures are the foundation of the course. As the [overview](/posts/
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## The scene: a correct matmul that uses 2.48% of the GPU
 
@@ -232,7 +236,7 @@ Recitation 1 covers setup before coding: getting a PSC account, head nodes versu
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

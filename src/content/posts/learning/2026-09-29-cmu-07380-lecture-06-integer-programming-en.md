@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 This is Lecture 6 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Discrete Optimization: ILP** (9/14). The title slide reads "Linear and Integer Programming," and the instructors are Pat Virtue and Mohammad Salameh.
 
 [Lec5](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en) ended with this result: the optimum of an LP sits at a vertex of the feasible region, so checking boundary intersections is enough. This lecture sells stir-fry by the bowl and boba by the glass, so the variables must be integers. Vertices rarely land on integer grid points, and last lecture's guarantee is gone.
@@ -26,11 +28,13 @@ Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.e
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
 
 ## Official materials and what I read
 
@@ -39,7 +43,7 @@ Course and recording entries:
 - [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf): the site labels Recitation 4 (9/18) "ILP and PCA," and it shares this PDF with Recitation 3. This post uses Problem 2, Baymax's Factory, and Problem 3, Cargo Plane, and mentions Problem 4, CSP as IP, and Problem 5, 4-Queens
 - Lec6 has no pre-reading notes, and the site lists no assigned reading for it
 
-**Access level**: everything above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)). There are no recordings, and the Canvas checkpoint is CMU-only.
+**Access level**: everything above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The official syllabus lists no public recording links, and the Canvas checkpoint is CMU-only.
 
 ## The starting question: what breaks when you add x ∈ ℤᴺ
 
@@ -148,7 +152,7 @@ This is the recitation's most complete branch and bound problem. One ounce of me
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

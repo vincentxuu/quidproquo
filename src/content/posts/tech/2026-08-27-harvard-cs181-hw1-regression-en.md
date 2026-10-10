@@ -15,15 +15,20 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > ⚠️ **Edition**: This guide follows `hw1_release.tex` from the [CS181 2026 HW1 repository](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw1) (course number CS1810-S26, due 2026-02-13 at 11:59 PM). Earlier years may differ in problems and points; if you are working from another year, go by that year's `.tex`.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
 
-Course and recording entries:
+Official sources:
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -126,7 +131,7 @@ The previous post is [HW0: linear algebra review](/posts/tech/2026-08-27-harvard
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - **2026-09-30**: Rewrote the problem sections to match the official `hw1_release.tex`. The earlier version described three problems (OLS, RBF kernel, MLP); the actual assignment has four: kNN & Kernels, Geometric Least Squares, Basis Regression, and Probabilistic View & Regularization. Also corrected the dataset size and age description and the Jouzel et al. 2007 citation, and removed the unsourced MLP and PyTorch material.
 - **2026-09-29**: Corrected the due date to 2026-02-13 per the s26 `hw1_release.tex`; rewrote "How HW1 connects to later weeks" to link the actual series posts, with topics taken from each `.tex`.
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 6 篇，對應 **Stanford CS111, Spring 2026, Lecture 5**。Mendel Rosenblum 在 2026-04-08 主講，官方題目是 [Locks and Condition Variables](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/5/Lecture5.pdf)。本文只依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影位於 Canvas／Panopto，沒有把它當成已讀來源。
 
 上一講的 Too Much Milk 用旗標與逐條 interleaving 勉強做出互斥，但解法太複雜。本講要找兩個更高階的同步能力。第一是讓 critical section 容易表達的 **mutual exclusion**；第二是在某件事尚未發生時，不浪費 CPU 地延後 thread 的 **blocking**。mutex 解第一題，condition variable 解第二題。整份 PDF 用同一個 producer/consumer `Pipe` 反覆改錯，重點正是看清楚兩者為何缺一不可。
@@ -217,7 +219,7 @@ void Pipe::put(char c) {
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

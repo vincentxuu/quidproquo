@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-transformer)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers Lecture 1, "Transformer," of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en). The main sources are the 2025 [recording](https://www.youtube.com/watch?v=Ub3GoFaUcds) and its [135-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf), cross-checked against the new edition released on September 25, 2026 ([recording](https://www.youtube.com/watch?v=114i2Kz-LZA), [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)).
 
 The whole lecture runs on one example sentence: "A cute teddy bear is reading." It gets split into tokens, turned into vectors, handed to an RNN, and then we see why the RNN can't cope, until finally a Transformer translates it into French: "Un ours en peluche mignon lit." Follow that sentence from start to finish and you've covered the entire lecture.
@@ -182,7 +184,7 @@ These questions are adapted from Part I of the [2025 midterm](https://cme295.sta
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

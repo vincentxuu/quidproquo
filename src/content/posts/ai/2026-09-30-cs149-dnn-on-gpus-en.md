@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-dnn-on-gpus)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is post 12 in the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers Lecture 9 from October 21, [Efficiently Evaluating DNNs on GPUs: Transformers and ConvNets](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dnninference/). The official [slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/dnninference/09_dnneval.pdf) has 75 slides.
 
 Fall 2025 recordings live only on Stanford Canvas. The closest public video is [2023 Lecture 10: Efficiently Evaluating DNNs on GPUs](https://www.youtube.com/watch?v=qbKtU0X6-WU), and it is only a partial supplement. Compared with the [2023 slides for the same lecture](https://gfxcourses.stanford.edu/cs149/fall23/lecture/dnneval/) (68 slides), conv-to-GEMM, blocked matrix multiply, implicit GEMM, fusion, and fused attention are all there. The 2025 deck adds Triton and ThunderKittens, the row-wise softmax fusion example, and a ThunderKittens Flash-Attention. It also drops the 2023 section on saving compute through better network topologies (ResNet, MobileNet). This guide follows the 2025 slides. The course overall is A3 (enough to self-study); gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
@@ -193,7 +195,7 @@ Series navigation: previous [PA3 + Written 2: CUDA circle renderer](/posts/ai/20
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

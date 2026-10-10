@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-transactional-memory-w4)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 22, the final part, of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series, following [L16: Fine-Grained Locking and Lock-Free Programming](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en). It covers Lecture 17, "Transactional Memory (Part I)" (December 2, 2025), Lecture 18, "Transactional Memory (Part II) + AMA" (December 4, 2025), and Written Assignment 4 (listed under Dec 3 on the course home page).
 
 Official material used:
@@ -205,7 +207,7 @@ Series navigation: previous [L16: Fine-Grained Locking and Lock-Free Programming
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

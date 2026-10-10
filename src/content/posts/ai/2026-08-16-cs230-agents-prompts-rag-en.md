@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-agents-prompts-rag)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > [The previous post](/posts/ai/2026-08-16-cs230-ai-project-strategy-en) covered deciding which pipeline stage to fix. This one runs the whole vertical axis from prompt to multi-agent.
 
 This post covers **[Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)** (2025/11/11, Kian Katanforoosh, 1 hour 50 minutes).
@@ -346,7 +348,7 @@ What's genuinely worth taking from this lecture, and isn't on the site, is three
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

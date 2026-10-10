@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-machine-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [Lecture 19–25](https://inst.eecs.berkeley.edu/~cs188/sp26/)先談 rational decisions 與 value of perfect information，再進入 decision trees、linear regression、Naive Bayes、neural networks、language models 與 fine-tuning。[Project 5](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj5/)則把後半段落到 PyTorch：non-linear regression、手寫數字與語言分類、CNN、attention，以及 optional character-GPT。
 
 ## 課程影片來源
@@ -50,7 +52,7 @@ P5 的作用是讓廣義 AI 課的學生碰到現代 ML workflow：定義 model�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

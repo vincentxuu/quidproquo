@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This guide is based on the official materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis): the Lecture 25 slides [lec25.pdf](https://drive.google.com/drive/folders/1V-V3xZCgc9ahcdZYzHEjMtC0TAo2D5uS) (4/23, [video](https://www.youtube.com/watch?v=V-SJk4AJ-xc)), the Lecture 27 slides [lec27.pdf](https://drive.google.com/file/d/1-w1R8Xki56lGIuewvwt0lukI8HNd2cgj/view) (4/30, [video](https://www.youtube.com/watch?v=yRgSQCXr8M0)), [Discussion 12](https://drive.google.com/file/d/1DWLHmY5RVWolf0KVyPDFDfpouBiwALuz/view) (with [solutions](https://drive.google.com/file/d/1iT9kueFCRKrU47y0eKiIEzMJteH4zPJD/view) and a [walkthrough video](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-e6UXPAnaIlmaHf_Wv3HPX)), and the past-exam folder on the [Resources page](https://eecs189.org/sp26/resources/). The course as a whole rates A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)), with one gap here: Lecture 26 on 4/28 was an online guest lecture, and the schedule links neither slides nor a recording.
 
 [The previous post on Lec 23–24](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en) turned the transformer into an LLM and finished self-supervised learning. The final three lectures introduce no new basic tools. Instead they carry the semester's material to two frontiers, protein design and agents. The topics look unrelated, but they share one question: **when you ask a model to make decisions for you, not just predictions, how do you know it can be trusted?**
@@ -230,7 +232,7 @@ These directions follow the threads CS189's last lectures leave open, using guid
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

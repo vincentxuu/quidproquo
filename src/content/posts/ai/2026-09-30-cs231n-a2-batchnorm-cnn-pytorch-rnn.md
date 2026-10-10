@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：作業依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 的 [Assignment 2 頁面](https://cs231n.github.io/assignments2026/assignment2/)與可下載的 [assignment2.zip](https://cs231n.github.io/assignments/2026/assignment2.zip)（2026-09-30 下載，notebook 與 `cs231n/` 模組逐一打開核對）。對應的課堂錄影請用 [Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)，2026 錄影只放在 Canvas，限修課生；兩個年份的內容可能不同。存取等級 **A3**：題目頁與起始碼全公開；拿不到的是 Gradescope 自動評分、Ed 公告（包括第 9 講提到的 notebook 修正說明）與成績。本文只整理題目在練什麼，不給解答。
 
 **系列位置**：上一篇 [L7：循環神經網路與影像描述](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks)｜下一篇 [L8：Attention、Transformer 與 ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
@@ -177,7 +179,7 @@ Part V 的要求是：10 個 epoch 內在 CIFAR-10 **驗證集**上達到至少 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

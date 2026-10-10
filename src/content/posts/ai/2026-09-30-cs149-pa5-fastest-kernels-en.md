@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 18 of [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en). It follows [L13 DSLs and AI-driven optimization](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en) and covers [Programming Assignment 5 (stanford-cs149/asst5-kernels)](https://github.com/stanford-cs149/asst5-kernels). The course home page lists it as "Assignment 5: Make the World's Fastest CUDA Kernels," due December 4, 2025. The README states there are **no late days** for it.
 
 This post covers what each problem exercises, what to measure first, and which direction to think in. **No solutions.**
@@ -172,7 +174,7 @@ Further reading: the full FlashAttention story in [CMU 11-868 L21](/posts/ai/202
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

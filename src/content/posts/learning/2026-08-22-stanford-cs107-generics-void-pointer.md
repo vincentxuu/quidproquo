@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-generics-void-pointer-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 如果替 `int`、`double`、字串 pointer 各寫一份 `swap`，程式很安全，也很快開始重複。若只保留一份函式，它又怎麼知道該搬幾個 bytes、該把位址解讀成哪一種型別？Stanford CS107 Lecture 11 的回答很有 C 的味道：函式不必知道資料的語意，只要 caller 同時交出位址與 byte count。`void *` 抹掉 pointee type，`memcpy` 負責複製 raw bytes，正確性則由介面契約與 caller 共同維持。
 
 這不是「C 也有 Java generics」的輕巧語法糖。型別資訊一旦被擦掉，compiler 能替你做的檢查就變少；錯誤的寬度、錯誤的 cast 或錯誤的 lifetime 都可能順利編譯。本講因此先把上一講的 heap 收尾，再進入 generics：兩部分其實在問同一件事——當語言不替你記住資源與型別，程式設計者要如何把遺失的資訊寫回契約。
@@ -190,7 +192,7 @@ Lecture 11 最重要的不是背五個 library functions，而是看見同一條
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

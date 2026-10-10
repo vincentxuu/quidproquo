@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-12-graphs-3)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 13 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **Spring 2026 Lecture 11 (April 24, 2026)**, officially titled **Graph Theory, Part Three**. Rather than introducing another catalog of graph definitions, the lecture turns a tiny counting fact into a proof engine: force local structure with the generalized pigeonhole principle, then drive it to the target with a case split or contradiction.
 
 The course team is Cynthia Bailey Lee and Alex Aiken. The public page does not identify a per-meeting speaker, so this article does not guess one. The reconstruction below follows the complete public deck; spoken material restricted to Canvas or Panopto is outside its scope.
@@ -138,7 +140,7 @@ The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/le
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the bilingual article from the complete official deck, covering generalized pigeonhole, friends and strangers, Ramsey theory, Sim, and the movie-preference puzzle.
 
 ## References

@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-model-free-control-function-approx)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Edition note**: This guide follows pp. 16–60 and the optional worked examples on pp. 80–89 of the Winter 2026 [Lecture 4 slides](https://web.stanford.edu/class/cs234/slides/lecture4post.pdf) (post-class version, 89 pages) of [CS234](https://web.stanford.edu/class/cs234/). The DQN material on pp. 62–78 belongs to the next post. The public recording is Spring 2024's [video 4, "Q learning and Function Approximation"](https://www.youtube.com/watch?v=b_wvosA70f8); I haven't compared it page by page against the 2026 slides. Facts were checked against the official slides on 2026-09-30. Access level **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
 **Series**: Previous: [Evaluating Without a Model: MC, TD(0), Certainty Equivalence](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation-en) | Next: [DQN: The Deadly Triad, Experience Replay, Fixed Targets](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -197,7 +199,7 @@ One thing to do tonight: just compute the 2.5 and the 5. Write out the SARSA and
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

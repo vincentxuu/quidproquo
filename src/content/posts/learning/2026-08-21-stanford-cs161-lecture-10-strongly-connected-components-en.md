@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-10-strongly-connected-components)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 11 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 10**. The official title is **Strongly Connected Components**. Moses Charikar taught it on February 9, 2026.
 
 I used the [official Lecture 10 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components), the public notes, and the public slides. The slides run the original graph first and reverse it second; the notes use the equivalent reverse-first orientation. I show both but keep the full proof in the notes orientation so that the passes never get mixed. I did not use the Canvas-only recording, and I do not present the inherited `winter2025-extra` notebook as newly authored Winter 2026 material.
@@ -164,7 +166,7 @@ An implementation can return both a component ID per vertex and the condensation
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

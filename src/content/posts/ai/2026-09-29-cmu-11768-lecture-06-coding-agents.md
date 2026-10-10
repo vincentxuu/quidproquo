@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 第六講是 Domains 模組的第一堂（系列入口見[課程總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)），主題是 coding agent，由 Graham Neubig 主講。他開場就說，台下多數人每天都在用 coding agent，所以不需要介紹它能做什麼；這堂要講的是**怎麼做出一個**，以及背後需要什麼。
 
 他把「會寫程式的 AI」分成三個層次：寫出一段程式（單次補全）、改一個 repo（同時動多個檔案）、做完整的軟體開發（需求、實作、審查、部署、維護的整個生命週期）。任何 agent 都有三個原料——prompt、工具、LLM。prompt 在前幾堂（[L4 Skills and Memory](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory) 與 [L5 Planning](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning)）已經談過，這堂專注在後兩者：模型怎麼學會寫程式，agent 又該拿什麼工具。
@@ -37,11 +39,20 @@ glossary:
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+已核對 CMU 11-768 Fall 2026 第 6 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=1BWeH1oOM7k
+title: CMU AI Agents 2026: 6. Agents for Coding and Software Development
+```
+
+原始影片：[CMU AI Agents 2026: 6. Agents for Coding and Software Development](https://www.youtube.com/watch?v=1BWeH1oOM7k)
+
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 一、會寫程式的模型
 
@@ -256,7 +267,7 @@ L6 是 Capabilities 模組之後的第一個 Domain，把前五講的零件（�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-diffusion-models-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026。主要材料是 [Lecture 7 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture7-diffusion.pdf)（Diffusion models Part I，47 頁 PDF），取樣演算法一節取自 [Lecture 8 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture8-diffusion-vae.pdf)開頭的複習段；readings 依[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片、作業與練習考卷公開；課堂錄影在 CMU Panopto，校外看不到。
 
 **系列位置**：上一篇 [L6：生成對抗網路（GAN）](/posts/ai/2026-09-30-cmu10423-gans)｜下一篇 [L8–L9：變分推論、VAE 與擴散模型的 ELBO](/posts/ai/2026-09-30-cmu10423-variational-inference-vae)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
@@ -183,7 +185,7 @@ q(x_{t−1} | x_t, x_0) = N( μ̃_q(x_t, x_0), σ_t² I )
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

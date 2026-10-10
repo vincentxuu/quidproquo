@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-09-cardinality)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 10 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 8, Spring 2026 (2026-04-17)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The official title is **Set Theory Revisited**, but the deck has a sharper through-line. It combines injections and surjections into bijections, uses bijections to define equal cardinality, and gives the formal proof of Cantor's theorem previewed on the first day. The purpose is not to force finite counting onto infinite sets. It is to state exactly what evidence makes two collections “the same size.”
@@ -157,7 +159,7 @@ The next lecture turns to graphs, building higher-level properties from vertices
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the article from the complete official deck, covering bijections, equinumerous intervals, cardinal equality, and Cantor's diagonal argument; synchronized the Chinese article and research checklist.
 
 ## References

@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-16-representation-learning)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article reads Chapter 16, printed pages 196–201, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a guide to the notes, not a reconstruction of a particular quarter's recordings. It preserves the central objectives, evaluation logic, and system dependencies without claiming to reproduce every proof.
 
 ## Course video sources
@@ -79,7 +81,7 @@ Design a 100-query retrieval evaluation set. Define Recall@5 and NDCG@5, then pl
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

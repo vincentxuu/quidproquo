@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 是 Daniel Fried 與 Graham Neubig 在 2026 秋季開的研究所課，主題是用 LLM 做的 agent：工具使用、規劃、記憶、訓練、安全與人機互動。第 9 講（9/22）由 Fried 主講，是訓練模組三講 RL 的第一講：這一講講 policy gradient 的基本方法，下週的第 11 講由 Neubig 講進階演算法與穩定訓練，第 12 講由助教 Apurva Gandhi 講 RL 系統與實務框架（中間的第 10 講是 Akari Asai 講 deep research agents 的客座課）。三講合起來是作業 3 的地基。課程官網對作業 3 只寫了「實作用來調整與改進 agent 的訓練流程」；Fried 在課堂上口頭補充，作業 3 會要你在兩個環境裡用 RL 訓練模型，一個是本講範例的猜數字，另一個是有點像 Minecraft 的簡易合成環境，運算量也會比前兩份作業大。環境細節以作業正式公布的內容為準。
 
 本篇依[影片](https://www.youtube.com/watch?v=paAcPaaYZGM)與[投影片](https://www.cmu-agents.com/slides/lecture-09-rl-basics.pdf)撰寫。Fried 開場就說，這一講是從上一講的 SFT 搭一座橋，走到 policy gradient 這個他認為最簡單、也最優雅的 RL 形式。整講的主線可以濃縮成一句話：**每一種方法都是對 agent 自己做過的動作算 log 機率，差別只在乘上什麼權重。**
@@ -36,11 +38,20 @@ glossary:
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+已核對 CMU 11-768 Fall 2026 第 9 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=paAcPaaYZGM
+title: CMU AI Agents 2026: 9. Reinforcement Learning Basics
+```
+
+原始影片：[CMU AI Agents 2026: 9. Reinforcement Learning Basics](https://www.youtube.com/watch?v=paAcPaaYZGM)
+
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 場景：在 1 到 16 之間猜一個數字
 
@@ -374,7 +385,7 @@ $$\nabla_\theta J = \sum_t w_t\, \nabla_\theta \log \pi_\theta(a_t \mid h_t)$$
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

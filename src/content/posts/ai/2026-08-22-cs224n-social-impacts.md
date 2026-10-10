@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-social-impacts-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 16 講排在 2026 年 2 月 26 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture16-impact-on-humanity.pdf)題為 *AI's impact on humanity*。agenda 有四段：hallucination、AI 輔助創造力的悖論、工作影響與 value alignment。
 
 ## 課程影片來源
@@ -168,7 +170,7 @@ Winter 2026 錄影不公開。本文完整涵蓋四段官方 agenda；投影片�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

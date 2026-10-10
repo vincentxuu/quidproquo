@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) （[系列總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)）的第一份作業叫 **Build an Agent Harness**，[starter code 在 GitHub](https://github.com/cmu-agents/assignment-1)，截止日是 2026 年 9 月 14 日（週一，依[課程官網 Assignments 頁](https://www.cmu-agents.com/#/assignments)），由助教 Weiwei Sun 與 Saujas Vaduguru 設計。作業文件開頭給的定義很精準：harness 是讓一個「只會產生機率上合理字串的語言模型」能夠**觀察並作用於環境**的介面。你要在 [ReAct](https://arxiv.org/abs/2210.03629) 框架裡從零寫出這層介面。
 
 這份作業最有意思的地方在於它的結構：只有一個 `Agent` 基底類別、一個 ReAct 迴圈，卻要撐起三種完全不同的 agent。你會親眼看到，harness 的骨架是通用的，隨領域改變的只有 prompt、工具和觀察格式。這正好是 [L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents) 投影片上那條定義：Harness = prompts + tools + agent loop + context management。
@@ -39,11 +41,13 @@ glossary:
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+本篇是作業導讀，附官方課程入口；尚未核對到這份作業的專屬錄影。課程已有部分公開講課影片，但不能直接視為這份作業的影片。
 
-課程與錄影入口：
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 三個部分怎麼串起來
 
@@ -224,7 +228,7 @@ starter 已經幫你做好一件事：工具輸出超過 10,000 字元時，保�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

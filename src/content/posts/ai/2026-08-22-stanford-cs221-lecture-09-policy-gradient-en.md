@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-09-policy-gradient)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 9**, taught by Percy Liang on 2025-10-20. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments. The article follows the execution order of the lecture's [policy_gradient](https://stanford-cs221.github.io/autumn2025-lectures/?trace=policy_gradient) artifact and explains every example and derivation that actually appears there.
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable. This article covers only what appears in `policy_gradient.py`. Actor-critic, generalized advantage estimation, entropy regularization, and off-policy policy-gradient derivations are not silently added.
@@ -207,7 +209,7 @@ The costs are just as concrete. Updates wait for an episode to finish, and one t
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

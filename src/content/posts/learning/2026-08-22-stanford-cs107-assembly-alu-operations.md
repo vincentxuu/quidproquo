@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-assembly-alu-operations-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 同一個 `%rax` 可以被叫作 `%eax`、`%ax` 或 `%al`；同一串位元經過 zero extension 與 sign extension，也可能變成完全不同的 64-bit 數值。Stanford CS107 Lecture 16 的核心不是再背一批 mnemonics，而是替上一講的 addressing modes 加上兩個維度：**這次操作幾個 bytes，以及 ALU 如何解讀與改寫這些 bits。**
 
 讀任何 instruction 時，可以固定問四件事：operand 寬度是多少、來源在哪裡、目的在哪裡、括號只是拿來計算位址還是真的會 dereference。這套順序能解釋 `movzbl`、`leaq`、`addq` 和 `sar`，也能避免把 register 的不同名稱誤認成彼此獨立的 storage。
@@ -232,7 +234,7 @@ shlq %cl,%rax
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

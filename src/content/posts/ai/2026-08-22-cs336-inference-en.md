@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-inference)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 10: Inference**, taught by Percy Liang on April 29, 2026. Its primary source is the official executable lecture, [`lecture_10.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_10.py).
 
 Training places a full sequence inside matrix multiplications. Autoregressive inference generates only the next token. That difference turns the same Transformer into another systems problem at serving time: weights and KV cache are repeatedly read from memory while requests arrive and finish at different times.
@@ -87,7 +89,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

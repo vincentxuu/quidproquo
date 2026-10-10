@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-mdp-planning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：依據 Winter 2026 的 [Lecture 2 投影片（post-class 版）](https://web.stanford.edu/class/cs234/slides/lecture2post.pdf)。配套影片是 [Spring 2024 Lecture 2: Tabular MDP Planning（補充）](https://www.youtube.com/watch?v=gHdsUUGcBC0)，標題相同，但投影片是 2026 版。本文是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列的第 2 篇。
 
 [上一篇](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)停在 Markov reward process：知道怎麼算一個沒有動作的過程值多少。[CS234](https://web.stanford.edu/class/cs234/) 第二講加上動作，問一個更實際的問題：**已知世界怎麼運作時，怎麼算出最好的 policy？**
@@ -290,7 +292,7 @@ k = 1
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

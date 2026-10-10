@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-03-dispatching-context-switch)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 4 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 3**. Mendel Rosenblum taught the lecture on 2026-04-03; its official title is [Threads, Processes, and Dispatching, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/3/Lecture3.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Lecture 3 takes up the question left by the previous lecture: when threads outnumber cores, how can each appear to keep progressing? The answer is not one scheduler function but a loop of state transitions, PCBs, context save/restore, and dispatch.
@@ -73,7 +75,7 @@ Draw running, ready, and blocked boxes for threads A and B. Starting when A issu
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

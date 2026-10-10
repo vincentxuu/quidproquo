@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post follows §1.3 and §2 (pp.4–13) of the [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) for [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026, [Slides 1](https://diffusion.csail.mit.edu/2026/docs/20260120_Lecture_01.pdf), and the [Lecture 1 recording](https://www.youtube.com/watch?v=9eJQQVrUUoI). Theorem, example, and algorithm numbers follow the notes. Checked on 2026-09-30.
 
 **Series position**: Previous: [Series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) | Next: [Lab 1: Simulating ODEs and SDEs](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes-en)
@@ -242,7 +244,7 @@ The last line: **a diffusion model with σ_t = 0 is a flow model.**
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

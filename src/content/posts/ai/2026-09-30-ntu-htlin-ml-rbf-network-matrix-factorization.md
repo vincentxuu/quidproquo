@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 15 篇，接續[神經網路與深度學習](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning)。範圍是[《機器學習技法》](https://www.csie.ntu.edu.tw/~htlin/mooc/)第 14 講 Radial Basis Function Network 與第 15 講 Matrix Factorization，也就是技法第三部分「Distilling Implicit Features: Extraction Models」的後半段。
 
 用到的官方材料：
@@ -248,7 +250,7 @@ T14–T15 沒有 Fall 2024 或 Fall 2026 的作業題，也沒有官方解答。
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

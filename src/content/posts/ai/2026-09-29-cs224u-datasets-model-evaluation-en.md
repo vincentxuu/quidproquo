@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2023 edition of CS224U.** It is part 14 of the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The previous part, [Methods and Metrics I](/posts/ai/2026-09-29-cs224u-methods-metrics-en), covered how scores get computed: confusion matrices, averaged F1, BLEU, and perplexity. This part takes the next question. **Even with the right metric, will your experiment convince a reviewer who doesn't trust you?**
 
 The course answers that in the last three sections of the same [methods slide deck](https://web.stanford.edu/class/cs224u/slides/cs224u-methods-2023-handout.pdf): Datasets, Data organization, and Model evaluation. They match videos 42 to 44 in the [YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) and the repo's [evaluation_methods.ipynb](https://github.com/cgpotts/cs224u/blob/main/evaluation_methods.ipynb). The deck's "Associated materials" slide also assigns [Appendix B](http://www.cs.cmu.edu/~nasmith/LSP/) of Noah Smith's *Linguistic Structure Prediction*. That appendix is titled Experimentation. It covers train/dev/test, cross-validation, comparison without replication, and hypothesis testing.
@@ -204,7 +206,7 @@ If you can't answer any one of them, your "A beats B" conclusion isn't ready for
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

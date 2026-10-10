@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 版，2026-09-30 對照[講義 PDF](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §4（pp.25–33）與 [Slides 3](https://diffusion.csail.mit.edu/2026/docs/20260123_Lecture_03.pdf) 前半（到 Key takeaway 為止）撰寫，[第 3-A 講錄影](https://www.youtube.com/watch?v=ngC3QnYSVNM)可搭配觀看。Slides 3 由 3-A 與 3-B 共用，後半的 guidance 留給 [L3B](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance)。存取等級 **A3 足以自學**。
 
 **系列位置**：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)第 4 篇｜上一篇 [L2：Flow matching](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)｜下一篇 [Lab 2：親手寫 flow matching 與 score matching](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)
@@ -269,7 +271,7 @@ L_DDPM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖ε_t^θ(α_t z + β_t ε) − 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

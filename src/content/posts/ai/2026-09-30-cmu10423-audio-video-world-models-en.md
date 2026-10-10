@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-audio-video-world-models)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 22 of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series and follows [L23: code generation and autonomous agents](/posts/ai/2026-09-30-cmu10423-code-generation-agents-en). It covers the course's last three lectures:
 
 | Lecture | Date | Title | Speakers (title slide) |
@@ -243,7 +245,7 @@ Series navigation: previous [L23: code generation and autonomous agents](/posts/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

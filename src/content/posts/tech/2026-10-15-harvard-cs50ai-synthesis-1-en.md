@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-10-15-harvard-cs50ai-synthesis-1)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > ⚠️ **Version note**: Lecture videos are **Spring 2020 recordings (Weeks 0–5) and 2023 re-record (Week 6)**; project specs, distribution code, and check50 slugs follow the 2026 OCW site.
 
 ## Course video sources
@@ -205,7 +207,7 @@ Language Models: Sequence Conditional Probability (Week 6)
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

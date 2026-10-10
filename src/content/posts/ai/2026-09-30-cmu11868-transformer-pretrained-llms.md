@@ -22,7 +22,9 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms-en)
 
-> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。主要材料是 [L06 Transformer 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-06-transformer-14bd7575a2f6c8bac60522354c11d691.pdf)（2/2，25 頁）、[L07 Pre-trained LLMs 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-07-llms-acf5db9438a8d9a86f86d29d9c563c00.pdf)（2/4，22 頁），以及 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 列的 reading。文中頁碼指 PDF 頁。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與作業全部公開，但**沒有公開錄影**，本文只能依投影片與論文，不能轉述講者口頭補充。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。主要材料是 [L06 Transformer 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-06-transformer-14bd7575a2f6c8bac60522354c11d691.pdf)（2/2，25 頁）、[L07 Pre-trained LLMs 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-07-llms-acf5db9438a8d9a86f86d29d9c563c00.pdf)（2/4，22 頁），以及 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 列的 reading。文中頁碼指 PDF 頁。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與作業全部公開，但**官方課表未列公開錄影連結**，本文只能依投影片與論文，不能轉述講者口頭補充。
 
 **系列位置**：上一篇 [HW2：MiniTorch Framework](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework)｜下一篇 [L08–L09：Tokenization、解碼與 speculative decoding](/posts/ai/2026-09-30-cmu11868-tokenization-decoding)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
@@ -32,11 +34,13 @@ glossary:
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 先定位：三種語言模型
 
@@ -84,7 +88,7 @@ L06 第 18–23 頁整理原論文的訓練細節，挑幾個跟資源有關的�
 - Adam 搭配 warmup 後遞減的學習率（第 21–22 頁）
 - 最後把 base 模型最後 5 個 checkpoint 取平均（第 23 頁）
 
-L06 最後一頁（第 25 頁）的 code walkthrough 指向 [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/)，Syllabus 也把 2/6 的 Recitation 3 排成它。沒有錄影的狀況下，這份逐行實作是理解 L06 最好的替代品。
+L06 最後一頁（第 25 頁）的 code walkthrough 指向 [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/)，Syllabus 也把 2/6 的 Recitation 3 排成它。沒有對應錄影連結的狀況下，這份逐行實作是理解 L06 最好的替代品。
 
 ## L07：現代預訓練 LLM 改了什麼
 
@@ -159,7 +163,7 @@ T5-11B 的 d_model 只有 1024，參數幾乎都堆在 FFN 的 65536 維。這�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

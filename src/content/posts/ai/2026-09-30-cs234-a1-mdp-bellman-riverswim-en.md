@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Edition note**: This guide follows the Winter 2026 assignments and slides of [CS234](https://web.stanford.edu/class/cs234/); the public recordings are the [Spring 2024 edition](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Every fact was checked on 2026-09-30 against the [assignments page](https://web.stanford.edu/class/cs234/assignments.html), the [A1 question PDF](https://web.stanford.edu/class/cs234/assignments/a1/CS234_A1_Questions.pdf) (7 pages), and [code.zip](https://web.stanford.edu/class/cs234/assignments/a1/code.zip). Access level **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): questions, LaTeX template, and starter code are public. What you can't get is the Gradescope autograder, the hidden test cases, and official solutions.
 
 **Series**: Previous: [Planning with a Model: Policy Evaluation, PI, VI](/posts/ai/2026-09-30-cs234-mdp-planning-en) | Next: [Evaluating Without a Model: MC, TD(0), Certainty Equivalence](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -209,7 +211,7 @@ One thing to do tonight: open `riverswim.py` and draw the 6 states and both acti
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

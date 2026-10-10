@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-scaling-laws-foundations-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 9: Scaling laws**，2026 年 4 月 27 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_09.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_09.pdf)。
 
 如果最後一次大模型訓練才發現模型太大、資料太少或 learning rate 不對，預算已經無法追回。Scaling law 的用途，是用一批較小實驗建立簡單、可檢驗的關係，再預測昂貴區域。它不是保證未來的定律，而是一套設計實驗與管理不確定性的工具。
@@ -81,7 +83,7 @@ Chinchilla 問的是固定訓練 compute 下取得最低 loss；產品生命週�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

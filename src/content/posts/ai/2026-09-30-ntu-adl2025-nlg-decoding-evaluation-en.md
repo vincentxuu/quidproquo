@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 12 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (114-1, 2025/09/01–12/15) taught this lecture on 10/27, right after the midterm break. The [course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/) marks that week as Virtual.
 
 **Sources**: two slide decks, [NLG Decoding (251027_NLG.pdf)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/251027_NLG.pdf) (41 pages) and [NLG Evaluation (251027_NLGEval.pdf)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/251027_NLGEval.pdf) (22 pages), plus five videos: [9.1 Natural Language Generation](https://youtu.be/1d9WhPS6gv8) (28:20), [9.2 Decoding Algorithms](https://youtu.be/agHrC93u7w8) (28:34), [9.3 Generation Control](https://youtu.be/Jxg6MLpgKPM) (17:57), [9.4 NLG Evaluation](https://youtu.be/gAsEAga1icM) (32:41), and [9.5 RL for NLG](https://youtu.be/Ly67whCaS4M) (15:27). The videos are taught in Mandarin; the slides are in English. I checked the slides on 2026-09-30, and all page numbers below refer to the PDFs.
@@ -197,7 +199,7 @@ Next: [Bias, Safety, Hallucination, and Alignment + Final Project](/posts/ai/202
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

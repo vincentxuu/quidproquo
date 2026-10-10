@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is part 9 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series. It covers **Lecture 8: Neural Architecture Search (Part II)** from the [Fall 2024 course page](https://hanlab.mit.edu/courses/2024-fall-65940), taught by Song Han on October 1, 2024. Both materials are public:
 
 - Slides: [Lec08-Neural-Architecture-Search-II.pdf](https://www.dropbox.com/scl/fi/kaia5vvmdwb2bj0xnbihm/Lec08-Neural-Architecture-Search-II.pdf?rlkey=vkp9i12ljbk4jmdfp05j3ctdy&st=hincmob7&dl=0) (105 pages; page numbers below are PDF pages)
@@ -192,7 +194,7 @@ If you have one hour: watch the ProxylessNAS-to-OFA stretch of the video (slides
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

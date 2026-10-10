@@ -20,6 +20,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-llm-api)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on [llm_api_tutorial.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/llm_api_tutorial.pdf), listed in the W12 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) for Hung-Yu Kao's Natural Language Processing course at National Tsing Hua University (NTHU), Fall 2025, and on `llm_api.ipynb` and `utils.py` in [LLM_API_lab](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference/LLM_API_lab). The slide cover is dated **2024/11/21**, so this is the 2024 session reused. The recording is [the W12 Thursday one](https://www.youtube.com/live/xGwQYvya_Ag) (labeled "Video2(LLM_API)" in the schedule, 2025-11-19, 56:35, in Mandarin). It has no caption track, so I did not check it section by section. I checked every fact against the official materials on 2026-09-30. Access level **A3**: slides and notebook are public, but the `prompts.yaml` the notebook loads is not in the repo (see below).
 
 **Series**: previous [RAG, Part 2: from ODQA to Self-RAG](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced-en) | next [RAG labs 1/2 + HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
@@ -136,7 +138,7 @@ One thing to try tonight: move your most-used prompt out of your code into a YAM
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

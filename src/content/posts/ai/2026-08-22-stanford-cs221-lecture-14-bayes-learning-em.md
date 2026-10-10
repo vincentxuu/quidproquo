@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 14**，官方課程表將它列為 2025-11-05 的 Bayesian Networks III。課程版本以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準；本文逐段依 [bayes_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=bayes_learning) 的可執行 source 重建。重點不是把 EM 背成一個黑盒，而是跟著程式走完「完整資料如何計數、缺資料後如何加權計數」這條線。
 
 > 材料缺口：官方課程頁公開課程表，lectures repository 與可執行講義公開；Canvas 影片、課堂白板互動、作業解答與隱藏測資不在這份公開材料中。以下不把那些缺口用其他學期的講義補起來。
@@ -129,7 +131,7 @@ M-step 重新掃過 weighted data。對每個 `(x, weight)`，`counts_g[x["G"]]`
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

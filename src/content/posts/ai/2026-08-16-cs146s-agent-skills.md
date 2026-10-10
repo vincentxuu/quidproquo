@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs146s-agent-skills-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是 [CS146S 系列](/posts/ai/2026-08-16-cs146s-course-map)的第四篇，對應 Fall 2026 的第三週。
 
 課程主題三條：skills 是什麼、SKILL.md 加腳本怎麼把一套工作流編碼起來、web skills 與把 agent 能力延伸到 repo 之外，再加上「working effectively from the CLI」。客座是 [Lee Robinson](https://leerob.com/cursor)，他在 2025 年 7 月從 Vercel 轉去 Cursor 做開發者教育。
@@ -131,7 +133,7 @@ Anthropic 給的四條開發建議，濃縮起來是：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-lab2-quantization-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 7 篇，把[第 5 講](/posts/ai/2026-09-30-mit-65940-quantization-basics)與[第 6 講](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)的量化內容落到程式碼。
 
 **系列導覽**：上一篇 [第 6 講：PTQ、QAT 與混合精度](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)｜下一篇 [第 7 講：NAS 的搜尋空間與搜尋策略](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)｜[系列總覽](/posts/ai/2026-09-30-mit-65940-course-overview)
@@ -138,7 +140,7 @@ Q_bias   = q_bias − Linear[Z_input, q_weight]
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

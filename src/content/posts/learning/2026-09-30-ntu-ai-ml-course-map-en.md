@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-30-ntu-ai-ml-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The first five school maps in this series dealt with courses taught in English. NTU is different. It is probably the school Mandarin-speaking self-learners study from most. Hung-yi Lee uploads every semester to YouTube, and Hsuan-Tien Lin's Machine Learning Foundations recordings have circulated online for a decade. Being able to watch the videos is not the same as being able to take the course. Homework specs, starter code, grading platforms, and auditor status each have their own level of openness.
 
 This post uses the A0–A3 scale from the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 means only a catalog entry, A1 a syllabus, A2 some substantive material, and A3 enough material plus homework to form a coherent self-study path. It is this site's editorial grade, not an NTU evaluation, and it implies no credit or TA feedback. All access statuses were checked on **September 30, 2026**. Most sources below are in Mandarin.
@@ -158,7 +160,7 @@ The biggest difference between NTU and the other five schools is that open mater
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

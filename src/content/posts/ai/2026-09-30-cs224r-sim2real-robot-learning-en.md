@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 19 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L15 Hierarchical RL and Imitation Learning](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il-en) and covers Lecture 16, "RL for Robots: Sim-to-Real Transfer," on May 22, 2026 (Friday of week 8). It is a guest lecture by [Guanya Shi](https://lecar-lab.github.io/), listed on the slides as Assistant Professor at the CMU Robotics Institute and Amazon Scholar at Amazon Frontier AI & Robotics (FAR).
 
 Official materials used:
@@ -211,7 +213,7 @@ Series navigation: previous [L15 Hierarchical RL and Imitation Learning](/posts/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-efficient-vision-gan-video-pointcloud)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024.** It is post 20 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series and combines Lectures 16 and 17.
 
 **Series**: previous [L15 Long-Context LLM](/posts/ai/2026-09-30-mit-65940-long-context-llm-en) | next [L18 Accelerating Diffusion](/posts/ai/2026-09-30-mit-65940-diffusion-efficiency-en) | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -211,7 +213,7 @@ Two threads run through both:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

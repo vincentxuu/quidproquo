@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [Berkeley CS189 Introduction to Machine Learning](https://people.eecs.berkeley.edu/~jrs/189s25/) is the math-heavy ML entry point at Berkeley. It does not follow [CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/); the two are parallel. The [Berkeley AI/ML Course Guide](/en/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) frames them as search/reasoning vs. statistical learning — this post makes CS189 executable.
 
 **To self-study lecture by lecture with this series, use [Spring 2026](https://eecs189.org/sp26/); for the classic SVM / decision tree / PCA / boosting route, use Spring 2025; to see what next term looks like, watch Fall 2026.** Spring 2026 publishes lecture notes, 25 lecture videos, discussions with solutions, and the HW1–5 handouts, and this series uses it as the base from post 2 onward (see [Three Versions of CS189](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)). Spring 2025 at `people.eecs.berkeley.edu/~jrs/189s25/` keeps 25 lectures of notes, HW1–7, code/data and past exams (A3 in this site's [A0–A3 scale](https://quidproquo.cc/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)); its official recordings are on bCourses and require a login. Fall 2026 at `eecs189.org/fa26` just published a 27-lecture calendar (`Lec01 Introduction + ML Problem Framing` to `Lec27 Closing`), but most decks and assignments are still TBD and the rotating `eecs189.org` domain 302s to the current term, so old URLs can 404.
@@ -112,5 +114,5 @@ Still unavailable, and only noted as existing in the series: the Spring 2026 fin
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: Expanded the series to 18 posts with Spring 2026 as the base; added a "Posts in this series" table of contents and a list of unreleased parts; corrected the "HW1–7 route" section, which had presented the Spring 2026/Fall 2026 sequence as Spring 2025's HW topics, rewriting it from the lecture titles on the 189s25 course page and noting that Spring 2025 recordings need a bCourses login; added Spring 2026 to the access table; pointed the starter steps at the series posts.

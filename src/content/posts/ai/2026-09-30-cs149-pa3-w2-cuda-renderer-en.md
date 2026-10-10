@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25), Fall 2025: [Assignment 3: A Simple CUDA Renderer](https://github.com/stanford-cs149/asst3) (due October 30) and [Written Assignment 2](https://gfxcourses.stanford.edu/cs149/fall25content/static/pdfs/written_asst2.pdf) (the course homepage lists October 21). I checked the README, `cloud_readme.md`, and the PDF on 2026-09-30. Access grade **A3**: the problems, starter code, grading scripts, and written assignment PDF are public. What you can't get is Gradescope grading, the course's AWS credits, and solutions. You need your own NVIDIA GPU. **This post contains no solutions.**
 
 **Series**: Previous: [Lecture 8: Data-Parallel Thinking](/posts/ai/2026-09-30-cs149-data-parallel-thinking-en) | Next: [Lecture 9: DNNs on GPUs](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
@@ -155,7 +157,7 @@ One thing you can do tonight: clone [asst3](https://github.com/stanford-cs149/as
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

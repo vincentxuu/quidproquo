@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 [CS329A: Self Improving AI Agents](https://cs329a.stanford.edu/) is a three-unit graduate seminar in Stanford's CS department about what happens to a model *after* it ships. It doesn't teach LangGraph. It doesn't teach CrewAI. Not one session of the quarter is about wiring frameworks together.
 
 It teaches a gap — and then, in its final lecture, says plainly how much of that gap current methods actually close.
@@ -228,7 +230,7 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 ## Changelog
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-21: Corrected the offering status. An earlier version of this post said "the next offering is Winter 2026–2027, already listed in ExploreCourses." On rechecking the same day, that entry had no Terms field and showed only "Last offered: Autumn 2025" — matching the dormant-courses table in the [course map post](/posts/learning/2026-08-20-stanford-cs-course-map). I cannot tell whether the original claim was wrong or Stanford pulled the scheduled offering in the interim, so the text now states only what the page showed on the date it was checked.
 
 ## References

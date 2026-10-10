@@ -27,17 +27,22 @@ glossary:
 
 > 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)
 
-> ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) (`hw4_release.tex/ipynb`) and the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, but has no current-term recordings and no homework solutions. The autoencoder part of Section 6 stops at sparse and denoising autoencoders and **does not cover VAEs**. I did not get the Week 6 Representation Learning / Autoencoders lecture slides, so the VAE material here rests only on the homework handout itself.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) (`hw4_release.tex/ipynb`) and the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, but has no public recording links listed for the corresponding lectures and no homework solutions. The autoencoder part of Section 6 stops at sparse and denoising autoencoders and **does not cover VAEs**. I did not get the Week 6 Representation Learning / Autoencoders lecture slides, so the VAE material here rests only on the homework handout itself.
 
 This is post 7 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en), following [HW4 (Part 1) on Transformers](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en).
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
 
-Course and recording entries:
+Official sources:
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## The setup: it can rebuild a face, but can't draw a new one
 
@@ -156,7 +161,7 @@ Section 6 §2.5 also has a result that ties straight into the next assignment: a
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

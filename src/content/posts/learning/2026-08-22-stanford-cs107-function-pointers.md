@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-function-pointers-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 C 沒有 template，仍能避免為每種型別複製演算法。Lecture 12 把泛型拆成資料定址與比較規則：`void *` 加 width 解決前者，function pointer 讓 caller 注入後者。
 
 ## 課程影片來源
@@ -259,7 +261,7 @@ Callback 雖能讀 global state 或修改資料，但結果若反覆變動，sor
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

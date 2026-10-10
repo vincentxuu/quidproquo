@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide follows the 4/10 materials of [NTU Machine Learning 2026 Spring by Hung-yi Lee](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 11 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous two lectures went inside the model: [KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en) and [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en). The previous part, [HW4](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer-en), had you train a Transformer. This lecture opens a new unit that the schedule calls "how to educate a model". **The model is already trained. What can humans still do to make it perform better?**
 
 The official materials are the slides [harness.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pdf) (63 pages, also as [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pptx)) and the video [Harness Engineering: sometimes the language model isn't dumb, it just wasn't guided well](https://youtu.be/R6fZR_9kmIw) (in Mandarin). Access level is **A3**: slides and recording are public, and this lecture has no quiz or leaderboard.
@@ -156,7 +158,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

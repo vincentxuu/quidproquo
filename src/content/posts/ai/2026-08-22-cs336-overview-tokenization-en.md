@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-overview-tokenization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers Stanford **CS336 Spring 2026 Lecture 1: Overview, tokenization**, taught by Percy Liang on March 30, 2026. Its primary source is the official executable lecture, [`lecture_01.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_01.py), rather than a reconstruction from videos of an earlier offering.
 
 The lecture does two things. First, it asks why anyone should build a language model from scratch when GPT, Claude, and Gemini are available through APIs. It then starts from raw bytes and implements a byte-level BPE tokenizer. These are two parts of the same argument: identify the abstractions that limit scaling, then open them up by building them.
@@ -95,7 +97,7 @@ This lecture has a Spring 2026 schedule entry, a complete executable lecture, an
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

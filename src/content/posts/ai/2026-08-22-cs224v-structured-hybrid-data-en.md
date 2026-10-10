@@ -14,6 +14,8 @@ description: "CS224V Structured and Hybrid Data: NL-to-SQL, schemas, enumerated 
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-structured-hybrid-data)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-db-hybrid-intro.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 6 replaces free text with databases. The main challenge is no longer placing relevant prose in context. It is translating user constraints into a precise query that matches the schema. This remains the Fall 2025 Conversational Virtual Assistants course, not the renamed Autumn 2026 syllabus.
@@ -108,7 +110,7 @@ The slides survey architectures and literature without a single complete referen
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

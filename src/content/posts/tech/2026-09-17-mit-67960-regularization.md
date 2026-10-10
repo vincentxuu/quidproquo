@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-09-17-mit-67960-regularization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 9 講 [Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) 由 Sara Beery 授課。這講把正則化視為「工程工具箱」而非純理論：每種技巧解決什麼具體問題、怎麼正確用、怎麼跟其他技巧組合。這篇文章把講義重點整理成可直接套用的正則化決策表，並附上可跑的 PyTorch 程式碼。
 
 ## 課程影片來源
@@ -266,7 +268,7 @@ for name, cfg in configs.items():
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

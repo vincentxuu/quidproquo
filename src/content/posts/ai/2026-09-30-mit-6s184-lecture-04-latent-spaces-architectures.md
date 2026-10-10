@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §6（pp.41–53）、[Slides 4](https://diffusion.csail.mit.edu/2026/docs/20260128_Lecture_04_edited.pdf)，以及[第 4 講錄影](https://www.youtube.com/watch?v=g0MB1CCBmsI)（約 81 分鐘）。公式、Remark、Algorithm 編號都照講義；內容以講義與 slides 為準。存取等級 A3：講義、slides、錄影、lab 與官方解答都公開；lab 評分只給 MIT 修課生。2026-09-30 核對。
 
 **系列位置**：上一篇 [L3B：Guidance 與 classifier-free guidance](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance)｜下一篇 [Lab 3：DiT、VAE 到 latent diffusion](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion)｜[系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
@@ -291,7 +293,7 @@ Slides 4 另外寫 SD3 的資料集是 LAION，這一點講義沒有寫。講義
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

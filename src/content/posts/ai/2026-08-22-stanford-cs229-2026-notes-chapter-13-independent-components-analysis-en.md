@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-13-independent-components-analysis)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is a chapter-by-chapter reading of Chapter 13, printed pages 173–178, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings or schedule**. The chapter follows the cocktail-party problem: several microphones record different linear mixtures of simultaneous speakers; can the original voices be recovered from observations alone?
 
 ## Course video sources
@@ -82,7 +84,7 @@ Generate a sine wave and a square wave, standardize them, and mix them with an i
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

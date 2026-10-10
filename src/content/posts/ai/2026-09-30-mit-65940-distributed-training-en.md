@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-distributed-training)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on Lecture 19 (2024-11-12) and Lecture 20 (2024-11-14) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Lec19-Distributed-Training-I.pdf](https://www.dropbox.com/scl/fi/85ud2gzrtyllgeqgpv9gs/Lec19-Distributed-Training-I.pdf?rlkey=80t52w3peqqf8oanpc6ojmvnf&st=jn4yxsjy&dl=0) (103 pages), [Lec20-Distributed-Training-II.pdf](https://www.dropbox.com/scl/fi/c0w7j7dxduuf8ply7lzeb/Lec20-Distributed-Training-II.pdf?rlkey=ynh3yx4jf99nojklt0ki7zh0y&st=vxzkzdt4&dl=0) (76 pages), and two recordings ([L19](https://www.youtube.com/watch?v=LcOM-nZdqxw), [L20](https://www.youtube.com/watch?v=lOVcPooetrM)). "L19 page N" refers to the PDF page. Facts were checked against the official materials on 2026-09-30. Access level **A3**: slides and video are public; neither lecture has a lab, so what you cannot get from outside MIT is Canvas and Piazza.
 >
 > **Fall 2026 comparison**: The [F26 schedule](https://hanlab.mit.edu/courses/2026-fall-65940) keeps both lectures (Part I on November 17, Part II on November 19), and its course description adds "model serving" to the topic list. As of 2026-09-30, slides and video for both are empty links.
@@ -235,7 +237,7 @@ for iter in range(1, max_iters + 1):
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

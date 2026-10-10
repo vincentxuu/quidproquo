@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 CS224U 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 15 篇。上一篇 [方法與指標 II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation) 講了 baseline、切分與統計比較；這一篇把那些方法論放進期末專案真正要交的兩份文件裡。
 
 CS224U 的期末專案占成績一半，拆成三段：文獻回顧、實驗計畫、期末論文。三段的評分軸——「不看結果好壞，看指標是否恰當、方法是否紮實、對自身極限是否誠實」——系列總覽的[期末專案一節](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)已經整理過，這裡不重複。本篇只做一件事：**把前兩段交件拆成可以照著做的步驟。**第三段期末論文放在[下一篇](/posts/ai/2026-09-29-cs224u-presenting-research)。
@@ -181,7 +183,7 @@ Protocol overview 投影片第 5 頁：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

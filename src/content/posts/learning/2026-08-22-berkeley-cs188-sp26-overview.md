@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/) 是一門廣義人工智慧入門課。它不是只教神經網路：前半從狀態空間、heuristic、constraint satisfaction 與 game trees 開始，中段進入 MDP、強化學習與機率推論，後段才接機器學習、深度學習與 LLM。官方課表公開 28 組 recordings、27 組 lecture slides（Lecture 22 沒有獨立 slides）、11 組 discussion，以及 P0–P5 六個 projects。
 
 這套材料的價值在於「概念會回到程式」。P0 是 Python 與 autograder tutorial；P1–P4 用 Pacman 情境練搜尋、多代理、RL 與機率推論；P5 則是 regression、分類、CNN 與 attention 等一般 ML tasks。這也是本系列不逐講切成 28 篇，而以 P0–P5 為主脊的原因。
@@ -58,7 +60,7 @@ draft: false
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,15 +15,19 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment)
 
-Lecture 13, **AI Alignment**, took place on February 26, 2026, immediately after Midterm 1. The preceding lectures built models and gradients. This one asks whether efficiently optimizing an objective implies behavior that meets user requirements and human values. The official note describes a discussion-oriented lecture. With no public recording or transcript, this article summarizes only documented topics and cases, not classroom conclusions.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+Lecture 13, **AI Alignment**, took place on February 26, 2026, immediately after Midterm 1. The preceding lectures built models and gradients. This one asks whether efficiently optimizing an objective implies behavior that meets user requirements and human values. The official note describes a discussion-oriented lecture. With no public recording or transcript link listed in the official schedule, this article summarizes only documented topics and cases, not classroom conclusions.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Official material and scope
 
@@ -84,7 +88,7 @@ Choose one agent task and write a one-page evaluation specification: true goal, 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

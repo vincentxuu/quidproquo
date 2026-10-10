@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "CMU 11-868 LLM Systems 導讀"
   order: 11
-tldr: "11-868 第 14、15 講從 parameter server 講到 PyTorch DDP：先用 NCCL 的五個 collective（Broadcast、Reduce、AllReduce、ReduceScatter、AllGather）當積木，推出 ring 為什麼能讓廣播時間幾乎不隨 GPU 數增加，再把 AllReduce 拆成 ReduceScatter 加 AllGather。第二講拆 DDP 的兩個關鍵設計：把梯度分桶（預設 25 MB）、在反向傳播還沒結束時就開始同步。沒有錄影，本文依投影片頁碼與 VLDB 2020 論文整理。"
+tldr: "11-868 第 14、15 講從 parameter server 講到 PyTorch DDP：先用 NCCL 的五個 collective（Broadcast、Reduce、AllReduce、ReduceScatter、AllGather）當積木，推出 ring 為什麼能讓廣播時間幾乎不隨 GPU 數增加，再把 AllReduce 拆成 ReduceScatter 加 AllGather。第二講拆 DDP 的兩個關鍵設計：把梯度分桶（預設 25 MB）、在反向傳播還沒結束時就開始同步。官方課表未列公開錄影連結，本文依投影片頁碼與 VLDB 2020 論文整理。"
 description: "CMU 11-868 LLM Systems（2026 春季版）第 14–15 講導讀：parameter server 與 AllReduce 資料平行的差別、NCCL collective 與 ring 演算法、ring AllReduce 的兩個階段、PyTorch DDP 的 world size／rank、gradient bucketing 與計算通訊重疊，以及 DDP 論文裡的兩個陷阱。附投影片頁碼與讀法。"
 draft: false
 glossary:
@@ -31,17 +31,21 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en)
 
-> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。事實皆於 2026-09-30 打開[課程 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)、[L14 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-14-distributed-training-b27c3d1dc185e680c6f5cc924e9ec9d7.pdf)（48 頁）、[L15 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-15-ddp-165dbe3873fac21eb8b339e64bcfee28.pdf)（26 頁）與 [PyTorch DDP 論文](https://www.vldb.org/pvldb/vol13/p3005-li.pdf)核對。存取等級 **A3**，但**本課沒有公開錄影**。以下頁碼一律指 PDF 頁數；L14 投影片角落印的編號比 PDF 頁數大 2 到 3，對照時請以 PDF 為準。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。事實皆於 2026-09-30 打開[課程 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)、[L14 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-14-distributed-training-b27c3d1dc185e680c6f5cc924e9ec9d7.pdf)（48 頁）、[L15 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-15-ddp-165dbe3873fac21eb8b339e64bcfee28.pdf)（26 頁）與 [PyTorch DDP 論文](https://www.vldb.org/pvldb/vol13/p3005-li.pdf)核對。存取等級 **A3**，但**官方課表未列本課公開錄影連結**。以下頁碼一律指 PDF 頁數；L14 投影片角落印的編號比 PDF 頁數大 2 到 3，對照時請以 PDF 為準。
 
 **系列位置**：上一篇 [HW4：Softmax 與 LayerNorm 的 CUDA 融合 kernel](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)｜下一篇 [L16–L17 模型平行與 MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 這兩講在回答什麼
 
@@ -210,7 +214,7 @@ L15 第 8 頁引用論文列出的兩個目標：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

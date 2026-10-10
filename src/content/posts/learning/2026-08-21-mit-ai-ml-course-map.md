@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-mit-ai-ml-course-map-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 先更正一個最容易從舊資料得到的錯誤：[**MIT 有正式的 AI 學位。**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/)Course 6-4 的全名是 **Artificial Intelligence and Decision Making**，學生自 2022 年秋季起就能申報。它不是在 Computer Science 學位裡偷偷塞幾門機器學習選修，而是一套獨立的學士學位要求。
 
 但這不代表打開 MIT 網站，就會看到一條從第一堂 Python 到最新大型模型的完整公開課。實際盤點後，MIT 的 AI／ML 資源分成三層，而且經常對不起來：
@@ -170,7 +172,7 @@ MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-01：公開程度表的 6.5940 Fall 2026 由 A0 改為 A2（學期進行中，已放出 L1–L6 與 Lab 0–1），Fall 2024 列補上 23 講投影片、23 支錄影與 Lab 0–5 的具體範圍；「視覺、機器人與效率系統」路線改寫 6.5940 段落並加上站內導讀連結；參考資料補上 Fall 2026 課頁。
 
 - 2026-09-30：公開程度表與「現代 AI 工程入門」路線補上 6.S184 Flow Matching & Diffusion（IAP 2026，講義、slides、錄影與 3 個 lab 含解答全公開，A3）與站內導讀連結。

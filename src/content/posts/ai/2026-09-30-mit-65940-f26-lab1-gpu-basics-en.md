@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post covers Fall 2026 material.** The [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series follows [Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). This is post 17, and the only one built mainly on [Fall 2026](https://hanlab.mit.edu/courses/2026-fall-65940) material.
 
 **Why it's included**: Fall 2024 has no GPU profiling lab, yet [Lecture 13](/posts/ai/2026-09-30-mit-65940-llm-deployment-en) keeps leaning on "decode is limited by bandwidth" and "FlashAttention moves less data". Fall 2026's Lab 1 lets you measure those claims yourself. It sits after [Lab 4 + Lab 5](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop-en) as the closing exercise for the LLM inference stretch.
@@ -147,7 +149,7 @@ One thing you can do tonight: download the archive and do only 2.1.2, using your
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

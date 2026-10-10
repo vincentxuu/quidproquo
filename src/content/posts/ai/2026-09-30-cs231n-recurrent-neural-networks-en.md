@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: slides are the [lecture_7.pdf](https://cs231n.stanford.edu/slides/2026/lecture_7.pdf) linked from the Spring 2026 schedule; the recording is the Spring 2025 [YouTube L7](https://www.youtube.com/watch?v=kG2lAPBF7zA). The two may differ, and I flag differences below. This is post 8 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series and follows [L6: Training CNNs and CNN Architectures](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en).
 
 Up to L6, every model took **fixed-size** input: one image in, one set of scores out. But a video is a sequence of frames, a sentence is a sequence of words, and a caption is a word sequence of unknown length. This lecture asks: **when the input or output is a sequence, how does the network have to change?**
@@ -234,7 +236,7 @@ Series navigation: previous [L6: Training CNNs and CNN Architectures](/posts/ai/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,17 +15,21 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-stage-2-alexnet-gpt2)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 One distinctive choice in 07-280 is that neural networks do not end with a two-layer MLP. Students continue by assembling two landmark systems: AlexNet in HW8 and GPT-2 in HW11. The point is not to reproduce historical leaderboard numbers. It is to turn feature learning, autograd, optimization, and generalization into programs that can fail.
 
 This review checks the image and language stages together. It does not imply that public notebooks reproduce the enrolled experience; Gradescope, compute, staff help, and solution feedback remain part of the formal course. Independent learners can still reconstruct meaningful acceptance criteria from the public written specifications.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## AlexNet: placing spatial structure into representation
 
@@ -84,7 +88,7 @@ The Stage II exit test is therefore not “both notebooks ran.” You should be 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

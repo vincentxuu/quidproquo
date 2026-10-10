@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-09-ai-agents)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide covers semester 1132 (spring 2025) of Yen-Lung Tsai's NCCU course *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 9 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L08 on RAG](/posts/ai/2026-09-30-nccu-genai-08-rag-en). It is also the last lecture of the text half of the course. Image generation starts next week.
 
 It draws on four official sources: [video 09](https://www.youtube.com/watch?v=49fwh6oc5Nc) (2025-04-15, about 2 h 58 min), the 33-page GenAI09 slides in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA), the [AI-Demo](https://github.com/yenlung/AI-Demo) notebooks [`【Demo07a】AI代理設計模式_Reflection`](https://yenlung.me/AI07a) and [`【Demo07c】AI代理設計模式_員瑛式思考生成器Two_Stage_CoT版`](https://yenlung.me/AI07c), and the week 9 homework on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Mandarin). Access level: **A3**. One caveat: both notebooks were last committed on 2025-10-28, after the semester ended. **What follows quotes the current repo version, not the one used in class.**
@@ -234,7 +236,7 @@ Previous: [L08 RAG: principles and practice](/posts/ai/2026-09-30-nccu-genai-08-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

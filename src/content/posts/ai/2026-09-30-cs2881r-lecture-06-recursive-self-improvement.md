@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 Harvard CS 2881R 的 Fall 2025 學期。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 10 篇，對應官方第 6 講 Recursive Self-Improvement（2025 年 10 月 9 日）。
 
 先說明一個文風轉換。[上一篇 L10](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability) 看的是單一模型的內部：activation、steering vector、CoT。這一篇把鏡頭拉遠到整個產業的速度：如果 AI 開始替人類做 AI 研發，進步曲線會長什麼樣？工具也從線性代數換成成長經濟學的微分方程。導讀把官方第 6 講排在第 10 講之後，是因為「偵測工具」和「時間軸」是兩種不同的問題，先把前者講完，再處理後者。
@@ -214,7 +216,7 @@ AI 2027 的起飛階段依序是：superhuman coder 讓研發加速約 5 倍，s
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

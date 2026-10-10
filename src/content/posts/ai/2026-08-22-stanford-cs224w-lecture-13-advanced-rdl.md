@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-13-advanced-rdl-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 13 講**，官方日期 2025-11-06。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/13-Advanced_topics_RDL.pdf)整理；講者以投影片署名為準。
 
 ## 課程影片來源
@@ -127,7 +129,7 @@ Composite kernels、typed attention與heterogeneous batching各有overhead。報
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

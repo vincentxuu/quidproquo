@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940) 第 12 講（2024-10-17），主要材料是 [Lec12-Transformers-and-LLM.pdf](https://www.dropbox.com/scl/fi/4o87goykb0aoyopps02t4/Lec12-Transformers-and-LLM.pdf?rlkey=k97sdf3ls3xxz4fgvte6px279&dl=0)（90 頁）與 [課堂錄影](https://youtu.be/EV6xb4xY708)。文中頁碼指 PDF 頁。事實於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與錄影公開；這講沒有對應的 lab。
 >
 > **Fall 2026 對照**：[F26 課表](https://hanlab.mit.edu/courses/2026-fall-65940)把同名講次排在 10 月 22 日，截至 2026-09-30 投影片與錄影仍是空連結。
@@ -180,7 +182,7 @@ Perceiver Resampler 的設計本身就是效率選擇：視覺 token 越少，LL
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

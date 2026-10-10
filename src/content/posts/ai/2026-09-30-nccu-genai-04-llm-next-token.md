@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍「生成式 AI：文字與圖像生成的原理與實務」2025 春季（政大學期代碼 1132）版。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 4 篇，接續 [L03 GAN](/posts/ai/2026-09-30-nccu-genai-03-gan)。
 
 用到的官方材料有三份：[第 4 講錄影](https://www.youtube.com/watch?v=LcSTLXCJrzA)（2025-03-11，2 小時 54 分）、投影片 [GenAI04 大型語言模型](https://drive.google.com/file/d/10mfLvj8o2H4z6sHI4xGXAr7OCgWxAoR5/view)（90 頁），以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上的第四週作業說明。存取等級是 **A3**：錄影、投影片、作業題目與評分標準都公開；作業批改走各校平台，校外讀者只能自評。
@@ -213,7 +215,7 @@ for tau in (1, 0.5, 2):
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

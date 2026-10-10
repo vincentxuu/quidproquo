@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This series follows the [CS 2881R Fall 2025 course site](https://boazbk.github.io/mltheoryseminar/fall2025/). Every fact was checked against official materials on 2026-09-30. Access rating: **A3 (by seminar standards)**; the gap list is below.
 
 **Series**: This is the entry post | Next: [L1: Why AI Safety Deserves a Graduate Course](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en)
@@ -162,7 +164,7 @@ One thing to do tonight: open the [HW0 repo](https://github.com/Harvard-CS-2881/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

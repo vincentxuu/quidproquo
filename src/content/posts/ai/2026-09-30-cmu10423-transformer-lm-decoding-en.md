@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 > **Edition note**: This post follows [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/), Spring 2026: Lecture 2 (2026-01-14, [lecture2-transformer](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture2-transformer.pdf), 74 pages) and Lecture 3 (2026-01-21, [lecture3-llms](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture3-llms.pdf), 57 pages, plus the [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture3-llms-ink.pdf), 59 pages). The lecturers are Aran Nayebi and Matt Gormley. Facts were checked on 2026-09-30. Lecture 2 has no inked version. The recordings are on Panopto and need a CMU account, so this post is based on the slides only.
 
 **Series position**: Previous: [L1: RNN language models and autodiff](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff-en) | Next: [L4: Pre-training, fine-tuning and modern Transformers](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
@@ -200,7 +202,7 @@ One thing to do tonight: redo Lecture 2's classroom exercise on paper. Write dow
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post covers HW6 of [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is Part 14 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. There are three official materials: the slides [hw6.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw6.pdf), the [Colab notebook](https://colab.research.google.com/drive/1gnaowsSzOT3VSw8j_MIDnksQiaZeKikA?usp=sharing) (47 cells), and the TAs' [walkthrough video](https://youtu.be/AR1bNACLOAU). The TAs are 鄭安妤, 楊樂霖, 尹廷安, and 林育正. It was released 4/24 and due 2026/05/14 23:59:59 (UTC+8), with no late submissions; grades were due by 2026/05/17 23:59:59.
 
 Access is **A3 minus grading**: the slides and Colab are public, and you can reproduce the experiments. But **the quiz questions themselves** are on NTU COOL, which needs an NTU account. hw6.pdf gives only the question counts and point values, not the questions.
@@ -138,7 +140,7 @@ Series navigation: Previous [Self-Correction: Can a Model Fix Its Own Mistakes?]
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

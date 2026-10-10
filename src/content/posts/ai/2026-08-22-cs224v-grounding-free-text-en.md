@@ -14,6 +14,8 @@ description: "CS224V Grounding Conversational Agents on Free Text: RAG baselines
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-grounding-free-text)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-freetext.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 5 returns to free text. Without a database schema or fixed Worksheet fields, how can an assistant avoid fluent invention? WikiChat expands RAG into repeated retrieval, filtering, and claim verification instead of assuming that context eliminates hallucination.
@@ -116,7 +118,7 @@ The public deck does not include full code, prompts, or a recording. Some slides
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

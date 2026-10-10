@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-02-mathematical-proofs)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 3 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 1, Spring 2026 (2026-04-01)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/01/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/01/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The official topic is **Mathematical Proofs**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
@@ -130,7 +132,7 @@ The public deck fully displays the even and odd definitions, even-square proof, 
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the direct-proof article from the official deck, restoring witness scope, the odd-sum proof, and the floor/ceiling example.
 
 ## References

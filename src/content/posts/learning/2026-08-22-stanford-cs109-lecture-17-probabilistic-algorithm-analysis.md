@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-17-probabilistic-algorithm-analysis-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 18 篇，對應 **Summer 2026 Lecture 17: Algorithmic Analysis**，日期為 7 月 21 日，講者是 Chris Gregg。本文依當期 [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture17-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture17-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture17-LLMPrompts.pdf)與官方讀本的 [algorithmic analysis](https://probabilitycoders.stanford.edu/spr26/algorithmic_analysis) 章節整理。當期投影片 unavailable、Canvas 錄影 gated，因此維持 L2 邊界。
 
 三份 artifacts 都是三頁；正式 agenda 為 P1–P7 加 challenge，題號完整。這講不追求每個 random runtime 的完整 distribution，而是用 conditional expectation、linearity 與 indicators 直接取得 expected value。
 
 ## 課程影片來源
 
-本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。因此附官方錄影入口，不提供公開播放器。
 
-課程與錄影入口：
+官方來源：
 
-- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+查核日期：2026-10-10。
 
 ## P1：讀懂 bootstrap p-value
 
@@ -159,7 +165,7 @@ E[K]=25
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

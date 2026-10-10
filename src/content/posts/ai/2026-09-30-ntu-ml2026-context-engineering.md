@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)3/13 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 3 篇。上一篇是 [HW1：防禦惡意指令](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense)，第 1 篇[解剖小龍蝦](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)已經看過 OpenClaw 會把 SOUL.md、MEMORY.md 塞進 system prompt，也會壓縮與修剪對話。這一篇回答接下來的問題：**context 放不下的時候，該留什麼、丟什麼、誰來決定？**
 
 用到的官方材料：講義 [agent_era.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/agent_era.pdf) 第 1–33 頁（整份 61 頁，後半是下一篇的內容），以及課程頁列出的影片 [AI Agent (1/3)：核心技術 Context Engineering 基本概念解說](https://youtu.be/urwDLyNa9FU)。存取等級是 **A3**：投影片 pdf／pptx 與錄影都公開，本講沒有對應的測驗或排行榜。
@@ -137,7 +139,7 @@ title: 影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -14,6 +14,8 @@ description: "拆解 CS224V Knowledge Curation 講義的完整路線：RAG、STO
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-knowledge-curation-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第二講問的不是「怎麼摘要搜尋結果」，而是研究寫作前如何找出自己尚未想到的面向。官方 schedule 把它叫 Knowledge Curation；主角是 [STORM](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf)、Co-STORM，最後接到 Homework 1 的 DataSTORM。
@@ -146,7 +148,7 @@ Research depth 與 breadth 之間也要明確選擇。每個 perspective 都追�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

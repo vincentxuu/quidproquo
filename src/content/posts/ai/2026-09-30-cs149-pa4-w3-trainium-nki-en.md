@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 15 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers two assignments: [Assignment 4: Programming a Machine Learning Accelerator](https://github.com/stanford-cs149/asst4-trainium2) (due Nov 13, 100 points) and [Written Assignment 3](https://gfxcourses.stanford.edu/cs149/fall25content/static/pdfs/written_asst3.pdf).
 
 Access first. The course as a whole is A3 (enough to self-study), but **PA4 is effectively A2**. The code and README are fully public, so you can read and understand everything. Running it requires an AWS Trainium2 machine, and the official setup uses a private AMI available only to enrolled students (details under "What outside learners can do" below). The Written 3 PDF is public; no solutions are.
@@ -224,7 +226,7 @@ Series navigation: previous [L11 Programming Specialized Hardware](/posts/ai/202
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

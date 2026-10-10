@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 offering of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It's post 14 in the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series. The main materials are the [Lecture 14 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture14-ldm-dit-p2p.pdf) (plus an [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture14-ldm-dit-p2p-ink.pdf)) and the Querying Transformer first half of the [Lecture 15 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture15-querying-scaling.pdf). The scaling-laws second half is in [post 16](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en).
 
 The recordings live on CMU's Panopto and aren't available outside CMU, so this post relies on the slides alone. The Q-Former part of L15 is almost entirely paper figures with no slide text, so the description below comes from the captions of the BLIP-2, MetaQueries, and Perceiver IO figures the slides reproduce. The schedule lists no readings for these two lectures. I checked every fact against the official materials on 2026-09-30.
@@ -214,7 +216,7 @@ Series navigation: previous [L12–L13: Text-to-image, latent diffusion, and vis
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

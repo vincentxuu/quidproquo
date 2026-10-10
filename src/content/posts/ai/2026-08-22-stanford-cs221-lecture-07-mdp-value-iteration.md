@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 7**，2025-10-13 由 Percy Liang 主講。課程版本、作業與講次脈絡以[官方課程網站](https://stanford-cs221.github.io/autumn2025/)為準；本文逐段對照可執行的[官方 `mdp` 講義 artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=mdp)，並把程式中的資料結構與更新順序翻成可讀的推導。課程錄影可由 [Stanford Online 官方 CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN) 交叉觀看，講義原始碼則在[官方 lecture repository](https://github.com/stanford-cs221/autumn2025-lectures)。
 
 > 材料缺口：官方講義與影片公開；本篇指定的本地 `mdp.py` 沒有提供完整課堂口述、Canvas 互動、作業解答或隱藏測資。因此下文只把原始碼直接示範或能由公式推出的內容寫成主張；沒有把其他學期、影片未見的細節或直覺補成 CS221 本講的結論。
@@ -166,7 +168,7 @@ memory 方面，`values`、`new_values`、`pi` 與 visited set 都隨可達 stat
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

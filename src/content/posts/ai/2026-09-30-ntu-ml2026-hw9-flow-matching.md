@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW9。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 19 篇。上一篇是正課最後一講 [AI 自我成長（下）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2)。這份作業和本學期任何一講都沒有直接對應，生成模型的觀念要靠先備影片補。
 
 用到的官方材料：作業說明 [hw9.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw9.pdf)（前 23 頁是說明，後面是中英兩版題目）、[作業 Colab](https://colab.research.google.com/drive/1R1CNujj6-kVPkl53RQLt5kE7tYVS-Zmp?usp=sharing)（57 個 cell），以及課程頁列出的助教說明影片 [ML 2026 Spring HW9 - Flow Matching](https://youtu.be/wAAeuMQ9r5c)。課程頁寫 5/22 公告，截止時間 2026/06/11 23:59:59（UTC+8），不收遲交，成績在 2026/06/14 前公布。助教是林育正、吳岳霖、林禹融、蘇炳揚、陳品睿、江履方。
@@ -172,7 +174,7 @@ loss 是 MSE(u, u_target)，而且 target 會先 `detach()`，當成固定的標
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

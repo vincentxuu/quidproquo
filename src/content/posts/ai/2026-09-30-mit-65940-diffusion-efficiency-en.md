@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-diffusion-efficiency)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on Lecture 18 (2024-11-07) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Lec18-Diffusion-Models.pdf](https://www.dropbox.com/scl/fi/f4end70haytw1nalboxp2/Lec18-Diffusion-Models.pdf?rlkey=emaxca812n2npb2rinq1nor64&st=ed3ziw4o&dl=0) (91 pages) and the [lecture recording](https://youtu.be/LXrqmQrscf0). Page numbers refer to PDF pages. Facts were checked against the official materials on 2026-09-30. Access level **A3**: slides and video are public; this lecture has no lab, so the only things out of reach are Canvas and Piazza.
 >
 > **Fall 2026 comparison**: The [F26 schedule](https://hanlab.mit.edu/courses/2026-fall-65940) splits Diffusion into two lectures (Part I on November 10, Part II on November 12) and drops the F24 GAN/Video/Point Cloud lecture. As of 2026-09-30, slides and video for both are still empty links.
@@ -165,7 +167,7 @@ The comparison on page 89 is convincing. The original takes 12.3 s on one GPU. N
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

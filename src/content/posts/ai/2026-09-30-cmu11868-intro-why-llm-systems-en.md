@@ -20,7 +20,9 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems)
 
-> **Version note**: This article follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main source is the 1/12 [L01 Introduction to LLM slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-01-intro-14e74a426e4a7e3ed485a026e1f65b70.pdf) (51 pages); page numbers are PDF page numbers. Facts were checked on 2026-09-30. The course has **no public videos**, so everything here comes from the slide text; whatever the instructor said out loud is unknown.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> **Version note**: This article follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main source is the 1/12 [L01 Introduction to LLM slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-01-intro-14e74a426e4a7e3ed485a026e1f65b70.pdf) (51 pages); page numbers are PDF page numbers. Facts were checked on 2026-09-30. The course has **no public video links listed in the official syllabus**, so everything here comes from the slide text; whatever the instructor said out loud is unknown.
 
 **Series**: previous [Series overview and self-study paths](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en) | next [L02–L04: GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
@@ -28,11 +30,13 @@ L01 has four parts: what LLMs can do, mathematical foundations, challenges in LL
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## The learning objectives open with an arithmetic problem
 
@@ -126,7 +130,7 @@ Page 47 describes the homework: individual, in Python and C++/CUDA, building the
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

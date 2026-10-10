@@ -27,17 +27,21 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的三份個人作業剛好是一條線：[A1](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness) 蓋 harness、A2 做評測、A3 做訓練。[Assignment 2](https://github.com/cmu-agents/assignment-2) 占學期成績 15%，10 月 1 日截止，官網的一句話摘要是「設計量測 agent 正確性與功能所需的評測框架」。作業由 Andy Liu、Jiarui Liu、Yueqi Song 設計，GPU 用的是課程提供的 Modal 額度。
 
 這篇只講作業要什麼、架構長怎樣、怎麼計分、設計上有哪些取捨，**不給解答**。課表上沒有一堂專門講評測的課，評測設計只出現在這份作業裡，所以本篇最後會把它接回 L9 到 L11：你在 A2 寫的評分器，就是 A3 之後 RL 要最大化的 reward。
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+本篇是作業導讀，附官方課程入口；尚未核對到這份作業的專屬錄影。課程已有部分公開講課影片，但不能直接視為這份作業的影片。
 
-課程與錄影入口：
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 作業在評什麼：資料視覺化 agent
 
@@ -183,7 +187,7 @@ Part 1 和 Part 3 代表兩種找評分器弱點的方法：一種是讀真實�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

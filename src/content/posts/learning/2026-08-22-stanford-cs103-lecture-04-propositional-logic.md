@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-04-propositional-logic-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 5 篇，對應 **Spring 2026 官方 Lecture 3（2026-04-06）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂講者欄，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講回答「如何形式化證明裡使用的定義與推理」。命題邏輯先把每個完整陳述壓縮成一個真假值，只研究它們如何由連接詞組合；下一階段的一階邏輯才會打開陳述，處理物件及其性質。這個限制既是命題邏輯的力量，也是它不能表達所有數學內容的邊界。
@@ -148,7 +150,7 @@ p→q≡¬(p∧¬q).
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依官方完整投影片重建雙語正文，恢復真值表、翻譯例題、優先序與命題等價式的逐項覆蓋。
 
 ## 參考資料

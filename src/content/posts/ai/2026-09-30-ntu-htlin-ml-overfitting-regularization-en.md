@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Lecture 13 and Lecture 14 slides of the [Machine Learning Foundations MOOC](https://www.csie.ntu.edu.tw/~htlin/mooc/) ([13_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/13_handout.pdf), [14_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/14_handout.pdf)) and videos 50–57 of the [YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf) (lectures in Mandarin, slides in English). Practice problems come from [HW4](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw4/) and [HW5](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw5/) of [Machine Learning, Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/). Everything was checked against the official materials on 2026-09-30. Access level: the MOOC alone is **A2**; with the Fall 2024 homework it is **A3 (minus the grading chain)**. There are no official solutions.
 
 **Series**: previous: [Linear Classification, SGD, Multiclass, and Nonlinear Transforms](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en) | next: [Validation and the Three Learning Principles](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en) | [Series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
@@ -215,7 +217,7 @@ One thing to try tonight: take any linear model you have, sweep the L2 coefficie
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

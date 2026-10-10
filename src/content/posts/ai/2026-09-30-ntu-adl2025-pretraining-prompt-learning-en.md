@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide covers the 9/15 week of [NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025 (114-1, 2025/09/01–12/15)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/).** It is part 8 of the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. [Part 6](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en) covered BERT and its family, and [the previous post on HW1](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en) applied BERT to Chinese extractive QA. This one zooms out: **how do encoder-only, decoder-only, and encoder-decoder models differ, and why can a large enough model do a task from a prompt alone?**
 
 Official materials used:
@@ -186,7 +188,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

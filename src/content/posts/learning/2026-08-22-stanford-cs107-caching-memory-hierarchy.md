@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 前一講從 profiler 與 compiler transformation 問「少做哪些工作」；Lecture 25 換一個方向：即使執行相同 instructions，資料位於不同 memory layer，等待時間也可能不同。Cache 的作用，是在較小、較快、靠近處理器的層級保留近期可能再用的資料，讓多數存取不必每次走到較慢的層級。
 
 這是 Winter 2026 一份只有 55 行抽取文字的短 deck，不是一堂公開材料完整的 cache architecture 課。本文忠實說清投影片提出的 memory hierarchy、temporal locality 與 spatial locality，再把它們轉成可驗證的程式設計問題；不自行補入 cache line 大小、associativity、replacement policy、寫入策略或特定處理器 latency。
@@ -98,7 +100,7 @@ Lecture 25 的價值正是克制。它沒有要求背一張硬體參數表，而
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：補回第 3 頁 cache 成本思考題及計算，並記錄第 5 頁 `cache.c` demo 的公開材料缺口。
 
 ## 參考資料

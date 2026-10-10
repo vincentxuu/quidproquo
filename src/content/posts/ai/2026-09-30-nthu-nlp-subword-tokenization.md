@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **本文依據[清大高宏宇教授「自然語言處理」](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025（114-1）的公開教材。** 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列的第 7 篇，上一篇是 [Transformer 與 Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers)。
 
 這一講的官方材料是 [W3_subword.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_subword.pdf)（43 頁），錄影是 [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc) 和 [Week 5 Thu.](https://www.youtube.com/live/FB0fgRTEbJE)。和上一講一樣，檔名的 W3 是舊版編號；[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)把它掛在 W5，同一列也發下 HW2。那一列的 Topics 欄是課綱模板，本篇不引用。
@@ -192,7 +194,7 @@ X 是句子，x<sub>i</sub> 是第 i 種切法，n<sub>i</sub> 是它的 token �
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

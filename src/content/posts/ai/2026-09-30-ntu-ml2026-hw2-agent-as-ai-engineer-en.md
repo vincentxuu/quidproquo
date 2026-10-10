@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post covers HW2 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 5 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous two posts covered [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) and [how agents change research work](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en). This assignment has you build a small version yourself: **let an agent be your AI engineer for once**.
 
 Official materials used: the homework slides [hw2.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw2.pdf) (59 pages, in English), the [Colab starter code](https://colab.research.google.com/drive/1hAT97f4GmBQFpWKHiRymIDJiXEsPlXS1?usp=sharing) (32 cells), and the TA's [homework video](https://youtu.be/3xhwSsuNTM0). The assignment was released on 3/13 and was due 2026/4/2 23:59 (UTC+8).
@@ -152,7 +154,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

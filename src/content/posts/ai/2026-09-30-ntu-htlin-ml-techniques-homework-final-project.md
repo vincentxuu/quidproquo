@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 18 篇，也是最後一篇。上一篇[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)處理 HW0–HW5；這篇接著講技法段的 HW6、HW7 和期末專題。
 
 **本文依據**：[Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)（頁尾最後更新 2025-01-17）、[HW6 題目](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf)、[HW7 題目](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)、[期末專題說明](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf)，以及 [Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)的排程，全部在 2026-09-30 下載或打開核對。題目敘述都從 PDF 讀出；「這題練哪一講」是依題目內容與題目明寫的 Lecture 編號歸類。
@@ -221,7 +223,7 @@ Fall 2026 的評分改成 30% 作業、30% 考試、40% 專題（tentative），
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -14,6 +14,8 @@ description: "CS224V Multimodal Applications：組合命令、API 暴露、同�
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-multimodal-reactgenie-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第十三講的 multimodal 不是「模型能看圖片」而已。它討論使用者同時用語音與畫面操作 app：說「把所有 [ReactGenie](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf) 文字靠右」時，系統要理解目前畫布、找到多個物件、組合 API，並讓結果直接出現在原生 GUI。
@@ -148,7 +150,7 @@ Multimodal UI 可在複合 manipulation 與大量結果上比 GUI-only 更有效
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

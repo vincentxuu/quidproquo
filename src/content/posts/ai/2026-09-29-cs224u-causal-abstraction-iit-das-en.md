@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 12 of the [Stanford CS224U guide series](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) and picks up where [Analysis Methods I](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en) left off. It covers the second half of the Analysis methods unit: causal abstraction, interchange intervention training (IIT), distributed alignment search (DAS), and the unit's conclusions.
 
 I used four official sources: slides 41–61 of the [Analysis methods in NLP deck](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf), videos 36–37 of the playlist, [`iit_equality.ipynb`](https://github.com/cgpotts/cs224u/blob/main/iit_equality.ipynb) in the repo, and the two files it depends on, [`iit.py`](https://github.com/cgpotts/cs224u/blob/main/iit.py) and [`torch_deep_neural_classifier_iit.py`](https://github.com/cgpotts/cs224u/blob/main/torch_deep_neural_classifier_iit.py). Access level: **A3 (historical offering)**.
@@ -215,7 +217,7 @@ Series navigation: previous, [Analysis Methods I: probing and feature attributio
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

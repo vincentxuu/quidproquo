@@ -14,6 +14,8 @@ description: "CS224V Agentic AI for Knowledge Base Queries: Wikidata and SPARQL 
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-agentic-knowledge-base)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-agentic.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 This lecture was already titled “Agentic AI for Knowledge Base Queries” in Fall 2025. That does not authorize mixing in the course-wide Autumn 2026 rename. Its historical scope is precise: make an agent construct SPARQL the way a knowledgeable Wikidata user does—by inspecting the graph while writing the query.
@@ -110,7 +112,7 @@ The public slides include action definitions, a prompt summary, and result table
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

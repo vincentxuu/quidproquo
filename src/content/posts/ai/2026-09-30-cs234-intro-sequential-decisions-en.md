@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: based on the Winter 2026 [Lecture 1 slides (post-class version)](https://web.stanford.edu/class/cs234/slides/lecture1post.pdf). The companion video is the [Spring 2024 Lecture 1 recording (supplement)](https://www.youtube.com/watch?v=WsvFL-LjA6U). The title matches, but the slides are the 2026 version, so examples may differ. This is post 1 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series.
 
 The first lecture of [CS234](https://web.stanford.edu/class/cs234/) has three parts: an overview of RL, logistics, and sequential decision making under uncertainty. The [series overview](/posts/ai/2026-09-30-cs234-course-overview-en) already covers the logistics (grading, tutorials, late days), so this post covers the other two.
@@ -234,7 +236,7 @@ If you want to compute something, take the Mars rover MRP with γ = 0.5 and rewa
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

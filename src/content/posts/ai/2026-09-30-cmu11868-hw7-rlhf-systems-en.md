@@ -28,7 +28,9 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw7-rlhf-systems)
 
-> **Version note**: This post is based on the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Lecture details come from the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus). The assignment page lives on the [homework site](https://llmsystem.github.io/llmsystemhomework/assignment_7/), shared across terms, and the starter code is in [llmsys_hw7](https://github.com/llmsystem/llmsys_hw7), both as seen on 2026-09-30. The repo's last commit is 2026-05-02, and Fall 2026 hasn't changed it yet. Access grade: the assignment is **A3**, with the problems, starter code, tests, and grading criteria all public. The RL lecture itself is only **A1**: no slides, no video, just one paper.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> **Version note**: This post is based on the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Lecture details come from the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus). The assignment page lives on the [homework site](https://llmsystem.github.io/llmsystemhomework/assignment_7/), shared across terms, and the starter code is in [llmsys_hw7](https://github.com/llmsystem/llmsys_hw7), both as seen on 2026-09-30. The repo's last commit is 2026-05-02, and Fall 2026 hasn't changed it yet. Access grade: the assignment is **A3**, with the problems, starter code, tests, and grading criteria all public. The RL lecture itself is only **A1**: no slides or public video links listed in the official syllabus, just one paper.
 
 **Series**: previous [L26–L30 serving at scale: prefill/decode disaggregation, KV cache, and heterogeneous hardware](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en) | this is the last post in the series | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
@@ -38,11 +40,13 @@ The course description lists "efficient implementation of RLHF," and this lectur
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## The 4/15 lecture: a title and one paper
 
@@ -143,7 +147,7 @@ This course treats RLHF as a systems problem. Guides to other courses on this si
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

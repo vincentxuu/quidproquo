@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The [official schedule](https://rail.eecs.berkeley.edu/deeprlcourse/) starts with Introduction, Behavioral Cloning, Behavioral Cloning Part 2, and RL Basics. The point is not to memorize an RL algorithm first. It is to see where a supervised controller fails, then introduce learning from reward.
 
 ## Course video sources
@@ -45,7 +47,7 @@ Public code is enough to implement the work, but it is not the complete enrolled
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

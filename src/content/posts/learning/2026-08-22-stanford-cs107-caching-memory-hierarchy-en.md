@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The previous lecture used profilers and compiler transformations to ask what work can be removed. Lecture 25 changes direction: even when the same instructions execute, waiting time can differ because data resides at different memory levels. A cache retains data likely to be reused in a smaller, faster layer near the processor, allowing many accesses to avoid returning to a slower layer.
 
 The Winter 2026 public deck extracts to only 55 lines. It is not a complete public course in cache architecture. This article faithfully explains its memory hierarchy, temporal locality, and spatial locality, then turns them into testable programming questions. It does not invent cache-line sizes, associativity, replacement policies, write policies, or processor-specific latencies.
@@ -98,7 +100,7 @@ Lecture 25 is valuable because it is restrained. It replaces the assumption that
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Restored the page 3 cache-cost thought question and calculation, and documented the unavailable source for the page 5 `cache.c` demo.
 
 ## References

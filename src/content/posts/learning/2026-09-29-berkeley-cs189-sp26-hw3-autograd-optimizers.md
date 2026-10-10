@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的 [HW3 官方資料夾](https://drive.google.com/drive/folders/1M6ii2VAJR63485TaDK0yKhcfT1bHdRIO)寫成，裡面有三個檔案：書面題 [hw3.pdf](https://drive.google.com/file/d/18EVIcfx9eH3XG7w_S1XEn3QthMNdRTCt/view)（16 頁）、LaTeX 模板 `hw3_student.tex`，以及程式作業 [hw3.ipynb](https://drive.google.com/file/d/17GdkCG486LIoROrwYg-3w0OxP12Azb1d/view)。排程頁寫的截止時間是 **4/12（日）晚上 11:59 PT**；排程把 HW3 列在第 9 週，也就是期中考（3/17）那一週。
 
 它緊接在 [Lec 17–18（神經網路與反向傳播）](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop)之後。講課時你看過 chain rule 怎麼在計算圖上跑；HW3 要你把它寫成一個能用的小型 PyTorch。notebook 開頭這樣寫：把課堂上的單變數 autograd 推廣到一般張量，模仿 `torch` 的 autograd 實作方式。
@@ -156,7 +158,7 @@ Q4 用 OpenML 的 `wine-quality-red`（1599 筆紅酒、11 個化學特徵，預
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

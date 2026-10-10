@@ -8,26 +8,31 @@ series:
   name: "Harvard CS181 Weekly Guides"
   order: 0
 type: guide
-tldr: "CS181 2026 is A3 with hw0–6 as the weekly clock (no public recordings); 2025 adds a practical, 2024 has two midterms, 2023 was taught by Weiwei Pan. Start with HW0, then follow hw1→hw6."
+tldr: "CS181 2026 is A3 with hw0–6 as the weekly clock (no public recording links listed for the corresponding lectures); 2025 adds a practical, 2024 has two midterms, 2023 was taught by Weiwei Pan. Start with HW0, then follow hw1→hw6."
 description: "A four-year comparison of Harvard CS1810 (2026/2025/2024/2023): instructors, prerequisites, grading, homework chain, textbook, and how this series uses homework numbers as weeks."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs181-overview)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > ⚠️ **Edition**: 2026 is primary from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks); 2025/2024/2023 are compared via `cs181-web-2025/2024/2023` and `cs181-s25/s24/s23-homeworks`. The [Google Sheet schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) embedded on the 2026 site can be exported anonymously (checked 2026-09-29). This series uses **homework numbers as weeks** and the schedule's lecture order within each homework.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
 
-Course and recording entries:
+Official sources:
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## TL;DR
 
-- **Can I self-study?** [CS181 2026](https://harvard-ml-courses.github.io/cs181-web/) is **A3** (`hw0-6` + notes + sections + [textbook](https://github.com/harvard-ml-courses/cs181-textbook), `all learning will be in-person` with no public recordings; Gradescope/Ed require enrollment), as rated in the [Harvard AI/ML Course Map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en).
+- **Can I self-study?** [CS181 2026](https://harvard-ml-courses.github.io/cs181-web/) is **A3** (`hw0-6` + notes + sections + [textbook](https://github.com/harvard-ml-courses/cs181-textbook), `all learning will be in-person` with no public recording links listed for the corresponding lectures; Gradescope/Ed require enrollment), as rated in the [Harvard AI/ML Course Map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en).
 - **How to follow**: Do the [HW0 readiness check](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review-en) first (`due 2026-02-02`, 4%), patch the weakest of the four problems, then follow `hw1→hw6`. The series has 16 posts (order 0–15), including midterm and final checkpoints; see "Posts in this series" below.
 - **Four-year delta**: 2025 adds `practical 6%`, 2024 has two midterms and no final, 2023 was solo-taught by Weiwei Pan.
 
@@ -91,7 +96,7 @@ Suggested path: read this overview to decide whether to follow the 2026 main lin
 
 ### Current limits and unreleased parts
 
-- **No current-term recordings** (syllabus: all learning in-person); the schedule's W13 Embedded EthiCS says "see recording" but gives no public link (A0).
+- **Public video status**: the syllabus specifies in-person learning, which does not establish that recordings do not exist. The main lecture entries do not list public videos; W13 Embedded EthiCS explicitly says "see recording", but the public schedule HTML checked here provides no openable recording link.
 - **No homework solutions**; Gradescope/Ed require enrollment. Sections do have solution PDFs.
 - The scribe notes are from 2024; the midterm/final review and midterm practice headers say 2025.
 - The site's `homework` page is stale (lists only HW0); use the s26 repo and the schedule for the 2026 homework list.
@@ -116,5 +121,5 @@ Suggested path: read this overview to decide whether to follow the 2026 main lin
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - **2026-09-29**: Expanded the series to orders 0–15, added "Posts in this series" and a limits list; filled in HW1–HW6 due dates, problems, and exam dates from the 2026 schedule and each `.tex`; corrected the old claims that the Google Sheet schedule was deleted and that 2026 sections were not public.

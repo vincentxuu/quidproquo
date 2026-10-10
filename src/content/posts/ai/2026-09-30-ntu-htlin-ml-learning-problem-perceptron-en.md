@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 1 in the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series. It covers Lectures 1–3 of [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/), the first three lectures under the first big question, "When Can Machines Learn?"
 
 These three lectures answer two things: what components make up a machine learning problem, and what the simplest learning algorithm looks like. By the end you should be able to write PLA yourself and say which type of learning a problem belongs to. Whether PLA's line is also right on data it has never seen is left for [post 2](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en).
@@ -215,7 +217,7 @@ Without official solutions, you can check programming problems yourself. Run sci
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

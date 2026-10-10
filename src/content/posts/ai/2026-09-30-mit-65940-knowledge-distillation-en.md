@@ -34,6 +34,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-knowledge-distillation)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is part 11 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series. It covers **Lecture 9: Knowledge Distillation** from the [Fall 2024 course page](https://hanlab.mit.edu/courses/2024-fall-65940), taught by Song Han on October 3, 2024. Both materials are public:
 
 - Slides: [Lec09-Knowledge-Distillation.pdf](https://www.dropbox.com/scl/fi/fjgnue7z3mi1ynxbd0y5k/Lec09-Knowledge-Distillation.pdf?rlkey=cup1qhlpx3vx0nrs7wuwj6m0d&st=jzhogqwp&dl=0) (84 pages; page numbers below are PDF pages)
@@ -170,7 +172,7 @@ If you came from [Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas-en): the lab ex
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

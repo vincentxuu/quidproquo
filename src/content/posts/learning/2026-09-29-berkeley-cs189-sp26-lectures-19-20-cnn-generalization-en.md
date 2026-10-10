@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This guide is based on the official materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis): the Lecture 19 slides [lec19.pdf](https://drive.google.com/drive/folders/12L6CYQ-h128-bzFPU1RvX1aJnFvWQ6Hi) (4/2, [video](https://www.youtube.com/watch?v=-4PpBUsB_S4)), the Lecture 20 slides [lec20.pdf](https://drive.google.com/drive/folders/1Ocw82WCz2SiUEDY9uofdfyZuPX4GrfOw) (4/7, [video](https://www.youtube.com/watch?v=4LrCyN7URuY)), and [Discussion 9](https://drive.google.com/file/d/1Aa40Z2Ufa91YBNAlhfwsHG2JCT23T2SA/view) (with [solutions](https://drive.google.com/file/d/16n2T86Vx2bneCubkQ7b52MV8c8wwFUyF/view) and a [walkthrough video](https://www.youtube.com/playlist?list=PL-ysCubq-Sa8dQDvhNbABwFT3JWWBTRAW)). All of them are available without a login, and the course rates A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
 [The previous post on Lec 17–18](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en) answered how to compute gradients. These two lectures ask two follow-ups: once you can compute gradients, how do you keep them **flowing** during training? And beyond fully connected layers, is there an architecture better suited to images? At the end, Lec 20 returns to an old question from the first half: how complex should a model be?
@@ -170,7 +172,7 @@ Both problems in Discussion 9 are reused from Fall 2025 discussions (labeled F25
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

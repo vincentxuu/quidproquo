@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide is based on the 3/20 materials of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 7 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. At the end of the previous post on [Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en), the demo Colab made the sequence ten times longer and the GPU ran out of memory. What filled up was the warehouse (HBM), not the workbench (SRAM). This post picks up that thread: **what fills the warehouse, and how do you make it last longer?**
 
 Official materials used: the slides [inference.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/inference.pdf), pages 29–55, and the lecture video [加快語言模型生成速度 (2/2)：KV Cache](https://youtu.be/fDQaadKysSA) (in Mandarin). Access level is **A3**: slides (pdf/pptx) and recording are public. The hands-on part is the vLLM section of [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en).
@@ -171,7 +173,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

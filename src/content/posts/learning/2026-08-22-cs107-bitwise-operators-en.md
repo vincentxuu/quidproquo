@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-cs107-bitwise-operators)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 A bitwise operator does not treat an integer as a merely small number. It temporarily sets aside the aggregate value and treats each position as an independent field. `&` can preserve selected bits, `|` can set them, and `^` can toggle them. Before manipulating a pattern, however, one must know whether C conversion changed its width and whether the same bits are being interpreted as signed or unsigned.
 
 CS107 Lecture 4 therefore does not begin immediately with truth tables. It first closes the representation thread from Lecture 3: casts, mixed-signedness comparison, extension, and truncation. Only after tracking which bits remain, appear, or disappear does it introduce AND, OR, NOT, XOR, bit vectors, and bitmasks. This article follows all 27 pages of the [official Winter 2026 Lecture 4 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/04/Lecture04.pdf).
@@ -350,7 +352,7 @@ The next lecture continues bitwise operators, especially left and right shifts, 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Winter 2026 slides and assignments of [CS234](https://web.stanford.edu/class/cs234/); the recordings are the public Spring 2024 videos.** It is Part 6 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series and follows [model-free control: ε-greedy, GLIE, SARSA/Q-learning, and function approximation](/posts/ai/2026-09-30-cs234-model-free-control-function-approx-en).
 
 Official materials used: pages 5–21 of the [Lecture 5 slides (post version)](https://web.stanford.edu/class/cs234/slides/lecture5post.pdf), Question 1 of the [A2 handout](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf) (8 written points), and [video 04, "Q learning and Function Approximation"](https://www.youtube.com/watch?v=b_wvosA70f8), from the [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Per its YouTube chapters, the 2024 DQN material is the last 20 minutes of that video: [58:04, "Instabilities and DQN"](https://www.youtube.com/watch?v=b_wvosA70f8&t=3484s) and 1:05:39, "DQN implementation." Video 05, "Policy Search 1," is entirely about policy search and has no DQN.
@@ -189,7 +191,7 @@ This series does not give answers. The other three questions of A2 (policy gradi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

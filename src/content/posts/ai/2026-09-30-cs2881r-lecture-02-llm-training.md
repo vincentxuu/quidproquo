@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) 2025 秋季版。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 3 篇，對應官方第 2 講「Modern LLM Training」（2025 年 9 月 11 日）。上一篇 [HW0](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment) 讓你親手把一個小模型訓練歪；這一篇退一步問：正式的訓練流程長什麼樣，安全訓練插在哪裡？
 
 用到的官方材料有四份：[講課錄影](https://youtu.be/GXggPt_gqiI)（約 2 小時 23 分）、Harvard SharePoint 上的[投影片](https://hu-my.sharepoint.com/:p:/g/personal/boaz_seas_harvard_edu/Eau65O5QsfJOtuDI2FAXCCMBpC--98FHOpUwefGGuqDp3w?e=A5IKRL)（48 張，不需登入即可用 PowerPoint Online 瀏覽）、Justin Y. Chen 寫的 [LessWrong Week 2 摘要](https://www.lesswrong.com/posts/FC3m5zhx6sFBrMpTm/cs-2881r-ai-safety-week-2-modern-llm-training)，以及學生實驗文 [Optimizing Prompts with Reinforcement Learning](https://www.lesswrong.com/posts/LTcidRnJJLpaAQsWY/cs2881r-optimizing-prompts-with-reinforcement-learning) 與它的 [GitHub repo](https://github.com/aahani-dot/CS2881_RLExperiment)。這一講的材料是齊的，存取等級維持系列的 A3。
@@ -205,7 +207,7 @@ Barak 的講評比結果更值得記：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

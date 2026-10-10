@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-05-first-order-logic-1-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 6 篇，對應 **Spring 2026 官方 Lecture 4（2026-04-08）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 前一講的命題邏輯把整句話視為 true 或 false，再用 `¬`、`∧`、`∨`、`→` 與 `↔` 組合。本講打開這個黑盒子：句子談哪些物件？性質套在哪個物件上？「有人」與「每個人」如何進入公式？難點不是符號變多，而是每種元件都有固定的輸入與輸出型別。
@@ -149,7 +151,7 @@ FOL 也支援先前證明技巧：要否定敘述，先翻成公式、取 negati
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依官方 Lecture 4 deck 逐項重建遺失的雙語正文，修正 metadata，補回常數、predicate、function、量詞、scope、precedence 與翻譯例題。
 
 ## 參考資料

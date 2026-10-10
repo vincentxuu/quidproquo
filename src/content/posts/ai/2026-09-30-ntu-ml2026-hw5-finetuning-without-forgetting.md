@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [機器學習 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 的 HW5。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 12 篇。官方材料有四份：作業投影片 [hw5.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw5.pdf)、[作業 Colab](https://colab.research.google.com/drive/1H5FZA-l5n7QD1Q8vnBEUSlldVKlpchku)（34 個 cell）、課程頁上的 [Kaggle 版](https://www.kaggle.com/code/b10901024sillydinos/ml2026hw5/edit/run/306310732)，以及助教的[說明影片](https://youtu.be/HlSGih7bnrs)。助教是謝翔、尹廷安、蘇炳揚，投影片另外列了製作者馮柏翰、劉建蘴、吳典叡。4/10 公告，截止時間 2026/04/30 23:59:59（UTC+8），不收遲交。
 
 存取分級是 **A3 減評分**：題目、起始碼、資料下載連結都公開；分數要上傳 [JudgeBoi](https://ml.ee.ntu.edu.tw/home) 才拿得到，而它在 2026-09-30 回傳 502。程式碼則繳到 NTU COOL，需要台大帳號。
@@ -150,7 +152,7 @@ Colab 裡的 TODO 幾乎就是投影片的提示清單。把兩邊對起來：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

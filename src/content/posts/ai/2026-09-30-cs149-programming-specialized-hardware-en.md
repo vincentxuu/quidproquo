@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-programming-specialized-hardware)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This guide follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is post 14 in the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers Lecture 11 from October 28, [Programming Systems for Specialized Hardware](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/). The official [slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/proghardware/11_SpecializedHardwareProgramming.pdf) has 60 slides (the title slide reads Programming Specialized Hardware for AI).
 
 **There is no public video for this lecture.** Fall 2025 recordings live only on Stanford Canvas, and the 2023 playlist that the official home page points to doesn't include this lecture. The second half of the [2023 course site's hardware specialization slides](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/) covers the Spatial accelerator language and a streaming execution model. That is conceptually close to this lecture's dataflow half, but the content differs and can't stand in for it. This guide follows the 2025 slides page by page and adds nothing they don't say. Some slides are only images or code screenshots with no text; for those, this guide gives only the title. The course overall is A3 (enough to self-study); gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
@@ -226,7 +228,7 @@ Series navigation: previous [L10 Hardware specialization and DNN accelerator des
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

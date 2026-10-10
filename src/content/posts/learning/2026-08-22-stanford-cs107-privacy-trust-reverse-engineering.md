@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-privacy-trust-reverse-engineering-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 前六講讓我們能追蹤 C 的 bytes 與 pointers，中段把函式翻成 x86-64，上一講則讓 buffer overflow 從抽象錯誤變成可讀的控制流程。Lecture 20 在進入 allocator 實作前刻意停一下：既然 reverse engineering 能揭露程式原本不打算公開的行為，會做與該不該做之間，必須補上一套 privacy 與 trust 的判斷語言。
 
 本講不是把倫理當成技術之外的裝飾。安全研究者能找到漏洞，是因為被允許或自行取得了特殊能力；資料管理者能做統計，是因為手上集中著別人的資訊；allocator 能重用一段空間，是因為 client 承諾不再碰已 `free` 的 block。三個問題其實相通：**誰能做什麼、我們依賴誰、背叛之後誰承擔風險？**
@@ -171,7 +173,7 @@ Lecture 20 的核心不是背四種 privacy 定義，也不是搶先學 allocato
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

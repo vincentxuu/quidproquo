@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide is based on HW3 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 8 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous two posts covered [Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en) and [KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en). This homework has you measure them on a real GPU, and it brings back Speculative Decoding, which the lecture skipped.
 
 Official materials used: the homework slides [hw3.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw3.pdf) (63 pages; the second half holds the questions in Mandarin and English), the [homework Colab](https://colab.research.google.com/drive/1vZNo6_PlaP2fvMqr3g5KoQA0rN79m24O?usp=sharing) (40 cells), and the TA walkthrough video [ML 2026 Spring HW3 LLM Fast Inference](https://youtu.be/rXfp9Yo5HwU) listed on the course page. The course page gives 3/20 as the release date, and the PDF sets the deadline at 2026/04/09 23:59:59 (UTC+8) with no late submissions. The TAs are 馮柏翰, 吳岳霖, and 蘇炳揚.
@@ -159,7 +161,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

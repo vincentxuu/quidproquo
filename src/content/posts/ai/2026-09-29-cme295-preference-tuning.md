@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 5 講「LLM tuning」（2025 年 10 月 31 日）。主要來源是 [111 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf)，[錄影](https://www.youtube.com/watch?v=PmW_TMQ3l0I)長 1 小時 47 分，可以對照著看。
 
 前四講的模型都用同一種方式學東西：給正確答案，叫它照著寫。這一講要換一種訓練訊號。整個系列在這裡的落差最大，從監督式學習一口氣跳到強化學習，所以先花一節說清楚為什麼非跳不可，再進公式。
@@ -319,7 +321,7 @@ L_DPO = −E[ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

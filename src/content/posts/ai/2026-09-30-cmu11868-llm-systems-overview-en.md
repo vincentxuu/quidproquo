@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-868 LLM Systems: Overview and Self-Study Paths — 28 Slide Decks and 7 Assignments Are Public, but No Videos and You Bring Your Own GPU"
+title: "Reading CMU 11-868 LLM Systems: Overview and Self-Study Paths — 28 Slide Decks and 7 Assignments Are Public, but No Public Video Links Listed and You Bring Your Own GPU"
 date: 2026-09-30
 category: ai
 type: guide
@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > **Version note**: This series follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/), the most recent completed term with the fullest materials. Fall 2026 is in progress and is used only for comparison. Every fact was checked on 2026-09-30 against the official pages, slide PDFs, and GitHub repos. Access rating: **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Slides, assignment specs, starter code, and the project spec are public, which is enough to self-study. Videos, the GPU cluster, quizzes, and grading are not.
 
 **Series**: this is the overview | next [L01: Why LLMs Need Systems](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems-en)
@@ -36,11 +38,13 @@ The FAQ draws a clear line between this course and CMU's other LLM course, 11-66
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## The hard facts
 
@@ -81,7 +85,7 @@ Spring 2026 publishes a lot: 28 slide PDFs on the [Syllabus](https://llmsystem.g
 
 A3 still has gaps. Outside readers will run into these six:
 
-1. **No videos.** Neither the Spring nor the Fall 2026 pages link to recordings. This is the biggest difference from [Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en). You can only read slides and papers, and anything said out loud in class is lost.
+1. **No public video links listed in the official syllabus.** Neither the Spring nor the Fall 2026 pages link to recordings. This is the biggest difference from [Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en). You can only read slides and papers, and anything said out loud in class is lost.
 2. **You need NVIDIA GPUs.** [Assignment 1](https://llmsystem.github.io/llmsystemhomework/assignment_1/) opens with "You'll need a GPU." [Assignment 5](https://llmsystem.github.io/llmsystemhomework/assignment_5/) needs at least two. [Assignment 6](https://llmsystem.github.io/llmsystemhomework/assignment_6/) recommends a 2-GPU PSC session and asks you to make Llama-2-7B trainable with LoRA on "2 V100 GPUs/ 16GB GPU memory." Without a PSC account, you rent cloud GPUs yourself.
 3. **Quizzes and grading are closed.** Quizzes are 10% of the grade, and the quiz links on the slides point to CMU Canvas. Ed and the submission systems are also for enrolled students only.
 4. **The course never says which two assignments are optional.** Logistics only says "five required and two optional," and none of the seven assignment pages is marked optional. This series won't guess.
@@ -219,7 +223,7 @@ You won't have teammates or a grader, but the project spec makes a good practice
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

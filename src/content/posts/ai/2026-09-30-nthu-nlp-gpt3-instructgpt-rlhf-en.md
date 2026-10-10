@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on [W8_GPT3_InstructGPT_RLHF.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W8_GPT3_InstructGPT_RLHF.pdf) (68 pages) from the Fall 2025 (114-1) edition of Prof. Hung-Yu Kao's [Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing) course at National Tsing Hua University. The deck sits in the W8 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md), with recordings [Week 8 Tue.](https://www.youtube.com/watch?v=w-M9plRRVQc) and [Week 8 Thu.](https://www.youtube.com/watch?v=h-m9wVSx0_s) (lectures in Mandarin, slides mostly in English). The "W8" in the filename happens to match the README week, but that row's Topics column says "Python for text tutorial (2/2)". That column is a syllabus template that doesn't match the attached slides, so this post goes by the slides. Facts checked on 2026-09-30. Access grade **A3**: slides and recordings are public.
 
 **Series**: Previous [GPT-2 / T5 Chinese summarization lab](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization-en) | Next [Parameter-Efficient Fine-Tuning](/posts/ai/2026-09-30-nthu-nlp-peft-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
@@ -220,7 +222,7 @@ One thing to do tonight: ask your usual chat model one factual question and one 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

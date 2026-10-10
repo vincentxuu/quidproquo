@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-function-pointers-continued-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 Lecture 12 還留下 `int[]`。Lecture 13 讓演算法只保存 base、count 與 width，把元素地址交給 comparator。Library 不知道型別，caller 負責還原並比較。
 
 這也是 `qsort`、`bsearch` 等 APIs 的骨架：library 與 client 各自保留必要知識，以三向回傳值溝通。
@@ -259,7 +261,7 @@ Generic algorithm 用 base、count 與 width 計算地址，不猜 element type�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

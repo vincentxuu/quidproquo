@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-14-greedy-algorithms-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161) 的第十五篇，對應 **Stanford CS161, Winter 2026, Lecture 14**。Ellen Vitercik 在 2026 年 2 月 25 日主講，官方題名就是 *Greedy Algorithms*。
 
 本文使用該講公開的 [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture14-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture14.pdf) 與[官方 lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture14.md)。官方頁面的 Canvas 錄影需要 Stanford 權限；我沒有觀看，也不將它列為已讀來源。Component 另連到 Winter 2025 的 notebook 與 concept-check bank，本文沒有拿那些舊版輔助材料補充 Winter 2026 的主張。
@@ -201,7 +203,7 @@ Lecture 13 用 state 與 transition 保留多條可能性；Lecture 14 展示什
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

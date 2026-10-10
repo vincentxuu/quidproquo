@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs228-graphical-models)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 [CS 228: Probabilistic Graphical Models: Principles and Techniques](https://explorecourses.stanford.edu/search?q=CS+228&view=catalog) teaches something deeply out of fashion in 2026: how to squeeze a probability distribution too large to ever write down into a graph you can actually compute with. Bayesian networks, Markov random fields, variable elimination, belief propagation, sampling, variational inference, parameter and structure learning — ten weeks covering representation, inference, and learning.
 
 Its position on Stanford's AI course map is odd. Everyone knows it exists; few people take it. The obstacle isn't the entry bar. Its official prerequisites name no course at all, while [CS 234](https://explorecourses.stanford.edu/search?q=CS+234&view=catalog) next door demands CS229 or equivalent — a full level higher. The real obstacle is that the course hasn't been offered in two years, and its website is frozen in the shape it had the last time it ran.
@@ -172,7 +174,7 @@ If you can explain that to yourself, you can follow every inference algorithm in
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

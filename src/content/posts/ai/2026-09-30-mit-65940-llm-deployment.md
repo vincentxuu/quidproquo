@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-llm-deployment-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 15 篇，接續[第 12 講：Transformer 與 LLM](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)。
 
 **系列位置**：上一篇 [L12 Transformer 與 LLM](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)｜下一篇 [Lab 4＋Lab 5：AWQ 量化與筆電上的 LLaMA2-7B](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop)｜[系列總覽](/posts/ai/2026-09-30-mit-65940-course-overview)
@@ -224,7 +226,7 @@ QServe 的兩個對策：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

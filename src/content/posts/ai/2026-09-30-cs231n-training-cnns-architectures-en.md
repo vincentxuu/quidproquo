@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: slides are the Spring 2026 [lecture_6.pdf](https://cs231n.stanford.edu/slides/2026/lecture_6.pdf); the recording is the Spring 2025 [YouTube L6](https://www.youtube.com/watch?v=aVJy4O5TOk8). The two may differ, and I flag differences below. This is post 7 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series and follows [L5: Image Classification with CNNs](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en).
 
 The [previous lecture](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) handed us two building blocks, convolution and pooling. This one answers the next two questions: **how do you stack them, and once stacked, how do you train them?**
@@ -240,7 +242,7 @@ Series navigation: previous [L5: Image Classification with CNNs](/posts/ai/2026-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

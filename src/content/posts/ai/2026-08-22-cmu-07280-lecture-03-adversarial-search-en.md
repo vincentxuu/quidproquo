@@ -15,19 +15,23 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-03-adversarial-search)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 This is **CMU 07-280 Spring 2026 Lecture 3: Adversarial Search**. The previous lecture found a route through a fixed world. Here, an opponent or random event changes the next state. The answer is no longer one action sequence but a contingent plan: what to do after each possible response.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Official materials and reading scope
 
-I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec3_Adversarial_Search_inked.pdf), [Adversarial Search staff notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Adversarial_Search.pdf), [Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf), and checked [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf). No recording is public. This article does not turn slide games or demos into unrecorded spoken commentary.
+I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec3_Adversarial_Search_inked.pdf), [Adversarial Search staff notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Adversarial_Search.pdf), [Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf), and checked [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf). No public recording link is listed in the official schedule. This article does not turn slide games or demos into unrecorded spoken commentary.
 
 ## The inherited question: when you do not control the transition
 
@@ -82,7 +86,7 @@ This returns to Lecture 1's representation problem. An evaluation function compr
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

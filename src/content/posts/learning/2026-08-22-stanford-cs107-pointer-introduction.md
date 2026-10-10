@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-pointer-introduction-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 C 的指標常被教成符號規則：宣告加星號、呼叫加 `&`、使用時再加 `*`。這不容易回答真正的問題：函式改到哪一格記憶體？為何 pointer parameter 仍可能改不到 caller 的 pointer？
 
 Stanford CS107 Winter 2026 的第 8 講把指標拉回最樸素的模型：pointer 是一個值，而那個值是某個物件的 memory address。C 的參數一律按值傳遞；傳 pointer 時，複製的不是目標物件，而是它的位址。callee 因而可以沿著複製來的位址找到 caller 擁有的物件。整講從 `int *` 一路走到 `char **`，其實只重複同一個問題：你究竟想修改值、指標，還是指標所指向的值？
@@ -306,7 +308,7 @@ Strong typing 讓編譯器知道解參照後應存取多少 bytes，也能檢查
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

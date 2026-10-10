@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is part 9 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en), and the first post on [Machine Learning Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/). It covers Techniques Lecture 1, Linear Support Vector Machine, and Lecture 2, Dual Support Vector Machine.
 
 **Sources**: the MOOC slides [201_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/201_handout.pdf) and [202_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/202_handout.pdf), videos 1–9 of the [Techniques YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2), and the schedules on the [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) and [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) course pages, all opened and checked on 2026-09-30. The textbook sections are [LFD](http://amlbook.com) e-8.1 (linear SVM) and e-8.2 (dual SVM), as listed on both course pages. e-Chapter 8 is an online chapter of LFD, and I did not open the chapter itself.
@@ -249,7 +251,7 @@ Series navigation: previous, [Validation and three learning principles](/posts/a
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

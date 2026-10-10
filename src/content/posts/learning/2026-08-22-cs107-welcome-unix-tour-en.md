@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-cs107-welcome-unix-tour)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 Stanford CS107 does not begin by rushing into C syntax. Lecture 1 first changes the question. CS106B asks how to solve problems with a high-level language; CS107 asks why programs actually work. What do an `int`, a string, and a structure look like in hardware? How does an executable enter memory? Who manages the heap behind `malloc`? Together, these questions dismantle abstractions that normally feel automatic.
 
 This article covers [the official Winter 2026 Lecture 1](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/01/Lecture01.pdf), not the entire course. It follows the slide order: the course's point of view, topics and learning goals, assignments, labs, exams and support, and finally the Unix command line. Even outside Stanford, the lecture is useful because it supplies a map for the next twenty-five lectures: a controlled descent through layers of abstraction.
@@ -179,7 +181,7 @@ The next lecture turns the map into a first C program: headers, `main`, `printf`
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Corrected the Lecture 1 deck length to 33 pages from the official PDF.
 
 ## References

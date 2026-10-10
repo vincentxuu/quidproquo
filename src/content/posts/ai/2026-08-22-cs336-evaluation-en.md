@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-evaluation)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 12: Evaluation**, taught by Percy Liang on May 6, 2026. Its primary source is the official executable lecture, [`lecture_12.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_12.py).
 
 The course discusses evaluation before data because data pushes a model toward the behavior being measured. The lecture's central statement is that no single evaluation is true. Rules, objects, and use cases must be specified before choosing a metric.
@@ -83,7 +85,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

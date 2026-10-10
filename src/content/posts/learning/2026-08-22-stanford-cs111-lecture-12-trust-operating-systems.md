@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-12-trust-operating-systems-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 13 篇，對應 **Stanford CS111, Spring 2026, Lecture 12**。2026-04-24 由 Mendel Rosenblum 主講，官方題目是 [Trust and Operating Systems](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/12/Lecture12.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 PDF 定義 trust 為：trustor 基於 trustee 會完成重要行動的 expectation，**自願讓自己暴露於對方行動的 vulnerability**，即使無法 monitor 或 control 對方。哲學版本更直接：trust 是停止持續質疑 dependability、先假定它會運作的態度。
@@ -93,7 +95,7 @@ Proxy 也成為新的 trustee，可能誤判、漏判或被繞過；把安全交
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

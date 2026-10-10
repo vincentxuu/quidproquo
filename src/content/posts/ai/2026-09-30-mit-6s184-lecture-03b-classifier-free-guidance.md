@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §5（pp.34–40）、[Slides 3](https://diffusion.csail.mit.edu/2026/docs/20260123_Lecture_03.pdf) 的 Classifier-free guidance 段落，以及[第 3B 講錄影](https://www.youtube.com/watch?v=8oWZ1bHwyRI)（39 分鐘）。公式、Remark、Algorithm 編號都照講義。存取等級 A3：講義、slides、錄影、lab 與官方解答都公開；lab 評分只給 MIT 修課生。2026-09-30 核對。
 
 **系列位置**：上一篇 [Lab 2：親手寫 flow matching 與 score matching](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)｜下一篇 [L4：U-Net、DiT 與 latent space](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures)｜[系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
@@ -238,7 +240,7 @@ w>1 時，`X_1` 的分佈**不再**是 `p_data(·|y)`。講義說 CFG 主要是�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

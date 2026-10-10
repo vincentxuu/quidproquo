@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 7: Parallelism**，2026 年 4 月 20 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_07.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_07.py)。
 
 單張 GPU 的 optimization 到這裡結束。模型、optimizer state 或 batch 再大，就必須跨 devices。第七講刻意不用高階 wrapper 遮住細節，而是從 collective operations 組出三種基本平行化。
@@ -79,7 +81,7 @@ Data parallel 沿 batch 切、tensor parallel 沿 width 切、pipeline parallel 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

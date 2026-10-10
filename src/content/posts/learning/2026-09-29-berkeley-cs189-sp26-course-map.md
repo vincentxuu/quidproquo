@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [Berkeley CS189/289A Introduction to Machine Learning](https://eecs189.org/sp26/) 是 Berkeley 的機器學習入門課。問題在於，網路上搜得到的 CS189 不只一個：Shewchuk 教的 Spring 2025、Norouzi 與 Gonzalez 教的 Fall 2025 和 Fall 2026、Listgarten 與 Dimakis 教的 Spring 2026。四個學期的課序、課本、作業都不一樣。本系列的 [order 1 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)寫於 Spring 2026 課站重新上線之前；這篇重新盤點版本，決定後面的講次與作業導讀要以哪一個學期為準。
 
 結論先講：**從本篇開始，講次與作業導讀一律以 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）為底本。** 它是目前唯一同時公開講課影片、講義、附解答的 discussion，而且作業完整公開到 notebook 的版本。
@@ -141,7 +143,7 @@ Spring 2025 的講課 notes 和整本 `machlearn.pdf` 都能匿名下載，作�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

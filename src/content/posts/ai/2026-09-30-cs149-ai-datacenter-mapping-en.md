@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 16 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers the October 30 Lecture 12, [Mapping AI Applications to the Datacenter Computer](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aidatacenter/). The official [slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/aidatacenter/12_AI_DatacenterMapping.pdf) has 72 pages.
 
 **There is no public video for this lecture.** Fall 2025 recordings are Canvas-only, and the 2023 public recordings that the course home page points to do not include this topic. This post is based only on the slides. Some slides are images without text (the Nvidia HBM roadmap, a Transformer diagram); what the lecturer said about them is unknown, and this post does not fill it in.
@@ -197,7 +199,7 @@ Series navigation: previous [PA4 + Written 3: Trainium2 and NKI](/posts/ai/2026-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 This is Lecture 3 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Classical Planning** (8/31). [HW1](/en/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en) had the agent use logic to decide which squares were safe and A\* to decide how to get there. This lecture asks the next question: if *changing the world* also needs reasoning, where does logic break down, and what representation lets us write it down?
 
 The short version: **planning is not a new problem, it is the same search problem with a different state representation.** Once states are factored, a planner can read the action descriptions and compute its own heuristic, without a human staring at the puzzle.
@@ -24,11 +26,13 @@ Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.e
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
 
 ## Official materials and scope
 
@@ -187,7 +191,7 @@ Check it yourself: both subgoals need the same "toasted bread" fact, so h<sub>ad
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

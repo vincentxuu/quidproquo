@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-compiler-optimization-profiling)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 “This line looks faster” is a dangerous start to performance work. Lecture 24 separates two responsibilities. The programmer chooses a reasonable algorithm and measures the real hotspot. The compiler removes, moves, or replaces low-level work when doing so preserves observable semantics. Both matter, but neither substitutes for the other.
 
 The lecture first compares unoptimized and `-O2` builds of a triple-loop matrix multiply, then introduces Callgrind's dynamic instruction counts. It next examines constant folding, common-subexpression elimination, dead-code elimination, strength reduction, code motion, and tail-recursion optimization. Repeated `strlen` calls finally show why a compiler sometimes lacks knowledge available to the programmer.
@@ -196,7 +198,7 @@ The next time code feels slow, do not edit immediately. Profile fixed input, rec
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Replaced the dead Stanford Callgrind guide with the live official Valgrind manual for the workflow and option claims.
 
 ## References

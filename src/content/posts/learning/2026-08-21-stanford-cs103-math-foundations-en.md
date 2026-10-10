@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs103-math-foundations)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 [CS103: Mathematical Foundations of Computing](https://web.stanford.edu/class/cs103/) is the first theory course in Stanford's undergraduate CS skeleton. The name sounds like discrete math, and for the first half it is — logic, sets, functions, graphs, induction. Then the course changes tracks entirely: finite automata, regular languages, context-free grammars, Turing machines, decidability, the halting problem, and finally P versus NP.
 
 The syllabus frames it as a course about whether computing has laws of physics. The discrete math is tooling. The course describes itself as "a course in both art appreciation and practice" — first a tour through the prettiest results of the last hundred and fifty years, then you pick up the paintbrush yourself.
@@ -177,7 +179,7 @@ Don't worry yet about whether you can finish the proof. That two-column move is 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 14 篇，對應 10 月 28 日的第 11 講 [Programming Systems for Specialized Hardware](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/proghardware/11_SpecializedHardwareProgramming.pdf) 共 60 頁（投影片封面的標題是 Programming Specialized Hardware for AI）。
 
 **這一講沒有公開錄影可以對照。** Fall 2025 的錄影只放在 Stanford Canvas，官方首頁指向的 2023 播放清單裡也沒有這一講。[2023 年課站的硬體專用化投影片](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/)後半講 Spatial 加速器語言與串流執行模型，觀念上接近本講的資料流那一半，但內容不同，不能當作本講的替代。本文逐頁依 2025 投影片寫，投影片沒寫的不補；有些頁面只有圖或程式截圖、沒有文字，本文就只寫標題。整門課的公開程度是 A3（足以自學），缺口列在[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)。
@@ -226,7 +228,7 @@ METAPIPE(M / MM, [&]() {
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

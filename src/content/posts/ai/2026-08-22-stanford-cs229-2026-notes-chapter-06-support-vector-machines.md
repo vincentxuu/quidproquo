@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-06-support-vector-machines-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 6 章〈Support vector machines〉，講義頁碼 60–78。它是 **2026 notes 的逐章導讀**，不是任何一學期錄影內容的重建。
 
 ## 課程影片來源
@@ -84,7 +86,7 @@ Sequential minimal optimization（SMO）在對偶問題中一次挑兩個 \(\alp
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

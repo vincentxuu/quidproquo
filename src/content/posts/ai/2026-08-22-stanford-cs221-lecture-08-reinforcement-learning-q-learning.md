@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 8**，2025-10-15 由 Percy Liang 主講。課程版本與作業以[官方課程網站](https://stanford-cs221.github.io/autumn2025/)為準；本講的可執行主線是官方 [reinforcement_learning artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=reinforcement_learning)，程式碼可在 [CS221 Autumn 2025 lecture repository](https://github.com/stanford-cs221/autumn2025-lectures) 對照，影片入口則是 [Stanford Online 的 CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)。
 
 > 材料缺口：本地對照的官方 artifact 覆蓋的是 MDP、tabular model-free 方法、SARSA 與 Q-learning。它沒有在這份檔案中提供 features 或 linear approximation 的實作，因此本文只標示缺口，不把其他講次的內容接進來。Canvas 課堂互動、作業解答與隱藏測資也不在公開材料裡。
@@ -135,7 +137,7 @@ SARSA 學的是目前 policy 的 `Q_π(s,a)`。最後一段問得更直接：如
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

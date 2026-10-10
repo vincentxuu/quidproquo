@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 CS224U 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 14 篇。上一篇 [方法與指標 I](/posts/ai/2026-09-29-cs224u-methods-metrics) 處理「分數怎麼算」：confusion matrix、F1 的幾種平均、BLEU 與 perplexity。這一篇接著處理另一個問題：**就算指標選對了，你的實驗能不能說服一個不信任你的審稿人？**
 
 課程把這件事放在同一份 [methods 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-methods-2023-handout.pdf)的後三節：Datasets、Data organization、Model evaluation。對應 [YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)的第 42 到 44 支影片，以及 repo 裡的 [evaluation_methods.ipynb](https://github.com/cgpotts/cs224u/blob/main/evaluation_methods.ipynb)。投影片開頭的「Associated materials」另外指定了 Noah Smith《Linguistic Structure Prediction》的 [Appendix B](http://www.cs.cmu.edu/~nasmith/LSP/)——那一章標題就叫 Experimentation，內容涵蓋 train/dev/test、交叉驗證、無重複實驗的比較，以及假設檢定。
@@ -204,7 +206,7 @@ methods 投影片的 Conclusion 以一頁收尾，標題是「An ideal moment fo
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

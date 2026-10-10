@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The assignment page lives on the cross-semester [homework site](https://llmsystem.github.io/llmsystemhomework/assignment_2/) and the starter code in [llmsys_hw2](https://github.com/llmsystem/llmsys_hw2), both as seen on 2026-09-30. **Fall 2026 has already touched this repo**: three PRs were merged on 2026-09-02, detailed in the "Version differences" section below. Access level **A3**: the problems, starter code, local tests, and training script are public; what you cannot get is Canvas submission, the private test cases, and PSC.
 
 **Series navigation**: Previous [L05 Deep learning frameworks and automatic differentiation](/posts/ai/2026-09-30-cmu11868-dl-frameworks-autodiff-en) | Next [L06–L07 Transformers and pretrained LLMs](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
@@ -38,11 +40,13 @@ This post covers only the problem structure, points, required resources, and whe
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Where it sits in the course
 
@@ -134,7 +138,7 @@ One thing you can do tonight: open `minitorch/autodiff.py`, read only the method
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

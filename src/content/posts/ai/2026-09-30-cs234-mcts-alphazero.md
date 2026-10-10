@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-mcts-alphazero-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片與作業；錄影是 Spring 2024 公開版。** 這是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列第 16 篇。
 
 **系列位置**：上一篇 [資料效率 III：MDP 的 PAC、MBIE-EB、PSRL、策略性探索](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration)｜下一篇 [價值對齊：對齊誰、對齊什麼](/posts/ai/2026-09-30-cs234-value-alignment-ethics)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
@@ -199,7 +201,7 @@ $$
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

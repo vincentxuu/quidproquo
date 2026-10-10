@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agent-skills)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the fourth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 3 of Fall 2026.
 
 Three topics: what skills are, how SKILL.md plus scripts encode a workflow, and web skills extending agent capability beyond the repo — plus "working effectively from the CLI." The guest is [Lee Robinson](https://leerob.com/cursor), who moved from Vercel to Cursor in July 2025 to work on developer education.
@@ -132,7 +134,7 @@ Point 4 has an easily missed effect: you find out that the context the agent act
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

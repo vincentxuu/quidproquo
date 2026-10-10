@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-assembly-addressing-modes-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 `mov $0x42,%rax` 與 `mov 0x42,%rax` 只差一個 `$`，效果卻完全不同：前者把數值 `0x42` 放進 register，後者到 memory address `0x42` 讀值。Stanford CS107 Lecture 15 就從這個容易看漏的符號開始，把 x86-64 addressing modes 整理成一套可計算的規則。
 
 ## 課程影片來源
@@ -278,7 +280,7 @@ void foo(long *xp, long *yp) {
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

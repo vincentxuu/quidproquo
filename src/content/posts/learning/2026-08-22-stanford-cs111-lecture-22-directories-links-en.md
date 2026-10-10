@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-22-directories-links)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 23 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 22**, taught by Mendel Rosenblum on 2026-05-18 under [Directories and Links](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/22/Lecture22.pdf). It follows the public PDF and [calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar); inaccessible Canvas/Panopto video is not treated as reviewed. SHA-256 auditing shows Lecture 22 differs from adjacent Lectures 21 and 23, so there is no duplicate artifact.
 
 ## Course video sources
@@ -89,7 +91,7 @@ Three checks separate them: hard links survive target rename by identity; symlin
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post follows HW10 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 20 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series, and the last one. The previous post is [HW9: Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en).
 
 Official materials used: the homework slides [hw10.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw10.pdf) (42 pages; from page 31 on, all 12 questions with their options), the [homework Colab](https://colab.research.google.com/drive/1QBtp0lQrjQbTKB1sLIxoavqhSU7EhG_g?usp=sharing) (32 cells), and the TA video listed on the course page, [ML 2026 Spring HW10 Spoken Language Model](https://youtu.be/Gx96VH6ePC4). The course page lists 5/29 as the release date; the deadline is 2026/06/18 23:59:59 (UTC+8), no late submissions. Grades are out by 2026/06/19, regrade requests close on 06/21, and final course grades are out by 06/22. The TAs are 陳竣瑋, 陳思齊, 鄭安妤, and 尹廷安.
@@ -163,7 +165,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

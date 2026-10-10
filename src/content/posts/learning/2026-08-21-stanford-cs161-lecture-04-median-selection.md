@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-04-median-selection-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 5 篇，對應 **Stanford CS161, Winter 2026, Lecture 4**。Moses Charikar 在 2026 年 1 月 14 日主講，官方題目是 [Median and Selection](https://stanford-cs161.github.io/winter2026/lectures/#lecture-4-median-and-selection)。本文使用一頁課前練習、九頁講義與 66 頁投影片；Canvas 錄影未使用，notebook 與概念檢核也未列為已讀。
 
 Selection 的輸入是含 `n` 個數的陣列 `A` 與 `k∈{1,...,n}`，輸出第 `k` 小元素。最直接的做法是先用 MergeSort 排序，再取第 `k` 個，時間 `O(n log n)`。但只要一個順位，真的需要知道其他所有元素的完整順序嗎？第四講的答案是不用，而且 deterministic worst-case 可以做到 `O(n)`。
@@ -172,7 +174,7 @@ Lecture 4 同時完成兩件事。它給出第一個看似不可能、卻達到 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

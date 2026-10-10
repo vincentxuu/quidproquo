@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Search for Stanford CS229, Berkeley CS188, or MIT deep learning and you will quickly find course sites, YouTube videos, and community notes. The hard question comes next: **do those resources belong to the same semester? Do they still open without a university account? Does the assignment link include starter code and required assets, or only a prompt?**
 
 This map covers Stanford, Carnegie Mellon University (CMU), MIT, UC Berkeley, Harvard, and National Taiwan University (NTU), spanning **2025–2026**. A complete 2026 edition takes priority. If the new semester has only a schedule or keeps video inside an LMS while an official 2025 edition is materially more complete, the 2025 edition can be the main version. Every course guide names its semester; it will not quietly combine 2025 video with 2026 assignments.
@@ -167,7 +169,7 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-05: Added an "AI security courses" section covering current AI security courses and access levels at Stanford, CMU, Berkeley, and MIT, plus the three fully self-studiable courses in Taiwan and abroad.
 - 2026-10-01: "Where this series stands" now includes six new series: Stanford CS224R, CS234, CS149, MIT 6.5940, CMU 10-423, and Harvard CS2881R.
 - 2026-09-30 (3): Added the [other Taiwanese schools map](/posts/learning/2026-09-30-taiwan-ai-course-map-en); "Where this series stands" now includes four Mandarin course series: NTU ADL, Hsuan-Tien Lin, NTHU NLP, and NCCU Generative AI.

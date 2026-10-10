@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-inside-the-model-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > [上一篇](/posts/career/2026-08-16-cs230-career-advice-in-ai)是整個系列唯一不談技術的一講。這一篇是最後一講，往模型裡面看。
 
 本篇對應 **[Lecture 10: What's Going On Inside My Model?](https://www.youtube.com/watch?v=Ozb1AR_F5MU)**（2025/12/02，Kian Katanforoosh 主講，1 小時 47 分，本學期最後一講）。
@@ -328,7 +330,7 @@ loss 上的突然跳動可能是某個 batch 被汙染；「**或者你在它上
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

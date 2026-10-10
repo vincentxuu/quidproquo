@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-18-reasoning-in-llms)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article reads Chapter 18, printed pages 220–225, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It explains the main objectives and algorithmic intuition without claiming to reproduce every proof or implementation detail.
 
 ## Course video sources
@@ -84,7 +86,7 @@ Define an RLVR setup for generating a function that passes unit tests: state, ac
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

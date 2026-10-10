@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-07-functions-1)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 8 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 6, Spring 2026 (2026-04-13)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not identify the speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/Lecture%20Slides.pdf) are public; Canvas/Panopto recordings and transcripts were not used.
 
 The official title is **Functions, Part I**. It rebuilds familiar functions as objects checkable with sets and first-order logic. “Is this a function?”, “Is it injective?”, and “Is it surjective?” become quantified claims that can be negated and proved instead of answered by visual intuition.
@@ -145,7 +147,7 @@ The complete deck supports the function rules, definition methods, piecewise fun
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the body, metadata, proof examples, and material boundary from the official Functions, Part I deck.
 
 ## References

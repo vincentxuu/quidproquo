@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-scaling-laws-foundations)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 9: Scaling laws**, taught by Tatsunori Hashimoto on April 27, 2026. Its primary source is the official [`lecture_09.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_09.pdf).
 
 Discovering that a model is too large, data too scarce, or the learning rate wrong during the final run wastes an irreversible budget. Scaling laws use a set of smaller experiments to establish simple, testable relationships and predict an expensive region. They are not guaranteed laws of the future but tools for experimental design and uncertainty management.
@@ -81,7 +83,7 @@ This lecture has a Spring 2026 schedule entry and a complete official PDF. This 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

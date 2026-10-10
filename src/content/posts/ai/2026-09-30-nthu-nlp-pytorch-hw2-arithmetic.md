@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列第 5 篇。[上一篇](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention)講了 RNN、LSTM 和梯度消失，這一篇要動手寫：**給 LSTM 看幾百萬條算式，它能「學會」算術嗎？**
 
 本文依據 [IKMLab 課程 repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing) 的兩組材料：
@@ -153,7 +155,7 @@ PDF 建議數據盡量用文字呈現，不要只貼圖，方便批改。繳交�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

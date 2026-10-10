@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-assembly-x86-64-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 一個 `for` 迴圈到了處理器眼中，不再有變數名稱、`int` 型別或陣列語法，只剩放在不同位址的 bytes、暫存器中的值，以及改變下一條指令位置的跳躍。Stanford CS107 Lecture 14 是課程由 C 記憶體模型轉進 machine-level execution 的轉折點：它不要求學生從空白頁手寫組合語言，而是教你面對 compiler 產生的 x86-64，辨認哪些片段共同實作原本的 C。
 
 本講以 `sum_array` 的十條指令拆解反組譯各欄、assembly 與 machine code、十六個 general-purpose registers，以及 compiler 的「載入、運算、寫回」。完整 addressing modes、資料寬度與 `mov` 變體主要留給下一講。
@@ -208,7 +210,7 @@ CPU 不會檢查 `%rdi` 是不是 `int *`，但 `int` 仍導致 32-bit operation
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

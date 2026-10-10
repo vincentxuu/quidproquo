@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 2 in the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series. It covers Lecture 4 of [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/), "feasibility of learning," the last lecture under the first question, "When Can Machines Learn?"
 
 The PLA from [post 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en) can reach zero errors on the training data. What we actually care about is **data we have not seen**. This lecture jumps from algorithms to probabilistic guarantees, the first steep step in the course, so this series gives it a post of its own.
@@ -191,7 +193,7 @@ The simulated value comes out far below 0.33, matching the slides' point that Ho
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

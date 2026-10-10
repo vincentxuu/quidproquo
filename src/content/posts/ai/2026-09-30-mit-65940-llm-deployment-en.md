@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-llm-deployment)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post follows the Fall 2024 edition of [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940).** It is post 15 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series and picks up from [Lecture 12: Transformers and LLMs](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en).
 
 **Series position**: previous [L12 Transformers and LLMs](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en) | next [Lab 4 + Lab 5: AWQ and LLaMA2-7B on a laptop](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop-en) | [series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -224,7 +226,7 @@ Put side by side, one thread runs through everything: **look at the activations*
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

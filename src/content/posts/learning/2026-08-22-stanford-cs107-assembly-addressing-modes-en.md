@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-addressing-modes)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 `mov $0x42,%rax` and `mov 0x42,%rax` differ by one `$`, yet do completely different work. The first puts the number `0x42` in a register; the second reads a value from memory address `0x42`. Stanford CS107 Lecture 15 begins with this easy-to-miss distinction and turns x86-64 addressing modes into one expression that can be calculated.
 
 The point is not to memorize seven arrangements of punctuation. For every operand, ask two questions: does it produce a value or an address? If it produces an address, does the instruction use the address itself or the contents stored there? Once those questions become routine, `(%rdi,%rcx,8)` stops looking like punctuation and starts looking like C's `arr[index]`.
@@ -286,7 +288,7 @@ Lecture 15 reduces to one sentence: components inside parentheses calculate an a
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

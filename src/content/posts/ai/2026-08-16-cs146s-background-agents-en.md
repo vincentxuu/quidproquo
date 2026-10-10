@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-background-agents)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the ninth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 8 of Fall 2026.
 
 Three topics: async, cloud-delegated agents; managing fleets of parallel agents; issue-to-PR pipelines and triggers (Slack, Linear, GitHub). The session is "Background agents: launching tasks asynchronously," guest still unannounced.
@@ -100,7 +102,7 @@ The order makes sense: one person managing three background agents is a tooling 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

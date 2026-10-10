@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：依據 [HW0 GitHub repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0)（最後一次 commit 為 2025-07-26）與 [CS 2881R Fall 2025 課站](https://boazbk.github.io/mltheoryseminar/fall2025/)，2026-10-01 逐檔核對。README、腳本與評分提示全部公開，拿不到的是 GitHub Classroom 的自動評分環境（它用課程的 OpenAI 金鑰）。本文**不提供解答程式碼**，README 也明文禁止抄其他重現專案的程式碼。
 
 **系列位置**：上一篇 [L1：為什麼 AI 安全值得一門研究所課](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction)｜下一篇 [L2：Modern LLM Training](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
@@ -194,7 +196,7 @@ README 的「Variants」段落給了兩個選做方向：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

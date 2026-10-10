@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-03-recurrences-master-theorem)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is post 4 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 3**. Moses Charikar taught it on January 12, 2026. Its official title is [Solving Recurrences and the Master Theorem](https://stanford-cs161.github.io/winter2026/lectures/#lecture-3-solving-recurrences-and-the-master-theorem). I read the public pre-lecture exercise, six-page notes, and 54-slide deck. I did not use the Canvas recording or claim to have read the concept checks.
 
 One source discrepancy belongs up front. The component and slides identify the lecture as recurrences, the Master Theorem, and substitution. The notes cover exactly those subjects, but their cover says “Solving Recurrences and the Selection Problem.” Selection does not appear in the body and begins in Lecture 4. This article follows the official lecture title and the actual material rather than expanding a stale cover title into a nonexistent agenda.
@@ -237,7 +239,7 @@ The Master Theorem is not the endpoint of recurrence analysis. Tools such as Akr
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

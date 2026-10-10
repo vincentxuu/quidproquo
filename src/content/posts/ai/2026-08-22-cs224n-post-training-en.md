@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-post-training)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 8 on January 29, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture08-posttraining.pdf), **Post-training (RLHF, SFT, DPO)**, covers instruction fine-tuning, RLHF, InstructGPT/ChatGPT, limitations of RL and reward modeling, DPO, and human preference data versus AI feedback.
 
 ## Course video sources
@@ -90,7 +92,7 @@ Winter 2026 recordings are not public. The deck cover retains a stale “Lecture
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

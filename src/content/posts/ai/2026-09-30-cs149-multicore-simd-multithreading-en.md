@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **This post is based on the Fall 2025 edition of [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25).** The source is the [108-slide Lecture 2 deck](https://gfxcourses.stanford.edu/cs149/fall25content/media/multicore1/02_basicarch.pdf) (also available [slide by slide on the web](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)). The Fall 2025 recording isn't public, so the 2023 L2 recording serves as a supplement. This is post 2 of [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en); the previous post is [L1 Why parallelism, why efficiency](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en).
 
 [Last lecture](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en) concluded that single cores won't get faster on their own, so performance has to come from parallelism and specialized hardware. This lecture answers the next question: in what ways do modern processors actually run things in parallel?
@@ -242,7 +244,7 @@ The 2023 [Lecture 2 video](https://www.youtube.com/watch?v=CKmNpAO5rS4) (about 1
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

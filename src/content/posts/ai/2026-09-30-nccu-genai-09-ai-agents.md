@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 9 篇，接在 [L08 RAG 的原理及實作](/posts/ai/2026-09-30-nccu-genai-08-rag)之後，也是文字生成這半學期的最後一講。下一講起，課程轉向圖像生成。
 
 用到的官方材料有四份：[錄影 09](https://www.youtube.com/watch?v=49fwh6oc5Nc)（2025-04-15，約 2 小時 58 分）、投影片 GenAI09（33 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo07a】AI代理設計模式_Reflection`](https://yenlung.me/AI07a) 與 [`【Demo07c】AI代理設計模式_員瑛式思考生成器Two_Stage_CoT版`](https://yenlung.me/AI07c)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第九週作業。存取等級是 **A3**。要特別注意：這兩份 notebook 在 GitHub 上最近一次 commit 都是 2025-10-28，已經在 1132 學期結束之後，**以下引用的是 repo 目前版本，不是上課當時的原版**。
@@ -234,7 +236,7 @@ Gradio 介面兩欄：左邊是五個理由，右邊是最終貼文。
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

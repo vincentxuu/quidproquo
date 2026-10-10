@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Winter 2026 slides and assignments of [CS234](https://web.stanford.edu/class/cs234/); the recordings are the public Spring 2024 videos.** It is Part 7 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series and follows [DQN](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning-en).
 
 Official materials used:
@@ -226,7 +228,7 @@ Vanilla PG throws away each batch after a single gradient step, and its step siz
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

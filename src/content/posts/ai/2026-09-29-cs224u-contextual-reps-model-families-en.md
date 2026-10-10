@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 4 of the [Stanford CS224U guide](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The Transformer block and positional encoding are covered in [the previous post](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en); this one starts directly with the model families.
 
 The last seven sections of the same [contextual representations slide deck](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf) (GPT, BERT, RoBERTa, ELECTRA, seq2seq, Distillation, Wrap-up) match videos 07 through 13 in the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp). Each runs about 6 to 14 minutes.
@@ -233,7 +235,7 @@ Running the whole notebook requires the course's [data.tgz](http://web.stanford.
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

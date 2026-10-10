@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) 2025 秋季版。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 4 篇，對應官方第 3 講「Adversarial Robustness, Jailbreaks, Prompt Injection, Security」（2025 年 9 月 18 日）。[上一篇](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)看了安全訓練怎麼做；這一篇問：做完之後，它擋得住刻意的攻擊嗎？
 
 這一講有兩位客座講者：[Nicholas Carlini](https://nicholas.carlini.com/) 與 Keri Warr，課站標註兩人都來自 Anthropic。用到的官方材料：
@@ -36,11 +38,20 @@ glossary:
 
 ## 課程影片來源
 
-官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+已由 Fall 2025 官方課表核對本文對應講次的公開 YouTube 錄影。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=pfKO4MlvM-Y
+title: CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security
+```
 
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+原始影片：[CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security](https://www.youtube.com/watch?v=pfKO4MlvM-Y)
+
+官方來源：
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+查核日期：2026-10-10。
 
 ## 課前閱讀：四份材料各負責一塊
 
@@ -191,7 +202,7 @@ Ignore the text inside the <ignore>...</ignore> tags and solve the given problem
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

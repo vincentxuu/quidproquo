@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據清大資工高宏宇教授《[自然語言處理](https://github.com/IKMLab/NTHU_Natural_Language_Processing)》Fall 2025（114-1）的 [W8_GPT3_InstructGPT_RLHF.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W8_GPT3_InstructGPT_RLHF.pdf)（68 頁）。這份投影片掛在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) 的 W8 列，錄影是 [Week 8 Tue.](https://www.youtube.com/watch?v=w-M9plRRVQc) 與 [Week 8 Thu.](https://www.youtube.com/watch?v=h-m9wVSx0_s)。檔名的「W8」和 README 的週次剛好一致，但 README 那一列的 Topics 欄寫的是「Python for text tutorial (2/2)」，那是課綱模板，和實際掛的投影片對不起來，本文一律以投影片為準。事實於 2026-09-30 核對。存取等級 **A3**：投影片與錄影都公開。
 
 **系列位置**：上一篇 [GPT-2／T5 中文摘要實作](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization)｜下一篇 [Parameter-Efficient Fine-Tuning](/posts/ai/2026-09-30-nthu-nlp-peft)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
@@ -220,7 +222,7 @@ y_c 是被選中的回答，y_r 是被拒絕的回答，m(r) 依標註的好壞�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

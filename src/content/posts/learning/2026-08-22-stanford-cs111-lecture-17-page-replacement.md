@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-17-page-replacement-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 18 篇，對應 **Stanford CS111, Spring 2026, Lecture 17**。2026-05-06 由 Mendel Rosenblum 主講，官方題目是 [Demand Paging, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/17/Lecture17.pdf)。官方 Lecture 16 與 17 PDF 逐位元組相同（SHA-256 均為 `65091d9719674258175c2dcf29e1ad82bca8ff8a82d3b66d73b9e40ad3287d9e`），不是兩份可區分的 decks；本文因此聚焦後半的 replacement policy，Lecture 16 則以 fault/fetching mechanism 為主。Canvas／Panopto 錄影沒有公開，無法判定兩天實際口述分界。
 
 Lecture 16 建立 demand paging 的承諾：程式不必把全部 code 與 data 同時放進 physical memory，也能執行。Lecture 17 接著問兩題：什麼時候把 page 搬進來？RAM 已滿時又要換掉哪一頁？前者是 **page fetching policy**，後者是 **page replacement policy**。Page fault、present bit 與 restartable instruction 是機制；FIFO、LRU、Clock 與 global replacement 則是政策。
@@ -154,7 +156,7 @@ Lecture 17 因此畫出 demand paging 的界線。Mechanism 能安全 trap、補
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依官方 19 頁 PDF 重寫全文，補齊 fetching／replacement、Clock、global policy 與 thrashing 的完整議程。
 
 ## 參考資料

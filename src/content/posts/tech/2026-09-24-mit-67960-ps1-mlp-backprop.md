@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-09-24-mit-67960-ps1-mlp-backprop-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) [Homework 1](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_hw1_pdf/) 是課程的第一個編程作業，核心目標：**從零實作 MLP 的前向與反向傳播，理解自動微分的底層機制**。這篇文章完整走查 HW1 的每個考點，提供可直接執行的 NumPy 參考實作與 PyTorch 驗證腳本。
 
 ## 課程影片來源
@@ -302,7 +304,7 @@ if __name__ == "__main__":
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

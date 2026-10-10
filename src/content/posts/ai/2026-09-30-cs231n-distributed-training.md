@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-distributed-training-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 的 [Lecture 11 投影片](https://cs231n.stanford.edu/slides/2026/lecture_11.pdf)（158 頁，封面日期 2026-05-05）；錄影是 [Spring 2025 的 Lecture 11](https://www.youtube.com/watch?v=9MvD-XsowsE)（YouTube，約 1 小時 12 分，2025 課表列的講者是 Justin Johnson）。2026 錄影只放在 Canvas，限修課生，兩個年份的內容可能有差異。
 >
 > 這是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 13 篇。
@@ -197,7 +199,7 @@ CP 常用於長序列微調。Llama3-405B 的例子：第一階段 S=8192，不�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

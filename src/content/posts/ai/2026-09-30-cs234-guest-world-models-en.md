@@ -34,6 +34,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-guest-world-models)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Edition note**: This post is based on the guest slide deck [ShaneGuCS234_2026.pdf](https://web.stanford.edu/class/cs234/slides/ShaneGuCS234_2026.pdf) (36 pages) linked from the [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 modules page, checked page by page on 2026-09-30. Access level is **A3** (defined in the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), with one clear gap for this lecture: **slides only, no recording**. The 2026 videos are on Canvas for enrolled students, and the public [Spring 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX) does not include this talk. Many slides are images with almost no text, so this post covers only what is visible on the slides. How the speaker connected them out loud, and what he said in Q&A, is not available.
 
 **Series position**: Previous: [Value Alignment: Aligned to Whom, and to What](/posts/ai/2026-09-30-cs234-value-alignment-ethics-en) | This is the last post in the series | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -199,7 +201,7 @@ One thing to do tonight: write out the shooting and collocation equations from p
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

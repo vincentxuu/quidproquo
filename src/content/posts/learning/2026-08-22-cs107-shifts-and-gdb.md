@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-cs107-shifts-and-gdb-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 Bitmask 能選位置，shift 則能把位置搬到需要的地方。兩者合起來，可以抽出 byte、翻轉欄位、找相鄰的 1、判斷 power of two，甚至在不使用比較運算子的情況下組出 absolute value。這些技巧很短，前提卻很多：型別寬度、signedness、右移補什麼，以及 shift count 是否合法。
 
 CS107 第五講也第一次正式把 GDB 納入日常工具。重點不是記住一串縮寫，而是建立可重複的觀察循環：停在 breakpoint、控制下一步、用不同格式看值、檢查記憶體與 call stack，再回到原始碼修正。本文依 [Winter 2026 Lecture 5 官方投影片](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/05/Lecture05.pdf) 完整展開。
@@ -289,7 +291,7 @@ quit
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：更正 branchless absolute-value 範例的 `INT_MIN` 判定；原式有 signed overflow，不能稱為完整可用實作。
 
 ## 參考資料

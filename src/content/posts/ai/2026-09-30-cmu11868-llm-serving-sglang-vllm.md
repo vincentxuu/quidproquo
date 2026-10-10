@@ -32,7 +32,9 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm-en)
 
-> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。主要材料是兩份投影片：4/6 的 [第 22 講 Design of Efficient LLM Inference Server](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-22-llm-serving-scheduler-radixattention-dfa87a4515092525676277a85bc4425d.pdf)（Lei Li，PDF 47 頁），以及 4/13 的 [第 24 講 Paged Attention & vLLM for Efficient LLM Inference Engine](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-24-vLLM_woosuk_kwon-b6a0750bb310949461ba5a635a1126eb.pdf)（Woosuk Kwon，投影片署名 Inferact，PDF 82 頁）。下文頁碼指 PDF 頁序。[Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 為這兩講列的 reading 是 [ORCA](https://www.usenix.org/system/files/osdi22-yu.pdf)、[SGLang](https://arxiv.org/abs/2312.07104) 與 [vLLM](https://arxiv.org/abs/2309.06180)。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片公開；拿不到的是課堂錄影（本課沒有公開錄影）與課後 Quiz。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。主要材料是兩份投影片：4/6 的 [第 22 講 Design of Efficient LLM Inference Server](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-22-llm-serving-scheduler-radixattention-dfa87a4515092525676277a85bc4425d.pdf)（Lei Li，PDF 47 頁），以及 4/13 的 [第 24 講 Paged Attention & vLLM for Efficient LLM Inference Engine](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-24-vLLM_woosuk_kwon-b6a0750bb310949461ba5a635a1126eb.pdf)（Woosuk Kwon，投影片署名 Inferact，PDF 82 頁）。下文頁碼指 PDF 頁序。[Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 為這兩講列的 reading 是 [ORCA](https://www.usenix.org/system/files/osdi22-yu.pdf)、[SGLang](https://arxiv.org/abs/2312.07104) 與 [vLLM](https://arxiv.org/abs/2309.06180)。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片公開；拿不到的是課堂錄影（官方課表未列本課公開錄影連結）與課後 Quiz。
 
 **系列位置**：上一篇 [L23 大模型的高效微調：LoRA 與 QLoRA](/posts/ai/2026-09-30-cmu11868-peft-lora)｜下一篇 [HW6：DeepSpeed ZeRO＋LoRA 訓練與 SGLang 推論](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
@@ -40,11 +42,13 @@ glossary:
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 場景：一台伺服器要同時接住很多請求
 
@@ -191,7 +195,7 @@ attention 計算時，依 block table 抓回不連續的 block，當場做 atten
 
 - 兩份投影片的效能數字都來自講者自己的系統與設定，例如 PagedAttention 的倍數是對 Orca(Pow2) 在 OPT-13B 上的結果；拿到你的模型與流量上，要自己量。
 - 第 24 講談的 vLLM 內部（Rust API server、GPU 端輸入準備、hybrid allocator）是 2026 年春季的狀態，引擎還在快速變動，實作細節以 [vLLM 官方文件](https://docs.vllm.ai/)為準。
-- 本課沒有錄影，投影片上很多圖（第 11、25–32、44 頁）沒有文字說明，只能對照論文讀。
+- 官方課表未列本課錄影連結，投影片上很多圖（第 11、25–32、44 頁）沒有文字說明，只能對照論文讀。
 
 自學順序建議：
 
@@ -207,7 +211,7 @@ attention 計算時，依 block table 抓回不連續的 block，當場做 atten
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

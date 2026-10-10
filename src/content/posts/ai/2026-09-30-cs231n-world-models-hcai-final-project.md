@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：這一篇要處理的年份最亂，先講清楚。
 >
 > - **2026 L17「World Modeling」與 L18「Human-Centered AI」**：只有 [Spring 2026 課表](https://cs231n.stanford.edu/schedule.html)上的條目，沒有投影片連結；2026-09-30 試過 `slides/2026/lecture_17.pdf` 與 `lecture_18.pdf` 都回 404。2026 錄影只在 Canvas。
@@ -177,7 +179,7 @@ imitation learning 就是從示範資料做監督學習，投影片列出 behavi
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

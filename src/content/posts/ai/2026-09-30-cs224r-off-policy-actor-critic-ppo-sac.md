@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 6 篇，接續 [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic)，對應 2026 年 4 月 15 日的第 5 講「Off-Policy Actor Critic Methods」。
 
 用到的官方材料有兩份：當期投影片 [05_cs224r_offpolicy_actor_critic_2026.pdf](https://cs224r.stanford.edu/slides/05_cs224r_offpolicy_actor_critic_2026.pdf)（32 頁），以及課表上這一講的指定閱讀 [Mnih et al. 2013（DQN）](https://arxiv.org/abs/1312.5602)。PPO 原論文 [Schulman et al. 2017](https://arxiv.org/abs/1707.06347) 在課表上掛在前一講 L4 的閱讀清單，這講才正式展開。存取等級是 **A3**：投影片匿名可下載，2026 錄影只放在 Canvas。
@@ -188,7 +190,7 @@ n 步 advantage 與 GAE：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-policy-gradients-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 第 3 講投影片 [03_cs224r_policy_gradients_2026.pdf](https://cs224r.stanford.edu/slides/03_cs224r_policy_gradients_2026.pdf)（29 頁，2026-04-08 上課）。2026 錄影只放在 Canvas，校外看不到；配套影片是 [Spring 2025 L3 錄影](https://www.youtube.com/watch?v=KCAOXd4IO9o)（補充）。我比對過 2025 與 2026 版投影片：講次大綱相同，2026 版多了一張第 8 頁的「梯度搶先看」，其餘差在日期與小改動。影片內容本文沒有逐段引用。
 
 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 4 篇。前一篇是 [HW1](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)，到那裡為止都還是監督學習：有專家示範，照著學。從這一講開始，agent 要從自己的嘗試裡學。
@@ -199,7 +201,7 @@ L4 投影片第 27 頁會再提到這個 KL 限制，並說它會在 LLM 偏好�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

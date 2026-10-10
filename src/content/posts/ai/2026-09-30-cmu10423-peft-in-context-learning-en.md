@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 offering of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 10 of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series and opens the third unit, "Applying and adapting foundation models." The main material is the February 16 [Lecture 10 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture10-peft.pdf) (Aran Nayebi and Matt Gormley), plus the zero-shot/few-shot and prompting slides at the end of the February 11 [Lecture 9 deck](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture9-vae-icl.pdf) and the in-context learning and prompt engineering slides in the first half of the February 18 [Lecture 11 deck](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture11-ift-rlhf.pdf). The VAE half of L9 is in [part 8](/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en), and the instruction tuning and RLHF half of L11 is in [part 11](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo-en).
 
 I checked every fact against the official materials on 2026-09-30. From L9 onward the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html) lists no readings, so this post cites only the slides and the figure sources they name. Access level **A3**: slides, homework, and the practice exam are public; lecture recordings are on CMU Panopto and not viewable from outside.
@@ -212,7 +214,7 @@ One thing to do tonight: open the LoRA Initialization slide in L10, write one se
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

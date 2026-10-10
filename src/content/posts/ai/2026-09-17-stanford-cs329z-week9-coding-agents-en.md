@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-17-stanford-cs329z-week9-coding-agents)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Week nine is coding week. Monday the sixteenth brings a guest session. Wednesday the eighteenth covers Coding and Software Agents. The second homework is due Friday the twentieth.
 
 The week's question is simple: hand an agent a GitHub issue and see if it can fix the bug on its own. The end-to-end loop has five steps: read the request, find the relevant code, write a reproduction script, edit the code, and run the tests. What comes out is a patch plus a green test suite.
@@ -82,7 +84,7 @@ Three further readings round out the week. [Anthropic's Claude Code best practic
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

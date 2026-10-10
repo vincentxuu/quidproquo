@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)
 
+**影片狀態：待確認：尚未核對到對應錄影。** [影片來源與說明](#課程影片來源)
+
 > **本篇依投影片撰寫，影片上架後補充。** 截至 2026-09-29，[官方課表](https://www.cmu-agents.com/)上第 11 講只有[投影片](https://www.cmu-agents.com/slides/lecture-11-rl-advanced.pdf)，沒有錄影。下文的說明與推論都只根據投影片內容，沒有講者口述；投影片沒說的，我會標成我的解讀。
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 是 Daniel Fried 與 Graham Neubig 在 2026 秋季開的 LLM agent 研究所課。第 11 講（9/29）是訓練模組三講 RL 的第二講，由 Neubig 主講，副標題是「簡單配方失效時，怎麼從軌跡學習」。
@@ -42,11 +44,13 @@ glossary:
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+本篇依投影片撰寫。已查官方課表、講師頻道與本文講次標題搜尋，仍未取得可核對的直接錄影；官方課表抽取只取得後半段，講師頻道抽取未提供完整影片清單。因此本講錄影狀態尚待確認，不能判定沒有影片。
 
-課程與錄影入口：
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 範例：修一個 retry 設定的 bug
 
@@ -364,7 +368,7 @@ $$L_{\text{OPD}} = \mathbb{E}_{h \sim d_\mu}\big[D_{\text{KL}}(\pi_\theta(\cdot 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

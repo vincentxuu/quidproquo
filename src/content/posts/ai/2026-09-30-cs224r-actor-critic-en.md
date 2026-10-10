@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-actor-critic)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source term**: This post is based on the Lecture 4 slides for Spring 2026 [CS224R](https://cs224r.stanford.edu/), [04_cs224r_actor_critic_2026.pdf](https://cs224r.stanford.edu/slides/04_cs224r_actor_critic_2026.pdf) (37 pages, taught 2026-04-10). The 2026 recordings are on Canvas only. The companion video is the [Spring 2025 L4 recording](https://www.youtube.com/watch?v=oejFZShW9hU), used as a supplement. The 2025 and 2026 decks share the same lecture outline. The 2026 deck adds a few lines about policy gradient's properties to the opening recap, and the rest differs only in dates. This post does not quote the video.
 
 This is part 5 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series and picks up right after [L3: Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en). Slide 5 lists two learning goals:
@@ -232,7 +234,7 @@ That comparison maps out the next few lectures. L5 covers PPO and SAC, and L6 co
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

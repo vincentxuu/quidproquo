@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 18 篇，接續 [L13 DSL 與 AI 驅動的效能最佳化](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization)，範圍是 [Programming Assignment 5（stanford-cs149/asst5-kernels）](https://github.com/stanford-cs149/asst5-kernels)。課程首頁把它列為「Assignment 5: Make the World's Fastest CUDA Kernels」，截止日是 2025 年 12 月 4 日，而且 README 寫明這份作業**沒有遲交天數**。
 
 本文只寫題目在練什麼、該先量什麼、往哪個方向想。**不附解答。**
@@ -173,7 +175,7 @@ README 把這個迴圈寫成四步：執行、量測、用對程式的理解加�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

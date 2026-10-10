@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-16-demand-paging-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 17 篇，對應 **Stanford CS111, Spring 2026, Lecture 16**。2026-05-04 由 Mendel Rosenblum 主講，官方題目是 [Demand Paging](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/16/Lecture16.pdf)。官方 Lecture 16/17 PDFs 逐位元組相同；錄影又不公開，因此無法證明實際口述分界。為避免重複，本文聚焦 fault/fetching mechanism，[Lecture 17](/posts/learning/2026-08-22-stanford-cs111-lecture-17-page-replacement)承擔 replacement policy。
 
 ## 課程影片來源
@@ -75,7 +77,7 @@ Demand paging 的 fetching path 可濃縮成一條迴路：present bit 讓硬體
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依 duplicate-deck review 收斂為 page-fault、fetching 與 prefetch mechanism；replacement 轉交 Lecture 17。
 
 ## 參考資料

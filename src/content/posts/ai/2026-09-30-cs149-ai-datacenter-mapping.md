@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 16 篇，對應 10 月 30 日的第 12 講 [Mapping AI Applications to the Datacenter Computer](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aidatacenter/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/aidatacenter/12_AI_DatacenterMapping.pdf) 共 72 頁。
 
 **這一講沒有任何公開錄影。** Fall 2025 錄影只在 Canvas，而課程首頁指向的 2023 年公開錄影裡沒有這個主題。本文只依投影片撰寫；投影片上有一些只有圖、沒有文字的頁面（例如 Nvidia HBM roadmap、Transformer 架構圖），講者在課堂上怎麼解釋，我們無從得知，本文不替它補話。
@@ -197,7 +199,7 @@ glossary:
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

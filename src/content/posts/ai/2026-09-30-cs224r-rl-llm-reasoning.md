@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：依據 Spring 2026 的 [10_cs224r_rl_for_llms_reasoning_2026 投影片](https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf)（課表日期 2026-05-01）。[Spring 2025 L10 錄影](https://www.youtube.com/watch?v=O2VpNnwB4lM)的講者是 Aviral Kumar（見 [2025 封存頁](https://cs224r.stanford.edu/spring_2025/)），和 2026 **講者不同**，內容不能對等引用，只能當背景。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 13 篇。
 
 > **這篇的寫法限制**：這份投影片 42 頁，大多是圖表和截圖，能抽出的文字不到一千字。客座演講是觀點式的，講者在台上補充了什麼，投影片上看不到。本文只整理投影片標題、條列和圖上標出的數字，不替講者補寫論證。課表上這一講也沒有列指定讀物。
@@ -156,7 +158,7 @@ B：取樣 N 次（N = 1, 4, 16, 64），取多數決
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

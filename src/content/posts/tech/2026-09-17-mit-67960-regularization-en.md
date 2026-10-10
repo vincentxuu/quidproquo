@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-09-17-mit-67960-regularization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 9 [Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) is taught by Sara Beery. This lecture treats regularization as an "engineering toolbox" rather than pure theory: what concrete problem each technique solves, how to use it correctly, and how to combine it with others. This article restructures the lecture highlights into a practical regularization decision table with runnable PyTorch code.
 
 ## Course video sources
@@ -267,7 +269,7 @@ for name, cfg in configs.items():
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

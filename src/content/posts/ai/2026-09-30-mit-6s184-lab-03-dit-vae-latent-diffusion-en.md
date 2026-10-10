@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This post covers Lab 3 of [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) (IAP 2026). Problems come from [`labs/lab_three.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_three.ipynb) in [eje24/iap-diffusion-labs (branch 2026)](https://github.com/eje24/iap-diffusion-labs/tree/2026), checked against the official solutions in [`solutions/lab_three_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_three_complete.ipynb). Theory references point to [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §5–6. Access level A3: problems, solutions, notes, and recordings are all public; what's missing is grading feedback. Checked 2026-09-30.
 
 **Series**: Previous [L4: U-Nets, DiTs, and Latent Space](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures-en) | Next [L5: Discrete Diffusion and Generating Language with CTMCs](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion-en) | [Series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
@@ -218,7 +220,7 @@ One thing worth computing yourself: this latent holds 128×4×4 = 2048 numbers, 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-presenting-research)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2023 edition of CS224U.** It is part 16 of the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The [previous part](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol-en) covered the first two final-project deliverables. This part covers the last one, the final paper, and what comes after it: submission, review, and the talk.
 
 The sources are the course's [Presenting your research slides](https://web.stanford.edu/class/cs224u/slides/cs224u-presenting-2023-handout.pdf) (a 52-page PDF including animation steps; 38 distinct slides), videos 45 to 48 in the [YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp), and the "Final paper" and "Beyond the final paper" sections of [projects.md](https://github.com/cgpotts/cs224u/blob/main/projects.md). The deck's four parts are Your papers, Writing NLP papers, NLP conference submissions, and Giving talks. Each part has one of the four videos.
@@ -200,7 +202,7 @@ Take something you wrote recently (a design doc, a blog post, a report) and run 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

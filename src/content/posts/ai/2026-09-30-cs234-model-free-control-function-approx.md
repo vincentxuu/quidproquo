@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-model-free-control-function-approx-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的 [Lecture 4 投影片](https://web.stanford.edu/class/cs234/slides/lecture4post.pdf)（post 版，89 頁）p.16–60 與選讀例題 p.80–89；p.62–78 的 DQN 留給下一篇。公開錄影是 Spring 2024 版的 [第 4 支「Q learning and Function Approximation」](https://www.youtube.com/watch?v=b_wvosA70f8)，內容與 2026 投影片未逐頁對照。事實在 2026-09-30 打開官方投影片核對。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
 **系列位置**：上一篇 [沒模型時怎麼評估：MC、TD(0)、certainty equivalence](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation)｜下一篇 [DQN：deadly triad、experience replay、fixed targets](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
@@ -198,7 +200,7 @@ L4 p.78 的「What You Should Understand」（DQN 那一條留到下一篇）：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

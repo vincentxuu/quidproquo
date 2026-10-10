@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 第 4 講（2026-09-03，Daniel Fried 主講；[系列總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)）只問一件事：agent 做完一個任務，下一個任務能不能少走一點冤枉路？
 
 講者用一個網購網站開場。「把 Sony 耳機加進願望清單」和「查無線鍵盤的價格區間」是兩個不同任務，但前半段一模一樣：進商店、找到搜尋框、輸入關鍵字、按搜尋。如果 agent 第一次花了好幾步才搞懂這個網站怎麼搜尋，第二次應該直接會。
@@ -42,11 +44,20 @@ glossary:
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+已核對 CMU 11-768 Fall 2026 第 4 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=6zigF2a-2Pw
+title: CMU AI Agents 2026: 4. Memory and Skills for Agents
+```
+
+原始影片：[CMU AI Agents 2026: 4. Memory and Skills for Agents](https://www.youtube.com/watch?v=6zigF2a-2Pw)
+
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 更新 agent 的三個位置
 
@@ -358,7 +369,7 @@ ASI 也測了跨網站：在 WebArena 上歸納的 `sort_listings` 預期點一�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

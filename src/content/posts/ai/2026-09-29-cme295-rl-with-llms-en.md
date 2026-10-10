@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-rl-with-llms)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Pre-lecture edition**: This post was written on September 29, 2026, before 2026 Lecture 4 (October 16, 2026) has been taught. It is based on the 2026 syllabus topic list, material the 2025 slides already covered, and the original papers. It will be checked against the video and slides once they are posted.
 
 This is post 11 in the Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) series, covering Lecture 4, "Reinforcement learning with LLMs," which is new in 2026. The [2026 syllabus](https://cme295.stanford.edu/syllabus/) (checked 2026-09-29) lists seven items for it:
@@ -395,7 +397,7 @@ After the October 16, 2026 lecture, once the slides are posted, this post will b
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

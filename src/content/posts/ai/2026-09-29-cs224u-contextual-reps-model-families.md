@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 的 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 4 篇。Transformer block 與位置編碼在[上一篇](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)，本篇直接從模型家族開始。
 
 同一份 [contextual representations 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf)的後七節（GPT、BERT、RoBERTa、ELECTRA、seq2seq、Distillation、Wrap-up）對應 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)的第 07 到 13 支影片，每支約 6 到 14 分鐘。
@@ -233,7 +235,7 @@ notebook 的流程：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

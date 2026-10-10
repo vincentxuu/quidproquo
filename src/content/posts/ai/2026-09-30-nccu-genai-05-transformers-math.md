@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-05-transformers-math-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍「生成式 AI：文字與圖像生成的原理與實務」2025 春季（政大學期代碼 1132）版。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 5 篇，接續 [L04 大型語言模型原來這麼簡單](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token)。
 
 用到的官方材料有兩份：[第 5 講錄影](https://www.youtube.com/watch?v=mhjegVhqb_M)（2025-03-18，3 小時 3 分）與投影片 [GenAI05 Transformers 的數學原理](https://drive.google.com/file/d/1Am2WvzkxWNnsXEQVLcPU5NL072GRWyR_/view)（67 頁，封面標題是「RNN 及 transformers 的數學原理」）。[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上這週的課名是「Transformers 全攻略」，作業欄寫「無作業」。存取等級是 **A3**。
@@ -249,7 +251,7 @@ print(softmax(scores / np.sqrt(5)).round(2))  # [0.4  0.29 0.11 0.08 0.11]
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

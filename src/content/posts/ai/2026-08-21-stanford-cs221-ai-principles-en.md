@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs221-ai-principles)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [CS221: Artificial Intelligence: Principles and Techniques](https://stanford-cs221.github.io/) is Stanford CS's introduction to AI. It runs twice a year, carries a 200-level number, and is the entry point to the whole AI track. It teaches search, Markov decision processes, games, Bayesian networks and logic. Deep learning is one lecture.
 
 In 2026, when everyone is talking about LLMs, a course still teaching A\* and resolution deserves the question "why is this still here?" This piece isn't a defense of it. It's a reading of how the course answers that question in its own lecture notes — and the answer is blunter than you'd expect. CS221 puts all of these methods on a single axis, and deep learning lands in the **lowest** slot. Not because it doesn't matter, but because it's the one kind of model that never backtracks: run the computation once, emit the answer.
@@ -185,7 +187,7 @@ For a fuller entry point, run [welcome](https://stanford-cs221.github.io/autumn2
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

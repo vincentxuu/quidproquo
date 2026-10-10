@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-search-heuristics)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 The opening unit of CS188 asks how an agent should expand possible states when it does not know the solution path. The [Lectures 1–4 schedule](https://inst.eecs.berkeley.edu/~cs188/sp26/) covers agents, uninformed search, A*, and local search. [Project 1](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj1/) turns that sequence into implementations of DFS, BFS, UCS, and A*, followed by heuristic design for corners and food search.
 
 ## Course video sources
@@ -58,7 +60,7 @@ Series navigation: [Previous: Course overview](/posts/learning/2026-08-22-berkel
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

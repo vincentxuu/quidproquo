@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **This guide is based on the public Fall 2025 (114-1) materials of [Prof. Hung-Yu Kao's Natural Language Processing course at NTHU](https://github.com/IKMLab/NTHU_Natural_Language_Processing).** It is part 7 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The previous part is [Transformer and Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers-en).
 
 The official material for this lecture is [W3_subword.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_subword.pdf) (43 slides), with recordings [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc) and [Week 5 Thu.](https://www.youtube.com/live/FB0fgRTEbJE) (in Mandarin). As with the previous lecture, the W3 in the file name is an old week number; the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) places it in W5, the same row where HW2 is released. That row's Topics column is a syllabus template and is not cited here.
@@ -192,7 +194,7 @@ Slides 42–43 wrap up. Sub-word tokenization handles unknown, misspelled and co
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-stack-and-heap-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 本講問資料活多久、誰結束生命。Local array 隨函式 frame 存活；heap allocation 可跨越函式返回，但程式必須保存 ownership 並 `free`。
 
 `create_string` 確實建立 `"aaaa"` 並回傳當時的位址；但 pointer 抵達 caller 時，pointee 已結束 lifetime。Heap 修正生命週期，不會自動修正容量、初始化、配置失敗或釋放責任。
@@ -273,7 +275,7 @@ Lecture 10 的核心不是背 segment 圖，而是把「位址」與「可合法
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

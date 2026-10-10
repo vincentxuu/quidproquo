@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-12-graphs-3-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 13 篇，對應 **Spring 2026 官方 Lecture 11（2026-04-24）**，題目是 **Graph Theory, Part Three**。本講不是再添一批圖論定義，而是示範如何把極簡的計數事實變成證明引擎：先用廣義鴿籠原理逼出局部結構，再用 case analysis 或 contradiction 推到目標結論。
 
 課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂講者欄位，因此本文不猜實際講者。以下依公開完整投影片重建定義、證明與電影 puzzle；Canvas／Panopto 的口頭內容不在材料範圍內。
@@ -144,7 +146,7 @@ WLOG 必須伴隨可說明的交換顏色或重新編號。`R(3)≤6` 不等於�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依官方完整投影片逐項重建廣義鴿籠原理、朋友與陌生人定理、Ramsey theory、Sim 與電影偏好 puzzle 的雙語正文。
 
 ## 參考資料

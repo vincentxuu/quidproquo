@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-multimodal-alignment-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 17: Alignment — multimodality**，2026 年 5 月 27 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_17.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_17.py)。這是本系列最後一堂正課；後面兩堂 guest sessions 不納入 17 講主系列。
 
 Transformer 接收 token。文字需要 tokenizer，影像與影片也必須轉成一串可處理的 units。理解任務偏好保存高階語意，生成任務卻需要顏色、紋理與空間細節；同一套 representation 很難同時最佳。
@@ -77,7 +79,7 @@ Image tokens 通常比 text tokens entropy 高，也可能造成 norm growth 與
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

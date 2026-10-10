@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This series is based on the **IAP 2026** offering of [MIT 6.S184](https://diffusion.csail.mit.edu/). The site also keeps a [2025 page](https://diffusion.csail.mit.edu/2025/index.html) with different videos; this series does not mix the two. Every fact was checked against official materials on 2026-09-30: the [course site](https://diffusion.csail.mit.edu/2026/index.html), the [lecture notes PDF](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) (84 pages), five slide decks, six recordings, and the [`2026` branch of the labs repo](https://github.com/eje24/iap-diffusion-labs/tree/2026). Access grade: **A3, enough to self-study**.
 
 **Series position**: start of series | Next: [L1: Generation Is Sampling, and ODEs and SDEs Are the Machine](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en)
@@ -150,7 +152,7 @@ The course site footer says **CC BY-NC-SA**. This series only summarizes and gui
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

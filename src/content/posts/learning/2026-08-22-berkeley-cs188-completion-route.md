@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-completion-route-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)最後三講分別處理 AI for Global Nuclear Monitoring、AI Safety 與 Further Thoughts。它們不是突然插入的新聞單元，而是在問：前面學到的 search、decision、uncertainty 與 learning，放進真實制度後還缺什麼？
 
 ## 課程影片來源
@@ -58,7 +60,7 @@ title: CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-l07-three-laws-ai)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 Lecture 7 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **The Three Laws of AI: Safety Through Observability and Evaluation**. It Starts from Asimov’s literary laws and examines modern safety protocols through traces, test data, and continuous evaluation. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
 ## Course video sources
@@ -59,7 +61,7 @@ Save ten representative cases with inputs, outputs, and version metadata, then r
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

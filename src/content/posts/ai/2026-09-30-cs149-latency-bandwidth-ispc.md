@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 3 篇，對應 9 月 30 日的第 3 講 [Modern Multi-Core Architecture (Part II) + ISPC Programming Abstractions](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore2/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/multicore2/03_multicore2-ispc_WueDBzT.pdf) 共 56 頁。
 
 Fall 2025 的錄影只放在 Stanford Canvas。課程首頁指向 2023 年的公開錄影，本講對應 [2023 Lecture 3](https://www.youtube.com/watch?v=F4bVSyz_jxo)，標題相同。本文以 2025 投影片為準，影片只當聽講補充。整門課的公開程度是 A3（足以自學），缺口列在[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)。
@@ -199,7 +201,7 @@ ISPC 就是用來練這件事的例子。
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

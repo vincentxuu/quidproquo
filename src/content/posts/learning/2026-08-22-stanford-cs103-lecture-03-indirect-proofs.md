@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-03-indirect-proofs-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 4 篇，對應 **Spring 2026 官方 Lecture 2（2026-04-03）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面未逐堂標示講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 上一講從假設直接推到結論。本講問的是：直接路線不順時，能否改證一個等價命題？要安全地改方向，必須先知道原命題究竟在什麼情況下為假。投影片因此先講蘊涵與否定，才進入逆否證明和反證法。
@@ -178,7 +180,7 @@ CS103 要求反證明示三件事：先說使用反證法；準確寫出原命�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：從官方完整投影片重建雙語正文，恢復量詞否定、逆否證明、雙條件與兩個反證例題的逐項覆蓋。
 
 ## 參考資料

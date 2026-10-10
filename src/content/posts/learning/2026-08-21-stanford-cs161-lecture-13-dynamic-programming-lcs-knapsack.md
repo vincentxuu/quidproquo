@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-13-dynamic-programming-lcs-knapsack-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161) 的第十四篇，對應 **Stanford CS161, Winter 2026, Lecture 13**。這堂課在 2026 年 2 月 23 日由 Ellen Vitercik 主講，官方題名是 *More Dynamic Programming: LCS, Knapsack, Independent Set*。
 
 這篇只依據該講公開的 [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture13-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture13.pdf) 與[官方 lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture13.md)。課程頁另有需要 Stanford 權限的 Canvas 錄影；我沒有觀看，也不把它當成來源。Slides 有 116 頁，很多是同一張表逐格出現的動畫，因此本文整理的是完整推導，不用頁數假裝內容比較多。
@@ -239,7 +241,7 @@ LCS 若只要長度，可用兩列；若還要重建而不想保留完整 `mn` t
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

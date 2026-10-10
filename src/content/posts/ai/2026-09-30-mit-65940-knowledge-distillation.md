@@ -34,6 +34,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-knowledge-distillation-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 11 篇，對應 [Fall 2024 課程頁](https://hanlab.mit.edu/courses/2024-fall-65940)上的 **Lecture 9：Knowledge Distillation**，2024 年 10 月 3 日上課，講者 Song Han。材料有兩份，都公開：
 
 - 投影片 [Lec09-Knowledge-Distillation.pdf](https://www.dropbox.com/scl/fi/fjgnue7z3mi1ynxbd0y5k/Lec09-Knowledge-Distillation.pdf?rlkey=cup1qhlpx3vx0nrs7wuwj6m0d&st=jzhogqwp&dl=0)（84 頁，下文頁碼都指 PDF 頁）
@@ -170,7 +172,7 @@ L_aug = L(W_base) + α · L([W_base, W_aug])
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-stack-and-heap)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 Lecture 10 asks how long data must live and who ends its lifetime. A local array lives with its function frame; a heap allocation survives the function, but the program must preserve ownership and call `free`.
 
 `create_string` really creates `"aaaa"` and returns its current address, but the pointee's lifetime has ended when that pointer reaches the caller. Heap storage repairs lifetime, not capacity, initialization, allocation failure, or cleanup.
@@ -253,7 +255,7 @@ Lecture 10 is not ultimately a segment-map quiz. It binds an address to the inte
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

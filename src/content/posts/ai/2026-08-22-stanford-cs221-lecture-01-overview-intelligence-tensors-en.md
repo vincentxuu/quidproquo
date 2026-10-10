@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-01-overview-intelligence-tensors)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 1**, taught by Percy Liang and dated 2025-09-22. It reads only the three public executable artifacts: `welcome.py`, `history.py`, and `tensors.py`. The course entry point is the [official course site](https://stanford-cs221.github.io/autumn2025/), and the lecture trace is [welcome, history, tensors](https://stanford-cs221.github.io/autumn2025-lectures/?trace=welcome). Canvas-only classroom interaction is not treated as evidence, and claims absent from these sources are not added.
 
 ## Course video sources
@@ -138,7 +140,7 @@ Together, the artifacts suggest listing abilities and goals, marking computation
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

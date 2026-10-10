@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the official materials for NTHU Prof. Hung-Yu Kao's Natural Language Processing course, Fall 2025 (114-1) and Fall 2026 (115-1).** It is part 19, the last, of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series, following [the course summary and LLM reasoning notes](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning-en).
 
 The first 18 posts walked through one semester of Fall 2025 materials. This one covers two things they skipped: what the 2025 term project, worth 30% of the grade, asked for, and what changed in 2026.
@@ -174,7 +176,7 @@ Series navigation: previous, [course summary and LLM reasoning notes](/posts/ai/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

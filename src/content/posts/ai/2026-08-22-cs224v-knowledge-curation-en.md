@@ -14,6 +14,8 @@ description: "The complete CS224V Knowledge Curation lecture: RAG, STORM pre-wri
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-knowledge-curation)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 2 asks how pre-writing research can reveal dimensions the writer did not know to ask about. The schedule calls this Knowledge Curation. [STORM](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf) and Co-STORM are the central systems, followed by DataSTORM and Homework 1.
@@ -126,7 +128,7 @@ There is no public recording, and oral explanations for several tables are unava
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

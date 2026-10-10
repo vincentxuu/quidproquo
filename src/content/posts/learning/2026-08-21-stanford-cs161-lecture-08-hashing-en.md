@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-08-hashing)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 9 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 8**. The official title is **Hashing**. Ellen Vitercik taught it on February 2, 2026.
 
 I used the [official Lecture 8 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing), the public notes, and the public slides. The deck's main line ends with universal hashing. The notes continue into balls-and-bins and the birthday paradox, which I label as notes extensions. The course page also links to a Colab notebook inherited from `winter2025-extra`; I do not present it as newly authored Winter 2026 material. I did not use the Canvas-only recording.
@@ -228,7 +230,7 @@ For implementation practice, record load factor, maximum chain length, and the a
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

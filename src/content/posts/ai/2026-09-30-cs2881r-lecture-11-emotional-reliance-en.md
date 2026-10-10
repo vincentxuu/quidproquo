@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the November 13 session on the [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 site, the [Lecture 11 recording](https://youtu.be/GNvEjP1DfIs) (YouTube title "Lecture 11: Mental Health and Emotional Attachment", about 1 h 13 min), and the reading list on the site. I checked every fact against the official materials on 2026-09-30. Recording content comes from YouTube's auto-generated captions. **Materials for this lecture**: the recording and reading list are public. There are no slides, and the experiment field says "To be determined", though the recording includes two student experiments. The site's bullets for this session (regulatory approaches, lethal autonomous weapons, mass surveillance, and so on) do not match the Emotional Reliance topic and look copied from another session, so this post **does not cite them**. The [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) covers access grading for the whole course.
 
 > **Before you read**: This post summarizes class discussion and research. It is not medical or psychological advice. If you are in crisis or thinking about harming yourself, contact your local emergency services or a crisis line right away.
@@ -166,7 +168,7 @@ One thing to do tonight: in a model you use, open two fresh chats the way the fi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

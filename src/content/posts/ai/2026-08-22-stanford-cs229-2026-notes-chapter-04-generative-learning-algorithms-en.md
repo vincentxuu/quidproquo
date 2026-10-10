@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article reads Chapter 4, “Generative learning algorithms,” on printed pages 35–48 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter reading of the 2026 notes**, not a reconstruction of one quarter's recordings. The notes label Naive Bayes as optional reading, which is the appropriate weight to give that section.
 
 ## Course video sources
@@ -75,7 +77,7 @@ Train logistic regression and GDA on the same binary dataset, first with approxi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

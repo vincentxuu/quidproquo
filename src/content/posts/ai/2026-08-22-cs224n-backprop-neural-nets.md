@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-backprop-neural-nets-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 3 講排在 2026 年 1 月 13 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture03-neuralnets.pdf)標題是 Neural Network Foundations，agenda 則列出詞向量評估回顧、神經網路介紹、矩陣微積分與反向傳播。這堂不是泛泛介紹深度學習；它要建立後面所有模型共用的訓練語言。
 
 ## 課程影片來源
@@ -127,7 +129,7 @@ Winter 2026 錄影不公開。本文涵蓋投影片 agenda 的四個主體，但
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

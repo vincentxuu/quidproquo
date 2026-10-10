@@ -14,6 +14,8 @@ description: "逐段拆解 CS224V Building a Task-Oriented Agent：對話狀態�
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-task-oriented-agent-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/3-task-oriented-agent.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第三講處理一個很實際的風險：叫車、選課或訂位 agent 不能憑語感補出不存在的選項，也不能執行規格外動作。Genie Worksheets 的做法是把任務能力寫成可檢查的宣告式規格，讓 LLM 處理語言理解，卻不讓它自由決定系統能做什麼。
@@ -132,7 +134,7 @@ Worksheet 不是零成本抽象。每個 domain 都要定義 fields、relations�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

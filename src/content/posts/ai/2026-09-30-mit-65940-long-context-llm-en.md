@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-long-context-llm)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024.** It is post 19 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series.
 
 **Series**: previous [L14 LLM Post-Training](/posts/ai/2026-09-30-mit-65940-llm-post-training-en) | next [L16–L17 Efficient ViT, GANs, Video, and Point Clouds](/posts/ai/2026-09-30-mit-65940-efficient-vision-gan-video-pointcloud-en) | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -193,7 +195,7 @@ Page 68 splits an LLM's work into two kinds: communication between tokens (atten
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據清大高宏宇《自然語言處理》Fall 2025（114-1）的官方教材。** 這是 [清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列第 18 篇，接續 [RAG 助教課＋HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)。
 
 用到的官方材料有三份，都掛在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)的 W14 列：[Course_summary.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/Course_summary.pdf)（7 頁）、[Note_from_Google_DeepMind's_Reasoning_Talk.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/Note_from_Google_DeepMind%27s_Reasoning_Talk.pdf)（13 頁），以及錄影 [Week 14 Tue.](https://www.youtube.com/watch?v=_hzMv789JQ8)（約 77 分鐘）。Fall 2025 這一學期的存取等級是 **A3 足以自學**，評級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
@@ -165,7 +167,7 @@ Fall 2026 的 [Syllabus-115](https://github.com/IKMLab/NTHU_Natural_Language_Pro
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

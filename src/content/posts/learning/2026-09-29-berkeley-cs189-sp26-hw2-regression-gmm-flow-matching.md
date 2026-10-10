@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的公開教材。系列入口是 [Berkeley CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 Homework 2 在排程上和 Lec 11 同一天（2/24）發布，截止時間是 **3/13（週五）晚上 11:59 PT**，也就是期中考前四天。它涵蓋的範圍比講次進度更廣：前面幾題複習線性回歸和 MLE/MAP，後面兩大題則把 GMM 往前推到 robust clustering 和 flow matching 這種生成模型。
@@ -126,7 +128,7 @@ Homework 2 在排程上和 Lec 11 同一天（2/24）發布，截止時間是 **
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

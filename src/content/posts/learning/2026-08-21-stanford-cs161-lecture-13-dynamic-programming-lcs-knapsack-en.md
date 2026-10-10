@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-13-dynamic-programming-lcs-knapsack)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article fourteen in [Reading Stanford CS161](/en/series/stanford-cs161). It covers **Stanford CS161, Winter 2026, Lecture 13**, taught by Ellen Vitercik on February 23, 2026. The official title is *More Dynamic Programming: LCS, Knapsack, Independent Set*.
 
 This article uses only the public [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture13-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture13.pdf), and [official lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture13.md). The course page also lists a Canvas recording that requires Stanford access. I did not watch it and do not treat it as a source. The slide deck has 116 pages, many of which reveal the same table one cell at a time, so this article follows the complete derivations rather than treating slide count as content depth.
@@ -239,7 +241,7 @@ To reconstruct vertices for tree MWIS, store whether `A(u)` came from including 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

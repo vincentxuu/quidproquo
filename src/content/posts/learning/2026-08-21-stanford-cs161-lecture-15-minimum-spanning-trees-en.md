@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-15-minimum-spanning-trees)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article sixteen in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 15**, taught by Moses Charikar on March 2, 2026, and titled *Minimum Spanning Trees*.
 
 I used the public [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture15-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/lecture15-slides.pdf), and [official lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture15.md). Although the component still labels the resource section `coming`, both PDFs exist. I did not watch the access-controlled Canvas recording or use the prelecture, notebook, or concept-check bank.
@@ -126,7 +128,7 @@ Tests should check more than total weight: exactly `n-1` edges, connectivity, ac
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

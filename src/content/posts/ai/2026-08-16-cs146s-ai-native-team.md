@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs146s-ai-native-team-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是 [CS146S 系列](/posts/ai/2026-08-16-cs146s-course-map)的第十篇，對應 Fall 2026 的第九週。
 
 課程主題三條：MCP portal 與集中、有權限控管的工具存取；LLM gateway、model routing 與成本優化；組織層級的採用模式。講題是「Coding agents in big teams」。
@@ -130,7 +132,7 @@ Anthropic 公布過一份自家十個團隊怎麼用 Claude Code 的紀錄，涵
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

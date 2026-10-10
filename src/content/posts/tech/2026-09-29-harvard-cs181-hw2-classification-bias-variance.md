@@ -26,7 +26,9 @@ glossary:
 
 > 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en)
 
-> ⚠️ **版本與存取**：本篇以 [CS181 s26 homeworks 的 hw2](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw2)（`hw2_release.tex/pdf/ipynb`）與 [2026 官方 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準。Section 2、3 講義標頭是 **Spring 2026**；課站上的 lecture scribe notes 是 **2024 學期**的筆記（lec08 標頭 `2/15/24`），不是 2026 的講課內容。整門課屬 **A3 足以自學**：作業、資料與 section 解答都公開，但**沒有當期錄影、沒有作業解答**，Gradescope／Ed 需要選課。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> ⚠️ **版本與存取**：本篇以 [CS181 s26 homeworks 的 hw2](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw2)（`hw2_release.tex/pdf/ipynb`）與 [2026 官方 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準。Section 2、3 講義標頭是 **Spring 2026**；課站上的 lecture scribe notes 是 **2024 學期**的筆記（lec08 標頭 `2/15/24`），不是 2026 的講課內容。整門課屬 **A3 足以自學**：作業、資料與 section 解答都公開，但**官方課表未列對應講次的公開錄影、沒有作業解答**，Gradescope／Ed 需要選課。
 
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/)（2026 課號 CS 1810）的 HW2 標題是 **Classification and Bias-Variance Trade-offs**。依 `hw2_release.tex`，截止時間是 2026 年 2 月 27 日 23:59，共四題：30、15、30、15 分。作業開頭一句話講完它的範圍：
 
@@ -36,11 +38,14 @@ glossary:
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -172,7 +177,7 @@ flowchart LR
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

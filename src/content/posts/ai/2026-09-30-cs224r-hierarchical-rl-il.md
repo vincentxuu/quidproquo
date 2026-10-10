@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 18 篇，接續 [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl)，對應 2026 年 5 月 20 日（第 8 週週三）的第 15 講「Hierarchical RL and IL」。2026 年的 14 號沒有講課，那一天（5 月 15 日）是期中考。
 
 用到的官方材料：
@@ -213,7 +215,7 @@ g_t 有很多名字：subgoal、subtask、skill、option、high-level action。�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

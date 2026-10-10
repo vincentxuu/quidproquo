@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/) is a broad introduction to artificial intelligence, not merely a neural-network course. It begins with state spaces, heuristics, constraint satisfaction, and game trees; moves through MDPs, reinforcement learning, and probabilistic inference; and only then reaches machine learning, deep learning, and LLMs. The official schedule publishes 28 recordings, 27 lecture slide sets (Lecture 22 has no separate slides), 11 discussion sets, and Projects P0–P5.
 
 Its strength is that concepts return as programs. P0 teaches Python and the autograder; P1–P4 use Pacman settings for search, multi-agent reasoning, RL, and probabilistic inference; P5 contains general ML tasks such as regression, classification, CNNs, and attention. That is why this series follows P0–P5 instead of producing 28 disconnected lecture summaries.
@@ -58,7 +60,7 @@ Open P0 and verify that Python and the local autograder run. Then read the state
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §1.3 與 §2（pp.4–13）、[Slides 1](https://diffusion.csail.mit.edu/2026/docs/20260120_Lecture_01.pdf)，以及[第 1 講錄影](https://www.youtube.com/watch?v=9eJQQVrUUoI)。定理、例子與演算法編號都照講義。2026-09-30 核對。
 
 **系列位置**：上一篇 [系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)｜下一篇 [Lab 1：模擬 ODE 與 SDE](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes)
@@ -243,7 +245,7 @@ Require: 神經網路 u_t^θ，步數 n，diffusion coefficient σ_t
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

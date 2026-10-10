@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/) 是 Stanford 電腦科學系的語言與資訊入門課，由 [Dan Jurafsky](https://web.stanford.edu/~jurafsky/) 開，同時掛在語言學系底下（LINGUIST 180／280）。它教的是怎麼把一堆非結構化的文字、語音和社群連結變成可以計算的東西：斷詞、分類、檢索、推薦、轉寫。課程自己的定位寫得很白——它是 CS224N、CS246、CS276、CS336 這一整排研究所課的**大學部總入口**。
 
 這門課在 [Stanford CS 課程導讀地圖](/posts/learning/2026-08-20-stanford-cs-course-map)裡是 NLP 分支的第一格。地圖那篇回答的是「它在階梯的哪一層」。這篇要回答的是進去之後會發生什麼事：課表怎麼排、作業長什麼樣、哪一份是分水嶺、沒選到課的人實際拿得到多少。
@@ -196,7 +198,7 @@ PA1 到 PA6 可以獨力做，也可以找一個人配對。PA7 **強制三到�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

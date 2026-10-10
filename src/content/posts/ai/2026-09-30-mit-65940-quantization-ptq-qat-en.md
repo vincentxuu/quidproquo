@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940), Fall 2024.** It is part 6 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series and follows [Lecture 5: Quantization I](/posts/ai/2026-09-30-mit-65940-quantization-basics-en).
 
 **Series**: previous [Lecture 5: Quantization basics](/posts/ai/2026-09-30-mit-65940-quantization-basics-en) | next [Lab 2: Implementing K-means and linear quantization](/posts/ai/2026-09-30-mit-65940-lab2-quantization-en) | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -235,7 +237,7 @@ One thing you can do tonight: open the table on page 26 and work out VS-Quant's 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

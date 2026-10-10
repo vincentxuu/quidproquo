@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-course-summary-quantum-ml)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Edition note**: This post covers Lecture 22 (2024-11-21, Course Summary + Quantum Machine Learning I) and Lecture 23 (2024-11-26, Quantum Machine Learning II) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Course-Summary.pdf](https://www.dropbox.com/scl/fi/cn0wr4zxuv4hvpce81lo1/Course-Summary.pdf?rlkey=ycn79vnsu2n7395fz1v04khz0&st=z86d0rap&dl=0) (13 pages), [Lec23-Quantum-ML-II.pdf](https://www.dropbox.com/scl/fi/wxpnpwkrl6pw7lb4n4vrg/Lec23-Quantum-ML-II.pdf?rlkey=21msd9zdilhry5pydlkvbn7n4&st=aoyc9pzv&dl=0) (99 pages), and the [Lecture 22](https://youtu.be/svjjD2uthhQ) and [Lecture 23](https://youtu.be/ZDk-GsyInt8) recordings. Page numbers are PDF pages. Facts were checked against the official materials on 2026-09-30. Access level is **A3**: slides and recordings are public. The gap: **Quantum ML Part I has no slides**. The Slides link for Lecture 22 points only to Course-Summary.pdf, so this post does not cover Part I's content.
 >
 > **Fall 2026**: On the [F26 schedule](https://hanlab.mit.edu/courses/2026-fall-65940), Chapter IV is a single Guest Lecture on December 1 with no announced topic. The course summary and quantum ML lectures are gone.
@@ -222,7 +224,7 @@ The [F26 course page](https://hanlab.mit.edu/courses/2026-fall-65940) marks Chap
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

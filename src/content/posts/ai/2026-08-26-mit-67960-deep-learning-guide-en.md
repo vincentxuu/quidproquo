@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [MIT 6.7960: Deep Learning](https://deeplearning6-7960.github.io/) is MIT EECS's graduate-level deep learning course. In Fall 2025 it is co-taught by [Sara Beery](https://beerys.github.io/), [Kaiming He](https://people.csail.mit.edu/kaiming/), and [Omar Khattab](https://omarkhattab.com/). Every one of the semester's 21 lecture decks is directly available as a Dropbox PDF, weekly readings are listed on the schedule, and even the final project's [guidelines PDF](https://www.dropbox.com/scl/fi/mwqtppp1dlub9l0i75qyh/6_7960_Fall_2025_Project_Guidelines.pdf?rlkey=j07t54chig54yqzmnv9l47dlg&st=xeh3qw8j&dl=0) is public.
 
 This is not, however, a fully open course. Problem sets are released through [Gradescope](https://www.gradescope.com/courses/1110115), their solutions sit on [Canvas](https://canvas.mit.edu/courses/33933), and so do the lecture recordings — all three require MIT credentials. Under this site's four-tier rubric from the [Global AI and CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the course rates **A2: partially open materials**. A materials-level deep dive is possible; the gaps must be stated plainly.
@@ -127,7 +129,7 @@ For background, pair this with the [MIT AI/ML Course Map](/posts/learning/2026-0
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

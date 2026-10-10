@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 22 篇，對應 **Stanford CS111, Spring 2026, Lecture 21**。2026-05-15 由 Mendel Rosenblum 主講，官方題目是 [File Systems, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf)。官方 [Lecture 20 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf) 與 Lecture 21 PDF 逐位元組相同，SHA-256 均為 `42e4021f84ed272db95224024c878a09d6c719430efc386c2614dcc8ef94310d`。Canvas／Panopto 錄影不公開，無法還原兩天實際口述分界。
 
 因此本文聚焦重複 [deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf) 中段的 block cache、free-space bitmap、block fragments、repacking 與 delayed allocation。Direct／indirect inode walk 和尾端 disk scheduling 已由 [Lecture 20](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes)完整處理；這裡不假裝有另一份 deck，也不複製相同段落灌水。
@@ -80,7 +82,7 @@ file 建立時不知道最終大小，而且是一 block 一 block 成長；小�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依與 Lecture 20 重複的官方 PDF，聚焦 cache、free space、fragments 與 delayed allocation，並記錄相同 SHA 與錄影缺口。
 
 ## 參考資料

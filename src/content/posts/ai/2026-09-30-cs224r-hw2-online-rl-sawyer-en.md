@@ -20,6 +20,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 8 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It comes after [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en) and [L6 Q-learning](/posts/ai/2026-09-30-cs224r-q-learning-en), and walks through the second assignment, "Online Reinforcement Learning."
 
 The assignment went out on April 10, 2026 (the day of L4) and was due on Gradescope on April 24 at 9 pm Pacific. It is worth 15% of the grade. Official sources used:
@@ -203,7 +205,7 @@ Series navigation: previous [L6 Q-learning and How to Stabilize It](/posts/ai/20
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

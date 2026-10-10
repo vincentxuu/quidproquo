@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies)
 
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the October 2 session of the [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 site. **The site lists no lecture recording and no slides for this session.** It lists one [student experiment video](https://youtu.be/HMcA4Gi6HFE), a [LessWrong student summary](https://www.lesswrong.com/posts/uahJ7CrB8oWyRyyvL/cs-2881r-ai-safety-week-5-content-policies) (Audrey Yang, MB Samuel), and the reading list. Everything below about the guest talk is therefore secondhand, sourced from that student summary. All facts were checked against these materials on 2026-09-30. For the course-wide access grade, see the series overview; this lecture on its own reaches only **A1** (syllabus and readings visible, the talk itself unavailable).
 
 **Series**: previous [L4: Should a Model Spec Be Principles or Rules?](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en) | next [Midterm: Reproduce and Extend One Headline Figure](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
@@ -30,11 +32,20 @@ The previous lecture asked what we want a model to do, and wrote the answer down
 
 ## Course video sources
 
-The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+The official Fall 2025 entry provides a student experiment video, but does not list a recording of Ziad Reslan’s guest lecture. The video below is the policy-compliance student experiment, not the guest lecture.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
+title: CS2881R Fall 2025 L5: Student experiment on policy compliance
+```
 
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+Original videos: [CS2881R Fall 2025 L5: Student experiment on policy compliance](https://www.youtube.com/watch?v=HMcA4Gi6HFE)
+
+Official sources:
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+Checked on 2026-10-10.
 
 ## What you can get for this lecture
 
@@ -130,7 +141,7 @@ One thing you can do tonight: following the class exercise, list five image scen
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

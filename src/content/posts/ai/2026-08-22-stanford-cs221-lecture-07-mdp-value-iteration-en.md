@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 7**, taught by Percy Liang on 2025-10-13. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering, assignments, and lecture context. The article follows the executable [official `mdp` lecture artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=mdp), with the data structures and update order translated into a readable derivation. The recording can be cross-checked through the [official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN), and the lecture source is in the [official lecture repository](https://github.com/stanford-cs221/autumn2025-lectures).
 
 > Material gap: The official lecture artifact and video are public; the local `mdp.py` does not provide the full spoken lecture, Canvas interactions, assignment solutions, or hidden tests. The claims below therefore stay with what the source directly demonstrates or what follows from its equations. Details from another term, unseen video material, or intuition are not presented as Lecture 7 conclusions.
@@ -166,7 +168,7 @@ Do not just memorize “take the max”; audit the contract. Does the state reta
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

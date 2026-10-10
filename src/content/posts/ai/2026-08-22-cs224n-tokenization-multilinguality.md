@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)確認第 14 講在 2026 年 2 月 19 日由 Julie Kallini 客座主講；[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture14-guest-julie-tokenization-multilinguality.pdf)的 agenda 有五段：word/character-byte/subword tokenization、BPE 訓練、拼字與 glitch token 案例、多語言與跨語言遷移、公平與多語 tokenizer 挑戰。
 
 ## 課程影片來源
@@ -146,7 +148,7 @@ Winter 2026 錄影不公開。本文涵蓋 Julie Kallini 投影片的五段 agen
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

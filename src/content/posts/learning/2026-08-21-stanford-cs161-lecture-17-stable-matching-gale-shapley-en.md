@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-17-stable-matching-gale-shapley)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article eighteen in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Winter 2026 Lecture 17**, taught by Ellen Vitercik on March 9, 2026: *Stable Matchings and Gale-Shapley*.
 
 I read the public [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture17-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture17.pdf), and [official component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture17.md). I did not watch the Canvas recording.
@@ -87,7 +89,7 @@ Small-instance tests can enumerate all matchings, verify completeness and absenc
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

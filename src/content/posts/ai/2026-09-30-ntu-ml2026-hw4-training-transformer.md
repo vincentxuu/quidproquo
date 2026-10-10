@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW4。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 10 篇。上一篇 [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding) 講模型怎麼知道 token 的順序；這份作業讓你親手訓練一個 decoder-only Transformer，而且訓練對象不是文字，是圖片。
 
 課程頁作業表寫 HW4 在 3/27 公告、04/16/2026 23:59 截止，助教是劉建蘴、馮柏翰、陳品睿。用到的官方材料：
@@ -127,7 +129,7 @@ Colab 裡的預設 GPT-2 設定與這張表一致（`n_embd` 64、`n_head` 2、`
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

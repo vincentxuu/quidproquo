@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 19 篇，接續 [L15 階層式 RL 與模仿學習](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il)，對應 2026 年 5 月 22 日（第 8 週週五）的第 16 講「RL for Robots: Sim-to-Real Transfer」。這講是客座演講，講者是 [Guanya Shi](https://lecar-lab.github.io/)，投影片上的頭銜是 CMU Robotics Institute 助理教授、Amazon Frontier AI & Robotics（FAR）的 Amazon Scholar。
 
 用到的官方材料：
@@ -213,7 +215,7 @@ title: Spring 2025 Lecture 17: Advancing Robot Intelligence（YouTube，講者�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

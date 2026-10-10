@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) 2025 秋季版。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 5 篇，對應官方第 4 講「Model Specifications & Compliance」（2025 年 9 月 25 日）。[L2](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training) 講了怎麼把安全行為訓練進去，[L3](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness) 講了怎麼被攻破；這一講退回更前面的問題：我們到底要模型做什麼？
 
 用到的官方材料：
@@ -42,11 +44,20 @@ Barak 開場就先揭露立場：他之所以聚焦 [OpenAI Model Spec](https://
 
 ## 課程影片來源
 
-官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+已由 Fall 2025 官方課表核對本文對應講次的公開 YouTube 錄影。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=LQ0RRQKKluc
+title: CS2881R Fall 2025 L4: Model Specifications & Compliance
+```
 
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+原始影片：[CS2881R Fall 2025 L4: Model Specifications & Compliance](https://www.youtube.com/watch?v=LQ0RRQKKluc)
+
+官方來源：
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+查核日期：2026-10-10。
 
 ## 先看大家實際拿 ChatGPT 做什麼
 
@@ -222,7 +233,7 @@ Hugh Van Deventer 問的是：拿一個安全訓練很少的模型，給它詳�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

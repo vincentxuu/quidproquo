@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)3/20 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 6 篇。上一篇是 [HW2：讓 AI Agent 當 AI 工程師](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)。前幾篇都在談 agent：[OpenClaw](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy) 會把一大段 system prompt 塞在你的每一句話前面，[Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering) 則在處理 context 放不下的問題。這一篇換到模型內部：**輸入動輒上萬、十萬 token 的時候，生成為什麼會慢，又能怎麼變快？**
 
 用到的官方材料：講義 [inference.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/inference.pdf) 第 1–28 頁（整份 55 頁，後半是[下一篇 KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)），課程頁列出的影片[加快語言模型生成速度 (1/2)：Flash Attention](https://youtu.be/vXb2QYOUzl4)，以及投影片第 28 頁的[範例 Colab](https://colab.research.google.com/drive/1KoeKKIXSXI9b-pYg0kun3-uLQkP6p_hC?usp=sharing)。存取等級是 **A3**：投影片 pdf／pptx、錄影與範例程式都公開。本講沒有獨立測驗，對應的練習在 [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference)。
@@ -173,7 +175,7 @@ Colab 裡做了三件事：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

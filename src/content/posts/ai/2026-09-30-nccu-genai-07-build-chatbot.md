@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 7 篇，接在 [L06 LLM 的應用及倫理議題的挑戰](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)之後。上一講做出了一問一答的員瑛式思考生成器，這一講要讓它「聊得下去」，而且不一定要把資料送到雲端。
 
 用到的官方材料：[錄影 07](https://www.youtube.com/watch?v=LOo0VKhjoRc)（2025-04-01，約 3 小時 3 分）、投影片 GenAI07（31 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo04c】用OpenAI_API打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04c%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb) 與 [`用_Ollama_打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E7%94%A8_Ollama_%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第七週作業。存取等級 **A3**。notebook 是跨課共用 repo，**以下引用 repo 目前版本，學期結束後可能已更新**。
@@ -163,7 +165,7 @@ Colab 免費版跑 1B 模型比較實際。想在自己電腦跑更大的版本�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

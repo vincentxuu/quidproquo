@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-05-kernel-methods-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 5 章〈Kernel methods〉，講義頁碼 49–59。它是 **2026 notes 的逐章導讀**，不是某季錄影的重建。
 
 ## 課程影片來源
@@ -72,7 +74,7 @@ kernel trick 省掉顯式高維特徵，卻沒有讓資料規模消失。通常�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

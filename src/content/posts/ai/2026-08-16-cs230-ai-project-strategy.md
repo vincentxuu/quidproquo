@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-ai-project-strategy-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)講了強化學習與 RLHF。這一篇回到最實務的一端。
 
 本篇對應 **[Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)**（2025/10/28，Andrew Ng 主講，1 小時 15 分）。
@@ -262,7 +264,7 @@ Ng 用的例子已經是 LLM pipeline 了，所以幾乎不用轉譯。真正值
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

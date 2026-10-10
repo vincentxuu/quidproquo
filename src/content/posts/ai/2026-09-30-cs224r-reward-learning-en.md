@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-reward-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source term**: Based on the Spring 2026 [08_cs224r_reward_learning_2026 slides](https://cs224r.stanford.edu/slides/08_cs224r_reward_learning_2026.pdf) (scheduled 2026-04-24). The companion video is the [Spring 2025 Lecture 8 recording (supplement)](https://www.youtube.com/watch?v=PDIxDhA9Z6Y). The title matches, but the opening offline RL recap differs: the [2025 Lecture 8 slides](https://cs224r.stanford.edu/spring_2025/slides/08_cs224r_reward_learning_2025.pdf) are titled "Conservative Offline RL and Reward Learning" and recap conservative methods, while the 2026 version recaps Lecture 7's two key ideas and adds a π*0.6 example. The three reward-learning subsections are the same in both years. This is post 10 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
 Since [Lecture 1](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en), [CS224R](https://cs224r.stanford.edu/) has treated the reward r(s, a) as given. Lecture 8 finally asks who supplies that number.
@@ -211,7 +213,7 @@ Pick an agent or LLM feature you work on and write down what its "reward" is tod
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

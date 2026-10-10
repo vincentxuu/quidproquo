@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據台大陳縕儂《深度學習之應用》（ADL）**Fall 2025（114-1，2025/09/01–12/15）** 9/08 那週的 [Tokenization 投影片](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Tokenization.pdf)（22 頁）。課程頁這一列連到的影片是 [ADL 5.1: BPE (Byte-Pair Encoding) Tokenization](https://youtu.be/NrT5kmnTFCk)（33:37），它的上傳日期是 2023-10-12，是沿用往年的錄影，不是 2025 年重錄，內容可能跟 2025 版投影片有出入。這支影片沒有字幕，本文只依投影片寫。事實皆於 2026-09-30 打開官方材料核對。整門課的存取分級是 **A2**，缺口在作業端，見[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)。
 
 **系列位置**：上一篇 [Attention 與 Transformer](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer)｜下一篇 [BERT 與 BERT 家族](/posts/ai/2026-09-30-ntu-adl2025-bert-family)｜[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
@@ -162,7 +164,7 @@ w i d e s t </w>  : 3
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

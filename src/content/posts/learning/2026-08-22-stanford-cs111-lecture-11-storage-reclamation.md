@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-11-storage-reclamation-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 12 篇，對應 **Stanford CS111, Spring 2026, Lecture 11**。2026-04-22 由 Mendel Rosenblum 主講，官方題目是 [Dynamic Storage Management, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/11/Lecture11.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 先說材料異常：官方 `Lecture10.pdf` 與 `Lecture11.pdf` 的 SHA-256 都是 `368092c0...e67cb`，22 頁內容逐位元組相同；calendar 卻把 4 月 22 日列為 **Dynamic Storage Management, Continued**。錄影受 Canvas 限制，無法判斷現場從哪一頁接續。因此本文不捏造 boundary tags 等 PDF 沒有的內容，而把重點放在重複 deck 後半明示的 storage reclamation。
@@ -73,7 +75,7 @@ PDF 給出的成本量級是：GC 可能占系統 10–20% CPU time，需要 2�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-11-storage-reclamation)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 12 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 11**. Mendel Rosenblum taught the lecture on 2026-04-22; its official title is [Dynamic Storage Management, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/11/Lecture11.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 The material has an important anomaly: official `Lecture10.pdf` and `Lecture11.pdf` have the same SHA-256 (`368092c0...e67cb`) and are byte-identical 22-page files, although the calendar calls April 22 **Dynamic Storage Management, Continued**. The Canvas recording is unavailable, so the actual in-room continuation cannot be reconstructed. This article does not invent boundary tags or other absent content; it focuses on storage reclamation explicitly present in the repeated deck's latter half.
@@ -73,7 +75,7 @@ The conclusion is not that GC always beats manual free. Reference counting buys 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

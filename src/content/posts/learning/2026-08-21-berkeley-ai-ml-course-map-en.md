@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 First, correct the assumption hidden inside the phrase “Berkeley AI curriculum”: according to [Berkeley EECS's undergraduate-program comparison](https://eecs.berkeley.edu/academics/undergraduate/compare-majors/), **Berkeley does not offer a standalone undergraduate AI degree.** Its relevant undergraduate degrees are the BA in Computer Science and the BS in Electrical Engineering and Computer Sciences. Students build an AI/ML path from upper-division courses on top of a shared programming, theory, and mathematics foundation.
 
 That differs sharply from MIT's Course 6-4. MIT defines a formal degree in Artificial Intelligence and Decision Making. Berkeley offers something closer to a network that students assemble: enter through CS188 for search, reasoning, and planning, or through CS189 for mathematically intensive machine learning, then branch into deep learning, natural language processing, computer vision, or reinforcement learning.
@@ -180,7 +182,7 @@ For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-m
 ## Changelog
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-30: The CS189 Spring 2026 site is back online, now graded A3 and added to the inventory table; Spring 2025 official recordings require a bCourses login, so the "public video" claim was removed; linked the expanded CS189 guide series.
 - 2026-08-22: Restored CS C182 to the advanced-vision route based on CS C280's official expected background.
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-11-games-td-nash)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 11**, taught by Percy Liang on 2025-10-27. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [td_learning and simultaneous_games](https://stanford-cs221.github.io/autumn2025-lectures/?trace=td_learning). The account below follows the order of the two source files and does not fill their gaps with material from another lecture or with unstated intuition.
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable. This article keeps that boundary explicit rather than inventing evidence.
@@ -207,7 +209,7 @@ Together, the two files demonstrate a recurrence, a tabular TD update, self-play
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

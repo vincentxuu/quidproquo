@@ -35,6 +35,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-hardware-specialization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is post 13 in the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers Lecture 10 from October 23, [Hardware Specialization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/). The official [slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/accelerators/10_Specialized.pdf) has 71 slides.
 
 Fall 2025 recordings live only on Stanford Canvas. The closest public video is [2023 Lecture 18: Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw), but it only supplements the first half. Compared with the [2023 course site's slides on the same topic](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/), the opening material (energy constraints, H.264, FFT, DSPs, Anton, FPGAs, efficiency rules of thumb) is all in the 2023 deck. The 2023 second half covered the Spatial accelerator-design language, streaming execution, and how DRAM works. The 2025 deck replaces that with GPU Tensor Cores, the TPU systolic array, and dataflow architectures. This guide follows the 2025 slides. The course overall is A3 (enough to self-study); gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
@@ -225,7 +227,7 @@ Series navigation: previous [L9 Running DNNs efficiently on GPUs](/posts/ai/2026
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-13-virtual-memory-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 14 篇，對應 **Stanford CS111, Spring 2026, Lecture 13**。2026-04-27 由 Mendel Rosenblum 主講，官方題目是 [Virtual Memory](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/13/Lecture13.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 前半課程把一個 core 分享給 concurrent threads；從今天開始，要把一份 physical memory 分享給 concurrent processes。PDF 採歷史順序，讓每個新機制都針對前一版的失敗，而不是直接把現代 virtual memory 當成魔法。
@@ -99,7 +101,7 @@ Segmentation 仍有限制。固定 segment 數量無法自然支援任意多 map
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

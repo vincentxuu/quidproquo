@@ -14,6 +14,8 @@ description: "CS224V Natural Language Constraints with SMT: clinical-trial match
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-natural-language-smt)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-semantics.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 11 is a formal-methods research case study, not medical advice. It asks how patient records and natural-language eligibility criteria can be matched at scale. Rather than asking an LLM for the eligibility decision, the pipeline translates language into a representation a solver can check.
@@ -110,7 +112,7 @@ The public deck provides no validated clinical deployment protocol, complete par
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

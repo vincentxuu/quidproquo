@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This guide is based on the Spring 2026 edition of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 17 of [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) and the last post in the "Scaling Up" unit. The [previous post](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en) answered "how big should the model be". This one answers "how do you train and serve a model that big".
 
 Official materials used: the [Lecture 17 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture17-distributed.pdf) and their [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture17-distributed-ink.pdf), the [Lecture 18 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture18-efficient.pdf), and the [course schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html). I downloaded and checked all of them on 2026-09-30. The schedule lists no readings for these two lectures, so every paper cited here is one the slides cite.
@@ -178,7 +180,7 @@ Series: Previous: [L15–L16: Scaling Laws and Mixture of Experts](/posts/ai/202
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

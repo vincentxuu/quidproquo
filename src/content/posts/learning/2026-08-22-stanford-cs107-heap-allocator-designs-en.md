@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-heap-allocator-designs)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 Lecture 21's implicit free list uses each block's size to walk the physical heap. Its structural weakness is that a search crosses allocated blocks that cannot satisfy the request. Lecture 22 narrows the search set by linking only free blocks.
 
 This is more than adding a `next` pointer. A free block now belongs to two orders: physical neighbors by address and logical neighbors in the free list. Coalescing uses the first; search and removal use the second. The dangerous failure is updating one relation while the other still treats an obsolete node as valid.
@@ -151,7 +153,7 @@ The lasting lesson is ownership across structures. A free block is both contiguo
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

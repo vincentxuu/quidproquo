@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **This guide is based on ADL Fall 2025 (114-1, 2025/09/01–12/15).** It is post 18, the last one, in the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. The lecture posts only link to the recitations; the recitation content lives here.
 
 The [ADL Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/) splits each week into a Lecture column and a Recitation column. Lectures cover the ideas. Recitations cover how to actually get things running. Page 6 of the [Course Logistics slides](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf) lists seven recitation topics: dev infra and tooling (Colab, GPU, PyTorch), the DL workflow, Hugging Face basics, LLM architecture, LLM evaluation, LLM training, and LLM inference.
@@ -248,7 +250,7 @@ Series overview: [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/po
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is a chapter-by-chapter reading of Chapter 8, printed pages 115–136, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) by Tengyu Ma and Andrew Ng. It is **not a reconstruction of any quarter's recordings or lecture schedule**. The aim is to preserve the chapter's line of argument, not reproduce every proof.
 
 The first seven chapters explain how models learn. Chapter 8 asks the harder question: why can a model with tiny training error still fail on new data? That question moves the course from algorithms into generalization and learning theory.
@@ -78,7 +80,7 @@ Generate several noisy datasets from the same quadratic function. Fit linear, qu
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

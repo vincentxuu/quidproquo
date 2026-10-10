@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-interpretability-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)確認第 15 個正規單元在 2026 年 2 月 24 日由 Been Kim 客座主講，官方題名只有 **Guest Lecture: Interpretability**。這一講和前十四講不同：課程頁沒有公開 Winter 2026 投影片，也沒有列 agenda，只列五篇 suggested readings。
 
 因此這篇不能忠實重建「講了什麼」。以下是官方閱讀清單能支持的閱讀導圖，目的在保存系列位置與材料邊界，不把論文內容冒充課堂內容。
@@ -52,7 +54,7 @@ Neologism learning 嘗試學習新概念 token，讓模型能引用、控制或�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

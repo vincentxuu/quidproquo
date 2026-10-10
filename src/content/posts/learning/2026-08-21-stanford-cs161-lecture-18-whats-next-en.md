@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-18-whats-next)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article nineteen in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Winter 2026 Lecture 18**, taught by Ellen Vitercik on March 11, 2026; the [official Winter 2026 course homepage](https://stanford-cs161.github.io/winter2026/) defines the term and sequence used here. The component says *What's next?* and the deck says *What we’ve done and what’s to come*.
 
 The source boundary is unusually important: the official component provides **52 slides and no lecture notes**. I used the [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture18.pdf) and [component metadata](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture18.md), not Canvas or notes from another term.
@@ -89,7 +91,7 @@ The best use of this finale is as a map: choose a tool here, then return to the 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

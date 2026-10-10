@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 版，2026-09-30 對照[講義 PDF](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §3（pp.14–24）與 [Slides 2](https://diffusion.csail.mit.edu/2026/docs/20260122_Lecture_02.pdf) 撰寫，[第 2 講錄影](https://www.youtube.com/watch?v=PNkMKWW8Khw)可搭配觀看。存取等級 **A3 足以自學**。公式編號一律指講義原文。
 
 **系列位置**：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)第 3 篇｜上一篇 [Lab 1：模擬 ODE 與 SDE](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes)｜下一篇 [L3A：分數函數、SDE 取樣與 score matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)
@@ -275,7 +277,7 @@ L_CFM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖u_t^θ(α_t z + β_t ε) − (�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

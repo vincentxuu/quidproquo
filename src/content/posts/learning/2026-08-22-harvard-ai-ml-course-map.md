@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 搜尋 Harvard 的公開 AI 課，最先看到的通常是 **CS50’s Introduction to Artificial Intelligence with Python**。七週影片、逐講 notes、Python projects、`check50`，看起來像一門可以從頭做到尾的最新公開課。問題是頁面上的「2026」、影片的錄製年份與作業使用的 distribution 並不是同一件事。
 
 CSCI S-80 Summer 2026 確實是 Harvard Summer School 的正式 2026 班次，但這不代表底層教材也在 2026 年重錄。Lecture 0 仍指向 2020 Spring 的錄影、投影片與 transcript，正式班的 Degrees project 也下載 2020 Spring distribution。
@@ -116,7 +118,7 @@ Harvard 最清楚的教訓不是哪門課最好，而是**公開頁面很漂亮�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-01：入口表與「補廣義 AI 或專題分支」路線補上 CS 2881R AI Safety（Fall 2025 完整結束，閱讀清單、11 講錄影、HW0 repo 與專題規格公開，以研討課標準列 A3）與站內導讀連結；參考資料補上 Fall 2025 課站。
 - 2026-09-30：CS1810 段落與系列免責邊界加上本站 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的連結（Spring 2026 HW0–HW6 與期中／期末檢查點），參考資料同步列入。
 - 2026-08-27：補上六輪稽核後的免責邊界 — CS182 2026/2025/2024/2023 當期皆 A0（Locator Canvas 未發布、無公開 hw repo，僅 F22 22講+F18 P0–5 為歷史 A2）；CS181 2026/2025/2024/2023 對照表（成績從雙期中到 midterm+final、hw3–5 重組、practical 存廢）與 Google Sheet 已刪註記，逐週導讀以 hw 編號為節拍。

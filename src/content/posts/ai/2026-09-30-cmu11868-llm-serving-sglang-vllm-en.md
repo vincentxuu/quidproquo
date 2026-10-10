@@ -32,7 +32,9 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)
 
-> **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main sources are two slide decks: the April 6 [Lecture 22, Design of Efficient LLM Inference Server](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-22-llm-serving-scheduler-radixattention-dfa87a4515092525676277a85bc4425d.pdf) (Lei Li, 47 PDF pages), and the April 13 [Lecture 24, Paged Attention & vLLM for Efficient LLM Inference Engine](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-24-vLLM_woosuk_kwon-b6a0750bb310949461ba5a635a1126eb.pdf) (Woosuk Kwon, credited to Inferact on the slides, 82 PDF pages). Page numbers below are PDF page order. The [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) lists [ORCA](https://www.usenix.org/system/files/osdi22-yu.pdf), [SGLang](https://arxiv.org/abs/2312.07104), and [vLLM](https://arxiv.org/abs/2309.06180) as readings. All facts were checked against the official materials on 2026-09-30. Access level **A3**: the slides are public. What you can't get is lecture video (this course publishes none) and the quizzes.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main sources are two slide decks: the April 6 [Lecture 22, Design of Efficient LLM Inference Server](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-22-llm-serving-scheduler-radixattention-dfa87a4515092525676277a85bc4425d.pdf) (Lei Li, 47 PDF pages), and the April 13 [Lecture 24, Paged Attention & vLLM for Efficient LLM Inference Engine](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-24-vLLM_woosuk_kwon-b6a0750bb310949461ba5a635a1126eb.pdf) (Woosuk Kwon, credited to Inferact on the slides, 82 PDF pages). Page numbers below are PDF page order. The [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) lists [ORCA](https://www.usenix.org/system/files/osdi22-yu.pdf), [SGLang](https://arxiv.org/abs/2312.07104), and [vLLM](https://arxiv.org/abs/2309.06180) as readings. All facts were checked against the official materials on 2026-09-30. Access level **A3**: the slides are public. What you can't get is lecture video (the official syllabus lists no public recording links) and the quizzes.
 
 **Series**: Previous [L23 Efficient Fine-Tuning: LoRA and QLoRA](/posts/ai/2026-09-30-cmu11868-peft-lora-en) | Next [HW6: DeepSpeed ZeRO + LoRA Training and SGLang Inference](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
@@ -40,11 +42,13 @@ The official order is SGLang on April 6, PEFT on April 8, and vLLM on April 13. 
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## The setting: one server, many requests
 
@@ -191,7 +195,7 @@ This isn't either/or. Lecture 22's page 9 says the architectures are similar, an
 
 - Performance numbers in both decks come from the speakers' own systems and setups. PagedAttention's speedups, for instance, are against Orca(Pow2) on OPT-13B. Measure on your own model and traffic.
 - The vLLM internals in Lecture 24 (Rust API server, GPU-native input prep, hybrid allocator) reflect spring 2026. The engine moves fast; check the [vLLM documentation](https://docs.vllm.ai/) for current details.
-- The course has no video, and many diagrams (pages 11, 25–32, 44) have no accompanying text. You'll need the papers alongside.
+- The official syllabus lists no public video link, and many diagrams (pages 11, 25–32, 44) have no accompanying text. You'll need the papers alongside.
 
 Suggested order:
 
@@ -207,7 +211,7 @@ Suggested order:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

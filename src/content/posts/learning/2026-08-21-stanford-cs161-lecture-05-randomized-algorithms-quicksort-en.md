@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-05-randomized-algorithms-quicksort)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is post 6 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 5**. Moses Charikar taught the lecture on January 21, 2026. Its official title is [Randomized Algorithms and QuickSort](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort). This article uses the pre-lecture exercise, notes, and slides. I did not use the Canvas recording or claim to have read the notebook.
 
 Lecture 4's Select partitions around a pivot and recurses only on the side containing the answer. QuickSort keeps the same structure but sorts both sides. That small change makes pivot quality more consequential: near-halves give `O(n log n)`, while repeated `0` versus `n-1` splits give `Θ(n²)`. Lecture 5 asks for more than the intuition that random pivots are usually decent. For any fixed input, taking expectation only over the algorithm's coins, how can we rigorously prove `O(n log n)`?
@@ -167,7 +169,7 @@ Randomness also has engineering assumptions: pivot selection should be sufficien
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

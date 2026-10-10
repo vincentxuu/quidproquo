@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/), the last on-campus version with a fully public site. The main materials are the Compositionality and (Re)COGS sections of the [Advanced behavioral evaluation slides](https://web.stanford.edu/class/cs224u/slides/cs224u-behavioraleval-2023-handout.pdf), the [Assignment 3 overview slides](https://web.stanford.edu/class/cs224u/slides/cs224u-hw3-overview-2023.pdf), [hw_recogs.ipynb](https://github.com/cgpotts/cs224u/blob/main/hw_recogs.ipynb), and screencasts 24, 27, and 28 of the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp). The notebook in the repo today carries the version string Spring 2024; I note where it differs from 2023. Every fact was checked against official materials on 2026-09-29. Access grade **A3**: the questions, data, trained model, unit tests, and screencasts are all public. What you can't get is the Gradescope autograder and the bake-off leaderboard.
 
 **Series**: previous [Behavioral evaluation](/posts/ai/2026-09-29-cs224u-behavioral-evaluation-en) | next [Analysis methods I: probing and feature attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en) | [Series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
@@ -208,7 +210,7 @@ One thing to do tonight: download the 7 MB recogs.tgz, load `train.tsv` and `gen
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

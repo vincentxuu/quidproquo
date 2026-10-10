@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is part 18, the final post, of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en). The previous post, the [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en), covered HW0–HW5. This one covers the Techniques half: HW6, HW7, and the final project.
 
 **Sources**: the [Machine Learning, Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) (footer: last updated 2025-01-17), the [HW6 problems](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf), the [HW7 problems](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf), the [final project handout](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf), and the schedule on the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/). I downloaded or opened all of them on 2026-09-30. Problem statements come from the PDFs. The "which lecture does this practice" labels are mine, based on each problem's content and any lecture number the problem cites.
@@ -221,7 +223,7 @@ Series navigation: previous, [Foundations homework guide: Fall 2024 HW0–HW5](/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

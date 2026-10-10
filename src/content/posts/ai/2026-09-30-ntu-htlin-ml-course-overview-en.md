@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 For many Mandarin-speaking learners, [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/) (機器學習基石) and Machine Learning Techniques (機器學習技法) were their first course in machine learning theory. Hsuan-Tien Lin of NTU's Department of Computer Science and Information Engineering launched both on Coursera in 2015–2016, taught in Mandarin. The textbook is [Learning from Data](http://amlbook.com) (LFD below), which he co-wrote with Yaser Abu-Mostafa and Malik Magdon-Ismail. Foundations asks why machines can learn at all and builds up to VC dimension and regularization. Techniques moves on to SVMs, boosting, decision trees, and neural networks.
 
 Ten years later, Lin's own NTU course still uses the two MOOCs as its backbone. [Machine Learning, Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) is a flipped classroom, and each week's "required watching (before class)" is a set of MOOC videos.
@@ -170,7 +172,7 @@ Next: [The Learning Problem, PLA, and Types of Learning](/posts/ai/2026-09-30-nt
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is a chapter-by-chapter reading of Chapter 10, printed pages 147–149, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings**. The chapter is only three pages long, and its purpose is precise: understand k-means as alternating optimization and state exactly what its convergence guarantee means.
 
 Chapters 8 and 9 studied generalization and model selection with labeled data. Chapter 10 begins unsupervised learning. Given only $x^{(1)},\ldots,x^{(n)}$ and no targets $y$, the task is to organize the observations into $k$ internally cohesive groups.
@@ -76,7 +78,7 @@ Create two two-dimensional datasets: three similarly sized circular clusters and
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

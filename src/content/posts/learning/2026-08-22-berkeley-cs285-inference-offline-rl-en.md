@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-inference-offline-rl)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The [official schedule](https://rail.eecs.berkeley.edu/deeprlcourse/) assigns L11–18 to Variational Inference, VI in RL, Control as Inference, LLM RL, two lectures on Model-Based RL, and two on Offline RL. Together they ask what signal an agent can trust when data, models, and objectives are incomplete.
 
 ## Course video sources
@@ -49,7 +51,7 @@ See the [series overview's access boundary](/posts/learning/2026-08-22-berkeley-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

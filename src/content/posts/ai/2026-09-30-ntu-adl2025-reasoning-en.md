@@ -20,6 +20,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-reasoning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the L12 videos in the playlist of [NTU Applied Deep Learning (ADL), Fall 2025 (114-1, 2025/09/01–12/15)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), taught by Yun-Nung (Vivian) Chen.** It is post 15 of the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. The previous post, [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en), treated reasoning as one of three key concepts for agents. This one pulls it out on its own: **how does a model learn to think before it answers?**
 
 First, the limit of this post: **L12 has no public slides.** The 12/01 row on the course page just says "Reasoning," with no slides and no video links. The five videos appear only in the [2025 Fall playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o). I did not transcribe the videos, so all I can report are their titles, lengths, and descriptions, plus the reasoning pages in the previous lecture's deck.
@@ -111,7 +113,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

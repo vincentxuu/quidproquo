@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-scaling-laws-practice-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 11: Scaling — case study and details**，2026 年 5 月 4 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_11.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_11.pdf)。
 
 Lecture 9 說明 scaling law 的原理；這一講檢查公開團隊實際怎麼做。真正困難的不只是選 model size 與 token count，還要讓 initialization、learning rate、batch size 和 schedule 在規模改變時仍可比較。
@@ -77,7 +79,7 @@ Maximum update parameterization（μP）會調整 initialization 與 layer-speci
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

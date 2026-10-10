@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 8: Parallelism**，2026 年 4 月 22 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_08.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_08.pdf)。
 
 第七講教你用 collectives 組出平行化；第八講問大型模型究竟該怎麼組。它把 datacenter 當成新的計算單位：GPU memory、NVLink domain、跨節點 fabric 與 batch size 共同決定切法，沒有一個 strategy 能單獨解完所有限制。
@@ -86,7 +88,7 @@ Parameter memory 在啟動前可算清楚；activation 隨 batch、sequence、hi
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

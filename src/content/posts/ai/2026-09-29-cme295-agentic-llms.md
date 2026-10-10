@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-agentic-llms-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 7 講「Agentic LLMs」（2025 年 11 月 14 日）。主要來源是 [151 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=h-7S6HNq0Vg)（1 小時 49 分）。本文只根據投影片上的文字與圖寫，課堂口頭補充沒有收進來。
 
 上一講的[推理模型](/posts/ai/2026-09-29-cme295-llm-reasoning)處理了 LLM 的第一個弱點：推理能力有限。這一講的開場投影片把剩下的弱點列出來：知識是靜態的、不能執行動作、很難評估。前兩個是今天的主題，最後一個留給[第 8 講](/posts/ai/2026-09-29-cme295-llm-evaluation)。三個解法剛好一層疊一層：
@@ -294,7 +296,7 @@ Google 2025 年發表的 [Agent2Agent（A2A）](https://developers.googleblog.co
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

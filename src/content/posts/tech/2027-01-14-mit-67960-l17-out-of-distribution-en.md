@@ -26,6 +26,8 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2027-01-14-mit-67960-l17-out-of-distribution)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 17). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/).
 
 ---
@@ -115,7 +117,7 @@ Run for 1–2 epochs and the model "moves toward the test distribution's feature
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

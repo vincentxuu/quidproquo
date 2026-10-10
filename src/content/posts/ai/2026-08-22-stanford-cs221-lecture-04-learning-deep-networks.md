@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-04-learning-deep-networks-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 4**，2025-10-01 由 Percy Liang 主講。官方課表、講義與作業入口在[課程網站](https://stanford-cs221.github.io/autumn2025/)，本講主要材料是 [deep_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=deep_learning)。
 
 > 材料缺口：PyTorch 可執行示例公開；實際課堂錄影另見官方播放清單。
@@ -82,7 +84,7 @@ PyTorch 已提供 `nn.Linear`、`nn.CrossEntropyLoss` 和 `torch.optim.SGD`。�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

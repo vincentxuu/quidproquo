@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-rag-language-agents-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 10 講排在 2026 年 2 月 5 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture10-rag-agents.pdf)題為 **RAG and Language Agents**。agenda 先用 adapters 收尾，再依序講問答與 RAG、language agents、推理與規劃、記憶、工具使用、agent data 與評估。
 
 ## 課程影片來源
@@ -142,7 +144,7 @@ Winter 2026 錄影不公開。本文涵蓋 adapter recap 與六個正式 agenda 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

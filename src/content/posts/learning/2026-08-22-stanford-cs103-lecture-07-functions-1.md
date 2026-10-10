@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-07-functions-1-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 8 篇，對應 **Spring 2026 官方 Lecture 6（2026-04-13）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講的官方題目是 **Functions, Part I**。它把大家早已會算的函數，重新拆成可由集合與一階邏輯檢查的物件。「是不是函數」「是不是單射」「是不是滿射」因而不再靠圖形直覺，而能轉成量詞、否定，再轉成正式證明。
@@ -147,7 +149,7 @@ draft: false
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：從官方 Functions, Part I 完整投影片逐節重建正文、metadata、證明例子與材料界線。
 
 ## 參考資料

@@ -35,6 +35,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-guest-world-models-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 講義頁上的客座投影片 [ShaneGuCS234_2026.pdf](https://web.stanford.edu/class/cs234/slides/ShaneGuCS234_2026.pdf)（36 頁），2026-09-30 打開逐頁核對。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但這一講有明確缺口：**只有投影片，沒有錄影**。2026 的錄影只放在 Canvas，公開的 [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX) 裡沒有這場客座。投影片有很多頁只有圖、幾乎沒有文字，所以本文只寫投影片上看得到的東西；講者口頭怎麼串接、怎麼回答問題，我們拿不到。
 
 **系列位置**：上一篇 [價值對齊：對齊誰、對齊什麼](/posts/ai/2026-09-30-cs234-value-alignment-ethics)｜這是系列最後一篇｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
@@ -200,7 +202,7 @@ p.28 標題寫明「untested」：用 GDT 的策略函數去搜尋「到得了�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

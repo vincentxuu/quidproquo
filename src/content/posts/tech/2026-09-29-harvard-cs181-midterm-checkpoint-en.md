@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > ⚠️ **Version and access**: The exam date and weight come from the [official 2026 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) and the [2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus). The exam resources under the course site's `static/` directory come from mixed years: **the midterm practice and midterm review are labeled 2025**, the notation glossary is dated March 2, 2025, and the midterm checklist and concept checks **carry no year**. You can open these PDFs by URL, but the site's navigation does not link them. The 2026 midterm and its solutions are not public.
 
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/) holds its midterm on Tuesday of week 7, March 10, 2026, in class. Per the syllabus, it is worth 15% of the grade. It is closed-book, but you may bring one 8.5×11 sheet of notes, front and back.
@@ -27,11 +29,14 @@ The checklist says so directly:
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
 
-Course and recording entries:
+Official sources:
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -124,7 +129,7 @@ One honest caveat: the checklist carries no year, and its SVM and Bayesian items
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

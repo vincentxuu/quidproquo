@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide is based on the official HW5 files of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis) in the [HW5 folder](https://drive.google.com/drive/folders/1h4PNbX1thl4IL99JsdG4ymiahxd0uWXj): `hw5.pdf` (5 pages), `hw5_student.tex`, `hw5_finetuning_student.ipynb`, `hw5_sample_eval.csv`, `kaggle_test.csv`, and `solutions/hw5-sol.pdf` (11 pages). All of them download anonymously; the course as a whole rates A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)). What you can't get: Gradescope submission, the hidden Kaggle labels, and official solutions for the notebook.
 
 The schedule marks HW5 as "Optional", due Monday 5/11 at 11:59 PM PT, the same day as the final. The syllabus also says all homeworks are weighted equally and the lowest-scoring one is dropped automatically.
@@ -159,7 +161,7 @@ The metric is accuracy. The leaderboard is split into public (50% of the test da
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

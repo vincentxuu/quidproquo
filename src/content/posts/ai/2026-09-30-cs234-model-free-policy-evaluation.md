@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的 [Lecture 3 投影片](https://web.stanford.edu/class/cs234/slides/lecture3post.pdf)（post 版，57 頁）與 [Lecture 4 投影片](https://web.stanford.edu/class/cs234/slides/lecture4post.pdf) p.5–15；公開錄影是 Spring 2024 版的 [第 3 支「Policy Evaluation」](https://www.youtube.com/watch?v=jjq51TRNVvk)，內容與 2026 投影片未逐頁對照。事實在 2026-09-30 打開官方投影片核對。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片公開，課堂 Poll Everywhere 的即時作答與 2026 錄影拿不到。
 
 **系列位置**：上一篇 [作業一：有效視野、reward hacking、Bellman residual 與 RiverSwim](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim)｜下一篇 [沒模型時怎麼控制：ε-greedy、GLIE、Q-learning、函數近似](/posts/ai/2026-09-30-cs234-model-free-control-function-approx)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
@@ -219,7 +221,7 @@ L4 p.15 的總結給了一個應用情境：評估新推薦系統每個 session 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

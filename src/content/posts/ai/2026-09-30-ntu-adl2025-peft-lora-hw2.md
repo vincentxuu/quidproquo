@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)的第 10 篇。課程是 ADL Fall 2025（114-1，2025/09/01–12/15）。課程頁把 LLM Adaptation 和 Post-Training 排在同一天（9/22），當週助教課是 LLM LoRA Training，作業欄是 HW 2。
 
 **本文依據**：[LLM Adaptation 講義](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250922_Adaptation.pdf)（14 頁）、影片 [7.5 Parameter-Efficient Fine-Tuning (Adaptor, LoRA) 如何低成本微調模型](https://youtu.be/ii2kMoUyNOs)（19:21），以及 HW2 說明影片 [ADL 2025 Fall Homework 2](https://youtu.be/_QiIp0WTRzI)（13:05，2025-10-06 上傳）。全部在 2026-09-30 打開核對。講義只有 14 頁，而且多數頁是示意圖，所以這篇比前一篇短。
@@ -135,7 +137,7 @@ B ∈ R^(d×r),  A ∈ R^(r×k),  r ≪ min(d, k)
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

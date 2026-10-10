@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 4 講是 **生成模型：從潛在空間到 diffusion**。區分生成與判別問題，整理 VAE、GAN 與 diffusion 的學習目標，並接到 Lab 2 的 DB-VAE。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
 
 ## 課程影片來源
@@ -59,7 +61,7 @@ VAE 把輸入編碼成分布、從 latent space 取樣，再解碼重建；GAN �
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

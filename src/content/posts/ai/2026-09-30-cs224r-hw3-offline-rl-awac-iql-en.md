@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Source term**: Based on the Spring 2026 [HW3 PDF](https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.pdf), [LaTeX template](https://cs224r.stanford.edu/material/hw3/CS224R_2026_Homework_3.tex), and [hw3_starter_code.zip](https://cs224r.stanford.edu/material/hw3/hw3_starter_code.zip). The schedule shows HW3 released on 2026-04-24 and due 5/8 at 9 pm Pacific. This is post 11 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. **No solutions here**, and no hints about what numbers you should get.
 
 The three [CS224R](https://cs224r.stanford.edu/) homeworks make up 40% of the grade, and HW3 is 15% of that. It pairs with [Lecture 7: Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl-en). Both the AWAC slide and the IQL slide say "You will implement it in homework 3!"
@@ -163,7 +165,7 @@ If you're not ready to spend compute, do something free first. Open the expectil
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

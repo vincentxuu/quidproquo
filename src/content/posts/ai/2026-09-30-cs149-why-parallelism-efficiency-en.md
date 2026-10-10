@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **This post is based on the Fall 2025 edition of [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25).** The source is the [86-slide Lecture 1 deck](https://gfxcourses.stanford.edu/cs149/fall25content/media/efficiency/01_efficiency_hyF1AJq.pdf) (also available [slide by slide on the web](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)). The Fall 2025 recording isn't public, so the 2023 L1 recording serves as a supplement. This is post 1 of [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en); see the overview for course background, access level, and limits.
 
 The first lecture, on September 23, 2025, is titled with two questions: Why Parallelism? Why Efficiency? Those two questions set the direction of the whole course. The first half answers the first one: why single-core processors stopped getting faster on their own. The second half answers the other: even once a program is parallel, why should you still care about efficiency?
@@ -197,7 +199,7 @@ The 2023 [Lecture 1 video](https://www.youtube.com/watch?v=V1tINV2-9p4) (about 1
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

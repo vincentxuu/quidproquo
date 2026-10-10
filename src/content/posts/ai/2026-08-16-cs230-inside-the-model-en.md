@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-inside-the-model)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > [The previous post](/posts/career/2026-08-16-cs230-career-advice-in-ai-en) was the only lecture in the series with no technical content. This is the last one, and it looks inside the model.
 
 This post covers **[Lecture 10: What's Going On Inside My Model?](https://www.youtube.com/watch?v=Ozb1AR_F5MU)** (2025/12/02, Kian Katanforoosh, 1 hour 47 minutes, the final lecture of the term).
@@ -328,7 +330,7 @@ The last thing worth keeping is his honesty: **this whole methodology currently 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

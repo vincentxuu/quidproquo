@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-17-page-replacement)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 18 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 17**. Mendel Rosenblum taught it on 2026-05-06 under the official title [Demand Paging, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/17/Lecture17.pdf). The official Lecture 16 and 17 PDFs are byte-identical (both SHA-256 `65091d9719674258175c2dcf29e1ad82bca8ff8a82d3b66d73b9e40ad3287d9e`), not distinguishable decks. This article therefore emphasizes replacement policy while Lecture 16 emphasizes fault/fetching mechanism. Inaccessible Canvas/Panopto video prevents recovering the actual two-day spoken boundary.
 
 Lecture 16 establishes demand paging's promise: a program can execute without keeping all code and data in physical memory at once. Lecture 17 asks what follows. When should a page enter memory, and which resident page should leave once RAM is full? The former is **page fetching policy**; the latter is **page replacement policy**. Page faults, the present bit, and restartable instructions are mechanisms. FIFO, LRU, Clock, and global replacement are policies.
@@ -157,7 +159,7 @@ For a fault, separate mechanism (valid address, source, restart), fetching (targ
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

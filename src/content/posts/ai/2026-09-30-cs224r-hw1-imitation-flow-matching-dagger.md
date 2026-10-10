@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 的 [Homework 1 PDF](https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.pdf)、[LaTeX 模板](https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.tex)與[起始碼 hw1_starter_code.zip](https://cs224r.stanford.edu/material/hw1/hw1_starter_code.zip)，三者都在 2026-09-30 匿名下載並讀過。這份作業沒有配套影片。
 
 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 3 篇，接在 [L2 模仿學習](/posts/ai/2026-09-30-cs224r-imitation-learning)後面。L2 講了三件事：為什麼 policy 要能表達多峰分佈、action chunking、以及用 DAgger 做線上介入。HW1 就是把這三件事放進同一個小遊戲裡，讓你親手看到它們各自解決什麼問題。
@@ -205,7 +207,7 @@ Problem 2 和 Problem 3 是兩種不同的解法：一個讓模型能表達多�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

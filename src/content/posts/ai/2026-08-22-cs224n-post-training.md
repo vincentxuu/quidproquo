@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-post-training-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 8 講排在 2026 年 1 月 29 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture08-posttraining.pdf)題為 **Post-training (RLHF, SFT, DPO)**。agenda 依序是 instruction fine-tuning、RLHF、InstructGPT/ChatGPT、RL 與 reward modeling 的限制、DPO，以及人類偏好資料與 AI feedback。
 
 ## 課程影片來源
@@ -125,7 +127,7 @@ Winter 2026 錄影不公開。投影片封面保留「Lecture 7: Post-training�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

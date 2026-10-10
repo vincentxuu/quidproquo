@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents-en)
 
+**影片狀態：待確認：尚未核對到對應錄影。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 第 7 講（2026-09-15）請來客座講者 [JY Koh](https://jykoh.com/)。他在 CMU 跟 Daniel Fried、Ruslan Salakhutdinov 讀博士，做過 [VisualWebArena](https://arxiv.org/abs/2401.13649)、Odysseys 這些 benchmark，之後在 Meta 帶過一年半的 computer use agent 團隊。這講是課表「Domains」模組的第二站：[上一講](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents)是 coding agent，這一講換成**直接看螢幕、按滑鼠的 agent**。
 
 Computer use agent（CUA）和前面幾講的純文字 agent 差在輸入輸出：它收到的是截圖，吐出的是點擊、捲動、打字——和人在同一個介面上工作。Koh 開場就說，這讓建模和評測都變得有趣，也變得很煩。整講分四段：CUA 是什麼、怎麼評、模型長什麼樣、怎麼訓練，最後留四個未解問題。這篇照同樣順序走。
@@ -41,11 +43,13 @@ Computer use agent（CUA）和前面幾講的純文字 agent 差在輸入輸出�
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+本篇依投影片撰寫。已查官方課表、講師頻道與本文講次標題搜尋，仍未取得可核對的直接錄影；官方課表抽取只取得後半段，講師頻道抽取未提供完整影片清單。因此本講錄影狀態尚待確認，不能判定沒有影片。
 
-課程與錄影入口：
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## CUA 是什麼：observe、reason、act 一直轉
 
@@ -253,7 +257,7 @@ References 裡的 [Mind2Web](https://arxiv.org/abs/2306.06070)、[WebVoyager](ht
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

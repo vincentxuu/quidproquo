@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 offering of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 4 of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series and closes the text unit. The previous post, [L4: the modern Transformer](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa-en), explained RoPE, GQA, and sliding window attention. This one looks at how the homework makes you build them.
 
 Official materials used: [hw1.zip](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw1.zip) from the [Coursework page](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html) (the 27-page hw1.pdf, starter code, and a LaTeX template), the [read-only Overleaf template](https://www.overleaf.com/read/sdrhkbjjdhwv#8049a1), the January 30 [HW1 recitation slides](https://docs.google.com/presentation/d/1IpSzQ5dkr3iO0riNfareQiif9J9O684amTBATiybuVk/edit?usp=sharing) (public Google Slides), and the syllabus homework rules. **This post covers only the structure and setup of the assignment. It contains no solutions.**
@@ -189,7 +191,7 @@ Series navigation: previous [L4: pre-training, fine-tuning, and the modern Trans
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

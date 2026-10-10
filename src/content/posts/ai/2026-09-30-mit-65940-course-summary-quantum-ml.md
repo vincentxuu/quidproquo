@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-course-summary-quantum-ml-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940) 第 22 講（2024-11-21，Course Summary + Quantum Machine Learning I）與第 23 講（2024-11-26，Quantum Machine Learning II）。主要材料是 [Course-Summary.pdf](https://www.dropbox.com/scl/fi/cn0wr4zxuv4hvpce81lo1/Course-Summary.pdf?rlkey=ycn79vnsu2n7395fz1v04khz0&st=z86d0rap&dl=0)（13 頁）、[Lec23-Quantum-ML-II.pdf](https://www.dropbox.com/scl/fi/wxpnpwkrl6pw7lb4n4vrg/Lec23-Quantum-ML-II.pdf?rlkey=21msd9zdilhry5pydlkvbn7n4&st=aoyc9pzv&dl=0)（99 頁），以及 [L22 錄影](https://youtu.be/svjjD2uthhQ)與 [L23 錄影](https://youtu.be/ZDk-GsyInt8)。文中頁碼指 PDF 頁。事實於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與錄影都公開。缺口是 **Quantum ML Part I 沒有投影片**，L22 課頁的 Slides 連結只指向 Course-Summary.pdf，所以本文不寫 Part I 的內容。
 >
 > **Fall 2026 對照**：[F26 課表](https://hanlab.mit.edu/courses/2026-fall-65940)的 Chapter IV 只剩一場 Guest Lecture（12 月 1 日），講題未公布，已經沒有課程總結與量子 ML。
@@ -222,7 +224,7 @@ SuperCircuit 是設計空間裡閘最多的電路，每個候選 SubCircuit 都�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

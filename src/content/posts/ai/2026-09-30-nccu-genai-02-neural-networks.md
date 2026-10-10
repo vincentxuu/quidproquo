@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-02-neural-networks-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **系列位置**：上一篇 [L01 為什麼要研究生成式 AI](/posts/ai/2026-09-30-nccu-genai-01-why-generative-ai)｜下一篇 [L03 紅極一時的 GAN](/posts/ai/2026-09-30-nccu-genai-03-gan)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
 
 > **版本說明**：本文依據政大 1132 學期（2025-02-25）第 2 講的[直播錄影](https://www.youtube.com/watch?v=s1QqujRMEUk)（3 小時 4 分）與 [GenAI02 投影片](https://yenlung.me/1132GenAI)（122 頁）。範例 notebook 是 [AI-Demo](https://github.com/yenlung/AI-Demo) 的 `【Demo01】設計你的神經網路.ipynb`，引用的是 **repo 目前版本**（最近一次 commit 2026-03-17），可能跟 1132 當時不同。作業題目與評分標準出自[長庚衛星班頁面](https://yangchihyuan.github.io/courses/GenerativeAI2025)。事實皆於 2026-09-30 核對。
@@ -261,7 +263,7 @@ Fall 2026 課綱的第 2 週描述是：神經網路的核心概念（感知器�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

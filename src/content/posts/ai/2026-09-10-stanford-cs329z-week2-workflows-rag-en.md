@@ -19,6 +19,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Week 2 is deliberately sequenced. Monday (Sep 28, LLMs for Builders) assigns Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (2024): learn when something should *not* become an agent before you start building, so you don't over-engineer on day one. Wednesday (Sep 30, RAG) assigns Lewis et al.'s [Retrieval-Augmented Generation](https://arxiv.org/abs/2005.11401) (NeurIPS 2020): the complete recipe for a first compound system, with an in-class hands-on building a RAG pipeline from scratch. Together they are the blueprint for the first stage of [HW1](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), an email retrieval pipeline.
 
 ## Course video sources
@@ -105,6 +107,10 @@ Week 2 is HW1's prep week: the assignment drops next Monday, but Wednesday's han
 - 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
 - 2026-09-12: Added substantive guided readings of Effective Context Engineering and ColBERT.
+
+## Update Log
+
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

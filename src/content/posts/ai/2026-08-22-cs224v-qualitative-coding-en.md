@@ -14,6 +14,8 @@ description: "CS224V Document Set Analysis: qualitative coding, ACLED codebooks,
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-qualitative-coding)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-data-coding.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 9 examines document analysis in which researchers repeatedly code events, actors, places, and relationships under a codebook. Epidemic events and ACLED conflict data provide the running cases. Its conclusion is deliberately restrained: automated qualitative coding is not ready to bypass human quality control.
@@ -110,7 +112,7 @@ The lecture summarizes active research and multiple datasets without publishing 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

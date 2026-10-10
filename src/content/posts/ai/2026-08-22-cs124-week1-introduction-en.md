@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs124-week1-introduction)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/lec/) begins with a map, not a Transformer crash course. Dan Jurafsky's January 6 Introduction arranges the quarter as an engineering chain: decide how text becomes tokens, then study classification, retrieval, and representations before moving into neural networks, Transformers, speech, recommendation, and network analysis. The governing idea is that an LLM is a system assembled from learnable components, not a black box that appears fully formed.
 
 **Course version:** CS124 / LINGUIST 180, Winter 2026. **Official unit:** Week 1, January 6 and 8. **Instructor:** Dan Jurafsky, with a separate Jupyter/PA0 tutorial on January 8. **Public materials:** the [schedule and syllabus](https://web.stanford.edu/class/cs124/lec/), [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf), and [PA0 repository](https://github.com/cs124/pa0-jupyter-tutorial). **Public-material gap:** the live Introduction was not recorded, and the platform-specific setup videos require Stanford Canvas access. This article therefore does not reconstruct live discussion.
@@ -93,7 +95,7 @@ For the broader course, prerequisites, and source-access audit, see the [existin
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

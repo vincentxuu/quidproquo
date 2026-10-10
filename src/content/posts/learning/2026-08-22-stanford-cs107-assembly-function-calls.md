@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-assembly-function-calls-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 函式呼叫不是單純「跳到另一個 label」。Caller 還得讓 callee 找到 parameters，保留回來後該執行的 instruction address，提供必要 stack space，並確保雙方不會踩掉仍有用的 registers。Stanford CS107 Lecture 19 用 57 頁逐格追蹤，把這四件事收斂成 `call`、`ret`、`%rsp` 與 calling convention。
 
 這份契約的價值在於 separate compilation：caller 不必讀懂 callee 每一行，只要雙方遵守同一 ABI，就能交換 data、恢復 control，並知道哪些 registers 可能改變。
@@ -202,7 +204,7 @@ Lecture 19 的核心是三份契約同時成立：control 由 return address 接
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

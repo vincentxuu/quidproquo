@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: this post is based on the Fall 2025 run of [NTHU Hung-Yu Kao's Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing), specifically [W1_NLP_brief.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W1_NLP_brief.pdf) (91 pages). The matching recordings are [Week 1 Tue.](https://www.youtube.com/live/X7XJcm9wfFA) and [Week 1 Thu.](https://www.youtube.com/live/0hTqSpoNp4o) (in Mandarin). Facts were checked against the slides on 2026-09-30. The post follows the slides only; I did not transcribe the recordings. Access rating **A3** (see the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) for why).
 
 **Series position**: previous: [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) | next: [Word embeddings and language models: from n-grams to RNNs](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en) | [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
@@ -176,7 +178,7 @@ The 2026 main README links [W1_NLP_brief_v2.pdf](https://github.com/IKMLab/NTHU_
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

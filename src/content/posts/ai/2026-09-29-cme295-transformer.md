@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-transformer-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 第 1 講「Transformer」。主要來源是 2025 版的[錄影](https://www.youtube.com/watch?v=Ub3GoFaUcds)與 [135 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf)，另外對照 2026 年 9 月 25 日剛上的新版[錄影](https://www.youtube.com/watch?v=114i2Kz-LZA)與[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)。
 
 整堂課只用一句例句：「A cute teddy bear is reading.」這句話先被切成 token、變成向量，再交給 RNN，然後說明 RNN 為什麼撐不住，最後由 Transformer 翻成法文「Un ours en peluche mignon lit.」。跟著這句話走一遍，就是這一講的全部路線。
@@ -182,7 +184,7 @@ flowchart LR
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 offering of [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/).** It is part 4 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 3, "Adversarial Robustness, Jailbreaks, Prompt Injection, Security" (September 18, 2025). The [previous post](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en) looked at how safety training works. This one asks: once it's done, does it hold up against deliberate attacks?
 
 The lecture had two guest speakers, [Nicholas Carlini](https://nicholas.carlini.com/) and Keri Warr; the course site lists both as Anthropic. Official sources used here:
@@ -36,11 +38,20 @@ The course site lists no slides for this lecture. Access here is a bit narrower 
 
 ## Course video sources
 
-The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+The corresponding public YouTube recording was verified against the official Fall 2025 lecture schedule.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=pfKO4MlvM-Y
+title: CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security
+```
 
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+Original videos: [CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security](https://www.youtube.com/watch?v=pfKO4MlvM-Y)
+
+Official sources:
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+Checked on 2026-10-10.
 
 ## Pre-reading: four sources, four jobs
 
@@ -191,7 +202,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overvie
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

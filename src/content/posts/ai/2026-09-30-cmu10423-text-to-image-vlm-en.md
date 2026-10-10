@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 offering of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It's post 13 in the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series and opens the multimodal foundation models unit. The main materials are the second half of the [Lecture 12 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture12-dpo-text2img.pdf) (from Conditional Image Generation onward; the DPO first half is in [post 11](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo-en)) and the [Lecture 13 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture13-vlm.pdf) (plus an [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture13-vlm-ink.pdf)). Many L13 pages are marked "Slide from Henry Chai".
 
 The recordings live on CMU's Panopto and aren't available outside CMU, so this post relies on the slides alone. I didn't transcribe the handwriting on the inked version. The schedule lists no readings for these two lectures. I checked every fact against the official materials on 2026-09-30.
@@ -204,7 +206,7 @@ Series navigation: previous [HW3: Fine-tuning GPT-2 with LoRA](/posts/ai/2026-09
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

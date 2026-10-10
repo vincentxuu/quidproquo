@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-regularization-optimization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: The slides are [CS231N](https://cs231n.stanford.edu/) Spring 2026 [lecture_3.pdf](https://cs231n.stanford.edu/slides/2026/lecture_3.pdf) (121 pages, footer dated April 7, 2026). The recording is the [Spring 2025 Lecture 3](https://www.youtube.com/watch?v=dyNGd06MWn4), because 2026 recordings are on Canvas for enrolled students only. The two may differ. The 2025 deck has 119 pages, and the keywords I spot-checked (AdaGrad, AdamW, L-BFGS, warmup) appear in both, but I did not compare them page by page. All facts were checked against official materials on 2026-09-30. Access level **A3** (defined in the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
 **Series**: Previous [L2: Image Classification, kNN, and Linear Classifiers](/posts/ai/2026-09-30-cs231n-image-classification-linear-en) | Next [L4: Neural Networks and Backpropagation](/posts/ai/2026-09-30-cs231n-neural-networks-backprop-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
@@ -256,7 +258,7 @@ One thing you can do tonight: in numpy, define f(x, y) = x² + 20y², run SGD an
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

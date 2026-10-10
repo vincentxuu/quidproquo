@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-search-heuristics-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 CS188 的第一段用 Pacman 回答一個基本問題：在不知道答案路徑的情況下，agent 要依什麼順序展開可能狀態？[Lecture 1–4 的課表](https://inst.eecs.berkeley.edu/~cs188/sp26/)依序處理 agents、uninformed search、A* 與 local search；[Project 1](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj1/)則要求你實作 DFS、BFS、UCS、A*，再設計 corners 與 food search 的 heuristic。
 
 ## 課程影片來源
@@ -58,7 +60,7 @@ heuristic 則必須在速度與正確性間守住界線。[官方 P1 規格](htt
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

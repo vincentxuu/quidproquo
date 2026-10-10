@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-vision-language-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份：** 投影片與作業是 Spring 2026；錄影是 Spring 2025（YouTube）。兩者可能有差異，本文以 2026 投影片為準，錄影只當輔助。
 >
 > 這是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 17 篇。上一篇是 [L14：生成模型（二）Diffusion](/posts/ai/2026-09-30-cs231n-generative-models-diffusion)，下一篇是 [A3 導讀：Transformer Captioning、SSL、DDPM、CLIP & DINO](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip)。L15（3D 視覺）在系列裡移到 A3 之後，見 [L15 導讀](/posts/ai/2026-09-30-cs231n-3d-vision)。
@@ -184,7 +186,7 @@ LLaVA 的訓練配方分三步：用預訓練的 LLM（例如 LLaMA）初始化�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

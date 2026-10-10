@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-transformers)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 5 on January 20, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture05-transformers.pdf) finishes vanishing gradients and machine translation, then moves from recurrence to attention, self-attention, the complete Transformer, and finally results, drawbacks, and variants. It is the quarter's architectural dividing line: later lectures on pretraining, post-training, agents, and reasoning assume this material.
 
 ## Course video sources
@@ -92,7 +94,7 @@ Winter 2026 recordings are not public. This article covers all six agenda sectio
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-adversarial-and-generative)講了模型怎麼被攻破、以及怎麼生成東西。這一篇換一種學習方式。
 
 本篇對應 **[Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A)**（2025/10/21，Kian Katanforoosh 主講，1 小時 45 分）。
@@ -333,7 +335,7 @@ PPO 有 **expected advantage** 的概念：不是告訴你這個動作多好，�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-24-journaling-file-systems)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 25 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 24**. Mendel Rosenblum taught it on 2026-05-22, and the calendar calls it [File System Crash Recovery, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). This article uses only the [public lecture PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf). The recording is behind Canvas/Panopto and is not treated as a source read here.
 
 First, an anomaly in the source material: the Lecture 23 and Lecture 24 PDFs both have 23 pages, with the same page titles, bullets, and ordering. Their SHA-256 hashes differ, but extracted text differs only in the slash in `/lost+found` and four periods. The public material therefore does not provide an independent “continued” [slide](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf) deck. Rather than invent missing content, this series assigns pages 1–15 to Lecture 23 and uses this article for page 16 onward: write-ahead logging, transactions, checkpoints, and the boundary between consistency and durability.
@@ -70,7 +72,7 @@ To test your understanding, close the slides and model one “allocate a new blo
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-l01-deep-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 Lecture 1 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **The Minimal Structure of Deep Learning**. It builds the vocabulary shared by the rest of the course: perceptrons, forward propagation, loss, and gradient descent. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
 ## Course video sources
@@ -59,7 +61,7 @@ After watching, draw a two-layer network and label every tensor shape, then use 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

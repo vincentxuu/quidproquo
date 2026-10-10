@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-11-text-to-image-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 11 篇，接在 [L10 從 VAE 開始的冒險旅程](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion)之後。上一講停在 Stable Diffusion 的架構圖，這一講把圖上的 CLIP 與 Scheduler 拆開，再加上最常用的微調技術 LoRA，最後動手寫程式。
 
 用到的官方材料有四份：[錄影 11](https://www.youtube.com/watch?v=8VS6Dcxmp34)（2025-04-29，約 2 小時 59 分）、投影片 GenAI11（72 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo08g】打造Stable_Diffusion的WebUI`](https://yenlung.me/AI08g)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第十一週作業。存取等級是 **A3**。Demo08g 在 GitHub 上最近一次 commit 是 2025-04-29，也就是上課當天，**以下引用的是 repo 目前版本**。
@@ -202,7 +204,7 @@ repo 目前版本的結構：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

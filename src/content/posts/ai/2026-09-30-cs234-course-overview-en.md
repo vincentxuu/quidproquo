@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Source years**: slides, assignments, project spec, and grading are from Winter 2026 (classes started 2026-01-05 and ended in March). The public recordings are from Spring 2024 (YouTube). They are only a listening supplement, and the differences are flagged below. This is post 0 of the Reading Stanford CS234 series and its entry point.
 
 [CS234: Reinforcement Learning](https://web.stanford.edu/class/cs234/) is Emma Brunskill's reinforcement learning course at Stanford. In Winter 2026 it met Mondays and Wednesdays, 3:00–4:20 pm. The schedule runs from January 5 to the final report deadline on March 17.
@@ -233,7 +235,7 @@ These series on the site overlap with CS234. This series does not cut content be
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

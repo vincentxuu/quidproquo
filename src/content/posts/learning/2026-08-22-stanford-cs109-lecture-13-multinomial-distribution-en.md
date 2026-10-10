@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-13-multinomial-distribution)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 14 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 13: Multinomial** on July 14 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture13-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture13-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture13-LLMPrompts.pdf), and shared Spring-dated reader chapters on the [Multinomial](https://probabilitycoders.stanford.edu/spr26/multinomial) and [Federalist Papers](https://probabilitycoders.stanford.edu/spr26/federalist). The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
 The worksheet and answer key are both complete two-page P1–P6 plus challenge artifacts. The LLM guide displays a third page, but it contains only a carried-over closing sentence and page number—not a seventh concept or additional agenda item.
 
 ## Course video sources
 
-This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
 
-Course and recording entries:
+Official sources:
 
-- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+Checked on 2026-10-10.
 
 ## P1: Review inference with a two-node network
 
@@ -156,7 +162,7 @@ The six guide concepts are the Multinomial coefficient, joint PMF, applicability
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

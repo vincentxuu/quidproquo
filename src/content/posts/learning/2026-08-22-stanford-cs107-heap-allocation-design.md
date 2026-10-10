@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-heap-allocation-design-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 Lecture 20 最後把視角從 `malloc` 的使用者轉到實作者：一段連續 heap 交到 allocator 手上，它得把不同大小、不同生命週期的要求安排進去。Lecture 21 正式回答第一層問題：allocator 至少要記住什麼，才能在沒有物件型別、也不知道未來要求的情況下，反覆配置與回收空間？
 
 這不是尋找唯一「最好」的資料結構。配置器同時追求正確對齊、快速回應和高空間利用率，但改善其中一項常會傷害另一項。最簡單的 bump allocator 幾乎不花時間搜尋，代價是無法真正重用；implicit free list 能重用空間，卻得掃過使用中的 block。這講的主脊就是逐步增加 bookkeeping，並逐筆看見它買到的能力與新增的成本。
@@ -177,7 +179,7 @@ Lecture 21 的真正收穫不是背下 first fit，而是看懂 allocator 每增
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

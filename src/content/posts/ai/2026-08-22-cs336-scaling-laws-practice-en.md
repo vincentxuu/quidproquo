@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-scaling-laws-practice)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 11: Scaling — case study and details**, taught by Tatsunori Hashimoto on May 4, 2026. Its primary source is the official [`lecture_11.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_11.pdf).
 
 Lecture 9 explains scaling-law principles. This lecture inspects how public teams implement them. Choosing model size and token count is not enough; initialization, learning rate, batch size, and schedules must remain comparable as scale changes.
@@ -77,7 +79,7 @@ This lecture has a Spring 2026 schedule entry and a complete official PDF. This 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

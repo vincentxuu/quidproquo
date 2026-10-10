@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 9 篇，從這篇開始進入[機器學習技法](https://www.csie.ntu.edu.tw/~htlin/mooc/)。範圍是技法第 1 講 Linear Support Vector Machine 與第 2 講 Dual Support Vector Machine。
 
 **本文依據**：MOOC 投影片 [201_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/201_handout.pdf) 與 [202_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/202_handout.pdf)、[技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)第 1–9 支、[Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) 與 [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 課程頁的課程計畫，全部在 2026-09-30 打開核對。教科書對應 [LFD](http://amlbook.com) e-8.1（線性 SVM）與 e-8.2（對偶 SVM），這是兩份課程頁標的章節；e-Chapter 8 是 LFD 的線上章節，本文沒有打開章節本身。
@@ -247,7 +249,7 @@ T2-2 的影片標題在 YouTube 上拼成「Largange Dual SVM」，投影片是�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

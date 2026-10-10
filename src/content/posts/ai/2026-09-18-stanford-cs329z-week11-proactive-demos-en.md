@@ -19,6 +19,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-18-stanford-cs329z-week11-proactive-demos)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Picture two assistants. The first waits for your orders and never moves until told. The second watches: you receive a wedding invitation from a friend, and it already has suit-rental options and a budget waiting for you. The first is reactive, the second is a [proactive agent](https://arxiv.org/abs/2505.10831), and Week 11 Monday is about the second kind.
 
 The difference is not model size but who moves first. A reactive agent's loop starts with your instruction; a proactive agent's loop starts with its observations of you. Observation takes a pair of eyes, inference takes a user model, and acting takes rules for when to interrupt. Those three are exactly the three protagonists of this week's main reading.
@@ -94,7 +96,7 @@ Production observability is Wednesday's other half. Tracing, monitoring, and cos
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-12: Made the Week 10 Thanksgiving recess explicit in the series map and course-material checklist so the Week 9-to-11 jump no longer looks like a missing post.
 
 ## References

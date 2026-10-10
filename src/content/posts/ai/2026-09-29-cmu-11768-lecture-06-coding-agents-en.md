@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 Lecture 6 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) opens the Domains module with coding agents (see the [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en) for the full map), taught by Graham Neubig. He starts by noting that most of the room already uses coding agents daily, so there is no need to explain what they do; this lecture is about **how you build one** and what that takes.
 
 He splits "AI that writes code" into three levels: writing a snippet (a single completion), modifying a repository (changing several files at once), and doing software development (the whole lifecycle of requirements, implementation, review, deployment, and maintenance). Every agent has three ingredients — prompt, tools, LLM. Prompting was covered in the previous lectures ([L4 Skills and Memory](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) and [L5 Planning](/en/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en)), so this one focuses on the other two: how a model learns to code, and which tools the agent should get.
@@ -37,11 +39,20 @@ This post follows the lecture's order through seven parts: training code models,
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+Verified public recording for CMU 11-768 Fall 2026 lecture 6, published on course instructor Graham Neubig’s channel; its title and description identify this course.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=1BWeH1oOM7k
+title: CMU AI Agents 2026: 6. Agents for Coding and Software Development
+```
+
+Original videos: [CMU AI Agents 2026: 6. Agents for Coding and Software Development](https://www.youtube.com/watch?v=1BWeH1oOM7k)
+
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## 1. Models that write code
 
@@ -256,7 +267,7 @@ L6 is the first Domain lecture after the Capabilities module, landing the pieces
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

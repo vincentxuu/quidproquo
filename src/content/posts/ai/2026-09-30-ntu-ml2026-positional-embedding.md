@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)3/27 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 9 篇。前兩講在談生成為什麼慢：[Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention) 處理記憶體搬運，[KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache) 處理重複計算，上一篇 [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference) 把它們放到 GPU 上量測。這一講換一個問題：**agent 動輒吃進幾十萬 token 的輸入，模型怎麼知道每個 token 在第幾個位置？訓練時沒看過那麼長，測試時又為什麼會壞？**
 
 課表上這一列的標題是「深入模型內部架構：模型如何處理超長輸入」，用到的官方材料是講義 [pos.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pdf)（64 頁，另有 [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pptx)）與影片[如何讓 Transformer 知道輸入 Token 的順序？Absolute、Relative、RoPE、到沒有 Positional Embedding](https://youtu.be/Ll-wk8x3G_g)。存取等級是 **A3**：投影片與錄影都公開，本講沒有對應的測驗或排行榜。
@@ -148,7 +150,7 @@ i 越小頻率越高（秒針），i 越大頻率越低（時針）。投影片�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: Based on the [CS231N](https://cs231n.stanford.edu/) Spring 2026 [Assignment 1 page](https://cs231n.github.io/assignments2026/assignment1/) and the [assignment1.zip starter code](https://cs231n.github.io/assignments/2026/assignment1.zip) (65 KB, 29 entries). All facts were checked by downloading and opening the official files on 2026-09-30. Access level **A3** (defined in the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the questions, starter code, built-in checks, and dataset download script are all public, enough to self-study. What you can't get is Gradescope grading, TA office hours, and the Ed forum.
 
 **Series**: Previous [L4: Neural Networks and Backpropagation](/posts/ai/2026-09-30-cs231n-neural-networks-backprop-en) | Next [L5: Image Classification with CNNs](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
@@ -179,7 +181,7 @@ One thing you can do tonight: download the starter code, open `cs231n/classifier
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

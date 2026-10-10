@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-03-gan)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide follows the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 3 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L02 Neural Networks](/posts/ai/2026-09-30-nccu-genai-02-neural-networks-en). The course is taught in Mandarin.
 
 Three official sources back this post: the [Lecture 3 recording](https://www.youtube.com/watch?v=akt4A3OJ9h4) (2025-03-04, 2 h 45 min), the slide deck [GenAI03 GAN](https://drive.google.com/file/d/1UqnoeRSgHfNC0o6X5ENeWmLKqZNagskI/view) (91 pages), and the week 3 homework on the [Chang Gung satellite class page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. Recordings, slides, homework prompts, and rubrics are all public. Submission and grading run through each school's own platform, so outside readers can only self-assess.
@@ -225,7 +227,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

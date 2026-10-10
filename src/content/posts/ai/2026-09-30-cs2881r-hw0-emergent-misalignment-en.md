@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: Based on the [HW0 GitHub repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) (last commit 2025-07-26) and the [CS 2881R Fall 2025 course site](https://boazbk.github.io/mltheoryseminar/fall2025/), checked file by file on 2026-10-01. The README, scripts, and grading prompts are all public. What you cannot get is the GitHub Classroom autograding environment, which uses the course's OpenAI key. This post **provides no solution code**, and the README explicitly forbids copying code from other replications.
 
 **Series**: Previous: [L1: Why AI Safety Deserves a Graduate Course](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en) | Next: [L2: Modern LLM Training](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
@@ -193,7 +195,7 @@ One thing to do tonight: open [`eval/prompts/non_medical.py`](https://github.com
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

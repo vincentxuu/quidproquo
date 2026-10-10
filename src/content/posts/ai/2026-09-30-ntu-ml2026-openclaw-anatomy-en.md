@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the 3/6 lecture of [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 1 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The official materials are the slide deck [Dissecting the Lobster: How AI Agents Work, Using OpenClaw as an Example](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pdf) (60 slides, also as [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pptx)) and the [lecture recording](https://youtu.be/2rcJdFuNbZQ). Both are in Mandarin. Access is A3: slides and video are public, and this lecture has no assignment or quiz attached.
 
 Slide 16 carries a one-line disclaimer: OpenClaw is an open-source project that changes constantly, and the course focuses on concepts. So does this post. It only takes apart the agent mechanisms the way the lecture presents them. For OpenClaw's installation, channels, gateway, and configuration, see the site's [Reading the OpenClaw Docs](/posts/ai/2026-03-28-openclaw-overview-en) series.
@@ -170,7 +172,7 @@ Series navigation: previous, [series overview](/posts/ai/2026-09-30-ntu-ml2026-c
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

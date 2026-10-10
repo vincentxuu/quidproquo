@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-17-language-models)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This post is rewritten only from the official slides for **Stanford CS221 Autumn 2025 Lecture 17**, `language_models.pdf`. The PDF dates the lecture to 2025-11-17 and credits Ken Liu; it begins by noting that language models will not be on that week's exam, then introduces the definition, motivation, architectures and systems, and finally places the topic in its industrial and research context.
 
 > Material gap: The scope below is limited to what the static PDF supports. The slides do not provide a complete Transformer derivation, reproducible training code, systems benchmark table, classroom interaction record, or Canvas material; those gaps are not filled with generic textbook content.
@@ -147,7 +149,7 @@ The reliable takeaway is therefore not that next-token prediction explains intel
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

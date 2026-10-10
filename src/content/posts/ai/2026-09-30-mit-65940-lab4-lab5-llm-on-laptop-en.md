@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post follows the Fall 2024 edition of [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940).** It is post 16 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series. It turns AWQ and TinyChat from [Lecture 13: LLM deployment](/posts/ai/2026-09-30-mit-65940-llm-deployment-en), and the kernel optimizations from [Lecture 11: TinyEngine and parallel computing](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing-en), into code.
 
 **Series position**: previous [L13 LLM deployment](/posts/ai/2026-09-30-mit-65940-llm-deployment-en) | next [Fall 2026 Lab 1 supplement: roofline, profiling, and FlashAttention](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics-en) | [series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -193,7 +195,7 @@ One thing you can do tonight: clone [tinychat-tutorial](https://github.com/mit-h
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-parallelism-mechanics)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 7: Parallelism**, taught by Percy Liang on April 20, 2026. Its primary source is the official executable lecture, [`lecture_07.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_07.py).
 
 Single-GPU optimization ends here. When the model, optimizer state, or batch grows further, work must cross devices. Lecture 7 deliberately avoids hiding the mechanics behind a high-level wrapper and instead builds three fundamental parallel strategies from collective operations.
@@ -79,7 +81,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

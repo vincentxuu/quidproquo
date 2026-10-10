@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 [CMU 07-380](https://www.cs.cmu.edu/~07380/) 的 HW1 在 9/3 截止，分成兩塊：Gradescope 上的線上題，以及一份程式作業 [Logic and the Hybrid Wumpus Agent](https://www.cs.cmu.edu/~07380/assignments/logic_plan/)。這篇只導讀程式作業：它要你做什麼、每題需要 [Lecture 2](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents) 的哪個概念、怎麼在自己的電腦上跑 autograder。
 
 先講清楚兩件事：
@@ -27,11 +29,13 @@ draft: false
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
 
 ## 官方材料與讀取範圍
 
@@ -183,7 +187,7 @@ Q6、Q7 的測資檔裡直接寫著盤面，`cat` 就看得到。用 `-q` 或 `-
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-compiler-optimization-profiling-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 「這行看起來比較快」是效能工作最危險的起點。第 24 講把最佳化拆成兩個不同責任：程式設計者先選合理的演算法、量出真正的熱點；編譯器再在不改變可觀察語意的範圍內，刪除、搬動或替換低階工作。兩邊都重要，但不能互相冒充。
 
 這講先用三層迴圈的矩陣乘法比較未最佳化與 `-O2`，再介紹 Callgrind 的動態指令計數。後半逐一看 constant folding、common-subexpression elimination、dead-code elimination、strength reduction、code motion 與 tail-recursion optimization，最後用反覆呼叫 `strlen` 的例子說明 compiler 為何有時知道得不夠多。
@@ -196,7 +198,7 @@ Compiler 很強，因為它可以精確追蹤常數、資料流與 target instru
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：移除失效的 Stanford Callgrind guide，改以 Valgrind 官方手冊支撐工作流程與選項。
 
 ## 參考資料

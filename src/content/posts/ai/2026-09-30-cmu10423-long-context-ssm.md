@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-long-context-ssm-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 18 篇，也是「Advanced Topics」單元的第一篇。範圍是兩講：3 月 25 日的 Lecture 19「Long Context in LLM」（講者 Matt Gormley），以及 4 月 1 日的 Lecture 21「State Space Models / Hybrid Models」（講者 Aran Nayebi 與 Matt Gormley）。
 
 用到的官方材料：[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)、[L19 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture19-long.pdf)與[課堂手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture19-long-ink.pdf)（各 40 頁）、[L21 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture21-ssm.pdf)（42 頁，沒有手寫版）。講次表這兩講都沒列 readings，本文只引投影片本身與投影片標註的論文。這門課的存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但錄影放在要 CMU 登入的 Panopto，所以本篇完全依投影片撰寫，課堂口述拿不到。
@@ -215,7 +217,7 @@ L21 最後一段是 hybrid 模型。投影片列了三個動機：長上下文�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

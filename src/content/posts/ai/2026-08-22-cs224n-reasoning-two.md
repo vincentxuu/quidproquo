@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-reasoning-two-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 13 講排在 2026 年 2 月 17 日，但未列講者；本文因此只歸因於 course staff。[官方 Reasoning 2/2 投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture13-reasoning-part2.pdf)的 agenda 包含 speculative decoding、off-policy drift 與 on-policy distillation、long-context extension，以及 inference-time scaling。
 
 ## 課程影片來源
@@ -148,7 +150,7 @@ Winter 2026 錄影不公開。本文涵蓋四段官方 agenda，不重建投影�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

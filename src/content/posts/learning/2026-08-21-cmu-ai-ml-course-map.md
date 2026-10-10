@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 CMU 的情況和前幾站都不一樣：它不只有[正式的人工智慧學士（BSAI）](https://www.cs.cmu.edu/bs-in-artificial-intelligence/curriculum)，還正在改寫這個學位的基礎課。Spring 2026 首次開出 **07-280 Artificial Intelligence and Machine Learning I**；Fall 2026 才會首次開出下集 **07-380**。舊的 15-281 Artificial Intelligence 與 10-315 Introduction to Machine Learning for SCS，則逐步退出常規路徑。
 
 這會產生一個看似矛盾、其實很重要的答案：**想知道 CMU 現在認為 AI 學生該學什麼，要看 07-280／380；想在校外今天就完成一條公開課，要用已完成的 07-280 Spring 2026 殘留教材或持續開課的 10-301/601，不能直接照著尚未開學的 Fall 2026 頁面走。**
@@ -164,7 +166,7 @@ CMU 目前最值得學的，恰好不是一張固定清單，而是這次改制�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-01：公開教材盤點與深入分支補上 10-423/623/723 Generative AI（Spring 2026：26 講投影片、HW1–HW4 與附解答練習考卷公開，錄影在 Panopto，A3）與站內導讀連結；參考資料補上課站。
 - 2026-09-30：公開教材盤點與系統分支補上 11-868 LLM Systems（Spring 2026：28 份講義、7 份 MiniTorch 作業全公開，沒有錄影、需要 GPU，A3）與站內導讀連結。
 - 2026-09-29：Fall 2026 開學後重查：07-280 Fall 2026 改為 A2→A3（前 11 講與 HW1–5 已公開）、07-380 投影片進度更新、11-785 F26 逐講上片中；新增 11-768 AI Agents（表格與分支路線）；補上本站 07-280、10-301、11-785、11-768 導讀連結。

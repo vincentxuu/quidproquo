@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Which year**: The assignment follows the [CS231N](https://cs231n.stanford.edu/) Spring 2026 [Assignment 3 page](https://cs231n.github.io/assignments2026/assignment3/) and the [assignment3.zip starter code](https://cs231n.github.io/assignments/2026/assignment3.zip) (downloaded 2026-09-30; the notebooks were last modified in May 2026). Recordings for the related lectures come from the [Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16). The 2026 recordings are on Canvas for enrolled students only, and the two years may differ.
 >
 > This is post 18 in the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series.
@@ -175,7 +177,7 @@ One thing to do tonight: open `Transformer_Captioning.ipynb`, read only the four
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

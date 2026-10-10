@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-13-independent-components-analysis-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 13 章（印刷頁 173–178）的逐章導讀，依官方主講義整理，**不是某一季錄影或課程進度的重建**。本章以 cocktail party problem 為主脊：多支麥克風錄到多個說話者的線性混合，能否只靠觀測把來源拆回來？
 
 ## 課程影片來源
@@ -82,7 +84,7 @@ $$
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [CS 224V](https://explorecourses.stanford.edu/search?q=CS+224V&view=catalog) is a three- to four-unit autumn course in Stanford's CS department, and for the 2026–2027 academic year its title is **Agentic AI**. Go back one year and the same course number reads *Conversational Virtual Assistants with Deep Learning*. The [2025–2026 ExploreCourses entry](https://explorecourses.stanford.edu/search?q=CS+224V&view=catalog&academicYear=20252026) still carries the old name, and the description attached to it had run three years without a single edit. The rename so far lives only in ExploreCourses — the course website's own title is still the old one.
 
 A rename like that reads as chasing the agent wave. Put the two official descriptions side by side, though, and what got swapped out is the subject matter, not the route. This course has been working the same problem from the start: **a next-word-prediction model gets seventy percent of the answers right almost for free, and cannot get close to all of them.** The prescription is to translate natural language into formal semantics and constrain the model with database queries, knowledge graphs, and SMT theorem provers — not to reach for a different orchestration framework.
@@ -132,7 +134,7 @@ To get a feel for the whole spine first, read four decks in order: Introduction 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

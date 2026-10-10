@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-14-greedy-algorithms)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article fifteen in [Reading Stanford CS161](/en/series/stanford-cs161). It covers **Stanford CS161, Winter 2026, Lecture 14**, taught by Ellen Vitercik on February 25, 2026. The official title is simply *Greedy Algorithms*.
 
 This article uses the public [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture14-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture14.pdf), and [official lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture14.md). The Canvas recording on the official page requires Stanford access. I did not watch it and do not count it as a source. The component also links a Winter 2025 notebook and concept-check bank; this article does not use those older auxiliary materials to expand Winter 2026 claims.
@@ -201,7 +203,7 @@ More generally, when a “pick the best next item” idea appears, take two acti
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

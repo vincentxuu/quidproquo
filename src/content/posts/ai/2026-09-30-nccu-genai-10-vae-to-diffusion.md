@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 10 篇，接在 [L09 AI Agents](/posts/ai/2026-09-30-nccu-genai-09-ai-agents)之後。課程從這一講開始，由文字生成轉向圖像生成。
 
 用到的官方材料有四份：[錄影 10](https://www.youtube.com/watch?v=j4-k7Ug4bYk)（2025-04-22，約 2 小時 54 分）、投影片 GenAI10（78 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo08】用diffusers套件生成圖像`](https://yenlung.me/AI08)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第十週作業。存取等級是 **A3**。Demo08 在 GitHub 上最近一次 commit 是 2025-04-28，**以下引用的是 repo 目前版本**。
@@ -225,7 +227,7 @@ repo 目前版本的流程：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) is this year's machine learning course from Hung-yi Lee in NTU's Department of Electrical Engineering. It does not start with gradient descent. The first lecture dissects a "little lobster": the open-source AI agent [OpenClaw](/posts/ai/2026-03-28-openclaw-overview-en). The syllabus puts it plainly: this year AI "doesn't just talk, it has started to act," so the whole semester takes the AI-agent point of view and focuses on "how to influence and adjust model behavior."
 
 This post is the series entry point. It covers the course structure, what outside readers can get, how assignments are graded, and where to start. Lecture content is left to the later posts. The course is taught in Mandarin, and all official materials linked here are in Chinese unless noted.
@@ -124,7 +126,7 @@ Next: [Dissecting the Lobster: How AI Agents Work, Using OpenClaw](/posts/ai/202
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

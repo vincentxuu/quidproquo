@@ -26,6 +26,8 @@ additionalSeries:
 
 > 🌏 [English version](/posts/tech/2027-01-14-mit-67960-l17-out-of-distribution-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 17）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。
 
 ---
@@ -115,7 +117,7 @@ for x_unlabeled, _ in test_loader:
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

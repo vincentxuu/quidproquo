@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-context-engineering)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the third post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 2 of Fall 2026.
 
 Four listed topics: advanced prompting techniques and when each applies, RePPIT and spec-driven development, MCP fundamentals (servers, clients, tools, transport), and tool ergonomics. The two sessions are "Advanced prompting + agentic dev frameworks" and "Full introduction to MCP and tool-calling."
@@ -186,7 +188,7 @@ The sub-agent line comes with a number: a subagent may burn tens of thousands of
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

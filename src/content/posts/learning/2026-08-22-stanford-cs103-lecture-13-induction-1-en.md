@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-13-induction-1)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 14 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 12, Spring 2026 (2026-04-27)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not identify a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The official topic is **Mathematical Induction, Part I**. The deck begins with a room doing the wave, states the induction principle, develops a formal proof through a sum of powers of two, turns the counterfeit-coin problem into a recursive strategy, and finishes with a false proof and the MU puzzle to show why a base case and an invariant matter. These are not disconnected examples. Each asks how one property can be transmitted reliably from a current state to a next state.
@@ -173,7 +175,7 @@ The next lecture is previewed as covering later starting points, larger steps, a
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the lost body from the complete official Lecture 12 deck, restoring the powers-of-two proof, counterfeit-coin strategy, false induction, and MU puzzle invariant.
 
 ## References

@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-12-general-inference-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 13 篇，對應 **Summer 2026 Lecture 12: General Inference**，日期為 7 月 9 日，講者是 Chris Gregg。本文依 Summer [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture12-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture12-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture12-LLMPrompts.pdf)與跨 offering 共用的 Spring-dated 官方讀本 [computational inference](https://probabilitycoders.stanford.edu/spr26/computational_inference) 章節整理。Canvas 錄影未公開，因此不重建課堂口述。
 
 正式 Summer worksheet 是 P1–P6 加 challenge 的兩頁，題號完整。官方 PDF 另夾一頁沒有講次標頭、題號，且 answer key 與 LLM guide 都未收錄的 **1-D Tracking**。本文把它標為 orphan supplemental artifact 並在文末涵蓋，不把它誤編為 P7。
 
 ## 課程影片來源
 
-本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。因此附官方錄影入口，不提供公開播放器。
 
-課程與錄影入口：
+官方來源：
 
-- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+查核日期：2026-10-10。
 
 ## P1：再做一次 Bayes update
 
@@ -143,7 +149,7 @@ f(T=t|X=4)
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

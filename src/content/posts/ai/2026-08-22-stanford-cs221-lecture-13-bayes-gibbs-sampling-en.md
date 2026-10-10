@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-13-bayes-gibbs-sampling)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article follows **Stanford CS221, Autumn 2025, Lecture 13**. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering; the executable lecture artifact is [gibbs_sampling](https://stanford-cs221.github.io/autumn2025-lectures/?trace=gibbs_sampling). The discussion below follows the execution order in `source/gibbs_sampling.py`. Rather than hiding the mathematics behind a finished sampler, the source exposes `ProbTable`, `Bernoulli`, `sample_dict`, and `normalize_dict` so that distributions, updates, and counts remain visible.
 
 > Material gap: the official executable lecture and course site are public. This article does not treat Canvas-only interactions, assignment solutions, or hidden tests as known material. The public lecture repository is the lecture artifact, not a complete record of every classroom activity.
@@ -196,7 +198,7 @@ When reading or implementing this source, three calculations should be reproduci
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

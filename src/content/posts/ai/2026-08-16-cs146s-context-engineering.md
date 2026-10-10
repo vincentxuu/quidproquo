@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs146s-context-engineering-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是 [CS146S 系列](/posts/ai/2026-08-16-cs146s-course-map)的第三篇，對應 Fall 2026 的第二週。
 
 課程列的四條主題：進階 prompting 技巧與各自的適用時機、RePPIT 與 spec-driven development、MCP 基礎（servers、clients、tools、transport）、以及 tool ergonomics。兩堂課分別是「Advanced prompting + agentic dev frameworks」與「Full introduction to MCP and tool-calling」。
@@ -186,7 +188,7 @@ sub-agent 那條有個具體數字：子 agent 可能燒掉數萬 token，但回
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

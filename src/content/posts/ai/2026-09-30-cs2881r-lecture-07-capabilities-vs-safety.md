@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 Harvard CS 2881R 的 Fall 2025 學期。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 11 篇，對應官方第 7 講 Capabilities vs. Safety（2025 年 10 月 16 日），客座講者是 [METR](https://metr.org/) 的 Joel Becker。
 
 [上一篇 L6](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement) 用微分方程推演 AI 做 AI 研發會不會爆炸，裡面每一條方程式都要一個輸入：AI 現在到底多強、進步多快。這一講就是在處理這個輸入。它也接到安全的另一端：前沿實驗室的安全框架，正是用這類能力量測來決定什麼時候該踩煞車。
@@ -258,7 +260,7 @@ Becker 說這部分之後會有經濟學家客座（見 [L9 經濟衝擊](/posts
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

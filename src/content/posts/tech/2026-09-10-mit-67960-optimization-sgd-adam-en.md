@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-09-10-mit-67960-optimization-sgd-adam)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 7 [Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) is taught by Jeremy Bernstein. This lecture doesn't just list optimizers — it derives from **gradient descent dynamics** why large batches need large learning rates, why Adam fails in certain regimes, and how to use "scaling rules" to transfer hyperparameters from small-batch experiments to large-scale training. This article restructures the lecture highlights into a practical decision framework with runnable PyTorch code.
 
 ## Course video sources
@@ -219,7 +221,7 @@ print("Saved plot to optimizer_comparison.png")
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 的期中 mini-project。主要材料是公開的 [mini-project 規格投影片](https://docs.google.com/presentation/d/1aU8iYbuzPGjzwNwZO4UFOjFy-oJ1cTG1XGR2_C5L5ew)、[評分表](https://docs.google.com/document/d/1m8aZpEnW4J0TNhnfzAZaZ5G0xR5UyYNDiZzoZdI-rII)，以及 head TA Roy Rinberg 的[回顧文](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic)中「Assignment Structure」一段；截止日取自 Boaz Barak 第 8 講投影片的 Admin 頁。事實皆於 2026-09-30 打開上述材料核對。這份作業的規格與評分標準全公開，就作業本身屬 **A3**；拿不到的是學生繳交的期中報告與成績。
 
 **系列位置**：上一篇 [L5：內容審核的老教訓如何搬到生成式 AI](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies)｜下一篇 [L8：Scheming、reward hacking 與欺騙](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
@@ -151,7 +153,7 @@ head TA Roy Rinberg 在課程結束後的回顧文裡，對期中的描述是：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

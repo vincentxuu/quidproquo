@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article reads Chapter 21, printed pages 258–265, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It preserves the central derivations, intuition, and limits of REINFORCE and PPO without copying every proof line by line.
 
 ## Course video sources
@@ -97,7 +99,7 @@ Take two length-three trajectories with per-step rewards \((2,3,5)\) and \((1,1,
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

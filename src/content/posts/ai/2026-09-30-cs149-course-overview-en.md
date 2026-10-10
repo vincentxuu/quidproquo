@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **This series is based on the Fall 2025 edition of [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25).** When I checked on 2026-09-30, `cs149.stanford.edu` still redirected to the fall25 site and the fall26 URL returned 404. This is post 0 of the series and its overview; every later post points back here for materials and limits.
 
 Most AI engineers now work on parallel hardware every day. Training runs on GPU clusters, inference means squeezing kernel performance, and even phones ship an NPU. Yet many people have only a vague sense of why GPUs are fast, or why adding cores didn't make their program faster. [CS149: Parallel Computing](https://gfxcourses.stanford.edu/cs149/fall25) fills that gap.
@@ -207,7 +209,7 @@ These site series overlap with CS149. This series does not cut content because o
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

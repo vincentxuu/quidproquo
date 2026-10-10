@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide follows the 3/27 materials of [NTU Machine Learning 2026 Spring by Hung-yi Lee](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 9 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The two previous lectures asked why generation is slow: [Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en) deals with memory traffic, [KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en) deals with repeated computation, and [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en) measured both on a GPU. This lecture asks a different question. **Agents routinely feed models hundreds of thousands of tokens. How does the model know where each token sits? And why does it break on inputs longer than anything it saw in training?**
 
 The course schedule titles this row "inside the model: how models handle very long inputs". The official materials are the slides [pos.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pdf) (64 pages, also as [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pptx)) and the video [How does a Transformer know the order of input tokens? Absolute, Relative, RoPE, and no Positional Embedding](https://youtu.be/Ll-wk8x3G_g) (in Mandarin). Access level is **A3**: slides and recording are public, and this lecture has no quiz or leaderboard.
@@ -148,7 +150,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

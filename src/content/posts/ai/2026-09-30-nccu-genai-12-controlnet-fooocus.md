@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍「生成式 AI：文字與圖像生成的原理與實務」2025 春季（政大學期代碼 1132）版。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 12 篇，接續 [L11 文字生圖 AI 的原理及實作](/posts/ai/2026-09-30-nccu-genai-11-text-to-image)。
 
 用到的官方材料有三份：[第 12 講錄影](https://www.youtube.com/watch?v=3TdC6xb1RfY)（2025-05-06，3 小時 12 分）、投影片 [GenAI12 ControlNet 與 Fooocus](https://drive.google.com/file/d/15-cHR3PSoGVmXj0yrrzCksDJQ1fcVtir/view)（33 頁），以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上的第十二週作業說明。存取等級是 **A3**：錄影、投影片、作業題目與評分標準都公開。這一講沒有對應的 [AI-Demo](https://github.com/yenlung/AI-Demo) notebook，實作用的是 [Fooocus](https://github.com/lllyasviel/Fooocus) 這套開源軟體本身。
@@ -222,7 +224,7 @@ pip install -r requirements_versions.txt
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

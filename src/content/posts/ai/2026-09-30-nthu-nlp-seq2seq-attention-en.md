@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 4 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. [Post 2](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en) introduced RNN language models, which read one token at a time and predict the next. [HW1](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy-en) tested word vectors. This post takes on a problem RNN language models never faced: **how do you design a model when the input and output have different lengths?**
 
 The source is the 33-slide deck [W3_Sequence-to-sequence Models and Attention Mechanisms.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Sequence-to-sequence%20Models%20and%20Attention%20Mechanisms.pdf) from the [IKMLab course repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing). The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) lists it in the W3 row with two recordings, [W3 Tue](https://www.youtube.com/live/LFeFc0VtKRI) and [W3 Thu](https://www.youtube.com/live/UZ22K0rmU1g) (lectures are in Mandarin). That row's Topics column says "Introduction to NLP (Language model)", but it is a syllabus template, so the slides are the source of truth. This post is based on the slides only; I did not check it against the recordings segment by segment.
@@ -153,7 +155,7 @@ Attention without RNNs is the heart of the Transformer, which this series covers
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

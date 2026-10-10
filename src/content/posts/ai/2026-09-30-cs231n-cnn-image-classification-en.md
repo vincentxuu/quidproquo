@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-cnn-image-classification)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: slides are the [lecture_5.pdf](https://cs231n.stanford.edu/slides/2026/lecture_5.pdf) linked from the Spring 2026 schedule; the recording is the Spring 2025 [YouTube L5](https://www.youtube.com/watch?v=f3g1zGdxptI). The two may differ, and I flag differences below. This is post 6 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series and follows the [A1 guide](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en).
 
 The first four lectures of [CS231N](https://cs231n.stanford.edu/) build a classification pipeline: linear classifiers, losses, optimization, two-layer networks, and backprop. Lecture 5 opens the second unit, "Perceiving and Understanding the Visual World." The [official schedule](https://cs231n.stanford.edu/schedule.html) lists three topics: history, higher-level representations and image features, and convolution and pooling.
@@ -195,7 +197,7 @@ Series navigation: previous [A1 guide: kNN, Softmax, Two-Layer Net, and Fully-Co
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-pretraining-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 7 講排在 2026 年 1 月 27 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture07-pretraining.pdf)題為 **Pretraining (Scaling, Systems, Data)**。agenda 有六段：動機、subword、從詞向量走到模型預訓練、三種架構、預訓練學到什麼，以及大型模型與 in-context learning。
 
 ## 課程影片來源
@@ -122,7 +124,7 @@ Winter 2026 錄影不公開。投影片封面保留「Lecture 6: Pretraining」�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

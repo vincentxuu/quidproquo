@@ -14,6 +14,8 @@ description: "CS224V Long-Document QA：訓練與切塊路線、SLIDERS schemati
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-long-document-qa-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-longdoc-new.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第八講把問題規模拉到「一組長文件」：比較公司年報、病歷、新聞事件或發票時，答案可能散在不同段落與文件。單純增加 context window 沒有解決跨文件整合，也沒有提供可查詢的中間狀態。SLIDERS 把文字轉成為問題量身打造的表格。
@@ -136,7 +138,7 @@ SLIDERS 的優勢不只是能放更多 token，而是把每份文件的局部證
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-05-first-order-logic-1)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 6 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 4, Spring 2026 (2026-04-08)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 Propositional logic treats a whole statement as true or false and combines statements with `¬`, `∧`, `∨`, `→`, and `↔`. This lecture opens that black box. Which objects does a sentence discuss? Which property applies to which object? How do “some” and “every” enter a formula? The main difficulty is not the larger alphabet. Every syntactic component has a fixed input and output type.
@@ -149,7 +151,7 @@ The complete deck supports the sequence from object language through the two qua
 ## Update Log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the lost bilingual body item by item from the official Lecture 4 deck, corrected topic metadata, and restored constants, predicates, functions, quantifiers, scope, precedence, and translation examples.
 
 ## References

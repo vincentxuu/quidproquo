@@ -15,15 +15,21 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-06-moments-variance)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 7 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 6: Moments (Expectation)** on June 30 with Chris Gregg. Its Summer agenda comes from the [schedule](https://web.stanford.edu/class/cs109/schedule.html), [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture06-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture06-AnswerKey.pdf), and [LLM guide](https://web.stanford.edu/class/cs109/worksheets/Lecture06-LLMPrompts.pdf). The `/spr26` [reader](https://probabilitycoders.stanford.edu/spr26) is a shared, Spring-dated concept reference rather than evidence of the Summer lecture. Canvas video is inaccessible and is not reconstructed.
 
 ## Course video sources
 
-This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
 
-Course and recording entries:
+Official sources:
 
-- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+Checked on 2026-10-10.
 
 ## From a distribution to an operational summary
 
@@ -94,7 +100,7 @@ so a random permutation has one fixed point on average. The challenge derives `E
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

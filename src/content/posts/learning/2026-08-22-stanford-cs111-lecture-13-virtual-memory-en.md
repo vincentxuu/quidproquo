@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-13-virtual-memory)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 14 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 13**. Mendel Rosenblum taught the lecture on 2026-04-27; its official title is [Virtual Memory](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/13/Lecture13.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Earlier lectures shared one core among concurrent threads. This lecture starts sharing one physical memory among concurrent processes. The PDF uses a historical sequence so each mechanism answers the previous design's failure rather than presenting virtual memory as magic.
@@ -99,7 +101,7 @@ Paging will next replace variable-size regions with fixed-size pages. Lecture 13
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

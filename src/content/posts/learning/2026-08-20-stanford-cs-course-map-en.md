@@ -24,6 +24,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-20-stanford-cs-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Stanford's computer science department runs more than three hundred courses a year, and a large batch of them put lectures, assignments, and even past exams at a public URL — no registration, no login, no payment. That fact helps self-learners almost not at all: it doesn't tell you where to start, or which of those URLs open onto an empty shell.
 
 This is that map. It's ordered by **official prerequisites**, from the first programming class to an LLM course you have to apply to take, and each rung marks what the course teaches and what its public materials actually contain. The second half handles two things course maps usually skip: where someone not enrolled for credit hits a wall, and the fact that **several widely cited advanced courses haven't run in years.**
@@ -282,7 +284,7 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 ## Changelog
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-01: Added self-study status and guide links for CS234 (Winter 2026, A3) and CS224R (Spring 2026, A3) to the reinforcement learning and robotics branch, with CS224R placed after CS234 in the suggested order; added CS149's (Fall 2025, A3) public materials and execution-environment gaps to the systems branch; added the CS224R course site and the three guide series to References.
 
 - 2026-09-30: Added CS231N's self-study status to the vision branch (Spring 2026 slides and assignments A1–A3 public, recordings from the Spring 2025 YouTube playlist, rated A3) with a link to this site's guide; added the guide to the related links in References.

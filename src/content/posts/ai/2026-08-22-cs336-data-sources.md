@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-data-sources-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 13: Data (sources, datasets)**，2026 年 5 月 11 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_13.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_13.py)。本文整理課程內容，不構成法律意見。
 
 資料是最容易被一句「我們用網路語料」掩蓋的部分。第十三講從 live service 一路追到 raw snapshot，再到後續 processed data，先問來源、取得方式與權利，下一講才談 filtering、deduplication 與 mixing。
@@ -75,7 +77,7 @@ BERT 使用 Wikipedia 與 BooksCorpus，GPT-2 以 Reddit outbound links 建 WebT
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

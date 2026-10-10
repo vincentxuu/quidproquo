@@ -14,6 +14,8 @@ description: "A lecture-by-lecture guide to Stanford CS224V Fall 2025 Introducti
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-introduction)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-introduction.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 This is the first lecture of CS224V Fall 2025, not the still-unpublished Autumn 2026 Agentic AI syllabus. Its premise is severe: an LLM can ignore retrieved evidence, mix in parametric memory, or fluently invent unsupported statements even with RAG. The course responds by turning an assistant into individually inspectable steps.
@@ -116,7 +118,7 @@ The public artifact is a slide deck, with no recording or complete speaker notes
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Source term**: This post is based on the Spring 2026 [Homework 1 PDF](https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.pdf), [LaTeX template](https://cs224r.stanford.edu/material/hw1/CS224R_2026_Homework_1.tex), and [starter code hw1_starter_code.zip](https://cs224r.stanford.edu/material/hw1/hw1_starter_code.zip) for [CS224R](https://cs224r.stanford.edu/). I downloaded and read all three anonymously on 2026-09-30. There is no video for this assignment.
 
 This is part 3 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L2 on imitation learning](/posts/ai/2026-09-30-cs224r-imitation-learning-en), which covered three ideas: why a policy needs to represent multimodal distributions, action chunking, and online interventions with DAgger. HW1 puts all three into one small game so you can see for yourself what problem each one solves.
@@ -204,7 +206,7 @@ Download the starter code, set up the environment with `installation.md`, write 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

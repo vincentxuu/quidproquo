@@ -8,7 +8,7 @@ lang: en
 series:
   name: "Reading CMU 11-868 LLM Systems"
   order: 11
-tldr: "Lectures 14 and 15 of 11-868 go from the parameter server to PyTorch DDP. They use NCCL's five collectives (Broadcast, Reduce, AllReduce, ReduceScatter, AllGather) as building blocks, show why a ring makes broadcast time nearly independent of GPU count, and split AllReduce into ReduceScatter plus AllGather. The second lecture takes apart DDP's two key designs: bucketing gradients (25 MB by default) and starting synchronization before the backward pass finishes. There is no recording; this guide works from slide page numbers and the VLDB 2020 paper."
+tldr: "Lectures 14 and 15 of 11-868 go from the parameter server to PyTorch DDP. They use NCCL's five collectives (Broadcast, Reduce, AllReduce, ReduceScatter, AllGather) as building blocks, show why a ring makes broadcast time nearly independent of GPU count, and split AllReduce into ReduceScatter plus AllGather. The second lecture takes apart DDP's two key designs: bucketing gradients (25 MB by default) and starting synchronization before the backward pass finishes. The official syllabus lists no public recording link; this guide works from slide page numbers and the VLDB 2020 paper."
 description: "A guide to Lectures 14-15 of CMU 11-868 LLM Systems (Spring 2026): parameter server versus AllReduce data parallelism, NCCL collectives and the ring algorithm, the two phases of ring AllReduce, world size and ranks in PyTorch DDP, gradient bucketing and compute-communication overlap, and two pitfalls from the DDP paper. With slide page numbers and a reading plan."
 draft: false
 glossary:
@@ -31,17 +31,21 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-data-parallel-training)
 
-> **Version note**: This post is based on the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Every fact was checked on 2026-09-30 against the [course syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), the [L14 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-14-distributed-training-b27c3d1dc185e680c6f5cc924e9ec9d7.pdf) (48 pages), the [L15 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-15-ddp-165dbe3873fac21eb8b339e64bcfee28.pdf) (26 pages), and the [PyTorch DDP paper](https://www.vldb.org/pvldb/vol13/p3005-li.pdf). Access grade **A3**, but **the course has no public recordings**. Page numbers below always mean PDF pages; the numbers printed in the corner of the L14 slides run 2-3 higher than the PDF page, so go by the PDF.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> **Version note**: This post is based on the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Every fact was checked on 2026-09-30 against the [course syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), the [L14 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-14-distributed-training-b27c3d1dc185e680c6f5cc924e9ec9d7.pdf) (48 pages), the [L15 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-15-ddp-165dbe3873fac21eb8b339e64bcfee28.pdf) (26 pages), and the [PyTorch DDP paper](https://www.vldb.org/pvldb/vol13/p3005-li.pdf). Access grade **A3**, but **the official syllabus lists no public recording links**. Page numbers below always mean PDF pages; the numbers printed in the corner of the L14 slides run 2-3 higher than the PDF page, so go by the PDF.
 
 **Series**: Previous: [HW4: Fused CUDA Kernels for Softmax and LayerNorm](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en) | Next: [L16-L17 Model Parallelism and MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## What these lectures answer
 
@@ -205,7 +209,7 @@ One thing you can do tonight: in any PyTorch training script, set `bucket_cap_mb
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

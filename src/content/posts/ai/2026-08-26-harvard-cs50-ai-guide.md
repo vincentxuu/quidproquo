@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 搜「免費 AI 課程」，[Harvard CS50's Introduction to Artificial Intelligence with Python](https://cs50.harvard.edu/ai/)（以下簡稱 CS50 AI）幾乎一定排在前幾名。它由 [Brian Yu](https://brianyu.me) 和 [David J. Malan](https://cs.harvard.edu/malan/) 主講，透過 OpenCourseWare 完全免費公開：七週影片、逐講 notes、投影片、原始碼、quiz，加上十二個有 autograder 回饋的 Python projects。按照本站在[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)定的分級，它是 **A3——足以自學**：錄影、教材、projects、回饋系統全部對校外開放，一個人從零走到拿證書，中間不需要任何校內身分。
 
 但「材料全開」不等於「材料是最新的」。打開任何一講的下載連結，你會發現路徑寫著 `cdn.cs50.net/ai/2020/spring/`——影片是 2020 年春天錄的。這篇要回答的問題因此有兩個層：這七週和十二個 projects 到底在做什麼；以及一份 2020 年的錄影，放在 2026 年還值不值得跟。
@@ -123,7 +125,7 @@ draft: false
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-26：初版。錄影與作業版本狀態以 2026 年 8 月 26 日官網查核為準。
 
 ## 參考資料

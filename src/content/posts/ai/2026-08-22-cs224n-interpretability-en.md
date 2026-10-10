@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-interpretability)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) confirms that the fifteenth regular unit took place on February 24, 2026, guest-taught by Been Kim under the official title **Guest Lecture: Interpretability**. Unlike the first fourteen units, the course page publishes no Winter 2026 deck and no agenda. It lists only five suggested readings.
 
 This article therefore cannot faithfully reconstruct what was taught. It is a reading map supported by the official list, preserving the series position and material boundary without presenting papers as classroom speech.
@@ -52,7 +54,7 @@ The date, speaker, title, and five official readings are confirmed. The spoken a
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

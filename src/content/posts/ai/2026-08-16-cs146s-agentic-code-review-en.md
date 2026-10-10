@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agentic-code-review)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the seventh post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 6 of Fall 2026.
 
 Three topics: what AI review catches well and what it misses, review architectures and custom rules, and fitting AI review into a team's PR workflow. The guest is Cognition's Silas Alberti — who also appeared in Fall 2025, then on AI IDEs, now on code review.
@@ -122,7 +124,7 @@ That single sentence answers both accountability and process design.
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

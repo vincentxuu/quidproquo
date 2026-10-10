@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片與作業；錄影是 Spring 2024 公開版。** 這是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列第 6 篇，接續[沒模型時怎麼控制：ε-greedy、GLIE、SARSA／Q-learning、函數近似](/posts/ai/2026-09-30-cs234-model-free-control-function-approx)。
 
 用到的官方材料：[第 5 講投影片（post 版）](https://web.stanford.edu/class/cs234/slides/lecture5post.pdf)第 5–21 頁，[A2 題目](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf)第 1 題（8 分書面題），以及 [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)的[影片 04〈Q learning and Function Approximation〉](https://www.youtube.com/watch?v=b_wvosA70f8)。依 YouTube 章節，2024 版的 DQN 在這支的最後 20 分鐘：[58:04「Instabilities and DQN」](https://www.youtube.com/watch?v=b_wvosA70f8&t=3484s)與 1:05:39「DQN implementation」；影片 05〈Policy Search 1〉整支講策略搜尋，沒有 DQN。
@@ -190,7 +192,7 @@ A2 的第一題是 8 分的書面題，題目附了一份跟投影片寫法略�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

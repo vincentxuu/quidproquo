@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-risks-alignment-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 20 篇，接續 [L20：推理模型](/posts/ai/2026-09-30-cmu10423-reasoning-models)。範圍是兩份投影片：
 
 - 4 月 6 日的 Lecture 22「Real-world Issues and Considerations / What can go wrong?」，講者 Aran Nayebi 與 Matt Gormley，投影片標註「Slide Credit: Henry Chai」
@@ -243,7 +245,7 @@ glossary:
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 的 [Assignment 1 頁面](https://cs231n.github.io/assignments2026/assignment1/) 與 [起始碼 assignment1.zip](https://cs231n.github.io/assignments/2026/assignment1.zip)（65 KB，29 個項目）。事實皆於 2026-09-30 下載並打開官方檔案核對。存取等級 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：題目、起始碼、單元檢查與資料下載腳本都公開，足以自學；拿不到的是 Gradescope 評分、助教 office hours 與 Ed 論壇。
 
 **系列位置**：上一篇 [L4：神經網路與反向傳播](/posts/ai/2026-09-30-cs231n-neural-networks-backprop)｜下一篇 [L5：用 CNN 做影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
@@ -179,7 +181,7 @@ notebook 標題是「Fully-Connected Neural Nets」，照順序帶你寫出模�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

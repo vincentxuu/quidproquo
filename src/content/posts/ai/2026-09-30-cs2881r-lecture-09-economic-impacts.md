@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 課站的 10 月 30 日講次、[第 9 講錄影](https://youtu.be/4vQSMijp_M8)（YouTube 標題「Lecture 9: Economic Impacts of AI」，約 2 小時 32 分）、四篇預讀，以及課站首頁列出的 Boaz Barak 部落格文 [Thoughts by a Non-Economist on AI and Economics](https://windowsontheory.org/2025/11/04/thoughts-by-a-non-economist-on-ai-and-economics/)。事實皆於 2026-09-30 打開官方材料核對；錄影內容依 YouTube 自動字幕整理，人名以課站拼法為準。**本講材料**：錄影與閱讀清單公開；課站沒有列投影片，實驗欄寫「To be determined」，但錄影裡確實有一組學生實驗報告。整門課的存取分級與缺口見[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)。
 
 **系列位置**：上一篇 [L7：能力與安全](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)｜下一篇 [L11：聊天機器人、情感依賴與心理健康](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
@@ -176,7 +178,7 @@ Chatterji 回饋時問了一個好問題：messiness 是任務本身的屬性，
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）整理，範圍是 Lecture 11–12（2/24、2/26）。[Lec 7–10](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression) 的 y 是實數，這兩講的 y 換成類別。
 
 投影片用一句話區分兩件事：回歸是「畫一條線去描出資料」，分類是「畫一條線把不同類別分開」，這條線叫決策邊界。
@@ -226,7 +228,7 @@ Discussion 5 雖然排在 Lec 11 那週，三題的內容都是回歸與估計�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

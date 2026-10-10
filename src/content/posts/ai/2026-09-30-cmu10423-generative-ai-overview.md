@@ -19,6 +19,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本系列依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) 的 Spring 2026 版。這是 2025–2026 年最近一個完整學期：講次表最後一筆是 4 月 30 日的期末報告截止，頁尾寫著「Last updated April 20, 2026」；`10423-f26/` 目前回 404，沒有 Fall 2026 課站。所有事實都在 2026-09-30 打開課程首頁、[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)、[Coursework](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)、[Previous](https://www.cs.cmu.edu/~mgormley/courses/10423/previous.html) 頁與投影片、作業檔核對。存取等級 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
 **系列位置**：本篇是總覽｜下一篇 [L1：RNN 語言模型與 autodiff（含 HW0）](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff)
@@ -193,7 +195,7 @@ HW4 的 Colab Pro 建議需要 CMU 信箱，校外讀者得自己找 GPU。細�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

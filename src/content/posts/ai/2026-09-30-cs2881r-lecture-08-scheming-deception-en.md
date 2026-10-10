@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the October 23 session of the [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 site. The main materials are [Boaz Barak's opening video](https://youtu.be/8NL1NAMrJxY) (10 minutes) and his 9-slide deck, the guest slides of [Marius Hobbhahn](https://docs.google.com/presentation/d/1BpMoImDfF9x3C7mGvmIFJOOVYvkgZFn2W09cW1oieSo) and [Buck Shlegeris](https://docs.google.com/presentation/d/1n5Dl6P-bPIfaenMU-9Dk4sTqXvl8VwdoHMSbmKmwonc), and the student experiment's [video](https://youtu.be/JXvHJheHE10), [GitHub](https://github.com/ItamarRocha/scheming-exp8), and [LessWrong post](https://www.lesswrong.com/posts/AJANBeJb2p39su6F9/cs2881r-week-8-when-agents-prefer-hacking-to-failu). **The site lists no recording of the two guest talks, and the official 2025 YouTube playlist (checked 2026-10-01) has only Boaz's 10-minute opening and the student experiment for this session**, so this post describes the guest content from slide text only and does not fill in what the speakers said aloud. All facts were checked against these materials on 2026-09-30. This lecture on its own rates **A2**: the opening video, three slide decks, and the full student experiment are public, but the recordings of the main talks are not.
 
 **Series**: previous [Midterm: Reproduce and Extend One Headline Figure](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en) | next [L10: Looking Inside the Model vs. Reading the Chain of Thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
@@ -208,7 +210,7 @@ One thing you can do tonight: give whatever coding agent you use a small task wh
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

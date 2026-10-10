@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 4 篇，也是文字單元的收尾。前一篇 [L4：現代 Transformer](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa) 講了 RoPE、GQA 與 sliding window 的原理，這一篇看作業怎麼要你把它們做出來。
 
 用到的官方材料：[Coursework 頁](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)上的 [hw1.zip](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw1.zip)（內含 27 頁的 hw1.pdf、起始碼與 LaTeX 模板）、[Overleaf 唯讀模板](https://www.overleaf.com/read/sdrhkbjjdhwv#8049a1)、1 月 30 日的 [HW1 recitation 投影片](https://docs.google.com/presentation/d/1IpSzQ5dkr3iO0riNfareQiif9J9O684amTBATiybuVk/edit?usp=sharing)（Google Slides，公開），以及課綱的作業規則。**本文只寫題目結構與設定，不附任何解答。**
@@ -189,7 +191,7 @@ hw1.pdf 列了三條路：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

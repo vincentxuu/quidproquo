@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > This is post 1 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series, based on the Fall 2024 edition. The [series entry point](/posts/ai/2026-09-30-mit-65940-course-overview-en) explains why it does not follow Fall 2026.
 
 Official materials covered here:
@@ -229,7 +231,7 @@ The [Fall 2026 Lab 0](https://colab.research.google.com/drive/1PfVYxikSaVpCSD-cn
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the slides for Lecture 7 of [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25), Fall 2025 (October 14), [GPU Architecture and CUDA Programming](https://gfxcourses.stanford.edu/cs149/fall25/lecture/gpuarch/) ([PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/gpuarch/07_gpuarch.pdf), 74 pages), checked on 2026-09-30. Fall 2025 recordings are on Canvas only; the substitute the official homepage points to is the [2023 Lecture 7 video](https://www.youtube.com/watch?v=qQTDF0CBoxE). I did not compare the two versions segment by segment, so the 2025 slides are the authority here. Access grade **A3**: full slides are public, and only an older recording is available.
 
 **Series**: Previous: [PA2: Task Graph Scheduling](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling-en) | Next: [Lecture 8: Data-Parallel Thinking](/posts/ai/2026-09-30-cs149-data-parallel-thinking-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
@@ -197,7 +199,7 @@ One thing you can do tonight: copy down the `myFlag` example, write one sentence
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

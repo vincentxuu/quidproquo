@@ -34,6 +34,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 Harvard CS 2881R 的 Fall 2025 學期。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 9 篇，對應官方第 10 講 Interpretability（2025 年 11 月 6 日）。[上一篇 L8](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception) 談模型會不會為了訓練目標作弊或裝乖；這一篇問下一個問題：如果它真的在作弊，我們有什麼工具看得出來？
 
 L10 的答案分成兩條路。一條是讀模型寫出來的推理過程，也就是 chain of thought（CoT）；另一條是直接讀模型內部的數值，也就是 activation。四位客座講者分屬三家前沿實驗室，各自站在不同的位置上：
@@ -266,7 +268,7 @@ Boaz 要每位講者選邊：機制可解釋性對 AI 安全是不是關鍵瓶�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

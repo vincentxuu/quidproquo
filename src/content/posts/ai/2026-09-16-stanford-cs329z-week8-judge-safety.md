@@ -19,6 +19,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 Week 8 是裁判週加安全週。週一（11/9）談 LLM-as-Judge 與評測基建。週三（11/11）談 Agent Safety 與 Guardrails。週五 paper video 到期，季度專案進入最後彩排。
 
 開放式回答沒有標準答案，這是整週的起點。傳統選擇題基準量的是知識對錯，例如 [MMLU](https://arxiv.org/abs/2006.03341) 這類多選題。兩個回答可以都對，只有一個讓人想用，這段差距傳統基準看不見。
@@ -128,7 +130,7 @@ OpenAI 的 [Understanding Prompt Injections](https://openai.com/index/prompt-inj
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-12：補上 AutoLibra、CDI、prompt injection 與 RSP 四篇延伸閱讀的實質導讀，並標明 RSP 的歷史版本邊界。
 
 ## 參考資料

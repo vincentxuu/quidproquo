@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-ai-native-team)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the tenth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 9 of Fall 2026.
 
 Three topics: MCP portals and centralized, permissioned tool access; LLM gateways, model routing, and cost optimization; org-wide adoption patterns. The session is "Coding agents in big teams."
@@ -130,7 +132,7 @@ And one refreshingly honest one: the inference team treats it like a "slot machi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

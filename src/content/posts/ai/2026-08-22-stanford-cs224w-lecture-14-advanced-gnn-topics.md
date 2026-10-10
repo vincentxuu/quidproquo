@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-14-advanced-gnn-topics-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 14 講**，官方日期 2025-11-11。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/14-advanced_gnns.pdf)整理；講者以投影片署名為準。
 
 ## 課程影片來源
@@ -127,7 +129,7 @@ Prompt模型做demo permutation、edge removal、demo count與unseen schema測�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

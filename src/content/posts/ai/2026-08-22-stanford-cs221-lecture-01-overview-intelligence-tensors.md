@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-01-overview-intelligence-tensors-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 1**，由 Percy Liang 主講，日期標示為 2025-09-22。閱讀範圍只包括三份公開 executable artifacts：`welcome.py`、`history.py`、`tensors.py`。課程入口在[官方網站](https://stanford-cs221.github.io/autumn2025/)，本講 trace 入口是 [welcome, history, tensors](https://stanford-cs221.github.io/autumn2025-lectures/?trace=welcome)。下文不把 Canvas-only 的課堂互動當證據，也不補寫來源沒有提供的結論。
 
 ## 課程影片來源
@@ -134,7 +136,7 @@ Reduction 也可命名：`x.sum(dim=-1)` 等同 `reduce(x, "... hidden -> ...", 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

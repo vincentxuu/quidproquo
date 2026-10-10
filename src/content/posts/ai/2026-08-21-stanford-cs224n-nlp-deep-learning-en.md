@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 [CS224N: Natural Language Processing with Deep Learning](https://web.stanford.edu/class/cs224n/) is the NLP course in Stanford's CS department, and the hub of the whole NLP branch — CS224U, CS224V and CS329A all point their official prerequisite fields back at it. It teaches how to process language with neural networks, from word vectors and backpropagation through pre-training, post-training, reasoning and evaluation.
 
 It also does something no other course manages: **the course site keeps every offering since 2000 online.** The Previous offerings block on the homepage is a long row of links, the oldest labeled Spring 2000. Which means you can open Winter 2019 and the current version side by side — same course, same slide-filename convention, same NVIDIA Auditorium — and see what got cut over seven years.
@@ -165,7 +167,7 @@ If you would rather watch lectures first, the order to use is: watch lectures 1,
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

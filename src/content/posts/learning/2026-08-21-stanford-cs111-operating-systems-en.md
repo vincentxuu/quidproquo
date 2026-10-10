@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs111-operating-systems)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 [CS111: Operating Systems Principles](https://web.stanford.edu/class/cs111/) is the systems slot in Stanford's five-course undergraduate core, sitting directly after CS107. What it teaches fits in one sentence: your program has never actually had this machine to itself, and this course shows you how the layer in the middle keeps up the illusion.
 
 The site's [map of Stanford's CS courses](/posts/learning/2026-08-20-stanford-cs-course-map-en) already made the case that CS111's assignment list *is* an operating system. That was a judgment at the level of the ladder. This piece answers what happens once you're inside: what each of the nine assignments actually asks of you, which one you can't walk back from, why an OS course spends two lectures on trust, and how much of the widely repeated "CS111 is just the old CS110" holds up.
@@ -189,7 +191,7 @@ When you're done, the next step isn't hunting for starter code. Go to the exams 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

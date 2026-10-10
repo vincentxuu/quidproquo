@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 *Generative AI: Text and Image Synthesis Principles and Practice* (生成式 AI：文字與圖像生成的原理與實務) is taught by **Yen-Lung Tsai** (蔡炎龍) in the Department of Mathematical Sciences at National Chengchi University (NCCU). It is a lead course in [TAICA](https://taicatw.net/fall-115/), streamed live every Tuesday afternoon, and students at member schools can take it as a satellite course. It is taught in Mandarin.
 
 The course has a clear audience: beginners with little programming background. They first learn the principles behind neural networks, GANs, large language models, RAG, AI agents, and diffusion image generation. Then they build chatbots, RAG systems, agents, and image-generation web apps in [Google Colab](https://colab.research.google.com/). Among the course guides on this site, it is one of the gentler entry points. Deeper material is linked out to other series.
@@ -200,7 +202,7 @@ Each lecture here stands on its own. These series on the site are only for when 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

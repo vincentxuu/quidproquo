@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the official materials for NTHU Prof. Hung-Yu Kao's Natural Language Processing course, Fall 2025 (114-1).** It is part 18 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series and follows [the RAG labs and HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en).
 
 Three official materials are used here, all listed in the W14 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md): [Course_summary.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/Course_summary.pdf) (7 pages), [Note_from_Google_DeepMind's_Reasoning_Talk.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/Note_from_Google_DeepMind%27s_Reasoning_Talk.pdf) (13 pages), and the recording [Week 14 Tue.](https://www.youtube.com/watch?v=_hzMv789JQ8) (about 77 minutes). The Fall 2025 term is rated **A3, enough for self-study**. The rating scale is defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
@@ -165,7 +167,7 @@ Series navigation: previous, [RAG labs + HW4](/posts/ai/2026-09-30-nthu-nlp-rag-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

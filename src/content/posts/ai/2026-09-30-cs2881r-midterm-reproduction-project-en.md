@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the midterm mini-project of [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/), Fall 2025. The main materials are the public [mini-project spec slides](https://docs.google.com/presentation/d/1aU8iYbuzPGjzwNwZO4UFOjFy-oJ1cTG1XGR2_C5L5ew), the [grading rubric](https://docs.google.com/document/d/1m8aZpEnW4J0TNhnfzAZaZ5G0xR5UyYNDiZzoZdI-rII), and the "Assignment Structure" section of head TA Roy Rinberg's [retrospective](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic). The deadline comes from the Admin slide of Boaz Barak's Lecture 8 deck. All facts were checked against these materials on 2026-09-30. The spec and rubric are fully public, so the assignment itself rates **A3**; what you can't get is the students' submitted reports and grades.
 
 **Series**: previous [L5: Carrying Content Moderation's Old Lessons into Generative AI](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en) | next [L8: Scheming, Reward Hacking, and Deception](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
@@ -151,7 +153,7 @@ One thing you can do tonight: open the paper you picked, look only at the headli
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

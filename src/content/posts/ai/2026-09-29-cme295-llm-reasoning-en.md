@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-llm-reasoning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers Lecture 6 of the 2025 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), "LLM reasoning" (November 7, 2025). The main source is the [148-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf); the recording is [here](https://www.youtube.com/watch?v=k5Fh-UgTuCo). Everything below comes from the slides; where the slides don't say something, I cite the source paper instead.
 
 The slides draw the boundary of "reasoning" with two questions. "What is the course code of Stanford's Transformers & LLMs class?" is not reasoning: you either remember it or you don't. "The bear was born in 2020. How old is this bear now?" is, because you have to work out what year it is and then subtract. The slides' tentative definition is one line: reasoning = ability to solve a problem.
@@ -269,7 +271,7 @@ These are paraphrased from Part II, "LLM reasoning," of the [2025 final exam](ht
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這一篇是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列的第 2 篇，對應[機器學習基石](https://www.csie.ntu.edu.tw/~htlin/mooc/)的 Lecture 4「feasibility of learning」，是第一個問題「When Can Machines Learn?」的最後一講。
 
 [第 1 篇](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)的 PLA 在訓練資料上可以做到零錯誤，但我們真正在乎的是**沒看過的資料**。這一講從「演算法」跳到「機率保證」，是整門課的第一道斷崖，所以本系列讓它單獨一篇。
@@ -191,7 +193,7 @@ print("Hoeffding bound:", 2 * np.exp(-2 * 0.3**2 * N))
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

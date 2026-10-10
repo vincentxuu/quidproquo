@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-preference-tuning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers Lecture 5, "LLM tuning," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (October 31, 2025). The main source is the [111-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf); the [recording](https://www.youtube.com/watch?v=PmW_TMQ3l0I) runs 1 hour 47 minutes if you want to follow along.
 
 Every model in the first four lectures learned the same way: here is the right answer, copy it. This lecture switches to a different kind of training signal. It is the steepest step in the series, a jump from supervised learning straight into reinforcement learning, so we spend one section on why the jump is necessary before getting to any equations.
@@ -319,7 +321,7 @@ These are paraphrased from Section I, "LLM tuning," of the [2025 final exam](htt
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

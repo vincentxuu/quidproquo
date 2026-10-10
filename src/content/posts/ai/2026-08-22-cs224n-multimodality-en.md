@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-multimodality)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) confirms that the seventeenth regular unit took place on March 3, 2026, guest-taught by Luke Zettlemoyer under **Guest Lecture: Multimodality**. The course page publishes no current slides or agenda and lists four suggested plus seven optional readings. This article covers only the five public sources actually read and listed below; it does not present the other six as read or reconstruct the session.
 
 ## Course video sources
@@ -50,7 +52,7 @@ The date, speaker, title, and the fact that the official page lists eleven readi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

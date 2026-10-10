@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版第 7 講（10 月 14 日）[GPU Architecture and CUDA Programming](https://gfxcourses.stanford.edu/cs149/fall25/lecture/gpuarch/) 的投影片（[PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/gpuarch/07_gpuarch.pdf)，74 頁），2026-09-30 打開核對。Fall 2025 錄影只在 Canvas，官方首頁指向的替代品是 [2023 版第 7 講錄影](https://www.youtube.com/watch?v=qQTDF0CBoxE)；我沒有逐段比對兩版差異，內容以 2025 投影片為準。存取等級 **A3**：投影片完整公開，錄影只有舊版。
 
 **系列位置**：上一篇 [PA2：task graph 排程](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling)｜下一篇 [第 8 講：資料平行思維](/posts/ai/2026-09-30-cs149-data-parallel-thinking)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
@@ -197,7 +199,7 @@ warp 裡的 thread 在執行同一條指令時，以 SIMD 方式一起跑，NVID
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

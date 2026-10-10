@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-behavioral-evaluation)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/), the last on-campus version with a fully public site. The main materials are six sections of the [Advanced behavioral evaluation slides](https://web.stanford.edu/class/cs224u/slides/cs224u-behavioraleval-2023-handout.pdf) (Overview, Analytical, Tests, ANLI, DynaSent, Conclusions) and screencasts 25–26 and 29–31 of the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp). Every fact was checked against official materials on 2026-09-29. Access grade **A3**: slides and screencasts are fully public. What you can't get is Quiz 3 on Canvas and the classroom recordings.
 
 **Series**: previous [Assignment 2: Few-shot OpenQA with DSPy](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en) | next [Compositional generalization: COGS, ReCOGS, and Assignment 3](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3-en) | [Series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
@@ -197,7 +199,7 @@ One thing to do tonight: take any classifier you have and write five minimal pai
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

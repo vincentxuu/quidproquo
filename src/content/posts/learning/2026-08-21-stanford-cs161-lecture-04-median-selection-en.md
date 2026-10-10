@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-04-median-selection)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is post 5 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 4**. Moses Charikar taught it on January 14, 2026. Its official title is [Median and Selection](https://stanford-cs161.github.io/winter2026/lectures/#lecture-4-median-and-selection). I used the one-page pre-lecture exercise, nine-page notes, and 66-slide deck. I did not use the Canvas recording, notebook, or concept checks as sources.
 
 Selection takes an array `A` of `n` numbers and an integer `k∈{1,...,n}` and returns the kth smallest value. The direct solution sorts with MergeSort and reads position `k`, taking `O(n log n)`. But if we need one rank, must we discover the complete order of every other element? Lecture 4 says no: deterministic worst-case selection can run in `O(n)`.
@@ -172,7 +174,7 @@ Also compare the value of the outputs. If a program will ask for many different 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的官方教材寫成：第 23 講 [LLM Training And Applications](https://drive.google.com/drive/folders/1GP3T4TwZeXV2L28LUY6a0ei6rtcnQ3TJ)（4/16，`lec23.pdf` 63 頁，[錄影](https://www.youtube.com/watch?v=m13yELgj02c)）、第 24 講 [Self-Supervised Learning](https://drive.google.com/drive/folders/1BVcz-ohHf6J8mtzVHnTTDw55M7JQZmbL)（4/21，`lec24.pdf` 77 頁，[錄影](https://www.youtube.com/watch?v=iGcer6b6mp8)），以及 [Discussion 11](https://drive.google.com/file/d/11WJr0gQUuMON1ub34DSUhSMsDl8GuM06/view)（附[解答](https://drive.google.com/file/d/11KGelwaG_trTVtxBHPgkUFrG_BhlZE7E/view)與 [walkthrough 影片](https://youtube.com/playlist?list=PL-ysCubq-Sa9h8mIf8s2L-vL68rx8_hx8)）。以上都能匿名打開，整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
 這兩講接在 [Lec 21–22：Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers) 和 [HW4](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert) 之後。你已經會搭一個 transformer，這裡要回答兩個問題：怎麼把它訓練成 ChatGPT 這類的東西？沒有標籤的時候，要怎麼學到好的表徵？兩講共用一個核心想法：**自己造一個假的監督任務**。
@@ -189,7 +191,7 @@ Discussion 11 的三題都標著「F25 Dis11」，題目沿用 Fall 2025。它�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

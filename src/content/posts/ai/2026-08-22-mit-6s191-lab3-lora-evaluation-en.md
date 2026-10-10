@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-lab3-lora-evaluation)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Lab 3 in the [official MIT 6.S191 2026 repository](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab3) is **Lab 3: LoRA Fine-Tuning and LLM-as-a-Judge Evaluation**. It builds chat templates and generation with LFM2-1.2B, adapts style through LoRA, and combines OpenRouter with Opik for a judge workflow. This article pins the 2026 branch so later changes to master do not silently alter the exercise.
 
 ## Course video sources
@@ -50,7 +52,7 @@ This lab has the most dependencies: a Colab GPU, Comet/Opik, and an OpenRouter k
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

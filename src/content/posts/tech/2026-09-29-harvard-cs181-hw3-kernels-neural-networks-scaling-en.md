@@ -26,7 +26,9 @@ glossary:
 
 > 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling)
 
-> ⚠️ **Version and access**: This post follows [hw3 in the CS181 s26 homeworks repo](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw3) and the [official 2026 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). Sections 4 and 5 are **Spring 2026** handouts. The NN and SVM scribe notes on the course site come from the **2024 term** (lec10 is dated `2/22/24`). The 2026 Neural Networks II/III, CNN, and scaling-law lectures have no public notes, and this post does not guess at their content. The course rates **A3**: homework and section solutions are public, with no current recordings and no homework solutions.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> ⚠️ **Version and access**: This post follows [hw3 in the CS181 s26 homeworks repo](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw3) and the [official 2026 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). Sections 4 and 5 are **Spring 2026** handouts. The NN and SVM scribe notes on the course site come from the **2024 term** (lec10 is dated `2/22/24`). The 2026 Neural Networks II/III, CNN, and scaling-law lectures have no public notes, and this post does not guess at their content. The course rates **A3**: homework and section solutions are public, with no public recording links listed for the corresponding lectures and no homework solutions.
 
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/) titles HW3 **Neural Networks and Kernels**. Per `hw3_release.tex`, it is due March 23, 2026 at 11:59 PM. The three problems are worth 30, 20, and 50 points. Half the grade goes to the third problem: **measuring a scaling law yourself**.
 
@@ -34,11 +36,14 @@ In [HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-e
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
 
-Course and recording entries:
+Official sources:
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -153,7 +158,7 @@ The last question in (b) cites Chinchilla ([Hoffmann et al., 2022](https://arxiv
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

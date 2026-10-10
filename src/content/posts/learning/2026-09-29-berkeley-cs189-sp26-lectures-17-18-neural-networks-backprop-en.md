@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This guide is based on the official materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis): the Lecture 17 slides [Neural Networks and PyTorch](https://drive.google.com/drive/folders/1-as4P5M8XTeNvXGk0tmHPorRNNjMBtrM) (3/19, [video](https://www.youtube.com/watch?v=bMJ9igfvn1M)), the Lecture 18 slides [lec18.pdf](https://drive.google.com/drive/folders/1mHu1f3UYFTCqcsy7d1zS2jnynWzWLRas) (3/31, [video](https://www.youtube.com/watch?v=XlaV_z2knjA)), and [Discussion 8](https://drive.google.com/file/d/1XNAVahEf4jiRfGyUCr-x4XGSSseohf2M/view) (with [solutions](https://drive.google.com/file/d/12OuB5CcxfG4Ega4_BREMC1cyijm0FUd7/view) and a [walkthrough video](https://www.youtube.com/playlist?list=PL-ysCubq-Sa9sA7c_KW-WwRudeMkxQZu_)). All of them open without a login, and the course as a whole rates A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
 These two lectures sit right after the midterm (3/17), on either side of spring break. By now you have seen linear regression, logistic regression, gradient descent, and Adam (see [order 8 of this series](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)). The question here is: once the model becomes many functions stacked on top of each other, can we still train it the same way? Yes, and backpropagation is how. It is the hardest idea in the course, so this post follows five layers: scene, intuition, mechanism, back to real models, and going deeper.
@@ -195,7 +197,7 @@ When you train in PyTorch, every addition, matrix multiply, or ReLU in the forwa
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

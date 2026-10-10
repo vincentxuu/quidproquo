@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-07-binary-search-red-black-trees)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 8 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 7**. The official title is **Binary Search Trees and Red-Black Trees**. Moses Charikar taught the lecture on January 28, 2026.
 
 I used the [official Lecture 7 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees), the public notes, and the public slides. The deck centers on binary search trees and red-black trees; the notes also contain a substantial section on heaps. I label that material as a notes supplement instead of presenting it as an equal part of the live deck. I did not use the Canvas-only recording.
@@ -189,7 +191,7 @@ For implementation practice, begin with rotations rather than a full red-black t
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

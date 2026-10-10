@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 6 篇，接在 [L05 Transformers 全攻略](/posts/ai/2026-09-30-nccu-genai-05-transformers-math)之後。上一講把 Q/K/V 的矩陣拆完，這一講回到使用者的位置：LLM 會出什麼問題、該怎麼負責任地用，以及怎麼用 API 把它變成自己的小工具。
 
 用到的官方材料有四份：[錄影 06](https://www.youtube.com/watch?v=m6DFB60Tk68)（2025-03-25，約 3 小時 4 分）、投影片 GenAI06（57 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo04】用OpenAI_API打造員瑛式思考生成器`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E5%93%A1%E7%91%9B%E5%BC%8F%E6%80%9D%E8%80%83%E7%94%9F%E6%88%90%E5%99%A8.ipynb)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第六週作業。存取等級是 **A3**：錄影、投影片、範例 notebook 與作業說明都公開，但 notebook 是跨課共用的 repo，**以下引用的是 repo 目前版本，學期結束後可能已更新**。
@@ -211,7 +213,7 @@ reply = chat_completion.choices[0].message.content
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

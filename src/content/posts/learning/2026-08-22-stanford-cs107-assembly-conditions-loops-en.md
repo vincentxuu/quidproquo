@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-conditions-loops)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 `cmp %rsi,%rdi` stores no subtraction result in a general-purpose register, yet a following `jge` can branch from it. Condition codes provide the bridge: a small set of CPU flags records important properties of the most recent arithmetic or logical operation. Stanford CS107 Lecture 18 starts from that hidden state and reconstructs C `if`, `while`, and `for` as fall-through paths and control-flow edges.
 
 The crucial habit is not memorizing every `jg/jl/ja/jb`. Ask which instruction most recently wrote the flags, read a comparison in the `S2-S1` direction, and decide whether the values require signed or unsigned interpretation. A mistake in any one reverses the branch condition.
@@ -277,7 +279,7 @@ Lecture 18 fully answers when to jump and how to produce a conditional result wi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-long-context-ssm)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 18 of the [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) series and the first post in the "Advanced Topics" unit. It covers two lectures: Lecture 19, "Long Context in LLM," on March 25 (Matt Gormley), and Lecture 21, "State Space Models / Hybrid Models," on April 1 (Aran Nayebi and Matt Gormley).
 
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [L19 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture19-long.pdf) and the [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture19-long-ink.pdf) (40 pages each), and the [L21 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture21-ssm.pdf) (42 pages, no inked version). The schedule lists no readings for either lecture, so this post cites only the slides and the papers the slides credit. The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), but the recordings sit behind a CMU Panopto login, so this post relies entirely on the slides; what was said in class is not available.
@@ -215,7 +217,7 @@ Series navigation: previous [L17–L18: distributed training, FlashAttention, an
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

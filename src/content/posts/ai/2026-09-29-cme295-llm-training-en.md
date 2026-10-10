@@ -39,6 +39,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-llm-training)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers Lecture 4, "LLM training," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (October 17, 2025). The main source is the [128-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf); the [recording](https://www.youtube.com/watch?v=VlA_jt_3Qc4) is there to watch alongside. Everything below is based only on the text and figures on the slides, not on anything said out loud in class.
 
 The first three lectures answered "what does an LLM look like?" Lecture 4 asks a different question: how does that machine go from random weights to an assistant that answers questions? The slides give a two-part answer. First **pretraining**, which teaches the model the patterns of language and code. Then **finetuning**, which teaches it to do what it's told. The two stages differ in cost by several orders of magnitude, and most of the lecture is about where the money and memory go and how to save them.
@@ -297,7 +299,7 @@ These questions are adapted from Part IV, "LLM training," of the [2025 midterm](
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

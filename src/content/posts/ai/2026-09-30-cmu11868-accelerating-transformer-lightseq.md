@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "CMU 11-868 LLM Systems 導讀"
   order: 9
-tldr: "11-868 第 10 講用 Lei Li 團隊自己的 LightSeq／LightSeq2 當教材，拆出四招：把矩陣乘法以外的小運算融合成一個 kernel、改寫 LayerNorm 與 Softmax 的公式來減少 thread 同步、參數與梯度用 FP16 存但 FP32 算、依反向傳播的相依關係重用記憶體。投影片報告的 WMT14 英德翻譯訓練加速是 1.4–3.5 倍。沒有錄影，本文依投影片頁碼與兩篇論文整理。"
+tldr: "11-868 第 10 講用 Lei Li 團隊自己的 LightSeq／LightSeq2 當教材，拆出四招：把矩陣乘法以外的小運算融合成一個 kernel、改寫 LayerNorm 與 Softmax 的公式來減少 thread 同步、參數與梯度用 FP16 存但 FP32 算、依反向傳播的相依關係重用記憶體。投影片報告的 WMT14 英德翻譯訓練加速是 1.4–3.5 倍。官方課表未列公開錄影連結，本文依投影片頁碼與兩篇論文整理。"
 description: "CMU 11-868 LLM Systems（2026 春季版）第 10 講導讀：kernel launch 為什麼貴、LightSeq2 的 kernel fusion、LayerNorm 與 Softmax 的 reduction 改寫、混合精度更新與記憶體重用，以及推論端的 Hierarchical Auto Regressive Search。附投影片頁碼、論文數字與讀法。"
 draft: false
 glossary:
@@ -31,17 +31,21 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq-en)
 
-> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。事實皆於 2026-09-30 打開[課程 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)、[L10 投影片 PDF](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-10-transformer-acc-5ba466406bf7296f86cd244ad0405867.pdf)（66 頁）與兩篇 reading 核對。存取等級 **A3**：講義、作業、起始碼全部公開，但**本課沒有公開錄影**，以下只根據投影片與論文，引用處標頁碼。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。事實皆於 2026-09-30 打開[課程 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)、[L10 投影片 PDF](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-10-transformer-acc-5ba466406bf7296f86cd244ad0405867.pdf)（66 頁）與兩篇 reading 核對。存取等級 **A3**：講義、作業、起始碼全部公開，但**官方課表未列本課公開錄影連結**，以下只根據投影片與論文，引用處標頁碼。
 
 **系列位置**：上一篇 [HW3：在 MiniTorch 實作 decoder-only Transformer](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture)｜下一篇 [HW4：Softmax 與 LayerNorm 的 CUDA 融合 kernel](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 這一講在回答什麼
 
@@ -182,7 +186,7 @@ bert_model.layer[0] = ls_layer
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-course-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **本系列依據 [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25) 的 Fall 2025 版。** 2026-09-30 查核時，`cs149.stanford.edu` 仍轉址到 fall25 課站，fall26 網址回 404。這是本系列第 0 篇，也是總覽；後面每一篇都回到這裡查材料與限制。
 
 現在的 AI 工程師幾乎都在跟平行硬體打交道：訓練跑在 GPU 叢集，推論要擠 kernel 效能，連手機都有 NPU。但多數人對「為什麼 GPU 快」「為什麼加了核心卻沒變快」只有模糊印象。[CS149: Parallel Computing](https://gfxcourses.stanford.edu/cs149/fall25) 就是補這一塊的課。
@@ -208,7 +210,7 @@ Course info 列的評分：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

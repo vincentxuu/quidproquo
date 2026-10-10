@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Week 3 is the pivot. Monday (Oct 5, Tool Use & Function Calling) assigns the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18): tools get a standard plug, no more rewriting integrations per vendor. Wednesday (Oct 7, Frameworks & Agent Design) assigns Khattab et al.'s [DSPy](https://arxiv.org/abs/2310.03714) (ICLR 2024): prompt templates graduate from handcraft into compilable, optimizable programs. That same Monday, [HW1 drops](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), Build an Agentic Harness: no agent frameworks, just a chat-completion call, and you build a company's internal AI assistant from scratch — with the project proposal due Friday (Oct 9). Hand-building in the homework while reading a framework paper in lecture is where this week's tension lives.
 
 ## Course video sources
@@ -65,6 +67,10 @@ Week 3 releases HW1 (due Oct 30): start with the email retrieval pipeline, then 
 
 - 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
+
+## Update Log
+
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

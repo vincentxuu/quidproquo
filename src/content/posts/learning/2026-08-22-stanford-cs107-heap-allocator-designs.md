@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-heap-allocator-designs-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 Lecture 21 的 implicit free list 讓每個 block header 記錄 size 與使用狀態，再靠 size 沿 heap 逐塊走訪。它簡單、空間成本低，卻有一個結構性問題：尋找可重用空間時，連正在使用的 blocks 也必須逐一跨過。Lecture 22 的 explicit free list 改變搜尋集合，只把 free blocks 串起來。
 
 這個優化並非「多放一個 next pointer」就結束。Free block 從此同時屬於兩種順序：它在 heap 位址上有物理左右鄰居，也在 free list 中有邏輯前後節點。Coalescing 依賴前者，搜尋與移除依賴後者。最危險的錯誤不是某一行 pointer syntax，而是更新了一種關係，忘了另一種關係仍把舊節點當成有效。
@@ -165,7 +167,7 @@ Lecture 22 真正教的是資料結構 ownership。Free block 不是單純 linke
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 6 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic-en) and covers Lecture 5, "Off-Policy Actor Critic Methods," given on April 15, 2026.
 
 Two official sources back this post. The first is the 32-page slide deck [05_cs224r_offpolicy_actor_critic_2026.pdf](https://cs224r.stanford.edu/slides/05_cs224r_offpolicy_actor_critic_2026.pdf). The second is the lecture's assigned reading on the schedule, [Mnih et al. 2013 (DQN)](https://arxiv.org/abs/1312.5602). The PPO paper, [Schulman et al. 2017](https://arxiv.org/abs/1707.06347), sits on the reading list of the previous lecture (L4). This lecture is where it gets unpacked. Access level: **A3**. The slides download anonymously. The 2026 recordings live only on Canvas.
@@ -187,7 +189,7 @@ Series navigation: previous [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

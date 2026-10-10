@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 這是 [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) Fall 2026 的 Lecture 3：**Classical Planning**（8/31）。[上一篇 HW1](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus) 讓 agent 用邏輯判斷哪一格安全，再用 A\* 決定怎麼走。這一講問的是下一步：如果「怎麼改變世界」本身也要推理，邏輯會卡在哪裡？換成什麼表示法才寫得下去？
 
 一句話先講結論：**規劃不是新問題，是同一個搜尋問題換了狀態表示**。表示法換成 factored 之後，planner 可以讀懂動作的描述，自己算出 heuristic，不用人盯著題目去想。
@@ -24,11 +26,13 @@ draft: false
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
 
 ## 官方材料與讀取範圍
 
@@ -187,7 +191,7 @@ Recitation 2 第 5 題是花生醬果醬吐司：目標 `PB Slice ∧ Jelly Slic
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

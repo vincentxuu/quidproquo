@@ -31,21 +31,25 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。** 這是 [CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)系列第 17 篇，接在 [L21 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention)之後。
 
 **關於順序**：在官方 [Spring 2026 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 裡，這兩講排在 Week 7（2/23、2/25），位於 LightSeq 與分散式訓練之間。本系列把它們移到 FlashAttention 之後，因為 L13 的主角 Splash Attention 就是 FlashAttention 的 tiling 思路搬到 TPU。先讀過上一篇，這裡只要跨一步：換硬體、換語言，演算法不變。正在上課的 [Fall 2026 Syllabus](https://llmsystem.github.io/llmsystem2026fall/docs/Syllabus) 把同樣的兩講排在 9/28、9/30，並在 10/2 加了一堂「Recitation 6: JAX and TPU」；Week 13 另列兩講「Acceleration on TPU」，目前還沒有投影片。
 
-兩講的講者都是 Google CoreML Frameworks 的 Srinath Mandalapu。官方材料是兩份投影片：[L12 Introduction to JAX/XLA/TPU](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-12-Introduction_to_JAX_XLA_TPU-f0450caf9e7e6707c009f7f77997a2be.pdf)（107 頁）與 [L13 Pallas and Splash Attention](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-13-pallas_splash_attention_srinath_mandalapu-b0bc7990950b84561ff9aa8e1791f727.pdf)（111 頁）。Syllabus 沒有替這兩講列 reading。存取等級 **A3**，但沒有錄影，而且講義裡的 profiling 數字都在 TPU Ironwood 上量測，校外讀者多半無法重現。頁碼以 PDF 檔為準。
+兩講的講者都是 Google CoreML Frameworks 的 Srinath Mandalapu。官方材料是兩份投影片：[L12 Introduction to JAX/XLA/TPU](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-12-Introduction_to_JAX_XLA_TPU-f0450caf9e7e6707c009f7f77997a2be.pdf)（107 頁）與 [L13 Pallas and Splash Attention](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-13-pallas_splash_attention_srinath_mandalapu-b0bc7990950b84561ff9aa8e1791f727.pdf)（111 頁）。Syllabus 沒有替這兩講列 reading。存取等級 **A3**，但官方課表未列公開錄影連結，而且講義裡的 profiling 數字都在 TPU Ironwood 上量測，校外讀者多半無法重現。頁碼以 PDF 檔為準。
 
 整篇只回答一個問題：**換到 TPU 與 XLA，寫高效 kernel 的思路有什麼不同？**
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 場景：同一個 attention，換一台機器
 
@@ -251,7 +255,7 @@ def add_matrices_pipelined_param(x, y, *, bm=256, bn=256):
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-28-course-review-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 29 篇，對應 **Stanford CS111, Spring 2026, Lecture 28**。2026-06-03 由 Mendel Rosenblum 主講，官方題目是 [Course Review](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/28/Lecture28.pdf)。本文依 10 頁公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)逐頁整理；錄影位於 Canvas／Panopto 後方，不算已讀來源。
 
 素材稽核沒有發現重複講義：Lecture 28 的檔案雜湊、頁數與標題均不同於 Lecture 26、27。這份期末回顧也不是把章節名稱再念一次。第 2–7 頁先沿著 concurrency、memory、storage 三條主線盤點機制，第 8 頁再抽出 virtualization、atomicity、locality、layering 四個跨章節觀念。真正要帶走的是後者如何反覆出現在前者。
@@ -90,7 +92,7 @@ crash recovery 的三個答案是 `fsck`、ordered writes、write-ahead logging�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

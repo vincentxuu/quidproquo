@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-pointers-and-arrays)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 “An array is a pointer” is a half-truth. `arr[i]` and `*(arr + i)` select the same element, and a function parameter receives only the first-element address. Yet an array owns element storage while a pointer variable stores an address. The array is not assignable, and `sizeof` in its declaring scope measures the whole array; the pointer behaves differently.
 
 Lecture 9 organizes the traps as “Seven Commandments of C Strings.” For every expression, ask whether it is an array object or pointer value, where the characters live, whether storage is mutable, and whether the pointer may be redirected.
@@ -258,7 +260,7 @@ Lecture 9 does not erase the array-pointer distinction; it explains their cooper
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

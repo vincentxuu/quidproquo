@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs124-week1-introduction-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/lec/) Winter 2026 的第一週是課程地圖，不是模型速成班。Dan Jurafsky 在 1 月 6 日的現場 Introduction lecture 把十週問題排成一條工程鏈：先決定文字如何切成 token，再做分類、檢索與表示學習，接著進神經網路、Transformer、語音、推薦與網路分析。這個順序的重點是：LLM 不是憑空出現的黑盒子，而是前面每個元件逐層疊起來的系統。
 
 **課程版本：** CS124 / LINGUIST 180, Winter 2026。**官方單元：** Week 1，2026-01-06、01-08。**講師：** Dan Jurafsky；1 月 8 日另有 Jupyter 與 PA0 tutorial。**公開材料：** [Week 1 課表與 syllabus](https://web.stanford.edu/class/cs124/lec/)、[Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf)、[PA0 repo](https://github.com/cs124/pa0-jupyter-tutorial)。**材料缺口：** Introduction 是未錄影的現場課；Canvas 上 Windows／Mac setup videos 需要 Stanford 權限。因此本文只整理公開投影片、課表與 repo，不能重建現場問答或講者未寫在投影片上的說明。
@@ -101,7 +103,7 @@ Winter 2026 [schedule／syllabus](https://web.stanford.edu/class/cs124/lec/) 把
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

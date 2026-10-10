@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The public [Spring 2026 starter repository](https://github.com/berkeleydeeprlcourse/homework_spring2026) contains HW1–5 and code for two default final projects under an MIT license. That makes independent implementation possible.
 
 The [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) owns the complete public-versus-enrolled access boundary. This article owns compute and project tradeoffs.
@@ -57,7 +59,7 @@ The public path can reproduce a self-evaluated version of the assignments. It ca
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

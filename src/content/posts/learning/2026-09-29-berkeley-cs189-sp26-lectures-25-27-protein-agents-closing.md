@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的官方教材寫成：第 25 講的 [lec25.pdf](https://drive.google.com/drive/folders/1V-V3xZCgc9ahcdZYzHEjMtC0TAo2D5uS)（4/23，[錄影](https://www.youtube.com/watch?v=V-SJk4AJ-xc)）、第 27 講的 [lec27.pdf](https://drive.google.com/file/d/1-w1R8Xki56lGIuewvwt0lukI8HNd2cgj/view)（4/30，[錄影](https://www.youtube.com/watch?v=yRgSQCXr8M0)）、[Discussion 12](https://drive.google.com/file/d/1DWLHmY5RVWolf0KVyPDFDfpouBiwALuz/view)（附[解答](https://drive.google.com/file/d/1iT9kueFCRKrU47y0eKiIEzMJteH4zPJD/view)與 [walkthrough 影片](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-e6UXPAnaIlmaHf_Wv3HPX)），以及 [Resources 頁](https://eecs189.org/sp26/resources/)的考古題資料夾。整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但這三講有一個缺口：4/28 的第 26 講是線上 guest lecture，排程頁上沒有講義也沒有錄影。
 
 [上一篇 Lec 23–24](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl) 把 transformer 接成 LLM，也把自監督學習講完。最後三講不再引入新的基本工具，而是把整學期的東西拿到兩個前線去用：蛋白質設計，以及 agent。兩講的主題看起來不相干，卻有同一個問題：**當你要模型替你做決定，而不只是預測時，要怎麼知道它可信？**
@@ -230,7 +232,7 @@ Spring 2026 的期末考在 5/11（syllabus 寫 11:30 AM – 2:30 PM，占 CS189
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

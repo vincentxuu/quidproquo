@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-12-trust-operating-systems)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 13 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 12**. Mendel Rosenblum taught the lecture on 2026-04-24; its official title is [Trust and Operating Systems](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/12/Lecture12.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 The PDF defines trust as a trustor's willingness to accept vulnerability based on an expectation that a trustee will perform an important action, even without the ability to monitor or control it. Its philosophical version calls trust an unquestioning attitude: we stop repeatedly testing dependability and proceed as though it will work.
@@ -93,7 +95,7 @@ A practical review has four columns: vulnerability accepted by the trustor; repr
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

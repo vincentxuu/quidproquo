@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-neural-networks-backprop-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：投影片依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 課表連結的 [lecture_4.pdf](https://cs231n.stanford.edu/slides/2026/lecture_4.pdf)（139 頁）。它的行政頁寫的是 2026 年的日期（A1 在 4/16 截止、專題提案 4/23 截止），但內容頁頁尾印的是「April 9, 2025」，照實記錄，不據此推論改了多少。錄影用 [Spring 2025 第 4 講](https://www.youtube.com/watch?v=25zD5qJHYsk)，2026 錄影只放在 Canvas。另外用到 2026 年 4 月 10 日 Backprop Review Session 的 [投影片](https://cs231n.stanford.edu/slides/2026/section_2_backprop.pdf) 和 [Colab](https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/backprop.ipynb)。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
 **系列位置**：上一篇 [L3：正則化與最佳化](/posts/ai/2026-09-30-cs231n-regularization-optimization)｜下一篇 [A1 導讀：kNN、Softmax、兩層網路與全連接網路](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
@@ -249,7 +251,7 @@ L4 的最後一頁寫著「Next Time: Convolutional Neural Networks!」。全連
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

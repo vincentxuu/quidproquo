@@ -28,17 +28,22 @@ glossary:
 
 > 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4)（`hw4_release.tex/ipynb`）與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf)為準，2026-09-29 實際打開。本課整體為 **A3**，但沒有當期錄影、沒有作業解答。Section 6 的 autoencoder 段落講到 sparse 與 denoising AE 為止，**沒有涵蓋 VAE**；Week 6 的 Representation Learning / Autoencoders 講課投影片本篇沒有取得，所以 VAE 部分只根據作業題目本身。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4)（`hw4_release.tex/ipynb`）與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf)為準，2026-09-29 實際打開。本課整體為 **A3**，但官方課表未列對應講次的公開錄影、沒有作業解答。Section 6 的 autoencoder 段落講到 sparse 與 denoising AE 為止，**沒有涵蓋 VAE**；Week 6 的 Representation Learning / Autoencoders 講課投影片本篇沒有取得，所以 VAE 部分只根據作業題目本身。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 7 篇，接在 [HW4（上）Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer) 之後。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 場景：它能把臉還原，卻畫不出一張新臉
 
@@ -157,7 +162,7 @@ VAE 的「encoder 把圖壓成分布、decoder 從 latent 還原」這個結構�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-18-ai-society)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 18**, taught by Percy Liang on 2025-11-19. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [society](https://stanford-cs221.github.io/autumn2025-lectures/?trace=society). It follows the executable order of `main()` rather than turning the lecture into a generic essay. Claims not supplied by the artifact remain gaps.
 
 ## Course video sources
@@ -196,7 +198,7 @@ This article uses `society.py` and the existing official links as its base, addi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

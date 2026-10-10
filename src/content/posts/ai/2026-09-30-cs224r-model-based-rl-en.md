@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-model-based-rl)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 15 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [the Default Project on RL fine-tuning for LLMs](/posts/ai/2026-09-30-cs224r-default-project-llm-rl-en) and covers Lecture 11, "Model-Based RL," on May 6, 2026.
 
 Official sources used:
@@ -231,7 +233,7 @@ Series navigation: previous [Default Project: RL fine-tuning for LLMs](/posts/ai
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

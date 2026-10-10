@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍「生成式 AI：文字與圖像生成的原理與實務」2025 春季（政大學期代碼 1132）版。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 13 篇，接續 [L12 ControlNet 與 Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus)。
 
 用到的官方材料有三份：[第 13 講錄影](https://www.youtube.com/watch?v=xG8ccKlW_Cc)（2025-05-13，3 小時 3 分）、投影片 [GenAI12 強化學習與生成式 AI 綜合應用](https://drive.google.com/file/d/1uPDkwB4uu183yKczp0lcxyIcQC08XdaR/view)（73 頁），以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上的第十三週作業說明。注意投影片檔名的編號是 12，但它是第 13 講的講義，投影片頁尾也寫「13 強化學習與生成式 AI 綜合應用」。存取等級是 **A3**：錄影、投影片、作業說明都公開；這一講沒有對應的 Demo notebook。
@@ -228,7 +230,7 @@ y_w 要比較高分、y_ℓ 要比較低分。方向對了，sigmoid 值會趨�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

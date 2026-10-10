@@ -15,17 +15,21 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-stage-2-alexnet-gpt2-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 07-280 最有辨識度的設計，是不在講完 neural network 後停在兩層 MLP。課程要求學生沿著兩個 landmark systems 繼續組裝：先在 HW8 建 AlexNet，再在 HW11 建 GPT-2。這兩份作業不是要複製歷史模型的榜單成績，而是讓抽象的 feature learning、autograd、optimization 與 generalization 變成會失敗的程式。
 
 這篇把影像與語言階段合併檢查。它不會假裝有公開逐講錄影，也不會把 notebook 能開啟等同於完整自學體驗；正式班仍有 Gradescope、算力、助教與解答回饋。校外讀者能做的是沿公開 written spec 重建驗收標準。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
 
 ## AlexNet：空間結構如何進入表示
 
@@ -84,7 +88,7 @@ AlexNet 與 GPT-2 的輸入、layer 與輸出不同，實驗責任卻相同：�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

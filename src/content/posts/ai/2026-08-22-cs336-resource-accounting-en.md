@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-resource-accounting)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 2: PyTorch (einops), resource accounting**, taught by Percy Liang on April 1, 2026. Its primary source is the official executable lecture, [`lecture_02.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_02.py).
 
 Lecture 1 places efficiency at the center of the course; Lecture 2 immediately asks you to calculate it. The questions are no longer “is this model large?” but: how much computation does a 70B model require? What is the largest AdamW model that fits on eight H100s? Is an operation limited by compute or memory bandwidth?
@@ -95,7 +97,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

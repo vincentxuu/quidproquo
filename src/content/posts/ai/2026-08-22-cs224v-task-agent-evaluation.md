@@ -14,6 +14,8 @@ description: "CS224V Evaluation of Task-Oriented Agents：架構比較、Workshe
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-task-agent-evaluation-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-Worksheet2.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第四講不是第三講的結果頁，而是在問「可靠」要怎麼量。回答自然、意圖分類正確，都不等於 agent 完成了任務；同樣地，一次成功也看不出系統是在遵守知識查詢結果，還是剛好猜對。
@@ -134,7 +136,7 @@ Semantic parsing metrics 對準第一箭頭；state consistency 看跨 turn 累�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

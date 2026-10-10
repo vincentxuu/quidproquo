@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 10 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 6, Recursive Self-Improvement (October 9, 2025).
 
 A note on the change in register. [The previous post on L10](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en) looked inside a single model: activations, steering vectors, CoT. This one pulls back to the speed of the whole industry: if AI starts doing AI research for us, what does the progress curve look like? The tools change too, from linear algebra to the differential equations of growth economics. This series places official Lecture 6 after Lecture 10 because detection tools and timelines are different kinds of questions, so it finishes the first before taking on the second.
@@ -214,7 +216,7 @@ Asked what the labs actually want, he cited OpenAI's charter (AI that benefits h
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：依據 Spring 2026 的 [09_cs224r_rlhf_2026 投影片](https://cs224r.stanford.edu/slides/09_cs224r_rlhf_2026.pdf)（課表日期 2026-04-29）。配套影片是 [Spring 2025 L9 錄影（補充）](https://www.youtube.com/watch?v=XKLGuwvSKvI)：[2025 封存頁](https://cs224r.stanford.edu/spring_2025/)列的講者同樣是 Archit Sharma，但投影片是 2025 版，細節可能不同。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 12 篇。
 
 [CS224R](https://cs224r.stanford.edu/) 的課表把這一講叫「RL for LLMs: Preference Optimization」，由客座講者 Archit Sharma 主講。投影片標題是「The Post-Training Frontier: RLHF, DPO and Modern Preference Optimization」，封面寫著「Based on slides from CS224N」，也就是改寫自 Stanford NLP 課的版本。
@@ -221,7 +223,7 @@ log p_θ(y_l | x)     log p_ref(y_l | x)
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

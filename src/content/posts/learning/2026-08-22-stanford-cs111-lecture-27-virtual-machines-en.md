@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-27-virtual-machines)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 28 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 27**, taught by Mendel Rosenblum on 2026-06-01 under [Virtual Machines](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/27/Lecture27.pdf). It follows the public PDF and [calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar); Canvas/Panopto video is inaccessible. SHA auditing shows Lecture 27 differs from adjacent Lectures 26 and 28.
 
 ## Course video sources
@@ -95,7 +97,7 @@ Data centers once isolated applications on separate underused machines. One appl
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

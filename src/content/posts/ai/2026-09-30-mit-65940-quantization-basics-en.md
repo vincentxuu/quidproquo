@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-quantization-basics)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the [MIT 6.5940 Fall 2024 course page](https://hanlab.mit.edu/courses/2024-fall-65940), the most recent complete offering; the [series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en) explains why. The main source is the [Lecture 5 slides, Lec05-Quantization-I.pdf](https://www.dropbox.com/scl/fi/qc2s9opsa2mnqfithvwz1/Lec05-Quantization-I.pdf?rlkey=sizfzkdv85etnplz1nqgngeql&st=zr1y81q7&dl=0) (70 pages; page numbers below are PDF pages). The [recording](https://www.youtube.com/watch?v=ymAzUz3qlIA) is linked too, but every claim here rests on the slides. Facts were checked against the official materials on 2026-09-30. Access level: Fall 2024 is **A3**; Fall 2026 is **A2** (in progress).
 
 **Series**: previous [Lab 1: nine questions on fine-grained and channel pruning](/posts/ai/2026-09-30-mit-65940-lab1-pruning-en) | next [Lecture 6: PTQ, QAT, binary quantization, and mixed precision](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en) | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -218,7 +220,7 @@ Fall 2026's Lab 2 is labeled Quantization and had not been released as of 2026-0
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-diffusion-efficiency-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940) 第 18 講（2024-11-07），主要材料是 [Lec18-Diffusion-Models.pdf](https://www.dropbox.com/scl/fi/f4end70haytw1nalboxp2/Lec18-Diffusion-Models.pdf?rlkey=emaxca812n2npb2rinq1nor64&st=ed3ziw4o&dl=0)（91 頁）與 [課堂錄影](https://youtu.be/LXrqmQrscf0)。文中頁碼指 PDF 頁。事實於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與錄影公開；這講沒有對應 lab，拿不到的只有 Canvas 與 Piazza。
 >
 > **Fall 2026 對照**：[F26 課表](https://hanlab.mit.edu/courses/2026-fall-65940)把 Diffusion 擴成兩講（Part I 11 月 10 日、Part II 11 月 12 日），並拿掉 F24 的 GAN／Video／Point Cloud 講。截至 2026-09-30 兩講的投影片與錄影都還是空連結。
@@ -165,7 +167,7 @@ MACs 少了，延遲不一定跟著少，所以第 78 頁在 RTX 3090 上量了�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

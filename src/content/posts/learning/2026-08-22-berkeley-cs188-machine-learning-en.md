@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-machine-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 [Lectures 19–25](https://inst.eecs.berkeley.edu/~cs188/sp26/) move from rational decisions and value of perfect information to decision trees, linear regression, Naive Bayes, neural networks, language models, and fine-tuning. [Project 5](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj5/) implements the second half in PyTorch through nonlinear regression, digit and language classification, CNNs, attention, and an optional character-GPT.
 
 ## Course video sources
@@ -50,7 +52,7 @@ Series navigation: [Previous: Bayes nets and Ghostbusters](/posts/learning/2026-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

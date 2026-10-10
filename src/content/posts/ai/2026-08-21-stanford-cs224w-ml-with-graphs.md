@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224W: Machine Learning with Graphs](https://web.stanford.edu/class/cs224w/) 是 Stanford 電腦科學系的 3–4 學分課，Jure Leskovec 開的，只在秋季開，教室是 NVIDIA Auditorium。它教的是「當你的資料是關係而不是列表時，怎麼做機器學習」。內容涵蓋節點嵌入、圖神經網路（GNN）、graph transformer、知識圖譜推理，還有最近兩年新加的一整塊：直接在關聯式資料庫上做深度學習。
 
 這門課在中文圈的名聲多半來自 2021 年那套 YouTube 錄影。錄影還在，也還很好，但它跟現在的課表已經對不上了。2021 年的第四堂是 PageRank；現行課表十九堂裡，沒有一堂的標題出現這個字。
@@ -226,7 +228,7 @@ Leskovec 名下的公開資源很多，但不是每一項都跟 CS224W 有關。
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

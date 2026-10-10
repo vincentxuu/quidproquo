@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-14-new-trends-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據政大蔡炎龍「生成式 AI：文字與圖像生成的原理與實務」2025 春季（政大學期代碼 1132）版。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 14 篇，也是最後一講，接續 [L13 強化學習與生成式 AI 綜合應用](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning)。
 
 用到的官方材料有四份：[第 14 講錄影](https://www.youtube.com/watch?v=AOLoR3p2Z0Q)（2025-05-27，3 小時 9 分）、投影片 [GenAI14 生成式 AI 新趨勢](https://drive.google.com/file/d/14gA0kgjU0E4Fyb7bOcZpg4TZwTN9KnWv/view)（60 頁）、[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的課表與期末專案說明，以及 [Fall 2026（1151）課綱](https://drive.google.com/file/d/1hhigEPT9SdhJgtIpevACzSJsSNA0mw6T/view)的第 15、16 週與評分說明。
@@ -211,7 +213,7 @@ Inception Labs 在 2025 年 6 月發表了技術報告 [Mercury: Ultra-Fast Lang
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

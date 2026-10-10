@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Lecture 15 and Lecture 16 slides of the [Machine Learning Foundations MOOC](https://www.csie.ntu.edu.tw/~htlin/mooc/) ([15_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/15_handout.pdf), [16_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/16_handout.pdf)) and videos 58–65 of the [YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf) (lectures in Mandarin, slides in English). Practice problems come from [HW5](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw5/) of [Machine Learning, Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/). Everything was checked against the official materials on 2026-09-30. Access level: the MOOC alone is **A2**; with the Fall 2024 homework it is **A3 (minus the grading chain)**. There are no official solutions.
 
 **Series**: previous: [Overfitting and Regularization](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en) | next: [Linear SVM and Dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en) | [Series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
@@ -198,7 +200,7 @@ One thing to try tonight: open the code from your last model evaluation and make
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-wrap-up-next-steps-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 Lecture 26 不再加入一套新機制，而是回頭問：十週之後，我們現在能解釋哪些一開始只會使用的東西？從 `int` 的 bits、C string 的終止 byte、pointer 與 lifetime，到 generic memory operation、assembly execution 與 heap allocator，CS107 把「程式能跑」逐步改造成「能說明它如何表示、在哪裡存在、由誰維護契約」。
 
 本講公開投影片是 wrap-up 骨架，課堂 Q&A 沒有公開 transcript。本文因此只整理投影片明列的六個問題、程式成長對照、allocator 綜合例、learning goals、Sebastian C 與後續課程地圖；不替現場問答編造內容，也不把課程清單擴寫成選課保證。
@@ -107,7 +109,7 @@ Lecture 26 的結論不是「所有 systems topics 都學完了」。更準確�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：把 wrap-up 的 absolute-value 回顧明確連回 Lecture 5 的 `INT_MIN` signed-overflow caveat。
 
 ## 參考資料

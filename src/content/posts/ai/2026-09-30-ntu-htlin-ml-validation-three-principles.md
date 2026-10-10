@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文以[機器學習基石 MOOC](https://www.csie.ntu.edu.tw/~htlin/mooc/) 的 Lecture 15 與 Lecture 16 投影片（[15_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/15_handout.pdf)、[16_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/16_handout.pdf)）與 [YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)第 58–65 支為準；練習題取自 [Machine Learning, Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) 的 [HW5](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw5/)。全部在 2026-09-30 打開核對。存取等級：MOOC 本身 **A2**，加上 Fall 2024 作業 **A3（評分鏈除外）**，沒有官方解答。
 
 **系列位置**：上一篇 [過擬合與正則化](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization)｜下一篇 [線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
@@ -200,7 +202,7 @@ HW5 的 Q4 已經是技法 T1 的 hard-margin SVM，留給[下一篇](/posts/ai/
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

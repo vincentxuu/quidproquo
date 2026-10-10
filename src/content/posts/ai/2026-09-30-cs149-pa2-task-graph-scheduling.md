@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 8 篇，對應課程首頁的「Assignment 2: Scheduling Task Graphs on a Multi-Core CPU」，截止日是 2025-10-16。它是 [L5 工作分配與排程](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)和 [L6 Locality 與通訊](/posts/ai/2026-09-30-cs149-locality-communication)的實作篇。
 
 官方材料是 GitHub 上的 [stanford-cs149/asst2](https://github.com/stanford-cs149/asst2)：主 README、[`tests/README.md`](https://github.com/stanford-cs149/asst2/blob/master/tests/README.md)、[`cloud_readme.md`](https://github.com/stanford-cs149/asst2/blob/master/cloud_readme.md)。這篇只講題目在練什麼、每一步該觀察什麼現象，**不提供解答**。
@@ -204,7 +206,7 @@ python3 ../tests/run_test_harness.py
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-efficient-adaptation)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 9 on February 3, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture09-peft.pdf) closes DPO and preference data, then covers prompting, PEFT, pruning/subnetworks, LoRA, prompt tuning, adapters, and other methods.
 
 ## Course video sources
@@ -92,7 +94,7 @@ Winter 2026 recordings are not public. This article covers the DPO and preferenc
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

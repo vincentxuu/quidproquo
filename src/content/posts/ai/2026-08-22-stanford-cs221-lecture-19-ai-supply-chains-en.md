@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-19-ai-supply-chains)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 19**, dated 2025-12-01. The official schedule calls it **AI Supply Chains**, while the executable lecture repository links to a deck titled **Economics of AI**. I downloaded and read the complete 70-page Google Slides PDF. Its cover lists **Rishi Bommasani** as deck author / credited presenter. That credit does not establish who presented the class, so this article does not call him the in-room speaker or extend Percy Liang’s course-instructor role into a Lecture 19 speaking attribution. The primary written artifact is [Economics of AI Google Slides (deck snapshot checked 2026-08-22; the slides do not print a market date for every valuation)](https://docs.google.com/presentation/d/1jCn1OV4H1HKzQ0PWzRn2_bfOWKw43eS33wyramBt2z8/edit), with the offering and schedule fixed by the [official course site](https://stanford-cs221.github.io/autumn2025/).
 
 > Material boundary: the schedule and repository use different names for the same 2025-12-01 lecture. I label claims directly stated in the PDF as “Deck fact,” research or forecasts cited by the deck as “Deck citation,” and connective reasoning as “My interpretation.” I did not fill gaps with another term or a lecture transcript. Market valuations, survey numbers, and forecast graphics are treated as snapshots in this deck, not as live statistics in 2026.
@@ -124,7 +126,7 @@ Open gaps include compute cost/capacity decomposition, contract context for the 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

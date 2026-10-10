@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 [CS224W: Machine Learning with Graphs](https://web.stanford.edu/class/cs224w/) is a 3–4 unit course in Stanford's CS department, taught by Jure Leskovec, offered only in the autumn, in NVIDIA Auditorium. Its subject is machine learning when your data is a set of relationships rather than a list of rows. It covers node embeddings, graph neural networks (GNNs), graph transformers, reasoning over knowledge graphs, and a block added in the last two years: deep learning directly on relational databases.
 
 Outside Stanford the course is mostly known through the 2021 YouTube recordings. Those recordings still exist and are still good, but they no longer match the syllabus. Lecture 4 in 2021 was PageRank; across the nineteen lectures in the current schedule, that word appears in no lecture title at all.
@@ -226,7 +228,7 @@ One gray area is worth mentioning: above the schedule on the course site is a li
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

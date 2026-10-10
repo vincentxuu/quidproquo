@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)的第 9 篇。課程是 ADL Fall 2025（114-1，2025/09/01–12/15），這一講排在 9/22，同一天還有 LLM Adaptation（下一篇）與 LoRA 助教課。
 
 **本文依據**：[Post-Training 講義](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250922_PostTraining.pdf)（55 頁），以及四支影片：[7.1 Post-Training 預訓練完還要後訓練](https://youtu.be/G5O93KOsBCs)（16:50）、[7.2 Instruction Tuning / SFT 讓模型學習理解指令](https://youtu.be/PfSybChNSNc)（27:46）、[7.3 RLHF 從人類反饋中學習](https://youtu.be/4Md8Y0zAXUE)（33:30）、[7.4 InstructGPT & ChatGPT 驚艷眾人的對話式 AI](https://youtu.be/-hchhJoH3YE)（13:58）。講義與影片資訊在 2026-09-30 打開核對。影片以中文講授，本文的頁碼都指講義 PDF；講義有不少頁只有圖表，本文只寫得出頁面文字能支撐的內容。
@@ -202,7 +204,7 @@ L_RM = − E_(x, y_w, y_l) [ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

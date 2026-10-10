@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片依據 Spring 2026 課表連結的 [lecture_5.pdf](https://cs231n.stanford.edu/slides/2026/lecture_5.pdf)；錄影依據 Spring 2025 的 [YouTube L5](https://www.youtube.com/watch?v=f3g1zGdxptI)。兩者可能有差異，下面會標出。本文是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列第 6 篇，接在 [A1 導讀](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet)之後。
 
 [CS231N](https://cs231n.stanford.edu/) 的前四講把分類 pipeline 搭好了：線性分類器、loss、最佳化、兩層神經網路與 backprop。第 5 講開始第二單元「Perceiving and Understanding the Visual World」，[官方課表](https://cs231n.stanford.edu/schedule.html)列了三個主題：歷史、高階表示與影像特徵、卷積與池化。
@@ -197,7 +199,7 @@ Conv(Translate(X)) = Translate(Conv(X))
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

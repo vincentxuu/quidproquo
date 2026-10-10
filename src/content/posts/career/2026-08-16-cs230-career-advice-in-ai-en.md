@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/career/2026-08-16-cs230-career-advice-in-ai)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > [The previous post](/posts/ai/2026-08-16-cs230-agents-prompts-rag-en) ran the whole vertical axis of agents. This one is the only lecture in the series with no technical content at all.
 
 This post covers **[Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)** (2025/11/18, 1 hour 45 minutes). It's the **second most-watched** lecture in the series (437,000 views) and the only one **with an external guest who speaks for 80% of the time.**
@@ -461,7 +463,7 @@ As for the big-AI / small-AI fork — it's the one forward-looking judgment in t
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

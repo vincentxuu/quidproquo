@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 17 篇，對應 11 月 6 日的第 13 講 [Domain-Specific Programming Systems and AI-Driven Performance Optimization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/aiperfoptimization/13_autooptimize.pdf) 共 55 頁（PDF 封面標題寫的是「Automatic Performance Optimization」）。
 
 關於錄影：Fall 2025 錄影只在 Canvas。這講前半的 DSL 內容，在課程首頁指向的 2023 公開錄影裡有對應的 [2023 Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ)；**後半的 LLM agent 部分沒有任何公開錄影，只能依投影片**。本文全部以 2025 投影片為準，2023 影片只當前半的聽講補充，兩者內容是否一致本文沒有逐段比對。
@@ -203,7 +205,7 @@ blurx.compute_at(x).vectorize(x, 8);
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

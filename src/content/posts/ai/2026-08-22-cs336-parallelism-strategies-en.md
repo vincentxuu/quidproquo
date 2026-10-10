@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-parallelism-strategies)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 8: Parallelism**, taught by Tatsunori Hashimoto on April 22, 2026. Its primary source is the official [`lecture_08.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_08.pdf).
 
 Lecture 7 builds parallelism from collectives. Lecture 8 asks how to compose it for a large model. It treats the datacenter as the new compute unit: GPU memory, NVLink domains, cross-node fabric, and batch size jointly determine sharding. No strategy solves every limit alone.
@@ -86,7 +88,7 @@ This lecture has a Spring 2026 schedule entry and a complete official PDF. This 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-09-24-mit-67960-ps1-mlp-backprop)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) [Homework 1](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_hw1_pdf/) is the course's first programming assignment, with a core goal: **implement MLP forward and backward passes from scratch to understand the mechanics of automatic differentiation**. This article walks through every HW1 checkpoint, providing runnable NumPy reference implementations and PyTorch verification scripts.
 
 ## Course video sources
@@ -302,7 +304,7 @@ if __name__ == "__main__":
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

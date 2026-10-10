@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-17-language-models-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇只依 **Stanford CS221 Autumn 2025 Lecture 17** 的官方投影片 `language_models.pdf` 重寫。PDF 封面標示日期為 2025-11-17、講者為 Ken Liu；它開頭先提醒本講不會出現在當週考試，接著依序介紹語言模型的定義、建模理由、架構與系統，最後放回當時的產業與研究脈絡。
 
 > 材料缺口：以下以這份 PDF 的靜態投影片為準。投影片沒有完整 Transformer 推導、可重現訓練程式、系統 benchmark 表、課堂互動紀錄或 Canvas 內容；這些地方不以一般教科書內容補寫。
@@ -147,7 +149,7 @@ PDF 把 agents 定義成能產生 tool token 使用 web search 或 command line�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

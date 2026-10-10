@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-08-functions-2-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 9 篇，對應 **Spring 2026 官方 Lecture 7（2026-04-15）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 Functions Part I 定義了 domain、codomain、involution 與 injection；Part II 真正要練的，不只是再多背一個函數類型，而是把一階邏輯式讀成證明動作。相同的 `∀` 或 `→`，放在「已知」與「待證」的位置，會要求完全不同的下一步。這個差異串起本講所有例題。
@@ -134,7 +136,7 @@ extra slides 給出對偶結果：若 `f:A→B` 與 `g:B→C` 都是 surjection�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依官方 Functions Part II 完整投影片重建全文，恢復滿射、假設與證明、involution 關係及函數合成的 deck-specific 證明。
 
 ## 參考資料

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 5/22 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 18 篇，也是正課的最後一講。上一篇是 [HW8：Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)。它接的是兩週前的 [AI 自我成長（上）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)：上集談「由 AI 產生答案、reward 與 loss」，也就是怎麼更新**參數**；這一集談**harness**，以及更新規則本身能不能被更新。
 
 用到的官方材料：講義 [self-evolving-agent.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/self-evolving-agent.pdf)（64 頁），以及課程頁列出的影片 [AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://youtu.be/cQLKVzbwN7I)。課程頁那一列的 ppt 連結寫成 `self-evolving-agent.ptx`，點下去是 404，改成 `.pptx` 才打得開。存取等級是 **A3**：投影片與錄影都公開，本講沒有對應的作業或測驗。
@@ -218,7 +220,7 @@ SEAL 的模型身兼兩職：解任務，也決定怎麼訓練自己。它輸出
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

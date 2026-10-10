@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is part 4 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series, following [Training versus Testing: Growth Functions and Break Points](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en). It covers Lecture 7, The VC Dimension, and Lecture 8, Noise and Error, from [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/). These two lectures close out "Why Can Machines Learn?"
 
 The post has two core ideas, so it has two main parts. L7 condenses the previous post's theory into one number, d<sub>VC</sub>. L8 extends the theory to noisy data and arbitrary error definitions, and sets up the squared error and cross-entropy of the next post.
@@ -213,7 +215,7 @@ Further reading: the Stanford CS229 [generalization chapter guide](/posts/ai/202
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

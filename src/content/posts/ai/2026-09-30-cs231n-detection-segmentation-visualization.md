@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 課表連結的 [Lecture 9 投影片](https://cs231n.stanford.edu/slides/2026/lecture_9.pdf)（147 頁，2026-09-30 下載核對），並比對 [Spring 2025 投影片](https://cs231n.stanford.edu/slides/2025/lecture_9.pdf)。錄影請看 Spring 2025 的 [Lecture 9](https://www.youtube.com/watch?v=PTypu6GqEd4)；2026 錄影只放在 Canvas，限修課生，兩年內容可能有差異。存取等級 **A3**。
 
 **系列位置**：上一篇 [L8：Attention、Transformer 與 ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)｜下一篇 [L10：影片理解](/posts/ai/2026-09-30-cs231n-video-understanding)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
@@ -176,7 +178,7 @@ title: 影片
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

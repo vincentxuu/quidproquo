@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 5 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 4**. Mendel Rosenblum taught the lecture on 2026-04-06; its official title is [Concurrency](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/4/Lecture4.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Lecture 4 places two facts side by side: each thread executes sequentially, yet the global order among threads is not fixed. Too Much Milk is not a diversion; three failed attempts force precise definitions of race condition, atomicity, and critical section.
@@ -71,7 +73,7 @@ Choose one Too Much Milk attempt and place every read, write, and condition chec
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

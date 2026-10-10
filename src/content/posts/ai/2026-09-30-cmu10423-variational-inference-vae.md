@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026。主要材料是 [Lecture 8 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture8-diffusion-vae.pdf)（Diffusion Part II + Intro to VAEs，2 月 9 日）與 [Lecture 9 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture9-vae-icl.pdf)的 VAE 部分（2 月 11 日，Matt Gormley 主講；另有[手寫註記版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture9-vae-icl-ink.pdf)）。L9 後半的 zero-shot／few-shot 與 prompting 留到第 10 篇。readings 依[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)，列在 L8 之下。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片、作業與練習考卷公開；課堂錄影在 CMU Panopto，校外看不到。
 
 **系列位置**：上一篇 [L7：擴散模型入門](/posts/ai/2026-09-30-cmu10423-diffusion-models)｜下一篇 [HW2：從零實作 DDPM](/posts/ai/2026-09-30-cmu10423-hw2-ddpm)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
@@ -210,7 +212,7 @@ L_simple = E_{t, x_0, ε}[ ‖ε − ε_θ(√ᾱ_t x_0 + √(1 − ᾱ_t) ε, t
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-lab1-pruning)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the [Lab 1 Colab notebook](https://colab.research.google.com/drive/1Fagq3JQBzCizodyxpHKvWDzfCC7F1RWN) from [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). I downloaded the raw notebook on 2026-09-30 and checked question numbers, points, and setup cell by cell. Access level **A3**: the notebook, pretrained weights, and dataset download are all public. What's missing is official solutions and grading feedback (submission goes through MIT Canvas). **This post contains no solutions.**
 
 **Series**: previous [Lecture 4: per-layer pruning ratios, fine-tuning, and hardware support](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en) | next [Lecture 5: number formats, K-means, and linear quantization](/posts/ai/2026-09-30-mit-65940-quantization-basics-en) | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -129,7 +131,7 @@ The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) rele
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

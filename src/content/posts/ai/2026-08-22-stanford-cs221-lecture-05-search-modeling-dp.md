@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-05-search-modeling-dp-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 5**，2025-10-06 由 Percy Liang 主講。官方課表、講義與作業入口在[課程網站](https://stanford-cs221.github.io/autumn2025/)，本文按[本講的可執行 search artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=search) 的程式與文字順序整理。
 
 > 材料缺口：source 只提供這份可執行講義的內容；本文沒有補寫 source 未展示的 route 作業解答、其他課堂投影片或未公開實驗結果。
@@ -118,7 +120,7 @@ beam width=1 時等同 greedy search；beam width 趨近無限時，會走向 ex
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

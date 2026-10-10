@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This guide is based on two decks from the 9/08 week of NTU Yun-Nung Chen's *Applied Deep Learning* (ADL), **Fall 2025 (semester 114-1, 2025/09/01–12/15)**: [Attention Mechanism](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Attention.pdf) (28 pages) and [Transformer](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Transformer.pdf) (58 pages), plus videos [4.1](https://youtu.be/FLNSD3zykgE) (23:41) and [4.2](https://youtu.be/c0O9s6MCFys) (25:01), both in Mandarin. All facts were checked against the official materials on 2026-09-30. The course is rated **A2**: the lectures are fully public, and the gaps are on the homework side. See the [series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). This lecture has no gaps of its own.
 
 **Series**: Previous: [Word Representations, Language Models, and RNNs](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en) | Next: [Tokenization and BPE](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe-en) | [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
@@ -208,7 +210,7 @@ One thing to try tonight: write a self-attention in under 20 lines of NumPy, wit
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

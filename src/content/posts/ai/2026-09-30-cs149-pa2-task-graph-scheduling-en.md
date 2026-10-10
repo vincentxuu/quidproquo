@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 offering of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 8 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers what the course homepage lists as "Assignment 2: Scheduling Task Graphs on a Multi-Core CPU," due 2025-10-16. It is the hands-on companion to [Lecture 5, work distribution and scheduling](/posts/ai/2026-09-30-cs149-work-distribution-scheduling-en) and [Lecture 6, locality and communication](/posts/ai/2026-09-30-cs149-locality-communication-en).
 
 The official materials are on GitHub at [stanford-cs149/asst2](https://github.com/stanford-cs149/asst2): the main README, [`tests/README.md`](https://github.com/stanford-cs149/asst2/blob/master/tests/README.md), and [`cloud_readme.md`](https://github.com/stanford-cs149/asst2/blob/master/cloud_readme.md). This post covers only what the assignment trains and what to watch for at each step. **It does not provide solutions.**
@@ -203,7 +205,7 @@ Series navigation: previous, [Lecture 6: locality, communication, and arithmetic
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

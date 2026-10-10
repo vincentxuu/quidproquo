@@ -18,15 +18,20 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > ⚠️ **Edition**: This guide tracks [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0) (`hw0.tex`, due 2026-02-02) with [Spring 2025 HW0](https://github.com/harvard-ml-courses/cs181-s25-homeworks/tree/main/hw0) as fallback. Prerequisites and grading are from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [CS181 2025 site](https://harvard-ml-courses.github.io/cs181-web-2025/).
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
 
-Course and recording entries:
+Official sources:
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -36,7 +41,7 @@ HW0 is graded for completeness (4%, [2026 syllabus](https://harvard-ml-courses.g
 
 The [CS1810 Spring 2026 syllabus](https://github.com/harvard-ml-courses/cs181-web/blob/main/syllabus.html) sets `due February 2` and warns `During the term, the staff will be prioritizing support for new material... it might be prudent to postpone`. In other words, HW0 lets you decide in shopping week whether to delay a semester, not after HW1.
 
-In the [Harvard AI/ML Course Map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en) taxonomy, CS181 is **A3** (`hw0-6` all in [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks), `all learning will be in-person` with no public recordings). The closed loop starts at `data/hw0.ipynb + hw0.tex`. The 2025 edition ([s25 homeworks](https://github.com/harvard-ml-courses/cs181-s25-homeworks)) is the same for HW0, plus a `practical`.
+In the [Harvard AI/ML Course Map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en) taxonomy, CS181 is **A3** (`hw0-6` all in [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks), `all learning will be in-person` with no public recording links listed for the corresponding lectures). The closed loop starts at `data/hw0.ipynb + hw0.tex`. The 2025 edition ([s25 homeworks](https://github.com/harvard-ml-courses/cs181-s25-homeworks)) is the same for HW0, plus a `practical`.
 
 ## How to submit (don't lose points on format)
 
@@ -81,7 +86,7 @@ After HW0, [HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

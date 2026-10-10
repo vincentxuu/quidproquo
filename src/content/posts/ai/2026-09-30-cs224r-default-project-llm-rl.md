@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-default-project-llm-rl-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：依據 Spring 2026 的 [Default Project Guidelines](https://cs224r.stanford.edu/material/CS224R_Default_Project_Guidelines.pdf)、[起始碼 default_proj.zip](https://cs224r.stanford.edu/material/default_proj.zip) 與 [Custom Project Guidelines](https://cs224r.stanford.edu/material/CS224R_Custom_Project_Guidelines.pdf)，2026-09-30 匿名下載。[課程首頁](https://cs224r.stanford.edu/)提醒 default project 從 Spring 2025 之後調整過，2025 的專題範例只能參考方向。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 14 篇，**不寫解答**。
 
 [CS224R](https://cs224r.stanford.edu/) 的期末專題占總成績 35%，可以選 custom project（自己定題目）或 default project。規格標題是「RL Fine-Tuning of Language Models」：你要親手實作 LLM 後訓練的 RL 堆疊，再做一個研究延伸。
@@ -187,7 +189,7 @@ Survey 的日期來自 custom project 規格和首頁課表；其他日期和配
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

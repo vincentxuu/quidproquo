@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的投影片；公開錄影是 [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)，本篇對應第 12 支「Exploration 2」（依 YouTube 章節，內容是 UCB 的限制、PAC、optimistic initialization、Bayesian bandit 與 Thompson sampling）。所有事實都在 2026-09-30 打開 [Lecture 11 投影片](https://web.stanford.edu/class/cs234/slides/lecture11post.pdf)（post 版，50 頁）核對。這份 PDF 的標題頁寫著「Lecture 13」，下面自己註明「Typo: Lecture 11」。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片公開；2026 錄影只在 Canvas 給修課生。
 
 **系列位置**：上一篇 [資料效率 I：bandit、regret、UCB](/posts/ai/2026-09-30-cs234-bandits-regret-ucb)｜下一篇 [資料效率 III：MDP 裡的 PAC、MBIE-EB、PSRL、策略性探索](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
@@ -212,7 +214,7 @@ L11 p.47 列出整個 bandit 段落該會的事，可以直接拿來當自我檢
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

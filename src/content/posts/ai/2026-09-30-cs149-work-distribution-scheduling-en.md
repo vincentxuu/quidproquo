@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 offering of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 6 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and follows [Lecture 4, the parallelization thought process](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en). It covers Lecture 5, "Program Optimization 1: Work Distribution and Scheduling" (2025-10-07).
 
 The official source is the [Lecture 5 slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/perfopt1/05_progperf1.pdf) (63 pages, with a [slide-by-slide web version](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt1/)). Fall 2025 recordings are on Canvas only; the course homepage points to the 2023 recordings instead, here the [2023 Lecture 5 video](https://www.youtube.com/watch?v=mmO2Ri_dJkk). This post follows the 2025 slides and lists the video only as a listening supplement. Access level for this lecture is **A3**: the slides are fully public, and what's missing is the current-term recording.
@@ -220,7 +222,7 @@ Series navigation: previous, [Lecture 4: the parallelization thought process](/p
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

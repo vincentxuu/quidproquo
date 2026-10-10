@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide follows the public materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). The series starts at the [Berkeley CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 Homework 2 was released on 2/24, the same day as Lec 11, and was due **Friday 3/13 at 11:59 PM PT**, four days before the midterm. It reaches further than the lectures had at that point. The early problems review linear regression and MLE/MAP; the last two push GMMs forward into robust clustering and a generative model, flow matching.
@@ -126,7 +128,7 @@ Previous: [Lec 14 & 16: MLE vs MAP, bias-variance, entropy and KL](/en/posts/lea
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

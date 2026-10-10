@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 8 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 7**. Mendel Rosenblum taught it on 2026-04-13; the official title is [Deadlock](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/7/Lecture7.pdf). This article uses only the public PDF and [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The Canvas/Panopto recording is not treated as a source read.
 
 The previous lecture established mutexes and condition variables while warning that more locks create complexity. This lecture starts from the other side of that tradeoff. Multiple locks can reduce contention and let each data structure encapsulate synchronization, but a thread often needs several resources simultaneously. Conflicting acquisition orders can leave every critical section locally correct while the system as a whole stops forever.
@@ -132,7 +134,7 @@ A concrete code-review action follows: list locks held together on every path as
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-image-classification-linear-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片依據 Spring 2026；錄影可參考 [Spring 2025 Lecture 2](https://www.youtube.com/watch?v=pdqofxJeBN8)（YouTube）。兩者可能有差異，本文內容以 2026 投影片為準，引用官方筆記的地方會另外標出。本文是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 2 篇。
 
 [CS231N](https://cs231n.stanford.edu/) 的第二講在 4 月 2 日，也是 A1 發佈的那一天。[課表](https://cs231n.stanford.edu/schedule.html)列出的主題是：data-driven 方法、k-nearest neighbor、線性分類器的代數／視覺／幾何三種看法、softmax loss。對應的官方筆記是 [Image Classification](https://cs231n.github.io/classification/) 與 [Linear Classification](https://cs231n.github.io/linear-classify/)。
@@ -180,7 +182,7 @@ Q2 很實用：訓練剛開始若 loss 明顯不是 log(C)，通常代表程式�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

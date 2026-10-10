@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 14**, listed on the official schedule as Bayesian Networks III on November 5, 2025. The [official course site](https://stanford-cs221.github.io/autumn2025/) identifies the offering; the article follows the executable [bayes_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=bayes_learning) source in sequence. The useful thread is not “EM as a black box,” but the change from counting complete assignments to counting weighted assignments when a variable is hidden.
 
 > Material gap: the official course page, lectures repository, and executable lecture artifact are public; Canvas recordings, classroom whiteboard interactions, assignment solutions, and hidden tests are not part of this public source. I do not fill those gaps with another year's lecture notes.
@@ -133,7 +135,7 @@ The same checklist also marks the limits supported by this material. Fully obser
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

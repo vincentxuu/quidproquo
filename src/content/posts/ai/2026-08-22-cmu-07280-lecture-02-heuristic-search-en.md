@@ -15,19 +15,23 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 This is **CMU 07-280 Spring 2026 Lecture 2: Heuristic Search**. The point is not memorizing five algorithms. It is seeing how each algorithm assigns a different priority to the same frontier. Completeness, path cost, and memory use are often determined at the moment the algorithm chooses what to expand next.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Official materials and reading scope
 
-I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec2_Heuristic_Search_inked.pdf), [Search pre-reading](https://www.cs.cmu.edu/~07280/notes/search/search_prereading.html), [Recitation 1 worksheet](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1_sol.pdf), and checked [HW1](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf). No public lecture recording is available. Inked slides preserve marks on slides, not a verbatim class transcript.
+I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec2_Heuristic_Search_inked.pdf), [Search pre-reading](https://www.cs.cmu.edu/~07280/notes/search/search_prereading.html), [Recitation 1 worksheet](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1_sol.pdf), and checked [HW1](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf). The official schedule lists no public lecture recording link. Inked slides preserve marks on slides, not a verbatim class transcript.
 
 ## The inherited question: after representing a problem, which state comes next
 
@@ -90,7 +94,7 @@ The real design question is whether a computation cheaper than search can produc
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

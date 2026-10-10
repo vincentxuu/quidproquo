@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 5 篇，對應 **Stanford CS111, Spring 2026, Lecture 4**。2026-04-06 由 Mendel Rosenblum 主講，官方題目是 [Concurrency](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/4/Lecture4.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 Lecture 4 把「每條 thread 都依序執行」與「多條 threads 的全域順序不固定」放在一起。Too Much Milk 不是趣味插曲，而是用三輪失敗方案逼出 race condition、atomicity 與 critical section 的精確定義。
@@ -81,7 +83,7 @@ PDF 只說 Peterson's algorithm 是 symmetric solution，沒有在頁面內給 c
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-15-central-limit-theorem)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 16 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 15: Central Limit Theorem** on July 16 with Chris Gregg. It follows the current [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture15-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture15-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture15-LLMPrompts.pdf), and reader chapters on [sums of random variables](https://probabilitycoders.stanford.edu/spr26/summation_vars) and the [CLT](https://probabilitycoders.stanford.edu/spr26/clt). The current slides are unavailable and Canvas video is gated, so missing material is not reconstructed.
 
 The worksheet and key contain complete two-page P1–P7 plus challenge material. The guide's six concepts occupy two substantive pages; page three only continues the wrap-up. This is the first **L2** unit: the public problem set and reader support a complete artifact guide, but not a claim to reproduce the full slides or lecture.
 
 ## Course video sources
 
-This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
 
-Course and recording entries:
+Official sources:
 
-- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+Checked on 2026-10-10.
 
 ## P1: Open with a Beta-belief review
 
@@ -175,7 +181,7 @@ The six concepts are IID variables, convolution, closed-form sums, Normal differ
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

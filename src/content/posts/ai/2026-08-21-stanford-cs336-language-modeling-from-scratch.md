@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CS336: Language Modeling from Scratch](https://cs336.stanford.edu/) 是 [Tatsunori Hashimoto](https://thashim.github.io/) 與 [Percy Liang](https://cs.stanford.edu/~pliang/) 開的五學分課。你要從一堆位元組開始，自己把 tokenizer、Transformer、GPU kernel、多機平行、scaling law、資料清理、後訓練整條做出來。它的自我定位寫在課程頁上：仿照那種「整學期自己寫一個作業系統」的系統課，只是對象換成語言模型。
 
 它在整份 [Stanford CS 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)裡是唯一標注 **Application required** 的一門，也是唯一一門「不花錢就做不完作業」的課。地圖文已經講過它站在階梯的哪一格，這篇要回答的是進去之後會發生什麼。
@@ -200,7 +202,7 @@ Stanford Online 那頁把「為什麼要申請」寫得很直接：「Due to hig
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

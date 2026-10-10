@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據清大資工高宏宇教授《[自然語言處理](https://github.com/IKMLab/NTHU_Natural_Language_Processing)》Fall 2025（114-1）的 [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf)。這份投影片共 125 頁，本篇只涵蓋第 1–60 頁，到「From Retrievers to QA」那一頁為止；後半段在 [下一篇](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)。檔名雖然寫 W11，在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) 裡掛的是 W10 列，錄影是 [Week 10 Tue.](https://www.youtube.com/watch?v=VHkMHSkJ4I4) 與 [Week 10 Thu.](https://www.youtube.com/watch?v=SMVvvbXLYg4)；W10 列的 Topics 欄寫「Decoding Strategies and Evaluations」，那是課綱模板，和實際投影片對不起來。**兩支錄影各講到投影片第幾頁，本文沒有看片確認。**事實於 2026-09-30 核對。存取等級 **A3**：投影片與錄影都公開。
 
 **系列位置**：上一篇 [Parameter-Efficient Fine-Tuning](/posts/ai/2026-09-30-nthu-nlp-peft)｜下一篇 [RAG（下）：從 ODQA 到 Self-RAG](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
@@ -202,7 +204,7 @@ GTR 分兩階段訓練：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

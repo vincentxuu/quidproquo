@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The sources are five slide PDFs linked from the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus). I checked every fact against the original files on 2026-09-30 and cite page numbers. Two decks have dates, 4/20 and 4/22. The other three sit in the Syllabus's unscheduled section, so the spring class may not have covered them. Access grade **A3**: all slides are public. What's missing is video. Neither spring nor fall has recordings, so whatever the guest speakers said aloud is lost.
 
 **Series**: previous [HW6: DeepSpeed ZeRO + LoRA training and SGLang inference](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en) | next [RLHF systems and HW7](/posts/ai/2026-09-30-cmu11868-hw7-rlhf-systems-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
@@ -38,11 +40,13 @@ The five speakers come from academia, NVIDIA, an open-source project, and a Chin
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## The five decks
 
@@ -164,7 +168,7 @@ This deck's framework list has no SGLang or Dynamo, and page 20 defers vLLM to "
 
 ## What self-learners should watch for
 
-- **No recordings**. Many guest-deck pages are just figures or headings (L26 pp. 18–21, for example, borrow figures from the unreleased fifth edition of PMPP). The spoken explanation is gone, so pair the slides with the papers.
+- **No public recording links listed in the official syllabus**. Many guest-deck pages are just figures or headings (L26 pp. 18–21, for example, borrow figures from the unreleased fifth edition of PMPP). The spoken explanation is gone, so pair the slides with the papers.
 - **Three decks are unscheduled**. L28, L29, and L30 sit at the bottom of the Syllabus with no date in the spring calendar, so it's unclear whether they were taught.
 - **No matching homework**. HW7 is due on 4/20, and after these lectures only the final project remains. If you want hands-on work, pick your own project.
 - **Separate research numbers from vendor numbers**. Paper abstracts come with experiment setups you can check. The Baseten and Alibaba cases quoted in the slides are partner performance reports.
@@ -186,7 +190,7 @@ One thing to do tonight: open the [vLLM disaggregated serving example](https://d
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

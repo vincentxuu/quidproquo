@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-explicit-free-list-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 前兩講先做出 implicit allocator，再把所有 free blocks 串成 explicit free list。第 23 講問的是更棘手的一步：當 client 用 `realloc` 改變大小，allocator 能不能讓資料留在原地址？答案是有時可以，但「沒有搬家」不等於「沒有工作」。縮小可能產生新的 free block，放大可能要把右鄰從 free list 拆下來，任何一步漏更新 metadata 或 links，都會留下重疊區塊。
 
 這講的主脊是一次 `realloc` 狀態轉換。先確認現有 block 的實際容量，再依序考慮 padding、縮小切割、吸收相鄰 free blocks，最後才走 allocate-copy-free。三個原地案例表面不同，實際都在維持同一組條件：alignment 不變、heap 仍被不重疊 blocks 完整切分、每個 free block 恰好出現在 free list 一次、舊資料的有效前綴不能改變。
@@ -187,7 +189,7 @@ Lecture 23 不只是教一個更快的 `realloc`。它讓 allocator 的三種視
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -22,17 +22,21 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 14 of [Reading CMU 11-868 LLM Systems](/en/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The handout and repo are described as seen on 2026-09-30. The homework site is shared across semesters and may be changed for Fall 2026.
 
 This assignment puts parts 11 through 13 into practice: [data parallelism](/en/posts/ai/2026-09-30-cmu11868-data-parallel-training-en) (L14–L15) and [pipeline parallelism](/en/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) (first half of L16). [ZeRO from the previous post](/en/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en) isn't part of it; you run ZeRO through DeepSpeed in HW6.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## At a glance
 
@@ -115,7 +119,7 @@ Also, the last commit on main is dated 2026-04-30, so it still reflects spring. 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

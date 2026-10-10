@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the [MIT 6.5940 Fall 2024 course page](https://hanlab.mit.edu/courses/2024-fall-65940), the most recent complete offering. Fall 2025 was not offered because Song Han was on sabbatical; the [series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en) explains the choice. The main source is the [Lecture 4 slides, Lec04-Pruning-II.pdf](https://www.dropbox.com/scl/fi/w5baiyci5cxl1ozpy6lsr/Lec04-Pruning-II.pdf?rlkey=6qxc1nz20isy9izwnqfebtukg&st=59gy1eal&dl=0) (119 pages; page numbers below are PDF pages). The [recording](https://youtu.be/upaZrpXkELc) is linked too, but every claim here rests on the slides. Facts were checked against the official materials on 2026-09-30. Access level: Fall 2024 is **A3** (slides, recordings, and labs all public); Fall 2026 is **A2** (in progress).
 
 **Series**: previous [Lecture 3: where to prune, at what granularity, by what criterion](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en) | next [Lab 1: fine-grained vs. channel pruning](/posts/ai/2026-09-30-mit-65940-lab1-pruning-en) | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -184,7 +186,7 @@ The lab is what changed. Fall 2024 released Lab 1 (Pruning) with Lecture 4. Fall
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

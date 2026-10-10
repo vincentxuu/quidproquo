@@ -31,9 +31,11 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。** 這是 [CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)系列第 16 篇，接在 [L19–L20 模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)之後。
 
-4/1 這一講是客座，講者是 FlashAttention 的作者 [Tri Dao](https://tridao.me)，[Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 上的題目是「Optimizing Attention for Modern Hardware」。官方材料是一份 61 頁的[投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-21-FlashAttention_tridao2026.4-50476379a6127697ae7fbf974ad28348.pdf)，reading 是四篇論文：[FlashAttention](https://arxiv.org/abs/2205.14135)、[FlashAttention-2](https://arxiv.org/abs/2307.08691)、[FlashAttention-3](https://arxiv.org/abs/2407.08608)、[FlashAttention-4](https://arxiv.org/abs/2603.05451)。存取等級 **A3**，但本課沒有公開錄影，客座的口頭內容讀不到。以下只根據投影片與論文，頁碼以 PDF 檔為準。
+4/1 這一講是客座，講者是 FlashAttention 的作者 [Tri Dao](https://tridao.me)，[Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 上的題目是「Optimizing Attention for Modern Hardware」。官方材料是一份 61 頁的[投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-21-FlashAttention_tridao2026.4-50476379a6127697ae7fbf974ad28348.pdf)，reading 是四篇論文：[FlashAttention](https://arxiv.org/abs/2205.14135)、[FlashAttention-2](https://arxiv.org/abs/2307.08691)、[FlashAttention-3](https://arxiv.org/abs/2407.08608)、[FlashAttention-4](https://arxiv.org/abs/2603.05451)。存取等級 **A3**，但官方課表未列本課公開錄影連結，客座的口頭內容讀不到。以下只根據投影片與論文，頁碼以 PDF 檔為準。
 
 這是系列裡比較硬的一篇。會先講場景與直覺，推導放在折疊區塊。沒讀過 GPU 記憶體階層的讀者，建議先看 [L02–L04 GPU 程式模型](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)與 [L10 LightSeq](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq)。
 
@@ -41,11 +43,13 @@ glossary:
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 場景：序列一長，訓練就慢下來
 
@@ -188,7 +192,7 @@ FP8 的問題是 outlier 讓量化誤差變大。第 24 頁的解法是 incohere
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

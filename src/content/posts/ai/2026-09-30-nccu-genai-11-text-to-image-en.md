@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-11-text-to-image)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide covers semester 1132 (spring 2025) of Yen-Lung Tsai's NCCU course *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 11 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L10, the adventure that starts with the VAE](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en). Last week ended on the Stable Diffusion diagram. This week takes apart its CLIP and scheduler boxes, adds LoRA, the most common fine-tuning technique, and then writes code.
 
 It draws on four official sources: [video 11](https://www.youtube.com/watch?v=8VS6Dcxmp34) (2025-04-29, about 2 h 59 min), the 72-page GenAI11 slides in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA), the [AI-Demo](https://github.com/yenlung/AI-Demo) notebook [`【Demo08g】打造Stable_Diffusion的WebUI`](https://yenlung.me/AI08g), and the week 11 homework on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Mandarin). Access level: **A3**. Demo08g was last committed on 2025-04-29, the day of the lecture. **What follows quotes the current repo version.**
@@ -202,7 +204,7 @@ Previous: [L10 The adventure that starts with the VAE](/posts/ai/2026-09-30-nccu
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

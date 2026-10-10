@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The assignment site and starter code are **shared across semesters**, so the contents below reflect the [Assignment 4 page](https://llmsystem.github.io/llmsystemhomework/assignment_4/) and the [llmsys_hw4 repo](https://github.com/llmsystem/llmsys_hw4) as seen on 2026-09-30. Access grade **A3**: the problems, starter code, and kernel tests are all public. What you can't get is Canvas submission and grading, the Ed forum, and lecture recordings (the course has none public).
 
 **Series**: Previous: [L10 Accelerating Transformers on GPUs: LightSeq](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq-en) | Next: [L14-L15 Distributed Training and Data Parallelism](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
@@ -34,11 +36,13 @@ This post covers only the structure, points, dependencies, hardware, and where s
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Where it sits in the course
 
@@ -125,7 +129,7 @@ One thing you can do tonight: clone the repo, read only `ker_attn_softmax_lt32` 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

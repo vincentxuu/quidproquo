@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-distributed-training)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: The slides are the Spring 2026 [Lecture 11 slides](https://cs231n.stanford.edu/slides/2026/lecture_11.pdf) from [CS231N](https://cs231n.stanford.edu/) (158 pages, cover date 2026-05-05). The recording is the [Spring 2025 Lecture 11](https://www.youtube.com/watch?v=9MvD-XsowsE) on YouTube (about 1 hour 12 minutes; the 2025 schedule lists Justin Johnson as lecturer). The 2026 recordings are on Canvas for enrolled students only, so the two years may differ.
 >
 > This is part 13 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series.
@@ -197,7 +199,7 @@ Finally, use TP, CP, PP, and DP at once. Arrange the GPUs in a 4D grid, and each
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

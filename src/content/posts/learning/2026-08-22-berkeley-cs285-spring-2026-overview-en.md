@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [Berkeley CS185/285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/) is Sergey Levine's deep reinforcement learning course. Its public page lists slides for 25 lectures, nine discussion units, five assignments, and two default final projects. The [starter-code repository](https://github.com/berkeleydeeprlcourse/homework_spring2026) is public too. That makes it an A3 material-based course, but not a fully open course.
 
 The missing layer is video. The [syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) places Spring 2026 recordings in the bCourses Media Gallery. The Fall 2023 recordings listed on the [official resources page](https://rail.eecs.berkeley.edu/deeprlcourse/resources/) are historical substitutes, not recordings of the 2026 lectures.
@@ -58,7 +60,7 @@ A better completion criterion is an artifact: one derivation note, one implement
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

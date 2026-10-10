@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 9 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). The course is ADL Fall 2025 (NTU semester 114-1, 2025/09/01–12/15). This lecture ran on 9/22, on the same day as LLM Adaptation (the next post) and the LoRA TA recitation.
 
 **Sources**: the [Post-Training slides](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250922_PostTraining.pdf) (55 pages) and four videos: [7.1 Post-Training](https://youtu.be/G5O93KOsBCs) (16:50), [7.2 Instruction Tuning / SFT](https://youtu.be/PfSybChNSNc) (27:46), [7.3 RLHF](https://youtu.be/4Md8Y0zAXUE) (33:30), and [7.4 InstructGPT & ChatGPT](https://youtu.be/-hchhJoH3YE) (13:58). I checked the slides and video metadata on 2026-09-30. The videos are taught in Mandarin; the slides are in English. Page numbers below refer to the slide PDF. Many pages are figures only, so this post covers only what the slide text supports.
@@ -202,7 +204,7 @@ Next: [PEFT: Adapter, LoRA, Prompt Tuning, and HW2](/posts/ai/2026-09-30-ntu-adl
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

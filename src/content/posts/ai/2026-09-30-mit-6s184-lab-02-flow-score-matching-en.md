@@ -20,6 +20,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This post covers Lab 2 of the IAP 2026 offering of [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html). I checked it on 2026-09-30 against [`labs/lab_two.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_two.ipynb), [`solutions/lab_two_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_two_complete.ipynb), and the README changelog in the [labs repo (branch 2026)](https://github.com/eje24/iap-diffusion-labs/tree/2026). Access level: **A3, enough for self-study**. The notebook and official solutions are public, but graded submission is only for enrolled MIT students.
 
 **Series position**: part 5 of [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) | previous: [L3A: Score Functions, SDE Sampling, and Score Matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en) | next: [L3B: Guidance and Classifier-Free Guidance](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en)
@@ -214,7 +216,7 @@ Series navigation: previous, [L3A: Score Functions, SDE Sampling, and Score Matc
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

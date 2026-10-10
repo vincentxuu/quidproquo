@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-agents-prompts-rag-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-ai-project-strategy)講了怎麼決定該修哪一段 pipeline。這一篇把整條縱軸從 prompt 拉到 multi-agent。
 
 本篇對應 **[Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)**（2025/11/11，Kian Katanforoosh 主講，1 小時 50 分）。
@@ -344,7 +346,7 @@ McKinsey 研究的一家金融機構，做一份信用風險備忘錄要**一到
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

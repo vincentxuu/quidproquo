@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-adversarial-and-generative-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-full-cycle-dl-project)走完了專案生命週期。這一篇回到模型本身，看它怎麼被攻破、以及怎麼被用來生成東西。
 
 本篇對應 **[Lecture 4: Adversarial Robustness and Generative Models](https://www.youtube.com/watch?v=aWlRtOlacYM)**（2025/10/14，Kian Katanforoosh 主講，1 小時 47 分）。
@@ -386,7 +388,7 @@ x_0 --(encoder)--> z_0 --加噪--> z_t --(diffusion 去噪)--> z_0 --(decoder)--
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

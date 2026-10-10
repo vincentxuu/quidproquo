@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-cs107-unix-and-c)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 CS107 Lecture 2 joins two lines that may initially look separate: writing a first C program with Unix tools and representing numbers with bit patterns. The first half asks what happens between a source file and an executable. The second asks what a program value becomes in memory. Together, they form the real starting point of a systems course.
 
 This article follows the [official Winter 2026 Lecture 2 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/02/Lecture02.pdf) in full. It does not treat C as a smaller C++, nor binary conversion as an isolated arithmetic puzzle. The organizing question is consistent: when a language removes some high-level protection, which layers must the programmer manage directly?
@@ -304,7 +306,7 @@ The next lecture continues through integer representations, unsigned and signed 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

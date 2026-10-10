@@ -24,17 +24,22 @@ glossary:
 
 > 🌏 [English version](/en/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6)（`hw6_release.tex/pdf/ipynb`，due 2026-05-01）、[Section 9 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09.pdf)與 [2026 Lecture 20 HMM 投影片](https://drive.google.com/file/d/1XDSCd8VexNwnGeVoThc73RSYU-sez7mc/view)為準，全部於 2026-09-29 實際打開。講課投影片的 Google Drive 連結藏在[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)的講題儲存格裡，CSV 匯出看不到，匯出成 xlsx 才讀得到。本課整體為 **A3**，但沒有當期錄影、沒有作業解答，Gradescope 需要選課。2026 投影片與 Section 9 都**沒有提到 Kalman filter**，連續狀態的部分只出現在作業本身。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6)（`hw6_release.tex/pdf/ipynb`，due 2026-05-01）、[Section 9 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09.pdf)與 [2026 Lecture 20 HMM 投影片](https://drive.google.com/file/d/1XDSCd8VexNwnGeVoThc73RSYU-sez7mc/view)為準，全部於 2026-09-29 實際打開。講課投影片的 Google Drive 連結藏在[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)的講題儲存格裡，CSV 匯出看不到，匯出成 xlsx 才讀得到。本課整體為 **A3**，但官方課表未列對應講次的公開錄影、沒有作業解答，Gradescope 需要選課。2026 投影片與 Section 9 都**沒有提到 Kalman filter**，連續狀態的部分只出現在作業本身。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 12 篇。上一篇 [HW6（一）](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding)講自迴歸模型：直接對觀測序列建模。這篇換另一種看序列的角度：觀測背後有一個看不到的狀態在走。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## HW6 在學期裡的位置
 
@@ -154,7 +159,7 @@ HMM 裡的狀態只是被動地演化。下一篇 [HW6（三）：MDP 的 Policy
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

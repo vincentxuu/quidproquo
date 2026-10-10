@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-chars-c-strings)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 Lecture 6 reduces text to its memory representation. C has no built-in string type: a string is a `char` sequence plus an agreement that zero marks the end.
 
 The programmer owns length, bounds, and capacity. Miss one `\0` and the array still exists but string functions cannot safely consume it. Whenever `char *` appears, ask where the string ends, how large the destination is, and who may modify it.
@@ -296,7 +298,7 @@ Lecture 6 does not ultimately deliver an API cheat sheet. It teaches a systems h
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

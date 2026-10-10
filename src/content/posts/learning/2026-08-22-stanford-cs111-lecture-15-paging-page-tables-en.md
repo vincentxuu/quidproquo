@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-15-paging-page-tables)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 16 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 15**. Mendel Rosenblum taught the lecture on 2026-05-01; its official title is [Paging](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Segmentation still allocates variable-size physical regions and externally fragments. Paging divides both virtual and physical spaces into fixed-size chunks: virtual **pages** map to physical **page frames**. The [official PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf) gives 4 KB (“x86 myth”) and 16 KB MacBook examples as course snapshots, not universal specifications.
@@ -105,7 +107,7 @@ The trade-offs are linked: fixed pages simplify allocation and sparse mappings; 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

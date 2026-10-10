@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 > **Edition note**: This post follows Lecture 1 of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/), Spring 2026 (2026-01-12, Matt Gormley and Aran Nayebi). The main sources are the [lecture1-overview slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture1-overview.pdf) and the [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture1-overview-ink.pdf) (111 pages each), plus the public [HW0 recitation Colab](https://colab.research.google.com/drive/1F-ik4J0hf8kUdQAH_1HdlpBufuF9j9ny?usp=sharing). Facts were checked on 2026-09-30. The recordings are on Panopto and need a CMU account, so this post is based on the slides only. **The HW0 handout (Google Drive) returns 401 and is not available outside CMU.**
 
 **Series position**: Previous: [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) | Next: [L2–L3: Transformer language models, LLM training and decoding](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding-en)
@@ -167,7 +169,7 @@ One thing to do tonight: open the HW0 recitation Colab, save a copy, run it up t
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

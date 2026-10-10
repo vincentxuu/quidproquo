@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 這是 [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) Fall 2026 的 Lecture 6：**Discrete Optimization: ILP**（9/14）。投影片封面的標題是「Linear and Integer Programming」，講師是 Pat Virtue 與 Mohammad Salameh。
 
 [上一篇 Lec5](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming) 的結論是：LP 的最優解落在可行域的頂點，所以只要檢查限制邊界的交點。這一講把炒飯改成「一碗一碗」、珍奶改成「一杯一杯」賣，變數只能取整數。頂點通常不在整數格點上，上一講的保證就沒了。
@@ -26,11 +28,13 @@ draft: false
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
 
 ## 官方材料與讀取範圍
 
@@ -148,7 +152,7 @@ queue：1. (17, 6), 20.6   2. (18, 4.85), 20.91
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

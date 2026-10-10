@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-07-deep-learning-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 7 章〈Deep learning〉，講義頁碼 80–113。它是 **2026 notes 的逐章導讀**，不是某一學期深度學習錄影的重建。
 
 ## 課程影片來源
@@ -72,7 +74,7 @@ a^{[k]}=\sigma(W^{[k]}a^{[k-1]}+b^{[k]}).
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

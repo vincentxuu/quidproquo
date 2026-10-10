@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-word-vectors-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 2 講排在 2026 年 1 月 8 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture02-wordvecs.pdf)的 agenda 有六段：word2vec 介紹、目標函數梯度、最佳化基礎、以計數捕捉詞義，以及詞向量評估；開頭另有簡短課務說明。這堂的目標很具體：能把詞義理解成高維實數向量，並讀懂 embedding 論文。
 
 ## 課程影片來源
@@ -137,7 +139,7 @@ Winter 2026 錄影不公開。本文只依 Lecture 2 投影片與官方列出的
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

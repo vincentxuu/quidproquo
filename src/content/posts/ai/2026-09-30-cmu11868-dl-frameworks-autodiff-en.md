@@ -28,7 +28,9 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-dl-frameworks-autodiff)
 
-> **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main source is the 1/28 [L05 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-05-dlframework-fa0770d636572de3f7b48ccae0ba8848.pdf) (a 53-page PDF, downloaded and checked on 2026-09-30). The course has no public recordings, so everything below comes from the slides and the readings listed in the Syllabus. Page numbers refer to PDF page order, not the number printed in each slide's corner. Access level **A3**.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main source is the 1/28 [L05 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-05-dlframework-fa0770d636572de3f7b48ccae0ba8848.pdf) (a 53-page PDF, downloaded and checked on 2026-09-30). The official syllabus lists no public recording links, so everything below comes from the slides and the readings listed in the Syllabus. Page numbers refer to PDF page order, not the number printed in each slide's corner. Access level **A3**.
 
 **Series navigation**: Previous [Assignment 1: CUDA Programming](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en) | Next [Assignment 2: MiniTorch Framework](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
@@ -38,11 +40,13 @@ That question leads straight into Assignment 2. Slide 7 frames it with a snippet
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## The lecture's four parts
 
@@ -148,7 +152,7 @@ One thing you can do tonight: look only at the `backward_pass` on slide 27 and w
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

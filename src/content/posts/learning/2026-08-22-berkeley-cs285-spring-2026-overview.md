@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [Berkeley CS185/285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/) 是 Sergey Levine 開設的深度強化學習課。公開頁面列出 25 講投影片、9 組 discussion section、5 份作業與兩個預設期末專案；[starter code](https://github.com/berkeleydeeprlcourse/homework_spring2026) 也能匿名下載。這是一門能實際跟做的 A3 教材型課程，但不是完整公開課。
 
 關鍵缺口是影片。[syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) 明寫 Spring 2026 錄影位於 bCourses Media Gallery，校外自學者通常無法存取。[官方 resources 頁](https://rail.eecs.berkeley.edu/deeprlcourse/resources/)列出的 Fall 2023 公開錄影只能當歷史替代資源；主線仍以 2026 投影片、section 與作業為準。
@@ -56,7 +58,7 @@ HW1、HW2 適合 CPU 起步。[HW3](https://rail.eecs.berkeley.edu/deeprlcourse/
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

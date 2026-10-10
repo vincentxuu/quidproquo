@@ -28,17 +28,28 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 是 Carnegie Mellon 語言技術研究所（LTI）2026 秋季開的研究所課程，由 Daniel Fried 與 Graham Neubig 主授，從工具、context、記憶、規劃一路講到訓練、安全與互動。第 2 講（8 月 27 日，[投影片](https://www.cmu-agents.com/slides/lecture-02-tool-use.pdf)、[錄影](https://www.youtube.com/watch?v=jXChFB4JSyw)）由 Neubig 主講 Tool Use。他開場就下了定義：會呼叫工具，是 agent 跟語言模型之間最根本的差別。
 
 這一講不是教你「怎麼在 API 裡加 `tools` 參數」。它把工具呼叫從上到下剖開：模型為什麼需要工具、工具呼叫在 token 層長什麼樣、harness 怎麼解析與派送、怎麼保證格式正確、REST 和 MCP 差在哪、多個呼叫怎麼平行、最後怎麼評測。這些內容正是[作業 A1（Harness）](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)要你親手寫出來的部分。本篇照講課順序走，每節最後標出它在 A1 裡對應到哪裡。
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+已核對 CMU 11-768 Fall 2026 第 2 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=jXChFB4JSyw
+title: CMU AI Agents 2026: 2. Tool Use for Language Model Agents
+```
+
+原始影片：[CMU AI Agents 2026: 2. Tool Use for Language Model Agents](https://www.youtube.com/watch?v=jXChFB4JSyw)
+
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 工具是什麼，什麼時候值得叫
 
@@ -225,7 +236,7 @@ Neubig 提了一個現在 agent 圈的怪現象：**更貴的模型按任務計�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

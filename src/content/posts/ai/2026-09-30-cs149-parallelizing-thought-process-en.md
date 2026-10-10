@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-parallelizing-thought-process)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 5 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers Lecture 4 (October 2), [Parallelizing Code: An Example Thought Process](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/). The official slide [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/thoughtprocess/04_progbasics.pdf) has 74 pages.
 
 Fall 2025 recordings are only on Canvas. The matching public recording is [2023 Lecture 4 - Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70). This post follows the 2025 slides.
@@ -205,7 +207,7 @@ Series navigation: previous [PA1 + Written 1: Performance on a Quad-Core CPU](/p
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

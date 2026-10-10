@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-algorithms)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 [CS 161](https://stanford-cs161.github.io/winter2026/) is the required algorithms course for undergraduates in Stanford's CS department. It is also the department's most frequently cited prerequisite. From [CS 221](https://explorecourses.stanford.edu/search?q=CS+161&view=catalog), the AI entry point, through databases, combinatorial optimization and randomized algorithms, the prerequisite line points here (full list in the appendix). This site's [map of Stanford CS courses](/posts/learning/2026-08-20-stanford-cs-course-map-en) files it under the five courses that form the skeleton of the degree. What follows is about what happens once you are inside.
 
 Start with the least obvious thing about it: the course has three stated goals, and the third is communication. The first lecture puts it on the same slide as design and analysis — **Communication: Learn to communicate clearly about algorithms**. That is not decoration. It is where the entire homework regime comes from, including why handwritten work scores zero from the second problem set onward.
@@ -196,7 +198,7 @@ If you can't, the course you need isn't CS161, it's CS 103. This one assumes fro
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

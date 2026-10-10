@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 14 篇。主要材料是 [Lecture 14 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture14-ldm-dit-p2p.pdf)（另有 [inked 版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture14-ldm-dit-p2p-ink.pdf)），以及 [Lecture 15 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture15-querying-scaling.pdf)的前半 Querying Transformer 部分；後半的 scaling laws 放在[第 16 篇](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe)。
 
 錄影只放在 CMU 的 Panopto，校外看不到，所以本文只依投影片撰寫。L15 的 Q-Former 部分幾乎全是論文圖，沒有文字說明，下面的描述來自投影片引用的 BLIP-2、MetaQueries、Perceiver IO 圖說。講次表這兩講沒有列 readings。事實皆於 2026-09-30 打開官方材料核對。
@@ -214,7 +216,7 @@ HW4 程式題（40 分）把 L14 和 L15 串起來。hw4.pdf 的設定：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

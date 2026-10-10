@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據台大陳縕儂《深度學習之應用》（ADL）**Fall 2025（114-1，2025/09/01–12/15）** 9/08 那週的兩份講義：[Attention Mechanism](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Attention.pdf)（28 頁）與 [Transformer](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Transformer.pdf)（58 頁），以及影片 [4.1](https://youtu.be/FLNSD3zykgE)（23:41）與 [4.2](https://youtu.be/c0O9s6MCFys)（25:01）。事實皆於 2026-09-30 打開官方材料核對。整門課的存取分級是 **A2**：講課端完整公開，缺口在作業端，見[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)。這一講本身沒有缺口。
 
 **系列位置**：上一篇 [詞向量、語言模型與 RNN](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)｜下一篇 [Tokenization 與 BPE](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe)｜[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
@@ -209,7 +211,7 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

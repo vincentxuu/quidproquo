@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 4 篇，接續[訓練與測試：成長函數與 break point](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)。範圍是[《機器學習基石》](https://www.csie.ntu.edu.tw/~htlin/mooc/)第 7 講 The VC Dimension 與第 8 講 Noise and Error，是「Why Can Machines Learn?」的收尾。
 
 這篇有兩個核心概念，分成兩個大節。L7 把上一篇的理論收成一個數字 d<sub>VC</sub>；L8 把理論推廣到有雜訊的資料與任意的誤差定義，也替下一篇的平方誤差與 cross-entropy 鋪路。
@@ -213,7 +215,7 @@ Fall 2026 的 hw2 依課程頁排程在 10/07 公布，截至 2026-09-30 還沒�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

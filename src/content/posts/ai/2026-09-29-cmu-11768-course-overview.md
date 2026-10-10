@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 [11-768 AI Agents](https://www.cmu-agents.com/) 是 Carnegie Mellon 語言技術研究所（[LTI](https://lti.cs.cmu.edu/)）在 2026 秋季新開的研究所課，授課者是 [Graham Neubig](https://www.phontron.com/) 和 [Daniel Fried](https://dpfried.github.io/)。Neubig 在第一講自介時說他在開發 [OpenHands](https://github.com/All-Hands-AI/OpenHands)；Fried 自介的研究方向是 grounded agent、人和 agent 的互動，以及近來的 agent 和系統的互動。
 
 官網一句話定義這門課研究的對象：用大型語言模型去感知、推理、規劃、並在多步驟中行動的系統。它跟一般「教你用框架搭 agent」的課不一樣的地方在於，它要你**自己訓練 agent**。第一講 Neubig 講得很直接：做一個 agent 不難，難的是讓它真的做得好，而會把 agent 訓練好的人很少，他們希望修完這門課的人都在那一小群裡。
@@ -23,11 +25,20 @@ draft: false
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+已核對 CMU 11-768 Fall 2026 第 1 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。本篇是課程總覽，以下為第 1 講介紹影片。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=UwfjzyLnvMg
+title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
+```
+
+原始影片：[CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
+
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 課程形式：先修會被嚴格執行
 
@@ -150,7 +161,7 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

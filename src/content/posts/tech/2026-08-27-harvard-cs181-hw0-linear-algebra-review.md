@@ -18,15 +18,20 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 > ⚠️ **版本**：本文以 [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0)（`hw0.tex` due 2026-02-02）為主，`Spring 2025` 同題（`cs181-s25-homeworks/hw0`）作對照。`syllabus` 先修與計分見 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [CS181 2025 課程站](https://harvard-ml-courses.github.io/cs181-web-2025/)。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -36,7 +41,7 @@ HW0 不計難度、只計完整度（`Homework zero (4%)`，[2026 syllabus](http
 
 [CS1810 Spring 2026 syllabus](https://github.com/harvard-ml-courses/cs181-web/blob/main/syllabus.html) 把 HW0 寫成 `due February 2` 的門檻，並明言 `During the term, the staff will be prioritizing support for new material taught in CS1810 over teaching prerequisites. If you find you are struggling... it might be prudent to postpone`。換句話說，**HW0 是讓你在選課週就決定要不要延後一學期**，而不是在 HW1 才被當。
 
-跟 [Harvard AI／ML 課程地圖](/posts/learning/2026-08-22-harvard-ai-ml-course-map) 的分級對照，CS181 是 **A3**（`hw0-6` 七份作業全在 [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks) 公開，`all learning will be in-person` 無當期錄影），HW0 的 `data/hw0.ipynb + hw0.tex` 就是自學閉環的起點。2025 版（[s25 homeworks](https://github.com/harvard-ml-courses/cs181-s25-homeworks)）同為七份，唯獨多 `practical`，HW0 本體幾乎不變，可無縫對照。
+跟 [Harvard AI／ML 課程地圖](/posts/learning/2026-08-22-harvard-ai-ml-course-map) 的分級對照，CS181 是 **A3**（`hw0-6` 七份作業全在 [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks) 公開，`all learning will be in-person` 官方課表未列對應講次的公開錄影），HW0 的 `data/hw0.ipynb + hw0.tex` 就是自學閉環的起點。2025 版（[s25 homeworks](https://github.com/harvard-ml-courses/cs181-s25-homeworks)）同為七份，唯獨多 `practical`，HW0 本體幾乎不變，可無縫對照。
 
 ## 作業怎麼交（先別在格式上丟分）
 
@@ -90,7 +95,7 @@ HW0 通過後，[HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regres
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

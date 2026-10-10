@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-09-policy-gradient-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 9**，2025-10-20 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準；本文沿著本講可執行材料 [policy_gradient](https://stanford-cs221.github.io/autumn2025-lectures/?trace=policy_gradient) 的執行順序，解釋每個實際出現的例子與推導。
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。本文只覆蓋 `policy_gradient.py` 實際呈現的內容；source 沒有的 actor-critic、generalized advantage estimation、entropy regularization 或 off-policy policy-gradient 推導，不在本文假裝補齊。
@@ -189,7 +191,7 @@ policy gradient 學 `π_θ(a|s)`，用 rollout utility 加權 log probability；
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-value-alignment-ethics)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Winter 2026 slides and assignments of [CS234](https://web.stanford.edu/class/cs234/); the recordings are the public Spring 2024 version.** It is part 17 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series.
 
 **Series**: previous [Planning plus learning: MCTS, UCT, AlphaGo/AlphaZero](/posts/ai/2026-09-30-cs234-mcts-alphazero-en) | next [Guest lecture: Shane Gu, "World of World Modeling"](/posts/ai/2026-09-30-cs234-guest-world-models-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -194,7 +196,7 @@ One thing to try tonight: open a recommender or AI assistant you use often, writ
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

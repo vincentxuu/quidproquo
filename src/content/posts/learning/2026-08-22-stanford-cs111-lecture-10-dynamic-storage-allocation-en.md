@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-10-dynamic-storage-allocation)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 11 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 10**. Mendel Rosenblum taught the lecture on 2026-04-20; its official title is [Dynamic Storage Management](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/10/Lecture10.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Dynamic storage management asks how applications and operating systems manage memory or storage under unpredictable demand. The interface is tiny: `allocate(size) -> ptr` returns a block, and `free(ptr)` returns one. The allocator does not know how long a block will live or how large the next request will be. Memory is today's case; disk storage returns later in the course.
@@ -93,7 +95,7 @@ The lecture can be unified as prediction exchanged for efficiency. Predictable L
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -27,17 +27,28 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 第 5 講（2026-09-08，Daniel Fried 主講；[系列總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)）談 planning 與任務拆解，結尾順帶進入多 agent。講者開場就說這個主題的核心是一個取捨：agent 越死守一份計畫，人越容易理解和控制它；agent 越有彈性，越能處理途中冒出來的問題。整講都在這條軸上找位置。
 
 投影片在[官網](https://www.cmu-agents.com/slides/lecture-05-planning.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=S8v-dR4s29M&list=PLSN0qpDfUvTM&index=5)。
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+已核對 CMU 11-768 Fall 2026 第 5 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=S8v-dR4s29M
+title: CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination
+```
+
+原始影片：[CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination](https://www.youtube.com/watch?v=S8v-dR4s29M)
+
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 開場案例：幫實驗室買 GPU 工作站
 
@@ -342,7 +353,7 @@ Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

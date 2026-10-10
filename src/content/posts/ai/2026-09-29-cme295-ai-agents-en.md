@@ -36,6 +36,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-ai-agents)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Pre-lecture edition**: written on September 29, 2026. Lecture 6 of the 2026 edition (November 6, 2026) has not happened yet. This post is based on the topic list in the 2026 syllabus, material already covered in the 2025 slides, and primary sources. It will be revised against the video and slides once they are published.
 
 This post covers Lecture 6, "AI Agents", of the 2026 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en). The lecture has not been given, so there are no slides to quote. The only source that speaks for the 2026 course is the seven-line topic list on the [syllabus](https://cme295.stanford.edu/syllabus/). Everything else comes from the 2025 Lecture 7 [slides](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf), engineering posts from Anthropic and OpenAI, the [MCP specification](https://modelcontextprotocol.io/specification/versioning), and papers. Each section says which is which.
@@ -328,7 +330,7 @@ Once the video and slides for 2026 Lecture 6 are published (the syllabus date is
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

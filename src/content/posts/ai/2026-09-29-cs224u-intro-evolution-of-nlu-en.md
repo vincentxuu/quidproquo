@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** The course website still shows that quarter. The [series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) already covers the course's status, the years it went untaught, and why the ExploreCourses description doesn't match the schedule, so this post skips all that. This is part 2 of the [Stanford CS224U guide](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series.
 
 [CS224U: Natural Language Understanding](https://web.stanford.edu/class/cs224u/) is Christopher Potts's project-oriented NLP course, with CS224N as a prerequisite. The first lecture, on April 3, 2023, does two things. It explains how NLU got to where it is, and it uses that history to lay out the quarter's course map.
@@ -209,7 +211,7 @@ If you only have half an hour, read section 2.2, "Cheap tricks," of [Levesque 20
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -25,7 +25,9 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-tokenization-decoding)
 
-> **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main sources are the [L08 Tokenization and Embedding slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-08-tokenization-594dd043d7a87d8dcc91b7e7585a0e34.pdf) (Feb 9, 45 pages), the [L09 Decoding slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-09-decoding-cac2cd9402765ff5e6c24f7baffd321c.pdf) (Feb 11, 54 pages), the readings listed in the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) ([BPE](https://aclanthology.org/P16-1162/), [SentencePiece](https://aclanthology.org/D18-2012/), [VOLT](https://aclanthology.org/2021.acl-long.571/)), and the course's [llmsys_code_examples](https://github.com/llmsystem/llmsys_code_examples) notebooks. Page numbers refer to PDF pages. All facts were checked against the official materials on 2026-09-30. Access level **A3**, but **there are no public recordings**; Quizzes 5.1–5.3 on the slides live on Canvas and are not visible from outside.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The main sources are the [L08 Tokenization and Embedding slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-08-tokenization-594dd043d7a87d8dcc91b7e7585a0e34.pdf) (Feb 9, 45 pages), the [L09 Decoding slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-09-decoding-cac2cd9402765ff5e6c24f7baffd321c.pdf) (Feb 11, 54 pages), the readings listed in the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) ([BPE](https://aclanthology.org/P16-1162/), [SentencePiece](https://aclanthology.org/D18-2012/), [VOLT](https://aclanthology.org/2021.acl-long.571/)), and the course's [llmsys_code_examples](https://github.com/llmsystem/llmsys_code_examples) notebooks. Page numbers refer to PDF pages. All facts were checked against the official materials on 2026-09-30. Access level **A3**, but **the official syllabus lists no public recording links**; Quizzes 5.1–5.3 on the slides live on Canvas and are not visible from outside.
 
 **Series**: previous [L06–L07: Transformers and pre-trained LLMs](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms-en) | next [HW3: a decoder-only Transformer in MiniTorch](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
@@ -35,11 +37,13 @@ Neither sounds like a "systems" topic, but both are about cost. Vocabulary size 
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## L08: tokenization is a trade-off
 
@@ -159,7 +163,7 @@ The translation pipeline in [HW3](/posts/ai/2026-09-30-cmu11868-hw3-transformer-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post covers HW5 of [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is Part 12 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. There are four official materials: the slides [hw5.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw5.pdf), the [Colab notebook](https://colab.research.google.com/drive/1H5FZA-l5n7QD1Q8vnBEUSlldVKlpchku) (34 cells), the [Kaggle version](https://www.kaggle.com/code/b10901024sillydinos/ml2026hw5/edit/run/306310732) linked from the course page, and the TAs' [walkthrough video](https://youtu.be/HlSGih7bnrs) (in Chinese). The TAs are 謝翔, 尹廷安, and 蘇炳揚; the slides also credit 馮柏翰, 劉建蘴, and 吳典叡 as authors. It was released 4/10 and due 2026/04/30 23:59:59 (UTC+8), with no late submissions.
 
 Access is **A3 minus grading**: the task, starter code, and data links are public. Scores come only from uploading to [JudgeBoi](https://ml.ee.ntu.edu.tw/home), which returned 502 on 2026-09-30. Code goes to NTU COOL, which needs an NTU account.
@@ -150,7 +152,7 @@ Series navigation: Previous [Harness Engineering](/posts/ai/2026-09-30-ntu-ml202
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

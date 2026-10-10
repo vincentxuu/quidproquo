@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-default-project-llm-rl)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Source term**: Based on the Spring 2026 [Default Project Guidelines](https://cs224r.stanford.edu/material/CS224R_Default_Project_Guidelines.pdf), the [default_proj.zip starter code](https://cs224r.stanford.edu/material/default_proj.zip), and the [Custom Project Guidelines](https://cs224r.stanford.edu/material/CS224R_Custom_Project_Guidelines.pdf), downloaded anonymously on 2026-09-30. The [course home page](https://cs224r.stanford.edu/) notes that the default project has changed since Spring 2025, so the 2025 project examples are only a rough guide. This is post 14 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series, and it **contains no solutions**.
 
 The [CS224R](https://cs224r.stanford.edu/) final project is 35% of the course grade. You choose a custom project (your own topic) or the default project. The spec is titled "RL Fine-Tuning of Language Models": you build parts of the RL stack for LLM post-training yourself, then run a research extension.
@@ -187,7 +189,7 @@ Download [default_proj.zip](https://cs224r.stanford.edu/material/default_proj.zi
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

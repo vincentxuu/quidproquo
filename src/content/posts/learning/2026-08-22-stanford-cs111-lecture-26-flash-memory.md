@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-26-flash-memory-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 27 篇，對應 **Stanford CS111, Spring 2026, Lecture 26**。2026-05-29 由 Mendel Rosenblum 主講，官方題目是 [Flash Memory](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/26/Lecture26.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不公開。SHA-256 稽核顯示 Lecture 26 與相鄰 Lectures 25、27 均不同，沒有 duplicate artifact。
 
 ## 課程影片來源
@@ -84,7 +86,7 @@ flash 鼓勵 not-in-place updates，而 disk 曾偏好 in-place 以維持 sequen
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依 Lecture 26 官方 PDF 重寫 flash/FTL 全講，限定硬體數字為 deck snapshot，並標示 page-size 括號與 crash-state能力邊界。
 
 ## 參考資料

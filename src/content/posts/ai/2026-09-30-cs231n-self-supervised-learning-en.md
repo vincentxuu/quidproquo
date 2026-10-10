@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-self-supervised-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: The slides are the Spring 2026 [Lecture 12 slides](https://cs231n.stanford.edu/slides/2026/lecture_12.pdf) from [CS231N](https://cs231n.stanford.edu/) (104 pages, cover date 2026-05-07). The recording is the [Spring 2025 Lecture 12](https://www.youtube.com/watch?v=4howBU7THbM) on YouTube (about 1 hour 14 minutes; the 2025 schedule lists Ehsan Adeli as lecturer). The 2026 recordings are on Canvas for enrolled students only, so the two years may differ.
 >
 > This is part 14 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series and the first lecture of the course's third unit, "Generative and Interactive Visual Intelligence."
@@ -205,7 +207,7 @@ The paper's abstract lists two main findings: self-supervised ViT features expli
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,19 +15,23 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 這是 **CMU 07-280 Spring 2026 Lecture 8：Optimization**。Lecture 7 的 linear regression 有 normal equation；這一講故意退回 objective 的形狀，建立沒有 closed form 時仍可使用的更新規則。它也是後面 neural networks 與 backpropagation 的直接地基。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
 
 ## 官方材料與讀取範圍
 
-本文完整讀取 [Optimization lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes.pdf)、[Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf)、[Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf)，並核對 [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf)。官方沒有公開逐講錄影。
+本文完整讀取 [Optimization lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes.pdf)、[Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf)、[Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf)，並核對 [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf)。官方課表未列逐講公開錄影連結。
 
 ## 承上問題：沒有 inverse 或 closed form 時，怎麼找 argmin
 
@@ -90,7 +94,7 @@ Batch gradient 是整份資料的確切平均方向；SGD 是隨機估計。單�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

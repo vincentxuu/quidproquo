@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 16 篇，把[第 13 講：LLM 部署](/posts/ai/2026-09-30-mit-65940-llm-deployment)的 AWQ 與 TinyChat，以及[第 11 講：TinyEngine 與平行運算](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)的 kernel 優化落到程式碼。
 
 **系列位置**：上一篇 [L13 LLM 部署](/posts/ai/2026-09-30-mit-65940-llm-deployment)｜下一篇 [Fall 2026 Lab 1 補充：Roofline、Profiling 與 FlashAttention](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics)｜[系列總覽](/posts/ai/2026-09-30-mit-65940-course-overview)
@@ -193,7 +195,7 @@ docx 附了 `./evaluate.sh reference` 的範例輸出：reference 跑 100 次、
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

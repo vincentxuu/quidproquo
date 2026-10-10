@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis) and covers the second half of Lecture 7 through Lecture 10 (Feb 10–19). The [previous post](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en) ended with the Gaussian mixture log-likelihood, which has no closed-form maximizer. This block switches to supervised learning, and the first model is linear regression.
 
 Linear regression itself is not hard. The hard part is that these four lectures ask you to hold three views at once:
@@ -240,7 +242,7 @@ On this site:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

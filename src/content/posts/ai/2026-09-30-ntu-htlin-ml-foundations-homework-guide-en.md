@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is part 17 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series. The first 16 parts walked through the MOOC lecture by lecture. This one goes back over the homework for the [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/) half of the course.
 
 **The homework baseline is Fall 2024.** The reason is simple: the [Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) is finished and every PDF for HW0–HW7 is public, while [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) is in week 4 and has only released hw0 and hw1. The last section compares those two.
@@ -204,7 +206,7 @@ Lecture guides matching each assignment: [L1–L3](/posts/ai/2026-09-30-ntu-htli
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

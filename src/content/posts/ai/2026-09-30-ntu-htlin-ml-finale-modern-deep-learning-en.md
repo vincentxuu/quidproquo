@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is part 16 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series, following [RBF Networks, k-Means, and Matrix Factorization](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization-en). It has two parts: Lecture 16, Finale, of [Machine Learning Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/), and the four decks the [Fall 2024 on-campus course](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) added in its last three weeks.
 
 Official material used:
@@ -203,7 +205,7 @@ Further reading: 302u and 303u are only a doorway into deep learning. To go furt
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

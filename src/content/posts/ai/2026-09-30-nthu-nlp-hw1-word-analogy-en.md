@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 3 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. It follows [Word Embeddings and Language Models](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en), which covered how word vectors are trained. This post puts them to a test: **do word vectors really learn that king is to queen as man is to woman, and how far behind is a model you train yourself?**
 
 The sources are the Fall 2025 [Assignment 1 folder](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment1) in the [IKMLab course repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing): the handout [NLP_HW1_word_emb.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/NLP_HW1_word_emb.pdf), the starter [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/main.ipynb), the processed `questions-words.csv`, and the TA's [walkthrough video](https://youtu.be/nCS3GpHwqr8) (titled "Week 2 Thu. - Assignment 1" and listed in the W2 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)). The video is in Mandarin. Access level is **A3**: the handout, starter code, and data are public. Solutions and grading scripts live on NTU COOL, which outside readers cannot reach.
@@ -137,7 +139,7 @@ So if you study with the 2025 materials, you are doing the same assignment as th
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

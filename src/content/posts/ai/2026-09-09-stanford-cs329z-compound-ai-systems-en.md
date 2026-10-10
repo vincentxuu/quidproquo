@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The first lecture of [CS329Z](https://cs329z.stanford.edu/) (Sep 23, Foundations & Landscape) assigns exactly one anchor reading: [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) (BAIR Blog, 2024), led by Matei Zaharia with ten co-authors across Berkeley, Stanford, and Databricks. Opening with this piece states the whole course's position: the class makes no bets on what the next big model will unlock. It cares about one thing — engineering the best possible system out of today's parts. The three keywords of lecture one, decomposition, data, and evaluation, all grow out of this post.
 
 This guide follows the post's own argument: the definition, why systems are unavoidable, then its three design questions, three hard challenges, and four emerging directions. At the end I connect each section back to the course — what [HW1 actually asks you to hand in](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) is essentially the hands-on version of this article.
@@ -98,6 +100,10 @@ The Week 1 syllabus lists two additional readings beyond the anchor. They are li
 
 - 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
+
+## Update Log
+
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

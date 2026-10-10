@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版（課程網站最後一次完整公開的校內版）。作業 notebook 在 [GitHub repo](https://github.com/cgpotts/cs224u) 仍可取得，事實皆於 2026-09-29 打開官方材料核對。存取等級 **A3**：題目、資料、單元測試、原創系統規則與 overview 錄影都公開，足以自學；拿不到的是 Gradescope 自動評分、bake-off 排行榜與助教的結果報告。
 
 **系列位置**：上一篇 [上下文表徵 II：模型家族](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)｜下一篇 [資訊檢索](/posts/ai/2026-09-29-cs224u-information-retrieval)｜[系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
@@ -169,7 +171,7 @@ SST 那一側的風險看起來比較小：`SetFit/sst5` 在 Hub 上是純資料
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

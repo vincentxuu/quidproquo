@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-06-bucketsort-sorting-lower-bounds-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 7 篇，對應 **Stanford CS161, Winter 2026, Lecture 6**。Moses Charikar 在 2026 年 1 月 26 日主講，官方 component 題目是 [BucketSort and Lower Bounds for Sorting](https://stanford-cs161.github.io/winter2026/lectures/#lecture-6-bucketsort-and-lower-bounds-for-sorting)。Notes 題名則是 *Sorting Lower Bounds, Counting Sort, and Radix Sort*，slides 寫 *Sorting lower bounds and O(n)-time sorting*。本文沿用官方頁的 BucketSort 名稱，也明確指出材料實際講的 bucket 演算法叫 Counting Sort。使用來源為課前練習、notes 與 slides；Canvas 錄影未使用。
 
 前五講一直用比較決定順序：問 `a<b`，再依答案分支。MergeSort 已做到 worst-case `O(n log n)`，那能不能繼續改到 `O(n)`？答案不是單純的可以或不可以，而是先問：**演算法被允許對 key 做什麼？** 第六講先在 comparison model 證明 `Ω(n log n)`，再讓演算法直接讀整數 key，用 Counting Sort 與 Radix Sort 繞出比較模型。兩者並不矛盾。
@@ -182,7 +184,7 @@ Randomized comparison lower bound 的正式證明通常要處理「對 determini
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

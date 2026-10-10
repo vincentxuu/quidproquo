@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161) 的第十七篇，對應 **Stanford CS161, Winter 2026, Lecture 16**。Moses Charikar 在 2026 年 3 月 4 日主講；component 題名是 *Max-Flow and the Ford-Fulkerson Algorithm*，notes 內頁題名是 *Max Flow, Min Cut and Ford-Fulkerson*。
 
 本文使用公開的 [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture16-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/lecture16-slides.pdf) 與[官方 component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture16.md)。我沒有觀看 Canvas 錄影，也沒有使用 component 連出的歷史論文與 concept checks。
@@ -129,7 +131,7 @@ Residual graph 同時承擔執行與證明：過程中列出 forward 增流及 r
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

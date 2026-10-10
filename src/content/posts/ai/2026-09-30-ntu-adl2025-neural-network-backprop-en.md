@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 2 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (NTU term 114-1, 2025/09/01–12/15) lists these two decks, together with the Introduction from [post 1](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction-en), under "self-study / prerequisite." They are HW0 material that students must finish before enrolling.
 
 **Sources**: the [NN Basics deck](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_NNBasics.pdf) (93 pages), the [Backpropagation deck](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Backprop.pdf) (33 pages), and five videos in Mandarin:
@@ -217,7 +219,7 @@ Next: [Word Vectors, Language Models, and RNNs](/posts/ai/2026-09-30-ntu-adl2025
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

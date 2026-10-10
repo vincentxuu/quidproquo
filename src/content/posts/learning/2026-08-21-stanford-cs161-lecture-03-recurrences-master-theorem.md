@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-03-recurrences-master-theorem-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 4 篇，對應 **Stanford CS161, Winter 2026, Lecture 3**。Moses Charikar 在 2026 年 1 月 12 日主講，官方題目是 [Solving Recurrences and the Master Theorem](https://stanford-cs161.github.io/winter2026/lectures/#lecture-3-solving-recurrences-and-the-master-theorem)。本文讀了公開的課前練習、六頁講義與 54 頁投影片；Canvas 錄影未使用，概念檢核也沒有假裝讀過。
 
 有一個來源差異要先交代：component 與投影片都把本講定位為遞迴式、Master Theorem、substitution method；notes 封面卻寫成「Solving Recurrences and the Selection Problem」。正文完全沒有進入 selection，selection 是 Lecture 4 的主題。本文依官方 lecture 標題與材料實際內容寫，不把封面殘留字樣擴成不存在的 agenda。
@@ -237,7 +239,7 @@ Master Theorem 也不是遞迴分析的終點。Akra–Bazzi 等工具能處理�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

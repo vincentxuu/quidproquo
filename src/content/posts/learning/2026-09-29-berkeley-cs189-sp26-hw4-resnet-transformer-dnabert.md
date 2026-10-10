@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的 [HW4 官方資料夾](https://drive.google.com/drive/folders/1yDuUklNkvyfHm6mhhHFI0KzK93_StWVz)寫成。資料夾匿名可以列出四個檔案：`hw4_written.pdf`、`hw4_written_student.tex`、`hw4_part1.ipynb`、`hw4_part2.ipynb`。排程上 HW4 在 4/14（Lec 22）那一列發布，**5/1（週五）晚上 11:59 PT 截止**。
 
 它接在 [Lec 21–22：Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers) 之後。講義只講到 attention 的主幹，位置編碼、encoder／decoder、訓練與推論的細節，都在這份作業裡自己動手做。
@@ -166,7 +168,7 @@ flowchart LR
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

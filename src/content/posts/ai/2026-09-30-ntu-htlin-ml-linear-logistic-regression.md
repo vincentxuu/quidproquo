@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 5 篇，接續[VC 維度、雜訊與誤差衡量](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)。範圍是[《機器學習基石》](https://www.csie.ntu.edu.tw/~htlin/mooc/)第 9 講 Linear Regression 與第 10 講 Logistic Regression，進入四大問題的第三個：「How Can Machines Learn?」。
 
 上一篇的結論是：演算法實際最佳化的誤差 êrr 要嘛「有道理」、要嘛「好最佳化」。這一篇就是兩個好最佳化的例子。平方誤差給出閉式解；cross-entropy 沒有閉式解，但夠平滑，可以用梯度下降。
@@ -229,7 +231,7 @@ L10 Logistic Regression：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

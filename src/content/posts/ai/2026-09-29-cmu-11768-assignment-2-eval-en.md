@@ -26,17 +26,21 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The three individual assignments in [CMU 11-768 AI Agents](https://www.cmu-agents.com/) form a single line: [A1](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) builds a harness, A2 builds evaluation, A3 does training. [Assignment 2](https://github.com/cmu-agents/assignment-2) is worth 15% of the course grade and is due October 1; the course site sums it up as "design the evaluation framework needed to measure agent correctness and functionality." It was designed by Andy Liu, Jiarui Liu, and Yueqi Song, and runs on course-provided Modal compute credits.
 
 This post covers only what the assignment asks for, how it is structured, how it is scored, and the design trade-offs — **no solutions**. The schedule has no lecture dedicated to evaluation; evaluation design lives only in this assignment. So the end of this post ties it back to L9 through L11: the validator you write in A2 is what RL maximizes as a reward from A3 on.
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+This is an assignment walkthrough with an official course entry. A dedicated recording for this assignment has not been verified. Some lectures are public, but they do not establish a dedicated assignment video.
 
-Course and recording entries:
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## What is being evaluated: a data-visualization agent
 
@@ -182,7 +186,7 @@ For the series overview, see [the course overview post](/en/posts/ai/2026-09-29-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

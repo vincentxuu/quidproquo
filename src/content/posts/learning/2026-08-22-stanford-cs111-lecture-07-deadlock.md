@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 8 篇，對應 **Stanford CS111, Spring 2026, Lecture 7**。Mendel Rosenblum 在 2026-04-13 主講，官方題目是 [Deadlock](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/7/Lecture7.pdf)。本文只依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不是已讀來源。
 
 上一講建立 mutex 與 condition variable，也提醒 lock 太多會增加複雜度。本講從那個取捨的另一面開始。多把 locks 可以降低 contention，也能讓每個 data structure 自己封裝同步，但一條 thread 經常要同時持有多個 resources。只要取得順序互相衝突，所有 critical sections 都可能各自寫對，整個系統卻永遠停止前進。
@@ -134,7 +136,7 @@ Process 2: mv b/z a/q
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

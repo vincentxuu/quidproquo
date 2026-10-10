@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 課站的 11 月 13 日講次、[第 11 講錄影](https://youtu.be/GNvEjP1DfIs)（YouTube 標題「Lecture 11: Mental Health and Emotional Attachment」，約 1 小時 13 分），以及課站列出的閱讀清單。事實皆於 2026-09-30 打開官方材料核對；錄影內容依 YouTube 自動字幕整理。**本講材料**：錄影與閱讀清單公開；沒有投影片，實驗欄寫「To be determined」，但錄影裡有兩組學生實驗。課站本講的條列（監管途徑、致命自主武器、大規模監控等）與講題 Emotional Reliance 對不上，看起來是從別講複製過來的，本文**不引用那串條列**。整門課的存取分級見[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)。
 
 > **閱讀前提醒**：本文整理的是課堂討論與研究結果，不是醫療或心理建議。如果你正處於危機或有自我傷害的念頭，請直接聯絡當地的緊急服務或心理支持專線（台灣可撥 1925 安心專線）。
@@ -166,7 +168,7 @@ Boaz 先把「AI 與心理健康」拆成幾個面向：不以心理健康為目
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

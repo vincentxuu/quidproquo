@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-20-fireside-conclusion-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 20**（2025-12-03）。這場 fireside chat 由 Ken 主持、Percy Liang 回答學生問題。課程順序以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準；主要材料是 [Stanford Online 影片](https://www.youtube.com/watch?v=5u5I5jvWR5k)。[影片](https://youtu.be/5u5I5jvWR5k?t=43)
 
 ## 課程影片來源
@@ -141,7 +143,7 @@ Percy 對「AI 是不是泡沫」的回答很直接：當然有泡沫，但 AI �
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

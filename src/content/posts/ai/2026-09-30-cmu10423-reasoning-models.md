@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-reasoning-models-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 19 篇，接續 [L19 + L21：長上下文與 State Space／Hybrid 模型](/posts/ai/2026-09-30-cmu10423-long-context-ssm)。範圍是 2026 年 3 月 30 日的 Lecture 20「Reasoning Models」，講者 Aran Nayebi 與 Matt Gormley。
 
 用到的官方材料：[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)與 [L20 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture20-reasoning.pdf)（39 頁，沒有手寫版）。投影片封面的完整標題是「Reasoning Models + Mechanistic Interpretability」，比講次表多了後半的可解釋性。講次表沒有列這一講的 readings，本文只引投影片和它標註的出處。這門課的存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但錄影放在要 CMU 登入的 Panopto，本篇只依投影片撰寫。
@@ -193,7 +195,7 @@ R1 在 R1-Zero 的基礎上改用混合訓練策略。投影片引的圖列出�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

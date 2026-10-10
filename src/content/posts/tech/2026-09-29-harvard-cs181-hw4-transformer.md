@@ -24,17 +24,22 @@ glossary:
 
 > 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4)（`hw4_release.tex/pdf/ipynb`，due 2026-04-03）與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf)為準，全部於 2026-09-29 實際打開。本課整體為 **A3**（作業、notebook、section 與解答公開），但沒有當期錄影、沒有作業解答，Gradescope 需要選課。[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)寫講義投影片放在 Google Drive 資料夾，CSV 匯出不含連結，本篇沒有取得 2026 的 Transformers 講課投影片，講課內容一律不推測。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4)（`hw4_release.tex/pdf/ipynb`，due 2026-04-03）與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf)為準，全部於 2026-09-29 實際打開。本課整體為 **A3**（作業、notebook、section 與解答公開），但官方課表未列對應講次的公開錄影、沒有作業解答，Gradescope 需要選課。[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)寫講義投影片放在 Google Drive 資料夾，CSV 匯出不含連結，本篇沒有取得 2026 的 Transformers 講課投影片，講課內容一律不推測。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 6 篇。上一篇是[期中檢核](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)，這篇進入期中後的第一份作業 HW4。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## HW4 在學期裡的位置
 
@@ -136,7 +141,7 @@ HW4 Problem 1 沒有處理 causal mask、KV cache 或長上下文的成本，這
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

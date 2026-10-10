@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs146s-agent-internals-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是 [CS146S 系列](/posts/ai/2026-08-16-cs146s-course-map)的第二篇，對應 Fall 2026 的第一週。
 
 課程網站列出的兩堂課是「Course intro + build Claude Code in 200 lines」與「How state-of-the-art coding agents are designed: deep dive into the system prompts that define the agent」，主題三條：LLM 到底是什麼、agent loop 在底下長什麼樣、核心工具組（read、write、edit、bash）怎麼把任務跑完。
@@ -148,7 +150,7 @@ Fall 2026 的作業還沒公布，但 Fall 2025 的 [作業 repo](https://github
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

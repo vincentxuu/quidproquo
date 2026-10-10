@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-current-trends)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers Lecture 9, "Current trends," of the 2025 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (December 5, 2025). The main source is the [128-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture9.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=Q86qzJ1K1Ss) (1:51:31). Everything here is based on what is written or drawn on the slides, not on what was said in class.
 
 The first eight lectures took a sentence all the way to a model that reasons, uses tools, and can be graded. The last lecture pushes outward in two directions. First, can a Transformer look at pictures? Second, does an LLM really have to write left to right, one token at a time? The agenda has four parts: Recap, Beyond Transformer-based LLMs, Diffusion LLMs, and Closing thoughts.
@@ -272,7 +274,7 @@ Lecture 9 is not covered by the [2025 final exam](https://cme295.stanford.edu/ex
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這一篇是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列的第 1 篇，對應[機器學習基石](https://www.csie.ntu.edu.tw/~htlin/mooc/)的 Lecture 1–3，也就是四大問題裡的第一個「When Can Machines Learn?」的前三講。
 
 這三講回答兩件事：機器學習問題由哪些元件組成，以及最簡單的學習演算法長什麼樣。讀完你應該能自己寫出 PLA，並說出一個問題屬於哪一類學習。「PLA 學到的線，在沒看過的資料上也對嗎？」這個問題留給[第 2 篇](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning)。
@@ -215,7 +217,7 @@ L3 把學習問題沿四個軸分類。每個軸都有一個「核心」選項�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

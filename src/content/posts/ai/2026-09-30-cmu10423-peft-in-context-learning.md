@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 10 篇，進入第三個單元「Applying and adapting foundation models」。主要材料是 2 月 16 日的 [Lecture 10 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture10-peft.pdf)（Aran Nayebi 與 Matt Gormley），加上 2 月 11 日 [Lecture 9 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture9-vae-icl.pdf)末段的 zero-shot／few-shot 與 prompting，以及 2 月 18 日 [Lecture 11 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture11-ift-rlhf.pdf)前半的 in-context learning 與 prompt engineering。L9 前半的 VAE 在[第 8 篇](/posts/ai/2026-09-30-cmu10423-variational-inference-vae)，L11 後半的 instruction tuning 與 RLHF 在[第 11 篇](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo)。
 
 事實皆於 2026-09-30 打開官方材料核對。[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)從 L9 起沒有列 readings，本文只引投影片本身與投影片標注的圖表出處。存取等級 **A3**：投影片、作業與練習考卷公開；課堂錄影在 CMU Panopto，校外看不到。
@@ -212,7 +214,7 @@ few-shot 可以直接用 ICL 做：先給任務說明，再依序放入訓練資
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

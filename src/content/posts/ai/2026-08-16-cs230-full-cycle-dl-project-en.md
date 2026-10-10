@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-full-cycle-dl-project)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > [The previous post](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained-en) covered how embeddings get trained. This one zooms out to the whole project.
 
 This post covers **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)** (2025/10/07, Andrew Ng, 1 hour 7 minutes). There are **no slides** for this one — it's whiteboard and Q&A throughout. Ng takes a single case (a face-recognition door system) through the entire lifecycle, putting every decision point to a class vote before giving his answer.
@@ -242,7 +244,7 @@ Ng makes this analogy himself throughout, but a few threads are worth pulling ou
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

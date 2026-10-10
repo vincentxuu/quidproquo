@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 This is Lecture 4 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026 (9/2). The schedule lists it as "Motion Planning: RRT"; the slides are titled "Classical Planning II and Motion Planning". The first half finishes GraphPlan and relaxation heuristics, which live in the [previous post on Lecture 3](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en). This post covers only the second half: **how do you plan when the state is continuous and cannot be enumerated?**
 
 The previous lecture's world was made of finitely many facts; it could be huge, but it was finite. Joint angles on a robot arm or a game character's coordinates are real numbers, so there are infinitely many states and BFS cannot even finish the first layer. This lecture's answer: stop enumerating and start sampling.
@@ -24,11 +26,13 @@ Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.e
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
 
 ## Official materials and scope
 
@@ -151,7 +155,7 @@ The summary slide: RRT is not optimal; RRT\* considers minimal path cost as samp
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

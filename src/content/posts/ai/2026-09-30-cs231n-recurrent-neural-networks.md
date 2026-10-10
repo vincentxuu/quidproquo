@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片依據 Spring 2026 課表連結的 [lecture_7.pdf](https://cs231n.stanford.edu/slides/2026/lecture_7.pdf)；錄影依據 Spring 2025 的 [YouTube L7](https://www.youtube.com/watch?v=kG2lAPBF7zA)。兩者可能有差異，下面會標出。本文是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列第 8 篇，接在 [L6：訓練 CNN 與經典架構](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)之後。
 
 到 L6 為止，模型的輸入都是**固定大小**的：一張圖進去，一組分數出來。可是影片是一串影格，句子是一串字，影像描述要輸出一串長度不定的字。這一講要回答：**輸入或輸出是序列時，神經網路要怎麼改？**
@@ -235,7 +237,7 @@ LSTM 真的解決了梯度消失嗎？第 115 頁的回答很節制：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

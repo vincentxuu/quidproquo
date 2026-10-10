@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-11-graphs-2)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 12 in the [Stanford CS103 Guide](/series/stanford-cs103), corresponding to **Spring 2026 Lecture 10 (April 22, 2026)**. Its official title is **Graph Theory, Part Two**, and its agenda moves through walks, paths, and reachability; graph complements; and the pigeonhole principle. The public page names Cynthia Bailey Lee and Alex Aiken as the course team but does not identify a speaker for each meeting, so this guide does not guess one.
 
 The preceding lecture defined a graph as `G = (V, E)`, where `V` is a node set and each member of `E` is an unordered pair of distinct nodes. This lecture asks dynamic questions: what counts as moving through a graph, when can one node reach another, what happens when all nonedges become edges, and how can “more objects than places” force a mathematical structure?
@@ -140,7 +142,7 @@ The [official lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs10
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the bilingual article item by item from the complete official deck, covering walks, reachability, graph complements, the pigeonhole principle, and Ramsey theory.
 
 ## References

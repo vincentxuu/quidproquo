@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 3: Architectures, hyperparameters**，2026 年 4 月 6 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_03.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf)。
 
 這一講的題目故意叫做「Everything you didn't want to know」。近年的模型論文會列出大量架構變體，但真正的問題不是記住每個名稱。你要找出哪些選擇已有跨模型共識、哪些仍是局部取捨，以及哪些只是規模與系統條件不同。
@@ -89,7 +91,7 @@ Softmax 是數值風險集中處。Output logits 可用 z-loss 抑制整體偏�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

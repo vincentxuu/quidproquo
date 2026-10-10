@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-cs107-integers-bits-bytes-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 同一串 bit 沒有天生的正負號。`1011` 可以是 unsigned 的 11，也可以是 4-bit two's complement 的 -5；差別不在儲存格，而在程式選擇用哪套規則解讀它。CS107 第三講要建立的就是這層區分：先固定寬度，再定義編碼，最後才談算術結果。
 
 這篇依 [Winter 2026 Lecture 3 官方投影片](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/03/Lecture03.pdf) 的順序完整展開。主脊是「一個有限長度的 bit pattern，如何同時支撐 unsigned、signed 與加法」。讀完應該能徒手判讀小型 bit pattern，也能說明為何「處理器看起來會繞回」不等於「C 保證 signed overflow 會繞回」。
@@ -248,7 +250,7 @@ if (sum < a) {
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

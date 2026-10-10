@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide is based on the [official HW4 folder](https://drive.google.com/drive/folders/1yDuUklNkvyfHm6mhhHFI0KzK93_StWVz) of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). Anyone can list the folder, which holds four files: `hw4_written.pdf`, `hw4_written_student.tex`, `hw4_part1.ipynb`, and `hw4_part2.ipynb`. On the schedule, HW4 is released in the 4/14 row (Lec 22) and is **due Friday 5/1 at 11:59 PM PT**.
 
 It follows [Lec 21–22: Transformers](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en). The slides cover only the core of attention; positional encodings, the encoder/decoder, and the details of training and inference are things you build yourself in this assignment.
@@ -166,7 +168,7 @@ The model is torchvision's `convnext_base` (from "[A ConvNet for the 2020s](http
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

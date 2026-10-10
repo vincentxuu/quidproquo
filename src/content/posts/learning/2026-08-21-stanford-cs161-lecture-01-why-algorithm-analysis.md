@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-01-why-algorithm-analysis-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 2 篇，對應 **Stanford CS161, Winter 2026, Lecture 1**。這堂課在 2026 年 1 月 5 日由 Ellen Vitercik 主講，官方題目是 [Why are you here?](https://stanford-cs161.github.io/winter2026/lectures/#lecture-1-why-are-you-here)。公開材料有講義、70 頁投影片，以及課程頁連出去的 notebook 與概念檢核；本文實際使用講義與投影片。錄影只能從 Canvas 進入，我沒有把它當成已讀來源。
 
 第一講不是把演算法定義背一遍。它選了一個每個人都會做的工作：整數乘法。你小學就知道直式乘法，但「會算」和「知道這個算法在輸入變大時要付出多少」是兩件事。這堂課用同一個例子串起三個課程目標：設計一個不同的算法、分析它的成長率、把理由寫到別人可以檢查。
@@ -194,7 +196,7 @@ Lecture 1 建立的是一種不信直覺的習慣。你可以正確算出答案�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

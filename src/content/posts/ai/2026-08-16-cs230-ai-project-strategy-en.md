@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-ai-project-strategy)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > [The previous post](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en) covered reinforcement learning and RLHF. This one returns to the most practical end.
 
 This post covers **[Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)** (2025/10/28, Andrew Ng, 1 hour 15 minutes).
@@ -262,7 +264,7 @@ As for the trigger-word half, one insight holds up perfectly today: **"you'll ge
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

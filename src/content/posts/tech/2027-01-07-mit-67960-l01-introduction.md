@@ -24,6 +24,8 @@ additionalSeries:
 
 > 🌏 [English version](/posts/tech/2027-01-07-mit-67960-l01-introduction-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 01）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講為課程總覽，由授課教師群輪流介紹。
 
 ---
@@ -115,7 +117,7 @@ print("env OK, params:", sum(p.numel() for p in model.parameters()))
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

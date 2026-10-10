@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). HW1 was posted in the week of Lec 3 (Jan 27) alongside Discussion 1, and it is due **Friday, Feb 20, 11:59 PM**, the day after the [Lec 7–10 linear regression block](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en) ends.
 
 HW1 is titled "AGI, Everywhere, All at Once," but the content is practical. It checks two things:
@@ -166,7 +168,7 @@ On this site:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

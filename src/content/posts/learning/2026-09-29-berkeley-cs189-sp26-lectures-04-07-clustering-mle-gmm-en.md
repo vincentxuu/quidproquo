@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). For the choice of semester, see the [version map](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en). The previous stretch is [Lec 1–3](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en).
 
 The first three lectures covered tools and workflow. Lecture 4 is where the course first needs probability, and the jump is steep. In two weeks you go from clustering to maximum likelihood estimation, multivariate Gaussians and mixture models. The thread through these four lectures is clear, though, because each step fixes a weakness of the one before:
@@ -190,7 +192,7 @@ The MLE problem in Discussion 3 is the most important exercise in these four lec
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

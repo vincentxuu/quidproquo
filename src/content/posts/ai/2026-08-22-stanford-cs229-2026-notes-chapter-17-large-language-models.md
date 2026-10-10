@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-17-large-language-models-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 17 章（印刷頁 202–219）。這是 2026 notes 的逐章導讀，不是任何學期錄影重建；以下聚焦模型、計算與後訓練的連鎖，不逐一重做所有證明。
 
 ## 課程影片來源
@@ -84,7 +86,7 @@ Mixture of Experts 用 router 為每個 token 選少數 expert。它能增加總
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

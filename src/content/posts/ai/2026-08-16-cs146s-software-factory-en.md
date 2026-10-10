@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-software-factory)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the final post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 10 of Fall 2026.
 
 Three topics: self-running, self-improving software systems; running and securing agents post-deployment; where AI software engineering goes next. The session title is "The Software Factory: self-running, self-improving software systems."
@@ -132,7 +134,7 @@ To study on your own, [the complete Fall 2025 materials](https://themodernsoftwa
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

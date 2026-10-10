@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 這是 [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) Fall 2026 的 Lecture 5：**Continuous Optimization: LP**（9/9）。[上一篇 HW2 導讀](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp)收掉了規劃模組，這一講換到新的模組「Optimization」。
 
 在 [07-280 Lecture 8](/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization) 我們學的是 gradient descent：objective 平滑、沒有限制，就順著梯度往下走。LP 的情況剛好相反：objective 是一條直線般單純的線性函數，梯度處處一樣、永遠不會變成零，真正決定答案的是一堆**線性限制**。這時候「往下走」只會一路走到可行域的邊界，問題變成：邊界上哪一點？
@@ -26,11 +28,13 @@ draft: false
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
 
 ## 官方材料與讀取範圍
 
@@ -153,7 +157,7 @@ flowchart LR
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

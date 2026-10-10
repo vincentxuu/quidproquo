@@ -31,21 +31,25 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 **This guide follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is post 17 in the [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en) series and follows [L21 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention-en).
 
 **About the order**: in the official [Spring 2026 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), these two lectures sit in Week 7 (2/23 and 2/25), between LightSeq and distributed training. This series moves them after FlashAttention, because L13's main subject, Splash Attention, is FlashAttention's tiling idea carried over to TPU. With the previous post in hand, this one is a single step: new hardware and a new language, same algorithm. The in-progress [Fall 2026 Syllabus](https://llmsystem.github.io/llmsystem2026fall/docs/Syllabus) schedules the same two lectures on 9/28 and 9/30, adds "Recitation 6: JAX and TPU" on 10/2, and lists two "Acceleration on TPU" lectures in Week 13 that have no slides yet.
 
-Both lectures are by Srinath Mandalapu of Google CoreML Frameworks. The official materials are two slide decks: [L12 Introduction to JAX/XLA/TPU](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-12-Introduction_to_JAX_XLA_TPU-f0450caf9e7e6707c009f7f77997a2be.pdf) (107 pages) and [L13 Pallas and Splash Attention](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-13-pallas_splash_attention_srinath_mandalapu-b0bc7990950b84561ff9aa8e1791f727.pdf) (111 pages). The Syllabus lists no readings for them. Access level is **A3**, but there are no recordings, and every profiling number in the slides was measured on TPU Ironwood, which most outside readers cannot reproduce. Page numbers refer to the PDFs.
+Both lectures are by Srinath Mandalapu of Google CoreML Frameworks. The official materials are two slide decks: [L12 Introduction to JAX/XLA/TPU](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-12-Introduction_to_JAX_XLA_TPU-f0450caf9e7e6707c009f7f77997a2be.pdf) (107 pages) and [L13 Pallas and Splash Attention](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-13-pallas_splash_attention_srinath_mandalapu-b0bc7990950b84561ff9aa8e1791f727.pdf) (111 pages). The Syllabus lists no readings for them. Access level is **A3**, but the official syllabus lists no public recording links, and every profiling number in the slides was measured on TPU Ironwood, which most outside readers cannot reproduce. Page numbers refer to the PDFs.
 
 The whole post answers one question: **when you move to TPUs and XLA, how does writing a fast kernel change?**
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## The scenario: the same attention on a different machine
 
@@ -251,7 +255,7 @@ The algorithm is identical. What differs is **where control sits**. On GPUs you 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

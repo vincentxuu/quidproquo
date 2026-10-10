@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs107-computer-systems-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS107: Computer Organization and Systems](https://web.stanford.edu/class/cs107/) 是 Stanford 程式入門三部曲的最後一門，接在 CS106A 與 CS106B 後面。
 
 它的工作是拆掉一個心智模型。高階語言讓你相信變數是個盒子，這門課要把它換成：變數是一段有位址的位元組。途中你會用 C 重寫一批 Unix 指令、讀 x86-64 組合語言，最後自己實作一個 `malloc`。
@@ -195,7 +197,7 @@ Stanford 的封存頁保留了整個學期的公告，而 CS107 的成績釋出�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

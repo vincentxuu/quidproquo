@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 先處理最容易被「名校 AI 課程」這個標題帶歪的地方：依 [Berkeley EECS 的學士方案比較](https://eecs.berkeley.edu/academics/undergraduate/compare-majors/)，**Berkeley 大學部沒有一個獨立的 AI 學士。**官方列出的相關學位是 Computer Science BA 與 Electrical Engineering and Computer Sciences BS；學生在共同的程式、理論與數學基礎上，用高年級選修組出 AI／ML 路線。
 
 這和 MIT 的 Course 6-4 很不一樣。MIT 有正式的 Artificial Intelligence and Decision Making 學位；Berkeley 比較像一張可自行組合的網。你可以從 CS188 進入搜尋、推理與規劃，也可以從 CS189 進入數學較重的機器學習，之後再接深度學習、自然語言處理、電腦視覺或強化學習。
@@ -180,7 +182,7 @@ Berkeley 最值得借用的不是一份官方 AI checklist，而是兩個入口�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-30：CS189 Spring 2026 課站已重新上線，改判 A3 並補進盤點表；Spring 2025 的正式錄影需 bCourses 登入，移除「影片公開」的說法；連到擴寫後的 CS189 導讀系列。
 - 2026-08-22：依 CS C280 官方背景要求，把 CS C182 補回進階視覺自學路線。
 

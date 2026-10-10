@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 1 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (NTU term 114-1, 2025/09/01–12/15) lists this lecture under "self-study / prerequisite." [Course Logistics](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf) p. 17 requires students to watch it before enrolling, as part of HW0.
 
 **Sources**: the [Introduction deck](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Introduction.pdf) (46 pages) and three videos: [1.1 What is ML?](https://youtu.be/Nls5bHxW6i0) (16:45), [1.2 What is DL?](https://youtu.be/asuLb0lLmJY) (41:26), and [1.3 How to Apply?](https://youtu.be/oT4UQj_PXYo) (10:11). The deck was checked on 2026-09-30. The videos are in Mandarin, and page numbers below refer to the PDF.
@@ -123,7 +125,7 @@ Next: [Neural Networks and Backpropagation](/posts/ai/2026-09-30-ntu-adl2025-neu
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

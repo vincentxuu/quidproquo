@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-heap-allocation-design)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 Lecture 20 ended by changing perspective from a client of `malloc` to its implementer. An allocator receives a contiguous heap and must arrange requests with different sizes and lifetimes inside it. Lecture 21 asks the first implementation question: what must an allocator remember to allocate and reclaim space repeatedly when it knows neither object types nor future requests?
 
 The goal is not one universally best data structure. An allocator simultaneously wants correct alignment, fast responses, and high space utilization, but improving one can damage another. A bump allocator spends almost no time searching but cannot truly reuse individual blocks. An implicit free list reuses space but scans allocated blocks too. This lecture progressively adds bookkeeping and accounts for both the capability it buys and the cost it creates.
@@ -186,7 +188,7 @@ The lasting lesson is not memorizing first fit. Every piece of metadata purchase
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

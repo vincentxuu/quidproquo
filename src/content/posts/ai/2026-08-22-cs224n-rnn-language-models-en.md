@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-rnn-language-models)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 4 on January 15, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture04-rnnlm.pdf) has four agenda parts: language modeling, RNNs, exploding and vanishing gradients, and machine translation. It calls language modeling the course's most important concept because much of modern generative NLP still rests on next-token prediction.
 
 ## Course video sources
@@ -99,7 +101,7 @@ Winter 2026 recordings are not public. This article covers all four agenda secti
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

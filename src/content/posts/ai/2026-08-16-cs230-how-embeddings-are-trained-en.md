@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > [The previous post](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en) covered when prompting stops holding up. This one drops down a layer.
 
 This post covers **[Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)** (2025/09/30, Kian Katanforoosh, 1 hour 40 minutes. The syllabus title is "Key AI Concepts Through Case Studies").
@@ -292,7 +294,7 @@ The synthetic-data pipeline (**the script knows the answer, so it can label auto
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

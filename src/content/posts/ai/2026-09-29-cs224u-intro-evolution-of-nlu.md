@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 的 2023 春季版。** 課程網站至今停在那個學期；這門課的開課狀態、停開紀錄與 ExploreCourses 描述對不上講次表的問題，[系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)已經寫過，這裡不重講。這一篇是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 2 篇。
 
 [CS224U: Natural Language Understanding](https://web.stanford.edu/class/cs224u/) 是 Christopher Potts 教的專案導向 NLP 課，先修是 CS224N。2023 年 4 月 3 日的第一堂只做兩件事：先說明 NLU 怎麼走到現在，再用這段歷史推出整學期的課程地圖。
@@ -210,7 +212,7 @@ pip install -r requirements.txt
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

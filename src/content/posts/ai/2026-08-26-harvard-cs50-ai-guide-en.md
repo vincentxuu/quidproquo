@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-26-harvard-cs50-ai-guide)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Search for free AI courses and [Harvard CS50's Introduction to Artificial Intelligence with Python](https://cs50.harvard.edu/ai/) (CS50 AI below) is always near the top. Taught by [Brian Yu](https://brianyu.me) and [David J. Malan](https://cs.harvard.edu/malan/), it is fully open through OpenCourseWare: seven weeks of video, per-lecture notes, slides, source code, quizzes, and twelve Python projects with autograder feedback. Under the access labels defined in this site's [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map), it is **A3 — sufficient for self-study**: recordings, materials, projects, and the feedback loop are all available to outsiders, and you can go from zero to a certificate without any campus identity.
 
 But "fully public" does not mean "fully current." Open any lecture's download links and the paths read `cdn.cs50.net/ai/2020/spring/` — the videos were filmed in spring 2020. So this guide answers two questions: what do these seven weeks and twelve projects actually involve, and is a course recorded in 2020 still worth following in 2026?
@@ -123,7 +125,7 @@ If steps one through three take you three days or fewer, keep going. If reading 
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-26: Initial version. Recording and assignment version status verified against the official site on August 26, 2026.
 
 ## References

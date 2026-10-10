@@ -24,6 +24,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs146s-course-map-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 Stanford 有一門叫 [CS146S: The Modern Software Developer](https://themodernsoftware.dev/) 的正式學分課，教的不是寫程式，是怎麼指揮 coding agent 寫程式。它在 2025 秋季首開，2026 秋季（9/22 開課）的大綱已經公布——而且**改動幅度大到可以當成一份產業訊號來讀**。
 
 這個系列會照 Fall 2026 的十週逐篇拆。這是第一篇，先把課程本身講清楚，再把兩版大綱擺在一起比。
@@ -147,7 +149,7 @@ Silas Alberti 與 Isaac Evans 兩版都在，但講的東西換了：Alberti 從
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

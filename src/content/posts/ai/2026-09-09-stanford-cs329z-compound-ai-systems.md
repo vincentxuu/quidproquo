@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CS329Z](https://cs329z.stanford.edu/) 第一堂課只指定了一篇主讀物：Matei Zaharia 領銜的 [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)（BAIR Blog）。作者群橫跨 Berkeley、Stanford 與 Databricks。選它當開場白，整門課的立場就說完了：這門課不賭下一個大模型會帶來什麼能力，只關心一件事——用今天的零件把系統架到最好。第一堂課的三個關鍵字 decomposition、data、evaluation，全是從這篇文章長出來的。
 
 這篇導讀照文章的論證走：先給定義，再講為什麼非走系統不可，然後是它留下的三個設計問題、三大挑戰、四個新興方向。最後我會把每個段落連回課程——[HW1 要你交的東西](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，其實就是這篇文章的動手版。
@@ -96,6 +98,8 @@ draft: false
 
 ## 更新紀錄
 
+
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：補上本週官方課堂投影片直連。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 15 篇，對應兩份作業：程式作業 [Assignment 4: Programming a Machine Learning Accelerator](https://github.com/stanford-cs149/asst4-trainium2)（Due Nov 13，100 分），以及書面作業 [Written Assignment 3](https://gfxcourses.stanford.edu/cs149/fall25content/static/pdfs/written_asst3.pdf)。
 
 先講公開程度。整門課是 A3（足以自學），但 **PA4 這一份實質只到 A2**：程式碼與 README 完全公開，可以讀、可以理解；要真的跑起來，得有 AWS Trainium2 機器，而官方的環境設定用的是只開放給修課學生的 private AMI（細節見文末「校外能做到哪」）。Written 3 的 PDF 公開，但沒有解答。
@@ -224,7 +226,7 @@ Written 3 的標題頁寫著 **Improving locality on Specialized Hardware**。�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

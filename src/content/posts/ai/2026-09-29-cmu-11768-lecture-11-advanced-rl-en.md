@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)
 
+**Video status: Pending: no corresponding recording has been verified.** [Source details](#course-video-sources)
+
 > **This post is written from the slides; I will update it once the recording is posted.** As of 2026-09-29, the [official schedule](https://www.cmu-agents.com/) lists only [slides](https://www.cmu-agents.com/slides/lecture-11-rl-advanced.pdf) for Lecture 11, no recording. Everything below is based on the slide content alone, with no spoken commentary from the lecturer. Where I go beyond the slides, I say so.
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) is a Fall 2026 graduate course on LLM agents taught by Daniel Fried and Graham Neubig. Lecture 11 (Sep 29) is the second of three RL lectures in the training module. Neubig teaches it, under the subtitle "Learning from trajectories when the simple recipe breaks."
@@ -42,11 +44,13 @@ The lecture packs in more than five algorithms, plus reward hacking and distilla
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+This article is based on slides. The official schedule, instructor channel, and exact lecture-title searches were checked, but no matching recording could be verified. Schedule extraction returned only its later half and channel extraction omitted its video inventory. Availability remains unresolved; this does not establish that no video exists.
 
-Course and recording entries:
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## The example: fixing a retry-config bug
 
@@ -364,7 +368,7 @@ Further reading on this site (other angles on the same algorithms; not a substit
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

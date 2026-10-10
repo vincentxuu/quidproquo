@@ -15,15 +15,19 @@ series:
 
 > 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-lecture-18-ngram-sampling-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 Lecture 17 決定 tokens；**CMU 07-280 Spring 2026 Lecture 18** 才把 token sequence 變成可訓練、可生成的模型。官方 inked slides 題為 *NLP: N-gram LMs*，主線是 joint probability、Markov approximation、corpus counts、sampling 與 temperature，最後把問題交給 feature learning。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
 
 ## 官方材料與讀取範圍
 
@@ -95,7 +99,7 @@ N-gram 的優點是可檢查：一個機率可以追回某個 count。缺點也�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

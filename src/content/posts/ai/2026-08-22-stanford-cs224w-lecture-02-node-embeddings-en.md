@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-02-node-embeddings)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is **Lecture 2 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-09-25. This reconstruction uses the [course schedule](https://web.stanford.edu/class/cs224w/) and the [lecture slides](https://web.stanford.edu/class/cs224w/slides/02-nodeemb.pdf); the slides credit Jure Leskovec and the course team.
 
 ## Course video sources
@@ -121,7 +123,7 @@ The concepts from Lecture 2 are composed in later lectures. Keep one small graph
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

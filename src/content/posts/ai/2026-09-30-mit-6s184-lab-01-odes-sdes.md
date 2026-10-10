@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的 Lab 1：[`labs/lab_one.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_one.ipynb) 與官方解答 [`solutions/lab_one_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_one_complete.ipynb)（branch `2026`），對照[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) Algorithm 1–2、Example 6 與 Remark 20。2026-09-30 核對。本文只說明每題在考什麼，不貼完整解答。
 
 **系列位置**：上一篇 [L1：生成就是取樣，ODE 與 SDE 是機器](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)｜下一篇 [L2：Flow matching，從條件路徑學邊際向量場](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)｜[系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
@@ -141,7 +143,7 @@ dX_t = ½ σ² ∇log p(X_t) dt + σ dW_t
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

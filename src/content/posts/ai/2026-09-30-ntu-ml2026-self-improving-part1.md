@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)5/8「模型的自我成長 - 1」。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 15 篇。上一篇是 [HW6：Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing)。再往前的 [Self-Correction](/posts/ai/2026-09-30-ntu-ml2026-self-correction) 問的是「模型能不能改自己的錯」；這一篇往下問一層：**模型能不能不靠人，自己變強？**
 
 用到的官方材料：講義 [Self-Improving.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Improving.pdf)（62 頁，另有 [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Improving.pptx)），以及課程頁列出的影片[AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://youtu.be/s06mSAGN4gM)。存取等級是 **A3**：投影片與完整錄影都公開，錄影附中文字幕。本講沒有獨立測驗。投影片大多是圖，本文的論述依影片字幕轉述，圖上引用的論文都回 arXiv 核對過標題。
@@ -219,7 +221,7 @@ Anthropic 今年 4 月的文章（[短版](https://www.anthropic.com/research/au
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

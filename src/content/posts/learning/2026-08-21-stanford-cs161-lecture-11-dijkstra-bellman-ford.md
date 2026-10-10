@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-11-dijkstra-bellman-ford-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161)第 12 篇，對應 **Stanford CS161, Winter 2026, Lecture 11**。官方課名是 **Dijkstra and Bellman-Ford**，上課日期為 2026 年 2 月 11 日，講師是 Moses Charikar。
 
 本文依照[官方 Lecture 11 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford)、公開 notes 與 slides PDF 整理。Slides 明說 Dijkstra 會佔大部分時間，Bellman–Ford 只是快速導入，Lecture 12 會再完整處理；notes 則補上 BF 與 amortized analysis 的完整論證。本篇維持這個比重。Canvas-only 錄影未作為來源。官方 component 所列 `lecture11-slides.pptx` 目前缺檔，本文沒有引用它。
@@ -187,7 +189,7 @@ Lecture 9 的 BFS 是「所有 edge cost 都是 1」的 shortest-path algorithm�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

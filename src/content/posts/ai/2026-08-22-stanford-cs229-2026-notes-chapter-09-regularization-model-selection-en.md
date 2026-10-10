@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is a chapter-by-chapter reading of Chapter 9, printed pages 137–145, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings**. The organizing question is how to control effective complexity through explicit penalties, optimization dynamics, validation, and Bayesian priors.
 
 Chapter 8 diagnosed variance as a threat to generalization, but using fewer parameters is not the only remedy. Complexity may mean parameter norm, sparsity, smoothness, or even which one of many global minima an optimizer prefers.
@@ -76,7 +78,7 @@ Fit polynomial regressions across a grid of $L_2$ strengths. Train on one split,
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

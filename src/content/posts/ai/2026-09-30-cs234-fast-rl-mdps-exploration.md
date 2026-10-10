@@ -35,6 +35,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片與作業；錄影是 Spring 2024 公開版。** 這是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列第 15 篇。
 
 **系列位置**：上一篇 [資料效率 II：Bayesian bandit、Thompson sampling、Gittins、PAC](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits)｜下一篇 [規劃＋學習：MCTS、UCT、AlphaGo／AlphaZero](/posts/ai/2026-09-30-cs234-mcts-alphazero)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
@@ -243,7 +245,7 @@ DPT 那兩頁的核心只有一句：訓練模型去預測最佳動作 $a^*$，�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

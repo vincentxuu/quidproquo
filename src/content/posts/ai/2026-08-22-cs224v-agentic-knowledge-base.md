@@ -14,6 +14,8 @@ description: "CS224V Agentic AI for Knowledge Base Queries：Wikidata/SPARQL 難
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-agentic-knowledge-base-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-agentic.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 這堂標題本來就叫 Agentic AI for Knowledge Base Queries，屬於 Fall 2025 歷史課綱；不能因為 CS224V 在 2026–27 學年整門改名 Agentic AI，就把新版內容混進來。第十講的範圍很明確：讓 agent 像熟悉 Wikidata 的人一樣，邊查 schema 邊建立 SPARQL。
@@ -138,7 +140,7 @@ Agent 可能重複同一個無結果 action。SPINACH 偵測重複、rollback，
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

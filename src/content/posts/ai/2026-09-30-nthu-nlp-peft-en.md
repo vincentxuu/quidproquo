@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-peft)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on [W9_PEFT.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W9_PEFT.pdf) (61 pages) from the Fall 2025 (114-1) edition of Prof. Hung-Yu Kao's [Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing) course at National Tsing Hua University. The W9 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) attaches both this deck and the GPT-2 / T5 TA-session deck, with recordings [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E) and [Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA) (in Mandarin). **I did not watch them to confirm which recording covers PEFT and which is the TA session**, so skim both when you study. The W9 Topics column says "ELMo, BERT, GPT, and T5"; it's a syllabus template that doesn't match the attached slides. Facts checked on 2026-09-30. Access grade **A3**: slides and recordings are public.
 
 **Series**: Previous [GPT-3, InstructGPT, and RLHF](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf-en) | Next [RAG (Part 1): Hallucination and Retrievers](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
@@ -233,7 +235,7 @@ One thing to do tonight: open the training script you're using, compute the rati
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

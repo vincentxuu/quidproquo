@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This guide follows the Spring 2026 [CS231N](https://cs231n.stanford.edu/) [Assignment 2 page](https://cs231n.github.io/assignments2026/assignment2/) and the downloadable [assignment2.zip](https://cs231n.github.io/assignments/2026/assignment2.zip), downloaded on 2026-09-30 with every notebook and `cs231n/` module opened and checked. For the matching lectures, use the [Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16); 2026 recordings are on Canvas for enrolled students only, and the two years may differ. Access level **A3**: the handout and starter code are fully public. What you can't get is the Gradescope autograder, Ed announcements (including the notebook fix mentioned in Lecture 9), and grades. This post explains what each question trains. It gives no solutions.
 
 **Series**: previous [L7: Recurrent Neural Networks and Image Captioning](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks-en) | next [L8: Attention, Transformers, and ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
@@ -177,7 +179,7 @@ The one inline question: what's one advantage and one disadvantage of a **charac
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

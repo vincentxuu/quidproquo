@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agent-ready-codebase)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This is the sixth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course-map-en), covering Week 5 of Fall 2026.
 
 Three topics: what makes a repo agent-ready (structure, docs, tests, checks), scoring and auditing readiness, and the common gaps that block agents in real repos. The guest is [Factory](https://factory.ai/) co-founder and CTO Eno Reyes, speaking on agent readiness.
@@ -147,7 +149,7 @@ That said, the closing line is true regardless of vendor interest:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

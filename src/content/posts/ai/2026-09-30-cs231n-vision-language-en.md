@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-vision-language)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years:** slides and assignments are from Spring 2026; the recordings are from Spring 2025 (YouTube). The two may differ. This post follows the 2026 slides and uses the recording only as a supplement.
 >
 > This is part 17 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series. The previous post is [L14: Generative Models II, Diffusion](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en); the next is [A3 guide: Transformer Captioning, SSL, DDPM, CLIP & DINO](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip-en). L15 (3D vision) moves to after A3 in this series; see the [L15 guide](/posts/ai/2026-09-30-cs231n-3d-vision-en).
@@ -182,7 +184,7 @@ Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-gl
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-ppo-gae-monotonic-improvement-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片與作業；錄影是 Spring 2024 公開版。** 這是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列第 8 篇，接續[策略梯度基礎](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)。
 
 用到的官方材料：
@@ -252,7 +254,7 @@ A2 第 2.4 節的 PPO 跟投影片的 clipped 變體是同一個目標，只是�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

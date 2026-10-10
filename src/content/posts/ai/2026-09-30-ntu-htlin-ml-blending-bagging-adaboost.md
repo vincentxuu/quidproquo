@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文以 [MOOC 版](https://www.csie.ntu.edu.tw/~htlin/mooc/)《機器學習技法》為核心教材：[207_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/207_handout.pdf)（Blending and Bagging）、[208_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/208_handout.pdf)（Adaptive Boosting）與[技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)第 26–33 支。作業對照 [Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)的 HW6、HW7。事實皆於 2026-09-30 打開核對。存取等級：MOOC 本身 **A2**，加上 Fall 2024 作業 PDF 是 **A3（評分鏈除外）**——沒有官方解答，Gradescope 與 NTU COOL 限修課生。
 
 **系列位置**：上一篇 [Kernel 邏輯迴歸與支援向量迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)｜下一篇 [決策樹、隨機森林與梯度提升樹](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
@@ -212,7 +214,7 @@ Q10 要求把 HW2 的 decision stump 擴充成多維、吃樣本權重的版本�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

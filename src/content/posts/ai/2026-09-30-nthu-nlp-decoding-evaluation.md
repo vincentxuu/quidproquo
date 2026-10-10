@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **本文依據[清大高宏宇教授「自然語言處理」](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025（114-1）的公開教材。** 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列的第 10 篇，上一篇是 [Hugging Face BERT 助教課與 HW3 多輸出學習](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3)。
 
 官方材料是投影片 [W5_decoding.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W5_decoding.pdf)（63 頁，標題「Decoding Strategies and Evaluations for Natural Language Generation」），錄影是 [Week 7 Tue.](https://www.youtube.com/live/NtPrXea8qSE)（約 98 分鐘）。
@@ -180,7 +182,7 @@ GLUE 表裡的 STS-B 和 RTE、MNLI 值得多看一眼。上一篇 HW3 做的 re
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

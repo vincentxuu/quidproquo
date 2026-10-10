@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 13 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L12: ControlNet and Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en).
 
 I used three official sources: the [lecture 13 recording](https://www.youtube.com/watch?v=xG8ccKlW_Cc) (2025-05-13, 3 h 3 min), the slide deck [GenAI12 強化學習與生成式 AI 綜合應用](https://drive.google.com/file/d/1uPDkwB4uu183yKczp0lcxyIcQC08XdaR/view) (73 slides, in Chinese), and the week 13 assignment on the [Chang Gung satellite section page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Chinese). Note that the slide file is numbered 12, but it is the deck for lecture 13; its footer reads "13 強化學習與生成式 AI 綜合應用." Access level is **A3**: recordings, slides, and the assignment are public. There is no matching demo notebook this week.
@@ -227,7 +229,7 @@ Series navigation: [series overview](/posts/ai/2026-09-30-nccu-genai-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

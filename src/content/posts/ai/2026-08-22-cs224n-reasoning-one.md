@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-reasoning-one-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 12 講排在 2026 年 2 月 12 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture12-reasoning-part1.pdf)題為 Reasoning 1/2。agenda 有四段：decoding、DeepSeek-R1、PPO/GRPO/DAPO，以及推理的本質、成效與失敗條件。
 
 ## 課程影片來源
@@ -134,7 +136,7 @@ Winter 2026 錄影不公開。本文覆蓋官方投影片四段 agenda，沒有�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

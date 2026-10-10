@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > [The previous post](/posts/ai/2026-08-16-cs230-adversarial-and-generative-en) covered how models get broken and how they generate. This one switches to a different way of learning.
 
 This post covers **[Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A)** (2025/10/21, Kian Katanforoosh, 1 hour 45 minutes).
@@ -334,7 +336,7 @@ And the practical significance of the RLHF mapping table: **when you're debuggin
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

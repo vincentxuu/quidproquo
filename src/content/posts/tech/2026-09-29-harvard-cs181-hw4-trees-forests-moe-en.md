@@ -22,17 +22,22 @@ glossary:
 
 > 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)
 
-> ⚠️ **Version and access**: Based on `hw4_release.tex` from [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) and §3 of the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, with no current-term recordings and no homework solutions. I did not get the Week 7 Non-parametric Models / Decision Trees lecture slides. Problem 3 is pen-and-paper only, with no notebook code; its header gives no total, and the marked sub-parts add up to 35 points.
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
+> ⚠️ **Version and access**: Based on `hw4_release.tex` from [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) and §3 of the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, with no public recording links listed for the corresponding lectures and no homework solutions. I did not get the Week 7 Non-parametric Models / Decision Trees lecture slides. Problem 3 is pen-and-paper only, with no notebook code; its header gives no total, and the marked sub-parts add up to 35 points.
 
 This is post 8 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) and the last problem in HW4. The previous two posts covered [Transformers](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en) and [autoencoders to VAEs](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en).
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
 
-Course and recording entries:
+Official sources:
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## First: this problem doesn't test growing a tree
 
@@ -140,7 +145,7 @@ That wraps up HW4. HW5 moves to learning without labels: clustering, PCA, and se
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

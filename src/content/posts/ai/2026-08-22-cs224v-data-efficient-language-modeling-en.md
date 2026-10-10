@@ -14,6 +14,8 @@ description: "CS224V Training LLMs and Data-Efficient Language Modeling: data bo
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-data-efficient-language-modeling)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-training.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 The schedule abbreviates the final session as “Training LLMs,” but the deck's precise title is “Data-Efficient Language Modeling.” It is not a tokenizer-to-RLHF recipe. It asks how fixed high-quality data can be used better as compute grows, and whether synthetic data can add genuine generalization value.
@@ -122,7 +124,7 @@ The public deck is a research talk, not a complete training recipe. Several resu
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

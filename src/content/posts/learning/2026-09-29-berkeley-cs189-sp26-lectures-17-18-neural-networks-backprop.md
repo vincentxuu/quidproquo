@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的官方教材寫成：第 17 講的講義 [Neural Networks and PyTorch](https://drive.google.com/drive/folders/1-as4P5M8XTeNvXGk0tmHPorRNNjMBtrM)（3/19，[錄影](https://www.youtube.com/watch?v=bMJ9igfvn1M)）、第 18 講的 [lec18.pdf](https://drive.google.com/drive/folders/1mHu1f3UYFTCqcsy7d1zS2jnynWzWLRas)（3/31，[錄影](https://www.youtube.com/watch?v=XlaV_z2knjA)），以及 [Discussion 8](https://drive.google.com/file/d/1XNAVahEf4jiRfGyUCr-x4XGSSseohf2M/view)（附[解答](https://drive.google.com/file/d/12OuB5CcxfG4Ega4_BREMC1cyijm0FUd7/view)與 [walkthrough 影片](https://www.youtube.com/playlist?list=PL-ysCubq-Sa9sA7c_KW-WwRudeMkxQZu_)）。這幾份都能匿名打開，整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
 這兩講卡在期中考（3/17）之後、春假前後。前半學期你已經學過線性回歸、logistic regression、梯度下降和 Adam（見[本系列 order 8](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers)）；這裡要回答的是：模型換成「很多層函數疊起來」之後，還能不能用同一套方法訓練？答案是可以，靠的就是反向傳播。它是整門課的認知高峰，所以本篇照「場景 → 直覺 → 機制 → 連回模型 → 想深入」五層來寫。
@@ -195,7 +197,7 @@ Discussion 8 只有兩題，都是證明題：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

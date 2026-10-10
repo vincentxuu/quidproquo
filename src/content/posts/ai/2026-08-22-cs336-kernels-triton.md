@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-kernels-triton-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 6: Kernels, Triton**，2026 年 4 月 15 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_06.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_06.py)。
 
 第五講說明資料搬運、tiling 與 fusion；第六講要求你實際量測並寫 kernel。順序不能顛倒：沒有可靠 benchmark 與 profiler，手寫 kernel 只是在替猜測最佳化。
@@ -78,7 +80,7 @@ Triton 降低了 CUDA 的語法負擔，沒有移除硬體限制。第六講真�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

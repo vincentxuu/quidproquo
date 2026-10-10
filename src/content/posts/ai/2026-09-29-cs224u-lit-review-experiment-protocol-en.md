@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2023 edition of CS224U.** It is part 15 of the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The previous part, [Methods and Metrics II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en), covered baselines, splits, and statistical comparison. This part puts that methodology into the two documents the final project actually asks you to submit.
 
 The CS224U final project is half the grade, in three deliverables: a literature review, an experiment protocol, and a final paper. The series overview's [final-project section](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) already covers the grading axes: results don't count, but metric choice, methodological strength, and honesty about limits do. This post doesn't repeat them. It does one thing: **it breaks the first two deliverables into steps you can follow.** The final paper gets the [next part](/posts/ai/2026-09-29-cs224u-presenting-research-en).
@@ -181,7 +183,7 @@ Once those two are filled in, Data and Metrics usually follow.
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

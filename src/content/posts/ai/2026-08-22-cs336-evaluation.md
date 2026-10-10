@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-evaluation-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 12: Evaluation**，2026 年 5 月 6 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_12.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_12.py)。
 
 課程在談資料以前先談 evaluation，因為資料會把模型推向你量測的行為。這一講最重要的句子是：沒有唯一正確的 evaluation。你必須先說規則、對象與使用情境，再選 metric。
@@ -83,7 +85,7 @@ Benchmark contamination 讓三者更難判斷。模型可能在 pretraining 看�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

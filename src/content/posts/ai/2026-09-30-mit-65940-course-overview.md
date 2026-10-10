@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-course-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) 是 [Song Han](https://songhan.mit.edu) 開的研究所課。投影片封面上他的頭銜是 MIT 副教授兼 NVIDIA Distinguished Scientist。課程網址 [efficientml.ai](https://efficientml.ai) 會導到 MIT HAN Lab 的[課程頁](https://hanlab.mit.edu/course)。這門課處理一個很實際的問題：模型長得比硬體快，要怎麼把它壓小、加速，放進筆電、手機，甚至只有幾百 KB 記憶體的微控制器。
 
 Fall 2024 課頁的課程描述列出的主題有 model compression、pruning、quantization、neural architecture search、distributed training、data/model parallelism、gradient compression、on-device fine-tuning。另外還有針對 LLM 與 diffusion model 的加速技術。課頁承諾的實作成果很具體：學生要親手把 Llama2-7B 部署到自己的筆電上。
@@ -195,7 +197,7 @@ L1–L2 在第一章之前，負責動機與量尺。Course Summary 投影片第
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

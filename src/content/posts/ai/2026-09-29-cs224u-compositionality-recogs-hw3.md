@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版（課程網站最後一次完整公開的校內版）。主要材料是 [Advanced behavioral evaluation 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-behavioraleval-2023-handout.pdf)的 Compositionality 與 (Re)COGS 兩節、[作業三 overview 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-hw3-overview-2023.pdf)、[hw_recogs.ipynb](https://github.com/cgpotts/cs224u/blob/main/hw_recogs.ipynb)，以及 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)第 24、27、28 支錄影。repo 現行 notebook 的版本字串是 Spring 2024，本文會標出它和 2023 版的差異。事實皆於 2026-09-29 打開官方材料核對。存取等級 **A3**：題目、資料、訓練好的模型、單元測試與錄影都公開；拿不到的是 Gradescope 自動評分與 bake-off 排行榜。
 
 **系列位置**：上一篇 [行為評估](/posts/ai/2026-09-29-cs224u-behavioral-evaluation)｜下一篇 [解釋方法 I：probing 與 feature attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)｜[系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
@@ -208,7 +210,7 @@ Q2 用的評分函式 `recogs_exact_match` 有三條規則，notebook 各給一�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

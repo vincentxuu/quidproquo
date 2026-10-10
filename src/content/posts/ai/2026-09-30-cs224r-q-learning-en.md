@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-q-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 7 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en) and covers Lecture 6, "Q-learning," on April 17, 2026. It also covers the TA-led "Extra section on Q-learning" that afternoon at 4:45 pm in Thornton 102.
 
 Official sources used:
@@ -231,7 +233,7 @@ Series navigation: previous [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-data-sources)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 13: Data (sources, datasets)**, taught by Percy Liang on May 11, 2026. Its primary source is the official executable lecture, [`lecture_13.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_13.py). This guide summarizes course material and is not legal advice.
 
 Data is easily hidden behind “we used internet text.” Lecture 13 follows the path from a live service to a raw snapshot and later processed data, asking about origin, acquisition, and rights before Lecture 14 handles filtering, deduplication, and mixing.
@@ -75,7 +77,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

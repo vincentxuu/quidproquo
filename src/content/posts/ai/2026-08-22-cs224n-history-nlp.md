@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-history-nlp-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 1 講 **History of NLP** 排在 2026 年 1 月 6 日，但未列講者；本文因此只歸因於 course staff，並依[課程介紹投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture01-intro.pdf)與[歷史投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture01-history.pdf)重建公開 agenda。這堂課先說清楚整季要學什麼，再用一條時間軸回答：今天的大型語言模型是從哪些不同的研究假設長出來的？
 
 ## 課程影片來源
@@ -117,7 +119,7 @@ Winter 2026 的錄影只對修課者開放。本文依官方 intro 與 history �
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

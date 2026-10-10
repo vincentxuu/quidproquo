@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-course-overview)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 [11-768 AI Agents](https://www.cmu-agents.com/) is a new graduate course from Carnegie Mellon's Language Technologies Institute ([LTI](https://lti.cs.cmu.edu/)), first offered in Fall 2026 and taught by [Graham Neubig](https://www.phontron.com/) and [Daniel Fried](https://dpfried.github.io/). Introducing himself in lecture 1, Neubig said he develops [OpenHands](https://github.com/All-Hands-AI/OpenHands); Fried described his research as grounded agents, human-agent interaction, and, more recently, agent-system interaction.
 
 The course website defines its subject in one sentence: systems that use large language models to perceive, reason, plan, and act over many steps. What separates it from the usual "build an agent with a framework" course is that it asks you to **train agents yourself**. Neubig says it plainly in lecture 1: building an agent isn't hard, making it actually work is — and very few people know how to train agents well. The instructors want everyone who finishes the course to be in that small group.
@@ -23,11 +25,20 @@ This post is the entry point for the series: first the format and the bar to get
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+Verified public recording for CMU 11-768 Fall 2026 lecture 1, published on course instructor Graham Neubig’s channel; its title and description identify this course. This overview links the introductory first lecture.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=UwfjzyLnvMg
+title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
+```
+
+Original videos: [CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
+
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## Format: the prerequisite is enforced
 
@@ -150,7 +161,7 @@ If you only plan to read a few, start with [lecture 1](/en/posts/ai/2026-09-29-c
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

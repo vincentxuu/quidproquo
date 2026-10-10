@@ -35,17 +35,28 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 Lecture 1 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Aug 25, 2026; [recording](https://www.youtube.com/watch?v=UwfjzyLnvMg), [slides](https://www.cmu-agents.com/slides/lecture-01-agents.pdf)) comes in two halves. In the first, Daniel Fried strips an agent down to its minimum: a language model plus a loop that executes tools. In the second, Graham Neubig asks the next question: writing the loop isn't hard, so how do you make it actually work? His answer is a map of "six capabilities × two paths," and the course schedule is laid out along that map.
 
 This post follows the lecture in order: the opening successes and failures, the definition of an agent, the three steps from language model to agent, the six capabilities, the training-versus-harness trade-off, the five components of an agent system, and the course's learning objectives. Format, grading, and assignment details are in the [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en).
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+Verified public recording for CMU 11-768 Fall 2026 lecture 1, published on course instructor Graham Neubig’s channel; its title and description identify this course.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=UwfjzyLnvMg
+title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
+```
+
+Original videos: [CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
+
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## Opening: agents can do big things, and break big things
 
@@ -286,7 +297,7 @@ Long context. Keeping every memory in context affects efficiency, not just accur
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

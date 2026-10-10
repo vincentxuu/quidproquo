@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 11 of the [Stanford CS224U guide series](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en). It covers the first half of the Analysis methods unit: the overview, probing, and feature attribution. The schedule puts this unit on May 8, 10, and 15, 2023. I used three official sources: slides 1–40 of the [Analysis methods in NLP deck](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf) (64 slides in total), videos 33–35 of the public playlist, and [`feature_attribution.ipynb`](https://github.com/cgpotts/cs224u/blob/main/feature_attribution.ipynb) in the course repo.
 
 Access follows the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) definitions: **A3 (historical offering)**. Slides, recordings, and notebooks are all public. What you can't get is Quiz 4 on Canvas and the classroom recordings.
@@ -184,7 +186,7 @@ Series navigation: previous, [Compositionality: COGS, ReCOGS, and HW3](/posts/ai
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 3 篇，接續 [L2–L3：Transformer LM 與解碼](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding)，範圍是 2026 年 1 月 26 日的 Lecture 4「Pre-training, fine-tuning / Modern Transformers」，講者 Matt Gormley。
 
 用到的官方材料：[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)、[投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture4-rope-gqa.pdf)（44 頁）與[課堂手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture4-rope-gqa-ink.pdf)（47 頁），以及講次表列的三篇 readings：[GQA](https://arxiv.org/pdf/2305.13245.pdf)、[Longformer](https://arxiv.org/pdf/2004.05150.pdf)、[RoFormer](https://arxiv.org/pdf/2104.09864.pdf)。這門課的存取等級是 **A3**（等級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但錄影放在要 CMU 登入的 Panopto，所以本篇完全依投影片撰寫，課堂口述的補充拿不到。
@@ -203,7 +205,7 @@ HW1 的書面題第 4 大題（11 分）就是從這張表出發：先問直接�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

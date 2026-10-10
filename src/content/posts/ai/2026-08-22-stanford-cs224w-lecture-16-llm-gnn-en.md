@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-16-llm-gnn)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is **Lecture 16 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-11-18. It follows the [course schedule](https://web.stanford.edu/class/cs224w/) and the [official slide artifact linked in that row](https://web.stanford.edu/class/cs224w/slides/Lecture16.pdf); speaker attribution follows the slides.
 
 ## Course video sources
@@ -115,7 +117,7 @@ Decompose the pipeline into graph construction, retrieval or sampling, encoder, 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

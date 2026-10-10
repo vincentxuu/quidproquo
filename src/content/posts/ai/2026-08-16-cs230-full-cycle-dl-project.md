@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-full-cycle-dl-project-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained)講了 embedding 怎麼被訓練出來。這一篇拉高一層，看整個專案。
 
 本篇對應 **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)**（2025/10/07，Andrew Ng 主講，1 小時 07 分）。這一講**沒有投影片**，全程白板加問答，Ng 用同一個案例（人臉辨識開門系統）走完整個生命週期，每個決策點都先丟給學生投票再給答案。
@@ -242,7 +244,7 @@ Ng 自己一路在做這個類比，但有幾條值得挑明：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

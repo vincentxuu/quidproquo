@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版：[Assignment 3: A Simple CUDA Renderer](https://github.com/stanford-cs149/asst3)（截止 10 月 30 日）與 [Written Assignment 2](https://gfxcourses.stanford.edu/cs149/fall25content/static/pdfs/written_asst2.pdf)（課程首頁列的日期是 10 月 21 日），2026-09-30 打開 README、`cloud_readme.md` 與 PDF 核對。存取等級 **A3**：題目、起始程式碼、評分腳本、書面作業 PDF 都公開；拿不到的是 Gradescope 評分、官方 AWS 額度與解答。需要自備 NVIDIA GPU。**本文不提供任何解答。**
 
 **系列位置**：上一篇 [第 8 講：資料平行思維](/posts/ai/2026-09-30-cs149-data-parallel-thinking)｜下一篇 [第 9 講：在 GPU 上跑 DNN](/posts/ai/2026-09-30-cs149-dnn-on-gpus)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
@@ -155,7 +157,7 @@ README 的配分有兩處自相矛盾，讀的時候注意：Grading Guidelines 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

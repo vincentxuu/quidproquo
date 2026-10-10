@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [CS224U: Natural Language Understanding](https://web.stanford.edu/class/cs224u/) is Stanford's project-driven NLP course, cross-listed under Linguistics and Symbolic Systems and taught by linguistics professor [Christopher Potts](https://web.stanford.edu/~cgpotts/). The official prerequisite is a single line: CS224N or CS224S.
 
 Its reputation among self-learners comes less from lecture videos than from its [GitHub repo](https://github.com/cgpotts/cs224u/). A full quarter of lecture notebooks, all three assignments, the model code, and even the long document explaining how to run a final project — all of it sits in the repo under Apache 2.0, one `git clone` away. That is rare for a Stanford AI course; most of them keep assignment starter code behind Canvas or Gradescope.
@@ -233,5 +235,5 @@ Each part marks what isn't available: the Canvas quizzes, classroom recordings, 
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: Added "Series contents", linking parts 2–17 and noting what isn't public. Re-queried ExploreCourses through the same XML interface on 29 and 30 September 2026: the 2026-27 `<sections>` element is now empty (the Spring lecture and discussion sections are gone). The tldr, the hard-facts section, and the appendix were revised to match.

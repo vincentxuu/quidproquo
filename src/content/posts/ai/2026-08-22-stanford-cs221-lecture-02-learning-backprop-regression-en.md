@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-02-learning-backprop-regression)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article uses only two executable artifacts: [`backpropagation.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=backpropagation) and [`linear_regression.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=linear_regression). The agenda is deliberately narrow: use tensors and `einsum` to make axes explicit, turn a scalar loss into a computation graph, then connect the same differentiation and update steps to linear regression. Every value, name, shape, and algorithmic step below follows what those two files actually contain.
 
 > Material gap: the source files provide executable lecture artifacts and code, but not classroom Q&A, a complete spoken explanation, additional experimental results, or assignment solutions. This article does not fill those gaps with plausible-sounding claims.
@@ -123,7 +125,7 @@ The lecture’s concrete deliverable is a representation that can be checked ste
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

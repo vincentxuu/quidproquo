@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本系列以 [MIT 6.S184](https://diffusion.csail.mit.edu/) 的 **IAP 2026** 版為基準。課程網站另有 [2025 版頁面](https://diffusion.csail.mit.edu/2025/index.html)，影片不同，本系列不混用。所有事實都在 2026-09-30 打開官方材料核對：[課程網站](https://diffusion.csail.mit.edu/2026/index.html)、[講義 PDF](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf)（84 頁）、5 份 slides、6 支錄影，以及 [labs repo 的 2026 branch](https://github.com/eje24/iap-diffusion-labs/tree/2026)。存取等級 **A3 足以自學**。
 
 **系列位置**：系列起點｜下一篇 [L1：生成就是取樣，ODE 與 SDE 是機器](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)
@@ -150,7 +152,7 @@ Stable Diffusion 3、Meta Movie Gen 這類圖片與影片生成器，底層多�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

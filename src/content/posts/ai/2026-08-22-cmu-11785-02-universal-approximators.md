@@ -16,6 +16,8 @@ series:
 
 > 🌏 [English version](/posts/ai/2026-08-22-cmu-11785-02-universal-approximators-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 CMU 11-785 Spring 2026 的 **Lecture 2: Neural Nets as Universal Approximators**。主要證據是[官方投影片](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec2.universal.pdf)與[官方 YouTube 錄影](https://youtu.be/dUukTSXi20c)；下文只整理兩者能支持的內容，不補寫課堂問答或未公開的講者說法。
 
 ## 課程影片來源
@@ -63,7 +65,7 @@ title: Lecture 2 official YouTube recording
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

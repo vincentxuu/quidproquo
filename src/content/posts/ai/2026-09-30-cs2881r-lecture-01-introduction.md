@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：依據 [CS 2881R Fall 2025 課站](https://boazbk.github.io/mltheoryseminar/fall2025/#lecture-sep-4)第一講條目，2026-09-30 核對。講課內容的轉述以學生寫的 [LessWrong Week 1 摘要](https://www.lesswrong.com/posts/stDjjbfNXbgsyJkrL/cs-2881r-ai-safety-week-1-introduction)為主要依據；投影片放在 Harvard SharePoint，本文未能以程式讀取其內容，因此不直接引用投影片。
 
 **系列位置**：上一篇 [系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)｜下一篇 [HW0：用 1B 模型親手重現 emergent misalignment](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment)
@@ -36,11 +38,20 @@ glossary:
 
 ## 課程影片來源
 
-官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+已由 Fall 2025 官方課表核對本文對應講次的公開 YouTube 錄影。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=-NCiWaRS6So
+title: CS2881R Fall 2025 L1: Introduction
+```
 
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+原始影片：[CS2881R Fall 2025 L1: Introduction](https://www.youtube.com/watch?v=-NCiWaRS6So)
+
+官方來源：
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+查核日期：2026-10-10。
 
 ## 這一講的材料
 
@@ -167,7 +178,7 @@ glossary:
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

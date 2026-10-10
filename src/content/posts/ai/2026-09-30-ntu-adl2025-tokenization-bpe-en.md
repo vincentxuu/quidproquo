@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This guide is based on the [Tokenization slides](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Tokenization.pdf) (22 pages) from the 9/08 week of NTU Yun-Nung Chen's *Applied Deep Learning* (ADL), **Fall 2025 (semester 114-1, 2025/09/01–12/15)**. The video linked on that row of the course page is [ADL 5.1: BPE (Byte-Pair Encoding) Tokenization](https://youtu.be/NrT5kmnTFCk) (33:37, in Mandarin). It was uploaded on 2023-10-12, so it is a reused recording from an earlier year, not a 2025 re-record, and it may not match the 2025 slides exactly. It has no captions, so this post relies on the slides alone. All facts were checked against the official materials on 2026-09-30. The course is rated **A2**, with the gaps on the homework side; see the [series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en).
 
 **Series**: Previous: [Attention and the Transformer](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer-en) | Next: [BERT and the BERT Family](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en) | [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
@@ -161,7 +163,7 @@ One thing to try tonight: open the [OpenAI tokenizer](https://platform.openai.co
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-guest-lectures)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is the last post in the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series, and the only one that's optional.
 
 The Spring 2023 [CS224U course site](https://web.stanford.edu/class/cs224u/) lists four items for its first unit starting Apr 5 (Domain adaptation for supervised sentiment): the Assignment 1 overview, Contextual word representations, and two decks presented by someone else — [Diffusion objectives for text](https://web.stanford.edu/class/cs224u/slides/lisa-224u-diffusion.pdf) (Lisa) and [Fantastic language models and how to build them](https://web.stanford.edu/class/cs224u/slides/sidd-fantastic-lms-cs224u.pdf) (Sidd). Both speakers, [Xiang (Lisa) Li](https://xiangli1999.github.io/) and [Sidd Karamcheti](https://www.siddkaramcheti.com/), appear on the site's Teaching team list, so strictly speaking these aren't outside guest lectures; they're special topics led by team members.
@@ -180,7 +182,7 @@ The previous post, [Part 16: Writing NLP Papers, Submitting, and Giving Talks](/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

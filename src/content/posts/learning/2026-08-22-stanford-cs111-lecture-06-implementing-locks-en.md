@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 7 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 6**. Mendel Rosenblum taught the lecture on 2026-04-10; its official title is [Implementing Locks](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/6/Lecture6.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Lecture 6 stops treating a lock as a black box. Its 16-page deck begins with interrupt masking on one core, then adds atomic exchange, spinning, blocking, and wakeup across successive multicore versions. Each change removes a concrete race and may expose the next one.
@@ -66,7 +68,7 @@ A second exercise is a mechanism/policy table. Put only capabilities on the left
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

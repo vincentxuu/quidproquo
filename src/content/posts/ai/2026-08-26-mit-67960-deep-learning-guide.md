@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [MIT 6.7960: Deep Learning](https://deeplearning6-7960.github.io/) 是 MIT EECS 的研究所級深度學習課，Fall 2025 由 [Sara Beery](https://beerys.github.io/)、[Kaiming He](https://people.csail.mit.edu/kaiming/) 與 [Omar Khattab](https://omarkhattab.com/) 三人合授。整學期的 21 講投影片每一份都以 Dropbox PDF 直接公開，每週 readings 排在 schedule 上，期末 project 的 [guidelines PDF](https://www.dropbox.com/scl/fi/mwqtppp1dlub9l0i75qyh/6_7960_Fall_2025_Project_Guidelines.pdf?rlkey=j07t54chig54yqzmnv9l47dlg&st=xeh3qw8j&dl=0) 也看得到。
 
 但這不是一門全公開課。psets 從 [Gradescope](https://www.gradescope.com/courses/1110115) 發布、解答放在 [Canvas](https://canvas.mit.edu/courses/33933)，上課錄影同樣只在 Canvas——三樣都要 MIT 身分。按照本站[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的四級標準，它是 **A2：教材部分開放**。不過故事沒有停在這裡：同一門課的 [Fall 2024 版上了 MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)，影片與作業全部公開。所以「6.7960 能不能自學」的答案不是一句話，而是先選版本。
@@ -152,7 +154,7 @@ OCW 版公開的東西很完整：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

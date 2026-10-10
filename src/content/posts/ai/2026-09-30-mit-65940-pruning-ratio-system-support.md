@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文以 [MIT 6.5940 Fall 2024 課頁](https://hanlab.mit.edu/courses/2024-fall-65940)為主幹（最近一屆完整學期；Fall 2025 因 Song Han 休假停開，理由見[系列總覽](/posts/ai/2026-09-30-mit-65940-course-overview)）。主要材料是 [Lecture 4 投影片 Lec04-Pruning-II.pdf](https://www.dropbox.com/scl/fi/w5baiyci5cxl1ozpy6lsr/Lec04-Pruning-II.pdf?rlkey=6qxc1nz20isy9izwnqfebtukg&st=59gy1eal&dl=0)（119 頁，下文頁碼皆指 PDF 頁），[錄影](https://youtu.be/upaZrpXkELc)一併列出但本文的主張都以投影片為準。事實於 2026-09-30 打開官方材料核對。存取等級：Fall 2024 **A3**（投影片、錄影、lab 全公開）；Fall 2026 **A2**（進行中）。
 
 **系列位置**：上一篇 [第 3 講：剪哪裡、剪多細、依什麼標準剪](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)｜下一篇 [Lab 1：Fine-grained vs Channel Pruning](/posts/ai/2026-09-30-mit-65940-lab1-pruning)｜[系列總覽](/posts/ai/2026-09-30-mit-65940-course-overview)
@@ -184,7 +186,7 @@ EIE 的第一個缺點，NVIDIA 用 M:N 稀疏回應。第 83–85 頁引用 [Mi
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-attention-transformers-vit-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文主要依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 課表連結的 [Lecture 8 投影片](https://cs231n.stanford.edu/slides/2026/lecture_8.pdf)（124 頁，2026-09-30 下載核對），加上 5/1 section 的 [RNNs & Transformers 複習投影片](https://cs231n.stanford.edu/slides/2026/section_5.pdf)（封面註明複製自 2025 年版本）。錄影請看 Spring 2025 的 [Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ)；2026 錄影只放在 Canvas，限修課生。兩個年份的投影片大致相同，但 2026 版多了 RoPE 與 QK-Norm 兩頁，看影片時會少這兩段。存取等級 **A3**。
 
 **系列位置**：上一篇 [A2 導讀：BatchNorm、Dropout、CNN、PyTorch 與 RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn)｜下一篇 [L9：物件偵測、影像分割與模型可視化](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
@@ -191,7 +193,7 @@ Y = A V         [N × D_out]   Y_i = Σ_j A_ij V_j
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

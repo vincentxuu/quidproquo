@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 3 of the [Stanford CS224U guide](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The previous post covers [the opening lecture: the evolution of NLU and the course map](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu-en).
 
 The CS224U session on April 5, 2023 covered contextual word representations. The official material is a [slide deck](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf) (a 95-page handout; slide numbers run to 81) in ten sections: Guiding ideas, Transformer, Pos enc, GPT, BERT, RoBERTa, ELECTRA, seq2seq, Distillation, and Wrap-up. The [XCS224U YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) splits it into ten short videos.
@@ -204,7 +206,7 @@ Here $a^K_{ij}$ and $a^V_{ij}$ depend on the relative distance $j - i$, clipped 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

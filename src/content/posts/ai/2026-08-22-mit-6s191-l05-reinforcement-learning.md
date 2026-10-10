@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-mit-6s191-l05-reinforcement-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 5 講是 **強化學習：用回報取代標準答案**。把 agent、environment、state、action、reward 與 policy 接成互動迴圈，理解信用分配與探索。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
 
 ## 課程影片來源
@@ -59,7 +61,7 @@ title: Lecture 5 官方影片
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

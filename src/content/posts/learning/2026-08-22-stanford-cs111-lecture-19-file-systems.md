@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-19-file-systems-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 20 篇，對應 **Stanford CS111, Spring 2026, Lecture 19**。2026-05-11 由 Mendel Rosenblum 主講，官方題目是 [File Systems](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/19/Lecture19.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不公開，因此不把錄影內容當成已核對來源。
 
 ## 課程影片來源
@@ -86,7 +88,7 @@ Contiguous 用極小 inode 與優秀 locality 換取難成長和 fragmentation�
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依 Lecture 19 官方 PDF 重寫完整 file-layout agenda，並標示 4 KiB block 問號、容量模型與 IBM PC 年份異常。
 
 ## 參考資料

@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Source years**: slides, homework, project specs and grading are from Spring 2026 (2026-04-01 to 2026-06-08). The public recordings are from Spring 2025 (YouTube). They are only a supplement, and the differences are flagged below. This is post 0 of the Reading Stanford CS224R series and its entry point.
 
 [CS224R: Deep Reinforcement Learning](https://cs224r.stanford.edu/) is [Chelsea Finn](https://ai.stanford.edu/~cbfinn/)'s deep RL course at Stanford. In Spring 2026 it met Wednesdays and Fridays at 9:30 am in NVIDIA Auditorium. The home page also carries one line about the future: the next offering moves to Fall 2027, and there is no Spring 2027. So as of September 2026, Spring 2026 is both the latest complete offering and the last one for a while.
@@ -178,7 +180,7 @@ These series on the site overlap with CS224R. This series does not cut anything 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

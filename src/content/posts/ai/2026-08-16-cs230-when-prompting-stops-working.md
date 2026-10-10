@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS230 導讀](/series/cs230)系列的第一篇。
 
 先說清楚讀的是哪一輪：**Stanford CS230 Deep Learning，2025 秋季**，九支影片約 13 小時（[playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)）。這一輪已經結束——最後一講 2025/12/02，影片 12/16 全部放完。Autumn 2026 已排定 2026/09/22 開課，會是另一個 playlist。**每篇都會標上課日期。**
@@ -242,7 +244,7 @@ RAG、向量資料庫、**evals 與 error analysis**、guardrails、知識圖譜
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

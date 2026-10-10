@@ -24,6 +24,8 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2026-10-15-mit-67960-l07-scaling-rules-optimization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Jeremy Bernstein**; the required reading is his note *Steepest Descent*.
 
 ---
@@ -120,7 +122,7 @@ The most direct engineering lesson: the next time you scale from 100M to 10B par
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

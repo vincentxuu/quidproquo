@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 20 篇，對應 **Summer 2026 Lecture 19**（Jul 23）。Schedule 題目是 **MLE**，講次頁使用 **Maximum Likelihood Estimation**，講者為 Chris Gregg。本文依當期 [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture19-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture19-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture19-LLMPrompts.pdf)與官方讀本整理。
 
 本講維持 **L2**：worksheet 共三頁，正式 P1–P6，另有 optional challenge；answer key 兩頁，P5 與 challenge 是 pset6 題，公開版刻意不附解答。Guide 是三頁六 concepts，最後一頁只延續 Concept 6 與 wrap-up。當期投影片不可用、錄影限 Canvas，以下不重建未公開內容。
 
 ## 課程影片來源
 
-本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。因此附官方錄影入口，不提供公開播放器。
 
-課程與錄影入口：
+官方來源：
 
-- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+查核日期：2026-10-10。
 
 ## P1：用 entropy 接回上一講
 
@@ -146,7 +152,7 @@ Wrap-up 可要求一題串起：辨認 model 與 `θ`、寫 likelihood／log-lik
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

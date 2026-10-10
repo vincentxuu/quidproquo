@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 > **Version note**: This post follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). The assignment page lives on the cross-semester [homework site](https://llmsystem.github.io/llmsystemhomework/assignment_6/), and the starter code is in [llmsys_hw6](https://github.com/llmsystem/llmsys_hw6); both are as seen on 2026-09-30. The repo's last commit is from 2026-03-23 (message "update hw6"), before the spring due date, and Fall 2026 hasn't touched it since. The [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) lists only the April 13 due date, not a release date. Access level **A3**: the problems and starter code are public. What you can't get is the submission system, the grading rubric, and the school-provided PSC GPUs.
 
 **Series**: Previous [L22 and L24 LLM Serving: Scheduling, RadixAttention, and PagedAttention](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm-en) | Next [L26–L30 Serving at Scale: Prefill/Decode Disaggregation, KV Cache, and Heterogeneous Hardware](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
@@ -36,11 +38,13 @@ This post covers only the problem structure, points, required resources, and whe
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Where it sits in the course
 
@@ -129,7 +133,7 @@ The page also notes that SGLang's backend is built on [FlashInfer](https://arxiv
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

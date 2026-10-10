@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-08-functions-2)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 9 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 7, Spring 2026 (2026-04-15)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 Functions Part I defined domains, codomains, involutions, and injections. Part II is not merely another vocabulary list. Its central skill is translating first-order formulas into proof actions. The same `∀` or `→` demands a different next step depending on whether it is assumed or remains to be proved. That distinction connects every example in the deck.
@@ -134,7 +136,7 @@ The public deck shows the agenda, definitions, bird example, both involution the
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the article from the complete official Functions Part II deck, restoring the deck-specific proofs of surjectivity, assuming versus proving, involution relationships, and composition.
 
 ## References

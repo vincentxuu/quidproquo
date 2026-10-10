@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **本文依據[清大高宏宇教授「自然語言處理」](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025（114-1）的公開教材。** 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列的第 11 篇，上一篇是[解碼策略與 NLG 評估](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)。
 
 上一篇講完解碼策略和 ROUGE，這一篇把兩者放進一個真的會跑的程式。官方材料：
@@ -173,7 +175,7 @@ labels = torch.where(
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-variational-inference-vae)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Spring 2026 offering of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/). The main sources are the [Lecture 8 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture8-diffusion-vae.pdf) (Diffusion Part II + Intro to VAEs, February 9) and the VAE part of the [Lecture 9 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture9-vae-icl.pdf) (February 11, taught by Matt Gormley; there is also an [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture9-vae-icl-ink.pdf)). The zero-shot/few-shot and prompting material in the second half of L9 is left for post 10. Readings follow the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), which lists them under L8. All facts were checked against the official materials on 2026-09-30. Access level **A3**: slides, homework and the practice exam are public; lecture recordings are on CMU's Panopto and not viewable off campus.
 
 **Series**: previous [L7: An introduction to diffusion models](/posts/ai/2026-09-30-cmu10423-diffusion-models-en) | next [HW2: Implementing DDPM from scratch](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
@@ -209,7 +211,7 @@ Question 6.1 of [HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en), "ELBO Surgery"
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-kernels-triton)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers **CS336 Spring 2026 Lecture 6: Kernels, Triton**, taught by Percy Liang on April 15, 2026. Its primary source is the official executable lecture, [`lecture_06.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_06.py).
 
 Lecture 5 explains data movement, tiling, and fusion. Lecture 6 asks you to measure and write a kernel. The order matters: without trustworthy benchmarks and a profiler, a custom kernel merely optimizes a guess.
@@ -78,7 +80,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

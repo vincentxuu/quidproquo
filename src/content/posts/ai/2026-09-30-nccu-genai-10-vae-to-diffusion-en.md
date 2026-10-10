@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide covers semester 1132 (spring 2025) of Yen-Lung Tsai's NCCU course *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 10 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L09 on AI agents](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en). From here on, the course turns from text generation to images.
 
 It draws on four official sources: [video 10](https://www.youtube.com/watch?v=j4-k7Ug4bYk) (2025-04-22, about 2 h 54 min), the 78-page GenAI10 slides in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA), the [AI-Demo](https://github.com/yenlung/AI-Demo) notebook [`【Demo08】用diffusers套件生成圖像`](https://yenlung.me/AI08), and the week 10 homework on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Mandarin). Access level: **A3**. Demo08 was last committed on 2025-04-28. **What follows quotes the current repo version.**
@@ -225,7 +227,7 @@ Previous: [L09 Why 2025 was called the year of AI agents](/posts/ai/2026-09-30-n
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

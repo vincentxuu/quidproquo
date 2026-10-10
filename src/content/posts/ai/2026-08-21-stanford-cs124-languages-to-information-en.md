@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/) is Stanford CS's introduction to language and information, taught by [Dan Jurafsky](https://web.stanford.edu/~jurafsky/) and cross-listed in Linguistics (LINGUIST 180/280). It is about turning unstructured text, speech and social links into things you can compute on: tokenizing, classifying, retrieving, recommending, transcribing. The course states its own position bluntly — it is the **undergraduate front door** to a whole row of graduate courses: CS224N, CS246, CS276, CS336.
 
 On the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en) this is the first cell in the NLP branch. That piece answers where the course sits on the ladder. This one answers what happens once you walk in: how the weeks are laid out, what the assignments look like, which one is the dividing line, and how much of it you can get without a Stanford login.
@@ -196,7 +198,7 @@ One item sits between the two and deserves its own paragraph: **there is a full 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

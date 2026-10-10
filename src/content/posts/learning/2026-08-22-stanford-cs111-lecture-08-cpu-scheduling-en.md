@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 9 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 8**. Mendel Rosenblum taught the lecture on 2026-04-15; its official title is [Scheduling](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/8/Lecture8.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 This lecture starts where dispatching left off. The dispatcher can save registers, switch stacks, and resume a thread; scheduling decides which thread should receive that mechanism next. Given ready threads and CPU cores, the policy chooses a thread for each core and how long it may run. The PDF develops the problem on one core before generalizing it to multiple cores. The recording is Canvas-only, so no unobserved spoken material is reconstructed here.
@@ -118,7 +120,7 @@ The final contract is that a scheduling algorithm should not change the results 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

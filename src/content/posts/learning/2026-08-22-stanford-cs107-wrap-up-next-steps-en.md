@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-wrap-up-next-steps)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 Lecture 26 adds no new mechanism. It asks what we can now explain that we initially only knew how to use. From integer bits and the terminating byte of a C string through pointers, lifetimes, generic memory operations, assembly execution, and heap allocation, CS107 turns “the program runs” into an account of representation, location, and responsibility for a contract.
 
 The public lecture is a wrap-up outline, and no transcript of the classroom Q&A is available. This article therefore covers only the six published questions, the comparison of early programs with the allocator, the learning goals, Sebastian C, and the course map. It neither invents Q&A nor turns a course list into enrollment advice.
@@ -107,7 +109,7 @@ Lecture 26 does not say systems is finished. It leaves six stable questions for 
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Linked the wrap-up's absolute-value example explicitly to Lecture 5's `INT_MIN` signed-overflow caveat.
 
 ## References

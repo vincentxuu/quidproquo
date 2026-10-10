@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-02-learning-backprop-regression-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這篇只依兩份可執行 artifact 整理：[`backpropagation.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=backpropagation) 和 [`linear_regression.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=linear_regression)。主線很集中：先用 tensor 與 `einsum` 熟悉「軸怎麼被保留或消去」，再把一個 scalar loss 拆成計算圖，最後把同一套微分與更新步驟接到線性迴歸。文章中的數值、名稱、形狀與演算法流程，都以這兩個檔案實際寫出的內容為準。
 
 > 材料缺口：來源檔提供可執行講義與程式碼，但沒有公開課堂問答、完整口頭講解、額外實驗結果或作業解答。以下不替這些缺口補上看似合理的結論。
@@ -123,7 +125,7 @@ bias   = bias   - learning_rate * grad[1]
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

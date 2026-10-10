@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)的第 1 篇。ADL Fall 2025（114-1，2025/09/01–12/15）把這一講放在課表的「自學／先修」列，[Course Logistics](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf) 第 17 頁要求選課前就看完，當作 HW0 的一部分。
 
 **本文依據**：[Introduction 講義](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Introduction.pdf)（46 頁），以及三支影片：[1.1 What is ML? 甚麼是機器學習?](https://youtu.be/Nls5bHxW6i0)（16:45）、[1.2 What is DL? 甚麼是深度學習?](https://youtu.be/asuLb0lLmJY)（41:26）、[1.3 How to Apply? 如何應用深度學習?](https://youtu.be/oT4UQj_PXYo)（10:11）。講義在 2026-09-30 打開核對；影片以中文講授，本文的頁碼都指講義 PDF。
@@ -123,7 +125,7 @@ title: ADL 1.2: What is DL? 甚麼是深度學習?（YouTube）
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

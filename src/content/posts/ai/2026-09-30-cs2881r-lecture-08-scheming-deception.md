@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 課站的 10 月 23 日講次。主要材料是 [Boaz Barak 開場錄影](https://youtu.be/8NL1NAMrJxY)（10 分鐘）與他的 9 頁投影片、[Marius Hobbhahn](https://docs.google.com/presentation/d/1BpMoImDfF9x3C7mGvmIFJOOVYvkgZFn2W09cW1oieSo) 與 [Buck Shlegeris](https://docs.google.com/presentation/d/1n5Dl6P-bPIfaenMU-9Dk4sTqXvl8VwdoHMSbmKmwonc) 的客座投影片，以及學生實驗的[影片](https://youtu.be/JXvHJheHE10)、[GitHub](https://github.com/ItamarRocha/scheming-exp8) 與 [LessWrong 文章](https://www.lesswrong.com/posts/AJANBeJb2p39su6F9/cs2881r-week-8-when-agents-prefer-hacking-to-failu)。**兩場客座演講課站沒有列出錄影，官方 2025 YouTube 播放清單（2026-10-01 核對）也只有 Boaz 的 10 分鐘開場與學生實驗兩支**，本文對客座內容的描述只依投影片文字，不補講者口頭說了什麼。事實皆於 2026-09-30 打開上述材料核對。單看這一講屬 **A2**：開場錄影、三份投影片與完整學生實驗公開，主體演講的錄影拿不到。
 
 **系列位置**：上一篇 [期中：挑一張 headline figure 重現並延伸](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)｜下一篇 [L10：看模型內部與看 chain of thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
@@ -209,7 +211,7 @@ Boaz、Marius、Buck 三人在同一堂課給了三種角度，彼此有明確�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

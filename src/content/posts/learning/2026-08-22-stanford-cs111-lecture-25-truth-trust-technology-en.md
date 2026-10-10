@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-25-truth-trust-technology)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is installment 26 of the [Stanford CS111 guide](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 25**. Mendel Rosenblum taught it on May 27, 2026, under the official title [Truth, Trust, and Technology](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/25/Lecture25.pdf). This article follows the 13-page public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not presented as reviewed.
 
 This lecture deliberately leaves conventional OS mechanisms and returns to Lecture 12's trust framework: when people cannot verify every claim themselves, how do they delegate judgment to platforms, AI, and media? Its message is not “all technology is untrustworthy.” Trust extends agency while creating exposure to deception.
@@ -96,7 +98,7 @@ Page 13 offers neither a detector nor a statute as a universal cure. Trust remai
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-backprop-neural-nets)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 3 on January 13, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture03-neuralnets.pdf) is titled Neural Network Foundations; its agenda reviews word-vector evaluation, introduces neural networks, and then covers matrix calculus and backpropagation. The purpose is not a generic deep-learning overview. It establishes the training language used by every later model.
 
 ## Course video sources
@@ -95,7 +97,7 @@ Winter 2026 recordings are not public. This article covers the four agenda compo
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

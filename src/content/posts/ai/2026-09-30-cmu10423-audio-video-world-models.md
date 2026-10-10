@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 22 篇，接續 [L23：程式生成與自主 agent](/posts/ai/2026-09-30-cmu10423-code-generation-agents)，範圍是課程最後三講：
 
 | 講次 | 日期 | 標題 | 講者（投影片封面） |
@@ -243,7 +245,7 @@ Genie-2 的技術描述很模糊，投影片推測主要的改變是規模（更
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

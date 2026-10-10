@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 This is Lecture 10 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Graphical Models: Bayes Nets** (9/28). The [previous post on Lec9 generative models](/en/posts/learning/2026-09-29-cmu-07380-lecture-09-generative-models-en) built `p(x|y)` with Naive Bayes and GDA, then used Bayes' theorem to recover the class. That approach rests on a strong conditional-independence assumption. This lecture asks the general question: once there are many variables and the joint distribution is too big to store, how do you draw a picture of which variables are related, and split the distribution into small tables?
 
 The short answer: **a Bayes net is a directed acyclic graph with one "given its parents" conditional probability table per node, and the joint distribution is the product of those tables. Every edge left out of the graph is an independence assumption.**
@@ -24,11 +26,13 @@ Based on the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#sched
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
 
 ## The gap first: this is the pre-reading edition
 
@@ -208,7 +212,7 @@ Further reading: MLE foundations are in [07-280 Lecture 16](/en/posts/ai/2026-08
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

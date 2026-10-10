@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-01-introduction-set-theory)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 2 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 0, Spring 2026 (2026-03-30)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/00/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/00/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The official topic is **Introduction, Set Theory**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
@@ -132,7 +134,7 @@ The public deck fully displays the set-notation examples, subset and power-set e
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the set-theory article from the official deck, restored the quantifier and type checks in Cantor's diagonal, and removed a dead handout link.
 
 ## References

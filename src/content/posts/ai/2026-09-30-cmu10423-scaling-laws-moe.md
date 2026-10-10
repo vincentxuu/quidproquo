@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 16 篇，進入第五個單元「Scaling Up」。上一篇 [HW4](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image) 是最後一份程式作業；從這裡開始，課程改用小考、HW623（只限 10-623／723）與期末專案驗收。
 
 用到的官方材料：[Lecture 15 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture15-querying-scaling.pdf)（37 頁，前半 Querying Transformer 已在 [order 14](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer) 講過，本篇只看 Scaling Laws 段）、[Lecture 16 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture16-moe.pdf)與[手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture16-moe-ink.pdf)、[課程講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)，以及 [Coursework 頁](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)上的練習考卷。全部在 2026-09-30 下載核對。講次表這兩講沒有列 readings，本文引用的論文都是投影片上標註的出處。
@@ -179,7 +181,7 @@ top-k 的 k 通常選得很小。投影片的兩個例子：Mixtral k = 2、$N_e
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

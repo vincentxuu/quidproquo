@@ -16,6 +16,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-overview)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 [Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/) is a graduate-level Advanced Natural Language Processing course. It does not begin with an LLM API. It builds from n-grams, word representations, classification, and sequence models before reaching Transformers, pre-training, post-training, RAG, inference-time compute, reasoning, and agents.
 
 This series is a guide to the materials, not a reconstruction of the classroom. The official site says that [recordings require a Berkeley login](https://cal-cs288.github.io/sp26/course_info/). Anonymous readers get 18 slide units, three assignments, two starter repositories, and project specifications. The articles stay within that evidence.
@@ -64,7 +66,7 @@ A2's Transformer and A3's RAG can both incur compute costs. Start with small dat
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

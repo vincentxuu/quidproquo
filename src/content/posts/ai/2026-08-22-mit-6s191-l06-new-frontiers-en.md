@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-l06-new-frontiers)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 Lecture 6 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **New Frontiers: Choosing the Problem Beyond the Model**. It Places deep learning in emerging applications and real constraints, emphasizing data, outputs, evaluation, and failure conditions. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
 ## Course video sources
@@ -59,7 +61,7 @@ Choose one idea and describe its problem, input, output, data, baseline, and fai
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

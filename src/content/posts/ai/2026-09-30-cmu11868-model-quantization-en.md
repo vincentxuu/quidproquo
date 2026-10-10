@@ -27,17 +27,21 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-model-quantization)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 **This guide follows the Spring 2026 offering of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is post 15 in the [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en) series and follows [HW5: Data and Pipeline Parallelism](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en). The previous posts asked how to spread a model that is too big across more GPUs. This one changes direction: can the model itself get smaller?
 
-The official materials are two slide decks, both by Lei Li: [L19 Model Quantization](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-19-quantization-da7a2abad092c802b03672ce1cc7bee9.pdf) on 3/25 (25 pages) and [L20 Model Quantization II](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-20-quantization2-ba573d7e5d82e68027bbd3a92c3cd819.pdf) on 3/30 (37 pages). The [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) lists only [GPTQ](https://arxiv.org/abs/2210.17323) as reading for L20 and nothing for L19. The in-progress [Fall 2026 Syllabus](https://llmsystem.github.io/llmsystem2026fall/docs/Syllabus) adds three readings to L19: NN Quantization, AdaQuant, and LLM.int8(). Slides and assignments are public, so the access level is **A3**, but there are no public recordings. Everything below comes from the slides and papers. Page numbers refer to the PDF files.
+The official materials are two slide decks, both by Lei Li: [L19 Model Quantization](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-19-quantization-da7a2abad092c802b03672ce1cc7bee9.pdf) on 3/25 (25 pages) and [L20 Model Quantization II](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-20-quantization2-ba573d7e5d82e68027bbd3a92c3cd819.pdf) on 3/30 (37 pages). The [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) lists only [GPTQ](https://arxiv.org/abs/2210.17323) as reading for L20 and nothing for L19. The in-progress [Fall 2026 Syllabus](https://llmsystem.github.io/llmsystem2026fall/docs/Syllabus) adds three readings to L19: NN Quantization, AdaQuant, and LLM.int8(). Slides and assignments are public, so the access level is **A3**, but the official syllabus lists no public recording links. Everything below comes from the slides and papers. Page numbers refer to the PDF files.
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## The question: does quantization save memory or time?
 
@@ -183,7 +187,7 @@ Put together: GPTQ reliably saves memory. The speedup comes from decoding alread
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-14-segmentation-address-spaces)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is part 15 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 14**. Mendel Rosenblum taught the lecture on 2026-04-29; its official title is [Virtual Memory, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/14/Lecture14.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Official `Lecture13.pdf` and `Lecture14.pdf` are byte-identical 25-page files with SHA-256 `f0aa78c7...e315`, although the calendar calls April 29 **Virtual Memory, Continued**. Canvas video is unavailable. This article does not pretend there is another deck; it focuses on segmentation in the repeated artifact's latter section.
@@ -81,7 +83,7 @@ Multiple descriptors repair protection, growth, and sharing for one-region base/
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

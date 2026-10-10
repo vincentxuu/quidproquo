@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：作業依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 的 [Assignment 3 頁面](https://cs231n.github.io/assignments2026/assignment3/)與 [assignment3.zip 起始碼](https://cs231n.github.io/assignments/2026/assignment3.zip)（2026-09-30 下載，notebook 最後修改時間是 2026 年 5 月）；對應講次的錄影是 [Spring 2025 的 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)。2026 錄影只放在 Canvas，限修課生，兩個年份的內容可能有差異。
 >
 > 這是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 18 篇。
@@ -176,7 +178,7 @@ notebook 的任務是訓練一個 DDPM，生成**以文字提示為條件的 32�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

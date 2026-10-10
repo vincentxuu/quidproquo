@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-current-trends-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 9 講「Current trends」（2025 年 12 月 5 日）。主要來源是 [128 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture9.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)（1:51:31）。本文只根據投影片上的文字與圖寫，沒有轉述課堂口頭內容。
 
 前八講一路把「一句話怎麼變成一個會推理、會用工具、還能被評分的模型」講完了。最後一講往外推了兩步。第一，Transformer 能不能拿來看圖？第二，LLM 一定要從左到右一個字一個字寫嗎？投影片的議程分成四塊：Recap、Beyond Transformer-based LLMs、Diffusion LLMs、Closing thoughts。
@@ -272,7 +274,7 @@ diffusion LLM 目前離日常使用還有距離：投影片上的 Gemini Diffusi
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-09-generative-models)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 Lecture 9 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), **Generative Models**, met on Wednesday, September 23, 2026. Its subtitle on the schedule is "Naive Bayes; Gaussian discriminant analysis."
 
 Every classifier in 07-280 and 07-380 so far (logistic regression, neural networks) learned `p(y|x)` directly. This lecture turns the other way. First describe how the data is produced, meaning learn `p(y)` and `p(x|y)`, then invert with Bayes rule at prediction time. GMM/EM, VAEs, and diffusion later in the schedule are also generative models, and this lecture is where the course starts down that road.
@@ -24,11 +26,13 @@ This guide reflects the course site as of 2026-09-29. The schedule is marked `su
 
 ## Course video sources
 
-This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
 
-Course and recording entries:
+Official sources:
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
 
 ## Official materials and what I read
 
@@ -186,7 +190,7 @@ Before Naive Bayes, the slides review the definitions of independence and condit
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

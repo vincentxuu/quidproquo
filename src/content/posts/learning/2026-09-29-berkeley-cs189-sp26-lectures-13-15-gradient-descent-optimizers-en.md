@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This guide follows the public materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). The series starts at the [Berkeley CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 The earlier lectures on linear and logistic regression were about *what* to minimize. Starting with Lec 13, the course asks *how* to minimize it. The answer is gradient descent: take a small step against the gradient and repeat until convergence. These two lectures deal with three questions. How big can a step be before training diverges? What do you do when the landscape is flat or badly skewed? And what if the dataset is too large to compute a full gradient at every step?
@@ -150,7 +152,7 @@ Previous: [Lec 11–12: classification and logistic regression](/en/posts/learni
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

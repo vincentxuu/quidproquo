@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [官方 agenda](https://rail.eecs.berkeley.edu/deeprlcourse/)最後七講是 Exploration、RL Theory、兩講 Midterm Review、Advanced Exploration、Multi-task RL，以及 Challenges and Open Problems。這不是零散收尾，而是回頭問前面演算法在哪些條件下可靠，以及面對新任務時能不能重用經驗。
 
 ## 課程影片來源
@@ -45,7 +47,7 @@ Advanced Exploration 延伸到稀疏 reward 與表示層面的資訊取得。Mul
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

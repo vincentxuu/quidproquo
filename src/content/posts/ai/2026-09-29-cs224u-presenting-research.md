@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-presenting-research-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 CS224U 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 16 篇。[上一篇](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol)處理期末專案的前兩段交件；這一篇處理最後一段——期末論文，以及論文寫完之後的事：投稿、審稿、上台。
 
 材料是課程的 [Presenting your research 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-presenting-2023-handout.pdf)（PDF 52 頁、含動畫分頁，實際 38 張）、[YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)第 45 到 48 支影片，以及 [projects.md](https://github.com/cgpotts/cs224u/blob/main/projects.md) 的「Final paper」與「Beyond the final paper」兩節。投影片的四段——Your papers、Writing NLP papers、NLP conference submissions、Giving talks——正好對應四支影片。
@@ -200,7 +202,7 @@ projects.md 與投影片都列了同一份清單：關掉會跳出的通知、�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

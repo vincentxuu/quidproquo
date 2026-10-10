@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cs224u-guest-lectures-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)的最後一篇，也是唯一一篇「選讀」。
 
 2023 年春季的 [CS224U 課程網站](https://web.stanford.edu/class/cs224u/)，在 Apr 5 起的第一個單元（Domain adaptation for supervised sentiment）裡列了四項材料：作業一說明、Contextual word representations，以及兩份由別人主講的投影片——[Diffusion objectives for text](https://web.stanford.edu/class/cs224u/slides/lisa-224u-diffusion.pdf)（Lisa）和 [Fantastic language models and how to build them](https://web.stanford.edu/class/cs224u/slides/sidd-fantastic-lms-cs224u.pdf)（Sidd）。兩位講者 [Xiang (Lisa) Li](https://xiangli1999.github.io/) 與 [Sidd Karamcheti](https://www.siddkaramcheti.com/) 都列在課程網站的 Teaching team 名單上，所以嚴格說不是校外客座，是團隊成員帶的專題。
@@ -180,7 +182,7 @@ Karamcheti 的投影片副標寫著「Stanford || Zoom || Folks 2x-ing the Recor
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

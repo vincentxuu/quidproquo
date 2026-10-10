@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is post 13 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (114-1, 2025/09/01–12/15) taught this lecture on 11/03. On the [course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), the same row also carries the Final Project Announcement and the LLM Deployment TA session, and the week is marked Physical.
 
 **Sources**: the slide deck [Issues and Development in PLMs: Fairness, Safety, Factuality, Alignment (251103_Issues.pdf)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/251103_Issues.pdf) (42 pages) and three videos: [10.1 Fairness for Bias Mitigation](https://youtu.be/3BAFtBS27UI) (24:53), [10.2 Model Safety](https://youtu.be/V2Pot_Uv31E) (23:46), and [10.3 Factuality for Hallucination Mitigation](https://youtu.be/v9Vqk_mfDyA) (33:43). All three video descriptions are dated 2025/11/03 and credit the slides to Stanford and CMU courses, which the deck's last page also lists. The videos are taught in Mandarin. I checked the slides on 2026-09-30, and all page numbers below refer to the PDF.
@@ -187,7 +189,7 @@ Next: [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en)
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文以[機器學習基石 MOOC](https://www.csie.ntu.edu.tw/~htlin/mooc/) 的 Lecture 13 與 Lecture 14 投影片（[13_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/13_handout.pdf)、[14_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/14_handout.pdf)）與 [YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)第 50–57 支為準；練習題取自 [Machine Learning, Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) 的 [HW4](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw4/) 與 [HW5](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw5/)。全部在 2026-09-30 打開核對。存取等級：MOOC 本身 **A2**，加上 Fall 2024 作業 **A3（評分鏈除外）**，沒有官方解答。
 
 **系列位置**：上一篇 [線性分類模型、SGD、多類別與非線性轉換](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)｜下一篇 [驗證與三個學習原則](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
@@ -216,7 +218,7 @@ HW5 Q10 刻意用 E_in 選 λ，接下來的 Q11、Q12 改用驗證集和 3-fold
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

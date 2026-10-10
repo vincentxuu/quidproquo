@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-tinker-lora-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)確認第 18 個正規單元排在 2026 年 3 月 5 日，由 John Schulman 客座主講。官方頁面唯一內容是題名 **Guest Lecture: Tinker and LoRA Without Regret**，另有講者個人網站連結；沒有公開本季投影片。
 
 ## 課程影片來源
@@ -49,7 +51,7 @@ Lecture 9 已依公開投影片介紹過 LoRA 的低秩權重更新，但不能�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

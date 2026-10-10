@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列第 11 篇，範圍是 Analysis methods 單元的前半：總論、probing、feature attribution。講次表把這個單元排在 2023 年 5 月 8、10、15 日三堂。用到的官方材料有三份：投影片 [Analysis methods in NLP](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf) 的前 40 頁（全份 64 頁）、公開播放清單的影片 33–35，以及 repo 裡的 [`feature_attribution.ipynb`](https://github.com/cgpotts/cs224u/blob/main/feature_attribution.ipynb)。
 
 存取等級沿用[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的定義，是 **A3（歷史版）**：投影片、錄影、notebook 都公開。拿不到的是 Canvas 上的 Quiz 4 和教室錄影。
@@ -184,7 +186,7 @@ notebook 的內容依序是：InputXGradients 的兩種實作（純 PyTorch 與 
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

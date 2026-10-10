@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is part 11 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en). It covers Lecture 5, Kernel Logistic Regression, and Lecture 6, Support Vector Regression, of [Machine Learning Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/). Together they close the first part of Techniques, "Embedding Numerous Features: Kernel Models".
 
 **Sources**: the MOOC slides [205_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/205_handout.pdf) and [206_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/206_handout.pdf), videos 18–25 of the [Techniques YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2), the [Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) and its [205u_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/205u_handout.pdf), the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/), and [Fall 2024 HW6](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf), all opened and checked on 2026-09-30.
@@ -248,7 +250,7 @@ Series navigation: previous, [Kernel trick and soft-margin SVM](/posts/ai/2026-0
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

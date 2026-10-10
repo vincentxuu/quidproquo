@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 [Lecture 13–18](https://inst.eecs.berkeley.edu/~cs188/sp26/)從 probability、Bayes nets、exact inference、sampling 一路進到 HMM 與 particle filtering。[Project 4 Ghostbusters](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/)把這些概念放進一個具體任務：Pacman 看不見 ghost，只拿得到帶雜訊的 Manhattan distance，要維護位置的 belief distribution 並追上目標。
 
 ## 課程影片來源
@@ -52,7 +54,7 @@ Join factors 把相容資訊合起來，eliminate 則對不再需要的變數加
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

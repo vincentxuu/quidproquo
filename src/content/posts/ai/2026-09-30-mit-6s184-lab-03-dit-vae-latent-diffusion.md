@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的 Lab 3。題目用 [eje24/iap-diffusion-labs（branch 2026）](https://github.com/eje24/iap-diffusion-labs/tree/2026) 的 [`labs/lab_three.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_three.ipynb)，對照官方解答 [`solutions/lab_three_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_three_complete.ipynb)。理論部分引用[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §5–6。存取等級 A3：題目、解答、講義、錄影全部公開；缺的是評分回饋。2026-09-30 核對。
 
 **系列位置**：上一篇 [L4：U-Net、DiT 與 latent space](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures)｜下一篇 [L5：離散擴散，用 CTMC 生成語言](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion)｜[系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
@@ -218,7 +220,7 @@ patch_size=1 代表 4×4 的 latent 切成 16 個 token，每個 token 是一個
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

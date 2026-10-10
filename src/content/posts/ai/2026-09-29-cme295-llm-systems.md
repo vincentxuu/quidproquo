@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-systems-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **課前預寫版**：本篇寫於 2026 年 9 月 29 日，2026 版第 5 講（2026 年 10 月 30 日）尚未開課。內容根據 2026 課表的主題清單、2025 版投影片中已講過的部分，以及原始論文整理；影片與投影片上架後會對照更新。
 
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2026 版第 5 講「LLM systems」。這一講在 2025 版不存在，它的內容散在 2025 版[第 3 講投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf)最後約 40 頁（推論加速）和[第 4 講投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf)中段約 50 頁（訓練最佳化）。本系列的[第 3 講導讀](/posts/ai/2026-09-29-cme295-large-language-models)和[第 4 講導讀](/posts/ai/2026-09-29-cme295-llm-training)各畫過一張地圖，並說細節留到這一篇。
@@ -390,7 +392,7 @@ FlashAttention-3 論文提到，第二版在 H100 上只用到 35% 的算力。�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

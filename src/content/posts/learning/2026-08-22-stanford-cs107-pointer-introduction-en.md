@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-pointer-introduction)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 C pointers are often taught as punctuation: add a star to a declaration, add `&` at the call site, and add `*` when using the result. That does not answer the important questions. Which memory location changed? Why can a pointer parameter still fail to update the caller's pointer?
 
 Lecture 8 of Stanford CS107 Winter 2026 restores the simplest useful model: a pointer is a value, and that value is the memory address of an object. C passes every parameter by value. Passing a pointer copies an address rather than the target object, so the callee can follow that copied address back to caller-owned storage. The lecture's path from `int *` to `char **` keeps asking one question: are you trying to modify a value, a pointer, or the value designated by a pointer?
@@ -306,7 +308,7 @@ Finally, swap and rotation show the concrete power of pointers: a function can p
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

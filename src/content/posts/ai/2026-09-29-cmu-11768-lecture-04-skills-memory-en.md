@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory)
 
+**Video status: Videos included.** [Source details](#course-video-sources)
+
 Lecture 4 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (September 3, 2026, taught by Daniel Fried; [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en)) asks one question: once an agent finishes a task, can the next one take fewer wrong turns?
 
 The lecture opens with a shopping site. "Add Sony headphones to my wish list" and "find the price range for wireless keyboards" are different tasks, but their first half is identical: go to the store, find the search box, type a query, click search. If the agent spent several steps figuring out how this site's search works the first time, it should just know the second time.
@@ -40,11 +42,20 @@ The [previous lecture (L3)](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+Verified public recording for CMU 11-768 Fall 2026 lecture 4, published on course instructor Graham Neubig’s channel; its title and description identify this course.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=6zigF2a-2Pw
+title: CMU AI Agents 2026: 4. Memory and Skills for Agents
+```
+
+Original videos: [CMU AI Agents 2026: 4. Memory and Skills for Agents](https://www.youtube.com/watch?v=6zigF2a-2Pw)
+
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## Three places to update an agent
 
@@ -356,7 +367,7 @@ The closing discussion lays out four tensions: exact episode ↔ general skill, 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

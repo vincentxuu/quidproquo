@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 12 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L11: Text-to-Image AI](/posts/ai/2026-09-30-nccu-genai-11-text-to-image-en).
 
 I used three official sources: the [lecture 12 recording](https://www.youtube.com/watch?v=3TdC6xb1RfY) (2025-05-06, 3 h 12 min), the slide deck [GenAI12 ControlNet 與 Fooocus](https://drive.google.com/file/d/15-cHR3PSoGVmXj0yrrzCksDJQ1fcVtir/view) (33 slides, in Chinese), and the week 12 assignment on the [Chang Gung satellite section page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Chinese). Access level is **A3**: recordings, slides, and the assignment with its rubric are public. There is no matching notebook in [AI-Demo](https://github.com/yenlung/AI-Demo) this week; the hands-on part uses the open-source [Fooocus](https://github.com/lllyasviel/Fooocus) itself.
@@ -222,7 +224,7 @@ Series navigation: [series overview](/posts/ai/2026-09-30-nccu-genai-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

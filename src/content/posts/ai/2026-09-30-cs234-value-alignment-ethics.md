@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-value-alignment-ethics-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片與作業；錄影是 Spring 2024 公開版。** 這是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列第 17 篇。
 
 **系列位置**：上一篇 [規劃＋學習：MCTS、UCT、AlphaGo／AlphaZero](/posts/ai/2026-09-30-cs234-mcts-alphazero)｜下一篇 [客座：Shane Gu〈World of World Modeling〉](/posts/ai/2026-09-30-cs234-guest-world-models)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
@@ -198,7 +200,7 @@ bottom-up 的延伸是 participatory AI，把「向人學習」擴大成：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

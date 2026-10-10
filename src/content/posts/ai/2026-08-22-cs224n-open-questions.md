@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-open-questions-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把最後一個正規單元排在 2026 年 3 月 10 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture19-open-questions.pdf)以 *The Art of Artificial Reasoning for (Small) Language Models* 展開。它沒有單頁 agenda，但反覆標出三種創新：unconventional data、algorithms 與 collaboration。
 
 ## 課程影片來源
@@ -204,7 +206,7 @@ Winter 2026 錄影不公開。本文依公開投影片反覆出現的四個主�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

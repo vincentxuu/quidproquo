@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 第 1 講（2026-01-12，Matt Gormley 與 Aran Nayebi），主要材料是 [lecture1-overview 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture1-overview.pdf)與[手寫註記版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture1-overview-ink.pdf)（各 111 頁），以及公開的 [HW0 recitation Colab](https://colab.research.google.com/drive/1F-ik4J0hf8kUdQAH_1HdlpBufuF9j9ny?usp=sharing)，事實都在 2026-09-30 核對。錄影在 Panopto，要 CMU 帳號，本文只依投影片撰寫。**HW0 的題目檔（Google Drive）回 401，校外拿不到。**
 
 **系列位置**：上一篇 [系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)｜下一篇 [L2–L3：Transformer 語言模型、LLM 訓練與解碼](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding)
@@ -167,7 +169,7 @@ HW0 在 1 月 14 日發布、1 月 26 日交 Slot A。第一講的作業表寫�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

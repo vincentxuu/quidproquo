@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide follows the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 4 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L03 GANs](/posts/ai/2026-09-30-nccu-genai-03-gan-en). The course is taught in Mandarin.
 
 Three official sources back this post: the [Lecture 4 recording](https://www.youtube.com/watch?v=LcSTLXCJrzA) (2025-03-11, 2 h 54 min), the slide deck [GenAI04 Large Language Models](https://drive.google.com/file/d/10mfLvj8o2H4z6sHI4xGXAr7OCgWxAoR5/view) (90 pages), and the week 4 homework on the [Chang Gung satellite class page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. Recordings, slides, homework prompts, and rubrics are public; grading runs through each school's platform, so outside readers can only self-assess.
@@ -213,7 +215,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

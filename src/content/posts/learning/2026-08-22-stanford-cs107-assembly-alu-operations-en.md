@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-alu-operations)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The same `%rax` storage can be named `%eax`, `%ax`, or `%al`. The same short bit pattern can also become very different 64-bit values after zero extension and sign extension. Stanford CS107 Lecture 16 is not merely another mnemonic list. It adds two dimensions to the previous lecture's addressing modes: **how many bytes this operation touches, and how the ALU interprets and rewrites those bits.**
 
 For every instruction, ask four questions in order: what is the operand width, where is the source, where is the destination, and does a parenthesized expression merely calculate an address or actually dereference it? That procedure explains `movzbl`, `leaq`, `addq`, and `sar` without treating the names of subregisters as independent storage.
@@ -232,7 +234,7 @@ The shift reads `%cl` and masks the count for destination width. In the slides' 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-final-projects-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 6 講排在 2026 年 1 月 22 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture06-final-project.pdf)題為 **Final Projects: Custom and Default; Practical Tips**。agenda 分成兩塊：先用約十五分鐘補完 Transformer，再談專案類型與評分、研究題目與資料來源，最後 Q&A。
 
 ## 課程影片來源
@@ -116,7 +118,7 @@ Winter 2026 錄影與 Q&A 不公開。本文涵蓋官方投影片的 Transformer
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

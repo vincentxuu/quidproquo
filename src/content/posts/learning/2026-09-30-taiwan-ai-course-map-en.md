@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-30-taiwan-ai-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The [NTU map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) covered Hung-yi Lee, Hsuan-Tien Lin, and Yun-Nung Chen. Outside NTU, Taiwan has several more AI courses taught in Mandarin with a full semester of recordings on YouTube. They are hard to find because the materials are scattered across instructors' GitHub repos, Google Sites, lab pages, and sometimes the website of a co-instructor at another university.
 
 This post ties them together with one official source: the course list that TAICA (Taiwan AI College Alliance) publishes every semester. Ratings follow the A0–A3 scale from the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 means only a catalog entry, A1 a syllabus, and A2 some substantive material or recordings. A3 means materials plus assignments are enough to form a coherent self-study path. The scale is this site's editorial judgment. It says nothing about credit or TA grading. NTU courses stay in the NTU post and are not repeated here. Everything below reflects checks made on **September 30, 2026**.
@@ -180,7 +182,7 @@ The public courses outside NTU share one trait. TAICA needs thousands of student
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-05: Corrected the description of Lin's Large Language Models and Information Security Systems (its focus is using LLMs for security, not protecting AI). Added an "AI security courses" section covering the status of TAICA's cybersecurity program and AI security courses at Chung Cheng, NCKU, NYCU, and NTU.
 
 ## References

@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 16 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl-en) and covers Lecture 12, "Multi-Task and Goal-Conditioned RL," on May 8, 2026. HW3 was due at 9 pm the same day.
 
 Official sources used:
@@ -210,7 +212,7 @@ Series navigation: previous [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-mod
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en)
 
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 第 3 講（9 月 1 日，[投影片](https://www.cmu-agents.com/slides/lecture-03-long-context.pdf)、[錄影](https://www.youtube.com/watch?v=AiwCCvFW1uE)）由 Graham Neubig 主講。他說原本想把題目叫「長 context LLM 的 context 管理」，因為內容大多是 LLM 的通用問題；但長 context 對 agent 特別要命，基礎 LLM 課又常常帶過，所以這一講拆得很細，順便把近期開放模型處理長 context 的架構都看一遍。
 
 問題很好懂：[上一講](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use)的工具呼叫每用一次，歷史就長一截，下一次呼叫要把整段歷史再送進模型一次。這一講回答兩個問題：模型**吃不吃得下**這麼長的輸入（容量），系統**養不養得起**（效率）。
@@ -40,11 +42,20 @@ glossary:
 
 ## 課程影片來源
 
-課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+已核對 CMU 11-768 Fall 2026 第 3 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
 
-課程與錄影入口：
+```youtube
+url: https://www.youtube.com/watch?v=AiwCCvFW1uE
+title: CMU AI Agents 2026: 3. Long Context Modeling for Agents
+```
+
+原始影片：[CMU AI Agents 2026: 3. Long Context Modeling for Agents](https://www.youtube.com/watch?v=AiwCCvFW1uE)
+
+官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## Agent 的 context 為什麼長得這麼快
 
@@ -465,7 +476,7 @@ Neubig 講了一個 OpenHands 早期的故事。他們認為自己做出了最�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N: Natural Language Processing with Deep Learning](https://web.stanford.edu/class/cs224n/) 是 Stanford 電腦科學系的 NLP 主課，也是整條 NLP 分支的樞紐——CS224U、CS224V、CS329A 的官方先修欄位都指回它。它教的是怎麼用神經網路處理語言，從詞向量與反向傳播開始，一路到預訓練、後訓練、推理與評估。
 
 它還有一件別的課做不到的事：**課程網站把 2000 年以來每一屆的版本都留著**。首頁的 Previous offerings 那一區是一長排連結，最舊的一條標著 Spring 2000。這代表你可以把 2019 年冬季那版跟現在這版並排打開——同一門課、同一批投影片檔名慣例、同一間 NVIDIA Auditorium——看它在七年裡砍掉了什麼。
@@ -165,7 +167,7 @@ CS224N 是 NLP 分支的樞紐，這件事在 ExploreCourses 的先修欄位裡�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

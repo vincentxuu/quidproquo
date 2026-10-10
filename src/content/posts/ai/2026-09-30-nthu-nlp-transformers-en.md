@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-transformers)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **This guide is based on the public Fall 2025 (114-1) materials of [Prof. Hung-Yu Kao's Natural Language Processing course at NTHU](https://github.com/IKMLab/NTHU_Natural_Language_Processing).** It is part 6 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The previous part is [PyTorch Tutorial and HW2: Arithmetic as Language](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic-en).
 
 The official material for this lecture is [W3_Transformers.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Transformers.pdf) (65 slides), and the recording is [Week 4 Thu.](https://www.youtube.com/live/tr5QyN5TswM) (lectures are in Mandarin; slides are mostly English). The file name says W3, but it sits in the W4 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md), next to that Tuesday's PyTorch tutorial. The week number is left over from an older numbering, so this guide goes by the slides and recording actually attached to the row. The row's Topics column says "Basic machine learning for text"; that is a syllabus template that does not match the slides, and this guide does not cite it.
@@ -191,7 +193,7 @@ The last slide shows a training-cost chart from the [Stanford AI Index Report 20
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-multimodality-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)確認第 17 個正規單元在 2026 年 3 月 3 日由 Luke Zettlemoyer 客座主講，官方題名是 **Guest Lecture: Multimodality**。課程頁沒有公開本季投影片或 agenda，並列出四篇 suggested readings 與七篇 optional readings；本文只整理實際讀過並列於文末的五項公開來源，不把其餘六篇描述成已讀，也不重建講者實際內容。
 
 ## 課程影片來源
@@ -50,7 +52,7 @@ draft: false
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

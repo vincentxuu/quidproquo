@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-27-virtual-machines-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 28 篇，對應 **Stanford CS111, Spring 2026, Lecture 27**。2026-06-01 由 Mendel Rosenblum 主講，官方題目是 [Virtual Machines](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/27/Lecture27.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不公開。SHA-256 稽核顯示 Lecture 27 與相鄰 Lectures 26、28 均不同，沒有 duplicate artifact。
 
 ## 課程影片來源
@@ -92,7 +94,7 @@ data center 原本常為 isolation 讓每台 machine 跑一個 application，但
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依 Lecture 27 官方 PDF 重寫 VM abstraction、trap-and-emulate、virtual I/O、memory virtualization 與 usage，並完成相鄰 artifact SHA 稽核。
 
 ## 參考資料

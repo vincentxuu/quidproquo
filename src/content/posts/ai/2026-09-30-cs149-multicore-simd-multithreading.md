@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **本文依據 [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25) 的 Fall 2025 版。** 材料是 Lecture 2 的 [108 頁投影片](https://gfxcourses.stanford.edu/cs149/fall25content/media/multicore1/02_basicarch.pdf)（也有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)）；Fall 2025 錄影不公開，2023 年的 L2 錄影作為補充。這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列的第 2 篇，上一篇是 [L1 為什麼要平行、為什麼要效率](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency)。
 
 [上一講](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency)的結論是：單核不會再自己變快，效能要靠平行和專用硬體。這一講回答下一個問題：現代處理器到底用哪些方式平行？
@@ -242,7 +244,7 @@ int y = A[x];
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

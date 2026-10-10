@@ -36,6 +36,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-hardware-specialization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 13 篇，對應 10 月 23 日的第 10 講 [Hardware Specialization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/accelerators/10_Specialized.pdf) 共 71 頁。
 
 Fall 2025 的錄影只放在 Stanford Canvas。最接近的公開錄影是 [2023 Lecture 18: Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)，但只能當前半段的補充。對照 [2023 年課站上的同主題投影片](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/)：能量受限、H.264、FFT、DSP、Anton、FPGA、效率經驗法則這些開場內容 2023 版都有；2023 版後半講的是 Spatial 加速器設計語言、串流執行與 DRAM 運作，2025 版則換成 GPU Tensor Core、TPU 脈動陣列與資料流架構。本文以 2025 投影片為準。整門課的公開程度是 A3（足以自學），缺口列在[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)。
@@ -228,7 +230,7 @@ thread block cluster 最多 16 個 thread block，保證每個在不同的 SM �
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

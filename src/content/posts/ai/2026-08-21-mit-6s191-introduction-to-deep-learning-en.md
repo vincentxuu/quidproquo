@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The 2026 edition of [MIT 6.S191: Introduction to Deep Learning](https://introtodeeplearning.com/) is genuinely public. All nine lectures have official videos and slides, and the official GitHub repository includes the three software labs, supporting code, and solution notebooks. Under this site's access labels, that makes it **A3: sufficient for self-study**.
 
 “Public,” however, does not mean that an anonymous visitor can execute every supplied cell without another account. The supported workflow uses a Google account and a Colab GPU. Labs 1 and 2 use Comet; Lab 3 adds OpenRouter. An unaffiliated learner also does not receive MIT credit, project feedback, or the API credits available to in-person students.
@@ -154,7 +156,7 @@ Give it ninety minutes. If you can explain the tensor shapes, gradients, and pur
 ## Changelog
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Added the bilingual nine-lecture and three-lab series, and pinned all lab links to the official `2026` branch.
 
 ## References

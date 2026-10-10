@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-17-stable-matching-gale-shapley-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS161 導讀](/series/stanford-cs161) 第十八篇，對應 **Winter 2026 Lecture 17**，由 Ellen Vitercik 於 2026 年 3 月 9 日主講，題名 *Stable Matchings and Gale-Shapley*。
 
 本文讀了公開 [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture17-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture17.pdf) 與[官方 component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture17.md)。Canvas 錄影未觀看。正文只陳述這些 Winter 2026 材料支持的模型與結論。
@@ -108,7 +110,7 @@ Naive greedy 容易錯在把 hospital 首次接受永久化。Deferred Acceptanc
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

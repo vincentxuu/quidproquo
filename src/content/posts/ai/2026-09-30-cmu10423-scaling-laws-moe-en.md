@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 **This guide is based on the Spring 2026 edition of [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/).** It is part 16 of [Reading CMU 10-423](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) and opens the fifth unit, "Scaling Up". The previous post, [HW4](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en), was the last programming assignment. From here on the course checks your learning through quizzes, HW623 (10-623/723 only), and the final project.
 
 Official materials used: the [Lecture 15 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture15-querying-scaling.pdf) (37 pages; the Querying Transformer half is covered in [part 14](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en), so this post reads only the Scaling Laws section), the [Lecture 16 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture16-moe.pdf) and their [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture16-moe-ink.pdf), the [course schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), and the practice exam on the [Coursework page](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html). I downloaded and checked all of them on 2026-09-30. The schedule lists no readings for these two lectures, so every paper cited here is one the slides cite.
@@ -179,7 +181,7 @@ Series: Previous: [HW4: Text-to-Image with a Q-Former](/posts/ai/2026-09-30-cmu1
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

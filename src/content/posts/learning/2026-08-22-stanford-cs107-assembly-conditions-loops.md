@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-assembly-conditions-loops-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 `cmp %rsi,%rdi` 沒有把 subtraction result 寫進 general-purpose register，下一條 `jge` 卻能據此決定是否跳轉。中間的橋樑是 condition codes：CPU 用少數 flags 保存最近一次算術或邏輯操作的關鍵性質。Stanford CS107 Lecture 18 就從這份隱藏 state 出發，把 C 的 `if`、`while`、`for` 還原成 fall-through 與 control-flow edges。
 
 ## 課程影片來源
@@ -261,7 +263,7 @@ max:
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

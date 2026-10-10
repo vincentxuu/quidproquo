@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [CME295: Transformers & Large Language Models](https://cme295.stanford.edu/) is offered under Stanford's Computational and Mathematical Engineering (CME) course code and taught by Afshine Amidi and Shervine Amidi. Both have worked at Uber, Google, and Netflix. Many people first came across them through the [VIP cheatsheets](https://stanford.edu/~shervine/teaching/cs-230/) they made for Stanford CS 230, and the slides for this course reuse a lot of those diagrams.
 
 Over nine lectures, the course goes from tokenization all the way to AI agents and LLM evaluation, and each recorded lecture runs a little over an hour and forty minutes. It doesn't teach you to write code. What it gives you is a map: how the Transformer became the LLM, how LLMs are trained and aligned, and how they get wrapped into agents that use tools.
@@ -137,7 +139,7 @@ One thing you can do tonight: open Lecture 1 in the [2025 playlist](https://www.
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

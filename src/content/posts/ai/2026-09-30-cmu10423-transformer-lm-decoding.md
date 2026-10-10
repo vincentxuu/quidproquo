@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 第 2 講（2026-01-14，[lecture2-transformer](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture2-transformer.pdf)，74 頁）與第 3 講（2026-01-21，[lecture3-llms](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture3-llms.pdf) 57 頁、[手寫註記版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture3-llms-ink.pdf) 59 頁），講者為 Aran Nayebi 與 Matt Gormley，事實都在 2026-09-30 核對。第 2 講沒有手寫註記版。錄影在 Panopto，要 CMU 帳號，本文只依投影片撰寫。
 
 **系列位置**：上一篇 [L1：RNN 語言模型與 autodiff](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff)｜下一篇 [L4：預訓練、微調與現代 Transformer](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
@@ -201,7 +203,7 @@ L3 的投影片停在這裡。解碼的效率問題，講次表排在 L18「Flas
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

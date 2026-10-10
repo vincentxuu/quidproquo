@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is part 5 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series, following [VC Dimension, Noise and Error Measures](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en). It covers Lecture 9, Linear Regression, and Lecture 10, Logistic Regression, from [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/). This is where the course reaches its third big question: "How Can Machines Learn?"
 
 The previous post ended with this: the error an algorithm actually optimizes, êrr, should be either plausible or friendly. This post gives two friendly examples. Squared error has a closed-form solution. Cross-entropy does not, but it is smooth enough for gradient descent.
@@ -229,7 +231,7 @@ Further reading: the Stanford CS229 chapter guides on [linear regression](/posts
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

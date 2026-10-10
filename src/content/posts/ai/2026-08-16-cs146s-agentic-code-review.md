@@ -21,6 +21,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs146s-agentic-code-review-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 這是 [CS146S 系列](/posts/ai/2026-08-16-cs146s-course-map)的第七篇，對應 Fall 2026 的第六週。
 
 課程主題三條：AI review 擅長抓什麼、漏掉什麼；review 的架構與自訂規則；怎麼把 AI review 放進團隊的 PR 流程。客座是 Cognition 的 Silas Alberti——他 Fall 2025 也來過，那次講的是 AI IDE，這次題目換成 code review。
@@ -122,7 +124,7 @@ Fall 2025 的對應課堂是 Week 7「AI code review」（[投影片](https://do
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

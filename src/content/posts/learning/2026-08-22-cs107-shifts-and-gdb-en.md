@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-cs107-shifts-and-gdb)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 A mask selects positions; a shift moves positions where they are needed. Together they can extract a byte, toggle fields, find adjacent ones, recognize powers of two, and even construct absolute value without a relational operator. The code is short, but its preconditions are not: type width, signedness, right-shift fill, and a valid shift count.
 
 CS107 Lecture 5 also formally brings GDB into the everyday workflow. The goal is not to memorize abbreviations. It is to establish a repeatable observation loop: stop at a breakpoint, control the next transition, view values in several formats, inspect memory and the call stack, then return to the source. This article follows the [official Winter 2026 Lecture 5 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/05/Lecture05.pdf) in full.
@@ -289,7 +291,7 @@ The next lecture moves into `char` and C strings. GDB's `x` command and `/c` dis
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Corrected the `INT_MIN` analysis of the branchless absolute-value example; the original expression has signed overflow and is not a complete working implementation.
 
 ## References

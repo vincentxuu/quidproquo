@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-algorithms-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS 161](https://stanford-cs161.github.io/winter2026/) 是 Stanford 電腦科學系大學部的演算法必修。它也是這個系裡最常被當成先修條件的一門。從 AI 入門的 [CS 221](https://explorecourses.stanford.edu/search?q=CS+161&view=catalog) 到資料庫、組合最佳化、隨機演算法，先修欄位都指向它（清單見附錄）。本站的 [Stanford CS 課程導讀地圖](/posts/learning/2026-08-20-stanford-cs-course-map)把它放在「學位骨架五門」那一格。這篇要回答的是進去之後會發生什麼事。
 
 先講最反直覺的一件事：這門課的官方目標有三個，第三個是「溝通」。第一堂的投影片把它跟設計、分析並列寫在同一頁——**Communication: Learn to communicate clearly about algorithms**。這不是場面話，它是整套作業規則的來源，包括為什麼從第二份作業起手寫一律零分。
@@ -196,7 +198,7 @@ Winter 2026 由 [Moses Charikar](https://profiles.stanford.edu/moses-charikar) �
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-16-logic-first-order-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇依 **Stanford CS221 Autumn 2025 Lecture 16** 可執行材料 [first_order_logic](https://stanford-cs221.github.io/autumn2025-lectures/?trace=first_order_logic) 的順序整理。
 
 > 材料缺口：Canvas 課堂互動、作業解答與隱藏測資不公開。
@@ -258,7 +260,7 @@ definite-clause modus ponens 是 sound：`KB ⊢ f` 保證 `KB ⊧ f`；但不 c
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

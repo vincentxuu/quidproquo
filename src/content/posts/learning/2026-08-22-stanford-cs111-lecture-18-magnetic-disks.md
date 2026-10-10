@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-18-magnetic-disks-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 19 篇，對應 **Stanford CS111, Spring 2026, Lecture 18**。2026-05-08 由 Mendel Rosenblum 主講，官方題目是 [Magnetic Disks](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/18/Lecture18.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不可公開存取，因此不把錄影內容當成已核對來源。
 
 ## 課程影片來源
@@ -86,7 +88,7 @@ device 以 DMA 讀 command，將 sector bytes DMA 到指定 address，再把 com
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依 Lecture 18 官方 PDF 重寫完整磁碟與 I/O device agenda，並限定硬體數字為投影片快照。
 
 ## 參考資料

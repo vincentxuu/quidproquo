@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-05-transformers-math)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This guide follows the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 5 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L04 LLMs Are Simpler Than You Think](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token-en). The course is taught in Mandarin.
 
 Two official sources back this post: the [Lecture 5 recording](https://www.youtube.com/watch?v=mhjegVhqb_M) (2025-03-18, 3 h 3 min) and the slide deck [GenAI05 The Mathematics of Transformers](https://drive.google.com/file/d/1Am2WvzkxWNnsXEQVLcPU5NL072GRWyR_/view) (67 pages; the cover reads "The Mathematics of RNNs and Transformers"). On the [Chang Gung satellite class page](https://yangchihyuan.github.io/courses/GenerativeAI2025) this week is titled "Transformers 全攻略" ("The Complete Guide to Transformers") and the homework column says "no homework." Access level: **A3**.
@@ -249,7 +251,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

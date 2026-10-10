@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 17 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers the November 6 Lecture 13, [Domain-Specific Programming Systems and AI-Driven Performance Optimization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/). The official [slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/aiperfoptimization/13_autooptimize.pdf) has 55 pages (its title slide says "Automatic Performance Optimization").
 
 About video: Fall 2025 recordings are Canvas-only. The DSL half of this lecture has a counterpart in the 2023 public recordings that the course home page points to, [2023 Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ). **The LLM-agent half has no public video at all and is covered from the slides only.** Everything here follows the 2025 slides; the 2023 video is only a listening supplement for the first half, and this post has not compared the two section by section.
@@ -202,7 +204,7 @@ Series navigation: previous [L12 Mapping AI Applications to the Datacenter](/pos
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

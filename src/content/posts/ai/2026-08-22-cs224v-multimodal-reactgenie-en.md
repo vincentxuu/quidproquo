@@ -14,6 +14,8 @@ description: "CS224V Multimodal Applications: command composition, API exposure,
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-multimodal-reactgenie)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 13 uses “multimodal” for interaction, not merely a model that sees images. A user can speak while operating an app. “Right-align every occurrence of [ReactGenie](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf)” requires inspecting the canvas, selecting multiple objects, composing APIs, and displaying the result in the native GUI.
@@ -124,7 +126,7 @@ The public deck contains architecture and study summaries, not a full API refere
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

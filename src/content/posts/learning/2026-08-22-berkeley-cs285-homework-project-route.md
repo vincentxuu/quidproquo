@@ -15,6 +15,8 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [Spring 2026 starter repository](https://github.com/berkeleydeeprlcourse/homework_spring2026) 公開 HW1–5 與兩個預設 final project 的 code，採 MIT License。這讓自學真正可執行；完整的公開／限修課資產分界見[系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。本篇只負責作業算力與專案取捨。
 
 ## 課程影片來源
@@ -55,7 +57,7 @@ Spring 2026 官方課程頁列出當期講義；公開錄影入口指向 Fall 20
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

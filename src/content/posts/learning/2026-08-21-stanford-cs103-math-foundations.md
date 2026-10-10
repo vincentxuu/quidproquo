@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs103-math-foundations-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 [CS103: Mathematical Foundations of Computing](https://web.stanford.edu/class/cs103/) 是 Stanford 電腦科學系大學部骨架裡的第一門理論課。它的名字聽起來像一門離散數學課，前半段也確實是——邏輯、集合、函數、圖、歸納法。但它的後半段整個換軌，講的是有限自動機、正規語言、上下文無關文法、圖靈機、可判定性、停機問題，最後停在 P 對 NP。
 
 用課程自己在 syllabus 裡的說法，這是一門關於「computing 有沒有物理定律」的課。它把前半段當成工具，並且把整門課形容成「a course in both art appreciation and practice」：先帶你逛過去一百五十年最漂亮的幾個結果，再要你自己拿起畫筆。
@@ -177,7 +179,7 @@ CS103 課程網站首頁的側欄裡，掛著一整排以「Guide to」開頭的
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

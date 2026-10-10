@@ -34,6 +34,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 9 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 10, Interpretability (November 6, 2025). [The previous post on L8](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en) asked whether models cheat or fake good behavior to satisfy training objectives. This one asks the next question: if a model really is cheating, what tools do we have to see it?
 
 L10 answered along two paths. One reads the reasoning the model writes out, its chain of thought (CoT). The other reads the numbers inside the model, its activations. The four guest speakers came from three frontier labs, each working from a different vantage point:
@@ -266,7 +268,7 @@ Some student questions worth noting:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

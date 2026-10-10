@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-explicit-free-list)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 The preceding lectures build an implicit allocator and then link all free blocks into an explicit free list. Lecture 23 asks the more difficult question: when a client changes an allocation with `realloc`, can the data remain at the same address? Sometimes it can, but “no move” does not mean “no work.” Shrinking can create a free block; growing can require removing a right neighbor from the free list. One missing metadata or link update can leave overlapping blocks.
 
 This lecture follows one `realloc` transition. Check the block's actual capacity, then consider existing padding, a shrink-and-split, absorption of adjacent free blocks, and finally allocate-copy-free. All three in-place cases preserve the same invariants: alignment, a complete nonoverlapping heap partition, exactly one list entry for every free block, and an unchanged valid prefix of the old data.
@@ -187,7 +189,7 @@ The performance benefit of in-place growth is obvious. The deeper rule is simple
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列第 12 篇，接續[解釋方法 I](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)，範圍是 Analysis methods 單元的後半：causal abstraction、interchange intervention training（IIT）、distributed alignment search（DAS）與單元結論。
 
 用到的官方材料有四份：投影片 [Analysis methods in NLP](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf) 第 41–61 頁、播放清單的影片 36–37、repo 裡的 [`iit_equality.ipynb`](https://github.com/cgpotts/cs224u/blob/main/iit_equality.ipynb)，加上它依賴的 [`iit.py`](https://github.com/cgpotts/cs224u/blob/main/iit.py) 與 [`torch_deep_neural_classifier_iit.py`](https://github.com/cgpotts/cs224u/blob/main/torch_deep_neural_classifier_iit.py)。存取等級是 **A3（歷史版）**。
@@ -215,7 +217,7 @@ DAS 的做法是**凍結模型參數，只學一個旋轉矩陣 R**。先把目�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

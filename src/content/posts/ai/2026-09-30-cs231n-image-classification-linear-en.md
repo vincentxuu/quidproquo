@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-image-classification-linear)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: slides are from Spring 2026; for a recording, see [Spring 2025 Lecture 2](https://www.youtube.com/watch?v=pdqofxJeBN8) on YouTube. They may differ; this post follows the 2026 slides and marks anything taken from the official notes. This is post 2 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series.
 
 The second [CS231N](https://cs231n.stanford.edu/) lecture was on April 2, the same day A1 went out. The [schedule](https://cs231n.stanford.edu/schedule.html) lists its topics as the data-driven approach, k-nearest neighbor, the algebraic, visual, and geometric viewpoints of linear classifiers, and the softmax loss. The matching official notes are [Image Classification](https://cs231n.github.io/classification/) and [Linear Classification](https://cs231n.github.io/linear-classify/).
@@ -178,7 +180,7 @@ Besides softmax, the official [Linear Classification](https://cs231n.github.io/l
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

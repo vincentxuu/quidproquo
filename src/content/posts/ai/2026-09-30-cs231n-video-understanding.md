@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-video-understanding-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 的 [Lecture 10 投影片](https://cs231n.stanford.edu/slides/2026/lecture_10.pdf)（92 頁，封面日期 2026-04-30）；錄影是 [Spring 2025 的 Lecture 10](https://www.youtube.com/watch?v=wElqklprhPE)（YouTube，約 1 小時 8 分，2025 課表列的講者是 Ruohan Gao）。2026 錄影只放在 Canvas，限修課生，兩個年份的內容可能有差異。
 >
 > 這是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 12 篇。
@@ -165,7 +167,7 @@ self-attention 的成本隨 token 數平方成長，所以投影片提出兩大�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

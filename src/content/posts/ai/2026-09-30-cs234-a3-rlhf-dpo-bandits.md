@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-a3-rlhf-dpo-bandits-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的作業與投影片；公開錄影是 [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)。所有事實都在 2026-09-30 打開 [作業頁](https://web.stanford.edu/class/cs234/assignments.html)、[A3 題目 PDF](https://web.stanford.edu/class/cs234/assignments/a3/hw3_questions.pdf)（8 頁）與作業頁連到的 [Google Drive 起始碼](https://drive.google.com/file/d/18HwwLiMIN9XSdK7QXqQjGyhyb_86Iz_Y/view)（下載後解壓逐檔看過）核對。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：題目、LaTeX 範本、起始碼與偏好資料都公開；拿不到的是 Gradescope 自動評分與官方解答。
 
 **系列位置**：上一篇 [從人類偏好學：Bradley-Terry、RLHF pipeline、DPO](/posts/ai/2026-09-30-cs234-rlhf-dpo)｜下一篇 [資料效率 I：bandit、regret、UCB](/posts/ai/2026-09-30-cs234-bandits-regret-ucb)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
@@ -226,7 +228,7 @@ x 是情境（狀態），y_w 是被偏好的動作（LLM 裡就是回應），y
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

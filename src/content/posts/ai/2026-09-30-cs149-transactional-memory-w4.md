@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-transactional-memory-w4-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 22 篇，也是最後一篇，接續 [L16 細粒度鎖與 lock-free](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)。範圍是 Lecture 17「Transactional Memory (Part I)」（2025-12-02）、Lecture 18「Transactional Memory (Part II) + AMA」（2025-12-04），以及 Written Assignment 4（課程首頁標 Dec 3）。
 
 用到的官方材料：
@@ -205,7 +207,7 @@ PDF 後面還有 12 道 PRACTICE PROBLEM，主題包括另一題 MSI 狀態表�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

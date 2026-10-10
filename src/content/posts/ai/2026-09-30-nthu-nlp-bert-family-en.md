@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-bert-family)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **This guide is based on the public Fall 2025 (114-1) materials of [Prof. Hung-Yu Kao's Natural Language Processing course at NTHU](https://github.com/IKMLab/NTHU_Natural_Language_Processing).** It is part 8 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The previous part is [Sub-word Tokenization](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization-en).
 
 The official material for this lecture is [W4_bert_and_its_family.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W4_bert_and_its_family.pdf) (58 slides), titled "ELMo, BERT, GPT, and T5 (BERT and its Family)", with recordings [Week 6 Tue.](https://www.youtube.com/live/U5HypcXrIgY) and [Week 6 Thu.](https://www.youtube.com/live/RNlcZjzbhDo) (in Mandarin). The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) places it in W6. The W9 row's Topics column does say "ELMo, BERT, GPT, and T5", but the file attached there is the PEFT deck. The Topics column is a syllabus template; this guide goes by the attached files.
@@ -246,7 +248,7 @@ Slide 58's takeaways close the three roads in three lines: the BERT family pretr
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

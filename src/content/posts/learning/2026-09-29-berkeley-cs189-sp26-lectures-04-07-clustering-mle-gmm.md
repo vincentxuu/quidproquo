@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）。版本選擇見[版本地圖](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)；前一段是 [Lec 1–3](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics)。
 
 前三講講的是工具與流程。從第 4 講開始，課程第一次需要機率。跳躍的幅度不小：兩週內要從「分群」走到「最大概似估計」「多變量高斯」「混合模型」。這四講的串法很清楚，每一步都在修補上一步的弱點：
@@ -190,7 +192,7 @@ Discussion 3 的 MLE 題是這四講最重要的練習：它把 Lec 5 的 MLE �
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-offline-rl-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：依據 Spring 2026 的 [07_cs224r_offline_rl_2026 投影片](https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf)（課表日期 2026-04-22）。配套影片是 [Spring 2025 L7 錄影（補充）](https://www.youtube.com/watch?v=lRDaXnPIzks)，標題相同，但切分不同：[2025 的 L7 投影片](https://cs224r.stanford.edu/spring_2025/slides/07_cs224r_offline_rl_2025.pdf)把「implicit policy constraint」和「conservative methods」（[CQL](https://arxiv.org/abs/2006.04779)）並列為兩類方法，課表也把 CQL 列為指定閱讀；2026 版的第二類改成 IQL 的 expectile 做法，指定閱讀只剩 [IQL](https://arxiv.org/abs/2110.06169)。看影片時遇到 CQL 的段落，是 2026 投影片沒有的內容。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 9 篇。
 
 前面幾講（[L3 policy gradients](/posts/ai/2026-09-30-cs224r-policy-gradients) 到 [L6 Q-learning](/posts/ai/2026-09-30-cs224r-q-learning)）都有一個共同假設：policy 可以一邊學、一邊到環境裡收新資料。[CS224R](https://cs224r.stanford.edu/) 的第七講拿掉這個假設。現在你只有一批固定的資料，不能再互動，要怎麼學？
@@ -213,7 +215,7 @@ SAC 這類 off-policy actor-critic 本來就能用 replay buffer 裡的舊資料
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

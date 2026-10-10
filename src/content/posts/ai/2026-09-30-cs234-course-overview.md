@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-course-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：投影片、作業、專題規格與評分依據 Winter 2026（2026-01-05 開課，3 月結課）。公開錄影是 Spring 2024 版（YouTube），只當聽講補充，差異下面逐項標出。本文是 Stanford CS234 導讀系列的第 0 篇，也是入口。
 
 [CS234: Reinforcement Learning](https://web.stanford.edu/class/cs234/) 是 Emma Brunskill 在 Stanford 開的強化學習課。Winter 2026 每週一、三下午 3:00–4:20 上課，課表從 1 月 5 日排到 3 月 17 日交期末報告。
@@ -233,7 +235,7 @@ Tutorials 是 2026 版的新設計。[第一講投影片](https://web.stanford.e
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

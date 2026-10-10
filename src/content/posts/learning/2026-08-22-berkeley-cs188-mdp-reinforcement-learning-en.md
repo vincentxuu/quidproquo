@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 Search assumes successors can be enumerated. Reinforcement learning must act under uncertain outcomes and delayed rewards. [Lectures 9–12](https://inst.eecs.berkeley.edu/~cs188/sp26/) establish MDPs and then RL; [Project 3](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj3/) implements value iteration, Q-learning, epsilon-greedy exploration, and approximate Q-learning.
 
 ## Course video sources
@@ -50,7 +52,7 @@ Series navigation: [Previous: CSPs and multi-agent search](/posts/learning/2026-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

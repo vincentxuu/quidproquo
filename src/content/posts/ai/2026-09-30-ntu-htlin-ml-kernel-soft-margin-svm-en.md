@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is part 10 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en). It covers Lecture 3, Kernel Support Vector Machine, and Lecture 4, Soft-Margin Support Vector Machine, of [Machine Learning Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/).
 
 **Sources**: the MOOC slides [203_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/203_handout.pdf) and [204_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/204_handout.pdf), videos 10–17 of the [Techniques YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2), the [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) and [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) course pages, and [Fall 2024 HW6](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf), all opened and checked on 2026-09-30. The textbook sections are [LFD](http://amlbook.com) e-8.3 (kernels) and e-8.4 (soft margin), as listed on both course pages; I did not open the chapter itself.
@@ -221,7 +223,7 @@ Series navigation: previous, [Linear SVM and dual SVM](/posts/ai/2026-09-30-ntu-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

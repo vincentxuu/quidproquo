@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-control-flow)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 An `addq` result still fits in one 64-bit register, but multiplying two 64-bit values can require 128 bits. Division is stranger still: the dividend spans `%rdx:%rax`, and the quotient and remainder return to those two registers. Stanford CS107 Lecture 17 first completes this family of ALU operations—one written operand with several implicit register effects—then asks a more fundamental question: how does the CPU know where the next instruction is?
 
 The answer is `%rip`. Ordinarily it advances by the encoded length of the current instruction; at a `jmp`, it becomes the named target. This lecture deliberately stops at unconditional jumps. It does not yet introduce condition codes or conditional branches. Importing later flags, `cmp`/`test`, `jcc`, or function-call stack mechanics would obscure the basic model built here from instruction bytes.
@@ -230,7 +232,7 @@ For control flow:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

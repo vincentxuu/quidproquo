@@ -14,6 +14,8 @@ description: "CS224V NLP Building Blocks: historical OCR gaps, HDML, CHURRO-DS, 
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-churro-historical-documents)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 The schedule labels Lecture 12 “NLP Building Blocks,” while its deck is specifically “Vision-Language Models to Make Historical Documents Accessible.” It is not a general NLP-components survey. It presents [CHURRO](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf) from representation and data through model and historical-research application.
@@ -110,7 +112,7 @@ The course site provides slides but no recording or complete reproducibility bun
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

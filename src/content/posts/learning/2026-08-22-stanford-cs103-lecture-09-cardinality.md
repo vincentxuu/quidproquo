@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-09-cardinality-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 10 篇，對應 **Spring 2026 官方 Lecture 8（2026-04-17）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講官方題目是 **Set Theory Revisited**，實際主線是先把 injection 與 surjection 合成 bijection，再用雙射定義「兩個集合有相同基數」，最後正式證明第一講預告的 Cantor 定理。重點不是把有限計數硬套到無限集合，而是重新定義「一樣多」所需的證據。
@@ -159,7 +161,7 @@ y ∈ D  iff  y ∉ f(y).
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：依官方完整投影片重建雙射、區間等勢、基數性質與 Cantor 對角論證，並同步英文版與研究 checklist。
 
 ## 參考資料

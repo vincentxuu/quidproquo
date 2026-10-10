@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide is based on the [official HW3 folder](https://drive.google.com/drive/folders/1M6ii2VAJR63485TaDK0yKhcfT1bHdRIO) of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). It holds three files: the written problems [hw3.pdf](https://drive.google.com/file/d/18EVIcfx9eH3XG7w_S1XEn3QthMNdRTCt/view) (16 pages), the LaTeX template `hw3_student.tex`, and the coding assignment [hw3.ipynb](https://drive.google.com/file/d/17GdkCG486LIoROrwYg-3w0OxP12Azb1d/view). The schedule gives the deadline as **Sunday 4/12, 11:59 PM PT**, and lists HW3 in week 9, the week of the midterm (3/17).
 
 It follows directly from [Lec 17–18 (neural networks and backprop)](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en). In lecture you watched the chain rule run on a computation graph; HW3 has you turn it into a small working PyTorch. In the notebook's own words, you extend the single-variable autograd from lecture to general tensors, mimicking how `torch`'s autograd is implemented.
@@ -156,7 +158,7 @@ The optional Q5 is a simplified Muon: approximate the orthogonalization `UVᵀ` 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

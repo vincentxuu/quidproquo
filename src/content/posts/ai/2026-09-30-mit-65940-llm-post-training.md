@@ -29,6 +29,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-llm-post-training-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 18 篇。
 
 **系列位置**：上一篇 [Fall 2026 補充：Lab 1 GPU Basics](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics)｜下一篇 [L15 長上下文 LLM](/posts/ai/2026-09-30-mit-65940-long-context-llm)｜[系列總覽](/posts/ai/2026-09-30-mit-65940-course-overview)
@@ -199,7 +201,7 @@ $$
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Lectures 5–10 form the algorithmic core. The [official agenda](https://rail.eecs.berkeley.edu/deeprlcourse/) covers Policy Gradients, Actor Critic, Value-Based RL, Q-learning in Practice, and two Advanced Policy Gradients lectures. Read them by asking what is estimated, where data comes from, and how bias trades against variance.
 
 ## Course video sources
@@ -43,7 +45,7 @@ Explain why policy gradients have high variance, how a critic trades variance fo
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

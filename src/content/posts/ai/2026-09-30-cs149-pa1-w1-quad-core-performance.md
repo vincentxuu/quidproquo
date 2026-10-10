@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 4 篇，對應 [Programming Assignment 1: Analyzing Parallel Program Performance on a Quad-Core CPU](https://github.com/stanford-cs149/asst1)（Fall 2025 截止日 10 月 6 日）與 [Written Assignment 1](https://gfxcourses.stanford.edu/cs149/fall25content/static/pdfs/written_asst1.pdf)。
 
 本文只寫題目在練什麼、該觀察什麼、往哪個方向想。**不附解答。** 這兩份作業的價值就在自己量、自己解釋。
@@ -166,7 +168,7 @@ Problem 3 就是上一篇洗衣服比喻的考題版，Problem 4 則是上一篇
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

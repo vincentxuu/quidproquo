@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-data-curation-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **CS336 Spring 2026 Lecture 14: Data (filtering, deduplication, mixing, synthetic data)**，2026 年 5 月 13 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_14.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_14.py)。
 
 Lecture 13 找 raw sources；這一講決定哪些內容真正進入 token stream。Filtering、dedup 與 mixing 常被叫做 preprocessing，實際上每一步都在定義模型會學到的分布。
@@ -75,7 +77,7 @@ Software-engineering data 更難。可從 GitHub PR 建真實 tasks、讓模型�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

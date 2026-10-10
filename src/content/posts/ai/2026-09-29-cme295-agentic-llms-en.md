@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-agentic-llms)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This post covers Lecture 7 of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), "Agentic LLMs," from the 2025 edition (November 14, 2025). The main source is the [151-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=h-7S6HNq0Vg) (1h49m). Everything here comes from what is written on the slides; nothing said only out loud in class is included.
 
 The previous lecture on [reasoning models](/posts/ai/2026-09-29-cme295-llm-reasoning-en) tackled the first LLM weakness, limited reasoning. This lecture's opening slide lists the rest: knowledge is static, the model cannot perform actions, and it is hard to evaluate. The first two are today's topic; the last is left for [Lecture 8](/posts/ai/2026-09-29-cme295-llm-evaluation-en). The three fixes stack on top of each other:
@@ -294,7 +296,7 @@ These questions are adapted from Part III, "Agentic LLMs," of the [2025 final ex
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Spring 2023 edition of [CS224U](https://web.stanford.edu/class/cs224u/), the last fully public on-campus version. The assignment notebook is still in the [GitHub repo](https://github.com/cgpotts/cs224u); every fact was checked against the official materials on 2026-09-29. Access grade **A3**: the questions, data, unit tests, original-system rules, and overview video are all public, which is enough to self-study. What you can't get is the Gradescope autograder, the bake-off leaderboard, and the teaching team's results report.
 
 **Series**: Previous: [Contextual Representations II: Model Families](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families-en) | Next: [Information Retrieval](/posts/ai/2026-09-29-cs224u-information-retrieval-en) | [Series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
@@ -169,7 +171,7 @@ One thing to do tonight: open the notebook, read only the four directions in Que
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

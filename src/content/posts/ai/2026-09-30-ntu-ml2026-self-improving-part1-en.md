@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post covers the May 8 lecture "模型的自我成長 - 1" (Self-Improving, part 1) of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 15 of the series [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en). The previous post is [HW6: Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing-en). The lecture before that, [Self-Correction](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en), asked whether a model can fix its own mistakes. This one goes a level deeper: **can a model get better without humans?**
 
 Official materials: the slides [Self-Improving.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Improving.pdf) (62 pages, plus a [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Improving.pptx)) and the video listed on the course page, [AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://youtu.be/s06mSAGN4gM) ("Is AI about to cross the Rubicon? How far away is self-improving AI, part 1"; in Mandarin). Access rating: **A3**. The slides and the full recording are public, and the recording has Chinese captions. There is no quiz for this lecture. Most slides are images, so this post follows the captions for the argument. Every paper cited on the slides was checked against arXiv for its title.
@@ -219,7 +221,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

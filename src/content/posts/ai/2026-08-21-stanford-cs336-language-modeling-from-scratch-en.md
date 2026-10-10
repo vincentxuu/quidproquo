@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [CS336: Language Modeling from Scratch](https://cs336.stanford.edu/) is a five-unit course taught by [Tatsunori Hashimoto](https://thashim.github.io/) and [Percy Liang](https://cs.stanford.edu/~pliang/). You start from raw bytes and build the whole pipeline yourself: tokenizer, Transformer, GPU kernels, multi-machine parallelism, scaling laws, data cleaning, post-training. The course page states the model it copies — the systems class where you write an operating system over a semester, with the operating system swapped for a language model.
 
 In the full [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en) it is the only course marked **Application required**, and the only one you cannot finish without spending money. The map post already placed it on the ladder. This post is about what happens once you're inside.
@@ -200,7 +202,7 @@ If you have one afternoon and don't want to write code, open the `lecture_01` tr
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

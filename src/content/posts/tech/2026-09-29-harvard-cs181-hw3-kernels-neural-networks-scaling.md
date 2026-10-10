@@ -26,7 +26,9 @@ glossary:
 
 > 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling-en)
 
-> ⚠️ **版本與存取**：本篇以 [CS181 s26 homeworks 的 hw3](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw3) 與 [2026 官方 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準。Section 4、5 是 **Spring 2026** 講義；課站的 NN 與 SVM scribe notes 是 **2024 學期**筆記（lec10 標頭 `2/22/24`）。2026 的 Neural Networks II／III、CNNs 與 scaling law 內容沒有對應的公開講義，本篇不推測講課內容。整門課為 **A3**：作業與 section 解答公開，無當期錄影、無作業解答。
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
+> ⚠️ **版本與存取**：本篇以 [CS181 s26 homeworks 的 hw3](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw3) 與 [2026 官方 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準。Section 4、5 是 **Spring 2026** 講義；課站的 NN 與 SVM scribe notes 是 **2024 學期**筆記（lec10 標頭 `2/22/24`）。2026 的 Neural Networks II／III、CNNs 與 scaling law 內容沒有對應的公開講義，本篇不推測講課內容。整門課為 **A3**：作業與 section 解答公開，官方課表未列對應講次的公開錄影、無作業解答。
 
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/) HW3 的標題是 **Neural Networks and Kernels**，依 `hw3_release.tex` 截止時間是 2026 年 3 月 23 日 23:59。三題的配分是 30、20、50，佔一半分數的是第三題：**自己量 scaling law**。
 
@@ -34,11 +36,14 @@ glossary:
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -153,7 +158,7 @@ L(N, D) ≈ a / N^α  +  b / D^β  +  L∞
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-transformer-tricks-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 2 講「Transformer-based models & tricks」（2025 年 10 月 3 日）。主要來源是 [109 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture2.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=yT84Y5zCnaA)（1 小時 47 分）。本文只根據投影片上的內容寫，投影片沒寫的地方會標明。
 
 [第 1 講](/posts/ai/2026-09-29-cme295-transformer)組好了一台 2017 年的[原始 Transformer](https://arxiv.org/abs/1706.03762)。可是你今天用的 LLM，位置編碼、正規化、attention 的做法幾乎都換過了，而且只留下 decoder 那一半。第 2 講就是這張改裝清單：同一台機器，哪些零件被換掉、為什麼換，以及拆成不同半邊之後長出了哪些模型家族。
@@ -254,7 +256,7 @@ BERT 這一支沒有消失。投影片說它在業界「凡是跟 encoding 有�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)的第 13 篇。ADL Fall 2025（114-1，2025/09/01–12/15）在 11/03 上這一講，[課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)的同一列還有「Final Project Announcement」與助教課 LLM Deployment，這一週是實體課（Physical）。
 
 **本文依據**：講義 [Issues and Development in PLMs: Fairness, Safety, Factuality, Alignment（251103_Issues.pdf）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/251103_Issues.pdf)（42 頁），以及三支影片：[10.1 Fairness for Bias Mitigation 如何讓有偏見的模型更公平?](https://youtu.be/3BAFtBS27UI)（24:53）、[10.2 Model Safety 模型不產生有害內容更安全](https://youtu.be/V2Pot_Uv31E)（23:46）、[10.3 Factuality for Hallucination Mitigation 減少幻想讓資訊更符合事實](https://youtu.be/v9Vqk_mfDyA)（33:43）。三支影片的說明欄都標 2025/11/03，並註明投影片取材自 Stanford 與 CMU 的課程；講義最後一頁也列出這兩個出處。講義於 2026-09-30 打開核對，本文頁碼都指講義 PDF。
@@ -187,7 +189,7 @@ title: ADL 10.2: Model Safety（YouTube）
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

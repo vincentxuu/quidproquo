@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-data-parallel-thinking)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the slides for Lecture 8 of [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25), Fall 2025 (October 16), [Data-Parallel Thinking](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/) ([PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/dataparallel/08_dataparallel.pdf), 51 pages), checked on 2026-09-30. Fall 2025 recordings are on Canvas only; the substitute the official homepage points to is the [2023 Lecture 8 video](https://www.youtube.com/watch?v=Ba3TqxSgnTk). I did not compare the two versions segment by segment, so the 2025 slides are the authority here. Access grade **A3**.
 
 **Series**: Previous: [Lecture 7: GPU Architecture and CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en) | Next: [PA3 CUDA Circle Renderer + Written 2](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
@@ -187,7 +189,7 @@ One thing you can do tonight: pick a piece of code you've written that accumulat
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

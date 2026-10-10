@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Week 7 is midterm checkpoint week. Monday (Nov 2) covers data selection and quality, Wednesday (Nov 4) covers evaluation fundamentals and benchmark design. That same week the recorded midpoint demo video is due Wednesday at 11:59 p.m. (no in-class presentation) and the midway report is due Friday. Data and scores sharing one week is no coincidence: the demo video argues with numbers, the report accounts for where the data came from.
 
 A framework first, for newcomers. The course defines an agent evaluation as a 4-tuple: the request states the task, the environment is the world the agent can act in, the stopping criteria say when it is done, and the scorer decides the grade. Drop any one of the four and the number means nothing.
@@ -68,7 +70,7 @@ After Week 7 comes judgment: Wednesday's demo video argues with scores, Friday's
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: the midpoint demo became a recorded video (due Wed Nov 4 at 11:59 p.m., no in-class presentation); rewrote the opening and course-position passages to match
 
 ## References

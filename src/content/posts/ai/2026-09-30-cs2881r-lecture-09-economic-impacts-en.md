@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the October 30 session on the [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 site, the [Lecture 9 recording](https://youtu.be/4vQSMijp_M8) (YouTube title "Lecture 9: Economic Impacts of AI", about 2 h 32 min), the four pre-readings, and Boaz Barak's blog post [Thoughts by a Non-Economist on AI and Economics](https://windowsontheory.org/2025/11/04/thoughts-by-a-non-economist-on-ai-and-economics/), which the course homepage lists. I checked every fact against the official materials on 2026-09-30. Recording content comes from YouTube's auto-generated captions; names follow the course site's spelling. **Materials for this lecture**: the recording and reading list are public. The site lists no slides and its experiment field says "To be determined", though the recording does include a student experiment. The [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) covers access grading and gaps for the whole course.
 
 **Series**: previous [L7: Capabilities vs. Safety](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en) | next [L11: Chatbots, Emotional Reliance, and Mental Health](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
@@ -176,7 +178,7 @@ One thing to do tonight: open the Canaries paper, find the appendix figure behin
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Edition note**: this guide follows the [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 assignments and slides. The public recordings are the [Spring 2024 edition](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Every fact was checked on 2026-09-30 against the [assignments page](https://web.stanford.edu/class/cs234/assignments.html), the [A2 question PDF](https://web.stanford.edu/class/cs234/assignments/a2/CS234_A2_Questions.pdf) (11 pages), and the [starter-code zip](https://web.stanford.edu/class/cs234/assignments/a2/assignment2_starter_code.zip). Access level **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): questions, LaTeX template, and starter code are public. Gradescope grading, TA answers on Ed, and official solutions are not.
 
 **Series**: previous [Advanced policy gradients: performance bounds, KL, PPO, GAE](/posts/ai/2026-09-30-cs234-ppo-gae-monotonic-improvement-en) | next [Learning from demonstrations: BC, DAgger, IRL, MaxEnt IRL](/posts/ai/2026-09-30-cs234-imitation-learning-irl-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -197,7 +199,7 @@ One thing to do tonight: sketch the clipped PPO objective as a function of z, on
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

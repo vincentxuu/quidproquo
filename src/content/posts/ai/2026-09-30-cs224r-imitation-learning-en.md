@@ -31,6 +31,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-imitation-learning)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source year**: based on the Spring 2026 [02_cs224r_imitation_2026 slides](https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf) (2026-04-03). The companion video is the [Spring 2025 L2 recording (supplement)](https://www.youtube.com/watch?v=WxRDyObrm_M). The title matches, but the slides were revised for 2026, so details may differ. This is post 2 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
 The [previous lecture](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en) stopped on a problem. When the same situation in the demonstrations has two reasonable responses, a policy trained with ℓ2 regression learns their average, an action no one demonstrated. This lecture starts there.
@@ -221,7 +223,7 @@ Almost no demonstrations sit near the mean. Then download the [HW1 starter code]
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

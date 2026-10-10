@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 15 篇，也是多模態單元的收尾。前一篇 [L14–L15：Cross-attention、DiT、Prompt-to-Prompt 與 Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer) 講了文字條件從模型的哪裡注入，這一篇看作業怎麼要你親手把一個只認得 10 個類別的擴散模型改成吃文字。
 
 用到的官方材料：[Coursework 頁](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)上的 [hw4.zip](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw4.zip)（內含 30 頁的「S26 10423 HW4.pdf」、起始碼與單元測試）、[Overleaf 唯讀模板](https://www.overleaf.com/read/fvnjnmymbzmt#bd53e3)、[課程講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)，以及 [Lecture 15 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture15-querying-scaling.pdf)的 Querying Transformer 段。全部在 2026-09-30 下載核對。
@@ -189,7 +191,7 @@ python train_qformer.py \
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

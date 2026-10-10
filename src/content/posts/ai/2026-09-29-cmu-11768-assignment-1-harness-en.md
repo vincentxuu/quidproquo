@@ -30,6 +30,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 The first assignment in [CMU 11-768 AI Agents](https://www.cmu-agents.com/) ([series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en)) is **Build an Agent Harness**. The [starter code is on GitHub](https://github.com/cmu-agents/assignment-1), it was due Monday, September 14, 2026 (per the [course's Assignments page](https://www.cmu-agents.com/#/assignments)), and it was written by TAs Weiwei Sun and Saujas Vaduguru. The handout opens with a precise definition: a harness is the interface that lets a language model — something that produces probable strings — **observe and act in an environment**. You build that interface from scratch in the [ReAct](https://arxiv.org/abs/2210.03629) framework.
 
 What makes the assignment interesting is its structure: one `Agent` base class and one ReAct loop have to carry three very different agents. You see firsthand that a harness's skeleton is generic; only the prompts, tools, and observation formats change with the domain. That is exactly the definition on the [L6 Coding Agents](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) slides: Harness = prompts + tools + agent loop + context management.
@@ -38,11 +40,13 @@ This post covers only the requirements, architecture, grading, and design trade-
 
 ## Course video sources
 
-The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+This is an assignment walkthrough with an official course entry. A dedicated recording for this assignment has not been verified. Some lectures are public, but they do not establish a dedicated assignment video.
 
-Course and recording entries:
+Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## How the three parts connect
 
@@ -223,7 +227,7 @@ The assignment depends on Modal and course-provided model credits; outside the c
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-28-wrap-up)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 29 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 27, Spring 2026 (2026-06-01)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/27/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/27/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The official topic is **Wrap-Up**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
@@ -102,7 +104,7 @@ The public deck explicitly supports the sections on the role of this lecture and
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rechecked the role of this lecture and term-specific announcements against the official deck, removed dead handout links, and revised metadata and wording after clean review.
 
 ## References

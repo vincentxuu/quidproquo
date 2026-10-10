@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-diffusion-llms-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 > **課前預寫版**：本篇寫於 2026 年 9 月 29 日，2026 版第 8 講（2026 年 11 月 20 日）尚未開課。內容根據 2026 課表的主題清單、2025 版投影片中已講過的部分，以及原始論文整理；影片與投影片上架後會對照更新。
 
 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2026 版在第 8 講放了一整堂「Diffusion LLMs」。[2026 課表](https://cme295.stanford.edu/syllabus/)列的子題有五個：continuous diffusion、discrete diffusion、masked diffusion、training、inference。2026 第 1 講[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)裡「Difference with last year's edition」那一頁，也把 Diffusion LLMs 列為三項新內容之一。
@@ -385,7 +387,7 @@ Fast-dLLM 的解法是不固定每步解幾格，改設一個**信心門檻**：
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

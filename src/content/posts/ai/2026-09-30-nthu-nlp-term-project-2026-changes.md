@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據清大高宏宇《自然語言處理》Fall 2025（114-1）與 Fall 2026（115-1）的官方教材。** 這是 [清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列第 19 篇，也是最後一篇，接續[課程總結與 LLM Reasoning 筆記](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning)。
 
 前 18 篇照 Fall 2025 的教材走完了一學期。這一篇處理兩件前面沒講的事：2025 年占三成的期末專題要做什麼，以及 2026 年的課改了哪些地方。
@@ -174,7 +176,7 @@ HW1 的主題仍是 Word Analogy，說明影片是 [4nktsdfU24k](https://youtu.b
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-x86-64)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 To a processor, a C `for` loop no longer has variable names, an `int` type, or array syntax. It consists of bytes at addresses, values in registers, and jumps that change the location of the next instruction. Stanford CS107 Lecture 14 marks the course's transition from C's memory model to machine-level execution. It does not ask students to author assembly from a blank page. It teaches them to inspect compiler-generated x86-64 and identify which pieces collectively implement the original C.
 
 This lecture establishes only the first layer of that reading skill. The disassembly of `sum_array` contains ten instructions. The slides first explain the columns in that output, then connect assembly to machine code, introduce the processor's sixteen general-purpose registers, and show how a compiler lowers high-level work into loading, operating, and storing. The official calendar also previews addressing modes, data widths, and variants of `mov`, but the public slides only begin those subjects here; Lecture 15 carries most of that detail forward.
@@ -260,7 +262,7 @@ If you do only one exercise, compile five lines of C to both a `.s` file and an 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

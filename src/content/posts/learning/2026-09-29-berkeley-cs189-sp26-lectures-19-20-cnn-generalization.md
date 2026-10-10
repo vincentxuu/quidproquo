@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的官方教材寫成：第 19 講的 [lec19.pdf](https://drive.google.com/drive/folders/12L6CYQ-h128-bzFPU1RvX1aJnFvWQ6Hi)（4/2，[錄影](https://www.youtube.com/watch?v=-4PpBUsB_S4)）、第 20 講的 [lec20.pdf](https://drive.google.com/drive/folders/1Ocw82WCz2SiUEDY9uofdfyZuPX4GrfOw)（4/7，[錄影](https://www.youtube.com/watch?v=4LrCyN7URuY)），以及 [Discussion 9](https://drive.google.com/file/d/1Aa40Z2Ufa91YBNAlhfwsHG2JCT23T2SA/view)（附[解答](https://drive.google.com/file/d/16n2T86Vx2bneCubkQ7b52MV8c8wwFUyF/view)與 [walkthrough 影片](https://www.youtube.com/playlist?list=PL-ysCubq-Sa8dQDvhNbABwFT3JWWBTRAW)）。以上都能匿名取得，整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
 [上一篇 Lec 17–18](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop) 回答了「梯度怎麼算」。這兩講接著問兩件事：梯度算得出來之後，怎麼讓它在訓練中**一直流得動**？以及，全連接層之外，有沒有更適合影像的架構？最後 Lec 20 回到前半學期的老問題：模型要多複雜才對？
@@ -170,7 +172,7 @@ Discussion 9 兩題都沿用 Fall 2025 的 discussion（講義標注 F25 Dis8 Q1
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

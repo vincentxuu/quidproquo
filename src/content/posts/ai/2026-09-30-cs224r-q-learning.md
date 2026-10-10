@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-q-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 7 篇，接續 [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)，對應 2026 年 4 月 17 日的第 6 講「Q-learning」，以及同一天下午 4:45 在 Thornton 102 的 TA 加課「Extra section on Q-learning」。
 
 用到的官方材料：
@@ -233,7 +235,7 @@ TA 講義最後兩節是 DQN walkthrough 和 Soft Actor-Critic，PDF 上只有�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

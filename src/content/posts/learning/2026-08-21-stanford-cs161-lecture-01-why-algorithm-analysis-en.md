@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-01-why-algorithm-analysis)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is post 2 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 1**. Ellen Vitercik taught the lecture on January 5, 2026, under the official title [Why are you here?](https://stanford-cs161.github.io/winter2026/lectures/#lecture-1-why-are-you-here). The public materials include notes, a 70-slide deck, and links to a notebook and concept checks. This article uses the notes and slides. The recording is available only through Canvas, so I did not use it as a source.
 
 The first lecture does not begin by asking students to memorize a definition of an algorithm. It picks a task everyone already knows: integer multiplication. Grade-school multiplication gives the correct product, but knowing how to compute an answer and knowing how the work scales are different skills. The lecture uses this one example to connect all three course goals: design a different algorithm, analyze its growth, and communicate the reason clearly enough for someone else to check.
@@ -194,7 +196,7 @@ A useful experiment is to record two measurements separately: the number of sing
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

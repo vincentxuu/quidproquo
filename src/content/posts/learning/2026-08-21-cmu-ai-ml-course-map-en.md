@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-cmu-ai-ml-course-map)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 CMU differs from the previous stops in this series. It has a formal [Bachelor of Science in Artificial Intelligence](https://www.cs.cmu.edu/bs-in-artificial-intelligence/curriculum), and it is actively rewriting that degree's foundation. **07-280 Artificial Intelligence and Machine Learning I** debuted in Spring 2026. Its sequel, **07-380**, will not be taught for the first time until Fall 2026. The old 15-281 Artificial Intelligence and 10-315 Introduction to Machine Learning for SCS are leaving the regular path.
 
 That produces an apparent contradiction with a useful answer: **look at 07-280/380 to understand what CMU now believes an AI undergraduate should study, but use the completed Spring 2026 remains of 07-280 or the continuing 10-301/601 course if you want something executable outside CMU today.** A future Fall 2026 page is not yet a completed public course.
@@ -164,7 +166,7 @@ For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-m
 ## Changelog
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-01: Added 10-423/623/723 Generative AI (Spring 2026: 26 lecture decks, HW1–HW4, and practice exams with solutions public, recordings in Panopto, A3) to the materials inventory and the deep-dive branch, with a link to this site's guide; added the course site to References.
 - 2026-09-30: Added 11-868 LLM Systems (Spring 2026: 28 slide decks and seven MiniTorch assignments all public, no recordings, GPU required, A3) to the public-material inventory and the systems branch, with a link to this site's guide.
 - 2026-09-29: Rechecked after Fall 2026 began: 07-280 Fall 2026 moved to A2→A3 (first 11 lectures and HW1–5 public), 07-380 updated to a full course site with current slide progress, 11-785 F26 videos rolling out lecture by lecture; added 11-768 AI Agents (table and branch route); added links to this site's 07-280, 10-301, 11-785, and 11-768 guides.

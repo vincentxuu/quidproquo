@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 台大資工系林軒田老師的[機器學習基石](https://www.csie.ntu.edu.tw/~htlin/mooc/)與機器學習技法，是很多中文讀者學機器學習理論的第一門課。兩門課都是 2015–2016 年在 Coursera 上開的中文 MOOC，教科書是他和 Yaser Abu-Mostafa、Malik Magdon-Ismail 合著的 [Learning from Data](http://amlbook.com)（下稱 LFD）。基石問的是「機器為什麼學得會」，一路講到 VC 維度與正則化；技法接著講 SVM、boosting、決策樹與神經網路。
 
 十年後，林軒田自己的台大課程仍然以這兩門 MOOC 為骨架：[Machine Learning, Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 採翻轉教室，每週的「required watching (before class)」就是 MOOC 影片。
@@ -170,7 +172,7 @@ W5 以後的列目前只有投影片連結（例如 `09u_handout.pdf`），打�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

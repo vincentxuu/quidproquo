@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-adversarial-and-generative)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > [The previous post](/posts/ai/2026-08-16-cs230-full-cycle-dl-project-en) walked the project lifecycle. This one goes back to the model itself — how it gets broken, and how it gets used to generate things.
 
 This post covers **[Lecture 4: Adversarial Robustness and Generative Models](https://www.youtube.com/watch?v=aWlRtOlacYM)** (2025/10/14, Kian Katanforoosh, 1 hour 47 minutes).
@@ -386,7 +388,7 @@ For people building LLM applications, the directly portable piece is **indirect 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

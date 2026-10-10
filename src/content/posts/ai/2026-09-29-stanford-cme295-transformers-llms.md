@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 [CME295: Transformers & Large Language Models](https://cme295.stanford.edu/) 是 Stanford 計算與數學工程（CME）課號下的課，授課者是 Afshine Amidi 和 Shervine Amidi。兩人都做過 Uber、Google、Netflix，很多人更早是從他們替 Stanford CS 230 做的 [VIP cheatsheets](https://stanford.edu/~shervine/teaching/cs-230/) 認識他們，這門課的投影片也大量沿用那套圖。
 
 這門課用九堂課，從 tokenization 一路講到 AI agent 和 LLM 評估，每堂課錄影都是一小時四十多分鐘。它不教你寫程式，教的是一張地圖：Transformer 怎麼變成 LLM、LLM 怎麼被訓練和對齊、又怎麼被包成會用工具的 agent。
@@ -137,7 +139,7 @@ flowchart LR
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-evaluation-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 8 講「LLM evaluation」（2025 年 11 月 21 日）。主要來源是 [170 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture8.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=8fNP4N46RRo)；本文只根據投影片上的內容寫。
 
 你改了一行 system prompt，想知道回答有沒有變好。模型吐出來的是自由文字，沒有標準答案可以對。找同事來評？兩個人對同一句話的打分不一定一樣，而且評一百題要一整天。這一講回答的就是這個問題：LLM 的輸出要怎麼評，哪些評法可以信到什麼程度。
@@ -266,7 +268,7 @@ k 越大，pass^k 越低、pass@k 越高。兩個數字可以差很遠。
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

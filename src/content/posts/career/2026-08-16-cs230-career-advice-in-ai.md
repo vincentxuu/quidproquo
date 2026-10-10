@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/career/2026-08-16-cs230-career-advice-in-ai-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > [上一篇](/posts/ai/2026-08-16-cs230-agents-prompts-rag)講了 agent 的完整縱軸。這一篇是整個系列唯一不談技術的一講。
 
 本篇對應 **[Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)**（2025/11/18，1 小時 45 分）。這是全系列**第二高流量**的一講（43.7 萬觀看），也是唯一一講**有外部客座、而且客座講了八成時間**。
@@ -464,7 +466,7 @@ ARM 的 **SME（Scalable Matrix Extensions）** 讓 AI 工作負載跑在 **CPU*
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

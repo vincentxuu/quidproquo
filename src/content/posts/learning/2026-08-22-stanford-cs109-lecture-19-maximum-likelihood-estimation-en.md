@@ -15,17 +15,23 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 20 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 19** (Jul 23). The schedule calls it **MLE**, while the lecture page uses **Maximum Likelihood Estimation**; Chris Gregg is the instructor. This guide follows the current [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture19-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture19-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture19-LLMPrompts.pdf), and course reader.
 
 The lecture remains **L2**. Its three-page worksheet has P1–P6 plus an optional challenge. The two-page public key deliberately omits P5 and the challenge because they are pset6 problems. The three-page guide has six concepts; its last page only continues Concept 6 and the wrap-up. Current slides are unavailable and video is Canvas-gated, so this article stays within public artifacts.
 
 ## Course video sources
 
-This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
 
-Course and recording entries:
+Official sources:
 
-- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+
+Checked on 2026-10-10.
 
 ## P1: Connect entropy to parameter learning
 
@@ -146,7 +152,7 @@ For the wrap-up, request one problem chaining model and `θ` identification, lik
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

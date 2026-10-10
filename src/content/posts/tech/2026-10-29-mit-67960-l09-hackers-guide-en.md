@@ -23,6 +23,8 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2026-10-29-mit-67960-l09-hackers-guide)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**; references include *Recipes for Training Neural Networks* and Google's *Rules of ML*.
 
 ---
@@ -113,7 +115,7 @@ The value of this lecture is not any single trick but **establishing a controlla
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

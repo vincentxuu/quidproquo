@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-05-search-modeling-dp)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This article covers **Stanford CS221, Autumn 2025, Lecture 5**, taught by Percy Liang on 2025-10-06. The [course site](https://stanford-cs221.github.io/autumn2025/) provides the schedule and assignments; this article follows the code and prose order of the [executable search artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=search).
 
 > Material gap: the source provides this executable lecture only. This article does not fill in route-assignment solutions, other lecture slides, or experiments not shown in the source.
@@ -118,7 +120,7 @@ The main lesson is not that DP always beats recursion. Modeling determines which
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

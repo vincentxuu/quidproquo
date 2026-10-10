@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-13-induction-1-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 14 篇，對應 **Spring 2026 官方 Lecture 12（2026-04-27）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講的官方題目是 **Mathematical Induction, Part I**。投影片先用全場依序做 wave 建立直覺，再寫出歸納原理；接著用二的冪次和示範正式證明，以假幣問題呈現遞迴式演算法，最後用錯誤證明與 MU puzzle 說明 base case 和不變量為何不可省略。這些例子都在追問同一件事：一個性質如何從目前狀態可靠地傳到下一個狀態。
@@ -173,7 +175,7 @@ Base case 是普通命題 `P(0)`，可以使用任何合法方法。歸納步驟
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-22：從官方 Lecture 12 完整投影片重建遺失正文，恢復二的冪次和、假幣問題、錯誤歸納與 MU puzzle 的逐段證明。
 
 ## 參考資料

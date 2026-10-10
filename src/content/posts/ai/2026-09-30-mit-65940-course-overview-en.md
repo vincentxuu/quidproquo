@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-course-overview)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) is a graduate course taught by [Song Han](https://songhan.mit.edu). His slide covers list him as Associate Professor at MIT and Distinguished Scientist at NVIDIA. The course URL, [efficientml.ai](https://efficientml.ai), redirects to MIT HAN Lab's [course page](https://hanlab.mit.edu/course). The course tackles a practical problem: models grow faster than hardware, so how do you compress and speed them up enough to run on a laptop, a phone, or a microcontroller with a few hundred KB of memory?
 
 The Fall 2024 course description lists model compression, pruning, quantization, neural architecture search, distributed training, data/model parallelism, gradient compression, and on-device fine-tuning, plus acceleration techniques for LLMs and diffusion models. It also promises a concrete hands-on result: students deploy Llama2-7B on their own laptop.
@@ -194,7 +196,7 @@ These site series overlap with 6.5940. This series still covers the overlapping 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

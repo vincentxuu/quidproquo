@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 這是 [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) Fall 2026 的 Lecture 7：**Low Rank Optimization: PCA**（9/16）。課站在這一講的主題欄寫的是「PCA (LoRA)」，這是 Optimization 模組的最後一講。
 
 前兩講（[Lec5 LP](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming)、[Lec6 IP](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming)）的限制都是線性不等式。這一講的限制換成「rank 不能超過 r」，objective 換成平方誤差。問題長得不一樣，但還是同一套思路：先寫成最佳化問題，再找出解的結構。
@@ -26,11 +28,13 @@ draft: false
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
 
 ## 官方材料與讀取範圍
 
@@ -169,7 +173,7 @@ Recitation 第 6 題的資料是 (1,2)、(2,3)、(3,2)、(4,3)。
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-lab1-music-generation)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 Lab 1 in the [official MIT 6.S191 2026 repository](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab1) is **Lab 1: Generate Music with PyTorch and an LSTM**. It covers tensors, autograd, and modules before turning ABC notation into character sequences for LSTM music generation. This article pins the 2026 branch so later changes to master do not silently alter the exercise.
 
 ## Course video sources
@@ -50,7 +52,7 @@ The [official notebook](https://github.com/MITDeepLearning/introtodeeplearning/b
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)的第 12 篇。ADL Fall 2025（114-1，2025/09/01–12/15）在期中考週之後的 10/27 上這一講，[課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)把這一週標為線上（Virtual）。
 
 **本文依據**：兩份講義 [NLG Decoding（251027_NLG.pdf）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/251027_NLG.pdf)（41 頁）與 [NLG Evaluation（251027_NLGEval.pdf）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/251027_NLGEval.pdf)（22 頁），以及五支影片：[9.1 Natural Language Generation 語言生成的詳細策略](https://youtu.be/1d9WhPS6gv8)（28:20）、[9.2 Decoding Algorithms 如何控制每次輸出哪個 Token 呢?](https://youtu.be/agHrC93u7w8)（28:34）、[9.3 Generation Control 控制輸出內容的特性](https://youtu.be/Jxg6MLpgKPM)（17:57）、[9.4 NLG Evaluation 評估語言生成的結果](https://youtu.be/gAsEAga1icM)（32:41）、[9.5 RL for NLG 進一步提升語言生成結果](https://youtu.be/Ly67whCaS4M)（15:27）。講義於 2026-09-30 打開核對，本文頁碼都指講義 PDF。
@@ -199,7 +201,7 @@ Beam size 的取捨在第 22 頁有個好例子：對一句「我主要吃生食
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

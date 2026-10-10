@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-intro-vision-history)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Source years**: slides are from Spring 2026; for a recording, see [Spring 2025 Lecture 1](https://www.youtube.com/watch?v=2fq9wYslV0A) on YouTube. They may differ; this post follows the 2026 slides. This is post 1 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series. For the course's positioning, grading, access gaps, and the 10-week plan, see the [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en).
 
 The first [CS231N](https://cs231n.stanford.edu/) lecture of 2026 was on March 31, taught by Fei-Fei Li and Ehsan Adeli. The [schedule](https://cs231n.stanford.edu/schedule.html) links two decks for it: [part 1](https://cs231n.stanford.edu/slides/2026/lecture_1_part_1.pdf) is a short history of computer vision and deep learning, and [part 2](https://cs231n.stanford.edu/slides/2026/lecture_1_part_2.pdf) is the course overview and rules.
@@ -149,7 +151,7 @@ The 2026 recordings are on Canvas only and closed to outside readers. If you wan
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

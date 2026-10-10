@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-cs107-integers-bits-bytes)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 A bit string has no intrinsic sign. `1011` can be unsigned 11 or 4-bit two's-complement -5. The storage does not change; the interpretation does. CS107 Lecture 3 builds precisely that distinction: establish a width, define an encoding, and only then interpret arithmetic results.
 
 This article follows the [official Winter 2026 Lecture 3 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/03/Lecture03.pdf) in full. Its organizing question is how a finite bit pattern can support unsigned values, signed values, and addition. By the end, you should be able to decode small patterns by hand and explain why “the processor appears to wrap” does not mean “C promises signed overflow will wrap.”
@@ -248,7 +250,7 @@ The next lecture turns bit patterns from passive number representations into fie
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

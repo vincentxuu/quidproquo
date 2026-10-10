@@ -20,6 +20,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 8 篇，接在 [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac) 和 [L6 Q-learning](/posts/ai/2026-09-30-cs224r-q-learning) 之後，介紹第二份作業「Online Reinforcement Learning」。
 
 作業在 2026 年 4 月 10 日（L4 當天）發下，4 月 24 日晚上 9 點（太平洋時間）交到 Gradescope，占總成績 15%。用到的官方材料有四份：
@@ -203,7 +205,7 @@ UTD（update-to-data ratio）是每走一步環境，做幾次 critic 梯度更�
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 本篇對應 Stanford **CS336 Spring 2026 Lecture 1: Overview, tokenization**，2026 年 3 月 30 日由 Percy Liang 主講。主要來源是官方的可執行講義 [`lecture_01.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_01.py)，不是用前一學期影片重建當期內容。
 
 這一講做兩件事。前半先回答「為什麼在已有 GPT、Claude、Gemini API 的年代，還要從零打造語言模型」；後半從原始位元組開始，實作 byte-level BPE tokenizer。兩段其實是同一件事：先找出會限制規模化的抽象，再親手拆開它。
@@ -95,7 +97,7 @@ Byte-level 起點解決了 unknown token：任何 UTF-8 輸入最後都能拆成
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

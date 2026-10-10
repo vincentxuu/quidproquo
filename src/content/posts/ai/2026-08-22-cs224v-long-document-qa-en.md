@@ -14,6 +14,8 @@ description: "CS224V Long-Document QA: training versus chunking, SLIDERS schemat
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-long-document-qa)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-longdoc-new.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 8 scales to sets of long documents. Comparing annual reports, medical records, news, or invoices requires evidence scattered across sections and files. A larger context window does not itself integrate documents or expose queryable intermediate state. SLIDERS converts text into a table tailored to the question.
@@ -108,7 +110,7 @@ The deck explicitly calls its evaluation preliminary. It does not establish a ma
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

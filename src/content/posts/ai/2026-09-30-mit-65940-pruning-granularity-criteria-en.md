@@ -28,6 +28,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > This is post 2 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series, based on the Fall 2024 edition. The previous post covered how to measure model size and compute. This one starts actually making models smaller.
 
 Official materials covered here:
@@ -210,7 +212,7 @@ Open the [Fall 2024 Lab 1](https://colab.research.google.com/drive/1Fagq3JQBzCiz
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

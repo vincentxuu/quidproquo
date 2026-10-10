@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This guide is based on NTU Yun-Nung Chen's *Applied Deep Learning* (ADL), **Fall 2025 (semester 114-1, 2025/09/01–12/15)**. The main materials are the [Sequence Modeling slides](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_SeqModel.pdf) (66 pages) from the week of 9/01 and the four video segments the course page links: [3.1](https://youtu.be/215BxEbYrCs), [3.2](https://youtu.be/eVA_WTW4gXE), [3.3](https://youtu.be/e9Ef3dZcvjw), and [3.4](https://youtu.be/MyKrovk8tLM). The optional word-embedding material uses the [Fall 2022 Word Embeddings slides](https://www.csie.ntu.edu.tw/~miulab/f111-adl/doc/220929_WordEmbeddings.pdf). All facts were checked against the official materials on 2026-09-30. The lectures are taught in Mandarin with English slides. The course as a whole is rated **A2**: slides and videos for the lectures are public, and the gaps are on the homework side (HW2 and HW3 have only intro videos). See the [series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) for details. This lecture has no gaps of its own.
 
 **Series**: Previous: [Neural Networks and Backpropagation](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop-en) | Next: [Attention and the Transformer](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer-en) | [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
@@ -183,7 +185,7 @@ One thing to try tonight: take the three sentences on slide 10, count the window
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -37,6 +37,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 This is part 3 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series. It follows [Is Learning Feasible? Hoeffding and Learning Beyond the Data](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en). It covers Lecture 5, Training versus Testing, and Lecture 6, Theory of Generalization, from [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/). Together they open the course's second big question: "Why Can Machines Learn?"
 
 The lectures are taught in Mandarin. The slides are in English.
@@ -233,7 +235,7 @@ Further reading: the Stanford CS229 [generalization chapter guide](/posts/ai/202
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

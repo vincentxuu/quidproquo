@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-10-graphs-1)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article 11 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 9, Spring 2026 (2026-04-20)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The official topic is **Graphs, Part I**. The lecture abstracts a graph from “objects and their relationships,” then uses two placement problems to motivate vertex covers and independent sets. Its central result is an iff theorem: a set `C` is a vertex cover exactly when its complement `V − C` is an independent set.
@@ -161,7 +163,7 @@ Recordings, transcripts, and classroom discussion are not public, so this articl
 ## Update log
 
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-22: Rebuilt the article from the official Graphs, Part I deck, restoring the formal definitions, complement iff theorem, and both proof directions.
 
 ## References

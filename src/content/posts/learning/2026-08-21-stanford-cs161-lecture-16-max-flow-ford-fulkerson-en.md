@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is article seventeen in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Winter 2026 Lecture 16**, taught by Moses Charikar on March 4, 2026. The component calls it *Max-Flow and the Ford-Fulkerson Algorithm*; the notes use *Max Flow, Min Cut and Ford-Fulkerson*.
 
 I used the public [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture16-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/lecture16-slides.pdf), and [official component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture16.md). I did not watch the Canvas recording or use the linked historical paper and concept checks.
@@ -89,7 +91,7 @@ Implementations can store reverse-edge indices and parent edges for path reconst
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

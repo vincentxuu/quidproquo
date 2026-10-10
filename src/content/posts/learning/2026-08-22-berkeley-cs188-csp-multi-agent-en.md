@@ -16,6 +16,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 [Lectures 5–8](https://inst.eecs.berkeley.edu/~cs188/sp26/) place two problem types together. CSPs use variables, domains, and constraints to reduce combinatorial search; game trees add other agents that respond. In [Project 2](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj2/), Pacman faces ghosts while you implement a reflex agent, minimax, alpha-beta pruning, expectimax, and an evaluation function.
 
 ## Course video sources
@@ -56,7 +58,7 @@ Series navigation: [Previous: Search and heuristics](/posts/learning/2026-08-22-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

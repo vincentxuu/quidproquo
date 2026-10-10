@@ -18,6 +18,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs229-machine-learning)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 [CS229: Machine Learning](https://cs229.stanford.edu/) is Stanford CS's main machine learning course, three to four units, cross-listed with statistics as STATS 229. It is not an AI survey and it is not a deep learning course. It is the course that walks through the **mathematical derivations** behind supervised learning, unsupervised learning, learning theory, and reinforcement learning.
 
 It also has the most complete public self-study materials of any Stanford course: the notes are a public PDF, the lectures are on YouTube, and the problem sets and starter code are still sitting on the server. That is why it deserves its own post — **an abundance of material is not the same as consistent material**. Those four resources are frozen at four different years, and nothing on any page tells you so.
@@ -179,7 +181,7 @@ The one-line version: **old recordings with new notes, assignments with the star
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

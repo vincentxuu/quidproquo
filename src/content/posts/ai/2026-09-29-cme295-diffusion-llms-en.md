@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-diffusion-llms)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Written before the lecture**: this post was written on September 29, 2026. Lecture 8 of the 2026 edition (November 20, 2026) has not happened yet. The content is based on the topic list in the 2026 syllabus, the parts already covered in the 2025 slides, and the original papers. It will be checked against the video and slides once they are released.
 
 The 2026 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) devotes all of Lecture 8 to "Diffusion LLMs." The [2026 syllabus](https://cme295.stanford.edu/syllabus/) lists five subtopics: continuous diffusion, discrete diffusion, masked diffusion, training, and inference. The "Difference with last year's edition" slide in the 2026 [Lecture 1 deck](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf) also names Diffusion LLMs as one of three new additions.
@@ -385,7 +387,7 @@ Once the November 20, 2026 video and slides are released, this post will be chec
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

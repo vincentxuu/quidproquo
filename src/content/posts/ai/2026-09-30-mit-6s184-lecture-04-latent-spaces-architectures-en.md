@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) (IAP 2026): [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §6 (pp.41–53), [Slides 4](https://diffusion.csail.mit.edu/2026/docs/20260128_Lecture_04_edited.pdf), and the [Lecture 4 recording](https://www.youtube.com/watch?v=g0MB1CCBmsI) (about 81 minutes). Equation, Remark, and Algorithm numbers follow the notes; content follows the notes and slides. Access level A3: notes, slides, recordings, labs, and official solutions are all public; lab grading is for enrolled MIT students only. Checked 2026-09-30.
 
 **Series**: Previous [L3B: Guidance and Classifier-Free Guidance](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en) | Next [Lab 3: From DiT and VAE to Latent Diffusion](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion-en) | [Series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
@@ -291,7 +293,7 @@ Slides 4 also lists LAION as SD3's dataset, which the notes don't mention. The n
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

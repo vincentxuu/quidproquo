@@ -15,15 +15,20 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 > ⚠️ **版本**：以 [CS181 2026 HW1](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw1) 的 `hw1_release.tex` 為準（課號 CS1810-S26，截止 2026-02-13 11:59 PM）。往年版本的題目與配分可能不同，對照時以你那一屆的 `.tex` 為主。
 
 ## 課程影片來源
 
-本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
 
-課程與錄影入口：
+官方來源：
 
-- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -126,7 +131,7 @@ curl -O https://raw.githubusercontent.com/harvard-ml-courses/cs181-s26-homeworks
 ## 更新紀錄
 
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - **2026-09-30**：依官方 `hw1_release.tex` 重寫題目段落。原文誤寫為 OLS／RBF kernel／MLP 三題，實際是 kNN & Kernels、Geometric Least Squares、Basis Regression、Probabilistic View & Regularization 四題；同步更正資料筆數與年代描述、Jouzel et al. 2007 的出處，移除沒有來源的 MLP 與 PyTorch 內容。
 - **2026-09-29**：截止日依 s26 `hw1_release.tex` 更正為 2026-02-13；「與後續週的銜接」改為連到系列實際文章，題目依各份 `.tex` 標題。
 

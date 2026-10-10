@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference-en)
 
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 17 篇，也是「Scaling Up」單元的最後一篇。[上一篇](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe)回答「模型該多大」，這一篇回答「那麼大的模型要怎麼訓練、怎麼服務」。
 
 用到的官方材料：[Lecture 17 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture17-distributed.pdf)與[手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture17-distributed-ink.pdf)、[Lecture 18 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture18-efficient.pdf)、[課程講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)。全部在 2026-09-30 下載核對。講次表這兩講沒有列 readings，本文引用的論文都是投影片上標註的出處。
@@ -178,7 +180,7 @@ L18 的提醒頁寫明：3 月 30 日晚上的考試涵蓋 Lectures 1–15（與
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

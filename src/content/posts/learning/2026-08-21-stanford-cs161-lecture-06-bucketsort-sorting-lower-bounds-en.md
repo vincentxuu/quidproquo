@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-06-bucketsort-sorting-lower-bounds)
 
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+
 This is post 7 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 6**. Moses Charikar taught it on January 26, 2026. The official component calls it [BucketSort and Lower Bounds for Sorting](https://stanford-cs161.github.io/winter2026/lectures/#lecture-6-bucketsort-and-lower-bounds-for-sorting). The notes say *Sorting Lower Bounds, Counting Sort, and Radix Sort*, while the slides say *Sorting lower bounds and O(n)-time sorting*. I preserve the page's BucketSort label while noting that the concrete bucket algorithm in the materials is called Counting Sort. Sources used here are the pre-lecture exercise, notes, and slides; I did not use the Canvas recording.
 
 The first five lectures obtained ordering information through comparisons. MergeSort already has worst-case `O(n log n)` time, so can sorting reach `O(n)`? The answer begins with a different question: **what may the algorithm do with a key?** Lecture 6 first proves `Ω(n log n)` in the comparison model, then leaves that model by reading integer keys directly in Counting Sort and Radix Sort. There is no contradiction.
@@ -180,7 +182,7 @@ Production radix implementations often use fixed machine words, array counting, 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

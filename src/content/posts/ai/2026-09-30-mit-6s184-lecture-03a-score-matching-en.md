@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post follows the IAP 2026 offering of [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html). I checked it on 2026-09-30 against §4 of the [lecture notes PDF](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) (pp.25–33) and the first half of [Slides 3](https://diffusion.csail.mit.edu/2026/docs/20260123_Lecture_03.pdf), up to the "Key takeaway" slide. The [Lecture 3-A recording](https://www.youtube.com/watch?v=ngC3QnYSVNM) is a good companion. Slides 3 is shared by 3-A and 3-B; the guidance half belongs to [L3B](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en). Access level: **A3, enough for self-study**.
 
 **Series position**: part 4 of [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) | previous: [L2: Flow Matching](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en) | next: [Lab 2: Writing Flow Matching and Score Matching by Hand](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en)
@@ -269,7 +271,7 @@ Series navigation: previous, [L2: Flow Matching](/posts/ai/2026-09-30-mit-6s184-
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

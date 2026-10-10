@@ -26,6 +26,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-mcts-alphazero)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Winter 2026 slides and assignments of [CS234](https://web.stanford.edu/class/cs234/); the recordings are the public Spring 2024 version.** It is part 16 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series.
 
 **Series**: previous [Data efficiency III: PAC for MDPs, MBIE-EB, PSRL, strategic exploration](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration-en) | next [Value alignment: aligned to whom, aligned to what](/posts/ai/2026-09-30-cs234-value-alignment-ethics-en) | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
@@ -197,7 +199,7 @@ One thing to try tonight: write MCTS for tic-tac-toe, with UCT for selection and
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

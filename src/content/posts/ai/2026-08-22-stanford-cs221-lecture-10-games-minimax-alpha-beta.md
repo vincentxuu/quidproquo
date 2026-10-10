@@ -15,6 +15,8 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-10-games-minimax-alpha-beta-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 10**，2025-10-22 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準，本講主要材料是 [games](https://stanford-cs221.github.io/autumn2025-lectures/?trace=games)。以下不把賽局搜尋寫成一串脫離程式的名詞，而是沿著 `.work/stanford-cs221-notes/source/games.py` 裡 `main()` 的執行順序，從一個可執行的賽局介面一路走到精確剪枝與近似評估。
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。
@@ -153,7 +155,7 @@ Minimax 的 recurrence 要遞迴所有分支，通常是指數時間。Alpha-bet
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

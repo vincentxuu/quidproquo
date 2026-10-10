@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf) from the Fall 2025 (114-1) edition of Prof. Hung-Yu Kao's [Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing) course at National Tsing Hua University. The deck has 125 pages; this post covers only pages 1–60, up to the "From Retrievers to QA" slide, and the rest is in the [next post](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced-en). The filename says W11, but in the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) it sits in the W10 row, with recordings [Week 10 Tue.](https://www.youtube.com/watch?v=VHkMHSkJ4I4) and [Week 10 Thu.](https://www.youtube.com/watch?v=SMVvvbXLYg4) (in Mandarin). The W10 Topics column says "Decoding Strategies and Evaluations"; it's a syllabus template that doesn't match the slides. **I did not watch the recordings to confirm where each one stops in the deck.** Facts checked on 2026-09-30. Access grade **A3**: slides and recordings are public.
 
 **Series**: Previous [Parameter-Efficient Fine-Tuning](/posts/ai/2026-09-30-nthu-nlp-peft-en) | Next [RAG (Part 2): From ODQA to Self-RAG](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
@@ -202,7 +204,7 @@ One thing to do tonight: take a RAG system you work on and write three queries t
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

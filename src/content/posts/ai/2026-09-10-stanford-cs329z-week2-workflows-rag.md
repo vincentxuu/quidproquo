@@ -19,6 +19,8 @@ draft: false
 
 > 🌏 [English version](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)
 
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+
 Week 2 的兩堂課是刻意排成先後手的。週一主讀物是 Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)：先想清楚什麼值得做成 agent，免得一開工就過度工程。週三主讀物是 Lewis 等人的 [RAG 論文](https://arxiv.org/abs/2005.11401)：第一個複合系統的完整配方，當天 hands-on 從零刻一條管線。兩篇合起來，[HW1](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents) 第一段 email 檢索管線的施工圖就齊了。
 
 ## 課程影片來源
@@ -104,6 +106,8 @@ Week 2 是 HW1 的備料週：作業下週一才發，但週三 hands-on 的 RAG
 
 ## 更新紀錄
 
+
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：補上本週官方課堂投影片直連。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
 - 2026-09-12：補上 Effective Context Engineering 與 ColBERT 兩篇延伸閱讀的實質導讀。

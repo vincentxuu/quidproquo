@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-lab2-quantization)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940), Fall 2024.** It is part 7 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series and turns the quantization material from [Lecture 5](/posts/ai/2026-09-30-mit-65940-quantization-basics-en) and [Lecture 6](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en) into code.
 
 **Series**: previous [Lecture 6: PTQ, QAT, and mixed precision](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en) | next [Lecture 7: NAS search spaces and search strategies](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy-en) | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
@@ -138,7 +140,7 @@ One thing you can do tonight: open the notebook and run only the Setup and FP32 
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

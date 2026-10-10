@@ -22,6 +22,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rl-for-vlas)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 20 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L16 Sim-to-Real Robot Learning](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning-en) and covers Lecture 17, "RL for Robots: RL for VLAs," on May 27, 2026 (Wednesday of week 9). The slide deck's cover title is "RL for Robot Foundation Models."
 
 Official materials used:
@@ -252,7 +254,7 @@ Series navigation: previous [L16 Sim-to-Real Robot Learning](/posts/ai/2026-09-3
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

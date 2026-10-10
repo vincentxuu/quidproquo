@@ -32,6 +32,8 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-imitation-learning-en)
 
+**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+
 > **來源年份**：依據 Spring 2026 的 [02_cs224r_imitation_2026 投影片](https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf)（2026-04-03）。配套影片是 [Spring 2025 L2 錄影（補充）](https://www.youtube.com/watch?v=WxRDyObrm_M)，標題相同，但投影片已改成 2026 版，細節可能不同。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 2 篇。
 
 [上一講](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior)停在一個問題：示範資料裡同一個情境有兩種合理做法時，用 ℓ2 回歸訓練的 policy 會學到兩者的平均值，一個沒有人示範過的動作。這一講就從這裡開始。
@@ -222,7 +224,7 @@ print("落在平均值附近 ±0.2 的示範比例:", np.mean(np.abs(a - a.mean(
 
 ## 更新紀錄
 
-- 2026-10-10：補上課程影片來源與錄影取得方式。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 

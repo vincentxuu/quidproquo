@@ -27,6 +27,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 11 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 7, Capabilities vs. Safety (October 16, 2025), with guest lecturer Joel Becker of [METR](https://metr.org/).
 
 [The previous post on L6](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en) used differential equations to ask whether AI doing AI research would explode, and every equation there needs an input: how capable is AI right now, and how fast is it improving? This lecture is about that input. It also connects to the other end of safety: frontier labs' safety frameworks use exactly these capability measurements to decide when to hit the brakes.
@@ -258,7 +260,7 @@ The further readings also list the DeepMind Frontier Safety Framework, METR's Co
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -23,6 +23,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes)
 
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+
 > **Version note**: This post covers Lab 1 of [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026: [`labs/lab_one.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_one.ipynb) and the official solution [`solutions/lab_one_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_one_complete.ipynb) (branch `2026`), cross-referenced with Algorithms 1–2, Example 6, and Remark 20 of the [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf). Checked on 2026-09-30. It explains what each question tests and does not reproduce full solutions.
 
 **Series position**: Previous: [L1: Generation Is Sampling, and ODEs and SDEs Are the Machine](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en) | Next: [L2: Flow Matching, Learning the Marginal Vector Field from Conditional Paths](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en) | [Series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
@@ -141,7 +143,7 @@ The lab ends with a short derivation in two parts:
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 > **Version note**: This post is based on the Lecture 11 and Lecture 12 slides of the [Machine Learning Foundations MOOC](https://www.csie.ntu.edu.tw/~htlin/mooc/) ([11_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/11_handout.pdf), [12_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/12_handout.pdf)) and videos 42–49 of the [YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf) (lectures in Mandarin, slides in English). Practice problems come from [HW4](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw4/) of [Machine Learning, Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/). Everything was checked against the official materials on 2026-09-30. Access level: the MOOC alone is **A2**; with the Fall 2024 homework it is **A3 (minus the grading chain)**. There are no official solutions.
 
 **Series**: previous: [Linear and Logistic Regression](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en) | next: [Overfitting and Regularization](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en) | [Series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
@@ -188,7 +190,7 @@ One thing to try tonight: use d̃ = C(Q+d, d) − 1 to compute the dimension for
 
 ## Update Log
 
-- 2026-10-10: Added course video sources and recording access notes.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 
