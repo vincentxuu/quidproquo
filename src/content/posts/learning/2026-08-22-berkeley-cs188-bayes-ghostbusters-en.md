@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 13, on probability; it opens with a news aside, then says the lecture covers the notation and laws of probability with Bayes-net representation next class, which is the starting point of this article's Lecture 13–18 range. The remaining sections of this article cover other lectures in the unit and the project, not this video.
+
 ## Factor operations are not mechanical tables
 
 Joining factors combines compatible information; elimination sums over a variable no longer needed. Variable-elimination cost depends strongly on order. Before each implementation step, state what distribution the factor represents and check conditioned versus unconditioned variables instead of manipulating dictionary keys blindly.
@@ -58,6 +60,7 @@ Series navigation: [Previous: MDPs and reinforcement learning](/posts/learning/2
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the embedded video is Lecture 13 (probability) and fits the article scope; no video claims needed correcting.
 
 ## References
 

@@ -42,6 +42,8 @@ title: CS 185/285 (Spring 2026): Lecture 17, Offline Reinforcement Learning
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Lecture 11 字幕完整講 latent variable model、expected log likelihood、用近似後驗推 ELBO（Jensen 不等式）、entropy 與 KL divergence 的關係，並說明 EM 是特例，也提到 flow matching policy、model-based RL 與 RLHF 中潛在變數的用途；Lecture 17 字幕講 offline RL 的核心難題 distributional shift，介紹 policy constraint（含 KL 方向的討論，actor-critic 加 BC）與 pessimism。與本文「推論觀點」「offline RL 的 OOD action」相符；HW4／HW5 的具體演算法（GRPO、IQL、FQL 等）影片字幕沒有討論。
+
 ## L11–14：把控制看成推論
 
 L11–13 先建立 latent-variable 與 variational inference，再把「最優」寫成機率事件。這個觀點把 reward、trajectory distribution 與 entropy 放進同一套語言。Section 6 補推導，Section 7 將 IRL 與 LLM RL 並讀。
@@ -66,6 +68,7 @@ Offline RL 不能再向環境收集資料，核心困難是 out-of-distribution 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。在 RAIL 頻道找到公開的 Spring 2026 CS 185/285 播放清單，嵌入兩講對應錄影，狀態由僅附官方入口改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認兩支影片是 Lecture 11 與 17，內容與本文相符；HW 演算法不在影片內。
 
 ## 參考資料
 

@@ -50,6 +50,8 @@ title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Sc
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：兩支嵌入影片（Part 2、Part 6）都讀了字幕。Part 2 字幕涵蓋 Large Language Monkeys 的重複取樣與冪次律、長尾難題、多數決與 reward model 都追不上理論 coverage 的 generation–verification gap、最難的題目在上千次取樣裡只被答對幾次，以及 Archon 的 fusion 勝過 oracle selection，文章這幾點都成立；Part 6 字幕涵蓋 STaR（GSM8K 上 rationalization 沒有明顯幫助）、DeepSeekMath（取樣 32 次時 majority@K 上升而 pass@K 沒有，「more consistent, not fundamentally smarter」）、GRPO 在全對或全錯時正規化失效、DAPO 的 dynamic sampling 與 Qwen-32B 從 30 提升到約 50 的階梯，以及三項技術不提升基礎能力的結論，也都成立。文中的中文引文是意譯，意思與英文字幕相符、措辭不同；字幕沒有出現講者姓名，講者歸屬依課程資訊而非字幕。本文對第 9 堂、第 17 堂、其他堂次與客座講的說法對應的是未嵌入的影片，這次沒有核對。
+
 ## 這門課的硬事實
 
 授課者兩位。[Aakanksha Chowdhery](https://www.achowdhery.com/) 在 Google 主導過 540B 的 PaLM，後來推動 Gemini 的 MoE 預訓練，現在在 Reflection AI。[Azalia Mirhoseini](http://azaliamirhoseini.com/) 是 Stanford 助理教授、[Scaling Intelligence Lab](https://scalingintelligence.stanford.edu/) 主持人，MoE 與 AlphaChip 的共同作者，待過 Google Brain、Anthropic、Google DeepMind。
@@ -235,6 +237,7 @@ POET 這個演算法收錄新環境的條件是：**對現有 agent 來說不太
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-21：修正開課狀態。本文初稿寫「下一次是 2026–2027 Winter，已經掛在 ExploreCourses 上」，但同日重查時，該條目已無 Terms 欄位，只顯示「Last offered: Autumn 2025」——與[課程地圖那篇](/posts/learning/2026-08-20-stanford-cs-course-map)停開表的記載一致。無法判斷是初稿查錯，或是 Stanford 在這期間撤掉了排課，因此改為只陳述查證當日的頁面狀態並標註日期。
 - 2026-10-10：重查影片狀態。即時確認第 2、6、9 堂的影片頁與標題相符，狀態改為已附影片；原播放清單連結的 ID 不完整，改連第 1 堂影片。
+- 2026-10-10：依字幕核對影片內容。讀兩支嵌入影片字幕，Part 2 與 Part 6 的說法與字幕相符，沒有需要更正的地方；未嵌入的第 9、17 堂與客座講的說法未核對。
 
 ## 參考資料
 

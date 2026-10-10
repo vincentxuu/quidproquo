@@ -42,6 +42,8 @@ title: CS 185/285 (Spring 2026): Lecture 4, Reinforcement Learning Basics
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Lecture 2 字幕涵蓋 behavioral cloning、distributional shift（含數學推導）與 DAgger（附無人機穿越森林的例子），並預告 flow matching／diffusion 等複雜分布表示；Lecture 4 字幕前段接續上一講的 flow matching policy 與 HW1，之後定義 MDP（state、action、reward、transition）與 POMDP，並說明模仿學習與 RL 的差別。本文「L3 與 Sections」與 HW1 細節屬本站依官方資料整理，嵌入的兩講不涵蓋；字幕中沒有出現 credit assignment 一詞，探索僅短暫帶過。
+
 ## L1–2：把控制先寫成監督式學習
 
 Behavioral cloning 用 expert 的 state-action pair 訓練 policy。訓練損失容易理解，真正的問題是部署後 policy 會造訪 expert 資料沒有涵蓋的 state；一個小錯誤可能把下一步推得更遠。先在紙上畫出「訓練分布」與「policy 自己造成的分布」，再讀投影片，會比只記 covariate shift 更有用。
@@ -64,6 +66,7 @@ RL Basics 把問題改寫成 MDP：policy 產生 trajectory，trajectory 累積 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。在 RAIL 頻道找到公開的 Spring 2026 CS 185/285 播放清單，嵌入兩講對應錄影，狀態由僅附官方入口改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認兩支影片是 Lecture 2 與 4，內容與本文相符；補註 credit assignment 一詞影片未出現。
 
 ## 參考資料
 

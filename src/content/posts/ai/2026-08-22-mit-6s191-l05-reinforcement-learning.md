@@ -35,6 +35,8 @@ title: MIT 6.S191: Reinforcement Learning
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：字幕涵蓋 agent／environment／state／action／reward、discounted return、Q function 與 deep Q network（Atari Breakout 例子）、policy gradient、sparse／延遲 reward、探索與利用的取捨，以及 RL 用在 LLM 對齊；與本文相符。
+
 ## 這一講要帶走什麼
 
 - 分清 immediate reward 與長期 return
@@ -64,6 +66,7 @@ title: MIT 6.S191: Reinforcement Learning
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。主題相符，沒有需要更正的地方。
 
 ## 參考資料
 

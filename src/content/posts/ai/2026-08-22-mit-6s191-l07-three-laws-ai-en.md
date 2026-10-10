@@ -35,6 +35,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): this is a guest lecture by Doug Blank, head of research at Comet, not one of the main instructors. The transcript starts from Asimov's three laws of robotics, then uses Comet's Opik to demo system-prompt jailbreaks, dataset-plus-metric evaluation experiments (including LLM-as-judge), trace logging and agent tool calls, and ends with his version of modern AI rules (log traces, grow a test dataset incrementally, evaluate continually, publish results), matching this note's trace, fixed test set and continuous evaluation.
+
 ## What to take away
 
 - See why abstract safety principles do not become guarantees by themselves
@@ -64,6 +66,7 @@ Save ten representative cases with inputs, outputs, and version metadata, then r
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Confirmed this is a guest lecture by Doug Blank (Comet) and the content matches this note.
 
 ## References
 

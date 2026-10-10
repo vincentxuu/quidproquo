@@ -35,6 +35,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the video is Alexander Amini's opening lecture; the transcript covers the perceptron (single neuron, activation), loss, gradient descent, backpropagation (chain rule) and overfitting, matching the concept chain in this note, and introduces the labs.
+
 ## What to take away
 
 - Write one neuron as a weighted sum, bias, and nonlinear activation
@@ -64,6 +66,7 @@ After watching, draw a two-layer network and label every tensor shape, then use 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The topic and speaker match; nothing needed correcting.
 
 ## References
 

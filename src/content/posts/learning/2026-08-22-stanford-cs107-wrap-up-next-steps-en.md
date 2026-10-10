@@ -34,6 +34,8 @@ Original videos: [Program in C — The Memory Unsafety Anthem](https://www.youtu
 
 Rechecked live on 2026-10-10: the official Winter 2026 calendar says recordings are on Canvas / Panopto for enrolled students only, and opening the Canvas entry redirects to the Stanford sign-in page; no public YouTube, Stanford Online or OCW recording of the same term's lectures was found. The public slide text also does not let us confirm the video link, so the earlier description is kept as is. Checked: 2026-10-10.
 
+Video content not verified: this is a song-style video; I tried to get its transcript or lyrics but could not, so only the page title and uploader were confirmed. Nothing about the lyrics or content was checked, and this article draws no conclusion about the video content.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
@@ -114,6 +116,7 @@ Lecture 26 does not say systems is finished. It leaves six stable questions for 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded Sebastian C video is not a lecture recording, so it is now labeled supplementary; the sign-in wall is confirmed and no public same-term recording was found.
 - 2026-08-22: Linked the wrap-up's absolute-value example explicitly to Lecture 5's `INT_MIN` signed-overflow caveat.
+- 2026-10-10: Tried to check the video content against its transcript but none could be retrieved, so no content-check marker was added; only the page title and uploader were confirmed and the video content remains unverified.
 
 ## References
 

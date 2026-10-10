@@ -35,6 +35,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): this is a guest lecture by Mathias Lechner, co-founder and CTO of Liquid AI (YouTube titles and describes it as "Lecture 8", length 52:40). The transcript covers memory components (parameters, gradients, optimizer state, activations), activation checkpointing, offloading, data/tensor/pipeline (including the pipeline bubble)/context parallelism, and ZeRO and FSDP, matching this note item by item.
+
 ## What to take away
 
 - Estimate parameters, gradients, optimizer states, and activations separately
@@ -64,6 +66,7 @@ Make a four-column memory budget for a model, then choose checkpointing, shardin
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Confirmed this is a guest lecture by Mathias Lechner (Liquid AI) and the content matches this note.
 
 ## References
 

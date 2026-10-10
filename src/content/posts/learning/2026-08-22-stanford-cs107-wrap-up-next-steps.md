@@ -34,6 +34,8 @@ title: Program in C — The Memory Unsafety Anthem
 
 2026-10-10 即時重查：官方 Winter 2026 課表說明錄影放在 Canvas／Panopto 且僅限修課學生，開啟 Canvas 入口會被導向 Stanford 登入頁；同學期未找到公開的 YouTube、Stanford Online 或 OCW 課堂錄影。本文也無法從公開投影片的文字確認該影片連結，僅沿用先前的說明。查核日期：2026-10-10。
 
+影片內容未核對：這支是歌曲式影片，我嘗試取得字幕或歌詞但沒有取到，因此只確認了頁面標題與上傳者，沒有對歌詞或內容做任何核對，本文也不對影片內容下結論。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
@@ -114,6 +116,7 @@ Lecture 26 的結論不是「所有 systems topics 都學完了」。更準確�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的 Sebastian C 影片不是課堂錄影，改標為補充影片；登入牆屬實，同學期無公開錄影。
 - 2026-08-22：把 wrap-up 的 absolute-value 回顧明確連回 Lecture 5 的 `INT_MIN` signed-overflow caveat。
+- 2026-10-10：嘗試依字幕核對影片內容，但取不到字幕，未加核對標記；僅確認頁面標題與上傳者，影片內容仍未核對。
 
 ## 參考資料
 

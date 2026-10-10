@@ -35,6 +35,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the transcript covers images as numeric matrices, how flattening loses spatial structure, convolution (patches, filters, feature maps, a Q&A on overlapping strides), ReLU and max pooling, and the feature-learning-plus-classification CNN architecture, matching this note. The Lab 2 mention in this note was not confirmed line by line in the transcript.
+
 ## What to take away
 
 - Compute feature-map sizes after kernel, stride, and padding choices
@@ -64,6 +66,7 @@ Compute one 3×3 convolution on a tiny image, then compare your shape with PyTor
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The topic matches; nothing needed correcting.
 
 ## References
 

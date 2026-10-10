@@ -27,7 +27,7 @@ This series therefore treats the 2026 slides, sections, and assignments as canon
 
 This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the instructor published the Spring 2026 lecture recordings on the RAIL YouTube channel (27 videos, public since 2026-08-15). The course syllabus still says recordings are on bCourses and the course site still links the Fall 2023 playlist. Pick recordings by lecture number from the playlist.
 
-The overview embeds Lecture 1 as an introductory supplement (the opening lecture, 44 minutes; only the channel, playlist title and lecture number were checked, not the transcript):
+The overview embeds Lecture 1 as an introductory supplement (the opening lecture, 44 minutes; its content was checked against the transcript as the opening and course introduction):
 
 ```youtube
 url: https://www.youtube.com/watch?v=DD8APgTEix4
@@ -40,6 +40,8 @@ Course and recording entries:
 - [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the transcript obtained reaches only the middle of the lecture (up to the learning-and-search part of the Bitter Lesson discussion); it covers the opening robot-grasping example, course logistics (prerequisites, homework, exam, final project), what RL is, how it differs from supervised learning on the IID assumption, applications, and Sutton's The Bitter Lesson, matching its role as an introductory supplement for this overview.
 
 ## The six-part route
 
@@ -74,6 +76,7 @@ A better completion criterion is an artifact: one derivation note, one implement
 - 2026-10-10: Fixed an outdated recording statement. Lecture recordings are public on the RAIL YouTube channel; what remains in bCourses is Ed, Gradescope, in-class interaction, and office hours. The tldr, description, and body were rewritten to match.
 - 2026-10-10: Rechecked video status. Found the public Spring 2026 playlist on the RAIL channel and linked it; this post has no single lecture, so the status stays official entry only.
 - 2026-10-10: The overview now embeds the Spring 2026 Lecture 1 recording and its status is a related supplementary video, matching the other course overviews.
+- 2026-10-10: Checked the video content against its transcript. Read the Lecture 1 transcript, confirming it is the opening and course introduction, and updated the earlier "transcript not read" note.
 
 ## References
 

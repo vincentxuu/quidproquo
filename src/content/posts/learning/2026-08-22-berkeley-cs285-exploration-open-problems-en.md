@@ -42,6 +42,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the Lecture 19 transcript opens with midterm logistics and says this week is the last new exam material, exploration and RL theory, then covers exploration: multi-armed bandits, regret against an optimal Bayesian strategy, and exploration bonuses from state-density estimates; there is no clear discussion of named methods such as UCB or Thompson sampling, and RL theory belongs to the next lecture. The Lecture 25 transcript is a retrospective, explicitly "not deeply technical" lecture that surveys the semester and previews guest speakers, which fits the note's framing as open problems. The L21-24 sections and the "research memo" advice are the site's own framing, not video content.
+
 ## L19–20: exploration and guarantees
 
 Exploration balances immediate reward against information value. RL Theory turns intuitions into assumptions and bounds on samples, regret, or performance. Annotate every theoretical result with its conditions. Tabular structure, coverage, or realizability assumptions cannot silently migrate into deep-RL practice.
@@ -65,6 +67,7 @@ The Spring 2026 lecture recordings are public in the RAIL YouTube channel's 2026
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Fixed an outdated recording statement. "Recordings are in bCourses" now says the lectures can be watched on the RAIL YouTube channel.
 - 2026-10-10: Rechecked video status. Found the public Spring 2026 CS 185/285 YouTube playlist on the RAIL channel; embedded two matching lectures and changed the status from official entry only to Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the two videos are Lectures 19 and 25 and match the note; noted that L19 covers exploration only (theory is the next lecture).
 
 ## References
 

@@ -35,6 +35,8 @@ title: MIT 6.S191: Language Models and New Frontiers
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片由 Ava Soleimany 主講，字幕涵蓋 universal approximation theorem、泛化與隨機標籤實驗、資料分布與 out-of-distribution（自駕車事故例）、adversarial attack、演算法偏差，再講 diffusion model（前向加噪與反向去噪）與 LLM（next token prediction、emergent abilities）。主題為「新前沿與限制」，與本文相符；字幕也是 diffusion 真正出現的地方（Lecture 4 影片沒有）。本文的 baseline 與 failure condition 屬本站整理的做法，影片沒有用這些詞。
+
 ## 這一講要帶走什麼
 
 - 把酷炫 demo 還原成可檢驗的 task definition
@@ -64,6 +66,7 @@ title: MIT 6.S191: Language Models and New Frontiers
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。主題與講者相符；順帶確認 diffusion 內容在這支影片而非 Lecture 4。
 
 ## 參考資料
 

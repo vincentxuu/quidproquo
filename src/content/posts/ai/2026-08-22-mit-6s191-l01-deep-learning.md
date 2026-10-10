@@ -35,6 +35,8 @@ title: MIT Introduction to Deep Learning | 6.S191
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Alexander Amini 主講的第一堂，字幕涵蓋感知器（單一神經元、activation）、loss、gradient descent、反向傳播（chain rule）與 overfitting，與本文列的概念鏈相符；Lab 1 開頭也有介紹。
+
 ## 這一講要帶走什麼
 
 - 把單一神經元寫成加權和、bias 與非線性 activation
@@ -64,6 +66,7 @@ title: MIT Introduction to Deep Learning | 6.S191
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。主題與講者相符，沒有需要更正的地方。
 
 ## 參考資料
 

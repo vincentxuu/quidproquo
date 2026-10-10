@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 1, on course introduction, agents and environments; the early part is course logistics and staff introductions (Dan Klein and Stuart Russell sharing lectures) before moving into the notion of an agent, consistent with this article treating Lecture 1 as the start of the search unit. The remaining sections of this article cover other lectures in the unit and the project, not this video.
+
 ## Fix the common skeleton first
 
 All four graph-search methods share a loop: remove a node from the frontier, test the goal, expand successors, and avoid repeated states. DFS and BFS change frontier order; UCS orders by accumulated cost; A* adds an estimate of remaining cost. Four largely duplicated implementations usually mean the shared abstraction has been missed.
@@ -64,6 +66,7 @@ Series navigation: [Previous: Course overview](/posts/learning/2026-08-22-berkel
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the embedded video is Lecture 1 (course introduction, agents and environments) and fits the article scope; no video claims needed correcting.
 
 ## References
 

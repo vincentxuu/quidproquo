@@ -35,6 +35,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): this is a guest lecture by Chris Bishop of Microsoft Research AI for Science. The transcript follows the scientific method (hypotheses tested against experiment), introduces simulation as a path enabled by digital computers, then using simulator data to train an AI emulator as a third path, and discusses invariance, equivariance and conservation laws as model constraints, matching this note. The video says "emulator" and never "surrogate".
+
 ## What to take away
 
 - Separate the roles of physical experiments, simulators, and AI surrogates
@@ -64,6 +66,7 @@ Draw the data flow among hypothesis, experiment, simulator, and AI emulator for 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Confirmed this is a guest lecture by Chris Bishop and the content matches this note.
 
 ## References
 

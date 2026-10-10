@@ -38,6 +38,8 @@ title: CS188 Spring 2026 Lecture 9: MDPs I
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 9，主題為MDPs I；字幕從 expectimax 的 chance node 回顧引入 MDP，並說明 MDP 與 search 的假設差異，與本文相符。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
+
 ## 先分清 planning 和 learning
 
 Value iteration 已知 transition 與 reward model，透過 Bellman update 計算 value；Q-learning 不需要先知道模型，而從 `(state, action, reward, nextState)` 經驗更新 Q-value。兩者最後都能導出 policy，但資訊來源不同。若把這條邊界弄混，公式只剩符號代換。
@@ -56,6 +58,7 @@ Tabular Q-learning 每個 state-action pair 各自學值，遇到大型 Pacman s
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認嵌入影片是 Lecture 9（MDPs I），主題與本文範圍相符；未發現需更正的影片說法。
 
 ## 參考資料
 

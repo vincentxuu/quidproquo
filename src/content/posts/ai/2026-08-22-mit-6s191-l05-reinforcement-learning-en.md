@@ -35,6 +35,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the transcript covers agent/environment/state/action/reward, discounted return, the Q function and deep Q networks (the Atari Breakout example), policy gradients, sparse/delayed rewards, the exploration-versus-exploitation trade-off and RL for LLM alignment, matching this note.
+
 ## What to take away
 
 - Separate immediate reward from long-term return
@@ -64,6 +66,7 @@ Define state, action, reward, and termination for a simple game. If the reward c
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The topic matches; nothing needed correcting.
 
 ## References
 

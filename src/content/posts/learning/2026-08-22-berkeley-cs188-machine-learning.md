@@ -38,6 +38,8 @@ title: CS188 Spring 2026 Lecture 19: Rational Decisions
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 19，主題為Rational Decisions；字幕談 rational agent 最大化效用、效用為何能用數字表示（以 minimax 對單調轉換不變為例）、為何取期望，並預告後續 RLHF 與對齊，與本文把 rational decisions 接到 ML 的敘述相符。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
+
 ## 這不是另一門完整深度學習課
 
 P5 的作用是讓廣義 AI 課的學生碰到現代 ML workflow：定義 model、forward pass、loss、optimizer、batch 與 training loop。它涵蓋面廣，但不取代專門的最佳化、表示學習或大模型課。把每題當成一個介面練習，比追求在短時間內補齊全部理論更實際。
@@ -56,6 +58,7 @@ P5 的作用是讓廣義 AI 課的學生碰到現代 ML workflow：定義 model�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認嵌入影片是 Lecture 19（Rational Decisions），主題與本文範圍相符；未發現需更正的影片說法。
 
 ## 參考資料
 

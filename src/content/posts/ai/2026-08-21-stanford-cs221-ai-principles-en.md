@@ -44,6 +44,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the whole transcript (1:06:26). This is Percy Liang's first lecture of Autumn 2025: he says it is his 14th year at Stanford and 13th time teaching the course, with quite large changes this year; it covers the definition and brief history of AI, the four abilities perceive/reason/act/learn under resource constraints (computation and data), expressing algorithms as tensors, the learning-by-doing philosophy of the homeworks, and a preview of AI's societal issues, matching this article's description of the course. The transcript does not discuss the dropped constraint-satisfaction material, the lecture repo, or assignment and grading details; those claims rest on welcome.py and the official pages, not this video.
+
 ## The hard facts
 
 Instructors rotate. [Autumn 2025](https://stanford-cs221.github.io/autumn2025/) was taught by [Percy Liang](https://cs.stanford.edu/~pliang/); [Spring 2025](https://stanford-cs221.github.io/spring2025/) by Moses Charikar and Zachary Robertson. Per the [ExploreCourses entry for CS221](https://explorecourses.stanford.edu/search?q=CS+221&view=catalog), the 2026–2027 autumn section goes to Liang and the spring section to Charikar. Units and meeting times are in the appendix.
@@ -199,6 +201,7 @@ For a fuller entry point, run [welcome](https://stanford-cs221.github.io/autumn2
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official playlist is public with 20 lectures; embedded Lecture 1 as a related supplement because this is a course-level article.
+- 2026-10-10: Checked the video content against its transcript. Read the whole transcript; it matches the article's description of the course; noted that the dropped constraint-satisfaction material, lecture repo and assignment/grading claims rest on other sources, not this video.
 
 ## References
 

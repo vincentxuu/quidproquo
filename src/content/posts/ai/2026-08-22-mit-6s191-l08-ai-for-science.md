@@ -35,6 +35,8 @@ title: MIT 6.S191: AI for Science
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：這是客座講，講者是 Microsoft Research AI for Science 的 Chris Bishop。字幕以「科學家提出假說、用實驗檢驗」的科學方法為主線，說明數位電腦帶來 simulator 這條路徑，再以 simulator 產生資料訓練 AI emulator 作為第三條路徑，並談 invariance、equivariance 與守恆律作為模型限制；與本文相符。影片用的詞是 emulator，沒有用 surrogate。
+
 ## 這一講要帶走什麼
 
 - 分清真實實驗、模擬器與 AI surrogate 的角色
@@ -64,6 +66,7 @@ title: MIT 6.S191: AI for Science
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。確認這是 Chris Bishop 的客座講，內容與本文相符。
 
 ## 參考資料
 

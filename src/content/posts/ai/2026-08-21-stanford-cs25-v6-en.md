@@ -24,7 +24,7 @@ Two things come out of that trade. First, the schedule can be rewritten from scr
 
 The course has run since Fall 2021, one version number per season, currently the sixth (the full season list is in the appendix). Past speakers include Geoffrey Hinton, Ashish Vaswani, and Andrej Karpathy — [Karpathy's opening talk](https://www.youtube.com/watch?v=XfpMkf4rD6E) has accumulated roughly a million views, the most-watched session in the whole series.
 
-One structural change in V6 is worth noting: the course is now cross-listed as **SYMSYS 25**, with Symbolic Systems program director Michael C. Frank and Christopher Manning joining the instructor lineup. This isn't purely administrative — two of the papers discussed in the opening session are BabyLM studies training small models on real transcripts of children's language. The cognitive-science weighting has clearly gone up.
+One structural change in V6 is worth noting: the course is now cross-listed as **SYMSYS 25**, with Symbolic Systems program director Michael C. Frank and Christopher Manning joining the instructor lineup. This isn't purely administrative — of the small-model data studies discussed in the opening session, one trains small models on individual children's language transcripts and the other trains bilingual small models (the speaker places both under Baby LM). The cognitive-science weighting has clearly gone up.
 
 The nine V6 sessions ran on Thursday afternoons, sponsored by AGI House, [Modal](https://modal.com), and MongoDB, with sponsor segments included in the recordings.
 
@@ -34,7 +34,7 @@ I read the full transcripts for all nine sessions.
 
 ## Apr 2 — Overview (instructors)
 
-Nominally an introduction, but half of it covers the teaching team's own research, all circling one theme: how you use data matters more than how much of it you have. Training small models on individual children's transcripts showed that differences between families are driven mostly by semantic diversity and interaction structure, not word count. A bilingual BabyLM showed that adding a second language doesn't degrade the first, and that the interleaving scheme barely matters. RAG scaling laws showed small models gain far more from retrieval than large ones do.
+Nominally an introduction, but half of it covers the teaching team's own research, all circling one theme: how you use data matters more than how much of it you have. Training small models on individual children's transcripts showed a positive but noisy scaling trend with data amount, with differences between families also tied to semantic diversity, number of conversations and interaction richness; the speaker's takeaway is that quality matters more than quantity at such small scales. A bilingual BabyLM showed that adding a second language doesn't degrade the first, and that the interleaving scheme barely matters. RAG scaling laws showed small models gain far more from retrieval than large ones do.
 
 The last segment redefines hallucination as a **world-modelling error** — determined jointly by a reference world model, what the model can actually see, and a conflict-resolution policy. The point of the definition is that hallucination in summarisation and an agent clicking a button that doesn't exist can finally be compared in the same table.
 
@@ -52,7 +52,7 @@ The nicest part is the validation: make a cube suddenly change colour mid-trajec
 
 ## Apr 16 — Tradeoffs of SSMs and Transformers ([Albert Gu](https://www.youtube.com/watch?v=OyimE74UMF8)) ← densest talk
 
-Mamba's author, and he opens by rejecting the usual framing: **efficiency is a red herring**. His argument isn't that SSMs are faster, it's that the two families have fundamentally different inductive biases.
+Mamba's author. He first surveys the SSM family and hybrid models, then in his summary rejects the usual framing: **efficiency is a red herring**. His argument isn't that SSMs are faster, it's that the two families have fundamentally different inductive biases.
 
 > I think of transformers like a database, and SSMs more like a brain.
 
@@ -165,10 +165,12 @@ Official source:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the transcripts of both embedded videos (the Overview and the Albert Gu session) were read. Overview: confirmed it is the teaching team's opening, covering small models trained on children's transcripts, bilingual small models (a second language does not interfere with the first, interleaving matters little), RAG scaling (small models gain more), hallucination defined as a world-modeling error (reference world model, view, conflict policy), sponsor notes, and the joke that the first two speakers cover alternative architectures. Gu session: confirmed the database-versus-brain analogy, hybrids with more linear than attention layers (about 3:1 to 10:1), attention lagging on characters and DNA, and the H-Net ablation (Mamba in the outer stages beats pure Transformer even over BPE tokens). Three corrections were made: only one of the two studies used children's transcripts, not both; "differences between families are not explained by word count" was overstated; and Gu called efficiency a red herring in his summary, not in his opening. Claims about the other seven sessions correspond to videos that are not embedded and were not checked this time.
+
 ## Changelog
 
 - 2026-10-10: Added video status and embedded the Overview and Albert Gu recordings.
-
+- 2026-10-10: Checked the video content against its transcript. Read both embedded transcripts and corrected three points: only one of the two small-model studies used children's transcripts, the word-count claim was overstated, and Gu's "efficiency is a red herring" came in his summary, not his opening; the other seven sessions were not checked.
 
 ## References
 

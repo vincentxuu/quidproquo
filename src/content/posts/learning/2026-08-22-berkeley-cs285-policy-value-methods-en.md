@@ -42,6 +42,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the Lecture 5 transcript derives the policy gradient from the trajectory objective and covers reward-to-go and baselines (variance reduction that stays unbiased), and mentions policy gradients training language models; the Lecture 7 transcript explains that removing the actor and keeping only the critic gives Q-learning, then moves from policy iteration, value iteration and fitted value iteration to fitted Q iteration, with replay buffers, epsilon-greedy and Boltzmann exploration, and previews stabilizing tricks for the next lecture. This matches the note; the word "advantage" does not appear in the transcript, DQN tricks such as target networks belong to the next lecture, and the HW2/HW3 details are the site's own synthesis.
+
 ## Policy-based methods
 
 L5 derives policy gradients from a trajectory objective. Reward-to-go, baselines, and advantages reduce variance without changing the desired objective. L6 introduces actor-critic: a critic supplies the actor's update signal, potentially adding function-approximation bias. Sections 3 and 5 connect and extend these ideas.
@@ -62,6 +64,7 @@ Explain why policy gradients have high variance, how a critic trades variance fo
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the public Spring 2026 CS 185/285 YouTube playlist on the RAIL channel; embedded two matching lectures and changed the status from official entry only to Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the two videos are Lectures 5 and 7 and match the note; noted that DQN stabilizing tricks are in the next lecture.
 
 ## References
 

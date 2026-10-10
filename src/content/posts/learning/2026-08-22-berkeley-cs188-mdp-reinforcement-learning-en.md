@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 9, on MDPs I; the transcript introduces MDPs by recalling expectimax chance nodes and contrasts MDP assumptions with search, matching this article. The remaining sections of this article cover other lectures in the unit and the project, not this video.
+
 ## Separate planning from learning
 
 Value iteration knows transition and reward models and computes values through Bellman updates. Q-learning does not require the model in advance; it updates Q-values from `(state, action, reward, nextState)` experience. Both can produce a policy, but their information sources differ.
@@ -56,6 +58,7 @@ Series navigation: [Previous: CSPs and multi-agent search](/posts/learning/2026-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the embedded video is Lecture 9 (MDPs I) and fits the article scope; no video claims needed correcting.
 
 ## References
 

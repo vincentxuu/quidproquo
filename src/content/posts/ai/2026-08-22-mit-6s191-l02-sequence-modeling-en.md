@@ -35,6 +35,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the video is presented by Ava Soleimany; the transcript covers the RNN recurrent state, next-word prediction, tokenization/embedding, backpropagation through time, vanishing/exploding gradients, a mention of LSTM, music generation (the Schubert unfinished symphony, tied to Lab 1) and attention with query/key/value, matching this note.
+
 ## What to take away
 
 - Understand how recurrent state carries the past forward
@@ -64,6 +66,7 @@ Take a short ABC score and manually form input/next-character pairs before openi
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The topic and speaker match; nothing needed correcting.
 
 ## References
 

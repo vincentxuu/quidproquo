@@ -44,6 +44,8 @@ title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundati
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了整支字幕（1:06:26）。這是 Percy Liang 在 Autumn 2025 的第一堂：自述這是他在 Stanford 的第 14 年、第 13 次開這門課，且今年課程做了很大的改動；內容有 AI 的定義與簡史、perceive／reason／act／learn 四個能力與「都要在資源限制下完成」（運算與資料等資源）、用 tensor 表達各種演算法、learning by doing 的作業理念，以及 AI 的社會議題預告，與本文對這門課的描述相符。字幕沒有談到被砍掉的約束滿足、講義 repo 或作業與評分細節，那些說法依據的是 welcome.py 與官方頁面，不是這支影片。
+
 ## 這門課的硬事實
 
 授課者輪替。[Autumn 2025 那版](https://stanford-cs221.github.io/autumn2025/)由 [Percy Liang](https://cs.stanford.edu/~pliang/) 主講，[Spring 2025 那版](https://stanford-cs221.github.io/spring2025/)是 Moses Charikar 與 Zachary Robertson。依 [ExploreCourses 的 CS221 條目](https://explorecourses.stanford.edu/search?q=CS+221&view=catalog)，2026–2027 學年秋季由 Liang 開、春季由 Charikar 開。學分數與授課時段見附錄。
@@ -199,6 +201,7 @@ Autumn 2019 那屆的專案佔總成績兩成。到 Autumn 2025，[專案說明�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方播放清單公開且有 20 講；本文是課程層級導讀，故嵌入第 1 講作為相關補充。
+- 2026-10-10：依字幕核對影片內容。讀完整支字幕，與本文對課程的描述相符；補註約束滿足被砍、講義 repo、作業評分等說法的依據不是這支影片。
 
 ## 參考資料
 

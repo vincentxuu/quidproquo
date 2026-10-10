@@ -38,6 +38,8 @@ title: CS188 Spring 2026 Lecture 13: Probability
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 13，主題為機率論（probability）；開場先聊時事，接著說明本講講機率論的記號與定律、下一堂接 Bayes nets 的表示法，銜接本文 Lecture 13–18 範圍的起點。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
+
 ## Factor 操作不是機械表格
 
 Join factors 把相容資訊合起來，eliminate 則對不再需要的變數加總；variable elimination 的結果與順序密切相關。實作每一步都應先寫出「目前 factor 代表哪個條件分布」，再檢查 unconditioned／conditioned variables，而不是只對 dictionary key 做操作。
@@ -58,6 +60,7 @@ Join factors 把相容資訊合起來，eliminate 則對不再需要的變數加
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認嵌入影片是 Lecture 13（機率論（probability）），主題與本文範圍相符；未發現需更正的影片說法。
 
 ## 參考資料
 

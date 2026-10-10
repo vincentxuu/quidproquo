@@ -42,6 +42,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the Lecture 11 transcript covers latent-variable models, expected log likelihood, deriving the ELBO with an approximate posterior (Jensen's inequality), the relation between entropy and KL divergence, EM as a special case, and uses of latent variables in flow-matching policies, model-based RL and RLHF; the Lecture 17 transcript covers the core offline-RL difficulty of distributional shift, policy constraints (including a discussion of KL direction and actor-critic plus BC) and pessimism. This matches the note's inference view and offline-RL out-of-distribution framing; the specific HW4/HW5 algorithms (GRPO, IQL, FQL, etc.) are not discussed in the transcripts.
+
 ## L11–14: control as inference
 
 L11–13 establish latent-variable and variational-inference machinery, then express optimality as a probabilistic event. Reward, trajectory distributions, and entropy enter one language. Section 6 supports the derivation; Section 7 connects IRL and LLM RL.
@@ -68,6 +70,7 @@ See the [series overview's access boundary](/posts/learning/2026-08-22-berkeley-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the public Spring 2026 CS 185/285 YouTube playlist on the RAIL channel; embedded two matching lectures and changed the status from official entry only to Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the two videos are Lectures 11 and 17 and match the note; the HW algorithms are not in the videos.
 
 ## References
 

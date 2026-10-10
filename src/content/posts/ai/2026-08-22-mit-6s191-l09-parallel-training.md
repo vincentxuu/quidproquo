@@ -35,6 +35,8 @@ title: MIT 6.S191: Secrets of Massively Parallel Training
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：這是客座講，講者是 Liquid AI 共同創辦人兼 CTO Mathias Lechner（YouTube 標題與描述把它標成 Lecture 8，片長 52:40）。字幕涵蓋記憶體組成（參數、gradient、optimizer state、activation）、activation checkpointing、offloading、data／tensor／pipeline（含 pipeline bubble）／context parallelism，以及 ZeRO 與 FSDP；與本文逐項相符。
+
 ## 這一講要帶走什麼
 
 - 把參數、gradient、optimizer state 與 activation 分開估算
@@ -64,6 +66,7 @@ title: MIT 6.S191: Secrets of Massively Parallel Training
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。確認這是 Mathias Lechner（Liquid AI）的客座講，內容與本文相符。
 
 ## 參考資料
 

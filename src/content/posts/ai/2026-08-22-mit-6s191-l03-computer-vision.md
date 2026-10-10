@@ -35,6 +35,8 @@ title: MIT 6.S191: Convolutional Neural Networks
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：字幕涵蓋影像即數值矩陣、扁平化會丟掉空間結構、卷積（patch、filter、feature map、stride 重疊的問答）、ReLU 與 max pooling、CNN 的特徵學習加分類兩段式架構；與本文相符。本文提到的 Lab 2 內容我只核對了字幕開頭，未逐段確認。
+
 ## 這一講要帶走什麼
 
 - 算出 kernel、stride 與 padding 改變後的 feature-map 尺寸
@@ -64,6 +66,7 @@ title: MIT 6.S191: Convolutional Neural Networks
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。主題相符，沒有需要更正的地方。
 
 ## 參考資料
 

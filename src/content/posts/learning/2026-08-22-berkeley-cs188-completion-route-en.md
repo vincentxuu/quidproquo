@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 26, on AI for global nuclear monitoring; the transcript presents it as an application built on Bayesian networks and probabilistic programs and introduces the nuclear test-ban treaty and how compliance is verified, matching this article's description of Lecture 26. The remaining sections of this article cover other lectures in the unit and the project, not this video.
+
 ## A standard for independent completion
 
 Without a Berkeley transcript, replace a vague claim of completion with an auditable portfolio. For each project from P1 through P5, preserve four things: the problem model, core algorithm, test evidence, and one failure case. P0 only verifies the environment and need not become a portfolio piece.
@@ -64,6 +66,7 @@ Series navigation: [Previous: Decisions and machine learning](/posts/learning/20
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the embedded video is Lecture 26 (AI for global nuclear monitoring) and fits the article scope; no video claims needed correcting.
 
 ## References
 

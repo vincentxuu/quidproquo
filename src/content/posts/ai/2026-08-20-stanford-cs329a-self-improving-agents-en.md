@@ -50,6 +50,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the transcripts of both embedded videos (Part 2 and Part 6) were read. Part 2 covers Large Language Monkeys repeated sampling and the power law, the long tail of hard problems, the generation-verification gap where majority voting and reward models fall short of oracle coverage, the hardest problems being solved only a few times in thousands of samples, and Archon fusion beating oracle selection, all of which hold in this article; Part 6 covers STaR (rationalization giving no clear gain on GSM8K), DeepSeekMath (majority@K rising but pass@K not at 32 samples, "more consistent, not fundamentally smarter"), GRPO normalization failing when all rewards are equal, DAPO dynamic sampling and the Qwen-32B ladder from 30 to about 50, and the conclusion that none of the three improves fundamental capability, which also hold. The Chinese quotations in the article are paraphrases that match the English transcript in meaning with different wording; the transcripts never name the speakers, so the attribution rests on course information, not the transcripts. Claims about lecture 9, lecture 17, other lectures and the guest talks correspond to videos that are not embedded and were not checked this time.
+
 ## The hard facts
 
 Two instructors. [Aakanksha Chowdhery](https://www.achowdhery.com/) led the 540B PaLM model at Google, then drove pre-training and scaling for Gemini's MoE models; she's now at Reflection AI. [Azalia Mirhoseini](http://azaliamirhoseini.com/) is a Stanford assistant professor and director of the [Scaling Intelligence Lab](https://scalingintelligence.stanford.edu/), co-creator of MoE architectures and AlphaChip, previously at Google Brain, Anthropic and Google DeepMind.
@@ -235,6 +237,7 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-21: Corrected the offering status. An earlier version of this post said "the next offering is Winter 2026–2027, already listed in ExploreCourses." On rechecking the same day, that entry had no Terms field and showed only "Last offered: Autumn 2025" — matching the dormant-courses table in the [course map post](/posts/learning/2026-08-20-stanford-cs-course-map). I cannot tell whether the original claim was wrong or Stanford pulled the scheduled offering in the interim, so the text now states only what the page showed on the date it was checked.
 - 2026-10-10: Rechecked video status. Confirmed live that the Part 2, 6 and 9 video pages exist with matching titles, so the status is now videos included; the playlist link had an incomplete ID and now points to the Part 1 video.
+- 2026-10-10: Checked the video content against its transcript. Read the transcripts of both embedded videos; the Part 2 and Part 6 claims match, nothing needed correcting; claims from the non-embedded lectures 9 and 17 and the guest talks were not checked.
 
 ## References
 

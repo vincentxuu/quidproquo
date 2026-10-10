@@ -35,6 +35,8 @@ title: MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片由 Ava Soleimany 主講，字幕涵蓋 RNN 的 recurrent state、next word prediction、tokenization／embedding、backpropagation through time、梯度消失與爆炸、LSTM 提及、Schubert 未完成交響曲的音樂生成（對應 Lab 1），以及 attention 的 query／key／value；與本文相符。
+
 ## 這一講要帶走什麼
 
 - 理解 recurrent state 如何把過去帶到下一步
@@ -64,6 +66,7 @@ title: MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。主題與講者相符，沒有需要更正的地方。
 
 ## 參考資料
 

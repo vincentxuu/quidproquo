@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 19, on Rational Decisions; the transcript covers rational agents maximizing utility, why utilities can be numbers (using minimax's invariance under monotonic transformations), why expected utility is used, and previews RLHF and alignment, matching this article's link from rational decisions to ML. The remaining sections of this article cover other lectures in the unit and the project, not this video.
+
 ## This is not a replacement for a full deep-learning course
 
 P5 introduces the modern ML workflow inside a broad AI course: model definition, forward pass, loss, optimizer, batches, and training loop. Its breadth does not replace a dedicated course in optimization, representation learning, or large models. Treat each task as an interface exercise instead of trying to acquire all underlying theory at once.
@@ -56,6 +58,7 @@ Series navigation: [Previous: Bayes nets and Ghostbusters](/posts/learning/2026-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the embedded video is Lecture 19 (Rational Decisions) and fits the article scope; no video claims needed correcting.
 
 ## References
 

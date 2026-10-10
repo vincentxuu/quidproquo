@@ -17,7 +17,7 @@ draft: false
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-[MIT 6.S191 2026](https://introtodeeplearning.com/) 第 4 講是 **生成模型：從潛在空間到 diffusion**。區分生成與判別問題，整理 VAE、GAN 與 diffusion 的學習目標，並接到 Lab 2 的 DB-VAE。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
+[MIT 6.S191 2026](https://introtodeeplearning.com/) 第 4 講是 **生成模型：從潛在空間到 diffusion**。區分生成與判別問題，整理 VAE 與 GAN 的學習目標（本講影片沒有講 diffusion，講者把它留到 Lecture 6），並接到 Lab 2 的 DB-VAE。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
 
 ## 課程影片來源
 2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
@@ -35,16 +35,18 @@ title: MIT 6.S191: Deep Generative Modeling
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：字幕涵蓋監督與非監督學習的對照、密度估計與樣本生成、autoencoder、VAE（均值與變異數、KL 正則化、reparameterization）、GAN（generator 與 discriminator）與 CycleGAN，並說明今天的 Lab 是用 VAE 對臉部偵測去偏。字幕沒有講 diffusion：講者明說 diffusion 留到「明天的 Lecture 6」，所以本文把 diffusion 與 denoising 寫成本講影片內容並不成立，已改為指向 Lecture 6 影片。
+
 ## 這一講要帶走什麼
 
 - 說明 latent variable 為何能表示資料中的變化因素
-- 分辨 reconstruction、adversarial 與 denoising 目標
+- 分辨 reconstruction 與 adversarial 目標（denoising／diffusion 在 Lecture 6 影片才講）
 - 知道生成品質高不等於資料偏差已消失
 
 這些概念的共同點是：不能只會認名詞。你要能指出輸入、輸出、學習訊號與限制，才算真的接上後續內容。
 
 
-VAE 把輸入編碼成分布、從 latent space 取樣，再解碼重建；GAN 讓 generator 與 discriminator 對抗；diffusion 則學習逐步逆轉加噪過程。三條路的 loss 不同，因此「哪個生成得好」必須先定義 fidelity、diversity 與下游用途。
+VAE 把輸入編碼成分布、從 latent space 取樣，再解碼重建；GAN 讓 generator 與 discriminator 對抗；diffusion 則學習逐步逆轉加噪過程（這一段不在本講影片內，見 Lecture 6）。三條路的 loss 不同，因此「哪個生成得好」必須先定義 fidelity、diversity 與下游用途。
 
 ## 建議觀看方式
 
@@ -64,6 +66,7 @@ VAE 把輸入編碼成分布、從 latent space 取樣，再解碼重建；GAN �
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。字幕沒有講 diffusion（講者說留到 Lecture 6），已更正本文中把 diffusion 與 denoising 算進本講影片的說法；frontmatter 的 title／tldr 仍含 diffusion，未動。
 
 ## 參考資料
 

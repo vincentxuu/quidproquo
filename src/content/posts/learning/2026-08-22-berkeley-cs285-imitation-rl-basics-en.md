@@ -42,6 +42,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the Lecture 2 transcript covers behavioral cloning, distributional shift (with the math) and DAgger (with the drone-in-a-forest example), and previews flow matching/diffusion for complex distributions; the Lecture 4 transcript first finishes the previous lecture's flow-matching policy and HW1, then defines MDPs (state, action, reward, transition) and POMDPs and contrasts imitation learning with RL. The L3, Sections and HW1 details in this note are the site's own synthesis from official materials and are not covered by the two embedded lectures; the phrase "credit assignment" does not appear in the transcript, and exploration is only touched briefly.
+
 ## L1–2: control as supervised learning
 
 Behavioral cloning trains a policy on expert state-action pairs. Its training loss is simple; deployment is not. Once the learned policy makes a small error, it may visit states absent from expert data. Draw the training distribution beside the distribution induced by the learned policy before naming the problem “covariate shift.”
@@ -64,6 +66,7 @@ Public code is enough to implement the work, but it is not the complete enrolled
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found the public Spring 2026 CS 185/285 YouTube playlist on the RAIL channel; embedded two matching lectures and changed the status from official entry only to Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the two videos are Lectures 2 and 4 and match the note; noted the term "credit assignment" does not appear in the video.
 
 ## References
 

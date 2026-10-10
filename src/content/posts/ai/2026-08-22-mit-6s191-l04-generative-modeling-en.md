@@ -17,7 +17,7 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-Lecture 4 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Generative Modeling: From Latent Spaces to Diffusion**. It Separates generative from discriminative tasks, organizes VAE, GAN, and diffusion objectives, and leads into Lab 2’s DB-VAE. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
+Lecture 4 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Generative Modeling: From Latent Spaces to Diffusion**. It Separates generative from discriminative tasks, organizes VAE and GAN objectives (this lecture's video does not cover diffusion; the speaker defers it to Lecture 6), and leads into Lab 2’s DB-VAE. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
 ## Course video sources
 Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
@@ -35,16 +35,18 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the transcript covers supervised versus unsupervised learning, density estimation and sample generation, autoencoders, VAEs (mean and variance, KL regularization, reparameterization), GANs (generator and discriminator) and CycleGAN, and says the day's lab uses a VAE to debias face detection. The transcript does not cover diffusion: the speaker says diffusion comes in "tomorrow's lecture six", so this note claiming diffusion and denoising as content of this video did not hold and now points to the Lecture 6 video.
+
 ## What to take away
 
 - Explain how latent variables can represent factors of variation
-- Distinguish reconstruction, adversarial, and denoising objectives
+- Distinguish reconstruction and adversarial objectives (denoising/diffusion is covered in the Lecture 6 video)
 - Recognize that sample quality does not imply that data bias is gone
 
 These goals have one thing in common: recognizing terminology is insufficient. You should be able to identify inputs, outputs, the learning signal, and the main constraint before moving on.
 
 
-A VAE encodes an input as a distribution, samples a latent value, and decodes a reconstruction. A GAN pits a generator against a discriminator, while diffusion learns to reverse a noising process. Because their objectives differ, “better generation” must be defined in terms of fidelity, diversity, and downstream use.
+A VAE encodes an input as a distribution, samples a latent value, and decodes a reconstruction. A GAN pits a generator against a discriminator, while diffusion learns to reverse a noising process (this part is not in this lecture's video; see Lecture 6). Because their objectives differ, “better generation” must be defined in terms of fidelity, diversity, and downstream use.
 
 ## How to watch
 
@@ -64,6 +66,7 @@ Draw a VAE with encoder, sampling, and decoder; label both loss terms before ope
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The transcript does not cover diffusion (the speaker defers it to Lecture 6), so the passages that attributed diffusion and denoising to this video were corrected; the frontmatter title and tldr still mention diffusion and were left unchanged.
 
 ## References
 

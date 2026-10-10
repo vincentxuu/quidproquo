@@ -42,6 +42,8 @@ title: CS 185/285 (Spring 2026): Lecture 7, Value-Based RL
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Lecture 5 字幕從 policy gradient 的軌跡目標推導，講 reward-to-go、baseline（減變異且不偏），並提到 policy gradient 訓練語言模型；Lecture 7 字幕說明「去掉 actor 只留 critic」得到 Q-learning，再從 policy iteration、value iteration、fitted value iteration 到 fitted Q iteration，並討論 replay buffer、epsilon-greedy 與 Boltzmann 探索，結尾預告下一講才講穩定技巧。與本文相符；字幕沒有出現 advantage 一詞，DQN 的 target network 等技巧屬下一講，HW2／HW3 細節為本站整理。
+
 ## Policy-based：直接改善 policy
 
 L5 從 trajectory objective 推出 policy gradient；reward-to-go、baseline 與 advantage 都是在不改目標的前提下降低估計變異。L6 的 actor-critic 用 critic 估計 actor 的更新訊號，換來可能的 function-approximation bias。Section 3 把兩者接起來，Section 5 再處理進階 policy gradient。
@@ -62,6 +64,7 @@ L7–8 從 Bellman backup 進入 DQN 與實務穩定技巧。L9–10 回到更�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。在 RAIL 頻道找到公開的 Spring 2026 CS 185/285 播放清單，嵌入兩講對應錄影，狀態由僅附官方入口改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認兩支影片是 Lecture 5 與 7，內容與本文相符；補註 DQN 穩定技巧在下一講。
 
 ## 參考資料
 

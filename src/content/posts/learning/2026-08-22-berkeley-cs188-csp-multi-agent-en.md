@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 5, on CSPs I (constraint satisfaction problems); the transcript first recalls the assumptions of search (single agent, deterministic, fully observed, discrete) and then introduces the CSP unit, previewing Project 4's invisible ghosts. The remaining sections of this article cover other lectures in the unit and the project, not this video.
+
 ## CSPs: reduce choices before entering the game
 
 The [official CSP textbook chapter](https://inst.eecs.berkeley.edu/~cs188/textbook/csp/csps.html) represents a problem through variables, each variable's domain, and constraints on compatible assignments. Basic backtracking assigns one variable at a time. Ordering heuristics choose the next variable and value; propagation removes candidates that can no longer participate in a solution. These techniques preserve the solution set while avoiding branches already known to fail.
@@ -62,6 +64,7 @@ Series navigation: [Previous: Search and heuristics](/posts/learning/2026-08-22-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Confirmed the embedded video is Lecture 5 (CSPs I (constraint satisfaction problems)) and fits the article scope; no video claims needed correcting.
 
 ## References
 

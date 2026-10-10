@@ -35,6 +35,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the video is presented by Ava Soleimany; the transcript covers the universal approximation theorem, generalization and the random-label experiment, data distribution and out-of-distribution failures (the self-driving crash example), adversarial attacks, algorithmic bias, then diffusion models (forward noising, reverse denoising) and LLMs (next-token prediction, emergent abilities). The theme of new frontiers and limitations matches this note, and this is where diffusion actually appears (the Lecture 4 video does not cover it). The "baseline" and "failure condition" advice in this note is the site's own framing; the video does not use those terms.
+
 ## What to take away
 
 - Reduce an impressive demo to a testable task definition
@@ -64,6 +66,7 @@ Choose one idea and describe its problem, input, output, data, baseline, and fai
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The topic and speaker match; also confirmed that the diffusion content is in this video, not Lecture 4.
 
 ## References
 

@@ -42,6 +42,8 @@ title: CS 185/285 (Spring 2026): Lecture 25, Challenges and Open Problems
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Lecture 19 字幕開場是期中考行政說明與「這週是考試範圍內最後的新內容：exploration 與 RL theory」，接著講 exploration，內容有 multi-armed bandit、相對最佳貝氏策略的 regret、以及用 state 密度估計做 exploration bonus；字幕沒有 UCB、Thompson sampling 之類具名方法的明確討論，RL Theory 屬下一講。Lecture 25 字幕是回顧性、非深度技術的一講（講者明說），整理整學期內容與看法，並預告客座講者；與本文把它當「開放問題」的定位相符。本文 L21–24 與「research memo」等建議為本站整理，非影片內容。
+
 ## L19–20：探索與保證
 
 Exploration 處理短期 reward 與資訊價值的衝突；RL Theory 則把直覺轉成假設、樣本需求與 regret／performance 的界線。讀投影片時，把每個結論旁邊補上成立條件。少了 tabular、coverage、realizability 等條件，保證很容易被誤用到深度 RL 實務。
@@ -65,6 +67,7 @@ Advanced Exploration 延伸到稀疏 reward 與表示層面的資訊取得。Mul
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。在 RAIL 頻道找到公開的 Spring 2026 CS 185/285 播放清單，嵌入兩講對應錄影，狀態由僅附官方入口改為已附影片。
 - 2026-10-10：修正過時的錄影說法。「錄影在 bCourses」改寫為講課錄影可在 RAIL YouTube 頻道觀看。
+- 2026-10-10：依字幕核對影片內容。確認兩支影片就是 Lecture 19 與 25，主題與本文相符；補註 L19 只涵蓋 exploration（theory 在下一講）。
 
 ## 參考資料
 

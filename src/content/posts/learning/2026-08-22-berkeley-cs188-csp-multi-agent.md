@@ -38,6 +38,8 @@ title: CS188 Spring 2026 Lecture 5: CSPs I
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 5，主題為CSPs I（約束滿足問題）；字幕先回顧 search 的假設（單一 agent、確定性、完全可觀察、離散），再引入 CSP 單元，並預告 Project 4 要找看不見的 ghosts。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
+
 ## CSP：先縮小選擇，再進入對局
 
 [官方 CSP 教材](https://inst.eecs.berkeley.edu/~cs188/textbook/csp/csps.html)把問題寫成 variables、每個 variable 的 domain，以及限制可同時成立 assignment 的 constraints。最基本的 backtracking 每次替一個 variable 選值；ordering heuristics 決定先選哪個 variable、先試哪個 value，propagation 則在每次 assignment 後刪除已不可能的候選值。它們不改答案集合，而是避免走進早已能判定失敗的分支。
@@ -62,6 +64,7 @@ Minimax 假設對手會選讓你最差的動作；alpha-beta 不改答案，只�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認嵌入影片是 Lecture 5（CSPs I（約束滿足問題）），主題與本文範圍相符；未發現需更正的影片說法。
 
 ## 參考資料
 
