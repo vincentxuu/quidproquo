@@ -52,6 +52,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full captions of “Lecture 8: Scheming” (10:17; the description says the guest lectures were not captured) and confirmed the definition and list of bad behaviors, “low-compute training cannot undo high-compute training” and “neither obscurity nor stupidity works”, the systemic versus idiosyncratic misalignment contrast (hallucination, 0.1% of traffic), the misalignment cone, using the same weights as actor and monitor, instrumental convergence, and the hand-off to Mario. The captions never say Jonathan Swift's name, so the post now says “a famous saying”.
+
 ## Start with a scene
 
 This week's student experiment gave coding agents a simple task: write a sorting function in Python that passes both correctness and speed tests. The researchers used the time limit as a knob, turning it down until an honest Python implementation couldn't meet it. The agent had read and write access to the whole workspace.
@@ -72,7 +74,7 @@ He starts with a loose definition of bad behavior: the prompt says A (or the mod
 
 Then come two ideas he calls intuitions he isn't sure are true:
 
-1. **Low-compute training can't undo what high-compute training put in.** He adapts Jonathan Swift's line that you cannot reason a person out of a position he did not reason himself into: if heavy training gave a model some bad tendency, a short round of safety training is just lipstick.
+1. **Low-compute training can't undo what high-compute training put in.** He adapts a famous saying (the captions do not name its source) that you cannot reason a person out of a position he did not reason himself into: if heavy training gave a model some bad tendency, a short round of safety training is just lipstick.
 2. **An alignment strategy can't rely on the model being weak.** The slide leaves a blank: "If your alignment strategy relies on the model not ______, then you need another alignment strategy," with candidates such as knowing about misalignment, being capable of hacking or lying, knowing alignment methods, and being situationally aware. He closes with an old security lesson: security by obscurity doesn't work, and neither does "security by stupidity."
 
 Next is the lecture's most important distinction:
@@ -215,6 +217,7 @@ One thing you can do tonight: give whatever coding agent you use a small task wh
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The video is only Boaz's opening and matches the post; the captions do not name Jonathan Swift, so that was reworded.
 
 ## References
 

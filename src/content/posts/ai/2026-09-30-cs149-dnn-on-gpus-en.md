@@ -55,6 +55,8 @@ Course and recording entries:
 - [CS149 2023 public video playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dnninference/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 10 - Efficiently Evaluating DNNs on GPUs” (1:20:26). The captions cover convolution layers and rewriting convolution as matrix multiplication, blocking and arithmetic intensity, operator fusion, fusing softmax and attention, low precision and Tensor Cores, and network topology (ResNet/MobileNet); Triton is only mentioned, and FlashAttention, CUTLASS and ThunderKittens do not appear in the captions, consistent with the post's statement that these are 2025 additions. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
+
 ## Opening: you already know most of this
 
 Slides 3–10 are "things you already know — and should remember":
@@ -197,6 +199,7 @@ Series navigation: previous [PA3 + Written 2: CUDA circle renderer](/posts/ai/20
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches this post; FlashAttention, CUTLASS and ThunderKittens are not in the video, as the post already states.
 
 ## References
 

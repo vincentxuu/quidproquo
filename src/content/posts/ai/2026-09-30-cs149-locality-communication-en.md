@@ -49,6 +49,8 @@ Course and recording entries:
 - [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 6 - Performance Optimization II: Locality, Communication, and Contention” (1:17:25). The captions cover send/recv in message passing and deadlock, the grid solver, blocking, arithmetic intensity, inherent versus artifactual communication and contention, ending with the roofline, matching this post's topic; NUMA and the high-watermark method do not appear in the captions. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
+
 ## A shared address space is only an abstraction
 
 So far the course has assumed all processors connect to one memory system that presents a single shared address space. Lecture 6 starts by reminding you that implementing this abstraction is complicated. A single "load the value at address X into R0" may pass through several cache levels before reaching DRAM.
@@ -223,6 +225,7 @@ Series navigation: previous, [Lecture 5: work distribution and scheduling](/post
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches this post; NUMA and the high-watermark method are not in the video.
 
 ## References
 

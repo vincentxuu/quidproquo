@@ -52,6 +52,8 @@ Course and recording entries:
 - [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 8 - Data-Parallel Thinking” (1:17:48). The captions cover map and fold/reduce, scan (including the work-efficient version and warp- and block-level CUDA implementations), segmented scan and sparse matrix multiplication, gather/scatter, building a particle grid with sort and histograms, and close with a few sentences on Spark, matching this post's topic. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
+
 ## Why so much parallelism
 
 The slides bring back the V100 numbers from [the previous lecture](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en): 80 SMs and up to 163,840 interleaved CUDA threads. The conclusion is on the same slide. Programs that don't expose lots of parallelism, and don't have high arithmetic intensity, won't run efficiently on GPUs.
@@ -191,6 +193,7 @@ One thing you can do tonight: pick a piece of code you've written that accumulat
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches this post; no video claims needed correcting.
 
 ## References
 

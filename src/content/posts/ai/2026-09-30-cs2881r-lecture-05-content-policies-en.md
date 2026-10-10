@@ -48,6 +48,8 @@ Official sources:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): This video is the student experiment, not the guest lecture. I read the full captions of “Lecture 5: Experiment on Policy compliance” (17:01) and confirmed that the speaker opens by saying it is last week's experiment, and that it compares minimal/principles/rules system prompts on DeepSeek-R1 8B, RealSafe-R1-8B and GPT-4o, Gemini and Claude 3.5 Sonnet, evaluated with OR-Bench and MMLU-Pro, 3 runs per condition and roughly a hundred prompts, concluding that gaps between models exceed gaps between prompts. The captions do not give the speaker's name; the “rhyme” example was said by the presenter himself while answering the audience, not by Boaz, which is corrected.
+
 ## What you can get for this lecture
 
 Under October 2, the course site lists three topics:
@@ -122,7 +124,7 @@ Per the video and the summary, the design was:
 - **System prompt conditions**: no prompt, a two-sentence "helpful, honest, harmless" prompt, 8 principles, 30 rules, and combinations of these.
 - **Evaluation**: the over-refusal, hard, and toxic subsets of [OR-Bench](https://arxiv.org/abs/2405.20947), plus MMLU-Pro to check that capability didn't drop.
 
-Both sources agree on the result: the gaps between models were much larger than the gaps between prompts. The safety-trained version refused more toxic requests but also over-refused more, and underspecified prompts tended to raise refusal rates. The presenter cautions in the video that each condition ran only 3 times with roughly a hundred sampled prompts, and the standard deviations overlap, so strong conclusions aren't warranted. Boaz adds in the video that if a prompt governed behavior the model was never trained on (his example is whether to rhyme), the prompt might matter much more; safety behavior has already been heavily trained, so a prompt has less room to move it.
+Both sources agree on the result: the gaps between models were much larger than the gaps between prompts. The safety-trained version refused more toxic requests but also over-refused more, and underspecified prompts tended to raise refusal rates. The presenter cautions in the video that each condition ran only 3 times with roughly a hundred sampled prompts, and the standard deviations overlap, so strong conclusions aren't warranted. The presenter adds in the video, answering the audience, that if a prompt governed behavior the model was never trained on (his example is whether to rhyme), the prompt might matter much more; safety behavior has already been heavily trained, so a prompt has less room to move it.
 
 This result pulls the lecture's theme back one step. Platform policies are enforced by moderators and classifiers. A model policy that lives only in the prompt has limited force; training is what actually does the work.
 
@@ -144,6 +146,7 @@ One thing you can do tonight: following the class exercise, list five image scen
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official schedule and playlist still list only the student experiment video for Lecture 5, so the status stays as related supplementary video only.
+- 2026-10-10: Checked the video content against its transcript. Corrected who gave the “rhyme” example (the student presenter, not Boaz); the rest matches the captions.
 
 ## References
 

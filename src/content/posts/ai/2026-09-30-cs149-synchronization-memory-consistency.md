@@ -54,6 +54,8 @@ title: Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consiste
 - [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 12 - Memory Consistency》（1:19:15）。影片開頭先收尾 cache coherence，之後講 memory consistency：字幕涵蓋 sequential consistency、write buffer 造成的重排（字幕有 TSO／PSO 與 fence）、relaxed consistency 與 data race，主題與本文一致；字幕沒有 x86 的 lfence／sfence／mfence 細節與 release consistency 的名稱，講者結尾說語言層級的 memory model 下週再講。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
+
 ## 先說清楚這一講的範圍
 
 課程首頁把 L15 標為「Implementing Synchronization + Memory Consistency」，描述是「Fine-grained synchronization via locks, motivation for relaxed consistency, implications to programmers」。實際打開 PDF，封面寫的是「Memory Coherency and Consistency」，內容分兩段：
@@ -209,6 +211,7 @@ x86 大致是 TSO，軟體需要模型沒保證的順序時，可以用 `_mm_lfe
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與本文一致；x86 fence 指令細節與 release consistency 不在影片中。
 
 ## 參考資料
 

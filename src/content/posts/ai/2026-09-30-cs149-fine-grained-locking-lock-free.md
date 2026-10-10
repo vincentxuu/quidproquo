@@ -55,6 +55,8 @@ title: Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Loc
 - [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming》（1:15:47）。字幕涵蓋 deadlock 與 starvation、test-and-set、ticket lock、compare-and-swap 與 LL/SC、用 hand-over-hand 鎖排序鏈結串列；lock-free 只在最後約 5 分鐘簡短帶過（提到 ABA 與 lock-free stack，講者說這部分不考、之後到 transactional memory 才會再碰到），字幕沒有 hazard pointer 的說明，SPSC 佇列也沒有明確出現。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
+
 ## 先分清楚三種「卡住」
 
 投影片第 3 頁先定義三個詞，並註明 deadlock 與 livelock 是正確性問題，starvation 比較接近公平性問題：
@@ -187,6 +189,7 @@ test-and-set 家族的共同問題是放鎖那一刻所有等待者同時去搶�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主要對應本文前半的鎖，lock-free 只簡短帶過；hazard pointer 與 SPSC 佇列不在影片中，已在影片來源段寫明。
 
 ## 參考資料
 

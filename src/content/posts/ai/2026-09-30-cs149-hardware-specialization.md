@@ -40,7 +40,7 @@ glossary:
 
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 13 篇，對應 10 月 23 日的第 10 講 [Hardware Specialization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/accelerators/10_Specialized.pdf) 共 71 頁。
 
-Fall 2025 的錄影只放在 Stanford Canvas。最接近的公開錄影是 [2023 Lecture 18: Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)，但只能當前半段的補充。對照 [2023 年課站上的同主題投影片](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/)：能量受限、H.264、FFT、DSP、Anton、FPGA、效率經驗法則這些開場內容 2023 版都有；2023 版後半講的是 Spatial 加速器設計語言、串流執行與 DRAM 運作，2025 版則換成 GPU Tensor Core、TPU 脈動陣列與資料流架構。本文以 2025 投影片為準。整門課的公開程度是 A3（足以自學），缺口列在[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)。
+Fall 2025 的錄影只放在 Stanford Canvas。最接近的公開錄影是 [2023 Lecture 18: Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)，但只能當前半段的補充。對照 [2023 年課站上的同主題投影片](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/)：能量受限、H.264、FFT、DSP、Anton、FPGA、效率經驗法則這些開場內容 2023 版都有；2023 版後半講的是 Spatial 加速器設計語言、串流執行與 DRAM 運作（錄影字幕裡只有 Spatial 與串流執行，DRAM 部分講者說沒時間講），2025 版則換成 GPU Tensor Core、TPU 脈動陣列與資料流架構。本文以 2025 投影片為準。整門課的公開程度是 A3（足以自學），缺口列在[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)。
 
 [上一篇](/posts/ai/2026-09-30-cs149-dnn-on-gpus)結尾留了一個問題：GPU 跑 DNN 很好，但它真的是最理想的平台嗎？這一講回答它。本篇也負責建立加速器的名詞（Tensor Core、脈動陣列、TMA、資料流架構），[下一篇](/posts/ai/2026-09-30-cs149-programming-specialized-hardware)直接引用。
 
@@ -59,6 +59,8 @@ title: Stanford CS149 I Parallel Computing I 2023 I Lecture 18 - Hardware Specia
 
 - [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 18 - Hardware Specialization》（1:11:48）。字幕涵蓋能量受限的運算、H.264 編碼與 SIMD 的能耗、FFT／DSP／ASIC 與 Anton、行動裝置的能耗限制、TPU 與 FPGA（字幕寫成 field programmable gator rays，只簡短帶到），後半主要在講 Spatial 加速器設計語言與串流執行；DRAM 的運作講者說沒時間講。BF16／FP8、A100／H100／B100 的 Tensor Core、脈動陣列、Plasticine、Hardware Lottery 在字幕中沒有，所以影片只能當本文前半（能量與專用化動機）的補充，與文中說明一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 為什麼要專用化：能量
 
@@ -232,6 +234,7 @@ thread block cluster 最多 16 個 thread block，保證每個在不同的 SM �
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片只涵蓋本文前半的動機與 Spatial 設計語言，Tensor Core、脈動陣列、資料流架構不在影片中，已補寫影片實際內容。
 
 ## 參考資料
 

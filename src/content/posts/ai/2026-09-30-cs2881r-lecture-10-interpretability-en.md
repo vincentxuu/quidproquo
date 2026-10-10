@@ -67,6 +67,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 10: Mechanistic Intepretability” (2:30:24) and confirmed the order and approximate positions of Bowen Baker, Jack Lindsey, Neel Nanda, the student experiment and the Leo Gao panel, the “reverse order of the stack” opening, the hard-coded-constant CoT example, the room-color faithfulness example, the persona vector chart, the Sonnet 4.5 evaluation-awareness audit, Sam Marks's auditing game, the “virtue of simplicity” point, and the Palisade shutdown experiment (two conflicting instructions). The Chinese post's paraphrase of the opening was aligned with the captions' “reverse order of the stack”.
+
 ## Official materials and access
 
 | Material | Status |
@@ -273,6 +275,7 @@ Some student questions worth noting:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Speaker order, approximate positions and examples match the captions; the Chinese paraphrase of the opening was aligned with “reverse order of the stack”.
 
 ## References
 

@@ -53,6 +53,8 @@ Course and recording entries:
 - [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming” (1:15:47). The captions cover deadlock and starvation, test-and-set, ticket locks, compare-and-swap and LL/SC, and a sorted linked list with hand-over-hand locking; lock-free programming gets only about the last five minutes (ABA and a lock-free stack are mentioned, with the speaker saying it is not on the midterm and will come back with transactional memory), and the captions have no explanation of hazard pointers and no clear SPSC queue. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
+
 ## Three ways to get stuck
 
 Slide 3 defines three terms and notes that deadlock and livelock are correctness problems, while starvation is really about fairness:
@@ -185,6 +187,7 @@ Series navigation: previous [L15: Implementing Synchronization and Memory Consis
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video mostly corresponds to the locking half of this post and only touches lock-free briefly; hazard pointers and SPSC queues are not in the video, which the video-sources section now states.
 
 ## References
 

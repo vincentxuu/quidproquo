@@ -50,6 +50,8 @@ title: Stanford CS149 I Parallel Computing I 2023 I Lecture 11 - Cache Coherence
 - [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 11 - Cache Coherence》（1:20:37）。影片前約三分之一在收尾上一講的 Spark，約三分之一處才進入 cache coherence：講 coherence 的定義與兩個不變式、軟體與硬體做法、snooping 的概念，最後停在 MSI 三個狀態與 BusRd／BusRdX／BusWB 的定義，講者說狀態如何轉換「週四再繼續」。字幕中沒有 MESI 的 E 狀態、false sharing 的示範與 padding、directory 的實作細節（directory 只被一句帶過），所以本文這幾段沒有影片可對照。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
+
 ## 為什麼 AI kernel 之後突然回到 cache
 
 官方課序就是這樣排的：L9 到 L13 和 PA4、PA5 談 AI 系統，L14 到 L18 轉回共享記憶體的正確性。主題看起來斷了，其實接得回前面兩個地方：
@@ -225,6 +227,7 @@ Demo 的數字：8 個 thread 在 4 核系統上各自對自己的計數器加�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。這支 2023 錄影只涵蓋本文前半（定義、不變式、snooping、MSI 狀態定義），MESI、directory、false sharing 在影片中沒有，已在影片來源段寫明。
 
 ## 參考資料
 

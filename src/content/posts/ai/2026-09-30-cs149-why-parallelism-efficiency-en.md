@@ -50,6 +50,8 @@ Course and recording entries:
 
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 1 - Why Parallelism? Why Efficiency?” (1:12:21). The captions cover the course introduction and instructors, the definition of speedup and the classroom demonstrations, clock frequency and power, and memory latency and cache basics at the end, matching this post's topic; energy is mentioned only in passing and the pJ numbers in this post are not in the captions, consistent with the post's statement that the video would not mention them. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
+
 ## Parallel computers and speedup
 
 The slides give a short definition: **a parallel computer is a collection of processing elements that cooperate to solve problems quickly.** Two side notes state the course's stance: we care about performance, and we care about efficiency. Using multiple processing elements is just the means of getting performance.
@@ -201,6 +203,7 @@ The 2023 [Lecture 1 video](https://www.youtube.com/watch?v=V1tINV2-9p4) (about 1
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches this post; no video claims needed correcting.
 
 ## References
 

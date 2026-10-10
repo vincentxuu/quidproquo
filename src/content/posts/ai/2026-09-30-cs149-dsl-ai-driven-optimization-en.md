@@ -49,6 +49,8 @@ Course and recording entries:
 - [CS149 2023 public lecture playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 15 - Domain Specific Programming Languages” (1:18:53). The captions cover the motivation for DSLs (productivity and performance), Halide (including the blur example and scheduling), the research language Liszt (mis-transcribed as “list”) and other domains such as graphs and meshes, and mention LLMs only in an aside; the Halide autoscheduler, LLM agents generating kernels and KernelBench do not appear in the captions, consistent with the post saying the second half has no public recording. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
+
 ## The starting point: too few people can write fast code
 
 Page 2 sets the goal: mechanisms and techniques that make performance optimization more productive, both by making expert programmers more productive and through automation. Three key ideas:
@@ -206,6 +208,7 @@ Series navigation: previous [L12 Mapping AI Applications to the Datacenter](/pos
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video corresponds only to the DSL half of this post, as the post says; the autoscheduler and LLM-agent parts are not in the video.
 
 ## References
 

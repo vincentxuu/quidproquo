@@ -53,6 +53,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 2- Modern LLM training and safety training” (2:23:02) and spot-checked and confirmed the emoji reward-hacking example, the Bourgain and “Tim G” “token difficulty” cases, DeepSeekMath's pass@1 versus pass@4, CoT monitoring and the position paper (no source given in the captions), the 5% cheating ratio, safe completions and the OpenAI/Anthropic cross-evaluation, the “protect my grandmother's cookie recipe” analogy, and the students' persona experiment (Einstein and Mozart); nothing needed correcting.
+
 ## Intuition first: the one idea to hold onto
 
 HW0 was hands-on. This lecture is where RL vocabulary arrives in bulk. Here is the one-line intuition everything else hangs on:
@@ -212,6 +214,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overvie
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The spot-checked claims were all found in the captions; nothing needed correcting.
 
 ## References
 

@@ -47,7 +47,7 @@ L10 的答案分成兩條路。一條是讀模型寫出來的推理過程，也�
 | Neel Nanda | Google DeepMind | 約 1:00–1:24 | 務實派機制可解釋性 |
 | Leo Gao | OpenAI | 座談（約 1:46 起） | SAE 與可解釋性的定位 |
 
-課站把這一講的四個子題列成 Activations、Sparse Auto Encoders（SAE）、Black box models、Chain of thought。本篇沿著這四個子題走，但順序照講者的實際安排：Bowen 開場時說，他們要「由上往下」講，先講像內心獨白的 CoT，再講像腦內訊號的 activation。
+課站把這一講的四個子題列成 Activations、Sparse Auto Encoders（SAE）、Black box models、Chain of thought。本篇沿著這四個子題走，但順序照講者的實際安排：Bowen 開場時說，他們要照 stack 的反向順序講，先講像內心獨白的 CoT，再講像腦內訊號的 activation。
 
 ## 課程影片來源
 
@@ -66,6 +66,8 @@ title: AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability
 - [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 10: Mechanistic Intepretability》（2:30:24）的完整自動字幕：確認 Bowen Baker、Jack Lindsey、Neel Nanda、學生實驗、Leo Gao 座談的出場順序與大致位置、「倒著走 stack」的開場、寫死常數的 CoT 例子、房間顏色的 faithfulness 例子、persona vector 圖、Sonnet 4.5 的評測意識稽核、Sam Marks 的稽核遊戲、「簡單方法的 virtue of simplicity」，以及 Palisade 關機實驗（兩個互相衝突的指令）。開場原句「由上往下」改成字幕實際的「stack 的反向順序」。
 
 ## 用到的官方材料與存取狀態
 
@@ -273,6 +275,7 @@ Boaz 要每位講者選邊：機制可解釋性對 AI 安全是不是關鍵瓶�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。講者順序與約略位置、各例子與字幕相符；開場說法改成字幕的「stack 的反向順序」。
 
 ## 參考資料
 

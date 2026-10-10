@@ -59,6 +59,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 4: Model Specs” (2:06:03) and confirmed Barak's three alignment goals and his bet, common law versus civil law and the word-count chart (4,500 words for the US Constitution), KYC and a million marketing emails, the root/system/developer/user/guideline hierarchy and the `AGENTS.md` example, the resignation letter and Golden Gate Bridge nets, his flat-earth and drug-recipe translation tests, the Gödel/Riemann bad-rule example, the group exercise on ten roles (including IRB, the Agent-4 joke, the First Amendment and whistleblowing), and the closing mini-project preview; nothing needed correcting.
+
 ## Start with what people actually do with ChatGPT
 
 The plan on the slides has two lines: **what** we want models to follow, and **how** we get them to follow it. Barak says ninety percent of the lecture is about the first.
@@ -234,6 +236,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overvie
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Checked the video content against its transcript. The spot-checked claims were all found in the captions; nothing needed correcting.
 
 ## References
 

@@ -49,6 +49,8 @@ title: CS2881R Fall 2025 L5: Student experiment on policy compliance
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：這支影片是學生實驗，不是客座講課。讀了《Lecture 5: Experiment on Policy compliance》（17:01）的完整字幕：確認講者開頭說「這是上週的實驗」，內容是 minimal／principles／rules 三種 system prompt 在 DeepSeek-R1 8B、RealSafe-R1-8B 與 GPT-4o、Gemini、Claude 3.5 Sonnet 上的比較，評測用 OR-Bench 與 MMLU-Pro，每條件跑 3 次、約百題，結論是模型差距大於 prompt 差距。字幕沒有講者姓名；「押韻」的例子是講者自己回應觀眾時說的，不是 Boaz，已更正。
+
 ## 這一講拿得到什麼
 
 課站在 10 月 2 日底下只寫了三個主題：
@@ -123,7 +125,7 @@ title: CS2881R Fall 2025 L5: Student experiment on policy compliance
 - **system prompt 條件**：無 prompt、兩句話的「helpful, honest, harmless」、8 條原則、30 條規則，以及它們的組合。
 - **評測**：[OR-Bench](https://arxiv.org/abs/2405.20947) 的 over-refusal、hard、toxic 三個子集，加上 MMLU-Pro 看能力有沒有掉。
 
-結論兩份材料說法一致：模型之間的差距遠大於 prompt 之間的差距。安全訓練過的版本更會拒絕有毒請求，但也更會過度拒答；過於簡略的 prompt 傾向讓拒答率上升。講者自己在影片裡提醒，每個條件只跑 3 次、每次抽約一百題，標準差互相重疊，不能下太強的結論。Boaz 在影片裡的補充是：如果 prompt 管的是模型沒被訓練過的行為（他舉「要不要押韻」），prompt 的效果可能會大得多；安全行為已經被大量訓練過，prompt 能推動的空間就小。
+結論兩份材料說法一致：模型之間的差距遠大於 prompt 之間的差距。安全訓練過的版本更會拒絕有毒請求，但也更會過度拒答；過於簡略的 prompt 傾向讓拒答率上升。講者自己在影片裡提醒，每個條件只跑 3 次、每次抽約一百題，標準差互相重疊，不能下太強的結論。講者在影片裡回應觀眾時的補充是：如果 prompt 管的是模型沒被訓練過的行為（他舉「要不要押韻」），prompt 的效果可能會大得多；安全行為已經被大量訓練過，prompt 能推動的空間就小。
 
 這個結果把本講的主題往回拉了一步。平台的政策靠審核員與分類器執行；模型的政策如果只寫在 prompt 裡，執行力有限，真正起作用的是訓練。
 
@@ -145,6 +147,7 @@ title: CS2881R Fall 2025 L5: Student experiment on policy compliance
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方課表與播放清單第 5 講仍只有學生實驗影片，沒有客座講課錄影，狀態維持僅附相關補充影片。
+- 2026-10-10：依字幕核對影片內容。更正「押韻」例子的說話者（是學生講者，不是 Boaz）；其餘說法與字幕相符。
 
 ## 參考資料
 

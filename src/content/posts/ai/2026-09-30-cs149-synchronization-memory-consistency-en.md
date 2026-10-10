@@ -52,6 +52,8 @@ Course and recording entries:
 - [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 12 - Memory Consistency” (1:19:15). The video opens by finishing cache coherence and then covers memory consistency: the captions include sequential consistency, reordering caused by write buffers (with TSO/PSO and fences), relaxed consistency and data races, matching this post's topic; the captions do not go into x86 lfence/sfence/mfence or name release consistency, and the speaker ends by saying the language-level memory model comes next week. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
+
 ## What this lecture actually covers
 
 The course home page titles L15 "Implementing Synchronization + Memory Consistency," with the description "Fine-grained synchronization via locks, motivation for relaxed consistency, implications to programmers." The PDF's cover reads "Memory Coherency and Consistency," and the deck has two parts:
@@ -207,6 +209,7 @@ Further reading: lock implementations and atomic operations from the operating-s
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches this post; x86 fence instruction details and release consistency are not in the video.
 
 ## References
 

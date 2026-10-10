@@ -43,6 +43,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Oral presentations of student projects” (1:15:40) and confirmed the order of the seven talks (AI-induced Psychosis, Who Said That?, Improving GCG, legal hallucination, Phase Transitions in Backdoor Learning, Subliminal Learning, Evolutionary Alignment), the opening statement of 10 minutes per team including questions, and the two Q&A items (the backdoor team asked about QLoRA 4-bit quantization, the Evolutionary Alignment team asked whether ES is just regularization on GRPO). The captions carry no time codes, so the table's exact start times and `?t=` deep links could not be verified and have been replaced by talk order only.
+
 ## Official materials and access
 
 | Material | Contents | Status |
@@ -156,19 +158,19 @@ For methods, numbers, and limitations, read the PDFs. This post only relays the 
 
 ## The oral presentation video: 7 teams, about 10 minutes each
 
-At the start of the [oral presentation video](https://youtu.be/Xr9FNl0S66Q), the host sets 10 minutes per team: about 9 to present and 1 to switch. Going by the video's captions, seven teams presented over 75 minutes (start time is when each team begins speaking):
+At the start of the [oral presentation video](https://youtu.be/Xr9FNl0S66Q), the host sets 10 minutes per team, including questions and the switch. Going by the video's captions, seven teams presented over 75 minutes:
 
-| Start | Project |
+| Order | Project |
 |---|---|
-| [0:27](https://youtu.be/Xr9FNl0S66Q?t=27) | AI-induced Psychosis |
-| [10:11](https://youtu.be/Xr9FNl0S66Q?t=611) | Who Said That? (dynamic model fingerprinting) |
-| [20:33](https://youtu.be/Xr9FNl0S66Q?t=1233) | Improving GCG |
-| [32:27](https://youtu.be/Xr9FNl0S66Q?t=1947) | Sure, I Can Draft a Complaint! (legal hallucination) |
-| [42:24](https://youtu.be/Xr9FNl0S66Q?t=2544) | Phase Transitions in Backdoor Learning |
-| [51:53](https://youtu.be/Xr9FNl0S66Q?t=3113) | Mechanisms of Subliminal Learning |
-| [1:03:43](https://youtu.be/Xr9FNl0S66Q?t=3823) | Evolutionary Alignment |
+| 1 | AI-induced Psychosis |
+| 2 | Who Said That? (dynamic model fingerprinting) |
+| 3 | Improving GCG |
+| 4 | Sure, I Can Draft a Complaint! (legal hallucination) |
+| 5 | Phase Transitions in Backdoor Learning |
+| 6 | Mechanisms of Subliminal Learning |
+| 7 | Evolutionary Alignment |
 
-The video has no chapters and no timestamps in its description; the table gives the time each team's first words appear in the auto-generated captions (checked 2026-10-01), and each time links straight to that team. The Q&A is worth watching as much as the talks. The backdoor team was asked whether its phase transition could be an artifact of QLoRA's 4-bit quantization. The Evolutionary Alignment team was asked whether ES might just be a form of regularization on GRPO. These are exactly the questions the rubric's robustness item wants students to raise themselves.
+The video has no chapters or description timestamps, and the auto-generated captions carry no time codes, so the table only guarantees the order of the talks (checked against the order of the caption text); teams change roughly every 10 minutes on average. The Q&A is worth watching as much as the talks. The backdoor team was asked whether its phase transition could be an artifact of QLoRA's 4-bit quantization. The Evolutionary Alignment team was asked whether ES might just be a form of regularization on GRPO. These are exactly the questions the rubric's robustness item wants students to raise themselves.
 
 The other 12 teams appear only as papers and posters.
 
@@ -251,6 +253,7 @@ If you've followed the series this far, the next step is running a final project
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official playlist lists the final-project oral presentations recording, so it is now embedded and the status is Videos included.
+- 2026-10-10: Checked the video content against its transcript. The talk order and both Q&A items are correct; the captions have no time codes, so the unverifiable exact start times and `?t=` links were removed, and “9 minutes to present and 1 to switch” was changed to what the captions say, 10 minutes per team including questions.
 
 ## References
 

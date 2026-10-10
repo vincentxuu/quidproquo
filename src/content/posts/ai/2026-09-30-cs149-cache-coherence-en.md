@@ -48,6 +48,8 @@ Course and recording entries:
 - [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 11 - Cache Coherence” (1:20:37). The first third of the video wraps up Spark from the previous lecture; cache coherence starts around the one-third mark: the definition of coherence and its two invariants, software versus hardware approaches, the idea of snooping, and it stops at the definitions of the three MSI states and BusRd/BusRdX/BusWB, with the speaker saying how states transition will be continued on Thursday. The captions contain no MESI exclusive state, no false-sharing demo or padding, and no directory details (directories get one sentence), so those parts of this post have no counterpart in the video. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
+
 ## Why the course returns to caches after AI kernels
 
 That is the official order: L9 through L13, PA4, and PA5 cover AI systems, and L14 through L18 return to correctness in shared memory. The topic seems to break, but it connects back to two earlier places:
@@ -223,6 +225,7 @@ Further reading: locks and synchronization from the operating-system side in [CS
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. This 2023 recording covers only the first half of this post (definition, invariants, snooping, MSI state definitions); MESI, directories and false sharing are not in the video, which the video-sources section now states.
 
 ## References
 

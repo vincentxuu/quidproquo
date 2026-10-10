@@ -39,7 +39,7 @@ glossary:
 
 **This guide follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is post 13 in the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers Lecture 10 from October 23, [Hardware Specialization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/). The official [slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/accelerators/10_Specialized.pdf) has 71 slides.
 
-Fall 2025 recordings live only on Stanford Canvas. The closest public video is [2023 Lecture 18: Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw), but it only supplements the first half. Compared with the [2023 course site's slides on the same topic](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/), the opening material (energy constraints, H.264, FFT, DSPs, Anton, FPGAs, efficiency rules of thumb) is all in the 2023 deck. The 2023 second half covered the Spatial accelerator-design language, streaming execution, and how DRAM works. The 2025 deck replaces that with GPU Tensor Cores, the TPU systolic array, and dataflow architectures. This guide follows the 2025 slides. The course overall is A3 (enough to self-study); gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
+Fall 2025 recordings live only on Stanford Canvas. The closest public video is [2023 Lecture 18: Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw), but it only supplements the first half. Compared with the [2023 course site's slides on the same topic](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/), the opening material (energy constraints, H.264, FFT, DSPs, Anton, FPGAs, efficiency rules of thumb) is all in the 2023 deck. The 2023 second half covered the Spatial accelerator-design language, streaming execution, and how DRAM works (the recording's captions contain only Spatial and streaming execution; the speaker says there was no time for DRAM). The 2025 deck replaces that with GPU Tensor Cores, the TPU systolic array, and dataflow architectures. This guide follows the 2025 slides. The course overall is A3 (enough to self-study); gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
 
 The [previous post](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en) ended on a question: GPUs run DNNs well, but are they the ideal platform? This lecture answers it. This post also sets up the accelerator vocabulary (Tensor Core, systolic array, TMA, dataflow architecture) that the [next post](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en) uses without re-explaining.
 
@@ -58,6 +58,8 @@ Course and recording entries:
 
 - [CS149 2023 public video playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 18 - Hardware Specialization” (1:11:48). The captions cover energy-constrained computing, the energy cost of H.264 encoding with SIMD, FFTs/DSPs/ASICs and Anton, energy limits on mobile devices, the TPU and FPGAs (the captions render the latter as “field programmable gator rays” and touch on it only briefly), and the second half is mainly the Spatial accelerator-design language and streaming execution; the speaker says there was no time to cover how DRAM works. BF16/FP8, the A100/H100/B100 Tensor Cores, systolic arrays, Plasticine and the Hardware Lottery are not in the captions, so the video only supplements the first half of this post (energy and the case for specialization), as the post says. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Why specialize: energy
 
@@ -229,6 +231,7 @@ Series navigation: previous [L9 Running DNNs efficiently on GPUs](/posts/ai/2026
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video covers only the motivation half of this post plus the Spatial design language; Tensor Cores, systolic arrays and dataflow architectures are not in it, and the video-sources section now describes what the video actually contains.
 
 ## References
 

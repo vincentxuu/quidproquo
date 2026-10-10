@@ -59,6 +59,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 7: Lab vs Field: Guest lecture by Joel Becker” (2:01:36) and confirmed the logistics (November 2, December 3, November 20), no student experiment, nothing special about 50% (best statistical power), the geometric mean, the 2029–2030 versus 2027 extrapolations and “reading the tea leaves”, the Sonnet 4.5 30-hour Q&A, the open-source developer RCT (16 issues, Cursor, hourly pay, forecasts around 40%, under 44% acceptance), the 22–25 age group in Canaries, and Boaz saying at the end there was no time for RSPs and the Preparedness Framework. The post said the 40-hour threshold was set by “a very smart colleague by intuition”, which is not in the captions and has been removed; the example-task table comes from the slides and is not read out in the captions.
+
 ## Official materials and access
 
 | Material | Status |
@@ -109,7 +111,7 @@ Examples from the slides, using GPT-5:
 | Build a classifier to identify monkey species from audio files | 5.6 hrs | ✓ |
 | Write a very efficient kernel | 8 hrs | ✗ |
 
-Becker is candid about the arbitrary choices. Nothing is special about 50%; it is where there are the most positive and negative examples, so statistical power is best, and it matches prior literature. Human time is the geometric mean of successful baseliners' completion times. As for the bar METR uses to flag potentially dangerous capability, a 40-hour time horizon at 50% reliability, he says a very smart colleague at METR came up with it as a guess, and he is very open to better ways of setting it.
+Becker is candid about the arbitrary choices. Nothing is special about 50%; it is where there are the most positive and negative examples, so statistical power is best, and it matches prior literature. Human time is the geometric mean of successful baseliners' completion times. As for the bar METR uses to flag potentially dangerous capability, a 40-hour time horizon at 50% reliability, he says there is a lot of arbitrariness here: a different threshold would correspond to a different human time length, one of the “skeletons hidden in the closet.”
 
 Two good questions came up. Boaz asked whether human time predicting model success so well is a property of these benchmarks or a general phenomenon. Becker said it is an empirical regularity observed in many places, with no strong prior theory. A student asked whether long tasks are just short tasks chained together. Boaz added that if a 16-hour task were 16 one-hour tasks in sequence, success should fall off exponentially, like 2 to the minus 16, rather than follow a logistic in log time. Becker mentioned that Toby Ord has a post fitting METR's data with a model where each agent has a constant failure rate per unit of time.
 
@@ -265,6 +267,7 @@ The further readings also list the DeepMind Frontier Safety Framework, METR's Co
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Removed the claim, not found in the captions, that a colleague set the 40-hour threshold by intuition; the other spot-checked claims match the captions.
 
 ## References
 

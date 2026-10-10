@@ -48,6 +48,8 @@ Course and recording entries:
 - [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 4 - Parallel Programming Basics” (1:17:14). The captions cover the four steps of decomposition, assignment, orchestration and mapping, Amdahl's law (transcribed as “AMD doll's law” and mentioned in one sentence), grid-solver dependencies with red-black checkerboard updates, and barriers and locks in the shared address space model, matching this post's topic; the captions contain no discussion of static versus dynamic assignment (that is in Lecture 5) and no message passing. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
+
 ## Three questions, one goal
 
 Slide 29 boils the process down to three steps:
@@ -209,6 +211,7 @@ Series navigation: previous [PA1 + Written 1: Performance on a Quad-Core CPU](/p
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches this post; static versus dynamic assignment and red-black coloring are not in the video.
 
 ## References
 

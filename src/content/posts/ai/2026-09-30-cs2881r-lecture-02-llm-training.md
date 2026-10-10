@@ -53,6 +53,8 @@ title: AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 2- Modern LLM training and safety training》（2:23:02）的完整自動字幕：抽查並確認 emoji 獎勵駭客例子、Bourgain 與「Tim G」兩種「token 難度」、DeepSeekMath 的 pass@1 對 pass@4、思考鏈監控與 position paper（字幕沒給出處）、5% 作弊比例、safe completion 與 OpenAI／Anthropic 互評、「保護奶奶餅乾食譜」的比喻，以及學生的人設實驗（Einstein 與 Mozart），未發現需要更正的說法。
+
 ## 直覺先行：這一講只需要記住一件事
 
 HW0 是動手操作，這一講開始大量出現 RL 術語。先給一句話的直覺，後面所有東西都掛在它上面：
@@ -212,6 +214,7 @@ Barak 的講評比結果更值得記：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。抽查的說法都能在字幕找到，未發現需要更正的地方。
 
 ## 參考資料
 

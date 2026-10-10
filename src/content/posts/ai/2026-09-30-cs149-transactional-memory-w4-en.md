@@ -65,6 +65,8 @@ Course and recording entries:
 - [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/transactions/)
 
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of both Fall 2023 recordings. “Lecture 16 - Transactional Memory 1” (1:20:20) covers the motivation for atomic blocks, serializability and isolation, eager/lazy versioning, and pessimistic/optimistic conflict detection; “Lecture 17 - Transactional Memory 2” (1:18:33) covers STM (transaction descriptor, read set, commit and abort; the captions mention Intel's implementation without saying the name McRT) and HTM with R/W bits and conflict detection, and ends by previewing heterogeneous computing; TCC does not appear in the captions, and Written 4 is this site's summary of the assignment PDF, unrelated to the videos. I checked how the videos' topics relate to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the videos.
+
 ## Between a lock and a hard place
 
 Slide 4 of L17 is titled "Between a Lock and a Hard Place." Locks force a trade-off between the degree of concurrency (performance) and the chance of races or deadlock (correctness). Coarse locks give low concurrency but are easier to get right. Fine-grained locks like last lecture's hand-over-hand scheme give high concurrency but are easier to get wrong.
@@ -209,6 +211,7 @@ Series navigation: previous [L16: Fine-Grained Locking and Lock-Free Programming
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Both videos match this post's topic; TCC is not in the videos, and the Written 4 part is unrelated to them.
 
 ## References
 

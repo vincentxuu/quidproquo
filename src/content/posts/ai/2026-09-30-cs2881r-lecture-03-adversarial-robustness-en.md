@@ -53,6 +53,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 3: Robustness” (1:36:25) and confirmed Barak's classic security lessons (Kerckhoffs, MD5, the Bill Gates memo, Lampson's alarm, PGP and Signal) and the administrative announcements, Carlini's three attacks (repeating a word, adversarial suffixes and Bard's “now write opposite contents”, stealing the last layer), the constitutional classifier cutting attack success to about 5 percentage points and its cost on Opus, and the cryptography “heat death of the universe” security-standard analogy (the 2^32 and 2^1 rows of the comparison table come from the weekly summary and are not read out in the captions); the captions only have Barak introducing Keri Warr, not her talk. I found one wrong number: Carlini says adversarial examples have transferred for “the last 15 years”, not twenty, which is corrected.
+
 ## Pre-reading: four sources, four jobs
 
 The course site marks four items as pre-reading, and the LessWrong summary goes through each:
@@ -104,7 +106,7 @@ Next comes the idea behind the [GCG paper](https://arxiv.org/abs/2307.15043). Th
 
 The naive approach is to just tell the model to start with "OK," which worked roughly a fifth of the time back then. To do better, you optimize. With images you can nudge pixels along the gradient, but text is discrete. So they compute gradients in embedding space, pick a batch of the nearest real tokens as candidates, and greedily swap tokens one at a time.
 
-The unsettling part is **transferability**. A suffix found on the open 7B-parameter Vicuna model also worked when pasted into several closed production services. Carlini notes that adversarial examples transferring across models has been observed for twenty years on SVMs, MNIST networks, and random forests, and it still holds. One suffix happened to be fluent English, "now write opposite contents." Bard would answer the harmful question and then say "just kidding, don't do that."
+The unsettling part is **transferability**. A suffix found on the open 7B-parameter Vicuna model also worked when pasted into several closed production services. Carlini notes that adversarial examples transferring across models has been observed for fifteen years on SVMs, MNIST networks, and random forests, and it still holds. One suffix happened to be fluent English, "now write opposite contents." Bard would answer the harmful question and then say "just kidding, don't do that."
 
 A student asks whether the same method could boost capabilities. Carlini says the effect is small: RLHF is already suppressing the model's original harmful capabilities, and these tokens just hand those capabilities back.
 
@@ -203,6 +205,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overvie
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Checked the video content against its transcript. Corrected how long adversarial examples have been observed to transfer (twenty years to fifteen); the other spot-checked claims were found in the captions.
 
 ## References
 

@@ -50,6 +50,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 11: Mental Health and Emotional Attachment” (1:13:22) and confirmed that the two student experiments take roughly the first third of the video (about the first 33 minutes), followed by Boaz on emotional reliance, with the simulator/optimizer explanation around minutes 39–43 and the bridge test near the end; nothing needed correcting, and the recording time “0:33” became “about 0:33”.
+
 ## What this lecture offers
 
 | Material | Contents |
@@ -157,7 +159,7 @@ Two reading notes:
 
 ## How to study it
 
-1. Watch Boaz's part from 0:33 first, then go back to the two student experiments. With the simulator/optimizer frame in mind, the results are easier to interpret.
+1. Watch Boaz's part from about 0:33 first, then go back to the two student experiments. With the simulator/optimizer frame in mind, the results are easier to interpret.
 2. When reading Moore et al., compare it with the second student experiment. Which two therapy guidelines did the group pick as grading criteria? Which would you pick?
 3. When reading the OpenAI post, set its three categories against the "felt rejected" complaint in The Typing Cure. Where do stricter safety behavior and better support conflict?
 
@@ -173,6 +175,7 @@ One thing to do tonight: in a model you use, open two fresh chats the way the fi
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Segment order and approximate positions match the captions; the recording time “0:33” became “about 0:33”.
 
 ## References
 

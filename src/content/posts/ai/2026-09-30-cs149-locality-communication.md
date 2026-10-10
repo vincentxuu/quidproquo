@@ -51,6 +51,8 @@ title: Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Commu
 - [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 6 - Performance Optimization II: Locality, Communication, and Contention》（1:17:25）。字幕涵蓋 message passing 的 send/recv 與死鎖、grid solver、blocking、arithmetic intensity、inherent 與 artifactual communication、contention，並以 roofline 收尾，主題與本文一致；NUMA 與 high watermark 在字幕中沒有出現。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
+
 ## 共享位址空間只是抽象
 
 到目前為止，課程都假設所有處理器接到同一個記憶體系統，看到單一的共享位址空間。L6 第一件事是提醒你：這個抽象的實作很複雜。一條「把位址 X 的值載入 R0」的指令，背後可能要經過好幾層 cache 才碰到 DRAM。
@@ -225,6 +227,7 @@ void fused(int n, float* A, float* B, float* C, float* D, float* E) {
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與本文一致；NUMA 與 high watermark 不在影片中。
 
 ## 參考資料
 

@@ -52,6 +52,8 @@ title: Stanford CS149 I Parallel Computing I 2023 I Lecture 8 - Data-Parallel Th
 - [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/)
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 8 - Data-Parallel Thinking》（1:17:48）。字幕涵蓋 map 與 fold／reduce、scan（含 work-efficient 版本與 warp／block 層級的 CUDA 實作）、segmented scan 與稀疏矩陣乘、gather／scatter、用 sort 建粒子格點與 histogram，最後以幾句 Spark 收尾，主題與本文一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
+
 ## 為什麼要這麼多平行度
 
 投影片把 [上一講](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda) 的 V100 規格搬回來：80 個 SM，最多同時交錯 163,840 個 CUDA thread。結論寫在同一頁：沒有暴露大量平行度、算術密度又不高的程式，在 GPU 上跑不快。
@@ -191,6 +193,7 @@ index 有重複時，scatter 得做成 `output[index[i]] = atomicOp(output[index
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與本文一致，未發現需要更正的影片說法。
 
 ## 參考資料
 
