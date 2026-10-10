@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents-en)
 
-**影片狀態：待確認：尚未核對到對應錄影。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 第 7 講（2026-09-15）請來客座講者 [JY Koh](https://jykoh.com/)。他在 CMU 跟 Daniel Fried、Ruslan Salakhutdinov 讀博士，做過 [VisualWebArena](https://arxiv.org/abs/2401.13649)、Odysseys 這些 benchmark，之後在 Meta 帶過一年半的 computer use agent 團隊。這講是課表「Domains」模組的第二站：[上一講](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents)是 coding agent，這一講換成**直接看螢幕、按滑鼠的 agent**。
 
@@ -43,7 +43,14 @@ Computer use agent（CUA）和前面幾講的純文字 agent 差在輸入輸出�
 
 ## 課程影片來源
 
-本篇依投影片撰寫。已查官方課表、講師頻道與本文講次標題搜尋，仍未取得可核對的直接錄影；官方課表抽取只取得後半段，講師頻道抽取未提供完整影片清單。因此本講錄影狀態尚待確認，不能判定沒有影片。
+已核對 CMU 11-768 Fall 2026 第 7 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程（講者 Jing Yu Koh）。
+
+```youtube
+url: https://www.youtube.com/watch?v=jwGluLrrqjQ
+title: CMU AI Agents 2026: 7. Computer Use Agents
+```
+
+原始影片：[CMU AI Agents 2026: 7. Computer Use Agents](https://www.youtube.com/watch?v=jwGluLrrqjQ)
 
 官方來源：
 
@@ -258,6 +265,7 @@ References 裡的 [Mind2Web](https://arxiv.org/abs/2306.06070)、[WebVoyager](ht
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：更正影片狀態。官方課表第 7 講列有錄影，原標示「待確認」有誤，已嵌入影片。
 
 ## 參考資料
 

@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents)
 
-**Video status: Pending: no corresponding recording has been verified.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 7 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Sep 15, 2026) is given by guest speaker [JY Koh](https://jykoh.com/). He did his PhD at CMU with Daniel Fried and Ruslan Salakhutdinov, built benchmarks such as [VisualWebArena](https://arxiv.org/abs/2401.13649) and Odysseys, and then spent a year and a half leading a computer use agent team at Meta. This is the second stop in the "Domains" module: [last lecture](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) covered coding agents; this one covers **agents that look at the screen and move the mouse**.
 
@@ -43,7 +43,14 @@ A computer use agent (CUA) differs from the text agents in earlier lectures at b
 
 ## Course video sources
 
-This article is based on slides. The official schedule, instructor channel, and exact lecture-title searches were checked, but no matching recording could be verified. Schedule extraction returned only its later half and channel extraction omitted its video inventory. Availability remains unresolved; this does not establish that no video exists.
+Checked the public recording of CMU 11-768 Fall 2026 Lecture 7; it is published on instructor Graham Neubig's channel, and the title and description match this course (speaker: Jing Yu Koh).
+
+```youtube
+url: https://www.youtube.com/watch?v=jwGluLrrqjQ
+title: CMU AI Agents 2026: 7. Computer Use Agents
+```
+
+Original video: [CMU AI Agents 2026: 7. Computer Use Agents](https://www.youtube.com/watch?v=jwGluLrrqjQ)
 
 Official sources:
 
@@ -258,6 +265,7 @@ Then ask: if you kept only check 2, which "looks successful" trajectories would 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Corrected the video status. The official schedule lists a recording for Lecture 7; the earlier "pending" label was wrong, and the video is now embedded.
 
 ## References
 
