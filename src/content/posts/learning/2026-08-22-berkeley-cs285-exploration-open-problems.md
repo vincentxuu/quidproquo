@@ -58,12 +58,13 @@ Advanced Exploration 延伸到稀疏 reward 與表示層面的資訊取得。Mul
 
 最後一講應產出一頁 research memo：問題、現有方法、核心假設、失敗案例、最小實驗。不要只寫「sample efficiency 很重要」；改寫成可量測的問題，例如固定互動 budget 時，某種 representation 是否讓兩個新 task 的回報更快上升。
 
-[Spring 2026 syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) 明列當期錄影位於 bCourses。若使用[官方 resources 頁](https://rail.eecs.berkeley.edu/deeprlcourse/resources/)列出的 Fall 2023 等歷史影片補概念，筆記要明示年份，並以 2026 投影片題目為準。完整存取邊界見[系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。
+當期講課錄影可在 RAIL YouTube 頻道的 2026 播放清單觀看（[Spring 2026 syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) 尚未更新，仍寫在 bCourses）。若使用[官方 resources 頁](https://rail.eecs.berkeley.edu/deeprlcourse/resources/)列出的 Fall 2023 等歷史影片補概念，筆記要明示年份，並以 2026 投影片題目為準。完整存取邊界見[系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。在 RAIL 頻道找到公開的 Spring 2026 CS 185/285 播放清單，嵌入兩講對應錄影，狀態由僅附官方入口改為已附影片。
+- 2026-10-10：修正過時的錄影說法。「錄影在 bCourses」改寫為講課錄影可在 RAIL YouTube 頻道觀看。
 
 ## 參考資料
 

@@ -58,11 +58,12 @@ Advanced Exploration reaches sparse rewards and representation-level information
 
 Produce a one-page research memo: problem, current approach, central assumption, failure case, and smallest experiment. Replace “sample efficiency matters” with a measurable question under a fixed interaction budget.
 
-The [Spring 2026 syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) places current recordings in bCourses. If Fall 2023 or other historical videos on the [official resources page](https://rail.eecs.berkeley.edu/deeprlcourse/resources/) fill a conceptual gap, label their year and keep the 2026 slide agenda canonical. See the [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) for the complete access boundary.
+The Spring 2026 lecture recordings are public in the RAIL YouTube channel's 2026 playlist (the [syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) has not been updated and still says bCourses). If Fall 2023 or other historical videos on the [official resources page](https://rail.eecs.berkeley.edu/deeprlcourse/resources/) fill a conceptual gap, label their year and keep the 2026 slide agenda canonical. See the [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) for the complete access boundary.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Fixed an outdated recording statement. "Recordings are in bCourses" now says the lectures can be watched on the RAIL YouTube channel.
 - 2026-10-10: Rechecked video status. Found the public Spring 2026 CS 185/285 YouTube playlist on the RAIL channel; embedded two matching lectures and changed the status from official entry only to Videos included.
 
 ## References

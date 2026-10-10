@@ -247,7 +247,7 @@ flowchart LR
 
 ## 2026 版改了什麼
 
-2026 版投影片目前只釋出第 1 講，以下只能對照 [2026 課表](https://cme295.stanford.edu/syllabus/)的主題清單：
+2026 版目前只上架第 1、2 講的投影片與錄影（2026-10-10 查看；第 3 講投影片已上、錄影未上），以下只能對照 [2026 課表](https://cme295.stanford.edu/syllabus/)的主題清單：
 
 - **RL 獨立成一整講**：2026 第 4 講「Reinforcement learning with LLMs」依序是數學記號、reward design、policy gradient、限制、用 PPO 做偏好對齊（RLHF）、用 GRPO 做推理（RLVR）、on-policy distillation。2025 版把 PPO 和 GRPO 拆在第 5、6 兩講，各自只給直覺；2026 版看起來會從 policy gradient 一路推上來
 - **推理併進訓練講**：2026 第 3 講「LLM training」把 Reasoning 列成其中一項，旁邊是 on-policy distillation 和「distillation to smaller models」。本講最後那段 R1-Distill，在 2026 版應該會落在這一講
@@ -276,6 +276,7 @@ flowchart LR
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：修正過時的上架說法，2026 版已上架第 1、2 講。
 
 ## 參考資料
 

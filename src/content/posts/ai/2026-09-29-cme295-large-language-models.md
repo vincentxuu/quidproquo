@@ -232,7 +232,7 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 
 ## 2026 版改了什麼
 
-2026 版目前只釋出第 1 講的投影片，對應本講的第 2 講排在 10 月 2 日上課，以下只根據 [2026 課表](https://cme295.stanford.edu/syllabus/)的主題清單比對：
+2026 版對應本講的是第 2 講（10 月 2 日上課），[2026 課表](https://cme295.stanford.edu/syllabus/)已附該講投影片與錄影（上方第二支）。以下只根據課表的主題清單比對，沒有逐頁比對 2026 投影片：
 
 - **這一講被併進 2026 版第 2 講「Large Language Models」**。那一講的清單是 Transformer model families、LLM definition and architecture、Mixture of experts、MHA/MQA/GQA、RoPE、context length、temperature、sampling strategies。也就是說，2025 的第 2 講和第 3 講前半合成一講。
 - **prompting、in-context learning、chain of thought、self-consistency 從課表消失**。2026 版沒有任何一講的主題清單列出它們。
@@ -263,6 +263,7 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 2025 播放清單與官方 2026 課表，第 3 講（2025）與第 2 講（2026）的影片 ID 相符，並補上 2026 版第 2 講錄影。
+- 2026-10-10：修正過時的錄影說法。2026 版第 2 講的投影片與錄影已上架，改寫「只釋出第 1 講」的敘述。
 
 ## 參考資料
 

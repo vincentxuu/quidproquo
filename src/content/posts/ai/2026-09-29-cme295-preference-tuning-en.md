@@ -295,7 +295,7 @@ Both give the same advice; what changes is the tone. The slides don't elaborate,
 
 ## What changed in 2026
 
-So far the 2026 edition has only released slides for Lecture 1. What follows compares topic lists on the [2026 syllabus](https://cme295.stanford.edu/syllabus/); details will have to wait for the slides.
+So far the 2026 edition has only posted Lectures 1 and 2 with slides and recordings (checked 2026-10-10; Lecture 3 has slides but no recording yet). What follows compares topic lists on the [2026 syllabus](https://cme295.stanford.edu/syllabus/); details will have to wait for the slides.
 
 In 2025 this was a standalone lecture, "LLM tuning." The 2026 edition splits it in two:
 
@@ -326,6 +326,7 @@ These are paraphrased from Section I, "LLM tuning," of the [2025 final exam](htt
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Fixed an outdated availability statement; the 2026 edition now has Lectures 1 and 2 posted.
 
 ## References
 

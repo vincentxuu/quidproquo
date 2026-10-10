@@ -232,7 +232,7 @@ MoE and inference speedups are things the model provider does for you. What you 
 
 ## What changed in 2026
 
-So far only the 2026 Lecture 1 slides are out. The lecture that absorbs this one is scheduled for October 2. The comparison below is based only on the topic lists in the [2026 syllabus](https://cme295.stanford.edu/syllabus/):
+The lecture that absorbs this one is 2026 Lecture 2 (held October 2), and the [2026 syllabus](https://cme295.stanford.edu/syllabus/) already lists its slides and recording (the second video above). The comparison below is based only on the syllabus topic lists, not a slide-by-slide read of the 2026 deck:
 
 - **This lecture is folded into 2026 Lecture 2, "Large Language Models."** Its topic list is Transformer model families, LLM definition and architecture, Mixture of experts, MHA/MQA/GQA, RoPE and variants, context length, temperature, and sampling strategies. In effect, 2025 Lecture 2 and the first half of 2025 Lecture 3 become one lecture.
 - **Prompting, in-context learning, chain of thought, and self-consistency disappear from the syllabus.** No 2026 lecture lists them.
@@ -263,6 +263,7 @@ These questions are adapted from Part III of the [2025 midterm](https://cme295.s
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the 2025 playlist and the official 2026 syllabus; the 2025 Lecture 3 and 2026 Lecture 2 video IDs match, and the 2026 Lecture 2 recording was added.
+- 2026-10-10: Fixed an outdated recording statement. The 2026 Lecture 2 slides and recording are now posted, so the "only Lecture 1 is out" wording was rewritten.
 
 ## References
 

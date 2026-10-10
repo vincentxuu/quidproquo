@@ -6,8 +6,8 @@ tags: [cs285, berkeley, deep-reinforcement-learning, self-study, ai-course]
 lang: en
 type: guide
 difficulty: 深度
-tldr: "Spring 2026 CS185/285 publishes slides for 25 lectures, nine discussion units, five assignments, and starter code; current recordings require bCourses access, while HW4 defaults to an H100, so this is not a zero-cost open course."
-description: "A map of Berkeley CS185/285 Spring 2026: public materials, a six-part reading route, prerequisites, recording restrictions, and assignment compute costs."
+tldr: "Spring 2026 CS185/285 publishes slides for 25 lectures, nine discussion units, five assignments, and starter code; lecture recordings are public on the RAIL YouTube channel, but Ed, Gradescope, and office hours remain enrolled-only, while HW4 defaults to an H100, so this is not a zero-cost open course."
+description: "A map of Berkeley CS185/285 Spring 2026: public materials, a six-part reading route, prerequisites, recording sources, and assignment compute costs."
 series:
   name: "Reading Berkeley CS285 Spring 2026"
   order: 1
@@ -19,7 +19,7 @@ series:
 
 [Berkeley CS185/285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/) is Sergey Levine's deep reinforcement learning course. Its public page lists slides for 25 lectures, nine discussion units, five assignments, and two default final projects. The [starter-code repository](https://github.com/berkeleydeeprlcourse/homework_spring2026) is public too. That makes it an A3 material-based course, but not a fully open course.
 
-The missing layer is video. The [syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) places Spring 2026 recordings in the bCourses Media Gallery. The Fall 2023 recordings listed on the [official resources page](https://rail.eecs.berkeley.edu/deeprlcourse/resources/) are historical substitutes, not recordings of the 2026 lectures.
+On video, the Spring 2026 lecture recordings are public on the RAIL YouTube channel (a 27-video playlist). The official [syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) and [course home page](https://rail.eecs.berkeley.edu/deeprlcourse/) have not caught up: they still say recordings are on bCourses and link the Fall 2023 playlist. The Fall 2023 recordings on the [resources page](https://rail.eecs.berkeley.edu/deeprlcourse/resources/) are historical substitutes, not recordings of the 2026 lectures. The 2026 slides, sections, and assignments stay canonical; match recordings by lecture number.
 
 This series therefore treats the 2026 slides, sections, and assignments as canonical.
 
@@ -57,13 +57,14 @@ The course's compute support applies to enrolled students. A self-learner should
 
 ## What this guide will not reconstruct
 
-Without bCourses, an external learner lacks the instructor's spoken explanation, corrections, Ed threads, Gradescope feedback, and office hours. These articles explain the structure connecting public slides and assignments. They do not invent lecture remarks or relabel Fall 2023 video as Spring 2026.
+The recordings restore the instructor's spoken explanation, but an external learner still lacks Ed threads, Gradescope feedback, in-class interaction, and office hours, which live in bCourses and the enrolled-student systems. These articles explain the structure connecting public slides and assignments. They do not invent lecture remarks or relabel Fall 2023 video as Spring 2026.
 
 A better completion criterion is an artifact: one derivation note, one implementation that succeeds on a small environment, a result table across seeds, and a failure analysis. That is closer to the course's actual work than merely “watching 25 lectures.”
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Fixed an outdated recording statement. Lecture recordings are public on the RAIL YouTube channel; what remains in bCourses is Ed, Gradescope, in-class interaction, and office hours. The tldr, description, and body were rewritten to match.
 - 2026-10-10: Rechecked video status. Found the public Spring 2026 playlist on the RAIL channel and linked it; this post has no single lecture, so the status stays official entry only.
 
 ## References

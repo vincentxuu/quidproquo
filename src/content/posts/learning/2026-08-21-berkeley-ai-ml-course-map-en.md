@@ -109,7 +109,7 @@ The table uses the editorial scale from the [Global AI and CS Course Map](/posts
 | **CS C182/282A, Fall 2025** | **A2** | Syllabus, schedule, multiple assignment PDFs and code links | Current video requires Berkeley access; incomplete lecture resources |
 | **CS180/280A, Fall 2025** | **A3** | Slides, readings, discussions and solutions, five programming projects | Deliberately no recordings; no project solutions or grading |
 | **EECS183/283A, Fall 2025** | **A2** | Full topic schedule and most slides | Assignments, starter code, solutions, video |
-| **CS185/285, Spring 2026** | **A3** | 25 lecture decks, nine discussion decks, five homeworks, starter code, final projects | Current recordings and student compute |
+| **CS185/285, Spring 2026** | **A3** | 25 lecture decks, nine discussion decks, five homeworks, starter code, final projects | Ed, Gradescope, in-class interaction, and office hours; student compute for HW4/HW5 (lecture recordings are public on the RAIL YouTube channel) |
 | **CS288, Spring 2026** | **A3** | 17+ slide decks, three assignments, starter repositories, final-project docs | Current recordings, hidden tests, solutions |
 | **CS C280, Spring 2026** | **A3** | 24 slide decks, HW0–3, project | No video; Ed, Gradescope, CMT |
 
@@ -183,6 +183,7 @@ For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-m
 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Fixed an outdated recording statement. The CS185/285 table row now says lecture recordings are public on the RAIL YouTube channel; what is restricted is Ed, Gradescope, and office hours.
 - 2026-09-30: The CS189 Spring 2026 site is back online, now graded A3 and added to the inventory table; Spring 2025 official recordings require a bCourses login, so the "public video" claim was removed; linked the expanded CS189 guide series.
 - 2026-08-22: Restored CS C182 to the advanced-vision route based on CS C280's official expected background.
 

@@ -247,7 +247,7 @@ The next lecture ([Lecture 7: agentic LLMs](/posts/ai/2026-09-29-cme295-agentic-
 
 ## What changed in 2026
 
-Only Lecture 1's 2026 slides are out so far, so this compares against the topic lists on the [2026 syllabus](https://cme295.stanford.edu/syllabus/):
+Only Lectures 1 and 2 of the 2026 edition have slides and recordings so far (checked 2026-10-10; Lecture 3 has slides but no recording yet), so this compares against the topic lists on the [2026 syllabus](https://cme295.stanford.edu/syllabus/):
 
 - **RL gets its own lecture**: 2026 Lecture 4, "Reinforcement learning with LLMs," runs through mathematical conventions, reward design, policy gradients, limitations, preference tuning with PPO (RLHF), reasoning with GRPO (RLVR), and on-policy distillation. The 2025 edition split PPO and GRPO across Lectures 5 and 6 with intuition only; 2026 appears to build up from policy gradients
 - **Reasoning folds into the training lecture**: 2026 Lecture 3, "LLM training," lists Reasoning as one item, next to on-policy distillation and "distillation to smaller models." The R1-Distill material at the end of this lecture will likely land there in 2026
@@ -276,6 +276,7 @@ These are paraphrased from Part II, "LLM reasoning," of the [2025 final exam](ht
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Fixed an outdated availability statement; the 2026 edition now has Lectures 1 and 2 posted.
 
 ## References
 
