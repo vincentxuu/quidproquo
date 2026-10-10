@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 11 of the [Stanford CS224U guide series](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en). It covers the first half of the Analysis methods unit: the overview, probing, and feature attribution. The schedule puts this unit on May 8, 10, and 15, 2023. I used three official sources: slides 1–40 of the [Analysis methods in NLP deck](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf) (64 slides in total), videos 33–35 of the public playlist, and [`feature_attribution.ipynb`](https://github.com/cgpotts/cs224u/blob/main/feature_attribution.ipynb) in the course repo.
 
@@ -38,19 +38,19 @@ Access follows the [course map](/posts/learning/2026-08-21-global-ai-cs-course-m
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=5RZDKW1_HS4
-title: Video 33: Analysis Methods for NLU, Part 1: Overview
+title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=lZqsLuAjZ4c
-title: Video 34: Part 2: Probing
+title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023
 ```
 
-Original videos: [Video 33: Analysis Methods for NLU, Part 1: Overview](https://www.youtube.com/watch?v=5RZDKW1_HS4)、[Video 34: Part 2: Probing](https://www.youtube.com/watch?v=lZqsLuAjZ4c)、[Video 35: Part 3: Feature Attribution](https://www.youtube.com/watch?v=p0dzR6iaFmc)
+Original videos: [Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=5RZDKW1_HS4), [Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023](https://www.youtube.com/watch?v=lZqsLuAjZ4c)
 
 Course and recording entries:
 
@@ -187,6 +187,7 @@ Series navigation: previous, [Compositionality: COGS, ReCOGS, and HW3](/posts/ai
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

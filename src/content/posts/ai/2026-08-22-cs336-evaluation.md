@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-evaluation-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 **CS336 Spring 2026 Lecture 12: Evaluation**，2026 年 5 月 6 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_12.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_12.py)。
 
@@ -23,14 +23,14 @@ draft: false
 
 ## 課程影片來源
 
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=JpAxdTWQJxM
-title: CS336 Spring 2026 Lecture 12: Evaluation
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation
 ```
 
-原始影片：[CS336 Spring 2026 Lecture 12: Evaluation](https://www.youtube.com/watch?v=JpAxdTWQJxM)
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation](https://www.youtube.com/watch?v=JpAxdTWQJxM)
 
 課程與錄影入口：
 
@@ -86,6 +86,7 @@ Benchmark contamination 讓三者更難判斷。模型可能在 pretraining 看�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 
 ## 參考資料
 

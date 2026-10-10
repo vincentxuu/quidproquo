@@ -35,7 +35,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-hardware-specialization)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This guide follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is post 13 in the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers Lecture 10 from October 23, [Hardware Specialization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/). The official [slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/accelerators/10_Specialized.pdf) has 71 slides.
 
@@ -45,14 +45,14 @@ The [previous post](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en) ended on a questi
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=2tAb3EgyjNw
-title: 2023 Lecture 18 video: Hardware Specialization
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 18 - Hardware Specialization
 ```
 
-Original videos: [2023 Lecture 18 video: Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 18 - Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)
 
 Course and recording entries:
 
@@ -228,6 +228,7 @@ Series navigation: previous [L9 Running DNNs efficiently on GPUs](/posts/ai/2026
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 
 ## References
 

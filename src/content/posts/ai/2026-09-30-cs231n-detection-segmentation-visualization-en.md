@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Version note**: This post follows the [Lecture 9 slides](https://cs231n.stanford.edu/slides/2026/lecture_9.pdf) linked from the Spring 2026 [CS231N](https://cs231n.stanford.edu/) schedule (147 pages, downloaded and checked on 2026-09-30), compared against the [Spring 2025 slides](https://cs231n.stanford.edu/slides/2025/lecture_9.pdf). For video, watch Spring 2025's [Lecture 9](https://www.youtube.com/watch?v=PTypu6GqEd4); 2026 recordings are on Canvas for enrolled students only, and the two years may differ. Access level **A3**.
 
@@ -40,19 +40,15 @@ Every CS231N model so far answers one question: what is this image? Lecture 9 br
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=PTypu6GqEd4
-title: Spring 2025 Lecture 9 recording
+title: Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing
 ```
 
-```youtube
-url: https://www.youtube.com/watch?v=utxbUlo9CyY
-title: video
-```
-
-Original videos: [Spring 2025 Lecture 9 recording](https://www.youtube.com/watch?v=PTypu6GqEd4)、[video](https://www.youtube.com/watch?v=utxbUlo9CyY)
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing](https://www.youtube.com/watch?v=PTypu6GqEd4)
+Other related videos (text links only): [DETR - End to end object detection with transformers (ECCV2020)](https://www.youtube.com/watch?v=utxbUlo9CyY)
 
 Course and recording entries:
 
@@ -177,6 +173,7 @@ The last part shifts from how to do the tasks to how to understand the model.
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles. The second embedded video was the DETR authors’ ECCV 2020 talk rather than a course recording, so it was removed from the embeds and kept as a text link.
 
 ## References
 

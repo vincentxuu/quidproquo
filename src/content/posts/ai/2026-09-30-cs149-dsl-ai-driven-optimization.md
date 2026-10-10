@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 17 篇，對應 11 月 6 日的第 13 講 [Domain-Specific Programming Systems and AI-Driven Performance Optimization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/aiperfoptimization/13_autooptimize.pdf) 共 55 頁（PDF 封面標題寫的是「Automatic Performance Optimization」）。
 
@@ -36,14 +36,14 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=sRuyBNxCkGQ
-title: 2023 Lecture 15 錄影：Domain Specific Programming Languages（僅對應前半 DSL 部分）
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages
 ```
 
-原始影片：[2023 Lecture 15 錄影：Domain Specific Programming Languages（僅對應前半 DSL 部分）](https://www.youtube.com/watch?v=sRuyBNxCkGQ)
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ)
 
 課程與錄影入口：
 
@@ -206,6 +206,7 @@ blurx.compute_at(x).vectorize(x, 8);
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 
 ## 參考資料
 

@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 課表連結的 [Lecture 9 投影片](https://cs231n.stanford.edu/slides/2026/lecture_9.pdf)（147 頁，2026-09-30 下載核對），並比對 [Spring 2025 投影片](https://cs231n.stanford.edu/slides/2025/lecture_9.pdf)。錄影請看 Spring 2025 的 [Lecture 9](https://www.youtube.com/watch?v=PTypu6GqEd4)；2026 錄影只放在 Canvas，限修課生，兩年內容可能有差異。存取等級 **A3**。
 
@@ -42,19 +42,15 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=PTypu6GqEd4
-title: Spring 2025 Lecture 9 錄影
+title: Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing
 ```
 
-```youtube
-url: https://www.youtube.com/watch?v=utxbUlo9CyY
-title: 影片
-```
-
-原始影片：[Spring 2025 Lecture 9 錄影](https://www.youtube.com/watch?v=PTypu6GqEd4)、[影片](https://www.youtube.com/watch?v=utxbUlo9CyY)
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing](https://www.youtube.com/watch?v=PTypu6GqEd4)
+其他相關影片（僅文字連結）：[DETR - End to end object detection with transformers (ECCV2020)](https://www.youtube.com/watch?v=utxbUlo9CyY)
 
 課程與錄影入口：
 
@@ -179,6 +175,7 @@ title: 影片
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。第二支嵌入影片是 DETR 論文作者的 ECCV 2020 演講，不是課程錄影，已移出嵌入，改為文字連結。
 
 ## 參考資料
 

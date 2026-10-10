@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-information-retrieval-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。主要材料是 [Information retrieval 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-neuralir-2023-handout.pdf)（Christopher Potts 與 Omar Khattab，PDF 共 78 頁，投影片編號 62 張）與 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) 第 15–19 支錄影，事實皆於 2026-09-29 核對。存取等級 **A3**：投影片、錄影與相關作業 notebook 都公開；拿不到的是 Canvas quiz 與教室錄影。
 
@@ -43,19 +43,19 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=enRb6fp5_hw
-title: IR Part 1: Guiding Ideas 錄影
+title: Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=9YCb-IxtbFQ
-title: IR Part 3: IR metrics 錄影
+title: Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023
 ```
 
-原始影片：[IR Part 1: Guiding Ideas 錄影](https://www.youtube.com/watch?v=enRb6fp5_hw)、[IR Part 3: IR metrics 錄影](https://www.youtube.com/watch?v=9YCb-IxtbFQ)、[IR Part 4: Neural IR 錄影](https://www.youtube.com/watch?v=EDVqG86AT0Q)、[IR Part 2: Classical IR 錄影](https://www.youtube.com/watch?v=D3yL63aYNMQ)、[IR Part 5: Datasets and Conclusion 錄影](https://www.youtube.com/watch?v=Bqps-t-U9jw)
+原始影片：[Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=enRb6fp5_hw)、[Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023](https://www.youtube.com/watch?v=9YCb-IxtbFQ)
 
 課程與錄影入口：
 
@@ -219,6 +219,7 @@ Potts 在 [IR 第 3 支錄影](https://www.youtube.com/watch?v=9YCb-IxtbFQ) 用�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 
 ## 參考資料
 

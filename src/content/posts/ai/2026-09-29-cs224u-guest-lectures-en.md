@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-guest-lectures)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is the last post in the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series, and the only one that's optional.
 
@@ -38,19 +38,19 @@ This series moves both talks from unit one to the very end, for a simple reason.
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=4-kuJpVrr7M
-title: Video 49: Fantastic Language Models and How to Build Them, Part 1
+title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=JVKtPZsiv4k
-title: Video 50: Fantastic Language Models and How to Build Them, Part 2
+title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023
 ```
 
-Original videos: [Video 49: Fantastic Language Models and How to Build Them, Part 1](https://www.youtube.com/watch?v=4-kuJpVrr7M)、[Video 50: Fantastic Language Models and How to Build Them, Part 2](https://www.youtube.com/watch?v=JVKtPZsiv4k)
+Original videos: [Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023](https://www.youtube.com/watch?v=4-kuJpVrr7M), [Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023](https://www.youtube.com/watch?v=JVKtPZsiv4k)
 
 Course and recording entries:
 
@@ -183,6 +183,7 @@ The previous post, [Part 16: Writing NLP Papers, Submitting, and Giving Talks](/
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

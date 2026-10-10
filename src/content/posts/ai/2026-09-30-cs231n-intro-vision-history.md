@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-intro-vision-history-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：投影片依據 Spring 2026；錄影可參考 [Spring 2025 Lecture 1](https://www.youtube.com/watch?v=2fq9wYslV0A)（YouTube）。兩者可能有差異，本文內容以 2026 投影片為準。本文是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 1 篇；課程定位、評分、存取缺口與 10 週路線，請看[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)。
 
@@ -32,14 +32,14 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=2fq9wYslV0A
-title: Spring 2025 Lecture 1: Introduction（YouTube）
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction
 ```
 
-原始影片：[Spring 2025 Lecture 1: Introduction（YouTube）](https://www.youtube.com/watch?v=2fq9wYslV0A)
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction](https://www.youtube.com/watch?v=2fq9wYslV0A)
 
 課程與錄影入口：
 
@@ -152,6 +152,7 @@ Part 2 的後半是行政。跟自學者有關的幾點：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 
 ## 參考資料
 

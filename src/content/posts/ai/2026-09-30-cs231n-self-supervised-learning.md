@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-self-supervised-learning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：投影片依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 的 [Lecture 12 投影片](https://cs231n.stanford.edu/slides/2026/lecture_12.pdf)（104 頁，封面日期 2026-05-07）；錄影是 [Spring 2025 的 Lecture 12](https://www.youtube.com/watch?v=4howBU7THbM)（YouTube，約 1 小時 14 分，2025 課表列的講者是 Ehsan Adeli）。2026 錄影只放在 Canvas，限修課生，兩個年份的內容可能有差異。
 >
@@ -41,14 +41,14 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=4howBU7THbM
-title: Stanford CS231N 2025 Lecture 12: Self-Supervised Learning（YouTube）
+title: Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning
 ```
 
-原始影片：[Stanford CS231N 2025 Lecture 12: Self-Supervised Learning（YouTube）](https://www.youtube.com/watch?v=4howBU7THbM)
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning](https://www.youtube.com/watch?v=4howBU7THbM)
 
 課程與錄影入口：
 
@@ -210,6 +210,7 @@ def H(t, s):
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 
 ## 參考資料
 

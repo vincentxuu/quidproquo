@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-inference)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers **CS336 Spring 2026 Lecture 10: Inference**, taught by Percy Liang on April 29, 2026. Its primary source is the official executable lecture, [`lecture_10.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_10.py).
 
@@ -23,14 +23,14 @@ Training places a full sequence inside matrix multiplications. Autoregressive in
 
 ## Course video sources
 
-The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=EfM546A79aM
-title: CS336 Spring 2026 Lecture 10: Inference
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 10: Inference
 ```
 
-Original videos: [CS336 Spring 2026 Lecture 10: Inference](https://www.youtube.com/watch?v=EfM546A79aM)
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 10: Inference](https://www.youtube.com/watch?v=EfM546A79aM)
 
 Course and recording entries:
 
@@ -90,6 +90,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

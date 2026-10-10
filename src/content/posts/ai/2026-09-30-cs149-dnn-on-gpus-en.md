@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-dnn-on-gpus)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This guide follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is post 12 in the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers Lecture 9 from October 21, [Efficiently Evaluating DNNs on GPUs: Transformers and ConvNets](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dnninference/). The official [slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/dnninference/09_dnneval.pdf) has 75 slides.
 
@@ -41,14 +41,14 @@ The [previous post](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer-en) drew cir
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=qbKtU0X6-WU
-title: 2023 Lecture 10 video: Efficiently Evaluating DNNs on GPUs
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 10 - Efficiently Evaluating DNNs on GPUs
 ```
 
-Original videos: [2023 Lecture 10 video: Efficiently Evaluating DNNs on GPUs](https://www.youtube.com/watch?v=qbKtU0X6-WU)
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 10 - Efficiently Evaluating DNNs on GPUs](https://www.youtube.com/watch?v=qbKtU0X6-WU)
 
 Course and recording entries:
 
@@ -196,6 +196,7 @@ Series navigation: previous [PA3 + Written 2: CUDA circle renderer](/posts/ai/20
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 
 ## References
 

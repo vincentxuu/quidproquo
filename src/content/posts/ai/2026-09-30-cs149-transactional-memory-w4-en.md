@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-transactional-memory-w4)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 22, the final part, of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series, following [L16: Fine-Grained Locking and Lock-Free Programming](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en). It covers Lecture 17, "Transactional Memory (Part I)" (December 2, 2025), Lecture 18, "Transactional Memory (Part II) + AMA" (December 4, 2025), and Written Assignment 4 (listed under Dec 3 on the course home page).
 
@@ -46,19 +46,19 @@ Fall 2025 recordings are only on Canvas. The course home page points to the 2023
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=rFFf3WIJ7BA
-title: 2023 Lecture 16 recording: Transactional Memory 1 (supplement)
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 16 - Transactional Memory 1
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=Tbk1vnYLQqI
-title: 2023 Lecture 17 recording: Transactional Memory 2 (supplement)
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 17 - Transactional Memory 2
 ```
 
-Original videos: [2023 Lecture 16 recording: Transactional Memory 1 (supplement)](https://www.youtube.com/watch?v=rFFf3WIJ7BA)、[2023 Lecture 17 recording: Transactional Memory 2 (supplement)](https://www.youtube.com/watch?v=Tbk1vnYLQqI)
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 16 - Transactional Memory 1](https://www.youtube.com/watch?v=rFFf3WIJ7BA), [Stanford CS149 I Parallel Computing I 2023 I Lecture 17 - Transactional Memory 2](https://www.youtube.com/watch?v=Tbk1vnYLQqI)
 
 Course and recording entries:
 
@@ -208,6 +208,7 @@ Series navigation: previous [L16: Fine-Grained Locking and Lock-Free Programming
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 
 ## References
 

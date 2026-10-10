@@ -26,7 +26,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Version note**: This post mainly follows the [Lecture 8 slides](https://cs231n.stanford.edu/slides/2026/lecture_8.pdf) linked from the Spring 2026 [CS231N](https://cs231n.stanford.edu/) schedule (124 pages, downloaded and checked on 2026-09-30), plus the [RNNs & Transformers review slides](https://cs231n.stanford.edu/slides/2026/section_5.pdf) from the 5/1 section, whose cover says they were copied from the 2025 version. For video, watch Spring 2025's [Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ); 2026 recordings are on Canvas for enrolled students only. The two years' slides are mostly the same, but the 2026 deck adds a page each on RoPE and QK-Norm, so the video won't cover those two. Access level **A3**.
 
@@ -38,14 +38,14 @@ The lecture follows one line: where attention came from → abstracting it into 
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=RQowiOF_FvQ
-title: Spring 2025 Lecture 8 recording
+title: Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers
 ```
 
-Original videos: [Spring 2025 Lecture 8 recording](https://www.youtube.com/watch?v=RQowiOF_FvQ)
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ)
 
 Course and recording entries:
 
@@ -192,6 +192,7 @@ These courses cover the same architecture from the language model side. This pos
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 
 ## References
 

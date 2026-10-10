@@ -26,7 +26,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This post is based on the Fall 2025 offering of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 6 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and follows [Lecture 4, the parallelization thought process](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en). It covers Lecture 5, "Program Optimization 1: Work Distribution and Scheduling" (2025-10-07).
 
@@ -36,14 +36,14 @@ The "Today" slide lists three items: finishing Lecture 4's grid solver, basic lo
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=mmO2Ri_dJkk
-title: CS149 2023 Lecture 5 recording (supplement)
+title: Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling
 ```
 
-Original videos: [CS149 2023 Lecture 5 recording (supplement)](https://www.youtube.com/watch?v=mmO2Ri_dJkk)
+Original videos: [Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling](https://www.youtube.com/watch?v=mmO2Ri_dJkk)
 
 Course and recording entries:
 
@@ -223,6 +223,7 @@ Series navigation: previous, [Lecture 4: the parallelization thought process](/p
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 
 ## References
 

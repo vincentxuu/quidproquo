@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版（課程網站最後一次完整公開的校內版）。但這份作業有個特殊狀況：2023 年的投影片與錄影用的是 DSP 函式庫，[GitHub repo](https://github.com/cgpotts/cs224u) 裡現在的 notebook 已改寫成 DSPy 版（版本字串 Fall 2024）。兩版本文都會交代。事實皆於 2026-09-29 打開官方材料核對。存取等級 **A3**：題目、單元測試、索引、bake-off 題目檔與 overview 錄影都公開；拿不到的是 Gradescope 自動評分與 bake-off 排行榜。
 
@@ -38,14 +38,14 @@ Potts 在[作業二 overview 錄影](https://www.youtube.com/watch?v=NQUxBVOJM14
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=NQUxBVOJM14
-title: 作業二 overview 錄影（XCS224U, Spring 2023）
+title: Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023
 ```
 
-原始影片：[作業二 overview 錄影（XCS224U, Spring 2023）](https://www.youtube.com/watch?v=NQUxBVOJM14)
+原始影片：[Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023](https://www.youtube.com/watch?v=NQUxBVOJM14)
 
 課程與錄影入口：
 
@@ -203,6 +203,7 @@ dspy-ai==2.4.13
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 
 ## 參考資料
 

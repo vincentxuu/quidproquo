@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-presenting-research-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 CS224U 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 16 篇。[上一篇](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol)處理期末專案的前兩段交件；這一篇處理最後一段——期末論文，以及論文寫完之後的事：投稿、審稿、上台。
 
@@ -27,7 +27,20 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=teEA1DACM40
+title: Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=K-AqbhLJMgU
+title: Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023](https://www.youtube.com/watch?v=teEA1DACM40)、[Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023](https://www.youtube.com/watch?v=K-AqbhLJMgU)
+其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I Presenting Your Research, Part 1: Your Papers I Spring 2023](https://www.youtube.com/watch?v=L0ISjkoUoZY)、[Stanford XCS224U: NLU I Presenting Your Research, Part 3: NLP Conference Submission I Spring 2023](https://www.youtube.com/watch?v=9tDtzLlfdxM)
 
 課程與錄影入口：
 
@@ -203,6 +216,7 @@ projects.md 與投影片都列了同一份清單：關掉會跳出的通知、�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2023 播放清單其實有對應講次的錄影，已嵌入並改為已附影片。
 
 ## 參考資料
 

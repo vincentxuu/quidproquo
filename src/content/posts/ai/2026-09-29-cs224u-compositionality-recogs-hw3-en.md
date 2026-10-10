@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/), the last on-campus version with a fully public site. The main materials are the Compositionality and (Re)COGS sections of the [Advanced behavioral evaluation slides](https://web.stanford.edu/class/cs224u/slides/cs224u-behavioraleval-2023-handout.pdf), the [Assignment 3 overview slides](https://web.stanford.edu/class/cs224u/slides/cs224u-hw3-overview-2023.pdf), [hw_recogs.ipynb](https://github.com/cgpotts/cs224u/blob/main/hw_recogs.ipynb), and screencasts 24, 27, and 28 of the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp). The notebook in the repo today carries the version string Spring 2024; I note where it differs from 2023. Every fact was checked against official materials on 2026-09-29. Access grade **A3**: the questions, data, trained model, unit tests, and screencasts are all public. What you can't get is the Gradescope autograder and the bake-off leaderboard.
 
@@ -34,19 +34,19 @@ The [series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-unde
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=g5zwxUqBzN8
-title: Screencast 27: Compositionality
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=tOh-1GYaDl8
-title: Screencast 28: COGS and ReCOGS
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023
 ```
 
-Original videos: [Screencast 27: Compositionality](https://www.youtube.com/watch?v=g5zwxUqBzN8)、[Screencast 28: COGS and ReCOGS](https://www.youtube.com/watch?v=tOh-1GYaDl8)、[Screencast 24: Homework 3 overview (XCS224U, Spring 2023)](https://www.youtube.com/watch?v=e73Ch08XhX0)
+Original videos: [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023](https://www.youtube.com/watch?v=g5zwxUqBzN8), [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023](https://www.youtube.com/watch?v=tOh-1GYaDl8)
 
 Course and recording entries:
 
@@ -211,6 +211,7 @@ One thing to do tonight: download the 7 MB recogs.tgz, load `train.tsv` and `gen
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

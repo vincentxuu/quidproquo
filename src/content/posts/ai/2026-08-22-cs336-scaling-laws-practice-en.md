@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-scaling-laws-practice)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers **CS336 Spring 2026 Lecture 11: Scaling — case study and details**, taught by Tatsunori Hashimoto on May 4, 2026. Its primary source is the official [`lecture_11.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_11.pdf).
 
@@ -23,14 +23,14 @@ Lecture 9 explains scaling-law principles. This lecture inspects how public team
 
 ## Course video sources
 
-The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=vTfEyOyzV9E
-title: CS336 Spring 2026 Lecture 11: Scaling Laws
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws
 ```
 
-Original videos: [CS336 Spring 2026 Lecture 11: Scaling Laws](https://www.youtube.com/watch?v=vTfEyOyzV9E)
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws](https://www.youtube.com/watch?v=vTfEyOyzV9E)
 
 Course and recording entries:
 
@@ -80,6 +80,7 @@ This lecture has a Spring 2026 schedule entry and a complete official PDF. This 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

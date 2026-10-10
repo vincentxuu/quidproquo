@@ -36,7 +36,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-hardware-specialization-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 13 篇，對應 10 月 23 日的第 10 講 [Hardware Specialization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/accelerators/10_Specialized.pdf) 共 71 頁。
 
@@ -46,14 +46,14 @@ Fall 2025 的錄影只放在 Stanford Canvas。最接近的公開錄影是 [2023
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=2tAb3EgyjNw
-title: 2023 Lecture 18 錄影：Hardware Specialization
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 18 - Hardware Specialization
 ```
 
-原始影片：[2023 Lecture 18 錄影：Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 18 - Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)
 
 課程與錄影入口：
 
@@ -231,6 +231,7 @@ thread block cluster 最多 16 個 thread block，保證每個在不同的 SM �
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 
 ## 參考資料
 

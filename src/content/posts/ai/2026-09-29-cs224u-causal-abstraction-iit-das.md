@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列第 12 篇，接續[解釋方法 I](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)，範圍是 Analysis methods 單元的後半：causal abstraction、interchange intervention training（IIT）、distributed alignment search（DAS）與單元結論。
 
@@ -37,19 +37,19 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=6pwpOOj33aw
-title: 影片 36：Causal Abstraction & Interchange Intervention Training (IIT)
+title: Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=fSx1Vj0BZj0
-title: 影片 37：Distributed Alignment Search (DAS) & Conclusion
+title: Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23
 ```
 
-原始影片：[影片 36：Causal Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw)、[影片 37：Distributed Alignment Search (DAS) & Conclusion](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
+原始影片：[Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw)、[Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
 
 課程與錄影入口：
 
@@ -218,6 +218,7 @@ DAS 的做法是**凍結模型參數，只學一個旋轉矩陣 R**。先把目�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 
 ## 參考資料
 

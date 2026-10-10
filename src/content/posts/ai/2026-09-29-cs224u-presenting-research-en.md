@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-presenting-research)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Spring 2023 edition of CS224U.** It is part 16 of the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The [previous part](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol-en) covered the first two final-project deliverables. This part covers the last one, the final paper, and what comes after it: submission, review, and the talk.
 
@@ -27,7 +27,20 @@ The 2023 [schedule](https://web.stanford.edu/class/cs224u/) put this lecture in 
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=teEA1DACM40
+title: Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=K-AqbhLJMgU
+title: Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023](https://www.youtube.com/watch?v=teEA1DACM40), [Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023](https://www.youtube.com/watch?v=K-AqbhLJMgU)
+Other related videos (text links only): [Stanford XCS224U: NLU I Presenting Your Research, Part 1: Your Papers I Spring 2023](https://www.youtube.com/watch?v=L0ISjkoUoZY), [Stanford XCS224U: NLU I Presenting Your Research, Part 3: NLP Conference Submission I Spring 2023](https://www.youtube.com/watch?v=9tDtzLlfdxM)
 
 Course and recording entries:
 
@@ -203,6 +216,7 @@ Take something you wrote recently (a design doc, a blog post, a report) and run 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2023 playlist does have recordings for this topic; they are now embedded and the status is Videos included.
 
 ## References
 

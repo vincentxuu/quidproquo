@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：這一篇要處理的年份最亂，先講清楚。
 >
@@ -44,19 +44,19 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=XSfmOH_xVSU
-title: CS231N Spring 2025 Lecture 17 錄影
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=g8UaBfj6Sh8
-title: CS231N Spring 2025 Lecture 18 錄影：Human-Centered AI（Fei-Fei Li）
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI
 ```
 
-原始影片：[CS231N Spring 2025 Lecture 17 錄影](https://www.youtube.com/watch?v=XSfmOH_xVSU)、[CS231N Spring 2025 Lecture 18 錄影：Human-Centered AI（Fei-Fei Li）](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning](https://www.youtube.com/watch?v=XSfmOH_xVSU)、[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
 
 課程與錄影入口：
 
@@ -180,6 +180,7 @@ imitation learning 就是從示範資料做監督學習，投影片列出 behavi
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。2026 版 Lecture 17 是 World Modeling，2025 版同號講次是 Robot Learning，主題不同，已在說明中註明。
 
 ## 參考資料
 

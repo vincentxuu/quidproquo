@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-information-retrieval)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the Spring 2023 edition of [CS224U](https://web.stanford.edu/class/cs224u/). The main sources are the [Information retrieval slides](https://web.stanford.edu/class/cs224u/slides/cs224u-neuralir-2023-handout.pdf) (Christopher Potts and Omar Khattab; 78 PDF pages, 62 numbered slides) and videos 15–19 of the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp); every fact was checked on 2026-09-29. Access grade **A3**: the slides, videos, and related assignment notebook are all public. What's missing is the Canvas quizzes and the classroom recordings.
 
@@ -42,19 +42,19 @@ This post answers one question: **why does a natural language understanding cour
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=enRb6fp5_hw
-title: IR Part 1: Guiding Ideas video
+title: Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=9YCb-IxtbFQ
-title: IR Part 3: IR metrics video
+title: Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023
 ```
 
-Original videos: [IR Part 1: Guiding Ideas video](https://www.youtube.com/watch?v=enRb6fp5_hw)、[IR Part 3: IR metrics video](https://www.youtube.com/watch?v=9YCb-IxtbFQ)、[IR Part 4: Neural IR video](https://www.youtube.com/watch?v=EDVqG86AT0Q)、[IR Part 2: Classical IR video](https://www.youtube.com/watch?v=D3yL63aYNMQ)、[IR Part 5: Datasets and Conclusion video](https://www.youtube.com/watch?v=Bqps-t-U9jw)
+Original videos: [Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=enRb6fp5_hw), [Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023](https://www.youtube.com/watch?v=9YCb-IxtbFQ)
 
 Course and recording entries:
 
@@ -218,6 +218,7 @@ One thing to do tonight: pick any search feature you use (an internal document s
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

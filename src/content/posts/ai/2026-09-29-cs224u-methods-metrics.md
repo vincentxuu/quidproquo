@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-methods-metrics-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列第 13 篇，範圍是 NLP methods 單元的前半：總論、分類指標、生成指標。講次表把這個單元排在 2023 年 5 月 17、22、24 日。同一欄的 Experimental protocol 截止日是 5 月 29 日。
 
@@ -34,19 +34,19 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=ORg6bZ3d1Rc
-title: 影片 39：NLP Methods and Metrics, Part 1: Overview
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 1: Overview I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=mbL4uUNtZwY
-title: 影片 40：Part 2: Classifier Metrics
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metrics I Spring 2023
 ```
 
-原始影片：[影片 39：NLP Methods and Metrics, Part 1: Overview](https://www.youtube.com/watch?v=ORg6bZ3d1Rc)、[影片 40：Part 2: Classifier Metrics](https://www.youtube.com/watch?v=mbL4uUNtZwY)、[影片 41：Part 3: Generation Metrics](https://www.youtube.com/watch?v=DXz4IeOENiM)
+原始影片：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=ORg6bZ3d1Rc)、[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metrics I Spring 2023](https://www.youtube.com/watch?v=mbL4uUNtZwY)
 
 課程與錄影入口：
 
@@ -213,6 +213,7 @@ notebook 版本字串是「CS224u, Stanford, Spring 2023」，作者 Potts。它
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 
 ## 參考資料
 

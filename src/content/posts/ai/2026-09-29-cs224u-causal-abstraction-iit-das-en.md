@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 12 of the [Stanford CS224U guide series](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) and picks up where [Analysis Methods I](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en) left off. It covers the second half of the Analysis methods unit: causal abstraction, interchange intervention training (IIT), distributed alignment search (DAS), and the unit's conclusions.
 
@@ -37,19 +37,19 @@ This is the steepest post in the series. I stick to intuition, use the notebook'
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=6pwpOOj33aw
-title: Video 36: Causal Abstraction & Interchange Intervention Training (IIT)
+title: Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=fSx1Vj0BZj0
-title: Video 37: Distributed Alignment Search (DAS) & Conclusion
+title: Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23
 ```
 
-Original videos: [Video 36: Causal Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw)、[Video 37: Distributed Alignment Search (DAS) & Conclusion](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
+Original videos: [Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw), [Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
 
 Course and recording entries:
 
@@ -218,6 +218,7 @@ Series navigation: previous, [Analysis Methods I: probing and feature attributio
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

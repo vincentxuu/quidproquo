@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 3 of the [Stanford CS224U guide](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The previous post covers [the opening lecture: the evolution of NLU and the course map](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu-en).
 
@@ -35,19 +35,19 @@ Potts explains the trade-off at the start of video 04. Earlier versions of the c
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=FEFeeRONEdw
-title: Video 04: Contextual Word Representations, Part 1: Guiding Ideas
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=yqV_YfBBtK0
-title: Video 05: Part 2: Transformer
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023
 ```
 
-Original videos: [Video 04: Contextual Word Representations, Part 1: Guiding Ideas](https://www.youtube.com/watch?v=FEFeeRONEdw)、[Video 05: Part 2: Transformer](https://www.youtube.com/watch?v=yqV_YfBBtK0)、[Video 06: Part 3: Positional Encoding](https://www.youtube.com/watch?v=JERXX2Byr90)
+Original videos: [Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=FEFeeRONEdw), [Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023](https://www.youtube.com/watch?v=yqV_YfBBtK0)
 
 Course and recording entries:
 
@@ -207,6 +207,7 @@ Here $a^K_{ij}$ and $a^V_{ij}$ depend on the relative distance $j - i$, clipped 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

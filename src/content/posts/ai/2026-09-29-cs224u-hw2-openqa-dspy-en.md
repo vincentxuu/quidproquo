@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/), the last on-campus version with a fully public site. This assignment has a twist: the 2023 slides and screencast use the DSP library, while the notebook now in the [GitHub repo](https://github.com/cgpotts/cs224u) is a DSPy rewrite (version string Fall 2024). I cover both. Every fact was checked against official materials on 2026-09-29. Access grade **A3**: the questions, unit tests, index, bake-off question file, and overview screencast are all public. What you can't get is the Gradescope autograder and the bake-off leaderboard.
 
@@ -37,14 +37,14 @@ This post covers the question structure, points, required resources, and where t
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=NQUxBVOJM14
-title: Assignment 2 overview screencast (XCS224U, Spring 2023)
+title: Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023
 ```
 
-Original videos: [Assignment 2 overview screencast (XCS224U, Spring 2023)](https://www.youtube.com/watch?v=NQUxBVOJM14)
+Original videos: [Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023](https://www.youtube.com/watch?v=NQUxBVOJM14)
 
 Course and recording entries:
 
@@ -202,6 +202,7 @@ One thing to do tonight: clone the repo, download only the 600 MB index, start t
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

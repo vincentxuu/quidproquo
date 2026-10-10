@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-video-understanding)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source years**: The slides are the Spring 2026 [Lecture 10 slides](https://cs231n.stanford.edu/slides/2026/lecture_10.pdf) from [CS231N](https://cs231n.stanford.edu/) (92 pages, cover date 2026-04-30). The recording is the [Spring 2025 Lecture 10](https://www.youtube.com/watch?v=wElqklprhPE) on YouTube (about 1 hour 8 minutes; the 2025 schedule lists Ruohan Gao as lecturer). The 2026 recordings are on Canvas for enrolled students only, so the two years may differ.
 >
@@ -37,14 +37,14 @@ One question ties the lecture together: **where in the network do you handle the
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=wElqklprhPE
-title: Stanford CS231N 2025 Lecture 10: Video Understanding (YouTube)
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding
 ```
 
-Original videos: [Stanford CS231N 2025 Lecture 10: Video Understanding (YouTube)](https://www.youtube.com/watch?v=wElqklprhPE)
+Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding](https://www.youtube.com/watch?v=wElqklprhPE)
 
 Course and recording entries:
 
@@ -167,6 +167,7 @@ So far everything classifies short clips. The second half extends in three direc
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 
 ## References
 

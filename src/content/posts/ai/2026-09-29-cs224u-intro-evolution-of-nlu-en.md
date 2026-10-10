@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** The course website still shows that quarter. The [series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) already covers the course's status, the years it went untaught, and why the ExploreCourses description doesn't match the schedule, so this post skips all that. This is part 2 of the [Stanford CS224U guide](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series.
 
@@ -33,19 +33,19 @@ This post draws on four public sources: the [intro slides](https://web.stanford.
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=K_Dh0Sxujuc
-title: Video 01: Intro & Evolution of Natural Language Understanding, Pt. 1
+title: Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=J52Dtu40esQ
-title: Video 02: Course Overview, Part 2
+title: Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023
 ```
 
-Original videos: [Video 01: Intro & Evolution of Natural Language Understanding, Pt. 1](https://www.youtube.com/watch?v=K_Dh0Sxujuc)、[Video 02: Course Overview, Part 2](https://www.youtube.com/watch?v=J52Dtu40esQ)
+Original videos: [Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023](https://www.youtube.com/watch?v=K_Dh0Sxujuc), [Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023](https://www.youtube.com/watch?v=J52Dtu40esQ)
 
 Course and recording entries:
 
@@ -212,6 +212,7 @@ If you only have half an hour, read section 2.2, "Cheap tricks," of [Levesque 20
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

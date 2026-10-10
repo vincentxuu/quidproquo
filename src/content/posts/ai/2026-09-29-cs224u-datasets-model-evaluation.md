@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 CS224U 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 14 篇。上一篇 [方法與指標 I](/posts/ai/2026-09-29-cs224u-methods-metrics) 處理「分數怎麼算」：confusion matrix、F1 的幾種平均、BLEU 與 perplexity。這一篇接著處理另一個問題：**就算指標選對了，你的實驗能不能說服一個不信任你的審稿人？**
 
@@ -23,7 +23,20 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=zFtA0fjaXPE
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=7zZRaoHr-8g
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023](https://www.youtube.com/watch?v=zFtA0fjaXPE)、[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023](https://www.youtube.com/watch?v=7zZRaoHr-8g)
+其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 5: Data Organization I Spring 2023](https://www.youtube.com/watch?v=JJ5TE2_-_uM)
 
 課程與錄影入口：
 
@@ -207,6 +220,7 @@ methods 投影片的 Conclusion 以一頁收尾，標題是「An ideal moment fo
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2023 播放清單其實有對應講次的錄影，已嵌入並改為已附影片。
 
 ## 參考資料
 

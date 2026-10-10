@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Spring 2023 edition of CS224U.** It is part 15 of the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The previous part, [Methods and Metrics II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en), covered baselines, splits, and statistical comparison. This part puts that methodology into the two documents the final project actually asks you to submit.
 
@@ -23,7 +23,19 @@ The CS224U final project is half the grade, in three deliverables: a literature 
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=Bc-2yPz8cGA
+title: Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=myAuZuXXPcI
+title: Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023](https://www.youtube.com/watch?v=Bc-2yPz8cGA), [Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023](https://www.youtube.com/watch?v=myAuZuXXPcI)
 
 Course and recording entries:
 
@@ -184,6 +196,7 @@ Once those two are filled in, Data and Metrics usually follow.
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2023 playlist does have recordings for this topic; they are now embedded and the status is Videos included.
 
 ## References
 

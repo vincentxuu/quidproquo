@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-distributed-training)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source years**: The slides are the Spring 2026 [Lecture 11 slides](https://cs231n.stanford.edu/slides/2026/lecture_11.pdf) from [CS231N](https://cs231n.stanford.edu/) (158 pages, cover date 2026-05-05). The recording is the [Spring 2025 Lecture 11](https://www.youtube.com/watch?v=9MvD-XsowsE) on YouTube (about 1 hour 12 minutes; the 2025 schedule lists Justin Johnson as lecturer). The 2026 recordings are on Canvas for enrolled students only, so the two years may differ.
 >
@@ -40,14 +40,14 @@ This is the most systems-heavy lecture in the course. Its running example is [Ll
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=9MvD-XsowsE
-title: Stanford CS231N 2025 Lecture 11: Large Scale Distributed Training (YouTube)
+title: Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training
 ```
 
-Original videos: [Stanford CS231N 2025 Lecture 11: Large Scale Distributed Training (YouTube)](https://www.youtube.com/watch?v=9MvD-XsowsE)
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training](https://www.youtube.com/watch?v=9MvD-XsowsE)
 
 Course and recording entries:
 
@@ -200,6 +200,7 @@ Finally, use TP, CP, PP, and DP at once. Arrange the GPUs in a 4D grid, and each
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 
 ## References
 

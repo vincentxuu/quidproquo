@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-multimodal-alignment)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers **CS336 Spring 2026 Lecture 17: Alignment — multimodality**, taught by Percy Liang on May 27, 2026. Its primary source is the official executable lecture, [`lecture_17.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_17.py). This is the final regular lecture; the two later guest sessions are outside the 17-lecture series.
 
@@ -23,14 +23,14 @@ Transformers consume tokens. Text needs tokenization, and images or video likewi
 
 ## Course video sources
 
-The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=26FtD08ZpOU
-title: CS336 Spring 2026 Lecture 17: Alignment - Multimodality
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 17: Alignment - Multimodality
 ```
 
-Original videos: [CS336 Spring 2026 Lecture 17: Alignment - Multimodality](https://www.youtube.com/watch?v=26FtD08ZpOU)
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 17: Alignment - Multimodality](https://www.youtube.com/watch?v=26FtD08ZpOU)
 
 Course and recording entries:
 
@@ -80,6 +80,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 

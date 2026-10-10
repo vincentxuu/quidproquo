@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-behavioral-evaluation-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版（課程網站最後一次完整公開的校內版）。主要材料是 [Advanced behavioral evaluation 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-behavioraleval-2023-handout.pdf)的 Overview、Analytical、Tests、ANLI、DynaSent、Conclusions 六節，以及 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)第 25–26、29–31 支錄影。事實皆於 2026-09-29 打開官方材料核對。存取等級 **A3**：投影片與錄影全公開；拿不到的是 Canvas 上的 Quiz 3 與教室錄影。
 
@@ -36,19 +36,19 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=l_w05N0QGLk
-title: 錄影 25：Overview（XCS224U, Spring 2023）
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=sZPxZm8HfaE
-title: 錄影 26：Analytical considerations
+title: Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023
 ```
 
-原始影片：[錄影 25：Overview（XCS224U, Spring 2023）](https://www.youtube.com/watch?v=l_w05N0QGLk)、[錄影 26：Analytical considerations](https://www.youtube.com/watch?v=sZPxZm8HfaE)、[錄影 29：Adversarial testing](https://www.youtube.com/watch?v=486mTOQnhgU)、[錄影 30：Adversarial NLI](https://www.youtube.com/watch?v=_ZkewUyBb-w)、[錄影 31：DynaSent and conclusion](https://www.youtube.com/watch?v=2K0BH52EtIw)
+原始影片：[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=l_w05N0QGLk)、[Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023](https://www.youtube.com/watch?v=sZPxZm8HfaE)
 
 課程與錄影入口：
 
@@ -201,6 +201,7 @@ Round 1 的 dev 與 test 把三個類別平衡，並刻意讓 Model 0 在上面�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 
 ## 參考資料
 

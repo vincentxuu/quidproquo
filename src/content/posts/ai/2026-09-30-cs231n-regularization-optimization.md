@@ -34,7 +34,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-regularization-optimization-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：投影片依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 的 [lecture_3.pdf](https://cs231n.stanford.edu/slides/2026/lecture_3.pdf)（121 頁，頁尾日期 2026 年 4 月 7 日）；錄影用的是 [Spring 2025 第 3 講](https://www.youtube.com/watch?v=dyNGd06MWn4)，因為 2026 錄影只放在 Canvas，限修課生觀看。兩者可能有差異：2025 版投影片 119 頁，我抽查的關鍵詞（AdaGrad、AdamW、L-BFGS、warmup）兩版都有，但沒有逐頁比對。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
@@ -48,14 +48,14 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=dyNGd06MWn4
-title: Stanford CS231N Spring 2025 Lecture 3 錄影
+title: Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization
 ```
 
-原始影片：[Stanford CS231N Spring 2025 Lecture 3 錄影](https://www.youtube.com/watch?v=dyNGd06MWn4)
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization](https://www.youtube.com/watch?v=dyNGd06MWn4)
 
 課程與錄影入口：
 
@@ -261,6 +261,7 @@ L3 的尾巴已經開始鋪下一講：線性分類器分不開的資料（投�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 
 ## 參考資料
 

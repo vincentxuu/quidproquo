@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-parallelism-mechanics)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers **CS336 Spring 2026 Lecture 7: Parallelism**, taught by Percy Liang on April 20, 2026. Its primary source is the official executable lecture, [`lecture_07.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_07.py).
 
@@ -23,14 +23,14 @@ Single-GPU optimization ends here. When the model, optimizer state, or batch gro
 
 ## Course video sources
 
-The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
 ```youtube
-url: https://www.youtube.com/watch?v=6-cXp-aOmdg
-title: CS336 Spring 2026 Lecture 8: Parallelism
+url: https://www.youtube.com/watch?v=SzpOcwdIL0Y
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism
 ```
 
-Original videos: [CS336 Spring 2026 Lecture 8: Parallelism](https://www.youtube.com/watch?v=6-cXp-aOmdg)
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism](https://www.youtube.com/watch?v=SzpOcwdIL0Y)
 
 Course and recording entries:
 
@@ -82,6 +82,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; video titles now use the original titles. One mismatch was found and corrected: the embedded video was Lecture 8, but this article covers Lecture 7, so it now embeds the Lecture 7 video.
 
 ## References
 

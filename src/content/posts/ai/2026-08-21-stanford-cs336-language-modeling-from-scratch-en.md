@@ -28,7 +28,7 @@ What went into this: the Spring 2026 course site, the source of `lecture_01.py`,
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official course page and the Spring 2026 playlist list per-lecture recordings; this article is a course-level guide that does not map to a single lecture, so only the entries are listed. See the per-lecture guides for the individual recordings. Checked: 2026-10-10.
 
 Course and recording entries:
 
@@ -203,6 +203,7 @@ If you have one afternoon and don't want to write code, open the `lecture_01` tr
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Rechecked official sources; there is still no public recording matching this article, and a check date was added.
 
 ## References
 

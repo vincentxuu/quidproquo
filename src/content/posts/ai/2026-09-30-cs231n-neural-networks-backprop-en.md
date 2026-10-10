@@ -26,7 +26,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-neural-networks-backprop)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Version note**: The slides are the [lecture_4.pdf](https://cs231n.stanford.edu/slides/2026/lecture_4.pdf) (139 pages) linked from the [CS231N](https://cs231n.stanford.edu/) Spring 2026 schedule. Its admin slides carry 2026 dates (A1 due 4/16, project proposal due 4/23), but the content slides' footer reads "April 9, 2025". I'm recording that as-is and not inferring how much changed. The recording is the [Spring 2025 Lecture 4](https://www.youtube.com/watch?v=25zD5qJHYsk); 2026 recordings are Canvas-only. I also use the [slides](https://cs231n.stanford.edu/slides/2026/section_2_backprop.pdf) and [Colab](https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/backprop.ipynb) from the April 10, 2026 Backprop Review Session. All facts were checked against official materials on 2026-09-30. Access level **A3** (defined in the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
@@ -40,14 +40,14 @@ This post follows five layers: the setting, the intuition, the mechanics (formul
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=25zD5qJHYsk
-title: Stanford CS231N Spring 2025 Lecture 4 recording
+title: Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation
 ```
 
-Original videos: [Stanford CS231N Spring 2025 Lecture 4 recording](https://www.youtube.com/watch?v=25zD5qJHYsk)
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation](https://www.youtube.com/watch?v=25zD5qJHYsk)
 
 Course and recording entries:
 
@@ -250,6 +250,7 @@ One thing you can do tonight: draw the computational graph for f(x, y, z) = (x +
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 
 ## References
 

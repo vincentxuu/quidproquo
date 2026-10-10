@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 4 of the [Stanford CS224U guide](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The Transformer block and positional encoding are covered in [the previous post](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en); this one starts directly with the model families.
 
@@ -37,7 +37,20 @@ The best way to read these seven sections is to keep asking one question: **whic
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=sNw40lEhaIQ
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=H0Zw0_22JRg
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023](https://www.youtube.com/watch?v=sNw40lEhaIQ), [Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023](https://www.youtube.com/watch?v=H0Zw0_22JRg)
+Other related videos (text links only): [Stanford XCS224U: NLU I Contextual Word Representations, Part 6: RoBERTa I Spring 2023](https://www.youtube.com/watch?v=ZIRQM-W02Cs), [Stanford XCS224U: NLU I Contextual Word Representations, Part 7: ELECTRA I Spring 2023](https://www.youtube.com/watch?v=QFMBRk26AjU), [Stanford XCS224U: NLU I Contextual Word Representations, Part 8: Seq2seq Architectures I Spring 2023](https://www.youtube.com/watch?v=ymKWRZgHwPc), [Stanford XCS224U: NLU I Contextual Word Representations, Part 9: Distillation I Spring 2023](https://www.youtube.com/watch?v=f9cfLq9T6MI), [Stanford XCS224U: NLU I Contextual Word Representations, Part 10: Wrap-up I Spring 2023](https://www.youtube.com/watch?v=ni3T4vStzBI)
 
 Course and recording entries:
 
@@ -236,6 +249,7 @@ Running the whole notebook requires the course's [data.tgz](http://web.stanford.
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2023 playlist does have recordings for this topic; they are now embedded and the status is Videos included.
 
 ## References
 

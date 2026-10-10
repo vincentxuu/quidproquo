@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-cnn-image-classification)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source years**: slides are the [lecture_5.pdf](https://cs231n.stanford.edu/slides/2026/lecture_5.pdf) linked from the Spring 2026 schedule; the recording is the Spring 2025 [YouTube L5](https://www.youtube.com/watch?v=f3g1zGdxptI). The two may differ, and I flag differences below. This is post 6 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series and follows the [A1 guide](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en).
 
@@ -42,14 +42,14 @@ One detail first. Every page footer of the 2026 slides reads "April 14, 2025," y
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=f3g1zGdxptI
-title: Stanford CS231N Spring 2025 Lecture 5: Image Classification with CNNs (YouTube)
+title: Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs
 ```
 
-Original videos: [Stanford CS231N Spring 2025 Lecture 5: Image Classification with CNNs (YouTube)](https://www.youtube.com/watch?v=f3g1zGdxptI)
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs](https://www.youtube.com/watch?v=f3g1zGdxptI)
 
 Course and recording entries:
 
@@ -198,6 +198,7 @@ Series navigation: previous [A1 guide: kNN, Softmax, Two-Layer Net, and Fully-Co
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 
 ## References
 

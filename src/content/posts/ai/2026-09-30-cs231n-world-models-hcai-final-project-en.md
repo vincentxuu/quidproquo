@@ -26,7 +26,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Which year**: The years in this post are the messiest in the series, so here they are up front.
 >
@@ -43,19 +43,19 @@ The last two lectures stop teaching new algorithms. They push what came before o
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=XSfmOH_xVSU
-title: CS231N Spring 2025 Lecture 17 recording
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=g8UaBfj6Sh8
-title: CS231N Spring 2025 Lecture 18 recording: Human-Centered AI (Fei-Fei Li)
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI
 ```
 
-Original videos: [CS231N Spring 2025 Lecture 17 recording](https://www.youtube.com/watch?v=XSfmOH_xVSU)、[CS231N Spring 2025 Lecture 18 recording: Human-Centered AI (Fei-Fei Li)](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
+Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning](https://www.youtube.com/watch?v=XSfmOH_xVSU), [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
 
 Course and recording entries:
 
@@ -179,6 +179,7 @@ That completes this series: the public L1–L16 slides of CS231N Spring 2026, al
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles. The 2026 Lecture 17 is World Modeling while the 2025 Lecture 17 is Robot Learning, so the topics differ; this is noted in the section.
 
 ## References
 

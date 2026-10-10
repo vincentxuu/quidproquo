@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Spring 2023 edition of CS224U.** It is part 14 of the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The previous part, [Methods and Metrics I](/posts/ai/2026-09-29-cs224u-methods-metrics-en), covered how scores get computed: confusion matrices, averaged F1, BLEU, and perplexity. This part takes the next question. **Even with the right metric, will your experiment convince a reviewer who doesn't trust you?**
 
@@ -23,7 +23,20 @@ The course answers that in the last three sections of the same [methods slide de
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=zFtA0fjaXPE
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=7zZRaoHr-8g
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023](https://www.youtube.com/watch?v=zFtA0fjaXPE), [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023](https://www.youtube.com/watch?v=7zZRaoHr-8g)
+Other related videos (text links only): [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 5: Data Organization I Spring 2023](https://www.youtube.com/watch?v=JJ5TE2_-_uM)
 
 Course and recording entries:
 
@@ -207,6 +220,7 @@ If you can't answer any one of them, your "A beats B" conclusion isn't ready for
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2023 playlist does have recordings for this topic; they are now embedded and the status is Videos included.
 
 ## References
 

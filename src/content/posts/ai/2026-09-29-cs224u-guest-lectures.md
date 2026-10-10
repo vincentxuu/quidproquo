@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cs224u-guest-lectures-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)的最後一篇，也是唯一一篇「選讀」。
 
@@ -38,19 +38,19 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=4-kuJpVrr7M
-title: 影片 49：Fantastic Language Models and How to Build Them, Part 1
+title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=JVKtPZsiv4k
-title: 影片 50：Fantastic Language Models and How to Build Them, Part 2
+title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023
 ```
 
-原始影片：[影片 49：Fantastic Language Models and How to Build Them, Part 1](https://www.youtube.com/watch?v=4-kuJpVrr7M)、[影片 50：Fantastic Language Models and How to Build Them, Part 2](https://www.youtube.com/watch?v=JVKtPZsiv4k)
+原始影片：[Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023](https://www.youtube.com/watch?v=4-kuJpVrr7M)、[Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023](https://www.youtube.com/watch?v=JVKtPZsiv4k)
 
 課程與錄影入口：
 
@@ -183,6 +183,7 @@ Karamcheti 的投影片副標寫著「Stanford || Zoom || Folks 2x-ing the Recor
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 
 ## 參考資料
 

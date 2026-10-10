@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 CS224U 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 15 篇。上一篇 [方法與指標 II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation) 講了 baseline、切分與統計比較；這一篇把那些方法論放進期末專案真正要交的兩份文件裡。
 
@@ -23,7 +23,19 @@ CS224U 的期末專案占成績一半，拆成三段：文獻回顧、實驗計�
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=Bc-2yPz8cGA
+title: Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=myAuZuXXPcI
+title: Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023](https://www.youtube.com/watch?v=Bc-2yPz8cGA)、[Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023](https://www.youtube.com/watch?v=myAuZuXXPcI)
 
 課程與錄影入口：
 
@@ -184,6 +196,7 @@ Protocol overview 投影片第 5 頁：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2023 播放清單其實有對應講次的錄影，已嵌入並改為已附影片。
 
 ## 參考資料
 

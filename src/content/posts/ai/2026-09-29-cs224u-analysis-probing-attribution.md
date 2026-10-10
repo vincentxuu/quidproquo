@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列第 11 篇，範圍是 Analysis methods 單元的前半：總論、probing、feature attribution。講次表把這個單元排在 2023 年 5 月 8、10、15 日三堂。用到的官方材料有三份：投影片 [Analysis methods in NLP](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf) 的前 40 頁（全份 64 頁）、公開播放清單的影片 33–35，以及 repo 裡的 [`feature_attribution.ipynb`](https://github.com/cgpotts/cs224u/blob/main/feature_attribution.ipynb)。
 
@@ -38,19 +38,19 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=5RZDKW1_HS4
-title: 影片 33：Analysis Methods for NLU, Part 1: Overview
+title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=lZqsLuAjZ4c
-title: 影片 34：Part 2: Probing
+title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023
 ```
 
-原始影片：[影片 33：Analysis Methods for NLU, Part 1: Overview](https://www.youtube.com/watch?v=5RZDKW1_HS4)、[影片 34：Part 2: Probing](https://www.youtube.com/watch?v=lZqsLuAjZ4c)、[影片 35：Part 3: Feature Attribution](https://www.youtube.com/watch?v=p0dzR6iaFmc)
+原始影片：[Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=5RZDKW1_HS4)、[Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023](https://www.youtube.com/watch?v=lZqsLuAjZ4c)
 
 課程與錄影入口：
 
@@ -187,6 +187,7 @@ notebook 的內容依序是：InputXGradients 的兩種實作（純 PyTorch 與 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 
 ## 參考資料
 

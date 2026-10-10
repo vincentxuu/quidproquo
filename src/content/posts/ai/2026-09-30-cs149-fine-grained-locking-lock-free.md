@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 21 篇，接續 [L15 同步實作與記憶體一致性](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)，範圍是 Lecture 16「Fine-Grained Locking and Lock-Free Programming」（2025-11-20）。
 
@@ -41,14 +41,14 @@ Part 5 這幾篇和 AI 沒有直接關係，但你寫的每個 thread pool、每
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=GA1ObImqaMo
-title: CS149 2023 Lecture 13 錄影：Fine-Grained Synchronization and Lock-Free Programming（補充材料）
+title: Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming
 ```
 
-原始影片：[CS149 2023 Lecture 13 錄影：Fine-Grained Synchronization and Lock-Free Programming（補充材料）](https://www.youtube.com/watch?v=GA1ObImqaMo)
+原始影片：[Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming](https://www.youtube.com/watch?v=GA1ObImqaMo)
 
 課程與錄影入口：
 
@@ -186,6 +186,7 @@ test-and-set 家族的共同問題是放鎖那一刻所有等待者同時去搶�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 
 ## 參考資料
 

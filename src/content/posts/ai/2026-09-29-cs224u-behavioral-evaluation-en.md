@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-behavioral-evaluation)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/), the last on-campus version with a fully public site. The main materials are six sections of the [Advanced behavioral evaluation slides](https://web.stanford.edu/class/cs224u/slides/cs224u-behavioraleval-2023-handout.pdf) (Overview, Analytical, Tests, ANLI, DynaSent, Conclusions) and screencasts 25–26 and 29–31 of the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp). Every fact was checked against official materials on 2026-09-29. Access grade **A3**: slides and screencasts are fully public. What you can't get is Quiz 3 on Canvas and the classroom recordings.
 
@@ -35,19 +35,19 @@ The deck runs 80 pages. Its Compositionality and (Re)COGS sections tie into Assi
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=l_w05N0QGLk
-title: Screencast 25: Overview (XCS224U, Spring 2023)
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=sZPxZm8HfaE
-title: Screencast 26: Analytical considerations
+title: Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023
 ```
 
-Original videos: [Screencast 25: Overview (XCS224U, Spring 2023)](https://www.youtube.com/watch?v=l_w05N0QGLk)、[Screencast 26: Analytical considerations](https://www.youtube.com/watch?v=sZPxZm8HfaE)、[Screencast 29: Adversarial testing](https://www.youtube.com/watch?v=486mTOQnhgU)、[Screencast 30: Adversarial NLI](https://www.youtube.com/watch?v=_ZkewUyBb-w)、[Screencast 31: DynaSent and conclusion](https://www.youtube.com/watch?v=2K0BH52EtIw)
+Original videos: [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=l_w05N0QGLk), [Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023](https://www.youtube.com/watch?v=sZPxZm8HfaE)
 
 Course and recording entries:
 
@@ -200,6 +200,7 @@ One thing to do tonight: take any classifier you have and write five minimal pai
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 
 ## References
 
