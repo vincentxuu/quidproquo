@@ -61,6 +61,7 @@ start: 91
 - 格式錯誤時 build 會直接失敗，不會悄悄漏掉。
 - 每篇每支影片嵌一次，放在第一次提到的位置；中英兩版各嵌一次，`title` 各自翻譯。
 - 嵌入不取代 `## 參考資料`：影片連結仍要列在文末，內文第一次提到也要有 inline 連結。
+- 課程系列的影片 ID 要同步登錄在 `scripts/config/course-videos.json`，`pnpm check:course-videos` 會檢查文章有沒有嵌入、狀態行對不對。
 - 實作在 `src/plugins/remarkYoutubeEmbed.ts`，輸出 `youtube-nocookie.com`、`loading="lazy"`。
 
 ## tags 原則

@@ -147,6 +147,7 @@ const commandResults = await Promise.all([
   runStep('check:glossary', 'pnpm check:glossary'),
   runStep('check:series-order', 'pnpm check:series-order'),
   runStep('check:lang-parity', 'pnpm check:lang-parity'),
+  runStep('check:course-videos', 'pnpm check:course-videos'),
   runStep('check:seo-smoke', 'pnpm check:seo-smoke'),
   runStep('skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs'),
 ]);
