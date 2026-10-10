@@ -396,3 +396,19 @@
 - 已做（2026-09-19，使用者拍板）：(1) `RemoteTrigger run` 手動補跑 arxiv／github（c28ffe3e、943fff66），日報中英雙版重組納入（784652c0）；(2) 15 個排程全部 +30 分鐘（arxiv 02:33 起、signals 03:33、report／weekly 04:33、region 05:03 台北），`docs/daily-digest-routines.json` 同步更新並附 trigger_id；(3) 順手修 85a97fb1 帶進 main 的 4 個 A 級用語（343f2ed1），解除全站 verify 紅燈。
 - 為什麼還沒完全解決：+30 分鐘只是避開「觀察到的」窗尾巴；5 小時窗是相對於使用者開始用的時間，週五晚上用量大一點就可能再撞。根本解法要嘛 routine 用獨立帳號／額度，要嘛 skill 層加「啟動先寫心跳、被拒時寫 progress 或本檔」讓失敗可見——兩者都是 Tier 2。
 - 接手第一步：下次再缺，先 `RemoteTrigger list_runs` + `get_run_log`（trigger_id 在 `docs/daily-digest-routines.json`）確認是不是 `rate_limit`；是的話 `RemoteTrigger run` 補跑，再跑 `daily-digest-report` 重組（skill 冪等檢查會擋已存在的日報，需明示跳過）。若連續兩週再撞，向使用者提「routine 獨立額度」或「Stage 1 整體改 03:30 後」。
+
+## Q-030 已完成：課程系列影片來源批次回填（2026-10-10）
+- 登錄：2026-10-10（來源：使用者要求比照 agency 文章附影片來源）
+- 做什麼：依 `.work/course-video-sources/plan-and-sample.md` 回填課程講次播放器與原始來源，中英同步；沒有公開錄影明確標示。
+- 決議：2026-10-10 使用者已同意計畫與樣本，解除批次改動限制；執行進度見 progress.txt。
+- 結果：1548 檔回填已提交 `8b37fc2a`，後續影片狀態與追加查核已提交 `ea2d652e`；2026-10-10 重新 fetch 後確認兩筆均為 origin/main 的祖先。本機共享目錄已同步，原始備份與報告仍保留。
+
+## Q-031 課程影片回填的品質閘門與預覽驗證
+- 登錄：2026-10-10（來源：課程影片回填驗證）
+- 做什麼：讓完整 pnpm verify 通過，並完成多影片／單影片／受限錄影文章的實際版面與播放驗證。
+- 為什麼現在不能做：共享工作區既存 AI model family 新稿有 references、post-quality、TW 和英文版缺漏；本次回填未新增 error。Astro dev 因 Zone Allocation failed OOM 中止，8GB heap 重試仍失敗；瀏覽器控制亦逾時。這是回填當時的限制；回填與 CS329Z 更新後來已在隔離 worktree 提交（`8b37fc2a`／`ea2d652e`／`151b1176`），2026-10-10 已核對遠端歷史。正式站播放驗收仍需獨立證據。
+- 接手第一步：讀 `.work/course-video-sources/completion-report.md`、`gate-delta.json`、`verify-final.log` 與 `preview-heap-retry.log`；確認其他 session 新稿完成狀態，再驗證，保留所有並行改動。
+
+- Q-031 補記（2026-10-10 CS329Z 教材更新）：本次中英總導讀、Week 1–3 與系列描述已更新；astro check／lint 通過，共享目錄完整 verify 當時受 AI model family 新稿阻擋；後續隔離 worktree verify 通過並提交 `151b1176`，已核對其位於 origin/main 歷史。接手先讀 /tmp/cs329z-update/verify-final.log 及 references.log／post-quality.log／tw.log，再確認並行新稿狀態。
+
+- Q-031 更新（2026-10-10 未提交改動整理）：共享 main 已同步遠端並整合真正的本機增量；完整 `pnpm verify` 已全綠，後續兩筆內容提交的 pre-commit 亦全綠。十二篇模型家族文章以 `draft: true` 保存於 `47bcda8a`，完整事實審稿待續。正式站播放驗收仍未在本次任務執行，不能以本機品質閘門代替播放證據。盤點與驗證紀錄位於 `/tmp/quidproquo-commit-audit/`；原始工作目錄快照為 stash `74074e534ddfc151adb38559327128be34606138`。
