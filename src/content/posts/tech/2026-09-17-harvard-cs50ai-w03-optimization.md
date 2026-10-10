@@ -40,6 +40,8 @@ title: Optimization - Lecture 3 - CS50's Introduction to Artificial Intelligence
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：原表的整體順序成立，但「Sideways moves」「最小衝突值（min-conflicts）」在字幕中沒有出現，「Local Beam Search」只有一句帶過；字幕另有 AC-3 之前的 node consistency 與 least-constraining value，已補上。字幕全程未提到 Crossword 專案，專案說明來自課程官網。原精確時間碼（尾段到 1:30:00，影片實長 1:44:45）無法驗證，改為依字幕估算的「約」值。
+
 ## TL;DR
 
 Week 3 解決優化問題：局部搜尋（爬山、隨機重啟）、模擬退火接受劣解、CSP 建模變數/域/約束、AC-3 過濾域、回溯搜尋配合 MRV 與 degree 啟發式。專案 Crossword 生成合法填字遊戲。
@@ -48,15 +50,17 @@ Week 3 解決優化問題：局部搜尋（爬山、隨機重啟）、模擬退�
 
 YouTube：[Week 3 Optimization (2020 錄製)](https://www.youtube.com/watch?v=qK46ET1xk2A)
 
-| 時間區段 | 內容 |
+> 時間說明：影片總長 1:44:45。YouTube 字幕沒有時間碼，下表時間是依各主題在字幕全文中的相對位置換算的「約略值」（可能差數分鐘），只供定位，不是官方章節。此表只描述這支 2020 年的錄影；課程目前版本的講課內容與順序可能不同，且影片本身沒有介紹本週專案。
+
+| 約略時間（分鐘） | 內容 |
 |---|---|
-| 00:00–08:00 | 優化問題定義：目標函數、狀態空間、鄰居 |
-| 08:00–22:00 | 局部搜尋：Hill Climbing、Sideways moves、Random Restart、Local Beam Search |
-| 22:00–38:00 | 模擬退火：溫度參數、接受劣解機率、退火排程、收斂保證 |
-| 38:00–52:00 | 線性規劃簡介：目標函數、約束、單形法概念 |
-| 52:00–1:08:00 | 約束滿足問題 CSP：變數、域、約束、一致性、解 |
-| 1:08:00–1:22:00 | AC-3 弧一致性算法、回溯搜尋、MRV 最少剩餘值、Degree 啟發式、最小衝突值 |
-| 1:22:00–1:30:00 | 專案介紹：Crossword（CSP + 回溯生成填字遊戲） |
+| 約 0–8 | 最佳化與局部搜尋：state-space landscape、objective／cost function、全域與局部極值（hospital 擺放範例） |
+| 約 8–31 | 爬山法及其變體：steepest-ascent、stochastic、first-choice、random restart、local beam search，以及平坦區域問題 |
+| 約 31–39 | 模擬退火（simulated annealing）與旅行推銷員問題 |
+| 約 39–53 | 線性規劃：線性目標函數與限制、單形法（simplex）只做點名 |
+| 約 53–77 | 約束滿足問題（CSP）：變數、domain、約束、node consistency、arc consistency 與 AC-3 |
+| 約 77–95 | 回溯搜尋，並與推論結合（maintaining arc consistency） |
+| 約 95–104 | 選擇順序啟發式：MRV、degree heuristic、least-constraining value，以及收尾 |
 
 > 完整逐字稿：[Week 3 Notes](https://cs50.harvard.edu/ai/2020/notes/3/)
 
@@ -305,6 +309,7 @@ style50 generate.py
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 CS50 YouTube 播放清單即時核對，本週講課錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。移除字幕中沒有的項目與專案介紹，時間碼改為依字幕估算的約略值。
 
 ## 參考資料
 

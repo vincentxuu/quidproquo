@@ -40,24 +40,29 @@ title: Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence wi
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：9 個主題的順序成立，但原表兩個項目有出入：Clue 約在第 41–53 分鐘，Mastermind 在第 62–65 分鐘（中間夾著 Hogwarts 邏輯謎題），並非同一段；原表精確時間碼（尾段到 1:22:00，影片實長 1:47:44）無法驗證，已改為依字幕相對位置估算的「約」值。字幕全程未提到 Knights、Minesweeper 專案，專案說明來自課程官網。
+
 ## TL;DR
 
 Week 1 從搜尋轉向知識表示：用命題邏輯編碼世界、用模型檢查驗證推論、用 Resolution 做高效推理。兩專案分別對應邏輯謎題求解與掃雷機率推斷。
 
 ## 課程影片與時間軸
 
-YouTube 播放列表：[CS50 AI 2020 全列表](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)（Week 1 為列表第 2 支影片）
+YouTube：[Week 1 Knowledge (2020 錄製)](https://www.youtube.com/watch?v=HWQLez87vqM)
 
-| 時間區段 | 內容 |
+> 時間說明：影片總長 1:47:44。YouTube 字幕沒有時間碼，下表時間是依各主題在字幕全文中的相對位置換算的「約略值」（可能差數分鐘），只供定位，不是官方章節。此表只描述這支 2020 年的錄影；課程目前版本的講課內容與順序可能不同，且影片本身沒有介紹本週專案。
+
+| 約略時間（分鐘） | 內容 |
 |---|---|
-| 00:00–06:00 | 知識型 Agent 簡介、Harry Potter 推理範例 |
-| 06:00–18:00 | 命題邏輯語法：符號、連結詞、真值表 |
-| 18:00–28:00 | 模型、知識庫、語意蘊含 |
-| 28:00–42:00 | 模型檢查算法：遞迴枚舉所有模型、Python 實作 |
-| 42:00–52:00 | 知識工程實例：Clue 推理、Mastermind |
-| 52:00–1:04:00 | 推理規則：Modus Ponens、And Elimination、Double Negation、Implication Elimination、De Morgan、Distributive |
-| 1:04:00–1:14:00 | Resolution：互補字面值、子句、CNF 轉換步驟、反證法 |
-| 1:14:00–1:22:00 | 一階邏輯：常數、謂詞、全稱/存在量化 |
+| 約 0–5 | 回顧搜尋、知識型 agent 與 Harry Potter 推理範例 |
+| 約 5–16 | 命題邏輯：命題符號、邏輯連結詞（not、and、or、implication、biconditional）與真值表 |
+| 約 16–22 | 模型、知識庫與 entailment（蘊含） |
+| 約 22–41 | 模型檢查：概念與 Python 實作，用 Harry 範例驗證 |
+| 約 41–53 | 知識工程範例：Clue 推理 |
+| 約 54–65 | 邏輯謎題（Hogwarts 分院）與 Mastermind；變數變多時模型檢查效率下降 |
+| 約 65–79 | 推論規則：Modus Ponens、And Elimination、Double Negation、Implication／Biconditional Elimination、De Morgan、分配律，以及把定理證明視為搜尋 |
+| 約 79–99 | Resolution：互補字面值、子句、CNF 轉換、反證法 |
+| 約 99–107 | 一階邏輯：常數、謂詞、全稱與存在量化，以及課程收尾 |
 
 > 完整逐字稿：[Week 1 Notes](https://cs50.harvard.edu/ai/2020/notes/1/)
 
@@ -409,6 +414,7 @@ style50 minesweeper.py
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 CS50 YouTube 播放清單即時核對，本週講課錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。原時間碼無法驗證，改為依字幕估算的約略時間；拆開 Clue 與 Mastermind；移除播放列表「第 2 支」說法，改連到本週影片。
 
 ## 參考資料
 

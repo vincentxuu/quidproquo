@@ -40,23 +40,29 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Large parts of the original table did not match this 2023 video. The transcript has no TF-IDF, inverted index, information retrieval, question answering, CYK table filling or Good-Turing/Kneser-Ney smoothing, and no introduction of the Parser and Questions projects; all were removed. The video actually covers CFGs and the NLTK parser, n-grams, Naive Bayes sentiment analysis, word2vec, RNN-based machine translation, attention and Transformers, and the table was rewritten accordingly. The original table ran to 1:35:00 but the video is only 1:05:22 long; exact timecodes could not be verified and are now approximate values estimated from the transcript. The TF-IDF, question-answering and project material in this guide comes from the course site (project specs follow the 2026 version), not from this video.
+
 ## TL;DR
 
 Week 6 handles natural language: N-gram conditional probability & smoothing, CFG syntax parsing with CYK, TF-IDF vector retrieval, attention mechanism & Transformer basics. Two projects implement syntactic generator and QA system.
 
 ## Lecture Video & Timestamps
 
-YouTube: [Week 6 Language (2023 re-recorded)](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
+YouTube: [Week 6 Language (2023 recording)](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
 
-| Timestamp | Content |
+> Timing note: the video runs 1:05:22. YouTube's transcript has no timecodes, so the times below are approximate values estimated from where each topic falls in the transcript (they may be off by several minutes). They are for orientation only, not official chapters. This table describes only the 2023 recording; the current course version may differ in content and order, and the video itself does not introduce this week's projects.
+
+| Approx. time (minutes) | Content |
 |---|---|
-| 00:00–10:00 | NLP intro, language modeling goal, N-gram, Markov assumption |
-| 10:00–25:00 | N-gram probability estimation, MLE, smoothing: Laplace, Add-k, Good-Turing, Kneser-Ney |
-| 25:00–40:00 | Syntax parsing: CFG, production rules, ambiguity, CYK algorithm, CKY table filling |
-| 40:00–55:00 | Information retrieval: inverted index, TF-IDF, vector space model, cosine similarity |
-| 55:00–1:10:00 | QA systems: document retrieval, passage ranking, answer extraction |
-| 1:10:00–1:25:00 | Attention mechanism: Seq2Seq, Attention, Self-Attention, Multi-Head, Transformer architecture |
-| 1:25:00–1:35:00 | Project intro: Parser (CFG sentence generation), Questions (TF-IDF QA) |
+| ~0–3 | Introduction to natural language processing and the opening of the final class |
+| ~3–13 | Syntax and semantics, formal grammar and context-free grammars, with an NLTK parser demo |
+| ~13–19 | n-grams, tokenization and Markov-chain text generation |
+| ~19–31 | Text categorization: sentiment analysis, Naive Bayes and smoothing |
+| ~31–42 | Word representations: one-hot, distributed representations and word2vec (with a Python demo) |
+| ~42–48 | Machine translation and sequence-to-sequence: RNN encoder-decoder |
+| ~48–53 | The attention mechanism |
+| ~53–63 | Transformers: self-attention, multi-head attention, positional encoding, encoder/decoder |
+| ~63–65 | Summary and the wrap-up of the whole course |
 
 > Full transcript: [Week 6 Notes](https://cs50.harvard.edu/ai/2020/notes/6/) (note: notes page is 2020 edition, but video is 2023)
 
@@ -414,6 +420,7 @@ style50 questions.py
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official CS50 YouTube playlist was checked live and lists this week’s lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Rewrote the video timeline from the transcript, removed TF-IDF/QA/project introductions the video does not cover, and made timecodes approximate.
 
 ## References
 

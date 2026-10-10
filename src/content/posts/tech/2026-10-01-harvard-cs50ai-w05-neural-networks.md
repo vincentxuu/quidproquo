@@ -40,6 +40,8 @@ title: Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intellige
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：原表的順序（神經網路基礎→訓練→TensorFlow→CNN）大致成立，但原表有多項字幕中找不到的內容：損失函數 MSE／Cross-Entropy 的獨立章節（Softmax 只有一句）、優化器 SGD／Momentum／Adam、Functional API、Batch Normalization、Data Augmentation、Early Stopping、通用近似定理、鏈式法則推導，以及 Traffic 專案介紹，皆已移除；影片末段約第 85 分鐘起其實是遞迴神經網路（RNN），原表漏掉，已補上。字幕全程未提到 Traffic 專案，專案說明來自課程官網。原精確時間碼（影片實長 1:41:20）無法驗證，改為依字幕估算的「約」值。
+
 ## TL;DR
 
 Week 5 進入深度學習：從感知機到多層神經網路、反向傳播鏈式法則計算梯度、損失函數與優化器、TensorFlow/Keras 建模、CNN 卷積池化結構。專案 Traffic 訓練 CNN 分類交通號誌圖片。
@@ -48,16 +50,17 @@ Week 5 進入深度學習：從感知機到多層神經網路、反向傳播鏈�
 
 YouTube：[Week 5 Neural Networks (2020 錄製)](https://www.youtube.com/watch?v=J1QD9hLDEDY)
 
-| 時間區段 | 內容 |
+> 時間說明：影片總長 1:41:20。YouTube 字幕沒有時間碼，下表時間是依各主題在字幕全文中的相對位置換算的「約略值」（可能差數分鐘），只供定位，不是官方章節。此表只描述這支 2020 年的錄影；課程目前版本的講課內容與順序可能不同，且影片本身沒有介紹本週專案。
+
+| 約略時間（分鐘） | 內容 |
 |---|---|
-| 00:00–12:00 | 感知機回顧、多層神經網路、啟用函數、通用近似定理 |
-| 12:00–28:00 | 反向傳播：鏈式法則推導、計算圖、梯度流向、向量化實作 |
-| 28:00–42:00 | 損失函數：MSE、Cross-Entropy、Softmax 輸出層 |
-| 42:00–55:00 | 優化器：SGD、Momentum、Adam、學習率排程 |
-| 55:00–1:10:00 | TensorFlow/Keras 介紹：Sequential、Functional API、編譯/訓練/評估流程 |
-| 1:10:00–1:25:00 | 卷積神經網路 CNN：卷積核、步幅、填充、池化、參數共享、感受野 |
-| 1:25:00–1:38:00 | 正則化：Dropout、Batch Normalization、Data Augmentation、Early Stopping |
-| 1:38:00–1:45:00 | 專案介紹：Traffic（CNN 訓練分類 GTSRB 交通號誌） |
+| 約 0–16 | 神經網路基礎：單元、權重、bias、activation function（step、sigmoid、ReLU）、以邏輯閘為例 |
+| 約 16–30 | 梯度下降：loss 最小化、stochastic／mini-batch、多輸入多輸出與線性模型的限制 |
+| 約 30–39 | 隱藏層與多層網路、反向傳播（概念層級）、deep learning、overfitting 與 dropout |
+| 約 39–53 | TensorFlow／Keras：Sequential 模型、compile、epochs 與實作 |
+| 約 53–73 | 電腦視覺與卷積神經網路：影像像素、convolution 與 filter、pooling |
+| 約 73–85 | Keras 實作 CNN：MNIST 手寫數字辨識 |
+| 約 85–101 | feed-forward 網路的限制與遞迴神經網路（RNN）：序列資料、CaptionBot，以及收尾 |
 
 > 完整逐字稿：[Week 5 Notes](https://cs50.harvard.edu/ai/2020/notes/5/)
 
@@ -333,6 +336,7 @@ style50 traffic.py
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 CS50 YouTube 播放清單即時核對，本週講課錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。移除影片中找不到的主題與專案介紹，補上 RNN 段，時間碼改為約略值。
 
 ## 參考資料
 

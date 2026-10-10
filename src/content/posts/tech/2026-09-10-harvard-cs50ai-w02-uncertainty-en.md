@@ -40,6 +40,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The overall order (probability, Bayesian networks, inference, Markov models, HMMs) holds, but several items could not be found in the transcript: d-separation, variable elimination, stationary distributions, PageRank random walks, the Viterbi and forward algorithms (the lecture only names HMM tasks such as filtering, prediction, smoothing and most likely explanation), and the two project introductions (Heredity, PageRank). They were removed from the video timeline. The original exact timecodes (the video runs 1:54:30) could not be verified and are now approximate values estimated from the transcript. Projects and stationary distributions remain in the guide but come from the course site, not this video.
+
 ## TL;DR
 
 Week 2 introduces probability for uncertainty: Bayesian nets encode conditional independence, Markov chains model sequences, PageRank ranks pages via random walks. Two projects implement genetic inference (Heredity) and web ranking (PageRank).
@@ -48,14 +50,18 @@ Week 2 introduces probability for uncertainty: Bayesian nets encode conditional 
 
 YouTube: [Week 2 Uncertainty (2020 recording)](https://www.youtube.com/watch?v=D8RRq3TbtHU)
 
-| Timestamp | Content |
+> Timing note: the video runs 1:54:30. YouTube's transcript has no timecodes, so the times below are approximate values estimated from where each topic falls in the transcript (they may be off by several minutes). They are for orientation only, not official chapters. This table describes only the 2020 recording; the current course version may differ in content and order, and the video itself does not introduce this week's projects.
+
+| Approx. time (minutes) | Content |
 |---|---|
-| 00:00–08:00 | Uncertainty motivation, probability axioms, conditional probability, Bayes rule |
-| 08:00–22:00 | Bayesian networks: nodes, directed edges, CPTs, D-separation for conditional independence |
-| 22:00–38:00 | Bayesian network inference: Enumeration, Variable Elimination, approximate sampling |
-| 38:00–52:00 | Markov models: Markov assumption, transition matrix, stationary distribution, PageRank random walk |
-| 52:00–1:05:00 | Hidden Markov Models (HMM): observations, forward algorithm, Viterbi algorithm |
-| 1:05:00–1:15:00 | Project intro: Heredity (Bayesian net sampling), PageRank (iterative & sampling) |
+| ~0–10 | Uncertainty and probability basics: possible worlds, probability axioms |
+| ~10–27 | Conditional probability, random variables, joint probability, distributions and independence |
+| ~27–34 | Bayes' rule |
+| ~34–49 | Joint distributions, marginalization and normalization |
+| ~49–80 | Bayesian networks: structure and conditional probability tables, Python library implementation, inference by enumeration |
+| ~80–93 | Approximate inference: sampling, rejection sampling, likelihood weighting |
+| ~93–101 | Uncertainty over time: Markov assumption, Markov chains, transition model |
+| ~101–114 | Sensor models and hidden Markov models: filtering, prediction, smoothing, most-likely-explanation tasks, and the wrap-up |
 
 > Full transcript: [Week 2 Notes](https://cs50.harvard.edu/ai/2020/notes/2/)
 
@@ -354,6 +360,7 @@ style50 pagerank.py
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official CS50 YouTube playlist was checked live and lists this week’s lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Removed topics and project introductions not found in the video; timecodes are now approximate values estimated from the transcript.
 
 ## References
 

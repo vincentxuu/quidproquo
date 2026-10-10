@@ -40,23 +40,29 @@ title: Language - Lecture 6 - CS50's Introduction to Artificial Intelligence wit
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：原表有大段內容與這支 2023 年影片不符：字幕中沒有 TF-IDF、倒排索引、資訊檢索、問答系統、CYK 表填充、Good-Turing／Kneser-Ney 平滑，也沒有 Parser 與 Questions 專案介紹，已全部移除；影片實際講的是 CFG 與 NLTK 剖析器、n-gram、Naive Bayes 情感分析、word2vec、RNN 機器翻譯、attention 與 Transformer，已據此重寫。原表末段到 1:35:00，但影片實長只有 1:05:22，精確時間碼無法驗證，改為依字幕估算的「約」值。本週文章內的 TF-IDF、問答與專案說明來自課程官網（專案規格以 2026 年版為準），不是這支影片的內容。
+
 ## TL;DR
 
 Week 6 處理自然語言：N-gram 條件機率與平滑、CFG 句法結構與 CYK 解析、TF-IDF 向量檢索、注意力機制與 Transformer 基礎。兩專案分別實作句法生成器與問答系統。
 
 ## 課程影片與時間軸
 
-YouTube：[Week 6 Language (2023 重錄版)](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
+YouTube：[Week 6 Language (2023 錄製)](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
 
-| 時間區段 | 內容 |
+> 時間說明：影片總長 1:05:22。YouTube 字幕沒有時間碼，下表時間是依各主題在字幕全文中的相對位置換算的「約略值」（可能差數分鐘），只供定位，不是官方章節。此表只描述這支 2023 年的錄影；課程目前版本的講課內容與順序可能不同，且影片本身沒有介紹本週專案。
+
+| 約略時間（分鐘） | 內容 |
 |---|---|
-| 00:00–10:00 | NLP 簡介、語言模型目標、N-gram、馬可夫假設 |
-| 10:00–25:00 | N-gram 機率估計、最大似然、平滑：Laplace、Add-k、Good-Turing、Kneser-Ney |
-| 25:00–40:00 | 語法分析：CFG、生成規則、歧義、CYK 算法、CKY 表填充 |
-| 40:00–55:00 | 資訊檢索：倒排索引、TF-IDF、向量空間模型、餘弦相似度 |
-| 55:00–1:10:00 | 問答系統：文檔檢索、段落排序、答案抽取 |
-| 1:10:00–1:25:00 | 注意力機制：Seq2Seq、Attention、Self-Attention、Multi-Head、Transformer 架構 |
-| 1:25:00–1:35:00 | 專案介紹：Parser（CFG 句子生成）、Questions（TF-IDF 問答） |
+| 約 0–3 | 自然語言處理簡介與課程最後一堂的開場 |
+| 約 3–13 | 語法與語意、形式文法與 context-free grammar，以及 NLTK 句法剖析器示範 |
+| 約 13–19 | n-gram、tokenization 與 Markov chain 文字生成 |
+| 約 19–31 | 文字分類：情感分析、Naive Bayes 與平滑（smoothing） |
+| 約 31–42 | 詞的表示：one-hot、分散式表示與 word2vec（含 Python 示範） |
+| 約 42–48 | 機器翻譯與序列到序列：以 RNN 做 encoder–decoder |
+| 約 48–53 | 注意力機制（attention） |
+| 約 53–63 | Transformer：self-attention、multi-head、positional encoding、encoder／decoder |
+| 約 63–65 | 總結與全課程收尾 |
 
 > 完整逐字稿：[Week 6 Notes](https://cs50.harvard.edu/ai/2020/notes/6/)（注意：notes 頁面仍為 2020 版，但影片為 2023 版）
 
@@ -414,6 +420,7 @@ style50 questions.py
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 CS50 YouTube 播放清單即時核對，本週講課錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。依字幕重寫影片時間表，移除影片沒有的 TF-IDF／問答／專案介紹，時間碼改為約略值。
 
 ## 參考資料
 

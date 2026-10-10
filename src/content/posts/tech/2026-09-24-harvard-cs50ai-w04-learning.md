@@ -40,6 +40,8 @@ title: Learning - Lecture 4 - CS50's Introduction to Artificial Intelligence wit
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：原表多處與影片不符：影片的順序是最近鄰（約 9 分）→ 感知機（約 14–34）→ SVM（約 34）→ 損失函數與 overfitting（約 44–57）→ holdout／cross-validation → scikit-learn 示範 → 強化學習（約 71 起，含 Q-learning）→ 非監督式學習與 k-means（約 99 起）；原表把 k-NN 擺在感知機之前的篇幅過大、漏掉影片末段的 k-means，字幕中也找不到核技巧、混淆矩陣／F1、貝爾曼方程，已移除。Nim 在影片中是 Q-learning 的範例而非專案介紹，字幕全程沒有提到 Shopping 專案，專案說明來自課程官網。原精確時間碼（影片實長 1:45:49）無法驗證，改為依字幕估算的「約」值。
+
 ## TL;DR
 
 Week 4 進入機器學習：監督式分類（k-NN、SVM、Perceptron、模型評估）、強化學習（MDP、Q-learning、ε-greedy 探索）。兩專案分別實作購買意願預測（k-NN）與學會玩 Nim 遊戲（Q-learning）。
@@ -48,16 +50,19 @@ Week 4 進入機器學習：監督式分類（k-NN、SVM、Perceptron、模型�
 
 YouTube：[Week 4 Learning (2020 錄製)](https://www.youtube.com/watch?v=-g0iJjnO2_w)
 
-| 時間區段 | 內容 |
+> 時間說明：影片總長 1:45:49。YouTube 字幕沒有時間碼，下表時間是依各主題在字幕全文中的相對位置換算的「約略值」（可能差數分鐘），只供定位，不是官方章節。此表只描述這支 2020 年的錄影；課程目前版本的講課內容與順序可能不同，且影片本身沒有介紹本週專案。
+
+| 約略時間（分鐘） | 內容 |
 |---|---|
-| 00:00–10:00 | 機器學習定義、監督式/非監督式/強化學習三大類、資料集切分 |
-| 10:00–28:00 | k-近鄰算法：距離度量、k 選擇、歸一化、scikit-learn 介面 |
-| 28:00–42:00 | 支援向量機 SVM：超平面、間隔最大化、核技巧、軟間隔 |
-| 42:00–55:00 | 感知機 Perceptron：線性可分、更新規則、多層感知機預告 |
-| 55:00–1:10:00 | 模型評估：準確率、精確率、召回率、F1、混淆矩陣、交叉驗證 |
-| 1:10:00–1:25:00 | 強化學習：Agent、Environment、State、Action、Reward、MDP、貝爾曼方程 |
-| 1:25:00–1:40:00 | Q-learning：Q-table、更新規則、ε-greedy、收斂條件 |
-| 1:40:00–1:50:00 | 專案介紹：Shopping（k-NN）、Nim（Q-learning） |
+| 約 0–9 | 機器學習與監督式學習：任務、hypothesis function、資料集 |
+| 約 9–14 | 最近鄰分類（nearest-neighbor） |
+| 約 14–34 | 線性模型與感知機：權重、門檻函數、perceptron learning rule、硬／軟門檻 |
+| 約 34–44 | 支援向量機（SVM）與 maximum margin separator，以及線性迴歸 |
+| 約 44–57 | 損失函數（0-1、L1、L2）、overfitting 與 regularization |
+| 約 57–61 | holdout 與 cross-validation |
+| 約 61–71 | scikit-learn 示範：以紙鈔真偽資料比較 perceptron、SVM、k-NN |
+| 約 71–99 | 強化學習：Markov decision process、Q-learning、exploration 與 exploitation（ε-greedy）、Nim 範例、function approximation |
+| 約 99–105 | 非監督式學習：分群與 k-means，以及收尾 |
 
 > 完整逐字稿：[Week 4 Notes](https://cs50.harvard.edu/ai/2020/notes/4/)
 
@@ -392,6 +397,7 @@ style50 nim.py
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 CS50 YouTube 播放清單即時核對，本週講課錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。重排影片時間表以符合字幕內容，移除字幕中找不到的主題，時間碼改為約略值。
 
 ## 參考資料
 

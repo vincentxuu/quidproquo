@@ -40,6 +40,8 @@ title: Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with 
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：全部 7 個時間區段的主題順序大致成立，但原表的精確時間碼與實際位置差很多（例如 Minimax 實際約在第 73 分鐘以後，原表寫 52:00），且原表末段到 1:22:00，與影片總長 1:49:30 不符，已改為依字幕相對位置估算的「約」值；原表「七週大綱」改為字幕實際說的七大主題；字幕全程未提到本週專案（Degrees、Tic-Tac-Toe），專案說明來自課程官網而非影片。
+
 ## TL;DR
 
 Week 0 以搜尋為切入點，建立 AI 最基礎的解題框架：從無資訊搜尋到有資訊搜尋，再到對弈搜尋。兩個專案分別對應 BFS（Degrees）與 Minimax（Tic-Tac-Toe）。
@@ -48,16 +50,17 @@ Week 0 以搜尋為切入點，建立 AI 最基礎的解題框架：從無資訊
 
 YouTube：[Week 0 Search (2020 錄製)](https://www.youtube.com/watch?v=WbzNRTTrX0g)
 
-| 時間區段 | 內容 |
+> 時間說明：影片總長 1:49:30。YouTube 字幕沒有時間碼，下表時間是依各主題在字幕全文中的相對位置換算的「約略值」（可能差數分鐘），只供定位，不是官方章節。此表只描述這支 2020 年的錄影；課程目前版本的講課內容與順序可能不同，且影片本身沒有介紹本週專案。
+
+| 約略時間（分鐘） | 內容 |
 |---|---|
-| 00:00–08:00 | 課程簡介、AI 定義、七週大綱 |
-| 08:00–18:00 | 搜尋問題形式化：Agent、State、Actions、Transition Model、Goal Test、Path Cost |
-| 18:00–32:00 | 無資訊搜尋：DFS（Stack）、BFS（Queue）、節點資料結構、Frontier 擴展流程 |
-| 32:00–42:00 | 有資訊搜尋：Greedy Best-First、啟發式函數 h(n)、曼哈頓距離 |
-| 42:00–52:00 | A* 搜尋：f(n) = g(n) + h(n)、Admissible 與 Consistent 啟發式 |
-| 52:00–1:10:00 | 對弈搜尋：Minimax、Utility、Terminal State、Max-Value/Min-Value 遞迴 |
-| 1:10:00–1:18:00 | Alpha-Beta Pruning：α、β 界限、剪枝原理 |
-| 1:18:00–1:22:00 | Depth-Limited Minimax、Evaluation Function |
+| 約 0–3 | 課程簡介與七大主題預告（搜尋、知識、不確定性、最佳化、學習、神經網路、語言） |
+| 約 3–18 | 搜尋問題的形式化：agent、state、initial state、actions、transition model、goal test、path cost（以 15-puzzle 與迷宮為例） |
+| 約 18–54 | 無資訊搜尋：frontier 與 explored set、DFS（stack）、BFS（queue）、迷宮實作程式碼與兩者比較 |
+| 約 54–73 | 有資訊搜尋：Greedy Best-First（曼哈頓距離啟發式）、A*、admissible 與 consistent 啟發式 |
+| 約 73–103 | 對弈搜尋：Minimax（以 tic-tac-toe 為例；utility、terminal state、max／min 遞迴） |
+| 約 103–106 | Alpha-Beta 剪枝 |
+| 約 106–109 | Depth-limited minimax、evaluation function 與本週收尾 |
 
 > 完整逐字稿與投影片：[Week 0 Notes](https://cs50.harvard.edu/ai/2020/notes/0/)
 
@@ -300,6 +303,7 @@ style50 tictactoe.py
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 CS50 YouTube 播放清單即時核對，本週講課錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。原時間碼無法驗證且明顯偏差，改為依字幕估算的約略時間；移除影片未提及的內容。
 
 ## 參考資料
 

@@ -40,6 +40,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The original table diverged from the video in several places. The actual order is nearest neighbor (about minute 9), perceptron (about 14–34), SVM (about 34), loss functions and overfitting (about 44–57), holdout/cross-validation, a scikit-learn demo, reinforcement learning with Q-learning (from about minute 71), then unsupervised learning and k-means (from about minute 99). The original table gave k-NN too much room, left out the closing k-means segment, and listed kernel trick, confusion matrix/F1 and the Bellman equation, none of which appear in the transcript (removed). Nim is a Q-learning example in the video, not a project introduction, and the transcript never mentions the Shopping project; project descriptions come from the course site. The original exact timecodes (the video runs 1:45:49) could not be verified and are now approximate values estimated from the transcript.
+
 ## TL;DR
 
 Week 4 enters machine learning: supervised classification (k-NN, SVM, Perceptron, model evaluation), reinforcement learning (MDP, Q-learning, ε-greedy exploration). Two projects implement purchase prediction (k-NN) and learning to play Nim (Q-learning).
@@ -48,16 +50,19 @@ Week 4 enters machine learning: supervised classification (k-NN, SVM, Perceptron
 
 YouTube: [Week 4 Learning (2020 recording)](https://www.youtube.com/watch?v=-g0iJjnO2_w)
 
-| Timestamp | Content |
+> Timing note: the video runs 1:45:49. YouTube's transcript has no timecodes, so the times below are approximate values estimated from where each topic falls in the transcript (they may be off by several minutes). They are for orientation only, not official chapters. This table describes only the 2020 recording; the current course version may differ in content and order, and the video itself does not introduce this week's projects.
+
+| Approx. time (minutes) | Content |
 |---|---|
-| 00:00–10:00 | ML definition, supervised/unsupervised/RL, train/test split |
-| 10:00–28:00 | k-Nearest Neighbors: distance metrics, k selection, normalization, scikit-learn API |
-| 28:00–42:00 | Support Vector Machines: hyperplane, margin maximization, kernel trick, soft margin |
-| 42:00–55:00 | Perceptron: linear separability, update rule, multi-layer preview |
-| 55:00–1:10:00 | Model evaluation: accuracy, precision, recall, F1, confusion matrix, cross-validation |
-| 1:10:00–1:25:00 | Reinforcement Learning: Agent, Environment, State, Action, Reward, MDP, Bellman equation |
-| 1:25:00–1:40:00 | Q-learning: Q-table, update rule, ε-greedy, convergence conditions |
-| 1:40:00–1:50:00 | Project intro: Shopping (k-NN), Nim (Q-learning) |
+| ~0–9 | Machine learning and supervised learning: the task, the hypothesis function, datasets |
+| ~9–14 | Nearest-neighbor classification |
+| ~14–34 | Linear models and the perceptron: weights, threshold functions, the perceptron learning rule, hard/soft thresholds |
+| ~34–44 | Support vector machines and the maximum margin separator, plus linear regression |
+| ~44–57 | Loss functions (0-1, L1, L2), overfitting and regularization |
+| ~57–61 | Holdout and cross-validation |
+| ~61–71 | scikit-learn demo: comparing perceptron, SVM and k-NN on a banknote authentication dataset |
+| ~71–99 | Reinforcement learning: Markov decision processes, Q-learning, exploration vs. exploitation (epsilon-greedy), the Nim example, function approximation |
+| ~99–105 | Unsupervised learning: clustering and k-means, and the wrap-up |
 
 > Full transcript: [Week 4 Notes](https://cs50.harvard.edu/ai/2020/notes/4/)
 
@@ -392,6 +397,7 @@ style50 nim.py
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official CS50 YouTube playlist was checked live and lists this week’s lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Reordered the video timeline to match the transcript, removed topics not found in it, and made timecodes approximate.
 
 ## References
 

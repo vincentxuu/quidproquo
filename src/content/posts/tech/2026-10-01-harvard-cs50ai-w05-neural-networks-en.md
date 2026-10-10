@@ -40,6 +40,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The original order (basics, training, TensorFlow, CNN) broadly holds, but many items could not be found in the transcript and were removed: dedicated segments on MSE/cross-entropy (softmax gets one sentence), SGD/Momentum/Adam optimizers, the Functional API, batch normalization, data augmentation, early stopping, the universal approximation theorem, a chain-rule derivation, and a Traffic project introduction. The last stretch of the video (from about minute 85) covers recurrent neural networks, which the original table omitted; it has been added. The transcript never mentions the Traffic project; project descriptions come from the course site. The original exact timecodes (the video runs 1:41:20) could not be verified and are now approximate values estimated from the transcript.
+
 ## TL;DR
 
 Week 5 enters deep learning: from perceptron to multi-layer neural nets, backprop chain rule for gradients, loss functions & optimizers, TensorFlow/Keras modeling, CNN conv/pool structure. Project Traffic trains CNN to classify traffic sign images.
@@ -48,16 +50,17 @@ Week 5 enters deep learning: from perceptron to multi-layer neural nets, backpro
 
 YouTube: [Week 5 Neural Networks (2020 recording)](https://www.youtube.com/watch?v=J1QD9hLDEDY)
 
-| Timestamp | Content |
+> Timing note: the video runs 1:41:20. YouTube's transcript has no timecodes, so the times below are approximate values estimated from where each topic falls in the transcript (they may be off by several minutes). They are for orientation only, not official chapters. This table describes only the 2020 recording; the current course version may differ in content and order, and the video itself does not introduce this week's projects.
+
+| Approx. time (minutes) | Content |
 |---|---|
-| 00:00–12:00 | Perceptron review, multi-layer neural nets, activation functions, universal approximation theorem |
-| 12:00–28:00 | Backpropagation: chain rule derivation, computation graph, gradient flow, vectorized implementation |
-| 28:00–42:00 | Loss functions: MSE, Cross-Entropy, Softmax output layer |
-| 42:00–55:00 | Optimizers: SGD, Momentum, Adam, learning rate schedules |
-| 55:00–1:10:00 | TensorFlow/Keras intro: Sequential, Functional API, compile/train/evaluate workflow |
-| 1:10:00–1:25:00 | Convolutional Neural Networks (CNN): kernels, stride, padding, pooling, parameter sharing, receptive field |
-| 1:25:00–1:38:00 | Regularization: Dropout, Batch Normalization, Data Augmentation, Early Stopping |
-| 1:38:00–1:45:00 | Project intro: Traffic (CNN training for GTSRB traffic sign classification) |
+| ~0–16 | Neural network basics: units, weights, bias, activation functions (step, sigmoid, ReLU), logic gate examples |
+| ~16–30 | Gradient descent: loss minimization, stochastic/mini-batch updates, multiple inputs and outputs, limits of linear models |
+| ~30–39 | Hidden layers and multilayer networks, backpropagation (conceptual), deep learning, overfitting and dropout |
+| ~39–53 | TensorFlow/Keras: Sequential models, compile, epochs and a coding walkthrough |
+| ~53–73 | Computer vision and convolutional neural networks: image pixels, convolution and filters, pooling |
+| ~73–85 | CNN in Keras: MNIST handwritten digit recognition |
+| ~85–101 | Limits of feed-forward networks and recurrent neural networks: sequence data, CaptionBot, and the wrap-up |
 
 > Full transcript: [Week 5 Notes](https://cs50.harvard.edu/ai/2020/notes/5/)
 
@@ -333,6 +336,7 @@ style50 traffic.py
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official CS50 YouTube playlist was checked live and lists this week’s lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Removed topics and the project introduction not found in the video, added the RNN segment, and made timecodes approximate.
 
 ## References
 

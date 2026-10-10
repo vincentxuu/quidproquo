@@ -40,6 +40,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The topic order of all seven segments broadly holds, but the original exact timecodes were far off (for example Minimax actually starts around minute 73, not 52:00) and the table ended at 1:22:00 although the video runs 1:49:30; they are now approximate values estimated from relative position in the transcript. The original "seven-week syllabus" is now the seven topics the lecturer actually previews. The transcript never mentions this week's projects (Degrees, Tic-Tac-Toe); project descriptions come from the course site, not the video.
+
 ## TL;DR
 
 Week 0 introduces search as the foundational problem-solving framework in AI: from uninformed to informed search, then adversarial search. Two projects map directly to BFS (Degrees) and Minimax (Tic-Tac-Toe).
@@ -48,16 +50,17 @@ Week 0 introduces search as the foundational problem-solving framework in AI: fr
 
 YouTube: [Week 0 Search (2020 recording)](https://www.youtube.com/watch?v=WbzNRTTrX0g)
 
-| Timestamp | Content |
+> Timing note: the video runs 1:49:30. YouTube's transcript has no timecodes, so the times below are approximate values estimated from where each topic falls in the transcript (they may be off by several minutes). They are for orientation only, not official chapters. This table describes only the 2020 recording; the current course version may differ in content and order, and the video itself does not introduce this week's projects.
+
+| Approx. time (minutes) | Content |
 |---|---|
-| 00:00–08:00 | Course intro, AI definition, seven-week syllabus |
-| 08:00–18:00 | Search problem formalization: Agent, State, Actions, Transition Model, Goal Test, Path Cost |
-| 18:00–32:00 | Uninformed search: DFS (Stack), BFS (Queue), Node data structure, Frontier expansion loop |
-| 32:00–42:00 | Informed search: Greedy Best-First, heuristic h(n), Manhattan distance |
-| 42:00–52:00 | A* search: f(n) = g(n) + h(n), Admissible & Consistent heuristics |
-| 52:00–1:10:00 | Adversarial search: Minimax, Utility, Terminal State, Max-Value/Min-Value recursion |
-| 1:10:00–1:18:00 | Alpha-Beta Pruning: α/β bounds, pruning principle |
-| 1:18:00–1:22:00 | Depth-Limited Minimax, Evaluation Function |
+| ~0–3 | Course intro and a preview of the seven topics (search, knowledge, uncertainty, optimization, learning, neural networks, language) |
+| ~3–18 | Formalizing search problems: agent, state, initial state, actions, transition model, goal test, path cost (15-puzzle and maze examples) |
+| ~18–54 | Uninformed search: frontier and explored set, DFS (stack), BFS (queue), maze code and a comparison of the two |
+| ~54–73 | Informed search: Greedy Best-First (Manhattan-distance heuristic), A*, admissible and consistent heuristics |
+| ~73–103 | Adversarial search: Minimax (tic-tac-toe example; utility, terminal state, max/min recursion) |
+| ~103–106 | Alpha-beta pruning |
+| ~106–109 | Depth-limited minimax, evaluation functions and the wrap-up |
 
 > Full transcript & slides: [Week 0 Notes](https://cs50.harvard.edu/ai/2020/notes/0/)
 
@@ -302,6 +305,7 @@ style50 tictactoe.py
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official CS50 YouTube playlist was checked live and lists this week’s lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The original timecodes could not be verified and were clearly off; replaced with approximate times estimated from the transcript, and removed content the video does not cover.
 
 ## References
 
