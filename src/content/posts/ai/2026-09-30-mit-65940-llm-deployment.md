@@ -57,6 +57,8 @@ title: EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了開頭（Lab 3 到期、Lab 4 發布）、結尾總結並抽查中段：SmoothQuant、AWQ（保留約 1% 重要權重 channel）、GPTQ、QServe（W4A8KV4）、稀疏、TTFT 等 serving 指標、PagedAttention、FlashAttention、continuous／in-flight batching、speculative decoding。主題與講次和本文相符。第 25 頁 OPT-6.7B 的 perplexity 數字（43.16、14.07）是投影片上的數字，字幕裡找不到對應說法，仍以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
+
 ## 這一講在解什麼
 
 [第 12 講](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)留下一個事實：LLM 生成時一次只吐一個 token，每吐一個都要把整個模型的權重從記憶體搬一次。這一講把「讓它變快、變省」的方法整理成三條路，第 2 頁的 Lecture Plan 就是全講地圖：
@@ -229,6 +231,7 @@ QServe 的兩個對策：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L13 影片主題與講次相符；OPT-6.7B perplexity 數字字幕未提，標明以投影片為準，正文未改。
 
 ## 參考資料
 

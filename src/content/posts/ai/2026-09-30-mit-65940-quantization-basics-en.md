@@ -50,6 +50,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full L5 transcript: data types (unsigned/signed integers, two's complement, fixed point, FP32 sign/exponent/fraction and subnormals, FP16, BF16), the two conversion exercises (−7 and 2.5), FP8 E4M3/E5M2, the FP4 layouts, K-means quantization (the 4×4 example going from 64 bytes to 20 bytes, the roughly 3.2x ratio and the 32/n derivation), Deep Compression, and the linear-quantization scale/zero-point derivation with integer matrix multiplication. The content matches this post section by section and no contradictions turned up. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Why bit width matters
 
 Page 3 cites [Horowitz's ISSCC 2014 paper](https://doi.org/10.1109/ISSCC.2014.6757323) and lists the energy of various operations on a 45nm process. The standout pair: an 8-bit integer add costs 0.03 pJ and a 32-bit float add costs 0.9 pJ, a 30x gap. Multiplication points the same way, with 0.2 pJ for an 8-bit integer multiply and 3.7 pJ for a 32-bit float multiply.
@@ -223,6 +225,7 @@ Fall 2026's Lab 2 is labeled Quantization and had not been released as of 2026-0
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Read the full L5 transcript; every section matches this post, so the body text is unchanged.
 
 ## References
 

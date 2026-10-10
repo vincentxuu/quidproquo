@@ -54,6 +54,8 @@ title: EfficientML.ai Lecture 3 - Pruning and Sparsity Part I (MIT 6.5940, Fall 
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了開頭、結尾與抽查中段：pruning 的定義、粒度（細粒度到 channel 層級）、magnitude 準則、Taylor／二階準則、APoZ、batch norm scaling factor（network slimming）、fine-tune 的學習率與 epoch、過參數化有助於優化。主題與講次和本文相符；字幕沒出現「fine-grained」這個詞的原樣寫法，細分類名稱以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
+
 ## 為什麼從剪枝開始
 
 第 4 頁列出課程第一部分「Efficient Inference」的四個技術：Pruning、Quantization、Neural Architecture Search、Knowledge Distillation。Pruning 排第一。
@@ -215,6 +217,7 @@ Fall 2026 的 Lab 1 改成 GPU Basics，Lab 2 的主題則是課頁與投影片�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L3 影片主題與講次相符，抽樣未發現與本文矛盾，正文未改。
 
 ## 參考資料
 

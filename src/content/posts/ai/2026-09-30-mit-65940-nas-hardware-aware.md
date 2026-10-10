@@ -55,6 +55,8 @@ title: EfficientML.ai Lecture 8 - Neural Architecture Search Part II (MIT 6.5940
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了開頭、結尾總結並用關鍵字定位各段：影片依序是 hardware-aware NAS／ProxylessNAS（約前 15–27%）、Once-for-All（約 40–50%）、zero-shot NAS（約 64–66%）、NAAS（約 68–71%）、應用（約 80% 之後），講次與主題和本文相符。原文的「ProxylessNAS 到 OFA 那段」只有投影片頁碼，已補上它在影片中的相對位置。頁碼與投影片數字以投影片為準，未逐句比對影片。
+
 ## 上一篇留下的問題：搜尋空間與策略有了，每個候選怎麼打分？
 
 [上一篇](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)講了 NAS 的前兩個零件：search space（候選架構的集合）與 search strategy（怎麼在裡面走）。投影片第 5 頁把第三個零件補上，稱為 **accuracy estimation strategy**：給定一個架構，怎麼估它的準確度。這一講的主脊就是「估價越來越便宜」：
@@ -192,12 +194,13 @@ OFA 的訓練順序是「先大後小」，逐步打開四個可變維度：
 
 這一講的觀念馬上會在 **[Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas)** 落地：你會拿到一個 OFA 方式訓練好的 MCUNetV2 super network，自己實作 efficiency predictor（MACs 與 peak memory）與 accuracy predictor，再寫 random search 與 evolutionary search。下一講 **[L9 知識蒸餾](/posts/ai/2026-09-30-mit-65940-knowledge-distillation)** 則換一個方向：架構定了之後，怎麼讓小模型訓練得更好。
 
-如果只有一個小時：先看錄影裡 ProxylessNAS 到 OFA 那段（投影片第 16–73 頁），這是 Lab 3 直接用到的部分；zero-shot 與 NAAS 可以之後再補。
+如果只有一個小時：先看錄影裡 ProxylessNAS 到 OFA 那段（投影片第 16–73 頁；在錄影裡約從前 15% 到一半多一點），這是 Lab 3 直接用到的部分；zero-shot 與 NAAS 排在錄影後半（約 64–71%），可以之後再補。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L8 影片主題與講次相符；為「只有一小時」的建議補上 ProxylessNAS 到 OFA 在影片中的大致位置。
 
 ## 參考資料
 

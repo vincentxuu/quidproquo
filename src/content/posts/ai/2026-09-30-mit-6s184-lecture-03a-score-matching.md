@@ -55,6 +55,8 @@ title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Func
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了影片後半的大部分字幕：分數函數與向量場可互換、用 SDE 取樣（任選 σ_t，加上 σ_t²/2 倍的 score 修正）、Fokker–Planck 方程式的證明（講者標明為選讀，字幕轉成 “focal plank”）、flow 與 diffusion 取樣的差異與「理論一樣、實務不同」的訓練誤差與模擬誤差、Langevin dynamics 當附帶說明（字幕轉成 “long dynamics”）、以及 denoising score matching 的結語。內容與本文相符。影片到 CFG 開始前結束，Ornstein–Uhlenbeck 與 Theorem 編號等細節依講義。
+
 ## 分數函數：往機率更高的方向指
 
 對任意分佈 `q(x)`，它的**分數函數**是 `∇ log q(x)`，log-likelihood 對 x 的梯度（§4.1，p.25）。直覺很單純：它指向 log-likelihood 上升最快的方向。講義 Figure 8 把它畫成一片指向高密度區的箭頭。
@@ -274,6 +276,7 @@ L_DDPM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖ε_t^θ(α_t z + β_t ε) − 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L3A 影片的 SDE 取樣、Fokker–Planck、Langevin 與 score matching 與本文相符，正文未改。
 
 ## 參考資料
 

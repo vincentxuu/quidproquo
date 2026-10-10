@@ -56,6 +56,8 @@ title: EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了開頭與結尾總結並抽查中段：RoPE 與上下文長度（2k 到 32k 的微調）、LongLoRA、lost-in-the-middle 與 needle-in-a-haystack 評估、StreamingLLM 的 attention sink、DuoAttention、Quest、Mamba／SSM 與混合架構。主題與講次和本文相符。第 75–78 頁的 WorldModelBench 公告在字幕裡沒有出現，本文已標明那幾頁和本講內容無關。頁碼與投影片數字以投影片為準，未逐句比對影片。
+
 ## 這一講在解什麼
 
 想讓 LLM 讀一整本書、一小時的影片，或跟你聊上幾百輪，會同時撞上三道牆：模型在訓練長度之外會壞掉、它不一定真的用得上長上下文、KV cache 大到放不下。第 2 頁的 Lecture Plan 剛好對應這三道牆，再加一段跳出 Transformer 的替代方案：
@@ -200,6 +202,7 @@ Window attention 很省，但**開頭的 token 一被踢出 cache，模型就崩
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L15 影片主題與講次相符，抽樣未發現與本文矛盾，正文未改。
 
 ## 參考資料
 

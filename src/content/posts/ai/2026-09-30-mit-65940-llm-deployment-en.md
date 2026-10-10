@@ -57,6 +57,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening (Lab 3 due, Lab 4 out) and the closing summary and spot-checked the middle: SmoothQuant, AWQ (keeping about 1% of salient weight channels), GPTQ, QServe (W4A8KV4), sparsity, serving metrics such as TTFT, PagedAttention, FlashAttention, continuous/in-flight batching and speculative decoding. Topics and lecture number match this post. The OPT-6.7B perplexity figures on slide 25 (43.16 and 14.07) are slide numbers with no matching statement in the captions, so they remain slide-sourced. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## What this lecture is solving
 
 [Lecture 12](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en) left one fact on the table: an LLM generates one token at a time, and every token requires reading all of the model's weights from memory. This lecture organizes the ways to make that faster and cheaper into three paths. The Lecture Plan on page 2 is the map:
@@ -229,6 +231,7 @@ Put side by side, one thread runs through everything: **look at the activations*
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L13 video matches the topic and lecture number; the OPT-6.7B perplexity figures are not spoken in the captions and stay slide-sourced, so the body text is unchanged.
 
 ## References
 

@@ -54,6 +54,8 @@ title: EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了開頭（ChatGPT 生成課綱的開場）、結尾（Llama 3、sliding window attention、Chinchilla 與推論成本取捨）並抽查中段：attention 與 multi-head、MQA／GQA、RoPE 等位置編碼、KV cache（Llama-2-70B 在 batch 16 下約 160GB）、layer norm、encoder／decoder 與 tokenization。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
+
 ## Transformer 基礎：成本藏在哪
 
 ### 為什麼離開 RNN 與 CNN
@@ -185,6 +187,7 @@ Perceiver Resampler 的設計本身就是效率選擇：視覺 token 越少，LL
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L12 影片主題與講次相符，抽樣數字（160GB）一致，正文未改。
 
 ## 參考資料
 

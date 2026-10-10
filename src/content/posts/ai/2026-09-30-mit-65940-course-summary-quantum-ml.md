@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "MIT 6.5940 導讀"
   order: 24
-tldr: "MIT 6.5940 Fall 2024 的最後兩講分成兩半。L22 前半是 13 頁的 Course-Summary.pdf：用推論、訓練、特定應用三塊加上 System／Algorithm 兩軸重畫整門課，再交代期末專題的 7 項評分。L22 後半的 Quantum ML Part I 只有錄影、沒有投影片。L23（Hanrui Wang 主講，99 頁）講參數化量子電路（PQC）：資料編碼、parameter-shift 梯度、雜訊下的機率式梯度剪枝（QOC）、TorchQuantum 函式庫，以及用 SuperCircuit 搜尋加閘剪枝的 QuantumNAS。讀起來像把前面學的 supernet 和 magnitude pruning 在量子電路上重演一次。Fall 2026 已把這兩講換成 Guest Lecture。"
+tldr: "MIT 6.5940 Fall 2024 的最後兩講分成兩塊。L22 開頭是 13 頁的 Course-Summary.pdf（錄影裡只佔開頭一小段）：用推論、訓練、特定應用三塊加上 System／Algorithm 兩軸重畫整門課，再交代期末專題的 7 項評分。L22 其餘大部分是 Quantum ML Part I，只有錄影、沒有投影片。L23（Hanrui Wang 主講，99 頁）講參數化量子電路（PQC）：資料編碼、parameter-shift 梯度、雜訊下的機率式梯度剪枝（QOC）、TorchQuantum 函式庫，以及用 SuperCircuit 搜尋加閘剪枝的 QuantumNAS。讀起來像把前面學的 supernet 和 magnitude pruning 在量子電路上重演一次。Fall 2026 已把這兩講換成 Guest Lecture。"
 description: "MIT 6.5940 Fall 2024 第 22、23 講導讀：Course-Summary.pdf 的三大塊課程架構、相關 MIT 課程地圖、Lab 0–5 清單與期末專題評分；Quantum ML Part II 的 PQC 表達力與糾纏能力、四種資料編碼、finite difference／parameter-shift／backprop 梯度、SPSA 與 barren plateau、量子分類器與 VQE／QAOA、QOC 雜訊感知晶片上訓練與機率式梯度剪枝、TorchQuantum，以及 QuantumNAS 的 SuperCircuit、雜訊自適應演化搜尋與迭代閘剪枝，並對照 Fall 2026 的排程變更。"
 draft: false
 glossary:
@@ -36,7 +36,7 @@ glossary:
 
 **系列位置**：上一篇 [L21 裝置端訓練](/posts/ai/2026-09-30-mit-65940-on-device-training)｜本篇是系列最後一篇｜[系列總覽](/posts/ai/2026-09-30-mit-65940-course-overview)
 
-走完 22 講之後，Song Han 用 13 頁投影片把整門課收起來，接著花了一講半講一個看似離題的主題：量子機器學習。本篇先整理課程總結說了什麼，再照 L23 投影片的六個段落走一遍量子 ML。最後回答規劃時的問題：這個主題為什麼收在一門講效率的課最後面。
+走完 22 講之後，Song Han 用 13 頁投影片把整門課收起來，接著把 L22 的絕大部分和整個 L23 用來講一個看似離題的主題：量子機器學習。本篇先整理課程總結說了什麼，再照 L23 投影片的六個段落走一遍量子 ML。最後回答規劃時的問題：這個主題為什麼收在一門講效率的課最後面。
 
 ## 課程影片來源
 2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
@@ -59,7 +59,9 @@ title: EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (MIT 6.5940, F
 
 查核日期：2026-10-10。
 
-## L22 前半：13 頁課程總結
+內容核對：已依字幕核對（2026-10-10）：L22 影片開頭只有一小段課程總結（字幕約前 4%：回顧推論、訓練、特定應用三塊，加上修課人數與 YouTube 觀看數成長），其餘絕大部分是 Hanrui Wang 講的 Quantum ML Part I（量子位元、量子閘、NISQ 與編譯）；期末專題的海報日期與 7 項評分表字幕裡沒有講，本文那段是依投影片寫的。L23 影片抽樣核對 PQC 資料編碼、parameter-shift 梯度、雜訊下的梯度剪枝、TorchQuantum 與 SuperCircuit／QuantumNAS，主題與本文相符。已把「前半／後半」「一講半」這類比例說法改成與錄影相符的寫法。
+
+## L22 開頭：13 頁課程總結
 
 [Course-Summary.pdf](https://www.dropbox.com/scl/fi/cn0wr4zxuv4hvpce81lo1/Course-Summary.pdf?rlkey=ycn79vnsu2n7395fz1v04khz0&st=z86d0rap&dl=0) 很短，但它是整門課唯一一份「俯瞰圖」，值得在開始讀系列之前先翻一遍。
 
@@ -91,9 +93,9 @@ title: EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (MIT 6.5940, F
 
 **規模與課程評鑑（第 12–13 頁）。** 第 12 頁的長條圖顯示修課人數從 26、89 成長到 222（2022–2024），YouTube 觀看數從 126,515 成長到 240,653。第 13 頁提醒修課生填期末課程評鑑，填完可拿 4 分 participation bonus，這就是課頁評分裡那 4% 的來源。
 
-## L22 後半：Quantum ML Part I 只有錄影
+## L22 其餘：Quantum ML Part I 只有錄影
 
-L22 的標題是「Course Summary + Quantum Machine Learning I」，[錄影](https://youtu.be/svjjD2uthhQ)涵蓋兩部分，但課頁只放了 Course-Summary.pdf，Part I 沒有對應的投影片檔。本文只寫有投影片可核對的內容，所以 Part I 的細節請直接看錄影。L23 的投影片從 PQC 開始講，想先補量子計算基礎的人，看完 L22 錄影後半再進 L23 會比較順。
+L22 的標題是「Course Summary + Quantum Machine Learning I」，[錄影](https://youtu.be/svjjD2uthhQ)涵蓋兩部分（課程總結只佔開頭一小段，其餘由 Hanrui Wang 講 Part I），但課頁只放了 Course-Summary.pdf，Part I 沒有對應的投影片檔。本文只寫有投影片可核對的內容，所以 Part I 的細節請直接看錄影。L23 的投影片從 PQC 開始講，想先補量子計算基礎的人，看完 L22 錄影開頭之後的 Quantum ML Part I 再進 L23 會比較順。
 
 ## L23：Quantum ML Part II
 
@@ -227,6 +229,7 @@ SuperCircuit 是設計空間裡閘最多的電路，每個候選 SubCircuit 都�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L22 錄影裡課程總結只佔開頭一小段、其餘是 Quantum ML Part I，已改掉「前半／後半」「一講半」的比例說法；L23 主題相符。
 
 ## 參考資料
 

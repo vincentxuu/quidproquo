@@ -8,7 +8,7 @@ lang: en
 series:
   name: "Reading MIT 6.5940"
   order: 24
-tldr: "The last two lectures of MIT 6.5940 Fall 2024 come in two halves. The first half of Lecture 22 is a 13-page Course-Summary.pdf that redraws the course as three blocks (inference, training, application-specific) on System and Algorithm axes, then lays out the 7-item final project rubric. The second half, Quantum ML Part I, has a recording but no slides. Lecture 23 (Hanrui Wang, 99 slides) covers parameterized quantum circuits (PQCs): data encoding, parameter-shift gradients, probabilistic gradient pruning under noise (QOC), the TorchQuantum library, and QuantumNAS, which searches with a SuperCircuit and then prunes gates. It reads like a replay of the course's supernet and magnitude pruning on quantum circuits. Fall 2026 has replaced both lectures with a guest lecture."
+tldr: "The last two lectures of MIT 6.5940 Fall 2024 come in two parts. The opening of Lecture 22 is a 13-page Course-Summary.pdf (only a short stretch at the start of the recording) that redraws the course as three blocks (inference, training, application-specific) on System and Algorithm axes, then lays out the 7-item final project rubric. Most of the rest of Lecture 22 is Quantum ML Part I, which has a recording but no slides. Lecture 23 (Hanrui Wang, 99 slides) covers parameterized quantum circuits (PQCs): data encoding, parameter-shift gradients, probabilistic gradient pruning under noise (QOC), the TorchQuantum library, and QuantumNAS, which searches with a SuperCircuit and then prunes gates. It reads like a replay of the course's supernet and magnitude pruning on quantum circuits. Fall 2026 has replaced both lectures with a guest lecture."
 description: "A guide to Lectures 22 and 23 of MIT 6.5940 Fall 2024: the three-block course map in Course-Summary.pdf, related MIT courses, the Lab 0–5 list and final project rubric; then Quantum ML Part II: PQC expressivity and entangling capability, four data encodings, finite-difference, parameter-shift and backprop gradients, SPSA and barren plateaus, quantum classifiers and VQE/QAOA, QOC noise-aware on-chip training with probabilistic gradient pruning, TorchQuantum, and QuantumNAS with its SuperCircuit, noise-adaptive evolutionary search and iterative gate pruning, plus the Fall 2026 schedule change."
 draft: false
 glossary:
@@ -36,7 +36,7 @@ glossary:
 
 **Series position**: Previous: [Lecture 21, on-device training](/posts/ai/2026-09-30-mit-65940-on-device-training-en) | This is the last post in the series | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
 
-After 22 lectures, Song Han wraps up the course in 13 slides, then spends a lecture and a half on what looks like a detour: quantum machine learning. This post first goes through the course summary, then walks the six sections of the Lecture 23 slides. It ends with the question from the series plan: why does a course on efficiency close with this topic?
+After 22 lectures, Song Han wraps up the course in 13 slides, then gives most of Lecture 22 and all of Lecture 23 to what looks like a detour: quantum machine learning. This post first goes through the course summary, then walks the six sections of the Lecture 23 slides. It ends with the question from the series plan: why does a course on efficiency close with this topic?
 
 ## Course video sources
 Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
@@ -59,7 +59,9 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
-## Lecture 22, first half: a 13-page course summary
+Content check: verified against the video transcript (2026-10-10): In the L22 video the course summary is only a short opening stretch (about the first 4% of the transcript: a recap of the inference, training and application-specific blocks, plus enrollment and YouTube view growth). The rest is Hanrui Wang's Quantum ML Part I (qubits, gates, NISQ and compilation). The final-project poster dates and the 7-item rubric are not spoken in the video; that part of this post follows the slides. For the L23 video I spot-checked PQC data encoding, parameter-shift gradients, gradient pruning under noise, TorchQuantum and SuperCircuit/QuantumNAS, and the topics match. The “first half / second half” and “a lecture and a half” wording has been changed to match the recording.
+
+## Lecture 22, opening: a 13-page course summary
 
 [Course-Summary.pdf](https://www.dropbox.com/scl/fi/cn0wr4zxuv4hvpce81lo1/Course-Summary.pdf?rlkey=ycn79vnsu2n7395fz1v04khz0&st=z86d0rap&dl=0) is short, but it is the only bird's-eye map of the whole course. It is worth skimming before you start the series.
 
@@ -91,9 +93,9 @@ Self-learners get no grader, but you can use this table to score your own side p
 
 **Scale and course evaluation (pages 12–13).** Page 12's bar chart shows enrollment growing from 26 to 89 to 222 (2022–2024) and YouTube views growing from 126,515 to 240,653. Page 13 reminds enrolled students to fill in the end-of-term subject evaluation for 4 participation bonus points. That is where the 4% bonus in the course grading comes from.
 
-## Lecture 22, second half: Quantum ML Part I is video only
+## Lecture 22, the rest: Quantum ML Part I is video only
 
-Lecture 22 is titled "Course Summary + Quantum Machine Learning I", and the [recording](https://youtu.be/svjjD2uthhQ) covers both parts. The course page only posts Course-Summary.pdf, though, so Part I has no slide deck. This post only covers content that can be checked against slides, so watch the recording for Part I. The Lecture 23 slides start at PQCs; if you need quantum computing basics first, watch the second half of the Lecture 22 recording before moving on.
+Lecture 22 is titled "Course Summary + Quantum Machine Learning I", and the [recording](https://youtu.be/svjjD2uthhQ) covers both parts (the course summary is only a short opening stretch; Hanrui Wang teaches Part I for the rest). The course page only posts Course-Summary.pdf, though, so Part I has no slide deck. This post only covers content that can be checked against slides, so watch the recording for Part I. The Lecture 23 slides start at PQCs; if you need quantum computing basics first, watch the Quantum ML Part I portion of the Lecture 22 recording (everything after the short opening summary) before moving on.
 
 ## Lecture 23: Quantum ML Part II
 
@@ -227,6 +229,7 @@ The [F26 course page](https://hanlab.mit.edu/courses/2026-fall-65940) marks Chap
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. In the L22 recording the course summary is only a short opening and the rest is Quantum ML Part I, so the “first half / second half” and “a lecture and a half” wording was corrected; L23 topics match.
 
 ## References
 

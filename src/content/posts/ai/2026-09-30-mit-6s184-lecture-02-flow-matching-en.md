@@ -54,6 +54,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Spot check: read the opening (a recap of Lecture 1; flow matching as the core training algorithm) and the ending (next lecture on scores and guidance) and keyword-checked the middle: conditional and marginal probability paths, the marginal vector field, why the integral is intractable, the continuity equation (the video explains conservation of probability mass), and the regression loss against the conditional target. The lecture and topics match this post. The captions do not contain the theorem/equation numbers or the “Flow Matching Matrix” label; those details follow the lecture notes and Slides 2.
+
 ## One table for the whole lecture
 
 Slides 2 organizes the lecture as a 2×3 "Flow Matching Matrix". The top row is "conditional", meaning a **single data point**. The bottom row is "marginal", meaning **the whole data distribution**.
@@ -278,6 +280,7 @@ Series navigation: previous, [Lab 1: Simulating ODEs and SDEs](/posts/ai/2026-09
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L2 video matches the topic and lecture number; theorem numbers and similar details follow the notes and slides, so the body text is unchanged.
 
 ## References
 

@@ -68,6 +68,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): For L19 I read the opening agenda, the keyword hits for ZeRO/FSDP, pipeline, tensor and sequence parallelism, and the ending. The video mentions 1,000+ V100s on the Summit supercomputer, about 3 million GPU hours for GPT-3 and about 14 minutes on 1,024 GPUs, consistent with the figures at the start of this post. For L20 I read the opening and closing summary: hybrid/2D/3D parallelism and auto-parallelization, the bandwidth and latency bottlenecks, gradient compression (deep gradient compression) and gradient quantization, delayed gradient averaging, and the 8-node Raspberry Pi experiment. Both lectures match this post's topics and lecture numbers. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Four ways to split
 
 L19 pages 12–31 run through four kinds of parallelism, and L20 page 4 summarizes the trade-offs:
@@ -240,6 +242,7 @@ for iter in range(1, max_iters + 1):
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. L19 and L20 match the topics and lecture numbers, and the sampled figures agree, so the body text is unchanged.
 
 ## References
 

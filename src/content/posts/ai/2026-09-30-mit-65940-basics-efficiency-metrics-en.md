@@ -61,6 +61,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Spot-checked both videos. L1: the opening, the HAN Lab project previews (microcontroller detection, TinyChat, AWQ, Jetson Orin, BEVFusion) and course logistics. L2: terminology, parameter count and model size, activations (not parameters) as the memory bottleneck, MACs/FLOPs, latency vs. throughput and the AlexNet layer-by-layer count. Topics and lecture numbers match this post and no contradictions turned up. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## The problem: models grow faster than hardware
 
 Lecture 1 opens (page 3) with a two-line chart. One line is language-model size: Transformer 0.05B, BERT 0.34B, GPT-2 1.5B, GPT-3 175B, MT-NLG 530B. The other is GPU memory, from 32GB on the V100 to 80GB on the A100. The gap keeps widening, and the chart's caption reads "Model compression bridges the gap." Page 3 of Lecture 2 puts it in one line: Moore's law gives about 2× every two years, while deep learning models grow about 4× every two years.
@@ -234,6 +236,7 @@ The [Fall 2026 Lab 0](https://colab.research.google.com/drive/1PfVYxikSaVpCSD-cn
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. L1 and L2 match the topics and lecture numbers in this post; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 

@@ -59,6 +59,8 @@ title: EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了開頭、結尾總結與中段：溫度、可對齊的六類東西（logits、中間權重、特徵、梯度／attention map、sparsity pattern、關係）、self／online distillation、偵測／分割／GAN／NLP 的蒸餾，以及 network augmentation。講次與主題和本文相符；字幕把部分專名轉壞（例如 sparsity 被寫成 sparity），人名與論文名以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
+
 ## 為什麼這門課要講蒸餾
 
 前幾講的工具，pruning、quantization、[NAS](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware)，都在改模型本身：砍掉參數、降低位元、換一個更省的架構。這一講問的是另一件事：架構定了、模型很小，**怎麼把它訓練得更好？**
@@ -175,6 +177,7 @@ L_aug = L(W_base) + α · L([W_base, W_aug])
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L9 影片的六類對齊對象與各段主題與本文一致，正文未改。
 
 ## 參考資料
 

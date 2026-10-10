@@ -57,6 +57,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening and the captions that could be retrieved: SFT, LoRA/adapters/prefix and prompt tuning, RLHF and preference alignment, multimodal models (cross-attention versus token-in-token-out), VILA's three-stage training, prompt engineering and RAG. The lecture and topics match this post. The speaker says “lecture 13” at the start, while the video title and course page say Lecture 14, consistent with the note in this post. The retrieved captions end partway through the RAG section, so the last stretch of the video (including any VILA-U coverage and the closing summary) could not be checked. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## What this lecture is about
 
 [Lecture 13](/posts/ai/2026-09-30-mit-65940-llm-deployment-en) asked how to run a trained LLM fast. This lecture steps back: a pretrained model can't act as an assistant or read images yet. How do you turn it into what you need at the lowest cost?
@@ -204,6 +206,7 @@ The last part needs no training. It's about how you ask:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The retrievable L14 captions match the topic and lecture number; they end partway through the RAG section so the last stretch (including VILA-U) could not be checked. The body text is unchanged.
 
 ## References
 

@@ -55,6 +55,8 @@ title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spac
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了影片大部分字幕（約 81 分鐘）：latent space 動機、autoencoder／VAE 與 KL 項、latent diffusion 配方、時間／類別／文字嵌入（sinusoidal）、patchify 與 DiT（self-attention、cross-attention、adaLN）、Stable Diffusion 3 與 Movie Gen 的案例（20% 丟 prompt、LAION、約 50 步），以及結尾的文獻導覽。與本文相符，但有兩處需要補述：影片沒有講 U-Net，本文 U-Net 一節只依講義；文獻導覽（時間慣例、離散時間、forward process、stochastic interpolants）影片結尾有簡短講到，本文未整理。已在文中補上這兩點。
+
 ## 第一題：網路要怎麼吃三種輸入
 
 講義 §6.1 開頭把需求講清楚：網路有三個輸入，向量 `x ∈ R^d`、條件 `y`、時間 `t ∈ [0,1]`，一個輸出 `u_t^θ(x|y) ∈ R^d`。所以第一步是把 t 和 y 都變成網路能消化的向量。
@@ -132,7 +134,7 @@ Slides 4 對 DiT 的建議很務實：「理解 transformer 最好的方法就�
 
 ### U-Net
 
-**U-Net** 是另一種選擇，是一種卷積網路，原本設計來做影像分割。它適合參數化向量場的關鍵特性是：**輸入和輸出都是圖的形狀**。固定 y 和 t 之後，`x ↦ u_t^θ(x|y)` 正好是「圖進、圖出」。講義說早期的 diffusion 文獻大量使用它。
+**U-Net** 是另一種選擇。（錄影沒有講 U-Net，本節只依講義。）它是一種卷積網路，原本設計來做影像分割。它適合參數化向量場的關鍵特性是：**輸入和輸出都是圖的形狀**。固定 y 和 t 之後，`x ↦ u_t^θ(x|y)` 正好是「圖進、圖出」。講義說早期的 diffusion 文獻大量使用它。
 
 講義用一張 `3×256×256` 的圖走一遍：
 
@@ -272,7 +274,7 @@ Slides 4 另外寫 SD3 的資料集是 LAION，這一點講義沒有寫。講義
 ## 這一講沒講什麼
 
 - **這些模型的訓練細節與評測。** 講義只挑跟課程技術相關的部分，其餘請讀 SD3 論文與 Movie Gen 技術報告。
-- **文獻導覽。** Slides 4 最後有一節 Bonus「A guide to the diffusion literature」，整理 flow 與 diffusion 兩種時間慣例、DDPM／DDIM、stochastic interpolants 等不同說法。它和 Slides 3 結尾那節內容相同；講義對應的是附錄 E。
+- **文獻導覽。** Slides 4 最後有一節 Bonus「A guide to the diffusion literature」，整理 flow 與 diffusion 兩種時間慣例、DDPM／DDIM、stochastic interpolants 等不同說法。它和 Slides 3 結尾那節內容相同；講義對應的是附錄 E。錄影結尾有簡短講到這一節（時間慣例、離散時間公式、forward process 與時間反轉、stochastic interpolants），本文沒有另外整理。
 - **離散資料。** 文字 token 怎麼做擴散，是[第 5 講](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion)的事。
 
 ## 讀完這講，你應該能
@@ -296,6 +298,7 @@ Slides 4 另外寫 SD3 的資料集是 LAION，這一點講義沒有寫。講義
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L4 影片核對：影片沒講 U-Net（該節只依講義）、結尾簡短講了文獻導覽，已在文中補註這兩點。
 
 ## 參考資料
 

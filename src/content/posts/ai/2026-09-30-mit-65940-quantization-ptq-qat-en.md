@@ -54,6 +54,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: per-tensor vs. per-channel quantization, group quantization, clipping outliers (calibration methods), PTQ and QAT, the straight-through estimator, binary/ternary networks with XNOR/popcount, and mixed precision (HAQ). Topics and lecture number match this post. The captions garble names such as AdaRound and VS-Quant, so those follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## The question Lecture 5 left open
 
 Lecture 5 introduced two kinds of quantization: K-means (store integer indices plus a floating-point codebook) and linear quantization (`r = S(q − Z)`, where both weights and arithmetic can be integer). Page 3 of Lecture 6 reviews them side by side, and page 10 states the lecture's core question:
@@ -240,6 +242,7 @@ One thing you can do tonight: open the table on page 26 and work out VS-Quant's 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L6 video matches the topic and lecture number; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 

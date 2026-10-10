@@ -59,6 +59,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening, the closing summary and the middle: temperature, the six things that can be aligned (logits, intermediate weights, features, gradients/attention maps, sparsity patterns, relations), self and online distillation, distillation for detection, segmentation, GANs and NLP, and network augmentation. The lecture and topics match this post. The automatic captions garble some terms (for example “sparsity” appears as “sparity”), so author and paper names follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Why a course on efficiency covers distillation
 
 The earlier tools in this course, pruning, quantization, and [NAS](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware-en), all change the model itself: remove parameters, lower the bit width, or switch to a cheaper architecture. This lecture asks something else. Once the architecture is fixed and the model is small, **how do you train it better?**
@@ -175,6 +177,7 @@ If you came from [Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas-en): the lab ex
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L9 video's six alignment targets and section topics agree with this post, so the body text is unchanged.
 
 ## References
 

@@ -56,6 +56,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening agenda and the ending (including the AITA teaching-assistant demo) and spot-checked the middle: MCU memory limits, TinyNAS search-space design, MCUNetV2's patch-based inference (peak SRAM from 1372kB to 172kB, about 5x with a 3×3 patch), and the vision, audio (keyword spotting), anomaly detection and time-series applications. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## What tinyML is: shrinking from the cloud to IoT
 
 Song Han opens with a spectrum (pages 5–8): **Cloud AI → Mobile AI → Tiny AI**. The cloud runs on GPUs and TPUs, with data uploaded for inference. Mobile runs on phones. One step further down are the microcontrollers inside IoT devices.
@@ -170,6 +172,7 @@ Pages 88–91: train an autoencoder to reconstruct normal data. In deployment, i
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L10 video matches the topic and lecture number and the sampled figures (such as 172kB) agree, so the body text is unchanged.
 
 ## References
 

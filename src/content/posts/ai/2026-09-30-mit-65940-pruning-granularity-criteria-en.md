@@ -54,6 +54,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening and ending and spot-checked the middle: the definition of pruning, granularity (fine-grained up to channel level), magnitude criteria, Taylor/second-order criteria, APoZ, batch-norm scaling factors (network slimming), fine-tuning learning rate and epochs, and why over-parameterization helps optimization. Topics and lecture number match this post. The captions do not contain the term “fine-grained” verbatim, so the exact category names follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Why start with pruning
 
 Page 4 lists the four techniques in the course's first part, "Efficient Inference": Pruning, Quantization, Neural Architecture Search, and Knowledge Distillation. Pruning comes first.
@@ -215,6 +217,7 @@ Open the [Fall 2024 Lab 1](https://colab.research.google.com/drive/1Fagq3JQBzCiz
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L3 video matches the topic and lecture number; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 

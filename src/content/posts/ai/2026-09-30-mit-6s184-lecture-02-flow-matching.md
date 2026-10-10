@@ -56,6 +56,8 @@ title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matchin
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：抽樣核對：讀了開頭（回顧第 1 講、flow matching 是核心訓練演算法）與結尾（下一講 score 與 guidance）並用關鍵字抽查中段：條件與邊際機率路徑、邊際向量場、積分算不出來的難處、continuity equation（影片說明機率質量守恆）、以 conditional 目標做回歸的 loss。講次與主題和本文相符；字幕沒有 Theorem／eq. 編號與「Flow Matching Matrix」這類名稱，那些細節依講義與 Slides 2。
+
 ## 一張表先看懂整講
 
 Slides 2 把這一講整理成一個 2×3 的「Flow Matching Matrix」。上排是「條件」，意思是只看**單一資料點**；下排是「邊際」，意思是看**整個資料分佈**。
@@ -280,6 +282,7 @@ L_CFM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖u_t^θ(α_t z + β_t ε) − (�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L2 影片主題與講次相符；定理編號等細節依講義與 slides，正文未改。
 
 ## 參考資料
 

@@ -58,6 +58,8 @@ title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Di
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了影片大部分字幕（81 分 11 秒，與文中「1 小時 21 分」相符）：CTMC 與 rate matrix、factorized 設計與每個位置平行跳、mixture path 與 mask、Kolmogorov forward equation、學 rate matrix 等於分類（對每個位置做 softmax 與 negative log likelihood）、masked diffusion LM 與 LLaDA 示範、與自回歸模型的取捨（平行生成、任意順序、KV cache 較難），以及結尾的課程評鑑提醒。與本文相符。字幕裡聽不到 Slides 5 的 “teleported”、“Only unknown!” 等標註與講義編號，那些依 slides 與講義。
+
 ## 先看對照表：每個連續物件都有離散版
 
 Slides 5 把連續 flow matching 的六格表（條件／邊際 × 機率路徑／向量場／loss）直接換成離散版。下表把講義裡對應的編號排在一起，後面每一節就是在填這張表：
@@ -385,6 +387,7 @@ Slides 5 有一頁討論離散擴散與自回歸模型的取捨，每一點都�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L5 影片主題、長度（81:11）與各段說法與本文相符，正文未改。
 
 ## 參考資料
 

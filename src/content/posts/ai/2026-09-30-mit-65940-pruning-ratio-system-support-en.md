@@ -50,6 +50,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: deciding per-layer pruning ratios with sensitivity analysis, AMC (reinforcement learning), NetAdapt, fine-tuning to recover accuracy, EIE and sparse accelerators, NVIDIA's sparse support (the captions are garbled here, so exact names follow the slides), and the merge-sort matching for point-cloud sparse convolution. Topics and lecture number match this post. The post only suggests watching the recording alongside the accelerator diagrams and makes no specific claims about the video's content. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Pruning as an optimization problem
 
 Page 4 writes pruning down formally:
@@ -189,6 +191,7 @@ The lab is what changed. Fall 2024 released Lab 1 (Pruning) with Lecture 4. Fall
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L4 video matches the topic and lecture number; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 

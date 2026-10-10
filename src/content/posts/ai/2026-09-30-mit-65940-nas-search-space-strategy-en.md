@@ -50,6 +50,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening (Lab 1 due, Lab 2 out) and closing summary and spot-checked the middle: primitive operations and a MAC recap, bottlenecks (the video mentions 2048 channels and 8.5x), grouped convolution and ShuffleNet, Transformers, then NASNet's reduction and normal cells and cell-level/network-level search spaces, judging a search space without training (a good space more easily reaches high FLOPs), and grid/random/RL/gradient/evolutionary search. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Where this lecture sits in the NAS unit
 
 Page 4 outlines the whole NAS unit. Lecture 7 covers only the first half:
@@ -208,6 +210,7 @@ One thing to do tonight: write a ResNet bottleneck and a MobileNetV2 inverted bo
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L7 video matches the topic and lecture number; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 

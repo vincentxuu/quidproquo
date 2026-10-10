@@ -57,6 +57,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read most of the captions (81:11, matching the “1 hour 21 minutes” in the post): CTMCs and rate matrices, the factorized design with every position jumping in parallel, the mixture path and masking, the Kolmogorov forward equation, learning the rate matrix as classification (a softmax and negative log-likelihood per position), the masked diffusion LM and the LLaDA demo, the trade-offs against autoregressive models (parallel generation, any order, harder KV caching) and the closing course-evaluation reminder. It matches this post. The “teleported” and “Only unknown!” annotations from Slides 5 and the lecture-note numbering are not spoken in the video; those follow the slides and notes.
+
 ## Start with the map: every continuous object has a discrete twin
 
 Slides 5 takes the six-cell table of continuous flow matching (conditional/marginal × probability path/vector field/loss) and swaps in the discrete versions. The table below pairs the numbered results from the notes. Each section after it fills in one row:
@@ -384,6 +386,7 @@ The notes' answer is that these principles were never specific to flows or CTMCs
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L5 video's topic, length (81:11) and section content match this post, so the body text is unchanged.
 
 ## References
 

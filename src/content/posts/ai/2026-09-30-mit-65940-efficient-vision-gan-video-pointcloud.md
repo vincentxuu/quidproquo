@@ -68,6 +68,8 @@ title: EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 202
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：L16 讀了開頭（Halloween 與 HART 示範）與結尾總結：ViT 基礎、window attention、EfficientViT 的 linear attention、SparseViT、自監督（對比學習與 MAE）、HART。L17 讀了開頭與結尾並抽查中後段：GAN Compression、AnyCost、DiffAugment、TSM（與 2D／3D CNN 的比較）、PVConv／SPVConv、BEVFusion（影片後段用波士頓街景講相機與 LiDAR 融合到鳥瞰圖）。兩講主題與本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
+
 ## 為什麼這兩講放在一起
 
 前面十五講的主角是 CNN 分類器和 LLM。這兩講換成「視覺任務的特殊結構」：高解析度影像、生成模型、影片、3D 點雲。L17 第 2 頁把思路講得很清楚：每種資料都有自己的冗餘，GAN 有 2D 空間冗餘，影片有時間冗餘，點雲有 3D 空間冗餘（而且極度稀疏）。找到冗餘，就知道從哪裡省。
@@ -216,6 +218,7 @@ return out
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L16、L17 主題與講次相符，抽樣未發現與本文矛盾，正文未改。
 
 ## 參考資料
 

@@ -50,6 +50,8 @@ title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Di
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了開頭（講者 Peter 自我介紹、協助授課的碩士生 Ron、對指導教授 Tommy 的致謝）、結尾（下一講改週四、講義與 lab）並用關鍵字抽查中段：生成的定義與 key ideas、向量場／ODE／flow、線性向量場例子、用神經網路向量場模擬 ODE 取樣、Brownian motion 與 SDE、以及結尾的學生提問。內容與本文對應。字幕裡聽不到 Euler、Heun、Euler–Maruyama、Theorem 編號等名稱，本文這些細節是依講義，不是依影片。
+
 ## 先把「生成」講精確：四個 Key Idea
 
 講義 §1.3 用四個 Key Idea 把問題形式化。
@@ -248,6 +250,7 @@ Require: 神經網路 u_t^θ，步數 n，diffusion coefficient σ_t
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L1 影片主題與講次相符；Euler／Heun／定理編號等細節影片字幕未出現，已標明依講義，正文未改。
 
 ## 參考資料
 

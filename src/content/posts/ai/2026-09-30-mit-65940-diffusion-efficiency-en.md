@@ -56,6 +56,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and keyword-checked the middle: DDPM and a generative-model recap, conditioning and guidance, latent diffusion (including DC-AE), image editing and personalization, distillation, spatial sparsity, quantization, and DistriFusion (reusing the previous step's stale activations so communication overlaps with compute, about 2x or more on four GPUs). The lecture and topics match this post. The captions are automatic and garble names such as DDIM and SIGE, so those names follow the slides. The speaker slips and says “lecture 16” at the start; the video title and course page say Lecture 18. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Why it is slow: DDPM's two processes
 
 Pages 9–18 cover [DDPM (Ho et al., NeurIPS 2020)](https://arxiv.org/abs/2006.11239). It has two processes running in opposite directions:
@@ -170,6 +172,7 @@ The comparison on page 89 is convincing. The original takes 12.3 s on one GPU. N
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L18 video matches the topic and lecture number; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 

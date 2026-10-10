@@ -54,6 +54,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: RoPE and context length (fine-tuning from 2k to 32k), LongLoRA, lost-in-the-middle and needle-in-a-haystack evaluation, StreamingLLM's attention sink, DuoAttention, Quest, and Mamba/SSMs with hybrid architectures. Topics and lecture number match this post. The WorldModelBench announcement on slides 75–78 does not appear in the captions, which fits the note in this post that those pages are unrelated to the lecture. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## What this lecture is about
 
 If you want an LLM to read a whole book, watch an hour of video, or chat with you for hundreds of turns, you hit three walls at once. The model breaks beyond its training length. It may not actually use the long context. And the KV cache gets too big to fit. The Lecture Plan on page 2 maps onto these three walls, plus one section on alternatives to the Transformer:
@@ -198,6 +200,7 @@ Page 68 splits an LLM's work into two kinds: communication between tokens (atten
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L15 video matches the topic and lecture number; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 

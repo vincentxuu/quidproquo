@@ -54,6 +54,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening (the ChatGPT-generated syllabus) and the ending (Llama 3, sliding-window attention, Chinchilla and the inference-cost trade-off) and spot-checked the middle: attention and multi-head attention, MQA/GQA, positional encodings such as RoPE, the KV cache (about 160GB for Llama-2-70B at batch 16), layer norm, encoder/decoder and tokenization. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Transformer basics: where the cost hides
 
 ### Why move away from RNNs and CNNs
@@ -185,6 +187,7 @@ Page 88 explains the capacity factor C with a small example: 6 tokens, 3 experts
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L12 video matches the topic and lecture number and the sampled figure (160GB) agrees, so the body text is unchanged.
 
 ## References
 

@@ -49,6 +49,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening (Peter introduces himself, Ron is a master's student helping with the class, a thank-you to advisor Tommy) and the ending (next class on Thursday, lecture notes and labs) and keyword-checked the middle: what “generation” means and the key ideas, vector fields/ODEs/flows, the linear vector-field example, sampling by simulating the ODE with a neural vector field, Brownian motion and SDEs, and the closing student questions. The content corresponds to this post. The captions do not contain Euler, Heun, Euler–Maruyama or the theorem numbers; those details in this post follow the lecture notes, not the video.
+
 ## Making "generate" precise: four Key Ideas
 
 Notes §1.3 formalizes the problem with four Key Ideas.
@@ -247,6 +249,7 @@ The last line: **a diffusion model with σ_t = 0 is a flow model.**
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L1 video matches the topic and lecture number; Euler/Heun/theorem-number details are not in the captions and are attributed to the lecture notes, so the body text is unchanged.
 
 ## References
 

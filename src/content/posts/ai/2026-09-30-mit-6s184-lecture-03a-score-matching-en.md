@@ -55,6 +55,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read most of the second half of the captions: score functions and vector fields being interchangeable, SDE sampling (any σ_t, plus a σ_t²/2 times score correction), the Fokker–Planck proof (marked optional by the lecturer; the captions render it “focal plank”), the difference between flow and diffusion sampling and the “same in theory, different in practice” training and simulation errors, Langevin dynamics as an aside (rendered “long dynamics”), and the closing note on denoising score matching. The content matches this post. The video ends just before CFG starts; the Ornstein–Uhlenbeck remark and theorem numbers follow the lecture notes.
+
 ## Score functions point toward higher probability
 
 For any distribution `q(x)`, its **score function** is `∇ log q(x)`, the gradient of the log-likelihood with respect to x (§4.1, p.25). The intuition is simple: it points in the direction of steepest ascent in log-likelihood. Figure 8 in the notes draws it as a field of arrows pointing into the high-density regions.
@@ -274,6 +276,7 @@ Series navigation: previous, [L2: Flow Matching](/posts/ai/2026-09-30-mit-6s184-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L3A video's SDE sampling, Fokker–Planck, Langevin and score matching content agrees with this post, so the body text is unchanged.
 
 ## References
 

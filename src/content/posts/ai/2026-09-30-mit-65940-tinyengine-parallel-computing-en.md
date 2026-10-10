@@ -55,6 +55,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening and the ending (the Winograd part and the hand-off to TinyChat and Labs 4–5) and spot-checked the middle: loop reordering (12x in the video), tiling (19x), four threads (4.1x), SIMD, im2col, in-place depthwise, the NHWC vs. NCHW trade-off, and Winograd cutting 36 multiplications to 16 (2.25x). These multipliers agree with this post. The topic and lecture number match. I did not find the CUDA 94x or loop-unrolling 2.85x figures in the captions, so those two stay slide-sourced. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Where an MCU is small
 
 Page 5 lines up four platforms in a table. The two ends make the point:
@@ -169,6 +171,7 @@ In other words, the CPU techniques from this lecture come back unchanged to spee
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L11 multipliers (12x, 19x, 4.1x, 2.25x) agree with this post; the CUDA 94x and unrolling 2.85x figures are not in the captions and stay slide-sourced. The body text is unchanged.
 
 ## References
 

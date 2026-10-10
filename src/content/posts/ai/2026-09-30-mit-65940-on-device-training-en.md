@@ -56,6 +56,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: the Deep Leakage from Gradients demo, TinyTL (tuning only biases, about 6.5x memory saving), sparse backprop, QAS and int8 training, PockEngine, and bringing training memory from 100+ MB to 141KB on an MCU with 256KB of SRAM. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Sharing only gradients is not safe either
 
 Pages 6–11 introduce FedAvg from [federated learning](https://arxiv.org/abs/1602.05629): each device trains on local data for N steps, sends its updated model to a server to be averaged, and receives the average back. The slides stress that important private data never leaves the device.
@@ -192,6 +194,7 @@ Pages 94–100 show results across platforms:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L21 video matches the topic and lecture number and the sampled figures (6.5x, 141KB, 256KB) agree, so the body text is unchanged.
 
 ## References
 

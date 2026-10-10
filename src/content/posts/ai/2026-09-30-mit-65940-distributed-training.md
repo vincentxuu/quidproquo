@@ -68,6 +68,8 @@ title: EfficientML.ai Lecture 20 - Distributed Training Part 2 (MIT 6.5940, Fall
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：L19 讀了開頭議程、ZeRO／FSDP、pipeline、tensor、sequence parallelism 段落關鍵字與結尾；影片提到 Summit 超級電腦上用 1000 多張 V100、GPT-3 需要約 300 萬 GPU 小時、1024 張卡約 14 分鐘，和本文開頭的數字一致。L20 讀了開頭與結尾總結：混合／2D／3D 平行與自動平行、頻寬與延遲兩個瓶頸、梯度壓縮（deep gradient compression）與量化梯度、delayed gradient averaging，以及 8 台 Raspberry Pi 的實驗。兩講的主題與講次都和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
+
 ## 四種切法一覽
 
 L19 第 12–31 頁先快速走過四種平行，L20 第 4 頁再把它們的取捨整理成一張表：
@@ -240,6 +242,7 @@ for iter in range(1, max_iters + 1):
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L19、L20 主題與講次相符，抽樣數字一致，正文未改。
 
 ## 參考資料
 

@@ -61,6 +61,8 @@ title: EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 20
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：抽樣核對兩支影片。L1 的開場、HAN Lab 專案預告（含微控制器偵測、TinyChat、AWQ、Jetson Orin、BEVFusion）與課務；L2 的神經網路術語、參數量與 model size、activation 才是記憶體瓶頸、MAC／FLOP、latency 與 throughput、AlexNet 逐層計算。主題與講次都和本文對應，沒發現矛盾。頁碼與投影片數字以投影片為準，未逐句比對影片。
+
 ## 問題：模型長得比硬體快
 
 第一講開頭（第 3 頁）是一張雙線圖。一條線是語言模型的參數量：Transformer 0.05B、BERT 0.34B、GPT-2 1.5B、GPT-3 175B、MT-NLG 530B。另一條是 GPU 記憶體：從 V100 的 32GB 到 A100 的 80GB。兩條線越拉越開，圖上的註解是「Model compression bridges the gap」。第二講第 3 頁把這個落差講成一句話：摩爾定律大約每兩年 2 倍，深度學習模型每兩年 4 倍。
@@ -234,6 +236,7 @@ Fall 2026 的 [L1 投影片](https://www.dropbox.com/scl/fi/yi5oq4f9yzg9sikwcxm3
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L1、L2 的主題與講次相符，抽樣未發現與本文矛盾，正文未改。
 
 ## 參考資料
 

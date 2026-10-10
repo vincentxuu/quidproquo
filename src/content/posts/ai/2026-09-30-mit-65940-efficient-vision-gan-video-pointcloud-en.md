@@ -68,6 +68,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): For L16 I read the opening (the Halloween and HART demo) and the closing summary: ViT basics, window attention, EfficientViT's linear attention, SparseViT, self-supervision (contrastive learning and MAE) and HART. For L17 I read the opening and ending and checked the middle and later parts: GAN Compression, AnyCost, DiffAugment, TSM (compared with 2D/3D CNNs), PVConv/SPVConv and BEVFusion (the later part of the video fuses camera and LiDAR features into a bird's-eye view using Boston street scenes). Both lectures match this post's topics. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
+
 ## Why these two lectures go together
 
 The first fifteen lectures centered on CNN classifiers and LLMs. These two turn to the special structure of vision workloads: high-resolution images, generative models, video, and 3D point clouds. L17 page 2 states the idea plainly: each data type has its own redundancy. GANs have 2D spatial redundancy, video has temporal redundancy, and point clouds have 3D spatial redundancy (and extreme sparsity). Find the redundancy and you know where to save.
@@ -216,6 +218,7 @@ Two threads run through both:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. L16 and L17 match the topics and lecture numbers; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 
