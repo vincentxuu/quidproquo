@@ -52,6 +52,8 @@ title: Spring 2025 Tutorial Session: Review of Q-Learning (YouTube, supplement)
 
 Original videos: [Spring 2025 Lecture 6: Q-Learning (YouTube, supplement)](https://www.youtube.com/watch?v=-7kv6jf0isQ)、[Spring 2025 Tutorial Session: Review of Q-Learning (YouTube, supplement)](https://www.youtube.com/watch?v=07MQNMcxhZU)
 
+Content check: verified against the video transcripts (2026-10-10): for both videos I sampled the beginning, middle and end and searched keywords (not a word-by-word comparison). -7kv6jf0isQ is Spring 2025 L6 Q-Learning (Chelsea Finn): it recaps value functions and policy gradient/actor-critic, then covers how Q-functions relate to policies, RL without an explicit policy, replay buffers, target networks and double DQN-style stabilization. 07MQNMcxhZU is the Spring 2025 Tutorial Session: Review of Q-Learning, given by TA Anikait Singh (he introduces himself in the transcript): an MDP review, tabular and fitted Q iteration, parametric Q-learning (the bias/variance trade-off of TD versus Monte Carlo) and practical details. Both lengths (about 62 and 51 minutes) match. This post follows the 2026 materials; the videos are supplementary only.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
@@ -237,6 +239,7 @@ Series navigation: previous [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Both videos (2025 L6 and the TA tutorial) match the post on topic, speaker and length; nothing needed correcting.
 
 ## References
 

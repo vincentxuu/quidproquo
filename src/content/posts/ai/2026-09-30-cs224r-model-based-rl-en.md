@@ -36,7 +36,7 @@ Official sources used:
 
 Access level is **A3**: the slides download anonymously, and the 2026 recordings live only on Canvas.
 
-Companion video (**supplementary**): [Spring 2025 Lecture 11: Model-Based RL](https://www.youtube.com/watch?v=PvqyGnOirgA) (about 73 minutes). The two years split the material differently. [The 2025 L11 slides](https://cs224r.stanford.edu/spring_2025/slides/11_cs224r_mbrl_2025.pdf) cover planning first, then data generation, and end with a dexterous-manipulation case study. [The 2025 L12 slides](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf) open by continuing with synthetic data generation and when to use model-based RL. So the MBPO part of the 2025 recordings may fall at the start of L12. This post follows the 2026 slides.
+Companion video (**supplementary**): [Spring 2025 Lecture 11: Model-Based RL](https://www.youtube.com/watch?v=PvqyGnOirgA) (about 73 minutes). The two years split the material differently. [The 2025 L11 slides](https://cs224r.stanford.edu/spring_2025/slides/11_cs224r_mbrl_2025.pdf) cover planning first, then data generation, and end with a dexterous-manipulation case study. [The 2025 L12 slides](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf) open by continuing with synthetic data generation and when to use model-based RL. I read the transcripts: the L11 recording ends with the dexterous-hand case study and then announces that the last part of model-based RL and multi-task RL come next time, so synthetic data generation (the MBPO part) is not in this video but at the start of the L12 recording. This post follows the 2026 slides.
 
 ## Course video sources
 
@@ -48,6 +48,8 @@ title: Spring 2025 Lecture 11: Model-Based RL (YouTube, supplementary)
 ```
 
 Original videos: [Spring 2025 Lecture 11: Model-Based RL (YouTube, supplementary)](https://www.youtube.com/watch?v=PvqyGnOirgA)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L11 Model-Based RL transcript and searched keywords (not a word-by-word comparison). The video is L11 and the speaker is Chelsea Finn. It runs through an algorithm recap, learning a dynamics model, gradient-based and sampling-based planning and replanning, and ends with a dexterous robot-hand case study (using an ensemble, about 4 hours of data for 90-degree turns), then announces that the last part of model-based RL and multi-task RL come next time. So synthetic data generation (the MBPO part) is indeed not in this video; it is at the start of the L12 recording. This post follows the 2026 slides; the video is supplementary only.
 
 Course and recording entries:
 
@@ -237,6 +239,7 @@ Series navigation: previous [Default Project: RL fine-tuning for LLMs](/posts/ai
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video is Spring 2025 L11; the transcript confirms the MBPO/synthetic-data part is at the start of the L12 recording, so the post's hedged "may" became a confirmed statement.
 
 ## References
 

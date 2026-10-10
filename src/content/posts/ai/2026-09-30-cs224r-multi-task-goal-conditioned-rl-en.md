@@ -37,7 +37,7 @@ Official sources used:
 
 Access level is **A3**: the slides download anonymously, and the 2026 recordings live only on Canvas.
 
-Companion video (**supplementary**): [Spring 2025 Lecture 12: Multi-Task RL](https://www.youtube.com/watch?v=qNdsI_4AQJw) (about 70 minutes). The first half of [the 2025 L12 slides](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf) is still wrapping up model-based RL (synthetic data generation and when to use model-based RL), so the start of the recording probably covers that too. This post follows the 2026 slides.
+Companion video (**supplementary**): [Spring 2025 Lecture 12: Multi-Task RL](https://www.youtube.com/watch?v=qNdsI_4AQJw) (about 70 minutes). The first half of [the 2025 L12 slides](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf) is still wrapping up model-based RL (synthetic data generation and when to use model-based RL), and I confirmed in the transcript that the recording opens by finishing model-based RL (synthetic data generation and when to use model-based RL) before moving to multi-task. This post follows the 2026 slides.
 
 ## Course video sources
 
@@ -49,6 +49,8 @@ title: Spring 2025 Lecture 12: Multi-Task RL (YouTube, supplementary)
 ```
 
 Original videos: [Spring 2025 Lecture 12: Multi-Task RL (YouTube, supplementary)](https://www.youtube.com/watch?v=qNdsI_4AQJw)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L12 Multi-Task RL transcript and searched keywords (not a word-by-word comparison). The video is L12 and the speaker is Chelsea Finn. It opens by saying it will finish model-based RL first (synthetic data generation with a learned model, and when to use model-based RL), and only then covers multi-task imitation and RL, task identifiers, goal-conditioned RL and hindsight relabeling, which matches the post's statement that the first part wraps up model-based RL. This post follows the 2026 slides; the video is supplementary only.
 
 Course and recording entries:
 
@@ -216,6 +218,7 @@ Series navigation: previous [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-mod
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video is Spring 2025 L12; the transcript confirms the first part wraps up model-based RL, so the post's hedged "probably" became a confirmed statement.
 
 ## References
 

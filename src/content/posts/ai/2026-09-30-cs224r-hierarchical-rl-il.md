@@ -48,6 +48,8 @@ title: Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）
 
 原始影片：[Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）](https://www.youtube.com/watch?v=iKWYLSVAtfM)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L15 Hierarchical RL and IL 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到高層／低層 policy、人類介入的 DAgger 式修正、用影像編輯模型產生子目標、最後接到 hierarchical RL，與本文主題一致。本文敘述以 2026 投影片為準，影片只當補充。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
@@ -219,6 +221,7 @@ g_t 有很多名字：subgoal、subtask、skill、option、high-level action。�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L15，主題相符（約 70 分鐘亦相符），沒有需修正之處。
 
 ## 參考資料
 

@@ -57,6 +57,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic L
 
 原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 7 講 Agentic LLMs（頁面日期 2025-11-14，長 1:49:22，與本文「1 小時 49 分」相符）；章節是 RAG（SBERT／bi-encoder、BM25、HyDE 與 contextual retrieval、prompt caching、cross-encoder 重排、NDCG／MRR）、tool calling、tool selection、MCP、ReAct agent、安全，與本文章節一致。本文只引投影片，沒有轉述課堂口述，因此沒有口述內容需要核對。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
@@ -301,6 +303,7 @@ Google 2025 年發表的 [Agent2Agent（A2A）](https://developers.googleblog.co
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。影片是 2025 第 7 講 Agentic LLMs，主題、日期與長度皆與本文相符，沒有需修正之處。
 
 ## 參考資料
 

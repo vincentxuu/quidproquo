@@ -49,6 +49,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tunin
 
 原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 5 講 LLM Tuning（頁面日期 2025-10-31，長 1:47:41，與本文「1 小時 47 分」相符）；章節是 preference tuning、資料收集、RLHF、reward model 與 Bradley-Terry、PPO（clip／KL-penalty 變體）、on／off-policy、Best-of-N、DPO，與本文主題一致。本文只引投影片，沒有轉述課堂口述。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
@@ -327,6 +329,7 @@ L_DPO = −E[ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
 - 2026-10-10：修正過時的上架說法，2026 版已上架第 1、2 講。
+- 2026-10-10：依字幕核對影片內容。影片是 2025 第 5 講，主題、日期與長度皆與本文相符，沒有需修正之處。
 
 ## 參考資料
 

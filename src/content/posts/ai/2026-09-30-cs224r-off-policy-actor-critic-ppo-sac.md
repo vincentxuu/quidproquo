@@ -43,6 +43,8 @@ title: Spring 2025 Lecture 5: Off-Policy Actor Critic（YouTube，補充）
 
 原始影片：[Spring 2025 Lecture 5: Off-Policy Actor Critic（YouTube，補充）](https://www.youtube.com/watch?v=cRGKc-nAWho)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L5 Off-Policy Actor Critic 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到 replay buffer、importance weight 與 clip（PPO 的核心想法）、SAC，與本文主題相符。本文敘述以 2026 投影片為準，影片只當補充。
+
 課程與錄影入口：
 
 - [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
@@ -194,6 +196,7 @@ n 步 advantage 與 GAE：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L5，主題相符（約 69 分鐘亦相符），沒有需修正之處。
 
 ## 參考資料
 

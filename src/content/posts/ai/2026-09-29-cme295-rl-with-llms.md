@@ -68,6 +68,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reaso
 
 原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)、[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
 
+內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。PmW_TMQ3l0I 是 Autumn 2025 第 5 講 LLM Tuning（含 RLHF、reward model、PPO 及 clip／KL 變體、DPO），k5Fh-UgTuCo 是 Autumn 2025 第 6 講 LLM Reasoning（含 GRPO、GRPO 與 PPO 比較、DAPO／Dr. GRPO、DeepSeek R1 配方），證實本文所說「第 5 講含 PPO、第 6 講含 GRPO，只作相關補充、不是 2026 第 4 講錄影」。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
@@ -414,6 +416,7 @@ KL(π_θ ‖ π_teacher) = E_{x~π_θ} [ log π_θ(x_{t+1}|x_1..t) − log π_te
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。2026 版第 4 講錄影尚未上架，附上 2025 版第 5、6 講作為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。兩支 2025 影片（第 5 講含 PPO、第 6 講含 GRPO）與本文說法相符，沒有需修正之處。
 
 ## 參考資料
 

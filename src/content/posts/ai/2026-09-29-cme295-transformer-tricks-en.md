@@ -51,6 +51,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transform
 
 Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks](https://www.youtube.com/watch?v=yT84Y5zCnaA)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 2, Transformer-Based Models & Tricks (page date 2025-10-03, length 1:47:19, matching the post's "1 hour 47 minutes"). Its chapters are position embeddings (sinusoidal, T5 bias and ALiBi, RoPE), layer normalization, sparse attention, sharing attention heads, a BERT deep dive and finetuning ([CLS]/[SEP]), and BERT extensions, consistent with the post's topic and its teddy-bear BERT example. I also read the transcript of the 2026 Lecture 2 recording (GaIeu3npx04) to check the "What changed in 2026" section: that recording is already up and still teaches BERT's MLM and NSP, so I fixed the post's earlier statement that the recording was not released and that BERT coverage was unknown.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
@@ -232,10 +234,10 @@ Lecture 3 returns to the decoder-only mainline and covers what gets added once i
 
 ## What changed in 2026
 
-The 2026 slides and recording for Lecture 2 have not been released yet (the syllabus lists the class for October 2), so the following compares only the topic lists in the two syllabi:
+The 2026 Lecture 2 recording (held October 2, titled Large Language Models) is now up; it is the second video embedded in the [CME295 Lecture 3 guide](/posts/ai/2026-09-29-cme295-large-language-models-en). I read its transcript and used it for the points marked below; everything else still compares only the topic lists in the two syllabi, without reading the 2026 slides:
 
 - **Two lectures merged into one**: 2025's Lecture 2 (Transformer tricks) and Lecture 3 (LLMs) become a single 2026 lecture, "Large Language Models," covering in order: Transformer model families, LLM definition and architecture, MoE, MHA/MQA/GQA, position embeddings (RoPE and variants), context length and temperature, and sampling.
-- **BERT is no longer a syllabus item**: 2025's "BERT and its derivatives" shrinks to a single line, "Transformer model families," in 2026. Whether MLM and NSP still get covered in detail will have to wait for the slides.
+- **BERT is no longer a syllabus item**: 2025's "BERT and its derivatives" shrinks to a single line, "Transformer model families," in 2026. However, the transcript shows 2026 Lecture 2 still teaches BERT: encoder-only, the [CLS] token, and the two proxy tasks MLM and NSP.
 - **Position embeddings center on RoPE**: 2025 listed "Position embeddings (regular, learned)" and "RoPE and applications" as two items; 2026 lists only "RoPE and variants."
 - **The "Attention approximation" item is gone**: the 2026 syllabus lists only MHA/MQA/GQA. That said, the abbreviation slide in the 2026 Lecture 1 deck lists MHA, GQA, MQA, MLA, SWA, and AttnRes under "Attention techniques," and MoE, RoPE, ALiBi, LN, QKNorm, and SwiGLU under "Architecture optimizations"; BERT and T5, which appeared on the 2025 version of that slide, are gone. The syllabus doesn't say which lecture these terms will show up in.
 
@@ -261,6 +263,7 @@ These questions are adapted from Part II of the [2025 midterm](https://cme295.st
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 2 and matches the post; also found the 2026 Lecture 2 recording is already up and still teaches BERT (MLM/NSP), and corrected the "What changed in 2026" section.
 
 ## References
 

@@ -50,6 +50,8 @@ title: Spring 2025 Lecture 4: Actor-Critic Methods（YouTube，Stanford Online�
 
 原始影片：[Spring 2025 Lecture 4: Actor-Critic Methods（YouTube，Stanford Online）](https://www.youtube.com/watch?v=oejFZShW9hU)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L4 Actor-Critic Methods 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕有談到 critic／value function、Monte Carlo 與 bootstrap 標籤、n-step、advantage、discount γ，與本文章節對得上。本文敘述以 2026 投影片為準，影片只當補充。
+
 課程與錄影入口：
 
 - [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
@@ -239,6 +241,7 @@ V 只吃狀態、不吃動作，比 Q 好學。
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L4，主題相符，本文沒有對影片內容下具體說法，只加核對標記。
 
 ## 參考資料
 

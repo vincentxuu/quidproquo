@@ -49,6 +49,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tunin
 
 Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 5, LLM Tuning (page date 2025-10-31, length 1:47:41, matching the post's "1 hour 47 minutes"). Its chapters are preference tuning, data collection, RLHF, reward models and Bradley-Terry, PPO (clip and KL-penalty variants), on-policy versus off-policy, Best-of-N, and DPO, consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
@@ -327,6 +329,7 @@ These are paraphrased from Section I, "LLM tuning," of the [2025 final exam](htt
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 - 2026-10-10: Fixed an outdated availability statement; the 2026 edition now has Lectures 1 and 2 posted.
+- 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 5; topic, date and length all match the post, so nothing needed correcting.
 
 ## References
 

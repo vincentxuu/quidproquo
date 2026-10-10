@@ -51,6 +51,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evalu
 
 原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation](https://www.youtube.com/watch?v=8fNP4N46RRo)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 8 講 LLM Evaluation（頁面日期 2025-11-21，長 1:49:25）；章節是 inter-rater agreement、rule-based 指標（METEOR／BLEU／ROUGE）、LLM-as-a-judge 與其偏見（position／verbosity／self-enhancement）、factuality、agent evaluation、benchmarks（MMLU、AIME／PIQA、SWE-bench、HarmBench、Tau-Bench），與本文主題一致。本文只引投影片，沒有轉述課堂口述。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
@@ -273,6 +275,7 @@ k 越大，pass^k 越低、pass@k 越高。兩個數字可以差很遠。
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。影片是 2025 第 8 講，主題與日期皆與本文相符，沒有需修正之處。
 
 ## 參考資料
 

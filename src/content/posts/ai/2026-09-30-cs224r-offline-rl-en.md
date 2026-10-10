@@ -34,7 +34,7 @@ glossary:
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
-> **Source term**: Based on the Spring 2026 [07_cs224r_offline_rl_2026 slides](https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf) (scheduled 2026-04-22). The companion video is the [Spring 2025 Lecture 7 recording (supplement)](https://www.youtube.com/watch?v=lRDaXnPIzks). The title matches, but the split differs: the [2025 Lecture 7 slides](https://cs224r.stanford.edu/spring_2025/slides/07_cs224r_offline_rl_2025.pdf) presented "implicit policy constraint" and "conservative methods" ([CQL](https://arxiv.org/abs/2006.04779)) as the two families, and the 2025 schedule listed CQL as a reading. In 2026 the second family became IQL's expectile approach, and the only listed reading is [IQL](https://arxiv.org/abs/2110.06169). Any CQL segment in the video is material the 2026 slides don't cover. This is post 9 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
+> **Source term**: Based on the Spring 2026 [07_cs224r_offline_rl_2026 slides](https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf) (scheduled 2026-04-22). The companion video is the [Spring 2025 Lecture 7 recording (supplement)](https://www.youtube.com/watch?v=lRDaXnPIzks). The title matches, but the split differs: the [2025 Lecture 7 slides](https://cs224r.stanford.edu/spring_2025/slides/07_cs224r_offline_rl_2025.pdf) presented "implicit policy constraint" and "conservative methods" ([CQL](https://arxiv.org/abs/2006.04779)) as the two families, and the 2025 schedule listed CQL as a reading. In 2026 the second family became IQL's expectile approach, and the only listed reading is [IQL](https://arxiv.org/abs/2110.06169). I read this L7 video's transcript and it does not cover CQL (it ends with IQL and a mention of IDQL); the 2025 CQL segment is at the start of the next lecture's (L8) recording, not in this video. This is post 9 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
 Lectures 3 through 6 ([policy gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en) to [Q-learning](/posts/ai/2026-09-30-cs224r-q-learning-en)) all assume the policy can keep collecting fresh data while it learns. Lecture 7 of [CS224R](https://cs224r.stanford.edu/) drops that assumption. You have one fixed dataset and no more interaction. How do you learn?
 
@@ -56,6 +56,8 @@ title: Spring 2025 Lecture 7: Offline RL (YouTube, supplement)
 ```
 
 Original videos: [Spring 2025 Lecture 7: Offline RL (YouTube, supplement)](https://www.youtube.com/watch?v=lRDaXnPIzks)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L7 Offline RL transcript and searched keywords (not a word-by-word comparison). The video is L7 and the speaker is Chelsea Finn; it covers the offline RL distribution-shift problem, filtered BC and advantage-weighted methods, and IQL with expectile regression (ending with a mention of IDQL). Found and fixed: the post said CQL sections would appear in the video, but this L7 video never covers CQL; CQL is at the start of the next lecture's recording (L8 Reward Learning). This post follows the 2026 slides; the video is supplementary only.
 
 Course and recording entries:
 
@@ -219,6 +221,7 @@ Draw the nine-state graph on paper. Suppose the data holds only two trajectories
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Found that the L7 video does not cover CQL (it is at the start of the L8 recording) and corrected the post's claim that CQL sections appear in the video.
 
 ## References
 

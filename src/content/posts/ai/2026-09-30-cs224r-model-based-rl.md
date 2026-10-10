@@ -39,7 +39,7 @@ glossary:
 
 存取等級是 **A3**：投影片匿名可下載，2026 錄影只放在 Canvas 上，校外看不到。
 
-配套影片（**補充教材**）：[Spring 2025 Lecture 11: Model-Based RL](https://www.youtube.com/watch?v=PvqyGnOirgA)（約 73 分鐘）。要注意兩年的切法不同。[2025 年的 L11 投影片](https://cs224r.stanford.edu/spring_2025/slides/11_cs224r_mbrl_2025.pdf)先講 planning、再講資料生成，最後還有一段靈巧操作的 case study；[2025 L12 投影片](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf)開頭又接著講「用 learned model 生成合成資料」和「什麼時候用 model-based RL」。所以 MBPO 那段在 2025 錄影裡可能落在 L12 開頭。以下以 2026 投影片為準。
+配套影片（**補充教材**）：[Spring 2025 Lecture 11: Model-Based RL](https://www.youtube.com/watch?v=PvqyGnOirgA)（約 73 分鐘）。要注意兩年的切法不同。[2025 年的 L11 投影片](https://cs224r.stanford.edu/spring_2025/slides/11_cs224r_mbrl_2025.pdf)先講 planning、再講資料生成，最後還有一段靈巧操作的 case study；[2025 L12 投影片](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf)開頭又接著講「用 learned model 生成合成資料」和「什麼時候用 model-based RL」。我讀過字幕：L11 錄影在靈巧機器手的 case study 之後預告「下次講 model-based 的最後一部分和多任務」，所以合成資料生成（MBPO 那段）不在這支影片，而是在 L12 錄影開頭。以下以 2026 投影片為準。
 
 ## 課程影片來源
 
@@ -51,6 +51,8 @@ title: Spring 2025 Lecture 11: Model-Based RL（YouTube，補充）
 ```
 
 原始影片：[Spring 2025 Lecture 11: Model-Based RL（YouTube，補充）](https://www.youtube.com/watch?v=PvqyGnOirgA)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L11 Model-Based RL 字幕（前／中／後段加關鍵字搜尋，非逐字比對）。確認影片是 L11、講者為 Chelsea Finn；內容依序是演算法總覽複習、dynamics model 的學習、gradient-based 與 sampling-based planning、replanning，結尾是靈巧機器手的 case study（含 ensemble、約 4 小時資料就能轉 90°），最後預告「下次講 model-based 的最後一部分和多任務」。所以合成資料生成（MBPO 那一段）確實不在這支影片裡，而是在 L12 錄影開頭。本文以 2026 投影片為準，影片只當補充。
 
 課程與錄影入口：
 
@@ -240,6 +242,7 @@ Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L11，字幕證實 MBPO／合成資料段落在 L12 錄影開頭，原文的「可能」改為確認。
 
 ## 參考資料
 

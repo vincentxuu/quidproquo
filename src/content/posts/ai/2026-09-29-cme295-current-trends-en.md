@@ -51,6 +51,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & C
 
 Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 9, Recap & Current Trends (page date 2025-12-05, length 1:51:31, matching the post). Its chapters are a recap of the earlier lectures, Vision Transformer, Diffusion-based LLMs and closing thoughts, consistent with the post's focus on ViT and diffusion LLMs. The post cites only the slides and does not relay spoken remarks.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
@@ -279,6 +281,7 @@ Lecture 9 is not covered by the [2025 final exam](https://cme295.stanford.edu/ex
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 9; topic, date and length all match the post, so nothing needed correcting.
 
 ## References
 

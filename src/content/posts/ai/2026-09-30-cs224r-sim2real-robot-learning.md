@@ -48,6 +48,8 @@ title: Spring 2025 Lecture 17: Advancing Robot Intelligence（YouTube，講者�
 
 原始影片：[Spring 2025 Lecture 17: Advancing Robot Intelligence（YouTube，講者不同，只當背景）](https://www.youtube.com/watch?v=Hp1WBWghrak)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L17 Advancing Robot Intelligence 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Ashish Kumar、主題與本文相符。講者為 Ashish Kumar（Tesla Optimus AI Lead），影片約 50 分鐘（49:48），主題是用 RL 在模擬中訓練再轉到真機（sim-to-real），與本文所說「講者不同、只適合當背景」相符。本文敘述以 2026 投影片為準，影片只當補充。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
@@ -219,6 +221,7 @@ Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。講者、長度與 sim-to-real 主題皆與本文說法相符，沒有需修正之處。
 
 ## 參考資料
 

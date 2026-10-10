@@ -57,6 +57,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic L
 
 Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 7, Agentic LLMs (page date 2025-11-14, length 1:49:22, matching the post's "1 hour 49 minutes"). Its chapters are RAG (SBERT/bi-encoders, BM25, HyDE and contextual retrieval, prompt caching, cross-encoder re-ranking, NDCG/MRR), tool calling, tool selection, MCP, ReAct agents, and safety, consistent with the post's sections. The post cites only the slides and does not relay spoken remarks, so there were no spoken claims to check.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
@@ -301,6 +303,7 @@ These questions are adapted from Part III, "Agentic LLMs," of the [2025 final ex
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 7, Agentic LLMs; topic, date and length all match the post, so nothing needed correcting.
 
 ## References
 

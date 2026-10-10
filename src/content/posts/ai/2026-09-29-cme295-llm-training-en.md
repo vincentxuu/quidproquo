@@ -56,6 +56,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Train
 
 Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 4, LLM Training (page date 2025-10-17, length 1:47:27). Its chapters are pretraining, FLOPs, scaling laws and Chinchilla, ZeRO, model parallelism, Flash Attention, quantization, mixed precision, SFT, instruction tuning, LoRA and QLoRA, consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
@@ -304,6 +306,7 @@ These questions are adapted from Part IV, "LLM training," of the [2025 midterm](
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 4; topic and date match the post, so nothing needed correcting.
 
 ## References
 

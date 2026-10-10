@@ -45,6 +45,8 @@ title: Spring 2025 Lecture 3: Policy Gradients（YouTube，Stanford Online）
 
 原始影片：[Spring 2025 Lecture 3: Policy Gradients（YouTube，Stanford Online）](https://www.youtube.com/watch?v=KCAOXd4IO9o)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L3 Policy Gradients 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到 REINFORCE、log-likelihood 梯度、baseline 與變異，與本文主題相符。本文敘述以 2026 投影片為準，影片只當補充。
+
 課程與錄影入口：
 
 - [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
@@ -205,6 +207,7 @@ L4 投影片第 27 頁會再提到這個 KL 限制，並說它會在 LLM 偏好�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L3，主題相符，沒有需修正之處。
 
 ## 參考資料
 

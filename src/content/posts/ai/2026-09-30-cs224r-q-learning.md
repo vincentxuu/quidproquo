@@ -54,6 +54,8 @@ title: Spring 2025 Tutorial Session: Review of Q-Learning（YouTube，補充）
 
 原始影片：[Spring 2025 Lecture 6: Q-Learning（YouTube，補充）](https://www.youtube.com/watch?v=-7kv6jf0isQ)、[Spring 2025 Tutorial Session: Review of Q-Learning（YouTube，補充）](https://www.youtube.com/watch?v=07MQNMcxhZU)
 
+內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取前／中／後段並以關鍵字搜尋（非逐字比對）。-7kv6jf0isQ 是 Spring 2025 L6 Q-Learning（Chelsea Finn）：開頭複習價值函數與 policy gradient／actor-critic，接著講 Q function 與 policy 的關係、不學顯式 policy 的 RL、replay buffer、target network、double DQN 等穩定化技巧。07MQNMcxhZU 是 Spring 2025 Tutorial Session: Review of Q-Learning，講者是助教 Anikait Singh（字幕自述），內容是 MDP 複習、tabular／fitted Q iteration、parametric Q-learning（TD 與 Monte Carlo 的偏差變異取捨）與實作細節。長度（約 62、51 分鐘）皆相符。本文以 2026 教材為準，影片只當補充。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
@@ -239,6 +241,7 @@ TA 講義最後兩節是 DQN walkthrough 和 Soft Actor-Critic，PDF 上只有�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片（2025 L6 與助教 Tutorial）主題、講者與長度都與本文相符，沒有需修正之處。
 
 ## 參考資料
 

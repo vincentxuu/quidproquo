@@ -54,6 +54,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transform
 
 原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer](https://www.youtube.com/watch?v=Ub3GoFaUcds)、[Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers](https://www.youtube.com/watch?v=114i2Kz-LZA)
 
+內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。Ub3GoFaUcds 是 Autumn 2025 第 1 講 Transformer（頁面日期 2025-09-26，長 1:41:59），章節含 NLP overview（情緒分析、NER、翻譯與 BLEU／ROUGE／perplexity 等指標）、tokenization、word representation、RNN、self-attention、Transformer 架構、詳細範例（teddy bear 句子）。114i2Kz-LZA 是 Autumn 2026 第 1 講 Transformers（1:44:28），章節從 timeline 接 tokenization、word2vec、RNN／LSTM、attention、Transformer 與 end-to-end 範例，沒有 NLP overview 與評估指標（字幕裡 BLEU／ROUGE／perplexity 都沒出現），且開場有「與去年版本的差異」並提到 agent。這與本文「2026 版刪掉 NLP overview、時間軸帶過、加入 agent 時代」的說法相符，沒有需修正之處。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
@@ -189,6 +191,7 @@ flowchart LR
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 2025 播放清單與官方 2026 課表，兩支第 1 講的影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片（2025 與 2026 第 1 講）與本文「2026 版改了什麼」的說法相符，沒有需修正之處。
 
 ## 參考資料
 

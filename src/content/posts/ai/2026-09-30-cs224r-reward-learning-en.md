@@ -52,6 +52,8 @@ title: Spring 2025 Lecture 8: Reward Learning (YouTube, supplement)
 
 Original videos: [Spring 2025 Lecture 8: Reward Learning (YouTube, supplement)](https://www.youtube.com/watch?v=PDIxDhA9Z6Y)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L8 Reward Learning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript opens by finishing offline RL (including conservative methods such as CQL), then covers why task specification is hard, goal classifiers and exploitation, and learning rewards from human preferences, confirming the post's statement that the 2025 recording's opening review is about conservative methods and differs from 2026. This post follows the 2026 slides; the video is supplementary only.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
@@ -217,6 +219,7 @@ Pick an agent or LLM feature you work on and write down what its "reward" is tod
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The transcript confirms that 2025 L8 opens with a conservative offline RL (CQL) review, as the post says.
 
 ## References
 

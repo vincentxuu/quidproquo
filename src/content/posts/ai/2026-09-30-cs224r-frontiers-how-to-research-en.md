@@ -47,6 +47,8 @@ title: Spring 2025 Lecture 18: Frontiers (YouTube, supplementary)
 
 Original videos: [Spring 2025 Lecture 18: Frontiers (YouTube, supplementary)](https://www.youtube.com/watch?v=FacJ_1tTSx4)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L18 Frontiers transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript walks through open problems in problem setup, methods, and deployment/evaluation, then research advice and projects, and includes the speaker's second-year-PhD internship story about building a video generation model (about 1,300 citations), which supports the post's statement that the 2025 video covers most of this lecture. This post follows the 2026 slides; the video is supplementary only.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
@@ -320,6 +322,7 @@ Series navigation: previous [L17 RL for VLAs](/posts/ai/2026-09-30-cs224r-rl-for
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The transcript supports the claim that the 2025 video covers most of the lecture, including the internship story; nothing needed correcting.
 
 ## References
 

@@ -56,6 +56,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Train
 
 原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So)、[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
 
+內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。Q5baLehv5So 是 Autumn 2025 第 3 講（MoE、解碼與 sampling、prompting、KV cache、PagedAttention／MLA），VlA_jt_3Qc4 是 Autumn 2025 第 4 講 LLM Training（預訓練與 scaling laws、ZeRO 資料平行、模型平行、Flash Attention、量化、混合精度、SFT／instruction tuning、LoRA／QLoRA），證實本文所說兩支只作背景補充、不是 2026 第 5 講錄影，且內容確實涵蓋 LLM systems 相關主題（推論加速、平行化、Flash Attention、量化）。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
@@ -397,6 +399,7 @@ FlashAttention-3 論文提到，第二版在 H100 上只用到 35% 的算力。�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。2026 版第 5 講錄影尚未上架，把原本標成已附影片的 2025 版第 3、4 講改標為相關補充影片，並修正影片標題。
+- 2026-10-10：依字幕核對影片內容。兩支 2025 影片（第 3、4 講）確實涵蓋推論加速／平行化／量化等相關主題，與本文「相關補充」標示相符；沒有需修正之處。
 
 ## 參考資料
 

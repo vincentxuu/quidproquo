@@ -47,6 +47,8 @@ title: Spring 2025 Lecture 9: RL for LLMs (YouTube, supplementary)
 
 Original videos: [Spring 2025 Lecture 9: RL for LLMs (YouTube, supplementary)](https://www.youtube.com/watch?v=XKLGuwvSKvI)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L9 RL for LLMs (preference optimization guest lecture) transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Archit Sharma, and the topic matches this post. The speaker is Archit Sharma (the description lists him as lead author of DPO), the same speaker the post names; the transcript covers reward models, Bradley-Terry, the KL-regularized RLHF objective and DPO, matching the post's topic. This post follows the 2026 slides; the video is supplementary only.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
@@ -227,6 +229,7 @@ Compute them with any small model and plug them into the DPO formula. Before tra
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Speaker and topic both match the post's statements; nothing needed correcting.
 
 ## References
 

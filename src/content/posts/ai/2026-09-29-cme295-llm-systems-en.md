@@ -56,6 +56,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Train
 
 Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So), [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
 
+Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). Q5baLehv5So is Autumn 2025 Lecture 3 (MoE, decoding and sampling, prompting, KV cache, PagedAttention/MLA), and VlA_jt_3Qc4 is Autumn 2025 Lecture 4, LLM Training (pretraining and scaling laws, ZeRO data parallelism, model parallelism, Flash Attention, quantization, mixed precision, SFT/instruction tuning, LoRA/QLoRA). This confirms the post's statement that both are background only and not the 2026 Lecture 5 recording, and that they do cover LLM-systems topics (inference speedups, parallelism, Flash Attention, quantization).
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
@@ -397,6 +399,7 @@ Once the slides and video go up on October 30, this post will be revised against
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The 2026 Lecture 5 recording is not yet published, so the 2025 Lecture 3 and 4 videos previously marked as included are now labelled related supplementary videos, and their titles were corrected.
+- 2026-10-10: Checked the video content against its transcript. Both 2025 videos (Lectures 3 and 4) do cover inference speedups, parallelism and quantization, matching the post's "related supplement" label; nothing needed correcting.
 
 ## References
 

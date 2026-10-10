@@ -47,6 +47,8 @@ title: Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker,
 
 Original videos: [Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker, background only)](https://www.youtube.com/watch?v=O2VpNnwB4lM)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L10 RL for LLM Reasoning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Aviral Kumar, and the topic matches this post. The speaker is Aviral Kumar (per the video description and transcript), matching the post's statement that the 2026 speaker differs and the video is background only; the transcript covers RL for LLM reasoning, process rewards, and PPO extending to GRPO, and says outright that CQL is not covered in this lecture. This post follows the 2026 slides; the video is supplementary only.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
@@ -162,6 +164,7 @@ Plot accuracy against total output tokens, not against N. That's the score-versu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Speaker and lecture number both match the post's statements; nothing needed correcting.
 
 ## References
 

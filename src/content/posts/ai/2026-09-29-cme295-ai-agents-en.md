@@ -55,6 +55,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic L
 
 Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The embedded video is Autumn 2025 Lecture 7, Agentic LLMs (not the 2026 Lecture 6, as the post already says); its chapters include RAG, tool calling, tool selection, MCP, ReAct and safety, confirming the post's statement that tool calling, MCP and retrieval were already covered there and the video is only related background. The 2026 Lecture 6 recording is not up, so there is no video to check the post's advance write-up of the 2026 content against.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
@@ -342,6 +344,7 @@ Once the video and slides for 2026 Lecture 6 are published (the syllabus date is
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The 2026 Lecture 6 recording is not yet published; the 2025 Lecture 7 video is included as related supplementary material.
+- 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 7 and does cover tool calling, MCP and retrieval, matching the post's "related supplement" label; there is no 2026 Lecture 6 video to check against.
 
 ## References
 

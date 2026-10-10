@@ -54,6 +54,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transform
 
 Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer](https://www.youtube.com/watch?v=Ub3GoFaUcds), [Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers](https://www.youtube.com/watch?v=114i2Kz-LZA)
 
+Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). Ub3GoFaUcds is Autumn 2025 Lecture 1, Transformer (page date 2025-09-26, length 1:41:59); its chapters include an NLP overview (sentiment analysis, NER, translation, and metrics such as BLEU, ROUGE and perplexity), tokenization, word representation, RNNs, self-attention, the Transformer architecture, and a detailed example (the teddy-bear sentence). 114i2Kz-LZA is Autumn 2026 Lecture 1, Transformers (1:44:28); its chapters go from a timeline to tokenization, word2vec, RNN/LSTM, attention, the Transformer and an end-to-end example, with no NLP overview or evaluation metrics (BLEU, ROUGE and perplexity never appear in the transcript), and it opens with a "difference from last year's edition" segment that mentions agents. This matches the post's statements that 2026 drops the NLP overview, covers it only in a timeline, and adds an agentic era; nothing needed correcting.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
@@ -189,6 +191,7 @@ These questions are adapted from Part I of the [2025 midterm](https://cme295.sta
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the 2025 playlist and the official 2026 syllabus; both Lecture 1 video IDs match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. Both videos (2025 and 2026 Lecture 1) match the post's "What changed in 2026" statements; nothing needed correcting.
 
 ## References
 

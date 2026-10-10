@@ -44,6 +44,8 @@ title: Spring 2025 Lecture 3: Policy Gradients (YouTube, Stanford Online)
 
 Original videos: [Spring 2025 Lecture 3: Policy Gradients (YouTube, Stanford Online)](https://www.youtube.com/watch?v=KCAOXd4IO9o)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L3 Policy Gradients transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers REINFORCE, the log-likelihood gradient, baselines and variance, matching the post's topic. This post follows the 2026 slides; the video is supplementary only.
+
 Course and recording entries:
 
 - [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
@@ -204,6 +206,7 @@ That last point is your cue for when to use it. If rewards are sparse, or you ca
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video is Spring 2025 L3 and the topic matches; nothing needed correcting.
 
 ## References
 

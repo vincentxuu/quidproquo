@@ -51,6 +51,8 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reaso
 
 原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 6 講 LLM Reasoning（頁面日期 2025-11-07，長 1:47:10）；章節是 reasoning models、benchmarks、pass@k、用 RL 擴展、GRPO、GRPO 與 PPO 比較、length bias、DAPO／Dr. GRPO、DeepSeek R1 配方，與本文主題一致。本文只引投影片，沒有轉述課堂口述。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
@@ -277,6 +279,7 @@ flowchart LR
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
 - 2026-10-10：修正過時的上架說法，2026 版已上架第 1、2 講。
+- 2026-10-10：依字幕核對影片內容。影片是 2025 第 6 講，主題與日期皆與本文相符，沒有需修正之處。
 
 ## 參考資料
 
