@@ -18,24 +18,27 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs50ai-w00-search)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
 ## Course video sources
 
-Uses the lecture recording currently linked by the official Week 0 page.
+The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 0 lecture recording is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=WbzNRTTrX0g
-title: CS50 AI Week 0 — official lecture recording
+title: Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020
 ```
 
-Original videos: [CS50 AI Week 0 — official lecture recording](https://www.youtube.com/watch?v=WbzNRTTrX0g)
+Original videos: [Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=WbzNRTTrX0g)
 
 Course and recording entries:
 
 - [CS50 AI Week 0 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/0/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+Checked: 2026-10-10.
 
 ## TL;DR
 
@@ -298,6 +301,7 @@ style50 tictactoe.py
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official CS50 YouTube playlist was checked live and lists this week’s lecture recording, so the status is now Videos included.
 
 ## References
 

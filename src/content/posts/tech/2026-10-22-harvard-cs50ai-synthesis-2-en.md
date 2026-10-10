@@ -24,12 +24,14 @@ draft: false
 
 ## Course video sources
 
-This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+This post is a cross-week synthesis or wrap-up with no single corresponding lecture. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-10-10 and has no video dedicated to this post; go back to the weekly lecture recordings by topic.
 
 Course and recording entries:
 
 - [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
 - [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
+Checked: 2026-10-10.
 
 ## TL;DR
 
@@ -212,6 +214,7 @@ Statistical/Symbolic NLP (Parser, Questions)
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official playlist was checked live; no recording corresponds to this post, so the status stays official entry only.
 
 ## References
 

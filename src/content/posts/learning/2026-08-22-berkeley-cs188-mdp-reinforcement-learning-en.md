@@ -16,13 +16,13 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 Search assumes successors can be enumerated. Reinforcement learning must act under uncertain outcomes and delayed rewards. [Lectures 9–12](https://inst.eecs.berkeley.edu/~cs188/sp26/) establish MDPs and then RL; [Project 3](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj3/) implements value iteration, Q-learning, epsilon-greedy exploration, and approximate Q-learning.
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10; the lecture recording embedded here is listed there as a “Recording”. No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=0CDpYf1KpOc
@@ -35,6 +35,8 @@ Course and recording entries:
 
 - [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 - [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+Checked: 2026-10-10.
 
 ## Separate planning from learning
 
@@ -53,6 +55,7 @@ Series navigation: [Previous: CSPs and multi-agent search](/posts/learning/2026-
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.
 
 ## References
 

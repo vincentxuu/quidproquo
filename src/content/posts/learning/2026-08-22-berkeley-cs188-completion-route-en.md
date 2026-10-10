@@ -16,13 +16,13 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-completion-route)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 The final three meetings on the [CS188 Spring 2026 calendar](https://inst.eecs.berkeley.edu/~cs188/sp26/) cover AI for Global Nuclear Monitoring, AI Safety, and Further Thoughts. They are not detached news topics. They ask what remains missing when search, decisions, uncertainty, and learning enter real institutions.
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10; the lecture recording embedded here is listed there as a “Recording”. No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=H5AQ5s-n0ck
@@ -35,6 +35,8 @@ Course and recording entries:
 
 - [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 - [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+Checked: 2026-10-10.
 
 ## A standard for independent completion
 
@@ -61,6 +63,7 @@ Series navigation: [Previous: Decisions and machine learning](/posts/learning/20
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.
 
 ## References
 

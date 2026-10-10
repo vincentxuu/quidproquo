@@ -18,24 +18,27 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-09-10-harvard-cs50ai-w02-uncertainty-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
 
 ## 課程影片來源
 
-採用官方 Week 2 頁面目前連結的講課錄影。
+官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 2 講課錄影在清單中。
 
 ```youtube
 url: https://www.youtube.com/watch?v=D8RRq3TbtHU
-title: CS50 AI Week 2 — official lecture recording
+title: Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020
 ```
 
-原始影片：[CS50 AI Week 2 — official lecture recording](https://www.youtube.com/watch?v=D8RRq3TbtHU)
+原始影片：[Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=D8RRq3TbtHU)
 
 課程與錄影入口：
 
 - [CS50 AI Week 2 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/2/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -350,6 +353,7 @@ style50 pagerank.py
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 CS50 YouTube 播放清單即時核對，本週講課錄影存在，狀態改為已附影片。
 
 ## 參考資料
 

@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the October 30 session on the [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 site, the [Lecture 9 recording](https://youtu.be/4vQSMijp_M8) (YouTube title "Lecture 9: Economic Impacts of AI", about 2 h 32 min), the four pre-readings, and Boaz Barak's blog post [Thoughts by a Non-Economist on AI and Economics](https://windowsontheory.org/2025/11/04/thoughts-by-a-non-economist-on-ai-and-economics/), which the course homepage lists. I checked every fact against the official materials on 2026-09-30. Recording content comes from YouTube's auto-generated captions; names follow the course site's spelling. **Materials for this lecture**: the recording and reading list are public. The site lists no slides and its experiment field says "To be determined", though the recording does include a student experiment. The [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) covers access grading and gaps for the whole course.
 
@@ -34,18 +34,21 @@ Boaz Barak framed the session in one sentence. An AI safety course cares whether
 
 ## Course video sources
 
-Recording links have been checked against the official course page for the edition used by this article.
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=4vQSMijp_M8
-title: Lecture 9: Economic Impacts of AI (recording)
+title: AI Safety (CS 2881) Lecture 9: Economic Impacts of AI
 ```
 
-Original videos: [Lecture 9: Economic Impacts of AI (recording)](https://www.youtube.com/watch?v=4vQSMijp_M8)
+Original videos: [AI Safety (CS 2881) Lecture 9: Economic Impacts of AI](https://www.youtube.com/watch?v=4vQSMijp_M8)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## What this lecture offers
 
@@ -179,6 +182,7 @@ One thing to do tonight: open the Canaries paper, find the appendix figure behin
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
 
 ## References
 

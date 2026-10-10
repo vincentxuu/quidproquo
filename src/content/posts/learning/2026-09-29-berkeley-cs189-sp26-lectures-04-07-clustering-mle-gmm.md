@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）。版本選擇見[版本地圖](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)；前一段是 [Lec 1–3](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics)。
 
@@ -37,23 +37,26 @@ draft: false
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=STdR9OyulZE
-title: 影片
+title: Lecture 4 錄影：Clustering, Probability Review
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=kU7a1K3PX10
-title: 影片
+title: Lecture 5 錄影：Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians
 ```
 
-原始影片：[影片](https://www.youtube.com/watch?v=STdR9OyulZE)、[影片](https://www.youtube.com/watch?v=kU7a1K3PX10)、[影片](https://www.youtube.com/watch?v=JzlMrqaa_-A)、[影片](https://www.youtube.com/watch?v=0YLmbbERr0g)
+原始影片：[Lecture 4 錄影：Clustering, Probability Review](https://www.youtube.com/watch?v=STdR9OyulZE)、[Lecture 5 錄影：Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians](https://www.youtube.com/watch?v=kU7a1K3PX10)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
 
 ## Lec 4 前半：K-means 分群
 
@@ -193,6 +196,7 @@ Discussion 3 的 MLE 題是這四講最重要的練習：它把 Lec 5 的 MLE �
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
 
 ## 參考資料
 

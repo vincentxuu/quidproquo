@@ -23,12 +23,14 @@ draft: false
 
 ## 課程影片來源
 
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。官方 CS50 YouTube 播放清單（8 支：導論加 Week 0–6 講課）已於 2026-10-10 即時核對。
 
 課程與錄影入口：
 
 - [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
 - [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
+查核日期：2026-10-10。
 
 ## 先判斷它是不是你要的課
 
@@ -126,6 +128,7 @@ draft: false
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方播放清單，沒有對應本篇的單一講次錄影，狀態維持僅附官方入口。
 - 2026-08-26：初版。錄影與作業版本狀態以 2026 年 8 月 26 日官網查核為準。
 
 ## 參考資料

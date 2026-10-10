@@ -32,7 +32,7 @@ The previous lecture asked what we want a model to do, and wrote the answer down
 
 ## Course video sources
 
-The official Fall 2025 entry provides a student experiment video, but does not list a recording of Ziad Reslan’s guest lecture. The video below is the policy-compliance student experiment, not the guest lecture.
+The official Fall 2025 schedule provides only a student experiment video for this lecture and does not list a recording of Ziad Reslan’s guest lecture. Rechecked live on 2026-10-10: the official YouTube playlist (AI Safety, 17 videos) also has only this student experiment video for Lecture 5, and goes straight from the Lecture 4 recording to the Lecture 6 recording. The video below is the policy-compliance student experiment, not the guest lecture.
 
 ```youtube
 url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
@@ -44,8 +44,9 @@ Original videos: [CS2881R Fall 2025 L5: Student experiment on policy compliance]
 Official sources:
 
 - [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
 
-Checked on 2026-10-10.
+Checked: 2026-10-10.
 
 ## What you can get for this lecture
 
@@ -142,6 +143,7 @@ One thing you can do tonight: following the class exercise, list five image scen
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official schedule and playlist still list only the student experiment video for Lecture 5, so the status stays as related supplementary video only.
 
 ## References
 

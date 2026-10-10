@@ -29,7 +29,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 課站的 10 月 23 日講次。主要材料是 [Boaz Barak 開場錄影](https://youtu.be/8NL1NAMrJxY)（10 分鐘）與他的 9 頁投影片、[Marius Hobbhahn](https://docs.google.com/presentation/d/1BpMoImDfF9x3C7mGvmIFJOOVYvkgZFn2W09cW1oieSo) 與 [Buck Shlegeris](https://docs.google.com/presentation/d/1n5Dl6P-bPIfaenMU-9Dk4sTqXvl8VwdoHMSbmKmwonc) 的客座投影片，以及學生實驗的[影片](https://youtu.be/JXvHJheHE10)、[GitHub](https://github.com/ItamarRocha/scheming-exp8) 與 [LessWrong 文章](https://www.lesswrong.com/posts/AJANBeJb2p39su6F9/cs2881r-week-8-when-agents-prefer-hacking-to-failu)。**兩場客座演講課站沒有列出錄影，官方 2025 YouTube 播放清單（2026-10-01 核對）也只有 Boaz 的 10 分鐘開場與學生實驗兩支**，本文對客座內容的描述只依投影片文字，不補講者口頭說了什麼。事實皆於 2026-09-30 打開上述材料核對。單看這一講屬 **A2**：開場錄影、三份投影片與完整學生實驗公開，主體演講的錄影拿不到。
 
@@ -37,18 +37,21 @@ glossary:
 
 ## 課程影片來源
 
-影片連結已與本文採用版本的官方課程頁核對。
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，第 8 講在清單中只有 Boaz Barak 約 10 分鐘的開場錄影，兩場客座演講沒有錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=8NL1NAMrJxY
-title: Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming（YouTube 開場錄影）
+title: AI Safety (CS 2881) Lecture 8: Scheming
 ```
 
-原始影片：[Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming（YouTube 開場錄影）](https://www.youtube.com/watch?v=8NL1NAMrJxY)
+原始影片：[AI Safety (CS 2881) Lecture 8: Scheming](https://www.youtube.com/watch?v=8NL1NAMrJxY)
 
 課程與錄影入口：
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
 
 ## 先看一個場景
 
@@ -212,6 +215,7 @@ Boaz、Marius、Buck 三人在同一堂課給了三種角度，彼此有明確�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
 
 ## 參考資料
 

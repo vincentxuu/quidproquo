@@ -16,13 +16,13 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [Lecture 13–18](https://inst.eecs.berkeley.edu/~cs188/sp26/)從 probability、Bayes nets、exact inference、sampling 一路進到 HMM 與 particle filtering。[Project 4 Ghostbusters](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/)把這些概念放進一個具體任務：Pacman 看不見 ghost，只拿得到帶雜訊的 Manhattan distance，要維護位置的 belief distribution 並追上目標。
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影在清單中（課表標為 Recording）。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=Q9TPylxjNoA
@@ -35,6 +35,8 @@ title: CS188 Spring 2026 Lecture 13: Probability
 
 - [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 - [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+查核日期：2026-10-10。
 
 ## Factor 操作不是機械表格
 
@@ -55,6 +57,7 @@ Join factors 把相容資訊合起來，eliminate 則對不再需要的變數加
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影在清單中，狀態改為已附影片。
 
 ## 參考資料
 

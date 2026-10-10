@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). For why this semester, see the previous post, the [version map](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en).
 
@@ -33,23 +33,26 @@ The textbook is Bishop and Bishop's *Deep Learning: Foundations and Concepts*. [
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. The official schedule lists no recording for Lecture 1. No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=IzfaWKuxThw
-title: video
+title: Lecture 2 recording: Data Tools
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=oVo_RajZ3aE
-title: video
+title: Lecture 3 recording: Machine Learning Mechanics - Terminology and Techniques
 ```
 
-Original videos: [video](https://www.youtube.com/watch?v=IzfaWKuxThw)、[video](https://www.youtube.com/watch?v=oVo_RajZ3aE)
+Original videos: [Lecture 2 recording: Data Tools](https://www.youtube.com/watch?v=IzfaWKuxThw)、[Lecture 3 recording: Machine Learning Mechanics - Terminology and Techniques](https://www.youtube.com/watch?v=oVo_RajZ3aE)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
 
 ## Lec 1: which problems belong to ML
 
@@ -174,6 +177,7 @@ These map almost one-to-one onto the prerequisites behind the HW1 written questi
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
 
 ## References
 

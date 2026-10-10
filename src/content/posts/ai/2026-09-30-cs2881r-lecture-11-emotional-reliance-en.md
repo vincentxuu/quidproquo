@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the November 13 session on the [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 site, the [Lecture 11 recording](https://youtu.be/GNvEjP1DfIs) (YouTube title "Lecture 11: Mental Health and Emotional Attachment", about 1 h 13 min), and the reading list on the site. I checked every fact against the official materials on 2026-09-30. Recording content comes from YouTube's auto-generated captions. **Materials for this lecture**: the recording and reading list are public. There are no slides, and the experiment field says "To be determined", though the recording includes two student experiments. The site's bullets for this session (regulatory approaches, lethal autonomous weapons, mass surveillance, and so on) do not match the Emotional Reliance topic and look copied from another session, so this post **does not cite them**. The [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) covers access grading for the whole course.
 
@@ -34,18 +34,21 @@ The [previous post](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en)
 
 ## Course video sources
 
-Recording links have been checked against the official course page for the edition used by this article.
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=GNvEjP1DfIs
-title: Lecture 11: Mental Health and Emotional Attachment (recording)
+title: AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment
 ```
 
-Original videos: [Lecture 11: Mental Health and Emotional Attachment (recording)](https://www.youtube.com/watch?v=GNvEjP1DfIs)
+Original videos: [AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment](https://www.youtube.com/watch?v=GNvEjP1DfIs)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## What this lecture offers
 
@@ -169,6 +172,7 @@ One thing to do tonight: in a model you use, open two fresh chats the way the fi
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
 
 ## References
 

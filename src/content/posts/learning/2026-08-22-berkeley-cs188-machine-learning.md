@@ -16,13 +16,13 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-machine-learning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [Lecture 19–25](https://inst.eecs.berkeley.edu/~cs188/sp26/)先談 rational decisions 與 value of perfect information，再進入 decision trees、linear regression、Naive Bayes、neural networks、language models 與 fine-tuning。[Project 5](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj5/)則把後半段落到 PyTorch：non-linear regression、手寫數字與語言分類、CNN、attention，以及 optional character-GPT。
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影在清單中（課表標為 Recording）。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=qd1cyMpmbRs
@@ -35,6 +35,8 @@ title: CS188 Spring 2026 Lecture 19: Rational Decisions
 
 - [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 - [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+查核日期：2026-10-10。
 
 ## 這不是另一門完整深度學習課
 
@@ -53,6 +55,7 @@ P5 的作用是讓廣義 AI 課的學生碰到現代 ML workflow：定義 model�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影在清單中，狀態改為已附影片。
 
 ## 參考資料
 

@@ -34,7 +34,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 Harvard CS 2881R 的 Fall 2025 學期。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 9 篇，對應官方第 10 講 Interpretability（2025 年 11 月 6 日）。[上一篇 L8](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception) 談模型會不會為了訓練目標作弊或裝乖；這一篇問下一個問題：如果它真的在作弊，我們有什麼工具看得出來？
 
@@ -51,18 +51,21 @@ L10 的答案分成兩條路。一條是讀模型寫出來的推理過程，也�
 
 ## 課程影片來源
 
-影片連結已與本文採用版本的官方課程頁核對。
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
 
 ```youtube
 url: https://www.youtube.com/watch?v=79otWC2FQlE
-title: L10 講課錄影（YouTube）
+title: AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability
 ```
 
-原始影片：[L10 講課錄影（YouTube）](https://www.youtube.com/watch?v=79otWC2FQlE)
+原始影片：[AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability](https://www.youtube.com/watch?v=79otWC2FQlE)
 
 課程與錄影入口：
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
 
 ## 用到的官方材料與存取狀態
 
@@ -269,6 +272,7 @@ Boaz 要每位講者選邊：機制可解釋性對 AI 安全是不是關鍵瓶�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
 
 ## 參考資料
 

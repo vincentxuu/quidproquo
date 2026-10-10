@@ -43,11 +43,14 @@ It was also the admission filter. The README says only Harvard or MIT students p
 
 ## Course video sources
 
-The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+This post covers an assignment, not a single lecture. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10 and has no walkthrough video for this assignment; use the schedule for the lecture recordings.
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## The paper it reproduces
 
@@ -196,6 +199,7 @@ One thing to do tonight: open [`eval/prompts/non_medical.py`](https://github.com
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official playlist was checked live; no recording corresponds to this post, so the status stays official entry only.
 
 ## References
 

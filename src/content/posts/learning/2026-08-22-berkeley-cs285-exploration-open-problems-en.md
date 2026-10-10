@@ -15,17 +15,32 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 The final seven items in the [official agenda](https://rail.eecs.berkeley.edu/deeprlcourse/) are Exploration, RL Theory, two Midterm Review lectures, Advanced Exploration, Multi-task RL, and Challenges and Open Problems. This is not miscellaneous cleanup. It asks when earlier algorithms are reliable and whether experience transfers to new tasks.
 
 ## Course video sources
 
-The Spring 2026 course page lists current slides but links to Fall 2023 recordings. Lecture numbers cannot be directly matched across versions.
+Checked live on 2026-10-10: the instructor published the Spring 2026 lecture recordings on the RAIL YouTube channel (playlist “CS 185/285: Deep Reinforcement Learning (Spring 2026)”, 27 videos, public since 2026-08-15). Lecture numbers match the official slide list, so these recordings correspond to the lectures this post covers. The course syllabus still says recordings are on bCourses and the course site still links the Fall 2023 playlist; neither is needed to watch these. Two of the lectures are embedded here; the rest are in the playlist.
+
+```youtube
+url: https://www.youtube.com/watch?v=tHq2gcdtumQ
+title: CS 185/285 (Spring 2026): Lecture 19, Exploration
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=TjnD0sY4e0Y
+title: CS 185/285 (Spring 2026): Lecture 25, Challenges and Open Problems
+```
+
+Original videos: [CS 185/285 (Spring 2026): Lecture 19, Exploration](https://www.youtube.com/watch?v=tHq2gcdtumQ)、[CS 185/285 (Spring 2026): Lecture 25, Challenges and Open Problems](https://www.youtube.com/watch?v=TjnD0sY4e0Y)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+Checked: 2026-10-10.
 
 ## L19–20: exploration and guarantees
 
@@ -48,6 +63,7 @@ The [Spring 2026 syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the public Spring 2026 CS 185/285 YouTube playlist on the RAIL channel; embedded two matching lectures and changed the status from official entry only to Videos included.
 
 ## References
 

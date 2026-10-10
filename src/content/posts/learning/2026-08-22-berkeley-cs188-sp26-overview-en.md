@@ -24,12 +24,14 @@ Its strength is that concepts return as programs. P0 teaches Python and the auto
 
 ## Course video sources
 
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+This post is a course overview or resource map with no single corresponding lecture. The official Spring 2026 schedule and playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10 and are publicly viewable; pick recordings by lecture number.
 
 Course and recording entries:
 
 - [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 - [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+Checked: 2026-10-10.
 
 ## What is publicly available
 
@@ -61,6 +63,7 @@ Open P0 and verify that Python and the local autograder run. Then read the state
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Confirmed the official playlist is public; this overview has no single lecture, so the status stays official entry only.
 
 ## References
 

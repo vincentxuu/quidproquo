@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）整理，範圍是 Lecture 7 後半到 Lecture 10（2/10–2/19）。[上一篇](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm)停在 Gaussian mixture 的 log-likelihood 沒有封閉解；這一段換到監督式學習，第一個模型就是線性回歸。
 
@@ -30,23 +30,26 @@ draft: false
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=0YLmbbERr0g
-title: 影片
+title: Lecture 7 錄影：Mixture of Gaussians & Linear Regression
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=202aSB1p8do
-title: 影片
+title: Lecture 8 錄影：Linear Regression
 ```
 
-原始影片：[影片](https://www.youtube.com/watch?v=0YLmbbERr0g)、[影片](https://www.youtube.com/watch?v=202aSB1p8do)、[影片](https://www.youtube.com/watch?v=lrU8Vn0G44w)
+原始影片：[Lecture 7 錄影：Mixture of Gaussians & Linear Regression](https://www.youtube.com/watch?v=0YLmbbERr0g)、[Lecture 8 錄影：Linear Regression](https://www.youtube.com/watch?v=202aSB1p8do)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
 
 ## 官方材料與讀取範圍
 
@@ -243,6 +246,7 @@ Lasso 的 MAP 推導與 bias-variance 分解，則出現在 Discussion 5，本�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
 
 ## 參考資料
 

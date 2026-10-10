@@ -34,7 +34,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 9 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 10, Interpretability (November 6, 2025). [The previous post on L8](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en) asked whether models cheat or fake good behavior to satisfy training objectives. This one asks the next question: if a model really is cheating, what tools do we have to see it?
 
@@ -51,18 +51,21 @@ The course site lists four subtopics for the lecture: Activations, Sparse Auto E
 
 ## Course video sources
 
-Recording links have been checked against the official course page for the edition used by this article.
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=79otWC2FQlE
-title: L10 lecture video (YouTube)
+title: AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability
 ```
 
-Original videos: [L10 lecture video (YouTube)](https://www.youtube.com/watch?v=79otWC2FQlE)
+Original videos: [AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability](https://www.youtube.com/watch?v=79otWC2FQlE)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## Official materials and access
 
@@ -269,6 +272,7 @@ Some student questions worth noting:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
 
 ## References
 

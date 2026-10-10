@@ -23,12 +23,14 @@ But "fully public" does not mean "fully current." Open any lecture's download li
 
 ## Course video sources
 
-This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+This post spans several lectures; pick videos by topic and lecture from the official recording index. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-10-10.
 
 Course and recording entries:
 
 - [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
 - [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
+Checked: 2026-10-10.
 
 ## Decide whether this is your course
 
@@ -127,6 +129,10 @@ If steps one through three take you three days or fewer, keep going. If reading 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-26: Initial version. Recording and assignment version status verified against the official site on August 26, 2026.
+
+## Update Log
+
+- 2026-10-10: Rechecked video status. The official playlist was checked live; no recording corresponds to this post, so the status stays official entry only.
 
 ## References
 

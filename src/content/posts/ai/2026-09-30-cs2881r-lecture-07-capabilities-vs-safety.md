@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 Harvard CS 2881R 的 Fall 2025 學期。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 11 篇，對應官方第 7 講 Capabilities vs. Safety（2025 年 10 月 16 日），客座講者是 [METR](https://metr.org/) 的 Joel Becker。
 
@@ -43,18 +43,21 @@ glossary:
 
 ## 課程影片來源
 
-影片連結已與本文採用版本的官方課程頁核對。
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
 
 ```youtube
 url: https://www.youtube.com/watch?v=fuRmxFZ-umE
-title: L7 講課錄影（YouTube）
+title: AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker
 ```
 
-原始影片：[L7 講課錄影（YouTube）](https://www.youtube.com/watch?v=fuRmxFZ-umE)
+原始影片：[AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker](https://www.youtube.com/watch?v=fuRmxFZ-umE)
 
 課程與錄影入口：
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
 
 ## 用到的官方材料與存取狀態
 
@@ -261,6 +264,7 @@ Becker 說這部分之後會有經濟學家客座（見 [L9 經濟衝擊](/posts
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
 
 ## 參考資料
 

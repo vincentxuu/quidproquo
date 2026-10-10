@@ -23,11 +23,14 @@ series:
 
 ## 課程影片來源
 
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+本文是課程總覽或資源地圖，沒有單一對應講次。2026-10-10 即時核對：講師已把 Spring 2026 講課錄影公開在 RAIL 的 YouTube 頻道（27 支，2026-08-15 起公開）；課程 syllabus 仍寫錄影在 bCourses，課站也仍連到 Fall 2023 播放清單。請依講次編號從播放清單挑選錄影。
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+查核日期：2026-10-10。
 
 ## 六篇怎麼讀
 
@@ -59,6 +62,7 @@ HW1、HW2 適合 CPU 起步。[HW3](https://rail.eecs.berkeley.edu/deeprlcourse/
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。找到 RAIL 頻道公開的 Spring 2026 播放清單並補上連結；本篇沒有單一講次，狀態維持僅附官方入口。
 
 ## 參考資料
 

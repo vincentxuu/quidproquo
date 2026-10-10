@@ -25,11 +25,14 @@ This series therefore treats the 2026 slides, sections, and assignments as canon
 
 ## Course video sources
 
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the instructor published the Spring 2026 lecture recordings on the RAIL YouTube channel (27 videos, public since 2026-08-15). The course syllabus still says recordings are on bCourses and the course site still links the Fall 2023 playlist. Pick recordings by lecture number from the playlist.
 
 Course and recording entries:
 
 - [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+Checked: 2026-10-10.
 
 ## The six-part route
 
@@ -61,6 +64,7 @@ A better completion criterion is an artifact: one derivation note, one implement
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the public Spring 2026 playlist on the RAIL channel and linked it; this post has no single lecture, so the status stays official entry only.
 
 ## References
 

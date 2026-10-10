@@ -15,17 +15,32 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [官方課表](https://rail.eecs.berkeley.edu/deeprlcourse/)把前四講排成 Introduction、Behavioral Cloning、Behavioral Cloning Part 2 與 RL Basics。這段主線不是先背演算法，而是先看 supervised learning 控制器在哪裡壞掉，再引入能用 reward 學習的 RL 問題。
 
 ## 課程影片來源
 
-Spring 2026 官方課程頁列出當期講義；公開錄影入口指向 Fall 2023，講次編號不能直接對應。
+2026-10-10 即時核對：講師已把 Spring 2026 講課錄影公開在 RAIL 的 YouTube 頻道（播放清單「CS 185/285: Deep Reinforcement Learning (Spring 2026)」，27 支，2026-08-15 起公開）。講次編號與官方投影片清單一致，這些錄影對應本文涵蓋的講次。課程 syllabus 仍寫錄影在 bCourses、課站也仍連到 Fall 2023 播放清單，但觀看這些錄影不需要它們。此處嵌入其中兩講，其餘請見播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=yatA09E0J00
+title: CS 185/285 (Spring 2026): Lecture 2, Supervised Learning of Behaviors
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=FcpIul7rAEE
+title: CS 185/285 (Spring 2026): Lecture 4, Reinforcement Learning Basics
+```
+
+原始影片：[CS 185/285 (Spring 2026): Lecture 2, Supervised Learning of Behaviors](https://www.youtube.com/watch?v=yatA09E0J00)、[CS 185/285 (Spring 2026): Lecture 4, Reinforcement Learning Basics](https://www.youtube.com/watch?v=FcpIul7rAEE)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+查核日期：2026-10-10。
 
 ## L1–2：把控制先寫成監督式學習
 
@@ -48,6 +63,7 @@ RL Basics 把問題改寫成 MDP：policy 產生 trajectory，trajectory 累積 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。在 RAIL 頻道找到公開的 Spring 2026 CS 185/285 播放清單，嵌入兩講對應錄影，狀態由僅附官方入口改為已附影片。
 
 ## 參考資料
 

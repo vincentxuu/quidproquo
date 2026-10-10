@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的官方教材寫成：第 17 講的講義 [Neural Networks and PyTorch](https://drive.google.com/drive/folders/1-as4P5M8XTeNvXGk0tmHPorRNNjMBtrM)（3/19，[錄影](https://www.youtube.com/watch?v=bMJ9igfvn1M)）、第 18 講的 [lec18.pdf](https://drive.google.com/drive/folders/1mHu1f3UYFTCqcsy7d1zS2jnynWzWLRas)（3/31，[錄影](https://www.youtube.com/watch?v=XlaV_z2knjA)），以及 [Discussion 8](https://drive.google.com/file/d/1XNAVahEf4jiRfGyUCr-x4XGSSseohf2M/view)（附[解答](https://drive.google.com/file/d/12OuB5CcxfG4Ega4_BREMC1cyijm0FUd7/view)與 [walkthrough 影片](https://www.youtube.com/playlist?list=PL-ysCubq-Sa9sA7c_KW-WwRudeMkxQZu_)）。這幾份都能匿名打開，整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
@@ -35,23 +35,26 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=bMJ9igfvn1M
-title: Lecture 17 錄影
+title: Lecture 17 錄影：Neural Networks, Why We Need Depth, Universal Approximation Theorem, Activation Functions
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=XlaV_z2knjA
-title: Lecture 18 錄影
+title: Lecture 18 錄影：Neural Networks, Backpropagation
 ```
 
-原始影片：[Lecture 17 錄影](https://www.youtube.com/watch?v=bMJ9igfvn1M)、[Lecture 18 錄影](https://www.youtube.com/watch?v=XlaV_z2knjA)
+原始影片：[Lecture 17 錄影：Neural Networks, Why We Need Depth, Universal Approximation Theorem, Activation Functions](https://www.youtube.com/watch?v=bMJ9igfvn1M)、[Lecture 18 錄影：Neural Networks, Backpropagation](https://www.youtube.com/watch?v=XlaV_z2knjA)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
 
 ## 場景：線性模型連 XOR 都學不會
 
@@ -198,6 +201,7 @@ Discussion 8 只有兩題，都是證明題：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
 
 ## 參考資料
 

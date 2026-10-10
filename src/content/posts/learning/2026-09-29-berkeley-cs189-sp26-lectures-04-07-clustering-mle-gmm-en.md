@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). For the choice of semester, see the [version map](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en). The previous stretch is [Lec 1–3](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en).
 
@@ -37,23 +37,26 @@ Read the lectures along this line and they stop feeling like a pile of unrelated
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=STdR9OyulZE
-title: video
+title: Lecture 4 recording: Clustering, Probability Review
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=kU7a1K3PX10
-title: video
+title: Lecture 5 recording: Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians
 ```
 
-Original videos: [video](https://www.youtube.com/watch?v=STdR9OyulZE)、[video](https://www.youtube.com/watch?v=kU7a1K3PX10)、[video](https://www.youtube.com/watch?v=JzlMrqaa_-A)、[video](https://www.youtube.com/watch?v=0YLmbbERr0g)
+Original videos: [Lecture 4 recording: Clustering, Probability Review](https://www.youtube.com/watch?v=STdR9OyulZE)、[Lecture 5 recording: Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians](https://www.youtube.com/watch?v=kU7a1K3PX10)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
 
 ## Lec 4, first half: K-means clustering
 
@@ -193,6 +196,7 @@ The MLE problem in Discussion 3 is the most important exercise in these four lec
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
 
 ## References
 

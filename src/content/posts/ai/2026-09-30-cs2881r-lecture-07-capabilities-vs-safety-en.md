@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 11 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 7, Capabilities vs. Safety (October 16, 2025), with guest lecturer Joel Becker of [METR](https://metr.org/).
 
@@ -43,18 +43,21 @@ What actually happened in the video needs saying up front. Becker's talk covered
 
 ## Course video sources
 
-Recording links have been checked against the official course page for the edition used by this article.
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=fuRmxFZ-umE
-title: L7 lecture video (YouTube)
+title: AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker
 ```
 
-Original videos: [L7 lecture video (YouTube)](https://www.youtube.com/watch?v=fuRmxFZ-umE)
+Original videos: [AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker](https://www.youtube.com/watch?v=fuRmxFZ-umE)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## Official materials and access
 
@@ -261,6 +264,7 @@ The further readings also list the DeepMind Frontier Safety Framework, METR's Co
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
 
 ## References
 

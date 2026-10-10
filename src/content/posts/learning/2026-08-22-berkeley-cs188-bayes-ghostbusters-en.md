@@ -16,13 +16,13 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 [Lectures 13–18](https://inst.eecs.berkeley.edu/~cs188/sp26/) progress from probability and Bayes nets through exact inference and sampling to HMMs and particle filtering. [Project 4: Ghostbusters](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/) makes the sequence concrete: Pacman cannot see ghosts and receives only noisy Manhattan-distance readings, so it must maintain location beliefs and pursue targets.
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10; the lecture recording embedded here is listed there as a “Recording”. No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=Q9TPylxjNoA
@@ -35,6 +35,8 @@ Course and recording entries:
 
 - [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 - [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+Checked: 2026-10-10.
 
 ## Factor operations are not mechanical tables
 
@@ -55,6 +57,7 @@ Series navigation: [Previous: MDPs and reinforcement learning](/posts/learning/2
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.
 
 ## References
 

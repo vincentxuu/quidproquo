@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 課站的 10 月 30 日講次、[第 9 講錄影](https://youtu.be/4vQSMijp_M8)（YouTube 標題「Lecture 9: Economic Impacts of AI」，約 2 小時 32 分）、四篇預讀，以及課站首頁列出的 Boaz Barak 部落格文 [Thoughts by a Non-Economist on AI and Economics](https://windowsontheory.org/2025/11/04/thoughts-by-a-non-economist-on-ai-and-economics/)。事實皆於 2026-09-30 打開官方材料核對；錄影內容依 YouTube 自動字幕整理，人名以課站拼法為準。**本講材料**：錄影與閱讀清單公開；課站沒有列投影片，實驗欄寫「To be determined」，但錄影裡確實有一組學生實驗報告。整門課的存取分級與缺口見[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)。
 
@@ -34,18 +34,21 @@ Boaz Barak 開場只講了一句定位：AI 安全課關心 AI 對世界的影�
 
 ## 課程影片來源
 
-影片連結已與本文採用版本的官方課程頁核對。
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
 
 ```youtube
 url: https://www.youtube.com/watch?v=4vQSMijp_M8
-title: Lecture 9: Economic Impacts of AI（錄影）
+title: AI Safety (CS 2881) Lecture 9: Economic Impacts of AI
 ```
 
-原始影片：[Lecture 9: Economic Impacts of AI（錄影）](https://www.youtube.com/watch?v=4vQSMijp_M8)
+原始影片：[AI Safety (CS 2881) Lecture 9: Economic Impacts of AI](https://www.youtube.com/watch?v=4vQSMijp_M8)
 
 課程與錄影入口：
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
 
 ## 這一講的材料
 
@@ -179,6 +182,7 @@ Chatterji 回饋時問了一個好問題：messiness 是任務本身的屬性，
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
 
 ## 參考資料
 

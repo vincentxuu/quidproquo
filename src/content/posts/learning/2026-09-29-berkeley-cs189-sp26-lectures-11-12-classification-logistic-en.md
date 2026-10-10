@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis) and covers Lectures 11–12 (Feb 24 and 26). In [Lec 7–10](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en) y was a real number; now y is a class label.
 
@@ -30,23 +30,26 @@ The spine of these two lectures is that **the same classification problem can be
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=oid6SvXy8Kw
-title: Video
+title: Lecture 11 recording: Classification
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=xBCpwQt8A5w
-title: Video
+title: Lecture 12 recording: Logistic Regression, Classifier Accuracy
 ```
 
-Original videos: [Video](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[Video](https://www.youtube.com/watch?v=xBCpwQt8A5w)
+Original videos: [Lecture 11 recording: Classification](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[Lecture 12 recording: Logistic Regression, Classifier Accuracy](https://www.youtube.com/watch?v=xBCpwQt8A5w)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
 
 ## Official materials and scope
 
@@ -229,6 +232,7 @@ On this site:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
 
 ## References
 

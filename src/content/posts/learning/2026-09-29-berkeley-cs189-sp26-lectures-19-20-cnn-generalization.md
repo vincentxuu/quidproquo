@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的官方教材寫成：第 19 講的 [lec19.pdf](https://drive.google.com/drive/folders/12L6CYQ-h128-bzFPU1RvX1aJnFvWQ6Hi)（4/2，[錄影](https://www.youtube.com/watch?v=-4PpBUsB_S4)）、第 20 講的 [lec20.pdf](https://drive.google.com/drive/folders/1Ocw82WCz2SiUEDY9uofdfyZuPX4GrfOw)（4/7，[錄影](https://www.youtube.com/watch?v=4LrCyN7URuY)），以及 [Discussion 9](https://drive.google.com/file/d/1Aa40Z2Ufa91YBNAlhfwsHG2JCT23T2SA/view)（附[解答](https://drive.google.com/file/d/16n2T86Vx2bneCubkQ7b52MV8c8wwFUyF/view)與 [walkthrough 影片](https://www.youtube.com/playlist?list=PL-ysCubq-Sa8dQDvhNbABwFT3JWWBTRAW)）。以上都能匿名取得，整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
@@ -40,23 +40,26 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=-4PpBUsB_S4
-title: Lecture 19 錄影
+title: Lecture 19 錄影：Neural Networks, Backpropagation (ctnd.) & Convolutional Neural Networks
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=4LrCyN7URuY
-title: Lecture 20 錄影
+title: Lecture 20 錄影：Convolutional Neural Networks (ctnd.)
 ```
 
-原始影片：[Lecture 19 錄影](https://www.youtube.com/watch?v=-4PpBUsB_S4)、[Lecture 20 錄影](https://www.youtube.com/watch?v=4LrCyN7URuY)
+原始影片：[Lecture 19 錄影：Neural Networks, Backpropagation (ctnd.) & Convolutional Neural Networks](https://www.youtube.com/watch?v=-4PpBUsB_S4)、[Lecture 20 錄影：Convolutional Neural Networks (ctnd.)](https://www.youtube.com/watch?v=4LrCyN7URuY)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
 
 ## Lec 19 前段：收尾反向傳播
 
@@ -173,6 +176,7 @@ Discussion 9 兩題都沿用 Fall 2025 的 discussion（講義標注 F25 Dis8 Q1
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
 
 ## 參考資料
 

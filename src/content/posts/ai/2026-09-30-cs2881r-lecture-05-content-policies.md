@@ -33,7 +33,7 @@ glossary:
 
 ## 課程影片來源
 
-官方 Fall 2025 課表只提供本講的學生實驗影片，沒有列 Ziad Reslan 客座講課錄影。下方可觀看的是學生的 policy compliance 實驗，不能當成客座講課的錄影。
+官方 Fall 2025 課表只提供本講的學生實驗影片，沒有列 Ziad Reslan 客座講課錄影。2026-10-10 即時重查官方 YouTube 播放清單（AI Safety，17 支）：第 5 講同樣只有這支學生實驗影片，播放清單由第 4 講錄影直接接到第 6 講錄影。下方可觀看的是學生的 policy compliance 實驗，不能當成客座講課的錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
@@ -45,6 +45,7 @@ title: CS2881R Fall 2025 L5: Student experiment on policy compliance
 官方來源：
 
 - [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
 
 查核日期：2026-10-10。
 
@@ -143,6 +144,7 @@ title: CS2881R Fall 2025 L5: Student experiment on policy compliance
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方課表與播放清單第 5 講仍只有學生實驗影片，沒有客座講課錄影，狀態維持僅附相關補充影片。
 
 ## 參考資料
 

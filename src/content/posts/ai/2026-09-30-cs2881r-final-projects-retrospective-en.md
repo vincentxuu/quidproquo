@@ -19,7 +19,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 15, the last part, of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series. The previous part, [L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en), covered the final lecture. This one answers two questions. What research did students produce over the semester? And where did the "reproduce, then extend" course design work, and where does it need fixing?
 
@@ -27,11 +27,21 @@ The first half is for readers who want to run a final project themselves: the sp
 
 ## Course video sources
 
-The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10 and lists the final-project oral presentations recording (about 75 minutes). The section on the oral presentations in this article is based on that video.
+
+```youtube
+url: https://www.youtube.com/watch?v=Xr9FNl0S66Q
+title: AI Safety (CS 2881) Oral presentations of student projects
+```
+
+Original videos: [AI Safety (CS 2881) Oral presentations of student projects](https://www.youtube.com/watch?v=Xr9FNl0S66Q)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## Official materials and access
 
@@ -240,6 +250,7 @@ If you've followed the series this far, the next step is running a final project
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official playlist lists the final-project oral presentations recording, so it is now embedded and the status is Videos included.
 
 ## References
 

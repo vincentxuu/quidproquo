@@ -24,11 +24,14 @@ This series is a guide to the materials, not a reconstruction of the classroom. 
 
 ## Course video sources
 
-Recordings are provided to enrolled students and Cal-affiliated auditors. No public external recording was verified; use the public slides.
+The course info page says recordings are provided to enrolled students and Cal-affiliated auditors. Checked live on 2026-10-10: the course home page links a YouTube playlist labeled “Lecture recordings (Needs Berkeley log in)” (CS288 Spring 2026); opened without signing in, that playlist shows no videos. No public external recording was found; use the public slides.
 
 Course and recording entries:
 
 - [Official course and recording entry](https://cal-cs288.github.io/sp26/course_info/)
+- [CS288 Spring 2026 lecture recordings playlist (Berkeley sign-in required)](https://www.youtube.com/playlist?list=PLnocShPlK-Fv9YZIX7qdOyc2GJqnT3D-8)
+
+Checked: 2026-10-10.
 
 ## The prerequisites are operational
 
@@ -67,6 +70,7 @@ A2's Transformer and A3's RAG can both incur compute costs. Start with small dat
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Confirmed live that the recordings playlist is labeled as needing Berkeley sign-in and shows no videos anonymously; the status stays sign-in or course authorization required.
 
 ## References
 

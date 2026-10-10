@@ -16,13 +16,13 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [Lecture 5–8](https://inst.eecs.berkeley.edu/~cs188/sp26/)把兩類問題排在一起：CSP 用變數、domain 與 constraints 壓縮組合搜尋；game trees 則加入會回應你的其他 agent。[Project 2](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj2/)讓 Pacman 面對 ghosts，依序實作 reflex agent、minimax、alpha-beta pruning、expectimax 與 evaluation function。
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影在清單中（課表標為 Recording）。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=JMP3f3Pd7_8
@@ -35,6 +35,8 @@ title: CS188 Spring 2026 Lecture 5: CSPs I
 
 - [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 - [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+查核日期：2026-10-10。
 
 ## CSP：先縮小選擇，再進入對局
 
@@ -59,6 +61,7 @@ Minimax 假設對手會選讓你最差的動作；alpha-beta 不改答案，只�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影在清單中，狀態改為已附影片。
 
 ## 參考資料
 

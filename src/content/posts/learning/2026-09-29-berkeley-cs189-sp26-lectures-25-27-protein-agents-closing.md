@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的官方教材寫成：第 25 講的 [lec25.pdf](https://drive.google.com/drive/folders/1V-V3xZCgc9ahcdZYzHEjMtC0TAo2D5uS)（4/23，[錄影](https://www.youtube.com/watch?v=V-SJk4AJ-xc)）、第 27 講的 [lec27.pdf](https://drive.google.com/file/d/1-w1R8Xki56lGIuewvwt0lukI8HNd2cgj/view)（4/30，[錄影](https://www.youtube.com/watch?v=yRgSQCXr8M0)）、[Discussion 12](https://drive.google.com/file/d/1DWLHmY5RVWolf0KVyPDFDfpouBiwALuz/view)（附[解答](https://drive.google.com/file/d/1iT9kueFCRKrU47y0eKiIEzMJteH4zPJD/view)與 [walkthrough 影片](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-e6UXPAnaIlmaHf_Wv3HPX)），以及 [Resources 頁](https://eecs189.org/sp26/resources/)的考古題資料夾。整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但這三講有一個缺口：4/28 的第 26 講是線上 guest lecture，排程頁上沒有講義也沒有錄影。
 
@@ -35,23 +35,26 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。官方課表沒有列第 26 講（guest lecture）的錄影。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=V-SJk4AJ-xc
-title: Lecture 25 錄影
+title: Lecture 25 錄影：AI for Protein Engineering
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=yRgSQCXr8M0
-title: Lecture 27 錄影
+title: Lecture 27 錄影：LLMs, Agents, Environments
 ```
 
-原始影片：[Lecture 25 錄影](https://www.youtube.com/watch?v=V-SJk4AJ-xc)、[Lecture 27 錄影](https://www.youtube.com/watch?v=yRgSQCXr8M0)
+原始影片：[Lecture 25 錄影：AI for Protein Engineering](https://www.youtube.com/watch?v=V-SJk4AJ-xc)、[Lecture 27 錄影：LLMs, Agents, Environments](https://www.youtube.com/watch?v=yRgSQCXr8M0)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
 
 ## Lec 25：蛋白質工程的 AI
 
@@ -233,6 +236,7 @@ Spring 2026 的期末考在 5/11（syllabus 寫 11:30 AM – 2:30 PM，占 CS189
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
 
 ## 參考資料
 

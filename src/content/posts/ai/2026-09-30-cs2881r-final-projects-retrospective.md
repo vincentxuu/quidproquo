@@ -20,7 +20,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 Harvard CS 2881R 的 Fall 2025 學期。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列的第 15 篇，也是最後一篇。上一篇 [L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035) 收掉了課程的最後一講；這一篇回答兩個問題：一學期下來，學生做出了什麼研究？這種「重現 + 延伸」的課程設計，哪裡有效、哪裡要改？
 
@@ -28,11 +28,21 @@ draft: false
 
 ## 課程影片來源
 
-官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，列有期末口頭報告錄影（約 75 分鐘）；本文「口頭報告影片」一節即依這支影片整理。
+
+```youtube
+url: https://www.youtube.com/watch?v=Xr9FNl0S66Q
+title: AI Safety (CS 2881) Oral presentations of student projects
+```
+
+原始影片：[AI Safety (CS 2881) Oral presentations of student projects](https://www.youtube.com/watch?v=Xr9FNl0S66Q)
 
 課程與錄影入口：
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
 
 ## 用到的官方材料與存取狀態
 
@@ -241,6 +251,7 @@ Q-report 的文字意見與 head TA 回顧附的 Google 表單摘要（21 份）
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方播放清單列有期末口頭報告錄影，已嵌入並改為已附影片。
 
 ## 參考資料
 

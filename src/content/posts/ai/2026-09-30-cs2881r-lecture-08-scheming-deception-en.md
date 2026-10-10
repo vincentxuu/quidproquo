@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the October 23 session of the [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 site. The main materials are [Boaz Barak's opening video](https://youtu.be/8NL1NAMrJxY) (10 minutes) and his 9-slide deck, the guest slides of [Marius Hobbhahn](https://docs.google.com/presentation/d/1BpMoImDfF9x3C7mGvmIFJOOVYvkgZFn2W09cW1oieSo) and [Buck Shlegeris](https://docs.google.com/presentation/d/1n5Dl6P-bPIfaenMU-9Dk4sTqXvl8VwdoHMSbmKmwonc), and the student experiment's [video](https://youtu.be/JXvHJheHE10), [GitHub](https://github.com/ItamarRocha/scheming-exp8), and [LessWrong post](https://www.lesswrong.com/posts/AJANBeJb2p39su6F9/cs2881r-week-8-when-agents-prefer-hacking-to-failu). **The site lists no recording of the two guest talks, and the official 2025 YouTube playlist (checked 2026-10-01) has only Boaz's 10-minute opening and the student experiment for this session**, so this post describes the guest content from slide text only and does not fill in what the speakers said aloud. All facts were checked against these materials on 2026-09-30. This lecture on its own rates **A2**: the opening video, three slide decks, and the full student experiment are public, but the recordings of the main talks are not.
 
@@ -36,18 +36,21 @@ glossary:
 
 ## Course video sources
 
-Recording links have been checked against the official course page for the edition used by this article.
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10. For Lecture 8 the playlist lists only Boaz Barak’s roughly 10-minute opening video and the student experiment video; the two guest talks have no recording.
 
 ```youtube
 url: https://www.youtube.com/watch?v=8NL1NAMrJxY
-title: Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming (YouTube opening video)
+title: AI Safety (CS 2881) Lecture 8: Scheming
 ```
 
-Original videos: [Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming (YouTube opening video)](https://www.youtube.com/watch?v=8NL1NAMrJxY)
+Original videos: [AI Safety (CS 2881) Lecture 8: Scheming](https://www.youtube.com/watch?v=8NL1NAMrJxY)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## Start with a scene
 
@@ -211,6 +214,7 @@ One thing you can do tonight: give whatever coding agent you use a small task wh
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
 
 ## References
 

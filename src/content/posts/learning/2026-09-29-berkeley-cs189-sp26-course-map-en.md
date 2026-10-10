@@ -24,11 +24,15 @@ The short answer: **from this post on, every lecture and homework guide follows 
 
 ## Course video sources
 
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the Spring 2026 official YouTube playlist (25 lecture videos) is publicly viewable. The Spring 2025 official lecture videos are on bCourses and redirect to a CalNet sign-in page; the only public Spring 2025 recordings are screen-only backup screencasts on Google Drive. Fall 2026 was not part of this check.
 
 Course and recording entries:
 
 - [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
+
+Checked: 2026-10-10.
 
 ## The four versions side by side
 
@@ -144,6 +148,7 @@ The series follows the official Spring 2026 order, with each homework guide plac
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Confirmed the Spring 2026 YouTube playlist is public and that Spring 2025 official recordings sit behind a CalNet sign-in; the status stays official entry only for this overview.
 
 ## References
 

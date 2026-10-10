@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Fall 2025 offering of [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/).** It is part 3 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 2, "Modern LLM Training" (September 11, 2025). The previous post, [HW0](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en), had you break a small model yourself. This one steps back: what does the real training pipeline look like, and where does safety training go?
 
@@ -37,18 +37,21 @@ Barak opens with a disclaimer: at OpenAI he does not work on pretraining, RL, or
 
 ## Course video sources
 
-Recording links have been checked against the official course page for the edition used by this article.
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=GXggPt_gqiI
-title: Lecture 2 recording: Modern LLM training and safety training
+title: AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training
 ```
 
-Original videos: [Lecture 2 recording: Modern LLM training and safety training](https://www.youtube.com/watch?v=GXggPt_gqiI)
+Original videos: [AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training](https://www.youtube.com/watch?v=GXggPt_gqiI)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## Intuition first: the one idea to hold onto
 
@@ -208,6 +211,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overvie
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
 
 ## References
 
