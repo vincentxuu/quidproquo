@@ -58,6 +58,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 68 min) and checked the Fried/Neubig split, the opening cases (16-agent compiler, OpenClaw email deletion and context compaction), the JY Koh and OpenHands demos, the six capabilities and the harness-vs-training trade-off, the show-of-hands estimate that about 10% had done agent RL, the spoken account of the OpenAI/Hugging Face incident, the five system components and OpenRouter provider counts, and the grading and AI policy; all supported. One fix: the remark about the agent debugging itself in the OpenHands demo is Neubig's narration, not Fried's. Details not in the transcript (Summer Yue's name, the 100k-line figure, slide page numbers) come from slides or external sources.
+
 ## Opening: agents can do big things, and break big things
 
 Fried opens with two contrasting examples.
@@ -79,7 +81,7 @@ Then he runs a show of hands: for each of these six tasks, would you let an agen
 
 There's no right answer here. The point is that capability and trust are separate: things agents can technically do are not things people are willing to hand over. The sandboxing, safety, interaction, and human-oversight lectures come back to this.
 
-Last come two CMU demos. One is JY Koh's GUI agent from two years ago: find a Thai restaurant in Pittsburgh on Yelp with at least 200 reviews and a 4.3-star rating, with the model's reasoning on the right and its browser actions on the left. The other is Neubig's OpenHands demo: the agent writes a Flask to-do app, launches it, notices the port is taken and retries, then opens a browser and clicks through adding and deleting items. What Fried stresses is the latter: the agent finds its own mistakes and fixes them.
+Last come two CMU demos. One is JY Koh's GUI agent from two years ago: find a Thai restaurant in Pittsburgh on Yelp with at least 200 reviews and a 4.3-star rating, with the model's reasoning on the right and its browser actions on the left. The other is Neubig's OpenHands demo: the agent writes a Flask to-do app, launches it, notices the port is taken and retries, then opens a browser and clicks through adding and deleting items. What Neubig's narration in the demo video stresses is the latter: the agent finds its own mistakes and fixes them.
 
 ## What is an agent: the textbook definition still holds
 
@@ -298,6 +300,7 @@ Long context. Keeping every memory in context affects efficiency, not just accur
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Checked the video content against its transcript. One fix: attributed the "agent debugs itself" remark in the OpenHands demo to Neubig's narration.
 
 ## References
 

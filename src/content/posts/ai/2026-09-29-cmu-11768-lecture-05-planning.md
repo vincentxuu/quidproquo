@@ -50,6 +50,8 @@ title: CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coor
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 75 分鐘，主講 Fried）；核對 GPU 採購開場、Plan Mode 舉手與學生理由、Mike Tyson 引言、CoT／Least-to-Most／Decomposed Prompting、STRIPS 與程式當計畫、workflow 與 adaptive 的取捨與部落格已過時的說明、planner/executor（grounding 7B、Plan-and-Act）、SayCan、ALFRED 重新規劃、Thinking vs Doing、overthinking、Vending-Bench 與 self-conditioning（含 Qwen3 32B 掉最多）、RAO、plan-then-execute 防注入、Cursor Plan Mode 示範、MACU 的 DAG／重新規劃預算實驗（固定圖約 25%）；皆有依據。修正六處：影片沒有的內容改標為投影片（「burn that bridge」玩笑、Fred Brooks 引言、「這只是計畫寫得差嗎」、Neubig 投影片），管理者模型的 Sonnet 說法改為字幕可辨的「最近的 Claude 系列模型」，Odysseys 資料來源改為 Google 瀏覽紀錄。TravelPlanner、各論文與 MACU 表格的精確數字屬論文與投影片，字幕未涵蓋；「9 月 8 日」上課日期字幕未提。
+
 ## 開場案例：幫實驗室買 GPU 工作站
 
 講者用一個他們幾週前真的遇到的任務開場：比較各家廠商的工作站設定和價格，對照內部 wiki 上叢集的相容性要求，最後送出採購單。
@@ -125,7 +127,7 @@ title: CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coor
 
 ## 會動到世界的計畫
 
-講者在這段引了一句玩笑話：「We'll burn that bridge when we come to it.」
+投影片在這段放了一句玩笑話（錄影沒有念到）：「We'll burn that bridge when we come to it.」
 
 ### 推理和行動的差別
 
@@ -189,7 +191,7 @@ Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/
 
 ## 加計畫結構的四個理由
 
-講者引了 Fred Brooks《人月神話》的「Plan to throw one away; you will, anyhow.」，然後回到 GPU 案例，列出四個加結構的壓力：
+投影片引了 Fred Brooks《人月神話》的「Plan to throw one away; you will, anyhow.」（錄影沒有提到），然後回到 GPU 案例，列出四個加結構的壓力：
 
 | 理由 | 做法 | GPU 例子 |
 |---|---|---|
@@ -212,7 +214,7 @@ Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/
 
 ### 小心固定角色的多 agent 系統
 
-講者特別放了一張 Graham Neubig 的投影片。有一系列論文讓模型模擬軟體公司，分出測試、編輯甚至產品經理等角色（例如 [CodeR](https://arxiv.org/abs/2406.01304)）。Neubig 在 [Don't Sleep on Single-agent Systems](https://www.openhands.dev/blog/dont-sleep-on-single-agent-systems) 指出這類角色拆解在 coding 上效果有限：
+投影片放了一張 Graham Neubig 的內容。有一系列論文讓模型模擬軟體公司，分出測試、編輯甚至產品經理等角色（例如 [CodeR](https://arxiv.org/abs/2406.01304)）。Neubig 在 [Don't Sleep on Single-agent Systems](https://www.openhands.dev/blog/dont-sleep-on-single-agent-systems) 指出這類角色拆解在 coding 上效果有限：
 
 - 角色在任務到來前就定死了，驗證者無法定位錯誤、也無法檢查自己的答案
 - 交接靠摘要報告，可能漏掉下一個 agent 需要的 context
@@ -249,7 +251,7 @@ Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/
 2. **錯誤推論**：agent 把「現在拿不到」解讀成「生意已經失敗」，從來沒有等出貨通知或再查一次
 3. **錯誤延續**：之後每天的固定費用被它當成詐騙，發出主旨為「EMERGENCY: Unauthorized Fees After Business Termination」的信
 
-講者問：這只是計畫寫得差嗎？
+投影片問：這只是計畫寫得差嗎？
 
 [The Illusion of Diminishing Returns](https://arxiv.org/abs/2509.09677)（Sinha 等，ICLR 2026）給了另一個角度。長任務的成功率是每步成功率連乘，單步準確度只要再往上提一點，能完成的任務長度就會大幅拉長（講者舉的例子是從 0.9 提升到 0.999）。論文也發現 **self-conditioning**：研究者改寫對話歷史、人為塞進不同比例的錯誤答案，錯誤比例越高，模型在第 100 輪的準確度越低。講者用預訓練資料解釋：一個檔案前面的程式碼寫得草率，後面通常也草率，模型學到了這種相關性。論文自己的解釋則是從 in-context learning 切入：模型本來就會照 context 裡的範例行事，只是這次照著學的是自己先前的錯誤。
 
@@ -287,13 +289,13 @@ Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/
 
 ### Odysseys：真實的長時程網頁任務
 
-[Odysseys](https://odysseys-website.pages.dev/)（Jang、Koh、Fried、Salakhutdinov，2026）是 200 個長時程網頁任務組成的評測，任務來自真實的瀏覽紀錄，在線上的真實網站上評估。講者說資料來自志願者自選分享的 Google 搜尋紀錄，任務像是「找做 ACL 韌帶手術的外科醫師」；他也說一個任務要走幾百步、真人要花半小時到一小時，示範的那題光是跑遍網站、把資訊填進試算表就要 93 步。它的結構跟 GPU 案例很像。
+[Odysseys](https://odysseys-website.pages.dev/)（Jang、Koh、Fried、Salakhutdinov，2026）是 200 個長時程網頁任務組成的評測，任務來自真實的瀏覽紀錄，在線上的真實網站上評估。講者說資料來自志願者自選捐出的 Google 瀏覽紀錄（Google history），任務像是「找做 ACL 韌帶手術的外科醫師」；他也說一個任務要走幾百步、真人要花半小時到一小時，示範的那題光是跑遍網站、把資訊填進試算表就要 93 步。它的結構跟 GPU 案例很像。
 
 ### MACU 的架構
 
 [Multi-Agent Computer Use](https://arxiv.org/abs/2606.01533)（MACU，Koh、Salakhutdinov、Fried，2026）：
 
-1. **管理者**把使用者任務拆成 DAG，編碼子任務之間的依賴和目標。講者口頭說管理者要用強模型，「例如 Claude Sonnet 的新模型」；論文主實驗的管理者其實是 Claude Opus 4.6，Sonnet 4.6 出現在消融實驗，成績排第二（52.8%）
+1. **管理者**把使用者任務拆成 DAG，編碼子任務之間的依賴和目標。講者口頭說管理者要用強的大模型，「最近的 Claude 系列模型之類」（自動字幕只聽得出 recent cla… models，未必是 Sonnet）；論文主實驗的管理者其實是 Claude Opus 4.6，Sonnet 4.6 出現在消融實驗，成績排第二（52.8%）
 2. 每一輪，管理者把 DAG 上「依賴已滿足」的節點平行派給 computer use 子 agent
 3. 子 agent 回報後，管理者檢查結果：做錯就要它重做；有新發現就改圖——新增、取消或改寫節點
 4. 重複直到整張圖跑完
@@ -354,6 +356,7 @@ Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：依字幕核對影片內容。修正六處：影片沒有的引言與問句改標為投影片、管理者模型與 Odysseys 資料來源的口述說法。
 
 ## 參考資料
 

@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-08-rag)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
 **This post is based on the 1132 semester (Spring 2025) of NCCU Yen-Lung Tsai's *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 8 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L07, Building Your Own Chatbot](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot-en). The L07 chatbot only knows what the model saw in training. This lecture makes it read your documents before answering.
 
@@ -32,12 +32,7 @@ The notebook drift is especially visible this week, and I flag each case below: 
 
 ## Course video sources
 
-Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but embedded playback has not been verified for each video; if a video does not play inline, use the original video link below. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=JClJEmZub-A
-title: Generative AI 08: Retrieval-Augmented Generation (RAG), principles and practice (YouTube recording, in Mandarin)
-```
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
 
 Original videos: [Generative AI 08: Retrieval-Augmented Generation (RAG), principles and practice (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=JClJEmZub-A)
 
@@ -171,6 +166,8 @@ Previous: [L07 Building Your Own Chatbot](/posts/ai/2026-09-30-nccu-genai-07-bui
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official schedule maps this lecture to the linked video, but embedded playback could not be verified, so status is unchanged.
+- 2026-10-10: Checked the video content. No captions are available, so only the description chapters were compared; confirmed the video is not embeddable (the embed block cannot play; use the original link).
+- 2026-10-10: The video owner disabled embedding for this lecture, so the broken player was removed; the original-video link stays in the source section, and the status is now official entry / recording index only.
 
 ## References
 

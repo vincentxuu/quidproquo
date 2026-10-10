@@ -52,6 +52,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the first part of the transcript and keyword-searched the rest (video about 72 min, speaker Akari Asai), and checked every figure and statement in the "Q&A and spoken remarks" section (about $3,000–4,000 of search API per RL run, Serper, BM25 and a 4B embedding model, about one hour per rubric, GPT-4.1 rubric generation about 10 points better than Qwen, about 40% at 600 RL steps and about 10 points more with 5% SFT, roughly 20% on BrowseComp without search, blocking Hugging Face, the benchmark recommendations) plus the transcript-visible numbers cited in the body (25% for human experts on BrowseComp, 50% after training, BrowseComp-Plus with about 830 questions and 100k documents, about 80% expert agreement on rubric items, about 15% errors in ResearchQA rubrics); all supported. Slide-only details and paper figures still rest on the slides and papers; the "Sept 24" lecture date is not stated in the video and rests on the official schedule.
+
 ## One search versus many
 
 The lecture opens with a contrast. "What is Akari Asai's office number at CMU?" takes one search of the faculty page. "Can AI agents synthesize scientific literature as well as human experts?" does not, and the slides break the agent's work on it into four steps:
@@ -347,6 +349,7 @@ Related posts on this site to read alongside the lecture:
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Corrected the video status. The Lecture 10 recording is now published, so the "pending" label no longer applied; the video is embedded, and the text is still based on the slides pending a video-based revision.
 - 2026-10-10: Revised Lecture 10 against the official recording's captions: added the section "Q&A and spoken remarks from the recording" (project benchmarks, models and search tools, small-vs-frontier gap, the evaluation bottleneck, spoken details on evolving rubrics, contamination and blocklists) and updated the opening note.
+- 2026-10-10: Checked the video content against its transcript. No changes needed; the transcript matches the figures and statements in the spoken-remarks section.
 
 ## References
 

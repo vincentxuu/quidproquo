@@ -48,6 +48,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 75 min, lecturer Fried) and checked the GPU-purchase opener, the Plan Mode show of hands and student reasons, the Mike Tyson quote, CoT / Least-to-Most / Decomposed Prompting, STRIPS and programs as plans, the workflow-vs-adaptive trade-off and the deprecated-blog remark, planner/executor (7B grounding model, Plan-and-Act), SayCan, ALFRED replanning, Thinking vs Doing, overthinking, Vending-Bench and self-conditioning (including Qwen3 32B dropping most), RAO, plan-then-execute against injection, the Cursor Plan Mode demo, and MACU's DAG and replanning-budget experiment (about 25% with a fixed graph); all supported. Six fixes: content absent from the video is now labeled as slide content (the "burn that bridge" joke, the Fred Brooks quote, "was this just a bad plan?", the Neubig slide), the manager-model "Sonnet" claim now reflects what the captions show ("recent Claude models"), and the Odysseys data source is now Google browsing history. TravelPlanner, per-paper figures and the MACU tables rest on the papers and slides, not the transcript; the "Sept 8" lecture date is not stated in the video.
+
 ## Opening case: buying the lab a GPU workstation
 
 Fried opens with a task his group actually ran into a few weeks earlier: compare workstation configurations and prices across vendors, check compatibility against the cluster requirements on the internal wiki, and file a purchase requisition.
@@ -123,7 +125,7 @@ Why use different models for different subtasks? A student answers: some models 
 
 ## Plans that act on the world
 
-This section opens with the slide's joke: "We'll burn that bridge when we come to it."
+This section opens with a joke on the slide (not read aloud in the recording): "We'll burn that bridge when we come to it."
 
 ### Reasoning versus acting
 
@@ -187,7 +189,7 @@ A student points out the blog post is now marked as outdated. Fried's response: 
 
 ## Four reasons to add planning structure
 
-Fried quotes Fred Brooks's *The Mythical Man-Month* — "Plan to throw one away; you will, anyhow." — then returns to the GPU case to name four pressures:
+The slides quote Fred Brooks's *The Mythical Man-Month* — "Plan to throw one away; you will, anyhow." (not mentioned in the recording) — then returns to the GPU case to name four pressures:
 
 | Reason | Approach | GPU example |
 |---|---|---|
@@ -210,7 +212,7 @@ Once split, each component can be optimized independently — fix whichever is t
 
 ### Beware of fixed roles and multi-agent systems
 
-Fried includes a slide from Graham Neubig. A series of papers had models simulate a software company, with separate roles for testing, editing, even a product manager (for example, [CodeR](https://arxiv.org/abs/2406.01304)). In [Don't Sleep on Single-agent Systems](https://www.openhands.dev/blog/dont-sleep-on-single-agent-systems), Neubig argues these role decompositions have had limited success on coding:
+The slides include a piece from Graham Neubig. A series of papers had models simulate a software company, with separate roles for testing, editing, even a product manager (for example, [CodeR](https://arxiv.org/abs/2406.01304)). In [Don't Sleep on Single-agent Systems](https://www.openhands.dev/blog/dont-sleep-on-single-agent-systems), Neubig argues these role decompositions have had limited success on coding:
 
 - Roles are fixed before the task arrives, so the verifier can't localize a fault or check its own answer
 - Handoffs are summary reports, which can drop the context the next agent needs
@@ -247,7 +249,7 @@ Fried says these behaviors can be detected from how many tokens were spent reaso
 2. **Wrong inference**: the agent reads "unavailable now" as "the business has failed," and never waits for the fulfillment email or checks again
 3. **Error persists**: the daily fee later becomes "fraud," and it sends an email with the subject "EMERGENCY: Unauthorized Fees After Business Termination"
 
-Fried asks: was this just a bad plan?
+The slides ask: was this just a bad plan?
 
 [The Illusion of Diminishing Returns](https://arxiv.org/abs/2509.09677) (Sinha et al., ICLR 2026) offers another angle. Long-task success is the product of per-step success, so even small gains in step accuracy dramatically lengthen the tasks a model can complete (Fried's example: going from 0.9 to 0.999). The paper also finds **self-conditioning**: the authors rewrite the chat history to inject different fractions of wrong answers, and the higher the error fraction, the lower the model's accuracy at turn 100. Fried explains it through pretraining data: if the earlier code in a file is sloppy, the rest usually is too, and models learned that correlation. The paper's own explanation goes through in-context learning: models are built to follow the examples in their context, and here the examples they follow are their own earlier mistakes.
 
@@ -285,13 +287,13 @@ In the last five minutes, Fried uses his group's MACU to tie the lecture togethe
 
 ### Odysseys: real long-horizon web tasks
 
-[Odysseys](https://odysseys-website.pages.dev/) (Jang, Koh, Fried, Salakhutdinov, 2026) is a benchmark of 200 long-horizon web tasks derived from real browsing sessions and evaluated on the live internet. Fried says the data came from Google search histories that volunteers chose to share, with tasks like "find surgeons for ACL surgery"; he also says a task takes hundreds of steps and half an hour to an hour of human time, and the demo task needs 93 steps just to visit the sites and fill in a spreadsheet. Its structure resembles the GPU case.
+[Odysseys](https://odysseys-website.pages.dev/) (Jang, Koh, Fried, Salakhutdinov, 2026) is a benchmark of 200 long-horizon web tasks derived from real browsing sessions and evaluated on the live internet. Fried says the data came from Google browsing histories that volunteers chose to donate, with tasks like "find surgeons for ACL surgery"; he also says a task takes hundreds of steps and half an hour to an hour of human time, and the demo task needs 93 steps just to visit the sites and fill in a spreadsheet. Its structure resembles the GPU case.
 
 ### How MACU works
 
 [Multi-Agent Computer Use](https://arxiv.org/abs/2606.01533) (MACU; Koh, Salakhutdinov, Fried, 2026):
 
-1. A **manager** decomposes the user's task into a DAG encoding dependencies and goals. Fried says the manager should be a strong model, "something like a recent Claude Sonnet"; the paper's main experiments actually use Claude Opus 4.6 as manager, and Sonnet 4.6 appears in the ablation, where it ranks second (52.8%)
+1. A **manager** decomposes the user's task into a DAG encoding dependencies and goals. Fried says the manager should be a strong large model, "something like one of the recent Claude models" (the auto-captions only show "recent cla… models", so it is not certain he said Sonnet); the paper's main experiments actually use Claude Opus 4.6 as manager, and Sonnet 4.6 appears in the ablation, where it ranks second (52.8%)
 2. Each round, the manager dispatches parallel computer-use sub-agents on the nodes whose dependencies are satisfied
 3. When a sub-agent reports back, the manager checks the result: if wrong, it has the sub-agent redo it; if there's a new finding, it revises the graph — adding, canceling, or rewriting nodes
 4. Repeat until the graph is complete
@@ -352,6 +354,7 @@ Four open problems:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Checked the video content against its transcript. Six fixes: relabeled quotes and questions absent from the video as slide content, and corrected the spoken manager-model and Odysseys-data claims.
 
 ## References
 

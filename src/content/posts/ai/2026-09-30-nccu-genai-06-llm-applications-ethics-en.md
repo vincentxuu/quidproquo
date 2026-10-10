@@ -26,7 +26,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
 **This post is based on the 1132 semester (Spring 2025) of NCCU Yen-Lung Tsai's *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 6 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L05, Transformers in Full](/posts/ai/2026-09-30-nccu-genai-05-transformers-math-en). The last lecture took Q/K/V apart as matrices. This one steps back into the user's seat: what goes wrong with LLMs, how to use them responsibly, and how to turn one into your own small tool through an API.
 
@@ -34,12 +34,7 @@ Four official sources: [video 06](https://www.youtube.com/watch?v=m6DFB60Tk68) (
 
 ## Course video sources
 
-Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but embedded playback has not been verified for each video; if a video does not play inline, use the original video link below. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=m6DFB60Tk68
-title: Generative AI 06: LLM applications and ethical challenges (YouTube recording, in Mandarin)
-```
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
 
 Original videos: [Generative AI 06: LLM applications and ethical challenges (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=m6DFB60Tk68)
 
@@ -51,7 +46,7 @@ Checked: 2026-10-10.
 
 ## Where this week sits
 
-Video 06 has three sessions. Session one (roughly 0:16–1:01) covers new models and ethics. Session two (1:11–2:01) covers prompt design and live coding. Session three is student lightning talks and feedback on the week-3 assignment. The slides follow the same order in three parts: "LLM problems and discussion", "Customizing your LLM with good prompts", and "Building your own chatbot with the OpenAI API".
+Video 06 has three sessions. Session one (roughly 0:16–1:01) covers new models and ethics. Session two (1:11–2:01) covers prompt design and live coding. Session three is student lightning talks and an explanation of the HW3 assignment. The slides follow the same order in three parts: "LLM problems and discussion", "Customizing your LLM with good prompts", and "Building your own chatbot with the OpenAI API".
 
 This is where the course turns from principles to applications. The next three lectures ([L07 chatbots](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot-en), [L08 RAG](/posts/ai/2026-09-30-nccu-genai-08-rag-en), [L09 AI agents](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en)) all build on the few lines of API code at the end of this one.
 
@@ -217,6 +212,8 @@ Previous: [L05 Transformers in Full](/posts/ai/2026-09-30-nccu-genai-05-transfor
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official schedule maps this lecture to the linked video, but embedded playback could not be verified, so status is unchanged.
+- 2026-10-10: Checked the video content. No captions are available, so only the description chapters were compared; confirmed the video is not embeddable (the embed block cannot play; use the original link).
+- 2026-10-10: The video owner disabled embedding for this lecture, so the broken player was removed; the original-video link stays in the source section, and the status is now official entry / recording index only.
 
 ## References
 

@@ -53,6 +53,8 @@ title: CMU AI Agents 2026: 9. Reinforcement Learning Basics
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：字幕共約 78 分鐘（主講 Fried）；我讀了字幕開頭與主要段落，並對文章轉述的口述／課堂內容逐項做關鍵字搜尋核對：猜數字與 Wordle 比喻、SFT 三缺口、RL 消除重複迴圈的口述觀察、POMDP 回答、ReST 與 cold start 三種解法、REINFORCE 與 Deal or No Deal 的個人經驗、95% 例子的 baseline 直覺、視覺化、GRPO 群組約 8 個（Apurva 會再談）、不偏性回答、GRPO 完整 loss 的 clipping／KL 留待 Neubig 講、「自稱 GRPO 的實作多半已拿掉除以標準差」、價值模型與 policy 共用骨幹；皆有依據，未發現需修改處。這是抽樣＋關鍵字核對，不是逐字全文比對；投影片公式與論文細節（Williams 1992、DeepSeekMath 設定等）屬投影片與論文，字幕未涵蓋；「9/22」上課日期字幕未提。
+
 ## 場景：在 1 到 16 之間猜一個數字
 
 整講用同一個例子。環境藏了一個 1 到 16 的整數，agent 有四次機會。猜錯時環境回「higher」或「lower」，猜中就結束，拿到獎勵 1；四次用完還沒中，獎勵是 0。
@@ -386,6 +388,7 @@ $$\nabla_\theta J = \sum_t w_t\, \nabla_\theta \log \pi_\theta(a_t \mid h_t)$$
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：依字幕核對影片內容。抽樣加關鍵字核對，未發現需修改處。
 
 ## 參考資料
 

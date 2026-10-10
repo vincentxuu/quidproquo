@@ -57,6 +57,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 76 min) and checked the Neubig statements the article relays: the prompt composition of 1,500 OpenHands sessions (78K tokens, 37% tool results, etc.), TTFT/TPOT and OpenRouter provider speed gaps, hybrid attention and the linear/sparse attention explanations, the NoPE and causal-mask Q&A, long-context data and context parallelism (including his failure to find a Gated DeltaNet kernel), cached tokens at about a tenth of the price and a 90-95% hit rate, provider cache retention, cache-breaking pitfalls, compaction triggers and what to keep, and the early OpenHands compaction pull-request story; all supported. Two claims were not in the transcript and were fixed: "Neubig likens DeltaNet to online learning" (he only compared β to a learning rate) and the Q&A item on alternative architectures and context overflow (the transcript ends with a single subagent question). Per-model layer ratios, the price table and the YaRN formula are slide or external-source details the transcript does not cover; the "Sept 1" lecture date is not stated in the video.
+
 ## Why agent context grows so fast
 
 The first slide is a quadratic. Say the fixed prefix is 1K and each call adds 5K of history: call 1 takes 6K of input, call 2 takes 11K, call 3 takes 16K, and after five calls you have processed 80K tokens in total. History grows linearly; **the total fed to the model grows quadratically**. Neubig says he has run coding-agent sessions for nearly a full day, so imagine how big that gets.
@@ -139,7 +141,7 @@ Work drops from O(n²) to O(nw). Source: [Longformer](https://arxiv.org/abs/2004
 
 The refinements all try to make that matrix behave more like real attention:
 
-- **DeltaNet**: read before writing. Use the current matrix to predict which value this key should map to, write only the **prediction error**, and scale by a learning rate β so updates aren't too large. Neubig likens it to online learning.
+- **DeltaNet**: read before writing. Use the current matrix to predict which value this key should map to, write only the **prediction error**, and scale by a learning rate β so updates aren't too large (Neubig says β plays a role similar to a learning rate).
 - **Gated DeltaNet**: plain linear attention has no way to stop a strange key from long ago from affecting the future, so each step first multiplies the whole matrix by a decay factor α and old content fades. Stronger decay makes the model more local. Qwen models use this.
 - **Kimi Delta Attention (KDA)**: replace the single α with a per-channel decay rate, so some information persists for a long time and some fades fast. Kimi K3 (per its technical report) and GLM-5.3-Flash (per its HF config) use this version.
 
@@ -445,7 +447,6 @@ Neubig told an early OpenHands story. They believed they had built one of the fi
 ## Q&A after class
 
 - **Do subagents count as context management?** Yes, but that comes in a later lecture.
-- **Do alternative architectures cause context-overflow problems?** Neubig said intuition suggests they might, but it isn't proven, and some work shows alternative architectures doing better.
 
 ## Readings and references
 
@@ -477,6 +478,7 @@ The schedule lists no required reading for this lecture, only a long reference l
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Checked the video content against its transcript. Fixed two claims absent from the transcript: the DeltaNet "online learning" remark and the alternative-architectures Q&A item.
 
 ## References
 

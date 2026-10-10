@@ -57,6 +57,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 75 min) and checked the speaker statements the article relays: the three places an agent can update and their trade-offs, the show of hands and students' skill experiences, the episode/fact/skill kinds of experience and memory vs skill, the OpenHands blog example, SKILL.md structure and progressive disclosure, the Hermes index of about 3k tokens, the Q&A (too many skills, trigger sensitivity, why markdown, retrieval over large skill sets), the spoken conclusions on SkillsBench and ReasoningBank, the walk-throughs of MemGPT, Mem0, Reflexion, Voyager, DreamCoder, AWM, ASI, SkillWeaver, PolySkill and TroVE, and RL for skill induction; all supported. One fix: the closing "four tensions" and "who decides" table are slide content that the recording does not reach, and are now labeled as slides. Per-paper figures (52.4, 39.0, etc.) come from the papers and slides, not the transcript.
+
 ## Three places to update an agent
 
 Fried starts by splitting "making an agent better" into three locations:
@@ -341,7 +343,7 @@ Fried notes that reinforcement learning doesn't care how complicated the pipelin
 
 ## Discussion: what should persist?
 
-The closing discussion lays out four tensions: exact episode ↔ general skill, flexible guidance ↔ committed execution, reuse what exists ↔ explore and replace, grow the memory ↔ update, merge, delete. Fried adds a table on who should own each decision:
+The closing slide (not covered in the recording) lays out four tensions: exact episode ↔ general skill, flexible guidance ↔ committed execution, reuse what exists ↔ explore and replace, grow the memory ↔ update, merge, delete. The slides add a table on who should own each decision:
 
 | Decision | Human effort is valuable when… | Agent effort is valuable when… |
 |---|---|---|
@@ -368,6 +370,7 @@ The closing discussion lays out four tensions: exact episode ↔ general skill, 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Checked the video content against its transcript. One fix: labeled the closing discussion tensions and "who decides" table as slide content not covered in the recording.
 
 ## References
 

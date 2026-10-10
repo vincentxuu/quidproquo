@@ -51,6 +51,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 57 min) and checked the Neubig statements the article relays (two kinds of tool benefit, RAG is not dead, CodeAct and its costs, per-model tool-call formats and the special-token Q&A, call IDs and Anthropic errors, XGrammar and the out-of-tokens exception, MCP as a credential layer, parallel calls and RL, BFCL, OpenRouter provider error rates and FP8 vs FP4); all supported. Slide-only figures (the 6.4 s example, 15.1%, etc.) are not spoken in the video and remain slide-sourced.
+
 ## What a tool is, and when it's worth calling
 
 The slides paraphrase the definition from the survey Neubig co-wrote with Fried, Zhiruo Wang, and others, [What Are Tools Anyway?](https://arxiv.org/abs/2403.15452): **a tool is an interface through which a language model can invoke an external computer program**. The paper's own wording is more precise: an LM-used tool is a function interface to a computer program that runs externally to the LM, where the LM generates the function calls and input arguments. The slide then adds the division of labor: the model proposes; external software decides whether and how to execute.
@@ -237,6 +239,7 @@ The schedule lists four:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Checked the video content against its transcript. No changes needed; the transcript matches the speaker statements relayed in the article.
 
 ## References
 

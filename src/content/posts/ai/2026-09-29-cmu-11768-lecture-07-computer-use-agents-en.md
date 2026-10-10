@@ -39,7 +39,7 @@ Lecture 7 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Sep 15, 2026) 
 A computer use agent (CUA) differs from the text agents in earlier lectures at both ends: it takes screenshots in and emits clicks, scrolls, and keystrokes out — working in the same interface as a human. Koh says right away that this makes modeling and evaluation both interesting and painful. The lecture has four parts — what a CUA is, how to evaluate one, what the model looks like, how to train it — plus four open problems. This guide follows the same order.
 
 - Course page: [cmu-agents.com schedule](https://www.cmu-agents.com/) (slides and [recording](https://www.youtube.com/watch?v=jwGluLrrqjQ&list=PLSN0qpDfUvTM&index=7) for Lecture 7)
-- This guide is based on the Sep 15, 2026 slides and recording. Where the speaker's claims about GPT-6 Astra, Fable / Opus 5 and other products have no public source, the text marks them as his; where an official number exists (for example [OpenAI's GPT-6 Astra announcement](https://openai.com/index/gpt-6-astra/)), it is added alongside.
+- This guide is based on the Sep 15, 2026 slides and recording. Where the speaker's claims about GPT-6 Astra and other products have no public source (Fable / Opus 5 appear only in the slide's action-format table; he does not comment on them in the recording), the text marks them as his; where an official number exists (for example [OpenAI's GPT-6 Astra announcement](https://openai.com/index/gpt-6-astra/)), it is added alongside.
 
 ## Course video sources
 
@@ -57,6 +57,8 @@ Official sources:
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
 Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 74 min, speaker Jing Yu Koh introduced by Fried) and checked: the speaker background, the observe-reason-act loop and the "buy a blue mug" example, the in-class poll on the first CUA paper (2017), the nine-year history and his spoken remarks on GPT-6 Astra, the four evaluation families (static ScreenSpot-Pro/Mind2Web, WebArena and VisualWebArena, VLM-judged WebVoyager/Online-Mind2Web, OSWorld/WindowsAgentArena, long-horizon Odysseys/OSWorld 2.0/CUA-World-Long), the class Q&A (partial credit, rubric sourcing, training on benchmarks, screenshots vs HTML, waiting for page loads), the pre-training / SFT / RL pipeline and the Tesla analogy, and success of about 0.5 after SFT rising above 0.6 with RL; all supported. Two fixes: the WindowsAgentArena "20 minutes" line is from the paper, not the speaker, and Fable / Opus 5 appear only in the slide's action-format table. Details in the four open problems (Game-TARS, FDM-1, GUM, etc.) and per-benchmark task counts and paper figures rest on slides and papers that the transcript mostly does not cover; the lecture date is not stated in the video.
 
 ## What a CUA is: observe, reason, act, repeat
 
@@ -131,7 +133,7 @@ Koh notes two things. These benchmarks are now largely solved by current models.
 ### 3. End-to-end evaluation (desktop, mobile)
 
 - **OSWorld**: a real Linux VM with 369 tasks. The slide says 9 applications; the paper's own text says eight representative applications (Chrome, VLC, Thunderbird, VS Code, LibreOffice Calc / Writer / Impress, GIMP) plus basic system tools such as the terminal and file manager. Each task has its own setup script and state checks. The example is "update the bookkeeping sheet using the receipts in the folder"; the verifier compares the saved workbook against a gold one cell by cell.
-- **WindowsAgentArena**: Microsoft's Windows counterpart. Koh's reasoning is practical: most of the world's productive work happens on Windows. Parallel VMs turn multi-day evaluations into a 20-minute sweep.
+- **WindowsAgentArena**: Microsoft's Windows counterpart. Koh's reasoning is practical: most of the world's productive work happens on Windows. Parallel VMs, the paper says, turn multi-day evaluations into a 20-minute sweep (that line is from the paper; Koh does not say it).
 - The appendix also lists AndroidWorld (parameterized tasks, unlimited instances), WorkArena / WorkArena++ (ServiceNow enterprise workflows), and MobileWorld (GUI control mixed with user clarification and MCP tools).
 
 Koh says these 2024–2025 mainstays are also mostly solved by new models, and the community's attention has moved on to the next family.
@@ -266,6 +268,7 @@ Then ask: if you kept only check 2, which "looks successful" trajectories would 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Corrected the video status. The official schedule lists a recording for Lecture 7; the earlier "pending" label was wrong, and the video is now embedded.
+- 2026-10-10: Checked the video content against its transcript. Two fixes: attribution of the WindowsAgentArena 20-minute line, and the speaker-remark claim about Fable / Opus 5.
 
 ## References
 

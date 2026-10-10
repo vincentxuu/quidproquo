@@ -58,6 +58,8 @@ title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 68 分鐘），對照 Fried／Neubig 分工、開場案例（16 個 agent 編譯器、OpenClaw 刪信與 context 壓縮）、JY Koh 與 OpenHands 示範、六種能力與 harness／訓練取捨、舉手估計約一成人做過 agent RL、OpenAI 入侵 Hugging Face 事件的口述版本、系統五塊與 OpenRouter 供應商數、評分與 AI 政策；皆有依據。修正一處：OpenHands 示範中強調「agent 自己除錯」的是 Neubig 的旁白，不是 Fried。字幕沒講的細節（Summer Yue 姓名、10 萬行、各投影片頁碼）屬投影片或外部來源。
+
 ## 開場：agent 已經能做大事，也會闖大禍
 
 Fried 用兩個對比的例子開場。
@@ -79,7 +81,7 @@ Fried 用兩個對比的例子開場。
 
 這張表沒有標準答案。它要說的是：能力和信任是兩件事，agent 技術上做得到的事，人不一定敢放手。沙盒、安全、互動和人類監督那幾講會回到這個問題。
 
-最後是兩段 CMU 自己的示範。一段是 JY Koh 兩年前做的 GUI agent：在 Yelp 上找匹茲堡一家至少 200 則評論、4.3 星以上的泰國餐廳，右邊看得到模型的推理，左邊是它在操作瀏覽器。另一段是 Neubig 的 OpenHands 示範：agent 寫一個 Flask 待辦清單 app，自己啟動、發現連接埠被占用後自己換、再開瀏覽器點按鈕測新增和刪除。Fried 強調的是後者：agent 能自己發現錯誤、自己修好。
+最後是兩段 CMU 自己的示範。一段是 JY Koh 兩年前做的 GUI agent：在 Yelp 上找匹茲堡一家至少 200 則評論、4.3 星以上的泰國餐廳，右邊看得到模型的推理，左邊是它在操作瀏覽器。另一段是 Neubig 的 OpenHands 示範：agent 寫一個 Flask 待辦清單 app，自己啟動、發現連接埠被占用後自己換、再開瀏覽器點按鈕測新增和刪除。示範影片裡 Neubig 的旁白強調的是後者：agent 能自己發現錯誤、自己修好。
 
 ## Agent 是什麼：教科書的老定義還能用
 
@@ -298,6 +300,7 @@ Neubig 接著強調：agent 比你在其他機器學習課碰過的東西都複�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：依字幕核對影片內容。一處修正：OpenHands 示範中「agent 自己除錯」的強調者改為 Neubig 的旁白。
 
 ## 參考資料
 

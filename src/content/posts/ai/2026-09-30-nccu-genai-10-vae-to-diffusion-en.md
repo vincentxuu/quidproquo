@@ -35,7 +35,7 @@ It draws on four official sources: [video 10](https://www.youtube.com/watch?v=j4
 
 ## Course video sources
 
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=j4-k7Ug4bYk
@@ -231,6 +231,7 @@ Previous: [L09 Why 2025 was called the year of AI agents](/posts/ai/2026-09-30-n
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content. No captions are available, so only the description chapters were compared; confirmed the player response says the video is embeddable.
 
 ## References
 

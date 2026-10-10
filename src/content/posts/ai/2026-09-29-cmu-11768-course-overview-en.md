@@ -8,7 +8,7 @@ lang: en
 series:
   name: "Reading CMU 11-768 AI Agents"
   order: 0
-tldr: "CMU 11-768 is a new Fall 2026 graduate course on agents taught by Graham Neubig and Daniel Fried. The prerequisite — prior experience training language models — is strictly enforced. Its 23 lectures run from tool calling, context, memory, and planning through SFT, RL, sandboxing, and human-agent interaction. Three individual assignments in the first half build a harness, an evaluation, and a training pipeline; the second half is a team research project. Slides and the first nine lecture videos are public."
+tldr: "CMU 11-768 is a new Fall 2026 graduate course on agents taught by Graham Neubig and Daniel Fried. The prerequisite — prior experience training language models — is strictly enforced. Its 23 lectures run from tool calling, context, memory, and planning through SFT, RL, sandboxing, and human-agent interaction. Three individual assignments in the first half build a harness, an evaluation, and a training pipeline; the second half is a team research project. Slides and the first ten lecture videos are public."
 description: "Series guide to CMU 11-768 AI Agents (Fall 2026): what the course is for, the prerequisite bar, grading and AI-tool policy, the seven modules of the 23-lecture schedule, the three assignments and research project, and how this 27-part series is organized and how far along it is."
 draft: false
 ---
@@ -17,7 +17,7 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-[11-768 AI Agents](https://www.cmu-agents.com/) is a new graduate course from Carnegie Mellon's Language Technologies Institute ([LTI](https://lti.cs.cmu.edu/)), first offered in Fall 2026 and taught by [Graham Neubig](https://www.phontron.com/) and [Daniel Fried](https://dpfried.github.io/). Introducing himself in lecture 1, Neubig said he develops [OpenHands](https://github.com/All-Hands-AI/OpenHands); Fried described his research as grounded agents, human-agent interaction, and, more recently, agent-system interaction.
+[11-768 AI Agents](https://www.cmu-agents.com/) is a new graduate course from Carnegie Mellon's Language Technologies Institute ([LTI](https://lti.cs.cmu.edu/)), first offered in Fall 2026 and taught by [Graham Neubig](https://www.phontron.com/) and [Daniel Fried](https://dpfried.github.io/). When he got to harnesses in lecture 1, Neubig said he develops [OpenHands](https://github.com/All-Hands-AI/OpenHands); Fried described his research as grounded agents, human-agent interaction, and, more recently, agent-system interaction.
 
 The course website defines its subject in one sentence: systems that use large language models to perceive, reason, plan, and act over many steps. What separates it from the usual "build an agent with a framework" course is that it asks you to **train agents yourself**. Neubig says it plainly in lecture 1: building an agent isn't hard, making it actually work is — and very few people know how to train agents well. The instructors want everyone who finishes the course to be in that small group.
 
@@ -39,6 +39,8 @@ Official sources:
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
 Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): This overview embeds the lecture 1 video; read its full transcript and checked the speaker statements the article cites (both instructors' introductions and research areas, "building an agent is easy, making it work is hard", the show-of-hands estimate of about 10% having done agent RL, the 40% assignments / 50% project split and teams of 2–3, the AI-tool policy and the "thousand lines of slop" remark, slack days, the 4–7B prerequisite note); all supported. One fix: Neubig said he develops OpenHands while discussing harnesses, not in his self-introduction. The official schedule and the 24-hour highlights rule are not in the video and still rest on the official site. The progress table was also updated now that the L10 recording is posted (2026-10-10).
 
 ## Format: the prerequisite is enforced
 
@@ -138,7 +140,7 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 | 8 | L7 | [Computer Use Agents (JY Koh)](/en/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents-en) | Published |
 | 9 | L8 | [SFT (Yueqi Song)](/en/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) | Published |
 | 10 | L9 | [RL Basics](/en/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en) | Published |
-| 11 | L10 | [Deep Research Agents (Akari Asai)](/en/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents-en) | Published (from slides; video pending) |
+| 11 | L10 | [Deep Research Agents (Akari Asai)](/en/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents-en) | Published |
 | 12 | L11 | [Advanced RL Algorithms](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en) | Published (from slides; video pending) |
 | 13 | L12 | [RL Systems (Apurva Gandhi)](/en/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems-en) | Published (from slides; video pending) |
 | 14 | A2 | [Assignment 2: Eval](/en/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en) | Published |
@@ -155,7 +157,7 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 | 25 | L22 | Guest: Karthik Narasimhan | Awaiting course release |
 | 26 | L23 | Guest: Sasha Rush | Awaiting course release |
 
-Material status as of 2026-10-10: L1–L9 have slides and recordings, L10–L14 have slides only, nothing from L15 on is public yet, and the Assignment 3 repo is not public either (due Oct 29).
+Material status as of 2026-10-10: L1–L10 have slides and recordings, L11–L14 have slides only, nothing from L15 on is public yet, and the Assignment 3 repo is not public either (due Oct 29).
 
 If you only plan to read a few, start with [lecture 1](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) to get the "six capabilities × two paths" map, then A1 to see what a harness actually looks like, then A2 and the RL lectures to see how evaluation becomes a training signal.
 
@@ -163,6 +165,7 @@ If you only plan to read a few, start with [lecture 1](/en/posts/ai/2026-09-29-c
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: The official site added slides for lectures 12–14, so this series gains guides to RL Systems, Agent Safety and OpenHands, and the progress table is updated. The official schedule renamed "Sandboxing & Credential Management" to Agent Safety (Oct 6); lecture 13 now covers red teaming, sandboxes, credential brokering, monitoring and safety evaluation, and the schedule's module labels changed to Agent Safety, Agent Frameworks and so on.
+- 2026-10-10: Checked the video content against its transcript. One fix on when Neubig mentions developing OpenHands; also marked L10 as having a recording.
 
 ## References
 

@@ -39,7 +39,7 @@ glossary:
 Computer use agent（CUA）和前面幾講的純文字 agent 差在輸入輸出：它收到的是截圖，吐出的是點擊、捲動、打字——和人在同一個介面上工作。Koh 開場就說，這讓建模和評測都變得有趣，也變得很煩。整講分四段：CUA 是什麼、怎麼評、模型長什麼樣、怎麼訓練，最後留四個未解問題。這篇照同樣順序走。
 
 - 課程頁：[cmu-agents.com 課表](https://www.cmu-agents.com/)（第 7 講有投影片與[錄影](https://www.youtube.com/watch?v=jwGluLrrqjQ&list=PLSN0qpDfUvTM&index=7)）
-- 本講內容以 2026-09-15 的投影片與錄影為準。講者對 GPT-6 Astra、Fable／Opus 5 等產品表現的評語，凡是查不到公開來源的，文中都標明是講者的說法；能對到官方數字的（例如 [OpenAI 的 GPT-6 Astra 公告](https://openai.com/index/gpt-6-astra/)）另外附上
+- 本講內容以 2026-09-15 的投影片與錄影為準。講者對 GPT-6 Astra 等產品表現的評語（Fable／Opus 5 只出現在投影片的動作格式表，錄影裡講者沒有評論），凡是查不到公開來源的，文中都標明是講者的說法；能對到官方數字的（例如 [OpenAI 的 GPT-6 Astra 公告](https://openai.com/index/gpt-6-astra/)）另外附上
 
 ## 課程影片來源
 
@@ -57,6 +57,8 @@ title: CMU AI Agents 2026: 7. Computer Use Agents
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 74 分鐘，講者 Jing Yu Koh，Fried 做介紹），逐項核對：講者背景、observe-reason-act 迴圈與「買藍色馬克杯」例子、2017 年第一篇 CUA 論文的課堂小調查、九年簡史與 GPT-6 Astra 的口述評語、四類評測（靜態 ScreenSpot-Pro／Mind2Web、WebArena 與 VisualWebArena、VLM 評審的 WebVoyager／Online-Mind2Web、OSWorld／WindowsAgentArena、長時程 Odysseys／OSWorld 2.0／CUA-World-Long）、課堂問答（partial credit、rubric 來源、是否拿 benchmark 訓練、截圖 vs HTML、等待載入）、預訓練／SFT／RL 三段訓練與 Tesla 類比、SFT 後約 0.5、RL 後 0.6 以上；皆有依據。修正兩處：WindowsAgentArena「壓到 20 分鐘」是論文說法、講者沒提；Fable／Opus 5 只在投影片的動作格式表，講者沒有評論。四個未解問題中的細節（Game-TARS、FDM-1、GUM 等）、各 benchmark 的任務數與論文數字屬投影片與論文，字幕大多未涵蓋；上課日期字幕未提。
 
 ## CUA 是什麼：observe、reason、act 一直轉
 
@@ -131,7 +133,7 @@ Koh 在課堂上做了個小調查：第一篇 CUA 論文是哪一年？答案�
 ### 3. 端到端評測（桌面、手機）
 
 - **OSWorld**：真的 Linux 虛擬機，369 個任務。投影片寫橫跨 9 個應用程式；論文正文的說法是 8 個代表性應用（Chrome、VLC、Thunderbird、VS Code、LibreOffice Calc／Writer／Impress、GIMP），再加上終端機、檔案管理員這類系統基本工具。每個任務都有自己的初始化腳本和狀態檢查。範例是「用資料夾裡的收據更新記帳試算表」，驗證器把存檔和標準答案逐格比對。
-- **WindowsAgentArena**：微軟團隊做的 Windows 版。講者的理由很實際：世界上大部分生產力工作發生在 Windows 上。平行開很多台 VM，把好幾天的評測壓到 20 分鐘。
+- **WindowsAgentArena**：微軟團隊做的 Windows 版。講者的理由很實際：世界上大部分生產力工作發生在 Windows 上。平行開很多台 VM，論文說可把好幾天的評測壓到 20 分鐘（這句出自論文，講者沒提）。
 - 附錄還有 AndroidWorld（參數化任務、無限實例）、WorkArena／WorkArena++（ServiceNow 企業流程）、MobileWorld（混合 GUI 操作、向使用者澄清、MCP 工具）。
 
 講者說，這些 2024–2025 年的主流 benchmark 大多也被新模型解得差不多了，社群的注意力轉到下一類。
@@ -266,6 +268,7 @@ References 裡的 [Mind2Web](https://arxiv.org/abs/2306.06070)、[WebVoyager](ht
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：更正影片狀態。官方課表第 7 講列有錄影，原標示「待確認」有誤，已嵌入影片。
+- 2026-10-10：依字幕核對影片內容。修正兩處：WindowsAgentArena 的 20 分鐘說法歸屬，以及 Fable／Opus 5 的講者評語。
 
 ## 參考資料
 

@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "CMU 11-768 AI Agents 導讀"
   order: 0
-tldr: "CMU 11-768 是 Graham Neubig 和 Daniel Fried 在 2026 秋季新開的 agent 研究所課：先修嚴格要求訓練過語言模型，23 講從工具呼叫、context、記憶、規劃講到 SFT、RL、沙盒與人機互動。前半學期三份個人作業依序做 harness、評測、訓練，後半學期是團隊研究專題；投影片與前 9 講影片已公開。"
+tldr: "CMU 11-768 是 Graham Neubig 和 Daniel Fried 在 2026 秋季新開的 agent 研究所課：先修嚴格要求訓練過語言模型，23 講從工具呼叫、context、記憶、規劃講到 SFT、RL、沙盒與人機互動。前半學期三份個人作業依序做 harness、評測、訓練，後半學期是團隊研究專題；投影片已公開，前 10 講影片也已公開。"
 description: "CMU 11-768 AI Agents（Fall 2026）系列導讀：課程定位、先修門檻、評分與 AI 工具政策、23 講課表的七個模組、三份作業與研究專題，以及這個 27 篇系列的讀法與目前進度。"
 draft: false
 ---
@@ -17,7 +17,7 @@ draft: false
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-[11-768 AI Agents](https://www.cmu-agents.com/) 是 Carnegie Mellon 語言技術研究所（[LTI](https://lti.cs.cmu.edu/)）在 2026 秋季新開的研究所課，授課者是 [Graham Neubig](https://www.phontron.com/) 和 [Daniel Fried](https://dpfried.github.io/)。Neubig 在第一講自介時說他在開發 [OpenHands](https://github.com/All-Hands-AI/OpenHands)；Fried 自介的研究方向是 grounded agent、人和 agent 的互動，以及近來的 agent 和系統的互動。
+[11-768 AI Agents](https://www.cmu-agents.com/) 是 Carnegie Mellon 語言技術研究所（[LTI](https://lti.cs.cmu.edu/)）在 2026 秋季新開的研究所課，授課者是 [Graham Neubig](https://www.phontron.com/) 和 [Daniel Fried](https://dpfried.github.io/)。Neubig 在第一講講到 harness 時說他在開發 [OpenHands](https://github.com/All-Hands-AI/OpenHands)；Fried 自介的研究方向是 grounded agent、人和 agent 的互動，以及近來的 agent 和系統的互動。
 
 官網一句話定義這門課研究的對象：用大型語言模型去感知、推理、規劃、並在多步驟中行動的系統。它跟一般「教你用框架搭 agent」的課不一樣的地方在於，它要你**自己訓練 agent**。第一講 Neubig 講得很直接：做一個 agent 不難，難的是讓它真的做得好，而會把 agent 訓練好的人很少，他們希望修完這門課的人都在那一小群裡。
 
@@ -39,6 +39,8 @@ title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：本篇是總覽，嵌入第 1 講影片；通讀該講全程字幕，核對文章引用的講者說法（兩位授課者的自介與研究方向、「做 agent 不難、難的是做好」、約一成人做過 agent RL 的舉手估計、作業合計 40%／專題 50% 與專題 2–3 人、AI 工具政策與「一千行垃圾」說法、slack days 規則、先修門檻 4–7B）皆有依據。修正一處：Neubig 說他開發 OpenHands 是在講 harness 時，不是自介時。官網課表、highlights 的 24 小時規則等不在影片內，仍以官網為準。另依 L10 錄影已上架（2026-10-10）更新進度表。
 
 ## 課程形式：先修會被嚴格執行
 
@@ -138,7 +140,7 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 | 8 | L7 | [Computer Use Agents（JY Koh）](/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents) | 已上線 |
 | 9 | L8 | [SFT（Yueqi Song）](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft) | 已上線 |
 | 10 | L9 | [RL Basics](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics) | 已上線 |
-| 11 | L10 | [Deep Research Agents（Akari Asai）](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents) | 已上線（依投影片，待影片補充） |
+| 11 | L10 | [Deep Research Agents（Akari Asai）](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents) | 已上線 |
 | 12 | L11 | [Advanced RL Algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl) | 已上線（依投影片，待影片補充） |
 | 13 | L12 | [RL Systems（Apurva Gandhi）](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems) | 已上線（依投影片，待影片補充） |
 | 14 | A2 | [Assignment 2：Eval](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval) | 已上線 |
@@ -155,7 +157,7 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 | 25 | L22 | 客座：Karthik Narasimhan | 待課程上架 |
 | 26 | L23 | 客座：Sasha Rush | 待課程上架 |
 
-2026-10-10 的材料狀態：L1–L9 有投影片和錄影，L10–L14 目前只有投影片，L15 之後尚未公開；Assignment 3 的 repo 也還沒公開（截止日 10/29）。
+2026-10-10 的材料狀態：L1–L10 有投影片和錄影，L11–L14 目前只有投影片，L15 之後尚未公開；Assignment 3 的 repo 也還沒公開（截止日 10/29）。
 
 如果只打算讀幾篇，建議順序是：[第 1 講](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)建立「六種能力 × 兩條路」的地圖，接著讀 A1 看 harness 實際長什麼樣，再讀 A2 和 RL 那幾講，看評測怎麼變成訓練訊號。
 
@@ -163,6 +165,7 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：官網新上架第 12–14 講投影片，新增 RL Systems、Agent Safety、OpenHands 三篇導讀並更新進度表。官方把原本的「Sandboxing & Credential Management」改名為 Agent Safety（10/6），第 13 講的內容因此涵蓋 red teaming、沙盒、憑證代管、監控與安全評測；課表模組也改為 Agent Safety、Agent Frameworks 等標籤。
+- 2026-10-10：依字幕核對影片內容。一處修正：Neubig 提到開發 OpenHands 的時機；並把 L10 狀態改為已有錄影。
 
 ## 參考資料
 
